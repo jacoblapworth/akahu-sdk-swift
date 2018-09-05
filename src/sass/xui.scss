@@ -11,71 +11,74 @@
  * more and more specific in terms of selector rules:
  *
  * The top layers consist of broad, unopinionated styles and common tooling.
- * These target nothing in particular.  Utility classes are prefixed by u-
+ * These target nothing in particular.
  *
  * The middle layers then add scaffolding for pages, first targeting semantic
  * HTML elements to give pages their structure, followed by common
  * object/component classes that would be familiar if they followed existing CSS
  * methodologies like OOCSS, SMACSS, or BEM.  The Xero theme and components live
- * across these layers.  Objects are prefixed by o-
+ * across these layers
  *
  * The bottom layer is the most specific layer, reserved for page-specific
  * styles and the use of !important.  These rules are prefixed by whatever they
  * wish for the page control, eg: NAB Lending Enquiry screen uses nab-.
+ * Utility classes are prefixed by -u-
  */
 
-// Unopinionated global styles and tooling
+// Unopinionated global tooling
 // -----------------------------------------------------------------------------
-
 @import "vars";
 @import "mixins";
-@import "settings/animation-keyframes"; // XUI keyframes. Should only be imported once.
 
-// Xero styles as per the Xero UI Toolkit
+// Opinionated global resets
 // -----------------------------------------------------------------------------
+@import "3-reset/reset";
 
-@import "elements/body";
-@import "elements/buttons";
-@import "elements/forms";
-@import "elements/inputs";
-@import "elements/links";
-@import "elements/tables";
+// Application basics
+// -----------------------------------------------------------------------------
+@import "4-base/base";
 
-// Base components which other components build on
-@import "objects/icons";
-@import "objects/buttons";
+// Application structure and layout
+// -----------------------------------------------------------------------------
+@import "5-structure/page.content";
 
-@import "objects/accordion";
-@import "objects/accordion.new";
-@import "objects/actions";
-@import "objects/avatars";
-@import "objects/avatars.groups";
-@import "objects/datepicker";
-@import "objects/popovers";
-@import "objects/contentblocks";
-@import "objects/forms";
-@import "objects/layoutstructure";
-@import "objects/loaders";
-@import "objects/isolationheader";
-@import "objects/navigation";
-@import "objects/modals";
-@import "objects/motion";
-@import "objects/panels";
-@import "objects/pills";
-@import "objects/progressindicator";
-@import "objects/sections";
-@import "objects/steps";
-@import "objects/usermessaging";
-@import "objects/overview";
-@import "objects/dropdowns";
-@import "objects/colors";
-@import "objects/chart";
+// Visual containers
+// -----------------------------------------------------------------------------
+@import "6-containers/panels";
 
-@import "objects/typography";
-@import "objects/globalstates";
+// Components
+// -----------------------------------------------------------------------------
+@import "7-components/icons";
+@import "7-components/buttons";
+@import "7-components/accordion";
+@import "7-components/actions";
+@import "7-components/avatars";
+@import "7-components/avatars.groups";
+@import "7-components/datepicker";
+@import "7-components/popovers";
+@import "7-components/contentblocks";
+@import "7-components/forms";
+@import "7-components/loaders";
+@import "7-components/isolationheader";
+@import "7-components/navigation";
+@import "7-components/modals";
+@import "7-components/motion";
+@import "7-components/pills";
+@import "7-components/progressindicator";
+@import "7-components/steps";
+@import "7-components/usermessaging";
+@import "7-components/overview";
+@import "7-components/dropdowns";
+@import "7-components/colors";
+@import "7-components/chart";
+@import "7-components/typography";
+@import "7-components/globalstates";
+@import "7-components/autocompleter";
+@import "7-components/rolloverCheckbox";
 
-@import "components/autocompleter";
-@import "components/rolloverCheckbox";
-
-@import "trumps/utilities";
-@import "trumps/marginpadding";
+// Utilities
+// -----------------------------------------------------------------------------
+@import "99-utils/animation-keyframes"; // XUI keyframes. Should only be imported once.
+@import "99-utils/utilities";
+@import "99-utils/marginpadding";
+@import "99-utils/grid";

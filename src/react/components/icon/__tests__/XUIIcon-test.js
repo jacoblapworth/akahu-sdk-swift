@@ -3,40 +3,35 @@ import Enzyme, { mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import XUIIcon from '../XUIIcon';
 import accessibility from '@xero/xui-icon/icons/accessibility';
+import renderer from 'react-test-renderer';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('XUIIcon', () => {
 	it('Should render with any additional classes provided through the className prop', function () {
-		const wrapper = mount(<XUIIcon path={accessibility} className={'classyMcClassFace'} />);
+		const wrapper = mount(<XUIIcon icon={accessibility} className={'classyMcClassFace'} />);
 		expect(wrapper.getDOMNode().getAttribute('class')).toEqual(expect.stringContaining('classyMcClassFace'));
 	});
 
-	it('Should render with the correct size classes when modifiers are provided', function () {
-		const wrapper = mount(
+	it('Should render with the correct classes and dimensions for standard, large and xlarge sizes', function () {
+		const wrapper = renderer.create(
 			<div>
-				<XUIIcon path={accessibility} />
-				<XUIIcon path={accessibility} size="large" />
-				<XUIIcon path={accessibility} size="xlarge" />
+				<XUIIcon icon={accessibility} isBoxed />
+				<XUIIcon icon={accessibility} isBoxed size="large" />
+				<XUIIcon icon={accessibility} isBoxed size="xlarge" />
 			</div>
 		);
 
-		const icons = wrapper.find('.xui-icon');
-		expect(icons.at(0).hasClass('xui-icon-large')).toBeFalsy()
-		expect(icons.at(0).hasClass('xui-icon-xlarge')).toBeFalsy();
-
-		expect(icons.at(1).hasClass('xui-icon-large')).toBeTruthy();
-
-		expect(icons.at(2).hasClass('xui-icon-xlarge')).toBeTruthy();
+		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('Should render with the correct rotation classes when rotations are provided', function () {
 		const wrapper = mount(
 			<div>
-				<XUIIcon path={accessibility} />
-				<XUIIcon path={accessibility} rotation="90" />
-				<XUIIcon path={accessibility} rotation="180" />
-				<XUIIcon path={accessibility} rotation="270" />
+				<XUIIcon icon={accessibility} />
+				<XUIIcon icon={accessibility} rotation="90" />
+				<XUIIcon icon={accessibility} rotation="180" />
+				<XUIIcon icon={accessibility} rotation="270" />
 			</div>
 		);
 
@@ -55,21 +50,21 @@ describe('XUIIcon', () => {
 	it('Should render with the correct color class when color is provided', function () {
 		const wrapper = mount(
 			<div>
-				<XUIIcon path={accessibility} />
-				<XUIIcon path={accessibility} color={'standard'} />
-				<XUIIcon path={accessibility} color={'red'} />
-				<XUIIcon path={accessibility} color={'green'} />
-				<XUIIcon path={accessibility} color={'white'} />
-				<XUIIcon path={accessibility} color={'blue'} />
-				<XUIIcon path={accessibility} color={'file_spreadsheet'} />
-				<XUIIcon path={accessibility} color={'file_pdf'} />
-				<XUIIcon path={accessibility} color={'white_faint'} />
-				<XUIIcon path={accessibility} color={'white_muted'} />
+				<XUIIcon icon={accessibility} />
+				<XUIIcon icon={accessibility} color={'black-muted'} />
+				<XUIIcon icon={accessibility} color={'red'} />
+				<XUIIcon icon={accessibility} color={'green'} />
+				<XUIIcon icon={accessibility} color={'white'} />
+				<XUIIcon icon={accessibility} color={'blue'} />
+				<XUIIcon icon={accessibility} color={'file_spreadsheet'} />
+				<XUIIcon icon={accessibility} color={'file_pdf'} />
+				<XUIIcon icon={accessibility} color={'white_faint'} />
+				<XUIIcon icon={accessibility} color={'white_muted'} />
 			</div>
 		);
 
 		const icons = wrapper.find('.xui-icon');
-		expect(icons.at(0).hasClass('xui-icon-color-standard')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-color-black-muted')).toBeFalsy();
 		expect(icons.at(0).hasClass('xui-icon-color-red')).toBeFalsy();
 		expect(icons.at(0).hasClass('xui-icon-color-green')).toBeFalsy();
 		expect(icons.at(0).hasClass('xui-icon-color-white')).toBeFalsy();
@@ -79,7 +74,7 @@ describe('XUIIcon', () => {
 		expect(icons.at(0).hasClass('xui-icon-color-white-faint')).toBeFalsy();
 		expect(icons.at(0).hasClass('xui-icon-color-white-muted')).toBeFalsy();
 
-		expect(icons.at(1).hasClass('xui-icon-color-standard')).toBeTruthy();
+		expect(icons.at(1).hasClass('xui-icon-color-black-muted')).toBeTruthy();
 
 		expect(icons.at(2).hasClass('xui-icon-color-red')).toBeTruthy();
 
@@ -101,7 +96,7 @@ describe('XUIIcon', () => {
 	it('Should render title and desc elements within the SVG element based on the props provided', function () {
 		const wrapper = render(
 			<XUIIcon
-				path={accessibility}
+				icon={accessibility}
 				title="Happy poop title 💩"
 				desc="Happy poop desc 💩" />
 		);
@@ -115,12 +110,12 @@ describe('XUIIcon', () => {
 	});
 
 	it('Should render with role="presentation" on the path element by default', function () {
-		const wrapper = mount(<XUIIcon path={accessibility} />);
+		const wrapper = mount(<XUIIcon icon={accessibility} />);
 		expect(wrapper.find('path').prop('role')).toEqual("presentation");
 	});
 
 	it('Should render with the given role applied to the path element', function () {
-		const wrapper = mount(<XUIIcon path={accessibility} role="img" />);
+		const wrapper = mount(<XUIIcon icon={accessibility} role="img" />);
 		expect(wrapper.find('path').prop('role')).toEqual('img');
 	});
 });

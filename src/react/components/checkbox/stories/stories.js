@@ -18,10 +18,7 @@ storiesWithKnobs.addDecorator(withKnobs);
 
 storiesWithKnobs.add('Playground', () => (
 	<XUICheckbox
-		className={text('className', '')}
-		labelClassName={text('className', '')}
 		isLabelHidden={boolean('label hidden', false)}
-		isChecked={boolean('checked', false)}
 		isDisabled={boolean('disabled', false)}
 		isIndeterminate={boolean('indeterminate', false)}
 		isReversed={boolean('reversed', false)}
@@ -42,8 +39,8 @@ variations.forEach(variation => {
 
 		if(isGroup){
 			return (
-				<XUICheckboxGroup>
-					<XUICheckbox isChecked={true}>
+				<XUICheckboxGroup labelText="Birds">
+					<XUICheckbox isDefaultChecked={true}>
 						Kakapo
 					</XUICheckbox>
 					<XUICheckbox>

@@ -1,98 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUIToastActions /> should render a passed qaHook as an automation id 1`] = `
-<ul
+<div
   className="xui-actions xui-toast--actions"
   data-automationid="toast-actions"
 >
-  <li
-    className="xui-toast--action"
+  <button
+    className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
     data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    type="button"
   >
-    <button
-      className="xui-button xui-button-borderless-main xui-button-small"
-      data-automationid={undefined}
-      disabled={false}
-      onClick={[Function]}
-      onKeyDown={undefined}
-      tabIndex={0}
-      type="button"
-    >
-      Action 1
-    </button>
-  </li>
-  <li
-    className="xui-toast--action"
+    Action 1
+  </button>
+  <button
+    className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
     data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    type="button"
   >
-    <button
-      className="xui-button xui-button-borderless-main xui-button-small"
-      data-automationid={undefined}
-      disabled={false}
-      onClick={[Function]}
-      onKeyDown={undefined}
-      tabIndex={0}
-      type="button"
-    >
-      Action 2
-    </button>
-  </li>
-</ul>
+    Action 2
+  </button>
+</div>
 `;
 
-exports[`<XUIToastActions /> should render non-breaking in the old API style 1`] = `
-<ul
-  className="xui-actions custom-class xui-toast--actions"
-  data-automationid="toast-actions"
->
-  <li
-    className="xui-toast--action"
-    data-automationid={undefined}
-  >
-    <a
-      className="xui-button xui-button-borderless-main xui-button-small"
-      data-automationid={undefined}
-      disabled={false}
-      href="javascript:void(0)"
-      onClick={[Function]}
-      onKeyDown={undefined}
-      onKeyPress={[Function]}
-      rel={undefined}
-      tabIndex={0}
-      target={undefined}
-    >
-      Action 1
-    </a>
-  </li>
-  <li
-    className="xui-toast--action"
-    data-automationid={undefined}
-  >
-    <a
-      className="xui-button xui-button-borderless-main xui-button-small"
-      data-automationid={undefined}
-      disabled={false}
-      href="javascript:void(0)"
-      onClick={[Function]}
-      onKeyDown={undefined}
-      onKeyPress={[Function]}
-      rel={undefined}
-      tabIndex={0}
-      target={undefined}
-    >
-      Action 2
-    </a>
-  </li>
-</ul>
-`;
-
-exports[`<XUIToastActions /> should render using the new API style 1`] = `
+exports[`<XUIToastActions /> should render actions passed in as children 1`] = `
 <div
   className="xui-actions custom-class xui-toast--actions"
   data-automationid="toast-actions"
 >
   <a
-    className="xui-button xui-actions--primary xui-button-borderless-main xui-button-small"
+    aria-disabled={undefined}
+    className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
     data-automationid={undefined}
     disabled={false}
     href="javascript:void(0)"
@@ -100,13 +45,15 @@ exports[`<XUIToastActions /> should render using the new API style 1`] = `
     onKeyDown={undefined}
     onKeyPress={[Function]}
     rel={undefined}
+    role={undefined}
     tabIndex={0}
     target={undefined}
   >
     Action 1
   </a>
   <a
-    className="xui-button xui-actions--secondary xui-button-borderless-main xui-button-small"
+    aria-disabled={undefined}
+    className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
     data-automationid={undefined}
     disabled={false}
     href="javascript:void(0)"
@@ -114,6 +61,47 @@ exports[`<XUIToastActions /> should render using the new API style 1`] = `
     onKeyDown={undefined}
     onKeyPress={[Function]}
     rel={undefined}
+    role={undefined}
+    tabIndex={0}
+    target={undefined}
+  >
+    Action 2
+  </a>
+</div>
+`;
+
+exports[`<XUIToastActions /> should render actions passed in using the primaryAction and secondaryAction props 1`] = `
+<div
+  className="xui-actions custom-class xui-toast--actions"
+  data-automationid="toast-actions"
+>
+  <a
+    aria-disabled={undefined}
+    className="xui-button xui-actions--primary xui-toast--action xui-button-borderless-main xui-button-small"
+    data-automationid={undefined}
+    disabled={false}
+    href="javascript:void(0)"
+    onClick={[Function]}
+    onKeyDown={undefined}
+    onKeyPress={[Function]}
+    rel={undefined}
+    role={undefined}
+    tabIndex={0}
+    target={undefined}
+  >
+    Action 1
+  </a>
+  <a
+    aria-disabled={undefined}
+    className="xui-button xui-actions--secondary xui-toast--action xui-button-borderless-main xui-button-small"
+    data-automationid={undefined}
+    disabled={false}
+    href="javascript:void(0)"
+    onClick={[Function]}
+    onKeyDown={undefined}
+    onKeyPress={[Function]}
+    rel={undefined}
+    role={undefined}
     tabIndex={0}
     target={undefined}
   >

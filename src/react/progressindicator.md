@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-			<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-		</svg>
-		<a href="../section-building-blocks-identifiers-progressindicator.html">Progress Indicator in the XUI Documentation</a>
+	<a href="../section-building-blocks-identifiers-progressindicator.html" isDocLink>Progress Indicator in the XUI Documentation</a>
 </div>
 
 The Progress Indicator comes in two main variants (**Circular**, **Linear**). They are isolated as individual components `import { XUIProgressCircular, XUIProgressLinear } from '@xero/xui/react/progressindicator';`.
@@ -229,8 +226,8 @@ Supply content to reside in the center of the progress indicator circle using a 
 ```
 const {XUIProgressCircular} = require('./progressindicator');
 <div style={{ width: '100px' }}>
-	<XUIProgressCircular id="central-content-circular" total={5} progress={3} isGrow>
-		<img style={{ width: '100%', height: 'auto' }} src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" />
+	<XUIProgressCircular id="central-content-circular1" total={5} progress={3} isGrow>
+		<img style={{ width: '100%', height: 'auto' }} alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" />
 	</XUIProgressCircular>
 </div>
 ```
@@ -238,7 +235,7 @@ const {XUIProgressCircular} = require('./progressindicator');
 ```
 const {XUIProgressCircular} = require('./progressindicator');
 <div style={{ width: '100px' }}>
-	<XUIProgressCircular id="central-content-circular" total={5} progress={3} isGrow>
+	<XUIProgressCircular id="central-content-circular2" total={5} progress={3} isGrow>
 		<div
 			style={{height: '100%'}}
 			className="xui-u-flex xui-u-flex-justify-center xui-u-flex-align-center xui-heading xui-textcolor-faint">

@@ -5,6 +5,8 @@ exports[`XUIToast should render a message when messages are passed as props 1`] 
   aria-hidden={false}
   className="xui-toast xui-toast-layout"
   data-automationid={undefined}
+  onBlur={undefined}
+  onFocus={undefined}
   onMouseLeave={undefined}
   onMouseOver={undefined}
   role="status"
@@ -23,6 +25,8 @@ exports[`XUIToast should render a passed qaHook as an automation id 1`] = `
   aria-hidden={false}
   className="xui-toast xui-toast-layout"
   data-automationid="toast-example"
+  onBlur={undefined}
+  onFocus={undefined}
   onMouseLeave={undefined}
   onMouseOver={undefined}
   role="status"
@@ -38,6 +42,8 @@ exports[`XUIToast should render hidden 1`] = `
   aria-hidden={true}
   className="xui-toast xui-toast-is-hidden xui-toast-layout"
   data-automationid={undefined}
+  onBlur={undefined}
+  onFocus={undefined}
   onMouseLeave={undefined}
   onMouseOver={undefined}
   role="status"
@@ -51,6 +57,8 @@ exports[`XUIToast should render one message as a prop, one action as a prop 1`] 
   aria-hidden={false}
   className="xui-toast xui-toast-layout"
   data-automationid={undefined}
+  onBlur={undefined}
+  onFocus={undefined}
   onMouseLeave={undefined}
   onMouseOver={undefined}
   role="status"
@@ -61,30 +69,27 @@ exports[`XUIToast should render one message as a prop, one action as a prop 1`] 
   >
     Content
   </p>
-  <ul
+  <div
     className="xui-actions xui-toast--actions"
     data-automationid={undefined}
   >
-    <li
-      className="xui-toast--action"
+    <a
+      aria-disabled={undefined}
+      className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
+      disabled={false}
+      href="javascript:void(0)"
+      onClick={[Function]}
+      onKeyDown={undefined}
+      onKeyPress={[Function]}
+      rel={undefined}
+      role={undefined}
+      tabIndex={0}
+      target={undefined}
     >
-      <a
-        className="xui-button xui-button-borderless-main xui-button-small"
-        data-automationid={undefined}
-        disabled={false}
-        href="javascript:void(0)"
-        onClick={[Function]}
-        onKeyDown={undefined}
-        onKeyPress={[Function]}
-        rel={undefined}
-        tabIndex={0}
-        target={undefined}
-      >
-        Action ONE
-      </a>
-    </li>
-  </ul>
+      Action ONE
+    </a>
+  </div>
 </div>
 `;
 
@@ -93,6 +98,8 @@ exports[`XUIToast should render two actions as a prop, but not more than two 1`]
   aria-hidden={false}
   className="xui-toast xui-toast-layout"
   data-automationid={undefined}
+  onBlur={undefined}
+  onFocus={undefined}
   onMouseLeave={undefined}
   onMouseOver={undefined}
   role="status"
@@ -103,49 +110,43 @@ exports[`XUIToast should render two actions as a prop, but not more than two 1`]
   >
     Content
   </p>
-  <ul
+  <div
     className="xui-actions xui-toast--actions"
     data-automationid={undefined}
   >
-    <li
-      className="xui-toast--action"
+    <a
+      aria-disabled={undefined}
+      className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
+      disabled={false}
+      href="javascript:void(0)"
+      onClick={[Function]}
+      onKeyDown={undefined}
+      onKeyPress={[Function]}
+      rel={undefined}
+      role={undefined}
+      tabIndex={0}
+      target={undefined}
     >
-      <a
-        className="xui-button xui-button-borderless-main xui-button-small"
-        data-automationid={undefined}
-        disabled={false}
-        href="javascript:void(0)"
-        onClick={[Function]}
-        onKeyDown={undefined}
-        onKeyPress={[Function]}
-        rel={undefined}
-        tabIndex={0}
-        target={undefined}
-      >
-        Action ONE
-      </a>
-    </li>
-    <li
-      className="xui-toast--action"
+      Action ONE
+    </a>
+    <a
+      aria-disabled={undefined}
+      className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
+      disabled={false}
+      href="javascript:void(0)"
+      onClick={[Function]}
+      onKeyDown={undefined}
+      onKeyPress={[Function]}
+      rel={undefined}
+      role={undefined}
+      tabIndex={0}
+      target={undefined}
     >
-      <a
-        className="xui-button xui-button-borderless-main xui-button-small"
-        data-automationid={undefined}
-        disabled={false}
-        href="javascript:void(0)"
-        onClick={[Function]}
-        onKeyDown={undefined}
-        onKeyPress={[Function]}
-        rel={undefined}
-        tabIndex={0}
-        target={undefined}
-      >
-        Action TWO
-      </a>
-    </li>
-  </ul>
+      Action TWO
+    </a>
+  </div>
 </div>
 `;
 
@@ -154,6 +155,8 @@ exports[`XUIToast should render using the XUIActions component under the hood wh
   aria-hidden={false}
   className="xui-toast xui-toast-layout"
   data-automationid={undefined}
+  onBlur={undefined}
+  onFocus={undefined}
   onMouseLeave={undefined}
   onMouseOver={undefined}
   role="status"
@@ -169,7 +172,8 @@ exports[`XUIToast should render using the XUIActions component under the hood wh
     data-automationid={undefined}
   >
     <a
-      className="xui-button xui-actions--primary xui-button-borderless-main xui-button-small"
+      aria-disabled={undefined}
+      className="xui-button xui-actions--primary xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
       disabled={false}
       href="javascript:void(0)"
@@ -177,13 +181,15 @@ exports[`XUIToast should render using the XUIActions component under the hood wh
       onKeyDown={undefined}
       onKeyPress={[Function]}
       rel={undefined}
+      role={undefined}
       tabIndex={0}
       target={undefined}
     >
       Action ONE
     </a>
     <a
-      className="xui-button xui-actions--secondary xui-button-borderless-main xui-button-small"
+      aria-disabled={undefined}
+      className="xui-button xui-actions--secondary xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
       disabled={false}
       href="javascript:void(0)"
@@ -191,6 +197,7 @@ exports[`XUIToast should render using the XUIActions component under the hood wh
       onKeyDown={undefined}
       onKeyPress={[Function]}
       rel={undefined}
+      role={undefined}
       tabIndex={0}
       target={undefined}
     >
@@ -205,6 +212,8 @@ exports[`XUIToast should still be able to render actions as children, along with
   aria-hidden={false}
   className="xui-toast xui-toast-layout"
   data-automationid={undefined}
+  onBlur={undefined}
+  onFocus={undefined}
   onMouseLeave={undefined}
   onMouseOver={undefined}
   role="status"
@@ -215,49 +224,43 @@ exports[`XUIToast should still be able to render actions as children, along with
   >
     Message as props, actions as children
   </p>
-  <ul
+  <div
     className="xui-actions xui-toast--actions"
     data-automationid={undefined}
   >
-    <li
-      className="xui-toast--action"
+    <a
+      aria-disabled={undefined}
+      className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
+      disabled={false}
+      href="javascript:void(0)"
+      onClick={[Function]}
+      onKeyDown={undefined}
+      onKeyPress={[Function]}
+      rel={undefined}
+      role={undefined}
+      tabIndex={0}
+      target={undefined}
     >
-      <a
-        className="xui-button xui-button-borderless-main xui-button-small"
-        data-automationid={undefined}
-        disabled={false}
-        href="javascript:void(0)"
-        onClick={[Function]}
-        onKeyDown={undefined}
-        onKeyPress={[Function]}
-        rel={undefined}
-        tabIndex={0}
-        target={undefined}
-      >
-        Action ONE
-      </a>
-    </li>
-    <li
-      className="xui-toast--action"
+      Action ONE
+    </a>
+    <a
+      aria-disabled={undefined}
+      className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
+      disabled={false}
+      href="javascript:void(0)"
+      onClick={[Function]}
+      onKeyDown={undefined}
+      onKeyPress={[Function]}
+      rel={undefined}
+      role={undefined}
+      tabIndex={0}
+      target={undefined}
     >
-      <a
-        className="xui-button xui-button-borderless-main xui-button-small"
-        data-automationid={undefined}
-        disabled={false}
-        href="javascript:void(0)"
-        onClick={[Function]}
-        onKeyDown={undefined}
-        onKeyPress={[Function]}
-        rel={undefined}
-        tabIndex={0}
-        target={undefined}
-      >
-        Action TWO
-      </a>
-    </li>
-  </ul>
+      Action TWO
+    </a>
+  </div>
 </div>
 `;
 
@@ -266,6 +269,8 @@ exports[`XUIToast should still be able to render messages as children, along wit
   aria-hidden={false}
   className="xui-toast xui-toast-layout"
   data-automationid={undefined}
+  onBlur={undefined}
+  onFocus={undefined}
   onMouseLeave={undefined}
   onMouseOver={undefined}
   role="status"
@@ -276,48 +281,42 @@ exports[`XUIToast should still be able to render messages as children, along wit
   >
     Message as child, actions as props
   </p>
-  <ul
+  <div
     className="xui-actions xui-toast--actions"
     data-automationid={undefined}
   >
-    <li
-      className="xui-toast--action"
+    <a
+      aria-disabled={undefined}
+      className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
+      disabled={false}
+      href="javascript:void(0)"
+      onClick={[Function]}
+      onKeyDown={undefined}
+      onKeyPress={[Function]}
+      rel={undefined}
+      role={undefined}
+      tabIndex={0}
+      target={undefined}
     >
-      <a
-        className="xui-button xui-button-borderless-main xui-button-small"
-        data-automationid={undefined}
-        disabled={false}
-        href="javascript:void(0)"
-        onClick={[Function]}
-        onKeyDown={undefined}
-        onKeyPress={[Function]}
-        rel={undefined}
-        tabIndex={0}
-        target={undefined}
-      >
-        Action ONE
-      </a>
-    </li>
-    <li
-      className="xui-toast--action"
+      Action ONE
+    </a>
+    <a
+      aria-disabled={undefined}
+      className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
+      disabled={false}
+      href="javascript:void(0)"
+      onClick={[Function]}
+      onKeyDown={undefined}
+      onKeyPress={[Function]}
+      rel={undefined}
+      role={undefined}
+      tabIndex={0}
+      target={undefined}
     >
-      <a
-        className="xui-button xui-button-borderless-main xui-button-small"
-        data-automationid={undefined}
-        disabled={false}
-        href="javascript:void(0)"
-        onClick={[Function]}
-        onKeyDown={undefined}
-        onKeyPress={[Function]}
-        rel={undefined}
-        tabIndex={0}
-        target={undefined}
-      >
-        Action TWO
-      </a>
-    </li>
-  </ul>
+      Action TWO
+    </a>
+  </div>
 </div>
 `;

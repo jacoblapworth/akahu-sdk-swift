@@ -1,0 +1,114 @@
+@import "../vars";
+@import "../mixins";
+
+
+/* doiuse-disable object-fit*/
+.#{$ns}-avatar {
+	align-items: center;
+	border-radius: 50%;
+	color: $xui-color-white;
+	cursor: default;
+	display: inline-flex;
+	flex: none;
+	font-size: $xui-font-size-avatar;
+	font-weight: bold;
+	height: 32px;
+	justify-content: center;
+	line-height: $xui-font-size-small;
+	object-fit: contain;
+	overflow: hidden;
+	text-decoration: none;
+	text-transform: uppercase;
+	vertical-align: middle;
+	width: 32px;
+}
+/* doiuse-enable object-fit*/
+
+// Required for alignment of img avatars in IE 11
+img.#{$ns}-avatar {
+	display: inline;
+}
+
+.#{$ns}-avatar-xsmall {
+	font-size: 8px;
+	height: 18px;
+	line-height: 8px;
+	width: 18px;
+}
+
+.#{$ns}-avatar-small {
+	font-size: $xui-font-size-avatar-small;
+	height: 24px;
+	line-height: $xui-font-size-avatar-small;
+	width: 24px;
+}
+
+.#{$ns}-avatar-large {
+	font-size: $xui-font-size-avatar-large;
+	height: 48px;
+	line-height: $xui-font-size-avatar-large;
+	width: 48px;
+}
+
+.#{$ns}-avatar-xlarge {
+	font-size: $xui-font-size-avatar-xlarge;
+	height: 80px;
+	line-height: $xui-font-size-avatar-xlarge;
+	width: 80px;
+}
+
+.#{$ns}-avatar-2xlarge {
+	font-size: 36px;
+	height: 120px;
+	line-height: 36px;
+	width: 120px;
+}
+
+.#{$ns}-avatar-business {
+	border-radius: 9.375%;
+}
+
+// The map below creates the various color variations for the Avatar "generc"
+// HTML and "chart" SVG version.
+//
+// HTML:
+// - - - - - - -
+// <abbr ...>AB</abbr>
+//
+// SVG:
+// - - - - - - -
+// <g>
+//   <circle ... />
+//   <text>
+//     <tspan>AB</tspan>
+//   </text>
+// </g>
+
+$idx: 1;
+$xui-avatar-swatches: (
+	($xui-avatar-bg-color-1, $xui-avatar-color-1),
+	($xui-avatar-bg-color-2, $xui-avatar-color-2),
+	($xui-avatar-bg-color-3, $xui-avatar-color-3),
+	($xui-avatar-bg-color-4, $xui-avatar-color-4),
+	($xui-avatar-bg-color-5, $xui-avatar-color-5),
+	($xui-avatar-bg-color-6, $xui-avatar-color-6),
+	($xui-avatar-bg-color-7, $xui-avatar-color-7),
+	($xui-avatar-bg-color-8, $xui-avatar-color-8),
+	($xui-avatar-bg-color-9, $xui-avatar-color-9),
+	($xui-avatar-bg-color-10, $xui-avatar-color-10),
+);
+
+@each $background, $text in $xui-avatar-swatches {
+
+	.#{$ns}-avatar-color-#{$idx} {
+		background-color: $background;
+		color: $text;
+		fill: $background;
+
+		+ text * {
+			fill: $text;
+		}
+	}
+
+	$idx: $idx + 1;
+}

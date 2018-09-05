@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-			<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-		</svg>
-		<a href="../section-building-blocks-identifiers-avatar.html">Avatar in the XUI Documentation</a>
+		<a href="../section-building-blocks-identifiers-avatar.html" isDocLink>Avatar in the XUI Documentation</a>
 </div>
 
 Avatars come in two variants: Circular, used to represent people, and Rectangular, used to represent businesses. Both variants support the use of images.
@@ -10,6 +7,14 @@ Avatars come in two variants: Circular, used to represent people, and Rectangula
 XUI provides ten approved colours for Avatars. `XUIAvatar` handles selecting a colour for you based on its contents and calculating the abbreviated text value from the full value you pass it.
 
 `XUIAvatar`s can be grouped together using `XUIAvatarGroup`.
+
+### How to use avatars
+
+Avatars alone are not meant to communicate the full identity of a person or business, but to provide an additional visual representation that is easy to recognise.
+
+* Use avatars alongside an entity's entire name
+* Use a group of avatars to show a brief thumbnail view of a group of entities
+* Don't use avatars without a full entity-name, if the name is critical to the value of the information being shown
 
 ## Examples
 

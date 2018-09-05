@@ -6,7 +6,8 @@ import crossSmall from '@xero/xui-icon/icons/cross-small';
 import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
 import XUIInnerPill from './XUIInnerPill';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
+import basePillClass from './private/constants';
 
 /**
  * @private
@@ -19,26 +20,21 @@ function returnCallbackWithScope(callback, scope) {
 }
 
 export default class XUIPill extends Component {
-
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			isFocused: false
+			isFocused: false,
 		};
-
-		this.toggleFocus = this.toggleFocus.bind(this);
 	}
 
-	toggleFocus() {
+	toggleFocus = () => {
 		this.setState(prevState => ({
-			isFocused: !prevState.isFocused
+			isFocused: !prevState.isFocused,
 		}));
 	}
 
 	render() {
-		const pill = this;
-
 		const {
 			avatarProps,
 			className,
@@ -53,38 +49,39 @@ export default class XUIPill extends Component {
 			target,
 			title,
 			value,
-			isMaxContentWidth
-		} = pill.props;
-
-		const baseClass = `${ns}-pill`;
+			isMaxContentWidth,
+		} = this.props;
+		const { isFocused } = this.state;
 
 		const pillClasses = cn(
 			className,
-			baseClass,
-			defaultLayout && `${baseClass}-layout`,
-			!isMaxContentWidth && `${baseClass}-maxwidth`, // TODO: Remove in XUI 14
-			isInvalid && `${baseClass}-is-invalid`,
-			pill.state.isFocused && `${baseClass}-is-focused`,
-			onDeleteClick && `${baseClass}-is-deleteable`
+			basePillClass,
+			defaultLayout && `${basePillClass}-layout`,
+			!isMaxContentWidth && `${basePillClass}-maxwidth`, // TODO: Remove in XUI 14
+			isInvalid && `${basePillClass}-is-invalid`,
+			isFocused && `${basePillClass}-is-focused`,
+			onDeleteClick && `${basePillClass}-is-deleteable`,
+			(href || onClick) && `${basePillClass}-interactive`,
 		);
 
 		const closeButtonClasses = cn(
-			`${baseClass}--button-icon`,
-			isInvalid && `${ns}-button-icon-inverted`
+			`${basePillClass}--button-icon`,
+			isInvalid && `${ns}-button-icon-inverted`,
 		);
 
 		const innerPillProps = {
 			avatarProps,
 			href,
+			isInvalid,
 			onClick,
 			qaHook,
 			secondaryText,
 			target,
 			title,
-			value
+			value,
 		};
 
-		const onDeleteCallback = onDeleteClick && returnCallbackWithScope(onDeleteClick, pill);
+		const onDeleteCallback = onDeleteClick && returnCallbackWithScope(onDeleteClick, this);
 
 		const deleteButton = onDeleteCallback && (
 			<XUIButton
@@ -95,29 +92,27 @@ export default class XUIPill extends Component {
 				aria-label={deleteButtonLabel}
 				qaHook={qaHook && `${qaHook}--delete`}
 			>
-				<XUIIcon path={crossSmall} />
+				<XUIIcon icon={crossSmall} isBoxed />
 			</XUIButton>
 		);
 
 		return (
 			<div
 				className={pillClasses}
-				onFocus={pill.toggleFocus}
-				onBlur={pill.toggleFocus}
-				data-automationid={qaHook}>
+				onFocus={this.toggleFocus}
+				onBlur={this.toggleFocus}
+				data-automationid={qaHook}
+			>
 				<XUIInnerPill {...innerPillProps} />
 				{deleteButton}
 			</div>
-		)
+		);
 	}
 }
-
-const noop = () => {};
 
 XUIPill.defaultProps = {
 	deleteButtonLabel: 'Delete',
 	defaultLayout: true,
-	onClick: noop
 };
 
 XUIPill.propTypes = {
@@ -129,15 +124,17 @@ XUIPill.propTypes = {
 	deleteButtonLabel: PropTypes.string,
 	/** Remove the XUI layout class by specifiying false. */
 	defaultLayout: PropTypes.bool,
-	/** This will make the value an `anchor` element instead of a `span` element and adds the href as the link. */
+	/** This will make the value an `anchor` element instead of a `span` element and adds the
+	 * href as the link. */
 	href: PropTypes.string,
 	/** When invalid, displays the text in a red colour. */
 	isInvalid: PropTypes.bool,
 	/** Callback to fire when the main pill content is clicked. */
 	onClick: PropTypes.func,
-	/** Callback to fire when the delete pill button is clicked. When omitted, the delete button is also ommitted from the view. */
+	/** Callback to fire when the delete pill button is clicked. When omitted, the delete button
+	 * is also ommitted from the view. */
 	onDeleteClick: PropTypes.func,
-	/**`. */
+	/** `. */
 	qaHook: PropTypes.string,
 	/** When an `href` is supplied, adds a target attribute, else is ignored. */
 	target: PropTypes.string,
@@ -148,5 +145,5 @@ XUIPill.propTypes = {
 	/** The text to display inside the pill. */
 	value: PropTypes.string,
 	/** Whether the pill shouldn't have a set max-width */
-	isMaxContentWidth: PropTypes.bool
+	isMaxContentWidth: PropTypes.bool,
 };

@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-building-blocks-controls-checkbox.html">Checkbox in the XUI Documentation</a>
+	<a href="../section-building-blocks-controls-checkbox.html" isDocLink>Checkbox in the XUI Documentation</a>
 </div>
 
 Enhanced version of HTML checkbox. Use in place of `<input type="checkbox" />`.
@@ -151,12 +148,12 @@ It is also possible to use the `isLabelHidden` prop to visually hide the label, 
 
 `XUICheckbox` supports the use of a custom [`XUIIcon`](#icon) to style the presentation of the element.
 
- `iconMainPath` is the path for the checkbox outline; `iconCheckPath` is the checkmark itself, and `iconIndeterminatePath` is the indeterminate state.
+`iconMain` is the icon object from `@xero/xui-icon` to render in place of a checkbox.
 
 ```jsx
 const customIcon = require ('@xero/xui-icon/icons/star').default;
 <div>
-	<XUICheckbox isChecked iconMainPath={customIcon}>
+	<XUICheckbox isChecked iconMain={customIcon}>
 		Favourite
 	</XUICheckbox>
 </div>

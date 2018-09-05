@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-compounds-navigation-page-header.html">Page Header in the XUI Documentation</a>
+	<a href="../section-compounds-navigation-page-header.html" isDocLink>Page Header in the XUI Documentation</a>
 </div>
 
 The `XUIPageHeader` appears beneath the global header on a page. In a basic example, it is a white bar with a title. In more complex cases it could contain a [`XUIBreadcrumb`](#xuibreadcrumb), a [`Picklist`](#picklist) to present tabbed navigation, or a [`XUIActions`](#actions) component (and some combinations).
@@ -20,10 +17,10 @@ const Picklist = require('../picklist/Picklist').default;
 const Pickitem = require('../picklist/Pickitem').default;
 
 const builtTabs = (
-	<Picklist>
-		<Pickitem id="one">See all</Pickitem>
-		<Pickitem id="two" isSelected>Edit</Pickitem>
-		<Pickitem id="three" >Add</Pickitem>
+	<Picklist secondaryProps={{ role: 'menu' }}>
+		<Pickitem ariaRole='menuitem' id="one">See all</Pickitem>
+		<Pickitem ariaRole='menuitem' id="two" isSelected>Edit</Pickitem>
+		<Pickitem ariaRole='menuitem' id="three" >Add</Pickitem>
 	</Picklist>
 );
 

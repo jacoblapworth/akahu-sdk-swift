@@ -4,9 +4,8 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Unstyled',
-		secondaryProps: {
-			"aria-label": "test-label"
-		},
+		labelText: 'text-label',
+		isLabelHidden: true,
 		options: [
 			{
 				name: 'tg2',
@@ -25,9 +24,8 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Toggle Options',
-		secondaryProps: {
-			"aria-label": "test-label"
-		},
+		labelText: 'text-label',
+		labelId: 'testme',
 		layout: 'fullwidth',
 		options: [
 			{
@@ -35,7 +33,7 @@ const variations = [
 				value: 'toggle1'
 			},
 			{
-				isChecked: true,
+				isDefaultChecked: true,
 				name: 'tg3',
 				value: 'toggle2'
 			},
@@ -49,9 +47,8 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Inverted Options',
-		secondaryProps: {
-			"aria-label": "test-label"
-		},
+		labelText: 'text-label',
+		isLabelHidden: true,
 		layout: 'fullwidth',
 		color: 'inverted',
 		options: [
@@ -60,7 +57,7 @@ const variations = [
 				value: 'toggle1'
 			},
 			{
-				isChecked: true,
+				isDefaultChecked: true,
 				name: 'tg4',
 				value: 'toggle2'
 			},
@@ -74,9 +71,8 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checked / Disabled',
-		secondaryProps: {
-			"aria-label": "test-label"
-		},
+		labelText: 'text-label',
+		isLabelHidden: true,
 		layout: 'fullwidth',
 		options: [
 			{
@@ -94,9 +90,8 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Inverted Checked / Disabled',
-		secondaryProps: {
-			"aria-label": "test-label"
-		},
+		labelText: 'text-label',
+		isLabelHidden: true,
 		layout: 'fullwidth',
 		color: 'inverted',
 		options: [
@@ -115,9 +110,8 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Small Variant',
-		secondaryProps: {
-			"aria-label": "test-label"
-		},
+		labelText: 'text-label',
+		isLabelHidden: true,
 		layout: 'fullwidth',
 		variant: 'small',
 		options: [
@@ -130,7 +124,7 @@ const variations = [
 				value: 'toggle2'
 			},
 			{
-				isChecked: true,
+				isDefaultChecked: true,
 				name: 'tg7',
 				value: 'toggle3'
 			}
@@ -139,10 +133,8 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checkboxes',
-		secondaryProps: {
-			"aria-label": "test-label",
-			"role": "group"
-		},
+		labelText: 'text-label',
+		isLabelHidden: true,
 		layout: 'fullwidth',
 		options: [
 			{

@@ -1,6 +1,6 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {testIsCloseEnough} from '../helpers/utilities';
+import { testIsCloseEnough } from '../helpers/utilities';
 import getGroupPosition from '../helpers/groupposition';
 
 class HorizontallyCenterContent extends PureComponent {
@@ -10,10 +10,11 @@ class HorizontallyCenterContent extends PureComponent {
 	updateContentWidth = () => {
 		const { state, contentNode } = this;
 		const contentWidth = contentNode && getGroupPosition(contentNode).width;
-		const shouldUpdate = contentNode && !testIsCloseEnough(contentWidth || 0, state.contentWidth || 0);
+		const shouldUpdate = contentNode
+			&& !testIsCloseEnough(contentWidth || 0, state.contentWidth || 0);
 
 		if (shouldUpdate) {
-			this.setState({...state, contentWidth});
+			this.setState({ ...state, contentWidth });
 		}
 	}
 
@@ -48,8 +49,8 @@ class HorizontallyCenterContent extends PureComponent {
 	//      <----- W r a p p e r ----->
 
 	render = () => {
-		const {wrapperWidth, wrapperHeight, children} = this.props;
-		const {contentWidth = wrapperWidth} = this.state;
+		const { wrapperWidth, wrapperHeight, children } = this.props;
+		const { contentWidth = wrapperWidth } = this.state;
 		const centerOffset = (wrapperWidth - contentWidth) * 0.5;
 
 		return (
@@ -59,7 +60,8 @@ class HorizontallyCenterContent extends PureComponent {
 				x={centerOffset}
 				width={wrapperWidth}
 				height={wrapperHeight}
-				viewBox={`0 0 ${wrapperWidth} ${wrapperHeight}`}>
+				viewBox={`0 0 ${wrapperWidth} ${wrapperHeight}`}
+			>
 				{children}
 			</svg>
 		);

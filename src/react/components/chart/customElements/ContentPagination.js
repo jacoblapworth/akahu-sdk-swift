@@ -1,9 +1,9 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import arrowPathData from '@xero/xui-icon/icons/arrow';
 import XUIButton from '../../button/XUIButton';
 import XUIIcon from '../../icon/XUIIcon';
-import arrowPathData from '@xero/xui-icon/icons/arrow';
-import {NAME_SPACE} from '../helpers/constants';
+import { NAME_SPACE } from '../helpers/constants';
 
 class ContentPagination extends PureComponent {
 	render = () => {
@@ -23,16 +23,16 @@ class ContentPagination extends PureComponent {
 			<nav
 				data-automationid={qaHook && `${qaHook}--pagination`}
 				className={`${NAME_SPACE}-chart--pagination`}
-				role="navigation"
-				aria-label={paginationLabel}>
-
+				aria-label={paginationLabel}
+			>
 				<XUIButton
 					variant="icon-large"
 					onClick={() => updatePanel(current - 1)}
 					title={paginationPreviousTitle}
-					isDisabled={current === 1}>
+					isDisabled={current === 1}
+				>
 					<XUIIcon
-						path={arrowPathData}
+						icon={arrowPathData}
 						rotation="90"
 					/>
 				</XUIButton>
@@ -43,9 +43,10 @@ class ContentPagination extends PureComponent {
 					variant="icon-large"
 					onClick={() => updatePanel(current + 1)}
 					title={paginationNextTitle}
-					isDisabled={current === total}>
+					isDisabled={current === total}
+				>
 					<XUIIcon
-						path={arrowPathData}
+						icon={arrowPathData}
 						rotation="270"
 					/>
 				</XUIButton>

@@ -52,16 +52,16 @@ class BasicStatefulPicklist extends React.Component {
 	render () {
 		return (
 				<div
-					id="spl-wrapper"
+					id="spl-wrapper1"
 					ref={comp => this._rootNode = comp}
 					tabIndex={0}
 					onKeyDown={this.onKeyDown}
 				>
-					<StatefulPicklist onSelect={this.onSelect} ref={comp => this._list = comp}>
-						<Picklist>
+					<StatefulPicklist secondaryProps={{ role: null }} onSelect={this.onSelect} ref={comp => this._list = comp}>
+						<Picklist secondaryProps={{ role: 'menu' }}>
 							{[1, 2, 3, 4].map(i => {
 								return (
-									<Pickitem id={i} key={i} isSelected={this.state.selectedItem === i}>
+									<Pickitem ariaRole='menuitem' id={`vertical_${i}`} key={i} isSelected={this.state.selectedItem === i}>
 										{`Item ${i}`}
 									</Pickitem>
 									)
@@ -105,16 +105,16 @@ class BasicHorizontalStatefulPicklist extends React.Component {
 	render () {
 		return (
 				<div
-					id="spl-wrapper"
+					id="spl-wrapper2"
 					ref={comp => this._rootNode = comp}
 					tabIndex={0}
 					onKeyDown={this.onKeyDown}
 				>
-					<StatefulPicklist isHorizontal onSelect={this.onSelect} ref={comp => this._list = comp}>
-						<Picklist isHorizontal>
+					<StatefulPicklist secondaryProps={{ role: null }} isHorizontal onSelect={this.onSelect} ref={comp => this._list = comp}>
+						<Picklist secondaryProps={{ role: 'menu' }} isHorizontal>
 							{[1, 2, 3, 4].map(i => {
 								return (
-									<Pickitem id={i} key={i} isSelected={this.state.selectedItem === i}>
+									<Pickitem ariaRole='menuitem' id={`horizontal_${i}`} key={i} isSelected={this.state.selectedItem === i}>
 										{`Item ${i}`}
 									</Pickitem>
 									)

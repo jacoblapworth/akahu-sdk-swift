@@ -7,7 +7,7 @@ const sizes = Object.keys(modalSizes).map(size => ({
 	storyTitle: `size ${size}`,
 	header: true,
 	footer: true,
-	size
+	size,
 }));
 
 const variations = [
@@ -15,19 +15,19 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'full modal',
 		header: true,
-		footer: true
+		footer: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with header',
-		header: true
+		header: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with footer',
-		footer: true
+		footer: true,
 	},
-	...sizes
+	...sizes,
 ];
 
 module.exports = {

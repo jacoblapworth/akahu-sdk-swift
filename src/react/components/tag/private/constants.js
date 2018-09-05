@@ -1,4 +1,4 @@
-import {ns} from "../../helpers/xuiClassNamespace";
+import { ns } from '../../helpers/xuiClassNamespace';
 
 export const baseClass = `${ns}-tag`;
 export const variants = {
@@ -6,5 +6,5 @@ export const variants = {
 	positive: `${baseClass}-positive`,
 	negative: `${baseClass}-negative`,
 	warning: `${baseClass}-warning`,
-	standard: ''
+	standard: '',
 };

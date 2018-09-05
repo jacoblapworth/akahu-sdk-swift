@@ -37,15 +37,15 @@ variations.forEach(variation => {
 		const radioProps = { ...variation, storyKind: undefined, storyTitle: undefined, isGroup: undefined, labelText: undefined };
 
 		if (isGroup) {
-			return <XUIRadioGroup groupLabel="rg0">
-				<XUIRadio key="r0-1" isChecked={true} name="rg0">Medium radio label goes here</XUIRadio>
+			return <XUIRadioGroup labelText="Radio Group">
+				<XUIRadio key="r0-1" isDefaultChecked={true} name="rg0">Medium radio label goes here</XUIRadio>
 				<XUIRadio key="r0-2" name="rg0">Longish radio label goes here, but this one really goes on and on and on and on</XUIRadio>
 				<XUIRadio key="r0-3" name="rg0">Third</XUIRadio>
 			</XUIRadioGroup>
 		} else if (isSeries) {
 			return <div aria-label="r1" role="radiogroup">
 				<XUIRadio key="r1-1" name="rg1">Medium radio label goes here</XUIRadio>
-				<XUIRadio key="r1-2" isChecked={true} name="rg1">Longish radio label goes here, but this one really goes on and on and on and on</XUIRadio>
+				<XUIRadio key="r1-2" isDefaultChecked={true} name="rg1">Longish radio label goes here, but this one really goes on and on and on and on</XUIRadio>
 				<XUIRadio key="r1-3" name="rg1">Third</XUIRadio>
 			</div>
 		} else {

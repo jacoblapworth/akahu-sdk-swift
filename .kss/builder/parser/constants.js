@@ -3,24 +3,24 @@ module.exports = {
 		{
 			section: 'Fundamentals',
 			page: 'Depth & Borders',
-			source: './src/sass/settings/_borders.scss'
+			source: './src/sass/1-vars/_borders.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Colors',
-			source: './src/sass/settings/_colors.scss'
+			source: './src/sass/1-vars/_colors.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Variables',
-			source: './src/sass/settings/_layout.scss'
+			source: './src/sass/1-vars/_layout.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Typography',
-			source: './src/sass/settings/_typography.scss'
+			source: './src/sass/1-vars/_typography.scss'
 		}
 	],
 	mixinPages: [
@@ -28,50 +28,50 @@ module.exports = {
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Buttons',
-			source: './src/sass/tools/_mixins.buttons.scss',
+			source: './src/sass/2-mixins/_buttons.scss',
 			isSubsection: true
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Components',
-			source: './src/sass/tools/_mixins.components.scss'
+			source: './src/sass/2-mixins/_components.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Elements',
-			source: './src/sass/tools/_mixins.elements.scss'
+			source: './src/sass/2-mixins/_elements.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Breakpoints',
-			source: './src/sass/tools/_mixins.layout.breakpoints.scss'
+			source: './src/sass/2-mixins/_layout.breakpoints.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Margin & Padding',
-			source: './src/sass/tools/_mixins.layout.marginpadding.scss'
+			source: './src/sass/2-mixins/_layout.marginpadding.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Selectors',
-			source: './src/sass/tools/_mixins.selectors.scss'
+			source: './src/sass/2-mixins/_selectors.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'States',
-			source: './src/sass/tools/_mixins.states.scss'
+			source: './src/sass/2-mixins/_states.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Utilities',
-			source: './src/sass/tools/_mixins.utilities.scss'
+			source: './src/sass/2-mixins/_utilities.scss'
 		}
 	],
 	types: {

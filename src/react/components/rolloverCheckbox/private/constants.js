@@ -1,4 +1,4 @@
-import {ns} from "../../helpers/xuiClassNamespace";
+import { ns } from '../../helpers/xuiClassNamespace';
 
 export const baseClass = `${ns}-rollovercheckbox`;
 export const sizeClassNames = {

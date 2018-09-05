@@ -93,27 +93,26 @@
 // Definitions:
 // Standard: `xui-textcolor-standard`: Default primary text color in XUI.
 // Muted: `xui-textcolor-muted`: Reduced hierarchy. It can be used independently or via `.xui-text-secondary`
-// Faint: `xui-textcolor-faint`: Use very sparingly for inconsequential things due to it’s poor accessibility.
+// Faint: `xui-textcolor-faint`: Use very sparingly for inconsequential things due to its poor accessibility.
 //
 // Styleguide: Fundamentals.Typography.30.1
 
 
 // Sentiment colours
 //
+// Tips:
+// Do: When using sentiment, use descriptive text like "% increase"
+// Dont: When using sentiment, avoid vague text like "%"
+//
+// Use descriptive text as well as colour to convey information so it’s still meaningful to people who can’t discern colour.
+//
+// For example, using text with a ‘positive’ sentiment:<br />
+//
 // Definitions:
 // Positive: `xui-textcolor-positive`:	<div class="xui-container"><span class="xui-textcolor-positive">21.3% decrease</span></div>
 // Negative: `xui-textcolor-negative`:	<div class="xui-container"><span class="xui-textcolor-negative">Yes, delete this invoice</span></div>
 //
 // Styleguide: Fundamentals.Typography.30.2
-
-// Status colours
-//
-// Flag: Deprecated
-//
-// Older versions of XUI contained specific 'status' classes: `xui-text-status`, `xui-text-status-negative` and `xui-text-status-positive`.
-// Please use either tags or the sentiment colours above.
-//
-// Styleguide: Fundamentals.Typography.30.2.1
 
 
 // Text on dark backgrounds
@@ -125,10 +124,10 @@
 // Muted white: `xui-textcolor-inverted-muted`: white at 75%
 // Faint white: `xui-textcolor-inverted-faint`: white at 50%
 //
-// ExampleClass: ds-example-flush
+// ExampleClass: ds-example-flush ds-example-dark
 //
 // Markup:
-// <div class="xui-row xui-textcolor-inverted xui-background-grey-1 xui-padding">
+// <div class="xui-row xui-textcolor-inverted xui-padding">
 //  <div class="xui-column-4-of-12 xui-heading">
 //    Preview Invoice <span class="xui-text-deemphasis">INV0001</span>
 //  </div>
@@ -136,7 +135,7 @@
 //    Saving...
 //  </div>
 //  <div class="xui-column-4-of-12 xui-text-align-right xui-textcolor-inverted-muted">
-//  <svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-edit" role="presentation"/></svg>
+//  <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-edit" role="presentation"/></svg>
 //  Edit
 //  </div>
 // </div>
@@ -151,11 +150,10 @@
 // Links
 //
 // With a few exceptions, interactive elements in XUI should be **clearly different** from static ones.
-// Links in XUI should only be used for elements that have an `href` – use a [button](/section-building-blocks-controls-button.html) if not.
+// Links in XUI should only be used for elements that have an `href` – otherwise use a [button](/section-building-blocks-controls-button.html).
 //
 //
 // Definitions:
-// Standard link: `xui-text-link`: Adds link hover and focus highlighting
 // Minor link: `xui-text-minorlink`: Use only for very secondary inconsequential elements to inherit parent text colour but retain standard link hover and focus highlighting.
 //
 // Markup:
@@ -164,19 +162,19 @@
 // <tr>
 // <th class="xui-text-align-left">Account</th><th class="xui-text-align-right xui-padding-left-large">This month</th><th class="xui-text-align-right xui-padding-left-large">Year to date</th></tr>
 // <tr>
-//  <td class="xui-text-align-left"><a class="xui-text-link">Advertising (600)</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">10,453.75</a></td>
+//  <td class="xui-text-align-left"><a href="#">Advertising (600)</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">0.00</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">10,453.75</a></td>
 // </tr>
 // <tr>
-//  <td class="xui-text-align-left"><a class="xui-text-link">Entertainment (620)</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">53.60</a></td>
+//  <td class="xui-text-align-left"><a href="#">Entertainment (620)</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">0.00</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">53.60</a></td>
 // </tr>
 // <tr>
-//  <td class="xui-text-align-left"><a class="xui-text-link">Inventory (140)</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
+//  <td class="xui-text-align-left"><a href="#">Inventory (140)</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">0.00</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">0.00</a></td>
 // </tr>
 // </tbody></table>
 // </div>
@@ -266,9 +264,10 @@
 //
 // XUI’s type styling is designed primarily for application interfaces and does not target HTML elements like `h1` or `p`.
 // Use the `xui-textcontent` wrapper class to enclose any long-form text which needs basic margins and typographic scale.
+// Elements added to `xui-textcontent` will receive a top margin by default. Users should avoid adding elements like icons as direct children.
 //
 // Tips:
-// Warning: These styles are fairly basic, you may need to fine-tune - let us know how it goes!
+// Warning: These styles are fairly basic and you may need to fine-tune - let us know how it goes!
 //
 // Markup:
 // <div class="xui-textcontent">

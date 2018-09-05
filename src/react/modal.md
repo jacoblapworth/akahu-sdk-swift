@@ -1,19 +1,16 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-compounds-collectinginput-modals.html">Modals in the XUI Documentation</a>
+	<a href="../section-compounds-collectinginput-modals.html" isDocLink>Modals in the XUI Documentation</a>
 </div>
 
 `XUIModal` provides a container for custom content, along with a background mask. They should primarily be used for prompting user actions, such as confirming a change, providing additional information, or copying some text.
 
 ## Examples
 
-### Read only modal
+### Read-only modal
 
 `XUIModal` should contain a `XUIModalHeader` to display a header, and have a callback to close the modal passed in to `XUIModal` via the `onClose` prop. By default this will enable closing via the `esc` key and by the close button which will be rendered on the right side of the header.
 
-```
+```jsx
 const  { PureComponent } = require ( 'react' );
 const exampleURL = 'https://go.xero.com/blahblahblahexamplelinkhere';
 
@@ -36,25 +33,27 @@ class Example extends PureComponent {
 						<div className="xui-padding-bottom">
 							Anyone with this link can view this invoice.
 						</div>
-						<XUIInput
-							containerClassName="xui-padding-bottom xui-inputgroup xui-u-flex"
-							className="xui-u-flex-grow"
-							inputAttributes={{
-								value: exampleURL,
+						<XUITextInput
+							fieldClassName="xui-padding-bottom"
+							value={exampleURL}
+							inputProps={{
 								readOnly: true,
 								id: "copyUrlExampleInput"
 							}}
 							inputRef={i => this.input = i}
-							button={
-								<XUIButton
-									onClick={() => {
-										this.input.select();
-										document.execCommand('copy')
-									}}
-									variant="primary"
-								>
-									Copy
-								</XUIButton>
+							rightElement={
+								<XUITextInputSideElement type="button">
+									<XUIButton
+										onClick={() => {
+											this.input.select();
+											document.execCommand('copy')
+										}}
+										variant="primary"
+										size="small"
+									>
+										Copy
+									</XUIButton>
+								</XUITextInputSideElement>
 							}
 						/>
 					</XUIModalBody>
@@ -127,7 +126,7 @@ class Example extends PureComponent {
 
 Modals can be used as a step for users to fill in required fields before opening a new page.
 
-```
+```jsx
 const  { PureComponent } = require ( 'react' );
 
 class Example extends PureComponent {
@@ -153,8 +152,8 @@ class Example extends PureComponent {
 				<XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
 					<XUIModalHeader>New project</XUIModalHeader>
 					<XUIModalBody>
-						<XUIInput
-							inputAttributes={{ placeholder: 'Give it a title'}}
+						<XUITextInput
+							placeholder="Give it a title"
 						/>
 					</XUIModalBody>
 					<XUIModalFooter className="xui-actions xui-actions-layout xui-padding-large">
@@ -203,7 +202,7 @@ class Example extends PureComponent {
 				<XUIButton onClick={this.toggleModal}>Modal without a header</XUIButton>
 				<XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })} size="large">
 					<XUIModalBody>
-						<div className="xui-u-flex xui-u-flex-vertical xui-u-flex-verticallycentered">
+						<div className="xui-u-flex xui-u-flex-column xui-u-flex-align-center">
 							<img src="https://s3-ap-southeast-2.amazonaws.com/uxe-internal/spaceship_for_react_modal_demo.png" style={{maxWidth:'100%'}}/>
 							<h2>Welcome to Projects</h2>
 							<div className="xui-padding-2xlarge">
@@ -212,7 +211,7 @@ class Example extends PureComponent {
 							</div>
 						</div>
 					</XUIModalBody>
-					<XUIModalFooter className="xui-u-flex xui-u-flex-horizontallycentered">
+					<XUIModalFooter className="xui-u-flex xui-u-flex-justify-center">
 						<XUIButton
 							className="xui-margin-right"
 							variant="borderless-primary"

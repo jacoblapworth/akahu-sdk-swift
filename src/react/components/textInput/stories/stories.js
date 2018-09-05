@@ -34,6 +34,7 @@ const TextInputWrapper = props => {
 		rightElementAlignment,
 		placeholder,
 		isDisabled,
+		defaultValue,
 		value,
 		isMultiline,
 		isLabelHidden,
@@ -43,43 +44,43 @@ const TextInputWrapper = props => {
 	} = props;
 
 	const makeSideElement = (sideElementType, sideElementAlignment) => {
-		switch(sideElementType) {
-			case 'icon':
-				return (
-					<XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
-						<XUIIcon path={clearPath} />
-					</XUITextInputSideElement>
-				);
-			case 'iconWithBackground':
-				return (
-					<XUITextInputSideElement
-						type="icon"
-						backgroundColor={'facebook'}
-						alignment={sideElementAlignment}
-					>
-						<XUIIcon path={facebookPath} />
-					</XUITextInputSideElement>
-				);
-			case 'text':
-				return (
-					<XUITextInputSideElement type="text" alignment={sideElementAlignment}>
+		switch (sideElementType) {
+		case 'icon':
+			return (
+				<XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
+					<XUIIcon icon={clearPath} isBoxed />
+				</XUITextInputSideElement>
+			);
+		case 'iconWithBackground':
+			return (
+				<XUITextInputSideElement
+					type="icon"
+					backgroundColor="facebook"
+					alignment={sideElementAlignment}
+				>
+					<XUIIcon icon={facebookPath} isBoxed />
+				</XUITextInputSideElement>
+			);
+		case 'text':
+			return (
+				<XUITextInputSideElement type="text" alignment={sideElementAlignment}>
 						Test
-					</XUITextInputSideElement>
-				)
-			case 'button':
-				return (
-					<XUITextInputSideElement type="button" alignment={sideElementAlignment}>
-						<XUIButton variant="primary" size="small">
+				</XUITextInputSideElement>
+			);
+		case 'button':
+			return (
+				<XUITextInputSideElement type="button" alignment={sideElementAlignment}>
+					<XUIButton variant="primary" size="small">
 							Test
-						</XUIButton>
-					</XUITextInputSideElement>
-				);
-			default:
-				return null
+					</XUIButton>
+				</XUITextInputSideElement>
+			);
+		default:
+			return null;
 		}
-	}
+	};
 
-	return(
+	return (
 		<XUITextInput
 			labelText={labelText}
 			inputProps={inputProps}
@@ -91,7 +92,7 @@ const TextInputWrapper = props => {
 			validationMessage={validationMessage}
 			hintMessage={hintMessage}
 			type="text"
-			defaultValue='default Value'
+			defaultValue={defaultValue || 'default Value'}
 			placeholder={placeholder}
 			isDisabled={isDisabled}
 			value={value}
@@ -101,11 +102,11 @@ const TextInputWrapper = props => {
 			maxRows={maxRows}
 			rows={rows}
 		/>
-	)
-}
+	);
+};
 
 TextInputWrapper.propTypes = {
-	labelText: PropTypes.labelText,
+	labelText: PropTypes.string,
 	inputProps: PropTypes.object,
 	isBorderlessTransparent: PropTypes.bool,
 	isBorderlessSolid: PropTypes.bool,
@@ -118,13 +119,14 @@ TextInputWrapper.propTypes = {
 	rightElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
 	placeholder: PropTypes.string,
 	isDisabled: PropTypes.bool,
+	defaultValue: PropTypes.string,
 	value: PropTypes.string,
 	isMultiline: PropTypes.bool,
 	isLabelHidden: PropTypes.bool,
 	minRows: PropTypes.number,
 	maxRows: PropTypes.number,
 	rows: PropTypes.number,
-}
+};
 
 const elementTypeOptions = [null, 'icon', 'iconWithBackground', 'button', 'text'];
 
@@ -140,9 +142,9 @@ storiesWithKnobs.add('Playground', () => (
 		placeholder={text('placeholder', 'placeholder text')}
 		value={text('value')}
 		isMultiline={boolean('is multiline', false)}
-		minRows={number('min height of multiline input in rows')}
-		maxRows={number('max height of multiline input in rows')}
-		rows={number('set height of multiline input in rows')}
+		minRows={number('min height of multiline input in rows', 0) || undefined}
+		maxRows={number('max height of multiline input in rows', 0) || undefined}
+		rows={number('set height of multiline input in rows', 0) || undefined}
 		leftElementType={select('left side element type', elementTypeOptions)}
 		leftElementAlignment={select('left side element vertical alignment', elementAlignmentOptions, 'top')}
 		rightElementType={select('right side element type', elementTypeOptions)}
@@ -153,7 +155,7 @@ storiesWithKnobs.add('Playground', () => (
 		validationMessage={text('validation message', '')}
 		hintMessage={text('hint message', '')}
 		isDisabled={boolean('is disabled', false)}
-		inputAttributes={object('input props', inputProps)}
+		inputProps={object('input props', inputProps)}
 	/>
 ));
 
@@ -166,11 +168,10 @@ variations.forEach(variation => {
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
 		if (!variationMinusStoryDetails.labelText) {
-			variationMinusStoryDetails.labelText = "Test label";
+			variationMinusStoryDetails.labelText = 'Test label';
 			variationMinusStoryDetails.isLabelHidden = true;
 		}
 
 		return <TextInputWrapper {...variationMinusStoryDetails} />;
-
 	});
 });

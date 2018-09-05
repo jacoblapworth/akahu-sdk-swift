@@ -4,5 +4,5 @@ export default {
 	dropdownToggled: '--dropdowntoggled',
 	label: '--label',
 	inputGroup: '--inputgroup',
-	buttonIcon: '--button-icon'
-}
+	buttonIcon: '--button-icon',
+};

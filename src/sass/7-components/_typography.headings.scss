@@ -1,0 +1,88 @@
+// Presets
+
+.#{$ns}-heading-panel {
+	@include xui-heading-medium;
+	// other specific stuff to this element might go here???
+}
+
+.#{$ns}-heading-section {
+	color: $xui-text-primary-color;
+	font-size: $xui-font-size-medium;
+	font-weight: $xui-font-weight-deemphasis;
+}
+
+.#{$ns}-heading-modal {
+	@include xui-heading-medium;
+	// other specific stuff to this element might go here???
+}
+
+.#{$ns}-heading-item {
+	@include xui-heading-small;
+	// other specific stuff to this element might go here???
+}
+
+.#{$ns}-heading-separator {
+	@include xui-heading-xsmall;
+}
+
+// Generic Headings
+
+.#{$ns}-heading-xsmall {
+	@include xui-heading-xsmall;
+}
+
+.#{$ns}-heading-small {
+	@include xui-heading-small;
+}
+
+.#{$ns}-heading {
+	@include xui-heading-medium;
+}
+
+.#{$ns}-heading-large {
+	@include xui-heading-large;
+}
+
+.#{$ns}-heading-xlarge {
+	@include xui-text-spacing-tight;
+	@include xui-text-emphasis;
+	@include xui-text-line-height-tight;
+	@include xui-text-proportional-nums;
+	font-size: $xui-font-size-extended-2xlarge;
+
+	@include xui-breakpoint-medium-and-wide {
+		font-size: $xui-font-size-extended-4xlarge;
+	}
+
+	@include xui-breakpoint-huge {
+		font-size: $xui-font-size-extended-5xlarge;
+	}
+}
+
+.#{$ns}-heading-2xlarge {
+	@include xui-text-spacing-tight;
+	@include xui-text-emphasis;
+	@include xui-text-line-height-tight;
+	@include xui-text-proportional-nums;
+	font-size: $xui-font-size-extended-4xlarge;
+
+	@include xui-breakpoint-medium-and-wide {
+		font-size: $xui-font-size-extended-5xlarge;
+	}
+
+	@include xui-breakpoint-huge {
+		font-size: 48px;
+	}
+}
+
+.#{$ns}-heading-3xlarge {
+	@include xui-text-spacing-tight;
+	@include xui-text-emphasis;
+	@include xui-text-line-height-tight;
+	@include xui-text-proportional-nums;
+	font-size: 48px;
+
+	@include xui-breakpoint-medium-and-wide {
+		font-size: 5vw;
+	}
+}

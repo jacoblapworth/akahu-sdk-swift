@@ -4,4 +4,10 @@ import XUIButtonCaret from './components/button/XUIButtonCaret';
 import XUISecondaryButton from './components/button/XUISecondaryButton';
 import XUISplitButtonGroup from './components/button/XUISplitButtonGroup';
 
-export { XUIButton as default, XUIButtonCaret, XUIButtonGroup, XUISecondaryButton, XUISplitButtonGroup };
+export {
+	XUIButton as default,
+	XUIButtonCaret,
+	XUIButtonGroup,
+	XUISecondaryButton,
+	XUISplitButtonGroup,
+};

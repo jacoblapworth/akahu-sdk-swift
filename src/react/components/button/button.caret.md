@@ -2,7 +2,7 @@ The trigger to open a [`<DropDownToggled>`](#dropdown) is often a Button. We pro
 
 Check out the [Dropdown](#dropdown) examples to see Buttons being used as triggers.
 
-```
+```jsx
 	<XUIButton>
 		Dropdown <XUIButtonCaret />
 	</XUIButton>
@@ -10,10 +10,10 @@ Check out the [Dropdown](#dropdown) examples to see Buttons being used as trigge
 
 But you can just as easily drop in other icons too.
 
-```
+```jsx
 	const XUIIcon = require('../icon/XUIIcon').default;
 	const icon = require('@xero/xui-icon/icons/checkbox-check').default;
 	<XUIButton>
-		Checkbox <XUIIcon path={icon} className='xui-icon-inline' />
+		Checkbox <XUIIcon icon={icon} />
 	</XUIButton>
 ```

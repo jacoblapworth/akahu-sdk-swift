@@ -1,0 +1,403 @@
+/**
+ * A collection of general-purpose utility rules.
+ */
+
+@import "../mixins";
+@import "../vars";
+
+// Utilities
+//
+// Introduction: Commonly used CSS properties available as classes. All utility classes have the `-u-` prefix.
+//
+// Teaser: Helpers for layout, visibility and more.
+//
+// Styleguide: Fundamentals.Utilities
+
+// Flex
+//
+// Flag: Under review
+//
+// Styleguide: Fundamentals.Utilities.1
+
+// Display
+//
+// Apply to flex parent.
+//
+// Classes:
+// xui-u-flex: Sets display to flex
+// xui-u-flex-inline: Sets display to inline flex
+// xui-u-flex-inherit: Fix for child nodes of buttons to allow flex properties in Firefox
+//
+// Styleguide: Fundamentals.Utilities.1.1
+
+// Direction
+//
+// Apply to flex parent. These classes also have a `-narrow`, `-medium` and `-wide` variant.
+//
+// Classes:
+// xui-u-flex-row: Align children horizontally
+// xui-u-flex-column: Align children vertically
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-u-flex xui-u-flex-row ds-flex-example">
+//  <div></div>
+// 	<div></div>
+// 	<div></div>
+// </div>
+// <div class="xui-u-flex xui-u-flex-column ds-flex-example">
+//  <div></div>
+// 	<div></div>
+// 	<div></div>
+// </div>
+//
+// Styleguide: Fundamentals.Utilities.1.2
+
+// Justifying
+//
+// Apply to flex parent. Each of these classes also has a `-narrow`, `-medium` and `-wide` variant.
+//
+// Classes:
+// xui-u-flex-justify-start: Align children to the start of the primary axis
+// xui-u-flex-justify-center: Align children to the center of the primary axis
+// xui-u-flex-justify-end: Align children to the end of the primary axis
+// xui-u-flex-justify-space-between: Equal space between children
+// xui-u-flex-justify-space-around: Equal space around children
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-u-flex xui-u-flex-justify-start ds-flex-example">
+//  <div></div>
+// 	<div></div>
+// 	<div></div>
+// </div>
+// <div class="xui-u-flex xui-u-flex-justify-center ds-flex-example">
+//  <div></div>
+// 	<div></div>
+// 	<div></div>
+// </div>
+// <div class="xui-u-flex xui-u-flex-justify-end ds-flex-example">
+//  <div></div>
+// 	<div></div>
+// 	<div></div>
+// </div>
+// <div class="xui-u-flex xui-u-flex-justify-space-between ds-flex-example">
+//  <div></div>
+// 	<div></div>
+// 	<div></div>
+// </div>
+// <div class="xui-u-flex xui-u-flex-justify-space-around ds-flex-example">
+//  <div></div>
+// 	<div></div>
+// 	<div></div>
+// </div>
+//
+// Styleguide: Fundamentals.Utilities.1.3
+
+// Aligning
+//
+// Apply to flex parent. Each of these classes also has a `-narrow`, `-medium` and `-wide` variant.
+//
+// Classes:
+// xui-u-flex-align-center: Center children on the secondary axis
+// xui-u-flex-align-start: Align children to the start of the secondary axis
+// xui-u-flex-align-end: Align children to the end of the secondary axis
+// xui-u-flex-align-stretch: Stretch children to fill the space available on the secondary axis
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-u-flex xui-u-flex-align-center ds-flex-example">
+//  <div></div>
+// 	<div></div>
+// 	<div></div>
+// </div>
+// <div class="xui-u-flex xui-u-flex-align-start ds-flex-example">
+//  <div></div>
+// 	<div></div>
+// 	<div></div>
+// </div>
+// <div class="xui-u-flex xui-u-flex-align-end ds-flex-example">
+//  <div></div>
+// 	<div></div>
+// 	<div></div>
+// </div>
+// <div class="xui-u-flex xui-u-flex-align-stretch ds-flex-example">
+//  <div></div>
+// 	<div></div>
+// 	<div></div>
+// </div>
+//
+// Styleguide: Fundamentals.Utilities.1.4
+
+// Growing and shrinking
+//
+// Apply to flex child.
+//
+// Classes:
+// xui-u-flex-1: Fill remaining space
+// xui-u-flex-none: Match content width
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-u-flex ds-flex-example">
+//  <div class="xui-u-flex-1"></div>
+//  <div class="xui-u-flex-1"></div>
+//  <div class="xui-u-flex-1"></div>
+// </div>
+// <div class="xui-u-flex ds-flex-example">
+//  <div class="xui-u-flex-none"></div>
+//  <div class="xui-u-flex-none"></div>
+//  <div class="xui-u-flex-none"></div>
+// </div>
+//
+// Styleguide: Fundamentals.Utilities.1.5
+
+// Display
+//
+// Set display property of an element
+//
+// Classes:
+// xui-u-display-block: Set display to block
+// xui-u-display-inline-block: Set display to inline-block
+// xui-u-display-inline: Set display to inline
+//
+// Styleguide: Fundamentals.Utilities.2
+
+// Hiding content
+//
+// These classes are based on the method outlined by the [A11Y project](http://a11yproject.com/posts/how-to-hide-content/).
+//
+// Classes:
+// xui-u-hidden: Set display and visibility to none
+// xui-u-hidden-visually: Set width and height to 0
+// xui-u-hidden-content: Set opacity to 0 and pointer events to 0
+// xui-u-hidden-narrow: Set display to none below 520px
+// xui-u-hidden-medium: Set display to none between 520px and 940px
+// xui-u-hidden-wide: Set display to none above 940px
+//
+// Styleguide: Fundamentals.Utilities.3
+
+// Hiding overflow
+//
+// Classes:
+// xui-u-overflow-hidden: To hide overflow and disable scrolling
+//
+// Styleguide: Fundamentals.Utilities.4
+
+// Full width
+//
+// Classes:
+// xui-u-fullwidth: Set the width of an element to 100% of its parent
+//
+// Styleguide: Fundamentals.Utilities.5
+
+// Preventing selection
+//
+// Classes:
+// xui-u-noselect: Prevents the browser from highlighting text when dragging or double clicking
+//
+// Styleguide: Fundamentals.Utilities.6
+
+// Preventing textarea resize
+//
+// Classes:
+// xui-u-resize-vertical: Restrict resizing to vertical direction only
+// xui-u-resize-none: Disable resizing completely
+//
+// Styleguide: Fundamentals.Utilities.7
+
+// Rotating elements
+//
+// Classes:
+// xui-u-rotate-90: Rotate 90 degrees
+// xui-u-rotate-180: Rotate 180 degrees
+// xui-u-rotate-270: Rotate 270 degrees
+//
+// Styleguide: Fundamentals.Utilities.8
+
+// Positioning
+//
+// Classes:
+// xui-u-position-fixed: Sets position: fixed so the element scrolls with the page
+// xui-u-position-relative: Sets position: relative on the element
+//
+// Styleguide: Fundamentals.Utilities.8
+
+.#{$ns}-u-flex {
+	display: flex;
+}
+
+.#{$ns}-u-flex-inline {
+	display: inline-flex;
+}
+
+.#{$ns}-u-flex-none {
+	flex: none;
+}
+
+.#{$ns}-u-flex-1 {
+	flex: 1;
+}
+
+.#{$ns}-u-flex-grow {
+	flex-basis: auto;
+	flex-grow: 1;
+}
+
+.#{$ns}-u-flex-inherit {
+	align-items: inherit;
+	display: inherit;
+	flex-direction: inherit;
+	justify-content: inherit;
+	width: inherit; // For IE11 and Chrome
+}
+
+@mixin make-flex-classes($suffix) {
+	.#{$ns}-u-flex-align-start#{$suffix} {
+		align-items: flex-start;
+	}
+
+	.#{$ns}-u-flex-align-end#{$suffix} {
+		align-items: flex-end;
+	}
+
+	.#{$ns}-u-flex-align-stretch#{$suffix} {
+		align-items: stretch;
+	}
+
+	.#{$ns}-u-flex-align-center#{$suffix} {
+		align-items: center;
+	}
+
+	.#{$ns}-u-flex-row#{$suffix} {
+		flex-direction: row;
+	}
+
+	.#{$ns}-u-flex-column#{$suffix} {
+		flex-direction: column;
+	}
+
+	.#{$ns}-u-flex-justify-space-between#{$suffix} {
+		justify-content: space-between;
+	}
+
+	.#{$ns}-u-flex-justify-space-around#{$suffix}{
+		justify-content: space-around;
+	}
+
+	.#{$ns}-u-flex-justify-start#{$suffix} {
+		justify-content: flex-start;
+	}
+
+	.#{$ns}-u-flex-justify-end#{$suffix} {
+		justify-content: flex-end;
+	}
+
+	.#{$ns}-u-flex-justify-center#{$suffix} {
+		justify-content: center;
+	}
+}
+
+@include make-flex-classes('');
+@include xui-breakpoint-narrow {
+	@include make-flex-classes('-narrow');
+}
+@include xui-breakpoint-medium {
+	@include make-flex-classes('-medium');
+}
+@include xui-breakpoint-wide {
+	@include make-flex-classes('-wide');
+}
+
+.#{$ns}-u-display-block {
+	display: block;
+}
+
+.#{$ns}-u-display-inline-block {
+	display: inline-block;
+}
+
+.#{$ns}-u-display-inline {
+	display: inline;
+}
+
+// scss-lint:disable ImportantRule
+.#{$ns}-u-hidden {
+	display: none !important;
+	// Screen readers sometimes ignore display:none as per
+	// http://www.456bereastreet.com/archive/200711/screen_readers_sometimes_ignore_displaynone/
+	visibility: hidden !important;
+}
+
+.#{$ns}-u-hidden-visually {
+	@include xui-utility-hidden-visually;
+}
+
+.#{$ns}-u-hidden-content {
+	opacity: 0;
+	pointer-events: none;
+	user-select: none;
+}
+
+.#{$ns}-u-hidden-narrow {
+	@include xui-breakpoint-narrow {
+		display: none !important;
+	}
+}
+
+.#{$ns}-u-hidden-medium {
+	@include xui-breakpoint-medium {
+		display: none !important;
+	}
+}
+
+.#{$ns}-u-hidden-wide {
+	@include xui-breakpoint-wide {
+		display: none !important;
+	}
+}
+
+.#{$ns}-u-overflow-hidden {
+	overflow: hidden !important;
+}
+
+.#{$ns}-u-fullwidth {
+	display: block;
+	width: 100%;
+}
+
+.#{$ns}-u-noselect {
+	user-select: none;
+}
+
+.#{$ns}-u-resize-none {
+	resize: none;
+}
+
+.#{$ns}-u-resize-vertical {
+	resize: vertical;
+}
+
+.#{$ns}-u-rotate-90 {
+	transform: rotate(90deg);
+}
+
+.#{$ns}-u-rotate-180 {
+	transform: rotate(180deg);
+}
+
+.#{$ns}-u-rotate-270 {
+	transform: rotate(-90deg);
+}
+
+.#{$ns}-u-position-fixed {
+	position: fixed;
+}
+
+.#{$ns}-u-position-relative {
+	position: relative;
+}

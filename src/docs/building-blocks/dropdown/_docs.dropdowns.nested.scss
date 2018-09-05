@@ -60,9 +60,11 @@
 //               <span>Status</span>
 //               <span class="xui-text-secondary xui-margin-left-small">Draft, Sent</span>
 //             </span>
-//             <svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
-//               <use xlink:href="#xui-icon-arrow" role="presentation"></use>
-//             </svg>
+//             <div class="xui-iconwrapper xui-margin-right-small">
+//               <svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-black-muted">
+//                 <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+//               </svg>
+//             </div>
 //           </button>
 //         </li>
 //         <li class="xui-pickitem" role="treeitem" tabindex="-1" >
@@ -71,9 +73,11 @@
 //               <span>Date range</span>
 //               <span class="xui-text-secondary xui-margin-left-small">1 Apr 2016 — 31 Mar 2017</span>
 //             </span>
-//             <svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
-//               <use xlink:href="#xui-icon-arrow" role="presentation"></use>
-//             </svg>
+//             <div class="xui-iconwrapper xui-margin-right-small">
+//               <svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-black-muted">
+//                 <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+//               </svg>
+//             </div>
 //           </button>
 //         </li>
 //         <li class="xui-pickitem" role="treeitem" tabindex="-1" >
@@ -82,9 +86,11 @@
 //               <span>Created by</span>
 //               <span class="xui-text-secondary xui-margin-left-small">Kirk Holloway +2 others</span>
 //             </span>
-//             <svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
-//               <use xlink:href="#xui-icon-arrow" role="presentation"></use>
-//             </svg>
+//             <div class="xui-iconwrapper xui-margin-right-small">
+//               <svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-black-muted">
+//                 <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+//               </svg>
+//             </div>
 //           </button>
 //         </li>
 //       </ul>
@@ -107,7 +113,7 @@
 //       <div class="xui-dropdown--header-leftcontent">
 //         <button class="xui-button xui-button-icon xui-button-icon-large xui-u-flex-none" type="button">
 //           <svg focusable="false" class="xui-icon">
-//             <use role="presentation" class="xui-icon" xlink:href="#xui-icon-back"></use>
+//             <use role="presentation" xlink:href="#xui-icon-back"></use>
 //           </svg>
 //         </button>
 //         <div class="xui-heading-small xui-margin-left-small xui-text-truncated">

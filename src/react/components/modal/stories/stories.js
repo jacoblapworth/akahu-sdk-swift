@@ -6,8 +6,8 @@ import XUIModal, { modalSizes } from '../XUIModal';
 import XUIModalBody from '../XUIModalBody';
 import XUIModalFooter from '../XUIModalFooter';
 import XUIModalHeader from '../XUIModalHeader';
-import XUITextInput from "../../textInput/XUITextInput";
-import XUIButton from "../../button/XUIButton";
+import XUITextInput from '../../textInput/XUITextInput';
+import XUIButton from '../../button/XUIButton';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -19,7 +19,6 @@ const isolatedInstance = storiesOf(storiesWithVariationsKindName, module);
 isolatedInstance.addDecorator(withKnobs);
 
 isolatedInstance.add('XUIModal', () => {
-
 	const headerEnabled = boolean('Show Header', true);
 	const header = headerEnabled ? (
 		<XUIModalHeader>Header</XUIModalHeader>
@@ -38,7 +37,8 @@ isolatedInstance.add('XUIModal', () => {
 				isOpen={boolean('Is open', true)}
 				size={select('Size', Object.keys(modalSizes))}
 				isForm={boolean('Main content is a form', false)}
-				isUsingPortal={boolean('Uses portal', true)}>
+				isUsingPortal={boolean('Uses portal', true)}
+			>
 				{header}
 				<XUIModalBody>
 					Plain modal
@@ -48,7 +48,7 @@ isolatedInstance.add('XUIModal', () => {
 				{footer}
 			</XUIModal>
 		</Fragment>
-	)
+	);
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
@@ -75,6 +75,6 @@ variations.forEach(variation => {
 				</XUIModalBody>
 				{footer}
 			</XUIModal>
-		)
+		);
 	});
 });

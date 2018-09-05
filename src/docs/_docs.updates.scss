@@ -1,8 +1,93 @@
+// 14.0.0 Release update (August 2018)
+//
+// XUI 14.0.0 is themed around building and maintaining accessible products. Accessibility is an important aspect of modern web experiences, and we have dedicated this release to the enhancement of our components, documentation and tooling to enable our consumers to build products that are inclusive.
+//
+// All of the enhancements and additions in this release are built around complying to the [WCAG 2.0 AA](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0&currentsidebar=%23col_customize&levels=aaa) standards. You can read more about Xero’s position on accessibility [here](./section-getting-started-accessibility.html).
+//
+// <a href="https://github.dev.xero.com/UXE/xui/releases/tag/14.0.0">Full release notes on Github</a>
+//
+// Styleguide: Updates.96
+
+// Enhancements
+//
+// All enhancements relate to our [WCAG 2.0 AA checklist/audit](https://docs.google.com/document/d/16pNZvUKGiVbY5grGgRnVZUUcc3vLQ7Ax_l4_mLSaTHo/edit?usp=sharing)
+//
+// **Color contrast**
+// <ul>
+//  <li>Adjustment to color variables values, which enable compliant contrast ratios (4.5:1) to be achieved across a range of scenarios. This includes introducing an 8th neutral variable.</li>
+//  <li>Adjustment to component text and background colors to be compliant with contrast ratios. This includes pseudo states for hover, active and focus.</li>
+// </ul>
+//
+// **Reduce reliance on color**
+// <ul>
+//  <li>Added additional descriptors to components that previously relied on a color change</li>
+//  <li>Anchor tags by now have `text-decoration: underline;` by default</li>
+//  <li>Disabled states now use `cursor: not-allowed;`</li>
+//  <li>Provided appropriate guidance in XUI docs to avoid reliance on color for presentation</li>
+// </ul>
+//
+// **Labelling**
+// <ul>
+//  <li>Added the ability to apply visible or invisible labels to form controls, for the benefit of assistive technology</li>
+//  <li>Standardised the labeling API across control components</li>
+//  <li>Updated ARIA roles and attributes on many components to better support use with assistive technology</li>
+// </ul>
+//
+// **Keyboard navigation**
+// <ul>
+//  <li>Improved keyboard navigation for some components</li>
+//  <li>Documented best practices for more complex cases</li>
+// </ul>
+//
+// Styleguide: Updates.96.2
+
+// Deprecations
+//
+// <ul>
+//  <li>`XUIInput` and `XUITextarea` components have been removed. These have been replaced with `XUITextinput`.</li>
+//  <li>Legacy accordion style has been deprecated and replaced with new styles</li>
+// </ul>
+//
+// Styleguide: Updates.96.3
+
+// Tooling
+//
+// <ul>
+//  <li>Provided additional accessibility checks in our build tools</li>
+//  <li>We are now using `node.js 10` to build and develop XUI</li>
+//  <li>The supported version of React has changed from `^16.2.0` to `^16.4.2`</li>
+// </ul>
+//
+// **Development process**
+// <ul>
+//  <li>XUI 14.0.0 has had a large overhaul to the organisation of SCSS files. If you are developing with low level access to XUI SCSS please make sure you using the supported vars and mixins entry points.</li>
+// </ul>
+//
+// Styleguide: Updates.96.4
+
+// Documentation
+//
+// <ul>
+//  <li>Addressed visual bug fixes on a number of pages</li>
+//  <li>Extended guidance for elements and compounds specifically related to accessibility</li>
+//  <li>Improved accessibility guidance for designers and developers</li>
+//  <li>Improvement to _Developing with XUI_ & _Designing with XUI_ pages</li>
+// </ul>
+//
+// Definitions:
+// New:			  Range input:         	[Elements > Controls > Range](./section-building-blocks-controls-range.html)
+// Updated:		Accessibility:       	[About > Accessibility](./section-getting-started-accessibility.html)
+// Updated:		Developing with XUI: 	[About > Developing with XUI](./section-getting-started-developing-with-xui.html)
+// Updated:		Designing with XUI:  	[About > Designing with XUI](./section-getting-started-designing-with-xui.html)
+// Updated:		Colors:              	[Fundamentals > Colors](./section-fundamentals-colors.html)
+//
+// Styleguide: Updates.96.5
+
 // 13.4.0 Release update (July 2018)
 //
 // XUI 13.4.0 adds enhancements, bug fixes and two robust React components for our consumers. Data visualisation can now be further celebrated by utilising the brand new [XUIBarChart](./react/#bar-chart) component. In addition, [Accordion](./react/#accordion) has been given a new breath of life with an improved visual style, responsive support and fully componentised flexibility.
 //
-// <a href="https://github.dev.xero.com/UXE/xui/releases/tag/13.4.0" class="xui-text-link">Full release notes on Github</a>
+// <a href="https://github.dev.xero.com/UXE/xui/releases/tag/13.4.0">Full release notes on Github</a>
 //
 // Styleguide: Updates.97
 
@@ -10,28 +95,36 @@
 //
 // **XUIBarChart**
 //
-// <li>The [XUIBarChart](./react/#bar-chart) component enables users to display data visually in a variety of ways.</li>
-// <li>XUI's overhauled the [Victory JS](https://formidable.com/open-source/victory/) chart library to create a component that fit the desired functionality and feel that our consumers expect of a bar chart.</li>
-// <li>The component has has a large number of customisable features, such as color, labelling, Tooltip integration and more.</li>
-// <li class="xui-margin-bottom-2xlarge">The component offers full responsive capabilities, with options for pagination and overflow scrolling.</li>
+// <ul>
+//  <li>The [XUIBarChart](./react/#bar-chart) component enables users to display data visually in a variety of ways.</li>
+//  <li>XUI's overhauled the [Victory JS](https://formidable.com/open-source/victory/) chart library to create a component that fit the desired functionality and feel that our consumers expect of a bar chart.</li>
+//  <li>The component has has a large number of customisable features, such as color, labelling, Tooltip integration and more.</li>
+//  <li class="xui-margin-bottom-2xlarge">The component offers full responsive capabilities, with options for pagination and overflow scrolling.</li>
+// </ul>
 //
 // **XUIAccordion**
 //
-// <li>The Accordion is a popular design pattern that has now been reimagined as a React component ([XUIAccordion](./react/#accordion)). The previous accordion model was overly basic and didn't cater to many use-cases. The new Accordion mimics the styling of our Content block. This enhances the visual consistency across experiences.</li>
-// <li class="xui-margin-bottom-2xlarge">The component is adaptively responsive and provides a variety of layout options.</li>
+// <ul>
+//  <li>The Accordion is a popular design pattern that has now been reimagined as a React component ([XUIAccordion](./react/#accordion)). The previous accordion model was overly basic and didn't cater to many use-cases. The new Accordion mimics the styling of our Content block. This enhances the visual consistency across experiences.</li>
+//  <li class="xui-margin-bottom-2xlarge">The component is adaptively responsive and provides a variety of layout options.</li>
+// </ul>
 //
 // Styleguide: Updates.97.2
 
 // Updated features
 //
-// <li>Added `isBlock` property on [XUIAutocompleterSecondarySearch](./react/#autocompleter-secondary-search) component [[#3401]](https://github.dev.xero.com/UXE/xui/pull/3401)</li>
-// <li>Added `isMaxContentWidth` prop to [XUIPill](./react/#pill) so users can opt for no max width [[#3478]](https://github.dev.xero.com/UXE/xui/pull/3478)</li>
+// <ul>
+//  <li>Added `isBlock` property on [XUIAutocompleterSecondarySearch](./react/#autocompleter-secondary-search) component [[#3401]](https://github.dev.xero.com/UXE/xui/pull/3401)</li>
+//  <li>Added `isMaxContentWidth` prop to [XUIPill](./react/#pill) so users can opt for no max width [[#3478]](https://github.dev.xero.com/UXE/xui/pull/3478)</li>
+// </ul>
 //
 // Styleguide: Updates.97.3
 
 // Documentation
 //
-// <li>Added a note about `aria-hidden` around modals, so that developers can best make modals work well for screen readers and assistive technology [[#3483]](https://github.dev.xero.com/UXE/xui/pull/3483)</li>
+// <ul>
+//  <li>Added a note about `aria-hidden` around modals, so that developers can best make modals work well for screen readers and assistive technology [[#3483]](https://github.dev.xero.com/UXE/xui/pull/3483)</li>
+// </ul>
 //
 // Definitions:
 // New:			  Bar chart:      	[Compounds > Displaying data > Bar chart](./section-compounds-displayingdata-barchart.html)
@@ -43,31 +136,36 @@
 //
 // XUI 13.3.0 adds new ContentBlock and ContentBlockItem components, customisation options for Progress Indicator, new icon API and a service worker for offline caching of docs.
 //
-// <a href="https://github.dev.xero.com/UXE/xui/releases/tag/13.3.0" class="xui-text-link">Full release notes on Github</a>
+// <a href="https://github.dev.xero.com/UXE/xui/releases/tag/13.3.0">Full release notes on Github</a>
 //
 // ### New features
 //
 // **XUIContentBlock & XUIContentBlockItem**
 //
-// <li><a href="./react/#content-block">XUIContentBlock & XUIContentBlockItem</a> components are typically used inside a Panel to display a simplified top-level view for a detailed sub page, often containing quick access to actions.</li>
+// <ul>
+//  <li><a href="./react/#content-block">XUIContentBlock & XUIContentBlockItem</a> components are typically used inside a Panel to display a simplified top-level view for a detailed sub page, often containing quick access to actions.</li>
+// </ul>
 //
 // ### Updated Features
 //
 // **XUIProgressCircular & XUIProgressLinear**
 //
-// <li>You can now set a custom Progress Indicator track weight for more fine grained control of the component. Look for the `thickness` property in the <a href="./react/#progress-indicator">React docs</a>.</li>
+// <ul>
+//  <li>You can now set a custom Progress Indicator track weight for more fine-grained control of the component. Look for the `thickness` property in the <a href="./react/#progress-indicator">React docs</a>.</li>
+// </ul>
 //
 // **XUIIcon**
 //
-// <li>We've introduced a new forward looking Icon API along side the existing API. This will give us more fine grained control over the icon sizing and positioning.</li>
+// <ul>
+//  <li>We've introduced a new forward looking Icon API along side the existing API. This will give us more fine-grained control over the icon sizing and positioning.</li>
+// </ul>
 //
-// ### Deprecations
-//
-// <li>Existing `xui-accordian` classes have been deprecated as we rework this component for XUI 14.</li>
 //
 // ### Documentation
 //
-// <li>We've added in a service worker for better offline support</li>
+// <ul>
+//  <li>We've added in a service worker for better offline support</li>
+// </ul>
 //
 // Styleguide: Updates.98
 
@@ -77,7 +175,7 @@
 //
 // We have broadened our component base without breaking changes, so product teams can upgrade easily and continue to benefit from XUI delivering regularly.
 //
-// <a href="https://github.dev.xero.com/UXE/xui/releases/tag/13.2.0" class="xui-text-link">Full release notes on Github</a>
+// <a href="https://github.dev.xero.com/UXE/xui/releases/tag/13.2.0">Full release notes on Github</a>
 //
 // Styleguide: Updates.99
 
@@ -164,7 +262,7 @@
 
 // Sketch files
 //
-// There is a seperate Github repository managed by design, that holds the most recent Sketch file. The file name provides an indication of the XUI version it corresponds to.
+// There is a separate Github repository managed by design, that holds the most recent Sketch file. The file name provides an indication of the XUI version it corresponds to.
 //
 // [designers/xui-toolkit/releases](https://github.dev.xero.com/designers/xui-toolkit/releases)
 //

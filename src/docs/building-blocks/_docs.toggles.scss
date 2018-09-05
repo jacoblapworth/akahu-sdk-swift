@@ -11,8 +11,12 @@
 // Best practice
 //
 // Tips:
+// Do: When disabling toggles within groups, disable the entire group
 // Do: Use toggles to provide quick access to options without the need for a dropdown
+// Do: Associate the toggle control with a label, using the appropriate ARIA attributes
+// Do: An alternative to partially disabled groups is to simply hide or omit the disabled options
 // Warning: Avoid including more than three options inside a toggle
+// Warning: Avoid partially disabled groups in which one of the disabled options is pre-selected. This combination has been known to cause unexpected results for keyboard navigation.
 // Dont: Don't use toggles when content is dynamic or long, use a vertical radio group instead
 //
 // Styleguide: Building Blocks.Controls.Toggle.1
@@ -31,7 +35,8 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class="xui-toggle" role="radiogroup" aria-label="aa">
+// <span class="xui-text-label xui-fieldlabel-layout" id="test-label">Toggle</span>
+// <div class="xui-toggle" role="radiogroup" aria-labelledby="test-label">
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="aa" class="xui-toggle--input" checked/>
 //     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Including tax</span>
@@ -106,20 +111,34 @@
 // Additionally, make sure the `disabled` attribute is added to the input as well.
 //
 // Classes:
-// xui-is-disabled: Apply to toggle option
+// xui-toggle-is-disabled: Apply to toggle option
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class="xui-toggle" role="radiogroup" aria-label="ee">
-//   <label class="xui-toggle-option xui-is-disabled">
-//   <input type="radio" name="ee" class="xui-toggle--input" disabled checked/>
-//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">View</span>
-//   </label>
-//   <label class="xui-toggle-option xui-is-disabled">
-//     <input type="radio" name="ee" class="xui-toggle--input" disabled/>
-//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Edit</span>
-//   </label>
+// <div class="xui-padding-large">
+//   <div class="xui-toggle" role="radiogroup" aria-label="ee">
+//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//     <input type="radio" name="ee" class="xui-toggle--input" disabled checked/>
+//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">View</span>
+//     </label>
+//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//       <input type="radio" name="ee" class="xui-toggle--input" disabled/>
+//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Edit</span>
+//     </label>
+//   </div>
+// </div>
+// <div class="ds-example-dark xui-padding-large">
+//   <div class="xui-toggle xui-toggle-inverted" role="radiogroup" aria-label="kk">
+//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//     <input type="radio" name="kk" class="xui-toggle--input" disabled checked/>
+//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">View</span>
+//     </label>
+//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//       <input type="radio" name="kk" class="xui-toggle--input" disabled/>
+//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Edit</span>
+//     </label>
+//   </div>
 // </div>
 //
 // Styleguide: Building Blocks.Controls.Toggle.5
@@ -138,7 +157,7 @@
 //   <label class="xui-toggle-option">
 //   <input type="radio" name="ff" class="xui-toggle--input" checked/>
 //     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal-small">
-//       <svg focusable="false" class="xui-icon xui-icon-inline">
+//       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-desktop" role="presentation"/>
 //       </svg>
 //     </span>
@@ -146,7 +165,7 @@
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="ff" class="xui-toggle--input"/>
 //     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal-small">
-//       <svg focusable="false" class="xui-icon xui-icon-inline">
+//       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-mobile" role="presentation"/>
 //       </svg>
 //     </span>
@@ -154,7 +173,7 @@
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="ff" class="xui-toggle--input"/>
 //     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal-small">
-//       <svg focusable="false" class="xui-icon xui-icon-inline">
+//       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-print" role="presentation"/>
 //       </svg>
 //     </span>
@@ -162,12 +181,3 @@
 // </div>
 //
 // Styleguide: Building Blocks.Controls.Toggle.6
-
-// Additional classes
-//
-// Flag: Deprecated
-//
-// Classes:
-// xui-toggle-form-layout: A min height is now provided by default, and use the fullwidth toggle class to grow width if desired
-//
-// Styleguide: Building Blocks.Controls.Toggle.50

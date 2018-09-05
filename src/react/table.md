@@ -1,13 +1,10 @@
 <div class="xui-margin-vertical">
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-			<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-		</svg>
-		<a href="../section-compounds-displayingdata-table.html">Table component in the XUI Documentation</a>
+		<a href="../section-compounds-displayingdata-table.html" isDocLink>Table component in the XUI Documentation</a>
 </div>
 
 The Table scaffold is a convent way to layout data sets with an *accessible* and *responsive design* mindset.
 
-The scaffold is broken up into three key components. `import XUITable, { XUITableColumn, XUITableCell } from '@xero/xui/react/table';`
+The scaffold is broken up into three key components.<br />`import XUITable, { XUITableColumn, XUITableCell } from '@xero/xui/react/table';`
 
 ## Basic
 
@@ -40,7 +37,7 @@ const {
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -60,7 +57,7 @@ const {
 } }>
 	<Column body={ ({ fruit }) => <Cell>{ fruit }</Cell> } />
 	<Column body={ ({ color }) => <Cell>{ color }</Cell> } />
-	<Column body={ ({ price }) => <Cell>${ price }</Cell> } />
+	<Column body={ ({ price }) => <Cell>{`$${price}`}</Cell> } />
 </Table>
 ```
 
@@ -108,7 +105,7 @@ const {
 
 	<Column
 		head={ <Cell>Quantity</Cell> }
-		body={ ({ quantity }) => <Cell>x{ quantity } units</Cell> }
+		body={ ({ quantity }) => <Cell>{`x${quantity} units`}</Cell> }
 	/>
 
 	<Column
@@ -118,12 +115,12 @@ const {
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 	<Column
 		head={ <Cell>Total Cost</Cell> }
-		body={ ({ price, quantity }) => <Cell>${ price * quantity }</Cell> }
+		body={ ({ price, quantity }) => <Cell>{`$${price * quantity}`}</Cell> }
 	/>
 
 	<Column
@@ -179,7 +176,7 @@ const {
 
 	<Column
 		head={ <Cell>Quantity</Cell> }
-		body={ ({ quantity }) => <Cell>x{ quantity } units</Cell> }
+		body={ ({ quantity }) => <Cell>{`x${quantity} units`}</Cell> }
 	/>
 
 	<Column
@@ -189,12 +186,12 @@ const {
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 	<Column
 		head={ <Cell>Total Cost</Cell> }
-		body={ ({ price, quantity }) => <Cell>${ price * quantity }</Cell> }
+		body={ ({ price, quantity }) => <Cell>{`$${price * quantity}`}</Cell> }
 	/>
 
 	<Column
@@ -240,7 +237,7 @@ const {
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -284,7 +281,7 @@ document.head.appendChild(node);
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -317,7 +314,7 @@ const {
 
 	<Column
 		head={ <Cell className="xui-heading-large">Price / kg</Cell> }
-		body={ ({ price, paid }) => <Cell className={ paid ? 'xui-textcolor-positive' : 'xui-textcolor-negative'}>${ price }</Cell> }
+		body={ ({ price, paid }) => <Cell className={ paid ? 'xui-textcolor-positive' : 'xui-textcolor-negative'}>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -387,7 +384,7 @@ class Demo extends React.Component {
 
 				<Column
 					head={ <Cell>Price / kg</Cell> }
-					body={ ({ price }) => <Cell>${ price }</Cell> }
+					body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 				/>
 
 			</Table>
@@ -443,7 +440,7 @@ createOverflowMenu={ ({ fruit, paid }) => !paid && ([
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -540,7 +537,7 @@ class Demo extends React.Component {
 
 				<Column
 					head={ <Cell>Quantity</Cell> }
-					body={ ({ quantity }) => <Cell>x{ quantity } units</Cell> }
+					body={ ({ quantity }) => <Cell>{ `x${quantity} units` }</Cell> }
 				/>
 
 				<Column
@@ -550,12 +547,12 @@ class Demo extends React.Component {
 
 				<Column
 					head={ <Cell>Price / kg</Cell> }
-					body={ ({ price }) => <Cell>${ price }</Cell> }
+					body={ ({ price }) => <Cell>{ `$${price}` }</Cell> }
 				/>
 
 				<Column
 					head={ <Cell>Total Cost</Cell> }
-					body={ ({ price, quantity }) => <Cell>${ price * quantity }</Cell> }
+					body={ ({ price, quantity }) => <Cell>{ `$${price * quantity}` }</Cell> }
 				/>
 
 				<Column
@@ -579,7 +576,7 @@ Convert *Column* `head` cells into buttons with sorting functionality by introdu
 
 + `sortKey` affiliates a `head` *Cell* with a key value in the `data` schema.
 + `activeSortKey` determines which `sortKey` should be used to sort the *Table* rows.
-+ `isSortAsc` defines the sort order to be *ascending* / *decending*.
++ `isSortAsc` defines the sort order to be *ascending* / *descending*.
 
 ### Custom sorting
 
@@ -653,7 +650,7 @@ class Demo extends React.Component {
 
 				<Column
 					head={ <Cell sortKey="price">Price / kg</Cell> }
-					body={ ({ price }) => <Cell>${ price }</Cell> }
+					body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 				/>
 
 			</Table>
@@ -682,7 +679,7 @@ const {
 const Appendage = ({ children }) => (
 	<div
 		className="xui-heading xui-textcolor-inverted xui-padding-vertical-large xui-padding-horizontal-small"
-		style={ { background: 'skyblue' } }>
+		style={ { background: 'darkslategray' } }>
 		{ children }
 	</div>
 );
@@ -706,7 +703,7 @@ const Appendage = ({ children }) => (
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -741,7 +738,7 @@ const {
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -751,9 +748,11 @@ const {
 
 Add *Cell* and row interactions using the `onCellClick` and `onRowClick` props.
 
-The `onRowClick` prop is run on **every** row and returns a *Thunk* allowing you to conditionally decide a rows interaction *"relevance"* independently.
+The `onRowClick` prop works in conjunction with the `shouldRowClick` prop to determine if the current row should have a click the click handler applied to it.
 
-**Note:** A *Cell* interaction will be ** overridden** if its parent row has an interaction on it (**not** nesting links inside links). This can be seen in the below example where the *"Banana"* row has no *Cell* interactions even though they were requested.
+**Note:**
++ A *Cell* interaction will be ** overridden** if its parent row has an interaction on it (**not** nesting links inside links). This can be seen in the below example where the *"Banana"* row has no *Cell* interactions even though they were requested.
++ You can nest interaction items (`<button />`, `<a />`) inside of a cell and ignore the generic cell states (e.g `:hover`). Just make sure you `stopPropagation` on the nested interaction elements _(see example below)_.
 
 ```
 const {
@@ -761,13 +760,18 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
+const XUIButton = require('./button').default;
+const XUIIcon = require('./icon').default;
+const tickIcon = require('@xero/xui-icon/icons/checkbox-check').default;
+const handleCellClick = ({price}) => alert(`You clicked $${price}`);
 
 <Table
 	data={ {
 		abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
 		def456: { fruit: 'Apple', color: 'Red', price: 3.49 }
 	} }
-	onRowClick={ ({ fruit }) => (fruit === 'Banana') && (() => alert(`You clicked the ${fruit} row`)) }>
+	shouldRowClick={ ({ fruit }) => (fruit === 'Banana') }
+	onRowClick={ (event, { fruit }) => alert(`You clicked the ${fruit} row`) }>
 
 	<Column
 		head={ <Cell>Fruit</Cell> }
@@ -776,12 +780,37 @@ const {
 
 	<Column
 		head={ <Cell>Color</Cell> }
-		body={ ({ color }) => <Cell onCellClick={ () => alert(`You clicked ${color}`) }>{ color }</Cell> }
+		body={ ({ color }) => (
+			<Cell onCellClick={ () => alert(`You clicked ${color}`) }>
+				{ color },
+				<a
+					href="#"
+					className="xui-text-link"
+					onClick={event => event.stopPropagation()}
+					onKeyDown={event => event.stopPropagation()}
+					onPointerOver={event => event.stopPropagation()}>
+					more
+				</a>
+			</Cell>
+		) }
 	/>
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell onCellClick={ () => alert(`You clicked $${price}`) }>${ price }</Cell> }
+		body={ ({ price }) => (
+			<Cell onCellClick={handleCellClick}>
+				{`$${price}`}
+				<XUIButton
+					title="select"
+					className="xui-margin-left"
+					size="small"
+					onClick={event => event.stopPropagation()}
+					onKeyDown={event => event.stopPropagation()}
+					onPointerOver={event => event.stopPropagation()}>
+					<XUIIcon icon={tickIcon} />
+				</XUIButton>
+			</Cell>
+		) }
 	/>
 
 </Table>
@@ -816,7 +845,7 @@ const {
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -834,7 +863,7 @@ const {
 const emptyStateComponent = (
 	<div
 		className="xui-heading xui-textcolor-inverted xui-padding-vertical-large xui-padding-horizontal-small"
-		style={ { background: 'skyblue' } }>
+		style={ { background: 'darkslategray' } }>
 		No fruit found... "Orange" you going to search again?
 	</div>
 );
@@ -855,7 +884,7 @@ const emptyStateComponent = (
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>

@@ -1,103 +1,138 @@
 // Select
 //
 // Introduction:
-// Selects let users pick a single option from a defined list. The page level interface is custom
-// with two options for selection: native or using custom XUI dropdown componentry.
+// Selects let users pick a single item from a list of options.
+// XUI provides both native and custom implementations of this control.
 //
-// Teaser: Choose a single item from a dropdown list of options
-//
-// Styleguide: Building Blocks.Controls.Select
-
-
-
-
-// Custom selects
+// Teaser: Choose an item from a list of options
 //
 // Components: Selectbox
 //
-// Custom selects are the go-to option for most situations. They rely heavily on javascript
-// so using the React components is highly recommended.
+// Styleguide: Building Blocks.Controls.Select
+
+// Best practice
+// 
+// Tips:
+// Do: Use a select when choosing from a basic list of options in a form
+// Do: Update the parent control after every change
+// Do: Visually highlight the current selection in the dropdown
+// Do: Start tab order from the currently selected item in the dropdown
+// Warning: Take care not to make assumptions of your user when pre-selecting options
 //
-// [Selectbox](./react/#select-box) is a simple component and a good option to replace a standard HTML select. More complex implementations
-// can be built from the [XUI Dropdown](./react/#dropdown) and [XUI Picklist](./react/#picklist) components.
+// Styleguide: Building Blocks.Controls.Select.1
+
+// Anatomy
 //
-// The list of content is a [picklist](./section-compounds-displayingdata-picklist.html) and selects can handle many of the available [options](./section-compounds-displayingdata-picklist.html#compounds-displayingdata-picklist-6).
+// Custom selects rely heavily on React for rendering children and defining interaction.
+// However, to style the static control itself, only a few basic classes are required.
+// They extend the basic `button` and `xui-icon` combination.
+//
+// Classes:
+// xui-select--button: Select styles
+// xui-select--content: Text styles
+// xui-select--caret: Icon styles
 //
 // Markup:
-// <!-- Dropdown closed -->
-// <div class="xui-field-layout">
-//   <label class="xui-text-label xui-fieldlabel-layout">Custom</label>
-//   <div class="xui-select xui-select-layout">
-//     <input type="hidden" value="Select option 1"/>
-//     <button type="button" class="xui-button xui-select--button" aria-haspopup="true">
-//       Select option 1
-//     </button>
-//     <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//     <div class="xui-dropdown-layout">
-//       <div class="xui-dropdown--mask"></div>
-//       <div class="xui-dropdown--body">
-//         <ul class="xui-picklist">
-//           <li class="xui-pickitem" tabindex="0">
-//             <button class="xui-pickitem--body" tabindex="-1">Select option 1</button>
-//           </li>
-//           <li class="xui-pickitem" tabindex="0">
-//             <button class="xui-pickitem--body" tabindex="-1">Select option 2</button>
-//           </li>
-//           <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
-//             <button class="xui-pickitem--body" tabindex="-1">Select option 3</button>
-//           </li>
-//         </ul>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-// <!-- Dropdown open -->
-// <div class="xui-select xui-select-layout">
-//   <input type="hidden" value="Select option 1"/>
-//   <button type="button" class="xui-button xui-select--button pseudo-class-active" aria-haspopup="true">
-//     Select option 3
-//   </button>
-//   <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//   <div class="xui-dropdown-layout xui-dropdown-is-open xui-dropdown-is-opening">
+// <button class="xui-button xui-select--button" aria-label="Select format">
+//   <span class="xui-select--content">CSV</span>
+//   <svg focusable="false" class="xui-icon xui-select--caret">
+//     <use xlink:href="#xui-icon-caret" role="presentation" />
+//   </svg>
+// </button>
+//
+// Styleguide: Building Blocks.Controls.Select.2
+
+// Content
+//
+// Selectable options are most often rendered as a picklist within a dropdown.
+// Wrap these in a common parent and apply the following class.
+//
+// Classes:
+// xui-select-layout: Wrapper containing a select trigger and its dropdown
+//
+// Markup:
+// <div class="xui-select-layout">
+// <button class="xui-button xui-select--button" aria-label="Select format">
+//   <span class="xui-select--content">CSV</span>
+//   <svg focusable="false" class="xui-icon xui-select--caret">
+//     <use xlink:href="#xui-icon-caret" role="presentation" />
+//   </svg>
+// </button>
+//   <div class="xui-dropdown-layout xui-margin-top-xsmall xui-u-fullwidth xui-dropdown-is-open">
 //     <div class="xui-dropdown--mask"></div>
 //     <div class="xui-dropdown--body">
-//       <ul class="xui-picklist">
+//       <ul class="xui-picklist xui-picklist-layout">
 //         <li class="xui-pickitem" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Select option 1</button>
-//         </li>
-//         <li class="xui-pickitem" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Select option 2</button>
+//           <button class="xui-pickitem--body" tabindex="-1">PDF</button>
 //         </li>
 //         <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Select option 3</button>
+//           <button class="xui-pickitem--body" tabindex="-1">CSV</button>
+//         </li>
+//         <li class="xui-pickitem" tabindex="0">
+//           <button class="xui-pickitem--body" tabindex="-1">ZIP</button>
 //         </li>
 //       </ul>
 //     </div>
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Select.1
+// Styleguide: Building Blocks.Controls.Select.3
 
-
-
-
-// Native selects
+// Empty
 //
-// If you're not using React it may be easiest to use native controls for selection.
+// If no option has been selected by default, apply the following modifier to indicate nothing is selected.
 //
 // Classes:
-// xui-select: Container for a native or custom select box
-// xui-select--caret: Subcomponent for a select caret icon
-// xui-select--control: Style for a native select box
+// xui-textcolor-faint: Changes text color
+// 
+// Markup:
+// <button class="xui-button xui-select--button" aria-label="Select format">
+//   <span class="xui-select--content xui-textcolor-faint">Select format</span>
+//   <svg focusable="false" class="xui-icon xui-select--caret">
+//     <use xlink:href="#xui-icon-caret" role="presentation" />
+//   </svg>
+// </button>
+//
+// Styleguide: Building Blocks.Controls.Select.4
+
+// Disabled
+//
+// To disable a select control, apply the `disabled` attribute.
+// This applies styles and prevents it from accepting focus.
+// 
+// Markup:
+// <button class="xui-button xui-select--button" aria-label="Select format" disabled>
+//   <span class="xui-select--content">PDF</span>
+//   <svg focusable="false" class="xui-icon xui-select--caret">
+//     <use xlink:href="#xui-icon-caret" role="presentation" />
+//   </svg>
+// </button>
+//
+// Styleguide: Building Blocks.Controls.Select.5
+
+// Native
+//
+// Options inside native select controls cannot be styled at all.
+// For this reason, the custom variant is the preferred implementation.
+// However, native controls are often useful when prototyping.
+// To style a native `select`, use the following classes and include a `xui-icon`.
+//
+// Classes:
+// xui-select: Wrapper for a native select
+// xui-select--control: Select styles
+// xui-select--caret: Icon styles
 //
 // Markup:
 //  <div class="xui-select">
-//    <select class="xui-select--control" id="group-button-example3">
-//      <option>Value 1</option>
-//      <option>Value 2</option>
-//      <option>Value 3</option>
+//    <select class="xui-select--control" aria-label="Select format">
+//      <option>PDF</option>
+//      <option>CSV</option>
+//      <option selected>ZIP</option>
 //    </select>
-//    <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//    <svg focusable="false" class="xui-icon xui-select--caret">
+//      <use xlink:href="#xui-icon-caret" role="presentation" />
+//    </svg>
 //  </div>
 //
-// Styleguide: Building Blocks.Controls.Select.2
+// Styleguide: Building Blocks.Controls.Select.6
+

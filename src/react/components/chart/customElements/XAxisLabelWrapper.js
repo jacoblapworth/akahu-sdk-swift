@@ -1,11 +1,11 @@
-import React, {PureComponent, Fragment} from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import getTargetPosition from '../helpers/targetposition';
 import HorizontallyCenterContent from './HorizontallyCenterContent';
 
 class XAxisLabelWrapper extends PureComponent {
 	handleToolTipShow = event => {
-		const {updateToolTip, toolTipMessage} = this.props;
+		const { updateToolTip, toolTipMessage } = this.props;
 		const preferred = 'bottom';
 		const position = { ...getTargetPosition(event), preferred };
 
@@ -25,7 +25,7 @@ class XAxisLabelWrapper extends PureComponent {
 			labelWidth,
 			labelHeight,
 			children,
-		} = this.props
+		} = this.props;
 
 		return (
 			<Fragment>
@@ -34,7 +34,8 @@ class XAxisLabelWrapper extends PureComponent {
 					x={labelLeft}
 					height={labelHeight}
 					width={labelWidth}
-					viewBox={`0 0 ${labelWidth} ${labelHeight}`}>
+					viewBox={`0 0 ${labelWidth} ${labelHeight}`}
+				>
 
 					{shouldCalculateCenter ? (
 						// We want to run the centering sequence as little as possible as it's
@@ -42,7 +43,8 @@ class XAxisLabelWrapper extends PureComponent {
 						// requested we bypass this component.
 						<HorizontallyCenterContent
 							wrapperWidth={labelWidth}
-							wrapperHeight={labelHeight}>
+							wrapperHeight={labelHeight}
+						>
 							{children}
 						</HorizontallyCenterContent>
 					) : children}

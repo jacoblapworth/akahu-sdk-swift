@@ -1,5 +1,6 @@
-import React, { PureComponent } from 'react';
+import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import Picklist from '../picklist/Picklist';
 import StatefulPicklist from '../picklist/StatefulPicklist';
 import {
@@ -10,13 +11,13 @@ import {
 	isVisible,
 	intervalRunner,
 	scrollTopPosition,
-	isNarrowViewport,
+	checkIsNarrowViewport,
 } from './private/helpers';
-import cn from 'classnames';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 /**
- * Utilize the intervalRunner to execute a callback when the list box and its children become visible to the user.
+ * Utilize the intervalRunner to execute a callback when the list box and its children
+ * become visible to the user.
  *
  * @private
  * @param {DropDownPanel} panel
@@ -54,7 +55,7 @@ class DropDownPanel extends PureComponent {
 		const content = this._scrollableContent;
 		if (
 			content != null &&
-			content.style.hasOwnProperty('webkitOverflowScrolling') &&
+			Object.prototype.hasOwnProperty.call(content.style, 'webkitOverflowScrolling') &&
 			navigator != null &&
 			navigator.userAgent.indexOf('Edge/') === -1
 		) {
@@ -67,14 +68,15 @@ class DropDownPanel extends PureComponent {
 	};
 
 	/**
-	 * Attempts to focus this element.  If the element either doesn't exist yet or is set to "visibility: isHidden", the
-	 * component will try to focus the element again several times over five seconds.  If it still can't after that
-	 * component will try to focus the element again several times over a half second.  If it still can't after that
-	 * amount of time, then it'll stop trying.  This is to ensure that the DropDown can set focus on this Panel while
-	 * the DropDown is going from isHidden to visible.  An intermediate stage where the  Panel's parent is set to
-	 * "visibility: isHidden" is necessary to ensure that accurate measurements of the DOM nodes can take place and the
-	 * DropDown can be properly positioned.  This will basically attempt to wait that process out and set focus after
-	 * everything is done.
+	 * Attempts to focus this element. If the element either doesn't exist yet or is set to
+	 * "visibility: isHidden", the component will try to focus the element again several times
+	 * over five seconds. If it still can't after that component will try to focus the element
+	 * again several times over a half second. If it still can't after that amount of time,
+	 * then it'll stop trying. This is to ensure that the DropDown can set focus on this Panel
+	 * while the DropDown is going from isHidden to visible. An intermediate stage where the
+	 * Panel's parent is set to "visibility: isHidden" is necessary to ensure that accurate
+	 * measurements of the DOM nodes can take place and the DropDown can be properly positioned.
+	 * This will basically attempt to wait that process out and set focus after everything is done.
 	 *
 	 * @public
 	 */
@@ -86,13 +88,14 @@ class DropDownPanel extends PureComponent {
 	 * Removes the iOS hack timeout to prevent errors
 	 */
 	componentWillUnmount() {
-		if(this._iosHackTimeout) {
+		if (this._iosHackTimeout) {
 			clearTimeout(this._iosHackTimeout);
 		}
 	}
 	/**
-	 * Public API that can be used to simulate a keydown event on the panel.  Useful if you want to allow
-	 * keyboard navigation of a child picklist while keeping the focus elsewhere in the DOM.
+	 * Public API that can be used to simulate a keydown event on the panel. Useful
+	 * if you want to allow keyboard navigation of a child picklist while keeping
+	 * the focus elsewhere in the DOM.
 	 *
 	 * @public
 	 * @param {KeyboardEvent} event
@@ -167,14 +170,19 @@ class DropDownPanel extends PureComponent {
 	scrollIdIntoView(id) {
 		whenVisible(this, () => {
 			const element = document.getElementById(id);
-			// Don't try to scroll into view unless the ID is not of something not in the scrollable div is passed
-			if (element != null && this._scrollableContent != null && this._scrollableContent.contains(element)) {
+			// Don't try to scroll into view unless the ID is not of something not in the
+			// scrollable div is passed
+			if (
+				element != null
+				&& this._scrollableContent != null
+				&& this._scrollableContent.contains(element)
+			) {
 				const newScrollTop = scrollTopPosition(element, this._scrollableContent);
 				// If you don't do this inside a setTimeout 0, it won't happen.  Not sure why
 				// yet...
 				setTimeout(() => {
-					if(this._scrollableContent) {
-						this._scrollableContent.scrollTop = newScrollTop
+					if (this._scrollableContent) {
+						this._scrollableContent.scrollTop = newScrollTop;
 					}
 				}, 0);
 			}
@@ -212,19 +220,24 @@ class DropDownPanel extends PureComponent {
 			qaHook,
 			style,
 			bodyClassName,
-			shouldManageInitialHighlight
+			shouldManageInitialHighlight,
 		} = this.props;
 
 		let maxHeight = style && style.maxHeight;
 		let overflowY;
-		if (isNarrowViewport()) {
+		if (checkIsNarrowViewport()) {
 			maxHeight = header == null ? '80vh' : '100vh';
 		} else {
 			overflowY = 'auto';
 		}
 
 		const shouldAddStatefulPicklist = forceStatefulPicklist || this.containsPicklist();
-		const scrollableContainerClasses = `${ns}-u-flex ${ns}-u-flex-vertical ${baseClass}--scrollable-container ${ns}-u-flex-grow`;
+		const scrollableContainerClasses = cn(
+			`${ns}-u-flex`,
+			`${ns}-u-flex-column`,
+			`${baseClass}--scrollable-container`,
+			`${ns}-u-flex-grow`,
+		);
 
 		return (
 			<div
@@ -233,7 +246,8 @@ class DropDownPanel extends PureComponent {
 				data-automationid={qaHook}
 				aria-hidden={isHidden}
 				id={panelId}
-				tabIndex={0}
+				tabIndex={-1}
+				role="presentation"
 				onKeyDown={this.keyDownHandler}
 				style={style}
 			>
@@ -243,21 +257,38 @@ class DropDownPanel extends PureComponent {
 					className={cn(`${baseClass}--body`, bodyClassName)}
 					style={{
 						maxHeight,
-						overflowY
+						overflowY,
 					}}
+					role="presentation"
 				>
 					{header}
 					{shouldAddStatefulPicklist ? (
-						<StatefulPicklist
+						<Fragment>
+							<StatefulPicklist
+								className={scrollableContainerClasses}
+								ref={c => this.list = c}
+								onSelect={onSelect}
+								ignoreKeyboardEvents={ignoreKeyboardEvents}
+								onHighlightChange={onHighlightChange}
+								qaHook={qaHook && `${qaHook}--scrollable-container`}
+								// Need the role here, because ARIA state needs to be managed at the same level.
+								secondaryProps={{ role: 'listbox' }}
+								shouldManageInitialHighlight={shouldManageInitialHighlight}
+							>
+								<div
+									className={`${baseClass}--scrollable-content`}
+									ref={sc => this._scrollableContent = sc}
+									data-automationid={qaHook && `${qaHook}--scrollable-content`}
+								>
+									{children}
+								</div>
+							</StatefulPicklist>
+							{footer}
+						</Fragment>
+					) : (
+						<div
 							className={scrollableContainerClasses}
-							ref={c => this.list = c}
-							onSelect={onSelect}
-							ignoreKeyboardEvents={ignoreKeyboardEvents}
-							onHighlightChange={onHighlightChange}
-							qaHook={qaHook && `${qaHook}--scrollable-container`}
-							// Need the role here, because ARIA state needs to be managed at the same level.
-							secondaryProps={{role: "listbox"}}
-							shouldManageInitialHighlight={shouldManageInitialHighlight}
+							data-automationid={qaHook && `${qaHook}--scrollable-container`}
 						>
 							<div
 								className={`${baseClass}--scrollable-content`}
@@ -267,32 +298,16 @@ class DropDownPanel extends PureComponent {
 								{children}
 							</div>
 							{footer}
-						</StatefulPicklist>
-					) : (
-							<div
-								className={scrollableContainerClasses}
-								data-automationid={qaHook && `${qaHook}--scrollable-container`}
-							>
-								<div
-									className={`${baseClass}--scrollable-content`}
-									ref={sc => this._scrollableContent = sc}
-									data-automationid={qaHook && `${qaHook}--scrollable-content`}
-								>
-									{children}
-								</div>
-								{footer}
-							</div>
-						)}
+						</div>
+					)}
 				</div>
 			</div>
 		);
 	}
-
 }
 
 DropDownPanel.propTypes = {
 	children: PropTypes.node,
-	className: PropTypes.string,
 	qaHook: PropTypes.string,
 
 	/** Inline CSS styles to add to the root DOM node of this component. */
@@ -329,14 +344,14 @@ DropDownPanel.propTypes = {
 	bodyClassName: PropTypes.string,
 
 	/** Whether the StatefulPicklist manages highlighting of list elements */
-	shouldManageInitialHighlight: PropTypes.bool
+	shouldManageInitialHighlight: PropTypes.bool,
 };
 
 DropDownPanel.defaultProps = {
 	forceStatefulPicklist: false,
 	ignoreKeyboardEvents: [],
 	isHidden: false,
-	shouldManageInitialHighlight: true
+	shouldManageInitialHighlight: true,
 };
 
 export { DropDownPanel as default, maxWidthDropdownSizes as dropdownSizes };

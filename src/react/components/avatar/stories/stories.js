@@ -4,7 +4,7 @@ import React from 'react';
 // Components we need to test with
 import XUIAvatar from '../XUIAvatar';
 import XUIAvatarGroup from '../XUIAvatarGroup';
-import { sizeClassNames } from '../constants';
+import { sizeClassNames, colorClassNames } from '../constants';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -99,7 +99,8 @@ variations.forEach(variation => {
 			avatarLength,
 			maxAvatars,
 			variant,
-			value
+			value,
+			colors
 		} = variationMinusStoryDetails;
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
@@ -148,6 +149,15 @@ variations.forEach(variation => {
 					className="xui-margin-small"
 				/>
 			));
+		}
+
+		if (colors) {
+			delete variationMinusStoryDetails.colors;
+			const avatars = [];
+			colorClassNames.forEach((colorClass, i) => {
+				avatars.push(<abbr className={`xui-avatar xui-margin-xsmall ${colorClass}`} key={`${i}`}>A{i+1}</abbr>);
+			});
+			return <div className="xui-panel xui-padding-small">{avatars}</div>;
 		}
 
 		return <XUIAvatar {...variationMinusStoryDetails} />;

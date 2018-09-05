@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-compounds-navigation-isolation-header.html">Isolation Header in the XUI Documentation</a>
+	<a href="../section-compounds-navigation-isolation-header.html" isDocLink>Isolation Header in the XUI Documentation</a>
 </div>
 
 `XUIIsolationHeader` replaces the standard global header for tasks that are part of a focused workflow.
@@ -20,15 +17,15 @@ const XUIButton = require('./button').default;
 
 <XUIIsolationHeader>
 	<XUIIsolationHeaderNavigation>
-		<XUIButton className="xui-margin-right-small" variant="icon-large">
-			<XUIIcon path={cross} />
+		<XUIButton className="xui-margin-right-small" variant="icon-large" aria-label="close">
+			<XUIIcon icon={cross} />
 		</XUIButton>
 		<XUIIsolationHeaderTitle>Main Title</XUIIsolationHeaderTitle>
 		<XUIIsolationHeaderSecondaryTitle>Secondary Title</XUIIsolationHeaderSecondaryTitle>
 	</XUIIsolationHeaderNavigation>
 	<XUIIsolationHeaderActions>
-		<XUIButton variant="icon-large">
-			<XUIIcon path={overflow} />
+		<XUIButton variant="icon-large" aria-label="more options">
+			<XUIIcon icon={overflow} />
 		</XUIButton>
 	</XUIIsolationHeaderActions>
 </XUIIsolationHeader>

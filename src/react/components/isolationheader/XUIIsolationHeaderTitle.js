@@ -1,17 +1,22 @@
 import PropTypes from 'prop-types';
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import cn from 'classnames';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 export default class XUIIsolationHeaderTitle extends PureComponent {
 	render() {
-		const {children, className, qaHook, title} = this.props;
+		const {
+			children,
+			className,
+			qaHook,
+			title,
+		} = this.props;
 		const classNames = cn(
 			className,
 			`${ns}-heading`,
 			`${ns}-margin-right-small`,
 			`${ns}-margin-vertical-none`,
-			`${ns}-text-truncated`
+			`${ns}-text-truncated`,
 		);
 		return (
 			<h2 title={title} className={classNames} data-automationid={qaHook}>
@@ -27,5 +32,5 @@ XUIIsolationHeaderTitle.propTypes = {
 	children: PropTypes.node,
 
 	/** The value of the title attribute */
-	title: PropTypes.string
+	title: PropTypes.string,
 };

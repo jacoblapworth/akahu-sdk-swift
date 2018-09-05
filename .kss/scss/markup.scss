@@ -8,7 +8,7 @@
 }
 
 .ds-markup {
-	background: mix(black, $xui-color-grey-1, 40%);
+	background: $ds-markup-bg-color;
 	display: block;
 	padding-top: 1rem;
 	padding-left: 1rem;
@@ -52,7 +52,7 @@
 		left: 0;
 		top: 0;
 		right: 0;
-		background: mix(black, $xui-color-grey-1, 40%);
+		background: $ds-markup-bg-color;
 		height: $ds-page-header-height;
 		padding-left: 1rem;
 		padding-right: 1rem;
@@ -63,7 +63,7 @@
 	}
 	.ds-button-closemarkup,
 	.ds-markup--actions h3 {
-		display: block;
+		display: flex;
 	}
 }
 
@@ -84,7 +84,7 @@
 }
 
 code {
-	background: $xui-color-grey-6;
+	background: $ds-code-bg-color;
 	border-radius: $xui-radius;
 	padding: 0 4px;
   word-break: break-word;
@@ -94,38 +94,6 @@ code {
 // ------------------------------------------------------------------------------
 
 /* Pretty printing styles. Used with prettify.js. */
-
-// scss-lint:disable SingleLinePerProperty
-// scss-lint:disable SingleLinePerSelector
-/* SPAN elements with the classes below are added by prettyprint. */
-// .pln { color: $xui-color-grey-6; }  /* plain text */
-// .str { color: $xui-color-grey-6; }  /* string content */
-// .kwd { color: $xui-color-grey-6; }  /* a keyword */
-// .com { color: $xui-color-grey-3; }  /* a comment */
-// .typ { color: $xui-color-grey-6; }  /* a type name */
-// .lit { color: $xui-color-grey-6; }  /* a literal value */
-// /* punctuation, lisp open bracket, lisp close bracket */
-// .pun, .opn, .clo { color: $xui-color-grey-5; }
-// .tag { color: $xui-color-grey-4; }  /* a markup tag name */
-// .atn { color: $xui-color-grey-4; }  /* a markup attribute name */
-// .atv { color: $xui-color-grey-6; }  /* a markup attribute value */
-// .dec, .var { color: $xui-color-grey-5; }  /* a declaration; a variable name */
-// .fun { color: $xui-color-xero-red; }  /* a function name */
-// scss-lint:enable SingleLinePerProperty
-// scss-lint:enable SingleLinePerSelector
-
-/* Use higher contrast and text-weight for printable form. */
-// @media print, projection {
-//   .str { color: #060 }
-//   .kwd { color: #006; font-weight: bold }
-//   .com { color: #600; font-style: italic }
-//   .typ { color: #404; font-weight: bold }
-//   .lit { color: #044 }
-//   .pun, .opn, .clo { color: #440 }
-//   .tag { color: #006; font-weight: bold }
-//   .atn { color: #404 }
-//   .atv { color: #060 }
-// }
 
 @media screen {
 
@@ -180,13 +148,13 @@ code {
   /* markup tag name */
 
   .tag {
-    color: $xui-color-white-muted;
+    color: $xui-color-white-faint;
   }
 
   /* markup attribute name */
 
   .atn {
-    color: $xui-color-green;
+    color: $xui-color-yellow;
   }
 
   /* markup attribute value */
@@ -198,7 +166,7 @@ code {
 	/* plain text */
 
 	.pln {
-    color: $xui-color-grey-3;
+    color: $xui-color-white;
   }
 
   /* declaration */
@@ -239,7 +207,7 @@ code {
 		position: relative;
 		&:before {
 			content: counter(step);
-			color: $xui-color-grey-2;
+			color: $ds-markup-linenum-color;
 			left: -2rem;
 			position: absolute;
 		}

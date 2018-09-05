@@ -1,9 +1,6 @@
 
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-fundamentals-layout.html#fundamentals-layout-2-1">Rows in the XUI Documentation</a>
+	<a href="../section-fundamentals-layout.html#fundamentals-layout-2-1" isDocLink>Rows in the XUI Documentation</a>
 </div>
 
 `XUIRow` components are used to wrap `XUIColumn` components. The row variant determines how columns are spaced.

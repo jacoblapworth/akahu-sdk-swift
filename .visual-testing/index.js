@@ -82,10 +82,6 @@ const componentsToTest = [
 		selectors: '.capture'
 	},
 	{
-		testsPrefix: 'XUI Input',
-		variationsPath: `${variationsPath}/input/stories/variations.js`
-	},
-	{
 		testsPrefix: 'XUI Loader',
 		variationsPath: `${variationsPath}/loader/stories/variations.js`,
 		misMatchThreshold: 5
@@ -150,11 +146,6 @@ const componentsToTest = [
 		delay: 1500
 	},
 	{
-		testsPrefix: 'XUI Textarea',
-		variationsPath: `${variationsPath}/textarea/stories/variations.js`,
-		delay: 1500
-	},
-	{
 		testsPrefix: 'XUI Toast',
 		variationsPath: `${variationsPath}/toast/stories/variations.js`
 	},
@@ -174,13 +165,13 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'Compositions',
-		variationsPath: '../.tmp/react-dev/stories/tests.js',
+		variationsPath: '../.tmp/react-dev/stories/compositions/tests.js',
 		delay: 1500,
 		...fullPageSettings
 	},
 	{
 		testsPrefix: 'Page Layouts',
-		variationsPath: '../.tmp/react-dev/page-layouts/tests.js',
+		variationsPath: '../.tmp/react-dev/stories/page-layouts/tests.js',
 		...fullPageSettings
 	}
 ];

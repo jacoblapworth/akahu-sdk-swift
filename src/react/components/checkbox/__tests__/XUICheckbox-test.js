@@ -3,8 +3,8 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import star from '@xero/xui-icon/icons/star';
-import contact from '@xero/xui-icon/icons/contact';
 import XUICheckbox from '../XUICheckbox';
+import uuidv4 from 'uuid/v4';
 
 import div from './helpers/container';
 
@@ -12,14 +12,13 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const NOOP = () => {};
 
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => 'testCheckboxId');
+
 describe('XUICheckbox', function() {
 	let wrapper;
 	let input;
 	//<use /> tags
-	let focus;
-	let main;
-	let check;
-	let indeterminate;
 
 	beforeEach( () => {
 		wrapper = mount(
@@ -59,6 +58,13 @@ describe('XUICheckbox', function() {
 		);
 
 		expect(hiddenLabel).toMatchSnapshot();
+	});
+	it('should have a visible label, if specified', () => {
+		const visibleLabel = renderer.create(
+			<XUICheckbox onChange={NOOP}>Visible label</XUICheckbox>
+		);
+
+		expect(visibleLabel).toMatchSnapshot();
 	});
 
 	it('should be unchecked by default', () => {
@@ -154,138 +160,11 @@ describe('XUICheckbox', function() {
 		expect(nodes.length).toBe(0);
 	});
 
-	///ICON COMBINATORS
-	describe('icon combinations', () => {
-		let wrapper = mount(
-			<XUICheckbox onChange={NOOP} iconMainPath={star} iconIndeterminatePath={contact} iconCheckPath={contact}>
-				Howdy, folks!
-			</XUICheckbox>, { attachTo: div }
+	it('should render with an icon when one is provided', () => {
+		const icon = renderer.create(
+			<XUICheckbox iconMain={star} onChange={NOOP} />
 		);
 
-		it('should use the xui-icon class on the SVG element', () => {
-			expect(wrapper.find('svg').hasClass('xui-icon')).toBeTruthy();
-		});
-
-		it('should define role as presentation on each use element', () => {
-			focus = wrapper.find('.xui-styledcheckboxradio--focus').instance();
-			main = wrapper.find('.xui-styledcheckboxradio--main').instance();
-			check = wrapper.find('.xui-styledcheckboxradio--check').instance();
-			indeterminate = wrapper.find('.xui-styledcheckboxradio--indeterminate').instance();
-
-			expect(focus.getAttribute('role')).toEqual('presentation');
-			expect(main.getAttribute('role')).toEqual('presentation');
-			expect(check.getAttribute('role')).toEqual('presentation');
-			expect(indeterminate.getAttribute('role')).toEqual('presentation');
-		});
-
-		const iconResults = (wrapper, variants = {
-			focus: star,
-			main: star,
-			check: contact,
-			indeterminate: contact
-		}) => {
-
-			if(variants.focus) {
-				focus = wrapper.find('.xui-styledcheckboxradio--focus').instance();
-				expect(focus.getAttribute('d')).toEqual(variants.focus);
-			}
-
-			if(variants.main){
-				main = wrapper.find('.xui-styledcheckboxradio--main').instance();
-				expect(main.getAttribute('d')).toEqual(variants.main);
-			}
-
-			if(variants.check){
-				check = wrapper.find('.xui-styledcheckboxradio--check').instance();
-				expect(check.getAttribute('d')).toEqual(variants.check);
-			}
-
-			if(variants.indeterminate){
-				indeterminate = wrapper.find('.xui-styledcheckboxradio--indeterminate').instance();
-				expect(indeterminate.getAttribute('d')).toEqual(variants.indeterminate);
-			}
-
-		};
-
-		it('use icons - iconMainPath: checkbox-main, iconCheckPath: checkbox-check, iconIndeterminatePath: checkbox-contact when iconIndeterminatePath is contact icon path', () => {
-			wrapper = mount(<XUICheckbox onChange={NOOP} iconIndeterminatePath={contact} />);
-			iconResults(wrapper, {indeterminate: contact});
-		});
-
-		it('use icons - iconMainPath: checkbox-main, iconCheckPath: radio-check, iconIndeterminatePath: checkbox-indeterminate when iconCheckPath is contact icon path', () => {
-			wrapper = mount(<XUICheckbox onChange={NOOP} iconCheckPath={contact}/>);
-			iconResults(wrapper, {check: contact});
-		});
-
-		it('use icons - iconMainPath: icon-main, iconCheckPath: none, iconIndeterminatePath: none when iconMainPath is star', () => {
-			wrapper = mount(<XUICheckbox onChange={NOOP} iconMainPath={star} />);
-
-			focus = wrapper.find('.xui-styledcheckboxradio--focus').instance();
-			main = wrapper.find('.xui-styledcheckboxradio--main').instance();
-
-			iconResults(wrapper, {
-				focus: star,
-				main: star
-			});
-
-			expect(wrapper.find('svg').instance().childNodes.length).toEqual(2);
-		});
-
-		it('use icons - iconMainPath: star, iconCheckPath: null, iconIndeterminatePath: contact when an Indeterminate icon path is supplied with iconMainPath', () => {
-			wrapper = mount(<XUICheckbox onChange={NOOP} iconMainPath={star} iconIndeterminatePath={contact} />);
-
-			focus = wrapper.find('.xui-styledcheckboxradio--focus').instance();
-			main = wrapper.find('.xui-styledcheckboxradio--main').instance();
-			indeterminate = wrapper.find('.xui-styledcheckboxradio--indeterminate').instance();
-
-			iconResults(wrapper, {
-				focus: star,
-				main: star,
-				indeterminate: contact
-			});
-
-			expect(wrapper.find('svg').instance().childNodes.length).toEqual(3);
-		});
-
-		it('use icons - iconMainPath: star, iconCheckPath: null, iconIndeterminatePath: null when null is passed to iconIndeterminatePath or iconCheck', () => {
-			wrapper = mount(<XUICheckbox onChange={NOOP} iconMainPath={star} iconIndeterminate={null} iconCheck={null} />);
-
-			focus = wrapper.find('.xui-styledcheckboxradio--focus').instance();
-			main = wrapper.find('.xui-styledcheckboxradio--main').instance();
-
-			iconResults(wrapper, {
-				focus: star,
-				main: star
-			});
-			expect(wrapper.find('svg').instance().childNodes.length).toEqual(2);
-		});
-
-		it('use icons - iconMainPath: star, iconCheckPath: contact, iconIndeterminatePath: null', () => {
-			wrapper = mount(<XUICheckbox onChange={NOOP} iconMainPath={star} iconIndeterminatePath={null} iconCheckPath={contact} />);
-
-			focus = wrapper.find('.xui-styledcheckboxradio--focus').instance();
-			main = wrapper.find('.xui-styledcheckboxradio--main').instance();
-			check = wrapper.find('.xui-styledcheckboxradio--check').instance();
-
-			iconResults(wrapper, {
-				focus: star,
-				main: star,
-				check: contact
-			});
-			expect(wrapper.find('svg').instance().childNodes.length).toEqual(3);
-		});
-
-		it('use icons - iconMainPath: star, iconCheckPath: contact, iconIndeterminatePath: contact when a value is supplied to each icon', () => {
-			wrapper = mount(<XUICheckbox onChange={NOOP} iconMainPath={star} iconCheckPath={contact} iconIndeterminatePath={contact}  />);
-
-			const variants = {
-				check: contact,
-				main: star,
-				focus: star,
-				indeterminate: contact
-			};
-
-			iconResults(wrapper, variants);
-		});
+		expect(icon).toMatchSnapshot();
 	});
 });

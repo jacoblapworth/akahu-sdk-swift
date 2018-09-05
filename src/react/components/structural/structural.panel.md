@@ -1,9 +1,6 @@
 
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-compounds-displayingdata-panel.html">Panels in the XUI Documentation</a>
+	<a href="../section-compounds-displayingdata-panel.html" isDocLink>Panels in the XUI Documentation</a>
 </div>
 
 Panels are top-level containers for grouping page content. XUIPanel can optionally contain XUIPanelHeading, XUIPanelFooter, and/or XUIPanelSection (which can have its own header). XUIPanel will also accept content designated as a sidebar.
@@ -60,9 +57,9 @@ const footer = (
 );
 const exampleNav = (
 	<XUIPicklist secondaryProps={{role: "menu"}}>
-		<XUIPickitem key="1" id="1" ariaRole="menuitem">Bills</XUIPickitem>
-		<XUIPickitem key="2" id="2" ariaRole="menuitem" isSelected={true}>Invoices</XUIPickitem>
-		<XUIPickitem key="3" id="3" ariaRole="menuitem">Contacts</XUIPickitem>
+		<XUIPickitem key="1" id="panelpi1" ariaRole="menuitem">Bills</XUIPickitem>
+		<XUIPickitem key="2" id="panelpi2" ariaRole="menuitem" isSelected={true}>Invoices</XUIPickitem>
+		<XUIPickitem key="3" id="panelpi3" ariaRole="menuitem">Contacts</XUIPickitem>
 	</XUIPicklist>
 );
 

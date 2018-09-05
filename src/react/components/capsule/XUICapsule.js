@@ -1,10 +1,10 @@
-import '../helpers/xuiGlobalChecks';
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
+import '../helpers/xuiGlobalChecks';
 import XUIButton from '../button/XUIButton';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 export default function XUICapsule({
 	className,
@@ -18,14 +18,16 @@ export default function XUICapsule({
 	onBlur,
 }) {
 	const isInteractive = (href != null || typeof onClick === 'function');
+	const classNames = cn(
+		className,
+		`${ns}-capsule`,
+		isInteractive && `${ns}-capsule-interactive`,
+		!isValid && `${ns}-capsule-invalid`,
+	);
 
-	return (
+	return isInteractive ? (
 		<XUIButton
-			className={cn(className,
-				`${ns}-capsule`,
-				isInteractive && `${ns}-capsule-interactive`,
-				!isValid && `${ns}-capsule-invalid`
-			)}
+			className={classNames}
 			href={href}
 			isLink={isLink}
 			target={target}
@@ -36,6 +38,10 @@ export default function XUICapsule({
 		>
 			{children}
 		</XUIButton>
+	) : (
+		<span className={classNames}>
+			{children}
+		</span>
 	);
 }
 
@@ -60,5 +66,5 @@ XUICapsule.propTypes = {
 
 XUICapsule.defaultProps = {
 	isValid: true,
-	isLink: true
+	isLink: true,
 };

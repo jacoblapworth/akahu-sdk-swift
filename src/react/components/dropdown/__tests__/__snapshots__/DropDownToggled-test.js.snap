@@ -2,10 +2,12 @@
 
 exports[`<DropDownToggled /> should render a passed qaHook as an auotmation id 1`] = `
 <div
-  className="dropdown-toggled-wrapper"
+  aria-expanded={undefined}
+  aria-owns={undefined}
+  className={undefined}
   data-automationid="ddt-example"
   data-ref="toggled-wrapper"
-  onKeyDown={[Function]}
+  role="presentation"
 >
   <button
     aria-activedescendant={null}

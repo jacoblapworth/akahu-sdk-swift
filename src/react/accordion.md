@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-			<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-		</svg>
-		<a href="../section-compounds-displayingdata-accordion.html">Accordion in the XUI Documentation</a>
+		<a href="../section-compounds-displayingdata-accordion.html" isDocLink>Accordion in the XUI Documentation</a>
 </div>
 
 Accordions are used to display a vertically expandable & collapsible list that reveals and hides additional content
@@ -76,7 +73,7 @@ const itemStyle = { background: 'lightgray', border: '1px solid darkgray', paddi
 
 If no `children` content is supplied to a `<XUIAccordionItem />` then the _empty state_ component will be rendered instead.
 
-There is a default design that can be overridden or completely replaced (`emptyMessage`, `emptyIconPath`, `emptyStateComponent`).
+There is a default design that can be overridden or completely replaced (`emptyMessage`, `emptyIcon`, `emptyStateComponent`).
 
 ```
 const {
@@ -96,7 +93,7 @@ const icon = require('@xero/xui-icon/icons/overflow').default;
 	/>
 	<XUIAccordion
 		className="xui-margin-bottom-large"
-		emptyIconPath={starIconPath}
+		emptyIcon={starIconPath}
 		emptyMessage="Custom empty state message"
 		items={[{ id: 1 }]}
 		createItem={({ name }) => <XUIAccordionItem primaryHeading="Custom empty state" />}
@@ -144,7 +141,7 @@ const { default: overflowPathData } = require('@xero/xui-icon/icons/overflow');
 		<XUIAccordionItem
 			primaryHeading={name}
 			leftContent={<XUIAvatar value={name} className="xui-margin-right"/>}
-			overflow={<XUIButton variant="icon-large"><XUIIcon path={overflowPathData} title="Overflow menu"/></XUIButton>}
+			overflow={<XUIButton variant="icon-large"><XUIIcon icon={overflowPathData} title="Overflow menu"/></XUIButton>}
 			action={(
 				<XUIButton
 					size="small"

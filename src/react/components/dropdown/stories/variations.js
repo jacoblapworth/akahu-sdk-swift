@@ -7,64 +7,68 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as default',
-		ddSettings: {}
+		ddSettings: {},
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as Matched to Trigger Width',
 		ddSettings: {},
-		matchTriggerWidth: true
+		matchTriggerWidth: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with Header and Footer',
 		ddSettings: {
-			headerAndFooter: true
-		}
+			headerAndFooter: true,
+		},
+		closeOnTab: false,
+		closeOnSelect: false,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with a DatePicker',
 		ddSettings: {
-			children: 'datepicker'
+			children: 'datepicker',
 		},
 		restrictToViewPort: false,
-		closeOnTab: false
+		closeOnTab: false,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with Text Content',
 		ddSettings: {
-			children: 'plaintext'
-		}
+			children: 'plaintext',
+		},
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with NestedDropDown',
 		ddSettings: {
-			children: 'nested'
-		}
+			children: 'nested',
+		},
+		closeOnTab: false,
+		closeOnSelect: false,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'side by side',
 		ddSettings: {
-			children: 'side-by-side'
-		}
+			children: 'side-by-side',
+		},
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with positioning test',
 		ddSettings: {
-			children: 'positioning-test'
-		}
+			children: 'positioning-test',
+		},
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with maxHeight',
 		ddSettings: {},
-		maxHeight: 200
-	}
+		maxHeight: 200,
+	},
 ];
 
 Object.keys(privateConsts.fixedWidthDropdownSizes).forEach(size => {
@@ -73,13 +77,13 @@ Object.keys(privateConsts.fixedWidthDropdownSizes).forEach(size => {
 		storyTitle: `as Fixed-Width ${size}`,
 		ddSettings: {
 			fixedWidth: true,
-			size: size
-		}
+			size,
+		},
 	});
 });
 
 module.exports = {
 	storiesWithVariationsKindName,
 	variations,
-	NOOP
-}
+	NOOP,
+};

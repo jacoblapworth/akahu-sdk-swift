@@ -86,7 +86,7 @@ describe('XUIToast', () => {
 	});
 
 	it('should render toast actions as buttons and/or links with the appropriate classes', function () {
-		const wrapper = mount(
+		const wrapper = render(
 			<XUIToast>
 				<XUIToastActions>
 					<XUIToastAction href="https://google.com">Hello</XUIToastAction>

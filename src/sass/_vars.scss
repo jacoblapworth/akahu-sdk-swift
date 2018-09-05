@@ -1,10 +1,9 @@
-@import "settings/colors";
-@import "settings/borders";
-@import "settings/animation";
-@import "settings/layout";
-@import "settings/structure";
-@import "settings/typography";
-@import "settings/buttons";
+@import "1-vars/colors";
+@import "1-vars/borders";
+@import "1-vars/animation";
+@import "1-vars/layout";
+@import "1-vars/structure";
+@import "1-vars/typography";
 
 $ns: "xui" !default;
 

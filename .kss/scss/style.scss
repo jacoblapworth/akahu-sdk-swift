@@ -2,29 +2,15 @@
 @import "../../src/sass/mixins";
 @import "../../src/sass/vars";
 @import "./mixins";
+@import "./vars";
 
-$ds-nav-width: 17rem;
-$ds-page-width: 80rem;
-$ds-page-header-height: 56px;
-$ds-nav-gutter: calc(0.7em + .7vw);
-$ds-nav-gutter-mobile: 5vw;
-$ds-inverted--light: rgba(0, 0, 0, 0.06);
-$ds-inverted--medium: rgba(0, 0, 0, 0.2);
-$ds-motion-curve-bouncy: cubic-bezier(0.37, 1.85, 0.43, 0.86);
-$ds-color-black: #1c242c;
-// $ds-main-side-padding provides left and right padding for the XUI Docs landing page (via the .ds-main class) when screen
-// width > 940 px. It is a temporary workaround and can be replaced by 7vmax as soon as IE/Edge support the vmax unit
-$ds-main-side-padding: calc(7 * (1vw + 1vh - 1vmin));
-$ds-shadow-border-top: 0 -1px 0 0 $xui-color-grey-alpha-6;
-$ds-shadow-border-bottom: 0 1px 0 0 $xui-color-grey-alpha-6;
-$ds-shadow-border-left: -1px 0 0 0 $xui-color-grey-alpha-6;
 
 .ds-html {
-	background: $xui-color-grey-6;
+	background: $ds-html-bg-color;
 }
 
 .ds-body {
-	background: $xui-color-white;
+	background: $ds-body-bg-color;
 	font-size: 15px;
 	min-height: 100vh;
 	position: relative;
@@ -43,7 +29,7 @@ $ds-shadow-border-left: -1px 0 0 0 $xui-color-grey-alpha-6;
 }
 
 .ds-example-wrap {
-	background: $xui-color-grey-7;
+	background: $ds-example-wrap-bg-color;
 	border: 0;
 	padding: 20px;
 }
@@ -97,7 +83,7 @@ $ds-shadow-border-left: -1px 0 0 0 $xui-color-grey-alpha-6;
 $ds-section-space: calc(6rem + 2vh);
 
 .ds-title {
-	color: $xui-color-black;
+	color: $ds-text-heading-color;
 	font-family: $xui-font-family;
 	margin-left: -$xui-s-large;
 	padding-left: $xui-s-large;
@@ -138,7 +124,7 @@ $ds-section-space: calc(6rem + 2vh);
 // use 4th level blocks as callouts
 .kss-section--depth-4 {
 	padding: 20px;
-	border: 1px solid $xui-color-grey-6;
+	border: 1px solid $ds-border-color;
 	border-radius: 3px;
 }
 
@@ -222,7 +208,7 @@ code {
 
 .ds-intro {
 		font-size: 19px;
-		color: $xui-color-grey-2;
+		color: $ds-text-secondary-color;
 }
 
 .ds-description {
@@ -230,7 +216,7 @@ code {
 	pre {
 		padding: 15px 25px;
 		width: 100%;
-		background: $xui-color-grey-1;
+		background: $ds-dark-bg-color;
 	}
 
 	table {
@@ -254,11 +240,7 @@ code {
 
 .ds-tips {
 	display: flex;
-	align-items: flex-start;
-}
-.ds-tips--icon {
-	margin-top: -4px;
-	vertical-align: text-top;
+	align-items: center;
 }
 
 .ds-tips-positive {
@@ -313,7 +295,7 @@ section[class*="kss-section"] {
 
 .ds-markup--label{
 	font-size: $xui-font-size-small;
-	color: $xui-color-xero-blue;
+	color: $xui-color-blue;
 	display: inline-block;
 }
 
@@ -321,8 +303,8 @@ section[class*="kss-section"] {
 .ds-input-all:checked ~ * .ds-all-label,
 .ds-input-markup:checked ~ * .ds-markup-label,
 .ds-input-example:checked ~ * .ds-example-label {
-	border-bottom: 3px $xui-color-xero-blue solid;
-	color: $xui-color-xero-blue;
+	border-bottom: 3px $xui-color-blue solid;
+	color: $xui-color-blue;
 }
 
 
@@ -365,18 +347,18 @@ $kss-color-margin: #fffedf;
 $kss-color-padding: #eeebff;
 
 .ds-spacing-example {
-	background: url("./kss-assets/ryanbear.gif") center center $xui-color-grey-6;
+	background: url("./kss-assets/ryanbear.gif") center center $ds-code-bg-color;
 	background-size: 130%;
 	border: $xui-border-standard;
 }
 
 .ds-space-example {
-	background: $xui-color-xero-yellow;
+	background: $xui-color-yellow;
 	display: inline-block;
-	border: 1px solid $xui-color-xero-yellow;
+	border: 1px solid $xui-color-yellow;
 	> * {
-		background: $xui-color-inverted-alpha-3;
-		border: 1px solid $xui-color-xero-yellow;
+		background: $ds-example-alpha-bg-color;
+		border: 1px solid $xui-color-yellow;
 		height: $xui-s-5xlarge;
 		width: $xui-s-5xlarge;
 	}
@@ -391,7 +373,7 @@ $kss-color-padding: #eeebff;
 	}
 	> * {
 		border: 1px solid $xui-color-blue;
-		background: $xui-color-inverted-alpha-3;
+		background: $ds-example-alpha-bg-color;
 		min-height: $xui-s-5xlarge;
 		min-width: $xui-s-5xlarge;
 	}
@@ -419,7 +401,7 @@ $kss-color-padding: #eeebff;
 		margin-top: $xui-s-standard;
 	}
 	> * {
-		background: $xui-color-inverted-alpha-3;
+		background: $ds-example-alpha-bg-color;
 		border: 1px solid $xui-color-violet;
 		min-height: $xui-s-5xlarge;
 		width: $xui-s-5xlarge;
@@ -459,7 +441,7 @@ $kss-color-padding: #eeebff;
 	h4 {
 		margin-top: $xui-s-xlarge;
 		margin-bottom: $xui-s-large;
-		color: $xui-color-grey-1;
+		color: $ds-text-heading-color;
 	}
 }
 
@@ -490,9 +472,9 @@ $kss-color-padding: #eeebff;
 	@include xui-breakpoint-medium-and-wide {
 		display: table-row;
 	}
-	border-bottom: 1px solid $xui-color-grey-6;
+	border-bottom: 1px solid $ds-border-color;
 	&:first-of-type {
-		border-top: 1px solid $xui-color-grey-6;
+		border-top: 1px solid $ds-border-color;
 	}
 }
 
@@ -513,7 +495,7 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-parameters-table-header {
-	color: $xui-color-grey-1;
+	color: $ds-text-heading-color;
 	font-weight: bold;
 	text-align: left;
 	white-space: nowrap;
@@ -537,7 +519,8 @@ $kss-color-padding: #eeebff;
 .ds-nav--header a {
 	outline: none;
 	& :focus {
-		background: $xui-color-grey-alpha-7;
+		background: $ds-nav-focus-bg-color;
+
 	}
 }
 
@@ -555,7 +538,7 @@ $kss-color-padding: #eeebff;
 		list-style: none;
 	}
 	@include xui-breakpoint-wide {
-		border-right: 1px solid $xui-color-grey-6;
+		border-right: 1px solid $ds-border-color;
 		bottom: 0;
 		left: 0;
 		position: fixed;
@@ -581,8 +564,8 @@ $kss-color-padding: #eeebff;
 
 	// style siblings based on input checked state
 	&:checked ~ .ds-nav--item {
-		background: $xui-color-grey-alpha-7;
-		box-shadow: 0 -1px 0 0 $xui-color-grey-6;
+		background: $ds-nav-focus-bg-color;
+		box-shadow: 0 -1px 0 0 $ds-border-color;
 	}
 	&:checked ~ .ds-nav--item .ds-nav--item--icon svg {
 		transform: rotate(180deg);
@@ -590,27 +573,25 @@ $kss-color-padding: #eeebff;
 	}
 	&:focus ~ .ds-nav--item .ds-nav--item--icon {
 		outline: none;
-		background: $xui-color-grey-alpha-7;
+		background: $ds-nav-focus-bg-color;
 	}
 	&:checked ~ .ds-nav--nested {
+		padding: $xui-s-small 0;
 		transition: .3s ease-in-out;
 		pointer-events: initial ;
 		display: block;
 		height: auto ;
 		opacity: 1 ;
-		border-bottom: 1px solid $xui-color-grey-alpha-6;
+		border-bottom: 1px solid $ds-nav-border-color;
 		& .ds-nav--child {
 			visibility: visible;
-		}
-		ul {
-			padding-bottom: 10px;
 		}
 	}
 }
 
 .ds-nav--item {
 	align-items: stretch;
-	border-bottom: 1px solid $xui-color-grey-alpha-6;
+	border-bottom: 1px solid $ds-nav-border-color;
 	display: flex;
 	font-size: 13px; // RESETTING DOCS 15px so line height for spacing works.
 	position: relative;
@@ -622,22 +603,24 @@ $kss-color-padding: #eeebff;
 
 .ds-nav--item--index {
 	align-items: center;
-	color: $xui-color-grey-alpha-2;
+	color: $ds-text-secondary-color;
 	display: flex;
 	font-size: $xui-font-size-medium;
 	height: 52px;
 	padding: 0 $xui-s-large;
+	text-decoration: none;
 	transition: all .15s ease-in-out;
 	width: 100%;
+
 	&:hover:not(:focus) {
-		background: $xui-color-grey-7;
-		color: $xui-color-grey-1;
+		background: $ds-nav-item-hover-bg-color;
+		color: $ds-text-primary-color;
 	}
 	&:focus:not(:active) {
-		background: $xui-color-grey-alpha-7;
+		background: $ds-nav-item-hover-bg-color;
 	}
 	&:active {
-		background: $xui-color-grey-6;
+		background: $ds-nav-item-active-bg-color;
 	}
 	&:before {
 		height: 52px;
@@ -652,14 +635,15 @@ $kss-color-padding: #eeebff;
 	justify-content: center;
 	transition: all .15s ease-in-out;
 	width: 52px;
+	user-select: none; // Prevent double click selecting child content
 	&:hover:not(:focus) {
-		background: $xui-color-grey-7;
+		background: $ds-nav-focus-bg-color;
 	}
 	& svg {
 		transition: all 0.3s ease;
 	}
 	&:hover .ds-nav--item--icon-fill {
-		fill: $xui-color-grey-1;
+		fill: $ds-nav-icon-hover-fill;
 	}
 	// this is a little box that we can style with the above
 	// `&:hover .ds-nav--item--icon:after` selector
@@ -675,13 +659,13 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-nav--item--icon-fill {
-	fill: $xui-color-grey-alpha-2;
+	fill: $ds-nav-icon-fill;
 }
 
 // Visually hidden to allow transitions on open
 // children are `visibility: hidden` to remove from the tab flow
 .ds-nav--nested {
-	background: $xui-color-grey-alpha-7;
+	background: $ds-nav-focus-bg-color;
 	height: 0;
 	opacity: 0;
 	overflow: hidden;
@@ -693,32 +677,45 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-nav--group-header {
-	box-shadow: $ds-shadow-border-top;
-	color: $xui-color-grey-2;
+	color: $ds-text-secondary-color;
 	display: inline-block;
 	font-size: 11px;
-	padding: $xui-s-large $xui-s-large 0;
+	padding-left: $xui-s-large;
+	padding-right: $xui-s-large;
 	width: 100%;
 }
 
+.ds-nav--nested li:nth-child(1) .ds-nav--group-header {
+  padding-top: $xui-s-small;
+}
+
+.ds-nav--nested li:nth-child(n+2) .ds-nav--group-header {
+  box-shadow: $ds-shadow-border-top;
+  padding-top: $xui-s-large;
+  margin-top: $xui-s-small;
+}
+
+
 .ds-nav--child {
-	color: $xui-color-grey-1;
+	color: $ds-text-primary-color;
 	display: inline-block;
 	font-size: $xui-font-size-medium;
 	height: auto;
 	padding: 6px $xui-s-large;
 	position: relative;
+	text-decoration: none;
 	transition: all .15s ease-in-out;
 	width: 100%;
+
 	&:hover {
 		color: $xui-color-blue;
 	}
 	&:focus {
-		background: $xui-color-grey-alpha-7;
+		background: $ds-nav-focus-bg-color;
 	}
 	&:active {
 		color: $xui-color-blue-dark;
-		background: $xui-color-grey-alpha-6;
+		background: $ds-nav-active-bg-color;
 	}
 	&:before {
 		height: 100%;
@@ -787,11 +784,11 @@ $kss-color-padding: #eeebff;
 	&:hover,
 	&:active,
 	&:focus {
-		background: $xui-color-grey-7;
+		background: $ds-nav-focus-bg-color;
 	}
 }
 .ds-defaultexample-label {
-	color: $xui-color-xero-blue;
+	color: $xui-color-blue;
 }
 
 // -----------------------------------------------------------------------------
@@ -882,7 +879,7 @@ $kss-color-padding: #eeebff;
 
 .ds-border-swatch-container {
 	display: flex;
-	background-color: $xui-color-grey-6;
+	background-color: $ds-code-bg-color;
 	height: 240px;
 	padding: $xui-s-large;
 	width: 240px;
@@ -968,7 +965,7 @@ $kss-color-padding: #eeebff;
 		width: auto;
 		z-index: 8888;
 		background: #fff;
-		border-bottom: 1px solid $xui-color-grey-6;
+		border-bottom: 1px solid $ds-border-color;
 		height: $ds-page-header-height;
 		display: flex;
 		justify-content: space-between;
@@ -984,23 +981,82 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-steps {
+	@include xui-listreset;
+	color: $ds-text-secondary-color;
+	cursor: default;
+	display: flex;
+	justify-content: center;
 	margin-left: -10px;
 }
 
-.ds-step:nth-last-child(n+2) {
-	margin-right: 10px;
+.ds-step {
+	align-items: center;
+	display: flex;
+	position: relative;
+
+	&:nth-last-child(n+2) {
+		margin-right: 10px;
+	}
+
+	&::after {
+		background-color: transparent;
+		bottom: 0;
+		content: "";
+		display: block;
+		height: 3px;
+		left: 10px; // Offset $xui-s-actionlink
+		position: absolute;
+		width: calc(100% - 20px); // (100%) - (20px offset $xui-s-actionlink)
+	}
 }
 
+
+.ds-step-layout {
+	@include xui-padding-vertical($xui-s-standard);
+}
+
+// Step icon
 .ds-step--icon {
+	position: absolute;
 	left: -20px;
+	top: calc(50% - 15px);
 }
 
-.xui-steps-interactive .xui-step-is-complete .ds-step--body {
+// Step text
+.ds-step--body {
+	@include xui-text-line-height-compact;
+	text-decoration: none;
+	color: currentColor;
+	outline: none;
+	padding: $xui-s-actionlink;
+	text-align: center;
+}
+
+// Interactive completed step
+.ds-steps-interactive {
+	.ds-step-is-complete .ds-step--body {
+		&:hover {
+			color: $xui-color-blue;
+		}
+
+		&:focus {
+			background-color: $ds-breadcrumb-focus-bg-color;
+			border-radius: $xui-radius;
+		}
+
+		&:active {
+			background-color: $ds-breadcrumb-active-bg-color;
+			border-radius: $xui-radius;
+		}
+	}
+}
+
+.ds-steps-interactive .ds-step-is-complete .ds-step--body {
 	padding: 5px 10px;
 	font-size: 13px;
-	color: $xui-color-grey-2;
+	color: $ds-text-secondary-color;
 	&:hover {
-		color: $xui-color-grey-1;
+		color: $ds-text-primary-color;
 	}
 }
 
@@ -1026,7 +1082,7 @@ a.ds-component-link:before {
 		display: block;
 		position: absolute;
 		width: 9em;
-		background: $xui-color-grey-6;
+		background-color: $ds-code-bg-color;
 		right: 100%;
 		padding: 0.3em 0.3em 0.2em;
 		border-radius: 3px;
@@ -1044,7 +1100,7 @@ a.ds-component-link:after {
 		height: 0;
 		border-top: 5px solid transparent;
 		border-bottom: 5px solid transparent;
-		border-left: 5px solid $xui-color-grey-6;
+		border-left: 5px solid $ds-code-bg-color;
 		transform: translateX(-1px) translateY(-2px);
 		z-index: 10;
 		right: calc(100% - 5px);
@@ -1077,7 +1133,7 @@ a.ds-component-link:after {
 // -----------------------------------------------------------------------------
 
 .ds-flag {
-	background: $xui-color-grey-3;
+	background: $ds-flag-bg-color;
 	display: inline-block;
 	color: #fff;
 	font-size: 11px;
@@ -1095,19 +1151,19 @@ a.ds-component-link:after {
 }
 
 .ds-status--experimental {
-	background: $xui-color-xero-purple;
+	background: $xui-color-violet;
 }
 
 .ds-status--underreview {
-	background: $xui-color-xero-yellow;
+	background: $xui-color-yellow;
 }
 
 .ds-status--seekingfeedback {
-	background: $xui-color-xero-green;
+	background: $xui-color-green;
 }
 
 .ds-status--deprecated {
-	background: $xui-color-xero-red;
+	background: $xui-color-red;
 }
 
 @import "./cards";

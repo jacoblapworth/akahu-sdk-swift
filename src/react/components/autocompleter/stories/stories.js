@@ -25,59 +25,47 @@ import centered from '@storybook/addon-centered';
 
 import { variations, storiesWithVariationsKindName, dropdownSizes } from './variations';
 
-const filterPeople = (data, value, peopleToExclude) => {
-	return data.filter(node => {
-		const val = value.toLowerCase();
+const filterPeople = (data, value, peopleToExclude) =>
+	data.filter(node => {
+		const val = value && value.toLowerCase() || '';
 
-		//You could use String.includes here, however you would need to add the polyfill for IE11 support.
+		// You could use String.includes here, however you would need to add the polyfill for IE11 support.
 		return !peopleToExclude.find(person => person.id === node.id) && (node.name.toLowerCase().indexOf(val) > -1
-		|| node.email.toLowerCase().indexOf(val) > -1
-		|| node.subtext.toLowerCase().indexOf(val) > -1);
+			|| node.email.toLowerCase().indexOf(val) > -1
+			|| node.subtext.toLowerCase().indexOf(val) > -1);
 	});
-};
 
-//Example to show how the children can be styled however and you also define your own search criteria.
+// Example to show how the children can be styled however and you also define your own search criteria.
 class DetailedListExample extends Component {
-	constructor() {
-		super();
+	state = {
+		value: '',
+		people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
+		selectedPeople: [peopleDataSet[0]],
+	};
 
-		const example = this;
-
-		example.state = {
-			value: null,
-			people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
-			selectedPeople: [peopleDataSet[0]]
-		};
-
-		example.onSearchChangeHandler = example.onSearchChangeHandler.bind(example);
-		example.deletePerson = example.deletePerson.bind(example);
-		example.deleteLastPerson = example.deleteLastPerson.bind(example);
-	}
-
-	onSearchChangeHandler(value) {
+	onSearchChangeHandler = value => {
 		const example = this;
 		example.completer.openDropDown();
 		example.setState(prevState => ({
 			value,
-			people: filterPeople(peopleDataSet, value, prevState.selectedPeople)
+			people: filterPeople(peopleDataSet, value, prevState.selectedPeople),
 		}));
 	}
 
-	deletePerson(id) {
+	deletePerson = id => {
 		this.setState(prevState => {
 			const selectedPeople = [...prevState.selectedPeople.filter(person => person.id !== id)];
 			return {
-				selectedPeople: selectedPeople,
-				people: filterPeople(peopleDataSet, prevState.value, selectedPeople)
-			}
+				selectedPeople,
+				people: filterPeople(peopleDataSet, prevState.value, selectedPeople),
+			};
 		});
 	}
 
-	deleteLastPerson() {
+	deleteLastPerson= () => {
 		const example = this;
 		const { selectedPeople } = example.state;
 		const lastSelectedPerson = selectedPeople[selectedPeople.length - 1];
-
 		example.deletePerson(lastSelectedPerson.id);
 	}
 
@@ -86,24 +74,24 @@ class DetailedListExample extends Component {
 			const selectedPeople = [...prevState.selectedPeople, person];
 			return {
 				value: null,
-				selectedPeople: selectedPeople,
-				people: filterPeople(peopleDataSet, '', selectedPeople)
-			}
+				selectedPeople,
+				people: filterPeople(peopleDataSet, '', selectedPeople),
+			};
 		});
 	}
 
-	onClose(){
-		this.setState({value: null})
+	onClose() {
+		this.setState({ value: null });
 	}
 
-	getItems(){
+	getItems() {
 		const example = this;
 		const {
 			value,
-			people
+			people,
 		} = example.state;
 
-		if(!Array.isArray(people) || people.length <= 0){
+		if (!Array.isArray(people) || people.length <= 0) {
 			return <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>;
 		}
 
@@ -135,7 +123,7 @@ class DetailedListExample extends Component {
 	componentDidMount() {
 		const {
 			openDrawer,
-			selectedPeople
+			selectedPeople,
 		} = this.props;
 
 		if (openDrawer) {
@@ -144,11 +132,11 @@ class DetailedListExample extends Component {
 
 		if (selectedPeople != null && typeof selectedPeople === 'number') {
 			this.setState({
-				selectedPeople: [peopleDataSet[0]]
+				selectedPeople: [peopleDataSet[0]],
 			});
 		} else {
 			this.setState({
-				selectedPeople: []
+				selectedPeople: [],
 			});
 		}
 	}
@@ -156,7 +144,7 @@ class DetailedListExample extends Component {
 	componentWillReceiveProps(nextProps) {
 		const {
 			openDrawer,
-			selectedPeople
+			selectedPeople,
 		} = nextProps;
 
 		if (openDrawer) {
@@ -167,16 +155,16 @@ class DetailedListExample extends Component {
 
 		if (selectedPeople != null && typeof selectedPeople === 'number') {
 			this.setState({
-				selectedPeople: [peopleDataSet[selectedPeople]]
+				selectedPeople: [peopleDataSet[selectedPeople]],
 			});
 		} else {
 			this.setState({
-				selectedPeople: []
+				selectedPeople: [],
 			});
 		}
 	}
 
-	render(){
+	render() {
 		const example = this;
 		const { value, selectedPeople } = example.state;
 		const {
@@ -184,25 +172,25 @@ class DetailedListExample extends Component {
 			placeholder,
 			dropdownSize,
 			isDisabled,
-			noDrawerFooter
+			noDrawerFooter,
 		} = example.props;
 
 		const footer = (
 			<DropDownFooter
 				pickItems={(
 					<Pickitem id="footerAction">
-							<XUIIcon
-								isInline
-								path={plusIcon}
-								className="xui-margin-right-xsmall"
-							/>
+						<XUIIcon
+							icon={plusIcon}
+							isBoxed
+							className="xui-margin-right-xsmall"
+						/>
 							Add New Person
 					</Pickitem>
 				)}
 			/>
 		);
 
-		const dropdownFixedWidth = dropdownSize != null ? false: true;
+		const dropdownFixedWidth = dropdownSize == null;
 
 		return (
 				<XUIAutocompleter
@@ -212,6 +200,7 @@ class DetailedListExample extends Component {
 					searchValue={value}
 					dropdownFixedWidth={dropdownFixedWidth}
 					footer={noDrawerFooter ? null : footer}
+					closeOnTab={noDrawerFooter}
 					onClose={() => this.onClose()}
 					onBackspacePill={this.deleteLastPerson}
 					loading={isLoading}
@@ -238,8 +227,8 @@ class DetailedListExample extends Component {
 
 DetailedListExample.propTypes = {
 	openDrawer: PropTypes.bool,
-	selectedPeople: PropTypes.number
-}
+	selectedPeople: PropTypes.number,
+};
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
@@ -254,14 +243,14 @@ storiesWithKnobs.add('Playground', () => {
 	const containerWidth = `${number('Container width', 500)}px`;
 
 	return (
-		<div style={{width: containerWidth}}>
+		<div style={{ width: containerWidth }}>
 			<DetailedListExample
 				openDrawer={boolean('Drawer open', false)}
 				placeholder={text('Placeholder', '')}
 				selectedPeople={selectedPerson}
 				isDisabled={boolean('Disabled', false)}
 				dropdownSize={userSelectedSize || undefined}
-				/>
+			/>
 		</div>
 	);
 });
@@ -276,39 +265,39 @@ function createItems(items, selectedId) {
 		...items.props,
 		value: items.props.id,
 		key: items.props.id,
-		isSelected: isSelected(items, selectedId)
+		isSelected: isSelected(items, selectedId),
 	}, items.text);
 }
 
 const SecondarySearchData = [
-	{ props: { id: 'ss1' }, text: "Cost" },
-	{ props: { id: 'ss2' }, text: "More Costs" },
-	{ props: { id: 'ss3' }, text: "No Costs" },
-	{ props: { id: 'ss4' }, text: "Nothing about Cost" },
-	{ props: { id: 'ss5' }, text: "Something Unrelated" },
-	{ props: { id: 'ss6' }, text: "Random Item" },
-	{ props: { id: 'ss7' }, text: "Coats" },
-	{ props: { id: 'ss8' }, text: "Big Coat" },
+	{ props: { id: 'ss1' }, text: 'Cost' },
+	{ props: { id: 'ss2' }, text: 'More Costs' },
+	{ props: { id: 'ss3' }, text: 'No Costs' },
+	{ props: { id: 'ss4' }, text: 'Nothing about Cost' },
+	{ props: { id: 'ss5' }, text: 'Something Unrelated' },
+	{ props: { id: 'ss6' }, text: 'Random Item' },
+	{ props: { id: 'ss7' }, text: 'Coats' },
+	{ props: { id: 'ss8' }, text: 'Big Coat' },
 ];
 
 class SecondarySearchExample extends React.Component {
 	state = {
 		data: SecondarySearchData,
-		selectedItem: null
+		selectedItem: null,
 	};
 
-	onOptionSelect = (value) => {
+	onOptionSelect = value => {
 		this.setState({
-			selectedItem: value
+			selectedItem: value,
 		});
 	}
 
-	onSearch = (value) => {
-			const matchingData = SecondarySearchData.filter(item => item.text.toLowerCase().includes(value.toLowerCase()));
+	onSearch = value => {
+		const matchingData = SecondarySearchData.filter(item => item.text.toLowerCase().includes(value.toLowerCase()));
 
-			this.setState({
-				data: matchingData
-			})
+		this.setState({
+			data: matchingData,
+		});
 	}
 
 	render() {
@@ -320,7 +309,7 @@ class SecondarySearchExample extends React.Component {
 			</XUIButton>
 		);
 
-		const items = data.length > 0 ? createItems(data, this.state.selectedItem): (<XUIAutocompleterEmptyState />);
+		const items = data.length > 0 ? createItems(data, this.state.selectedItem) : (<XUIAutocompleterEmptyState />);
 
 		const footer = (
 			<DropDownFooter
@@ -328,8 +317,8 @@ class SecondarySearchExample extends React.Component {
 					<Pickitem id="footerAction">
 						<span>
 							<XUIIcon
-								isInline
-								path={plusIcon}
+								icon={plusIcon}
+								isBoxed
 								className="xui-margin-right-xsmall"
 							/>
 							Add New Person
@@ -345,10 +334,11 @@ class SecondarySearchExample extends React.Component {
 					trigger={trigger}
 					onOptionSelect={this.onOptionSelect}
 					onSearch={this.onSearch}
-					dropdownSize='medium'
-					inputLabelText='secondary search label'
+					dropdownSize="medium"
+					inputLabelText="secondary search label"
 					isInputLabelHidden
 					qaHook='secondary-search'
+					closeOnTab={false}
 					footer={footer}
 				>
 					<Picklist>
@@ -356,16 +346,14 @@ class SecondarySearchExample extends React.Component {
 					</Picklist>
 				</XUIAutocompleterSecondarySearch>
 			</div>
-		)
+		);
 	}
 }
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
-storiesWithVariations.add('Secondary', () => {
-	return <SecondarySearchExample />;
-});
+storiesWithVariations.add('Secondary', () => <SecondarySearchExample />);
 
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
@@ -374,9 +362,9 @@ variations.forEach(variation => {
 		variationMinusStoryDetails.storyTitle = undefined;
 
 		return (
-			<div style={{width: '500px'}}>
-				<DetailedListExample {...variationMinusStoryDetails}/>
+			<div style={{ width: '500px' }}>
+				<DetailedListExample {...variationMinusStoryDetails} />
 			</div>
-		)
+		);
 	});
 });

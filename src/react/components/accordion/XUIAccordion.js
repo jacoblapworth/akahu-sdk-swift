@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from "../helpers/xuiClassNamespace";
-import listIconPath from '@xero/xui-icon/icons/list';
+import listIcon from '@xero/xui-icon/icons/list';
+import { ns } from '../helpers/xuiClassNamespace';
 import AccordionWrapper from './customElements/AccordionWrapper';
 import AccordionTrigger from './customElements/AccordionTrigger';
 import EmptyState from './customElements/EmptyState';
@@ -18,23 +18,23 @@ export default class XUIAccordion extends PureComponent {
 		}));
 	};
 
-	createAccordionItem = ({props: itemProps}, index) => {
+	createAccordionItem = ({ props: itemProps }, index) => {
 		const {
 			items,
 			idKey,
 			qaHook,
 			toggleLabel,
 			emptyMessage,
-			emptyIconPath,
+			emptyIcon,
 			emptyStateComponent,
 		} = this.props;
-		const {children, onItemClick, ...triggerProps} = itemProps;
+		const { children, onItemClick, ...triggerProps } = itemProps;
 		const itemData = items[index];
 		const itemId = itemData[idKey];
 		const isOpen = this.state.openId === itemId;
 		const handleClick = () => {
 			this.updateOpenId(itemId);
-			onItemClick && onItemClick({...itemData, isOpen: !isOpen});
+			onItemClick && onItemClick({ ...itemData, isOpen: !isOpen });
 		};
 
 		return (
@@ -44,19 +44,21 @@ export default class XUIAccordion extends PureComponent {
 				qaHook={qaHook && `${qaHook}-wrapper`}
 				trigger={(
 					<AccordionTrigger
+						{...triggerProps}
 						qaHook={qaHook && `${qaHook}-trigger`}
 						isOpen={isOpen}
 						onClick={handleClick}
 						toggleLabel={toggleLabel}
-						{...triggerProps}
 					/>
-				)}>
+				)}
+			>
 				{isOpen && (
 					children ||
 					emptyStateComponent ||
 					<EmptyState
 						qaHook={qaHook && `${qaHook}-empty`}
-						emptyIconPath={emptyIconPath}>
+						emptyIcon={emptyIcon}
+					>
 						{emptyMessage}
 					</EmptyState>
 				)}
@@ -65,13 +67,16 @@ export default class XUIAccordion extends PureComponent {
 	};
 
 	render() {
-		const { qaHook, className, items, createItem } = this.props;
+		const {
+			qaHook, className, items, createItem,
+		} = this.props;
 		const shouldCreateItems = Boolean(items.length && createItem);
 
 		return (
 			<div
 				data-automationid={qaHook}
-				className={cn(`${ns}-accordion-new`, className)}>
+				className={cn(`${ns}-accordion`, className)}
+			>
 				{shouldCreateItems && items.map(createItem).map(this.createAccordionItem)}
 			</div>
 		);
@@ -84,13 +89,15 @@ XUIAccordion.propTypes = {
 	/** Attached to the outer most element of the accordion component. */
 	className: PropTypes.string,
 
-	/** A list of the data to be displayed in the accordion. item in the array is individually passed through to the `createItem` function to create an `<XUIAccordionItem />`. */
+	/** A list of the data to be displayed in the accordion. item in the array is individually
+	 * passed through to the `createItem` function to create an `<XUIAccordionItem />`. */
 	items: PropTypes.array,
 
 	/** String representing the key of the unique identifier for each item in data. */
 	idKey: PropTypes.string,
 
-	/** A function that receives an item from the "items" prop and expects a populated `<XUIAccordionItem />` component back. */
+	/** A function that receives an item from the "items" prop and expects a populated
+	 * `<XUIAccordionItem />` component back. */
 	createItem: PropTypes.func,
 
 	/** Accessibility label representing the `<XUIAccordionItem />` toggle functionality. */
@@ -103,7 +110,7 @@ XUIAccordion.propTypes = {
 	]),
 
 	/** Customise the default "empty" icon path data. */
-	emptyIconPath: PropTypes.string,
+	emptyIcon: PropTypes.object,
 
 	/** Override the default "empty" component. */
 	emptyStateComponent: PropTypes.element,
@@ -114,5 +121,5 @@ XUIAccordion.defaultProps = {
 	items: [],
 	toggleLabel: 'Toggle',
 	emptyMessage: 'Nothing available to show',
-	emptyIconPath: listIconPath,
+	emptyIcon: listIcon,
 };

@@ -2,11 +2,11 @@
 
 exports[`forceStatefulPicklist prop renders a automation id when a qaHook is passed 1`] = `
 <div
-  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-is-open"
   data-automationid="dropdown-test--layout"
   id="1"
   onAnimationEnd={[Function]}
+  role={undefined}
   style={undefined}
 >
   <div
@@ -19,17 +19,19 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
     data-automationid="dropdown-test"
     id={undefined}
     onKeyDown={[Function]}
+    role="presentation"
     style={
       Object {
         "maxHeight": undefined,
       }
     }
-    tabIndex={0}
+    tabIndex={-1}
   >
     <div
       className="xui-dropdown--body"
       data-automationid="dropdown-test--body"
       onMouseUp={[Function]}
+      role="presentation"
       style={
         Object {
           "maxHeight": "80vh",
@@ -39,7 +41,7 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
     >
       <div
         aria-activedescendant={null}
-        className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
+        className="xui-u-flex xui-u-flex-column xui-dropdown--scrollable-container xui-u-flex-grow"
         data-automationid="dropdown-test--scrollable-container"
         id={undefined}
         onKeyDown={[Function]}
@@ -94,11 +96,11 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
 
 exports[`forceStatefulPicklist prop renders qaHooks on inner components when stateful picklist is not being used 1`] = `
 <div
-  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-is-open"
   data-automationid="dropdown-test--layout"
   id="1"
   onAnimationEnd={[Function]}
+  role={undefined}
   style={undefined}
 >
   <div
@@ -111,17 +113,19 @@ exports[`forceStatefulPicklist prop renders qaHooks on inner components when sta
     data-automationid="dropdown-test"
     id={undefined}
     onKeyDown={[Function]}
+    role="presentation"
     style={
       Object {
         "maxHeight": undefined,
       }
     }
-    tabIndex={0}
+    tabIndex={-1}
   >
     <div
       className="xui-dropdown--body"
       data-automationid="dropdown-test--body"
       onMouseUp={[Function]}
+      role="presentation"
       style={
         Object {
           "maxHeight": "80vh",
@@ -130,7 +134,7 @@ exports[`forceStatefulPicklist prop renders qaHooks on inner components when sta
       }
     >
       <div
-        className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
+        className="xui-u-flex xui-u-flex-column xui-dropdown--scrollable-container xui-u-flex-grow"
         data-automationid="dropdown-test--scrollable-container"
       >
         <div

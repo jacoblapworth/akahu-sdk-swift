@@ -1,24 +1,24 @@
-@import "tools/mixins.layout";
-@import "tools/mixins.elements";
-@import "tools/mixins.selectors";
-@import "tools/mixins.states";
-@import "tools/mixins.buttons";
-@import "tools/mixins.components";
-@import "tools/mixins.typography";
-@import "tools/mixins.utilities";
+@import "2-mixins/layout";
+@import "2-mixins/elements";
+@import "2-mixins/selectors";
+@import "2-mixins/states";
+@import "2-mixins/buttons";
+@import "2-mixins/components";
+@import "2-mixins/typography";
+@import "2-mixins/utilities";
 
 // Variables & Mixins
 //
 // Introduction: These variables and mixins are the lowest level building blocks
 // and are provided as a reference to developers who are working on XUI core,
-// authoring components or need fine grained control inside applications.
+// authoring components or need fine-grained control inside applications.
 //
 // Styleguide: Fundamentals.Variables&Mixins
 
 // Best Practice
 //
 // Tips:
-// Warning: Considered as an advanced feature, they should generally not be required by product design and development teams.
+// Warning: These are considered to be an advanced feature. They should generally not be required by product design and development teams.
 //
 // Styleguide: Fundamentals.Variables&Mixins.Best Practice
 

@@ -21,7 +21,7 @@ module.exports = (template, root) => {
 				}
 			})
 		}
-		const paramSection = params !== null
+		const paramSection = params != null
 			? `(${Object.keys(params).join(', ')})`
 			: '';
 		sections.push(`// ${ruleName}${paramSection}`,'//');
@@ -36,7 +36,7 @@ const getParams = mixin => {
 	const bracketRegex = /\((.*)\)/;
 	const paramSplitRegex = /([^:]+)(?:\s*:\s*([^:]+))?/
 	const bracketRegexMatch = mixin.match(bracketRegex);
-	if (bracketRegexMatch === null){
+	if (bracketRegexMatch == null){
 		return null;
 	}
 	return bracketRegexMatch[1].split(',').reduce((params, param) => {

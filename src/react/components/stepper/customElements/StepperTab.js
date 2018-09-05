@@ -4,12 +4,10 @@ import XUIProgressCircular from '../../progressindicator/XUIProgressCircular';
 import { NAME_SPACE } from '../helpers/constants';
 import { enrichTabProps } from '../helpers/enrichprops';
 import StepperIcon from './StepperIcon';
-import {ns} from "../../helpers/xuiClassNamespace";
+import { ns } from '../../helpers/xuiClassNamespace';
 
 export default class StepperTab extends PureComponent {
-
 	render = () => {
-
 		const {
 			id,
 			name,
@@ -30,24 +28,26 @@ export default class StepperTab extends PureComponent {
 				type="button"
 				className={linkClasses}
 				onClick={handleClick}
-				tabIndex={tabIndex}>
+				tabIndex={tabIndex}
+			>
 
 				<div className={`${NAME_SPACE}-link-wrapper`}>
 
 					{isProgress && !isComplete
-
-						? <div className={`${NAME_SPACE}-link-progress`}>
-							<XUIProgressCircular
-								id={id}
-								total={totalProgress}
-								progress={currentProgress}
-							/>
-						</div>
-
-						: <StepperIcon {...{isComplete, isError, step}}>
-							<span className={`${NAME_SPACE}-link-step`}>{step}</span>
-						</StepperIcon>
-
+						? (
+							<div className={`${NAME_SPACE}-link-progress`}>
+								<XUIProgressCircular
+									id={id}
+									total={totalProgress}
+									progress={currentProgress}
+									ariaLabel={name}
+								/>
+							</div>
+						) : (
+							<StepperIcon {...{ isComplete, isError, step }}>
+								<span className={`${NAME_SPACE}-link-step`}>{step}</span>
+							</StepperIcon>
+						)
 					}
 
 					<div className={`${NAME_SPACE}-link-text`}>
@@ -68,9 +68,7 @@ export default class StepperTab extends PureComponent {
 
 			</button>
 		);
-
 	};
-
 }
 
 StepperTab.propTypes = {

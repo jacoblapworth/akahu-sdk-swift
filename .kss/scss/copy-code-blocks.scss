@@ -1,22 +1,21 @@
 .clipboard-button {
-	background: rgba($xui-color-grey-1, 0.95);
-	color: $xui-color-grey-5;
+	align-items: center;
+	background: $ds-markup-bg-color;
+	color: $ds-markup-color;
 	border-radius: 3px;
+	display: flex;
+	height: 25px;
+	justify-content: center;
 	opacity: 0;
-	padding: 3px 8px 2px 6px;
 	position: absolute;
 	bottom: 90%;
 	left: 50%;
+	width: 25px;
 	transform: translateX(-50%);
 	transition-property: opacity, bottom;
 	transition-duration: $xui-motion-speed-fast;
 	transition-timing-function: $xui-motion-curve-exit;
 	transition-delay: $xui-motion-delay-long;
-
-	.xui-icon {
-		width: 24px;
-		height: 24px;
-	}
 
 	&:after {
 		display: block;
@@ -26,8 +25,9 @@
 		height: 0;
 		border-top: 5px solid transparent;
 		border-bottom: 5px solid transparent;
-		border-left: 5px solid rgba($xui-color-grey-1, 0.95);
-		transform: rotate(90deg) translateX(-1px) translateY(-3px);
+		border-left: 5px solid $ds-markup-bg-color;
+		transform: rotate(90deg) translateX(7px);
+		bottom: 0;
 	}
 
 	// this element makes the hover and hit states heaps bigger
@@ -38,7 +38,6 @@
 		position: absolute;
 		top: 5px;
 		left: -250%;
-		background: rgba(red, 0.1);
 		background: transparent;
 		width: 600%;
 		height: 35px;
@@ -46,7 +45,7 @@
 	}
 
 	&:hover {
-		color: $xui-color-grey-7;
+		color: $ds-markup-hover-color;
 	}
 }
 

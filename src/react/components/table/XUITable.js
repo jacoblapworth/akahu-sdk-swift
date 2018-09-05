@@ -2,14 +2,14 @@ import 'core-js/library/fn/array/virtual/fill';
 import 'element-closest';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames'
+import cn from 'classnames';
 import throttle from 'lodash.throttle';
 import XUILoader from '../loader/XUILoader';
 import noop from '../helpers/noop';
 import { enrichProps } from './helpers/utilities';
-import { NAME_SPACE } from './helpers/constants';
+import { NAME_SPACE, ACTION_WIDTH } from './helpers/constants';
 import TableHead from './customElements/TableHead';
-import TableBody from './customElements/TableBody';
+import TableBodyRow from './customElements/TableBodyRow';
 import EmptyState from './customElements/EmptyState';
 import TableAlert from './customElements/TableAlert';
 
@@ -21,12 +21,12 @@ class XUITable extends Component {
 
 	componentDidUpdate = () => {
 		this.setCurrentWidth();
-		this.setCurrentScroll();
+		this.setScrollOverflow();
 	};
 
 	componentDidMount = () => {
 		this.resizeThrottled = throttle(this.setCurrentWidth, 500);
-		this.scrollThrottled = throttle(this.setCurrentScroll, 100);
+		this.scrollThrottled = throttle(this.setScrollOverflow, 100);
 		this.setCurrentWidth();
 		window.addEventListener('resize', this.resizeThrottled);
 	};
@@ -37,16 +37,16 @@ class XUITable extends Component {
 	};
 
 	setCurrentWidth = () => {
-		const { rootNode, state } = this;
+		const { rootNode } = this;
 		const rootWidth = rootNode && rootNode.clientWidth;
-		const isRootWidthNew = rootNode && rootWidth !== state.rootWidth;
+		const isRootWidthNew = rootNode && rootWidth !== this.state.rootWidth;
 
 		if (isRootWidthNew) {
-			this.setState({ ...state, rootWidth });
+			this.setState({ rootWidth });
 		}
 	};
 
-	setCurrentScroll = () => {
+	setScrollOverflow = () => {
 		const { rootNode, wrapperNode, tableNode } = this;
 		const scrollLeft = wrapperNode && wrapperNode.scrollLeft;
 		const wrapperWidth = wrapperNode && wrapperNode.clientWidth;
@@ -67,8 +67,58 @@ class XUITable extends Component {
 		}
 	};
 
+	ensureCellVisibility = event => {
+		const { wrapperNode, props } = this;
+		const { hasPinnedFirstColumn, hasPinnedLastColumn } = props;
+
+		// When "pinned" colums are not active the browser can handle showing cells
+		// natively so we bail to save CPU and extra edge cases.
+		if (!(hasPinnedFirstColumn || hasPinnedLastColumn)) { return; }
+
+		// Generic measurements around where we are in the Table in respect to
+		// width / scroll etc.
+		const { clientWidth: cellWidth, offsetLeft: cellOffset } = event.currentTarget;
+		const scrollOffset = wrapperNode.scrollLeft;
+		const wrapperWidth = wrapperNode.clientWidth;
+
+		// Where does the "left" and "right" of the Cell reside in respect to the
+		// visible viewing area.
+		const relativeLeftOffset = cellOffset - scrollOffset;
+		const relativeRightOffset = relativeLeftOffset + cellWidth;
+
+		let hasCellReset = false;
+
+		if (!hasCellReset && hasPinnedLastColumn) {
+			// Cell to the left so that the right side becomes visible from under the
+			// pinned last column.
+			const overlap = relativeRightOffset - (wrapperWidth - ACTION_WIDTH);
+			const hasRightOverlap = relativeRightOffset > wrapperWidth - ACTION_WIDTH;
+
+			wrapperNode.scrollLeft = hasRightOverlap ? scrollOffset + overlap : scrollOffset;
+			hasCellReset = hasRightOverlap;
+		}
+
+		if (!hasCellReset && hasPinnedFirstColumn) {
+			// Move Cell to the right so that the left side becomes visible from under
+			// the pinned first column.
+			const overlap = ACTION_WIDTH - relativeLeftOffset;
+			const hasLeftOverlap = hasPinnedFirstColumn && relativeLeftOffset < ACTION_WIDTH;
+
+			wrapperNode.scrollLeft = hasLeftOverlap ? scrollOffset - overlap : scrollOffset;
+			hasCellReset = hasLeftOverlap;
+		}
+
+		if (hasCellReset) {
+			// We are fudging with the scroll and therefore the overflow shadows may not
+			// be representative of the current scroll values (lets take a look to make sure).
+			this.setScrollOverflow();
+		}
+	};
+
 	render = () => {
-		const { state, props, rootNode, tableNode, wrapperNode } = this;
+		const {
+			state, props, rootNode, tableNode, wrapperNode, ensureCellVisibility,
+		} = this;
 		const {
 			qaHook,
 			className: suppliedClasses,
@@ -87,16 +137,21 @@ class XUITable extends Component {
 			checkedIds,
 			onCheckAllToggle,
 			onCheckOneToggle,
+			checkOneRowLabel,
+			checkAllRowsLabel,
 			hasOverflowMenu,
 			createOverflowMenu,
+			overflowMenuTitle,
 			hasPinnedFirstColumn,
 			hasPinnedLastColumn,
-			createDividerClassesThunk,
+			createDividerClasses,
 			onRowClick,
+			shouldRowClick,
 			header,
 			footer,
 			columns,
 			data,
+			hasPointerEvents,
 		} = enrichProps(state, props, { rootNode, tableNode, wrapperNode });
 
 		const className = cn(
@@ -109,21 +164,24 @@ class XUITable extends Component {
 				[`${NAME_SPACE}-pinleft`]: hasPinnedFirstColumn,
 				[`${NAME_SPACE}-pinright`]: hasPinnedLastColumn,
 				[`${NAME_SPACE}-hasheader`]: hasHeader,
-			}
+				[`${NAME_SPACE}-nopointerevents`]: !hasPointerEvents,
+			},
 		);
-
+		const checkIsChecked = _id => checkedIds.indexOf(_id) >= 0;
 		const handleScroll = (hasPinnedFirstColumn || hasPinnedLastColumn) ? this.scrollThrottled : noop;
 
 		return (
 			<div
 				className={className}
 				ref={node => this.rootNode = node}
-				data-automationid={qaHook}>
+				data-automationid={qaHook}
+			>
 
 				{header && (
 					<div
 						data-automationid={qaHook && `${qaHook}-header`}
-						className={`${NAME_SPACE}--customheader`}>
+						className={`${NAME_SPACE}--customheader`}
+					>
 						{header}
 					</div>
 				)}
@@ -131,12 +189,14 @@ class XUITable extends Component {
 				<div
 					className={`${NAME_SPACE}-wrapper`}
 					ref={node => this.wrapperNode = node}
-					onScroll={handleScroll}>
+					onScroll={handleScroll}
+				>
 
 					<table
 						data-automationid={qaHook && `${qaHook}-table`}
 						className={`${NAME_SPACE}-element`}
-						ref={node => this.tableNode = node}>
+						ref={node => this.tableNode = node}
+					>
 
 						{hasHeader && (
 
@@ -149,22 +209,38 @@ class XUITable extends Component {
 								hasCheckbox,
 								checkedIds,
 								onCheckAllToggle,
+								checkAllRowsLabel,
 								hasOverflowMenu,
-							}} />
+								ensureCellVisibility,
+							}}
+							/>
 
 						)}
 
-						<TableBody {...{
-							data,
-							columns,
-							hasCheckbox,
-							checkedIds,
-							onCheckOneToggle,
-							onRowClick,
-							hasOverflowMenu,
-							createOverflowMenu,
-							createDividerClassesThunk,
-						}} />
+						<tbody className={`${NAME_SPACE}--body`}>
+
+							{data && data.map((rowData, rowIndex) => (
+								<TableBodyRow {...{
+									key: `row-${rowData._id}`,
+									rowData,
+									rowIndex,
+									columns,
+									hasCheckbox,
+									isChecked: checkIsChecked(rowData._id),
+									onCheckOneToggle,
+									checkOneRowLabel,
+									onRowClick,
+									shouldRowClick,
+									hasOverflowMenu,
+									createOverflowMenu,
+									overflowMenuTitle,
+									createDividerClasses,
+									ensureCellVisibility,
+								}}
+								/>
+							))}
+
+						</tbody>
 
 					</table>
 
@@ -172,7 +248,7 @@ class XUITable extends Component {
 
 				{isLoading && (
 					<TableAlert qaHook={qaHook && `${qaHook}-loader`}>
-						<XUILoader label={ loaderLabel } />
+						<XUILoader ariaLabel={loaderLabel} />
 					</TableAlert>
 				)}
 
@@ -185,7 +261,8 @@ class XUITable extends Component {
 				{footer && (
 					<div
 						data-automationid={qaHook && `${qaHook}-footer`}
-						className={`${NAME_SPACE}--customfooter`}>
+						className={`${NAME_SPACE}--customfooter`}
+					>
 						{footer}
 					</div>
 				)}
@@ -211,7 +288,8 @@ XUITable.propTypes = {
 	/** Allows the table to scroll horizontally when there is overflowing columns. */
 	isResponsive: PropTypes.bool,
 
-	/** Changes overflowing column data into a truncated column view if legibility can still be maintained. */
+	/** Changes overflowing column data into a truncated column view if legibility can
+	 * still be maintained. */
 	isTruncated: PropTypes.bool,
 
 	// - - - - //
@@ -250,6 +328,12 @@ XUITable.propTypes = {
 	/** Callback to handle a single checkbox interaction inside of a row. */
 	onCheckOneToggle: PropTypes.func,
 
+	/** Describes the "single row" checkbox functionality for accessibility purposes. */
+	checkOneRowLabel: PropTypes.string,
+
+	/** Describes the "all rows" checkbox functionality for accessibility purposes. */
+	checkAllRowsLabel: PropTypes.string,
+
 	// - - - - - - - //
 	// Overflow Menu. //
 	// - - - - - - - //
@@ -257,8 +341,12 @@ XUITable.propTypes = {
 	/** Appends a custom overflow menu column to the table. */
 	hasOverflowMenu: PropTypes.bool,
 
-	/** A function that is supplied the data from each row and returns an array of Pickitem components. */
+	/** A function that is supplied the data from each row and returns an array of
+	 * Pickitem components. */
 	createOverflowMenu: PropTypes.func,
+
+	/** Describes the overflow menu functionality for accessibility purposes. */
+	overflowMenuTitle: PropTypes.string,
 
 	// - - - - //
 	// Sorting //
@@ -280,8 +368,12 @@ XUITable.propTypes = {
 	// Interaction.  //
 	// - - - - - - - //
 
-	/** A function that conditionally returns a click handler for rows that need an interaction or a falsey value for rows that do not. Check the React docs under Tables > Interactions for an example. */
+	/** A callback function for row interactions. */
 	onRowClick: PropTypes.func,
+
+	/** A function that receives a single rows data set and determines if that particular
+	 * row should have the `onRowClick` click handler applied to it. */
+	shouldRowCLick: PropTypes.func,
 
 	// - - - - - - //
 	// Appendages. //
@@ -301,7 +393,7 @@ XUITable.propTypes = {
 	emptyStateComponent: PropTypes.node,
 
 	/** Change the default "Empty State" message with a custom version. */
-	emptyMessage: PropTypes.string
+	emptyMessage: PropTypes.string,
 
 };
 
@@ -309,6 +401,9 @@ XUITable.defaultProps = {
 	checkedIds: {},
 	loaderLabel: 'Loading more data',
 	emptyMessage: 'Nothing to show here',
+	checkOneRowLabel: 'Select row',
+	checkAllRowsLabel: 'Select all rows',
+	overflowMenuTitle: 'More row options',
 };
 
 export default XUITable;

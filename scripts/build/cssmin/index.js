@@ -5,7 +5,6 @@ const {
 	taskRunner,
 	rootDirectory,
 	taskRunnerReturns,
-	copyFile
 } = require('../../helpers');
 const { succeed, fail } = taskRunnerReturns;
 

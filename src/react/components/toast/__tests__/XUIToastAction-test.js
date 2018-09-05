@@ -32,14 +32,4 @@ describe('<XUIToastAction />', () => {
 
 		expect(toastAction).toMatchSnapshot();
 	});
-
-	it('should render all the same features using the new XUIActions base API', () => {
-		const toastAction = renderer.create(
-			<XUIToastAction qaHook="toast-action" usesActions className="custom-class" href="https://www.xero.com">
-				Action 1
-			</XUIToastAction>
-		);
-
-		expect(toastAction).toMatchSnapshot();
-	});
 });

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-actions`;
 
@@ -21,18 +21,18 @@ export default class XUIActions extends PureComponent {
 			baseClass,
 			className,
 			hasLayout && `${baseClass}-layout`,
-			isLinear && `${baseClass}-linear`
+			isLinear && `${baseClass}-linear`,
 		);
 		const Tag = tagName;
 
 		const clonedPrimary = primaryAction && React.cloneElement(primaryAction, {
 			className: cn(`${baseClass}--primary`, {
-				[`${baseClass}--button-spacing`]: hasLayout && !isLinear
-			})
+				[`${baseClass}--button-spacing`]: hasLayout && !isLinear,
+			}),
 		});
 
 		const clonedSecondary = secondaryAction && React.cloneElement(secondaryAction, {
-			className: `${baseClass}--secondary`
+			className: `${baseClass}--secondary`,
 		});
 
 		return (
@@ -41,7 +41,7 @@ export default class XUIActions extends PureComponent {
 				{clonedPrimary}
 				{clonedSecondary}
 			</Tag>
-		)
+		);
 	}
 }
 
@@ -67,10 +67,10 @@ XUIActions.propTypes = {
 	/**
 	 * Wrapper element tag type, for semantic purposes (eg. panel footers). Defaults to "div"
 	 */
-	tagName: PropTypes.string
+	tagName: PropTypes.string,
 };
 
 XUIActions.defaultProps = {
 	hasLayout: true,
-	tagName: "div"
+	tagName: 'div',
 };

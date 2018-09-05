@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getId } from './private/helpers';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 export default class NestedPicklistContainer extends PureComponent {
 	constructor(props) {
@@ -10,7 +10,7 @@ export default class NestedPicklistContainer extends PureComponent {
 
 		const container = this;
 		container.state = {
-			open: props.isOpen
+			open: props.isOpen,
 		};
 		container.toggle = container.toggle.bind(container);
 		container.open = container.open.bind(container);
@@ -20,14 +20,14 @@ export default class NestedPicklistContainer extends PureComponent {
 
 	getChildContext() {
 		return {
-			id: getId(this)
+			id: getId(this),
 		};
 	}
 
 	componentWillReceiveProps(nextProps) {
 		if (this.props.isOpen !== nextProps.isOpen) {
 			this.setState({
-				open: nextProps.isOpen
+				open: nextProps.isOpen,
 			});
 		}
 	}
@@ -48,13 +48,13 @@ export default class NestedPicklistContainer extends PureComponent {
 
 	open() {
 		this.setState({
-			open: true
+			open: true,
 		});
 	}
 
 	close() {
 		this.setState({
-			open: false
+			open: false,
 		});
 	}
 
@@ -65,10 +65,21 @@ export default class NestedPicklistContainer extends PureComponent {
 	render() {
 		const container = this;
 		const isExpanded = container.state.open;
-		const { className, children, qaHook, id, secondaryProps } = container.props;
+		const {
+			className,
+			children,
+			qaHook,
+			id,
+			secondaryProps,
+		} = container.props;
 		return (
-			<li data-automationid={qaHook} className={cn(className, `${ns}-picklist--nestedcontainer`)}>
+			<li
+				data-automationid={qaHook}
+				className={cn(className, `${ns}-picklist--nestedcontainer`)}
+				aria-expanded={isExpanded}
+			>
 				<input
+					{...secondaryProps}
 					data-automationid={qaHook && `${qaHook}--checkbox`}
 					type="checkbox"
 					checked={isExpanded}
@@ -77,8 +88,6 @@ export default class NestedPicklistContainer extends PureComponent {
 					tabIndex="-1"
 					onChange={container.toggle}
 					aria-owns={id}
-					aria-expanded={isExpanded}
-					{...secondaryProps}
 				/>
 				{children}
 			</li>
@@ -94,22 +103,22 @@ NestedPicklistContainer.propTypes = {
 	isOpen: PropTypes.bool,
 	onOpen: PropTypes.func,
 	onClose: PropTypes.func,
-	secondaryProps: PropTypes.object
+	secondaryProps: PropTypes.object,
 };
 
 NestedPicklistContainer.defaultProps = {
 	isOpen: false,
 	secondaryProps: {
-		role: 'treeitem'
+		role: 'treeitem',
 	},
 	/*
 	 DO NOT REMOVE
-	 This property is needed so that the StatefulPicklist will properly recognize this as the container for
-	 a nested list while traversing the children tree.
+	 This property is needed so that the StatefulPicklist will properly recognize this as the
+	 container for a nested list while traversing the children tree.
 	 */
-	_isGroupContainer: true
+	_isGroupContainer: true, // eslint-disable-line
 };
 
 NestedPicklistContainer.childContextTypes = {
-	id: PropTypes.string
+	id: PropTypes.string,
 };

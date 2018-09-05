@@ -1,6 +1,5 @@
 // Libs
 import React from 'react';
-import cn from 'classnames';
 
 // Components we need to test with
 import XUILoader from '../XUILoader';
@@ -11,13 +10,11 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
+import ExampleContainer from '../../../docs/ExampleContainer';
+
 import { variations, storiesWithVariationsKindName } from './variations';
 
 const sizes = Object.keys(sizeClassNames);
-
-const getContainerClassName = isInverted => cn('xui-panel', {
-	'xui-background-grey-1': isInverted
-});
 
 const getContainerStyle = isRequired => isRequired ? { position: 'relative', height: '40px', width: '100px' } : {};
 
@@ -28,23 +25,28 @@ storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
 
 	const size = select('size', sizes, sizes[0]);
-	const isInverted = boolean('is inverted', false);
 
 	const defaultLayout = boolean('default layout', true);
 	const retainLayout = boolean('retain layout', true);
 	const isStatic = boolean('static animations', false) ? 'xui-loader-static' : null;
 
+	const attrs = {
+		className: 'xui-panel',
+		isInverted: boolean('is inverted', false),
+		style: getContainerStyle(!defaultLayout)
+	};
+
 	return (
-		<div className={getContainerClassName(isInverted)} style={getContainerStyle(!defaultLayout)}>
+		<ExampleContainer {...attrs}>
 			<XUILoader
 				defaultLayout={defaultLayout}
 				size={size}
-				isInverted={isInverted}
+				isInverted={attrs.isInverted}
 				retainLayout={retainLayout}
 				className={isStatic}
 			>
 			</XUILoader>
-		</div>
+		</ExampleContainer>
 	);
 
 });
@@ -59,8 +61,13 @@ variations.forEach(variation => {
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
 
-		const isInverted = variationMinusStoryDetails.isInverted;
 		const hasContainerStyle = variationMinusStoryDetails.retainLayout || variationMinusStoryDetails.defaultLayout === false;
+
+		const attrs = {
+			isInverted: variationMinusStoryDetails.isInverted,
+			style: getContainerStyle(hasContainerStyle),
+			className: 'xui-panel'
+		};
 
 		let example;
 		if (variationMinusStoryDetails.sizes) {
@@ -74,9 +81,9 @@ variations.forEach(variation => {
 			example = <XUILoader {...variationMinusStoryDetails} className="xui-loader-static"></XUILoader>;
 		}
 		return (
-			<div className={getContainerClassName(isInverted)} style={getContainerStyle(hasContainerStyle)}>
+			<ExampleContainer {...attrs}>
 				{example}
-			</div>
+			</ExampleContainer>
 		)
 	});
 });

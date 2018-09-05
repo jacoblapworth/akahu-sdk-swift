@@ -66,7 +66,7 @@ const buildActions = (props) => {
 };
 
 const sampleBreadcrumb = [
-	<span role="link" onClick={() => alert('hello')} key="1">hello</span>,
+	<span role="link" tabIndex="0" onClick={() => alert('hello')} onKeyDown={() => {}} key="1">hello</span>,
 	{label: "hiya I have multiple words", href: "#2"},
 	{label: "yo"}];
 const exampleBreadcrumb = (
@@ -81,13 +81,13 @@ const buildExampleSections = (children) => {
 const buildExampleContentblockItem = (children) => {
 	return children.map((child, index) => {
 		if (child.overflow) {
-			child.overflow = <XUIButton className="xui-button-icon-large" variant="icon" aria-label="Overflow menu"><XUIIcon path={overflow}/></XUIButton>;
+			child.overflow = <XUIButton className="xui-button-icon-large" variant="icon" aria-label="Overflow menu"><XUIIcon icon={overflow} isBoxed /></XUIButton>;
 		}
 		if (child.tag) {
 			child.tag = <XUITag className="xui-margin-left-small" variant="positive">Positive</XUITag>;
 		}
 		if (child.leftContent === "checkbox") {
-			child.leftContent = <XUICheckbox isChecked={false} isLabelHidden>Row checkbox</XUICheckbox>;
+			child.leftContent = <XUICheckbox isLabelHidden>Row checkbox</XUICheckbox>;
 		} else if (child.leftContent === "avatar") {
 			child.leftContent = <XUIAvatar value="Pixar" />;
 		} else if (child.leftContent === "rollover") {
@@ -100,7 +100,7 @@ const buildExampleContentblockItem = (children) => {
 			child.pinnedValue = "0.00";
 		}
 		return <XUIContentBlockItem key={index} {...child} />
-	})
+	});
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
@@ -171,7 +171,7 @@ variations.forEach(variation => {
 				</div>
 			)
 		} else if (type === "panel") {
-			const heading = <XUIPanelHeading>Hello there <XUIIcon isInline={true} path={overflow} /></XUIPanelHeading>;
+			const heading = <XUIPanelHeading>Hello there <XUIIcon icon={overflow} /></XUIPanelHeading>;
 			return (
 				<XUIPanel
 				heading={heading}

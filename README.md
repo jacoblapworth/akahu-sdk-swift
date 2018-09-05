@@ -2,7 +2,7 @@ XUI
 ===
 
 [![TC_build_status](https://teamcity1.inside.xero-support.com/app/rest/builds/buildType:id:Xui_Style_Master/statusIcon)](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_Master)
-![](https://github.dev.xero.com/pages/UXE/Home/interrupt.svg)
+[![](https://github.dev.xero.com/pages/UXE/Home/interrupt.svg)](https://slack.com/app_redirect?channel=C565NP1A5)
 
 ## Make things people know and love
 XUI is a design system for Xero web applications. It includes standard approaches and patterns plus the front-end code to implement them. XUI lets us focus on user problems over UI problems, keep a large codebase healthy, and get to market quickly.
@@ -64,7 +64,7 @@ Open http://localhost:6060 to view the docs.
 
 Open http://localhost:9001 to view the storybook.
 
-This is running a webpack dev server for the docs site and watches to automatically rebuild. The CSS uses livereload and React docs use hot module replacement. It uses storybook for component development
+This is running a webpack dev server for the docs site and watches to automatically rebuild. The CSS uses livereload and React docs use hot module replacement. It uses storybook for component development.
 
 #### Folder structure
 
@@ -74,7 +74,7 @@ XUI has a number of top level folders. When contributing all the interesting fil
 * Each component has a sub folder inside `src/react/components/`.
   * Only public  UI components should live in the root of the associated component folder.
   * Tests should always live in the `__tests__` folder.
-	* Stories should always live in the `stories` folder.
+  * Stories should always live in the `stories` folder.
   * Private helpers, constants, etc should live in a `private` folder.
   * This convention makes it easier to target only our components, exclude unit tests, etc in our various build tasks.
 * `src/sass/` contains all the SCSS partials and is organised following ITCSS conventions.
@@ -95,12 +95,14 @@ src/
 │     │  └─ stories/
 │     └─ component2/
 └─ sass/
-   ├─ components/
-   ├─ elements
-   ├─ objects/
-   ├─ settings/
-   ├─ tools/
-   └─ trumps
+   ├─ 1-vars/
+   ├─ 2-mixins/
+   ├─ 3-reset/
+   ├─ 4-base/
+   ├─ 5-structure/
+   ├─ 6-containers/
+   ├─ 7-components/
+   └─ 99-utils/
 ```
 
 #### npm scripts
@@ -114,7 +116,9 @@ Script              | Description
 `npm start`         | Builds all the sites, and outputs such as the XUI css files, and starts up servers for each site for you to start developing on.
 `npm run lint`      | Lints the React components to ensure code quality.
 `npm run test`      | Runs all the React component unit tests to ensure components meet their prescribed definitions.
+`npm run test -- -i`| Runs the interactive variant of the test script which gives you additional test options including visual regression, code coverage and more.
 `npm run build`     | Compiles the stylesheet, Builds the KSS docs, Styleguide and Storybook apps. Compiles tokens and creates the UMD bundle. Used for creating a release.
+`npm run release`   | This script is reserved for running before we plan on doing a release on a local and before doing the release PR. Updates all versions of XUI in package(-lock).json, and a few other files where required to the new version we plan to release
 
 ## Hooks
 
@@ -156,35 +160,48 @@ This task prepares the `react` and `sass` files for distribution via Artifactory
 
 XUI uses custom node scripts for automating tasks within the repository. The tasks live in the `scripts` root folder. Each task can be run by calling `node scripts/<folder>/<task>`
 
-Many of these are "part of the build chain". Many are small independent scripts that perform one task. Further documentation on these can be found at `scripts/README.md`
+Many of these are "part of the build chain". Many are small independent scripts that perform one task. Further documentation on these can be found at [scripts/README.md](scripts/README.md)
 
 ## Developer Documentation
 
-XUI is a living design system that uses source annotations and markdown files to document itself. XUI provides two layers of documentation. XUI Guide contains the best practices and CSS examples and XUI React Docs contain component documentation and examples. Both systems provide running example code and in the React Docs this can be edited in the browser. These tools are configured separatly and we have a number of customisations that are unique to Xero.
+XUI is a living design system that uses source annotations and markdown files to document itself. XUI provides three layers of documentation. XUI Guide contains the best practices and CSS examples and XUI React Docs contain component documentation and examples, finally XUI Storybook gives us the system we need to properly apply a visual regression test over our components. All systems provide running example code and in the React Docs this can be edited in the browser. These tools are configured separately and we have a number of customisations that are unique to Xero.
 
 ### XUI Guide (KSS)
 
-Configured in `kss/` folder. Checkout our [kss/README.md](kss/README.md) for notes on our customisation and configuration.
+Configured in `.kss/` folder. Checkout our [.kss/README.md](.kss/README.md) for notes on our customisation and configuration.
 
 ### React Docs (react-styleguidist)
 
-Configured in `styleguide/` folder. Checkout our [styleguide/README.md](styleguide/README.md) for notes on customisation and configuration.
+Configured in `.styleguide/` folder. Checkout our [.styleguide/README.md](.styleguide/README.md) for notes on customisation and configuration.
 
 [react-styleguidist](https://react-styleguidist.js.org/) provides our component specific documenation including descriptions, interactive and editable component examples and API documenation. This is authored using markdown descriptions, short example code snippets, and automatic generation of PropType documentation using [react-docgen](https://www.npmjs.com/package/react-docgen).
 
+### Storybook
+
+Configured in `.storybook/` folder.
+
 ## Releasing XUI
 
-1. Draft up the Release notes in GitHub
-2. Open a PR with the version bump to package.json (optionally use the `node scripts/release` task to help automate this as there are some files outside package json that need to be version bumped also).
-
-The release description should provide clear documentation describing what has changed since the last release.
-
-The release notes can be organised under the following sections:
- * New features
- * Bug fixes
- * Deprecations
- * Any notable documentation updates
- * Removals (`breaking-changes` only)
+1. [Draft up the Release notes in GitHub](https://github.dev.xero.com/UXE/xui/releases/new).
+  - The release description should provide clear documentation describing what has changed since the last release. Best practice is to include PR numbers per change.
+    * The release notes can be organised under the following sections:
+    * New features
+    * Bug fixes
+    * Deprecations
+    * Any notable documentation updates
+    * Removals (`breaking-changes` only)
+2. Ensure locally, you're on the latest commit on the branch; patch, minor or breaking-changes; that you want to release.
+3. Run `npm run release` on your branch and choose the appropriate release type. Verify the version you want to release matches the intended release type.
+4. Open a PR to the upstream branch with your changes post `npm run release`
+5. PR the updated upstream branch: patch; minor; breaking-changes; into master.
+6. Tag the release in Github matching the updated version in package.json
+7. [Log into AWS](https://ap-southeast-2.console.aws.amazon.com/codepipeline/home?region=ap-southeast-2#/view/xui-code-pipeline) and approve the release. Note: You'll need `Developer @ xero-platformdevelopment-test` as minimum permissions to approve the release.
+8. Once the release is finalised, you will need to verify everything has been release correctly.
+  - XUI CSS : hit https://edge.xero.com/style/xui/&lt;your new version&gt;/xui.css, expect 200
+  - Sherlock JSON: hit https://edge.xero.com/style/xui/sherlock.json, expect 200 and version exists in JSON
+  - Check you can install expected XUI version into test app, or your own app.
+  - Check docs branch has been updated in github
+  - Check docs have been released on the website https://xui.xero.com/&lt;your new version&gt;/
 
 ### Alpha/beta releases
 
@@ -192,26 +209,26 @@ All releases from `breaking-changes` should also supply an up-to-date list of al
 
 ### CI & CD builds
 
-The UXE team manage releases of XUI via TeamCity. Following are the common builds that make up the continuous integration and continuous deployment pipeline.
+The UXE team manage releases of XUI via AWS Codepipeline. Following are the common builds that make up the continuous integration and continuous deployment pipeline.
 
-* [Pull request](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_PullRequest) all pull requests run lint test scripts. Triggered by new or updated Pull Request.
-* [Update-gh-pages](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_UpdateGhPages) builds and releases documentation for all releases, `master` and `breaking-changes` branches. Triggered by successful merge to `master` or `breaking-changes` branches.
-* [Master](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_Master) and [breaking-changes](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_BreakingChanges) build XUI for deployment to edge.xero.com. Triggered on successful merge to `master` or `breaking-changes` branches.
-* [Deploy to Production](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_DeployToProduction) deploy a release build of XUI to production. Depends on successful build of master (above). Triggered by successful build of master.
-* [Deploy to Production [breaking-changes]](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_DeployS3BreakingChanges) deploy a pre-release build of XUI to production. Depends on successful build of breaking-changes (above). Triggered manually.
-* [Deploy Monorepo Components to Artifactory](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=XeroJS_SharedReactComponents_DeployMonorepoComponentsToArtifactory) and [Deploy Monorepo Components to Artifactory [breaking-changes]](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_DeployBreakingChangesMonorepoComponentsToArtifactory) prepare and deploy React components to artifactory.
+* [Pull request](https://ap-southeast-2.console.aws.amazon.com/codebuild/home?region=ap-southeast-2#/projects/xui-pull-requests/view) all pull requests run lint test scripts. Triggered by new or updated Pull Request.
+* [Deploy to Production](https://ap-southeast-2.console.aws.amazon.com/codepipeline/home?region=ap-southeast-2#/view/xui-code-pipeline) deploy a release build of XUI to production. Triggered by new tags against the repository.
 
 ### Upgrading between versions of XUI
 
+When you upgrade XUI, please check [changes.md](./changes.md) to see what shared dependencies have changed in XUI and check
+which dependencies you need to update in your projects - otherwise you may end up bundling multiple versions of xui-icon or
+other dependencies and bloating your application artifacts.
+
 To make the upgrade process between versions of XUI easier, we maintain a codemod to automate some of the API changes in your code. The codemod runs using [jscodeshift](https://github.com/facebook/jscodeshift).
 
-From XUI 14 onwards, the codemod will contain transforms for moving from the previous major version of XUI.
+The codemod contains transforms for moving from the previous major version of XUI.
 
 How to run the codemod:
 
 1. Install jscodeshift
  ```bash
- npm i -g jscodeshift
+ npm i -g jscodeshift@~0.5.0
  ```
 1. Run the codemod
  ```bash

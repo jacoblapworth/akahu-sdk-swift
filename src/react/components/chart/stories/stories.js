@@ -1,16 +1,16 @@
 // Libs
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 
 // Components we need to test with
 import XUIBarChart from '../XUIBarChart';
 
 // Story book things
-import {storiesOf} from '@storybook/react';
-import {withKnobs, object, boolean, text, select, number, color} from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import { withKnobs, object, boolean, text, select, number, color } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 import { variations, storiesWithVariationsKindName } from './variations';
-import {createArray} from '../../progressindicator/helpers/utilities';
+import { createArray } from '../../progressindicator/helpers/utilities';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 
@@ -36,12 +36,12 @@ storiesWithKnobs.add('Playground', () => {
 	const isBarStacked = boolean('Stack bars', false);
 	const isBarToolTipHidden = boolean('Hide bar tooltip', false);
 	const isXAxisToolTipHidden = boolean('Hide x-axis label tooltip', false);
-	const createYAxisLabelFormat = boolean('Create custom y-axis format', false) && ((y) => `${Math.round(y * 100)}k`);
+	const createYAxisLabelFormat = boolean('Create custom y-axis format', false) && (y => `${Math.round(y * 100)}k`);
 	const hasPagination = boolean('Show pagination', false);
 	const createPaginationMessage = boolean('Create custom pagination message', false) && ((current, total) => `Page ${current} of ${total}`);
 	const emptyStateComponent = boolean('Show empty state custom component', false) ? (
 		<div className="xui-text-align-center">
-			<h3 className="xui-heading-xlarge">Sorry 🙁</h3>
+			<h3 className="xui-heading-xlarge">Sorry <span role="img" aria-label="Confused face">🙁</span></h3>
 			<p className="xui-heading-small">There is no data to display!</p>
 		</div>
 	) : undefined;
@@ -53,46 +53,66 @@ storiesWithKnobs.add('Playground', () => {
 	const barColorActive = color('Active bar color', '', 'activeColor') || undefined;
 
 	const totalStacks = 3;
-	let onBarClick
-	let createBarToolTipMessage
-	let activeBars
-	let barColor
-	let keyLabel
+	let onBarClick;
+	let createBarToolTipMessage;
+	let activeBars;
+	let barColor;
+	let keyLabel;
 
 	if (isBarStacked) {
-		onBarClick = boolean('Create bar click callback', false) && ((event, {y, stackIndex}) => alert(`Clicked stack ${y[stackIndex]}`));
-		createBarToolTipMessage = boolean('Create bar tooltip message', false) && (({y, stackIndex}) => `Looking at stack ${y[stackIndex]}`);
-		activeBars = object('Active bars', {0: true, 1: [0]});
+		onBarClick = boolean('Create bar click callback', false) && ((event, { y, stackIndex }) => alert(`Clicked stack ${y[stackIndex]}`));
+		createBarToolTipMessage = boolean('Create bar tooltip message', false) && (({ y, stackIndex }) => `Looking at stack ${y[stackIndex]}`);
+		activeBars = object('Active bars', { 0: true, 1: [0] });
 		keyLabel = createArray(totalStacks).map((_, index) => text(`Stack #${index + 1} key`, '', `stackKey${index + 1}`));
 		barColor = createArray(totalStacks).map((_, index) => color(`Stack #${index + 1} color`, '', `stackColor${index + 1}`));
 	} else {
-		onBarClick = boolean('Create bar click callback', false) && ((event, {y}) => alert(`Clicked bar ${y}`));
-		createBarToolTipMessage = boolean('Create bar tooltip message', false) && (({y}) => `Looking at bar ${y}`);
-		activeBars = object('Active bars', {0: true});
+		onBarClick = boolean('Create bar click callback', false) && ((event, { y }) => alert(`Clicked bar ${y}`));
+		createBarToolTipMessage = boolean('Create bar tooltip message', false) && (({ y }) => `Looking at bar ${y}`);
+		activeBars = object('Active bars', { 0: true });
 		barColor = color('Bar color', '', 'barColor');
 		keyLabel = text('Bar key', '');
 	}
-	const multiplyWithNegativity = () => hasNegativeValues && Math.round(Math.random()) ? -1 : 1;
+	const multiplyWithNegativity = () => (hasNegativeValues && Math.round(Math.random()) ? -1 : 1);
 	const randomise = () => Math.random() * 4 * multiplyWithNegativity();
-	const wrapperStyles = {width: `${chartWidth}px`};
+	const wrapperStyles = { width: `${chartWidth}px` };
 	const isLabelAbbreviation = xAxisType === 'abbreviation';
 	const barsData = createArray(barsTotal).map((_, id) => {
 		const ref = id + 1;
 		return {
 			id,
 			x: isLabelAbbreviation ? `${ref} | #${ref} | Num #${ref} | Number #${ref}` : `Item Number ${ref}`,
-			y: isBarStacked ? createArray(totalStacks).map(randomise) : randomise()
+			y: isBarStacked ? createArray(totalStacks).map(randomise) : randomise(),
 		};
 	});
 
 	return (
 		<div style={wrapperStyles}>
-			<XUIBarChart {...{
-					chartId, chartTitle, isChartTitleHidden, chartDescription, chartHeight,
-					isBarStacked, keyTitle, keyLabel, barsData, barColor, activeBars,
-					isBarToolTipHidden, isXAxisToolTipHidden, xAxisType, xAxisVisibleItems,
-					yAxisDefaultTopValue, hasPagination, paginationNextTitle, barColorActive,
-					paginationPreviousTitle, emptyMessage, emptyStateComponent, isLoading, loadingLabel
+			<XUIBarChart
+				{...{
+					chartId,
+					chartTitle,
+					isChartTitleHidden,
+					chartDescription,
+					chartHeight,
+					isBarStacked,
+					keyTitle,
+					keyLabel,
+					barsData,
+					barColor,
+					activeBars,
+					isBarToolTipHidden,
+					isXAxisToolTipHidden,
+					xAxisType,
+					xAxisVisibleItems,
+					yAxisDefaultTopValue,
+					hasPagination,
+					paginationNextTitle,
+					barColorActive,
+					paginationPreviousTitle,
+					emptyMessage,
+					emptyStateComponent,
+					isLoading,
+					loadingLabel,
 				}}
 				// Make sure functions are are delayed correctly (not booleans from knobs).
 				createYAxisLabelFormat={createYAxisLabelFormat || undefined}
@@ -130,7 +150,8 @@ class EventReadyWrapper extends PureComponent {
 					display: 'flex',
 					flexWrap: 'wrap',
 					width: '1000px',
-				}}>
+				}}
+			>
 				{this.props.children}
 			</div>
 		);
@@ -148,8 +169,9 @@ const TestScaffold = ({
 		style={{
 			flexGrow: 1,
 			padding: '20px',
-			...testStyles
-		}}>
+			...testStyles,
+		}}
+	>
 		<XUIBarChart
 			{...testProps}
 			emptyStateComponent={emptyStateComponent && <span>{emptyStateComponent}</span>}

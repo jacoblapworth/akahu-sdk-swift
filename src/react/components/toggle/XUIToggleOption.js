@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {baseClass} from './private/constants';
-import {ns} from '../helpers/xuiClassNamespace';
+import { baseClass } from './private/constants';
 
 /** @private typeMap - Map types to attributes */
 const typeMap = {
 	radio: 'radio',
-	checkbox: 'checkbox'
+	checkbox: 'checkbox',
 };
 
 export default function XUIToggleOption(props) {
@@ -16,26 +15,28 @@ export default function XUIToggleOption(props) {
 		className,
 		qaHook,
 		isChecked,
+		isDefaultChecked,
 		isDisabled,
 		isRequired,
 		name,
 		onChange,
 		type,
 		value,
-		id
+		id,
 	} = props;
 	const classes = cn(
 		className,
 		`${baseClass}-option`,
-		isDisabled && `${ns}-is-disabled`
+		isDisabled && `${baseClass}-is-disabled`,
 	);
 
 	return (
-		<label className={classes} data-automationid={qaHook}>
+		<label htmlFor={id} className={classes} data-automationid={qaHook}>
 			<input
 				className={`${baseClass}--input`}
 				data-automationid={qaHook && `${qaHook}--input`}
 				checked={isChecked}
+				defaultChecked={isDefaultChecked}
 				disabled={isDisabled}
 				required={isRequired}
 				name={name}
@@ -56,6 +57,8 @@ XUIToggleOption.propTypes = {
 	qaHook: PropTypes.string,
 	/** The input is selected */
 	isChecked: PropTypes.bool,
+	/** The input is selected initially, but not in a controlled manner */
+	isDefaultChecked: PropTypes.bool,
 	/** The input is disabled */
 	isDisabled: PropTypes.bool,
 	/** The input is required for form submission */
@@ -68,9 +71,9 @@ XUIToggleOption.propTypes = {
 	type: PropTypes.oneOf(Object.keys(typeMap)),
 	/** The value to return on form submission */
 	value: PropTypes.string,
-	id: PropTypes.string
+	id: PropTypes.string,
 };
 
 XUIToggleOption.defaultProps = {
-	type: typeMap.radio
+	type: typeMap.radio,
 };

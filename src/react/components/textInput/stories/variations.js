@@ -7,41 +7,41 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is borderless and transparent',
-		isBorderlessTransparent: true
+		isBorderlessTransparent: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is borderless with a solid background',
-		isBorderlessSolid: true
+		isBorderlessSolid: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is borderless and transparent, inverted',
 		isBorderlessTransparent: true,
-		isInverted: true
+		isInverted: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is borderless with a solid background, inverted',
 		isBorderlessSolid: true,
-		isInverted: true
+		isInverted: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a label',
-		labelText: 'Label text'
+		labelText: 'Label text',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a hidden label',
 		labelText: 'Label text',
-		isLabelHidden: true
+		isLabelHidden: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is invalid',
 		isInvalid: true,
-		validationMessage: 'invalid content'
+		validationMessage: 'invalid content',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -52,44 +52,40 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with a hint message and placeholder',
 		hintMessage: 'here\'s a hint',
-		placeholder: 'This is a search box'
+		placeholder: 'This is a search box',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a right icon',
 		rightElementType: 'icon',
-		defaultValue: 'default text'
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a right icon with background colour',
 		rightElementType: 'iconWithBackground',
 		hasRightElementBackground: true,
-		defaultValue: 'Very long default text which should hopefully display the righthand padding that will be applied by the wrapper'
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a right text element',
 		rightElementType: 'text',
 		hasRightElementBackground: true,
-		defaultValue: 'Very long default text which should hopefully display the righthand padding that will be applied by the wrapper'
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a right button element',
 		rightElementType: 'button',
 		hasRightElementBackground: true,
-		defaultValue: 'Very long default text which should hopefully display the righthand padding that will be applied by the wrapper'
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a left icon',
-		leftElementType: 'icon'
+		leftElementType: 'icon',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a left icon with wrapping color',
-		leftElementType: 'iconWithBackground'
+		leftElementType: 'iconWithBackground',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -117,7 +113,7 @@ const variations = [
 		storyTitle: 'multiline input grown to fit contents',
 		isMultiline: true,
 		maxRows: 5,
-		value: 'test\ntest\ntest\ntest\ntest',
+		defaultValue: 'test\ntest\ntest\ntest\ntest',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -143,5 +139,5 @@ const variations = [
 
 module.exports = {
 	storiesWithVariationsKindName,
-	variations
+	variations,
 };

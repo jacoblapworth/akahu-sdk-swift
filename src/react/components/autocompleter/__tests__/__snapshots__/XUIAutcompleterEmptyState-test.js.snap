@@ -1,139 +1,169 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIAutocompleterEmptyState /> should change the icon when the name is passed to iconPath 1`] = `
+exports[`<XUIAutocompleterEmptyState /> should change the icon when the name is passed to icon 1`] = `
 <div
-  className="xui-u-flex xui-padding-vertical-large xui-u-flex-vertical xui-u-flex-verticallycentered xui-textcolor-muted"
+  className="xui-u-flex xui-padding-vertical-large xui-u-flex-column xui-u-flex-align-center xui-textcolor-muted"
   data-automationid={undefined}
   id={undefined}
 >
-  <svg
-    className="xui-icon xui-icon-large"
+  <div
+    className="xui-iconwrapper xui-iconwrapper-large"
     data-automationid={undefined}
-    focusable="false"
-    style={null}
-    viewBox="0 0 30 30"
   >
-    <path
-      d="m 20,11 0,-2 -10,0 0,2 4,5 0,4 2,0 0,-4 z"
-      role="presentation"
-      transform={undefined}
-    />
-  </svg>
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={14.666666666666666}
+      viewBox="0 0 10 11"
+      width={13.333333333333332}
+    >
+      <path
+        d="M10 2V0H0v2l4 5v4h2V7l4-5z"
+        role="presentation"
+      />
+    </svg>
+  </div>
   No results found
 </div>
 `;
 
 exports[`<XUIAutocompleterEmptyState /> should include an icon that defaults to search 1`] = `
 <div
-  className="xui-u-flex xui-padding-vertical-large xui-u-flex-vertical xui-u-flex-verticallycentered xui-textcolor-muted"
+  className="xui-u-flex xui-padding-vertical-large xui-u-flex-column xui-u-flex-align-center xui-textcolor-muted"
   data-automationid={undefined}
   id={undefined}
 >
-  <svg
-    className="xui-icon xui-icon-large"
+  <div
+    className="xui-iconwrapper xui-iconwrapper-large"
     data-automationid={undefined}
-    focusable="false"
-    style={null}
-    viewBox="0 0 30 30"
   >
-    <path
-      d="M18.8929126,17.4786991 C19.5903306,16.4982449 20,15.2980382 20,14 C20,10.68 17.32,8 14,8 C10.68,8 8,10.68 8,14 C8,17.32 10.68,20 14,20 C15.2980382,20 16.4982449,19.5903306 17.4786991,18.8929126 L21.4142136,22.8284271 L22.8284271,21.4142136 L18.8929126,17.4786991 Z M14,18.5 C11.51,18.5 9.5,16.49 9.5,14 C9.5,11.51 11.51,9.5 14,9.5 C16.49,9.5 18.5,11.51 18.5,14 C18.5,16.49 16.49,18.5 14,18.5 Z"
-      role="presentation"
-      transform={undefined}
-    />
-  </svg>
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={20}
+      viewBox="0 0 15 15"
+      width={20}
+    >
+      <path
+        d="M11.019 9.588L15 13.57 13.57 15l-3.982-3.981a6.048 6.048 0 0 1-3.519 1.12A6.061 6.061 0 0 1 0 6.069 6.061 6.061 0 0 1 6.07 0a6.061 6.061 0 0 1 6.069 6.07 6.048 6.048 0 0 1-1.12 3.518zm-4.95 1.033a4.546 4.546 0 0 0 4.552-4.552A4.546 4.546 0 0 0 6.07 1.517 4.546 4.546 0 0 0 1.517 6.07a4.546 4.546 0 0 0 4.552 4.552z"
+        role="presentation"
+      />
+    </svg>
+  </div>
   No results found
 </div>
 `;
 
 exports[`<XUIAutocompleterEmptyState /> should render an automation id when passed in the qaHook prop 1`] = `
 <div
-  className="xui-u-flex xui-padding-vertical-large xui-u-flex-vertical xui-u-flex-verticallycentered xui-textcolor-muted"
+  className="xui-u-flex xui-padding-vertical-large xui-u-flex-column xui-u-flex-align-center xui-textcolor-muted"
   data-automationid="test-qahook"
   id={undefined}
 >
-  <svg
-    className="xui-icon xui-icon-large"
+  <div
+    className="xui-iconwrapper xui-iconwrapper-large"
     data-automationid={undefined}
-    focusable="false"
-    style={null}
-    viewBox="0 0 30 30"
   >
-    <path
-      d="M18.8929126,17.4786991 C19.5903306,16.4982449 20,15.2980382 20,14 C20,10.68 17.32,8 14,8 C10.68,8 8,10.68 8,14 C8,17.32 10.68,20 14,20 C15.2980382,20 16.4982449,19.5903306 17.4786991,18.8929126 L21.4142136,22.8284271 L22.8284271,21.4142136 L18.8929126,17.4786991 Z M14,18.5 C11.51,18.5 9.5,16.49 9.5,14 C9.5,11.51 11.51,9.5 14,9.5 C16.49,9.5 18.5,11.51 18.5,14 C18.5,16.49 16.49,18.5 14,18.5 Z"
-      role="presentation"
-      transform={undefined}
-    />
-  </svg>
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={20}
+      viewBox="0 0 15 15"
+      width={20}
+    >
+      <path
+        d="M11.019 9.588L15 13.57 13.57 15l-3.982-3.981a6.048 6.048 0 0 1-3.519 1.12A6.061 6.061 0 0 1 0 6.069 6.061 6.061 0 0 1 6.07 0a6.061 6.061 0 0 1 6.069 6.07 6.048 6.048 0 0 1-1.12 3.518zm-4.95 1.033a4.546 4.546 0 0 0 4.552-4.552A4.546 4.546 0 0 0 6.07 1.517 4.546 4.546 0 0 0 1.517 6.07a4.546 4.546 0 0 0 4.552 4.552z"
+        role="presentation"
+      />
+    </svg>
+  </div>
   No results found
 </div>
 `;
 
 exports[`<XUIAutocompleterEmptyState /> should render an id when passed in the id prop 1`] = `
 <div
-  className="xui-u-flex xui-padding-vertical-large xui-u-flex-vertical xui-u-flex-verticallycentered xui-textcolor-muted"
+  className="xui-u-flex xui-padding-vertical-large xui-u-flex-column xui-u-flex-align-center xui-textcolor-muted"
   data-automationid={undefined}
   id="test-id"
 >
-  <svg
-    className="xui-icon xui-icon-large"
+  <div
+    className="xui-iconwrapper xui-iconwrapper-large"
     data-automationid={undefined}
-    focusable="false"
-    style={null}
-    viewBox="0 0 30 30"
   >
-    <path
-      d="M18.8929126,17.4786991 C19.5903306,16.4982449 20,15.2980382 20,14 C20,10.68 17.32,8 14,8 C10.68,8 8,10.68 8,14 C8,17.32 10.68,20 14,20 C15.2980382,20 16.4982449,19.5903306 17.4786991,18.8929126 L21.4142136,22.8284271 L22.8284271,21.4142136 L18.8929126,17.4786991 Z M14,18.5 C11.51,18.5 9.5,16.49 9.5,14 C9.5,11.51 11.51,9.5 14,9.5 C16.49,9.5 18.5,11.51 18.5,14 C18.5,16.49 16.49,18.5 14,18.5 Z"
-      role="presentation"
-      transform={undefined}
-    />
-  </svg>
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={20}
+      viewBox="0 0 15 15"
+      width={20}
+    >
+      <path
+        d="M11.019 9.588L15 13.57 13.57 15l-3.982-3.981a6.048 6.048 0 0 1-3.519 1.12A6.061 6.061 0 0 1 0 6.069 6.061 6.061 0 0 1 6.07 0a6.061 6.061 0 0 1 6.069 6.07 6.048 6.048 0 0 1-1.12 3.518zm-4.95 1.033a4.546 4.546 0 0 0 4.552-4.552A4.546 4.546 0 0 0 6.07 1.517 4.546 4.546 0 0 0 1.517 6.07a4.546 4.546 0 0 0 4.552 4.552z"
+        role="presentation"
+      />
+    </svg>
+  </div>
   No results found
 </div>
 `;
 
 exports[`<XUIAutocompleterEmptyState /> should render any children after the icon 1`] = `
 <div
-  className="xui-u-flex xui-padding-vertical-large xui-u-flex-vertical xui-u-flex-verticallycentered xui-textcolor-muted"
+  className="xui-u-flex xui-padding-vertical-large xui-u-flex-column xui-u-flex-align-center xui-textcolor-muted"
   data-automationid={undefined}
   id={undefined}
 >
-  <svg
-    className="xui-icon xui-icon-large"
+  <div
+    className="xui-iconwrapper xui-iconwrapper-large"
     data-automationid={undefined}
-    focusable="false"
-    style={null}
-    viewBox="0 0 30 30"
   >
-    <path
-      d="M18.8929126,17.4786991 C19.5903306,16.4982449 20,15.2980382 20,14 C20,10.68 17.32,8 14,8 C10.68,8 8,10.68 8,14 C8,17.32 10.68,20 14,20 C15.2980382,20 16.4982449,19.5903306 17.4786991,18.8929126 L21.4142136,22.8284271 L22.8284271,21.4142136 L18.8929126,17.4786991 Z M14,18.5 C11.51,18.5 9.5,16.49 9.5,14 C9.5,11.51 11.51,9.5 14,9.5 C16.49,9.5 18.5,11.51 18.5,14 C18.5,16.49 16.49,18.5 14,18.5 Z"
-      role="presentation"
-      transform={undefined}
-    />
-  </svg>
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={20}
+      viewBox="0 0 15 15"
+      width={20}
+    >
+      <path
+        d="M11.019 9.588L15 13.57 13.57 15l-3.982-3.981a6.048 6.048 0 0 1-3.519 1.12A6.061 6.061 0 0 1 0 6.069 6.061 6.061 0 0 1 6.07 0a6.061 6.061 0 0 1 6.069 6.07 6.048 6.048 0 0 1-1.12 3.518zm-4.95 1.033a4.546 4.546 0 0 0 4.552-4.552A4.546 4.546 0 0 0 6.07 1.517 4.546 4.546 0 0 0 1.517 6.07a4.546 4.546 0 0 0 4.552 4.552z"
+        role="presentation"
+      />
+    </svg>
+  </div>
   Example Child Text
 </div>
 `;
 
 exports[`<XUIAutocompleterEmptyState /> should render extra classes on the root node when passed in the classname prop 1`] = `
 <div
-  className="xui-u-flex xui-padding-vertical-large xui-u-flex-vertical xui-u-flex-verticallycentered xui-textcolor-muted test-class"
+  className="xui-u-flex xui-padding-vertical-large xui-u-flex-column xui-u-flex-align-center xui-textcolor-muted test-class"
   data-automationid={undefined}
   id={undefined}
 >
-  <svg
-    className="xui-icon xui-icon-large"
+  <div
+    className="xui-iconwrapper xui-iconwrapper-large"
     data-automationid={undefined}
-    focusable="false"
-    style={null}
-    viewBox="0 0 30 30"
   >
-    <path
-      d="M18.8929126,17.4786991 C19.5903306,16.4982449 20,15.2980382 20,14 C20,10.68 17.32,8 14,8 C10.68,8 8,10.68 8,14 C8,17.32 10.68,20 14,20 C15.2980382,20 16.4982449,19.5903306 17.4786991,18.8929126 L21.4142136,22.8284271 L22.8284271,21.4142136 L18.8929126,17.4786991 Z M14,18.5 C11.51,18.5 9.5,16.49 9.5,14 C9.5,11.51 11.51,9.5 14,9.5 C16.49,9.5 18.5,11.51 18.5,14 C18.5,16.49 16.49,18.5 14,18.5 Z"
-      role="presentation"
-      transform={undefined}
-    />
-  </svg>
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={20}
+      viewBox="0 0 15 15"
+      width={20}
+    >
+      <path
+        d="M11.019 9.588L15 13.57 13.57 15l-3.982-3.981a6.048 6.048 0 0 1-3.519 1.12A6.061 6.061 0 0 1 0 6.069 6.061 6.061 0 0 1 6.07 0a6.061 6.061 0 0 1 6.069 6.07 6.048 6.048 0 0 1-1.12 3.518zm-4.95 1.033a4.546 4.546 0 0 0 4.552-4.552A4.546 4.546 0 0 0 6.07 1.517 4.546 4.546 0 0 0 1.517 6.07a4.546 4.546 0 0 0 4.552 4.552z"
+        role="presentation"
+      />
+    </svg>
+  </div>
   No results found
 </div>
 `;

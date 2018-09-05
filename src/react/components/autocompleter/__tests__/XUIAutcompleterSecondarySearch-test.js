@@ -7,6 +7,10 @@ import XUILoader from '../../loader/XUILoader';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import Pill from '../../pill/XUIPill';
+import uuidv4 from 'uuid/v4';
+
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => 'testDropdownId');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -73,7 +77,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 		expect(disabled).toMatchSnapshot();
 	});
 
-	it('should render an id on the root node when passed in the id prop', () => {
+	it('should render an id on the dropdown node when passed in the id prop', () => {
 		const classComp = renderer.create(createComponent({ id: 'test-id' }));
 
 		expect(classComp).toMatchSnapshot();

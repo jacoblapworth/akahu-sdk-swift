@@ -9,8 +9,10 @@ import NOOP from '../../helpers/noop';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
+
+import ExampleContainer from '../../../docs/ExampleContainer';
 
 import { storiesWithVariationsKindName, variations } from './variations';
 
@@ -34,12 +36,14 @@ const toggleOptions = [
 	},
 ];
 storiesWithKnobs.add('Playground', () => (
-	<div style={{width:'500px'}}>
+	<div style={{ width: '500px' }}>
 		<XUIToggle
 			color={select('color', Object.keys(colorMap), 'standard')}
 			layout={boolean('full-width?', false) ? 'fullwidth': undefined}
 			variant={boolean('small?', false) ? 'small': undefined}
-			secondaryProps={{'aria-label': 'test label'}}
+			labelText={text('labelText', 'Toggle label')}
+			isLabelHidden={boolean('isLabelHidden', false)}
+			isFieldLayout={boolean('isFieldLayout', true)}
 		>
 			{buildOptions(toggleOptions)}
 		</XUIToggle>
@@ -56,11 +60,21 @@ variations.forEach(variation => {
 		delete variationMinusStoryDetails.options;
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
-		return <div style={{width:'500px'}}><XUIToggle {...variationMinusStoryDetails}>{buildOptions(options)}</XUIToggle></div>;
+		const attrs = {
+			isInverted: variationMinusStoryDetails.color == 'inverted',
+			style: { width: "500px" }
+		};
+		return (
+			<ExampleContainer {...attrs}>
+				<XUIToggle {...variationMinusStoryDetails}>
+					{buildOptions(options)}
+				</XUIToggle>
+			</ExampleContainer>
+		);
 	});
 });
 
-const buildOptions = function(options) {
+const buildOptions = function (options) {
 	return options.map((option, index) => {
 		option.onChange = NOOP;
 		return <XUIToggleOption key={index} {...option}>{option.value}</XUIToggleOption>;

@@ -1,13 +1,12 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-building-blocks-controls-radio.html">Radio in the XUI Documentation</a>
+	<a href="../section-building-blocks-controls-radio.html" isDocLink>Radio in the XUI Documentation</a>
 </div>
 
 Enhanced version of the native radio element. Use in place of `<input type="radio" />`.
 
 The `XUIRadio` supports properties for use with forms like the HTML radio input, including `isRequired`, `name`, and `value`.
+
+Avoid partially disabled groups in which one of the disabled options is pre-selected. This combination has been known to cause unexpected results for keyboard navigation.
 
 ## Examples
 
@@ -17,7 +16,7 @@ The `XUIRadio` supports properties for use with forms like the HTML radio input,
 You can use as an uncontrolled component by not setting `isChecked` on any of the radio buttons, and optionally providing an `isDefaultChecked` property on one.
 
 ```
-<div>
+<div role="radiogroup" aria-label="test group">
 		<XUIRadio name="test" isDefaultChecked>Default option</XUIRadio>
 		<XUIRadio name="test">Another option</XUIRadio>
 		<XUIRadio name="test">And another</XUIRadio>
@@ -51,7 +50,7 @@ class Example extends PureComponent {
 	render() {
 		const { selectedItem } = this.state;
 		return (
-			<div>
+			<div role="radiogroup" aria-label="pets group">
 				{selectedItem == null
 					? 'What\'s your favourite pet?'
 					: `Your favourite: ${selectedItem}`
@@ -76,7 +75,7 @@ class Example extends PureComponent {
 Use the `isReversed` prop to have the label appear to the left of the checkbox element.
 
 ```
-<div>
+<div role="radiogroup" aria-label="reversed group">
 		<XUIRadio isReversed name="reversedRadios">An option</XUIRadio>
 		<XUIRadio isReversed name="reversedRadios">Another option</XUIRadio>
 		<XUIRadio isReversed name="reversedRadios" isDisabled>Disabled option</XUIRadio>
@@ -96,7 +95,7 @@ It is also possible to use the `isLabelHidden` prop to visually hide the label, 
 const customMainIcon = require ('@xero/xui-icon/icons/star').default;
 const customCheckIcon = require ('@xero/xui-icon/icons/suggestion').default;
 <div>
-	<XUIRadio name="customRadio" iconMainPath={customMainIcon}>
+	<XUIRadio name="customRadio" iconMain={customMainIcon}>
 		Favourite
 	</XUIRadio>
 </div>

@@ -1,8 +1,8 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {baseFontTheme} from '../helpers/theme';
+import { xAxisFontTheme } from '../helpers/theme';
 import getResponsiveOptions from '../helpers/xaxis';
-import {NAME_SPACE, CHART_FONT_LARGE} from '../helpers/constants';
+import { NAME_SPACE, CHART_FONT_LARGE } from '../helpers/constants';
 import TruncatedText from './TruncatedText';
 import XAxisLabelWrapper from './XAxisLabelWrapper';
 
@@ -24,17 +24,17 @@ const createTagTextThunk = options => option => {
 	return smallTagText || largeTagText;
 };
 
-const getInlineTagDimensions = ({labelWidth}) => ({
+const getInlineTagDimensions = ({ labelWidth }) => ({
 	tagLeft: labelWidth / 2,
 	tagTop: 26,
-	tagStyle: baseFontTheme,
+	tagStyle: xAxisFontTheme,
 	tagTextWidth: labelWidth - 10,
 	tagAnchor: 'middle',
 });
 
-const createInlineTagLargeDimensions = (params) => ({
+const createInlineTagLargeDimensions = params => ({
 	...getInlineTagDimensions(params),
-	tagStyle: {...baseFontTheme, fontSize: CHART_FONT_LARGE},
+	tagStyle: { ...xAxisFontTheme, fontSize: CHART_FONT_LARGE },
 	tagTop: 30,
 });
 
@@ -69,7 +69,8 @@ class AbbreviationLabel extends PureComponent {
 			// Victory...
 			index: labelIndex, text: textRaw,
 			// Unused Victory references...
-			// scale, style, fontFamily, fontSize, letterSpacing, padding, fill, stroke, x, y, verticalAnchor, textAnchor, datum
+			// scale, style, fontFamily, fontSize, letterSpacing, padding, fill, stroke, x,
+			// y, verticalAnchor, textAnchor, datum
 		} = this.props;
 
 		const textOptions = textRaw.split('|').map(option => option.trim());
@@ -79,7 +80,7 @@ class AbbreviationLabel extends PureComponent {
 			tagLeft, tagTop, tagText, tagStyle, tagAnchor, tagTextWidth,
 			// ToolTip...
 			toolTipOffset,
-		} = getResponsiveOptions(responsiveOptions, {labelWidth, labelIndex, getTagText});
+		} = getResponsiveOptions(responsiveOptions, { labelWidth, labelIndex, getTagText });
 
 		return (
 			<XAxisLabelWrapper
@@ -90,7 +91,8 @@ class AbbreviationLabel extends PureComponent {
 				labelLeft={labelWidth * labelIndex}
 				labelTop={labelTop}
 				labelWidth={labelWidth}
-				labelHeight={labelHeight}>
+				labelHeight={labelHeight}
+			>
 				{tagText && (
 					<TruncatedText
 						className={`${NAME_SPACE}-chart--measure`}
@@ -98,7 +100,8 @@ class AbbreviationLabel extends PureComponent {
 						y={tagTop}
 						textAnchor={tagAnchor}
 						style={tagStyle}
-						maxWidth={tagTextWidth}>
+						maxWidth={tagTextWidth}
+					>
 						{tagText}
 					</TruncatedText>
 				)}

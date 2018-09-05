@@ -1,0 +1,134 @@
+@import "../vars";
+/*
+	Mixins for line-heights
+
+	Dev notes: Multiple mixins have been chosen due to the cognitive burden of
+	a single mixin and a map.
+
+	To use these, an example
+
+	.#{$ns}-some-class {
+		@include @xui-text-lineheight-tight;
+	}
+*/
+
+@mixin xui-text-small {
+	font-size: $xui-font-size-small;
+}
+
+@mixin xui-text-xsmall {
+	font-size: $xui-font-size-xsmall;
+}
+
+@mixin xui-text-line-height-reset {
+	line-height: $xui-line-height-reset;
+}
+
+@mixin xui-text-line-height-tight {
+	line-height: $xui-line-height-tight;
+}
+
+@mixin xui-text-line-height-compact {
+	line-height: $xui-line-height-compact;
+}
+
+@mixin xui-text-line-height {
+	line-height: $xui-line-height;
+}
+
+@mixin xui-text-proportional-nums {
+	font-feature-settings: "pnum" 1;
+	font-variant-numeric: proportional-nums;
+}
+
+@mixin xui-text-tabular-nums {
+	font-feature-settings: "tnum" 1;
+	font-variant-numeric: tabular-nums;
+}
+
+// Font-weight
+@mixin xui-text-emphasis {
+	font-weight: $xui-font-weight-emphasis;
+}
+
+@mixin xui-text-deemphasis {
+	font-weight: $xui-font-weight-deemphasis;
+}
+
+// Text color
+@mixin xui-text-muted {
+	color: $xui-text-muted-color;
+}
+
+@mixin xui-text-positive {
+	color: $xui-text-positive-color;
+}
+
+@mixin xui-text-negative {
+	color: $xui-text-negative-color;
+}
+
+// Letter spacing
+@mixin xui-text-spacing-tight {
+	letter-spacing: $xui-letter-spacing-tight;
+}
+
+@mixin xui-text-spacing-loose {
+	letter-spacing: $xui-letter-spacing-loose;
+}
+
+@mixin xui-text-truncated {
+	display: block; // other display values do not allow for truncation
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+}
+
+@mixin xui-text-wordbreak {
+	// chrome doesn't support this but what can you do ¯\_(ツ)_/¯
+	hyphens: auto;
+
+	// This is technically the same as word-wrap, but use both for maximum support
+	overflow-wrap: break-word;
+
+	// auto-prefixer wasn't putting this in in my tests so manually add it for IE11 support
+	-ms-word-break: break-all;
+
+	// This is for firefox support
+	word-break: break-word;
+
+	// We want this to take precedence over word-break: break-all or words will break without
+	// moving to the next line when they're separated by spaces
+	word-wrap: break-word;
+}
+
+@mixin xui-heading-large {
+	@include xui-text-line-height-compact;
+	@include xui-text-proportional-nums;
+	@include xui-text-emphasis;
+
+	font-size: $xui-font-size-xlarge;
+}
+
+@mixin xui-heading-medium {
+	@include xui-text-line-height-compact;
+	@include xui-text-emphasis;
+
+	font-size: $xui-font-size-large;
+}
+
+@mixin xui-heading-small {
+	@include xui-text-line-height-compact;
+	@include xui-text-emphasis;
+
+	font-size: $xui-font-size-medium;
+}
+
+@mixin xui-heading-xsmall {
+	@include xui-text-line-height-compact;
+	@include xui-text-deemphasis;
+	@include xui-text-muted;
+
+	font-size: $xui-font-size-small;
+}

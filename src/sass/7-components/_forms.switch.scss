@@ -1,0 +1,123 @@
+@import "../mixins";
+@import "../vars";
+
+// TODO: update uses of this var to $xui-s-xsmall, when flexible controls are available.
+$xui-switch-label-padding: $xui-s-small - 2;
+
+.#{$ns}-switch {
+	align-items: center;
+	display: inline-flex; // Inline inputs
+	position: relative;
+}
+
+.#{$ns}-switch-is-disabled {
+	cursor: not-allowed;
+}
+
+.#{$ns}-switch--control {
+	background-color: $xui-switch-bg-color;
+	border-radius: 40px;
+	cursor: pointer;
+	display: inline-block;
+	height: 22px;
+	position: relative;
+	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+	user-select: none;
+	vertical-align: middle;
+	width: 40px;
+	&::before {
+		background-color: $xui-switch-check-bg-color;
+		border-radius: 50%;
+		content: " ";
+		display: inline-block;
+		height: 18px;
+		margin: 2px;
+		position: absolute;
+		transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+		width: 18px;
+	}
+	.#{$ns}-switch-is-disabled & {
+		background: $xui-switch-disabled-bg-color;
+		cursor: not-allowed;
+	}
+}
+
+.#{$ns}-switch--checkbox {
+	@include xui-utility-hidden-visually;
+	&:focus + .#{$ns}-switch--control {
+		box-shadow: $xui-shadow-focus;
+	}
+
+	&:checked + .#{$ns}-switch--control {
+		background: $xui-switch-checked-bg-color;
+		.#{$ns}-switch-is-disabled & {
+			background: $xui-switch-checked-disabled-bg-color;
+		}
+		&::before {
+			left: auto;
+			transform: translate(18px);
+		}
+	}
+}
+
+// Label spacing
+// =============
+.#{$ns}-switch--label {
+	flex-grow: 1;
+
+	.#{$ns}-switch:not(.#{$ns}-switch-reversed) & {
+		padding-left: $xui-switch-label-padding;
+	}
+
+	.#{$ns}-switch-is-disabled & {
+		color: $xui-color-grey-alpha-4;
+		cursor: not-allowed;
+	}
+}
+
+
+// Right-aligned input
+// ===================
+.#{$ns}-switch-reversed {
+	flex-direction: row-reverse;
+	justify-content: space-between;
+
+	.#{$ns}-switch--label {
+		padding-right: $xui-switch-label-padding;
+	}
+}
+
+// Group styles
+// ============
+.#{$ns}-switch-group {
+	background: $xui-color-white;
+	border: $xui-border-control;
+	border-radius: $xui-radius;
+
+	.#{$ns}-switch {
+		display: flex; // Stacked inputs
+		padding: $xui-switch-label-padding/2; // Border padding
+	}
+
+	.#{$ns}-switch:nth-last-of-type(n+2) {
+		border-bottom: $xui-border-control;
+	}
+
+	.#{$ns}-switch:not(.#{$ns}-switch-reversed) {
+		.#{$ns}-switch--label {
+			padding: 5px 6px 4px 3px;
+		}
+	}
+
+	.#{$ns}-switch-reversed {
+		.#{$ns}-switch--label {
+			padding: 5px 3px 4px 6px;
+		}
+	}
+
+	.#{$ns}-switch--control {
+		align-self: flex-start;
+		flex-shrink: 0;
+		margin: $xui-switch-label-padding/2;
+	}
+}

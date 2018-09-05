@@ -1,0 +1,27 @@
+@import "../vars";
+
+.#{$ns}-button:disabled {
+	cursor: not-allowed;
+}
+
+.#{$ns}-button-is-disabled {
+	@include xui-button-is-disabled(null); // Null sets no background color by default (useful for link styles)
+
+	&:hover,
+	&:focus {
+		@include xui-button-is-disabled;
+	}
+
+	@each $variant, $color in $xui-button-variants-bg {
+
+		@if $variant != standard {
+			&.#{$ns}-button-#{$variant} {
+				@include xui-button-is-disabled($xui-button-disabled-bg-color, $xui-color-white);
+			}
+		}
+	}
+}
+
+.#{$ns}-button-min-loader-width {
+	min-width: 75px;
+}

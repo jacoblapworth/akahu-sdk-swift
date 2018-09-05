@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-contentblockitem`;
 
@@ -13,41 +13,44 @@ export default class XUIContentBlockItem extends PureComponent {
 			children,
 			className,
 			hasLayout,
+			hasTopRadius,
+			hasBottomRadius,
+			isRowLink,
 			href,
 			overflow,
 			pinnedValue,
 			secondaryHeading,
 			primaryHeading,
-			tag
+			tag,
 		} = this.props;
 
 		const clonedAction = action && React.cloneElement(action, {
 			className: cn(
 				action.props.className,
-				`${baseClass}--actions`
-			)
+				`${baseClass}--actions`,
+			),
 		});
-		
+
 		const builtPrimaryHeadingAndTag = primaryHeading && (
 			<span className={`${baseClass}--toplinks`}>
 				<span className={`${baseClass}--primaryheading`}>
-				{primaryHeading}
+					{primaryHeading}
 				</span>
 				{tag}
 			</span>
 		);
-		
-		const builtSecondaryHeading = secondaryHeading && 
+
+		const builtSecondaryHeading = secondaryHeading &&
 			<div className={`${baseClass}--secondaryheading`}>
 				{secondaryHeading}
 			</div>;
 
-		const builtPinnedValue = pinnedValue && 
+		const builtPinnedValue = pinnedValue &&
 			<div className={`${baseClass}--pinnedvalue`}>
 				{pinnedValue}
 			</div>;
-		
-		const builtLeftContent = leftContent && 
+
+		const builtLeftContent = leftContent &&
 			<div className={`${baseClass}--leftcontent`}>
 				{leftContent}
 			</div>;
@@ -58,21 +61,28 @@ export default class XUIContentBlockItem extends PureComponent {
 			<Tag href={href} className={`${baseClass}--links`}>
 				{builtPrimaryHeadingAndTag}
 				{builtSecondaryHeading}
-			</Tag>		
+			</Tag>
 		);
-			
+
 
 		const builtRightContent = (builtPinnedValue || action || overflow) && (
 			<div className={`${baseClass}--rightcontent`}>
 				{builtPinnedValue}
 				{clonedAction}
 				{overflow}
-			</div> 
+			</div>
 		);
 
-		const divClasses = cn(`${baseClass}`, hasLayout && `${baseClass}-layout`, className);
+		const divClasses = cn(
+			`${baseClass}`,
+			hasLayout && `${baseClass}-layout`,
+			isRowLink && `${baseClass}-rowlink`,
+			hasTopRadius && `${baseClass}-has-top-radius`,
+			hasBottomRadius && `${baseClass}-has-bottom-radius`,
+			className,
+		);
 
-		return (	
+		return (
 			<li className={divClasses}>
 				{builtLeftContent}
 				{children}
@@ -95,6 +105,18 @@ XUIContentBlockItem.propTypes = {
 	 * Left most component option, typically an `avatar`, `checkbox` or `rollover checkbox` component
 	 */
 	leftContent: PropTypes.element,
+	/**
+	 * Determines whether to apply hover styling on the entire content block item
+	 */
+	isRowLink: PropTypes.bool,
+	/**
+	 * Determines whether to apply top left and top right border radius on the content block item
+	 */
+	hasTopRadius: PropTypes.bool,
+	/**
+	 * Determines whether to apply bottom left and bottom right border radius on the content block item
+	 */
+	hasBottomRadius: PropTypes.bool,
 	/**
 	 * Determines whether to apply default layout styling or not
 	 */
@@ -122,9 +144,9 @@ XUIContentBlockItem.propTypes = {
 	/**
 	 * Tag or other user determined node to go to right of primary heading
 	 */
-	tag: PropTypes.element
+	tag: PropTypes.element,
 };
 
 XUIContentBlockItem.defaultProps = {
-	hasLayout: true
+	hasLayout: true,
 };

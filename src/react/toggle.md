@@ -1,11 +1,10 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-building-blocks-controls-toggle.html">Toggle in the XUI Documentation</a>
+	<a href="../section-building-blocks-controls-toggle.html" isDocLink>Toggle in the XUI Documentation</a>
 </div>
 
 `XUIToggle` is a control that can behave like a radio, or like a checkbox. It supports different layout patterns for a variety of use cases.
+
+Avoid partially disabled groups in which one of the disabled options is pre-selected. This combination has been known to cause unexpected results for keyboard navigation.
 
 ## Examples
 
@@ -13,7 +12,7 @@
 
 Use the `type` prop on `XUIToggleOption`s to specify whether they should behave like checkboxes or like radios.
 
-```
+```jsx
 const checkboxToggle = {
 	name: 'toggle-checkbox',
 	onChange: () => {},
@@ -28,44 +27,18 @@ const radioToggle = {
 
 <div>
 	<div className="xui-margin-bottom">
-		<XUIToggle layout="fullwidth">
+		<XUIToggle layout="fullwidth" labelText='checkbox toggle' isLabelHidden>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 		</XUIToggle>
 	</div><div className="xui-margin-bottom">
-		<XUIToggle layout="fullwidth">
+		<XUIToggle layout="fullwidth" labelText='radio toggle' isLabelHidden>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
-		</XUIToggle>
-	</div>
-</div>
-```
-
-### Icon Toggles
-
-To create `XUIToggleOption`s that only contain icons, `icon` should be passed to the `layout` prop on `XUIToggle`.
-
-```
-const bold = require('@xero/xui-icon/icons/bold').default
-const italic = require('@xero/xui-icon/icons/italic').default
-const underline = require('@xero/xui-icon/icons/underline').default;
-
-const iconToggle = {
-	name: 'toggle-icon',
-	onChange: () => {},
-	type: 'checkbox'
-};
-
-<div>
-	<div className="xui-margin-bottom">
-		<XUIToggle>
-			<XUIToggleOption { ...iconToggle } isChecked><XUIIcon path={bold} /></XUIToggleOption>
-			<XUIToggleOption { ...iconToggle }><XUIIcon path={italic} /></XUIToggleOption>
-			<XUIToggleOption { ...iconToggle }><XUIIcon path={underline} /></XUIToggleOption>
 		</XUIToggle>
 	</div>
 </div>
@@ -75,28 +48,29 @@ const iconToggle = {
 
 To use a `XUIToggle` within an dark section, pass `"inverted"` to `XUIToggle`'s `color` prop.
 
-```
+```jsx
+const ExampleContainer = require('./docs/ExampleContainer').default;
 const checkboxToggle = {
 	name: 'toggle-checkbox-inverted',
 	onChange: () => {},
 	type: 'checkbox'
 };
 
-<div className="xui-padding xui-color-white xui-background-grey-1">
-		<XUIToggle layout="fullwidth" color="inverted">
-			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
-			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
-			<XUIToggleOption { ...checkboxToggle } isDisabled isChecked>Disabled</XUIToggleOption>
-			<XUIToggleOption { ...checkboxToggle } isDisabled>Disabled</XUIToggleOption>
-		</XUIToggle>
-</div>
+<ExampleContainer className="xui-padding xui-color-white" isInverted>
+	<XUIToggle layout="fullwidth" color="inverted" labelText="checkbox toggle" isLabelHidden>
+		<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
+		<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
+		<XUIToggleOption { ...checkboxToggle } isDisabled isChecked>Disabled</XUIToggleOption>
+		<XUIToggleOption { ...checkboxToggle } isDisabled>Disabled</XUIToggleOption>
+	</XUIToggle>
+</ExampleContainer>
 ```
 
 ### Variants
 
 To make your toggles smaller (same size as small buttons), pass `"small"` to `XUIToggle`'s `variant` prop.
 
-```
+```jsx
 const radioToggle = {
 	name: 'toggle-radio-layout-size',
 	onChange: () => {},
@@ -110,7 +84,7 @@ const checkboxToggle = {
 };
 
 <div>
-	<XUIToggle className="xui-margin-bottom" variant="small" layout="fullwidth">
+	<XUIToggle className="xui-margin-bottom" variant="small" layout="fullwidth" labelText='radio toggle' isLabelHidden>
 		<XUIToggleOption { ...radioToggle }>Uno</XUIToggleOption>
 		<XUIToggleOption { ...radioToggle }>Dos</XUIToggleOption>
 		<XUIToggleOption { ...radioToggle }>Tres</XUIToggleOption>
@@ -121,11 +95,11 @@ const checkboxToggle = {
 
 ### Other Supported Layouts
 
-When using `XUIToggle` with text content, it's recommended to use the `form` layout.
+When using `XUIToggle` with text content, it's recommended to use the `fullwidth` layout.
 
 You can also choose not to specify a layout, if the markup of your toggle content has more complicated requirements.
 
-```
+```jsx
 const checkboxToggle = {
 	name: 'toggle-checkbox',
 	onChange: () => {},
@@ -134,12 +108,10 @@ const checkboxToggle = {
 
 <form className="xui-form-layout">
 	<div className="xui-field-layout">
-		<label className="xui-text-label xui-fieldlabel-layout">Input</label>
-		<XUIInput inputAttributes={{ type: 'url', placeholder: 'http://www.xero.com' }} />
+		<XUITextInput type="url" placeholer="http://www.xero.com" labelText="Input" />
 	</div>
 	<div className="xui-field-layout">
-		<label className="xui-text-label xui-fieldlabel-layout">Toggle</label>
-		<XUIToggle layout="form">
+		<XUIToggle layout="fullwidth" labelText='Toggle'>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>

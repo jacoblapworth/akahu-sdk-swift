@@ -1,0 +1,36 @@
+@import "../vars";
+@import "../mixins";
+
+.#{$ns}-button-icon {
+	@include xui-button-icon-states;
+	align-items: center;
+	border-radius: 50%;
+	color: $xui-button-icon-color;
+	display: inline-flex;
+	height: $xui-icon-standard;
+	justify-content: center;
+	width: $xui-icon-standard;
+
+	.#{$ns}-icon {
+		display: block;
+	}
+
+	&.#{$ns}-button-is-disabled {
+		@include xui-button-is-disabled(none, $xui-button-icon-disabled-color, initial);
+	}
+
+	&-inverted {
+		@include xui-button-icon-states($xui-color-white, $xui-button-borderless-inverted-focus-bg-color, $xui-button-borderless-inverted-active-bg-color, $xui-button-borderless-inverted-focus-bg-color);
+		color: $xui-button-icon-inverted-color;
+
+		&.#{$ns}-button-is-disabled {
+			@include xui-button-is-disabled(none, $xui-button-icon-inverted-disabled-color, initial);
+		}
+	}
+
+}
+
+.#{$ns}-button-icon-large {
+	height: $xui-icon-large;
+	width: $xui-icon-large;
+}

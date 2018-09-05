@@ -17,7 +17,7 @@ exports[`<SelectBoxOption /> should render an a tag if an href prop is provided 
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     target={undefined}
   >
     <span
@@ -45,7 +45,7 @@ exports[`<SelectBoxOption /> should render an aria role if the ariaRole prop has
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -73,7 +73,7 @@ exports[`<SelectBoxOption /> should render an aria role of option by default 1`]
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -101,7 +101,7 @@ exports[`<SelectBoxOption /> should render an automaion id when provided with a 
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -129,7 +129,7 @@ exports[`<SelectBoxOption /> should render an button element by default 1`] = `
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -154,16 +154,20 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
     className="xui-pickitem--body"
     data-automationid={undefined}
     onClick={undefined}
+    onFocus={undefined}
     onKeyDown={undefined}
     onMouseOver={undefined}
+    role="presentation"
   >
     <label
       className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby="testCheckboxId"
         checked={false}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
@@ -183,6 +187,7 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
       <span
         className="xui-styledcheckboxradio--label xui-pickitem-multiselect--label"
         data-automationid={undefined}
+        id="testCheckboxId"
       >
         <span
           className=""
@@ -212,7 +217,7 @@ exports[`<SelectBoxOption /> should render extra classes on the option element w
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -240,7 +245,7 @@ exports[`<SelectBoxOption /> should render text as truncated when the truncatedT
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -272,7 +277,7 @@ exports[`<SelectBoxOption /> should render the correct value passed in 1`] = `
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -300,7 +305,7 @@ exports[`<SelectBoxOption /> should render the highlighted class if isHighlighte
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -312,7 +317,7 @@ exports[`<SelectBoxOption /> should render the highlighted class if isHighlighte
 </li>
 `;
 
-exports[`<SelectBoxOption /> should render the option  and the checkboxesas disabled when the isDisabled and showCheckboxes props are true 1`] = `
+exports[`<SelectBoxOption /> should render the option and the checkboxes as disabled when the isDisabled and showCheckboxes props are true 1`] = `
 <li
   aria-label={undefined}
   aria-selected={false}
@@ -325,16 +330,20 @@ exports[`<SelectBoxOption /> should render the option  and the checkboxesas disa
     className="xui-pickitem--body"
     data-automationid={undefined}
     onClick={undefined}
+    onFocus={undefined}
     onKeyDown={undefined}
     onMouseOver={undefined}
+    role="presentation"
   >
     <label
       className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby="testCheckboxId"
         checked={false}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
@@ -354,6 +363,7 @@ exports[`<SelectBoxOption /> should render the option  and the checkboxesas disa
       <span
         className="xui-styledcheckboxradio--label xui-pickitem-multiselect--label"
         data-automationid={undefined}
+        id="testCheckboxId"
       >
         <span
           className=""
@@ -383,7 +393,7 @@ exports[`<SelectBoxOption /> should render the option as disabled when the isDis
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -411,7 +421,7 @@ exports[`<SelectBoxOption /> should render the option as disabled when the isDis
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -439,7 +449,7 @@ exports[`<SelectBoxOption /> should render the selected class if isSelected is t
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -467,7 +477,7 @@ exports[`<SelectBoxOption /> shouldn't render checkboxes when the showCheckboxes
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -495,7 +505,7 @@ exports[`<SelectBoxOption /> shouldn't render text as truncated when the truncat
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -523,7 +533,7 @@ exports[`<SelectBoxOption /> shouldn't render the highlighted class by default 1
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -551,7 +561,7 @@ exports[`<SelectBoxOption /> shouldn't render the highlighted class if isHighlig
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -579,7 +589,7 @@ exports[`<SelectBoxOption /> shouldn't render the selected class by default 1`] 
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span
@@ -607,7 +617,7 @@ exports[`<SelectBoxOption /> shouldn't render the selected class if isSelected i
     onKeyDown={undefined}
     onMouseOver={undefined}
     rel={null}
-    tabIndex="-1"
+    tabIndex={undefined}
     type="button"
   >
     <span

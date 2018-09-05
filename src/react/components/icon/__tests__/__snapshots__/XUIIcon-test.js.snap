@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUIIcon Should render with the correct classes and dimensions for standard, large and xlarge sizes 1`] = `
+<div>
+  <div
+    className="xui-iconwrapper"
+    data-automationid={undefined}
+  >
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={17}
+      viewBox="0 0 14 17"
+      width={14}
+    >
+      <path
+        d="M7 4A2 2 0 1 1 6.999.001 2 2 0 0 1 7 4zM0 6c0-.552.45-1 1.007-1h11.986a1.001 1.001 0 1 1-.002 2H10v9.005c0 .55-.444.995-1 .995-.552 0-1-.444-1-1v-4H6v4c0 .552-.444 1-1 1-.552 0-1-.456-1-.995V7H1.01C.451 7 0 6.556 0 6z"
+        role="presentation"
+      />
+    </svg>
+  </div>
+  <div
+    className="xui-iconwrapper xui-iconwrapper-large"
+    data-automationid={undefined}
+  >
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={22.666666666666664}
+      viewBox="0 0 14 17"
+      width={18.666666666666664}
+    >
+      <path
+        d="M7 4A2 2 0 1 1 6.999.001 2 2 0 0 1 7 4zM0 6c0-.552.45-1 1.007-1h11.986a1.001 1.001 0 1 1-.002 2H10v9.005c0 .55-.444.995-1 .995-.552 0-1-.444-1-1v-4H6v4c0 .552-.444 1-1 1-.552 0-1-.456-1-.995V7H1.01C.451 7 0 6.556 0 6z"
+        role="presentation"
+      />
+    </svg>
+  </div>
+  <div
+    className="xui-iconwrapper xui-iconwrapper-xlarge"
+    data-automationid={undefined}
+  >
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={34}
+      viewBox="0 0 14 17"
+      width={28}
+    >
+      <path
+        d="M7 4A2 2 0 1 1 6.999.001 2 2 0 0 1 7 4zM0 6c0-.552.45-1 1.007-1h11.986a1.001 1.001 0 1 1-.002 2H10v9.005c0 .55-.444.995-1 .995-.552 0-1-.444-1-1v-4H6v4c0 .552-.444 1-1 1-.552 0-1-.456-1-.995V7H1.01C.451 7 0 6.556 0 6z"
+        role="presentation"
+      />
+    </svg>
+  </div>
+</div>
+`;

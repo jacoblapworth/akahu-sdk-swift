@@ -1,8 +1,7 @@
 import cn from 'classnames';
 import { NAME_SPACE } from './constants';
 
-const enrichBaseProps = (props) => {
-
+const enrichBaseProps = props => {
 	// "ariaMin", "ariaMax" and "ariaNow" must all be positive numbers.
 	const ariaMin = 0;
 	const ariaMax = Math.max(props.total, ariaMin);
@@ -37,7 +36,7 @@ const enrichBaseProps = (props) => {
 			[`${NAME_SPACE}-grow`]: props.isGrow,
 			[`${NAME_SPACE}-overflow`]: isOverflow,
 			[`${NAME_SPACE}-error-soft`]: isSoftError,
-		}
+		},
 	);
 
 	return {
@@ -53,11 +52,9 @@ const enrichBaseProps = (props) => {
 		isSegmented,
 		classes,
 	};
-
 };
 
-const enrichLinearProps = (props) => {
-
+const enrichLinearProps = props => {
 	const base = enrichBaseProps(props);
 
 	// A "soft" error will not be visible if the UI is currently in an "overflow" scenario.
@@ -66,14 +63,16 @@ const enrichLinearProps = (props) => {
 	// Segment dots are only relevant if the configuration is also set to segments.
 	const hasSegmentDots = base.hasSegmentDots && base.isSegmented;
 
-	return { ...base, isSoftError, classes, hasSegmentDots };
-
+	return {
+		...base, isSoftError, classes, hasSegmentDots,
+	};
 };
 
-const enrichCircularProps = (props) => {
-
+const enrichCircularProps = props => {
 	const base = enrichBaseProps(props);
-	const { isHardError, isOverflow, isAlertOnComplete, total, progress, children } = base;
+	const {
+		isHardError, isOverflow, isAlertOnComplete, total, progress, children,
+	} = base;
 
 	// A "soft" error will not be visible if the UI is currently in a "hard" error
 	// or "overflow" scenario.
@@ -91,11 +90,12 @@ const enrichCircularProps = (props) => {
 		{
 			[`${NAME_SPACE}-complete`]: isComplete,
 			[`${NAME_SPACE}-error-hard`]: isHardError,
-		}
+		},
 	);
 
-	return { ...base, isSoftError, isComplete, customContent, classes };
-
+	return {
+		...base, isSoftError, isComplete, customContent, classes,
+	};
 };
 
 const enrichProps = { enrichLinearProps, enrichCircularProps };

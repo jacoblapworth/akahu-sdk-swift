@@ -3,13 +3,22 @@
 // Teaser: Select multiple items from a range of options
 //
 // Introduction:
-// XUI provides a custom checkbox control for consistency across platforms and visual alignment with other form elements. They can be used inline or grouped.
+// XUI provides a custom checkbox control for consistency across platforms and visual alignment with other form elements.
 //
 // Components: Checkbox
 //
 // Styleguide: Building Blocks.Controls.Checkbox
 
-// Inline Checkboxes
+// Anatomy
+//
+// Checkboxes benefit from the built-in functionality of native inputs, but extend their style to match our visual language.
+// To create one, use the following classes.
+//
+// Classes:
+// xui-styledcheckboxradio: Wrapper for the checkbox
+// xui-styledcheckboxradio--input: Native input, visually hidden
+// xui-styledcheckboxradio--checkbox: Styled control
+// xui-styledcheckboxradio--label: Text label
 //
 // Markup:
 // <label class="xui-styledcheckboxradio">
@@ -22,78 +31,92 @@
 //   <div class="xui-styledcheckboxradio--checkbox"></div>
 //   <span class="xui-styledcheckboxradio--label">Checked</span>
 // </label>
-// <label class="xui-styledcheckboxradio xui-is-disabled">
+//
+// Styleguide: Building Blocks.Controls.Checkbox.1
+
+
+// Disabling
+//
+// To disable a checkbox, add the following class and add the `disabled` attribute.
+//
+// Classes:
+// xui-styledcheckboxradio-is-disabled: Adds disabled style
+//
+// ExampleClass: ds-example-transparent
+//
+// Markup:
+// <label class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled">
 //   <input class="xui-styledcheckboxradio--input" type="checkbox" disabled>
 //   <div class="xui-styledcheckboxradio--checkbox"></div>
 //   <span class="xui-styledcheckboxradio--label">Disabled</span>
 // </label>
-// <label class="xui-styledcheckboxradio xui-is-disabled">
+// <label class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled">
 //   <input class="xui-styledcheckboxradio--input" type="checkbox" checked disabled>
 //   <div class="xui-styledcheckboxradio--checkbox"></div>
 //   <span class="xui-styledcheckboxradio--label">Checked and disabled</span>
 // </label>
 //
-// Styleguide: Building Blocks.Controls.Checkbox.1
-
-
-
+// Styleguide: Building Blocks.Controls.Checkbox.2
 
 // Grouped checkboxes
 //
-// Provide extra clarity and big hit states with checkbox groups
+// To increase hit states and create visual similarity with other form elements, consider using a checkbox group.
 //
 // Markup:
-// <label class="xui-text-label xui-fieldlabel-layout">Childhood checklist</label>
+// <label class="xui-text-label xui-fieldlabel-layout">View options</label>
 // <div class="xui-styledcheckboxradio-group">
 //   <label class="xui-styledcheckboxradio">
 //     <input class="xui-styledcheckboxradio--input" type="checkbox">
 //     <div class="xui-styledcheckboxradio--checkbox"></div>
-//     <span class="xui-styledcheckboxradio--label">Milk</span>
+//     <span class="xui-styledcheckboxradio--label">Invoice number</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio">
 //     <input class="xui-styledcheckboxradio--input" type="checkbox">
 //     <div class="xui-styledcheckboxradio--checkbox"></div>
-//     <span class="xui-styledcheckboxradio--label">Cookies</span>
+//     <span class="xui-styledcheckboxradio--label">Reference</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio">
 //     <input class="xui-styledcheckboxradio--input" type="checkbox">
 //     <div class="xui-styledcheckboxradio--checkbox"></div>
-//     <span class="xui-styledcheckboxradio--label">View-Master!</span>
+//     <span class="xui-styledcheckboxradio--label">Due date</span>
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Checkbox.2
+// Styleguide: Building Blocks.Controls.Checkbox.3
 
 
-
-
-// Multiple lines
+// Single checkbox
+//
+// To retain the grouped format if only one option is present, simply include one instead of many.
 //
 // Markup:
-// <label class="xui-text-label xui-fieldlabel-layout">Multiline checkbox</label>
-// <div class="xui-styledcheckboxradio-group">
-//   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox" checked>
-//     <div class="xui-styledcheckboxradio--checkbox"></div>
-//     <span class="xui-styledcheckboxradio--label">Stick this in your checkbox<br>and wrap it!</span>
-//   </label>
-// </div>
-//
-// Styleguide: Building Blocks.Controls.Checkbox.2.2
-
-// Single item
-//
-// Markup:
-// <label class="xui-text-label xui-fieldlabel-layout">Lonely checkbox</label>
+// <label class="xui-text-label xui-fieldlabel-layout">Label</label>
 // <div class="xui-styledcheckboxradio-group">
 //   <label class="xui-styledcheckboxradio">
 //     <input class="xui-styledcheckboxradio--input" type="checkbox" checked>
 //     <div class="xui-styledcheckboxradio--checkbox"></div>
-//     <span class="xui-styledcheckboxradio--label">So lonely...</span>
+//     <span class="xui-styledcheckboxradio--label">Single checkbox</span>
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Checkbox.2.3
+// Styleguide: Building Blocks.Controls.Checkbox.3.1
+
+
+// Multiline checkbox
+//
+// Checkbox groups can handle long strings very easily, as they wrap by default.
+//
+// Markup:
+// <label class="xui-text-label xui-fieldlabel-layout">Label</label>
+// <div class="xui-styledcheckboxradio-group">
+//   <label class="xui-styledcheckboxradio">
+//     <input class="xui-styledcheckboxradio--input" type="checkbox" checked>
+//     <div class="xui-styledcheckboxradio--checkbox"></div>
+//     <span class="xui-styledcheckboxradio--label">Multiline checkbox that spans<br>multiple lines</span>
+//   </label>
+// </div>
+//
+// Styleguide: Building Blocks.Controls.Checkbox.3.2
 
 // Order
 //
@@ -104,86 +127,80 @@
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
 //     <input class="xui-styledcheckboxradio--input" type="checkbox" checked>
 //     <div class="xui-styledcheckboxradio--checkbox"></div>
-//     <span class="xui-styledcheckboxradio--label">So lonely...</span>
-//   </label>
-// </div>
-// <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//   <input class="xui-styledcheckboxradio--input" type="checkbox" checked>
-//   <div class="xui-styledcheckboxradio--checkbox"></div>
-//   <span class="xui-styledcheckboxradio--label">Milk</span>
-// </label>
-//
-// Styleguide: Building Blocks.Controls.Checkbox.3
-
-
-// Custom icons
-//
-// The standard HTML checkbox can be replaced with any SVG icon from the [xui-icon collection](./section-fundamentals-icons.html#fundamentals-icons-7). Don't go crazy with this!
-//
-// Markup:
-// <label class="xui-text-label xui-fieldlabel-layout">Endorse James for...</label>
-// <div class="xui-styledcheckboxradio-group">
-//   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox">
-//     <svg focusable="false" class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-star"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-star"/>
-//     </svg>
-//     <span class="xui-styledcheckboxradio--label">HTML skills</span>
-//   </label>
-//   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox">
-//     <svg focusable="false" class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-star"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-star"/>
-//     </svg>
-//     <span class="xui-styledcheckboxradio--label">CSS skills</span>
-//   </label>
-//   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox">
-//     <svg focusable="false" class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-star"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-star"/>
-//     </svg>
-//     <span class="xui-styledcheckboxradio--label">Javascript skills</span>
-//   </label>
-//   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox">
-//     <svg focusable="false" class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-star"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-star"/>
-//     </svg>
-//     <span class="xui-styledcheckboxradio--label">Nunjuck skills</span>
+//     <span class="xui-styledcheckboxradio--label">Reversed checkbox</span>
 //   </label>
 // </div>
 //
 // Styleguide: Building Blocks.Controls.Checkbox.4
 
 
-// Implementation
+// Indeterminate
 //
-// The standard XUI checkbox supports 4 states. These are styled and displayed based on state pseudo classes - `:focus`, `:hover`, `:checked`, `:disabled`, and `:indeterminate`.
+// To indicate only a subset of children are selected, use the `:indeterminate` attribute.
+// However, this state is not exposed via HTML, and needs to be set via Javascript.
 //
-// The indeterminate state, for showing only a subset of items are selected, is not exposed in HTML so needs to be [set with JavaScript](https://developer.mozilla.org/en-US/docs/Web/CSS/:indeterminate).
-//
-// Styleguide: Building Blocks.Controls.Checkbox.10
+// Styleguide: Building Blocks.Controls.Checkbox.5
 
-// Adding custom icons as checkbox states
+
+// Custom icons
 //
-// A minimum of two layers are required to create a styled input; a main layer and a focus layer.
-// The `xui-styledcheckboxradio--main` class provides the main layer for a styled input.
+// The standard checkbox can be replaced with any SVG icon from the [xui-icon collection](./section-fundamentals-icons.html#fundamentals-icons-7).
+// A common use case is a star for favouriting, however, use custom icons sparingly and with design guidance.
+// A minimum of two SVG elements are required to produce the desired outcome, a main layer and a focus layer.
 //
-// The `xui-styledcheckboxradio--focus` class provides the focus layer for a styled input.
-// The focus layer is needed in order to mimic the CSS `box-shadow` property and should use the same SVG as the main layer.
+// Classes:
+// xui-styledcheckboxradio--main: Custom icon
+// xui-styledcheckboxradio--focus: Custom icon focus styles
 //
-// The `xui-styledcheckboxradio--check` class provide the checkmark layer for a styled input.
-// They are intended for use with the `xui-icon-checkbox-check` and `xui-icon-radio-check` icons.
 //
-// If you need to indicate an indeterminate state please use the standard checkbox icon.
 //
-// Make sure to use `role="presentation"` on each `<use>` element for greater accessibility.
+// Markup:
+// <label class="xui-text-label xui-fieldlabel-layout">Reports</label>
+// <div class="xui-styledcheckboxradio-group">
+//   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
+//     <input class="xui-styledcheckboxradio--input" type="checkbox">
+//     <div class="xui-iconwrapper">
+//       <svg class="xui-icon">
+//         <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-star"/>
+//         <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-star"/>
+//       </svg>
+//     </div>
+//     <span class="xui-styledcheckboxradio--label">Balance sheet</span>
+//   </label>
+//   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
+//     <input class="xui-styledcheckboxradio--input" type="checkbox">
+//     <div class="xui-iconwrapper">
+//       <svg class="xui-icon">
+//         <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-star"/>
+//         <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-star"/>
+//       </svg>
+//     </div>
+//     <span class="xui-styledcheckboxradio--label">Cash summary</span>
+//   </label>
+//   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
+//     <input class="xui-styledcheckboxradio--input" type="checkbox">
+//     <div class="xui-iconwrapper">
+//       <svg class="xui-icon">
+//         <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-star"/>
+//         <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-star"/>
+//       </svg>
+//     </div>
+//     <span class="xui-styledcheckboxradio--label">GST return</span>
+//   </label>
+//   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
+//     <input class="xui-styledcheckboxradio--input" type="checkbox">
+//     <div class="xui-iconwrapper">
+//       <svg class="xui-icon">
+//         <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-star"/>
+//         <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-star"/>
+//       </svg>
+//     </div>
+//     <span class="xui-styledcheckboxradio--label">Profit and loss</span>
+//   </label>
+// </div>
 //
-// Styleguide: Building Blocks.Controls.Checkbox.10.1
+// Styleguide: Building Blocks.Controls.Checkbox.6
+
 
 // Class list
 //

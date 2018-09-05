@@ -13,6 +13,7 @@ const avatarVariations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with identifier',
+		value: ' ',
 		identifier: 'random id'
 	},
 	{
@@ -102,6 +103,11 @@ const avatarVariations = [
 		avatarLength: 5,
 		maxAvatars: 3
 	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `color variants`,
+		colors: true
+	}
 ]
 
 module.exports = {

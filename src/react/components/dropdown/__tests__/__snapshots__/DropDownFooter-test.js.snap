@@ -28,7 +28,7 @@ exports[`<DropDownFooter /> should render a picklist with context class when pic
         onKeyDown={undefined}
         onMouseOver={undefined}
         rel={null}
-        tabIndex="-1"
+        tabIndex={undefined}
         type="button"
       >
         <span

@@ -23,9 +23,14 @@ const buttonContents = {
 	asGroup: [<XUIButton key='one'>One</XUIButton>, <XUIButton key='two'>Two</XUIButton>],
 	asGroupSm: [<XUIButton key='one' size="small">One</XUIButton>, <XUIButton key='two' size="small">Two</XUIButton>],
 	asSplitGroup: [<XUIButton key='main'>Main</XUIButton>, <XUISplitButton key='split' aria-label='Other actions' />],
+	asSplitGroupMulti: [<XUIButton key='main'>This is a bunch of multi line text to make sure the icon displays correctly</XUIButton>, <XUISplitButton key='split' aria-label='Other actions' />],
 	asSplitGroupSm: [<XUIButton key='main' size="small">Main</XUIButton>, <XUISplitButton key='split' size="small" aria-label='Other actions' />],
-	icon: <XUIIcon path={view} title="Preview" />
+	icon: <XUIIcon icon={view} title="Preview" isBoxed />
 };
+
+const ButtonWrapper = ({children}) => {
+	return <div style={{ maxWidth: "150px" }}>{children}</div>;
+}
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
@@ -70,7 +75,7 @@ variations.forEach(variation => {
 		if (componentType === 'XUIButtonGroup') {
 			return <XUIButtonGroup {...variationMinusStoryDetails}>{value}</XUIButtonGroup>;
 		} else if (componentType === 'XUISplitButtonGroup') {
-			return <XUISplitButtonGroup {...variationMinusStoryDetails}>{value}</XUISplitButtonGroup>;
+			return <ButtonWrapper><XUISplitButtonGroup {...variationMinusStoryDetails}>{value}</XUISplitButtonGroup></ButtonWrapper>;
 		} else {
 			return <XUIButton {...variationMinusStoryDetails}>{value}</XUIButton>;
 		}

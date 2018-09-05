@@ -1,18 +1,18 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
 import debounce from 'lodash.debounce';
 import verge from 'verge';
+import uuidv4 from 'uuid/v4';
 import PositioningInline from '../positioning/PositioningInline';
 import Positioning from '../positioning/Positioning';
 import {
-	isNarrowViewport,
+	checkIsNarrowViewport,
 	addEventListeners,
 	removeEventListeners,
 	throttleToFrame,
 } from './private/helpers';
-import { compose } from '../helpers/compose';
-import { baseClass, dropdownPositionOptions } from "./private/constants";
+import compose from '../helpers/compose';
+import { baseClass, dropdownPositionOptions } from './private/constants';
 
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 
@@ -73,8 +73,8 @@ function shouldLockScroll(ddt) {
 }
 
 /**
- * HOC to wrap the passed in Dropdown & TriggerComponent elements. Adds functionality to toggle the list open/closed
- * based on click of the TriggerComponent.
+ * HOC to wrap the passed in Dropdown & TriggerComponent elements. Adds functionality
+ * to toggle the list open/closed based on click of the TriggerComponent.
  *
  * @export
  * @class DropDownToggled
@@ -87,15 +87,18 @@ export default class DropDownToggled extends PureComponent {
 		this.state = {
 			isHidden: props.isHidden,
 			activeDescendant: null,
-			isNarrowViewport: isNarrowViewport(),
+			isNarrowViewport: checkIsNarrowViewport(),
 			isOpening: false,
 			isClosing: false,
 		};
 	}
 
+	dropdownId = (this.props.dropdown && this.props.dropdown.props.id) || uuidv4();
+
 	/**
 	 * Attaches the event listeners based on state.
-	 * Listeners attached on keydown and mousedown to control the open/close keyboard shortcuts of the list.
+	 * Listeners attached on keydown and mousedown to control the open/close keyboard
+	 * shortcuts of the list.
 	 */
 	componentDidMount() {
 		if (!this.state.isHidden) {
@@ -123,30 +126,41 @@ export default class DropDownToggled extends PureComponent {
 	 * @param {Object} prevState
 	 */
 	componentDidUpdate(prevProps, prevState) {
-		const ddt = this;
-		const { props, state } = ddt;
-		const { onCloseAnimationEnd } = props;
+		const {
+			onCloseAnimationEnd,
+			disableScrollLocking,
+			repositionOnScroll,
+			onClose,
+			onOpen,
+		} = this.props;
+		const {
+			isClosing,
+			isHidden,
+			shouldUnlockScroll,
+			isNarrowViewport,
+		} = this.state;
 
 		// If an animation state has just changed, we need to fire the passed animation
 		// end callback
-		if (!state.isClosing && prevState.isClosing && onCloseAnimationEnd != null) {
+		if (!isClosing && prevState.isClosing && onCloseAnimationEnd != null) {
 			onCloseAnimationEnd();
 		}
 
-		if (!props.disableScrollLocking) {
-			if ((state.isHidden || state.isClosing) && state.shouldUnlockScroll) {
+		if (!disableScrollLocking) {
+			if ((isHidden || isClosing) && shouldUnlockScroll) {
 				unlockScroll();
 			}
-			if (!state.isHidden) {
-				if (state.shouldUnlockScroll && !state.isNarrowViewport) {
+			if (!isHidden) {
+				if (shouldUnlockScroll && !isNarrowViewport) {
 					if (prevState.isNarrowViewport) {
 						unlockScroll();
 					}
 					scrollIntoViewIfNecessary(this.wrapper.firstChild);
 				}
-				if (shouldLockScroll(ddt)) {
-					this.setState({
-						shouldUnlockScroll: lockScroll()
+				// Checking for the wrapper confirms that component is fully mounted
+				if (shouldLockScroll(this) && this.wrapper) {
+					this.setState({ // eslint-disable-line react/no-did-update-set-state
+						shouldUnlockScroll: lockScroll(),
 					});
 				}
 			}
@@ -154,45 +168,45 @@ export default class DropDownToggled extends PureComponent {
 
 		// It's possible for this prop to change while the dropdown remains open.  Make sure
 		// to handle that.
-		if (!state.isHidden && props.repositionOnScroll !== prevProps.repositionOnScroll) {
-			if (props.repositionOnScroll) {
-				window.addEventListener('scroll', ddt.onScroll);
+		if (!isHidden && repositionOnScroll !== prevProps.repositionOnScroll) {
+			if (repositionOnScroll) {
+				window.addEventListener('scroll', this.onScroll);
 			} else {
-				window.removeEventListener('scroll', ddt.onScroll);
+				window.removeEventListener('scroll', this.onScroll);
 			}
 		}
 
-		if (state.isHidden !== prevState.isHidden) {
+		if (isHidden !== prevState.isHidden) {
 			// Just closed
-			if (state.isHidden) {
-				const { firstChild: trigger } = ddt.wrapper;
-				focusTrigger(ddt.trigger, trigger);
+			if (isHidden) {
+				const { firstChild: trigger } = this.wrapper;
+				focusTrigger(this.trigger, trigger);
 
 				// Remove window event listeners for performance gains.
-				removeEventListeners(ddt);
+				removeEventListeners(this);
 
 				// If we didn't animate close, we need to call the close animation callback
 				// for API consistency between the two.  After all, the animation here is
 				// just "hide".
-				if (!shouldAnimate(ddt) && onCloseAnimationEnd != null) {
+				if (!shouldAnimate(this) && onCloseAnimationEnd != null) {
 					onCloseAnimationEnd();
 				}
 
 				// onClose callback
-				if (props.onClose != null) {
-					props.onClose();
+				if (onClose != null) {
+					onClose();
 				}
 			} else {
 				// onOpen callback
-				if (props.onOpen != null) {
-					props.onOpen();
+				if (onOpen != null) {
+					onOpen();
 				}
 				// Add window event listeners to make sure things still look good on browser resize
-				addEventListeners(ddt);
+				addEventListeners(this);
 
-				// If we are animating, add the animation class now
-				if (shouldAnimate(ddt)) {
-					ddt.setState(() => ({
+				// If we are animating, add the animation class, after checking that the component is mounted
+				if (shouldAnimate(this) && this.wrapper) {
+					this.setState(() => ({ // eslint-disable-line react/no-did-update-set-state
 						isOpening: true,
 					}));
 				}
@@ -209,7 +223,7 @@ export default class DropDownToggled extends PureComponent {
 		this.setState(() => ({
 			isHidden: false,
 			isOpening: false,
-			isNarrowViewport: isNarrowViewport(),
+			isNarrowViewport: checkIsNarrowViewport(),
 		}));
 	};
 
@@ -219,12 +233,10 @@ export default class DropDownToggled extends PureComponent {
 	 * @public
 	 */
 	closeDropDown = () => {
-		this.setState(() => {
-			return {
-				isHidden: !shouldAnimate(this),
-				isClosing: shouldAnimate(this),
-			};
-		});
+		this.setState(() => ({
+			isHidden: !shouldAnimate(this),
+			isClosing: shouldAnimate(this),
+		}));
 	};
 
 	/**
@@ -233,9 +245,7 @@ export default class DropDownToggled extends PureComponent {
 	 * @public
 	 * @returns {Boolean}
 	 */
-	isDropDownOpen = () => {
-		return !this.state.isHidden;
-	};
+	isDropDownOpen = () => !this.state.isHidden;
 
 	/**
 	 * A convenience method to toggle the visibility of the dropdown.
@@ -254,27 +264,14 @@ export default class DropDownToggled extends PureComponent {
 	 */
 	triggerClickHandler = () => {
 		switch (this.props.triggerClickAction) {
-			case 'toggle':
-				this.toggle();
-				break;
-			case 'open':
-				this.openDropDown();
-				break;
-		}
-	};
-
-	/**
-	 * Will close the list if either esc or tab keys are pressed on keydown.
-	 * Will tab to next index if tab key is pressed
-	 *
-	 * @param {KeyboardEvent} event key down event object
-	 */
-	onKeyDown = event => {
-		if (!this.state.isHidden && (event.keyCode === 9 || event.keyCode === 27)) {
-			// If the user doesn't want to close when the tab key is hit, don't
-			if (event.keyCode !== 9 || this.props.closeOnTab) {
-				this.closeDropDown();
-			}
+		case 'toggle':
+			this.toggle();
+			break;
+		case 'open':
+			this.openDropDown();
+			break;
+		default:
+			break;
 		}
 	};
 
@@ -300,6 +297,11 @@ export default class DropDownToggled extends PureComponent {
 		if (event.keyCode === 40 && this.state.isHidden) {
 			event.preventDefault();
 			this.openDropDown();
+		} else if (!this.state.isHidden && (event.keyCode === 9 || event.keyCode === 27)) {
+			// If the user doesn't want to close when the tab key is hit, don't
+			if (event.keyCode !== 9 || this.props.closeOnTab) {
+				this.closeDropDown();
+			}
 		}
 	};
 
@@ -309,26 +311,28 @@ export default class DropDownToggled extends PureComponent {
 	 * @param {MouseEvent} event
 	 */
 	onMouseDown = event => {
-		const ddt = this;
-		const { firstChild: trigger } = ddt.wrapper;
-		const dropdown = ddt.dropdown && document.getElementById(ddt.dropdown.dropdownId);
+		const { isHidden } = this.state;
+		const { firstChild: trigger } = this.wrapper;
+		const dropdown = this.dropdown && document.getElementById(this.dropdownId);
 
 		/*
 		Summary of below checks:
-		 - state has marked the portal and dropdown as not hidden
+		 - the dropdown isn't currently hidden
 		 - AND the dropdown has rendered and we can match the click target to the dropdown
 		 - AND trigger has also rendered and can match with target
 		 - OR if the click target is the mask
 		*/
 		if (
-			!ddt.state.isHidden
+			!isHidden
 			&& ((dropdown == null || !dropdown.contains(event.target))
-			&& (trigger == null || !trigger.contains(event.target))
-			|| event.target.classList.contains(`${baseClass}--mask`))
+			&& (
+				trigger == null
+				|| !trigger.contains(event.target)
+				|| event.target.classList.contains(`${baseClass}--mask`)
+			))
 		) {
-			ddt.closeDropDown();
+			this.closeDropDown();
 		}
-
 	};
 
 	/**
@@ -340,7 +344,7 @@ export default class DropDownToggled extends PureComponent {
 	 */
 	onSelect = (event, item) => {
 		this.setState({
-			activeDescendant: item.props.id
+			activeDescendant: item.props.id,
 		});
 
 		if (this.props.closeOnSelect) {
@@ -349,13 +353,14 @@ export default class DropDownToggled extends PureComponent {
 	};
 
 	/**
-	 * Ensures that the activeDescendant aria attribute changes on the trigger when the highlighted element changes.
+	 * Ensures that the activeDescendant aria attribute changes on the trigger when the highlighted
+	 * element changes.
 	 *
 	 * @param {ReactElement} item
 	 */
 	onHighlightChange = item => {
 		this.setState({
-			activeDescendant: item.props.id
+			activeDescendant: item.props.id,
 		});
 	};
 
@@ -398,9 +403,9 @@ export default class DropDownToggled extends PureComponent {
 	 * @memberof DropDownToggled
 	 */
 	onResize = () => {
-		this.setState(state => {
-			const isNarrow = isNarrowViewport();
-			if (!isNarrow || (isNarrow && !state.isNarrowViewport)) {
+		this.setState(prevState => {
+			const isNarrow = checkIsNarrowViewport();
+			if (!isNarrow || (isNarrow && !prevState.isNarrowViewport)) {
 				scrollIntoViewIfNecessary(this.wrapper.firstChild);
 				this.repositionDropDown();
 			}
@@ -423,43 +428,79 @@ export default class DropDownToggled extends PureComponent {
 		}
 	};
 
+	handleOnClick = event => {
+		const { props, triggerClickHandler } = this;
+		const { onClick } = props.trigger.props;
+		const handler = compose(onClick, triggerClickHandler);
+
+		handler(event);
+	};
+
+	handleOnKeyDown = event => {
+		const { props, onTriggerKeyDown } = this;
+		const { onKeyDown } = props.trigger.props;
+		const handler = compose(onKeyDown, onTriggerKeyDown);
+
+		handler(event);
+	};
+
 	render() {
-		const ddt = this;
-		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight, preferredPosition, ariaPopupType, isLegacyDisplay, ...otherProps } = ddt.props;
-		const { isOpening, isClosing, isHidden } = ddt.state;
+		const {
+			className,
+			trigger,
+			dropdown,
+			restrictToViewPort,
+			forceDesktop,
+			qaHook,
+			maxHeight,
+			preferredPosition,
+			ariaPopupType,
+			ariaRole,
+			isLegacyDisplay,
+			matchTriggerWidth,
+			...otherProps
+		} = this.props;
+		const {
+			isOpening,
+			isClosing,
+			isHidden,
+			activeDescendant,
+		} = this.state;
 
 		const clonedTrigger = React.cloneElement(trigger, {
-			'ref': compose(trigger.ref, c => ddt.trigger = c),
-			'onClick': compose(trigger.props.onClick, ddt.triggerClickHandler),
-			'onKeyDown': compose(trigger.props.onKeyDown, ddt.onTriggerKeyDown),
-			'aria-activedescendant': ddt.state.activeDescendant,
+			'ref': compose(trigger.ref, c => this.trigger = c),
+			'onClick': this.handleOnClick,
+			'onKeyDown': this.handleOnKeyDown,
+			'aria-activedescendant': activeDescendant,
 			'aria-haspopup': ariaPopupType,
-			'aria-controls': ddt.dropdown && ddt.dropdown.dropdownId
+			'aria-controls': (!isHidden && this.dropdownId) || undefined,
 		});
 
 		const clonedDropdown = React.cloneElement(dropdown, {
 			isHidden,
-			forceDesktop: forceDesktop,
+			id: this.dropdownId,
+			forceDesktop,
 			animateOpen: isOpening,
 			animateClosed: isClosing,
-			ref: compose(dropdown.ref, c => ddt.dropdown = c),
-			onSelect: compose(dropdown.props.onSelect, ddt.onSelect),
-			onHighlightChange: compose(dropdown.props.onHighlightChange, ddt.onHighlightChange),
-			onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, ddt.onCloseAnimationEnd),
-			onOpenAnimationEnd: compose(dropdown.onOpenAnimationEnd, ddt.onOpenAnimationEnd),
-			onKeyDown: compose(dropdown.props.onKeyDown, ddt.onDropDownKeyDown),
-			className: dropdown.props.className
+			// TODO: Memoizse these props to avoid recreating functions
+			ref: compose(dropdown.ref, c => this.dropdown = c),
+			onSelect: compose(dropdown.props.onSelect, this.onSelect),
+			onHighlightChange: compose(dropdown.props.onHighlightChange, this.onHighlightChange),
+			onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, this.onCloseAnimationEnd),
+			onOpenAnimationEnd: compose(dropdown.onOpenAnimationEnd, this.onOpenAnimationEnd),
+			onKeyDown: compose(dropdown.props.onKeyDown, this.onDropDownKeyDown),
+			className: dropdown.props.className,
 		});
 
 		const commonPositioningProps = {
-			maxHeight: maxHeight,
+			maxHeight,
 			isVisible: !isHidden,
 			shouldRestrictMaxHeight: restrictToViewPort,
 			isNotResponsive: forceDesktop,
 			onVisible: shouldAnimate(this) ? null : this.onOpenAnimationEnd,
 			ref: c => this.positioning = c,
-			parentRef: ddt.wrapper,
-			isTriggerWidthMatched: ddt.props.matchTriggerWidth
+			parentRef: this.wrapper,
+			isTriggerWidthMatched: matchTriggerWidth,
 		};
 
 		const positionedDropdown = isLegacyDisplay || this.state.isNarrowViewport ? (
@@ -471,23 +512,29 @@ export default class DropDownToggled extends PureComponent {
 			</Positioning>
 		) : (
 			<PositioningInline
+				{...otherProps}
 				{...commonPositioningProps}
 				qaHook={qaHook && `${qaHook}--positioning-inline`}
 				preferredPosition={preferredPosition}
 				maxWidth={-1}
-				useDropdownPositioning={true}
-				{...otherProps}
+				useDropdownPositioning
 			>
-					{clonedDropdown}
+				{clonedDropdown}
 			</PositioningInline>
 		);
 
+		const wrapperAria = {
+			'role': ariaRole || 'presentation',
+			'aria-expanded': (ariaRole && !isHidden) || undefined,
+			'aria-owns': (!isHidden && this.dropdownId) || undefined,
+		};
+
 		return (
 			<div
-				ref={c => ddt.wrapper = c}
-				className={cn('dropdown-toggled-wrapper', className)}
-				onKeyDown={ddt.onKeyDown}
-				data-ref='toggled-wrapper'
+				{...wrapperAria}
+				ref={c => this.wrapper = c}
+				className={className}
+				data-ref="toggled-wrapper"
 				data-automationid={qaHook}
 			>
 				{clonedTrigger}
@@ -519,7 +566,9 @@ DropDownToggled.propTypes = {
 	/** Whether or not the dropdown should be automatically hidden when the user selects something */
 	closeOnSelect: PropTypes.bool,
 
-	/** Whether or not the dropdown should be automatically hidden when the user hits the tab key.  Good to turn this off if you've got a date picker, nested dropd down, form, or other complex component inside of a dropdown. */
+	/** Whether or not the dropdown should be automatically hidden when the user hits the tab key.
+	 * Good to turn this off if you've got a date picker, nested dropd down, form, or other complex
+	 * component inside of a dropdown. */
 	closeOnTab: PropTypes.bool,
 
 	/** Whether or not we should set a maxHeight on the dropdown to restrict it to the window */
@@ -534,7 +583,8 @@ DropDownToggled.propTypes = {
 	/** Callback for when animation has ended on open. */
 	onOpenAnimationEnd: PropTypes.func,
 
-	/** What action to take when the user clicks the trigger.  Default is to toggle the dropdown open/close.  Can just open ('open') or do nothing ('none'). */
+	/** What action to take when the user clicks the trigger.  Default is to toggle the dropdown
+	 * open/close. Can just open ('open') or do nothing ('none'). */
 	triggerClickAction: PropTypes.oneOf(['none', 'toggle', 'open']),
 
 	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
@@ -543,37 +593,48 @@ DropDownToggled.propTypes = {
 	/** Use the "legacy" (portaled) display. Currently defaults to "true." */
 	isLegacyDisplay: PropTypes.bool,
 
-	/** Repositioning on scroll is usually just annoying.  However, if you have a fixed position trigger, it's essential to make sure that the dropdown stays next to the trigger. */
+	/** Repositioning on scroll is usually just annoying.  However, if you have a fixed position
+	 * trigger, it's essential to make sure that the dropdown stays next to the trigger. */
 	repositionOnScroll: PropTypes.bool,
 
 	/**
 	 * Setting to true will for the dropdown to be as wide as the trigger.
-	 * Note: Setting this to true will override any size prop on DropDown.  XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
+	 * Note: Setting this to true will override any size prop on DropDown.  XUI design has also
+	 * decided to keep a minimum width on the dropdown, so dropdown may not match the width of
+	 * narrow triggers.
 	 */
 	matchTriggerWidth: PropTypes.bool,
 
 	/**
-	 * Setting a number here will force the maximum height of the dropdown to be the number provided (in pixels) if the viewport is too big.
-	 * When the viewport is smaller than this number, it still shrinks, but never grows beyond that number.
+	 * Setting a number here will force the maximum height of the dropdown to be the number
+	 * provided (in pixels) if the viewport is too big. When the viewport is smaller than this
+	 * number, it still shrinks, but never grows beyond that number.
 	 */
 	maxHeight: PropTypes.number,
 
 	/**
-	 * This setting is only for non-legacy display. Whether to allow the dropdown to take the full width of the wrapper (as SelectBox) or wrap with an inline block. Defaults to false.
+	 * This setting is only for non-legacy display. Whether to allow the dropdown to take the
+	 * full width of the wrapper (as SelectBox) or wrap with an inline block. Defaults to false.
 	 */
 	isBlock: PropTypes.bool,
 	/**
-	 * This setting is only for non-legacy display. Preferred position to display the dropdown, relative to the trigger. Defaults to bottom-left.
+	 * This setting is only for non-legacy display. Preferred position to display the dropdown,
+	 * relative to the trigger. Defaults to bottom-left.
 	 */
 	preferredPosition: PropTypes.oneOf(dropdownPositionOptions),
 	/**
-	 * This setting is only for non-legacy display. Space between trigger and dropdown, in pixels. Defaults to 6.
+	 * This setting is only for non-legacy display. Space between trigger and dropdown, in pixels.
+	 * Defaults to 6.
 	 */
 	triggerDropdownGap: PropTypes.number,
 	/**
 	 * The "aria-haspopup" value. NOT just a boolean. Defaults to 'listbox' https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup
 	 */
-	ariaPopupType: PropTypes.oneOf(['listbox', 'menu', 'tree', 'grid', 'dialog', false])
+	ariaPopupType: PropTypes.oneOf(['listbox', 'menu', 'tree', 'grid', 'dialog', false]),
+	/**
+	 * Aria role for dropdown wrapper
+	 */
+	ariaRole: PropTypes.string,
 };
 
 DropDownToggled.defaultProps = {
@@ -590,5 +651,5 @@ DropDownToggled.defaultProps = {
 	triggerDropdownGap: 6,
 	isLegacyDisplay: true,
 	isBlock: false,
-	ariaPopupType: 'listbox'
+	ariaPopupType: 'listbox',
 };

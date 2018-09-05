@@ -1,4 +1,4 @@
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 export const baseClass = `${ns}-modal`;
 
@@ -8,5 +8,5 @@ export const modalSizes = {
 	medium: `${baseClass}-width-medium`,
 	large: `${baseClass}-width-large`,
 	xlarge: `${baseClass}-width-xlarge`,
-	fullscreen: `${baseClass}-fullscreen`
+	fullscreen: `${baseClass}-fullscreen`,
 };

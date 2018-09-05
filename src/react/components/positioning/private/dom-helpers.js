@@ -2,7 +2,8 @@ import verge from 'verge';
 import breakpoints from '../../helpers/breakpoints';
 
 /**
- * Tests the height and width of the given rectangle and returns true if the size is greater than 0x0
+ * Tests the height and width of the given rectangle and returns true if the size is
+ * greater than 0x0
  *
  * @param {DOMRect} baseRect
  * @return {boolean}
@@ -57,14 +58,12 @@ export const calcSpaceLeft = triggerRect => Math.max(triggerRect.left, 0);
  * @param {DOMRect} triggerRect
  * @returns {{above: number, below: number, left: number, right: number}}
  */
-export const getSpacesAroundTrigger = triggerRect => {
-	return {
-		above: calcSpaceAbove(triggerRect),
-		below: calcSpaceBelow(triggerRect),
-		left: calcSpaceLeft(triggerRect),
-		right: calcSpaceRight(triggerRect)
-	};
-};
+export const getSpacesAroundTrigger = triggerRect => ({
+	above: calcSpaceAbove(triggerRect),
+	below: calcSpaceBelow(triggerRect),
+	left: calcSpaceLeft(triggerRect),
+	right: calcSpaceRight(triggerRect),
+});
 
 /**
  * Given a positionSetting property, split into side and alignment positioning values.
@@ -73,14 +72,12 @@ export const getSpacesAroundTrigger = triggerRect => {
  * @param {object} spaces
  * @returns {{top: number, bottom: number, left: number, right: number}}
  */
-export const mapOppositeSpaces = spaces => {
-	return {
-		top: spaces.below,
-		bottom: spaces.above,
-		left: spaces.right,
-		right: spaces.left
-	};
-};
+export const mapOppositeSpaces = spaces => ({
+	top: spaces.below,
+	bottom: spaces.above,
+	left: spaces.right,
+	right: spaces.left,
+});
 
 /**
 * Returns the top scroll amount, supported across mutliple browsers

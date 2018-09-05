@@ -1,8 +1,15 @@
-import '../helpers/xuiGlobalChecks';
 import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
-import { baseClass, sizeClasses, rotationClasses, colorClasses } from './private/constants';
+import '../helpers/xuiGlobalChecks';
+import {
+	baseClass,
+	wrapperClass,
+	wrapperSizeClasses,
+	rotationClasses,
+	colorClasses,
+	iconSizeMultipliers,
+} from './private/constants';
 
 export default function XUIIcon(props) {
 	const {
@@ -15,54 +22,60 @@ export default function XUIIcon(props) {
 		rotation,
 		color,
 		icon,
-		isInline,
+		isBoxed,
 	} = props;
 
-	const classes = cn(
+	const svgClasses = cn(
 		baseClass,
-		className,
-		!icon && sizeClasses[size], // TODO: apply multiplier to width and height instead?
 		colorClasses[color],
 		rotationClasses[rotation],
-		isInline && !icon && `${baseClass}-inline`
+		!isBoxed && className, // If no wrapper is needed, apply custom classes directly on the SVG
 	);
 
-	const width = icon && isInline ? icon.width : 30;
-	const height = icon && isInline ? icon.height : 30;
-	const pathTransform = icon && !isInline ? `translate(${(30 - icon.width) / 2},${(30 - icon.height) / 2})` : undefined;
+	const optionalTitle = title ? <title>{ title }</title> : null;
+	const optionalDescription = desc ? <desc>{ desc }</desc> : null;
+	const sizeMultiplier = iconSizeMultipliers[size];
 
-	const optionalTitle = title? <title>{ title }</title> : null;
-	const optionalDescription = desc? <desc>{ desc }</desc> : null;
-	const viewBox = icon ? `0 0 ${width} ${height}` : props.viewBox;
-	const path = icon ? icon.path : props.path;
-	const style = icon ? { width: `${width}px`, height: `${height}px`} : null;
-
-	return(
-		<svg data-automationid={qaHook} focusable="false" style={style} className={ classes } viewBox={ viewBox }>
-			{ optionalTitle }
-			{ optionalDescription }
-			<path d={ path } role={ role } transform={pathTransform} />
+	const svgElement = (
+		<svg
+			data-automationid={qaHook}
+			focusable="false"
+			className={svgClasses}
+			width={icon.width * sizeMultiplier}
+			height={icon.height * sizeMultiplier}
+			viewBox={`0 0 ${icon.width} ${icon.height}`}
+		>
+			{optionalTitle}
+			{optionalDescription}
+			<path d={icon.path} role={role} />
 		</svg>
+	);
+
+	return !isBoxed ? svgElement : (
+		<div
+			className={cn(
+				className,
+				wrapperClass,
+				wrapperSizeClasses[size],
+			)}
+			data-automationid={qaHook && `${qaHook}-wrapper`}
+		>
+			{svgElement}
+		</div>
 	);
 }
 
 XUIIcon.propTypes = {
-	/** The path to use in the SVG. This will render the icon in a standardised, fixed-size viewbox */
-	path: function(props, propName) {
-		if (!props[propName] && !props.icon) {
-			return new Error('Icon component requires either a non-empty `path` or `icon` property');
-		}
-	},
-	/** An object describing the path, width and height. This will render a SVG only as big as the icon itself */
+	/** An object describing the path, width and height. */
 	icon: PropTypes.shape({
 		path: PropTypes.string.isRequired,
 		width: PropTypes.number.isRequired,
-		height: PropTypes.number.isRequired
-	}),
+		height: PropTypes.number.isRequired,
+	}).isRequired,
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 	/** Adds a size modifier to the icon */
-	size: PropTypes.oneOf(Object.keys(sizeClasses)),
+	size: PropTypes.oneOf(Object.keys(wrapperSizeClasses)),
 	/** Title to be read by screen readers */
 	title: PropTypes.string,
 	/** Description to be read by screen readers */
@@ -70,17 +83,17 @@ XUIIcon.propTypes = {
 	/** Role to be applied to the SVG for screen readers */
 	role: PropTypes.string,
 	/** Adds a rotation modifier to the icon. Accepted values are 0 (default), 90, 180, 270 */
-	rotation: PropTypes.oneOf(Object.keys(rotationClasses).concat(Object.keys(rotationClasses).map(n => parseInt(n)))),
+	rotation: PropTypes.oneOf([
+		...Object.keys(rotationClasses),
+		...Object.keys(rotationClasses).map(n => parseInt(n)),
+	]),
 	/** Adds a color modifier to the icon */
 	color: PropTypes.oneOf(Object.keys(colorClasses)),
-	/** Whether the inline class modifier should be added */
-	isInline: PropTypes.bool,
-	/** */
-	viewBox: PropTypes.string
+	/** Whether the icon should be wrapped in a wrapper with a set size */
+	isBoxed: PropTypes.bool,
 };
 
 XUIIcon.defaultProps = {
 	size: 'standard',
 	role: 'presentation',
-	viewBox: '0 0 30 30'
 };

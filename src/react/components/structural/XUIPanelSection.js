@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-panel--section`;
 
@@ -23,7 +23,7 @@ export default class XUIPanelSection extends PureComponent {
 				{header}
 				{children}
 			</div>
-		)
+		);
 	}
 }
 
@@ -37,7 +37,7 @@ XUIPanelSection.propTypes = {
 	/**
 	 * Classes to add to the "xui-panel--section-header" node
 	 */
-	headerClassName: PropTypes.string
+	headerClassName: PropTypes.string,
 };
 
 XUIPanelSection.defaultProps = {};

@@ -1,0 +1,23 @@
+// Provides ideal font-smoothing properties for each browser
+@mixin xui-font-smooth {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+// Resets standard list styling, margin, and padding
+@mixin xui-listreset {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+// Provides coloring for disabled XUI forms
+// TODO: Rename this because what is a "form"
+@mixin xui-disabled-form {
+	background-color: $xui-control-disabled-bg-color;
+	border-color: $xui-control-disabled-border-color;
+	color: $xui-control-disabled-color;
+	cursor: not-allowed;
+	-webkit-text-fill-color: $xui-control-disabled-color;
+}

@@ -1,0 +1,45 @@
+
+
+.#{$ns}-form-layout {
+	@include xui-margin-horizontal-auto;
+	max-width: $xui-form-width;
+}
+
+.#{$ns}-validation-layout {
+	margin-bottom: $xui-s-small;
+	min-height: $xui-s-large;
+	padding-top: $xui-s-xsmall;
+}
+
+.#{$ns}-field-layout {
+	margin-bottom: $xui-s-2xlarge;
+
+	.#{$ns}-validation {
+		margin-bottom: -$xui-s-large - 1px; // Extra 1px to preˇvent vertical layout shifting
+	}
+}
+
+.#{$ns}-validation {
+	color: $xui-validation-color;
+	font-size: $xui-font-size-xsmall;
+}
+
+.#{$ns}-validation-is-invalid {
+	color: $xui-validation-invalid-color;
+}
+
+.#{$ns}-form-inline {
+	// Narrow-first breakpoint style
+	margin: auto;
+	max-width: $xui-form-width;
+
+	// Medium and wide breakpoint style
+	@media screen and (min-width: $xui-breakpoint-narrow) {
+		max-width: none;
+
+		.#{$ns}-field-layout {
+			display: inline-block;
+			vertical-align: bottom;
+		}
+	}
+}

@@ -5,9 +5,11 @@ exports[`XUICheckbox should have a hidden label, if specified 1`] = `
   className="xui-styledcheckboxradio"
   data-automationid={undefined}
   onClick={[Function]}
+  role="presentation"
 >
   <input
     aria-label="Hidden label"
+    aria-labelledby={undefined}
     className="xui-styledcheckboxradio--input"
     data-automationid={undefined}
     defaultChecked={false}
@@ -32,9 +34,11 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
   className="xui-styledcheckboxradio"
   data-automationid="test-checkbox"
   onClick={[Function]}
+  role="presentation"
 >
   <input
     aria-label={undefined}
+    aria-labelledby={undefined}
     className="xui-styledcheckboxradio--input"
     data-automationid="test-checkbox--input"
     defaultChecked={false}
@@ -51,5 +55,88 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
     className="xui-styledcheckboxradio--checkbox"
     data-automationid="test-checkbox--checkbox"
   />
+</label>
+`;
+
+exports[`XUICheckbox should have a visible label, if specified 1`] = `
+<label
+  className="xui-styledcheckboxradio"
+  data-automationid={undefined}
+  onClick={[Function]}
+  role="presentation"
+>
+  <input
+    aria-label={undefined}
+    aria-labelledby="testCheckboxId"
+    className="xui-styledcheckboxradio--input"
+    data-automationid={undefined}
+    defaultChecked={false}
+    disabled={false}
+    name={undefined}
+    onChange={[Function]}
+    onClick={[Function]}
+    required={false}
+    tabIndex={undefined}
+    type="checkbox"
+    value={undefined}
+  />
+  <div
+    className="xui-styledcheckboxradio--checkbox"
+    data-automationid={undefined}
+  />
+  <span
+    className="xui-styledcheckboxradio--label"
+    data-automationid={undefined}
+    id="testCheckboxId"
+  >
+    Visible label
+  </span>
+</label>
+`;
+
+exports[`XUICheckbox should render with an icon when one is provided 1`] = `
+<label
+  className="xui-styledcheckboxradio"
+  data-automationid={undefined}
+  onClick={[Function]}
+  role="presentation"
+>
+  <input
+    aria-label={undefined}
+    aria-labelledby={undefined}
+    className="xui-styledcheckboxradio--input"
+    data-automationid={undefined}
+    defaultChecked={false}
+    disabled={false}
+    name={undefined}
+    onChange={[Function]}
+    onClick={[Function]}
+    required={false}
+    tabIndex={undefined}
+    type="checkbox"
+    value={undefined}
+  />
+  <div
+    className="xui-iconwrapper"
+  >
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      height={15}
+      viewBox="0 0 15 15"
+      width={15}
+    >
+      <path
+        className="xui-styledcheckboxradio--focus"
+        d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z"
+        role="presentation"
+      />
+      <path
+        className="xui-styledcheckboxradio--main"
+        d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z"
+        role="presentation"
+      />
+    </svg>
+  </div>
 </label>
 `;

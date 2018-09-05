@@ -7,6 +7,11 @@ import DropDownToggled from '../DropDownToggled';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import div from './helpers/container';
+import uuidv4 from 'uuid/v4';
+
+const testId = 'testDropdownId';
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => testId);
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -80,7 +85,7 @@ describe('<DropDownToggled />', () => {
 		});
 
 		it('accepts classNames for the wrapping div', () => {
-			expect(wrapper.find('.dropdown-toggled-wrapper').hasClass('testClass')).toBeTruthy();
+			expect(wrapper.find('testClass')).toBeTruthy();
 		});
 
 		it('calls the onOpen prop after the list is open', () => {
@@ -125,19 +130,24 @@ describe('<DropDownToggled />', () => {
 
 			expect(wrapper.instance().isDropDownOpen()).toBeFalsy();
 		});
+
+		it('expects a matching id on the dropdown and referenced by aria attributes', () => {
+			expect(wrapper.html().includes(`aria-owns="${testId}"`)).toBeTruthy();
+			expect(wrapper.find('button').first().html().includes(`aria-controls="${testId}"`)).toBeTruthy();
+		});
 	});
 
 	it('should render a passed qaHook as an auotmation id', () => {
-        const automationId = renderer.create(
+    const automationId = renderer.create(
 			<DropDownToggled
 				qaHook="ddt-example"
 				trigger={getTrigger({qaHook: 'ddt-example--trigger'})}
-				dropdown={getDropDown({ id: '1' })}
+				dropdown={getDropDown()}
 			/>
 		);
 
-        expect(automationId).toMatchSnapshot();
-    });
+    expect(automationId).toMatchSnapshot();
+	});
 
 	// These are skipped as enzyme cannot test shit rendered in portal.
 	describe.skip('closeOnSelect', function () {

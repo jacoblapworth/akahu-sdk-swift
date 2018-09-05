@@ -11,7 +11,6 @@ import XUIButton from '../../button/XUIButton';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUITag from '../../tag/XUITag';
-import iconData from '@xero/xui-icon/lib/private/iconData';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -19,25 +18,19 @@ import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 import { variations, storiesWithVariationsKindName } from './variations';
-
-const swappedIconData = {};
-Object.keys(iconData).forEach(groupKey => {
-	Object.keys(iconData[groupKey]).forEach(iconKey => {
-		swappedIconData[iconData[groupKey][iconKey]] = iconKey;
-	});
-});
+import {flattenedIconList, flattenedIconMap} from "../../helpers/icons";
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 
 /* eslint-disable react/prop-types */
-function getComponent({isPositionFixed, title, secondaryTitle, navigationIconPath, actionIconPath, hasTag, hasAvatar, hasActionsPrimaryButton, hasActionsSecondaryButton}) {
+function getComponent({isPositionFixed, title, secondaryTitle, navigationIcon, actionIcon, hasTag, hasAvatar, hasActionsPrimaryButton, hasActionsSecondaryButton}) {
 	return (
 		<div style={{width: '600px'}}>
 			<XUIIsolationHeader isPositionFixed={isPositionFixed}>
 				<XUIIsolationHeaderNavigation>
-					{navigationIconPath && <XUIButton variant="icon-large" aria-label="navigate"><XUIIcon path={navigationIconPath} /></XUIButton>}
+					{navigationIcon && <XUIButton variant="icon-large" aria-label="navigate"><XUIIcon icon={flattenedIconMap[navigationIcon]} isBoxed /></XUIButton>}
 					{hasAvatar && <XUIAvatar className="xui-margin-right-small" value="ABC" />}
 					{title && <XUIIsolationHeaderTitle>{title}</XUIIsolationHeaderTitle> }
 					{secondaryTitle && <XUIIsolationHeaderSecondaryTitle>{secondaryTitle}</XUIIsolationHeaderSecondaryTitle> }
@@ -46,7 +39,7 @@ function getComponent({isPositionFixed, title, secondaryTitle, navigationIconPat
 				<XUIIsolationHeaderActions>
 					{hasActionsSecondaryButton && <XUIButton size="small" variant="standard">Secondary</XUIButton>}
 					{hasActionsPrimaryButton && <XUIButton size="small" className="xui-margin-left-small" variant="primary">Primary</XUIButton>}
-					{actionIconPath && <XUIButton variant="icon-large" aria-label="action"><XUIIcon path={actionIconPath} /></XUIButton>}
+					{actionIcon && <XUIButton variant="icon-large" aria-label="action"><XUIIcon icon={flattenedIconMap[actionIcon]} isBoxed /></XUIButton>}
 				</XUIIsolationHeaderActions>
 			</XUIIsolationHeader>
 		</div>
@@ -59,8 +52,8 @@ storiesWithKnobs.add('Playground', () => {
 		title: text('Title', ''),
 		secondaryTitle: text('Secondary title', ''),
 		isPositionFixed: boolean('Is position fixed', false),
-		navigationIconPath: select('Navigation icon', swappedIconData, iconData.navigation.cross),
-		actionIconPath: select('Action icon', swappedIconData, iconData.navigation.overflow),
+		navigationIcon: select('Navigation icon', flattenedIconList, 'cross'),
+		actionIcon: select('Action icon', flattenedIconList, 'overflow'),
 		hasActionsPrimaryButton: boolean('Has primary action button', false),
 		hasActionsSecondaryButton: boolean('Has secondary action button', false),
 		hasTag: boolean('Has tag', false),

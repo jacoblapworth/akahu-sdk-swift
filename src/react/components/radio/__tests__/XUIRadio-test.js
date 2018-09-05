@@ -3,9 +3,6 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIRadio from '../XUIRadio';
-import radioMain from '@xero/xui-icon/icons/radio-main';
-import radioCheck from '@xero/xui-icon/icons/radio-check';
-import checkboxCheck from '@xero/xui-icon/icons/checkbox-check';
 import star from '@xero/xui-icon/icons/star';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -60,103 +57,12 @@ describe('XUIRadio', () => {
 		expect(hiddenLabel).toMatchSnapshot();
 	});
 
-	describe('icon combinations', () => {
-		const defaultComponent = shallow(<XUIRadio onChange={NOOP} iconMainPath={radioMain} iconCheckPath={radioCheck}/>);
-		// SVG element uses xui-icon class
-		it('should use the xui-icon class on the SVG element', () => {
-			expect(defaultComponent.find('svg').hasClass('xui-icon')).toBeTruthy();
-		});
+	it('should render with an icon when one is provided', () => {
+		const icon = renderer.create(
+			<XUIRadio iconMain={star} onChange={NOOP} />
+		);
 
-
-		// SVG path elements include role presentation
-		it('should define role as presentation on each path element', () => {
-			expect(defaultComponent.find('svg').childAt(0).prop('role')).toEqual('presentation')
-			expect(defaultComponent.find('svg').childAt(1).prop('role')).toEqual('presentation')
-			expect(defaultComponent.find('svg').childAt(2).prop('role')).toEqual('presentation')
-
-		});
-
-
-		// Icon combinatorics 1/9 (main: undefined, check: undefined)
-		it('should not generate svgs if iconMainPath and iconCheckPath if both are undefined', () => {
-			const component = shallow(<XUIRadio onChange={NOOP} />);
-
-			expect(component.find('svg').length).toEqual(0);
-		});
-
-
-		// Icon combinatorics 2/9 (main: undefined, check: null)
-		it('should not generate svgs if iconMainPath is undefined and iconCheckPath is null', () => {
-			const component = shallow(<XUIRadio onChange={NOOP} iconCheckPath={null} />);
-
-			expect(component.find('svg').length).toEqual(0);
-		});
-
-
-		// Icon combinatorics 3/9 (main: undefined, check: checkbox-check)
-		it('should use the default iconMainPath and a custom iconCheckPath if iconMainPath is undefined and iconCheckPath is defined', () => {
-			const component = shallow(<XUIRadio onChange={NOOP} iconCheckPath={checkboxCheck} />);
-
-			expect(component.find('svg').childAt(0).prop('d')).toEqual(radioMain);
-			expect(component.find('svg').childAt(1).prop('d')).toEqual(radioMain);
-			expect(component.find('svg').childAt(2).prop('d')).toEqual(checkboxCheck);
-		});
-
-
-		// Icon combinatorics 4/9 (main: null, check: undefined)
-		it('should not generate svgs if iconMainPath is null and iconCheckPath is undefined', () => {
-			const component = shallow(<XUIRadio onChange={NOOP} iconMainPath={null} />);
-
-			expect(component.find('svg').length).toEqual(0);
-		});
-
-
-		// Icon combinatorics 5/9 (main: null, check: null)
-		it('should not generate svgs if both are null', () => {
-			const component = shallow(<XUIRadio onChange={NOOP} iconMainPath={null} iconCheckPath={null} />);
-
-			expect(component.find('svg').length).toEqual(0);
-		});
-
-
-		// Icon combinatorics 6/9 (main: null, check: checkbox-check)
-		it('should use the default iconMainPath and a custom iconCheckPath if iconMainPath is null and iconCheckPath is defined', () => {
-			const component = shallow(<XUIRadio onChange={NOOP} iconMainPath={null} iconCheckPath={checkboxCheck} />);
-
-			expect(component.find('svg').childAt(0).prop('d')).toEqual(radioMain);
-			expect(component.find('svg').childAt(1).prop('d')).toEqual(radioMain);
-			expect(component.find('svg').childAt(2).prop('d')).toEqual(checkboxCheck);
-		});
-
-
-		// Icon combinatorics 7/9 (main: star, check: undefined)
-		it('should use a custom iconMainPath without a checkmark if iconMainPath is defined and iconCheckPath is undefined', () => {
-			const component = shallow(<XUIRadio onChange={NOOP} iconMainPath={star} />);
-
-			expect(component.find('svg').childAt(0).prop('d')).toEqual(star);
-			expect(component.find('svg').childAt(1).prop('d')).toEqual(star);
-			expect(component.find('svg').children().length).toEqual(2); //No checkmark path element
-		});
-
-
-		// Icon combinatorics 8/9 (main: star, check: null)
-		it('should use a custom iconMainPath without a checkmark if iconMainPath is defined and iconCheckPath is null', () => {
-			const component = shallow(<XUIRadio onChange={NOOP} iconMainPath={star} iconCheckPath={null} />);
-
-			expect(component.find('svg').childAt(0).prop('d')).toEqual(star);
-			expect(component.find('svg').childAt(1).prop('d')).toEqual(star);
-			expect(component.find('svg').children().length).toEqual(2); //No checkmark path element
-		});
-
-
-		// Icon combinatorics 9/9 (main: star, check: checkbox-check)
-		it('should use a custom iconMainPath and a custom iconCheckPath if both are defined', () => {
-			const component = shallow(<XUIRadio onChange={NOOP} iconMainPath={star} iconCheckPath={checkboxCheck} />);
-
-			expect(component.find('svg').childAt(0).prop('d')).toEqual(star);
-			expect(component.find('svg').childAt(1).prop('d')).toEqual(star);
-			expect(component.find('svg').childAt(2).prop('d')).toEqual(checkboxCheck);
-		});
+		expect(icon).toMatchSnapshot();
 	});
 
 

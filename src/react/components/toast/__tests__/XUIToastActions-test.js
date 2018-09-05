@@ -15,7 +15,7 @@ describe('<XUIToastActions />', () => {
 			expect(toastActions).toMatchSnapshot();
 	});
 
-	it('should render non-breaking in the old API style', () => {
+	it('should render actions passed in as children', () => {
 		const toastActions = renderer.create(
 			<XUIToastActions
 				className="custom-class"
@@ -28,7 +28,7 @@ describe('<XUIToastActions />', () => {
 			expect(toastActions).toMatchSnapshot();
 	});
 
-	it('should render using the new API style', () => {
+	it('should render actions passed in using the primaryAction and secondaryAction props', () => {
 		const toastActions = renderer.create(
 			<XUIToastActions
 				className="custom-class"

@@ -33,16 +33,16 @@
 //   <p class="xui-heading-panel">Stacked Form</p>
 //   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-fieldlabel-layout" for="field1">Account holder</label>
-//     <input class="xui-input" type="text" id="field1" placeholder="" />
+//     <input class="xui-textinput xui-textinput--input" type="text" id="field1" placeholder="" />
 //   </div>
 //   <div class="xui-field-layout">
-//     <label class="xui-text-label xui-fieldlabel-layout" for="field2">IRD number</label>
-//     <input class="xui-input" type="text" id="field2" placeholder="" />
+//     <label class="xui-text-label xui-fieldlabel-layout" for="ird2">IRD number</label>
+//     <input class="xui-textinput xui-textinput--input" type="text" id="ird2" placeholder="" />
 //     <div class="xui-validation xui-validation-layout">Found on the top of your IR3 statement</div>
 //   </div>
 //   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-fieldlabel-layout" for="field3">Bank account number</label>
-//     <input class="xui-input xui-input-is-invalid" type="text" id="field3" placeholder="" />
+//     <input class="xui-textinput xui-textinput--input xui-textinput-is-invalid" type="text" id="field3" placeholder="" />
 //     <div class="xui-validation xui-validation-layout xui-validation-is-invalid">Must be at least 9 digits</div>
 //   </div>
 //   <input class="xui-button xui-button-main" type="submit" value="Submit" />
@@ -63,11 +63,11 @@
 // <form class="xui-form-inline">
 //   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-fieldlabel-layout" for="inline-name">Name</label>
-//     <input class="xui-input" type="text" id="inline-name" placeholder="" />
+//     <input class="xui-textinput xui-textinput--input" type="text" id="inline-name" placeholder="" />
 //   </div>
 //   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-fieldlabel-layout" for="inline-email">Email address</label>
-//     <input class="xui-input" type="email" id="inline-email" placeholder="" />
+//     <input class="xui-textinput xui-textinput--input" type="email" id="inline-email" placeholder="" />
 //   </div>
 //   <div class="xui-field-layout">
 //      <input class="xui-button xui-button-main" type="submit" value="Sign up" />
@@ -97,7 +97,7 @@
 // Markup:
 // <div class="xui-field-layout">
 //   <label for="horizontaldemofield1" class="xui-text-label xui-fieldlabel-layout">Total amount</label>
-//   <div class="xui-inputgroup">
+//   <div class="xui-textinputgroup">
 //     <div class="xui-select xui-column-4-of-12">
 //       <select class="xui-select--control" aria-label="Currency">
 //         <option>NZD</option>
@@ -105,19 +105,21 @@
 //         <option>CAD</option>
 //         <option>USD</option>
 //       </select>
-//       <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//       <div class="xui-select--caret">
+//         <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"><use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//       </div>
 //     </div>
-//     <div class="xui-column-8-of-12 xui-inputwrapper">
-//       <input class="xui-input" id="horizontaldemofield1" />
+//     <div class="xui-column-8-of-12 xui-textinputwrapper">
+//       <input class="xui-textinput xui-textinput--input" id="horizontaldemofield1" />
 //     </div>
 //   </div>
 // </div>
 // <div class="xui-field-layout">
 //   <label for="horizontaldemofield2" class="xui-text-label xui-fieldlabel-layout">Your name</label>
-//   <div class="xui-inputgroup">
-//       <input class="xui-column-4-of-12 xui-input" id="horizontaldemofield2" placeholder="First" aria-label="First name"/>
-//       <input class="xui-column-4-of-12 xui-input xui-input-is-invalid" placeholder="Middle" aria-label="Middle name"/>
-//       <input class="xui-column-4-of-12 xui-input" placeholder="Last" aria-label="Last name"/>
+//   <div class="xui-textinputgroup">
+//       <input class="xui-column-4-of-12 xui-textinput xui-textinput--input" id="horizontaldemofield2" placeholder="First" aria-label="First name"/>
+//       <input class="xui-column-4-of-12 xui-textinput xui-textinput--input xui-textinput-is-invalid" placeholder="Middle" aria-label="Middle name"/>
+//       <input class="xui-column-4-of-12 xui-textinput xui-textinput--input" placeholder="Last" aria-label="Last name"/>
 //   </div>
 //   <div class="xui-validation xui-validation-layout xui-validation-is-invalid">We need your middle name for a full identity check</div>
 // </div>
@@ -126,89 +128,97 @@
 
 
 // Classes:
-// xui-inputgroup: Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
+// xui-textinputgroup: Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
 //
 // Markup:
 // <div class="xui-field-layout">
 //   <label for="horizontaldemofield1" class="xui-text-label xui-fieldlabel-layout">Inputs only</label>
-//   <div class="xui-inputgroup">
-//     <input id="horizontaldemofield1" class="xui-input xui-column-2-of-12" placeholder="2 columns"/>
-//     <input class="xui-input xui-column-5-of-12" placeholder="5 columns"/>
-//     <input class="xui-input xui-column-5-of-12" placeholder="5 columns"/>
+//   <div class="xui-textinputgroup">
+//     <input id="horizontaldemofield1" class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="2 columns" placeholder="2 columns"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-5-of-12" placeholder="5 columns" aria-label="5 columns"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-5-of-12" placeholder="5 columns" aria-label="5 columns"/>
 //   </div>
 // </div>
 // <div class="xui-field-layout">
 //   <label for="horizontaldemofield2" class="xui-text-label xui-fieldlabel-layout">Mix of select, input and button</label>
-//   <div class="xui-inputgroup">
+//   <div class="xui-textinputgroup">
 //     <div class="xui-select xui-column-2-of-12">
 //       <select id="horizontaldemofield2" class="xui-select--control">
 //         <option>Value 1</option>
 //         <option>Value 2</option>
 //         <option>Value 3</option>
 //       </select>
-//       <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 <div class="xui-select--caret">
+//         <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 </div>
 //     </div>
-//     <input class="xui-input xui-column-2-of-12"/>
-//     <input class="xui-input xui-column-2-of-12"/>
-//     <input class="xui-input xui-input-is-invalid xui-column-2-of-12" placeholder="Invalid input" />
-//     <input class="xui-input xui-column-2-of-12"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
+//     <input class="xui-textinput xui-textinput--input xui-textinput-is-invalid xui-column-2-of-12" placeholder="Invalid input" aria-label="Invalid input" />
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
 //     <button class="xui-button xui-button-main xui-column-2-of-12">Action</button>
 //   </div>
 // </div>
 // <div class="xui-field-layout">
 //   <label for="horizontaldemofield3" class="xui-text-label xui-fieldlabel-layout">Another mix of select, input and button</label>
-//   <div class="xui-inputgroup">
+//   <div class="xui-textinputgroup">
 //     <button id="horizontaldemofield3" class="xui-button xui-button-standard xui-column-2-of-12">Action</button>
-//     <input class="xui-input xui-column-2-of-12"/>
-//     <input class="xui-input xui-column-2-of-12"/>
-//     <input class="xui-input xui-column-2-of-12" />
-//     <input class="xui-input xui-column-2-of-12"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
 //     <div class="xui-select xui-column-2-of-12">
-//       <select class="xui-select--control xui-input-is-invalid">
+//       <select class="xui-select--control xui-textinput-is-invalid">
 //         <option>Invalid</option>
 //         <option>Value 2</option>
 //         <option>Value 3</option>
 //       </select>
-//       <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 <div class="xui-select--caret">
+//         <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 </div>
 //     </div>
 //   </div>
 // </div>
 // <div class="xui-field-layout">
 //   <label for="horizontaldemofield3" class="xui-text-label xui-fieldlabel-layout">Mix with input wrappers</label>
-//   <div class="xui-inputgroup">
+//   <div class="xui-textinputgroup">
 //     <button id="horizontaldemofield3" class="xui-button xui-button-standard xui-column-2-of-12">Action</button>
-//     <div class="xui-column-2-of-12 xui-inputwrapper">
-//       <input class="xui-input" />
+//     <div class="xui-column-2-of-12 xui-textinputwrapper">
+//       <input class="xui-textinput xui-textinput--input" />
 //     </div>
-//     <div class="xui-column-2-of-12 xui-inputwrapper">
-//       <input class="xui-input" />
+//     <div class="xui-column-2-of-12 xui-textinputwrapper">
+//       <input class="xui-textinput xui-textinput--input" />
 //     </div>
-//     <div class="xui-column-2-of-12 xui-inputwrapper">
-//       <input class="xui-input" />
+//     <div class="xui-column-2-of-12 xui-textinputwrapper">
+//       <input class="xui-textinput xui-textinput--input" />
 //     </div>
-//     <div class="xui-column-2-of-12 xui-inputwrapper">
-//       <input class="xui-input" />
+//     <div class="xui-column-2-of-12 xui-textinputwrapper">
+//       <input class="xui-textinput xui-textinput--input" />
 //     </div>
 //     <div class="xui-select xui-column-2-of-12">
-//       <select class="xui-select--control xui-input-is-invalid">
+//       <select class="xui-select--control xui-textinput-is-invalid">
 //         <option>Invalid</option>
 //         <option>Value 2</option>
 //         <option>Value 3</option>
 //       </select>
-//       <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 <div class="xui-select--caret">
+//         <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 </div>
 //     </div>
 //   </div>
 // </div>
 // <div class="xui-field-layout">
 //   <label for="horizontaldemofield3" class="xui-text-label xui-fieldlabel-layout">Inputgroup with a single child (not recommended, just for regression testing)</label>
-//   <div class="xui-inputgroup">
+//   <div class="xui-textinputgroup">
 //     <div class="xui-select xui-column-2-of-12">
 //       <select class="xui-select--control">
 //         <option>Invalid</option>
 //         <option>Value 2</option>
 //         <option>Value 3</option>
 //       </select>
-//       <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 <div class="xui-select--caret">
+//         <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 </div>
 //     </div>
 //   </div>
 // </div>
@@ -224,20 +234,32 @@
 // <div class="xui-field-layout">
 //   <label for="street-address" class="xui-text-label xui-fieldlabel-layout">Street address</label>
 //   <div class="xui-verticalinputgroup">
-//   <input id="street-address" class="xui-input" aria-label="Street Address Line 1"/>
-//   <input class="xui-input"  aria-label="Street Address Line 2"/>
-//   <input class="xui-input"  aria-label="Street Address Line 3"/>
+//   <input id="street-address" class="xui-textinput xui-textinput--input" aria-label="Street Address Line 1"/>
+//   <input class="xui-textinput xui-textinput--input" aria-label="Street Address Line 2"/>
+//   <input class="xui-textinput xui-textinput--input" aria-label="Street Address Line 3"/>
 // </div>
 // </div>
 // <div class="xui-heading xui-margin-top-large xui-margin-bottom">Log in to continue</div>
 // <div class="xui-verticalinputgroup">
-//   <div class="xui-inputwrapper">
-//     <input class="xui-input xui-input-has-left-icon" placeholder="Email" />
-//     <svg focusable="false" class="xui-icon xui-input--icon-left"><use xlink:href="#xui-icon-email" role="presentation" /></svg>
+//   <div class="xui-textinputwrapper">
+//     <div class="xui-textinput">
+//       <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+//         <div class="xui-iconwrapper">
+//           <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-email" role="presentation" /></svg>
+//         </div>
+//       </div>
+//       <input class="xui-textinput--input xui-padding-left-none" placeholder="Email" aria-label="Email" />
+//     </div>
 //   </div>
-//   <div class="xui-inputwrapper">
-//     <input class="xui-input xui-input-has-left-icon" placeholder="Password" />
-//     <svg focusable="false" class="xui-icon xui-input--icon-left"><use xlink:href="#xui-icon-lock" role="presentation" /></svg>
+//   <div class="xui-textinputwrapper">
+//     <div class="xui-textinput">
+//       <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+//         <div class="xui-iconwrapper">
+//           <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-lock" role="presentation" /></svg>
+//         </div>
+//       </div>
+//       <input class="xui-textinput--input xui-padding-left-none" placeholder="Password"  aria-label="Password" />
+//     </div>
 //   </div>
 // </div>
 //
@@ -254,7 +276,7 @@
 // xui-validation: Used to style text below inputs (to clarify format or provide supporting info)
 // xui-validation-layout: Recommended layout for text below inputs
 // xui-validation-is-invalid: Modifier for text below inputs that are in an error state
-// xui-inputgroup: Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
+// xui-textinputgroup: Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
 // xui-verticalinputgroup: Wrapper class to go around a set of vertically grouped inputs
 //
 // Styleguide: Compounds.CollectingInput.Forms.50

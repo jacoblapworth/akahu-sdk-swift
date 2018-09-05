@@ -4,13 +4,16 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
 <label
   className="xui-textinputwrapper"
   onKeyDown={undefined}
+  role="presentation"
 >
   <div
     className="xui-textinput"
     data-automationid="input-test"
   >
     <input
+      aria-describedby={undefined}
       aria-label={undefined}
+      aria-labelledby={undefined}
       className="xui-textinput--input"
       data-automationid="input-test--input"
       defaultValue={undefined}
@@ -37,6 +40,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
   <label
     className="xui-textinputwrapper"
     onKeyDown={undefined}
+    role="presentation"
   >
     <div
       className="xui-textinput"
@@ -46,22 +50,29 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
         data-automationid={undefined}
       >
-        <svg
-          className="xui-icon"
+        <div
+          className="xui-iconwrapper"
           data-automationid={undefined}
-          focusable="false"
-          style={null}
-          viewBox="0 0 30 30"
         >
-          <path
-            d="M15,10 C16.105,10 17,9.105 17,8 C17,6.895 16.105,6 15,6 C13.895,6 13,6.895 13,8 C13,9.105 13.895,10 15,10 Z M8,12 C8,11.4477153 8.44994876,11 9.00684547,11 L20.9931545,11 C21.5492199,11 22,11.4438648 22,12 C22,12.5522847 21.5566468,13 20.9906311,13 L18,13 L18,22.0046024 C18,22.5543453 17.5561352,23 17,23 C16.4477153,23 16,22.5562834 16,22.0001925 L16,18 L14,18 L14,22.0001925 C14,22.5523709 13.5561352,23 13,23 C12.4477153,23 12,22.5443356 12,22.0046024 L12,13 L9.0093689,13 C8.45190985,13 8,12.5561352 8,12 Z"
-            role="presentation"
-            transform={undefined}
-          />
-        </svg>
+          <svg
+            className="xui-icon"
+            data-automationid={undefined}
+            focusable="false"
+            height={17}
+            viewBox="0 0 14 17"
+            width={14}
+          >
+            <path
+              d="M7 4A2 2 0 1 1 6.999.001 2 2 0 0 1 7 4zM0 6c0-.552.45-1 1.007-1h11.986a1.001 1.001 0 1 1-.002 2H10v9.005c0 .55-.444.995-1 .995-.552 0-1-.444-1-1v-4H6v4c0 .552-.444 1-1 1-.552 0-1-.456-1-.995V7H1.01C.451 7 0 6.556 0 6z"
+              role="presentation"
+            />
+          </svg>
+        </div>
       </div>
       <input
+        aria-describedby={undefined}
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-textinput--input xui-padding-left-none"
         data-automationid={undefined}
         defaultValue={undefined}
@@ -84,13 +95,16 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
   <label
     className="xui-textinputwrapper"
     onKeyDown={undefined}
+    role="presentation"
   >
     <div
       className="xui-textinput"
       data-automationid={undefined}
     >
       <input
+        aria-describedby={undefined}
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-textinput--input xui-padding-right-none"
         data-automationid={undefined}
         defaultValue={undefined}
@@ -112,25 +126,31 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
         data-automationid={undefined}
       >
-        <svg
-          className="xui-icon"
+        <div
+          className="xui-iconwrapper"
           data-automationid={undefined}
-          focusable="false"
-          style={null}
-          viewBox="0 0 30 30"
         >
-          <path
-            d="M15,10 C16.105,10 17,9.105 17,8 C17,6.895 16.105,6 15,6 C13.895,6 13,6.895 13,8 C13,9.105 13.895,10 15,10 Z M8,12 C8,11.4477153 8.44994876,11 9.00684547,11 L20.9931545,11 C21.5492199,11 22,11.4438648 22,12 C22,12.5522847 21.5566468,13 20.9906311,13 L18,13 L18,22.0046024 C18,22.5543453 17.5561352,23 17,23 C16.4477153,23 16,22.5562834 16,22.0001925 L16,18 L14,18 L14,22.0001925 C14,22.5523709 13.5561352,23 13,23 C12.4477153,23 12,22.5443356 12,22.0046024 L12,13 L9.0093689,13 C8.45190985,13 8,12.5561352 8,12 Z"
-            role="presentation"
-            transform={undefined}
-          />
-        </svg>
+          <svg
+            className="xui-icon"
+            data-automationid={undefined}
+            focusable="false"
+            height={17}
+            viewBox="0 0 14 17"
+            width={14}
+          >
+            <path
+              d="M7 4A2 2 0 1 1 6.999.001 2 2 0 0 1 7 4zM0 6c0-.552.45-1 1.007-1h11.986a1.001 1.001 0 1 1-.002 2H10v9.005c0 .55-.444.995-1 .995-.552 0-1-.444-1-1v-4H6v4c0 .552-.444 1-1 1-.552 0-1-.456-1-.995V7H1.01C.451 7 0 6.556 0 6z"
+              role="presentation"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   </label>
   <label
     className="xui-textinputwrapper"
     onKeyDown={undefined}
+    role="presentation"
   >
     <div
       className="xui-textinput"
@@ -140,22 +160,29 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
         data-automationid={undefined}
       >
-        <svg
-          className="xui-icon"
+        <div
+          className="xui-iconwrapper"
           data-automationid={undefined}
-          focusable="false"
-          style={null}
-          viewBox="0 0 30 30"
         >
-          <path
-            d="M15,10 C16.105,10 17,9.105 17,8 C17,6.895 16.105,6 15,6 C13.895,6 13,6.895 13,8 C13,9.105 13.895,10 15,10 Z M8,12 C8,11.4477153 8.44994876,11 9.00684547,11 L20.9931545,11 C21.5492199,11 22,11.4438648 22,12 C22,12.5522847 21.5566468,13 20.9906311,13 L18,13 L18,22.0046024 C18,22.5543453 17.5561352,23 17,23 C16.4477153,23 16,22.5562834 16,22.0001925 L16,18 L14,18 L14,22.0001925 C14,22.5523709 13.5561352,23 13,23 C12.4477153,23 12,22.5443356 12,22.0046024 L12,13 L9.0093689,13 C8.45190985,13 8,12.5561352 8,12 Z"
-            role="presentation"
-            transform={undefined}
-          />
-        </svg>
+          <svg
+            className="xui-icon"
+            data-automationid={undefined}
+            focusable="false"
+            height={17}
+            viewBox="0 0 14 17"
+            width={14}
+          >
+            <path
+              d="M7 4A2 2 0 1 1 6.999.001 2 2 0 0 1 7 4zM0 6c0-.552.45-1 1.007-1h11.986a1.001 1.001 0 1 1-.002 2H10v9.005c0 .55-.444.995-1 .995-.552 0-1-.444-1-1v-4H6v4c0 .552-.444 1-1 1-.552 0-1-.456-1-.995V7H1.01C.451 7 0 6.556 0 6z"
+              role="presentation"
+            />
+          </svg>
+        </div>
       </div>
       <input
+        aria-describedby={undefined}
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-textinput--input xui-padding-left-none xui-padding-right-none"
         data-automationid={undefined}
         defaultValue={undefined}
@@ -177,19 +204,24 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
         data-automationid={undefined}
       >
-        <svg
-          className="xui-icon"
+        <div
+          className="xui-iconwrapper"
           data-automationid={undefined}
-          focusable="false"
-          style={null}
-          viewBox="0 0 30 30"
         >
-          <path
-            d="M15,10 C16.105,10 17,9.105 17,8 C17,6.895 16.105,6 15,6 C13.895,6 13,6.895 13,8 C13,9.105 13.895,10 15,10 Z M8,12 C8,11.4477153 8.44994876,11 9.00684547,11 L20.9931545,11 C21.5492199,11 22,11.4438648 22,12 C22,12.5522847 21.5566468,13 20.9906311,13 L18,13 L18,22.0046024 C18,22.5543453 17.5561352,23 17,23 C16.4477153,23 16,22.5562834 16,22.0001925 L16,18 L14,18 L14,22.0001925 C14,22.5523709 13.5561352,23 13,23 C12.4477153,23 12,22.5443356 12,22.0046024 L12,13 L9.0093689,13 C8.45190985,13 8,12.5561352 8,12 Z"
-            role="presentation"
-            transform={undefined}
-          />
-        </svg>
+          <svg
+            className="xui-icon"
+            data-automationid={undefined}
+            focusable="false"
+            height={17}
+            viewBox="0 0 14 17"
+            width={14}
+          >
+            <path
+              d="M7 4A2 2 0 1 1 6.999.001 2 2 0 0 1 7 4zM0 6c0-.552.45-1 1.007-1h11.986a1.001 1.001 0 1 1-.002 2H10v9.005c0 .55-.444.995-1 .995-.552 0-1-.444-1-1v-4H6v4c0 .552-.444 1-1 1-.552 0-1-.456-1-.995V7H1.01C.451 7 0 6.556 0 6z"
+              role="presentation"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   </label>
@@ -200,13 +232,16 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
 <label
   className="xui-textinputwrapper"
   onKeyDown={undefined}
+  role="presentation"
 >
   <div
     className="xui-textinput"
     data-automationid="givenQAHook"
   >
     <input
+      aria-describedby={undefined}
       aria-label={undefined}
+      aria-labelledby={undefined}
       className="xui-textinput--input"
       data-automationid="givenQAHook--input"
       defaultValue={undefined}
@@ -232,13 +267,16 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
 <label
   className="xui-textinputwrapper"
   onKeyDown={undefined}
+  role="presentation"
 >
   <div
     className="xui-textinput xui-textinput-is-disabled"
     data-automationid={undefined}
   >
     <input
+      aria-describedby={undefined}
       aria-label={undefined}
+      aria-labelledby={undefined}
       className="xui-textinput--input"
       data-automationid={undefined}
       defaultValue={undefined}
@@ -264,9 +302,11 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
 <label
   className="custom-field-class xui-textinputwrapper"
   onKeyDown={undefined}
+  role="presentation"
 >
   <span
     className="custom-label-class xui-text-label xui-fieldlabel-layout"
+    id="testLabel"
   >
     test
   </span>
@@ -275,7 +315,9 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
     data-automationid={undefined}
   >
     <input
+      aria-describedby={undefined}
       aria-label={undefined}
+      aria-labelledby="testLabel"
       className="custom-input-class xui-textinput--input"
       data-automationid={undefined}
       defaultValue={undefined}
@@ -301,13 +343,16 @@ exports[`<XUITextInput> Text-only input renders with a hidden label when one is 
 <label
   className="xui-textinputwrapper"
   onKeyDown={undefined}
+  role="presentation"
 >
   <div
     className="xui-textinput"
     data-automationid={undefined}
   >
     <input
+      aria-describedby={undefined}
       aria-label="test"
+      aria-labelledby={undefined}
       className="xui-textinput--input"
       data-automationid={undefined}
       defaultValue={undefined}
@@ -333,9 +378,11 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
 <label
   className="xui-textinputwrapper"
   onKeyDown={undefined}
+  role="presentation"
 >
   <span
     className="xui-text-label xui-fieldlabel-layout"
+    id="testLabel"
   >
     test
   </span>
@@ -344,7 +391,9 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
     data-automationid={undefined}
   >
     <input
+      aria-describedby={undefined}
       aria-label={undefined}
+      aria-labelledby="testLabel"
       className="xui-textinput--input"
       data-automationid={undefined}
       defaultValue={undefined}
@@ -362,6 +411,92 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
       type={undefined}
       value={undefined}
     />
+  </div>
+</label>
+`;
+
+exports[`<XUITextInput> Validation and hints renders invalid textinputs with an error message correctly 1`] = `
+<label
+  className="xui-textinputwrapper"
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <div
+    className="xui-textinput xui-textinput-is-invalid"
+    data-automationid={undefined}
+  >
+    <input
+      aria-describedby="testGeneratedId-message"
+      aria-label={undefined}
+      aria-labelledby={undefined}
+      className="xui-textinput--input"
+      data-automationid={undefined}
+      defaultValue={undefined}
+      disabled={undefined}
+      onBlurCapture={[Function]}
+      onChange={[Function]}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
+      type={undefined}
+      value={undefined}
+    />
+  </div>
+  <div
+    className="xui-validation xui-validation-layout xui-validation-is-invalid"
+    data-automationid={undefined}
+    id="testGeneratedId-message"
+    role="status"
+  >
+    Boo
+  </div>
+</label>
+`;
+
+exports[`<XUITextInput> Validation and hints renders with a hint message if one is provided and the input is valid 1`] = `
+<label
+  className="xui-textinputwrapper"
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <div
+    className="xui-textinput"
+    data-automationid={undefined}
+  >
+    <input
+      aria-describedby="testGeneratedId-message"
+      aria-label={undefined}
+      aria-labelledby={undefined}
+      className="xui-textinput--input"
+      data-automationid={undefined}
+      defaultValue={undefined}
+      disabled={undefined}
+      onBlurCapture={[Function]}
+      onChange={[Function]}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
+      type={undefined}
+      value={undefined}
+    />
+  </div>
+  <div
+    className="xui-validation xui-validation-layout"
+    data-automationid={undefined}
+    id="testGeneratedId-message"
+    role="status"
+  >
+    Boo
   </div>
 </label>
 `;

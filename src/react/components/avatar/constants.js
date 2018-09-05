@@ -1,4 +1,4 @@
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 const avatarBaseClass = `${ns}-avatar`;
 const smallVariation = 'small';
@@ -9,12 +9,12 @@ const largeVariation = 'large';
  * Map of sizes to XUI Classes properties
  */
 export const sizeClassNames = {
-	xsmall: `${avatarBaseClass}-x${smallVariation}`, // xui-avatar-xsmall
-	small: `${avatarBaseClass}-${smallVariation}`, // xui-avatar-small
-	medium: '',
-	large: `${avatarBaseClass}-${largeVariation}`, // xui-avatar-large
-	xlarge: `${avatarBaseClass}-x${largeVariation}`, // xui-avatar-xlarge
-	["2xlarge"]: `${avatarBaseClass}-2x${largeVariation}` // xui-avatar-2xlarge
+	'xsmall': `${avatarBaseClass}-x${smallVariation}`, // xui-avatar-xsmall
+	'small': `${avatarBaseClass}-${smallVariation}`, // xui-avatar-small
+	'medium': '',
+	'large': `${avatarBaseClass}-${largeVariation}`, // xui-avatar-large
+	'xlarge': `${avatarBaseClass}-x${largeVariation}`, // xui-avatar-xlarge
+	'2xlarge': `${avatarBaseClass}-2x${largeVariation}`, // xui-avatar-2xlarge
 };
 
 /**
@@ -24,7 +24,7 @@ export const sizeClassNames = {
 export const classNames = {
 	base: avatarBaseClass,
 	counter: `${avatarBaseClass}-counter`,
-	group: `${avatarBaseClass}group`
+	group: `${avatarBaseClass}group`,
 };
 
 /**
@@ -32,7 +32,7 @@ export const classNames = {
  * Map of color classes
  */
 export const colorClassNames = [];
-for(let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 10; i += 1) {
 	colorClassNames.push(`${avatarBaseClass}-color-${i}`);
 }
 
@@ -41,5 +41,5 @@ for(let i = 1; i <= 10; i++) {
  * Map of variants to class names
  */
 export const variantClassNames = {
-	business: `${avatarBaseClass}-business`
+	business: `${avatarBaseClass}-business`,
 };

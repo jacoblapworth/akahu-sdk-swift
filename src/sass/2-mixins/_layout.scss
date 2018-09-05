@@ -1,0 +1,13 @@
+@import "layout.breakpoints";
+@import "layout.marginpadding";
+@import "layout.grids";
+@import "../vars";
+
+@mixin xui-container {
+	@include xui-font-smooth;
+	box-sizing: border-box;
+	color: $xui-color-grey-1; // xui-text-primary-color
+	font-family: $xui-font-family;
+	font-size: $xui-font-size-small;
+	@include xui-text-line-height;
+}

@@ -7,11 +7,15 @@ const onBannerClose = () => {alert( 'Single action banner closed' )};
 <div>
 	<XUIBanner qaHook="banner-example">
 		<XUIBannerMessage qaHook="banner-example--message"> Standard </XUIBannerMessage>
-		<XUIBannerAction href="#" qaHook="banner-example--action"> Action </XUIBannerAction>
+		<XUIBannerActions>
+			<XUIBannerAction href="#" qaHook="banner-example--action"> Action </XUIBannerAction>
+		</XUIBannerActions>
 	</XUIBanner>
 	<XUIBanner onCloseClick={onBannerClose}>
 		<XUIBannerMessage> Closable </XUIBannerMessage>
-		<XUIBannerAction href="#"> Action </XUIBannerAction>
+		<XUIBannerActions>
+			<XUIBannerAction href="#"> Action </XUIBannerAction>
+		</XUIBannerActions>
 	</XUIBanner>
 </div>
 ```

@@ -5,9 +5,11 @@ exports[`XUIRadio should have a hidden label, if specified 1`] = `
   className="xui-styledcheckboxradio"
   data-automationid={undefined}
   onClick={[Function]}
+  role="presentation"
 >
   <input
     aria-label="Hidden label"
+    aria-labelledby={undefined}
     className="xui-styledcheckboxradio--input"
     data-automationid={undefined}
     defaultChecked={false}
@@ -25,5 +27,53 @@ exports[`XUIRadio should have a hidden label, if specified 1`] = `
     className="xui-styledcheckboxradio--radio"
     data-automationid={undefined}
   />
+</label>
+`;
+
+exports[`XUIRadio should render with an icon when one is provided 1`] = `
+<label
+  className="xui-styledcheckboxradio"
+  data-automationid={undefined}
+  onClick={[Function]}
+  role="presentation"
+>
+  <input
+    aria-label={undefined}
+    aria-labelledby={undefined}
+    className="xui-styledcheckboxradio--input"
+    data-automationid={undefined}
+    defaultChecked={false}
+    disabled={false}
+    id={undefined}
+    name={undefined}
+    onChange={[Function]}
+    required={false}
+    role="radio"
+    tabIndex={undefined}
+    type="radio"
+    value={undefined}
+  />
+  <div
+    className="xui-iconwrapper"
+  >
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      height={15}
+      viewBox="0 0 15 15"
+      width={15}
+    >
+      <path
+        className="xui-styledcheckboxradio--focus"
+        d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z"
+        role="presentation"
+      />
+      <path
+        className="xui-styledcheckboxradio--main"
+        d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z"
+        role="presentation"
+      />
+    </svg>
+  </div>
 </label>
 `;

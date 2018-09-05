@@ -18,7 +18,7 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'checked',
 		labelText: 'Checked Example',
-		isChecked: true
+		isDefaultChecked: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -30,7 +30,7 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'checked and disabled',
 		labelText: 'Checked and Disabled Example',
-		isChecked: true,
+		isDefaultChecked: true,
 		isDisabled: true
 	},
 	{
@@ -56,7 +56,7 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with an icon',
 		labelText: 'Icon Example',
-		iconMainPath: starIcon
+		iconMain: starIcon
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

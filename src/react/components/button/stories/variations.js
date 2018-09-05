@@ -43,6 +43,13 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as a Split Button Group with multi-line text',
+		componentType: 'XUISplitButtonGroup',
+		variant: 'primary',
+		contentsKey: 'asSplitGroupMulti',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as a small Split Button Group',
 		contentsKey: 'asSplitGroupSm',
 		componentType: 'XUISplitButtonGroup',
@@ -56,6 +63,8 @@ buttonVariants.forEach((buttonVariant, index) => {
 	variations.push({
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `as ${isIcon ? '' : size} ${buttonVariant}`,
+		href: buttonVariant === 'link' ? '#' : undefined,
+		isLink: buttonVariant === 'link',
 		size: size,
 		value: isIcon ? undefined : `${buttonVariant}`,
 		contentsKey: isIcon ? 'icon' : undefined,

@@ -1,0 +1,189 @@
+@import "../vars";
+@import "../mixins";
+
+.#{$ns}-chart--position,
+.#{$ns}-chart--base {
+	position: relative;
+}
+
+.#{$ns}-chart--position * {
+	// Make sure that any display property other than `block` is not allowed. The
+	// chart uses a series of overlapping SVG elements that MUST be perfectly inlined
+	// (we are displaying important data and need to be accurate). Storybook for
+	// instance can be a hindrance with its `display: table;` wrapper. This ensures
+	// that a similar scenario does not compromise the chart system.
+	display: block !important;
+}
+
+.#{$ns}-chart--base {
+	height: 400px;
+}
+
+.#{$ns}-chart--content,
+.#{$ns}-chart--shadows {
+	left: 0;
+	overflow-x: auto;
+	overflow-y: hidden;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.#{$ns}-chart--content {
+	height: 100%;
+}
+
+.#{$ns}-chart--shadows {
+	overflow: hidden;
+	pointer-events: none;
+	position: absolute;
+	z-index: 1;
+
+	&:before,
+	&:after {
+		content: '';
+		display: block;
+		height: 100%;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		transition: $xui-motion-speed-fast;
+		width: 100px;
+	}
+}
+
+.#{$ns}-chart--shadows:before {
+	box-shadow: $xui-shadow-depth-overlap-left;
+	right: 100%;
+}
+
+.#{$ns}-chart--shadows:after {
+	box-shadow: $xui-shadow-depth-overlap-right;
+	left: 100%;
+}
+
+.#{$ns}-chart-has-left-shadow .#{$ns}-chart--shadows:before,
+.#{$ns}-chart-has-right-shadow .#{$ns}-chart--shadows:after {
+	opacity: 1;
+}
+
+.#{$ns}-chart-has-pagination .#{$ns}-chart--content {
+	overflow-x: hidden;
+}
+
+.#{$ns}-chart--header {
+	align-items: center;
+	display: flex;
+	justify-content: flex-end;
+	padding-bottom: $xui-s-2xlarge;
+}
+
+.#{$ns}-chart-has-multiline-header .#{$ns}-chart--header {
+	flex-wrap: wrap;
+}
+
+.#{$ns}-chart--title {
+	@include xui-heading-small;
+	flex-grow: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.#{$ns}-chart-has-multiline-header .#{$ns}-chart--title {
+	width: calc(100% - #{$xui-s-4xlarge});
+}
+
+.#{$ns}-chart--pagination {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	white-space: nowrap;
+}
+
+.#{$ns}-chart-has-multiline-header .#{$ns}-chart--pagination {
+	justify-content: space-between;
+	order: 1;
+	width: 100%;
+}
+
+.#{$ns}-chart--scroll {
+	height: 100%;
+	position: relative;
+}
+
+.#{$ns}-chart-has-pagination .#{$ns}-chart--scroll {
+	transition: $xui-motion-speed-medium;
+}
+
+.#{$ns}-chart-is-loading {
+	align-items: center;
+	display: flex;
+	height: 400px;
+	justify-content: center;
+}
+
+.#{$ns}-chart-is-empty {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 300px;
+	text-align: center;
+}
+
+.#{$ns}-chart--tooltip {
+	background: transparent;
+	height: 0;
+	left: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	width: 0;
+}
+
+.#{$ns}-chart .#{$ns}-tooltip {
+	display: block;
+}
+
+.#{$ns}-chart .#{$ns}-tooltip--tip {
+	cursor: initial;
+	pointer-events: none;
+}
+
+.#{$ns}-chart--key {
+	padding: $xui-s-small;
+}
+
+.#{$ns}-chart--key-title {
+	@include xui-text-muted;
+	@include xui-text-xsmall;
+	padding: $xui-s-small;
+}
+
+.#{$ns}-chart--key-list {
+	@include xui-listreset;
+}
+
+.#{$ns}-chart--key-item {
+	padding: $xui-s-small $xui-s-small $xui-s-small $xui-s-4xlarge;
+	position: relative;
+}
+
+.#{$ns}-chart--key-icon {
+	background: $xui-color-grey-5;
+	border-radius: 50%;
+	height: $xui-s-small;
+	left: $xui-s-small;
+	position: absolute;
+	top: $xui-s-standard;
+	width: $xui-s-small;
+}
+
+.#{$ns}-chart--empty {
+	@include xui-text-muted;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}

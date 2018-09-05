@@ -1,20 +1,20 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {CHART_HEIGHT, BAR_ACTIVE_COLOR} from './helpers/constants';
+import { CHART_HEIGHT, BAR_ACTIVE_COLOR } from './helpers/constants';
 import ChartScaffold from './customElements/ChartScaffold';
 import ChartLoader from './customElements/ChartLoader';
 import ChartEmpty from './customElements/ChartEmpty';
 
 class XUIBarChart extends PureComponent {
 	render = () => {
-		const {props} = this;
-		const {barsData, isLoading} = props;
+		const { props } = this;
+		const { barsData, isLoading } = props;
 		const isEmpty = !barsData.length;
 
 		switch (true) {
-			case isLoading: return <ChartLoader {...props} />;
-			case isEmpty: return <ChartEmpty {...props} />;
-			default: return <ChartScaffold {...props} />;
+		case isLoading: return <ChartLoader {...props} />;
+		case isEmpty: return <ChartEmpty {...props} />;
+		default: return <ChartScaffold {...props} />;
 		}
 	};
 }
@@ -76,7 +76,8 @@ XUIBarChart.propTypes = {
 
 	})),
 
-	/** Customise the default bar color with a style that can be injected into a "fill" property e.g #000 */
+	/** Customise the default bar color with a style that can be injected into a "fill"
+	 * property e.g #000 */
 	barColor: PropTypes.oneOfType([
 		/** Single style for standard bar. */
 		PropTypes.string,
@@ -84,7 +85,8 @@ XUIBarChart.propTypes = {
 		PropTypes.arrayOf(PropTypes.string),
 	]),
 
-	/** Customise the active colour with a style that can be injected into a "fill" property e.g #000 */
+	/** Customise the active colour with a style that can be injected into a "fill"
+	 * property e.g #000 */
 	barColorActive: PropTypes.string,
 
 	/** Handler for when a bar "click" interaction occurs. */
@@ -117,11 +119,9 @@ XUIBarChart.propTypes = {
 	/** Override the native responsive scrolling behaviour for clickable pagination buttons. */
 	hasPagination: PropTypes.bool,
 
-	/** Function to create a custom pagination message based on the charts "current" and "total" pagination "panels". */
+	/** Function to create a custom pagination message based on the charts "current" and "total"
+	 * pagination "panels". */
 	createPaginationMessage: PropTypes.func,
-
-	/** Accessibility aria-label for pagination component. */
-	paginationLabel: PropTypes.string,
 
 	/** Accessibility title for pagination button. */
 	paginationNextTitle: PropTypes.string,
@@ -153,8 +153,7 @@ XUIBarChart.defaultProps = {
 	emptyMessage: 'There is no data to display',
 	xAxisType: 'standard',
 	yAxisDefaultTopValue: 0,
-	paginationLabel: 'Pagination',
 	paginationNextTitle: 'Next Page',
 	paginationPreviousTitle: 'Previous page',
-	loadingLabel: 'Loading'
+	loadingLabel: 'Loading',
 };

@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-building-blocks-alerts-tooltip.html">Tooltip in the XUI Documentation</a>
+	<a href="../section-building-blocks-alerts-tooltip.html" isDocLink>Tooltip in the XUI Documentation</a>
 </div>
 
 `XUITooltip` provides additional information in-line with page elements.
@@ -15,14 +12,14 @@ The default tooltip is triggered on mouseover, and will appear centered above th
 
 **Note:** This component wraps the trigger component and the tooltip in an inline-block element for positioning purposes. It may be helpful to add `wrapperClassName` to apply styles that were directly affecting the trigger.
 
-```
+```js
 
 const XUIButton = require('./components/button/XUIButton.js').default;
 const XUIIcon = require('./components/icon/XUIIcon.js').default;
 const info = require('@xero/xui-icon/icons/info').default;
 
 const createTriggerIcon = () => {
-	return <XUIButton variant="icon"><XUIIcon path={info} /></XUIButton>;
+	return <XUIButton variant="icon" aria-label="More info"><XUIIcon icon={info} /></XUIButton>;
 };
 const createTriggerButton = () => {
 	return <XUIButton size="full-width">A button</XUIButton>;

@@ -1,12 +1,14 @@
-### Toast Positioning
+### Toast Positioning & Timeouts
 
 Use `XUIToastWrapper` to position toast components at the bottom-left corner of the screen. This component will ensure consistent positioning of the toast at all times.
 
-This example of `XUIToastWrapper` defines a `timeoutToast` method to dismiss the toast after 5 seconds. It shows a maximum of 2 toasts at a time. It also uses the `onMouseOver` and `onMouseLeave` methods of `XUIToast` to keep the toast open if it is hovered over, and close it 5 seconds after the cursor leaves.
+This example of `XUIToastWrapper` defines a `timeoutToast` method to dismiss the toast after 10 seconds. It shows a maximum of 2 toasts at a time. It also uses the `onMouseOver` and `onMouseLeave` methods of `XUIToast` to keep the toast open if it is hovered over (or if the user focuses an element inside the toast), and close it 10 seconds after the cursor leaves.
 
-```
-const  { PureComponent } = require ( 'react' );
-const TOAST_TIMEOUT = 5000;
+Make sure to give users enough time to trigger toast actions via keyboard navigation. If the inability to trigger an action is detrimental to the user, you should consider not using any timeout at all and instead relying on an action to close the toast.
+
+```js
+const { PureComponent } = require ( 'react' );
+const TOAST_TIMEOUT = 10000;
 const MAX_TOASTS = 2;
 
 class Example extends PureComponent {
@@ -21,6 +23,9 @@ class Example extends PureComponent {
 		};
 		this.removeToast = this.removeToast.bind(this);
 		this.addToast = this.addToast.bind(this);
+		this.addToastTimeout = this.addToastTimeout.bind(this);
+		this.stopToastTimeout = this.stopToastTimeout.bind(this);
+		this.timeoutToast = this.timeoutToast.bind(this);
 	}
 
 	removeToast(toastToRemove) {

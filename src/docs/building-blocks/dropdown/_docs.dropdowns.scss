@@ -255,9 +255,11 @@
 //     <div class="xui-dropdown--footer">
 //       <ul class="xui-picklist xui-picklist-layout" role="tree">
 //         <li class="xui-pickitem" role="treeitem">
-//           <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
-//             <use xlink:href="#xui-icon-plus" role="presentation"></use>
-//           </svg>
+//           <div class="xui-iconwrapper xui-pickitem--icon">
+//             <svg focusable="false" class="xui-icon xui-icon-color-black-muted">
+//               <use xlink:href="#xui-icon-plus" role="presentation"></use>
+//             </svg>
+//           </div>
 //           <span class="xui-pickitem--body">
 //             <span class="xui-pickitem--text">
 //               New group

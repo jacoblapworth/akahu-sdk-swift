@@ -5,13 +5,13 @@ exports[`XUIButtonCaret renders a passed qaHook as an automationId 1`] = `
   className="xui-icon xui-button--caret"
   data-automationid="button-caret"
   focusable="false"
-  style={null}
-  viewBox="0 0 30 30"
+  height={5}
+  viewBox="0 0 10 5"
+  width={10}
 >
   <path
-    d="M10,13L15 18 20 13z"
+    d="M0 0l5 5 5-5z"
     role="presentation"
-    transform={undefined}
   />
 </svg>
 `;

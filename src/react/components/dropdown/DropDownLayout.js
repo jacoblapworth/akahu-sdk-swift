@@ -47,6 +47,7 @@ export default class DropDownLayout extends PureComponent {
 			style,
 			size,
 			qaHook,
+			ariaRole,
 		} = this.props;
 
 		const dropdownSizes = fixedWidth ? fixedWidthDropdownSizes : maxWidthDropdownSizes;
@@ -58,7 +59,7 @@ export default class DropDownLayout extends PureComponent {
 			!isHidden && `${baseClass}-is-open`,
 			animateClosed && `${baseClass}-is-closing`,
 			animateOpen && `${baseClass}-is-opening`,
-			forceDesktop && `${baseClass}--force-desktop`
+			forceDesktop && `${baseClass}--force-desktop`,
 		);
 
 		return (
@@ -68,9 +69,9 @@ export default class DropDownLayout extends PureComponent {
 				id={id}
 				onAnimationEnd={this.onAnimationEnd}
 				style={style}
-				aria-expanded={!isHidden}
+				role={ariaRole}
 			>
-				<div className={`${baseClass}--mask`} data-automationid={qaHook && `${qaHook}--mask`}></div>
+				<div className={`${baseClass}--mask`} data-automationid={qaHook && `${qaHook}--mask`} />
 				{children}
 			</div>
 		);
@@ -106,10 +107,12 @@ DropDownLayout.propTypes = {
 
 	className: PropTypes.string,
 
-	/** Applies the correct XUI class based on the chose size. Default will fits to children's width. */
+	/** Applies the correct XUI class based on the chose size. Default will
+	 * fits to children's width. */
 	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 
-	/** Whether the fixed width class variant should be used for the size prop.  Does nothing without the size prop. */
+	/** Whether the fixed width class variant should be used for the size prop.
+	 * Does nothing without the size prop. */
 	fixedWidth: PropTypes.bool,
 
 	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
@@ -119,4 +122,8 @@ DropDownLayout.propTypes = {
 
 	children: PropTypes.node.isRequired,
 	qaHook: PropTypes.string,
+	/**
+	 * Aria role for dropdown layout
+	 */
+	ariaRole: PropTypes.string,
 };

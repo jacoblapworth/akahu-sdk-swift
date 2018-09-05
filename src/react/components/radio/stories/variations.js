@@ -7,7 +7,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checked',
-		isChecked: true
+		isDefaultChecked: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -17,7 +17,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checked and Disabled',
-		isChecked: true,
+		isDefaultChecked: true,
 		isDisabled: true
 	},
 	{

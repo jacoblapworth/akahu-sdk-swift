@@ -1,7 +1,7 @@
 const version = require('../../../package.json').version;
 const iconVersion = require('../../../node_modules/@xero/xui-icon/package.json').version;
 const xuiIcon = `https://edge.xero.com/style/xui-icon/${iconVersion}`
-const xuiIconBlob = `${xuiIcon}/xuiIconBlobES5.js`
+const xuiIconLoader = `${xuiIcon}/iconLoader.js`
 
 module.exports = function(handlebars) {
 
@@ -15,12 +15,12 @@ module.exports = function(handlebars) {
 		return new handlebars.SafeString(`<script src="${xuiIcon}/xuiIconsDocs.js"></script>`);
 	});
 
-	handlebars.registerHelper('xuiIconBlob', function() {
+	handlebars.registerHelper('xuiIconLoader', function() {
 		// Injects newest version of XUI Icon Blob
-		return new handlebars.SafeString(`<script src="${xuiIconBlob}"></script>`);
+		return new handlebars.SafeString(`<script src="${xuiIconLoader}"></script>`);
 	});
 
-	handlebars.registerHelper('injectXuiIconBlobExample', function() {
-		this.description = this.description.replace('@xuiIconBlobURL', `<code>&lt;script src=&quot;${xuiIconBlob}&quot;&gt;&lt;/script&gt;</code>`);
+	handlebars.registerHelper('injectXUIIconLoaderExample', function() {
+		this.description = this.description.replace('@xuiIconLoaderURL', `<code>&lt;script src=&quot;${xuiIconLoader}&quot;&gt;&lt;/script&gt;</code>`);
 	});
 }

@@ -32,7 +32,7 @@
 
 <body id="kss-node" class="ds-body xui-container{{#if homepage}} ds-home{{/if}}">
 <header class="ds-header">
-	<div class="xui-u-flex xui-u-flex-verticallycentered">
+	<div class="xui-u-flex xui-u-flex-align-center">
 		<a tabindex="-1" class="ds-xui-logo xui-u-flex-grow" href="./index.html"><h1>Xero User Interface</h1></a>
 		<a class='ds-header--link' href="#ds-input-{{@root.menu.0.referenceURI}}" >
 			<span class="ds-header--link-menu">Menu</span>
@@ -106,11 +106,7 @@
 					{{/if}}
 
 					{{#ifStyleguide "Fundamentals.Icons.1" }}
-						{{injectXuiIconBlobExample}}
-					{{/ifStyleguide}}
-
-					{{#ifStyleguide "Fundamentals.Icons.7" }}
-						{{xuiIconDocs}}
+						{{injectXUIIconLoaderExample}}
 					{{/ifStyleguide}}
 
 					{{#if markdown}}
@@ -146,7 +142,7 @@
 					<a class="ds-component-link xui-button xui-button-icon xui-button-icon-large" href="{{url}}" title="See the {{name}} React component">
 						<svg
 							focusable="false"
-							class="xui-icon xui-icon-large xui-icon-color-blue"
+							class="xui-icon xui-iconwrapper-large xui-icon-color-blue"
 							xmlns:svg="http://www.w3.org/2000/svg"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 30 30">
@@ -213,17 +209,17 @@
 						</div>
 					</div>
 
-					{{#each modifiers}}
-					<div class="kss-modifier__name kss-style ds-section-part">
-						{{name}}
-					</div>
-					<div class="kss-modifier__description kss-style ds-section-part">
-						{{{description}}}
-					</div>
-					<div class="kss-modifier__example ds-section-part">
-						{{{markup}}}
-					</div>
-					{{/each}}
+					{{#if modifiers}}
+						<p class="xui-heading">Modifiers</p>
+						<div class="ds-section-part ds-example-default {{exampleclass}} xui-margin-bottom">
+						{{#each modifiers}}
+							<code>{{name}}</code> <!--<span class="xui-textcolor-faint">{{{description}}}</span>-->
+							<div class="ds-example--inner xui-container">
+								{{{markup}}}
+							</div>
+						{{/each}}
+						</div>
+					{{/if}}
 
 				</div>
 				<!--ds-example-->
@@ -252,6 +248,10 @@
 			</div>
 			{{/if}}
 
+			{{#ifStyleguide "Fundamentals.Icons.7" }}
+				{{xuiIconDocs}}
+			{{/ifStyleguide}}
+
 		{{/wrapSection}}
 		{{/each}}
 
@@ -271,8 +271,8 @@
 </nav>
 <!-- SCRIPTS -->
 {{serviceWorker}}
-{{xuiIconBlob}}
 {{{scripts}}}
+{{xuiIconLoader}}
 </body>
 
 </html>

@@ -14,7 +14,7 @@ export default function YearSelector({
 	const startYear = minDate ? minDate.getFullYear() : currentYear - 10;
 	const maxYear = maxDate ? maxDate.getFullYear() : currentYear + 10;
 	const visibleYears = [];
-	for (let i = startYear; i <= maxYear; i++) {
+	for (let i = startYear; i <= maxYear; i += 1) {
 		visibleYears.push(i);
 	}
 	const label = (
@@ -26,6 +26,7 @@ export default function YearSelector({
 		</label>
 	);
 
+	/* eslint-disable jsx-a11y/no-onchange */
 	const select = visibleYears.length === 1
 		? null
 		: (
@@ -47,6 +48,7 @@ export default function YearSelector({
 				}
 			</select>
 		);
+	/* eslint-enable jsx-a11y/no-onchange */
 
 	return (
 		<div className="xui-datepicker--heading xui-heading-item xui-datepicker--heading-year">
@@ -64,5 +66,6 @@ YearSelector.propTypes = {
 	selectRef: PropTypes.func,
 	onChange: PropTypes.func,
 	onKeyDown: PropTypes.func,
-	locale: PropTypes.string,
+	// TODO: Implement locale
+	locale: PropTypes.string,// eslint-disable-line
 };

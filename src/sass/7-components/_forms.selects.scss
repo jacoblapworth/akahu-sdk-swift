@@ -1,0 +1,73 @@
+@import "../vars";
+@import "../mixins";
+
+.#{$ns}-select--control {
+	@include xui-commoninput;
+	cursor: pointer;
+	padding-right: $xui-s-3xlarge;
+
+	&::-ms-expand {
+		display: none;
+	}
+
+	&:-moz-focusring {
+		color: transparent;
+		text-shadow: 0 0 0 $xui-color-black;
+	}
+	&:focus ~ .#{$ns}-select--caret {
+		z-index: 3;
+	}
+	~ .#{$ns}-select--caret {
+		position: absolute;
+		right: $xui-s-standard;
+		top: 50%;
+		transform: translate(0,-50%);
+	}
+}
+
+.#{$ns}-select {
+	position: relative; // Required for the native select to position its caret correctly
+}
+
+.#{$ns}-select--caret {
+	align-self: center;
+	fill: $xui-color-grey-2;
+}
+
+.#{$ns}-select--content {
+	@include xui-text-truncated;
+}
+
+.#{$ns}-select--button {
+	@include xui-commoninput;
+	background-color: $xui-color-white;
+	border: $xui-border-control;
+	border-radius: $xui-radius;
+	color: $xui-select-color;
+	display: flex;
+	font-weight: normal;
+	min-height: $xui-input-height;
+	padding: $xui-input-padding-vertical $xui-input-padding-horizontal $xui-input-padding-vertical $xui-input-padding-horizontal;
+	text-align: left;
+}
+
+.#{$ns}-dropdownmenu-select {
+	border-radius: 0 0 $xui-radius $xui-radius;
+	border-top: 0;
+}
+
+.#{$ns}-select-layout {
+
+	.#{$ns}-dropdown--body {
+		border-top: 0;
+
+		@include xui-breakpoint-narrow {
+			border: 0;
+			border-radius: 0;
+		}
+	}
+
+	.#{$ns}-select--button {
+		width: 100%;
+	}
+}

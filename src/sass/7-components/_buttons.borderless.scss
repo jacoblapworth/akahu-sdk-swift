@@ -1,0 +1,90 @@
+@import "../vars";
+
+.#{$ns}-button-borderless {
+	&-standard {
+		@include xui-button-borderless(
+			$xui-color-grey-1,
+			$xui-button-standard-hover-color,
+			$xui-button-standard-active-color
+		);
+		&.#{$ns}-button-is-disabled {
+			@include xui-button-is-disabled(
+				none,
+				$xui-color-grey-alpha-4,
+				initial
+			);
+		}
+	}
+	&-muted {
+		@include xui-button-borderless(
+			$xui-color-grey-alpha-3,
+			$xui-color-grey-alpha-2,
+			$xui-color-grey-1
+		);
+		&.#{$ns}-button-is-disabled {
+			@include xui-button-is-disabled(
+				none,
+				$xui-color-grey-alpha-4,
+				initial
+			);
+		}
+	}
+	&-main {
+		@include xui-button-borderless(
+			$xui-color-blue,
+			$xui-button-standard-hover-color,
+			$xui-button-standard-active-color
+		);
+		&.#{$ns}-button-is-disabled {
+			@include xui-button-is-disabled(
+				none,
+				$xui-color-grey-alpha-4,
+				initial
+			);
+		}
+	}
+	&-create {
+		@include xui-button-borderless(
+			$xui-color-green,
+			$xui-button-create-hover-color,
+			$xui-button-create-active-color
+		);
+		&.#{$ns}-button-is-disabled {
+			@include xui-button-is-disabled(
+				none,
+				$xui-color-grey-alpha-4,
+				initial
+			);
+		}
+	}
+	&-negative {
+		@include xui-button-borderless(
+			$xui-color-red,
+			$xui-button-negative-hover-color,
+			$xui-button-negative-active-color
+		);
+		&.#{$ns}-button-is-disabled {
+			@include xui-button-is-disabled(
+				none,
+				$xui-color-grey-alpha-4,
+				initial
+			);
+		}
+	}
+	&-inverted {
+		@include xui-button-borderless(
+			$xui-color-white-alpha-2,
+			$xui-color-white,
+			$xui-color-white,
+			$xui-button-borderless-inverted-focus-bg-color,
+			$xui-button-borderless-inverted-active-bg-color
+		);
+		&.#{$ns}-button-is-disabled {
+			@include xui-button-is-disabled(
+				none,
+				$xui-color-white-alpha-4,
+				initial
+			);
+		}
+	}
+}

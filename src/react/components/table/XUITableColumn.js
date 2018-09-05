@@ -15,6 +15,7 @@ class XUITableColumn extends PureComponent {
 	render = () => (null);
 }
 
+/* eslint-disable react/no-unused-prop-types */
 XUITableColumn.propTypes = {
 
 	/** The head Cell for the Column. */
@@ -24,5 +25,6 @@ XUITableColumn.propTypes = {
 	body: PropTypes.func.isRequired,
 
 };
+/* eslint-enable react/no-unused-prop-types */
 
 export default XUITableColumn;

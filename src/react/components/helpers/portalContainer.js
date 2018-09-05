@@ -1,10 +1,10 @@
 export const portalClass = 'xui-portal';
 
 function createPortalContainer() {
-	const portalContainer = document.createElement('div');
-	portalContainer.classList.add(portalClass);
-	document.body.appendChild(portalContainer);
-	return portalContainer;
+	const container = document.createElement('div');
+	container.classList.add(portalClass);
+	document.body.appendChild(container);
+	return container;
 }
 
 export default function portalContainer() {

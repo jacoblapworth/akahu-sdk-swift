@@ -21,8 +21,8 @@ The Checkbox Group doesn't impact the checkboxes in any way, so you have the sam
 ```
 const customIcon = require ('@xero/xui-icon/icons/star').default;
 <XUICheckboxGroup>
-	<XUICheckbox isReversed iconMainPath={customIcon}>Cockatoo</XUICheckbox>
-	<XUICheckbox isReversed iconMainPath={customIcon}>Galah</XUICheckbox>
-	<XUICheckbox isReversed iconMainPath={customIcon}>Magpie</XUICheckbox>
+	<XUICheckbox isReversed iconMain={customIcon}>Cockatoo</XUICheckbox>
+	<XUICheckbox isReversed iconMain={customIcon}>Galah</XUICheckbox>
+	<XUICheckbox isReversed iconMain={customIcon}>Magpie</XUICheckbox>
 </XUICheckboxGroup>
 ```

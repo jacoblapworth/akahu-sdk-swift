@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 import { overviewSentiments } from './private/constants';
+
 const baseClass = `${ns}-overview`;
 
 export default class XUIOverviewSection extends PureComponent {
@@ -16,9 +17,10 @@ export default class XUIOverviewSection extends PureComponent {
 			...spreadProps
 		} = this.props;
 		const classes = cn(`${baseClass}--section`, className);
-		const valueClass = cn(`${baseClass}--value`,
+		const valueClass = cn(
+			`${baseClass}--value`,
 			(sentiment && overviewSentiments[sentiment]) &&
-				`${ns}-textcolor-${overviewSentiments[sentiment]}`
+				`${ns}-textcolor-${overviewSentiments[sentiment]}`,
 		);
 
 		return (
@@ -26,7 +28,7 @@ export default class XUIOverviewSection extends PureComponent {
 				<div className={`${baseClass}--label`}>{label}</div>
 				<div className={valueClass}>{value}</div>
 			</section>
-		)
+		);
 	}
 }
 
@@ -41,9 +43,10 @@ XUIOverviewSection.propTypes = {
 	 */
 	value: PropTypes.string,
 	/**
-	 * Sentiment for styling the value. Can be 'positive', 'negative', 'muted', or undefined for a default appearance
+	 * Sentiment for styling the value. Can be 'positive', 'negative', 'muted', or
+	 * undefined for a default appearance
 	 */
-	sentiment: PropTypes.oneOf(Object.keys(overviewSentiments))
+	sentiment: PropTypes.oneOf(Object.keys(overviewSentiments)),
 };
 
 XUIOverviewSection.defaultProps = {};

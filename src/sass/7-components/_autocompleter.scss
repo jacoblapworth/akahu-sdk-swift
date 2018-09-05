@@ -1,0 +1,43 @@
+@import "../vars";
+@import "../mixins";
+
+.#{$ns}-autocompleter--textinputplaceholder {
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	visibility: hidden;
+}
+
+.#{$ns}-autocompleter--trigger-pillwrap {
+	display: flex;
+	flex-flow: row wrap;
+	padding-left: $xui-s-xsmall;
+
+	& > .#{$ns}-textinput--input {
+		padding-left: $xui-s-xsmall;
+	}
+}
+
+.#{$ns}-autocompleter--pills-nopillwrap {
+	display: flex;
+	flex-flow: row nowrap;
+	flex-shrink: 1;
+	overflow-x: auto;
+	padding-left: $xui-s-xsmall;
+
+	&  ~ .#{$ns}-textinput--input {
+		padding-left: $xui-s-small;
+	}
+}
+
+.#{$ns}-autocompleter--pill {
+	flex: 0 0 auto;
+	margin-bottom: 2px;
+	margin-right: 5px;
+	margin-top: 2px;
+}
+
+.#{$ns}-autocompleter--textinput {
+	flex-shrink: 0;
+	max-width: 100%;
+}

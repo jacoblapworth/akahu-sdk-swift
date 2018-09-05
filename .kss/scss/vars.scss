@@ -1,0 +1,50 @@
+$ds-nav-width: 17rem;
+$ds-page-width: 80rem;
+$ds-page-header-height: 56px;
+$ds-nav-gutter: calc(0.7em + .7vw);
+$ds-nav-gutter-mobile: 5vw;
+$ds-inverted--light: rgba(0, 0, 0, 0.06);
+$ds-inverted--medium: rgba(0, 0, 0, 0.2);
+$ds-motion-curve-bouncy: cubic-bezier(0.37, 1.85, 0.43, 0.86);
+$ds-color-black: #1c242c;
+// $ds-main-side-padding provides left and right padding for the XUI Docs landing page (via the .ds-main class) when screen
+// width > 940 px. It is a temporary workaround and can be replaced by 7vmax as soon as IE/Edge support the vmax unit
+$ds-main-side-padding: calc(7 * (1vw + 1vh - 1vmin));
+$ds-shadow-border-top: 0 -1px 0 0 $xui-color-grey-alpha-6;
+$ds-shadow-border-bottom: 0 1px 0 0 $xui-color-grey-alpha-6;
+$ds-shadow-border-left: -1px 0 0 0 $xui-color-grey-alpha-6;
+
+// XUI 14 variable abstraction
+$ds-html-bg-color: $xui-color-grey-6;
+$ds-body-bg-color: $xui-color-white;
+$ds-code-bg-color: $xui-color-grey-7;
+$ds-dark-bg-color: $xui-color-grey-1;
+$ds-flag-bg-color: $xui-color-grey-3;
+$ds-nav-focus-bg-color: $xui-color-grey-alpha-7;
+$ds-nav-active-bg-color: $xui-color-grey-alpha-6;
+$ds-example-wrap-bg-color: $xui-color-grey-7;
+$ds-example-alpha-bg-color: $xui-color-white-alpha-3;
+
+$ds-nav-item-hover-bg-color: $xui-color-grey-7;
+$ds-nav-item-active-bg-color: $xui-color-grey-6;
+$ds-nav-border-color: $xui-color-grey-alpha-6;
+
+$ds-nav-icon-fill: $xui-color-grey-alpha-2;
+$ds-nav-icon-hover-fill: $xui-color-grey-1;
+
+$ds-text-primary-color: $xui-color-grey-1;
+$ds-text-secondary-color: $xui-color-grey-3;
+$ds-text-heading-color: $xui-color-grey-2;
+
+$ds-card-hover-bg-color: $xui-color-grey-alpha-7;
+$ds-example-default-bg-color: $xui-color-grey-7;
+$ds-border-color: $xui-color-grey-6;
+$ds-definition-color: $xui-color-grey-1;
+$ds-markup-bg-color: $xui-color-grey-1;
+$ds-markup-color: $xui-color-grey-5;
+$ds-markup-hover-color: $xui-color-grey-7;
+$ds-markup-linenum-color: $xui-color-grey-2;
+$ds-markup-pln-color: $xui-color-grey-4;
+
+$ds-breadcrumb-focus-bg-color: $xui-color-grey-alpha-6;
+$ds-breadcrumb-active-bg-color: $xui-color-grey-alpha-7;

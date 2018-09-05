@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-compounds-collectinginput-autocompleter.html">Autocompleter in the XUI Documentation</a>
+	<a isDocLink href="../section-compounds-collectinginput-autocompleter.html">Autocompleter in the XUI Documentation</a>
 </div>
 `XUIAutocompleter` is a component that composes many other components together. It's an input where users can type to filter a list of items to select.
 
@@ -12,24 +9,19 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 <div class="xui-margin-vertical">
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="#input">Input</a></span>
+		<a href="#text-input" isDocLink>Text Input</a>
 	</div>
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="#avatar">Avatar</a></span>
+		<a href="#avatar" isDocLink>Avatar</a>
 	</div>
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="#dropdown">Dropdown</a></span>
+		<a href="#dropdown" isDocLink>Dropdown</a>
 	</div>
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="#pill">Pill</a></span>
+		<a href="#pill" isDocLink>Pill</a>
 	</div>
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="#tag">Tag</a></span>
+		<a href="#tag" isDocLink>Tag</a>
 	</div>
 </div>
 
@@ -53,7 +45,6 @@ const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
 
 const filterPeople = (peopleToSearch, value, idsToExclude) => {
-	console.log(idsToExclude);
 	const val = value.toLowerCase();
 	return peopleToSearch.filter((person, index) =>
 		idsToExclude.indexOf(index) === -1 &&
@@ -136,6 +127,8 @@ class WrapPillsExample extends Component {
 
 		return (
 				<XUIAutocompleter
+					inputLabelText='autocompleter'
+					isInputLabelHidden
 					ref={ac => this.completer = ac}
 					onSearch={this.onSearchChangeHandler}
 					placeholder="XUI Autocompleter accommodates enough space to fit the placeholder"
@@ -256,6 +249,8 @@ class DisableWrapPills extends Component {
 
 		return (
 				<XUIAutocompleter
+					inputLabelText='autocompleter'
+					isInputLabelHidden
 					ref={ac => this.completer = ac}
 					onSearch={this.onSearchChangeHandler}
 					placeholder="XUI Autocompleter accommodates enough space to fit the placeholder"
@@ -289,6 +284,7 @@ When using `XUIAutocompleter` for selecting a single option, use the `leftElemen
 
 ```jsx
 const { boldMatch, decorateSubStr } = require('./autocompleter');
+const XUIIcon = require('./components/icon/XUIIcon').default;
 const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
 const XUITextInputSideElement = require('./components/textInput/XUITextInputSideElement').default;
 const { Component } = require('react');
@@ -372,14 +368,16 @@ class SingleSelectExample extends Component {
 		);
 		const rightElement = selectedPersonId != null && (
 			<XUITextInputSideElement type="icon">
-				<XUIButton variant="icon" onClick={() => this.selectPerson(null)}>
-					<XUIIcon path={crossIcon} />
+				<XUIButton variant="icon" onClick={() => this.selectPerson(null)} aria-label="Clear">
+					<XUIIcon icon={crossIcon} />
 				</XUIButton>
 			</XUITextInputSideElement>
 		);
 
 		return (
 			<XUIAutocompleter
+				inputLabelText='autocompleter'
+				isInputLabelHidden
 				ref={ac => this.completer = ac}
 				onSearch={this.onSearchChangeHandler}
 				placeholder="Select a person"

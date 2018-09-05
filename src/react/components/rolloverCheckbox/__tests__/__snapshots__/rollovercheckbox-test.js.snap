@@ -10,6 +10,7 @@ exports[`XUIRolloverCheckbox allows for a user defined rollover component to be 
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -25,9 +26,11 @@ exports[`XUIRolloverCheckbox allows for a user defined rollover component to be 
       className="xui-u-hidden-visually xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -36,7 +39,7 @@ exports[`XUIRolloverCheckbox allows for a user defined rollover component to be 
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -59,6 +62,7 @@ exports[`XUIRolloverCheckbox displays the checkbox when it's set to be shown 1`]
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -72,9 +76,11 @@ exports[`XUIRolloverCheckbox displays the checkbox when it's set to be shown 1`]
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -83,7 +89,7 @@ exports[`XUIRolloverCheckbox displays the checkbox when it's set to be shown 1`]
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -106,6 +112,7 @@ exports[`XUIRolloverCheckbox doesn't display the checkbox when it's set to hidde
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -119,9 +126,11 @@ exports[`XUIRolloverCheckbox doesn't display the checkbox when it's set to hidde
       className="xui-u-hidden-visually xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -130,7 +139,7 @@ exports[`XUIRolloverCheckbox doesn't display the checkbox when it's set to hidde
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -153,6 +162,7 @@ exports[`XUIRolloverCheckbox include an automation-id 1`] = `
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -164,9 +174,11 @@ exports[`XUIRolloverCheckbox include an automation-id 1`] = `
       className="xui-styledcheckboxradio"
       data-automationid="test-rollovercheckbox--checkbox"
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid="test-rollovercheckbox--checkbox--input"
         defaultChecked={false}
@@ -175,7 +187,7 @@ exports[`XUIRolloverCheckbox include an automation-id 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -198,6 +210,7 @@ exports[`XUIRolloverCheckbox includes an aria-label, when provided 1`] = `
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -211,9 +224,11 @@ exports[`XUIRolloverCheckbox includes an aria-label, when provided 1`] = `
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label="Test label"
+        aria-labelledby={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -222,7 +237,7 @@ exports[`XUIRolloverCheckbox includes an aria-label, when provided 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -245,6 +260,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a large size whe
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -258,9 +274,11 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a large size whe
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -269,7 +287,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a large size whe
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -292,6 +310,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a small size whe
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -305,9 +324,11 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a small size whe
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -316,7 +337,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a small size whe
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -339,6 +360,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a xlarge size wh
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -352,9 +374,11 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a xlarge size wh
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -363,7 +387,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a xlarge size wh
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -386,6 +410,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be display the stan
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -399,9 +424,11 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be display the stan
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -410,7 +437,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be display the stan
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -433,6 +460,7 @@ exports[`XUIRolloverCheckbox renders an id on the root node when passed 1`] = `
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -446,9 +474,11 @@ exports[`XUIRolloverCheckbox renders an id on the root node when passed 1`] = `
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -457,7 +487,7 @@ exports[`XUIRolloverCheckbox renders an id on the root node when passed 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -480,6 +510,7 @@ exports[`XUIRolloverCheckbox renders checked when specified 1`] = `
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -493,9 +524,11 @@ exports[`XUIRolloverCheckbox renders checked when specified 1`] = `
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         checked={true}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
@@ -504,7 +537,7 @@ exports[`XUIRolloverCheckbox renders checked when specified 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -527,6 +560,7 @@ exports[`XUIRolloverCheckbox renders correctly 1`] = `
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -538,9 +572,11 @@ exports[`XUIRolloverCheckbox renders correctly 1`] = `
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -549,7 +585,7 @@ exports[`XUIRolloverCheckbox renders correctly 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -572,6 +608,7 @@ exports[`XUIRolloverCheckbox renders unchecked when specified 1`] = `
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -585,9 +622,11 @@ exports[`XUIRolloverCheckbox renders unchecked when specified 1`] = `
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         checked={false}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
@@ -596,7 +635,7 @@ exports[`XUIRolloverCheckbox renders unchecked when specified 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -619,6 +658,7 @@ exports[`XUIRolloverCheckbox should render the disabled classes and a disabled c
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -629,12 +669,14 @@ exports[`XUIRolloverCheckbox should render the disabled classes and a disabled c
       <div />
     </div>
     <label
-      className="xui-styledcheckboxradio xui-is-disabled"
+      className="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -643,7 +685,7 @@ exports[`XUIRolloverCheckbox should render the disabled classes and a disabled c
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -666,6 +708,7 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes and a disable
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -679,9 +722,11 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes and a disable
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -690,7 +735,7 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes and a disable
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />
@@ -713,6 +758,7 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes or a disabled
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="presentation"
 >
   <div
     className="xui-rollovercheckbox"
@@ -726,9 +772,11 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes or a disabled
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -737,7 +785,7 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes or a disabled
         onChange={[Function]}
         onClick={[Function]}
         required={false}
-        tabIndex={undefined}
+        tabIndex={0}
         type="checkbox"
         value={undefined}
       />

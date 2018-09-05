@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import DropDownLayout from './DropDownLayout';
 import DropDown from './DropDown';
-import { compose } from '../helpers/compose';
-import {baseClass} from "./private/constants";
-import {ns} from "../helpers/xuiClassNamespace";
+import compose from '../helpers/compose';
+import { baseClass } from './private/constants';
+import { ns } from '../helpers/xuiClassNamespace';
 
 /**
  * <strong>BETA</strong> This component is still under active development and it's API may change.
@@ -20,7 +20,7 @@ import {ns} from "../helpers/xuiClassNamespace";
  */
 export default class NestedDropDown extends DropDown {
 	componentDidUpdate(prevProps, prevState) {
-		super.componentDidUpdate(prevProps,prevState);
+		super.componentDidUpdate(prevProps, prevState);
 		const { currentPanel, onPanelChange } = this.props;
 		if (onPanelChange && prevProps.currentPanel !== currentPanel) {
 			onPanelChange(currentPanel, prevProps.currentPanel);
@@ -49,7 +49,7 @@ export default class NestedDropDown extends DropDown {
 		const dropdownClasses = cn(`${baseClass}-fullheight`, className);
 
 		const childrenToRender =
-			React.Children.map(children, (child) => {
+			React.Children.map(children, child => {
 				const isCurrentPanel = (child.props && child.props.panelId === currentPanel);
 
 				return (
@@ -61,7 +61,10 @@ export default class NestedDropDown extends DropDown {
 									onSelect: compose(child.props.onSelect, onSelect),
 									onHighlightChange: compose(child.props.onHighlightChange, dropdown.onHighlightChange),
 									onKeyDown: dropdown.keyDownHandler,
-									ignoreKeyboardEvents: [ ...dropdown.props.ignoreKeyboardEvents, ...child.props.ignoreKeyboardEvents ]
+									ignoreKeyboardEvents: [
+										...dropdown.props.ignoreKeyboardEvents,
+										...child.props.ignoreKeyboardEvents,
+									],
 								})
 								: child
 						}
@@ -71,7 +74,7 @@ export default class NestedDropDown extends DropDown {
 
 		return (
 			<DropDownLayout
-				id={dropdown.dropdownId}
+				id={dropdown.props.id}
 				isHidden={isHidden}
 				className={dropdownClasses}
 				size={size}
@@ -125,10 +128,12 @@ NestedDropDown.propTypes = {
 	/** The `panelId` property of the panel which should currently be open */
 	currentPanel: PropTypes.string,
 
-	/** Callback for when the open DropDownPanel changes. Receives the name of the selected panel, and the previously selected panel. */
+	/** Callback for when the open DropDownPanel changes. Receives the name of the selected panel,
+	 * and the previously selected panel. */
 	onPanelChange: PropTypes.func,
 
-	/** Whether the fixed width class variant should be used for the size prop.  Does nothing if no size is provided. */
+	/** Whether the fixed width class variant should be used for the size prop.  Does nothing if
+	 * no size is provided. */
 	fixedWidth: PropTypes.bool,
 
 	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */

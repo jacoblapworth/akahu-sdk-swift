@@ -10,7 +10,7 @@ const asyncExec = promisify(exec);
 function build() {
 	return taskRunner(taskSpinner => {
 		let execTask =
-			'./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/babel src/react/ --out-dir dist/react --copy-files --source-maps --ignore **/page-layouts,**/stories,**/__tests__,**/docs';
+			'./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/babel src/react/ --out-dir dist/react --copy-files --source-maps --ignore **/stories,**/__tests__,**/docs';
 
 		if (isWindowsPlatform) {
 			execTask = convertExecTaskToWindows(execTask);

@@ -46,7 +46,6 @@ exports[`XUIAvatar should render an \`img\` avatar when I give it an image 1`] =
   className="xui-avatar"
   data-automationid={undefined}
   onError={[Function]}
-  role="presentation"
   src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"
 />
 `;

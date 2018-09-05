@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import PickitemBody from './PickitemBody';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 /**
  * Presentational (aka dumb) component used to display a selectable item in a
@@ -36,7 +36,8 @@ export default class Pickitem extends PureComponent {
 			isSplit,
 			ariaLabel,
 			target,
-			shouldTruncate
+			shouldTruncate,
+			pickitemBodyProps,
 		} = pickItem.props;
 
 		const classes = cn(
@@ -46,35 +47,45 @@ export default class Pickitem extends PureComponent {
 			(isSelected && !disableSelectedStyles) && `${ns}-pickitem-is-selected`,
 			isMultiselect && `${ns}-pickitem-multiselect`,
 			isSplit && `${ns}-pickitem-split`,
-			isDisabled && `${ns}-is-disabled`
+			isDisabled && `${ns}-is-disabled`,
 		);
-		const listeners = !isDisabled ? { onClick, onBlur, onFocus, onKeyDown, onMouseOver } : null;
+		const listeners = !isDisabled ? {
+			onClick,
+			onBlur,
+			onFocus,
+			onKeyDown,
+			onMouseOver,
+		} : null;
 
 		const Tag = isSplit ? 'div' : 'li';
+		const itemRole = isSplit ? undefined : ariaRole;
 
 		return (
 			<Tag
 				className={classes}
 				aria-selected={isMultiselect ? isSelected : null}
-				role={ariaRole}
+				role={itemRole}
 				id={id}
 				data-automationid={qaHook}
 				aria-label={ariaLabel}
 			>
 				<PickitemBody
-					shouldTruncate={shouldTruncate}
-					isSelected={isSelected}
-					isMultiselect={isMultiselect}
-					href={href}
-					checkboxClassName={checkboxClassName}
-					target={target}
+					{...{
+						shouldTruncate,
+						isSelected,
+						isMultiselect,
+						href,
+						checkboxClassName,
+						target,
+						...pickitemBodyProps,
+						...listeners,
+					}}
 					qaHook={qaHook && `${qaHook}--body`}
-					{...listeners}
 				>
 					{children}
 				</PickitemBody>
 			</Tag>
-		)
+		);
 	}
 }
 
@@ -100,7 +111,8 @@ Pickitem.propTypes = {
 	href: PropTypes.string,
 	/** ARIA attribute defining what purpose this item serves. */
 	ariaRole: PropTypes.string,
-	/** The value associated with this PickItem which will be passed to the onSelect callbacks here and in the StatefulPicklist */
+	/** The value associated with this PickItem which will be passed to the onSelect callbacks
+	 * here and in the StatefulPicklist */
 	value: PropTypes.any,
 	/** For nested children such as checkboxes, icons or groups selected styles should be disabled. */
 	disableSelectedStyles: PropTypes.bool,
@@ -116,10 +128,12 @@ Pickitem.propTypes = {
 	isSplit: PropTypes.bool,
 	/** Optional label to add to a pickitem */
 	ariaLabel: PropTypes.string,
-	/** When a link is preferred, this target prop can be used on the <a> tag*/
+	/** When a link is preferred, this target prop can be used on the <a> tag */
 	target: PropTypes.string,
 	/** Whether to truncate text instead of wrapping */
-	shouldTruncate: PropTypes.bool
+	shouldTruncate: PropTypes.bool,
+	/** Props to pass to the pickitem body */
+	pickitemBodyProps: PropTypes.object,
 };
 
 Pickitem.defaultProps = {
@@ -130,7 +144,8 @@ Pickitem.defaultProps = {
 	isDisabled: false,
 	/*
 	 DO NOT REMOVE
-	 This property is needed so that the StatefulPicklist will properly recognize this component as a menu item.
+	 This property is needed so that the StatefulPicklist will properly recognize this
+	 component as a menu item.
 	 */
-	_isMenuItem: true
+	_isMenuItem: true, // eslint-disable-line
 };

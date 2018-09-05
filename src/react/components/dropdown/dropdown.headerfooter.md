@@ -1,11 +1,14 @@
 `DropDownHeader` and `DropDownFooter` are used to add a fixed header and/or footer element to dropdowns. These elements don't scroll with the rest of the list, and are ignored by the default arrow key handlers. Add these components via the `header` and `footer` props in `DropDown`.
 
-```
+If you've included any actions in the header or footer, set the `closeOnTab` property of `DropDownToggled` to `false`, so users navigating by keyboard are able to access them.
+
+```jsx
 const DropDownToggled = require('./DropDownToggled').default;
 const DropDownFooter = require('./DropDownFooter').default;
 const Pickitem = require('../picklist/Pickitem').default;
+const XUIIcon = require('../icon/XUIIcon').default;
 const checked = require ( '@xero/xui-icon/icons/checkbox-check' ).default;
-const searchIcon = require ( '@xero/xui-icon/icons/search' ).default;
+const searchPath = require ( '@xero/xui-icon/icons/search' ).default;
 const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;
 const { Component } = require ('react');
 
@@ -104,22 +107,20 @@ class XDD extends Component {
 				primaryButtonContent="Apply"
 				secondaryButtonContent="Cancel"
 			>
-				<XUIInput
+				<XUITextInput
 					ref={c => this.searchComponent = c}
-					className="xui-input-borderless xui-input-borderless-solid"
-					containerClassName="xui-inputwrapper-borderless xui-u-fullwidth"
-					onKeyDown={this.onSearchKeyDown}
+					placeholder="Search"
+					type="search"
 					value={this.search}
+					onKeyDown={this.onSearchKeyDown}
 					onChange={this.onSearch}
-					iconAttributes={{
-						path: searchIcon,
-						position: 'left',
-					}}
-					inputAttributes={{
-						type: 'search',
-						placeholder: 'Search box',
-					}}
-					hasClearButton
+					isBorderlessSolid
+					fieldClassName="xui-u-fullwidth"
+					leftElement={
+						<XUITextInputSideElement type="icon">
+							<XUIIcon icon={searchPath} isBoxed />
+						</XUITextInputSideElement>
+					}
 				/>
 			</DropDownHeader>
 		);
@@ -131,7 +132,8 @@ class XDD extends Component {
 						<span>
 							<XUIIcon
 								isInline
-								path={plusIcon}
+								isBoxed
+								icon={plusIcon}
 								className="xui-margin-right-xsmall"
 							/>
 							Add New Fruit
@@ -178,6 +180,7 @@ class XDD extends Component {
 				trigger={trigger}
 				dropdown={dropdown}
 				closeOnSelect={false}
+				closeOnTab={false}
 				onClose={this.onClose}
 				onOpen={this.onOpen}
 			/>

@@ -67,7 +67,7 @@
 //
 // Markup:
 // <div class="xui-panel">
-//   <header class="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-verticallycentered xui-u-flex-space-between">
+//   <header class="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-align-center xui-u-flex-justify-space-between">
 //     <div class="xui-panel--heading xui-margin-left-small">Panel heading</div>
 //     <button type="button" class="xui-button xui-button-icon xui-button-icon-large" title="More options" aria-label="More options">
 //       <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-overflow" role="presentation" /></svg>
@@ -94,7 +94,7 @@
 //   <div class="xui-form-layout">
 //     <div class="xui-field-layout">
 //       <label class="xui-text-label xui-fieldlabel-layout" for="input1">Label</label>
-//       <input class="xui-input" type="text" id="input1"/>
+//       <input class="xui-textinput xui-textinput--input" type="text" id="input1"/>
 //     </div>
 //   </div>
 // </div>
@@ -103,7 +103,7 @@
 //   <div class="xui-form-layout">
 //     <div class="xui-field-layout">
 //       <label class="xui-text-label xui-fieldlabel-layout" for="input2">Label</label>
-//       <input class="xui-input" type="text" id="input2"/>
+//       <input class="xui-textinput xui-textinput--input" type="text" id="input2"/>
 //     </div>
 //   </div>
 // </div>
@@ -112,7 +112,7 @@
 //   <div class="xui-form-layout">
 //     <div class="xui-field-layout">
 //       <label class="xui-text-label xui-fieldlabel-layout" for="input3">Label</label>
-//       <input class="xui-input" type="text" id="input3"/>
+//       <input class="xui-textinput xui-textinput--input" type="text" id="input3"/>
 //     </div>
 //   </div>
 // </div>
@@ -149,26 +149,26 @@
 //
 // Markup:
 // <form class="xui-panel">
-//   <header class="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-verticallycentered">
+//   <header class="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-align-center">
 //     <div class="xui-panel--heading xui-margin-left-small">Panel heading</div>
 //   </header>
 // <div class="xui-panel--section xui-padding-horizontal-large xui-padding-top-xlarge xui-padding-bottom-large">
 //   <div class="xui-form-layout">
 //     <div class="xui-field-layout">
 //       <label class="xui-text-label xui-fieldlabel-layout" for="input4">Label</label>
-//       <input class="xui-input" type="text" id="input4"/>
+//       <input class="xui-textinput xui-textinput--input" type="text" id="input4"/>
 //     </div>
 //   </div>
 //   <div class="xui-form-layout">
 //     <div class="xui-field-layout">
 //       <label class="xui-text-label xui-fieldlabel-layout" for="input5">Label</label>
-//       <input class="xui-input" type="text" id="input5"/>
+//       <input class="xui-textinput xui-textinput--input" type="text" id="input5"/>
 //     </div>
 //   </div>
 //   <div class="xui-form-layout">
 //     <div class="xui-field-layout">
 //       <label class="xui-text-label xui-fieldlabel-layout" for="input6">Label</label>
-//       <input class="xui-input" type="text" id="input6"/>
+//       <input class="xui-textinput xui-textinput--input" type="text" id="input6"/>
 //     </div>
 //   </div>
 // </div>
@@ -190,84 +190,84 @@
 //
 // Markup:
 // <div class='xui-panel xui-contentblock'>
-// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
-// <div class="xui-margin-horizontal">
-//   <abbr class="xui-avatar xui-avatar-color-2" role="presentation">SB</abbr>
-// </div>
-// <a href="#" class="xui-u-overflow-hidden xui-u-flex-1 xui-padding-vertical xui-rowlink">
-//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
-//     <span class="xui-heading-small">Six Barrel Soda</span>
-//     <span class="xui-tag xui-tag-warning xui-margin-left-small">Awaiting payment</span>
-//   </span>
-//   <div class="xui-textcolor-muted xui-text-truncated">
-//    <span>INV0028</span>
-//    <span class="xui-margin-horizontal-xsmall">•</span>
-//    <span>Due 31 Dec 17</span>
-//   </div>
-// </a>
-// <div class="xui-margin-horizontal-small">
-//     <div class="xui-u-flex xui-u-flex-verticallycentered">
-//       <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">118.20</div>
-//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//         <svg focusable="false" class="xui-icon">
-//           <use xlink:href="#xui-icon-overflow"></use>
-//         </svg>
-//       </button>
+//   <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//     <div class="xui-margin-horizontal">
+//       <abbr class="xui-avatar xui-avatar-color-2" role="presentation">SB</abbr>
+//     </div>
+//     <a href="#" class="xui-contentblockitem--links">
+//       <span class="xui-text-truncated xui-u-flex xui-u-flex-align-center">
+//         <span class="xui-heading-small">Six Barrel Soda</span>
+//         <span class="xui-tag xui-tag-warning xui-margin-left-small">Awaiting payment</span>
+//       </span>
+//       <div class="xui-textcolor-muted xui-text-truncated">
+//         <span>INV0028</span>
+//         <span class="xui-margin-horizontal-xsmall">•</span>
+//         <span>Due 31 Dec 17</span>
+//       </div>
+//     </a>
+//     <div class="xui-margin-horizontal-small">
+//       <div class="xui-u-flex xui-u-flex-align-center">
+//         <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">118.20</div>
+//         <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button" title="More options">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-overflow"></use>
+//           </svg>
+//         </button>
+//       </div>
 //     </div>
 //   </div>
-// </div>
-// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
-// <div class="xui-margin-horizontal">
-//   <abbr class="xui-avatar xui-avatar-color-5" role="presentation">LB</abbr>
-// </div>
-// <a href="#" class="xui-u-overflow-hidden xui-u-flex-1 xui-padding-vertical xui-rowlink">
-//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
-//     <span class="xui-heading-small">Lucky Burger</span>
-//     <span class="xui-tag xui-tag-negative xui-margin-left-small">Overdue</span>
-//   </span>
-//   <div class="xui-textcolor-muted xui-text-truncated">
-//    <span>INV0023</span>
-//    <span class="xui-margin-horizontal-xsmall">•</span>
-//    <span>Due 19 Nov 17</span>
-//   </div>
-// </a>
-// <div class="xui-margin-horizontal-small">
-//     <div class="xui-u-flex xui-u-flex-verticallycentered">
-//       <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">346.40</div>
-//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//         <svg focusable="false" class="xui-icon">
-//           <use xlink:href="#xui-icon-overflow"></use>
-//         </svg>
-//       </button>
+//   <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//     <div class="xui-margin-horizontal">
+//       <abbr class="xui-avatar xui-avatar-color-5" role="presentation">LB</abbr>
+//     </div>
+//     <a href="#" class="xui-contentblockitem--links">
+//       <span class="xui-text-truncated xui-u-flex xui-u-flex-align-center">
+//         <span class="xui-heading-small">Lucky Burger</span>
+//         <span class="xui-tag xui-tag-negative xui-margin-left-small">Overdue</span>
+//       </span>
+//       <div class="xui-textcolor-muted xui-text-truncated">
+//         <span>INV0023</span>
+//         <span class="xui-margin-horizontal-xsmall">•</span>
+//         <span>Due 19 Nov 17</span>
+//       </div>
+//     </a>
+//     <div class="xui-margin-horizontal-small">
+//       <div class="xui-u-flex xui-u-flex-align-center">
+//         <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">346.40</div>
+//         <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button" title="More options">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-overflow"></use>
+//           </svg>
+//         </button>
+//       </div>
 //     </div>
 //   </div>
-// </div>
-// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
-// <div class="xui-margin-horizontal">
-//   <abbr class="xui-avatar xui-avatar-color-8" role="presentation">HE</abbr>
-// </div>
-// <a href="#" class="xui-u-overflow-hidden xui-u-flex-1 xui-padding-vertical xui-rowlink">
-//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
-//     <span class="xui-heading-small">Hornblower Enterprises</span>
-//     <span class="xui-tag xui-tag-positive xui-margin-left-small">Paid</span>
-//   </span>
-//   <div class="xui-textcolor-muted xui-text-truncated">
-//    <span>INV0021</span>
-//    <span class="xui-margin-horizontal-xsmall">•</span>
-//    <span>Due 28 Dec 17</span>
-//   </div>
-// </a>
-// <div class="xui-margin-horizontal-small">
-//     <div class="xui-u-flex xui-u-flex-verticallycentered">
-//       <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">74.99</div>
-//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//         <svg focusable="false" class="xui-icon">
-//           <use xlink:href="#xui-icon-overflow"></use>
-//         </svg>
-//       </button>
+//   <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//     <div class="xui-margin-horizontal">
+//       <abbr class="xui-avatar xui-avatar-color-8" role="presentation">HE</abbr>
+//     </div>
+//     <a href="#" class="xui-contentblockitem--links">
+//       <span class="xui-text-truncated xui-u-flex xui-u-flex-align-center">
+//         <span class="xui-heading-small">Hornblower Enterprises</span>
+//         <span class="xui-tag xui-tag-positive xui-margin-left-small">Paid</span>
+//       </span>
+//       <div class="xui-textcolor-muted xui-text-truncated">
+//         <span>INV0021</span>
+//         <span class="xui-margin-horizontal-xsmall">•</span>
+//         <span>Due 28 Dec 17</span>
+//       </div>
+//     </a>
+//     <div class="xui-margin-horizontal-small">
+//       <div class="xui-u-flex xui-u-flex-align-center">
+//         <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">74.99</div>
+//         <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button" title="More options">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-overflow"></use>
+//           </svg>
+//         </button>
+//       </div>
 //     </div>
 //   </div>
-// </div>
 // </div>
 //
 // Styleguide: Compounds.DisplayingData.Panel.9
@@ -307,14 +307,14 @@
 //     </ul>
 //   </div>
 //   <div class="xui-u-flex-1">
-//   <header class="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-verticallycentered">
+//   <header class="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-align-center">
 //     <div class="xui-panel--heading xui-margin-left-small">Panel heading</div>
 //   </header>
 //     <div class="xui-panel--section xui-padding-top-large xui-padding-horizontal-large xui-padding-bottom-small">
 //       <form class="xui-form-layout">
 //         <div class="xui-field-layout">
 //           <label class="xui-text-label xui-fieldlabel-layout" for="input7">Label</label>
-//           <input class="xui-input" type="text" id="input7"/>
+//           <input class="xui-textinput xui-textinput--input" type="text" id="input7"/>
 //         </div>
 //       </form>
 //     </div>

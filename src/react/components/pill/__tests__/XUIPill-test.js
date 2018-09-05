@@ -144,6 +144,27 @@ describe('<XUIPill />', () => {
 		expect(pill).toMatchSnapshot();
 	});
 
+	it('should render an error icon when invalid', () => {
+		const pill = renderer.create(<XUIPill value="Error pill" isInvalid />);
+
+		expect(pill).toMatchSnapshot();
+	});
+
+	it('should render an error icon when invalid even with an avatar', () => {
+
+		const link = "https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg";
+		const avatarProps = {
+			imageUrl: link,
+			size: 'small',
+			role: 'presentation',
+			value: 'A'
+		};
+
+		const pill = renderer.create(<XUIPill value="Error pill" isInvalid {...avatarProps} />);
+
+		expect(pill).toMatchSnapshot();
+	});
+
 	it('should render a label for the delete button when passed in', () => {
 		const pill = shallow(<XUIPill deleteButtonLabel="alternate delete label" onDeleteClick={NOOP}/>);
 

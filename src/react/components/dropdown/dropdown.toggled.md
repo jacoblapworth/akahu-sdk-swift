@@ -237,7 +237,7 @@ As mentioned, the above example is not using dropdown with its optimised use cas
 
 It is highly recommended that you use [`Autocompleter`](#autocompleter) to implement this pattern if it fits your use case.  It handles these customisations by default.
 
-```
+```jsx
 require('array.prototype.find').shim();
 const debounce = require('lodash.debounce');
 const { Component } = require('react');
@@ -286,13 +286,12 @@ class InputTriggerExample extends Component {
 	render() {
 		const { selectedId, inputValue } = this.state;
 		const trigger = (
-			<XUIInput
-				inputAttributes={{
-					placeholder: 'Type Here',
-					value: inputValue,
-					onInput: this.onInputChange,
-					onKeyDown: this.onInputKeyDown,
-				}}
+			<XUITextInput
+				labelText='dropdown with text input trigger'
+				placeholder="Type Here"
+				value={inputValue}
+				onChange={this.onInputChange}
+				onKeyDown={this.onInputKeyDown}
 			/>
 		);
 
@@ -351,7 +350,7 @@ class InputTriggerExample extends Component {
 * `triggerClickAction="none"/"open"` -> `DropDownToggled`: By default trigger clicks will toggle open state. When using with an input, click should only open the dropdown or do nothing.
 * `hasKeyboardEvents=false` -> `DropDown`: Required to keep focus on the input while typing.
 * `restrictFocus=false` -> `DropDown`: Required to keep focus on the input while typing.
-* `inputAttributes.onKeyDown=function` -> `XUIInput`:
+* `onKeyDown=function` -> `XUITextInput`:
   * If `triggerClickAction="none"`, you should open the dropdown here by calling `DropDownToggled.openDropDown`.
   * `keydown` events should be passed down to `DropDown.onKeyDown` to default `DropDown` keyboard navigation such as closing on `esc`, `Picklist` navigation etc.
 

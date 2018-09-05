@@ -1,0 +1,11 @@
+@import "../vars";
+
+// Links
+.#{$ns}-text-minorlink {
+	color: inherit;
+
+	&:hover,
+	&:focus {
+		color: $xui-text-minorlink-focus-color;
+	}
+}

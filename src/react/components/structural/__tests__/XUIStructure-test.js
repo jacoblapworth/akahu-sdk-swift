@@ -335,21 +335,24 @@ describe('<XUI Structure/>', () => {
 			expect(wrapper.hasClass("xui-contentblockitem-layout")).toEqual(false);
 		});
 		it('renders content block item with everything', () => {
-			const testOverflow = <XUIButton variant="icon"><XUIIcon path={overflow}/></XUIButton>;
+			const testOverflow = <XUIButton variant="icon"><XUIIcon icon={overflow} isBoxed /></XUIButton>;
 			const testLeftContent = <abbr className="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>;
 			const testActions = <XUIActions primaryAction={<XUIButton key='one' variant="primary" size="small">One</XUIButton>} secondaryAction={<XUIButton key='two' size="small">Two</XUIButton>}/>;
 			const testTag = <span className="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>;
-	
+
 			const testContentblockWithEverything = renderer.create(
 				<XUIContentBlock>
-					<XUIContentBlockItem 
-						primaryHeading={testPrimaryHeading} 
+					<XUIContentBlockItem
+						isRowLink
+						hasTopRadius
+						hasBottomRadius
+						primaryHeading={testPrimaryHeading}
 						secondaryHeading="test secondary heading"
-						overflow={testOverflow} 
-						leftContent={testLeftContent} 
+						overflow={testOverflow}
+						leftContent={testLeftContent}
 						actions={testActions}
 						pinnedValue="0.00"
-						tag={testTag} 
+						tag={testTag}
 					/>
 				</XUIContentBlock>
 			);

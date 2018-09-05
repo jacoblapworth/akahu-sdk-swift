@@ -44,7 +44,7 @@ exports[`<XUIButton/> does retain layout checks with a myriad of combinations 2`
     Hello, I am a long bit of text
   </div>
   <div
-    aria-label={undefined}
+    aria-label="Loading"
     className="xui-loader xui-loader-small xui-button--loader xui-loader-retain-layout"
     data-automationid={undefined}
     role="progressbar"
@@ -73,7 +73,7 @@ exports[`<XUIButton/> does retain layout checks with a myriad of combinations 3`
   type="button"
 >
   <div
-    aria-label={undefined}
+    aria-label="Loading"
     className="xui-loader xui-loader-small xui-button--loader"
     data-automationid={undefined}
     role="progressbar"

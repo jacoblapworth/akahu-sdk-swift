@@ -1,0 +1,132 @@
+@import "../vars";
+@import "../mixins";
+
+// Overview block
+//
+// Teaser: A top level summary to display stats and figures.
+//
+// Introduction: A top level summary to display stats and figures.
+//
+// Components: Overview-block
+//
+// Styleguide: Compounds.DisplayingData.OverviewBlock
+
+// Best practice
+//
+// Tips:
+// Do: Place overview blocks at the top of the page
+// Warning: Take care to only include data relevant to the current view
+// Dont: Don't include more than six sections per overview block
+//
+// Styleguide: Compounds.DisplayingData.OverviewBlock.1
+
+// Anatomy
+//
+// Flag: Experimental
+//
+// Classes:
+// xui-overview: Overview block
+// xui-overview-layout: Default overview block layout
+// xui-overview--section: Overview block section
+// xui-overview--label: Section label
+// xui-overview--value: Section value
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+//  Markup:
+// <div class="xui-overview xui-overview-layout">
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">This quarter</div>
+//     <div class="xui-overview--value">None</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Last quarter</div>
+//     <div class="xui-overview--value">318.70</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">This year</div>
+//     <div class="xui-overview--value">1,159.20</div>
+//   </section>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.OverviewBlock.2
+
+// Sentiment
+//
+// To indicate sentiment, apply one of our standard text color utilities.
+//
+// Use descriptive text as well as colour to convey information so it’s still meaningful to people who can’t discern colour.
+//
+// For example, using a `positive` sentiment:
+//
+// Tips:
+// Do: When using sentiment, use descriptive text like "+35%"
+// Dont: When using sentiment, avoid vague text like "35%"
+//
+// Classes:
+// xui-textcolor-positive: Positive sentiment
+// xui-textcolor-negative: Negative sentiment
+// xui-textcolor-muted: Neutral sentiment
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-overview xui-overview-layout">
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Draft</div>
+//     <div class="xui-overview--value xui-textcolor-muted">103.75</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Paid</div>
+//     <div class="xui-overview--value xui-textcolor-positive">20.00</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Unpaid</div>
+//     <div class="xui-overview--value xui-textcolor-negative">18.50</div>
+//   </section>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.OverviewBlock.3
+
+.#{$ns}-overview {
+	background-color: $xui-overview-bg-color;
+	border-radius: $xui-radius;
+	box-shadow: $xui-shadow-border-all;
+	display: flex;
+	width: 100%;
+}
+
+.#{$ns}-overview--section {
+	display: flex;
+	flex: 1 0 auto;
+	flex-flow: column nowrap;
+	justify-content: center;
+	text-align: center;
+}
+
+.#{$ns}-overview--label {
+	color: $xui-overview-label-color;
+}
+
+.#{$ns}-overview--value {
+	font-size: $xui-font-size-xlarge;
+	font-weight: $xui-font-weight-emphasis;
+}
+
+.#{$ns}-overview--section:nth-child(n+2) {
+	box-shadow: $xui-shadow-border-left;
+}
+
+.#{$ns}-overview-layout {
+	@include xui-margin-horizontal(auto);
+
+	@include xui-breakpoint-narrow {
+		border-left: 0;
+		border-radius: 0;
+		border-right: 0;
+	}
+
+	.#{$ns}-overview--section {
+		@include xui-padding-vertical($xui-s-large);
+	}
+}

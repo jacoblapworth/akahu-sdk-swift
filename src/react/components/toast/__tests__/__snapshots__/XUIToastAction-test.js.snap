@@ -1,78 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUIToastAction /> should be able to render custom class names 1`] = `
-<li
-  className="xui-toast--action"
+<button
+  className="xui-button custom-class xui-toast--action xui-button-borderless-main xui-button-small"
   data-automationid={undefined}
+  disabled={false}
+  onClick={[Function]}
+  onKeyDown={undefined}
+  tabIndex={0}
+  type="button"
 >
-  <button
-    className="xui-button custom-class xui-button-borderless-main xui-button-small"
-    data-automationid={undefined}
-    disabled={false}
-    onClick={[Function]}
-    onKeyDown={undefined}
-    tabIndex={0}
-    type="button"
-  >
-    Action 1
-  </button>
-</li>
+  Action 1
+</button>
 `;
 
 exports[`<XUIToastAction /> should render a custom href because it's a link 1`] = `
-<li
-  className="xui-toast--action"
-  data-automationid={undefined}
->
-  <a
-    className="xui-button xui-button-borderless-main xui-button-small"
-    data-automationid={undefined}
-    disabled={false}
-    href="https://www.xero.com"
-    onClick={[Function]}
-    onKeyDown={undefined}
-    onKeyPress={[Function]}
-    rel={undefined}
-    tabIndex={0}
-    target={undefined}
-  >
-    Action 1
-  </a>
-</li>
-`;
-
-exports[`<XUIToastAction /> should render a passed qaHook as an automation id 1`] = `
-<li
-  className="xui-toast--action"
-  data-automationid="toast-action"
->
-  <button
-    className="xui-button xui-button-borderless-main xui-button-small"
-    data-automationid="toast-action-button"
-    disabled={false}
-    onClick={[Function]}
-    onKeyDown={undefined}
-    tabIndex={0}
-    type="button"
-  >
-    Action 1
-  </button>
-</li>
-`;
-
-exports[`<XUIToastAction /> should render all the same features using the new XUIActions base API 1`] = `
 <a
-  className="xui-button custom-class xui-button-borderless-main xui-button-small"
-  data-automationid="toast-action-button"
+  aria-disabled={undefined}
+  className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
+  data-automationid={undefined}
   disabled={false}
   href="https://www.xero.com"
   onClick={[Function]}
   onKeyDown={undefined}
   onKeyPress={[Function]}
   rel={undefined}
+  role={undefined}
   tabIndex={0}
   target={undefined}
 >
   Action 1
 </a>
+`;
+
+exports[`<XUIToastAction /> should render a passed qaHook as an automation id 1`] = `
+<button
+  className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
+  data-automationid="toast-action"
+  disabled={false}
+  onClick={[Function]}
+  onKeyDown={undefined}
+  tabIndex={0}
+  type="button"
+>
+  Action 1
+</button>
 `;

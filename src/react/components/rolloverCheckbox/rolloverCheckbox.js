@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 
 import XUICheckbox from '../checkbox/XUICheckbox';
 import { sizeClassNames, baseClass } from './private/constants';
-import cn from 'classnames';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 export default class XUIRolloverCheckbox extends PureComponent {
 	state = {
-		isMouseOver: false
+		isMouseOver: false,
 	};
 
 	/**
@@ -17,9 +17,9 @@ export default class XUIRolloverCheckbox extends PureComponent {
 	 * Handler attached to the target element for setting mouse over state to true.
 	 */
 	onMouseEnter = () => {
-		if(this.props.isCheckboxHidden){
+		if (this.props.isCheckboxHidden) {
 			this.setState({
-				isMouseOver: true
+				isMouseOver: true,
 			});
 		}
 	};
@@ -31,7 +31,7 @@ export default class XUIRolloverCheckbox extends PureComponent {
 	 */
 	onMouseLeave = () => {
 		this.setState({
-			isMouseOver: false
+			isMouseOver: false,
 		});
 	};
 
@@ -42,7 +42,7 @@ export default class XUIRolloverCheckbox extends PureComponent {
 	 */
 	onFocus = () => {
 		this.setState({
-			hasFocus: true
+			hasFocus: true,
 		});
 	};
 
@@ -53,14 +53,15 @@ export default class XUIRolloverCheckbox extends PureComponent {
 	 */
 	onBlur = () => {
 		this.setState({
-			hasFocus: false
+			hasFocus: false,
 		});
 	};
 
 	/**
 	 * @public
 	 *
-	 * Handler attached to the target element for triggering the click event on the checkbox when the target element is clicked.
+	 * Handler attached to the target element for triggering the click event on the checkbox
+	 * when the target element is clicked.
 	 */
 	triggerCheckboxClick = () => {
 		this._checkbox._input.click();
@@ -73,7 +74,7 @@ export default class XUIRolloverCheckbox extends PureComponent {
 	* Also retians the checked state of the list item.
 	* @param {Event} e
 	*/
-	onSelect = (e) => {
+	onSelect = e => {
 		const { onSelect } = this.props;
 		onSelect && onSelect(e, this);
 	};
@@ -88,11 +89,12 @@ export default class XUIRolloverCheckbox extends PureComponent {
 			qaHook,
 			size,
 			isCheckboxHidden,
-			labelText
+			labelText,
+			ariaLabelledBy,
 		} = this.props;
 		const {
 			isMouseOver,
-			hasFocus
+			hasFocus,
 		} = this.state;
 
 		const showRollover = isCheckboxHidden && !isMouseOver && !hasFocus && !!rolloverComponent;
@@ -104,13 +106,15 @@ export default class XUIRolloverCheckbox extends PureComponent {
 					`${baseClass}--target`,
 					isDisabled && `${baseClass}--target-disabled`,
 					sizeClassNames[size],
-					className)}
+					className,
+				)}
 				onClick={this.triggerCheckboxClick}
 				onMouseEnter={this.onMouseEnter}
 				onMouseLeave={this.onMouseLeave}
 				onFocus={this.onFocus}
 				onBlur={this.onBlur}
 				data-automationid={qaHook}
+				role="presentation"
 			>
 				<div className={baseClass}>
 					<div className={!showRollover ? `${ns}-u-hidden-visually` : null}>
@@ -121,11 +125,14 @@ export default class XUIRolloverCheckbox extends PureComponent {
 						onChange={this.onSelect}
 						isChecked={isChecked}
 						isDisabled={isDisabled}
-						isLabelHidden={true}
+						isLabelHidden
 						htmlClassName={`${baseClass}--checkbox`}
 						qaHook={qaHook && `${qaHook}--checkbox`}
 						className={showRollover ? `${ns}-u-hidden-visually` : null}
-					>{labelText}</XUICheckbox>
+						tabIndex={0}
+						labelId={ariaLabelledBy}
+					>{labelText}
+					</XUICheckbox>
 				</div>
 			</div>
 		);
@@ -147,12 +154,14 @@ XUIRolloverCheckbox.propTypes = {
 	id: PropTypes.string,
 	/** Component to render when isCheckboxHidden is true and mouse is not over the component */
 	rolloverComponent: PropTypes.node,
-	/** detremine the size of the target, accepts small, medium, large or xlarge */
+	/** Determine the size of the target, accepts small, medium, large or xlarge */
 	size: PropTypes.string,
 	/** Input label for accessibility purposes. Will not be visibly displayed. */
-	labelText: PropTypes.string
+	labelText: PropTypes.string,
+	/** Optionally provide the id of an element that provides a label for the checkbox */
+	ariaLabelledBy: PropTypes.string,
 };
 
 XUIRolloverCheckbox.defaultProps = {
-	isDisabled: false
+	isDisabled: false,
 };

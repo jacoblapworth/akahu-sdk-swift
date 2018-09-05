@@ -1,0 +1,83 @@
+//TODO: Remove these classes or `xui-textinputgroup` classes for XUI 14 - we don't need both & the name of these is more accurate
+.#{$ns}-verticalinputgroup {
+	// Only add top border radius to the first element
+	.#{$ns}-textinput:first-of-type,
+	.#{$ns}-textinputwrapper:first-of-type > .#{$ns}-textinput {
+		border-radius: 3px 3px 0 0;
+	}
+
+	// Add the margin adjustment to all elements but the first
+	.#{$ns}-textinput:nth-of-type(n+2),
+	.#{$ns}-textinputwrapper:nth-of-type(n+2) > .#{$ns}-textinput {
+		margin-top: -1px;
+	}
+
+	// On all elements except the first and last one, border radius 0 is required
+	.#{$ns}-textinput:nth-of-type(n+2):nth-last-of-type(n+2),
+	.#{$ns}-textinputwrapper:nth-of-type(n+2):nth-last-of-type(n+2) > .#{$ns}-textinput {
+		border-radius: 0;
+	}
+
+	// Only add bottom border radius to the last element
+	.#{$ns}-textinput:last-of-type,
+	.#{$ns}-textinputwrapper:last-of-type > .#{$ns}-textinput {
+		border-radius: 0 0 3px 3px;
+	}
+}
+
+
+.#{$ns}-inputgroup > .#{$ns}-textinput,
+.#{$ns}-inputgroup > .#{$ns}-button,
+.#{$ns}-inputgroup .#{$ns}-select--control {
+	border-radius: 0;
+
+	// All but the first child have a left border
+	// There is an exception for invalid styling further down
+	&:nth-child(n+2) {
+		border-left: 0;
+	}
+}
+
+// This is excluded from the list above to prevent the nth-child selector kicking in unnecessarily on the wrong element
+.#{$ns}-inputgroup > .#{$ns}-textinputwrapper > .#{$ns}-textinput,
+.#{$ns}-inputgroup > .#{$ns}-textinputwrapper .#{$ns}-button {
+	border-radius: 0;
+}
+
+.#{$ns}-inputgroup > .#{$ns}-textinputwrapper:nth-child(n+2) > .#{$ns}-textinput {
+	border-left: 0;
+}
+
+.#{$ns}-inputgroup > .#{$ns}-select:nth-child(n+2) {
+	.#{$ns}-select--control {
+		border-left: 0;
+	}
+}
+
+.#{$ns}-inputgroup > .#{$ns}-textinput:first-child,
+.#{$ns}-inputgroup > .#{$ns}-textinputwrapper:first-child > .#{$ns}-textinput,
+.#{$ns}-inputgroup > .#{$ns}-textinputwrapper:first-child .#{$ns}-button,
+.#{$ns}-inputgroup > .#{$ns}-button:first-child,
+.#{$ns}-inputgroup > .#{$ns}-select:first-child > .#{$ns}-select--control {
+	border-bottom-left-radius: $xui-radius;
+	border-top-left-radius: $xui-radius;
+}
+
+.#{$ns}-inputgroup > .#{$ns}-textinput:last-child,
+.#{$ns}-inputgroup > .#{$ns}-textinputwrapper:last-child > .#{$ns}-textinput,
+.#{$ns}-inputgroup > .#{$ns}-button:last-child,
+.#{$ns}-inputgroup > .#{$ns}-select:last-child > .#{$ns}-select--control {
+	border-bottom-right-radius: $xui-radius;
+	border-top-right-radius: $xui-radius;
+}
+
+.#{$ns}-inputgroup {
+	@include xui-clearfix;
+
+	.#{$ns}-textinput-is-invalid:nth-child(n+2),
+	.#{$ns}-textinputwrapper:nth-child(n+2) .#{$ns}-textinput-is-invalid,
+	.#{$ns}-select:nth-child(n+2) > .#{$ns}-select--control.#{$ns}-textinput-is-invalid {
+		border-left: 1px solid $xui-color-red;
+		margin-left: -1px;
+	}
+}

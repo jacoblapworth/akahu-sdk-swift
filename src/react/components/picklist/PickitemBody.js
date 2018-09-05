@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUICheckbox from '../checkbox/XUICheckbox';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 const NOOP = () => {};
 
@@ -14,10 +14,31 @@ const NOOP = () => {};
  *
  * @param {Object} props
  */
-const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelected, href, isMultiselect, children, checkboxClassName, target, qaHook }) => {
+const PickitemBody = ({
+	onClick,
+	onKeyDown,
+	shouldTruncate,
+	onMouseOver,
+	isSelected,
+	href,
+	isMultiselect,
+	children,
+	checkboxClassName,
+	target,
+	qaHook,
+	tabIndex,
+}) => {
 	if (isMultiselect) {
 		return (
-			<div className={`${ns}-pickitem--body`} onClick={onClick} onKeyDown={onKeyDown} onMouseOver={onMouseOver} data-automationid={qaHook}>
+			<div
+				className={`${ns}-pickitem--body`}
+				onClick={onClick}
+				onKeyDown={onKeyDown}
+				onMouseOver={onMouseOver}
+				onFocus={onMouseOver}
+				data-automationid={qaHook}
+				role="presentation"
+			>
 				<XUICheckbox
 					onChange={NOOP}
 					isChecked={isSelected}
@@ -27,24 +48,29 @@ const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelec
 					className={cn(checkboxClassName, `${ns}-pickitem-multiselect--checkbox`)}
 					labelClassName={`${ns}-pickitem-multiselect--label`}
 				>
-					<span className={shouldTruncate ? `${ns}-text-truncated` : ''} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>
+					<span
+						className={shouldTruncate ? `${ns}-text-truncated` : ''}
+						data-automationid={qaHook && `${qaHook}--label`}
+					>
+						{children}
+					</span>
 				</XUICheckbox>
 			</div>
 		);
 	}
-	const rel = target ? "noopener noreferrer" : null;
+	const rel = target ? 'noopener noreferrer' : null;
 	const childProps = {
 		className: `${ns}-pickitem--body`,
-		tabIndex: '-1',
 		onClick,
 		onKeyDown,
 		onMouseOver,
 		rel,
+		tabIndex,
 	};
 
 	const textClassName = cn(
 		`${ns}-pickitem--text`,
-		shouldTruncate && `${ns}-text-truncated`
+		shouldTruncate && `${ns}-text-truncated`,
 	);
 
 	const text = <span className={textClassName}>{children}</span>;
@@ -66,7 +92,8 @@ PickitemBody.propTypes = {
 	onMouseOver: PropTypes.func,
 	target: PropTypes.string,
 	shouldTruncate: PropTypes.bool,
-	qaHook: PropTypes.string
+	qaHook: PropTypes.string,
+	tabIndex: PropTypes.string,
 };
 
 export default PickitemBody;

@@ -28,7 +28,7 @@ const tableStyles = {
 };
 
 const appendageStyles = {
-	background: 'skyblue',
+	background: 'darkslategray',
 	color: 'white',
 	fontWeight: 'bold',
 	padding: '20px',
@@ -37,12 +37,12 @@ const appendageStyles = {
 const customStyles = (`
 
 .xui-table-visualTesting-tableWrapper {
-	border: 10px solid skyblue !important;
+	border: 10px solid darkslategray !important;
 	border-radius: 10px !important;
 }
 
 .xui-table-visualTesting-cell {
-	background: skyblue !important;
+	background: darkslategray !important;
 	color: white !important;
 	font-weight: bold !important;
 }
@@ -53,16 +53,17 @@ const createOverflowMenu = () => ([
 	<Pickitem
 		key="0"
 		id="0"
-		onClick={noop}>
+		onClick={noop}
+	>
 		Menu Option
-	</Pickitem>
+	</Pickitem>,
 ]);
 
 const Appendage = ({ children }) => (
 	<div style={appendageStyles}>{children}</div>
 );
 
-Appendage.propTypes = { children: PropTypes.node }
+Appendage.propTypes = { children: PropTypes.node };
 
 const createCustomStyles = () => {
 	const node = document.createElement('style');
@@ -71,11 +72,11 @@ const createCustomStyles = () => {
 	document.head.appendChild(node);
 };
 
-const createTags = (total) => new Array(total).fill(0).map((_, index) => (
+const createTags = total => new Array(total).fill(0).map((_, index) => (
 	<XUITag
 		key={index}
 		className="xui-margin-right-xsmall"
-		variant="positive">
+	>
 		{`tag ${index + 1}`}
 	</XUITag>
 ));
@@ -88,7 +89,7 @@ storiesWithKnobs.add('Playground', () => {
 	const data = {
 		0: {},
 		1: {},
-		2: {}
+		2: {},
 	};
 
 	const hasCheckbox = boolean('hasCheckbox', false);
@@ -123,13 +124,13 @@ storiesWithKnobs.add('Playground', () => {
 
 	const onRowClick = boolean('onRowClick', false);
 	const rowClickProps = onRowClick && {
-		onRowClick: (({ _id }) => () => alert(`Click row ${_id}`))
+		onRowClick: (({ _id }) => () => alert(`Click row ${_id}`)),
 	};
 
 	const onCellClick = boolean('onCellClick', false);
 	const hasWrapping = boolean('hasWrapping', false);
 	const cellProps = {
-		...onCellClick && { onCellClick: (({ _id }) => () => alert(`Click cell in row ${_id}`)) },
+		...(onCellClick && { onCellClick: (({ _id }) => () => alert(`Click cell in row ${_id}`)) }),
 		hasWrapping,
 	};
 
@@ -151,7 +152,8 @@ storiesWithKnobs.add('Playground', () => {
 				isTruncated={boolean('isTruncated', false)}
 				isLoading={boolean('isLoading', false)}
 				header={prependHeader && <Appendage>Header</Appendage>}
-				footer={appendFooter && <Appendage>Footer</Appendage>}>
+				footer={appendFooter && <Appendage>Footer</Appendage>}
+			>
 
 				<Column
 					head={<Cell sortKey="header-1">Header 1</Cell>}
@@ -185,7 +187,6 @@ storiesWithKnobs.add('Playground', () => {
 
 /* eslint-disable react/prop-types */
 class ScrollResetWrapper extends PureComponent {
-
 	constructor() {
 		super();
 		this.node = null;
@@ -208,8 +209,9 @@ class ScrollResetWrapper extends PureComponent {
 		return (
 			<div
 				className="xui-loader-static"
-				ref={ node => this.node = node }
-				style={ style }>
+				ref={node => this.node = node}
+				style={style}
+			>
 				{ children }
 			</div>
 		);
@@ -221,46 +223,52 @@ const TestScaffold = ({
 	removeHeader,
 	hasHeaderClassName,
 	styleOverrides,
-	tableProps
+	tableProps,
 }, tableIndex) => (
 
-		<ScrollResetWrapper
-			key={tableIndex}
-			style={{ ...tableStyles, ...styleOverrides }}>
+	<ScrollResetWrapper
+		key={tableIndex}
+		style={{ ...tableStyles, ...styleOverrides }}
+	>
 
-			<Table
-				{...tableProps}
-				emptyStateComponent={tableProps.emptyStateComponent && <Appendage>Custom Empty State</Appendage>}
-				createOverflowMenu={tableProps.hasOverflowMenu && createOverflowMenu}
-				header={tableProps.header && <Appendage>Header</Appendage>}
-				footer={tableProps.footer && <Appendage>Footer</Appendage>}>
+		<Table
+			{...tableProps}
+			emptyStateComponent={tableProps.emptyStateComponent && <Appendage>Custom Empty State</Appendage>}
+			createOverflowMenu={tableProps.hasOverflowMenu && createOverflowMenu}
+			header={tableProps.header && <Appendage>Header</Appendage>}
+			footer={tableProps.footer && <Appendage>Footer</Appendage>}
+		>
 
-				{new Array(columns).fill(0).map((_, columnIndex) => (
+			{new Array(columns).fill(0).map((_, columnIndex) => (
 
-					<Column
-						key={columnIndex}
-						head={!removeHeader && (
-							<Cell
-								{...tableProps.activeSortKey && !columnIndex && { sortKey: 'content' }}
-								className={hasHeaderClassName && 'xui-table-visualTesting-cell'}>
-								Header {columnIndex + 1}
-							</Cell>
-						)}
-						body={({ content, tags, className, hasWrapping }) => (
-							<Cell
-								className={className}
-								hasWrapping={hasWrapping}>
-								{content || (tags && createTags(tags.length)) || `Cell ${columnIndex + 1}`}
-							</Cell>
-						)}
-					/>
+				<Column
+					key={columnIndex}
+					head={!removeHeader && (
+						<Cell
+							{...tableProps.activeSortKey && !columnIndex && { sortKey: 'content' }}
+							className={hasHeaderClassName && 'xui-table-visualTesting-cell'}
+						>
+								{`Header ${columnIndex + 1}`}
+						</Cell>
+					)}
+					body={({
+						content, tags, className, hasWrapping,
+					}) => (
+						<Cell
+							className={className}
+							hasWrapping={hasWrapping}
+						>
+							{content || (tags && createTags(tags.length)) || `Cell ${columnIndex + 1}`}
+						</Cell>
+					)}
+				/>
 
-				))}
+			))}
 
-			</Table>
-		</ScrollResetWrapper>
+		</Table>
+	</ScrollResetWrapper>
 
-	);
+);
 /* eslint-enable react/prop-types */
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);

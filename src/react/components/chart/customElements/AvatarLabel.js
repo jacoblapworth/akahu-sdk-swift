@@ -1,35 +1,41 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {getAvatarColorClass, abbreviateAvatar} from '../../avatar/utils';
-import {baseFontTheme} from '../helpers/theme';
+import { getAvatarColorClass, abbreviateAvatar } from '../../avatar/utils';
+import { xAxisFontTheme } from '../helpers/theme';
 import getResponsiveOptions from '../helpers/xaxis';
-import {NAME_SPACE, CHART_FONT_LARGE, AVATAR_RADIUS} from '../helpers/constants';
+import { NAME_SPACE, CHART_FONT_LARGE, AVATAR_RADIUS } from '../helpers/constants';
 import TruncatedText from './TruncatedText';
 import XAxisLabelWrapper from './XAxisLabelWrapper';
 
-const getStackedAvatarDimensions = ({labelWidth, textRaw, top = 10}) => {
+const getStackedAvatarDimensions = ({ labelWidth, textRaw, top = 10 }) => {
 	const avatarCircleLeft = labelWidth * 0.5;
 	const avatarCircleTop = AVATAR_RADIUS + top;
 
 	return {
-		avatarCircleLeft, avatarCircleTop,
+		avatarCircleLeft,
+		avatarCircleTop,
 		avatarTextLeft: avatarCircleLeft,
 		avatarTextTop: avatarCircleTop + 4,
 		avatarText: abbreviateAvatar(textRaw, 2),
 		avatarClassName: cn(`${NAME_SPACE}-chart--measure`, getAvatarColorClass(textRaw)),
-		avatarStyle: {...baseFontTheme, fill: 'white', fontSize: '10px', fontWeight: 'bold'},
+		avatarStyle: {
+			...xAxisFontTheme,
+			fill: null, // Removing the Victory inline "fill" so that we can target via CSS.
+			fontSize: '10px',
+			fontWeight: 'bold',
+		},
 	};
 };
 
 const getStackedTagDimensions = (
-	{textRaw, labelWidth},
-	{avatarCircleLeft, avatarCircleTop}
+	{ textRaw, labelWidth },
+	{ avatarCircleLeft, avatarCircleTop },
 ) => ({
 	tagLeft: avatarCircleLeft,
 	tagTop: avatarCircleTop + (AVATAR_RADIUS * 2) + 5,
 	tagText: textRaw,
-	tagStyle: baseFontTheme,
+	tagStyle: xAxisFontTheme,
 	tagTextWidth: labelWidth,
 	tagAnchor: 'middle',
 });
@@ -64,7 +70,7 @@ const responsiveOptions = {
 		return {
 			...avatar,
 			...getStackedTagDimensions(params, avatar),
-			tagStyle: {...baseFontTheme, fontSize: CHART_FONT_LARGE},
+			tagStyle: { ...xAxisFontTheme, fontSize: CHART_FONT_LARGE },
 		};
 	},
 
@@ -80,8 +86,8 @@ const responsiveOptions = {
 	// to set the center value dynamically. In that regard we "left" align the
 	// labels contents and let the component do the calculations.
 	100: params => {
-		const avatar = getStackedAvatarDimensions({...params, top: 20});
-		const {avatarCircleTop} = avatar;
+		const avatar = getStackedAvatarDimensions({ ...params, top: 20 });
+		const { avatarCircleTop } = avatar;
 
 		return {
 			shouldCalculateCenter: true,
@@ -91,7 +97,7 @@ const responsiveOptions = {
 			...getStackedTagDimensions(params, avatar),
 			tagLeft: (AVATAR_RADIUS * 2) + 5,
 			tagTop: avatarCircleTop + 5,
-			tagStyle: {...baseFontTheme, fontSize: CHART_FONT_LARGE},
+			tagStyle: { ...xAxisFontTheme, fontSize: CHART_FONT_LARGE },
 			tagAnchor: 'left',
 			tagTextWidth: params.labelWidth - (AVATAR_RADIUS * 2) - 5,
 			toolTipOffset: 14,
@@ -106,7 +112,8 @@ class AvatarLabel extends PureComponent {
 			// Victory...
 			index: labelIndex, text: textRaw,
 			// Unused Victory references...
-			// scale, style, fontFamily, fontSize, letterSpacing, padding, fill, stroke, x, y, verticalAnchor, textAnchor, datum
+			// scale, style, fontFamily, fontSize, letterSpacing, padding, fill, stroke, x,
+			// y, verticalAnchor, textAnchor, datum
 		} = this.props;
 		const {
 			// Avatar...
@@ -116,7 +123,7 @@ class AvatarLabel extends PureComponent {
 			shouldCalculateCenter, tagLeft, tagTop, tagText, tagStyle, tagAnchor, tagTextWidth,
 			// ToolTip...
 			toolTipOffset,
-		} = getResponsiveOptions(responsiveOptions, {labelWidth, labelIndex, textRaw});
+		} = getResponsiveOptions(responsiveOptions, { labelWidth, labelIndex, textRaw });
 
 		return (
 			<XAxisLabelWrapper
@@ -128,7 +135,8 @@ class AvatarLabel extends PureComponent {
 				labelLeft={labelWidth * labelIndex}
 				labelTop={labelTop}
 				labelWidth={labelWidth}
-				labelHeight={labelHeight}>
+				labelHeight={labelHeight}
+			>
 				<g>
 					<circle
 						className={avatarClassName}
@@ -139,7 +147,8 @@ class AvatarLabel extends PureComponent {
 					<text
 						x={avatarTextLeft}
 						y={avatarTextTop}
-						textAnchor="middle">
+						textAnchor="middle"
+					>
 						<tspan style={avatarStyle}>{avatarText}</tspan>
 					</text>
 
@@ -150,7 +159,8 @@ class AvatarLabel extends PureComponent {
 							y={tagTop}
 							textAnchor={tagAnchor}
 							style={tagStyle}
-							maxWidth={tagTextWidth}>
+							maxWidth={tagTextWidth}
+						>
 							{tagText}
 						</TruncatedText>
 					)}

@@ -1,0 +1,135 @@
+// Range
+//
+// Teaser: Choose a number whose exact value is not important.
+//
+// Introduction:
+// XUI provides a custom range slider for consistency across platforms and visual alignment with other form elements.
+//
+// Styleguide: Building Blocks.Controls.Range
+
+// Best practice
+//
+// Tips:
+// Do: Use a range slider when adjusting a value on a finite spectrum
+//
+// Styleguide: Building Blocks.Controls.Range.1
+
+// Anatomy
+//
+// To use the custom range slider, apply the following class.
+//
+// Classes:
+// xui-range-slider: Apply to the native input
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
+// <input aria-label="Slider" class="xui-range-slider" type="range" value="0"/>
+//
+// Styleguide: Building Blocks.Controls.Range.2
+
+// Value
+//
+// To set a default value, simply add alter the `value` attribute.
+// By default, it accepts numbers or percentages up to 100.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
+// <input aria-label="Slider" class="xui-range-slider" type="range" value="50%"/>
+//
+// Styleguide: Building Blocks.Controls.Range.3
+
+// Steps
+//
+// To limit adjustments to increments only, simply alter the `step` attribute from the default value of `1`.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
+// <input aria-label="Slider" class="xui-range-slider" type="range" step="25" value="50"/>
+//
+// Styleguide: Building Blocks.Controls.Range.4
+
+// Limits
+//
+// To limit adjustments to a particular range, simply define your own `min` and `max` values.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
+// <input aria-label="Slider" class="xui-range-slider" type="range" min="0" max="4" value="2"/>
+//
+// Styleguide: Building Blocks.Controls.Range.5
+
+// Disabling
+//
+// To disable a range slider, simply apply the `disabled` attribute.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
+// <input aria-label="Slider" class="xui-range-slider" type="range" value="50%" disabled/>
+//
+// Styleguide: Building Blocks.Controls.Range.6
+
+// Labeling
+//
+// To add standard labels and validation to a range slider, use the following classes.
+//
+// Classes:
+// xui-field-layout: Apply to wrapper to allow space for validation
+// xui-text-label: Label styles
+// xui-fieldlabel-layout: Apply to label for default layout options
+// xui-validation: Validation styles
+// xui-validation-layout: Apply to validation for default layout options
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
+// <div class="xui-field-layout">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="range1">Label</label>
+//   <input id="range1" class="xui-range-slider" type="range" value="50%"/>
+//   <div class="xui-validation xui-validation-layout">Validation text</div>
+// </div>
+//
+// Styleguide: Building Blocks.Controls.Range.7
+
+// Invalid
+//
+// To indicate that a range slider is invalid, apply the following modifiers.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Classes: 
+// xui-range-slider-is-invalid: Apply to native input
+// xui-validation-is-invalid: Apply to validation
+//
+// Markup:
+// <div class="xui-field-layout">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="range2">Label</label>
+//   <input id="range2" class="xui-range-slider xui-range-slider-is-invalid" type="range" value="50%"/>
+//   <div class="xui-validation xui-validation-layout xui-validation-is-invalid">Invalid text</div>
+// </div>
+//
+// Styleguide: Building Blocks.Controls.Range.8
+
+// Layout
+//
+// Images or labels can be positioned either side of range sliders to provide additional context.
+// To do this, XUI offers several helpful utility classes to aid in layout and alignment.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
+// <label class='xui-u-flex xui-u-flex-align-center' for="range3" aria-label="Image size">
+//    <svg class="xui-icon xui-icon-color-standard">
+//      <use role="presentation" xlink:href="#xui-icon-image"/>
+//    </svg>
+//    <input id="range3" class="xui-range-slider xui-margin-horizontal-small" type="range" value="50%"/>
+//    <svg class="xui-icon xui-icon-large xui-icon-color-standard">
+//      <use role="presentation" xlink:href="#xui-icon-image"/>
+//    </svg>
+// </label>
+//
+// Styleguide: Building Blocks.Controls.Range.9

@@ -1,9 +1,9 @@
-import React, {PureComponent, Fragment} from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import getTargetPosition from '../helpers/targetposition';
-import {NAME_SPACE, BAR_RADIUS, BAR_PADDING_X} from '../helpers/constants';
-import {forceValuePositive} from '../helpers/utilities';
-import {getMinAndMaxYAxisTickValues} from '../helpers/yaxis';
+import { NAME_SPACE, BAR_RADIUS, BAR_PADDING_X } from '../helpers/constants';
+import { forceValuePositive } from '../helpers/utilities';
+import { getMinAndMaxYAxisTickValues } from '../helpers/yaxis';
 import {
 	createStackTop,
 	createStackHeight,
@@ -17,7 +17,7 @@ import {
 
 class StackedBar extends PureComponent {
 	handleToolTipShow = (event, barData) => {
-		const {updateToolTip, createToolTipMessage} = this.props;
+		const { updateToolTip, createToolTipMessage } = this.props;
 		const position = getTargetPosition(event);
 		const message = createToolTipMessage(barData);
 		updateToolTip(position, message);
@@ -25,8 +25,10 @@ class StackedBar extends PureComponent {
 
 	handleToolTipHide = () => this.props.updateToolTip();
 
-	createBarMask = ({barLeft, barTop, barWidth, barHeight}) => {
-		const {datum: {y: stackData}} = this.props;
+	createBarMask = ({
+		barLeft, barTop, barWidth, barHeight,
+	}) => {
+		const { datum: { y: stackData } } = this.props;
 		const isAnyStackNegative = testIsAnyStackNegative(stackData);
 		const isAnyStackPositive = testIsAnyStackPositive(stackData);
 		const cornerOverrideHeight = Math.min(BAR_RADIUS, barHeight);
@@ -66,7 +68,9 @@ class StackedBar extends PureComponent {
 		);
 	};
 
-	createStackThunk = ({ratio, barZeroBase, barLeft, barWidth, barStacks}) => (barStack, stackIndex) => {
+	createStackThunk = ({
+		ratio, barZeroBase, barLeft, barWidth, barStacks,
+	}) => (barStack, stackIndex) => {
 		const {
 			isBarStacked,
 			onBarClick,
@@ -77,33 +81,39 @@ class StackedBar extends PureComponent {
 			index: barIndex,
 			datum: barData,
 		} = this.props;
-		const {id: barId} = barData;
-		const testIsActive = stackIndex => (activeBars[barId] || []).indexOf(stackIndex) >= 0;
-		const stackTop = createStackTop({barZeroBase, barStacks, ratio, stackIndex});
+		const { id: barId } = barData;
+		const testIsActive = (activeBars[barId] || []).indexOf(stackIndex) >= 0;
+		const stackTop = createStackTop({
+			barZeroBase, barStacks, ratio, stackIndex,
+		});
 		const stackHeight = createStackHeight(barStack * ratio);
-		const interactionParams = createInteractionParams(isBarStacked, {...barData, barIndex, stackIndex});
+		const interactionParams = createInteractionParams(isBarStacked, {
+			...barData,
+			barIndex,
+			stackIndex,
+		});
 		const clickProps = onBarClick && {
 			onClick: event => onBarClick(event, interactionParams),
-			style: {cursor: 'pointer'}
+			style: { cursor: 'pointer' },
 		};
 		const toolTipProps = !isToolTipHidden && {
 			onMouseEnter: event => this.handleToolTipShow(event, interactionParams),
-			onMouseLeave: this.handleToolTipHide
+			onMouseLeave: this.handleToolTipHide,
 		};
 
 		return (
 			<Fragment key={stackIndex}>
 				<rect
-					{...{...clickProps, ...toolTipProps}}
+					{...{ ...clickProps, ...toolTipProps }}
 					x={barLeft}
 					y={stackTop}
 					width={barWidth}
 					height={stackHeight}
 					fill={colorStacks[stackIndex]}
 				/>
-				{testIsActive(stackIndex) && (
+				{testIsActive && (
 					<rect
-						style={{pointerEvents: 'none'}}
+						style={{ pointerEvents: 'none' }}
 						x={barLeft}
 						y={stackTop}
 						width={barWidth}
@@ -130,12 +140,12 @@ class StackedBar extends PureComponent {
 			// alignment, data, height, horizontal, index, origin, polar, width, x, x0, y, y0
 		} = this.props;
 
-		const {id: barId, y: barStacks} = barData;
+		const { id: barId, y: barStacks } = barData;
 		if (!barStacks.length) return null;
 
 		const divider = BAR_PADDING_X;
-		const {yAxisMinValue, yAxisMaxValue} = getMinAndMaxYAxisTickValues(yAxisTickValues);
-		const yAxisValueSpan = forceValuePositive(yAxisMinValue) + forceValuePositive(yAxisMaxValue)
+		const { yAxisMinValue, yAxisMaxValue } = getMinAndMaxYAxisTickValues(yAxisTickValues);
+		const yAxisValueSpan = forceValuePositive(yAxisMinValue) + forceValuePositive(yAxisMaxValue);
 		const ratio = yAxisHeight / yAxisValueSpan;
 		const totalStacksValue = barStacks.reduce(forceAddStackItems, 0);
 		const positiveStacksValue = barStacks.filter(testIsCurrentStackPositive).reduce(addStackItems, 0);
@@ -145,7 +155,9 @@ class StackedBar extends PureComponent {
 		const barTop = barZeroBase - (positiveStacksValue * ratio);
 		const barWidth = Math.max(barWidthRaw - (divider * 2), 0);
 		const barHeight = createStackHeight(totalStacksValue * ratio);
-		const createStack = this.createStackThunk({ratio, barZeroBase, barLeft, barWidth, barStacks});
+		const createStack = this.createStackThunk({
+			ratio, barZeroBase, barLeft, barWidth, barStacks,
+		});
 
 		// The bar is setup into two main parts.
 		//
@@ -174,8 +186,11 @@ class StackedBar extends PureComponent {
 				<defs>
 					<mask
 						id={maskId}
-						maskUnits="userSpaceOnUse">
-						{this.createBarMask({barLeft, barTop, barWidth, barHeight})}
+						maskUnits="userSpaceOnUse"
+					>
+						{this.createBarMask({
+							barLeft, barTop, barWidth, barHeight,
+						})}
 					</mask>
 				</defs>
 

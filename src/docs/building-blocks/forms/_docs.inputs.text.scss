@@ -45,12 +45,12 @@
 
 // Textarea
 //
-// The [textarea component](./react/#textarea-deprecated) can be set to **autogrow** within limits or a fixed height. It includes an
+// The [text input component](./react/#text-input) can be set to **autogrow** within limits or a fixed height. It includes an
 // optional character count — but be seriously skeptical about the need for one!
 //
 // Non-React implementations need `xui-u-resize-none` added if you want to prevent users resizing.
 //
-// Components: TextArea-Deprecated
+// Components: Textinput
 //
 // exampleClass: ds-example-inline
 //
@@ -61,35 +61,37 @@
 
 
 
-// Solid text inputs
+// Borderless text inputs
 //
-// Add `xui-input-borderless` for inputs with a grey background and no borders.
+// Add `xui-input-borderless` to remove border from input and `xui-textinput-borderless-solid` to add grey tint.
 //
 // Tips:
 // Do: Use for isolated secondary elements where a standard inputs are too prominent
 // Dont: Avoid using for linear forms or where validation is required
 // Warning: Full range of elements like selects are not yet supported
 //
+// exampleClass: ds-example-transparent ds-example-flush
+//
 // Markup:
-//   <div class="xui-textinput xui-textinput-borderless">
-//     <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//       <svg focusable="false" class="xui-icon">
+// <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-solid xui-margin-top-large">
+//   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+//     <div class="xui-iconwrapper">
+//     	<svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-search" role="presentation" />
 //       </svg>
 //     </div>
-//     <input
-//       class="xui-textinput--input xui-padding-horizontal-none"
-//       type="search"
-//       placeholder="Solid input with icons"
-//       aria-label="Solid input with icons"/>
-//     <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//       <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
+//   </div>
+//   <input class="xui-textinput--input xui-padding-horizontal-none" type="search" placeholder="Search contacts" aria-label="Search contacts"/>
+//   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+//     <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
+//       <div class="xui-iconwrapper">
 //         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-clear" role="presentation"/>
 //         </svg>
-//       </button>
-//     </div>
+//       </div>
+//     </button>
 //   </div>
+// </div>
 //
 // Styleguide: Building Blocks.Controls.TextInput.4
 
@@ -115,10 +117,12 @@
 // 	<div class="xui-margin-top-xlarge xui-margin-bottom-small xui-column-6-of-12">
 // 	 <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-transparent">
 // 		<div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-// 			<svg focusable="false" class="xui-icon">
-// 				<use xlink:href="#xui-icon-search" role="presentation" />
-// 			</svg>
-// 		</div>
+// 			<div class="xui-iconwrapper">
+//       <svg focusable="false" class="xui-icon">
+// 	  			<use xlink:href="#xui-icon-search" role="presentation" />
+// 	  		</svg>
+// 		  </div>
+//   </div>
 // 		<input id="transparent-example" class="xui-textinput--input xui-padding-left-none" type="search" placeholder="Search all expenses" aria-label="Transparent input with icons" />
 // 	 </div>
 // 	</div>
@@ -133,31 +137,23 @@
 //
 // Both transparent and solid inputs can be used on dark backgrounds by adding `xui-inputwrapper-borderless-inverted`. Make sure your background color is dark enough!
 //
-// exampleClass: ds-example-flush
+// exampleClass: ds-example-dark
 //
 // Markup:
-// <div class="xui-padding xui-background-grey-1">
-//   <!-- Transparent + Inverted with icons-->
-//   <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-transparent xui-textinput-borderless-inverted">
-//     <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+// <!-- Solid + Inverted + Borderless -->
+// <div>
+//   <input class="xui-textinput xui-textinput--input xui-textinput-borderless xui-textinput-borderless-solid xui-textinput-borderless-inverted" type="text" placeholder="Email address" aria-label="Email address"/>
+// </div>
+// <!-- Transparent + Inverted with icons-->
+// <div class="xui-margin-top xui-textinput xui-textinput-borderless xui-textinput-borderless-transparent xui-textinput-borderless-inverted">
+//   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+//     <div class="xui-iconwrapper">
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-search" role="presentation" />
 //       </svg>
 //     </div>
-//     <input
-//       class="xui-textinput--input xui-padding-left-none"
-//       type="search"
-//       placeholder="Transparent inverted input with icons"
-//       aria-label="Transparent inverted input with icons" />
 //   </div>
-//   <!-- Solid + Inverted -->
-//   <div class="xui-margin-top">
-//     <input
-//       class="xui-textinput xui-textinput--input xui-textinput-borderless xui-textinput-borderless-solid xui-textinput-borderless-inverted"
-//       type="text"
-//       placeholder="Solid inverted input"
-//       aria-label="Solid inverted input"/>
-//   </div>
+//   <input class="xui-textinput--input xui-padding-left-none" type="search" placeholder="Search sales & purchases" aria-label="Search sales & purchases" />
 // </div>
 //
 // Styleguide: Building Blocks.Controls.TextInput.6
@@ -182,9 +178,11 @@
 // <!-- Icon left -->
 // <div class="xui-textinput xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//     <svg focusable="false" class="xui-icon">
-//       <use xlink:href="#xui-icon-url" role="presentation" />
-//     </svg>
+//     <div class="xui-iconwrapper">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-url" role="presentation" />
+//       </svg>
+//     </div>
 //   </div>
 //   <input
 //     class="xui-textinput--input xui-padding-left-none"
@@ -194,37 +192,29 @@
 // </div>
 // <div class="xui-textinput xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//     <svg focusable="false" class="xui-icon">
-//       <use xlink:href="#xui-icon-search" role="presentation" />
-//     </svg>
+//     <div class="xui-iconwrapper">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-search" role="presentation" />
+//       </svg>
+//     </div>
 //   </div>
-//   <input
-//     class="xui-textinput--input xui-padding-left-none"
-//     type="search"
-//     placeholder="Search"
-//     aria-label="Search"/>
+//   <input class="xui-textinput--input xui-padding-left-none" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
 // <div class="xui-textinput xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-text">
 //     €
 //   </div>
-//   <input
-//     class="xui-textinput--input xui-padding-left-none"
-//     type="text"
-//     placeholder="0.00"
-//     aria-label="Amount"/>
+//   <input class="xui-textinput--input xui-padding-left-none" type="text" placeholder="0.00" aria-label="Amount"/>
 // </div>
 // <div class="xui-textinput xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon xui-textinput--sideelement-has-background xui-textinput--sideelement-twitter">
-//     <svg focusable="false" class="xui-icon">
-//     <use xlink:href="#xui-icon-social-twitter" role="presentation" />
-//     </svg>
+//     <div class="xui-iconwrapper">
+//       <svg focusable="false" class="xui-icon">
+//          <use xlink:href="#xui-icon-social-twitter" role="presentation" />
+//       </svg>
+//     </div>
 //   </div>
-//   <input
-//     class="xui-textinput--input xui-padding-left-none"
-//     type="text"
-//     placeholder="@username"
-//     aria-label="Twitter username"/>
+//   <input class="xui-textinput--input xui-padding-left-none" type="text" placeholder="@username" aria-label="Twitter username"/>
 // </div>
 //
 // Styleguide: Building Blocks.Controls.TextInput.7.1
@@ -238,45 +228,37 @@
 // Markup:
 // <div class="xui-textinput xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//     <svg focusable="false" class="xui-icon">
-//       <use xlink:href="#xui-icon-search" role="presentation" />
-//     </svg>
+//     <div class="xui-iconwrapper">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-search" role="presentation" />
+//       </svg>
+//     </div>
 //   </div>
-//   <input
-//     class="xui-textinput--input xui-padding-horizontal-none"
-//     type="search"
-//     placeholder="Search"
-//     aria-label="Search"/>
+//   <input class="xui-textinput--input xui-padding-horizontal-none" type="search" placeholder="Search" aria-label="Search"/>
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-clear" role="presentation"/>
-//       </svg>
+//       <div class="xui-iconwrapper">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-clear" role="presentation"/>
+//         </svg>
+//       </div>
 //     </button>
 //   </div>
 // </div>
 // <div class="xui-textinput xui-margin">
-//   <input
-//     class="xui-textinput--input xui-padding-right-none"
-//     id="issue-date"
-//     type="text"
-//     placeholder="Try 'next month'"
-//     aria-label="Issue date"/>
+//   <input class="xui-textinput--input xui-padding-right-none" id="issue-date" type="text" placeholder="Try 'next month'" aria-label="Issue date"/>
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <button type="button" class="xui-button xui-button-icon" title="Select a date" aria-label="Select a date">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-date-start" role="presentation"/>
-//       </svg>
+//       <div class="xui-iconwrapper">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-date-start" role="presentation"/>
+//         </svg>
+//       </div>
 //     </button>
 //   </div>
 // </div>
 // <div class="xui-textinput xui-margin">
-//   <input
-//     class="xui-textinput--input xui-padding-right-none"
-//     id="issue-date"
-//     type="text"
-//     placeholder="Add something to submit"
-//     aria-label="Issue date"/>
+//   <input class="xui-textinput--input xui-padding-right-none" id="issue-date2" type="text" placeholder="Add something to submit" aria-label="Issue date"/>
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-button">
 //     <button type="button" class="xui-button xui-button-main xui-button-small" title="Submit" aria-label="Submit">
 //       Submit

@@ -1,0 +1,25 @@
+@import "../mixins";
+@import "../vars";
+
+.#{$ns}-button--caret {
+	margin-left: $xui-s-xsmall;
+	vertical-align: middle;
+
+	.#{$ns}-button-split & {
+		@include xui-margin-horizontal($xui-s-small);
+	}
+
+	&.#{$ns}-blobicon {
+		@include xui-margin-top(-7px);
+		@include xui-margin-left(-6px);
+		@include xui-margin-right(-10px);
+		@include xui-margin-bottom(-11px);
+	}
+}
+
+
+.#{$ns}-button-split {
+	flex-shrink: 0;
+	min-width: 0;
+	padding: 0;
+}

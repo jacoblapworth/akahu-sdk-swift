@@ -7,6 +7,10 @@ import XUITextInputSideElement from '../XUITextInputSideElement';
 import XUIIcon from '../../icon/XUIIcon';
 import accessibility from '@xero/xui-icon/icons/accessibility';
 import NOOP from '../../helpers/noop';
+import uuidv4 from 'uuid/v4';
+
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -21,9 +25,6 @@ describe('<XUITextInput>', () => {
 			wrapper = mount(
 				<XUITextInput
 					qaHook={qaHook}
-					inputProps= {{
-						className: className
-					}}
 				/>
 			);
 		});
@@ -39,11 +40,6 @@ describe('<XUITextInput>', () => {
 			expect(automationId).toMatchSnapshot();
 		});
 
-		it('should pass "containerClassName" to container element', () => {
-			const input = wrapper.find('input');
-			expect(input.hasClass(className)).toBeTruthy();
-		});
-
 		it('should default to no icon', () => {
 			expect(wrapper.find('XUIIcon')).toHaveLength(0);
 		});
@@ -55,7 +51,6 @@ describe('<XUITextInput>', () => {
 		let input;
 		let className = 'someClassName';
 		let qaHook = 'givenQAHook';
-		let additionalAttrs = { placeholder : 'This is an input' };
 
 		beforeEach(() => {
 			wrapper= mount(
@@ -65,7 +60,7 @@ describe('<XUITextInput>', () => {
 					onChange={ NOOP }
 					style={ {backgroundColor: 'darkred'} }
 					aria-haspopup={ true }
-					inputProps={ additionalAttrs }
+					placeholder='This is an input'
 				/>
 			);
 
@@ -111,7 +106,7 @@ describe('<XUITextInput>', () => {
 		});
 
 		it('renders with a label when one is provided', () => {
-			const wrapper = renderer.create(<XUITextInput labelText="test" />);
+			const wrapper = renderer.create(<XUITextInput labelText="test" labelId="testLabel" />);
 			expect(wrapper).toMatchSnapshot();
 		})
 
@@ -128,6 +123,7 @@ describe('<XUITextInput>', () => {
 					inputClassName="custom-input-class"
 					labelClassName="custom-label-class"
 					labelText="test"
+					labelId="testLabel"
 				/>);
 
 			expect(wrapper).toMatchSnapshot();
@@ -146,7 +142,7 @@ describe('<XUITextInput>', () => {
 		});
 	});
 
-	describe('Validation', () => {
+	describe('Validation and hints', () => {
 		it('renders with the correct class on the input if isInvalid=true', () => {
 			const wrapper = mount(
 				<XUITextInput
@@ -159,21 +155,19 @@ describe('<XUITextInput>', () => {
 		});
 
 		it('renders with a hint message if one is provided and the input is valid', () => {
-			const msg = 'Boo';
-			const wrapper = mount(
+			const wrapper = renderer.create(
 				<XUITextInput
 					onChange={ NOOP }
-					hintMessage={ msg }
+					hintMessage="Boo"
 					validationMessage="Wut?"
 				/>
 			);
 
-			const validationEl = wrapper.find('.xui-validation');
-			expect(validationEl.text()).toEqual(msg);
+			expect(wrapper).toMatchSnapshot();
 		});
 
-		it('renders with the correct class on the validation element if isInvalid=true and a validation message is present', () => {
-			const wrapper = mount(
+		it('renders invalid textinputs with an error message correctly', () => {
+			const wrapper = renderer.create(
 				<XUITextInput
 					onChange={ NOOP }
 					isInvalid={ true }
@@ -181,10 +175,7 @@ describe('<XUITextInput>', () => {
 				/>
 			);
 
-			expect(wrapper.find('.xui-textinput-is-invalid')).toHaveLength(1);
-
-			const validationEl = wrapper.find('.xui-validation');
-			expect(validationEl.hasClass('xui-validation-is-invalid')).toBeTruthy();
+			expect(wrapper).toMatchSnapshot();
 		});
 
 		it('renders with the validation message if isInvalid=true and both a hint message and a validation message are present', () => {
@@ -237,7 +228,7 @@ describe('<XUITextInput>', () => {
 		it('should render side elements correctly', () => {
 			const sideElement = (
 				<XUITextInputSideElement type="icon">
-					<XUIIcon path={accessibility} />
+					<XUIIcon icon={accessibility} isBoxed />
 				</XUITextInputSideElement>
 			);
 			const wrapper = renderer.create(

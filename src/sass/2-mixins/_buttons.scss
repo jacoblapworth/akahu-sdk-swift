@@ -1,0 +1,155 @@
+@import "../vars";
+
+/*
+Provides reset for button styles applied by the browser
+*/
+@mixin xui-button-reset {
+	appearance: none;
+	background: transparent;
+	border: 0;
+	color: inherit;
+	cursor: pointer;
+	display: inline-block;
+	font-family: inherit;
+	font-size: inherit;
+	margin: 0;
+	outline: none;
+	padding: 0;
+	// Sometimes a button can be a link,
+	// We don't want the default link style applied here.
+	text-decoration: none;
+}
+
+/*
+Standard XUI button shadow
+
+$color - alpha value for the box shadow to be applied with
+*/
+@mixin xui-button-shadow($color) {
+	box-shadow: inset 0 0 0 40px $color;
+}
+
+/*
+Applies focus button styling on focus
+
+$shadow - `box-shadow` to apply on hover
+*/
+@mixin xui-button-focus($shadow) {
+	&:focus {
+		box-shadow: $shadow;
+		text-decoration: none;
+		z-index: 2;
+	}
+}
+
+/*
+Provides disabled button styling
+
+$bg-color - Background color to use
+$bg-color - Text color to use
+$hover-bg-color - Background color to use on hover
+*/
+@mixin xui-button-is-disabled($bg-color: $xui-color-white, $color: $xui-button-disabled-bg-color, $hover-bg-color: null) {
+	background-color: $bg-color;
+	border-color: $xui-button-disabled-bg-color;
+	box-shadow: none;
+	color: $color;
+	cursor: not-allowed;
+	&:hover, &:active{
+		background-color: $hover-bg-color;
+	}
+}
+
+/*
+Used to create the variants of xui buttons
+
+$bg-color - Background color to use
+$bg-hover-color - Background color to use on hover
+$bg-active-color - Background color to use on active
+$color - Text color to use
+$hover-color - Text color to use on hover
+$active-color - Text color to use on active
+$border-color - Border color to use
+*/
+@mixin xui-button-variant($bg-color: $xui-color-white, $bg-hover-color: $xui-button-hover-bg-color, $bg-active-color: $xui-button-active-bg-color, $color: $xui-color-blue, $hover-color: $xui-color-blue, $active-color: $xui-color-blue, $border-color: $color) {
+	background-color: $bg-color;
+	border: 1px solid $border-color;
+	border-radius: $xui-radius;
+	color: $color;
+	font-weight: bold;
+	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
+	min-height: $xui-input-height;
+	padding: 11px $xui-input-padding-horizontal;
+	position: relative; // Set to enable z-index to take effect on focus
+	text-align: center;
+	text-decoration: none;
+	transition-duration: $xui-motion-speed-fast;
+	transition-property: color, background, box-shadow;
+	transition-timing-function: $xui-motion-curve-standard;
+	&:hover {
+		background-color: $bg-hover-color;
+		color: $hover-color;
+	}
+	&:active {
+		background-color: $bg-active-color;
+		color: $active-color;
+	}
+}
+
+/*
+Used to create the borderless variants of XUI button
+
+$text-color - Text color to use
+$text-hover-color - Text color to use on hover
+$background-focus - Background color to use on focus
+$background-active - Background color to use while active
+*/
+@mixin xui-button-borderless($text-color, $text-hover-color, $text-active-color, $background-focus: $xui-button-borderless-focus-bg-color, $background-active: $xui-button-borderless-active-bg-color) {
+	background: transparent;
+	border-radius: $xui-radius;
+	color: $text-color;
+	font-weight: bold;
+	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
+	min-height: $xui-input-height;
+	padding: 11px $xui-input-padding-horizontal;
+	transition-duration: $xui-motion-speed-fast;
+	transition-property: color, background;
+	transition-timing-function: $xui-motion-curve-standard;
+	&:hover {
+		background: $background-focus;
+		color: $text-hover-color;
+	}
+	&:focus {
+		background: $background-focus;
+		color: $text-hover-color;
+	}
+	&:active {
+		background: $background-active;
+		color: $text-active-color;
+	}
+}
+
+/*
+Creates the state variant modifiers for XUI icon buttons
+
+$text-color - Text color to use when hovered or active
+$focus-bg-color - Background color to use when focused
+$active-bg-color - Background color to use when active
+$hover-bg-color - Background color to use when hovered
+*/
+@mixin xui-button-icon-states($text-color: $xui-color-grey-1, $focus-bg-color: $xui-button-borderless-focus-bg-color, $active-bg-color:$xui-button-borderless-active-bg-color, $hover-bg-color: $xui-button-borderless-focus-bg-color) {
+	&:hover {
+		background-color: $hover-bg-color;
+		color: $text-color;
+	}
+	&:focus {
+		background: $focus-bg-color;
+		color: $text-color;
+		outline: none;
+	}
+	&:active {
+		background: $active-bg-color;
+		color: $text-color;
+		outline: none;
+	}
+}

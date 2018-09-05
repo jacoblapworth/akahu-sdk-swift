@@ -1,27 +1,42 @@
-import '../helpers/xuiGlobalChecks';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import checkboxCheck from '@xero/xui-icon/icons/checkbox-check';
-import checkboxIndeterminate from '@xero/xui-icon/icons/checkbox-indeterminate';
-import checkboxMain from '@xero/xui-icon/icons/checkbox-main';
-import {baseClass} from './constants';
-import {ns} from "../helpers/xuiClassNamespace";
+import uuidv4 from 'uuid/v4';
+import '../helpers/xuiGlobalChecks';
+import { baseClass } from './constants';
+import { ns } from '../helpers/xuiClassNamespace';
+
+// TODO: If there is further need to conform to specific browser scenarios then
+// we will need to replace this snippet with something more robust and granular,
+// or an NPM library (one that is not too heavy). Currently this is the only case
+// in XUI where we are browser sniffing.
+const isIeOrEdge =
+	typeof window !== 'undefined' &&
+	(() => {
+		const { document, navigator } = window;
+		const isIe = document.documentMode;
+		const isEdge = /Edge/.test(navigator.userAgent);
+
+		return isIe || isEdge;
+	})();
 
 /**
  * @function setIndeterminate - Set the indeterminate DOM property of the given checkbox instance
  * @param xuiCheckbox - The checkbox instance for which to set the indeterminate DOM property
  */
-const setIndeterminate = (xuiCheckbox) => {
-	if(xuiCheckbox._input) {
+const setIndeterminate = xuiCheckbox => {
+	if (xuiCheckbox._input) {
+		// TODO: Lint fix
+		// eslint-disable-next-line no-param-reassign
 		xuiCheckbox._input.indeterminate = xuiCheckbox.props.isIndeterminate;
 	}
 };
 
 /**
- * @function onLabelClick - Prevent 2 click events bubbling. Since our input is wrapped inside a label,
- * then clicking the label will also cause a new click event on the input, which also bubbles up. If a consumer
- * attaches an onClick event listener further up the DOM, we don't want it to be fired twice.
+ * @function onLabelClick - Prevent 2 click events bubbling. Since our input is wrapped
+ * inside a label, then clicking the label will also cause a new click event on the input,
+ * which also bubbles up. If a consumer attaches an onClick event listener further up the
+ * DOM, we don't want it to be fired twice.
  *
  * @private
  */
@@ -37,20 +52,34 @@ const onLabelClick = e => {
  * @param svgSettings - Object containing optional svg properties (classname, icon paths)
  *
  */
-const buildSvgCheckbox = (qaHook, {svgClassName, iconMainPath, iconCheckPath, iconIndeterminatePath}) => {
+const buildSvgCheckbox = (qaHook, { svgClassName, iconMain }) => {
 	const svgClasses = cn(`${ns}-icon`, svgClassName);
+	const createPathWithClass = className => (
+		<path
+			d={iconMain.path}
+			className={className}
+			role="presentation"
+		/>
+	);
 	return (
-		<svg className={svgClasses} data-automationid={qaHook && `${qaHook}--icon`}>
-			<path d={iconMainPath || checkboxMain} className={`${baseClass}--focus`} role="presentation" />
-			<path d={iconMainPath || checkboxMain} className={`${baseClass}--main`} role="presentation" />
-			{iconMainPath && !iconCheckPath ? null : <path d={iconCheckPath || checkboxCheck} className={`${baseClass}--check`} role="presentation" />}
-			{iconMainPath && !iconIndeterminatePath ? null : <path d={iconIndeterminatePath || checkboxIndeterminate} className={`${baseClass}--indeterminate`} role="presentation" />}
-		</svg>
+		<div className={`${ns}-iconwrapper`}>
+			<svg
+				className={svgClasses}
+				data-automationid={qaHook && `${qaHook}--icon`}
+				width={iconMain.width}
+				height={iconMain.height}
+				viewBox={`0 0 ${iconMain.width} ${iconMain.height}`}
+			>
+				{createPathWithClass(`${baseClass}--focus`)}
+				{createPathWithClass(`${baseClass}--main`)}
+			</svg>
+		</div>
 	);
 };
 
 /**
- * @function buildHtmlCheckbox - given the checkbox props supplied, select which checkbox builder to trigger
+ * @function buildHtmlCheckbox - given the checkbox props supplied, select which checkbox
+ * builder to trigger
  * @param qaHook - Optional hook label
  * @param htmlClassName - Optional classname to add to html version of checkbox
  *
@@ -58,19 +87,20 @@ const buildSvgCheckbox = (qaHook, {svgClassName, iconMainPath, iconCheckPath, ic
 const buildHtmlCheckbox = (qaHook, htmlClassName) => {
 	const htmlClasses = cn(`${baseClass}--checkbox`, htmlClassName);
 	return (
-		<div className={htmlClasses} data-automationid={qaHook && `${qaHook}--checkbox`}/>
+		<div className={htmlClasses} data-automationid={qaHook && `${qaHook}--checkbox`} />
 	);
 };
 
 /**
- * @function buildCheckbox - given the checkbox props supplied, select which checkbox builder to trigger
+ * @function buildCheckbox - given the checkbox props supplied, select which checkbox
+ * builder to trigger
  * @param qaHook - Optional hook label
  * @param htmlClassName - Optional classname to add to html version of checkbox
  * @param svgSettings - Object containing optional svg properties (classname, icon paths)
  *
  */
 const buildCheckbox = (qaHook, htmlClassName, svgSettings) => {
-	if (svgSettings.iconMainPath || svgSettings.iconCheckPath || svgSettings.iconIndeterminatePath) {
+	if (svgSettings.iconMain) {
 		return buildSvgCheckbox(qaHook, svgSettings);
 	}
 	return buildHtmlCheckbox(qaHook, htmlClassName);
@@ -84,6 +114,9 @@ const buildCheckbox = (qaHook, htmlClassName, svgSettings) => {
  * @extends {Component}
  */
 export default class XUICheckbox extends Component {
+	// User can manually proivde an id, or we will generate one.
+	labelId = this.props.labelId || uuidv4();
+
 	componentDidMount() {
 		setIndeterminate(this);
 	}
@@ -92,8 +125,20 @@ export default class XUICheckbox extends Component {
 		setIndeterminate(this);
 	}
 
-	onClick = () => {
+	onClick = event => {
+		const { _input: { indeterminate }, props: { onChange, isIndeterminate } } = this;
+
 		setIndeterminate(this);
+
+		// Both IE11 and Edge do not register an "onChange" event when the checkbox
+		// is in an "Indeterminate" state. In that regard the checkbox becomes non
+		// responsive and cannot rebound back to a "checked" or "unchecked" state.
+		// Here we check if the checkbox's "Indeterminate" state is attempting to
+		// change and if so we give it a helping hand by manually triggering the
+		// "onChange" hook..
+		if (onChange && isIeOrEdge && (indeterminate !== isIndeterminate)) {
+			onChange(event);
+		}
 	};
 
 	render() {
@@ -102,9 +147,7 @@ export default class XUICheckbox extends Component {
 			children,
 			className,
 			qaHook,
-			iconCheckPath,
-			iconIndeterminatePath,
-			iconMainPath,
+			iconMain,
 			isDefaultChecked,
 			isChecked,
 			isDisabled,
@@ -116,29 +159,42 @@ export default class XUICheckbox extends Component {
 			value,
 			svgClassName,
 			labelClassName,
-			htmlClassName
+			htmlClassName,
 		} = this.props;
+
 		const classes = cn(
 			className,
 			baseClass,
 			isReversed && `${baseClass}-reversed`,
-			isDisabled && `${ns}-is-disabled`
+			isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
 		);
 
 		const labelClasses = cn(
 			`${baseClass}--label`,
-			labelClassName
+			labelClassName,
 		);
 		const labelElement =
 			!isLabelHidden &&
-			children &&
-			<span className={labelClasses} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>;
+			children && (
+				<span
+					id={this.labelId}
+					className={labelClasses}
+					data-automationid={qaHook && `${qaHook}--label`}
+				>
+					{children}
+				</span>
+			);
 		const inputProps = {
 			'type': 'checkbox',
 			'disabled': isDisabled,
 			'required': isRequired,
 			'onClick': this.onClick,
-			'aria-label': isLabelHidden && children || undefined,
+			'aria-label': (isLabelHidden && children) || undefined,
+			// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
+			'aria-labelledby':
+				(labelElement && this.labelId)
+				|| (!children && this.props.labelId)
+				|| undefined,
 			tabIndex,
 			name,
 			onChange,
@@ -146,9 +202,7 @@ export default class XUICheckbox extends Component {
 		};
 		const svgSettings = {
 			svgClassName,
-			iconMainPath,
-			iconCheckPath,
-			iconIndeterminatePath
+			iconMain,
 		};
 
 		// If the user has not passed in anything for the isChecked prop, we need to set the
@@ -166,7 +220,12 @@ export default class XUICheckbox extends Component {
 		}
 
 		return (
-			<label className={classes} data-automationid={qaHook} onClick={onLabelClick}>
+			<label
+				className={classes}
+				data-automationid={qaHook}
+				onClick={onLabelClick}
+				role="presentation"
+			>
 				<input
 					ref={cb => this._input = cb}
 					{...inputProps}
@@ -185,14 +244,12 @@ XUICheckbox.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 
-	/** The icon path to use for the checkmark */
-	iconCheckPath: PropTypes.string,
-
-	/** The icon path to use for the indeterminate mark */
-	iconIndeterminatePath: PropTypes.string,
-
 	/** The icon path to use for the checkbox */
-	iconMainPath: PropTypes.string,
+	iconMain: PropTypes.shape({
+		path: PropTypes.string.isRequired,
+		height: PropTypes.number.isRequired,
+		width: PropTypes.number.isRequired,
+	}),
 
 	/** The input is selected */
 	isChecked: PropTypes.bool,
@@ -216,7 +273,8 @@ XUICheckbox.propTypes = {
 	/** Additional class names on the span (pseudo-label) element  */
 	labelClassName: PropTypes.string,
 
-	/** Prevents the label element from being displayed on the page. Label is still accessible to screen readers. */
+	/** Prevents the label element from being displayed on the page. Label is still
+	 * accessible to screen readers. */
 	isLabelHidden: PropTypes.bool,
 
 	/** The name to use as a reference for the value */
@@ -237,8 +295,12 @@ XUICheckbox.propTypes = {
 	/** The tab-index property to place on the checkbox */
 	tabIndex: PropTypes.number,
 
-	/** Used to output an uncontrolled checkbox component.  If a value is passed to the isChecked prop, this prop will be ignored. */
+	/** Used to output an uncontrolled checkbox component.  If a value is passed to the
+	 * isChecked prop, this prop will be ignored. */
 	isDefaultChecked: PropTypes.bool,
+
+	/** Provide a specific label ID which will be used as the "labelleby" aria property */
+	labelId: PropTypes.string,
 };
 
 XUICheckbox.defaultProps = {
@@ -246,5 +308,5 @@ XUICheckbox.defaultProps = {
 	isDisabled: false,
 	isIndeterminate: false,
 	isRequired: false,
-	isReversed: false
+	isReversed: false,
 };

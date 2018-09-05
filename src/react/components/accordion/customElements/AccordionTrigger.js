@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from "../../helpers/xuiClassNamespace";
 import arrowPath from '@xero/xui-icon/icons/arrow';
+import { ns } from '../../helpers/xuiClassNamespace';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
 
@@ -30,29 +30,29 @@ export default class AccordionTrigger extends PureComponent {
 			pinnedValue,
 			qaHook,
 			primaryHeading,
-			secondaryHeading
+			secondaryHeading,
 		} = this.props;
 
 		const primaryHeadingScaffold = primaryHeading && (
-			<div className={`${ns}-accordiontrigger-new--primaryheading`}>
+			<div className={`${ns}-accordiontrigger--primaryheading`}>
 				{primaryHeading}
 			</div>);
 
 		const secondaryHeadingScaffold = secondaryHeading && (
-			<div className={`${ns}-accordiontrigger-new--secondaryheading`}>
+			<div className={`${ns}-accordiontrigger--secondaryheading`}>
 				{secondaryHeading}
 			</div>);
 
 		const pinnedValueScaffold = pinnedValue && (
-			<div className={`${ns}-accordiontrigger-new--pinnedvalue`}>
+			<div className={`${ns}-accordiontrigger--pinnedvalue`}>
 				{pinnedValue}
 			</div>);
 
 		const builtRightContent = (pinnedValueScaffold || action || overflow) && (
-			<div className={`${ns}-accordiontrigger-new--rightcontent`}>
+			<div className={`${ns}-accordiontrigger--rightcontent`}>
 				{pinnedValueScaffold}
 				{action}
-				<div className={`${ns}-accordiontrigger-new--overflowcontent`}>{overflow}</div>
+				<div className={`${ns}-accordiontrigger--overflowcontent`}>{overflow}</div>
 			</div>);
 
 		return (
@@ -63,16 +63,18 @@ export default class AccordionTrigger extends PureComponent {
 				tabIndex="0"
 				role="button"
 				aria-label={toggleLabel}
-				className={cn(`${ns}-accordiontrigger-new`, {
-					[`${ns}-accordiontrigger-new-is-open`]: isOpen,
-				})}>
-				<div className={`${ns}-accordiontrigger-new--arrow`}>
+				className={cn(`${ns}-accordiontrigger`, {
+					[`${ns}-accordiontrigger-is-open`]: isOpen,
+				})}
+			>
+				<div className={`${ns}-accordiontrigger--arrow`}>
 					<XUIButton
 						variant="icon-large"
 						title={toggleLabel}
-						tabIndex={-1}>
+						tabIndex={-1}
+					>
 						<XUIIcon
-							path={arrowPath}
+							icon={arrowPath}
 							rotation={isOpen ? 180 : null}
 						/>
 					</XUIButton>
@@ -80,8 +82,8 @@ export default class AccordionTrigger extends PureComponent {
 
 				{leftContent}
 
-				<div className={`${ns}-accordiontrigger-new--content`}>
-					<div className={`${ns}-accordiontrigger-new--headings`}>
+				<div className={`${ns}-accordiontrigger--content`}>
+					<div className={`${ns}-accordiontrigger--headings`}>
 						{primaryHeadingScaffold}
 						{secondaryHeadingScaffold}
 					</div>

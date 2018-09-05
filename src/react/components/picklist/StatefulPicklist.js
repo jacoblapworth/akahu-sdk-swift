@@ -12,8 +12,9 @@ import {
 	findParentGroupContainer,
 	isMenuItem,
 	getInstanceForChild,
-	isSplitMenuItem
+	isSplitMenuItem,
 } from './private/helpers';
+import StatefulPicklistWrapper from './StatefulPicklistWrapper';
 
 /**
  * Manages the arrow key events, checks the event is valid and based on the current
@@ -25,52 +26,54 @@ import {
  */
 function handleArrowKeyEvents(event, spl) {
 	const highlighted = spl.getHighlighted();
-	const {isHorizontal} = spl.props;
+	const { isHorizontal } = spl.props;
 
 	switch (event.keyCode) {
-		case 37: { // Arrow Left
-			const container = findParentGroupContainer(spl.list, highlighted);
-			if (isHorizontal) {
-				spl.highlightPrevious(highlighted);
-			} else if (container) {
-				if (isNestedListTrigger(highlighted)) {
-					const containerInstance = getInstanceForChild(spl.idCache, container);
-
-					// If the nested list is open, close it
-					if (containerInstance.isOpen()) {
-						getInstanceForChild(spl.idCache, container).close();
-					} else {
-						// If the nested list is closed, check to see if the previous item is a split menu item.  If
-						// it is, highlight that
-						const prev = findPreviousItem(spl.list, highlighted, spl.idCache);
-						if (isSplitMenuItem(prev)) {
-							spl.highlightItem(prev);
-						}
-					}
-				} else if (isMenuItem(highlighted)) {
-					spl.highlightItem(container.props.children.find(isNestedListTrigger));
-				}
-			}
-			break;
-		}
-		case 38: // Arrow Up
+	case 37: { // Arrow Left
+		const container = findParentGroupContainer(spl.list, highlighted);
+		if (isHorizontal) {
 			spl.highlightPrevious(highlighted);
-			break;
-		case 39: // Arrow Right
-			if (isHorizontal) {
-				spl.highlightNext(highlighted);
-			} else if (isSplitMenuItem(highlighted)) {
-				spl.highlightNext(highlighted);
-			} else if (isNestedListTrigger(highlighted)) {
-				const container = findParentGroupContainer(spl.list, highlighted);
-				if (container) {
-					getInstanceForChild(spl.idCache, container).open();
+		} else if (container) {
+			if (isNestedListTrigger(highlighted)) {
+				const containerInstance = getInstanceForChild(spl.idCache, container);
+
+				// If the nested list is open, close it
+				if (containerInstance.isOpen()) {
+					getInstanceForChild(spl.idCache, container).close();
+				} else {
+					// If the nested list is closed, check to see if the previous item is a split menu item.  If
+					// it is, highlight that
+					const prev = findPreviousItem(spl.list, highlighted, spl.idCache);
+					if (isSplitMenuItem(prev)) {
+						spl.highlightItem(prev);
+					}
 				}
+			} else if (isMenuItem(highlighted)) {
+				spl.highlightItem(container.props.children.find(isNestedListTrigger));
 			}
-			break;
-		case 40: // Arrow Down
+		}
+		break;
+	}
+	case 38: // Arrow Up
+		spl.highlightPrevious(highlighted);
+		break;
+	case 39: // Arrow Right
+		if (isHorizontal) {
 			spl.highlightNext(highlighted);
-			break;
+		} else if (isSplitMenuItem(highlighted)) {
+			spl.highlightNext(highlighted);
+		} else if (isNestedListTrigger(highlighted)) {
+			const container = findParentGroupContainer(spl.list, highlighted);
+			if (container) {
+				getInstanceForChild(spl.idCache, container).open();
+			}
+		}
+		break;
+	case 40: // Arrow Down
+		spl.highlightNext(highlighted);
+		break;
+	default:
+		break;
 	}
 }
 
@@ -91,7 +94,7 @@ class StatefulPicklist extends Component {
 		const spl = this;
 
 		spl.state = {
-			highlightedElement: null
+			highlightedElement: null,
 		};
 		spl.idCache = {};
 		spl.onKeyDown = spl.onKeyDown.bind(spl);
@@ -101,17 +104,18 @@ class StatefulPicklist extends Component {
 		spl.highlightInitial = spl.highlightInitial.bind(spl);
 		spl.findItemById = spl.findItemById.bind(spl);
 		spl.onClick = spl.onClick.bind(spl);
-		spl.onMouseDown = spl.onMouseDown.bind(spl);
 		spl.onMouseOver = spl.onMouseOver.bind(spl);
 	}
 
 	componentDidUpdate() {
 		/**
-		 * We could be in two scenarios here. We've opened the list and no item is highlighted so lets highlight it
+		 * We could be in two scenarios here. We've opened the list and no item is
+		 * highlighted so lets highlight it
 		 * OR
-		 * We're an inline open list and we've click on an item to force the list in focus, it doesn't have a
-		 * highlighted item, but we also need to check there isn't a selected item at this stage too. If not, lets
-		 * force the first item to be our highlightedElement.
+		 * We're an inline open list and we've click on an item to force the list
+		 * in focus, it doesn't have a highlighted item, but we also need to check
+		 * there isn't a selected item at this stage too. If not, lets force the
+		 * first item to be our highlightedElement.
 		 */
 		this.highlightInitial();
 	}
@@ -157,10 +161,10 @@ class StatefulPicklist extends Component {
 	 */
 	selectHighlighted(item) {
 		const spl = this;
-		const value = item.props.value;
+		const { value } = item.props;
 
 		spl.setState({
-			highlightedElement: item
+			highlightedElement: item,
 		});
 
 		item.props.onSelect && item.props.onSelect(value, item);
@@ -209,7 +213,7 @@ class StatefulPicklist extends Component {
 	highlightItem(item, event) {
 		const spl = this;
 		spl.setState({
-			highlightedElement: item
+			highlightedElement: item,
 		});
 
 		spl.props.onHighlightChange && spl.props.onHighlightChange(item, event);
@@ -234,12 +238,15 @@ class StatefulPicklist extends Component {
 			return;
 		}
 		const highlightedEl = this.getHighlighted();
-		const canFindHighlightedEl = highlightedEl && this.idCache.hasOwnProperty(highlightedEl.props.id) && this.idCache[highlightedEl.props.id];
+		const canFindHighlightedEl = highlightedEl
+			// eslint-disable-next-line no-prototype-builtins
+			&& this.idCache.hasOwnProperty(highlightedEl.props.id)
+			&& this.idCache[highlightedEl.props.id];
 		if (!canFindHighlightedEl) {
 			const firstItem = findInitialHighlightedItem(this.list, this.idCache);
 			if (firstItem) {
 				this.setState({
-					highlightedElement: firstItem
+					highlightedElement: firstItem,
 				});
 			}
 		}
@@ -259,6 +266,7 @@ class StatefulPicklist extends Component {
 				foundItem = node;
 				return true;
 			}
+			return false;
 		};
 
 		walk(this.list, findItem);
@@ -279,31 +287,33 @@ class StatefulPicklist extends Component {
 
 		if (ignoreKeyboardEvents.indexOf(event.keyCode) === -1) {
 			switch (event.keyCode) {
-				// 'space' and 'enter' keys
-				case 13:
-				case 32: {
-					event.preventDefault();
-					const el = spl.getHighlighted();
-					if (el) {
-						if (isNestedListTrigger(el)) {
-							const container = findParentGroupContainer(spl.list, el);
-							if (container) {
-								getInstanceForChild(spl.idCache, container).toggle();
-							}
-						} else {
-							spl.selectHighlighted(el);
+			// 'space' and 'enter' keys
+			case 13:
+			case 32: {
+				event.preventDefault();
+				const el = spl.getHighlighted();
+				if (el) {
+					if (isNestedListTrigger(el)) {
+						const container = findParentGroupContainer(spl.list, el);
+						if (container) {
+							getInstanceForChild(spl.idCache, container).toggle();
 						}
+					} else {
+						spl.selectHighlighted(el);
 					}
-					break;
 				}
-				// All arrow keys
-				case 37:
-				case 38:
-				case 39:
-				case 40:
-					event.preventDefault();
-					handleArrowKeyEvents(event, spl);
-					break;
+				break;
+			}
+			// All arrow keys
+			case 37:
+			case 38:
+			case 39:
+			case 40:
+				event.preventDefault();
+				handleArrowKeyEvents(event, spl);
+				break;
+			default:
+				break;
 			}
 		}
 	}
@@ -321,34 +331,30 @@ class StatefulPicklist extends Component {
 		if (currentItem !== spl.state.highlightedElement) {
 			spl.highlightItem(currentItem, event);
 		}
-
-	}
-
-	/**
-
-	 * Stops individual items from stealing focus from the list itself when clicked.
-	 *
-	 * @param {MouseEvent} event
-	 */
-	onMouseDown(event) {
-		event.preventDefault();
 	}
 
 	render() {
 		const spl = this;
-		const { children, qaHook, className, canFocus, id, secondaryProps } = spl.props;
+		const {
+			children,
+			qaHook,
+			className,
+			canFocus,
+			id,
+			secondaryProps,
+		} = spl.props;
 
 		return (
 			<StatefulPicklistWrapper
+				{...secondaryProps}
 				data-automationid={qaHook}
 				ref={c => spl.list = c}
-				onMouseDown={spl.onMouseDown}
+				onMouseDown={e => e.preventDefault()}
 				onKeyDown={spl.onKeyDown}
 				className={className}
 				id={id}
 				tabIndex={canFocus ? 0 : null}
 				aria-activedescendant={spl.getHighlightedId()}
-				{...secondaryProps}
 			>
 				{cloneChildren(children, spl)}
 			</StatefulPicklistWrapper>
@@ -383,33 +389,16 @@ StatefulPicklist.propTypes = {
 	secondaryProps: PropTypes.object,
 
 	/** Whether to use left/right arrow keys to move between pickitems as opposed to up/down */
-	isHorizontal: PropTypes.bool
+	isHorizontal: PropTypes.bool,
 };
 
 StatefulPicklist.defaultProps = {
 	ignoreKeyboardEvents: [],
-	hidden: false,
 	canFocus: false,
-	secondaryProps : {
-		role:"tree"
+	secondaryProps: {
+		role: 'tree',
 	},
 	shouldManageInitialHighlight: true,
-};
-
-/**
- * This wrapper class is so we can reference the list through the virtual DOM. When a react DOM node is used the ref is the
- * actual DOM node rendered instead of React's virtual DOM. As the StatefulPicklist relies on this virtual DOM to
- * navigate through it's children we need to create a wrapper.
- */
-class StatefulPicklistWrapper extends Component {
-	render() {
-		const { children, ...spreadProps } = this.props;
-		return <div { ...spreadProps }>{children}</div>
-	}
-}
-
-StatefulPicklistWrapper.propTypes = {
-	children: PropTypes.node
 };
 
 export { StatefulPicklist as default, findPreviousItem, findNextItem };

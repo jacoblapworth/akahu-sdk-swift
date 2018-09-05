@@ -1,7 +1,7 @@
-import React  from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 export default function XUIBannerMessageDetail(props) {
 	const className = cn(props.className, `${ns}-banner--messagedetail`);
@@ -18,5 +18,5 @@ XUIBannerMessageDetail.propTypes = {
 	qaHook: PropTypes.string,
 
 	/** The banner message details to be displayed as a list */
-	messageDetails: PropTypes.arrayOf(PropTypes.string).isRequired
+	messageDetails: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

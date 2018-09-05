@@ -4,6 +4,10 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIToggleOption from '../XUIToggleOption';
 import XUIToggle from '../XUIToggle';
+import uuidv4 from 'uuid/v4';
+
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => 'testCheckboxId');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -37,6 +41,23 @@ describe('XUIToggle', function() {
 		expect(automationid).toMatchSnapshot();
 	});
 
+	// labelText property
+	it('should have a visible label if provided', function () {
+		const labelTest = renderer.create(<XUIToggle labelText='This is a toggle' />);
+		expect(labelTest).toMatchSnapshot();
+	});
+
+	// isLabelHidden property
+	it('should have a hidden label as aria-label if provided and flagged', function () {
+		const labelHiddenTest = renderer.create(<XUIToggle labelText='This is a toggle' isLabelHidden />);
+		expect(labelHiddenTest).toMatchSnapshot();
+	});
+
+	// labelId property
+	it('should have the fieldLayout class and a custom labelID, if provided', function () {
+		const labelTest = renderer.create(<XUIToggle labelText='This is a toggle' labelId="testing123" isFieldLayout />);
+		expect(labelTest).toMatchSnapshot();
+	});
 
 	// color inverted
 	it('should use the inverted color if defined', function () {

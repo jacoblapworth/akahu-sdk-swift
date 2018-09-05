@@ -7,5 +7,5 @@ export {
 	XUIModal as default,
 	XUIModalBody,
 	XUIModalFooter,
-	XUIModalHeader
+	XUIModalHeader,
 };

@@ -1,0 +1,469 @@
+@import "../vars";
+
+// Loader
+//
+// Components: Loader
+//
+// Teaser: Communicate progress and alleviate slow load times
+//
+// Introduction: Loaders are used to communicate progress and alleviate slow load times.
+//
+// Styleguide: Building Blocks.Identifiers.Loader
+
+// Best practice
+//
+// Tips:
+// Do: Position loaders centrally within their containing element
+// Warning: Avoid loaders on pages that initiated action, include on destination pages instead
+// Dont: Don't show multiple loaders at once
+//
+// Styleguide: Building Blocks.Identifiers.Loader.1
+
+// Anatomy
+//
+// To create a loader, use the following classes.
+//
+// Classes:
+// xui-loader: Apply to loader
+// xui-loader--dot: Apply to three nested elements within the loader
+//
+// Markup:
+// <div class="xui-loader" role="progressbar" aria-valuetext="Content loading">
+//   <div class="xui-loader--dot"></div>
+//   <div class="xui-loader--dot"></div>
+//   <div class="xui-loader--dot"></div>
+// </div>
+//
+// Styleguide: Building Blocks.Identifiers.Loader.2
+
+// Size
+//
+// To change the size of the loader to match its context, add the following modifiers to `xui-loader`.
+//
+// Definitions:
+// Small: Decrease loader size: `-small`
+// Medium: Default size: none
+// Large: Increase loader size: `-large`
+//
+// Markup:
+// <div class="xui-loader xui-loader-small" role="progressbar" aria-valuetext="Content loading">
+//   <div class="xui-loader--dot"></div>
+//   <div class="xui-loader--dot"></div>
+//   <div class="xui-loader--dot"></div>
+// </div>
+// <div class="xui-loader" role="progressbar" aria-valuetext="Content loading">
+//   <div class="xui-loader--dot"></div>
+//   <div class="xui-loader--dot"></div>
+//   <div class="xui-loader--dot"></div>
+// </div>
+// <div class="xui-loader xui-loader-large" role="progressbar" aria-valuetext="Content loading">
+//   <div class="xui-loader--dot"></div>
+//   <div class="xui-loader--dot"></div>
+//   <div class="xui-loader--dot"></div>
+// </div>
+//
+// Styleguide: Building Blocks.Identifiers.Loader.3
+
+// Standard layout
+//
+// To create the default layout, replace the original content with the loader and add the following utility class.
+//
+// Classes:
+// xui-loader-layout: Adds a min height and centers loader vertically and horizontally
+//
+// Markup:
+// <div class="xui-loader xui-loader-layout" role="progressbar" aria-valuetext="Content loading">
+//   <div class="xui-loader--dot"></div>
+//   <div class="xui-loader--dot"></div>
+//   <div class="xui-loader--dot"></div>
+// </div>
+//
+// Styleguide: Building Blocks.Identifiers.Loader.4
+
+// Retain layout
+//
+// Flag: Experimental
+//
+// You may find that replacing an element's content with a loader alters the width and height of the element, even when applying the `xui-loader-layout` class.
+// If this is undesirable, apply the following utility classes instead of removing the content.
+//
+// Classes:
+// xui-loader-retain-layout: Apply to loader
+// xui-u-hidden-content: Apply to content to be hidden
+//
+// Styleguide: Building Blocks.Identifiers.Loader.5
+
+
+// Buttons
+//
+// Tips:
+// Warning: Use button loaders sparingly, place them on the destination page instead
+//
+// To add a loader to a button, apply the following modifier.
+// The loader will inherit text color by default.
+// For small buttons, we recommend adding the `xui-loader-small` modifier.
+//
+// Classes:
+// xui-button--loader: Apply to loader
+//
+// Markup:
+// <button type="button" disabled class="xui-button xui-button-main xui-button-is-disabled">
+//	 <div class="xui-button--loader xui-loader" role="progressbar" aria-valuetext="Button loading">
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//   </div>
+// </button>
+// <button type="button" disabled class="xui-button xui-button-standard xui-button-is-disabled">
+//	 <div class="xui-button--loader xui-loader" role="progressbar" aria-valuetext="Button loading">
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//   </div>
+// </button>
+//
+// Styleguide: Building Blocks.Identifiers.Loader.6
+
+// Retain layout
+//
+// Flag: Experimental
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-main">
+//   Long button text
+// </button>
+// <button type="button" disabled class="xui-button xui-button-main xui-button-is-disabled">
+//   <div class="xui-u-hidden-content">Long button text</div>
+//	 <div class="xui-button--loader xui-loader xui-loader-retain-layout" role="progressbar" aria-valuetext="Button loading">
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//   </div>
+// </button>
+//
+// Styleguide: Building Blocks.Identifiers.Loader.6.1
+
+// Dropdowns
+//
+// Tips:
+// Do: Use a dropdown loader when performing a search
+// DO: Retain dropdown height until new results are received
+// DO: Toggle the loader on keydown to avoid the appearance of lag even if results are debounced
+//
+// Markup:
+// <div class="xui-dropdown-layout xui-dropdown-is-open xui-dropdown-is-opening">
+// 	<div class="xui-dropdown--mask"></div>
+// 	<div class="xui-dropdown--body">
+//	 	<div class="xui-loader xui-loader-layout" role="progressbar" aria-valuetext="Loading content">
+//			<div class="xui-loader--dot"></div>
+//			<div class="xui-loader--dot"></div>
+//			<div class="xui-loader--dot"></div>
+//		</div>
+// 	</div>
+// </div>
+//
+// Styleguide: Building Blocks.Identifiers.Loader.7
+
+
+// Retain layout
+//
+// Flag: Experimental
+//
+// Markup:
+// <div class="xui-dropdown-layout xui-dropdown-is-open xui-dropdown-is-opening">
+// 	<div class="xui-dropdown--mask"></div>
+// 	<div class="xui-dropdown--body">
+// 	<ul class="xui-picklist xui-picklist-layout xui-u-hidden-content">
+// 		<li class="xui-pickitem" tabindex="0">
+// 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
+// 		</li>
+// 		<li class="xui-pickitem" tabindex="0">
+// 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
+// 		</li>
+// 		<li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
+// 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
+// 		</li>
+// 		<li class="xui-pickitem" tabindex="0">
+// 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
+// 		</li>
+// 		<li class="xui-pickitem" tabindex="0">
+// 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
+// 		</li>
+// 		<li class="xui-pickitem" tabindex="0">
+// 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
+// 		</li>
+// 		<li class="xui-pickitem" tabindex="0">
+// 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
+// 		</li>
+// 	</ul>
+//	 	<div class="xui-loader xui-loader-retain-layout" role="progressbar" aria-valuetext="Loading content">
+//			<div class="xui-loader--dot"></div>
+//			<div class="xui-loader--dot"></div>
+//			<div class="xui-loader--dot"></div>
+//		</div>
+// 	</div>
+// </div>
+//
+// Styleguide: Building Blocks.Identifiers.Loader.7.1
+
+// Modals
+//
+// Tips:
+// Do: Use a modal loader when fetching data
+// Warning: Avoid modal loaders when posting data, use a page loader on the destination page instead
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+//	<div class="xui-mask xui-mask-is-active" aria-hidden="false">
+//		<section class="xui-modal xui-modal-layout" tabindex="0" role="dialog">
+//	 		<div class="xui-loader xui-loader-layout" role="progressbar" aria-valuetext="Loading content">
+//				<div class="xui-loader--dot"></div>
+//				<div class="xui-loader--dot"></div>
+//				<div class="xui-loader--dot"></div>
+//			</div>
+//		</section>
+//	</div>
+//
+// Styleguide: Building Blocks.Identifiers.Loader.8
+
+// Retain layout
+//
+// Flag: Experimental
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+//	<div class="xui-mask xui-mask-is-active" aria-hidden="false">
+// 	<section class="xui-modal xui-modal-layout" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
+//     <button type="button" class="xui-button xui-button-icon xui-modal--close xui-u-hidden-content" title="Close" aria-label="Close">
+//       <svg focusable="false" class="xui-icon"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-cross" role="presentation"></use></svg>
+//     </button>
+//     <header class="xui-modal--header xui-padding-left-large xui-u-hidden-content">
+//       <h3 id="modal-heading" class="xui-modal--heading">Modal title</h3>
+//     </header>
+//     <div class="xui-modal--body xui-padding-horizontal-large xui-u-hidden-content">
+//       <form class="xui-padding-top">
+//         <div class="xui-field-layout">
+// 					<label class="xui-text-label xui-fieldlabel-layout" for="first-name">Name</label>
+// 						<div class="xui-inputgroup">
+// 						<input id="first-name" class="xui-input xui-column-6-of-12" placeholder="First">
+// 						<input class="xui-input xui-column-6-of-12" placeholder="Last">
+// 					</div>
+//         </div>
+//         <div class="xui-field-layout">
+//           <label class="xui-text-label xui-fieldlabel-layout" for="email">Email address</label>
+//           <input id="first-name" class="xui-textinput xui-textinput--input">
+//         </div>
+//         <div class="xui-field-layout">
+//           <label class="xui-text-label xui-fieldlabel-layout" for="permissions">Permissions</label>
+// 						<div class="xui-select">
+// 							<select id="permissions" class="xui-select--control">
+// 								<option>View only</option>
+// 								<option>View and edit</option>
+// 							</select>
+// 							<div class="xui-select--caret xui-iconwrapper">
+// 								<svg focusable="false" class="xui-icon xui-icon-color-black-muted">
+// 									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-caret" role="presentation"></use>
+// 								</svg>
+// 							</div>
+// 						</div>
+//         </div>
+//       </form>
+//     </div>
+//     <footer class="xui-modal--footer xui-actions xui-actions-layout xui-padding-top-small xui-padding-large xui-u-hidden-content">
+//       <button type="button" class="xui-actions--secondary xui-button xui-button-standard">Cancel</button>
+//       <button type="button" class="xui-actions--primary xui-button xui-button-main">Save</button>
+//     </footer>
+//	 	<div class="xui-loader xui-loader-retain-layout" role="progressbar" aria-valuetext="Loading content">
+//			<div class="xui-loader--dot"></div>
+//			<div class="xui-loader--dot"></div>
+//			<div class="xui-loader--dot"></div>
+//		</div>
+//   </section>
+// </div>
+//
+// Styleguide: Building Blocks.Identifiers.Loader.8.1
+
+// Panels
+//
+// Tips:
+// Do: Use a panel loader if it is the only element fetching data on the page
+// Dont: Don't apply loaders to multiple panels at once, use a page loader instead
+//
+// Markup:
+//	<div class="xui-panel">
+//	 	<div class="xui-loader xui-loader-layout" role="progressbar" aria-valuetext="Loading content">
+//			<div class="xui-loader--dot"></div>
+//			<div class="xui-loader--dot"></div>
+//			<div class="xui-loader--dot"></div>
+//		</div>
+//	</div>
+//
+// Styleguide: Building Blocks.Identifiers.Loader.9
+
+// Retain layout
+//
+// Flag: Experimental
+//
+// Markup:
+// <div class="xui-panel">
+// 	<div class="xui-contentblockitem xui-u-flex xui-u-flex-align-center xui-padding-vertical-xsmall xui-u-hidden-content">
+// 		<div class="xui-margin-horizontal">
+// 			<abbr class="xui-avatar xui-avatar-color-8" role="presentation">HE</abbr>
+// 		</div>
+// 		<div class="xui-u-overflow-hidden xui-u-flex-grow xui-padding-vertical-small">
+// 			<span class="xui-text-truncated xui-u-flex xui-u-flex-align-center"><span class="xui-heading-small">Hornblower Enterprises</span> <span class="xui-tag xui-tag-positive xui-margin-left-xsmall">Paid</span></span>
+// 			<div class="xui-textcolor-muted">
+// 				<span>INV0021</span> <span class="xui-margin-horizontal-xsmall">•</span> <span>Due 13 Dec 17</span>
+// 			</div>
+// 		</div>
+// 		<div class="xui-margin-left xui-heading-small xui-text-deemphasis">
+// 			346.50
+// 		</div>
+// 		<div class="xui-margin-horizontal-small">
+// 			<div class="xui-u-flex" data-ref="toggled-wrapper">
+// 				<button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button" title="More options"><svg class="xui-icon" viewbox="0 0 30 30">
+// 				<use xlink:href="#xui-icon-overflow" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg></button>
+// 			</div>
+// 		</div>
+// 	</div>
+//	<div class="xui-loader xui-loader-retain-layout" role="progressbar" aria-valuetext="Loading content">
+//		<div class="xui-loader--dot"></div>
+//		<div class="xui-loader--dot"></div>
+//		<div class="xui-loader--dot"></div>
+//	</div>
+//	</div>
+//
+// Styleguide: Building Blocks.Identifiers.Loader.9.1
+
+// Pages
+//
+// Tips:
+// Do: Use a page loader on first page load
+// Do: Conceal all content under the header until all data has been fetched
+// Warning: Avoid page loaders when asynchronously updating a single element, use a panel loader instead
+//
+// Styleguide: Building Blocks.Identifiers.Loader.10
+
+// Inverted
+//
+// To provide adequate contrast for use on darker backgrounds, an inverted loader modifier is also available.
+//
+// ExampleClass: ds-example-dark
+//
+// Classes:
+// xui-loader-inverted: Inverts loader style
+//
+// Markup:
+// <div class="xui-loader xui-loader-inverted" role="progressbar" aria-valuetext="Content loading">
+//   <div class="xui-loader--dot"></div>
+//   <div class="xui-loader--dot"></div>
+//   <div class="xui-loader--dot"></div>
+// </div>
+//
+// Styleguide: Building Blocks.Identifiers.Loader.11
+
+// Accessibility
+//
+// When loading, set the aria-busy attribute to `true` on the element that is loading, not on the loader itself.
+// Additionally, make sure to apply the `xui-button-is-disabled` class and `disabled` attribute on buttons that are loading to prevent keyboard interactivity.
+//
+// Styleguide: Building Blocks.Identifiers.Loader.12
+
+
+.#{$ns}-loader {
+	align-items: center;
+	color: $xui-loader-color;
+	display: flex;
+	justify-content: center;
+}
+
+.#{$ns}-button--loader {
+	color: inherit;
+}
+
+.#{$ns}-loader-inverted {
+	color: $xui-loader-inverted-color;
+}
+
+.#{$ns}-loader-retain-layout {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.#{$ns}-loader-layout {
+	min-height: 140px;
+	padding: $xui-s-large;
+}
+
+.#{$ns}-loader--dot {
+	$dot-size-small: 10px;
+	$dot-size: 12px;
+	$dot-size-large: 14px;
+	$dot-margin: 2px;
+	$dot-margin-large: 3px;
+	$animation-time: 1.3s;
+	$animation-delay: -0.16s;
+
+	// easeInOutSine
+	$animation-easing: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+	animation: #{$ns}-loader-animation $animation-time infinite $animation-easing;
+	animation-fill-mode: both;
+	background-color: currentColor;
+	border-radius: 50%;
+	// Gives a fake AA effect to the dot during animation
+	// Needed to help fix rendering on Firefox
+	box-shadow: 0 0 1px currentColor;
+	display: inline-block;
+	height: $dot-size;
+	transform-style: preserve-3d; // Firefox jank fix
+	vertical-align: middle;
+	width: $dot-size;
+
+	&:nth-child(1) {
+		animation-delay: $animation-delay * 2;
+	}
+
+	&:nth-child(2) {
+		animation-delay: $animation-delay * 1;
+	}
+
+	&:nth-child(3) {
+		animation-delay: $animation-delay * 0;
+	}
+
+	.#{$ns}-loader-small & {
+		height: $dot-size-small;
+		width: $dot-size-small;
+	}
+
+	.#{$ns}-loader & {
+		margin-right: $dot-margin;
+	}
+
+	.#{$ns}-loader-large & {
+		height: $dot-size-large;
+		margin-right: $dot-margin-large;
+		width: $dot-size-large;
+	}
+}
+
+// You wouldn't normally add rotation to something that just scales up and down.
+// However in this case, Firefox has trouble rendering circles properly during
+// scale animation. This helps smooth the curves.
+@keyframes #{$ns}-loader-animation {
+	0%,
+	80%,
+	100% {
+		transform: scale(0.5) rotate(0deg);
+	}
+
+	40% {
+		transform: scale(1) rotate(0.02deg);
+	}
+}

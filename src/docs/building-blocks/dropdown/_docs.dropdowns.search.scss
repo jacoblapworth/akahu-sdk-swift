@@ -53,12 +53,16 @@
 //        </div>
 //       </div>
 //       <div class="xui-dropdown--header-container">
-//         <div class="xui-inputwrapper xui-inputwrapper-borderless xui-u-fullwidth">
-//           <svg focusable="false" class="xui-icon xui-input--icon-left">
-//              <use xlink:href="#xui-icon-search" role="presentation"></use>
-//           </svg>
-//           <input class="xui-input xui-input-borderless xui-input-borderless-solid xui-input-has-left-icon" type="search" placeholder="Search" aria-label="Search">
-//         </div>
+//         <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-solid xui-textinput-borderless-transparent">
+//           <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+//             <div class="xui-iconwrapper">
+//               <svg focusable="false" class="xui-icon">
+//                 <use xlink:href="#xui-icon-search" role="presentation" />
+//               </svg>
+//             </div>
+//           </div>
+//           <input id="transparent-example" class="xui-textinput--input xui-padding-left-none" type="search" placeholder="Search" aria-label="Transparent input with icons" />
+//        </div>
 //       </div>
 //     </div>
 //     <div class='xui-dropdown--scrollable-content'>
@@ -112,17 +116,21 @@
 //        </div>
 //       </div>
 //       <div class="xui-dropdown--header-container">
-//         <div class="xui-inputwrapper xui-inputwrapper-borderless xui-u-fullwidth">
-//           <svg focusable="false" class="xui-icon xui-input--icon-left">
-//              <use xlink:href="#xui-icon-search" role="presentation"></use>
-//           </svg>
-//           <input class="xui-input xui-input-borderless xui-input-borderless-solid xui-input-has-left-icon xui-input-has-right-icon" type="search" placeholder="Search" aria-label="Search" value='Tim'>
-//           <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
-//             <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
+//         <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-solid xui-textinput-borderless-transparent">
+//           <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+//             <div class="xui-iconwrapper">
 //               <svg focusable="false" class="xui-icon">
-//                 <use xlink:href="#xui-icon-clear" role="presentation"></use>
+//                 <use xlink:href="#xui-icon-search" role="presentation" />
 //               </svg>
-//             </button>
+//             </div>
+//           </div>
+//           <input id="transparent-example" class="xui-textinput--input xui-padding-left-none" type="search" value="Tim" aria-label="Transparent input with icons" />
+//           <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+//             <div class="xui-button-icon">
+//               <svg focusable="false" class="xui-icon">
+//                 <use xlink:href="#xui-icon-clear" role="presentation" />
+//               </svg>
+//             </div>
 //           </div>
 //         </div>
 //       </div>
@@ -136,9 +144,11 @@
 //          </button>
 //        </li>
 //         <li class="xui-pickitem" role="treeitem">
-//           <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
-//             <use xlink:href="#xui-icon-plus" role="presentation"></use>
-//           </svg>
+//           <div class="xui-pickitem--icon xui-iconwrapper">
+//             <svg focusable="false" class="xui-icon xui-icon-color-black-muted">
+//               <use xlink:href="#xui-icon-plus" role="presentation"></use>
+//             </svg>
+//           </div>
 //           <span class="xui-pickitem--body">
 //               <span class="xui-pickitem--text xui-u-flex-inherit">
 //               <span class="xui-u-flex-1 xui-text-truncated">Tim</span>
@@ -177,27 +187,26 @@
 //        </div>
 //       </div>
 //       <div class="xui-dropdown--header-container">
-//         <div class="xui-inputwrapper xui-inputwrapper-borderless xui-u-fullwidth">
-//           <svg focusable="false" class="xui-icon xui-input--icon-left">
-//              <use xlink:href="#xui-icon-search" role="presentation"></use>
-//           </svg>
-//           <input class="xui-input xui-input-borderless xui-input-borderless-solid xui-input-has-left-icon xui-input-has-right-icon" type="search" placeholder="Search" aria-label="Search" value='David Bowie'>
-//           <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
-//             <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
+//         <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-solid xui-textinput-borderless-transparent">
+//           <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+//             <div class="xui-iconwrapper">
 //               <svg focusable="false" class="xui-icon">
-//                 <use xlink:href="#xui-icon-clear" role="presentation"></use>
+//                 <use xlink:href="#xui-icon-search" role="presentation" />
 //               </svg>
-//             </button>
+//             </div>
 //           </div>
+//           <input id="transparent-example" class="xui-textinput--input xui-padding-left-none" type="search" placeholder="Search all expenses" aria-label="Transparent input with icons" />
 //         </div>
 //       </div>
 //     </div>
-//     <div class='xui-dropdown--scrollable-content xui-u-flex xui-u-flex-horizontallycentered'>
-//       <div class="xui-u-flex xui-padding-large xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-vertical xui-textcolor-muted">
-//          <svg focusable="false" class="xui-icon xui-icon-large">
+//     <div class='xui-dropdown--scrollable-content xui-u-flex xui-u-flex-justify-center'>
+//       <div class="xui-u-flex xui-padding-large xui-u-flex-justify-center xui-u-flex-align-center xui-u-flex-column xui-textcolor-muted">
+//         <div class="xui-iconwrapper">
+//           <svg focusable="false" class="xui-icon">
 //             <use xlink:href="#xui-icon-search" role="presentation"></use>
-//          </svg>
-//        <div>No results found</div>
+//           </svg>
+//         </div>
+//         <div>No results found</div>
 //       </div>
 //     </div>
 //   </div>

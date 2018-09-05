@@ -1,7 +1,7 @@
-import '../helpers/xuiGlobalChecks';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ReactDayPicker, { DateUtils } from 'react-day-picker';
+import '../helpers/xuiGlobalChecks';
 import CustomNavbar from './customElements/CustomNavbar';
 import CustomCaption from './customElements/CustomCaption';
 import CustomWeekday from './customElements/CustomWeekday';
@@ -14,11 +14,12 @@ import {
 	isStartOfPartialRange,
 	normalizeDisplayedMonth,
 } from './helpers/utils';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 const customCaptionElement = <CustomCaption />;
 const customWeekdayElement = <CustomWeekday />;
 
+/* eslint-disable max-len */
 /**
  * This is the collection of modifiers necessary when selecting a date range.
  *
@@ -63,6 +64,7 @@ function getRangeModifiers(range, hoverDate, isDayDisabled) {
 			!isDayDisabled(day) && !isStartOfPartialRange(day, range),
 	};
 }
+/* eslint-enable max-len */
 
 /**
  * This is the collection of modifiers necessary when selecting a single date.
@@ -103,7 +105,7 @@ export default class XUIDatePicker extends PureComponent {
 			const currentMonth = this.state.currentMonth.getMonth();
 			const currentYear = this.state.currentMonth.getFullYear();
 			const prevMonth = prevState.currentMonth.getMonth();
-			const prevYear = prevState.currentMonth.getFullYear()
+			const prevYear = prevState.currentMonth.getFullYear();
 			if (currentMonth !== prevMonth || currentYear !== prevYear) {
 				this.props.onMonthChange(this.state.currentMonth);
 			}
@@ -112,8 +114,12 @@ export default class XUIDatePicker extends PureComponent {
 
 	componentWillReceiveProps(nextProps) {
 		const { displayedMonth } = nextProps;
-		if (displayedMonth instanceof Date && !DateUtils.isSameDay(displayedMonth, this.props.displayedMonth)) {
-			const nextDisplayedMonth = normalizeDisplayedMonth(displayedMonth, nextProps.minDate, nextProps.maxDate);
+		if (
+			displayedMonth instanceof Date
+			&& !DateUtils.isSameDay(displayedMonth, this.props.displayedMonth)
+		) {
+			const nextDisplayedMonth =
+				normalizeDisplayedMonth(displayedMonth, nextProps.minDate, nextProps.maxDate);
 			if (
 				nextDisplayedMonth.getFullYear() !== this.state.currentMonth.getFullYear() ||
 				nextDisplayedMonth.getMonth() !== this.state.currentMonth.getMonth()
@@ -196,11 +202,6 @@ export default class XUIDatePicker extends PureComponent {
 			if (onSelectDate) {
 				onSelectDate(date);
 			}
-			if (modifiers[customClassNames.outside]) {
-				this.setState({
-					currentMonth: date,
-				});
-			}
 		}
 	}
 
@@ -214,7 +215,11 @@ export default class XUIDatePicker extends PureComponent {
 	renderDay = day => {
 		const dateTime = formatDateISO(day);
 		return (
-			<time ref={n => this.dateRefs[dateTime] = n} dateTime={dateTime} className={`${ns}-datepicker--day--time`}>
+			<time
+				ref={n => this.dateRefs[dateTime] = n}
+				dateTime={dateTime}
+				className={`${ns}-datepicker--day--time`}
+			>
 				{day.getDate()}
 			</time>
 		);
@@ -269,7 +274,7 @@ export default class XUIDatePicker extends PureComponent {
 		if (isCompact) {
 			classes = {
 				...customClassNames,
-				container: customClassNames.container + ` ${ns}-datepicker-compact`,
+				container: `${customClassNames.container} ${ns}-datepicker-compact`,
 			};
 		}
 
@@ -282,7 +287,7 @@ export default class XUIDatePicker extends PureComponent {
 				}}
 				dir={dir}
 				disabledDays={this.isDayDisabled}
-				enableOutsideDays={showDaysInOtherMonths}
+				showOutsideDays={showDaysInOtherMonths}
 				firstDayOfWeek={firstDayOfWeek}
 				fixedWeeks={showFixedNumberOfWeeks}
 				fromMonth={minDate}
@@ -290,6 +295,7 @@ export default class XUIDatePicker extends PureComponent {
 					nextMonth: nextButtonLabel,
 					previousMonth: prevButtonLabel,
 				}}
+				enableOutsideDaysClick={false}
 				locale={locale}
 				modifiers={modifiers}
 				month={this.state.currentMonth}
@@ -314,40 +320,49 @@ export default class XUIDatePicker extends PureComponent {
 XUIDatePicker.propTypes = {
 	qaHook: PropTypes.string,
 
-	/** Callback for when the user selects a date.  Will fire even if the date has already been selected.  Will not fire for disbled days. */
+	/** Callback for when the user selects a date.  Will fire even if the date has
+	 * already been selected.  Will not fire for disbled days. */
 	onSelectDate: PropTypes.func.isRequired,
 
 	/** Callback for when a user switches to a different month */
 	onMonthChange: PropTypes.func,
 
-	/** If you only want to display a single selected day without allowing the user to select a date range, pass that Date in here. */
+	/** If you only want to display a single selected day without allowing the user
+	 * to select a date range, pass that Date in here. */
 	selectedDate: PropTypes.instanceOf(Date),
 
-	/** If you want to disable every date before a given day, pass in the minimum enabled date here.  Can be used with the isDateDisabled function. */
+	/** If you want to disable every date before a given day, pass in the minimum enabled
+	 * date here.  Can be used with the isDateDisabled function. */
 	minDate: PropTypes.instanceOf(Date),
 
-	/** If you want to disable every date after a given day, pass in the maximum enabled date here.  Can be used with the isDateDisabled function. */
+	/** If you want to disable every date after a given day, pass in the maximum enabled
+	 * date here.  Can be used with the isDateDisabled function. */
 	maxDate: PropTypes.instanceOf(Date),
 
-	/** A date which represents the year and month that the calendar will display.  Could be any day in the given day and month. */
+	/** A date which represents the year and month that the calendar will display. Could
+	 * be any day in the given day and month. */
 	displayedMonth: PropTypes.instanceOf(Date),
 
-	/** An accessibility label for the next month button that will be read to users with a screen reader.  */
+	/** An accessibility label for the next month button that will be read to users with
+	 * a screen reader.  */
 	nextButtonLabel: PropTypes.string,
 
-	/** An accessibility label for the previous month button that will be read to users with a screen reader. */
+	/** An accessibility label for the previous month button that will be read to users
+	 * with a screen reader. */
 	prevButtonLabel: PropTypes.string,
 
 	/**
-	 * If the user is selecting a date range, this will contain the dates the user has selected "from" and "to".
-	 * If the user has only selected the first date in the range, pass that in as the "from" property.
+	 * If the user is selecting a date range, this will contain the dates the user has
+	 * selected "from" and "to". If the user has only selected the first date in the range,
+	 * pass that in as the "from" property.
 	 */
 	selectedRange: PropTypes.shape({
-    from: PropTypes.instanceOf(Date),
-    to: PropTypes.instanceOf(Date),
-  }),
+		from: PropTypes.instanceOf(Date),
+		to: PropTypes.instanceOf(Date),
+	}),
 
-	/** If you need to render a calendar in a small amount of horizontal space, set this flag to shrink things down a bit. */
+	/** If you need to render a calendar in a small amount of horizontal space, set this
+	 * flag to shrink things down a bit. */
 	isCompact: PropTypes.bool,
 
 	/** A function that we can use to determine whether or not a day should be disabled.  */
@@ -387,5 +402,5 @@ XUIDatePicker.defaultProps = {
 	qaHook: undefined,
 	showDaysInOtherMonths: true,
 	showFixedNumberOfWeeks: false,
-	weekdaysShort: ['S','M','T','W','T','F','S']
+	weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
 };

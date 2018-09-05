@@ -1,6 +1,6 @@
 @mixin embiggen {
-		width: 150%;
-		max-width: 65vw;
+	max-width: 65vw;
+	width: 150%;
 }
 
 $ds-breakpoint-massive: 120rem;

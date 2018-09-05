@@ -14,25 +14,37 @@
 
 // Feedback on fields
 //
-// Add `xui-input-is-invalid` to inputs to display their error state. If the problem is with a group, as a whole, add the class to all nested inputs.
+// Add `xui-textinput-is-invalid` to inputs to display their error state. If the problem is with a group, as a whole, add the class to all nested inputs.
 //
-// Error messages are added below fields. They replace the note if one exists.
+// Always include a colour change, descriptive message, and an icon on the problematic input, so it’s still meaningful to people who can’t discern colour.
+// * Position error text underneath the input
+// * If there is no space below the input as it is in a group, position it at the bottom of the group in text form
+// * If there is no space below the input, position it at the top of the input in a banner
+// * If there is no space below the input, include an icon that can inherit focus that displays a tooltip with the full error message
+//
+// Tips:
+// Do: Include the name of the field in the message
+// Do: Add an explanation or example of correct input formats if something invalid is entered
+// Do: Add the "status" aria role to inline validation messages
+// Warning: Attempt to be flexible with the formats accepted rather than giving unnecessary errors
+// Dont: Don't mark fields as invalid without an accompanying message
+// Dont: Don't use vague error messages that don't suggest how to fix the problem
 //
 // Markup:
 // <div class="xui-field-layout">
-//   <label class="xui-text-label xui-fieldlabel-layout" for="field1">Phone number</label>
-//   <input type="text" class="xui-input xui-input-is-invalid" aria-label="Text input"/>
-//   <div class="xui-validation xui-validation-layout xui-validation-is-invalid">Must be at least 9 digits</div>
+//   <label class="xui-text-label xui-fieldlabel-layout" for="phone1">Phone number</label>
+//   <input type="text" class="xui-textinput xui-textinput--input xui-textinput-is-invalid" aria-label="Text input"/>
+//   <div class="xui-validation xui-validation-layout xui-validation-is-invalid" role="status">Phone number must be at least 9 digits</div>
 // </div>
 // <div class="xui-field-layout">
-//   <label class="xui-text-label xui-fieldlabel-layout" for="field1">Description</label>
-//   <textarea class="xui-input xui-u-resize-vertical xui-input-is-invalid" aria-label="Text area field"></textarea>
+//   <label class="xui-text-label xui-fieldlabel-layout" for="phone1">Description</label>
+//   <textarea class="xui-textinput xui-textinput--input xui-u-resize-vertical xui-textinput-is-invalid" aria-label="Text area field"></textarea>
 // </div>
 // <div class="xui-field-layout">
-//   <div class="xui-inputgroup">
-//     <input class="xui-input xui-column-2-of-12 xui-input-is-invalid" placeholder="2 columns"/>
-//     <input class="xui-input xui-column-5-of-12 xui-input-is-invalid" placeholder="5 columns"/>
-//     <input class="xui-input xui-column-5-of-12 xui-input-is-invalid" placeholder="5 columns"/>
+//   <div class="xui-textinputgroup">
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12 xui-textinput-is-invalid" placeholder="2 columns" aria-label="test input"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-5-of-12 xui-textinput-is-invalid" placeholder="5 columns" aria-label="test input"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-5-of-12 xui-textinput-is-invalid" placeholder="5 columns" aria-label="test input"/>
 //   </div>
 // </div>
 //
@@ -41,8 +53,10 @@
 // When to validate
 //
 // Tips:
-// Do: Validate when the user leaves the field for linear sequences
-// Do: Validate on submit for non-linear documents (eg. an invoice)
+// Do: Validate when the user's focus leaves a field in an invalid state
+// Do: Validate whether required fields are completed on submit
+// Warning: Carefully consider whether it's helpful to warn the user that a field is required before submitting (they may decide to complete harder fields later)
+// Dont: Don't validate fields on key press
 //
 // Styleguide: Compounds.CollectingInput.Forms.7.4
 
@@ -65,8 +79,8 @@
 // 			</button>
 // 		</header>
 // 		<div class="xui-modal--body">
-// 			<div class="xui-inputwrapper">
-// 				<input type="text" class="xui-input" placeholder="Contact name" aria-label="Contact name">
+// 			<div class="xui-textinputwrapper">
+// 				<input type="text" class="xui-textinput xui-textinput--input" placeholder="Contact name" aria-label="Contact name">
 // 			</div>
 // 		</div>
 // 		<footer class="xui-modal--footer xui-actions xui-actions-layout">
@@ -82,9 +96,10 @@
 
 
 
-// Banners and other feedback options
+// Other feedback options
 //
 // Tips:
+// Do: Add an error message or banner at the top of a form with an "alert" aria role if a user submits a form with validation errors
 // Dont: Avoid using banners with lists of errors that users must then hunt down
 // Warning: Only prevent submission if fields are few and requirements very clear
 //

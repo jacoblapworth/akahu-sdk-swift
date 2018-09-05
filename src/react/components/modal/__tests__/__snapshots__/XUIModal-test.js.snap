@@ -3,14 +3,15 @@
 exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
 <div
   aria-hidden={true}
-  className="xui-mask"
+  className="xui-mask xui-unmask"
   data-automationid="xui-modal--mask"
   id="test-modal"
   onClick={null}
+  role="presentation"
 >
   <section
     aria-describedby={undefined}
-    aria-labelledby={undefined}
+    aria-labelledby="generatedHeaderId"
     className="xui-modal xui-modal-width-medium xui-modal-layout"
     data-automationid="xui-modal"
     role={null}
@@ -19,8 +20,10 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
   >
     <header
       className="xui-modal--header xui-modal--heading xui-padding-left-large"
-      data-automationid="xui-modal--header"
+      data-automationid={undefined}
+      id="generatedHeaderId"
     >
+      Test header
       <button
         className="xui-button xui-modal--close xui-button-icon"
         data-automationid="xui-modal--close"
@@ -31,19 +34,24 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
         title="Close"
         type="button"
       >
-        <svg
-          className="xui-icon"
+        <div
+          className="xui-iconwrapper"
           data-automationid={undefined}
-          focusable="false"
-          style={null}
-          viewBox="0 0 30 30"
         >
-          <path
-            d="M14.6568542,13.2426407 L10.4142136,9 L9,10.4142136 L13.2426407,14.6568542 L9,18.8994949 L10.4142136,20.3137085 L14.6568542,16.0710678 L18.8994949,20.3137085 L20.3137085,18.8994949 L16.0710678,14.6568542 L20.3137085,10.4142136 L18.8994949,9 L14.6568542,13.2426407 Z"
-            role="presentation"
-            transform={undefined}
-          />
-        </svg>
+          <svg
+            className="xui-icon"
+            data-automationid={undefined}
+            focusable="false"
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <path
+              d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"
+              role="presentation"
+            />
+          </svg>
+        </div>
       </button>
     </header>
     <div>
@@ -56,10 +64,11 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
 exports[`XUIModal should render an automation id when a qaHook is passed in 1`] = `
 <div
   aria-hidden={true}
-  className="xui-mask"
+  className="xui-mask xui-unmask"
   data-automationid="xui-modal--mask"
   id={undefined}
   onClick={null}
+  role="presentation"
 >
   <section
     aria-describedby={undefined}
@@ -73,6 +82,7 @@ exports[`XUIModal should render an automation id when a qaHook is passed in 1`] 
     <header
       className="xui-modal--header xui-modal--heading xui-padding-left-large"
       data-automationid="xui-modal--header"
+      id={undefined}
     >
       <button
         className="xui-button xui-modal--close xui-button-icon"
@@ -84,19 +94,24 @@ exports[`XUIModal should render an automation id when a qaHook is passed in 1`] 
         title="Close"
         type="button"
       >
-        <svg
-          className="xui-icon"
+        <div
+          className="xui-iconwrapper"
           data-automationid={undefined}
-          focusable="false"
-          style={null}
-          viewBox="0 0 30 30"
         >
-          <path
-            d="M14.6568542,13.2426407 L10.4142136,9 L9,10.4142136 L13.2426407,14.6568542 L9,18.8994949 L10.4142136,20.3137085 L14.6568542,16.0710678 L18.8994949,20.3137085 L20.3137085,18.8994949 L16.0710678,14.6568542 L20.3137085,10.4142136 L18.8994949,9 L14.6568542,13.2426407 Z"
-            role="presentation"
-            transform={undefined}
-          />
-        </svg>
+          <svg
+            className="xui-icon"
+            data-automationid={undefined}
+            focusable="false"
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <path
+              d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"
+              role="presentation"
+            />
+          </svg>
+        </div>
       </button>
     </header>
     <div>

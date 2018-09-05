@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-compounds-displayingdata-picklist.html">Picklist in the XUI Documentation</a>
+	<a href="../section-compounds-displayingdata-picklist.html" isDocLink>Picklist in the XUI Documentation</a>
 </div>
 
 ## What is a Picklist?
@@ -15,12 +12,12 @@ A set of components that brings in the XUI styles to render a list of items. `Pi
 
 ```
 const { Pickitem } = require ( './picklist.js' );
-<Picklist>
-	<Pickitem id="plain1" isSelected={true}>An empty item</Pickitem>
-	<Pickitem id="plain2">Next Item</Pickitem>
-	<Pickitem id="plain3">Another Item</Pickitem>
-	<Pickitem id="plain4" href="http://xero.com">This is a link to xero.com</Pickitem>
-	<Pickitem id="plain5">Last Item</Pickitem>
+<Picklist secondaryProps={{ role: 'menu' }}>
+	<Pickitem ariaRole='menuitem' id="plainpi1" isSelected={true}>An empty item</Pickitem>
+	<Pickitem ariaRole='menuitem' id="plainpi2">Next Item</Pickitem>
+	<Pickitem ariaRole='menuitem' id="plainpi3">Another Item</Pickitem>
+	<Pickitem ariaRole='menuitem' id="plainpi4" href="http://xero.com">This is a link to xero.com</Pickitem>
+	<Pickitem ariaRole='menuitem' id="plainpi5">Last Item</Pickitem>
 </Picklist>
 ```
 
@@ -28,14 +25,14 @@ const { Pickitem } = require ( './picklist.js' );
 
 ```
 const { Pickitem } = require ( './picklist.js' );
-<Picklist isHorizontal>
-	<Pickitem id="plain1" isSelected shouldTruncate>
+<Picklist secondaryProps={{ role: 'menu' }} isHorizontal>
+	<Pickitem ariaRole='menuitem' id="plain1" isSelected shouldTruncate>
 		Projects
 	</Pickitem>
-	<Pickitem id="plain2" shouldTruncate>
+	<Pickitem ariaRole='menuitem' id="plain2" shouldTruncate>
 		Timesheets
 	</Pickitem>
-	<Pickitem id="plain3" shouldTruncate>
+	<Pickitem ariaRole='menuitem' id="plain3" shouldTruncate>
 		Other things
 	</Pickitem>
 </Picklist>

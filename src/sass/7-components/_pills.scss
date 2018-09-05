@@ -351,8 +351,16 @@
 }
 
 .#{$ns}-pill--button {
-	.#{$ns}-pill--text {
+	border-radius: $xui-s-large;
+	color: $xui-pill-color;
+	text-align: left;
+
+	&:hover, &:active, &:focus {
 		color: $xui-pill-color;
+	}
+
+	.#{$ns}-pill--text {
+		text-decoration: underline;
 	}
 }
 

@@ -5,17 +5,17 @@
 .#{$ns}-text-label {
 	@include xui-text-emphasis;
 	@include xui-text-muted;
-	@include xui-text-small;
+	font-size: $xui-font-size-small;
 }
 
 .#{$ns}-text-secondary {
 	@include xui-text-muted;
-	@include xui-text-small;
+	font-size: $xui-font-size-small;
 }
 
 .#{$ns}-text-minor {
 	@include xui-text-muted;
-	@include xui-text-xsmall;
+	font-size: $xui-font-size-xsmall;
 }
 
 @import "typography.capsules";

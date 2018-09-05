@@ -6,7 +6,7 @@
 .#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle-option {
 	flex-basis: 100%;
 	flex-grow: 1;
-	min-height: $xui-input-height;
+	min-height: $xui-control-size-standard;
 }
 
 // This forces text to wrap in IE11
@@ -23,7 +23,7 @@
 
 .#{$ns}-toggle-small .#{$ns}-toggle--label,
 .#{$ns}-toggle-small .#{$ns}-toggle-option {
-	min-height: $xui-input-height-small;
+	min-height: $xui-control-size-small;
 }
 
 // Base toggle
@@ -111,8 +111,8 @@
 	flex-direction: column;
 	justify-content: center;
 	margin-left: -1px;
-	min-height: $xui-input-height; // TODO: remove layout assumption
-	min-width: $xui-input-height; // TODO: remove layout assumption
+	min-height: $xui-control-size-standard; // TODO: remove layout assumption
+	min-width: $xui-control-size-standard; // TODO: remove layout assumption
 	position: relative; // For z-index
 	text-align: center;
 	transition: all $xui-motion-speed-fast ease;

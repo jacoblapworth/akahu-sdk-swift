@@ -1,6 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
+import caret from '@xero/xui-icon/icons/caret';
+
+import XUIIcon from '../../../icon/XUIIcon';
 import { englishMonths } from '../../helpers/constants';
+import { ns } from '../../../helpers/xuiClassNamespace';
+
+const buttonSizeClasses = {
+	small: `${ns}-button-small`,
+	xsmall: `${ns}-button-xsmall`,
+};
 
 export default function MonthSelector({
 	months,
@@ -11,6 +21,7 @@ export default function MonthSelector({
 	selectRef,
 	onChange,
 	onKeyDown,
+	size,
 }) {
 	const allMonths = Array.isArray(months) ? months : englishMonths;
 	const currentMonth = currentMonthDate.getMonth();
@@ -27,9 +38,16 @@ export default function MonthSelector({
 	const label = (
 		<label
 			htmlFor={id}
-			className="xui-datepicker--heading-label xui-text-compact xui-padding-xsmall"
+			className={cn(
+				`${ns}-button`,
+				`${ns}-button-standard`,
+				`${ns}-datepicker--heading-label`,
+				`${ns}-datepicker--month-select-label`,
+				buttonSizeClasses[size],
+			)}
 		>
 			{allMonths[currentMonth]}
+			<XUIIcon icon={caret} className={`${ns}-button--caret`} />
 		</label>
 	);
 
@@ -74,4 +92,5 @@ MonthSelector.propTypes = {
 	selectRef: PropTypes.func,
 	onChange: PropTypes.func,
 	onKeyDown: PropTypes.func,
+	size: PropTypes.oneOf(Object.keys(buttonSizeClasses)),
 };

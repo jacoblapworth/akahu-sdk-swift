@@ -168,6 +168,7 @@ test.add(storyNames.formOnAPage, () => {
 								name="selectOne"
 								buttonContent="Hello world"
 								isTextTruncated={false}
+								label="A simple select box"
 							>
 								<SelectBoxOption
 									id="1"

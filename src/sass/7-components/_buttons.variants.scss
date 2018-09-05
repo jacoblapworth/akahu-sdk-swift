@@ -2,6 +2,7 @@
 
 @each $variant, $color in $xui-button-variants-bg {
 	.#{$ns}-button-#{$variant} {
+		@include xui-text-standard;
 
 		@if $variant == standard {
 			// TODO: figure out a way to do this without a border, as it adds unwanted width

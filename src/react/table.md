@@ -12,7 +12,7 @@ The bare minimum *Table* component requires a data schema and a basic *Column* /
 
 The `data` prop requires an object with **unique** keys that differentiate each row.
 
-Each *Cell* inside the *Column* `body` prop is a function that passes through each rows `data` independently so you can cheery pick the relevant content for a particular *Cell*.
+Each *Cell* inside the *Column* `body` prop is a function that passes through each rows `data` independently so you can cherry pick the relevant content for a particular *Cell*.
 
 ```
 const {

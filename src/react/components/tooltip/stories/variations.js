@@ -3,7 +3,7 @@ const privateConsts = require('../../positioning/private/constants');
 const storiesWithVariationsKindName = 'Instances/XUITooltip';
 const positionOptions = (privateConsts.positionOptions);
 
-const longTipText = "So often we avoid running water, and running water is a lot of fun. Isn't that fantastic? You can just push a little tree out of your brush like that. Look around, look at what we have. Beauty is everywhere, you only have to look to see it.";
+const longTipText = "So often we avoid running water, and running water is a lot of fun. Isn't that fantastic? You can just push a little tree out of your brush like that.";
 
 const variations = [
 	{

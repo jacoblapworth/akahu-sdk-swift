@@ -49,6 +49,7 @@ class CheckBoxCell extends PureComponent {
 					isChecked={isChecked}
 					onChange={this.handleChange}
 					tabIndex={0}
+					isGrouped
 					isLabelHidden
 				>
 					{checkOneRowLabel}

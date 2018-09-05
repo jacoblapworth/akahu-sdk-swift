@@ -1,18 +1,17 @@
 @import "../vars";
 @import "../mixins";
 
-
 /* doiuse-disable object-fit*/
 .#{$ns}-avatar {
+	@include xui-text-standard;
 	align-items: center;
 	border-radius: 50%;
 	color: $xui-color-white;
 	cursor: default;
 	display: inline-flex;
 	flex: none;
-	font-size: $xui-font-size-avatar;
 	font-weight: bold;
-	height: 32px;
+	height: $xui-control-size-standard;
 	justify-content: center;
 	line-height: $xui-font-size-small;
 	object-fit: contain;
@@ -20,7 +19,7 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	vertical-align: middle;
-	width: 32px;
+	width: $xui-control-size-standard;
 }
 /* doiuse-enable object-fit*/
 
@@ -29,39 +28,34 @@ img.#{$ns}-avatar {
 	display: inline;
 }
 
+.#{$ns}-avatar-2xsmall {
+	@include xui-text-2xsmall;
+	height: $xui-control-size-2xsmall;
+	width: $xui-control-size-2xsmall;
+}
+
 .#{$ns}-avatar-xsmall {
-	font-size: 8px;
-	height: 18px;
-	line-height: 8px;
-	width: 18px;
+	@include xui-text-xsmall;
+	height: $xui-control-size-xsmall;
+	width: $xui-control-size-xsmall;
 }
 
 .#{$ns}-avatar-small {
-	font-size: $xui-font-size-avatar-small;
-	height: 24px;
-	line-height: $xui-font-size-avatar-small;
-	width: 24px;
+	@include xui-text-small;
+	height: $xui-control-size-small;
+	width: $xui-control-size-small;
 }
 
 .#{$ns}-avatar-large {
-	font-size: $xui-font-size-avatar-large;
-	height: 48px;
-	line-height: $xui-font-size-avatar-large;
-	width: 48px;
+	@include xui-text-xlarge;
+	height: $xui-control-size-large;
+	width: $xui-control-size-large;
 }
 
 .#{$ns}-avatar-xlarge {
-	font-size: $xui-font-size-avatar-xlarge;
-	height: 80px;
-	line-height: $xui-font-size-avatar-xlarge;
-	width: 80px;
-}
-
-.#{$ns}-avatar-2xlarge {
-	font-size: 36px;
-	height: 120px;
-	line-height: 36px;
-	width: 120px;
+	@include xui-text-2xlarge;
+	height: $xui-control-size-xlarge;
+	width: $xui-control-size-xlarge;
 }
 
 .#{$ns}-avatar-business {

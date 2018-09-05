@@ -115,9 +115,9 @@
 		display: flex;
 		height: $xui-navigation-height;
 		justify-content: space-between;
-		min-height: $xui-s-6xlarge;
-		padding-left: $xui-s-small;
-		padding-right: $xui-s-small;
+		min-height: $xui-s-4xlarge;
+		padding-left: $xui-s-xsmall;
+		padding-right: $xui-s-xsmall;
 	}
 
 	.#{$ns}-dropdown--header-leftcontent {
@@ -125,7 +125,7 @@
 		display: flex;
 		flex: 1;
 		overflow: hidden;
-		padding-right: $xui-s-small;
+		padding-right: $xui-s-xsmall;
 	}
 
 	.#{$ns}-dropdown--header-rightcontent {

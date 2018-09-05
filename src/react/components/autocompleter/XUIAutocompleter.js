@@ -260,7 +260,6 @@ export default class XUIAutocompleter extends PureComponent {
 		const inputClassNames = cn(
 			inputClassName,
 			`${ns}-autocompleter--textinput`,
-			{ [`${ns}-padding-left-small`]: hasPills },
 		);
 
 		const trigger = (

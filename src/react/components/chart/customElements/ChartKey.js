@@ -26,7 +26,7 @@ class ChartKey extends PureComponent {
 
 		const trigger = (
 			<XUIButton
-				variant="icon-large"
+				variant="icon"
 				title={title}
 			>
 				<XUIIcon icon={infoPathData} />

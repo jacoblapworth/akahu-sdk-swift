@@ -342,7 +342,7 @@
 	display: flex;
 	height: $xui-navigation-height;
 	overflow: hidden;
-	padding: 0 $xui-s-small;
+	padding: 0 $xui-s-xsmall;
 	white-space: nowrap;
 }
 
@@ -368,7 +368,7 @@
 }
 
 .#{$ns}-isolationheader--navigation {
-	padding-right: $xui-s-small;
+	padding-right: $xui-s-xsmall;
 }
 
 .#{$ns}-isolationheader--actions {

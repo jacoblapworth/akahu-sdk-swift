@@ -7,7 +7,7 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "next" button
   data-automationid="myChart--pagination"
 >
   <button
-    className="xui-button xui-button-icon xui-button-icon-large"
+    className="xui-button xui-button-icon"
     data-automationid={undefined}
     disabled={false}
     onClick={[Function]}
@@ -31,7 +31,7 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "next" button
     </svg>
   </button>
   <button
-    className="xui-button xui-button-icon xui-button-icon-large xui-button-is-disabled"
+    className="xui-button xui-button-icon xui-button-is-disabled"
     data-automationid={undefined}
     disabled={true}
     onClick={[Function]}
@@ -64,7 +64,7 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "previous" bu
   data-automationid="myChart--pagination"
 >
   <button
-    className="xui-button xui-button-icon xui-button-icon-large xui-button-is-disabled"
+    className="xui-button xui-button-icon xui-button-is-disabled"
     data-automationid={undefined}
     disabled={true}
     onClick={[Function]}
@@ -88,7 +88,7 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "previous" bu
     </svg>
   </button>
   <button
-    className="xui-button xui-button-icon xui-button-icon-large"
+    className="xui-button xui-button-icon"
     data-automationid={undefined}
     disabled={false}
     onClick={[Function]}

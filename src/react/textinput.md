@@ -55,7 +55,6 @@ Labels can be set on `XUITextInput` by passing a value to the `labelText` prop.
 />
 ```
 
-
 ### Validation
 
 Validation messages and styling should be added to inputs using the `validationMessage` and `isInvalid` props. Additionally, hint messages can be passed to inputs using the `hintMessage` prop. It's best to set `isFieldLayout=true` on all inputs to ensure consistent spacing between fields.
@@ -176,6 +175,29 @@ const XUIButton = require ( './button.js' ).default;
 	/>
 	<XUITextInput
 		isFieldLayout
+		placeholder="Avatar"
+		leftElement={
+			<XUITextInputSideElement type="avatar">
+				<XUIAvatar value="Avatar" size="small" />
+			</XUITextInputSideElement>
+		}
+	/>
+	<XUITextInput
+		isFieldLayout
+		placeholder="Pill"
+		leftElement={
+			<XUITextInputSideElement type="pill">
+				<XUIPill
+					value="Pill"
+					avatarProps={{value: 'Pill'}}
+					size="small"
+					onDeleteClick={()=>{}}
+				/>
+			</XUITextInputSideElement>
+		}
+	/>
+	<XUITextInput
+		isFieldLayout
 		placeholder="Linkedin"
 		leftElement={
 			<XUITextInputSideElement type="icon" backgroundColor="linkedin">
@@ -292,8 +314,8 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Top aligned right content"
 		rightElement={
 			<XUITextInputSideElement type="icon" alignment="top">
-				<XUIButton variant="icon" aria-label="attach">
-					<XUIIcon isBoxed icon={attachPath} />
+				<XUIButton variant="icon" size="small" aria-label="attach">
+					<XUIIcon icon={attachPath} />
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
@@ -306,8 +328,8 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Center aligned right content"
 		rightElement={
 			<XUITextInputSideElement type="icon" alignment="center">
-				<XUIButton variant="icon" aria-label="attach">
-					<XUIIcon isBoxed icon={attachPath} />
+				<XUIButton variant="icon" size="small" aria-label="attach">
+					<XUIIcon icon={attachPath} />
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
@@ -320,8 +342,8 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Bottom aligned right content"
 		rightElement={
 			<XUITextInputSideElement type="icon" alignment="bottom">
-				<XUIButton variant="icon" aria-label="attach">
-					<XUIIcon isBoxed icon={attachPath} />
+				<XUIButton variant="icon" size="small" aria-label="attach">
+					<XUIIcon icon={attachPath} />
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
@@ -341,6 +363,88 @@ const XUIButton = require ( './button.js' ).default;
 		isLabelHidden
 	/>
 
+</div>
+```
+
+
+### Sizes
+
+Inputs also have `small` and `xsmall` variants. To use these size variants with side elements, you just need to make sure the input contents have a smaller size variant added.
+
+Note that only avatars and text side elements have `2xsmall` size variants, so are the only side element options available for the `xsmall` text inputs.
+
+```jsx
+const XUIIcon = require ( './icon.js' ).default;
+const closePath = require ('@xero/xui-icon/icons/cross').default;
+
+<div>
+	<XUITextInput
+		fieldClassName="xui-margin-bottom"
+		placeholder="Standard size"
+		leftElement={
+			<XUITextInputSideElement type="avatar">
+					<XUIAvatar value="bob" size="small" />
+				</XUITextInputSideElement>
+		}
+		rightElement={
+			<XUITextInputSideElement type="icon">
+					<XUIButton size="small" variant="icon">
+						<XUIIcon icon={closePath}/>
+					</XUIButton>
+				</XUITextInputSideElement>
+		}
+	/>
+	<XUITextInput
+		fieldClassName="xui-margin-bottom"
+		placeholder="Small size"
+		size="small"
+		leftElement={
+			<XUITextInputSideElement type="avatar">
+					<XUIAvatar value="bob" size="xsmall" />
+				</XUITextInputSideElement>
+		}
+		rightElement={
+			<XUITextInputSideElement type="icon">
+					<XUIButton size="xsmall" variant="icon">
+						<XUIIcon icon={closePath}/>
+					</XUIButton>
+				</XUITextInputSideElement>
+		}
+	/>
+	<XUITextInput
+		fieldClassName="xui-margin-bottom"
+		placeholder="Extra small size"
+		size="xsmall"
+		leftElement={
+			<XUITextInputSideElement type="avatar">
+					<XUIAvatar value="bob" size="2xsmall" />
+				</XUITextInputSideElement>
+		}
+	/>
+	<XUITextInput
+		fieldClassName="xui-margin-bottom"
+		placeholder="Standard size"
+		leftElement={
+			<XUITextInputSideElement type="pill">
+				<XUIPill avatarProps={{value:'Pill'}} value="Pill" size="small" onDeleteClick={()=>{}} />
+			</XUITextInputSideElement>
+		}
+		rightElement={
+			<XUITextInputSideElement type="button">
+				<XUIButton size="small" variant="standard">Label</XUIButton>
+			</XUITextInputSideElement>
+		}
+	/>
+	<XUITextInput
+		fieldClassName="xui-margin-bottom"
+		placeholder="Small size"
+		size="small"
+		leftElement={
+			<XUITextInputSideElement type="pill">
+				<XUIPill avatarProps={{value:'Pill'}} value="Pill" size="xsmall" onDeleteClick={()=>{}} />
+			</XUITextInputSideElement>
+		}
+	/>
 </div>
 ```
 
@@ -539,7 +643,7 @@ class Example extends PureComponent {
 				variant="icon"
 				aria-label="clear"
 			>
-				<XUIIcon isBoxed icon={clear} />
+				<XUIIcon icon={clear} />
 			</XUIButton>
 		);
 

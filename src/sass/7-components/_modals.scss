@@ -217,7 +217,7 @@
 		display: flex;
 		flex-shrink: 0;
 		justify-content: space-between;
-		padding: $xui-s-small $xui-s-large;
+		padding: $xui-s-xsmall $xui-s-large;
 	}
 
 	// Modal close
@@ -225,7 +225,7 @@
 	.#{$ns}-modal--close {
 		align-self: flex-start;
 		margin-left: auto;
-		margin-right: -$xui-s-small;
+		margin-right: -$xui-s-xsmall;
 	}
 
 	// If a heading exists
@@ -236,7 +236,7 @@
 	// Modal body
 	// -----------------------------------------------------------------------------
 	.#{$ns}-modal--body {
-		padding: $xui-s-small $xui-s-large;
+		padding: $xui-s-xsmall $xui-s-large;
 	}
 
 	// Modal footer

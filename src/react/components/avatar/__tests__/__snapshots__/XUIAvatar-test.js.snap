@@ -52,7 +52,7 @@ exports[`XUIAvatar should render an \`img\` avatar when I give it an image 1`] =
 
 exports[`XUIAvatar should render in a range of sizes 1`] = `
 <abbr
-  className="xui-avatar xui-avatar-xsmall xui-avatar-color-8"
+  className="xui-avatar xui-avatar-2xsmall xui-avatar-color-8"
   data-automationid={undefined}
   role="presentation"
 >
@@ -62,7 +62,7 @@ exports[`XUIAvatar should render in a range of sizes 1`] = `
 
 exports[`XUIAvatar should render in a range of sizes 2`] = `
 <abbr
-  className="xui-avatar xui-avatar-small xui-avatar-color-8"
+  className="xui-avatar xui-avatar-xsmall xui-avatar-color-8"
   data-automationid={undefined}
   role="presentation"
 >
@@ -72,7 +72,7 @@ exports[`XUIAvatar should render in a range of sizes 2`] = `
 
 exports[`XUIAvatar should render in a range of sizes 3`] = `
 <abbr
-  className="xui-avatar xui-avatar-color-8"
+  className="xui-avatar xui-avatar-small xui-avatar-color-8"
   data-automationid={undefined}
   role="presentation"
 >
@@ -82,7 +82,7 @@ exports[`XUIAvatar should render in a range of sizes 3`] = `
 
 exports[`XUIAvatar should render in a range of sizes 4`] = `
 <abbr
-  className="xui-avatar xui-avatar-large xui-avatar-color-8"
+  className="xui-avatar xui-avatar-color-8"
   data-automationid={undefined}
   role="presentation"
 >
@@ -92,7 +92,7 @@ exports[`XUIAvatar should render in a range of sizes 4`] = `
 
 exports[`XUIAvatar should render in a range of sizes 5`] = `
 <abbr
-  className="xui-avatar xui-avatar-xlarge xui-avatar-color-8"
+  className="xui-avatar xui-avatar-large xui-avatar-color-8"
   data-automationid={undefined}
   role="presentation"
 >
@@ -102,7 +102,7 @@ exports[`XUIAvatar should render in a range of sizes 5`] = `
 
 exports[`XUIAvatar should render in a range of sizes 6`] = `
 <abbr
-  className="xui-avatar xui-avatar-2xlarge xui-avatar-color-8"
+  className="xui-avatar xui-avatar-xlarge xui-avatar-color-8"
   data-automationid={undefined}
   role="presentation"
 >

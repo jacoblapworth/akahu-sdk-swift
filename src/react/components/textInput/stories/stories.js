@@ -16,8 +16,16 @@ import centered from '@storybook/addon-centered';
 import { storiesWithVariationsKindName, variations } from './variations';
 import clearPath from '@xero/xui-icon/icons/clear';
 import facebookPath from '@xero/xui-icon/icons/social-facebook';
+import XUIPill from '../../pill/XUIPill';
+import XUIAvatar from '../../avatar/XUIAvatar';
 
 const inputProps = {};
+
+const childSizeClassMap = {
+	standard: 'small',
+	small: 'xsmall',
+	xsmall: '2xsmall',
+};
 
 const TextInputWrapper = props => {
 	const {
@@ -41,14 +49,18 @@ const TextInputWrapper = props => {
 		minRows,
 		maxRows,
 		rows,
+		size,
 	} = props;
 
 	const makeSideElement = (sideElementType, sideElementAlignment) => {
+		const childComponentSize = childSizeClassMap[size];
 		switch (sideElementType) {
 		case 'icon':
 			return (
 				<XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
-					<XUIIcon icon={clearPath} isBoxed />
+					<XUIButton variant="icon" size={childComponentSize}>
+						<XUIIcon icon={clearPath} />
+					</XUIButton>
 				</XUITextInputSideElement>
 			);
 		case 'iconWithBackground':
@@ -64,17 +76,38 @@ const TextInputWrapper = props => {
 		case 'text':
 			return (
 				<XUITextInputSideElement type="text" alignment={sideElementAlignment}>
-						Test
+						Test:
 				</XUITextInputSideElement>
 			);
 		case 'button':
 			return (
 				<XUITextInputSideElement type="button" alignment={sideElementAlignment}>
-					<XUIButton variant="primary" size="small">
+					<XUIButton variant="primary" size={childComponentSize}>
 							Test
 					</XUIButton>
 				</XUITextInputSideElement>
 			);
+		case 'pill':
+			return (
+				<XUITextInputSideElement type="pill" alignment={sideElementAlignment}>
+					<XUIPill
+						avatarProps={{
+							value: 'TP'
+						}}
+						value="Test Person"
+						size={childComponentSize}
+					/>
+				</XUITextInputSideElement>
+			);
+		case 'avatar':
+		return (
+			<XUITextInputSideElement type="avatar" alignment={sideElementAlignment}>
+				<XUIAvatar
+					value="Test Person"
+					size={childComponentSize}
+				/>
+			</XUITextInputSideElement>
+		);
 		default:
 			return null;
 		}
@@ -82,27 +115,34 @@ const TextInputWrapper = props => {
 
 	return (
 		<XUITextInput
-			labelText={labelText}
-			inputProps={inputProps}
+			{...{
+				labelText,
+				inputProps,
+				isBorderlessTransparent,
+				isBorderlessSolid,
+				isInvalid,
+				validationMessage,
+				hintMessage,
+				placeholder,
+				isDisabled,
+				value,
+				isMultiline,
+				isLabelHidden,
+				minRows,
+				maxRows,
+				rows,
+				size,
+			}}
 			leftElement={makeSideElement(leftElementType, leftElementAlignment)}
 			rightElement={makeSideElement(rightElementType, rightElementAlignment)}
-			isBorderlessTransparent={isBorderlessTransparent}
-			isBorderlessSolid={isBorderlessSolid}
-			isInvalid={isInvalid}
-			validationMessage={validationMessage}
-			hintMessage={hintMessage}
 			type="text"
 			defaultValue={defaultValue || 'default Value'}
-			placeholder={placeholder}
-			isDisabled={isDisabled}
-			value={value}
-			isMultiline={isMultiline}
-			isLabelHidden={isLabelHidden}
-			minRows={minRows}
-			maxRows={maxRows}
-			rows={rows}
 		/>
 	);
+};
+
+TextInputWrapper.defaultProps = {
+	size: 'standard',
 };
 
 TextInputWrapper.propTypes = {
@@ -113,8 +153,8 @@ TextInputWrapper.propTypes = {
 	isInvalid: PropTypes.bool,
 	validationMessage: PropTypes.string,
 	hintMessage: PropTypes.string,
-	leftElementType: PropTypes.oneOf(['icon', 'iconWithBackground', 'button', 'text']),
-	rightElementType: PropTypes.oneOf(['icon', 'iconWithBackground', 'button', 'text']),
+	leftElementType: PropTypes.oneOf(['icon', 'iconWithBackground', 'button', 'text', 'pill']),
+	rightElementType: PropTypes.oneOf(['icon', 'iconWithBackground', 'button', 'text', 'pill']),
 	leftElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
 	rightElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
 	placeholder: PropTypes.string,
@@ -126,6 +166,7 @@ TextInputWrapper.propTypes = {
 	minRows: PropTypes.number,
 	maxRows: PropTypes.number,
 	rows: PropTypes.number,
+	size: PropTypes.oneOf(Object.keys(childSizeClassMap)),
 };
 
 const elementTypeOptions = [null, 'icon', 'iconWithBackground', 'button', 'text'];
@@ -141,6 +182,7 @@ storiesWithKnobs.add('Playground', () => (
 		isLabelHidden={boolean('is label hidden', false)}
 		placeholder={text('placeholder', 'placeholder text')}
 		value={text('value')}
+		size={select('size', Object.keys(childSizeClassMap), 'standard')}
 		isMultiline={boolean('is multiline', false)}
 		minRows={number('min height of multiline input in rows', 0) || undefined}
 		maxRows={number('max height of multiline input in rows', 0) || undefined}

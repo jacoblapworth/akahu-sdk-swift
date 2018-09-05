@@ -107,22 +107,25 @@ describe('<XUIButton/>', () => {
 		assert.isTrue(onClick.calledOnce);
 	});
 
-	it('renders icon buttons with the correct classes', () => {
-		const iconButton = renderIntoDocument(<XUIButton variant="icon" onClick={() => {}} />);
-		assert.isTrue(iconButton.rootNode.classList.contains('xui-button-icon'));
+	it('renders icon buttons with the correct inverted class', () => {
+		const iconButton = renderer.create(
+			<div>
+				<XUIButton variant="icon" onClick={noop} />
+				<XUIButton variant="icon-inverted" onClick={noop} />
+			</div>
+		);
+		expect(iconButton).toMatchSnapshot();
+	});
 
-		const invertedIconButton = renderIntoDocument(<XUIButton variant="icon-inverted" onClick={() => {}} />);
-		assert.isTrue(invertedIconButton.rootNode.classList.contains('xui-button-icon'));
-		assert.isTrue(invertedIconButton.rootNode.classList.contains('xui-button-icon-inverted'));
-
-		const largeIconButton = renderIntoDocument(<XUIButton variant="icon-large" onClick={() => {}} />);
-		assert.isTrue(largeIconButton.rootNode.classList.contains('xui-button-icon'));
-		assert.isTrue(largeIconButton.rootNode.classList.contains('xui-button-icon-large'));
-
-		const invertedLargeIconButton = renderIntoDocument(<XUIButton variant="icon-inverted-large" onClick={() => {}} />);
-		assert.isTrue(invertedLargeIconButton.rootNode.classList.contains('xui-button-icon'));
-		assert.isTrue(invertedLargeIconButton.rootNode.classList.contains('xui-button-icon-large'));
-		assert.isTrue(invertedLargeIconButton.rootNode.classList.contains('xui-button-icon-inverted'));
+	it('renders icon buttons with the correct icon size classes', () => {
+		const iconButtonSizeVariants = renderer.create(
+			<div>
+				<XUIButton variant="icon" onClick={noop} />
+				<XUIButton variant="icon" size="small" onClick={noop} />
+				<XUIButton variant="icon" size="xsmall" onClick={noop} />
+			</div>
+		);
+		expect(iconButtonSizeVariants).toMatchSnapshot();
 	});
 
 	it('renders borderless buttons with the correct classes', () => {

@@ -1,13 +1,22 @@
 import { ns } from '../../helpers/xuiClassNamespace';
 
+export const baseClassName = 'xui-button';
+
 /**
  * @public
  * Map of sizes to XUI Classes properties
  */
 export const SizeClassNames = {
+	'xsmall': `${ns}-button-xsmall`,
 	'small': `${ns}-button-small`,
 	'full-width': `${ns}-u-fullwidth`,
 	'full-width-mobile': `${ns}-button-fullwidth-layout`,
+};
+
+export const IconSizeClassNames = {
+	xsmall: `${ns}-button-icon-xsmall`,
+	small: `${ns}-button-icon-small`,
+	standard: '',
 };
 
 /**
@@ -27,9 +36,7 @@ export const VariantClassNames = {
 	'borderless-inverted': `${ns}-button-borderless-inverted`,
 	'borderless-muted': `${ns}-button-borderless-muted`,
 	'icon': `${ns}-button-icon`,
-	'icon-large': `${ns}-button-icon ${ns}-button-icon-large`,
-	'icon-inverted': `${ns}-button-icon ${ns}-button-icon-inverted`,
-	'icon-inverted-large': `${ns}-button-icon ${ns}-button-icon-inverted ${ns}-button-icon-large`,
+	'icon-inverted': `${ns}-button-icon xui-button-icon-inverted`,
 	'unstyled': '',
 };
 

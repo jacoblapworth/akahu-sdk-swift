@@ -18,6 +18,7 @@
  *
  * See: http://www.w3.org/Style/Examples/007/units.en.html
  */
+$xui-font-size-base: 16px;
 
 // @section Core Font Sizes
 // @type font-size
@@ -27,6 +28,22 @@ $xui-font-size-large: 1.0625rem;	// 17/16
 $xui-font-size-medium: 0.9375rem;	// 15/16
 $xui-font-size-small: 0.8125rem;	// 13/16
 $xui-font-size-xsmall: 0.6875rem;	// 11/16
+$xui-new-font-size-3xlarge: 72px;
+$xui-new-font-size-2xlarge: 48px;
+$xui-new-font-size-xlarge: 21px;
+$xui-new-font-size-large: 17px;
+$xui-new-font-size-medium: 15px;
+$xui-new-font-size-small: 13px;
+$xui-new-font-size-xsmall: 11px;
+$xui-new-font-size-2xsmall: 9px;
+
+$xui-line-height-3xlarge: 96px;
+$xui-line-height-2xlarge: 72px;
+$xui-line-height-xlarge: 32px;
+$xui-line-height-large: 28px;
+$xui-line-height-standard: 24px;
+$xui-line-height-small: 20px;
+$xui-line-height-xsmall: 16px;
 
 // @section Weights
 // @type font-weight

@@ -169,7 +169,7 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
         aria-label={undefined}
         aria-labelledby="testCheckboxId"
         checked={false}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
         data-automationid={undefined}
         disabled={false}
         name={undefined}
@@ -181,7 +181,7 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
+        className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
         data-automationid={undefined}
       />
       <span
@@ -345,7 +345,7 @@ exports[`<SelectBoxOption /> should render the option and the checkboxes as disa
         aria-label={undefined}
         aria-labelledby="testCheckboxId"
         checked={false}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
         data-automationid={undefined}
         disabled={false}
         name={undefined}
@@ -357,7 +357,7 @@ exports[`<SelectBoxOption /> should render the option and the checkboxes as disa
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
+        className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
         data-automationid={undefined}
       />
       <span

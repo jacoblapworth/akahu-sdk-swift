@@ -10,7 +10,7 @@ Pills are used for signifying a selection has been made, either single or multip
 
 Pills can trigger actions passed in through the `onDeleteClick`, `onClick`, and `href` props. If `onDeleteClick` is added, a delete button will be rendered inside the pill. `onClick`, and `href` will be triggered if the user clicks anywhere on the pill other than the delete button.
 
-```
+```jsx
 <div>
 	<XUIPill
 		value="Deleteable selection"
@@ -36,23 +36,52 @@ Avatars can be added to `XUIPill` by passing an object to `avatarProps` matching
 
 **Note:** the small sized avatar variant should be used.
 
-```
+```jsx
 <div>
 	<XUIPill
 		value="Avatar pill"
 		className="xui-margin-right-xsmall"
 		avatarProps={{
 			value: 'SJ',
-			imageUrl: 'logo.png',
-			size: 'small'
+			imageUrl: 'https://s3-ap-southeast-2.amazonaws.com/uxe-internal/mario_icon.png'
 		}}
 	/>
 	<XUIPill
 		value="Avatar pill"
+		avatarProps={{value: 'SJ'}}
+	/>
+</div>
+```
+
+### Pill sizes
+
+Pills can be `standard`, `small`, or `xsmall` size, by passing one of these values to the `size` prop.
+
+```jsx
+const NOOP = () => {};
+<div>
+	<XUIPill
+		value="Standard"
 		avatarProps={{
-			value: 'SJ',
-			size: 'small'
+			value: 'A',
 		}}
+		onDeleteClick={NOOP}
+	/>
+	<XUIPill
+		value="Small"
+		size="small"
+		avatarProps={{
+			value: 'Small',
+		}}
+		onDeleteClick={NOOP}
+	/>
+	<XUIPill
+		value="Extra small"
+		size="xsmall"
+		avatarProps={{
+			value: 'Xtra Small',
+		}}
+		onDeleteClick={NOOP}
 	/>
 </div>
 ```
@@ -61,7 +90,7 @@ Avatars can be added to `XUIPill` by passing an object to `avatarProps` matching
 
 Pills can be rendered as invalid by passing the `isInvalid` prop.
 
-```
+```jsx
 <XUIPill
 	value="Invalid"
 	isInvalid
@@ -72,9 +101,9 @@ Pills can be rendered as invalid by passing the `isInvalid` prop.
 
 Content passed to `secondaryText` will be rendered using a secondary text modifier.
 
-```
+```jsx
 <XUIPill
-	secondaryText = {'Status'}
-	value="SecondaryText Pill"
+	secondaryText="Secondary"
+	value="Primary"
 />
 ```

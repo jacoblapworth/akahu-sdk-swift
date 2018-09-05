@@ -1,5 +1,35 @@
 const storiesWithVariationsKindName = 'Instances/XUITextInput';
-const variations = [
+
+const sideElements = [
+	{
+		type: 'icon',
+		name: 'icon',
+	},
+	{
+		type: 'iconWithBackground',
+		name: 'icon with background colour',
+	},
+	{
+		type: 'button',
+		name: 'button element',
+	},
+	{
+		type: 'pill',
+		name: 'pill',
+	},
+	{
+		type: 'text',
+		name: 'text element',
+	},
+	{
+		type: 'avatar',
+		name: 'avatar',
+	}
+];
+
+const inputSizes = ['standard', 'small', 'xsmall'];
+
+const styleVariantStories = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is plain',
@@ -26,6 +56,9 @@ const variations = [
 		isBorderlessSolid: true,
 		isInverted: true,
 	},
+];
+
+const labelAndValidationStories = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a label',
@@ -54,55 +87,33 @@ const variations = [
 		hintMessage: 'here\'s a hint',
 		placeholder: 'This is a search box',
 	},
-	{
+];
+
+const sideElementVariantStories = sideElements.reduce((stories, sideElement) => [
+	...stories,
+	...['left', 'right'].map(side => ({
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a right icon',
-		rightElementType: 'icon',
-	},
-	{
+		storyTitle: `has a ${side} ${sideElement.name}`,
+		[`${side}ElementType`]: sideElement.type,
+	}))
+], []);
+
+const bothSideElementsWithSizes = inputSizes.map(size => {
+	const shouldRenderButton = size !== 'xsmall';
+	const sideElementsDescription = shouldRenderButton
+		? 'both side elements'
+		: 'left avatar';
+
+	return {
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a right icon with background colour',
-		rightElementType: 'iconWithBackground',
-		hasRightElementBackground: true,
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a right text element',
-		rightElementType: 'text',
-		hasRightElementBackground: true,
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a right button element',
-		rightElementType: 'button',
-		hasRightElementBackground: true,
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a left icon',
-		leftElementType: 'icon',
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a left icon with wrapping color',
-		leftElementType: 'iconWithBackground',
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a left text prompt',
-		leftElementType: 'text',
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a left button',
-		leftElementType: 'button',
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has both side elements',
-		leftElementType: 'button',
-		rightElementType: 'iconWithBackground',
-	},
+		storyTitle: `${size} with ${sideElementsDescription}`,
+		leftElementType: 'avatar',
+		rightElementType: shouldRenderButton ? 'icon' : undefined,
+		size,
+	};
+});
+
+const multilineStories = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as a multiline input',
@@ -139,5 +150,11 @@ const variations = [
 
 module.exports = {
 	storiesWithVariationsKindName,
-	variations,
+	variations: [
+		...styleVariantStories,
+		...labelAndValidationStories,
+		...sideElementVariantStories,
+		...bothSideElementsWithSizes,
+		...multilineStories,
+	],
 };

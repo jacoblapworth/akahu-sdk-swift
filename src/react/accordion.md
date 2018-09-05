@@ -141,7 +141,7 @@ const { default: overflowPathData } = require('@xero/xui-icon/icons/overflow');
 		<XUIAccordionItem
 			primaryHeading={name}
 			leftContent={<XUIAvatar value={name} className="xui-margin-right"/>}
-			overflow={<XUIButton variant="icon-large"><XUIIcon icon={overflowPathData} title="Overflow menu"/></XUIButton>}
+			overflow={<XUIButton variant="icon"><XUIIcon icon={overflowPathData} title="Overflow menu"/></XUIButton>}
 			action={(
 				<XUIButton
 					size="small"

@@ -3,6 +3,7 @@ const privateConsts = require('../private/constants');
 const storiesWithVariationsKindName = 'Instances/XUIButton';
 const buttonVariants = Object.keys(privateConsts.VariantClassNames);
 const sizes = Object.keys(privateConsts.SizeClassNames);
+const iconSizes = Object.keys(privateConsts.IconSizeClassNames);
 const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -59,17 +60,22 @@ const variations = [
 
 buttonVariants.forEach((buttonVariant, index) => {
 	const isIcon = buttonVariant.match(/^icon/) && buttonVariant.match(/^icon/)[0];
-	const size = isIcon ? 'full-width' : sizes[index % sizes.length];
-	variations.push({
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: `as ${isIcon ? '' : size} ${buttonVariant}`,
-		href: buttonVariant === 'link' ? '#' : undefined,
-		isLink: buttonVariant === 'link',
-		size: size,
-		value: isIcon ? undefined : `${buttonVariant}`,
-		contentsKey: isIcon ? 'icon' : undefined,
-		variant: buttonVariant
-	});
+	const sizesToIterate = isIcon
+		? iconSizes
+		: [sizes[index % sizes.length]];
+
+	sizesToIterate.forEach(size =>
+		variations.push({
+			storyKind: storiesWithVariationsKindName,
+			storyTitle: `as ${size} ${buttonVariant}`,
+			href: buttonVariant === 'link' ? '#' : undefined,
+			isLink: buttonVariant === 'link',
+			size: size,
+			value: isIcon ? undefined : `${buttonVariant}`,
+			contentsKey: isIcon ? 'icon' : undefined,
+			variant: buttonVariant
+		})
+	);
 });
 
 sizes.forEach((sizeVariant) => {

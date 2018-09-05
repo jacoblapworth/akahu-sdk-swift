@@ -17,14 +17,14 @@ const XUIButton = require('./button').default;
 
 <XUIIsolationHeader>
 	<XUIIsolationHeaderNavigation>
-		<XUIButton className="xui-margin-right-small" variant="icon-large" aria-label="close">
+		<XUIButton className="xui-margin-right-small" variant="icon" aria-label="close">
 			<XUIIcon icon={cross} />
 		</XUIButton>
 		<XUIIsolationHeaderTitle>Main Title</XUIIsolationHeaderTitle>
 		<XUIIsolationHeaderSecondaryTitle>Secondary Title</XUIIsolationHeaderSecondaryTitle>
 	</XUIIsolationHeaderNavigation>
 	<XUIIsolationHeaderActions>
-		<XUIButton variant="icon-large" aria-label="more options">
+		<XUIButton variant="icon" aria-label="more options">
 			<XUIIcon icon={overflow} />
 		</XUIButton>
 	</XUIIsolationHeaderActions>

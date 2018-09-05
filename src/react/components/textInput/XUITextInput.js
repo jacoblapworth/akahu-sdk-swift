@@ -5,7 +5,7 @@ import autosize from 'autosize';
 import uuidv4 from 'uuid/v4';
 
 import compose from '../helpers/compose';
-import { inputBaseClass } from './private/constants';
+import { inputBaseClass, inputSizeClasses, baseSizeClasses } from './private/constants';
 import { calculateMaxHeight } from './private/helpers';
 import { ns } from '../helpers/xuiClassNamespace';
 
@@ -68,6 +68,7 @@ class XUITextInput extends PureComponent {
 		const {
 			value,
 			type,
+			size,
 			isInvalid,
 			isBorderlessTransparent,
 			isBorderlessSolid,
@@ -122,8 +123,7 @@ class XUITextInput extends PureComponent {
 		const classes = cn(
 			inputClassName,
 			`${inputBaseClass}--input`,
-			leftElement && `${ns}-padding-left-none`,
-			rightElement && `${ns}-padding-right-none`,
+			inputSizeClasses[size],
 			(isMultiline && !isManuallyResizable) && `${ns}-u-resize-none`,
 			(isMultiline && isManuallyResizable) && `${ns}-u-resize-vertical`,
 		);
@@ -137,6 +137,7 @@ class XUITextInput extends PureComponent {
 		const baseClasses = cn(
 			containerClassName,
 			inputBaseClass,
+			baseSizeClasses[size],
 			isInvalid && `${inputBaseClass}-is-invalid`,
 			(isBorderlessTransparent || isBorderlessSolid) && `${inputBaseClass}-borderless`,
 			isBorderlessTransparent && `${inputBaseClass}-borderless-transparent`,
@@ -226,6 +227,8 @@ XUITextInput.propTypes = {
 		'url',
 		'color',
 	]),
+	/** Size of the input - Can be `xsmall`, `small` or `standard` */
+	size: PropTypes.oneOf(Object.keys(baseSizeClasses)),
 	/** Function to call when the input value is changed */
 	onChange: PropTypes.func,
 	/** Function to call when the input is focused (does not include side elements) */

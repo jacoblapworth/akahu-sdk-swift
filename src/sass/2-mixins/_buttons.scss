@@ -78,7 +78,7 @@ $border-color - Border color to use
 	color: $color;
 	font-weight: bold;
 	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
-	min-height: $xui-input-height;
+	min-height: $xui-control-size-standard;
 	padding: 11px $xui-input-padding-horizontal;
 	position: relative; // Set to enable z-index to take effect on focus
 	text-align: center;
@@ -110,7 +110,7 @@ $background-active - Background color to use while active
 	color: $text-color;
 	font-weight: bold;
 	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
-	min-height: $xui-input-height;
+	min-height: $xui-control-size-standard;
 	padding: 11px $xui-input-padding-horizontal;
 	transition-duration: $xui-motion-speed-fast;
 	transition-property: color, background;

@@ -47,6 +47,7 @@ const PickitemBody = ({
 					htmlClassName={`${ns}-pickitem--input`}
 					className={cn(checkboxClassName, `${ns}-pickitem-multiselect--checkbox`)}
 					labelClassName={`${ns}-pickitem-multiselect--label`}
+					isGrouped
 				>
 					<span
 						className={shouldTruncate ? `${ns}-text-truncated` : ''}

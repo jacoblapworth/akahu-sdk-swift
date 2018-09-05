@@ -43,6 +43,8 @@ export default class XUIAvatar extends PureComponent {
 			variantClassNames[variant],
 		);
 
+		const avatarCharacterCount = variant === 'business' && size !== '2xsmall'
+			? 3 : 2; // 2xsmall cannot fit 3 characters without overflowing
 		return imageUrl && !imageError ? (
 			<img
 				onError={this.onError}
@@ -57,7 +59,7 @@ export default class XUIAvatar extends PureComponent {
 				className={cn(avatarClassNames, getAvatarColorClass(identifier || value || imageUrl))}
 				role="presentation"
 			>
-				{abbreviateAvatar(value, variant === 'business' ? 3 : 2)}
+				{abbreviateAvatar(value, avatarCharacterCount)}
 			</abbr>
 		);
 	}

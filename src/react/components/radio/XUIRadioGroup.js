@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import uuidv4 from 'uuid/v4';
+import XUIRadio from './XUIRadio';
 
 import { baseClass } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
@@ -32,6 +33,13 @@ export default class XUIRadioGroup extends PureComponent {
 			`${ns}-fieldlabel-layout`,
 		);
 
+		const childrenToRender = React.Children.map(children, child =>
+			(child.type === XUIRadio
+				? React.cloneElement(child, {
+					isGrouped: true,
+				})
+				: child));
+
 		const labelElement = !isLabelHidden && labelText && (
 			<div className={labelClasses} id={this.id}>
 				{labelText}
@@ -49,7 +57,7 @@ export default class XUIRadioGroup extends PureComponent {
 					// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
 					aria-labelledby={(labelElement && this.id) || labelId || undefined}
 				>
-					{children}
+					{childrenToRender}
 				</div>
 			</div>
 		);

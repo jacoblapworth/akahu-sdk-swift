@@ -22,7 +22,7 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
         className="xui-accordiontrigger--arrow"
       >
         <button
-          className="xui-button xui-button-icon xui-button-icon-large"
+          className="xui-button xui-button-icon"
           data-automationid={undefined}
           disabled={false}
           onClick={[Function]}
@@ -89,7 +89,7 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
         className="xui-accordiontrigger--arrow"
       >
         <button
-          className="xui-button xui-button-icon xui-button-icon-large"
+          className="xui-button xui-button-icon"
           data-automationid={undefined}
           disabled={false}
           onClick={[Function]}
@@ -156,7 +156,7 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
         className="xui-accordiontrigger--arrow"
       >
         <button
-          className="xui-button xui-button-icon xui-button-icon-large"
+          className="xui-button xui-button-icon"
           data-automationid={undefined}
           disabled={false}
           onClick={[Function]}
@@ -221,7 +221,7 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
         className="xui-accordiontrigger--arrow"
       >
         <button
-          className="xui-button xui-button-icon xui-button-icon-large"
+          className="xui-button xui-button-icon"
           data-automationid={undefined}
           disabled={false}
           onClick={[Function]}
@@ -309,7 +309,7 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
         className="xui-accordiontrigger--arrow"
       >
         <button
-          className="xui-button xui-button-icon xui-button-icon-large"
+          className="xui-button xui-button-icon"
           data-automationid={undefined}
           disabled={false}
           onClick={[Function]}
@@ -399,7 +399,7 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
         className="xui-accordiontrigger--arrow"
       >
         <button
-          className="xui-button xui-button-icon xui-button-icon-large"
+          className="xui-button xui-button-icon"
           data-automationid={undefined}
           disabled={false}
           onClick={[Function]}

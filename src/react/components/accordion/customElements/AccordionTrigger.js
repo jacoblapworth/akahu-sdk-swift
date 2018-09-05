@@ -69,7 +69,7 @@ export default class AccordionTrigger extends PureComponent {
 			>
 				<div className={`${ns}-accordiontrigger--arrow`}>
 					<XUIButton
-						variant="icon-large"
+						variant="icon"
 						title={toggleLabel}
 						tabIndex={-1}
 					>

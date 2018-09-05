@@ -52,6 +52,7 @@ class CheckBoxCell extends PureComponent {
 						className={`${NAME_SPACE}--checkbox-head`}
 						onChange={onCheckAllToggle}
 						tabIndex={0}
+						isGrouped
 						isLabelHidden
 					>
 						{checkAllRowsLabel}

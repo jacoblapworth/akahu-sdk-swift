@@ -118,7 +118,7 @@ export default class CustomNavbar extends PureComponent {
 		const currentMonthDate = DateUtils.addMonths(previousMonth, 1);
 		const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
 		const nextClickHandler = dir === 'rtl' ? onPreviousClick : onNextClick;
-		const navButtonVariant = isCompact ? 'icon' : 'icon-large';
+		const controlSize = isCompact ? 'xsmall' : 'small';
 		const monthSelector = (
 			<MonthSelector
 				minDate={minDate}
@@ -129,6 +129,7 @@ export default class CustomNavbar extends PureComponent {
 				id={this.monthId}
 				onChange={this.onMonthChange}
 				onKeyDown={this.onMonthSelectKeyDown}
+				size={controlSize}
 			/>
 		);
 		const yearSelector = (
@@ -141,13 +142,15 @@ export default class CustomNavbar extends PureComponent {
 				onChange={this.onYearChange}
 				onKeyDown={this.onYearSelectKeyDown}
 				locale={locale}
+				size={controlSize}
 			/>
 		);
 
 		return (
 			<header className={classNames.navBar}>
 				<XUIButton
-					variant={navButtonVariant}
+					size={controlSize}
+					variant="icon"
 					isDisabled={!showPreviousButton}
 					className={classNames.navButtonPrev}
 					// Can't just pass a function because DayPicker expects a function callback arg
@@ -155,7 +158,7 @@ export default class CustomNavbar extends PureComponent {
 					aria-label={labels.previousMonth}
 					qaHook={qaHook && `${qaHook}--previous-month-button`}
 				>
-					<XUIIcon icon={arrow} rotation="90" isBoxed />
+					<XUIIcon icon={arrow} rotation="90" />
 				</XUIButton>
 
 				<div className="xui-datepicker--heading-dates">
@@ -164,7 +167,8 @@ export default class CustomNavbar extends PureComponent {
 				</div>
 
 				<XUIButton
-					variant={navButtonVariant}
+					size={controlSize}
+					variant="icon"
 					isDisabled={!showNextButton}
 					className={classNames.navButtonNext}
 					// Can't just pass a function because DayPicker expects a function callback arg
@@ -172,7 +176,7 @@ export default class CustomNavbar extends PureComponent {
 					aria-label={labels.nextMonth}
 					qaHook={qaHook && `${qaHook}--next-month-button`}
 				>
-					<XUIIcon icon={arrow} rotation="270" isBoxed />
+					<XUIIcon icon={arrow} rotation="270" />
 				</XUIButton>
 			</header>
 		);

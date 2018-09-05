@@ -132,7 +132,7 @@ class DetailedListExample extends Component {
 
 		if (selectedPeople != null && typeof selectedPeople === 'number') {
 			this.setState({
-				selectedPeople: [peopleDataSet[0]],
+				selectedPeople: peopleDataSet.slice(0, selectedPeople)
 			});
 		} else {
 			this.setState({
@@ -173,6 +173,7 @@ class DetailedListExample extends Component {
 			dropdownSize,
 			isDisabled,
 			noDrawerFooter,
+			disableWrapPills
 		} = example.props;
 
 		const footer = (
@@ -182,9 +183,9 @@ class DetailedListExample extends Component {
 						<XUIIcon
 							icon={plusIcon}
 							isBoxed
-							className="xui-margin-right-xsmall"
+							className="xui-margin-right-small"
 						/>
-							Add New Person
+						Add New Person
 					</Pickitem>
 				)}
 			/>
@@ -208,6 +209,7 @@ class DetailedListExample extends Component {
 					isDisabled={isDisabled}
 					inputLabelText="Sample Autocompleter"
 					isInputLabelHidden
+					disableWrapPills={disableWrapPills}
 					pills={
 						selectedPeople.map(person =>
 							<XUIPill
@@ -215,6 +217,7 @@ class DetailedListExample extends Component {
 								className="xui-autocompleter--pill"
 								onDeleteClick={()=>this.deletePerson(person.id)}
 								key={person.id}
+								size="small"
 							/>
 						)
 					}
@@ -319,7 +322,7 @@ class SecondarySearchExample extends React.Component {
 							<XUIIcon
 								icon={plusIcon}
 								isBoxed
-								className="xui-margin-right-xsmall"
+								className="xui-margin-right-small"
 							/>
 							Add New Person
 						</span>

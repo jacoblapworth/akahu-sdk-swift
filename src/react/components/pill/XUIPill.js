@@ -6,8 +6,7 @@ import crossSmall from '@xero/xui-icon/icons/cross-small';
 import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
 import XUIInnerPill from './XUIInnerPill';
-import { ns } from '../helpers/xuiClassNamespace';
-import basePillClass from './private/constants';
+import { baseClass, sizeClasses } from './private/constants';
 
 /**
  * @private
@@ -39,7 +38,6 @@ export default class XUIPill extends Component {
 			avatarProps,
 			className,
 			deleteButtonLabel,
-			defaultLayout,
 			href,
 			isInvalid,
 			onClick,
@@ -50,49 +48,33 @@ export default class XUIPill extends Component {
 			title,
 			value,
 			isMaxContentWidth,
+			size,
 		} = this.props;
 		const { isFocused } = this.state;
 
 		const pillClasses = cn(
 			className,
-			basePillClass,
-			defaultLayout && `${basePillClass}-layout`,
-			!isMaxContentWidth && `${basePillClass}-maxwidth`, // TODO: Remove in XUI 14
-			isInvalid && `${basePillClass}-is-invalid`,
-			isFocused && `${basePillClass}-is-focused`,
-			onDeleteClick && `${basePillClass}-is-deleteable`,
-			(href || onClick) && `${basePillClass}-interactive`,
+			baseClass,
+			!isMaxContentWidth && `${baseClass}-maxwidth`, // TODO: Remove in XUI 14
+			size && sizeClasses[size],
+			isInvalid && `${baseClass}-is-invalid`,
+			isFocused && `${baseClass}-is-focused`,
+			onDeleteClick && `${baseClass}-is-deletable`,
+			(avatarProps != null || isInvalid) && `${baseClass}-has-avatar`,
+			(href || onClick) && `${baseClass}-interactive`,
 		);
-
-		const closeButtonClasses = cn(
-			`${basePillClass}--button-icon`,
-			isInvalid && `${ns}-button-icon-inverted`,
-		);
-
-		const innerPillProps = {
-			avatarProps,
-			href,
-			isInvalid,
-			onClick,
-			qaHook,
-			secondaryText,
-			target,
-			title,
-			value,
-		};
-
 		const onDeleteCallback = onDeleteClick && returnCallbackWithScope(onDeleteClick, this);
 
 		const deleteButton = onDeleteCallback && (
 			<XUIButton
-				className={closeButtonClasses}
-				variant="icon"
+				className={`${baseClass}--button-icon`}
+				variant={isInvalid ? 'icon-inverted' : 'icon'}
 				onClick={onDeleteCallback}
 				title={deleteButtonLabel}
 				aria-label={deleteButtonLabel}
 				qaHook={qaHook && `${qaHook}--delete`}
 			>
-				<XUIIcon icon={crossSmall} isBoxed />
+				<XUIIcon icon={crossSmall} />
 			</XUIButton>
 		);
 
@@ -103,7 +85,20 @@ export default class XUIPill extends Component {
 				onBlur={this.toggleFocus}
 				data-automationid={qaHook}
 			>
-				<XUIInnerPill {...innerPillProps} />
+				<XUIInnerPill
+					{...{
+						avatarProps,
+						href,
+						isInvalid,
+						onClick,
+						qaHook,
+						secondaryText,
+						target,
+						title,
+						value,
+						size,
+					}}
+				/>
 				{deleteButton}
 			</div>
 		);
@@ -113,6 +108,7 @@ export default class XUIPill extends Component {
 XUIPill.defaultProps = {
 	deleteButtonLabel: 'Delete',
 	defaultLayout: true,
+	size: 'standard',
 };
 
 XUIPill.propTypes = {
@@ -146,4 +142,6 @@ XUIPill.propTypes = {
 	value: PropTypes.string,
 	/** Whether the pill shouldn't have a set max-width */
 	isMaxContentWidth: PropTypes.bool,
+	/** The size of the pill to render */
+	size: PropTypes.oneOf(Object.keys(sizeClasses)),
 };

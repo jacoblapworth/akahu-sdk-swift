@@ -121,22 +121,23 @@
 @include xui-generate-margin($xui-s-standard, $xui-class-suffix-standard);
 @include xui-generate-margin($xui-s-small, $xui-class-suffix-small);
 @include xui-generate-margin($xui-s-xsmall, $xui-class-suffix-xsmall);
+@include xui-generate-margin($xui-s-2xsmall, $xui-class-suffix-2xsmall);
 @include xui-generate-margin($xui-s-large, $xui-class-suffix-large);
 @include xui-generate-margin($xui-s-xlarge, $xui-class-suffix-xlarge);
 @include xui-generate-margin($xui-s-2xlarge, $xui-class-suffix-2xlarge);
 @include xui-generate-margin($xui-s-3xlarge, $xui-class-suffix-3xlarge);
 @include xui-generate-margin($xui-s-4xlarge, $xui-class-suffix-4xlarge);
 @include xui-generate-margin($xui-s-5xlarge, $xui-class-suffix-5xlarge);
-@include xui-generate-margin($xui-s-6xlarge, $xui-class-suffix-6xlarge);
 
 @include xui-generate-padding(0, $xui-class-suffix-none);
 @include xui-generate-padding($xui-s-standard, $xui-class-suffix-standard);
 @include xui-generate-padding($xui-s-small, $xui-class-suffix-small);
 @include xui-generate-padding($xui-s-xsmall, $xui-class-suffix-xsmall);
+@include xui-generate-padding($xui-s-2xsmall, $xui-class-suffix-2xsmall);
 @include xui-generate-padding($xui-s-large, $xui-class-suffix-large);
 @include xui-generate-padding($xui-s-xlarge, $xui-class-suffix-xlarge);
 @include xui-generate-padding($xui-s-2xlarge, $xui-class-suffix-2xlarge);
 @include xui-generate-padding($xui-s-3xlarge, $xui-class-suffix-3xlarge);
 @include xui-generate-padding($xui-s-4xlarge, $xui-class-suffix-4xlarge);
 @include xui-generate-padding($xui-s-5xlarge, $xui-class-suffix-5xlarge);
-@include xui-generate-padding($xui-s-6xlarge, $xui-class-suffix-6xlarge);
+

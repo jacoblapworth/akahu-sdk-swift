@@ -62,15 +62,15 @@
 
 // Line Height
 .#{$ns}-text-reset {
-	@include xui-text-line-height-reset;
+	line-height: $xui-line-height-reset;
 }
 
 .#{$ns}-text-tight {
-	@include xui-text-line-height-tight;
+	line-height: $xui-line-height-tight;
 }
 
 .#{$ns}-text-compact {
-	@include xui-text-line-height-compact;
+	line-height: $xui-line-height-compact;
 }
 
 // Color

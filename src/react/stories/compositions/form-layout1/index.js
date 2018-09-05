@@ -268,7 +268,7 @@ test.add(storyNames.formLayout, () => {
 									)}
 								/>
 								<XUITextInput
-									containerClassName="xui-u-flex-1"
+									fieldClassName="xui-u-flex-1"
 									labelText="Input label"
 									isLabelHidden
 									inputProps={{
@@ -300,7 +300,6 @@ test.add(storyNames.formLayout, () => {
 								name={inputMap.bankChoice}
 								htmlFor={inputMap.bankChoice}
 								id={inputMap.bankChoice}
-								className="xui-field-layout" // doesn't do anything unless on outer div
 								onSelect={NOOP}>
 								{banks}
 							</LayoutSelect>
@@ -442,8 +441,8 @@ test.add(storyNames.formLayout, () => {
 							</XUISwitch>
 						</PanelSection>
 
-						<footer className="xui-panel--footer xui-actions xui-actions-layout xui-padding-large">
-							<p className="xui-margin-right">
+						<footer className="xui-panel--footer xui-actions xui-actions-layout xui-padding-large xui-u-flex-align-center">
+							<p className="xui-margin-right xui-margin-vertical-none">
 								The results of the form are published as an object to the <XUITag>console</XUITag> when you click this button <XUIIcon icon={arrow} rotation="270" />
 							</p>
 							<XUIButton

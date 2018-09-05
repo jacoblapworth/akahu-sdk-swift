@@ -48,6 +48,19 @@ const variations = [
 		openDrawer: true,
 		noDrawerFooter: true,
 	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with wrapping pills',
+		selectedPeople: 6,
+		placeholder: 'Placeholder text'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with non-wrapping pills',
+		selectedPeople: 6,
+		disableWrapPills: true,
+		placeholder: 'Placeholder text'
+	}
 ];
 
 module.exports = {

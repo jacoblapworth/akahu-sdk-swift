@@ -73,7 +73,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         aria-describedby={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-textinput--input xui-padding-left-none"
+        className="xui-textinput--input"
         data-automationid={undefined}
         defaultValue={undefined}
         disabled={undefined}
@@ -105,7 +105,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         aria-describedby={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-textinput--input xui-padding-right-none"
+        className="xui-textinput--input"
         data-automationid={undefined}
         defaultValue={undefined}
         disabled={undefined}
@@ -183,7 +183,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         aria-describedby={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-textinput--input xui-padding-left-none xui-padding-right-none"
+        className="xui-textinput--input"
         data-automationid={undefined}
         defaultValue={undefined}
         disabled={undefined}

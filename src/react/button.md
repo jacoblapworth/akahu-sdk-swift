@@ -8,7 +8,7 @@ Whatever you put between the start and end tags of `XUIButton` will appear as th
 
 You can give `XUIButton` a click handler to perform actions when the button is triggered, either by clicking on it, or by pressing `space` or `enter` when it has focus.
 
-```
+```jsx
 	function handleClick() { alert('You clicked the button!'); }
 	<XUIButton onClick={handleClick}>Click this button</XUIButton>
 ```
@@ -17,7 +17,7 @@ You can give `XUIButton` a click handler to perform actions when the button is t
 
 Different styles of button are available by passing different values to the `variant` prop.
 
-```
+```jsx
 	const ExampleContainer = require('./docs/ExampleContainer').default;
 	<div>
 		<div>
@@ -39,11 +39,11 @@ Different styles of button are available by passing different values to the `var
 	</div>
 ```
 
-Icon buttons are supported by the `icon`, `icon-inverted`, `icon-large` and `icon-inverted-large` variants.
+Icon buttons are supported by the `icon` and `icon-inverted` variants.
 
 When placing `XUIIcon` alone in a button, ensure accessibility by adding a `title` prop on the `XUIIcon`, or a `title` and `aria-label` on the button itself.
 
-If you add the `xui-button-icon-large` class to the button, it will be given a larger touch target.
+If you use these together with the `size` prop, the icon button size classes will be applied.
 
 ```jsx
 	const ExampleContainer = require('./docs/ExampleContainer').default;
@@ -55,17 +55,23 @@ If you add the `xui-button-icon-large` class to the button, it will be given a l
 			<XUIIcon icon={icon} title="Dots menu" />
 		</XUIButton>
 
-		<XUIButton variant="icon" className="xui-button-icon-large">
-			<XUIIcon icon={icon} title="Dots menu" size="large" />
+		<XUIButton variant="icon" size="small">
+			<XUIIcon icon={icon} title="Dots menu" />
+		</XUIButton>
+
+		<XUIButton variant="icon" size="xsmall">
+			<XUIIcon icon={icon} title="Dots menu" />
 		</XUIButton>
 
 		<ExampleContainer className="xui-padding-xsmall" isInverted>
 			<XUIButton variant="icon-inverted">
 				<XUIIcon icon={icon} title="Dots menu" />
 			</XUIButton>
-
-			<XUIButton variant="icon-inverted" className="xui-button-icon-large">
-				<XUIIcon icon={icon} title="Dots menu" size="large" />
+			<XUIButton variant="icon-inverted" size="small">
+				<XUIIcon icon={icon} title="Dots menu" />
+			</XUIButton>
+			<XUIButton variant="icon-inverted" size="xsmall">
+				<XUIIcon icon={icon} title="Dots menu" />
 			</XUIButton>
 		</ExampleContainer>
 
@@ -76,13 +82,17 @@ If you add the `xui-button-icon-large` class to the button, it will be given a l
 
 The `size` prop allows you to modify the default button size. You can make buttons smaller, or span the width of their container.
 
-```
-<XUIButton size='small'>Smaller button</XUIButton>
+```jsx
+<div>
+	<XUIButton>Standard</XUIButton>
+	<XUIButton size="small">Small</XUIButton>
+	<XUIButton size="xsmall">Extra small</XUIButton>
+</div>
 ```
 
 There are two options for "full-width" buttons. `full-width-mobile` only creates a full-width button at mobile breakpoints. `full-width` will be a full-width button at any breakpoint.
 
-```
+```jsx
 	<div>
 		<div className="xui-margin-bottom">
 
@@ -121,7 +131,7 @@ The `minLoaderWidth` prop modifies the button by applying a 75px min width on it
 
 The supplied loader inherits the text color of the button component.
 
-```
+```jsx
 <div>
 	<span className="xui-margin-right">
 		<XUIButton variant="primary" isLoading>

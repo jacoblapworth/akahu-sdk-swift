@@ -111,6 +111,7 @@
 
 
 .#{$ns}-tooltip {
+
 	cursor: pointer;
 	display: inline-block;
 	overflow: hidden;
@@ -139,6 +140,7 @@
 }
 
 .#{$ns}-tooltip--tip {
+	@include xui-text-small;
 	background-color: $xui-tooltip-bg-color;
 	border-radius: $xui-radius;
 	bottom: 0;
@@ -149,7 +151,7 @@
 	line-height: $xui-line-height;
 	opacity: 0;
 	overflow-wrap: break-word;
-	padding: $xui-s-xsmall $xui-s-small;
+	padding: $xui-s-2xsmall $xui-s-xsmall;
 	pointer-events: none;
 	position: absolute;
 	right: 0;

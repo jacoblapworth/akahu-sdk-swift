@@ -141,7 +141,7 @@
 }
 
 .#{$ns}-banner-layout {
-	@include xui-padding($xui-s-small);
+	@include xui-padding($xui-s-2xsmall);
 	@include xui-margin-bottom($xui-s-large);
 	@include xui-margin-horizontal(auto);
 
@@ -161,8 +161,8 @@
 	}
 
 	.#{$ns}-banner--message {
-		// The 7px here is to clear the standard paragraph height - 5px is too small
-		margin: $xui-s-xsmall $xui-s-small 7px $xui-s-xsmall;
+		margin: 0;
+		padding: $xui-s-xsmall $xui-s-small;
 	}
 
 	.#{$ns}-banner--messagedetail {
@@ -170,8 +170,8 @@
 		@include xui-margin-horizontal($xui-s-xsmall);
 	}
 
-	.#{$ns}-banner--actions {
-		margin: 0;
+	.#{$ns}-banner--action {
+		margin: $xui-s-2xsmall;
 	}
 
 	// TODO: Deprecated in XUI12; remove in XUI14
@@ -182,7 +182,7 @@
 	}
 
 	.#{$ns}-banner--close ~ .#{$ns}-banner--message {
-		max-width: calc(100% - 50px);
+		max-width: calc(100% - #{$xui-control-size-small + $xui-s-xsmall});
 	}
 
 	.#{$ns}-banner--close ~ .#{$ns}-banner--messagedetail {
@@ -203,6 +203,15 @@
 .#{$ns}-banner--actions,
 .#{$ns}-banner--close {
 	float: right;
+}
+
+.#{$ns}-banner--actions {
+	margin: 0;
+	padding: 0;
+}
+
+.#{$ns}-banner--close {
+	margin: $xui-s-2xsmall;
 }
 
 .#{$ns}-banner--action {

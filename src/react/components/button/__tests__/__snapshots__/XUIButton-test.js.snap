@@ -90,3 +90,58 @@ exports[`<XUIButton/> does retain layout checks with a myriad of combinations 3`
   </div>
 </button>
 `;
+
+exports[`<XUIButton/> renders icon buttons with the correct icon size classes 1`] = `
+<div>
+  <button
+    className="xui-button xui-button-icon"
+    data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    type="button"
+  />
+  <button
+    className="xui-button xui-button-icon xui-button-icon-small"
+    data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    type="button"
+  />
+  <button
+    className="xui-button xui-button-icon xui-button-icon-xsmall"
+    data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    type="button"
+  />
+</div>
+`;
+
+exports[`<XUIButton/> renders icon buttons with the correct inverted class 1`] = `
+<div>
+  <button
+    className="xui-button xui-button-icon"
+    data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    type="button"
+  />
+  <button
+    className="xui-button xui-button-icon xui-button-icon-inverted"
+    data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    type="button"
+  />
+</div>
+`;

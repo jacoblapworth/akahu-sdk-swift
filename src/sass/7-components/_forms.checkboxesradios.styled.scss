@@ -1,8 +1,5 @@
 @import "../vars";
 
-
-
-
 // Group styles
 // ============
 .#{$ns}-styledcheckboxradio-group {
@@ -12,7 +9,7 @@
 
 	.#{$ns}-styledcheckboxradio {
 		display: flex; // Stacked inputs
-		padding: 4px; // Border padding
+		padding: $xui-s-xsmall - 1px; // 1px to make up for border width
 	}
 
 	.#{$ns}-styledcheckboxradio:nth-last-of-type(n+2) {
@@ -26,11 +23,13 @@
 	}
 }
 
+
 // Label spacing
 // =============
 .#{$ns}-styledcheckboxradio--label {
+	@include xui-text-standard;
+	@include xui-margin-horizontal($xui-s-xsmall);
 	flex-grow: 1;
-	padding: 6px 6px 3px 3px;
 
 	.#{$ns}-styledcheckboxradio-is-disabled & {
 		color: $xui-checkboxradio-label-disabled-color;
@@ -56,7 +55,9 @@
 
 	.#{$ns}-iconwrapper {
 		flex-shrink: 0; // Prevent SVG from shrinking when label text is long
+		height: $xui-s-xlarge;
 		pointer-events: none;
+		width: $xui-s-xlarge;
 	}
 
 	.#{$ns}-icon {
@@ -101,6 +102,7 @@
 // Hover
 .#{$ns}-styledcheckboxradio--input {
 	@include xui-position-offscreen-input;
+	height: $xui-s-xlarge;
 
 	&:hover + .#{$ns}-iconwrapper {
 		.#{$ns}-styledcheckboxradio--main {
@@ -268,7 +270,7 @@
 		background-color: $xui-checkboxradio-checked-fill;
 		border-color: $xui-checkboxradio-checked-stroke;
 		&:after {
-			border-width: 5px;
+			border-width: 6px;
 		}
 		&:hover {
 			& + .#{$ns}-styledcheckboxradio--radio {
@@ -325,11 +327,10 @@
 	border-radius: $xui-radius;
 	cursor: pointer;
 	flex-shrink: 0;
-	height: 19px;
-	margin: 6px 5px 4px 6px;
+	height: $xui-s-xlarge;
 	position: relative;
 	transition: background-color $xui-motion-speed-fast $xui-motion-curve-standard;
-	width: 19px;
+	width: $xui-s-xlarge;
 
 	&:before, &:after {
 		content: '';
@@ -396,12 +397,11 @@
 	cursor: pointer;
 	display: flex;
 	flex-shrink: 0;
-	height: 19px;
+	height: $xui-s-xlarge;
 	justify-content: center;
-	margin: 6px 5px 4px 6px;
 	position: relative;
 	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
-	width: 19px;
+	width: $xui-s-xlarge;
 
 	&:after {
 		align-self: center;
@@ -424,4 +424,16 @@
 	.#{$ns}-styledcheckboxradio-is-disabled & {
 		cursor: not-allowed;
 	}
+}
+
+.#{$ns}-styledcheckboxradio--radio-small,
+.#{$ns}-styledcheckboxradio--checkbox-small {
+	@include xui-margin-vertical(2px);
+	@include xui-margin-left(2px);
+	height: $xui-s-large;
+	width: $xui-s-large;
+}
+
+.#{$ns}-styledcheckboxradio--input-small {
+	height: $xui-s-large;
 }

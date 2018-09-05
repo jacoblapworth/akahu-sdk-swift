@@ -9,20 +9,12 @@ Enzyme.configure({ adapter: new Adapter() });
 const NOOP = () => {};
 
 describe('<XUIPill />', () => {
-
-	it('renders with correct XUI classes including layout', () => {
-		const pill = shallow(<XUIPill />);
-
-		expect(pill.hasClass('xui-pill-layout')).toBeTruthy();
-	});
-
-	it('render pill text in a button by default', () => {
-		const pill = shallow(
-			<XUIPill />
+	it('renders the pill with the specified value prop', () => {
+		const pill = renderer.create(
+			<XUIPill value="Value Pill" />
 		);
 
-		expect(pill.hasClass('xui-pill')).toBeTruthy();
-		expect(pill.find('button')).toBeTruthy();
+		expect(pill).toMatchSnapshot();
 	});
 
 	it('renders the pill with the specified className prop', () => {
@@ -31,14 +23,6 @@ describe('<XUIPill />', () => {
 		);
 
 		expect(pill.hasClass('xui-test-class')).toBeTruthy();
-	});
-
-	it('renders the pill with the specified value prop', () => {
-		const pill = renderer.create(
-			<XUIPill value="Value Pill" />
-		);
-
-		expect(pill).toMatchSnapshot();
 	});
 
 	it('will render the pill text in an "a" tag when a href prop is provided', () => {
@@ -70,22 +54,6 @@ describe('<XUIPill />', () => {
 		);
 
 		expect(pill.find('.xui-avatar')).toBeTruthy();
-	});
-
-	it('renders the pill without the xui-pill-layout class when defaultLayout prop is false', () => {
-		const pill = shallow(
-			<XUIPill defaultLayout={false} />
-		);
-
-		expect(pill.hasClass('xui-pill-layout')).toBeFalsy();
-	});
-
-	it('renders the pill without the xui-pill-layout class by default', () => {
-		const pill = shallow(
-			<XUIPill />
-		);
-
-		expect(pill.hasClass('xui-pill-layout')).toBeTruthy();
 	});
 
 	it('invokes the callback passed into the onDeleteClick prop with itself passed in as an argument', () => {
@@ -187,5 +155,20 @@ describe('<XUIPill />', () => {
 		expect(pill.state('isFocused')).toBeTruthy();
 	});
 
-
-});
+	it('should render a pills with correct size modifiers', () => {
+		const sizes = ['standard', 'small', 'xsmall'];
+		sizes.forEach(size => {
+			const pill = renderer.create(
+				<XUIPill
+					size={size}
+					value="Test"
+					avatarProps={{
+						value: 'Test Render'
+					}}
+					onDeleteClick={NOOP}
+				/>
+			);
+			expect(pill).toMatchSnapshot();
+		});
+	});
+})

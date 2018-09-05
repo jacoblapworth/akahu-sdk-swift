@@ -225,7 +225,7 @@ code {
 
 	td:not(.xui-table--cell) {
 		border: $xui-border-standard;
-		padding: $xui-s-xsmall $xui-s-small;
+		padding: $xui-s-2xsmall $xui-s-xsmall;
 	}
 
 	.xui-contentblock td {
@@ -483,14 +483,14 @@ $kss-color-padding: #eeebff;
 	white-space: nowrap;
 	width: 40%;
 	@include xui-breakpoint-medium-and-wide {
-		padding: $xui-s-small $xui-s-small $xui-s-small 0;
+		padding: $xui-s-xsmall $xui-s-xsmall $xui-s-xsmall 0;
 	}
 }
 
 .ds-classtable-description {
-	padding: $xui-s-xsmall 0 $xui-s-large;
+	padding: $xui-s-2xsmall 0 $xui-s-large;
 	@include xui-breakpoint-medium-and-wide{
-		padding: $xui-s-small 0 $xui-s-small $xui-s-small;
+		padding: $xui-s-xsmall 0 $xui-s-xsmall $xui-s-xsmall;
 	}
 }
 
@@ -737,7 +737,7 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-header {
-	padding: $xui-s-small 5vw;
+	padding: $xui-s-xsmall 5vw;
 	overflow: hidden;
 	width: 100%;
 	z-index: 1;
@@ -825,11 +825,11 @@ $kss-color-padding: #eeebff;
 
 .ds-color-swatch {
 	min-height: 60px;
-	padding: $xui-s-small;
+	padding: $xui-s-xsmall;
 	align-items: flex-start;
 	display: flex;
 	flex-flow: column nowrap;
-	height: $xui-s-6xlarge;
+	height: $xui-s-5xlarge;
 	justify-content: space-between;
 	width: 100%;
 	.ds-color-swatch-code:nth-child(n+2) {

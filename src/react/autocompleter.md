@@ -137,6 +137,7 @@ class WrapPillsExample extends Component {
 					pills={
 						selectedPeopleIds.map(id =>
 							<XUIPill
+								size="small"
 								value={people[id].name}
 								className="xui-autocompleter--pill"
 								onDeleteClick={()=>this.deletePerson(id)}
@@ -260,6 +261,7 @@ class DisableWrapPills extends Component {
 					pills={
 						selectedPeopleIds.map(id =>
 							<XUIPill
+								size="small"
 								value={people[id].name}
 								className="xui-autocompleter--pill"
 								onDeleteClick={()=>this.deletePerson(id)}
@@ -368,7 +370,7 @@ class SingleSelectExample extends Component {
 		);
 		const rightElement = selectedPersonId != null && (
 			<XUITextInputSideElement type="icon">
-				<XUIButton variant="icon" onClick={() => this.selectPerson(null)} aria-label="Clear">
+				<XUIButton variant="icon" size="small" onClick={() => this.selectPerson(null)} aria-label="Clear">
 					<XUIIcon icon={crossIcon} />
 				</XUIButton>
 			</XUITextInputSideElement>

@@ -627,14 +627,14 @@
 	display: flex;
 
 	.#{$ns}-contentblockitem--actions {
-		margin-right: $xui-s-small;
+		margin-right: $xui-s-xsmall;
 	}
 
 	.#{$ns}-contentblockitem--rightcontent {
 		align-items: center;
 		display: flex;
-		margin-left: $xui-s-small;
-		margin-right: $xui-s-small;
+		margin-left: $xui-s-xsmall;
+		margin-right: $xui-s-xsmall;
 	}
 
 	.#{$ns}-contentblockitem--leftcontent {
@@ -646,8 +646,8 @@
 
 	.#{$ns}-contentblockitem--links {
 		flex: 1;
-		padding-bottom: $xui-s-standard;
-		padding-top: $xui-s-standard;
+		padding-bottom: $xui-s-small;
+		padding-top: $xui-s-small;
 	}
 
 	.#{$ns}-contentblockitem--links:first-child {
@@ -663,7 +663,7 @@
 	}
 
 	.#{$ns}-contentblockitem--pinnedvalue {
-		margin-right: $xui-s-small;
+		margin-right: $xui-s-xsmall;
 		text-align: right;
 	}
 
@@ -677,12 +677,12 @@
 }
 
 .#{$ns}-contentblockitem--primaryheading {
-	font-size: $xui-font-size-medium;
+	@include xui-text-standard;
 	font-weight: $xui-font-weight-emphasis;
-	line-height: $xui-line-height-compact;
 }
 
 .#{$ns}-contentblockitem--secondaryheading {
+	@include xui-text-small;
 	@include xui-text-truncated;
 	@include xui-text-muted;
 }
@@ -1133,7 +1133,7 @@
 //
 // Styleguide: Compounds.DisplayingData.Table.4.2
 
-$xui-table-action-offset: $xui-s-5xlarge;
+$xui-table-action-offset: $xui-s-4xlarge;
 $xui-table-z-pinned-shadow: 1;
 $xui-table-z-pinned-column: 2;
 $xui-table-z-pinned-appendages: 3;
@@ -1339,21 +1339,24 @@ $xui-table-z-alert: 4;
 
 .#{$ns}-table--checkbox-body,
 .#{$ns}-table--checkbox-head {
-	left: $xui-s-small;
 	position: absolute;
+}
+
+.#{$ns}-table--checkbox-body {
+	left: $xui-s-small;
 	top: $xui-s-small;
 }
 
 .#{$ns}-table--checkbox-head {
-	left: 0;
+	left: $xui-s-2xsmall;
 	padding: 0;
-	top: -#{$xui-s-xsmall};
+	top: 0;
 }
 
 .#{$ns}-table--overflowmenu-body {
 	position: absolute;
-	right: $xui-s-xsmall;
-	top: $xui-s-xsmall;
+	right: $xui-s-2xsmall;
+	top: $xui-s-2xsmall;
 }
 
 .#{$ns}-table--customheader,
@@ -1409,18 +1412,18 @@ $xui-table-z-alert: 4;
 }
 
 .#{$ns}-table--body .#{$ns}-table--cell {
-	height: $xui-s-5xlarge;
-	min-height: $xui-s-5xlarge;
+	height: $xui-s-4xlarge;
+	min-height: $xui-s-4xlarge;
 }
 
 .#{$ns}-table--head .#{$ns}-table--cell {
-	height: $xui-s-4xlarge;
-	min-height: $xui-s-4xlarge;
+	height: $xui-s-3xlarge;
+	min-height: $xui-s-3xlarge;
 	padding: 0;
 }
 
 .#{$ns}-table--head .#{$ns}-table--cell > * {
-	padding: $xui-s-small;
+	padding: $xui-s-xsmall;
 	white-space: nowrap;
 }
 

@@ -2,7 +2,7 @@
 
 exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
 <div
-  className="xui-pill xui-pill-layout xui-pill-maxwidth"
+  className="xui-pill xui-pill-maxwidth"
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -20,9 +20,165 @@ exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
 </div>
 `;
 
+exports[`<XUIPill /> should render a pills with correct size modifiers 1`] = `
+<div
+  className="xui-pill xui-pill-maxwidth xui-pill-is-deletable xui-pill-has-avatar"
+  data-automationid={undefined}
+  onBlur={[Function]}
+  onFocus={[Function]}
+>
+  <span
+    className="xui-pill--content"
+    data-automationid={undefined}
+  >
+    <abbr
+      className="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8"
+      data-automationid={undefined}
+      role="presentation"
+    >
+      TR
+    </abbr>
+    <span
+      className="xui-pill--text"
+    >
+      Test
+    </span>
+  </span>
+  <button
+    aria-label="Delete"
+    className="xui-button xui-pill--button-icon xui-button-icon"
+    data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    title="Delete"
+    type="button"
+  >
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={7}
+      viewBox="0 0 7 7"
+      width={7}
+    >
+      <path
+        d="M4.25 3.5L7 6.25 6.25 7 3.5 4.25.75 7 0 6.25 2.75 3.5 0 .75.75 0 3.5 2.75 6.25 0 7 .75 4.25 3.5z"
+        role="presentation"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`<XUIPill /> should render a pills with correct size modifiers 2`] = `
+<div
+  className="xui-pill xui-pill-maxwidth xui-pill-small xui-pill-is-deletable xui-pill-has-avatar"
+  data-automationid={undefined}
+  onBlur={[Function]}
+  onFocus={[Function]}
+>
+  <span
+    className="xui-pill--content"
+    data-automationid={undefined}
+  >
+    <abbr
+      className="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-8"
+      data-automationid={undefined}
+      role="presentation"
+    >
+      TR
+    </abbr>
+    <span
+      className="xui-pill--text"
+    >
+      Test
+    </span>
+  </span>
+  <button
+    aria-label="Delete"
+    className="xui-button xui-pill--button-icon xui-button-icon"
+    data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    title="Delete"
+    type="button"
+  >
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={7}
+      viewBox="0 0 7 7"
+      width={7}
+    >
+      <path
+        d="M4.25 3.5L7 6.25 6.25 7 3.5 4.25.75 7 0 6.25 2.75 3.5 0 .75.75 0 3.5 2.75 6.25 0 7 .75 4.25 3.5z"
+        role="presentation"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`<XUIPill /> should render a pills with correct size modifiers 3`] = `
+<div
+  className="xui-pill xui-pill-maxwidth xui-pill-xsmall xui-pill-is-deletable xui-pill-has-avatar"
+  data-automationid={undefined}
+  onBlur={[Function]}
+  onFocus={[Function]}
+>
+  <span
+    className="xui-pill--content"
+    data-automationid={undefined}
+  >
+    <abbr
+      className="xui-pill--avatar xui-avatar xui-avatar-2xsmall xui-avatar-color-8"
+      data-automationid={undefined}
+      role="presentation"
+    >
+      TR
+    </abbr>
+    <span
+      className="xui-pill--text"
+    >
+      Test
+    </span>
+  </span>
+  <button
+    aria-label="Delete"
+    className="xui-button xui-pill--button-icon xui-button-icon"
+    data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    title="Delete"
+    type="button"
+  >
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={7}
+      viewBox="0 0 7 7"
+      width={7}
+    >
+      <path
+        d="M4.25 3.5L7 6.25 6.25 7 3.5 4.25.75 7 0 6.25 2.75 3.5 0 .75.75 0 3.5 2.75 6.25 0 7 .75 4.25 3.5z"
+        role="presentation"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
 exports[`<XUIPill /> should render a target when passed in 1`] = `
 <div
-  className="xui-pill xui-pill-layout xui-pill-maxwidth xui-pill-interactive"
+  className="xui-pill xui-pill-maxwidth xui-pill-interactive"
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -47,7 +203,7 @@ exports[`<XUIPill /> should render a target when passed in 1`] = `
 
 exports[`<XUIPill /> should render a title when passed 1`] = `
 <div
-  className="xui-pill xui-pill-layout xui-pill-maxwidth"
+  className="xui-pill xui-pill-maxwidth"
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -61,7 +217,7 @@ exports[`<XUIPill /> should render a title when passed 1`] = `
 
 exports[`<XUIPill /> should render an automation id when a qaHook is passed in 1`] = `
 <div
-  className="xui-pill xui-pill-layout xui-pill-maxwidth"
+  className="xui-pill xui-pill-maxwidth"
   data-automationid="pill-test"
   onBlur={[Function]}
   onFocus={[Function]}
@@ -75,7 +231,7 @@ exports[`<XUIPill /> should render an automation id when a qaHook is passed in 1
 
 exports[`<XUIPill /> should render an error icon when invalid 1`] = `
 <div
-  className="xui-pill xui-pill-layout xui-pill-maxwidth xui-pill-is-invalid"
+  className="xui-pill xui-pill-maxwidth xui-pill-is-invalid xui-pill-has-avatar"
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -85,7 +241,7 @@ exports[`<XUIPill /> should render an error icon when invalid 1`] = `
     data-automationid={undefined}
   >
     <div
-      className="xui-pill--erroricon"
+      className="xui-pill--avatar xui-pill--erroricon xui-pill--erroricon-small"
     >
       <svg
         className="xui-icon xui-icon-color-red"
@@ -112,7 +268,7 @@ exports[`<XUIPill /> should render an error icon when invalid 1`] = `
 
 exports[`<XUIPill /> should render an error icon when invalid even with an avatar 1`] = `
 <div
-  className="xui-pill xui-pill-layout xui-pill-maxwidth xui-pill-is-invalid"
+  className="xui-pill xui-pill-maxwidth xui-pill-small xui-pill-is-invalid xui-pill-has-avatar"
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -122,7 +278,7 @@ exports[`<XUIPill /> should render an error icon when invalid even with an avata
     data-automationid={undefined}
   >
     <div
-      className="xui-pill--erroricon"
+      className="xui-pill--avatar xui-pill--erroricon xui-pill--erroricon-xsmall"
     >
       <svg
         className="xui-icon xui-icon-color-red"

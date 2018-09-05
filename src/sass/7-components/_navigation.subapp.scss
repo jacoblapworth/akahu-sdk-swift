@@ -18,26 +18,26 @@
 .#{$ns}-pageheading--content-layout {
 	flex-flow: row wrap;
 	width: 100%;
-	@include xui-margin-horizontal($xui-s-small); // so page widths are not necessary
+	@include xui-margin-horizontal($xui-s-xsmall); // so page widths are not necessary
 	&.#{$ns}-page-width-standard {
-		@media (min-width:  #{$xui-page-width-small + 2 * $xui-s-small}) {
+		@media (min-width:  #{$xui-page-width-small + 2 * $xui-s-xsmall}) {
 			@include xui-margin-horizontal(auto);
 		}
 	}
 	&.#{$ns}-page-width-large {
-		@media (min-width:  #{$xui-page-width-large + 2 * $xui-s-small}) {
+		@media (min-width:  #{$xui-page-width-large + 2 * $xui-s-xsmall}) {
 			@include xui-margin-horizontal(auto);
 		}
 	}
 	.#{$ns}-pageheading--title {
-		@include xui-padding-left($xui-s-small);
+		@include xui-padding-left($xui-s-xsmall);
 		&.#{$ns}-page-width-standard {
-			@media (min-width:  #{$xui-page-width-small + 2 * $xui-s-small}) {
+			@media (min-width:  #{$xui-page-width-small + 2 * $xui-s-xsmall}) {
 				@include xui-padding-left(0);
 			}
 		}
 		&.#{$ns}-page-width-large {
-			@media (min-width:  #{$xui-page-width-large + 2 * $xui-s-small}) {
+			@media (min-width:  #{$xui-page-width-large + 2 * $xui-s-xsmall}) {
 				@include xui-padding-left(0);
 			}
 		}
@@ -68,15 +68,15 @@
 	@include xui-button-borderless($xui-breadcrumb-link-color, $xui-breadcrumb-link-hover-color, $xui-breadcrumb-link-active-color);
 	display: block;
 	line-height: inherit; // Overrides the line-height from the xui-button-borderless mixin, which is mostly good.
-	min-height: $xui-input-height-small;
+	min-height: $xui-control-size-small;
 	outline: none;
 	padding: 6px $xui-s-small;
 	text-decoration: none;
 	.#{$ns}-breadcrumb:first-of-type & {
-		@include xui-margin-right(-$xui-s-small);
+		@include xui-margin-right(-$xui-s-xsmall);
 	}
 	.#{$ns}-breadcrumb:nth-of-type(n+2) & {
-		@include xui-margin-horizontal(-$xui-s-small);
+		@include xui-margin-horizontal(-$xui-s-xsmall);
 	}
 }
 
@@ -107,10 +107,12 @@
 	display: flex;
 	flex: 1 1 auto;
 	justify-content: flex-end;
+	margin-right: $xui-s-xsmall;
+
 	> .#{$ns}-button {
-		margin-left: $xui-s-small;
+		margin-left: $xui-s-xsmall;
 	}
 	> .#{$ns}-buttongroup {
-		margin-left: $xui-s-small;
+		margin-left: $xui-s-xsmall;
 	}
 }

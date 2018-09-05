@@ -26,12 +26,12 @@ Setting up the parent class for padded columns
 This is our "Grid" since we want a nice even space between the columns
 */
 .#{$ns}-row-grid {
-	margin-left: - $xui-s-small;
-	margin-right: - $xui-s-small;
+	margin-left: - $xui-s-xsmall;
+	margin-right: - $xui-s-xsmall;
 
 	> [class*="xui-column"] {
-		margin-left: $xui-s-small;
-		margin-right: $xui-s-small;
+		margin-left: $xui-s-xsmall;
+		margin-right: $xui-s-xsmall;
 	}
 }
 

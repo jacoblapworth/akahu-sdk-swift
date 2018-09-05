@@ -19,7 +19,7 @@
 	cursor: pointer;
 	flex-direction: column;
 	flex: 1;
-	margin: $xui-s-small;
+	margin: $xui-s-xsmall;
 	min-height: 8rem;
 	max-width: calc(50% - 20px);
 	min-width: calc(100% - 20px);
@@ -41,7 +41,7 @@
 		min-width: calc(33.33% - 20px);
 	}
 	.ds-card-content {
-		margin-top: $xui-s-xsmall;
+		margin-top: $xui-s-2xsmall;
 	}
 }
 

@@ -1,5 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
+import caret from '@xero/xui-icon/icons/caret';
+
+import XUIIcon from '../../../icon/XUIIcon';
+import { ns } from '../../../helpers/xuiClassNamespace';
+
+const buttonSizeClasses = {
+	small: `${ns}-button-small`,
+	xsmall: `${ns}-button-xsmall`,
+};
 
 export default function YearSelector({
 	minDate,
@@ -9,6 +19,7 @@ export default function YearSelector({
 	selectRef,
 	onChange,
 	onKeyDown,
+	size,
 }) {
 	const currentYear = currentMonthDate.getFullYear();
 	const startYear = minDate ? minDate.getFullYear() : currentYear - 10;
@@ -20,9 +31,16 @@ export default function YearSelector({
 	const label = (
 		<label
 			htmlFor={id}
-			className="xui-datepicker--heading-label xui-text-compact xui-padding-xsmall xui-text-deemphasis"
+			className={cn(
+				`${ns}-button`,
+				`${ns}-button-standard`,
+				`${ns}-datepicker--heading-label`,
+				`${ns}-datepicker--year-select-label`,
+				buttonSizeClasses[size],
+			)}
 		>
 			{currentYear}
+			<XUIIcon icon={caret} className={`${ns}-button--caret`} />
 		</label>
 	);
 
@@ -67,5 +85,6 @@ YearSelector.propTypes = {
 	onChange: PropTypes.func,
 	onKeyDown: PropTypes.func,
 	// TODO: Implement locale
-	locale: PropTypes.string,// eslint-disable-line
+	locale: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+	size: PropTypes.oneOf(Object.keys(buttonSizeClasses)),
 };

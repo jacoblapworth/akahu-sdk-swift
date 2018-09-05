@@ -606,7 +606,7 @@
 }
 
 .#{$ns}-picklist-layout {
-	padding: $xui-s-small 0;
+	padding: $xui-s-xsmall 0;
 }
 
 .#{$ns}-pickitem {
@@ -621,6 +621,7 @@
 }
 
 .#{$ns}-pickitem--body {
+	@include xui-text-standard;
 	align-items: center;
 	background: transparent;
 	border: 0;
@@ -628,8 +629,6 @@
 	cursor: pointer;
 	display: flex;
 	font-family: $xui-font-family;
-	font-size: $xui-font-size-small;
-	line-height: $xui-line-height;
 	min-height: 40px;
 	outline: none;
 	padding-left: $xui-s-large;
@@ -735,8 +734,8 @@
 	}
 	.#{$ns}-pickitem--body {
 		height: 100%;
-		min-height: $xui-input-height;
-		padding: $xui-s-small $xui-s-standard;
+		min-height: $xui-control-size-standard;
+		padding: $xui-s-xsmall $xui-s-standard;
 		text-align: center;
 	}
 	.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem--multiselect):not(.#{$ns}-pickitem-multiselect) {
@@ -762,16 +761,11 @@
 	}
 
 	.#{$ns}-pickitem--icon + .#{$ns}-pickitem--body {
-		padding-left: $xui-s-5xlarge + $xui-s-5xlarge + $xui-s-xsmall;
-	}
-
-	.#{$ns}-pickitem--body .#{$ns}-pickitem--multiselect-checkbox, // TODO: remove this old selector
-	.#{$ns}-pickitem--body .#{$ns}-pickitem-multiselect--checkbox {
-		padding-left: $xui-s-large;
+		padding-left: $xui-s-5xlarge + $xui-s-5xlarge + $xui-s-2xsmall;
 	}
 
 	.#{$ns}-pickitem--icon {
-		left: $xui-s-4xlarge + $xui-s-xsmall;
+		left: $xui-s-4xlarge + $xui-s-2xsmall;
 	}
 }
 
@@ -830,7 +824,7 @@
 		& ~ .#{$ns}-submenu-layout {
 			max-height: 100vh;
 			overflow: auto;
-			padding: $xui-s-small 0;
+			padding: $xui-s-xsmall 0;
 		}
 
 	}
@@ -871,30 +865,8 @@
 }
 
 .#{$ns}-pickitem--input {
-	align-self: flex-start;
-	flex-shrink: 0;
-	margin-left: 0;
-	margin-right: $xui-s-large;
-	margin-top: $xui-s-small;
-}
+	margin-right: $xui-s-standard;
 
-.#{$ns}-pickitem--multiselect-label, // TODO: remove this old selector
-.#{$ns}-pickitem-multiselect--label {
-	width: 100%;
-}
-.#{$ns}-pickitem--multiselect-checkbox, // TODO: remove this old selector
-.#{$ns}-pickitem-multiselect--checkbox {
-	min-width: 0;
-}
-
-.#{$ns}-pickitem--multiselect .#{$ns}-styledcheckboxradio--label, // TODO: remove this old selector
-.#{$ns}-pickitem-multiselect .#{$ns}-styledcheckboxradio--label {
-	min-width: 0;
-	padding-bottom: $xui-s-small;
-	padding-left: 0;
-	padding-right: $xui-s-large;
-	padding-top: $xui-s-small;
-	width: 100%;
 }
 
 .#{$ns}-pickitem--icon {
@@ -905,7 +877,7 @@
 }
 
 .#{$ns}-pickitem--icon ~ .#{$ns}-pickitem--body {
-	padding-left: $xui-s-6xlarge;
+	padding-left: $xui-s-5xlarge;
 }
 
 // In the specific context of a dropdownfooter, pickitems should be blue.

@@ -11,7 +11,7 @@
 @mixin xui-position-offscreen-input {
 	display: inline;
 	flex: none; // Preserve width when the container has display: flex on Chrome
-	height: $xui-icon-standard;
+	height: $xui-s-xlarge;
 	left: 0 !important;
 	margin: 0 -4px 0 -9px; // Undo the width below so the element does not take up extra space. The weird -9px value is uniquely for FF on Windows
 	opacity: 0.01;

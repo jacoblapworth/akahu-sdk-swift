@@ -8,7 +8,6 @@ const avatarProps = {
 	variant: undefined, // business is the other option
 	value: 'Hello', // This has to be populated, or identifier
 	imageUrl: '',
-	size: 'small',
 	identifier: '',
 };
 
@@ -100,6 +99,28 @@ const variations = [
 		value: 'Inspect me',
 		title: 'A reasonable Pill title',
 		qaHook: 'qaHook',
+		onDeleteClick: NOOP,
+		onClick: NOOP,
+		deleteButtonLabel: 'Delete Button Label',
+		avatarProps
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as small',
+		value: 'Small',
+		title: 'Small pill',
+		size: 'small',
+		onDeleteClick: NOOP,
+		onClick: NOOP,
+		deleteButtonLabel: 'Delete Button Label',
+		avatarProps
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as xsmall',
+		value: 'XSmall',
+		title: 'XSmall pill',
+		size: 'xsmall',
 		onDeleteClick: NOOP,
 		onClick: NOOP,
 		deleteButtonLabel: 'Delete Button Label',

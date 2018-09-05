@@ -84,8 +84,14 @@ const buildSvgCheckbox = (qaHook, { svgClassName, iconMain }) => {
  * @param htmlClassName - Optional classname to add to html version of checkbox
  *
  */
-const buildHtmlCheckbox = (qaHook, htmlClassName) => {
-	const htmlClasses = cn(`${baseClass}--checkbox`, htmlClassName);
+const buildHtmlCheckbox = (qaHook, htmlClassName, isGrouped) => {
+	const htmlClasses = cn(
+		`${baseClass}--checkbox`,
+		htmlClassName,
+		{
+			[`${baseClass}--checkbox-small`]: isGrouped,
+		},
+	);
 	return (
 		<div className={htmlClasses} data-automationid={qaHook && `${qaHook}--checkbox`} />
 	);
@@ -99,11 +105,11 @@ const buildHtmlCheckbox = (qaHook, htmlClassName) => {
  * @param svgSettings - Object containing optional svg properties (classname, icon paths)
  *
  */
-const buildCheckbox = (qaHook, htmlClassName, svgSettings) => {
+const buildCheckbox = (qaHook, htmlClassName, svgSettings, isGrouped) => {
 	if (svgSettings.iconMain) {
 		return buildSvgCheckbox(qaHook, svgSettings);
 	}
-	return buildHtmlCheckbox(qaHook, htmlClassName);
+	return buildHtmlCheckbox(qaHook, htmlClassName, isGrouped);
 };
 
 /**
@@ -160,6 +166,7 @@ export default class XUICheckbox extends Component {
 			svgClassName,
 			labelClassName,
 			htmlClassName,
+			isGrouped,
 		} = this.props;
 
 		const classes = cn(
@@ -229,10 +236,16 @@ export default class XUICheckbox extends Component {
 				<input
 					ref={cb => this._input = cb}
 					{...inputProps}
-					className={cn(`${baseClass}--input`, inputProps.className)}
+					className={cn(
+						`${baseClass}--input`,
+						inputProps.className,
+						{
+							[`${baseClass}--input-small`]: isGrouped,
+						},
+					)}
 					data-automationid={qaHook && `${qaHook}--input`}
 				/>
-				{buildCheckbox(qaHook, htmlClassName, svgSettings)}
+				{buildCheckbox(qaHook, htmlClassName, svgSettings, isGrouped)}
 				{labelElement}
 			</label>
 		);
@@ -301,6 +314,9 @@ XUICheckbox.propTypes = {
 
 	/** Provide a specific label ID which will be used as the "labelleby" aria property */
 	labelId: PropTypes.string,
+
+	/** Used by XUI components to state whether the checkbox is part of a group */
+	isGrouped: PropTypes.bool,
 };
 
 XUICheckbox.defaultProps = {

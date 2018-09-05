@@ -10,11 +10,10 @@ import { NAME_SPACE } from '../helpers/constants';
 
 class OverflowMenu extends PureComponent {
 	createTrigger = overflowMenuTitle => (
-		<XUIButton variant="icon-large">
+		<XUIButton variant="icon">
 			<XUIIcon
 				icon={overflowPathData}
 				title={overflowMenuTitle}
-				isBoxed
 			/>
 		</XUIButton>
 	);

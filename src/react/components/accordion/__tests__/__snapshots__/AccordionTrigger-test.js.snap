@@ -14,7 +14,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
     className="xui-accordiontrigger--arrow"
   >
     <button
-      className="xui-button xui-button-icon xui-button-icon-large"
+      className="xui-button xui-button-icon"
       data-automationid={undefined}
       disabled={false}
       onClick={[Function]}
@@ -68,7 +68,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
     className="xui-accordiontrigger--arrow"
   >
     <button
-      className="xui-button xui-button-icon xui-button-icon-large"
+      className="xui-button xui-button-icon"
       data-automationid={undefined}
       disabled={false}
       onClick={[Function]}
@@ -122,7 +122,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
     className="xui-accordiontrigger--arrow"
   >
     <button
-      className="xui-button xui-button-icon xui-button-icon-large"
+      className="xui-button xui-button-icon"
       data-automationid={undefined}
       disabled={false}
       onClick={[Function]}
@@ -176,7 +176,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
     className="xui-accordiontrigger--arrow"
   >
     <button
-      className="xui-button xui-button-icon xui-button-icon-large"
+      className="xui-button xui-button-icon"
       data-automationid={undefined}
       disabled={false}
       onClick={[Function]}

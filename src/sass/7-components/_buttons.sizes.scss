@@ -8,6 +8,15 @@
 }
 
 .#{$ns}-button-small {
-	min-height: $xui-input-height-small;
-	padding: 6px $xui-s-small;
+	@include xui-text-small;
+
+	min-height: $xui-control-size-small;
+	padding: #{($xui-control-size-small - $xui-line-height-small)/2 - 1px} $xui-s-small;
+}
+
+.#{$ns}-button-xsmall {
+	@include xui-text-xsmall;
+
+	min-height: $xui-control-size-xsmall;
+	padding: #{($xui-control-size-xsmall - $xui-line-height-xsmall)/2 - 1px} $xui-s-xsmall;
 }

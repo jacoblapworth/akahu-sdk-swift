@@ -42,11 +42,11 @@ storiesWithKnobs.add('Playground', () => {
 		action: hasAction && <XUIButton size="small" className="xui-margin-left-small">Update</XUIButton>,
 		onItemClick: hasOnItemClick ? onItemClick : undefined,
 		overflow: hasOverflow && (
-			<XUIButton variant="icon-large" className="xui-margin-left-small"><XUIIcon icon={overflowPathData} title="Overflow menu" /></XUIButton>
+			<XUIButton variant="icon" className="xui-margin-left-small"><XUIIcon icon={overflowPathData} title="Overflow menu" /></XUIButton>
 		),
 		custom: hasCustom && [
-			<XUIButton key="0" variant="icon-large" className="xui-margin-left-small"><XUIIcon icon={notificationPathData} title="Overflow menu" /></XUIButton>,
-			<XUIButton key="1" variant="icon-large"><XUIIcon icon={copyPathData} title="Overflow menu" /></XUIButton>,
+			<XUIButton key="0" variant="icon" className="xui-margin-left-small"><XUIIcon icon={notificationPathData} title="Overflow menu" /></XUIButton>,
+			<XUIButton key="1" variant="icon"><XUIIcon icon={copyPathData} title="Overflow menu" /></XUIButton>,
 		],
 	}));
 
@@ -61,7 +61,7 @@ storiesWithKnobs.add('Playground', () => {
 								<XUIContentBlockItem
 									key={index}
 									primaryHeading={names[index]}
-									overflow={<XUIButton variant="icon-large"><XUIIcon icon={overflowPathData} title="Overflow menu" /></XUIButton>}
+									overflow={<XUIButton variant="icon"><XUIIcon icon={overflowPathData} title="Overflow menu" /></XUIButton>}
 									pinnedValue={`${3 * item.id}:00`}
 									href="#"
 								/>

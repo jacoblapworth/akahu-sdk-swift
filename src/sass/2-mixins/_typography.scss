@@ -12,12 +12,44 @@
 	}
 */
 
-@mixin xui-text-small {
-	font-size: $xui-font-size-small;
+@mixin xui-text-2xsmall {
+	font-size: $xui-new-font-size-2xsmall;
+	line-height: $xui-line-height-xsmall;
 }
 
 @mixin xui-text-xsmall {
-	font-size: $xui-font-size-xsmall;
+	font-size: $xui-new-font-size-xsmall;
+	line-height: $xui-line-height-xsmall;
+}
+
+@mixin xui-text-small {
+	font-size: $xui-new-font-size-small;
+	line-height: $xui-line-height-small;
+}
+
+@mixin xui-text-standard {
+	font-size: $xui-new-font-size-medium;
+	line-height: $xui-line-height-standard;
+}
+
+@mixin xui-text-large {
+	font-size: $xui-new-font-size-large;
+	line-height: $xui-line-height-large;
+}
+
+@mixin xui-text-xlarge {
+	font-size: $xui-new-font-size-xlarge;
+	line-height: $xui-line-height-xlarge;
+}
+
+@mixin xui-text-2xlarge {
+	font-size: $xui-new-font-size-2xlarge;
+	line-height: $xui-line-height-2xlarge;
+}
+
+@mixin xui-text-3xlarge {
+	font-size: $xui-new-font-size-3xlarge;
+	line-height: $xui-line-height-3xlarge;
 }
 
 @mixin xui-text-line-height-reset {
@@ -104,31 +136,31 @@
 }
 
 @mixin xui-heading-large {
-	@include xui-text-line-height-compact;
 	@include xui-text-proportional-nums;
 	@include xui-text-emphasis;
 
-	font-size: $xui-font-size-xlarge;
+	font-size: $xui-new-font-size-xlarge;
+	line-height: $xui-line-height-compact;
 }
 
 @mixin xui-heading-medium {
-	@include xui-text-line-height-compact;
 	@include xui-text-emphasis;
 
-	font-size: $xui-font-size-large;
+	font-size: $xui-new-font-size-large;
+	line-height: $xui-line-height-compact;
 }
 
 @mixin xui-heading-small {
-	@include xui-text-line-height-compact;
 	@include xui-text-emphasis;
 
-	font-size: $xui-font-size-medium;
+	font-size: $xui-new-font-size-medium;
+	line-height: $xui-line-height-compact;
 }
 
 @mixin xui-heading-xsmall {
-	@include xui-text-line-height-compact;
 	@include xui-text-deemphasis;
 	@include xui-text-muted;
 
-	font-size: $xui-font-size-small;
+	font-size: $xui-new-font-size-small;
+	line-height: $xui-line-height-compact;
 }

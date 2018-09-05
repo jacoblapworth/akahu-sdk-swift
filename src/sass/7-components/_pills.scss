@@ -255,18 +255,16 @@
 // Styleguide: Building Blocks.Identifiers.Pill.10
 
 .#{$ns}-pill {
+	@include xui-text-standard;
+	@include xui-padding-horizontal($xui-s-standard);
 	align-items: center;
-	background-color: $xui-pill-bg-color;
-	border-radius: $xui-s-large;
+	background-color: $xui-color-grey-alpha-6;
+	border-radius: $xui-control-size-standard / 2;
 	cursor: default;
 	display: inline-flex;
-}
-
-.#{$ns}-pill-layout {
-	height: $xui-icon-standard;
-	max-width: 100%;
-	padding-right: 10px;
-	position: relative;
+	height: $xui-control-size-standard;
+	max-width: 200px;
+	vertical-align: bottom; //Without vertical alignment set, pills will align themselves strangely next to each other
 }
 
 .#{$ns}-pill-maxwidth {
@@ -299,54 +297,75 @@
 	}
 }
 
-.#{$ns}-pill--content {
-	@include xui-text-truncated;
-	display: flex;
-	min-height: $xui-icon-standard;
-	padding: 5px 5px 5px 15px;
+.#{$ns}-pill--button-icon {
+	flex-shrink: 0;
+	height: $xui-control-size-small;
+	margin: $xui-s-2xsmall;
+	width: $xui-control-size-small;
 }
 
-.#{$ns}-pill--text,
-.#{$ns}-pill--secondary {
-	align-self: center;
-	line-height: $xui-line-height-compact;
-	vertical-align: middle;
+.#{$ns}-pill-small {
+	@include xui-text-small;
+	@include xui-padding-horizontal($xui-s-small);
+	height: $xui-control-size-small;
+
+	//TODO: Remove when small icons & icon buttons exist
+	.#{$ns}-pill--button-icon {
+		height: $xui-control-size-xsmall;
+		width: $xui-control-size-xsmall;
+	}
+}
+
+.#{$ns}-pill-xsmall {
+	@include xui-text-xsmall;
+	@include xui-padding-horizontal($xui-s-xsmall);
+	height: $xui-control-size-xsmall;
+
+	//TODO: Remove when small icons & icon buttons exist
+	.#{$ns}-pill--button-icon {
+		height: $xui-control-size-2xsmall;
+		width: $xui-control-size-2xsmall;
+	}
+}
+
+.#{$ns}-pill--text {
+	@include xui-text-truncated;
+}
+
+.#{$ns}-pill--content {
+	align-items: center;
+	display: flex;
+	min-width: 0;
+	width: 100%;
 }
 
 .#{$ns}-pill--secondary {
 	color: $xui-pill-secondary-color;
 	font-weight: bold;
-	margin-right: 5px;
+	margin-right: $xui-s-xsmall;
 }
 
 .#{$ns}-pill--avatar {
-	margin-left: -12px;
-	margin-right: $xui-s-xsmall;
+	margin: $xui-s-2xsmall $xui-s-xsmall $xui-s-2xsmall $xui-s-2xsmall;
 	pointer-events: none;
 }
 
-.#{$ns}-pill--link {
-	outline: none;
-
+.#{$ns}-pill--button {
 	.#{$ns}-pill--text {
 		color: $xui-pill-color;
 	}
 }
 
-.#{$ns}-pill--button-icon {
-	bottom: 0;
-	position: absolute;
-	right: 0;
-}
-
-// TODO: rename to xui-pill-focus given xui-styledcheckboxradio-focus and xui-textinput-focus
 &.#{$ns}-pill-is-focused {
 	background-color: $xui-pill-focused-bg-color;
 }
 
-// TODO: typo fix: rename to pill-is-deletable (no second e in deletable)
-.#{$ns}-pill-is-deleteable {
-	padding-right: $xui-icon-standard;
+.#{$ns}-pill-is-deletable {
+	padding-right: 0;
+}
+
+.#{$ns}-pill-has-avatar {
+	padding-left: 0;
 }
 
 .#{$ns}-pill-is-invalid {
@@ -373,28 +392,14 @@
 	}
 }
 
-.#{$ns}-pill--button {
-	border-radius: $xui-s-large;
-	color: $xui-pill-color;
-	text-align: left;
-
-	&:hover, &:active, &:focus {
-		color: $xui-pill-color;
-	}
-
-	.#{$ns}-pill--text {
-		text-decoration: underline;
-	}
-}
-
 .#{$ns}-pill-single {
 	align-items: center;
 	background-color: $xui-color-white;
 	bottom: 0;
 	display: flex;
-	left: $xui-s-xsmall;
+	left: $xui-s-2xsmall;
 	position: absolute;
-	right: $xui-s-xsmall;
+	right: $xui-s-2xsmall;
 	top: 0;
 
 	&.#{$ns}-pill-is-invalid {
@@ -417,9 +422,22 @@
 	background: $xui-color-white;
 	border-radius: 50%;
 	display: inline-flex;
-	height: 20px;
+	flex-shrink: 0;
 	justify-content: center;
-	margin-left: -10px;
 	margin-right: 5px;
-	width: 20px;
+}
+
+.#{$ns}-pill--erroricon-small {
+	height: $xui-control-size-small;
+	width: $xui-control-size-small;
+}
+
+.#{$ns}-pill--erroricon-xsmall {
+	height: $xui-control-size-xsmall;
+	width: $xui-control-size-xsmall;
+}
+
+.#{$ns}-pill--erroricon-2xsmall {
+	height: $xui-control-size-2xsmall;
+	width: $xui-control-size-2xsmall;
 }

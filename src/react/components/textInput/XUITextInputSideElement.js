@@ -15,6 +15,7 @@ const typeClasses = {
 	icon: `${sideElementBaseClass}-icon`,
 	button: `${sideElementBaseClass}-button`,
 	avatar: `${sideElementBaseClass}-avatar`,
+	pill: `${sideElementBaseClass}-pill`,
 };
 
 export default class XUITextInputSideElement extends PureComponent {
@@ -56,7 +57,7 @@ XUITextInputSideElement.propTypes = {
 	/** Vertical alignment of the content */
 	alignment: PropTypes.oneOf(['top', 'center', 'bottom']),
 	/** Type of the contents being used */
-	type: PropTypes.oneOf(['text', 'icon', 'button', 'avatar']),
+	type: PropTypes.oneOf(Object.keys(typeClasses)),
 };
 
 XUITextInputSideElement.defaultProps = {

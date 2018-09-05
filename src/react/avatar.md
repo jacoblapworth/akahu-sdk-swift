@@ -97,9 +97,25 @@ The colour of `XUIAvatar` is determined by the contents of either the `value` or
 
 ### Sizes
 
-The `size` prop is an enum. The default value is `"medium"`.
+The `size` prop is an enum, it takes sizes from `2xsmall` to `xlarge`.
 
 ```
-// Try changing 'size' in this example to 'large' or 'small'.
-<XUIAvatar value="xero" size="xlarge" qaHook="xlarge-xero"/>
+<div>
+	<div className="xui-padding-bottom-small">
+		<XUIAvatar size="2xsmall" value="2 X Small" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar size="xsmall" value="X Small" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar size="small" value="Small" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar value="Medium" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar size="large" value="Large" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar size="xlarge" value="X Large" qaHook="xero-avatar" className="xui-margin-right-small"/>
+	</div>
+	<div>
+		<XUIAvatar variant="business" size="2xsmall" value="2 X Small" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar variant="business" size="xsmall" value="X Small" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar variant="business" size="small" value="Small" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar variant="business" value="Medium" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar variant="business" size="large" value="Large" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar variant="business" size="xlarge" value="X Large" qaHook="xero-avatar" className="xui-margin-right-small"/>
+	</div>
+</div>
 ```

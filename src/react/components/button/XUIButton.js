@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUILoader from '../loader/XUILoader';
-import { VariantClassNames, SizeClassNames, ButtonTypes } from './private/constants';
+import { VariantClassNames, SizeClassNames, ButtonTypes, IconSizeClassNames } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 import noop from '../helpers/noop';
 
@@ -177,19 +177,24 @@ export default class XUIButton extends React.Component {
 			buttonChildren = loader;
 		}
 
+		const isIconDependentClassNames = isIconVariant(variantClass) ? cn(IconSizeClassNames[size]) : cn(
+			SizeClassNames[size],
+			(isInverted &&
+				(isBorderlessVariant(variantClass)
+					? `${ns}-button-borderless-inverted`
+					: `${ns}-button-inverted`
+				)
+			),
+			isGrouped && `${ns}-button-grouped`,
+			minLoaderWidth && `${ns}-button-min-loader-width`,
+		);
+
 		const buttonClassNames = cn(
 			`${ns}-button`,
 			className,
 			variantClass,
-			SizeClassNames[size],
+			isIconDependentClassNames,
 			isDisabled && `${ns}-button-is-disabled`,
-			isGrouped && `${ns}-button-grouped`,
-			(isInverted && !isIconVariant(variantClass)) &&
-				(isBorderlessVariant(variantClass)
-					? `${ns}-button-borderless-inverted`
-					: `${ns}-button-inverted`
-				),
-			minLoaderWidth && `${ns}-button-min-loader-width`,
 		);
 
 		const clickHandler = (isLink && buttonDisabled)
@@ -260,11 +265,12 @@ XUIButton.propTypes = {
 
 	/** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`, `link`,
 	 * 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative',
-	 * 'borderless-negative', 'icon', 'icon-large', 'icon-inverted', 'icon-inverted-large' or
-	 * `unstyled`. */
+	 * 'borderless-negative', 'icon', 'icon-inverted', or `unstyled`. */
 	variant: PropTypes.oneOf(Object.keys(VariantClassNames)),
 
-	/** Modifier for the size of the button. `small`, `full-width`, or `full-width-layout`. */
+	/**
+	 * Modifier for the size of the button. `small`, `xsmall`, `full-width`, or `full-width-layout`.
+	*/
 	size: PropTypes.oneOf(Object.keys(SizeClassNames)),
 
 	/** Whether or not to render this button using an <a> tag */

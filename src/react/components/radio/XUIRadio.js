@@ -38,18 +38,24 @@ const buildSvgRadio = (qaHook, { svgClassName, iconMain }) => {
 	);
 };
 
-const buildHtmlRadio = (qaHook, htmlClassName) => {
-	const htmlClasses = cn(`${baseClass}--radio`, htmlClassName);
+const buildHtmlRadio = (qaHook, htmlClassName, isGrouped) => {
+	const htmlClasses = cn(
+		`${baseClass}--radio`,
+		htmlClassName,
+		{
+			[`${baseClass}--radio-small`]: isGrouped,
+		},
+	);
 	return (
 		<div className={htmlClasses} data-automationid={qaHook && `${qaHook}--radio`} />
 	);
 };
 
-const buildRadio = (qaHook, htmlClassName, svgSettings) => {
+const buildRadio = (qaHook, htmlClassName, svgSettings, isGrouped) => {
 	if (svgSettings.iconMain) {
 		return buildSvgRadio(qaHook, svgSettings);
 	}
-	return buildHtmlRadio(qaHook, htmlClassName);
+	return buildHtmlRadio(qaHook, htmlClassName, isGrouped);
 };
 
 export default class XUIRadio extends React.Component {
@@ -77,6 +83,7 @@ export default class XUIRadio extends React.Component {
 			isLabelHidden,
 			role,
 			id,
+			isGrouped,
 		} = this.props;
 
 		const classes = cn(
@@ -137,11 +144,15 @@ export default class XUIRadio extends React.Component {
 			<label className={classes} data-automationid={qaHook} onClick={onLabelClick} role="presentation">
 				<input
 					role={role}
-					className={`${baseClass}--input`}
+					className={cn(
+						`${baseClass}--input`,
+						inputProps.className,
+						{ [`${baseClass}--input-small`]: isGrouped },
+					)}
 					data-automationid={qaHook && `${qaHook}--input`}
 					{...inputProps}
 				/>
-				{buildRadio(qaHook, htmlClassName, svgSettings)}
+				{buildRadio(qaHook, htmlClassName, svgSettings, isGrouped)}
 				{labelElement}
 			</label>
 		);
@@ -208,6 +219,9 @@ XUIRadio.propTypes = {
 
 	/** Provide a specific label ID which will be used as the "labelleby" aria property */
 	labelId: PropTypes.string,
+
+	/** Used by XUI components to state whether the radio is part of a group */
+	isGrouped: PropTypes.bool,
 };
 
 XUIRadio.defaultProps = {

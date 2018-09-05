@@ -463,12 +463,12 @@ $xui-datepicker-day-size-compact: 30px;
 .#{$ns}-datepicker {
 	border: none;
 	font-size: 0.9375rem;
-	padding-bottom: $xui-s-small;
+	padding-bottom: $xui-s-xsmall;
 	position: relative;
 	width: 100%;
 
 	&.#{$ns}-datepicker-compact {
-		padding-bottom: $xui-s-xsmall;
+		padding-bottom: $xui-s-2xsmall;
 	}
 }
 
@@ -494,7 +494,7 @@ $xui-datepicker-day-size-compact: 30px;
 }
 
 .#{$ns}-datepicker--prevbutton {
-	@include xui-margin-left($xui-s-xsmall);
+	@include xui-margin-left($xui-s-2xsmall);
 	min-width: $xui-datepicker-day-size;
 	.#{$ns}-datepicker-compact & {
 		min-width: $xui-datepicker-day-size-compact;
@@ -502,7 +502,7 @@ $xui-datepicker-day-size-compact: 30px;
 }
 
 .#{$ns}-datepicker--nextbutton {
-	@include xui-margin-right($xui-s-xsmall);
+	@include xui-margin-right($xui-s-2xsmall);
 	min-width: $xui-datepicker-day-size;
 	.#{$ns}-datepicker-compact & {
 		min-width: $xui-datepicker-day-size-compact;
@@ -518,7 +518,7 @@ $xui-datepicker-day-size-compact: 30px;
 }
 
 .#{$ns}-datepicker--heading {
-	@include xui-text-line-height-compact;
+	line-height: $xui-line-height-compact;
 	position: relative;
 }
 
@@ -548,22 +548,9 @@ $xui-datepicker-day-size-compact: 30px;
 	position: absolute;
 	top: 0;
 	width: 100%;
-
-	&:focus + .#{$ns}-datepicker--heading-label {
-		background: $xui-datepicker-heading-label-focus-bg-color;
-	}
-	&:active + .#{$ns}-datepicker--heading-label {
-		background: $xui-datepicker-heading-label-active-bg-color;
-	}
-	&:hover + .#{$ns}-datepicker--heading-label {
-		color: $xui-datepicker-heading-label-hover-color;
-	}
 }
 
 .#{$ns}-datepicker--heading-label {
-	border-radius: 3px;
-	font-family: inherit;
-	padding: $xui-s-xsmall;
 	user-select: none;
 
 	&:hover {
@@ -577,6 +564,17 @@ $xui-datepicker-day-size-compact: 30px;
 
 .#{$ns}-datepicker--heading-dates {
 	@include xui-flex-children;
+
+	:first-child .#{$ns}-button {
+		border-bottom-right-radius: 0;
+		border-right: none;
+		border-top-right-radius: 0;
+	}
+
+	:last-child .#{$ns}-button {
+		border-bottom-left-radius: 0;
+		border-top-left-radius: 0;
+	}
 }
 
 .#{$ns}-datepicker--body {
@@ -595,27 +593,20 @@ $xui-datepicker-day-size-compact: 30px;
 	border-top: 1px solid transparent;
 	display: flex;
 	justify-content: space-between;
-	padding-left: $xui-s-small;
-	padding-right: $xui-s-small;
-
-	.#{$ns}-datepicker-compact & {
-		padding-left: $xui-s-xsmall;
-		padding-right: $xui-s-xsmall;
-	}
 }
 
 .#{$ns}-datepicker--weekdays {
 	border-bottom: $xui-border-muted;
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: $xui-s-small;
-	padding-bottom: $xui-s-small;
-	padding-left: $xui-s-small;
-	padding-right: $xui-s-small;
+	margin-bottom: $xui-s-xsmall;
+	padding-bottom: $xui-s-xsmall;
+	padding-left: $xui-s-xsmall;
+	padding-right: $xui-s-xsmall;
 
 	.#{$ns}-datepicker-compact & {
-		margin-bottom: $xui-s-xsmall;
-		padding: $xui-s-xsmall;
+		margin-bottom: $xui-s-2xsmall;
+		padding: $xui-s-2xsmall;
 	}
 }
 
@@ -629,7 +620,6 @@ $xui-datepicker-day-size-compact: 30px;
 	height: $xui-datepicker-day-size;
 	justify-content: center;
 	line-height: 1;
-	padding: 0;
 	position: relative;
 	text-align: center;
 	user-select: none;
@@ -655,9 +645,25 @@ $xui-datepicker-day-size-compact: 30px;
 		outline: none;
 	}
 
+	&:first-of-type {
+		padding-left: $xui-s-xsmall;
+	}
+
+	&:last-of-type {
+		padding-right: $xui-s-xsmall;
+	}
+
 	.#{$ns}-datepicker-compact & {
 		height: $xui-datepicker-day-size-compact;
 		width: $xui-datepicker-day-size-compact;
+
+		&:first-of-type {
+			padding-left: $xui-s-2xsmall;
+		}
+
+		&:last-of-type {
+			padding-right: $xui-s-2xsmall;
+		}
 	}
 }
 
@@ -693,13 +699,17 @@ $xui-datepicker-day-size-compact: 30px;
 }
 
 .#{$ns}-datepicker--weekday {
+	@include xui-text-small;
 	color: $xui-datepicker-weekday-color;
 	cursor: default;
-	font-size: $xui-font-size-xsmall;
 	font-weight: normal;
 	text-align: center;
 	text-decoration: none;
 	user-select: none;
+
+	.#{$ns}-datepicker-compact & {
+		@include xui-text-xsmall;
+	}
 }
 
 .#{$ns}-datepicker--weekdaywrapper {

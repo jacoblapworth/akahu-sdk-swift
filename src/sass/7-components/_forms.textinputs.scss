@@ -5,11 +5,9 @@
 @import "../vars";
 @import "../mixins";
 
-$xui-input-icon-height: $xui-input-height - 2px; // height minus top and bottom borders
-$xui-input-icon-width: $xui-input-height - 4px; // need to ensure enough spacing between icon wrapper and placeholder
-$xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
-$xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to have a bigger z-index
-$xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
+$input-text-vertical-padding-xsmall: ($xui-control-size-xsmall - $xui-line-height-xsmall) / 2 - 1px;
+$input-text-vertical-padding-small: ($xui-control-size-small - $xui-line-height-small) / 2 - 1px;
+$input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-height-standard) / 2 - 1px;
 
 
 .#{$ns}-textinput--input {
@@ -22,6 +20,7 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 
 .#{$ns}-textinput {
 	@include xui-commoninput;
+	@include xui-text-standard;
 	align-items: center;
 	cursor: text;
 	display: flex;
@@ -33,10 +32,19 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 }
 
 /* stylelint-disable no-duplicate-selectors  */
-// This is defined below xui-textinput to ensure the correct padding is applied
+// This is defined below xui-textinput to ensure the correct padding is applied when using xui-textinput and xui-textinput--input on the same element
 .#{$ns}-textinput--input {
-	@include xui-padding-vertical(8px);
-	@include xui-padding-horizontal($xui-s-standard);
+	@include xui-padding-vertical($input-text-vertical-padding-standard);
+
+	&:first-child,
+	&.#{$ns}-textinput {
+		padding-left: $xui-s-standard;
+	}
+
+	&:last-child,
+	&.#{$ns}-textinput {
+		padding-right: $xui-s-standard;
+	}
 }
 /* stylelint-enable no-duplicate-selectors  */
 
@@ -60,46 +68,82 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 	cursor: text;
 	display: flex;
 	flex-shrink: 0;
-	margin: -1px;
+	margin: -1px; // This is required to correctly layout sidelement contents considering the input border
 }
 
 .#{$ns}-textinput--sideelement-icon {
-	padding: $xui-s-xsmall;
+	padding: $xui-s-2xsmall;
 }
 
 .#{$ns}-textinput--sideelement-text {
-	padding: $xui-s-small $xui-s-standard;
-	pointer-events: none;
-}
+	@include xui-margin-vertical(0);
+	@include xui-padding-vertical($input-text-vertical-padding-standard);
 
-.#{$ns}-textinput--sideelement-avatar {
-	padding: $xui-input-avatar-padding-size;
 	pointer-events: none;
-}
-
-.#{$ns}-textinput--sideelement-button {
-	@include xui-padding-vertical($xui-s-xsmall);
 
 	&:first-child {
-		padding-left: $xui-s-xsmall;
-		padding-right: $xui-s-standard;
+		padding-left: $xui-s-standard;
+		padding-right: $xui-s-small;
 	}
 
 	&:last-child {
-		padding-left: $xui-s-standard;
+		padding-left: $xui-s-small;
+		padding-right: $xui-s-standard;
+	}
+}
+
+.#{$ns}-textinput--sideelement-avatar {
+	@include xui-padding-vertical($xui-s-2xsmall);
+	pointer-events: none;
+
+	&:first-child {
+		padding-left: $xui-s-2xsmall;
 		padding-right: $xui-s-xsmall;
+	}
+
+	&:last-child {
+		padding-left: $xui-s-xsmall;
+		padding-right: $xui-s-2xsmall;
+	}
+}
+
+.#{$ns}-textinput--sideelement-pill {
+	@include xui-padding-vertical($xui-s-2xsmall);
+
+	&:first-child {
+		padding-left: $xui-s-2xsmall;
+		padding-right: $xui-s-small;
+	}
+
+	&:last-child {
+		padding-left: $xui-s-small;
+		padding-right: $xui-s-2xsmall;
+	}
+}
+
+.#{$ns}-textinput--sideelement-button {
+	@include xui-padding-vertical($xui-s-2xsmall);
+
+	&:first-child {
+		padding-left: $xui-s-2xsmall;
+		padding-right: $xui-s-small;
+	}
+
+	&:last-child {
+		padding-left: $xui-s-small;
+		padding-right: $xui-s-2xsmall;
 	}
 }
 
 .#{$ns}-textinput--sideelement-has-background {
 	&:first-child {
 		border-radius: $xui-radius 0 0 $xui-radius;
-		margin-right: $xui-s-standard;
+		margin-right: $xui-s-small;
 	}
 
 	&:last-child {
 		border-radius: 0 $xui-radius $xui-radius 0;
-		margin-left: $xui-s-standard;
+		margin-left: $xui-s-small;
 	}
 }
 
@@ -116,6 +160,54 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 .#{$ns}-textinput--sideelement-linkedin {
 	background-color: $xui-color-linkedin;
 	color: $xui-textinput-sideelement-inverted-color;
+}
+
+.#{$ns}-textinput-small {
+	@include xui-text-small;
+	min-height: $xui-control-size-small;
+
+	.#{$ns}-textinput--sideelement-text {
+		@include xui-margin-vertical(0);
+		padding: $input-text-vertical-padding-small $xui-s-small;
+		pointer-events: none;
+	}
+}
+
+.#{$ns}-textinput--input-small {
+	@include xui-padding-vertical($input-text-vertical-padding-small);
+
+	&:first-child,
+	&.#{$ns}-textinput {
+		padding-left: $xui-s-small;
+	}
+	&:last-child,
+	&.#{$ns}-textinput {
+		padding-right: $xui-s-small;
+	}
+}
+
+.#{$ns}-textinput-xsmall {
+	@include xui-text-xsmall;
+	min-height: $xui-control-size-xsmall;
+
+	.#{$ns}-textinput--sideelement-text {
+		@include xui-margin-vertical(0);
+		padding: $input-text-vertical-padding-xsmall $xui-s-xsmall;
+		pointer-events: none;
+	}
+}
+
+.#{$ns}-textinput--input-xsmall {
+	@include xui-padding-vertical($input-text-vertical-padding-xsmall);
+
+	&:first-child,
+	&.#{$ns}-textinput {
+		padding-left: $xui-s-xsmall;
+	}
+	&:last-child,
+	&.#{$ns}-textinput {
+		padding-right: $xui-s-xsmall;
+	}
 }
 
 // Borderless inputs

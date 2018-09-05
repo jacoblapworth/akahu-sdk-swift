@@ -4,6 +4,7 @@ import cn from 'classnames';
 import uuidv4 from 'uuid/v4';
 import { baseClass } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
+import XUICheckbox from './XUICheckbox';
 
 /**
  * Presentational (aka dumb) component that outputs the container necessary to implement
@@ -45,6 +46,13 @@ export default class XUICheckboxGroup extends PureComponent {
 			</div>
 		);
 
+		const childrenToRender = React.Children.map(children, child =>
+			(child.type === XUICheckbox
+				? React.cloneElement(child, {
+					isGrouped: true,
+				})
+				: child));
+
 		return (
 			<div className={rootClasses}>
 				{labelElement}
@@ -55,7 +63,7 @@ export default class XUICheckboxGroup extends PureComponent {
 					// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
 					aria-labelledby={(labelElement && this.id) || labelId || undefined}
 				>
-					{children}
+					{childrenToRender}
 				</div>
 			</div>
 		);

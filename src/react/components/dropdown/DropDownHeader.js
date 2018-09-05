@@ -43,11 +43,12 @@ export default class DropDownHeader extends PureComponent {
 
 		const backButton = onBackButtonClick ? (
 			<XUIButton
-				variant="icon-large"
+				variant="icon"
 				className={`${ns}-u-flex-none`}
 				onClick={onBackButtonClick}
 				aria-label={backButtonLabel}
 				qaHook={qaHook != null ? `${qaHook}--button-back` : null}
+				size="small"
 			>
 				<XUIIcon icon={back} isBoxed />
 			</XUIButton>

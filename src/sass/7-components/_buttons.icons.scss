@@ -7,13 +7,9 @@
 	border-radius: 50%;
 	color: $xui-button-icon-color;
 	display: inline-flex;
-	height: $xui-icon-standard;
+	height: $xui-control-size-standard;
 	justify-content: center;
-	width: $xui-icon-standard;
-
-	.#{$ns}-icon {
-		display: block;
-	}
+	width: $xui-control-size-standard;
 
 	&.#{$ns}-button-is-disabled {
 		@include xui-button-is-disabled(none, $xui-button-icon-disabled-color, initial);
@@ -30,7 +26,12 @@
 
 }
 
-.#{$ns}-button-icon-large {
-	height: $xui-icon-large;
-	width: $xui-icon-large;
+.#{$ns}-button-icon-small {
+	height: $xui-control-size-small;
+	width: $xui-control-size-small;
+}
+
+.#{$ns}-button-icon-xsmall {
+	height: $xui-control-size-xsmall;
+	width: $xui-control-size-xsmall;
 }

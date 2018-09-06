@@ -1,4 +1,4 @@
-# XUI 14 Changes
+# XUI 15 Changes
 
 ## Dependency updates
 
@@ -7,87 +7,48 @@ dependencies to avoid multiple versions of a dependency being bundled in your pr
 
 We recommend running a bundle analyzer after upgrading (and regularly in general!)
 
-Quick check for the most common dependencies:
-
-* `xui-icon` is at `^6.1.2`
-* `react` and `react-dom` are at `^16.4.2`
-* `classnames` is at `^2.2.6`
-
-If you use `xui-layout`, version `^7.0.0` is compatible with XUI 14.
-
 ## Removals
 
 ### Components
 
-#### Text inputs
-
-`XUIInput`, `XUIStatelessInput`, and `XUITextarea` have been removed. Use `XUITextInput` (with `isMultiline`
-for textarea functionality) instead.
-
-We've built a codemod to do as much of the migration for you as we can. But there's a few things you'll need to manually check
-
- - Usage of `className`, `containerClassName`, and `fieldClassName`.
-  The internal structure of `XUITextInput` is slightly different, so you'll need to check that your input is displaying as expected
- - `XUITextArea`'s `children` will need to be moved to the `labelText` prop
- - Miscellaneous props are no longer spread onto the internal `input`. Any props you want on the underlying `input` should be added to `inputProps`
- - Any props we can suggest a replacement to, but aren't able to migrate ourselves, we'll add instructions to inform you e.g. `'textareaId'` will become `'textareaID_MOVE_TO_inputProps'`.
 
 ### Utility classes
 
+The following size classes have been changed:
+
+| Old value | New value |
+|-----------|-----------|
+| xsmall    | 2xsmall   |
+| 3xlarge   | 2xlarge   |
+| 4xlarge   | 3xlarge   |
+| 5xlarge   | 4xlarge   |
+| 6xlarge   | 5xlarge   |
+
+All other existing values stay as they are (including `2xlarge`)
+
 | Removed       | Replacement    |
 | ------------- | :------------- |
-| `xui-u-flex-verticallycentered` | `xui-u-flex-align-center` |
-| `xui-u-flex-horizontallycentered` | `xui-u-flex-justify-center` |
-| `xui-u-flex-horizontal` | `xui-u-flex-row` |
-| `xui-u-flex-vertical` | `xui-u-flex-column` |
-| `xui-u-spacebetween` | `xui-u-flex-justify-space-between` |
-| `xui-u-flex-space-between` | `xui-u-flex-justify-space-between` |
-| `xui-u-flex-space-around` | `xui-u-flex-justify-space-around` |
-| `xui-u-flex-justify-left` | `xui-u-flex-justify-start` |
-| `xui-u-flex-justify-right` | `xui-u-flex-justify-end` |
+
 
 ---
 
 ### Component classes
 
-* The `xui-steps` classes have been removed. Please use the `XUIStepper` React component, or `xui-stepper` classes if you're not using React.
-* The `xui-banner-animated` class has been removed. There is no replacement for this but design has indicated they want to do an animation pass over the library at some point in the future and we may see it's return. For now, no animations provided by XUI will be supported.
-* The `xui-icon-color-standard` class has been removed. The standard replacement is `xui-icon-color-black-muted`.
-* The `xui-icon-inline` class has been removed and has no replacement.
-* The `xui-progress-tooltip` class has been removed. It has been replaced with `xui-progress--tooltip` instead.
-* The `xui-switch--labeltext` class has been removed. There is no standard replacement to this class.
-* `dropdown-toggled-wrapper` has been removed from the React component. This class did not conform with our naming scheme, was considered private and only used with the React component, but we have noticed projects using it. In the future, please use the relevant `className` prop on the React component rather than overriding a non-standard private class.
-* `xui-contentblock--item` has been replaced with `xui-contentblockitem`.
-* `xui-contentblock--item-selected` has been removed and has no replacement.
-* `xui-contentblock--item-negative` has been removed and has no replacement.
-* `xui-toggle-form-layout` has been removed. Use `xui-toggle-fullwidth-layout`
+
 
 ### Component prop name changes
 
-* Icon: The `isInline` prop has been removed. All icons are inline by default now. Use `isBoxed` to wrap the icon with a container of fixed size.
-* SelectBox: for better clarity and consistency across components, `label` has been updated to `labelText`, `labelClasses` is now `labelClassName`, `labelHidden` is now `isLabelHidden`, and `ariaId` is now `id`
-* Loader: `label` is now `ariaLabel`
-* AutocompleterSecondarySearch: `isinputLabelHidden` is now `isInputLabelHidden` (case change, only)
-* Switch: `labelText` property has been removed and label text can now be placed as a child of the component. API matches Checkbox and Radio.
-* RadioGroup & CheckboxGroup: `groupLabel` is now `labelText`
-* Toggle no longer supports `form` as a `layout` property value. Use `fullwidth` instead.
+
 
 ## Additions
 
 ### Component classes
 
-* Content blocks: `xui-contentblockitem-rowlink`, `xui-contentblockitem-has-top-radius`, and `xui-contentblockitem-has-bottom-radius` have been added to provide hover styles for an entire content block row. The top and bottom radius classes were added to avoid adding overlow:hidden to xui-panel as this interferes with dropdown and tooltip display.
 
 ### Component props
 
-* Switch: `isReversed`, `labelId`, `labelClassName`, and `isLabelHidden` props have been added, to match the Checkbox and Radio labelling API
-* RadioGroup & CheckboxGroup: `labelId`, `labelClassName`, `isLabelHidden`, `fieldClassName`, and `isFieldLayout` have been added
-* Toggle: `labelText`, `labelId`, `labelClassName`, `isLabelHidden`, `fieldClassName`, `isDefaultChecked` and `isFieldLayout` have been added
-* NestedPicklistTrigger: `ariaLabel` has been added to provide assistive tech with information about the expansion button
-* ProgressWrapper, ProgressCircular, & ProgressLinear: `ariaLabel` and `ariaLabelledBy` have been added
-* RolloverCheckbox: `ariaLabelledBy` has been added
-* Table: `onRowClick` now **only** holds the handler callback with the conditional logic being asserted on each table row through the use of `shouldRowClick`. (see https://github.dev.xero.com/UXE/xui/issues/3278)
+* XUIPill now has a `size` prop
+* XUITextInput now has a `size` prop
+
 
 ## Other changes
-
-* Spread props will now defer to values assigned programmatically by the component, rather than those supplied to the component. For example, a Picklist passed a `secondaryProps` object `{className: 'winner'}` would previously have resulted in `<ul class="winner">`, overriding the classes generated by the component. To avoid similar conflicts, free-entry props will now be spread **first** and may be overridden by component-generated values. Please use the available APIs (in this example, the `className` prop of Picklist, rather than `secondaryProps`), for the best results. The following components have been updated: Accordion, ButtonCaret, DropDownToggled, Picklist (as well as Stateful and all Nested Picklist components), TextInput, and Tooltip.

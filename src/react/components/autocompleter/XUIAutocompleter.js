@@ -242,7 +242,7 @@ export default class XUIAutocompleter extends PureComponent {
 		let containerQaHook = null;
 		let dropdownQaHook = null;
 		if (qaHook) {
-			inputQaHook = `${qaHook}`; // TODO: Investigate whether we should add --input here in 14
+			inputQaHook = `${qaHook}`; // TODO: Investigate whether we should add --input here
 			listQaHook = `${qaHook}--list`;
 			containerQaHook = `${qaHook}--container`;
 			dropdownQaHook = `${qaHook}--dropdown`;
@@ -357,7 +357,7 @@ export default class XUIAutocompleter extends PureComponent {
 	}
 }
 
-// TODO: Rename `pills` to `leftElement` for XUI 14.
+// TODO: Rename `pills` to `leftElement`
 XUIAutocompleter.propTypes = {
 	/** Callback to handle when an option has been selected from the dropdown */
 	onOptionSelect: PropTypes.func,

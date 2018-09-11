@@ -24,7 +24,7 @@
 	@include xui-text-truncated;
 }
 
-// TODO: remove width from xui-text-truncated in in XUI 14 because it messes with display: flex
+// TODO: remove width from xui-text-truncated because it messes with display: flex
 // (see isolation header story: "jam-packed")
 .#{$ns}-isolationheader .#{$ns}-text-truncated {
 	width: auto;

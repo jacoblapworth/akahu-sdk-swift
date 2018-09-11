@@ -87,10 +87,10 @@
 // To provide links to parent pages, use the following breadcrumb classes.
 //
 // Classes:
-// xui-pageheading--breadcrumbs: Breadcrumb container
-// xui-breadcrumb: Breadcrumb items
-// xui-breadcrumb-arrow: Breadcrumb items that contain only an arrow icon
-// xui-breadcrumb--link: Breadcrumb links
+// xui-breadcrumbs: Breadcrumb container
+// xui-breadcrumb: Breadcrumb item
+// xui-breadcrumb-arrow: Breadcrumb item that only contains an arrow icon
+// xui-breadcrumb--link: Breadcrumb link
 // xui-breadcrumb--icon: Icons between breadcrumbs
 //
 // ExampleClass: ds-example-wide
@@ -98,7 +98,7 @@
 // Markup:
 // <header class="xui-pageheading">
 //   <div class="xui-pageheading--content xui-pageheading--content-layout" role="navigation" aria-label="Title">
-//     <ol class="xui-pageheading--breadcrumbs">
+//     <ol class="xui-breadcrumbs">
 //       <li class="xui-breadcrumb">
 //         <a href="#" class="xui-breadcrumb--link">Settings</a>
 //       </li>

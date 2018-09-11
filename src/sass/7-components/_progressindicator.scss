@@ -456,8 +456,7 @@ $xui-progress-circular-min-width: 20px;
 $xui-progress-linear-min-height: 4px;
 
 
-// TODO: rename this to be XUI prefixed and kebab-cased
-@mixin addTotalTrackColor($color: $xui-progress-total-bg-color) {
+@mixin xui-stepper-add-total-track-color($color: $xui-progress-total-bg-color) {
 
 	&:not(.#{$ns}-progress-overflow) .#{$ns}-progress-linear-track {
 		background: $color;
@@ -468,8 +467,7 @@ $xui-progress-linear-min-height: 4px;
 	}
 }
 
-// TODO: rename this to be XUI prefixed and kebab-cased
-@mixin addCurrentTrackColor($color: $xui-progress-current-bg-color) {
+@mixin xui-stepper-add-current-track-color($color: $xui-progress-current-bg-color) {
 
 	&.#{$ns}-progress-complete .#{$ns}-progress-icon,
 	&:not(.#{$ns}-progress-error-soft) .#{$ns}-progress-linear-current {
@@ -485,8 +483,8 @@ $xui-progress-linear-min-height: 4px;
 	outline: 0;
 	position: relative;
 
-	@include addTotalTrackColor();
-	@include addCurrentTrackColor();
+	@include xui-stepper-add-total-track-color();
+	@include xui-stepper-add-current-track-color();
 }
 
 .#{$ns}-progress-circular {
@@ -703,10 +701,10 @@ $xui-progress-linear-min-height: 4px;
 	$value: nth($color, 2);
 
 	[data-#{$ns}-progress-total-color="#{$key}"] {
-		@include addTotalTrackColor($value);
+		@include xui-stepper-add-total-track-color($value);
 	}
 
 	[data-#{$ns}-progress-current-color="#{$key}"] {
-		@include addCurrentTrackColor($value);
+		@include xui-stepper-add-current-track-color($value);
 	}
 }

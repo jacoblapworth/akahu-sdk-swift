@@ -38,7 +38,7 @@
 
 // Conditionally expose styles when CSS Grid is supported. Great for creating
 // legacy browser fallbacks.
-@mixin xui-suports-css-grid() {
+@mixin xui-supports-css-grid() {
 
 	@supports (display: grid) {
 		@content;

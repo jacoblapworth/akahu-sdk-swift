@@ -684,8 +684,7 @@
 	}
 }
 
-.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem--multiselect):not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body {
-	// TODO: remove the old portion of this selector
+.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body {
 	color: $xui-pickitem-selected-color;
 
 	&::before {
@@ -712,7 +711,6 @@
 	display: flex;
 	flex-wrap: wrap;
 
-	> .#{$ns}-pickitem--split, // TODO: remove this old selector
 	> .#{$ns}-pickitem-split {
 		border-right: 1px solid $xui-color-grey-alpha-7;
 	}
@@ -738,8 +736,7 @@
 		padding: $xui-s-xsmall $xui-s-standard;
 		text-align: center;
 	}
-	.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem--multiselect):not(.#{$ns}-pickitem-multiselect) {
-		// TODO: remove the :not portion of this selector, once the other select state selector is updated.
+	.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) {
 		// This selector shouldn't need to be so strong.
 		.#{$ns}-pickitem--body:before {
 			border-bottom: 3px solid currentColor;
@@ -831,7 +828,6 @@
 }
 
 
-.#{$ns}-pickitem--split, // TODO: remove this old selector
 .#{$ns}-pickitem-split {
 	align-items: stretch;
 	display: flex;

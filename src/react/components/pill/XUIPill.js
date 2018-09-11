@@ -55,7 +55,7 @@ export default class XUIPill extends Component {
 		const pillClasses = cn(
 			className,
 			baseClass,
-			!isMaxContentWidth && `${baseClass}-maxwidth`, // TODO: Remove in XUI 14
+			!isMaxContentWidth && `${baseClass}-maxwidth`, // TODO: Remove
 			size && sizeClasses[size],
 			isInvalid && `${baseClass}-is-invalid`,
 			isFocused && `${baseClass}-is-focused`,

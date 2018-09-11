@@ -1,6 +1,7 @@
 @import "../vars";
+@import "../mixins";
 
-@mixin stepperLinkColor($color) {
+@mixin xui-stepper-link-color($color) {
 	color: $color;
 
 	.#{$ns}-stepper-link-icon:before {
@@ -25,10 +26,10 @@
 
 .#{$ns}-stepper-sidebar {
 
-	@include xui-suports-css-grid {
+	@include xui-supports-css-grid {
 		display: grid;
 		grid-template-columns: auto 1fr;
-		// grid-template-rows: (dynamicly set via JS);
+		// grid-template-rows: (dynamically set via JS);
 	}
 }
 
@@ -69,7 +70,7 @@
 
 .#{$ns}-stepper-sidebar .#{$ns}-stepper-tab {
 
-	@include xui-suports-css-grid {
+	@include xui-supports-css-grid {
 		// Reset any "Stacked" layout flex ordering set via JS (only if Grid is supported,
 		// otherwise we keep the order as the "Stacked" layout will be used as a fallback).
 		order: 0 !important;
@@ -128,7 +129,7 @@
 
 .#{$ns}-stepper-sidebar .#{$ns}-stepper-section {
 
-	@include xui-suports-css-grid {
+	@include xui-supports-css-grid {
 		grid-column-end: -1;
 		grid-column-start: 2;
 		grid-row-end: -1;
@@ -151,7 +152,7 @@
 
 .#{$ns}-stepper-link {
 	@include xui-button-reset;
-	@include stepperLinkColor($xui-stepper-color);
+	@include xui-stepper-link-color($xui-stepper-color);
 	align-items: center;
 	display: block;
 	height: 100%;
@@ -160,39 +161,39 @@
 
 	&.#{$ns}-stepper-link-active:hover,
 	&.#{$ns}-stepper-link-standard:hover {
-		@include stepperLinkColor($xui-stepper-hover-color);
+		@include xui-stepper-link-color($xui-stepper-hover-color);
 		background: $xui-stepper-hover-bg-color;
 	}
 
 	&.#{$ns}-stepper-link-active:focus,
 	&.#{$ns}-stepper-link-standard:focus {
-		@include stepperLinkColor($xui-stepper-focus-color);
+		@include xui-stepper-link-color($xui-stepper-focus-color);
 		background: $xui-stepper-focus-bg-color;
 	}
 
 	&.#{$ns}-stepper-link-standard:active {
-		@include stepperLinkColor($xui-stepper-active-color);
+		@include xui-stepper-link-color($xui-stepper-active-color);
 		background: $xui-stepper-active-bg-color;
 	}
 
 	&.#{$ns}-stepper-link-error:hover {
-		@include stepperLinkColor($xui-stepper-error-hover-color);
+		@include xui-stepper-link-color($xui-stepper-error-hover-color);
 		background: $xui-stepper-hover-bg-color;
 	}
 
 	&.#{$ns}-stepper-link-error:focus {
-		@include stepperLinkColor($xui-stepper-error-focus-color);
+		@include xui-stepper-link-color($xui-stepper-error-focus-color);
 		background: $xui-stepper-focus-bg-color;
 	}
 
 	&.#{$ns}-stepper-link-error:active {
-		@include stepperLinkColor($xui-stepper-error-active-color);
+		@include xui-stepper-link-color($xui-stepper-error-active-color);
 		background: $xui-stepper-active-bg-color;
 	}
 
 	&.#{$ns}-stepper-link-disabled:hover,
 	&.#{$ns}-stepper-link-disabled:focus {
-		@include stepperLinkColor($xui-stepper-disabled-color);
+		@include xui-stepper-link-color($xui-stepper-disabled-color);
 		background: transparent;
 	}
 }
@@ -371,15 +372,15 @@
 	font-size: $xui-font-size-xsmall;
 }
 .#{$ns}-stepper-link-error {
-	@include stepperLinkColor($xui-stepper-error-color);
+	@include xui-stepper-link-color($xui-stepper-error-color);
 }
 
 .#{$ns}-stepper-link-active {
-	@include stepperLinkColor($xui-stepper-link-active-color);
+	@include xui-stepper-link-color($xui-stepper-link-active-color);
 	background: transparent;
 }
 
 .#{$ns}-stepper-link-disabled {
-	@include stepperLinkColor($xui-stepper-disabled-color);
+	@include xui-stepper-link-color($xui-stepper-disabled-color);
 	cursor: not-allowed;
 }

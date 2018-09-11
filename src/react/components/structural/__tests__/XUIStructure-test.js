@@ -139,11 +139,11 @@ describe('<XUI Structure/>', () => {
 		it('renders pageHeader with Breadcrumb and Actions', () => {
 			const wrapper = mount(<XUIPageHeader breadcrumb={exampleBreadcrumb} actions={actions} />);
 			expect(wrapper.find(".xui-pageheading--actions").length).toBe(1);
-			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(1);
+			expect(wrapper.find("ol.xui-breadcrumbs").length).toBe(1);
 		});
 		it('renders pageHeader containing Breadcrumb', () => {
 			const wrapper = mount(<XUIPageHeader breadcrumb={exampleBreadcrumb} />);
-			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(1);
+			expect(wrapper.find("ol.xui-breadcrumbs").length).toBe(1);
 		});
 		it('renders pageHeader containing Breadcrumb from nodes', () => {
 			const bcNodeObj = [
@@ -156,7 +156,7 @@ describe('<XUI Structure/>', () => {
 		});
 		it('renders pageHeader with title ONLY, if both Breadcrumb and title are passed', () => {
 			const wrapper = mount(<XUIPageHeader title="Testing 💩" breadcrumb={exampleBreadcrumb} />);
-			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(0);
+			expect(wrapper.find("ol.xui-breadcrumbs").length).toBe(0);
 		});
 		it('renders pageHeader containing tabs', () => {
 			const wrapper = mount(<XUIPageHeader tabs={tabs} />);
@@ -170,13 +170,13 @@ describe('<XUI Structure/>', () => {
 		it('renders pageHeader with tabs ONLY, if both Breadcrumb and tabs are passed', () => {
 			const wrapper = mount(<XUIPageHeader breadcrumb={exampleBreadcrumb} tabs={tabs} />);
 			expect(wrapper.find(".xui-pageheading--tabs").length).toBe(1);
-			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(0);
+			expect(wrapper.find("ol.xui-breadcrumbs").length).toBe(0);
 		});
 		it('renders pageHeader with tabs and title but not Breadcrumb, though Breadcrumb is passed', () => {
 			const wrapper = mount(<XUIPageHeader title="Testing 💩" tabs={tabs} breadcrumb={exampleBreadcrumb} />);
 			expect(wrapper.find(".xui-pageheading--tabs").length).toBe(1);
 			expect(wrapper.find(".xui-pageheading--title").length).toBe(1);
-			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(0);
+			expect(wrapper.find("ol.xui-breadcrumbs").length).toBe(0);
 		});
 	});
 	describe('Overview block and section:', () => {

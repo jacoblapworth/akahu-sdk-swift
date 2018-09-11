@@ -482,7 +482,7 @@ export default class DropDownToggled extends PureComponent {
 			forceDesktop,
 			animateOpen: isOpening,
 			animateClosed: isClosing,
-			// TODO: Memoizse these props to avoid recreating functions
+			// TODO: Memoize these props to avoid recreating functions
 			ref: compose(dropdown.ref, c => this.dropdown = c),
 			onSelect: compose(dropdown.props.onSelect, this.onSelect),
 			onHighlightChange: compose(dropdown.props.onHighlightChange, this.onHighlightChange),

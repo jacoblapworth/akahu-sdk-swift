@@ -174,13 +174,6 @@
 		margin: $xui-s-2xsmall;
 	}
 
-	// TODO: Deprecated in XUI12; remove in XUI14
-	.#{$ns}-banner--link {
-		@include xui-states-transparent;
-		display: inline-block;
-		padding: $xui-s-actionlink;
-	}
-
 	.#{$ns}-banner--close ~ .#{$ns}-banner--message {
 		max-width: calc(100% - #{$xui-control-size-small + $xui-s-xsmall});
 	}

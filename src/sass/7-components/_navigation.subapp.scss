@@ -1,3 +1,6 @@
+@import "../vars";
+@import "../mixins";
+
 .#{$ns}-pageheading {
 	align-items: stretch;
 	background-color: $xui-pageheading-bg-color;

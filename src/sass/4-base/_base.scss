@@ -1,3 +1,6 @@
+@import "../vars";
+@import "../mixins";
+
 // If you plan on changing any of these, please ensure you test with modals and dropdowns (incl. with scrolling content)
 // on mobile (on pages that scroll and that don't scroll) in both landscape and portrait mode
 .#{$ns}-html {

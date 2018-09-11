@@ -195,6 +195,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 					isBorderlessSolid
 					labelText={inputLabelText}
 					isLabelHidden={isInputLabelHidden}
+					isFieldLayout={false}
 					inputProps={{
 						...inputProps,
 						'id': inputId,

@@ -113,11 +113,15 @@
 		align-items: center;
 		box-shadow: 0 1px 0 0 $xui-dropdown-divider-shadow-color;
 		display: flex;
-		height: $xui-navigation-height;
 		justify-content: space-between;
-		min-height: $xui-s-4xlarge;
+		min-height: $xui-navigation-height;
 		padding-left: $xui-s-xsmall;
 		padding-right: $xui-s-xsmall;
+		width: 100%;
+
+		.#{$ns}-textinputwrapper {
+			width: inherit;
+		}
 	}
 
 	.#{$ns}-dropdown--header-leftcontent {

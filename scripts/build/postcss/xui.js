@@ -21,35 +21,47 @@ const folders = [
 	path.resolve(rootDirectory, 'dist', 'docs', 'storybook')
 ];
 const createFolders = folders.map(folder => mkdirp(folder));
+const files = ['xui', 'xui-base'];
+
+const copyToFolders = (taskSpinner) => {
+	folders.forEach(folder => {
+		files.forEach(file => {
+			const finalFileToWrite = path.resolve(folder, `${file}.css`);
+			taskSpinner.info(`Writing File: ${finalFileToWrite}`);
+
+			copyFile(
+				path.resolve(rootDirectory, '.tmp', `${file}.css`),
+				finalFileToWrite
+			);
+		});
+	});
+};
 
 const postcssXui = () =>
 	taskRunner(taskSpinner => {
-		return Promise.all(createFolders).then(() =>
-			sassXui().then(() => {
-				return doPostCss(
-					{
-						title: __filename,
-						inputFile: path.resolve(rootDirectory, './.tmp', 'xui.css'),
-						mapFile: path.resolve(rootDirectory, './.tmp', 'xui.css.map'),
-						processors: [autoprefixer({ browsers })]
-					},
-					taskSpinner
-				)
-					.then(() => {
-						folders.forEach(folder => {
-							const finalFileToWrite = path.resolve(folder, 'xui.css');
-							taskSpinner.info(`Writing File: ${finalFileToWrite}`);
-
-							copyFile(
-								path.resolve(rootDirectory, '.tmp', 'xui.css'),
-								finalFileToWrite
-							);
-						});
-					})
-					.then(succeed)
-					.catch(fail);
+		return Promise.all(createFolders)
+			.then(() => {
+				return sassXui();
 			})
-		);
+			.then(() => {
+				return Promise.all(
+					files.map(file => {
+						return doPostCss(
+							{
+								title: __filename,
+								inputFile: path.resolve(rootDirectory, './.tmp', `${file}.css`),
+								mapFile: path.resolve(rootDirectory, './.tmp', `${file}.css.map`),
+								processors: [autoprefixer({browsers})]
+							},
+							taskSpinner
+						)
+					})
+				)})
+			.then(() => {
+				copyToFolders(taskSpinner);
+			})
+			.then(succeed)
+			.catch(fail);
 	}, __filename);
 
 module.exports = postcssXui;

@@ -1,0 +1,19 @@
+/**
+ * XUI base stylesheet
+ * ===================
+ *
+ * This is the entry point to the XUI base stylesheet, which can be used by consumers who
+ * only wish to bundle the CSS for the components their application uses. It contains the
+ * base element selectors, xui-body and xui-html classes.
+ */
+
+@import "vars";
+@import "mixins";
+
+// Opinionated global resets
+// -----------------------------------------------------------------------------
+@import "3-reset/reset";
+
+// Application basics
+// -----------------------------------------------------------------------------
+@import "4-base/base";

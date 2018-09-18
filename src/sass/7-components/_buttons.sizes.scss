@@ -1,5 +1,6 @@
 @import "../vars";
 
+// TODO: review this class (or at least its name) in a responsive context
 .#{$ns}-button-fullwidth-layout {
 	@include xui-breakpoint-narrow {
 		display: block;

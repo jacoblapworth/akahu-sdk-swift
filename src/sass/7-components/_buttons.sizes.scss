@@ -5,6 +5,7 @@
 	@include xui-layout-width-fullwidth;
 }
 
+// TODO: review this class (or at least its name) in a responsive context
 .#{$ns}-button-fullwidth-layout {
 	@include xui-breakpoint-narrow {
 		@include xui-layout-width-fullwidth;

@@ -25,3 +25,9 @@
 .#{$ns}-button-min-loader-width {
 	min-width: 75px;
 }
+
+// Buttons when displaying loaders inside them, need to hide the main content
+// This lets buttons retain size (width) while showing the loader
+.#{$ns}-button-hidden-content {
+	@include xui-utility-hidden-content;
+}

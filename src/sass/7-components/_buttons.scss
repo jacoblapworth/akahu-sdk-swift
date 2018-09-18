@@ -120,13 +120,13 @@
 // To force a button to occupy the entire width of its parent at all times, apply the following utility class.
 //
 // Classes:
-// xui-u-fullwidth: 100% width
+// xui-button-fullwidth: 100% width
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <button class='xui-button xui-button-main xui-u-fullwidth'>Full width</button>
-// <button class='xui-button xui-button-small xui-button-main xui-u-fullwidth xui-margin-top-small'>Full width</button>
+// <button class='xui-button xui-button-main xui-button-fullwidth'>Full width</button>
+// <button class='xui-button xui-button-small xui-button-main xui-button-fullwidth xui-margin-top-small'>Full width</button>
 //
 // Styleguide: Building Blocks.Controls.Button.4.1
 
@@ -302,7 +302,7 @@
 // xui-actions--secondary: Apply to secondary button to set the correct order
 //
 // Markup:
-// <div class="xui-panel xui-padding xui-u-fullwidth">
+// <div class="xui-panel xui-padding xui-button-fullwidth">
 //  <div class="xui-actions xui-actions-layout">
 //    <button type="button" class="xui-button xui-button-standard xui-actions--secondary">Secondary</button>
 //    <button type="button" class="xui-button xui-button-main xui-actions--primary">Primary</button>
@@ -319,7 +319,7 @@
 // xui-actions-linear: Apply to button container to push buttons apart and stack below 520px
 //
 // Markup:
-// <div class="xui-panel xui-padding xui-u-fullwidth">
+// <div class="xui-panel xui-padding xui-button-fullwidth">
 //  <div class="xui-actions xui-actions-layout xui-actions-linear ">
 //    <button type="button" class="xui-button xui-button-standard xui-actions--secondary">Secondary</button>
 //    <button type="button" class="xui-button xui-button-main xui-actions--primary">Primary</button>

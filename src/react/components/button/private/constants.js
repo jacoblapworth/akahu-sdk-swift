@@ -9,10 +9,14 @@ export const baseClassName = 'xui-button';
 export const SizeClassNames = {
 	'xsmall': `${ns}-button-xsmall`,
 	'small': `${ns}-button-small`,
-	'full-width': `${ns}-u-fullwidth`,
+	'full-width': `${ns}-button-fullwidth`,
 	'full-width-mobile': `${ns}-button-fullwidth-layout`,
 };
 
+/**
+ * @public
+ * Map of sizes to XUI Classes properties for icons
+ */
 export const IconSizeClassNames = {
 	xsmall: `${ns}-button-icon-xsmall`,
 	small: `${ns}-button-icon-small`,

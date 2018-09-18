@@ -170,7 +170,7 @@ export default class XUIButton extends React.Component {
 
 		if (retainLayout && isLoading) {
 			buttonChildren = [
-				<div className={`${ns}-u-hidden-content`} key="button-children">{children}</div>,
+				<div className={`${ns}-button-hidden-content`} key="button-children">{children}</div>,
 				loader,
 			];
 		} else if (isLoading) {

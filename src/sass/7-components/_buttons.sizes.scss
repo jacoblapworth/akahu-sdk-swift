@@ -1,9 +1,13 @@
 @import "../vars";
+@import "../mixins";
+
+.#{$ns}-button-fullwidth {
+	@include xui-layout-width-fullwidth;
+}
 
 .#{$ns}-button-fullwidth-layout {
 	@include xui-breakpoint-narrow {
-		display: block;
-		width: 100%;
+		@include xui-layout-width-fullwidth;
 	}
 }
 

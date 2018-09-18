@@ -23,7 +23,7 @@
 
 // scss-lint:disable ImportantRule
 // Visually hides an element
-@mixin xui-utility-hidden-visually() {
+@mixin xui-utility-hidden-visually {
 	border: 0 !important;
 	clip: rect(1px, 1px, 1px, 1px);
 	height: 1px !important;
@@ -36,9 +36,18 @@
 	width: 1px !important;
 }
 
+// Visually hides text content
+// Used primarily to hide button text and simultanously
+// display a loader (to retain width)
+@mixin xui-utility-hidden-content {
+	opacity: 0;
+	pointer-events: none;
+	user-select: none;
+}
+
 // Conditionally expose styles when CSS Grid is supported. Great for creating
 // legacy browser fallbacks.
-@mixin xui-supports-css-grid() {
+@mixin xui-supports-css-grid {
 
 	@supports (display: grid) {
 		@content;

@@ -36,7 +36,7 @@
 //
 // Markup:
 // <span class="xui-tooltip xui-tooltip-tipopen">
-// 	<button aria-label="Info" class="xui-button xui-button-icon xui-u-fullwidth" tabindex="0" type="button">
+// 	<button aria-label="Info" class="xui-button xui-button-icon xui-button-fullwidth" tabindex="0" type="button">
 // 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: column; top: -30px;">
@@ -75,7 +75,7 @@
 // 	</span>
 // </span>
 // <span class="xui-tooltip xui-tooltip-tipopen">
-// 	<button aria-haspopup="true" class="xui-button xui-button-standard xui-u-fullwidth" tabindex="0" type="button">
+// 	<button aria-haspopup="true" class="xui-button xui-button-standard xui-button-fullwidth" tabindex="0" type="button">
 // 		This is a trigger button
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: column; top: -20px;">
@@ -86,7 +86,7 @@
 // </span>
 // <br />
 // <span class="xui-tooltip xui-tooltip-tipopen">
-// 	<button aria-haspopup="true" class="xui-button xui-button-standard xui-u-fullwidth" tabindex="0" type="button">
+// 	<button aria-haspopup="true" class="xui-button xui-button-standard xui-button-fullwidth" tabindex="0" type="button">
 // 		This is a trigger button
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: column; top: auto;">

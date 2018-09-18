@@ -338,9 +338,7 @@
 }
 
 .#{$ns}-u-hidden-content {
-	opacity: 0;
-	pointer-events: none;
-	user-select: none;
+	@include xui-utility-hidden-content;
 }
 
 .#{$ns}-u-hidden-narrow {
@@ -366,8 +364,7 @@
 }
 
 .#{$ns}-u-fullwidth {
-	display: block;
-	width: 100%;
+	@include xui-layout-width-fullwidth;
 }
 
 .#{$ns}-u-noselect {

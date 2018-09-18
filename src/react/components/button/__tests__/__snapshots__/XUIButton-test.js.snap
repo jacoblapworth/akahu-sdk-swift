@@ -39,7 +39,7 @@ exports[`<XUIButton/> does retain layout checks with a myriad of combinations 2`
   type="button"
 >
   <div
-    className="xui-u-hidden-content"
+    className="xui-button-hidden-content"
   >
     Hello, I am a long bit of text
   </div>

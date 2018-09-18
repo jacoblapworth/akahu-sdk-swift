@@ -21,7 +21,7 @@
 Should work with or without the xui-html class on the html element so long as xui-html has
 a min-height and not a height.
 */
-html.#{$ns}-u-lockscroll {
+html.#{$ns}-lockscroll {
 	overflow: hidden;
 
 	&.#{$ns}-html {

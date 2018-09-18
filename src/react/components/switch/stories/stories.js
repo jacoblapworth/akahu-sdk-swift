@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 
 // Components we need to test with
 import XUISwitch from '../XUISwitch';
+import XUISwitchGroup from '../XUISwitchGroup';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -13,12 +14,9 @@ import NOOP from '../../helpers/noop';
 import { variations, storiesWithVariationsKindName } from './variations';
 
 class Example extends PureComponent {
-	state = { isChecked: false }
 	render () {
 		return (
 			<XUISwitch
-				isChecked={this.state.isChecked}
-				onChange={() => this.setState(prevState => ({ isChecked: !prevState.isChecked }))}
 				{...this.props}
 			/>
 		);
@@ -33,6 +31,9 @@ storiesWithKnobs.add('Playground', () => (
 		isDisabled={boolean('isDisabled', false)}
 		isLabelHidden={boolean('label hidden', false)}
 		isReversed={boolean('reversed', false)}
+		isInvalid={boolean('invalid', false)}
+		validationMessage={text('validationMessage', '')}
+		hintMessage={text('hintMessage', '')}
 	>
 		{text('label text', 'Sample switch label')}
 	</Example>
@@ -44,9 +45,20 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
 		const variationMinusStoryDetails = { ...variation };
+		const { isGroup, groupProps } = variation;
 		variationMinusStoryDetails.storyKind = undefined;
 		variationMinusStoryDetails.storyTitle = undefined;
 		variationMinusStoryDetails.onChange = NOOP;
+		if (isGroup) {
+			return (
+				<XUISwitchGroup {...groupProps}>
+					<XUISwitch onChange={NOOP} isReversed>One option you might try</XUISwitch>
+					<XUISwitch onChange={NOOP} isReversed isDisabled>Another that is not an option</XUISwitch>
+					<XUISwitch onChange={NOOP} isReversed>Third option</XUISwitch>
+					<XUISwitch onChange={NOOP} isReversed isChecked>Yet another switch option</XUISwitch>
+				</XUISwitchGroup>
+			);
+		}
 
 		return <XUISwitch {...variationMinusStoryDetails}>Sample switch label</XUISwitch>
 	});

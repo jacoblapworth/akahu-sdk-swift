@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import uuidv4 from 'uuid/v4';
 
 import '../helpers/xuiGlobalChecks';
 import { ns } from '../helpers/xuiClassNamespace';
+import XUIControlWrapperInline, { getAriaAttributes } from '../controlwrapper/XUIControlWrapperInline';
+import generateIds from '../controlwrapper/helpers';
 
 const baseClass = `${ns}-switch`;
 
@@ -24,13 +25,31 @@ const onLabelClick = e => {
 
 export default class XUISwitch extends PureComponent {
 	// User can manually proivde an id, or we will generate one.
-	labelId = this.props.labelId || uuidv4();
+	wrapperIds = generateIds(this.props.labelId);
+	state = {
+		isInputChecked: this.props && !!this.props.isChecked,
+	}
+
+	setInputChecked = () => {
+		this.props.onChange();
+		this.setState({ isInputChecked: this._input && this._input.checked });
+	}
+
+	componentDidUpdate(prevProps) {
+		const {
+			isChecked,
+		} = this.props;
+		if (prevProps.isChecked !== isChecked) {
+			// TODO: Lint - try remove setState
+			this.setState({ // eslint-disable-line
+				isInputChecked: this.props.isChecked,
+			});
+		}
+	}
 
 	render() {
 		const {
 			children,
-			onChange,
-			isChecked,
 			isDisabled,
 			name,
 			value,
@@ -39,6 +58,9 @@ export default class XUISwitch extends PureComponent {
 			isReversed,
 			isLabelHidden,
 			labelClassName,
+			isInvalid,
+			validationMessage,
+			hintMessage,
 		} = this.props;
 
 		const classes = cn(
@@ -51,61 +73,52 @@ export default class XUISwitch extends PureComponent {
 			`${baseClass}--label`,
 			labelClassName,
 		);
-		const labelElement =
-			!isLabelHidden &&
-			children && (
-				<span
-					id={this.labelId}
-					className={labelClasses}
-					data-automationid={qaHook && `${qaHook}--label`}
-				>
-					{children}
-				</span>
-			);
 
 		const inputClasses = `${ns}-u-hidden-visually ${baseClass}--checkbox`;
 
-		const ariaProps = {
+		const inputProps = {
+			'type': 'checkbox',
 			'role': 'switch',
-			'aria-checked': !!isChecked,
-			'aria-disabled': isDisabled || undefined,
-			'aria-label': (isLabelHidden && children) || undefined,
-			// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-			'aria-labelledby':
-				(labelElement && this.labelId)
-				|| (!children && this.props.labelId)
-				|| undefined,
+			'className': inputClasses,
+			'data-automationid': qaHook && `${qaHook}--input`,
+			'disabled': isDisabled || undefined,
+			'aria-checked': this.state.isInputChecked,
+			'onChange': this.setInputChecked,
+			'checked': this.state.isInputChecked,
+			name,
+			value,
+			...getAriaAttributes(this.wrapperIds, this.props),
 		};
 
 		return (
-			<label
-				data-automationid={qaHook && `${qaHook}--label`}
-				className={classes}
+			<XUIControlWrapperInline
+				fieldClassName={classes}
+				wrapperIds={this.wrapperIds}
 				onClick={onLabelClick}
-				role="presentation"
+				labelClassName={labelClasses}
+				label={children}
+				{...{
+					qaHook,
+					isInvalid,
+					validationMessage,
+					hintMessage,
+					isLabelHidden,
+				}}
 			>
 				<input
-					type="checkbox"
-					onChange={onChange}
-					checked={isChecked}
-					name={name}
-					value={value}
-					disabled={isDisabled || undefined}
-					className={inputClasses}
-					data-automationid={qaHook && `${qaHook}--input`}
-					{...ariaProps}
+					ref={c => this._input = c}
+					{...inputProps}
 				/>
-				<div className={`${ns}-switch--control`} data-automationid={qaHook} />
-				{labelElement}
-			</label>
+				<div className={`${baseClass}--control`} data-automationid={qaHook && `${qaHook}--switch`} />
+			</XUIControlWrapperInline>
 		);
 	}
 }
 
 XUISwitch.propTypes = {
 	children: PropTypes.node,
-	/** Fires when the switch is turned on or off */
-	onChange: PropTypes.func.isRequired,
+	/** Fires when the switch is turned on or off. No longer required. */
+	onChange: PropTypes.func,
 	qaHook: PropTypes.string,
 	className: PropTypes.string,
 	/** Determines whether the switch is checked or unchecked */
@@ -127,10 +140,17 @@ XUISwitch.propTypes = {
 	/** Prevents the label element from being displayed on the page. Label is still
 	 * accessible to screen readers. */
 	isLabelHidden: PropTypes.bool,
+	/** Whether the current input value is invalid */
+	isInvalid: PropTypes.bool,
+	/** Validation message to show under the input if `isInvalid` is true */
+	validationMessage: PropTypes.string,
+	/** Hint message to show under the input */
+	hintMessage: PropTypes.string,
 };
 
 XUISwitch.defaultProps = {
 	isLabelHidden: false,
 	isDisabled: false,
 	isReversed: false,
+	isChecked: false,
 };

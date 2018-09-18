@@ -359,6 +359,8 @@ $xui-dropdown-divider-shadow-color: $xui-color-grey-alpha-6;
 
 $xui-validation-color: $xui-color-grey-alpha-2;
 $xui-validation-invalid-color: $xui-color-red;
+$xui-validation-invalid-light-color: mix($xui-color-white, $xui-color-red, 80%);
+$xui-validation-invalid-xlight-color: mix($xui-color-white, $xui-color-red, 90%);
 
 // Inputs
 
@@ -377,6 +379,8 @@ $xui-textinput-borderless-transparent-focus-bg-color: $xui-color-grey-alpha-8;
 
 $xui-input-hover-border-color: $xui-color-grey-alpha-3;
 $xui-textinput-invalid-border-color: $xui-color-red;
+$xui-textinput-borderless-invalid-bg-color: $xui-validation-invalid-xlight-color;
+$xui-textinput-borderless-invalid-focus-bg-color: $xui-validation-invalid-light-color;
 
 // Checkbox Radio
 

@@ -54,6 +54,19 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with hint text',
+		labelText: 'Checkbox with a hint',
+		hintMessage: 'You must agree to the terms to proceed',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'invalid with message',
+		labelText: 'Invalid with validation message',
+		validationMessage: 'Please check this box to proceed',
+		isInvalid: true,
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with an icon',
 		labelText: 'Icon Example',
 		iconMain: starIcon
@@ -62,7 +75,23 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'grouped',
 		labelText: 'Grouped Example',
-		isGroup: true
+		isGroup: true,
+		groupProps: {
+			labelText: 'Birds',
+			hintMessage: 'This is a clue',
+		}
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'grouped and invalid',
+		labelText: 'Grouped Invalid Example',
+		isGroup: true,
+		groupProps: {
+			labelText: 'Birds',
+			hintMessage: 'hello',
+			isInvalid: true,
+			validationMessage: 'whoops',
+		}
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

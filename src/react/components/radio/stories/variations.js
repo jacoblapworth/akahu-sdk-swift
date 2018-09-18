@@ -27,6 +27,19 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with hint text',
+		labelText: 'Radio with a hint',
+		hintMessage: 'You must pick at least one to proceed',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'invalid with message',
+		labelText: 'Invalid with validation message',
+		validationMessage: 'Please select an option to proceed',
+		isInvalid: true,
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Hidden Label',
 		isLabelHidden: true
 	},
@@ -38,7 +51,22 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Radio Group',
-		isGroup: true
+		isGroup: true,
+		groupProps: {
+			labelText: 'Radio Group',
+			hintMessage: 'I am a hint',
+		}
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'is Radio Group Invalid',
+		isGroup: true,
+		groupProps: {
+			labelText: 'Radio Group',
+			hintMessage: 'hello',
+			isInvalid: true,
+			validationMessage: 'whoops',
+		}
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

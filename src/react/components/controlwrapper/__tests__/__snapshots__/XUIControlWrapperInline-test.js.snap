@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIControlWrapperInline> renders a hidden label, invalid, and an error message 1`] = `
+<label
+  className={undefined}
+  data-automationid={undefined}
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <input
+    aria-describedby="testGeneratedId-message"
+    aria-invalid={true}
+    aria-label={undefined}
+    aria-labelledby={undefined}
+    type="checkbox"
+  />
+  <div
+    className="xui-validation xui-validation-layout xui-validation-is-invalid"
+    data-automationid={undefined}
+    id="testGeneratedId-message"
+    role="status"
+  >
+    oh no!
+  </div>
+</label>
+`;
+
+exports[`<XUIControlWrapperInline> renders a simple HTML label, when provided 1`] = `
+<label
+  className={undefined}
+  data-automationid={undefined}
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <input
+    aria-describedby={undefined}
+    aria-invalid={false}
+    aria-label={undefined}
+    aria-labelledby={undefined}
+    type="checkbox"
+  />
+  <span
+    className={undefined}
+    data-automationid={undefined}
+    id="testGeneratedId"
+  >
+    <span>
+      Impressive input label
+    </span>
+  </span>
+</label>
+`;
+
+exports[`<XUIControlWrapperInline> renders basic example 1`] = `
+<label
+  className={undefined}
+  data-automationid={undefined}
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <input
+    aria-describedby={undefined}
+    aria-invalid={false}
+    aria-label={undefined}
+    aria-labelledby={undefined}
+    type="checkbox"
+  />
+</label>
+`;
+
+exports[`<XUIControlWrapperInline> renders classes and qaHook on all elements 1`] = `
+<label
+  className="test-field-class"
+  data-automationid="ctrl-wrapper"
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <input
+    aria-describedby="testSpecificLabel-message"
+    aria-invalid={false}
+    aria-label={undefined}
+    aria-labelledby={undefined}
+    type="checkbox"
+  />
+  <span
+    className="test-label-class"
+    data-automationid="ctrl-wrapper--label"
+    id="testSpecificLabel"
+  >
+    A label for testing
+  </span>
+  <div
+    className="xui-validation xui-validation-layout"
+    data-automationid="ctrl-wrapper--message"
+    id="testSpecificLabel-message"
+    role="status"
+  >
+    I will give you a clue
+  </div>
+</label>
+`;

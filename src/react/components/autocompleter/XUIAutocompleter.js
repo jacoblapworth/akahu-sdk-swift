@@ -235,6 +235,9 @@ export default class XUIAutocompleter extends PureComponent {
 			closeOnSelect,
 			forceDesktop,
 			matchTriggerWidth,
+			isInvalid,
+			validationMessage,
+			hintMessage,
 		} = this.props;
 		const { value, focused, inputWidth } = this.state;
 		let inputQaHook = null;
@@ -289,6 +292,9 @@ export default class XUIAutocompleter extends PureComponent {
 					isDisabled={isDisabled}
 					labelText={inputLabelText}
 					isLabelHidden={isInputLabelHidden}
+					isInvalid={isInvalid}
+					validationMessage={validationMessage}
+					hintMessage={hintMessage}
 					inputProps={{
 						...inputProps,
 						'maxLength': maxLength,
@@ -476,6 +482,12 @@ XUIAutocompleter.propTypes = {
 
 	qaHook: PropTypes.string,
 	children: PropTypes.node,
+	/** Whether the current input value is invalid */
+	isInvalid: PropTypes.bool,
+	/** Validation message to show under the input if `isInvalid` is true */
+	validationMessage: PropTypes.string,
+	/** Hint message to show under the input */
+	hintMessage: PropTypes.string,
 };
 
 XUIAutocompleter.defaultProps = {

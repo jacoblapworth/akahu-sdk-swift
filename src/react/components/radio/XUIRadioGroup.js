@@ -1,14 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import uuidv4 from 'uuid/v4';
-import XUIRadio from './XUIRadio';
 
+import XUIRadio from './XUIRadio';
+import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
+import generateIds from '../controlwrapper/helpers';
 import { baseClass } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
 
 export default class XUIRadioGroup extends PureComponent {
-	id = this.props.labelId || uuidv4();
+	wrapperIds = generateIds(this.props.labelId);
 	render() {
 		const {
 			children,
@@ -19,18 +20,14 @@ export default class XUIRadioGroup extends PureComponent {
 			isFieldLayout,
 			labelClassName,
 			fieldClassName,
-			labelId,
+			isInvalid,
+			validationMessage,
+			hintMessage,
 		} = this.props;
 
 		const rootClasses = cn(
 			fieldClassName,
-			isFieldLayout && `${ns}-field-layout`,
-		);
-
-		const labelClasses = cn(
-			labelClassName,
-			`${ns}-text-label`,
-			`${ns}-fieldlabel-layout`,
+			isInvalid && `${ns}-group-invalid`,
 		);
 
 		const childrenToRender = React.Children.map(children, child =>
@@ -40,26 +37,31 @@ export default class XUIRadioGroup extends PureComponent {
 				})
 				: child));
 
-		const labelElement = !isLabelHidden && labelText && (
-			<div className={labelClasses} id={this.id}>
-				{labelText}
-			</div>
-		);
-
 		return (
-			<div className={rootClasses}>
-				{labelElement}
+			<XUIControlWrapper
+				fieldClassName={rootClasses}
+				wrapperIds={this.wrapperIds}
+				isGroup
+				{...{
+					qaHook,
+					labelText,
+					isInvalid,
+					validationMessage,
+					hintMessage,
+					isFieldLayout,
+					labelClassName,
+					isLabelHidden,
+				}}
+			>
 				<div
 					className={cn(className, `${baseClass}-group`)}
 					data-automationid={qaHook}
 					role="radiogroup"
-					aria-label={(isLabelHidden && labelText) || undefined}
-					// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-					aria-labelledby={(labelElement && this.id) || labelId || undefined}
+					{...getAriaAttributes(this.wrapperIds, this.props)}
 				>
 					{childrenToRender}
 				</div>
-			</div>
+			</XUIControlWrapper>
 		);
 	}
 }
@@ -81,6 +83,12 @@ XUIRadioGroup.propTypes = {
 	labelId: PropTypes.string,
 	/** Class names to be added to the field wrapper element */
 	fieldClassName: PropTypes.string,
+	/** Whether the current input value is invalid */
+	isInvalid: PropTypes.bool,
+	/** Validation message to show under the input if `isInvalid` is true */
+	validationMessage: PropTypes.string,
+	/** Hint message to show under the input */
+	hintMessage: PropTypes.string,
 };
 
 XUIRadioGroup.defaultProps = {

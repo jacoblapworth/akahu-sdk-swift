@@ -42,7 +42,7 @@ const variations = [
 				name: 'tg3',
 				value: 'toggle3'
 			}
-		]
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -153,7 +153,61 @@ const variations = [
 				type: 'checkbox'
 			}
 		]
-	}
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with hint text',
+		labelText: 'Toggle with a hint',
+		hintMessage: 'You must pick at least one to proceed',
+		layout: 'fullwidth',
+		options: [
+			{
+				isDefaultChecked: true,
+				name: 'tg9',
+				value: 'toggle1',
+				type: 'checkbox'
+			},
+			{
+				name: 'tg9',
+				value: 'toggle2',
+				type: 'checkbox'
+			},
+			{
+				isDisabled: true,
+				name: 'tg9',
+				value: 'toggle3',
+				type: 'checkbox'
+			}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'invalid with message',
+		labelText: 'Invalid with validation message',
+		validationMessage: 'Please select an option to proceed',
+		isInvalid: true,
+		color: 'inverted',
+		layout: 'fullwidth',
+		options: [
+			{
+				isDefaultChecked: true,
+				name: 'tg10',
+				value: 'toggle1',
+				type: 'checkbox'
+			},
+			{
+				name: 'tg10',
+				value: 'toggle2',
+				type: 'checkbox'
+			},
+			{
+				isDisabled: true,
+				name: 'tg10',
+				value: 'toggle3',
+				type: 'checkbox'
+			}
+		]
+	},
 ];
 
 module.exports = {

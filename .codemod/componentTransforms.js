@@ -12,4 +12,15 @@ module.exports = {
 			]
 		}
 	],
+	'@xero/xui/react/select-box': [
+		{
+			isDefault: true,
+			props: [
+				{
+					name: 'islabelHidden',
+					newName: 'isLabelHidden'
+				},
+			]
+		}
+	],
 }

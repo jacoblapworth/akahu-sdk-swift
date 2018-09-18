@@ -21,6 +21,9 @@ storiesWithKnobs.add('Playground', () => (
 		isChecked={boolean('isChecked', false)}
 		isReversed={boolean('isReversed', false)}
 		isLabelHidden={boolean('isLabelHidden', false)}
+		isInvalid={boolean('invalid', false)}
+		validationMessage={text('validationMessage', '')}
+		hintMessage={text('hintMessage', '')}
 	>{text('label text', 'Test radio')}</XUIRadio>
 ));
 
@@ -30,17 +33,17 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
 
-		const {isGroup, isSeries} = variation;
+		const {isGroup, isSeries, groupProps } = variation;
 		const labelText = typeof variation.labelText === 'string' ? variation.labelText : "Test radio";
 
 		// Remove story-specific properties
 		const radioProps = { ...variation, storyKind: undefined, storyTitle: undefined, isGroup: undefined, labelText: undefined };
 
 		if (isGroup) {
-			return <XUIRadioGroup labelText="Radio Group">
+			return <XUIRadioGroup {...groupProps}>
 				<XUIRadio key="r0-1" isDefaultChecked={true} name="rg0">Medium radio label goes here</XUIRadio>
 				<XUIRadio key="r0-2" name="rg0">Longish radio label goes here, but this one really goes on and on and on and on</XUIRadio>
-				<XUIRadio key="r0-3" name="rg0">Third</XUIRadio>
+				<XUIRadio key="r0-3" name="rg0"><span>Third</span></XUIRadio>
 			</XUIRadioGroup>
 		} else if (isSeries) {
 			return <div aria-label="r1" role="radiogroup">

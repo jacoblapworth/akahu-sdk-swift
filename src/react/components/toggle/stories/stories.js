@@ -44,6 +44,9 @@ storiesWithKnobs.add('Playground', () => (
 			labelText={text('labelText', 'Toggle label')}
 			isLabelHidden={boolean('isLabelHidden', false)}
 			isFieldLayout={boolean('isFieldLayout', true)}
+			isInvalid={boolean('isInvalid', false)}
+			validationMessage={text('validationMessage', '')}
+			hintMessage={text('hintMessage', '')}
 		>
 			{buildOptions(toggleOptions)}
 		</XUIToggle>

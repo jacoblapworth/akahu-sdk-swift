@@ -1,14 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import uuidv4 from 'uuid/v4';
 
 import { colorMap, layoutMap, variantMap, baseClass } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 import '../helpers/xuiGlobalChecks';
+import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
+import generateIds from '../controlwrapper/helpers';
 
 export default class XUIToggle extends PureComponent {
-	id = this.props.labelId || uuidv4();
+	wrapperIds = generateIds(this.props.labelId);
 
 	toggleIsCheckbox() {
 		const { children } = this.props;
@@ -29,7 +30,9 @@ export default class XUIToggle extends PureComponent {
 			fieldClassName,
 			isFieldLayout,
 			labelClassName,
-			labelId,
+			isInvalid,
+			validationMessage,
+			hintMessage,
 		} = this.props;
 		const classes = cn(
 			className,
@@ -39,21 +42,10 @@ export default class XUIToggle extends PureComponent {
 			variantMap[variant],
 		);
 
-		const labelClasses = cn(
-			labelClassName,
-			`${ns}-text-label`,
-			`${ns}-fieldlabel-layout`,
-		);
-
-		const labelElement = labelText != null && !isLabelHidden && (
-			<span className={labelClasses} id={this.id}>
-				{labelText}
-			</span>
-		);
-
 		const rootClasses = cn(
 			fieldClassName,
-			isFieldLayout && `${ns}-field-layout`,
+			`${ns}-togglewrapper`,
+			isInvalid && `${ns}-togglewrapper-is-invalid`,
 		);
 
 		const ariaRole = (secondaryProps && secondaryProps.role) || this.toggleIsCheckbox()
@@ -61,21 +53,31 @@ export default class XUIToggle extends PureComponent {
 			: 'radiogroup';
 
 		return (
-			<div className={rootClasses}>
-				{labelElement}
+			<XUIControlWrapper
+				fieldClassName={rootClasses}
+				wrapperIds={this.wrapperIds}
+				isGroup
+				{...{
+					qaHook,
+					labelText,
+					isInvalid,
+					validationMessage,
+					hintMessage,
+					isFieldLayout,
+					labelClassName,
+					isLabelHidden,
+				}}
+			>
 				<div
 					{...secondaryProps}
 					role={ariaRole}
 					className={classes}
 					data-automationid={qaHook}
-					aria-label={(isLabelHidden && labelText) || undefined}
-					// Attach a "labelledby" prop if we've created the label,
-					// or if the user has provided an id.
-					aria-labelledby={(labelElement && this.id) || labelId || undefined}
+					{...getAriaAttributes(this.wrapperIds, this.props)}
 				>
 					{children}
 				</div>
-			</div>
+			</XUIControlWrapper>
 		);
 	}
 }
@@ -104,6 +106,12 @@ XUIToggle.propTypes = {
 	isFieldLayout: PropTypes.bool,
 	/** Class names to be added to the field wrapper element */
 	fieldClassName: PropTypes.string,
+	/** Whether the current input value is invalid */
+	isInvalid: PropTypes.bool,
+	/** Validation message to show under the input if `isInvalid` is true */
+	validationMessage: PropTypes.string,
+	/** Hint message to show under the input */
+	hintMessage: PropTypes.string,
 };
 
 XUIToggle.defaultProps = {

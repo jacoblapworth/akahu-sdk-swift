@@ -2,9 +2,14 @@
 
 exports[`XUIToggle should have a hidden label as aria-label if provided and flagged 1`] = `
 <div
-  className=""
+  className="xui-togglewrapper"
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
 >
   <div
+    aria-describedby={undefined}
+    aria-invalid={undefined}
     aria-label="This is a toggle"
     aria-labelledby={undefined}
     className="xui-toggle"
@@ -16,9 +21,14 @@ exports[`XUIToggle should have a hidden label as aria-label if provided and flag
 
 exports[`XUIToggle should have a qaHook if provided 1`] = `
 <div
-  className=""
+  className="xui-togglewrapper"
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
 >
   <div
+    aria-describedby={undefined}
+    aria-invalid={undefined}
     aria-label={undefined}
     aria-labelledby={undefined}
     className="xui-toggle"
@@ -30,15 +40,21 @@ exports[`XUIToggle should have a qaHook if provided 1`] = `
 
 exports[`XUIToggle should have a visible label if provided 1`] = `
 <div
-  className=""
+  className="xui-togglewrapper"
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
 >
   <span
     className="xui-text-label xui-fieldlabel-layout"
+    data-automationid={undefined}
     id="testCheckboxId"
   >
     This is a toggle
   </span>
   <div
+    aria-describedby={undefined}
+    aria-invalid={undefined}
     aria-label={undefined}
     aria-labelledby="testCheckboxId"
     className="xui-toggle"
@@ -50,15 +66,21 @@ exports[`XUIToggle should have a visible label if provided 1`] = `
 
 exports[`XUIToggle should have the fieldLayout class and a custom labelID, if provided 1`] = `
 <div
-  className="xui-field-layout"
+  className="xui-togglewrapper xui-field-layout"
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
 >
   <span
     className="xui-text-label xui-fieldlabel-layout"
+    data-automationid={undefined}
     id="testing123"
   >
     This is a toggle
   </span>
   <div
+    aria-describedby={undefined}
+    aria-invalid={undefined}
     aria-label={undefined}
     aria-labelledby="testing123"
     className="xui-toggle"

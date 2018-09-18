@@ -12,7 +12,7 @@ import DropDownLayout from '../../dropdown/DropDownLayout';
 import uuidv4 from 'uuid/v4';
 
 jest.mock('uuid/v4');
-uuidv4.mockImplementation(() => 'testDropdownId');
+uuidv4.mockImplementation(() => 'testAutocompleterId');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -38,6 +38,18 @@ describe('XUIAutocompleter', () => {
 
 	it('inserts the searchValue inside the input', () => {
 		const inputEl = renderer.create(createComponent({searchValue: "a"}));
+
+		expect(inputEl).toMatchSnapshot();
+	});
+
+	it('renders with the provided label', () => {
+		const inputEl = renderer.create(createComponent({inputLabelText: "Im a little label"}));
+
+		expect(inputEl).toMatchSnapshot();
+	});
+
+	it('renders with a hidden label', () => {
+		const inputEl = renderer.create(createComponent({inputLabelText: "Im a little label", isInputLabelHidden: true}));
 
 		expect(inputEl).toMatchSnapshot();
 	});

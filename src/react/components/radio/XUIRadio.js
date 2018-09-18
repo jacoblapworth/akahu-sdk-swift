@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import uuidv4 from 'uuid/v4';
+
 import '../helpers/xuiGlobalChecks';
 import { baseClass } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
+import XUIControlWrapperInline, { getAriaAttributes } from '../controlwrapper/XUIControlWrapperInline';
+import generateIds from '../controlwrapper/helpers';
 
 /**
  * @function handleLabelClick - Prevent 2 click events bubbling. Since our input is
@@ -60,7 +62,7 @@ const buildRadio = (qaHook, htmlClassName, svgSettings, isGrouped) => {
 
 export default class XUIRadio extends React.Component {
 	// User can manually proivde an id, or we will generate one.
-	labelId = this.props.labelId || uuidv4();
+	wrapperIds = generateIds(this.props.labelId);
 
 	render() {
 		const {
@@ -84,6 +86,9 @@ export default class XUIRadio extends React.Component {
 			role,
 			id,
 			isGrouped,
+			isInvalid,
+			validationMessage,
+			hintMessage,
 		} = this.props;
 
 		const classes = cn(
@@ -97,32 +102,17 @@ export default class XUIRadio extends React.Component {
 			`${baseClass}--label`,
 			labelClassName,
 		);
-		const labelElement =
-			!isLabelHidden &&
-			children && (
-				<span
-					id={this.labelId}
-					className={labelClasses}
-					data-automationid={qaHook && `${qaHook}--label`}
-				>
-					{children}
-				</span>
-			);
+
 		const inputProps = {
-			'type': 'radio',
-			'disabled': isDisabled,
-			'required': isRequired,
-			'aria-label': (isLabelHidden && children) || undefined,
-			// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-			'aria-labelledby':
-				(labelElement && this.labelId)
-				|| (!children && this.props.labelId)
-				|| undefined,
+			type: 'radio',
+			disabled: isDisabled,
+			required: isRequired,
 			tabIndex,
 			name,
 			onChange,
 			value,
 			id,
+			...getAriaAttributes(this.wrapperIds, this.props),
 		};
 		const svgSettings = {
 			svgClassName,
@@ -141,7 +131,20 @@ export default class XUIRadio extends React.Component {
 		}
 
 		return (
-			<label className={classes} data-automationid={qaHook} onClick={onLabelClick} role="presentation">
+			<XUIControlWrapperInline
+				fieldClassName={classes}
+				wrapperIds={this.wrapperIds}
+				onClick={onLabelClick}
+				labelClassName={labelClasses}
+				label={children}
+				{...{
+					qaHook,
+					isInvalid,
+					validationMessage,
+					hintMessage,
+					isLabelHidden,
+				}}
+			>
 				<input
 					role={role}
 					className={cn(
@@ -153,8 +156,7 @@ export default class XUIRadio extends React.Component {
 					{...inputProps}
 				/>
 				{buildRadio(qaHook, htmlClassName, svgSettings, isGrouped)}
-				{labelElement}
-			</label>
+			</XUIControlWrapperInline>
 		);
 	}
 }
@@ -222,6 +224,12 @@ XUIRadio.propTypes = {
 
 	/** Used by XUI components to state whether the radio is part of a group */
 	isGrouped: PropTypes.bool,
+	/** Whether the current input value is invalid */
+	isInvalid: PropTypes.bool,
+	/** Validation message to show under the input if `isInvalid` is true */
+	validationMessage: PropTypes.string,
+	/** Hint message to show under the input */
+	hintMessage: PropTypes.string,
 };
 
 XUIRadio.defaultProps = {

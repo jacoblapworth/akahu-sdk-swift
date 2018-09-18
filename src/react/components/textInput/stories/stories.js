@@ -137,6 +137,14 @@ const TextInputWrapper = props => {
 			rightElement={makeSideElement(rightElementType, rightElementAlignment)}
 			type="text"
 			defaultValue={defaultValue || 'default Value'}
+			placeholder={placeholder}
+			isDisabled={isDisabled}
+			value={value}
+			isMultiline={isMultiline}
+			isLabelHidden={isLabelHidden}
+			minRows={minRows}
+			maxRows={maxRows}
+			rows={rows}
 		/>
 	);
 };

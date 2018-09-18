@@ -9,6 +9,7 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'looks like an input',
 		openDrawer: false,
+		isInputLabelHidden: false,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -29,7 +30,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'shows a pill when an item is selected',
-		selectedPeople: 0,
+		selectedPeople: 1,
 	},
 	...dropdownSizes.map(dropdownSize => ({
 		storyKind: storiesWithVariationsKindName,

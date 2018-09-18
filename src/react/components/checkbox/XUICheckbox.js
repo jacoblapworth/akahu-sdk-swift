@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import uuidv4 from 'uuid/v4';
+
 import '../helpers/xuiGlobalChecks';
 import { baseClass } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
+import XUIControlWrapperInline, { getAriaAttributes } from '../controlwrapper/XUIControlWrapperInline';
+import generateIds from '../controlwrapper/helpers';
 
 // TODO: If there is further need to conform to specific browser scenarios then
 // we will need to replace this snippet with something more robust and granular,
@@ -121,7 +123,7 @@ const buildCheckbox = (qaHook, htmlClassName, svgSettings, isGrouped) => {
  */
 export default class XUICheckbox extends Component {
 	// User can manually proivde an id, or we will generate one.
-	labelId = this.props.labelId || uuidv4();
+	wrapperIds = generateIds(this.props.labelId);
 
 	componentDidMount() {
 		setIndeterminate(this);
@@ -167,6 +169,9 @@ export default class XUICheckbox extends Component {
 			labelClassName,
 			htmlClassName,
 			isGrouped,
+			isInvalid,
+			validationMessage,
+			hintMessage,
 		} = this.props;
 
 		const classes = cn(
@@ -180,32 +185,16 @@ export default class XUICheckbox extends Component {
 			`${baseClass}--label`,
 			labelClassName,
 		);
-		const labelElement =
-			!isLabelHidden &&
-			children && (
-				<span
-					id={this.labelId}
-					className={labelClasses}
-					data-automationid={qaHook && `${qaHook}--label`}
-				>
-					{children}
-				</span>
-			);
 		const inputProps = {
-			'type': 'checkbox',
-			'disabled': isDisabled,
-			'required': isRequired,
-			'onClick': this.onClick,
-			'aria-label': (isLabelHidden && children) || undefined,
-			// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-			'aria-labelledby':
-				(labelElement && this.labelId)
-				|| (!children && this.props.labelId)
-				|| undefined,
+			type: 'checkbox',
+			disabled: isDisabled,
+			required: isRequired,
+			onClick: this.onClick,
 			tabIndex,
 			name,
 			onChange,
 			value,
+			...getAriaAttributes(this.wrapperIds, this.props),
 		};
 		const svgSettings = {
 			svgClassName,
@@ -227,11 +216,19 @@ export default class XUICheckbox extends Component {
 		}
 
 		return (
-			<label
-				className={classes}
-				data-automationid={qaHook}
+			<XUIControlWrapperInline
+				fieldClassName={classes}
+				wrapperIds={this.wrapperIds}
 				onClick={onLabelClick}
-				role="presentation"
+				labelClassName={labelClasses}
+				label={children}
+				{...{
+					qaHook,
+					isInvalid,
+					validationMessage,
+					hintMessage,
+					isLabelHidden,
+				}}
 			>
 				<input
 					ref={cb => this._input = cb}
@@ -239,15 +236,12 @@ export default class XUICheckbox extends Component {
 					className={cn(
 						`${baseClass}--input`,
 						inputProps.className,
-						{
-							[`${baseClass}--input-small`]: isGrouped,
-						},
+						isGrouped && `${baseClass}--input-small`,
 					)}
 					data-automationid={qaHook && `${qaHook}--input`}
 				/>
 				{buildCheckbox(qaHook, htmlClassName, svgSettings, isGrouped)}
-				{labelElement}
-			</label>
+			</XUIControlWrapperInline>
 		);
 	}
 }
@@ -317,6 +311,13 @@ XUICheckbox.propTypes = {
 
 	/** Used by XUI components to state whether the checkbox is part of a group */
 	isGrouped: PropTypes.bool,
+
+	/** Whether the current input value is invalid */
+	isInvalid: PropTypes.bool,
+	/** Validation message to show under the input if `isInvalid` is true */
+	validationMessage: PropTypes.string,
+	/** Hint message to show under the input */
+	hintMessage: PropTypes.string,
 };
 
 XUICheckbox.defaultProps = {

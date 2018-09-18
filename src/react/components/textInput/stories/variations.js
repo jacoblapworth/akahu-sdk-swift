@@ -78,7 +78,27 @@ const labelAndValidationStories = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'is borderless solid invalid',
+		isBorderlessSolid: true,
+		isInvalid: true,
+		validationMessage: 'invalid solid input',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'is borderless transparent invalid',
+		isBorderlessTransparent: true,
+		isInvalid: true,
+		validationMessage: 'invalid transparent input',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is disabled',
+		isDisabled: true,
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'is borderless disabled',
+		isBorderlessSolid: true,
 		isDisabled: true,
 	},
 	{

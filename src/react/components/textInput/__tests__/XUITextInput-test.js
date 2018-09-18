@@ -160,6 +160,7 @@ describe('<XUITextInput>', () => {
 					onChange={ NOOP }
 					hintMessage="Boo"
 					validationMessage="Wut?"
+					labelId="newTest"
 				/>
 			);
 
@@ -172,6 +173,7 @@ describe('<XUITextInput>', () => {
 					onChange={ NOOP }
 					isInvalid={ true }
 					validationMessage="Boo"
+					labelId="newTest"
 				/>
 			);
 

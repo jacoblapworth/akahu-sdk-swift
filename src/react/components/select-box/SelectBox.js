@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import uuidv4 from 'uuid/v4';
+
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import XUIButton from '../button/XUIButton';
@@ -9,6 +10,8 @@ import XUIButtonCaret from '../button/XUIButtonCaret';
 import Picklist from '../picklist/Picklist';
 import qaHooks from './qaHooks';
 import { ns } from '../helpers/xuiClassNamespace';
+import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
+import generateIds from '../controlwrapper/helpers';
 
 /**
  * If a qaHook is supplied in component props this helper provides a suffix for
@@ -24,8 +27,11 @@ function setQaHook(propsQaHook, suffix) {
 	return propsQaHook ? `${propsQaHook}-${suffix}` : null;
 }
 
+const selectBaseClass = `${ns}-select`;
+
 export default class SelectBox extends Component {
 	selectId = this.props.id || uuidv4();
+	wrapperIds = generateIds();
 
 	isDropDownOpen = () => !!this.ddt && this.ddt.isDropDownOpen()
 
@@ -44,7 +50,7 @@ export default class SelectBox extends Component {
 			defaultLayout,
 			inputGroupClasses,
 			labelClassName,
-			islabelHidden,
+			isLabelHidden,
 			buttonContent,
 			qaHook,
 			isDisabled,
@@ -57,26 +63,25 @@ export default class SelectBox extends Component {
 			isOpen,
 			forceDesktop,
 			matchTriggerWidth,
+			isInvalid,
+			validationMessage,
+			hintMessage,
 		} = this.props;
 
 		const buttonClassNames = cn(
 			isTextTruncated && buttonVariant && `${ns}-text-truncated`,
-			!buttonVariant && `${ns}-select--button`,
+			!buttonVariant && `${selectBaseClass}--button`,
 			buttonClasses,
 		);
 		const inputGroupClassNames = cn(
-			defaultLayout && `${ns}-select-layout`,
+			defaultLayout && `${selectBaseClass}-layout`,
 			inputGroupClasses,
+			isInvalid && `${selectBaseClass}-is-invalid`,
 		);
-		const labelClasses = cn(
-			`${ns}-text-label`,
-			labelClassName,
-			defaultLayout && `${ns}-fieldlabel-layout`,
-			islabelHidden && `${ns}-u-hidden-visually`,
-		);
-		const caretClasses = (!buttonVariant && `${ns}-select--caret`) || undefined;
+
+		const caretClasses = (!buttonVariant && `${selectBaseClass}--caret`) || undefined;
 		const content = !buttonVariant ? (
-			<span className={`${ns}-select--content`}>
+			<span className={`${selectBaseClass}--content`}>
 				{buttonContent}
 			</span>
 		) : buttonContent;
@@ -105,6 +110,8 @@ export default class SelectBox extends Component {
 				qaHook={setQaHook(qaHook, qaHooks.dropdown)}
 				restrictFocus={restrictFocus}
 				id={selectBox.selectId}
+				// These aria attributes currently go nowhere
+				ariaAttributes={getAriaAttributes(this.wrapperIds.label, this.props)}
 			>
 				<Picklist>
 					{children}
@@ -114,35 +121,43 @@ export default class SelectBox extends Component {
 
 		return (
 			<div data-automationid={qaHook} className={containerClasses}>
-				<label
-					className={labelClasses}
-					htmlFor={selectBox.selectId}
-					onClick={selectBox.onLabelClick}
-					data-automationid={setQaHook(qaHook, qaHooks.label)}
-					role="presentation"
+				<XUIControlWrapper
+					qaHook={setQaHook(qaHook, qaHooks.label)}
+					isFieldLayout={defaultLayout}
+					wrapperIds={this.wrapperIds}
+					{...{
+						isLabelHidden,
+						labelText,
+						isInvalid,
+						validationMessage,
+						hintMessage,
+						labelClassName,
+					}}
 				>
-					{labelText}
-				</label>
-				<div className={inputGroupClassNames} data-automationid={setQaHook(qaHook, qaHooks.inputGroup)}>
-					{
-						!children || (Array.isArray(children) && !children.length)
-							? trigger
-							: (
-								<DropDownToggled
-									ref={c => selectBox.ddt = c}
-									trigger={trigger}
-									dropdown={dropdown}
-									onClose={onDropdownHide}
-									closeOnSelect={closeAfterSelection}
-									isHidden={!isOpen}
-									forceDesktop={forceDesktop}
-									matchTriggerWidth={matchTriggerWidth}
-									qaHook={setQaHook(qaHook, qaHooks.dropdownToggled)}
-									isBlock
-								/>
-							)
-					}
-				</div>
+					<div
+						className={inputGroupClassNames}
+						data-automationid={setQaHook(qaHook, qaHooks.inputGroup)}
+					>
+						{
+							!children || (Array.isArray(children) && !children.length)
+								? trigger
+								: (
+									<DropDownToggled
+										ref={c => selectBox.ddt = c}
+										trigger={trigger}
+										dropdown={dropdown}
+										onClose={onDropdownHide}
+										closeOnSelect={closeAfterSelection}
+										isHidden={!isOpen}
+										forceDesktop={forceDesktop}
+										matchTriggerWidth={matchTriggerWidth}
+										qaHook={setQaHook(qaHook, qaHooks.dropdownToggled)}
+										isBlock
+									/>
+								)
+						}
+					</div>
+				</XUIControlWrapper>
 			</div>
 		);
 	}
@@ -157,7 +172,7 @@ SelectBox.propTypes = {
 	labelClassName: PropTypes.string,
 
 	/** Input Label visibility */
-	islabelHidden: PropTypes.bool,
+	isLabelHidden: PropTypes.bool,
 
 	/** When a selection is made, close the dropdown */
 	closeAfterSelection: PropTypes.bool,
@@ -220,10 +235,16 @@ SelectBox.propTypes = {
 	/** ID to apply to the dropdown. Used primarily to associate a label with it's matched content.
 	 * If none is provided it's automatically generated. */
 	id: PropTypes.string,
+
+	/** Whether the current input value is invalid */
+	isInvalid: PropTypes.bool,
+	/** Validation message to show under the input if `isInvalid` is true */
+	validationMessage: PropTypes.string,
+	/** Hint message to show under the input */
+	hintMessage: PropTypes.string,
 };
 
 SelectBox.defaultProps = {
-	islabelHidden: false,
 	closeAfterSelection: true,
 	defaultLayout: true,
 	isOpen: false,

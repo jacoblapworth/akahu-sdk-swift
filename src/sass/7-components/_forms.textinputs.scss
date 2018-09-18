@@ -250,6 +250,14 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 	}
 }
 
+.#{$ns}-textinput-borderless.#{$ns}-textinput-is-invalid {
+	background-color: $xui-textinput-borderless-invalid-bg-color;
+
+	&.#{$ns}-textinput-focus {
+		background-color: $xui-textinput-borderless-invalid-focus-bg-color;
+	}
+}
+
 .#{$ns}-textinput-borderless-inverted {
 	color: $xui-textinput-borderless-inverted-color;
 

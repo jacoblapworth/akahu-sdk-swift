@@ -21,6 +21,11 @@
 			padding: 6px 3px 3px 6px;
 		}
 	}
+
+	.#{$ns}-group-invalid &,
+	.#{$ns}-group-invalid & .#{$ns}-styledcheckboxradio {
+		border-color: $xui-validation-invalid-color;
+	}
 }
 
 

@@ -30,7 +30,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with hidden label and button variant',
-		labelHidden: true,
+		isLabelHidden: true,
 		buttonVariant: 'create',
 	},
 	{
@@ -44,11 +44,29 @@ const variations = [
 		storyTitle: 'with no default layout',
 		defaultLayout: false,
 		isOpen: false,
+		isInvalid: true,
+		hintMessage: 'Try me',
+		validationMessage: 'No good!',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with a hint message',
+		isOpen: false,
+		hintMessage: 'Please make a selection',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'invalid with an error message',
+		isOpen: false,
+		isInvalid: true,
+		hintMessage: 'Try me',
+		validationMessage: 'No good!',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'without matching trigger width',
 		matchTriggerWidth: false,
+		hintMessage: 'Try me',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

@@ -2,12 +2,13 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import autosize from 'autosize';
-import uuidv4 from 'uuid/v4';
 
 import compose from '../helpers/compose';
 import { inputBaseClass, inputSizeClasses, baseSizeClasses } from './private/constants';
 import { calculateMaxHeight } from './private/helpers';
 import { ns } from '../helpers/xuiClassNamespace';
+import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
+import generateIds from '../controlwrapper/helpers';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
 const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
@@ -18,7 +19,7 @@ class XUITextInput extends PureComponent {
 		hasFocus: false,
 	};
 
-	generatedId = uuidv4();
+	wrapperIds = generateIds(this.props.labelId);
 
 	componentDidMount() {
 		const { maxRows } = this.props;
@@ -102,24 +103,6 @@ class XUITextInput extends PureComponent {
 			hasFocus,
 		} = this.state;
 
-		const labelId = input.props.labelId || `${this.generatedId}-label`;
-		const messageId = `${this.generatedId}-message`;
-		const showingErrorMessage = isInvalid && validationMessage;
-		const message = (validationMessage || hintMessage) && (
-			<div
-				className={cn(
-					`${ns}-validation`,
-					`${ns}-validation-layout`,
-					showingErrorMessage && `${ns}-validation-is-invalid`,
-				)}
-				data-automationid={qaHook && `${qaHook}--message`}
-				role="status"
-				id={messageId}
-			>
-				{showingErrorMessage ? validationMessage : hintMessage}
-			</div>
-		);
-
 		const classes = cn(
 			inputClassName,
 			`${inputBaseClass}--input`,
@@ -131,7 +114,6 @@ class XUITextInput extends PureComponent {
 		const rootClasses = cn(
 			fieldClassName,
 			`${inputBaseClass}wrapper`,
-			isFieldLayout && `${ns}-field-layout`,
 		);
 
 		const baseClasses = cn(
@@ -147,17 +129,6 @@ class XUITextInput extends PureComponent {
 			isDisabled && `${inputBaseClass}-is-disabled`,
 		);
 
-		const labelClasses = cn(
-			labelClassName,
-			`${ns}-text-label`,
-			`${ns}-fieldlabel-layout`,
-		);
-
-		const labelElement = labelText != null && !isLabelHidden && (
-			<span className={labelClasses} id={labelId}>
-				{labelText}
-			</span>
-		);
 
 		const InputEl = isMultiline ? 'textarea' : 'input';
 
@@ -166,18 +137,22 @@ class XUITextInput extends PureComponent {
 			maxHeight, // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
 		};
 
-		// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-		const ariaLabelledBy = (labelElement && labelId)
-			|| (!labelText && this.props.labelId)
-			|| undefined;
-		// Add hidden label or placeholder as labelText if not labelled by anything else
-		const ariaLabel = (isLabelHidden && labelText)
-			|| (!ariaLabelledBy && placeholder)
-			|| undefined;
-
 		return (
-			<label className={rootClasses} onKeyDown={onKeyDown} role="presentation">
-				{labelElement}
+			<XUIControlWrapper
+				fieldClassName={rootClasses}
+				wrapperIds={this.wrapperIds}
+				{...{
+					qaHook,
+					onKeyDown,
+					labelText,
+					isInvalid,
+					validationMessage,
+					hintMessage,
+					isFieldLayout,
+					labelClassName,
+					isLabelHidden,
+				}}
+			>
 				<div className={baseClasses} data-automationid={qaHook}>
 					{leftElement}
 					<InputEl
@@ -193,16 +168,13 @@ class XUITextInput extends PureComponent {
 						placeholder={placeholder}
 						disabled={isDisabled}
 						ref={compose(inputRef, i => this.input = i)}
-						aria-label={ariaLabel}
-						aria-labelledby={ariaLabelledBy}
-						aria-describedby={(message && messageId) || undefined}
+						{...getAriaAttributes(this.wrapperIds, this.props)}
 						// used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
 						rows={isMultiline ? rows || minRows : undefined}
 					/>
 					{rightElement}
 				</div>
-				{message}
-			</label>
+			</XUIControlWrapper>
 		);
 	}
 }

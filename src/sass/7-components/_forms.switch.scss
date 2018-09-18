@@ -121,3 +121,10 @@ $xui-switch-label-padding: $xui-s-small - 2;
 		margin: $xui-switch-label-padding/2;
 	}
 }
+
+.#{$ns}-group-invalid {
+	.#{$ns}-switch-group,
+	.#{$ns}-switch:nth-last-of-type(n+2) {
+		border-color: $xui-validation-invalid-color;
+	}
+}

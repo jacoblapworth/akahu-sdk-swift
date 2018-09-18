@@ -155,7 +155,7 @@ class DetailedListExample extends Component {
 
 		if (selectedPeople != null && typeof selectedPeople === 'number') {
 			this.setState({
-				selectedPeople: [peopleDataSet[selectedPeople]],
+				selectedPeople: peopleDataSet.slice(0, selectedPeople),
 			});
 		} else {
 			this.setState({
@@ -173,7 +173,11 @@ class DetailedListExample extends Component {
 			dropdownSize,
 			isDisabled,
 			noDrawerFooter,
-			disableWrapPills
+			disableWrapPills,
+			isInvalid,
+			validationMessage,
+			hintMessage,
+			isInputLabelHidden,
 		} = example.props;
 
 		const footer = (
@@ -208,8 +212,11 @@ class DetailedListExample extends Component {
 					dropdownSize={dropdownSize}
 					isDisabled={isDisabled}
 					inputLabelText="Sample Autocompleter"
-					isInputLabelHidden
 					disableWrapPills={disableWrapPills}
+					isInputLabelHidden={isInputLabelHidden === undefined ? true : isInputLabelHidden}
+					isInvalid={isInvalid}
+					validationMessage={validationMessage}
+					hintMessage={hintMessage}
 					pills={
 						selectedPeople.map(person =>
 							<XUIPill
@@ -238,7 +245,8 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
 	const userSelectedPerson = select('Select a person', peopleDataSet.map(person => person.name), 'Frida');
-	const selectedPerson = peopleDataSet.findIndex(i => i.name === userSelectedPerson);
+	// People are picked from the list with a slice, now, so index + 1.
+	const selectedPerson = peopleDataSet.findIndex(i => i.name === userSelectedPerson) + 1;
 
 	const fullSize = boolean('Match dropdown width', true);
 	const userSelectedSize = fullSize ? '' : select('Dropdown size', dropdownSizes, 'small');
@@ -252,7 +260,11 @@ storiesWithKnobs.add('Playground', () => {
 				placeholder={text('Placeholder', '')}
 				selectedPeople={selectedPerson}
 				isDisabled={boolean('Disabled', false)}
+				isInvalid={boolean('Invalid', false)}
+				validationMessage={text('validation msg', '')}
+				hintMessage={text('hint msg', '')}
 				dropdownSize={userSelectedSize || undefined}
+				isInputLabelHidden={boolean('Hide label', false)}
 			/>
 		</div>
 	);

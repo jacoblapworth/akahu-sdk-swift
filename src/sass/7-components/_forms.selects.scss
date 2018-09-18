@@ -49,6 +49,10 @@
 	min-height: $xui-control-size-standard;
 	padding: $xui-input-padding-vertical $xui-input-padding-horizontal $xui-input-padding-vertical $xui-input-padding-horizontal;
 	text-align: left;
+
+	.#{$ns}-select-is-invalid & {
+		border-color: $xui-validation-invalid-color;
+	}
 }
 
 .#{$ns}-dropdownmenu-select {

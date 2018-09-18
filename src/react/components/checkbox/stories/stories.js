@@ -23,6 +23,9 @@ storiesWithKnobs.add('Playground', () => (
 		isIndeterminate={boolean('indeterminate', false)}
 		isReversed={boolean('reversed', false)}
 		value={text('value', '')}
+		isInvalid={boolean('invalid', false)}
+		validationMessage={text('validationMessage', '')}
+		hintMessage={text('hintMessage', '')}
 	>{text('label text', 'Test checkbox')}</XUICheckbox>
 ));
 
@@ -31,7 +34,7 @@ storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
-		const { isGroup } = variation;
+		const { isGroup, groupProps } = variation;
 		const labelText = typeof variation.labelText === 'string' ? variation.labelText : "Test radio";
 
 		// Remove story-specific properties
@@ -39,7 +42,7 @@ variations.forEach(variation => {
 
 		if(isGroup){
 			return (
-				<XUICheckboxGroup labelText="Birds">
+				<XUICheckboxGroup {...groupProps}>
 					<XUICheckbox isDefaultChecked={true}>
 						Kakapo
 					</XUICheckbox>

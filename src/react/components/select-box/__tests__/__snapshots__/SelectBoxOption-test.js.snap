@@ -163,9 +163,12 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
       className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      onKeyDown={undefined}
       role="presentation"
     >
       <input
+        aria-describedby={undefined}
+        aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby="testCheckboxId"
         checked={false}
@@ -339,9 +342,12 @@ exports[`<SelectBoxOption /> should render the option and the checkboxes as disa
       className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      onKeyDown={undefined}
       role="presentation"
     >
       <input
+        aria-describedby={undefined}
+        aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby="testCheckboxId"
         checked={false}

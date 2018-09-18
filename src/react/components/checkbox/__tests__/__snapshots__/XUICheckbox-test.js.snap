@@ -5,9 +5,12 @@ exports[`XUICheckbox should have a hidden label, if specified 1`] = `
   className="xui-styledcheckboxradio"
   data-automationid={undefined}
   onClick={[Function]}
+  onKeyDown={undefined}
   role="presentation"
 >
   <input
+    aria-describedby={undefined}
+    aria-invalid={undefined}
     aria-label="Hidden label"
     aria-labelledby={undefined}
     className="xui-styledcheckboxradio--input"
@@ -34,9 +37,12 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
   className="xui-styledcheckboxradio"
   data-automationid="test-checkbox"
   onClick={[Function]}
+  onKeyDown={undefined}
   role="presentation"
 >
   <input
+    aria-describedby={undefined}
+    aria-invalid={undefined}
     aria-label={undefined}
     aria-labelledby={undefined}
     className="xui-styledcheckboxradio--input"
@@ -63,9 +69,12 @@ exports[`XUICheckbox should have a visible label, if specified 1`] = `
   className="xui-styledcheckboxradio"
   data-automationid={undefined}
   onClick={[Function]}
+  onKeyDown={undefined}
   role="presentation"
 >
   <input
+    aria-describedby={undefined}
+    aria-invalid={undefined}
     aria-label={undefined}
     aria-labelledby="testCheckboxId"
     className="xui-styledcheckboxradio--input"
@@ -99,9 +108,12 @@ exports[`XUICheckbox should render with an icon when one is provided 1`] = `
   className="xui-styledcheckboxradio"
   data-automationid={undefined}
   onClick={[Function]}
+  onKeyDown={undefined}
   role="presentation"
 >
   <input
+    aria-describedby={undefined}
+    aria-invalid={undefined}
     aria-label={undefined}
     aria-labelledby={undefined}
     className="xui-styledcheckboxradio--input"

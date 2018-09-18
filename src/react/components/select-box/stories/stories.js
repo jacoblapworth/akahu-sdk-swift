@@ -55,6 +55,9 @@ storiesWithKnobs.add('Playground', () => (
 		forceDesktop={boolean('forceDesktop', true)}
 		defaultLayout={boolean('defaultLayout', true)}
 		isDisabled={boolean('isDisabled', false)}
+		isInvalid={boolean('isInvalid', false)}
+		validationMessage={text('validationMessage', '')}
+		hintMessage={text('hintMessage', '')}
 		buttonContent={
 			<span>
 				<XUIIcon icon={education} className="xui-margin-right-xsmall" />

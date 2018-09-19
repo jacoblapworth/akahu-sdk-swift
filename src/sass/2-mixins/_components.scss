@@ -26,7 +26,7 @@ Applies hover button styling and given contents on hover.
 	font-family: inherit;
 	font-size: inherit;
 	margin: 0; // Safari's default UA styles set 2px vertical padding
-	min-height: $xui-input-height;
+	min-height: $xui-control-size-standard;
 	outline: none;
 	padding: $xui-input-padding;
 	position: relative;

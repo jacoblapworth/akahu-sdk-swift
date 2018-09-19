@@ -6,7 +6,6 @@ import autosize from 'autosize';
 import compose from '../helpers/compose';
 import { inputBaseClass, inputSizeClasses, baseSizeClasses } from './private/constants';
 import { calculateMaxHeight } from './private/helpers';
-import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds from '../controlwrapper/helpers';
 

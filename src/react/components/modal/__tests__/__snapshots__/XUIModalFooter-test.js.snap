@@ -2,7 +2,7 @@
 
 exports[`XUIModalFooter renders a passed qaHook as an automationId 1`] = `
 <footer
-  className="xui-modal--footer xui-padding-large"
+  className="xui-modal--footer"
   data-automationid="test-modal--footer"
 >
   <div />

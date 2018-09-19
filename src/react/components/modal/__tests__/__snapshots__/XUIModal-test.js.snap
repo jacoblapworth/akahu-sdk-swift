@@ -19,7 +19,7 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
     tabIndex={-1}
   >
     <header
-      className="xui-modal--header xui-modal--heading xui-padding-left-large"
+      className="xui-modal--header xui-modal--heading"
       data-automationid={undefined}
       id="generatedHeaderId"
     >
@@ -80,7 +80,7 @@ exports[`XUIModal should render an automation id when a qaHook is passed in 1`] 
     tabIndex={-1}
   >
     <header
-      className="xui-modal--header xui-modal--heading xui-padding-left-large"
+      className="xui-modal--header xui-modal--heading"
       data-automationid="xui-modal--header"
       id={undefined}
     >

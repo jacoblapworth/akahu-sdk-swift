@@ -109,7 +109,16 @@
 					{
 						"name": "Switch",
 						"content": "../src/react/switch.md",
-						"components": "../src/react/components/switch/XUISwitch.js"
+						"sections": [
+							{
+								"components": "../src/react/components/switch/XUISwitch.js"
+							},
+							{
+								"name": "Switch Groups",
+								"components": "../src/react/components/switch/XUISwitchGroup.js",
+								"content": "../src/react/components/switch/switch.group.md"
+							}
+						]
 					},
 					{
 						"name": "Text Input",

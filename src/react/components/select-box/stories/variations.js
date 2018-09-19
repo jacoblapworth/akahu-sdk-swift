@@ -44,9 +44,6 @@ const variations = [
 		storyTitle: 'with no default layout',
 		defaultLayout: false,
 		isOpen: false,
-		isInvalid: true,
-		hintMessage: 'Try me',
-		validationMessage: 'No good!',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -66,7 +63,6 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'without matching trigger width',
 		matchTriggerWidth: false,
-		hintMessage: 'Try me',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

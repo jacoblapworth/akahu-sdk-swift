@@ -186,7 +186,6 @@ const variations = [
 		labelText: 'Invalid with validation message',
 		validationMessage: 'Please select an option to proceed',
 		isInvalid: true,
-		color: 'inverted',
 		layout: 'fullwidth',
 		options: [
 			{

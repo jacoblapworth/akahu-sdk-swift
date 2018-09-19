@@ -52,7 +52,7 @@ variations.forEach(variation => {
 		if (isGroup) {
 			return (
 				<XUISwitchGroup {...groupProps}>
-					<XUISwitch onChange={NOOP} isReversed>One option you might try</XUISwitch>
+					<XUISwitch onChange={NOOP} isReversed isChecked>One option you might try</XUISwitch>
 					<XUISwitch onChange={NOOP} isReversed isDisabled>Another that is not an option</XUISwitch>
 					<XUISwitch onChange={NOOP} isReversed>Third option</XUISwitch>
 					<XUISwitch onChange={NOOP} isReversed isChecked>Yet another switch option</XUISwitch>

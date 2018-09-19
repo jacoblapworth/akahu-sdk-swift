@@ -31,7 +31,7 @@ export default class XUISwitch extends PureComponent {
 	}
 
 	setInputChecked = () => {
-		this.props.onChange();
+		this.props.onChange && this.props.onChange();
 		this.setState({ isInputChecked: this._input && this._input.checked });
 	}
 

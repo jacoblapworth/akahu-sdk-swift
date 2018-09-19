@@ -10,7 +10,7 @@ const baseClass = `${ns}-switch`;
 
 /**
  * Presentational (aka dumb) component that outputs the container necessary to implement
- * the grouped checkboxes pattern.
+ * the grouped switches pattern.
  *
  * @export
  * @param {Object} [props]
@@ -77,7 +77,7 @@ XUISwitchGroup.propTypes = {
 	labelText: PropTypes.string,
 	/** Whether the label should be visible or hidden. Defaults to visible */
 	isLabelHidden: PropTypes.bool,
-	/** Whether to use the field layout classes. Defaults to true. */
+	/** Whether to use the field layout classes. Defaults to false. */
 	isFieldLayout: PropTypes.bool,
 	/** Class names to add to the label text element */
 	labelClassName: PropTypes.string,

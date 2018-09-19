@@ -66,8 +66,15 @@ All other existing values stay as they are (including `2xlarge`)
 
 ### Component props
 
-* XUIPill now has a `size` prop
-* XUITextInput now has a `size` prop
+* Pill now has a `size` prop
+* Text input now has a `size` prop
+* Switch: `isReversed`, `labelId`, `labelClassName`, and `isLabelHidden` props have been added, to match the Checkbox and Radio labelling API
+* RadioGroup & CheckboxGroup: `labelId`, `labelClassName`, `isLabelHidden`, `fieldClassName`, and `isFieldLayout` have been added
+* Toggle: `labelText`, `labelId`, `labelClassName`, `isLabelHidden`, `fieldClassName`, `isDefaultChecked` and `isFieldLayout` have been added
+* NestedPicklistTrigger: `ariaLabel` has been added to provide assistive tech with information about the expansion button
+* ProgressWrapper, ProgressCircular, & ProgressLinear: `ariaLabel` and `ariaLabelledBy` have been added
+* RolloverCheckbox: `ariaLabelledBy` has been added
+* Table: `onRowClick` now **only** holds the handler callback with the conditional logic being asserted on each table row through the use of `shouldRowClick`. (see https://github.dev.xero.com/UXE/xui/issues/3278, and the subsequent updates in https://github.dev.xero.com/UXE/xui/pull/3705)
 
 
 ## Other changes

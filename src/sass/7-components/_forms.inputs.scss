@@ -1,4 +1,7 @@
-//TODO: Remove these classes or `xui-textinputgroup` classes - we don't need both & the name of these is more accurate
+@import "../vars";
+@import "../mixins";
+
+//TODO: Remove these classes or `xui-textinputgroup` classes for XUI 14 - we don't need both & the name of these is more accurate
 .#{$ns}-verticalinputgroup {
 	// Only add top border radius to the first element
 	.#{$ns}-textinput:first-of-type,

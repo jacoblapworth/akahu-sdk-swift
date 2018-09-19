@@ -1,53 +1,9 @@
+@import "../vars";
 @import "../mixins";
 
 /**
  * An aggregator stylesheet of input elements that can be found in forms.
  */
-
-
-/*
-Applies hover button styling and given contents on hover.
-*/
-@mixin xui-commoninput {
-	@include xui-state-focus {
-		z-index: 2;
-	}
-	@include xui-text-line-height; // 1.5
-	appearance: none; // For removing drop-shadow on iOS and select arrows in Firefox
-	background-color: $xui-input-bg-color;
-	border: $xui-border-control;
-	border-radius: $xui-radius;
-	box-shadow: none;
-	color: inherit;
-	font-family: inherit;
-	font-size: inherit;
-	margin: 0; // Safari's default UA styles set 2px vertical padding
-	min-height: $xui-control-size-standard;
-	outline: none;
-	padding: $xui-input-padding;
-	position: relative;
-	width: 100%;
-
-	&:hover {
-		border-color: $xui-control-hover-border-color;
-	}
-
-	&:disabled {
-		@include xui-disabled-form;
-	}
-	*::placeholder, // TODO: Go to a single selector when XUIInput is deprecated and only XUITextInput is supported.
-	&::placeholder {
-		color: $xui-input-placeholder-color;
-		opacity: 1;
-	}
-
-	&::-ms-clear,
-	&::-ms-reveal {
-		display: none;
-		height: 0;
-		width: 0;
-	}
-}
 
 @import "forms.layout";
 @import "forms.labels";

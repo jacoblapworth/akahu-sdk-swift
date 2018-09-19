@@ -155,6 +155,7 @@
 //
 // Definitions:
 // Minor link: `xui-text-minorlink`: Use only for very secondary inconsequential elements to inherit parent text colour but retain standard link hover and focus highlighting.
+// Remove underline: `xui-text-decoration-none`: Can be used to remove the default underline from links that are already clearly interactive inside buttons or dropdowns. This shouldn't be necessary if using React components, only when custom-building.
 //
 // Markup:
 // <div class="xui-panel xui-padding" style="display:inline-block">
@@ -188,11 +189,13 @@
 //
 // Tips:
 // Do: Add bold tactically to highlight important information.
+// Warning: Adding an underline to text may cause it to be confused for a link.
 // Dont: Avoid bolding long stretches of text or using where a standard heading makes more sense.
 //
 // Definitions:
 // Bold: `xui-text-emphasis`: To emphasise a particular piece of text when the default parent is set to normal (via a span element)
 // Normal: `xui-text-deemphasis`: To de-emphasise a particular piece of text when the default parent is set to bold (via a span element)
+// Underline: `xui-text-underline`: Adds an underline to the specified text (via a span element).
 //
 // Styleguide: Fundamentals.Typography.51
 

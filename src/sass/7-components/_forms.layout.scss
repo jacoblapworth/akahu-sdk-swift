@@ -1,4 +1,5 @@
-
+@import "../vars";
+@import "../mixins";
 
 .#{$ns}-form-layout {
 	@include xui-margin-horizontal-auto;

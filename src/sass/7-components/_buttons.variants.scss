@@ -1,4 +1,5 @@
 @import "../vars";
+@import "../mixins";
 
 @each $variant, $color in $xui-button-variants-bg {
 	.#{$ns}-button-#{$variant} {

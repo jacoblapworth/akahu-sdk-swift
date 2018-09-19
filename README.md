@@ -220,7 +220,7 @@ When you upgrade XUI, please check [changes.md](./changes.md) to see what shared
 which dependencies you need to update in your projects - otherwise you may end up bundling multiple versions of xui-icon or
 other dependencies and bloating your application artifacts.
 
-To make the upgrade process between versions of XUI easier, we maintain a codemod to automate some of the API changes in your code. The codemod runs using [jscodeshift](https://github.com/facebook/jscodeshift).
+To make the upgrade process between versions of XUI easier, we maintain a codemod to automate some of the API changes in your code. The codemod runs using [jscodeshift](https://github.com/facebook/jscodeshift) (which currently does not support TypeScript).
 
 The codemod contains transforms for moving from the previous major version of XUI.
 

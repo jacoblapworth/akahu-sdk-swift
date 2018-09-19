@@ -107,8 +107,8 @@ class XUITextInput extends PureComponent {
 			inputClassName,
 			`${inputBaseClass}--input`,
 			inputSizeClasses[size],
-			(isMultiline && !isManuallyResizable) && `${ns}-u-resize-none`,
-			(isMultiline && isManuallyResizable) && `${ns}-u-resize-vertical`,
+			(isMultiline && !isManuallyResizable) && `${inputBaseClass}--input-resize-none`,
+			(isMultiline && isManuallyResizable) && `${inputBaseClass}--input-resize-vertical`,
 		);
 
 		const rootClasses = cn(

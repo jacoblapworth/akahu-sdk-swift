@@ -236,6 +236,43 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
 </div>
 `;
 
+exports[`<XUITextInput> Text-only input forces resize visible class based on options passed in 1`] = `
+<label
+  className="xui-textinputwrapper"
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <div
+    className="xui-textinput"
+    data-automationid={undefined}
+  >
+    <textarea
+      aria-describedby={undefined}
+      aria-invalid={undefined}
+      aria-label={undefined}
+      aria-labelledby={undefined}
+      className="xui-textinput--input xui-textinput--input-resize-vertical"
+      data-automationid={undefined}
+      defaultValue={undefined}
+      disabled={undefined}
+      onBlurCapture={[Function]}
+      onChange={undefined}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      rows={3}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
+      type={undefined}
+      value={undefined}
+    />
+  </div>
+</label>
+`;
+
 exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
 <label
   className="xui-textinputwrapper"
@@ -423,6 +460,43 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
       onFocusCapture={[Function]}
       placeholder={undefined}
       rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
+      type={undefined}
+      value={undefined}
+    />
+  </div>
+</label>
+`;
+
+exports[`<XUITextInput> Text-only input sets the resize none class based on options passed in 1`] = `
+<label
+  className="xui-textinputwrapper"
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <div
+    className="xui-textinput"
+    data-automationid={undefined}
+  >
+    <textarea
+      aria-describedby={undefined}
+      aria-invalid={undefined}
+      aria-label={undefined}
+      aria-labelledby={undefined}
+      className="xui-textinput--input xui-textinput--input-resize-none"
+      data-automationid={undefined}
+      defaultValue={undefined}
+      disabled={undefined}
+      onBlurCapture={[Function]}
+      onChange={undefined}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      rows={3}
       style={
         Object {
           "maxHeight": undefined,

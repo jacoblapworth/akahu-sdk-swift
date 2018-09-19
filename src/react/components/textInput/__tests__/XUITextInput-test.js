@@ -140,6 +140,22 @@ describe('<XUITextInput>', () => {
 
 			expect(wrapper.find('input[defaultValue="hello"]')).toHaveLength(1);
 		});
+
+		it('sets the resize none class based on options passed in', () => {
+			const wrapper = renderer.create(
+				<XUITextInput isMultiline/>
+			);
+
+			expect(wrapper).toMatchSnapshot();
+		});
+
+		it('forces resize visible class based on options passed in', () => {
+			const wrapper = renderer.create(
+				<XUITextInput isMultiline isManuallyResizable/>
+			);
+
+			expect(wrapper).toMatchSnapshot();
+		});
 	});
 
 	describe('Validation and hints', () => {

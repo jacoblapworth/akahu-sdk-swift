@@ -210,6 +210,14 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 	}
 }
 
+.#{$ns}-textinput--input-resize-none {
+	resize: none;
+}
+
+.#{$ns}-textinput--input-resize-vertical {
+	resize: vertical;
+}
+
 // Borderless inputs
 
 .#{$ns}-textinput-borderless {

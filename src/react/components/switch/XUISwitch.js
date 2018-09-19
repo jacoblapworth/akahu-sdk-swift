@@ -74,7 +74,7 @@ export default class XUISwitch extends PureComponent {
 			labelClassName,
 		);
 
-		const inputClasses = `${ns}-u-hidden-visually ${baseClass}--checkbox`;
+		const inputClasses = `${baseClass}--checkbox`;
 
 		const inputProps = {
 			'type': 'checkbox',

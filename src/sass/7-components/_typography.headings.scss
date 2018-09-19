@@ -1,4 +1,5 @@
-// Presets
+@import "../vars";
+@import "../mixins";
 
 .#{$ns}-heading-panel {
 	@include xui-heading-medium;

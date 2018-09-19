@@ -1,5 +1,5 @@
-@import "../mixins";
 @import "../vars";
+@import "../mixins";
 
 
 // Alignment
@@ -113,4 +113,14 @@
 
 .#{$ns}-textcolor-inverted-faint {
 	color: $xui-text-inverted-faint;
+}
+
+// Decoration
+
+.#{$ns}-text-decoration-none {
+	text-decoration: none;
+}
+
+.#{$ns}-text-underline {
+	text-decoration: underline;
 }

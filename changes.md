@@ -66,8 +66,7 @@ All other existing values stay as they are (including `2xlarge`)
 
 ### Component props
 
-* XUIPill now has a `size` prop
-* XUITextInput now has a `size` prop
-
+* Pill now has a `size` prop
+* Text input now has a `size` prop
 
 ## Other changes

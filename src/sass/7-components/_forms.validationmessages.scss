@@ -1,8 +1,6 @@
 @import "../vars";
 @import "../mixins";
 
-
-
 .#{$ns}-input-is-invalid, .#{$ns}-textinput-is-invalid {
 	border-color: $xui-textinput-invalid-border-color;
 	z-index: 1;

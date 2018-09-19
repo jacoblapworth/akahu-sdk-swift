@@ -110,7 +110,6 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin-left: -1px;
 	min-height: $xui-control-size-standard; // TODO: remove layout assumption
 	min-width: $xui-control-size-standard; // TODO: remove layout assumption
 	position: relative; // For z-index

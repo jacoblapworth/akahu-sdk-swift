@@ -11,14 +11,14 @@ exports[`<XUIIsolationHeader> Inverted should render an automation id when a qaH
     data-automationid={undefined}
   >
     <h2
-      className="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated"
+      className="xui-isolationheader--title"
       data-automationid={undefined}
       title={undefined}
     >
       My title
     </h2>
     <h2
-      className="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
+      className="xui-isolationheader--secondary-title"
       data-automationid={undefined}
       title={undefined}
     >
@@ -45,14 +45,14 @@ exports[`<XUIIsolationHeader> Inverted should render with the given className if
     data-automationid={undefined}
   >
     <h2
-      className="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated"
+      className="xui-isolationheader--title"
       data-automationid={undefined}
       title={undefined}
     >
       My title
     </h2>
     <h2
-      className="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
+      className="xui-isolationheader--secondary-title"
       data-automationid={undefined}
       title={undefined}
     >
@@ -79,14 +79,14 @@ exports[`<XUIIsolationHeader> Standard should render an automation id when a qaH
     data-automationid={undefined}
   >
     <h2
-      className="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated"
+      className="xui-isolationheader--title"
       data-automationid={undefined}
       title="Tooltip"
     >
       My title
     </h2>
     <h2
-      className="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
+      className="xui-isolationheader--secondary-title"
       data-automationid={undefined}
       title="Tooltip"
     >
@@ -113,14 +113,14 @@ exports[`<XUIIsolationHeader> Standard should render with the given className if
     data-automationid={undefined}
   >
     <h2
-      className="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated"
+      className="xui-isolationheader--title"
       data-automationid={undefined}
       title={undefined}
     >
       My title
     </h2>
     <h2
-      className="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
+      className="xui-isolationheader--secondary-title"
       data-automationid={undefined}
       title={undefined}
     >

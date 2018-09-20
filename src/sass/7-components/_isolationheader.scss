@@ -375,3 +375,15 @@
 	flex-shrink: 0; // The navigation can shrink because it should be mostly text; the actions should be buttons
 	margin-left: auto;
 }
+
+.#{$ns}-isolationheader--title {
+	@include xui-margin(0 $xui-s-small 0 0);
+	@include xui-text-truncated;
+	@include xui-heading-medium;
+}
+
+.#{$ns}-isolationheader--secondary-title {
+	@include xui-margin(0 $xui-s-small 0 0);
+	@include xui-text-truncated;
+	@include xui-heading-medium(false);
+}

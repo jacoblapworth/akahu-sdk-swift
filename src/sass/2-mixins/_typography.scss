@@ -114,7 +114,6 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	width: 100%;
 }
 
 @mixin xui-text-wordbreak {
@@ -143,8 +142,12 @@
 	line-height: $xui-line-height-compact;
 }
 
-@mixin xui-heading-medium {
-	@include xui-text-emphasis;
+@mixin xui-heading-medium($emphasis: true) {
+	@if (not($emphasis)) {
+		@include xui-text-deemphasis;
+	} @else {
+		@include xui-text-emphasis;
+	}
 
 	font-size: $xui-new-font-size-large;
 	line-height: $xui-line-height-compact;

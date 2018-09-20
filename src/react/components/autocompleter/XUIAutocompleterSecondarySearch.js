@@ -174,10 +174,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 			listQaHook = `${qaHook}--list`;
 			containerQaHook = `${qaHook}--container`;
 		}
-		const dropdownClasses = cn(
-			!dropdownSize && `${ns}-u-fullwidth`,
-			dropdownClassName,
-		);
+
 		const searchItem = (
 			<div className={`${ns}-dropdown--header-container`}>
 				<XUITextInput
@@ -206,7 +203,11 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				/>
 			</div>
 		);
-		const dropdownToggledClasses = !dropdownSize ? `${ns}-u-fullwidth` : null;
+		const dropdownClasses = cn(
+			!dropdownSize && `${ns}-dropdown-fullwidth`,
+			dropdownClassName,
+		);
+		const dropdownToggledClasses = !dropdownSize ? `${ns}-dropdown-fullwidth` : null;
 		const dropdown = (
 			<DropDown
 				ref={d => this.dropdown = d}

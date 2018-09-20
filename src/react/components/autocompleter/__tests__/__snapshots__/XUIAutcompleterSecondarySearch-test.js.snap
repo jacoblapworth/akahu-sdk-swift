@@ -8,7 +8,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render a placeholder inside 
   <div
     aria-expanded={undefined}
     aria-owns={undefined}
-    className="xui-u-fullwidth"
+    className="xui-dropdown-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
@@ -34,7 +34,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an automation id when
   <div
     aria-expanded={undefined}
     aria-owns={undefined}
-    className="xui-u-fullwidth"
+    className="xui-dropdown-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
@@ -60,7 +60,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the dropdown
   <div
     aria-expanded={undefined}
     aria-owns={undefined}
-    className="xui-u-fullwidth"
+    className="xui-dropdown-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
@@ -86,7 +86,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input wh
   <div
     aria-expanded={undefined}
     aria-owns={undefined}
-    className="xui-u-fullwidth"
+    className="xui-dropdown-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
@@ -112,7 +112,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render as disabled when isDi
   <div
     aria-expanded={undefined}
     aria-owns={undefined}
-    className="xui-u-fullwidth"
+    className="xui-dropdown-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
@@ -138,7 +138,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
   <div
     aria-expanded={undefined}
     aria-owns={undefined}
-    className="xui-u-fullwidth"
+    className="xui-dropdown-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
@@ -164,7 +164,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
   <div
     aria-expanded={undefined}
     aria-owns={undefined}
-    className="xui-u-fullwidth"
+    className="xui-dropdown-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
@@ -190,7 +190,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes when pa
   <div
     aria-expanded={undefined}
     aria-owns={undefined}
-    className="xui-u-fullwidth"
+    className="xui-dropdown-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"

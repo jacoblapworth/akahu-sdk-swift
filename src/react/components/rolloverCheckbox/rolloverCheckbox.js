@@ -119,7 +119,7 @@ export default class XUIRolloverCheckbox extends PureComponent {
 				role="presentation"
 			>
 				<div className={baseClass}>
-					<div className={!showRollover ? `${ns}-u-hidden-visually` : null}>
+					<div className={!showRollover ? `${baseClass}-hidden` : null}>
 						{rolloverComponent}
 					</div>
 					<XUICheckbox
@@ -130,7 +130,7 @@ export default class XUIRolloverCheckbox extends PureComponent {
 						isLabelHidden
 						htmlClassName={`${baseClass}--checkbox`}
 						qaHook={qaHook && `${qaHook}--checkbox`}
-						className={showRollover ? `${ns}-u-hidden-visually` : null}
+						className={showRollover ? `${baseClass}-hidden` : null}
 						tabIndex={0}
 						labelId={ariaLabelledBy}
 					>{labelText}

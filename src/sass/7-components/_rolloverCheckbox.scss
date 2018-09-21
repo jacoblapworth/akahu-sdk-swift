@@ -1,4 +1,5 @@
 @import "../vars";
+@import "../mixins";
 //Consistently sized container for the rollover component and checkbox to sit in.
 
 .#{$ns}-rollovercheckbox {
@@ -37,7 +38,10 @@
 	min-height: 70px;
 	width: 70px;
 }
+.#{$ns}-rollovercheckbox-hidden {
+	@include xui-utility-hidden-visually;
+}
 
 .#{$ns}-rollovercheckbox--checkbox {
-	margin: 0;
+	margin: 3px; // Without this margin, the focus ring gets cut off.
 }

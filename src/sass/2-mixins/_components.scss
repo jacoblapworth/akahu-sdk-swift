@@ -1,4 +1,7 @@
 @import "../vars";
+@import "./elements";
+@import "./states";
+@import "./typography";
 
 @mixin xui-input-base {
 	appearance: none; // For removing default input styling in Safari

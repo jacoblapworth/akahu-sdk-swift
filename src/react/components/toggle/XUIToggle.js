@@ -8,6 +8,8 @@ import '../helpers/xuiGlobalChecks';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds from '../controlwrapper/helpers';
 
+import '../../../sass/7-components/_buttons.toggle.scss';
+
 export default class XUIToggle extends PureComponent {
 	wrapperIds = generateIds(this.props.labelId);
 

@@ -454,7 +454,7 @@ const XUIIcon = require('./icon.js').default;
 const facebook = require ('@xero/xui-icon/icons/social-facebook').default;
 const cn = require('classnames');
 <div>
-	<div className="xui-fieldlayout">
+	<div className="xui-field-layout">
 		<div className='xui-textinputgroup'>
 			<XUITextInput
 				fieldClassName="xui-column-4-of-12"

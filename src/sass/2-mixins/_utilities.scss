@@ -1,3 +1,5 @@
+@import "../vars";
+
 // Adds a clearfix to elements for self-clearing children https://css-tricks.com/snippets/css/clear-fix/
 @mixin xui-clearfix {
 	&::after {

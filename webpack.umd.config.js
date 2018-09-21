@@ -10,21 +10,21 @@ module.exports = {
 		path: path.join(__dirname, 'dist', 'umd', 'assets'),
 		filename: `xui.umd.${version}.js`,
 		library: 'XUI',
-		libraryTarget: 'umd'
+		libraryTarget: 'umd',
 	},
 	plugins: [
-		new ExtractTextPlugin(`xui.umd.${version}.css`)
+		new ExtractTextPlugin(`xui.umd.${version}.css`),
 	],
 	externals: {
-			'react': 'React',
-			'react-dom': 'ReactDOM'
+		'react': 'React',
+		'react-dom': 'ReactDOM',
 	},
 	module: {
 		rules: [
 			{
 				test: /\.jsx?$/,
 				use: ['babel-loader'],
-				exclude: /node_modules/
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.scss$/,
@@ -38,15 +38,15 @@ module.exports = {
 								ident: 'postcss',
 								plugins: () => [
 									autoprefixer({
-										browsers: require('@xero/browserslist-autoprefixer')
-									})
-								]
-							}
+										browsers: require('@xero/browserslist-autoprefixer'),
+									}),
+								],
+							},
 						},
-						'sass-loader'
-					]
-				})
-			}
-		]
-	}
+						'sass-loader',
+					],
+				}),
+			},
+		],
+	},
 };

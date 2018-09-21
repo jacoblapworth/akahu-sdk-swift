@@ -4,6 +4,9 @@ import cn from 'classnames';
 
 import { ns } from '../../helpers/xuiClassNamespace';
 
+import '../../../../sass/7-components/_forms.labels.scss';
+import '../../../../sass/7-components/_typography.scss'; // TODO: Make this import only the text-label class
+
 export default class LabelElement extends PureComponent {
 	render() {
 		const {

@@ -9,13 +9,8 @@ $input-text-vertical-padding-xsmall: ($xui-control-size-xsmall - $xui-line-heigh
 $input-text-vertical-padding-small: ($xui-control-size-small - $xui-line-height-small) / 2 - 1px;
 $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-height-standard) / 2 - 1px;
 
-
-.#{$ns}-textinput--input {
-	@include xui-input-base;
-	border: none;
-	flex: 1 1 auto;
-	min-width: 0; // Required for inputs to be able to shrink in IE 11
-	overflow: hidden;
+.#{$ns}-textinputwrapper {
+	display: block;
 }
 
 .#{$ns}-textinput {
@@ -27,14 +22,13 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 	padding: 0;
 }
 
-.#{$ns}-textinputwrapper {
-	display: block;
-}
-
-/* stylelint-disable no-duplicate-selectors  */
-// This is defined below xui-textinput to ensure the correct padding is applied when using xui-textinput and xui-textinput--input on the same element
 .#{$ns}-textinput--input {
+	@include xui-input-base;
 	@include xui-padding-vertical($input-text-vertical-padding-standard);
+	border: none;
+	flex: 1 1 auto;
+	min-width: 0; // Required for inputs to be able to shrink in IE 11
+	overflow: hidden;
 
 	&:first-child,
 	&.#{$ns}-textinput {
@@ -46,7 +40,16 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 		padding-right: $xui-s-standard;
 	}
 }
-/* stylelint-enable no-duplicate-selectors  */
+
+.#{$ns}-textinput-is-invalid {
+	border-color: $xui-textinput-invalid-border-color;
+	z-index: 1;
+
+	&:focus,
+	&:hover {
+		border-color: $xui-textinput-invalid-border-color;
+	}
+}
 
 .#{$ns}-textinput-focus {
 	box-shadow: $xui-shadow-focus;

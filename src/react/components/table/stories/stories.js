@@ -274,11 +274,11 @@ const TestScaffold = ({
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 
 storiesWithVariations.addDecorator(centered);
+createCustomStyles();
 variations.forEach(variation => {
-	const { storyTitle, storyKind, examples } = variation; // eslint-disable-line no-unused-vars
+	const { storyTitle, examples } = variation;
 	const Comparison = examples.map(TestScaffold);
 
-	createCustomStyles();
 	storiesWithVariations.add(storyTitle, () => <div>{Comparison}</div>);
 });
 

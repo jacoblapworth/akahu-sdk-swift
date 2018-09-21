@@ -9,6 +9,9 @@ import { calculateMaxHeight } from './private/helpers';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds from '../controlwrapper/helpers';
 
+import '../../../sass/7-components/_forms.textinputs.scss';
+import '../../../sass/7-components/_forms.inputgroups.scss';
+
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
 const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
 	isMultiline && typeof rows !== 'number';

@@ -11,6 +11,8 @@ import {
 	iconSizeMultipliers,
 } from './private/constants';
 
+import '../../../sass/7-components/_icons.scss';
+
 export default function XUIIcon(props) {
 	const {
 		className,

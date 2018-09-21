@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
+import '../../../sass/6-containers/_panels.scss';
+
 const baseClass = `${ns}-panel--section`;
 
 export default class XUIPanelSection extends PureComponent {

@@ -3,11 +3,11 @@ const { execSync } = require('child_process');
 const path = require('path');
 const {rootDirectory} = require('../helpers');
 const chalk = require('chalk');
-const babelDev = require(path.resolve(
+const babelVisualRegression = require(path.resolve(
 	rootDirectory,
 	'scripts',
 	'build',
-	'babel_dev.js'
+	'babel_visualregression.js'
 ));
 const {
 	Performance,
@@ -22,7 +22,7 @@ const perf = new Performance();
 function test() {
 	logTaskTitle(__filename);
 
-	return babelDev().then(() => {
+	return babelVisualRegression().then(() => {
 		perf.start();
 		let execTask = './node_modules/.bin/backstop test --config .visual-testing/index.js';
 

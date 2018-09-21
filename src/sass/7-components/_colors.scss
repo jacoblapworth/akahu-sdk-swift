@@ -1,5 +1,7 @@
 @import "../vars";
 
+// TODO: revisit the placing of this file - are these really components?
+
 .#{$ns}-background-white {
 	background-color: $xui-color-white;
 }

@@ -16,6 +16,8 @@ import {
 } from './helpers/utils';
 import { ns } from '../helpers/xuiClassNamespace';
 
+import '../../../sass/7-components/_datepicker.scss';
+
 const customCaptionElement = <CustomCaption />;
 const customWeekdayElement = <CustomWeekday />;
 

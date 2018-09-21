@@ -6,6 +6,8 @@ import { VariantClassNames, SizeClassNames, ButtonTypes, IconSizeClassNames } fr
 import { ns } from '../helpers/xuiClassNamespace';
 import noop from '../helpers/noop';
 
+import '../../../sass/7-components/_buttons.scss'; // TODO: exclude toggle
+
 /**
  * Returns true if the button is a borderless variant
  *

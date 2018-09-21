@@ -13,6 +13,8 @@ import portalContainer, { portalClass } from '../helpers/portalContainer';
 import { baseClass } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
 
+import '../../../sass/7-components/_modals.scss';
+
 export const modalSizes = {
 	default: `${baseClass}-width-default`,
 	small: `${baseClass}-width-small`,

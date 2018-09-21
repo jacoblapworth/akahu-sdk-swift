@@ -35,6 +35,7 @@
 // xui-isolationheader: Base class
 // xui-isolationheader--navigation: Container for left-aligned elements
 // xui-isolationheader--actions: Container for right-aligned actions
+// xui-isolationheader--button: Provides spacing for buttons inside the containers mentioned above
 //
 // Markup:
 // <header class="xui-isolationheader" role="banner">
@@ -386,4 +387,8 @@
 	@include xui-margin(0 $xui-s-small 0 0);
 	@include xui-text-truncated;
 	@include xui-heading-medium(false);
+}
+
+.#{$ns}-isolationheader--button:nth-child(2n) {
+	margin-left: $xui-s-small;
 }

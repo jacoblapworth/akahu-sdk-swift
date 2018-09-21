@@ -21,7 +21,7 @@ const { succeed, fail } = taskRunnerReturns;
 function build() {
 	return taskRunner(taskSpinner => {
 		let execTask =
-			'./node_modules/.bin/build-storybook -c .storybook -o dist/docs/storybook';
+			'./node_modules/.bin/cross-env BABEL_ENV=development && ./node_modules/.bin/build-storybook -c .storybook -o dist/docs/storybook';
 		if (isWindowsPlatform) {
 			execTask = convertExecTaskToWindows(execTask);
 		}

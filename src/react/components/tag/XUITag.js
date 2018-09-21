@@ -5,6 +5,8 @@ import cn from 'classnames';
 import '../helpers/xuiGlobalChecks';
 import { baseClass, variants } from './private/constants';
 
+import '../../../sass/7-components/_typography.tags.scss';
+
 const XUITag = ({
 	className,
 	variant,

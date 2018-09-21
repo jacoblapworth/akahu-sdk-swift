@@ -4,6 +4,8 @@ import cn from 'classnames';
 import '../helpers/xuiGlobalChecks';
 import { sizeClassNames, baseClass } from './private/constants';
 
+import '../../../sass/7-components/_loaders.scss';
+
 const dot = <div className={`${baseClass}--dot`} />;
 
 const XUILoader = props => {

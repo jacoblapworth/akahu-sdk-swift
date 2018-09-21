@@ -1,5 +1,17 @@
 # XUI 15 Changes
 
+## Build changes for consumers of React components
+
+XUI's React components now import the CSS they require.
+This enables you to only bundle the CSS from XUI that your apps use (based on the components they use).
+
+If you choose to take advantage of this, please replace the `<link>` element that points at `xui.css` to point
+at `xui-base.css` instead. Please ensure this is in the `<head>` element as it contains element selectors
+and styles for `xui-html` and `xui-body` classes.
+
+We will continue to support the xui.css stylesheet. If you wish to continue using it, please take the necessary steps to
+ensure that XUI's CSS won't be bundled with your application's CSS.
+
 ## Dependency updates
 
 Please take some time to check that your projects' package.json dependencies match those of XUI's package.json

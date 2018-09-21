@@ -8,13 +8,24 @@
 
 // Getting Started
 //
-// #### Load CSS via CDN (Recommended)
+// #### Load base style via CDN and bundle component CSS with your app (Recommended if you use XUI's React components)
 //
-// Include the following `link` in your page:
+// Include the following `link` in the `<head>` of your page:
 //
 // <!--?prettify lang=html?-->
 // ```html
-// <link rel="stylesheet" href="https://edge.xero.com/style/xui/14.0.0/xui.min.css"/>
+// <link rel="stylesheet" href="https://edge.xero.com/style/xui/15.0.0/xui-base.min.css"/>
+// ```
+//
+// The component-specific CSS will be bundled with your application's CSS.
+//
+// #### Load all styles via CDN
+//
+// Include the following `link` in the `<head>` of your page:
+//
+// <!--?prettify lang=html?-->
+// ```html
+// <link rel="stylesheet" href="https://edge.xero.com/style/xui/15.0.0/xui.min.css"/>
 // ```
 //
 // #### Sherlock
@@ -98,6 +109,10 @@
 // import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
 // import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 // ```
+//
+// XUI's components import the SCSS they need, so your bundler (e.g. Webpack, Rollup or Parcel) will need to support
+// SCSS imports (either to bundle them with your app code, or to ignore them if you continue using the xui.css
+// stylesheet)
 //
 // Full component documentation can be found in the [XUI React Docs](./react/).
 //

@@ -5,6 +5,8 @@ import { ns } from '../helpers/xuiClassNamespace';
 
 import { rowVariants } from './private/constants';
 
+import '../../../sass/99-utils/_grid.scss'; // TODO: make grid rows components rather than utils in the SCSS
+
 const getClasses = (className, variant) => {
 	const suffix = rowVariants[variant] ? `-${rowVariants[variant]}` : '';
 	const rowClass = `${ns}-row${suffix}`;

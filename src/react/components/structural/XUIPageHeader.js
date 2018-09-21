@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
+import '../../../sass/7-components/_navigation.subapp.scss'; // TODO: Separate page heading into its own SCSS file
+
 const baseClass = `${ns}-pageheading`;
 
 const buildTitleAndTabs = (title, tabs) => {

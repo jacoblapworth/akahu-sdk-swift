@@ -37,8 +37,8 @@ function getComponent({isPositionFixed, title, secondaryTitle, navigationIcon, a
 					{hasTag && <XUITag variant="positive">Tag</XUITag>}
 				</XUIIsolationHeaderNavigation>
 				<XUIIsolationHeaderActions>
-					{hasActionsSecondaryButton && <XUIButton size="small" variant="standard">Secondary</XUIButton>}
-					{hasActionsPrimaryButton && <XUIButton size="small" className="xui-margin-left-small" variant="primary">Primary</XUIButton>}
+					{hasActionsSecondaryButton && <XUIButton size="small" className="xui-isolationheader--button" variant="standard">Secondary</XUIButton>}
+					{hasActionsPrimaryButton && <XUIButton size="small" className="xui-isolationheader--button" variant="primary">Primary</XUIButton>}
 					{actionIcon && <XUIButton variant="icon" aria-label="action"><XUIIcon icon={flattenedIconMap[actionIcon]} isBoxed /></XUIButton>}
 				</XUIIsolationHeaderActions>
 			</XUIIsolationHeader>

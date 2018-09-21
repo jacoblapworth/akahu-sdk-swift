@@ -13,6 +13,8 @@ import TableBodyRow from './customElements/TableBodyRow';
 import EmptyState from './customElements/EmptyState';
 import TableAlert from './customElements/TableAlert';
 
+import '../../../sass/7-components/_contentblocks.scss'; // TODO: split table code out of content blocks
+
 class XUITable extends Component {
 	state = { rootWidth: null };
 	rootNode;

@@ -8,6 +8,8 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapperInline, { getAriaAttributes } from '../controlwrapper/XUIControlWrapperInline';
 import generateIds from '../controlwrapper/helpers';
 
+import '../../../sass/7-components/_forms.checkboxesradios.styled.scss';
+
 // TODO: If there is further need to conform to specific browser scenarios then
 // we will need to replace this snippet with something more robust and granular,
 // or an NPM library (one that is not too heavy). Currently this is the only case

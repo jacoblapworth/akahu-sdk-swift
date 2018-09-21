@@ -2,8 +2,6 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-import '../../../.kss/scss/example.scss';
-
 export default function ExampleContainer({
 	isInverted,
 	className,
@@ -12,7 +10,7 @@ export default function ExampleContainer({
 }) {
 	const classnames = cn(
 		{
-			'ds-example-dark': isInverted,
+			'xui-background-grey-1 xui-padding-small': isInverted,
 		},
 		className,
 	);

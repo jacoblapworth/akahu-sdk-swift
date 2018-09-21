@@ -6,6 +6,8 @@ import CircularTrack from './customElements/CircularTrack';
 import CircularIcon from './customElements/CircularIcon';
 import ProgressWrapper from './customElements/ProgressWrapper';
 
+import '../../../sass/7-components/_progressindicator.scss';
+
 const XUIProgressCircular = props => (
 	<ProgressWrapper {...enrichCircularProps(props)}>
 		{({

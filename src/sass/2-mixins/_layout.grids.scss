@@ -1,6 +1,19 @@
 @import "utilities";
 @import "../vars";
 @import "functions.decimals";
+@import "./layout.marginpadding";
+@import "./layout.breakpoints";
+
+// Only works on pure numbers, not percentages or pixels. Perform any math first.
+@function xui-truncate-number($numbertotruncate, $truncateto : .01) {
+	$truncation-amount: $numbertotruncate % $truncateto;
+	@return $numbertotruncate - $truncation-amount;
+}
+
+// Convert a pure number into a percentage to use for styling.
+@function xui-convert-to-percentage($numbertoconvert) {
+	@return $numbertoconvert * 1%;
+}
 
 @mixin xui-column-width-generator($numberofcolumns, $columnpercentage, $gutter : 0) {
 	$calculated-width: 100;
@@ -16,17 +29,6 @@
 	} @else {
 		width: xui-convert-to-percentage($calculated-width);
 	}
-}
-
-// Only works on pure numbers, not percentages or pixels. Perform any math first.
-@function xui-truncate-number($numbertotruncate, $truncateto : .01) {
-	$truncation-amount: $numbertotruncate % $truncateto;
-	@return $numbertotruncate - $truncation-amount;
-}
-
-// Convert a pure number into a percentage to use for styling.
-@function xui-convert-to-percentage($numbertoconvert) {
-	@return $numbertoconvert * 1%;
 }
 
 @mixin xui-column-responsive-generator($padded: false) {

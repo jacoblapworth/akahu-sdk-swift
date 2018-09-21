@@ -10,6 +10,8 @@ import StepperTab from './customElements/StepperTab';
 import InlineDummyLayout, { testIsInlineRelevant } from './customElements/InlineDummyLayout';
 import SideBarDummyLayout, { testIsSideBarRelevant } from './customElements/SideBarDummyLayout';
 
+import '../../../sass/7-components/_steps.scss'; // TODO: _stepper.scss is just docs - somewhat confusing
+
 const createTabs = ({
 	qaHook, tabs, id, ariaPanelId, currentStep,
 }, overrides) => (

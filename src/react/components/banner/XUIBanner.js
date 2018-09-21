@@ -7,6 +7,8 @@ import XUIIcon from '../../icon';
 import sentimentMap from './private/sentiments';
 import { ns } from '../helpers/xuiClassNamespace';
 
+import '../../../sass/7-components/_usermessaging.banners.scss';
+
 const sentiments = Object.keys(sentimentMap);
 
 export default function XUIBanner({

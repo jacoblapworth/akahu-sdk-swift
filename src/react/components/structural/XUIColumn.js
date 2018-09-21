@@ -5,6 +5,8 @@ import { ns } from '../helpers/xuiClassNamespace';
 
 import { columnShortNames } from './private/constants';
 
+import '../../../sass/99-utils/_grid.scss'; // TODO: make grid columns components rather than utils in the SCSS
+
 const getClass = (width, suffix) => {
 	let colClass = '';
 	if (width) {

@@ -1,6 +1,10 @@
 @import "../vars";
 @import "../mixins";
 
+// Presets
+// TODO: Review whether these are components or not
+
+
 .#{$ns}-heading-panel {
 	@include xui-heading-medium;
 	// other specific stuff to this element might go here???

@@ -8,6 +8,8 @@ import { sentimentMap, baseClass } from './private/constants';
 import XUIToastActions from './XUIToastActions';
 import XUIToastMessage from './XUIToastMessage';
 
+import '../../../sass/7-components/_usermessaging.toasts.scss';
+
 const sentiments = Object.keys(sentimentMap);
 
 export default function XUIToast({

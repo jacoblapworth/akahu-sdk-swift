@@ -6,6 +6,8 @@ import DropDownPanel from './DropDownPanel';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
 import { ns } from '../helpers/xuiClassNamespace';
 
+import '../../../sass/7-components/_dropdowns.scss';
+
 /**
  * Wrapper for all content which will go inside of a dropdown.  It ensures the correct
  * presentational components are used to output content, scrolling is managed properly,

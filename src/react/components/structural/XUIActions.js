@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
+import '../../../sass/7-components/_actions.scss';
+
 const baseClass = `${ns}-actions`;
 
 export default class XUIActions extends PureComponent {

@@ -8,6 +8,8 @@ import XUIButton from '../button/XUIButton';
 import XUIInnerPill from './XUIInnerPill';
 import { baseClass, sizeClasses } from './private/constants';
 
+import '../../../sass/7-components/_pills.scss';
+
 /**
  * @private
  * @param {Function} callback

@@ -6,6 +6,8 @@ import XUICheckbox from '../checkbox/XUICheckbox';
 import { sizeClassNames, baseClass } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 
+import '../../../sass/7-components/_rolloverCheckbox.scss';
+
 export default class XUIRolloverCheckbox extends PureComponent {
 	state = {
 		isMouseOver: false,

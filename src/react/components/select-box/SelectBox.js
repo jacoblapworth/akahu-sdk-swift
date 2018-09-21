@@ -69,7 +69,7 @@ export default class SelectBox extends Component {
 		} = this.props;
 
 		const buttonClassNames = cn(
-			isTextTruncated && buttonVariant && `${ns}-text-truncated`,
+			isTextTruncated && buttonVariant && `${selectBaseClass}--button-truncated`,
 			!buttonVariant && `${selectBaseClass}--button`,
 			buttonClasses,
 		);

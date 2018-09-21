@@ -55,6 +55,11 @@
 	}
 }
 
+.#{$ns}-select--button-truncated,
+.#{$ns}-select--option-truncated {
+	@include xui-text-truncated;
+}
+
 .#{$ns}-dropdownmenu-select {
 	border-radius: 0 0 $xui-radius $xui-radius;
 	border-top: 0;

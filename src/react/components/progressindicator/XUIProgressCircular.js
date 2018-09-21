@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import '../helpers/xuiGlobalChecks';
 import { enrichCircularProps } from './helpers/enrichprops';
+import { NAME_SPACE } from './helpers/constants';
 import CircularTrack from './customElements/CircularTrack';
 import CircularIcon from './customElements/CircularIcon';
 import ProgressWrapper from './customElements/ProgressWrapper';
@@ -21,7 +22,7 @@ const XUIProgressCircular = props => (
 			hardErrorAlert,
 			customContent,
 		}) => (
-			<Fragment>
+			<div className={`${NAME_SPACE}--fragment`}>
 				<CircularTrack {...{
 					id,
 					qaHook,
@@ -37,7 +38,7 @@ const XUIProgressCircular = props => (
 				<CircularIcon
 					{...{ isComplete, isHardError, hardErrorAlert }}
 				/>
-			</Fragment>
+			</div>
 		)}
 	</ProgressWrapper>
 );

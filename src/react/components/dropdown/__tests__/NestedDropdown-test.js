@@ -176,7 +176,7 @@ describe('<NestedDropdown />', () => {
             </DropDownPanel>
         </NestedDropDown>);
 
-        expect(currentPanel.find('#panel-one').parent().hasClass('xui-u-hidden')).toBeTruthy()
-        expect(currentPanel.find('#panel-two').parent().hasClass('xui-u-hidden')).toBeFalsy()
+        expect(currentPanel.find('#panel-one').parent().hasClass('xui-dropdown-nested-is-hidden')).toBeTruthy()
+        expect(currentPanel.find('#panel-two').parent().hasClass('xui-dropdown-nested-is-hidden')).toBeFalsy()
     });
 })

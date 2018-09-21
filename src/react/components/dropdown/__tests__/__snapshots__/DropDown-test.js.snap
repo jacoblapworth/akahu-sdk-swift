@@ -41,7 +41,7 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
     >
       <div
         aria-activedescendant={null}
-        className="xui-u-flex xui-u-flex-column xui-dropdown--scrollable-container xui-u-flex-grow"
+        className="xui-dropdown--scrollable-container"
         data-automationid="dropdown-test--scrollable-container"
         id={undefined}
         onKeyDown={[Function]}
@@ -134,7 +134,7 @@ exports[`forceStatefulPicklist prop renders qaHooks on inner components when sta
       }
     >
       <div
-        className="xui-u-flex xui-u-flex-column xui-dropdown--scrollable-container xui-u-flex-grow"
+        className="xui-dropdown--scrollable-container"
         data-automationid="dropdown-test--scrollable-container"
       >
         <div

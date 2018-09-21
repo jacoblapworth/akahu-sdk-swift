@@ -105,6 +105,10 @@
 
 	// This class allows flex to correctly constrain the scrollable content in IE11. - FP
 	.#{$ns}-dropdown--scrollable-container {
+		display: flex;
+		flex-basis: auto;
+		flex-direction: column;
+		flex-grow: 1;
 		max-height: inherit;
 		overflow: hidden;
 	}
@@ -130,6 +134,10 @@
 		flex: 1;
 		overflow: hidden;
 		padding-right: $xui-s-xsmall;
+	}
+
+	.#{$ns}-dropdown--headerbackbutton {
+		flex: none;
 	}
 
 	.#{$ns}-dropdown--header-rightcontent {
@@ -219,6 +227,10 @@
 		}
 	}
 }
+.#{$ns}-dropdown-nested-is-hidden {
+	display: none;
+	visibility: hidden;
+}
 
 @each $number, $variant in $xui-width-variants-dropdown {
 	@include xui-breakpoint-medium-and-wide {
@@ -228,6 +240,10 @@
 
 		.#{$ns}-dropdown-fixed-#{$variant} {
 			width: $xui-starting-width + ($xui-base-width * $number);
+		}
+
+		.#{$ns}-dropdown--header-container.#{$ns}-dropdown-show-mobile-only {
+			display: none;
 		}
 	}
 	@include xui-breakpoint-narrow {

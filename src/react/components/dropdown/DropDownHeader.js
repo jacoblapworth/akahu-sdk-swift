@@ -38,13 +38,13 @@ export default class DropDownHeader extends PureComponent {
 		const classes = cn(`${baseClass}--header`, className);
 		const headerClasses = cn(
 			`${baseClass}--header-container`,
-			onlyShowForMobile && `${ns}-u-hidden-medium ${ns}-u-hidden-wide`,
+			onlyShowForMobile && `${baseClass}-show-mobile-only`,
 		);
 
 		const backButton = onBackButtonClick ? (
 			<XUIButton
 				variant="icon"
-				className={`${ns}-u-flex-none`}
+				className={`${ns}-dropdown--headerbackbutton`}
 				onClick={onBackButtonClick}
 				aria-label={backButtonLabel}
 				qaHook={qaHook != null ? `${qaHook}--button-back` : null}

@@ -24,12 +24,11 @@
 // To do this, use the following classes in combination with a [borderless input](section-building-blocks-controls-textinput.html#building-blocks-controls-textinput-7-8) and [picklist](section-compounds-displayingdata-picklist.html).
 //
 // Classes:
-// xui-dropdown-header: Header container
-// xui-dropdown-header-container: Header content
+// xui-dropdown--header: Header container
+// xui-dropdown--header-container: Header content
 // xui-dropdown--scrollable-content: Picklist container
 // xui-dropdown-fullheight: Apply to dropdown to make room for the software keyboard
-// xui-u-hidden-medium: Apply to header to hide between 520px and 940px
-// xui-u-hidden-wide: Apply to header to hide above 940px
+// xui-dropdown-show-mobile-only: Apply to a dropdown sub-element such as the header or actions to hide above 520px
 //
 // Styleguide: Compounds.CollectingInput.Search.2
 
@@ -40,7 +39,7 @@
 //   <div class='xui-dropdown--mask'></div>
 //   <div class='xui-dropdown--body'>
 //     <div class="xui-dropdown--header">
-//      <div class="xui-dropdown--header-container xui-u-hidden-medium xui-u-hidden-wide">
+//      <div class="xui-dropdown--header-container xui-dropdown-show-mobile-only">
 //        <div class="xui-dropdown--header-leftcontent">
 //          <div class="xui-heading-small xui-margin-left-small xui-text-truncated">
 //            Assign to staff
@@ -103,7 +102,7 @@
 //   <div class='xui-dropdown--mask'></div>
 //   <div class='xui-dropdown--body'>
 //     <div class="xui-dropdown--header">
-//      <div class="xui-dropdown--header-container xui-u-hidden-medium xui-u-hidden-wide">
+//      <div class="xui-dropdown--header-container xui-dropdown-show-mobile-only">
 //        <div class="xui-dropdown--header-leftcontent">
 //          <div class="xui-heading-small xui-margin-left-small xui-text-truncated">
 //            Assign to staff
@@ -174,7 +173,7 @@
 //   <div class='xui-dropdown--mask'></div>
 //   <div class='xui-dropdown--body'>
 //     <div class="xui-dropdown--header">
-//      <div class="xui-dropdown--header-container xui-u-hidden-medium xui-u-hidden-wide">
+//      <div class="xui-dropdown--header-container xui-dropdown-show-mobile-only">
 //        <div class="xui-dropdown--header-leftcontent">
 //          <div class="xui-heading-small xui-margin-left-small xui-text-truncated">
 //            Assign to staff

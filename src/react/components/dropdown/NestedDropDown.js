@@ -53,7 +53,7 @@ export default class NestedDropDown extends DropDown {
 				const isCurrentPanel = (child.props && child.props.panelId === currentPanel);
 
 				return (
-					<div className={isCurrentPanel ? '' : `${ns}-u-hidden`}>
+					<div className={isCurrentPanel ? '' : `${baseClass}-nested-is-hidden`}>
 						{
 							isCurrentPanel ?
 								React.cloneElement(child, {

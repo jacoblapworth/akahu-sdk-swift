@@ -72,6 +72,16 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 	display: flex;
 	flex-shrink: 0;
 	margin: -1px; // This is required to correctly layout sidelement contents considering the input border
+
+	&-align-top {
+		align-items: flex-start;
+	}
+	&-align-center {
+		align-items: center;
+	}
+	&-align-bottom {
+		align-items: flex-end;
+	}
 }
 
 .#{$ns}-textinput--sideelement-icon {

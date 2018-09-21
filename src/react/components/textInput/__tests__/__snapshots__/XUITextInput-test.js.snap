@@ -50,7 +50,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
       data-automationid={undefined}
     >
       <div
-        className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
         data-automationid={undefined}
       >
         <div
@@ -129,7 +129,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         value={undefined}
       />
       <div
-        className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
         data-automationid={undefined}
       >
         <div
@@ -164,7 +164,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
       data-automationid={undefined}
     >
       <div
-        className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
         data-automationid={undefined}
       >
         <div
@@ -209,7 +209,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         value={undefined}
       />
       <div
-        className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
         data-automationid={undefined}
       >
         <div

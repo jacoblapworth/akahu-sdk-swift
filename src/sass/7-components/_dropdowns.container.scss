@@ -277,6 +277,10 @@
 	border: 1px solid transparent;
 }
 
+.#{$ns}-dropdown-fullwidth {
+	@include xui-layout-width-fullwidth;
+}
+
 .#{$ns}-dropdownToggled--innerWrap {
 	display: inline-table;
 }

@@ -255,7 +255,7 @@ exports[`<SelectBoxOption /> should render text as truncated when the truncatedT
       className="xui-pickitem--text"
     >
       <span
-        className="xui-text-truncated"
+        className="xui-select--option-truncated"
       >
         This text should be truncated and only visible on one line because it's so long.
       </span>

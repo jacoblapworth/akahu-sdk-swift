@@ -80,6 +80,9 @@ variations.forEach(variation => {
 			...variation,
 		};
 		const items = variationMinusStoryDetails.items || toggledItems;
+		if (variationMinusStoryDetails.isTextTruncated) {
+			items.forEach(i => i.props.truncatedText = true);
+		}
 		delete variationMinusStoryDetails.items;
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;

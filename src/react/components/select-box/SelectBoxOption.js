@@ -28,7 +28,7 @@ export default class SelectBoxOption extends PureComponent {
 		const isText = typeof children[0] === 'string';
 		const shouldTruncateChildren = isText && truncatedText;
 		const contents = shouldTruncateChildren
-			? <span className={`${ns}-text-truncated`}>{children}</span>
+			? <span className={`${ns}-select--option-truncated`}>{children}</span>
 			: children;
 		return (
 			<Pickitem

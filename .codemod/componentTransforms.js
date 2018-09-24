@@ -64,7 +64,7 @@ module.exports = {
 				},
 				{
 					name: 'labelHidden',
-					newName: 'isLabelHidden'
+					newName: 'islabelHidden'
 				},
 				{
 					name: 'ariaId',

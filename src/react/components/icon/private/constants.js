@@ -15,9 +15,9 @@ export const iconSizeMultipliers = {
 };
 
 export const rotationClasses = {
-	90: `${ns}-u-rotate-90`,
-	180: `${ns}-u-rotate-180`,
-	270: `${ns}-u-rotate-270`,
+	90: `${baseClass}-rotate-90`,
+	180: `${baseClass}-rotate-180`,
+	270: `${baseClass}-rotate-270`,
 };
 
 /* eslint-disable camelcase */

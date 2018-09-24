@@ -73,7 +73,7 @@
 // xui-accordiontrigger-is-open: Adds padding to accordion trigger
 // xui-accordionwrapper--content-is-open: Adds content transition
 // xui-accordion--emptystate: Empty state wrapper
-// xui-u-rotate-180: Utility class applied to rotate arrow icon
+// xui-icon-rotate-180: Class applied to rotate arrow icon
 //
 // Markup:
 // <div class="xui-accordion">
@@ -81,7 +81,7 @@
 // 		<div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger xui-accordiontrigger-is-open">
 // 			<div class="xui-accordiontrigger--arrow">
 // 				<button title="Toggle" class="xui-button xui-button-icon xui-button-icon-large" tabindex="-1" type="button">
-// 					<svg focusable="false" class="xui-icon xui-u-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+// 					<svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 // 				</button>
 // 			</div>
 // 			<abbr class="xui-margin-right xui-avatar xui-avatar-color-2" role="presentation">JS</abbr>
@@ -324,7 +324,7 @@
 // 		<div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger xui-accordiontrigger-is-open">
 //			<div class="xui-accordiontrigger--arrow">
 // 				<button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-large" tabindex="-1" type="button">
-// 					<svg focusable="false" class="xui-icon xui-u-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+// 					<svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 // 				</button>
 // 			</div>
 // 			<div class="xui-accordiontrigger--content">
@@ -388,7 +388,7 @@
 // 		<div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger xui-accordiontrigger-is-open">
 // 			<div class="xui-accordiontrigger--arrow">
 // 				<button title="Toggle" class="xui-button xui-button-icon xui-button-icon-large" tabindex="-1" type="button">
-// 					<svg focusable="false" class="xui-icon xui-u-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+// 					<svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 // 				</button>
 // 			</div>
 // 			<abbr class="xui-margin-right xui-avatar xui-avatar-color-2" role="presentation">CH</abbr>
@@ -513,7 +513,7 @@
 // 		<div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger xui-accordiontrigger-is-open">
 //			<div class="xui-accordiontrigger--arrow">
 // 				<button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-large" tabindex="-1" type="button">
-// 					<svg focusable="false" class="xui-icon xui-u-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+// 					<svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 // 				</button>
 // 			</div>
 // 			<abbr class="xui-margin-right xui-avatar xui-avatar-color-1" role="presentation">EC</abbr>
@@ -591,7 +591,7 @@
 // 		<div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger xui-accordiontrigger-is-open">
 //			<div class="xui-accordiontrigger--arrow">
 // 				<button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-large" tabindex="-1" type="button">
-// 					<svg focusable="false" class="xui-icon xui-u-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+// 					<svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 // 				</button>
 // 			</div>
 // 			<abbr class="xui-margin-right xui-avatar xui-avatar-color-1" role="presentation">EC</abbr>

@@ -261,11 +261,11 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader containi
         className="xui-breadcrumb-arrow"
       >
         <div
-          className="xui-breadcrumb--icon xui-u-rotate-270 xui-iconwrapper"
+          className="xui-breadcrumb--icon xui-iconwrapper"
           data-automationid={undefined}
         >
           <svg
-            className="xui-icon"
+            className="xui-icon xui-icon-rotate-270"
             data-automationid={undefined}
             focusable="false"
             height={4}
@@ -294,11 +294,11 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader containi
         className="xui-breadcrumb-arrow"
       >
         <div
-          className="xui-breadcrumb--icon xui-u-rotate-270 xui-iconwrapper"
+          className="xui-breadcrumb--icon xui-iconwrapper"
           data-automationid={undefined}
         >
           <svg
-            className="xui-icon"
+            className="xui-icon xui-icon-rotate-270"
             data-automationid={undefined}
             focusable="false"
             height={4}

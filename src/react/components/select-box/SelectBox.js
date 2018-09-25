@@ -68,6 +68,7 @@ export default class SelectBox extends Component {
 			isInvalid,
 			validationMessage,
 			hintMessage,
+			isFieldLayout,
 		} = this.props;
 
 		const buttonClassNames = cn(
@@ -125,7 +126,7 @@ export default class SelectBox extends Component {
 			<div data-automationid={qaHook} className={containerClasses}>
 				<XUIControlWrapper
 					qaHook={setQaHook(qaHook, qaHooks.label)}
-					isFieldLayout={defaultLayout}
+					isFieldLayout={isFieldLayout}
 					wrapperIds={this.wrapperIds}
 					{...{
 						isLabelHidden,
@@ -244,6 +245,8 @@ SelectBox.propTypes = {
 	validationMessage: PropTypes.string,
 	/** Hint message to show under the input */
 	hintMessage: PropTypes.string,
+	/** Whether to use the field layout classes  */
+	isFieldLayout: PropTypes.bool,
 };
 
 SelectBox.defaultProps = {

@@ -6,7 +6,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
   data-automationid="test-selectbox"
 >
   <label
-    className="xui-field-layout"
+    className=""
     onClick={undefined}
     onKeyDown={undefined}
     role="presentation"
@@ -76,7 +76,7 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
   data-automationid={undefined}
 >
   <label
-    className="xui-field-layout"
+    className=""
     onClick={undefined}
     onKeyDown={undefined}
     role="presentation"

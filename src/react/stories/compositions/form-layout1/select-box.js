@@ -51,6 +51,7 @@ export default class LayoutSelect extends React.Component {
 						</span>
 					}
 					isTextTruncated={false}
+					isFieldLayout
 				>
 					{children && children.map((opt, idx) => {
 

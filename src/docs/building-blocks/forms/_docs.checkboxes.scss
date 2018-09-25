@@ -63,7 +63,7 @@
 // To increase hit states and create visual similarity with other form elements, consider using a checkbox group.
 //
 // Markup:
-// <label class="xui-text-label xui-fieldlabel-layout">View options</label>
+// <span class="xui-text-label xui-fieldlabel-layout">View options</span>
 // <div class="xui-styledcheckboxradio-group">
 //   <label class="xui-styledcheckboxradio">
 //     <input class="xui-styledcheckboxradio--input" type="checkbox">
@@ -90,7 +90,7 @@
 // To retain the grouped format if only one option is present, simply include one instead of many.
 //
 // Markup:
-// <label class="xui-text-label xui-fieldlabel-layout">Label</label>
+// <span class="xui-text-label xui-fieldlabel-layout">Label</span>
 // <div class="xui-styledcheckboxradio-group">
 //   <label class="xui-styledcheckboxradio">
 //     <input class="xui-styledcheckboxradio--input" type="checkbox" checked>
@@ -107,7 +107,7 @@
 // Checkbox groups can handle long strings very easily, as they wrap by default.
 //
 // Markup:
-// <label class="xui-text-label xui-fieldlabel-layout">Label</label>
+// <span class="xui-text-label xui-fieldlabel-layout">Label</span>
 // <div class="xui-styledcheckboxradio-group">
 //   <label class="xui-styledcheckboxradio">
 //     <input class="xui-styledcheckboxradio--input" type="checkbox" checked>
@@ -155,7 +155,7 @@
 //
 //
 // Markup:
-// <label class="xui-text-label xui-fieldlabel-layout">Reports</label>
+// <span class="xui-text-label xui-fieldlabel-layout">Reports</span>
 // <div class="xui-styledcheckboxradio-group">
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
 //     <input class="xui-styledcheckboxradio--input" type="checkbox">

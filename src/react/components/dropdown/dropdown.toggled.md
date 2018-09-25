@@ -287,7 +287,7 @@ class InputTriggerExample extends Component {
 		const { selectedId, inputValue } = this.state;
 		const trigger = (
 			<XUITextInput
-				labelText='dropdown with text input trigger'
+				label='dropdown with text input trigger'
 				placeholder="Type Here"
 				value={inputValue}
 				onChange={this.onInputChange}

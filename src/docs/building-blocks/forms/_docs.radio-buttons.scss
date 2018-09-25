@@ -69,7 +69,7 @@
 // To increase hit states and create visual similarity with other form elements, consider using a radio group.
 //
 // Markup:
-// <label class="xui-text-label xui-fieldlabel-layout">Notification frequency</label>
+// <span class="xui-text-label xui-fieldlabel-layout">Notification frequency</span>
 // <div class="xui-styledcheckboxradio-group" aria-label="rg1" role="radiogroup">
 //   <label class="xui-styledcheckboxradio">
 //     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r5" name="rg2">
@@ -101,7 +101,7 @@
 // Checkbox groups can handle long strings very easily, as they wrap by default.
 //
 // Markup:
-// <label class="xui-text-label xui-fieldlabel-layout">Label</label>
+// <span class="xui-text-label xui-fieldlabel-layout">Label</span>
 // <div class="xui-styledcheckboxradio-group" role="radiogroup" aria-label="r3">
 //   <label class="xui-styledcheckboxradio">
 //     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r9" name="rg3" checked>

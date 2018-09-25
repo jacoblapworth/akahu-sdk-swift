@@ -106,7 +106,7 @@ class SecondarySearchExample extends React.Component {
 					onSearch={sse.onSearch}
 					searchValue={value}
 					dropdownSize='medium'
-					inputLabelText='secondary search label'
+					inputLabel='secondary search label'
 					isInputLabelHidden
 					qaHook='secondary-search'
 					footer={footer}

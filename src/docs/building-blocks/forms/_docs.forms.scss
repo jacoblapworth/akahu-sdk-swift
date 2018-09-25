@@ -116,8 +116,8 @@
 // </div>
 // <div class="xui-field-layout">
 //   <label for="horizontaldemofield2" class="xui-text-label xui-fieldlabel-layout">Your name</label>
-//   <div class="xui-textinputgroup">
-//       <input class="xui-column-4-of-12 xui-textinput xui-textinput--input" id="horizontaldemofield2" placeholder="First" aria-label="First name"/>
+//   <div class="xui-textinputgroup" id="horizontaldemofield2">
+//       <input class="xui-column-4-of-12 xui-textinput xui-textinput--input" placeholder="First" aria-label="First name"/>
 //       <input class="xui-column-4-of-12 xui-textinput xui-textinput--input xui-textinput-is-invalid" placeholder="Middle" aria-label="Middle name"/>
 //       <input class="xui-column-4-of-12 xui-textinput xui-textinput--input" placeholder="Last" aria-label="Last name"/>
 //   </div>

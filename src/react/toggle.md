@@ -27,14 +27,14 @@ const radioToggle = {
 
 <div>
 	<div className="xui-margin-bottom">
-		<XUIToggle layout="fullwidth" labelText='checkbox toggle' isLabelHidden>
+		<XUIToggle layout="fullwidth" label='checkbox toggle' isLabelHidden>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 		</XUIToggle>
 	</div><div className="xui-margin-bottom">
-		<XUIToggle layout="fullwidth" labelText='radio toggle' isLabelHidden>
+		<XUIToggle layout="fullwidth" label='radio toggle' isLabelHidden>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
@@ -57,7 +57,7 @@ const checkboxToggle = {
 };
 
 <ExampleContainer className="xui-padding xui-color-white" isInverted>
-	<XUIToggle layout="fullwidth" color="inverted" labelText="checkbox toggle" isLabelHidden>
+	<XUIToggle layout="fullwidth" color="inverted" label="checkbox toggle" isLabelHidden>
 		<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 		<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 		<XUIToggleOption { ...checkboxToggle } isDisabled isChecked>Disabled</XUIToggleOption>
@@ -84,7 +84,7 @@ const checkboxToggle = {
 };
 
 <div>
-	<XUIToggle className="xui-margin-bottom" variant="small" layout="fullwidth" labelText='radio toggle' isLabelHidden>
+	<XUIToggle className="xui-margin-bottom" variant="small" layout="fullwidth" label='radio toggle' isLabelHidden>
 		<XUIToggleOption { ...radioToggle }>Uno</XUIToggleOption>
 		<XUIToggleOption { ...radioToggle }>Dos</XUIToggleOption>
 		<XUIToggleOption { ...radioToggle }>Tres</XUIToggleOption>
@@ -108,10 +108,10 @@ const checkboxToggle = {
 
 <form className="xui-form-layout">
 	<div className="xui-field-layout">
-		<XUITextInput type="url" placeholer="http://www.xero.com" labelText="Input" />
+		<XUITextInput type="url" placeholer="http://www.xero.com" label="Input" />
 	</div>
 	<div className="xui-field-layout">
-		<XUIToggle layout="fullwidth" labelText='Toggle'>
+		<XUIToggle layout="fullwidth" label='Toggle'>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>

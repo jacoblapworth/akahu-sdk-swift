@@ -127,7 +127,7 @@ class WrapPillsExample extends Component {
 
 		return (
 				<XUIAutocompleter
-					inputLabelText='autocompleter'
+					inputLabel='autocompleter'
 					isInputLabelHidden
 					ref={ac => this.completer = ac}
 					onSearch={this.onSearchChangeHandler}
@@ -250,7 +250,7 @@ class DisableWrapPills extends Component {
 
 		return (
 				<XUIAutocompleter
-					inputLabelText='autocompleter'
+					inputLabel='autocompleter'
 					isInputLabelHidden
 					ref={ac => this.completer = ac}
 					onSearch={this.onSearchChangeHandler}
@@ -378,7 +378,7 @@ class SingleSelectExample extends Component {
 
 		return (
 			<XUIAutocompleter
-				inputLabelText='autocompleter'
+				inputLabel='autocompleter'
 				isInputLabelHidden
 				ref={ac => this.completer = ac}
 				onSearch={this.onSearchChangeHandler}

@@ -57,7 +57,7 @@ class SelectBoxExample extends Component {
 				<SelectBox
 					ref={c => this.selectOne = c}
 					name="selectOne"
-					labelText="Select a Bank"
+					label="Select a Bank"
 					buttonContent={
 						<span>
 							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
@@ -125,7 +125,7 @@ class MiniApp extends Component {
 				ref={c => this.isMultiselect = c}
 				name="isMultiselect"
 				buttonContent={TextHelpers.getText(MiniApp.state.selectedBoats, 'Choose a few boats')}
-				labelText="Select Several Boats"
+				label="Select Several Boats"
 				closeAfterSelection={false}
 				onSelect={MiniApp.onBoatSelect}
 			>
@@ -196,7 +196,7 @@ class MiniApp extends Component {
 				<SelectBox
 					ref={c => this.selectOne = c}
 					name="selectOne"
-					labelText="Select a Bank"
+					label="Select a Bank"
 					buttonContent={
 						<span>
 							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>

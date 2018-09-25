@@ -17,14 +17,14 @@ const cn = require('classnames');
 	<XUITextInput
 		fieldClassName="xui-margin-bottom"
 		placeholder="A standard text input"
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
 		fieldClassName="xui-margin-bottom"
 		qaHook="test-ui"
 		defaultValue="This one has a default value"
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -32,14 +32,14 @@ const cn = require('classnames');
 		qaHook="test-ui"
 		type="number"
 		placeholder="A number input"
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
 		qaHook="test-ui"
 		inputProps={{ readOnly: true }}
 		defaultValue="A read-only value"
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 </div>
@@ -47,11 +47,11 @@ const cn = require('classnames');
 
 ### Labels
 
-Labels can be set on `XUITextInput` by passing a value to the `labelText` prop.
+Labels can be set on `XUITextInput` by passing a value to the `label` prop.
 
 ```jsx
 <XUITextInput
-	labelText="Label"
+	label="Label"
 />
 ```
 
@@ -89,19 +89,19 @@ class Example extends PureComponent {
 		return (
 			<div>
 				<XUITextInput
-					labelText="An invalid input"
+					label="An invalid input"
 					validationMessage="Well it's not right"
 					isInvalid={true}
 					isFieldLayout
 				/>
 				<XUITextInput
-					labelText="Input with a hint"
+					label="Input with a hint"
 					placeholder="I always have a hint"
 					hintMessage="Just a good old hint"
 					isFieldLayout
 				/>
 				<XUITextInput
-					labelText="Input that may have a hint"
+					label="Input that may have a hint"
 					onFocus={this.onFocus}
 					onBlur={this.onBlur}
 					placeholder="I have a hint when I'm focused"
@@ -128,7 +128,7 @@ class Example extends PureComponent {
 		placeholder="This input will automatically grow up to 5 rows high"
 		minRows={2}
 		maxRows={5}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -136,7 +136,7 @@ class Example extends PureComponent {
 		isMultiline
 		placeholder="This input will automatically grow without limit"
 		minRows={3}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -144,7 +144,7 @@ class Example extends PureComponent {
 		isMultiline
 		placeholder="This input has a set number of rows"
 		rows={3}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 </div>
@@ -170,7 +170,7 @@ const XUIButton = require ( './button.js' ).default;
 				<XUIIcon isBoxed icon={searchPath} />
 			</XUITextInputSideElement>
 		}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -204,7 +204,7 @@ const XUIButton = require ( './button.js' ).default;
 				<XUIIcon isBoxed icon={linkedinPath} />
 			</XUITextInputSideElement>
 		}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -215,7 +215,7 @@ const XUIButton = require ( './button.js' ).default;
 				<XUIIcon isBoxed icon={facebookPath} />
 			</XUITextInputSideElement>
 		}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -226,7 +226,7 @@ const XUIButton = require ( './button.js' ).default;
 				<XUIIcon isBoxed icon={facebookPath} />
 			</XUITextInputSideElement>
 		}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -237,7 +237,7 @@ const XUIButton = require ( './button.js' ).default;
 				Text here:
 			</XUITextInputSideElement>
 		}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -250,7 +250,7 @@ const XUIButton = require ( './button.js' ).default;
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -263,7 +263,7 @@ const XUIButton = require ( './button.js' ).default;
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -277,7 +277,7 @@ const XUIButton = require ( './button.js' ).default;
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -291,7 +291,7 @@ const XUIButton = require ( './button.js' ).default;
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -305,7 +305,7 @@ const XUIButton = require ( './button.js' ).default;
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -319,7 +319,7 @@ const XUIButton = require ( './button.js' ).default;
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -333,7 +333,7 @@ const XUIButton = require ( './button.js' ).default;
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -347,7 +347,7 @@ const XUIButton = require ( './button.js' ).default;
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -359,7 +359,7 @@ const XUIButton = require ( './button.js' ).default;
 				<XUIIcon isBoxed icon={facebookPath} />
 			</XUITextInputSideElement>
 		}
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 
@@ -467,7 +467,7 @@ const cn = require('classnames');
 				placeholder='placeholder'
 				isInvalid
 				validationMessage='invalid input'
-				labelText='input'
+				label='input'
 				isLabelHidden
 			/>
 			<XUITextInput
@@ -479,7 +479,7 @@ const cn = require('classnames');
 				}
 				placeholder='placeholder'
 				hintMessage='hint hint hint'
-				labelText='input'
+				label='input'
 				isLabelHidden
 			/>
 			<XUITextInput
@@ -490,7 +490,7 @@ const cn = require('classnames');
 					</XUITextInputSideElement>
 				}
 				placeholder='placeholder'
-				labelText='input'
+				label='input'
 				isLabelHidden
 			/>
 		</div>
@@ -505,7 +505,7 @@ const cn = require('classnames');
 			}
 			placeholder='placeholder'
 			isInvalid
-			labelText='input'
+			label='input'
 			isLabelHidden
 		/>
 		<XUITextInput
@@ -515,7 +515,7 @@ const cn = require('classnames');
 				</XUITextInputSideElement>
 			}
 			placeholder='placeholder'
-			labelText='input'
+			label='input'
 			isLabelHidden
 		/>
 		<XUITextInput
@@ -525,7 +525,7 @@ const cn = require('classnames');
 				</XUITextInputSideElement>
 			}
 			placeholder='placeholder'
-			labelText='input'
+			label='input'
 			isLabelHidden
 		/>
 	</div>
@@ -549,7 +549,7 @@ const cn = require('classnames');
 		isFieldLayout={true}
 		isBorderlessTransparent={true}
 		placeholder='placeholder'
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 	<XUITextInput
@@ -560,7 +560,7 @@ const cn = require('classnames');
 		}
 		isBorderlessSolid={true}
 		placeholder='placeholder'
-		labelText='input'
+		label='input'
 		isLabelHidden
 	/>
 </div>
@@ -583,7 +583,7 @@ const ExampleContainer = require('./docs/ExampleContainer').default;
 			isBorderlessSolid={true}
 			isInverted={true}
 			placeholder='placeholder'
-			labelText='input'
+			label='input'
 			isLabelHidden
 		/>
 		<XUITextInput
@@ -595,7 +595,7 @@ const ExampleContainer = require('./docs/ExampleContainer').default;
 			isBorderlessTransparent={true}
 			isInverted={true}
 			placeholder='inverted borderless transparent'
-			labelText='input'
+			label='input'
 			isLabelHidden
 		/>
 	</ExampleContainer>
@@ -657,7 +657,7 @@ class Example extends PureComponent {
 				onChange={this.onChange}
 				placeholder='This is a search box'
 				value={value}
-				labelText='input'
+				label='input'
 				isLabelHidden
 			/>)
 	}

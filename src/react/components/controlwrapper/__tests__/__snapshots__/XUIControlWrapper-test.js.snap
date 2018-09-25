@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUIControlWrapper> renders a hidden label, invalid, and an error message 1`] = `
-<label
+<div
   className="xui-field-layout"
   onClick={undefined}
   onKeyDown={undefined}
@@ -12,6 +12,7 @@ exports[`<XUIControlWrapper> renders a hidden label, invalid, and an error messa
     aria-invalid={true}
     aria-label="Impressive input label"
     aria-labelledby={undefined}
+    id="testGeneratedId-control"
     type="text"
   />
   <div
@@ -22,35 +23,37 @@ exports[`<XUIControlWrapper> renders a hidden label, invalid, and an error messa
   >
     oh no!
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUIControlWrapper> renders a simple label, when provided 1`] = `
-<label
+<div
   className="xui-field-layout"
   onClick={undefined}
   onKeyDown={undefined}
   role="presentation"
 >
-  <span
+  <label
     className="xui-text-label xui-fieldlabel-layout"
     data-automationid={undefined}
-    id="testGeneratedId"
+    htmlFor="testGeneratedId-control"
+    id={undefined}
   >
     Impressive input label
-  </span>
+  </label>
   <input
     aria-describedby={undefined}
     aria-invalid={false}
     aria-label={undefined}
-    aria-labelledby="testGeneratedId"
+    aria-labelledby={undefined}
+    id="testGeneratedId-control"
     type="text"
   />
-</label>
+</div>
 `;
 
 exports[`<XUIControlWrapper> renders basic example 1`] = `
-<label
+<div
   className="xui-field-layout"
   onClick={undefined}
   onKeyDown={undefined}
@@ -61,30 +64,33 @@ exports[`<XUIControlWrapper> renders basic example 1`] = `
     aria-invalid={false}
     aria-label={undefined}
     aria-labelledby={undefined}
+    id="testGeneratedId-control"
     type="text"
   />
-</label>
+</div>
 `;
 
 exports[`<XUIControlWrapper> renders classes and qaHook on all elements 1`] = `
-<label
+<div
   className="test-field-class xui-field-layout"
   onClick={undefined}
   onKeyDown={undefined}
   role="presentation"
 >
-  <span
+  <label
     className="test-label-class xui-text-label xui-fieldlabel-layout"
     data-automationid="ctrl-wrapper--label"
-    id="testSpecificLabel"
+    htmlFor="testSpecificLabel-control"
+    id={undefined}
   >
     Small input label
-  </span>
+  </label>
   <input
     aria-describedby="testSpecificLabel-message"
     aria-invalid={false}
     aria-label={undefined}
-    aria-labelledby="testSpecificLabel"
+    aria-labelledby={undefined}
+    id="testSpecificLabel-control"
     type="text"
   />
   <div
@@ -95,5 +101,5 @@ exports[`<XUIControlWrapper> renders classes and qaHook on all elements 1`] = `
   >
     I will give you a clue
   </div>
-</label>
+</div>
 `;

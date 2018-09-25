@@ -44,6 +44,7 @@ exports[`<XUIControlWrapperInline> renders a simple HTML label, when provided 1`
   <span
     className={undefined}
     data-automationid={undefined}
+    htmlFor={undefined}
     id="testGeneratedId"
   >
     <span>
@@ -89,6 +90,7 @@ exports[`<XUIControlWrapperInline> renders classes and qaHook on all elements 1`
   <span
     className="test-label-class"
     data-automationid="ctrl-wrapper--label"
+    htmlFor={undefined}
     id="testSpecificLabel"
   >
     A label for testing

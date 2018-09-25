@@ -9,10 +9,12 @@ import uuidv4 from 'uuid/v4';
  * @returns {{label: string, message: string}}
  */
 export default function generateIds(labelId) {
-	const generatedlabelId = labelId || uuidv4();
-	const messageId = generatedlabelId && `${generatedlabelId}-message`;
+	const generatedLabelId = labelId || uuidv4();
+	const messageId = generatedLabelId && `${generatedLabelId}-message`;
+	const controlId = generatedLabelId && `${generatedLabelId}-control`;
 	return {
-		label: generatedlabelId,
+		label: generatedLabelId,
+		control: controlId,
 		message: messageId,
 	};
 }

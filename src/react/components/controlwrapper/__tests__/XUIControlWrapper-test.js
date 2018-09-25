@@ -31,7 +31,7 @@ describe('<XUIControlWrapper>', () => {
 			fieldClassName: undefined,
 			labelId: undefined,
 			qaHook: undefined,
-			labelText: undefined,
+			label: undefined,
 			isInvalid: false,
 			validationMessage: undefined,
 			hintMessage: undefined,
@@ -52,7 +52,7 @@ describe('<XUIControlWrapper>', () => {
 		settings.fieldClassName = 'test-field-class';
 		settings.labelClassName = 'test-label-class';
 		settings.qaHook = 'ctrl-wrapper';
-		settings.labelText = 'Small input label';
+		settings.label = 'Small input label';
 		settings.hintMessage = 'I will give you a clue';
 
 		const wrapper = setup(settings);
@@ -61,7 +61,7 @@ describe('<XUIControlWrapper>', () => {
 
 	it('renders a simple label, when provided', () => {
 		settings.wrapperIds = genIds;
-		settings.labelText = 'Impressive input label';
+		settings.label = 'Impressive input label';
 
 		const wrapper = setup(settings);
 		expect(wrapper).toMatchSnapshot();
@@ -69,7 +69,7 @@ describe('<XUIControlWrapper>', () => {
 
 	it('renders a hidden label, invalid, and an error message', () => {
 		settings.wrapperIds = genIds;
-		settings.labelText = 'Impressive input label';
+		settings.label = 'Impressive input label';
 		settings.isLabelHidden = true;
 		settings.validationMessage = 'oh no!';
 		settings.isInvalid = true;

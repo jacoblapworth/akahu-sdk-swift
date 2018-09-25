@@ -36,15 +36,15 @@ describe('XUIIcon', () => {
 		);
 
 		const icons = wrapper.find('.xui-icon');
-		expect(icons.at(0).hasClass('xui-u-rotate-90')).toBeFalsy();
-		expect(icons.at(0).hasClass('xui-u-rotate-180')).toBeFalsy();
-		expect(icons.at(0).hasClass('xui-u-rotate-270')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-rotate-90')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-rotate-180')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-rotate-270')).toBeFalsy();
 
-		expect(icons.at(1).hasClass('xui-u-rotate-90')).toBeTruthy();
+		expect(icons.at(1).hasClass('xui-icon-rotate-90')).toBeTruthy();
 
-		expect(icons.at(2).hasClass('xui-u-rotate-180')).toBeTruthy();
+		expect(icons.at(2).hasClass('xui-icon-rotate-180')).toBeTruthy();
 
-		expect(icons.at(3).hasClass('xui-u-rotate-270')).toBeTruthy();
+		expect(icons.at(3).hasClass('xui-icon-rotate-270')).toBeTruthy();
 	});
 
 	it('Should render with the correct color class when color is provided', function () {

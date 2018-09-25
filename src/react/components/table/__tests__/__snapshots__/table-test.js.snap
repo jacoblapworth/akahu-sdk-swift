@@ -6151,7 +6151,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     Header 1
                   </span>
                   <svg
-                    className="xui-icon xui-u-rotate-180 xui-table--sortbutton-icon"
+                    className="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
                     data-automationid={undefined}
                     focusable="false"
                     height={11}
@@ -6349,7 +6349,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     Header 1
                   </span>
                   <svg
-                    className="xui-icon xui-u-rotate-180 xui-table--sortbutton-icon"
+                    className="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
                     data-automationid={undefined}
                     focusable="false"
                     height={11}

@@ -132,7 +132,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
       type="button"
     >
       <svg
-        className="xui-icon xui-u-rotate-180"
+        className="xui-icon xui-icon-rotate-180"
         data-automationid={undefined}
         focusable="false"
         height={7}

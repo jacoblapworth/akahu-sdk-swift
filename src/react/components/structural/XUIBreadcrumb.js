@@ -5,7 +5,8 @@ import arrow from '@xero/xui-icon/icons/arrow-small';
 import XUIIcon from '../icon/XUIIcon';
 import { ns } from '../helpers/xuiClassNamespace';
 
-import '../../../sass/7-components/_navigation.subapp.scss'; // TODO: Separate breadcumbs into their own SCSS file
+// TODO: Separate breadcumbs into their own SCSS file
+import '../../../sass/7-components/_navigation.subapp.scss';
 
 const baseClass = `${ns}-breadcrumb`;
 
@@ -41,7 +42,8 @@ export default class XUIBreadcrumb extends PureComponent {
 				crumbElements.push((
 					<li key={`arrow-${itemIndex}`} className={`${baseClass}-arrow`}>
 						<XUIIcon
-							className={`${baseClass}--icon ${ns}-u-rotate-270`}
+							className={`${baseClass}--icon`}
+							rotation={270}
 							icon={arrow}
 							isBoxed
 						/>

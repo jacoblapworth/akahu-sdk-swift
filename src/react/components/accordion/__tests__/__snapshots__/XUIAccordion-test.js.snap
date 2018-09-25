@@ -166,7 +166,7 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
           type="button"
         >
           <svg
-            className="xui-icon xui-u-rotate-180"
+            className="xui-icon xui-icon-rotate-180"
             data-automationid={undefined}
             focusable="false"
             height={7}
@@ -231,7 +231,7 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
           type="button"
         >
           <svg
-            className="xui-icon xui-u-rotate-180"
+            className="xui-icon xui-icon-rotate-180"
             data-automationid={undefined}
             focusable="false"
             height={7}
@@ -319,7 +319,7 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
           type="button"
         >
           <svg
-            className="xui-icon xui-u-rotate-180"
+            className="xui-icon xui-icon-rotate-180"
             data-automationid={undefined}
             focusable="false"
             height={7}
@@ -409,7 +409,7 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
           type="button"
         >
           <svg
-            className="xui-icon xui-u-rotate-180"
+            className="xui-icon xui-icon-rotate-180"
             data-automationid={undefined}
             focusable="false"
             height={7}

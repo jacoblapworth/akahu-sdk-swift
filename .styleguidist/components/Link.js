@@ -24,7 +24,7 @@ const toggleChildren = function () {
 
 export function LinkRenderer({ classes, children, isDocLink, ...props }) {
 	return (
-		<a {...props} className={cx(classes.link, props.className)} onClick={toggleChildren}>
+		<a {...props} className={isDocLink ? undefined : cx(classes.link, props.className)} onClick={toggleChildren}>
 			{isDocLink && (
 				<XUIIcon icon={bookmark} color="blue" className="xui-margin-right-xsmall" size="large" />
 			)}

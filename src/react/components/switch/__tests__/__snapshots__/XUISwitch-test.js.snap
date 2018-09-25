@@ -31,6 +31,7 @@ exports[`XUISwitch should include a reversed class when a text label is present 
   <span
     className="xui-switch--label"
     data-automationid={undefined}
+    htmlFor={undefined}
     id="testLabelId"
   >
     Switch test
@@ -69,6 +70,7 @@ exports[`XUISwitch should include a text label when label is passed 1`] = `
   <span
     className="xui-switch--label"
     data-automationid={undefined}
+    htmlFor={undefined}
     id="testLabelId"
   >
     Switch test
@@ -138,6 +140,7 @@ exports[`XUISwitch should render an automationid for most elements when a qaHook
   <span
     className="xui-switch--label"
     data-automationid="switch-test--label"
+    htmlFor={undefined}
     id="testSwitchId"
   >
     Switch test

@@ -96,6 +96,7 @@ exports[`XUICheckbox should have a visible label, if specified 1`] = `
   <span
     className="xui-styledcheckboxradio--label"
     data-automationid={undefined}
+    htmlFor={undefined}
     id="testCheckboxId"
   >
     Visible label

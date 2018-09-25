@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUITextInput> General Functionality should have a qahook on the input and wrapper 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
   onClick={undefined}
   onKeyDown={undefined}
@@ -20,6 +20,7 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
       data-automationid="input-test--input"
       defaultValue={undefined}
       disabled={undefined}
+      id="testGeneratedId-control"
       onBlurCapture={[Function]}
       onChange={undefined}
       onFocusCapture={[Function]}
@@ -34,12 +35,12 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
       value={undefined}
     />
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Side elements should render side elements correctly 1`] = `
 <div>
-  <label
+  <div
     className="xui-textinputwrapper"
     onClick={undefined}
     onKeyDown={undefined}
@@ -81,6 +82,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         data-automationid={undefined}
         defaultValue={undefined}
         disabled={undefined}
+        id="testGeneratedId-control"
         onBlurCapture={[Function]}
         onChange={undefined}
         onFocusCapture={[Function]}
@@ -95,8 +97,8 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         value={undefined}
       />
     </div>
-  </label>
-  <label
+  </div>
+  <div
     className="xui-textinputwrapper"
     onClick={undefined}
     onKeyDown={undefined}
@@ -115,6 +117,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         data-automationid={undefined}
         defaultValue={undefined}
         disabled={undefined}
+        id="testGeneratedId-control"
         onBlurCapture={[Function]}
         onChange={undefined}
         onFocusCapture={[Function]}
@@ -152,8 +155,8 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         </div>
       </div>
     </div>
-  </label>
-  <label
+  </div>
+  <div
     className="xui-textinputwrapper"
     onClick={undefined}
     onKeyDown={undefined}
@@ -195,6 +198,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         data-automationid={undefined}
         defaultValue={undefined}
         disabled={undefined}
+        id="testGeneratedId-control"
         onBlurCapture={[Function]}
         onChange={undefined}
         onFocusCapture={[Function]}
@@ -232,12 +236,12 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         </div>
       </div>
     </div>
-  </label>
+  </div>
 </div>
 `;
 
 exports[`<XUITextInput> Text-only input forces resize visible class based on options passed in 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
   onClick={undefined}
   onKeyDown={undefined}
@@ -256,6 +260,7 @@ exports[`<XUITextInput> Text-only input forces resize visible class based on opt
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}
+      id="testGeneratedId-control"
       onBlurCapture={[Function]}
       onChange={undefined}
       onFocusCapture={[Function]}
@@ -270,11 +275,11 @@ exports[`<XUITextInput> Text-only input forces resize visible class based on opt
       value={undefined}
     />
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
   onClick={undefined}
   onKeyDown={undefined}
@@ -293,6 +298,7 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
       data-automationid="givenQAHook--input"
       defaultValue={undefined}
       disabled={undefined}
+      id="testGeneratedId-control"
       onBlurCapture={[Function]}
       onChange={undefined}
       onFocusCapture={[Function]}
@@ -307,11 +313,11 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
       value={undefined}
     />
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
   onClick={undefined}
   onKeyDown={undefined}
@@ -330,6 +336,7 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={true}
+      id="testGeneratedId-control"
       onBlurCapture={[Function]}
       onChange={undefined}
       onFocusCapture={[Function]}
@@ -344,23 +351,24 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
       value={undefined}
     />
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Text-only input includes custom classes on the correct nodes 1`] = `
-<label
+<div
   className="custom-field-class xui-textinputwrapper"
   onClick={undefined}
   onKeyDown={undefined}
   role="presentation"
 >
-  <span
+  <label
     className="custom-label-class xui-text-label xui-fieldlabel-layout"
     data-automationid={undefined}
-    id="testLabel"
+    htmlFor="testLabel-control"
+    id={undefined}
   >
     test
-  </span>
+  </label>
   <div
     className="custom-container-class xui-textinput"
     data-automationid={undefined}
@@ -369,11 +377,12 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
       aria-describedby={undefined}
       aria-invalid={undefined}
       aria-label={undefined}
-      aria-labelledby="testLabel"
+      aria-labelledby={undefined}
       className="custom-input-class xui-textinput--input"
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}
+      id="testLabel-control"
       onBlurCapture={[Function]}
       onChange={undefined}
       onFocusCapture={[Function]}
@@ -388,11 +397,11 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
       value={undefined}
     />
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Text-only input renders with a hidden label when one is provided 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
   onClick={undefined}
   onKeyDown={undefined}
@@ -411,6 +420,7 @@ exports[`<XUITextInput> Text-only input renders with a hidden label when one is 
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}
+      id="testGeneratedId-control"
       onBlurCapture={[Function]}
       onChange={undefined}
       onFocusCapture={[Function]}
@@ -425,23 +435,24 @@ exports[`<XUITextInput> Text-only input renders with a hidden label when one is 
       value={undefined}
     />
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Text-only input renders with a label when one is provided 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
   onClick={undefined}
   onKeyDown={undefined}
   role="presentation"
 >
-  <span
+  <label
     className="xui-text-label xui-fieldlabel-layout"
     data-automationid={undefined}
-    id="testLabel"
+    htmlFor="testLabel-control"
+    id={undefined}
   >
     test
-  </span>
+  </label>
   <div
     className="xui-textinput"
     data-automationid={undefined}
@@ -450,11 +461,12 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
       aria-describedby={undefined}
       aria-invalid={undefined}
       aria-label={undefined}
-      aria-labelledby="testLabel"
+      aria-labelledby={undefined}
       className="xui-textinput--input"
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}
+      id="testLabel-control"
       onBlurCapture={[Function]}
       onChange={undefined}
       onFocusCapture={[Function]}
@@ -469,11 +481,11 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
       value={undefined}
     />
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Text-only input sets the resize none class based on options passed in 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
   onClick={undefined}
   onKeyDown={undefined}
@@ -492,6 +504,7 @@ exports[`<XUITextInput> Text-only input sets the resize none class based on opti
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}
+      id="testGeneratedId-control"
       onBlurCapture={[Function]}
       onChange={undefined}
       onFocusCapture={[Function]}
@@ -506,11 +519,11 @@ exports[`<XUITextInput> Text-only input sets the resize none class based on opti
       value={undefined}
     />
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Validation and hints renders invalid textinputs with an error message correctly 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
   onClick={undefined}
   onKeyDown={undefined}
@@ -529,6 +542,7 @@ exports[`<XUITextInput> Validation and hints renders invalid textinputs with an 
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}
+      id="newTest-control"
       onBlurCapture={[Function]}
       onChange={[Function]}
       onFocusCapture={[Function]}
@@ -551,11 +565,11 @@ exports[`<XUITextInput> Validation and hints renders invalid textinputs with an 
   >
     Boo
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Validation and hints renders with a hint message if one is provided and the input is valid 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
   onClick={undefined}
   onKeyDown={undefined}
@@ -574,6 +588,7 @@ exports[`<XUITextInput> Validation and hints renders with a hint message if one 
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}
+      id="newTest-control"
       onBlurCapture={[Function]}
       onChange={[Function]}
       onFocusCapture={[Function]}
@@ -596,5 +611,5 @@ exports[`<XUITextInput> Validation and hints renders with a hint message if one 
   >
     Boo
   </div>
-</label>
+</div>
 `;

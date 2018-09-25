@@ -5,19 +5,20 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
   className={undefined}
   data-automationid="test-selectbox"
 >
-  <label
+  <div
     className=""
     onClick={undefined}
     onKeyDown={undefined}
     role="presentation"
   >
-    <span
+    <label
       className="xui-text-label xui-fieldlabel-layout"
       data-automationid="test-selectbox---label--label"
-      id="testDropdownId"
+      htmlFor="testDropdownId-control"
+      id={undefined}
     >
       test
-    </span>
+    </label>
     <div
       className="xui-select-layout"
       data-automationid="test-selectbox---inputgroup"
@@ -66,7 +67,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
         </button>
       </div>
     </div>
-  </label>
+  </div>
 </div>
 `;
 
@@ -75,19 +76,20 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
   className={undefined}
   data-automationid={undefined}
 >
-  <label
+  <div
     className=""
     onClick={undefined}
     onKeyDown={undefined}
     role="presentation"
   >
-    <span
+    <label
       className="xui-text-label xui-fieldlabel-layout"
       data-automationid={null}
-      id="testDropdownId"
+      htmlFor="testDropdownId-control"
+      id={undefined}
     >
       test
-    </span>
+    </label>
     <div
       className="xui-select-layout"
       data-automationid={null}
@@ -136,6 +138,6 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
         </button>
       </div>
     </div>
-  </label>
+  </div>
 </div>
 `;

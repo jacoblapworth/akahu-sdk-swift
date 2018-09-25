@@ -29,7 +29,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
         onClick={undefined}
         onKeyDown={[Function]}
@@ -50,7 +50,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
             data-automationid="baseAC--input"
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testAutocompleterId-control"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -68,7 +68,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -103,7 +103,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
         onClick={undefined}
         onKeyDown={[Function]}
@@ -124,7 +124,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testAutocompleterId-control"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -142,7 +142,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
             value="a"
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -177,7 +177,7 @@ exports[`XUIAutocompleter renders with a hidden label 1`] = `
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
         onClick={undefined}
         onKeyDown={[Function]}
@@ -198,7 +198,7 @@ exports[`XUIAutocompleter renders with a hidden label 1`] = `
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testAutocompleterId-control"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -216,7 +216,7 @@ exports[`XUIAutocompleter renders with a hidden label 1`] = `
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -251,19 +251,20 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
         onClick={undefined}
         onKeyDown={[Function]}
         role="presentation"
       >
-        <span
+        <label
           className="xui-text-label xui-fieldlabel-layout"
           data-automationid={null}
-          id="testAutocompleterId"
+          htmlFor="testAutocompleterId-control"
+          id={undefined}
         >
           Im a little label
-        </span>
+        </label>
         <div
           className="xui-textinput"
           data-automationid={null}
@@ -273,13 +274,13 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
             aria-describedby={undefined}
             aria-invalid={undefined}
             aria-label={undefined}
-            aria-labelledby="testAutocompleterId"
+            aria-labelledby={undefined}
             aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input"
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testAutocompleterId-control"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -297,7 +298,7 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -332,7 +333,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
         onClick={undefined}
         onKeyDown={[Function]}
@@ -353,7 +354,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testAutocompleterId-control"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -371,7 +372,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -406,7 +407,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
         onClick={undefined}
         onKeyDown={[Function]}
@@ -427,7 +428,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testAutocompleterId-control"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -445,7 +446,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -480,7 +481,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
         onClick={undefined}
         onKeyDown={[Function]}
@@ -501,7 +502,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testAutocompleterId-control"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -519,7 +520,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -554,7 +555,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
         onClick={undefined}
         onKeyDown={[Function]}
@@ -575,7 +576,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testAutocompleterId-control"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -593,7 +594,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -630,7 +631,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
       >
         Search
       </div>
-      <label
+      <div
         className="xui-textinputwrapper"
         onClick={undefined}
         onKeyDown={[Function]}
@@ -651,7 +652,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testAutocompleterId-control"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -669,7 +670,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -704,7 +705,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
         onClick={undefined}
         onKeyDown={[Function]}
@@ -725,7 +726,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id="test-inputId"
+            id="testAutocompleterId-control"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -743,7 +744,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -778,7 +779,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
         onClick={undefined}
         onKeyDown={[Function]}
@@ -799,7 +800,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testAutocompleterId-control"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -817,7 +818,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -852,7 +853,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
         onClick={undefined}
         onKeyDown={[Function]}
@@ -873,7 +874,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
             data-automationid={null}
             defaultValue={undefined}
             disabled={true}
-            id={undefined}
+            id="testAutocompleterId-control"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -891,7 +892,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -926,7 +927,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
         onClick={undefined}
         onKeyDown={[Function]}
@@ -947,7 +948,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testAutocompleterId-control"
             maxLength={5}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -965,7 +966,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
             value="123456"
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>

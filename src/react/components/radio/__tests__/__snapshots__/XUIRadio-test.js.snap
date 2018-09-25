@@ -66,6 +66,7 @@ exports[`XUIRadio should have label text if provided 1`] = `
   <span
     className="xui-styledcheckboxradio--label"
     data-automationid={undefined}
+    htmlFor={undefined}
     id="testRadioId"
   >
     Howdy, folks!

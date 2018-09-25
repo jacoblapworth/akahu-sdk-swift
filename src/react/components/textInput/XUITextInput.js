@@ -75,7 +75,7 @@ class XUITextInput extends PureComponent {
 			isInvalid,
 			isBorderlessTransparent,
 			isBorderlessSolid,
-			labelText,
+			label,
 			validationMessage,
 			hintMessage,
 			onChange,
@@ -146,7 +146,7 @@ class XUITextInput extends PureComponent {
 				{...{
 					qaHook,
 					onKeyDown,
-					labelText,
+					label,
 					isInvalid,
 					validationMessage,
 					hintMessage,
@@ -212,7 +212,7 @@ XUITextInput.propTypes = {
 	/** Function to call on keydown inside the textinput */
 	onKeyDown: PropTypes.func,
 	/** Label to show above the input */
-	labelText: PropTypes.string,
+	label: PropTypes.node,
 	/** Whether the current input value is invalid */
 	isInvalid: PropTypes.bool,
 	/** Validation message to show under the input if `isInvalid` is true */

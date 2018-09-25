@@ -106,12 +106,12 @@ describe('<XUITextInput>', () => {
 		});
 
 		it('renders with a label when one is provided', () => {
-			const wrapper = renderer.create(<XUITextInput labelText="test" labelId="testLabel" />);
+			const wrapper = renderer.create(<XUITextInput label="test" labelId="testLabel" />);
 			expect(wrapper).toMatchSnapshot();
 		})
 
 		it('renders with a hidden label when one is provided', () => {
-			const wrapper = renderer.create(<XUITextInput labelText="test" isLabelHidden />);
+			const wrapper = renderer.create(<XUITextInput label="test" isLabelHidden />);
 			expect(wrapper).toMatchSnapshot();
 		})
 
@@ -122,7 +122,7 @@ describe('<XUITextInput>', () => {
 					containerClassName="custom-container-class"
 					inputClassName="custom-input-class"
 					labelClassName="custom-label-class"
-					labelText="test"
+					label="test"
 					labelId="testLabel"
 				/>);
 

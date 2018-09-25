@@ -35,10 +35,10 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
 		const { isGroup, groupProps } = variation;
-		const labelText = typeof variation.labelText === 'string' ? variation.labelText : "Test radio";
+		const label = typeof variation.labelText === 'string' ? variation.labelText : "Test radio";
 
 		// Remove story-specific properties
-		const checkboxProps = { ...variation, storyKind: undefined, storyTitle: undefined, isGroup: undefined, labelText: undefined };
+		const checkboxProps = { ...variation, storyKind: undefined, storyTitle: undefined, isGroup: undefined, label: undefined };
 
 		if(isGroup){
 			return (
@@ -60,7 +60,7 @@ variations.forEach(variation => {
 		}
 
 		return (
-			<XUICheckbox	{...checkboxProps}>{labelText}</XUICheckbox>
+			<XUICheckbox	{...checkboxProps}>{label}</XUICheckbox>
 		)
 	});
 });

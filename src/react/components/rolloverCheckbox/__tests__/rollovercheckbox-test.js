@@ -69,7 +69,7 @@ describe('XUIRolloverCheckbox', () => {
 	});
 
 	it('includes an aria-label, when provided', () => {
-		const { expected } = setup(renderer.create, { labelText: 'Test label', rolloverComponent: <div></div> });
+		const { expected } = setup(renderer.create, { label: 'Test label', rolloverComponent: <div></div> });
 
 		expect(expected).toMatchSnapshot();
 	});

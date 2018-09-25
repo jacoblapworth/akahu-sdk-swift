@@ -41,7 +41,7 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
 	<SelectBox
-		labelText={text('labelText', 'Label for the select box')}
+		label={text('label', 'Label for the select box')}
 		isLabelHidden={boolean('isLabelHidden', false)}
 		buttonClasses={text('buttonClasses', '')}
 		containerClasses={text('containerClasses', '')}
@@ -90,7 +90,7 @@ variations.forEach(variation => {
 		return (
 			<SelectBox
 				{...variationMinusStoryDetails}
-				labelText={variation.storyTitle}
+				label={variation.storyTitle}
 			>
 				{createItems(items)}
 			</SelectBox>

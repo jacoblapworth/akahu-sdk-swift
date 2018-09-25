@@ -91,7 +91,7 @@ const buildExampleContentblockItem = (children) => {
 		} else if (child.leftContent === "avatar") {
 			child.leftContent = <XUIAvatar value="Pixar" />;
 		} else if (child.leftContent === "rollover") {
-			child.leftContent = <XUIRolloverCheckbox isCheckboxHidden={true} labelText="contentBlockItem rollover" rolloverComponent={<XUIAvatar value="Tim Redmond" />}/>;
+			child.leftContent = <XUIRolloverCheckbox isCheckboxHidden={true} label="contentBlockItem rollover" rolloverComponent={<XUIAvatar value="Tim Redmond" />}/>;
 		}
 		if (child.action) {
 			child.action = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>}/>;

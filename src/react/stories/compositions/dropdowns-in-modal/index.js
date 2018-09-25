@@ -53,14 +53,14 @@ test.add(storyNames.multiDropDowns, () => {
 		<div className="xui-u-flex">
 			<XUITextInput
 				fieldClassName="xui-margin-small"
-				labelText="Input label"
+				label="Input label"
 				isLabelHidden
 			/>
 			<XUIModal isOpen>
 				<XUIModalBody>
 					This is some Modal content.
 					<XUITextInput
-						labelText="Input label"
+						label="Input label"
 						isLabelHidden
 					/>
 					<DropDownToggled
@@ -70,7 +70,7 @@ test.add(storyNames.multiDropDowns, () => {
 					/>
 					This is some Modal content.
 					<XUITextInput
-						labelText="Input label"
+						label="Input label"
 						isLabelHidden
 					/>
 					<DropDownToggled
@@ -78,14 +78,14 @@ test.add(storyNames.multiDropDowns, () => {
 						dropdown={buildDropdownPicklist(lists.MedListMedItems)}
 					/>
 					<XUITextInput
-						labelText="Input label"
+						label="Input label"
 						isLabelHidden
 					/>
 				</XUIModalBody>
 			</XUIModal>
 			<XUITextInput
 				fieldClassName="xui-margin-vertical-small"
-				labelText="Input label"
+				label="Input label"
 				isLabelHidden
 			/>
 		</div>

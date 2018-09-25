@@ -27,7 +27,7 @@ export default class XUIToggle extends PureComponent {
 			layout,
 			variant,
 			secondaryProps,
-			labelText,
+			label,
 			isLabelHidden,
 			fieldClassName,
 			isFieldLayout,
@@ -61,7 +61,7 @@ export default class XUIToggle extends PureComponent {
 				isGroup
 				{...{
 					qaHook,
-					labelText,
+					label,
 					isInvalid,
 					validationMessage,
 					hintMessage,
@@ -75,7 +75,7 @@ export default class XUIToggle extends PureComponent {
 					role={ariaRole}
 					className={classes}
 					data-automationid={qaHook}
-					{...getAriaAttributes(this.wrapperIds, this.props)}
+					{...getAriaAttributes(this.wrapperIds, this.props, true)}
 				>
 					{children}
 				</div>
@@ -97,7 +97,7 @@ XUIToggle.propTypes = {
 	/** Additional props to pass to the toggle element */
 	secondaryProps: PropTypes.object,
 	/** Label to show above the toggle */
-	labelText: PropTypes.string,
+	label: PropTypes.node,
 	/** Should label be applied as an aria-label, rather than being visibly displayed. */
 	isLabelHidden: PropTypes.bool,
 	/** Class names to add to the label */

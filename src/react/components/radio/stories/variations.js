@@ -53,7 +53,7 @@ const variations = [
 		storyTitle: 'is Radio Group',
 		isGroup: true,
 		groupProps: {
-			labelText: 'Radio Group',
+			label: 'Radio Group',
 			hintMessage: 'I am a hint',
 		}
 	},
@@ -62,7 +62,7 @@ const variations = [
 		storyTitle: 'is Radio Group Invalid',
 		isGroup: true,
 		groupProps: {
-			labelText: 'Radio Group',
+			label: 'Radio Group',
 			hintMessage: 'hello',
 			isInvalid: true,
 			validationMessage: 'whoops',

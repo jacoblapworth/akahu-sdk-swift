@@ -91,7 +91,7 @@ export default class XUIRolloverCheckbox extends PureComponent {
 			qaHook,
 			size,
 			isCheckboxHidden,
-			labelText,
+			label,
 			ariaLabelledBy,
 		} = this.props;
 		const {
@@ -133,7 +133,7 @@ export default class XUIRolloverCheckbox extends PureComponent {
 						className={showRollover ? `${baseClass}-hidden` : null}
 						tabIndex={0}
 						labelId={ariaLabelledBy}
-					>{labelText}
+					>{label}
 					</XUICheckbox>
 				</div>
 			</div>
@@ -159,7 +159,7 @@ XUIRolloverCheckbox.propTypes = {
 	/** Determine the size of the target, accepts small, medium, large or xlarge */
 	size: PropTypes.string,
 	/** Input label for accessibility purposes. Will not be visibly displayed. */
-	labelText: PropTypes.string,
+	label: PropTypes.node,
 	/** Optionally provide the id of an element that provides a label for the checkbox */
 	ariaLabelledBy: PropTypes.string,
 };

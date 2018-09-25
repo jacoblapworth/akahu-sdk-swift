@@ -43,13 +43,13 @@ describe('XUIAutocompleter', () => {
 	});
 
 	it('renders with the provided label', () => {
-		const inputEl = renderer.create(createComponent({inputLabelText: "Im a little label"}));
+		const inputEl = renderer.create(createComponent({inputLabel: "Im a little label"}));
 
 		expect(inputEl).toMatchSnapshot();
 	});
 
 	it('renders with a hidden label', () => {
-		const inputEl = renderer.create(createComponent({inputLabelText: "Im a little label", isInputLabelHidden: true}));
+		const inputEl = renderer.create(createComponent({inputLabel: "Im a little label", isInputLabelHidden: true}));
 
 		expect(inputEl).toMatchSnapshot();
 	});

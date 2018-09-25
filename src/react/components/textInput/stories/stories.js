@@ -29,7 +29,7 @@ const childSizeClassMap = {
 
 const TextInputWrapper = props => {
 	const {
-		labelText,
+		label,
 		inputProps,
 		isBorderlessTransparent,
 		isBorderlessSolid,
@@ -116,7 +116,7 @@ const TextInputWrapper = props => {
 	return (
 		<XUITextInput
 			{...{
-				labelText,
+				label,
 				inputProps,
 				isBorderlessTransparent,
 				isBorderlessSolid,
@@ -154,7 +154,7 @@ TextInputWrapper.defaultProps = {
 };
 
 TextInputWrapper.propTypes = {
-	labelText: PropTypes.string,
+	label: PropTypes.node,
 	inputProps: PropTypes.object,
 	isBorderlessTransparent: PropTypes.bool,
 	isBorderlessSolid: PropTypes.bool,
@@ -186,7 +186,7 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
 	<TextInputWrapper
-		labelText={text('label text', 'Test label')}
+		label={text('label text', 'Test label')}
 		isLabelHidden={boolean('is label hidden', false)}
 		placeholder={text('placeholder', 'placeholder text')}
 		value={text('value')}
@@ -217,8 +217,8 @@ variations.forEach(variation => {
 		const variationMinusStoryDetails = { ...variation };
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
-		if (!variationMinusStoryDetails.labelText) {
-			variationMinusStoryDetails.labelText = 'Test label';
+		if (!variationMinusStoryDetails.label) {
+			variationMinusStoryDetails.label = 'Test label';
 			variationMinusStoryDetails.isLabelHidden = true;
 		}
 

@@ -89,14 +89,14 @@ test.add(storyNames.formOnAPage, () => {
 					{/* Major section */}
 					<XUIColumn gridColumns="half">
 						<XUITextInput
-							labelText="An input"
+							label="An input"
 						/>
 					</XUIColumn>
 					<XUIColumn gridColumns="half">
 						<XUITextInput
 							isFieldLayout
 							hintMessage="I'm second"
-							labelText="Another input"
+							label="Another input"
 						/>
 					</XUIColumn>
 
@@ -118,7 +118,7 @@ test.add(storyNames.formOnAPage, () => {
 					{/* Major section */}
 					<XUIColumn gridColumns="half">
 
-						<XUICheckboxGroup labelText="Grouped checkboxes">
+						<XUICheckboxGroup label="Grouped checkboxes">
 							<XUICheckbox>Tūī</XUICheckbox>
 							<XUICheckbox>Pīwakawaka</XUICheckbox>
 							<XUICheckbox>Ruru</XUICheckbox>
@@ -128,7 +128,7 @@ test.add(storyNames.formOnAPage, () => {
 					</XUIColumn>
 					<XUIColumn gridColumns="half">
 
-						<XUIRadioGroup labelText="Grouped radios">
+						<XUIRadioGroup label="Grouped radios">
 							<XUIRadio name="radioGroup">Wellington</XUIRadio>
 							<XUIRadio name="radioGroup">Canberra</XUIRadio>
 							<XUIRadio name="radioGroup">Washington D.C</XUIRadio>
@@ -145,7 +145,7 @@ test.add(storyNames.formOnAPage, () => {
 					{/* Major section */}
 					<XUIColumn gridColumns="full">
 						<XUITextInput
-							labelText="A textarea"
+							label="A textarea"
 							isMultiline
 							minRows={2}
 							maxRows={5}
@@ -164,7 +164,7 @@ test.add(storyNames.formOnAPage, () => {
 						</XUIColumn>
 						<XUIColumn gridColumns="half">
 							<SelectBox
-								labelText="A simple select box"
+								label="A simple select box"
 								name="selectOne"
 								buttonContent="Hello world"
 								isTextTruncated={false}

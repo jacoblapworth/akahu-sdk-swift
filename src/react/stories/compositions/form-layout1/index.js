@@ -189,14 +189,14 @@ test.add(storyNames.formLayout, () => {
 
 						<PanelSection formLayout headerContent="Inputs" className="xui-padding-vertical">
 							<XUITextInput
-								labelText="Account Holder"
+								label="Account Holder"
 								isFieldLayout
 								name={inputMap.ah}
 								id={inputMap.ah}
 							/>
 
 							<XUITextInput
-								labelText="IRD Number"
+								label="IRD Number"
 								isFieldLayout
 								hintMessage="Found on the top of your IR3 statement"
 								inputProps={{
@@ -206,7 +206,7 @@ test.add(storyNames.formLayout, () => {
 							/>
 
 							<XUITextInput
-								labelText="Bank account number"
+								label="Bank account number"
 								defaultValue="A very invalid message"
 								validationMessage="Well, it's not right is it"
 								isInvalid
@@ -222,17 +222,17 @@ test.add(storyNames.formLayout, () => {
 							</InputLabel>
 							<InputGroup isFieldLayout>
 								<XUITextInput
-									labelText="First name"
+									label="First name"
 									isLabelHidden
 									inputProps={{name:inputMap.nameFirst, id: inputMap.nameFirst}}
 								/>
 								<XUITextInput
-									labelText="Middle name"
+									label="Middle name"
 									isLabelHidden
 									inputProps={{name:inputMap.nameMiddle, id: inputMap.nameMiddle}}
 								/>
 								<XUITextInput
-									labelText="Last name"
+									label="Last name"
 									isLabelHidden
 									inputProps={{name:inputMap.nameLast, id: inputMap.nameLast}}
 								/>
@@ -269,7 +269,7 @@ test.add(storyNames.formLayout, () => {
 								/>
 								<XUITextInput
 									fieldClassName="xui-u-flex-1"
-									labelText="Input label"
+									label="Input label"
 									isLabelHidden
 									inputProps={{
 										name: inputMap.foodName,
@@ -287,7 +287,7 @@ test.add(storyNames.formLayout, () => {
 									id: inputMap.autoResize
 								}}
 								isFieldLayout
-								labelText="This textarea auto-resizes"
+								label="This textarea auto-resizes"
 							/>
 
 						</PanelSection>
@@ -308,7 +308,7 @@ test.add(storyNames.formLayout, () => {
 								Add people
 							</InputLabel>
 							<XUIAutocompleter
-								inputLabelText="input label"
+								inputLabel="input label"
 								isInputLabelHidden
 								className="xui-field-layout"
 								ref={ac => this._autocompleter = ac}
@@ -339,7 +339,7 @@ test.add(storyNames.formLayout, () => {
 
 							<XUIRadioGroup
 								isFieldLayout
-								labelText="Choose a city"
+								label="Choose a city"
 							>
 								{
 									[
@@ -363,7 +363,7 @@ test.add(storyNames.formLayout, () => {
 
 							<XUICheckboxGroup
 								isFieldLayout
-								labelText="Favourite Birds"
+								label="Favourite Birds"
 							>
 								{
 									[
@@ -385,7 +385,7 @@ test.add(storyNames.formLayout, () => {
 								}
 							</XUICheckboxGroup>
 
-							<XUIToggle className="xui-field-layout" layout="fullwidth" labelText="Choose one colour">
+							<XUIToggle className="xui-field-layout" layout="fullwidth" label="Choose one colour">
 								{
 									[
 										'Red',
@@ -409,7 +409,7 @@ test.add(storyNames.formLayout, () => {
 								}
 							</XUIToggle>
 
-							<XUIToggle className="xui-field-layout" layout="fullwidth" labelText="Choose many colours">
+							<XUIToggle className="xui-field-layout" layout="fullwidth" label="Choose many colours">
 								{
 									[
 										'Red',

@@ -64,7 +64,7 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
 						footer={this.renderFooter(false)}
 						onSearch={this.onSearch}
 						value={this.state.value}
-						inputLabelText="label here"
+						inputLabel="label here"
 						isInputLabelHidden
 						openOnFocus
 					>

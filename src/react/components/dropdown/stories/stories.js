@@ -203,7 +203,7 @@ function buildDropDown(ddSettings) {
 const createTriggerInput = props => (
 	<XUITextInput
 		placeholder="Placeholder text"
-		labelText="Input label"
+		label="Input label"
 		isLabelHidden
 		{...props}
 	/>

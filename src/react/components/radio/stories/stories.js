@@ -34,10 +34,10 @@ variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
 
 		const {isGroup, isSeries, groupProps } = variation;
-		const labelText = typeof variation.labelText === 'string' ? variation.labelText : "Test radio";
+		const label = typeof variation.labelText === 'string' ? variation.labelText : "Test radio";
 
 		// Remove story-specific properties
-		const radioProps = { ...variation, storyKind: undefined, storyTitle: undefined, isGroup: undefined, labelText: undefined };
+		const radioProps = { ...variation, storyKind: undefined, storyTitle: undefined, isGroup: undefined, label: undefined };
 
 		if (isGroup) {
 			return <XUIRadioGroup {...groupProps}>
@@ -52,7 +52,7 @@ variations.forEach(variation => {
 				<XUIRadio key="r1-3" name="rg1">Third</XUIRadio>
 			</div>
 		} else {
-			return <XUIRadio {...radioProps}>{labelText}</XUIRadio>;
+			return <XUIRadio {...radioProps}>{label}</XUIRadio>;
 		}
 	});
 });

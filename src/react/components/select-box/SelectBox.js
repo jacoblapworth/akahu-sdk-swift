@@ -59,7 +59,7 @@ export default class SelectBox extends Component {
 			onSelect,
 			restrictFocus,
 			children,
-			labelText,
+			label,
 			onDropdownHide,
 			closeAfterSelection,
 			isOpen,
@@ -114,7 +114,7 @@ export default class SelectBox extends Component {
 				restrictFocus={restrictFocus}
 				id={selectBox.selectId}
 				// These aria attributes currently go nowhere
-				ariaAttributes={getAriaAttributes(this.wrapperIds.label, this.props)}
+				ariaAttributes={getAriaAttributes(this.wrapperIds.control, this.props)}
 			>
 				<Picklist>
 					{children}
@@ -130,7 +130,7 @@ export default class SelectBox extends Component {
 					wrapperIds={this.wrapperIds}
 					{...{
 						isLabelHidden,
-						labelText,
+						label,
 						isInvalid,
 						validationMessage,
 						hintMessage,
@@ -169,7 +169,7 @@ export default class SelectBox extends Component {
 SelectBox.propTypes = {
 	children: PropTypes.node,
 	/** Input Label */
-	labelText: PropTypes.string.isRequired,
+	label: PropTypes.node.isRequired,
 
 	/** Additional classes to be applied to the label */
 	labelClassName: PropTypes.string,

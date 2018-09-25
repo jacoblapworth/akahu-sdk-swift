@@ -24,7 +24,7 @@ export default class XUICheckboxGroup extends PureComponent {
 			children,
 			className,
 			qaHook,
-			labelText,
+			label,
 			isLabelHidden,
 			isFieldLayout,
 			labelClassName,
@@ -53,7 +53,7 @@ export default class XUICheckboxGroup extends PureComponent {
 				isGroup
 				{...{
 					qaHook,
-					labelText,
+					label,
 					isInvalid,
 					validationMessage,
 					hintMessage,
@@ -65,7 +65,7 @@ export default class XUICheckboxGroup extends PureComponent {
 				<div
 					className={cn(className, `${baseClass}-group`)}
 					data-automationid={qaHook}
-					{...getAriaAttributes(this.wrapperIds, this.props)}
+					{...getAriaAttributes(this.wrapperIds, this.props, true)}
 				>
 					{childrenToRender}
 				</div>
@@ -81,7 +81,7 @@ XUICheckboxGroup.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 	/** Label the radio group for accessibility. Highly recommended */
-	labelText: PropTypes.string,
+	label: PropTypes.node,
 	/** Whether the label should be visible or hidden. Defaults to visible */
 	isLabelHidden: PropTypes.bool,
 	/** Whether to use the field layout classes. Defaults to true. */

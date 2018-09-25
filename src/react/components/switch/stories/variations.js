@@ -28,13 +28,11 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with hint text',
-		labelText: 'Switch with a hint',
 		hintMessage: 'Whether or not to select',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'invalid with message',
-		labelText: 'Invalid with validation message',
 		validationMessage: 'This option must be enabled to proceed',
 		isInvalid: true,
 	},
@@ -43,7 +41,7 @@ const variations = [
 		storyTitle: 'is grouped and reversed',
 		isGroup: true,
 		groupProps: {
-			labelText: 'Group of switches',
+			label: 'Group of switches',
 			hintMessage: 'This is a hint message',
 		}
 	},
@@ -52,7 +50,7 @@ const variations = [
 		storyTitle: 'is grouped and invalid',
 		isGroup: true,
 		groupProps: {
-			labelText: 'Group of switches',
+			label: 'Group of switches',
 			hintMessage: 'hello',
 			isInvalid: true,
 			validationMessage: 'whoops',

@@ -42,7 +42,7 @@ export default class LayoutSelect extends React.Component {
 				<SelectBox
 					ref={c => this.selectOne = c}
 					name={name}
-					labelText={label}
+					label={label}
 					htmlFor={htmlFor}
 					buttonContent={
 						<span>

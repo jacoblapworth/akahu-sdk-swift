@@ -211,7 +211,7 @@ class DetailedListExample extends Component {
 					loading={isLoading}
 					dropdownSize={dropdownSize}
 					isDisabled={isDisabled}
-					inputLabelText="Sample Autocompleter"
+					inputLabel="Sample Autocompleter"
 					disableWrapPills={disableWrapPills}
 					isInputLabelHidden={isInputLabelHidden === undefined ? true : isInputLabelHidden}
 					isInvalid={isInvalid}
@@ -350,7 +350,7 @@ class SecondarySearchExample extends React.Component {
 					onOptionSelect={this.onOptionSelect}
 					onSearch={this.onSearch}
 					dropdownSize="medium"
-					inputLabelText="secondary search label"
+					inputLabel="secondary search label"
 					isInputLabelHidden
 					qaHook='secondary-search'
 					closeOnTab={false}

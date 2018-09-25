@@ -216,7 +216,7 @@ export default class XUIAutocompleter extends PureComponent {
 			placeholder,
 			rightElement,
 			isDisabled,
-			inputLabelText,
+			inputLabel,
 			isInputLabelHidden,
 			inputProps,
 			maxLength,
@@ -292,7 +292,7 @@ export default class XUIAutocompleter extends PureComponent {
 					onKeyDown={this.onInputKeyDown}
 					qaHook={inputQaHook}
 					isDisabled={isDisabled}
-					labelText={inputLabelText}
+					label={inputLabel}
 					isLabelHidden={isInputLabelHidden}
 					isInvalid={isInvalid}
 					validationMessage={validationMessage}
@@ -400,7 +400,7 @@ XUIAutocompleter.propTypes = {
 	inputContainerClassName: PropTypes.string,
 
 	/** Label to show above the input */
-	inputLabelText: PropTypes.string,
+	inputLabel: PropTypes.node,
 
 	/** Should label be applied as an aria-label, rather than being visibly displayed. */
 	isInputLabelHidden: PropTypes.bool,

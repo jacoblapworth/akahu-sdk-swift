@@ -62,12 +62,12 @@ const labelAndValidationStories = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a label',
-		labelText: 'Label text',
+		label: 'Label text',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a hidden label',
-		labelText: 'Label text',
+		label: 'Label text',
 		isLabelHidden: true,
 	},
 	{

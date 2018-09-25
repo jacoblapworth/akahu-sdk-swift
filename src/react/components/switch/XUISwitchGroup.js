@@ -24,7 +24,7 @@ export default class XUISwitchGroup extends PureComponent {
 			children,
 			className,
 			qaHook,
-			labelText,
+			label,
 			isLabelHidden,
 			isFieldLayout,
 			labelClassName,
@@ -46,7 +46,7 @@ export default class XUISwitchGroup extends PureComponent {
 				isGroup
 				{...{
 					qaHook,
-					labelText,
+					label,
 					isInvalid,
 					validationMessage,
 					hintMessage,
@@ -58,7 +58,7 @@ export default class XUISwitchGroup extends PureComponent {
 				<div
 					className={cn(className, `${baseClass}-group`)}
 					data-automationid={qaHook}
-					{...getAriaAttributes(this.wrapperIds, this.props)}
+					{...getAriaAttributes(this.wrapperIds, this.props, true)}
 				>
 					{children}
 				</div>
@@ -74,7 +74,7 @@ XUISwitchGroup.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 	/** Label the radio group for accessibility. Highly recommended */
-	labelText: PropTypes.string,
+	label: PropTypes.node,
 	/** Whether the label should be visible or hidden. Defaults to visible */
 	isLabelHidden: PropTypes.bool,
 	/** Whether to use the field layout classes. Defaults to false. */

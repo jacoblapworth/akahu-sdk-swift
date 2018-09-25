@@ -74,20 +74,18 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'grouped',
-		labelText: 'Grouped Example',
 		isGroup: true,
 		groupProps: {
-			labelText: 'Birds',
+			label: 'Birds',
 			hintMessage: 'This is a clue',
 		}
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'grouped and invalid',
-		labelText: 'Grouped Invalid Example',
 		isGroup: true,
 		groupProps: {
-			labelText: 'Birds',
+			label: 'Birds',
 			hintMessage: 'hello',
 			isInvalid: true,
 			validationMessage: 'whoops',

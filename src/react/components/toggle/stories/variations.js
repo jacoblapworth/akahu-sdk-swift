@@ -4,7 +4,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Unstyled',
-		labelText: 'text-label',
+		label: 'text-label',
 		isLabelHidden: true,
 		options: [
 			{
@@ -24,7 +24,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Toggle Options',
-		labelText: 'text-label',
+		label: 'text-label',
 		labelId: 'testme',
 		layout: 'fullwidth',
 		options: [
@@ -47,7 +47,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Inverted Options',
-		labelText: 'text-label',
+		label: 'text-label',
 		isLabelHidden: true,
 		layout: 'fullwidth',
 		color: 'inverted',
@@ -71,7 +71,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checked / Disabled',
-		labelText: 'text-label',
+		label: 'text-label',
 		isLabelHidden: true,
 		layout: 'fullwidth',
 		options: [
@@ -90,7 +90,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Inverted Checked / Disabled',
-		labelText: 'text-label',
+		label: 'text-label',
 		isLabelHidden: true,
 		layout: 'fullwidth',
 		color: 'inverted',
@@ -110,7 +110,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Small Variant',
-		labelText: 'text-label',
+		label: 'text-label',
 		isLabelHidden: true,
 		layout: 'fullwidth',
 		variant: 'small',
@@ -133,7 +133,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checkboxes',
-		labelText: 'text-label',
+		label: 'text-label',
 		isLabelHidden: true,
 		layout: 'fullwidth',
 		options: [
@@ -157,7 +157,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with hint text',
-		labelText: 'Toggle with a hint',
+		label: 'Toggle with a hint',
 		hintMessage: 'You must pick at least one to proceed',
 		layout: 'fullwidth',
 		options: [
@@ -183,7 +183,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'invalid with message',
-		labelText: 'Invalid with validation message',
+		label: 'Invalid with validation message',
 		validationMessage: 'Please select an option to proceed',
 		isInvalid: true,
 		layout: 'fullwidth',

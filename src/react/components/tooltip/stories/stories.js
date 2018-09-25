@@ -20,7 +20,7 @@ import { positionOptions } from '../../positioning/private/constants';
 const createTriggerInput = props => (
 	<XUITextInput
 		placeholder="Placeholder text"
-		labelText="Input label"
+		label="Input label"
 		isLabelHidden
 		{...props}
 	/>
@@ -28,7 +28,7 @@ const createTriggerInput = props => (
 const createTipInput = () => (
 	<XUITextInput
 		placeholder="Placeholder text"
-		labelText="Input label"
+		label="Input label"
 		isLabelHidden
 		className="xui-input-borderless-inverted xui-input-borderless xui-input-borderless-solid"
 	/>

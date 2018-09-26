@@ -36,6 +36,7 @@
 
 .#{$ns}-select--content {
 	@include xui-text-truncated;
+	width: 100%;
 }
 
 .#{$ns}-select--button {

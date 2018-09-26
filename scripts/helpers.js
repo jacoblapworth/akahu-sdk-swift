@@ -82,6 +82,7 @@ function taskRunner(task, fileName) {
 		if (stderr) {
 			console.error(stderr);
 			thisTask.fail(`${title} failed to finish successfully`);
+			process.exit(1);
 		}
 		if ((stdout !== null && typeof stdout === 'string') || stdout) {
 			typeof stdout === 'string' && console.log(`\n\n${stdout}`);

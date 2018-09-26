@@ -32,11 +32,8 @@ function doPostCss(
 						})
 						.then(succeed)
 						.catch(fail);
-
 				})
-				.catch(error => console.log(error));
 		})
-		.catch(error => console.log(error));
 }
 
 module.exports = doPostCss;

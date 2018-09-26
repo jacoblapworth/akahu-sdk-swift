@@ -13,15 +13,11 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 	display: block;
 }
 
-.#{$ns}-textinput {
-	@include xui-commoninput;
-	@include xui-text-standard;
-	align-items: center;
-	cursor: text;
-	display: flex;
-	padding: 0;
-}
-
+// The xui-textinput--input class needs to be defined before xui-textinput so that if a component has
+// both xui-textinput and xui-textinput--input applied (e.g. on a single <input /> with no wrapper),
+// the border styles and background colors from xui-textinput override those specified here.
+// This is a hack until we decide whether we want to stop supporting this use-case (it's scattered
+// throughout our docs)
 .#{$ns}-textinput--input {
 	@include xui-input-base;
 	@include xui-padding-vertical($input-text-vertical-padding-standard);
@@ -39,6 +35,15 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 	&.#{$ns}-textinput {
 		padding-right: $xui-s-standard;
 	}
+}
+
+.#{$ns}-textinput {
+	@include xui-commoninput;
+	@include xui-text-standard;
+	align-items: center;
+	cursor: text;
+	display: flex;
+	padding: 0;
 }
 
 .#{$ns}-textinput-is-invalid {
@@ -85,6 +90,7 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 }
 
 .#{$ns}-textinput--sideelement-icon {
+	align-items: center; // Center icon vertically
 	padding: $xui-s-2xsmall;
 }
 

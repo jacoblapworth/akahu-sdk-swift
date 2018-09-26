@@ -59,7 +59,7 @@ export default class DropDownLayout extends PureComponent {
 			!isHidden && `${baseClass}-is-open`,
 			animateClosed && `${baseClass}-is-closing`,
 			animateOpen && `${baseClass}-is-opening`,
-			forceDesktop && `${baseClass}--force-desktop`,
+			forceDesktop && `${baseClass}-force-desktop`,
 		);
 
 		return (

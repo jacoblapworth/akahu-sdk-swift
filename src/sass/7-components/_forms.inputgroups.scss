@@ -1,34 +1,6 @@
 @import "../vars";
 @import "../mixins";
 
-//TODO: Remove these classes or `xui-textinputgroup` classes for XUI 14 - we don't need both & the name of these is more accurate
-.#{$ns}-verticalinputgroup {
-	// Only add top border radius to the first element
-	.#{$ns}-textinput:first-of-type,
-	.#{$ns}-textinputwrapper:first-of-type > .#{$ns}-textinput {
-		border-radius: 3px 3px 0 0;
-	}
-
-	// Add the margin adjustment to all elements but the first
-	.#{$ns}-textinput:nth-of-type(n+2),
-	.#{$ns}-textinputwrapper:nth-of-type(n+2) > .#{$ns}-textinput {
-		margin-top: -1px;
-	}
-
-	// On all elements except the first and last one, border radius 0 is required
-	.#{$ns}-textinput:nth-of-type(n+2):nth-last-of-type(n+2),
-	.#{$ns}-textinputwrapper:nth-of-type(n+2):nth-last-of-type(n+2) > .#{$ns}-textinput {
-		border-radius: 0;
-	}
-
-	// Only add bottom border radius to the last element
-	.#{$ns}-textinput:last-of-type,
-	.#{$ns}-textinputwrapper:last-of-type > .#{$ns}-textinput {
-		border-radius: 0 0 3px 3px;
-	}
-}
-
-
 .#{$ns}-inputgroup > .#{$ns}-textinput,
 .#{$ns}-inputgroup > .#{$ns}-button,
 .#{$ns}-inputgroup .#{$ns}-select--control {

@@ -1,0 +1,768 @@
+@import "../vars";
+@import "../mixins";
+
+// Table
+//
+// Teaser: Used to compare, contrast and sort large amounts of data.
+//
+// Introduction: Tables are used to compare, contrast, and sort large amounts of data. They are often used as an advanced alternative view to a content block.
+//
+// Styleguide: Compounds.DisplayingData.Table
+
+// Anatomy
+//
+// Tables can be broken into various semantic chunks *(Head, Body, Row and Cell)* each with their own set of class permutations that can compose a broad set of layout compositions.
+// We recommend using the **XUI React** Table component to easily create layout compositions and more advanced table functionality.
+//
+// Classes:
+// xui-table: Apply to table
+// xui-table--row: Apply to each row, including headers
+// xui-table--cell: Apply to each individual cell, including headers
+//
+// Styleguide: Compounds.DisplayingData.Table.1
+
+// Headers
+//
+// Table headers inherit a standard typographic preset with the last column is always right aligned.
+// In the case of a sortable table, make sure to include an inline sort icon also.
+//
+// Classes:
+// xui-table--head: Apply to the table head section
+// xui-heading-separator: Sets correct text style for table headers
+//
+// Styleguide: Compounds.DisplayingData.Table.2
+
+// Standard
+//
+// Tips:
+// Do: Prioritise column order left to right
+// Warning: Avoid using too many columns to improve cognitive load
+//
+// Markup:
+// <div class="xui-table xui-panel xui-table-hasheader">
+//   <div class="xui-table-wrapper">
+//     <table class="xui-table-element">
+//       <thead class="xui-table--head">
+//         <tr class="xui-table--row xui-text-align-left">
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-first" tabindex="0"><span>Fruit</span></th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-second" tabindex="0"><span>Color</span></th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-secondtolast" tabindex="0"><span>Inventory</span></th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-last" tabindex="0"><span>Price</span></th>
+//         </tr>
+//       </thead>
+//       <tbody class="xui-table--body"></tbody>
+//     </table>
+//   </div>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Table.2.1
+
+// Sortable ascending
+//
+// Tips:
+// Do: Include a sort icon to indicate which column is currently selected
+// Do: Reverse the sort direction with each subsequent selection
+//
+// Markup:
+// <div class="xui-table xui-panel xui-table-hasheader">
+//   <div class="xui-table-wrapper">
+//     <table class="xui-table-element">
+//       <thead class="xui-table--head">
+//         <tr class="xui-table--row xui-text-align-left">
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-first xui-table--sortbutton xui-table--sortbutton-active"
+//            role="button" tabindex="0">
+//             <div><span>Fruit</span><svg focusable="false" class="xui-icon xui-table--sortbutton-icon" width="8" height="11"
+//                viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Color</span><svg focusable="false" class="xui-icon xui-table--sortbutton-icon" width="8" height="11"
+//                viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-secondtolast xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Inventory</span><svg focusable="false" class="xui-icon xui-table--sortbutton-icon" width="8"
+//                height="11" viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-last xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Price</span><svg focusable="false" class="xui-icon xui-table--sortbutton-icon" width="8" height="11"
+//                viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//         </tr>
+//       </thead>
+//       <tbody class="xui-table--body">
+//         <tr class="xui-table--row">
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">Apple</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Red</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">348</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">$2.99</td>
+//         </tr>
+//         <tr class="xui-table--row">
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">Banana</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Yellow</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">46</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">$3.49</td>
+//         </tr>
+//         <tr class="xui-table--row">
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">Strawberries</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Red</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">179</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">$1.49</td>
+//         </tr>
+//       </tbody>
+//     </table>
+//   </div>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Table.2.2
+
+// Body
+//
+// Body content inherits a standard typographic preset with the option to provide visual overrides *(**Boldening** the first column for example)*.
+//
+// Classes:
+// xui-table--body: Apply to the table body section
+// xui-table--cell-divider: Apply a horizontal divider to seperate content from the cell above
+// xui-padding-small: Apply the recommended cell padding
+//
+// Styleguide: Compounds.DisplayingData.Table.3
+
+// Standard
+//
+// Tips:
+// Warning: Avoid including too many columns
+//
+// Markup:
+// <div class="xui-table xui-panel xui-table-hasheader">
+//   <div class="xui-table-wrapper">
+//     <table class="xui-table-element">
+//       <thead class="xui-table--head">
+//         <tr class="xui-table--row xui-text-align-left">
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-first xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Country</span><svg focusable="false" class="xui-icon xui-table--sortbutton-icon" width="8" height="11"
+//                viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Capital City</span><svg focusable="false" class="xui-icon xui-table--sortbutton-icon" width="8"
+//                height="11" viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-secondtolast xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Language</span><svg focusable="false" class="xui-icon xui-table--sortbutton-icon" width="8" height="11"
+//                viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-last xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Population</span><svg focusable="false" class="xui-icon xui-table--sortbutton-icon" width="8"
+//                height="11" viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//         </tr>
+//       </thead>
+//       <tbody class="xui-table--body">
+//         <tr class="xui-table--row">
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">China</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Beijing</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">Mandarin</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">1.35 billion</td>
+//         </tr>
+//         <tr class="xui-table--row">
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">United States</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Washington, D.C.</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">English</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">316.67 million</td>
+//         </tr>
+//         <tr class="xui-table--row">
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">Russia</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Moscow</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">Russian</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">142.5 million</td>
+//         </tr>
+//       </tbody>
+//     </table>
+//   </div>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Table.3.1
+
+// With actions
+//
+// Tips:
+// Do: Include an overflow menu to surface any actions that can be performed on the individual row
+// Do: Always include bulk select controls if any action can be performed, as this is an advanced view mode
+// Warning: Only show resulting bulk actions on select
+//
+// Markup:
+// <div class="xui-table xui-panel xui-table-hasheader">
+//   <div class="xui-table-wrapper">
+//     <table class="xui-table-element">
+//       <thead class="xui-table--head">
+//         <tr class="xui-table--row xui-text-align-left">
+//           <th class="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first" tabindex="-1">&nbsp;<label class="xui-table--checkbox-head xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select all rows"
+//                tabindex="0" class="xui-styledcheckboxradio--input" value=""><div class="xui-styledcheckboxradio--checkbox"></div></label></th>
+//           <th
+//            class="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Country</span><svg focusable="false" class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
+//                width="8" height="11" viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Capital City</span><svg focusable="false" class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
+//                width="8" height="11" viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Language</span><svg focusable="false" class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
+//                width="8" height="11" viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-secondtolast xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Population</span><svg focusable="false" class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
+//                width="8" height="11" viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//           <th class="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-last" tabindex="0">&nbsp;</th>
+//         </tr>
+//       </thead>
+//       <tbody class="xui-table--body">
+//         <tr class="xui-table--row">
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
+//                tabindex="0" class="xui-styledcheckboxradio--input" value=""><div class="xui-styledcheckboxradio--checkbox"></div></label></td>
+//           <td
+//            tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"><span class="xui-text-emphasis">China</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Beijing</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Mandarin</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">1.35 billion</td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
+//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
+//                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
+//                       row options</title>
+//                     <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+//                      role="presentation"></path></svg></div></button></div>
+//           </td>
+//         </tr>
+//         <tr class="xui-table--row">
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
+//                tabindex="0" class="xui-styledcheckboxradio--input" value=""><div class="xui-styledcheckboxradio--checkbox"></div></label></td>
+//           <td
+//            tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"><span class="xui-text-emphasis">United States</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Washington, D.C.</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">English</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">316.67 million</td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
+//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
+//                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
+//                       row options</title>
+//                     <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+//                      role="presentation"></path></svg></div></button></div>
+//           </td>
+//         </tr>
+//         <tr class="xui-table--row">
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
+//                tabindex="0" class="xui-styledcheckboxradio--input" value=""><div class="xui-styledcheckboxradio--checkbox"></div></label></td>
+//           <td
+//            tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"><span class="xui-text-emphasis">Russia</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Moscow</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Russian</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">142.5 million</td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
+//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
+//                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
+//                       row options</title>
+//                     <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+//                      role="presentation"></path></svg></div></button></div>
+//           </td>
+//         </tr>
+//       </tbody>
+//     </table>
+//   </div>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Table.3.2
+
+// With avatar
+//
+// Tips:
+// Do: When users or contacts are the primary data involved, include avatars for additional context
+// Do: Keep avatar and checkbox inline
+// Warning: Avoid use of avatar with a rollover checkbox
+//
+// Markup:
+// <div class="xui-table xui-panel xui-table-hasheader">
+//   <div class="xui-table-wrapper">
+//     <table class="xui-table-element">
+//       <thead class="xui-table--head">
+//         <tr class="xui-table--row xui-text-align-left">
+//           <th class="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first" tabindex="-1">&nbsp;<label class="xui-table--checkbox-head xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select all rows"
+//                tabindex="0" class="xui-styledcheckboxradio--input" value=""><div class="xui-styledcheckboxradio--checkbox"></div></label></th>
+//           <th
+//            class="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Country</span><svg focusable="false" class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
+//                width="8" height="11" viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Capital City</span><svg focusable="false" class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
+//                width="8" height="11" viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Language</span><svg focusable="false" class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
+//                width="8" height="11" viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-secondtolast xui-table--sortbutton" role="button" tabindex="0">
+//             <div><span>Population</span><svg focusable="false" class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
+//                width="8" height="11" viewBox="0 0 8 11"><path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path></svg></div>
+//           </th>
+//           <th class="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-last" tabindex="0">&nbsp;</th>
+//         </tr>
+//       </thead>
+//       <tbody class="xui-table--body">
+//         <tr class="xui-table--row">
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
+//                tabindex="0" class="xui-styledcheckboxradio--input" value=""><div class="xui-styledcheckboxradio--checkbox"></div></label></td>
+//           <td
+//            tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
+//             <div class="xui-u-flex xui-u-flex-align-center">
+//               <span class="xui-margin-right"><abbr class="xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">C</abbr></span>
+//               <span class="xui-text-emphasis">China</span>
+//             </div>
+//           </td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Beijing</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Mandarin</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">1.35 billion</td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
+//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
+//                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
+//                       row options</title>
+//                     <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+//                      role="presentation"></path></svg></div></button></div>
+//           </td>
+//         </tr>
+//         <tr class="xui-table--row">
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
+//                tabindex="0" class="xui-styledcheckboxradio--input" value=""><div class="xui-styledcheckboxradio--checkbox"></div></label></td>
+//           <td
+//            tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
+//             <div class="xui-u-flex xui-u-flex-align-center">
+//               <span class="xui-margin-right"><abbr class="xui-avatar xui-avatar-small xui-avatar-color-2" role="presentation">US</abbr></span>
+//               <span class="xui-text-emphasis">United States</span>
+//             </div>
+//           </td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Washington, D.C.</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">English</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">316.67 million</td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
+//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
+//                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
+//                       row options</title>
+//                     <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+//                      role="presentation"></path></svg></div></button></div>
+//           </td>
+//         </tr>
+//         <tr class="xui-table--row">
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
+//                tabindex="0" class="xui-styledcheckboxradio--input" value=""><div class="xui-styledcheckboxradio--checkbox"></div></label></td>
+//           <td
+//            tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
+//             <div class="xui-u-flex xui-u-flex-align-center">
+//               <span class="xui-margin-right"><abbr class="xui-avatar xui-avatar-small xui-avatar-color-3" role="presentation">R</abbr></span>
+//               <span class="xui-text-emphasis">Russia</span>
+//             </div>
+//           </td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Moscow</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Russian</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">142.5 million</td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
+//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
+//                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
+//                       row options</title>
+//                     <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+//                      role="presentation"></path></svg></div></button></div>
+//           </td>
+//         </tr>
+//       </tbody>
+//     </table>
+//   </div>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Table.3.4
+
+// Links
+//
+// Target individual table rows or cells *(but not both)*.
+//
+// Classes:
+// xui-table--row-link: Applies visual feedback on row interaction
+//
+// Styleguide: Compounds.DisplayingData.Table.4
+
+// Single destination
+//
+// Tips:
+// Do: Tint the entire row on hover to clarify that it is a link
+//
+// Markup:
+// <div class="xui-table xui-table-nopointerevents xui-panel">
+//   <div class="xui-table-wrapper">
+//     <table class="xui-table-element">
+//       <tbody class="xui-table--body">
+//         <tr class="xui-table--row xui-table--row-link" tabindex="0" role="button">
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">China</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-second xui-table--cell-singleline">Beijing</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-secondtolast xui-table--cell-singleline">Mandarin</td>
+//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-singleline">1.35 billion</td>
+//         </tr>
+//       </tbody>
+//     </table>
+//   </div>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Table.4.1
+
+// Multiple destinations
+//
+// Tips:
+// Do: Highlight each separate link on hover
+// Dont: Don't nest buttons or anchor tags inside each other
+//
+// Classes:
+// xui-table--cell-link: Applies visual feedback on cell interaction
+//
+// Markup:
+// <div class="xui-table xui-table-nopointerevents xui-panel">
+//   <div class="xui-table-wrapper">
+//     <table class="xui-table-element">
+//       <tbody class="xui-table--body">
+//         <tr class="xui-table--row">
+//           <td role="button" tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-link xui-table--cell-singleline"><span class="xui-text-emphasis">United States</span></td>
+//           <td role="button" tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-second xui-table--cell-link xui-table--cell-singleline">Washington, D.C.</td>
+//           <td role="button" tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-secondtolast xui-table--cell-link xui-table--cell-singleline">English</td>
+//           <td role="button" tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-link xui-table--cell-singleline">316.67 million</td>
+//         </tr>
+//       </tbody>
+//     </table>
+//   </div>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Table.4.2
+
+$xui-table-action-offset: $xui-s-4xlarge;
+$xui-table-z-pinned-shadow: 1;
+$xui-table-z-pinned-column: 2;
+$xui-table-z-pinned-appendages: 3;
+$xui-table-z-alert: 4;
+
+.#{$ns}-table {
+	border-radius: $xui-radius;
+	position: relative;
+}
+
+.#{$ns}-table-responsive .#{$ns}-table-wrapper {
+	overflow-x: auto;
+}
+
+.#{$ns}-table-element {
+	width: 100%;
+}
+
+// The following blocks of nth-* selectors create rounded corners on the four
+// corner cells (top left, top right, bottom left, bottom right). If we do not
+// round the corners then some background color will bleed over the tables panel
+// border.
+
+// Originally we created a simple "overflow: hidden" on the table itself which
+// although simple had VERY bad performance in older browsers (IE11 for instance).
+// This is a more convoluted solution but is performant for 1000's or rows instead
+// of 10's in IE11.
+.#{$ns}-table-element > *:nth-child(1) > tr:nth-child(1) {
+
+	> *:nth-child(1) {
+		border-top-left-radius: $xui-radius;
+	}
+
+	> *:nth-last-child(1) {
+		border-top-right-radius: $xui-radius;
+	}
+}
+
+.#{$ns}-table-element > *:nth-last-child(1) > tr:nth-last-child(1) {
+
+	> *:nth-child(1) {
+		border-bottom-left-radius: $xui-radius;
+	}
+
+	> *:nth-last-child(1) {
+		border-bottom-right-radius: $xui-radius;
+	}
+}
+
+.#{$ns}-table-pinleft .#{$ns}-table-element:before,
+.#{$ns}-table-pinright .#{$ns}-table-element:after {
+	background: $xui-table-bg-color;
+	content: "";
+	display: block;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	width: $xui-table-action-offset;
+	z-index: $xui-table-z-pinned-shadow;
+}
+
+.#{$ns}-table-pinleft .#{$ns}-table-element:before {
+	border-radius: $xui-radius 0 0 $xui-radius;
+	border-right: 1px solid transparent;
+	left: 0;
+}
+
+.#{$ns}-table-pinright .#{$ns}-table-element:after {
+	border-left: 1px solid transparent;
+	border-radius: 0 $xui-radius $xui-radius 0;
+	right: 0;
+}
+
+.#{$ns}-table-overflowleft .#{$ns}-table-element:before,
+.#{$ns}-table-overflowright .#{$ns}-table-element:after {
+	border-color: $xui-table-divider-bg-color;
+	box-sizing: content-box;
+}
+
+.#{$ns}-table-withtruncation .#{$ns}-table-element {
+	table-layout: fixed;
+}
+
+.#{$ns}-table--row {
+	background: $xui-table-bg-color;
+	transition: {
+		duration: $xui-motion-speed-fast;
+		property: background;
+	}
+}
+
+.#{$ns}-table--row-link {
+	cursor: pointer;
+	outline: 0;
+
+	&:focus {
+		background: $xui-table-link-focus-bg-color;
+	}
+}
+
+// Here we are creating the "row link" visual interaction. When the interface has
+// pinned columns we need to ensure that they to change their background color
+// while overlapping the content below.
+.#{$ns}-table-nopointerevents .#{$ns}-table--row-link,
+.#{$ns}-table--row-hasprecedence.#{$ns}-table--row-link {
+
+	@at-root {
+
+		&:hover,
+		.#{$ns}-table-pinleft#{&}:hover .#{$ns}-table--cell-action,
+		.#{$ns}-table-pinright#{&}:hover .#{$ns}-table--cell-action {
+			background: $xui-table-link-hover-bg-color;
+		}
+
+		&:active,
+		.#{$ns}-table-pinleft#{&}:active .#{$ns}-table--cell-action,
+		.#{$ns}-table-pinright#{&}:active .#{$ns}-table--cell-action {
+			background: $xui-table-link-active-bg-color;
+		}
+
+		&:focus,
+		.#{$ns}-table-pinleft#{&}:focus .#{$ns}-table--cell-action,
+		.#{$ns}-table-pinright#{&}:focus .#{$ns}-table--cell-action {
+			outline: 0;
+		}
+	}
+}
+
+.#{$ns}-table--sortbutton {
+	background: $xui-table-bg-color;
+	cursor: pointer;
+	height: $xui-s-4xlarge;
+	outline: 0;
+	overflow: hidden;
+	text-align: left;
+	transition: {
+		duration: $xui-motion-speed-fast;
+		property: background;
+	}
+	width: 100%;
+
+	&:hover {
+		color: $xui-table-sortbutton-hover-color;
+	}
+
+	&:focus {
+		background: $xui-table-sortbutton-focus-bg-color;
+	}
+
+	&:active {
+		background: $xui-table-sortbutton-active-bg-color;
+	}
+}
+
+.#{$ns}-table--cell-last.#{$ns}-table--sortbutton:not(.#{$ns}-table--sortbutton-active) > * {
+	transform: translateX(#{$xui-s-standard});
+}
+
+.#{$ns}-table--sortbutton * {
+	transition: {
+		duration: $xui-motion-speed-fast;
+		property: color, transform;
+	}
+}
+
+.#{$ns}-table--sortbutton-icon {
+	margin-left: 8px;
+	opacity: 0;
+	vertical-align: middle;
+}
+
+.#{$ns}-table--sortbutton-active .#{$ns}-table--sortbutton-icon {
+	opacity: 1;
+}
+
+.#{$ns}-table-withtruncation .#{$ns}-table--cell {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.#{$ns}-table-pinleft .#{$ns}-table--cell-second {
+	border-left: $xui-table-action-offset solid transparent;
+}
+
+.#{$ns}-table-pinright .#{$ns}-table--cell-secondtolast {
+	border-right: $xui-table-action-offset solid transparent;
+}
+
+.#{$ns}-table-pinleft .#{$ns}-table--cell-first,
+.#{$ns}-table-pinright .#{$ns}-table--cell-last {
+	position: absolute;
+	z-index: $xui-table-z-pinned-column;
+}
+
+.#{$ns}-table-pinleft .#{$ns}-table--cell-first {
+	left: 0;
+}
+
+.#{$ns}-table-pinright .#{$ns}-table--cell-last {
+	right: 0;
+}
+
+.#{$ns}-table--checkbox-body,
+.#{$ns}-table--checkbox-head {
+	position: absolute;
+}
+
+.#{$ns}-table--checkbox-body {
+	left: $xui-s-small;
+	top: $xui-s-small;
+}
+
+.#{$ns}-table--checkbox-head {
+	left: $xui-s-2xsmall;
+	padding: 0;
+	top: 0;
+}
+
+.#{$ns}-table--overflowmenu-body {
+	position: absolute;
+	right: $xui-s-2xsmall;
+	top: $xui-s-2xsmall;
+}
+
+.#{$ns}-table--customheader,
+.#{$ns}-table--customfooter {
+	position: relative;
+	z-index: $xui-table-z-pinned-appendages;
+}
+
+.#{$ns}-table--customheader {
+	border-bottom: $xui-border-standard;
+}
+
+.#{$ns}-table--customfooter {
+	border-top: $xui-border-standard;
+}
+
+.#{$ns}-table--alert {
+	min-height: 140px;
+	position: relative;
+	z-index: $xui-table-z-alert;
+}
+
+.#{$ns}-table-hasheader .#{$ns}-table--alert {
+	border-top: $xui-border-muted;
+}
+
+.#{$ns}-table--cell-divider:after {
+	background: $xui-table-divider-bg-color;
+	content: "";
+	display: block;
+	height: 1px;
+	left: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.#{$ns}-table--cell {
+	background: inherit;
+	position: relative;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.#{$ns}-table--cell > * {
+	text-align: left;
+}
+
+.#{$ns}-table--cell-last,
+.#{$ns}-table--cell-last > * {
+	text-align: right;
+}
+
+.#{$ns}-table--body .#{$ns}-table--cell {
+	height: $xui-s-4xlarge;
+	min-height: $xui-s-4xlarge;
+}
+
+.#{$ns}-table--head .#{$ns}-table--cell {
+	height: $xui-s-3xlarge;
+	min-height: $xui-s-3xlarge;
+	padding: 0;
+}
+
+.#{$ns}-table--head .#{$ns}-table--cell > * {
+	padding: $xui-s-xsmall;
+	white-space: nowrap;
+}
+
+.#{$ns}-table--cell-singleline {
+	white-space: nowrap;
+}
+
+.#{$ns}-table--cell:not(.#{$ns}-table--cell-singleline) {
+	max-width: 300px;
+	overflow-wrap: break-word;
+}
+
+.#{$ns}-table--cell-link {
+	cursor: pointer;
+	outline: 0;
+	transition: {
+		duration: $xui-motion-speed-fast;
+		property: background;
+	}
+
+	&:focus {
+		background: $xui-table-link-focus-bg-color;
+	}
+}
+
+.#{$ns}-table-nopointerevents .#{$ns}-table--cell-link,
+.#{$ns}-table--cell-hasprecedence.#{$ns}-table--cell-link {
+	&:hover {
+		background: $xui-table-link-hover-bg-color;
+	}
+	&:active {
+		background: $xui-table-link-active-bg-color;
+	}
+}
+
+.#{$ns}-table--cell-action {
+	min-width: $xui-table-action-offset;
+	width: $xui-table-action-offset;
+}

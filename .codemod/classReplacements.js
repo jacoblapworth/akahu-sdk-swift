@@ -24,5 +24,10 @@ types.forEach(type => {
 });
 
 module.exports = {
-	...sizeReplacementClassMap
+	...sizeReplacementClassMap,
+	'xui-verticalinputgroup': 'xui-verticaltextinputgroup',
+	'xui-dropdown--force-desktop': 'xui-dropdown-force-desktop',
+	'xui-pageheading--breadcrumbs': 'xui-breadcrumbs',
+	'xui-pickitem--split': 'xui-pickitem-split',
+	'xui-pickitem--multiselect': 'xui-pickitem-multiselect'
 };

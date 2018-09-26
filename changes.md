@@ -25,6 +25,10 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 * `xui-pickitem--split` has been removed. Use `xui-picklist-split` instead.
 * `xui-banner--link` has been removed. There is no replacement.
 * `xui-pageheading--breadcrumbs` has been removed. Use `xui-breadcrumbs` instead.
+* `xui-verticalinputgroup` has been removed. Use `xui-verticaltextinputgroup` instead.
+* `xui-dropdown--force-desktop` has been removed. Use `xui-dropdown-force-desktop` instead.
+* `xui-dropdownToggled--innerWrap` has been removed. There is no replacement as this undocumented class was internal to a component and is no longer used.
+* `xui-popover--arrow` has been removed. Apply `xui-popover-arrow` on the parent popover component instead.
 
 ## Mixin renames
 

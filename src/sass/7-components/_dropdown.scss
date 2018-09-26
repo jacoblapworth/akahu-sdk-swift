@@ -40,8 +40,7 @@
 		}
 	}
 
-	// TODO: rename this to xui-dropdown-force-desktop (modifier, not subcomponent)
-	&.#{$ns}-dropdown--force-desktop {
+	&.#{$ns}-dropdown-force-desktop {
 		z-index: 1000;
 
 		.#{$ns}-dropdown--body {
@@ -63,7 +62,7 @@
 			width: 100%;
 		}
 
-		&:not(.#{$ns}-dropdown--force-desktop) {
+		&:not(.#{$ns}-dropdown-force-desktop) {
 			height: 100%;
 			left: 0;
 			position: fixed;
@@ -89,7 +88,7 @@
 		// making it harder to read is apparently better...
 		//
 		// @author dev-johnsanders
-		&.#{$ns}-dropdown-fullheight:not(.#{$ns}-dropdown--force-desktop) {
+		&.#{$ns}-dropdown-fullheight:not(.#{$ns}-dropdown-force-desktop) {
 			height: 100%;
 
 			.#{$ns}-dropdown--body {
@@ -168,7 +167,7 @@
 		border-radius: $xui-radius;
 		box-shadow: $xui-shadow-depth-lift;
 	}
-	.#{$ns}-dropdown--force-desktop & {
+	.#{$ns}-dropdown-force-desktop & {
 		border-radius: $xui-radius;
 		box-shadow: $xui-shadow-depth-lift;
 	}
@@ -185,7 +184,7 @@
 	display: flex;
 
 	@include xui-breakpoint-narrow {
-		&:not(.#{$ns}-dropdown--force-desktop) {
+		&:not(.#{$ns}-dropdown-force-desktop) {
 			.#{$ns}-dropdown--mask {
 				flex-grow: 1;
 				opacity: 1;
@@ -204,7 +203,7 @@
 
 .#{$ns}-dropdown-is-opening {
 	@include xui-breakpoint-narrow {
-		&:not(.#{$ns}-dropdown--force-desktop) {
+		&:not(.#{$ns}-dropdown-force-desktop) {
 			.#{$ns}-dropdown--body {
 				animation: #{$ns}-dropdown-mobile-show $xui-motion-speed-medium $xui-motion-curve-standard forwards;
 			}
@@ -216,7 +215,7 @@
 	display: flex;
 
 	@include xui-breakpoint-narrow {
-		&:not(.#{$ns}-dropdown--force-desktop) {
+		&:not(.#{$ns}-dropdown-force-desktop) {
 			.#{$ns}-dropdown--mask {
 				opacity: 0;
 			}
@@ -247,11 +246,11 @@
 		}
 	}
 	@include xui-breakpoint-narrow {
-		.#{$ns}-dropdown-#{$variant}.#{$ns}-dropdown--force-desktop {
+		.#{$ns}-dropdown-#{$variant}.#{$ns}-dropdown-force-desktop {
 			max-width: $xui-starting-width + ($xui-base-width * $number);
 		}
 
-		.#{$ns}-dropdown-fixed-#{$variant}.#{$ns}-dropdown--force-desktop {
+		.#{$ns}-dropdown-fixed-#{$variant}.#{$ns}-dropdown-force-desktop {
 			width: $xui-starting-width + ($xui-base-width * $number);
 		}
 	}
@@ -281,6 +280,3 @@
 	@include xui-layout-width-fullwidth;
 }
 
-.#{$ns}-dropdownToggled--innerWrap {
-	display: inline-table;
-}

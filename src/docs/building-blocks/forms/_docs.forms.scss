@@ -223,49 +223,6 @@
 //   </div>
 // </div>
 
-
-
-
-// Vertical
-//
-// exampleClass: ds-example-narrow
-//
-// Markup:
-// <div class="xui-field-layout">
-//   <label for="street-address" class="xui-text-label xui-fieldlabel-layout">Street address</label>
-//   <div class="xui-verticalinputgroup">
-//   <input id="street-address" class="xui-textinput xui-textinput--input" aria-label="Street Address Line 1"/>
-//   <input class="xui-textinput xui-textinput--input" aria-label="Street Address Line 2"/>
-//   <input class="xui-textinput xui-textinput--input" aria-label="Street Address Line 3"/>
-// </div>
-// </div>
-// <div class="xui-heading xui-margin-top-large xui-margin-bottom">Log in to continue</div>
-// <div class="xui-verticalinputgroup">
-//   <div class="xui-textinputwrapper">
-//     <div class="xui-textinput">
-//       <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//         <div class="xui-iconwrapper">
-//           <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-email" role="presentation" /></svg>
-//         </div>
-//       </div>
-//       <input class="xui-textinput--input xui-padding-left-none" placeholder="Email" aria-label="Email" />
-//     </div>
-//   </div>
-//   <div class="xui-textinputwrapper">
-//     <div class="xui-textinput">
-//       <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//         <div class="xui-iconwrapper">
-//           <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-lock" role="presentation" /></svg>
-//         </div>
-//       </div>
-//       <input class="xui-textinput--input xui-padding-left-none" placeholder="Password"  aria-label="Password" />
-//     </div>
-//   </div>
-// </div>
-//
-// Styleguide: Compounds.CollectingInput.Forms.5.2
-
-
 // Class list
 //
 // Classes:
@@ -277,6 +234,6 @@
 // xui-validation-layout: Recommended layout for text below inputs
 // xui-validation-is-invalid: Modifier for text below inputs that are in an error state
 // xui-textinputgroup: Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
-// xui-verticalinputgroup: Wrapper class to go around a set of vertically grouped inputs
+// xui-verticaltextinputgroup: Wrapper class to go around a set of vertically grouped inputs
 //
 // Styleguide: Compounds.CollectingInput.Forms.50

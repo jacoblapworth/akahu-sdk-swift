@@ -9,12 +9,11 @@ const sassKss = require(path.resolve(
 	'sass',
 	'kss.js'
 ));
-const cssminXui = require(path.resolve(
+const xuiCss = require(path.resolve(
 	rootDirectory,
 	'scripts',
 	'build',
-	'cssmin',
-	'index.js'
+	'xui.js'
 ));
 const buildStyleguide = require(path.resolve(
 	rootDirectory,
@@ -58,16 +57,19 @@ console.log('buildServiceWorker', buildServiceWorker);
 
 function build() {
 	return taskRunner(taskSpinner => {
-		return sassKss()
+		return Promise.all([sassKss, xuiCss])
 			.then(() => {
 				taskSpinner.info('Done with basic build promises');
 				return Promise.all([
 					buildStyleguide(),
-					buildStorybook(),
-					buildKss(),
+					buildStorybook({
+						skipPostCss: true
+					}),
+					buildKss({
+						skipPostCss: true
+					}),
 					buildTokens(),
-					buildUmd(),
-					cssminXui()
+					buildUmd()
 				]).then(({ stdout }) => console.log(stdout));
 			})
 			.then(buildServiceWorker())

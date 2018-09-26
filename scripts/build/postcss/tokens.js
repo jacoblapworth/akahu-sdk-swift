@@ -10,8 +10,6 @@ const doPostCss = require('./doPostCss');
 const { succeed, fail } = taskRunnerReturns;
 
 function allFiles() {
-	createFolderIfNotExists(path.resolve(rootDirectory, 'dist', 'tokens'));
-
 	const files = [
 		path.resolve(rootDirectory, 'src', 'sass', '_vars.scss'),
 		path.resolve(rootDirectory, 'src', 'sass', '_mixins.scss')

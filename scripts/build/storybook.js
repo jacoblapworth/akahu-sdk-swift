@@ -18,7 +18,7 @@ const postcssXui = require(path.resolve(
 const asyncExec = promisify(exec);
 const { succeed, fail } = taskRunnerReturns;
 
-function build() {
+function build({ skipPostCss = false } = {}) {
 	return taskRunner(taskSpinner => {
 		let execTask =
 			'./node_modules/.bin/cross-env BABEL_ENV=development && ./node_modules/.bin/build-storybook -c .storybook -o dist/docs/storybook';
@@ -29,9 +29,10 @@ function build() {
 		taskSpinner.warn(
 			'This build has been known to take a while so sit back and relax'
 		);
+
 		return Promise.all([
 			asyncExec(execTask, { stdio: [0, 1, 2] }),
-			postcssXui()
+			!skipPostCss && postcssXui()
 		])
 			.then(succeed)
 			.catch(fail);

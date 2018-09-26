@@ -37,11 +37,15 @@ const copyToFolders = (taskSpinner) => {
 	});
 };
 
-const postcssXui = () =>
+const postcssXui = ({ skipSassXui = false } = {}) =>
 	taskRunner(taskSpinner => {
 		return Promise.all(createFolders)
 			.then(() => {
-				return sassXui();
+				if (!skipSassXui) {
+					return sassXui();
+				} else {
+					return;
+				}
 			})
 			.then(() => {
 				return Promise.all(

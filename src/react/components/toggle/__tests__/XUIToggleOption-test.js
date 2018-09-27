@@ -3,6 +3,10 @@ import Enzyme, { render, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16';
 import XUIToggleOption from '../XUIToggleOption';
+import uuidv4 from 'uuid/v4';
+
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => 'testToggleId');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -10,10 +14,10 @@ describe('XUIToggleOption', function() {
 
 	// children property (label text)
 	it('should have label text if provided', function () {
-		const wrapper = render(
+		const wrapper = renderer.create(
 			<XUIToggleOption onChange={() => {}}>Howdy, folks!</XUIToggleOption>
 		);
-		expect(wrapper.text()).toEqual('Howdy, folks!');
+		expect(wrapper).toMatchSnapshot();
 	});
 
 	// className property (additional classes)

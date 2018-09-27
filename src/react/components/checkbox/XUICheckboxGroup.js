@@ -65,7 +65,7 @@ export default class XUICheckboxGroup extends PureComponent {
 				<div
 					className={cn(className, `${baseClass}-group`)}
 					data-automationid={qaHook}
-					{...getAriaAttributes(this.wrapperIds, this.props, true)}
+					{...getAriaAttributes(this.wrapperIds, this.props, { isGroup: true })}
 				>
 					{childrenToRender}
 				</div>

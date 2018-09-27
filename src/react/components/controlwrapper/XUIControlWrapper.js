@@ -19,7 +19,8 @@ import '../../../sass/7-components/_forms.layout.scss';
  * @returns {{aria-invalid: boolean, aria-label: string, aria-labelledby: string, aria-describedby: string}}
  */
 /* eslint-enable max-len */
-export function getAriaAttributes(ids, props, isGroup) {
+export function getAriaAttributes(ids, props, groupedSetting = {}) {
+	const { isGroup } = groupedSetting;
 	const {
 		label,
 		isLabelHidden,

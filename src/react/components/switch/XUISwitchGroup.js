@@ -58,7 +58,7 @@ export default class XUISwitchGroup extends PureComponent {
 				<div
 					className={cn(className, `${baseClass}-group`)}
 					data-automationid={qaHook}
-					{...getAriaAttributes(this.wrapperIds, this.props, true)}
+					{...getAriaAttributes(this.wrapperIds, this.props, { isGroup: true })}
 				>
 					{children}
 				</div>

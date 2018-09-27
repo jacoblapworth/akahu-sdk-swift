@@ -57,7 +57,7 @@ export default class XUIRadioGroup extends PureComponent {
 					className={cn(className, `${baseClass}-group`)}
 					data-automationid={qaHook}
 					role="radiogroup"
-					{...getAriaAttributes(this.wrapperIds, this.props, true)}
+					{...getAriaAttributes(this.wrapperIds, this.props, { isGroup: true })}
 				>
 					{childrenToRender}
 				</div>

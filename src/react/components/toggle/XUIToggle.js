@@ -75,7 +75,7 @@ export default class XUIToggle extends PureComponent {
 					role={ariaRole}
 					className={classes}
 					data-automationid={qaHook}
-					{...getAriaAttributes(this.wrapperIds, this.props, true)}
+					{...getAriaAttributes(this.wrapperIds, this.props, { isGroup: true })}
 				>
 					{children}
 				</div>

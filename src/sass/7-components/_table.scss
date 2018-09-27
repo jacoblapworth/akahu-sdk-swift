@@ -90,22 +90,22 @@
 //       </thead>
 //       <tbody class="xui-table--body">
 //         <tr class="xui-table--row">
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">Apple</span></td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Red</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">348</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">$2.99</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">Apple</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Red</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">348</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">$2.99</td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">Banana</span></td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Yellow</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">46</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">$3.49</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">Banana</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Yellow</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">46</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">$3.49</td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">Strawberries</span></td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Red</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">179</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">$1.49</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">Strawberries</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Red</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">179</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">$1.49</td>
 //         </tr>
 //       </tbody>
 //     </table>
@@ -121,7 +121,7 @@
 // Classes:
 // xui-table--body: Apply to the table body section
 // xui-table--cell-divider: Apply a horizontal divider to seperate content from the cell above
-// xui-padding-small: Apply the recommended cell padding
+// xui-table--cell-default-layout: Apply the recommended cell padding
 //
 // Styleguide: Compounds.DisplayingData.Table.3
 
@@ -156,22 +156,22 @@
 //       </thead>
 //       <tbody class="xui-table--body">
 //         <tr class="xui-table--row">
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">China</span></td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Beijing</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">Mandarin</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">1.35 billion</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">China</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Beijing</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">Mandarin</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">1.35 billion</td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">United States</span></td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Washington, D.C.</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">English</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">316.67 million</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">United States</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Washington, D.C.</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">English</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">316.67 million</td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">Russia</span></td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Moscow</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">Russian</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">142.5 million</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">Russia</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">Moscow</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">Russian</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline">142.5 million</td>
 //         </tr>
 //       </tbody>
 //     </table>
@@ -217,14 +217,14 @@
 //       </thead>
 //       <tbody class="xui-table--body">
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
 //                tabindex="0" class="xui-styledcheckboxradio--input" value=""><div class="xui-styledcheckboxradio--checkbox"></div></label></td>
 //           <td
-//            tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"><span class="xui-text-emphasis">China</span></td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Beijing</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Mandarin</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">1.35 billion</td>
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
+//            tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"><span class="xui-text-emphasis">China</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">Beijing</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">Mandarin</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">1.35 billion</td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-last xui-table--cell-divider">&nbsp;
 //             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
 //                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
 //                       row options</title>
@@ -233,14 +233,14 @@
 //           </td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
 //                tabindex="0" class="xui-styledcheckboxradio--input" value=""><div class="xui-styledcheckboxradio--checkbox"></div></label></td>
 //           <td
-//            tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"><span class="xui-text-emphasis">United States</span></td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Washington, D.C.</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">English</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">316.67 million</td>
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
+//            tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"><span class="xui-text-emphasis">United States</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">Washington, D.C.</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">English</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">316.67 million</td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-last xui-table--cell-divider">&nbsp;
 //             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
 //                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
 //                       row options</title>
@@ -249,14 +249,14 @@
 //           </td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
 //                tabindex="0" class="xui-styledcheckboxradio--input" value=""><div class="xui-styledcheckboxradio--checkbox"></div></label></td>
 //           <td
-//            tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"><span class="xui-text-emphasis">Russia</span></td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Moscow</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Russian</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">142.5 million</td>
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
+//            tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"><span class="xui-text-emphasis">Russia</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">Moscow</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">Russian</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">142.5 million</td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-last xui-table--cell-divider">&nbsp;
 //             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
 //                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
 //                       row options</title>
@@ -308,19 +308,19 @@
 //       </thead>
 //       <tbody class="xui-table--body">
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
 //                tabindex="0" class="xui-styledcheckboxradio--input" value=""><div class="xui-styledcheckboxradio--checkbox"></div></label></td>
 //           <td
-//            tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
+//            tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
 //             <div class="xui-u-flex xui-u-flex-align-center">
 //               <span class="xui-margin-right"><abbr class="xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">C</abbr></span>
 //               <span class="xui-text-emphasis">China</span>
 //             </div>
 //           </td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Beijing</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Mandarin</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">1.35 billion</td>
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">Beijing</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">Mandarin</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">1.35 billion</td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-last xui-table--cell-divider">&nbsp;
 //             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
 //                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
 //                       row options</title>
@@ -329,19 +329,19 @@
 //           </td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
 //                tabindex="0" class="xui-styledcheckboxradio--input" value=""><div class="xui-styledcheckboxradio--checkbox"></div></label></td>
 //           <td
-//            tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
+//            tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
 //             <div class="xui-u-flex xui-u-flex-align-center">
 //               <span class="xui-margin-right"><abbr class="xui-avatar xui-avatar-small xui-avatar-color-2" role="presentation">US</abbr></span>
 //               <span class="xui-text-emphasis">United States</span>
 //             </div>
 //           </td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Washington, D.C.</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">English</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">316.67 million</td>
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">Washington, D.C.</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">English</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">316.67 million</td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-last xui-table--cell-divider">&nbsp;
 //             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
 //                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
 //                       row options</title>
@@ -350,19 +350,19 @@
 //           </td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" aria-label="Select row"
 //                tabindex="0" class="xui-styledcheckboxradio--input" value=""><div class="xui-styledcheckboxradio--checkbox"></div></label></td>
 //           <td
-//            tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
+//            tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
 //             <div class="xui-u-flex xui-u-flex-align-center">
 //               <span class="xui-margin-right"><abbr class="xui-avatar xui-avatar-small xui-avatar-color-3" role="presentation">R</abbr></span>
 //               <span class="xui-text-emphasis">Russia</span>
 //             </div>
 //           </td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Moscow</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-singleline">Russian</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">142.5 million</td>
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">Moscow</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">Russian</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">142.5 million</td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-last xui-table--cell-divider">&nbsp;
 //             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
 //                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
 //                       row options</title>
@@ -397,10 +397,10 @@
 //     <table class="xui-table-element">
 //       <tbody class="xui-table--body">
 //         <tr class="xui-table--row xui-table--row-link" tabindex="0" role="button">
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">China</span></td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-second xui-table--cell-singleline">Beijing</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-secondtolast xui-table--cell-singleline">Mandarin</td>
-//           <td tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-singleline">1.35 billion</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-first xui-table--cell-singleline"><span class="xui-text-emphasis">China</span></td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-second xui-table--cell-singleline">Beijing</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-secondtolast xui-table--cell-singleline">Mandarin</td>
+//           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-last xui-table--cell-singleline">1.35 billion</td>
 //         </tr>
 //       </tbody>
 //     </table>
@@ -424,10 +424,10 @@
 //     <table class="xui-table-element">
 //       <tbody class="xui-table--body">
 //         <tr class="xui-table--row">
-//           <td role="button" tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-first xui-table--cell-link xui-table--cell-singleline"><span class="xui-text-emphasis">United States</span></td>
-//           <td role="button" tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-second xui-table--cell-link xui-table--cell-singleline">Washington, D.C.</td>
-//           <td role="button" tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-secondtolast xui-table--cell-link xui-table--cell-singleline">English</td>
-//           <td role="button" tabindex="0" class="xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-link xui-table--cell-singleline">316.67 million</td>
+//           <td role="button" tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-first xui-table--cell-link xui-table--cell-singleline"><span class="xui-text-emphasis">United States</span></td>
+//           <td role="button" tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-second xui-table--cell-link xui-table--cell-singleline">Washington, D.C.</td>
+//           <td role="button" tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-secondtolast xui-table--cell-link xui-table--cell-singleline">English</td>
+//           <td role="button" tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-last xui-table--cell-link xui-table--cell-singleline">316.67 million</td>
 //         </tr>
 //       </tbody>
 //     </table>
@@ -677,6 +677,9 @@ $xui-table-z-alert: 4;
 }
 
 .#{$ns}-table--alert {
+	align-items: center;
+	display: flex;
+	justify-content: center;
 	min-height: 140px;
 	position: relative;
 	z-index: $xui-table-z-alert;
@@ -765,4 +768,16 @@ $xui-table-z-alert: 4;
 .#{$ns}-table--cell-action {
 	min-width: $xui-table-action-offset;
 	width: $xui-table-action-offset;
+}
+
+.#{$ns}-table--cell-default-layout {
+	padding: $xui-s-small;
+}
+
+.#{$ns}-table--default-emptystate {
+	align-items: center;
+	color: $xui-color-grey-alpha-2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }

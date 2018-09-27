@@ -10,11 +10,11 @@ const buildKss = require(path.resolve(
 	'build',
 	'kss'
 ));
-const cssMinXui = require(path.resolve(
+const buildXui = require(path.resolve(
 	rootDirectory,
 	'scripts',
 	'build',
-	'cssmin'
+	'xui.js'
 ));
 
 const watch = path.resolve(rootDirectory, 'scripts', 'watch', 'all');
@@ -46,7 +46,7 @@ function removeDistDocsReact() {
 function watchBoth() {
 	logTaskTitle(__filename);
 
-	Promise.all([[buildKss(), cssMinXui(), removeDistDocsReact()]]).then(() => {
+	Promise.all([[buildKss, buildXui, removeDistDocsReact]]).then(() => {
 		[watch, storybook, styleguideServer].forEach(watcher => {
 			const childProcess = spawn('node', [watcher], { stdio: 'inherit' });
 			childProcess.on('data', data => {

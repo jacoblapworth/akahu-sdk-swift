@@ -1,11 +1,13 @@
 import cn from 'classnames';
 import { NAME_SPACE } from './constants';
 
-const cellClassNames = {
+export const cellClassNames = {
+	cell: `${NAME_SPACE}--cell`,
 	first: `${NAME_SPACE}--cell-first`,
 	second: `${NAME_SPACE}--cell-second`,
 	secondtolast: `${NAME_SPACE}--cell-secondtolast`,
 	last: `${NAME_SPACE}--cell-last`,
+	defaultLayout: `${NAME_SPACE}--cell-default-layout`
 };
 
 export const getCellLocation = ({ columns, columnIndex, hasCheckbox, hasOverflowMenu }) => {

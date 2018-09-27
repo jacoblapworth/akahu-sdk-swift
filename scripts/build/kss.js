@@ -6,7 +6,7 @@ const { succeed, fail } = taskRunnerReturns;
 function build({ skipPostCss = false } = {}) {
 	return taskRunner(() => {
 		return buildKss()
-			.then(() => (skipPostCss && postcssKss() || true))
+			.then(() => (!skipPostCss && postcssKss() || true))
 			.then(succeed)
 			.catch(fail);
 	}, __filename);

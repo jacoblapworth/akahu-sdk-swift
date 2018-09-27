@@ -12,6 +12,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
+import logReadyState from '../../../stories/helpers/log-ready-state';
 import { variations, storiesWithVariationsKindName } from './variations';
 import Pickitem from '../../picklist/Pickitem';
 import XUITag from '../../tag/XUITag';
@@ -198,8 +199,7 @@ class ScrollResetWrapper extends PureComponent {
 			const wrapper = node && node.querySelector('.xui-table-wrapper');
 			if (wrapper) {
 				wrapper.scrollLeft = 0;
-				// eslint-disable-next-line no-console
-				setTimeout(() => (console.log('xui-table-ready-event')), 100);
+				logReadyState('xui-table-ready-event');
 			}
 		}, 100);
 	}

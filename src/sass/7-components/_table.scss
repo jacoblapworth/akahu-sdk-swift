@@ -770,11 +770,11 @@ $xui-table-z-alert: 4;
 	width: $xui-table-action-offset;
 }
 
-.#{$ns}-table--cell-default-layout {
+.#{$ns}-table--cell-layout {
 	padding: $xui-s-small;
 }
 
-.#{$ns}-table--default-emptystate {
+.#{$ns}-table--emptystate {
 	align-items: center;
 	color: $xui-color-grey-alpha-2;
 	display: flex;

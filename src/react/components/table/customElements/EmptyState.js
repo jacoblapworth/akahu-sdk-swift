@@ -10,14 +10,15 @@ export default class EmptyState extends PureComponent {
 		const {
 			defaultLayout,
 			className,
-			children
+			children,
 		} = this.props;
 
 		return (
 			<div className={cn(
 				defaultLayout && `${ns}-table--emptystate`,
-				className
-			)}>
+				className,
+			)}
+			>
 				<XUIIcon icon={tablePathData} size="large" isBoxed />
 				<div>{children}</div>
 			</div>
@@ -28,9 +29,9 @@ export default class EmptyState extends PureComponent {
 EmptyState.propTypes = {
 	children: PropTypes.string,
 	defaultLayout: PropTypes.bool,
-	className: PropTypes.string
+	className: PropTypes.string,
 };
 
 EmptyState.defaultProps = {
-	defaultLayout: true
+	defaultLayout: true,
 };

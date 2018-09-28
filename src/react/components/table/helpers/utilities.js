@@ -7,7 +7,7 @@ export const cellClassNames = {
 	second: `${NAME_SPACE}--cell-second`,
 	secondtolast: `${NAME_SPACE}--cell-secondtolast`,
 	last: `${NAME_SPACE}--cell-last`,
-	defaultLayout: `${NAME_SPACE}--cell-layout`
+	defaultLayout: `${NAME_SPACE}--cell-layout`,
 };
 
 export const getCellLocation = ({ columns, columnIndex, hasCheckbox, hasOverflowMenu }) => {

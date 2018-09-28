@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import {
 	createCellLocationClasses,
-	cellClassNames
+	cellClassNames,
 } from '../helpers/utilities';
 import { NAME_SPACE, NBSP } from '../helpers/constants';
 

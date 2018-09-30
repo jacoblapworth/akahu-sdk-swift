@@ -15,6 +15,13 @@ Quick check for the most common dependencies:
 
 If you use `xui-layout`, version `^7.0.0` is compatible with XUI 14.
 
+We have added underlines to links by default. If you use the v3 header, please ensure you use version >= 3.2.4,
+otherwise you will get underlines in the header's menus with XUI 14.
+If you use the navigation service, you should not need to do anything.
+
+You can also apply the `xui-text-decoration-none` class on any other container elements where underlines
+on links are undesirable.
+
 ## Removals
 
 ### Components

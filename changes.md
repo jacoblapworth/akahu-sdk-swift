@@ -29,6 +29,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 * `xui-dropdown--force-desktop` has been removed. Use `xui-dropdown-force-desktop` instead.
 * `xui-dropdownToggled--innerWrap` has been removed. There is no replacement as this undocumented class was internal to a component and is no longer used.
 * `xui-popover--arrow` has been removed. Apply `xui-popover-arrow` on the parent popover component instead.
+* `xui-stepper-tests` class has been removed. This was a hidden and internal class, but if you were referring to it, use `xui-stepper-hidden-content` instead.
 
 ## Mixin renames
 

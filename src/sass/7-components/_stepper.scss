@@ -454,3 +454,389 @@
 // </div>
 //
 // Styleguide: Compounds.Navigation.Stepper.3.4
+
+
+@mixin xui-stepper-link-color($color) {
+	color: $color;
+
+	.#{$ns}-stepper-link-icon:before {
+		background: $color;
+	}
+
+	.#{$ns}-stepper-link-progress .#{$ns}-progress-circular-current {
+		stroke: $color;
+	}
+}
+
+.#{$ns}-stepper-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.#{$ns}-stepper-inline {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.#{$ns}-stepper-sidebar {
+
+	@include xui-supports-css-grid {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		// grid-template-rows: (dynamically set via JS);
+	}
+}
+
+.#{$ns}-stepper-hidden-content {
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+	@include xui-utility-hidden-content;
+}
+
+.#{$ns}-stepper-tab {
+	position: relative;
+
+	&:before,
+	&:after {
+		background: $xui-stepper-line-bg-color;
+		content: '';
+		display: block;
+		height: calc(50% - #{$xui-s-large});
+		left: 30px;
+		position: absolute;
+		top: 0;
+		width: 1px;
+	}
+
+	&:after {
+		bottom: 0;
+		top: initial;
+	}
+}
+
+.#{$ns}-stepper-tab-first {
+	padding-top: 0;
+}
+
+.#{$ns}-stepper-tab-last {
+	padding-bottom: 0;
+}
+
+.#{$ns}-stepper-sidebar .#{$ns}-stepper-tab {
+
+	@include xui-supports-css-grid {
+		// Reset any "Stacked" layout flex ordering set via JS (only if Grid is supported,
+		// otherwise we keep the order as the "Stacked" layout will be used as a fallback).
+		order: 0 !important;
+	}
+}
+
+.#{$ns}-stepper-inline .#{$ns}-stepper-tab {
+	// Reset any "Stacked" layout flex ordering set via JS when using an "Inline" layout.
+	order: 0 !important;
+	padding: 0 30px;
+
+	&:before,
+	&:after {
+		height: 1px;
+		left: 0;
+		top: 50%;
+		width: 30px;
+	}
+
+	&:after {
+		left: inherit;
+		right: 0;
+	}
+}
+
+.#{$ns}-stepper-inline .#{$ns}-stepper-tab-first {
+	padding-left: 0;
+}
+
+.#{$ns}-stepper-inline .#{$ns}-stepper-tab-last {
+	padding-right: 0;
+}
+
+.#{$ns}-stepper-tab-first:before,
+.#{$ns}-stepper-tab-last:after {
+	display: none;
+}
+
+.#{$ns}-stepper-section {
+	order: 0;
+	padding-left: 60px;
+	position: relative;
+	width: 100%;
+
+	&:before {
+		background: $xui-stepper-line-bg-color;
+		bottom: 0;
+		content: '';
+		display: block;
+		left: 30px;
+		position: absolute;
+		top: 0;
+		width: 1px;
+	}
+}
+
+.#{$ns}-stepper-sidebar .#{$ns}-stepper-section {
+
+	@include xui-supports-css-grid {
+		grid-column-end: -1;
+		grid-column-start: 2;
+		grid-row-end: -1;
+		grid-row-start: 1;
+		padding: 0 0 0 30px;
+
+		&:before {
+			display: none;
+		}
+	}
+}
+
+.#{$ns}-stepper-inline .#{$ns}-stepper-section {
+	padding: 30px 0 0;
+
+	&:before {
+		display: none;
+	}
+}
+
+.#{$ns}-stepper-link {
+	@include xui-button-reset;
+	@include xui-stepper-link-color($xui-stepper-color);
+	align-items: center;
+	display: block;
+	height: 100%;
+	padding: 10px;
+	width: 100%;
+
+	&.#{$ns}-stepper-link-active:hover,
+	&.#{$ns}-stepper-link-standard:hover {
+		@include xui-stepper-link-color($xui-stepper-hover-color);
+		background: $xui-stepper-hover-bg-color;
+	}
+
+	&.#{$ns}-stepper-link-active:focus,
+	&.#{$ns}-stepper-link-standard:focus {
+		@include xui-stepper-link-color($xui-stepper-focus-color);
+		background: $xui-stepper-focus-bg-color;
+	}
+
+	&.#{$ns}-stepper-link-standard:active {
+		@include xui-stepper-link-color($xui-stepper-active-color);
+		background: $xui-stepper-active-bg-color;
+	}
+
+	&.#{$ns}-stepper-link-error:hover {
+		@include xui-stepper-link-color($xui-stepper-error-hover-color);
+		background: $xui-stepper-hover-bg-color;
+	}
+
+	&.#{$ns}-stepper-link-error:focus {
+		@include xui-stepper-link-color($xui-stepper-error-focus-color);
+		background: $xui-stepper-focus-bg-color;
+	}
+
+	&.#{$ns}-stepper-link-error:active {
+		@include xui-stepper-link-color($xui-stepper-error-active-color);
+		background: $xui-stepper-active-bg-color;
+	}
+
+	&.#{$ns}-stepper-link-disabled:hover,
+	&.#{$ns}-stepper-link-disabled:focus {
+		@include xui-stepper-link-color($xui-stepper-disabled-color);
+		background: transparent;
+	}
+}
+
+.#{$ns}-stepper-link,
+.#{$ns}-stepper-link-icon,
+.#{$ns}-stepper-link-icon:before,
+.#{$ns}-stepper-link-progress {
+	transition: {
+		duration: $xui-motion-speed-fast;
+		property: background, color;
+	}
+}
+
+.#{$ns}-stepper-inline .#{$ns}-stepper-link {
+	border-radius: 9999px;
+	padding: 0;
+}
+
+.#{$ns}-stepper-link-wrapper {
+	align-items: center;
+	display: flex;
+	padding-right: $xui-s-standard;
+	text-align: left;
+}
+
+.#{$ns}-stepper-stacked-links {
+	align-items: start;
+
+	.#{$ns}-stepper-tab:before,
+	.#{$ns}-stepper-tab:after {
+		top: 16px;
+		width: calc(50% - 20px);
+	}
+
+	.#{$ns}-stepper-tab-first:after,
+	.#{$ns}-stepper-tab-last:before {
+		width: calc(50% - 5px);
+	}
+
+	.#{$ns}-stepper-link {
+		background: transparent;
+		border-radius: 0;
+		margin-top: -3px;
+
+		&.#{$ns}-stepper-link-active:hover,
+		&.#{$ns}-stepper-link-standard:hover,
+		&.#{$ns}-stepper-link-error:hover {
+			background: transparent;
+
+			.#{$ns}-stepper-link-icon,
+			.#{$ns}-stepper-link-progress {
+				background: $xui-stepper-hover-bg-color;
+			}
+		}
+
+		&.#{$ns}-stepper-link-active:focus,
+		&.#{$ns}-stepper-link-standard:focus,
+		&.#{$ns}-stepper-link-error:focus {
+			background: transparent;
+
+			.#{$ns}-stepper-link-icon,
+			.#{$ns}-stepper-link-progress {
+				background: $xui-stepper-focus-bg-color;
+			}
+		}
+
+		&.#{$ns}-stepper-link-standard:active,
+		&.#{$ns}-stepper-link-error:active {
+			background: transparent;
+
+			.#{$ns}-stepper-link-icon,
+			.#{$ns}-stepper-link-progress {
+				background: $xui-stepper-active-bg-color;
+			}
+		}
+	}
+
+	.#{$ns}-stepper-link-disabled:focus {
+
+		.#{$ns}-stepper-link-icon,
+		.#{$ns}-stepper-link-progress {
+			background: transparent;
+		}
+	}
+
+	.#{$ns}-stepper-link-wrapper {
+		display: block;
+		padding: 0 10px;
+		text-align: center;
+	}
+
+	.#{$ns}-stepper-link-icon,
+	.#{$ns}-stepper-link-progress {
+		border-radius: 50%;
+	}
+
+	.#{$ns}-stepper-link-active {
+
+		.#{$ns}-stepper-link-icon,
+		.#{$ns}-stepper-link-progress {
+			background: transparent;
+		}
+	}
+}
+
+.#{$ns}-stepper-link-icon,
+.#{$ns}-stepper-link-progress {
+	$size: 40px;
+	display: inline-block;
+	flex-shrink: 0;
+	height: $size;
+	position: relative;
+	width: $size;
+
+	&:before {
+		$offset: 10px;
+		border-radius: 50%;
+		bottom: $offset;
+		content: '';
+		display: block;
+		left: $offset;
+		position: absolute;
+		right: $offset;
+		top: $offset;
+	}
+}
+
+.#{$ns}-stepper-icon-complete,
+.#{$ns}-stepper-link-step {
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.#{$ns}-stepper-link-step {
+	color: $xui-color-white;
+	font: {
+		size: $xui-font-size-xsmall;
+		weight: $xui-font-weight-emphasis;
+	}
+	margin-top: -1px;
+}
+
+.#{$ns}-stepper-icon-complete,
+.#{$ns}-stepper-icon-error {
+	fill: $xui-color-white;
+}
+
+.#{$ns}-stepper-icon-complete {
+	height: 8px;
+	width: 10px;
+}
+
+.#{$ns}-stepper-icon-error {
+	height: 7px;
+	left: calc(50% - 1px);
+	position: absolute;
+	top: calc(50% - 3px);
+	transform: initial;
+	width: 2px;
+}
+
+.#{$ns}-stepper-link-progress {
+	padding: 10px;
+}
+
+.#{$ns}-stepper-link-heading,
+.#{$ns}-stepper-link-description {
+	color: inherit;
+	display: block;
+}
+
+.#{$ns}-stepper-link-description {
+	font-size: $xui-font-size-xsmall;
+}
+.#{$ns}-stepper-link-error {
+	@include xui-stepper-link-color($xui-stepper-error-color);
+}
+
+.#{$ns}-stepper-link-active {
+	@include xui-stepper-link-color($xui-stepper-link-active-color);
+	background: transparent;
+}
+
+.#{$ns}-stepper-link-disabled {
+	@include xui-stepper-link-color($xui-stepper-disabled-color);
+	cursor: not-allowed;
+}

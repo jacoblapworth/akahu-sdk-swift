@@ -10,7 +10,7 @@ import StepperTab from './customElements/StepperTab';
 import InlineDummyLayout, { testIsInlineRelevant } from './customElements/InlineDummyLayout';
 import SideBarDummyLayout, { testIsSideBarRelevant } from './customElements/SideBarDummyLayout';
 
-import '../../../sass/7-components/_steps.scss'; // TODO: _stepper.scss is just docs - somewhat confusing
+import '../../../sass/7-components/_stepper.scss';
 
 const createTabs = ({
 	qaHook, tabs, id, ariaPanelId, currentStep,
@@ -128,7 +128,7 @@ class XUIStepper extends Component {
 
 				{!lockLayout && (
 					<div
-						className={`${NAME_SPACE}-tests xui-u-hidden-content`}
+						className={`${NAME_SPACE}-hidden-content`}
 						aria-hidden="true"
 					>
 

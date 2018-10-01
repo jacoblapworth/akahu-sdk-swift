@@ -70,7 +70,6 @@ const generateKssFiles = (page, parser) => {
 						.catch(fail);
 				});
 		})
-		.catch(errors => console.error(errors));
 };
 
 function run() {

@@ -57,7 +57,7 @@ console.log('buildServiceWorker', buildServiceWorker);
 
 function build() {
 	return taskRunner(taskSpinner => {
-		return Promise.all([sassKss, xuiCss])
+		return Promise.all([sassKss(), xuiCss()])
 			.then(() => {
 				taskSpinner.info('Done with basic build promises');
 				return Promise.all([

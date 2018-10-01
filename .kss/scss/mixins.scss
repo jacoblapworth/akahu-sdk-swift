@@ -6,7 +6,7 @@
 $ds-breakpoint-massive: 120rem;
 
 @mixin ds-breakpoint-massive {
-	@media screen and (min-width: $ds-breakpoint-massive) {
+	@media screen and (min-width: #{$ds-breakpoint-massive}) {
 		@content;
 	}
 }

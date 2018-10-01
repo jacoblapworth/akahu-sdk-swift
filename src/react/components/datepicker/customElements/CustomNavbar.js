@@ -7,6 +7,7 @@ import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
 import MonthSelector from './navbar/MonthSelector';
 import YearSelector from './navbar/YearSelector';
+import { baseClassName } from '../helpers/constants';
 
 /**
  * Simple helper function which determines if a given keyCode is one of the directional arrow keys.
@@ -161,7 +162,7 @@ export default class CustomNavbar extends PureComponent {
 					<XUIIcon icon={arrow} rotation="90" />
 				</XUIButton>
 
-				<div className="xui-datepicker--heading-dates">
+				<div className={`${baseClassName}--heading-dates`}>
 					{dir === 'rtl' ? yearSelector : monthSelector}
 					{dir === 'rtl' ? monthSelector : yearSelector}
 				</div>

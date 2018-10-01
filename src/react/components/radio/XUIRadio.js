@@ -27,7 +27,7 @@ const onLabelClick = e => {
 const buildSvgRadio = (qaHook, { svgClassName, iconMain }) => {
 	const svgClasses = cn(`${ns}-icon`, svgClassName);
 	return (
-		<div className="xui-iconwrapper">
+		<div className={`${ns}-iconwrapper`}>
 			<svg
 				className={svgClasses}
 				data-automationid={qaHook && `${qaHook}--icon`}

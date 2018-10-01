@@ -4,7 +4,7 @@ import cn from 'classnames';
 import caret from '@xero/xui-icon/icons/caret';
 
 import XUIIcon from '../../../icon/XUIIcon';
-import { englishMonths } from '../../helpers/constants';
+import { englishMonths, baseClassName } from '../../helpers/constants';
 import { ns } from '../../../helpers/xuiClassNamespace';
 
 const buttonSizeClasses = {
@@ -58,7 +58,7 @@ export default function MonthSelector({
 			<select
 				ref={selectRef}
 				id={id}
-				className="xui-datepicker--heading-select xui-datepicker--monthselect-layout"
+				className={`${baseClassName}--heading-select ${baseClassName}--monthselect-layout`}
 				name="month"
 				value={currentMonth}
 				onChange={onChange}
@@ -76,7 +76,7 @@ export default function MonthSelector({
 	/* eslint-enable jsx-a11y/no-onchange */
 
 	return (
-		<div className="xui-datepicker--heading xui-heading-item xui-datepicker--heading-month">
+		<div className={`${baseClassName}--heading ${ns}-heading-item ${baseClassName}--heading-month`}>
 			{select}
 			{label}
 		</div>

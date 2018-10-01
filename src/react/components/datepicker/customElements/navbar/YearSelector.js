@@ -5,6 +5,7 @@ import caret from '@xero/xui-icon/icons/caret';
 
 import XUIIcon from '../../../icon/XUIIcon';
 import { ns } from '../../../helpers/xuiClassNamespace';
+import { baseClassName } from '../../helpers/constants';
 
 const buttonSizeClasses = {
 	small: `${ns}-button-small`,
@@ -51,7 +52,7 @@ export default function YearSelector({
 			<select
 				ref={selectRef}
 				id={id}
-				className="xui-datepicker--heading-select xui-datepicker--yearselect-layout"
+				className={`${baseClassName}--heading-select ${baseClassName}--yearselect-layout`}
 				name="year"
 				value={currentYear}
 				onChange={onChange}
@@ -69,7 +70,7 @@ export default function YearSelector({
 	/* eslint-enable jsx-a11y/no-onchange */
 
 	return (
-		<div className="xui-datepicker--heading xui-heading-item xui-datepicker--heading-year">
+		<div className={`${baseClassName}--heading ${ns}-heading-item ${baseClassName}--heading-year`}>
 			{select}
 			{label}
 		</div>

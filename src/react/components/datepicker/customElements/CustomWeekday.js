@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PropTypes as DayPickerPropTypes } from 'react-day-picker';
+import { baseClassName, customClassNames } from '../helpers/constants';
 
 export default function CustomWeekday({
 	weekday,
@@ -23,8 +24,8 @@ export default function CustomWeekday({
 	}
 
 	return (
-		<div className="xui-datepicker--weekdaywrapper" role="columnheader">
-			<abbr className="xui-datepicker--weekday" title={title}>
+		<div className={`${baseClassName}--weekdaywrapper`} role="columnheader">
+			<abbr className={customClassNames.weekday} title={title}>
 				{content}
 			</abbr>
 		</div>

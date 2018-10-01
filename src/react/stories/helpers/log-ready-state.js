@@ -15,6 +15,10 @@ const isHeadless = /Headless/.test(navigator.userAgent);
 // scenarios like interactions without relying on the very fragile "delay" hook.
 // The "isHeadless" reference also ensures that this script is only run where
 // appropriate =)
+//
+// SEE:
+// + https://github.com/garris/BackstopJS/issues/739
+// + https://github.com/garris/BackstopJS/issues/674
 const logReadyState = readyState =>
 	// eslint-disable-next-line no-console
 	isHeadless && setInterval(() => console.log(readyState), 100);

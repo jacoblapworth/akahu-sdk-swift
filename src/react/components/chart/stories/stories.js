@@ -9,6 +9,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, object, boolean, text, select, number, color } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
+import logReadyState from '../../../stories/helpers/log-ready-state';
 import { variations, storiesWithVariationsKindName } from './variations';
 import { createArray } from '../../progressindicator/helpers/utilities';
 
@@ -138,7 +139,7 @@ class EventReadyWrapper extends PureComponent {
 			rootNode && rootNode
 				.querySelectorAll('.xui-chart--content')
 				.forEach(contentNode => (contentNode.scrollLeft = 0));
-			setTimeout(() => (console.log('xui-bar-chart-ready-event')), 100);
+			logReadyState('xui-bar-chart-ready-event');
 		}, 100);
 	}
 

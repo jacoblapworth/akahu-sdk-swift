@@ -147,7 +147,7 @@ The amount of labels per panel can be controlled via the prop `xAxisVisibleItems
 ```
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
-const wrapperStyles = { display: 'inline-block', minWidth: '300px', padding: '0 50px', width: '50%' };
+const wrapperStyles = { display: 'inline-block', verticalAlign: 'top', minWidth: '300px', padding: '0 50px', width: '50%' };
 class Demo extends React.Component {
 	render() {
 		return (
@@ -263,7 +263,7 @@ const data = [
 	{ id: 1, x: "Potato", y: 2 },
 	{ id: 2, x: "Carrot", y: 3 },
 ];
-const wrapperStyles = { display: 'inline-block', minWidth: '300px', padding: '0 50px', width: '50%' };
+const wrapperStyles = { display: 'inline-block', verticalAlign: 'top', minWidth: '300px', padding: '0 50px', width: '50%' };
 class Demo extends React.Component {
 	render() {
 		return (

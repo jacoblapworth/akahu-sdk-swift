@@ -1,15 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import chart from '@xero/xui-icon/icons/chart';
 import XUIIcon from '../../icon/XUIIcon';
 import { NAME_SPACE } from '../helpers/constants';
-
-const chartIcon = {
-	width: 30,
-	height: 30,
-	// TODO: Replace with xui-icon equivalent
-	path: 'M20,20.5h2v1H8v-1h2v-7c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v7h2v-11c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1V20.5z', // eslint-disable-line max-len
-};
 
 class ChartEmpty extends PureComponent {
 	render = () => {
@@ -29,7 +23,7 @@ class ChartEmpty extends PureComponent {
 				{emptyStateComponent || (
 					<div className={`${NAME_SPACE}-chart--empty`}>
 						<XUIIcon
-							icon={chartIcon}
+							icon={chart}
 							size="large"
 						/>
 						<div>{emptyMessage}</div>

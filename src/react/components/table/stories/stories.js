@@ -21,6 +21,7 @@ import noop from '../../helpers/noop';
 const tableStyles = {
 	background: 'white',
 	display: 'inline-block',
+	verticalAlign: 'top',
 	marginBottom: '20px',
 	maxWidth: '500px',
 	minWidth: '300px',

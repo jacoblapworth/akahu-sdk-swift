@@ -18,7 +18,7 @@ export default class XUIPanel extends PureComponent {
 			tagName,
 			...spreadProps
 		} = this.props;
-		const classes = cn(baseClass, className, sidebar && `${ns}-u-flex`);
+		const classes = cn(baseClass, className, sidebar && `${baseClass}-has-sidebar`);
 		const Tag = tagName;
 		if (!sidebar) {
 			return (
@@ -34,7 +34,7 @@ export default class XUIPanel extends PureComponent {
 				<div className={`${baseClass}--sidebar`}>
 					{sidebar}
 				</div>
-				<div className={`${ns}-u-flex-1`}>
+				<div className={`${baseClass}--main`}>
 					{heading}
 					{children}
 					{footer}

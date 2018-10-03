@@ -5,7 +5,8 @@ import { ns } from '../helpers/xuiClassNamespace';
 
 import { rowVariants } from './private/constants';
 
-import '../../../sass/99-utils/_grid.scss'; // TODO: make grid rows components rather than utils in the SCSS
+// TODO: Re-evaluate when updated responsive layout system is in place
+import '../../../sass/99-utils/_grid.scss';
 
 const getClasses = (className, variant) => {
 	const suffix = rowVariants[variant] ? `-${rowVariants[variant]}` : '';

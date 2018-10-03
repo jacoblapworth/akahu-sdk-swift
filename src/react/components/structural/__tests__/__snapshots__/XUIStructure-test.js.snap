@@ -344,7 +344,7 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders the simplest pageHe
 
 exports[`<XUI Structure/> Panel and panel section: renders a panel with all the bells and whistles 1`] = `
 <div
-  className="xui-panel xui-u-flex"
+  className="xui-panel xui-panel-has-sidebar"
 >
   <div
     className="xui-panel--sidebar"
@@ -435,7 +435,7 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
     </ul>
   </div>
   <div
-    className="xui-u-flex-1"
+    className="xui-panel--main"
   >
     <header
       className="xui-panel--heading xui-panel--header xui-panel--heading-layout"

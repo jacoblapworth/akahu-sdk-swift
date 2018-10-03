@@ -5,8 +5,7 @@ import arrow from '@xero/xui-icon/icons/arrow-small';
 import XUIIcon from '../icon/XUIIcon';
 import { ns } from '../helpers/xuiClassNamespace';
 
-// TODO: Separate breadcumbs into their own SCSS file
-import '../../../sass/7-components/_navigation.subapp.scss';
+import '../../../sass/7-components/_navigation.breadcrumb.scss';
 
 const baseClass = `${ns}-breadcrumb`;
 

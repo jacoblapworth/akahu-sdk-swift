@@ -30,6 +30,26 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 * `xui-dropdownToggled--innerWrap` has been removed. There is no replacement as this undocumented class was internal to a component and is no longer used.
 * `xui-popover--arrow` has been removed. Apply `xui-popover-arrow` on the parent popover component instead.
 * `xui-stepper-tests` class has been removed. This was a hidden and internal class, but if you were referring to it, use `xui-stepper-hidden-content` instead.
+* `xui-breakpoint-medium-and-wide` mixin has been removed. Use `xui-breakpoint-small-up` instead
+* `xui-breakpoint-wide` mixin has been removed. Use `xui-breakpoint-medium-up` instead.
+* `xui-breakpoint-huge` mixin has been removed. Use `xui-breakpoint-large-up` instead.
+* `xui-breakpoint-narrow` mixin has been removed. Use `xui-breakpoint-xsmall-only` instead.
+* `xui-breakpoint-medium` mixin has been removed. Use `xui-breakpoint-small-only` instead.
+
+## Breakpoint variable name & value changes
+
+- Old breakpoint variable names & values
+
+- `xui-breakpoint-wide: 520px`
+- `xui-breakpoint-medium: 940px`
+- `xui-breakpoint-narrow: 1160px`
+
+- New breakpoint variable names & values
+
+	- `xui-breakpoint-small: 600px`
+	- `xui-breakpoint-medium: 800px`
+	- `xui-breakpoint-large: 1000px`
+	- `xui-breakpoint-xlarge: 1200px`
 
 ## Mixin renames
 
@@ -71,12 +91,11 @@ All other existing values stay as they are (including `2xlarge`)
 ### Component classes
 
 
-
 ### Component prop name changes
 
 
-
 ## Additions
+
 
 ### Component classes
 

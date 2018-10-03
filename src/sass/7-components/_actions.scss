@@ -14,7 +14,7 @@
 	// Layout
 	&-layout {
 
-		@include xui-breakpoint-narrow {
+		@include xui-breakpoint-xsmall-only {
 			flex-direction: column;
 
 			.#{$ns}-actions--primary {
@@ -28,13 +28,13 @@
 			}
 		}
 
-		@include xui-breakpoint-medium {
+		@include xui-breakpoint-small-only {
 			.#{$ns}-actions--primary {
 				margin-left: $xui-s-xsmall;
 			}
 		}
 
-		@include xui-breakpoint-medium-and-wide {
+		@include xui-breakpoint-small-up {
 			.#{$ns}-actions--primary {
 				margin-left: $xui-s-xsmall;
 			}

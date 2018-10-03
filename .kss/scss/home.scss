@@ -12,7 +12,7 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	margin: 10vh 0;
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		@include embiggen;
 	}
 }
@@ -34,10 +34,10 @@
 	&:nth-child(3n-2) {
 		margin-left: 0;
 	}
-	a {	
-		text-decoration: none; 
+	a {
+		text-decoration: none;
 	}
-	@include xui-breakpoint-medium {
+	@include xui-breakpoint-small-only {
 		height: 52vw;
 		width: calc(50% - 2vw);
 		margin-left: 0;
@@ -45,7 +45,7 @@
 			margin-left: 2vw;
 		}
 	}
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-xsmall-only {
 		height: 52vw;
 		width: calc(50% - 2vw);
 		margin-left: 0;

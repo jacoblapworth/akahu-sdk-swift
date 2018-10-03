@@ -15,7 +15,7 @@ $toast-max-width: 400px;
 	position: relative;
 	transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
 	z-index: 10;
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-xsmall-only {
 		border-radius: 0;
 	}
 }
@@ -41,8 +41,7 @@ $toast-max-width: 400px;
 .#{$ns}-toast-layout {
 	margin: 0 $xui-s-large $xui-s-large $xui-s-large;
 
-	@include xui-padding($xui-s-2xsmall);
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-xsmall-only {
 		margin: 0;
 		max-width: none;
 		width: 100%;
@@ -80,7 +79,7 @@ $toast-max-width: 400px;
 	position: fixed;
 	z-index: 8000;
 
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-xsmall-only {
 		width: 100%;
 	}
 }

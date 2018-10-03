@@ -14,7 +14,7 @@
 	font-size: 15px;
 	min-height: 100vh;
 	position: relative;
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		padding-left: $ds-nav-width;
 	}
 }
@@ -22,7 +22,7 @@
 .ds-main {
 	margin: auto;
 	padding: 3vh 5vw 3vh;
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		padding: 12vh $ds-main-side-padding 12vh;
 		width: auto;
 	}
@@ -39,11 +39,11 @@
 	display: block;
 	padding-top: calc(1em + 1vh);
 
-	@include xui-breakpoint-medium {
+	@include xui-breakpoint-small-only {
 		column-count: 3;
 	}
 
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		column-count: 4;
 		@include embiggen;
 	}
@@ -98,7 +98,7 @@ $ds-section-space: calc(6rem + 2vh);
 	line-height: 1.15;
 	// Add padding to accommodate react link
 	padding-right: 10rem;
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-xsmall-only {
 		padding-right: 3rem;
 	}
 }
@@ -269,13 +269,13 @@ code {
 // -----------------------------------------------------------------------------
 
 .ds-section-wrap {
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		max-width: 46rem;
 	}
 }
 
 .ds-section-part-wide {
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		width: calc(100% + 20vw);
 	}
 }
@@ -414,7 +414,7 @@ $kss-color-padding: #eeebff;
 		position: relative; // makes dropdowns visible at mobile
 		z-index: 1000; // fixes overlapping breadcrumb
 	}
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-xsmall-only {
 		min-height: 50vh;
 		max-width: initial;
 		width: initial;
@@ -451,7 +451,7 @@ $kss-color-padding: #eeebff;
 	padding: 4vh 2vh;
 	width: 33.33%;
 
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		width: 16.66%;
 	}
 }
@@ -469,7 +469,7 @@ $kss-color-padding: #eeebff;
 .ds-classtable-row {
 	display: flex;
 	flex-direction: column;
-	@include xui-breakpoint-medium-and-wide {
+	@include xui-breakpoint-small-up {
 		display: table-row;
 	}
 	border-bottom: 1px solid $ds-border-color;
@@ -482,14 +482,14 @@ $kss-color-padding: #eeebff;
 	padding: $xui-s-large 0 0 0;
 	white-space: nowrap;
 	width: 40%;
-	@include xui-breakpoint-medium-and-wide {
+	@include xui-breakpoint-small-up {
 		padding: $xui-s-xsmall $xui-s-xsmall $xui-s-xsmall 0;
 	}
 }
 
 .ds-classtable-description {
 	padding: $xui-s-2xsmall 0 $xui-s-large;
-	@include xui-breakpoint-medium-and-wide{
+	@include xui-breakpoint-small-up {
 		padding: $xui-s-xsmall 0 $xui-s-xsmall $xui-s-xsmall;
 	}
 }
@@ -537,7 +537,7 @@ $kss-color-padding: #eeebff;
 	& li {
 		list-style: none;
 	}
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		border-right: 1px solid $ds-border-color;
 		bottom: 0;
 		left: 0;
@@ -550,7 +550,7 @@ $kss-color-padding: #eeebff;
 .ds-nav--header {
 	margin: 0;
 	padding: .5rem 0;
-	@include xui-breakpoint-medium-and-narrow {
+	@include xui-breakpoint-small-only {
 		padding: 0 $xui-s-large;
 	}
 }
@@ -745,7 +745,7 @@ $kss-color-padding: #eeebff;
 .ds-header--link-accessible {
 	display: none ;
 }
-@include xui-breakpoint-wide {
+@include xui-breakpoint-medium-up {
 
 	.ds-xui-logo  {
 		display: none;
@@ -899,7 +899,7 @@ $kss-color-padding: #eeebff;
 	display: flex;
 	flex-flow: row wrap;
 
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		@include embiggen;
 	}
 }
@@ -970,10 +970,10 @@ $kss-color-padding: #eeebff;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-	@include xui-breakpoint-medium-and-narrow {
+	@include xui-breakpoint-small-only {
 		padding: 0 5vw;
 	}
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		position: fixed;
 		left: $ds-nav-width;
 		width: calc(100vw - #{$ds-nav-width});
@@ -1069,7 +1069,7 @@ $kss-color-padding: #eeebff;
 	position: absolute;
 	right: 0;
 	top: 0;
-	@include xui-breakpoint-medium-and-wide {
+	@include xui-breakpoint-small-up {
 		top: 0.7em; // visual correction when text bigger
 	}
 	.kss-section--depth-2 & {
@@ -1112,13 +1112,13 @@ a.ds-component-link:after {
 	transition-timing-function: cubic-bezier(0.565, -10, 0.605, 10);
 	transition-property: transform;
 	transition-duration: 0.25s;
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-xsmall-only {
 		display: none;
 	}
 }
 
 .ds-component-link:hover {
-	@include xui-breakpoint-medium-and-wide {
+	@include xui-breakpoint-small-up {
 		&:after {
 			transform: translateX(-2px) translateY(-2px);
 		}

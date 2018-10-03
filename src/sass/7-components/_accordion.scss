@@ -652,7 +652,7 @@ $xui-accordion-pop-width: 8px;
 	// stylelint-disable-next-line order/properties-alphabetical-order
 	-ms-transition: none;
 
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		&:first-child {
 			border-top-left-radius: $xui-radius;
 			border-top-right-radius: $xui-radius;
@@ -730,7 +730,7 @@ $xui-accordion-pop-width: 8px;
 	padding: $xui-s-xsmall;
 	width: $xui-icon-xlarge;
 
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-xsmall-only {
 		align-self: flex-start;
 	}
 }
@@ -747,7 +747,7 @@ $xui-accordion-pop-width: 8px;
 	flex-shrink: 0;
 	padding: $xui-s-xsmall $xui-s-large $xui-s-xsmall $xui-s-xsmall;
 
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-xsmall-only {
 		align-self: flex-start;
 	}
 }

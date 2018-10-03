@@ -303,13 +303,13 @@
 }
 
 @include make-flex-classes('');
-@include xui-breakpoint-narrow {
+@include xui-breakpoint-xsmall-only {
 	@include make-flex-classes('-narrow');
 }
-@include xui-breakpoint-medium {
+@include xui-breakpoint-small-only {
 	@include make-flex-classes('-medium');
 }
-@include xui-breakpoint-wide {
+@include xui-breakpoint-medium-up {
 	@include make-flex-classes('-wide');
 }
 
@@ -342,19 +342,19 @@
 }
 
 .#{$ns}-u-hidden-narrow {
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-xsmall-only {
 		display: none !important;
 	}
 }
 
 .#{$ns}-u-hidden-medium {
-	@include xui-breakpoint-medium {
+	@include xui-breakpoint-small-only {
 		display: none !important;
 	}
 }
 
 .#{$ns}-u-hidden-wide {
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		display: none !important;
 	}
 }

@@ -5,48 +5,62 @@
 // difficult to implement as the majority of design choices are desktop-first,
 // with mobile exceptions.
 
-$xui-breakpoint-narrow: 520px;
-$xui-breakpoint-medium: 940px;
-$xui-breakpoint-wide: 1160px;
+$xui-breakpoint-small: 600px;
+$xui-breakpoint-medium: 800px;
+$xui-breakpoint-large: 1000px;
+$xui-breakpoint-xlarge: 1200px;
 
-// Content will be applied for narrow screen widths
-@mixin xui-breakpoint-narrow {
-	@media screen and (max-width: $xui-breakpoint-narrow) {
+@mixin xui-breakpoint-small-up {
+	@media screen and (min-width: $xui-breakpoint-small) {
 		@content;
 	}
 }
 
-// Content will be applied for medium to wide screen widths
-@mixin xui-breakpoint-medium {
-	@media screen and (min-width: $xui-breakpoint-narrow) and (max-width: $xui-breakpoint-medium) {
+@mixin xui-breakpoint-medium-up {
+	@media screen and (min-width: $xui-breakpoint-medium) {
 		@content;
 	}
 }
 
-// Content will be applied for medium and above screen widths
-@mixin xui-breakpoint-medium-and-wide {
-	@media screen and (min-width: $xui-breakpoint-narrow) {
+@mixin xui-breakpoint-large-up {
+	@media screen and (min-width: $xui-breakpoint-large) {
 		@content;
 	}
 }
 
-// Content will be applied for medium and below screen widths
-@mixin xui-breakpoint-medium-and-narrow {
-	@media screen and (max-width: $xui-breakpoint-medium) {
+@mixin xui-breakpoint-xlarge-up {
+	@media screen and (min-width: $xui-breakpoint-xlarge) {
 		@content;
 	}
 }
 
-// Content will be applied for medium and above screen widths
-@mixin xui-breakpoint-wide {
-	@media screen and (min-width: $xui-breakpoint-medium){
+// Due to a bug in Webkit which rounds up from .99, the upper range value for these is set to <width-size> - 0.02 to prevent this. Link to issue: https://bugs.webkit.org/show_bug.cgi?id=178261
+@mixin xui-breakpoint-xsmall-only {
+	@media screen and (max-width: $xui-breakpoint-small - 0.02) {
 		@content;
 	}
 }
 
-// Content will be applied for huge and above screen widths
-@mixin xui-breakpoint-huge {
-	@media screen and (min-width: $xui-breakpoint-wide){
+@mixin xui-breakpoint-small-only {
+	@media screen and (min-width: $xui-breakpoint-small) and (max-width: $xui-breakpoint-medium - 0.02) {
+		@content;
+	}
+}
+
+@mixin xui-breakpoint-medium-only {
+	@media screen and (min-width: $xui-breakpoint-medium) and (max-width: $xui-breakpoint-large - 0.02) {
+		@content;
+	}
+}
+
+@mixin xui-breakpoint-large-only {
+	@media screen and (min-width: $xui-breakpoint-large) and (max-width: $xui-breakpoint-xlarge - 0.02) {
+		@content;
+	}
+}
+
+@mixin xui-breakpoint-xlarge-only {
+	@media screen and (min-width: $xui-breakpoint-xlarge) {
 		@content;
 	}
 }

@@ -56,11 +56,11 @@
 	font-size: $xui-font-size-extended-2xlarge;
 	line-height: $xui-line-height-tight;
 
-	@include xui-breakpoint-medium-and-wide {
+	@include xui-breakpoint-small-up {
 		font-size: $xui-font-size-extended-4xlarge;
 	}
 
-	@include xui-breakpoint-huge {
+	@include xui-breakpoint-large-up {
 		font-size: $xui-font-size-extended-5xlarge;
 	}
 }
@@ -73,11 +73,11 @@
 	font-size: $xui-font-size-extended-4xlarge;
 	line-height: $xui-line-height-tight;
 
-	@include xui-breakpoint-medium-and-wide {
+	@include xui-breakpoint-small-up {
 		font-size: $xui-font-size-extended-5xlarge;
 	}
 
-	@include xui-breakpoint-huge {
+	@include xui-breakpoint-large-up {
 		font-size: 48px;
 	}
 }
@@ -90,7 +90,7 @@
 	font-size: 48px;
 	line-height: $xui-line-height-tight;
 
-	@include xui-breakpoint-medium-and-wide {
+	@include xui-breakpoint-small-up {
 		font-size: 5vw;
 	}
 }

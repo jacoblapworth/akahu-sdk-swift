@@ -40,14 +40,14 @@
 
 		@if ($padded == false) {
 
-			@include xui-breakpoint-medium {
+			@include xui-breakpoint-small-only {
 				.#{$ns}-column-#{$suffix}-medium {
 					float: left;
 					width: #{$width};
 				}
 			}
 
-			@include xui-breakpoint-wide {
+			@include xui-breakpoint-medium-up {
 				.#{$ns}-column-#{$suffix}-wide {
 					float: left;
 					width: #{$width};
@@ -56,14 +56,14 @@
 
 		} @else {
 
-			@include xui-breakpoint-medium {
+			@include xui-breakpoint-small-only {
 				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix}-medium {
 					float: left;
 					width: calc( (100% - (12/#{$i}) * #{$xui-s-large}) / 12 * #{$i} );
 				}
 			}
 
-			@include xui-breakpoint-wide {
+			@include xui-breakpoint-medium-up {
 				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix}-wide {
 					float: left;
 					width: calc( (100% - (12/#{$i}) * #{$xui-s-large}) / 12 * #{$i} );
@@ -119,7 +119,7 @@
 		display: inline-block;
 		vertical-align: top;
 
-		@include xui-breakpoint-narrow {
+		@include xui-breakpoint-xsmall-only {
 			@include xui-column-width-generator(1, 1);
 		}
 	}
@@ -130,7 +130,7 @@
 		display: inline-block;
 		vertical-align: top;
 
-		@include xui-breakpoint-narrow {
+		@include xui-breakpoint-xsmall-only {
 			@include xui-margin-left(0);
 			@include xui-column-width-generator(1, 1);
 		}
@@ -145,7 +145,7 @@
 		display: inline-block;
 		vertical-align: top;
 
-		@include xui-breakpoint-narrow {
+		@include xui-breakpoint-xsmall-only {
 			@include xui-margin-right(0);
 			@include xui-column-width-generator(1, 1);
 		}
@@ -156,7 +156,7 @@
 		display: inline-block;
 		vertical-align: top;
 
-		@include xui-breakpoint-narrow {
+		@include xui-breakpoint-xsmall-only {
 			@include xui-column-width-generator(1, 1);
 		}
 	}
@@ -170,7 +170,7 @@
 		display: inline-block;
 		vertical-align: top;
 
-		@include xui-breakpoint-medium-and-narrow {
+		@include xui-breakpoint-small-only {
 			@include xui-margin-right(0);
 			@include xui-column-width-generator(1, 1);
 		}
@@ -182,7 +182,7 @@
 		display: inline-block;
 		vertical-align: top;
 
-		@include xui-breakpoint-medium-and-narrow {
+		@include xui-breakpoint-small-only {
 			@include xui-margin-left(0);
 			@include xui-column-width-generator(1, 1);
 		}

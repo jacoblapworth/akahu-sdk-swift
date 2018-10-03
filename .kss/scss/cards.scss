@@ -7,7 +7,7 @@
 .ds-card-wrapper {
 	margin-left: -10px;
 	margin-right: -10px;
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		@include embiggen;
 	}
 }
@@ -32,11 +32,11 @@
 		background: $ds-card-hover-bg-color;
 	}
 
-	@include xui-breakpoint-medium {
+	@include xui-breakpoint-small-only {
 		min-width: calc(50% - 20px);
 	}
 
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		max-width: calc(33.33% - 20px);
 		min-width: calc(33.33% - 20px);
 	}

@@ -56,16 +56,6 @@ describe('<XUIPill />', () => {
 		expect(pill.find('.xui-avatar')).toBeTruthy();
 	});
 
-	it('invokes the callback passed into the onDeleteClick prop with itself passed in as an argument', () => {
-		const callback = jest.fn();
-		const pill = shallow(
-			<XUIPill value="Pill" onDeleteClick={callback} />
-		);
-
-		pill.find('.xui-pill--button-icon').simulate('click');
-		expect(callback.mock.calls.length).toEqual(1);
-	});
-
 	it('invokes the callback passed into the onClick prop', () => {
 		const callback = jest.fn();
 		const pill = mount(

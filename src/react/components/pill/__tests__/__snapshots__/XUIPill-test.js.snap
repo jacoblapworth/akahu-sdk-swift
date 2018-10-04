@@ -98,7 +98,7 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 2`] = `
   </span>
   <button
     aria-label="Delete"
-    className="xui-button xui-pill--button-icon xui-button-icon"
+    className="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small"
     data-automationid={undefined}
     disabled={false}
     onClick={[Function]}
@@ -150,7 +150,7 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 3`] = `
   </span>
   <button
     aria-label="Delete"
-    className="xui-button xui-pill--button-icon xui-button-icon"
+    className="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-xsmall"
     data-automationid={undefined}
     disabled={false}
     onClick={[Function]}

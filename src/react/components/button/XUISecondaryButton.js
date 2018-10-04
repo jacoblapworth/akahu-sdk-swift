@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIButton from './XUIButton';
 import XUIButtonCaret from './XUIButtonCaret';
-import { VariantClassNames, SizeClassNames, ButtonTypes } from './private/constants';
+import { variantClassNames, sizeClassNames, buttonTypes } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 
 export default class XUISplitButton extends PureComponent {
@@ -46,16 +46,16 @@ XUISplitButton.propTypes = {
 	 * 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative',
 	 * 'borderless-negative', 'icon', 'icon-large', 'icon-inverted', 'icon-inverted-large' or
 	 * `unstyled`. */
-	variant: PropTypes.oneOf(Object.keys(VariantClassNames)),
+	variant: PropTypes.oneOf(Object.keys(variantClassNames)),
 
 	/** Modifier for the size of the button. `small`, `full-width`, or `full-width-layout`. */
-	size: PropTypes.oneOf(Object.keys(SizeClassNames)),
+	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
 	/** Whether or not to render this button using an <a> tag */
 	isLink: PropTypes.bool,
 
 	/** The type attribute of this button. `submit`, `button`, or `reset`. */
-	type: PropTypes.oneOf(Object.keys(ButtonTypes).map(type => ButtonTypes[type])),
+	type: PropTypes.oneOf(Object.keys(buttonTypes).map(type => buttonTypes[type])),
 
 	/** The `href` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
 	href: PropTypes.string,
@@ -75,7 +75,7 @@ XUISplitButton.propTypes = {
 
 XUISplitButton.defaultProps = {
 	tabIndex: 0,
-	type: ButtonTypes.button,
+	type: buttonTypes.button,
 	variant: 'standard',
 	isLink: false,
 	isDisabled: false,

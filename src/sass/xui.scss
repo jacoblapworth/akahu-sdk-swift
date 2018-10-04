@@ -76,10 +76,11 @@
 @import "7-components/globalstates";
 @import "7-components/autocompleter";
 @import "7-components/rolloverCheckbox";
+@import "7-components/toggle";
 
 // Utilities
 // -----------------------------------------------------------------------------
-@import "99-utils/animation-keyframes"; // XUI keyframes. Should only be imported once.
+@import "99-utils/animation-keyframes"; // XUI keyframes. Should only be imported once as they are global
 @import "99-utils/utilities";
 @import "99-utils/marginpadding";
 @import "99-utils/grid";

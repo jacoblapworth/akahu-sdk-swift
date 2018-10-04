@@ -12,7 +12,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
-import { VariantClassNames } from '../../button/private/constants';
+import { variantClassNames } from '../../button/private/constants';
 import { storiesWithVariationsKindName, variations } from './variations';
 import { LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';
 
@@ -47,9 +47,9 @@ storiesWithKnobs.add('Playground', () => (
 		containerClasses={text('containerClasses', '')}
 		dropDownClasses={text('dropDownClasses', '')}
 		inputGroupClasses={text('inputGroupClasses', '')}
-		buttonVariant={select('buttonVariant', ['none', ...Object.keys(VariantClassNames)], 'none') === 'none' ?
+		buttonVariant={select('buttonVariant', ['none', ...Object.keys(variantClassNames)], 'none') === 'none' ?
 			undefined :
-			select('buttonVariant', ['none', ...Object.keys(VariantClassNames)], 'none')}
+			select('buttonVariant', ['none', ...Object.keys(variantClassNames)], 'none')}
 		isTextTruncated={boolean('isTextTruncated', false)}
 		matchTriggerWidth={boolean('matchTriggerWidth', true)}
 		forceDesktop={boolean('forceDesktop', true)}

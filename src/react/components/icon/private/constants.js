@@ -2,6 +2,8 @@ import { ns } from '../../helpers/xuiClassNamespace';
 
 export const baseClass = `${ns}-icon`;
 export const wrapperClass = `${baseClass}wrapper`;
+
+// Wrappers for legacy compatibility
 export const wrapperSizeClasses = {
 	standard: '',
 	large: `${wrapperClass}-large`,

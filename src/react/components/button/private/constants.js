@@ -6,9 +6,10 @@ export const baseClassName = `${ns}-button`;
  * @public
  * Map of sizes to XUI Classes properties
  */
-export const SizeClassNames = {
+export const sizeClassNames = {
 	'xsmall': `${baseClassName}-xsmall`,
 	'small': `${baseClassName}-small`,
+	'standard': '',
 	'full-width': `${baseClassName}-fullwidth`,
 	'full-width-mobile': `${baseClassName}-fullwidth-layout`,
 };
@@ -17,7 +18,7 @@ export const SizeClassNames = {
  * @public
  * Map of sizes to XUI Classes properties for icons
  */
-export const IconSizeClassNames = {
+export const iconSizeClassNames = {
 	xsmall: `${baseClassName}-icon-xsmall`,
 	small: `${baseClassName}-icon-small`,
 	standard: '',
@@ -27,7 +28,7 @@ export const IconSizeClassNames = {
  * @public
  * Map of variants to class names
  */
-export const VariantClassNames = {
+export const variantClassNames = {
 	'standard': `${baseClassName}-standard`,
 	'primary': `${baseClassName}-main`,
 	'create': `${baseClassName}-create`,
@@ -48,7 +49,7 @@ export const VariantClassNames = {
  * @public
  * Map of button types to class names
  */
-export const ButtonTypes = {
+export const buttonTypes = {
 	submit: 'submit',
 	button: 'button',
 	reset: 'reset',

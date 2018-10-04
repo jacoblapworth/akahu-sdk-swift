@@ -69,13 +69,13 @@
 // To add one, insert a standard [icon button](section-building-blocks-controls-button.html#building-blocks-controls-button-5), and apply the following classes.
 //
 // Classes:
-// xui-pill-is-deleteable: Apply to pill
+// xui-pill-is-deletable: Apply to pill
 // xui-pill--button-icon: Apply to icon button
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable">
+// <div class="xui-pill xui-pill-layout xui-pill-is-deletable">
 //   <span class="xui-pill--content">
 //     <span class="xui-pill--text">Nearby</span>
 //   </span>
@@ -97,7 +97,7 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-interactive">
+// <div class="xui-pill xui-pill-layout xui-pill-is-deletable xui-pill-interactive">
 //   <button type='button' class="xui-button xui-pill--button xui-pill--content">
 //     <span class="xui-pill--secondary">Status</span>
 //     <span class="xui-pill--text">Draft</span>
@@ -115,12 +115,13 @@
 // To do this, insert a small [avatar](section-building-blocks-identifiers-avatar.html) and apply the following class.
 //
 // Classes:
+// xui-pill-has-avatar: Apply to pill
 // xui-pill--avatar: Apply to avatar
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-interactive">
+// <div class="xui-pill xui-pill-layout xui-pill-is-deletable xui-pill-interactive xui-pill-has-avatar">
 //   <button type='button' class="xui-button xui-pill--button xui-pill--content">
 //     <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
 //     <span class="xui-pill--text">zoe@deschanel.com</span>
@@ -142,7 +143,7 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-interactive">
+// <div class="xui-pill xui-pill-layout xui-pill-is-deletable xui-pill-interactive">
 //   <a href="#" class="xui-button xui-pill--button xui-pill--content xui-pill--link">
 //     <span class="xui-pill--text">Link</span>
 //   </a>
@@ -164,7 +165,7 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-focused xui-pill-interactive">
+// <div class="xui-pill xui-pill-layout xui-pill-is-deletable xui-pill-is-focused xui-pill-interactive">
 //   <button type='button' class="xui-button xui-pill--button xui-pill--content">
 //     <span class="xui-pill--text">Focused</span>
 //   </button>
@@ -185,9 +186,9 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-pill xui-pill-layout xui-pill-is-invalid xui-pill-is-deleteable xui-pill-interactive">
+// <div class="xui-pill xui-pill-layout xui-pill-is-invalid xui-pill-is-deletable xui-pill-interactive">
 //   <button class="xui-button xui-pill--content xui-pill--button" tabindex="0" type="button">
-//     <div class="xui-pill--erroricon">
+//     <div class="xui-pill--erroricon xui-iconwrapper">
 //       <svg focusable="false" class="xui-icon xui-icon-color-red">
 //         <use xlink:href="#xui-icon-exclamation" role="presentation"/>
 //       </svg>
@@ -209,44 +210,44 @@
 //
 // Often, only a single selection is allowed within an input.
 // This allows additional actions such as surfacing contact details to be provided.
-// To do this, replace the entire input with a pseudo `xui-input` and apply the following class to the pill.
+// To do this, replace the entire input with a pseudo `xui-textinput` and apply the following class to the pill.
 // All other classes will update accordingly.
 //
 // Classes:
-// xui-pill-single: Apply to pill
+// xui-pill-single: Apply to pill.
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-textinput xui-textinput--input" tabindex='1'>
-//   <div class="xui-pill-single">
+// <div class="xui-textinput" tabindex="0">
+//   <div class="xui-pill xui-pill-single xui-pill-is-deletable xui-pill-has-avatar">
 //     <span class="xui-pill--content">
 //       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
 //       <span class="xui-pill--text">zoe@deschanel.com</span>
 //     </span>
-//     <button class="xui-button xui-button-icon">
+//     <button class="xui-button xui-button-icon xui-pill--button-icon">
 //       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //     </button>
 //   </div>
 // </div>
-// <div class="xui-textinput xui-margin-top" tabindex='0'>
-//   <div class="xui-pill-single xui-pill-is-invalid">
+// <div class="xui-textinput xui-margin-top" tabindex="0">
+//   <div class="xui-pill xui-pill-single xui-pill-is-invalid xui-pill-is-deletable xui-pill-has-avatar">
 //     <button type='button' class="xui-button xui-pill--button xui-pill--content" tabindex='-1'>
 //       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
 //       <span class="xui-pill--text">zoe@deschanel.com</span>
 //     </button>
-//     <button class="xui-button xui-button-icon">
+//     <button class="xui-button xui-button-icon xui-pill--button-icon">
 //       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //     </button>
 //   </div>
 // </div>
-// <div class="xui-textinput xui-margin-top" tabindex='0'>
-//   <div class="xui-pill xui-pill-single">
+// <div class="xui-textinput xui-margin-top" tabindex="0">
+//   <div class="xui-pill xui-pill-single xui-pill-is-deletable xui-pill-has-avatar">
 //   	 <a href="#" class="xui-button xui-pill--button xui-pill--content" tabindex='-1'>
 //     	 <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
 //       <span class="xui-pill--text">zoe@deschanel.com</span>
 //   	 </a>
-//     <button class="xui-button xui-button-icon">
+//     <button class="xui-button xui-button-icon xui-pill--button-icon">
 //       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //     </button>
 //   </div>
@@ -299,33 +300,19 @@
 
 .#{$ns}-pill--button-icon {
 	flex-shrink: 0;
-	height: $xui-control-size-small;
-	margin: $xui-s-2xsmall;
-	width: $xui-control-size-small;
+	margin-left: $xui-s-2xsmall;
 }
 
 .#{$ns}-pill-small {
 	@include xui-text-small;
 	@include xui-padding-horizontal($xui-s-small);
 	height: $xui-control-size-small;
-
-	//TODO: Remove when small icons & icon buttons exist
-	.#{$ns}-pill--button-icon {
-		height: $xui-control-size-xsmall;
-		width: $xui-control-size-xsmall;
-	}
 }
 
 .#{$ns}-pill-xsmall {
 	@include xui-text-xsmall;
 	@include xui-padding-horizontal($xui-s-xsmall);
 	height: $xui-control-size-xsmall;
-
-	//TODO: Remove when small icons & icon buttons exist
-	.#{$ns}-pill--button-icon {
-		height: $xui-control-size-2xsmall;
-		width: $xui-control-size-2xsmall;
-	}
 }
 
 .#{$ns}-pill--text {
@@ -351,6 +338,7 @@
 }
 
 .#{$ns}-pill--button {
+	align-self: stretch; // Make hit target bigger vertically
 	border-radius: $xui-s-large;
 	color: $xui-pill-color;
 	text-align: left;
@@ -379,15 +367,14 @@
 .#{$ns}-pill-is-invalid {
 	background-color: $xui-pill-invalid-bg-color;
 	color: $xui-pill-invalid-color;
+	padding-left: 0;
 
 	&.#{$ns}-pill-is-focused {
 		background-color: $xui-pill-invalid-focused-bg-color;
 	}
 
-	// TODO: Deprecated, remove in XUI14 as we now use inverted buttons for this
-	.#{$ns}-pill--button-icon,
-	.#{$ns}-pill--content {
-		color: $xui-pill-invalid-color;
+	.#{$ns}-pill--button-icon {
+		color: $xui-pill-invalid-color; // Override inverted button color which has alpha
 	}
 
 	.#{$ns}-pill--text {
@@ -402,13 +389,18 @@
 
 .#{$ns}-pill-single {
 	align-items: center;
-	background-color: $xui-color-white;
-	bottom: 0;
+	background: transparent;
 	display: flex;
-	left: $xui-s-2xsmall;
-	position: absolute;
-	right: $xui-s-2xsmall;
-	top: 0;
+	max-width: 100%; // Undo max-width styling of xui-pill
+	width: 100%; // Ensure full width
+
+	.#{$ns}-pill--button-icon {
+		margin: 0 0 0 auto; // Delete button should be on the far right; no other margins should apply to ensure alignment with <select> caret
+	}
+
+	.#{$ns}-pill--content {
+		flex-grow: 1;
+	}
 
 	&.#{$ns}-pill-is-invalid {
 		.#{$ns}-pill--text {
@@ -432,6 +424,7 @@
 	display: inline-flex;
 	flex-shrink: 0;
 	justify-content: center;
+	margin-left: 5px;
 	margin-right: 5px;
 }
 

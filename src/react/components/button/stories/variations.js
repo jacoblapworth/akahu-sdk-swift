@@ -1,9 +1,9 @@
 const privateConsts = require('../private/constants');
 
 const storiesWithVariationsKindName = 'Instances/XUIButton';
-const buttonVariants = Object.keys(privateConsts.VariantClassNames);
-const sizes = Object.keys(privateConsts.SizeClassNames);
-const iconSizes = Object.keys(privateConsts.IconSizeClassNames);
+const buttonVariants = Object.keys(privateConsts.variantClassNames);
+const sizes = Object.keys(privateConsts.sizeClassNames);
+const iconSizes = Object.keys(privateConsts.iconSizeClassNames);
 const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,

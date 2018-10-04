@@ -30,6 +30,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 * `xui-dropdownToggled--innerWrap` has been removed. There is no replacement as this undocumented class was internal to a component and is no longer used.
 * `xui-popover--arrow` has been removed. Apply `xui-popover-arrow` on the parent popover component instead.
 * `xui-stepper-tests` class has been removed. This was a hidden and internal class, but if you were referring to it, use `xui-stepper-hidden-content` instead.
+* `xui-pill-is-deleteable` has been removed. Use `xui-pill-is-deletable` instead.
 * `xui-breakpoint-medium-and-wide` mixin has been removed. Use `xui-breakpoint-small-up` instead
 * `xui-breakpoint-wide` mixin has been removed. Use `xui-breakpoint-medium-up` instead.
 * `xui-breakpoint-huge` mixin has been removed. Use `xui-breakpoint-large-up` instead.
@@ -67,6 +68,8 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - TextInput side element contents should have their size checked (they should always have a size 1 smaller than the parent input - i.e. 'standard' `XUITextInput` contains 'small' `XUIButton`s)
 - Check for uses of `XUIPill` outside of `XUITextInput`. The codemod for this upgrade automatically adds `size="small"`, which should be removed in cases where `XUIPill` isn't in a text input
 - SelectBox prop `islabelHidden` case has been fixed to be `isLabelHidden`, for real this time.
+- Pill prop `defaultLayout` has been removed.
+- Pill `onDeleteClick` no longer has the component instance bound to `this`.
 
 ### Utility classes
 

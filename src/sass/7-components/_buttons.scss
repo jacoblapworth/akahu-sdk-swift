@@ -385,7 +385,6 @@
 @import "buttons.dropdowns";
 @import "buttons.icons";
 @import "buttons.states";
-@import "buttons.toggle";
 
 .#{$ns}-button-inverted {
 	@include xui-state-focus-inverted;

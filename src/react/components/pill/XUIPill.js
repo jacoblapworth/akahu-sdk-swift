@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import crossSmall from '@xero/xui-icon/icons/cross-small';
@@ -10,17 +10,7 @@ import { baseClass, sizeClasses } from './private/constants';
 
 import '../../../sass/7-components/_pills.scss';
 
-/**
- * @private
- * @param {Function} callback
- * @param {Object} scope
- * @return {Function} the provided callback with the scope passed in as an argument.
- */
-function returnCallbackWithScope(callback, scope) {
-	return () => callback(scope);
-}
-
-export default class XUIPill extends Component {
+export default class XUIPill extends PureComponent {
 	constructor(props) {
 		super(props);
 
@@ -65,13 +55,13 @@ export default class XUIPill extends Component {
 			(avatarProps != null || isInvalid) && `${baseClass}-has-avatar`,
 			(href || onClick) && `${baseClass}-interactive`,
 		);
-		const onDeleteCallback = onDeleteClick && returnCallbackWithScope(onDeleteClick, this);
 
-		const deleteButton = onDeleteCallback && (
+		const deleteButton = onDeleteClick && (
 			<XUIButton
+				size={size}
 				className={`${baseClass}--button-icon`}
 				variant={isInvalid ? 'icon-inverted' : 'icon'}
-				onClick={onDeleteCallback}
+				onClick={onDeleteClick}
 				title={deleteButtonLabel}
 				aria-label={deleteButtonLabel}
 				qaHook={qaHook && `${qaHook}--delete`}
@@ -109,7 +99,6 @@ export default class XUIPill extends Component {
 
 XUIPill.defaultProps = {
 	deleteButtonLabel: 'Delete',
-	defaultLayout: true,
 	size: 'standard',
 };
 
@@ -120,8 +109,6 @@ XUIPill.propTypes = {
 	className: PropTypes.string,
 	/** Specify an alternate label attribute for the delete button, defaults to 'Delete'. */
 	deleteButtonLabel: PropTypes.string,
-	/** Remove the XUI layout class by specifiying false. */
-	defaultLayout: PropTypes.bool,
 	/** This will make the value an `anchor` element instead of a `span` element and adds the
 	 * href as the link. */
 	href: PropTypes.string,

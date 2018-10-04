@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUILoader from '../loader/XUILoader';
-import { VariantClassNames, SizeClassNames, ButtonTypes, IconSizeClassNames } from './private/constants';
+import { variantClassNames, sizeClassNames, buttonTypes, iconSizeClassNames } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 import noop from '../helpers/noop';
 
-import '../../../sass/7-components/_buttons.scss'; // TODO: exclude toggle
+import '../../../sass/7-components/_buttons.scss';
 
 /**
  * Returns true if the button is a borderless variant
@@ -35,8 +35,8 @@ const isIconVariant = variant => variant.indexOf('icon') > -1;
  * @return {string} The variant specific class name
  */
 const getVariantClass = variant => (
-	VariantClassNames[variant] !== undefined
-		? VariantClassNames[variant]
+	variantClassNames[variant] !== undefined
+		? variantClassNames[variant]
 		: `${ns}-button-standard`
 );
 
@@ -116,7 +116,7 @@ function handleSpacebarAsClick(event, { isDisabled, isLoading }) {
  */
 const focusRootNode = button => button.rootNode != null && button.rootNode.focus();
 
-export default class XUIButton extends React.Component {
+export default class XUIButton extends React.PureComponent {
 	focus() {
 		focusRootNode(this);
 		// Apparently there are times when calling focus won't actually do it.  I think
@@ -131,7 +131,6 @@ export default class XUIButton extends React.Component {
 	}
 
 	render() {
-		const xuiButton = this;
 		const {
 			type,
 			variant,
@@ -154,7 +153,7 @@ export default class XUIButton extends React.Component {
 			retainLayout,
 			minLoaderWidth,
 			...spreadProps
-		} = xuiButton.props;
+		} = this.props;
 		const ElementType = isLink ? 'a' : 'button';
 		const variantClass = getVariantClass(variant);
 		const buttonDisabled = isDisabled || isLoading;
@@ -179,8 +178,8 @@ export default class XUIButton extends React.Component {
 			buttonChildren = loader;
 		}
 
-		const isIconDependentClassNames = isIconVariant(variantClass) ? cn(IconSizeClassNames[size]) : cn(
-			SizeClassNames[size],
+		const isIconDependentClassNames = isIconVariant(variantClass) ? cn(iconSizeClassNames[size]) : cn(
+			sizeClassNames[size],
 			(isInverted &&
 				(isBorderlessVariant(variantClass)
 					? `${ns}-button-borderless-inverted`
@@ -233,7 +232,7 @@ export default class XUIButton extends React.Component {
 		};
 
 		return (
-			<ElementType ref={n => xuiButton.rootNode = n} {...elementProps} data-automationid={qaHook}>
+			<ElementType ref={n => this.rootNode = n} {...elementProps} data-automationid={qaHook}>
 				{buttonChildren}
 			</ElementType>
 		);
@@ -268,18 +267,18 @@ XUIButton.propTypes = {
 	/** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`, `link`,
 	 * 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative',
 	 * 'borderless-negative', 'icon', 'icon-inverted', or `unstyled`. */
-	variant: PropTypes.oneOf(Object.keys(VariantClassNames)),
+	variant: PropTypes.oneOf(Object.keys(variantClassNames)),
 
 	/**
 	 * Modifier for the size of the button. `small`, `xsmall`, `full-width`, or `full-width-layout`.
 	*/
-	size: PropTypes.oneOf(Object.keys(SizeClassNames)),
+	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
 	/** Whether or not to render this button using an <a> tag */
 	isLink: PropTypes.bool,
 
 	/** The type attribute of this button. `submit`, `button`, or `reset`. */
-	type: PropTypes.oneOf(Object.keys(ButtonTypes).map(type => ButtonTypes[type])),
+	type: PropTypes.oneOf(Object.keys(buttonTypes).map(type => buttonTypes[type])),
 
 	/** The `href` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
 	href: PropTypes.string,
@@ -308,8 +307,9 @@ XUIButton.propTypes = {
 
 XUIButton.defaultProps = {
 	tabIndex: 0,
-	type: ButtonTypes.button,
+	type: buttonTypes.button,
 	variant: 'standard',
+	size: 'standard',
 	isLink: false,
 	isDisabled: false,
 	isExternalLink: false,

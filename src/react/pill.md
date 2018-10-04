@@ -13,7 +13,7 @@ Pills can trigger actions passed in through the `onDeleteClick`, `onClick`, and 
 ```jsx
 <div>
 	<XUIPill
-		value="Deleteable selection"
+		value="Deletable selection"
 		onDeleteClick={() => window.alert('deleted')}
 		className="xui-margin-right-xsmall"
 	/>

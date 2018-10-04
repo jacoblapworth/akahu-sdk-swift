@@ -70,6 +70,9 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - SelectBox prop `islabelHidden` case has been fixed to be `isLabelHidden`, for real this time.
 - Pill prop `defaultLayout` has been removed.
 - Pill `onDeleteClick` no longer has the component instance bound to `this`.
+- Switch no longer always maintains internal checked state. The API is now very similar to XUICheckbox and XUIRadio in that the component can be either used as a controlled or uncontrolled input.
+  If users provide an isChecked value, the component will not maintain its own internal state. If users provide no isChecked value, the isDefaultChecked value will be used to populate the initial internally-managed state.
+
 
 ### Utility classes
 

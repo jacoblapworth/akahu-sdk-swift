@@ -64,6 +64,12 @@ describe('XUISwitch', function () {
 		expect(ariaLabel).toMatchSnapshot();
 	});
 
+	it('should accept an isChecked prop that determines the value of aria attributes', () => {
+		const ariaLabel = renderer.create(<XUISwitch isChecked={true} onChange={NOOP} labelId="testLabelId">Switch test</XUISwitch>);
+
+		expect(ariaLabel).toMatchSnapshot();
+	});
+
 	it('should include an aria-label when label is passed and hidden', () => {
 		const ariaLabel = renderer.create(<XUISwitch onChange={NOOP} isLabelHidden>Switch test</XUISwitch>);
 

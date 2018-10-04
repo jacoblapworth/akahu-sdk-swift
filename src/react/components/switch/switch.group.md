@@ -10,7 +10,7 @@ The touch target for Switches in a group is the entire "row" of the Switch Group
 
 ```
 <XUISwitchGroup label="Birds of New Zealand">
-	<XUISwitch isReversed isChecked>Tūī</XUISwitch>
+	<XUISwitch isReversed isDefaultChecked={true}>Tūī</XUISwitch>
 	<XUISwitch isReversed>Pīwakawaka</XUISwitch>
 	<XUISwitch isReversed>Ruru</XUISwitch>
 	<XUISwitch isReversed isDisabled>Moa</XUISwitch>

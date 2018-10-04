@@ -16,8 +16,12 @@ class Example extends PureComponent {
 		super(props);
 
 		this.state = {
-			secondSwitch: true,
+			isSecondSwitchChecked: true,
 		};
+	}
+
+	onChange = () => {
+		this.setState(prevState => ({ isSecondSwitchChecked: !prevState.isSecondSwitchChecked });
 	}
 
 	render() {
@@ -26,8 +30,8 @@ class Example extends PureComponent {
 				<h3>Click the switch</h3>
 				<div className="xui-margin-bottom">
 					<XUISwitch
-						isChecked
-						onChange={() => this.setState(prevState => ({ secondSwitch: !prevState.secondSwitch }))}
+						isDefaultChecked={true}
+						onChange={this.onChange}
 					>
 						Enabled switch
 					</XUISwitch>
@@ -35,7 +39,7 @@ class Example extends PureComponent {
 				<div>
 					<XUISwitch
 						isDisabled
-						isChecked={this.state.secondSwitch}
+						isChecked={this.state.isSecondSwitchChecked}
 					>
 						Disabled switch
 					</XUISwitch>

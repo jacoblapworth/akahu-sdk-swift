@@ -26,28 +26,24 @@ const onLabelClick = e => {
 };
 
 export default class XUISwitch extends PureComponent {
-	// User can manually proivde an id, or we will generate one.
+	// User can manually provide an id, or we will generate one.
 	wrapperIds = generateIds(this.props.labelId);
-	state = {
-		isInputChecked: this.props && !!this.props.isChecked,
+
+	constructor(props) {
+		super(props);
+
+		this._isControlled = typeof props.isChecked === 'boolean';
+
+		// We conditionally maintain state in order to support 'uncontrolled' component
+		this.state = {
+			internalIsChecked: this._isControlled ? null : !!props.isDefaultChecked,
+		};
 	}
 
-	setInputChecked = () => {
-		this.props.onChange && this.props.onChange();
-		this.setState({ isInputChecked: this._input && this._input.checked });
-	}
-
-	componentDidUpdate(prevProps) {
-		const {
-			isChecked,
-		} = this.props;
-		if (prevProps.isChecked !== isChecked) {
-			// TODO: Lint - try remove setState
-			this.setState({ // eslint-disable-line
-				isInputChecked: this.props.isChecked,
-			});
-		}
-	}
+	internalOnChange = (e) => {
+		this.setState({ internalIsChecked: e.target.checked });
+		this.props.onChange && this.props.onChange(e);
+	};
 
 	render() {
 		const {
@@ -64,6 +60,9 @@ export default class XUISwitch extends PureComponent {
 			validationMessage,
 			hintMessage,
 		} = this.props;
+
+		const isChecked = this._isControlled ? this.props.isChecked : this.state.internalIsChecked;
+		const onChange = this._isControlled ? this.props.onChange : this.internalOnChange;
 
 		const classes = cn(
 			className,
@@ -84,13 +83,14 @@ export default class XUISwitch extends PureComponent {
 			'className': inputClasses,
 			'data-automationid': qaHook && `${qaHook}--input`,
 			'disabled': isDisabled || undefined,
-			'aria-checked': this.state.isInputChecked,
-			'onChange': this.setInputChecked,
-			'checked': this.state.isInputChecked,
+			'aria-checked': isChecked,
+			'checked': isChecked,
 			name,
 			value,
+			onChange,
 			...getAriaAttributes(this.wrapperIds, this.props),
 		};
+
 
 		return (
 			<XUIControlWrapperInline
@@ -123,8 +123,13 @@ XUISwitch.propTypes = {
 	onChange: PropTypes.func,
 	qaHook: PropTypes.string,
 	className: PropTypes.string,
-	/** Determines whether the switch is checked or unchecked */
+	/** Determines whether the switch is checked or unchecked.
+	 * This makes the switch a controlled component.
+	 * Omitting the isChecked prop will make it an uncontrolled component. */
 	isChecked: PropTypes.bool,
+	/** Used to provide an uncontrolled switch component. If a value is passed to the
+	 * isChecked prop, this prop will be ignored. */
+	isDefaultChecked: PropTypes.bool,
 	/** Determines whether the switch is enabled or disabled */
 	isDisabled: PropTypes.bool,
 	/** Name attribute for the input */
@@ -154,5 +159,4 @@ XUISwitch.defaultProps = {
 	isLabelHidden: false,
 	isDisabled: false,
 	isReversed: false,
-	isChecked: false,
 };

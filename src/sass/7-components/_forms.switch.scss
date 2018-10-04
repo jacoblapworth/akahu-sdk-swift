@@ -1,8 +1,7 @@
 @import "../vars";
 @import "../mixins";
 
-// TODO: update uses of this var to $xui-s-xsmall, when flexible controls are available.
-$xui-switch-label-padding: $xui-s-small - 2;
+$xui-switch-label-padding: $xui-s-xsmall;
 
 .#{$ns}-switch {
 	align-items: center;

@@ -1,5 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`XUISwitch should accept an isChecked prop that determines the value of aria attributes 1`] = `
+<label
+  className="xui-switch"
+  data-automationid={undefined}
+  onClick={[Function]}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <input
+    aria-checked={true}
+    aria-describedby={undefined}
+    aria-invalid={undefined}
+    aria-label={undefined}
+    aria-labelledby="testLabelId"
+    checked={true}
+    className="xui-switch--checkbox"
+    data-automationid={undefined}
+    disabled={undefined}
+    name={undefined}
+    onChange={[Function]}
+    role="switch"
+    type="checkbox"
+    value={undefined}
+  />
+  <div
+    className="xui-switch--control"
+    data-automationid={undefined}
+  />
+  <span
+    className="xui-switch--label"
+    data-automationid={undefined}
+    htmlFor={undefined}
+    id="testLabelId"
+  >
+    Switch test
+  </span>
+</label>
+`;
+
 exports[`XUISwitch should include a reversed class when a text label is present and isReversed is set 1`] = `
 <label
   className="xui-switch xui-switch-reversed"

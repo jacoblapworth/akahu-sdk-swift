@@ -63,7 +63,7 @@ const buildRadio = (qaHook, htmlClassName, svgSettings, isGrouped) => {
 };
 
 export default class XUIRadio extends React.Component {
-	// User can manually proivde an id, or we will generate one.
+	// User can manually provide an id, or we will generate one.
 	wrapperIds = generateIds(this.props.labelId);
 
 	render() {

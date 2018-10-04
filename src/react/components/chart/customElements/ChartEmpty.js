@@ -25,6 +25,7 @@ class ChartEmpty extends PureComponent {
 						<XUIIcon
 							icon={chart}
 							size="large"
+							isBoxed
 						/>
 						<div>{emptyMessage}</div>
 					</div>

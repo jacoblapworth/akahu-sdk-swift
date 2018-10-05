@@ -46,7 +46,7 @@ module.exports = {
 				{
 					name: 'path',
 					newName: 'icon'
-				}
+				},
 			],
 		}
 	],
@@ -113,7 +113,16 @@ module.exports = {
 				{
 					name: 'groupLabel',
 					newName: 'labelText'
-				}
+				},
+			]
+		},
+		{
+			isDefault: true,
+			props: [
+				{
+					name: 'mainIconPath',
+					newName: 'mainIcon'
+				},
 			]
 		}
 	],
@@ -125,6 +134,15 @@ module.exports = {
 					name: 'groupLabel',
 					newName: 'labelText'
 				}
+			]
+		},
+		{
+			isDefault: true,
+			props: [
+				{
+					name: 'mainIconPath',
+					newName: 'mainIcon'
+				},
 			]
 		}
 	],

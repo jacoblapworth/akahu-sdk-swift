@@ -15,13 +15,14 @@ class Example extends PureComponent {
 	constructor(props) {
 		super(props);
 
+		this.onChange = this.onChange.bind(this);
 		this.state = {
 			isSecondSwitchChecked: true,
 		};
 	}
 
-	onChange = () => {
-		this.setState(prevState => ({ isSecondSwitchChecked: !prevState.isSecondSwitchChecked });
+	onChange() {
+		this.setState(prevState => ({ isSecondSwitchChecked: !prevState.isSecondSwitchChecked }));
 	}
 
 	render() {

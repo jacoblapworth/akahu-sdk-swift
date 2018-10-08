@@ -234,8 +234,8 @@ XUITextInput.propTypes = {
 	onBlur: PropTypes.func,
 	/** Function to call on keydown inside the textinput */
 	onKeyDown: PropTypes.func,
-	/** Label to show above the input */
-	labelText: PropTypes.string,
+	/** Input label. If isLabelHidden is true, this must be a string as it's applied as an attribute */
+	labelText: PropTypes.node,
 	/** Whether the current input value is invalid */
 	isInvalid: PropTypes.bool,
 	/** Validation message to show under the input if `isInvalid` is true */
@@ -287,7 +287,14 @@ XUITextInput.propTypes = {
 	 * `isMultiline=true` and `rightElement=undefined`) */
 	isManuallyResizable: PropTypes.bool,
 	/** Should label be applied as an aria-label, rather than being visibly displayed. */
-	isLabelHidden: PropTypes.bool,
+	isLabelHidden(props, propName) {
+		// If the label is hidden, the label value must be a string
+		if (props[propName] && props.labelText && typeof props.labelText !== 'string') {
+			return new Error('XUITextInput labelText must be a string ' +
+				'when isLabelHidden as it is applied as an attribute');
+		}
+		return null;
+	},
 	/** Provide a specific label ID which will be used as the "labelleby" aria property */
 	labelId: PropTypes.string,
 };

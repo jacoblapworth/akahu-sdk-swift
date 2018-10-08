@@ -169,10 +169,12 @@ export default class XUIAutocompleter extends PureComponent {
 	};
 
 	onFocus = () => {
-		this.focusInput();
-		this.setState({
-			focused: true,
-		});
+		if (!this.state.focused) {
+			this.focusInput();
+			this.setState({
+				focused: true,
+			});
+		}
 	};
 
 	onBlur = () => {

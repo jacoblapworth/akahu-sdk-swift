@@ -46,7 +46,7 @@ module.exports = {
 				{
 					name: 'path',
 					newName: 'icon'
-				}
+				},
 			],
 		}
 	],
@@ -64,7 +64,7 @@ module.exports = {
 				},
 				{
 					name: 'labelHidden',
-					newName: 'isLabelHidden'
+					newName: 'islabelHidden'
 				},
 				{
 					name: 'ariaId',
@@ -113,7 +113,16 @@ module.exports = {
 				{
 					name: 'groupLabel',
 					newName: 'labelText'
-				}
+				},
+			]
+		},
+		{
+			isDefault: true,
+			props: [
+				{
+					name: 'mainIconPath',
+					newName: 'mainIcon'
+				},
 			]
 		}
 	],
@@ -125,6 +134,15 @@ module.exports = {
 					name: 'groupLabel',
 					newName: 'labelText'
 				}
+			]
+		},
+		{
+			isDefault: true,
+			props: [
+				{
+					name: 'mainIconPath',
+					newName: 'mainIcon'
+				},
 			]
 		}
 	],

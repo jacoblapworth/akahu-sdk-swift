@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import throttle from 'lodash.throttle';
+import debounce from 'lodash.debounce';
 import Picklist from '../picklist/Picklist';
 import XUILoader from '../loader/XUILoader';
 import DropDown from '../dropdown/DropDown';
@@ -27,7 +27,7 @@ export default class XUIAutocompleter extends PureComponent {
 			focused: false,
 			value: props.searchValue,
 		};
-		this.bindOnChange(props.searchThrottleInterval);
+		this.bindOnChange(props.searchDebounceTimeout);
 	}
 
 	componentDidMount() {
@@ -38,12 +38,12 @@ export default class XUIAutocompleter extends PureComponent {
 		const {
 			pills,
 			disableWrapPills,
-			searchThrottleInterval,
+			searchDebounceTimeout,
 			searchValue,
 			placeholder,
 		} = this.props;
-		if (prevProps.searchThrottleInterval !== searchThrottleInterval) {
-			this.bindOnChange(searchThrottleInterval);
+		if (prevProps.searchDebounceTimeout !== searchDebounceTimeout) {
+			this.bindOnChange(searchDebounceTimeout);
 		}
 		if (prevProps.searchValue !== searchValue) {
 			// TODO: Investigate whether setState can be moved
@@ -61,26 +61,26 @@ export default class XUIAutocompleter extends PureComponent {
 	}
 
 	/**
-	 * Bind an optionally throttled onSearch handler to the component instance.
+	 * Bind an optionally debounced onSearch handler to the component instance.
 	 *
 	 * @private
-	 * @param {number} interval
+	 * @param {number} timeout
 	 */
-	bindOnChange = interval => {
+	bindOnChange = timeout => {
 		const { onSearch } = this.props;
 		if (onSearch) {
-			const throttled = interval
-				? throttle(onSearch, interval, { trailing: true })
+			const debounced = timeout
+				? debounce(onSearch, timeout)
 				: onSearch;
-			this.throttledOnChange = event => {
+			this.debouncedOnChange = event => {
 				event.persist();
 				this.setState({
 					value: event.target.value,
 				});
-				throttled(event.target.value);
+				debounced(event.target.value);
 			};
 		} else {
-			this.throttledOnChange = undefined;
+			this.debouncedOnChange = undefined;
 		}
 	};
 
@@ -288,7 +288,7 @@ export default class XUIAutocompleter extends PureComponent {
 					inputRef={i => this.inputNode = i}
 					placeholder={placeholder}
 					value={value || ''}
-					onChange={this.throttledOnChange}
+					onChange={this.debouncedOnChange}
 					onKeyDown={this.onInputKeyDown}
 					qaHook={inputQaHook}
 					isDisabled={isDisabled}
@@ -434,11 +434,12 @@ XUIAutocompleter.propTypes = {
 	/** Callback for when the list closes */
 	onClose: PropTypes.func,
 
-	/** Callback for when the user types into the search box */
+	/** Callback for when the user types into the search box.
+	 * The first argument passed in is the search term value. */
 	onSearch: PropTypes.func,
 
-	/** If you want to throttle the input's onChange handler, put the throttle interval here */
-	searchThrottleInterval: PropTypes.number,
+	/** The debounce timeout before onSearch is called. Set to 0 to disable debouncing */
+	searchDebounceTimeout: PropTypes.number,
 
 	/** Maps to the 'size' property of the dropdown component. */
 	dropdownSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
@@ -494,7 +495,7 @@ XUIAutocompleter.propTypes = {
 
 XUIAutocompleter.defaultProps = {
 	loading: false,
-	searchThrottleInterval: 0,
+	searchDebounceTimeout: 200,
 	openOnFocus: false,
 	closeOnTab: true,
 	forceDesktop: true,

@@ -11,6 +11,7 @@ import DropDownToggled from '../../dropdown/DropDownToggled';
 import DropDownLayout from '../../dropdown/DropDownLayout';
 import uuidv4 from 'uuid/v4';
 
+jest.useFakeTimers();
 jest.mock('uuid/v4');
 uuidv4.mockImplementation(() => 'testAutocompleterId');
 
@@ -54,7 +55,20 @@ describe('XUIAutocompleter', () => {
 		expect(inputEl).toMatchSnapshot();
 	});
 
-	it('fires the onSearch callback when the input value has changed', () => {
+	it('fires the onSearch callback when the input value has changed immediately if the searchDebounceTimeout value is 0', () => {
+		const onSearch = jest.fn();
+		const searchComp = mount(createComponent({onSearch: onSearch, searchValue: 'z', searchDebounceTimeout: 0 }))
+
+		searchComp.find('input').simulate('change', {
+			target: {
+				value: 'a'
+			}
+		});
+
+		expect(onSearch.mock.calls.length).toEqual(1);
+	});
+
+	it('fires the onSearch callback when the input value has changed after 200ms by default', () => {
 		const onSearch = jest.fn();
 		const searchComp = mount(createComponent({onSearch: onSearch, searchValue: 'z' }))
 
@@ -64,7 +78,33 @@ describe('XUIAutocompleter', () => {
 			}
 		});
 
-		expect(onSearch.mock.calls.length).toEqual(1);
+		expect(onSearch.mock.calls.length).toEqual(0);
+
+		setTimeout(() => {
+			expect(onSearch.mock.calls.length).toEqual(1);
+		}, 200);
+	});
+
+	it('fires the onSearch callback when the input value has changed after the given searchDebounceTimeout value', () => {
+		const onSearch = jest.fn();
+		const searchComp = mount(createComponent({onSearch: onSearch, searchValue: 'z', searchDebounceTimeout: 500 }))
+
+		searchComp.find('input').simulate('change', {
+			target: {
+				value: 'a'
+			}
+		});
+
+		expect(onSearch.mock.calls.length).toEqual(0);
+
+		// Test that the default is overridden
+		setTimeout(() => {
+			expect(onSearch.mock.calls.length).toEqual(0);
+		}, 200);
+
+		setTimeout(() => {
+			expect(onSearch.mock.calls.length).toEqual(1);
+		}, 500);
 	});
 
 	it('renders with loading as false by default', () => {

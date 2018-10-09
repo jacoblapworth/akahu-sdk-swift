@@ -42,6 +42,15 @@ module.exports = {
 	],
 	'@xero/xui/react/autocompleter': [
 		{
+			isDefault: true,
+			props: [
+				{
+					name: 'searchThrottleInterval',
+					newName: 'searchDebounceTimeout'
+				}
+			]
+		},
+		{
 			name: 'XUIAutocompleterSecondarySearch',
 			props: [
 				{

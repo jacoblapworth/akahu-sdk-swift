@@ -53,7 +53,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 			const throttled = interval
 				? throttle(onSearch, interval, { trailing: true })
 				: onSearch;
-			this.throttledOnChange = event => {
+			this.debouncedOnChange = event => {
 				event.persist();
 				this.setState({
 					value: event.target.value,
@@ -61,7 +61,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				throttled(event.target.value);
 			};
 		} else {
-			this.throttledOnChange = undefined;
+			this.debouncedOnChange = undefined;
 		}
 	}
 
@@ -187,7 +187,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 						</XUITextInputSideElement>
 					}
 					placeholder={placeholder}
-					onChange={this.throttledOnChange}
+					onChange={this.debouncedOnChange}
 					inputRef={c => this.input = c}
 					isBorderlessSolid
 					label={inputLabel}

@@ -15,6 +15,13 @@ Quick check for the most common dependencies:
 
 If you use `xui-layout`, version `^7.0.0` is compatible with XUI 14.
 
+We have added underlines to links by default. If you use the v3 header, please ensure you use version >= 3.2.4,
+otherwise you will get underlines in the header's menus with XUI 14.
+If you use the navigation service, you should not need to do anything.
+
+You can also apply the `xui-text-decoration-none` class on any other container elements where underlines
+on links are undesirable.
+
 ## Removals
 
 ### Components
@@ -86,7 +93,7 @@ We've built a codemod to do as much of the migration for you as we can. But ther
 * NestedPicklistTrigger: `ariaLabel` has been added to provide assistive tech with information about the expansion button
 * ProgressWrapper, ProgressCircular, & ProgressLinear: `ariaLabel` and `ariaLabelledBy` have been added
 * RolloverCheckbox: `ariaLabelledBy` has been added
-* Table: `onRowClick` now **only** holds the handler callback with the conditional logic being asserted on each table row through the use of `shouldRowClick`. (see https://github.dev.xero.com/UXE/xui/issues/3278)
+* Table: `onRowClick` now **only** holds the handler callback with the conditional logic being asserted on each table row through the use of `shouldRowClick`. (see https://github.dev.xero.com/UXE/xui/issues/3278, and the subsequent updates in https://github.dev.xero.com/UXE/xui/pull/3705)
 
 ## Other changes
 

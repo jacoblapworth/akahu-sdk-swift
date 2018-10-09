@@ -89,7 +89,7 @@ It is also possible to use the `isLabelHidden` prop to visually hide the label, 
 
 `XUIRadio` supports the use of a custom [`XUIIcon`](#icon) to style the presentation of the element.
 
-`iconMainPath` is the path for the Radio outline; `iconCheckPath` is the indicator that the radio is selected.
+`iconMain` is the icon object from `@xero/xui-icon` to render in place of the standard radio control.
 
 ```
 const customMainIcon = require ('@xero/xui-icon/icons/star').default;

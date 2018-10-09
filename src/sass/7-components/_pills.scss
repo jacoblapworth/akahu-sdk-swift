@@ -209,7 +209,7 @@
 //
 // Often, only a single selection is allowed within an input.
 // This allows additional actions such as surfacing contact details to be provided.
-// To do this, replace the entire input with a pseudo `xui-input` and apply the following class to the pill.
+// To do this, replace the entire input with a pseudo `xui-textinput` and apply the following class to the pill.
 // All other classes will update accordingly.
 //
 // Classes:
@@ -219,23 +219,23 @@
 //
 // Markup:
 // <div class="xui-textinput xui-textinput--input" tabindex='1'>
-//   <div class="xui-pill-single">
+//   <div class="xui-pill xui-pill-single">
 //     <span class="xui-pill--content">
 //       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
 //       <span class="xui-pill--text">zoe@deschanel.com</span>
 //     </span>
-//     <button class="xui-button xui-button-icon">
+//     <button class="xui-button xui-button-icon xui-pill--button-icon">
 //       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //     </button>
 //   </div>
 // </div>
 // <div class="xui-textinput xui-margin-top" tabindex='0'>
-//   <div class="xui-pill-single xui-pill-is-invalid">
+//   <div class="xui-pill xui-pill-single xui-pill-is-invalid">
 //     <button type='button' class="xui-button xui-pill--button xui-pill--content" tabindex='-1'>
 //       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
 //       <span class="xui-pill--text">zoe@deschanel.com</span>
 //     </button>
-//     <button class="xui-button xui-button-icon">
+//     <button class="xui-button xui-button-icon xui-pill--button-icon">
 //       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //     </button>
 //   </div>
@@ -246,7 +246,7 @@
 //     	 <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
 //       <span class="xui-pill--text">zoe@deschanel.com</span>
 //   	 </a>
-//     <button class="xui-button xui-button-icon">
+//     <button class="xui-button xui-button-icon xui-pill--button-icon">
 //       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //     </button>
 //   </div>
@@ -334,9 +334,10 @@
 }
 
 .#{$ns}-pill--button-icon {
-	bottom: 0;
 	position: absolute;
 	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 // TODO: rename to xui-pill-focus given xui-styledcheckboxradio-focus and xui-textinput-focus
@@ -394,7 +395,7 @@
 	display: flex;
 	left: $xui-s-xsmall;
 	position: absolute;
-	right: $xui-s-xsmall;
+	right: $xui-s-xsmall - 2px; // This is 3px to match position of selectbox caret.
 	top: 0;
 
 	&.#{$ns}-pill-is-invalid {

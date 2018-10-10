@@ -1,3 +1,4 @@
+const NOOP = require('../../helpers/noop');
 const storiesWithVariationsKindName = 'Instances/XUIPill';
 
 const avatarProps = {
@@ -34,7 +35,8 @@ const variations = [
 		storyTitle: 'has custom class',
 		value: 'Custom Class Pill',
 		className: 'xui-margin',
-		avatarProps
+		avatarProps,
+		onClick: NOOP,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -48,7 +50,8 @@ const variations = [
 		storyTitle: 'does not have default layout',
 		value: 'No default layout',
 		defaultLayout: false,
-		avatarProps
+		avatarProps,
+		onClick: NOOP,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

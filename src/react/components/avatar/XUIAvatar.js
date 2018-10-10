@@ -73,7 +73,8 @@ XUIAvatar.propTypes = {
 	/** The text to display in the avatar */
 	value(props, propName) {
 		if (!props[propName] && !props.imageUrl) {
-			return new Error('Avatar component requires either a non-empty `value` or `imageUrl` property');
+			return new Error('XUIAvatar component requires either a ' +
+				'non-empty `value` or `imageUrl` property');
 		}
 		return null;
 	},

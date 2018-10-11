@@ -73,6 +73,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - Switch no longer always maintains internal checked state. The API is now very similar to XUICheckbox and XUIRadio in that the component can be either used as a controlled or uncontrolled input.
   If users provide an isChecked value, the component will not maintain its own internal state. If users provide no isChecked value, the isDefaultChecked value will be used to populate the initial internally-managed state.
 - Autocompleter uses a debounce rather than throttle for searching. The `searchThrottleInterval` prop is superceded by `searchDebounceTimeout`. The default value for this has been set to 200 (was previously 0). To disable debouncing, set this value to 0.
+- Stepper prop `updateCurrentStep` has been included into the main component API in favour of `handleClick` callbacks in every tab instance.
 
 ### Utility classes
 

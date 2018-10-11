@@ -4,7 +4,7 @@ import cn from 'classnames';
 import throttle from 'lodash.throttle';
 import '../helpers/xuiGlobalChecks';
 import { NAME_SPACE, STACKED, SIDE_BAR, INLINE } from './helpers/constants';
-import { enrichStepperProps } from './helpers/enrichprops';
+import { enrichStepperProps, enrichTabProps } from './helpers/enrichprops';
 import { createAriaTabId } from './helpers/utilities';
 import StepperTab from './customElements/StepperTab';
 import InlineDummyLayout, { testIsInlineRelevant } from './customElements/InlineDummyLayout';
@@ -13,7 +13,7 @@ import SideBarDummyLayout, { testIsSideBarRelevant } from './customElements/Side
 import '../../../sass/7-components/_stepper.scss';
 
 const createTabs = ({
-	qaHook, tabs, id, ariaPanelId, currentStep,
+	qaHook, tabs, id, ariaPanelId, currentStep, updateCurrentStep,
 }, overrides) => (
 
 	tabs.map((tabProps, index) => {
@@ -21,13 +21,14 @@ const createTabs = ({
 		const isLast = index === tabs.length - 1;
 		const isActive = currentStep === index;
 		const ariaTabId = createAriaTabId(id, index);
-		const enrichedProps = {
+		const enrichedProps = enrichTabProps({
 			...tabProps,
 			...overrides,
+			updateCurrentStep,
 			isActive,
 			id: ariaTabId,
 			step: index + 1,
-		};
+		});
 		const tabClasses = cn(`${NAME_SPACE}-tab`, {
 			[`${NAME_SPACE}-tab-first`]: isFirst,
 			[`${NAME_SPACE}-tab-last`]: isLast,
@@ -99,6 +100,7 @@ class XUIStepper extends Component {
 			id,
 			qaHook,
 			currentStep,
+			updateCurrentStep,
 			lockLayout,
 			hasStackedButtons,
 			gridTemplateRows,
@@ -108,7 +110,7 @@ class XUIStepper extends Component {
 		} = enrichStepperProps(props, state);
 
 		const tabProps = {
-			qaHook, tabs, id, ariaPanelId, currentStep,
+			qaHook, tabs, id, ariaPanelId, currentStep, updateCurrentStep,
 		};
 		const visibleTabs = createTabs(tabProps);
 
@@ -188,9 +190,6 @@ XUIStepper.propTypes = {
 		description: PropTypes.string,
 
 		/** `. */
-		handleClick: PropTypes.func,
-
-		/** `. */
 		isError: PropTypes.bool,
 
 		/** `. */
@@ -213,6 +212,9 @@ XUIStepper.propTypes = {
 	/** Target a tab by its index in the "tabs" array and set it to its "active" state
 	 * (index is zero based). */
 	currentStep: PropTypes.number.isRequired,
+
+	/** A callback that receives an "index" value relating to the clicked "currentStep". */
+	updateCurrentStep: PropTypes.func,
 
 	/** Set the tab buttons to have a "stacked" layout (only applicable in the "inline" layout) */
 	hasStackedButtons: PropTypes.bool,

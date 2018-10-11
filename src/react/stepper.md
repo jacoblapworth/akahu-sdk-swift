@@ -19,17 +19,39 @@ You can opt out of the stepper's responsive functionality, however we **strongly
 Lock by supplying the string `inline` to the prop `lockLayout`.
 
 ```
-<XUIStepper
-	id="stepper-inline-standard"
-	lockLayout="inline"
-	currentStep={0}
-	tabs={[
-		{ name: 'Tab 1' },
-		{ name: 'Tab 2' },
-		{ name: 'Tab 3' }
-	]}>
-	<h3>Custom Content for Tab 1</h3>
-</XUIStepper>
+const tabs = [
+	{ name: 'Tab 1' },
+	{ name: 'Tab 2' },
+	{ name: 'Tab 3' }
+];
+
+class Demo extends React.Component {
+	constructor() {
+		super();
+		this.state = { currentStep: 0 };
+		this.updateCurrentStep = this.updateCurrentStep.bind(this);
+	}
+
+	updateCurrentStep(currentStep) {
+		this.setState({ currentStep });
+	}
+
+	render() {
+		const { currentStep } = this.state;
+		return (
+			<XUIStepper
+				id="stepper-inline-standard"
+				lockLayout="inline"
+				currentStep={currentStep}
+				updateCurrentStep={this.updateCurrentStep}
+				tabs={tabs}>
+				<h3>{`Custom Content for Tab ${currentStep + 1}`}</h3>
+			</XUIStepper>
+		);
+	}
+}
+
+<Demo />
 ```
 
 #### Inline *(stacked buttons)*
@@ -39,18 +61,39 @@ The `inline` layout also has the ability to stack its button content using the p
 + You can use this prop in both a _locked_ or _default_ layout state.
 
 ```
-<XUIStepper
-	id="stepper-inline-stacked"
-	lockLayout="inline"
-	currentStep={0}
-	hasStackedButtons
-	tabs={[
-		{ name: 'Tab 1' },
-		{ name: 'Tab 2' },
-		{ name: 'Tab 3' }
-	]}>
-	<h3>Custom Content for Tab 1</h3>
-</XUIStepper>
+const tabs = [
+	{ name: 'Tab 1' },
+	{ name: 'Tab 2' },
+	{ name: 'Tab 3' }
+];
+
+class Demo extends React.Component {
+	constructor() {
+		super();
+		this.state = { currentStep: 0 };
+		this.updateCurrentStep = this.updateCurrentStep.bind(this);
+	}
+
+	updateCurrentStep(currentStep) {
+		this.setState({ currentStep });
+	}
+
+	render() {
+		const { currentStep } = this.state;
+		return (
+			<XUIStepper
+				id="stepper-inline-stacked"
+				lockLayout="inline"
+				currentStep={currentStep}
+				updateCurrentStep={this.updateCurrentStep}
+				tabs={tabs}>
+				<h3>{`Custom Content for Tab ${currentStep + 1}`}</h3>
+			</XUIStepper>
+		);
+	}
+}
+
+<Demo />
 ```
 
 #### Side Bar
@@ -58,17 +101,39 @@ The `inline` layout also has the ability to stack its button content using the p
 Lock by supplying the string `sidebar` to the prop `lockLayout`.
 
 ```
-<XUIStepper
-	id="stepper-sidebar-standard"
-	lockLayout="sidebar"
-	currentStep={0}
-	tabs={[
-		{ name: 'Tab 1' },
-		{ name: 'Tab 2' },
-		{ name: 'Tab 3' }
-	]}>
-	<h3>Custom Content for Tab 1</h3>
-</XUIStepper>
+const tabs = [
+	{ name: 'Tab 1' },
+	{ name: 'Tab 2' },
+	{ name: 'Tab 3' }
+];
+
+class Demo extends React.Component {
+	constructor() {
+		super();
+		this.state = { currentStep: 0 };
+		this.updateCurrentStep = this.updateCurrentStep.bind(this);
+	}
+
+	updateCurrentStep(currentStep) {
+		this.setState({ currentStep });
+	}
+
+	render() {
+		const { currentStep } = this.state;
+		return (
+			<XUIStepper
+				id="stepper-sidebar-standard"
+				lockLayout="sidebar"
+				currentStep={currentStep}
+				updateCurrentStep={this.updateCurrentStep}
+				tabs={tabs}>
+				<h3>{`Custom Content for Tab ${currentStep + 1}`}</h3>
+			</XUIStepper>
+		);
+	}
+}
+
+<Demo />
 ```
 
 #### Stacked
@@ -76,17 +141,39 @@ Lock by supplying the string `sidebar` to the prop `lockLayout`.
 Lock by supplying the string `stacked` to the prop `lockLayout`.
 
 ```
-<XUIStepper
-	id="stepper-stacked-standard"
-	lockLayout="stacked"
-	currentStep={0}
-	tabs={[
-		{ name: 'Tab 1' },
-		{ name: 'Tab 2' },
-		{ name: 'Tab 3' }
-	]}>
-	<h3>Custom Content for Tab 1</h3>
-</XUIStepper>
+const tabs = [
+	{ name: 'Tab 1' },
+	{ name: 'Tab 2' },
+	{ name: 'Tab 3' }
+];
+
+class Demo extends React.Component {
+	constructor() {
+		super();
+		this.state = { currentStep: 0 };
+		this.updateCurrentStep = this.updateCurrentStep.bind(this);
+	}
+
+	updateCurrentStep(currentStep) {
+		this.setState({ currentStep });
+	}
+
+	render() {
+		const { currentStep } = this.state;
+		return (
+			<XUIStepper
+				id="stepper-stacked-standard"
+				lockLayout="stacked"
+				currentStep={currentStep}
+				updateCurrentStep={this.updateCurrentStep}
+				tabs={tabs}>
+				<h3>{`Custom Content for Tab ${currentStep + 1}`}</h3>
+			</XUIStepper>
+		);
+	}
+}
+
+<Demo />
 ```
 
 ### Tab options
@@ -101,19 +188,42 @@ You as a developer control the tab configuration via the `tabs` prop. This gives
 + Change a tab to a *complete* state via the `isComplete` prop.
 
 ```
-<XUIStepper
-	id="stepper-tab-generic"
-	lockLayout="stacked"
-	currentStep={0}
-	tabs={[
-		{ name: 'Active' },
-		{ name: 'Standard' },
-		{ name: 'Description', description: 'description prop' },
-		{ name: 'Complete', description: 'isComplete prop', isComplete: true },
-		{ name: 'Error', description: 'isError prop', isError: true },
-		{ name: 'Disabled', description: 'isDisabled prop', isDisabled: true },
-	]}
-/>
+const tabs = [
+	{ name: 'Active' },
+	{ name: 'Standard' },
+	{ name: 'Description', description: 'description prop' },
+	{ name: 'Complete', description: 'isComplete prop', isComplete: true },
+	{ name: 'Error', description: 'isError prop', isError: true },
+	{ name: 'Disabled', description: 'isDisabled prop', isDisabled: true },
+];
+
+class Demo extends React.Component {
+	constructor() {
+		super();
+		this.state = { currentStep: 0 };
+		this.updateCurrentStep = this.updateCurrentStep.bind(this);
+	}
+
+	updateCurrentStep(currentStep) {
+		this.setState({ currentStep });
+	}
+
+	render() {
+		const { currentStep } = this.state;
+		return (
+			<XUIStepper
+				id="stepper-tab-generic"
+				lockLayout="stacked"
+				currentStep={currentStep}
+				updateCurrentStep={this.updateCurrentStep}
+				tabs={tabs}>
+				<h3>{`Custom Content for Tab ${currentStep + 1}`}</h3>
+			</XUIStepper>
+		);
+	}
+}
+
+<Demo />
 ```
 
 #### Progress Indicator
@@ -125,11 +235,7 @@ In addition to the generic tab format a **Progress Indicator** can be included w
 will be applied automatically.
 
 ```
-<XUIStepper
-	id="stepper-tab-progress"
-	lockLayout="stacked"
-	currentStep={0}
-	tabs={[
+const tabs = [
 		{ name: 'Active', isProgress: true, totalProgress: 5, currentProgress: 3 },
 		{ name: 'Standard', isProgress: true, totalProgress: 5, currentProgress: 3 },
 		{ name: 'Description', description: 'description prop', isProgress: true, totalProgress: 5, currentProgress: 3 },
@@ -137,7 +243,34 @@ will be applied automatically.
 		{ name: 'Complete (automatic)', description: 'isComplete prop', isComplete: true, isProgress: true, totalProgress: 5, currentProgress: 5 },
 		{ name: 'Error', description: 'isError prop', isError: true, isProgress: true, totalProgress: 5, currentProgress: 3 },
 		{ name: 'Disabled', description: 'isDisabled prop', isDisabled: true, isProgress: true, totalProgress: 5, currentProgress: 3 },
-	]}
-/>
+];
+
+class Demo extends React.Component {
+	constructor() {
+		super();
+		this.state = { currentStep: 0 };
+		this.updateCurrentStep = this.updateCurrentStep.bind(this);
+	}
+
+	updateCurrentStep(currentStep) {
+		this.setState({ currentStep });
+	}
+
+	render() {
+		const { currentStep } = this.state;
+		return (
+			<XUIStepper
+				id="stepper-tab-progress"
+				lockLayout="stacked"
+				currentStep={currentStep}
+				updateCurrentStep={this.updateCurrentStep}
+				tabs={tabs}>
+				<h3>{`Custom Content for Tab ${currentStep + 1}`}</h3>
+			</XUIStepper>
+		);
+	}
+}
+
+<Demo />
 ```
 

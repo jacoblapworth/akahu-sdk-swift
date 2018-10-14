@@ -47,6 +47,11 @@ class TableBodyRow extends PureComponent {
 		}
 	};
 
+	createOverflowMenu = () => {
+		const { rowData, createOverflowMenu } = this.props;
+		return createOverflowMenu && createOverflowMenu(rowData);
+	};
+
 	render = () => {
 		const {
 			rowData,
@@ -59,7 +64,6 @@ class TableBodyRow extends PureComponent {
 			onRowClick,
 			shouldRowClick,
 			hasOverflowMenu,
-			createOverflowMenu,
 			overflowMenuTitle,
 			createDividerClasses,
 			ensureCellVisibility,
@@ -146,7 +150,7 @@ class TableBodyRow extends PureComponent {
 
 				{hasOverflowMenu && (
 					<OverflowMenuCell {...{
-						overflowMenuItems: createOverflowMenu && createOverflowMenu(rowData),
+						createOverflowMenu: this.createOverflowMenu,
 						overflowMenuTitle,
 						dividerClasses,
 					}}

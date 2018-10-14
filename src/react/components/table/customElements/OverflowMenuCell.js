@@ -15,7 +15,8 @@ const BODY_CELL_CLASSES = `${cellClassNames.cell} ${cellClassNames.defaultLayout
 
 export default class OverflowMenuCell extends PureComponent {
 	render() {
-		const { overflowMenuItems, overflowMenuTitle, dividerClasses } = this.props;
+		const { createOverflowMenu, overflowMenuTitle, dividerClasses } = this.props;
+		const overflowMenuItems = createOverflowMenu();
 		const hasItems = Boolean(overflowMenuItems && overflowMenuItems.length);
 		const className = cn(
 			`${NAME_SPACE}--cell-action`,
@@ -31,10 +32,9 @@ export default class OverflowMenuCell extends PureComponent {
 			>
 				{NBSP}
 				{hasItems && (
-					<OverflowMenu
-						items={overflowMenuItems}
-						overflowMenuTitle={overflowMenuTitle}
-					/>
+					<OverflowMenu overflowMenuTitle={overflowMenuTitle}>
+						{overflowMenuItems}
+					</OverflowMenu>
 				)}
 			</TableData>
 		);
@@ -42,14 +42,7 @@ export default class OverflowMenuCell extends PureComponent {
 }
 
 OverflowMenuCell.propTypes = {
-	overflowMenuItems: PropTypes.oneOfType([
-		PropTypes.arrayOf(PropTypes.node),
-		PropTypes.bool,
-	]),
+	createOverflowMenu: PropTypes.func,
 	overflowMenuTitle: PropTypes.string,
 	dividerClasses: PropTypes.string,
-};
-
-OverflowMenuCell.defaultProps = {
-	overflowMenuItems: [],
 };

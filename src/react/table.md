@@ -20,10 +20,11 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
-
-<Table data={ {
+const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
-} }>
+};
+
+<Table data={ data }>
 
 	<Column
 		head={ <Cell>Fruit</Cell> }
@@ -51,10 +52,11 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
-
-<Table data={ {
+const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
-} }>
+};
+
+<Table data={ data }>
 	<Column body={ ({ fruit }) => <Cell>{ fruit }</Cell> } />
 	<Column body={ ({ color }) => <Cell>{ color }</Cell> } />
 	<Column body={ ({ price }) => <Cell>{`$${price}`}</Cell> } />
@@ -71,11 +73,12 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
+const data = {
+	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, purchased: 'John Smith', ordered: 1519865730672, delivered: 1520124930672, quantity: 128, address: '1 Watt St, Parnell, Auckland, 1052', paid: true }
+};
 
 <Table
-	data={ {
-		abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, purchased: 'John Smith', ordered: 1519865730672, delivered: 1520124930672, quantity: 128, address: '1 Watt St, Parnell, Auckland, 1052', paid: true }
-	} }
+	data={ data }
 	isResponsive>
 
 	<Column
@@ -141,11 +144,12 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
+const data = {
+	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, purchased: 'John Smith', ordered: 1519865730672, delivered: 1520124930672, quantity: 128, address: '1 Watt St, Parnell, Auckland, 1052', paid: true }
+};
 
 <Table
-	data={ {
-		abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, purchased: 'John Smith', ordered: 1519865730672, delivered: 1520124930672, quantity: 128, address: '1 Watt St, Parnell, Auckland, 1052', paid: true }
-	} }
+	data={ data }
 	isResponsive
 	isTruncated>
 
@@ -214,11 +218,11 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
+const data = {
+	abc123: { fruit: 'Banana', color: 'Yellow', description: 'There was once a little banana, That lived in a grocery store, He loved to hang out with the other fruits, But mostly to explore.', price: 2.99 }
+};
 
-<Table
-	data={ {
-		abc123: { fruit: 'Banana', color: 'Yellow', description: 'There was once a little banana, That lived in a grocery store, He loved to hang out with the other fruits, But mostly to explore.', price: 2.99 }
-	} }>
+<Table data={ data }>
 
 	<Column
 		head={ <Cell>Fruit</Cell> }
@@ -253,7 +257,9 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
-
+const data = {
+	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
+};
 const node = document.createElement('style');
 
 node.innerHTML = (`
@@ -264,9 +270,7 @@ node.innerHTML = (`
 document.head.appendChild(node);
 
 <Table
-	data={ {
-		abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
-	} }
+	data={ data }
 	className="xui-table-reactdocs-shadow">
 
 	<Column
@@ -295,12 +299,12 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
+const data = {
+	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, paid: true },
+	def456: { fruit: 'Apple', color: 'Red', price: 3.49, paid: false }
+};
 
-<Table
-	data={ {
-		abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, paid: true },
-		def456: { fruit: 'Apple', color: 'Red', price: 3.49, paid: false }
-	} }>
+<Table data={ data }>
 
 	<Column
 		head={ <Cell>Fruit</Cell> }
@@ -334,6 +338,10 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
+const data = {
+	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
+	def456: { fruit: 'Apple', color: 'Red', price: 3.49, paid: false }
+};
 
 class Demo extends React.Component {
 
@@ -346,7 +354,6 @@ class Demo extends React.Component {
 
 	handleCheckAllToggle() {
 		const { checkedIds } = this.state;
-		const { data } = this.props;
 		const dataKeys = Object.keys(data);
 		const totalData = dataKeys.length;
 		const totalChecked = Object.keys(checkedIds).reduce((acc, key) => (checkedIds[key] ? acc + 1 : acc), 0);
@@ -366,7 +373,7 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<Table
-				data={ this.props.data }
+				data={ data }
 				hasCheckbox
 				checkedIds={ this.state.checkedIds }
 				onCheckAllToggle={ this.handleCheckAllToggle }
@@ -392,10 +399,7 @@ class Demo extends React.Component {
 	}
 }
 
-<Demo data={ {
-	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
-	def456: { fruit: 'Apple', color: 'Red', price: 3.49, paid: false }
-} }/>
+<Demo />
 ```
 
 ## Overflow Menu
@@ -413,20 +417,22 @@ const {
 	XUITableCell: Cell,
 } = require('./table');
 const { Pickitem } = require ( './picklist.js' );
-
-<Table data={ {
+const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, paid: true },
 	def456: { fruit: 'Apple', color: 'Red', price: 3.49, paid: false }
-} }
-hasOverflowMenu
-createOverflowMenu={ ({ fruit, paid }) => !paid && ([
-	<Pickitem
-		key="0"
-		id="0"
-		onClick={ () => alert(`Pay for ${fruit}s`) }>
-		Pay for {fruit}'s
-	</Pickitem>
-]) }>
+};
+
+<Table
+	data={ data }
+	hasOverflowMenu
+	createOverflowMenu={ ({ fruit, paid }) => !paid && ([
+		<Pickitem
+			key="0"
+			id="0"
+			onClick={ () => alert(`Pay for ${fruit}s`) }>
+			Pay for {fruit}'s
+		</Pickitem>
+	]) }>
 
 	<Column
 		head={ <Cell>Fruit</Cell> }
@@ -460,6 +466,9 @@ const {
 	XUITableCell: Cell,
 } = require('./table');
 const { Pickitem } = require ( './picklist.js' );
+const data = {
+	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, purchased: 'John Smith', ordered: 1519865730672, delivered: 1520124930672, quantity: 128, address: '1 Watt St, Parnell, Auckland, 1052', paid: true }
+};
 
 class Demo extends React.Component {
 
@@ -472,7 +481,6 @@ class Demo extends React.Component {
 
 	handleCheckAllToggle() {
 		const { checkedIds } = this.state;
-		const { data } = this.props;
 		const dataKeys = Object.keys(data);
 		const totalData = dataKeys.length;
 		const totalChecked = Object.keys(checkedIds).reduce((acc, key) => (checkedIds[key] ? acc + 1 : acc), 0);
@@ -492,7 +500,7 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<Table
-				data={ this.props.data }
+				data={ data }
 				isResponsive
 				hasPinnedFirstColumn
 				hasPinnedLastColumn
@@ -565,9 +573,7 @@ class Demo extends React.Component {
 	}
 }
 
-<Demo data={ {
-	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, purchased: 'John Smith', ordered: 1519865730672, delivered: 1520124930672, quantity: 128, address: '1 Watt St, Parnell, Auckland, 1052', paid: true }
-} }/>
+<Demo />
 ```
 
 ## Sorting
@@ -590,6 +596,11 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
+cosnt data = {
+	abc123: { fruit: 'Banana', color: 'Yellow', tags: [{ name: 'Foo', variant: 'positive' }, { name: 'Bar', variant: 'warning' }, { name: 'Baz', variant: 'negative' }], price: 2.99 },
+	def456: { fruit: 'Apple', color: 'Red', tags: [{ name: 'Foo', variant: 'positive' }, { name: 'Bar', variant: 'warning' }], price: 3.49 },
+	ghi789: { fruit: 'Carrot', color: 'Orange', tags: [{ name: 'Foo', variant: 'positive' }], price: 1.49 },
+};
 
 class Demo extends React.Component {
 
@@ -605,18 +616,18 @@ class Demo extends React.Component {
 		this.setState({ activeSortKey: newKey, isSortAsc: newIsAsc });
 	};
 
-	handleTagSort(data, isAsc) {
+	handleTagSort(items, isAsc) {
 		const comparison = isAsc
 			? (a, b) => a.tags.length > b.tags.length
 			: (a, b) => a.tags.length < b.tags.length;
-		return data.sort((a, b) => comparison(a, b) ? 1 : -1);
+		return items.sort((a, b) => comparison(a, b) ? 1 : -1);
 	}
 
 	render() {
 		const { activeSortKey, isSortAsc } = this.state;
 		return (
 			<Table
-				data={ this.props.data }
+				data={ data }
 				activeSortKey={ activeSortKey }
 				isSortAsc={ isSortAsc }
 				onSortChange={ this.handleSortChange }
@@ -658,11 +669,7 @@ class Demo extends React.Component {
 	}
 }
 
-<Demo data={ {
-	abc123: { fruit: 'Banana', color: 'Yellow', tags: [{ name: 'Foo', variant: 'positive' }, { name: 'Bar', variant: 'warning' }, { name: 'Baz', variant: 'negative' }], price: 2.99 },
-	def456: { fruit: 'Apple', color: 'Red', tags: [{ name: 'Foo', variant: 'positive' }, { name: 'Bar', variant: 'warning' }], price: 3.49 },
-	ghi789: { fruit: 'Carrot', color: 'Orange', tags: [{ name: 'Foo', variant: 'positive' }], price: 1.49 },
-} }/>
+<Demo />
 ```
 
 ## Header / Footer
@@ -675,7 +682,9 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
-
+const data = {
+	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
+};
 const Appendage = ({ children }) => (
 	<div
 		className="xui-heading xui-textcolor-inverted xui-padding-vertical-large xui-padding-horizontal-small"
@@ -685,9 +694,7 @@ const Appendage = ({ children }) => (
 );
 
 <Table
-	data={ {
-		abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
-	} }
+	data={ data }
 	header={ <Appendage>Header</Appendage> }
 	footer={ <Appendage>Footer</Appendage> }>
 
@@ -719,11 +726,12 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
+const data = {
+	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
+};
 
 <Table
-	data={ {
-		abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
-	} }
+	data={ data }
 	isLoading>
 
 	<Column
@@ -764,12 +772,13 @@ const XUIButton = require('./button').default;
 const XUIIcon = require('./icon').default;
 const tickIcon = require('@xero/xui-icon/icons/checkbox-check').default;
 const handleCellClick = ({price}) => alert(`You clicked $${price}`);
+const data = {
+	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
+	def456: { fruit: 'Apple', color: 'Red', price: 3.49 }
+};
 
 <Table
-	data={ {
-		abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
-		def456: { fruit: 'Apple', color: 'Red', price: 3.49 }
-	} }
+	data={ data }
 	shouldRowClick={ ({ fruit }) => (fruit === 'Banana') }
 	onRowClick={ (event, { fruit }) => alert(`You clicked the ${fruit} row`) }>
 
@@ -828,9 +837,10 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
+const data = {};
 
 <Table
-	data={ {} }
+	data={ data }
 	emptyMessage="There are no fruit results">
 
 	<Column
@@ -859,7 +869,7 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
-
+const data = {};
 const emptyStateComponent = (
 	<div
 		className="xui-heading xui-textcolor-inverted xui-padding-vertical-large xui-padding-horizontal-small"
@@ -869,7 +879,7 @@ const emptyStateComponent = (
 );
 
 <Table
-	data={ {} }
+	data={ data }
 	emptyStateComponent={emptyStateComponent}>
 
 	<Column

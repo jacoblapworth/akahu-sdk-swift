@@ -17,6 +17,17 @@ module.exports = {
 			]
 		}
 	],
+	'@xero/xui/react/tag': [
+		{
+			isDefault: true,
+			props: [
+				{
+					name: 'size',
+					valueTransform: stringReplace({}, 'small'),
+				}
+			]
+		}
+	],
 	'@xero/xui/react/select-box': [
 		{
 			isDefault: true,

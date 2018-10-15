@@ -272,6 +272,7 @@ XUITextInput.propTypes = {
 XUITextInput.defaultProps = {
 	inputProps: {},
 	minRows: 3,
+	size: 'standard',
 };
 
 export default XUITextInput;

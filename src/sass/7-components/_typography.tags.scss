@@ -1,4 +1,5 @@
 @import "../vars";
+@import "../mixins";
 
 // Tag
 //
@@ -15,16 +16,19 @@
 // Tips:
 // Do: Use default or neutral tags for basic categorisation.
 // Do: Use colored tags to indicate sentiment.
+// Do: Use the small tag variant in toolbars
 // Do: When using color variation, use descriptive text like "Invoiced"
 // Warning: Always provide a clear text label, as the meaning of colors is not universally understood.
 // Dont: When using color variation, avoid vague text like "INV 0032"
 //
-// First, add `xui-tag` to provide the correct layout, then add an optional modifier of `xui-tag-*` to specify sentiment.
+// First, add `xui-tag` to provide the correct layout, then add an optional modifier of `xui-tag-*` to specify sentiment and/or size.
 //
 // Use descriptive text inside Tags to convey information so it’s still meaningful to people who can’t discern colour.
 //
 // Definitions:
-// Default: <span class="xui-tag">Default</span>: none
+// Standard: <span class="xui-tag">Standard</span>: none
+// Small: <span class="xui-tag xui-tag-small">Small</span>: `-small`
+// Extra small: <span class="xui-tag xui-tag-xsmall">Extra small</span>: `-xsmall`
 // Neutral: <span class="xui-tag xui-tag-neutral">Neutral</span>: `-neutral`
 // Positive: <span class="xui-tag xui-tag-positive">Positive</span>: `-positive`
 // Warning: <span class="xui-tag xui-tag-warning">Warning</span>: `-warning`
@@ -91,16 +95,24 @@
 // Styleguide: Building Blocks.Identifiers.Tag.2
 
 .#{$ns}-tag {
+	@include xui-text-standard;
 	background-color: $xui-tag-bg-color;
 	border-radius: $xui-radius;
 	box-shadow: inset 0 0 0 1px $xui-tag-shadow-color;
 	color: $xui-tag-color;
 	display: inline-block;
-	font-size: $xui-font-size-xsmall;
-	line-height: $xui-font-size-xsmall;
-	padding: 4px 6px;
+	padding: 0 4px;
 	vertical-align: middle;
 }
+
+.#{$ns}-tag-small {
+	@include xui-text-small;
+}
+
+.#{$ns}-tag-xsmall {
+	@include xui-text-xsmall;
+}
+
 .#{$ns}-tag-neutral {
 	background-color: $xui-tag-neutral-bg-color;
 	box-shadow: inset 0 0 0 1px $xui-tag-neutral-shadow-color;
@@ -111,11 +123,13 @@
 	box-shadow: inset 0 0 0 1px $xui-tag-positive-shadow-color;
 	color: $xui-tag-positive-color;
 }
+
 .#{$ns}-tag-warning {
 	background-color: $xui-tag-warning-bg-color;
 	box-shadow: inset 0 0 0 1px $xui-tag-warning-shadow-color;
 	color: $xui-tag-warning-color;
 }
+
 .#{$ns}-tag-negative {
 	background-color: $xui-tag-negative-bg-color;
 	box-shadow: inset 0 0 0 1px $xui-tag-negative-shadow-color;

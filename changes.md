@@ -109,7 +109,8 @@ All other existing values stay as they are (including `2xlarge`)
 
 ### Component props
 
-* Pill now has a `size` prop
-* Text input now has a `size` prop
+- Pill has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
+- Text input now has a `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
+- Tag has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 
 ## Other changes

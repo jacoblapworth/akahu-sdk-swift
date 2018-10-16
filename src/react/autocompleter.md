@@ -40,7 +40,7 @@ Currently it's recommended that you do not pass in a `rightElement` prop while u
 ```jsx
 const { boldMatch, decorateSubStr } = require('./autocompleter');
 const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
-const { Component } = require('react');
+const { Component, PureComponent } = require('react');
 const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
 
@@ -52,6 +52,32 @@ const filterPeople = (peopleToSearch, value, idsToExclude) => {
 		|| person.email.toLowerCase().indexOf(val) > -1
 		|| person.subtext.toLowerCase().indexOf(val) > -1)
 	);
+};
+
+class PillWrapper extends PureComponent {
+	constructor() {
+		super();
+		this.deleteSelf = this.deleteSelf.bind(this);
+	}
+
+	deleteSelf() {
+		this.props.onDeleteClick(this.props.id);
+	}
+
+	render() {
+		const { id } = this.props;
+		return (
+			<XUIPill
+				value={people[id].name}
+				className="xui-autocompleter--pill"
+				onDeleteClick={this.deleteSelf}
+				isMaxContentWidth
+				key={id}
+				size="small"
+				isMaxContentWidth
+			/>
+		)
+	}
 };
 
 //Example to show how the children can be styled however and you also define your own search criteria.
@@ -68,10 +94,11 @@ class WrapPillsExample extends Component {
 		this.deletePerson = this.deletePerson.bind(this);
 		this.deleteLastPerson = this.deleteLastPerson.bind(this);
 		this.selectPerson = this.selectPerson.bind(this);
+		this.completer = React.createRef();
 	}
 
 	onSearchChangeHandler(value) {
-		this.completer.openDropDown();
+		this.completer.current.openDropDown();
 		this.setState(prevState => ({ value }));
 	}
 
@@ -92,6 +119,16 @@ class WrapPillsExample extends Component {
 			selectedPeopleIds: [...prevState.selectedPeopleIds, person],
 			value: '',
 		}));
+	}
+
+	renderPills(selectedPeopleIds) {
+		return selectedPeopleIds.map(id =>
+			<PillWrapper
+				id={id}
+				key={id}
+				onDeleteClick={this.deletePerson}
+			/>
+		)
 	}
 
 	render(){
@@ -129,23 +166,12 @@ class WrapPillsExample extends Component {
 				<XUIAutocompleter
 					inputLabel='autocompleter'
 					isInputLabelHidden
-					ref={ac => this.completer = ac}
+					ref={this.completer}
 					onSearch={this.onSearchChangeHandler}
 					placeholder="XUI Autocompleter accommodates enough space to fit the placeholder"
 					searchValue={value}
 					onBackspacePill={this.deleteLastPerson}
-					pills={
-						selectedPeopleIds.map(id =>
-							<XUIPill
-								size="small"
-								value={people[id].name}
-								className="xui-autocompleter--pill"
-								onDeleteClick={()=>this.deletePerson(id)}
-								isMaxContentWidth
-								key={id}
-							/>
-						)
-					}
+					pills={this.renderPills(selectedPeopleIds)}
 				>
 					{dropdownContents}
 				</XUIAutocompleter>
@@ -163,7 +189,7 @@ By default the pills and search bar will wrap inside the `XUIAutocompleter` inpu
 ```jsx
 const { boldMatch, decorateSubStr } = require('./autocompleter');
 const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
-const { Component } = require('react');
+const { Component, PureComponent } = require('react');
 const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
 
@@ -175,6 +201,32 @@ const filterPeople = (peopleToSearch, value, idsToExclude) => {
 		|| person.email.toLowerCase().indexOf(val) > -1
 		|| person.subtext.toLowerCase().indexOf(val) > -1)
 	);
+};
+
+class PillWrapper extends PureComponent {
+	constructor() {
+		super();
+		this.deleteSelf = this.deleteSelf.bind(this);
+	}
+
+	deleteSelf() {
+		this.props.onDeleteClick(this.props.id);
+	}
+
+	render() {
+		const { id } = this.props;
+		return (
+			<XUIPill
+				value={people[id].name}
+				className="xui-autocompleter--pill"
+				onDeleteClick={this.deleteSelf}
+				isMaxContentWidth
+				key={id}
+				size="small"
+				isMaxContentWidth
+			/>
+		)
+	}
 };
 
 //Example to show how the children can be styled however and you also define your own search criteria.
@@ -191,10 +243,11 @@ class DisableWrapPills extends Component {
 		this.deletePerson = this.deletePerson.bind(this);
 		this.deleteLastPerson = this.deleteLastPerson.bind(this);
 		this.selectPerson = this.selectPerson.bind(this);
+		this.completer = React.createRef();
 	}
 
 	onSearchChangeHandler(value) {
-		this.completer.openDropDown();
+		this.completer.current.openDropDown();
 		this.setState(prevState => ({ value }));
 	}
 
@@ -215,6 +268,16 @@ class DisableWrapPills extends Component {
 			selectedPeopleIds: [...prevState.selectedPeopleIds, person],
 			value: '',
 		}));
+	}
+
+	renderPills(selectedPeopleIds) {
+		return selectedPeopleIds.map(id =>
+			<PillWrapper
+				id={id}
+				key={id}
+				onDeleteClick={this.deletePerson}
+			/>
+		)
 	}
 
 	render(){
@@ -252,24 +315,13 @@ class DisableWrapPills extends Component {
 				<XUIAutocompleter
 					inputLabel='autocompleter'
 					isInputLabelHidden
-					ref={ac => this.completer = ac}
+					ref={this.completer}
 					onSearch={this.onSearchChangeHandler}
 					placeholder="XUI Autocompleter accommodates enough space to fit the placeholder"
 					searchValue={value}
 					onBackspacePill={this.deleteLastPerson}
 					disableWrapPills
-					pills={
-						selectedPeopleIds.map(id =>
-							<XUIPill
-								size="small"
-								value={people[id].name}
-								className="xui-autocompleter--pill"
-								onDeleteClick={()=>this.deletePerson(id)}
-								isMaxContentWidth
-								key={id}
-							/>
-						)
-					}
+					pills={this.renderPills(selectedPeopleIds)}
 				>
 					{dropdownContents}
 				</XUIAutocompleter>
@@ -315,10 +367,12 @@ class SingleSelectExample extends Component {
 
 		this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
 		this.selectPerson = this.selectPerson.bind(this);
+		this.clearSelection = this.clearSelection.bind(this);
+		this.completer = React.createRef();
 	}
 
 	onSearchChangeHandler(value) {
-		this.completer.openDropDown();
+		this.completer.current.openDropDown();
 		this.setState(prevState => {
 			const { selectedPersonId } = prevState;
 			const textIsCurrentName = selectedPersonId != null && value === people[selectedPersonId].name;
@@ -334,6 +388,10 @@ class SingleSelectExample extends Component {
 			selectedPersonId,
 			value: selectedPersonId != null ? people[selectedPersonId].name : '',
 		}));
+	}
+
+	clearSelection() {
+		this.selectPerson(null);
 	}
 
 	render(){
@@ -370,7 +428,7 @@ class SingleSelectExample extends Component {
 		);
 		const rightElement = selectedPersonId != null && (
 			<XUITextInputSideElement type="icon">
-				<XUIButton variant="icon" size="small" onClick={() => this.selectPerson(null)} aria-label="Clear">
+				<XUIButton variant="icon" size="small" onClick={this.clearSelection} aria-label="Clear">
 					<XUIIcon icon={crossIcon} />
 				</XUIButton>
 			</XUITextInputSideElement>
@@ -380,7 +438,7 @@ class SingleSelectExample extends Component {
 			<XUIAutocompleter
 				inputLabel='autocompleter'
 				isInputLabelHidden
-				ref={ac => this.completer = ac}
+				ref={this.completer}
 				onSearch={this.onSearchChangeHandler}
 				placeholder="Select a person"
 				searchValue={value}

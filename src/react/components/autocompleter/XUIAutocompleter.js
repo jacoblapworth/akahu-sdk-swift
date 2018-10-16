@@ -28,6 +28,11 @@ export default class XUIAutocompleter extends PureComponent {
 			value: props.searchValue,
 		};
 		this.bindOnChange(props.searchDebounceTimeout);
+		this.tg = React.createRef();
+		this.placeholder = React.createRef();
+		this.ddt = React.createRef();
+		this.rootNode = React.createRef();
+		this.noWrapPillContainer = React.createRef();
 	}
 
 	componentDidMount() {
@@ -56,7 +61,7 @@ export default class XUIAutocompleter extends PureComponent {
 		}
 		const morePillsExist = React.Children.count(pills) > React.Children.count(prevProps.pills);
 		if (morePillsExist && disableWrapPills) {
-			this.noWrapPillContainer.scrollLeft = this.noWrapPillContainer.scrollWidth;
+			this.noWrapPillContainer.current.scrollLeft = this.noWrapPillContainer.current.scrollWidth;
 		}
 	}
 
@@ -85,8 +90,8 @@ export default class XUIAutocompleter extends PureComponent {
 	};
 
 	calculatePlaceholderWidth = () => {
-		if (this.placeholder != null) {
-			const placeholderWidth = getComputedStyle(this.placeholder).width;
+		if (this.placeholder.current != null) {
+			const placeholderWidth = getComputedStyle(this.placeholder.current).width;
 			const inputStyle = getComputedStyle(this.inputNode);
 			const inputWidth = `${
 				parseFloat(inputStyle.paddingLeft)
@@ -106,7 +111,7 @@ export default class XUIAutocompleter extends PureComponent {
 	 * Set the state as not hidden in order to toggle the list open.
 	 */
 	openDropDown = () => {
-		this.ddt.openDropDown();
+		this.ddt.current.openDropDown();
 	};
 
 	/**
@@ -114,7 +119,7 @@ export default class XUIAutocompleter extends PureComponent {
 	 * Set the state as hidden in order to toggle the list closed.
 	 */
 	closeDropDown = () => {
-		this.ddt.closeDropDown();
+		this.ddt.current.closeDropDown();
 	};
 
 	/**
@@ -149,7 +154,7 @@ export default class XUIAutocompleter extends PureComponent {
 			onBackspacePill,
 			pills,
 		} = this.props;
-		if (this.ddt.isDropDownOpen()) {
+		if (this.ddt.current.isDropDownOpen()) {
 			this.dropdown.onKeyDown(event);
 		}
 
@@ -179,7 +184,7 @@ export default class XUIAutocompleter extends PureComponent {
 
 	onBlur = () => {
 		setTimeout(() => {
-			if (this.rootNode && !this.rootNode.contains(document.activeElement)) {
+			if (this.rootNode.current && !this.rootNode.current.contains(document.activeElement)) {
 				this.setState({
 					focused: false,
 				});
@@ -195,7 +200,7 @@ export default class XUIAutocompleter extends PureComponent {
 		return disableWrapPills ? (
 			<div
 				className={`${ns}-autocompleter--pills-nopillwrap`}
-				ref={nwpc => this.noWrapPillContainer = nwpc}
+				ref={this.noWrapPillContainer}
 			>
 				{pills}
 			</div>
@@ -269,12 +274,12 @@ export default class XUIAutocompleter extends PureComponent {
 
 		const trigger = (
 			<div
-				ref={tg => this.trigger = tg}
+				ref={this.tg}
 				onFocus={openOnFocus ? this.onInputFocus : null}
 				className={triggerClassName}
 			>
 				<div
-					ref={p => this.placeholder = p}
+					ref={this.placeholder}
 					className={`${ns}-autocompleter--textinputplaceholder`}
 					aria-hidden
 				>
@@ -338,7 +343,7 @@ export default class XUIAutocompleter extends PureComponent {
 
 		return (
 			<div
-				ref={c => completer.rootNode = c}
+				ref={this.rootNode}
 				className={classNames}
 				onFocus={this.onFocus}
 				onBlur={this.onBlur}
@@ -346,7 +351,7 @@ export default class XUIAutocompleter extends PureComponent {
 				id={id}
 			>
 				<DropDownToggled
-					ref={c => completer.ddt = c}
+					ref={this.ddt}
 					trigger={trigger}
 					dropdown={dropdown}
 					onOpen={onOpen}

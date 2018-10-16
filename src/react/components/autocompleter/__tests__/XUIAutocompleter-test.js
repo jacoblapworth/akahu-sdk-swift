@@ -127,13 +127,13 @@ describe('XUIAutocompleter', () => {
 
 	it('opens the dropdown when we trigger `openDropDown` and closes the dropdown when we trigger `closeDropDown`', () => {
 		const wrapper = mount(createComponent());
-		expect(wrapper.instance().ddt.state.isHidden).toBeTruthy();
+		expect(wrapper.instance().ddt.current.state.isHidden).toBeTruthy();
 
 		wrapper.instance().openDropDown();
-		expect(wrapper.instance().ddt.state.isHidden).toBeFalsy()
+		expect(wrapper.instance().ddt.current.state.isHidden).toBeFalsy()
 
 		wrapper.instance().closeDropDown();
-		expect(wrapper.instance().ddt.state.isHidden).toBeTruthy();
+		expect(wrapper.instance().ddt.current.state.isHidden).toBeTruthy();
 	});
 
 	it('sets the dropdown to match trigger width if no dropdownSize is provided in the component props', () => {
@@ -211,7 +211,7 @@ describe('XUIAutocompleter', () => {
 			which: 32
 		});
 
-		expect(comp.instance().ddt.state.isHidden).toBeTruthy();
+		expect(comp.instance().ddt.current.state.isHidden).toBeTruthy();
 	});
 
 	it('should ignore keyboard events for the left arrow as it\'s reserved for input interactions', () => {
@@ -222,7 +222,7 @@ describe('XUIAutocompleter', () => {
 			which: 37
 		});
 
-		expect(comp.instance().ddt.state.isHidden).toBeTruthy();
+		expect(comp.instance().ddt.current.state.isHidden).toBeTruthy();
 	});
 
 	it('should ignore keyboard events for the right arrow as it\'s reserved for input interactions', () => {
@@ -233,7 +233,7 @@ describe('XUIAutocompleter', () => {
 			which: 39
 		});
 
-		expect(comp.instance().ddt.state.isHidden).toBeTruthy();
+		expect(comp.instance().ddt.current.state.isHidden).toBeTruthy();
 	});
 
 	describe.skip('Dropdown + Portal skipped tests', () => {

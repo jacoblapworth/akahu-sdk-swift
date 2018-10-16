@@ -1,5 +1,5 @@
 // Libs
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // Components we need to test with
@@ -25,6 +25,27 @@ import centered from '@storybook/addon-centered';
 
 import { variations, storiesWithVariationsKindName, dropdownSizes } from './variations';
 
+class PillWrapper extends PureComponent {
+	deleteSelf = e => {
+		this.props.onDeleteClick(this.props.id);
+	}
+
+	render() {
+		const { id } = this.props;
+		return (
+			<XUIPill
+				value={peopleDataSet[id].name}
+				className="xui-autocompleter--pill"
+				onDeleteClick={this.deleteSelf}
+				isMaxContentWidth
+				key={id}
+				size="small"
+				isMaxContentWidth
+			/>
+		)
+	}
+};
+
 const filterPeople = (data, value, peopleToExclude) =>
 	data.filter(node => {
 		const val = value && value.toLowerCase() || '';
@@ -42,10 +63,11 @@ class DetailedListExample extends Component {
 		people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
 		selectedPeople: [peopleDataSet[0]],
 	};
+	completer = React.createRef();
 
 	onSearchChangeHandler = value => {
 		const example = this;
-		example.completer.openDropDown();
+		example.completer.current.openDropDown();
 		example.setState(prevState => ({
 			value,
 			people: filterPeople(peopleDataSet, value, prevState.selectedPeople),
@@ -127,7 +149,7 @@ class DetailedListExample extends Component {
 		} = this.props;
 
 		if (openDrawer) {
-			this.completer.openDropDown();
+			this.completer.current.openDropDown();
 		}
 
 		if (selectedPeople != null && typeof selectedPeople === 'number') {
@@ -148,9 +170,9 @@ class DetailedListExample extends Component {
 		} = nextProps;
 
 		if (openDrawer) {
-			this.completer.openDropDown();
+			this.completer.current.openDropDown();
 		} else {
-			this.completer.closeDropDown();
+			this.completer.current.closeDropDown();
 		}
 
 		if (selectedPeople != null && typeof selectedPeople === 'number') {
@@ -163,6 +185,17 @@ class DetailedListExample extends Component {
 			});
 		}
 	}
+
+	renderPills(selectedPeople) {
+		return selectedPeople.map(person =>
+			<PillWrapper
+				id={person.id}
+				key={person.id}
+				onDeleteClick={this.deletePerson}
+			/>
+		)
+	}
+
 
 	render() {
 		const example = this;
@@ -199,7 +232,7 @@ class DetailedListExample extends Component {
 
 		return (
 				<XUIAutocompleter
-					ref={ac => example.completer = ac}
+					ref={this.completer}
 					onSearch={example.onSearchChangeHandler}
 					placeholder={placeholder}
 					searchValue={value}
@@ -217,17 +250,7 @@ class DetailedListExample extends Component {
 					isInvalid={isInvalid}
 					validationMessage={validationMessage}
 					hintMessage={hintMessage}
-					pills={
-						selectedPeople.map(person =>
-							<XUIPill
-								value={person.name}
-								className="xui-autocompleter--pill"
-								onDeleteClick={()=>this.deletePerson(person.id)}
-								key={person.id}
-								size="small"
-							/>
-						)
-					}
+					pills={this.renderPills(selectedPeople)}
 				>
 					{example.getItems()}
 				</XUIAutocompleter>

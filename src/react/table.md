@@ -596,7 +596,7 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
-cosnt data = {
+const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', tags: [{ name: 'Foo', variant: 'positive' }, { name: 'Bar', variant: 'warning' }, { name: 'Baz', variant: 'negative' }], price: 2.99 },
 	def456: { fruit: 'Apple', color: 'Red', tags: [{ name: 'Foo', variant: 'positive' }, { name: 'Bar', variant: 'warning' }], price: 3.49 },
 	ghi789: { fruit: 'Carrot', color: 'Orange', tags: [{ name: 'Foo', variant: 'positive' }], price: 1.49 },

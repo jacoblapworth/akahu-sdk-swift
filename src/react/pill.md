@@ -11,21 +11,25 @@ Pills are used for signifying a selection has been made, either single or multip
 Pills can trigger actions passed in through the `onDeleteClick`, `onClick`, and `href` props. If `onDeleteClick` is added, a delete button will be rendered inside the pill. `onClick`, and `href` will be triggered if the user clicks anywhere on the pill other than the delete button.
 
 ```jsx
+const wasDeleted = () => {window.alert('deleted')};
+const wasClicked = () => {window.alert('clicked')};
+const linkWasDeleted = () => {window.alert('deleted link')};
+
 <div>
 	<XUIPill
 		value="Deletable selection"
-		onDeleteClick={() => window.alert('deleted')}
+		onDeleteClick={wasDeleted}
 		className="xui-margin-right-xsmall"
 	/>
 	<XUIPill
 		value="Undeletable"
-		onClick={() => window.alert('clicked')}
+		onClick={wasClicked}
 		className="xui-margin-right-xsmall"
 	/>
 	<XUIPill
 		href="https://xero.com"
 		value="Link Pill"
-		onDeleteClick={() => window.alert('deleted link')}
+		onDeleteClick={linkWasDeleted}
 	/>
 </div>
 ```

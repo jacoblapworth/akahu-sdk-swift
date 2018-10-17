@@ -11,13 +11,9 @@ import { baseClass, sizeClasses } from './private/constants';
 import '../../../sass/7-components/_pills.scss';
 
 export default class XUIPill extends PureComponent {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			isFocused: false,
-		};
-	}
+	state = {
+		isFocused: false,
+	};
 
 	toggleFocus = () => {
 		this.setState(prevState => ({

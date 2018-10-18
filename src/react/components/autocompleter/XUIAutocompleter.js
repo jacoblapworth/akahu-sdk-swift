@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
+import uuidv4 from 'uuid/v4';
 import Picklist from '../picklist/Picklist';
 import XUILoader from '../loader/XUILoader';
 import DropDown from '../dropdown/DropDown';
@@ -55,6 +56,9 @@ export default class XUIAutocompleter extends PureComponent {
 		const morePillsExist = React.Children.count(pills) > React.Children.count(prevProps.pills);
 		if (morePillsExist && disableWrapPills) {
 			this.noWrapPillContainer.scrollLeft = this.noWrapPillContainer.scrollWidth;
+		}
+		if (React.Children.count(pills) < React.Children.count(prevProps.pills)) {
+			this.ddt.repositionDropDown();
 		}
 	}
 
@@ -202,6 +206,12 @@ export default class XUIAutocompleter extends PureComponent {
 		) : pills;
 	}
 
+	// We explicitly need to tie the label to the input element in HTML for autocompleter,
+	// so we'll ensure there is an ID with which to do so.
+	generatedInputId = this.props.inputId
+		|| (this.props.inputProps && this.props.inputProps.id)
+		|| uuidv4();
+
 	render() {
 		const completer = this;
 		const {
@@ -220,7 +230,6 @@ export default class XUIAutocompleter extends PureComponent {
 			isInputLabelHidden,
 			inputProps,
 			maxLength,
-			inputId,
 			dropdownId,
 			onOptionSelect,
 			dropdownClassName,
@@ -295,7 +304,7 @@ export default class XUIAutocompleter extends PureComponent {
 					inputProps={{
 						...inputProps,
 						'maxLength': maxLength,
-						'id': inputId,
+						'id': this.generatedInputId,
 						'role': 'textbox',
 						'aria-multiline': false,
 						'aria-autocomplete': 'list',

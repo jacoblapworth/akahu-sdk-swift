@@ -175,7 +175,12 @@ class XUITextInput extends PureComponent {
 			|| undefined;
 
 		return (
-			<label className={rootClasses} onKeyDown={onKeyDown} role="presentation">
+			<label
+				htmlFor={inputProps.id}
+				className={rootClasses}
+				onKeyDown={onKeyDown}
+				role="presentation"
+			>
 				{labelElement}
 				<div className={baseClasses} data-automationid={qaHook}>
 					{leftElement}

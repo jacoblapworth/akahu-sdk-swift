@@ -3380,6 +3380,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -3466,6 +3467,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -3552,6 +3554,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -4404,6 +4407,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -4553,6 +4557,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -4702,6 +4707,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -5053,6 +5059,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -5234,6 +5241,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -5415,6 +5423,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -6978,6 +6987,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -7096,6 +7106,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -7214,6 +7225,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -9195,6 +9207,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -9376,6 +9389,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -9557,6 +9571,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >

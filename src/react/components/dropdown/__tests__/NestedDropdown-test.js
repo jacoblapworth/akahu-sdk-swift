@@ -87,8 +87,9 @@ describe('<NestedDropdown />', () => {
         expect(onHighlightChange.mock.calls.length).toEqual(0);
 
         comp.find('#option1').hostNodes().simulate('keyDown', { keyCode: 40, which: 40 });
-
-        expect(onHighlightChange.mock.calls.length).toBeGreaterThan(0);
+				setTimeout( () => {
+						expect(onHighlightChange.mock.calls.length).toBeGreaterThan(0);
+				}, 0);
 
     });
 

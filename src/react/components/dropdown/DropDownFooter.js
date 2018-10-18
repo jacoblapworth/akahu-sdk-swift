@@ -14,6 +14,8 @@ import { baseClass } from './private/constants';
  * @extends {PureComponent}
  */
 export default class DropDownFooter extends PureComponent {
+	rootNode = React.createRef();
+
 	render() {
 		const { children, className, qaHook, pickItems } = this.props;
 
@@ -25,7 +27,7 @@ export default class DropDownFooter extends PureComponent {
 			</Picklist>
 		);
 		return (
-			<div className={classes} ref={f => this.rootNode = f} data-automationid={qaHook}>
+			<div className={classes} ref={this.rootNode} data-automationid={qaHook}>
 				{pickList}
 				{children}
 			</div>

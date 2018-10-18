@@ -57,8 +57,8 @@ class NestedExample extends Component {
 			selectedConvenienceDate: null,
 			selectedDate: null,
 		};
-		this.datepickerRefFn = c => this.datepicker = c;
-		this.ddtRefFn = c => this.ddt = c;
+		this.datepicker = React.createRef();
+		this.ddt = React.createRef();
 
 		this.closeDropDown = this.closeDropDown.bind(this);
 		this.focusDatePicker = this.focusDatePicker.bind(this);
@@ -66,15 +66,16 @@ class NestedExample extends Component {
 		this.showMonth = this.showMonth.bind(this);
 		this.selectConvenienceDate = this.selectConvenienceDate.bind(this);
 		this.selectDate = this.selectDate.bind(this);
+		this.selectCustomConvenience = this.selectCustomConvenience.bind(this);
 	}
 
 	closeDropDown() {
-		this.ddt.closeDropDown();
+		this.ddt.current.closeDropDown();
 	}
 
 	focusDatePicker() {
 		if (this.state.activePanel === 'customDate') {
-			this.datepicker.focus();
+			this.datepicker.current.focus();
 		}
 	}
 
@@ -113,6 +114,10 @@ class NestedExample extends Component {
 		this.closeDropDown();
 	}
 
+	selectCustomConvenience() {
+		this.selectConvenienceDate('custom');
+	}
+
 	render() {
 		const { activePanel, selectedDate } = this.state;
 		let triggerText = 'Select a Date';
@@ -132,7 +137,7 @@ class NestedExample extends Component {
 					<Pickitem
 						id="custom"
 						key="custom"
-						onClick={() => this.selectConvenienceDate('custom')}
+						onClick={this.selectCustomConvenience}
 					>
 						Custom Date
 					</Pickitem>
@@ -169,7 +174,7 @@ class NestedExample extends Component {
 					)}
 				>
 					<XUIDatePicker
-						ref={this.datepickerRefFn}
+						ref={this.datepicker}
 						displayedMonth={this.state.currentMonth}
 						selectedDate={this.state.selectedDate}
 						onSelectDate={this.selectDate}
@@ -180,7 +185,7 @@ class NestedExample extends Component {
 		const isPicklist = activePanel !== 'customDate';
 		return (
 			<DropDownToggled
-				ref={this.ddtRefFn}
+				ref={this.ddt}
 				trigger={trigger}
 				dropdown={dropdown}
 				closeOnSelect={false}

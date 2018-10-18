@@ -16,6 +16,8 @@ import { ns } from '../helpers/xuiClassNamespace';
  * @extends {PureComponent}
  */
 export default class DropDownHeader extends PureComponent {
+	rootNode = React.createRef();
+
 	render() {
 		const {
 			children,
@@ -126,7 +128,7 @@ export default class DropDownHeader extends PureComponent {
 
 		return (
 			<div
-				ref={h => this.rootNode = h}
+				ref={this.rootNode}
 				className={classes}
 				data-automationid={qaHook}
 			>

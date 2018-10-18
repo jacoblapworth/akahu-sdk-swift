@@ -91,6 +91,9 @@ export default class DropDownToggled extends PureComponent {
 			isOpening: false,
 			isClosing: false,
 		};
+
+		this.wrapper = React.createRef();
+		this.positioning = React.createRef();
 	}
 
 	dropdownId = (this.props.dropdown && this.props.dropdown.props.id) || uuidv4();
@@ -155,10 +158,10 @@ export default class DropDownToggled extends PureComponent {
 					if (prevState.isNarrowViewport) {
 						unlockScroll();
 					}
-					scrollIntoViewIfNecessary(this.wrapper.firstChild);
+					scrollIntoViewIfNecessary(this.wrapper.current.firstChild);
 				}
 				// Checking for the wrapper confirms that component is fully mounted
-				if (shouldLockScroll(this) && this.wrapper) {
+				if (shouldLockScroll(this) && this.wrapper.current) {
 					this.setState({ // eslint-disable-line react/no-did-update-set-state
 						shouldUnlockScroll: lockScroll(),
 					});
@@ -179,7 +182,7 @@ export default class DropDownToggled extends PureComponent {
 		if (isHidden !== prevState.isHidden) {
 			// Just closed
 			if (isHidden) {
-				const { firstChild: trigger } = this.wrapper;
+				const { firstChild: trigger } = this.wrapper.current;
 				focusTrigger(this.trigger, trigger);
 
 				// Remove window event listeners for performance gains.
@@ -205,7 +208,7 @@ export default class DropDownToggled extends PureComponent {
 				addEventListeners(this);
 
 				// If we are animating, add the animation class, after checking that the component is mounted
-				if (shouldAnimate(this) && this.wrapper) {
+				if (shouldAnimate(this) && this.wrapper.current) {
 					this.setState(() => ({ // eslint-disable-line react/no-did-update-set-state
 						isOpening: true,
 					}));
@@ -312,7 +315,7 @@ export default class DropDownToggled extends PureComponent {
 	 */
 	onMouseDown = event => {
 		const { isHidden } = this.state;
-		const { firstChild: trigger } = this.wrapper;
+		const { firstChild: trigger } = this.wrapper.current;
 		const dropdown = this.dropdown && document.getElementById(this.dropdownId);
 
 		/*
@@ -406,7 +409,7 @@ export default class DropDownToggled extends PureComponent {
 		this.setState(prevState => {
 			const isNarrow = checkIsNarrowViewport();
 			if (!isNarrow || (isNarrow && !prevState.isNarrowViewport)) {
-				scrollIntoViewIfNecessary(this.wrapper.firstChild);
+				scrollIntoViewIfNecessary(this.wrapper.current.firstChild);
 				this.repositionDropDown();
 			}
 			return { isNarrowViewport: isNarrow };
@@ -420,11 +423,11 @@ export default class DropDownToggled extends PureComponent {
 	 * @memberof DropDownToggled
 	 */
 	repositionDropDown = () => {
-		if (this.positioning != null) {
+		if (this.positioning.current != null) {
 			if (this.props.restrictToViewPort) {
-				this.positioning.calculateMaxHeight();
+				this.positioning.current.calculateMaxHeight();
 			}
-			this.positioning.positionComponent();
+			this.positioning.current.positionComponent();
 		}
 	};
 
@@ -498,8 +501,8 @@ export default class DropDownToggled extends PureComponent {
 			shouldRestrictMaxHeight: restrictToViewPort,
 			isNotResponsive: forceDesktop,
 			onVisible: shouldAnimate(this) ? null : this.onOpenAnimationEnd,
-			ref: c => this.positioning = c,
-			parentRef: this.wrapper,
+			ref: this.positioning,
+			parentRef: this.wrapper.current,
 			isTriggerWidthMatched: matchTriggerWidth,
 		};
 
@@ -532,7 +535,7 @@ export default class DropDownToggled extends PureComponent {
 		return (
 			<div
 				{...wrapperAria}
-				ref={c => this.wrapper = c}
+				ref={this.wrapper}
 				className={className}
 				data-ref="toggled-wrapper"
 				data-automationid={qaHook}

@@ -24,7 +24,7 @@ import { ns } from '../helpers/xuiClassNamespace';
  * @param {Function} callback
  */
 function whenVisible(panel, callback) {
-	intervalRunner(() => isVisible(panel.rootNode), callback);
+	intervalRunner(() => isVisible(panel.rootNode.current), callback);
 }
 
 /**
@@ -36,6 +36,10 @@ function whenVisible(panel, callback) {
  * @extends {PureComponent}
  */
 class DropDownPanel extends PureComponent {
+	rootNode = React.createRef();
+	list = React.createRef();
+	_scrollableContent = React.createRef();
+
 	/**
 	 * When -webkit-overflow-scrolling: touch is set in iOS, scrolling elements inside of a fixed
 	 * position div have a decent (aka > 75%) chance of simply not updating when clicking on a
@@ -52,7 +56,7 @@ class DropDownPanel extends PureComponent {
 	 * @memberof DropDownPanel
 	 */
 	iOSHack = () => {
-		const content = this._scrollableContent;
+		const content = this._scrollableContent.current;
 		if (
 			content != null &&
 			Object.prototype.hasOwnProperty.call(content.style, 'webkitOverflowScrolling') &&
@@ -81,7 +85,7 @@ class DropDownPanel extends PureComponent {
 	 * @public
 	 */
 	focus() {
-		whenVisible(this, () => this.rootNode.focus());
+		whenVisible(this, () => this.rootNode.current.focus());
 	}
 
 	/**
@@ -102,18 +106,18 @@ class DropDownPanel extends PureComponent {
 	 * @memberof DropDownPanel
 	 */
 	onKeyDown(event) {
-		if (this.list != null) {
-			this.list.onKeyDown(event);
+		if (this.list.current != null) {
+			this.list.current.onKeyDown(event);
 		}
 	}
 
 	keyDownHandler = event => {
-		if (this.list != null) {
-			const header = this.rootNode.querySelector(`.${ns}-dropdown--header`);
-			const footer = this.rootNode.querySelector(`.${ns}-dropdown--footer`);
+		if (this.list.current != null) {
+			const header = this.rootNode.current.querySelector(`.${ns}-dropdown--header`);
+			const footer = this.rootNode.current.querySelector(`.${ns}-dropdown--footer`);
 			if ((header == null || !header.contains(document.activeElement))
 				&& (footer == null || !footer.contains(document.activeElement))) {
-				this.list.onKeyDown(event);
+				this.list.current.onKeyDown(event);
 			}
 		}
 		if (typeof this.props.onKeyDown === 'function') {
@@ -129,7 +133,7 @@ class DropDownPanel extends PureComponent {
 	 * @memberof DropDownPanel
 	 */
 	getHighlightedId() {
-		return this.list != null ? this.list.getHighlightedId() : null;
+		return this.list.current != null ? this.list.current.getHighlightedId() : null;
 	}
 
 	/**
@@ -141,7 +145,7 @@ class DropDownPanel extends PureComponent {
 	 * @memberof DropDownPanel
 	 */
 	highlightItem(item, event) {
-		this.list != null && this.list.highlightItem(item, event);
+		this.list.current != null && this.list.current.highlightItem(item, event);
 	}
 
 	/**
@@ -151,14 +155,14 @@ class DropDownPanel extends PureComponent {
 	 * @memberof DropDownPanel
 	 */
 	highlightInitial() {
-		if (this.list != null) {
-			this.list.highlightInitial();
+		if (this.list.current != null) {
+			this.list.current.highlightInitial();
 		}
 	}
 
 	highlightFirstItem = () => {
-		if (this.list != null) {
-			this.list.highlightFirst();
+		if (this.list.current != null) {
+			this.list.current.highlightFirst();
 		}
 	}
 
@@ -174,17 +178,18 @@ class DropDownPanel extends PureComponent {
 			const element = document.getElementById(id);
 			// Don't try to scroll into view unless the ID is not of something not in the
 			// scrollable div is passed
+			const content = this._scrollableContent.current;
 			if (
 				element != null
-				&& this._scrollableContent != null
-				&& this._scrollableContent.contains(element)
+				&& content != null
+				&& content.contains(element)
 			) {
-				const newScrollTop = scrollTopPosition(element, this._scrollableContent);
+				const newScrollTop = scrollTopPosition(element, content);
 				// If you don't do this inside a setTimeout 0, it won't happen.  Not sure why
 				// yet...
 				setTimeout(() => {
-					if (this._scrollableContent) {
-						this._scrollableContent.scrollTop = newScrollTop;
+					if (content) {
+						content.scrollTop = newScrollTop;
 					}
 				}, 0);
 			}
@@ -199,7 +204,7 @@ class DropDownPanel extends PureComponent {
 	 * @memberof DropDownPanel
 	 */
 	hasFocus() {
-		return this.rootNode && this.rootNode.contains(document.activeElement);
+		return this.rootNode && this.rootNode.current.contains(document.activeElement);
 	}
 
 	containsPicklist() {
@@ -238,7 +243,7 @@ class DropDownPanel extends PureComponent {
 
 		return (
 			<div
-				ref={n => this.rootNode = n}
+				ref={this.rootNode}
 				className={`${baseClass}--panel`}
 				data-automationid={qaHook}
 				aria-hidden={isHidden}
@@ -263,7 +268,7 @@ class DropDownPanel extends PureComponent {
 						<Fragment>
 							<StatefulPicklist
 								className={scrollableContainerClasses}
-								ref={c => this.list = c}
+								ref={this.list}
 								onSelect={onSelect}
 								ignoreKeyboardEvents={ignoreKeyboardEvents}
 								onHighlightChange={onHighlightChange}
@@ -274,7 +279,7 @@ class DropDownPanel extends PureComponent {
 							>
 								<div
 									className={`${baseClass}--scrollable-content`}
-									ref={sc => this._scrollableContent = sc}
+									ref={this._scrollableContent}
 									data-automationid={qaHook && `${qaHook}--scrollable-content`}
 								>
 									{children}
@@ -289,7 +294,7 @@ class DropDownPanel extends PureComponent {
 						>
 							<div
 								className={`${baseClass}--scrollable-content`}
-								ref={sc => this._scrollableContent = sc}
+								ref={this._scrollableContent}
 								data-automationid={qaHook && `${qaHook}--scrollable-content`}
 							>
 								{children}

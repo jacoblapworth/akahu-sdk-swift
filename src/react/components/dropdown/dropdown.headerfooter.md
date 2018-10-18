@@ -40,6 +40,9 @@ class XDD extends Component {
 		this.onOpen = this.onOpen.bind(this);
 		this.onSearch = this.onSearch.bind(this);
 		this.onSearchKeyDown = this.onSearchKeyDown.bind(this);
+
+		this.ddt = React.createRef();
+		this.dropdown = React.createRef();
 	}
 
 	onSearch(event) {
@@ -53,7 +56,7 @@ class XDD extends Component {
 	onSearchKeyDown(event) {
 		// Allow users to type spaces without selecting
 		if (event.keyCode !== 32) {
-			this.dropdown.onKeyDown(event);
+			this.dropdown.current && this.dropdown.current.onKeyDown(event);
 		}
 	}
 
@@ -67,7 +70,7 @@ class XDD extends Component {
 	}
 
 	closeDropDown() {
-		this.ddt.closeDropDown();
+		this.ddt.current.closeDropDown();
 	}
 
 	onApplyClick() {
@@ -108,7 +111,7 @@ class XDD extends Component {
 				secondaryButtonContent="Cancel"
 			>
 				<XUITextInput
-					ref={c => this.searchComponent = c}
+					inputRef={i => this.input = i}
 					placeholder="Search"
 					type="search"
 					value={this.search}
@@ -150,7 +153,7 @@ class XDD extends Component {
 		);
 		const dropdown = (
 			<DropDown
-				ref={c => this.dropdown = c}
+				ref={this.dropdown}
 				onSelect={this.onSelect}
 				header={dropdownHeader}
 				footer={dropdownFooter}
@@ -175,8 +178,8 @@ class XDD extends Component {
 		);
 		return (
 			<DropDownToggled
-				ref={c => this.ddt = c}
-				onOpenAnimationEnd={() => this.searchComponent.focus()}
+				ref={this.ddt}
+				onOpenAnimationEnd={() => this.input && this.input.focus()}
 				trigger={trigger}
 				dropdown={dropdown}
 				closeOnSelect={false}

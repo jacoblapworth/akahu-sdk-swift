@@ -22,6 +22,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 		this.state = {
 			value: props.searchValue,
 		};
+		this.rootNode = React.createRef();
 	}
 
 	componentDidUpdate(prevProps) {
@@ -234,7 +235,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 
 		return (
 			<div
-				ref={c => this.rootNode = c}
+				ref={this.rootNode}
 				className={className}
 				data-automationid={containerQaHook}
 			>

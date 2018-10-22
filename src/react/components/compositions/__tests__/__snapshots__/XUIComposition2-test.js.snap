@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIComposition2> renders basic example 1`] = `
+<div
+  className="xui-composition xui-composition-2 xui-composition-grid"
+>
+  <div
+    className="xui-gridarea-nav"
+  >
+    <div
+      className="xui-gridarea-nav-mobile xui-gridarea-nav-mobile-is-open"
+    >
+      <div
+        className="xui-gridarea-nav-mobile--mask"
+      />
+      <div
+        className="xui-gridarea-nav-mobile--body"
+      >
+        <div />
+      </div>
+    </div>
+  </div>
+  <div
+    className="xui-gridarea-main"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-summary"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<XUIComposition2> should do nothing with children 1`] = `
+<div
+  className="xui-composition xui-composition-2 xui-composition-grid"
+>
+  <div
+    className="xui-gridarea-nav"
+  >
+    <div
+      className="xui-gridarea-nav-mobile xui-gridarea-nav-mobile-is-open"
+    >
+      <div
+        className="xui-gridarea-nav-mobile--mask"
+      />
+      <div
+        className="xui-gridarea-nav-mobile--body"
+      >
+        <div />
+      </div>
+    </div>
+  </div>
+  <div
+    className="xui-gridarea-main"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-summary"
+  >
+    <div />
+  </div>
+</div>
+`;

@@ -25,7 +25,11 @@ export default class LeftVisualEl extends PureComponent {
 					`${baseClass}--erroricon-${size}`,
 				)}
 			>
-				<XUIIcon size={size.indexOf('small') === -1 ? size : 'standard'} icon={exclamation} color="red" />
+				<XUIIcon
+					size={size.indexOf('small') === -1 ? size : 'standard'}
+					icon={exclamation}
+					color="red"
+				/>
 			</div>
 		) : <XUIAvatar {...avatarProps} className={avatarClasses} size={size} />;
 	}

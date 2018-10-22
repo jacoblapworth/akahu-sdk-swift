@@ -40,7 +40,7 @@ export default class XUISwitch extends PureComponent {
 		};
 	}
 
-	internalOnChange = (e) => {
+	internalOnChange = e => {
 		this.setState({ internalIsChecked: e.target.checked });
 		this.props.onChange && this.props.onChange(e);
 	};

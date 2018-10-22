@@ -1,0 +1,5 @@
+@import "../vars";
+
+.#{$ns}-gridarea-header {
+	grid-area: header;
+}

@@ -11,7 +11,7 @@ const InputGroup = ({ children, className, isFieldLayout, ...other }) => {
 		4: 'quarter'
 	};
 
-	const noOfChildren = children.length;
+	const noOfChildren = React.Children.count(children);
 	const columnChosen = noOfChildren <= 4 ? columns[noOfChildren] : columns[1];
 
 	return (

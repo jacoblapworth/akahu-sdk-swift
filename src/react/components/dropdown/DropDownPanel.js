@@ -110,7 +110,9 @@ class DropDownPanel extends PureComponent {
 	keyDownHandler = event => {
 		if (this.list != null) {
 			const header = this.rootNode.querySelector(`.${ns}-dropdown--header`);
-			if (header == null || !header.contains(document.activeElement)) {
+			const footer = this.rootNode.querySelector(`.${ns}-dropdown--footer`);
+			if ((header == null || !header.contains(document.activeElement))
+				&& (footer == null || !footer.contains(document.activeElement))) {
 				this.list.onKeyDown(event);
 			}
 		}

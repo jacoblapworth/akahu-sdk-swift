@@ -6,129 +6,152 @@
 @import "../../src/sass/vars";
 @import "./mixins";
 
+.ds-header--home {
+	margin: 0 0 100px 0.5vw;
+	h1 {
+		font-size: calc(2.4rem + 2vw);
+		margin: 0 0 40px;
+	}
+}
+
+.ds-panel--feedback {
+	background-color: $xui-color-white;
+	border-left: 4px solid $xui-color-orange;
+}
 
 .ds-tilegroup--home {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	margin: 10vh 0;
-	@include xui-breakpoint-medium-up {
+	margin: 0 0 100px;
+	@include xui-breakpoint-large-up {
 		@include embiggen;
 	}
 }
 
-.ds-tile--home {
-	height: 23vw;
-	width: calc(33.33% - 2vw);
+.ds-tile--home-small {
+	background-color: $xui-color-white;
 	border-radius: 3px;
-	margin-bottom: 2vw;
-	margin-left: 2vw;
-	background-position: 50% 100%;
-	background-size: 100% auto;
-	background-repeat: no-repeat;
+	box-shadow: $xui-shadow-border-all;
 	display: inline-block;
-	vertical-align: middle;
+	height: 210px;
+	margin: 1vw 0.5vw 20px;
 	transform: perspective(1px) translateZ(0);
-	box-shadow: $xui-shadow-depth-pop;
-	transition-duration: 0.3s;
-	&:nth-child(3n-2) {
-		margin-left: 0;
+	transition: all $xui-motion-speed-medium $ds-motion-curve-bouncy;
+	vertical-align: middle;
+	width: calc(33.3% - 1vw);
+	&:hover {
+		box-shadow: $xui-shadow-depth-pop;
+		transform: translateY(-4px);
 	}
 	a {
-		text-decoration: none;
+		color: $xui-color-blue;
+	}
+	p {
+		color: $xui-color-grey-1;
+		opacity: 1;
+	}
+	.xui-heading-large {
+		color: $xui-color-blue;
+		line-height: 1;
+		margin: 0;
+		padding-bottom: 12px;
 	}
 	@include xui-breakpoint-small-only {
-		height: 52vw;
-		width: calc(50% - 2vw);
-		margin-left: 0;
-		&:nth-child(even) {
-			margin-left: 2vw;
-		}
+		background-image: none !important;
+		height: 140px;
+		margin: 2vw 1vw 1vw;
+		width: 100%;
 	}
 	@include xui-breakpoint-xsmall-only {
-		height: 52vw;
+		background-image: none !important;
+		height: 150px;
+		margin: 2vw 1vw 1vw;
+		width: 100%;
+	}
+}
+
+.ds-tile--home {
+	background-color: $xui-color-blue-xdark;
+	background-position: 50% 100%;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	border-radius: 3px;
+	box-shadow: $xui-shadow-depth-pop;
+	display: inline-block;
+	height: 220px;
+	margin: 1vw 0.5vw 0;
+	transform: perspective(1px) translateZ(0);
+	transition: all $xui-motion-speed-medium $ds-motion-curve-bouncy;
+	vertical-align: middle;
+	width: calc(25% - 1vw);
+	svg {
+		fill: $xui-color-white;
+	}
+	.xui-heading {
+		color: $xui-color-white;
+		line-height: 1.15;
+		margin: 0;
+		padding-bottom: 12px;
+	}
+
+	@include xui-breakpoint-small-up {
+		height: 150px;
+		margin: 2vw 1vw 0;
 		width: calc(50% - 2vw);
-		margin-left: 0;
-		&:nth-child(even) {
-			margin-left: 2vw;
-		}
+	}
+	@include xui-breakpoint-xsmall-only {
+		height: 180px;
+		margin: 2vw 1vw 0;
+		width: calc(50% - 2vw);
 	}
 }
 
 .ds-tile--home:hover {
-	transform: scale(1.03);
-	transition-timing-function: $ds-motion-curve-bouncy;
-	box-shadow: 0 0 0 1px $xui-color-grey-alpha-6, 0 4px 15px rgba($ds-dark-bg-color, 0.2);
+	background-color: $xui-color-blue-dark;
+	background-image: none;
+	box-shadow: $xui-shadow-depth-pop;
+	transform: scale(1.05);
+	p {
+		opacity: 1;
+	}
 }
 
-.ds-tile--home a {
+.ds-tile--home p{
+	color: $xui-color-white-alpha-2;
+}
+
+.ds-tile--home a,
+.ds-tile--home-small a {
 	display: block;
 	height: 100%;
-	width: 100%;
-	position: absolute;
-	top: 0;
 	left: 0;
-	padding: calc(0.75rem + 1vw);
-}
-
-.ds-tile--home h2,
-.ds-tile--home h3 {
-	margin-top: 0;
-	font-size: calc(1rem + 0.5vw)
+	padding: calc(0.5rem + 1vw);
+	position: absolute;
+	text-decoration: none;
+	top: 0;
+	width: 100%;
 }
 
 // Specific background images
 
-.ds-tile--home-getting-started {
-	background: $xui-color-blue;
-	.xui-heading-large {
-		color: $xui-color-white;
-	}
-	background-image: url(./kss-assets/illustration/symbol.png);
-	background-size: 250%;
-	background-repeat: no-repeat;
-	background-position: 1% -200%;
-}
-
 .ds-tile--home-fundamentals {
-	background-image: url(./kss-assets/illustration/spiral.png);
+	background-image: linear-gradient(to bottom, $xui-color-white 0%,rgba(255,255,255,.8) 100%), url(./kss-assets/illustration/spiral.png);
+	background-size: 220%;
+	background-repeat: no-repeat;
+	background-position: 50% 20px;
+}
+
+.ds-tile--home-elements {
+	background-image: linear-gradient(to bottom, $xui-color-white 0%,rgba(255,255,255,.9) 100%), url(./kss-assets/illustration/block.png);
 	background-size: 200%;
 	background-repeat: no-repeat;
-	background-position: 50% -60%;
+	background-position: 5% 20px;
 }
 
-.ds-tile--home-building-blocks {
-	background: $xui-color-turquoise;
-	.xui-heading-large {
-		color: $xui-color-white;
-	}
-	background-image: url(./kss-assets/illustration/block.png);
-	background-size: 200%;
-	background-repeat: no-repeat;
-	background-position: 10px 100px;
-}
-
-.ds-tile--home-react {
-	background-image: url(./kss-assets/illustration/code.png);
-	background-size: 200%;
-	background-repeat: no-repeat;
-	background-position: 5% -200%;
-}
-
-.ds-tile--home-updates {
-	background: $ds-dark-bg-color;
-	.xui-heading-large {
-		color: $xui-color-white;
-	}
-	background-image: url(./kss-assets/illustration/x.png);
-	background-size: 300%;
-	background-repeat: no-repeat;
-	background-position: 2% -200%;
-}
-
-.ds-tile--home-contribute {
-	background-image: url(./kss-assets/illustration/gradient.png);
+.ds-tile--home-compounds {
+	background-image: linear-gradient(to bottom, $xui-color-white 0%,rgba(255,255,255,.9) 100%), url(./kss-assets/illustration/gradient.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
-	background-position: 0 100%;
+	background-position: 0 60px;
 }

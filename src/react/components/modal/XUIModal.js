@@ -73,8 +73,11 @@ export default class XUIModal extends Component {
 
 	componentWillUnmount() {
 		this.removeListeners();
-
-		this._isScrollLocked = false;
+		const { isTopModal } = this.state;
+		if (this.props.isOpen && this._isScrollLocked && isTopModal) {
+			this._isScrollLocked = false;
+			deRegisterTopModal();
+		}
 	}
 
 	componentWillReceiveProps(nextProps) {

@@ -87,6 +87,12 @@ const variations = [
 		isGrow: true,
 		thickness: 99999,
 	},
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'linear tooltip',
+		hasToolTip: true,
+	},
 
 	// Circular:
 
@@ -184,6 +190,12 @@ const variations = [
 		storyKind,
 		storyTitle: 'circular custom content',
 		isGrow: true,
+	},
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'circular tooltip',
+		hasToolTip: true,
 	},
 
 	// Color:

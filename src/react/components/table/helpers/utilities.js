@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import React from 'react';
 import { NAME_SPACE } from './constants';
 
 export const cellClassNames = {
@@ -140,9 +141,8 @@ export const enrichProps = (state, props, { tableNode }) => {
 
 	// If there is no header cell content then we remove the <head /> all together
 	// from the table.
-	const columns = Array.isArray(children) ? children : [children];
-	const headCells = columns.filter(({ props: { head } }) => head);
-	const hasHeader = Boolean(headCells.length);
+	const columns = React.Children.toArray(children);
+	const hasHeader = columns.some((col) => (col && col.props && col.props.head));
 
 	const tableWidth = tableNode && tableNode.clientWidth;
 

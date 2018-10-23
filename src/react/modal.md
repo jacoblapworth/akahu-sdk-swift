@@ -4,6 +4,8 @@
 
 `XUIModal` provides a container for custom content, along with a background mask. They should primarily be used for prompting user actions, such as confirming a change, providing additional information, or copying some text.
 
+The modal manages its own open/closed state as well as scroll-locking, handling focus, and ARIA attributes for assistive technology. As such, it's best to show and hide the modal using its `isOpen` prop, rather than conditionally generating the component, particularly if you have multiple layers of modals.
+
 ## Examples
 
 ### Read-only modal

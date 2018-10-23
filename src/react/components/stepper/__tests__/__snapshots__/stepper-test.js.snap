@@ -1081,99 +1081,103 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                       data-automationid={undefined}
                       role="progressbar"
                     >
-                      <CircularGrowth
-                        customContent={undefined}
-                        id="myCustomStepperId-tab-0"
-                        isGrow={undefined}
-                        isSegmented={undefined}
-                        progress={3}
-                        qaHook={undefined}
-                        thickness={undefined}
-                        total={5}
+                      <div
+                        className="xui-progress--fragment"
                       >
-                        <div>
-                          <CircularTrack
-                            customContent={undefined}
-                            elementWidth={20}
-                            id="myCustomStepperId-tab-0"
-                            isGrow={undefined}
-                            isSegmented={undefined}
-                            progress={3}
-                            qaHook={undefined}
-                            thickness={3}
-                            total={5}
-                          >
-                            <IE11SvgScaleHack
-                              key="canvas"
-                              viewBoxHeight={20}
-                              viewBoxWidth={20}
+                        <CircularGrowth
+                          customContent={undefined}
+                          id="myCustomStepperId-tab-0"
+                          isGrow={undefined}
+                          isSegmented={undefined}
+                          progress={3}
+                          qaHook={undefined}
+                          thickness={undefined}
+                          total={5}
+                        >
+                          <div>
+                            <CircularTrack
+                              customContent={undefined}
+                              elementWidth={20}
+                              id="myCustomStepperId-tab-0"
+                              isGrow={undefined}
+                              isSegmented={undefined}
+                              progress={3}
+                              qaHook={undefined}
+                              thickness={3}
+                              total={5}
                             >
-                              <canvas
-                                className="xui-progress-circular-scaler"
-                                height={20}
-                                width={20}
-                              />
-                            </IE11SvgScaleHack>
-                            <svg
-                              className="xui-progress-circular-wrapper"
-                              key="svg"
-                              viewBox="0 0 20 20"
-                            >
-                              <defs>
-                                <mask
+                              <IE11SvgScaleHack
+                                key="canvas"
+                                viewBoxHeight={20}
+                                viewBoxWidth={20}
+                              >
+                                <canvas
+                                  className="xui-progress-circular-scaler"
                                   height={20}
-                                  id="myCustomStepperId-tab-0-progress-mask"
-                                  maskUnits="userSpaceOnUse"
                                   width={20}
-                                  x="0"
-                                  y="0"
-                                >
-                                  <circle
-                                    className="
+                                />
+                              </IE11SvgScaleHack>
+                              <svg
+                                className="xui-progress-circular-wrapper"
+                                key="svg"
+                                viewBox="0 0 20 20"
+                              >
+                                <defs>
+                                  <mask
+                                    height={20}
+                                    id="myCustomStepperId-tab-0-progress-mask"
+                                    maskUnits="userSpaceOnUse"
+                                    width={20}
+                                    x="0"
+                                    y="0"
+                                  >
+                                    <circle
+                                      className="
 							xui-progress-circular-mask
 							xui-progress-roundcap
 						"
+                                      cx={10}
+                                      cy={10}
+                                      r={8.5}
+                                      strokeDasharray="initial"
+                                      strokeWidth={3}
+                                    />
+                                  </mask>
+                                </defs>
+                                <g
+                                  mask="url(#myCustomStepperId-tab-0-progress-mask)"
+                                >
+                                  <circle
+                                    className="xui-progress-circular-track"
                                     cx={10}
                                     cy={10}
                                     r={8.5}
-                                    strokeDasharray="initial"
                                     strokeWidth={3}
                                   />
-                                </mask>
-                              </defs>
-                              <g
-                                mask="url(#myCustomStepperId-tab-0-progress-mask)"
-                              >
-                                <circle
-                                  className="xui-progress-circular-track"
-                                  cx={10}
-                                  cy={10}
-                                  r={8.5}
-                                  strokeWidth={3}
-                                />
-                                <circle
-                                  className="xui-progress-circular-current xui-progress-roundcap"
-                                  cx={10}
-                                  cy={10}
-                                  r={8.5}
-                                  strokeDasharray={53.40707511102649}
-                                  strokeDashoffset={21.362830044410597}
-                                  strokeWidth={3}
-                                />
-                              </g>
-                            </svg>
-                          </CircularTrack>
-                        </div>
-                      </CircularGrowth>
-                      <CircularIcon
-                        hardErrorAlert={undefined}
-                        isComplete={undefined}
-                        isHardError={undefined}
-                      >
-                        <div
-                          className="xui-progress-icon"
-                        />
-                      </CircularIcon>
+                                  <circle
+                                    className="xui-progress-circular-current xui-progress-roundcap"
+                                    cx={10}
+                                    cy={10}
+                                    r={8.5}
+                                    strokeDasharray={53.40707511102649}
+                                    strokeDashoffset={21.362830044410597}
+                                    strokeWidth={3}
+                                  />
+                                </g>
+                              </svg>
+                            </CircularTrack>
+                          </div>
+                        </CircularGrowth>
+                        <CircularIcon
+                          hardErrorAlert={undefined}
+                          isComplete={undefined}
+                          isHardError={undefined}
+                        >
+                          <div
+                            className="xui-progress-icon"
+                          />
+                        </CircularIcon>
+                      </div>
                     </div>
                   </ProgressWrapper>
                 </XUIProgressCircular>
@@ -1267,99 +1271,103 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                       data-automationid={undefined}
                       role="progressbar"
                     >
-                      <CircularGrowth
-                        customContent={undefined}
-                        id="myCustomStepperId-tab-1"
-                        isGrow={undefined}
-                        isSegmented={undefined}
-                        progress={3}
-                        qaHook={undefined}
-                        thickness={undefined}
-                        total={5}
+                      <div
+                        className="xui-progress--fragment"
                       >
-                        <div>
-                          <CircularTrack
-                            customContent={undefined}
-                            elementWidth={20}
-                            id="myCustomStepperId-tab-1"
-                            isGrow={undefined}
-                            isSegmented={undefined}
-                            progress={3}
-                            qaHook={undefined}
-                            thickness={3}
-                            total={5}
-                          >
-                            <IE11SvgScaleHack
-                              key="canvas"
-                              viewBoxHeight={20}
-                              viewBoxWidth={20}
+                        <CircularGrowth
+                          customContent={undefined}
+                          id="myCustomStepperId-tab-1"
+                          isGrow={undefined}
+                          isSegmented={undefined}
+                          progress={3}
+                          qaHook={undefined}
+                          thickness={undefined}
+                          total={5}
+                        >
+                          <div>
+                            <CircularTrack
+                              customContent={undefined}
+                              elementWidth={20}
+                              id="myCustomStepperId-tab-1"
+                              isGrow={undefined}
+                              isSegmented={undefined}
+                              progress={3}
+                              qaHook={undefined}
+                              thickness={3}
+                              total={5}
                             >
-                              <canvas
-                                className="xui-progress-circular-scaler"
-                                height={20}
-                                width={20}
-                              />
-                            </IE11SvgScaleHack>
-                            <svg
-                              className="xui-progress-circular-wrapper"
-                              key="svg"
-                              viewBox="0 0 20 20"
-                            >
-                              <defs>
-                                <mask
+                              <IE11SvgScaleHack
+                                key="canvas"
+                                viewBoxHeight={20}
+                                viewBoxWidth={20}
+                              >
+                                <canvas
+                                  className="xui-progress-circular-scaler"
                                   height={20}
-                                  id="myCustomStepperId-tab-1-progress-mask"
-                                  maskUnits="userSpaceOnUse"
                                   width={20}
-                                  x="0"
-                                  y="0"
-                                >
-                                  <circle
-                                    className="
+                                />
+                              </IE11SvgScaleHack>
+                              <svg
+                                className="xui-progress-circular-wrapper"
+                                key="svg"
+                                viewBox="0 0 20 20"
+                              >
+                                <defs>
+                                  <mask
+                                    height={20}
+                                    id="myCustomStepperId-tab-1-progress-mask"
+                                    maskUnits="userSpaceOnUse"
+                                    width={20}
+                                    x="0"
+                                    y="0"
+                                  >
+                                    <circle
+                                      className="
 							xui-progress-circular-mask
 							xui-progress-roundcap
 						"
+                                      cx={10}
+                                      cy={10}
+                                      r={8.5}
+                                      strokeDasharray="initial"
+                                      strokeWidth={3}
+                                    />
+                                  </mask>
+                                </defs>
+                                <g
+                                  mask="url(#myCustomStepperId-tab-1-progress-mask)"
+                                >
+                                  <circle
+                                    className="xui-progress-circular-track"
                                     cx={10}
                                     cy={10}
                                     r={8.5}
-                                    strokeDasharray="initial"
                                     strokeWidth={3}
                                   />
-                                </mask>
-                              </defs>
-                              <g
-                                mask="url(#myCustomStepperId-tab-1-progress-mask)"
-                              >
-                                <circle
-                                  className="xui-progress-circular-track"
-                                  cx={10}
-                                  cy={10}
-                                  r={8.5}
-                                  strokeWidth={3}
-                                />
-                                <circle
-                                  className="xui-progress-circular-current xui-progress-roundcap"
-                                  cx={10}
-                                  cy={10}
-                                  r={8.5}
-                                  strokeDasharray={53.40707511102649}
-                                  strokeDashoffset={21.362830044410597}
-                                  strokeWidth={3}
-                                />
-                              </g>
-                            </svg>
-                          </CircularTrack>
-                        </div>
-                      </CircularGrowth>
-                      <CircularIcon
-                        hardErrorAlert={undefined}
-                        isComplete={undefined}
-                        isHardError={undefined}
-                      >
-                        <div
-                          className="xui-progress-icon"
-                        />
-                      </CircularIcon>
+                                  <circle
+                                    className="xui-progress-circular-current xui-progress-roundcap"
+                                    cx={10}
+                                    cy={10}
+                                    r={8.5}
+                                    strokeDasharray={53.40707511102649}
+                                    strokeDashoffset={21.362830044410597}
+                                    strokeWidth={3}
+                                  />
+                                </g>
+                              </svg>
+                            </CircularTrack>
+                          </div>
+                        </CircularGrowth>
+                        <CircularIcon
+                          hardErrorAlert={undefined}
+                          isComplete={undefined}
+                          isHardError={undefined}
+                        >
+                          <div
+                            className="xui-progress-icon"
+                          />
+                        </CircularIcon>
+                      </div>
                     </div>
                   </ProgressWrapper>
                 </XUIProgressCircular>
@@ -1458,99 +1466,103 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                       data-automationid={undefined}
                       role="progressbar"
                     >
-                      <CircularGrowth
-                        customContent={undefined}
-                        id="myCustomStepperId-tab-2"
-                        isGrow={undefined}
-                        isSegmented={undefined}
-                        progress={3}
-                        qaHook={undefined}
-                        thickness={undefined}
-                        total={5}
+                      <div
+                        className="xui-progress--fragment"
                       >
-                        <div>
-                          <CircularTrack
-                            customContent={undefined}
-                            elementWidth={20}
-                            id="myCustomStepperId-tab-2"
-                            isGrow={undefined}
-                            isSegmented={undefined}
-                            progress={3}
-                            qaHook={undefined}
-                            thickness={3}
-                            total={5}
-                          >
-                            <IE11SvgScaleHack
-                              key="canvas"
-                              viewBoxHeight={20}
-                              viewBoxWidth={20}
+                        <CircularGrowth
+                          customContent={undefined}
+                          id="myCustomStepperId-tab-2"
+                          isGrow={undefined}
+                          isSegmented={undefined}
+                          progress={3}
+                          qaHook={undefined}
+                          thickness={undefined}
+                          total={5}
+                        >
+                          <div>
+                            <CircularTrack
+                              customContent={undefined}
+                              elementWidth={20}
+                              id="myCustomStepperId-tab-2"
+                              isGrow={undefined}
+                              isSegmented={undefined}
+                              progress={3}
+                              qaHook={undefined}
+                              thickness={3}
+                              total={5}
                             >
-                              <canvas
-                                className="xui-progress-circular-scaler"
-                                height={20}
-                                width={20}
-                              />
-                            </IE11SvgScaleHack>
-                            <svg
-                              className="xui-progress-circular-wrapper"
-                              key="svg"
-                              viewBox="0 0 20 20"
-                            >
-                              <defs>
-                                <mask
+                              <IE11SvgScaleHack
+                                key="canvas"
+                                viewBoxHeight={20}
+                                viewBoxWidth={20}
+                              >
+                                <canvas
+                                  className="xui-progress-circular-scaler"
                                   height={20}
-                                  id="myCustomStepperId-tab-2-progress-mask"
-                                  maskUnits="userSpaceOnUse"
                                   width={20}
-                                  x="0"
-                                  y="0"
-                                >
-                                  <circle
-                                    className="
+                                />
+                              </IE11SvgScaleHack>
+                              <svg
+                                className="xui-progress-circular-wrapper"
+                                key="svg"
+                                viewBox="0 0 20 20"
+                              >
+                                <defs>
+                                  <mask
+                                    height={20}
+                                    id="myCustomStepperId-tab-2-progress-mask"
+                                    maskUnits="userSpaceOnUse"
+                                    width={20}
+                                    x="0"
+                                    y="0"
+                                  >
+                                    <circle
+                                      className="
 							xui-progress-circular-mask
 							xui-progress-roundcap
 						"
+                                      cx={10}
+                                      cy={10}
+                                      r={8.5}
+                                      strokeDasharray="initial"
+                                      strokeWidth={3}
+                                    />
+                                  </mask>
+                                </defs>
+                                <g
+                                  mask="url(#myCustomStepperId-tab-2-progress-mask)"
+                                >
+                                  <circle
+                                    className="xui-progress-circular-track"
                                     cx={10}
                                     cy={10}
                                     r={8.5}
-                                    strokeDasharray="initial"
                                     strokeWidth={3}
                                   />
-                                </mask>
-                              </defs>
-                              <g
-                                mask="url(#myCustomStepperId-tab-2-progress-mask)"
-                              >
-                                <circle
-                                  className="xui-progress-circular-track"
-                                  cx={10}
-                                  cy={10}
-                                  r={8.5}
-                                  strokeWidth={3}
-                                />
-                                <circle
-                                  className="xui-progress-circular-current xui-progress-roundcap"
-                                  cx={10}
-                                  cy={10}
-                                  r={8.5}
-                                  strokeDasharray={53.40707511102649}
-                                  strokeDashoffset={21.362830044410597}
-                                  strokeWidth={3}
-                                />
-                              </g>
-                            </svg>
-                          </CircularTrack>
-                        </div>
-                      </CircularGrowth>
-                      <CircularIcon
-                        hardErrorAlert={undefined}
-                        isComplete={undefined}
-                        isHardError={undefined}
-                      >
-                        <div
-                          className="xui-progress-icon"
-                        />
-                      </CircularIcon>
+                                  <circle
+                                    className="xui-progress-circular-current xui-progress-roundcap"
+                                    cx={10}
+                                    cy={10}
+                                    r={8.5}
+                                    strokeDasharray={53.40707511102649}
+                                    strokeDashoffset={21.362830044410597}
+                                    strokeWidth={3}
+                                  />
+                                </g>
+                              </svg>
+                            </CircularTrack>
+                          </div>
+                        </CircularGrowth>
+                        <CircularIcon
+                          hardErrorAlert={undefined}
+                          isComplete={undefined}
+                          isHardError={undefined}
+                        >
+                          <div
+                            className="xui-progress-icon"
+                          />
+                        </CircularIcon>
+                      </div>
                     </div>
                   </ProgressWrapper>
                 </XUIProgressCircular>
@@ -1646,99 +1658,103 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                       data-automationid={undefined}
                       role="progressbar"
                     >
-                      <CircularGrowth
-                        customContent={undefined}
-                        id="myCustomStepperId-tab-3"
-                        isGrow={undefined}
-                        isSegmented={undefined}
-                        progress={3}
-                        qaHook={undefined}
-                        thickness={undefined}
-                        total={5}
+                      <div
+                        className="xui-progress--fragment"
                       >
-                        <div>
-                          <CircularTrack
-                            customContent={undefined}
-                            elementWidth={20}
-                            id="myCustomStepperId-tab-3"
-                            isGrow={undefined}
-                            isSegmented={undefined}
-                            progress={3}
-                            qaHook={undefined}
-                            thickness={3}
-                            total={5}
-                          >
-                            <IE11SvgScaleHack
-                              key="canvas"
-                              viewBoxHeight={20}
-                              viewBoxWidth={20}
+                        <CircularGrowth
+                          customContent={undefined}
+                          id="myCustomStepperId-tab-3"
+                          isGrow={undefined}
+                          isSegmented={undefined}
+                          progress={3}
+                          qaHook={undefined}
+                          thickness={undefined}
+                          total={5}
+                        >
+                          <div>
+                            <CircularTrack
+                              customContent={undefined}
+                              elementWidth={20}
+                              id="myCustomStepperId-tab-3"
+                              isGrow={undefined}
+                              isSegmented={undefined}
+                              progress={3}
+                              qaHook={undefined}
+                              thickness={3}
+                              total={5}
                             >
-                              <canvas
-                                className="xui-progress-circular-scaler"
-                                height={20}
-                                width={20}
-                              />
-                            </IE11SvgScaleHack>
-                            <svg
-                              className="xui-progress-circular-wrapper"
-                              key="svg"
-                              viewBox="0 0 20 20"
-                            >
-                              <defs>
-                                <mask
+                              <IE11SvgScaleHack
+                                key="canvas"
+                                viewBoxHeight={20}
+                                viewBoxWidth={20}
+                              >
+                                <canvas
+                                  className="xui-progress-circular-scaler"
                                   height={20}
-                                  id="myCustomStepperId-tab-3-progress-mask"
-                                  maskUnits="userSpaceOnUse"
                                   width={20}
-                                  x="0"
-                                  y="0"
-                                >
-                                  <circle
-                                    className="
+                                />
+                              </IE11SvgScaleHack>
+                              <svg
+                                className="xui-progress-circular-wrapper"
+                                key="svg"
+                                viewBox="0 0 20 20"
+                              >
+                                <defs>
+                                  <mask
+                                    height={20}
+                                    id="myCustomStepperId-tab-3-progress-mask"
+                                    maskUnits="userSpaceOnUse"
+                                    width={20}
+                                    x="0"
+                                    y="0"
+                                  >
+                                    <circle
+                                      className="
 							xui-progress-circular-mask
 							xui-progress-roundcap
 						"
+                                      cx={10}
+                                      cy={10}
+                                      r={8.5}
+                                      strokeDasharray="initial"
+                                      strokeWidth={3}
+                                    />
+                                  </mask>
+                                </defs>
+                                <g
+                                  mask="url(#myCustomStepperId-tab-3-progress-mask)"
+                                >
+                                  <circle
+                                    className="xui-progress-circular-track"
                                     cx={10}
                                     cy={10}
                                     r={8.5}
-                                    strokeDasharray="initial"
                                     strokeWidth={3}
                                   />
-                                </mask>
-                              </defs>
-                              <g
-                                mask="url(#myCustomStepperId-tab-3-progress-mask)"
-                              >
-                                <circle
-                                  className="xui-progress-circular-track"
-                                  cx={10}
-                                  cy={10}
-                                  r={8.5}
-                                  strokeWidth={3}
-                                />
-                                <circle
-                                  className="xui-progress-circular-current xui-progress-roundcap"
-                                  cx={10}
-                                  cy={10}
-                                  r={8.5}
-                                  strokeDasharray={53.40707511102649}
-                                  strokeDashoffset={21.362830044410597}
-                                  strokeWidth={3}
-                                />
-                              </g>
-                            </svg>
-                          </CircularTrack>
-                        </div>
-                      </CircularGrowth>
-                      <CircularIcon
-                        hardErrorAlert={undefined}
-                        isComplete={undefined}
-                        isHardError={undefined}
-                      >
-                        <div
-                          className="xui-progress-icon"
-                        />
-                      </CircularIcon>
+                                  <circle
+                                    className="xui-progress-circular-current xui-progress-roundcap"
+                                    cx={10}
+                                    cy={10}
+                                    r={8.5}
+                                    strokeDasharray={53.40707511102649}
+                                    strokeDashoffset={21.362830044410597}
+                                    strokeWidth={3}
+                                  />
+                                </g>
+                              </svg>
+                            </CircularTrack>
+                          </div>
+                        </CircularGrowth>
+                        <CircularIcon
+                          hardErrorAlert={undefined}
+                          isComplete={undefined}
+                          isHardError={undefined}
+                        >
+                          <div
+                            className="xui-progress-icon"
+                          />
+                        </CircularIcon>
+                      </div>
                     </div>
                   </ProgressWrapper>
                 </XUIProgressCircular>

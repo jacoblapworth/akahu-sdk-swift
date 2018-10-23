@@ -1,5 +1,5 @@
 // Libs
-import React from 'react';
+import React, { PureComponent } from 'react';
 
 // Components we need to test with
 import XUIProgressLinear from '../XUIProgressLinear';
@@ -15,6 +15,7 @@ import { variations, storiesWithVariationsKindName } from './variations';
 import iconPath from '@xero/xui-icon/icons/suggestion';
 import XUIIcon from '../../icon/XUIIcon';
 
+const readyEvent = 'xui-progress-ready-event';
 const defaultColor = 'default';
 const colorOptions = [defaultColor, ...COLORS];
 
@@ -115,6 +116,40 @@ storiesWithKnobs.add('Playground | Linear', () => {
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
+class StandardComparison extends PureComponent {
+	componentDidMount() {
+		setTimeout(() => (console.log(readyEvent)), 100)
+	}
+
+	render() {
+		const { props: { style, component } } = this;
+		return (
+			<div style={style}>
+				{ component }
+			</div>
+		);
+	}
+}
+
+const createStandardComparison = (styles, Component, props, children) => (
+		<StandardComparison
+			style={styles}
+			component={<Component {...props} >{children}</Component>}
+		/>
+);
+
+class ColorComparison extends PureComponent {
+	componentDidMount() {
+		setTimeout(() => (console.log(readyEvent)), 100)
+	}
+
+	render() {
+		return (
+			<div>{ this.props.children }</div>
+		);
+	}
+}
+
 const createColorComparison = props => {
 	const enrichedProps = (
 		COLORS
@@ -138,30 +173,71 @@ const createColorComparison = props => {
 	);
 
 	// Create a "circular" and "linear" component for each color combination.
-	return [
-		enrichedProps.map((props, index) => <div key={`circular-${index}`} style={colorStyle} ><XUIProgressCircular {...props} /></div>),
-		enrichedProps.map((props, index) => <div key={`linear-${index}`} style={colorStyle} ><XUIProgressLinear {...props} /></div>),
-	];
+	return (
+		<ColorComparison>
+			{[
+				...enrichedProps.map((props, index) => <div key={`circular-${index}`} style={colorStyle} ><XUIProgressCircular {...props} /></div>),
+				...enrichedProps.map((props, index) => <div key={`linear-${index}`} style={colorStyle} ><XUIProgressLinear {...props} /></div>),
+			]}
+		</ColorComparison>
+	);
 };
 
-const createStandardComparison = (styles, Component, props, children) => (
-	<div style={styles}>
-		<Component {...props}>
-			{children}
-		</Component>
-	</div>
+class ToolTipComparison extends PureComponent {
+	node = null;
+
+	componentDidMount() {
+		setTimeout(() => {
+			const { node } = this;
+			const wrapper = node && node.querySelector('.xui-progress [aria-describedby$="progress--tooltip"]');
+			if (wrapper) {
+				wrapper.click();
+				// eslint-disable-next-line no-console
+				setTimeout(() => (console.log(readyEvent)), 500);
+			}
+		}, 100);
+	}
+
+	render() {
+		const { props: { style, component } } = this;
+		return (
+			// The Tool Tip is absolutely positioned and can get cropped off in our
+			// visual regression captures. This extra padding at the top of the component
+			// ensures that the entire "active" Tool Tip gets captured.
+			<div style={{ background: 'white', paddingTop: '80px' }}>
+				<div
+					ref={node => this.node = node}
+					style={style}
+				>
+					{ component }
+				</div>
+			</div>
+		);
+	}
+}
+
+const createToolTipComparison = (styles, Component, props) => (
+	<ToolTipComparison
+		style={{...styles, }}
+		component={<Component {...props} />}
+	/>
 );
 
 variations.forEach(variation => {
 	const { storyTitle, storyKind, ...props } = variation; // eslint-disable-line no-unused-vars
 	const isLinear = storyTitle.startsWith('linear');
 	const isColor = storyTitle.startsWith('color');
+	const isTooltip = storyTitle.endsWith('tooltip');
 	const isCustomContent = storyTitle.startsWith('circular custom content');
 	const isErrorWithIcon = storyTitle.startsWith('circular custom (icon) hard error');
 	let Comparison;
 
 	if (isColor) {
 		Comparison = createColorComparison(props);
+	} else if (isTooltip && isLinear) {
+		Comparison = createToolTipComparison(linearStyles, XUIProgressLinear, props);
+	} else if (isTooltip) {
+		Comparison = createToolTipComparison(circularStyles, XUIProgressCircular, props);
 	} else if (isLinear) {
 		Comparison = createStandardComparison(linearStyles, XUIProgressLinear, props);
 	} else if (isCustomContent) {

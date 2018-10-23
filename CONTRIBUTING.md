@@ -119,14 +119,6 @@ We use the [Jest Test Runner](http://facebook.github.io/jest/) developed by Face
 
 Many unit tests for React components require checking the state and/or props of child components, simulating DOM events, and traversing the DOM to make sure DOM elements look the way they're supposed to. For this we use the [Enzyme library](http://airbnb.io/enzyme/) developed by AirBnB. It has a very clean, jQuery'esque API that makes finding and testing React components much easier.
 
-As at `XUI:12`, the Enzyme library has been upgraded to the latest version available of `3.1.0`.
-
-There are several deprecations, fixes and new things available that required a bit of rework of the current tests.
-
-Most notably, the removal of the `.node` property on react wrappers and the inclusion of the new React-15 version of the supplied `Adapter` module.
-
-The [changelog](http://airbnb.io/enzyme/CHANGELOG.html#310) is recommended reading if you are a current, or future contributor to the project.
-
 ## Coverage
 
 Test coverage reports are generated as part of the [Pull Request builds](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_PullRequest). The Reports are available via Artifacts > Icov-report > index.html in Team City.

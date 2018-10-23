@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import '../helpers/xuiGlobalChecks';
 import { enrichLinearProps } from './helpers/enrichprops';
+import { NAME_SPACE } from './helpers/constants';
 import LinearTrack from './customElements/LinearTrack';
 import ProgressWrapper from './customElements/ProgressWrapper';
 
@@ -12,7 +13,7 @@ const XUIProgressLinear = props => (
 		{({
 			isSegmented, total, progress, isGrow, thickness, hasSegmentDots,
 		}) => (
-			<Fragment>
+			<div className={`${NAME_SPACE}--fragment`}>
 				<LinearTrack {...{
 					isSegmented,
 					total,
@@ -22,7 +23,7 @@ const XUIProgressLinear = props => (
 					hasSegmentDots,
 				}}
 				/>
-			</Fragment>
+			</div>
 		)}
 	</ProgressWrapper>
 );

@@ -1,4 +1,4 @@
-module.exports = function(handlebars) {
+module.exports = function (handlebars) {
 	/**
 	 * Extracts component names and returns name + relative styleguide url
 	 */
@@ -9,14 +9,14 @@ module.exports = function(handlebars) {
 function renderComponents(variables, block) {
 	var newBlock = '';
 
-  variables.split(',').forEach(function(component) {
-    var name = component.trim();
-    var componentData = {
-      name: name,
-      url: './react/#' + name.toLowerCase()
-    }
-    newBlock += block.fn(componentData);
-  });
+	variables.split(',').forEach(function (component) {
+		var name = component.trim();
+		var componentData = {
+			name: name,
+			url: './react/#' + name.toLowerCase()
+		}
+		newBlock += block.fn(componentData);
+	});
 
 	return newBlock;
 }

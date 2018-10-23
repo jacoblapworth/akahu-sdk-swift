@@ -142,7 +142,7 @@ export default class SelectBox extends Component {
 						data-automationid={setQaHook(qaHook, qaHooks.inputGroup)}
 					>
 						{
-							!children || (Array.isArray(children) && !children.length)
+							(React.Children.count(children) === 0)
 								? trigger
 								: (
 									<DropDownToggled

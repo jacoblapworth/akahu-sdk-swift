@@ -106,7 +106,7 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Progress Indicator',
 		variationsPath: `${variationsPath}/progressindicator/stories/variations.js`,
-		delay: 500
+		readyEvent: 'xui-progress-ready-event',
 	},
 	{
 		testsPrefix: 'XUI Radio',

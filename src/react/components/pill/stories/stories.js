@@ -10,7 +10,8 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, object, select} from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
-import { variations, avatarProps, storiesWithVariationsKindName, NOOP } from './variations';
+import NOOP from '../../helpers/noop';
+import { variations, avatarProps, storiesWithVariationsKindName } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
@@ -41,6 +42,25 @@ variations.forEach(variation => {
 		const variationMinusStoryDetails = { ...variation };
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
+
+		variationMinusStoryDetails.title = variationMinusStoryDetails.title || 'A reasonable Pill title';
+
+		if (!variationMinusStoryDetails.omitDeleteBtn) {
+			variationMinusStoryDetails.onDeleteClick = NOOP;
+			variationMinusStoryDetails.deleteButtonLabel =
+				variationMinusStoryDetails.deleteButtonLabel || 'Delete Button Label';
+		} else {
+			delete variationMinusStoryDetails.omitDeleteBtn;
+		}
+
+		if (variationMinusStoryDetails.isSingle) {
+			delete variationMinusStoryDetails.isSingle;
+			return (
+				<div className="xui-textinput" style={{ width: '200px' }}>
+					<XUIPill {...variationMinusStoryDetails}/>
+				</div>
+			);
+		}
 
 		return <XUIPill {...variationMinusStoryDetails}/>
 	});

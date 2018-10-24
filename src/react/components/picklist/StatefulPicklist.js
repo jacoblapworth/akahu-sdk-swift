@@ -30,7 +30,7 @@ function handleArrowKeyEvents(event, spl) {
 
 	switch (event.keyCode) {
 	case 37: { // Arrow Left
-		const container = findParentGroupContainer(spl.list, highlighted);
+		const container = findParentGroupContainer(spl.list.current, highlighted);
 		if (isHorizontal) {
 			spl.highlightPrevious(highlighted);
 		} else if (container) {
@@ -43,7 +43,7 @@ function handleArrowKeyEvents(event, spl) {
 				} else {
 					// If the nested list is closed, check to see if the previous item is a split menu item.  If
 					// it is, highlight that
-					const prev = findPreviousItem(spl.list, highlighted, spl.idCache);
+					const prev = findPreviousItem(spl.list.current, highlighted, spl.idCache);
 					if (isSplitMenuItem(prev)) {
 						spl.highlightItem(prev);
 					}
@@ -63,7 +63,7 @@ function handleArrowKeyEvents(event, spl) {
 		} else if (isSplitMenuItem(highlighted)) {
 			spl.highlightNext(highlighted);
 		} else if (isNestedListTrigger(highlighted)) {
-			const container = findParentGroupContainer(spl.list, highlighted);
+			const container = findParentGroupContainer(spl.list.current, highlighted);
 			if (container) {
 				getInstanceForChild(spl.idCache, container).open();
 			}
@@ -105,6 +105,7 @@ class StatefulPicklist extends Component {
 		spl.findItemById = spl.findItemById.bind(spl);
 		spl.onClick = spl.onClick.bind(spl);
 		spl.onMouseOver = spl.onMouseOver.bind(spl);
+		spl.list = React.createRef();
 	}
 
 	componentDidUpdate() {
@@ -178,7 +179,7 @@ class StatefulPicklist extends Component {
 	 * @param {React.element} currentItem - Current item highlighted
 	 */
 	highlightPrevious(currentItem) {
-		const prevItem = findPreviousItem(this.list, currentItem, this.idCache);
+		const prevItem = findPreviousItem(this.list.current, currentItem, this.idCache);
 		this.highlightItem(prevItem);
 	}
 
@@ -189,7 +190,7 @@ class StatefulPicklist extends Component {
 	 * @param {React.element} currentItem - Current item highlighted
 	 */
 	highlightNext(currentItem) {
-		const nextItem = findNextItem(this.list, currentItem, this.idCache);
+		const nextItem = findNextItem(this.list.current, currentItem, this.idCache);
 		this.highlightItem(nextItem);
 	}
 
@@ -199,7 +200,7 @@ class StatefulPicklist extends Component {
 	 * @public
 	 */
 	highlightFirst() {
-		const firstItem = findFirstMenuItem(this.list, this.idCache);
+		const firstItem = findFirstMenuItem(this.list.current, this.idCache);
 		this.highlightItem(firstItem);
 	}
 
@@ -243,7 +244,7 @@ class StatefulPicklist extends Component {
 			&& this.idCache.hasOwnProperty(highlightedEl.props.id)
 			&& this.idCache[highlightedEl.props.id];
 		if (!canFindHighlightedEl) {
-			const firstItem = findInitialHighlightedItem(this.list, this.idCache);
+			const firstItem = findInitialHighlightedItem(this.list.current, this.idCache);
 			if (firstItem) {
 				this.setState({
 					highlightedElement: firstItem,
@@ -269,7 +270,7 @@ class StatefulPicklist extends Component {
 			return false;
 		};
 
-		walk(this.list, findItem);
+		walk(this.list.current, findItem);
 		return foundItem;
 	}
 
@@ -294,7 +295,7 @@ class StatefulPicklist extends Component {
 				const el = spl.getHighlighted();
 				if (el) {
 					if (isNestedListTrigger(el)) {
-						const container = findParentGroupContainer(spl.list, el);
+						const container = findParentGroupContainer(spl.list.current, el);
 						if (container) {
 							getInstanceForChild(spl.idCache, container).toggle();
 						}
@@ -348,7 +349,7 @@ class StatefulPicklist extends Component {
 			<StatefulPicklistWrapper
 				{...secondaryProps}
 				data-automationid={qaHook}
-				ref={c => spl.list = c}
+				ref={spl.list}
 				onMouseDown={e => e.preventDefault()}
 				onKeyDown={spl.onKeyDown}
 				className={className}

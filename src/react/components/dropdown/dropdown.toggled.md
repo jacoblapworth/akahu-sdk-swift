@@ -6,7 +6,7 @@
 
 If you want standard `Picklist` behaviour (close on select, keyboard handlers, etc) then you **must** have `Picklist` as an immediate child of the `DropDown`.  If you are missing these features, make sure that you are correctly using the `Picklist` component.
 
-```
+```jsx
 const Pickitem = require('../picklist/Pickitem').default;
 const DropDownToggled = require('./DropDownToggled').default;
 const isSelected = (item, selectedIds) => item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
@@ -34,6 +34,7 @@ class ToggledDropDown extends Component {
 		this.state = {
 			selectedId: null,
 		};
+		this.logOpen = this.logOpen.bind(this);
 		this.onSelect = this.onSelect.bind(this);
 	}
 
@@ -41,6 +42,10 @@ class ToggledDropDown extends Component {
 		this.setState({
 			selectedId: value,
 		});
+	}
+
+	logOpen() {
+		console.log('user wants to open the dropdown');
 	}
 
 	render() {
@@ -60,7 +65,7 @@ class ToggledDropDown extends Component {
 		return (
 			<DropDownToggled
 				className="exampleClass"
-				onOpen={() => console.log('user wants to open the dropdown')}
+				onOpen={this.logOpen}
 				trigger={trigger}
 				dropdown={dropdown}
 				qaHook="dropdown-example"
@@ -73,7 +78,7 @@ class ToggledDropDown extends Component {
 
 ### Multiselect `Picklist`
 
-```
+```jsx
 const { Component } = require('react');
 const DropDownToggled = require('./DropDownToggled').default;
 const Pickitem = require('../picklist/Pickitem').default;
@@ -158,7 +163,7 @@ Although using `DropDown` with `Picklist` provides the default behaviour, the AP
 
 ### Dropdown with a date picker
 
-```
+```jsx
 const Pickitem = require('../picklist/Pickitem').default;
 const XUIDatePicker = require('../../datepicker').default;
 const XUIButton = require('../../button').default;
@@ -171,6 +176,8 @@ const formatDate = date => `${date.getDate()} ${months[date.getMonth()]} ${date.
 class SimpleDropDownDatePicker extends React.Component {
 	constructor() {
 		super();
+		this.datepicker = React.createRef();
+		this.ddt = React.createRef();
 
 		this.state = {
 			selectedDate: null,
@@ -182,7 +189,7 @@ class SimpleDropDownDatePicker extends React.Component {
 	}
 
 	focusDatePicker() {
-		this.datepicker.focus();
+		this.datepicker.current.focus();
 	}
 
 	onSelectDate(day) {
@@ -190,7 +197,7 @@ class SimpleDropDownDatePicker extends React.Component {
 			selectedDate: day,
 			currentMonth: day,
 		});
-		this.ddt.closeDropDown();
+		this.ddt.current.closeDropDown();
 	}
 
   render() {
@@ -198,7 +205,7 @@ class SimpleDropDownDatePicker extends React.Component {
 		const dropdown = (
 			<DropDown>
 				<XUIDatePicker
-					ref={c => this.datepicker = c}
+					ref={this.datepicker}
 					displayedMonth={currentMonth}
 					onSelectDate={this.onSelectDate}
 					selectedDate={selectedDate}
@@ -212,7 +219,7 @@ class SimpleDropDownDatePicker extends React.Component {
 		);
     return (
       <DropDownToggled
-				ref={c => this.ddt = c}
+				ref={this.ddt}
 				trigger={trigger}
 				dropdown={dropdown}
 				closeOnTab={false}
@@ -260,6 +267,8 @@ class InputTriggerExample extends Component {
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onInputKeyDown = this.onInputKeyDown.bind(this);
 		this.onSelect = this.onSelect.bind(this);
+
+		this.ddt = React.createRef();
 	}
 
 	onInputChange(event) {
@@ -269,10 +278,10 @@ class InputTriggerExample extends Component {
 	}
 
 	onInputKeyDown(event) {
-		if (this.ddt.isDropDownOpen() && this.dropdown != null) {
+		if (this.ddt.current.isDropDownOpen() && this.dropdown != null) {
 			this.dropdown.onKeyDown(event);
 		} else {
-			this.ddt.openDropDown();
+			this.ddt.current.openDropDown();
 		}
 	}
 
@@ -320,7 +329,7 @@ class InputTriggerExample extends Component {
 
 		const dropdown = (
 			<DropDown
-				ref={c => this.dropdown = c}
+				ref={d => this.dropdown = d}
 				hasKeyboardEvents={false}
 				restrictFocus={false}
 				onSelect={this.onSelect}
@@ -333,7 +342,7 @@ class InputTriggerExample extends Component {
 
 		return (
 			<DropDownToggled
-				ref={c => this.ddt = c}
+				ref={this.ddt}
 				trigger={trigger}
 				dropdown={dropdown}
 				triggerClickAction="none"

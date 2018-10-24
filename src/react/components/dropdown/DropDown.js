@@ -19,6 +19,8 @@ import '../../../sass/7-components/_dropdown.scss';
  * @extends {PureComponent}
  */
 export default class DropDown extends PureComponent {
+	panel = React.createRef();
+
 	componentDidMount() {
 		const { isHidden, restrictFocus } = this.props;
 		if (!isHidden && restrictFocus) {
@@ -28,14 +30,15 @@ export default class DropDown extends PureComponent {
 
 	componentDidUpdate(prevProps) {
 		const dropdown = this;
+		const currentPanel = dropdown.panel.current;
 		const { isHidden, hasKeyboardEvents, restrictFocus } = dropdown.props;
 		if (!isHidden) {
-			if (hasKeyboardEvents && !dropdown.panel.hasFocus()) {
-				dropdown.panel.focus();
+			if (hasKeyboardEvents && currentPanel && !currentPanel.hasFocus()) {
+				currentPanel.focus();
 			}
-			const id = dropdown.panel && dropdown.panel.getHighlightedId();
+			const id = currentPanel && currentPanel.getHighlightedId();
 			if (id) {
-				dropdown.panel.scrollIdIntoView(id);
+				currentPanel.scrollIdIntoView(id);
 			}
 		}
 		if (isHidden !== prevProps.isHidden || restrictFocus !== prevProps.restrictFocus) {
@@ -65,8 +68,8 @@ export default class DropDown extends PureComponent {
 	 * @memberof DropDown
 	 */
 	onKeyDown = event => {
-		if (this.panel != null) {
-			this.panel.onKeyDown(event);
+		if (this.panel.current != null) {
+			this.panel.current.onKeyDown(event);
 		}
 	};
 
@@ -83,21 +86,21 @@ export default class DropDown extends PureComponent {
 	 * Limits the focusable elements to those within the dropdown
 	 * */
 	_restrictFocus = event => {
-		const dropdown = this;
-		if (dropdown.panel != null && dropdown.panel.rootNode != null) {
-			const { rootNode } = dropdown.panel;
+		const currentPanel = this.panel.current;
+		if (currentPanel != null && currentPanel.rootNode.current != null) {
+			const { rootNode } = currentPanel;
 			const targetIsWindow = event.target === window;
-			if (targetIsWindow || !rootNode.contains(event.target)) {
+			if (targetIsWindow || !rootNode.current.contains(event.target)) {
 				event.stopPropagation();
-				rootNode.focus();
+				rootNode.current.focus();
 			}
 		}
 	};
 
 	onHighlightChange = item => {
-		if (item != null) {
+		if (item != null && this.panel.current) {
 			const { onHighlightChange } = this.props;
-			this.panel.scrollIdIntoView(item.props.id);
+			this.panel.current.scrollIdIntoView(item.props.id);
 			onHighlightChange && onHighlightChange(item);
 		}
 	};
@@ -111,7 +114,7 @@ export default class DropDown extends PureComponent {
 	 * @memberof DropDown
 	 */
 	highlightItem = (item, event) => {
-		this.panel.highlightItem(item, event);
+		this.panel.current.highlightItem(item, event);
 	};
 
 	/**
@@ -121,18 +124,19 @@ export default class DropDown extends PureComponent {
 	 * @memberof DropDownPanel
 	 */
 	highlightInitial = () => {
-		if (this.panel != null) {
-			this.panel.highlightInitial();
-			const highlightedId = this.panel.getHighlightedId();
+		const currentPanel = this.panel.current;
+		if (currentPanel != null) {
+			currentPanel.highlightInitial();
+			const highlightedId = currentPanel.getHighlightedId();
 			if (highlightedId != null) {
-				this.panel.scrollIdIntoView(highlightedId);
+				currentPanel.scrollIdIntoView(highlightedId);
 			}
 		}
 	};
 
 	highlightFirstItem = () => {
-		if (this.panel != null) {
-			this.panel.highlightFirstItem();
+		if (this.panel.current != null) {
+			this.panel.current.highlightFirstItem();
 		}
 	}
 
@@ -198,7 +202,7 @@ export default class DropDown extends PureComponent {
 					onKeyDown={this.keyDownHandler}
 					onSelect={onSelect}
 					qaHook={qaHook}
-					ref={c => this.panel = c}
+					ref={this.panel}
 					shouldManageInitialHighlight={shouldManageInitialHighlight}
 					style={{
 						maxHeight: style && style.maxHeight,

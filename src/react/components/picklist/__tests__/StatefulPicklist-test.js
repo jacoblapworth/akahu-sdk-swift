@@ -38,7 +38,7 @@ describe('<StatefulPicklist /> API Methods', () => {
 		});
 
 		it('finds the next item in the list', () => {
-			const list = wrapper.instance().list;
+			const list = wrapper.instance().list.current;
 			const item3 = wrapper.instance().findItemById('item3');
 
 			const nextItem = findNextItem(list, item3);
@@ -56,7 +56,7 @@ describe('<StatefulPicklist /> API Methods', () => {
 		});
 
 		it('finds the last item in the list when we are at the top of the list to loop', () => {
-			const list = wrapper.instance().list;
+			const list = wrapper.instance().list.current;
 			const item1 = wrapper.instance().findItemById('item1');
 
 			const nextItem = findPreviousItem(list, item1);
@@ -65,7 +65,7 @@ describe('<StatefulPicklist /> API Methods', () => {
 		});
 
 		it('finds the previous item in the list', () => {
-			const list = wrapper.instance().list;
+			const list = wrapper.instance().list.current;
 			const item3 = wrapper.instance().findItemById('item3');
 
 			const prevItem = findPreviousItem(list, item3);

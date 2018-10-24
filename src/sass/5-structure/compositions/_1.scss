@@ -2,22 +2,22 @@
 @import "../../mixins";
 
 .#{$ns}-composition-1 {
-  grid-template-areas:
-            "header header header"
-            "nav nav nav"
-            "main main main"
-            "summary summary summary";
+	grid-template:
+		"header header header"
+		"nav nav nav"
+		"main main main"
+		"summary summary summary";
 
-  @include xui-breakpoint-medium-up {
-    grid-template-areas:
-            "header header header"
-            "summary summary summary"
-            "nav main main";
-  }
+	@include xui-breakpoint-medium-up {
+		grid-template:
+			"header header header"
+			"summary summary summary"
+			"nav main main";
+	}
 
-  @include xui-breakpoint-large-up {
-    grid-template-areas:
-            "header header header"
-            "nav main summary";
-  }
+	@include xui-breakpoint-large-up {
+		grid-template:
+			"header header header"
+			"nav main summary";
+	}
 }

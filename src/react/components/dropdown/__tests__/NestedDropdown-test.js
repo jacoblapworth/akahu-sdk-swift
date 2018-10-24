@@ -86,9 +86,9 @@ describe('<NestedDropdown />', () => {
 
         expect(onHighlightChange.mock.calls.length).toEqual(0);
 
-        comp.find('#option1').hostNodes().simulate('keyDown', { keyCode: 40, which: 40 });
+				comp.find('#option1').hostNodes().simulate('keyDown', { keyCode: 40, which: 40 });
 				setTimeout( () => {
-						expect(onHighlightChange.mock.calls.length).toBeGreaterThan(0);
+					expect(onHighlightChange.mock.calls.length).toBeGreaterThan(0);
 				}, 0);
 
     });
@@ -101,7 +101,9 @@ describe('<NestedDropdown />', () => {
 
         comp.find('#option1').first().simulate('keyDown', { keyCode: 40, which : 40 });
 
-        expect(onHighlightChange.mock.calls.length).toEqual(0);
+				setTimeout( () => {
+					expect(onHighlightChange.mock.calls.length).toEqual(0);
+				}, 0);
 
     });
 
@@ -122,7 +124,9 @@ describe('<NestedDropdown />', () => {
 
         comp.find('#option1').first().simulate('keyDown', { keyCode: 40, which : 40 });
 
-        expect(onHighlightChange.mock.calls.length).toEqual(0);
+        setTimeout( () => {
+					expect(onHighlightChange.mock.calls.length).toEqual(0);
+				}, 0);
     });
 
     it('should add the animation close class when the animateClose prop is set to true', () => {

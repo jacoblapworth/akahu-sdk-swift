@@ -40,6 +40,7 @@ class XDD extends Component {
 		this.onOpen = this.onOpen.bind(this);
 		this.onSearch = this.onSearch.bind(this);
 		this.onSearchKeyDown = this.onSearchKeyDown.bind(this);
+		this.focusInput = this.focusInput.bind(this);
 
 		this.ddt = React.createRef();
 		this.dropdown = React.createRef();
@@ -98,6 +99,10 @@ class XDD extends Component {
 		this.setState(state => ({
 			previousSelected: state.selected
 		}))
+	}
+
+	focusInput() {
+		this.input && this.input.focus();
 	}
 
 	render() {
@@ -179,7 +184,7 @@ class XDD extends Component {
 		return (
 			<DropDownToggled
 				ref={this.ddt}
-				onOpenAnimationEnd={() => this.input && this.input.focus()}
+				onOpenAnimationEnd={this.focusInput}
 				trigger={trigger}
 				dropdown={dropdown}
 				closeOnSelect={false}

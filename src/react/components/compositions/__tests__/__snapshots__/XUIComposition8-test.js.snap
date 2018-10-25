@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIComposition8> renders basic example 1`] = `
+<div
+  className="xui-composition xui-composition-8 xui-composition-is-finite"
+>
+  <div
+    className="xui-gridarea-media"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-main"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<XUIComposition8> should do nothing with children 1`] = `
+<div
+  className="xui-composition xui-composition-8 xui-composition-is-finite"
+>
+  <div
+    className="xui-gridarea-media"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-main"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<XUIComposition8> should include custom class and omit width-limiting class, if specified 1`] = `
+<div
+  className="xui-composition xui-composition-8 split-without-head"
+>
+  <div
+    className="xui-gridarea-media"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-main"
+  >
+    <div />
+  </div>
+</div>
+`;

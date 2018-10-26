@@ -76,20 +76,21 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(fn => <div style={{ maxWidth: '940px', margin: '100px auto' }}>{fn()}</div>);
-
+storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
 	const {
 		storyTitle, createItem, ...props
 	} = variation; // eslint-disable-line no-unused-vars
 	const Comparison = (
-		<XUIAccordion
-			{...props}
-			createItem={(props => {
-				const { children, ...item } = createItem(props);
-				return <XUIAccordionItem {...item}>{children}</XUIAccordionItem>;
-			})}
-		/>
+		<div style={{ minWidth: '300px', width: '100vw', maxWidth: '930px' }}>
+			<XUIAccordion
+				{...props}
+				createItem={(props => {
+					const { children, ...item } = createItem(props);
+					return <XUIAccordionItem {...item}>{children}</XUIAccordionItem>;
+				})}
+			/>
+		</div>
 	);
 
 	storiesWithVariations.add(storyTitle, () => Comparison);

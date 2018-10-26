@@ -142,7 +142,7 @@ export const enrichProps = (state, props, { tableNode }) => {
 	// If there is no header cell content then we remove the <head /> all together
 	// from the table.
 	const columns = React.Children.toArray(children);
-	const hasHeader = columns.some((col) => (col && col.props && col.props.head));
+	const hasHeader = columns.some(col => (col && col.props && col.props.head));
 
 	const tableWidth = tableNode && tableNode.clientWidth;
 

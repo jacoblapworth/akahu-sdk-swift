@@ -5,6 +5,10 @@ import React, { Fragment } from 'react';
 import XUIComposition2 from '../XUIComposition2';
 import XUISummaryWithHeader from '../XUIComposition3';
 import XUISummaryNoHeader from '../XUIComposition4';
+import XUISimpleWithHeader from '../XUIComposition5';
+import XUISimpleNoHeader from '../XUIComposition6';
+import XUISplitWithHeader from '../XUIComposition7';
+import XUISplitNoHeader from '../XUIComposition8';
 import XUIComposition4WithHeader from '../XUIComposition1';
 
 // Story book things
@@ -101,18 +105,34 @@ const realMain = (
 	</XUIPanel>
 );
 
+const realMedia = (
+	<XUIPanel
+		className="xui-u-flex xui-u-flex-column xui-padding"
+		>
+		Image goes here.
+	</XUIPanel>
+);
+
 const realAreas = {
 	nav: realNav,
 	summary: realSummary,
 	main: realMain,
-	header: realHeader
+	header: realHeader,
+	media: realMedia,
 }
 
+const blockNav = (<div style={{background: '#50DCAA', 'minWidth': '250px', height: '100px'}}></div>);
+const blockSummary = (<div style={{background: '#FA8200', 'minWidth': '250px', height: '100px'}}></div>);
+const blockMain = (<div style={{background: '#0078C8', height: '100px'}}></div>);
+const blockHeader = (<div style={{background: '#B446C8', height: '60px'}}></div>)
+const blockMedia = (<div style={{background: '#ff6496', height: '100px'}}></div>)
+
 const blockAreas = {
-	nav: (<div style={{background: '#50DCAA', 'minWidth': '250px', height: '100px'}}></div>),
-	summary: (<div style={{background: '#FA8200', 'minWidth': '250px', height: '100px'}}></div>),
-	main: (<div style={{background: '#0078C8', height: '100px'}}></div>),
-	header: (<div style={{background: '#B446C8', height: '60px'}}></div>)
+	nav: blockNav,
+	summary: blockSummary,
+	main: blockMain,
+	header: blockHeader,
+	media: blockMedia,
 };
 
 const storiesWithKnobs = storiesOf('XUIComposition2', module);
@@ -148,6 +168,36 @@ storiesWithKnobs.add('Summary Composition', () => {
 
 	const isInfinite = boolean('Expand width infinitely', false, '1');
 	const Tag = boolean('Include content header', false, '1') ? XUISummaryWithHeader : XUISummaryNoHeader;
+	return (
+		<Tag
+			className="xui-margin"
+			isInfinite={isInfinite}
+			{...areas}
+		/>
+	)
+});
+
+storiesWithKnobs.add('Single Composition', () => {
+	const isReal = boolean('Show example content', false, '1');
+	const areas = isReal ? realAreas : blockAreas;
+
+	const isInfinite = boolean('Expand width infinitely', false, '1');
+	const Tag = boolean('Include content header', false, '1') ? XUISimpleWithHeader : XUISimpleNoHeader;
+	return (
+		<Tag
+			className="xui-margin"
+			isInfinite={isInfinite}
+			{...areas}
+		/>
+	)
+});
+
+storiesWithKnobs.add('Split Composition', () => {
+	const isReal = boolean('Show example content', false, '1');
+	const areas = isReal ? realAreas : blockAreas;
+
+	const isInfinite = boolean('Expand width infinitely', false, '1');
+	const Tag = boolean('Include content header', false, '1') ? XUISplitWithHeader : XUISplitNoHeader;
 	return (
 		<Tag
 			className="xui-margin"

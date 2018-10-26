@@ -1,0 +1,8 @@
+@import "../../vars";
+@import "../../mixins";
+
+.#{$ns}-composition-5 {
+	grid-template:
+		"header"
+		"main";
+}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -29,10 +29,10 @@ const isIeOrEdge =
  * @param xuiCheckbox - The checkbox instance for which to set the indeterminate DOM property
  */
 const setIndeterminate = xuiCheckbox => {
-	if (xuiCheckbox._input) {
+	if (xuiCheckbox._input.current) {
 		// TODO: Lint fix
 		// eslint-disable-next-line no-param-reassign
-		xuiCheckbox._input.indeterminate = xuiCheckbox.props.isIndeterminate;
+		xuiCheckbox._input.current.indeterminate = xuiCheckbox.props.isIndeterminate;
 	}
 };
 
@@ -123,9 +123,10 @@ const buildCheckbox = (qaHook, htmlClassName, svgSettings, isGrouped) => {
  * @class XUICheckbox
  * @extends {Component}
  */
-export default class XUICheckbox extends Component {
+export default class XUICheckbox extends PureComponent {
 	// User can manually provide an id, or we will generate one.
 	wrapperIds = generateIds(this.props.labelId);
+	_input = React.createRef();
 
 	componentDidMount() {
 		setIndeterminate(this);
@@ -136,7 +137,7 @@ export default class XUICheckbox extends Component {
 	}
 
 	onClick = event => {
-		const { _input: { indeterminate }, props: { onChange, isIndeterminate } } = this;
+		const { _input: { current: { indeterminate } }, props: { onChange, isIndeterminate } } = this;
 
 		setIndeterminate(this);
 
@@ -233,7 +234,7 @@ export default class XUICheckbox extends Component {
 				}}
 			>
 				<input
-					ref={cb => this._input = cb}
+					ref={this._input}
 					{...inputProps}
 					className={cn(
 						`${baseClass}--input`,

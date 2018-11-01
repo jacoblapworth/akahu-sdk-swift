@@ -2,18 +2,25 @@
 @import "../../mixins";
 
 .#{$ns}-composition-2 {
-	grid-template:
-		"summary summary summary" min-content
-		"main main main" min-content;
 
-	@include xui-breakpoint-medium-up {
+	@include xui-breakpoint-small-down {
+		grid-gap: 12px 12px;
 		grid-template:
 			"summary summary summary" min-content
-			"nav main main" / 250px 1fr;
+			"main main main" 1fr;
+		-ms-grid-columns: 1fr;
+	}
+
+	@include xui-breakpoint-medium-only {
+		grid-gap: 12px 12px;
+		grid-template:
+			"summary summary summary" 1fr
+			"nav main main" / min-content 1fr 1fr;
 		}
 
 	@include xui-breakpoint-large-up {
+		grid-gap: 12px 12px;
 		grid-template:
-			"nav main summary" / 250px 1fr 250px;
+			"nav main summary" / min-content 1fr min-content;
 	}
 }

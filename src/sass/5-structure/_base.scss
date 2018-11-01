@@ -8,7 +8,6 @@ Used along side a composition variant (no-header, with-header)
 */
 .#{$ns}-composition {
 	display: grid;
-	grid-gap: 12px;
 }
 
 .#{$ns}-composition-is-finite {

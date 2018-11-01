@@ -33,7 +33,7 @@ export default class XUIComposition1 extends PureComponent {
 				<XUIGridAreaHeader>
 					{header}
 				</XUIGridAreaHeader>
-				<XUIGridAreaNav mobileEnabled>
+				<XUIGridAreaNav>
 					{nav}
 				</XUIGridAreaNav>
 				<XUIGridAreaMain>

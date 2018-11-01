@@ -11,6 +11,8 @@ import XUISplitWithHeader from '../XUIComposition7';
 import XUISplitNoHeader from '../XUIComposition8';
 import XUIComposition4WithHeader from '../XUIComposition1';
 
+import XUIGridAreaNavPanelDropdown, { XUIGridAreaNavPanelDropdownEventLabel } from '../XUIGridAreaNavPanelDropdown';
+
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, number, select } from '@storybook/addon-knobs';
@@ -58,11 +60,19 @@ const realHeader = (
 );
 
 const realNav = (
-	<XUIPicklist>
-		<XUIPickItem id="1">Navigation item 1</XUIPickItem>
-		<XUIPickItem id="2">Navigation item 2</XUIPickItem>
-		<XUIPickItem id="3">Navigation item 3</XUIPickItem>
-	</XUIPicklist>
+	<XUIGridAreaNavPanelDropdown>
+		<XUIPicklist>
+			{[1,2,3].map(item => (
+				<XUIPickItem
+					id={item}
+					onClick={() => fireEvent()}
+					key={item}
+					>
+					{`Navigation item ${item}`}
+				</XUIPickItem>
+			))}
+		</XUIPicklist>
+	</XUIGridAreaNavPanelDropdown>
 );
 
 const realSummary = (
@@ -121,9 +131,9 @@ const realAreas = {
 	media: realMedia,
 }
 
-const blockNav = (<div style={{background: '#50DCAA', 'minWidth': '250px', height: '100px'}}></div>);
-const blockSummary = (<div style={{background: '#FA8200', 'minWidth': '250px', height: '100px'}}></div>);
-const blockMain = (<div style={{background: '#0078C8', height: '100px'}}></div>);
+const blockNav = (<div style={{background: '#50DCAA', 'minWidth': '250px', height: '100px', width: '100%'}}></div>);
+const blockSummary = (<div style={{background: '#FA8200', 'minWidth': '250px', height: '100px', width: '100%'}}></div>);
+const blockMain = (<div style={{background: '#0078C8', height: '100px', 'minWidth': '250px', width: '100%'}}></div>);
 const blockHeader = (<div style={{background: '#B446C8', height: '60px'}}></div>)
 const blockMedia = (<div style={{background: '#ff6496', height: '100px'}}></div>)
 
@@ -135,30 +145,36 @@ const blockAreas = {
 	media: blockMedia,
 };
 
+const fireEvent = () => {
+	window.dispatchEvent(new CustomEvent(XUIGridAreaNavPanelDropdownEventLabel, {
+		bubbles: true,
+	}))
+}
+
 const storiesWithKnobs = storiesOf('XUIComposition2', module);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Summary + Nav, no header', () => {
 
 	if (boolean('Show example content', false, '1')) {
 		return (
-			<XUIComposition2
-				className="xui-margin"
-				nav={realNav}
-				summary={realSummary}
-				main={realMain}
-			/>
+			<Fragment>
+			<button onClick={() => fireEvent()}>Hello</button>
+				<XUIComposition2
+					className="xui-margin"
+					nav={realNav}
+					summary={realSummary}
+					main={realMain}
+				/>
+			</Fragment>
 		)
 	}
 	return (
-		<Fragment>
-			<button onClick={() => window.localStorage.setItem('open', true)}>Hello</button>
-			<XUIComposition2
-				className='xui-padding'
-				nav={blockNav}
-				summary={blockSummary}
-				main={blockMain}
-			/>
-		</Fragment>
+		<XUIComposition2
+			className='xui-padding'
+			nav={blockAreas.nav}
+			summary={blockAreas.summary}
+			main={blockAreas.main}
+		/>
 	)
 });
 

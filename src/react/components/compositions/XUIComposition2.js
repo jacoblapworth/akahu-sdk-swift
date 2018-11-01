@@ -29,7 +29,7 @@ export default class XUIComposition2 extends PureComponent {
 
 		return (
 			<div className={compositionClasses}>
-				<XUIGridAreaNav mobileEnabled>
+				<XUIGridAreaNav>
 					{nav}
 				</XUIGridAreaNav>
 				<XUIGridAreaMain>

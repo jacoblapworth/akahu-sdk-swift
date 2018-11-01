@@ -1,0 +1,20 @@
+@import "../vars";
+@import "../mixins";
+
+.#{$ns}-gridarea-paneldropdown {
+	min-width: 250px;
+}
+
+@include xui-breakpoint-medium-up {
+	.#{$ns}-gridarea-paneldropdown {
+		background-color: $xui-panel-bg-color;
+		border-radius: $xui-radius;
+		box-shadow: $xui-shadow-border-all;
+	}
+}
+
+@include xui-breakpoint-small-down {
+	.#{$ns}-gridarea-paneldropdown {
+		top: 0;
+	}
+}

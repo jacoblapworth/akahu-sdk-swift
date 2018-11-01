@@ -171,7 +171,11 @@
 	}
 
 	.#{$ns}-banner--actions {
+		display: flex;
+		flex-flow: wrap;
+		justify-content: flex-end;
 		margin: 0;
+		padding-left: 0;
 	}
 
 	// TODO: Deprecated in XUI12; remove in XUI14
@@ -182,11 +186,11 @@
 	}
 
 	.#{$ns}-banner--close ~ .#{$ns}-banner--message {
-		max-width: calc(100% - 50px);
+		max-width: calc(100% - 40px);
 	}
 
 	.#{$ns}-banner--close ~ .#{$ns}-banner--messagedetail {
-		max-width: calc(100% - 50px);
+		max-width: calc(100% - 40px);
 	}
 }
 

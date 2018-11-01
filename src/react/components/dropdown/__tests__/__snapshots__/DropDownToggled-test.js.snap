@@ -16,6 +16,7 @@ exports[`<DropDownToggled /> should render a passed qaHook as an auotmation id 1
     className="xui-button xui-button-standard"
     onClick={[Function]}
     onKeyDown={[Function]}
+    onKeyUp={[Function]}
     qaHook="ddt-example--trigger"
   >
     HOC Button

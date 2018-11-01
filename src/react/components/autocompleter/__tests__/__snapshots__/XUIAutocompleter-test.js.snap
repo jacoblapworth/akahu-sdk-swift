@@ -24,6 +24,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -31,6 +32,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
       />
       <label
         className="xui-textinputwrapper"
+        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
@@ -48,7 +50,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
             data-automationid="baseAC--input"
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testDropdownId"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -96,6 +98,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -103,6 +106,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
       />
       <label
         className="xui-textinputwrapper"
+        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
@@ -120,7 +124,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testDropdownId"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -168,6 +172,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -175,6 +180,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
       />
       <label
         className="xui-textinputwrapper"
+        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
@@ -192,7 +198,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testDropdownId"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -240,6 +246,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -247,6 +254,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
       />
       <label
         className="xui-textinputwrapper"
+        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
@@ -264,7 +272,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testDropdownId"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -312,6 +320,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -319,6 +328,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
       />
       <label
         className="xui-textinputwrapper"
+        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
@@ -336,7 +346,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testDropdownId"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -384,6 +394,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -391,6 +402,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
       />
       <label
         className="xui-textinputwrapper"
+        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
@@ -408,7 +420,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testDropdownId"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -456,6 +468,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -465,6 +478,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
       </div>
       <label
         className="xui-textinputwrapper"
+        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
@@ -482,7 +496,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testDropdownId"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -530,6 +544,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -537,6 +552,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
       />
       <label
         className="xui-textinputwrapper"
+        htmlFor="test-inputId"
         onKeyDown={[Function]}
         role="presentation"
       >
@@ -602,6 +618,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -609,6 +626,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
       />
       <label
         className="xui-textinputwrapper"
+        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
@@ -626,7 +644,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testDropdownId"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -674,6 +692,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -681,6 +700,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
       />
       <label
         className="xui-textinputwrapper"
+        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
@@ -698,7 +718,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
             data-automationid={null}
             defaultValue={undefined}
             disabled={true}
-            id={undefined}
+            id="testDropdownId"
             maxLength={undefined}
             onBlurCapture={[Function]}
             onChange={undefined}
@@ -746,6 +766,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -753,6 +774,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
       />
       <label
         className="xui-textinputwrapper"
+        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
@@ -770,7 +792,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
-            id={undefined}
+            id="testDropdownId"
             maxLength={5}
             onBlurCapture={[Function]}
             onChange={undefined}

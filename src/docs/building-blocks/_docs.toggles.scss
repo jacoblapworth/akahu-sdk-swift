@@ -11,13 +11,13 @@
 // Best practice
 //
 // Tips:
+// Do: Use toggles when there are 3 or more options. Otherwise, use a checkbox or radio.
 // Do: When disabling toggles within groups, disable the entire group
 // Do: Use toggles to provide quick access to options without the need for a dropdown
 // Do: Associate the toggle control with a label, using the appropriate ARIA attributes
 // Do: An alternative to partially disabled groups is to simply hide or omit the disabled options
-// Warning: Avoid including more than three options inside a toggle
 // Warning: Avoid partially disabled groups in which one of the disabled options is pre-selected. This combination has been known to cause unexpected results for keyboard navigation.
-// Dont: Don't use toggles when content is dynamic or long, use a vertical radio group instead
+// Dont: Don't use toggles when content is dynamic or long; use a vertical radio group instead
 //
 // Styleguide: Building Blocks.Controls.Toggle.1
 
@@ -95,11 +95,15 @@
 // <div class="xui-toggle xui-toggle-small" role="radiogroup" aria-label="dd">
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="dd" class="xui-toggle--input" checked/>
-//     <span class="xui-toggle--label xui-padding-horizontal-small">Fixed</span>
+//     <span class="xui-toggle--label xui-padding-horizontal-small">Submitter</span>
 //   </label>
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="dd" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-horizontal-small">Percentage</span>
+//     <span class="xui-toggle--label xui-padding-horizontal-small">Approver</span>
+//   </label>
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="dd" class="xui-toggle--input"/>
+//     <span class="xui-toggle--label xui-padding-horizontal-small">Admin</span>
 //   </label>
 // </div>
 //
@@ -120,11 +124,15 @@
 //   <div class="xui-toggle" role="radiogroup" aria-label="ee">
 //     <label class="xui-toggle-option xui-toggle-is-disabled">
 //     <input type="radio" name="ee" class="xui-toggle--input" disabled checked/>
-//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">View</span>
+//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Limited</span>
 //     </label>
 //     <label class="xui-toggle-option xui-toggle-is-disabled">
 //       <input type="radio" name="ee" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Edit</span>
+//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Standard</span>
+//     </label>
+//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//       <input type="radio" name="ee" class="xui-toggle--input" disabled/>
+//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Admin</span>
 //     </label>
 //   </div>
 // </div>
@@ -132,11 +140,15 @@
 //   <div class="xui-toggle xui-toggle-inverted" role="radiogroup" aria-label="kk">
 //     <label class="xui-toggle-option xui-toggle-is-disabled">
 //     <input type="radio" name="kk" class="xui-toggle--input" disabled checked/>
-//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">View</span>
+//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Limited</span>
 //     </label>
 //     <label class="xui-toggle-option xui-toggle-is-disabled">
 //       <input type="radio" name="kk" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Edit</span>
+//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Standard</span>
+//     </label>
+//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//       <input type="radio" name="kk" class="xui-toggle--input" disabled/>
+//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Admin</span>
 //     </label>
 //   </div>
 // </div>

@@ -27,7 +27,7 @@ export default class XUIAvatarCounter extends PureComponent {
 		} else if (count > 0) {
 			value = `+${count}`;
 		} else {
-			value = String(count);
+			value = `${count}`;
 		}
 
 		return value

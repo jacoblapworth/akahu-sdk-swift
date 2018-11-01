@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -62,7 +62,7 @@ const buildRadio = (qaHook, htmlClassName, svgSettings, isGrouped) => {
 	return buildHtmlRadio(qaHook, htmlClassName, isGrouped);
 };
 
-export default class XUIRadio extends React.Component {
+export default class XUIRadio extends PureComponent {
 	// User can manually provide an id, or we will generate one.
 	wrapperIds = generateIds(this.props.labelId);
 

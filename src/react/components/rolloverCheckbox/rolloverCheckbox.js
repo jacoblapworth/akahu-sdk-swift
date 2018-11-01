@@ -65,7 +65,7 @@ export default class XUIRolloverCheckbox extends PureComponent {
 	 * when the target element is clicked.
 	 */
 	triggerCheckboxClick = () => {
-		this._checkbox._input.click();
+		this._checkbox._input.current.click();
 	};
 
 	/**

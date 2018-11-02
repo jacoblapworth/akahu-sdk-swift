@@ -10,6 +10,8 @@ import XUISimpleWithHeader from '../XUIComposition5';
 import XUISimpleNoHeader from '../XUIComposition6';
 import XUISplitWithHeader from '../XUIComposition7';
 import XUISplitNoHeader from '../XUIComposition8';
+import XUINavWithHeader from '../XUIComposition9';
+import XUINavNoHeader from '../XUIComposition10';
 
 import XUIGridAreaNavPanelDropdown, { XUIGridAreaNavPanelDropdownEventLabel } from '../XUIGridAreaNavPanelDropdown';
 
@@ -149,6 +151,35 @@ const storiesWithKnobs = storiesOf('XUIComposition2', module);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Summary + Nav', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUIBothWithHeader : XUIBothNoHeader;
+	const settings = {
+		isReal: boolean('Show example content', false, '1'),
+		isInfinite: boolean('Expand width infinitely', false, '1'),
+	}
+	const areas = settings.isReal ? realAreas : blockAreas;
+
+	if (settings.isReal) {
+		return (
+			<Fragment>
+			<button onClick={() => fireEvent()}>Hello</button>
+				<Tag
+					className="xui-margin"
+					{...settings}
+					{...areas}
+				/>
+			</Fragment>
+		)
+	}
+	return (
+		<Tag
+			className='xui-padding'
+			{...settings}
+			{...areas}
+		/>
+	)
+});
+
+storiesWithKnobs.add('Nav Composition', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUINavWithHeader : XUINavNoHeader;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),

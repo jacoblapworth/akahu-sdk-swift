@@ -82,7 +82,7 @@ export function scrollTopPosition(itemDOM, scrollableDOM) {
 
 export const checkIsNarrowViewport = () =>
 	typeof window !== 'undefined'
-	&& window.document.documentElement.clientWidth < breakpoints.narrow;
+	&& window.document.documentElement.clientWidth < breakpoints.small;
 
 /**
  * Add the window event listeners that the DropDownToggled depends on.

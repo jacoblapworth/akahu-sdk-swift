@@ -44,7 +44,7 @@ test.add(nonBackstopStoryNames.fiveNestedModals, () => {
 	if (body && body.style) { body.style.height = "200%"; }
 	const isUsingPortal = boolean('isUsingPortal', true);
 	return (
-		<Example settings={{size: "default", isUsingPortal: isUsingPortal}} textLabel="first">
+		<Example settings={{ isUsingPortal: isUsingPortal}} textLabel="first">
 			<Example settings={{size: "xlarge", isUsingPortal: isUsingPortal}} textLabel="second">
 				<Example settings={{size: "large", isUsingPortal: isUsingPortal}} textLabel="third">
 					<Example settings={{size: "medium", isUsingPortal: isUsingPortal}} textLabel="fourth">

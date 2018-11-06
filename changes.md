@@ -74,6 +74,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
   If users provide an isChecked value, the component will not maintain its own internal state. If users provide no isChecked value, the isDefaultChecked value will be used to populate the initial internally-managed state.
 - Autocompleter uses a debounce rather than throttle for searching. The `searchThrottleInterval` prop is superceded by `searchDebounceTimeout`. The default value for this has been set to 200 (was previously 0). To disable debouncing, set this value to 0.
 - Stepper prop `updateCurrentStep` has been included into the main component API in favour of `handleClick` callbacks in every tab instance.
+- Modal no longer supports `default` as a size value. The default prop value is `medium` (unchanged).
 
 ### Utility classes
 
@@ -114,3 +115,6 @@ All other existing values stay as they are (including `2xlarge`)
 - Tag has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 
 ## Other changes
+
+- Modal widths have changed: small is 300px (was 340); medium is 400px (was 460); large is 600px (was 600) and
+xlarge is 800px (was 860).

@@ -117,10 +117,9 @@
 //
 // Definitions:
 // Small: 300px wide: `xui-modal-width-small`
-// Default: 380px wide: none
-// Medium: 460px wide: `xui-modal-width-medium`
-// Large: 620px wide: `xui-modal-width-large`
-// xLarge: 860px wide: `xui-modal-width-xlarge`
+// Medium: 400px wide: `xui-modal-width-medium`
+// Large: 600px wide: `xui-modal-width-large`
+// xLarge: 800px wide: `xui-modal-width-xlarge`
 // Full screen: 100vh height, 100vw width: `xui-modal-fullscreen`
 //
 // Styleguide: Compounds.CollectingInput.Modals.5
@@ -253,9 +252,9 @@
 	overflow-y: scroll;
 }
 
-@each $number, $variant in $xui-width-variants-modal {
-	.#{$ns}-modal-width-#{$variant} {
-		width: $xui-starting-width + ($xui-base-width * $number);
+@each $size, $width in $xui-modal-widths {
+	.#{$ns}-modal-width-#{size} {
+		width: $width;
 	}
 }
 

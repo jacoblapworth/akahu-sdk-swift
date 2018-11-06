@@ -207,35 +207,6 @@ storiesWithKnobs.add('Nav Composition', () => {
 	)
 });
 
-storiesWithKnobs.add('Nav Composition', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUINavWithHeader : XUINavNoHeader;
-	const settings = {
-		isReal: boolean('Show example content', false, '1'),
-		isInfinite: boolean('Expand width infinitely', false, '1'),
-	}
-	const areas = settings.isReal ? realAreas : blockAreas;
-
-	if (settings.isReal) {
-		return (
-			<Fragment>
-			<button onClick={() => fireEvent()}>Hello</button>
-				<Tag
-					className="xui-margin"
-					{...settings}
-					{...areas}
-				/>
-			</Fragment>
-		)
-	}
-	return (
-		<Tag
-			className='xui-padding'
-			{...settings}
-			{...areas}
-		/>
-	)
-});
-
 storiesWithKnobs.add('Summary Composition', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUISummaryWithHeader : XUISummaryNoHeader;
 	const settings = {

@@ -165,6 +165,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 			matchTriggerWidth,
 			isBlock,
 			forceDesktop,
+			onKeyDown,
 		} = this.props;
 		const { value } = this.state;
 
@@ -213,6 +214,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				cursor in the input */
 				ignoreKeyboardEvents={[32, 37, 39]}
 				hasKeyboardEvents={false}
+				onKeyDown={onKeyDown}
 				onSelect={onOptionSelect}
 				id={id}
 				className={dropdownClasses}
@@ -314,6 +316,9 @@ XUIAutocompleterSecondarySearch.propTypes = {
 	/** Maps to the `closeOnTab` property of the DropDownToggled component. Set to false,
 	 * if you've supplied a footer element with any links or interaction. */
 	closeOnTab: PropTypes.bool,
+
+	/** Callback for adding additional onKeyPress funcitonality */
+	onKeyDown: PropTypes.func,
 
 	/** Will be passed directly down to the DropDownToggled component as the main trigger. */
 	trigger: PropTypes.element.isRequired,

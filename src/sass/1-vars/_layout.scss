@@ -81,6 +81,12 @@ $xui-starting-width: 140px;
 // These are multiples of a certain value ($xui-starting-width + ($xui-base-width * $number))
 
 $xui-width-variants-dropdown: (0, "small"), (1, "medium"), (2, "large"), (3, "xlarge");
-$xui-width-variants-modal: (2, "small"), (3, "default"), (4, "medium"), (6, "large"), (9, "xlarge");
+
+$xui-modal-widths: (
+	small : 300px,
+	medium : 400px,
+	large : 600px,
+	xlarge : 800px
+);
 
 // @tokenparserendignore

@@ -46,7 +46,7 @@ function removeDistDocsReact() {
 function watchBoth() {
 	logTaskTitle(__filename);
 
-	Promise.all([[buildKss, buildXui, removeDistDocsReact]]).then(() => {
+	Promise.all([buildKss(), buildXui(), removeDistDocsReact()]).then(() => {
 		[watch, storybook, styleguideServer].forEach(watcher => {
 			const childProcess = spawn('node', [watcher], { stdio: 'inherit' });
 			childProcess.on('data', data => {

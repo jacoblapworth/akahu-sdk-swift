@@ -1,0 +1,16 @@
+@import "../../vars";
+@import "../../mixins";
+
+.#{$ns}-composition-10 {
+
+	@include xui-breakpoint-small-down {
+		grid-template:
+			"main main main" 1fr;
+		-ms-grid-columns: 1fr;
+	}
+
+	@include xui-breakpoint-medium-up {
+		grid-template:
+			"nav main main" / min-content 1fr 1fr;
+		}
+}

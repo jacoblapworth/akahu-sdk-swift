@@ -1,22 +1,14 @@
 @import "../../vars";
 @import "../../mixins";
 
-.#{$ns}-composition-1 {
+.#{$ns}-composition-9 {
 	grid-template:
 		"header header header" min-content
-		"summary summary summary" min-content
 		"main main main" 1fr;
 
 	@include xui-breakpoint-medium-up {
 		grid-template:
 			"header header header" min-content
-			"summary summary summary" 1fr
 			"nav main main" / min-content 1fr 1fr;
-	}
-
-	@include xui-breakpoint-large-up {
-		grid-template:
-			"header header header" 1fr
-			"nav main summary" / min-content 1fr min-content;
 	}
 }

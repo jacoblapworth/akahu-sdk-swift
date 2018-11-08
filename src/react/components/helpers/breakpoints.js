@@ -1,9 +1,11 @@
 import { ns } from './xuiClassNamespace';
 
 const breakpoints = {
-	narrow: 520,
-	medium: 940,
-	wide: 1160,
+	xsmall: 400,
+	small: 600, // $xui-breakpoint-small
+	medium: 800, // $xui-breakpoint-medium
+	large: 1000, // $xui-breakpoint-large
+	xlarge: 1200, // $xui-breakpoint-xlarge
 };
 
 export const widthBaseClass = `${ns}-width`;

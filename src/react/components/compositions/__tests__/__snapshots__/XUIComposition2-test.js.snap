@@ -2,7 +2,7 @@
 
 exports[`<XUIComposition2> renders basic example 1`] = `
 <div
-  className="xui-composition xui-composition-2 xui-composition-grid"
+  className="xui-composition xui-composition-2 xui-composition-is-finite"
 >
   <div
     className="xui-gridarea-nav"
@@ -24,7 +24,7 @@ exports[`<XUIComposition2> renders basic example 1`] = `
 
 exports[`<XUIComposition2> should do nothing with children 1`] = `
 <div
-  className="xui-composition xui-composition-2 xui-composition-grid"
+  className="xui-composition xui-composition-2 xui-composition-is-finite"
 >
   <div
     className="xui-gridarea-nav"

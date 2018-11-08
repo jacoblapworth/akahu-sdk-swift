@@ -20,11 +20,13 @@ export default class XUIComposition1 extends PureComponent {
 			summary,
 			nav,
 			main,
+			isInfinite,
 		} = this.props;
 
 		const compositionClasses = cn(
 			baseCompositionClass,
 			`${baseCompositionClass}-1`,
+			!isInfinite && `${baseCompositionClass}-is-finite`,
 			className,
 		);
 
@@ -53,5 +55,6 @@ XUIComposition1.propTypes = {
 	summary: PropTypes.element.isRequired,
 	nav: PropTypes.element.isRequired,
 	main: PropTypes.element.isRequired,
+	isInfinite: PropTypes.bool,
 };
 

@@ -1131,7 +1131,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-visualTesting-tableWrapper xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-table-visualTesting-tableWrapper xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
       data-automationid={undefined}
     >
       <div

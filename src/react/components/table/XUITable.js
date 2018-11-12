@@ -12,6 +12,7 @@ import TableHead from './customElements/TableHead';
 import TableBodyRow from './customElements/TableBodyRow';
 import EmptyState from './customElements/EmptyState';
 import TableAlert from './customElements/TableAlert';
+import { ns } from '../helpers/xuiClassNamespace';
 
 class XUITable extends Component {
 	state = { rootWidth: null };
@@ -125,6 +126,7 @@ class XUITable extends Component {
 			hasHeader,
 			isResponsive,
 			isTruncated,
+			isBorderless,
 			isLoading,
 			loaderLabel,
 			isEmpty,
@@ -156,9 +158,9 @@ class XUITable extends Component {
 
 		const className = cn(
 			NAME_SPACE,
-			'xui-panel',
 			suppliedClasses,
 			{
+				[`${ns}-panel`]: !isBorderless,
 				[`${NAME_SPACE}-responsive`]: isResponsive,
 				[`${NAME_SPACE}-withtruncation`]: isTruncated,
 				[`${NAME_SPACE}-pinleft`]: hasPinnedFirstColumn,
@@ -291,6 +293,9 @@ XUITable.propTypes = {
 	/** Changes overflowing column data into a truncated column view if legibility can
 	 * still be maintained. */
 	isTruncated: PropTypes.bool,
+
+	/** Whether the table should omit the xui-panel class to render without a border */
+	isBorderless: PropTypes.bool,
 
 	// - - - - //
 	// Loader. //

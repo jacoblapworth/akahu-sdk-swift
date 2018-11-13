@@ -84,7 +84,13 @@ const buildExampleContentblockItem = (children) => {
 			child.overflow = <XUIButton className="xui-button-icon-large" variant="icon" aria-label="Overflow menu"><XUIIcon icon={overflow} isBoxed /></XUIButton>;
 		}
 		if (child.tag) {
-			child.tag = <XUITag className="xui-margin-left-small" variant="positive">Positive</XUITag>;
+			child.tags = <XUITag className="xui-margin-left-small" variant="positive">Positive</XUITag>;
+		}
+		if (child.tags) {
+			child.tags = [
+				<XUITag className="xui-margin-right-small" variant="positive" key="positive-tag">Positive</XUITag>,
+				<XUITag className="xui-margin-right-small" variant="negative" key="negative-tag">Negative</XUITag>
+			]
 		}
 		if (child.leftContent === "checkbox") {
 			child.leftContent = <XUICheckbox isLabelHidden>Row checkbox</XUICheckbox>;

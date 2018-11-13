@@ -579,8 +579,7 @@
 
 .#{$ns}-contentblockitem {
 	border-top: $xui-border-standard;
-	list-style: none; // TODO use xui-listreset
-	min-height: inherit; // IE11 bug fix
+	min-height: inherit; // IE11 bug fix TODO: Link to docs on what the bugfix is
 	position: relative;
 
 	&:first-of-type {
@@ -626,28 +625,49 @@
 	align-items: center;
 	display: flex;
 
+	$content-min-height-size: 68px;
+
 	.#{$ns}-contentblockitem--actions {
 		margin-right: $xui-s-xsmall;
 	}
 
+	.#{$ns}-contentblockitem--maincontent {
+		flex: 1;
+		padding: $xui-s-small $xui-s-standard;
+	}
+
 	.#{$ns}-contentblockitem--rightcontent {
 		align-items: center;
+		align-self: flex-start;
 		display: flex;
 		margin-left: $xui-s-xsmall;
 		margin-right: $xui-s-xsmall;
+		min-height: $content-min-height-size;
+		padding: $xui-s-small 0;
 	}
 
 	.#{$ns}-contentblockitem--leftcontent {
-		// This min-width matches the height of a contentBlockItem w/ secondary text, to make the element square.
-		// TODO: Update when flexi-controls and responsive design adjustments come around.
-		min-width: 69px;
+		align-self: start;
+		min-height: $content-min-height-size;
+		min-width: $content-min-height-size;
+		padding: $xui-s-small 0;
 		@include xui-flex-children;
+
+		& + .#{$ns}-contentblockitem--maincontent {
+			padding: $xui-s-small $xui-s-standard $xui-s-small 0;
+		}
 	}
 
 	.#{$ns}-contentblockitem--links {
 		flex: 1;
 		padding-bottom: $xui-s-small;
 		padding-top: $xui-s-small;
+	}
+
+	.#{$ns}-contentblockitem--headings {
+		align-items: baseline;
+		display: flex;
+		flex-flow: wrap;
 	}
 
 	.#{$ns}-contentblockitem--links:first-child {
@@ -678,13 +698,16 @@
 
 .#{$ns}-contentblockitem--primaryheading {
 	@include xui-text-standard;
+	color: $xui-color-grey-1;
 	font-weight: $xui-font-weight-emphasis;
+	margin-right: $xui-s-small;
 }
 
 .#{$ns}-contentblockitem--secondaryheading {
-	@include xui-text-small;
-	@include xui-text-truncated;
+	@include xui-text-standard;
 	@include xui-text-muted;
+	color: $xui-color-grey-1;
+	margin-right: $xui-s-small;
 }
 
 .#{$ns}-contentblockitem--pinnedvalue {
@@ -693,7 +716,13 @@
 	line-height: $xui-line-height-compact;
 }
 
-.#{$ns}-rowlink {
+.#{$ns}-contentblockitem--description--text {
+	color: $xui-color-grey-2;
+	font-size: $xui-new-font-size-small;
+	margin-right: $xui-s-small;
+}
+
+.#{$ns}-rowlink { // TODO: This isn't a component, nor is it content blocks, re-work it out
 	color: inherit;
 	display: block;
 }

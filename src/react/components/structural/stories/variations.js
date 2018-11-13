@@ -173,6 +173,87 @@ variations = [...variations,
 				action: true
 			}
 		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `content block with two children`,
+		type: `content block`,
+		items: [
+			{
+				primaryHeading: 'Item 1 Primary',
+				secondaryHeading: 'Item 1 Secondary',
+				hasLayout: true,
+				leftContent: "avatar",
+				tags: true,
+				description: 'Many people were hoping that if the Democrats won control of Congress they would reverse the online gambling ban, but experts doubt they will even try or that if they do that the will be successful.',
+				overflow: true,
+				pinnedValue: true,
+				action: true
+			},
+			{
+				primaryHeading: 'Item 2 Primary',
+				secondaryHeading: '12 Tantilise Street, Meadowbank, Auckland 1063, New Zealand',
+				hasLayout: true,
+				leftContent: "avatar",
+				tag: true,
+				overflow: true,
+				pinnedValue: true,
+				action: true
+			}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `content block with no description but has tags`,
+		type: `content block`,
+		items: [
+			{
+				primaryHeading: 'Item 1 Primary',
+				secondaryHeading: 'Item 1 Secondary',
+				hasLayout: true,
+				leftContent: "avatar",
+				tags: true,
+				overflow: true,
+				pinnedValue: true,
+				action: true
+			}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `content block with tag position inline`,
+		type: `content block`,
+		items: [
+			{
+				primaryHeading: 'Item 1 Primary',
+				secondaryHeading: 'Item 1 Secondary',
+				hasLayout: true,
+				leftContent: "avatar",
+				tags: true,
+				tagPosition: 'inline',
+				overflow: true,
+				pinnedValue: true,
+				action: true
+			}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `content block with tag position right`,
+		type: `content block`,
+		items: [
+			{
+				primaryHeading: 'Item 1 Primary',
+				secondaryHeading: 'Item 1 Secondary',
+				hasLayout: true,
+				leftContent: "avatar",
+				tags: true,
+				tagPosition: 'right',
+				overflow: true,
+				pinnedValue: true,
+				action: true
+			}
+		]
 	}
 ];
 

@@ -38,12 +38,14 @@ export default class XUISwitch extends PureComponent {
 		this.state = {
 			internalIsChecked: this._isControlled ? null : !!props.isDefaultChecked,
 		};
+
+		this.internalOnChange = this.internalOnChange.bind(this);
 	}
 
-	internalOnChange = e => {
+	internalOnChange(e) {
 		this.setState({ internalIsChecked: e.target.checked });
 		this.props.onChange && this.props.onChange(e);
-	};
+	}
 
 	render() {
 		const {
@@ -91,7 +93,6 @@ export default class XUISwitch extends PureComponent {
 			...getAriaAttributes(this.wrapperIds, this.props),
 		};
 
-
 		return (
 			<XUIControlWrapperInline
 				fieldClassName={classes}
@@ -108,7 +109,6 @@ export default class XUISwitch extends PureComponent {
 				}}
 			>
 				<input
-					ref={c => this._input = c}
 					{...inputProps}
 				/>
 				<div className={`${baseClass}--control`} data-automationid={qaHook && `${qaHook}--switch`} />

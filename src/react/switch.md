@@ -9,8 +9,6 @@
 ```
 const { PureComponent } = require('react');
 
-const NOOP = () => {};
-
 class Example extends PureComponent {
 	constructor(props) {
 		super(props);

@@ -330,6 +330,9 @@
 	color: $xui-pill-secondary-color;
 	font-weight: bold;
 	margin-right: $xui-s-xsmall;
+	max-width: 40%;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .#{$ns}-pill--avatar {

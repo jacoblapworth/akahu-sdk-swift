@@ -105,6 +105,16 @@ export default class XUITooltip extends PureComponent {
 		this.triggerIsInline = /inline/.test(display);
 	};
 
+	componentDidUpdate(prevProps, prevState) {
+		const { isFocused, isHidden } = this.state;
+		if (this.props.triggerOnFocus) {
+			if (!prevState.isFocused && isFocused && isHidden) {
+				this.openTooltip();
+			} else if (prevState.isFocused && !isFocused && !isHidden) {
+				this.closeTooltip();
+			}
+		}
+	}
 	render() {
 		const {
 			children,
@@ -118,16 +128,8 @@ export default class XUITooltip extends PureComponent {
 			triggerOnClick,
 			triggerOnHover,
 		} = this.props;
-		const { isHidden, isAnimating, isFocused } = this.state;
+		const { isHidden, isAnimating } = this.state;
 		const ignoreFocus = !this.state.isFocused || !triggerOnFocus;
-
-		if (triggerOnFocus) {
-			if (isFocused && isHidden) {
-				this.openTooltip();
-			} else if (!isFocused && !isHidden) {
-				this.closeTooltip();
-			}
-		}
 
 		const wrapperClasses = cn(
 			wrapperClassName,

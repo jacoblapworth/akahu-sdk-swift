@@ -137,27 +137,15 @@ storiesWithKnobs.add('Playground', () => {
 			}}
 			>
 				<XUITooltip trigger={createTriggerInput()} {...props}>
-					<XUIButton>
-						{props.preferredPosition}
-						<XUIButtonCaret key="caret" />
-					</XUIButton>
-					{createTipInput()}
-					{createTipInput()}
+					<p>Here there was once a paragraph of content that had some kind of explanation to go with it.</p>
 				</XUITooltip>
 				<XUITooltip trigger={createTriggerInput()} {...props}	>
-					<div style={{ width: '300px', height: '200px' }} />
-					<XUIButton>
-						{props.preferredPosition}
-						<XUIButtonCaret key="caret" />
-					</XUIButton>
+					<div style={{ height: '200px' }}>
+						<p>Here there was once a paragraph of content that had some kind of explanation to go with it.</p>
+					</div>
 				</XUITooltip>
 				<XUITooltip trigger={createTriggerInput()} {...props} >
-					<XUIButton>
-						{props.preferredPosition}
-						<XUIButtonCaret key="caret" />
-					</XUIButton>
-					{createTipInput()}
-					{createTipInput()}
+					<p>Here there was once a paragraph of content that had some kind of explanation to go with it.</p>
 				</XUITooltip>
 			</div>
 			<div style={{
@@ -176,12 +164,7 @@ storiesWithKnobs.add('Playground', () => {
 					{props.preferredPosition}
 				</XUITooltip>
 				<XUITooltip trigger={createTriggerInput()} {...props} >
-					<XUIButton>
-						{props.preferredPosition}
-						<XUIButtonCaret key="caret" />
-					</XUIButton>
-					{createTipInput()}
-					{createTipInput()}
+					<p>Here there was once a paragraph of content that had some kind of explanation to go with it.</p>
 				</XUITooltip>
 			</div>
 			<div style={{ position: 'fixed', left: '40px', top: '300px' }}>

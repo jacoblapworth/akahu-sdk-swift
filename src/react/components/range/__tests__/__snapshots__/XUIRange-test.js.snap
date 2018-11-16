@@ -1,0 +1,270 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Range All options selected 1`] = `
+<div
+  className=""
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    data-automationid="qaHook--label"
+    htmlFor="testRangeId-control"
+    id={undefined}
+  >
+    All options selected
+  </label>
+  <div
+    className="xui-rangeslider-container containerClasses"
+  >
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={16}
+      viewBox="0 0 12 12"
+      width={16}
+    >
+      <path
+        d="M7 5h5v2H7v5H5V7H0V5h5V0h2v5z"
+        role="presentation"
+      />
+    </svg>
+    <input
+      aria-describedby="testRangeId-message"
+      aria-invalid={true}
+      aria-label={undefined}
+      aria-labelledby={undefined}
+      className="xui-rangeslider xui-rangeslider-thumb-xsmall xui-rangeslider-is-invalid inputClasses"
+      defaultValue={undefined}
+      disabled={true}
+      id="testRangeId-control"
+      max={80}
+      min={16}
+      name={undefined}
+      onClick={undefined}
+      onInput={undefined}
+      step={4}
+      type="range"
+    />
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={16}
+      viewBox="0 0 12 12"
+      width={16}
+    >
+      <path
+        d="M7 5h5v2H7v5H5V7H0V5h5V0h2v5z"
+        role="presentation"
+      />
+    </svg>
+  </div>
+  <div
+    className="xui-validation xui-validation-layout xui-validation-is-invalid"
+    data-automationid="qaHook--message"
+    id="testRangeId-message"
+    role="status"
+  >
+    validationMessage
+  </div>
+</div>
+`;
+
+exports[`Range LeftElement and RightElement work 1`] = `
+<div
+  className=""
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    data-automationid={undefined}
+    htmlFor="testRangeId-control"
+    id={undefined}
+  >
+    svgs work
+  </label>
+  <div
+    className="xui-rangeslider-container"
+  >
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={16}
+      viewBox="0 0 12 12"
+      width={16}
+    >
+      <path
+        d="M7 5h5v2H7v5H5V7H0V5h5V0h2v5z"
+        role="presentation"
+      />
+    </svg>
+    <input
+      aria-describedby="testRangeId-message"
+      aria-invalid={undefined}
+      aria-label={undefined}
+      aria-labelledby={undefined}
+      className="xui-rangeslider"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="testRangeId-control"
+      max={undefined}
+      min={undefined}
+      name={undefined}
+      onClick={undefined}
+      onInput={undefined}
+      step={undefined}
+      type="range"
+    />
+    <svg
+      className="xui-icon"
+      data-automationid={undefined}
+      focusable="false"
+      height={16}
+      viewBox="0 0 12 12"
+      width={16}
+    >
+      <path
+        d="M7 5h5v2H7v5H5V7H0V5h5V0h2v5z"
+        role="presentation"
+      />
+    </svg>
+  </div>
+  <div
+    className="xui-validation xui-validation-layout"
+    data-automationid={undefined}
+    id="testRangeId-message"
+    role="status"
+  >
+    hintMessage
+  </div>
+</div>
+`;
+
+exports[`Range Simple case 1`] = `
+<div
+  className=""
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <div
+    className="xui-rangeslider-container"
+  >
+    <input
+      aria-describedby={undefined}
+      aria-invalid={undefined}
+      aria-label={undefined}
+      aria-labelledby={undefined}
+      className="xui-rangeslider"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="testRangeId-control"
+      max={undefined}
+      min={undefined}
+      name={undefined}
+      onClick={undefined}
+      onInput={undefined}
+      step={undefined}
+      type="range"
+    />
+  </div>
+</div>
+`;
+
+exports[`Range invalid 1`] = `
+<div
+  className=""
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    data-automationid={undefined}
+    htmlFor="testRangeId-control"
+    id={undefined}
+  >
+    invalid
+  </label>
+  <div
+    className="xui-rangeslider-container"
+  >
+    <input
+      aria-describedby="testRangeId-message"
+      aria-invalid={true}
+      aria-label={undefined}
+      aria-labelledby={undefined}
+      className="xui-rangeslider xui-rangeslider-is-invalid"
+      defaultValue={undefined}
+      disabled={undefined}
+      id="testRangeId-control"
+      max={80}
+      min={16}
+      name={undefined}
+      onClick={undefined}
+      onInput={undefined}
+      step={undefined}
+      type="range"
+    />
+  </div>
+  <div
+    className="xui-validation xui-validation-layout xui-validation-is-invalid"
+    data-automationid={undefined}
+    id="testRangeId-message"
+    role="status"
+  >
+    validationMessage
+  </div>
+</div>
+`;
+
+exports[`Range should be disabled 1`] = `
+<div
+  className=""
+  onClick={undefined}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    data-automationid={undefined}
+    htmlFor="testRangeId-control"
+    id={undefined}
+  >
+    disabled
+  </label>
+  <div
+    className="xui-rangeslider-container"
+  >
+    <input
+      aria-describedby={undefined}
+      aria-invalid={undefined}
+      aria-label={undefined}
+      aria-labelledby={undefined}
+      className="xui-rangeslider"
+      defaultValue={undefined}
+      disabled={true}
+      id="testRangeId-control"
+      max={80}
+      min={16}
+      name={undefined}
+      onClick={undefined}
+      onInput={undefined}
+      step={undefined}
+      type="range"
+    />
+  </div>
+  <div
+    className="xui-validation xui-validation-layout"
+    data-automationid={undefined}
+    id="testRangeId-message"
+    role="status"
+  />
+</div>
+`;

@@ -93,6 +93,11 @@
 						]
 					},
 					{
+						"name": "Range",
+						"components": "../src/react/components/range/XUIRange.js",
+						"content": "../src/react/range.md"
+					},
+					{
 						"name": "Select-box",
 						"content": "../src/react/select-box.md",
 						"sections": [

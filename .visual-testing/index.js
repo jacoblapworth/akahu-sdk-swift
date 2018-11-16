@@ -114,6 +114,11 @@ const componentsToTest = [
 		delay: 500
 	},
 	{
+		testsPrefix: 'XUI Range',
+		variationsPath: `${variationsPath}/range/stories/variations.js`,
+		delay: 500
+	},
+	{
 		testsPrefix: 'Rollover Checkbox',
 		variationsPath: `${variationsPath}/rolloverCheckbox/stories/variations.js`
 	},

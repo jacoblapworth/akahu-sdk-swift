@@ -33,7 +33,7 @@ export default class XUIRange extends PureComponent {
 			validationMessage,
 			isInvalid,
 			containerClasses,
-			inputClasses
+			inputClasses,
 		} = this.props;
 
 		return (

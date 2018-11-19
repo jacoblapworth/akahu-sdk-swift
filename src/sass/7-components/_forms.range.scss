@@ -32,16 +32,16 @@ $xui-rangeslider-thumb-diameter-xsmall: $xui-s-small;
 }
 
 .#{$ns}-rangeslider-container {
-	display: flex;
 	align-items: center;
+	display: flex;
 }
 
 .#{$ns}-rangeslider {
 	-webkit-appearance: none;
 	background: transparent;
+	height: $xui-rangeslider-thumb-diameter-default;
 	margin: 0;
 	width: 100%;
-	height: $xui-rangeslider-thumb-diameter-default;
 
 	&.#{$ns}-rangeslider-is-invalid {
 		&::-webkit-slider-thumb {
@@ -107,7 +107,6 @@ $xui-rangeslider-thumb-diameter-xsmall: $xui-s-small;
 		@include xui-rangeslider-thumb;
 		-webkit-appearance: none;
 		margin-top: ($xui-rangeslider-height - $xui-rangeslider-thumb-diameter-default) * 0.5;
-
 	}
 
 	&::-moz-range-thumb {
@@ -192,12 +191,12 @@ $xui-rangeslider-thumb-diameter-xsmall: $xui-s-small;
 
 .#{$ns}-rangeslider-thumb-small::-webkit-slider-thumb {
 	height: $xui-rangeslider-thumb-diameter-small;
-	width: $xui-rangeslider-thumb-diameter-small;
 	margin-top: ($xui-rangeslider-height - $xui-rangeslider-thumb-diameter-small) * 0.5;
+	width: $xui-rangeslider-thumb-diameter-small;
 }
 
 .#{$ns}-rangeslider-thumb-xsmall::-webkit-slider-thumb {
 	height: $xui-rangeslider-thumb-diameter-xsmall;
-	width: $xui-rangeslider-thumb-diameter-xsmall;
 	margin-top: ($xui-rangeslider-height - $xui-rangeslider-thumb-diameter-xsmall) * 0.5;
+	width: $xui-rangeslider-thumb-diameter-xsmall;
 }

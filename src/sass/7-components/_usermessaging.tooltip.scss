@@ -128,6 +128,10 @@
 			display: block;
 		}
 	}
+
+	&-is-block {
+		display: block;
+	}
 }
 
 .#{$ns}-positioningInline {

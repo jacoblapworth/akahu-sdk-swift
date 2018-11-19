@@ -9,6 +9,7 @@ Enzyme.configure({ adapter: new Adapter() });
 const NOOP = () => {};
 
 describe('<XUIPill />', () => {
+
 	it('renders the pill with the specified value prop', () => {
 		const pill = renderer.create(
 			<XUIPill value="Value Pill" />
@@ -79,31 +80,39 @@ describe('<XUIPill />', () => {
 			<XUIPill />
 		);
 
-		pill.childAt(0).simulate('focus')
+		pill.childAt(0).simulate('focus');
 
 		expect(pill.childAt(0).hasClass('xui-pill-is-focused')).toBeTruthy();
 	});
 
 	it('should render an automation id when a qaHook is passed in', () => {
-		const automationid = renderer.create(<XUIPill qaHook="pill-test" />);
+		const automationid = renderer.create(
+			<XUIPill qaHook="pill-test" />
+		);
 
 		expect(automationid).toMatchSnapshot();
 	});
 
 	it('should render a title when passed', () => {
-		const pill = renderer.create(<XUIPill title="pill title" />);
+		const pill = renderer.create(
+			<XUIPill title="pill title" />
+		);
 
 		expect(pill).toMatchSnapshot();
 	});
 
 	it('should render a target when passed in', () => {
-		const pill = renderer.create(<XUIPill href="http://xero.com" target="_blank" />);
+		const pill = renderer.create(
+			<XUIPill href="http://xero.com" target="_blank" />
+		);
 
 		expect(pill).toMatchSnapshot();
 	});
 
 	it('should render an error icon when invalid', () => {
-		const pill = renderer.create(<XUIPill value="Error pill" isInvalid />);
+		const pill = renderer.create(
+			<XUIPill value="Error pill" isInvalid />
+		);
 
 		expect(pill).toMatchSnapshot();
 	});
@@ -118,7 +127,9 @@ describe('<XUIPill />', () => {
 			value: 'A'
 		};
 
-		const pill = renderer.create(<XUIPill value="Error pill" isInvalid {...avatarProps} />);
+		const pill = renderer.create(
+			<XUIPill value="Error pill" isInvalid {...avatarProps} />
+		);
 
 		expect(pill).toMatchSnapshot();
 	});
@@ -135,7 +146,7 @@ describe('<XUIPill />', () => {
 		expect(pill.find('.xui-pill--button-icon').html()).toContain('title="Delete"');
 	});
 
-	it('should swicth the focus state when toggleFocus is called', () => {
+	it('should switch the focus state when toggleFocus is called', () => {
 		const pill = shallow(<XUIPill />);
 
 		expect(pill.state('isFocused')).toBeFalsy();
@@ -160,5 +171,11 @@ describe('<XUIPill />', () => {
 			);
 			expect(pill).toMatchSnapshot();
 		});
+	});
+
+	it('should render inside a tooltip when using the debug flag', () => {
+		const pill = renderer.create(<XUIPill debugShowToolTip/>);
+
+		expect(pill).toMatchSnapshot();
 	});
 })

@@ -28,6 +28,7 @@ export default class XUITooltip extends PureComponent {
 	 */
 	openTooltip = isClick => {
 		const { isDisabled, openDelay, onOpen } = this.props;
+
 		if (isDisabled) {
 			return;
 		}
@@ -46,6 +47,7 @@ export default class XUITooltip extends PureComponent {
 		const { closeDelay, onClose } = this.props;
 		// No delay for click open/close or if it's already animating.
 		const delay = (isClick === true || this.state.isAnimating) ? 0 : closeDelay;
+
 		this.handleOpenClose(delay, false, onClose);
 	};
 
@@ -127,6 +129,7 @@ export default class XUITooltip extends PureComponent {
 			triggerOnBlur,
 			triggerOnClick,
 			triggerOnHover,
+			isBlock,
 		} = this.props;
 		const { isHidden, isAnimating } = this.state;
 		const ignoreFocus = !this.state.isFocused || !triggerOnFocus;
@@ -139,6 +142,7 @@ export default class XUITooltip extends PureComponent {
 			isDisabled && `${ns}-is-disabled`,
 			!isHidden && `${baseClass}-tipopen`,
 			isAnimating && `${baseClass}-tipanimating`,
+			isBlock && `${baseClass}-is-block`,
 		);
 
 		const tipClasses = cn(
@@ -174,8 +178,10 @@ export default class XUITooltip extends PureComponent {
 			'aria-describedby': this.tooltipId,
 		});
 
+		const WrappingElement = isBlock ? 'div' : 'span';
+
 		return (
-			<span
+			<WrappingElement
 				className={wrapperClasses}
 				ref={c => this.setState({ wrapper: c })}
 			>
@@ -195,7 +201,7 @@ export default class XUITooltip extends PureComponent {
 						{children}
 					</span>
 				</PositioningInline>
-			</span>
+			</WrappingElement>
 		);
 	}
 }
@@ -253,6 +259,9 @@ XUITooltip.propTypes = {
 
 	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	isNotResponsive: PropTypes.bool,
+
+	/** Force the wrapping element to be a div, instead of a span */
+	isBlock: PropTypes.bool,
 
 	/**
 	 * Preferred side of the trigger and alignment in relation to the trigger for showing the tip.

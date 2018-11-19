@@ -19,6 +19,7 @@ class XUIInnerPill extends PureComponent {
 			title,
 			value,
 			size,
+			innerPillRef,
 		} = this.props;
 
 		const isInteractive = href || onClick;
@@ -29,15 +30,21 @@ class XUIInnerPill extends PureComponent {
 		);
 		const innerPillQaHook = qaHook && `${qaHook}--inner`;
 		const secondaryTextEl = secondaryText && (
-			<span className={`${ns}-color-grey-muted ${baseClass}--secondary`}>
+			<span className={`${ns}-color-grey-muted ${baseClass}--secondary`} ref={innerPillRef}>
 				{secondaryText}
 			</span>
 		);
-		const valueEl = value && <span className={`${baseClass}--text`}>{value}</span>;
+		const valueEl = value && (
+			<span className={`${baseClass}--text`} ref={!secondaryText && innerPillRef}>{value}</span>
+		);
 
 		const contents = (
 			<Fragment>
-				<LeftVisualEl isInvalid={isInvalid} avatarProps={avatarProps} size={childSizeClassMap[size]} />
+				<LeftVisualEl
+					isInvalid={isInvalid}
+					avatarProps={avatarProps}
+					size={childSizeClassMap[size]}
+				/>
 				{secondaryTextEl}
 				{valueEl}
 			</Fragment>
@@ -88,6 +95,8 @@ XUIInnerPill.propTypes = {
 	value: PropTypes.string,
 	/** The pill is invalid and should display the invalid icon */
 	isInvalid: PropTypes.bool,
+	/** The ref to the text nodes - Used to determine showing tooltips when text is truncated */
+	innerPillRef: PropTypes.object,
 	/** The size of the pill */
 	size: PropTypes.oneOf(Object.keys(childSizeClassMap)),
 };

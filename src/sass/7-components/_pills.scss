@@ -333,6 +333,7 @@
 	max-width: 40%;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .#{$ns}-pill--avatar {

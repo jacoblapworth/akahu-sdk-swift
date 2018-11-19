@@ -103,6 +103,22 @@ const variations = [
 		defaultLayout: false,
 		avatarProps,
 	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'truncated text and tooltip',
+		value: 'I am the primary value, I have long text',
+		avatarProps,
+		debugShowToolTip: true,
+	},
+	,
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'truncated secondary text and tooltip',
+		value: 'I am the primary value, I have long text',
+		secondaryText: 'I am secondary text, I am long',
+		avatarProps,
+		debugShowToolTip: true,
+	},
 ];
 
 module.exports = {

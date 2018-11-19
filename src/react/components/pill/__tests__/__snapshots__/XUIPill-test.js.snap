@@ -6,6 +6,8 @@ exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <span
     className="xui-pill--content"
@@ -26,6 +28,8 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 1`] = `
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <span
     className="xui-pill--content"
@@ -78,6 +82,8 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 2`] = `
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <span
     className="xui-pill--content"
@@ -130,6 +136,8 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 3`] = `
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <span
     className="xui-pill--content"
@@ -182,6 +190,8 @@ exports[`<XUIPill /> should render a target when passed in 1`] = `
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <a
     aria-disabled={undefined}
@@ -207,6 +217,8 @@ exports[`<XUIPill /> should render a title when passed 1`] = `
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <span
     className="xui-pill--content"
@@ -221,6 +233,8 @@ exports[`<XUIPill /> should render an automation id when a qaHook is passed in 1
   data-automationid="pill-test"
   onBlur={[Function]}
   onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <span
     className="xui-pill--content"
@@ -235,6 +249,8 @@ exports[`<XUIPill /> should render an error icon when invalid 1`] = `
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <span
     className="xui-pill--content"
@@ -272,6 +288,8 @@ exports[`<XUIPill /> should render an error icon when invalid even with an avata
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <span
     className="xui-pill--content"
@@ -299,6 +317,63 @@ exports[`<XUIPill /> should render an error icon when invalid even with an avata
     >
       A
     </span>
+  </span>
+</div>
+`;
+
+exports[`<XUIPill /> should render inside a tooltip when using the debug flag 1`] = `
+<div
+  className="xui-tooltip xui-tooltip-tipopen xui-tooltip-is-block"
+>
+  <div
+    aria-describedby="tooltipDebugId"
+    onBlur={[Function]}
+    onClick={undefined}
+    onFocus={[Function]}
+    onKeyDown={undefined}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <div
+      className="xui-pill xui-pill-maxwidth"
+      data-automationid={undefined}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <span
+        className="xui-pill--content"
+        data-automationid={undefined}
+      />
+    </div>
+  </div>
+  <span
+    className="xui-positioningInline"
+    data-automationid={undefined}
+    style={
+      Object {
+        "flexDirection": "column",
+        "top": undefined,
+      }
+    }
+  >
+    <span
+      aria-hidden={false}
+      className="xui-tooltip--tip xui-tooltip--tip-open"
+      data-automationid={undefined}
+      id="tooltipDebugId"
+      role="tooltip"
+      style={
+        Object {
+          "marginLeft": null,
+          "marginRight": -220,
+          "maxHeight": null,
+          "maxWidth": null,
+          "width": null,
+        }
+      }
+    />
   </span>
 </div>
 `;

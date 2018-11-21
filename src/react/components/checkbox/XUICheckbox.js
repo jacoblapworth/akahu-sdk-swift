@@ -86,15 +86,14 @@ const buildSvgCheckbox = (qaHook, { svgClassName, iconMain }) => {
  * builder to trigger
  * @param qaHook - Optional hook label
  * @param htmlClassName - Optional classname to add to html version of checkbox
+ * @param calculatedSize - String to specify the size of the checkbox
  *
  */
-const buildHtmlCheckbox = (qaHook, htmlClassName, isGrouped) => {
+const buildHtmlCheckbox = (qaHook, htmlClassName, calculatedSize) => {
 	const htmlClasses = cn(
 		`${baseClass}--checkbox`,
 		htmlClassName,
-		{
-			[`${baseClass}--checkbox-small`]: isGrouped,
-		},
+		calculatedSize && `${baseClass}--checkbox-${calculatedSize}`,
 	);
 	return (
 		<div className={htmlClasses} data-automationid={qaHook && `${qaHook}--checkbox`} />
@@ -107,13 +106,14 @@ const buildHtmlCheckbox = (qaHook, htmlClassName, isGrouped) => {
  * @param qaHook - Optional hook label
  * @param htmlClassName - Optional classname to add to html version of checkbox
  * @param svgSettings - Object containing optional svg properties (classname, icon paths)
+ * @param calculatedSize - String to specify the size of the checkbox
  *
  */
-const buildCheckbox = (qaHook, htmlClassName, svgSettings, isGrouped) => {
+const buildCheckbox = (qaHook, htmlClassName, svgSettings, calculatedSize) => {
 	if (svgSettings.iconMain) {
 		return buildSvgCheckbox(qaHook, svgSettings);
 	}
-	return buildHtmlCheckbox(qaHook, htmlClassName, isGrouped);
+	return buildHtmlCheckbox(qaHook, htmlClassName, calculatedSize);
 };
 
 /**
@@ -175,6 +175,7 @@ export default class XUICheckbox extends PureComponent {
 			isInvalid,
 			validationMessage,
 			hintMessage,
+			size,
 		} = this.props;
 
 		const classes = cn(
@@ -184,8 +185,12 @@ export default class XUICheckbox extends PureComponent {
 			isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
 		);
 
+		// If no size, or 'standard' is provided, use an empty string. Grouping defaults to 'small'.
+		const calculatedSize = (size !== 'standard' && size) || (isGrouped && 'small') || '';
+
 		const labelClasses = cn(
 			`${baseClass}--label`,
+			calculatedSize && `${baseClass}--label-${calculatedSize}`,
 			labelClassName,
 		);
 		const inputProps = {
@@ -239,11 +244,11 @@ export default class XUICheckbox extends PureComponent {
 					className={cn(
 						`${baseClass}--input`,
 						inputProps.className,
-						isGrouped && `${baseClass}--input-small`,
+						calculatedSize && `${baseClass}--input-${calculatedSize}`,
 					)}
 					data-automationid={qaHook && `${qaHook}--input`}
 				/>
-				{buildCheckbox(qaHook, htmlClassName, svgSettings, isGrouped)}
+				{buildCheckbox(qaHook, htmlClassName, svgSettings, calculatedSize)}
 			</XUIControlWrapperInline>
 		);
 	}
@@ -321,6 +326,8 @@ XUICheckbox.propTypes = {
 	validationMessage: PropTypes.string,
 	/** Hint message to show under the input */
 	hintMessage: PropTypes.string,
+	/** Size variant */
+	size: PropTypes.oneOf(['standard', 'small', 'xsmall']),
 };
 
 XUICheckbox.defaultProps = {

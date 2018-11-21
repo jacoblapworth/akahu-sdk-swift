@@ -1,5 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`XUICheckbox should be a small variant, if specified 1`] = `
+<label
+  className="xui-styledcheckboxradio"
+  data-automationid={undefined}
+  onClick={[Function]}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <input
+    aria-describedby={undefined}
+    aria-invalid={undefined}
+    aria-label={undefined}
+    aria-labelledby="testCheckboxId"
+    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+    data-automationid={undefined}
+    defaultChecked={false}
+    disabled={false}
+    name={undefined}
+    onChange={[Function]}
+    onClick={[Function]}
+    required={false}
+    tabIndex={undefined}
+    type="checkbox"
+    value={undefined}
+  />
+  <div
+    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+    data-automationid={undefined}
+  />
+  <span
+    className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small"
+    data-automationid={undefined}
+    htmlFor={undefined}
+    id="testCheckboxId"
+  >
+    Howdy, folks!
+  </span>
+</label>
+`;
+
+exports[`XUICheckbox should be a xsmall variant, if specified 1`] = `
+<label
+  className="xui-styledcheckboxradio"
+  data-automationid={undefined}
+  onClick={[Function]}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <input
+    aria-describedby={undefined}
+    aria-invalid={undefined}
+    aria-label={undefined}
+    aria-labelledby="testCheckboxId"
+    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall"
+    data-automationid={undefined}
+    defaultChecked={false}
+    disabled={false}
+    name={undefined}
+    onChange={[Function]}
+    onClick={[Function]}
+    required={false}
+    tabIndex={undefined}
+    type="checkbox"
+    value={undefined}
+  />
+  <div
+    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-xsmall"
+    data-automationid={undefined}
+  />
+  <span
+    className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall"
+    data-automationid={undefined}
+    htmlFor={undefined}
+    id="testCheckboxId"
+  >
+    Howdy, folks!
+  </span>
+</label>
+`;
+
 exports[`XUICheckbox should have a hidden label, if specified 1`] = `
 <label
   className="xui-styledcheckboxradio"

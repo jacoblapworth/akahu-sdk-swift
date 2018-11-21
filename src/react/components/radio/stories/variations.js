@@ -22,6 +22,20 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'checked small',
+		labelText: 'Checked Small Example',
+		isDefaultChecked: true,
+		size: 'small',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'checked xsmall',
+		labelText: 'Checked XSmall Example',
+		isDefaultChecked: true,
+		size: 'xsmall',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Reversed',
 		isReversed: true
 	},

@@ -7,7 +7,7 @@ import XUIRadioGroup from '../XUIRadioGroup';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 import { storiesWithVariationsKindName, variations } from './variations';
@@ -24,6 +24,7 @@ storiesWithKnobs.add('Playground', () => (
 		isInvalid={boolean('invalid', false)}
 		validationMessage={text('validationMessage', '')}
 		hintMessage={text('hintMessage', '')}
+		size={select('size', ['standard', 'small', 'xsmall'], 'standard')}
 	>{text('label text', 'Test radio')}</XUIRadio>
 ));
 

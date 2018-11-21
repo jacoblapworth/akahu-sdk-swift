@@ -95,7 +95,7 @@ exports[`XUIRadio should have a hidden label, if specified 1`] = `
     aria-invalid={undefined}
     aria-label="Hidden label"
     aria-labelledby={undefined}
-    className="xui-styledcheckboxradio--input"
+    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
     data-automationid={undefined}
     defaultChecked={false}
     disabled={false}
@@ -109,7 +109,7 @@ exports[`XUIRadio should have a hidden label, if specified 1`] = `
     value={undefined}
   />
   <div
-    className="xui-styledcheckboxradio--radio"
+    className="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-standard"
     data-automationid={undefined}
   />
 </label>
@@ -128,7 +128,7 @@ exports[`XUIRadio should have label text if provided 1`] = `
     aria-invalid={undefined}
     aria-label={undefined}
     aria-labelledby="testRadioId"
-    className="xui-styledcheckboxradio--input"
+    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
     data-automationid={undefined}
     defaultChecked={false}
     disabled={false}
@@ -142,11 +142,11 @@ exports[`XUIRadio should have label text if provided 1`] = `
     value={undefined}
   />
   <div
-    className="xui-styledcheckboxradio--radio"
+    className="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-standard"
     data-automationid={undefined}
   />
   <span
-    className="xui-styledcheckboxradio--label"
+    className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard"
     data-automationid={undefined}
     htmlFor={undefined}
     id="testRadioId"
@@ -169,7 +169,7 @@ exports[`XUIRadio should render with an icon when one is provided 1`] = `
     aria-invalid={undefined}
     aria-label={undefined}
     aria-labelledby={undefined}
-    className="xui-styledcheckboxradio--input"
+    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
     data-automationid={undefined}
     defaultChecked={false}
     disabled={false}

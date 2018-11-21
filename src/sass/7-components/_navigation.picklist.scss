@@ -651,6 +651,11 @@
 		align-self: center;
 		flex: 0 0 30px;
 	}
+	.#{$ns}-pickitem-multiselect--checkbox .#{$ns}-styledcheckboxradio--label {
+		// Use existing pickitem sizing for the checkbox labels.
+		@include xui-text-standard;
+		@include xui-margin-vertical(0);
+	}
 }
 
 .#{$ns}-pickitem--text {

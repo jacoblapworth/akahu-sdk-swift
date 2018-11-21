@@ -116,8 +116,8 @@ export default class XUIRadio extends PureComponent {
 			isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
 		);
 
-		// If no size, or 'standard' is provided, use an empty string. Grouping defaults to 'small'.
-		const calculatedSize = (size !== 'standard' && size) || (isGrouped && 'small') || '';
+		// Grouped inputs default to 'small'.
+		const calculatedSize = (isGrouped && 'small') || size;
 
 		const labelClasses = cn(
 			`${baseClass}--label`,
@@ -252,7 +252,7 @@ XUIRadio.propTypes = {
 	validationMessage: PropTypes.string,
 	/** Hint message to show under the input */
 	hintMessage: PropTypes.string,
-	/** Size variant */
+	/** Size variant. Defaults to standard */
 	size: PropTypes.oneOf(['standard', 'small', 'xsmall']),
 };
 
@@ -263,4 +263,5 @@ XUIRadio.defaultProps = {
 	isRequired: false,
 	isReversed: false,
 	role: 'radio',
+	size: 'standard',
 };

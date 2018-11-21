@@ -49,12 +49,12 @@
 	&.#{$ns}-styledcheckboxradio--label-xsmall {
 		@include xui-text-xsmall;
 	}
-	&:not(.#{$ns}-styledcheckboxradio--label-small):not(.#{$ns}-styledcheckboxradio--label-xsmall) {
+	&.#{$ns}-styledcheckboxradio--label-standard {
 		@include xui-text-standard;
 	}
 	.#{$ns}-styledcheckboxradio-group & {
 		// Override automatic sizing and margins
-		@include xui-margin-vertical(0px);
+		@include xui-margin-vertical(0);
 		@include xui-text-standard;
 	}
 
@@ -259,8 +259,8 @@
 			background-color: $xui-checkboxradio-hover-bg-color;
 		}
 	}
-	&:focus:not(:hover) + .#{$ns}-styledcheckboxradio--checkbox,
-	&:focus:not(:hover) + .#{$ns}-styledcheckboxradio--radio {
+	&:focus + .#{$ns}-styledcheckboxradio--checkbox,
+	&:focus + .#{$ns}-styledcheckboxradio--radio {
 		box-shadow: $xui-shadow-focus;
 	}
 	&:active + .#{$ns}-styledcheckboxradio--checkbox,

@@ -33,13 +33,31 @@
 // Label spacing
 // =============
 .#{$ns}-styledcheckboxradio--label {
-	@include xui-text-standard;
 	@include xui-margin-horizontal($xui-s-xsmall);
 	flex-grow: 1;
 
 	.#{$ns}-styledcheckboxradio-is-disabled & {
 		color: $xui-checkboxradio-label-disabled-color;
 	}
+	&.#{$ns}-styledcheckboxradio--label-small,
+	&.#{$ns}-styledcheckboxradio--label-xsmall {
+		@include xui-margin-vertical(2px);
+	}
+	&.#{$ns}-styledcheckboxradio--label-small {
+		@include xui-text-small;
+	}
+	&.#{$ns}-styledcheckboxradio--label-xsmall {
+		@include xui-text-xsmall;
+	}
+	&.#{$ns}-styledcheckboxradio--label-standard {
+		@include xui-text-standard;
+	}
+	.#{$ns}-styledcheckboxradio-group & {
+		// Override automatic sizing and margins
+		@include xui-margin-vertical(0);
+		@include xui-text-standard;
+	}
+
 }
 
 
@@ -241,8 +259,8 @@
 			background-color: $xui-checkboxradio-hover-bg-color;
 		}
 	}
-	&:focus:not(:hover) + .#{$ns}-styledcheckboxradio--checkbox,
-	&:focus:not(:hover) + .#{$ns}-styledcheckboxradio--radio {
+	&:focus + .#{$ns}-styledcheckboxradio--checkbox,
+	&:focus + .#{$ns}-styledcheckboxradio--radio {
 		box-shadow: $xui-shadow-focus;
 	}
 	&:active + .#{$ns}-styledcheckboxradio--checkbox,
@@ -276,7 +294,13 @@
 		background-color: $xui-checkboxradio-checked-fill;
 		border-color: $xui-checkboxradio-checked-stroke;
 		&:after {
-			border-width: 6px;
+			border-width: $xui-s-2xsmall + 2;
+		}
+		&.#{$ns}-styledcheckboxradio--radio-small:after {
+			border-width: $xui-s-2xsmall + 1;
+		}
+		&.#{$ns}-styledcheckboxradio--radio-xsmall:after {
+			border-width: $xui-s-2xsmall;
 		}
 		&:hover {
 			& + .#{$ns}-styledcheckboxradio--radio {
@@ -440,6 +464,17 @@
 	width: $xui-s-large;
 }
 
+.#{$ns}-styledcheckboxradio--radio-xsmall,
+.#{$ns}-styledcheckboxradio--checkbox-xsmall {
+	@include xui-margin-vertical(2px);
+	@include xui-margin-left(2px);
+	height: $xui-s-standard;
+	width: $xui-s-standard;
+}
+
 .#{$ns}-styledcheckboxradio--input-small {
 	height: $xui-s-large;
+}
+.#{$ns}-styledcheckboxradio--input-xsmall {
+	height: $xui-s-standard;
 }

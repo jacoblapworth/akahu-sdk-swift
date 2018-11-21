@@ -45,6 +45,17 @@ describe('XUIRadio', () => {
 		expect(component.find('label').first().hasClass('dogs-are-totes-patotes')).toBeTruthy();
 	});
 
+	it('should be a small variant, if specified', () => {
+		const component = renderer.create(<XUIRadio onChange={NOOP} size="small">Howdy, folks!</XUIRadio>);
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should be a xsmall variant, if specified', () => {
+		const component = renderer.create(<XUIRadio onChange={NOOP} size="xsmall">Howdy, folks!</XUIRadio>);
+
+		expect(component).toMatchSnapshot();
+	});
 
 	// qaHook property
 	it.skip('should have a qaHook on the root node if provided', () => {

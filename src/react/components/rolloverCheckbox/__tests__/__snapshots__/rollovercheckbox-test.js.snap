@@ -34,7 +34,7 @@ exports[`XUIRolloverCheckbox allows for a user defined rollover component to be 
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         defaultChecked={false}
         disabled={false}
@@ -47,7 +47,7 @@ exports[`XUIRolloverCheckbox allows for a user defined rollover component to be 
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>
@@ -87,7 +87,7 @@ exports[`XUIRolloverCheckbox displays the checkbox when it's set to be shown 1`]
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         defaultChecked={false}
         disabled={false}
@@ -100,7 +100,7 @@ exports[`XUIRolloverCheckbox displays the checkbox when it's set to be shown 1`]
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>
@@ -140,7 +140,7 @@ exports[`XUIRolloverCheckbox doesn't display the checkbox when it's set to hidde
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         defaultChecked={false}
         disabled={false}
@@ -153,7 +153,7 @@ exports[`XUIRolloverCheckbox doesn't display the checkbox when it's set to hidde
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>
@@ -191,7 +191,7 @@ exports[`XUIRolloverCheckbox include an automation-id 1`] = `
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid="test-rollovercheckbox--checkbox--input"
         defaultChecked={false}
         disabled={false}
@@ -204,7 +204,7 @@ exports[`XUIRolloverCheckbox include an automation-id 1`] = `
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid="test-rollovercheckbox--checkbox--checkbox"
       />
     </label>
@@ -244,7 +244,7 @@ exports[`XUIRolloverCheckbox includes an aria-label, when provided 1`] = `
         aria-invalid={undefined}
         aria-label="Test label"
         aria-labelledby={undefined}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         defaultChecked={false}
         disabled={false}
@@ -257,7 +257,7 @@ exports[`XUIRolloverCheckbox includes an aria-label, when provided 1`] = `
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>
@@ -297,7 +297,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a large size whe
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         defaultChecked={false}
         disabled={false}
@@ -310,7 +310,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a large size whe
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>
@@ -350,7 +350,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a small size whe
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         defaultChecked={false}
         disabled={false}
@@ -363,7 +363,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a small size whe
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>
@@ -403,7 +403,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a xlarge size wh
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         defaultChecked={false}
         disabled={false}
@@ -416,7 +416,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a xlarge size wh
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>
@@ -456,7 +456,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be display the stan
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         defaultChecked={false}
         disabled={false}
@@ -469,7 +469,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be display the stan
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>
@@ -509,7 +509,7 @@ exports[`XUIRolloverCheckbox renders an id on the root node when passed 1`] = `
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         defaultChecked={false}
         disabled={false}
@@ -522,7 +522,7 @@ exports[`XUIRolloverCheckbox renders an id on the root node when passed 1`] = `
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>
@@ -563,7 +563,7 @@ exports[`XUIRolloverCheckbox renders checked when specified 1`] = `
         aria-label={undefined}
         aria-labelledby={undefined}
         checked={true}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         disabled={false}
         name={undefined}
@@ -575,7 +575,7 @@ exports[`XUIRolloverCheckbox renders checked when specified 1`] = `
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>
@@ -613,7 +613,7 @@ exports[`XUIRolloverCheckbox renders correctly 1`] = `
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         defaultChecked={false}
         disabled={false}
@@ -626,7 +626,7 @@ exports[`XUIRolloverCheckbox renders correctly 1`] = `
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>
@@ -667,7 +667,7 @@ exports[`XUIRolloverCheckbox renders unchecked when specified 1`] = `
         aria-label={undefined}
         aria-labelledby={undefined}
         checked={false}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         disabled={false}
         name={undefined}
@@ -679,7 +679,7 @@ exports[`XUIRolloverCheckbox renders unchecked when specified 1`] = `
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>
@@ -719,7 +719,7 @@ exports[`XUIRolloverCheckbox should render the disabled classes and a disabled c
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         defaultChecked={false}
         disabled={true}
@@ -732,7 +732,7 @@ exports[`XUIRolloverCheckbox should render the disabled classes and a disabled c
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>
@@ -772,7 +772,7 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes and a disable
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         defaultChecked={false}
         disabled={false}
@@ -785,7 +785,7 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes and a disable
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>
@@ -825,7 +825,7 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes or a disabled
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-styledcheckboxradio--input"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
         data-automationid={undefined}
         defaultChecked={false}
         disabled={false}
@@ -838,7 +838,7 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes or a disabled
         value={undefined}
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
         data-automationid={undefined}
       />
     </label>

@@ -188,7 +188,7 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
         data-automationid={undefined}
       />
       <span
-        className="xui-styledcheckboxradio--label xui-pickitem-multiselect--label"
+        className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem-multiselect--label"
         data-automationid={undefined}
         htmlFor={undefined}
         id="testCheckboxId"
@@ -368,7 +368,7 @@ exports[`<SelectBoxOption /> should render the option and the checkboxes as disa
         data-automationid={undefined}
       />
       <span
-        className="xui-styledcheckboxradio--label xui-pickitem-multiselect--label"
+        className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem-multiselect--label"
         data-automationid={undefined}
         htmlFor={undefined}
         id="testCheckboxId"

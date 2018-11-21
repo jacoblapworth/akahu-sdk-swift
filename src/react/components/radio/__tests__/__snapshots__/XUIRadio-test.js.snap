@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`XUIRadio should have a hidden label, if specified 1`] = `
+exports[`XUIRadio should be a small variant, if specified 1`] = `
 <label
   className="xui-styledcheckboxradio"
   data-automationid={undefined}
@@ -11,9 +11,9 @@ exports[`XUIRadio should have a hidden label, if specified 1`] = `
   <input
     aria-describedby={undefined}
     aria-invalid={undefined}
-    aria-label="Hidden label"
-    aria-labelledby={undefined}
-    className="xui-styledcheckboxradio--input"
+    aria-label={undefined}
+    aria-labelledby="testRadioId"
+    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
     data-automationid={undefined}
     defaultChecked={false}
     disabled={false}
@@ -27,7 +27,89 @@ exports[`XUIRadio should have a hidden label, if specified 1`] = `
     value={undefined}
   />
   <div
-    className="xui-styledcheckboxradio--radio"
+    className="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"
+    data-automationid={undefined}
+  />
+  <span
+    className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small"
+    data-automationid={undefined}
+    htmlFor={undefined}
+    id="testRadioId"
+  >
+    Howdy, folks!
+  </span>
+</label>
+`;
+
+exports[`XUIRadio should be a xsmall variant, if specified 1`] = `
+<label
+  className="xui-styledcheckboxradio"
+  data-automationid={undefined}
+  onClick={[Function]}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <input
+    aria-describedby={undefined}
+    aria-invalid={undefined}
+    aria-label={undefined}
+    aria-labelledby="testRadioId"
+    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall"
+    data-automationid={undefined}
+    defaultChecked={false}
+    disabled={false}
+    id={undefined}
+    name={undefined}
+    onChange={[Function]}
+    required={false}
+    role="radio"
+    tabIndex={undefined}
+    type="radio"
+    value={undefined}
+  />
+  <div
+    className="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-xsmall"
+    data-automationid={undefined}
+  />
+  <span
+    className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall"
+    data-automationid={undefined}
+    htmlFor={undefined}
+    id="testRadioId"
+  >
+    Howdy, folks!
+  </span>
+</label>
+`;
+
+exports[`XUIRadio should have a hidden label, if specified 1`] = `
+<label
+  className="xui-styledcheckboxradio"
+  data-automationid={undefined}
+  onClick={[Function]}
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <input
+    aria-describedby={undefined}
+    aria-invalid={undefined}
+    aria-label="Hidden label"
+    aria-labelledby={undefined}
+    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
+    data-automationid={undefined}
+    defaultChecked={false}
+    disabled={false}
+    id={undefined}
+    name={undefined}
+    onChange={[Function]}
+    required={false}
+    role="radio"
+    tabIndex={undefined}
+    type="radio"
+    value={undefined}
+  />
+  <div
+    className="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-standard"
     data-automationid={undefined}
   />
 </label>
@@ -46,7 +128,7 @@ exports[`XUIRadio should have label text if provided 1`] = `
     aria-invalid={undefined}
     aria-label={undefined}
     aria-labelledby="testRadioId"
-    className="xui-styledcheckboxradio--input"
+    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
     data-automationid={undefined}
     defaultChecked={false}
     disabled={false}
@@ -60,11 +142,11 @@ exports[`XUIRadio should have label text if provided 1`] = `
     value={undefined}
   />
   <div
-    className="xui-styledcheckboxradio--radio"
+    className="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-standard"
     data-automationid={undefined}
   />
   <span
-    className="xui-styledcheckboxradio--label"
+    className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard"
     data-automationid={undefined}
     htmlFor={undefined}
     id="testRadioId"
@@ -87,7 +169,7 @@ exports[`XUIRadio should render with an icon when one is provided 1`] = `
     aria-invalid={undefined}
     aria-label={undefined}
     aria-labelledby={undefined}
-    className="xui-styledcheckboxradio--input"
+    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
     data-automationid={undefined}
     defaultChecked={false}
     disabled={false}

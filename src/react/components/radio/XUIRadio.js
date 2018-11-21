@@ -42,24 +42,39 @@ const buildSvgRadio = (qaHook, { svgClassName, iconMain }) => {
 	);
 };
 
-const buildHtmlRadio = (qaHook, htmlClassName, isGrouped) => {
+/**
+ * @function buildHtmlRadio - given the radio props supplied, select which radio
+ * builder to trigger
+ * @param qaHook - Optional hook label
+ * @param htmlClassName - Optional classname to add to html version of radio
+ * @param calculatedSize - String to specify the size of the radio
+ *
+ */
+const buildHtmlRadio = (qaHook, htmlClassName, calculatedSize) => {
 	const htmlClasses = cn(
 		`${baseClass}--radio`,
 		htmlClassName,
-		{
-			[`${baseClass}--radio-small`]: isGrouped,
-		},
+		calculatedSize && `${baseClass}--radio-${calculatedSize}`,
 	);
 	return (
 		<div className={htmlClasses} data-automationid={qaHook && `${qaHook}--radio`} />
 	);
 };
 
-const buildRadio = (qaHook, htmlClassName, svgSettings, isGrouped) => {
+/**
+ * @function buildRadio - given the radio props supplied, select which checkbox
+ * builder to trigger
+ * @param qaHook - Optional hook label
+ * @param htmlClassName - Optional classname to add to html version of radio
+ * @param svgSettings - Object containing optional svg properties (classname, icon paths)
+ * @param calculatedSize - String to specify the size of the radio
+ *
+ */
+const buildRadio = (qaHook, htmlClassName, svgSettings, calculatedSize) => {
 	if (svgSettings.iconMain) {
 		return buildSvgRadio(qaHook, svgSettings);
 	}
-	return buildHtmlRadio(qaHook, htmlClassName, isGrouped);
+	return buildHtmlRadio(qaHook, htmlClassName, calculatedSize);
 };
 
 export default class XUIRadio extends PureComponent {
@@ -91,6 +106,7 @@ export default class XUIRadio extends PureComponent {
 			isInvalid,
 			validationMessage,
 			hintMessage,
+			size,
 		} = this.props;
 
 		const classes = cn(
@@ -100,8 +116,12 @@ export default class XUIRadio extends PureComponent {
 			isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
 		);
 
+		// Grouped inputs default to 'small'.
+		const calculatedSize = (isGrouped && 'small') || size;
+
 		const labelClasses = cn(
 			`${baseClass}--label`,
+			calculatedSize && `${baseClass}--label-${calculatedSize}`,
 			labelClassName,
 		);
 
@@ -152,12 +172,12 @@ export default class XUIRadio extends PureComponent {
 					className={cn(
 						`${baseClass}--input`,
 						inputProps.className,
-						{ [`${baseClass}--input-small`]: isGrouped },
+						calculatedSize && `${baseClass}--input-${calculatedSize}`,
 					)}
 					data-automationid={qaHook && `${qaHook}--input`}
 					{...inputProps}
 				/>
-				{buildRadio(qaHook, htmlClassName, svgSettings, isGrouped)}
+				{buildRadio(qaHook, htmlClassName, svgSettings, calculatedSize)}
 			</XUIControlWrapperInline>
 		);
 	}
@@ -232,6 +252,8 @@ XUIRadio.propTypes = {
 	validationMessage: PropTypes.string,
 	/** Hint message to show under the input */
 	hintMessage: PropTypes.string,
+	/** Size variant. Defaults to standard */
+	size: PropTypes.oneOf(['standard', 'small', 'xsmall']),
 };
 
 XUIRadio.defaultProps = {
@@ -241,4 +263,5 @@ XUIRadio.defaultProps = {
 	isRequired: false,
 	isReversed: false,
 	role: 'radio',
+	size: 'standard',
 };

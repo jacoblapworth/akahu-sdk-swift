@@ -36,7 +36,7 @@ export default function XUIIcon(props) {
 
 	const optionalTitle = title ? <title>{ title }</title> : null;
 	const optionalDescription = desc ? <desc>{ desc }</desc> : null;
-	const sizeMultiplier = iconSizeMultipliers[size];
+	const sizeMultiplier = iconSizeMultipliers[size] || 1;
 
 	const svgElement = (
 		<svg

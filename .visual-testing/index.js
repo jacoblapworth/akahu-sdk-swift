@@ -169,8 +169,8 @@ const componentsToTest = [
 		variationsPath: `${variationsPath}/structural/stories/variations.js`
 	},
 	{
-		testsPrefix: 'Compositions',
-		variationsPath: '../.tmp/react-visualregression/stories/compositions/tests.js',
+		testsPrefix: 'Components in Components',
+		variationsPath: '../.tmp/react-visualregression/stories/components-in-components/tests.js',
 		delay: 1500,
 		...fullPageSettings
 	},

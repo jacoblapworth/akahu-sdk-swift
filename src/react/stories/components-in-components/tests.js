@@ -1,4 +1,4 @@
-const compositionKind = 'Compositions';
+const compositionKind = 'Components in Components';
 
 const storyNames = {
 	dateDDInModal: 'Datepicker dropdown in a modal',

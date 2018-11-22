@@ -82,8 +82,7 @@ const buildSvgCheckbox = (qaHook, { svgClassName, iconMain }) => {
 };
 
 /**
- * @function buildHtmlCheckbox - given the checkbox props supplied, select which checkbox
- * builder to trigger
+ * @function buildHtmlCheckbox - build the HTML version of the checkbox control
  * @param qaHook - Optional hook label
  * @param htmlClassName - Optional classname to add to html version of checkbox
  * @param calculatedSize - String to specify the size of the checkbox

@@ -24,6 +24,12 @@ const onLabelClick = e => {
 	}
 };
 
+/**
+ * @function buildSvgRadio - If triggered with a custom icon path, build svg radio
+ * @param qaHook - Optional hook label
+ * @param svgSettings - Object containing optional svg properties (classname, icon paths)
+ *
+ */
 const buildSvgRadio = (qaHook, { svgClassName, iconMain }) => {
 	const svgClasses = cn(`${ns}-icon`, svgClassName);
 	return (
@@ -43,8 +49,7 @@ const buildSvgRadio = (qaHook, { svgClassName, iconMain }) => {
 };
 
 /**
- * @function buildHtmlRadio - given the radio props supplied, select which radio
- * builder to trigger
+ * @function buildHtmlRadio - build the HTML version of the radio control
  * @param qaHook - Optional hook label
  * @param htmlClassName - Optional classname to add to html version of radio
  * @param calculatedSize - String to specify the size of the radio
@@ -62,7 +67,7 @@ const buildHtmlRadio = (qaHook, htmlClassName, calculatedSize) => {
 };
 
 /**
- * @function buildRadio - given the radio props supplied, select which checkbox
+ * @function buildRadio - given the radio props supplied, select which radio
  * builder to trigger
  * @param qaHook - Optional hook label
  * @param htmlClassName - Optional classname to add to html version of radio
@@ -232,7 +237,7 @@ XUIRadio.propTypes = {
 	 * accessible to screen readers. */
 	isLabelHidden: PropTypes.bool,
 
-	/** Used to output an uncontrolled checkbox component.  If a value is passed to the
+	/** Used to output an uncontrolled radio component.  If a value is passed to the
 	 * isChecked prop, this prop will be ignored. */
 	isDefaultChecked: PropTypes.bool,
 

@@ -18,6 +18,7 @@ class XUIInnerPill extends PureComponent {
 			target,
 			title,
 			value,
+			avatar,
 		} = this.props;
 
 		const isInteractive = href || onClick;
@@ -36,7 +37,7 @@ class XUIInnerPill extends PureComponent {
 
 		const contents = (
 			<Fragment>
-				<LeftVisualEl isInvalid={isInvalid} avatarProps={avatarProps} />
+				<LeftVisualEl isInvalid={isInvalid} avatarProps={avatarProps} avatar={avatar} />
 				{secondaryTextEl}
 				{valueEl}
 			</Fragment>
@@ -68,6 +69,8 @@ XUIInnerPill.propTypes = {
 	 * described at https://github.dev.xero.com/UXE/xui-avatar. Version 6.0.0+. Not providing
 	 * props will omit the avatar entirely. */
 	avatarProps: PropTypes.object,
+	/** An avatar component. May be used instead of avatarProps */
+	avatar: PropTypes.element,
 	/** This will make the value an `anchor` element instead of a `span` element and adds the
 	 * href as the link. */
 	href: PropTypes.string,

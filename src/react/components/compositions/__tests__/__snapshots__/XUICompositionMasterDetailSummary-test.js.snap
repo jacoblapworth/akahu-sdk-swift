@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIComposition2> renders basic example 1`] = `
+exports[`<XUICompositionMasterDetailSummary> renders basic example 1`] = `
 <div
-  className="xui-composition xui-composition-2 xui-composition-is-finite"
+  className="xui-composition xui-composition-masterdetailsummary xui-composition-is-finite"
 >
   <div
     className="xui-gridarea-nav"
@@ -22,9 +22,9 @@ exports[`<XUIComposition2> renders basic example 1`] = `
 </div>
 `;
 
-exports[`<XUIComposition2> should do nothing with children 1`] = `
+exports[`<XUICompositionMasterDetailSummary> should do nothing with children 1`] = `
 <div
-  className="xui-composition xui-composition-2 xui-composition-is-finite"
+  className="xui-composition xui-composition-masterdetailsummary xui-composition-is-finite"
 >
   <div
     className="xui-gridarea-nav"

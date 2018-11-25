@@ -4,8 +4,8 @@ import React, { Fragment } from 'react';
 // Components we need to test with
 import XUIBothWithHeader from '../XUIComposition1';
 import XUIBothNoHeader from '../XUIComposition2';
-import XUISummaryWithHeader from '../XUIComposition3';
-import XUISummaryNoHeader from '../XUIComposition4';
+import XUICompositionSummaryDetailHeader from '../XUICompositionSummaryDetailHeader';
+import XUICompositionSummaryDetail from '../XUICompositionSummaryDetail';
 import XUISimpleWithHeader from '../XUIComposition5';
 import XUISimpleNoHeader from '../XUIComposition6';
 import XUISplitWithHeader from '../XUIComposition7';
@@ -17,7 +17,7 @@ import XUIGridAreaNavPanelDropdown, { XUIGridAreaNavPanelDropdownEventLabel } fr
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, number, select } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 import XUIPanel from '../../structural/XUIPanel';
 import XUIPicklist from '../../picklist/Picklist';
@@ -207,8 +207,8 @@ storiesWithKnobs.add('Nav Composition', () => {
 	)
 });
 
-storiesWithKnobs.add('Summary Composition', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUISummaryWithHeader : XUISummaryNoHeader;
+storiesWithKnobs.add('Summary detail', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionSummaryDetailHeader : XUICompositionSummaryDetail;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),

@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import '../../../sass/5-structure/_base.scss';
-import '../../../sass/5-structure/compositions/_4.scss';
+import '../../../sass/5-structure/compositions/_summarydetail.scss';
 
 import XUIGridAreaMain from './XUIGridAreaMain';
 import XUIGridAreaSummary from './XUIGridAreaSummary';
 
 import baseCompositionClass from './helpers';
 
-export default class XUIComposition4 extends PureComponent {
+export default class XUICompositionSummaryDetail extends PureComponent {
 	render() {
 		const {
 			summary,
@@ -21,7 +21,7 @@ export default class XUIComposition4 extends PureComponent {
 
 		const compositionClasses = cn(
 			baseCompositionClass,
-			`${baseCompositionClass}-4`,
+			`${baseCompositionClass}-summarydetail`,
 			!isInfinite && `${baseCompositionClass}-is-finite`,
 			className,
 		);
@@ -39,7 +39,7 @@ export default class XUIComposition4 extends PureComponent {
 	}
 }
 
-XUIComposition4.propTypes = {
+XUICompositionSummaryDetail.propTypes = {
 	className: PropTypes.string,
 	summary: PropTypes.element.isRequired,
 	main: PropTypes.element.isRequired,

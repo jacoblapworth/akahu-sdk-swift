@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIComposition7> renders basic example 1`] = `
+exports[`<XUICompositionDetailSplitHeader> renders basic example 1`] = `
 <div
-  className="xui-composition xui-composition-7 xui-composition-is-finite"
+  className="xui-composition xui-composition-detailsplitheader xui-composition-is-finite"
 >
   <div
     className="xui-gridarea-header"
@@ -22,9 +22,9 @@ exports[`<XUIComposition7> renders basic example 1`] = `
 </div>
 `;
 
-exports[`<XUIComposition7> should do nothing with children 1`] = `
+exports[`<XUICompositionDetailSplitHeader> should do nothing with children 1`] = `
 <div
-  className="xui-composition xui-composition-7 xui-composition-is-finite"
+  className="xui-composition xui-composition-detailsplitheader xui-composition-is-finite"
 >
   <div
     className="xui-gridarea-header"
@@ -44,9 +44,9 @@ exports[`<XUIComposition7> should do nothing with children 1`] = `
 </div>
 `;
 
-exports[`<XUIComposition7> should include custom class and omit width-limiting class, if specified 1`] = `
+exports[`<XUICompositionDetailSplitHeader> should include custom class and omit width-limiting class, if specified 1`] = `
 <div
-  className="xui-composition xui-composition-7 split-with-head"
+  className="xui-composition xui-composition-detailsplitheader split-with-head"
 >
   <div
     className="xui-gridarea-header"

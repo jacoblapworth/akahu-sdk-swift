@@ -8,8 +8,8 @@ import XUISummaryWithHeader from '../XUIComposition3';
 import XUISummaryNoHeader from '../XUIComposition4';
 import XUISimpleWithHeader from '../XUIComposition5';
 import XUISimpleNoHeader from '../XUIComposition6';
-import XUISplitWithHeader from '../XUIComposition7';
-import XUISplitNoHeader from '../XUIComposition8';
+import XUICompositionDetailSplitHeader from '../XUICompositionDetailSplitHeader';
+import XUICompositionDetailSplit from '../XUICompositionDetailSplit';
 import XUINavWithHeader from '../XUIComposition9';
 import XUINavNoHeader from '../XUIComposition10';
 
@@ -17,7 +17,7 @@ import XUIGridAreaNavPanelDropdown, { XUIGridAreaNavPanelDropdownEventLabel } fr
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, number, select } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 import XUIPanel from '../../structural/XUIPanel';
 import XUIPicklist from '../../picklist/Picklist';
@@ -241,8 +241,8 @@ storiesWithKnobs.add('Single Composition', () => {
 	)
 });
 
-storiesWithKnobs.add('Split Composition', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUISplitWithHeader : XUISplitNoHeader;
+storiesWithKnobs.add('Split', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionDetailSplitHeader : XUICompositionDetailSplit;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),

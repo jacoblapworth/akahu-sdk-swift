@@ -16,6 +16,7 @@ const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
 class XUITextInput extends PureComponent {
 	state = {
 		hasFocus: false,
+		maxHeight: undefined,
 	};
 
 	generatedId = uuidv4();
@@ -24,7 +25,7 @@ class XUITextInput extends PureComponent {
 		const { maxRows } = this.props;
 
 		if (shouldAutomaticallyResize(this.props)) {
-			if (maxRows != null) {
+			if (maxRows != null && this.input) {
 				this.setState({ // eslint-disable-line react/no-did-mount-set-state
 					maxHeight: calculateMaxHeight({
 						textArea: this.input,

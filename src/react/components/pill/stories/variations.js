@@ -1,3 +1,5 @@
+import React from 'react';
+import XUIAvatar from '../../avatar/XUIAvatar';
 const NOOP = require('../../helpers/noop');
 const storiesWithVariationsKindName = 'Instances/XUIPill';
 
@@ -43,7 +45,7 @@ const variations = [
 		storyTitle: 'as a link',
 		value: 'Click Me Pill',
 		href: "https://www.xero.com",
-		avatarProps
+		avatar: <XUIAvatar value="Hello" size="small" />,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

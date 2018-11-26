@@ -1,5 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<XUIPill /> renders the pill with the provided avatar component 1`] = `
+<div
+  className="xui-pill xui-pill-layout xui-pill-maxwidth"
+  data-automationid={undefined}
+  onBlur={[Function]}
+  onFocus={[Function]}
+>
+  <span
+    className="xui-pill--content"
+    data-automationid={undefined}
+  >
+    <abbr
+      className="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8"
+      data-automationid={undefined}
+      role="presentation"
+    >
+      VP
+    </abbr>
+    <span
+      className="xui-pill--text"
+    >
+      Value Pill
+    </span>
+  </span>
+</div>
+`;
+
 exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
 <div
   className="xui-pill xui-pill-layout xui-pill-maxwidth"

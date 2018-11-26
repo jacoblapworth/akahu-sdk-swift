@@ -215,9 +215,9 @@ variations.forEach(variation => {
 		} else if (type === "content block") {
 			const { items } = variationMinusStoryDetails;
 			return (
-				<div className="xui-panel" style={{minWidth: "700px"}}>
+				<XUIPanel>
 					<XUIContentBlock {...variationMinusStoryDetails}>{buildExampleContentblockItem(items)}</XUIContentBlock>
-				</div>
+				</XUIPanel>
 			)
 		}
 	});

@@ -212,11 +212,13 @@ function buildScenarios() {
 					misMatchThreshold: component.misMatchThreshold || 0.6,
 					selectorExpansion: component.captureAllSelectors,
 					delay,
-					readyEvent
+					readyEvent,
+					viewports: story.viewports || component.viewports
 				};
 			})
 		);
 	});
+
 	return scenarios;
 }
 

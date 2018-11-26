@@ -1,3 +1,5 @@
+import commonViewports from '../../../stories/helpers/viewports';
+
 const { rowVariants } = require('../private/constants');
 const storiesWithVariationsKindName = 'Instances/Structure';
 
@@ -9,6 +11,7 @@ let variations = Object.keys(rowVariants).map(variant => ({
 		type: 'row'
 	})
 );
+
 variations = [...variations,
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -200,7 +203,8 @@ variations = [...variations,
 				pinnedValue: true,
 				action: true
 			}
-		]
+		],
+		viewports: commonViewports
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

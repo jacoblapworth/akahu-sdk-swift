@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUICompositionMasterDetailHeader> renders basic example 1`] = `
+<div
+  className="xui-composition xui-composition-masterdetailheader xui-composition-is-finite"
+>
+  <div
+    className="xui-gridarea-header"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-nav"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-main"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<XUICompositionMasterDetailHeader> should do nothing with children 1`] = `
+<div
+  className="xui-composition xui-composition-masterdetailheader xui-composition-is-finite"
+>
+  <div
+    className="xui-gridarea-header"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-nav"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-main"
+  >
+    <div />
+  </div>
+</div>
+`;

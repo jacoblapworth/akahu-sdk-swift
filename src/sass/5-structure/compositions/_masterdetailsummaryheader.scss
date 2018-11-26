@@ -1,0 +1,28 @@
+@import "../../vars";
+@import "../../mixins";
+
+.#{$ns}-composition-masterdetailsummaryheader {
+	@include xui-breakpoint-small-down {
+		grid-gap: $xui-s-small $xui-s-small;
+		grid-template:
+			"header header header" min-content
+			"summary summary summary" min-content
+			"main main main" 1fr;
+		-ms-grid-columns: 1fr;
+	}
+
+	@include xui-breakpoint-medium-only {
+		grid-gap: $xui-s-small $xui-s-small;
+		grid-template:
+			"header header header" min-content
+			"summary summary summary" min-content
+			"nav main main" / min-content 1fr 1fr;
+	}
+
+	@include xui-breakpoint-large-up {
+		grid-gap: $xui-s-small $xui-s-small;
+		grid-template:
+			"header header header" min-content
+			"nav main summary" / min-content 1fr min-content;
+	}
+}

@@ -2,16 +2,16 @@
 import React, { Fragment } from 'react';
 
 // Components we need to test with
-import XUIBothWithHeader from '../XUIComposition1';
-import XUIBothNoHeader from '../XUIComposition2';
-import XUISummaryWithHeader from '../XUIComposition3';
-import XUISummaryNoHeader from '../XUIComposition4';
-import XUISimpleWithHeader from '../XUIComposition5';
-import XUISimpleNoHeader from '../XUIComposition6';
 import XUICompositionDetailSplitHeader from '../XUICompositionDetailSplitHeader';
 import XUICompositionDetailSplit from '../XUICompositionDetailSplit';
-import XUINavWithHeader from '../XUIComposition9';
-import XUINavNoHeader from '../XUIComposition10';
+import XUICompositionDetailHeader from '../XUICompositionDetailHeader';
+import XUICompositionDetail from '../XUICompositionDetail';
+import XUICompositionSummaryDetailHeader from '../XUICompositionSummaryDetailHeader';
+import XUICompositionSummaryDetail from '../XUICompositionSummaryDetail';
+import XUICompositionMasterDetailSummaryHeader from '../XUICompositionMasterDetailSummaryHeader';
+import XUICompositionMasterDetailSummary from '../XUICompositionMasterDetailSummary';
+import XUICompositionMasterDetailHeader from '../XUICompositionMasterDetailHeader';
+import XUICompositionMasterDetail from '../XUICompositionMasterDetail';
 
 import XUIGridAreaNavPanelDropdown, { XUIGridAreaNavPanelDropdownEventLabel } from '../XUIGridAreaNavPanelDropdown';
 
@@ -147,10 +147,10 @@ const fireEvent = () => {
 	}))
 }
 
-const storiesWithKnobs = storiesOf('XUIComposition2', module);
+const storiesWithKnobs = storiesOf('Compositions', module);
 storiesWithKnobs.addDecorator(withKnobs);
-storiesWithKnobs.add('Summary + Nav', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUIBothWithHeader : XUIBothNoHeader;
+storiesWithKnobs.add('Master detail summary', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionMasterDetailSummaryHeader : XUICompositionMasterDetailSummary;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
@@ -178,8 +178,8 @@ storiesWithKnobs.add('Summary + Nav', () => {
 	)
 });
 
-storiesWithKnobs.add('Nav Composition', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUINavWithHeader : XUINavNoHeader;
+storiesWithKnobs.add('Master detail', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionMasterDetailHeader : XUICompositionMasterDetail;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
@@ -207,8 +207,8 @@ storiesWithKnobs.add('Nav Composition', () => {
 	)
 });
 
-storiesWithKnobs.add('Summary Composition', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUISummaryWithHeader : XUISummaryNoHeader;
+storiesWithKnobs.add('Summary detail', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionSummaryDetailHeader : XUICompositionSummaryDetail;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
@@ -224,8 +224,8 @@ storiesWithKnobs.add('Summary Composition', () => {
 	)
 });
 
-storiesWithKnobs.add('Single Composition', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUISimpleWithHeader : XUISimpleNoHeader;
+storiesWithKnobs.add('Detail', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionDetailHeader : XUICompositionDetail;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
@@ -241,7 +241,8 @@ storiesWithKnobs.add('Single Composition', () => {
 	)
 });
 
-storiesWithKnobs.add('Split', () => {
+
+storiesWithKnobs.add('Detail split', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUICompositionDetailSplitHeader : XUICompositionDetailSplit;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),

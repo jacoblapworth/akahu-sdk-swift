@@ -3,19 +3,21 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import '../../../sass/5-structure/_base.scss';
-import '../../../sass/5-structure/compositions/_9.scss';
+import '../../../sass/5-structure/compositions/_masterdetailsummaryheader.scss';
 
 import XUIGridAreaMain from './XUIGridAreaMain';
+import XUIGridAreaSummary from './XUIGridAreaSummary';
 import XUIGridAreaNav from './XUIGridAreaNav';
 import XUIGridAreaHeader from './XUIGridAreaHeader';
 
 import baseCompositionClass from './helpers';
 
-export default class XUIComposition9 extends PureComponent {
+export default class XUICompositionMasterDetailSummaryHeader extends PureComponent {
 	render() {
 		const {
 			className,
 			header,
+			summary,
 			nav,
 			main,
 			isInfinite,
@@ -23,7 +25,7 @@ export default class XUIComposition9 extends PureComponent {
 
 		const compositionClasses = cn(
 			baseCompositionClass,
-			`${baseCompositionClass}-9`,
+			`${baseCompositionClass}-masterdetailsummaryheader`,
 			!isInfinite && `${baseCompositionClass}-is-finite`,
 			className,
 		);
@@ -39,15 +41,20 @@ export default class XUIComposition9 extends PureComponent {
 				<XUIGridAreaMain>
 					{main}
 				</XUIGridAreaMain>
+				<XUIGridAreaSummary>
+					{summary}
+				</XUIGridAreaSummary>
 			</div>
 		);
 	}
 }
 
-XUIComposition9.propTypes = {
+XUICompositionMasterDetailSummaryHeader.propTypes = {
 	className: PropTypes.string,
 	header: PropTypes.element.isRequired,
+	summary: PropTypes.element.isRequired,
 	nav: PropTypes.element.isRequired,
 	main: PropTypes.element.isRequired,
 	isInfinite: PropTypes.bool,
 };
+

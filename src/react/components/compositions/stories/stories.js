@@ -2,16 +2,16 @@
 import React, { Fragment } from 'react';
 
 // Components we need to test with
-import XUIBothWithHeader from '../XUIComposition1';
-import XUIBothNoHeader from '../XUIComposition2';
 import XUICompositionSummaryDetailHeader from '../XUICompositionSummaryDetailHeader';
 import XUICompositionSummaryDetail from '../XUICompositionSummaryDetail';
+import XUICompositionMasterDetailSummaryHeader from '../XUICompositionMasterDetailSummaryHeader';
+import XUICompositionMasterDetailSummary from '../XUICompositionMasterDetailSummary';
 import XUISimpleWithHeader from '../XUIComposition5';
 import XUISimpleNoHeader from '../XUIComposition6';
 import XUISplitWithHeader from '../XUIComposition7';
 import XUISplitNoHeader from '../XUIComposition8';
-import XUINavWithHeader from '../XUIComposition9';
-import XUINavNoHeader from '../XUIComposition10';
+import XUICompositionMasterDetailHeader from '../XUICompositionMasterDetailHeader';
+import XUICompositionMasterDetail from '../XUICompositionMasterDetail';
 
 import XUIGridAreaNavPanelDropdown, { XUIGridAreaNavPanelDropdownEventLabel } from '../XUIGridAreaNavPanelDropdown';
 
@@ -147,10 +147,10 @@ const fireEvent = () => {
 	}))
 }
 
-const storiesWithKnobs = storiesOf('XUIComposition2', module);
+const storiesWithKnobs = storiesOf('Compositions', module);
 storiesWithKnobs.addDecorator(withKnobs);
-storiesWithKnobs.add('Summary + Nav', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUIBothWithHeader : XUIBothNoHeader;
+storiesWithKnobs.add('Master detail summary', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionMasterDetailSummaryHeader : XUICompositionMasterDetailSummary;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
@@ -178,8 +178,8 @@ storiesWithKnobs.add('Summary + Nav', () => {
 	)
 });
 
-storiesWithKnobs.add('Nav Composition', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUINavWithHeader : XUINavNoHeader;
+storiesWithKnobs.add('Master detail', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionMasterDetailHeader : XUICompositionMasterDetail;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
@@ -224,7 +224,7 @@ storiesWithKnobs.add('Summary detail', () => {
 	)
 });
 
-storiesWithKnobs.add('Single Composition', () => {
+storiesWithKnobs.add('Detail only', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUISimpleWithHeader : XUISimpleNoHeader;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
@@ -241,7 +241,7 @@ storiesWithKnobs.add('Single Composition', () => {
 	)
 });
 
-storiesWithKnobs.add('Split Composition', () => {
+storiesWithKnobs.add('Detail split', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUISplitWithHeader : XUISplitNoHeader;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),

@@ -2,14 +2,14 @@
 import React, { Fragment } from 'react';
 
 // Components we need to test with
+import XUICompositionDetailSplitHeader from '../XUICompositionDetailSplitHeader';
+import XUICompositionDetailSplit from '../XUICompositionDetailSplit';
 import XUICompositionDetailHeader from '../XUICompositionDetailHeader';
 import XUICompositionDetail from '../XUICompositionDetail';
 import XUICompositionSummaryDetailHeader from '../XUICompositionSummaryDetailHeader';
 import XUICompositionSummaryDetail from '../XUICompositionSummaryDetail';
 import XUICompositionMasterDetailSummaryHeader from '../XUICompositionMasterDetailSummaryHeader';
 import XUICompositionMasterDetailSummary from '../XUICompositionMasterDetailSummary';
-import XUISplitWithHeader from '../XUIComposition7';
-import XUISplitNoHeader from '../XUIComposition8';
 import XUICompositionMasterDetailHeader from '../XUICompositionMasterDetailHeader';
 import XUICompositionMasterDetail from '../XUICompositionMasterDetail';
 
@@ -241,8 +241,9 @@ storiesWithKnobs.add('Detail', () => {
 	)
 });
 
+
 storiesWithKnobs.add('Detail split', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUISplitWithHeader : XUISplitNoHeader;
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionDetailSplitHeader : XUICompositionDetailSplit;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),

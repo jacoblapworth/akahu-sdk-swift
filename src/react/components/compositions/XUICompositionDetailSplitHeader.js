@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import '../../../sass/5-structure/_base.scss';
-import '../../../sass/5-structure/compositions/_7.scss';
+import '../../../sass/5-structure/compositions/_detailsplitheader.scss';
 
 import XUIGridAreaMedia from './XUIGridAreaMedia';
 import XUIGridAreaMain from './XUIGridAreaMain';
@@ -11,7 +11,7 @@ import XUIGridAreaHeader from './XUIGridAreaHeader';
 
 import baseCompositionClass from './helpers';
 
-export default class XUIComposition7 extends PureComponent {
+export default class XUICompositionDetailSplitHeader extends PureComponent {
 	render() {
 		const {
 			className,
@@ -23,7 +23,7 @@ export default class XUIComposition7 extends PureComponent {
 
 		const compositionClasses = cn(
 			baseCompositionClass,
-			`${baseCompositionClass}-7`,
+			`${baseCompositionClass}-detailsplitheader`,
 			!isInfinite && `${baseCompositionClass}-is-finite`,
 			className,
 		);
@@ -44,7 +44,7 @@ export default class XUIComposition7 extends PureComponent {
 	}
 }
 
-XUIComposition7.propTypes = {
+XUICompositionDetailSplitHeader.propTypes = {
 	className: PropTypes.string,
 	header: PropTypes.element.isRequired,
 	main: PropTypes.element.isRequired,

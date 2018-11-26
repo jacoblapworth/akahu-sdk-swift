@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import '../../../sass/5-structure/_base.scss';
-import '../../../sass/5-structure/compositions/_8.scss';
+import '../../../sass/5-structure/compositions/_detailsplit.scss';
 
 import XUIGridAreaMedia from './XUIGridAreaMedia';
 import XUIGridAreaMain from './XUIGridAreaMain';
 
 import baseCompositionClass from './helpers';
 
-export default class XUIComposition8 extends PureComponent {
+export default class XUICompositionDetailSplit extends PureComponent {
 	render() {
 		const {
 			main,
@@ -21,7 +21,7 @@ export default class XUIComposition8 extends PureComponent {
 
 		const compositionClasses = cn(
 			baseCompositionClass,
-			`${baseCompositionClass}-8`,
+			`${baseCompositionClass}-detailsplit`,
 			!isInfinite && `${baseCompositionClass}-is-finite`,
 			className,
 		);
@@ -39,7 +39,7 @@ export default class XUIComposition8 extends PureComponent {
 	}
 }
 
-XUIComposition8.propTypes = {
+XUICompositionDetailSplit.propTypes = {
 	className: PropTypes.string,
 	main: PropTypes.element.isRequired,
 	media: PropTypes.element.isRequired,

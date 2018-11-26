@@ -24,6 +24,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -97,6 +98,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -170,6 +172,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -243,6 +246,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -316,6 +320,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -389,6 +394,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -462,6 +468,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -537,6 +544,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -610,6 +618,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -683,6 +692,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}
@@ -756,6 +766,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       <div
         aria-hidden={true}

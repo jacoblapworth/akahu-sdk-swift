@@ -19,6 +19,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render a placeholder inside 
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       trigger
     </button>
@@ -45,6 +46,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an automation id when
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       trigger
     </button>
@@ -71,6 +73,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the dropdown
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       trigger
     </button>
@@ -97,6 +100,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input wh
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       trigger
     </button>
@@ -123,6 +127,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render as disabled when isDi
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       trigger
     </button>
@@ -149,6 +154,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       trigger
     </button>
@@ -175,6 +181,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       trigger
     </button>
@@ -201,6 +208,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes when pa
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      onKeyUp={[Function]}
     >
       trigger
     </button>

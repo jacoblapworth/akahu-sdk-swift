@@ -10,8 +10,8 @@ import XUISimpleWithHeader from '../XUIComposition5';
 import XUISimpleNoHeader from '../XUIComposition6';
 import XUISplitWithHeader from '../XUIComposition7';
 import XUISplitNoHeader from '../XUIComposition8';
-import XUINavWithHeader from '../XUIComposition9';
-import XUINavNoHeader from '../XUIComposition10';
+import XUICompositionMasterDetailHeader from '../XUICompositionMasterDetailHeader';
+import XUICompositionMasterDetail from '../XUICompositionMasterDetail';
 
 import XUIGridAreaNavPanelDropdown, { XUIGridAreaNavPanelDropdownEventLabel } from '../XUIGridAreaNavPanelDropdown';
 
@@ -179,7 +179,7 @@ storiesWithKnobs.add('Master detail summary', () => {
 });
 
 storiesWithKnobs.add('Master detail', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUINavWithHeader : XUINavNoHeader;
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionMasterDetailHeader : XUICompositionMasterDetail;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),

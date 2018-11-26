@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import '../../../sass/5-structure/_base.scss';
-import '../../../sass/5-structure/compositions/_5.scss';
+import '../../../sass/5-structure/compositions/_detailheader.scss';
 
 import XUIGridAreaMain from './XUIGridAreaMain';
 import XUIGridAreaHeader from './XUIGridAreaHeader';
 
 import baseCompositionClass from './helpers';
 
-export default class XUIComposition5 extends PureComponent {
+export default class XUICompositionDetailHeader extends PureComponent {
 	render() {
 		const {
 			className,
@@ -21,7 +21,7 @@ export default class XUIComposition5 extends PureComponent {
 
 		const compositionClasses = cn(
 			baseCompositionClass,
-			`${baseCompositionClass}-5`,
+			`${baseCompositionClass}-detailheader`,
 			!isInfinite && `${baseCompositionClass}-is-finite`,
 			className,
 		);
@@ -39,7 +39,7 @@ export default class XUIComposition5 extends PureComponent {
 	}
 }
 
-XUIComposition5.propTypes = {
+XUICompositionDetailHeader.propTypes = {
 	className: PropTypes.string,
 	header: PropTypes.element.isRequired,
 	main: PropTypes.element.isRequired,

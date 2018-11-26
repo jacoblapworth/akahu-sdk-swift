@@ -2,12 +2,12 @@
 import React, { Fragment } from 'react';
 
 // Components we need to test with
+import XUICompositionDetailHeader from '../XUICompositionDetailHeader';
+import XUICompositionDetail from '../XUICompositionDetail';
 import XUICompositionSummaryDetailHeader from '../XUICompositionSummaryDetailHeader';
 import XUICompositionSummaryDetail from '../XUICompositionSummaryDetail';
 import XUICompositionMasterDetailSummaryHeader from '../XUICompositionMasterDetailSummaryHeader';
 import XUICompositionMasterDetailSummary from '../XUICompositionMasterDetailSummary';
-import XUISimpleWithHeader from '../XUIComposition5';
-import XUISimpleNoHeader from '../XUIComposition6';
 import XUISplitWithHeader from '../XUIComposition7';
 import XUISplitNoHeader from '../XUIComposition8';
 import XUICompositionMasterDetailHeader from '../XUICompositionMasterDetailHeader';
@@ -224,8 +224,8 @@ storiesWithKnobs.add('Summary detail', () => {
 	)
 });
 
-storiesWithKnobs.add('Detail only', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUISimpleWithHeader : XUISimpleNoHeader;
+storiesWithKnobs.add('Detail', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionDetailHeader : XUICompositionDetail;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),

@@ -1,18 +1,17 @@
 import React from 'react';
-import Enzyme, { mount, shallow } from 'enzyme';
+import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 
-import XUIComposition5 from '../XUIComposition5';
+import XUICompositionDetail from '../XUICompositionDetail';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<XUIComposition5>', () => {
+describe('<XUICompositionDetail>', () => {
 
 	it('renders basic example', () => {
 		const wrapper = renderer.create(
-			<XUIComposition5
-				header={<div></div>}
+			<XUICompositionDetail
 				main={<div></div>}
 				/>
 		);
@@ -21,24 +20,22 @@ describe('<XUIComposition5>', () => {
 
 	it('should do nothing with children', () => {
 		const wrapper = renderer.create(
-			<XUIComposition5
-				header={<div></div>}
+			<XUICompositionDetail
 				main={<div></div>}
 				>
 				Hello
-			</XUIComposition5>
+			</XUICompositionDetail>
 		);
 		expect(wrapper).toMatchSnapshot();
 	});
 	it('should include custom class and omit width-limiting class, if specified', () => {
 		const wrapper = renderer.create(
-			<XUIComposition5
-				header={<div></div>}
+			<XUICompositionDetail
 				main={<div></div>}
-				className="single-with-head"
+				className="single-without-head"
 				isInfinite={true}
 				>
-			</XUIComposition5>
+			</XUICompositionDetail>
 		);
 		expect(wrapper).toMatchSnapshot();
 	});

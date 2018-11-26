@@ -1,4 +1,7 @@
 
+const xuiLineHeightDefault = 1.5; // Match $xui-line-height from SASS
+const xuiFontSizeDefault = 13; // Should match the default font size.
+
 /**
  * @private
  * Calculates the max height for the textarea based off `maxRows`. Will default to the CSS value
@@ -8,12 +11,17 @@
 export const calculateMaxHeight = ({ textArea, maxRows }) => {
 	const textAreaStyle = window && window.getComputedStyle && window.getComputedStyle(textArea);
 	if (maxRows && !textAreaStyle) {
-		return maxRows * 15 * 1.5;
+		// Use default values if style can't be obtained.
+		return maxRows * xuiFontSizeDefault * xuiLineHeightDefault;
 	}
 	const lineHeight = textAreaStyle.getPropertyValue('line-height')
-		|| (textAreaStyle.getPropertyValue('font-size') * 1.5) // 1.5 is standard XUI line-height
-		|| 15 * 1.5; // 15px is standard XUI font-size
-	const lineHeightFloat = parseFloat(lineHeight) || 15 * 1.5;
+		// Use default values if line-height and/or font-size can't be determined.
+		|| (textAreaStyle.getPropertyValue('font-size') * xuiLineHeightDefault)
+		|| xuiFontSizeDefault * xuiLineHeightDefault;
+
+	// Use default values if for some reason the above can't parse to a float.
+	const lineHeightFloat = parseFloat(lineHeight) || xuiFontSizeDefault * xuiLineHeightDefault;
+	// Fall back to zero if top or bottom padding can't be determined.
 	const bottomPadding = parseFloat(textAreaStyle.getPropertyValue('padding-bottom')) || 0;
 	const topPadding = parseFloat(textAreaStyle.getPropertyValue('padding-top')) || 0;
 	const cssMaxHeight = parseFloat(textAreaStyle.getPropertyValue('max-height'))

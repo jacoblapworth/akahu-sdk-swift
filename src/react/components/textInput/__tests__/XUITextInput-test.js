@@ -90,7 +90,7 @@ describe('<XUITextInput>', () => {
 		it('is multiline', () => {
 			const multiline = mount(<XUITextInput isMultiline maxRows={10} />);
 
-			expect(multiline.state().maxHeight).toEqual(229);
+			expect(multiline.state().maxHeight).toEqual(199);
 		});
 
 		it('is passed className', () => {

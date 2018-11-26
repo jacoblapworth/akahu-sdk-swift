@@ -16,7 +16,6 @@ const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
 class XUITextInput extends PureComponent {
 	state = {
 		hasFocus: false,
-		maxHeight: undefined,
 	};
 
 	generatedId = uuidv4();

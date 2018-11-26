@@ -46,10 +46,12 @@
 @import "5-structure/gridarea-summary";
 @import "5-structure/gridarea-nav";
 @import "5-structure/base";
+@import "5-structure/compositions/summarydetail";
+@import "5-structure/compositions/summarydetailheader";
 @import "5-structure/compositions/masterdetail";
 @import "5-structure/compositions/masterdetailheader";
-@import "5-structure/compositions/_masterdetailsummary";
-@import "5-structure/compositions/_masterdetailsummaryheader";
+@import "5-structure/compositions/masterdetailsummary";
+@import "5-structure/compositions/masterdetailsummaryheader";
 
 // Visual containers
 // -----------------------------------------------------------------------------

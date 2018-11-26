@@ -1,17 +1,17 @@
 import React from 'react';
-import Enzyme, { mount, shallow } from 'enzyme';
+import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 
-import XUIComposition4 from '../XUIComposition4';
+import XUICompositionSummaryDetail from '../XUICompositionSummaryDetail';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<XUIComposition4>', () => {
+describe('<XUICompositionSummaryDetail>', () => {
 
 	it('renders basic example', () => {
 		const wrapper = renderer.create(
-			<XUIComposition4
+			<XUICompositionSummaryDetail
 				summary={<div></div>}
 				main={<div></div>}
 				/>
@@ -21,24 +21,24 @@ describe('<XUIComposition4>', () => {
 
 	it('should do nothing with children', () => {
 		const wrapper = renderer.create(
-			<XUIComposition4
+			<XUICompositionSummaryDetail
 				summary={<div></div>}
 				main={<div></div>}
 				>
 				Hello
-			</XUIComposition4>
+			</XUICompositionSummaryDetail>
 		);
 		expect(wrapper).toMatchSnapshot();
 	});
 	it('should include custom class and omit width-limiting class, if specified', () => {
 		const wrapper = renderer.create(
-			<XUIComposition4
+			<XUICompositionSummaryDetail
 				summary={<div></div>}
 				main={<div></div>}
 				className="summary-without-head"
 				isInfinite={true}
 				>
-			</XUIComposition4>
+			</XUICompositionSummaryDetail>
 		);
 		expect(wrapper).toMatchSnapshot();
 	});

@@ -2,10 +2,10 @@
 import React, { Fragment } from 'react';
 
 // Components we need to test with
+import XUICompositionSummaryDetailHeader from '../XUICompositionSummaryDetailHeader';
+import XUICompositionSummaryDetail from '../XUICompositionSummaryDetail';
 import XUICompositionMasterDetailSummaryHeader from '../XUICompositionMasterDetailSummaryHeader';
 import XUICompositionMasterDetailSummary from '../XUICompositionMasterDetailSummary';
-import XUISummaryWithHeader from '../XUIComposition3';
-import XUISummaryNoHeader from '../XUIComposition4';
 import XUISimpleWithHeader from '../XUIComposition5';
 import XUISimpleNoHeader from '../XUIComposition6';
 import XUISplitWithHeader from '../XUIComposition7';
@@ -207,8 +207,8 @@ storiesWithKnobs.add('Master detail', () => {
 	)
 });
 
-storiesWithKnobs.add('Detail summary', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUISummaryWithHeader : XUISummaryNoHeader;
+storiesWithKnobs.add('Summary detail', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionSummaryDetailHeader : XUICompositionSummaryDetail;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),

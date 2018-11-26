@@ -99,8 +99,11 @@ class XUITextInput extends PureComponent {
 			isLabelHidden,
 			minRows,
 			rows,
-			// We want to remove this from the spreadprops, but it's not used in the render.
-			labelId, // eslint-disable-line no-unused-vars
+			// We want to remove these from the spread props, but they're not used in the render.
+			/* eslint-disable no-unused-vars */
+			maxRows,
+			labelId,
+			/* eslint-enable no-unused-vars */
 			...otherProps
 		} = input.props;
 		const {

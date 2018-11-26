@@ -35,6 +35,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
         disabled={false}
         onClick={[Function]}
         onKeyDown={[Function]}
+        onKeyUp={[Function]}
         tabIndex={0}
         type="button"
       >
@@ -100,6 +101,7 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
         disabled={true}
         onClick={[Function]}
         onKeyDown={null}
+        onKeyUp={[Function]}
         tabIndex={-1}
         type="button"
       >

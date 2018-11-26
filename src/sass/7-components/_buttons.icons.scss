@@ -9,6 +9,7 @@
 	display: inline-flex;
 	height: $xui-icon-standard;
 	justify-content: center;
+	position: relative;
 	width: $xui-icon-standard;
 
 	.#{$ns}-icon {

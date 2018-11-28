@@ -47,7 +47,7 @@ describe('XUIAvatar Private Functions', () => {
 		});
 
 		it('should ignore certain punctuation', () => {
-			expect(abbreviateAvatar('Jimmy + Friend & <Sons> _Home', 7)).toBe('JFSH');
+			expect(abbreviateAvatar('Jimmy\' + Friend & \"<Sons> . _Home', 7)).toBe('JFSH');
 		});
 
 		it('should uppercase all letters provided', () => {

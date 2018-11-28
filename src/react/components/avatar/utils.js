@@ -1,6 +1,7 @@
 import { colorClassNames } from './constants';
 
-const ignoreChars = /[\u0021-\u002F\u003A-\u003F\u005B-\u0060\u007B-\u00BF]/; // exclude selected characters from abbreviation
+// exclude selected characters from abbreviation
+const ignoreChars = /[\u0021-\u002F\u003A-\u003F\u005B-\u0060\u007B-\u00BF]/g;
 
 /**
  * @private
@@ -34,7 +35,7 @@ function getAvatarColorClass(identifier) {
  * @private
  * Generate an abbreviation for an avatar based on its value. This takes the
  * first character of each word (non-whitespace, not brackets or one of the
- * ignored characters, destructured for unicode handling)
+ * ignored characters, by codepoint for unicode handling)
  * @param {String} name The string to abbreviate
  * @param {Number} maxChars The max number of chars desired in the resulting abbreviation
  * @returns {String} The abbreviation
@@ -44,22 +45,19 @@ function abbreviateAvatar(name, maxChars) {
 		throw new Error('Please provide a name');
 	}
 
-	const destructuredName = [...name];
-	let lengthCounter = 0;
-	let nextChar;
 	let newName = '';
-	let includeNextNonWhitespaceChar = true;
-
-	for (let i = 0; (i < destructuredName.length && lengthCounter < maxChars); i += 1) {
-		nextChar = destructuredName[i];
-
-		if (/\s/.test(nextChar)) {
-			includeNextNonWhitespaceChar = true;
-		} else if (includeNextNonWhitespaceChar && !ignoreChars.test(nextChar)) {
-			newName += nextChar.toLocaleUpperCase();
-			includeNextNonWhitespaceChar = false;
-			lengthCounter += 1;
+	const scrubbedName = name.replace(ignoreChars, '').trim();
+	const words = scrubbedName.split(/\s+/);
+	if (!words.length) {
+		throw new Error('Please provide a name');
+	}
+	const l = Math.min(maxChars, words.length);
+	for (let i = 0; i < l; i += 1) {
+		const codePoint = words[i].length && words[i].codePointAt(0);
+		if (!codePoint) {
+			break;
 		}
+		newName += String.fromCodePoint(codePoint).toLocaleUpperCase();
 	}
 
 	return newName;

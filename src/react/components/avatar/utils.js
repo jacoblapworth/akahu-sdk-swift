@@ -1,6 +1,6 @@
 import { colorClassNames } from './constants';
 
-const ignoreChars = /[(){}[\]]/; // ignore braces
+const ignoreChars = /[\u0021-\u002F\u003A-\u003F\u005B-\u0060\u007B-\u00BF]/; // exclude selected characters from abbreviation
 
 /**
  * @private

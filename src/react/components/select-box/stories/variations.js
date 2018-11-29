@@ -63,6 +63,7 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'without matching trigger width',
 		matchTriggerWidth: false,
+		size: 'xsmall'
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -83,6 +84,7 @@ const variations = [
 		buttonContent: 'Books',
 		closeAfterSelection: false,
 		items: buildCheckboxItems(),
+		size: 'small'
 	},
 ];
 

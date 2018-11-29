@@ -16,9 +16,10 @@ import { variantClassNames } from '../../button/private/constants';
 import { storiesWithVariationsKindName, variations } from './variations';
 import { LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';
 
-function createItems(items, suffix) {
+function createItems(settings) {
+	const { items, size, suffix } = settings;
 	if (Array.isArray(items)) {
-		return items.map(i => createItems(i));
+		return items.map(i => createItems({ items: i, size }));
 	}
 	items.props.id += (suffix || '');
 	return (
@@ -26,6 +27,7 @@ function createItems(items, suffix) {
 			{...items.props}
 			value={items.props.id}
 			key={items.props.id}
+			size={size}
 		>
 			{items.text}
 		</SelectBoxOption>
@@ -39,35 +41,38 @@ const button = <span><XUIIcon icon={education} className="xui-margin-right-xsmal
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
-storiesWithKnobs.add('Playground', () => (
-	<SelectBox
-		label={text('label', 'Label for the select box')}
-		isLabelHidden={boolean('isLabelHidden', false)}
-		buttonClasses={text('buttonClasses', '')}
-		containerClasses={text('containerClasses', '')}
-		dropDownClasses={text('dropDownClasses', '')}
-		inputGroupClasses={text('inputGroupClasses', '')}
-		buttonVariant={select('buttonVariant', ['none', ...Object.keys(variantClassNames)], 'none') === 'none' ?
-			undefined :
-			select('buttonVariant', ['none', ...Object.keys(variantClassNames)], 'none')}
-		isTextTruncated={boolean('isTextTruncated', false)}
-		matchTriggerWidth={boolean('matchTriggerWidth', true)}
-		forceDesktop={boolean('forceDesktop', true)}
-		defaultLayout={boolean('defaultLayout', true)}
-		isDisabled={boolean('isDisabled', false)}
-		isInvalid={boolean('isInvalid', false)}
-		validationMessage={text('validationMessage', '')}
-		hintMessage={text('hintMessage', '')}
-		buttonContent={
-			<span>
-				<XUIIcon icon={education} className="xui-margin-right-xsmall" />
-				{text('placeholder text', 'Choose a classic book')}
-			</span>
-		}
-	>
-		{createItems(toggledItems)}
-	</SelectBox>
-));
+storiesWithKnobs.add('Playground', () => {
+	const size = select('list item size', ['standard', 'small', 'xsmall'], 'standard');
+	return (
+		<SelectBox
+			label={text('label', 'Label for the select box')}
+			isLabelHidden={boolean('isLabelHidden', false)}
+			buttonClasses={text('buttonClasses', '')}
+			containerClasses={text('containerClasses', '')}
+			dropDownClasses={text('dropDownClasses', '')}
+			inputGroupClasses={text('inputGroupClasses', '')}
+			buttonVariant={select('buttonVariant', ['none', ...Object.keys(variantClassNames)], 'none') === 'none' ?
+				undefined :
+				select('buttonVariant', ['none', ...Object.keys(variantClassNames)], 'none')}
+			isTextTruncated={boolean('isTextTruncated', false)}
+			matchTriggerWidth={boolean('matchTriggerWidth', true)}
+			forceDesktop={boolean('forceDesktop', true)}
+			defaultLayout={boolean('defaultLayout', true)}
+			isDisabled={boolean('isDisabled', false)}
+			isInvalid={boolean('isInvalid', false)}
+			validationMessage={text('validationMessage', '')}
+			hintMessage={text('hintMessage', '')}
+			buttonContent={
+				<span>
+					<XUIIcon icon={education} className="xui-margin-right-xsmall" />
+					{text('placeholder text', 'Choose a classic book')}
+				</span>
+			}
+		>
+			{createItems({ items: toggledItems, size })}
+		</SelectBox>
+	);
+});
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
@@ -83,6 +88,8 @@ variations.forEach(variation => {
 		if (variationMinusStoryDetails.isTextTruncated) {
 			items.forEach(i => i.props.truncatedText = true);
 		}
+		const size = variationMinusStoryDetails.size;
+		delete variationMinusStoryDetails.size;
 		delete variationMinusStoryDetails.items;
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
@@ -92,7 +99,7 @@ variations.forEach(variation => {
 				{...variationMinusStoryDetails}
 				label={variation.storyTitle}
 			>
-				{createItems(items)}
+				{createItems({ items, size })}
 			</SelectBox>
 		);
 	});

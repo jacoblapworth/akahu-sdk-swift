@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import '../helpers/xuiGlobalChecks';
-import { ns } from '../helpers/xuiClassNamespace';
+import { picklistClassName, sizeVariants } from './private/constants';
 
 import '../../../sass/7-components/_navigation.picklist.scss';
+import Pickitem from './Pickitem';
+import { getPropsFromFirstChildOrList } from './private/helpers';
+import NestedPicklistContainer from './NestedPicklistContainer';
+import SelectBoxOption from '../select-box/SelectBoxOption';
 
 /**
  * Presentational (aka dumb) component used to display a selectable list of Pickitems.
@@ -25,13 +29,31 @@ export default class Picklist extends Component {
 			defaultLayout,
 			isHorizontal,
 			qaHook,
+			shouldTruncate,
 		} = this.props;
 
+		const listLevelProps = getPropsFromFirstChildOrList(children, this.props);
+
+		const newChildren = React.Children.map(children, child =>
+			(child && (
+				child.type === Pickitem ||
+				child.type === SelectBoxOption ||
+				child.type === NestedPicklistContainer)
+				? React.cloneElement(child, {
+					size: listLevelProps.listSize,
+					isMultiselect: listLevelProps.listMultiselect,
+					_isHorizontal: isHorizontal,
+					shouldTruncate: // This is ok to be set at either the item level or the list level.
+						child.props.shouldTruncate === undefined ? shouldTruncate : child.props.shouldTruncate,
+				})
+				: child));
+
 		const classes = cn(
-			`${ns}-picklist`,
+			`${picklistClassName}`,
 			className,
-			(defaultLayout && !isHorizontal) && `${ns}-picklist-layout`,
-			isHorizontal && `${ns}-picklist-horizontal`,
+			(defaultLayout && !isHorizontal) && `${picklistClassName}-layout`,
+			isHorizontal && `${picklistClassName}-horizontal`,
+			`${picklistClassName}-${listLevelProps.listSize}`,
 		);
 
 		/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
@@ -46,7 +68,7 @@ export default class Picklist extends Component {
 				onMouseDown={onMouseDown}
 				data-automationid={qaHook}
 			>
-				{children}
+				{newChildren}
 			</ul>
 		);
 		/* eslint-enable jsx-a11y/no-noninteractive-element-interactions */
@@ -69,6 +91,12 @@ Picklist.propTypes = {
 	defaultLayout: PropTypes.bool,
 	/* Whether to render as horizontal pickitems */
 	isHorizontal: PropTypes.bool,
+	/** Size variant */
+	size: PropTypes.oneOf(sizeVariants),
+	/** When true checkboxes will be added to the layout of the child components. */
+	isMultiselect: PropTypes.bool,
+	/** Whether to truncate text instead of wrapping. */
+	shouldTruncate: PropTypes.bool,
 };
 
 Picklist.defaultProps = {

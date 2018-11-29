@@ -4,6 +4,12 @@ import arrow from '@xero/xui-icon/icons/arrow';
 import cn from 'classnames';
 import XUIIcon from '../icon/XUIIcon';
 import { ns } from '../helpers/xuiClassNamespace';
+import {
+	pickitemClassName,
+	sideElementClassName,
+	itemTextClassName,
+	itemBodyClassName,
+} from './private/constants';
 
 export default class NestedPicklistTrigger extends PureComponent {
 	render() {
@@ -17,15 +23,21 @@ export default class NestedPicklistTrigger extends PureComponent {
 			isSelected,
 			ariaLabel,
 			secondaryProps,
+			leftElement,
 		} = this.props;
 		const { id } = this.context;
 		const hasChildren = children && (typeof children !== 'string' || children.trim().length > 0);
 		const classNames = cn(
 			className,
 			`${ns}-submenu-uicontrol`,
-			hasChildren && `${ns}-pickitem--body`,
-			isHighlighted && `${ns}-pickitem-is-hovered`,
-			isSelected && `${ns}-pickitem-is-selected`,
+			hasChildren && itemBodyClassName,
+			isHighlighted && `${pickitemClassName}-is-hovered`,
+			isSelected && `${pickitemClassName}-is-selected`,
+		);
+		const wrappedLeft = leftElement && (
+			<span className={sideElementClassName}>
+				{leftElement}
+			</span>
 		);
 
 		return (
@@ -45,7 +57,8 @@ export default class NestedPicklistTrigger extends PureComponent {
 				tabIndex={0}
 				aria-label={ariaLabel}
 			>
-				{hasChildren ? <label className={`${ns}-pickitem--text`}>{children}</label> : null}
+				{wrappedLeft}
+				{hasChildren ? <label className={itemTextClassName}>{children}</label> : null}
 				<XUIIcon className={`${ns}-submenu-uicontrol--icon`} icon={arrow} isBoxed />
 			</label>
 		);
@@ -63,6 +76,8 @@ NestedPicklistTrigger.propTypes = {
 	onMouseOver: PropTypes.func,
 	ariaLabel: PropTypes.string,
 	secondaryProps: PropTypes.object,
+	/** Content to be added to the left of the pickitem. */
+	leftElement: PropTypes.node,
 };
 
 NestedPicklistTrigger.defaultProps = {

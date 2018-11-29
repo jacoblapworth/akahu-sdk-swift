@@ -397,7 +397,23 @@ function cloneChildElement(node, spl) {
  * @returns {Component|Component[]}
  */
 export function cloneChildren(children, spl) {
-	// Using Children.map to avoid having to add arbitrary keys, which will fuck all kinds of things up.  Don't just use
-	// Array.prototype.map here!
+	// Using Children.map to avoid having to add arbitrary keys, which will mess
+	// all kinds of things up. Don't just use Array.prototype.map here!
 	return Children.map(children, child => cloneChildElement(child, spl));
+}
+
+/**
+ * Size and multiselect should be set for the entire list. If set on the list, use this setting,
+ * otherwise, check the first pickitem and use this setting.
+ *
+ * @param {Component|Component[]} children
+ * @param {object} listProps
+ */
+export function getPropsFromFirstChildOrList(children, listProps) {
+	const firstItem = Children.count(children) > 0 && Children.toArray(children)[0];
+	const listSize = listProps.size !== undefined ? listProps.size
+		: (firstItem && firstItem.props.size) || 'standard';
+	const listMultiselect = listProps.isMultiselect !== undefined ? listProps.isMultiselect
+		: (firstItem && firstItem.props.isMultiselect) || undefined;
+	return { listSize, listMultiselect };
 }

@@ -53,7 +53,7 @@ exports[`<NestedDropdown /> should add the animation close class when the animat
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -63,7 +63,7 @@ exports[`<NestedDropdown /> should add the animation close class when the animat
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option1"
                 role="option"
@@ -131,7 +131,7 @@ exports[`<NestedDropdown /> should add the animation close class when the animat
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -141,7 +141,7 @@ exports[`<NestedDropdown /> should add the animation close class when the animat
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option2"
                 role="option"
@@ -225,7 +225,7 @@ exports[`<NestedDropdown /> should add the animation open class when the animate
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -235,7 +235,7 @@ exports[`<NestedDropdown /> should add the animation open class when the animate
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option1"
                 role="option"
@@ -303,7 +303,7 @@ exports[`<NestedDropdown /> should add the animation open class when the animate
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -313,7 +313,7 @@ exports[`<NestedDropdown /> should add the animation open class when the animate
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option2"
                 role="option"
@@ -397,7 +397,7 @@ exports[`<NestedDropdown /> should allow for a footer to be rendered to the corr
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -407,7 +407,7 @@ exports[`<NestedDropdown /> should allow for a footer to be rendered to the corr
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option1"
                 role="option"
@@ -475,7 +475,7 @@ exports[`<NestedDropdown /> should allow for a footer to be rendered to the corr
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -485,7 +485,7 @@ exports[`<NestedDropdown /> should allow for a footer to be rendered to the corr
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option2"
                 role="option"
@@ -569,7 +569,7 @@ exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -579,7 +579,7 @@ exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option1"
                 role="option"
@@ -647,7 +647,7 @@ exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -657,7 +657,7 @@ exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option2"
                 role="option"
@@ -741,7 +741,7 @@ exports[`<NestedDropdown /> should be a size large by default 1`] = `
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -751,7 +751,7 @@ exports[`<NestedDropdown /> should be a size large by default 1`] = `
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option1"
                 role="option"
@@ -819,7 +819,7 @@ exports[`<NestedDropdown /> should be a size large by default 1`] = `
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -829,7 +829,7 @@ exports[`<NestedDropdown /> should be a size large by default 1`] = `
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option2"
                 role="option"
@@ -913,7 +913,7 @@ exports[`<NestedDropdown /> should render a passed id instead of automatically g
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -923,7 +923,7 @@ exports[`<NestedDropdown /> should render a passed id instead of automatically g
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option1"
                 role="option"
@@ -991,7 +991,7 @@ exports[`<NestedDropdown /> should render a passed id instead of automatically g
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -1001,7 +1001,7 @@ exports[`<NestedDropdown /> should render a passed id instead of automatically g
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option2"
                 role="option"
@@ -1085,7 +1085,7 @@ exports[`<NestedDropdown /> should render additional classes when passed in the 
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -1095,7 +1095,7 @@ exports[`<NestedDropdown /> should render additional classes when passed in the 
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option1"
                 role="option"
@@ -1163,7 +1163,7 @@ exports[`<NestedDropdown /> should render additional classes when passed in the 
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -1173,7 +1173,7 @@ exports[`<NestedDropdown /> should render additional classes when passed in the 
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option2"
                 role="option"
@@ -1257,7 +1257,7 @@ exports[`<NestedDropdown /> should render an automationid when a qaHook is passe
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -1267,7 +1267,7 @@ exports[`<NestedDropdown /> should render an automationid when a qaHook is passe
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option1"
                 role="option"
@@ -1335,7 +1335,7 @@ exports[`<NestedDropdown /> should render an automationid when a qaHook is passe
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -1345,7 +1345,7 @@ exports[`<NestedDropdown /> should render an automationid when a qaHook is passe
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option2"
                 role="option"
@@ -1429,7 +1429,7 @@ exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to 
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -1439,7 +1439,7 @@ exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to 
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option1"
                 role="option"
@@ -1507,7 +1507,7 @@ exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to 
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -1517,7 +1517,7 @@ exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to 
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option2"
                 role="option"
@@ -1601,7 +1601,7 @@ exports[`<NestedDropdown /> should render visible if the isHidden prop is set to
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -1611,7 +1611,7 @@ exports[`<NestedDropdown /> should render visible if the isHidden prop is set to
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option1"
                 role="option"
@@ -1679,7 +1679,7 @@ exports[`<NestedDropdown /> should render visible if the isHidden prop is set to
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -1689,7 +1689,7 @@ exports[`<NestedDropdown /> should render visible if the isHidden prop is set to
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option2"
                 role="option"
@@ -1773,7 +1773,7 @@ exports[`<NestedDropdown /> shouldn't add the animation close class when animate
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -1783,7 +1783,7 @@ exports[`<NestedDropdown /> shouldn't add the animation close class when animate
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option1"
                 role="option"
@@ -1851,7 +1851,7 @@ exports[`<NestedDropdown /> shouldn't add the animation close class when animate
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -1861,7 +1861,7 @@ exports[`<NestedDropdown /> shouldn't add the animation close class when animate
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option2"
                 role="option"
@@ -1945,7 +1945,7 @@ exports[`<NestedDropdown /> shouldn't add the animation open class when animateO
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -1955,7 +1955,7 @@ exports[`<NestedDropdown /> shouldn't add the animation open class when animateO
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option1"
                 role="option"
@@ -2023,7 +2023,7 @@ exports[`<NestedDropdown /> shouldn't add the animation open class when animateO
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
-              className="xui-picklist xui-picklist-layout"
+              className="xui-picklist xui-picklist-layout xui-picklist-standard"
               data-automationid={undefined}
               id={undefined}
               onKeyDown={undefined}
@@ -2033,7 +2033,7 @@ exports[`<NestedDropdown /> shouldn't add the animation open class when animateO
               <li
                 aria-label={undefined}
                 aria-selected={null}
-                className="xui-pickitem"
+                className="xui-pickitem xui-pickitem-standard"
                 data-automationid={undefined}
                 id="option2"
                 role="option"

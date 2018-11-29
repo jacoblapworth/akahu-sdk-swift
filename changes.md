@@ -21,8 +21,8 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 
 ## Removals
 
-* `xui-pickitem--multiselect` has been removed. Use `xui-picklist-multiselect` instead.
-* `xui-pickitem--split` has been removed. Use `xui-picklist-split` instead.
+* `xui-pickitem--multiselect` has been removed. Use `xui-pickitem-multiselect` instead.
+* `xui-pickitem--split` has been removed. Use `xui-pickitem-split` instead.
 * `xui-banner--link` has been removed. There is no replacement.
 * `xui-pageheading--breadcrumbs` has been removed. Use `xui-breadcrumbs` instead.
 * `xui-verticalinputgroup` has been removed. Use `xui-verticaltextinputgroup` instead.
@@ -75,6 +75,12 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - Autocompleter uses a debounce rather than throttle for searching. The `searchThrottleInterval` prop is superceded by `searchDebounceTimeout`. The default value for this has been set to 200 (was previously 0). To disable debouncing, set this value to 0.
 - Stepper prop `updateCurrentStep` has been included into the main component API in favour of `handleClick` callbacks in every tab instance.
 - Modal no longer supports `default` as a size value. The default prop value is `medium` (unchanged).
+- `Picklist`, `Pickitem`, and related components
+	- Have a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`. Size can be set at either the item or list level, and will be applied to the entire list.
+	- `isMultiselect` and `shouldTruncate` can now be set at the list level and will set those properties for all items in the list. `isMultiselect` is not supported at the `xsmall` size.
+	- Pickitem in React has reached parity with what had been supported by CSS. `primaryElement`, `secondaryElement`, and `pinnedElement` accept text or nodes to generate content with opinionated styling. `leftElement` and `rightElement` will display content such as avatars or icons at either side of the item (`leftElement` will be superseded by `isMultiselect`)
+	- The new Pickitem prop `isInvalid` styles the item in an invalid state
+	- `NestedPicklistTrigger` also supports a `leftElement`
 
 ### Utility classes
 
@@ -105,16 +111,13 @@ All other existing values stay as they are (including `2xlarge`)
 ## Additions
 
 
-### Component classes
-
-
 ### Component props
 
 - Pill has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - Text input now has a `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - Tag has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
+- Checkbox and Radio have a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 
 ## Other changes
 
-- Modal widths have changed: small is 300px (was 340); medium is 400px (was 460); large is 600px (was 600) and
-xlarge is 800px (was 860).
+- Modal widths have changed: small is 300px (was 340); medium is 400px (was 460); large is 600px (was 600) and xlarge is 800px (was 860).

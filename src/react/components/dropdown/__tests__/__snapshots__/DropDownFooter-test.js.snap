@@ -6,7 +6,7 @@ exports[`<DropDownFooter /> should render a picklist with context class when pic
   data-automationid={undefined}
 >
   <ul
-    className="xui-picklist xui-dropdown--footer--picklist xui-picklist-layout"
+    className="xui-picklist xui-dropdown--footer--picklist xui-picklist-layout xui-picklist-standard"
     data-automationid={undefined}
     id={undefined}
     onKeyDown={undefined}
@@ -16,7 +16,7 @@ exports[`<DropDownFooter /> should render a picklist with context class when pic
     <li
       aria-label={undefined}
       aria-selected={null}
-      className="xui-pickitem"
+      className="xui-pickitem xui-pickitem-standard"
       data-automationid={undefined}
       id="footerAction"
       role="option"

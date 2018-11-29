@@ -4,7 +4,7 @@ exports[`<SelectBoxOption /> should render an a tag if an href prop is provided 
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -33,7 +33,7 @@ exports[`<SelectBoxOption /> should render an aria role if the ariaRole prop has
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="item"
@@ -61,7 +61,7 @@ exports[`<SelectBoxOption /> should render an aria role of option by default 1`]
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -89,7 +89,7 @@ exports[`<SelectBoxOption /> should render an automaion id when provided with a 
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-standard"
   data-automationid="test-sbo"
   id="1"
   role="option"
@@ -117,7 +117,7 @@ exports[`<SelectBoxOption /> should render an button element by default 1`] = `
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -145,7 +145,7 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
 <li
   aria-label={undefined}
   aria-selected={false}
-  className="xui-pickitem xui-pickitem-multiselect"
+  className="xui-pickitem xui-pickitem-multiselect xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -188,7 +188,7 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
         data-automationid={undefined}
       />
       <span
-        className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem-multiselect--label"
+        className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
         data-automationid={undefined}
         htmlFor={undefined}
         id="testCheckboxId"
@@ -209,7 +209,7 @@ exports[`<SelectBoxOption /> should render extra classes on the option element w
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem option-class"
+  className="xui-pickitem option-class xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -237,7 +237,7 @@ exports[`<SelectBoxOption /> should render text as truncated when the truncatedT
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -269,7 +269,7 @@ exports[`<SelectBoxOption /> should render the correct value passed in 1`] = `
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -297,7 +297,7 @@ exports[`<SelectBoxOption /> should render the highlighted class if isHighlighte
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem xui-pickitem-is-hovered"
+  className="xui-pickitem xui-pickitem-is-hovered xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -325,7 +325,7 @@ exports[`<SelectBoxOption /> should render the option and the checkboxes as disa
 <li
   aria-label={undefined}
   aria-selected={false}
-  className="xui-pickitem xui-pickitem-multiselect xui-is-disabled"
+  className="xui-pickitem xui-pickitem-multiselect xui-is-disabled xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -368,7 +368,7 @@ exports[`<SelectBoxOption /> should render the option and the checkboxes as disa
         data-automationid={undefined}
       />
       <span
-        className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem-multiselect--label"
+        className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
         data-automationid={undefined}
         htmlFor={undefined}
         id="testCheckboxId"
@@ -389,7 +389,7 @@ exports[`<SelectBoxOption /> should render the option as disabled when the isDis
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -417,7 +417,7 @@ exports[`<SelectBoxOption /> should render the option as disabled when the isDis
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem xui-is-disabled"
+  className="xui-pickitem xui-is-disabled xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -445,7 +445,7 @@ exports[`<SelectBoxOption /> should render the selected class if isSelected is t
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem xui-pickitem-is-selected"
+  className="xui-pickitem xui-pickitem-is-selected xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -473,7 +473,7 @@ exports[`<SelectBoxOption /> shouldn't render checkboxes when the showCheckboxes
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -501,7 +501,7 @@ exports[`<SelectBoxOption /> shouldn't render text as truncated when the truncat
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -529,7 +529,7 @@ exports[`<SelectBoxOption /> shouldn't render the highlighted class by default 1
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -557,7 +557,7 @@ exports[`<SelectBoxOption /> shouldn't render the highlighted class if isHighlig
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -585,7 +585,7 @@ exports[`<SelectBoxOption /> shouldn't render the selected class by default 1`] 
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -613,7 +613,7 @@ exports[`<SelectBoxOption /> shouldn't render the selected class if isSelected i
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"

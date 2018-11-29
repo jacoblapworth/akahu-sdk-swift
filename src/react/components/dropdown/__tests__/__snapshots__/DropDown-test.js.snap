@@ -54,7 +54,7 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
           data-automationid="dropdown-test--scrollable-content"
         >
           <ul
-            className="xui-picklist xui-picklist-layout"
+            className="xui-picklist xui-picklist-layout xui-picklist-standard"
             data-automationid={undefined}
             id={undefined}
             onKeyDown={undefined}
@@ -64,7 +64,7 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
             <li
               aria-label={undefined}
               aria-selected={null}
-              className="xui-pickitem"
+              className="xui-pickitem xui-pickitem-standard"
               data-automationid={undefined}
               id="required-id"
               role="option"

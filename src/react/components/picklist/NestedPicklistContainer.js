@@ -1,8 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { getId } from './private/helpers';
-import { ns } from '../helpers/xuiClassNamespace';
+import { getId, getPropsFromFirstChildOrList } from './private/helpers';
+import { picklistClassName, pickitemClassName, sizeVariants } from './private/constants';
+import Pickitem from './Pickitem';
+import NestedPicklist from './NestedPicklist';
+import NestedPicklistTrigger from './NestedPicklistTrigger';
 
 export default class NestedPicklistContainer extends PureComponent {
 	constructor(props) {
@@ -71,11 +74,24 @@ export default class NestedPicklistContainer extends PureComponent {
 			qaHook,
 			id,
 			secondaryProps,
+			shouldTruncate,
 		} = container.props;
+
+		const listLevelProps = getPropsFromFirstChildOrList(children, this.props);
+
+		const newChildren = React.Children.map(children, child =>
+			(child.type === NestedPicklist || child.type === NestedPicklistTrigger || child.type === Pickitem
+				? React.cloneElement(child, {
+					size: listLevelProps.listSize,
+					isMultiselect: listLevelProps.listMultiselect,
+					shouldTruncate: // This is ok to be set at either the item level or the list level.
+						child.props.shouldTruncate === undefined ? shouldTruncate : child.props.shouldTruncate,
+				})
+				: child));
 		return (
 			<li
 				data-automationid={qaHook}
-				className={cn(className, `${ns}-picklist--nestedcontainer`)}
+				className={cn(className, `${picklistClassName}--nestedcontainer`)}
 				aria-expanded={isExpanded}
 			>
 				<input
@@ -83,13 +99,13 @@ export default class NestedPicklistContainer extends PureComponent {
 					data-automationid={qaHook && `${qaHook}--checkbox`}
 					type="checkbox"
 					checked={isExpanded}
-					className={`${ns}-pickitem--submenucontrol`}
+					className={`${pickitemClassName}--submenucontrol`}
 					id={`${id}-checkbox`}
 					tabIndex="-1"
 					onChange={container.toggle}
 					aria-owns={id}
 				/>
-				{children}
+				{newChildren}
 			</li>
 		);
 	}
@@ -104,6 +120,12 @@ NestedPicklistContainer.propTypes = {
 	onOpen: PropTypes.func,
 	onClose: PropTypes.func,
 	secondaryProps: PropTypes.object,
+	/** Size variant */
+	size: PropTypes.oneOf(sizeVariants),
+	/** When true checkboxes will be added to the layout of the child components. */
+	isMultiselect: PropTypes.bool,
+	/** Whether to truncate text instead of wrapping. */
+	shouldTruncate: PropTypes.bool,
 };
 
 NestedPicklistContainer.defaultProps = {

@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PickitemBody /> adds truncation classes 1`] = `
+<button
+  className="xui-pickitem--body"
+  data-automationid={undefined}
+  onClick={undefined}
+  onKeyDown={undefined}
+  onMouseOver={undefined}
+  rel={null}
+  tabIndex={undefined}
+  type="button"
+>
+  <span
+    className="xui-pickitem--text xui-pickitem-text-truncated"
+  >
+    Item
+  </span>
+</button>
+`;
+
+exports[`<PickitemBody /> creates a button by default 1`] = `
+<button
+  className="xui-pickitem--body"
+  data-automationid={undefined}
+  onClick={undefined}
+  onKeyDown={undefined}
+  onMouseOver={undefined}
+  rel={null}
+  tabIndex={undefined}
+  type="button"
+>
+  <span
+    className="xui-pickitem--text"
+  >
+    Item
+  </span>
+</button>
+`;
+
+exports[`<PickitemBody /> creates an \`a\` tag when href is provided 1`] = `
+<a
+  className="xui-pickitem--body"
+  data-automationid={undefined}
+  href="https://xero.com"
+  onClick={undefined}
+  onKeyDown={undefined}
+  onMouseOver={undefined}
+  rel={null}
+  tabIndex={undefined}
+  target={undefined}
+>
+  <span
+    className="xui-pickitem--text"
+  >
+    Item
+  </span>
+</a>
+`;

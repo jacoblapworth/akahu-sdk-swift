@@ -1,0 +1,57 @@
+// Accessibile Design
+//
+// Introduction: Guide to accessible design at Xero (WCAG 2.0 AA)
+//
+// Designing accessible products at Xero is much more than just using the accessible components XUI provides. And many of us care deeply about accessibility, but might be unsure where to start. Additionally, the official guidelines are dense and not organised in a way that's particularly digestible. The intent of this document is to offer a condensed, plain-language summary of these guidelines, categorised in a way that better supports our team. What follows is our interpretation of the specifications for WCAG 2.0 AA compliance, and what is most relevant to you as a designer. Keep in mind, this is the minimum acceptable requirement for accessibility, but Xero has several additional usability guidelines in our [official documentation](xui.xero.com), that complement the ones below.
+//
+// For more information, be sure to read the full [WCAG specification ](https://www.w3.org/TR/UNDERSTANDING-WCAG20/)or check out another of our favourite resources, the [WUHCAG](https://www.wuhcag.com/).
+//
+// Weight: 1.52
+//
+// Styleguide: Getting Started.Accessibility.Design
+
+// Color and contrast
+//
+// *   All text must have a minimum contrast ratio of 4:5:1 with the background.
+// *   All text larger than 18px must have a minimum contrast ratio of 3:1 with the background
+// *   Don't rely on colour alone to communicate a message. Information should also be conveyed by text, iconography, or another clear stylistic change.
+// *   All focus states must be clear and highly visible.
+// *   Disabled controls are exempt from these rules.
+// *   Logos are exempt from these rules.
+//
+// Styleguide: Getting Started.Accessibility.Design.1
+
+// Navigation and interaction
+//
+// *   Ensure your design is still usable when zoomed to 200%.
+// *   Keep a consistent navigation experience across all pages.
+// *   Build forgiving validation, accepting multiple formats, if possible, and format data for consistency after the fact.
+// *   Don't limit functionality to one input mechanism. For example, don't hide things behind a hover action alone. Always provide an additional method to interact with something.
+// *   Provide enough time for users to interact with content. Avoid time limits, unless absolutely necessary, and allow users to stop content that automatically moves or updates.
+// *   Don't change the context for the user when changing the value of a control. This includes auto-advancing focus from one input to another, while typing.
+// *   Animations shouldn't last more than five seconds unless they're part of an activity where it is essential, like a progress bar.
+//
+// Styleguide: Getting Started.Accessibility.Design.2
+
+// Labels and writing
+//
+// *   Provide simple, clear labels for inputs, including format if applicable.
+// *   Explain an problematic input clearly, with a clear connection to the input.
+// *   Give helpful suggestions as to how the user might fix the error.
+// *   Don't use images of text, except in the cases of brand logos or purely decorative text.
+// *   Instructions should be written not to rely on one sense exclusively, for example relying on audio cues or being able to identify the "green button".
+// *   Non-text content such as images are exempt from always-visible labels, but they still need a title in the DOM that provides a description such as 'Xero logo'.
+// *   Similarly, icon-only controls are exempt from the need for always-visible labels, but they still need a name that describes their purpose in the DOM such as 'Search' or 'Submit'.
+// *   Link purpose should be clear from their text and context.
+// *   Use clear headings, subheadings, and labels for sections within the page.
+// *   Elements with the same function should be labelled and named consistently. The opposite is also true. Namely, icons and terminology should have consistent meaning across the app.
+//
+// Styleguide: Getting Started.Accessibility.Design.3
+
+// Testing your designs for accessibility
+//
+// 1.  Test color contrast online with the [WebAim](https://webaim.org/resources/contrastchecker/) checker, or download the [plugin](https://github.com/getflourish/Sketch-Color-Contrast-Analyser) for sketch.
+// 1.  Manually test your prototypes for keyboard navigability and input interaction.
+// 1.  Get in touch with the XUI team with questions and concerns.
+//
+// Styleguide: Getting Started.Accessibility.Design.4

@@ -40,6 +40,7 @@
 	"extend": "./.kss/builder/extend",
 	"childPages": [
 		"Getting Started",
+		"Getting Started.Accessibility",
 		"Fundamentals",
 		"Building Blocks",
 		"Building Blocks.Controls",

@@ -136,7 +136,7 @@ const realAreas = {
 const blockAreas = {
 	nav: (<div style={{background: '#50DCAA', 'minWidth': '250px', height: '100px', width: '100%'}}></div>),
 	summary: (<div style={{background: '#FA8200', 'minWidth': '250px', height: '100px', width: '100%'}}></div>),
-	main: (<div style={{background: '#0078C8', height: '100px', 'minWidth': '250px', width: '100%'}}></div>),
+	main: (<div style={{background: '#0078C8', height: '100px' }}></div>),
 	header: (<div style={{background: '#B446C8', height: '60px'}}></div>),
 	media: (<div style={{background: '#ff6496', height: '100px'}}></div>),
 };

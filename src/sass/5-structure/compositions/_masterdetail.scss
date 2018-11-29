@@ -5,8 +5,7 @@
 	@include xui-breakpoint-small-down {
 		grid-gap: $xui-s-small $xui-s-small;
 		grid-template:
-			"main main main" 1fr;
-		-ms-grid-columns: 1fr;
+			"main" 1fr / 1fr;
 	}
 
 	@include xui-breakpoint-medium-up {

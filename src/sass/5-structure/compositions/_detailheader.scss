@@ -2,7 +2,8 @@
 @import "../../mixins";
 
 .#{$ns}-composition-detailheader {
+	grid-gap: $xui-s-small $xui-s-small;
 	grid-template:
 		"header"
-		"main";
+		"main" / 1fr;
 }

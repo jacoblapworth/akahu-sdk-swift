@@ -5,8 +5,8 @@
 	@include xui-breakpoint-small-down {
 		grid-gap: $xui-s-small $xui-s-small;
 		grid-template:
-				"media media" min-content
-				"main main" min-content;
+			"media"
+			"main" / 1fr;
 	}
 
 	@include xui-breakpoint-medium-up {

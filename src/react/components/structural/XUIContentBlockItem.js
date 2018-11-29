@@ -8,6 +8,8 @@ const baseClass = `${ns}-contentblockitem`;
 export default class XUIContentBlockItem extends PureComponent {
 	render() {
 		const {
+			onClick,
+			onKeyDown,
 			action,
 			leftContent,
 			children,
@@ -55,10 +57,10 @@ export default class XUIContentBlockItem extends PureComponent {
 				{leftContent}
 			</div>;
 
-		const Tag = href ? 'a' : 'div';
+		const Tag = href || onClick || onKeyDown ? 'a' : 'div';
 
 		const builtMainContent = (builtPrimaryHeadingAndTag || builtSecondaryHeading) && (
-			<Tag href={href} className={`${baseClass}--links`}>
+			<Tag href={href} className={`${baseClass}--links`} onClick={onClick} onKeyDown={onKeyDown}>
 				{builtPrimaryHeadingAndTag}
 				{builtSecondaryHeading}
 			</Tag>
@@ -83,12 +85,12 @@ export default class XUIContentBlockItem extends PureComponent {
 		);
 
 		return (
-			<li className={divClasses}>
+			<div className={divClasses}>
 				{builtLeftContent}
 				{children}
 				{builtMainContent}
 				{builtRightContent}
-			</li>
+			</div>
 		);
 	}
 }
@@ -101,6 +103,14 @@ XUIContentBlockItem.propTypes = {
 	 * Optional actions to be right aligned. Use the XUIActions component.
 	 */
 	action: PropTypes.element,
+	/**
+	 * Callback to fire when content block item is clicked.
+	 */
+	onClick: PropTypes.func,
+	/**
+	 * Callback to fire on keyDown for each content block item
+	 */
+	onKeyDown: PropTypes.func,
 	/**
 	 * Left most component option, typically an `avatar`, `checkbox` or `rollover checkbox` component
 	 */

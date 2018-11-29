@@ -14,9 +14,9 @@ export default class XUIContentBlock extends PureComponent {
 		const listClasses = cn(className, baseClass);
 
 		return (
-			<ol className={listClasses}>
+			<div className={listClasses}>
 				{children}
-			</ol>
+			</div>
 		);
 	}
 }

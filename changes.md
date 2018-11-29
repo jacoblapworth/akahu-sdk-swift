@@ -94,6 +94,7 @@ We've built a codemod to do as much of the migration for you as we can. But ther
 * ProgressWrapper, ProgressCircular, & ProgressLinear: `ariaLabel` and `ariaLabelledBy` have been added
 * RolloverCheckbox: `ariaLabelledBy` has been added
 * Table: `onRowClick` now **only** holds the handler callback with the conditional logic being asserted on each table row through the use of `shouldRowClick`. (see https://github.dev.xero.com/UXE/xui/issues/3278, and the subsequent updates in https://github.dev.xero.com/UXE/xui/pull/3705)
+* ContentBlockItem: `onClick` and `onKeyDown` props have been added to allow callbacks to be passed to each content block item and handling of keyboard events.
 
 ## Other changes
 

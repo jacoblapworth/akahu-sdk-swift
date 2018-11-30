@@ -81,37 +81,30 @@ describe('XUIAvatar', () => {
 
 	describe('Handlers', () => {
 		it('should throw an error when the image doesn\'t exist', () => {
-			let called = false;
-			const errorHandler = () => {
-				called = true;
-				expect(called).toBe(true);
-			}
-
-			mount(
+			const onErrorHandler = jest.fn();
+			const mountedComponent = mount(
 				<XUIAvatar
-					onError={errorHandler}
+					onError={onErrorHandler}
 					imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/25.jpg"/>
 			);
+
+			mountedComponent.find('img').simulate('error');
+			expect(onErrorHandler).toHaveBeenCalledTimes(1);
 
 		});
 
 		it('should call the onError internal method when the image doesn\'t exist', () => {
-			let called = false;
 			const testString = 'test';
-
-			const errorHandler = test => {
-				called = true;
-				expect(called).toBe(true);
-				expect(test).toEqual(testString);
-			}
+			const onErrorHandler = jest.fn();
 
 			const mountedComponent = mount(
 				<XUIAvatar
-					onError={errorHandler}
+					onError={onErrorHandler}
 					imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/25.jpg"/>
 			);
 
 			mountedComponent.instance().onError(testString);
+			expect(onErrorHandler).toHaveBeenCalledWith(testString);
 		});
 	});
 

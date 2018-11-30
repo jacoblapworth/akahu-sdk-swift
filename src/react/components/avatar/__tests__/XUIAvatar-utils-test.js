@@ -42,9 +42,17 @@ describe('XUIAvatar Private Functions', () => {
 			expect(abbreviateAvatar('  [This] (Long) {Company} Name', 3)).toBe('TLC');
 		});
 
+		it('should preserve non-western alpha characters', () => {
+			expect(abbreviateAvatar('中国铁路总公司', 3)).toBe('中');
+		});
+
+		it('should ignore certain punctuation', () => {
+			expect(abbreviateAvatar('Jimmy\' + Friend & \"<Sons> . _Home', 7)).toBe('JFSH');
+		});
+
 		it('should uppercase all letters provided', () => {
 			expect(abbreviateAvatar('uppercased names', 2)).toBe('UN');
-		})
+		});
 	});
 
 	describe('Getting colour class names', () => {

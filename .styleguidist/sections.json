@@ -414,6 +414,42 @@
 								"components": "../src/react/components/table/XUITableCell.js"
 							}
 						]
+					},
+					{
+						"name": "Compositions",
+						"content": "../src/react/compositions.md",
+						"sections": [
+							{
+								"components": "../src/components/compositions/XUICompositionDetail.js"
+							},
+							{
+								"components": "../src/components/compositions/XUICompositionDetailHeader.js"
+							},
+							{
+								"components": "../src/components/compositions/XUICompositionDetailSplit.js"
+							},
+							{
+								"components": "../src/components/compositions/XUICompositionDetailSplitHeader.js"
+							},
+							{
+								"components": "../src/components/compositions/XUICompositionMasterDetail.js"
+							},
+							{
+								"components": "../src/components/compositions/XUICompositionMasterDetailHeader.js"
+							},
+							{
+								"components": "../src/components/compositions/XUICompositionMasterDetailSummary.js"
+							},
+							{
+								"components": "../src/components/compositions/XUICompositionMasterDetailSummaryHeader.js"
+							},
+							{
+								"components": "../src/components/compositions/XUICompositionSummaryDetail.js"
+							},
+							{
+								"components": "../src/components/compositions/XUICompositionSummaryDetailHeader.js"
+							}
+						]
 					}
 				]
 			}

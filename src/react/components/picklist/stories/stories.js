@@ -38,9 +38,9 @@ const buildItemsFromSettings = function (settings, listIndex, componentType) {
 		const role = componentType == 'StatefulPicklist' ? 'treeitem' : undefined;
 		let builtItem;
 		if (item.isHeader) {
-			builtItem = <XUIPicklistHeader>{item.children}</XUIPicklistHeader>;
+			builtItem = <XUIPicklistHeader key={unique}>{item.children}</XUIPicklistHeader>;
 		} else if (item.isDivider) {
-			builtItem = <XUIPicklistDivider />;
+			builtItem = <XUIPicklistDivider key={unique} />;
 		} else {
 			builtItem = (
 				<XUIPickitem key={unique} id={unique} ariaRole={role} {...item}>
@@ -174,7 +174,7 @@ variations.forEach(variation => {
 						{listComponents[0]}
 					</NestedPicklistContainer>
 					<NestedPicklistContainer id="split" isOpen={isOpen}>
-						<XUIPickitem id="splitTrigger" isSplit isMultiselect>Split nested list</XUIPickitem>
+						<XUIPickitem id="splitTrigger" isSplit isMultiselect={listComponents[1].props.isMultiselect}>Split nested list</XUIPickitem>
 						<NestedPicklistTrigger id="nestedSplit" />
 						{listComponents[1]}
 					</NestedPicklistContainer>

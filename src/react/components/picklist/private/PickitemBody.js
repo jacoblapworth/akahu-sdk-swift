@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { pickitemClassName, itemBodyClassName, itemTextClassName } from '../private/constants';
@@ -45,12 +45,23 @@ const PickitemBody = ({
 	const Tag = href ? 'a' : 'button';
 	const elementSettings = href ? { ...{ href, target } } : { type: 'button' };
 
+	const mainContent = shouldTruncate ? (
+		<span className={`${pickitemClassName}-text-truncated`}>
+			{primaryElement}
+			{children}
+		</span>
+	) : (
+		<Fragment>
+			{primaryElement}
+			{children}
+		</Fragment>
+	);
+
 	return (
 		<Tag {...elementSettings} data-automationid={qaHook} {...childProps}>
 			{leftElement}
 			<span className={textClassName}>
-				{primaryElement}
-				{children}
+				{mainContent}
 				{secondaryElement}
 			</span>
 			{pinnedElement}

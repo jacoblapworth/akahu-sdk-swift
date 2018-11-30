@@ -12,7 +12,7 @@ exports[`< Picklist /> example of list settings overriding item-level settings 1
   <li
     aria-label={undefined}
     aria-selected={null}
-    className="xui-pickitem xui-pickitem-small"
+    className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-small"
     data-automationid={undefined}
     id="pi1"
     role="option"
@@ -30,7 +30,11 @@ exports[`< Picklist /> example of list settings overriding item-level settings 1
       <span
         className="xui-pickitem--text xui-pickitem-text-truncated"
       >
-        Item content
+        <span
+          className="xui-pickitem-text-truncated"
+        >
+          Item content
+        </span>
       </span>
     </button>
   </li>
@@ -183,7 +187,7 @@ exports[`< Picklist /> example with most compatible options 1`] = `
   <li
     aria-label={undefined}
     aria-selected={null}
-    className="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-small"
+    className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-is-horizontal xui-pickitem-small"
     data-automationid={undefined}
     id="pi1"
     role="option"
@@ -201,7 +205,11 @@ exports[`< Picklist /> example with most compatible options 1`] = `
       <span
         className="xui-pickitem--text xui-pickitem-text-truncated"
       >
-        Item content
+        <span
+          className="xui-pickitem-text-truncated"
+        >
+          Item content
+        </span>
       </span>
     </button>
   </li>

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import PickitemBody from './private/PickitemBody';
 import PickitemMultiselect from './private/PickitemMultiselect';
-import { ns } from '../helpers/xuiClassNamespace';
 import { pickitemClassName, sideElementClassName, sizeVariants } from './private/constants';
 
 /**
@@ -54,12 +53,13 @@ export default class Pickitem extends PureComponent {
 		const classes = cn(
 			`${pickitemClassName}`,
 			className,
+			shouldTruncate && `${pickitemClassName}-text-truncated`,
 			isHighlighted && `${pickitemClassName}-is-hovered`,
 			_isHorizontal && `${pickitemClassName}-is-horizontal`,
 			(isSelected && !disableSelectedStyles) && `${pickitemClassName}-is-selected`,
 			validatedMultiselect && `${pickitemClassName}-multiselect`,
 			isSplit && `${pickitemClassName}-split`,
-			isDisabled && `${ns}-is-disabled`,
+			isDisabled && `${pickitemClassName}-is-disabled`,
 			size && `${pickitemClassName}-${size}`,
 			isInvalid && `${pickitemClassName}-is-invalid`,
 		);
@@ -118,6 +118,7 @@ export default class Pickitem extends PureComponent {
 					{...{
 						shouldTruncate,
 						isSelected,
+						isDisabled,
 						href,
 						checkboxClassName,
 						target,

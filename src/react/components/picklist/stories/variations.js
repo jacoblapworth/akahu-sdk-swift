@@ -133,7 +133,6 @@ const variations = [
 			items: [ { }, { isSelected: true }, ],
 		},
 		{
-			isMultiselect: true,
 			items: [ { isSelected: true, }, { }, { isDisabled: true, }, ],
 		}],
 		componentType: 'NestedPicklist',
@@ -346,6 +345,41 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'xsmall truncating with all the things',
+		componentType: 'wrapWithPanel',
+		panelSize: '300px',
+		lists: [{
+			shouldTruncate: true,
+			size: "xsmall",
+			items: [
+				{
+					value: "James Magness",
+					leftElement: <XUIAvatar value="James Magness" size="2xsmall" />,
+					rightElement: <XUIIcon icon={iconsList[0]} />,
+					secondaryElement: "The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.",
+					pinnedElement: "18",
+				},
+				{ isDivider: true },
+				{ isHeader: true, children: "Recent" },
+				{
+					value: "Tim Redmond The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.",
+					leftElement: <XUIAvatar value="Tim Redmond" size="2xsmall" />,
+					rightElement: <XUIIcon icon={iconsList[1]} />,
+					secondaryElement: "Developer",
+					pinnedElement: "3",
+				},
+				{
+					value: "Maxine Ellah",
+					leftElement: <XUIAvatar value="Maxine Ellah" size="2xsmall" />,
+					rightElement: <XUIIcon icon={iconsList[2]} />,
+					secondaryElement: "Developer",
+					pinnedElement: "42",
+				},
+			],
+		}],
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'horizontal with avatars',
 		componentType: 'wrapWithPanel',
 		panelSize: 'auto',
@@ -408,6 +442,65 @@ const variations = [
 					value: "Maxine Ellah",
 					pinnedElement: "42",
 					leftElement: <XUIIcon icon={iconsList[3]} />,
+				},
+			],
+		}],
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'small horizontal with truncation',
+		componentType: 'wrapWithPanel',
+		panelSize: '275px',
+		lists: [{
+			shouldTruncate: true,
+			isHorizontal: true,
+			size: 'small',
+			items: [
+				{
+					value: "James Magness",
+					leftElement: <XUIIcon icon={iconsList[0]} />,
+					isSelected: true,
+				},
+				{
+					value: "Tim Redmond",
+					leftElement: <XUIIcon icon={iconsList[2]} />,
+				},
+				{
+					value: "Maxine Ellah",
+					leftElement: <XUIIcon icon={iconsList[3]} />,
+				},
+			],
+		}],
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'multiselect with truncation',
+		componentType: 'wrapWithPanel',
+		panelSize: '400px',
+		lists: [{
+			size: "small",
+			isMultiselect: true,
+			shouldTruncate: true,
+			items: [
+				{
+					value: "James Magness",
+					rightElement: <XUIIcon icon={iconsList[0]} />,
+					secondaryElement: "The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.",
+					pinnedElement: "Administrator",
+				},
+				{ isDivider: true },
+				{ isHeader: true, children: "Recent" },
+				{
+					value: "Tim Redmond The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.",
+					rightElement: <XUIIcon icon={iconsList[1]} />,
+					secondaryElement: "Developer",
+					pinnedElement: "3",
+				},
+				{
+					value: "Maxine Ellah",
+					rightElement: <XUIIcon icon={iconsList[2]} />,
+					secondaryElement: "Developer",
+					pinnedElement: "42",
 				},
 			],
 		}],

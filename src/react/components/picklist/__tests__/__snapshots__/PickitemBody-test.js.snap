@@ -14,7 +14,11 @@ exports[`<PickitemBody /> adds truncation classes 1`] = `
   <span
     className="xui-pickitem--text xui-pickitem-text-truncated"
   >
-    Item
+    <span
+      className="xui-pickitem-text-truncated"
+    >
+      Item
+    </span>
   </span>
 </button>
 `;

@@ -325,7 +325,7 @@ exports[`<SelectBoxOption /> should render the option and the checkboxes as disa
 <li
   aria-label={undefined}
   aria-selected={false}
-  className="xui-pickitem xui-pickitem-multiselect xui-is-disabled xui-pickitem-standard"
+  className="xui-pickitem xui-pickitem-multiselect xui-pickitem-is-disabled xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -340,7 +340,7 @@ exports[`<SelectBoxOption /> should render the option and the checkboxes as disa
     role="presentation"
   >
     <label
-      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
+      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
       data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={undefined}
@@ -354,7 +354,7 @@ exports[`<SelectBoxOption /> should render the option and the checkboxes as disa
         checked={false}
         className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
         data-automationid={undefined}
-        disabled={false}
+        disabled={true}
         name={undefined}
         onChange={[Function]}
         onClick={[Function]}
@@ -417,7 +417,7 @@ exports[`<SelectBoxOption /> should render the option as disabled when the isDis
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem xui-is-disabled xui-pickitem-standard"
+  className="xui-pickitem xui-pickitem-is-disabled xui-pickitem-standard"
   data-automationid={undefined}
   id="1"
   role="option"

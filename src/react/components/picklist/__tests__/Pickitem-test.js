@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { mount } from 'enzyme';
+import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import Pickitem from '../Pickitem';
@@ -78,5 +78,32 @@ describe('<Pickitem />', () => {
 			/>
 		);
 		expect(multiselect).toMatchSnapshot();
+	});
+
+	it('renders a regular pickitem with truncation', () => {
+		const truncation = renderer.create(
+			<Pickitem
+				id="item1"
+				primaryElement="Item 1"
+				secondaryElement="Here is a bunch of secondary text"
+				pinnedElement="234"
+				shouldTruncate
+			/>
+		);
+		expect(truncation).toMatchSnapshot();
+	});
+
+	it('renders a multiselect pickitem with truncation', () => {
+		const truncation = renderer.create(
+			<Pickitem
+				id="item1"
+				primaryElement="Item 1"
+				secondaryElement="Here is a bunch of secondary text"
+				pinnedElement="234"
+				isMultiselect
+				shouldTruncate
+			/>
+		);
+		expect(truncation).toMatchSnapshot();
 	});
 })

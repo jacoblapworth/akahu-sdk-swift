@@ -610,7 +610,6 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 
 .#{$ns}-picklist-horizontal {
 	display: inline-flex;
-	flex-direction: row; // TODO: this is redundant; remove in a future version
 	max-width: 100%;
 	min-height: inherit; // IE11 bug fix
 }
@@ -675,11 +674,13 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 
 	.#{$ns}-pickitem-multiselect--checkbox &.#{$ns}-styledcheckboxradio--label {
 		// Use existing pickitem sizing for the checkbox labels.
-		font-size: inherit;
-		line-height: inherit;
+		font-size: 100%;
 		// Overriding in-built margins for checkbox/radio labels.
 		margin-left: $xui-s-2xsmall;
 		margin-right: 0px;
+	}
+	&.#{$ns}-pickitem-text-truncated {
+		display: flex;
 	}
 }
 .#{$ns}-pickitem--heading {
@@ -691,16 +692,24 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	.#{$ns}-pickitem .#{$ns}-pickitem--text .#{$ns}-pickitem--heading + & {
 		margin-left: 0px;
 	}
+	&.#{$ns}-pickitem-text-truncated {
+		max-width: 60%;
+		min-width: 20%;
+	}
 }
 
 .#{$ns}-pickitem--pinned {
 	align-self: flex-start;
 	color: $xui-pickitem-secondary-text-color;
+	flex-shrink: 0;
 	max-width: 20%;
 	padding-right: $xui-s-2xsmall;
 	text-align: right;
 	.#{$ns}-pickitem--text > & {
 		float: right;
+	}
+	.#{$ns}-pickitem--text.#{$ns}-pickitem-text-truncated > & {
+		order: 1;
 	}
 }
 
@@ -715,15 +724,17 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 
 .#{$ns}-pickitem-multiselect--checkbox {
 	flex-grow: 1;
-	&.#{$ns}-pickitem--label-will-truncate {
-		width: 100%;
-	}
 	&:last-child {
 		padding-right: $xui-s-xsmall;
 	}
 	&:nth-last-child(n+2) {
 		padding-right: $xui-s-2xsmall;
 	}
+}
+
+.#{$ns}-pickitem-multiselect--label > .#{$ns}-pickitem-text-truncated:not(.#{$ns}-pickitem--pinned) {
+	display: flex;
+	flex: auto;
 }
 
 // Nested lists and their controlling elements
@@ -889,9 +900,14 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 		vertical-align: middle;
 	}
 	.#{$ns}-pickitem--body {
-		display: block;
 		height: 100%;
 		text-align: left;
+	}
+	&.#{$ns}-pickitem-text-truncated .#{$ns}-pickitem--body {
+		display: flex;
+	}
+	&:not(.#{$ns}-pickitem-text-truncated) .#{$ns}-pickitem--body {
+		display: block;
 	}
 	.#{$ns}-pickitem--body::after {
 		content: "";
@@ -1008,9 +1024,6 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	&:not(.#{$ns}-pickitem-multiselect) .#{$ns}-pickitem--pinned {
 		@include xui-padding-vertical($xui-s-xsmall);
 	}
-	.#{$ns}-pickitem--label-will-truncate .#{$ns}-pickitem--text {
-		width: calc(100% - 44px); // Width of margin + width of checkbox
-	}
 	&.#{$ns}-pickitem-split + .#{$ns}-submenu-uicontrol {
 		margin-right: $xui-s-small;
 	}
@@ -1029,9 +1042,6 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	.#{$ns}-pickitem--text,
 	&:not(.#{$ns}-pickitem-multiselect) .#{$ns}-pickitem--pinned {
 		@include xui-padding-vertical($pickitem-small-padding);
-	}
-	.#{$ns}-pickitem--label-will-truncate .#{$ns}-pickitem--text {
-		width: calc(100% - 36px); // Width of margin + width of checkbox
 	}
 	&.#{$ns}-pickitem-split + .#{$ns}-submenu-uicontrol {
 		margin-right: $xui-s-xsmall;
@@ -1108,7 +1118,7 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 // Size-specific horizontal
 .#{$ns}-pickitem-standard.#{$ns}-pickitem-is-horizontal {
 	@include xui-padding-horizontal($xui-s-large);
-	> .#{$ns}-pickitem--body {
+	&:not(.#{$ns}-pickitem-text-truncated) > .#{$ns}-pickitem--body {
 		@include xui-padding-vertical($xui-s-xsmall);
 	}
 	&.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body:before {
@@ -1127,7 +1137,7 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 }
 .#{$ns}-pickitem-small.#{$ns}-pickitem-is-horizontal {
 	@include xui-padding-horizontal($xui-s-standard);
-	> .#{$ns}-pickitem--body {
+	&:not(.#{$ns}-pickitem-text-truncated) > .#{$ns}-pickitem--body {
 		@include xui-padding-vertical($pickitem-small-padding);
 	}
 	&.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body:before {
@@ -1146,7 +1156,7 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 }
 .#{$ns}-pickitem-xsmall.#{$ns}-pickitem-is-horizontal {
 	@include xui-padding-horizontal($xui-s-small);
-	> .#{$ns}-pickitem--body {
+	&:not(.#{$ns}-pickitem-text-truncated) > .#{$ns}-pickitem--body {
 		@include xui-padding-vertical($xui-s-2xsmall);
 	}
 	&.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body:before {
@@ -1165,10 +1175,8 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 }
 
 // State-specific
-.#{$ns}-pickitem-is-invalid {
-	.#{$ns}-pickitem--body {
-		color: $xui-invalid-color;
-	}
+.#{$ns}-pickitem-is-invalid .#{$ns}-pickitem--body {
+	color: $xui-invalid-color;
 }
 
 .#{$ns}-pickitem-is-hovered {
@@ -1194,7 +1202,7 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 }
 
 .#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) {
-	&:not(.#{$ns}-pickitem-is-invalid) > .#{$ns}-pickitem--body {
+	&:not(.#{$ns}-pickitem-is-invalid):not(.#{$ns}-pickitem-is-disabled) > .#{$ns}-pickitem--body {
 		color: $xui-pickitem-selected-color;
 	}
 	> .#{$ns}-pickitem--body::before {
@@ -1220,4 +1228,16 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 // Utility style that can be applied to pickitems and sub-elements.
 .#{$ns}-pickitem-text-truncated {
 	@include xui-text-truncated
+}
+
+.#{$ns}-pickitem-is-disabled {
+	.#{$ns}-pickitem--body,
+	.#{$ns}-pickitem-multiselect--label .#{$ns}-pickitem--text {
+		color: $xui-color-grey-3;
+		cursor: not-allowed;
+	}
+	&:hover {
+		background-color: transparent;
+		cursor: not-allowed;
+	}
 }

@@ -14,6 +14,7 @@ class StatefulMultiselectPicklist extends React.Component {
 		};
 
 		this.onOptionSelect = this.onOptionSelect.bind(this);
+		this.trigger = React.createRef();
 	}
 
 	onOptionSelect(value, item){
@@ -37,7 +38,7 @@ class StatefulMultiselectPicklist extends React.Component {
 			<StatefulPicklist onSelect={this.onOptionSelect} canFocus={true}>
 				<Picklist>
 					<NestedPicklistContainer id="nested">
-						<NestedPicklistTrigger id="nestedTrigger" ref={c => smp.trigger = c}>Nested List</NestedPicklistTrigger>
+						<NestedPicklistTrigger id="nestedTrigger" ref={smp.trigger}>Nested List</NestedPicklistTrigger>
 						<NestedPicklist>
 							<Pickitem ariaRole='treeitem' id="a" isSelected={smp.state.selectedItems.a}>A</Pickitem>
 							<Pickitem ariaRole='treeitem' id="b" isSelected={smp.state.selectedItems.b}>B</Pickitem>

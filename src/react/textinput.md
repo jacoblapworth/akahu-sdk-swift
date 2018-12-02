@@ -608,7 +608,6 @@ const clear = require ('@xero/xui-icon/icons/clear').default;
 const search = require ('@xero/xui-icon/icons/search').default;
 const XUIIcon = require('./icon.js').default;
 const XUIButton = require ( './button.js' ).default;
-const NOOP = () => {};
 
 class Example extends PureComponent {
 	constructor(){

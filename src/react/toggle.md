@@ -13,15 +13,16 @@ Avoid partially disabled groups in which one of the disabled options is pre-sele
 Use the `type` prop on `XUIToggleOption`s to specify whether they should behave like checkboxes or like radios.
 
 ```jsx
+const noop = () => {};
 const checkboxToggle = {
 	name: 'toggle-checkbox',
-	onChange: () => {},
+	onChange: noop,
 	type: 'checkbox'
 };
 
 const radioToggle = {
 	name: 'toggle-radio',
-	onChange: () => {},
+	onChange: noop,
 	type: 'radio'
 };
 
@@ -50,9 +51,10 @@ To use a `XUIToggle` within an dark section, pass `"inverted"` to `XUIToggle`'s 
 
 ```jsx
 const ExampleContainer = require('./docs/ExampleContainer').default;
+const noop = () => {};
 const checkboxToggle = {
 	name: 'toggle-checkbox-inverted',
-	onChange: () => {},
+	onChange: noop,
 	type: 'checkbox'
 };
 
@@ -71,15 +73,16 @@ const checkboxToggle = {
 To make your toggles smaller (same size as small buttons), pass `"small"` to `XUIToggle`'s `variant` prop.
 
 ```jsx
+const noop = () => {};
 const radioToggle = {
 	name: 'toggle-radio-layout-size',
-	onChange: () => {},
+	onChange: noop,
 	type: 'radio'
 };
 
 const checkboxToggle = {
 	name: 'toggle-checkbox-layout-size',
-	onChange: () => {},
+	onChange: noop,
 	type: 'checkbox'
 };
 
@@ -100,9 +103,10 @@ When using `XUIToggle` with text content, it's recommended to use the `fullwidth
 You can also choose not to specify a layout, if the markup of your toggle content has more complicated requirements.
 
 ```jsx
+const noop = () => {};
 const checkboxToggle = {
 	name: 'toggle-checkbox',
-	onChange: () => {},
+	onChange: noop,
 	type: 'checkbox'
 };
 

@@ -8,8 +8,10 @@
 const XUIPageHeader = require('../structural/XUIPageHeader').default;
 const XUIBreadcrumb = require('../structural/XUIBreadcrumb').default;
 
+const logHi = () => console.log('hello');
+
 const breadcrumbLinks = [
-	<span tabIndex={0} role="link" onClick={() => console.log('hello')} key="a">Elements</span>,
+	<span tabIndex={0} role="link" onClick={logHi} key="a">Elements</span>,
 	{key: "b", label: "Identifiers", href: "#breadcrumb"},
 	{key: "c", label: "Avatar"}];
 const builtBreadcrumb = <XUIBreadcrumb breadcrumbs={breadcrumbLinks}></XUIBreadcrumb>;

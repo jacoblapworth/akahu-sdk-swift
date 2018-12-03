@@ -549,8 +549,15 @@ $xui-datepicker-day-size-compact: 30px;
 	top: 0;
 	width: 100%;
 }
+.#{$ns}-datepicker--heading-select-has-focus {
+	// Borrowed from @mixin xui-state-focus
+	box-shadow: $xui-shadow-focus;
+	outline: none;
+	transition: box-shadow $xui-motion-speed-fast;
+}
 
-.#{$ns}-datepicker--heading-label {
+.#{$ns}-datepicker--heading-label.#{$ns}-button-standard {
+	position: static;
 	user-select: none;
 
 	&:hover {

@@ -21,6 +21,8 @@ const SecondarySearchData = [
 
 const isSelected = (item, selectedIds) => item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
 
+const noop = () => {};
+
 function createItems(items, selectedId) {
 	if (Array.isArray(items)) {
 		return items.map(i => createItems(i, selectedId));
@@ -46,6 +48,7 @@ class SecondarySearchExample extends React.Component {
 		}
 
 		sse.onSearch = sse.onSearch.bind(sse);
+		sse.onClose = sse.onClose.bind(sse);
 		sse.onOptionSelect = sse.onOptionSelect.bind(sse);
 	}
 
@@ -64,7 +67,7 @@ class SecondarySearchExample extends React.Component {
 			})
 	}
 
-	onClose(){
+	onClose() {
 		this.setState({
 			value: '',
 			data: SecondarySearchData
@@ -76,7 +79,7 @@ class SecondarySearchExample extends React.Component {
 		const { value, data } = sse.state;
 
 		const trigger = (
-			<XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger">
+			<XUIButton type="button" onClick={noop} data-ref="toggled_trigger">
 				Toggle Me <XUIButtonCaret />
 			</XUIButton>
 		);
@@ -111,7 +114,7 @@ class SecondarySearchExample extends React.Component {
 					qaHook='secondary-search'
 					footer={footer}
 					closeOnTab={false}
-					onClose={() => this.onClose()}
+					onClose={this.onClose}
 				>
 					<Picklist>
 						{items}

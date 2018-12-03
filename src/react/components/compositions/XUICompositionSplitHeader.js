@@ -3,27 +3,27 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import '../../../sass/5-structure/_base.scss';
-import '../../../sass/5-structure/compositions/_detailsplitheader.scss';
+import '../../../sass/5-structure/compositions/_splitheader.scss';
 
-import XUIGridAreaMedia from './XUIGridAreaMedia';
-import XUIGridAreaMain from './XUIGridAreaMain';
+import XUIGridAreaPrimary from './XUIGridAreaPrimary';
+import XUIGridAreaMain from './XUIGridAreaDetail';
 import XUIGridAreaHeader from './XUIGridAreaHeader';
 
 import baseCompositionClass from './helpers';
 
-export default class XUICompositionDetailSplitHeader extends PureComponent {
+export default class XUICompositionSplitHeader extends PureComponent {
 	render() {
 		const {
 			className,
 			header,
-			main,
-			media,
+			primary,
+			secondary,
 			isInfinite,
 		} = this.props;
 
 		const compositionClasses = cn(
 			baseCompositionClass,
-			`${baseCompositionClass}-detailsplitheader`,
+			`${baseCompositionClass}-splitheader`,
 			!isInfinite && `${baseCompositionClass}-is-finite`,
 			className,
 		);
@@ -33,22 +33,36 @@ export default class XUICompositionDetailSplitHeader extends PureComponent {
 				<XUIGridAreaHeader>
 					{header}
 				</XUIGridAreaHeader>
-				<XUIGridAreaMedia>
-					{media}
-				</XUIGridAreaMedia>
+				<XUIGridAreaPrimary>
+					{primary}
+				</XUIGridAreaPrimary>
 				<XUIGridAreaMain>
-					{main}
+					{secondary}
 				</XUIGridAreaMain>
 			</div>
 		);
 	}
 }
 
-XUICompositionDetailSplitHeader.propTypes = {
+XUICompositionSplitHeader.propTypes = {
 	className: PropTypes.string,
+
+	/**
+	 * Header content or component
+	 */
 	header: PropTypes.element.isRequired,
-	main: PropTypes.element.isRequired,
-	media: PropTypes.element.isRequired,
+	/**
+	 * More recent or important content
+	 */
+	primary: PropTypes.element.isRequired,
+	/**
+	 * Accompanying content
+	 */
+	secondary: PropTypes.element.isRequired,
+	/**
+	 * Determines whether the main content takes full width of page
+	 */
 	isInfinite: PropTypes.bool,
+
 };
 

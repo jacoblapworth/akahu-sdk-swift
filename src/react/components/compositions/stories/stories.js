@@ -2,12 +2,12 @@
 import React, { Fragment } from 'react';
 
 // Components we need to test with
-import XUICompositionDetailSplitHeader from '../XUICompositionDetailSplitHeader';
-import XUICompositionDetailSplit from '../XUICompositionDetailSplit';
+import XUICompositionSplitHeader from '../XUICompositionSplitHeader';
+import XUICompositionSplit from '../XUICompositionSplit';
 import XUICompositionDetailHeader from '../XUICompositionDetailHeader';
 import XUICompositionDetail from '../XUICompositionDetail';
-import XUICompositionSummaryDetailHeader from '../XUICompositionSummaryDetailHeader';
-import XUICompositionSummaryDetail from '../XUICompositionSummaryDetail';
+import XUICompositionDetailSummaryHeader from '../XUICompositionDetailSummaryHeader';
+import XUICompositionDetailSummary from '../XUICompositionDetailSummary';
 import XUICompositionMasterDetailSummaryHeader from '../XUICompositionMasterDetailSummaryHeader';
 import XUICompositionMasterDetailSummary from '../XUICompositionMasterDetailSummary';
 import XUICompositionMasterDetailHeader from '../XUICompositionMasterDetailHeader';
@@ -207,8 +207,8 @@ storiesWithKnobs.add('Master detail', () => {
 	)
 });
 
-storiesWithKnobs.add('Summary detail', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUICompositionSummaryDetailHeader : XUICompositionSummaryDetail;
+storiesWithKnobs.add('Detail summary', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionDetailSummaryHeader : XUICompositionDetailSummary;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
@@ -242,8 +242,8 @@ storiesWithKnobs.add('Detail', () => {
 });
 
 
-storiesWithKnobs.add('Detail split', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUICompositionDetailSplitHeader : XUICompositionDetailSplit;
+storiesWithKnobs.add('Split', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionSplitHeader : XUICompositionSplit;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),

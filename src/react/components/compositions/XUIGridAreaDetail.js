@@ -5,9 +5,9 @@ import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 import { observe, unobserve, getWidthClasses } from '../helpers/resizeObserver';
 
-import '../../../sass/5-structure/_gridarea-media.scss';
+import '../../../sass/5-structure/_gridarea-detail.scss';
 
-export default class XUIGridAreaMedia extends PureComponent {
+export default class XUIGridAreaDetail extends PureComponent {
 	_area = React.createRef();
 
 	componentDidMount() {
@@ -25,9 +25,10 @@ export default class XUIGridAreaMedia extends PureComponent {
 		} = this.props;
 
 		const classNames = cn(
-			`${ns}-gridarea-media`,
+			`${ns}-gridarea-detail`,
 			...getWidthClasses(this.state),
 		);
+
 
 		return (
 			<div
@@ -41,6 +42,6 @@ export default class XUIGridAreaMedia extends PureComponent {
 	}
 }
 
-XUIGridAreaMedia.propTypes = {
+XUIGridAreaDetail.propTypes = {
 	children: PropTypes.any,
 };

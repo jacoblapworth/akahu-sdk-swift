@@ -5,7 +5,7 @@ import cn from 'classnames';
 import '../../../sass/5-structure/_base.scss';
 import '../../../sass/5-structure/compositions/_detailheader.scss';
 
-import XUIGridAreaMain from './XUIGridAreaMain';
+import XUIGridAreaDetail from './XUIGridAreaDetail';
 import XUIGridAreaHeader from './XUIGridAreaHeader';
 
 import baseCompositionClass from './helpers';
@@ -15,7 +15,7 @@ export default class XUICompositionDetailHeader extends PureComponent {
 		const {
 			className,
 			header,
-			main,
+			detail,
 			isInfinite,
 		} = this.props;
 
@@ -31,9 +31,9 @@ export default class XUICompositionDetailHeader extends PureComponent {
 				<XUIGridAreaHeader>
 					{header}
 				</XUIGridAreaHeader>
-				<XUIGridAreaMain>
-					{main}
-				</XUIGridAreaMain>
+				<XUIGridAreaDetail>
+					{detail}
+				</XUIGridAreaDetail>
 			</div>
 		);
 	}
@@ -41,8 +41,19 @@ export default class XUICompositionDetailHeader extends PureComponent {
 
 XUICompositionDetailHeader.propTypes = {
 	className: PropTypes.string,
+
+	/**
+	 * Header content or component
+	 */
 	header: PropTypes.element.isRequired,
-	main: PropTypes.element.isRequired,
+	/**
+	 * Main content
+	 */
+	detail: PropTypes.element.isRequired,
+	/**
+	 * Determines whether the main content takes full width of page
+	 */
 	isInfinite: PropTypes.bool,
+
 };
 

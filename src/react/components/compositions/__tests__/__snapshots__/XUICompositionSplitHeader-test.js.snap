@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUICompositionDetailSplitHeader> renders basic example 1`] = `
+exports[`<XUICompositionSplitHeader> renders basic example 1`] = `
 <div
   className="xui-composition xui-composition-detailsplitheader xui-composition-is-finite"
 >
@@ -22,7 +22,7 @@ exports[`<XUICompositionDetailSplitHeader> renders basic example 1`] = `
 </div>
 `;
 
-exports[`<XUICompositionDetailSplitHeader> should do nothing with children 1`] = `
+exports[`<XUICompositionSplitHeader> should do nothing with children 1`] = `
 <div
   className="xui-composition xui-composition-detailsplitheader xui-composition-is-finite"
 >
@@ -44,7 +44,7 @@ exports[`<XUICompositionDetailSplitHeader> should do nothing with children 1`] =
 </div>
 `;
 
-exports[`<XUICompositionDetailSplitHeader> should include custom class and omit width-limiting class, if specified 1`] = `
+exports[`<XUICompositionSplitHeader> should include custom class and omit width-limiting class, if specified 1`] = `
 <div
   className="xui-composition xui-composition-detailsplitheader split-with-head"
 >

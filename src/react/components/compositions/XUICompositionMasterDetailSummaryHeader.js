@@ -5,9 +5,9 @@ import cn from 'classnames';
 import '../../../sass/5-structure/_base.scss';
 import '../../../sass/5-structure/compositions/_masterdetailsummaryheader.scss';
 
-import XUIGridAreaMain from './XUIGridAreaMain';
+import XUIGridAreaDetail from './XUIGridAreaDetail';
 import XUIGridAreaSummary from './XUIGridAreaSummary';
-import XUIGridAreaNav from './XUIGridAreaNav';
+import XUIGridAreaMaster from './XUIGridAreaMaster';
 import XUIGridAreaHeader from './XUIGridAreaHeader';
 
 import baseCompositionClass from './helpers';
@@ -17,9 +17,9 @@ export default class XUICompositionMasterDetailSummaryHeader extends PureCompone
 		const {
 			className,
 			header,
+			master,
+			detail,
 			summary,
-			nav,
-			main,
 			isInfinite,
 		} = this.props;
 
@@ -35,12 +35,12 @@ export default class XUICompositionMasterDetailSummaryHeader extends PureCompone
 				<XUIGridAreaHeader>
 					{header}
 				</XUIGridAreaHeader>
-				<XUIGridAreaNav>
-					{nav}
-				</XUIGridAreaNav>
-				<XUIGridAreaMain>
-					{main}
-				</XUIGridAreaMain>
+				<XUIGridAreaMaster>
+					{master}
+				</XUIGridAreaMaster>
+				<XUIGridAreaDetail>
+					{detail}
+				</XUIGridAreaDetail>
 				<XUIGridAreaSummary>
 					{summary}
 				</XUIGridAreaSummary>
@@ -51,10 +51,27 @@ export default class XUICompositionMasterDetailSummaryHeader extends PureCompone
 
 XUICompositionMasterDetailSummaryHeader.propTypes = {
 	className: PropTypes.string,
+
+	/**
+	 * Header content or component
+	 */
 	header: PropTypes.element.isRequired,
+	/**
+	 * Nav content or controls for detail content
+	 */
+	master: PropTypes.element.isRequired,
+	/**
+	 * Main content
+	 */
+	detail: PropTypes.element.isRequired,
+	/**
+	 * Summary content or component
+	 */
 	summary: PropTypes.element.isRequired,
-	nav: PropTypes.element.isRequired,
-	main: PropTypes.element.isRequired,
+	/**
+	 * Determines whether the main content takes full width of page
+	 */
 	isInfinite: PropTypes.bool,
+
 };
 

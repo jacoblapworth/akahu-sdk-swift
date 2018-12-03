@@ -3,44 +3,53 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import '../../../sass/5-structure/_base.scss';
-import '../../../sass/5-structure/compositions/_detail.scss';
+import '../../../sass/5-structure/compositions/_split.scss';
 
+import XUIGridAreaPrimary from './XUIGridAreaPrimary';
 import XUIGridAreaDetail from './XUIGridAreaDetail';
 
 import baseCompositionClass from './helpers';
 
-export default class XUICompositionDetail extends PureComponent {
+export default class XUICompositionSplit extends PureComponent {
 	render() {
 		const {
-			detail,
+			primary,
+			secondary,
 			className,
 			isInfinite,
 		} = this.props;
 
 		const compositionClasses = cn(
 			baseCompositionClass,
-			`${baseCompositionClass}-detail`,
+			`${baseCompositionClass}-split`,
 			!isInfinite && `${baseCompositionClass}-is-finite`,
 			className,
 		);
 
 		return (
 			<div className={compositionClasses}>
+				<XUIGridAreaPrimary>
+					{primary}
+				</XUIGridAreaPrimary>
 				<XUIGridAreaDetail>
-					{detail}
+					{secondary}
 				</XUIGridAreaDetail>
 			</div>
 		);
 	}
 }
 
-XUICompositionDetail.propTypes = {
+XUICompositionSplit.propTypes = {
 	className: PropTypes.string,
 
 	/**
-	 * The main content
+	 * More recent or important content
 	 */
-	detail: PropTypes.element.isRequired,
+	primary: PropTypes.element.isRequired,
+	/**
+	 * Accompanying content
+	 */
+	secondary: PropTypes.element.isRequired,
 	/**
 	 * Determines whether the main content takes full width of page
 	 */

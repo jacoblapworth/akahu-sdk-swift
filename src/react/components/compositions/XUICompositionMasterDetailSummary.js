@@ -5,9 +5,9 @@ import cn from 'classnames';
 import '../../../sass/5-structure/_base.scss';
 import '../../../sass/5-structure/compositions/_masterdetailsummary.scss';
 
-import XUIGridAreaMain from './XUIGridAreaMain';
+import XUIGridAreaDetail from './XUIGridAreaDetail';
 import XUIGridAreaSummary from './XUIGridAreaSummary';
-import XUIGridAreaNav from './XUIGridAreaNav';
+import XUIGridAreaMaster from './XUIGridAreaMaster';
 
 import baseCompositionClass from './helpers';
 
@@ -15,8 +15,8 @@ export default class XUICompositionMasterDetailSummary extends PureComponent {
 	render() {
 		const {
 			summary,
-			nav,
-			main,
+			master,
+			detail,
 			className,
 			isInfinite,
 		} = this.props;
@@ -30,12 +30,12 @@ export default class XUICompositionMasterDetailSummary extends PureComponent {
 
 		return (
 			<div className={compositionClasses}>
-				<XUIGridAreaNav>
-					{nav}
-				</XUIGridAreaNav>
-				<XUIGridAreaMain>
-					{main}
-				</XUIGridAreaMain>
+				<XUIGridAreaMaster>
+					{master}
+				</XUIGridAreaMaster>
+				<XUIGridAreaDetail>
+					{detail}
+				</XUIGridAreaDetail>
 				<XUIGridAreaSummary>
 					{summary}
 				</XUIGridAreaSummary>
@@ -46,8 +46,22 @@ export default class XUICompositionMasterDetailSummary extends PureComponent {
 
 XUICompositionMasterDetailSummary.propTypes = {
 	className: PropTypes.string,
+
+	/**
+	 * Summary content or component
+	 */
 	summary: PropTypes.element.isRequired,
-	nav: PropTypes.element.isRequired,
-	main: PropTypes.element.isRequired,
+	/**
+	 * Nav content or controls for detail content
+	 */
+	master: PropTypes.element.isRequired,
+	/**
+	 * Main content
+	 */
+	detail: PropTypes.element.isRequired,
+	/**
+	 * Determines whether the main content takes full width of page
+	 */
 	isInfinite: PropTypes.bool,
+
 };

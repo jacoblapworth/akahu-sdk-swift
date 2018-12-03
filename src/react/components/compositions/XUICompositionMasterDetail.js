@@ -5,16 +5,16 @@ import cn from 'classnames';
 import '../../../sass/5-structure/_base.scss';
 import '../../../sass/5-structure/compositions/_masterdetail.scss';
 
-import XUIGridAreaMain from './XUIGridAreaMain';
-import XUIGridAreaNav from './XUIGridAreaNav';
+import XUIGridAreaDetail from './XUIGridAreaDetail';
+import XUIGridAreaMaster from './XUIGridAreaMaster';
 
 import baseCompositionClass from './helpers';
 
 export default class XUICompositionMasterDetail extends PureComponent {
 	render() {
 		const {
-			nav,
-			main,
+			master,
+			detail,
 			className,
 			isInfinite,
 		} = this.props;
@@ -28,12 +28,12 @@ export default class XUICompositionMasterDetail extends PureComponent {
 
 		return (
 			<div className={compositionClasses}>
-				<XUIGridAreaNav>
-					{nav}
-				</XUIGridAreaNav>
-				<XUIGridAreaMain>
-					{main}
-				</XUIGridAreaMain>
+				<XUIGridAreaMaster>
+					{master}
+				</XUIGridAreaMaster>
+				<XUIGridAreaDetail>
+					{detail}
+				</XUIGridAreaDetail>
 			</div>
 		);
 	}
@@ -41,7 +41,18 @@ export default class XUICompositionMasterDetail extends PureComponent {
 
 XUICompositionMasterDetail.propTypes = {
 	className: PropTypes.string,
-	nav: PropTypes.element.isRequired,
-	main: PropTypes.element.isRequired,
+
+	/**
+	 * Nav content or controls for detail content
+	 */
+	master: PropTypes.element.isRequired,
+	/**
+	 * Main content
+	 */
+	detail: PropTypes.element.isRequired,
+	/**
+	 * Determines whether the main content takes full width of page
+	 */
 	isInfinite: PropTypes.bool,
+
 };

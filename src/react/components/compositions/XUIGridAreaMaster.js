@@ -5,9 +5,9 @@ import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 import { observe, unobserve, getWidthClasses } from '../helpers/resizeObserver';
 
-import '../../../sass/5-structure/_gridarea-nav.scss';
+import '../../../sass/5-structure/_gridarea-master.scss';
 
-export default class XUIGridAreaNav extends PureComponent {
+export default class XUIGridAreaMaster extends PureComponent {
 	_area = React.createRef();
 
 	componentDidMount() {
@@ -25,7 +25,7 @@ export default class XUIGridAreaNav extends PureComponent {
 		} = this.props;
 
 		const classNames = cn(
-			`${ns}-gridarea-nav`,
+			`${ns}-gridarea-master`,
 			...getWidthClasses(this.state),
 		);
 
@@ -41,6 +41,6 @@ export default class XUIGridAreaNav extends PureComponent {
 	}
 }
 
-XUIGridAreaNav.propTypes = {
+XUIGridAreaMaster.propTypes = {
 	children: PropTypes.any,
 };

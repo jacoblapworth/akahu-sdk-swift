@@ -3,16 +3,15 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 
-import XUICompositionSummaryDetailHeader from '../XUICompositionSummaryDetailHeader';
+import XUICompositionDetailSummary from '../XUICompositionDetailSummary';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<XUICompositionSummaryDetailHeader>', () => {
+describe('<XUICompositionDetailSummary>', () => {
 
 	it('renders basic example', () => {
 		const wrapper = renderer.create(
-			<XUICompositionSummaryDetailHeader
-				header={<div></div>}
+			<XUICompositionDetailSummary
 				summary={<div></div>}
 				main={<div></div>}
 				/>
@@ -22,26 +21,24 @@ describe('<XUICompositionSummaryDetailHeader>', () => {
 
 	it('should do nothing with children', () => {
 		const wrapper = renderer.create(
-			<XUICompositionSummaryDetailHeader
-				header={<div></div>}
+			<XUICompositionDetailSummary
 				summary={<div></div>}
 				main={<div></div>}
 				>
 				Hello
-			</XUICompositionSummaryDetailHeader>
+			</XUICompositionDetailSummary>
 		);
 		expect(wrapper).toMatchSnapshot();
 	});
 	it('should include custom class and omit width-limiting class, if specified', () => {
 		const wrapper = renderer.create(
-			<XUICompositionSummaryDetailHeader
-				header={<div></div>}
+			<XUICompositionDetailSummary
 				summary={<div></div>}
 				main={<div></div>}
-				className="summary-with-head"
+				className="summary-without-head"
 				isInfinite={true}
 				>
-			</XUICompositionSummaryDetailHeader>
+			</XUICompositionDetailSummary>
 		);
 		expect(wrapper).toMatchSnapshot();
 	});

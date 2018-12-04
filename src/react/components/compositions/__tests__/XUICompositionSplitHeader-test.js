@@ -13,8 +13,8 @@ describe('<XUICompositionSplitHeader>', () => {
 		const wrapper = renderer.create(
 			<XUICompositionSplitHeader
 				header={<div></div>}
-				main={<div></div>}
-				media={<div></div>}
+				secondary={<div></div>}
+				primary={<div></div>}
 				/>
 		);
 		expect(wrapper).toMatchSnapshot();
@@ -24,8 +24,8 @@ describe('<XUICompositionSplitHeader>', () => {
 		const wrapper = renderer.create(
 			<XUICompositionSplitHeader
 				header={<div></div>}
-				main={<div></div>}
-				media={<div></div>}
+				secondary={<div></div>}
+				primary={<div></div>}
 				>
 				Hello
 			</XUICompositionSplitHeader>
@@ -36,8 +36,8 @@ describe('<XUICompositionSplitHeader>', () => {
 		const wrapper = renderer.create(
 			<XUICompositionSplitHeader
 				header={<div></div>}
-				main={<div></div>}
-				media={<div></div>}
+				secondary={<div></div>}
+				primary={<div></div>}
 				className="split-with-head"
 				isInfinite={true}
 				/>

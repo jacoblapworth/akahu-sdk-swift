@@ -10,12 +10,12 @@ exports[`<XUICompositionMasterDetailHeader> renders basic example 1`] = `
     <div />
   </div>
   <div
-    className="xui-gridarea-nav"
+    className="xui-gridarea-master"
   >
     <div />
   </div>
   <div
-    className="xui-gridarea-main"
+    className="xui-gridarea-detail"
   >
     <div />
   </div>
@@ -32,12 +32,12 @@ exports[`<XUICompositionMasterDetailHeader> should do nothing with children 1`] 
     <div />
   </div>
   <div
-    className="xui-gridarea-nav"
+    className="xui-gridarea-master"
   >
     <div />
   </div>
   <div
-    className="xui-gridarea-main"
+    className="xui-gridarea-detail"
   >
     <div />
   </div>

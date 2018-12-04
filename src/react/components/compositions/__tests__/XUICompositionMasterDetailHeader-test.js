@@ -13,8 +13,8 @@ describe('<XUICompositionMasterDetailHeader>', () => {
 		const wrapper = renderer.create(
 			<XUICompositionMasterDetailHeader
 				header={<div></div>}
-				nav={<div></div>}
-				main={<div></div>}
+				master={<div></div>}
+				detail={<div></div>}
 				/>
 		);
 		expect(wrapper).toMatchSnapshot();
@@ -24,8 +24,8 @@ describe('<XUICompositionMasterDetailHeader>', () => {
 		const wrapper = renderer.create(
 			<XUICompositionMasterDetailHeader
 				header={<div></div>}
-				nav={<div></div>}
-				main={<div></div>}
+				master={<div></div>}
+				detail={<div></div>}
 				>
 				Hello
 			</XUICompositionMasterDetailHeader>

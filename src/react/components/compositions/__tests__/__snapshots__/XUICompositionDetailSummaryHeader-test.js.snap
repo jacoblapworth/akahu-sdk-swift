@@ -2,7 +2,7 @@
 
 exports[`<XUICompositionDetailSummaryHeader> renders basic example 1`] = `
 <div
-  className="xui-composition xui-composition-summarydetailheader xui-composition-is-finite"
+  className="xui-composition xui-composition-detailsummaryheader xui-composition-is-finite"
 >
   <div
     className="xui-gridarea-header"
@@ -10,7 +10,7 @@ exports[`<XUICompositionDetailSummaryHeader> renders basic example 1`] = `
     <div />
   </div>
   <div
-    className="xui-gridarea-main"
+    className="xui-gridarea-detail"
   >
     <div />
   </div>
@@ -24,7 +24,7 @@ exports[`<XUICompositionDetailSummaryHeader> renders basic example 1`] = `
 
 exports[`<XUICompositionDetailSummaryHeader> should do nothing with children 1`] = `
 <div
-  className="xui-composition xui-composition-summarydetailheader xui-composition-is-finite"
+  className="xui-composition xui-composition-detailsummaryheader xui-composition-is-finite"
 >
   <div
     className="xui-gridarea-header"
@@ -32,7 +32,7 @@ exports[`<XUICompositionDetailSummaryHeader> should do nothing with children 1`]
     <div />
   </div>
   <div
-    className="xui-gridarea-main"
+    className="xui-gridarea-detail"
   >
     <div />
   </div>
@@ -46,7 +46,7 @@ exports[`<XUICompositionDetailSummaryHeader> should do nothing with children 1`]
 
 exports[`<XUICompositionDetailSummaryHeader> should include custom class and omit width-limiting class, if specified 1`] = `
 <div
-  className="xui-composition xui-composition-summarydetailheader summary-with-head"
+  className="xui-composition xui-composition-detailsummaryheader summary-with-head"
 >
   <div
     className="xui-gridarea-header"
@@ -54,7 +54,7 @@ exports[`<XUICompositionDetailSummaryHeader> should include custom class and omi
     <div />
   </div>
   <div
-    className="xui-gridarea-main"
+    className="xui-gridarea-detail"
   >
     <div />
   </div>

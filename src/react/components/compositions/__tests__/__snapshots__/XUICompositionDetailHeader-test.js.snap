@@ -10,7 +10,7 @@ exports[`<XUICompositionDetailHeader> renders basic example 1`] = `
     <div />
   </div>
   <div
-    className="xui-gridarea-main"
+    className="xui-gridarea-detail"
   >
     <div />
   </div>
@@ -27,7 +27,7 @@ exports[`<XUICompositionDetailHeader> should do nothing with children 1`] = `
     <div />
   </div>
   <div
-    className="xui-gridarea-main"
+    className="xui-gridarea-detail"
   >
     <div />
   </div>
@@ -44,7 +44,7 @@ exports[`<XUICompositionDetailHeader> should include custom class and omit width
     <div />
   </div>
   <div
-    className="xui-gridarea-main"
+    className="xui-gridarea-detail"
   >
     <div />
   </div>

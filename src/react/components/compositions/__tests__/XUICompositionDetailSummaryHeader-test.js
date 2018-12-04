@@ -14,7 +14,7 @@ describe('<XUICompositionDetailSummaryHeader>', () => {
 			<XUICompositionDetailSummaryHeader
 				header={<div></div>}
 				summary={<div></div>}
-				main={<div></div>}
+				detail={<div></div>}
 				/>
 		);
 		expect(wrapper).toMatchSnapshot();
@@ -25,7 +25,7 @@ describe('<XUICompositionDetailSummaryHeader>', () => {
 			<XUICompositionDetailSummaryHeader
 				header={<div></div>}
 				summary={<div></div>}
-				main={<div></div>}
+				detail={<div></div>}
 				>
 				Hello
 			</XUICompositionDetailSummaryHeader>
@@ -37,7 +37,7 @@ describe('<XUICompositionDetailSummaryHeader>', () => {
 			<XUICompositionDetailSummaryHeader
 				header={<div></div>}
 				summary={<div></div>}
-				main={<div></div>}
+				detail={<div></div>}
 				className="summary-with-head"
 				isInfinite={true}
 				>

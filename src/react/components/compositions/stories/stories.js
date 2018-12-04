@@ -13,7 +13,7 @@ import XUICompositionMasterDetailSummary from '../XUICompositionMasterDetailSumm
 import XUICompositionMasterDetailHeader from '../XUICompositionMasterDetailHeader';
 import XUICompositionMasterDetail from '../XUICompositionMasterDetail';
 
-import XUIGridAreaNavPanelDropdown, { XUIGridAreaNavPanelDropdownEventLabel } from '../XUIGridAreaNavPanelDropdown';
+import XUIGridAreaMasterPanelDropdown, { XUIGridAreaMasterPanelDropdownEventLabel } from '../XUIGridAreaMasterPanelDropdown';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -61,8 +61,8 @@ const realHeader = (
 	</XUIPanel>
 );
 
-const realNav = (
-	<XUIGridAreaNavPanelDropdown>
+const realMaster = (
+	<XUIGridAreaMasterPanelDropdown>
 		<XUIPicklist>
 			{[1,2,3].map(item => (
 				<XUIPickItem
@@ -74,7 +74,7 @@ const realNav = (
 				</XUIPickItem>
 			))}
 		</XUIPicklist>
-	</XUIGridAreaNavPanelDropdown>
+	</XUIGridAreaMasterPanelDropdown>
 );
 
 const realSummary = (
@@ -96,7 +96,7 @@ const realSummary = (
 	</XUIPanel>
 );
 
-const realMain = (
+const realDetail = (
 	<XUIPanel
 		className="xui-u-flex xui-u-flex-column xui-padding"
 		>
@@ -117,7 +117,7 @@ const realMain = (
 	</XUIPanel>
 );
 
-const realMedia = (
+const realPrimary = (
 	<XUIPanel
 		className="xui-u-flex xui-u-flex-column xui-padding"
 	>
@@ -126,23 +126,25 @@ const realMedia = (
 );
 
 const realAreas = {
-	nav: realNav,
+	master: realMaster,
 	summary: realSummary,
-	main: realMain,
+	detail: realDetail,
 	header: realHeader,
-	media: realMedia,
+	primary: realPrimary,
+	secondary: realDetail,
 }
 
 const blockAreas = {
-	nav: (<div style={{background: '#50DCAA', 'minWidth': '250px', height: '100px', width: '100%'}}></div>),
+	master: (<div style={{background: '#50DCAA', 'minWidth': '250px', height: '100px', width: '100%'}}></div>),
 	summary: (<div style={{background: '#FA8200', 'minWidth': '250px', height: '100px', width: '100%'}}></div>),
-	main: (<div style={{background: '#0078C8', height: '100px' }}></div>),
+	detail: (<div style={{background: '#0078C8', height: '100px' }}></div>),
 	header: (<div style={{background: '#B446C8', height: '60px'}}></div>),
-	media: (<div style={{background: '#ff6496', height: '100px'}}></div>),
+	primary: (<div style={{background: '#ff6496', height: '100px'}}></div>),
+	secondary: (<div style={{background: '#0078C8', height: '100px'}}></div>),
 };
 
 const fireEvent = () => {
-	window.dispatchEvent(new CustomEvent(XUIGridAreaNavPanelDropdownEventLabel, {
+	window.dispatchEvent(new CustomEvent(XUIGridAreaMasterPanelDropdownEventLabel, {
 		bubbles: true,
 	}))
 }

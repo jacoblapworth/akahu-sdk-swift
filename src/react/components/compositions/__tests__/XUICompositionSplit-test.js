@@ -12,8 +12,8 @@ describe('<XUICompositionSplit>', () => {
 	it('renders basic example', () => {
 		const wrapper = renderer.create(
 			<XUICompositionSplit
-				main={<div></div>}
-				media={<div></div>}
+				secondary={<div></div>}
+				primary={<div></div>}
 				/>
 		);
 		expect(wrapper).toMatchSnapshot();
@@ -22,8 +22,8 @@ describe('<XUICompositionSplit>', () => {
 	it('should do nothing with children', () => {
 		const wrapper = renderer.create(
 			<XUICompositionSplit
-				main={<div></div>}
-				media={<div></div>}
+				secondary={<div></div>}
+				primary={<div></div>}
 				>
 				Hello
 			</XUICompositionSplit>
@@ -33,8 +33,8 @@ describe('<XUICompositionSplit>', () => {
 	it('should include custom class and omit width-limiting class, if specified', () => {
 		const wrapper = renderer.create(
 			<XUICompositionSplit
-				main={<div></div>}
-				media={<div></div>}
+				secondary={<div></div>}
+				primary={<div></div>}
 				className="split-without-head"
 				isInfinite={true}
 				/>

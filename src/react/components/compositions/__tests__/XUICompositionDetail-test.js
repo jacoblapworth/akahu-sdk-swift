@@ -12,7 +12,7 @@ describe('<XUICompositionDetail>', () => {
 	it('renders basic example', () => {
 		const wrapper = renderer.create(
 			<XUICompositionDetail
-				main={<div></div>}
+				detail={<div></div>}
 				/>
 		);
 		expect(wrapper).toMatchSnapshot();
@@ -21,7 +21,7 @@ describe('<XUICompositionDetail>', () => {
 	it('should do nothing with children', () => {
 		const wrapper = renderer.create(
 			<XUICompositionDetail
-				main={<div></div>}
+				detail={<div></div>}
 				>
 				Hello
 			</XUICompositionDetail>
@@ -31,7 +31,7 @@ describe('<XUICompositionDetail>', () => {
 	it('should include custom class and omit width-limiting class, if specified', () => {
 		const wrapper = renderer.create(
 			<XUICompositionDetail
-				main={<div></div>}
+				detail={<div></div>}
 				className="single-without-head"
 				isInfinite={true}
 				>

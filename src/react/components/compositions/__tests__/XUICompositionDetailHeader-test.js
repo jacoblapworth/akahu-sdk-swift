@@ -13,7 +13,7 @@ describe('<XUICompositionDetailHeader>', () => {
 		const wrapper = renderer.create(
 			<XUICompositionDetailHeader
 				header={<div></div>}
-				main={<div></div>}
+				detail={<div></div>}
 				/>
 		);
 		expect(wrapper).toMatchSnapshot();
@@ -23,7 +23,7 @@ describe('<XUICompositionDetailHeader>', () => {
 		const wrapper = renderer.create(
 			<XUICompositionDetailHeader
 				header={<div></div>}
-				main={<div></div>}
+				detail={<div></div>}
 				>
 				Hello
 			</XUICompositionDetailHeader>
@@ -34,7 +34,7 @@ describe('<XUICompositionDetailHeader>', () => {
 		const wrapper = renderer.create(
 			<XUICompositionDetailHeader
 				header={<div></div>}
-				main={<div></div>}
+				detail={<div></div>}
 				className="single-with-head"
 				isInfinite={true}
 				/>

@@ -2,7 +2,7 @@
 
 exports[`<XUICompositionSplitHeader> renders basic example 1`] = `
 <div
-  className="xui-composition xui-composition-detailsplitheader xui-composition-is-finite"
+  className="xui-composition xui-composition-splitheader xui-composition-is-finite"
 >
   <div
     className="xui-gridarea-header"
@@ -10,12 +10,12 @@ exports[`<XUICompositionSplitHeader> renders basic example 1`] = `
     <div />
   </div>
   <div
-    className="xui-gridarea-media"
+    className="xui-gridarea-primary"
   >
     <div />
   </div>
   <div
-    className="xui-gridarea-main"
+    className="xui-gridarea-detail"
   >
     <div />
   </div>
@@ -24,7 +24,7 @@ exports[`<XUICompositionSplitHeader> renders basic example 1`] = `
 
 exports[`<XUICompositionSplitHeader> should do nothing with children 1`] = `
 <div
-  className="xui-composition xui-composition-detailsplitheader xui-composition-is-finite"
+  className="xui-composition xui-composition-splitheader xui-composition-is-finite"
 >
   <div
     className="xui-gridarea-header"
@@ -32,12 +32,12 @@ exports[`<XUICompositionSplitHeader> should do nothing with children 1`] = `
     <div />
   </div>
   <div
-    className="xui-gridarea-media"
+    className="xui-gridarea-primary"
   >
     <div />
   </div>
   <div
-    className="xui-gridarea-main"
+    className="xui-gridarea-detail"
   >
     <div />
   </div>
@@ -46,7 +46,7 @@ exports[`<XUICompositionSplitHeader> should do nothing with children 1`] = `
 
 exports[`<XUICompositionSplitHeader> should include custom class and omit width-limiting class, if specified 1`] = `
 <div
-  className="xui-composition xui-composition-detailsplitheader split-with-head"
+  className="xui-composition xui-composition-splitheader split-with-head"
 >
   <div
     className="xui-gridarea-header"
@@ -54,12 +54,12 @@ exports[`<XUICompositionSplitHeader> should include custom class and omit width-
     <div />
   </div>
   <div
-    className="xui-gridarea-media"
+    className="xui-gridarea-primary"
   >
     <div />
   </div>
   <div
-    className="xui-gridarea-main"
+    className="xui-gridarea-detail"
   >
     <div />
   </div>

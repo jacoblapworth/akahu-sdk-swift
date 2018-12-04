@@ -193,11 +193,25 @@ describe('<XUI Structure/>', () => {
 			const wrapper = mount(<XUIOverviewBlock hasLayout={false} />);
 			expect(wrapper.find(".xui-overview-layout").length).toBe(0);
 		});
-		it('renders the base overview block with sections and sentiments', () => {
+		it('renders the base overview block with sections, children, sentiments, and options', () => {
 			const testBlock = renderer.create(
-				<XUIOverviewBlock>
+				<XUIOverviewBlock
+					hasBorder={false}
+					hasDividers={false}
+					hasBackground={false}
+					textAlignment="left"
+				>
 					{Object.keys(overviewSentiments).map((sentiment, index) => {
-						return <XUIOverviewSection key={index} sentiment={sentiment} label={sentiment} value="100.23" />;
+						return (
+							<XUIOverviewSection
+								key={index}
+								sentiment={sentiment}
+								label={sentiment}
+								value="100.23"
+							>
+								test child content
+							</XUIOverviewSection>
+						);
 					})}
 				</XUIOverviewBlock>
 			);

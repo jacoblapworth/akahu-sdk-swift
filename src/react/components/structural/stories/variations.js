@@ -1,7 +1,20 @@
+import React from 'react';
 import commonViewports from '../../../stories/helpers/viewports';
+import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';
 
 const { rowVariants } = require('../private/constants');
 const storiesWithVariationsKindName = 'Instances/Structure';
+
+const buildPI = (total, progress) => {
+	return (
+		<XUIProgressLinear
+			id="testId"
+			total={total}
+			progress={progress}
+			hasToolTip={true}
+			toolTipMessage={`${progress} out of ${total}`}
+		/>
+	)};
 
 let variations = Object.keys(rowVariants).map(variant => ({
 		storyKind: storiesWithVariationsKindName,
@@ -47,6 +60,20 @@ variations = [...variations,
 			{label: 'hello', value: 'there'},
 			{label: 'good', value: 'morning'},
 			{label: 'good', value: 'bye'}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `overview block minimalist and left-aligned with progress`,
+		type: 'overview',
+		hasBorder: false,
+		hasDividers: false,
+		hasBackground: false,
+		textAlignment: 'left',
+		sections: [
+			{label: 'paid', value: '1,582.99', children: buildPI(10, 4)},
+			{label: 'unpaid', value: '0.68', children: buildPI(10, 6)},
+			{label: 'draft', value: '103.75', children: buildPI(10, 8)}
 		]
 	},
 	{

@@ -89,11 +89,18 @@
 // Styleguide: Compounds.DisplayingData.OverviewBlock.3
 
 .#{$ns}-overview {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.#{$ns}-overview-solid {
 	background-color: $xui-overview-bg-color;
+}
+
+.#{$ns}-overview-has-border {
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-border-all;
-	display: flex;
-	width: 100%;
 }
 
 .#{$ns}-overview--section {
@@ -101,7 +108,13 @@
 	flex: 1 0 auto;
 	flex-flow: column nowrap;
 	justify-content: center;
-	text-align: center;
+
+	.#{$ns}-overview-has-dividers &:nth-child(n+2) {
+		box-shadow: $xui-shadow-border-left;
+	}
+	.#{$ns}-progress-linear {
+		margin-top: $xui-s-small;
+	}
 }
 
 .#{$ns}-overview--label {
@@ -111,10 +124,6 @@
 .#{$ns}-overview--value {
 	font-size: $xui-font-size-xlarge;
 	font-weight: $xui-font-weight-emphasis;
-}
-
-.#{$ns}-overview--section:nth-child(n+2) {
-	box-shadow: $xui-shadow-border-left;
 }
 
 .#{$ns}-overview-layout {
@@ -127,6 +136,18 @@
 	}
 
 	.#{$ns}-overview--section {
-		@include xui-padding-vertical($xui-s-large);
+		@include xui-padding($xui-s-large);
+	}
+}
+
+.#{$ns}-overview-text-align {
+	&-center {
+		text-align: center;
+	}
+	&-left {
+		text-align: left;
+	}
+	&-right {
+		text-align: right;
 	}
 }

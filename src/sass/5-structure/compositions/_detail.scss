@@ -3,6 +3,6 @@
 
 .#{$ns}-composition-detail {
 	grid-template:
-		"main main" / min-content;
+		"detail detail" / min-content;
 	-ms-grid-columns: 1fr;
 }

@@ -1,20 +1,17 @@
 @import "../../vars";
 @import "../../mixins";
 
-.#{$ns}-composition-summarydetailheader {
-
+.#{$ns}-composition-split {
 	@include xui-breakpoint-small-down {
 		grid-gap: $xui-s-small $xui-s-small;
 		grid-template:
-			"header"
-			"summary"
-			"main" / 1fr;
+			"primary"
+			"detail" / 1fr;
 	}
 
 	@include xui-breakpoint-medium-up {
 		grid-gap: $xui-s-small $xui-s-small;
 		grid-template:
-			"header header" 1fr
-			"main summary" / 1fr min-content;
+			"primary detail" / 1fr 1fr;
 	}
 }

@@ -2,13 +2,13 @@
 @import "../mixins";
 
 @include xui-breakpoint-medium-up {
-	.#{$ns}-gridarea-nav {
-		grid-area: nav;
+	.#{$ns}-gridarea-master {
+		grid-area: master;
 	}
 }
 
 @include xui-breakpoint-small-down {
-	.#{$ns}-gridarea-nav {
+	.#{$ns}-gridarea-master {
 		@include xui-utility-hidden-visually;
 	}
 }

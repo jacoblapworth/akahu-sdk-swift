@@ -51,6 +51,7 @@
 		"Compounds.CollectingInput",
 		"Compounds.DisplayingData",
 		"Compounds.RefiningData",
+		"Compositions",
 		"Patterns"
 	]
 }

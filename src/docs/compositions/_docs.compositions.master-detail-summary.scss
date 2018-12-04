@@ -1,0 +1,29 @@
+// Master Detail Summary
+//
+// Teaser: This composition combines the behaviour of both the Master Detail, and the Detail Summary compositions.
+//
+// Introduction: Master Detail Summary is composed of three containers: Master, Detail, and Summary. The Master container houses content that controls or acts on behalf of what is viewed in the Detail container. The Summary container houses content that labels or summarizes what is viewed in the Detail container.
+//
+// Weight: 4.4
+//
+// Styleguide: Compositions.MasterDetailSummary
+
+// Best practice
+//
+// Tips:
+// Do: Use Master to house content that dictates what is shown in the Detail
+// Do: Use Master to house actions that apply to what is inside the Detail
+// Do: Use Summary to house simple content that isn’t integral to the understanding of the page
+// Warning: Avoid using Summary container to house actions, consider using Master Detail
+// Warning: Avoid having actions above the Summary area that affect what is viewed in the Detail area
+// Dont: Don’t use the Master container for primary navigation
+// Dont: Don’t hide important actions inside the Master dropdown at larger breakpoints by locking to the small layout
+// Dont: Don’t use the Summary container to house dense, long form content
+//
+// Styleguide: Compositions.MasterDetailSummary.1
+
+// Behaviour
+//
+// At x-breakpoint, Master content is inside a dropdown sitting above Summary and Detail, which are stacked. At x-breakpoint Master content is a left hand panel, Detail is in the center, and Summary on the right.
+//
+// Styleguide: Compositions.MasterDetailSummary.2

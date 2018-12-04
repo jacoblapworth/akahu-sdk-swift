@@ -1,0 +1,25 @@
+// Detail Summary
+//
+// Teaser: The Summary container houses content that sums up or labels the Detail area. Summary is a right-hand column which stacks under the Detail area at smaller breakpoints.
+//
+// Introduction: Detail summary is composed of two containers: the Detail, and the Summary. The Summary container houses content that labels or summarizes what is viewed in the Detail container.
+//
+// Weight: 4.3
+//
+// Styleguide: Compositions.DetailSummary
+
+// Best practice
+//
+// Tips:
+// Do: Use Summary to house simple content that isn’t integral to the purpose of the page
+// Warning: Avoid using Summary container to house actions, consider using Master Detail
+// Warning: Avoid having actions above the Summary area that affect what is viewed in the Detail area
+// Dont: Don’t use the Summary container to house dense, long form content
+//
+// Styleguide: Compositions.DetailSummary.1
+
+// Behaviour
+//
+// At x-breakpoint, Summary content sits above the Detail container, at x-breakpoint it is a column which sits to the right of the Detail container.
+//
+// Styleguide: Compositions.DetailSummary.2

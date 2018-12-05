@@ -3,9 +3,9 @@
 ```js
 const XUICompositionDetail = require('./XUICompositionDetail').default;
 
-const detailMainStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
+const detailStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
 
-<XUICompositionDetail main={detailMainStyle}></XUICompositionDetail>
+<XUICompositionDetail detail={detailStyle}></XUICompositionDetail>
 
 ```
 #### Detail with header
@@ -14,10 +14,10 @@ const detailMainStyle = <div style={{background: '#C5C5F6', height: '100px' }}><
 
 const XUICompositionDetailHeader = require('./XUICompositionDetailHeader').default;
 
-const detailMainStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
-const detailHeaderStyle = <div style={{background: '#B446C8', height: '60px'}}></div>;
+const detailStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
+const headerStyle = <div style={{background: '#B446C8', height: '60px'}}></div>;
 
 
-<XUICompositionDetailHeader header={detailHeaderStyle} main={detailMainStyle}></XUICompositionDetailHeader>
+<XUICompositionDetailHeader header={headerStyle} detail={detailStyle}></XUICompositionDetailHeader>
 
 ```

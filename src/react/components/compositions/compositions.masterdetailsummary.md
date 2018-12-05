@@ -4,11 +4,11 @@
 
 const XUICompositionMasterDetailSummary = require('./XUICompositionMasterDetailSummary').default;
 
-const masterDetailSummaryMainStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
-const masterDetailSummaryNavStyle = <div style={{background: '#5A5AE6', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
-const masterDetailSummarySummaryStyle = <div style={{background: '#B446C8', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
+const detailStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
+const masterStyle = <div style={{background: '#5A5AE6', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
+const summaryStyle = <div style={{background: '#ADADF3', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
 
-<XUICompositionMasterDetailSummary nav={masterDetailSummaryNavStyle} main={masterDetailSummaryMainStyle} summary={masterDetailSummarySummaryStyle}></XUICompositionMasterDetailSummary>
+<XUICompositionMasterDetailSummary master={masterStyle} detail={detailStyle} summary={summaryStyle}></XUICompositionMasterDetailSummary>
 
 ```
 
@@ -18,11 +18,11 @@ const masterDetailSummarySummaryStyle = <div style={{background: '#B446C8', 'min
 
 const XUICompositionMasterDetailSummaryHeader = require('./XUICompositionMasterDetailSummaryHeader').default;
 
-const masterDetailSummaryMainStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
-const masterDetailSummaryNavStyle = <div style={{background: '#5A5AE6', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
-const masterDetailSummarySummaryStyle = <div style={{background: '#ADADF3', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
-const masterDetailSummaryHeaderStyle = <div style={{background: '#B446C8', height: '60px'}}></div>;
+const detailStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
+const masterStyle = <div style={{background: '#5A5AE6', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
+const summaryStyle = <div style={{background: '#ADADF3', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
+const headerStyle = <div style={{background: '#B446C8', height: '60px'}}></div>;
 
-<XUICompositionMasterDetailSummaryHeader header={masterDetailSummaryHeaderStyle} main={masterDetailSummaryMainStyle} nav={masterDetailSummaryNavStyle} summary={masterDetailSummarySummaryStyle}></XUICompositionMasterDetailSummaryHeader>
+<XUICompositionMasterDetailSummaryHeader header={headerStyle} detail={detailStyle} master={masterStyle} summary={summaryStyle}></XUICompositionMasterDetailSummaryHeader>
 ```
 

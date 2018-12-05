@@ -4,10 +4,10 @@
 
 const XUICompositionSplit = require('./XUICompositionSplit').default;
 
-const splitMainStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
-const splitMediaStyle = <div style={{background: '#ADADF3', height: '100px'}}></div>;
+const primaryStyle = <div style={{background: '#ADADF3', height: '100px'}}></div>;
+const secondaryStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
 
-<XUICompositionSplit main={splitMainStyle} media={splitMediaStyle}></XUICompositionSplit>
+<XUICompositionSplit primary={primaryStyle} secondary={secondaryStyle}></XUICompositionSplit>
 
 ```
 #### Split with header
@@ -15,10 +15,10 @@ const splitMediaStyle = <div style={{background: '#ADADF3', height: '100px'}}></
 ```js
 const XUICompositionSplitHeader = require('./XUICompositionSplitHeader').default;
 
-const splitMainStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
-const splitHeaderStyle = <div style={{background: '#B446C8', height: '60px'}}></div>;
-const splitMediaStyle = <div style={{background: '#ADADF3', height: '100px'}}></div>;
+const primaryStyle = <div style={{background: '#ADADF3', height: '100px'}}></div>;
+const secondaryStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
+const headerStyle = <div style={{background: '#B446C8', height: '60px'}}></div>;
 
-<XUICompositionSplitHeader header={splitHeaderStyle} main={splitMainStyle} media={splitMediaStyle}></XUICompositionSplitHeader>
+<XUICompositionSplitHeader header={headerStyle} primary={primaryStyle} secondary={secondaryStyle}></XUICompositionSplitHeader>
 
 ```

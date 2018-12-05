@@ -40,6 +40,7 @@ class SelectBoxExample extends Component {
 		].forEach(fn => {
 			this[fn.name] = fn.bind(this);
 		});
+		this.selectOne = React.createRef();
 	}
 
 	onBankSelect(value) {
@@ -55,7 +56,7 @@ class SelectBoxExample extends Component {
 
 		return (
 				<SelectBox
-					ref={c => this.selectOne = c}
+					ref={this.selectOne}
 					name="selectOne"
 					label="Select a Bank"
 					buttonContent={
@@ -105,6 +106,7 @@ class MiniApp extends Component {
 			selectedBoats: []
 		};
 		this.onBoatSelect = this.onBoatSelect.bind(this);
+		this.isMultiSelect = React.createRef();
 	}
 	onBoatSelect(value) {
 		if (this.state.selectedBoats.indexOf(value) > -1) {
@@ -122,7 +124,7 @@ class MiniApp extends Component {
 		const MiniApp = this;
 		return (
 			<SelectBox
-				ref={c => this.isMultiselect = c}
+				ref={this.isMultiselect}
 				name="isMultiselect"
 				buttonContent={TextHelpers.getText(MiniApp.state.selectedBoats, 'Choose a few boats')}
 				label="Select Several Boats"
@@ -179,6 +181,8 @@ class MiniApp extends Component {
 		].forEach(fn => {
 			this[fn.name] = fn.bind(this);
 		});
+
+		this.selectOne = React.createRef();
 	}
 
 	onBankSelect(value) {
@@ -194,7 +198,7 @@ class MiniApp extends Component {
 
 		return (
 				<SelectBox
-					ref={c => this.selectOne = c}
+					ref={this.selectOne}
 					name="selectOne"
 					label="Select a Bank"
 					buttonContent={

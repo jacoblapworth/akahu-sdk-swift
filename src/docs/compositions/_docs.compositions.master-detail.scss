@@ -1,0 +1,25 @@
+// Master Detail
+//
+// Teaser: The Master container houses content that controls or acts on content within the Detail area. The Master container is a left-hand column which becomes a dropdown at smaller breakpoints.
+//
+// Introduction: Master Detail is composed of two containers, the Master, and the Detail. The Master container houses content that controls or acts on behalf of what is viewed in the Detail container.
+//
+// Weight: 4.2
+//
+// Styleguide: Compositions.MasterDetail
+
+// Best practice
+//
+// Tips:
+// Do: Use Master to house content that dictates what is shown in the Detail
+// Do: Use Master to house actions that apply to what is inside the Detail
+// Dont: Don’t use the Master container for primary navigation
+// Dont: Don’t hide important actions inside the Master dropdown at larger breakpoints by locking to the small layout
+//
+// Styleguide: Compositions.MasterDetail.1
+
+// Behaviour
+//
+// At x-breakpoint, Master content is inside a dropdown which sits above the Detail container, at x-breakpoint it is a column which sits left of the Detail container.
+//
+// Styleguide: Compositions.MasterDetail.2

@@ -2,18 +2,18 @@
 import React, { Fragment } from 'react';
 
 // Components we need to test with
-import XUICompositionDetailSplitHeader from '../XUICompositionDetailSplitHeader';
-import XUICompositionDetailSplit from '../XUICompositionDetailSplit';
+import XUICompositionSplitHeader from '../XUICompositionSplitHeader';
+import XUICompositionSplit from '../XUICompositionSplit';
 import XUICompositionDetailHeader from '../XUICompositionDetailHeader';
 import XUICompositionDetail from '../XUICompositionDetail';
-import XUICompositionSummaryDetailHeader from '../XUICompositionSummaryDetailHeader';
-import XUICompositionSummaryDetail from '../XUICompositionSummaryDetail';
+import XUICompositionDetailSummaryHeader from '../XUICompositionDetailSummaryHeader';
+import XUICompositionDetailSummary from '../XUICompositionDetailSummary';
 import XUICompositionMasterDetailSummaryHeader from '../XUICompositionMasterDetailSummaryHeader';
 import XUICompositionMasterDetailSummary from '../XUICompositionMasterDetailSummary';
 import XUICompositionMasterDetailHeader from '../XUICompositionMasterDetailHeader';
 import XUICompositionMasterDetail from '../XUICompositionMasterDetail';
 
-import XUIGridAreaNavPanelDropdown, { XUIGridAreaNavPanelDropdownEventLabel } from '../XUIGridAreaNavPanelDropdown';
+import XUIGridAreaMasterPanelDropdown, { XUIGridAreaMasterPanelDropdownEventLabel } from '../XUIGridAreaMasterPanelDropdown';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -61,8 +61,8 @@ const realHeader = (
 	</XUIPanel>
 );
 
-const realNav = (
-	<XUIGridAreaNavPanelDropdown>
+const realMaster = (
+	<XUIGridAreaMasterPanelDropdown>
 		<XUIPicklist>
 			{[1,2,3].map(item => (
 				<XUIPickItem
@@ -74,7 +74,7 @@ const realNav = (
 				</XUIPickItem>
 			))}
 		</XUIPicklist>
-	</XUIGridAreaNavPanelDropdown>
+	</XUIGridAreaMasterPanelDropdown>
 );
 
 const realSummary = (
@@ -96,7 +96,7 @@ const realSummary = (
 	</XUIPanel>
 );
 
-const realMain = (
+const realDetail = (
 	<XUIPanel
 		className="xui-u-flex xui-u-flex-column xui-padding"
 		>
@@ -117,7 +117,7 @@ const realMain = (
 	</XUIPanel>
 );
 
-const realMedia = (
+const realPrimary = (
 	<XUIPanel
 		className="xui-u-flex xui-u-flex-column xui-padding"
 	>
@@ -126,23 +126,25 @@ const realMedia = (
 );
 
 const realAreas = {
-	nav: realNav,
+	master: realMaster,
 	summary: realSummary,
-	main: realMain,
+	detail: realDetail,
 	header: realHeader,
-	media: realMedia,
+	primary: realPrimary,
+	secondary: realDetail,
 }
 
 const blockAreas = {
-	nav: (<div style={{background: '#50DCAA', 'minWidth': '250px', height: '100px', width: '100%'}}></div>),
+	master: (<div style={{background: '#50DCAA', 'minWidth': '250px', height: '100px', width: '100%'}}></div>),
 	summary: (<div style={{background: '#FA8200', 'minWidth': '250px', height: '100px', width: '100%'}}></div>),
-	main: (<div style={{background: '#0078C8', height: '100px' }}></div>),
+	detail: (<div style={{background: '#0078C8', height: '100px' }}></div>),
 	header: (<div style={{background: '#B446C8', height: '60px'}}></div>),
-	media: (<div style={{background: '#ff6496', height: '100px'}}></div>),
+	primary: (<div style={{background: '#ff6496', height: '100px'}}></div>),
+	secondary: (<div style={{background: '#0078C8', height: '100px'}}></div>),
 };
 
 const fireEvent = () => {
-	window.dispatchEvent(new CustomEvent(XUIGridAreaNavPanelDropdownEventLabel, {
+	window.dispatchEvent(new CustomEvent(XUIGridAreaMasterPanelDropdownEventLabel, {
 		bubbles: true,
 	}))
 }
@@ -207,8 +209,8 @@ storiesWithKnobs.add('Master detail', () => {
 	)
 });
 
-storiesWithKnobs.add('Summary detail', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUICompositionSummaryDetailHeader : XUICompositionSummaryDetail;
+storiesWithKnobs.add('Detail summary', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionDetailSummaryHeader : XUICompositionDetailSummary;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
@@ -242,8 +244,8 @@ storiesWithKnobs.add('Detail', () => {
 });
 
 
-storiesWithKnobs.add('Detail split', () => {
-	const Tag = boolean('Include content header', false, '1') ? XUICompositionDetailSplitHeader : XUICompositionDetailSplit;
+storiesWithKnobs.add('Split', () => {
+	const Tag = boolean('Include content header', false, '1') ? XUICompositionSplitHeader : XUICompositionSplit;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),

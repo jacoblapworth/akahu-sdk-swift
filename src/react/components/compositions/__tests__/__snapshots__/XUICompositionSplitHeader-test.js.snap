@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUICompositionSplitHeader> renders basic example 1`] = `
+<div
+  className="xui-composition xui-composition-splitheader xui-composition-is-finite"
+>
+  <div
+    className="xui-gridarea-header"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-primary"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-detail"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<XUICompositionSplitHeader> should do nothing with children 1`] = `
+<div
+  className="xui-composition xui-composition-splitheader xui-composition-is-finite"
+>
+  <div
+    className="xui-gridarea-header"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-primary"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-detail"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<XUICompositionSplitHeader> should include custom class and omit width-limiting class, if specified 1`] = `
+<div
+  className="xui-composition xui-composition-splitheader split-with-head"
+>
+  <div
+    className="xui-gridarea-header"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-primary"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-detail"
+  >
+    <div />
+  </div>
+</div>
+`;

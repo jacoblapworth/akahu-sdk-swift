@@ -416,6 +416,72 @@
 						]
 					}
 				]
+			},
+			{
+				"name": "Compositions",
+				"content": "../src/react/compositions.md",
+				"sections": [
+					{
+						"name": "Detail",
+						"content": "../src/react/components/compositions/compositions.detail.md",
+						"sections":[
+							{
+								"components": "../src/components/compositions/XUICompositionDetail.js"
+							},
+							{
+								"components": "../src/components/compositions/XUICompositionDetailHeader.js"
+							}
+						]
+					},
+					{
+						"name": "Detail summary",
+						"content": "../src/react/components/compositions/compositions.detailsummary.md",
+						"sections":[
+							{
+								"components": "../src/components/compositions/XUICompositionDetailSummary.js"
+							},
+							{
+								"components": "../src/components/compositions/XUICompositionDetailSummaryHeader.js"
+							}
+						]
+					},
+					{
+						"name": "Master detail",
+						"content": "../src/react/components/compositions/compositions.masterdetail.md",
+						"sections":[
+							{
+								"components": "../src/components/compositions/XUICompositionMasterDetail.js"
+							},
+							{
+								"components": "../src/components/compositions/XUICompositionMasterDetailHeader.js"
+							}
+						]
+					},
+					{
+						"name": "Master detail summary",
+						"content": "../src/react/components/compositions/compositions.masterdetailsummary.md",
+						"sections":[
+							{
+								"components": "../src/components/compositions/XUICompositionMasterDetailSummary.js"
+							},
+							{
+								"components": "../src/components/compositions/XUICompositionMasterDetailSummaryHeader.js"
+							}
+						]
+					},
+					{
+						"name": "Split",
+						"content": "../src/react/components/compositions/compositions.split.md",
+						"sections":[
+							{
+								"components": "../src/components/compositions/XUICompositionSplit.js"
+							},
+							{
+								"components": "../src/components/compositions/XUICompositionSplitHeader.js"
+							}
+						]
+					}
+				]
 			}
 		]
 	}

@@ -9,7 +9,7 @@ import portalContainer from '../helpers/portalContainer';
 import { ns } from '../helpers/xuiClassNamespace';
 import '../../../sass/7-components/_gridarea-paneldropdown.scss';
 
-export const XUIGridAreaNavPanelDropdownEventLabel = 'xui:composition2:nav:toggle';
+export const XUIGridAreaMasterPanelDropdownEventLabel = 'xui:composition2:nav:toggle';
 
 function isWideScreen(navContainer) {
 	const {
@@ -24,7 +24,7 @@ function isWideScreen(navContainer) {
 		);
 }
 
-export default class XUIGridAreaNavPanelDropdown extends PureComponent {
+export default class XUIGridAreaMasterPanelDropdown extends PureComponent {
 	state = {
 		isDropdown: false,
 		dropdownHidden: true,
@@ -46,7 +46,7 @@ export default class XUIGridAreaNavPanelDropdown extends PureComponent {
 			trailing: true,
 		});
 
-		window.addEventListener(XUIGridAreaNavPanelDropdownEventLabel, toggleHidden);
+		window.addEventListener(XUIGridAreaMasterPanelDropdownEventLabel, toggleHidden);
 		window.addEventListener('resize', this._debouncedForceHidden);
 		window.addEventListener('resize', this._debouncedToggleDropdownPanel);
 
@@ -85,7 +85,7 @@ export default class XUIGridAreaNavPanelDropdown extends PureComponent {
 			toggleHidden,
 		} = this;
 
-		window.removeEventListener(XUIGridAreaNavPanelDropdownEventLabel, toggleHidden);
+		window.removeEventListener(XUIGridAreaMasterPanelDropdown, toggleHidden);
 		window.removeEventListener('resize', this._debouncedForceHidden);
 		window.removeEventListener('resize', this._debouncedToggleDropdownPanel);
 	}
@@ -140,7 +140,7 @@ export default class XUIGridAreaNavPanelDropdown extends PureComponent {
 	}
 }
 
-XUIGridAreaNavPanelDropdown.propTypes = {
+XUIGridAreaMasterPanelDropdown.propTypes = {
 	className: PropTypes.string,
 	children: PropTypes.any,
 };

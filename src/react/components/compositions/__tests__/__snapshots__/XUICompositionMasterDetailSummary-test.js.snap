@@ -5,12 +5,12 @@ exports[`<XUICompositionMasterDetailSummary> renders basic example 1`] = `
   className="xui-composition xui-composition-masterdetailsummary xui-composition-is-finite"
 >
   <div
-    className="xui-gridarea-nav"
+    className="xui-gridarea-master"
   >
     <div />
   </div>
   <div
-    className="xui-gridarea-main"
+    className="xui-gridarea-detail"
   >
     <div />
   </div>
@@ -27,12 +27,12 @@ exports[`<XUICompositionMasterDetailSummary> should do nothing with children 1`]
   className="xui-composition xui-composition-masterdetailsummary xui-composition-is-finite"
 >
   <div
-    className="xui-gridarea-nav"
+    className="xui-gridarea-master"
   >
     <div />
   </div>
   <div
-    className="xui-gridarea-main"
+    className="xui-gridarea-detail"
   >
     <div />
   </div>

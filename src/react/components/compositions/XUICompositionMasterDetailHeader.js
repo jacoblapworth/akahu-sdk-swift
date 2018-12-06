@@ -5,8 +5,8 @@ import cn from 'classnames';
 import '../../../sass/5-structure/_base.scss';
 import '../../../sass/5-structure/compositions/_masterdetailheader.scss';
 
-import XUIGridAreaMain from './XUIGridAreaMain';
-import XUIGridAreaNav from './XUIGridAreaNav';
+import XUIGridAreaDetail from './XUIGridAreaDetail';
+import XUIGridAreaMaster from './XUIGridAreaMaster';
 import XUIGridAreaHeader from './XUIGridAreaHeader';
 
 import baseCompositionClass from './helpers';
@@ -16,8 +16,8 @@ export default class XUICompositionMasterDetailHeader extends PureComponent {
 		const {
 			className,
 			header,
-			nav,
-			main,
+			master,
+			detail,
 			isInfinite,
 		} = this.props;
 
@@ -33,12 +33,12 @@ export default class XUICompositionMasterDetailHeader extends PureComponent {
 				<XUIGridAreaHeader>
 					{header}
 				</XUIGridAreaHeader>
-				<XUIGridAreaNav>
-					{nav}
-				</XUIGridAreaNav>
-				<XUIGridAreaMain>
-					{main}
-				</XUIGridAreaMain>
+				<XUIGridAreaMaster>
+					{master}
+				</XUIGridAreaMaster>
+				<XUIGridAreaDetail>
+					{detail}
+				</XUIGridAreaDetail>
 			</div>
 		);
 	}
@@ -46,8 +46,22 @@ export default class XUICompositionMasterDetailHeader extends PureComponent {
 
 XUICompositionMasterDetailHeader.propTypes = {
 	className: PropTypes.string,
+
+	/**
+	* Header content or component
+	*/
 	header: PropTypes.element.isRequired,
-	nav: PropTypes.element.isRequired,
-	main: PropTypes.element.isRequired,
+	/**
+	 * Nav content or controls for detail content
+	 */
+	master: PropTypes.element.isRequired,
+	/**
+	 * Main content
+	 */
+	detail: PropTypes.element.isRequired,
+	/**
+	 * Determines whether the main content takes full width of page
+	 */
 	isInfinite: PropTypes.bool,
+
 };

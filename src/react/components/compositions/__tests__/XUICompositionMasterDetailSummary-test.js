@@ -12,9 +12,9 @@ describe('<XUICompositionMasterDetailSummary>', () => {
 	it('renders basic example', () => {
 		const wrapper = renderer.create(
 			<XUICompositionMasterDetailSummary
-				nav={<div></div>}
+				master={<div></div>}
 				summary={<div></div>}
-				main={<div></div>}
+				detail={<div></div>}
 				/>
 		);
 		expect(wrapper).toMatchSnapshot();
@@ -23,9 +23,9 @@ describe('<XUICompositionMasterDetailSummary>', () => {
 	it('should do nothing with children', () => {
 		const wrapper = renderer.create(
 			<XUICompositionMasterDetailSummary
-				nav={<div></div>}
+				master={<div></div>}
 				summary={<div></div>}
-				main={<div></div>}
+				detail={<div></div>}
 				>
 				Hello
 			</XUICompositionMasterDetailSummary>

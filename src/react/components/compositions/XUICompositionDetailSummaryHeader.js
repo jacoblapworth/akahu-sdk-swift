@@ -3,27 +3,27 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import '../../../sass/5-structure/_base.scss';
-import '../../../sass/5-structure/compositions/_summarydetailheader.scss';
+import '../../../sass/5-structure/compositions/_detailsummaryheader.scss';
 
-import XUIGridAreaMain from './XUIGridAreaMain';
+import XUIGridAreaDetail from './XUIGridAreaDetail';
 import XUIGridAreaSummary from './XUIGridAreaSummary';
 import XUIGridAreaHeader from './XUIGridAreaHeader';
 
 import baseCompositionClass from './helpers';
 
-export default class XUICompositionSummaryDetailHeader extends PureComponent {
+export default class XUICompositionDetailSummaryHeader extends PureComponent {
 	render() {
 		const {
 			className,
 			header,
 			summary,
-			main,
+			detail,
 			isInfinite,
 		} = this.props;
 
 		const compositionClasses = cn(
 			baseCompositionClass,
-			`${baseCompositionClass}-summarydetailheader`,
+			`${baseCompositionClass}-detailsummaryheader`,
 			!isInfinite && `${baseCompositionClass}-is-finite`,
 			className,
 		);
@@ -33,9 +33,9 @@ export default class XUICompositionSummaryDetailHeader extends PureComponent {
 				<XUIGridAreaHeader>
 					{header}
 				</XUIGridAreaHeader>
-				<XUIGridAreaMain>
-					{main}
-				</XUIGridAreaMain>
+				<XUIGridAreaDetail>
+					{detail}
+				</XUIGridAreaDetail>
 				<XUIGridAreaSummary>
 					{summary}
 				</XUIGridAreaSummary>
@@ -44,11 +44,25 @@ export default class XUICompositionSummaryDetailHeader extends PureComponent {
 	}
 }
 
-XUICompositionSummaryDetailHeader.propTypes = {
+XUICompositionDetailSummaryHeader.propTypes = {
 	className: PropTypes.string,
+
+	/**
+	 * Header content or component
+	 */
 	header: PropTypes.element.isRequired,
+	/**
+	 * Summary content or component
+	 */
 	summary: PropTypes.element.isRequired,
-	main: PropTypes.element.isRequired,
+	/**
+	 * Main content
+	 */
+	detail: PropTypes.element.isRequired,
+	/**
+	 * Determines whether the main content takes full width of page
+	 */
 	isInfinite: PropTypes.bool,
+
 };
 

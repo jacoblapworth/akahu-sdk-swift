@@ -6,19 +6,19 @@
 		grid-gap: $xui-s-small $xui-s-small;
 		grid-template:
 			"summary"
-			"main" / 1fr;
+			"detail" / 1fr;
 	}
 
 	@include xui-breakpoint-medium-only {
 		grid-gap: $xui-s-small $xui-s-small;
 		grid-template:
 			"summary summary"
-			"nav main" / min-content 1fr;
+			"master detail" / min-content 1fr;
 		}
 
 	@include xui-breakpoint-large-up {
 		grid-gap: $xui-s-small $xui-s-small;
 		grid-template:
-			"nav main summary" / min-content 1fr min-content;
+			"master detail summary" / min-content 1fr min-content;
 	}
 }

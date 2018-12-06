@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUICompositionDetailSummary> renders basic example 1`] = `
+<div
+  className="xui-composition xui-composition-detailsummary xui-composition-is-finite"
+>
+  <div
+    className="xui-gridarea-detail"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-summary"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<XUICompositionDetailSummary> should do nothing with children 1`] = `
+<div
+  className="xui-composition xui-composition-detailsummary xui-composition-is-finite"
+>
+  <div
+    className="xui-gridarea-detail"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-summary"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<XUICompositionDetailSummary> should include custom class and omit width-limiting class, if specified 1`] = `
+<div
+  className="xui-composition xui-composition-detailsummary summary-without-head"
+>
+  <div
+    className="xui-gridarea-detail"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-summary"
+  >
+    <div />
+  </div>
+</div>
+`;

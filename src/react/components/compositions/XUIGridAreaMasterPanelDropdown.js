@@ -7,7 +7,6 @@ import XUIPanel from '../structural/XUIPanel';
 import Dropdown from '../dropdown/DropDown';
 import portalContainer from '../helpers/portalContainer';
 import { ns } from '../helpers/xuiClassNamespace';
-import '../../../sass/7-components/_gridarea-paneldropdown.scss';
 
 export const XUIGridAreaMasterPanelDropdownEventLabel = 'xui:composition2:nav:toggle';
 

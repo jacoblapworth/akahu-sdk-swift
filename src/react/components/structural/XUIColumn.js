@@ -5,9 +5,6 @@ import { ns } from '../helpers/xuiClassNamespace';
 
 import { columnShortNames } from './private/constants';
 
-// TODO: Re-evaluate when updated responsive layout system is in place
-import '../../../sass/99-utils/_grid.scss';
-
 const getClass = (width, suffix) => {
 	let colClass = '';
 	if (width) {

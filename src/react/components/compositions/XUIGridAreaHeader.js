@@ -5,8 +5,6 @@ import { ns } from '../helpers/xuiClassNamespace';
 
 import { observe, unobserve, getWidthClasses } from '../helpers/resizeObserver';
 
-import '../../../sass/5-structure/_gridarea-header.scss';
-
 export default class XUIGridAreaHeader extends PureComponent {
 	_area = React.createRef();
 

@@ -5,8 +5,6 @@ import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 import { observe, unobserve, getWidthClasses } from '../helpers/resizeObserver';
 
-import '../../../sass/5-structure/_gridarea-master.scss';
-
 export default class XUIGridAreaMaster extends PureComponent {
 	_area = React.createRef();
 

@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
-import '../../../sass/7-components/_buttons.groups.scss';
-
 export default function XUIButtonGroup({ children, className, qaHook }) {
 	return (
 		<div className={cn(className, `${ns}-buttongroup`)} data-automationid={qaHook}>

@@ -8,8 +8,6 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapperInline, { getAriaAttributes } from '../controlwrapper/XUIControlWrapperInline';
 import generateIds from '../controlwrapper/helpers';
 
-import '../../../sass/7-components/_forms.checkboxesradios.styled.scss';
-
 /**
  * @function handleLabelClick - Prevent 2 click events bubbling. Since our input is
  * wrapped inside a label, then clicking the label will also cause a new click event

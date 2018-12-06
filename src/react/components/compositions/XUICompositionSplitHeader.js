@@ -2,9 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import '../../../sass/5-structure/_base.scss';
-import '../../../sass/5-structure/compositions/_splitheader.scss';
-
 import XUIGridAreaPrimary from './XUIGridAreaPrimary';
 import XUIGridAreaMain from './XUIGridAreaDetail';
 import XUIGridAreaHeader from './XUIGridAreaHeader';

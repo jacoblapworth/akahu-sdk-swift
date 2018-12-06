@@ -5,9 +5,6 @@ import { ns } from '../helpers/xuiClassNamespace';
 
 import { rowVariants } from './private/constants';
 
-// TODO: Re-evaluate when updated responsive layout system is in place
-import '../../../sass/99-utils/_grid.scss';
-
 const getClasses = (className, variant) => {
 	const suffix = rowVariants[variant] ? `-${rowVariants[variant]}` : '';
 	const rowClass = `${ns}-row${suffix}`;

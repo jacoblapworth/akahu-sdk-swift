@@ -13,8 +13,6 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds from '../controlwrapper/helpers';
 
-import '../../../sass/7-components/_forms.selects.scss';
-
 /**
  * If a qaHook is supplied in component props this helper provides a suffix for
  * sub-components

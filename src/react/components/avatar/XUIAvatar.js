@@ -5,8 +5,6 @@ import '../helpers/xuiGlobalChecks';
 import { sizeClassNames, classNames, variantClassNames } from './constants';
 import { getAvatarColorClass, abbreviateAvatar } from './utils';
 
-import '../../../sass/7-components/_avatars.scss';
-
 export default class XUIAvatar extends PureComponent {
 	state = {
 		imageError: false,

@@ -3,8 +3,6 @@ import React, { PureComponent } from 'react';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
-import '../../../sass/7-components/_isolationheader.scss';
-
 export default class XUIIsolationHeader extends PureComponent {
 	render() {
 		const {

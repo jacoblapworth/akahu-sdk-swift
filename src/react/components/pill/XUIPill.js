@@ -9,8 +9,6 @@ import XUIInnerPill from './XUIInnerPill';
 import XUITooltip from '../tooltip/XUITooltip';
 import { baseClass, sizeClasses } from './private/constants';
 
-import '../../../sass/7-components/_pills.scss';
-
 function shouldShowTooltip(domElement) {
 	return domElement && domElement.clientWidth < domElement.scrollWidth;
 }

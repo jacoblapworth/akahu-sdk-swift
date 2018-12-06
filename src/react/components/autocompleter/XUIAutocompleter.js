@@ -10,8 +10,6 @@ import DropDownToggled from '../dropdown/DropDownToggled';
 import XUITextInput from '../textInput/XUITextInput';
 import { ns } from '../helpers/xuiClassNamespace';
 
-import '../../../sass/7-components/_autocompleter.scss';
-
 /**
  * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and
  * right arrow keys should move cursor in the input

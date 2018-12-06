@@ -14,8 +14,6 @@ import EmptyState from './customElements/EmptyState';
 import TableAlert from './customElements/TableAlert';
 import { ns } from '../helpers/xuiClassNamespace';
 
-import '../../../sass/7-components/_table.scss';
-
 class XUITable extends Component {
 	state = { rootWidth: null };
 	rootNode;

@@ -5,8 +5,6 @@ import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIContr
 import { ns } from '../helpers/xuiClassNamespace';
 import generateIds from '../controlwrapper/helpers';
 
-import '../../../sass/7-components/_forms.range.scss';
-
 const baseClass = `${ns}-rangeslider`;
 
 

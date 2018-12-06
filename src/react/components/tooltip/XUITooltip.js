@@ -8,8 +8,6 @@ import PositioningInline from '../positioning/PositioningInline';
 import { positionOptions } from '../positioning/private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 
-import '../../../sass/7-components/_usermessaging.tooltip.scss';
-
 const baseClass = `${ns}-tooltip`;
 
 export default class XUITooltip extends PureComponent {

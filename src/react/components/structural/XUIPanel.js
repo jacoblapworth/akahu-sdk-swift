@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
-import '../../../sass/6-containers/_panels.scss'; // TODO: Are panels containers or components?
-
 const baseClass = `${ns}-panel`;
 
 export default class XUIPanel extends PureComponent {

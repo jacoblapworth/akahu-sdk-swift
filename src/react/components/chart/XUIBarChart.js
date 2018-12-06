@@ -5,9 +5,6 @@ import ChartScaffold from './customElements/ChartScaffold';
 import ChartLoader from './customElements/ChartLoader';
 import ChartEmpty from './customElements/ChartEmpty';
 
-import '../../../sass/7-components/_chart.scss';
-import '../../../sass/7-components/_barchart.scss';
-
 class XUIBarChart extends PureComponent {
 	render = () => {
 		const { props } = this;

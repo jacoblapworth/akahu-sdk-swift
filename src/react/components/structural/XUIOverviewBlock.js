@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
-import '../../../sass/7-components/_overview.scss';
-
 const baseClass = `${ns}-overview`;
 
 export default class XUIOverviewBlock extends PureComponent {

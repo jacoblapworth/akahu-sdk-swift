@@ -5,8 +5,6 @@ import { ns } from '../helpers/xuiClassNamespace';
 
 import { overviewSentiments } from './private/constants';
 
-import '../../../sass/7-components/_overview.scss';
-
 const baseClass = `${ns}-overview`;
 
 export default class XUIOverviewSection extends PureComponent {

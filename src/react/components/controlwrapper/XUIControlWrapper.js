@@ -6,8 +6,6 @@ import { ns } from '../helpers/xuiClassNamespace';
 import LabelElement from './private/LabelElement';
 import MessageElement from './private/MessageElement';
 
-import '../../../sass/7-components/_forms.layout.scss';
-
 /* eslint-disable max-len */
 /**
  * @public

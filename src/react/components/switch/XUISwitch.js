@@ -7,8 +7,6 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapperInline, { getAriaAttributes } from '../controlwrapper/XUIControlWrapperInline';
 import generateIds from '../controlwrapper/helpers';
 
-import '../../../sass/7-components/_forms.switch.scss';
-
 const baseClass = `${ns}-switch`;
 
 /**

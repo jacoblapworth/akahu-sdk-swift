@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import '../helpers/xuiGlobalChecks';
 import { picklistClassName, sizeVariants } from './private/constants';
-
-import '../../../sass/7-components/_navigation.picklist.scss';
 import Pickitem from './Pickitem';
 import { getPropsFromFirstChildOrList } from './private/helpers';
 import NestedPicklistContainer from './NestedPicklistContainer';

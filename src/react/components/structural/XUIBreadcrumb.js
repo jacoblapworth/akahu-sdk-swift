@@ -5,8 +5,6 @@ import arrow from '@xero/xui-icon/icons/arrow-small';
 import XUIIcon from '../icon/XUIIcon';
 import { ns } from '../helpers/xuiClassNamespace';
 
-import '../../../sass/7-components/_navigation.breadcrumb.scss';
-
 const baseClass = `${ns}-breadcrumb`;
 
 const getCrumbLabel = crumb => {

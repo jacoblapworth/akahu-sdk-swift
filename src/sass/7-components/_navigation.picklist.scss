@@ -730,6 +730,9 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	&:nth-last-child(n+2) {
 		padding-right: $xui-s-2xsmall;
 	}
+	&.#{$ns}-pickitem-text-truncated {
+		display: inline-flex;
+	}
 }
 
 .#{$ns}-pickitem-multiselect--label > .#{$ns}-pickitem-text-truncated:not(.#{$ns}-pickitem--pinned) {

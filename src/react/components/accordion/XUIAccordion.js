@@ -7,8 +7,6 @@ import AccordionWrapper from './customElements/AccordionWrapper';
 import AccordionTrigger from './customElements/AccordionTrigger';
 import EmptyState from './customElements/EmptyState';
 
-import '../../../sass/7-components/_accordion.scss';
-
 export default class XUIAccordion extends PureComponent {
 	state = {
 		openId: null,

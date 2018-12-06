@@ -6,8 +6,6 @@ import '../helpers/xuiGlobalChecks';
 import XUIButton from '../button/XUIButton';
 import { ns } from '../helpers/xuiClassNamespace';
 
-import '../../../sass/7-components/_typography.capsules.scss';
-
 export default function XUICapsule({
 	className,
 	href,

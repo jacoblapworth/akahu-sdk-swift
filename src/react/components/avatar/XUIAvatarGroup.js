@@ -5,8 +5,6 @@ import uuidv4 from 'uuid/v4';
 import XUIAvatarCounter from './XUIAvatarCounter';
 import { sizeClassNames, classNames } from './constants';
 
-import '../../../sass/7-components/_avatars.groups.scss';
-
 export default class XUIAvatarGroup extends PureComponent {
 	render() {
 		const {

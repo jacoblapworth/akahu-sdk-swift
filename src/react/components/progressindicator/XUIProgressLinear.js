@@ -6,8 +6,6 @@ import { NAME_SPACE } from './helpers/constants';
 import LinearTrack from './customElements/LinearTrack';
 import ProgressWrapper from './customElements/ProgressWrapper';
 
-import '../../../sass/7-components/_progressindicator.scss';
-
 const XUIProgressLinear = props => (
 	<ProgressWrapper {...enrichLinearProps(props)}>
 		{({

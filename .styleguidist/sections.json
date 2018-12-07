@@ -426,10 +426,10 @@
 						"content": "../src/react/components/compositions/compositions.detail.md",
 						"sections":[
 							{
-								"components": "../src/components/compositions/XUICompositionDetail.js"
+								"components": "../src/react/components/compositions/XUICompositionDetail.js"
 							},
 							{
-								"components": "../src/components/compositions/XUICompositionDetailHeader.js"
+								"components": "../src/react/components/compositions/XUICompositionDetailHeader.js"
 							}
 						]
 					},
@@ -438,10 +438,10 @@
 						"content": "../src/react/components/compositions/compositions.detailsummary.md",
 						"sections":[
 							{
-								"components": "../src/components/compositions/XUICompositionDetailSummary.js"
+								"components": "../src/react/components/compositions/XUICompositionDetailSummary.js"
 							},
 							{
-								"components": "../src/components/compositions/XUICompositionDetailSummaryHeader.js"
+								"components": "../src/react/components/compositions/XUICompositionDetailSummaryHeader.js"
 							}
 						]
 					},
@@ -450,10 +450,10 @@
 						"content": "../src/react/components/compositions/compositions.masterdetail.md",
 						"sections":[
 							{
-								"components": "../src/components/compositions/XUICompositionMasterDetail.js"
+								"components": "../src/react/components/compositions/XUICompositionMasterDetail.js"
 							},
 							{
-								"components": "../src/components/compositions/XUICompositionMasterDetailHeader.js"
+								"components": "../src/react/components/compositions/XUICompositionMasterDetailHeader.js"
 							}
 						]
 					},
@@ -462,10 +462,10 @@
 						"content": "../src/react/components/compositions/compositions.masterdetailsummary.md",
 						"sections":[
 							{
-								"components": "../src/components/compositions/XUICompositionMasterDetailSummary.js"
+								"components": "../src/react/components/compositions/XUICompositionMasterDetailSummary.js"
 							},
 							{
-								"components": "../src/components/compositions/XUICompositionMasterDetailSummaryHeader.js"
+								"components": "../src/react/components/compositions/XUICompositionMasterDetailSummaryHeader.js"
 							}
 						]
 					},
@@ -474,10 +474,10 @@
 						"content": "../src/react/components/compositions/compositions.split.md",
 						"sections":[
 							{
-								"components": "../src/components/compositions/XUICompositionSplit.js"
+								"components": "../src/react/components/compositions/XUICompositionSplit.js"
 							},
 							{
-								"components": "../src/components/compositions/XUICompositionSplitHeader.js"
+								"components": "../src/react/components/compositions/XUICompositionSplitHeader.js"
 							}
 						]
 					}

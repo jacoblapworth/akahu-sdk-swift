@@ -46,7 +46,7 @@ class StatefulMultiselectPicklist extends React.Component {
 							<Pickitem ariaRole='treeitem' id="d" isSelected={smp.state.selectedItems.d}>D</Pickitem>
 						</NestedPicklist>
 					</NestedPicklistContainer>
-					<NestedPicklistContainer id="split">
+					<NestedPicklistContainer id="splitPicklistContainer">
 						<Pickitem id="splitTrigger" isSplit={true} isSelected={smp.state.selectedItems.splitTrigger}>
 							Split Trigger Item
 						</Pickitem>

@@ -40,6 +40,18 @@ const variations = [
 	})),
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'shows a small picklist',
+		openDrawer: true,
+		picklistSize: 'small'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'shows an xsmall picklist',
+		openDrawer: true,
+		picklistSize: 'xsmall'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is disabled',
 		isDisabled: true,
 	},

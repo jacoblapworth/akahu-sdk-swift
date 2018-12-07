@@ -46,14 +46,17 @@ export default class Pickitem extends PureComponent {
 			secondaryElement,
 			isInvalid,
 			pinnedElement,
+			headingElement,
 			_isHorizontal,
 		} = pickItem.props;
+
+		const truncationClassName = (shouldTruncate && `${pickitemClassName}-text-truncated`) || '';
 
 		const validatedMultiselect = isMultiselect && size !== 'xsmall'; // No multiselect for xsmall;
 		const classes = cn(
 			`${pickitemClassName}`,
 			className,
-			shouldTruncate && `${pickitemClassName}-text-truncated`,
+			truncationClassName,
 			isHighlighted && `${pickitemClassName}-is-hovered`,
 			_isHorizontal && `${pickitemClassName}-is-horizontal`,
 			(isSelected && !disableSelectedStyles) && `${pickitemClassName}-is-selected`,
@@ -90,7 +93,7 @@ export default class Pickitem extends PureComponent {
 				<span
 					className={cn(
 						`${pickitemClassName}--secondary`,
-						shouldTruncate && `${pickitemClassName}-text-truncated`,
+						truncationClassName,
 					)}
 				>
 					{secondaryElement}
@@ -99,11 +102,20 @@ export default class Pickitem extends PureComponent {
 			<span
 				className={cn(
 					`${pickitemClassName}--pinned`,
-					shouldTruncate && `${pickitemClassName}-text-truncated`,
+					truncationClassName,
 				)}
 			>
 				{pinnedElement}
 			</span>;
+		const headingWrapped = headingElement &&
+		<span
+			className={cn(
+				`${pickitemClassName}--heading`,
+				truncationClassName,
+			)}
+		>
+			{headingElement}
+		</span>;
 
 		return (
 			<Tag
@@ -132,6 +144,7 @@ export default class Pickitem extends PureComponent {
 					rightElement={wrappedRight}
 					secondaryElement={secondaryWrapped}
 					pinnedElement={pinnedWrapped}
+					headingElement={headingWrapped}
 				>
 					{children}
 				</BodyComponent>
@@ -206,6 +219,8 @@ Pickitem.propTypes = {
 	secondaryElement: PropTypes.node,
 	/** Less important text to appear pinned at the right. Can be plain text. */
 	pinnedElement: PropTypes.node,
+	/** Text to appear bolded as the first line. Pushes secondary to a new line. */
+	headingElement: PropTypes.node,
 	/** Inherited. Whether parent list is set to render horizontal pickitems. Do not set directly. */
 	_isHorizontal: PropTypes.bool,
 };

@@ -40,7 +40,7 @@ Currently it's recommended that you do not pass in a `rightElement` prop while u
 ```jsx
 const { boldMatch, decorateSubStr } = require('./autocompleter');
 const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
-const { Component, PureComponent } = require('react');
+const { Component, PureComponent, Fragment } = require('react');
 const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
 
@@ -144,21 +144,30 @@ class WrapPillsExample extends Component {
 				</Picklist>
 			) : (
 				<Picklist>
-					{unselectedPeopleIds.map(person => (
-						<Pickitem key={person.id} id={person.id} value={person.id} onSelect={this.selectPerson}>
-							<div className="xui-u-flex">
-								<XUIAvatar value={person.name} imageUrl={person.avatar} />
-								<div className="xui-u-grow xui-padding-left">
-									<div className="xui-heading-item xui-text-truncated">
-										{decorateSubStr(person.name, value || '', boldMatch)}
-									</div>
-									<div className="xui-text-secondary xui-text-truncated">
-										{decorateSubStr(person.email, value || '', boldMatch)}, {decorateSubStr(person.subtext, value || '', boldMatch)}
-									</div>
-								</div>
-							</div>
-						</Pickitem>
-					))}
+					{unselectedPeopleIds.map(person => {
+						const secondaryContent = (
+							<Fragment>
+								{decorateSubStr(person.email, value || '', boldMatch)}, {decorateSubStr(person.subtext, value || '', boldMatch)}
+							</Fragment>
+						);
+						const headingContent = (
+							<Fragment>
+								{decorateSubStr(person.name, value || '', boldMatch)}
+							</Fragment>
+						);
+						return (
+							<Pickitem
+								shouldTruncate
+								key={person.id}
+								id={person.id}
+								value={person.id}
+								secondaryElement={secondaryContent}
+								headingElement={headingContent}
+								leftElement={<XUIAvatar value={person.name} imageUrl={person.avatar} size="small" />}
+								onSelect={this.selectPerson}
+							/>
+						);}
+					)}
 				</Picklist>
 			);
 
@@ -189,7 +198,7 @@ By default the pills and search bar will wrap inside the `XUIAutocompleter` inpu
 ```jsx
 const { boldMatch, decorateSubStr } = require('./autocompleter');
 const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
-const { Component, PureComponent } = require('react');
+const { Component, PureComponent, Fragment } = require('react');
 const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
 
@@ -293,21 +302,30 @@ class DisableWrapPills extends Component {
 				</Picklist>
 			) : (
 				<Picklist>
-					{unselectedPeopleIds.map(person => (
-						<Pickitem key={person.id} id={person.id} value={person.id} onSelect={this.selectPerson}>
-							<div className="xui-u-flex">
-								<XUIAvatar value={person.name} imageUrl={person.avatar} />
-								<div className="xui-u-grow xui-padding-left">
-									<div className="xui-heading-item xui-text-truncated">
-										{decorateSubStr(person.name, value || '', boldMatch)}
-									</div>
-									<div className="xui-text-secondary xui-text-truncated">
-										{decorateSubStr(person.email, value || '', boldMatch)}, {decorateSubStr(person.subtext, value || '', boldMatch)}
-									</div>
-								</div>
-							</div>
-						</Pickitem>
-					))}
+					{unselectedPeopleIds.map(person => {
+						const secondaryContent = (
+							<Fragment>
+								{decorateSubStr(person.email, value || '', boldMatch)}, {decorateSubStr(person.subtext, value || '', boldMatch)}
+							</Fragment>
+						);
+						const headingContent = (
+							<Fragment>
+								{decorateSubStr(person.name, value || '', boldMatch)}
+							</Fragment>
+						);
+						return (
+							<Pickitem
+								shouldTruncate
+								key={person.id}
+								id={person.id}
+								value={person.id}
+								secondaryElement={secondaryContent}
+								headingElement={headingContent}
+								leftElement={<XUIAvatar value={person.name} imageUrl={person.avatar} size="small" />}
+								onSelect={this.selectPerson}
+							/>
+						);}
+					)}
 				</Picklist>
 			);
 
@@ -341,7 +359,7 @@ const { boldMatch, decorateSubStr } = require('./autocompleter');
 const XUIIcon = require('./components/icon/XUIIcon').default;
 const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
 const XUITextInputSideElement = require('./components/textInput/XUITextInputSideElement').default;
-const { Component } = require('react');
+const { Component, Fragment } = require('react');
 const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
 const crossIcon = require('@xero/xui-icon/icons/cross-small').default;
@@ -400,21 +418,30 @@ class SingleSelectExample extends Component {
 
 		const dropdownContents = (
 			<Picklist>
-				{searchResults.map(person => (
-					<Pickitem key={person.id} id={person.id} value={person.id} onSelect={this.selectPerson}>
-						<div className="xui-u-flex">
-							<XUIAvatar value={person.name} imageUrl={person.avatar} />
-							<div className="xui-u-grow xui-padding-left">
-								<div className="xui-heading-item xui-text-truncated">
-									{decorateSubStr(person.name, value || '', boldMatch)}
-								</div>
-								<div className="xui-text-secondary xui-text-truncated">
-									{decorateSubStr(person.email, value || '', boldMatch)}, {decorateSubStr(person.subtext, value || '', boldMatch)}
-								</div>
-							</div>
-						</div>
-					</Pickitem>
-				))}
+				{searchResults.map(person => {
+					const secondaryContent = (
+						<Fragment>
+							{decorateSubStr(person.email, value || '', boldMatch)}, {decorateSubStr(person.subtext, value || '', boldMatch)}
+						</Fragment>
+					);
+					const headingContent = (
+						<Fragment>
+							{decorateSubStr(person.name, value || '', boldMatch)}
+						</Fragment>
+					);
+					return (
+						<Pickitem
+							shouldTruncate
+							key={person.id}
+							id={person.id}
+							value={person.id}
+							secondaryElement={secondaryContent}
+							headingElement={headingContent}
+							leftElement={<XUIAvatar value={person.name} imageUrl={person.avatar} size="small" />}
+							onSelect={this.selectPerson}
+						/>
+					);}
+				)}
 			</Picklist>
 		);
 		const leftElement = selectedPersonId != null && (

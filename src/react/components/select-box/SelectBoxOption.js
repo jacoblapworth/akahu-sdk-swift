@@ -24,6 +24,7 @@ export default class SelectBoxOption extends PureComponent {
 			ariaRole,
 			onMouseOver,
 			qaHook,
+			size,
 		} = this.props;
 		const isText = typeof children[0] === 'string';
 		const shouldTruncateChildren = isText && truncatedText;
@@ -47,6 +48,7 @@ export default class SelectBoxOption extends PureComponent {
 					ariaRole,
 					onMouseOver,
 					qaHook,
+					size,
 				}}
 				className={optionClasses}
 				isMultiselect={showCheckboxes}
@@ -99,6 +101,8 @@ SelectBoxOption.propTypes = {
 	ariaRole: PropTypes.string,
 	/** The automation-id to add to the item */
 	qaHook: PropTypes.string,
+	/** Size variant. */
+	size: PropTypes.oneOf(['standard', 'small', 'xsmall']),
 };
 
 SelectBoxOption.defaultProps = {

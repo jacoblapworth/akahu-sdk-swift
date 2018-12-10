@@ -26,6 +26,7 @@ const PickitemBody = ({
 	pinnedElement,
 	leftElement,
 	rightElement,
+	headingElement,
 }) => {
 	const rel = target ? 'noopener noreferrer' : null;
 	const childProps = {
@@ -45,7 +46,7 @@ const PickitemBody = ({
 	const Tag = href ? 'a' : 'button';
 	const elementSettings = href ? { ...{ href, target } } : { type: 'button' };
 
-	const mainContent = shouldTruncate ? (
+	const mainContent = (children || primaryElement) && shouldTruncate ? (
 		<span className={`${pickitemClassName}-text-truncated`}>
 			{primaryElement}
 			{children}
@@ -61,6 +62,7 @@ const PickitemBody = ({
 		<Tag {...elementSettings} data-automationid={qaHook} {...childProps}>
 			{leftElement}
 			<span className={textClassName}>
+				{headingElement}
 				{mainContent}
 				{secondaryElement}
 			</span>
@@ -91,6 +93,7 @@ PickitemBody.propTypes = {
 	leftElement: PropTypes.node,
 	/** Content to be added to the right of the pickitem. */
 	rightElement: PropTypes.node,
+	headingElement: PropTypes.node,
 };
 
 export default PickitemBody;

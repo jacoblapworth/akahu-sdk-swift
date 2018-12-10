@@ -1,5 +1,5 @@
 // Libs
-import React, { Component, PureComponent } from 'react';
+import React, { Component, PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 // Components we need to test with
@@ -17,6 +17,7 @@ import plusIcon from '@xero/xui-icon/icons/plus';
 import XUIPill from '../../pill/XUIPill';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import { decorateSubStr, boldMatch } from '../helpers/highlighting';
+import { sizeShift } from '../../helpers/sizes';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -112,33 +113,38 @@ class DetailedListExample extends Component {
 			value,
 			people,
 		} = example.state;
+		const listSize = example.props.picklistSize || 'standard';
 
 		if (!Array.isArray(people) || people.length <= 0) {
 			return <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>;
 		}
 
-		const items = people.map(item => (
-			<Pickitem
-				key={item.id}
-				id={item.id}
-				onSelect={() => this.selectPerson(item)}
-			>
-				<div className="xui-u-flex">
-					<XUIAvatar value={item.name} imageUrl={item.avatar} />
-					<div className="xui-u-grow xui-padding-left">
-						<div className="xui-heading-item xui-text-truncated">
-							{decorateSubStr(item.name, value || '', boldMatch)}
-						</div>
-						<div className="xui-text-secondary xui-text-truncated">
-							{decorateSubStr(item.email, value || '', boldMatch)}, {decorateSubStr(item.subtext, value || '', boldMatch)}
-						</div>
-					</div>
-				</div>
-			</Pickitem>
-		));
+		const items = people.map(item => {
+			const secondaryContent = (
+				<Fragment>
+					{decorateSubStr(item.email, value || '', boldMatch)}, {decorateSubStr(item.subtext, value || '', boldMatch)}
+				</Fragment>
+			);
+			const headingContent = (
+				<Fragment>
+					{decorateSubStr(item.name, value || '', boldMatch)}
+				</Fragment>
+			);
+			return (
+				<Pickitem
+					key={item.id}
+					id={item.id}
+					onSelect={() => this.selectPerson(item)}
+					shouldTruncate
+					leftElement={<XUIAvatar value={item.name} imageUrl={item.avatar} size={sizeShift(listSize, -1)} />}
+					secondaryElement={secondaryContent}
+					headingElement={headingContent}
+				/>
+			);
+		});
 
 		return (
-			<Picklist>{items}</Picklist>
+			<Picklist size={listSize}>{items}</Picklist>
 		);
 	}
 
@@ -211,6 +217,7 @@ class DetailedListExample extends Component {
 			validationMessage,
 			hintMessage,
 			isInputLabelHidden,
+			picklistSize,
 		} = example.props;
 
 		const footer = (
@@ -261,6 +268,7 @@ class DetailedListExample extends Component {
 DetailedListExample.propTypes = {
 	openDrawer: PropTypes.bool,
 	selectedPeople: PropTypes.number,
+	picklistSize: PropTypes.oneOf(['small', 'xsmall', 'standard']),
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
@@ -287,6 +295,7 @@ storiesWithKnobs.add('Playground', () => {
 				validationMessage={text('validation msg', '')}
 				hintMessage={text('hint msg', '')}
 				dropdownSize={userSelectedSize || undefined}
+				picklistSize={select('picklist size', ['small', 'xsmall', 'standard'], 'standard')}
 				isInputLabelHidden={boolean('Hide label', false)}
 			/>
 		</div>

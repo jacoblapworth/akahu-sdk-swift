@@ -23,10 +23,10 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'Max/Min values and step',
-		max: 88,
-		min: 22,
-		step: 11,
-		defaultValue: 33
+		max: '88',
+		min: '22',
+		step: '11',
+		defaultValue: '33'
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

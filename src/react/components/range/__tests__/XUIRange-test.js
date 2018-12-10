@@ -84,10 +84,12 @@ describe('Range', () => {
 				isInvalid
 				validationMessage='validationMessage'
 				isDisabled
-				min={16}
-				max={80}
+				min={'16'}
+				max={'80'}
 				size='xsmall'
-				step={4} />
+				step={'4'}
+				defaultValue={'20'}
+			/>
 		);
 		expect(allOptionsRangeComponent).toMatchSnapshot();
 	});

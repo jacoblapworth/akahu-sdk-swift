@@ -41,4 +41,4 @@ XUITag.defaultProps = {
 	size: 'standard',
 };
 
-export { XUITag as default, variants };
+export { XUITag as default, variants, sizes };

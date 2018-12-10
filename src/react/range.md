@@ -10,8 +10,8 @@ XUI provides a custom range slider for consistency across platforms and visual a
 ### Simple case with an onInput Console Logger
 XUIRange components can be passed functions for the `onInput`.
 ```
-	<XUIRange label='Range Label' max='80' defaultValue='30' onInput= {(e) => {
-			console.log(e.target.value)}} />
+	const logValue = (event) => {console.log('value:', event.target.value)};
+	<XUIRange label='Range Label' max='80' defaultValue='30' onInput= {logValue} />
 
 ```
 

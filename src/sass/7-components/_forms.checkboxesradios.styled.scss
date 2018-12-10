@@ -19,7 +19,8 @@
 
 	.#{$ns}-styledcheckboxradio-reversed {
 		.#{$ns}-styledcheckboxradio--label {
-			padding: 6px 3px 3px 6px;
+			margin: 0;
+			padding-left: $xui-s-xsmall - 2;
 		}
 	}
 
@@ -78,6 +79,7 @@
 	user-select: none;
 
 	.#{$ns}-iconwrapper {
+		align-self: center;
 		flex-shrink: 0; // Prevent SVG from shrinking when label text is long
 		height: $xui-s-xlarge;
 		pointer-events: none;

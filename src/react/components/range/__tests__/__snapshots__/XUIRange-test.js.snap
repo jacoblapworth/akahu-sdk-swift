@@ -37,15 +37,15 @@ exports[`Range All options selected 1`] = `
       aria-label={undefined}
       aria-labelledby={undefined}
       className="xui-rangeslider xui-rangeslider-thumb-xsmall xui-rangeslider-is-invalid inputClasses"
-      defaultValue={undefined}
+      defaultValue="20"
       disabled={true}
       id="testRangeId-control"
-      max={80}
-      min={16}
+      max="80"
+      min="16"
       name={undefined}
       onClick={undefined}
       onInput={undefined}
-      step={4}
+      step="4"
       type="range"
     />
     <svg

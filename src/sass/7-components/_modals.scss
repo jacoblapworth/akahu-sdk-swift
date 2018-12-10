@@ -253,7 +253,7 @@
 }
 
 @each $size, $width in $xui-modal-widths {
-	.#{$ns}-modal-width-#{size} {
+	.#{$ns}-modal-width-#{$size} {
 		width: $width;
 	}
 }

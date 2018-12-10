@@ -718,7 +718,7 @@
 
 .#{$ns}-contentblockitem--description--text {
 	color: $xui-color-grey-2;
-	font-size: $xui-new-font-size-small;
+	@include xui-text-small;
 	margin-right: $xui-s-small;
 }
 

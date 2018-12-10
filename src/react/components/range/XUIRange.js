@@ -91,13 +91,13 @@ XUIRange.propTypes = {
 	/** Sizing of the circle touch object */
 	size: PropTypes.oneOf(['default', 'small', 'xsmall']),
 	/** The incremement of the XUIRange slider value */
-	step: PropTypes.number,
+	step: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	/** Default value of the XUIRange component */
-	defaultValue: PropTypes.string,
+	defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	/** Minimum value of the XUIRange component */
-	min: PropTypes.number,
+	min: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	/** Maximum value of the XUIRange component */
-	max: PropTypes.number,
+	max: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	/** Define a function for the onClick event of the slider being clicked */
 	onClick: PropTypes.func,
 	/** Define a function for the onInput event of when the value of the slider is set/changed */

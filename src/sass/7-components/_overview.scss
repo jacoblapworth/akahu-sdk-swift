@@ -109,9 +109,6 @@
 	flex-flow: column nowrap;
 	justify-content: center;
 
-	.#{$ns}-overview-has-dividers &:nth-child(n+2) {
-		box-shadow: $xui-shadow-border-left;
-	}
 	.#{$ns}-progress-linear {
 		margin-top: $xui-s-small;
 	}

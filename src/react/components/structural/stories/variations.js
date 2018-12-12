@@ -67,7 +67,6 @@ variations = [...variations,
 		storyTitle: `overview block minimalist and left-aligned with progress`,
 		type: 'overview',
 		hasBorder: false,
-		hasDividers: false,
 		hasBackground: false,
 		textAlignment: 'left',
 		sections: [
@@ -85,8 +84,13 @@ variations = [...variations,
 			{label: 'paid', value: '1,582.99', sentiment: 'positive'},
 			{label: 'unpaid', value: '0.68', sentiment: 'negative'},
 			{label: 'draft', value: '103.75', sentiment: 'muted'},
-			{label: 'there', value: 'you go'}
-		]
+			{label: 'there', value: 'you go'},
+			{label: 'paid', value: '1,582.99', sentiment: 'positive'},
+			{label: 'unpaid', value: '0.68', sentiment: 'negative'},
+			{label: 'draft', value: '103.75', sentiment: 'muted'},
+		],
+		style: {minWidth: "0px"},
+		viewports: commonViewports
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

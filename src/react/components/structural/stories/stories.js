@@ -152,7 +152,6 @@ storiesWithKnobs.add('OverviewBlock Playground', () => {
 	return (
 		<XUIOverviewBlock
 			hasBorder={boolean('hasBorder', true)}
-			hasDividers={boolean('hasDividers', true)}
 			hasBackground={boolean('hasBackground', true)}
 			textAlignment={blockTextAlignment}
 		>
@@ -210,9 +209,9 @@ variations.forEach(variation => {
 				</div>
 			);
 		} else if (type === "overview") {
-			const { sections } = variationMinusStoryDetails;
+			const { sections, style } = variationMinusStoryDetails;
 			return (
-				<div style={{minWidth: "500px"}}>
+				<div style={style || {minWidth: "500px"}}>
 					<XUIOverviewBlock {...variationMinusStoryDetails}>
 						{buildExampleSections(sections)}
 					</XUIOverviewBlock>

@@ -197,7 +197,6 @@ describe('<XUI Structure/>', () => {
 			const testBlock = renderer.create(
 				<XUIOverviewBlock
 					hasBorder={false}
-					hasDividers={false}
 					hasBackground={false}
 					textAlignment="left"
 				>

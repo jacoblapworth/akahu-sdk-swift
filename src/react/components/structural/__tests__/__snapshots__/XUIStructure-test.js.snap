@@ -409,13 +409,13 @@ exports[`<XUI Structure/> Content block and content block item renders the base 
 
 exports[`<XUI Structure/> Overview block and section: renders the base overview block with no extra settings passed 1`] = `
 <div
-  className="xui-overview xui-overview-layout"
+  className="xui-overview xui-overview-has-border xui-overview-solid xui-overview-text-align-center xui-overview-layout"
 />
 `;
 
-exports[`<XUI Structure/> Overview block and section: renders the base overview block with sections and sentiments 1`] = `
+exports[`<XUI Structure/> Overview block and section: renders the base overview block with sections, children, sentiments, and options 1`] = `
 <div
-  className="xui-overview xui-overview-layout"
+  className="xui-overview xui-overview-text-align-left xui-overview-layout"
 >
   <section
     className="xui-overview--section"
@@ -430,6 +430,7 @@ exports[`<XUI Structure/> Overview block and section: renders the base overview 
     >
       100.23
     </div>
+    test child content
   </section>
   <section
     className="xui-overview--section"
@@ -444,6 +445,7 @@ exports[`<XUI Structure/> Overview block and section: renders the base overview 
     >
       100.23
     </div>
+    test child content
   </section>
   <section
     className="xui-overview--section"
@@ -458,6 +460,7 @@ exports[`<XUI Structure/> Overview block and section: renders the base overview 
     >
       100.23
     </div>
+    test child content
   </section>
   <section
     className="xui-overview--section"
@@ -472,6 +475,7 @@ exports[`<XUI Structure/> Overview block and section: renders the base overview 
     >
       100.23
     </div>
+    test child content
   </section>
 </div>
 `;

@@ -4,7 +4,8 @@ const sixteenByNine = (num) => num / 16 * 9;
 
 /**
  * Common viewport sizes are determined based off XUI's current viewport breakpoints
- * 20px smaller than the smallest breakpoint
+ * Smaller than the smallest breakpoint (smallest common device size)
+ * Half way between xsmall and small
  * Half way between small and medium
  * Half way between medium and large
  * Half way between large and xlarge
@@ -13,14 +14,19 @@ const sixteenByNine = (num) => num / 16 * 9;
 
 const commonViewports = [
 	{
-		label: 'smaller than smallest breakpoint',
-		width: 580,
-		height: sixteenByNine(580)
+		label: 'smaller than xsmall breakpoint',
+		width: 320,
+		height: 500
+	},
+	{
+		label: 'between xsmall and small breakpoints',
+		width: 500,
+		height: 800
 	},
 	{
 		label: 'between small and medium breakpoints',
 		width: 700,
-		height: sixteenByNine(700)
+		height: 1000
 	},
 	{
 		label: 'between medium and large breakpoints',

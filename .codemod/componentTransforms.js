@@ -101,4 +101,19 @@ module.exports = {
 			props: [labelTextToLabel],
 		}
 	],
+	'@xero/xui/react/structural': [
+		{
+			name: 'XUIContentBlockItem',
+			props: [
+				{
+					name: 'tag',
+					newName: 'tags'
+				},
+				{
+					name: 'secondaryHeading',
+					newName: 'description'
+				},
+			]
+		}
+	],
 }

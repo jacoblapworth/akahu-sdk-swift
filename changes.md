@@ -81,6 +81,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- Pickitem in React has reached parity with what had been supported by CSS. `primaryElement`, `secondaryElement`, and `pinnedElement` accept text or nodes to generate content with opinionated styling. `leftElement` and `rightElement` will display content such as avatars or icons at either side of the item (`leftElement` will be superseded by `isMultiselect`)
 	- The new Pickitem prop `isInvalid` styles the item in an invalid state
 	- `NestedPicklistTrigger` also supports a `leftElement`
+- ContentBlockItem has new `description` and `tagPosition` props. Description is styled similarly to the prior `secondaryHeading` content (which has now become more prominent), and `tagPosition` allows you to specify where tags will be placed. `pinnedValue`, `href`, `primaryHeading`, and `secondaryHeading` now only accept strings. The `tag` property has been changed to accept multiple tags, and is now labeled `tags`, accordingly.
 
 ### Utility classes
 

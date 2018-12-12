@@ -53,11 +53,11 @@ function abbreviateAvatar(name, maxChars) {
 	}
 	const l = Math.min(maxChars, words.length);
 	for (let i = 0; i < l; i += 1) {
-		const codePoint = words[i].length && words[i].codePointAt(0);
-		if (!codePoint) {
+		const sortaChars = [...words[i]]; // 'sortaChars' because it's closer to codePoints
+		if (!sortaChars[0]) {
 			break;
 		}
-		newName += String.fromCodePoint(codePoint).toLocaleUpperCase();
+		newName += sortaChars[0].toLocaleUpperCase();
 	}
 
 	return newName;

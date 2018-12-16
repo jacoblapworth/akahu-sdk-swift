@@ -469,7 +469,6 @@ class SingleSelectExample extends Component {
 				onSearch={this.onSearchChangeHandler}
 				placeholder="Select a person"
 				searchValue={value}
-				onBackspacePill={this.deleteLastPerson}
 				leftElement={leftElement}
 				rightElement={rightElement}
 			>

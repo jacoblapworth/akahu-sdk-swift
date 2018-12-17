@@ -126,7 +126,7 @@ module.exports = {
 						'large': 'standard',
 						'standard': 'small',
 						'small': 'xsmall'
-					}, ''),
+					}, 'small'),
 				}
 			]
 		}

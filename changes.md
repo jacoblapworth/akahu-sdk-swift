@@ -71,6 +71,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- The new Pickitem prop `isInvalid` styles the item in an invalid state
 	- `NestedPicklistTrigger` also supports a `leftElement`
 - ContentBlockItem has new `description` and `tagPosition` props. Description is styled similarly to the prior `secondaryHeading` content (which has now become more prominent), and `tagPosition` allows you to specify where tags will be placed. `pinnedValue`, `href`, `primaryHeading`, and `secondaryHeading` now only accept strings. The `tag` property has been changed to accept multiple tags, and is now labeled `tags`, accordingly.
+- Loader size options have been switched from 'large', 'standard', and 'small' to be consistent with other component sizes. New size options are 'standard', 'small', and 'xsmall', and will be converted automatically if using the codemod. The largest size, 'standard' is now the default.
 
 ### Utility classes
 

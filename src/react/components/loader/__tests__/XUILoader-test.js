@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 import XUILoader from '../XUILoader';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -30,18 +31,15 @@ describe('XUILoader', function () {
 	});
 
 	it('should add appropriate size classes', function () {
-		const wrapper = mount(
+		const wrapper = renderer.create(
 			<div>
 				<XUILoader ariaLabel="Something is loading, please wait" />
 				<XUILoader size="small" ariaLabel="Something is loading, please wait" />
-				<XUILoader size="large" ariaLabel="Something is loading, please wait" />
+				<XUILoader size="xsmall" ariaLabel="Something is loading, please wait" />
 			</div>
 		);
 
-		const loaders = wrapper.find('.xui-loader-layout');
-		expect(loaders.at(0).hasClass('xui-loader')).toBeTruthy();
-		expect(loaders.at(1).hasClass('xui-loader-small')).toBeTruthy();
-		expect(loaders.at(2).hasClass('xui-loader-large')).toBeTruthy();
+		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('should add the inverted class if `isInverted` is set to `true`', () => {

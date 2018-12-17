@@ -116,4 +116,19 @@ module.exports = {
 			]
 		}
 	],
+	'@xero/xui/react/loader': [
+		{
+			isDefault: true,
+			props: [
+				{
+					name: 'size',
+					valueTransform: stringReplace({
+						'small': 'xsmall',
+						'standard': 'small',
+						'large': 'standard',
+					}, 'small'),
+				}
+			]
+		}
+	],
 }

@@ -123,9 +123,9 @@ module.exports = {
 				{
 					name: 'size',
 					valueTransform: stringReplace({
-						'large': 'standard',
+						'small': 'xsmall',
 						'standard': 'small',
-						'small': 'xsmall'
+						'large': 'standard',
 					}, 'small'),
 				}
 			]

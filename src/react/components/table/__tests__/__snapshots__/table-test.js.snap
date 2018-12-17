@@ -2928,7 +2928,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
       >
         <div
           aria-label="Loading more data"
-          className="xui-loader xui-loader-layout"
+          className="xui-loader xui-loader-standard xui-loader-layout"
           data-automationid={undefined}
           role="progressbar"
         >
@@ -3018,7 +3018,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
       >
         <div
           aria-label="Loading more data"
-          className="xui-loader xui-loader-layout"
+          className="xui-loader xui-loader-standard xui-loader-layout"
           data-automationid={undefined}
           role="progressbar"
         >
@@ -3288,7 +3288,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
       >
         <div
           aria-label="Loading more data"
-          className="xui-loader xui-loader-layout"
+          className="xui-loader xui-loader-standard xui-loader-layout"
           data-automationid={undefined}
           role="progressbar"
         >

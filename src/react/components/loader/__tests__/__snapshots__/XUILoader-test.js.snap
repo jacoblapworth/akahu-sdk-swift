@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUILoader should add appropriate size classes 1`] = `
+<div>
+  <div
+    aria-label="Something is loading, please wait"
+    className="xui-loader xui-loader-standard xui-loader-layout"
+    data-automationid={undefined}
+    role="progressbar"
+  >
+    <div
+      className="xui-loader--dot"
+    />
+    <div
+      className="xui-loader--dot"
+    />
+    <div
+      className="xui-loader--dot"
+    />
+  </div>
+  <div
+    aria-label="Something is loading, please wait"
+    className="xui-loader xui-loader-small xui-loader-layout"
+    data-automationid={undefined}
+    role="progressbar"
+  >
+    <div
+      className="xui-loader--dot"
+    />
+    <div
+      className="xui-loader--dot"
+    />
+    <div
+      className="xui-loader--dot"
+    />
+  </div>
+  <div
+    aria-label="Something is loading, please wait"
+    className="xui-loader xui-loader-xsmall xui-loader-layout"
+    data-automationid={undefined}
+    role="progressbar"
+  >
+    <div
+      className="xui-loader--dot"
+    />
+    <div
+      className="xui-loader--dot"
+    />
+    <div
+      className="xui-loader--dot"
+    />
+  </div>
+</div>
+`;

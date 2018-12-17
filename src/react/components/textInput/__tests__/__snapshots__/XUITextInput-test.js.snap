@@ -8,7 +8,7 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
   role="presentation"
 >
   <div
-    className="xui-textinput"
+    className="xui-textinput xui-textinput-standard"
     data-automationid="input-test"
   >
     <input
@@ -16,7 +16,7 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
       aria-invalid={undefined}
       aria-label={undefined}
       aria-labelledby={undefined}
-      className="xui-textinput--input"
+      className="xui-textinput--input xui-textinput--input-standard"
       data-automationid="input-test--input"
       defaultValue={undefined}
       disabled={undefined}
@@ -47,7 +47,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
     role="presentation"
   >
     <div
-      className="xui-textinput"
+      className="xui-textinput xui-textinput-standard"
       data-automationid={undefined}
     >
       <div
@@ -78,7 +78,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-textinput--input"
+        className="xui-textinput--input xui-textinput--input-standard"
         data-automationid={undefined}
         defaultValue={undefined}
         disabled={undefined}
@@ -105,7 +105,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
     role="presentation"
   >
     <div
-      className="xui-textinput"
+      className="xui-textinput xui-textinput-standard"
       data-automationid={undefined}
     >
       <input
@@ -113,7 +113,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-textinput--input"
+        className="xui-textinput--input xui-textinput--input-standard"
         data-automationid={undefined}
         defaultValue={undefined}
         disabled={undefined}
@@ -163,7 +163,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
     role="presentation"
   >
     <div
-      className="xui-textinput"
+      className="xui-textinput xui-textinput-standard"
       data-automationid={undefined}
     >
       <div
@@ -194,7 +194,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         aria-invalid={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
-        className="xui-textinput--input"
+        className="xui-textinput--input xui-textinput--input-standard"
         data-automationid={undefined}
         defaultValue={undefined}
         disabled={undefined}
@@ -248,7 +248,7 @@ exports[`<XUITextInput> Text-only input forces resize visible class based on opt
   role="presentation"
 >
   <div
-    className="xui-textinput"
+    className="xui-textinput xui-textinput-standard"
     data-automationid={undefined}
   >
     <textarea
@@ -256,7 +256,7 @@ exports[`<XUITextInput> Text-only input forces resize visible class based on opt
       aria-invalid={undefined}
       aria-label={undefined}
       aria-labelledby={undefined}
-      className="xui-textinput--input xui-textinput--input-resize-vertical"
+      className="xui-textinput--input xui-textinput--input-standard xui-textinput--input-resize-vertical"
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}
@@ -286,7 +286,7 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
   role="presentation"
 >
   <div
-    className="xui-textinput"
+    className="xui-textinput xui-textinput-standard"
     data-automationid="givenQAHook"
   >
     <input
@@ -294,7 +294,7 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
       aria-invalid={undefined}
       aria-label={undefined}
       aria-labelledby={undefined}
-      className="xui-textinput--input"
+      className="xui-textinput--input xui-textinput--input-standard"
       data-automationid="givenQAHook--input"
       defaultValue={undefined}
       disabled={undefined}
@@ -324,7 +324,7 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
   role="presentation"
 >
   <div
-    className="xui-textinput xui-textinput-is-disabled"
+    className="xui-textinput xui-textinput-standard xui-textinput-is-disabled"
     data-automationid={undefined}
   >
     <input
@@ -332,7 +332,7 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
       aria-invalid={undefined}
       aria-label={undefined}
       aria-labelledby={undefined}
-      className="xui-textinput--input"
+      className="xui-textinput--input xui-textinput--input-standard"
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={true}
@@ -370,7 +370,7 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
     test
   </label>
   <div
-    className="custom-container-class xui-textinput"
+    className="custom-container-class xui-textinput xui-textinput-standard"
     data-automationid={undefined}
   >
     <input
@@ -378,7 +378,7 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
       aria-invalid={undefined}
       aria-label={undefined}
       aria-labelledby={undefined}
-      className="custom-input-class xui-textinput--input"
+      className="custom-input-class xui-textinput--input xui-textinput--input-standard"
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}
@@ -408,7 +408,7 @@ exports[`<XUITextInput> Text-only input renders with a hidden label when one is 
   role="presentation"
 >
   <div
-    className="xui-textinput"
+    className="xui-textinput xui-textinput-standard"
     data-automationid={undefined}
   >
     <input
@@ -416,7 +416,7 @@ exports[`<XUITextInput> Text-only input renders with a hidden label when one is 
       aria-invalid={undefined}
       aria-label="test"
       aria-labelledby={undefined}
-      className="xui-textinput--input"
+      className="xui-textinput--input xui-textinput--input-standard"
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}
@@ -454,7 +454,7 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
     test
   </label>
   <div
-    className="xui-textinput"
+    className="xui-textinput xui-textinput-standard"
     data-automationid={undefined}
   >
     <input
@@ -462,7 +462,7 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
       aria-invalid={undefined}
       aria-label={undefined}
       aria-labelledby={undefined}
-      className="xui-textinput--input"
+      className="xui-textinput--input xui-textinput--input-standard"
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}
@@ -492,7 +492,7 @@ exports[`<XUITextInput> Text-only input sets the resize none class based on opti
   role="presentation"
 >
   <div
-    className="xui-textinput"
+    className="xui-textinput xui-textinput-standard"
     data-automationid={undefined}
   >
     <textarea
@@ -500,7 +500,7 @@ exports[`<XUITextInput> Text-only input sets the resize none class based on opti
       aria-invalid={undefined}
       aria-label={undefined}
       aria-labelledby={undefined}
-      className="xui-textinput--input xui-textinput--input-resize-none"
+      className="xui-textinput--input xui-textinput--input-standard xui-textinput--input-resize-none"
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}
@@ -530,7 +530,7 @@ exports[`<XUITextInput> Validation and hints renders invalid textinputs with an 
   role="presentation"
 >
   <div
-    className="xui-textinput xui-textinput-is-invalid"
+    className="xui-textinput xui-textinput-standard xui-textinput-is-invalid"
     data-automationid={undefined}
   >
     <input
@@ -538,7 +538,7 @@ exports[`<XUITextInput> Validation and hints renders invalid textinputs with an 
       aria-invalid={true}
       aria-label={undefined}
       aria-labelledby="newTest"
-      className="xui-textinput--input"
+      className="xui-textinput--input xui-textinput--input-standard"
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}
@@ -576,7 +576,7 @@ exports[`<XUITextInput> Validation and hints renders with a hint message if one 
   role="presentation"
 >
   <div
-    className="xui-textinput"
+    className="xui-textinput xui-textinput-standard"
     data-automationid={undefined}
   >
     <input
@@ -584,7 +584,7 @@ exports[`<XUITextInput> Validation and hints renders with a hint message if one 
       aria-invalid={undefined}
       aria-label={undefined}
       aria-labelledby="newTest"
-      className="xui-textinput--input"
+      className="xui-textinput--input xui-textinput--input-standard"
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}

@@ -119,16 +119,11 @@ const sideElementVariantStories = sideElements.reduce((stories, sideElement) => 
 ], []);
 
 const bothSideElementsWithSizes = inputSizes.map(size => {
-	const shouldRenderButton = size !== 'xsmall';
-	const sideElementsDescription = shouldRenderButton
-		? 'both side elements'
-		: 'left avatar';
-
 	return {
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: `${size} with ${sideElementsDescription}`,
+		storyTitle: `${size} with both side elements`,
 		leftElementType: 'avatar',
-		rightElementType: shouldRenderButton ? 'icon' : undefined,
+		rightElementType: 'icon',
 		size,
 	};
 });
@@ -165,6 +160,24 @@ const multilineStories = [
 		isMultiline: true,
 		rightElementType: 'iconWithBackground',
 		rightElementAlignment: 'bottom',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'small mutliline input with both side elements',
+		isMultiline: true,
+		size: 'small',
+		rightElementType: 'button',
+		rightElementAlignment: 'bottom',
+		leftElementType: 'pill',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'xsmall mutliline input with both side elements',
+		isMultiline: true,
+		size: 'xsmall',
+		rightElementType: 'icon',
+		rightElementAlignment: 'center',
+		leftElementType: 'avatar',
 	},
 ];
 

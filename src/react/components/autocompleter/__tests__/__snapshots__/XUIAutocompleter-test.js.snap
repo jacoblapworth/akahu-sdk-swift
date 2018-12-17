@@ -36,7 +36,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-standard"
           data-automationid="baseAC"
         >
           <input
@@ -46,7 +46,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
             aria-label={undefined}
             aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
             data-automationid="baseAC--input"
             defaultValue={undefined}
             disabled={undefined}
@@ -110,7 +110,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-standard"
           data-automationid={null}
         >
           <input
@@ -120,7 +120,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
             aria-label={undefined}
             aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
@@ -184,7 +184,7 @@ exports[`XUIAutocompleter renders with a hidden label 1`] = `
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-standard"
           data-automationid={null}
         >
           <input
@@ -194,7 +194,7 @@ exports[`XUIAutocompleter renders with a hidden label 1`] = `
             aria-label="Im a little label"
             aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
@@ -266,7 +266,7 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
           Im a little label
         </label>
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-standard"
           data-automationid={null}
         >
           <input
@@ -276,7 +276,7 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
             aria-label={undefined}
             aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
@@ -340,7 +340,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-standard"
           data-automationid={null}
         >
           <input
@@ -350,7 +350,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
             aria-label={undefined}
             aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
@@ -414,7 +414,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-standard"
           data-automationid={null}
         >
           <input
@@ -424,7 +424,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
             aria-label={undefined}
             aria-labelledby={undefined}
             aria-multiline={false}
-            className="test-class xui-autocompleter--textinput xui-textinput--input"
+            className="test-class xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
@@ -488,7 +488,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-standard"
           data-automationid={null}
         >
           <input
@@ -498,7 +498,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
             aria-label={undefined}
             aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
@@ -562,7 +562,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-standard"
           data-automationid={null}
         >
           <input
@@ -572,7 +572,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
             aria-label={undefined}
             aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
@@ -638,7 +638,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-standard"
           data-automationid={null}
         >
           <input
@@ -648,7 +648,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
             aria-label="Search"
             aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
@@ -712,7 +712,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-standard"
           data-automationid={null}
         >
           <input
@@ -722,7 +722,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
             aria-label={undefined}
             aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
@@ -786,7 +786,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-standard"
           data-automationid={null}
         >
           <input
@@ -796,7 +796,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
             aria-label={undefined}
             aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}
@@ -860,7 +860,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
         role="presentation"
       >
         <div
-          className="xui-textinput xui-textinput-is-disabled"
+          className="xui-textinput xui-textinput-standard xui-textinput-is-disabled"
           data-automationid={null}
         >
           <input
@@ -870,7 +870,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
             aria-label={undefined}
             aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
             data-automationid={null}
             defaultValue={undefined}
             disabled={true}
@@ -934,7 +934,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-standard"
           data-automationid={null}
         >
           <input
@@ -944,7 +944,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
             aria-label={undefined}
             aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
             data-automationid={null}
             defaultValue={undefined}
             disabled={undefined}

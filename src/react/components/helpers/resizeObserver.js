@@ -1,3 +1,4 @@
+import ResizeObserver from 'resize-observer-polyfill';
 import defaultBreakpoints, { widthClasses } from './breakpoints';
 
 const entryComponentMap = new WeakMap();
@@ -22,12 +23,11 @@ const handleEntries = entries => {
 	});
 };
 
-// Only run if ResizeObserver is supported.
 // Create a single ResizeObserver instance to handle all
 // container elements. The instance is created with a callback,
 // which is invoked as soon as an element is observed as well
 // as any time that element's size changes.
-const ro = window && window.ResizeObserver && new window.ResizeObserver(handleEntries);
+const ro = new ResizeObserver(handleEntries);
 
 export const observe = component => {
 	const element = component._area.current;

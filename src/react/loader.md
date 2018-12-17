@@ -23,10 +23,10 @@ For more flexibility in styling and using Loaders in your application, set the p
 
 ### Sizes
 
-Apart from the `standard` size, Loaders can also be `small` or `large`.
+Apart from the `standard` size, Loaders can also be `small` or `xsmall`.
 
 ```
-<XUILoader size="large" defaultLayout={false} />
+<XUILoader size="standard" defaultLayout={false} />
 ```
 
 ### Inverted

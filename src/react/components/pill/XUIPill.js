@@ -140,7 +140,6 @@ export default class XUIPill extends PureComponent {
 				<XUITooltip
 					// Extra wrapping div required because tooltip has CSS that stomps on first child
 					trigger={<div>{content}</div>}
-					isBlock
 					isHidden={!debugShowToolTip}
 					ref={this._tooltip}
 					id={debugShowToolTip && 'tooltipDebugId'}

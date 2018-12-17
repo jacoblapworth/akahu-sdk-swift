@@ -634,6 +634,7 @@
 	.#{$ns}-contentblockitem--maincontent {
 		flex: 1;
 		padding: $xui-s-small $xui-s-standard;
+		text-decoration: none;
 	}
 
 	.#{$ns}-contentblockitem--rightcontent {

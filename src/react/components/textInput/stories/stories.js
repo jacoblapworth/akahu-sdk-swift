@@ -18,14 +18,9 @@ import clearPath from '@xero/xui-icon/icons/clear';
 import facebookPath from '@xero/xui-icon/icons/social-facebook';
 import XUIPill from '../../pill/XUIPill';
 import XUIAvatar from '../../avatar/XUIAvatar';
+import { sizeShift } from '../../helpers/sizes';
 
 const inputProps = {};
-
-const childSizeClassMap = {
-	standard: 'small',
-	small: 'xsmall',
-	xsmall: '2xsmall',
-};
 
 const TextInputWrapper = props => {
 	const {
@@ -53,12 +48,12 @@ const TextInputWrapper = props => {
 	} = props;
 
 	const makeSideElement = (sideElementType, sideElementAlignment) => {
-		const childComponentSize = childSizeClassMap[size];
+		const childComponentSize = sizeShift(size, -1);
 		switch (sideElementType) {
 		case 'icon':
 			return (
 				<XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
-					<XUIButton variant="icon" size={childComponentSize}>
+					<XUIButton variant="icon" size={size}>
 						<XUIIcon icon={clearPath} />
 					</XUIButton>
 				</XUITextInputSideElement>
@@ -80,24 +75,24 @@ const TextInputWrapper = props => {
 				</XUITextInputSideElement>
 			);
 		case 'button':
-			return (
-				<XUITextInputSideElement type="button" alignment={sideElementAlignment}>
+			return (childComponentSize !== '2xsmall' &&
+				(<XUITextInputSideElement type="button" alignment={sideElementAlignment}>
 					<XUIButton variant="primary" size={childComponentSize}>
 							Test
 					</XUIButton>
-				</XUITextInputSideElement>
+				</XUITextInputSideElement>)
 			);
 		case 'pill':
-			return (
-				<XUITextInputSideElement type="pill" alignment={sideElementAlignment}>
-					<XUIPill
-						avatarProps={{
-							value: 'TP'
-						}}
-						value="Test Person"
-						size={childComponentSize}
-					/>
-				</XUITextInputSideElement>
+			return (childComponentSize !== '2xsmall' &&
+					(<XUITextInputSideElement type="pill" alignment={sideElementAlignment}>
+						<XUIPill
+								avatarProps={{
+									value: 'TP'
+								}}
+								value="Test Person"
+								size={childComponentSize}
+							/>
+					</XUITextInputSideElement>)
 			);
 		case 'avatar':
 		return (
@@ -174,10 +169,10 @@ TextInputWrapper.propTypes = {
 	minRows: PropTypes.number,
 	maxRows: PropTypes.number,
 	rows: PropTypes.number,
-	size: PropTypes.oneOf(Object.keys(childSizeClassMap)),
+	size: PropTypes.oneOf(['standard', 'small', 'xsmall']),
 };
 
-const elementTypeOptions = [null, 'icon', 'iconWithBackground', 'button', 'text'];
+const elementTypeOptions = [null, 'icon', 'iconWithBackground', 'button', 'text', 'pill', 'avatar'];
 
 const elementAlignmentOptions = ['top', 'center', 'bottom'];
 
@@ -190,7 +185,7 @@ storiesWithKnobs.add('Playground', () => (
 		isLabelHidden={boolean('is label hidden', false)}
 		placeholder={text('placeholder', 'placeholder text')}
 		value={text('value')}
-		size={select('size', Object.keys(childSizeClassMap), 'standard')}
+		size={select('size', ['standard', 'small', 'xsmall'], 'standard')}
 		isMultiline={boolean('is multiline', false)}
 		minRows={number('min height of multiline input in rows', 0) || undefined}
 		maxRows={number('max height of multiline input in rows', 0) || undefined}

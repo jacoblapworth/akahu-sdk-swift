@@ -39,7 +39,6 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 
 .#{$ns}-textinput {
 	@include xui-commoninput;
-	@include xui-text-standard;
 	align-items: center;
 	cursor: text;
 	display: flex;
@@ -87,82 +86,63 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 	&-align-bottom {
 		align-items: flex-end;
 	}
+	.#{$ns}-textinput-standard &:first-child{
+		margin-right: $xui-s-xsmall;
+	}
+	.#{$ns}-textinput-small &:first-child{
+		margin-right: $xui-s-xsmall - 2;
+	}
+	.#{$ns}-textinput-xsmall &:first-child{
+		margin-right: $xui-s-2xsmall;
+	}
+
+	.#{$ns}-textinput-standard &:last-child{
+		margin-left: $xui-s-xsmall;
+	}
+	.#{$ns}-textinput-small &:last-child{
+		margin-left: $xui-s-xsmall - 2;
+	}
+	.#{$ns}-textinput-xsmall &:last-child{
+		margin-left: $xui-s-2xsmall;
+	}
 }
 
 .#{$ns}-textinput--sideelement-icon {
-	align-items: center; // Center icon vertically
-	padding: $xui-s-2xsmall;
+	justify-content: center;
 }
 
 .#{$ns}-textinput--sideelement-text {
 	@include xui-margin-vertical(0);
-	@include xui-padding-vertical($input-text-vertical-padding-standard);
-
 	pointer-events: none;
 
 	&:first-child {
 		padding-left: $xui-s-standard;
-		padding-right: $xui-s-small;
+		padding-right: $xui-s-2xsmall;
 	}
 
 	&:last-child {
-		padding-left: $xui-s-small;
+		padding-left: $xui-s-2xsmall;
 		padding-right: $xui-s-standard;
 	}
 }
 
 .#{$ns}-textinput--sideelement-avatar {
-	@include xui-padding-vertical($xui-s-2xsmall);
 	pointer-events: none;
-
-	&:first-child {
-		padding-left: $xui-s-2xsmall;
-		padding-right: $xui-s-xsmall;
-	}
-
-	&:last-child {
-		padding-left: $xui-s-xsmall;
-		padding-right: $xui-s-2xsmall;
-	}
 }
 
-.#{$ns}-textinput--sideelement-pill {
-	@include xui-padding-vertical($xui-s-2xsmall);
-
-	&:first-child {
-		padding-left: $xui-s-2xsmall;
-		padding-right: $xui-s-small;
-	}
-
-	&:last-child {
-		padding-left: $xui-s-small;
-		padding-right: $xui-s-2xsmall;
-	}
-}
-
+.#{$ns}-textinput--sideelement-avatar,
+.#{$ns}-textinput--sideelement-pill,
 .#{$ns}-textinput--sideelement-button {
-	@include xui-padding-vertical($xui-s-2xsmall);
-
-	&:first-child {
-		padding-left: $xui-s-2xsmall;
-		padding-right: $xui-s-small;
-	}
-
-	&:last-child {
-		padding-left: $xui-s-small;
-		padding-right: $xui-s-2xsmall;
-	}
+	@include xui-padding($xui-s-2xsmall);
 }
 
 .#{$ns}-textinput--sideelement-has-background {
 	&:first-child {
 		border-radius: $xui-radius 0 0 $xui-radius;
-		margin-right: $xui-s-small;
 	}
 
 	&:last-child {
 		border-radius: 0 $xui-radius $xui-radius 0;
-		margin-left: $xui-s-small;
 	}
 }
 
@@ -181,20 +161,52 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 	color: $xui-textinput-sideelement-inverted-color;
 }
 
+.#{$ns}-textinput-standard {
+	$input-inner-height: $xui-control-size-standard - 2; // -2 for borders
+	@include xui-text-standard;
+	min-height: $xui-control-size-standard;
+
+	.#{$ns}-textinput--sideelement {
+		min-height: $input-inner-height;
+		min-width: $input-inner-height;
+	}
+	.#{$ns}-iconwrapper {
+		height: $xui-control-size-standard;
+		width: $xui-control-size-standard;
+	}
+	.#{$ns}-textinput--sideelement-text {
+		@include xui-padding-vertical($input-text-vertical-padding-standard);
+	}
+}
+
 .#{$ns}-textinput-small {
+	$input-inner-height: $xui-control-size-small - 2; // -2 for borders
 	@include xui-text-small;
 	min-height: $xui-control-size-small;
 
+	.#{$ns}-textinput--sideelement {
+		min-height: $input-inner-height;
+		min-width: $input-inner-height;
+	}
+	.#{$ns}-iconwrapper {
+		height: $xui-control-size-small;
+		width: $xui-control-size-small;
+	}
 	.#{$ns}-textinput--sideelement-text {
-		@include xui-margin-vertical(0);
-		padding: $input-text-vertical-padding-small $xui-s-small;
-		pointer-events: none;
+		@include xui-padding-vertical($input-text-vertical-padding-small)
+	}
+	.#{$ns}-textinput--sideelement-text:first-child {
+		padding-left: $xui-s-small;
+		padding-right: $xui-s-2xsmall;
+	}
+	.#{$ns}-textinput--sideelement-text:last-child {
+		padding-left: $xui-s-2xsmall;
+		padding-right: $xui-s-small;
 	}
 }
 
 .#{$ns}-textinput--input-small {
 	@include xui-padding-vertical($input-text-vertical-padding-small);
-
 	&:first-child,
 	&.#{$ns}-textinput {
 		padding-left: $xui-s-small;
@@ -206,13 +218,29 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 }
 
 .#{$ns}-textinput-xsmall {
+	$input-inner-height: $xui-control-size-xsmall - 2; // -2 for borders
 	@include xui-text-xsmall;
 	min-height: $xui-control-size-xsmall;
 
+	.#{$ns}-textinput--sideelement {
+		min-height: $input-inner-height;
+		min-width: $input-inner-height;
+	}
+	.#{$ns}-iconwrapper {
+		height: $xui-control-size-xsmall;
+		width: $xui-control-size-xsmall;
+	}
+
 	.#{$ns}-textinput--sideelement-text {
-		@include xui-margin-vertical(0);
-		padding: $input-text-vertical-padding-xsmall $xui-s-xsmall;
-		pointer-events: none;
+		@include xui-padding-vertical($input-text-vertical-padding-xsmall)
+	}
+	.#{$ns}-textinput--sideelement-text:first-child {
+		padding-left: $xui-s-xsmall;
+		padding-right: $xui-s-2xsmall;
+	}
+	.#{$ns}-textinput--sideelement-text:last-child {
+		padding-left: $xui-s-2xsmall;
+		padding-right: $xui-s-xsmall;
 	}
 }
 

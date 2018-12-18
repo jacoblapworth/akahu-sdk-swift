@@ -67,9 +67,10 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - `Picklist`, `Pickitem`, and related components
 	- Have a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`. Size can be set at either the item or list level, and will be applied to the entire list.
 	- `isMultiselect` and `shouldTruncate` can now be set at the list level and will set those properties for all items in the list. `isMultiselect` is not supported at the `xsmall` size.
-	- Pickitem in React has reached parity with what had been supported by CSS. `primaryElement`, `secondaryElement`, and `pinnedElement` accept text or nodes to generate content with opinionated styling. `leftElement` and `rightElement` will display content such as avatars or icons at either side of the item (`leftElement` will be superseded by `isMultiselect`)
+	- Pickitem in React has reached parity with what had been supported by CSS. `primaryElement`, `secondaryElement`, and `pinnedElement` accept text or nodes to generate content with opinionated styling. `leftElement` and `rightElement` will display content such as avatars or icons at either side of the item (`leftElement` will be superseded by `isMultiselect`).
 	- The new Pickitem prop `isInvalid` styles the item in an invalid state
 	- `NestedPicklistTrigger` also supports a `leftElement`
+	- In support of the more contentblock-style Autocompleter picklists, Pickitems also have new `headerElement` and `isMultiline` props.
 - ContentBlockItem has new `description` and `tagPosition` props. Description is styled similarly to the prior `secondaryHeading` content (which has now become more prominent), and `tagPosition` allows you to specify where tags will be placed. `pinnedValue`, `href`, `primaryHeading`, and `secondaryHeading` now only accept strings. The `tag` property has been changed to accept multiple tags, and is now labeled `tags`, accordingly.
 - Loader size options have been switched from 'large', 'standard', and 'small' to be consistent with other component sizes. New size options are 'standard', 'small', and 'xsmall', and will be converted automatically if using the codemod. The largest size, 'standard' is now the default.
 

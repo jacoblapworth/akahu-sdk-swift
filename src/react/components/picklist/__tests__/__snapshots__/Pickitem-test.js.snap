@@ -110,7 +110,7 @@ exports[`<Pickitem /> renders a pickitem with most compatible options 1`] = `
 <li
   aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem custom-classname xui-pickitem-is-selected xui-pickitem-is-disabled xui-pickitem-xsmall xui-pickitem-is-invalid"
+  className="xui-pickitem custom-classname xui-pickitem-multiline xui-pickitem-is-selected xui-pickitem-is-disabled xui-pickitem-xsmall xui-pickitem-is-invalid"
   data-automationid={undefined}
   id="item1"
   role="option"
@@ -139,6 +139,11 @@ exports[`<Pickitem /> renders a pickitem with most compatible options 1`] = `
     <span
       className="xui-pickitem--text"
     >
+      <span
+        className="xui-pickitem--heading"
+      >
+        Item 1 heading
+      </span>
       Item 1
       <span
         className="xui-pickitem--secondary"

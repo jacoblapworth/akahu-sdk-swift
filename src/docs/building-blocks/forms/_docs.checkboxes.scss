@@ -39,12 +39,12 @@
 // Checkboxes have a range of size options that allow for greater control over visual hierarchy.
 //
 // Tips:
-// Do: Use the same label and description font-size with all size variants
-// Warning: Size variants make visual changes only, all variants maintain a tap area of 24px
+// Do: Use a smaller variant to reduce visual dominance of a checkbox
+// Warning: Reducing label font-size is not recommended as it causes a loss in legibility
 // Don't: Don’t use a combination of size variants within a single form
 //
 // Definitions:
-// Size Variant:	**Height**: **Class**
+// Size variant:	**Height**: **Class**
 // default: 24px: default
 // small: 20px: <code>.xui-styledcheckboxradio--checkbox-small</code>
 // xsmall: 16px: <code>.xui-styledcheckboxradio--checkbox-xsmall</code>

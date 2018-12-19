@@ -172,7 +172,7 @@ Configured in `.kss/` folder. Checkout our [.kss/README.md](.kss/README.md) for 
 
 ### React Docs (react-styleguidist)
 
-Configured in `.styleguide/` folder. Checkout our [.styleguide/README.md](.styleguide/README.md) for notes on customisation and configuration.
+Configured in `.styleguidist/` folder. Checkout our [.styleguidist/README.md](.styleguidist/README.md) for notes on customisation and configuration.
 
 [react-styleguidist](https://react-styleguidist.js.org/) provides our component specific documenation including descriptions, interactive and editable component examples and API documenation. This is authored using markdown descriptions, short example code snippets, and automatic generation of PropType documentation using [react-docgen](https://www.npmjs.com/package/react-docgen).
 
@@ -196,12 +196,12 @@ Configured in `.storybook/` folder.
 5. PR the updated upstream branch: patch; minor; breaking-changes; into master.
 6. Tag the release in Github matching the updated version in package.json
 7. [Log into AWS](https://ap-southeast-2.console.aws.amazon.com/codepipeline/home?region=ap-southeast-2#/view/xui-code-pipeline) and approve the release. Note: You'll need `Developer @ xero-platformdevelopment-test` as minimum permissions to approve the release.
-8. Once the release is finalised, you will need to verify everything has been release correctly.
-  - XUI CSS : hit https://edge.xero.com/style/xui/&lt;your new version&gt;/xui.css, expect 200
+8. Once the release is finalised, you will need to verify everything has been released correctly.
+  - XUI CSS : hit https://edge.xero.com/style/xui/%3Cyour-new-version%3E/xui.css, expect 200
   - Sherlock JSON: hit https://edge.xero.com/style/xui/sherlock.json, expect 200 and version exists in JSON
   - Check you can install expected XUI version into test app, or your own app.
   - Check docs branch has been updated in github
-  - Check docs have been released on the website https://xui.xero.com/&lt;your new version&gt;/
+  - Check docs have been released on the website https://xui.xero.com/%3Cyour-new-version%3E/
 
 ### Alpha/beta releases
 

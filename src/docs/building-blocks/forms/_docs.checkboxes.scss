@@ -34,6 +34,40 @@
 //
 // Styleguide: Building Blocks.Controls.Checkbox.1
 
+// Size variants
+//
+// Checkboxes provide options of scale to enable greater control over visual hierarchy.
+//
+// Tips:
+// Do: Use the same label and description font-size with all size variants
+// Warning: All checkboxes have a tap area of 24px
+// Don't: Don’t use a combination of size variants within a single form
+//
+// Definitions:
+// xSmall: 16px x 16px: <code>.xui-styledcheckboxradio--checkbox-xsmall</code>
+// Small: 20px x 20px: <code>.xui-styledcheckboxradio--checkbox-small</code>
+// Default: 24px x 24px: default
+//
+// ExampleClass: ds-example-transparent
+//
+// Markup:
+// <label class="xui-styledcheckboxradio">
+//   <input class="xui-styledcheckboxradio--input" type="checkbox">
+//   <div class="xui-styledcheckboxradio--checkbox"></div>
+//   <span class="xui-styledcheckboxradio--label">Default</span>
+// </label>
+// <label class="xui-styledcheckboxradio">
+//   <input class="xui-styledcheckboxradio--input" type="checkbox">
+//   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div>
+//   <span class="xui-styledcheckboxradio--label">Small</span>
+// </label>
+// <label class="xui-styledcheckboxradio">
+//   <input class="xui-styledcheckboxradio--input" type="checkbox">
+//   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-xsmall"></div>
+//   <span class="xui-styledcheckboxradio--label">xSmall</span>
+// </label>
+//
+// Styleguide: Building Blocks.Controls.Checkbox.2
 
 // Disabling
 //
@@ -56,7 +90,7 @@
 //   <span class="xui-styledcheckboxradio--label">Checked and disabled</span>
 // </label>
 //
-// Styleguide: Building Blocks.Controls.Checkbox.2
+// Styleguide: Building Blocks.Controls.Checkbox.3
 
 // Grouped checkboxes
 //
@@ -82,7 +116,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Checkbox.3
+// Styleguide: Building Blocks.Controls.Checkbox.4
 
 
 // Single checkbox
@@ -99,7 +133,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Checkbox.3.1
+// Styleguide: Building Blocks.Controls.Checkbox.4.1
 
 
 // Multiline checkbox
@@ -116,7 +150,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Checkbox.3.2
+// Styleguide: Building Blocks.Controls.Checkbox.4.2
 
 // Order
 //
@@ -131,7 +165,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Checkbox.4
+// Styleguide: Building Blocks.Controls.Checkbox.5
 
 
 // Indeterminate
@@ -139,7 +173,7 @@
 // To indicate only a subset of children are selected, use the `:indeterminate` attribute.
 // However, this state is not exposed via HTML, and needs to be set via Javascript.
 //
-// Styleguide: Building Blocks.Controls.Checkbox.5
+// Styleguide: Building Blocks.Controls.Checkbox.6
 
 
 // Custom icons
@@ -199,7 +233,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Checkbox.6
+// Styleguide: Building Blocks.Controls.Checkbox.7
 
 
 // Class list
@@ -208,6 +242,8 @@
 // xui-styledcheckboxradio-group: Container for a group of styled checkboxes or radio
 // xui-styledcheckboxradio: Container for a styled checkbox or radio
 // xui-styledcheckboxradio-reversed: Modifier for a right-aligned styled checkbox or radio
+// xui-styledcheckboxradio-small: Modifier for reducing the input size to 20px x 20px
+// xui-styledcheckboxradio-xsmall: Modifier for reducing the input size to 16px x 16px
 // xui-styledcheckboxradio--checkbox: The html element that displays the checkmark, if not a custom icon.
 // xui-styledcheckboxradio--focus: Subcomponent for focus layer of an icon checkbox or radio
 // xui-styledcheckboxradio--main: Subcomponent for main layer of an icon checkbox or radio

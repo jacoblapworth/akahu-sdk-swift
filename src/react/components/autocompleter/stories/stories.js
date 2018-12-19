@@ -139,6 +139,7 @@ class DetailedListExample extends Component {
 					leftElement={<XUIAvatar value={item.name} imageUrl={item.avatar} size={sizeShift(listSize, -1)} />}
 					secondaryElement={secondaryContent}
 					headingElement={headingContent}
+					isMultiline
 				/>
 			);
 		});

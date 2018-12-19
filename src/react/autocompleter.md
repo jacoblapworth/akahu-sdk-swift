@@ -165,6 +165,7 @@ class WrapPillsExample extends Component {
 								headingElement={headingContent}
 								leftElement={<XUIAvatar value={person.name} imageUrl={person.avatar} size="small" />}
 								onSelect={this.selectPerson}
+								isMultiline
 							/>
 						);}
 					)}
@@ -323,6 +324,7 @@ class DisableWrapPills extends Component {
 								headingElement={headingContent}
 								leftElement={<XUIAvatar value={person.name} imageUrl={person.avatar} size="small" />}
 								onSelect={this.selectPerson}
+								isMultiline
 							/>
 						);}
 					)}
@@ -439,6 +441,7 @@ class SingleSelectExample extends Component {
 							headingElement={headingContent}
 							leftElement={<XUIAvatar value={person.name} imageUrl={person.avatar} size="small" />}
 							onSelect={this.selectPerson}
+							isMultiline
 						/>
 					);}
 				)}

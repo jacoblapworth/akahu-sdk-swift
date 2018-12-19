@@ -23,8 +23,8 @@ class XUITextInput extends PureComponent {
 	componentDidMount() {
 		const { maxRows } = this.props;
 
-		if (shouldAutomaticallyResize(this.props)) {
-			if (maxRows != null && this.input) {
+		if (shouldAutomaticallyResize(this.props) && this.input) {
+			if (maxRows != null) {
 				this.setState({ // eslint-disable-line react/no-did-mount-set-state
 					maxHeight: calculateMaxHeight({
 						textArea: this.input,
@@ -42,7 +42,7 @@ class XUITextInput extends PureComponent {
 	}
 
 	componentDidUpdate() {
-		if (shouldAutomaticallyResize(this.props)) {
+		if (shouldAutomaticallyResize(this.props) && this.input) {
 			const evt = document.createEvent('Event');
 			evt.initEvent('autosize:update', true, false);
 			this.input.dispatchEvent(evt);
@@ -95,13 +95,19 @@ class XUITextInput extends PureComponent {
 			isLabelHidden,
 			minRows,
 			rows,
+			labelId,
+			// We want to remove these from the spread props, but they're not used in the render.
+			/* eslint-disable no-unused-vars */
+			maxRows,
+			/* eslint-enable no-unused-vars */
+			...otherProps
 		} = input.props;
 		const {
 			maxHeight,
 			hasFocus,
 		} = this.state;
 
-		const labelId = input.props.labelId || `${this.generatedId}-label`;
+		const calculatedLabelId = labelId || `${this.generatedId}-label`;
 		const messageId = `${this.generatedId}-message`;
 		const showingErrorMessage = isInvalid && validationMessage;
 		const message = (validationMessage || hintMessage) && (
@@ -153,7 +159,7 @@ class XUITextInput extends PureComponent {
 		);
 
 		const labelElement = labelText != null && !isLabelHidden && (
-			<span className={labelClasses} id={labelId}>
+			<span className={labelClasses} id={calculatedLabelId}>
 				{labelText}
 			</span>
 		);
@@ -166,8 +172,8 @@ class XUITextInput extends PureComponent {
 		};
 
 		// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-		const ariaLabelledBy = (labelElement && labelId)
-			|| (!labelText && this.props.labelId)
+		const ariaLabelledBy = (labelElement && calculatedLabelId)
+			|| (!labelText && labelId)
 			|| undefined;
 		// Add hidden label or placeholder as labelText if not labelled by anything else
 		const ariaLabel = (isLabelHidden && labelText)
@@ -182,7 +188,11 @@ class XUITextInput extends PureComponent {
 				role="presentation"
 			>
 				{labelElement}
-				<div className={baseClasses} data-automationid={qaHook}>
+				<div
+					className={baseClasses}
+					data-automationid={qaHook}
+					{...otherProps}
+				>
 					{leftElement}
 					<InputEl
 						{...inputProps}

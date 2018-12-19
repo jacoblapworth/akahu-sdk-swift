@@ -53,29 +53,30 @@ const buildServiceWorker = require(path.resolve(
 	'serviceworker.js'
 ));
 
-console.log('buildServiceWorker', buildServiceWorker);
-
-function build() {
-	return taskRunner(taskSpinner => {
+async function build() {
+	await taskRunner(taskSpinner => {
 		return Promise.all([sassKss(), xuiCss()])
 			.then(() => {
 				taskSpinner.info('Done with basic build promises');
 				return Promise.all([
 					buildStyleguide(),
-					buildStorybook({
+					buildKss({
 						skipPostCss: true
 					}),
-					buildKss({
+					buildStorybook({
 						skipPostCss: true
 					}),
 					buildTokens(),
 					buildUmd()
-				]).then(({ stdout }) => console.log(stdout));
+				]).then(({ stdout, stderr }) => console.log(stdout, stderr));
 			})
 			.then(buildServiceWorker())
 			.then(succeed)
 			.catch(fail);
 	}, __filename);
+
+	process.exit(0);
+
 }
 
 module.exports = build;

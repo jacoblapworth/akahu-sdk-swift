@@ -3,36 +3,24 @@
 exports[`XUICheckbox should be a small variant, if specified 1`] = `
 <label
   className="xui-styledcheckboxradio"
-  data-automationid={undefined}
   onClick={[Function]}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
-    aria-describedby={undefined}
-    aria-invalid={undefined}
-    aria-label={undefined}
     aria-labelledby="testCheckboxId"
     className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-    data-automationid={undefined}
     defaultChecked={false}
     disabled={false}
-    name={undefined}
     onChange={[Function]}
     onClick={[Function]}
     required={false}
-    tabIndex={undefined}
     type="checkbox"
-    value={undefined}
   />
   <div
     className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-    data-automationid={undefined}
   />
   <span
     className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small"
-    data-automationid={undefined}
-    htmlFor={undefined}
     id="testCheckboxId"
   >
     Howdy, folks!
@@ -43,36 +31,24 @@ exports[`XUICheckbox should be a small variant, if specified 1`] = `
 exports[`XUICheckbox should be a xsmall variant, if specified 1`] = `
 <label
   className="xui-styledcheckboxradio"
-  data-automationid={undefined}
   onClick={[Function]}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
-    aria-describedby={undefined}
-    aria-invalid={undefined}
-    aria-label={undefined}
     aria-labelledby="testCheckboxId"
     className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall"
-    data-automationid={undefined}
     defaultChecked={false}
     disabled={false}
-    name={undefined}
     onChange={[Function]}
     onClick={[Function]}
     required={false}
-    tabIndex={undefined}
     type="checkbox"
-    value={undefined}
   />
   <div
     className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-xsmall"
-    data-automationid={undefined}
   />
   <span
     className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall"
-    data-automationid={undefined}
-    htmlFor={undefined}
     id="testCheckboxId"
   >
     Howdy, folks!
@@ -83,31 +59,21 @@ exports[`XUICheckbox should be a xsmall variant, if specified 1`] = `
 exports[`XUICheckbox should have a hidden label, if specified 1`] = `
 <label
   className="xui-styledcheckboxradio"
-  data-automationid={undefined}
   onClick={[Function]}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
-    aria-describedby={undefined}
-    aria-invalid={undefined}
     aria-label="Hidden label"
-    aria-labelledby={undefined}
     className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
-    data-automationid={undefined}
     defaultChecked={false}
     disabled={false}
-    name={undefined}
     onChange={[Function]}
     onClick={[Function]}
     required={false}
-    tabIndex={undefined}
     type="checkbox"
-    value={undefined}
   />
   <div
     className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"
-    data-automationid={undefined}
   />
 </label>
 `;
@@ -117,25 +83,17 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
   className="xui-styledcheckboxradio"
   data-automationid="test-checkbox"
   onClick={[Function]}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
-    aria-describedby={undefined}
-    aria-invalid={undefined}
-    aria-label={undefined}
-    aria-labelledby={undefined}
     className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
     data-automationid="test-checkbox--input"
     defaultChecked={false}
     disabled={false}
-    name={undefined}
     onChange={[Function]}
     onClick={[Function]}
     required={false}
-    tabIndex={undefined}
     type="checkbox"
-    value={undefined}
   />
   <div
     className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"
@@ -147,36 +105,24 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
 exports[`XUICheckbox should have a visible label, if specified 1`] = `
 <label
   className="xui-styledcheckboxradio"
-  data-automationid={undefined}
   onClick={[Function]}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
-    aria-describedby={undefined}
-    aria-invalid={undefined}
-    aria-label={undefined}
     aria-labelledby="testCheckboxId"
     className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
-    data-automationid={undefined}
     defaultChecked={false}
     disabled={false}
-    name={undefined}
     onChange={[Function]}
     onClick={[Function]}
     required={false}
-    tabIndex={undefined}
     type="checkbox"
-    value={undefined}
   />
   <div
     className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"
-    data-automationid={undefined}
   />
   <span
     className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard"
-    data-automationid={undefined}
-    htmlFor={undefined}
     id="testCheckboxId"
   >
     Visible label
@@ -187,34 +133,23 @@ exports[`XUICheckbox should have a visible label, if specified 1`] = `
 exports[`XUICheckbox should render with an icon when one is provided 1`] = `
 <label
   className="xui-styledcheckboxradio"
-  data-automationid={undefined}
   onClick={[Function]}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
-    aria-describedby={undefined}
-    aria-invalid={undefined}
-    aria-label={undefined}
-    aria-labelledby={undefined}
     className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
-    data-automationid={undefined}
     defaultChecked={false}
     disabled={false}
-    name={undefined}
     onChange={[Function]}
     onClick={[Function]}
     required={false}
-    tabIndex={undefined}
     type="checkbox"
-    value={undefined}
   />
   <div
     className="xui-iconwrapper"
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       height={15}
       viewBox="0 0 15 15"
       width={15}

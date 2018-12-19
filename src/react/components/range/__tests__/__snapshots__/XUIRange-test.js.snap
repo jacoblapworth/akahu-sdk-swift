@@ -3,15 +3,12 @@
 exports[`Range All options selected 1`] = `
 <div
   className=""
-  onClick={undefined}
-  onKeyDown={undefined}
   role="presentation"
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
     data-automationid="qaHook--label"
     htmlFor="testRangeId-control"
-    id={undefined}
   >
     All options selected
   </label>
@@ -20,7 +17,6 @@ exports[`Range All options selected 1`] = `
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={16}
       viewBox="0 0 12 12"
@@ -34,23 +30,17 @@ exports[`Range All options selected 1`] = `
     <input
       aria-describedby="testRangeId-message"
       aria-invalid={true}
-      aria-label={undefined}
-      aria-labelledby={undefined}
       className="xui-rangeslider xui-rangeslider-thumb-xsmall xui-rangeslider-is-invalid inputClasses"
       defaultValue="20"
       disabled={true}
       id="testRangeId-control"
       max="80"
       min="16"
-      name={undefined}
-      onClick={undefined}
-      onInput={undefined}
       step="4"
       type="range"
     />
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={16}
       viewBox="0 0 12 12"
@@ -76,15 +66,11 @@ exports[`Range All options selected 1`] = `
 exports[`Range LeftElement and RightElement work 1`] = `
 <div
   className=""
-  onClick={undefined}
-  onKeyDown={undefined}
   role="presentation"
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
-    data-automationid={undefined}
     htmlFor="testRangeId-control"
-    id={undefined}
   >
     svgs work
   </label>
@@ -93,7 +79,6 @@ exports[`Range LeftElement and RightElement work 1`] = `
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={16}
       viewBox="0 0 12 12"
@@ -106,24 +91,12 @@ exports[`Range LeftElement and RightElement work 1`] = `
     </svg>
     <input
       aria-describedby="testRangeId-message"
-      aria-invalid={undefined}
-      aria-label={undefined}
-      aria-labelledby={undefined}
       className="xui-rangeslider"
-      defaultValue={undefined}
-      disabled={undefined}
       id="testRangeId-control"
-      max={undefined}
-      min={undefined}
-      name={undefined}
-      onClick={undefined}
-      onInput={undefined}
-      step={undefined}
       type="range"
     />
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={16}
       viewBox="0 0 12 12"
@@ -137,7 +110,6 @@ exports[`Range LeftElement and RightElement work 1`] = `
   </div>
   <div
     className="xui-validation xui-validation-layout"
-    data-automationid={undefined}
     id="testRangeId-message"
     role="status"
   >
@@ -149,28 +121,14 @@ exports[`Range LeftElement and RightElement work 1`] = `
 exports[`Range Simple case 1`] = `
 <div
   className=""
-  onClick={undefined}
-  onKeyDown={undefined}
   role="presentation"
 >
   <div
     className="xui-rangeslider-container"
   >
     <input
-      aria-describedby={undefined}
-      aria-invalid={undefined}
-      aria-label={undefined}
-      aria-labelledby={undefined}
       className="xui-rangeslider"
-      defaultValue={undefined}
-      disabled={undefined}
       id="testRangeId-control"
-      max={undefined}
-      min={undefined}
-      name={undefined}
-      onClick={undefined}
-      onInput={undefined}
-      step={undefined}
       type="range"
     />
   </div>
@@ -180,15 +138,11 @@ exports[`Range Simple case 1`] = `
 exports[`Range invalid 1`] = `
 <div
   className=""
-  onClick={undefined}
-  onKeyDown={undefined}
   role="presentation"
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
-    data-automationid={undefined}
     htmlFor="testRangeId-control"
-    id={undefined}
   >
     invalid
   </label>
@@ -198,24 +152,15 @@ exports[`Range invalid 1`] = `
     <input
       aria-describedby="testRangeId-message"
       aria-invalid={true}
-      aria-label={undefined}
-      aria-labelledby={undefined}
       className="xui-rangeslider xui-rangeslider-is-invalid"
-      defaultValue={undefined}
-      disabled={undefined}
       id="testRangeId-control"
       max={80}
       min={16}
-      name={undefined}
-      onClick={undefined}
-      onInput={undefined}
-      step={undefined}
       type="range"
     />
   </div>
   <div
     className="xui-validation xui-validation-layout xui-validation-is-invalid"
-    data-automationid={undefined}
     id="testRangeId-message"
     role="status"
   >
@@ -227,15 +172,11 @@ exports[`Range invalid 1`] = `
 exports[`Range should be disabled 1`] = `
 <div
   className=""
-  onClick={undefined}
-  onKeyDown={undefined}
   role="presentation"
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
-    data-automationid={undefined}
     htmlFor="testRangeId-control"
-    id={undefined}
   >
     disabled
   </label>
@@ -243,26 +184,16 @@ exports[`Range should be disabled 1`] = `
     className="xui-rangeslider-container"
   >
     <input
-      aria-describedby={undefined}
-      aria-invalid={undefined}
-      aria-label={undefined}
-      aria-labelledby={undefined}
       className="xui-rangeslider"
-      defaultValue={undefined}
       disabled={true}
       id="testRangeId-control"
       max={80}
       min={16}
-      name={undefined}
-      onClick={undefined}
-      onInput={undefined}
-      step={undefined}
       type="range"
     />
   </div>
   <div
     className="xui-validation xui-validation-layout"
-    data-automationid={undefined}
     id="testRangeId-message"
     role="status"
   />

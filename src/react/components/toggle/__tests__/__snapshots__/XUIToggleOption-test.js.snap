@@ -4,26 +4,13 @@ exports[`XUIToggleOption should have a qaHook on the root node if provided 1`] =
 <label
   className="xui-toggle-option"
   data-automationid="cheese-and-crackers"
-  onClick={undefined}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
-    aria-describedby={undefined}
-    aria-invalid={undefined}
-    aria-label={undefined}
-    aria-labelledby={undefined}
-    checked={undefined}
     className="xui-toggle--input"
     data-automationid="cheese-and-crackers--input"
-    defaultChecked={undefined}
-    disabled={undefined}
-    id={undefined}
-    name={undefined}
     onChange={[Function]}
-    required={undefined}
     type="radio"
-    value={undefined}
   />
 </label>
 `;
@@ -31,32 +18,16 @@ exports[`XUIToggleOption should have a qaHook on the root node if provided 1`] =
 exports[`XUIToggleOption should have label text if provided 1`] = `
 <label
   className="xui-toggle-option"
-  data-automationid={undefined}
-  onClick={undefined}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
-    aria-describedby={undefined}
-    aria-invalid={undefined}
-    aria-label={undefined}
     aria-labelledby="testToggleId"
-    checked={undefined}
     className="xui-toggle--input"
-    data-automationid={undefined}
-    defaultChecked={undefined}
-    disabled={undefined}
-    id={undefined}
-    name={undefined}
     onChange={[Function]}
-    required={undefined}
     type="radio"
-    value={undefined}
   />
   <span
     className="xui-toggle--label"
-    data-automationid={undefined}
-    htmlFor={undefined}
     id="testToggleId"
   >
     Howdy, folks!

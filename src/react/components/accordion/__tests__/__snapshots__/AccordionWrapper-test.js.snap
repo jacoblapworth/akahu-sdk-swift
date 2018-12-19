@@ -3,7 +3,6 @@
 exports[`<XUIAccordion /> | Accordion Wrapper should render open, and not pop 1`] = `
 <div
   className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
-  data-automationid={undefined}
 >
   <div>
     John Smith
@@ -21,7 +20,6 @@ exports[`<XUIAccordion /> | Accordion Wrapper should render open, and not pop 1`
 exports[`<XUIAccordion /> | Accordion Wrapper should render open, and pop 1`] = `
 <div
   className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-pop"
-  data-automationid={undefined}
 >
   <div>
     John Smith

@@ -2,21 +2,14 @@
 
 exports[`<Pickitem /> renders a basic example with no options 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
   className="xui-pickitem xui-pickitem-standard"
-  data-automationid={undefined}
   id="item1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -30,54 +23,36 @@ exports[`<Pickitem /> renders a basic example with no options 1`] = `
 
 exports[`<Pickitem /> renders a multiselect pickitem with truncation 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={false}
   className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-multiselect xui-pickitem-standard"
-  data-automationid={undefined}
   id="item1"
   role="option"
 >
   <div
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onFocus={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     role="presentation"
   >
     <label
       className="xui-pickitem-text-truncated xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
-      data-automationid={undefined}
       onClick={[Function]}
-      onKeyDown={undefined}
       role="presentation"
     >
       <input
-        aria-describedby={undefined}
-        aria-invalid={undefined}
-        aria-label={undefined}
         aria-labelledby="testPickitemCheckboxId"
         checked={false}
         className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-        data-automationid={undefined}
         disabled={false}
-        name={undefined}
         onChange={[Function]}
         onClick={[Function]}
         required={false}
         tabIndex={-1}
         type="checkbox"
-        value={undefined}
       />
       <div
         className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
-        data-automationid={undefined}
       />
       <span
         className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label xui-pickitem-text-truncated"
-        data-automationid={undefined}
-        htmlFor={undefined}
         id="testPickitemCheckboxId"
       >
         <span
@@ -87,7 +62,6 @@ exports[`<Pickitem /> renders a multiselect pickitem with truncation 1`] = `
         </span>
         <span
           className="xui-pickitem-text-truncated"
-          data-automationid={undefined}
         >
           <span
             className="xui-pickitem-text-truncated"
@@ -108,21 +82,14 @@ exports[`<Pickitem /> renders a multiselect pickitem with truncation 1`] = `
 
 exports[`<Pickitem /> renders a pickitem with most compatible options 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
   className="xui-pickitem custom-classname xui-pickitem-multiline xui-pickitem-is-selected xui-pickitem-is-disabled xui-pickitem-xsmall xui-pickitem-is-invalid"
-  data-automationid={undefined}
   id="item1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -130,7 +97,6 @@ exports[`<Pickitem /> renders a pickitem with most compatible options 1`] = `
     >
       <abbr
         className="xui-avatar xui-avatar-2xsmall xui-avatar-color-3"
-        data-automationid={undefined}
         role="presentation"
       >
         TR
@@ -161,7 +127,6 @@ exports[`<Pickitem /> renders a pickitem with most compatible options 1`] = `
     >
       <svg
         className="xui-icon"
-        data-automationid={undefined}
         focusable="false"
         height={7}
         viewBox="0 0 11 7"
@@ -179,21 +144,14 @@ exports[`<Pickitem /> renders a pickitem with most compatible options 1`] = `
 
 exports[`<Pickitem /> renders a regular pickitem with truncation 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
   className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-standard"
-  data-automationid={undefined}
   id="item1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -221,59 +179,40 @@ exports[`<Pickitem /> renders a regular pickitem with truncation 1`] = `
 
 exports[`<Pickitem /> renders a selected multiselect pickitem (overriding leftElement) 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={true}
   className="xui-pickitem custom-classname xui-pickitem-is-selected xui-pickitem-multiselect xui-pickitem-standard"
-  data-automationid={undefined}
   id="item1"
   role="option"
 >
   <div
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onFocus={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     role="presentation"
   >
     <label
       className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
-      data-automationid={undefined}
       onClick={[Function]}
-      onKeyDown={undefined}
       role="presentation"
     >
       <input
-        aria-describedby={undefined}
-        aria-invalid={undefined}
-        aria-label={undefined}
         aria-labelledby="testPickitemCheckboxId"
         checked={true}
         className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-        data-automationid={undefined}
         disabled={false}
-        name={undefined}
         onChange={[Function]}
         onClick={[Function]}
         required={false}
         tabIndex={-1}
         type="checkbox"
-        value={undefined}
       />
       <div
         className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
-        data-automationid={undefined}
       />
       <span
         className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
-        data-automationid={undefined}
-        htmlFor={undefined}
         id="testPickitemCheckboxId"
       >
         <span
           className=""
-          data-automationid={undefined}
         >
           Item 1
         </span>
@@ -285,59 +224,40 @@ exports[`<Pickitem /> renders a selected multiselect pickitem (overriding leftEl
 
 exports[`<Pickitem /> renders a selected multiselect pickitem without selected styles 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={true}
   className="xui-pickitem xui-pickitem-multiselect xui-pickitem-standard"
-  data-automationid={undefined}
   id="item1"
   role="option"
 >
   <div
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onFocus={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     role="presentation"
   >
     <label
       className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
-      data-automationid={undefined}
       onClick={[Function]}
-      onKeyDown={undefined}
       role="presentation"
     >
       <input
-        aria-describedby={undefined}
-        aria-invalid={undefined}
-        aria-label={undefined}
         aria-labelledby="testPickitemCheckboxId"
         checked={true}
         className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-        data-automationid={undefined}
         disabled={false}
-        name={undefined}
         onChange={[Function]}
         onClick={[Function]}
         required={false}
         tabIndex={-1}
         type="checkbox"
-        value={undefined}
       />
       <div
         className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
-        data-automationid={undefined}
       />
       <span
         className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
-        data-automationid={undefined}
-        htmlFor={undefined}
         id="testPickitemCheckboxId"
       >
         <span
           className=""
-          data-automationid={undefined}
         >
           Item 1
         </span>
@@ -349,21 +269,14 @@ exports[`<Pickitem /> renders a selected multiselect pickitem without selected s
 
 exports[`<Pickitem /> renders a small pickitem with highlighting 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
   className="xui-pickitem xui-pickitem-is-hovered xui-pickitem-small"
-  data-automationid={undefined}
   id="item1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -377,21 +290,14 @@ exports[`<Pickitem /> renders a small pickitem with highlighting 1`] = `
 
 exports[`<Pickitem /> renders an xsmall pickitem with selected & invalid state 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
   className="xui-pickitem xui-pickitem-is-selected xui-pickitem-xsmall xui-pickitem-is-invalid"
-  data-automationid={undefined}
   id="item1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -405,7 +311,6 @@ exports[`<Pickitem /> renders an xsmall pickitem with selected & invalid state 1
 
 exports[`<Pickitem /> should set an automation id when a qaHook is provided 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
   className="xui-pickitem xui-pickitem-standard"
   data-automationid="test-pickitem"
@@ -415,11 +320,7 @@ exports[`<Pickitem /> should set an automation id when a qaHook is provided 1`] 
   <button
     className="xui-pickitem--body"
     data-automationid="test-pickitem--body"
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span

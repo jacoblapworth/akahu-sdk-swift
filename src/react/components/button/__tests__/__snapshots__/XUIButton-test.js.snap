@@ -3,10 +3,8 @@
 exports[`<XUIButton/> adds minwidth when we need it to, for short buttons 1`] = `
 <button
   className="xui-button xui-button-main xui-button-min-loader-width"
-  data-automationid={undefined}
   disabled={false}
   onClick={[Function]}
-  onKeyDown={undefined}
   tabIndex={0}
   type="button"
 >
@@ -17,10 +15,8 @@ exports[`<XUIButton/> adds minwidth when we need it to, for short buttons 1`] = 
 exports[`<XUIButton/> does retain layout checks with a myriad of combinations 1`] = `
 <button
   className="xui-button xui-button-main"
-  data-automationid={undefined}
   disabled={false}
   onClick={[Function]}
-  onKeyDown={undefined}
   tabIndex={0}
   type="button"
 >
@@ -31,7 +27,6 @@ exports[`<XUIButton/> does retain layout checks with a myriad of combinations 1`
 exports[`<XUIButton/> does retain layout checks with a myriad of combinations 2`] = `
 <button
   className="xui-button xui-button-main"
-  data-automationid={undefined}
   disabled={true}
   onClick={[Function]}
   onKeyDown={null}
@@ -46,7 +41,6 @@ exports[`<XUIButton/> does retain layout checks with a myriad of combinations 2`
   <div
     aria-label="Loading"
     className="xui-loader xui-loader-small xui-button--loader xui-loader-retain-layout"
-    data-automationid={undefined}
     role="progressbar"
   >
     <div
@@ -65,7 +59,6 @@ exports[`<XUIButton/> does retain layout checks with a myriad of combinations 2`
 exports[`<XUIButton/> does retain layout checks with a myriad of combinations 3`] = `
 <button
   className="xui-button xui-button-main"
-  data-automationid={undefined}
   disabled={true}
   onClick={[Function]}
   onKeyDown={null}
@@ -75,7 +68,6 @@ exports[`<XUIButton/> does retain layout checks with a myriad of combinations 3`
   <div
     aria-label="Loading"
     className="xui-loader xui-loader-small xui-button--loader"
-    data-automationid={undefined}
     role="progressbar"
   >
     <div
@@ -95,28 +87,22 @@ exports[`<XUIButton/> renders icon buttons with the correct icon size classes 1`
 <div>
   <button
     className="xui-button xui-button-icon"
-    data-automationid={undefined}
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     type="button"
   />
   <button
     className="xui-button xui-button-icon xui-button-icon-small"
-    data-automationid={undefined}
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     type="button"
   />
   <button
     className="xui-button xui-button-icon xui-button-icon-xsmall"
-    data-automationid={undefined}
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     type="button"
   />
@@ -127,19 +113,15 @@ exports[`<XUIButton/> renders icon buttons with the correct inverted class 1`] =
 <div>
   <button
     className="xui-button xui-button-icon"
-    data-automationid={undefined}
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     type="button"
   />
   <button
     className="xui-button xui-button-icon xui-button-icon-inverted"
-    data-automationid={undefined}
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     type="button"
   />

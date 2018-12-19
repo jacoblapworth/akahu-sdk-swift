@@ -2,20 +2,15 @@
 
 exports[`<XUIAutoCompleterSecondarySearch /> should render a placeholder inside the input when passed in 1`] = `
 <div
-  className={undefined}
   data-automationid={null}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
     className="xui-dropdown-fullwidth"
-    data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -28,20 +23,15 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render a placeholder inside 
 
 exports[`<XUIAutoCompleterSecondarySearch /> should render an automation id when a qahook is passed 1`] = `
 <div
-  className={undefined}
   data-automationid="secondary-search--container"
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
     className="xui-dropdown-fullwidth"
-    data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -54,20 +44,15 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an automation id when
 
 exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the dropdown node when passed in the id prop 1`] = `
 <div
-  className={undefined}
   data-automationid={null}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
     className="xui-dropdown-fullwidth"
-    data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -80,20 +65,15 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the dropdown
 
 exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input when a value is passed to the inputId prop 1`] = `
 <div
-  className={undefined}
   data-automationid={null}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
     className="xui-dropdown-fullwidth"
-    data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -106,20 +86,15 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input wh
 
 exports[`<XUIAutoCompleterSecondarySearch /> should render as disabled when isDisabled prop is true 1`] = `
 <div
-  className={undefined}
   data-automationid={null}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
     className="xui-dropdown-fullwidth"
-    data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -132,20 +107,15 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render as disabled when isDi
 
 exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the dropdown when passed to the dropdownClassName prop 1`] = `
 <div
-  className={undefined}
   data-automationid={null}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
     className="xui-dropdown-fullwidth"
-    data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -158,20 +128,15 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
 
 exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the input when passed to the inputclassName prop 1`] = `
 <div
-  className={undefined}
   data-automationid={null}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
     className="xui-dropdown-fullwidth"
-    data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -188,16 +153,12 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes when pa
   data-automationid={null}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
     className="xui-dropdown-fullwidth"
-    data-automationid={undefined}
     data-ref="toggled-wrapper"
     role="presentation"
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}

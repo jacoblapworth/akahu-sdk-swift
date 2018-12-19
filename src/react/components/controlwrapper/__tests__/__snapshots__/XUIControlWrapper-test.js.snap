@@ -3,21 +3,17 @@
 exports[`<XUIControlWrapper> renders a hidden label, invalid, and an error message 1`] = `
 <div
   className="xui-field-layout"
-  onClick={undefined}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
     aria-describedby="testGeneratedId-message"
     aria-invalid={true}
     aria-label="Impressive input label"
-    aria-labelledby={undefined}
     id="testGeneratedId-control"
     type="text"
   />
   <div
     className="xui-validation xui-validation-layout xui-validation-is-invalid"
-    data-automationid={undefined}
     id="testGeneratedId-message"
     role="status"
   >
@@ -29,23 +25,16 @@ exports[`<XUIControlWrapper> renders a hidden label, invalid, and an error messa
 exports[`<XUIControlWrapper> renders a simple label, when provided 1`] = `
 <div
   className="xui-field-layout"
-  onClick={undefined}
-  onKeyDown={undefined}
   role="presentation"
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
-    data-automationid={undefined}
     htmlFor="testGeneratedId-control"
-    id={undefined}
   >
     Impressive input label
   </label>
   <input
-    aria-describedby={undefined}
     aria-invalid={false}
-    aria-label={undefined}
-    aria-labelledby={undefined}
     id="testGeneratedId-control"
     type="text"
   />
@@ -55,15 +44,10 @@ exports[`<XUIControlWrapper> renders a simple label, when provided 1`] = `
 exports[`<XUIControlWrapper> renders basic example 1`] = `
 <div
   className="xui-field-layout"
-  onClick={undefined}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
-    aria-describedby={undefined}
     aria-invalid={false}
-    aria-label={undefined}
-    aria-labelledby={undefined}
     id="testGeneratedId-control"
     type="text"
   />
@@ -73,23 +57,18 @@ exports[`<XUIControlWrapper> renders basic example 1`] = `
 exports[`<XUIControlWrapper> renders classes and qaHook on all elements 1`] = `
 <div
   className="test-field-class xui-field-layout"
-  onClick={undefined}
-  onKeyDown={undefined}
   role="presentation"
 >
   <label
     className="test-label-class xui-text-label xui-fieldlabel-layout"
     data-automationid="ctrl-wrapper--label"
     htmlFor="testSpecificLabel-control"
-    id={undefined}
   >
     Small input label
   </label>
   <input
     aria-describedby="testSpecificLabel-message"
     aria-invalid={false}
-    aria-label={undefined}
-    aria-labelledby={undefined}
     id="testSpecificLabel-control"
     type="text"
   />

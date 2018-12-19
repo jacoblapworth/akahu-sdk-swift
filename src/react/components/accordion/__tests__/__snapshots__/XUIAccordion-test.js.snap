@@ -3,16 +3,13 @@
 exports[`<XUIAccordion /> associate items to a custom key 1`] = `
 <div
   className="xui-accordion"
-  data-automationid={undefined}
 >
   <div
     className="xui-accordionwrapper"
-    data-automationid={undefined}
   >
     <div
       aria-label="Toggle"
       className="xui-accordiontrigger"
-      data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -23,17 +20,14 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
       >
         <button
           className="xui-button xui-button-icon"
-          data-automationid={undefined}
           disabled={false}
           onClick={[Function]}
-          onKeyDown={undefined}
           tabIndex={-1}
           title="Toggle"
           type="button"
         >
           <svg
             className="xui-icon"
-            data-automationid={undefined}
             focusable="false"
             height={7}
             viewBox="0 0 11 7"
@@ -90,17 +84,14 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
       >
         <button
           className="xui-button xui-button-icon"
-          data-automationid={undefined}
           disabled={false}
           onClick={[Function]}
-          onKeyDown={undefined}
           tabIndex={-1}
           title="Toggle"
           type="button"
         >
           <svg
             className="xui-icon"
-            data-automationid={undefined}
             focusable="false"
             height={7}
             viewBox="0 0 11 7"
@@ -137,16 +128,13 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
 exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
 <div
   className="xui-accordion"
-  data-automationid={undefined}
 >
   <div
     className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
-    data-automationid={undefined}
   >
     <div
       aria-label="Toggle"
       className="xui-accordiontrigger xui-accordiontrigger-is-open"
-      data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -157,17 +145,14 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
       >
         <button
           className="xui-button xui-button-icon"
-          data-automationid={undefined}
           disabled={false}
           onClick={[Function]}
-          onKeyDown={undefined}
           tabIndex={-1}
           title="Toggle"
           type="button"
         >
           <svg
             className="xui-icon xui-icon-rotate-180"
-            data-automationid={undefined}
             focusable="false"
             height={7}
             viewBox="0 0 11 7"
@@ -202,16 +187,13 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
 exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
 <div
   className="xui-accordion"
-  data-automationid={undefined}
 >
   <div
     className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
-    data-automationid={undefined}
   >
     <div
       aria-label="Toggle"
       className="xui-accordiontrigger xui-accordiontrigger-is-open"
-      data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -222,17 +204,14 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
       >
         <button
           className="xui-button xui-button-icon"
-          data-automationid={undefined}
           disabled={false}
           onClick={[Function]}
-          onKeyDown={undefined}
           tabIndex={-1}
           title="Toggle"
           type="button"
         >
           <svg
             className="xui-icon xui-icon-rotate-180"
-            data-automationid={undefined}
             focusable="false"
             height={7}
             viewBox="0 0 11 7"
@@ -258,15 +237,12 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
     >
       <div
         className="xui-accordion--emptystate"
-        data-automationid={undefined}
       >
         <div
           className="xui-iconwrapper xui-iconwrapper-large"
-          data-automationid={undefined}
         >
           <svg
             className="xui-icon"
-            data-automationid={undefined}
             focusable="false"
             height={13.333333333333332}
             viewBox="0 0 12 10"
@@ -290,16 +266,13 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
 exports[`<XUIAccordion /> should render an open accordion item 1`] = `
 <div
   className="xui-accordion"
-  data-automationid={undefined}
 >
   <div
     className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
-    data-automationid={undefined}
   >
     <div
       aria-label="Toggle"
       className="xui-accordiontrigger xui-accordiontrigger-is-open"
-      data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -310,17 +283,14 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
       >
         <button
           className="xui-button xui-button-icon"
-          data-automationid={undefined}
           disabled={false}
           onClick={[Function]}
-          onKeyDown={undefined}
           tabIndex={-1}
           title="Toggle"
           type="button"
         >
           <svg
             className="xui-icon xui-icon-rotate-180"
-            data-automationid={undefined}
             focusable="false"
             height={7}
             viewBox="0 0 11 7"
@@ -359,7 +329,6 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
 exports[`<XUIAccordion /> should render the accordion with a custom class name 1`] = `
 <div
   className="xui-accordion testClass"
-  data-automationid={undefined}
 />
 `;
 
@@ -373,23 +342,19 @@ exports[`<XUIAccordion /> should render the accordion with a custom qa hook 1`] 
 exports[`<XUIAccordion /> should render the base component with only required props passed 1`] = `
 <div
   className="xui-accordion"
-  data-automationid={undefined}
 />
 `;
 
 exports[`<XUIAccordion /> should render the default empty state 1`] = `
 <div
   className="xui-accordion"
-  data-automationid={undefined}
 >
   <div
     className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
-    data-automationid={undefined}
   >
     <div
       aria-label="Toggle"
       className="xui-accordiontrigger xui-accordiontrigger-is-open"
-      data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -400,17 +365,14 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
       >
         <button
           className="xui-button xui-button-icon"
-          data-automationid={undefined}
           disabled={false}
           onClick={[Function]}
-          onKeyDown={undefined}
           tabIndex={-1}
           title="Toggle"
           type="button"
         >
           <svg
             className="xui-icon xui-icon-rotate-180"
-            data-automationid={undefined}
             focusable="false"
             height={7}
             viewBox="0 0 11 7"
@@ -436,15 +398,12 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
     >
       <div
         className="xui-accordion--emptystate"
-        data-automationid={undefined}
       >
         <div
           className="xui-iconwrapper xui-iconwrapper-large"
-          data-automationid={undefined}
         >
           <svg
             className="xui-icon"
-            data-automationid={undefined}
             focusable="false"
             height={13.333333333333332}
             viewBox="0 0 12 10"

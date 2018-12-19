@@ -3,10 +3,8 @@
 exports[`<XUIToastAction /> should be able to render custom class names 1`] = `
 <button
   className="xui-button custom-class xui-toast--action xui-button-borderless-main xui-button-small"
-  data-automationid={undefined}
   disabled={false}
   onClick={[Function]}
-  onKeyDown={undefined}
   tabIndex={0}
   type="button"
 >
@@ -16,18 +14,12 @@ exports[`<XUIToastAction /> should be able to render custom class names 1`] = `
 
 exports[`<XUIToastAction /> should render a custom href because it's a link 1`] = `
 <a
-  aria-disabled={undefined}
   className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
-  data-automationid={undefined}
   disabled={false}
   href="https://www.xero.com"
   onClick={[Function]}
-  onKeyDown={undefined}
   onKeyPress={[Function]}
-  rel={undefined}
-  role={undefined}
   tabIndex={0}
-  target={undefined}
 >
   Action 1
 </a>
@@ -39,7 +31,6 @@ exports[`<XUIToastAction /> should render a passed qaHook as an automation id 1`
   data-automationid="toast-action"
   disabled={false}
   onClick={[Function]}
-  onKeyDown={undefined}
   tabIndex={0}
   type="button"
 >

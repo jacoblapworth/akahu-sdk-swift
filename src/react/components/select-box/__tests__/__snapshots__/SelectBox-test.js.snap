@@ -2,20 +2,16 @@
 
 exports[`SelectBox should render the appropriate automation id's when a qaHook is provided 1`] = `
 <div
-  className={undefined}
   data-automationid="test-selectbox"
 >
   <div
     className=""
-    onClick={undefined}
-    onKeyDown={undefined}
     role="presentation"
   >
     <label
       className="xui-text-label xui-fieldlabel-layout"
       data-automationid="test-selectbox---label--label"
       htmlFor="testDropdownId-control"
-      id={undefined}
     >
       test
     </label>
@@ -24,16 +20,12 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
       data-automationid="test-selectbox---inputgroup"
     >
       <div
-        aria-expanded={undefined}
-        aria-owns={undefined}
-        className={undefined}
         data-automationid="test-selectbox---dropdowntoggled"
         data-ref="toggled-wrapper"
         role="presentation"
       >
         <button
           aria-activedescendant={null}
-          aria-controls={undefined}
           aria-haspopup="listbox"
           className="xui-button xui-select--button xui-button-standard"
           data-automationid="test-selectbox---button"
@@ -72,21 +64,15 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
 `;
 
 exports[`SelectBox should render the trigger in a disabled state if \`isDisabled\` is set 1`] = `
-<div
-  className={undefined}
-  data-automationid={undefined}
->
+<div>
   <div
     className=""
-    onClick={undefined}
-    onKeyDown={undefined}
     role="presentation"
   >
     <label
       className="xui-text-label xui-fieldlabel-layout"
       data-automationid={null}
       htmlFor="testDropdownId-control"
-      id={undefined}
     >
       test
     </label>
@@ -95,16 +81,12 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
       data-automationid={null}
     >
       <div
-        aria-expanded={undefined}
-        aria-owns={undefined}
-        className={undefined}
         data-automationid={null}
         data-ref="toggled-wrapper"
         role="presentation"
       >
         <button
           aria-activedescendant={null}
-          aria-controls={undefined}
           aria-haspopup="listbox"
           className="xui-button xui-select--button xui-button-standard xui-button-is-disabled"
           data-automationid={null}

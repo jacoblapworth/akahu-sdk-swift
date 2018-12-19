@@ -40,7 +40,7 @@
 //   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
 //     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
-//   <div class="xui-toast--message">Bill created</div>
+//   <p class="xui-toast--message">Bill created</p>
 // </div>
 //
 // Styleguide: Building Blocks.Alerts.Toast.2
@@ -69,9 +69,9 @@
 //   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
 //     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
-//   <div class="xui-toast--message">Invoice deleted</div>
+//   <p class="xui-toast--message">Invoice deleted</p>
 //   <div class="xui-actions xui-toast--actions">
-//     <button type="button" class="xui-button xui-actions--primary xui-button-borderless-main xui-button-small">Undo</button>
+//     <button type="button" class="xui-button xui-toast--action xui-button-borderless-main xui-button-small">Undo</button>
 //   </div>
 // </div>
 //
@@ -86,12 +86,13 @@
 // Markup:
 // <div class="xui-toast xui-toast-layout" role="status">
 //   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
-//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <div class="xui-iconwrapper">
+//       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </div>
 //   </button>
-//   <div class="xui-toast--message">Smart invoicing has been set as your default view. Update this anytime by visiting invoice settings.</div>
+//   <p class="xui-toast--message">Smart invoicing has been set as your default view. Update this anytime from invoice settings.</p>
 //   <div class="xui-toast--actions">
-//     <button type="button" class="xui-button xui-actions--primary xui-button-borderless-main xui-button-small">Got it</button>
-//     <button type="button" class="xui-button xui-actions--secondary xui-button-borderless-main xui-button-small">Visit settings</button>
+//     <button type="button" class="xui-button xui-toast--action xui-button-borderless-main xui-button-small">Invoice settings</button>
 //   </div>
 // </div>
 //
@@ -114,10 +115,10 @@
 //
 // Markup:
 // <div class="xui-toast xui-toast-layout xui-toast-negative" role="status">
-//   <div class="xui-toast--message">No connection</div>
+//   <p class="xui-toast--message">No connection</p>
 // </div>
 // <div class="xui-toast xui-toast-layout xui-toast-positive" role="status">
-//   <div class="xui-toast--message">Connected</div>
+//   <p class="xui-toast--message">Connected</p>
 // </div>
 //
 // Styleguide: Building Blocks.Alerts.Toast.6

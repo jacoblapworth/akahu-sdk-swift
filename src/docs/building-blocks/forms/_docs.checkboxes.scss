@@ -39,8 +39,7 @@
 // Checkboxes have a range of size options that allow for greater control over visual hierarchy. Add a class with the size variant modifier to the the `--input`, `--checkbox` and `--label` subcomponents.
 //
 // Tips:
-// Do: Use a smaller variant to reduce visual dominance of a checkbox
-// Do: Use the `small` variant when grouping checkboxes
+// Do: Use the -small Checkbox variant inside Checkbox groups
 // Warning: Be cautious when using smaller variants as they have reduced legibility and hit area
 // Don't: Don’t use a combination of size variants within a single form
 //
@@ -99,7 +98,7 @@
 // To increase hit states and create visual similarity with other form elements, consider using a checkbox group.
 //
 // Tips:
-// Do: Use the <code>-small</code> variant when grouping checkboxes
+// Do: Use the -small Checkbox variant inside Checkbox groups
 //
 // Markup:
 // <span class="xui-text-label xui-fieldlabel-layout">View options</span>

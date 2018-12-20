@@ -15,12 +15,11 @@
 //
 // Tips:
 // Do: In most circumstances, the standard and main button variants will suffice
-// Do: Borderless buttons are the element of choice for text-only controls
 // Do: Use the small button variant in toolbars
 // Do: Use anchor tags when an href is present
 // Do: Use button tags in all other circumstances
 // Warning: Avoid using non-standard controls like divs for buttons
-// Warning: Use the create and negative variants sparingly
+// Warning: Use the create and negative color variants sparingly
 // Dont: Never rely on the unstyled button class in isolation
 //
 //
@@ -40,7 +39,7 @@
 //
 // Styleguide: Building Blocks.Controls.Button.2
 
-// Variants
+// Style
 //
 // Add a `xui-button-*` modifier to specify which kind of button you require.
 //
@@ -98,20 +97,43 @@
 //
 // Styleguide: Building Blocks.Controls.Button.3.1
 
-// Size
+// Size variants
 //
-// To create a smaller button for use in more compact controls, add the following modifier.
+// Buttons have a range of size options that allow for greater control over visual hierarchy.
 //
-// Classes:
-// -small: Small button
+// Tips:
+// Do: Use standard variant by default
+// Do: Use small and xsmall variants nested inside other elements
+// Warning: Use xsmall variant cautiously, as this is more difficult to read
+// Dont: Don’t mix and match size variants inline with each other
 //
-// ExampleClass: ds-example-flush ds-example-transparent
+// Definitions:
+// Size variant: **Height**: **Class**
+// standard: 40px: (default)
+// small: 32px: `xui-button-small`
+// xsmall: 24px: `xui-button-xsmall`
+//
+// exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <button class='xui-button xui-button-main xui-button-small xui-margin-right-small'>Main</button>
-// <button class='xui-button xui-button-create xui-button-small xui-margin-right-small'>Create</button>
-// <button class='xui-button xui-button-negative xui-button-small xui-margin-right-small'>Negative</button>
-// <button class='xui-button xui-button-standard xui-button-small xui-margin-right-small'>Standard</button>
+// <div class="xui-margin-vertical">
+//   <button class='xui-button xui-button-main xui-margin-right-small'>Main</button>
+//   <button class='xui-button xui-button-create xui-margin-right-small'>Create</button>
+//   <button class='xui-button xui-button-negative xui-margin-right-small'>Negative</button>
+//   <button class='xui-button xui-button-standard xui-margin-right-small'>Standard</button>
+// </div>
+// <div class="xui-margin-vertical">
+//   <button class='xui-button xui-button-main xui-button-small xui-margin-right-small'>Main</button>
+//   <button class='xui-button xui-button-create xui-button-small xui-margin-right-small'>Create</button>
+//   <button class='xui-button xui-button-negative xui-button-small xui-margin-right-small'>Negative</button>
+//   <button class='xui-button xui-button-standard xui-button-small xui-margin-right-small'>Standard</button>
+// </div>
+// <div class="xui-margin-vertical">
+//   <button class='xui-button xui-button-main xui-button-xsmall xui-margin-right-small'>Main</button>
+//   <button class='xui-button xui-button-create xui-button-xsmall xui-margin-right-small'>Create</button>
+//   <button class='xui-button xui-button-negative xui-button-xsmall xui-margin-right-small'>Negative</button>
+//   <button class='xui-button xui-button-standard xui-button-xsmall xui-margin-right-small'>Standard</button>
+// </div>
 //
 // Styleguide: Building Blocks.Controls.Button.4
 

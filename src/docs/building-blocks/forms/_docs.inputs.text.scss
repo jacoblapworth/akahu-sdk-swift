@@ -30,7 +30,7 @@
 // Password: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="password" placeholder="Password Input" aria-label="Password"/></div>
 // Number: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="number" placeholder="0.00" aria-label="Number input"/></div>
 // Email: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="email" placeholder="example@xero.com" aria-label="Email"/></div>
-// Tel: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="tel" placeholder="telephone #" aria-label="Telephone"/></div>
+// Tel: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="tel" placeholder="Telephone number" aria-label="Telephone"/></div>
 //
 // Note: Avoid using type="date" due to severe browser inconsistency. Use type="text" aria-label="date" instead.
 //
@@ -55,10 +55,133 @@
 // exampleClass: ds-example-inline
 //
 // Markup:
-// <textarea class="xui-textinput xui-textinput--input xui-u-resize-none" aria-label="Standard textarea" placeholder="Standard textarea"></textarea>
+// <div class="xui-textinputwrapper xui-field-layout" role="presentation">
+//   <div class="xui-textinput xui-textinput-standard">
+//     <textarea class="xui-textinput--input xui-textinput--input-standard xui-textinput--input-resize-none" placeholder="Standard textarea" aria-label="input" rows="3"></textarea>
+//   </div>
+// </div>
 //
 // Styleguide: Building Blocks.Controls.TextInput.3
 
+
+
+// Size variants
+//
+// Inputs have a variation in scale to enable greater hierarchy control in user interfaces
+//
+// Tips:
+// Do: Nest small Text inputs inside default sized elements and xsmall Text inputs inside small elements
+// Do: Use the same label and description font-size with all size variants
+// Warning: Use small and xsmall variants cautiously, as these are more difficult to read than default size
+// Dont: Don’t use a combination of size variants within a single form
+//
+// Definitions:
+// Size variant: **Height**: **Class**
+// standard: 40px: `xui-textinput--input-standard`
+// small: 32px: `xui-textinput--input-small`
+// xsmall: 24px: `xui-textinput--input-xsmall`
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
+// <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="a">Standard</label>
+//   <div class="xui-textinput xui-textinput-standard">
+//     <input type="text" class="xui-textinput--input xui-textinput--input-standard" placeholder="Placeholder" aria-invalid="false" id="a">
+//   </div>
+// </div>
+// <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="b">Small</label>
+//   <div class="xui-textinput xui-textinput-small">
+//     <input type="text" class="xui-textinput--input xui-textinput--input-small" placeholder="Placeholder" aria-invalid="false" id="b">
+//   </div>
+// </div>
+// <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="c">Xsmall</label>
+//   <div class="xui-textinput xui-textinput-xsmall">
+//     <input type="text" class="xui-textinput--input xui-textinput--input-xsmall" placeholder="Placeholder" aria-invalid="false" id="c">
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Controls.TextInput.4
+
+
+
+// Nesting
+//
+// Text inputs can have elements nested inside of them (sideElement). It is important that the appropriate size variants of these elements are used within each Text input size variant.
+//
+// Tips:
+// Do: Nest small elements inside default sized Text inputs and xsmall elements inside small Text inputs
+// Dont: Don't nest an element using the same size variant as its parent (with the exception of icon-buttons)
+//
+// Definitions:
+// Size variant: **Elements available to nest**
+// standard: Avatar, Button, Icon, Pill, Text
+// small: Avatar, Button, Icon, Pill, Text
+// xsmall: Avatar, Icon, Text
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
+// <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="d">Standard</label>
+//   <div class="xui-textinput xui-textinput-standard">
+//     <div class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-pill">
+//       <div class="xui-pill xui-pill-maxwidth xui-pill-small xui-pill-has-avatar xui-margin-right-2xsmall">
+//         <span class="xui-pill--content">
+//           <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-6" role="presentation">AG</abbr>
+//           <span class="xui-pill--text">Ariana Grande</span>
+//         </span>
+//       </div>
+//       <div class="xui-pill xui-pill-maxwidth xui-pill-small xui-pill-has-avatar xui-margin-right-2xsmall">
+//         <span class="xui-pill--content">
+//           <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-8" role="presentation">ZS</abbr>
+//           <span class="xui-pill--text">Zac Sanderson-Harris</span>
+//         </span>
+//       </div>
+//     </div>
+//     <input type="text" class="xui-textinput--input xui-textinput--input-standard" placeholder="" aria-invalid="false" aria-label="Input with pill" value="" id="d">
+//     <div class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-button">
+//       <button class="xui-button xui-button-borderless-main xui-button-small" tabindex="0" type="button">Clear</button>
+//     </div>
+//   </div>
+//   <div class="xui-validation xui-validation-layout" role="status" id="d">Small pill and button variants</div>
+// </div>
+// <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="e">Small</label>
+//   <div class="xui-textinput xui-textinput-small">
+//     <div class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-text">Website:</div>
+//     <input type="text" class="xui-textinput--input xui-textinput--input-small" placeholder="" aria-invalid="false" aria-label="Input with pill" value="" id="e">
+//     <div class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon">
+//       <div class="xui-iconwrapper">
+//         <svg class="xui-icon" viewBox="0 0 14 14" role="presentation" style="height: 14px; width: 14px;">
+//           <path d="M6 12.41V11c-.976 0-2-1-2-2V8L1.537 6.358A5.502 5.502 0 0 0 6 12.409zM8 1.59V2c0 1.5-1 2-2.05 2H5c0 .5-.5 1-1 1H3v1h4c.5 0 1 .5 1 1v2h2c.5 0 1 .5 1 1v.775A5.502 5.502 0 0 0 8 1.59zM0 7c0-3.873 3.127-7 7-7s7 3.127 7 7-3.127 7-7 7a6.99 6.99 0 0 1-7-7z"></path>
+//         </svg>
+//       </div>
+//     </div>
+//   </div>
+//   <div class="xui-validation xui-validation-layout" role="status" id="e">Text and Icon side elements are defined by the Text input size variant</div>
+// </div>
+// <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="f">Xsmall</label>
+//   <div class="xui-textinput xui-textinput-xsmall">
+//     <div class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-avatar">
+//       <abbr class="xui-avatar xui-avatar-2xsmall xui-avatar-color-9" role="presentation">K</abbr>
+//     </div>
+//     <input type="text" class="xui-textinput--input xui-textinput--input-xsmall" placeholder="" aria-invalid="false" aria-label="Input with pill" value="Kellyanne" id="f">
+//     <div class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon">
+//       <button class="xui-button xui-button-icon xui-button-icon-xsmall" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon" width="15" height="15" viewBox="0 0 15 15">
+//           <path d="M8.25 7.5L11 4.75 10.25 4 7.5 6.75 4.75 4 4 4.75 6.75 7.5 4 10.25l.75.75L7.5 8.25 10.25 11l.75-.75L8.25 7.5zM7.5 15a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" role="presentation"></path>
+//         </svg>
+//       </button>
+//     </div>
+//   </div>
+//   <div class="xui-validation xui-validation-layout" role="status" id="f">2xsmall Avatar. Xsmall Icon button (This is the exception to the nesting rule).</div>
+// </div>
+//
+// Styleguide: Building Blocks.Controls.TextInput.5
 
 
 // Borderless text inputs
@@ -67,13 +190,13 @@
 //
 // Tips:
 // Do: Use for isolated secondary elements where a standard inputs are too prominent
-// Dont: Avoid using for linear forms or where validation is required
 // Warning: Full range of elements like selects are not yet supported
+// Dont: Avoid using for linear forms or where validation is required
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-solid xui-margin-top-large">
+// <div class="xui-textinput xui-textinput-standard xui-textinput-borderless xui-textinput-borderless-solid xui-margin-top-large">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <div class="xui-iconwrapper">
 //     	<svg focusable="false" class="xui-icon">
@@ -93,7 +216,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.TextInput.4
+// Styleguide: Building Blocks.Controls.TextInput.6
 
 
 
@@ -115,7 +238,7 @@
 // <div class="xui-background-grey-6 xui-padding-left-xlarge" style="overflow: hidden;">
 //  <div class="xui-row">
 // 	<div class="xui-margin-top-xlarge xui-margin-bottom-small xui-column-6-of-12">
-// 	 <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-transparent">
+// 	 <div class="xui-textinput xui-textinput-standard xui-textinput-borderless xui-textinput-borderless-transparent">
 // 		<div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 // 			<div class="xui-iconwrapper">
 //       <svg focusable="false" class="xui-icon">
@@ -130,7 +253,7 @@
 //  <div class="xui-panel" style="height: 5rem; margin: 1px -20px -20px 1px"></div>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.TextInput.5
+// Styleguide: Building Blocks.Controls.TextInput.7
 
 
 // Inverted inputs
@@ -145,7 +268,7 @@
 //   <input class="xui-textinput xui-textinput--input xui-textinput-borderless xui-textinput-borderless-solid xui-textinput-borderless-inverted" type="text" placeholder="Email address" aria-label="Email address"/>
 // </div>
 // <!-- Transparent + Inverted with icons-->
-// <div class="xui-margin-top xui-textinput xui-textinput-borderless xui-textinput-borderless-transparent xui-textinput-borderless-inverted">
+// <div class="xui-margin-top xui-textinput xui-textinput-standard xui-textinput-borderless xui-textinput-borderless-transparent xui-textinput-borderless-inverted">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <div class="xui-iconwrapper">
 //       <svg focusable="false" class="xui-icon">
@@ -156,13 +279,13 @@
 //   <input class="xui-textinput--input xui-padding-left-none" type="search" placeholder="Search sales & purchases" aria-label="Search sales & purchases" />
 // </div>
 //
-// Styleguide: Building Blocks.Controls.TextInput.6
+// Styleguide: Building Blocks.Controls.TextInput.8
 
 
 // Adding icons
 //
 //
-// Styleguide: Building Blocks.Controls.TextInput.7
+// Styleguide: Building Blocks.Controls.TextInput.9
 
 // Content prompts
 //
@@ -176,7 +299,7 @@
 //
 // Markup:
 // <!-- Icon left -->
-// <div class="xui-textinput xui-margin">
+// <div class="xui-textinput xui-textinput-standard xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <div class="xui-iconwrapper">
 //       <svg focusable="false" class="xui-icon">
@@ -190,7 +313,7 @@
 //     placeholder="http://www.xero.com"
 //     aria-label="URL"/>
 // </div>
-// <div class="xui-textinput xui-margin">
+// <div class="xui-textinput xui-textinput-standard xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <div class="xui-iconwrapper">
 //       <svg focusable="false" class="xui-icon">
@@ -200,13 +323,13 @@
 //   </div>
 //   <input class="xui-textinput--input xui-padding-left-none" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
-// <div class="xui-textinput xui-margin">
+// <div class="xui-textinput xui-textinput-standard xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-text">
 //     €
 //   </div>
 //   <input class="xui-textinput--input xui-padding-left-none" type="text" placeholder="0.00" aria-label="Amount"/>
 // </div>
-// <div class="xui-textinput xui-margin">
+// <div class="xui-textinput xui-textinput-standard xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon xui-textinput--sideelement-has-background xui-textinput--sideelement-twitter">
 //     <div class="xui-iconwrapper">
 //       <svg focusable="false" class="xui-icon">
@@ -217,7 +340,7 @@
 //   <input class="xui-textinput--input xui-padding-left-none" type="text" placeholder="@username" aria-label="Twitter username"/>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.TextInput.7.1
+// Styleguide: Building Blocks.Controls.TextInput.9.1
 
 // Indicating actions
 //
@@ -226,7 +349,7 @@
 // exampleclass: ds-example-narrow
 //
 // Markup:
-// <div class="xui-textinput xui-margin">
+// <div class="xui-textinput xui-textinput-standard xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <div class="xui-iconwrapper">
 //       <svg focusable="false" class="xui-icon">
@@ -245,7 +368,7 @@
 //     </button>
 //   </div>
 // </div>
-// <div class="xui-textinput xui-margin">
+// <div class="xui-textinput xui-textinput-standard xui-margin">
 //   <input class="xui-textinput--input xui-padding-right-none" id="issue-date" type="text" placeholder="Try 'next month'" aria-label="Issue date"/>
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <button type="button" class="xui-button xui-button-icon" title="Select a date" aria-label="Select a date">
@@ -257,7 +380,7 @@
 //     </button>
 //   </div>
 // </div>
-// <div class="xui-textinput xui-margin">
+// <div class="xui-textinput xui-textinput-standard xui-margin">
 //   <input class="xui-textinput--input xui-padding-right-none" id="issue-date2" type="text" placeholder="Add something to submit" aria-label="Issue date"/>
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-button">
 //     <button type="button" class="xui-button xui-button-main xui-button-small" title="Submit" aria-label="Submit">
@@ -266,7 +389,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.TextInput.7.2
+// Styleguide: Building Blocks.Controls.TextInput.9.2
 
 // Class list
 //
@@ -288,5 +411,11 @@
 // xui-textinput-borderless-transparent: Makes the input borderless and transparent when unfocused
 // xui-textinput-borderless-solid: Makes the input borderless with a light background
 // xui-textinput-borderless-inverted: Adds borderless styling for using on an inverted background
+// xui-textinput-standard: Sets textinput wrapper size to standard
+// xui-textinput-small: Sets textinput wrapper size to small
+// xui-textinput-xsmall: Sets textinput wrapper size to xsmall
+// xui-textinput--input-standard: Sets textinput size to standard
+// xui-textinput--input-small: Sets textinput size to small
+// xui-textinput--input-xsmall: Sets textinput size to xsmall
 //
-// Styleguide: Building Blocks.Controls.TextInput.7.8
+// Styleguide: Building Blocks.Controls.TextInput.9.8

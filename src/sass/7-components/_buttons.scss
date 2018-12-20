@@ -147,8 +147,9 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <button class='xui-button xui-button-main xui-button-fullwidth'>Full width</button>
-// <button class='xui-button xui-button-small xui-button-main xui-button-fullwidth xui-margin-top-small'>Full width</button>
+// <button class="xui-button xui-button-main xui-button-fullwidth xui-margin-vertical">Full width</button>
+// <button class="xui-button xui-button-small xui-button-main xui-button-fullwidth xui-margin-vertical">Full width</button>
+// <button class="xui-button xui-button-xsmall xui-button-main xui-button-fullwidth xui-margin-vertical">Full width</button>
 //
 // Styleguide: Building Blocks.Controls.Button.4.1
 
@@ -157,12 +158,20 @@
 // To force a button to occupy the entire width of its parent at narrow viewports, apply the following modifier.
 //
 // Classes:
-// xui-button-fullwidth-layout: 100% width below 520px
+// xui-button-fullwidth-layout: 100% width below 600px
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <button class='xui-button xui-button-main xui-button-fullwidth-layout'>Full width at mobile</button>
+// <div class="xui-margin-vertical">
+//   <button class="xui-button xui-button-main xui-button-fullwidth-layout">Full width at mobile</button>
+// </div>
+// <div class="xui-margin-vertical">
+//   <button class="xui-button xui-button-main xui-button-small xui-button-fullwidth-layout">Full width at mobile</button>
+// </div>
+// <div class="xui-margin-vertical">
+//   <button class="xui-button xui-button-main xui-button-xsmall xui-button-fullwidth-layout">Full width at mobile</button>
+// </div>
 //
 // Styleguide: Building Blocks.Controls.Button.4.2
 

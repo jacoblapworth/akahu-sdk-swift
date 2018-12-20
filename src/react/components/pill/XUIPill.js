@@ -13,16 +13,6 @@ function shouldShowTooltip(domElement) {
 	return domElement && domElement.clientWidth < domElement.scrollWidth;
 }
 
-/**
- * @private
- * @param {Function} callback
- * @param {Object} scope
- * @return {Function} the provided callback with the scope passed in as an argument.
- */
-function returnCallbackWithScope(callback, scope) {
-	return () => callback(scope);
-}
-
 export default class XUIPill extends PureComponent {
 	state = {
 		isFocused: false,
@@ -117,14 +107,12 @@ export default class XUIPill extends PureComponent {
 			value,
 		};
 
-		const onDeleteCallback = onDeleteClick && returnCallbackWithScope(onDeleteClick, this);
-
-		const deleteButton = onDeleteCallback && (
+		const deleteButton = onDeleteClick && (
 			<XUIButton
 				size={size}
 				className={`${baseClass}--button-icon`}
 				variant={isInvalid ? 'icon-inverted' : 'icon'}
-				onClick={onDeleteCallback}
+				onClick={onDeleteClick}
 				title={deleteButtonLabel}
 				aria-label={deleteButtonLabel}
 				qaHook={qaHook && `${qaHook}--delete`}

@@ -13,6 +13,16 @@ function shouldShowTooltip(domElement) {
 	return domElement && domElement.clientWidth < domElement.scrollWidth;
 }
 
+/**
+ * @private
+ * @param {Function} callback
+ * @param {Object} scope
+ * @return {Function} the provided callback with the scope passed in as an argument.
+ */
+function returnCallbackWithScope(callback, scope) {
+	return () => callback(scope);
+}
+
 export default class XUIPill extends PureComponent {
 	state = {
 		isFocused: false,
@@ -74,6 +84,7 @@ export default class XUIPill extends PureComponent {
 			isMaxContentWidth,
 			size,
 			debugShowToolTip,
+			avatar,
 		} = this.props;
 
 		const {
@@ -93,12 +104,27 @@ export default class XUIPill extends PureComponent {
 			(href || onClick) && `${baseClass}-interactive`,
 		);
 
-		const deleteButton = onDeleteClick && (
+		const innerPillProps = {
+			avatarProps,
+			avatar,
+			href,
+			isInvalid,
+			onClick,
+			qaHook,
+			secondaryText,
+			target,
+			title,
+			value,
+		};
+
+		const onDeleteCallback = onDeleteClick && returnCallbackWithScope(onDeleteClick, this);
+
+		const deleteButton = onDeleteCallback && (
 			<XUIButton
 				size={size}
 				className={`${baseClass}--button-icon`}
 				variant={isInvalid ? 'icon-inverted' : 'icon'}
-				onClick={onDeleteClick}
+				onClick={onDeleteCallback}
 				title={deleteButtonLabel}
 				aria-label={deleteButtonLabel}
 				qaHook={qaHook && `${qaHook}--delete`}
@@ -118,18 +144,7 @@ export default class XUIPill extends PureComponent {
 			>
 				<XUIInnerPill
 					innerPillRef={this._innerPill}
-					{...{
-						avatarProps,
-						href,
-						isInvalid,
-						onClick,
-						qaHook,
-						secondaryText,
-						target,
-						title,
-						value,
-						size,
-					}}
+					{...innerPillProps}
 				/>
 				{deleteButton}
 			</div>
@@ -163,6 +178,13 @@ XUIPill.defaultProps = {
 XUIPill.propTypes = {
 	/** Props for the avatar to be displayed, must adhere to the XUIAvatar component API described at https://github.dev.xero.com/UXE/xui-avatar. Version 6.0.0+. Not providing props will omit the avatar entirely. */
 	avatarProps: PropTypes.object,
+	/** An avatar component. May be used instead of avatarProps */
+	avatar(props, propName) {
+		if (props[propName] && props.avatarProps) {
+			return new Error('Cannot accept both avatarProps and an avatar component');
+		}
+		return null;
+	},
 	/** Apply classes to the outer Pill `div` element. */
 	className: PropTypes.string,
 	/** Specify an alternate label attribute for the delete button, defaults to 'Delete'. */

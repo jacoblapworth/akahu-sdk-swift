@@ -137,6 +137,16 @@ class DropDownPanel extends PureComponent {
 	}
 
 	/**
+	 * Selects the highlighted list item, in the child StatefulPicklist (if applicable).
+	 *
+	 * @public
+	 * @memberof DropDownPanel
+	 */
+	selectHighlighted() {
+		this.list != null && this.list.selectHighlighted(this.list.getHighlighted());
+	}
+
+	/**
 	 * Highlight a specific item in the child StatefulPicklist (if applicable).
 	 *
 	 * @public

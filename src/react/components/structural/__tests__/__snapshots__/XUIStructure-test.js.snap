@@ -40,6 +40,12 @@ exports[`<XUI Structure/> Actions: renders the simplest actions with no extra se
 </div>
 `;
 
+exports[`<XUI Structure/> Content block and content block item renders content block item main content as anchor when onKeyDown prop is passed 1`] = `
+<div
+  className="xui-contentblockitem xui-contentblockitem-layout"
+/>
+`;
+
 exports[`<XUI Structure/> Content block and content block item renders content block item tag position description by default 1`] = `
 <div
   className="xui-contentblock"
@@ -215,8 +221,9 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         P
       </abbr>
     </div>
-    <div
+    <a
       className="xui-contentblockitem--maincontent"
+      href="#"
     >
       <div
         className="xui-contentblockitem--headings"
@@ -232,7 +239,7 @@ exports[`<XUI Structure/> Content block and content block item renders content b
           test secondary heading
         </span>
       </div>
-    </div>
+    </a>
     <div
       className="xui-contentblockitem--rightcontent"
     >

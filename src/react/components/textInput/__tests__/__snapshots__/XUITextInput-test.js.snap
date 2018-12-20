@@ -374,6 +374,13 @@ exports[`<XUITextInput> Validation and hints renders invalid textinputs with an 
     />
   </div>
   <div
+    className="undefined-validation undefined-validation-layout undefined-validation-is-invalid"
+    id="undefined-message"
+    role="status"
+  >
+    Boo
+  </div>
+  <div
     className="xui-validation xui-validation-layout xui-validation-is-invalid"
     id="newTest-message"
     role="status"
@@ -405,6 +412,13 @@ exports[`<XUITextInput> Validation and hints renders with a hint message if one 
         }
       }
     />
+  </div>
+  <div
+    className="undefined-validation undefined-validation-layout"
+    id="undefined-message"
+    role="status"
+  >
+    Boo
   </div>
   <div
     className="xui-validation xui-validation-layout"

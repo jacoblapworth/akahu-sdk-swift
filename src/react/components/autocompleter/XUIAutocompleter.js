@@ -254,6 +254,7 @@ export default class XUIAutocompleter extends PureComponent {
 			isInvalid,
 			validationMessage,
 			hintMessage,
+			onKeyDown,
 		} = this.props;
 		const { value, focused, inputWidth } = this.state;
 		let inputQaHook = null;
@@ -339,6 +340,7 @@ export default class XUIAutocompleter extends PureComponent {
 				size={dropdownSize}
 				fixedWidth={dropdownFixedWidth}
 				footer={footer}
+				onKeyDown={onKeyDown}
 				onHighlightChange={completer.onHighlightChange}
 			>
 				{loading ? <Picklist><XUILoader /></Picklist> : children}
@@ -464,6 +466,9 @@ XUIAutocompleter.propTypes = {
 	/** Maps to the `closeOnTab` property of the DropDownToggled component. Set to false, if you've
 	 * supplied a footer element with any links or interaction. */
 	closeOnTab: PropTypes.bool,
+
+	/** Callback for adding additional onKeyPress funcitonality */
+	onKeyDown: PropTypes.func,
 
 	/** When set to true the dropdown will automatically open when the input is given focus. */
 	openOnFocus: PropTypes.bool,

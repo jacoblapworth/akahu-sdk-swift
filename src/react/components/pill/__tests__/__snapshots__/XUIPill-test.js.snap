@@ -1,5 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<XUIPill /> renders the pill with the provided avatar component 1`] = `
+<div
+  className="xui-pill xui-pill-maxwidth"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <span
+    className="xui-pill--content"
+  >
+    <abbr
+      className="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8"
+      role="presentation"
+    >
+      VP
+    </abbr>
+    <span
+      className="xui-pill--text"
+    >
+      Value Pill
+    </span>
+  </span>
+</div>
+`;
+
 exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
 <div
   className="xui-pill xui-pill-maxwidth"
@@ -32,7 +58,7 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 1`] = `
     className="xui-pill--content"
   >
     <abbr
-      className="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8"
+      className="xui-pill--avatar xui-avatar xui-avatar-color-8"
       role="presentation"
     >
       TR
@@ -80,7 +106,7 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 2`] = `
     className="xui-pill--content"
   >
     <abbr
-      className="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-8"
+      className="xui-pill--avatar xui-avatar xui-avatar-color-8"
       role="presentation"
     >
       TR
@@ -128,7 +154,7 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 3`] = `
     className="xui-pill--content"
   >
     <abbr
-      className="xui-pill--avatar xui-avatar xui-avatar-2xsmall xui-avatar-color-8"
+      className="xui-pill--avatar xui-avatar xui-avatar-color-8"
       role="presentation"
     >
       TR
@@ -226,7 +252,7 @@ exports[`<XUIPill /> should render an error icon when invalid 1`] = `
     className="xui-pill--content"
   >
     <div
-      className="xui-pill--avatar xui-pill--erroricon xui-pill--erroricon-small"
+      className="xui-pill--avatar xui-pill--erroricon xui-pill--erroricon-undefined"
     >
       <svg
         className="xui-icon xui-icon-color-red"
@@ -262,7 +288,7 @@ exports[`<XUIPill /> should render an error icon when invalid even with an avata
     className="xui-pill--content"
   >
     <div
-      className="xui-pill--avatar xui-pill--erroricon xui-pill--erroricon-xsmall"
+      className="xui-pill--avatar xui-pill--erroricon xui-pill--erroricon-undefined"
     >
       <svg
         className="xui-icon xui-icon-color-red"

@@ -18,7 +18,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -166,7 +166,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -413,7 +413,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -660,7 +660,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -912,7 +912,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-visualTesting-tableWrapper xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-table-visualTesting-tableWrapper xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -1055,7 +1055,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -1198,7 +1198,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -1346,7 +1346,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -1440,7 +1440,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -1534,7 +1534,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -1617,7 +1617,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -1742,7 +1742,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table--customheader"
@@ -1901,7 +1901,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -2060,7 +2060,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table--customheader"
@@ -2240,7 +2240,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -2402,7 +2402,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -2493,7 +2493,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -2601,7 +2601,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -2660,7 +2660,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -2716,7 +2716,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -2810,6 +2810,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -2873,6 +2874,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -2936,6 +2938,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -2984,7 +2987,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -3441,7 +3444,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -3647,6 +3650,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -3759,6 +3763,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -3871,6 +3876,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -3914,7 +3920,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -4172,6 +4178,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -4310,6 +4317,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -4448,6 +4456,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -4496,7 +4505,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -4854,7 +4863,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -5014,7 +5023,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -5174,7 +5183,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -5438,7 +5447,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -5581,7 +5590,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -5727,6 +5736,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -5816,6 +5826,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -5905,6 +5916,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -5953,7 +5965,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -6306,7 +6318,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -6599,7 +6611,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -6837,7 +6849,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -6980,7 +6992,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -7123,7 +7135,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -7266,7 +7278,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"
@@ -7524,6 +7536,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -7662,6 +7675,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -7800,6 +7814,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    onKeyUp={[Function]}
                     tabIndex={0}
                     type="button"
                   >
@@ -7843,7 +7858,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     }
   >
     <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+      className="xui-table xui-panel xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
     >
       <div
         className="xui-table-wrapper"

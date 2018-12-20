@@ -19,6 +19,7 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	vertical-align: middle;
+	white-space: nowrap;
 	width: $xui-control-size-standard;
 }
 /* doiuse-enable object-fit*/
@@ -62,7 +63,7 @@ img.#{$ns}-avatar {
 	border-radius: 9.375%;
 }
 
-// The map below creates the various color variations for the Avatar "generc"
+// The map below creates the various color variations for the Avatar "generic"
 // HTML and "chart" SVG version.
 //
 // HTML:

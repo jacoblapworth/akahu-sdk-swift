@@ -57,9 +57,15 @@
 		margin: 0;
 		padding-bottom: 12px;
 	}
-	@include xui-breakpoint-small-only {
+	@include xui-breakpoint-medium-only {
 		background-image: none !important;
 		height: 140px;
+		margin: 2vw 1vw 1vw;
+		width: 100%;
+	}
+	@include xui-breakpoint-small-only {
+		background-image: none !important;
+		height: 150px;
 		margin: 2vw 1vw 1vw;
 		width: 100%;
 	}
@@ -95,8 +101,13 @@
 		padding-bottom: 12px;
 	}
 
-	@include xui-breakpoint-small-up {
+	@include xui-breakpoint-medium-only {
 		height: 150px;
+		margin: 2vw 1vw 0;
+		width: calc(50% - 2vw);
+	}
+	@include xui-breakpoint-small-only {
+		height: 180px;
 		margin: 2vw 1vw 0;
 		width: calc(50% - 2vw);
 	}

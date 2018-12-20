@@ -23,7 +23,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 >
   <div
     className="xui-stepper"
-    data-automationid={undefined}
   >
     <div
       className="xui-stepper-wrapper xui-stepper-stacked"
@@ -38,7 +37,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={true}
         className="xui-stepper-tab xui-stepper-tab-first"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-0"
         key="myCustomStepperId-tab-0"
         role="tab"
@@ -59,7 +57,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           step={1}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
@@ -72,7 +69,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={false}
-                isError={undefined}
                 step={1}
               >
                 <div
@@ -102,7 +98,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-1"
         key="myCustomStepperId-tab-1"
         role="tab"
@@ -124,7 +119,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           step={2}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
@@ -137,7 +131,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={false}
-                isError={undefined}
                 step={2}
               >
                 <div
@@ -172,7 +165,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab xui-stepper-tab-last"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-2"
         key="myCustomStepperId-tab-2"
         role="tab"
@@ -194,7 +186,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Standard"
           step={3}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
@@ -207,7 +198,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={false}
-                isError={undefined}
                 step={3}
               >
                 <div
@@ -241,7 +231,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       <div
         aria-labelledby="myCustomStepperId-tab-0"
         className="xui-stepper-section"
-        data-automationid={undefined}
         id="myCustomStepperId-panel"
         role="tabpanel"
         style={
@@ -285,7 +274,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 >
   <div
     className="xui-stepper"
-    data-automationid={undefined}
   >
     <div
       className="xui-stepper-wrapper xui-stepper-inline xui-stepper-stacked-links"
@@ -300,7 +288,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={true}
         className="xui-stepper-tab xui-stepper-tab-first"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-0"
         key="myCustomStepperId-tab-0"
         role="tab"
@@ -321,7 +308,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Standard"
           step={1}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
@@ -334,7 +320,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={false}
-                isError={undefined}
                 step={1}
               >
                 <div
@@ -364,7 +349,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-1"
         key="myCustomStepperId-tab-1"
         role="tab"
@@ -387,7 +371,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Error"
           step={2}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
@@ -438,7 +421,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-2"
         key="myCustomStepperId-tab-2"
         role="tab"
@@ -460,7 +442,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Disabled"
           step={3}
           tabIndex={-1}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
@@ -473,7 +454,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={false}
-                isError={undefined}
                 step={3}
               >
                 <div
@@ -503,7 +483,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab xui-stepper-tab-last"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-3"
         key="myCustomStepperId-tab-3"
         role="tab"
@@ -525,7 +504,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Complete"
           step={4}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
@@ -538,7 +516,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={true}
-                isError={undefined}
                 step={4}
               >
                 <div
@@ -575,7 +552,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       <div
         aria-labelledby="myCustomStepperId-tab-0"
         className="xui-stepper-section"
-        data-automationid={undefined}
         id="myCustomStepperId-panel"
         role="tabpanel"
         style={
@@ -618,7 +594,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 >
   <div
     className="xui-stepper"
-    data-automationid={undefined}
   >
     <div
       className="xui-stepper-wrapper xui-stepper-inline"
@@ -633,7 +608,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={true}
         className="xui-stepper-tab xui-stepper-tab-first"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-0"
         key="myCustomStepperId-tab-0"
         role="tab"
@@ -654,7 +628,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Standard"
           step={1}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
@@ -667,7 +640,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={false}
-                isError={undefined}
                 step={1}
               >
                 <div
@@ -697,7 +669,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-1"
         key="myCustomStepperId-tab-1"
         role="tab"
@@ -720,7 +691,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Error"
           step={2}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
@@ -771,7 +741,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-2"
         key="myCustomStepperId-tab-2"
         role="tab"
@@ -793,7 +762,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Disabled"
           step={3}
           tabIndex={-1}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
@@ -806,7 +774,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={false}
-                isError={undefined}
                 step={3}
               >
                 <div
@@ -836,7 +803,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab xui-stepper-tab-last"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-3"
         key="myCustomStepperId-tab-3"
         role="tab"
@@ -858,7 +824,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Complete"
           step={4}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
@@ -871,7 +836,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={true}
-                isError={undefined}
                 step={4}
               >
                 <div
@@ -908,7 +872,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       <div
         aria-labelledby="myCustomStepperId-tab-0"
         className="xui-stepper-section"
-        data-automationid={undefined}
         id="myCustomStepperId-panel"
         role="tabpanel"
         style={
@@ -995,7 +958,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 >
   <div
     className="xui-stepper"
-    data-automationid={undefined}
   >
     <div
       className="xui-stepper-wrapper xui-stepper-stacked"
@@ -1010,7 +972,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={true}
         className="xui-stepper-tab xui-stepper-tab-first"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-0"
         key="myCustomStepperId-tab-0"
         role="tab"
@@ -1033,7 +994,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           step={1}
           tabIndex={0}
           totalProgress={5}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
@@ -1059,50 +1019,33 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                     ariaMin={0}
                     ariaNow={3}
                     classes="xui-progress xui-progress-circular"
-                    customContent={undefined}
                     id="myCustomStepperId-tab-0"
-                    isComplete={undefined}
-                    isOverflow={undefined}
-                    isSegmented={undefined}
-                    isSoftError={undefined}
                     progress={3}
-                    toolTipId={undefined}
                     toolTipMessage="3 of 5"
                     total={5}
                   >
                     <div
                       aria-label="Standard"
-                      aria-labelledby={undefined}
                       aria-valuemax={5}
                       aria-valuemin={0}
                       aria-valuenow={3}
                       aria-valuetext="3 of 5"
                       className="xui-progress xui-progress-circular"
-                      data-automationid={undefined}
                       role="progressbar"
                     >
                       <div
                         className="xui-progress--fragment"
                       >
                         <CircularGrowth
-                          customContent={undefined}
                           id="myCustomStepperId-tab-0"
-                          isGrow={undefined}
-                          isSegmented={undefined}
                           progress={3}
-                          qaHook={undefined}
-                          thickness={undefined}
                           total={5}
                         >
                           <div>
                             <CircularTrack
-                              customContent={undefined}
                               elementWidth={20}
                               id="myCustomStepperId-tab-0"
-                              isGrow={undefined}
-                              isSegmented={undefined}
                               progress={3}
-                              qaHook={undefined}
                               thickness={3}
                               total={5}
                             >
@@ -1168,11 +1111,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                             </CircularTrack>
                           </div>
                         </CircularGrowth>
-                        <CircularIcon
-                          hardErrorAlert={undefined}
-                          isComplete={undefined}
-                          isHardError={undefined}
-                        >
+                        <CircularIcon>
                           <div
                             className="xui-progress-icon"
                           />
@@ -1199,7 +1138,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-1"
         key="myCustomStepperId-tab-1"
         role="tab"
@@ -1223,7 +1161,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           step={2}
           tabIndex={0}
           totalProgress={5}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
@@ -1249,50 +1186,33 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                     ariaMin={0}
                     ariaNow={3}
                     classes="xui-progress xui-progress-circular"
-                    customContent={undefined}
                     id="myCustomStepperId-tab-1"
-                    isComplete={undefined}
-                    isOverflow={undefined}
-                    isSegmented={undefined}
-                    isSoftError={undefined}
                     progress={3}
-                    toolTipId={undefined}
                     toolTipMessage="3 of 5"
                     total={5}
                   >
                     <div
                       aria-label="Standard"
-                      aria-labelledby={undefined}
                       aria-valuemax={5}
                       aria-valuemin={0}
                       aria-valuenow={3}
                       aria-valuetext="3 of 5"
                       className="xui-progress xui-progress-circular"
-                      data-automationid={undefined}
                       role="progressbar"
                     >
                       <div
                         className="xui-progress--fragment"
                       >
                         <CircularGrowth
-                          customContent={undefined}
                           id="myCustomStepperId-tab-1"
-                          isGrow={undefined}
-                          isSegmented={undefined}
                           progress={3}
-                          qaHook={undefined}
-                          thickness={undefined}
                           total={5}
                         >
                           <div>
                             <CircularTrack
-                              customContent={undefined}
                               elementWidth={20}
                               id="myCustomStepperId-tab-1"
-                              isGrow={undefined}
-                              isSegmented={undefined}
                               progress={3}
-                              qaHook={undefined}
                               thickness={3}
                               total={5}
                             >
@@ -1358,11 +1278,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                             </CircularTrack>
                           </div>
                         </CircularGrowth>
-                        <CircularIcon
-                          hardErrorAlert={undefined}
-                          isComplete={undefined}
-                          isHardError={undefined}
-                        >
+                        <CircularIcon>
                           <div
                             className="xui-progress-icon"
                           />
@@ -1394,7 +1310,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-2"
         key="myCustomStepperId-tab-2"
         role="tab"
@@ -1418,7 +1333,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           step={3}
           tabIndex={0}
           totalProgress={5}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
@@ -1444,50 +1358,33 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                     ariaMin={0}
                     ariaNow={3}
                     classes="xui-progress xui-progress-circular"
-                    customContent={undefined}
                     id="myCustomStepperId-tab-2"
-                    isComplete={undefined}
-                    isOverflow={undefined}
-                    isSegmented={undefined}
-                    isSoftError={undefined}
                     progress={3}
-                    toolTipId={undefined}
                     toolTipMessage="3 of 5"
                     total={5}
                   >
                     <div
                       aria-label="Error"
-                      aria-labelledby={undefined}
                       aria-valuemax={5}
                       aria-valuemin={0}
                       aria-valuenow={3}
                       aria-valuetext="3 of 5"
                       className="xui-progress xui-progress-circular"
-                      data-automationid={undefined}
                       role="progressbar"
                     >
                       <div
                         className="xui-progress--fragment"
                       >
                         <CircularGrowth
-                          customContent={undefined}
                           id="myCustomStepperId-tab-2"
-                          isGrow={undefined}
-                          isSegmented={undefined}
                           progress={3}
-                          qaHook={undefined}
-                          thickness={undefined}
                           total={5}
                         >
                           <div>
                             <CircularTrack
-                              customContent={undefined}
                               elementWidth={20}
                               id="myCustomStepperId-tab-2"
-                              isGrow={undefined}
-                              isSegmented={undefined}
                               progress={3}
-                              qaHook={undefined}
                               thickness={3}
                               total={5}
                             >
@@ -1553,11 +1450,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                             </CircularTrack>
                           </div>
                         </CircularGrowth>
-                        <CircularIcon
-                          hardErrorAlert={undefined}
-                          isComplete={undefined}
-                          isHardError={undefined}
-                        >
+                        <CircularIcon>
                           <div
                             className="xui-progress-icon"
                           />
@@ -1584,7 +1477,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-3"
         key="myCustomStepperId-tab-3"
         role="tab"
@@ -1610,7 +1502,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           step={4}
           tabIndex={-1}
           totalProgress={5}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-error xui-stepper-link-disabled"
@@ -1636,50 +1527,33 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                     ariaMin={0}
                     ariaNow={3}
                     classes="xui-progress xui-progress-circular"
-                    customContent={undefined}
                     id="myCustomStepperId-tab-3"
-                    isComplete={undefined}
-                    isOverflow={undefined}
-                    isSegmented={undefined}
-                    isSoftError={undefined}
                     progress={3}
-                    toolTipId={undefined}
                     toolTipMessage="3 of 5"
                     total={5}
                   >
                     <div
                       aria-label="Error"
-                      aria-labelledby={undefined}
                       aria-valuemax={5}
                       aria-valuemin={0}
                       aria-valuenow={3}
                       aria-valuetext="3 of 5"
                       className="xui-progress xui-progress-circular"
-                      data-automationid={undefined}
                       role="progressbar"
                     >
                       <div
                         className="xui-progress--fragment"
                       >
                         <CircularGrowth
-                          customContent={undefined}
                           id="myCustomStepperId-tab-3"
-                          isGrow={undefined}
-                          isSegmented={undefined}
                           progress={3}
-                          qaHook={undefined}
-                          thickness={undefined}
                           total={5}
                         >
                           <div>
                             <CircularTrack
-                              customContent={undefined}
                               elementWidth={20}
                               id="myCustomStepperId-tab-3"
-                              isGrow={undefined}
-                              isSegmented={undefined}
                               progress={3}
-                              qaHook={undefined}
                               thickness={3}
                               total={5}
                             >
@@ -1745,11 +1619,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                             </CircularTrack>
                           </div>
                         </CircularGrowth>
-                        <CircularIcon
-                          hardErrorAlert={undefined}
-                          isComplete={undefined}
-                          isHardError={undefined}
-                        >
+                        <CircularIcon>
                           <div
                             className="xui-progress-icon"
                           />
@@ -1781,7 +1651,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-4"
         key="myCustomStepperId-tab-4"
         role="tab"
@@ -1804,7 +1673,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           step={5}
           tabIndex={0}
           totalProgress={5}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
@@ -1817,7 +1685,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={true}
-                isError={undefined}
                 step={5}
               >
                 <div
@@ -1850,7 +1717,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-5"
         key="myCustomStepperId-tab-5"
         role="tab"
@@ -1875,7 +1741,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           step={6}
           tabIndex={0}
           totalProgress={5}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
@@ -1926,7 +1791,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-6"
         key="myCustomStepperId-tab-6"
         role="tab"
@@ -1951,7 +1815,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           step={7}
           tabIndex={-1}
           totalProgress={5}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
@@ -1964,7 +1827,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={true}
-                isError={undefined}
                 step={7}
               >
                 <div
@@ -2002,7 +1864,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab xui-stepper-tab-last"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-7"
         key="myCustomStepperId-tab-7"
         role="tab"
@@ -2026,7 +1887,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           step={8}
           tabIndex={0}
           totalProgress={5}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
@@ -2039,7 +1899,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={true}
-                isError={undefined}
                 step={8}
               >
                 <div
@@ -2076,7 +1935,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       <div
         aria-labelledby="myCustomStepperId-tab-0"
         className="xui-stepper-section"
-        data-automationid={undefined}
         id="myCustomStepperId-panel"
         role="tabpanel"
         style={
@@ -2119,7 +1977,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 >
   <div
     className="xui-stepper"
-    data-automationid={undefined}
   >
     <div
       className="xui-stepper-wrapper xui-stepper-sidebar"
@@ -2134,7 +1991,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={true}
         className="xui-stepper-tab xui-stepper-tab-first"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-0"
         key="myCustomStepperId-tab-0"
         role="tab"
@@ -2155,7 +2011,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Standard"
           step={1}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
@@ -2168,7 +2023,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={false}
-                isError={undefined}
                 step={1}
               >
                 <div
@@ -2198,7 +2052,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-1"
         key="myCustomStepperId-tab-1"
         role="tab"
@@ -2221,7 +2074,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Error"
           step={2}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
@@ -2272,7 +2124,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-2"
         key="myCustomStepperId-tab-2"
         role="tab"
@@ -2294,7 +2145,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Disabled"
           step={3}
           tabIndex={-1}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
@@ -2307,7 +2157,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={false}
-                isError={undefined}
                 step={3}
               >
                 <div
@@ -2337,7 +2186,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab xui-stepper-tab-last"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-3"
         key="myCustomStepperId-tab-3"
         role="tab"
@@ -2359,7 +2207,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Complete"
           step={4}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
@@ -2372,7 +2219,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={true}
-                isError={undefined}
                 step={4}
               >
                 <div
@@ -2409,7 +2255,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       <div
         aria-labelledby="myCustomStepperId-tab-0"
         className="xui-stepper-section"
-        data-automationid={undefined}
         id="myCustomStepperId-panel"
         role="tabpanel"
         style={
@@ -2452,7 +2297,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 >
   <div
     className="xui-stepper"
-    data-automationid={undefined}
   >
     <div
       className="xui-stepper-wrapper xui-stepper-stacked"
@@ -2467,7 +2311,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={true}
         className="xui-stepper-tab xui-stepper-tab-first"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-0"
         key="myCustomStepperId-tab-0"
         role="tab"
@@ -2488,7 +2331,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Standard"
           step={1}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
@@ -2501,7 +2343,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={false}
-                isError={undefined}
                 step={1}
               >
                 <div
@@ -2531,7 +2372,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-1"
         key="myCustomStepperId-tab-1"
         role="tab"
@@ -2554,7 +2394,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Error"
           step={2}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
@@ -2605,7 +2444,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-2"
         key="myCustomStepperId-tab-2"
         role="tab"
@@ -2627,7 +2465,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Disabled"
           step={3}
           tabIndex={-1}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
@@ -2640,7 +2477,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={false}
-                isError={undefined}
                 step={3}
               >
                 <div
@@ -2670,7 +2506,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab xui-stepper-tab-last"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-3"
         key="myCustomStepperId-tab-3"
         role="tab"
@@ -2692,7 +2527,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Complete"
           step={4}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
@@ -2705,7 +2539,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={true}
-                isError={undefined}
                 step={4}
               >
                 <div
@@ -2742,7 +2575,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       <div
         aria-labelledby="myCustomStepperId-tab-0"
         className="xui-stepper-section"
-        data-automationid={undefined}
         id="myCustomStepperId-panel"
         role="tabpanel"
         style={
@@ -2801,7 +2633,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 >
   <div
     className="xui-stepper"
-    data-automationid={undefined}
   >
     <div
       className="xui-stepper-wrapper xui-stepper-stacked"
@@ -2816,7 +2647,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={true}
         className="xui-stepper-tab xui-stepper-tab-first"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-0"
         key="myCustomStepperId-tab-0"
         role="tab"
@@ -2837,7 +2667,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Standard"
           step={1}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
@@ -2850,7 +2679,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={false}
-                isError={undefined}
                 step={1}
               >
                 <div
@@ -2880,7 +2708,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-1"
         key="myCustomStepperId-tab-1"
         role="tab"
@@ -2902,7 +2729,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Standard"
           step={2}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
@@ -2915,7 +2741,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={false}
-                isError={undefined}
                 step={2}
               >
                 <div
@@ -2950,7 +2775,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-2"
         key="myCustomStepperId-tab-2"
         role="tab"
@@ -2972,7 +2796,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Error"
           step={3}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
@@ -3018,7 +2841,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-3"
         key="myCustomStepperId-tab-3"
         role="tab"
@@ -3042,7 +2864,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Error"
           step={4}
           tabIndex={-1}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-error xui-stepper-link-disabled"
@@ -3093,7 +2914,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-4"
         key="myCustomStepperId-tab-4"
         role="tab"
@@ -3114,7 +2934,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Complete"
           step={5}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
@@ -3127,7 +2946,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={true}
-                isError={undefined}
                 step={5}
               >
                 <div
@@ -3160,7 +2978,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-5"
         key="myCustomStepperId-tab-5"
         role="tab"
@@ -3183,7 +3000,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Complete"
           step={6}
           tabIndex={0}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
@@ -3234,7 +3050,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         aria-controls="myCustomStepperId-panel"
         aria-selected={false}
         className="xui-stepper-tab xui-stepper-tab-last"
-        data-automationid={undefined}
         id="myCustomStepperId-tab-6"
         key="myCustomStepperId-tab-6"
         role="tab"
@@ -3257,7 +3072,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           name="Complete"
           step={7}
           tabIndex={-1}
-          updateCurrentStep={undefined}
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
@@ -3270,7 +3084,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
             >
               <StepperIcon
                 isComplete={true}
-                isError={undefined}
                 step={7}
               >
                 <div
@@ -3307,7 +3120,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       <div
         aria-labelledby="myCustomStepperId-tab-0"
         className="xui-stepper-section"
-        data-automationid={undefined}
         id="myCustomStepperId-panel"
         role="tabpanel"
         style={

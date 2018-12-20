@@ -3,8 +3,6 @@
 exports[`<PicklistHeader /> basic example 1`] = `
 <li
   className="xui-picklist--header"
-  id={undefined}
-  role={undefined}
 >
   <span
     className="xui-picklist--header--text"

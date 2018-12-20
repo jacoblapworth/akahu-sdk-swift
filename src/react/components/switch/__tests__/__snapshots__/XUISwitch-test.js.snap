@@ -3,35 +3,23 @@
 exports[`XUISwitch should accept an isChecked prop that determines the value of aria attributes 1`] = `
 <label
   className="xui-switch"
-  data-automationid={undefined}
   onClick={[Function]}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
     aria-checked={true}
-    aria-describedby={undefined}
-    aria-invalid={undefined}
-    aria-label={undefined}
     aria-labelledby="testLabelId"
     checked={true}
     className="xui-switch--checkbox"
-    data-automationid={undefined}
-    disabled={undefined}
-    name={undefined}
     onChange={[Function]}
     role="switch"
     type="checkbox"
-    value={undefined}
   />
   <div
     className="xui-switch--control"
-    data-automationid={undefined}
   />
   <span
     className="xui-switch--label"
-    data-automationid={undefined}
-    htmlFor={undefined}
     id="testLabelId"
   >
     Switch test
@@ -42,35 +30,23 @@ exports[`XUISwitch should accept an isChecked prop that determines the value of 
 exports[`XUISwitch should include a reversed class when a text label is present and isReversed is set 1`] = `
 <label
   className="xui-switch xui-switch-reversed"
-  data-automationid={undefined}
   onClick={[Function]}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
     aria-checked={false}
-    aria-describedby={undefined}
-    aria-invalid={undefined}
-    aria-label={undefined}
     aria-labelledby="testLabelId"
     checked={false}
     className="xui-switch--checkbox"
-    data-automationid={undefined}
-    disabled={undefined}
-    name={undefined}
     onChange={[Function]}
     role="switch"
     type="checkbox"
-    value={undefined}
   />
   <div
     className="xui-switch--control"
-    data-automationid={undefined}
   />
   <span
     className="xui-switch--label"
-    data-automationid={undefined}
-    htmlFor={undefined}
     id="testLabelId"
   >
     Switch test
@@ -81,35 +57,23 @@ exports[`XUISwitch should include a reversed class when a text label is present 
 exports[`XUISwitch should include a text label when label is passed 1`] = `
 <label
   className="xui-switch"
-  data-automationid={undefined}
   onClick={[Function]}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
     aria-checked={false}
-    aria-describedby={undefined}
-    aria-invalid={undefined}
-    aria-label={undefined}
     aria-labelledby="testLabelId"
     checked={false}
     className="xui-switch--checkbox"
-    data-automationid={undefined}
-    disabled={undefined}
-    name={undefined}
     onChange={[Function]}
     role="switch"
     type="checkbox"
-    value={undefined}
   />
   <div
     className="xui-switch--control"
-    data-automationid={undefined}
   />
   <span
     className="xui-switch--label"
-    data-automationid={undefined}
-    htmlFor={undefined}
     id="testLabelId"
   >
     Switch test
@@ -120,30 +84,20 @@ exports[`XUISwitch should include a text label when label is passed 1`] = `
 exports[`XUISwitch should include an aria-label when label is passed and hidden 1`] = `
 <label
   className="xui-switch"
-  data-automationid={undefined}
   onClick={[Function]}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
     aria-checked={false}
-    aria-describedby={undefined}
-    aria-invalid={undefined}
     aria-label="Switch test"
-    aria-labelledby={undefined}
     checked={false}
     className="xui-switch--checkbox"
-    data-automationid={undefined}
-    disabled={undefined}
-    name={undefined}
     onChange={[Function]}
     role="switch"
     type="checkbox"
-    value={undefined}
   />
   <div
     className="xui-switch--control"
-    data-automationid={undefined}
   />
 </label>
 `;
@@ -153,24 +107,17 @@ exports[`XUISwitch should render an automationid for most elements when a qaHook
   className="xui-switch"
   data-automationid="switch-test"
   onClick={[Function]}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
     aria-checked={false}
-    aria-describedby={undefined}
-    aria-invalid={undefined}
-    aria-label={undefined}
     aria-labelledby="testSwitchId"
     checked={false}
     className="xui-switch--checkbox"
     data-automationid="switch-test--input"
-    disabled={undefined}
-    name={undefined}
     onChange={[Function]}
     role="switch"
     type="checkbox"
-    value={undefined}
   />
   <div
     className="xui-switch--control"
@@ -179,7 +126,6 @@ exports[`XUISwitch should render an automationid for most elements when a qaHook
   <span
     className="xui-switch--label"
     data-automationid="switch-test--label"
-    htmlFor={undefined}
     id="testSwitchId"
   >
     Switch test
@@ -190,30 +136,19 @@ exports[`XUISwitch should render an automationid for most elements when a qaHook
 exports[`XUISwitch should render checked 1`] = `
 <label
   className="xui-switch"
-  data-automationid={undefined}
   onClick={[Function]}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
     aria-checked={true}
-    aria-describedby={undefined}
-    aria-invalid={undefined}
-    aria-label={undefined}
-    aria-labelledby={undefined}
     checked={true}
     className="xui-switch--checkbox"
-    data-automationid={undefined}
-    disabled={undefined}
-    name={undefined}
     onChange={[Function]}
     role="switch"
     type="checkbox"
-    value={undefined}
   />
   <div
     className="xui-switch--control"
-    data-automationid={undefined}
   />
 </label>
 `;
@@ -221,30 +156,19 @@ exports[`XUISwitch should render checked 1`] = `
 exports[`XUISwitch should render not checked and not disabled 1`] = `
 <label
   className="xui-switch"
-  data-automationid={undefined}
   onClick={[Function]}
-  onKeyDown={undefined}
   role="presentation"
 >
   <input
     aria-checked={false}
-    aria-describedby={undefined}
-    aria-invalid={undefined}
-    aria-label={undefined}
-    aria-labelledby={undefined}
     checked={false}
     className="xui-switch--checkbox"
-    data-automationid={undefined}
-    disabled={undefined}
-    name={undefined}
     onChange={[Function]}
     role="switch"
     type="checkbox"
-    value={undefined}
   />
   <div
     className="xui-switch--control"
-    data-automationid={undefined}
   />
 </label>
 `;

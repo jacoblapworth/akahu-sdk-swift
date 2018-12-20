@@ -47,6 +47,7 @@ export default class Pickitem extends PureComponent {
 			isInvalid,
 			pinnedElement,
 			headingElement,
+			isMultiline,
 			_isHorizontal,
 		} = pickItem.props;
 
@@ -58,6 +59,7 @@ export default class Pickitem extends PureComponent {
 			className,
 			truncationClassName,
 			isHighlighted && `${pickitemClassName}-is-hovered`,
+			isMultiline && `${pickitemClassName}-multiline`,
 			_isHorizontal && `${pickitemClassName}-is-horizontal`,
 			(isSelected && !disableSelectedStyles) && `${pickitemClassName}-is-selected`,
 			validatedMultiselect && `${pickitemClassName}-multiselect`,
@@ -204,6 +206,8 @@ Pickitem.propTypes = {
 	/** Whether to truncate text instead of wrapping. Where possible, please set this on the
 	 * containing picklist, which will override any per-item settings. */
 	shouldTruncate: PropTypes.bool,
+	/** Allows flex-wrap, achieving a look much like content-block. Use for AutoCompleter. */
+	isMultiline: PropTypes.bool,
 	/** Props to pass to the pickitem body */
 	pickitemBodyProps: PropTypes.object,
 	/** Size variant. Where possible, please set this on the containing picklist,

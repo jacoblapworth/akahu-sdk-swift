@@ -24,12 +24,7 @@ const styles = ({ space, color, fontFamily, fontSize, borderRadius }) => ({
 			isolate: false,
 			borderColor: color.link,
 			outline: 0,
-		},
-		'&::placeholder': {
-			fontFamily: fontFamily.base,
-			fontSize: fontSize.base,
-			color: color.light,
-		},
+		}
 	},
 });
 

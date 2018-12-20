@@ -8,17 +8,14 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "next" button
 >
   <button
     className="xui-button xui-button-icon"
-    data-automationid={undefined}
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     title="Previous"
     type="button"
   >
     <svg
       className="xui-icon xui-icon-rotate-90"
-      data-automationid={undefined}
       focusable="false"
       height={7}
       viewBox="0 0 11 7"
@@ -32,7 +29,6 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "next" button
   </button>
   <button
     className="xui-button xui-button-icon xui-button-is-disabled"
-    data-automationid={undefined}
     disabled={true}
     onClick={[Function]}
     onKeyDown={null}
@@ -42,7 +38,6 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "next" button
   >
     <svg
       className="xui-icon xui-icon-rotate-270"
-      data-automationid={undefined}
       focusable="false"
       height={7}
       viewBox="0 0 11 7"
@@ -65,7 +60,6 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "previous" bu
 >
   <button
     className="xui-button xui-button-icon xui-button-is-disabled"
-    data-automationid={undefined}
     disabled={true}
     onClick={[Function]}
     onKeyDown={null}
@@ -75,7 +69,6 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "previous" bu
   >
     <svg
       className="xui-icon xui-icon-rotate-90"
-      data-automationid={undefined}
       focusable="false"
       height={7}
       viewBox="0 0 11 7"
@@ -89,17 +82,14 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "previous" bu
   </button>
   <button
     className="xui-button xui-button-icon"
-    data-automationid={undefined}
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     title="Next"
     type="button"
   >
     <svg
       className="xui-icon xui-icon-rotate-270"
-      data-automationid={undefined}
       focusable="false"
       height={7}
       viewBox="0 0 11 7"

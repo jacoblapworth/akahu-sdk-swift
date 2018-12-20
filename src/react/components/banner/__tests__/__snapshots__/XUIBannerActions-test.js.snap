@@ -17,7 +17,6 @@ exports[`<XUIBannerAction /> should render a passed qaHook as an auotmation id 1
 exports[`<XUIBannerAction /> should render and includes no automation id by default 1`] = `
 <ul
   className="xui-banner--actions"
-  data-automationid={undefined}
 >
   <button>
     Action
@@ -31,7 +30,6 @@ exports[`<XUIBannerAction /> should render and includes no automation id by defa
 exports[`<XUIBannerAction /> should render custom classes on the root ul DOM node 1`] = `
 <ul
   className="example-class xui-banner--actions"
-  data-automationid={undefined}
 >
   <button>
     Action

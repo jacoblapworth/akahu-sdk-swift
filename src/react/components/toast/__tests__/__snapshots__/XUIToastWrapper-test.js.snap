@@ -3,7 +3,6 @@
 exports[`<XUIToastWrapper /> should render a passed custom class 1`] = `
 <div
   className="custom-class xui-toastwrapper xui-container"
-  data-automationid={undefined}
 >
   Message Content
 </div>

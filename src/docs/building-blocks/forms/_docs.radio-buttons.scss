@@ -36,6 +36,42 @@
 //
 // Styleguide: Building Blocks.Controls.Radio.1
 
+// Size variants
+//
+// Radios have a range of size options that allow for greater control over visual hierarchy.
+//
+// Tips:
+// Do: Use a smaller variant to reduce visual dominance of a radio
+// Warning: Reducing label font-size is not recommended as it causes a loss in legibility
+// Don't: Don’t use a combination of size variants within a single form
+//
+// Definitions:
+// Size variant:	**Height**: **Class**
+// default: 24px: default
+// small: 20px: <code>.xui-styledcheckboxradio--radio-small</code>
+// xsmall: 16px: <code>.xui-styledcheckboxradio--radio-xsmall</code>
+//
+// ExampleClass: ds-example-transparent
+//
+// Markup:
+// <label class="xui-styledcheckboxradio">
+//   <input class="xui-styledcheckboxradio--input" type="radio">
+//   <div class="xui-styledcheckboxradio--radio"></div>
+//   <span class="xui-styledcheckboxradio--label">Default</span>
+// </label>
+// <label class="xui-styledcheckboxradio">
+//   <input class="xui-styledcheckboxradio--input" type="radio">
+//   <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
+//   <span class="xui-styledcheckboxradio--label">Small</span>
+// </label>
+// <label class="xui-styledcheckboxradio">
+//   <input class="xui-styledcheckboxradio--input" type="radio">
+//   <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-xsmall"></div>
+//   <span class="xui-styledcheckboxradio--label">Xsmall</span>
+// </label>
+//
+// Styleguide: Building Blocks.Controls.Radio.2
+
 // Disabling
 //
 // Tips:
@@ -62,7 +98,7 @@
 //   <span class="xui-styledcheckboxradio--label">Checked and disabled</span>
 // </label>
 //
-// Styleguide: Building Blocks.Controls.Radio.2
+// Styleguide: Building Blocks.Controls.Radio.3
 
 // Grouped radios
 //
@@ -93,7 +129,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Radio.3
+// Styleguide: Building Blocks.Controls.Radio.4
 
 
 // Multiline radio
@@ -115,7 +151,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Radio.3.1
+// Styleguide: Building Blocks.Controls.Radio.4.1
 
 // Order
 //
@@ -135,7 +171,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Radio.4
+// Styleguide: Building Blocks.Controls.Radio.5
 
 
 // Class list
@@ -144,6 +180,8 @@
 // xui-styledcheckboxradio-group: Container for a group of styled checkboxes or radio
 // xui-styledcheckboxradio: Container for a styled checkbox or radio
 // xui-styledcheckboxradio-reversed: Modifier for a right-aligned styled checkbox or radio
+// xui-styledcheckboxradio--radio-small: Modifier for reducing the input size to 20px x 20px
+// xui-styledcheckboxradio--radio-xsmall: Modifier for reducing the input size to 16px x 16px
 // xui-styledcheckboxradio--radio: The html element that displays the radio button, if not a custom icon.
 // xui-styledcheckboxradio--focus: Subcomponent for focus layer of an svg checkbox or radio
 // xui-styledcheckboxradio--main: Subcomponent for main layer of an svg checkbox or radio

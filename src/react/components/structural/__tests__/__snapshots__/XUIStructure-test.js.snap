@@ -59,7 +59,6 @@ exports[`<XUI Structure/> Content block and content block item renders content b
     </div>
     <div
       className="xui-contentblockitem--maincontent"
-      href={undefined}
     >
       <div
         className="xui-contentblockitem--headings"
@@ -95,20 +94,16 @@ exports[`<XUI Structure/> Content block and content block item renders content b
       </div>
       <button
         className="xui-button xui-button-icon"
-        data-automationid={undefined}
         disabled={false}
         onClick={[Function]}
-        onKeyDown={undefined}
         tabIndex={0}
         type="button"
       >
         <div
           className="xui-iconwrapper"
-          data-automationid={undefined}
         >
           <svg
             className="xui-icon"
-            data-automationid={undefined}
             focusable="false"
             height={13}
             viewBox="0 0 3 13"
@@ -145,7 +140,6 @@ exports[`<XUI Structure/> Content block and content block item renders content b
     </div>
     <div
       className="xui-contentblockitem--maincontent"
-      href={undefined}
     >
       <div
         className="xui-contentblockitem--headings"
@@ -177,20 +171,16 @@ exports[`<XUI Structure/> Content block and content block item renders content b
       </div>
       <button
         className="xui-button xui-button-icon"
-        data-automationid={undefined}
         disabled={false}
         onClick={[Function]}
-        onKeyDown={undefined}
         tabIndex={0}
         type="button"
       >
         <div
           className="xui-iconwrapper"
-          data-automationid={undefined}
         >
           <svg
             className="xui-icon"
-            data-automationid={undefined}
             focusable="false"
             height={13}
             viewBox="0 0 3 13"
@@ -227,7 +217,6 @@ exports[`<XUI Structure/> Content block and content block item renders content b
     </div>
     <div
       className="xui-contentblockitem--maincontent"
-      href={undefined}
     >
       <div
         className="xui-contentblockitem--headings"
@@ -259,20 +248,16 @@ exports[`<XUI Structure/> Content block and content block item renders content b
       </div>
       <button
         className="xui-button xui-button-icon"
-        data-automationid={undefined}
         disabled={false}
         onClick={[Function]}
-        onKeyDown={undefined}
         tabIndex={0}
         type="button"
       >
         <div
           className="xui-iconwrapper"
-          data-automationid={undefined}
         >
           <svg
             className="xui-icon"
-            data-automationid={undefined}
             focusable="false"
             height={13}
             viewBox="0 0 3 13"
@@ -309,7 +294,6 @@ exports[`<XUI Structure/> Content block and content block item renders content b
     </div>
     <div
       className="xui-contentblockitem--maincontent"
-      href={undefined}
     >
       <div
         className="xui-contentblockitem--headings"
@@ -345,20 +329,16 @@ exports[`<XUI Structure/> Content block and content block item renders content b
       </div>
       <button
         className="xui-button xui-button-icon"
-        data-automationid={undefined}
         disabled={false}
         onClick={[Function]}
-        onKeyDown={undefined}
         tabIndex={0}
         type="button"
       >
         <div
           className="xui-iconwrapper"
-          data-automationid={undefined}
         >
           <svg
             className="xui-icon"
-            data-automationid={undefined}
             focusable="false"
             height={13}
             viewBox="0 0 3 13"
@@ -385,7 +365,6 @@ exports[`<XUI Structure/> Content block and content block item renders content b
   >
     <div
       className="xui-contentblockitem--maincontent"
-      href={undefined}
     >
       <div
         className="xui-contentblockitem--headings"
@@ -522,11 +501,9 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader containi
       >
         <div
           className="xui-breadcrumb--icon xui-iconwrapper"
-          data-automationid={undefined}
         >
           <svg
             className="xui-icon xui-icon-rotate-270"
-            data-automationid={undefined}
             focusable="false"
             height={4}
             viewBox="0 0 7 4"
@@ -555,11 +532,9 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader containi
       >
         <div
           className="xui-breadcrumb--icon xui-iconwrapper"
-          data-automationid={undefined}
         >
           <svg
             className="xui-icon xui-icon-rotate-270"
-            data-automationid={undefined}
             focusable="false"
             height={4}
             viewBox="0 0 7 4"
@@ -611,28 +586,17 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
   >
     <ul
       className="xui-picklist xui-picklist-layout xui-picklist-standard"
-      data-automationid={undefined}
-      id={undefined}
-      onKeyDown={undefined}
-      onMouseDown={undefined}
       role="group"
     >
       <li
-        aria-label={undefined}
         aria-selected={null}
         className="xui-pickitem xui-pickitem-standard"
-        data-automationid={undefined}
         id="1"
         role="option"
       >
         <button
           className="xui-pickitem--body"
-          data-automationid={undefined}
-          onClick={undefined}
-          onKeyDown={undefined}
-          onMouseOver={undefined}
           rel={null}
-          tabIndex={undefined}
           type="button"
         >
           <span
@@ -643,21 +607,14 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
         </button>
       </li>
       <li
-        aria-label={undefined}
         aria-selected={null}
         className="xui-pickitem xui-pickitem-is-selected xui-pickitem-standard"
-        data-automationid={undefined}
         id="2"
         role="option"
       >
         <button
           className="xui-pickitem--body"
-          data-automationid={undefined}
-          onClick={undefined}
-          onKeyDown={undefined}
-          onMouseOver={undefined}
           rel={null}
-          tabIndex={undefined}
           type="button"
         >
           <span
@@ -668,21 +625,14 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
         </button>
       </li>
       <li
-        aria-label={undefined}
         aria-selected={null}
         className="xui-pickitem xui-pickitem-standard"
-        data-automationid={undefined}
         id="3"
         role="option"
       >
         <button
           className="xui-pickitem--body"
-          data-automationid={undefined}
-          onClick={undefined}
-          onKeyDown={undefined}
-          onMouseOver={undefined}
           rel={null}
-          tabIndex={undefined}
           type="button"
         >
           <span

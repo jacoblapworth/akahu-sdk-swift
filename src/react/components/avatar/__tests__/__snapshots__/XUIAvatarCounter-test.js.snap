@@ -5,7 +5,6 @@ exports[`XUIAvatarCounter should be null when I pass in an empty string 1`] = `n
 exports[`XUIAvatarCounter should render +1 when I pass in a number 1 1`] = `
 <span
   className="xui-avatar xui-avatar-counter"
-  data-automationid={undefined}
 >
   +1
 </span>
@@ -14,7 +13,6 @@ exports[`XUIAvatarCounter should render +1 when I pass in a number 1 1`] = `
 exports[`XUIAvatarCounter should render -1 when I pass in a number -1 1`] = `
 <span
   className="xui-avatar xui-avatar-counter"
-  data-automationid={undefined}
 >
   -1
 </span>
@@ -23,7 +21,6 @@ exports[`XUIAvatarCounter should render -1 when I pass in a number -1 1`] = `
 exports[`XUIAvatarCounter should render 0 when I pass in a number 0 1`] = `
 <span
   className="xui-avatar xui-avatar-counter"
-  data-automationid={undefined}
 >
   0
 </span>
@@ -32,7 +29,6 @@ exports[`XUIAvatarCounter should render 0 when I pass in a number 0 1`] = `
 exports[`XUIAvatarCounter should render just my string when given "a" 1`] = `
 <span
   className="xui-avatar xui-avatar-counter"
-  data-automationid={undefined}
 >
   a
 </span>

@@ -54,20 +54,21 @@ $toast-max-width: 400px;
 	.#{$ns}-toast--message {
 		float: initial;
 		margin: 0;
-		padding: $xui-s-xsmall $xui-s-small;
+		padding: $xui-s-small $xui-s-standard;
 	}
 
 	.#{$ns}-toast--actions {
-		margin: 0;
+		margin: $xui-s-2xsmall 0 0 0;
 		padding: 0;
 	}
 
 	.#{$ns}-toast--action {
 		margin: $xui-s-2xsmall;
+		text-align: center;
 	}
 
 	.#{$ns}-toast--close ~ .#{$ns}-toast--message {
-		max-width: calc(100% - #{$xui-control-size-small + $xui-s-xsmall});
+		max-width: calc(100% - #{$xui-control-size-small + $xui-s-standard});
 	}
 }
 

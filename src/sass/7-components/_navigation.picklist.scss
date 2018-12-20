@@ -682,16 +682,20 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	&.#{$ns}-pickitem-text-truncated {
 		display: flex;
 	}
+	.#{$ns}-pickitem-multiline & {
+		flex-wrap: wrap;
+	}
 }
 .#{$ns}-pickitem--heading {
 	@include xui-text-emphasis;
+	width: 100%;
 }
 
 .#{$ns}-pickitem--secondary {
 	color: $xui-pickitem-secondary-text-color;
 	.#{$ns}-pickitem .#{$ns}-pickitem--text .#{$ns}-pickitem--heading + & {
 		margin-left: 0px;
-		width: 100%;
+		max-width: 100%;
 	}
 	&.#{$ns}-pickitem-text-truncated {
 		max-width: 60%;
@@ -874,13 +878,7 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	}
 	.#{$ns}-pickitem--text {
 		flex-grow: 100;
-		flex-wrap: wrap;
 		max-width: 100%;
-	}
-	.#{$ns}-pickitem--text > .#{$ns}-pickitem-text-truncated {
-		margin: 0;
-		max-width: 100%;
-		width: 100%;
 	}
 	.#{$ns}-pickitem--body > .#{$ns}-pickitem--text:last-child {
 		padding-right: $xui-s-xsmall;

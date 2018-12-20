@@ -39,10 +39,12 @@ describe('<Pickitem />', () => {
 				rightElement={<XUIIcon icon={arrow} />}
 				primaryElement="Item 1"
 				secondaryElement="Here is a bunch of secondary text"
+				headingElement="Item 1 heading"
 				pinnedElement="234"
 				isSelected
 				isInvalid
 				isDisabled
+				isMultiline
 			/>
 		);
 		expect(allOptions).toMatchSnapshot();

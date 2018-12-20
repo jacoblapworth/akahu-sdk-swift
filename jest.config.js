@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
 	bail: false,
 	verbose: true,
 	globals: {
@@ -24,4 +24,5 @@ module.exports = {
 		'^.+\\.jsx?$': 'babel-jest'
 	},
 	setupTestFrameworkScriptFile: '<rootDir>/jest.setup.js'
-};
+}
+module.exports = config;

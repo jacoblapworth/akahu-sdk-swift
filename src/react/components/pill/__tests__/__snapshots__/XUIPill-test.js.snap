@@ -3,7 +3,6 @@
 exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
 <div
   className="xui-pill xui-pill-maxwidth"
-  data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -11,7 +10,6 @@ exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
 >
   <span
     className="xui-pill--content"
-    data-automationid={undefined}
   >
     <span
       className="xui-pill--text"
@@ -25,7 +23,6 @@ exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
 exports[`<XUIPill /> should render a pills with correct size modifiers 1`] = `
 <div
   className="xui-pill xui-pill-maxwidth xui-pill-is-deletable xui-pill-has-avatar"
-  data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -33,11 +30,9 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 1`] = `
 >
   <span
     className="xui-pill--content"
-    data-automationid={undefined}
   >
     <abbr
       className="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8"
-      data-automationid={undefined}
       role="presentation"
     >
       TR
@@ -51,17 +46,14 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 1`] = `
   <button
     aria-label="Delete"
     className="xui-button xui-pill--button-icon xui-button-icon"
-    data-automationid={undefined}
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     title="Delete"
     type="button"
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={7}
       viewBox="0 0 7 7"
@@ -79,7 +71,6 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 1`] = `
 exports[`<XUIPill /> should render a pills with correct size modifiers 2`] = `
 <div
   className="xui-pill xui-pill-maxwidth xui-pill-small xui-pill-is-deletable xui-pill-has-avatar"
-  data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -87,11 +78,9 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 2`] = `
 >
   <span
     className="xui-pill--content"
-    data-automationid={undefined}
   >
     <abbr
       className="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-8"
-      data-automationid={undefined}
       role="presentation"
     >
       TR
@@ -105,17 +94,14 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 2`] = `
   <button
     aria-label="Delete"
     className="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small"
-    data-automationid={undefined}
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     title="Delete"
     type="button"
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={7}
       viewBox="0 0 7 7"
@@ -133,7 +119,6 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 2`] = `
 exports[`<XUIPill /> should render a pills with correct size modifiers 3`] = `
 <div
   className="xui-pill xui-pill-maxwidth xui-pill-xsmall xui-pill-is-deletable xui-pill-has-avatar"
-  data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -141,11 +126,9 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 3`] = `
 >
   <span
     className="xui-pill--content"
-    data-automationid={undefined}
   >
     <abbr
       className="xui-pill--avatar xui-avatar xui-avatar-2xsmall xui-avatar-color-8"
-      data-automationid={undefined}
       role="presentation"
     >
       TR
@@ -159,17 +142,14 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 3`] = `
   <button
     aria-label="Delete"
     className="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-xsmall"
-    data-automationid={undefined}
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     title="Delete"
     type="button"
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={7}
       viewBox="0 0 7 7"
@@ -187,26 +167,19 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 3`] = `
 exports[`<XUIPill /> should render a target when passed in 1`] = `
 <div
   className="xui-pill xui-pill-maxwidth xui-pill-interactive"
-  data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <a
-    aria-disabled={undefined}
     className="xui-button xui-pill--content xui-pill--button"
-    data-automationid={undefined}
     disabled={false}
     href="http://xero.com"
     onClick={[Function]}
-    onKeyDown={undefined}
     onKeyPress={[Function]}
-    rel={undefined}
-    role={undefined}
     tabIndex={0}
     target="_blank"
-    title={undefined}
   />
 </div>
 `;
@@ -214,7 +187,6 @@ exports[`<XUIPill /> should render a target when passed in 1`] = `
 exports[`<XUIPill /> should render a title when passed 1`] = `
 <div
   className="xui-pill xui-pill-maxwidth"
-  data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -222,7 +194,6 @@ exports[`<XUIPill /> should render a title when passed 1`] = `
 >
   <span
     className="xui-pill--content"
-    data-automationid={undefined}
   />
 </div>
 `;
@@ -246,7 +217,6 @@ exports[`<XUIPill /> should render an automation id when a qaHook is passed in 1
 exports[`<XUIPill /> should render an error icon when invalid 1`] = `
 <div
   className="xui-pill xui-pill-maxwidth xui-pill-is-invalid xui-pill-has-avatar"
-  data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -254,14 +224,12 @@ exports[`<XUIPill /> should render an error icon when invalid 1`] = `
 >
   <span
     className="xui-pill--content"
-    data-automationid={undefined}
   >
     <div
       className="xui-pill--avatar xui-pill--erroricon xui-pill--erroricon-small"
     >
       <svg
         className="xui-icon xui-icon-color-red"
-        data-automationid={undefined}
         focusable="false"
         height={8}
         viewBox="0 0 2 8"
@@ -285,7 +253,6 @@ exports[`<XUIPill /> should render an error icon when invalid 1`] = `
 exports[`<XUIPill /> should render an error icon when invalid even with an avatar 1`] = `
 <div
   className="xui-pill xui-pill-maxwidth xui-pill-small xui-pill-is-invalid xui-pill-has-avatar"
-  data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -293,14 +260,12 @@ exports[`<XUIPill /> should render an error icon when invalid even with an avata
 >
   <span
     className="xui-pill--content"
-    data-automationid={undefined}
   >
     <div
       className="xui-pill--avatar xui-pill--erroricon xui-pill--erroricon-xsmall"
     >
       <svg
         className="xui-icon xui-icon-color-red"
-        data-automationid={undefined}
         focusable="false"
         height={8}
         viewBox="0 0 2 8"
@@ -328,15 +293,12 @@ exports[`<XUIPill /> should render inside a tooltip when using the debug flag 1`
   <div
     aria-describedby="tooltipDebugId"
     onBlur={[Function]}
-    onClick={undefined}
     onFocus={[Function]}
-    onKeyDown={undefined}
     onMouseOut={[Function]}
     onMouseOver={[Function]}
   >
     <div
       className="xui-pill xui-pill-maxwidth"
-      data-automationid={undefined}
       onBlur={[Function]}
       onFocus={[Function]}
       onMouseEnter={[Function]}
@@ -344,13 +306,11 @@ exports[`<XUIPill /> should render inside a tooltip when using the debug flag 1`
     >
       <span
         className="xui-pill--content"
-        data-automationid={undefined}
       />
     </div>
   </div>
   <span
     className="xui-positioningInline"
-    data-automationid={undefined}
     style={
       Object {
         "flexDirection": "column",
@@ -361,7 +321,6 @@ exports[`<XUIPill /> should render inside a tooltip when using the debug flag 1`
     <span
       aria-hidden={false}
       className="xui-tooltip--tip xui-tooltip--tip-open"
-      data-automationid={undefined}
       id="tooltipDebugId"
       role="tooltip"
       style={

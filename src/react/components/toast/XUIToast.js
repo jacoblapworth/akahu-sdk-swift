@@ -62,7 +62,6 @@ export default function XUIToast({
 			variant="icon"
 			title="Close"
 			onClick={onCloseClick}
-			size="small"
 		>
 			<XUIIcon icon={cross} isBoxed />
 		</XUIButton>

@@ -43,7 +43,7 @@ class XUITextInput extends PureComponent {
 	}
 
 	componentDidUpdate() {
-		if (shouldAutomaticallyResize(this.props) && this.input) {
+		if (shouldAutomaticallyResize(this.props)) {
 			const evt = document.createEvent('Event');
 			evt.initEvent('autosize:update', true, false);
 			this.input.dispatchEvent(evt);
@@ -87,7 +87,6 @@ class XUITextInput extends PureComponent {
 			fieldClassName,
 			containerClassName,
 			labelClassName,
-			labelText,
 			inputClassName,
 			defaultValue,
 			placeholder,
@@ -109,24 +108,6 @@ class XUITextInput extends PureComponent {
 			maxHeight,
 			hasFocus,
 		} = this.state;
-
-		const calculatedLabelId = labelId || `${this.generatedId}-label`;
-		const messageId = `${this.generatedId}-message`;
-		const showingErrorMessage = isInvalid && validationMessage;
-		const message = (validationMessage || hintMessage) && (
-			<div
-				className={cn(
-					`${ns}-validation`,
-					`${ns}-validation-layout`,
-					showingErrorMessage && `${ns}-validation-is-invalid`,
-				)}
-				data-automationid={qaHook && `${qaHook}--message`}
-				role="status"
-				id={messageId}
-			>
-				{showingErrorMessage ? validationMessage : hintMessage}
-			</div>
-		);
 
 		const classes = cn(
 			inputClassName,
@@ -154,18 +135,6 @@ class XUITextInput extends PureComponent {
 			isDisabled && `${inputBaseClass}-is-disabled`,
 		);
 
-		const labelClasses = cn(
-			labelClassName,
-			`${ns}-text-label`,
-			`${ns}-fieldlabel-layout`,
-		);
-
-		const labelElement = labelText != null && !isLabelHidden && (
-			<span className={labelClasses} id={calculatedLabelId}>
-				{labelText}
-			</span>
-		);
-
 		const InputEl = isMultiline ? 'textarea' : 'input';
 
 		inputProps.style = {
@@ -189,7 +158,6 @@ class XUITextInput extends PureComponent {
 					isLabelHidden,
 				}}
 			>
-				{labelElement}
 				<div
 					className={baseClasses}
 					data-automationid={qaHook}
@@ -215,7 +183,6 @@ class XUITextInput extends PureComponent {
 					/>
 					{rightElement}
 				</div>
-				{message}
 			</XUIControlWrapper>
 		);
 	}
@@ -253,8 +220,6 @@ XUITextInput.propTypes = {
 	onKeyDown: PropTypes.func,
 	/** Label to show above the input */
 	label: PropTypes.node,
-	/** Input label. If isLabelHidden is true, this must be a string as it's applied as an attribute */
-	labelText: PropTypes.node,
 	/** Whether the current input value is invalid */
 	isInvalid: PropTypes.bool,
 	/** Validation message to show under the input if `isInvalid` is true */
@@ -306,14 +271,7 @@ XUITextInput.propTypes = {
 	 * `isMultiline=true` and `rightElement=undefined`) */
 	isManuallyResizable: PropTypes.bool,
 	/** Should label be applied as an aria-label, rather than being visibly displayed. */
-	isLabelHidden(props, propName) {
-		// If the label is hidden, the label value must be a string
-		if (props[propName] && props.labelText && typeof props.labelText !== 'string') {
-			return new Error('XUITextInput labelText must be a string ' +
-				'when isLabelHidden as it is applied as an attribute');
-		}
-		return null;
-	},
+	isLabelHidden: PropTypes.bool,
 	/** Provide a specific label ID which will be used as the "labelleby" aria property */
 	labelId: PropTypes.string,
 };

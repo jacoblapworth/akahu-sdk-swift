@@ -4,11 +4,11 @@
 
 const XUICompositionMasterDetailSummary = require('./XUICompositionMasterDetailSummary').default;
 
-const detailStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
-const masterStyle = <div style={{background: '#5A5AE6', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
-const summaryStyle = <div style={{background: '#ADADF3', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
+const detailContent = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
+const masterContent = <div style={{background: '#5A5AE6', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
+const summaryContent = <div style={{background: '#ADADF3', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
 
-<XUICompositionMasterDetailSummary master={masterStyle} detail={detailStyle} summary={summaryStyle} />
+<XUICompositionMasterDetailSummary master={masterContent} detail={detailContent} summary={summaryContent} />
 
 ```
 
@@ -18,11 +18,11 @@ const summaryStyle = <div style={{background: '#ADADF3', 'minWidth': '250px', he
 
 const XUICompositionMasterDetailSummaryHeader = require('./XUICompositionMasterDetailSummaryHeader').default;
 
-const detailStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
-const masterStyle = <div style={{background: '#5A5AE6', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
-const summaryStyle = <div style={{background: '#ADADF3', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
-const headerStyle = <div style={{background: '#B446C8', height: '60px'}}></div>;
+const headerContent = <div style={{background: '#B446C8', height: '60px'}}></div>;
+const detailContent = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
+const masterContent = <div style={{background: '#5A5AE6', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
+const summaryContent = <div style={{background: '#ADADF3', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
 
-<XUICompositionMasterDetailSummaryHeader header={headerStyle} detail={detailStyle} master={masterStyle} summary={summaryStyle} />
+<XUICompositionMasterDetailSummaryHeader header={headerContent} detail={detailContent} master={masterContent} summary={summaryContent} />
 ```
 

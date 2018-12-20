@@ -4,10 +4,10 @@
 
 const XUICompositionDetailSummary = require('./XUICompositionDetailSummary').default;
 
-const detailStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
-const summaryStyle = <div style={{background: '#ADADF3', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
+const detailContent = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
+const summaryContent = <div style={{background: '#ADADF3', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
 
-<XUICompositionDetailSummary detail={detailStyle} summary={summaryStyle} />
+<XUICompositionDetailSummary detail={detailContent} summary={summaryContent} />
 
 ```
 #### Detail summary with header
@@ -15,9 +15,9 @@ const summaryStyle = <div style={{background: '#ADADF3', 'minWidth': '250px', he
 ```js
 const XUICompositionDetailSummaryHeader = require('./XUICompositionDetailSummaryHeader').default;
 
-const detailStyle = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
-const summaryStyle = <div style={{background: '#ADADF3', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
-const headerStyle = <div style={{background: '#B446C8', height: '60px'}}></div>;
+const headerContent = <div style={{background: '#B446C8', height: '60px'}}></div>;
+const detailContent = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
+const summaryContent = <div style={{background: '#ADADF3', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
 
-<XUICompositionDetailSummaryHeader header={headerStyle}  detail={detailStyle} summary={summaryStyle} />
+<XUICompositionDetailSummaryHeader header={headerContent}  detail={detailContent} summary={summaryContent} />
 ```

@@ -122,7 +122,7 @@ export default class DropDown extends PureComponent {
 	 * @memberof DropDown
 	 */
 	selectHighlighted = () => {
-		this.panel.selectHighlighted();
+		this.panel.current.selectHighlighted();
 	};
 
 	/**

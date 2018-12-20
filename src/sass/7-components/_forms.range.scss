@@ -12,7 +12,7 @@
 $xui-rangeslider-height: 2px;
 $xui-rangeslider-thumb-diameter-default: $xui-s-xlarge;
 $xui-rangeslider-thumb-diameter-small: $xui-s-large;
-$xui-rangeslider-thumb-diameter-xsmall: $xui-s-small;
+$xui-rangeslider-thumb-diameter-xsmall: $xui-s-standard;
 
 @mixin xui-rangeslider-track {
 	background: $xui-rangeslider-track-color;

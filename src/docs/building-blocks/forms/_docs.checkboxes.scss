@@ -22,50 +22,50 @@
 //
 // Markup:
 // <label class="xui-styledcheckboxradio">
-//   <input class="xui-styledcheckboxradio--input" type="checkbox">
-//   <div class="xui-styledcheckboxradio--checkbox"></div>
-//   <span class="xui-styledcheckboxradio--label">Unchecked</span>
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox">
+//   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"></div>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Unchecked</span>
 // </label>
 // <label class="xui-styledcheckboxradio">
-//   <input class="xui-styledcheckboxradio--input" type="checkbox" checked>
-//   <div class="xui-styledcheckboxradio--checkbox"></div>
-//   <span class="xui-styledcheckboxradio--label">Checked</span>
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox" checked>
+//   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"></div>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Checked</span>
 // </label>
 //
 // Styleguide: Building Blocks.Controls.Checkbox.1
 
 // Size variants
 //
-// Checkboxes have a range of size options that allow for greater control over visual hierarchy.
+// Checkboxes have a range of size options that allow for greater control over visual hierarchy. Add a class with the size variant modifier to the the `--input`, `--checkbox` and `--label` subcomponents.
 //
 // Tips:
 // Do: Use a smaller variant to reduce visual dominance of a checkbox
-// Warning: Reducing label font-size is not recommended as it causes a loss in legibility
+// Warning: Be cautious when using smaller variants as they reduce legibility and hit area
 // Don't: Don’t use a combination of size variants within a single form
 //
 // Definitions:
-// Size variant:	**Height**: **Class**
-// default: 24px: default
-// small: 20px: <code>.xui-styledcheckboxradio--checkbox-small</code>
-// xsmall: 16px: <code>.xui-styledcheckboxradio--checkbox-xsmall</code>
+// Size variant:	**Height**: **Modifier**
+// default: 24px: <code>-standard</code>
+// small: 20px: <code>-small</code>
+// xsmall: 16px: <code>-xsmall</code>
 //
 // ExampleClass: ds-example-transparent
 //
 // Markup:
 // <label class="xui-styledcheckboxradio">
-//   <input class="xui-styledcheckboxradio--input" type="checkbox">
-//   <div class="xui-styledcheckboxradio--checkbox"></div>
-//   <span class="xui-styledcheckboxradio--label">Default</span>
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox">
+//   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"></div>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Default</span>
 // </label>
 // <label class="xui-styledcheckboxradio">
-//   <input class="xui-styledcheckboxradio--input" type="checkbox">
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="checkbox">
 //   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div>
-//   <span class="xui-styledcheckboxradio--label">Small</span>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Small</span>
 // </label>
 // <label class="xui-styledcheckboxradio">
-//   <input class="xui-styledcheckboxradio--input" type="checkbox">
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall" type="checkbox">
 //   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-xsmall"></div>
-//   <span class="xui-styledcheckboxradio--label">Xsmall</span>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall">Xsmall</span>
 // </label>
 //
 // Styleguide: Building Blocks.Controls.Checkbox.2
@@ -81,14 +81,14 @@
 //
 // Markup:
 // <label class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled">
-//   <input class="xui-styledcheckboxradio--input" type="checkbox" disabled>
-//   <div class="xui-styledcheckboxradio--checkbox"></div>
-//   <span class="xui-styledcheckboxradio--label">Disabled</span>
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox" disabled>
+//   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"></div>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Disabled</span>
 // </label>
 // <label class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled">
-//   <input class="xui-styledcheckboxradio--input" type="checkbox" checked disabled>
-//   <div class="xui-styledcheckboxradio--checkbox"></div>
-//   <span class="xui-styledcheckboxradio--label">Checked and disabled</span>
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox" checked disabled>
+//   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"></div>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Checked and disabled</span>
 // </label>
 //
 // Styleguide: Building Blocks.Controls.Checkbox.3
@@ -101,19 +101,19 @@
 // <span class="xui-text-label xui-fieldlabel-layout">View options</span>
 // <div class="xui-styledcheckboxradio-group">
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox">
-//     <div class="xui-styledcheckboxradio--checkbox"></div>
-//     <span class="xui-styledcheckboxradio--label">Invoice number</span>
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox">
+//     <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"></div>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Invoice number</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox">
-//     <div class="xui-styledcheckboxradio--checkbox"></div>
-//     <span class="xui-styledcheckboxradio--label">Reference</span>
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox">
+//     <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"></div>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Reference</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox">
-//     <div class="xui-styledcheckboxradio--checkbox"></div>
-//     <span class="xui-styledcheckboxradio--label">Due date</span>
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox">
+//     <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"></div>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Due date</span>
 //   </label>
 // </div>
 //
@@ -128,9 +128,9 @@
 // <span class="xui-text-label xui-fieldlabel-layout">Label</span>
 // <div class="xui-styledcheckboxradio-group">
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox" checked>
-//     <div class="xui-styledcheckboxradio--checkbox"></div>
-//     <span class="xui-styledcheckboxradio--label">Single checkbox</span>
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox" checked>
+//     <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"></div>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Single checkbox</span>
 //   </label>
 // </div>
 //
@@ -145,9 +145,9 @@
 // <span class="xui-text-label xui-fieldlabel-layout">Label</span>
 // <div class="xui-styledcheckboxradio-group">
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox" checked>
-//     <div class="xui-styledcheckboxradio--checkbox"></div>
-//     <span class="xui-styledcheckboxradio--label">Multiline checkbox that spans<br>multiple lines</span>
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox" checked>
+//     <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"></div>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Multiline checkbox that spans<br>multiple lines</span>
 //   </label>
 // </div>
 //
@@ -160,9 +160,9 @@
 // Markup:
 // <div class="xui-styledcheckboxradio-group">
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox" checked>
-//     <div class="xui-styledcheckboxradio--checkbox"></div>
-//     <span class="xui-styledcheckboxradio--label">Reversed checkbox</span>
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox" checked>
+//     <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"></div>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Reversed checkbox</span>
 //   </label>
 // </div>
 //
@@ -193,44 +193,44 @@
 // <span class="xui-text-label xui-fieldlabel-layout">Reports</span>
 // <div class="xui-styledcheckboxradio-group">
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox">
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox">
 //     <div class="xui-iconwrapper">
 //       <svg class="xui-icon">
 //         <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-star"/>
 //         <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-star"/>
 //       </svg>
 //     </div>
-//     <span class="xui-styledcheckboxradio--label">Balance sheet</span>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Balance sheet</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox">
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox">
 //     <div class="xui-iconwrapper">
 //       <svg class="xui-icon">
 //         <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-star"/>
 //         <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-star"/>
 //       </svg>
 //     </div>
-//     <span class="xui-styledcheckboxradio--label">Cash summary</span>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Cash summary</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox">
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox">
 //     <div class="xui-iconwrapper">
 //       <svg class="xui-icon">
 //         <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-star"/>
 //         <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-star"/>
 //       </svg>
 //     </div>
-//     <span class="xui-styledcheckboxradio--label">GST return</span>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">GST return</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="checkbox">
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox">
 //     <div class="xui-iconwrapper">
 //       <svg class="xui-icon">
 //         <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-star"/>
 //         <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-star"/>
 //       </svg>
 //     </div>
-//     <span class="xui-styledcheckboxradio--label">Profit and loss</span>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Profit and loss</span>
 //   </label>
 // </div>
 //
@@ -243,6 +243,7 @@
 // xui-styledcheckboxradio-group: Container for a group of styled checkboxes or radio
 // xui-styledcheckboxradio: Container for a styled checkbox or radio
 // xui-styledcheckboxradio-reversed: Modifier for a right-aligned styled checkbox or radio
+// xui-styledcheckboxradio-standard: Sets checkbox size to 24px x 24px
 // xui-styledcheckboxradio-small: Modifier for reducing the input size to 20px x 20px
 // xui-styledcheckboxradio-xsmall: Modifier for reducing the input size to 16px x 16px
 // xui-styledcheckboxradio--checkbox: The html element that displays the checkmark, if not a custom icon.

@@ -1,64 +1,70 @@
 const browsers = require('@xero/browserslist-autoprefixer');
 
 const babelConfig = {
-	"env": {
-		"development": {
-			"presets": [
-				"@babel/preset-env",
-				"@babel/preset-react"
+	env: {
+		development: {
+			presets: [
+				'@babel/preset-env',
+				'@babel/preset-react',
 			],
-			"plugins": [
+			plugins: [
 				[
-					"@babel/plugin-proposal-class-properties",
+					'@babel/plugin-proposal-class-properties',
 					{
-						loose: true
-					}
-				]
-			]
-		},
-		"production": {
-			"presets": [
-				[
-					"@babel/preset-env",
-					{
-						"useBuiltIns": "usage",
-						"targets": {
-							"browsers": browsers
-						}
-					}
+						loose: true,
+					},
 				],
-				"@babel/preset-react"
-			]
-		},
-		"test": {
-			"presets": [
-				[
-					"@babel/preset-env",
-					{
-						"useBuiltIns": "usage",
-						"targets": {
-							"browsers": browsers
-						}
-					}
-				],
-				"@babel/preset-react"
 			],
-			"plugins": [
+		},
+		production: {
+			presets: [
 				[
-					"babel-plugin-transform-require-ignore",
+					'@babel/preset-env',
 					{
-						"extensions": [".scss"]
-					}
+						useBuiltIns: 'usage',
+						targets: {
+							browsers,
+						},
+					},
+				],
+				'@babel/preset-react',
+			],
+		},
+		test: {
+			presets: [
+				[
+					'@babel/preset-env',
+					{
+						useBuiltIns: 'usage',
+						targets: {
+							browsers,
+						},
+					},
+				],
+				'@babel/preset-react',
+			],
+			plugins: [
+				[
+					'babel-plugin-transform-require-ignore',
+					{
+						extensions: ['.scss'],
+					},
 				],
 				[
-					"@babel/plugin-proposal-class-properties",
+					'@babel/plugin-proposal-class-properties',
 					{
-						loose: true
-					}
-				]
-			]
-		}
-	}
-}
+						loose: true,
+					},
+				],
+				[
+					'@babel/plugin-transform-runtime',
+					{
+						regenerator: true,
+					},
+				],
+			],
+		},
+	},
+};
 
 module.exports = babelConfig;

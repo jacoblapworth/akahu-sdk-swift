@@ -91,21 +91,9 @@ export default class XUIPill extends PureComponent {
 			isFocused && `${baseClass}-is-focused`,
 			onDeleteClick && `${baseClass}-is-deletable`,
 			(avatarProps != null || isInvalid) && `${baseClass}-has-avatar`,
+			avatar && `${baseClass}-has-avatar`,
 			(href || onClick) && `${baseClass}-interactive`,
 		);
-
-		const innerPillProps = {
-			avatarProps,
-			avatar,
-			href,
-			isInvalid,
-			onClick,
-			qaHook,
-			secondaryText,
-			target,
-			title,
-			value,
-		};
 
 		const deleteButton = onDeleteClick && (
 			<XUIButton
@@ -132,7 +120,19 @@ export default class XUIPill extends PureComponent {
 			>
 				<XUIInnerPill
 					innerPillRef={this._innerPill}
-					{...innerPillProps}
+					{...{
+						avatarProps,
+						avatar,
+						href,
+						isInvalid,
+						onClick,
+						qaHook,
+						secondaryText,
+						target,
+						title,
+						value,
+						size
+					}}
 				/>
 				{deleteButton}
 			</div>

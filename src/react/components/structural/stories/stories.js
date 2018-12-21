@@ -89,8 +89,8 @@ const buildExampleContentblockItem = (children) => {
 		}
 		if (child.tags) {
 			child.tags = [
-				<XUITag className="xui-margin-right-small" variant="positive" key="positive-tag">Positive</XUITag>,
-				<XUITag className="xui-margin-right-small" variant="negative" key="negative-tag">Negative</XUITag>
+				<XUITag className="xui-margin-right-xsmall" variant="positive" key="positive-tag" size="small">Positive</XUITag>,
+				<XUITag className="xui-margin-right" variant="negative" key="negative-tag" size="small">Negative</XUITag>
 			]
 		}
 		if (child.leftContent === "checkbox") {

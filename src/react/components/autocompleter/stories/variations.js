@@ -7,6 +7,11 @@ const dropdownSizes = ['small', 'medium', 'large', 'xlarge'];
 const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'SecondarySearch',
+		storyType: 'XUIAutocompleterSecondarySearch',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'looks like an input',
 		openDrawer: false,
 		isInputLabelHidden: false,

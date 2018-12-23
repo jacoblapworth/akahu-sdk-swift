@@ -179,7 +179,6 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 		const searchItem = (
 			<div className={`${ns}-dropdown--header-container`}>
 				<XUITextInput
-					className={inputClassName}
 					containerClassName={inputContainerClassName}
 					value={value || ''}
 					leftElement={
@@ -189,6 +188,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 					}
 					placeholder={placeholder}
 					onChange={this.debouncedOnChange}
+					inputClassName={inputClassName}
 					inputRef={c => this.input = c}
 					isBorderlessSolid
 					label={inputLabel}

@@ -329,6 +329,8 @@ const SecondarySearchData = [
 ];
 
 class SecondarySearchExample extends React.Component {
+	autocompleterRef = React.createRef();
+
 	state = {
 		data: SecondarySearchData,
 		selectedItem: null,
@@ -346,6 +348,10 @@ class SecondarySearchExample extends React.Component {
 		this.setState({
 			data: matchingData,
 		});
+	}
+
+	componentDidMount() {
+		this.autocompleterRef.current.openDropDown();
 	}
 
 	render() {
@@ -388,6 +394,7 @@ class SecondarySearchExample extends React.Component {
 					qaHook='secondary-search'
 					closeOnTab={false}
 					footer={footer}
+					ref={this.autocompleterRef}
 				>
 					<Picklist>
 						{items}
@@ -401,13 +408,16 @@ class SecondarySearchExample extends React.Component {
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
-storiesWithVariations.add('Secondary', () => <SecondarySearchExample />);
-
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
 		const variationMinusStoryDetails = { ...variation };
 		variationMinusStoryDetails.storyKind = undefined;
 		variationMinusStoryDetails.storyTitle = undefined;
+		variationMinusStoryDetails.storyType = undefined;
+
+		if (variation.storyType === "XUIAutocompleterSecondarySearch") {
+			return <SecondarySearchExample />;
+		}
 
 		return (
 			<div style={{ width: '500px' }}>

@@ -38,36 +38,36 @@
 
 // Size variants
 //
-// Radios have a range of size options that allow for greater control over visual hierarchy.
+// Radios have a range of size options that allow for greater control over visual hierarchy. Add a class with the size variant modifier to the the `--input`, `--radio` and `--label` subcomponents.
 //
 // Tips:
-// Do: Use a smaller variant to reduce visual dominance of a radio
-// Warning: Reducing label font-size is not recommended as it causes a loss in legibility
+// Do: Use the -small Radio variant inside Radio groups
+// Warning: Be cautious when using smaller variants as they have reduced legibility and hit area
 // Don't: Don’t use a combination of size variants within a single form
 //
 // Definitions:
 // Size variant:	**Height**: **Class**
-// default: 24px: default
-// small: 20px: <code>.xui-styledcheckboxradio--radio-small</code>
-// xsmall: 16px: <code>.xui-styledcheckboxradio--radio-xsmall</code>
+// default: 24px: <code>-standard</code>
+// small: 20px: <code>-small</code>
+// xsmall: 16px: <code>-xsmall</code>
 //
 // ExampleClass: ds-example-transparent
 //
 // Markup:
 // <label class="xui-styledcheckboxradio">
-//   <input class="xui-styledcheckboxradio--input" type="radio">
-//   <div class="xui-styledcheckboxradio--radio"></div>
-//   <span class="xui-styledcheckboxradio--label">Default</span>
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="radio">
+//   <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-standard"></div>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Default</span>
 // </label>
 // <label class="xui-styledcheckboxradio">
-//   <input class="xui-styledcheckboxradio--input" type="radio">
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio">
 //   <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
-//   <span class="xui-styledcheckboxradio--label">Small</span>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Small</span>
 // </label>
 // <label class="xui-styledcheckboxradio">
-//   <input class="xui-styledcheckboxradio--input" type="radio">
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall" type="radio">
 //   <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-xsmall"></div>
-//   <span class="xui-styledcheckboxradio--label">Xsmall</span>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall">Xsmall</span>
 // </label>
 //
 // Styleguide: Building Blocks.Controls.Radio.2
@@ -88,14 +88,14 @@
 //
 // Markup:
 // <label class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled" id="r3" name="rg1">
-//   <input class="xui-styledcheckboxradio--input" type="radio" role="radio" disabled>
-//   <div class="xui-styledcheckboxradio--radio"></div>
-//   <span class="xui-styledcheckboxradio--label">Disabled</span>
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="radio" role="radio" disabled>
+//   <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-standard"></div>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Disabled</span>
 // </label>
 // <label class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled" id="r4" name="rg1">
-//   <input class="xui-styledcheckboxradio--input" type="radio" role="radio" checked disabled>
-//   <div class="xui-styledcheckboxradio--radio"></div>
-//   <span class="xui-styledcheckboxradio--label">Checked and disabled</span>
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="radio" role="radio" checked disabled>
+//   <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-standard"></div>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Checked and disabled</span>
 // </label>
 //
 // Styleguide: Building Blocks.Controls.Radio.3
@@ -104,28 +104,31 @@
 //
 // To increase hit states and create visual similarity with other form elements, consider using a radio group.
 //
+// Tips:
+// Do: Use the -small variant of Radio when inside Radio groups
+//
 // Markup:
 // <span class="xui-text-label xui-fieldlabel-layout">Notification frequency</span>
 // <div class="xui-styledcheckboxradio-group" aria-label="rg1" role="radiogroup">
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r5" name="rg2">
-//     <div class="xui-styledcheckboxradio--radio"></div>
-//     <span class="xui-styledcheckboxradio--label">As they happen</span>
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" role="radio" id="r5" name="rg2">
+//     <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">As they happen</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r6" name="rg2" checked>
-//     <div class="xui-styledcheckboxradio--radio"></div>
-//     <span class="xui-styledcheckboxradio--label">Daily</span>
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" role="radio" id="r6" name="rg2" checked>
+//     <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Daily</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r7" name="rg2">
-//     <div class="xui-styledcheckboxradio--radio"></div>
-//     <span class="xui-styledcheckboxradio--label">Weekly</span>
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--label-small" type="radio" role="radio" id="r7" name="rg2">
+//     <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Weekly</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r8" name="rg2">
-//     <div class="xui-styledcheckboxradio--radio"></div>
-//     <span class="xui-styledcheckboxradio--label">Never</span>
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" role="radio" id="r8" name="rg2">
+//     <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Never</span>
 //   </label>
 // </div>
 //
@@ -140,14 +143,14 @@
 // <span class="xui-text-label xui-fieldlabel-layout">Label</span>
 // <div class="xui-styledcheckboxradio-group" role="radiogroup" aria-label="r3">
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r9" name="rg3" checked>
-//     <div class="xui-styledcheckboxradio--radio"></div>
-//     <span class="xui-styledcheckboxradio--label">Multiline radio that spans<br>multiple lines</span>
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--inputs-small" type="radio" role="radio" id="r9" name="rg3" checked>
+//     <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Multiline radio that spans<br>multiple lines</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r10" name="rg3">
-//     <div class="xui-styledcheckboxradio--radio"></div>
-//     <span class="xui-styledcheckboxradio--label">Multiline radio that spans<br>multiple lines</span>
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" role="radio" id="r10" name="rg3">
+//     <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Multiline radio that spans<br>multiple lines</span>
 //   </label>
 // </div>
 //
@@ -160,14 +163,14 @@
 // Markup:
 // <div class="xui-styledcheckboxradio-group" aria-label="rg1" role="radiogroup">
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r11" name="rg4">
-//     <div class="xui-styledcheckboxradio--radio"></div>
-//     <span class="xui-styledcheckboxradio--label">Reversed radio</span>
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" role="radio" id="r11" name="rg4">
+//     <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Reversed radio</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r12" name="rg4" checked>
-//     <div class="xui-styledcheckboxradio--radio"></div>
-//     <span class="xui-styledcheckboxradio--label">Reversed radio</span>
+//     <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" role="radio" id="r12" name="rg4" checked>
+//     <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
+//     <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Reversed radio</span>
 //   </label>
 // </div>
 //

@@ -154,7 +154,8 @@ variations = [...variations,
 				primaryHeading: 'Item 4 Primary',
 				secondaryHeading: 'Item 4 Secondary',
 				tag: true,
-				overflow: true
+				overflow: true,
+				description: 'Many people were hoping that if the Democrats won control of Congress'
 			}
 		]
 	},
@@ -174,22 +175,6 @@ variations = [...variations,
 				secondaryHeading: 'Item 2 Secondary',
 				action: true,
 				overflow: true
-			}
-		]
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: `content block with everything`,
-		type: `content block`,
-		items: [
-			{
-				primaryHeading: 'Item 1 Primary',
-				secondaryHeading: 'Item 1 Secondary',
-				overflow: true,
-				leftContent: "avatar",
-				pinnedValue: true,
-				action: true,
-				tag: true
 			}
 		]
 	},
@@ -229,7 +214,6 @@ variations = [...variations,
 				secondaryHeading: '12 Tantilise Street, Meadowbank, Auckland 1063, New Zealand',
 				hasLayout: true,
 				leftContent: "avatar",
-				tag: true,
 				overflow: true,
 				pinnedValue: true,
 				action: true

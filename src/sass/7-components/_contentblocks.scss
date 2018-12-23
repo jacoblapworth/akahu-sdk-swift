@@ -625,10 +625,18 @@
 	align-items: center;
 	display: flex;
 
-	$content-min-height-size: 68px;
+	$content-min-height-size: 56px;
 
 	.#{$ns}-contentblockitem--actions {
 		margin-right: $xui-s-xsmall;
+
+		// This is to fix a bug where in actions, we assume that the buttons stack at smaller
+		// Viewport sizes, meaning that in the case of contentblocks, it gets weird top margin
+		// Applied and therefore causes a bug.
+		// TODO: work out a way to get another class on the element, instead of targeting this specific child
+		.#{$ns}-actions--secondary {
+			margin-top: 0;
+		}
 	}
 
 	.#{$ns}-contentblockitem--maincontent {
@@ -644,14 +652,12 @@
 		margin-left: $xui-s-xsmall;
 		margin-right: $xui-s-xsmall;
 		min-height: $content-min-height-size;
-		padding: $xui-s-small 0;
 	}
 
 	.#{$ns}-contentblockitem--leftcontent {
 		align-self: start;
 		min-height: $content-min-height-size;
-		min-width: $content-min-height-size;
-		padding: $xui-s-small 0;
+		min-width: $content-min-height-size + $xui-s-small;
 		@include xui-flex-children;
 
 		& + .#{$ns}-contentblockitem--maincontent {
@@ -717,10 +723,19 @@
 	line-height: $xui-line-height-compact;
 }
 
+.#{$ns}-contentblockitem--description {
+	display: block;
+	line-height: 1;
+}
+
 .#{$ns}-contentblockitem--description--text {
 	color: $xui-color-grey-2;
 	@include xui-text-small;
 	margin-right: $xui-s-small;
+}
+
+.#{$ns}-contentblockitem--leftcontent-layout {
+	padding-top: $xui-s-standard;
 }
 
 .#{$ns}-rowlink { // TODO: This isn't a component, nor is it content blocks, re-work it out

@@ -106,9 +106,13 @@ const buildExampleContentblockItem = (children) => {
 		if (child.pinnedValue) {
 			child.pinnedValue = "0.00";
 		}
-		return <XUIContentBlockItem key={index} {...child} />
+		return <XUIContentBlockItem key={index} {...child} onClick={exampleClickHandler}/>
 	});
 };
+
+const exampleClickHandler = () => {
+	return console.log("clicked")
+ };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);

@@ -41,9 +41,10 @@ const overflowButton = <XUIButton className="xui-button-icon-large" variant="ico
 const avatar = <XUIAvatar value="Tim Redmond" />;
 const actionButton = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>}/>;
 const tag = <XUITag className="xui-margin-left-small" variant="positive">Positive tag</XUITag>;
+const callback = () => { alert("clicked") };
 
 <XUIContentBlock className="xui-panel">
-	<XUIContentBlockItem primaryHeading="Primary" secondaryHeading="Secondary" overflow={overflowButton} leftContent={avatar} pinnedValue="0.00" action={actionButton} tag={tag}/>
+	<XUIContentBlockItem primaryHeading="Primary" secondaryHeading="Secondary" overflow={overflowButton} leftContent={avatar} pinnedValue="0.00" action={actionButton} tag={tag} onClick={callback}/>
 </XUIContentBlock>
 
 ```

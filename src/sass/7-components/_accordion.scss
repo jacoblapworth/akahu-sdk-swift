@@ -725,6 +725,7 @@ $xui-accordion-pop-width: 8px;
 .#{$ns}-accordiontrigger--arrow {
 	align-items: center;
 	display: flex;
+	flex-shrink: 0;
 	justify-content: center;
 	overflow: hidden;
 	padding: $xui-s-xsmall;

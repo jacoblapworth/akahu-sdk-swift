@@ -27,6 +27,11 @@ function scrollIntoViewIfNecessary(node) {
 		node.scrollIntoView();
 	}
 }
+// Some helper functions for clarity over keyCode usage.
+const isSpaceKey = keyCode => keyCode === 32;
+const isTabKey = keyCode => keyCode === 9;
+const isEscapeKey = keyCode => keyCode === 27;
+const isDownArrowKey = keyCode => keyCode === 40;
 
 /**
  * Attempt to set focus onto the trigger either via native DOM APIs or
@@ -236,9 +241,9 @@ export default class DropDownToggled extends PureComponent {
 	 * @public
 	 */
 	closeDropDown = () => {
-		this.setState(() => ({
-			isHidden: !shouldAnimate(this),
-			isClosing: shouldAnimate(this),
+		this.setState(({ isHidden }) => ({
+			isHidden: !isHidden && !shouldAnimate(this),
+			isClosing: !isHidden && shouldAnimate(this),
 		}));
 	};
 
@@ -284,8 +289,9 @@ export default class DropDownToggled extends PureComponent {
 	 * @param {KeyboardEvent} event key down event object
 	 */
 	onDropDownKeyDown = event => {
-		if (!this.state.isHidden && (event.keyCode === 27 || event.keyCode === 9)) {
-			if (event.keyCode !== 9 || this.props.closeOnTab) {
+		const { keyCode } = event;
+		if (!this.state.isHidden && (isEscapeKey(keyCode) || isTabKey(keyCode))) {
+			if (!isTabKey(keyCode) || this.props.closeOnTab) {
 				this.closeDropDown();
 			}
 		}
@@ -297,16 +303,54 @@ export default class DropDownToggled extends PureComponent {
 	 * @param {KeyboardEvent} event key down event object
 	 */
 	onTriggerKeyDown = event => {
-		if (event.keyCode === 40 && this.state.isHidden) {
-			event.preventDefault();
+		const { keyCode } = event;
+
+		if (isDownArrowKey(keyCode) && this.state.isHidden) {
+			this.preventDefaultIEHandler(event);
 			this.openDropDown();
-		} else if (!this.state.isHidden && (event.keyCode === 9 || event.keyCode === 27)) {
+		} else if (!this.state.isHidden && (isTabKey(keyCode) || isEscapeKey(keyCode))) {
 			// If the user doesn't want to close when the tab key is hit, don't
-			if (event.keyCode !== 9 || this.props.closeOnTab) {
+			if (!isTabKey(keyCode) || this.props.closeOnTab) {
 				this.closeDropDown();
 			}
 		}
 	};
+
+	/**
+	 * Both spacebarKeyHandler and onTriggerKeyUp were developed to resolve a firefox accessibility
+	 * issue regarding the spacebar having keydown/keypress/keyup/onclick all occuring.
+	 * SpacebarKeyHandler ensures the right action (open/close) is occuring on the dropdown.
+	 * As well as ensuring that the spacebar key isn't meant to be ignored.
+	 * @param {KeyboardEvent} event key down event object
+	 */
+	spacebarKeyHandler = event => {
+		const { keyCode } = event;
+		if (isSpaceKey(keyCode) && this.props.dropdown.props.ignoreKeyboardEvents.indexOf(32) === -1) {
+			this.preventDefaultIEHandler(event);
+			if (this.state.isHidden) {
+				this.openDropDown();
+				return;
+			}
+			this.closeDropDown();
+		}
+	}
+
+	onTriggerKeyUp = event => {
+		if (isSpaceKey(event.keyCode) && this.state.isHidden) {
+			this.preventDefaultIEHandler(event);
+		}
+	}
+
+	/**
+		*IE has issues with event.preventdefault and works with returnValue instead.
+		*https://stackoverflow.com/questions/1000597/event-preventdefault-function-not-working-in-ie
+		* @param {MouseEvent} event
+	 */
+	preventDefaultIEHandler = event => {
+		event.preventDefault ?
+			event.preventDefault() : (event.returnValue = false); // eslint-disable-line no-param-reassign
+	}
+
 
 	/**
 	 * Fires when the window triggers a mouse down event
@@ -440,9 +484,17 @@ export default class DropDownToggled extends PureComponent {
 	};
 
 	handleOnKeyDown = event => {
-		const { props, onTriggerKeyDown } = this;
+		const { props, onTriggerKeyDown, spacebarKeyHandler } = this;
 		const { onKeyDown } = props.trigger.props;
-		const handler = compose(onKeyDown, onTriggerKeyDown);
+		const handler = compose(onKeyDown, onTriggerKeyDown, spacebarKeyHandler);
+
+		handler(event);
+	};
+
+	handleOnKeyUp = event => {
+		const { props, onTriggerKeyUp } = this;
+		const { onKeyUp } = props.trigger.props;
+		const handler = compose(onKeyUp, onTriggerKeyUp);
 
 		handler(event);
 	};
@@ -474,6 +526,7 @@ export default class DropDownToggled extends PureComponent {
 			'ref': compose(trigger.ref, c => this.trigger = c),
 			'onClick': this.handleOnClick,
 			'onKeyDown': this.handleOnKeyDown,
+			'onKeyUp': this.handleOnKeyUp,
 			'aria-activedescendant': activeDescendant,
 			'aria-haspopup': ariaPopupType,
 			'aria-controls': (!isHidden && this.dropdownId) || undefined,

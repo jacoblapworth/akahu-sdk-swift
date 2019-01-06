@@ -3,6 +3,7 @@ import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIPill from '../XUIPill';
+import XUIAvatar from '../../avatar/XUIAvatar';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -43,9 +44,9 @@ describe('<XUIPill />', () => {
 	});
 
 	it('will render avatars when passed as an avatar prop', () => {
-		const link = "https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg";
+		const imageUrl = "https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg";
 		const avatarProps = {
-			imageUrl: link,
+			imageUrl,
 			size: 'small',
 			role: 'presentation',
 			value: 'A'
@@ -55,6 +56,39 @@ describe('<XUIPill />', () => {
 		);
 
 		expect(pill.find('.xui-avatar')).toBeTruthy();
+	});
+
+	it('renders the pill with the provided avatar component', () => {
+		const avatar = <XUIAvatar value="value pill" size="small" />
+		const pill = renderer.create(
+			<XUIPill value="Value Pill" avatar={avatar} />
+		);
+
+		expect(pill).toMatchSnapshot();
+	});
+
+	it('expect an error if both avatar and avatarProps are provided', () => {
+		const imageUrl = "https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg";
+		const avatar = <XUIAvatar value="value pill" size="small" />
+		const avatarProps = {
+			imageUrl,
+			size: 'small',
+			role: 'presentation',
+			value: 'A'
+		};
+		expect(() => renderer.create(
+			<XUIPill value="Value Pill" avatar={avatar} avatarProps={avatarProps} />
+		)).toThrow();
+	});
+
+	it('invokes the callback passed into the onDeleteClick prop with itself passed in as an argument', () => {
+		const callback = jest.fn();
+		const pill = shallow(
+			<XUIPill value="Pill" onDeleteClick={callback} />
+		);
+
+		pill.find('.xui-pill--button-icon').simulate('click');
+		expect(callback.mock.calls.length).toEqual(1);
 	});
 
 	it('invokes the callback passed into the onClick prop', () => {
@@ -119,9 +153,9 @@ describe('<XUIPill />', () => {
 
 	it('should render an error icon when invalid even with an avatar', () => {
 
-		const link = "https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg";
+		const imageUrl = "https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg";
 		const avatarProps = {
-			imageUrl: link,
+			imageUrl,
 			size: 'small',
 			role: 'presentation',
 			value: 'A'

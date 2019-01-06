@@ -74,6 +74,7 @@ export default class XUIPill extends PureComponent {
 			isMaxContentWidth,
 			size,
 			debugShowToolTip,
+			avatar,
 		} = this.props;
 
 		const {
@@ -90,6 +91,7 @@ export default class XUIPill extends PureComponent {
 			isFocused && `${baseClass}-is-focused`,
 			onDeleteClick && `${baseClass}-is-deletable`,
 			(avatarProps != null || isInvalid) && `${baseClass}-has-avatar`,
+			avatar && `${baseClass}-has-avatar`,
 			(href || onClick) && `${baseClass}-interactive`,
 		);
 
@@ -120,6 +122,7 @@ export default class XUIPill extends PureComponent {
 					innerPillRef={this._innerPill}
 					{...{
 						avatarProps,
+						avatar,
 						href,
 						isInvalid,
 						onClick,
@@ -128,7 +131,7 @@ export default class XUIPill extends PureComponent {
 						target,
 						title,
 						value,
-						size,
+						size
 					}}
 				/>
 				{deleteButton}
@@ -163,6 +166,13 @@ XUIPill.defaultProps = {
 XUIPill.propTypes = {
 	/** Props for the avatar to be displayed, must adhere to the XUIAvatar component API described at https://github.dev.xero.com/UXE/xui-avatar. Version 6.0.0+. Not providing props will omit the avatar entirely. */
 	avatarProps: PropTypes.object,
+	/** An avatar component. May be used instead of avatarProps */
+	avatar(props, propName) {
+		if (props[propName] && props.avatarProps) {
+			return new Error('Cannot accept both avatarProps and an avatar component');
+		}
+		return null;
+	},
 	/** Apply classes to the outer Pill `div` element. */
 	className: PropTypes.string,
 	/** Specify an alternate label attribute for the delete button, defaults to 'Delete'. */

@@ -9,7 +9,12 @@
 	display: inline-flex;
 	height: $xui-control-size-standard;
 	justify-content: center;
+	position: relative;
 	width: $xui-control-size-standard;
+
+	.#{$ns}-icon {
+		display: block;
+	}
 
 	&.#{$ns}-button-is-disabled {
 		@include xui-button-is-disabled(none, $xui-button-icon-disabled-color, initial);

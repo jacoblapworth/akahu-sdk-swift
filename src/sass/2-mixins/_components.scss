@@ -10,6 +10,11 @@
 	color: inherit;
 	font: inherit;
 	outline: none;
+	&::-ms-clear {
+		display: none;
+		height: 0;
+		width: 0;
+	}
 }
 
 /*

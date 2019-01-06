@@ -116,6 +116,16 @@ export default class DropDown extends PureComponent {
 	};
 
 	/**
+	 * Select the currently-highlighted list item.
+	 *
+	 * @public
+	 * @memberof DropDown
+	 */
+	selectHighlighted = () => {
+		this.panel.current.selectHighlighted();
+	};
+
+	/**
 	 * Used to highlight an item immediately after a dropdown opens.
 	 *
 	 * @public

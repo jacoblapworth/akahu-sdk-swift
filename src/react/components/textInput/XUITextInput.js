@@ -8,6 +8,7 @@ import { inputBaseClass, inputSizeClasses, baseSizeClasses } from './private/con
 import { calculateMaxHeight } from './private/helpers';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds from '../controlwrapper/helpers';
+import ns from '../helpers/xuiClassNamespace';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
 const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
@@ -23,7 +24,7 @@ class XUITextInput extends PureComponent {
 	componentDidMount() {
 		const { maxRows } = this.props;
 
-		if (shouldAutomaticallyResize(this.props)) {
+		if (shouldAutomaticallyResize(this.props) && this.input) {
 			if (maxRows != null) {
 				this.setState({ // eslint-disable-line react/no-did-mount-set-state
 					maxHeight: calculateMaxHeight({
@@ -42,7 +43,7 @@ class XUITextInput extends PureComponent {
 	}
 
 	componentDidUpdate() {
-		if (shouldAutomaticallyResize(this.props)) {
+		if (shouldAutomaticallyResize(this.props) && this.input) {
 			const evt = document.createEvent('Event');
 			evt.initEvent('autosize:update', true, false);
 			this.input.dispatchEvent(evt);
@@ -133,7 +134,6 @@ class XUITextInput extends PureComponent {
 			hasFocus && `${inputBaseClass}-focus`,
 			isDisabled && `${inputBaseClass}-is-disabled`,
 		);
-
 
 		const InputEl = isMultiline ? 'textarea' : 'input';
 
@@ -271,7 +271,14 @@ XUITextInput.propTypes = {
 	 * `isMultiline=true` and `rightElement=undefined`) */
 	isManuallyResizable: PropTypes.bool,
 	/** Should label be applied as an aria-label, rather than being visibly displayed. */
-	isLabelHidden: PropTypes.bool,
+	isLabelHidden(props, propName) {
+		// If the label is hidden, the label value must be a string
+		if (props[propName] && props.labelText && typeof props.labelText !== 'string') {
+			return new Error('XUITextInput labelText must be a string ' +
+				'when isLabelHidden as it is applied as an attribute');
+		}
+		return null;
+	},
 	/** Provide a specific label ID which will be used as the "labelleby" aria property */
 	labelId: PropTypes.string,
 };

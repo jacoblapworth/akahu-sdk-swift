@@ -37,6 +37,20 @@ const variations = [
 		{
 			text: 'Action Two'
 		}]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with two actions with long strings',
+		messageText: 'With Two Actions But Really Really Long Strings',
+		onCloseClick: NOOP,
+		actionProps: [{
+			text: 'Long long test string to see if this will break. Long long test string to see if this will break.' +
+			'Long long test string to see if this will break. Long long test string to see if this will break.'
+		},
+		{
+			text: 'Long long test string to see if this will break. Long long test string to see if this will break.' +
+			 'Long long test string to see if this will break. Long long test string to see if this will break.'
+		}]
 	}
 ];
 

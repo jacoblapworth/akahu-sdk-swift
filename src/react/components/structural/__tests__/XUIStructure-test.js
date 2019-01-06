@@ -428,6 +428,7 @@ describe('<XUI Structure/>', () => {
 			const testLeftContent = <abbr className="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>;
 			const testActions = <XUIActions primaryAction={<XUIButton key='one' variant="primary" size="small">One</XUIButton>} secondaryAction={<XUIButton key='two' size="small">Two</XUIButton>}/>;
 			const testTag = <span className="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>;
+			const testHrefProp = '#';
 
 			const testContentblockWithEverything = renderer.create(
 				<XUIContentBlock>
@@ -443,10 +444,27 @@ describe('<XUI Structure/>', () => {
 						pinnedValue="0.00"
 						tags={testTag}
 						tagPosition="right"
+						tag={testTag}
+						href={testHrefProp}
 					/>
 				</XUIContentBlock>
 			);
 			expect(testContentblockWithEverything).toMatchSnapshot();
 		});
+		it('renders content block item main content as anchor when onKeyDown prop is passed', () => {
+			const testOnKeyDownCallback = () => {};
+			const wrapper = renderer.create(
+				<XUIContentBlockItem onKeyDown={testOnKeyDownCallback}></XUIContentBlockItem>
+			);
+			expect(wrapper).toMatchSnapshot();
+		});
+		it('invokes callback passed to onClick prop', () => {
+			const testCallback = jest.fn();
+			const wrapper = shallow(
+				<XUIContentBlockItem primaryHeading={testPrimaryHeading} onClick={testCallback}></XUIContentBlockItem>
+			);
+			wrapper.find('a').simulate('click');
+			expect(testCallback).toHaveBeenCalledTimes(1);
+		})
 	});
 });

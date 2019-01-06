@@ -292,10 +292,24 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <button type="button" class="xui-button xui-button-standard">
-//    Dropdown
-//   <svg focusable="false" class="xui-icon xui-button--caret"><use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-// </button>
+// <div class="xui-margin-vertical">
+//   <button type="button" class="xui-button xui-button-standard">
+//     Dropdown
+//     <svg focusable="false" class="xui-icon xui-button--caret"><use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//   </button>
+// </div>
+// <div class="xui-margin-vertical">
+//   <button type="button" class="xui-button xui-button-small xui-button-standard">
+//     Dropdown
+//     <svg focusable="false" class="xui-icon xui-button--caret"><use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//   </button>
+// </div>
+// <div class="xui-margin-vertical">
+//   <button type="button" class="xui-button xui-button-xsmall xui-button-standard">
+//     Dropdown
+//     <svg focusable="false" class="xui-icon xui-button--caret"><use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//   </button>
+// </div>
 //
 // Styleguide: Building Blocks.Controls.Button.9
 
@@ -310,10 +324,26 @@
 // xui-button-grouped: Modifier for a grouped button
 //
 // Markup:
-// <div class="xui-buttongroup">
-//   <button type="button" class="xui-button xui-button-grouped xui-button-standard">Delete</button>
-//   <button type="button" class="xui-button xui-button-grouped xui-button-standard">Copy</button>
-//   <button type="button" class="xui-button xui-button-grouped xui-button-standard">Edit</button>
+// <div class="xui-margin-top">
+//   <div class="xui-buttongroup">
+//     <button type="button" class="xui-button xui-button-grouped xui-button-standard">Delete</button>
+//     <button type="button" class="xui-button xui-button-grouped xui-button-standard">Copy</button>
+//     <button type="button" class="xui-button xui-button-grouped xui-button-standard">Edit</button>
+//   </div>
+// </div>
+// <div class="xui-margin-top">
+//   <div class="xui-buttongroup">
+//     <button type="button" class="xui-button xui-button-small xui-button-grouped xui-button-standard">Delete</button>
+//     <button type="button" class="xui-button xui-button-small xui-button-grouped xui-button-standard">Copy</button>
+//     <button type="button" class="xui-button xui-button-small xui-button-grouped xui-button-standard">Edit</button>
+//   </div>
+// </div>
+// <div class="xui-margin-top">
+//   <div class="xui-buttongroup">
+//     <button type="button" class="xui-button xui-button-xsmall xui-button-grouped xui-button-standard">Delete</button>
+//     <button type="button" class="xui-button xui-button-xsmall xui-button-grouped xui-button-standard">Copy</button>
+//     <button type="button" class="xui-button xui-button-xsmall xui-button-grouped xui-button-standard">Edit</button>
+//   </div>
 // </div>
 //
 // Styleguide: Building Blocks.Controls.Button.10
@@ -331,11 +361,29 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class="xui-buttongroup">
-//   <button type="button" class="xui-button xui-button-grouped xui-button-standard">Dropdown</button>
-//   <button type="button" class="xui-button xui-button-grouped xui-button-standard xui-button-split" aria-label="More actions">
-//     <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//  </button>
+// <div class="xui-margin-vertical">
+//   <div class="xui-buttongroup">
+//     <button type="button" class="xui-button xui-button-grouped xui-button-standard">Dropdown</button>
+//     <button type="button" class="xui-button xui-button-grouped xui-button-standard xui-button-split" aria-label="More actions">
+//       <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//    </button>
+//   </div>
+// </div>
+// <div class="xui-margin-vertical">
+//   <div class="xui-buttongroup">
+//     <button type="button" class="xui-button xui-button-small xui-button-grouped xui-button-standard">Dropdown</button>
+//     <button type="button" class="xui-button xui-button-small xui-button-grouped xui-button-standard xui-button-split" aria-label="More actions">
+//       <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//    </button>
+//   </div>
+// </div>
+// <div class="xui-margin-vertical">
+//   <div class="xui-buttongroup">
+//     <button type="button" class="xui-button xui-button-xsmall xui-button-grouped xui-button-standard">Dropdown</button>
+//     <button type="button" class="xui-button xui-button-xsmall xui-button-grouped xui-button-standard xui-button-split" aria-label="More actions">
+//       <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//    </button>
+//   </div>
 // </div>
 //
 // Styleguide: Building Blocks.Controls.Button.11
@@ -346,7 +394,7 @@
 //
 // Classes:
 // xui-actions: Apply to button container to set the correct layout
-// xui-actions-layout: Apply to button container to add internal spacing and stack buttons below 520px
+// xui-actions-layout: Apply to button container to add internal spacing and stack buttons below $xui-breakpoint-small
 // xui-actions--primary: Apply to primary button to set the correct order
 // xui-actions--secondary: Apply to secondary button to set the correct order
 //
@@ -365,7 +413,7 @@
 // In the case of a linear flow, apply the following modifier to push buttons to opposite sides of the container.
 //
 // Classes:
-// xui-actions-linear: Apply to button container to push buttons apart and stack below 520px
+// xui-actions-linear: Apply to button container to push buttons apart and stack below $xui-breakpoint-small
 //
 // Markup:
 // <div class="xui-panel xui-padding xui-button-fullwidth">

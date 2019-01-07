@@ -1,17 +1,25 @@
 const NOOP = require('../../helpers/noop');
-const { variants } = require('../private/constants');
+const { sizes, variants } = require('../private/constants');
 const storiesWithVariationsKindName = 'Instances/XUITag';
 
-const variations = Object.keys(variants).map(variant => ({
-		storyKind: storiesWithVariationsKindName,
+const variantVariations = Object.keys(variants).map(variant => ({
+        children: "Tag content",
+        storyKind: storiesWithVariationsKindName,
         storyTitle: `With a ${variant} variant`,
-        variant: variant,
-        children: "Tag content"
+        variant
+    })
+);
+
+const sizeVariations = Object.keys(sizes).map(size => ({
+        children: "Tag content",
+        storyKind: storiesWithVariationsKindName,
+        storyTitle: `With a ${size} size`,
+        size
     })
 );
 
 module.exports = {
 	storiesWithVariationsKindName,
-	variations,
+	variations: [...variantVariations, ...sizeVariations],
 	NOOP
 }

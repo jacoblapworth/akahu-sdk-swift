@@ -908,7 +908,6 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 		vertical-align: middle;
 	}
 	.#{$ns}-pickitem--body {
-		height: 100%;
 		text-align: left;
 	}
 	&.#{$ns}-pickitem-text-truncated .#{$ns}-pickitem--body {

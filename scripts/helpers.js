@@ -78,7 +78,7 @@ function taskRunner(task, fileName) {
 	const perf = new CaptureScriptPerformance();
 	perf.start();
 
-	return task(thisTask).then(({ stdout, stderr }) => {
+	return task(thisTask).then(({ stdout, stderr } = {}) => {
 		if (stderr) {
 			console.error(stderr);
 			thisTask.fail(`${title} failed to finish successfully`);
@@ -91,7 +91,7 @@ function taskRunner(task, fileName) {
 		perf.stop();
 		console.log(logScriptRunOutput(twoDecimals(perf.delta), title));
 		return ''; // Node will otherwise print `undefined` to the console
-	});
+	}).catch(reason => console.log(reason));
 }
 
 const taskRunnerReturns = {

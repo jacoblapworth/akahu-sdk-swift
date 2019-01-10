@@ -42,4 +42,16 @@ describe('<XUICompositionDetailSummary>', () => {
 		);
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should include layout restriction class, if specified', () => {
+		const wrapper = renderer.create(
+			<XUICompositionDetailSummary
+				summary={<div></div>}
+				detail={<div></div>}
+				retainWidth="small"
+				>
+			</XUICompositionDetailSummary>
+		);
+		expect(wrapper).toMatchSnapshot();
+	});
 });

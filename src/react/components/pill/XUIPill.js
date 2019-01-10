@@ -131,7 +131,7 @@ export default class XUIPill extends PureComponent {
 						target,
 						title,
 						value,
-						size
+						size,
 					}}
 				/>
 				{deleteButton}

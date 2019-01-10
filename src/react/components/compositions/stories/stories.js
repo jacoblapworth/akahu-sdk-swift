@@ -17,7 +17,7 @@ import XUIGridAreaMasterPanelDropdown, { XUIGridAreaMasterPanelDropdownEventLabe
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 
 import XUIPanel from '../../structural/XUIPanel';
 import XUIPicklist from '../../picklist/Picklist';
@@ -156,15 +156,19 @@ storiesWithKnobs.add('Master detail summary', () => {
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
+		retainWidth: select('Retain a width', {
+			None: '',
+			Medium: 'medium',
+			Small: 'small'
+		}, '', '1')
 	}
 	const areas = settings.isReal ? realAreas : blockAreas;
 
 	if (settings.isReal) {
 		return (
 			<Fragment>
-			<button onClick={() => fireEvent()}>Hello</button>
+				<button onClick={() => fireEvent()}>Hello</button>
 				<Tag
-					className="xui-margin"
 					{...settings}
 					{...areas}
 				/>
@@ -172,11 +176,12 @@ storiesWithKnobs.add('Master detail summary', () => {
 		)
 	}
 	return (
-		<Tag
-			className='xui-padding'
-			{...settings}
-			{...areas}
-		/>
+		<div className="xui-margin">
+			<Tag
+				{...settings}
+				{...areas}
+			/>
+		</div>
 	)
 });
 
@@ -185,6 +190,10 @@ storiesWithKnobs.add('Master detail', () => {
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
+		retainWidth: select('Retain a width', {
+			None: '',
+			Small: 'small'
+		}, '', '1')
 	}
 	const areas = settings.isReal ? realAreas : blockAreas;
 
@@ -193,7 +202,6 @@ storiesWithKnobs.add('Master detail', () => {
 			<Fragment>
 			<button onClick={() => fireEvent()}>Hello</button>
 				<Tag
-					className="xui-margin"
 					{...settings}
 					{...areas}
 				/>
@@ -201,11 +209,12 @@ storiesWithKnobs.add('Master detail', () => {
 		)
 	}
 	return (
-		<Tag
-			className='xui-padding'
-			{...settings}
-			{...areas}
-		/>
+		<div className="xui-margin">
+			<Tag
+				{...settings}
+				{...areas}
+			/>
+		</div>
 	)
 });
 
@@ -214,15 +223,20 @@ storiesWithKnobs.add('Detail summary', () => {
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
+		retainWidth: select('Retain a width', {
+			None: '',
+			Small: 'small'
+		}, '', '1')
 	}
 	const areas = settings.isReal ? realAreas : blockAreas;
 
 	return (
-		<Tag
-			className="xui-margin"
-			{...settings}
-			{...areas}
-		/>
+		<div className="xui-margin">
+			<Tag
+				{...settings}
+				{...areas}
+			/>
+		</div>
 	)
 });
 
@@ -235,11 +249,12 @@ storiesWithKnobs.add('Detail', () => {
 	const areas = settings.isReal ? realAreas : blockAreas;
 
 	return (
-		<Tag
-			className="xui-margin"
-			{...settings}
-			{...areas}
-		/>
+		<div className="xui-margin">
+			<Tag
+				{...settings}
+				{...areas}
+			/>
+		</div>
 	)
 });
 
@@ -249,14 +264,19 @@ storiesWithKnobs.add('Split', () => {
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
+		retainWidth: select('Retain a width', {
+			None: '',
+			Small: 'small'
+		}, '', '1')
 	}
 	const areas = settings.isReal ? realAreas : blockAreas;
 
 	return (
-		<Tag
-			className="xui-margin"
-			{...settings}
-			{...areas}
-		/>
+		<div className="xui-margin">
+			<Tag
+				{...settings}
+				{...areas}
+			/>
+		</div>
 	)
 });

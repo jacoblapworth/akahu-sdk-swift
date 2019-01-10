@@ -44,4 +44,16 @@ describe('<XUICompositionSplitHeader>', () => {
 		);
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should include layout restriction class, if specified', () => {
+		const wrapper = renderer.create(
+			<XUICompositionSplitHeader
+				header={<div></div>}
+				secondary={<div></div>}
+				primary={<div></div>}
+				retainWidth="small"
+				/>
+		);
+		expect(wrapper).toMatchSnapshot();
+	});
 });

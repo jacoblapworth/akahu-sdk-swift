@@ -82,7 +82,7 @@ export default class XUIContentBlockItem extends PureComponent {
 
 		const leftContentClasses = cn(
 			`${baseClass}--leftcontent`,
-			description && `${baseClass}--leftcontent-layout`
+			description && `${baseClass}--leftcontent-layout`,
 		);
 
 		const builtLeftContent = leftContent && (

@@ -1,18 +1,32 @@
 @import "../../vars";
 @import "../../mixins";
 
+@mixin composition-ds-small {
+	grid-gap: $xui-s-small $xui-s-small;
+	grid-template:
+		"summary"
+		"detail" / 1fr;
+}
+
+@mixin composition-ds-medium {
+	grid-gap: $xui-s-small $xui-s-small;
+	grid-template:
+		"detail summary" / 1fr min-content;
+}
+
 .#{$ns}-composition-detailsummary {
 
 	@include xui-breakpoint-small-down {
-		grid-gap: $xui-s-small $xui-s-small;
-		grid-template:
-			"summary"
-			"detail" / 1fr;
+		@include composition-ds-small;
 	}
 
 	@include xui-breakpoint-medium-up {
-		grid-gap: $xui-s-small $xui-s-small;
-		grid-template:
-			"detail summary" / 1fr min-content;
-		}
+		@include composition-ds-medium;
+	}
+}
+
+.#{$ns}-composition-detailsummary-retain-small {
+	@include xui-breakpoint-small-up {
+		@include composition-ds-small;
+	}
 }

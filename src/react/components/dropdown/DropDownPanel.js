@@ -143,7 +143,8 @@ class DropDownPanel extends PureComponent {
 	 * @memberof DropDownPanel
 	 */
 	selectHighlighted() {
-		this.list.current != null && this.list.current.selectHighlighted(this.list.current.getHighlighted());
+		this.list.current != null &&
+			this.list.current.selectHighlighted(this.list.current.getHighlighted());
 	}
 
 	/**

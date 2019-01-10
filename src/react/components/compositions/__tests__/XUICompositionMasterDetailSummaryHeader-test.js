@@ -34,4 +34,30 @@ describe('<XUICompositionMasterDetailSummaryHeader>', () => {
 		);
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should include layout restriction class for medium, if specified', () => {
+		const wrapper = renderer.create(
+			<XUICompositionMasterDetailSummaryHeader
+				header={<div></div>}
+				master={<div></div>}
+				summary={<div></div>}
+				detail={<div></div>}
+				retainWidth="medium"
+				/>
+		);
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should include layout restriction class for small, if specified', () => {
+		const wrapper = renderer.create(
+			<XUICompositionMasterDetailSummaryHeader
+				header={<div></div>}
+				master={<div></div>}
+				summary={<div></div>}
+				detail={<div></div>}
+				retainWidth="small"
+				/>
+		);
+		expect(wrapper).toMatchSnapshot();
+	});
 });

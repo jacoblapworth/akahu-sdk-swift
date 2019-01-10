@@ -1,27 +1,55 @@
 @import "../../vars";
 @import "../../mixins";
 
+@mixin composition-mdsh-small {
+	grid-gap: $xui-s-small $xui-s-small;
+	grid-template:
+		"header"
+		"summary"
+		"detail" / 1fr;
+}
+
+@mixin composition-mdsh-medium {
+	grid-gap: $xui-s-small $xui-s-small;
+	grid-template:
+		"header header"
+		"summary summary"
+		"master detail" / min-content 1fr;
+}
+
+@mixin composition-mdsh-large {
+	grid-gap: $xui-s-small $xui-s-small;
+	grid-template:
+		"header header header"
+		"master detail summary" / min-content 1fr min-content;
+}
+
 .#{$ns}-composition-masterdetailsummaryheader {
 	@include xui-breakpoint-small-down {
-		grid-gap: $xui-s-small $xui-s-small;
-		grid-template:
-			"header"
-			"summary"
-			"detail" / 1fr;
+		@include composition-mdsh-small;
 	}
 
 	@include xui-breakpoint-medium-only {
-		grid-gap: $xui-s-small $xui-s-small;
-		grid-template:
-			"header header"
-			"summary summary"
-			"master detail" / min-content 1fr;
+		@include composition-mdsh-medium;
 	}
 
 	@include xui-breakpoint-large-up {
-		grid-gap: $xui-s-small $xui-s-small;
-		grid-template:
-			"header header header"
-			"master detail summary" / min-content 1fr min-content;
+		@include composition-mdsh-large;
+	}
+}
+
+.#{$ns}-composition-masterdetailsummaryheader-retain-medium {
+	@include xui-breakpoint-medium-up {
+		@include composition-mdsh-medium;
+	}
+}
+
+.#{$ns}-composition-masterdetailsummaryheader-retain-small {
+	@include xui-breakpoint-small-up {
+		@include composition-mdsh-small;
+	}
+
+	& .#{$ns}-gridarea-master {
+		@include xui-utility-hidden-visually;
 	}
 }

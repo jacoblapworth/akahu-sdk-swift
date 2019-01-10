@@ -41,4 +41,15 @@ describe('<XUICompositionSplit>', () => {
 		);
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should include layout restriction class, if specified', () => {
+		const wrapper = renderer.create(
+			<XUICompositionSplit
+				secondary={<div></div>}
+				primary={<div></div>}
+				retainWidth="small"
+				/>
+		);
+		expect(wrapper).toMatchSnapshot();
+	});
 });

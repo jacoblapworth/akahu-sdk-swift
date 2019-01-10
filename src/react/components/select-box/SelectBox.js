@@ -7,6 +7,7 @@ import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import XUIButton from '../button/XUIButton';
 import XUIButtonCaret from '../button/XUIButtonCaret';
+import { sizeClassNames } from '../button/private/constants';
 import Picklist from '../picklist/Picklist';
 import qaHooks from './qaHooks';
 import { ns } from '../helpers/xuiClassNamespace';
@@ -42,36 +43,37 @@ export default class SelectBox extends Component {
 	render() {
 		const selectBox = this;
 		const {
-			dropDownClasses,
-			containerClasses,
-			isTextTruncated,
-			buttonVariant,
 			buttonClasses,
-			defaultLayout,
-			inputGroupClasses,
-			labelClassName,
-			isLabelHidden,
 			buttonContent,
-			qaHook,
-			isDisabled,
-			onSelect,
-			restrictFocus,
+			buttonVariant,
 			children,
-			label,
-			onDropdownHide,
 			closeAfterSelection,
-			isOpen,
+			containerClasses,
+			defaultLayout,
+			dropDownClasses,
 			forceDesktop,
-			matchTriggerWidth,
-			isInvalid,
-			validationMessage,
 			hintMessage,
+			inputGroupClasses,
+			isDisabled,
 			isFieldLayout,
+			isInvalid,
+			isLabelHidden,
+			isOpen,
+			isTextTruncated,
+			label,
+			labelClassName,
+			matchTriggerWidth,
+			onDropdownHide,
+			onSelect,
+			qaHook,
+			restrictFocus,
+			size,
+			validationMessage,
 		} = this.props;
 
 		const buttonClassNames = cn(
-			isTextTruncated && buttonVariant && `${selectBaseClass}--button-truncated`,
-			!buttonVariant && `${selectBaseClass}--button`,
+			`${selectBaseClass}--button`,
+			!buttonVariant && `${selectBaseClass}--button-no-variant`,
 			buttonClasses,
 		);
 		const inputGroupClassNames = cn(
@@ -80,26 +82,27 @@ export default class SelectBox extends Component {
 			isInvalid && `${selectBaseClass}-is-invalid`,
 		);
 
-		const caretClasses = (!buttonVariant && `${selectBaseClass}--caret`) || undefined;
-		const content = !buttonVariant ? (
-			<span className={`${selectBaseClass}--content`}>
-				{buttonContent}
-			</span>
-		) : buttonContent;
 		const trigger = (
 			<XUIButton
 				className={buttonClassNames}
-				type="button"
-				ref={c => selectBox.trigger = c}
-				variant={buttonVariant}
-				qaHook={setQaHook(qaHook, qaHooks.button)}
 				isDisabled={isDisabled}
+				qaHook={setQaHook(qaHook, qaHooks.button)}
+				ref={c => selectBox.trigger = c}
+				size={size}
+				type="button"
+				variant={buttonVariant}
 			>
-				{content}
+				<span className={cn(
+					`${selectBaseClass}--content`,
+					isTextTruncated && `${selectBaseClass}--content-truncated`,
+				)}
+				>
+					{buttonContent}
+				</span>
 				<XUIButtonCaret
-					className={caretClasses}
-					title="Toggle List"
+					className={`${selectBaseClass}--caret`}
 					qaHook={setQaHook(qaHook, qaHooks.buttonIcon)}
+					title="Toggle List"
 				/>
 			</XUIButton>
 		);
@@ -115,7 +118,15 @@ export default class SelectBox extends Component {
 				ariaAttributes={getAriaAttributes(this.wrapperIds.control, this.props)}
 			>
 				<Picklist>
-					{children}
+					{React.Children.map(children, child => {
+						const inheritableSizes = ['standard', 'small', 'xsmall'];
+
+						if (inheritableSizes.includes(size)) {
+							return React.cloneElement(child, { size: child.props.size || size });
+						}
+
+						return child;
+					})}
 				</Picklist>
 			</DropDown>
 		);
@@ -214,10 +225,7 @@ SelectBox.propTypes = {
 	/** Whether or not the list should be forced open */
 	isOpen: PropTypes.bool,
 
-	/**
-	 * Optionally toggles the text truncation - can only be set to false when using the button
-	 * variant
-	 */
+	/** Optionally toggles the text truncation */
 	isTextTruncated: PropTypes.bool,
 
 	/** Force the desktop experience, even if the viewport is narrow enough for mobile */
@@ -245,6 +253,15 @@ SelectBox.propTypes = {
 	hintMessage: PropTypes.string,
 	/** Whether to use the field layout classes  */
 	isFieldLayout: PropTypes.bool,
+	/**
+	 * Modifier for the size of the SelectBox.
+	 *
+	 * `standard`, `small`, `xsmall`, `full-width`, or `full-width-mobile`.
+	 *
+	 * If `SelectBoxOption` does not have a size set, it will inherit the size
+	 *  from `SelectBox` where possible.
+	*/
+	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 };
 
 SelectBox.defaultProps = {

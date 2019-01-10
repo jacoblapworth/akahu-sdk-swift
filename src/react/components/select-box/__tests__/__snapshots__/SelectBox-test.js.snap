@@ -27,7 +27,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
         <button
           aria-activedescendant={null}
           aria-haspopup="listbox"
-          className="xui-button xui-select--button xui-button-standard"
+          className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard"
           data-automationid="test-selectbox---button"
           disabled={false}
           onClick={[Function]}
@@ -37,7 +37,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
           type="button"
         >
           <span
-            className="xui-select--content"
+            className="xui-select--content xui-select--content-truncated"
           >
             test
           </span>
@@ -89,7 +89,7 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
         <button
           aria-activedescendant={null}
           aria-haspopup="listbox"
-          className="xui-button xui-select--button xui-button-standard xui-button-is-disabled"
+          className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-is-disabled"
           data-automationid={null}
           disabled={true}
           onClick={[Function]}
@@ -99,7 +99,7 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
           type="button"
         >
           <span
-            className="xui-select--content"
+            className="xui-select--content xui-select--content-truncated"
           >
             test
           </span>

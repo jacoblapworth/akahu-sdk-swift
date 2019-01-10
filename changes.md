@@ -73,6 +73,12 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- In support of the more contentblock-style Autocompleter picklists, Pickitems also have new `headerElement` and `isMultiline` props.
 - ContentBlockItem has new `description` and `tagPosition` props. Description is styled similarly to the prior `secondaryHeading` content (which has now become more prominent), and `tagPosition` allows you to specify where tags will be placed. `pinnedValue`, `href`, `primaryHeading`, and `secondaryHeading` now only accept strings. The `tag` property has been changed to accept multiple tags, and is now labeled `tags`, accordingly.
 - Loader size options have been switched from 'large', 'standard', and 'small' to be consistent with other component sizes. New size options are 'standard', 'small', and 'xsmall', and will be converted automatically if using the codemod. The largest size, 'standard' is now the default.
+- `SelectBox` 
+	- Has a new `size` prop. The default value is `standard`.
+		- The available sizes are `full-width`, `full-width-mobile`, `standard`, `small`, and `xsmall`.
+	- If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
+	- No longer defaults to being full-width when a `buttonVariant` is not supplied. To make your `SelectBox` full-width, set the `size` prop to `full-width`.
+	- The `isTextTruncated` prop can now be used without a `buttonVariant`.
 
 ### Utility classes
 
@@ -95,7 +101,9 @@ All other existing values stay as they are (including `2xlarge`)
 ---
 
 ### Component classes
-
+- `SelectBox` without React
+	- Additional class `xui-select--button-no-variant` is now required when building a SelectBox without React.
+	- `xui-button-fullwidth` is now required to make the SelectBox match the width of its container. For the `SelectBox` React component, set the `size` prop to `full-width` instead.
 
 ### Component prop name changes
 
@@ -109,6 +117,7 @@ All other existing values stay as they are (including `2xlarge`)
 - Text input now has a `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - Tag has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - Checkbox and Radio have a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
+- SelectBox has a new `size` prop. The default value is `standard`. Other available values are `full-width`, `full-width-mobile`, `standard`, `small`, and `xsmall`.
 
 ## Other changes
 

@@ -761,9 +761,9 @@ exports[`<XUI Structure/> Rows and columns: renders the base row with no extra s
 </div>
 `;
 
-exports[`<XUI Structure/> Rows and columns: renders the column with wide and medium column widths, if provided 1`] = `
+exports[`<XUI Structure/> Rows and columns: renders the column with breakpoint-dependent column widths, if provided 1`] = `
 <div
-  className="xui-column-12-of-12 xui-column-3-of-12-medium xui-column-6-of-12-wide"
+  className="xui-column-12-of-12 xui-column-3-of-12-small-up xui-column-6-of-12-large-up"
 >
   Testing 💩
 </div>

@@ -57,8 +57,8 @@ describe('<XUI Structure/>', () => {
 				expect(tag.hasClass(`xui-column-${columnShortNames[shorthand]}-of-12`)).toEqual(true);
 			});
 		});
-		it('renders the column with wide and medium column widths, if provided', () => {
-			const testCol = renderer.create(<XUIColumn gridColumnsMedium="3" gridColumnsWide="6">Testing 💩</XUIColumn>);
+		it('renders the column with breakpoint-dependent column widths, if provided', () => {
+			const testCol = renderer.create(<XUIColumn gridColumnsSmallUp="3" gridColumnsLargeUp="6">Testing 💩</XUIColumn>);
 			expect(testCol).toMatchSnapshot();
 		});
 		it('renders row classes that are passed in', () => {

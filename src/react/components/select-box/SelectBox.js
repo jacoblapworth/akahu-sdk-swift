@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import uuidv4 from 'uuid/v4';
 
+import SelectBoxOption from './SelectBoxOption';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import XUIButton from '../button/XUIButton';
@@ -123,6 +124,10 @@ export default class SelectBox extends Component {
 						const inheritableSizes = ['standard', 'small', 'xsmall'];
 
 						if (inheritableSizes.indexOf(size) === -1) {
+							return child;
+						}
+
+						if (child && child.type !== SelectBoxOption) {
 							return child;
 						}
 

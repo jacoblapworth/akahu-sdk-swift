@@ -122,11 +122,11 @@ export default class SelectBox extends Component {
 					{React.Children.map(children, child => {
 						const inheritableSizes = ['standard', 'small', 'xsmall'];
 
-						if (inheritableSizes.includes(size)) {
-							return React.cloneElement(child, { size: child.props.size || size });
+						if (inheritableSizes.indexOf(size) === -1) {
+							return child;
 						}
 
-						return child;
+						return React.cloneElement(child, { size: child.props.size || size });
 					})}
 				</Picklist>
 			</DropDown>

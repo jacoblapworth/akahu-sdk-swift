@@ -16,9 +16,7 @@
 }
 
 .#{$ns}-composition-masterdetailheader {
-	@include xui-breakpoint-small-down {
-		@include composition-mdh-small;
-	}
+	@include composition-mdh-small;
 
 	@include xui-breakpoint-medium-up {
 		@include composition-mdh-medium;
@@ -26,7 +24,7 @@
 }
 
 .#{$ns}-composition-masterdetailheader-retain-small {
-	@include xui-breakpoint-small-up {
+	@include xui-breakpoint-medium-up {
 		@include composition-mdh-small;
 	}
 

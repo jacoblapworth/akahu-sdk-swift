@@ -25,11 +25,9 @@
 }
 
 .#{$ns}-composition-masterdetailsummaryheader {
-	@include xui-breakpoint-small-down {
-		@include composition-mdsh-small;
-	}
+	@include composition-mdsh-small;
 
-	@include xui-breakpoint-medium-only {
+	@include xui-breakpoint-medium-to-large {
 		@include composition-mdsh-medium;
 	}
 
@@ -39,13 +37,13 @@
 }
 
 .#{$ns}-composition-masterdetailsummaryheader-retain-medium {
-	@include xui-breakpoint-medium-up {
+	@include xui-breakpoint-large-up {
 		@include composition-mdsh-medium;
 	}
 }
 
 .#{$ns}-composition-masterdetailsummaryheader-retain-small {
-	@include xui-breakpoint-small-up {
+	@include xui-breakpoint-medium-up {
 		@include composition-mdsh-small;
 	}
 

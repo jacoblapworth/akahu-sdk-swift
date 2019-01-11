@@ -1,4 +1,5 @@
 import { ns } from '../../helpers/xuiClassNamespace';
+import breakpoints from '../../helpers/breakpoints';
 
 export const NAME_SPACE = ns;
 
@@ -8,7 +9,7 @@ export const CHART_FONT_SMALL = 11;
 export const CHART_FONT_LARGE = 13;
 export const CHART_FONT_FAMILY = '"Helvetica Neue", Helvetica, Arial, sans-serif';
 export const CHART_FONT_COLOR = '#59606D'; // Grey 3
-export const CHART_BREAKPOINT = 520;
+export const CHART_BREAKPOINT = breakpoints.small;
 
 export const X_AXIS_HEIGHT = 50;
 export const X_AXIS_FONT_COLOR = '#404756'; // Grey 2

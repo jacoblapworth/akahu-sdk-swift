@@ -49,7 +49,7 @@
 	margin: 0;
 	text-align: center;
 
-	@media(min-width: 600px) {
+	@include xui-breakpoint-small-up {
 		@include xui-margin-horizontal-auto;
 	}
 }

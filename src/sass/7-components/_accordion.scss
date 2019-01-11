@@ -731,7 +731,7 @@ $xui-accordion-pop-width: 8px;
 	padding: $xui-s-xsmall;
 	width: $xui-icon-xlarge;
 
-	@include xui-breakpoint-xsmall-only {
+	@include xui-breakpoint-small-down {
 		align-self: flex-start;
 	}
 }
@@ -748,7 +748,7 @@ $xui-accordion-pop-width: 8px;
 	flex-shrink: 0;
 	padding: $xui-s-xsmall $xui-s-large $xui-s-xsmall $xui-s-xsmall;
 
-	@include xui-breakpoint-xsmall-only {
+	@include xui-breakpoint-small-down {
 		align-self: flex-start;
 	}
 }

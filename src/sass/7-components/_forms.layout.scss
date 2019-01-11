@@ -35,7 +35,7 @@
 	max-width: $xui-form-width;
 
 	// Medium and wide breakpoint style
-	@media screen and (min-width: $xui-breakpoint-small) {
+	@include xui-breakpoint-small-up {
 		max-width: none;
 
 		.#{$ns}-field-layout {

@@ -49,7 +49,7 @@
 		}
 	}
 
-	@include xui-breakpoint-xsmall-only {
+	@include xui-breakpoint-small-down {
 		.#{$ns}-dropdown--mask {
 			/*
 		  Top and bottom are supposed to be -60px;  If they're not, unmasked content may become visible
@@ -183,7 +183,7 @@
 .#{$ns}-dropdown-is-open {
 	display: flex;
 
-	@include xui-breakpoint-xsmall-only {
+	@include xui-breakpoint-small-down {
 		&:not(.#{$ns}-dropdown-force-desktop) {
 			.#{$ns}-dropdown--mask {
 				flex-grow: 1;
@@ -202,7 +202,7 @@
 }
 
 .#{$ns}-dropdown-is-opening {
-	@include xui-breakpoint-xsmall-only {
+	@include xui-breakpoint-small-down {
 		&:not(.#{$ns}-dropdown-force-desktop) {
 			.#{$ns}-dropdown--body {
 				animation: #{$ns}-dropdown-mobile-show $xui-motion-speed-medium $xui-motion-curve-standard forwards;
@@ -214,7 +214,7 @@
 .#{$ns}-dropdown-is-closing {
 	display: flex;
 
-	@include xui-breakpoint-xsmall-only {
+	@include xui-breakpoint-small-down {
 		&:not(.#{$ns}-dropdown-force-desktop) {
 			.#{$ns}-dropdown--mask {
 				opacity: 0;
@@ -241,11 +241,11 @@
 			width: $xui-starting-width + ($xui-base-width * $number);
 		}
 
-		.#{$ns}-dropdown--header-container.#{$ns}-dropdown-show-mobile-only {
+		.#{$ns}-dropdown--header-container.#{$ns}-dropdown-hide-small-up {
 			display: none;
 		}
 	}
-	@include xui-breakpoint-xsmall-only {
+	@include xui-breakpoint-small-down {
 		.#{$ns}-dropdown-#{$variant}.#{$ns}-dropdown-force-desktop {
 			max-width: $xui-starting-width + ($xui-base-width * $number);
 		}

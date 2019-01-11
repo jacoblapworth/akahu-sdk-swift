@@ -19,23 +19,32 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 * `xui-popover--arrow` has been removed. Apply `xui-popover-arrow` on the parent popover component instead.
 * `xui-stepper-tests` class has been removed. This was a hidden and internal class, but if you were referring to it, use `xui-stepper-hidden-content` instead.
 * `xui-pill-is-deleteable` has been removed. Use `xui-pill-is-deletable` instead.
-* `xui-breakpoint-medium-and-wide` mixin has been removed. Use `xui-breakpoint-small-up` instead
-* `xui-breakpoint-wide` mixin has been removed. Use `xui-breakpoint-medium-up` instead.
-* `xui-breakpoint-huge` mixin has been removed. Use `xui-breakpoint-large-up` instead.
-* `xui-breakpoint-narrow` mixin has been removed. Use `xui-breakpoint-xsmall-only` instead.
-* `xui-breakpoint-medium` mixin has been removed. Use `xui-breakpoint-small-only` instead.
+* `xui-dropdown-show-mobile-only` has been removed. Use `xui-dropdown-hide-small-up` instead.
+* `xui-u-flex-*-narrow` classes have been removed. Use `xui-u-flex-*-small-down` instead.
+* `xui-u-flex-*-medium` classes have been removed. Use `xui-u-flex-*-small-up` instead.
+* `xui-u-flex-*-wide` classes have been removed. Use `xui-u-flex-*-large-up` instead.
+* `xui-u-hidden-narrow` has been removed. Use `xui-u-hidden-small-down` instead.
+* `xui-u-hidden-medium` has been removed. Use  `xui-u-hidden-small-up` instead.
+* `xui-u-hidden-wide` has been removed. Use  `xui-u-hidden-large-up` instead.
+* `xui-column-#-of-12-medium` classes have been removed. Use `xui-column-#-of-12-small-up` instead.
+* `xui-column-#-of-12-wide` classes have been removed. Use `xui-column-#-of-12-large-up` instead.
+* `xui-breakpoint-narrow` mixin has been removed. Use `xui-breakpoint-small-down` instead.
+* `xui-breakpoint-medium` mixin has been removed. Use `xui-breakpoint-medium-only` instead.
+* `xui-breakpoint-wide` mixin has been removed. Use `xui-breakpoint-large-up` instead.
+* `xui-breakpoint-huge` mixin has been removed. Use `xui-breakpoint-xlarge-up` instead.
+* `xui-breakpoint-medium-and-narrow` mixin has been removed. Use `xui-breakpoint-small-up` instead
+* `xui-breakpoint-medium-and-wide` mixin has been removed. Use `xui-breakpoint-large-up` instead
 
 ## Breakpoint variable name & value changes
 
 - Old breakpoint variable names & values
 
-- `xui-breakpoint-narrow: 520px`
-- `xui-breakpoint-medium: 940px`
-- `xui-breakpoint-wide: 1160px`
+	- `xui-breakpoint-narrow: 520px`
+	- `xui-breakpoint-medium: 940px`
+	- `xui-breakpoint-wide: 1160px`
 
 - New breakpoint variable names & values
 
-	- `xui-breakpoint-xsmall: 400px`
 	- `xui-breakpoint-small: 600px`
 	- `xui-breakpoint-medium: 800px`
 	- `xui-breakpoint-large: 1000px`
@@ -113,3 +122,4 @@ All other existing values stay as they are (including `2xlarge`)
 ## Other changes
 
 - Modal widths have changed: small is 300px (was 340); medium is 400px (was 460); large is 600px (was 600) and xlarge is 800px (was 860).
+- In addition to renaming the utility classes that handle viewport-size-specific behaviour, the behaviour itself has changed, in some cases. `-medium` was previously affecting elements when the viewport was *between* 520px and 940px. The new `-small-up` replacement classes will affect elements when the viewport is 600px or greater, unless overridden with a `-large-up` class, which will take over at 1000px. This is in line with a mobile-first approach. In many cases, this will mean that developers need fewer classes to get the desired behaviour.

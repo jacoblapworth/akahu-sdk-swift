@@ -30,11 +30,11 @@
 }
 
 .#{$ns}-form-inline {
-	// Narrow-first breakpoint style
+	// Mobile-first breakpoint style
 	margin: auto;
 	max-width: $xui-form-width;
 
-	// Medium and wide breakpoint style
+	// Wider viewport style
 	@include xui-breakpoint-small-up {
 		max-width: none;
 

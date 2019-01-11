@@ -46,6 +46,7 @@ export default class SelectBox extends Component {
 			buttonClasses,
 			buttonContent,
 			buttonVariant,
+			caretTitle,
 			children,
 			closeAfterSelection,
 			containerClasses,
@@ -102,7 +103,7 @@ export default class SelectBox extends Component {
 				<XUIButtonCaret
 					className={`${selectBaseClass}--caret`}
 					qaHook={setQaHook(qaHook, qaHooks.buttonIcon)}
-					title="Toggle List"
+					title={caretTitle}
 				/>
 			</XUIButton>
 		);
@@ -201,6 +202,9 @@ SelectBox.propTypes = {
 	/** Additional classes to be applied to the inputGroup */
 	inputGroupClasses: PropTypes.string,
 
+	/** Optional title for button caret */
+	caretTitle: PropTypes.string,
+
 	/** Optional callback to be executed when dropdown closes */
 	onDropdownHide: PropTypes.func,
 
@@ -272,4 +276,5 @@ SelectBox.defaultProps = {
 	forceDesktop: false,
 	matchTriggerWidth: true,
 	restrictFocus: true,
+	caretTitle: 'Toggle List',
 };

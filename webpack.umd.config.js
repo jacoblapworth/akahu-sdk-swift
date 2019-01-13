@@ -1,9 +1,10 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
 const version = require('./package.json').version;
 
 module.exports = {
+	mode: 'production',
 	entry: path.join(__dirname, 'src', 'react', 'umd.js'),
 	target: 'web',
 	output: {
@@ -13,7 +14,9 @@ module.exports = {
 		libraryTarget: 'umd',
 	},
 	plugins: [
-		new ExtractTextPlugin(`xui.umd.${version}.css`),
+		new MiniCssExtractPlugin({
+			filename: `xui.umd.${version}.css`
+		})
 	],
 	externals: {
 		'react': 'React',
@@ -28,24 +31,21 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: [
-						'css-loader',
-						{
-							loader: 'postcss-loader',
-							options: {
-								ident: 'postcss',
-								plugins: () => [
-									autoprefixer({
-										browsers: require('@xero/browserslist-autoprefixer'),
-									}),
-								],
-							},
-						},
-						'sass-loader',
-					],
-				}),
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							ident: 'postcss',
+							plugins: () => [
+								autoprefixer({
+									browsers: require('@xero/browserslist-autoprefixer'),
+								}),
+							]
+						}
+					},
+					"css-loader",
+					"sass-loader"
+				]
 			},
 		],
 	},

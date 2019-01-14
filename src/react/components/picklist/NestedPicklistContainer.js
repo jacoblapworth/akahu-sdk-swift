@@ -35,10 +35,10 @@ export default class NestedPicklistContainer extends PureComponent {
 		}
 	}
 
-	componentDidUpdate(prevProps) {
-		const { props } = this;
-		if (prevProps.isOpen !== props.isOpen) {
-			const callback = props.isOpen ? props.onOpen : props.onClose;
+	componentDidUpdate(prevProps, prevState) {
+		const { props, state } = this;
+		if (prevState.open !== state.open) {
+			const callback = state.open ? props.onOpen : props.onClose;
 			if (callback) {
 				callback();
 			}

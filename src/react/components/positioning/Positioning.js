@@ -107,6 +107,7 @@ const stylesForBottomLeftPositioning = {
 	left: 0,
 	maxHeight: null,
 	top: null,
+	marginLeft: 0,
 };
 
 class Positioning extends PureComponent {

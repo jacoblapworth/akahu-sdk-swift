@@ -371,11 +371,10 @@ export default class DropDownToggled extends PureComponent {
 		*/
 		if (
 			!isHidden
-			&& ((dropdown == null || !dropdown.contains(event.target))
-			&& (
-				trigger == null
-				|| !trigger.contains(event.target)
-				|| event.target.classList.contains(`${baseClass}--mask`)
+			&& ((dropdown == null
+				|| !dropdown.contains(event.target)
+				|| event.target.classList.contains(`${baseClass}--mask`))
+			&& (trigger == null || !trigger.contains(event.target)
 			))
 		) {
 			this.closeDropDown();

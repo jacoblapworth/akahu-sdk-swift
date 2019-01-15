@@ -24,16 +24,20 @@
 // Anatomy
 //
 // Custom selects rely heavily on React for rendering children and defining interaction.
-// However, to style the static control itself, only a few basic classes are required.
+// However, to style the static control itself, a few classes are required.
 // They extend the basic `button` and `xui-icon` combination.
 //
 // Classes:
-// xui-select--button: Select styles
+// xui-button: Style for a button
+// xui-button-standard: Modifier for a standard button
+// xui-button-fullwidth: 100% width
+// xui-select--button: Aligns the text like an input
+// xui-select--button-no-variant: Styles the button like an input
 // xui-select--content: Text styles
 // xui-select--caret: Icon styles
 //
 // Markup:
-// <button class="xui-button xui-select--button" aria-label="Select format">
+// <button class="xui-button xui-button-standard xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
 //   <span class="xui-select--content">CSV</span>
 //   <svg focusable="false" class="xui-icon xui-select--caret">
 //     <use xlink:href="#xui-icon-caret" role="presentation" />
@@ -52,7 +56,7 @@
 //
 // Markup:
 // <div class="xui-select-layout">
-// <button class="xui-button xui-select--button" aria-label="Select format">
+// <button class="xui-button xui-button-standard xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
 //   <span class="xui-select--content">CSV</span>
 //   <svg focusable="false" class="xui-icon xui-select--caret">
 //     <use xlink:href="#xui-icon-caret" role="presentation" />
@@ -62,13 +66,13 @@
 //     <div class="xui-dropdown--mask"></div>
 //     <div class="xui-dropdown--body">
 //       <ul class="xui-picklist xui-picklist-layout">
-//         <li class="xui-pickitem" tabindex="0">
+//         <li class="xui-pickitem xui-pickitem-standard" tabindex="0">
 //           <button class="xui-pickitem--body" tabindex="-1">PDF</button>
 //         </li>
-//         <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
+//         <li class="xui-pickitem xui-pickitem-standard xui-pickitem-is-selected" tabindex="0">
 //           <button class="xui-pickitem--body" tabindex="-1">CSV</button>
 //         </li>
-//         <li class="xui-pickitem" tabindex="0">
+//         <li class="xui-pickitem xui-pickitem-standard" tabindex="0">
 //           <button class="xui-pickitem--body" tabindex="-1">ZIP</button>
 //         </li>
 //       </ul>
@@ -86,7 +90,7 @@
 // xui-textcolor-faint: Changes text color
 // 
 // Markup:
-// <button class="xui-button xui-select--button" aria-label="Select format">
+// <button class="xui-button xui-button-standard xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
 //   <span class="xui-select--content xui-textcolor-faint">Select format</span>
 //   <svg focusable="false" class="xui-icon xui-select--caret">
 //     <use xlink:href="#xui-icon-caret" role="presentation" />
@@ -101,7 +105,7 @@
 // This applies styles and prevents it from accepting focus.
 // 
 // Markup:
-// <button class="xui-button xui-select--button" aria-label="Select format" disabled>
+// <button class="xui-button xui-button-standard xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format" disabled>
 //   <span class="xui-select--content">PDF</span>
 //   <svg focusable="false" class="xui-icon xui-select--caret">
 //     <use xlink:href="#xui-icon-caret" role="presentation" />

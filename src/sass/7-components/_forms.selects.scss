@@ -29,34 +29,41 @@
 	position: relative; // Required for the native select to position its caret correctly
 }
 
-.#{$ns}-select--caret {
-	align-self: center;
-	fill: $xui-color-grey-2;
-}
-
-.#{$ns}-select--content {
-	@include xui-text-truncated;
-	width: 100%;
-}
-
 .#{$ns}-select--button {
-	@include xui-commoninput;
-	background-color: $xui-color-white;
-	border: $xui-border-control;
-	border-radius: $xui-radius;
-	color: $xui-select-color;
 	display: flex;
-	font-weight: normal;
-	min-height: $xui-control-size-standard;
-	padding: $xui-input-padding-vertical $xui-input-padding-horizontal $xui-input-padding-vertical $xui-input-padding-horizontal;
+	max-width: 100%;
 	text-align: left;
+
+	&:disabled {
+		@include xui-disabled-form;
+	}
 
 	.#{$ns}-select-is-invalid & {
 		border-color: $xui-validation-invalid-color;
 	}
 }
 
-.#{$ns}-select--button-truncated,
+.#{$ns}-select--button-no-variant {
+	background-color: $xui-color-white;
+	border: $xui-border-control;
+	border-radius: $xui-radius;
+	color: $xui-select-color;
+	font-weight: normal;
+
+	.#{$ns}-select--caret {
+		fill: $xui-color-grey-2;
+	}
+}
+
+.#{$ns}-select--caret {
+	align-self: center;
+}
+
+.#{$ns}-select--content {
+	width: 100%; // This could be flex: 1;
+}
+
+.#{$ns}-select--content-truncated,
 .#{$ns}-select--option-truncated {
 	@include xui-text-truncated;
 }
@@ -75,9 +82,5 @@
 			border: 0;
 			border-radius: 0;
 		}
-	}
-
-	.#{$ns}-select--button {
-		width: 100%;
 	}
 }

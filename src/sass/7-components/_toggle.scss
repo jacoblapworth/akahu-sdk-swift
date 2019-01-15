@@ -17,8 +17,7 @@
 
 // Small variant
 .#{$ns}-toggle-small .#{$ns}-toggle--label {
-	padding-bottom: 4px; // 5px leads to a height of 31px
-	padding-top: 4px;
+	@include xui-padding-vertical($xui-s-2xsmall);
 }
 
 .#{$ns}-toggle-small .#{$ns}-toggle--label,

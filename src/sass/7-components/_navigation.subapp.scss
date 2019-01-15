@@ -7,7 +7,7 @@
 	box-shadow: $xui-shadow-border-bottom;
 	display: flex;
 	flex-wrap: nowrap;
-	min-height: 60px;
+	min-height: $xui-navigation-height;
 	overflow: hidden;
 }
 

@@ -453,8 +453,8 @@
 //
 // Styleguide: Building Blocks.Identifiers.ProgressIndicator.9
 
-$xui-progress-circular-min-width: 20px;
-$xui-progress-linear-min-height: 4px;
+$xui-progress-circular-min-width: $xui-s-large;
+$xui-progress-linear-min-height: $xui-s-2xsmall;
 
 
 @mixin xui-stepper-add-total-track-color($color: $xui-progress-total-bg-color) {

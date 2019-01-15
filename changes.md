@@ -79,6 +79,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
 	- No longer shrinks to a standard width when a `buttonVariant` is supplied. To prevent your `SelectBox` from going full-width, set the `size` prop to `standard`.
 	- The `isTextTruncated` prop can now be used without a `buttonVariant`.
+	- Has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
 
 ### Utility classes
 
@@ -119,6 +120,7 @@ All other existing values stay as they are (including `2xlarge`)
 - Tag has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - Checkbox and Radio have a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - SelectBox has a new `size` prop. The default value is `full-width`. Other available values are `full-width-mobile`, `standard`, `small`, and `xsmall`.
+- SelectBox has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
 
 ## Other changes
 

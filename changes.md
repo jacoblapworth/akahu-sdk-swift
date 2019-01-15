@@ -24,6 +24,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 * `xui-breakpoint-huge` mixin has been removed. Use `xui-breakpoint-large-up` instead.
 * `xui-breakpoint-narrow` mixin has been removed. Use `xui-breakpoint-xsmall-only` instead.
 * `xui-breakpoint-medium` mixin has been removed. Use `xui-breakpoint-small-only` instead.
+* `xui-disabled-form` mixin has been removed. Use `xui-disabled-form-control` instead.
 
 ## Breakpoint variable name & value changes
 

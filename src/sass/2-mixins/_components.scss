@@ -45,7 +45,7 @@ Applies hover button styling and given contents on hover.
 	}
 
 	&:disabled {
-		@include xui-disabled-form;
+		@include xui-disabled-form-control;
 	}
 	*::placeholder, // TODO: Go to a single selector when XUIInput is deprecated and only XUITextInput is supported.
 	&::placeholder {

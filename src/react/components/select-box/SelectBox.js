@@ -274,12 +274,13 @@ SelectBox.propTypes = {
 };
 
 SelectBox.defaultProps = {
+	caretTitle: 'Toggle List',
 	closeAfterSelection: true,
 	defaultLayout: true,
+	forceDesktop: false,
 	isOpen: false,
 	isTextTruncated: true,
-	forceDesktop: false,
 	matchTriggerWidth: true,
 	restrictFocus: true,
-	caretTitle: 'Toggle List',
+	size: 'full-width',
 };

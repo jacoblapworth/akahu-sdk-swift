@@ -32,6 +32,7 @@ const variations = [
 		storyTitle: 'with hidden label and button variant',
 		isLabelHidden: true,
 		buttonVariant: 'create',
+		size: 'standard',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

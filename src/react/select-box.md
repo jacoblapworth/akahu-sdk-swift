@@ -152,9 +152,88 @@ class MiniApp extends Component {
 <MiniApp/>
 ```
 
+### Sizes
+
+The `size` prop allows you to change the default `SelectBox` size.
+
+If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
+
+```jsx
+const { Component } = require('react');
+const XUIIcon = require('./components/icon/XUIIcon').default;
+const TextHelpers = require ('./components/select-box/TextHelpers').default;
+const bank = require('@xero/xui-icon/icons/bank').default;
+
+const banks = [
+	'ANZ',
+	'ASB',
+	'Kiwi Bank',
+	'Westpac',
+];
+
+class MiniApp extends Component {
+	constructor (props, context) {
+		super(props, context);
+
+		this.state = {
+			selectedBank: banks[2]
+		};
+		[
+			this.onBankSelect,
+		].forEach(fn => {
+			this[fn.name] = fn.bind(this);
+		});
+
+		this.selectOne = React.createRef();
+	}
+
+	onBankSelect(value) {
+		this.setState({
+			selectedBank: value
+		});
+	}
+
+	render () {
+		const MiniApp = this;
+
+		return (
+				<SelectBox
+					buttonContent={
+						<span className="xui-u-flex">
+							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
+							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
+						</span>
+					}
+					isTextTruncated={false}
+					label="Select a Bank"
+					name="selectOne"
+					ref={this.selectOne}
+					size="standard"
+				>
+					{banks.map((opt, idx) => {
+						return (
+							<SelectBoxOption
+								id={opt}
+								isSelected={opt === MiniApp.state.selectedBank}
+								key={idx + opt + 'userDefined Key'}
+								onSelect={MiniApp.onBankSelect}
+								value={opt}
+							>
+								{opt}
+							</SelectBoxOption>
+						);
+					})}
+				</SelectBox>
+		);
+	}
+}
+
+<MiniApp />
+```
+
 ### Button variants
 
-The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop.
+The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop. We recommend setting the `size` to `standard` to prevent the SelectBox from being full width with button variants.
 
 ```jsx
 const { Component } = require('react');
@@ -209,87 +288,7 @@ class MiniApp extends Component {
 					label="Select a Bank"
 					name="selectOne"
 					ref={this.selectOne}
-				>
-					{banks.map((opt, idx) => {
-						return (
-							<SelectBoxOption
-								id={opt}
-								isSelected={opt === MiniApp.state.selectedBank}
-								key={idx + opt + 'userDefined Key'}
-								onSelect={MiniApp.onBankSelect}
-								value={opt}
-							>
-								{opt}
-							</SelectBoxOption>
-						);
-					})}
-				</SelectBox>
-
-
-		);
-	}
-}
-
-<MiniApp />
-```
-
-### Sizes
-
-The `size` prop allows you to change the default `SelectBox` size. You can make it smaller, or span the width of its container.
-
-If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
-
-```jsx
-const { Component } = require('react');
-const XUIIcon = require('./components/icon/XUIIcon').default;
-const TextHelpers = require ('./components/select-box/TextHelpers').default;
-const bank = require('@xero/xui-icon/icons/bank').default;
-
-const banks = [
-	'ANZ',
-	'ASB',
-	'Kiwi Bank',
-	'Westpac',
-];
-
-class MiniApp extends Component {
-	constructor (props, context) {
-		super(props, context);
-
-		this.state = {
-			selectedBank: banks[2]
-		};
-		[
-			this.onBankSelect,
-		].forEach(fn => {
-			this[fn.name] = fn.bind(this);
-		});
-
-		this.selectOne = React.createRef();
-	}
-
-	onBankSelect(value) {
-		this.setState({
-			selectedBank: value
-		});
-	}
-
-	render () {
-		const MiniApp = this;
-
-		return (
-				<SelectBox
-					buttonContent={
-						<span className="xui-u-flex">
-							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
-							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
-						</span>
-					}
-					isTextTruncated={false}
-					label="Select a Bank"
-					name="selectOne"
-					ref={this.selectOne}
-					size="full-width"
+					size="standard"
 				>
 					{banks.map((opt, idx) => {
 						return (

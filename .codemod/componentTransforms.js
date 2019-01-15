@@ -1,3 +1,4 @@
+const invert = require('@xero/xuishift/transforms/invert');
 const stringReplace = require('@xero/xuishift/transforms/stringReplace');
 
 const labelTextToLabel = {
@@ -13,6 +14,11 @@ module.exports = {
 				{
 					name: 'size',
 					valueTransform: stringReplace({}, 'small'),
+				},
+				{
+					name: 'isMaxContentWidth',
+					newName: 'isLimitedWidth',
+					valueTransform: invert(true),
 				}
 			]
 		}

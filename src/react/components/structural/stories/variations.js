@@ -148,7 +148,7 @@ variations = [...variations,
 			{
 				primaryHeading: 'Item 3 Primary (rollover)',
 				leftContent: "rollover",
-				overflow: true
+				overflow: true,
 			},
 			{
 				primaryHeading: 'Item 4 Primary',
@@ -156,7 +156,19 @@ variations = [...variations,
 				tag: true,
 				overflow: true,
 				description: 'Many people were hoping that if the Democrats won control of Congress'
-			}
+			},
+			{
+				primaryHeading: 'Item 5 Primary (rollover)',
+				leftContent: "rollover",
+				overflow: true,
+				description: 'Rollover with short description.',
+			},
+			{
+				primaryHeading: 'Item 6 Primary (rollover)',
+				leftContent: "rollover",
+				overflow: true,
+				description: 'Rollover with long description. Many people were hoping that if the Democrats won control of Congress. Many people were hoping that if the Democrats won control of Congress. Many people were hoping that if the Democrats won control of Congress. Many people were hoping that if the Democrats won control of Congress.'
+			},
 		]
 	},
 	{

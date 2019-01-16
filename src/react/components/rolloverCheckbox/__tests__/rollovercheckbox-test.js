@@ -74,27 +74,21 @@ describe('XUIRolloverCheckbox', () => {
 		expect(expected).toMatchSnapshot();
 	});
 
-	describe('renders a variety of sizes', () => {
-		it('will be a small size when passed in the size prop', () => {
-			const { expected } = setup(renderer.create, { size: 'small' , rolloverComponent: <div></div> });
+	describe('renders a variety of size checkboxes', () => {
+		it('will be a small checkbox when passed in the checkboxSize prop', () => {
+			const { expected } = setup(renderer.create, { checkboxSize: 'small' , rolloverComponent: <div></div> });
 
 			expect(expected).toMatchSnapshot();
 		});
 
-		it('will be display the standard size when medium is set on the size prop.', () => {
-			const { expected } = setup(renderer.create, { size: 'medium' , rolloverComponent: <div></div> });
+		it('will be a medium checkbox when medium is set on the checkboxSize prop.', () => {
+			const { expected } = setup(renderer.create, { checkboxSize: 'standard' , rolloverComponent: <div></div> });
 
 			expect(expected).toMatchSnapshot();
 		});
 
-		it('will be a large size when passed in the size prop', () => {
-			const { expected } = setup(renderer.create, { size: 'large' , rolloverComponent: <div></div> });
-
-			expect(expected).toMatchSnapshot();
-		});
-
-		it('will be a xlarge size when passed in the size prop', () => {
-			const { expected } = setup(renderer.create, { size: 'xlarge' , rolloverComponent: <div></div> });
+		it('will be a xsmall checkbox when passed in the checkboxSize prop', () => {
+			const { expected } = setup(renderer.create, { checkboxSize: 'xsmall' , rolloverComponent: <div></div> });
 
 			expect(expected).toMatchSnapshot();
 		});
@@ -142,12 +136,13 @@ describe('XUIRolloverCheckbox', () => {
 		expect(expected.state().isMouseOver).toBeFalsy();
 	});
 
-	it('should check the checkbox when teh target node is clicked', () => {
+	it('should check the checkbox when the click method is triggered', () => {
+		// Testing the actual click of the DOM element doesn't accurately reflect cross-browser behavior, anyway
 		const { expected } = setup(mount, {isCheckboxHidden: false, rolloverComponent: <div></div> });
 
-		expected.find('.xui-rollovercheckbox--target').simulate('click');
+		expected.instance().triggerCheckboxClick();
 
-		//Using a DOM check here as the snapshot doesn't represent a checked state of the input.
+		//Using a ref check here as the snapshot doesn't represent a checked state of the input.
 		expect(expected.instance()._checkbox._input.current.checked).toBeTruthy();
 	});
 

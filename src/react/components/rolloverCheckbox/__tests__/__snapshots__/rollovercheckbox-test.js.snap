@@ -4,24 +4,21 @@ exports[`XUIRolloverCheckbox allows for a user defined rollover component to be 
 <div
   className="xui-rollovercheckbox--target"
   onBlur={[Function]}
-  onClick={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   role="presentation"
 >
   <div
-    className="xui-rollovercheckbox"
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-standard-checkbox"
   >
-    <div
-      className={null}
-    >
+    <div>
       <div
         id="rolloverComponent"
       />
     </div>
     <label
-      className="xui-rollovercheckbox-hidden xui-styledcheckboxradio"
+      className="xui-rollovercheckbox-hidden xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio"
       onClick={[Function]}
       role="presentation"
     >
@@ -47,14 +44,13 @@ exports[`XUIRolloverCheckbox displays the checkbox when it's set to be shown 1`]
 <div
   className="xui-rollovercheckbox--target"
   onBlur={[Function]}
-  onClick={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   role="presentation"
 >
   <div
-    className="xui-rollovercheckbox"
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-standard-checkbox"
   >
     <div
       className="xui-rollovercheckbox-hidden"
@@ -62,7 +58,7 @@ exports[`XUIRolloverCheckbox displays the checkbox when it's set to be shown 1`]
       <div />
     </div>
     <label
-      className="xui-styledcheckboxradio"
+      className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio"
       onClick={[Function]}
       role="presentation"
     >
@@ -88,22 +84,19 @@ exports[`XUIRolloverCheckbox doesn't display the checkbox when it's set to hidde
 <div
   className="xui-rollovercheckbox--target"
   onBlur={[Function]}
-  onClick={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   role="presentation"
 >
   <div
-    className="xui-rollovercheckbox"
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-standard-checkbox"
   >
-    <div
-      className={null}
-    >
+    <div>
       <div />
     </div>
     <label
-      className="xui-rollovercheckbox-hidden xui-styledcheckboxradio"
+      className="xui-rollovercheckbox-hidden xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio"
       onClick={[Function]}
       role="presentation"
     >
@@ -130,20 +123,19 @@ exports[`XUIRolloverCheckbox include an automation-id 1`] = `
   className="xui-rollovercheckbox--target"
   data-automationid="test-rollovercheckbox"
   onBlur={[Function]}
-  onClick={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   role="presentation"
 >
   <div
-    className="xui-rollovercheckbox"
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-standard-checkbox"
   >
     <div
       className="xui-rollovercheckbox-hidden"
     />
     <label
-      className="xui-styledcheckboxradio"
+      className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio"
       data-automationid="test-rollovercheckbox--checkbox"
       onClick={[Function]}
       role="presentation"
@@ -172,14 +164,13 @@ exports[`XUIRolloverCheckbox includes an aria-label, when provided 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   onBlur={[Function]}
-  onClick={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   role="presentation"
 >
   <div
-    className="xui-rollovercheckbox"
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-standard-checkbox"
   >
     <div
       className="xui-rollovercheckbox-hidden"
@@ -187,7 +178,7 @@ exports[`XUIRolloverCheckbox includes an aria-label, when provided 1`] = `
       <div />
     </div>
     <label
-      className="xui-styledcheckboxradio"
+      className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio"
       onClick={[Function]}
       role="presentation"
     >
@@ -210,141 +201,17 @@ exports[`XUIRolloverCheckbox includes an aria-label, when provided 1`] = `
 </div>
 `;
 
-exports[`XUIRolloverCheckbox renders a variety of sizes will be a large size when passed in the size prop 1`] = `
-<div
-  className="xui-rollovercheckbox--target xui-rollovercheckbox-large"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  role="presentation"
->
-  <div
-    className="xui-rollovercheckbox"
-  >
-    <div
-      className="xui-rollovercheckbox-hidden"
-    >
-      <div />
-    </div>
-    <label
-      className="xui-styledcheckboxradio"
-      onClick={[Function]}
-      role="presentation"
-    >
-      <input
-        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
-        defaultChecked={false}
-        disabled={false}
-        onChange={[Function]}
-        onClick={[Function]}
-        required={false}
-        tabIndex={0}
-        type="checkbox"
-      />
-      <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
-      />
-    </label>
-  </div>
-</div>
-`;
-
-exports[`XUIRolloverCheckbox renders a variety of sizes will be a small size when passed in the size prop 1`] = `
-<div
-  className="xui-rollovercheckbox--target xui-rollovercheckbox-small"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  role="presentation"
->
-  <div
-    className="xui-rollovercheckbox"
-  >
-    <div
-      className="xui-rollovercheckbox-hidden"
-    >
-      <div />
-    </div>
-    <label
-      className="xui-styledcheckboxradio"
-      onClick={[Function]}
-      role="presentation"
-    >
-      <input
-        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
-        defaultChecked={false}
-        disabled={false}
-        onChange={[Function]}
-        onClick={[Function]}
-        required={false}
-        tabIndex={0}
-        type="checkbox"
-      />
-      <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
-      />
-    </label>
-  </div>
-</div>
-`;
-
-exports[`XUIRolloverCheckbox renders a variety of sizes will be a xlarge size when passed in the size prop 1`] = `
-<div
-  className="xui-rollovercheckbox--target xui-rollovercheckbox-xlarge"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  role="presentation"
->
-  <div
-    className="xui-rollovercheckbox"
-  >
-    <div
-      className="xui-rollovercheckbox-hidden"
-    >
-      <div />
-    </div>
-    <label
-      className="xui-styledcheckboxradio"
-      onClick={[Function]}
-      role="presentation"
-    >
-      <input
-        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
-        defaultChecked={false}
-        disabled={false}
-        onChange={[Function]}
-        onClick={[Function]}
-        required={false}
-        tabIndex={0}
-        type="checkbox"
-      />
-      <div
-        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
-      />
-    </label>
-  </div>
-</div>
-`;
-
-exports[`XUIRolloverCheckbox renders a variety of sizes will be display the standard size when medium is set on the size prop. 1`] = `
+exports[`XUIRolloverCheckbox renders a variety of size checkboxes will be a medium checkbox when medium is set on the checkboxSize prop. 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   onBlur={[Function]}
-  onClick={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   role="presentation"
 >
   <div
-    className="xui-rollovercheckbox"
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-standard-checkbox"
   >
     <div
       className="xui-rollovercheckbox-hidden"
@@ -352,7 +219,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be display the stan
       <div />
     </div>
     <label
-      className="xui-styledcheckboxradio"
+      className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio"
       onClick={[Function]}
       role="presentation"
     >
@@ -368,6 +235,86 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be display the stan
       />
       <div
         className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-standard"
+      />
+    </label>
+  </div>
+</div>
+`;
+
+exports[`XUIRolloverCheckbox renders a variety of size checkboxes will be a small checkbox when passed in the checkboxSize prop 1`] = `
+<div
+  className="xui-rollovercheckbox--target"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="presentation"
+>
+  <div
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-small-checkbox"
+  >
+    <div
+      className="xui-rollovercheckbox-hidden"
+    >
+      <div />
+    </div>
+    <label
+      className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio"
+      onClick={[Function]}
+      role="presentation"
+    >
+      <input
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+        defaultChecked={false}
+        disabled={false}
+        onChange={[Function]}
+        onClick={[Function]}
+        required={false}
+        tabIndex={0}
+        type="checkbox"
+      />
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-small"
+      />
+    </label>
+  </div>
+</div>
+`;
+
+exports[`XUIRolloverCheckbox renders a variety of size checkboxes will be a xsmall checkbox when passed in the checkboxSize prop 1`] = `
+<div
+  className="xui-rollovercheckbox--target"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="presentation"
+>
+  <div
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-xsmall-checkbox"
+  >
+    <div
+      className="xui-rollovercheckbox-hidden"
+    >
+      <div />
+    </div>
+    <label
+      className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio"
+      onClick={[Function]}
+      role="presentation"
+    >
+      <input
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall"
+        defaultChecked={false}
+        disabled={false}
+        onChange={[Function]}
+        onClick={[Function]}
+        required={false}
+        tabIndex={0}
+        type="checkbox"
+      />
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-xsmall"
       />
     </label>
   </div>
@@ -379,14 +326,13 @@ exports[`XUIRolloverCheckbox renders an id on the root node when passed 1`] = `
   className="xui-rollovercheckbox--target"
   id="test-id"
   onBlur={[Function]}
-  onClick={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   role="presentation"
 >
   <div
-    className="xui-rollovercheckbox"
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-standard-checkbox"
   >
     <div
       className="xui-rollovercheckbox-hidden"
@@ -394,7 +340,7 @@ exports[`XUIRolloverCheckbox renders an id on the root node when passed 1`] = `
       <div />
     </div>
     <label
-      className="xui-styledcheckboxradio"
+      className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio"
       onClick={[Function]}
       role="presentation"
     >
@@ -420,14 +366,13 @@ exports[`XUIRolloverCheckbox renders checked when specified 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   onBlur={[Function]}
-  onClick={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   role="presentation"
 >
   <div
-    className="xui-rollovercheckbox"
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-standard-checkbox"
   >
     <div
       className="xui-rollovercheckbox-hidden"
@@ -435,7 +380,7 @@ exports[`XUIRolloverCheckbox renders checked when specified 1`] = `
       <div />
     </div>
     <label
-      className="xui-styledcheckboxradio"
+      className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio"
       onClick={[Function]}
       role="presentation"
     >
@@ -461,20 +406,19 @@ exports[`XUIRolloverCheckbox renders correctly 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   onBlur={[Function]}
-  onClick={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   role="presentation"
 >
   <div
-    className="xui-rollovercheckbox"
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-standard-checkbox"
   >
     <div
       className="xui-rollovercheckbox-hidden"
     />
     <label
-      className="xui-styledcheckboxradio"
+      className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio"
       onClick={[Function]}
       role="presentation"
     >
@@ -500,14 +444,13 @@ exports[`XUIRolloverCheckbox renders unchecked when specified 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   onBlur={[Function]}
-  onClick={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   role="presentation"
 >
   <div
-    className="xui-rollovercheckbox"
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-standard-checkbox"
   >
     <div
       className="xui-rollovercheckbox-hidden"
@@ -515,7 +458,7 @@ exports[`XUIRolloverCheckbox renders unchecked when specified 1`] = `
       <div />
     </div>
     <label
-      className="xui-styledcheckboxradio"
+      className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio"
       onClick={[Function]}
       role="presentation"
     >
@@ -541,14 +484,13 @@ exports[`XUIRolloverCheckbox should render the disabled classes and a disabled c
 <div
   className="xui-rollovercheckbox--target xui-rollovercheckbox--target-disabled"
   onBlur={[Function]}
-  onClick={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   role="presentation"
 >
   <div
-    className="xui-rollovercheckbox"
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-standard-checkbox"
   >
     <div
       className="xui-rollovercheckbox-hidden"
@@ -556,7 +498,7 @@ exports[`XUIRolloverCheckbox should render the disabled classes and a disabled c
       <div />
     </div>
     <label
-      className="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
+      className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
       onClick={[Function]}
       role="presentation"
     >
@@ -582,14 +524,13 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes and a disable
 <div
   className="xui-rollovercheckbox--target"
   onBlur={[Function]}
-  onClick={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   role="presentation"
 >
   <div
-    className="xui-rollovercheckbox"
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-standard-checkbox"
   >
     <div
       className="xui-rollovercheckbox-hidden"
@@ -597,7 +538,7 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes and a disable
       <div />
     </div>
     <label
-      className="xui-styledcheckboxradio"
+      className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio"
       onClick={[Function]}
       role="presentation"
     >
@@ -623,14 +564,13 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes or a disabled
 <div
   className="xui-rollovercheckbox--target"
   onBlur={[Function]}
-  onClick={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   role="presentation"
 >
   <div
-    className="xui-rollovercheckbox"
+    className="xui-rollovercheckbox xui-rollovercheckbox-has-standard-checkbox"
   >
     <div
       className="xui-rollovercheckbox-hidden"
@@ -638,7 +578,7 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes or a disabled
       <div />
     </div>
     <label
-      className="xui-styledcheckboxradio"
+      className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio"
       onClick={[Function]}
       role="presentation"
     >

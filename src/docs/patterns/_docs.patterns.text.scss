@@ -1,0 +1,46 @@
+// Displaying text
+//
+// Teaser: Be succinct, respect the user, understand the context, and beware of variable strings.
+//
+// Introduction: Depending on component, context and intention, displaying text in applications can be be full of nuance. Here is some guidance that will help when making these decisions. Be succinct, respect the user, understand the context, and beware of variable strings.
+//
+// Styleguide: Patterns.Text
+
+// Actions
+//
+// Introduction: This refers to text-based controls like buttons that most often contain business-defined strings.
+//
+// The most important thing here is to be succinct, and follow our product language guidelines. This will help mitigate most wrapping and truncation situations. However, be aware that many foreign languages may use significantly more characters and words to express the same sentiment. Because of this, take care not to declare any explicit widths based around a single language, or dictate the position of other elements based on the expected width of another.
+//
+// Tips:
+// Do: Actions should be descriptive and succinct
+// Do: Action should be robust enough to increase text length when switching languages
+// Dont: Avoid wrapping or truncating action text
+// Dont: Don't fix width of an action
+//
+// Styleguide: Patterns.Text.1
+
+// Entry points
+//
+// Introduction: This refers to top-level representations of a more complex view that are often user-generated, and appear in a list.
+//
+// Common examples might be a content block or picklist. In these cases, truncation is recommended to help maintain vertical rhythm between rows, and in turn, aid scannability. In some cases, wrapping text is desired as to understand the full context of an entry point. This pattern does come at a cost of affecting vertical rhythm.
+//
+// Tips:
+// Do: When not user-defined, entry points should be succinct and descriptive
+// Do: Truncate entry point text when vertical rhythm is desired
+// Do: Wrap entry point text to new lines when full context of information is desired
+//
+// Styleguide: Patterns.Text.2
+
+// Detail text
+//
+// Introduction: These refer to the deepest view or page of a particular instance. This might be the name of an industry within a table, or perhaps a comment within a history and notes section.
+//
+// For these elements avoid truncation, and instead, use wrapping to handle long strings. However, in limited situations where height or width restrictions on detail views are unavoidable, we recommend two approaches. For shorter strings (like a table column), truncate and add a tooltip to replicate the same content, but display it in full on click (persisting for touch users) and hover (temporary for mouse users). For longer content (like a user generated comment) consider the 'view more' approach – an explicit button to expand and collapse the height of the containing element, to reveal the rest of the string in its original context.
+//
+// Tips:
+// Do: Wrap 
+// Dont: Avoid truncating detail text
+//
+// Styleguide: Patterns.Text.3

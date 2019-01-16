@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Storybook",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:9001",
+      "webRoot": "${workspaceFolder}/src",
+    }
+  ]
+}

@@ -36,7 +36,7 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 
 #### Adding new properties
 
-A new customisation can be cerated by adding a new property into `kss/config.json` in the `custom` array (look for the above list). Custom properties should be added to the config in lower case and must always be referenced in handlebars as lowercase. The case is not checked in the scss annotations and the KSS convention is to use PascalCase here.
+A new customisation can be created by adding a new property into `kss/config.json` in the `custom` array (look for the above list). Custom properties should be added to the config in lower case and must always be referenced in handlebars as lowercase. The case is not checked in the scss annotations and the KSS convention is to use PascalCase here.
 
 ### Tokens
 
@@ -58,7 +58,7 @@ $xui-color-grey-2: mix($xui-color-grey-1, $xui-color-white, 75%);
 
 ### Classes
 
-Classes processes a : separate list of class names and descriptions and places them in a table. It uses the custom helper [classes.js](https://github.dev.xero.com/UXE/xui/blob/master/kss/builder/extend/classes.js) to extract colon separated key value pairs of classes and descriptions.
+Classes processes a colon separated list of class names and descriptions and places them in a table. It uses the custom helper [classes.js](https://github.dev.xero.com/UXE/xui/blob/master/kss/builder/extend/classes.js) to extract colon separated key value pairs of classes and descriptions.
 
 ### Markdown
 
@@ -101,7 +101,7 @@ Creates a note which is simply a paragraph styled at 85%
 
 ### Introduction
 
-Adds a defined introduction wrapped in <p/> tag with a `.ds-intro` class.
+Adds a defined introduction wrapped in a `<p/>` tag with a `.ds-intro` class.
 
 ```
 // Introduction: Some wise words

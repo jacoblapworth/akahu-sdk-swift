@@ -613,7 +613,6 @@
 
 .#{$ns}-contentblockitem--links {
 	color: inherit;
-	cursor: pointer;
 	display: block;
 	text-decoration: none;
 
@@ -695,6 +694,7 @@
 
 .#{$ns}-rowlink {
 	color: inherit;
+	cursor: pointer;
 	display: block;
 }
 

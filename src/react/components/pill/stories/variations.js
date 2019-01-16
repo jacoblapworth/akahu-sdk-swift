@@ -63,9 +63,16 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'with long text',
+		storyTitle: 'with long text and size limit',
 		value: 'I am the primary value, I have long text',
-		avatarProps
+		avatarProps,
+		isLimitedWidth: true,
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with long text and auto width',
+		value: 'I am the primary value, I have long text',
+		avatarProps,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -111,8 +118,8 @@ const variations = [
 		value: 'I am the primary value, I have long text',
 		avatarProps,
 		debugShowToolTip: true,
+		isLimitedWidth: true,
 	},
-	,
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'truncated secondary text and tooltip',
@@ -120,6 +127,7 @@ const variations = [
 		secondaryText: 'I am secondary text, I am long',
 		avatarProps,
 		debugShowToolTip: true,
+		isLimitedWidth: true,
 	},
 ];
 

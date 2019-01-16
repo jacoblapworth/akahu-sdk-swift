@@ -180,6 +180,16 @@ Configured in `.styleguidist/` folder. Checkout our [.styleguidist/README.md](.s
 
 Configured in `.storybook/` folder.
 
+#### Debugging
+
+XUI's React components can be debugged in Storybook with Visual Studio Code.
+
+To get started, install the [Debugger for chrome](https://github.com/Microsoft/vscode-chrome-debug) extension for Visual Studio Code.
+
+Next, go to the Debug panel and click the start button at the top of the panel.
+
+You can now add breakpoints that will be triggered by the Chrome window that opened automatically. 
+
 ## Releasing XUI
 
 1. [Draft up the Release notes in GitHub](https://github.dev.xero.com/UXE/xui/releases/new).

@@ -621,7 +621,7 @@
 @import "../vars";
 @import "../mixins";
 
-$xui-accordion-pop-width: 8px;
+$xui-accordion-pop-width: $xui-s-xsmall;
 
 .#{$ns}-accordion {
 	width: 100%;

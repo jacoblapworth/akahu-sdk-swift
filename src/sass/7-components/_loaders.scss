@@ -394,9 +394,9 @@
 }
 
 .#{$ns}-loader--dot {
-	$dot-size-xsmall: 10px;
-	$dot-size-small: 12px;
-	$dot-size-standard: 14px;
+	$dot-size-xsmall: ($xui-s-small - 2);
+	$dot-size-small: $xui-s-small;
+	$dot-size-standard: ($xui-s-small + 2);
 	$dot-margin-small: 2px;
 	$dot-margin-standard: 3px;
 	$animation-time: 1.3s;

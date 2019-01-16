@@ -758,7 +758,7 @@
 
 .#{$ns}-stepper-link-icon,
 .#{$ns}-stepper-link-progress {
-	$size: 40px;
+	$size: $xui-control-size-standard;
 	display: inline-block;
 	flex-shrink: 0;
 	height: $size;

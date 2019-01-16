@@ -102,9 +102,9 @@
 }
 
 .#{$ns}-popover-arrow:before {
-	border-bottom: 8px solid $xui-popover-arrow-border-color;
-	border-left: 8px solid transparent;
-	border-right: 8px solid transparent;
+	border-bottom: $xui-s-xsmall solid $xui-popover-arrow-border-color;
+	border-left: $xui-s-xsmall solid transparent;
+	border-right: $xui-s-xsmall solid transparent;
 	content: '';
 	left: 15px;
 	position: absolute;
@@ -112,9 +112,9 @@
 }
 
 .#{$ns}-popover-arrow:after {
-	border-bottom: 8px solid $xui-popover-bg-color;
-	border-left: 8px solid transparent;
-	border-right: 8px solid transparent;
+	border-bottom: $xui-s-xsmall solid $xui-popover-bg-color;
+	border-left: $xui-s-xsmall solid transparent;
+	border-right: $xui-s-xsmall solid transparent;
 	content: '';
 	left: 15px;
 	position: absolute;

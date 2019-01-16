@@ -20,3 +20,34 @@
 // At x-breakpoint the containers are side by side. At smaller breakpoints, the primary container sits above the secondary one.
 //
 // Styleguide: Compositions.Split.2
+
+// Split
+//
+// Markup:
+// <div class="xui-composition xui-composition-split xui-composition-is-finite">
+//   <div class="xui-gridarea-primary xui-width-xsmall-up">
+//     <div style="background: rgb(173, 173, 243); height: 100px;"></div>
+//   </div>
+//   <div class="xui-gridarea-detail xui-width-xsmall-up">
+//     <div style="background: rgb(197, 197, 246); height: 100px;"></div>
+//   </div>
+// </div>
+//
+// Styleguide: Compositions.Split.3
+
+// Split with header
+//
+// Markup:
+// <div class="xui-composition xui-composition-splitheader xui-composition-is-finite">
+//   <div class="xui-gridarea-header xui-width-xsmall-up xui-width-small-up xui-width-medium-up">
+//     <div style="background: rgb(180, 70, 200); height: 60px;"></div>
+//   </div>
+//   <div class="xui-gridarea-primary xui-width-xsmall-up">
+//     <div style="background: rgb(173, 173, 243); height: 100px;"></div>
+//   </div>
+//   <div class="xui-gridarea-detail xui-width-xsmall-up">
+//     <div style="background: rgb(197, 197, 246); height: 100px;"></div>
+//   </div>
+// </div>
+//
+// Styleguide: Compositions.Split.4

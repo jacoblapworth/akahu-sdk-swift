@@ -92,7 +92,12 @@ module.exports = {
 	'@xero/xui/react/textinput': [
 		{
 			isDefault: true,
-			props: [labelTextToLabel],
+			props: [labelTextToLabel, {
+				name: 'size',
+				valueTransform: stringReplace({
+					'standard': 'medium',
+				}),
+			}],
 		}
 	],
 	'@xero/xui/react/toggle': [

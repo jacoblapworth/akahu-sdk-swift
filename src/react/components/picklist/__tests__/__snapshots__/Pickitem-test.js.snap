@@ -40,7 +40,7 @@ exports[`<Pickitem /> renders a multiselect pickitem with truncation 1`] = `
       <input
         aria-labelledby="testPickitemCheckboxId"
         checked={false}
-        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+        className="xui-styledcheckboxradio--input"
         disabled={false}
         onChange={[Function]}
         onClick={[Function]}
@@ -49,10 +49,10 @@ exports[`<Pickitem /> renders a multiselect pickitem with truncation 1`] = `
         type="checkbox"
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
+        className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
       />
       <span
-        className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label xui-pickitem-text-truncated"
+        className="xui-styledcheckboxradio--label xui-pickitem--text xui-pickitem-multiselect--label xui-pickitem-text-truncated"
         id="testPickitemCheckboxId"
       >
         <span
@@ -196,7 +196,7 @@ exports[`<Pickitem /> renders a selected multiselect pickitem (overriding leftEl
       <input
         aria-labelledby="testPickitemCheckboxId"
         checked={true}
-        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+        className="xui-styledcheckboxradio--input"
         disabled={false}
         onChange={[Function]}
         onClick={[Function]}
@@ -205,10 +205,10 @@ exports[`<Pickitem /> renders a selected multiselect pickitem (overriding leftEl
         type="checkbox"
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
+        className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
       />
       <span
-        className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
+        className="xui-styledcheckboxradio--label xui-pickitem--text xui-pickitem-multiselect--label"
         id="testPickitemCheckboxId"
       >
         <span
@@ -241,7 +241,7 @@ exports[`<Pickitem /> renders a selected multiselect pickitem without selected s
       <input
         aria-labelledby="testPickitemCheckboxId"
         checked={true}
-        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+        className="xui-styledcheckboxradio--input"
         disabled={false}
         onChange={[Function]}
         onClick={[Function]}
@@ -250,10 +250,10 @@ exports[`<Pickitem /> renders a selected multiselect pickitem without selected s
         type="checkbox"
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
+        className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
       />
       <span
-        className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
+        className="xui-styledcheckboxradio--label xui-pickitem--text xui-pickitem-multiselect--label"
         id="testPickitemCheckboxId"
       >
         <span

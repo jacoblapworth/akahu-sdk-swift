@@ -10,6 +10,11 @@ const sideElements = [
 		name: 'icon with background colour',
 	},
 	{
+		type: 'icon button',
+		name: 'icon button element',
+		size: 'xsmall'
+	},
+	{
 		type: 'button',
 		name: 'button element',
 	},
@@ -27,7 +32,7 @@ const sideElements = [
 	}
 ];
 
-const inputSizes = ['standard', 'small', 'xsmall'];
+const inputSizes = ['medium', 'small', 'xsmall'];
 
 const styleVariantStories = [
 	{
@@ -115,6 +120,7 @@ const sideElementVariantStories = sideElements.reduce((stories, sideElement) => 
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `has a ${side} ${sideElement.name}`,
 		[`${side}ElementType`]: sideElement.type,
+		[`${side}ElementAlignment`]: 'center'
 	}))
 ], []);
 
@@ -146,6 +152,7 @@ const multilineStories = [
 		storyTitle: 'mutliline input with top aligned side element',
 		isMultiline: true,
 		rightElementType: 'iconWithBackground',
+		rightElementAlignment: 'top',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

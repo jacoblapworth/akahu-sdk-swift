@@ -6,11 +6,11 @@ export const sideElementBaseClass = `${inputBaseClass}--sideelement`;
 export const baseSizeClasses = {
 	xsmall: `${inputBaseClass}-xsmall`,
 	small: `${inputBaseClass}-small`,
-	standard: `${inputBaseClass}-standard`,
+	standard: `${inputBaseClass}-medium`,
 };
 
 export const inputSizeClasses = {
 	xsmall: `${inputBaseClass}--input-xsmall`,
 	small: `${inputBaseClass}--input-small`,
-	standard: `${inputBaseClass}--input-standard`,
+	standard: `${inputBaseClass}--input-medium`,
 };

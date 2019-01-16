@@ -28,12 +28,12 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 
 	&:first-child,
 	&.#{$ns}-textinput {
-		padding-left: $xui-s-standard;
+		padding: $input-text-vertical-padding-standard $xui-s-standard;
 	}
 
 	&:last-child,
 	&.#{$ns}-textinput {
-		padding-right: $xui-s-standard;
+		padding: $input-text-vertical-padding-standard $xui-s-standard;
 	}
 }
 
@@ -86,7 +86,7 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 	&-align-bottom {
 		align-items: flex-end;
 	}
-	.#{$ns}-textinput-standard &:first-child{
+	.#{$ns}-textinput-medium &:first-child{
 		margin-right: $xui-s-xsmall;
 	}
 	.#{$ns}-textinput-small &:first-child{
@@ -96,7 +96,7 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 		margin-right: $xui-s-2xsmall;
 	}
 
-	.#{$ns}-textinput-standard &:last-child{
+	.#{$ns}-textinput-medium &:last-child{
 		margin-left: $xui-s-xsmall;
 	}
 	.#{$ns}-textinput-small &:last-child{
@@ -161,7 +161,7 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 	color: $xui-textinput-sideelement-inverted-color;
 }
 
-.#{$ns}-textinput-standard {
+.#{$ns}-textinput-medium {
 	$input-inner-height: $xui-control-size-standard - 2; // -2 for borders
 	@include xui-text-standard;
 	min-height: $xui-control-size-standard;

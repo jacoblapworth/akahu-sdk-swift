@@ -30,13 +30,13 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
         role="presentation"
       >
         <div
-          className="xui-textinput xui-textinput-standard"
+          className="xui-textinput xui-textinput-medium"
           data-automationid="baseAC"
         >
           <input
             aria-autocomplete="list"
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid="baseAC--input"
             id="testAutocompleterId-control"
             onBlurCapture={[Function]}
@@ -87,13 +87,13 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
         role="presentation"
       >
         <div
-          className="xui-textinput xui-textinput-standard"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="testAutocompleterId-control"
             onBlurCapture={[Function]}
@@ -144,14 +144,14 @@ exports[`XUIAutocompleter renders with a hidden label 1`] = `
         role="presentation"
       >
         <div
-          className="xui-textinput xui-textinput-standard"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
             aria-label="Im a little label"
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="testAutocompleterId-control"
             onBlurCapture={[Function]}
@@ -209,13 +209,13 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
           Im a little label
         </label>
         <div
-          className="xui-textinput xui-textinput-standard"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="testAutocompleterId-control"
             onBlurCapture={[Function]}
@@ -266,13 +266,13 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
         role="presentation"
       >
         <div
-          className="xui-textinput xui-textinput-standard"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="testAutocompleterId-control"
             onBlurCapture={[Function]}
@@ -323,13 +323,13 @@ exports[`XUIAutocompleter should render a class on the input element when passed
         role="presentation"
       >
         <div
-          className="xui-textinput xui-textinput-standard"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
             aria-multiline={false}
-            className="test-class xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
+            className="test-class xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="testAutocompleterId-control"
             onBlurCapture={[Function]}
@@ -380,13 +380,13 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
         role="presentation"
       >
         <div
-          className="xui-textinput xui-textinput-standard"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="testAutocompleterId-control"
             onBlurCapture={[Function]}
@@ -438,13 +438,13 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
         role="presentation"
       >
         <div
-          className="xui-textinput xui-textinput-standard"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="testAutocompleterId-control"
             onBlurCapture={[Function]}
@@ -497,14 +497,14 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
         role="presentation"
       >
         <div
-          className="xui-textinput xui-textinput-standard"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
             aria-label="Search"
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="testAutocompleterId-control"
             onBlurCapture={[Function]}
@@ -556,13 +556,13 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
         role="presentation"
       >
         <div
-          className="xui-textinput xui-textinput-standard"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="testAutocompleterId-control"
             onBlurCapture={[Function]}
@@ -614,13 +614,13 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
         role="presentation"
       >
         <div
-          className="xui-textinput xui-textinput-standard"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="testAutocompleterId-control"
             onBlurCapture={[Function]}
@@ -671,13 +671,13 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
         role="presentation"
       >
         <div
-          className="xui-textinput xui-textinput-standard xui-textinput-is-disabled"
+          className="xui-textinput xui-textinput-medium xui-textinput-is-disabled"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             disabled={true}
             id="testAutocompleterId-control"
@@ -729,13 +729,13 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
         role="presentation"
       >
         <div
-          className="xui-textinput xui-textinput-standard"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-standard"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="testAutocompleterId-control"
             maxLength={5}

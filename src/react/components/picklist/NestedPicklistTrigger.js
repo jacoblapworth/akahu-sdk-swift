@@ -45,7 +45,7 @@ export default class NestedPicklistTrigger extends PureComponent {
 				tabIndex={0}
 				aria-label={ariaLabel}
 			>
-				{hasChildren ? <label className={`${ns}-pickitem--text`}>{children}</label> : null}
+				{hasChildren ? <span className={`${ns}-pickitem--text`}>{children}</span> : null}
 				<XUIIcon className={`${ns}-submenu-uicontrol--icon`} icon={arrow} isBoxed />
 			</label>
 		);

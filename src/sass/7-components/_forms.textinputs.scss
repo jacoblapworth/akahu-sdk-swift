@@ -28,12 +28,12 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 
 	&:first-child,
 	&.#{$ns}-textinput {
-		padding: $input-text-vertical-padding-standard $xui-s-standard;
+		padding-left: $xui-s-standard;
 	}
 
 	&:last-child,
 	&.#{$ns}-textinput {
-		padding: $input-text-vertical-padding-standard $xui-s-standard;
+		padding-right: $xui-s-standard;
 	}
 }
 

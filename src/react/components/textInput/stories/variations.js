@@ -130,6 +130,7 @@ const bothSideElementsWithSizes = inputSizes.map(size => {
 		storyTitle: `${size} with both side elements`,
 		leftElementType: 'avatar',
 		rightElementType: 'icon',
+		rightElementAlignment: 'center',
 		size,
 	};
 });

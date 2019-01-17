@@ -413,7 +413,7 @@
 // In the case of a linear flow, apply the following modifier to push buttons to opposite sides of the container.
 //
 // Classes:
-// xui-actions-linear: Apply to button container to push buttons apart and stack below $xui-breakpoint-small
+// xui-actions-linear: Apply to button container to push buttons apart and stack below 600px ($xui-breakpoint-small-down)
 //
 // Markup:
 // <div class="xui-panel xui-padding xui-button-fullwidth">
@@ -466,7 +466,7 @@
 // xui-button-is-disabled: Modifier for a disabled button
 // xui-button-split: Modifier for a split button (eg button and dropdown)
 // xui-button--caret: Subcomponent for a caret button
-// xui-button-fullwidth-layout: Modifier for a full-width button at narrow breakpoint
+// xui-button-fullwidth-layout: Modifier for a full-width button using $xui-breakpoint-small-down
 // xui-buttongroup: Container for a group of buttons
 // xui-button-grouped: Modifier for a grouped button
 // xui-actions: Container to be used when creating layouts with a primary and secondary button

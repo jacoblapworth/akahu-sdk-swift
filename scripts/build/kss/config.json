@@ -15,7 +15,8 @@
 		"exampleclass",
 		"introduction",
 		"tips",
-		"flag"
+		"flag",
+		"storybook"
 	],
 	"destination": "./dist/docs",
 	"css": [

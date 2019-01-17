@@ -293,12 +293,6 @@ section[class*="kss-section"] {
 	display: none;
 }
 
-.ds-markup--label{
-	font-size: $xui-font-size-small;
-	color: $xui-color-blue;
-	display: inline-block;
-}
-
 // Labels need to be nested in another element for other styling reasons (full bleed)
 .ds-input-all:checked ~ * .ds-all-label,
 .ds-input-markup:checked ~ * .ds-markup-label,

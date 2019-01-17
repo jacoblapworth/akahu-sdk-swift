@@ -63,7 +63,7 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 }
 
 .#{$ns}-textinput-is-disabled {
-	@include xui-disabled-form;
+	@include xui-disabled-form-control;
 
 	.#{$ns}-textinput--input {
 		cursor: not-allowed;

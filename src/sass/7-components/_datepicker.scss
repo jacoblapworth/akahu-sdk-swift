@@ -440,7 +440,7 @@
 //
 // Styleguide: Compounds.CollectingInput.Datepicker.7
 
-$xui-datepicker-day-size: 40px;
+$xui-datepicker-day-size: $xui-control-size-standard;
 $xui-datepicker-day-size-compact: 30px;
 
 @mixin xui-datepicker-highlight-size-left() {

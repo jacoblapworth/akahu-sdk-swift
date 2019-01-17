@@ -1,4 +1,4 @@
-// Master Detail Summary
+// Master detail summary
 //
 // Teaser: This composition combines the behaviour of both the Master Detail, and the Detail Summary compositions.
 //
@@ -27,3 +27,40 @@
 // At x-breakpoint, Master content is inside a dropdown sitting above Summary and Detail, which are stacked. At x-breakpoint Master content is a left hand panel, Detail is in the center, and Summary on the right.
 //
 // Styleguide: Compositions.MasterDetailSummary.2
+
+// Master detail summary
+//
+// Markup:
+// <div class="xui-composition xui-composition-masterdetailsummary xui-composition-is-finite">
+//   <div class="xui-gridarea-master">
+//     <div style="background: rgb(90, 90, 230); min-width: 250px; height: 100px; width: 100%;"></div>
+//   </div>
+//   <div class="xui-gridarea-detail">
+//     <div style="background: rgb(197, 197, 246); height: 100px;"></div>
+//   </div>
+//   <div class="xui-gridarea-summary">
+//     <div style="background: rgb(173, 173, 243); min-width: 250px; height: 100px; width: 100%;"></div>
+//   </div>
+// </div>
+//
+// Styleguide: Compositions.MasterDetailSummary.3
+
+// Master detail summary with header
+//
+// Markup:
+// <div class="xui-composition xui-composition-masterdetailsummaryheader xui-composition-is-finite">
+//   <div class="xui-gridarea-header xui-width-xsmall-up xui-width-small-up xui-width-medium-up">
+//     <div style="background: rgb(180, 70, 200); height: 60px;"></div>
+//   </div>
+//   <div class="xui-gridarea-master">
+//     <div style="background: rgb(90, 90, 230); min-width: 250px; height: 100px; width: 100%;"></div>
+//   </div>
+//   <div class="xui-gridarea-detail">
+//     <div style="background: rgb(197, 197, 246); height: 100px;"></div>
+//   </div>
+//   <div class="xui-gridarea-summary">
+//     <div style="background: rgb(173, 173, 243); min-width: 250px; height: 100px; width: 100%;"></div>
+//   </div>
+// </div>
+//
+// Styleguide: Compositions.MasterDetailSummary.4

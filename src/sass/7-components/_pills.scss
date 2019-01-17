@@ -264,7 +264,7 @@
 	cursor: default;
 	display: inline-flex;
 	height: $xui-control-size-standard;
-	max-width: 200px;
+	max-width: 100%;
 	vertical-align: bottom; //Without vertical alignment set, pills will align themselves strangely next to each other
 }
 

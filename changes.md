@@ -24,6 +24,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 * `xui-breakpoint-huge` mixin has been removed. Use `xui-breakpoint-large-up` instead.
 * `xui-breakpoint-narrow` mixin has been removed. Use `xui-breakpoint-xsmall-only` instead.
 * `xui-breakpoint-medium` mixin has been removed. Use `xui-breakpoint-small-only` instead.
+* `xui-disabled-form` mixin has been removed. Use `xui-disabled-form-control` instead.
 
 ## Breakpoint variable name & value changes
 
@@ -116,6 +117,7 @@ All other existing values stay as they are (including `2xlarge`)
 ### Component props
 
 - Pill has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
+- Pill has a new `isLimitedWidth` prop to replace the `isMaxContentWidth` prop. The default for pills is now to fit their content, and you can apply `isLimitedWidth` to cap them at 200px. This prop change will be handled automatically by the upgrade codemod for existing Pills in your app.
 - Text input now has a `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - Tag has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - Checkbox and Radio have a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.

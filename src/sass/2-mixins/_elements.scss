@@ -12,9 +12,8 @@
 	padding: 0;
 }
 
-// Provides coloring for disabled XUI forms
-// TODO: Rename this because what is a "form"
-@mixin xui-disabled-form {
+// Provides coloring for disabled XUI form controls
+@mixin xui-disabled-form-control {
 	background-color: $xui-control-disabled-bg-color;
 	border-color: $xui-control-disabled-border-color;
 	color: $xui-control-disabled-color;

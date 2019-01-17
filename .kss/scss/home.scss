@@ -55,7 +55,7 @@
 		color: $xui-color-blue;
 		line-height: 1;
 		margin: 0;
-		padding-bottom: 12px;
+		padding-bottom: $xui-s-small;
 	}
 	@include xui-breakpoint-medium-only {
 		background-image: none !important;
@@ -98,7 +98,7 @@
 		color: $xui-color-white;
 		line-height: 1.15;
 		margin: 0;
-		padding-bottom: 12px;
+		padding-bottom: $xui-s-small;
 	}
 
 	@include xui-breakpoint-medium-only {

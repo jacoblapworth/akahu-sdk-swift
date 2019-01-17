@@ -50,3 +50,20 @@ exports[`<XUICompositionDetailSummary> should include custom class and omit widt
   </div>
 </div>
 `;
+
+exports[`<XUICompositionDetailSummary> should include layout restriction class, if specified 1`] = `
+<div
+  className="xui-composition xui-composition-detailsummary xui-composition-is-finite xui-composition-detailsummary-retain-small"
+>
+  <div
+    className="xui-gridarea-detail"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-summary"
+  >
+    <div />
+  </div>
+</div>
+`;

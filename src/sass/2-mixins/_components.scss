@@ -45,10 +45,9 @@ Applies hover button styling and given contents on hover.
 	}
 
 	&:disabled {
-		@include xui-disabled-form;
+		@include xui-disabled-form-control;
 	}
-	*::placeholder, // TODO: Go to a single selector when XUIInput is deprecated and only XUITextInput is supported.
-	&::placeholder {
+	*::placeholder {
 		color: $xui-input-placeholder-color;
 		opacity: 1;
 	}
@@ -83,7 +82,7 @@ $has-border - Whether the element using this has a border
 		left: $alignment;
 		position: absolute;
 		top: $alignment;
-		width: 4px;
+		width: $xui-s-2xsmall;
 	}
 }
 

@@ -25,7 +25,7 @@ const buttonContents = {
 	asSplitGroup: [<XUIButton key='main'>Main</XUIButton>, <XUISplitButton key='split' aria-label='Other actions' />],
 	asSplitGroupMulti: [<XUIButton key='main'>This is a bunch of multi line text to make sure the icon displays correctly</XUIButton>, <XUISplitButton key='split' aria-label='Other actions' />],
 	asSplitGroupSm: [<XUIButton key='main' size="small">Main</XUIButton>, <XUISplitButton key='split' size="small" aria-label='Other actions' />],
-	icon: <XUIIcon icon={view} title="Preview" isBoxed />
+	icon: <XUIIcon icon={view} title="Preview" />
 };
 
 const ButtonWrapper = ({children}) => {

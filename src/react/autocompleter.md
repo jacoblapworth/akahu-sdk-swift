@@ -71,10 +71,8 @@ class PillWrapper extends PureComponent {
 				value={people[id].name}
 				className="xui-autocompleter--pill"
 				onDeleteClick={this.deleteSelf}
-				isMaxContentWidth
 				key={id}
 				size="small"
-				isMaxContentWidth
 			/>
 		)
 	}
@@ -230,10 +228,8 @@ class PillWrapper extends PureComponent {
 				value={people[id].name}
 				className="xui-autocompleter--pill"
 				onDeleteClick={this.deleteSelf}
-				isMaxContentWidth
 				key={id}
 				size="small"
-				isMaxContentWidth
 			/>
 		)
 	}

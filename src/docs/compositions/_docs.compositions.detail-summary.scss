@@ -1,4 +1,4 @@
-// Detail Summary
+// Detail summary
 //
 // Teaser: The Summary container houses content that sums up or labels the Detail area. Summary is a right-hand column which stacks under the Detail area at smaller breakpoints.
 //
@@ -23,3 +23,34 @@
 // At x-breakpoint, Summary content sits above the Detail container, at x-breakpoint it is a column which sits to the right of the Detail container.
 //
 // Styleguide: Compositions.DetailSummary.2
+
+// Detail Summary
+//
+// Markup:
+// <div class="xui-composition xui-composition-detailsummary xui-composition-is-finite">
+//   <div class="xui-gridarea-detail xui-width-xsmall-up">
+//     <div style="background: rgb(197, 197, 246); height: 100px;"></div>
+//   </div>
+//   <div class="xui-gridarea-summary">
+//     <div style="background: rgb(173, 173, 243); min-width: 250px; height: 100px; width: 100%;"></div>
+//   </div>
+// </div>
+//
+// Styleguide: Compositions.DetailSummary.3
+
+// Detail summary with header
+//
+// Markup:
+// <div class="xui-composition xui-composition-detailsummaryheader xui-composition-is-finite">
+//   <div class="xui-gridarea-header xui-width-xsmall-up xui-width-small-up xui-width-medium-up">
+//     <div style="background: rgb(180, 70, 200); height: 60px;"></div>
+//   </div>
+//   <div class="xui-gridarea-detail xui-width-xsmall-up">
+//     <div style="background: rgb(197, 197, 246); height: 100px;"></div>
+//   </div>
+//   <div class="xui-gridarea-summary">
+//     <div style="background: rgb(173, 173, 243); min-width: 250px; height: 100px; width: 100%;"></div>
+//   </div>
+// </div>
+//
+// Styleguide: Compositions.DetailSummary.4

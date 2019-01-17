@@ -45,4 +45,17 @@ describe('<XUICompositionDetailSummaryHeader>', () => {
 		);
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should include layout restriction class, if specified', () => {
+		const wrapper = renderer.create(
+			<XUICompositionDetailSummaryHeader
+				header={<div></div>}
+				summary={<div></div>}
+				detail={<div></div>}
+				retainWidth='small'
+				>
+			</XUICompositionDetailSummaryHeader>
+		);
+		expect(wrapper).toMatchSnapshot();
+	});
 });

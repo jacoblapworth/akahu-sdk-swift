@@ -71,7 +71,7 @@ export default class XUIPill extends PureComponent {
 			target,
 			title,
 			value,
-			isMaxContentWidth,
+			isLimitedWidth,
 			size,
 			debugShowToolTip,
 			avatar,
@@ -85,7 +85,7 @@ export default class XUIPill extends PureComponent {
 		const pillClasses = cn(
 			className,
 			baseClass,
-			!isMaxContentWidth && `${baseClass}-maxwidth`, // TODO: Remove
+			isLimitedWidth && `${baseClass}-maxwidth`,
 			size && sizeClasses[size],
 			isInvalid && `${baseClass}-is-invalid`,
 			isFocused && `${baseClass}-is-focused`,
@@ -131,7 +131,7 @@ export default class XUIPill extends PureComponent {
 						target,
 						title,
 						value,
-						size
+						size,
 					}}
 				/>
 				{deleteButton}
@@ -197,8 +197,8 @@ XUIPill.propTypes = {
 	secondaryText: PropTypes.string,
 	/** The text to display inside the pill. */
 	value: PropTypes.string,
-	/** Whether the pill shouldn't have a set max-width */
-	isMaxContentWidth: PropTypes.bool,
+	/** Whether the pill should have a max-width of 200px */
+	isLimitedWidth: PropTypes.bool,
 	/** The size of the pill to render */
 	size: PropTypes.oneOf(Object.keys(sizeClasses)),
 	/**

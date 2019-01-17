@@ -27,8 +27,16 @@ const babelConfig = {
 						},
 					},
 				],
-				'@babel/preset-react',
+				'@babel/preset-react'
 			],
+			plugins: [
+				[
+					'@babel/plugin-proposal-class-properties',
+					{
+						loose: true
+					}
+				]
+			]
 		},
 		test: {
 			presets: [

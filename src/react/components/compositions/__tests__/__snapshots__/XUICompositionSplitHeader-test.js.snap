@@ -65,3 +65,25 @@ exports[`<XUICompositionSplitHeader> should include custom class and omit width-
   </div>
 </div>
 `;
+
+exports[`<XUICompositionSplitHeader> should include layout restriction class, if specified 1`] = `
+<div
+  className="xui-composition xui-composition-splitheader xui-composition-is-finite xui-composition-splitheader-retain-small"
+>
+  <div
+    className="xui-gridarea-header"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-primary"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-detail"
+  >
+    <div />
+  </div>
+</div>
+`;

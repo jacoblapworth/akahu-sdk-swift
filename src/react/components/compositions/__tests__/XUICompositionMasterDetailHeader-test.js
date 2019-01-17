@@ -32,4 +32,17 @@ describe('<XUICompositionMasterDetailHeader>', () => {
 		);
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should include layout restriction class, if specified', () => {
+		const wrapper = renderer.create(
+			<XUICompositionMasterDetailHeader
+				header={<div></div>}
+				master={<div></div>}
+				detail={<div></div>}
+				retainWidth='small'
+				>
+			</XUICompositionMasterDetailHeader>
+		);
+		expect(wrapper).toMatchSnapshot();
+	});
 });

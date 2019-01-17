@@ -15,7 +15,7 @@ export const isBaseRendered = baseRect => baseRect && baseRect.height > 0 && bas
 *
 * @return {boolean}
 */
-export const isNarrowViewport = () => verge.viewportW() < breakpoints.narrow;
+export const isNarrowViewport = () => verge.viewportW() < breakpoints.small;
 
 /**
 * Calculates the space below the trigger

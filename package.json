@@ -1,6 +1,6 @@
 {
   "name": "@xero/xui",
-  "version": "15.0.0-alpha.5",
+  "version": "15.0.0-alpha.7",
   "description": "Shared styles for Xero applications",
   "private": true,
   "repository": {
@@ -73,7 +73,7 @@
     "@xero/babel-preset-xero": "2.2.0",
     "@xero/browserslist-autoprefixer": "2.4.0",
     "@xero/eslint-config-xero-react": "2.0.3",
-    "@xero/xuishift": "2.0.1",
+    "@xero/xuishift": "3.0.0",
     "array.prototype.find": "2.0.4",
     "autoprefixer": "9.3.1",
     "babel-core": "7.0.0-bridge.0",
@@ -144,6 +144,7 @@
     "tinycolor2": "1.4.1",
     "uppercamelcase": "3.0.0",
     "webpack": "4.27.1",
+    "webpack-cli": "3.2.1",
     "workbox-build": "3.1.0",
     "yargs": "9.0.1"
   }

@@ -121,7 +121,7 @@ const sideBySide = (
 			isHidden={false}
 			isLegacyDisplay={false}
 			dropdown={
-				<DropDown size="large" restrictFocus={false}>
+				<DropDown size="large" restrictFocus={false} fixedWidth>
 					<Picklist>{createItems(toggledItems, 'one')}</Picklist>
 				</DropDown>
 			}

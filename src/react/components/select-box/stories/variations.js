@@ -32,6 +32,7 @@ const variations = [
 		storyTitle: 'with hidden label and button variant',
 		isLabelHidden: true,
 		buttonVariant: 'create',
+		size: 'standard',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -63,7 +64,7 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'without matching trigger width',
 		matchTriggerWidth: false,
-		size: 'xsmall'
+		listItemSize: 'xsmall',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -84,7 +85,45 @@ const variations = [
 		buttonContent: 'Books',
 		closeAfterSelection: false,
 		items: buildCheckboxItems(),
-		size: 'small'
+		listItemSize: 'small',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as full-width size',
+		size: 'full-width',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as standard size',
+		size: 'standard',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as small size',
+		size: 'small',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as xsmall size',
+		size: 'xsmall',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as full-width size with variant',
+		buttonVariant: 'primary',
+		size: 'full-width',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as small size with variant',
+		buttonVariant: 'primary',
+		size: 'small',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as standard size with xsmall size list items',
+		listItemSize: 'xsmall',
+		size: 'standard',
 	},
 ];
 

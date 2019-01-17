@@ -28,6 +28,7 @@ describe('<XUICompositionDetail>', () => {
 		);
 		expect(wrapper).toMatchSnapshot();
 	});
+
 	it('should include custom class and omit width-limiting class, if specified', () => {
 		const wrapper = renderer.create(
 			<XUICompositionDetail

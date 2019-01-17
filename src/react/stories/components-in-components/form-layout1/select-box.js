@@ -45,7 +45,7 @@ export default class LayoutSelect extends React.Component {
 					label={label}
 					htmlFor={htmlFor}
 					buttonContent={
-						<span>
+						<span className="xui-u-flex">
 							<XUIIcon icon={bank} className="xui-margin-right-xsmall" />
 							{displayText}
 						</span>

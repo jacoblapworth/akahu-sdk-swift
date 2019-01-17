@@ -5,7 +5,7 @@ import cn from 'classnames';
 import XUIGridAreaDetail from './XUIGridAreaDetail';
 import XUIGridAreaSummary from './XUIGridAreaSummary';
 
-import baseCompositionClass from './helpers';
+import baseCompositionClass, { retainValues } from './helpers';
 
 export default class XUICompositionDetailSummary extends PureComponent {
 	render() {
@@ -14,12 +14,16 @@ export default class XUICompositionDetailSummary extends PureComponent {
 			detail,
 			className,
 			isInfinite,
+			retainWidth,
 		} = this.props;
 
 		const compositionClasses = cn(
 			baseCompositionClass,
 			`${baseCompositionClass}-detailsummary`,
 			!isInfinite && `${baseCompositionClass}-is-finite`,
+			retainWidth &&
+				retainValues[retainWidth] &&
+				`${baseCompositionClass}-detailsummary-retain-${retainWidth}`,
 			className,
 		);
 
@@ -51,5 +55,10 @@ XUICompositionDetailSummary.propTypes = {
 	 * Determines whether the main content takes full width of page
 	 */
 	isInfinite: PropTypes.bool,
+	/**
+	 * Lets you set a retain width value so that the layout doesn't change when the
+	 * viewport is equal to or larger than the width specified
+	 */
+	retainWidth: PropTypes.oneOf(['', 'small']),
 
 };

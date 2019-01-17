@@ -8,7 +8,6 @@ import { inputBaseClass, inputSizeClasses, baseSizeClasses } from './private/con
 import { calculateMaxHeight } from './private/helpers';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds from '../controlwrapper/helpers';
-import ns from '../helpers/xuiClassNamespace';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
 const shouldAutomaticallyResize = ({ isMultiline, rows }) =>

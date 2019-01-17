@@ -1,4 +1,5 @@
 const privateConsts = require('../private/constants');
+import commonViewports from '../../../stories/helpers/viewports';
 const NOOP = require('../../helpers/noop');
 
 const storiesWithVariationsKindName = 'Instances/Dropdown';
@@ -8,6 +9,7 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as default',
 		ddSettings: {},
+		viewports: commonViewports,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

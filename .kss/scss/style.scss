@@ -39,7 +39,7 @@
 	display: block;
 	padding-top: calc(1em + 1vh);
 
-	@include xui-breakpoint-small-only {
+	@include xui-breakpoint-small-to-medium {
 		column-count: 3;
 	}
 
@@ -98,7 +98,7 @@ $ds-section-space: calc(6rem + 2vh);
 	line-height: 1.15;
 	// Add padding to accommodate react link
 	padding-right: 10rem;
-	@include xui-breakpoint-xsmall-only {
+	@include xui-breakpoint-small-down {
 		padding-right: 3rem;
 	}
 }
@@ -244,15 +244,15 @@ code {
 }
 
 .ds-tips-positive {
-	color: #57c40a;
+	color: $xui-color-green;
 }
 
 .ds-tips-negative {
-	color: #f6534e;
+	color: $xui-color-red;
 }
 
 .ds-tips-warning {
-	color: #f8a900;
+	color: $xui-color-orange;
 }
 
 .ds-tips--detail {
@@ -291,12 +291,6 @@ section[class*="kss-section"] {
 .ds-input-markup,
 .ds-input-example {
 	display: none;
-}
-
-.ds-markup--label{
-	font-size: $xui-font-size-small;
-	color: $xui-color-blue;
-	display: inline-block;
 }
 
 // Labels need to be nested in another element for other styling reasons (full bleed)
@@ -414,7 +408,7 @@ $kss-color-padding: #eeebff;
 		position: relative; // makes dropdowns visible at mobile
 		z-index: 1000; // fixes overlapping breadcrumb
 	}
-	@include xui-breakpoint-xsmall-only {
+	@include xui-breakpoint-small-down {
 		min-height: 50vh;
 		max-width: initial;
 		width: initial;
@@ -550,7 +544,7 @@ $kss-color-padding: #eeebff;
 .ds-nav--header {
 	margin: 0;
 	padding: .5rem 0;
-	@include xui-breakpoint-small-only {
+	@include xui-breakpoint-small-to-medium {
 		padding: 0 $xui-s-large;
 	}
 }
@@ -970,7 +964,7 @@ $kss-color-padding: #eeebff;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-	@include xui-breakpoint-small-only {
+	@include xui-breakpoint-small-to-medium {
 		padding: 0 5vw;
 	}
 	@include xui-breakpoint-medium-up {
@@ -1112,7 +1106,7 @@ a.ds-component-link:after {
 	transition-timing-function: cubic-bezier(0.565, -10, 0.605, 10);
 	transition-property: transform;
 	transition-duration: 0.25s;
-	@include xui-breakpoint-xsmall-only {
+	@include xui-breakpoint-small-down {
 		display: none;
 	}
 }

@@ -32,7 +32,7 @@
 
 // Direction
 //
-// Apply to flex parent. These classes also have a `-narrow`, `-medium` and `-wide` variant.
+// Apply to flex parent. These classes also have a `-small-down`, `-small-up` and `-large-up` variant.
 //
 // Classes:
 // xui-u-flex-row: Align children horizontally
@@ -56,7 +56,7 @@
 
 // Justifying
 //
-// Apply to flex parent. Each of these classes also has a `-narrow`, `-medium` and `-wide` variant.
+// Apply to flex parent. Each of these classes also has a `-small-down`, `-small-up` and `-large-up` variant.
 //
 // Classes:
 // xui-u-flex-justify-start: Align children to the start of the primary axis
@@ -98,7 +98,7 @@
 
 // Aligning
 //
-// Apply to flex parent. Each of these classes also has a `-narrow`, `-medium` and `-wide` variant.
+// Apply to flex parent. Each of these classes also has a `-small-down`, `-small-up` and `-large-up` variant.
 //
 // Classes:
 // xui-u-flex-align-center: Center children on the secondary axis
@@ -175,9 +175,9 @@
 // xui-u-hidden: Set display and visibility to none
 // xui-u-hidden-visually: Set width and height to 0
 // xui-u-hidden-content: Set opacity to 0 and pointer events to 0
-// xui-u-hidden-narrow: Set display to none below 520px
-// xui-u-hidden-medium: Set display to none between 520px and 940px
-// xui-u-hidden-wide: Set display to none above 940px
+// xui-u-hidden-small-down: Set display to none below 600px
+// xui-u-hidden-small-up: Set display to none above 600px
+// xui-u-hidden-large-up: Set display to none above 1000px
 //
 // Styleguide: Fundamentals.Utilities.3
 
@@ -303,14 +303,14 @@
 }
 
 @include make-flex-classes('');
-@include xui-breakpoint-xsmall-only {
-	@include make-flex-classes('-narrow');
+@include xui-breakpoint-small-down {
+	@include make-flex-classes('-small-down');
 }
-@include xui-breakpoint-small-only {
-	@include make-flex-classes('-medium');
+@include xui-breakpoint-small-up {
+	@include make-flex-classes('-small-up');
 }
-@include xui-breakpoint-medium-up {
-	@include make-flex-classes('-wide');
+@include xui-breakpoint-large-up {
+	@include make-flex-classes('-large-up');
 }
 
 .#{$ns}-u-display-block {
@@ -341,20 +341,20 @@
 	@include xui-utility-hidden-content;
 }
 
-.#{$ns}-u-hidden-narrow {
-	@include xui-breakpoint-xsmall-only {
+.#{$ns}-u-hidden-small-down {
+	@include xui-breakpoint-small-down {
 		display: none !important;
 	}
 }
 
-.#{$ns}-u-hidden-medium {
-	@include xui-breakpoint-small-only {
+.#{$ns}-u-hidden-small-up {
+	@include xui-breakpoint-small-up {
 		display: none !important;
 	}
 }
 
-.#{$ns}-u-hidden-wide {
-	@include xui-breakpoint-medium-up {
+.#{$ns}-u-hidden-large-up {
+	@include xui-breakpoint-large-up {
 		display: none !important;
 	}
 }

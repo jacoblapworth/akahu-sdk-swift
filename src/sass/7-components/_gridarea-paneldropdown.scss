@@ -3,6 +3,7 @@
 
 .#{$ns}-gridarea-paneldropdown {
 	min-width: 250px;
+	top: 0;
 }
 
 @include xui-breakpoint-medium-up {
@@ -10,11 +11,7 @@
 		background-color: $xui-panel-bg-color;
 		border-radius: $xui-radius;
 		box-shadow: $xui-shadow-border-all;
-	}
-}
-
-@include xui-breakpoint-small-down {
-	.#{$ns}-gridarea-paneldropdown {
-		top: 0;
+		position: static;
+		top: auto;
 	}
 }

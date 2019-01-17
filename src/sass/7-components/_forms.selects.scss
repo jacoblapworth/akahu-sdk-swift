@@ -78,7 +78,7 @@
 	.#{$ns}-dropdown--body {
 		border-top: 0;
 
-		@include xui-breakpoint-xsmall-only {
+		@include xui-breakpoint-small-down {
 			border: 0;
 			border-radius: 0;
 		}

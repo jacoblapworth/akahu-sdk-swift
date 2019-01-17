@@ -22,11 +22,9 @@
 }
 
 .#{$ns}-composition-masterdetailsummary {
-	@include xui-breakpoint-small-down {
-		@include composition-mds-small;
-	}
+	@include composition-mds-small;
 
-	@include xui-breakpoint-medium-only {
+	@include xui-breakpoint-medium-to-large {
 		@include composition-mds-medium;
 	}
 
@@ -42,7 +40,7 @@
 }
 
 .#{$ns}-composition-masterdetailsummary-retain-small {
-	@include xui-breakpoint-small-up {
+	@include xui-breakpoint-medium-up {
 		@include composition-mds-small;
 	}
 

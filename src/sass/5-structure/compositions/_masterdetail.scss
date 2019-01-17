@@ -14,9 +14,7 @@
 }
 
 .#{$ns}-composition-masterdetail {
-	@include xui-breakpoint-small-down {
-		@include composition-md-small;
-	}
+	@include composition-md-small;
 
 	@include xui-breakpoint-medium-up {
 		@include composition-md-medium;
@@ -24,7 +22,7 @@
 }
 
 .#{$ns}-composition-masterdetail-retain-small {
-	@include xui-breakpoint-small-up {
+	@include xui-breakpoint-medium-up {
 		@include composition-md-small;
 	}
 

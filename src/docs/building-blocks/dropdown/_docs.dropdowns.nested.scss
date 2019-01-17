@@ -28,7 +28,7 @@
 // xui-dropdown--panel: Container for each section
 // xui-dropdown-nested-is-hidden: Add to toggle section visibility
 // xui-dropdown-fullheight: Apply to dropdown to enable consistent header position
-// xui-dropdown-show-mobile-only: Apply to a dropdown sub-element such as the header or actions to hide above 520px
+// xui-dropdown-hide-small-up: Apply to a dropdown sub-element such as the header or actions to hide above 600px
 //
 // Styleguide: Compounds.CollectingInput.Dropdowns.20.2
 
@@ -38,7 +38,7 @@
 // <div class='xui-dropdown-layout xui-dropdown-fixed-xlarge xui-dropdown-fullheight xui-dropdown-is-open'>
 //   <div class='xui-dropdown--mask'></div>
 //   <div class='xui-dropdown--body'>
-//     <div class="xui-dropdown--header-container xui-dropdown-show-mobile-only">
+//     <div class="xui-dropdown--header-container xui-dropdown-hide-small-up">
 //       <div class="xui-dropdown--header-leftcontent">
 //         <div class="xui-heading-small xui-margin-left-small xui-text-truncated">
 //         Filters
@@ -116,7 +116,7 @@
 //           Date range
 //         </div>
 //       </div>
-//       <div class="xui-dropdown--header-rightcontent xui-dropdown-show-mobile-only">
+//       <div class="xui-dropdown--header-rightcontent xui-dropdown-hide-small-up">
 //         <div class="xui-margin-right-xsmall xui-dropdown--header-rightcontent">
 //           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Cancel</button><button class="xui-button xui-margin-left-small xui-button-main xui-button-small" tabindex="0" type="button">Apply</button>
 //         </div>

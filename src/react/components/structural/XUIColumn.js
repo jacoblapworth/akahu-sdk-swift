@@ -16,27 +16,27 @@ const getClass = (width, suffix) => {
 const getAllClasses = ({
 	className,
 	gridColumns,
-	gridColumnsMedium,
-	gridColumnsWide,
+	gridColumnsSmallUp,
+	gridColumnsLargeUp,
 }) => cn(
 	className,
 	getClass(gridColumns),
-	getClass(gridColumnsMedium, '-medium'),
-	getClass(gridColumnsWide, '-wide'),
+	getClass(gridColumnsSmallUp, '-small-up'),
+	getClass(gridColumnsLargeUp, '-large-up'),
 );
 
 const XUIColumn = ({
 	children,
 	className,
 	gridColumns,
-	gridColumnsMedium,
-	gridColumnsWide,
+	gridColumnsSmallUp,
+	gridColumnsLargeUp,
 	...spreadProps
 }) => (
 	<div
 		{...spreadProps}
 		className={getAllClasses({
-			className, gridColumns, gridColumnsMedium, gridColumnsWide,
+			className, gridColumns, gridColumnsSmallUp, gridColumnsLargeUp,
 		})}
 	>
 		{children}
@@ -54,16 +54,16 @@ XUIColumn.propTypes = {
 		PropTypes.number,
 	]),
 	/**
-	 * Grid columns at viewport 940 - 1160px wide. Can be 1-12 or any of [full, half, third, quarter]
+	 * Grid columns at viewport > 600px wide. Can be 1-12 or any of [full, half, third, quarter]
 	 */
-	gridColumnsMedium: PropTypes.oneOfType([
+	gridColumnsSmallUp: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.number,
 	]),
 	/**
-	 * Grid columns at viewport > 1160px wide. Can be 1-12 or any of [full, half, third, quarter]
+	 * Grid columns at viewport > 1000px wide. Can be 1-12 or any of [full, half, third, quarter]
 	 */
-	gridColumnsWide: PropTypes.oneOfType([
+	gridColumnsLargeUp: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.number,
 	]),

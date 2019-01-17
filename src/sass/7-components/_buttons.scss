@@ -135,7 +135,7 @@
 // To force a button to occupy the entire width of its parent at narrow viewports, apply the following modifier.
 //
 // Classes:
-// xui-button-fullwidth-layout: 100% width below 520px
+// xui-button-fullwidth-layout: 100% width below 600px
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -297,7 +297,7 @@
 //
 // Classes:
 // xui-actions: Apply to button container to set the correct layout
-// xui-actions-layout: Apply to button container to add internal spacing and stack buttons below 520px
+// xui-actions-layout: Apply to button container to add internal spacing and stack buttons below 600px
 // xui-actions--primary: Apply to primary button to set the correct order
 // xui-actions--secondary: Apply to secondary button to set the correct order
 //
@@ -316,7 +316,7 @@
 // In the case of a linear flow, apply the following modifier to push buttons to opposite sides of the container.
 //
 // Classes:
-// xui-actions-linear: Apply to button container to push buttons apart and stack below 520px
+// xui-actions-linear: Apply to button container to push buttons apart and stack below 600px
 //
 // Markup:
 // <div class="xui-panel xui-padding xui-button-fullwidth">

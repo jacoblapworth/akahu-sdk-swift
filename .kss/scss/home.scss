@@ -57,19 +57,19 @@
 		margin: 0;
 		padding-bottom: $xui-s-small;
 	}
-	@include xui-breakpoint-medium-only {
+	@include xui-breakpoint-medium-to-large {
 		background-image: none !important;
 		height: 140px;
 		margin: 2vw 1vw 1vw;
 		width: 100%;
 	}
-	@include xui-breakpoint-small-only {
+	@include xui-breakpoint-small-to-medium {
 		background-image: none !important;
 		height: 150px;
 		margin: 2vw 1vw 1vw;
 		width: 100%;
 	}
-	@include xui-breakpoint-xsmall-only {
+	@include xui-breakpoint-small-down {
 		background-image: none !important;
 		height: 150px;
 		margin: 2vw 1vw 1vw;
@@ -101,17 +101,17 @@
 		padding-bottom: $xui-s-small;
 	}
 
-	@include xui-breakpoint-medium-only {
+	@include xui-breakpoint-medium-to-large {
 		height: 150px;
 		margin: 2vw 1vw 0;
 		width: calc(50% - 2vw);
 	}
-	@include xui-breakpoint-small-only {
+	@include xui-breakpoint-small-to-medium {
 		height: 180px;
 		margin: 2vw 1vw 0;
 		width: calc(50% - 2vw);
 	}
-	@include xui-breakpoint-xsmall-only {
+	@include xui-breakpoint-small-down {
 		height: 180px;
 		margin: 2vw 1vw 0;
 		width: calc(50% - 2vw);

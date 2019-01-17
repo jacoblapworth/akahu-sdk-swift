@@ -89,8 +89,15 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'as full-width size',
-		size: 'full-width',
+		storyTitle: 'as full-width with standard size',
+		fullWidth: 'always',
+		size: 'standard',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as full-width with small size',
+		fullWidth: 'always',
+		size: 'small',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -109,9 +116,10 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'as full-width size with variant',
+		storyTitle: 'as full-width with small size and variant',
 		buttonVariant: 'primary',
-		size: 'full-width',
+		fullWidth: 'always',
+		size: 'small',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

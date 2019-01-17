@@ -2,9 +2,9 @@ const invert = require('@xero/xuishift/transforms/invert');
 const stringReplace = require('@xero/xuishift/transforms/stringReplace');
 
 const labelTextToLabel = {
-		name: 'labelText',
-		newName: 'label'
-	};
+	name: 'labelText',
+	newName: 'label',
+};
 
 module.exports = {
 	'@xero/xui/react/pill': [
@@ -43,6 +43,22 @@ module.exports = {
 					newName: 'isLabelHidden'
 				},
 				labelTextToLabel,
+				{
+					name: 'fullWidth',
+					valueTransform: (node, j, path) => {
+						const buttonVariantIsSet = path.value.openingElement.attributes.some(
+							attribute =>
+								attribute.name !== null &&
+								attribute.name.name === 'buttonVariant'
+						);
+
+						if (buttonVariantIsSet) {
+							return j.literal('never');
+						}
+
+						return node && node.value;
+					}
+				}
 			]
 		}
 	],
@@ -139,6 +155,49 @@ module.exports = {
 						'large': 'standard',
 					}, 'small'),
 				}
+			]
+		}
+	],
+	'@xero/xui/react/button': [
+		{
+			isDefault: true,
+			props: [
+				{
+					name: 'fullWidth',
+					valueTransform: (node, j, path) => {
+						const sizeAttribute = path.value.openingElement.attributes.find(
+							attribute => attribute.name && attribute.name.name === 'size'
+						);
+
+						const size = sizeAttribute && sizeAttribute.value && sizeAttribute.value.value;
+
+						if (size === 'full-width') {
+							return j.literal('always');
+						}
+						
+						if (size === 'full-width-mobile') {
+							return j.literal('small-down');
+						}
+
+						return node && node.value;
+					}
+				},
+				{
+					name: 'size',
+					valueTransform: (node, j, path) => {
+						const sizeAttribute = path.value.openingElement.attributes.find(
+							attribute => attribute.name && attribute.name.name === 'size'
+						);
+
+						const size = sizeAttribute && sizeAttribute.value && sizeAttribute.value.value;
+
+						if (size === 'full-width' || size === 'full-width-mobile') {
+							return;
+						}
+
+						return node && node.value;
+					},
+				},
 			]
 		}
 	],

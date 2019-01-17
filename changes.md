@@ -84,12 +84,19 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - ContentBlockItem has new `description` and `tagPosition` props. Description is styled similarly to the prior `secondaryHeading` content (which has now become more prominent), and `tagPosition` allows you to specify where tags will be placed. `pinnedValue`, `href`, `primaryHeading`, and `secondaryHeading` now only accept strings. The `tag` property has been changed to accept multiple tags, and is now labeled `tags`, accordingly.
 - Loader size options have been switched from 'large', 'standard', and 'small' to be consistent with other component sizes. New size options are 'standard', 'small', and 'xsmall', and will be converted automatically if using the codemod. The largest size, 'standard' is now the default.
 - `SelectBox`
-	- Has a new `size` prop. The default value is `full-width`.
-		- The available sizes are `full-width`, `full-width-mobile`, `standard`, `small`, and `xsmall`.
-	- If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
-	- No longer shrinks to a standard width when a `buttonVariant` is supplied. To prevent your `SelectBox` from going full-width, set the `size` prop to `standard`.
+	- Has a new `fullWidth` prop. The default value is `always`.
+		- The available values are `always`, `small-down`, and `never`.
+	- Has a new `size` prop. The default value is `standard`.
+		- The available sizes are `standard`, `small`, and `xsmall`.
+		- If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
+	- No longer shrinks to a standard width when a `buttonVariant` is supplied. To prevent your `SelectBox` from going full-width, set the `fullWidth` prop to `never`.
 	- The `isTextTruncated` prop can now be used without a `buttonVariant`.
 	- Has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
+- `XUIButton`
+	- Has a new `fullWidth` prop. The default value is `never`.
+		- The available values are `always`, `small-down`, and `never`.
+		- The `size` prop no longer accepts `full-width` or `full-width-mobile`.
+			- To get full-width buttons, set `fullWidth` to `always` or `small-down`
 - `RolloverCheckbox`
 	- The `size` prop has been removed, and the size of the rollover target is now determined by the size of the `rolloverComponent` content.
 	- Has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.
@@ -132,7 +139,9 @@ All other existing values stay as they are (including `2xlarge`)
 - Text input now has a `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
 - Tag has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - Checkbox and Radio have a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
-- SelectBox has a new `size` prop. The default value is `full-width`. Other available values are `full-width-mobile`, `standard`, `small`, and `xsmall`.
+- XUIButton has a new `fullWidth` prop. The default value is `never`. Other available values are `always`, and `small-only`.
+	- This replaces the `full-width` and `full-width-mobile` sizes.
+- SelectBox has a new `size` prop. The default value is `standard`. Other available values are `small`, and `xsmall`.
 - SelectBox has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
 - `RolloverCheckbox`has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.
 

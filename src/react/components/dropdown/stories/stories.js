@@ -209,7 +209,7 @@ const createTriggerInput = props => (
 	/>
 );
 
-const createTriggerButton = () => <XUIButton size="full-width">A button</XUIButton>;
+const createTriggerButton = () => <XUIButton fullWidth="always">A button</XUIButton>;
 
 const createTriggerLink = () =>
 	<a href="javascript:void(0);">A link</a> // eslint-disable-line jsx-a11y/anchor-is-valid

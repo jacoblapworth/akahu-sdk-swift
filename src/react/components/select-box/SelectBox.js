@@ -8,7 +8,7 @@ import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import XUIButton from '../button/XUIButton';
 import XUIButtonCaret from '../button/XUIButtonCaret';
-import { sizeClassNames } from '../button/private/constants';
+import { sizeClassNames, widthClassNames } from '../button/private/constants';
 import Picklist from '../picklist/Picklist';
 import qaHooks from './qaHooks';
 import { ns } from '../helpers/xuiClassNamespace';
@@ -54,6 +54,7 @@ export default class SelectBox extends Component {
 			defaultLayout,
 			dropDownClasses,
 			forceDesktop,
+			fullWidth,
 			hintMessage,
 			inputGroupClasses,
 			isDisabled,
@@ -87,6 +88,7 @@ export default class SelectBox extends Component {
 		const trigger = (
 			<XUIButton
 				className={buttonClassNames}
+				fullWidth={fullWidth}
 				isDisabled={isDisabled}
 				qaHook={setQaHook(qaHook, qaHooks.button)}
 				ref={c => selectBox.trigger = c}
@@ -121,12 +123,6 @@ export default class SelectBox extends Component {
 			>
 				<Picklist>
 					{React.Children.map(children, child => {
-						const inheritableSizes = ['standard', 'small', 'xsmall'];
-
-						if (inheritableSizes.indexOf(size) === -1) {
-							return child;
-						}
-
 						if (child && child.type !== SelectBoxOption) {
 							return child;
 						}
@@ -263,14 +259,15 @@ SelectBox.propTypes = {
 	/** Whether to use the field layout classes  */
 	isFieldLayout: PropTypes.bool,
 	/**
-	 * Modifier for the size of the SelectBox.
+	 * Modifier for the size of the SelectBox. `standard`, `small`, or `xsmall`.
 	 *
-	 * `standard`, `small`, `xsmall`, `full-width`, or `full-width-mobile`.
-	 *
-	 * If `SelectBoxOption` does not have a size set, it will inherit the size
-	 *  from `SelectBox` where possible.
+	 * If `SelectBoxOption` does not have a size set, it will inherit the size from `SelectBox`.
 	*/
 	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
+	/**
+	 * Modifier for the width of the SelectBox. `always`, `small-down`, or `never`.
+	*/
+	fullWidth: PropTypes.oneOf(Object.keys(widthClassNames)),
 };
 
 SelectBox.defaultProps = {
@@ -278,9 +275,9 @@ SelectBox.defaultProps = {
 	closeAfterSelection: true,
 	defaultLayout: true,
 	forceDesktop: false,
+	fullWidth: 'always',
 	isOpen: false,
 	isTextTruncated: true,
 	matchTriggerWidth: true,
 	restrictFocus: true,
-	size: 'full-width',
 };

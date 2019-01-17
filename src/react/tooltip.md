@@ -23,7 +23,7 @@ const triggerIcon = (
 		<XUIIcon icon={info} isBoxed />
 	</XUIButton>
 );
-const triggerButton = <XUIButton size="full-width">A button</XUIButton>;
+const triggerButton = <XUIButton fullWidth="always">A button</XUIButton>;
 
 <div>
 	<XUITooltip trigger={triggerIcon}>Tooltip with all default behavior</XUITooltip>

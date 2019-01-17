@@ -34,7 +34,7 @@ const createTipInput = () => (
 	/>
 );
 
-const createTriggerButton = () => <XUIButton size="full-width">A button</XUIButton>;
+const createTriggerButton = () => <XUIButton fullWidth="always">A button</XUIButton>;
 
 const createHandlerTriggerButton = () => {
 	const clickHandl = () => { console.log('click'); }; // eslint-disable-line no-console
@@ -42,7 +42,7 @@ const createHandlerTriggerButton = () => {
 	const blurHandl = () => { console.log('blur'); }; // eslint-disable-line no-console
 	return (
 		<XUIButton
-			size="full-width"
+			fullWidth="always"
 			onClick={clickHandl}
 			onFocus={focusHandl}
 			onBlur={blurHandl}

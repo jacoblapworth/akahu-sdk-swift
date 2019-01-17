@@ -80,7 +80,7 @@ If you use these together with the `size` prop, the icon button size classes wil
 
 ### Size
 
-The `size` prop allows you to modify the default button size. You can make buttons smaller, or span the width of their container.
+The `size` prop allows you to modify the default button size.
 
 ```jsx
 <div>
@@ -90,20 +90,25 @@ The `size` prop allows you to modify the default button size. You can make butto
 </div>
 ```
 
-There are two options for "full-width" buttons. `full-width-mobile` only creates a full-width button at mobile breakpoints. `full-width` will be a full-width button at any breakpoint.
+### Full Width
+
+You can make buttons span the width of their container by setting the `fullWidth` property.
+
+`always` will be a full-width button at any breakpoint.
+`small-down` only creates a full-width button at mobile breakpoints.
 
 ```jsx
 	<div>
 		<div className="xui-margin-bottom">
 
-			<XUIButton variant="primary" size='full-width'>
+			<XUIButton variant="primary" fullWidth='always'>
 				Full-width Button
 			</XUIButton>
 
 		</div>
 		<div>
 
-			<XUIButton variant="create" size='full-width-mobile'>
+			<XUIButton variant="create" fullWidth='small-down'>
 				Mobile Full-width Button
 			</XUIButton>
 

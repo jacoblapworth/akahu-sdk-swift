@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUILoader from '../loader/XUILoader';
-import { variantClassNames, sizeClassNames, buttonTypes, iconSizeClassNames } from './private/constants';
+import {
+	buttonTypes,
+	iconSizeClassNames,
+	sizeClassNames,
+	variantClassNames,
+	widthClassNames,
+} from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 import noop from '../helpers/noop';
 
@@ -130,26 +136,27 @@ export default class XUIButton extends React.PureComponent {
 
 	render() {
 		const {
-			type,
-			variant,
-			onClick,
-			isDisabled,
-			isLoading,
 			children,
 			className,
-			onKeyDown,
-			tabIndex,
-			size,
-			isGrouped,
-			qaHook,
-			isExternalLink,
+			fullWidth,
 			href,
-			target,
-			rel,
-			isLink,
+			isDisabled,
+			isExternalLink,
+			isGrouped,
 			isInverted,
-			retainLayout,
+			isLink,
+			isLoading,
 			minLoaderWidth,
+			onClick,
+			onKeyDown,
+			qaHook,
+			rel,
+			retainLayout,
+			size,
+			tabIndex,
+			target,
+			type,
+			variant,
 			...spreadProps
 		} = this.props;
 		const ElementType = isLink ? 'a' : 'button';
@@ -178,6 +185,7 @@ export default class XUIButton extends React.PureComponent {
 
 		const isIconDependentClassNames = isIconVariant(variantClass) ? cn(iconSizeClassNames[size]) : cn(
 			sizeClassNames[size],
+			widthClassNames[fullWidth],
 			(isInverted &&
 				(isBorderlessVariant(variantClass)
 					? `${ns}-button-borderless-inverted`
@@ -268,9 +276,14 @@ XUIButton.propTypes = {
 	variant: PropTypes.oneOf(Object.keys(variantClassNames)),
 
 	/**
-	 * Modifier for the size of the button. `small`, `xsmall`, `full-width`, or `full-width-layout`.
+	 * Modifier for the size of the button. `standard`, `small`, or `xsmall`.
 	*/
 	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
+
+	/**
+	 * Modifier for the width of the button. `always`, `small-down`, or `never`.
+	*/
+	fullWidth: PropTypes.oneOf(Object.keys(widthClassNames)),
 
 	/** Whether or not to render this button using an <a> tag */
 	isLink: PropTypes.bool,
@@ -304,14 +317,15 @@ XUIButton.propTypes = {
 };
 
 XUIButton.defaultProps = {
-	tabIndex: 0,
-	type: buttonTypes.button,
-	variant: 'standard',
-	size: 'standard',
-	isLink: false,
 	isDisabled: false,
 	isExternalLink: false,
 	isGrouped: false,
+	isLink: false,
 	isLoading: false,
+	fullWidth: 'never',
 	retainLayout: true,
+	size: 'standard',
+	tabIndex: 0,
+	type: buttonTypes.button,
+	variant: 'standard',
 };

@@ -7,11 +7,19 @@ export const baseClassName = `${ns}-button`;
  * Map of sizes to XUI Classes properties
  */
 export const sizeClassNames = {
-	'xsmall': `${baseClassName}-xsmall`,
-	'small': `${baseClassName}-small`,
-	'standard': '',
-	'full-width': `${baseClassName}-fullwidth`,
-	'full-width-mobile': `${baseClassName}-fullwidth-layout`,
+	xsmall: `${baseClassName}-xsmall`,
+	small: `${baseClassName}-small`,
+	standard: '',
+};
+
+/**
+ * @public
+ * Map of widths to XUI Classes properties
+ */
+export const widthClassNames = {
+	'always': `${baseClassName}-fullwidth`,
+	'small-down': `${baseClassName}-fullwidth-layout`,
+	'never': '',
 };
 
 /**

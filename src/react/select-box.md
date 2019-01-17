@@ -60,7 +60,7 @@ class SelectBoxExample extends Component {
 					name="selectOne"
 					label="Select a Bank"
 					buttonContent={
-						<span>
+						<span className="xui-u-flex">
 							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
 							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
 						</span>
@@ -71,10 +71,10 @@ class SelectBoxExample extends Component {
 						return (
 							<SelectBoxOption
 								id={opt}
-								key={idx + opt + 'userDefined Key'}
 								isSelected={opt === MiniApp.state.selectedBank}
-								value={opt}
+								key={idx + opt + 'userDefined Key'}
 								onSelect={MiniApp.onBankSelect}
+								value={opt}
 							>
 								{opt}
 							</SelectBoxOption>
@@ -124,20 +124,20 @@ class MiniApp extends Component {
 		const MiniApp = this;
 		return (
 			<SelectBox
-				ref={this.isMultiselect}
-				name="isMultiselect"
 				buttonContent={TextHelpers.getText(MiniApp.state.selectedBoats, 'Choose a few boats')}
-				label="Select Several Boats"
 				closeAfterSelection={false}
+				label="Select Several Boats"
+				name="isMultiselect"
 				onSelect={MiniApp.onBoatSelect}
+				ref={this.isMultiselect}
 			>
 				{boats.map((opt, idx) => {
 					return (
 						<SelectBoxOption
 							id={opt}
+							isSelected={MiniApp.state.selectedBoats.indexOf(opt) >= 0}
 							key={idx + opt + 'userDefined Key'}
 							showCheckboxes={true}
-							isSelected={MiniApp.state.selectedBoats.indexOf(opt) >= 0}
 							value={opt}
 						>
 							{opt}
@@ -152,9 +152,88 @@ class MiniApp extends Component {
 <MiniApp/>
 ```
 
+### Sizes
+
+The `size` prop allows you to change the default `SelectBox` size.
+
+If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
+
+```jsx
+const { Component } = require('react');
+const XUIIcon = require('./components/icon/XUIIcon').default;
+const TextHelpers = require ('./components/select-box/TextHelpers').default;
+const bank = require('@xero/xui-icon/icons/bank').default;
+
+const banks = [
+	'ANZ',
+	'ASB',
+	'Kiwi Bank',
+	'Westpac',
+];
+
+class MiniApp extends Component {
+	constructor (props, context) {
+		super(props, context);
+
+		this.state = {
+			selectedBank: banks[2]
+		};
+		[
+			this.onBankSelect,
+		].forEach(fn => {
+			this[fn.name] = fn.bind(this);
+		});
+
+		this.selectOne = React.createRef();
+	}
+
+	onBankSelect(value) {
+		this.setState({
+			selectedBank: value
+		});
+	}
+
+	render () {
+		const MiniApp = this;
+
+		return (
+				<SelectBox
+					buttonContent={
+						<span className="xui-u-flex">
+							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
+							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
+						</span>
+					}
+					isTextTruncated={false}
+					label="Select a Bank"
+					name="selectOne"
+					ref={this.selectOne}
+					size="standard"
+				>
+					{banks.map((opt, idx) => {
+						return (
+							<SelectBoxOption
+								id={opt}
+								isSelected={opt === MiniApp.state.selectedBank}
+								key={idx + opt + 'userDefined Key'}
+								onSelect={MiniApp.onBankSelect}
+								value={opt}
+							>
+								{opt}
+							</SelectBoxOption>
+						);
+					})}
+				</SelectBox>
+		);
+	}
+}
+
+<MiniApp />
+```
+
 ### Button variants
 
-The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop.
+The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop. We recommend setting the `size` to `standard` to prevent the SelectBox from being full width with button variants.
 
 ```jsx
 const { Component } = require('react');
@@ -198,26 +277,27 @@ class MiniApp extends Component {
 
 		return (
 				<SelectBox
-					ref={this.selectOne}
-					name="selectOne"
-					label="Select a Bank"
 					buttonContent={
-						<span>
+						<span className="xui-u-flex">
 							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
 							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
 						</span>
 					}
-					isTextTruncated={false}
 					buttonVariant="primary"
+					isTextTruncated={false}
+					label="Select a Bank"
+					name="selectOne"
+					ref={this.selectOne}
+					size="standard"
 				>
 					{banks.map((opt, idx) => {
 						return (
 							<SelectBoxOption
 								id={opt}
-								key={idx + opt + 'userDefined Key'}
 								isSelected={opt === MiniApp.state.selectedBank}
-								value={opt}
+								key={idx + opt + 'userDefined Key'}
 								onSelect={MiniApp.onBankSelect}
+								value={opt}
 							>
 								{opt}
 							</SelectBoxOption>

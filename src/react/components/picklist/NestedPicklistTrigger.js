@@ -51,8 +51,6 @@ export default class NestedPicklistTrigger extends PureComponent {
 				onKeyDown={onClick}
 				onMouseOver={onMouseOver}
 				onFocus={onMouseOver}
-				// TODO: fix this overall interaction between the label and checkbox
-				// in NestedPicklistContainer.js
 				role="button" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
 				tabIndex={0}
 				aria-label={ariaLabel}

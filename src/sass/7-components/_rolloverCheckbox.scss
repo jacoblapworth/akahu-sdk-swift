@@ -25,8 +25,8 @@
 }
 
 .#{$ns}-rollovercheckbox-small {
-	min-height: 40px;
-	width: 40px;
+	min-height: $xui-control-size-standard;
+	width: $xui-control-size-standard;
 }
 
 .#{$ns}-rollovercheckbox-large {

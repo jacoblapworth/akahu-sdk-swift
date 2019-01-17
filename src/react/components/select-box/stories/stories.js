@@ -36,13 +36,14 @@ function createItems(settings) {
 
 const toggledItems = AddIdPropsToTextList(LongListLongItems);
 
-const button = <span><XUIIcon icon={education} className="xui-margin-right-xsmall" />Choose a classic book</span>;
+const button = <span className="xui-u-flex"><XUIIcon icon={education} className="xui-margin-right-xsmall" />Choose a classic book</span>;
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
-	const size = select('list item size', ['standard', 'small', 'xsmall'], 'standard');
+	const size = select('size', ['standard', 'small', 'xsmall', 'full-width', 'full-width-mobile'], "full-width");
+	const listItemSize = select('list item size', [null, 'standard', 'small', 'xsmall']);
 	return (
 		<SelectBox
 			label={text('label', 'Label for the select box')}
@@ -63,13 +64,14 @@ storiesWithKnobs.add('Playground', () => {
 			validationMessage={text('validationMessage', '')}
 			hintMessage={text('hintMessage', '')}
 			buttonContent={
-				<span>
+				<span className="xui-u-flex">
 					<XUIIcon icon={education} className="xui-margin-right-xsmall" />
 					{text('placeholder text', 'Choose a classic book')}
 				</span>
 			}
+			size={size}
 		>
-			{createItems({ items: toggledItems, size })}
+			{createItems({ items: toggledItems, size: listItemSize })}
 		</SelectBox>
 	);
 });
@@ -88,8 +90,8 @@ variations.forEach(variation => {
 		if (variationMinusStoryDetails.isTextTruncated) {
 			items.forEach(i => i.props.truncatedText = true);
 		}
-		const size = variationMinusStoryDetails.size;
-		delete variationMinusStoryDetails.size;
+		const listItemSize = variationMinusStoryDetails.listItemSize;
+		delete variationMinusStoryDetails.listItemSize;
 		delete variationMinusStoryDetails.items;
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
@@ -99,7 +101,7 @@ variations.forEach(variation => {
 				{...variationMinusStoryDetails}
 				label={variation.storyTitle}
 			>
-				{createItems({ items, size })}
+				{createItems({ items, size: listItemSize })}
 			</SelectBox>
 		);
 	});

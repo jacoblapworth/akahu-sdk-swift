@@ -244,15 +244,15 @@ code {
 }
 
 .ds-tips-positive {
-	color: #57c40a;
+	color: $xui-color-green;
 }
 
 .ds-tips-negative {
-	color: #f6534e;
+	color: $xui-color-red;
 }
 
 .ds-tips-warning {
-	color: #f8a900;
+	color: $xui-color-orange;
 }
 
 .ds-tips--detail {
@@ -291,12 +291,6 @@ section[class*="kss-section"] {
 .ds-input-markup,
 .ds-input-example {
 	display: none;
-}
-
-.ds-markup--label{
-	font-size: $xui-font-size-small;
-	color: $xui-color-blue;
-	display: inline-block;
 }
 
 // Labels need to be nested in another element for other styling reasons (full bleed)

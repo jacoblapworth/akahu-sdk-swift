@@ -34,6 +34,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 * `xui-breakpoint-huge` mixin has been removed. Use `xui-breakpoint-xlarge-up` instead.
 * `xui-breakpoint-medium-and-narrow` mixin has been removed. Use `xui-breakpoint-small-up` instead
 * `xui-breakpoint-medium-and-wide` mixin has been removed. Use `xui-breakpoint-large-up` instead
+* `xui-disabled-form` mixin has been removed. Use `xui-disabled-form-control` instead.
 
 ## Breakpoint variable name & value changes
 
@@ -82,6 +83,13 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- In support of the more contentblock-style Autocompleter picklists, Pickitems also have new `headerElement` and `isMultiline` props.
 - ContentBlockItem has new `description` and `tagPosition` props. Description is styled similarly to the prior `secondaryHeading` content (which has now become more prominent), and `tagPosition` allows you to specify where tags will be placed. `pinnedValue`, `href`, `primaryHeading`, and `secondaryHeading` now only accept strings. The `tag` property has been changed to accept multiple tags, and is now labeled `tags`, accordingly.
 - Loader size options have been switched from 'large', 'standard', and 'small' to be consistent with other component sizes. New size options are 'standard', 'small', and 'xsmall', and will be converted automatically if using the codemod. The largest size, 'standard' is now the default.
+- `SelectBox` 
+	- Has a new `size` prop. The default value is `full-width`.
+		- The available sizes are `full-width`, `full-width-mobile`, `standard`, `small`, and `xsmall`.
+	- If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
+	- No longer shrinks to a standard width when a `buttonVariant` is supplied. To prevent your `SelectBox` from going full-width, set the `size` prop to `standard`.
+	- The `isTextTruncated` prop can now be used without a `buttonVariant`.
+	- Has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
 
 ### Utility classes
 
@@ -104,7 +112,10 @@ All other existing values stay as they are (including `2xlarge`)
 ---
 
 ### Component classes
-
+- `SelectBox` without React
+	- Additional class `xui-button-standard` is now required when building a SelectBox without React.
+	- Additional class `xui-select--button-no-variant` is now required when building a SelectBox without React.
+	- `xui-button-fullwidth` is now required to make the SelectBox match the width of its container when building a SelectBox without React.
 
 ### Component prop name changes
 
@@ -115,9 +126,12 @@ All other existing values stay as they are (including `2xlarge`)
 ### Component props
 
 - Pill has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
+- Pill has a new `isLimitedWidth` prop to replace the `isMaxContentWidth` prop. The default for pills is now to fit their content, and you can apply `isLimitedWidth` to cap them at 200px. This prop change will be handled automatically by the upgrade codemod for existing Pills in your app.
 - Text input now has a `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - Tag has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - Checkbox and Radio have a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
+- SelectBox has a new `size` prop. The default value is `full-width`. Other available values are `full-width-mobile`, `standard`, `small`, and `xsmall`.
+- SelectBox has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
 
 ## Other changes
 

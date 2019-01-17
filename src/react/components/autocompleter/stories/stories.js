@@ -38,10 +38,8 @@ class PillWrapper extends PureComponent {
 				value={peopleDataSet[id].name}
 				className="xui-autocompleter--pill"
 				onDeleteClick={this.deleteSelf}
-				isMaxContentWidth
 				key={id}
 				size="small"
-				isMaxContentWidth
 			/>
 		)
 	}

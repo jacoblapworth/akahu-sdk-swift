@@ -16,7 +16,7 @@
 
 // .#{$ns}-panel--header is reserved
 .#{$ns}-panel--header {
-	min-height: 60px;
+	min-height: $xui-navigation-height;
 }
 
 
@@ -60,7 +60,7 @@
 .#{$ns}-panel--footer {
 	border-top: $xui-border-standard;
 	display: flex;
-	min-height: 60px;
+	min-height: $xui-navigation-height;
 	&:first-child {
 		border-top: 0;
 	}

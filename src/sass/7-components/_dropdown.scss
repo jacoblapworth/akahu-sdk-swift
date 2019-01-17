@@ -28,7 +28,6 @@
 	min-width: $xui-starting-width;
 	outline: none;
 	position: absolute;
-	width: max-content;
 
 	@include xui-breakpoint-small-up {
 		z-index: 1000;

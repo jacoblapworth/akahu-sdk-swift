@@ -19,7 +19,7 @@
 // Do: Use anchor tags when an href is present
 // Do: Use button tags in all other circumstances
 // Warning: Avoid using non-standard controls like divs for buttons
-// Warning: Use the create and negative color variants sparingly
+// Warning: Use the create and negative colour variants sparingly
 // Dont: Never rely on the unstyled button class in isolation
 //
 //
@@ -39,7 +39,7 @@
 //
 // Styleguide: Building Blocks.Controls.Button.2
 
-// Style
+// Style variants
 //
 // Add a `xui-button-*` modifier to specify which kind of button you require.
 //
@@ -48,8 +48,8 @@
 // For example, using a ‘negative’ button:
 //
 // Tips:
-// Do: When using color variation, use descriptive text like "Delete user records"
-// Dont: When using color variation, avoid vague text like "Complete"
+// Do: When using colour variation, use descriptive text like "Delete user records"
+// Dont: When using colour variation, avoid vague text like "Complete"
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -76,15 +76,15 @@
 // For example, using a ‘negative’ button:
 //
 // Tips:
-// Do: When using color variation, use descriptive text like "Delete user records"
-// Dont: When using color variation, avoid vague text like "Complete"
+// Do: When using colour variation, use descriptive text like "Delete user records"
+// Dont: When using colour variation, avoid vague text like "Complete"
 //
 // Classes:
 // -borderless-main: Primary actions
 // -borderless-create: Creating new objects
 // -borderless-negative: Desctructive actions
-// -borderless-muted: Secondary text color
-// -borderless-standard: Standard text color
+// -borderless-muted: Secondary text colour
+// -borderless-standard: Standard text colour
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -158,7 +158,7 @@
 // To force a button to occupy the entire width of its parent at narrow viewports, apply the following modifier.
 //
 // Classes:
-// xui-button-fullwidth-layout: 100% width below 600px
+// xui-button-fullwidth-layout: 100% width below 600px ($xui-breakpoint-small-down)
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -394,7 +394,7 @@
 //
 // Classes:
 // xui-actions: Apply to button container to set the correct layout
-// xui-actions-layout: Apply to button container to add internal spacing and stack buttons below $xui-breakpoint-small
+// xui-actions-layout: Apply to button container to add internal spacing and stack buttons below 600px ($xui-breakpoint-small-down)
 // xui-actions--primary: Apply to primary button to set the correct order
 // xui-actions--secondary: Apply to secondary button to set the correct order
 //

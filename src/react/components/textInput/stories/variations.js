@@ -144,6 +144,18 @@ const bothSideElementsWithSizes = inputSizes.map(size => {
 const multilineStories = [
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as an xsmall multiline input',
+		isMultiline: true,
+		size: 'xsmall'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as a small multiline input',
+		isMultiline: true,
+		size: 'small'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as a multiline input',
 		isMultiline: true,
 	},

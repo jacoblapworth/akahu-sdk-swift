@@ -14,7 +14,7 @@
 //
 // Tips:
 // Do: Actions should be descriptive and succinct
-// Do: Action should be robust enough to increase text length when switching languages
+// Do: Action should allow for string length variance when language changes
 // Dont: Avoid wrapping or truncating action text
 // Dont: Don't fix width of an action
 //
@@ -27,20 +27,63 @@
 // Common examples might be a content block or picklist. In these cases, truncation is recommended to help maintain vertical rhythm between rows, and in turn, aid scannability. In some cases, wrapping text is desired as to understand the full context of an entry point. This pattern does come at a cost of affecting vertical rhythm.
 //
 // Tips:
-// Do: When not user-defined, entry points should be succinct and descriptive
+// Do: Business-defined entry points should be succinct and descriptive
 // Do: Truncate entry point text when vertical rhythm is desired
 // Do: Wrap entry point text to new lines when full context of information is desired
 //
 // Styleguide: Patterns.Text.2
 
-// Detail text
+// Details
 //
 // Introduction: These refer to the deepest view or page of a particular instance. This might be the name of an industry within a table, or perhaps a comment within a history and notes section.
 //
 // For these elements avoid truncation, and instead, use wrapping to handle long strings. However, in limited situations where height or width restrictions on detail views are unavoidable, we recommend two approaches. For shorter strings (like a table column), truncate and add a tooltip to replicate the same content, but display it in full on click (persisting for touch users) and hover (temporary for mouse users). For longer content (like a user generated comment) consider the 'view more' approach – an explicit button to expand and collapse the height of the containing element, to reveal the rest of the string in its original context.
 //
 // Tips:
-// Do: Wrap 
+// Do: Wrap text to handle long strings
+// Do: Use a tooltip to display full string if unable to wrap text that isn't very long
+// Do: Use an explicit show/hide action to display full string if unable to wrap text that is long
 // Dont: Avoid truncating detail text
 //
 // Styleguide: Patterns.Text.3
+
+// Navigational elements
+//
+// Introduction: These refer to elements that provide context to the user and summarise the particular view or page displayed.  This might be a top level navigation item, or perhaps a tab in a page header.
+//
+// Navigational elements have the possibility of being both user-defined (eg. Client name) or business-defined (eg. Settings). Any business-defined navigational elements should be short and succinct, with the surrounding container allowing space for the text to be displayed on a single line, without truncation. User-defined navigational elements are unpredictable and so we should assume that the string could be long. To deal with this, provide an appropriate character limit if possible. If the user-defined string is too long for the surrounding container, you should wrap text to a new line. In rare situations, (eg. Sidebar navigation picklist with client names), you can truncate the text, as long as the destination context is not lost.
+//
+// Tips:
+// Do: Business-defined entry points should be succinct and descriptive
+// Do: If possible, provide an appropriate character limit for user-defined navigational elements
+// Do: Navigational elements should allow for string length variance when language changes
+// Warning: Truncate user-defined navigational elements, only if context of the destination is clear
+// Dont: Avoid truncating navigational element text
+//
+// Styleguide: Patterns.Text.4
+
+// Supplementary information
+//
+// Introduction: These refer to text elements that are used to represent state or allude to larger, more complex objects or documents. A common example might be a tag, secondary label or pinned value.
+//
+// Supplementary information should always be short in length as their purpose is give additional information that is scannable and not visually dominant over other content. Follow component specific guidance wherever possible for specific alignment and text treatment information. When truncating supplementary information due to lack of real estate, allow for a tooltip to be used to display the entire string.
+//
+// Tips:
+// Do: Display supplementary information in short, succinct strings
+// Do: Follow component specific guidance for destinct text treatment information
+// Dont: Avoid truncating numbers, as users often rely on accuracy for values in a supplementary context 
+//
+// Styleguide: Patterns.Text.5
+
+// Shorthand
+//
+// Several elements in Xero adopt shorthand for familiar words and strings. An example of this might be a placeholder like 'DD/MM/YY' to suggest formatting for an input, a string like 'W' or 'Wed' to suggest the day of the week, or acronyms like 'FY19' to reference industry conventional date ranges. This is an accepted approach and helps prevent displaying excess amounts of information where that makes sense, however, we recommend showing more detail whenever possible. 
+// 
+// A component like the XUI chart does this well, and selectively introduces more detailed labels as the width of the viewport grows. Additionally, be aware of the different conventions across regions, as well as the level of familiarity of these terms for particular users.
+//
+// Tips:
+// Do: Use shorthand on universally accepted terminology, such as date formatting
+// Warning: Keep in mind internationalisation of shorthand, as sentiment may change
+// Dont: Avoid truncating numbers, as users often rely on accuracy for values in a supplementary context 
+//
+// Styleguide: Patterns.Text.6

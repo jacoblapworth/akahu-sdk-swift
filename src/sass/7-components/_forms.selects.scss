@@ -35,7 +35,7 @@
 	text-align: left;
 
 	&:disabled {
-		@include xui-disabled-form;
+		@include xui-disabled-form-control;
 	}
 
 	.#{$ns}-select-is-invalid & {

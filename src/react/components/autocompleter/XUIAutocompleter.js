@@ -381,7 +381,6 @@ export default class XUIAutocompleter extends PureComponent {
 	}
 }
 
-// TODO: Rename `pills` to `leftElement`
 XUIAutocompleter.propTypes = {
 	/** Callback to handle when an option has been selected from the dropdown */
 	onOptionSelect: PropTypes.func,

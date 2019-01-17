@@ -222,6 +222,10 @@ variations.forEach(variation => {
 			variationMinusStoryDetails.label = 'Test label';
 			variationMinusStoryDetails.isLabelHidden = true;
 		}
+		if (variationMinusStoryDetails.noDefault) {
+			delete variationMinusStoryDetails.noDefault;
+			return <XUITextInput {...variationMinusStoryDetails} type="text" />
+		}
 
 		return <TextInputWrapper {...variationMinusStoryDetails} />;
 	});

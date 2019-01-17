@@ -61,6 +61,12 @@ const styleVariantStories = [
 		isBorderlessSolid: true,
 		isInverted: true,
 	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with placeholder and no default',
+		noDefault: true,
+		placeholder: "First name"
+	},
 ];
 
 const labelAndValidationStories = [

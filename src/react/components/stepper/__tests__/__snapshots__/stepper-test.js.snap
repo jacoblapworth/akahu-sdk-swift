@@ -389,14 +389,31 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 <div
                   className="xui-stepper-link-icon"
                 >
-                  <svg
+                  <XUIIcon
                     className="xui-stepper-icon-error"
-                    viewBox="0 0 2 7"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="standard"
                   >
-                    <path
-                      d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"
-                    />
-                  </svg>
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
                 </div>
               </StepperIcon>
               <div
@@ -709,14 +726,31 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 <div
                   className="xui-stepper-link-icon"
                 >
-                  <svg
+                  <XUIIcon
                     className="xui-stepper-icon-error"
-                    viewBox="0 0 2 7"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="standard"
                   >
-                    <path
-                      d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"
-                    />
-                  </svg>
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
                 </div>
               </StepperIcon>
               <div
@@ -1759,14 +1793,31 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 <div
                   className="xui-stepper-link-icon"
                 >
-                  <svg
+                  <XUIIcon
                     className="xui-stepper-icon-error"
-                    viewBox="0 0 2 7"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="standard"
                   >
-                    <path
-                      d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"
-                    />
-                  </svg>
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
                 </div>
               </StepperIcon>
               <div
@@ -2092,14 +2143,31 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 <div
                   className="xui-stepper-link-icon"
                 >
-                  <svg
+                  <XUIIcon
                     className="xui-stepper-icon-error"
-                    viewBox="0 0 2 7"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="standard"
                   >
-                    <path
-                      d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"
-                    />
-                  </svg>
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
                 </div>
               </StepperIcon>
               <div
@@ -2412,14 +2480,31 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 <div
                   className="xui-stepper-link-icon"
                 >
-                  <svg
+                  <XUIIcon
                     className="xui-stepper-icon-error"
-                    viewBox="0 0 2 7"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="standard"
                   >
-                    <path
-                      d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"
-                    />
-                  </svg>
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
                 </div>
               </StepperIcon>
               <div
@@ -2814,14 +2899,31 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 <div
                   className="xui-stepper-link-icon"
                 >
-                  <svg
+                  <XUIIcon
                     className="xui-stepper-icon-error"
-                    viewBox="0 0 2 7"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="standard"
                   >
-                    <path
-                      d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"
-                    />
-                  </svg>
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
                 </div>
               </StepperIcon>
               <div
@@ -2882,14 +2984,31 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 <div
                   className="xui-stepper-link-icon"
                 >
-                  <svg
+                  <XUIIcon
                     className="xui-stepper-icon-error"
-                    viewBox="0 0 2 7"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="standard"
                   >
-                    <path
-                      d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"
-                    />
-                  </svg>
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
                 </div>
               </StepperIcon>
               <div
@@ -3018,14 +3137,31 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 <div
                   className="xui-stepper-link-icon"
                 >
-                  <svg
+                  <XUIIcon
                     className="xui-stepper-icon-error"
-                    viewBox="0 0 2 7"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="standard"
                   >
-                    <path
-                      d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"
-                    />
-                  </svg>
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
                 </div>
               </StepperIcon>
               <div

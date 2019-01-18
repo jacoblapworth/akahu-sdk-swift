@@ -16,7 +16,9 @@
 		"introduction",
 		"tips",
 		"flag",
-		"storybook"
+		"storybook",
+		"subcopy",
+		"composition-image"
 	],
 	"destination": "./dist/docs",
 	"css": [

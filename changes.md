@@ -141,6 +141,8 @@ All other existing values stay as they are (including `2xlarge`)
 - Checkbox and Radio have a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - XUIButton has a new `fullWidth` prop. The default value is `never`. Other available values are `always`, and `small-only`.
 	- This replaces the `full-width` and `full-width-mobile` sizes.
+- SelectBox has a new `fullWidth` prop. The default value is `never`. Other available values are `always`, and `small-only`.
+	- This replaces the `full-width` and `full-width-mobile` sizes.
 - SelectBox has a new `size` prop. The default value is `standard`. Other available values are `small`, and `xsmall`.
 - SelectBox has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
 - `RolloverCheckbox`has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.

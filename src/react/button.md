@@ -95,7 +95,8 @@ The `size` prop allows you to modify the default button size.
 You can make buttons span the width of their container by setting the `fullWidth` property.
 
 `always` will be a full-width button at any breakpoint.
-`small-down` only creates a full-width button at mobile breakpoints.
+`small-down` will only be a full-width button at mobile breakpoints.
+`never` will never be a full-width button (this is the default).
 
 ```jsx
 	<div>

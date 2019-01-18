@@ -142,4 +142,19 @@ module.exports = {
 			]
 		}
 	],
+	'@xero/xui/react/structural': [
+		{
+			name: 'XUIColumn',
+			props: [
+				{
+					name: 'gridColumnsMedium',
+					newName: 'gridColumnsSmallUp'
+				},
+				{
+					name: 'gridColumnsWide',
+					newName: 'gridColumnsLargeUp'
+				},
+			],
+		}
+	],
 }

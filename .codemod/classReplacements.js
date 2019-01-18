@@ -4,7 +4,8 @@ const classMap = {
 	'xui-pageheading--breadcrumbs': 'xui-breadcrumbs',
 	'xui-pickitem--split': 'xui-pickitem-split',
 	'xui-pickitem--multiselect': 'xui-pickitem-multiselect',
-	'xui-pill-is-deleteable': 'xui-pill-is-deletable'
+	'xui-pill-is-deleteable': 'xui-pill-is-deletable',
+	'xui-dropdown-show-mobile-only': 'xui-dropdown-hide-small-up',
 };
 
 const sizeMap = {
@@ -28,6 +29,38 @@ types.forEach(type => {
 			const prefix = `xui-${type}${side}-`;
 			classMap[`${prefix}${size}`] = `${prefix}${sizeMap[size]}`;
 		})
+	})
+});
+
+for (i = 1, max = 12; i <= max; i += 1) {
+	classMap[`xui-column-${i}-of-12-medium`] = `xui-column-${i}-of-12-small-up`;
+	classMap[`xui-column-${i}-of-12-wide`] = `xui-column-${i}-of-12-large-up`;
+}
+
+const utilsToResize = [
+	'flex-align-start',
+	'flex-align-end',
+	'flex-align-stretch',
+	'flex-align-center',
+	'flex-row',
+	'flex-column',
+	'flex-justify-space-between',
+	'flex-justify-space-around',
+	'flex-justify-start',
+	'flex-justify-end',
+	'flex-justify-center',
+	'hidden',
+];
+const breakpointMap = {
+	narrow: 'small-down',
+	medium: 'small-up',
+	wide: 'large-up'
+};
+
+utilsToResize.forEach(util => {
+	Object.keys(breakpointMap).forEach(bp => {
+		const prefix = `xui-u-${util}-`;
+		classMap[`${prefix}${bp}`] = `${prefix}${breakpointMap[bp]}`;
 	})
 });
 

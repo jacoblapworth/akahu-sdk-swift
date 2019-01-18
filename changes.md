@@ -111,7 +111,6 @@ All other existing values stay as they are (including `2xlarge`)
 | Removed       | Replacement    |
 | ------------- | :------------- |
 
-
 ---
 
 ### Component classes
@@ -121,6 +120,7 @@ All other existing values stay as they are (including `2xlarge`)
 	- `xui-button-fullwidth` is now required to make the SelectBox match the width of its container when building a SelectBox without React.
 
 ### Component prop name changes
+- `XUIColumn` props `gridColumnsMedium` and `gridColumnsWide` have been renamed to `gridColumnsSmallUp` and `gridColumnsLargeUp`, respectively.
 
 
 ## Additions

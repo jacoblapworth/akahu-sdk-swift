@@ -5,7 +5,7 @@ const classMap = {
 	'xui-pickitem--split': 'xui-pickitem-split',
 	'xui-pickitem--multiselect': 'xui-pickitem-multiselect',
 	'xui-pill-is-deleteable': 'xui-pill-is-deletable',
-	'xui-dropdown-show-mobile-only': 'xui-dropdown-hide-small-up',
+	'xui-select--button': 'xui-button-standard xui-button-fullwidth xui-select--button xui-select--button-no-variant'
 };
 
 const sizeMap = {

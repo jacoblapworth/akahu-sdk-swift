@@ -16,7 +16,7 @@ import { withKnobs, boolean, text, number, select } from '@storybook/addon-knobs
 import centered from '@storybook/addon-centered';
 
 import { storiesWithVariationsKindName, variations } from './variations';
-import { variantClassNames, sizeClassNames, buttonTypes } from '../private/constants';
+import { variantClassNames, sizeClassNames, buttonTypes, widthClassNames } from '../private/constants';
 
 const buttonContents = {
 	withCaret: ['Caret button', <XUIButtonCaret key='caret'/>],
@@ -44,7 +44,8 @@ storiesWithKnobs.add('Playground', () => (
 		isLoading={boolean('isLoading', false)}
 		isGrouped={boolean('isGrouped', false)}
 		variant={select('variant', Object.keys(variantClassNames), 'standard')}
-		size={select('size', Object.keys(sizeClassNames), 'full-width')}
+		size={select('size', Object.keys(sizeClassNames))}
+		fullWidth={select('fullWidth', Object.keys(widthClassNames), 'always')}
 		isLink={boolean('isLink', false)}
 		type={select('type', Object.keys(buttonTypes).map(type => buttonTypes[type]), 'button')}
 		href={text('href', '')}

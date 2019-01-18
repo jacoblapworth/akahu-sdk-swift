@@ -3,7 +3,7 @@ export const sizesOrdered = [
 	'2xsmall',
 	'xsmall',
 	'small',
-	'standard',
+	'medium',
 	'large',
 	'xlarge',
 	'2xlarge',

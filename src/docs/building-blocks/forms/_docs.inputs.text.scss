@@ -56,8 +56,8 @@
 //
 // Markup:
 // <div class="xui-textinputwrapper xui-field-layout" role="presentation">
-//   <div class="xui-textinput xui-textinput-standard">
-//     <textarea class="xui-textinput--input xui-textinput--input-standard xui-textinput--input-resize-none" placeholder="Standard textarea" aria-label="input" rows="3"></textarea>
+//   <div class="xui-textinput xui-textinput-medium">
+//     <textarea class="xui-textinput--input xui-textinput--input-medium xui-textinput--input-resize-none" placeholder="Standard textarea" aria-label="input" rows="3"></textarea>
 //   </div>
 // </div>
 //
@@ -77,7 +77,7 @@
 //
 // Definitions:
 // Size variant: **Height**: **Class**
-// standard: 40px: `xui-textinput--input-standard`
+// medium: 40px: `xui-textinput--input-medium`
 // small: 32px: `xui-textinput--input-small`
 // xsmall: 24px: `xui-textinput--input-xsmall`
 //
@@ -85,9 +85,9 @@
 //
 // Markup:
 // <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
-//   <label class="xui-text-label xui-fieldlabel-layout" for="a">Standard</label>
-//   <div class="xui-textinput xui-textinput-standard">
-//     <input type="text" class="xui-textinput--input xui-textinput--input-standard" placeholder="Placeholder" aria-invalid="false" id="a">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="a">Medium</label>
+//   <div class="xui-textinput xui-textinput-medium">
+//     <input type="text" class="xui-textinput--input xui-textinput--input-medium" placeholder="Placeholder" aria-invalid="false" id="a">
 //   </div>
 // </div>
 // <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
@@ -117,7 +117,7 @@
 //
 // Definitions:
 // Size variant: **Elements available to nest**
-// standard: Avatar, Button, Icon, Pill, Text
+// medium: Avatar, Button, Icon, Pill, Text
 // small: Avatar, Button, Icon, Pill, Text
 // xsmall: Avatar, Icon, Text
 //
@@ -125,8 +125,8 @@
 //
 // Markup:
 // <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
-//   <label class="xui-text-label xui-fieldlabel-layout" for="d">Standard</label>
-//   <div class="xui-textinput xui-textinput-standard">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="d">Medium</label>
+//   <div class="xui-textinput xui-textinput-medium">
 //     <div class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-pill">
 //       <div class="xui-pill xui-pill-maxwidth xui-pill-small xui-pill-has-avatar xui-margin-right-2xsmall">
 //         <span class="xui-pill--content">
@@ -141,7 +141,7 @@
 //         </span>
 //       </div>
 //     </div>
-//     <input type="text" class="xui-textinput--input xui-textinput--input-standard" placeholder="" aria-invalid="false" aria-label="Input with pill" value="" id="d">
+//     <input type="text" class="xui-textinput--input xui-textinput--input-medium" placeholder="" aria-invalid="false" aria-label="Input with pill" value="" id="d">
 //     <div class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-button">
 //       <button class="xui-button xui-button-borderless-main xui-button-small" tabindex="0" type="button">Clear</button>
 //     </div>
@@ -196,7 +196,7 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-textinput xui-textinput-standard xui-textinput-borderless xui-textinput-borderless-solid xui-margin-top-large">
+// <div class="xui-textinput xui-textinput-medium xui-textinput-borderless xui-textinput-borderless-solid xui-margin-top-large">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <div class="xui-iconwrapper">
 //     	<svg focusable="false" class="xui-icon">
@@ -238,7 +238,7 @@
 // <div class="xui-background-grey-6 xui-padding-left-xlarge" style="overflow: hidden;">
 //  <div class="xui-row">
 // 	<div class="xui-margin-top-xlarge xui-margin-bottom-small xui-column-6-of-12">
-// 	 <div class="xui-textinput xui-textinput-standard xui-textinput-borderless xui-textinput-borderless-transparent">
+// 	 <div class="xui-textinput xui-textinput-medium xui-textinput-borderless xui-textinput-borderless-transparent">
 // 		<div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 // 			<div class="xui-iconwrapper">
 //       <svg focusable="false" class="xui-icon">
@@ -268,7 +268,7 @@
 //   <input class="xui-textinput xui-textinput--input xui-textinput-borderless xui-textinput-borderless-solid xui-textinput-borderless-inverted" type="text" placeholder="Email address" aria-label="Email address"/>
 // </div>
 // <!-- Transparent + Inverted with icons-->
-// <div class="xui-margin-top xui-textinput xui-textinput-standard xui-textinput-borderless xui-textinput-borderless-transparent xui-textinput-borderless-inverted">
+// <div class="xui-margin-top xui-textinput xui-textinput-medium xui-textinput-borderless xui-textinput-borderless-transparent xui-textinput-borderless-inverted">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <div class="xui-iconwrapper">
 //       <svg focusable="false" class="xui-icon">
@@ -299,7 +299,7 @@
 //
 // Markup:
 // <!-- Icon left -->
-// <div class="xui-textinput xui-textinput-standard xui-margin">
+// <div class="xui-textinput xui-textinput-medium xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <div class="xui-iconwrapper">
 //       <svg focusable="false" class="xui-icon">
@@ -313,7 +313,7 @@
 //     placeholder="http://www.xero.com"
 //     aria-label="URL"/>
 // </div>
-// <div class="xui-textinput xui-textinput-standard xui-margin">
+// <div class="xui-textinput xui-textinput-medium xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <div class="xui-iconwrapper">
 //       <svg focusable="false" class="xui-icon">
@@ -323,13 +323,13 @@
 //   </div>
 //   <input class="xui-textinput--input xui-padding-left-none" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
-// <div class="xui-textinput xui-textinput-standard xui-margin">
+// <div class="xui-textinput xui-textinput-medium xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-text">
 //     €
 //   </div>
 //   <input class="xui-textinput--input xui-padding-left-none" type="text" placeholder="0.00" aria-label="Amount"/>
 // </div>
-// <div class="xui-textinput xui-textinput-standard xui-margin">
+// <div class="xui-textinput xui-textinput-medium xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon xui-textinput--sideelement-has-background xui-textinput--sideelement-twitter">
 //     <div class="xui-iconwrapper">
 //       <svg focusable="false" class="xui-icon">
@@ -349,7 +349,7 @@
 // exampleclass: ds-example-narrow
 //
 // Markup:
-// <div class="xui-textinput xui-textinput-standard xui-margin">
+// <div class="xui-textinput xui-textinput-medium xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <div class="xui-iconwrapper">
 //       <svg focusable="false" class="xui-icon">
@@ -368,7 +368,7 @@
 //     </button>
 //   </div>
 // </div>
-// <div class="xui-textinput xui-textinput-standard xui-margin">
+// <div class="xui-textinput xui-textinput-medium xui-margin">
 //   <input class="xui-textinput--input xui-padding-right-none" id="issue-date" type="text" placeholder="Try 'next month'" aria-label="Issue date"/>
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <button type="button" class="xui-button xui-button-icon" title="Select a date" aria-label="Select a date">
@@ -380,7 +380,7 @@
 //     </button>
 //   </div>
 // </div>
-// <div class="xui-textinput xui-textinput-standard xui-margin">
+// <div class="xui-textinput xui-textinput-medium xui-margin">
 //   <input class="xui-textinput--input xui-padding-right-none" id="issue-date2" type="text" placeholder="Add something to submit" aria-label="Issue date"/>
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-button">
 //     <button type="button" class="xui-button xui-button-main xui-button-small" title="Submit" aria-label="Submit">
@@ -411,10 +411,10 @@
 // xui-textinput-borderless-transparent: Makes the input borderless and transparent when unfocused
 // xui-textinput-borderless-solid: Makes the input borderless with a light background
 // xui-textinput-borderless-inverted: Adds borderless styling for using on an inverted background
-// xui-textinput-standard: Sets textinput wrapper size to standard
+// xui-textinput-medium: Sets textinput wrapper size to medium
 // xui-textinput-small: Sets textinput wrapper size to small
 // xui-textinput-xsmall: Sets textinput wrapper size to xsmall
-// xui-textinput--input-standard: Sets textinput size to standard
+// xui-textinput--input-medium: Sets textinput size to medium
 // xui-textinput--input-small: Sets textinput size to small
 // xui-textinput--input-xsmall: Sets textinput size to xsmall
 //

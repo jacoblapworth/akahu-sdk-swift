@@ -380,7 +380,7 @@ const closePath = require ('@xero/xui-icon/icons/cross').default;
 <div>
 	<XUITextInput
 		fieldClassName="xui-margin-bottom"
-		placeholder="Standard size"
+		placeholder="Medium size"
 		leftElement={
 			<XUITextInputSideElement type="avatar">
 					<XUIAvatar value="bob" size="small" />
@@ -423,7 +423,7 @@ const closePath = require ('@xero/xui-icon/icons/cross').default;
 	/>
 	<XUITextInput
 		fieldClassName="xui-margin-bottom"
-		placeholder="Standard size"
+		placeholder="Medium size"
 		leftElement={
 			<XUITextInputSideElement type="pill">
 				<XUIPill avatarProps={{value:'Pill'}} value="Pill" size="small" onDeleteClick={()=>{}} />

@@ -19,7 +19,7 @@ Grid types
 
 /*
 Generate Regular columns, 1 to 12 with responsive variants
-Responsive variants are : -medium, -wide
+Responsive variants are : -small-up, -large-up
 */
 @include xui-column-width-generator2();
 
@@ -39,7 +39,7 @@ This is our "Grid" since we want a nice even space between the columns
 
 /*
 Generate padded columns, 1 to 12 with responsive variants
-Responsive variants are : -medium, -wide
+Responsive variants are : -small-up, -large-up
 */
 @include xui-column-width-generator2(true);
 @include xui-column-responsive-generator();

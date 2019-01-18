@@ -32,7 +32,7 @@
 		background: $ds-card-hover-bg-color;
 	}
 
-	@include xui-breakpoint-small-only {
+	@include xui-breakpoint-small-to-medium {
 		min-width: calc(50% - 20px);
 	}
 

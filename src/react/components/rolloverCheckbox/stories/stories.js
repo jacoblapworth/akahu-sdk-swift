@@ -15,15 +15,21 @@ import { variations, storiesWithVariationsKindName } from './variations';
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
-storiesWithKnobs.add('Playground', () => (
-	<XUIRolloverCheckbox
+storiesWithKnobs.add('Playground', () => {
+	const sizedAvatar = (
+		<XUIAvatar
+			value="abc"
+			size={select('size of the rollover target', ['xlarge', 'large', 'medium', 'small', 'xsmall', '2xsmall'], 'medium')}
+		/>
+	);
+	return (<XUIRolloverCheckbox
 		isCheckboxHidden={boolean('checkbox hidden', true)}
-		size={select('hit target size', Object.keys(sizeClassNames), 'medium')}
 		isDisabled={boolean('disabled', false)}
-		rolloverComponent={<XUIAvatar value="abc" />}
+		rolloverComponent={sizedAvatar}
 		label="Rollover checkbox"
-	/>
-));
+		checkboxSize={select('size of the checkbox', ['standard', 'small', 'xsmall'], 'standard')}
+	/>);
+});
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
@@ -35,6 +41,16 @@ variations.forEach(variation => {
 		variationMinusStoryDetails.storyTitle = undefined;
 		variationMinusStoryDetails.label = "Rollover checkbox";
 
-		return <XUIRolloverCheckbox rolloverComponent={<XUIAvatar value="abc" />} {...variationMinusStoryDetails}/>
+		if (variationMinusStoryDetails.altRollover == 'big') {
+			delete variationMinusStoryDetails.altRollover;
+			variationMinusStoryDetails.rolloverComponent = <div style={{ width: '40px', height: '70px', backgroundColor: 'blue'}}/>;
+		} else if (variationMinusStoryDetails.altRollover == 'small') {
+			delete variationMinusStoryDetails.altRollover;
+			variationMinusStoryDetails.rolloverComponent = <XUIAvatar value="abc" size="2xsmall"/>;
+		} else {
+			variationMinusStoryDetails.rolloverComponent = <XUIAvatar value="abc" />;
+		}
+
+		return <XUIRolloverCheckbox {...variationMinusStoryDetails}/>
 	});
 });

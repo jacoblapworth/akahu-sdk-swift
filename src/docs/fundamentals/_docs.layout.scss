@@ -105,16 +105,16 @@
 //
 // Definitions:
 // Always: 	∞:													none
-// Medium: 	940px—1160px: 	`-medium`
-// Large: 		1160px—∞: 					`-wide`
+// Small and up: 	600px—∞: 		`-small-up`
+// Large and up: 		1000px—∞: 					`-large-up`
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
 // <div class='xui-row ds-column-example'>
-// 	<div class="xui-column-12-of-12 xui-column-6-of-12-wide">
+// 	<div class="xui-column-12-of-12 xui-column-6-of-12-large-up">
 // 	</div>
-// 	<div class="xui-column-12-of-12 xui-column-6-of-12-wide">
+// 	<div class="xui-column-12-of-12 xui-column-6-of-12-large-up">
 // 	</div>
 // </div>
 //

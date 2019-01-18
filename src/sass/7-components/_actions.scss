@@ -14,7 +14,7 @@
 	// Layout
 	&-layout {
 
-		@include xui-breakpoint-xsmall-only {
+		@include xui-breakpoint-small-down {
 			flex-direction: column;
 
 			.#{$ns}-actions--primary {
@@ -25,12 +25,6 @@
 			.#{$ns}-actions--secondary {
 				margin: $xui-s-small 0 0;
 				order: 1;
-			}
-		}
-
-		@include xui-breakpoint-small-only {
-			.#{$ns}-actions--primary {
-				margin-left: $xui-s-xsmall;
 			}
 		}
 

@@ -148,7 +148,7 @@
 	display: inline-block;
 	width: 100%;
 
-	@include xui-breakpoint-xsmall-only {
+	@include xui-breakpoint-small-down {
 		border-left: 0;
 		border-right: 0;
 		border-top: 0;

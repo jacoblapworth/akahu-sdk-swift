@@ -30,7 +30,25 @@ const variations = [
 		isChecked: true,
 		isDisabled: true
 	},
-
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with larger alternate rollover content',
+		isCheckboxHidden: true,
+		altRollover: 'big',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with smaller alternate rollover content',
+		isCheckboxHidden: true,
+		altRollover: 'small',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with small rollover content and xsmall checkbox',
+		isCheckboxHidden: true,
+		altRollover: 'small',
+		checkboxSize: 'xsmall'
+	}
 ];
 
 module.exports = {

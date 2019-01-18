@@ -19,24 +19,33 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 * `xui-popover--arrow` has been removed. Apply `xui-popover-arrow` on the parent popover component instead.
 * `xui-stepper-tests` class has been removed. This was a hidden and internal class, but if you were referring to it, use `xui-stepper-hidden-content` instead.
 * `xui-pill-is-deleteable` has been removed. Use `xui-pill-is-deletable` instead.
-* `xui-breakpoint-medium-and-wide` mixin has been removed. Use `xui-breakpoint-small-up` instead
-* `xui-breakpoint-wide` mixin has been removed. Use `xui-breakpoint-medium-up` instead.
-* `xui-breakpoint-huge` mixin has been removed. Use `xui-breakpoint-large-up` instead.
-* `xui-breakpoint-narrow` mixin has been removed. Use `xui-breakpoint-xsmall-only` instead.
-* `xui-breakpoint-medium` mixin has been removed. Use `xui-breakpoint-small-only` instead.
+* `xui-dropdown-show-mobile-only` has been removed. Use `xui-dropdown-hide-small-up` instead.
+* `xui-u-flex-*-narrow` classes have been removed. Use `xui-u-flex-*-small-down` instead.
+* `xui-u-flex-*-medium` classes have been removed. Use `xui-u-flex-*-small-up` instead.
+* `xui-u-flex-*-wide` classes have been removed. Use `xui-u-flex-*-large-up` instead.
+* `xui-u-hidden-narrow` has been removed. Use `xui-u-hidden-small-down` instead.
+* `xui-u-hidden-medium` has been removed. Use  `xui-u-hidden-small-up` instead.
+* `xui-u-hidden-wide` has been removed. Use  `xui-u-hidden-large-up` instead.
+* `xui-column-#-of-12-medium` classes have been removed. Use `xui-column-#-of-12-small-up` instead.
+* `xui-column-#-of-12-wide` classes have been removed. Use `xui-column-#-of-12-large-up` instead.
+* `xui-breakpoint-narrow` mixin has been removed. Use `xui-breakpoint-small-down` instead.
+* `xui-breakpoint-medium` mixin has been removed. Use `xui-breakpoint-medium-only` instead.
+* `xui-breakpoint-wide` mixin has been removed. Use `xui-breakpoint-large-up` instead.
+* `xui-breakpoint-huge` mixin has been removed. Use `xui-breakpoint-xlarge-up` instead.
+* `xui-breakpoint-medium-and-narrow` mixin has been removed. Use `xui-breakpoint-small-up` instead
+* `xui-breakpoint-medium-and-wide` mixin has been removed. Use `xui-breakpoint-large-up` instead
 * `xui-disabled-form` mixin has been removed. Use `xui-disabled-form-control` instead.
 
 ## Breakpoint variable name & value changes
 
 - Old breakpoint variable names & values
 
-- `xui-breakpoint-narrow: 520px`
-- `xui-breakpoint-medium: 940px`
-- `xui-breakpoint-wide: 1160px`
+	- `xui-breakpoint-narrow: 520px`
+	- `xui-breakpoint-medium: 940px`
+	- `xui-breakpoint-wide: 1160px`
 
 - New breakpoint variable names & values
 
-	- `xui-breakpoint-xsmall: 400px`
 	- `xui-breakpoint-small: 600px`
 	- `xui-breakpoint-medium: 800px`
 	- `xui-breakpoint-large: 1000px`
@@ -74,13 +83,16 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- In support of the more contentblock-style Autocompleter picklists, Pickitems also have new `headerElement` and `isMultiline` props.
 - ContentBlockItem has new `description` and `tagPosition` props. Description is styled similarly to the prior `secondaryHeading` content (which has now become more prominent), and `tagPosition` allows you to specify where tags will be placed. `pinnedValue`, `href`, `primaryHeading`, and `secondaryHeading` now only accept strings. The `tag` property has been changed to accept multiple tags, and is now labeled `tags`, accordingly.
 - Loader size options have been switched from 'large', 'standard', and 'small' to be consistent with other component sizes. New size options are 'standard', 'small', and 'xsmall', and will be converted automatically if using the codemod. The largest size, 'standard' is now the default.
-- `SelectBox` 
+- `SelectBox`
 	- Has a new `size` prop. The default value is `full-width`.
 		- The available sizes are `full-width`, `full-width-mobile`, `standard`, `small`, and `xsmall`.
 	- If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
 	- No longer shrinks to a standard width when a `buttonVariant` is supplied. To prevent your `SelectBox` from going full-width, set the `size` prop to `standard`.
 	- The `isTextTruncated` prop can now be used without a `buttonVariant`.
 	- Has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
+- `RolloverCheckbox`
+	- The `size` prop has been removed, and the size of the rollover target is now determined by the size of the `rolloverComponent` content.
+	- Has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.
 
 ### Utility classes
 
@@ -123,7 +135,9 @@ All other existing values stay as they are (including `2xlarge`)
 - Checkbox and Radio have a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - SelectBox has a new `size` prop. The default value is `full-width`. Other available values are `full-width-mobile`, `standard`, `small`, and `xsmall`.
 - SelectBox has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
+- `RolloverCheckbox`has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.
 
 ## Other changes
 
 - Modal widths have changed: small is 300px (was 340); medium is 400px (was 460); large is 600px (was 600) and xlarge is 800px (was 860).
+- In addition to renaming the utility classes that handle viewport-size-specific behaviour, the behaviour itself has changed, in some cases. `-medium` was previously affecting elements when the viewport was *between* 520px and 940px. The new `-small-up` replacement classes will affect elements when the viewport is 600px or greater, unless overridden with a `-large-up` class, which will take over at 1000px. This is in line with a mobile-first approach. In many cases, this will mean that developers need fewer classes to get the desired behaviour.

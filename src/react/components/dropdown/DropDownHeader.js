@@ -40,7 +40,7 @@ export default class DropDownHeader extends PureComponent {
 		const classes = cn(`${baseClass}--header`, className);
 		const headerClasses = cn(
 			`${baseClass}--header-container`,
-			onlyShowForMobile && `${baseClass}-show-mobile-only`,
+			onlyShowForMobile && `${baseClass}-hide-small-up`,
 		);
 
 		const backButton = onBackButtonClick ? (

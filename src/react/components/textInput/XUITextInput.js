@@ -207,7 +207,7 @@ XUITextInput.propTypes = {
 		'url',
 		'color',
 	]),
-	/** Size of the input - Can be `xsmall`, `small` or `standard` */
+	/** Size of the input - Can be `xsmall`, `small` or `medium` */
 	size: PropTypes.oneOf(Object.keys(baseSizeClasses)),
 	/** Function to call when the input value is changed */
 	onChange: PropTypes.func,
@@ -285,7 +285,7 @@ XUITextInput.propTypes = {
 XUITextInput.defaultProps = {
 	inputProps: {},
 	minRows: 3,
-	size: 'standard',
+	size: 'medium',
 };
 
 export default XUITextInput;

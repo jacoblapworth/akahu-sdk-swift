@@ -98,7 +98,12 @@ module.exports = {
 	'@xero/xui/react/textinput': [
 		{
 			isDefault: true,
-			props: [labelTextToLabel],
+			props: [labelTextToLabel, {
+				name: 'size',
+				valueTransform: stringReplace({
+					'standard': 'medium',
+				}),
+			}],
 		}
 	],
 	'@xero/xui/react/toggle': [
@@ -135,6 +140,21 @@ module.exports = {
 					}, 'small'),
 				}
 			]
+		}
+	],
+	'@xero/xui/react/structural': [
+		{
+			name: 'XUIColumn',
+			props: [
+				{
+					name: 'gridColumnsMedium',
+					newName: 'gridColumnsSmallUp'
+				},
+				{
+					name: 'gridColumnsWide',
+					newName: 'gridColumnsLargeUp'
+				},
+			],
 		}
 	],
 }

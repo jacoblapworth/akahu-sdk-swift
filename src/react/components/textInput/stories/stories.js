@@ -53,8 +53,14 @@ const TextInputWrapper = props => {
 		case 'icon':
 			return (
 				<XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
+					<XUIIcon icon={clearPath} isBoxed/>
+				</XUITextInputSideElement>
+			);
+		case 'icon button':
+			return (
+				<XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
 					<XUIButton variant="icon" size={size}>
-						<XUIIcon icon={clearPath} />
+						<XUIIcon icon={clearPath} isBoxed/>
 					</XUIButton>
 				</XUITextInputSideElement>
 			);
@@ -70,7 +76,7 @@ const TextInputWrapper = props => {
 			);
 		case 'text':
 			return (
-				<XUITextInputSideElement type="text" alignment={sideElementAlignment}>
+				<XUITextInputSideElement type="text" alignment='center'>
 						Test:
 				</XUITextInputSideElement>
 			);
@@ -145,7 +151,7 @@ const TextInputWrapper = props => {
 };
 
 TextInputWrapper.defaultProps = {
-	size: 'standard',
+	size: 'medium',
 };
 
 TextInputWrapper.propTypes = {
@@ -169,7 +175,7 @@ TextInputWrapper.propTypes = {
 	minRows: PropTypes.number,
 	maxRows: PropTypes.number,
 	rows: PropTypes.number,
-	size: PropTypes.oneOf(['standard', 'small', 'xsmall']),
+	size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
 };
 
 const elementTypeOptions = [null, 'icon', 'iconWithBackground', 'button', 'text', 'pill', 'avatar'];
@@ -185,7 +191,7 @@ storiesWithKnobs.add('Playground', () => (
 		isLabelHidden={boolean('is label hidden', false)}
 		placeholder={text('placeholder', 'placeholder text')}
 		value={text('value')}
-		size={select('size', ['standard', 'small', 'xsmall'], 'standard')}
+		size={select('size', ['medium', 'small', 'xsmall'], 'standard')}
 		isMultiline={boolean('is multiline', false)}
 		minRows={number('min height of multiline input in rows', 0) || undefined}
 		maxRows={number('max height of multiline input in rows', 0) || undefined}

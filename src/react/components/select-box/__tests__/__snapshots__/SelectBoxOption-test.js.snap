@@ -126,7 +126,7 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
       <input
         aria-labelledby="testCheckboxId"
         checked={false}
-        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+        className="xui-styledcheckboxradio--input"
         disabled={false}
         onChange={[Function]}
         onClick={[Function]}
@@ -135,10 +135,10 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
         type="checkbox"
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
+        className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
       />
       <span
-        className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
+        className="xui-styledcheckboxradio--label xui-pickitem--text xui-pickitem-multiselect--label"
         id="testCheckboxId"
       >
         <span
@@ -259,7 +259,7 @@ exports[`<SelectBoxOption /> should render the option and the checkboxes as disa
       <input
         aria-labelledby="testCheckboxId"
         checked={false}
-        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+        className="xui-styledcheckboxradio--input"
         disabled={true}
         onChange={[Function]}
         onClick={[Function]}
@@ -268,10 +268,10 @@ exports[`<SelectBoxOption /> should render the option and the checkboxes as disa
         type="checkbox"
       />
       <div
-        className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
+        className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
       />
       <span
-        className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
+        className="xui-styledcheckboxradio--label xui-pickitem--text xui-pickitem-multiselect--label"
         id="testCheckboxId"
       >
         <span

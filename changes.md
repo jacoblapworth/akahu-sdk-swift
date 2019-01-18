@@ -111,7 +111,6 @@ All other existing values stay as they are (including `2xlarge`)
 | Removed       | Replacement    |
 | ------------- | :------------- |
 
-
 ---
 
 ### Component classes
@@ -121,6 +120,7 @@ All other existing values stay as they are (including `2xlarge`)
 	- `xui-button-fullwidth` is now required to make the SelectBox match the width of its container when building a SelectBox without React.
 
 ### Component prop name changes
+- `XUIColumn` props `gridColumnsMedium` and `gridColumnsWide` have been renamed to `gridColumnsSmallUp` and `gridColumnsLargeUp`, respectively.
 
 
 ## Additions
@@ -128,9 +128,8 @@ All other existing values stay as they are (including `2xlarge`)
 
 ### Component props
 
-- Pill has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - Pill has a new `isLimitedWidth` prop to replace the `isMaxContentWidth` prop. The default for pills is now to fit their content, and you can apply `isLimitedWidth` to cap them at 200px. This prop change will be handled automatically by the upgrade codemod for existing Pills in your app.
-- Text input now has a `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
+- Text input now has a `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
 - Tag has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - Checkbox and Radio have a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - SelectBox has a new `size` prop. The default value is `full-width`. Other available values are `full-width-mobile`, `standard`, `small`, and `xsmall`.

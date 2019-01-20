@@ -24,7 +24,6 @@
 		"./style.css"
 	],
 	"js": [
-		"./kss-assets/kss-script.js",
 		"./kss-assets/kss.js",
 		"./kss-assets/scrollspy.js",
 		"./kss-assets/prettify.js",

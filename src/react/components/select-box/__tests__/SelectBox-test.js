@@ -102,7 +102,6 @@ describe('SelectBox', function () {
 	});
 
 	it('should open the dropdown on arrowDown', function() {
-		console.log('select meee!', select, select.find('button'));
 		select.find('button.blah').first().simulate('keydown', {
 			key: 'down arrow',
 			keyCode: 40,

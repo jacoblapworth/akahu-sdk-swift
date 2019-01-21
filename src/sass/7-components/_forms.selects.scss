@@ -50,6 +50,14 @@
 	color: $xui-select-color;
 	font-weight: normal;
 
+	&:hover {
+		color: $xui-select-color;
+	}
+
+	&:active {
+		color: $xui-select-color;
+	}
+
 	.#{$ns}-select--caret {
 		fill: $xui-color-grey-2;
 	}

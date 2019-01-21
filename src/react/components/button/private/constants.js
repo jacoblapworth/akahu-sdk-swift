@@ -7,9 +7,9 @@ export const baseClassName = `${ns}-button`;
  * Map of sizes to XUI Classes properties
  */
 export const sizeClassNames = {
-	'xsmall': `${baseClassName}-xsmall`,
-	'small': `${baseClassName}-small`,
-	'standard': '',
+	xsmall: `${baseClassName}-xsmall`,
+	small: `${baseClassName}-small`,
+	standard: '',
 };
 
 /**

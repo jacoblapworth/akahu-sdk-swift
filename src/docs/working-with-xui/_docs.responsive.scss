@@ -14,7 +14,7 @@
 
 // Inclusivity
 //
-// Similar to our stance on accessibility, a responsive web is a more inclusive web. This means equal access to our products just as much as it means equal access within our products. In other words, we shouldn’t be dictating how our customers interact with Xero, or making assumptions based on their device preference, economic privilege, or technical ability. Even despite the fact we have mobile apps, much functionality is still dependent on the web version of our product. More specifically, if our customers don't have a desktop computer, they're being forced to either rely on a sub-optimal experience, or go elsewhere.
+// Similar to our stance on accessibility, a responsive web is a more inclusive web. This means equal access to our products just as much as it means equal access within our products. In other words, we shouldn’t be dictating how our customers interact with Xero, or making assumptions based off of their device preference, economic privilege, or technical ability. Even despite the fact we have mobile apps, much functionality is still dependent on the web version of our product. More specifically, if our customers don't have a desktop computer, they're being forced to either rely on a sub-optimal experience, or go elsewhere.
 //
 // Styleguide: Getting Started.Responsive.1.1
 
@@ -84,7 +84,7 @@
 //
 // Tips:
 // Do: Use provided XUI composition components for handling responsive reflowing logic
-// Do: Use provided media query mixins to create additional conditional logic based on screen width
+// Do: Use provided media query mixins to create additional conditional logic based off of screen width
 // Do: Build pages using -up media-queries where possible to avoid specificity problems
 // Do: Use provided best practices and components to consistently build resilient and responsive experiences
 // Do: Consider small devices and slow network connections in your API design to help limit requests and provide caching for patchy networks

@@ -68,7 +68,7 @@
 // Do: Design pages and flows small-up.
 // Do: Use provided best practices and components to consistently build resilient and responsive experiences.
 // Do: Use provided XUI composition components for handling responsive reflowing logic.
-// Do: Ensure hit-areas for interactive controls are large enough to be easily tappable with a finger. The default size variants are recommended for smaller devices where touch is the primary input mechanism.
+// Do: Ensure hit-areas for interactive controls are large enough to be easily tappable. The -medium size variants of controls are recommended for smaller devices where touch is the primary input mechanism.
 // Do: Provide adequate space between controls to prevent mis-taps around clickable areas, and separate blocks of content.
 // Warning: Consider the impacts a long page may have on getting back to the navigation or other key functions.
 // Dont: Avoid reducing font size for body copy, as what’s readable on a large display often requires zooming on a smaller one. XUI 15 provides a baseline default that is easily readable at all viewports.

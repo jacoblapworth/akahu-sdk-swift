@@ -18,7 +18,7 @@ function isWideScreen(navContainer) {
 
 	return navContainer &&
 		(
-			(gridArea && gridArea.indexOf('nav') > -1) ||
+			(gridArea && gridArea.indexOf('master') > -1) ||
 			(msGridRow && parseInt(msGridRow) < 3)
 		);
 }

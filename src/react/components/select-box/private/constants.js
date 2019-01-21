@@ -12,5 +12,5 @@ const widths = [
 
 export {
 	sizes,
-	widths
-}
+	widths,
+};

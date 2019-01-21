@@ -2,17 +2,17 @@
 //
 // Teaser: The Master container houses content that controls or acts on content within the Detail area. The Master container is a left-hand column which becomes a dropdown at smaller breakpoints.
 //
-// Introduction: Master Detail composition is useful for layouts that require a set of options inside a left column that controls the view of a main content area. The Master area lives within a dropdown when horizontal space is at a prime.
+// Introduction: The Master Detail composition is useful for layouts that consist of a set of options or controls, that affect content within the main content container. The Master container holds the options/controls in a left side column, or within a dropdown when horizontal space is restricted. The Detail area houses the main content.
 //
 // Composition-image: Master-Detail_devices.svg
 //
-// Subcopy: $xui-breakpoint-small-down, $xui-breakpoint-small-up, $xui-breakpoint-medium-up, $xui-breakpoint-large-up
+// Caption: Master Detail at breakpoints small-down, small-up, medium-up and large-up
 //
 // Tips:
 // Do: Use Master container for tertiary navigation
 // Do: Use Master to house actions that change what content is viewed in the Detail
 // Warning: Avoid putting first or second level navigation in the Master container
-// Dont: Don’t use in conjuction with `$xui-max-page-width`
+// Dont: Don’t use in conjuction with $xui-max-page-width
 //
 // Weight: 4.2
 //
@@ -20,7 +20,7 @@
 
 // Default behaviour
 //
-// The Master container lives inside of a dropdown when the browser width is below `$xui-breakpoint-small`. From `$xui-breakpoint-small-up` the Master container is 1/3 the width of the Detail container, with a max width of 274px.
+// The Master container lives inside of a dropdown when the browser width is below `$xui-breakpoint-small`. From `$xui-breakpoint-small-up` the Master container is a left hand column 1/2 the width of the Detail container, with a max width of 274px.
 //
 // Styleguide: Compositions.MasterDetail.2
 
@@ -31,10 +31,10 @@
 // Markup:
 // <div class="xui-composition xui-composition-masterdetail xui-composition-is-finite">
 //   <div class="xui-gridarea-master">
-//     <div style="background: rgb(90, 90, 230); min-width: 250px; height: 400px; width: 100%;"></div>
+//     <div style="background: #5A5AE6; min-width: 200px; height: 400px; width: 100%;"></div>
 //   </div>
 //   <div class="xui-gridarea-detail xui-width-xsmall-up">
-//     <div style="background: rgb(197, 197, 246); height: 400px;"></div>
+//     <div style="background: #C5C5F6; height: 400px;"></div>
 //   </div>
 // </div>
 //
@@ -53,7 +53,7 @@
 
 // Composition properties
 //
-// Introduction: There are a number of spacing and layout properties that can be used to extend Master Detail
+// Introduction: There are a number of spacing and layout properties that can be used to adjust the Master Detail composition.
 //
 // Styleguide: Compositions.MasterDetail.5
 
@@ -64,7 +64,7 @@
 // Tips:
 // Do: Use to set XUI defined, standard spacing between containers
 // Do: Use when each container's content spans the containers full width
-// Do: Consider using in conjuction with `outer-spacing` class which adds `$xui-s-large` (20px) spacing around the outside of the composition
+// Do: Consider using in conjuction with outer-spacing class which adds $xui-s-large spacing around the outside of the composition
 // Dont: Don't use in conjuction with custom spacing between containers
 //
 // Classes:
@@ -74,11 +74,10 @@
 
 // Outer spacing
 //
-// Applies `$xui-s-large` spacing between composition containers. To create custom spacing, add styles to the composition and its containers directly instead.
+// Applies `$xui-s-large` spacing around the entire composition.
 //
 // Tips:
-// Do: Use to set XUI defined, standard spacing around the entire composition
-// Do: Use when each container's content spans the containers full width
+// Do: Use to give spacing between the entire composition and the edge of the browser
 // Warning: Avoid adding extra spacing around the composition, instead add custom styles
 //
 // Classes:
@@ -101,21 +100,21 @@
 
 // Retain mobile layout
 //
-// Forces the composition to retain the mobile layout across all breakpoints, keeping the Master container hidden within a dropdown
+// Forces the composition to retain the mobile layout across all breakpoints, keeping the Master container hidden within a dropdown.
 //
 // Tips:
-// Do: Use when content won't fit well in a column at larger breakpoints
-// Warning: Consider using the default layout and defining custom sizing on the Master container, to allow content to fit within it
+// Do: Use when content won't fit using the two column layout even at larger breakpoints
+// Warning: Consider using the default layout and defining custom sizing on the Master container, to allow content to fit
 //
 // Classes:
-// -retain-small: forces composition to keep the mobile layout across all breakpoints
+// -retain-small: forces composition to retain the mobile layout across all breakpoints
 //
 // Styleguide: Compositions.MasterDetail.5.4
 
 // Class list
 //
 // Classes:
-// -header: add to page header if it has one
+// -header: add to page header if the page has one
 // -master: add to Master container
 // -detail: add to Detail container
 // -grid-gap: applies standard spacing between composition containers

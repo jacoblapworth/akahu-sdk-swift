@@ -235,7 +235,7 @@ Pickitem.defaultProps = {
 	disableSelectedStyles: false,
 	isSplit: false,
 	isDisabled: false,
-	size: 'standard',
+	size: 'medium',
 	/*
 	 DO NOT REMOVE
 	 This property is needed so that the StatefulPicklist will properly recognize this

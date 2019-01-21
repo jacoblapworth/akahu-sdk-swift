@@ -99,7 +99,7 @@ PickitemMultiselect.propTypes = {
 	onMouseOver: PropTypes.func,
 	shouldTruncate: PropTypes.bool,
 	qaHook: PropTypes.string,
-	size: PropTypes.oneOf(['standard', 'small']),
+	size: PropTypes.oneOf(['medium', 'small']),
 	/** Standard text */
 	primaryElement: PropTypes.node,
 	/** Less important text to appear beside primary. */

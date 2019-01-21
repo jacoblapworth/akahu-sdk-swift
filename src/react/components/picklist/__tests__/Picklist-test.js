@@ -49,7 +49,7 @@ describe('< Picklist />', () => {
 			shouldTruncate: true,
 		};
 		const itemProps = {
-			size: 'standard',
+			size: 'medium',
 			isMultiselect: true,
 		};
 		const overrides = setup(settings, itemProps);

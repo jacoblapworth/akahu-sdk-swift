@@ -75,7 +75,7 @@ const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
-	const picklistSize = select('List size', ['standard', 'small', 'xsmall'], 'standard');
+	const picklistSize = select('List size', ['medium', 'small', 'xsmall'], 'medium');
 	const avatarSize = sizeShift(picklistSize, -1);
 	const isMultiselect = boolean('isMultiselect', false);
 	const showLeftElement = boolean('showLeftElement', false);

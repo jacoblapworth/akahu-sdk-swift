@@ -412,7 +412,7 @@ export function cloneChildren(children, spl) {
 export function getPropsFromFirstChildOrList(children, listProps) {
 	const firstItem = Children.count(children) > 0 && Children.toArray(children)[0];
 	const listSize = listProps.size !== undefined ? listProps.size
-		: (firstItem && firstItem.props.size) || 'standard';
+		: (firstItem && firstItem.props.size) || 'medium';
 	const listMultiselect = listProps.isMultiselect !== undefined ? listProps.isMultiselect
 		: (firstItem && firstItem.props.isMultiselect) || undefined;
 	return { listSize, listMultiselect };

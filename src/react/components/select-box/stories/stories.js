@@ -42,8 +42,8 @@ const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
-	const size = select('size', ['standard', 'small', 'xsmall']);
-	const listItemSize = select('list item size', [null, 'standard', 'small', 'xsmall']);
+	const size = select('size', ['medium', 'small', 'xsmall']);
+	const listItemSize = select('list item size', [null, 'medium', 'small', 'xsmall']);
 	const fullWidth = select('fullWidth', ['always', 'small-down', 'never']);
 	return (
 		<SelectBox

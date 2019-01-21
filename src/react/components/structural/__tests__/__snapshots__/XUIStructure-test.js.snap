@@ -594,12 +594,12 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
     className="xui-panel--sidebar"
   >
     <ul
-      className="xui-picklist xui-picklist-layout xui-picklist-standard"
+      className="xui-picklist xui-picklist-layout xui-picklist-medium"
       role="group"
     >
       <li
         aria-selected={null}
-        className="xui-pickitem xui-pickitem-standard"
+        className="xui-pickitem xui-pickitem-medium"
         id="1"
         role="option"
       >
@@ -617,7 +617,7 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
       </li>
       <li
         aria-selected={null}
-        className="xui-pickitem xui-pickitem-is-selected xui-pickitem-standard"
+        className="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium"
         id="2"
         role="option"
       >
@@ -635,7 +635,7 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
       </li>
       <li
         aria-selected={null}
-        className="xui-pickitem xui-pickitem-standard"
+        className="xui-pickitem xui-pickitem-medium"
         id="3"
         role="option"
       >

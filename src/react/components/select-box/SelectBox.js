@@ -8,7 +8,7 @@ import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import XUIButton from '../button/XUIButton';
 import XUIButtonCaret from '../button/XUIButtonCaret';
-import { sizeClassNames, widthClassNames } from '../button/private/constants';
+import { sizes, widths } from './private/constants';
 import Picklist from '../picklist/Picklist';
 import qaHooks from './qaHooks';
 import { ns } from '../helpers/xuiClassNamespace';
@@ -259,15 +259,15 @@ SelectBox.propTypes = {
 	/** Whether to use the field layout classes  */
 	isFieldLayout: PropTypes.bool,
 	/**
-	 * Modifier for the size of the SelectBox. `standard`, `small`, or `xsmall`.
+	 * Modifier for the size of the SelectBox. `medium`, `small`, or `xsmall`.
 	 *
 	 * If `SelectBoxOption` does not have a size set, it will inherit the size from `SelectBox`.
 	*/
-	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
+	size: PropTypes.oneOf(sizes),
 	/**
 	 * Modifier for the width of the SelectBox. `always`, `small-down`, or `never`.
 	*/
-	fullWidth: PropTypes.oneOf(Object.keys(widthClassNames)),
+	fullWidth: PropTypes.oneOf(widths),
 };
 
 SelectBox.defaultProps = {

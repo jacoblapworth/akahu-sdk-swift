@@ -91,7 +91,13 @@ function taskRunner(task, fileName) {
 		perf.stop();
 		console.log(logScriptRunOutput(twoDecimals(perf.delta), title));
 		return ''; // Node will otherwise print `undefined` to the console
-	}).catch(reason => console.log(reason));
+	}).catch(reason => {
+		if (reason.signal === 'SIGINT') {
+			process.exit();
+		} else {
+			console.log(reason);
+		}
+	});
 }
 
 const taskRunnerReturns = {

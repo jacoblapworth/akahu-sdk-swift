@@ -208,7 +208,7 @@ class MiniApp extends Component {
 					label="Select a Bank"
 					name="selectOne"
 					ref={this.selectOne}
-					size="standard"
+					size="small"
 				>
 					{banks.map((opt, idx) => {
 						return (
@@ -233,7 +233,7 @@ class MiniApp extends Component {
 
 ### Button variants
 
-The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop. We recommend setting the `size` to `standard` to prevent the SelectBox from being full width with button variants.
+The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop. We recommend setting the `fullWidth` prop to `never` to prevent the SelectBox being full width with button variants.
 
 ```jsx
 const { Component } = require('react');
@@ -288,7 +288,7 @@ class MiniApp extends Component {
 					label="Select a Bank"
 					name="selectOne"
 					ref={this.selectOne}
-					size="standard"
+					fullWidth="never"
 				>
 					{banks.map((opt, idx) => {
 						return (

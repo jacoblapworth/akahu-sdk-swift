@@ -42,8 +42,9 @@ const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
-	const size = select('size', ['standard', 'small', 'xsmall', 'full-width', 'full-width-mobile'], "full-width");
+	const size = select('size', ['standard', 'small', 'xsmall']);
 	const listItemSize = select('list item size', [null, 'standard', 'small', 'xsmall']);
+	const fullWidth = select('fullWidth', ['always', 'small-down', 'never']);
 	return (
 		<SelectBox
 			label={text('label', 'Label for the select box')}
@@ -69,6 +70,7 @@ storiesWithKnobs.add('Playground', () => {
 					{text('placeholder text', 'Choose a classic book')}
 				</span>
 			}
+			fullWidth={fullWidth}
 			size={size}
 		>
 			{createItems({ items: toggledItems, size: listItemSize })}

@@ -71,6 +71,16 @@ describe('<XUI Structure/>', () => {
 			const tag = wrapper.find(XUIColumn);
 			expect(tag.hasClass("testClass")).toEqual(true);
 		});
+		it('renders column with automation id when qaHook prop is passed in ', () => {
+			const qaHook = "qaHook";
+			const wrapper = renderer.create(<XUIColumn qaHook={qaHook}></XUIColumn>);
+			expect(wrapper).toMatchSnapshot();
+		});
+		it('renders row with automation id when qaHook prop is passed in', () => {
+			const qaHook = "qaHook";
+			const wrapper = renderer.create(<XUIRow qaHook={qaHook}></XUIRow>);
+			expect(wrapper).toMatchSnapshot();
+		});
 	});
 	describe('Actions:', () => {
 		it('renders the simplest actions with no extra settings passed', () => {
@@ -99,14 +109,20 @@ describe('<XUI Structure/>', () => {
 			const tag = wrapper.find(XUIActions);
 			expect(tag.childAt(0).type()).toEqual("header");
 		});
+		it('renders actions with automation id when qaHook prop is passed in', () => {
+			const qaHook = "qaHook";
+			const wrapper = renderer.create(<XUIActions primary={primary} qaHook={qaHook} />);
+			expect(wrapper).toMatchSnapshot();
+		});
 	});
 	describe('PageHeader and Breadcrumb:', () => {
+		const bcQaHook = "bcQaHook";
 		const actions = <XUIActions primary={primary} secondary={secondary} />;
 		const bcObj = [
 			{label: "hello", href: "#1"},
 			{label: "hiya", href: "#2"},
 			{label: "yo"}];
-		const exampleBreadcrumb = <XUIBreadcrumb breadcrumbs={bcObj} />;
+		const exampleBreadcrumb = <XUIBreadcrumb breadcrumbs={bcObj} qaHook={bcQaHook}/>;
 		it('renders the simplest pageHeader with no extra settings passed', () => {
 			const testPageHeader = renderer.create(
 				<XUIPageHeader title="Testing 💩" />
@@ -178,6 +194,11 @@ describe('<XUI Structure/>', () => {
 			expect(wrapper.find(".xui-pageheading--title").length).toBe(1);
 			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(0);
 		});
+		it('renders pageHeader and breadcrumb with automation id when qaHook prop is passed in', () => {
+			const qaHook = "qaHook";
+			const wrapper = renderer.create(<XUIPageHeader qaHook={qaHook} breadcrumb={exampleBreadcrumb}></XUIPageHeader>);
+			expect(wrapper).toMatchSnapshot();
+		});
 	});
 	describe('Overview block and section:', () => {
 		it('renders the base overview block with no extra settings passed', () => {
@@ -215,6 +236,16 @@ describe('<XUI Structure/>', () => {
 			const wrapper = mount(<XUIOverviewBlock><XUIOverviewSection label="labelText" value="65.43" className="testClass" /></XUIOverviewBlock>);
 			const tag = wrapper.find(XUIOverviewSection);
 			expect(tag.hasClass("testClass")).toEqual(true);
+		});
+		it('renders overview block and overview section with automation id when qaHook prop is passed in', () => {
+			const overviewBlockQaHook = "overviewBlockQaHook";
+			const overviewSectionQaHook = "overviewSectionQaHook";
+			const wrapper = renderer.create(
+				<XUIOverviewBlock qaHook={overviewBlockQaHook}>
+					<XUIOverviewSection qaHook={overviewSectionQaHook}></XUIOverviewSection>
+				</XUIOverviewBlock>
+			);
+			expect(wrapper).toMatchSnapshot();
 		});
 	});
 	describe('Panel and panel section:', () => {
@@ -307,6 +338,16 @@ describe('<XUI Structure/>', () => {
 			);
 			expect(testPanel).toMatchSnapshot();
 		});
+		it('renders panel and panel section with automation id when qaHook prop is passed in', () => {
+			const panelQaHook = "panelQaHook";
+			const panelSectionQaHook = "panelSectionQaHook";
+			const wrapper = renderer.create(
+				<XUIPanel qaHook={panelQaHook}>
+					<XUIPanelSection qaHook={panelSectionQaHook}></XUIPanelSection>
+				</XUIPanel>
+			);
+			expect(wrapper).toMatchSnapshot();
+		});
 	});
 
 	describe('Content block and content block item', () => {
@@ -375,5 +416,15 @@ describe('<XUI Structure/>', () => {
 			wrapper.find('a').simulate('click');
 			expect(testCallback).toHaveBeenCalledTimes(1);
 		})
+		it('renders content block and content block item with automation id when qaHook prop is passed in', () => {
+			const contentBlockQaHook = "contentBlockQaHook";
+			const contentBlockItemQaHook = "contentBlockItemQaHook";
+			const wrapper = renderer.create(
+				<XUIContentBlock qaHook={contentBlockQaHook}>
+					<XUIContentBlockItem qaHook={contentBlockItemQaHook}></XUIContentBlockItem>
+				</XUIContentBlock>
+			);
+			expect(wrapper).toMatchSnapshot();
+		});
 	});
 });

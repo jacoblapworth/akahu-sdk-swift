@@ -6,6 +6,7 @@ import { ns } from '../helpers/xuiClassNamespace';
 const baseClass = `${ns}-panel`;
 
 const XUIPanelHeading = ({
+	qaHook,
 	children,
 	className,
 	hasLayout,
@@ -23,6 +24,7 @@ const XUIPanelHeading = ({
 		<Tag
 			{...spreadProps}
 			className={classes}
+			data-automationid={qaHook}
 		>
 			{children}
 		</Tag>
@@ -32,6 +34,7 @@ const XUIPanelHeading = ({
 XUIPanelHeading.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 	/**
 	 * Whether to include standard styles on a panel heading. Defaults to true.
 	 */

@@ -20,12 +20,6 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 * `xui-stepper-tests` class has been removed. This was a hidden and internal class, but if you were referring to it, use `xui-stepper-hidden-content` instead.
 * `xui-pill-is-deleteable` has been removed. Use `xui-pill-is-deletable` instead.
 * `xui-dropdown-show-mobile-only` has been removed. Use `xui-dropdown-hide-small-up` instead.
-* `xui-u-flex-*-narrow` classes have been removed. Use `xui-u-flex-*-small-down` instead.
-* `xui-u-flex-*-medium` classes have been removed. Use `xui-u-flex-*-small-up` instead.
-* `xui-u-flex-*-wide` classes have been removed. Use `xui-u-flex-*-large-up` instead.
-* `xui-u-hidden-narrow` has been removed. Use `xui-u-hidden-small-down` instead.
-* `xui-u-hidden-medium` has been removed. Use  `xui-u-hidden-small-up` instead.
-* `xui-u-hidden-wide` has been removed. Use  `xui-u-hidden-large-up` instead.
 * `xui-column-#-of-12-medium` classes have been removed. Use `xui-column-#-of-12-small-up` instead.
 * `xui-column-#-of-12-wide` classes have been removed. Use `xui-column-#-of-12-large-up` instead.
 * `xui-breakpoint-narrow` mixin has been removed. Use `xui-breakpoint-small-down` instead.
@@ -50,6 +44,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- `xui-breakpoint-medium: 800px`
 	- `xui-breakpoint-large: 1000px`
 	- `xui-breakpoint-xlarge: 1200px`
+	- `xui-breakpoint-2xlarge: 1600px`
 
 ## Mixin renames
 
@@ -116,7 +111,12 @@ The following size classes have been changed:
 All other existing values stay as they are (including `2xlarge`)
 
 | Removed       | Replacement    |
-| ------------- | :------------- |
+| xui-u-flex-*-narrow | xui-u-flex-*-small-down |
+| xui-u-flex-*-medium | xui-u-flex-*-small-up |
+| xui-u-flex-*-wide | xui-u-flex-*-large-up |
+| xui-u-hidden-narrow | xui-u-hidden-small-down |
+| xui-u-hidden-medium | xui-u-hidden-small-up |
+| xui-u-hidden-wide | xui-u-hidden-large-up |
 
 ---
 

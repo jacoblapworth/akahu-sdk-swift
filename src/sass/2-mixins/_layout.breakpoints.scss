@@ -9,6 +9,7 @@ $xui-breakpoint-small: 600px;
 $xui-breakpoint-medium: 800px;
 $xui-breakpoint-large: 1000px;
 $xui-breakpoint-xlarge: 1200px;
+$xui-breakpoint-2xlarge: 1600px;
 
 @mixin xui-breakpoint-small-up {
 	@media screen and (min-width: $xui-breakpoint-small) {
@@ -30,6 +31,11 @@ $xui-breakpoint-xlarge: 1200px;
 
 @mixin xui-breakpoint-xlarge-up {
 	@media screen and (min-width: $xui-breakpoint-xlarge) {
+		@content;
+	}
+}
+@mixin xui-breakpoint-2xlarge-up {
+	@media screen and (min-width: $xui-breakpoint-2xlarge) {
 		@content;
 	}
 }
@@ -55,6 +61,12 @@ $xui-breakpoint-xlarge: 1200px;
 
 @mixin xui-breakpoint-large-to-xlarge {
 	@media screen and (min-width: $xui-breakpoint-large) and (max-width: $xui-breakpoint-xlarge - 0.02) {
+		@content;
+	}
+}
+
+@mixin xui-breakpoint-xlarge-to-2xlarge {
+	@media screen and (min-width: $xui-breakpoint-xlarge) and (max-width: $xui-breakpoint-2xlarge - 0.02) {
 		@content;
 	}
 }

@@ -39,9 +39,14 @@ const commonViewports = [
 		height: sixteenByNine(1100)
 	},
 	{
-		label: 'bigger than xlarge breakpoint',
-		width: 1220,
-		height: sixteenByNine(1220)
+		label: 'between xlarge and 2xlarge breakpoints',
+		width: 1400,
+		height: sixteenByNine(1400)
+	},
+	{
+		label: 'bigger than 2xlarge breakpoint',
+		width: 1620,
+		height: sixteenByNine(1620)
 	}
 ];
 

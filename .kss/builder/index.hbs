@@ -122,13 +122,12 @@
 					{{/if}}
 
 					{{#if composition-image}}
-						<img class="xui-margin-top-2xlarge" style="width: 100%; height: 200px" src="./kss-assets/composition-images/{{composition-image}}">
-					{{/if}}
-
-					{{#if subcopy}}
-					<div class="xui-margin-bottom-4xlarge" style="width: 100%; margin-left: auto; margin-right: auto;">
-						<p class="xui-text-minor xui-text-align-center"> {{subcopy}} </p>
-					</div>
+					<figure>
+						<img class="xui-margin-top-2xlarge xui-margin-bottom-small" style="width: 100%;" src="./kss-assets/composition-images/{{composition-image}}">
+						{{#if caption}}
+							<figcaption class="xui-text-minor xui-text-align-center xui-margin-bottom-4xlarge">{{caption}}</figcaption>
+						{{/if}}
+					</figure>
 					{{/if}}
 
 					{{#if tips}}

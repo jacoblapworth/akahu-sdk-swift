@@ -32,18 +32,18 @@
 //   <div class='xui-dropdown-layout xui-dropdown-is-open xui-margin-bottom-large'>
 //     <div class='xui-dropdown--mask'></div>
 //     <div class='xui-dropdown--body'>
-//       <ul class="xui-picklist xui-picklist-standard xui-picklist-layout" role="tree">
-//         <li class="xui-pickitem xui-pickitem-standard" role="treeitem">
+//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout" role="tree">
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
 //           <button type="button" class="xui-pickitem--body">
 //             <span class="xui-pickitem--text">Edit</span>
 //           </button>
 //         </li>
-//         <li class="xui-pickitem xui-pickitem-standard" role="treeitem">
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
 //           <button type="button" class="xui-pickitem--body">
 //             <span class="xui-pickitem--text">Delete</span>
 //           </button>
 //         </li>
-//         <li class="xui-pickitem xui-pickitem-standard" role="treeitem">
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
 //           <button type="button" class="xui-pickitem--body">
 //             <span class="xui-pickitem--text">Copy</span>
 //           </button>
@@ -267,8 +267,8 @@
 //       </div>
 //     </div>
 //     <div class='xui-dropdown--scrollable-content'>
-//       <ul class="xui-picklist xui-picklist-standard xui-picklist-layout" role="tree">
-//         <li class="xui-pickitem xui-pickitem-standard xui-pickitem-multiselect" role="option">
+//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout" role="tree">
+//         <li class="xui-pickitem xui-pickitem-medium xui-pickitem-multiselect" role="option">
 // 					<div class="xui-pickitem--body">
 // 						<label class="xui-styledcheckboxradio" for="customers">
 // 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="customers">
@@ -281,7 +281,7 @@
 // 						</label>
 // 					</div>
 // 				</li>
-// 				<li class="xui-pickitem xui-pickitem-standard xui-pickitem-multiselect" role="option">
+// 				<li class="xui-pickitem xui-pickitem-medium xui-pickitem-multiselect" role="option">
 // 					<div class="xui-pickitem--body">
 // 						<label class="xui-styledcheckboxradio" for="suppliers">
 // 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="suppliers">
@@ -294,7 +294,7 @@
 // 						</label>
 // 					</div>
 // 				</li>
-// 				<li class="xui-pickitem xui-pickitem-standard xui-pickitem-multiselect" role="option">
+// 				<li class="xui-pickitem xui-pickitem-medium xui-pickitem-multiselect" role="option">
 // 					<div class="xui-pickitem--body">
 // 						<label class="xui-styledcheckboxradio" for="overseas">
 // 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="overseas">
@@ -310,8 +310,8 @@
 //       </ul>
 //     </div>
 //     <div class="xui-dropdown--footer">
-//       <ul class="xui-picklist xui-picklist-standard xui-picklist-layout" role="tree">
-//         <li class="xui-pickitem xui-pickitem-standard" role="treeitem">
+//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout" role="tree">
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
 //           <div class="xui-iconwrapper xui-pickitem--icon">
 //             <svg focusable="false" class="xui-icon xui-icon-color-black-muted">
 //               <use xlink:href="#xui-icon-plus" role="presentation"></use>

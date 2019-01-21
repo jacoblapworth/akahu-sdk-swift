@@ -156,12 +156,12 @@ exports[`< Picklist /> example with most compatible options 1`] = `
 
 exports[`< Picklist /> renders most basic example 1`] = `
 <ul
-  className="xui-picklist xui-picklist-layout xui-picklist-standard"
+  className="xui-picklist xui-picklist-layout xui-picklist-medium"
   role="group"
 >
   <li
     aria-selected={null}
-    className="xui-pickitem xui-pickitem-standard"
+    className="xui-pickitem xui-pickitem-medium"
     id="pi1"
     role="option"
   >

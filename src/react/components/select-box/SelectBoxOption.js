@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Pickitem from '../picklist/Pickitem';
 import { ns } from '../helpers/xuiClassNamespace';
+import { sizes } from './private/constants';
 
 export default class SelectBoxOption extends PureComponent {
 	render() {
@@ -101,8 +102,8 @@ SelectBoxOption.propTypes = {
 	ariaRole: PropTypes.string,
 	/** The automation-id to add to the item */
 	qaHook: PropTypes.string,
-	/** Size variant. */
-	size: PropTypes.oneOf(['standard', 'small', 'xsmall']),
+	/** Size variant. One of "medium", "small", "xsmall" */
+	size: PropTypes.oneOf(sizes),
 };
 
 SelectBoxOption.defaultProps = {

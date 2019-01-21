@@ -111,7 +111,7 @@ class DetailedListExample extends Component {
 			value,
 			people,
 		} = example.state;
-		const listSize = example.props.picklistSize || 'standard';
+		const listSize = example.props.picklistSize || 'medium';
 
 		if (!Array.isArray(people) || people.length <= 0) {
 			return <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>;

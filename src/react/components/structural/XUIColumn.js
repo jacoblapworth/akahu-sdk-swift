@@ -26,6 +26,7 @@ const getAllClasses = ({
 );
 
 const XUIColumn = ({
+	qaHook,
 	children,
 	className,
 	gridColumns,
@@ -38,6 +39,7 @@ const XUIColumn = ({
 		className={getAllClasses({
 			className, gridColumns, gridColumnsMedium, gridColumnsWide,
 		})}
+		data-automationid={qaHook}
 	>
 		{children}
 	</div>
@@ -46,6 +48,7 @@ const XUIColumn = ({
 XUIColumn.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 	/**
 	 * Grid columns for the column to inhabit. Can be 1-12 or any of [full, half, third, quarter]
 	 */

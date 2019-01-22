@@ -12,6 +12,7 @@ const getClasses = (className, variant) => {
 };
 
 const XUIRow = ({
+	qaHook,
 	children,
 	className,
 	variant,
@@ -20,6 +21,7 @@ const XUIRow = ({
 	<div
 		{...spreadProps}
 		className={getClasses(className, variant)}
+		data-automationid={qaHook}
 	>
 		{children}
 	</div>
@@ -28,6 +30,7 @@ const XUIRow = ({
 XUIRow.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 	/* Type of row to render */
 	variant: PropTypes.oneOf(Object.keys(rowVariants)),
 };

@@ -6,7 +6,7 @@
 //
 // Composition-image: Split_devices.svg
 //
-// Caption: Split composition at breakpoints small-down, small-up, medium-up and large-up
+// Caption: Split composition at breakpoints small-down, small-up, medium-up and large-up.
 //
 // Tips:
 // Do: Use the Primary container to house the most recent or important information
@@ -68,11 +68,11 @@
 // Anatomy
 //
 // Classes:
-// -splitheader: Wraps the whole composition when including a page header
-// -header: Wraps the page header if one is included
-// -split: Wraps entire composition when no page header is included
-// -primary: Wraps the Primary container
-// -detail: Wraps the Detail container
+// xui-composition-splitheader: Wraps the entire composition when including a page header
+// xui-composition-split: Wraps entire composition when no page header is included
+// xui-gridarea-header: Wraps the page header if one is included
+// xui-gridarea-primary: Wraps the Primary container
+// xui-gridarea-detail: Wraps the Detail container
 //
 // Styleguide: Compositions.Split.3
 
@@ -93,7 +93,7 @@
 // Dont: Don't use in conjuction with custom spacing between containers
 //
 // Classes:
-// -grid-gap: applies standard spacing between composition containers
+// xui-composition-grid-gap: Applies standard spacing between composition containers
 //
 // Styleguide: Compositions.Split.4.1
 
@@ -106,7 +106,7 @@
 // Warning: Avoid adding extra spacing around the composition, instead add custom styles
 //
 // Classes:
-// -outer-spacing: applies standard around the entire composition
+// xui-composition-outer-spacing: applies standard around the entire composition
 //
 // Styleguide: Compositions.Split.4.2
 
@@ -119,7 +119,7 @@
 // Warning: Avoid applying when content doesn't benefit from the extra space
 //
 // Classes:
-// -is-finite: remove this class to have the composition span 100% width of page
+// xui-composition-is-finite: Remove this class to have the composition span 100% width of page
 //
 // Styleguide: Compositions.Split.4.3
 
@@ -132,21 +132,22 @@
 // Warning: Consider using the default layout and defining custom sizing on the Master container, to allow content to fit
 //
 // Classes:
-// -retain-small: forces composition to retain the mobile layout across all breakpoints
+// xui-composition-split-retain-small: forces composition to retain the mobile layout across all breakpoints
 //
 // Styleguide: Compositions.Split.4.4
 
 // Class list
 //
 // Classes:
-// -splitheader: add to composition wrapper when including a page header
-// -header: add to page header if the page has one
-// -split: add to composition wrapper when no page header is included
-// -primary: add to Primary container
-// -detail: add to Detail container
-// -grid-gap: applies standard spacing between composition containers
-// -outer-spacing: applies standard around the etnire composition
-// -is-finite: remove this class to have the composition span 100% width of page
-// -retain-small: forces composition to keep the mobile layout across all breakpoints
+// xui-composition-split: Style for Split composition
+// xui-composition-splitheader: Style for Split composition when including a page header
+// xui-composition-grid-gap: Modifier for applying standard spacing between composition containers
+// xui-composition-outer-spacing: Modifier for applying standard spacing around the outside of the composition
+// xui-composition-is-finite: Remove this class to have the composition span 100% width of page
+// xui-composition-splitheader-retain-small: Modifier to force the composition to maintain the mobile layout across all breakpoints (use in conjuction with xui-composition-splitheader)
+// xui-composition-split-retain-small: Modifier that forces composition to keep the mobile layout across all breakpoints
+// xui-gridarea-header: Styles for page header subcomponent if the page has one
+// xui-gridarea-primary: Styles for Primary container subcomponent
+// xui-gridarea-detail: Styles for Detail container subcomponent
 //
 // Styleguide: Compositions.Split.5

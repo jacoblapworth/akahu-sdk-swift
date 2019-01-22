@@ -6,7 +6,7 @@
 //
 // Composition-image: Detail-Summary_devices.svg
 //
-// Caption: Detail Summary composition at -small-to-medium, `medium-to-large`, and `large-up` breakpoints.
+// Caption: Detail Summary composition at -small-to-medium, medium-to-large, and large-up breakpoints.
 //
 // Tips:
 // Do: Use Summary to house simple content that isn’t integral to the purpose of the page
@@ -69,11 +69,11 @@
 // Anatomy
 //
 // Classes:
-// -detailsummary: Wraps entire composition when no page header is included
-// -header: Wraps the page header if one is included
-// -detailsummaryheader: Wraps the whole composition when including a page header
-// -detail: Wraps the Detail container
-// -summary: Wraps the Summary container
+// xui-composition-detailsummary: Wraps entire composition when no page header is included
+// xui-composition-detailsummaryheader: Wraps the whole composition when including a page header
+// xui-gridarea-header: Wraps the page header if one is included
+// xui-gridarea-detail: Wraps the Detail container
+// xui-gridarea-summary: Wraps the Summary container
 //
 // Styleguide: Compositions.DetailSummary.3
 
@@ -94,7 +94,7 @@
 // Dont: Don't use in conjuction with custom spacing between containers
 //
 // Classes:
-// -grid-gap: applies standard spacing between composition containers
+// xui-composition-grid-gap: applies standard spacing between composition containers
 //
 // Styleguide: Compositions.DetailSummary.4.1
 
@@ -107,7 +107,7 @@
 // Warning: Avoid adding extra spacing around the composition, instead add custom styles
 //
 // Classes:
-// -outer-spacing: applies standard around the etnire composition
+// xui-composition-outer-spacing: applies standard around the etnire composition
 //
 // Styleguide: Compositions.DetailSummary.4.2
 
@@ -120,7 +120,7 @@
 // Warning: Avoid applying when content doesn't benefit from the extra space
 //
 // Classes:
-// -is-finite: remove this class to have the composition span 100% width of page
+// xui-composition-is-finite: remove this class to have the composition span 100% width of page
 //
 // Styleguide: Compositions.DetailSummary.4.3
 
@@ -133,21 +133,21 @@
 // Warning: Consider using the default layout and defining custom sizing on the Master container, to allow content to fit
 //
 // Classes:
-// -retain-small: forces composition to retain the mobile layout across all breakpoints
+// xui-composition-retain-small: forces composition to retain the mobile layout across all breakpoints
 //
 // Styleguide: Compositions.DetailSummary.4.4
 
 // Class list
 //
 // Classes:
-// -detailsummaryheader: add to composition wrapper when including a page header
-// -header: add to page header if the page has one
-// -detailsummary: add to composition wrapper when no page header is included
-// -detail: add to Detail container
-// summary: add to Summary container
-// -grid-gap: applies standard spacing between composition containers
-// -outer-spacing: applies standard around the etnire composition
-// -is-finite: remove this class to have the composition span 100% width of page
-// -retain-small: forces composition to keep the mobile layout across all breakpoints
+// xui-composition-detailsummaryheader: add to composition wrapper when including a page header
+// xui-composition-detailsummary: add to composition wrapper when no page header is included
+// xui-composition-grid-gap: applies standard spacing between composition containers
+// xui-composition-outer-spacing: applies standard around the etnire composition
+// xui-composition-is-finite: remove this class to have the composition span 100% width of page
+// xui-composition-retain-small: forces composition to keep the mobile layout across all breakpoints
+// xui-gridarea-header: add to page header if the page has one
+// xui-gridarea-detail: add to Detail container
+// xui-gridarea-summary: add to Summary container
 //
 // Styleguide: Compositions.DetailSummary.5

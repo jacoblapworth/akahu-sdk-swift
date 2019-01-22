@@ -6,7 +6,7 @@
 //
 // Composition-image: Master-Detail_devices.svg
 //
-// Caption: Master Detail at breakpoints small-down, small-up, medium-up and large-up
+// Caption: Master Detail at breakpoints small-down, small-up, medium-up and large-up.
 //
 // Tips:
 // Do: Use Master container for tertiary navigation
@@ -68,11 +68,11 @@
 // Anatomy
 //
 // Classes:
-// -masterdetailheader: Wraps the whole composition when including a page header
-// -header: Wraps the page header if one is included
-// -masterdetail: Wraps entire composition when no page header is included
-// -master: Wraps the Master container
-// -detail: Wraps the Detail container
+// xui-composition-masterdetail: Wraps the entire composition when no page header is included
+// xui-composition-masterdetailheader: Wraps the entire composition when including a page header
+// xui-gridarea-header: Wraps the page header if one is included
+// xui-gridarea-master: Wraps the Master container
+// xui-gridarea-detail: Wraps the Detail container
 //
 // Styleguide: Compositions.MasterDetail.3
 
@@ -93,7 +93,7 @@
 // Dont: Don't use in conjuction with custom spacing between containers
 //
 // Classes:
-// -grid-gap: applies standard spacing between composition containers
+// xui-composition-grid-gap: Applies standard spacing between composition containers
 //
 // Styleguide: Compositions.MasterDetail.4.1
 
@@ -106,7 +106,7 @@
 // Warning: Avoid adding extra spacing around the composition, instead add custom styles
 //
 // Classes:
-// -outer-spacing: applies standard around the entire composition
+// xui-composition-outer-spacing: Applies standard around the entire composition
 //
 // Styleguide: Compositions.MasterDetail.4.2
 
@@ -119,7 +119,7 @@
 // Warning: Avoid applying when content doesn't benefit from the extra space
 //
 // Classes:
-// -is-finite: remove this class to have the composition span 100% width of page
+// xui-composition-is-finite: Remove this class to have the composition span 100% width of page
 //
 // Styleguide: Compositions.MasterDetail.4.3
 
@@ -132,21 +132,21 @@
 // Warning: Consider using the default layout and defining custom sizing on the Master container, to allow content to fit
 //
 // Classes:
-// -retain-small: forces composition to retain the mobile layout across all breakpoints
+// xui-composition-retain-small: Forces composition to retain the mobile layout across all breakpoints
 //
 // Styleguide: Compositions.MasterDetail.4.4
 
 // Class list
 //
 // Classes:
-// -masterdetailheader: add to composition wrapper when including a page header
-// -header: add to page header if the page has one
-// -masterdetail: add to composition wrapper when no page header is included
-// -master: add to Master container
-// -detail: add to Detail container
-// -grid-gap: applies standard spacing between composition containers
-// -outer-spacing: applies standard around the etnire composition
-// -is-finite: remove this class to have the composition span 100% width of page
-// -retain-small: forces composition to keep the mobile layout across all breakpoints
+// xui-composition-masterdetail: add to composition wrapper when no page header is included
+// xui-composition-masterdetailheader: add to composition wrapper when including a page header
+// xui-composition-grid-gap: applies standard spacing between composition containers
+// xui-composition-outer-spacing: applies standard around the etnire composition
+// xui-composition-is-finite: remove this class to have the composition span 100% width of page
+// xui-composition-retain-small: forces composition to keep the mobile layout across all breakpoints
+// xui-gridarea-header: add to page header if the page has one
+// xui-gridarea-master: add to Master container
+// xui-gridarea-detail: add to Detail container
 //
 // Styleguide: Compositions.MasterDetail.5

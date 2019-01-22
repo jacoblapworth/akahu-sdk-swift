@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="7040px" height="1730px" viewBox="0 0 7040 1730" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>devices_Detail-Summary</title>
+    <desc>XUI Detail Summary composition visualisation</desc>
+    <defs>
+        <filter x="-16.5%" y="-8.1%" width="133.1%" height="116.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="15" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M73,19 L348,19 C375.614237,19 398,41.3857625 398,69 L398,781 C398,808.614237 375.614237,831 348,831 L73,831 C45.3857625,831 23,808.614237 23,781 L23,69 C23,41.3857625 45.3857625,19 73,19 Z" id="path-2"></path>
+        <path d="M320,60 L2343,60 C2351.28427,60 2358,66.7157288 2358,75 L2358,1328 C2358,1336.28427 2351.28427,1343 2343,1343 L320,1343 C311.715729,1343 305,1336.28427 305,1328 L305,75 C305,66.7157288 311.715729,60 320,60 Z" id="path-4"></path>
+        <filter x="-8.2%" y="-5.5%" width="116.5%" height="111.0%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="15" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M42,90 L796,90 C799.865993,90 803,93.1340068 803,97 L803,1107 C803,1110.86599 799.865993,1114 796,1114 L42,1114 C38.1340068,1114 35,1110.86599 35,1107 L35,97 C35,93.1340068 38.1340068,90 42,90 Z" id="path-7"></path>
+        <filter x="-2.0%" y="-3.0%" width="104.1%" height="106.0%" filterUnits="objectBoundingBox" id="filter-9">
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-10" x="0" y="0" width="2459" height="1537"></rect>
+    </defs>
+    <g id="devices_Detail-Summary" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPhoneX---Black-Copy" filter="url(#filter-1)" transform="translate(26.000000, 824.000000)">
+            <g id="Screen">
+                <g id="Base">
+                    <path d="M58,1 L359,1 C391.032515,1 417,26.9674845 417,59 L417,794 C417,826.032515 391.032515,852 359,852 L58,852 C25.9674845,852 3.92285176e-15,826.032515 0,794 L0,59 C-3.92285176e-15,26.9674845 25.9674845,1 58,1 Z" id="Shadow"></path>
+                    <path d="M59,0 L358,0 C390.032515,-5.88427763e-15 416,25.9674845 416,58 L416,792 C416,824.032515 390.032515,850 358,850 L59,850 C26.9674845,850 1,824.032515 1,792 L1,58 C1,25.9674845 26.9674845,5.88427763e-15 59,0 Z" id="Device" fill="#000000"></path>
+                </g>
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                </mask>
+                <use id="SCREEN-MASK" fill="#F2F3F3" xlink:href="#path-2"></use>
+                <g id="Detail-Summary/Mobile" mask="url(#mask-3)">
+                    <g transform="translate(26.000000, 19.000000)">
+                        <rect id="Rectangle-Copy-2" fill="#F2F3F3" x="0" y="0" width="372" height="812"></rect>
+                        <rect id="Rectangle" fill="#ADADF3" x="24.8" y="25.375" width="322.4" height="229.960938"></rect>
+                        <rect id="Rectangle" fill="#C5C5F6" x="24.8" y="280.710938" width="322.4" height="505.914062"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="Macbook-Pro-Copy" transform="translate(1697.000000, 187.000000)">
+            <path d="M250,1457 L2413,1457 L2413,30 C2413,16.1928813 2401.80712,5 2388,5 L275,5 C261.192881,5 250,16.1928813 250,30 L250,1457 Z" id="Screen-background" stroke="#9FA2A5" stroke-width="10" fill="#000000"></path>
+            <polygon id="Base" fill="#D8D8D8" points="0 1403 2663 1403 2663 1459 0 1459"></polygon>
+            <path d="M0,1458 L2663,1458 L2663,1458 C2663,1475.12083 2649.12083,1489 2632,1489 L31,1489 C13.8791728,1489 2.09669663e-15,1475.12083 0,1458 Z" id="Base-Bottom" fill="#9FA2A5"></path>
+            <mask id="mask-5" fill="white">
+                <use xlink:href="#path-4"></use>
+            </mask>
+            <use id="SCREEN-MASK" fill="#BD10E0" xlink:href="#path-4"></use>
+            <g id="Detail-Summary/Desktop-HD-100%" mask="url(#mask-5)">
+                <g transform="translate(304.000000, 57.000000)">
+                    <rect id="Rectangle" fill="#F2F3F3" x="0" y="0" width="2058" height="1292"></rect>
+                    <rect id="Rectangle-Copy-4" fill="#C5C5F6" x="45.7333333" y="40.375" width="1534.925" height="1211.25"></rect>
+                    <rect id="Rectangle-Copy-5" fill="#ADADF3" x="1626.39167" y="40.375" width="385.875" height="1211.25"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="iPad-Mini---Black-Copy" filter="url(#filter-6)" transform="translate(654.000000, 419.000000)">
+            <rect id="Shadow" x="0" y="0" width="838" height="1257" rx="59"></rect>
+            <path d="M0,65.0012145 C0,29.102035 29.1044544,0 64.9939364,0 L773.006064,0 C808.901223,0 838,29.1058305 838,65.0012145 L838,1190.99879 C838,1226.89796 808.895546,1256 773.006064,1256 L64.9939364,1256 C29.0987765,1256 0,1226.89417 0,1190.99879 L0,65.0012145 Z" id="Device-Base" fill="#000000" fill-rule="nonzero"></path>
+            <mask id="mask-8" fill="white">
+                <use xlink:href="#path-7"></use>
+            </mask>
+            <use id="SCREEN-MASK" fill="#BD10E0" xlink:href="#path-7"></use>
+            <g id="Detail-Summary/Tablet" mask="url(#mask-8)">
+                <g transform="translate(33.000000, 83.000000)" id="Rectangle">
+                    <rect fill="#F2F3F3" x="0" y="0" width="775" height="1034.02344"></rect>
+                    <rect fill="#ADADF3" x="527" y="32.1875" width="217" height="965.625"></rect>
+                    <rect fill="#C5C5F6" x="31" y="32.1875" width="465" height="965.625"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="Flat-Browser-Copy" filter="url(#filter-9)" transform="translate(4565.000000, 0.000000)">
+            <rect id="Shadow" fill-rule="nonzero" x="0" y="0" width="2459" height="1670"></rect>
+            <g id="Navigation" fill-rule="nonzero">
+                <path d="M15.3545877,0 L2443.64541,1.24300837e-15 C2448.98454,2.60392355e-16 2450.92063,0.556953667 2452.87254,1.60279622 C2454.82444,2.64863878 2456.35631,4.18337022 2457.4002,6.13892578 C2458.44409,8.09448133 2459,10.0341988 2459,15.3833112 L2459,132 L0,132 L4.1356248e-16,15.3833112 C-2.40291711e-16,10.0341988 0.555913731,8.09448133 1.5998035,6.13892578 C2.64369328,4.18337022 4.17555909,2.64863878 6.12746326,1.60279622 C8.07936743,0.556953667 10.015463,9.82616014e-16 15.3545877,0 Z" id="Navigation-BG" fill="#E2E3E5"></path>
+                <ellipse id="Close" fill="#C4C6CA" cx="66.4756454" cy="66.6" rx="14.9719922" ry="15"></ellipse>
+                <ellipse id="Minimise" fill="#C4C6CA" cx="120.374817" cy="66.6" rx="14.9719922" ry="15"></ellipse>
+                <ellipse id="Maximise" fill="#C4C6CA" cx="174.273989" cy="66.6" rx="14.9719922" ry="15"></ellipse>
+                <path d="M256.811244,36 L2391.43474,36 C2394.1043,36 2395.07235,36.2784768 2396.0483,36.8013981 C2397.02425,37.3243194 2397.79018,38.0916851 2398.31213,39.0694629 C2398.83407,40.0472407 2399.11203,41.0170994 2399.11203,43.6916556 L2399.11203,88.3083444 C2399.11203,90.9829006 2398.83407,91.9527593 2398.31213,92.9305371 C2397.79018,93.9083149 2397.02425,94.6756806 2396.0483,95.1986019 C2395.07235,95.7215232 2394.1043,96 2391.43474,96 L256.811244,96 C254.141682,96 253.173634,95.7215232 252.197682,95.1986019 C251.22173,94.6756806 250.455797,93.9083149 249.933852,92.9305371 C249.411907,91.9527593 249.13395,90.9829006 249.13395,88.3083444 L249.13395,43.6916556 C249.13395,41.0170994 249.411907,40.0472407 249.933852,39.0694629 C250.455797,38.0916851 251.22173,37.3243194 252.197682,36.8013981 C253.173634,36.2784768 254.141682,36 256.811244,36 Z" id="Address-Bar" fill="#FFFFFF"></path>
+            </g>
+            <g id="Detail-Summary/Desktop-HD-100%" transform="translate(0.000000, 132.000000)">
+                <mask id="mask-11" fill="white">
+                    <use xlink:href="#path-10"></use>
+                </mask>
+                <use id="Mask" fill="#F2F3F3" xlink:href="#path-10"></use>
+                <g id="Detail-Summary/Desktop-HD" mask="url(#mask-11)">
+                    <rect id="Rectangle" fill="#F2F3F3" x="0" y="0" width="2459" height="1544"></rect>
+                    <rect id="Rectangle-Copy-3" fill="#ADADF3" x="1734.96111" y="48.25" width="382.511111" height="1447.5"></rect>
+                    <rect id="Rectangle-Copy-4" fill="#C5C5F6" x="334.697222" y="48.25" width="1359.28056" height="1447.5"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

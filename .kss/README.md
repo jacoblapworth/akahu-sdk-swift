@@ -34,6 +34,8 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 * `tips`
 * `flag`
 * `storybook`
+* `composition-image`
+* `caption`
 
 #### Adding new properties
 
@@ -153,6 +155,22 @@ In some scenarios we want to link from the XUI Guide to specific Storybook examp
 
 ```
 // Storybook: /storybook/?knob-Include%20content%20header=false&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=false&selectedKind=Compositions&selectedStory=Detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs
+```
+
+### Composition-image
+
+For displaying images that illustrate a Composition's behaviour. Place the .svg file in kss-assets/composition-images/ and add `Composition-image: image-name.svg` to the relevant documentation file.
+
+```
+// Composition-image: image-name.svg
+```
+
+### Caption
+
+Small text used to describe what is shown in the Composition-image. This should be the very next KSS prop following the Composition-image prop.
+
+```
+// Caption: How this-particular composition behaves at -small-down, -small-up, -medium-up, and -large-up breakpoints
 ```
 
 ## Handlebars Index Template

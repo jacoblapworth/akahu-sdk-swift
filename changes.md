@@ -77,14 +77,14 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- `NestedPicklistTrigger` also supports a `leftElement`
 	- In support of the more contentblock-style Autocompleter picklists, Pickitems also have new `headerElement` and `isMultiline` props.
 - ContentBlockItem has new `description` and `tagPosition` props. Description is styled similarly to the prior `secondaryHeading` content (which has now become more prominent), and `tagPosition` allows you to specify where tags will be placed. `pinnedValue`, `href`, `primaryHeading`, and `secondaryHeading` now only accept strings. The `tag` property has been changed to accept multiple tags, and is now labeled `tags`, accordingly.
-- Loader size options have been switched from 'large', 'standard', and 'small' to be consistent with other component sizes. New size options are 'standard', 'small', and 'xsmall', and will be converted automatically if using the codemod. The largest size, 'standard' is now the default.
+- Loader size options have been switched from 'large', 'standard', and 'small' to be consistent with other component sizes. New size options are 'medium', 'small', and 'xsmall', and will be converted automatically if using the codemod. The largest size, 'medium' is now the default.
 - `SelectBox`
 	- Has a new `fullWidth` prop. The default value is `always`.
 		- The available values are `always`, `small-down`, and `never`.
 	- Has a new `size` prop. The default value is `medium`.
 		- The available sizes are `medium`, `small`, and `xsmall`.
 		- If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
-	- No longer shrinks to a standard width when a `buttonVariant` is supplied. To prevent your `SelectBox` from going full-width, set the `fullWidth` prop to `never`.
+	- No longer shrinks to a `medium` width when a `buttonVariant` is supplied. To prevent your `SelectBox` from going full-width, set the `fullWidth` prop to `never`.
 	- The `isTextTruncated` prop can now be used without a `buttonVariant`.
 	- Has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
 - `XUIButton`

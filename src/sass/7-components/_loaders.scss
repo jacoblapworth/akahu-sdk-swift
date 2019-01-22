@@ -25,12 +25,12 @@
 //
 // Classes:
 // xui-loader: Apply to loader
-// xui-loader-standard: Apply to loader. -standard can be replaced with other size modifiers which are documented in the "Size variant" section below
+// xui-loader-medium: Apply to loader. -medium can be replaced with other size modifiers which are documented in the "Size variant" section below
 // xui-loader--dot: Apply to the three nested elements within the loader
 // xui-loader-layout: Optionally add to the loader to apply xui defined, outer spacing
 //
 // Markup:
-// <div class="xui-loader xui-loader-standard" role="progressbar" aria-valuetext="Content loading">
+// <div class="xui-loader xui-loader-medium" role="progressbar" aria-valuetext="Content loading">
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
@@ -48,12 +48,12 @@
 //
 // Definitions:
 // Size variant:	**Height**: **Class**
-// default: 14px: <code>.xui-loader-standard</code>
+// medium: 14px: <code>.xui-loader-medium</code>
 // small: 12px: <code>.xui-loader-small</code>
 // xsmall: 10px: <code>.xui-loader-xsmall</code>
 //
 // Markup:
-// <div class="xui-loader xui-loader-standard xui-margin-bottom" role="progressbar" aria-valuetext="Content loading">
+// <div class="xui-loader xui-loader-medium xui-margin-bottom" role="progressbar" aria-valuetext="Content loading">
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
@@ -147,7 +147,7 @@
 // <div class="xui-dropdown-layout xui-dropdown-is-open xui-dropdown-is-opening">
 // 	<div class="xui-dropdown--mask"></div>
 // 	<div class="xui-dropdown--body">
-//	 	<div class="xui-loader xui-loader-standard xui-loader-layout" role="progressbar" aria-valuetext="Loading content">
+//	 	<div class="xui-loader xui-loader-medium xui-loader-layout" role="progressbar" aria-valuetext="Loading content">
 //			<div class="xui-loader--dot"></div>
 //			<div class="xui-loader--dot"></div>
 //			<div class="xui-loader--dot"></div>
@@ -189,7 +189,7 @@
 // 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
 // 		</li>
 // 	</ul>
-//	 	<div class="xui-loader xui-loader-standard xui-loader-retain-layout" role="progressbar" aria-valuetext="Loading content">
+//	 	<div class="xui-loader xui-loader-medium xui-loader-retain-layout" role="progressbar" aria-valuetext="Loading content">
 //			<div class="xui-loader--dot"></div>
 //			<div class="xui-loader--dot"></div>
 //			<div class="xui-loader--dot"></div>
@@ -210,7 +210,7 @@
 // Markup:
 //	<div class="xui-mask xui-mask-is-active" aria-hidden="false">
 //		<section class="xui-modal xui-modal-layout" tabindex="0" role="dialog">
-//	 		<div class="xui-loader xui-loader-standard xui-loader-layout" role="progressbar" aria-valuetext="Loading content">
+//	 		<div class="xui-loader xui-loader-medium xui-loader-layout" role="progressbar" aria-valuetext="Loading content">
 //				<div class="xui-loader--dot"></div>
 //				<div class="xui-loader--dot"></div>
 //				<div class="xui-loader--dot"></div>
@@ -268,7 +268,7 @@
 //       <button type="button" class="xui-actions--secondary xui-button xui-button-standard">Cancel</button>
 //       <button type="button" class="xui-actions--primary xui-button xui-button-main">Save</button>
 //     </footer>
-//	 	<div class="xui-loader xui-loader-standard xui-loader-retain-layout" role="progressbar" aria-valuetext="Loading content">
+//	 	<div class="xui-loader xui-loader-medium xui-loader-retain-layout" role="progressbar" aria-valuetext="Loading content">
 //			<div class="xui-loader--dot"></div>
 //			<div class="xui-loader--dot"></div>
 //			<div class="xui-loader--dot"></div>
@@ -286,7 +286,7 @@
 //
 // Markup:
 //	<div class="xui-panel">
-//	 	<div class="xui-loader xui-loader-standard xui-loader-layout" role="progressbar" aria-valuetext="Loading content">
+//	 	<div class="xui-loader xui-loader-medium xui-loader-layout" role="progressbar" aria-valuetext="Loading content">
 //			<div class="xui-loader--dot"></div>
 //			<div class="xui-loader--dot"></div>
 //			<div class="xui-loader--dot"></div>
@@ -321,7 +321,7 @@
 // 			</div>
 // 		</div>
 // 	</div>
-//	<div class="xui-loader xui-loader-standard xui-loader-retain-layout" role="progressbar" aria-valuetext="Loading content">
+//	<div class="xui-loader xui-loader-medium xui-loader-retain-layout" role="progressbar" aria-valuetext="Loading content">
 //		<div class="xui-loader--dot"></div>
 //		<div class="xui-loader--dot"></div>
 //		<div class="xui-loader--dot"></div>
@@ -349,7 +349,7 @@
 // xui-loader-inverted: Inverts loader style
 //
 // Markup:
-// <div class="xui-loader xui-loader-standard xui-loader-inverted" role="progressbar" aria-valuetext="Content loading">
+// <div class="xui-loader xui-loader-medium xui-loader-inverted" role="progressbar" aria-valuetext="Content loading">
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
@@ -396,9 +396,9 @@
 .#{$ns}-loader--dot {
 	$dot-size-xsmall: ($xui-s-small - 2);
 	$dot-size-small: $xui-s-small;
-	$dot-size-standard: ($xui-s-small + 2);
+	$dot-size-medium: ($xui-s-small + 2);
 	$dot-margin-small: 2px;
-	$dot-margin-standard: 3px;
+	$dot-margin-medium: 3px;
 	$animation-time: 1.3s;
 	$animation-delay: -0.16s;
 
@@ -428,10 +428,10 @@
 		animation-delay: $animation-delay * 0;
 	}
 
-	.#{$ns}-loader-standard & {
-		height: $dot-size-standard;
-		margin-right: $dot-margin-standard;
-		width: $dot-size-standard;
+	.#{$ns}-loader-medium & {
+		height: $dot-size-medium;
+		margin-right: $dot-margin-medium;
+		width: $dot-size-medium;
 	}
 
 	.#{$ns}-loader-small & {

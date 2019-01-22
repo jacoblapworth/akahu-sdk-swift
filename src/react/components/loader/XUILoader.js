@@ -54,7 +54,7 @@ XUILoader.propTypes = {
 
 XUILoader.defaultProps = {
 	defaultLayout: true,
-	size: 'standard',
+	size: 'medium',
 	ariaLabel: 'Loading',
 };
 

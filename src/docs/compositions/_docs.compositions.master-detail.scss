@@ -22,7 +22,7 @@
 //
 // The Master container lives inside of a dropdown when the browser width is below `$xui-breakpoint-small`. From `$xui-breakpoint-small-up` the Master container is a left hand column 1/2 the width of the Detail container, with a max width of 274px.
 //
-// Styleguide: Compositions.MasterDetail.2
+// Styleguide: Compositions.MasterDetail.1
 
 // Example
 //
@@ -38,13 +38,13 @@
 //
 // Storybook: /storybook/?selectedKind=Compositions&selectedStory=Master%20detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs
 //
-// Styleguide: Compositions.MasterDetail.2.5
+// Styleguide: Compositions.MasterDetail.1.5
 
 // Master Detail with header
 //
 // When a page has a page header, include it in the composition to make use of the spacing and stacking behaviour.
 //
-// Styleguide: Compositions.MasterDetail.3
+// Styleguide: Compositions.MasterDetail.2
 
 // Example
 //
@@ -63,24 +63,24 @@
 //
 // Storybook: /storybook/?selectedKind=Compositions&selectedStory=Master%20detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs
 //
-// Styleguide: Compositions.MasterDetail.3.5
+// Styleguide: Compositions.MasterDetail.2.5
 
 // Anatomy
 //
 // Classes:
-// -masterdetail: Wraps entire composition when no page header is included
 // -masterdetailheader: Wraps the whole composition when including a page header
 // -header: Wraps the page header if one is included
+// -masterdetail: Wraps entire composition when no page header is included
 // -master: Wraps the Master container
 // -detail: Wraps the Detail container
 //
-// Styleguide: Compositions.MasterDetail.4
+// Styleguide: Compositions.MasterDetail.3
 
 // Composition properties
 //
 // Introduction: There are a number of spacing and layout properties that can be used to adjust the Master Detail composition.
 //
-// Styleguide: Compositions.MasterDetail.5
+// Styleguide: Compositions.MasterDetail.4
 
 // Grid gap
 //
@@ -95,7 +95,7 @@
 // Classes:
 // -grid-gap: applies standard spacing between composition containers
 //
-// Styleguide: Compositions.MasterDetail.5.1
+// Styleguide: Compositions.MasterDetail.4.1
 
 // Outer spacing
 //
@@ -106,9 +106,9 @@
 // Warning: Avoid adding extra spacing around the composition, instead add custom styles
 //
 // Classes:
-// -outer-spacing: applies standard around the etnire composition
+// -outer-spacing: applies standard around the entire composition
 //
-// Styleguide: Compositions.MasterDetail.5.2
+// Styleguide: Compositions.MasterDetail.4.2
 
 // Full width
 //
@@ -121,7 +121,7 @@
 // Classes:
 // -is-finite: remove this class to have the composition span 100% width of page
 //
-// Styleguide: Compositions.MasterDetail.5.3
+// Styleguide: Compositions.MasterDetail.4.3
 
 // Retain mobile layout
 //
@@ -134,7 +134,7 @@
 // Classes:
 // -retain-small: forces composition to retain the mobile layout across all breakpoints
 //
-// Styleguide: Compositions.MasterDetail.5.4
+// Styleguide: Compositions.MasterDetail.4.4
 
 // Class list
 //
@@ -149,4 +149,4 @@
 // -is-finite: remove this class to have the composition span 100% width of page
 // -retain-small: forces composition to keep the mobile layout across all breakpoints
 //
-// Styleguide: Compositions.MasterDetail.6
+// Styleguide: Compositions.MasterDetail.5

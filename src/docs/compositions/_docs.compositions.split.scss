@@ -2,52 +2,151 @@
 //
 // Teaser: A 50/50 split with two Detail areas. The secondary container stacks below the primary one at smaller breakpoints.
 //
-// Introduction: Split is composed of two Detail containers.
+// Introduction: Split is the perfect Composition for when content needs to be split between two container of similar or even importance.
+//
+// Composition-image: Split_devices.svg
+//
+// Caption: Split composition at breakpoints small-down, small-up, medium-up and large-up
+//
+// Tips:
+// Do: Use the Primary container to house the most recent or important information
+// Do: Use Split for comparison screens
+// Don't: Don't use one of the Split containers to hold navigation, instead consider the Master Detail composition
 //
 // Weight: 4.5
 //
-// Styleguide: Compositions.Split
+// Styleguide: Compositions.Split.
 
-// Best practice
+// Default behaviour
 //
-// Tips:
-// Do: Use the primary container to house the most recent or important information
+// The Split composition is made up of the Primary and Detail containers. Primary container sits above the Detail container till the browser hits $xui-breakpoint-medium-up, from which point Detail sits to the right of the Primary container.
 //
 // Styleguide: Compositions.Split.1
 
-// Behaviour
-//
-// At x-breakpoint the containers are side by side. At smaller breakpoints, the primary container sits above the secondary one.
-//
-// Styleguide: Compositions.Split.2
-
-// Split
+// Example
 //
 // Markup:
 // <div class="xui-composition xui-composition-split xui-composition-is-finite">
 //   <div class="xui-gridarea-primary xui-width-xsmall-up">
-//     <div style="background: rgb(173, 173, 243); height: 100px;"></div>
+//     <div style="background: #5A5AE6; height: 320px;"></div>
 //   </div>
 //   <div class="xui-gridarea-detail xui-width-xsmall-up">
-//     <div style="background: rgb(197, 197, 246); height: 100px;"></div>
+//     <div style="background: #C5C5F6; height: 320px;"></div>
 //   </div>
 // </div>
 //
-// Styleguide: Compositions.Split.3
+// Storybook: /storybook/?selectedKind=Compositions&selectedStory=Split&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=&knob-Retain%20a%20width=
+//
+// Styleguide: Compositions.Split.1.5
 
-// Split with header
+// Split composition with header
+//
+// When a page has a page header, include it in the composition to make use of the spacing and stacking behaviour.
+//
+// Styleguide: Compositions.Split.2
+
+//Example
 //
 // Markup:
 // <div class="xui-composition xui-composition-splitheader xui-composition-is-finite">
 //   <div class="xui-gridarea-header xui-width-xsmall-up xui-width-small-up xui-width-medium-up">
-//     <div style="background: rgb(180, 70, 200); height: 60px;"></div>
+//     <div style="background: #ADADF3; height: 100px;"></div>
 //   </div>
 //   <div class="xui-gridarea-primary xui-width-xsmall-up">
-//     <div style="background: rgb(173, 173, 243); height: 100px;"></div>
+//     <div style="background: #5A5AE6; height: 320px;"></div>
 //   </div>
 //   <div class="xui-gridarea-detail xui-width-xsmall-up">
-//     <div style="background: rgb(197, 197, 246); height: 100px;"></div>
+//     <div style="background: #C5C5F6; height: 320px;"></div>
 //   </div>
 // </div>
 //
+// Storybook: /storybook/?selectedKind=Compositions&selectedStory=Split&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=true&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=&knob-Retain%20a%20width=
+//
+// Styleguide: Compositions.Split.2.5
+
+
+// Anatomy
+//
+// Classes:
+// -splitheader: Wraps the whole composition when including a page header
+// -header: Wraps the page header if one is included
+// -split: Wraps entire composition when no page header is included
+// -primary: Wraps the Primary container
+// -detail: Wraps the Detail container
+//
+// Styleguide: Compositions.Split.3
+
+// Composition properties
+//
+// Introduction: There are a number of spacing and layout properties that can be used to adjust the Split composition.
+//
 // Styleguide: Compositions.Split.4
+
+// Grid gap
+//
+// Applies `$xui-s-large` spacing between composition containers. To create custom spacing, add styles to the composition and its containers directly instead.
+//
+// Tips:
+// Do: Use to set XUI defined, standard spacing between containers
+// Do: Use when each container's content spans the containers full width
+// Do: Consider using in conjuction with outer-spacing class which adds $xui-s-large spacing around the outside of the composition
+// Dont: Don't use in conjuction with custom spacing between containers
+//
+// Classes:
+// -grid-gap: applies standard spacing between composition containers
+//
+// Styleguide: Compositions.Split.4.1
+
+// Outer spacing
+//
+// Applies `$xui-s-large` spacing around the entire composition.
+//
+// Tips:
+// Do: Use to give spacing between the entire composition and the edge of the browser
+// Warning: Avoid adding extra spacing around the composition, instead add custom styles
+//
+// Classes:
+// -outer-spacing: applies standard around the entire composition
+//
+// Styleguide: Compositions.Split.4.2
+
+// Full width
+//
+// By default, compositions have the `is-infinite` class which applies a max width of 1200px. Removing this class allows the composition to span the full width of the page.
+//
+// Tips:
+// Do: Apply when one or both containers hold wide media such as maps, images or tables
+// Warning: Avoid applying when content doesn't benefit from the extra space
+//
+// Classes:
+// -is-finite: remove this class to have the composition span 100% width of page
+//
+// Styleguide: Compositions.Split.4.3
+
+// Retain mobile layout
+//
+// Forces the composition to retain the mobile layout across all breakpoints, keeping the Master container hidden within a dropdown.
+//
+// Tips:
+// Do: Use when content won't fit using the two column layout even at larger breakpoints
+// Warning: Consider using the default layout and defining custom sizing on the Master container, to allow content to fit
+//
+// Classes:
+// -retain-small: forces composition to retain the mobile layout across all breakpoints
+//
+// Styleguide: Compositions.Split.4.4
+
+// Class list
+//
+// Classes:
+// -splitheader: add to composition wrapper when including a page header
+// -header: add to page header if the page has one
+// -split: add to composition wrapper when no page header is included
+// -primary: add to Primary container
+// -detail: add to Detail container
+// -grid-gap: applies standard spacing between composition containers
+// -outer-spacing: applies standard around the etnire composition
+// -is-finite: remove this class to have the composition span 100% width of page
+// -retain-small: forces composition to keep the mobile layout across all breakpoints
+//
+// Styleguide: Compositions.Split.5

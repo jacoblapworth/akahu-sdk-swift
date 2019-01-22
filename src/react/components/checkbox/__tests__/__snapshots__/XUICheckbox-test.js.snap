@@ -64,7 +64,7 @@ exports[`XUICheckbox should have a hidden label, if specified 1`] = `
 >
   <input
     aria-label="Hidden label"
-    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
+    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
     defaultChecked={false}
     disabled={false}
     onChange={[Function]}
@@ -73,7 +73,7 @@ exports[`XUICheckbox should have a hidden label, if specified 1`] = `
     type="checkbox"
   />
   <div
-    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"
+    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium"
   />
 </label>
 `;
@@ -86,7 +86,7 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
   role="presentation"
 >
   <input
-    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
+    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
     data-automationid="test-checkbox--input"
     defaultChecked={false}
     disabled={false}
@@ -96,7 +96,7 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
     type="checkbox"
   />
   <div
-    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"
+    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium"
     data-automationid="test-checkbox--checkbox"
   />
 </label>
@@ -110,7 +110,7 @@ exports[`XUICheckbox should have a visible label, if specified 1`] = `
 >
   <input
     aria-labelledby="testCheckboxId"
-    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
+    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
     defaultChecked={false}
     disabled={false}
     onChange={[Function]}
@@ -119,10 +119,10 @@ exports[`XUICheckbox should have a visible label, if specified 1`] = `
     type="checkbox"
   />
   <div
-    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"
+    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium"
   />
   <span
-    className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard"
+    className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-medium"
     id="testCheckboxId"
   >
     Visible label
@@ -137,7 +137,7 @@ exports[`XUICheckbox should render with an icon when one is provided 1`] = `
   role="presentation"
 >
   <input
-    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard"
+    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
     defaultChecked={false}
     disabled={false}
     onChange={[Function]}

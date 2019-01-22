@@ -323,8 +323,8 @@ XUICheckbox.propTypes = {
 	validationMessage: PropTypes.string,
 	/** Hint message to show under the input */
 	hintMessage: PropTypes.string,
-	/** Size variant. Defaults to standard */
-	size: PropTypes.oneOf(['standard', 'small', 'xsmall']),
+	/** Size variant. Defaults to medium */
+	size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
 };
 
 XUICheckbox.defaultProps = {
@@ -333,5 +333,5 @@ XUICheckbox.defaultProps = {
 	isIndeterminate: false,
 	isRequired: false,
 	isReversed: false,
-	size: 'standard',
+	size: 'medium',
 };

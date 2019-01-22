@@ -158,11 +158,11 @@ XUIRolloverCheckbox.propTypes = {
 	label: PropTypes.node,
 	/** Optionally provide the id of an element that provides a label for the checkbox */
 	ariaLabelledBy: PropTypes.string,
-	/** Set the size of the checkbox revealed on rollover. Defaults to 'standard' */
-	checkboxSize: PropTypes.oneOf(['standard', 'small', 'xsmall']),
+	/** Set the size of the checkbox revealed on rollover. Defaults to 'medium' */
+	checkboxSize: PropTypes.oneOf(['medium', 'small', 'xsmall']),
 };
 
 XUIRolloverCheckbox.defaultProps = {
 	isDisabled: false,
-	checkboxSize: 'standard',
+	checkboxSize: 'medium',
 };

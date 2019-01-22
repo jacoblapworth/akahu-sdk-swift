@@ -59,7 +59,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- Should not use the `isBoxed` prop (including when they're in icon button variants, you can also remove usages of the `xui-icon-inline` class)
 	- Buttons with `variant="icon"` or `variant="icon-inverted"` should receive the `size="small"` prop
 	- Buttons with `variant="icon-large"` or `variant="icon-inverted-large` should have `size="standard"` (or can be left undefined) and have their variant name switched to `variant="icon"` or `variant="icon-inverted"`
-- TextInput side element contents should have their size checked (they should always have a size 1 smaller than the parent input - i.e. 'standard' `XUITextInput` contains 'small' `XUIButton`s)
+- TextInput side element contents should have their size checked (they should always have a size 1 smaller than the parent input - i.e. 'medium' `XUITextInput` contains 'small' `XUIButton`s)
 - Check for uses of `XUIPill` outside of `XUITextInput`. The codemod for this upgrade automatically adds `size="small"`, which should be removed in cases where `XUIPill` isn't in a text input
 - SelectBox prop `islabelHidden` case has been fixed to be `isLabelHidden`, for real this time.
 - Pill prop `defaultLayout` has been removed.
@@ -70,7 +70,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - Stepper prop `updateCurrentStep` has been included into the main component API in favour of `handleClick` callbacks in every tab instance.
 - Modal no longer supports `default` as a size value. The default prop value is `medium` (unchanged).
 - `Picklist`, `Pickitem`, and related components
-	- Have a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`. Size can be set at either the item or list level, and will be applied to the entire list.
+	- Have a new `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`. Size can be set at either the item or list level, and will be applied to the entire list.
 	- `isMultiselect` and `shouldTruncate` can now be set at the list level and will set those properties for all items in the list. `isMultiselect` is not supported at the `xsmall` size.
 	- Pickitem in React has reached parity with what had been supported by CSS. `primaryElement`, `secondaryElement`, and `pinnedElement` accept text or nodes to generate content with opinionated styling. `leftElement` and `rightElement` will display content such as avatars or icons at either side of the item (`leftElement` will be superseded by `isMultiselect`).
 	- The new Pickitem prop `isInvalid` styles the item in an invalid state
@@ -81,8 +81,8 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - `SelectBox`
 	- Has a new `fullWidth` prop. The default value is `always`.
 		- The available values are `always`, `small-down`, and `never`.
-	- Has a new `size` prop. The default value is `standard`.
-		- The available sizes are `standard`, `small`, and `xsmall`.
+	- Has a new `size` prop. The default value is `medium`.
+		- The available sizes are `medium`, `small`, and `xsmall`.
 		- If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
 	- No longer shrinks to a standard width when a `buttonVariant` is supplied. To prevent your `SelectBox` from going full-width, set the `fullWidth` prop to `never`.
 	- The `isTextTruncated` prop can now be used without a `buttonVariant`.
@@ -138,12 +138,12 @@ All other existing values stay as they are (including `2xlarge`)
 - Pill has a new `isLimitedWidth` prop to replace the `isMaxContentWidth` prop. The default for pills is now to fit their content, and you can apply `isLimitedWidth` to cap them at 200px. This prop change will be handled automatically by the upgrade codemod for existing Pills in your app.
 - Text input now has a `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
 - Tag has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
-- Checkbox and Radio have a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
+- Checkbox and Radio have a new `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
 - XUIButton has a new `fullWidth` prop. The default value is `never`. Other available values are `always`, and `small-only`.
 	- This replaces the `full-width` and `full-width-mobile` sizes.
 - SelectBox has a new `fullWidth` prop. The default value is `never`. Other available values are `always`, and `small-only`.
 	- This replaces the `full-width` and `full-width-mobile` sizes.
-- SelectBox has a new `size` prop. The default value is `standard`. Other available values are `small`, and `xsmall`.
+- SelectBox has a new `size` prop. The default value is `medium`. Other available values are `small`, and `xsmall`.
 - SelectBox has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
 - `RolloverCheckbox`has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.
 

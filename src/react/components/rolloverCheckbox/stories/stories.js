@@ -4,7 +4,6 @@ import React from 'react';
 // Components we need to test with
 import XUIRolloverCheckbox from '../rolloverCheckbox';
 import XUIAvatar from '../../avatar/XUIAvatar';
-import { sizeClassNames } from '../private/constants';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
@@ -27,7 +26,7 @@ storiesWithKnobs.add('Playground', () => {
 		isDisabled={boolean('disabled', false)}
 		rolloverComponent={sizedAvatar}
 		label="Rollover checkbox"
-		checkboxSize={select('size of the checkbox', ['standard', 'small', 'xsmall'], 'standard')}
+		checkboxSize={select('size of the checkbox', ['medium', 'small', 'xsmall'], 'medium')}
 	/>);
 });
 

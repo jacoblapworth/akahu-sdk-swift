@@ -26,7 +26,7 @@ storiesWithKnobs.add('Playground', () => (
 		isInvalid={boolean('isInvalid', false)}
 		validationMessage={text('validationMessage', '')}
 		hintMessage={text('hintMessage', '')}
-		size={select('size', ['standard', 'small', 'xsmall'], 'standard')}
+		size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
 	>{text('label text', 'Test checkbox')}</XUICheckbox>
 ));
 

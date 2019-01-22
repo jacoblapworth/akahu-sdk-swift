@@ -82,7 +82,7 @@ describe('XUIRolloverCheckbox', () => {
 		});
 
 		it('will be a medium checkbox when medium is set on the checkboxSize prop.', () => {
-			const { expected } = setup(renderer.create, { checkboxSize: 'standard' , rolloverComponent: <div></div> });
+			const { expected } = setup(renderer.create, { checkboxSize: 'medium' , rolloverComponent: <div></div> });
 
 			expect(expected).toMatchSnapshot();
 		});

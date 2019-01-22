@@ -255,8 +255,8 @@ XUIRadio.propTypes = {
 	validationMessage: PropTypes.string,
 	/** Hint message to show under the input */
 	hintMessage: PropTypes.string,
-	/** Size variant. Defaults to standard */
-	size: PropTypes.oneOf(['standard', 'small', 'xsmall']),
+	/** Size variant. Defaults to medium */
+	size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
 };
 
 XUIRadio.defaultProps = {
@@ -266,5 +266,5 @@ XUIRadio.defaultProps = {
 	isRequired: false,
 	isReversed: false,
 	role: 'radio',
-	size: 'standard',
+	size: 'medium',
 };

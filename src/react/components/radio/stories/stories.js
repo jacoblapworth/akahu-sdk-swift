@@ -24,7 +24,7 @@ storiesWithKnobs.add('Playground', () => (
 		isInvalid={boolean('invalid', false)}
 		validationMessage={text('validationMessage', '')}
 		hintMessage={text('hintMessage', '')}
-		size={select('size', ['standard', 'small', 'xsmall'], 'standard')}
+		size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
 	>{text('label text', 'Test radio')}</XUIRadio>
 ));
 

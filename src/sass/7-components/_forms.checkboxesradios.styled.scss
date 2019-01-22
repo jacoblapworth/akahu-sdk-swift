@@ -44,14 +44,14 @@
 	&.#{$ns}-styledcheckboxradio--label-xsmall {
 		@include xui-margin-vertical(2px);
 	}
+	&.#{$ns}-styledcheckboxradio--label-medium {
+		@include xui-text-standard;
+	}
 	&.#{$ns}-styledcheckboxradio--label-small {
 		@include xui-text-small;
 	}
 	&.#{$ns}-styledcheckboxradio--label-xsmall {
 		@include xui-text-xsmall;
-	}
-	&.#{$ns}-styledcheckboxradio--label-standard {
-		@include xui-text-standard;
 	}
 	.#{$ns}-styledcheckboxradio-group & {
 		// Override automatic sizing and margins
@@ -128,7 +128,6 @@
 // Hover
 .#{$ns}-styledcheckboxradio--input {
 	@include xui-position-offscreen-input;
-	height: $xui-s-xlarge;
 
 	&:hover + .#{$ns}-iconwrapper {
 		.#{$ns}-styledcheckboxradio--main {
@@ -295,7 +294,7 @@
 	&:checked + .#{$ns}-styledcheckboxradio--radio {
 		background-color: $xui-checkboxradio-checked-fill;
 		border-color: $xui-checkboxradio-checked-stroke;
-		&:after {
+		&.#{$ns}-styledcheckboxradio--radio-medium:after {
 			border-width: $xui-s-2xsmall + 2;
 		}
 		&.#{$ns}-styledcheckboxradio--radio-small:after {
@@ -352,26 +351,28 @@
 	}
 }
 
-.#{$ns}-styledcheckboxradio--checkbox {
+.#{$ns}-styledcheckboxradio--checkbox,
+.#{$ns}-styledcheckboxradio--radio {
 	align-self: flex-start;
 	background-color: $xui-control-bg-color;
 	border: $xui-border-control;
-	border-radius: $xui-radius;
 	cursor: pointer;
 	flex-shrink: 0;
-	height: $xui-s-xlarge;
 	position: relative;
+
+	.#{$ns}-styledcheckboxradio-is-disabled & {
+		cursor: not-allowed;
+	}
+}
+
+.#{$ns}-styledcheckboxradio--checkbox {
+	border-radius: $xui-radius;
 	transition: background-color $xui-motion-speed-fast $xui-motion-curve-standard;
-	width: $xui-s-xlarge;
 
 	&:before, &:after {
 		content: '';
 		opacity: 0;
 		position: absolute;
-	}
-
-	.#{$ns}-styledcheckboxradio-is-disabled & {
-		cursor: not-allowed;
 	}
 }
 
@@ -422,18 +423,10 @@
 }
 
 .#{$ns}-styledcheckboxradio--radio {
-	align-self: flex-start;
-	background-color: $xui-control-bg-color;
-	border: $xui-border-control;
 	border-radius: 50%;
-	cursor: pointer;
 	display: flex;
-	flex-shrink: 0;
-	height: $xui-s-xlarge;
 	justify-content: center;
-	position: relative;
 	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
-	width: $xui-s-xlarge;
 
 	&:after {
 		align-self: center;
@@ -452,10 +445,12 @@
 			cursor: not-allowed;
 		}
 	}
+}
 
-	.#{$ns}-styledcheckboxradio-is-disabled & {
-		cursor: not-allowed;
-	}
+.#{$ns}-styledcheckboxradio--radio-medium,
+.#{$ns}-styledcheckboxradio--checkbox-medium {
+	height: $xui-s-xlarge;
+	width: $xui-s-xlarge;
 }
 
 .#{$ns}-styledcheckboxradio--radio-small,
@@ -474,6 +469,9 @@
 	width: $xui-s-standard;
 }
 
+.#{$ns}-styledcheckboxradio--input-medium {
+	height: $xui-s-xlarge;
+}
 .#{$ns}-styledcheckboxradio--input-small {
 	height: $xui-s-large;
 }

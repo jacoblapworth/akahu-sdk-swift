@@ -45,7 +45,7 @@
 //
 // Definitions:
 // Size variant:	**Height**: **Modifier**
-// default: 24px: <code>-standard</code>
+// medium: 24px: <code>-medium</code>
 // small: 20px: <code>-small</code>
 // xsmall: 16px: <code>-xsmall</code>
 //
@@ -53,9 +53,9 @@
 //
 // Markup:
 // <label class="xui-styledcheckboxradio">
-//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox">
-//   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"></div>
-//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Default</span>
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium" type="checkbox">
+//   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium"></div>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-medium">Default</span>
 // </label>
 // <label class="xui-styledcheckboxradio">
 //   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="checkbox">
@@ -81,14 +81,14 @@
 //
 // Markup:
 // <label class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled">
-//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox" disabled>
-//   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"></div>
-//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Disabled</span>
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium" type="checkbox" disabled>
+//   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium"></div>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-medium">Disabled</span>
 // </label>
 // <label class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled">
-//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-standard" type="checkbox" checked disabled>
-//   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-standard"></div>
-//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-standard">Checked and disabled</span>
+//   <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium" type="checkbox" checked disabled>
+//   <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium"></div>
+//   <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-medium">Checked and disabled</span>
 // </label>
 //
 // Styleguide: Building Blocks.Controls.Checkbox.3
@@ -247,6 +247,9 @@
 // xui-styledcheckboxradio: Container for a styled checkbox or radio
 // xui-styledcheckboxradio-reversed: Modifier for a right-aligned styled checkbox or radio
 // xui-styledcheckboxradio--checkbox: The html element that displays the checkmark, if not a custom icon.
+// xui-styledcheckboxradio--checkbox-medium: Sets the input size to 24px x 24px
+// xui-styledcheckboxradio--checkbox-small: Sets the input size to 20px x 20px
+// xui-styledcheckboxradio--checkbox-xsmall: Sets the input size to 16px x 16px
 // xui-styledcheckboxradio--focus: Subcomponent for focus layer of an icon checkbox or radio
 // xui-styledcheckboxradio--main: Subcomponent for main layer of an icon checkbox or radio
 // xui-styledcheckboxradio--check: Subcomponent for checkmark layer of an icon checkbox or radio

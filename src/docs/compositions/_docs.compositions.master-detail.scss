@@ -18,23 +18,21 @@
 //
 // Styleguide: Compositions.MasterDetail
 
-// Default behaviour
+// Default bahaviour
 //
 // The Master container lives inside of a dropdown when the browser width is below `$xui-breakpoint-small`. From `$xui-breakpoint-small-up` the Master container is a left hand column 1/2 the width of the Detail container, with a max width of 274px.
 //
 // Styleguide: Compositions.MasterDetail.2
 
-//Example
-//
-// ExampleClass: ds-example-flush
+// Example
 //
 // Markup:
 // <div class="xui-composition xui-composition-masterdetail xui-composition-is-finite">
 //   <div class="xui-gridarea-master">
-//     <div style="background: #5A5AE6; min-width: 200px; height: 400px; width: 100%;"></div>
+//     <div style="background: #5A5AE6; min-width: 200px; height: 320px; width: 100%;"></div>
 //   </div>
 //   <div class="xui-gridarea-detail xui-width-xsmall-up">
-//     <div style="background: #C5C5F6; height: 400px;"></div>
+//     <div style="background: #C5C5F6; height: 320px;"></div>
 //   </div>
 // </div>
 //
@@ -42,10 +40,37 @@
 //
 // Styleguide: Compositions.MasterDetail.2.5
 
+// Master Detail with header
+//
+// When a page has a page header, include it in the composition to make use of the spacing and stacking behaviour.
+//
+// Styleguide: Compositions.MasterDetail.3
+
+// Example
+//
+// Markup:
+// <div class="xui-composition xui-composition-masterdetailheader xui-composition-is-finite">
+//   <div class="xui-gridarea-header">
+//     <div style="background: #ADADF3; height: 120px;"></div>
+//   </div>
+//   <div class="xui-gridarea-master">
+//     <div style="background: #5A5AE6; min-width: 250px; height: 320px; width: 100%;"></div>
+//   </div>
+//   <div class="xui-gridarea-detail">
+//     <div style="background: #C5C5F6; height: 320px;"></div>
+//   </div>
+// </div>
+//
+// Storybook: /storybook/?selectedKind=Compositions&selectedStory=Master%20detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs
+//
+// Styleguide: Compositions.MasterDetail.3.5
+
 // Anatomy
 //
 // Classes:
-// -header: Wraps the page header if there is one (optional)
+// -masterdetail: Wraps entire composition when no page header is included
+// -masterdetailheader: Wraps the whole composition when including a page header
+// -header: Wraps the page header if one is included
 // -master: Wraps the Master container
 // -detail: Wraps the Detail container
 //
@@ -114,7 +139,9 @@
 // Class list
 //
 // Classes:
+// -masterdetailheader: add to composition wrapper when including a page header
 // -header: add to page header if the page has one
+// -masterdetail: add to composition wrapper when no page header is included
 // -master: add to Master container
 // -detail: add to Detail container
 // -grid-gap: applies standard spacing between composition containers
@@ -122,4 +149,4 @@
 // -is-finite: remove this class to have the composition span 100% width of page
 // -retain-small: forces composition to keep the mobile layout across all breakpoints
 //
-// Styleguide: Compositions.MasterDetail.5.5
+// Styleguide: Compositions.MasterDetail.6

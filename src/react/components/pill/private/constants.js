@@ -5,13 +5,13 @@ export const baseClass = `${ns}-pill`;
 export const sizeClasses = {
 	xsmall: `${baseClass}-xsmall`,
 	small: `${baseClass}-small`,
-	standard: '',
+	medium: `${baseClass}-medium`,
 };
 
 export const childSizeClassMap = {
 	xsmall: '2xsmall',
 	small: 'xsmall',
-	standard: 'small',
+	medium: 'small',
 };
 
 export const childSizes = Object.keys(childSizeClassMap).map(size => childSizeClassMap[size]);

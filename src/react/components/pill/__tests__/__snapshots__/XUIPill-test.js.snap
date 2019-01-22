@@ -2,7 +2,7 @@
 
 exports[`<XUIPill /> renders the pill with the provided avatar component 1`] = `
 <div
-  className="xui-pill xui-pill-has-avatar"
+  className="xui-pill xui-pill-medium xui-pill-has-avatar"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -28,7 +28,7 @@ exports[`<XUIPill /> renders the pill with the provided avatar component 1`] = `
 
 exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
 <div
-  className="xui-pill"
+  className="xui-pill xui-pill-medium"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -48,7 +48,7 @@ exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
 
 exports[`<XUIPill /> should render a pill with the maxwidth limiting class 1`] = `
 <div
-  className="xui-pill xui-pill-maxwidth"
+  className="xui-pill xui-pill-maxwidth xui-pill-medium"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -62,7 +62,7 @@ exports[`<XUIPill /> should render a pill with the maxwidth limiting class 1`] =
 
 exports[`<XUIPill /> should render a pills with correct size modifiers 1`] = `
 <div
-  className="xui-pill xui-pill-is-deletable xui-pill-has-avatar"
+  className="xui-pill xui-pill-medium xui-pill-is-deletable xui-pill-has-avatar"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -206,7 +206,7 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 3`] = `
 
 exports[`<XUIPill /> should render a target when passed in 1`] = `
 <div
-  className="xui-pill xui-pill-interactive"
+  className="xui-pill xui-pill-medium xui-pill-interactive"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -226,7 +226,7 @@ exports[`<XUIPill /> should render a target when passed in 1`] = `
 
 exports[`<XUIPill /> should render a title when passed 1`] = `
 <div
-  className="xui-pill"
+  className="xui-pill xui-pill-medium"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -240,7 +240,7 @@ exports[`<XUIPill /> should render a title when passed 1`] = `
 
 exports[`<XUIPill /> should render an automation id when a qaHook is passed in 1`] = `
 <div
-  className="xui-pill"
+  className="xui-pill xui-pill-medium"
   data-automationid="pill-test"
   onBlur={[Function]}
   onFocus={[Function]}
@@ -338,7 +338,7 @@ exports[`<XUIPill /> should render inside a tooltip when using the debug flag 1`
     onMouseOver={[Function]}
   >
     <div
-      className="xui-pill"
+      className="xui-pill xui-pill-medium"
       onBlur={[Function]}
       onFocus={[Function]}
       onMouseEnter={[Function]}

@@ -342,7 +342,6 @@
 	color: $xui-isolationheader-color;
 	display: flex;
 	height: $xui-navigation-height;
-	overflow: hidden;
 	padding: 0 $xui-s-xsmall;
 	white-space: nowrap;
 }
@@ -369,6 +368,7 @@
 }
 
 .#{$ns}-isolationheader--navigation {
+	overflow: hidden;
 	padding-right: $xui-s-xsmall;
 }
 

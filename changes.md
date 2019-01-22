@@ -84,7 +84,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- Has a new `size` prop. The default value is `medium`.
 		- The available sizes are `medium`, `small`, and `xsmall`.
 		- If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
-	- No longer shrinks to a `medium` width when a `buttonVariant` is supplied. To prevent your `SelectBox` from going full-width, set the `fullWidth` prop to `never`.
+	- No longer shrinks to a standard width when a `buttonVariant` is supplied. To prevent your `SelectBox` from going full-width, set the `fullWidth` prop to `never`.
 	- The `isTextTruncated` prop can now be used without a `buttonVariant`.
 	- Has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
 - `XUIButton`

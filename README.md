@@ -188,7 +188,7 @@ To get started, install the [Debugger for chrome](https://github.com/Microsoft/v
 
 Next, go to the Debug panel and click the start button at the top of the panel.
 
-You can now add breakpoints that will be triggered by the Chrome window that opened automatically. 
+You can now add breakpoints that will be triggered by the Chrome window that opened automatically.
 
 ## Releasing XUI
 
@@ -244,6 +244,21 @@ How to run the codemod:
  ```bash
  jscodeshift -t node_modules/@xero/xui/codemod src/
  ```
+
+**NB** with Typescript, passing the root directory name won't work, so you'll need to manually create a list of files to transform.
+
+Powershell:
+```ps1
+npm i -g jscodeshift@0.6.3
+$files = Get-ChildItem -Path .\ -Filter *.tsx -Recurse -File -Name
+jscodeshift -t .\node_modules\@xero\xui\codemod\index.js --parser=tsx $files
+```
+
+```bash
+npm i -g jscodeshift@0.6.3
+files="$(find src/ -type f -name "*.tsx")"
+jscodeshift -t .\node_modules\@xero\xui\codemod\index.js --parser=tsx $files
+```
 
 ## Contributing to XUI
 

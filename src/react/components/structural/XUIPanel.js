@@ -8,6 +8,7 @@ const baseClass = `${ns}-panel`;
 export default class XUIPanel extends PureComponent {
 	render() {
 		const {
+			qaHook,
 			className,
 			children,
 			heading,
@@ -20,7 +21,7 @@ export default class XUIPanel extends PureComponent {
 		const Tag = tagName;
 		if (!sidebar) {
 			return (
-				<Tag {...spreadProps} className={classes}>
+				<Tag {...spreadProps} className={classes} data-automationid={qaHook}>
 					{heading}
 					{children}
 					{footer}
@@ -28,7 +29,7 @@ export default class XUIPanel extends PureComponent {
 			);
 		}
 		return (
-			<Tag {...spreadProps} className={classes}>
+			<Tag {...spreadProps} className={classes} data-automationid={qaHook}>
 				<div className={`${baseClass}--sidebar`}>
 					{sidebar}
 				</div>
@@ -45,6 +46,7 @@ export default class XUIPanel extends PureComponent {
 XUIPanel.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 	/**
 	 * The header for a panel. We recommend XUIPanelHeading.
 	 */

@@ -21,7 +21,7 @@ export default function XUIToastActions({
 			className={classNames}
 			primaryAction={primaryAction}
 			secondaryAction={secondaryAction}
-			data-automationid={qaHook}
+			qaHook={qaHook}
 		>
 
 			{limitedChildren}

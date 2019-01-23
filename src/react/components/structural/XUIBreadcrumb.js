@@ -23,6 +23,7 @@ const getCrumbLabel = crumb => {
 export default class XUIBreadcrumb extends PureComponent {
 	render() {
 		const {
+			qaHook,
 			breadcrumbs,
 			className,
 		} = this.props;
@@ -49,7 +50,7 @@ export default class XUIBreadcrumb extends PureComponent {
 		});
 
 		return (
-			<ol className={listClasses}>
+			<ol className={listClasses} data-automationid={qaHook}>
 				{crumbElements}
 			</ol>
 		);
@@ -58,6 +59,7 @@ export default class XUIBreadcrumb extends PureComponent {
 
 XUIBreadcrumb.propTypes = {
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 	/**
 	 * Array of objects or nodes from which to build breadcrumbs.
 	 */

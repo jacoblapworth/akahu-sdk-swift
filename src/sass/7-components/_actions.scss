@@ -13,6 +13,7 @@
 
 	// Layout
 	&-layout {
+		margin-left: auto;
 
 		@include xui-breakpoint-narrow {
 			flex-direction: column;

@@ -31,7 +31,7 @@ export default class LeftVisualEl extends PureComponent {
 				)}
 			>
 				<XUIIcon
-					size={size && size.indexOf('small') === -1 ? size : 'standard'}
+					size={size && size.indexOf('small') === -1 ? size : 'medium'}
 					icon={exclamation}
 					color="red"
 				/>

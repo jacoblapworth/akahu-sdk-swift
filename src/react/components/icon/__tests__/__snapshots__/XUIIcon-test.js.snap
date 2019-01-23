@@ -3,7 +3,7 @@
 exports[`XUIIcon Should render with the correct classes and dimensions for standard, large and xlarge sizes 1`] = `
 <div>
   <div
-    className="xui-iconwrapper"
+    className="xui-iconwrapper xui-iconwrapper-medium"
   >
     <svg
       className="xui-icon"

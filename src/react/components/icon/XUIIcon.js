@@ -94,6 +94,6 @@ XUIIcon.propTypes = {
 };
 
 XUIIcon.defaultProps = {
-	size: 'standard',
+	size: 'medium',
 	role: 'presentation',
 };

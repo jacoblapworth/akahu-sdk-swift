@@ -108,7 +108,7 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         type="button"
       >
         <div
-          className="xui-iconwrapper"
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"
@@ -185,7 +185,7 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         type="button"
       >
         <div
-          className="xui-iconwrapper"
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"
@@ -263,7 +263,7 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         type="button"
       >
         <div
-          className="xui-iconwrapper"
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"
@@ -344,7 +344,7 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         type="button"
       >
         <div
-          className="xui-iconwrapper"
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"
@@ -509,7 +509,7 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader containi
         className="xui-breadcrumb-arrow"
       >
         <div
-          className="xui-breadcrumb--icon xui-iconwrapper"
+          className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon xui-icon-rotate-270"
@@ -540,7 +540,7 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader containi
         className="xui-breadcrumb-arrow"
       >
         <div
-          className="xui-breadcrumb--icon xui-iconwrapper"
+          className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon xui-icon-rotate-270"

@@ -399,7 +399,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                       }
                     }
                     role="presentation"
-                    size="standard"
+                    size="medium"
                   >
                     <svg
                       className="xui-icon xui-stepper-icon-error"
@@ -736,7 +736,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                       }
                     }
                     role="presentation"
-                    size="standard"
+                    size="medium"
                   >
                     <svg
                       className="xui-icon xui-stepper-icon-error"
@@ -1803,7 +1803,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                       }
                     }
                     role="presentation"
-                    size="standard"
+                    size="medium"
                   >
                     <svg
                       className="xui-icon xui-stepper-icon-error"
@@ -2153,7 +2153,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                       }
                     }
                     role="presentation"
-                    size="standard"
+                    size="medium"
                   >
                     <svg
                       className="xui-icon xui-stepper-icon-error"
@@ -2490,7 +2490,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                       }
                     }
                     role="presentation"
-                    size="standard"
+                    size="medium"
                   >
                     <svg
                       className="xui-icon xui-stepper-icon-error"
@@ -2909,7 +2909,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                       }
                     }
                     role="presentation"
-                    size="standard"
+                    size="medium"
                   >
                     <svg
                       className="xui-icon xui-stepper-icon-error"
@@ -2994,7 +2994,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                       }
                     }
                     role="presentation"
-                    size="standard"
+                    size="medium"
                   >
                     <svg
                       className="xui-icon xui-stepper-icon-error"
@@ -3147,7 +3147,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                       }
                     }
                     role="presentation"
-                    size="standard"
+                    size="medium"
                   >
                     <svg
                       className="xui-icon xui-stepper-icon-error"

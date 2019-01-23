@@ -20,7 +20,7 @@ exports[`<DropDownHeader/> should render a back button if back button click hand
         type="button"
       >
         <div
-          className="xui-iconwrapper"
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"
@@ -61,7 +61,7 @@ exports[`<DropDownHeader/> should render all header contents in the correct orde
         type="button"
       >
         <div
-          className="xui-iconwrapper"
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"

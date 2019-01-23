@@ -32,7 +32,7 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
         type="button"
       >
         <div
-          className="xui-iconwrapper"
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"
@@ -85,7 +85,7 @@ exports[`XUIModal should render an automation id when a qaHook is passed in 1`] 
         type="button"
       >
         <div
-          className="xui-iconwrapper"
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"

@@ -59,6 +59,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- Should not use the `isBoxed` prop (including when they're in icon button variants, you can also remove usages of the `xui-icon-inline` class)
 	- Buttons with `variant="icon"` or `variant="icon-inverted"` should receive the `size="small"` prop
 	- Buttons with `variant="icon-large"` or `variant="icon-inverted-large` should have `size="standard"` (or can be left undefined) and have their variant name switched to `variant="icon"` or `variant="icon-inverted"`
+- Icon's iconwrapper class set now requires a size class to be used alongside the base class.
 - TextInput side element contents should have their size checked (they should always have a size 1 smaller than the parent input - i.e. 'medium' `XUITextInput` contains 'small' `XUIButton`s)
 - Check for uses of `XUIPill` outside of `XUITextInput`. The codemod for this upgrade automatically adds `size="small"`, which should be removed in cases where `XUIPill` isn't in a text input
 - SelectBox prop `islabelHidden` case has been fixed to be `isLabelHidden`, for real this time.
@@ -136,6 +137,7 @@ All other existing values stay as they are (including `2xlarge`)
 ### Component props
 
 - Pill has a new `isLimitedWidth` prop to replace the `isMaxContentWidth` prop. The default for pills is now to fit their content, and you can apply `isLimitedWidth` to cap them at 200px. This prop change will be handled automatically by the upgrade codemod for existing Pills in your app.
+- XUIIcon now adds a class called `xui-iconwrapper-medium` by default. Use the `size` prop to alter this to `large` or `xlarge` at your discretion.
 - Text input now has a `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
 - Tag has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
 - Checkbox and Radio have a new `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.

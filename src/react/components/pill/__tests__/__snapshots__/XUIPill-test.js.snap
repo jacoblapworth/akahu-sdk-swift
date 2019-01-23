@@ -213,7 +213,7 @@ exports[`<XUIPill /> should render a target when passed in 1`] = `
   onMouseLeave={[Function]}
 >
   <a
-    className="xui-button xui-pill--content xui-pill--button xui-button-small"
+    className="xui-button xui-pill--content xui-pill--button xui-button-medium"
     disabled={false}
     href="http://xero.com"
     onClick={[Function]}

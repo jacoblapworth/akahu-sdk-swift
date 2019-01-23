@@ -10,6 +10,15 @@ Used along side a composition variant (no-header, with-header)
 	display: grid;
 }
 
+// Using padding at the sides helps keep the box-model width math simple.
+// We want margins at the top and bottom, however, to allow for collapsing.
+.#{$ns}-composition-has-auto-space-around {
+	@include xui-breakpoint-small-up {
+		@include xui-padding-horizontal($xui-s-large);
+		@include xui-margin-vertical($xui-s-large);
+	}
+}
+
 .#{$ns}-composition-is-finite {
 	max-width: $xui-breakpoint-xlarge;
 	@include xui-breakpoint-xlarge-up {

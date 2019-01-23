@@ -199,3 +199,7 @@
 	}
 
 }
+
+@mixin xui-composition-grid-gap {
+	grid-gap: $xui-s-large $xui-s-large;
+}

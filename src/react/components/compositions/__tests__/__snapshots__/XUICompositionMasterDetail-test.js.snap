@@ -2,7 +2,7 @@
 
 exports[`<XUICompositionMasterDetail> renders basic example 1`] = `
 <div
-  className="xui-composition xui-composition-masterdetail xui-composition-is-finite"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-masterdetail"
 >
   <div
     className="xui-gridarea-master"
@@ -19,7 +19,7 @@ exports[`<XUICompositionMasterDetail> renders basic example 1`] = `
 
 exports[`<XUICompositionMasterDetail> should do nothing with children 1`] = `
 <div
-  className="xui-composition xui-composition-masterdetail xui-composition-is-finite"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-masterdetail"
 >
   <div
     className="xui-gridarea-master"
@@ -36,7 +36,7 @@ exports[`<XUICompositionMasterDetail> should do nothing with children 1`] = `
 
 exports[`<XUICompositionMasterDetail> should include layout restriction class, if specified 1`] = `
 <div
-  className="xui-composition xui-composition-masterdetail xui-composition-is-finite xui-composition-masterdetail-retain-small"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-masterdetail xui-composition-masterdetail-retain-small"
 >
   <div
     className="xui-gridarea-master"

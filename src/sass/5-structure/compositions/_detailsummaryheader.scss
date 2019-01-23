@@ -1,8 +1,8 @@
 @import "../../vars";
 @import "../../mixins";
 
+// Base grid templates
 @mixin composition-dsh-small {
-	grid-gap: $xui-s-small $xui-s-small;
 	grid-template:
 		"header"
 		"summary"
@@ -10,22 +10,42 @@
 }
 
 @mixin composition-dsh-medium {
-	grid-gap: $xui-s-small $xui-s-small;
 	grid-template:
 		"header header" 1fr
 		"detail summary" / 1fr min-content;
 }
 
+// Gap template variants (necessary for IE & Autoprefixer)
+@mixin composition-dsh-small-gap {
+	@include xui-composition-grid-gap;
+	@include composition-dsh-small;
+}
+
+@mixin composition-dsh-medium-gap {
+	@include xui-composition-grid-gap;
+	@include composition-dsh-medium;
+}
+
+// Classes using templates at various breakpoints
 .#{$ns}-composition-detailsummaryheader {
 	@include composition-dsh-small;
+	&.#{$ns}-composition-has-grid-gap {
+		@include composition-dsh-small-gap;
+	}
 
 	@include xui-breakpoint-medium-up {
 		@include composition-dsh-medium;
+		&.#{$ns}-composition-has-grid-gap {
+			@include composition-dsh-medium-gap;
+		}
 	}
 }
 
 .#{$ns}-composition-detailsummaryheader-retain-small {
 	@include xui-breakpoint-medium-up {
 		@include composition-dsh-small;
+		&.#{$ns}-composition-has-grid-gap {
+			@include composition-dsh-small-gap;
+		}
 	}
 }

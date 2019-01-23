@@ -2,7 +2,7 @@
 
 exports[`<XUICompositionMasterDetailSummaryHeader> renders basic example 1`] = `
 <div
-  className="xui-composition xui-composition-masterdetailsummaryheader xui-composition-is-finite"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-masterdetailsummaryheader"
 >
   <div
     className="xui-gridarea-header"
@@ -29,7 +29,7 @@ exports[`<XUICompositionMasterDetailSummaryHeader> renders basic example 1`] = `
 
 exports[`<XUICompositionMasterDetailSummaryHeader> should do nothing with children 1`] = `
 <div
-  className="xui-composition xui-composition-masterdetailsummaryheader xui-composition-is-finite"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-masterdetailsummaryheader"
 >
   <div
     className="xui-gridarea-header"
@@ -56,7 +56,7 @@ exports[`<XUICompositionMasterDetailSummaryHeader> should do nothing with childr
 
 exports[`<XUICompositionMasterDetailSummaryHeader> should include layout restriction class for medium, if specified 1`] = `
 <div
-  className="xui-composition xui-composition-masterdetailsummaryheader xui-composition-is-finite xui-composition-masterdetailsummaryheader-retain-medium"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-masterdetailsummaryheader xui-composition-masterdetailsummaryheader-retain-medium"
 >
   <div
     className="xui-gridarea-header"
@@ -83,7 +83,7 @@ exports[`<XUICompositionMasterDetailSummaryHeader> should include layout restric
 
 exports[`<XUICompositionMasterDetailSummaryHeader> should include layout restriction class for small, if specified 1`] = `
 <div
-  className="xui-composition xui-composition-masterdetailsummaryheader xui-composition-is-finite xui-composition-masterdetailsummaryheader-retain-small"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-masterdetailsummaryheader xui-composition-masterdetailsummaryheader-retain-small"
 >
   <div
     className="xui-gridarea-header"

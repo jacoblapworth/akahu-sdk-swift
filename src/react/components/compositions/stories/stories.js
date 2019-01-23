@@ -155,6 +155,8 @@ storiesWithKnobs.add('Master detail summary', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUICompositionMasterDetailSummaryHeader : XUICompositionMasterDetailSummary;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
+		hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
+		hasAutoSpaceAround: boolean('Apply context-dependent space between the grid and the viewport', true, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
@@ -176,12 +178,10 @@ storiesWithKnobs.add('Master detail summary', () => {
 		)
 	}
 	return (
-		<div className="xui-margin">
-			<Tag
-				{...settings}
-				{...areas}
-			/>
-		</div>
+		<Tag
+			{...settings}
+			{...areas}
+		/>
 	)
 });
 
@@ -189,6 +189,8 @@ storiesWithKnobs.add('Master detail', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUICompositionMasterDetailHeader : XUICompositionMasterDetail;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
+		hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
+		hasAutoSpaceAround: boolean('Apply context-dependent space between the grid and the viewport', true, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
@@ -209,12 +211,10 @@ storiesWithKnobs.add('Master detail', () => {
 		)
 	}
 	return (
-		<div className="xui-margin">
-			<Tag
-				{...settings}
-				{...areas}
-			/>
-		</div>
+		<Tag
+			{...settings}
+			{...areas}
+		/>
 	)
 });
 
@@ -222,6 +222,8 @@ storiesWithKnobs.add('Detail summary', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUICompositionDetailSummaryHeader : XUICompositionDetailSummary;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
+		hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
+		hasAutoSpaceAround: boolean('Apply context-dependent space between the grid and the viewport', true, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
@@ -231,12 +233,10 @@ storiesWithKnobs.add('Detail summary', () => {
 	const areas = settings.isReal ? realAreas : blockAreas;
 
 	return (
-		<div className="xui-margin">
-			<Tag
-				{...settings}
-				{...areas}
-			/>
-		</div>
+		<Tag
+			{...settings}
+			{...areas}
+		/>
 	)
 });
 
@@ -244,17 +244,17 @@ storiesWithKnobs.add('Detail', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUICompositionDetailHeader : XUICompositionDetail;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
+		hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
+		hasAutoSpaceAround: boolean('Apply context-dependent space between the grid and the viewport', true, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 	}
 	const areas = settings.isReal ? realAreas : blockAreas;
 
 	return (
-		<div className="xui-margin">
-			<Tag
-				{...settings}
-				{...areas}
-			/>
-		</div>
+		<Tag
+			{...settings}
+			{...areas}
+		/>
 	)
 });
 
@@ -263,20 +263,20 @@ storiesWithKnobs.add('Split', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUICompositionSplitHeader : XUICompositionSplit;
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
+		hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
+		hasAutoSpaceAround: boolean('Apply context-dependent space between the grid and the viewport', true, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
 			Small: 'small'
-		}, '', '1')
+		}, '', '1'),
 	}
 	const areas = settings.isReal ? realAreas : blockAreas;
 
 	return (
-		<div className="xui-margin">
-			<Tag
-				{...settings}
-				{...areas}
-			/>
-		</div>
+		<Tag
+			{...settings}
+			{...areas}
+		/>
 	)
 });

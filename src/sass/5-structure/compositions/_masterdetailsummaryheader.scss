@@ -1,8 +1,8 @@
 @import "../../vars";
 @import "../../mixins";
 
+// Base grid templates
 @mixin composition-mdsh-small {
-	grid-gap: $xui-s-small $xui-s-small;
 	grid-template:
 		"header"
 		"summary"
@@ -10,7 +10,6 @@
 }
 
 @mixin composition-mdsh-medium {
-	grid-gap: $xui-s-small $xui-s-small;
 	grid-template:
 		"header header"
 		"summary summary"
@@ -18,33 +17,64 @@
 }
 
 @mixin composition-mdsh-large {
-	grid-gap: $xui-s-small $xui-s-small;
 	grid-template:
 		"header header header"
 		"master detail summary" / min-content 1fr min-content;
 }
 
+// Gap template variants (necessary for IE & Autoprefixer)
+@mixin composition-mdsh-small-gap {
+	@include xui-composition-grid-gap;
+	@include composition-mdsh-small;
+}
+
+@mixin composition-mdsh-medium-gap {
+	@include xui-composition-grid-gap;
+	@include composition-mdsh-medium;
+}
+
+@mixin composition-mdsh-large-gap {
+	@include xui-composition-grid-gap;
+	@include composition-mdsh-large;
+}
+
+// Classes using templates at various breakpoints
 .#{$ns}-composition-masterdetailsummaryheader {
 	@include composition-mdsh-small;
+	&.#{$ns}-composition-has-grid-gap {
+		@include composition-mdsh-small-gap;
+	}
 
 	@include xui-breakpoint-medium-to-large {
 		@include composition-mdsh-medium;
+		&.#{$ns}-composition-has-grid-gap {
+			@include composition-mdsh-medium-gap;
+		}
 	}
 
 	@include xui-breakpoint-large-up {
 		@include composition-mdsh-large;
+		&.#{$ns}-composition-has-grid-gap {
+			@include composition-mdsh-large-gap;
+		}
 	}
 }
 
 .#{$ns}-composition-masterdetailsummaryheader-retain-medium {
 	@include xui-breakpoint-large-up {
 		@include composition-mdsh-medium;
+		&.#{$ns}-composition-has-grid-gap {
+			@include composition-mdsh-medium-gap;
+		}
 	}
 }
 
 .#{$ns}-composition-masterdetailsummaryheader-retain-small {
 	@include xui-breakpoint-medium-up {
 		@include composition-mdsh-small;
+		&.#{$ns}-composition-has-grid-gap {
+			@include composition-mdsh-small-gap;
+		}
 	}
 
 	& .#{$ns}-gridarea-master {

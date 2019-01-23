@@ -5,7 +5,7 @@ import cn from 'classnames';
 import XUIGridAreaDetail from './XUIGridAreaDetail';
 import XUIGridAreaHeader from './XUIGridAreaHeader';
 
-import baseCompositionClass from './helpers';
+import baseCompositionClass, { buildGlobalCompositionClasses } from './helpers';
 
 export default class XUICompositionDetailHeader extends PureComponent {
 	render() {
@@ -13,13 +13,12 @@ export default class XUICompositionDetailHeader extends PureComponent {
 			className,
 			header,
 			detail,
-			isInfinite,
+			...spreadProps
 		} = this.props;
 
 		const compositionClasses = cn(
-			baseCompositionClass,
+			buildGlobalCompositionClasses(spreadProps),
 			`${baseCompositionClass}-detailheader`,
-			!isInfinite && `${baseCompositionClass}-is-finite`,
 			className,
 		);
 
@@ -48,9 +47,20 @@ XUICompositionDetailHeader.propTypes = {
 	 */
 	detail: PropTypes.element.isRequired,
 	/**
-	 * Determines whether the main content takes full width of page
+	 * Determines whether the main content takes full width of page. Defaults to false.
 	 */
 	isInfinite: PropTypes.bool,
-
+	/**
+	 * Whether to apply a pre-set grid-gap between all grid areas. Defaults to true.
+	 */
+	hasGridGap: PropTypes.bool,
+	/**
+	 * Whether to apply pre-set spacing to the outside of the composition grid. Defaults to true.
+	 */
+	hasAutoSpaceAround: PropTypes.bool,
 };
 
+XUICompositionDetailHeader.defaultProps = {
+	hasGridGap: true,
+	hasAutoSpaceAround: true,
+};

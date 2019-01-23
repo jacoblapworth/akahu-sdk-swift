@@ -2,7 +2,7 @@
 
 exports[`<XUICompositionSplit> renders basic example 1`] = `
 <div
-  className="xui-composition xui-composition-split xui-composition-is-finite"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-split"
 >
   <div
     className="xui-gridarea-primary"
@@ -19,7 +19,7 @@ exports[`<XUICompositionSplit> renders basic example 1`] = `
 
 exports[`<XUICompositionSplit> should do nothing with children 1`] = `
 <div
-  className="xui-composition xui-composition-split xui-composition-is-finite"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-split"
 >
   <div
     className="xui-gridarea-primary"
@@ -36,7 +36,7 @@ exports[`<XUICompositionSplit> should do nothing with children 1`] = `
 
 exports[`<XUICompositionSplit> should include custom class and omit width-limiting class, if specified 1`] = `
 <div
-  className="xui-composition xui-composition-split split-without-head"
+  className="xui-composition xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-split split-without-head"
 >
   <div
     className="xui-gridarea-primary"
@@ -53,7 +53,7 @@ exports[`<XUICompositionSplit> should include custom class and omit width-limiti
 
 exports[`<XUICompositionSplit> should include layout restriction class, if specified 1`] = `
 <div
-  className="xui-composition xui-composition-split xui-composition-is-finite xui-composition-split-retain-small"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-split xui-composition-split-retain-small"
 >
   <div
     className="xui-gridarea-primary"

@@ -6,7 +6,7 @@ import XUIGridAreaDetail from './XUIGridAreaDetail';
 import XUIGridAreaMaster from './XUIGridAreaMaster';
 import XUIGridAreaHeader from './XUIGridAreaHeader';
 
-import baseCompositionClass, { retainValues } from './helpers';
+import baseCompositionClass, { retainValues, buildGlobalCompositionClasses } from './helpers';
 
 export default class XUICompositionMasterDetailHeader extends PureComponent {
 	render() {
@@ -15,14 +15,13 @@ export default class XUICompositionMasterDetailHeader extends PureComponent {
 			header,
 			master,
 			detail,
-			isInfinite,
 			retainWidth,
+			...spreadProps
 		} = this.props;
 
 		const compositionClasses = cn(
-			baseCompositionClass,
+			buildGlobalCompositionClasses(spreadProps),
 			`${baseCompositionClass}-masterdetailheader`,
-			!isInfinite && `${baseCompositionClass}-is-finite`,
 			retainWidth &&
 				retainValues[retainWidth] &&
 				`${baseCompositionClass}-masterdetailheader-retain-${retainWidth}`,
@@ -61,7 +60,7 @@ XUICompositionMasterDetailHeader.propTypes = {
 	 */
 	detail: PropTypes.element.isRequired,
 	/**
-	 * Determines whether the main content takes full width of page
+	 * Determines whether the main content takes full width of page. Defaults to false.
 	 */
 	isInfinite: PropTypes.bool,
 	/**
@@ -69,5 +68,17 @@ XUICompositionMasterDetailHeader.propTypes = {
 	 * viewport is equal to or larger than the width specified
 	 */
 	retainWidth: PropTypes.oneOf(['', 'small']),
+	/**
+	 * Whether to apply a pre-set grid-gap between all grid areas. Defaults to true.
+	 */
+	hasGridGap: PropTypes.bool,
+	/**
+	 * Whether to apply pre-set spacing to the outside of the composition grid. Defaults to true.
+	 */
+	hasAutoSpaceAround: PropTypes.bool,
+};
 
+XUICompositionMasterDetailHeader.defaultProps = {
+	hasGridGap: true,
+	hasAutoSpaceAround: true,
 };

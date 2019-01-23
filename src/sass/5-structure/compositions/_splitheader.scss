@@ -1,8 +1,8 @@
 @import "../../vars";
 @import "../../mixins";
 
+// Base grid templates
 @mixin composition-sh-small {
-	grid-gap: $xui-s-small $xui-s-small;
 	grid-template:
 		"header"
 		"primary"
@@ -10,22 +10,42 @@
 }
 
 @mixin composition-sh-medium {
-	grid-gap: $xui-s-small $xui-s-small;
 	grid-template:
 		"header header"
 		"primary detail" / 1fr 1fr;
 }
 
+// Gap template variants (necessary for IE & Autoprefixer)
+@mixin composition-sh-small-gap {
+	@include xui-composition-grid-gap;
+	@include composition-sh-small;
+}
+
+@mixin composition-sh-medium-gap {
+	@include xui-composition-grid-gap;
+	@include composition-sh-medium;
+}
+
+// Classes using templates at various breakpoints
 .#{$ns}-composition-splitheader {
 	@include composition-sh-small;
+	&.#{$ns}-composition-has-grid-gap {
+		@include composition-sh-small-gap;
+	}
 
 	@include xui-breakpoint-medium-up {
 		@include composition-sh-medium;
+		&.#{$ns}-composition-has-grid-gap {
+			@include composition-sh-medium-gap;
+		}
 	}
 }
 
 .#{$ns}-composition-splitheader-retain-small {
 	@include xui-breakpoint-medium-up {
 		@include composition-sh-small;
+		&.#{$ns}-composition-has-grid-gap {
+			@include composition-sh-small-gap;
+		}
 	}
 }

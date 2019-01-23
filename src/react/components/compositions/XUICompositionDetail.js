@@ -4,20 +4,19 @@ import cn from 'classnames';
 
 import XUIGridAreaDetail from './XUIGridAreaDetail';
 
-import baseCompositionClass from './helpers';
+import baseCompositionClass, { buildGlobalCompositionClasses } from './helpers';
 
 export default class XUICompositionDetail extends PureComponent {
 	render() {
 		const {
 			detail,
 			className,
-			isInfinite,
+			...spreadProps
 		} = this.props;
 
 		const compositionClasses = cn(
-			baseCompositionClass,
+			buildGlobalCompositionClasses(spreadProps),
 			`${baseCompositionClass}-detail`,
-			!isInfinite && `${baseCompositionClass}-is-finite`,
 			className,
 		);
 
@@ -39,8 +38,15 @@ XUICompositionDetail.propTypes = {
 	 */
 	detail: PropTypes.element.isRequired,
 	/**
-	 * Determines whether the main content takes full width of page
+	 * Determines whether the main content takes full width of page. Defaults to false.
 	 */
 	isInfinite: PropTypes.bool,
+	/**
+	 * Whether to apply pre-set spacing to the outside of the composition grid. Defaults to true.
+	 */
+	hasAutoSpaceAround: PropTypes.bool,
+};
 
+XUICompositionDetail.defaultProps = {
+	hasAutoSpaceAround: true,
 };

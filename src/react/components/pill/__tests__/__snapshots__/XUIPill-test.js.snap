@@ -85,7 +85,7 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 1`] = `
   </span>
   <button
     aria-label="Delete"
-    className="xui-button xui-pill--button-icon xui-button-icon"
+    className="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-medium"
     disabled={false}
     onClick={[Function]}
     tabIndex={0}
@@ -213,7 +213,7 @@ exports[`<XUIPill /> should render a target when passed in 1`] = `
   onMouseLeave={[Function]}
 >
   <a
-    className="xui-button xui-pill--content xui-pill--button"
+    className="xui-button xui-pill--content xui-pill--button xui-button-small"
     disabled={false}
     href="http://xero.com"
     onClick={[Function]}
@@ -256,7 +256,7 @@ exports[`<XUIPill /> should render an automation id when a qaHook is passed in 1
 
 exports[`<XUIPill /> should render an error icon when invalid 1`] = `
 <div
-  className="xui-pill xui-pill-is-invalid xui-pill-has-avatar"
+  className="xui-pill xui-pill-medium xui-pill-is-invalid xui-pill-has-avatar"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}

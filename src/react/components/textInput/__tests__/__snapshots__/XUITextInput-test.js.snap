@@ -38,7 +38,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
       >
         <div
-          className="xui-iconwrapper"
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"
@@ -89,7 +89,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
       >
         <div
-          className="xui-iconwrapper"
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"
@@ -118,7 +118,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
       >
         <div
-          className="xui-iconwrapper"
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"
@@ -149,7 +149,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
       >
         <div
-          className="xui-iconwrapper"
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"

@@ -2806,7 +2806,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
@@ -2870,7 +2870,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
@@ -2934,7 +2934,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
@@ -3646,7 +3646,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
@@ -3759,7 +3759,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
@@ -3872,7 +3872,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
@@ -4174,7 +4174,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
@@ -4313,7 +4313,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
@@ -4452,7 +4452,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
@@ -5732,7 +5732,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
@@ -5822,7 +5822,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
@@ -5912,7 +5912,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
@@ -7532,7 +7532,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
@@ -7671,7 +7671,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
@@ -7810,7 +7810,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon"
+                    className="xui-button xui-button-icon xui-button-icon-medium"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}

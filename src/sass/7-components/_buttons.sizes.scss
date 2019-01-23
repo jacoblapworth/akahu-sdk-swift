@@ -13,6 +13,12 @@
 	}
 }
 
+.#{$ns}-button-medium {
+	line-height: 1rem;
+	min-height: $xui-control-size-standard;
+	padding: 11px $xui-input-padding-horizontal;
+}
+
 .#{$ns}-button-small {
 	@include xui-text-small;
 

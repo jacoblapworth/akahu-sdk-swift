@@ -383,6 +383,7 @@
 	border-radius: $xui-s-large;
 	color: $xui-pill-color;
 	text-align: left;
+	padding: 0; // Override the padding on the different sizes
 
 	&:hover, &:active, &:focus {
 		color: $xui-pill-color;

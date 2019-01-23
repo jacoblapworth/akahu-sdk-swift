@@ -486,7 +486,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                   }
                 }
                 role="presentation"
-                size="standard"
+                size="medium"
               >
                 <svg
                   className="xui-icon xui-progress-icon-error"
@@ -991,7 +991,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                   }
                 }
                 role="presentation"
-                size="standard"
+                size="medium"
               >
                 <svg
                   className="xui-icon xui-progress-icon-error"
@@ -4142,7 +4142,7 @@ exports[`<XUIProgressIndicator /> should override a soft error alert with a hard
                   }
                 }
                 role="presentation"
-                size="standard"
+                size="medium"
               >
                 <svg
                   className="xui-icon xui-progress-icon-error"

@@ -135,8 +135,8 @@ const realAreas = {
 }
 
 const blockAreas = {
-	master: (<div style={{background: '#50DCAA', 'minWidth': '250px', height: '100px', width: '100%'}}></div>),
-	summary: (<div style={{background: '#FA8200', 'minWidth': '250px', height: '100px', width: '100%'}}></div>),
+	master: (<div style={{background: '#50DCAA', height: '100px', width: '100%'}}></div>),
+	summary: (<div style={{background: '#FA8200', height: '100px', width: '100%'}}></div>),
 	detail: (<div style={{background: '#0078C8', height: '100px' }}></div>),
 	header: (<div style={{background: '#B446C8', height: '60px'}}></div>),
 	primary: (<div style={{background: '#ff6496', height: '100px'}}></div>),
@@ -157,6 +157,7 @@ storiesWithKnobs.add('Master detail summary', () => {
 		isReal: boolean('Show example content', false, '1'),
 		hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
 		hasAutoSpaceAround: boolean('Apply context-dependent space between the grid and the viewport', true, '1'),
+		hasAutoColumnWidths: boolean('Apply standard widths to columns', true, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
@@ -191,6 +192,7 @@ storiesWithKnobs.add('Master detail', () => {
 		isReal: boolean('Show example content', false, '1'),
 		hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
 		hasAutoSpaceAround: boolean('Apply context-dependent space between the grid and the viewport', true, '1'),
+		hasAutoColumnWidths: boolean('Apply standard widths to columns', true, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
@@ -224,6 +226,7 @@ storiesWithKnobs.add('Detail summary', () => {
 		isReal: boolean('Show example content', false, '1'),
 		hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
 		hasAutoSpaceAround: boolean('Apply context-dependent space between the grid and the viewport', true, '1'),
+		hasAutoColumnWidths: boolean('Apply standard widths to columns', true, '1'),
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',

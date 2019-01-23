@@ -12,12 +12,14 @@ export function buildGlobalCompositionClasses({
 	isInfinite,
 	hasGridGap,
 	hasAutoSpaceAround,
+	hasAutoColumnWidths,
 }) {
 	return cn(
 		baseCompositionClass,
 		!isInfinite && `${baseCompositionClass}-is-finite`,
 		hasGridGap && `${baseCompositionClass}-has-grid-gap`,
 		hasAutoSpaceAround && `${baseCompositionClass}-has-auto-space-around`,
+		hasAutoColumnWidths && `${baseCompositionClass}-has-auto-widths`,
 	);
 }
 

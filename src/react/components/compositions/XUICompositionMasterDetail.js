@@ -67,9 +67,14 @@ XUICompositionMasterDetail.propTypes = {
 	 * Whether to apply pre-set spacing to the outside of the composition grid. Defaults to true.
 	 */
 	hasAutoSpaceAround: PropTypes.bool,
+	/**
+	 * Whether to apply pre-set widths to columsn of the composition grid. Defaults to true.
+	 */
+	hasAutoColumnWidths: PropTypes.bool,
 };
 
 XUICompositionMasterDetail.defaultProps = {
 	hasGridGap: true,
 	hasAutoSpaceAround: true,
+	hasAutoColumnWidths: true,
 };

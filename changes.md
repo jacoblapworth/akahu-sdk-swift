@@ -59,7 +59,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- Should not use the `isBoxed` prop (including when they're in icon button variants, you can also remove usages of the `xui-icon-inline` class)
 	- Buttons with `variant="icon"` or `variant="icon-inverted"` should receive the `size="small"` prop
 	- Buttons with `variant="icon-large"` or `variant="icon-inverted-large` should have `size="standard"` (or can be left undefined) and have their variant name switched to `variant="icon"` or `variant="icon-inverted"`
-- Icon's iconwrapper class set now requires a size class to be used alongside the base class.
+- Icon's iconwrapper class set now requires a size class to be used alongside the base class. The size `medium` is the default, other options are `large` and `xlarge`.
 - TextInput side element contents should have their size checked (they should always have a size 1 smaller than the parent input - i.e. 'medium' `XUITextInput` contains 'small' `XUIButton`s)
 - Check for uses of `XUIPill` outside of `XUITextInput`. The codemod for this upgrade automatically adds `size="small"`, which should be removed in cases where `XUIPill` isn't in a text input
 - SelectBox prop `islabelHidden` case has been fixed to be `isLabelHidden`, for real this time.

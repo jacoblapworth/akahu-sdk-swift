@@ -30,13 +30,16 @@ describe('<XUICompositionSplit>', () => {
 		);
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should include custom class and omit width-limiting class, if specified', () => {
+
+	it('should include custom class and toggle off default classes, if specified', () => {
 		const wrapper = renderer.create(
 			<XUICompositionSplit
 				secondary={<div></div>}
 				primary={<div></div>}
 				className="split-without-head"
 				isInfinite={true}
+				hasAutoSpaceAround={false}
+				hasGridGap={false}
 				/>
 		);
 		expect(wrapper).toMatchSnapshot();

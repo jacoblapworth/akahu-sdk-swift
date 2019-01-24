@@ -32,7 +32,7 @@ describe('<XUICompositionDetailSummaryHeader>', () => {
 		);
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should include custom class and omit width-limiting class, if specified', () => {
+	it('should include custom class and toggle off default classes, if specified', () => {
 		const wrapper = renderer.create(
 			<XUICompositionDetailSummaryHeader
 				header={<div></div>}
@@ -40,6 +40,9 @@ describe('<XUICompositionDetailSummaryHeader>', () => {
 				detail={<div></div>}
 				className="summary-with-head"
 				isInfinite={true}
+				hasAutoSpaceAround={false}
+				hasGridGap={false}
+				hasAutoColumnWidths={false}
 				>
 			</XUICompositionDetailSummaryHeader>
 		);

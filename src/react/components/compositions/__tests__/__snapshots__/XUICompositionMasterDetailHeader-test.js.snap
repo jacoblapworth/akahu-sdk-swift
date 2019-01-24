@@ -2,7 +2,7 @@
 
 exports[`<XUICompositionMasterDetailHeader> renders basic example 1`] = `
 <div
-  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-masterdetailheader"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-has-auto-widths xui-composition-auto-template xui-composition-masterdetailheader"
 >
   <div
     className="xui-gridarea-header"
@@ -24,7 +24,29 @@ exports[`<XUICompositionMasterDetailHeader> renders basic example 1`] = `
 
 exports[`<XUICompositionMasterDetailHeader> should do nothing with children 1`] = `
 <div
-  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-masterdetailheader"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-has-auto-widths xui-composition-auto-template xui-composition-masterdetailheader"
+>
+  <div
+    className="xui-gridarea-header"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-master"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-detail"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<XUICompositionMasterDetailHeader> should include custom class and toggle off default classes, if specified 1`] = `
+<div
+  className="xui-composition xui-composition-auto-template xui-composition-masterdetailheader master-detail-with-head"
 >
   <div
     className="xui-gridarea-header"
@@ -46,7 +68,7 @@ exports[`<XUICompositionMasterDetailHeader> should do nothing with children 1`] 
 
 exports[`<XUICompositionMasterDetailHeader> should include layout restriction class, if specified 1`] = `
 <div
-  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-masterdetailheader xui-composition-masterdetailheader-retain-small"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-has-auto-widths xui-composition-masterdetailheader-retain-small xui-composition-masterdetailheader"
 >
   <div
     className="xui-gridarea-header"

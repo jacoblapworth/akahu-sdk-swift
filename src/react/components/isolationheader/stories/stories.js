@@ -30,7 +30,7 @@ function getComponent({isPositionFixed, title, secondaryTitle, navigationIcon, a
 		<div style={{width: '600px'}}>
 			<XUIIsolationHeader isPositionFixed={isPositionFixed}>
 				<XUIIsolationHeaderNavigation>
-					{navigationIcon && <XUIButton variant="icon" aria-label="navigate" className="xui-u-flex-none"><XUIIcon icon={flattenedIconMap[navigationIcon]} isBoxed /></XUIButton>}
+					{navigationIcon && <XUIButton variant="icon" aria-label="navigate"><XUIIcon icon={flattenedIconMap[navigationIcon]} isBoxed /></XUIButton>}
 					{hasAvatar && <XUIAvatar size="small" className="xui-margin-right-small" value="ABC" />}
 					{title && <XUIIsolationHeaderTitle>{title}</XUIIsolationHeaderTitle> }
 					{secondaryTitle && <XUIIsolationHeaderSecondaryTitle>{secondaryTitle}</XUIIsolationHeaderSecondaryTitle> }

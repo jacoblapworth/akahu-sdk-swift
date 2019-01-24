@@ -88,6 +88,7 @@
 // Do: Build pages using -up media-queries where possible to avoid specificity problems
 // Do: Use provided best practices and components to consistently build resilient and responsive experiences
 // Do: Consider small devices and slow network connections in your API design to help limit requests and provide caching for patchy networks
+// Do: Understand the impact of losing a connection and take measures to avoid your app breaking completely if this occurs
 // Warning: Consider device internet connection performance
 // Dont: Never disable zoom programmatically. This is the only tool our users have to to enable access on pages that haven’t been built responsively.
 // Dont: Don't rely on hover for essential functionality, as it's not accessible for touch-driven devices. Use click events instead.

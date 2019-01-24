@@ -2,11 +2,13 @@
 //
 // Teaser: A 50/50 split with two Detail areas. The secondary container stacks below the primary one at smaller breakpoints.
 //
-// Introduction: Split is the perfect Composition for when content needs to be split between two container of similar or even importance.
+// Teaser-image: composition-images/Split_browser.svg
 //
-// Composition-image: Split_devices.svg
+// Introduction: Split is the perfect composition for when content needs to be split between two container of similar or even importance.
 //
-// Caption: Split composition at breakpoints small-down, small-up, medium-up and large-up.
+// Image: composition-images/Split_devices.svg
+//
+// Image-caption: Split composition at breakpoints small-down and small-to-medium, medium-to-large, and large-up.
 //
 // Tips:
 // Do: Use the Primary container to house the most recent or important information
@@ -17,7 +19,7 @@
 //
 // Styleguide: Compositions.Split.
 
-// Default behaviour
+// Split default behaviour
 //
 // The Split composition is made up of the Primary and Detail containers. Primary container sits above the Detail container till the browser hits $xui-breakpoint-medium-up, from which point Detail sits to the right of the Primary container.
 //
@@ -27,11 +29,11 @@
 //
 // Markup:
 // <div class="xui-composition xui-composition-split xui-composition-is-finite">
-//   <div class="xui-gridarea-primary xui-width-xsmall-up">
-//     <div style="background: #5A5AE6; height: 320px;"></div>
+//   <div class="xui-gridarea-primary">
+//     <div style="background: #C5C5F6; height: 380px; padding: 20px;"> Primary </div>
 //   </div>
-//   <div class="xui-gridarea-detail xui-width-xsmall-up">
-//     <div style="background: #C5C5F6; height: 320px;"></div>
+//   <div class="xui-gridarea-detail">
+//     <div style="background: #ADADF3; height: 380px; padding: 20px;"> Detail </div>
 //   </div>
 // </div>
 //
@@ -39,7 +41,7 @@
 //
 // Styleguide: Compositions.Split.1.5
 
-// Split composition with header
+// Split with header
 //
 // When a page has a page header, include it in the composition to make use of the spacing and stacking behaviour.
 //
@@ -49,14 +51,14 @@
 //
 // Markup:
 // <div class="xui-composition xui-composition-splitheader xui-composition-is-finite">
-//   <div class="xui-gridarea-header xui-width-xsmall-up xui-width-small-up xui-width-medium-up">
-//     <div style="background: #ADADF3; height: 100px;"></div>
+//   <div class="xui-gridarea-header">
+//     <div style="background: #C5C5F6; height: 120px; padding: 20px;"> Page header </div>
 //   </div>
-//   <div class="xui-gridarea-primary xui-width-xsmall-up">
-//     <div style="background: #5A5AE6; height: 320px;"></div>
+//   <div class="xui-gridarea-primary">
+//     <div style="background: #C5C5F6; height: 380px; padding: 20px;"> Primary </div>
 //   </div>
-//   <div class="xui-gridarea-detail xui-width-xsmall-up">
-//     <div style="background: #C5C5F6; height: 320px;"></div>
+//   <div class="xui-gridarea-detail">
+//     <div style="background: #ADADF3; height: 380px; padding: 20px;"> Detail </div>
 //   </div>
 // </div>
 //
@@ -68,8 +70,8 @@
 // Anatomy
 //
 // Classes:
-// xui-composition-splitheader: Wraps the entire composition when including a page header
 // xui-composition-split: Wraps entire composition when no page header is included
+// xui-composition-splitheader: Wraps the entire composition when including a page header
 // xui-gridarea-header: Wraps the page header if one is included
 // xui-gridarea-primary: Wraps the Primary container
 // xui-gridarea-detail: Wraps the Detail container
@@ -106,13 +108,13 @@
 // Warning: Avoid adding extra spacing around the composition, instead add custom styles
 //
 // Classes:
-// xui-composition-outer-spacing: applies standard around the entire composition
+// xui-composition-has-auto-space-around: Applies $xui-s-large spacing around the outside of the composition
 //
 // Styleguide: Compositions.Split.4.2
 
 // Full width
 //
-// By default, compositions have the `is-infinite` class which applies a max width of 1200px. Removing this class allows the composition to span the full width of the page.
+// By default, compositions should have the `is-infinite` class which applies a max width of 1200px. Removing this class allows the composition to span the full width of the page.
 //
 // Tips:
 // Do: Apply when one or both containers hold wide media such as maps, images or tables
@@ -139,15 +141,15 @@
 // Class list
 //
 // Classes:
-// xui-composition-split: Style for Split composition
+// xui-composition-split: Style for Split composition when no page header is included
 // xui-composition-splitheader: Style for Split composition when including a page header
 // xui-composition-grid-gap: Modifier for applying standard spacing between composition containers
-// xui-composition-outer-spacing: Modifier for applying standard spacing around the outside of the composition
+// xui-composition-has-auto-space-around: Modifier for applying $xui-s-large spacing around the outside of the composition
 // xui-composition-is-finite: Remove this class to have the composition span 100% width of page
-// xui-composition-splitheader-retain-small: Modifier to force the composition to maintain the mobile layout across all breakpoints (use in conjuction with xui-composition-splitheader)
 // xui-composition-split-retain-small: Modifier that forces composition to keep the mobile layout across all breakpoints
-// xui-gridarea-header: Styles for page header subcomponent if the page has one
-// xui-gridarea-primary: Styles for Primary container subcomponent
-// xui-gridarea-detail: Styles for Detail container subcomponent
+// xui-composition-splitheader-retain-small: Modifier to force the composition to maintain the mobile layout across all breakpoints, when including a page header in the composition
+// xui-gridarea-header: Style for page header subcomponent if the page has one
+// xui-gridarea-primary: Style for Primary container subcomponent
+// xui-gridarea-detail: Style for Detail container subcomponent
 //
 // Styleguide: Compositions.Split.5

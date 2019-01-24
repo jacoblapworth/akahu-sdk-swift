@@ -1,12 +1,14 @@
 // Master detail
 //
-// Teaser: The Master container houses content that controls or acts on content within the Detail area. The Master container is a left-hand column which becomes a dropdown at smaller breakpoints.
+// Teaser: The Master container houses content that controls or acts on content within the Detail area. The Master container is within a dropdown at narrow breakpoints, and a left hand column from xui-breakpoint-medium-up.
 //
-// Introduction: The Master Detail composition is useful for layouts that consist of a set of options or controls, that affect content within the main content container. The Master container holds the options/controls in a left side column, or within a dropdown when horizontal space is restricted. The Detail area houses the main content.
+// Teaser-image: composition-images/Master-detail_browser.svg
 //
-// Composition-image: Master-Detail_devices.svg
+// Introduction: Master detail composition is useful for layouts that consist of a set of options or controls, that affect content within the main content container. The Master container holds the options/controls in a left side column, or within a dropdown when horizontal space is restricted. The Detail area houses the main content.
 //
-// Caption: Master Detail at breakpoints small-down, small-up, medium-up and large-up.
+// Image: composition-images/Master-Detail_devices.svg
+//
+// Image-caption: Master Detail at breakpoints small-down and small-to-medium, medium-to-large, and large-up.
 //
 // Tips:
 // Do: Use Master container for tertiary navigation
@@ -18,9 +20,9 @@
 //
 // Styleguide: Compositions.MasterDetail
 
-// Default bahaviour
+// Master detail default behaviour
 //
-// The Master container lives inside of a dropdown when the browser width is below `$xui-breakpoint-small`. From `$xui-breakpoint-small-up` the Master container is a left hand column 1/2 the width of the Detail container, with a max width of 274px.
+// The Master container lives inside of a dropdown when the browser width is below `$xui-breakpoint-small`. From `$xui-breakpoint-small-up` the Master container is a left hand column 1/4 the width of the browser. The entire composition has a max-width of 1200px.
 //
 // Styleguide: Compositions.MasterDetail.1
 
@@ -29,18 +31,18 @@
 // Markup:
 // <div class="xui-composition xui-composition-masterdetail xui-composition-is-finite">
 //   <div class="xui-gridarea-master">
-//     <div style="background: #5A5AE6; min-width: 200px; height: 320px; width: 100%;"></div>
+//     <div style="background: #5A5AE6; color: white; height: 380px; min-width: 200px; padding: 20px; width: 100%;"> Master </div>
 //   </div>
-//   <div class="xui-gridarea-detail xui-width-xsmall-up">
-//     <div style="background: #C5C5F6; height: 320px;"></div>
+//   <div class="xui-gridarea-detail">
+//     <div style="background: #C5C5F6; height: 380px; padding: 20px;"> Detail </div>
 //   </div>
 // </div>
 //
-// Storybook: /storybook/?selectedKind=Compositions&selectedStory=Master%20detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs
+// Storybook: /storybook/?selectedKind=Compositions&selectedStory=Master%20detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=&knob-Retain%20a%20width=
 //
 // Styleguide: Compositions.MasterDetail.1.5
 
-// Master Detail with header
+// Master detail with header
 //
 // When a page has a page header, include it in the composition to make use of the spacing and stacking behaviour.
 //
@@ -51,17 +53,17 @@
 // Markup:
 // <div class="xui-composition xui-composition-masterdetailheader xui-composition-is-finite">
 //   <div class="xui-gridarea-header">
-//     <div style="background: #ADADF3; height: 120px;"></div>
+//     <div style="background: #C5C5F6; height: 120px; padding: 20px;"> Page header </div>
 //   </div>
 //   <div class="xui-gridarea-master">
-//     <div style="background: #5A5AE6; min-width: 250px; height: 320px; width: 100%;"></div>
+//   	<div style="background: #5A5AE6; color: white; height: 380px; min-width: 200px; padding: 20px; width: 100%;"> Master </div>
 //   </div>
 //   <div class="xui-gridarea-detail">
-//     <div style="background: #C5C5F6; height: 320px;"></div>
-//   </div>
+//     <div style="background: #C5C5F6; height: 380px; padding: 20px;"> Detail </div>
+// </div>
 // </div>
 //
-// Storybook: /storybook/?selectedKind=Compositions&selectedStory=Master%20detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs
+// Storybook: /storybook/?selectedKind=Compositions&selectedStory=Master%20detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=true&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=&knob-Retain%20a%20width=
 //
 // Styleguide: Compositions.MasterDetail.2.5
 
@@ -71,8 +73,8 @@
 // xui-composition-masterdetail: Wraps the entire composition when no page header is included
 // xui-composition-masterdetailheader: Wraps the entire composition when including a page header
 // xui-gridarea-header: Wraps the page header if one is included
-// xui-gridarea-master: Wraps the Master container
-// xui-gridarea-detail: Wraps the Detail container
+// xui-gridarea-master: Master container
+// xui-gridarea-detail: Detail container
 //
 // Styleguide: Compositions.MasterDetail.3
 
@@ -106,13 +108,13 @@
 // Warning: Avoid adding extra spacing around the composition, instead add custom styles
 //
 // Classes:
-// xui-composition-outer-spacing: Applies standard around the entire composition
+// xui-composition-has-auto-space-around: Applies $xui-s-large spacing around the outside of the composition
 //
 // Styleguide: Compositions.MasterDetail.4.2
 
 // Full width
 //
-// By default, compositions have the `is-infinite` class which applies a max width of 1200px. Removing this class allows the composition to span the full width of the page.
+// By default, compositions should have the `is-infinite` class which applies a max width of 1200px. Removing this class allows the composition to span the full width of the page.
 //
 // Tips:
 // Do: Apply when the Detail container holds wide media such as maps, images or tables
@@ -139,14 +141,15 @@
 // Class list
 //
 // Classes:
-// xui-composition-masterdetail: add to composition wrapper when no page header is included
-// xui-composition-masterdetailheader: add to composition wrapper when including a page header
-// xui-composition-grid-gap: applies standard spacing between composition containers
-// xui-composition-outer-spacing: applies standard around the etnire composition
-// xui-composition-is-finite: remove this class to have the composition span 100% width of page
-// xui-composition-retain-small: forces composition to keep the mobile layout across all breakpoints
-// xui-gridarea-header: add to page header if the page has one
-// xui-gridarea-master: add to Master container
-// xui-gridarea-detail: add to Detail container
+// xui-composition-masterdetail: Style for Master detail composition when no page header is included
+// xui-composition-masterdetailheader: Style for Master detail composition when including a page header
+// xui-composition-grid-gap: Modifier for applying standard spacing between composition containers
+// xui-composition-has-auto-space-around: Modifier for applying $xui-s-large spacing around the outside of the composition
+// xui-composition-is-finite: Remove this class to have the composition span 100% width of page
+// xui-composition-masterdetail-retain-small: Modifier to force composition to maintain the mobile layout across all breakpoints
+// xui-composition-masterdetailheader-retain-small: Modifier to force composition to maintain the mobile layout across all breakpoints, when including a page header in the composition
+// xui-gridarea-header: Style for page header if the page has one
+// xui-gridarea-master: Style for Master container subcomponent
+// xui-gridarea-detail: Style for Detail container subcomponent
 //
 // Styleguide: Compositions.MasterDetail.5

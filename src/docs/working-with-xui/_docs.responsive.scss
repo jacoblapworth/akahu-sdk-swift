@@ -32,7 +32,7 @@
 
 // What success looks like
 //
-// In a large company like ours, change takes time. The UXE team has often put a stake in the ground on important issues, instead of relying on company-enforced directives. In doing so, standards are introduced, and they begin to be widely adopted as best practice. In a similar way, we're focused on doing what we can to get ahead of the curve for responsive as we anticipate this being an increasingly pertinent issue to tackle in the future. XUI will make the transition to a responsive experience easier by providing best practices and purpose-built components and patterns, but ultimately it’s still up to each team to make the commitment to build and test their products to maintain that standard.
+// XUI will make the transition to a responsive experience easier by providing best practices and purpose-built components and patterns, but ultimately it’s still up to each team to make the commitment to build and test their products to maintain that standard. Success looks like all of Xero's apps working as fully responsive experiences, using XUI as a base.
 //
 // As a baseline requirement, if you’re building a new experience or rewriting an existing one, we strongly urge using XUI. Simply by doing so, you’ll benefit from several years of systematic thinking and responsive considerations which will get you most of the way there.
 //
@@ -48,13 +48,13 @@
 //
 // Aim to cater for at least 95% of form factors in markets we are in, or are about to enter into. However, we draw the line of support at 300px wide going down. Going up, we don’t have a specific limit, as the impacts to the user experience are less severe in that direction.
 //
-// Support for responsive browsers mirrors those maintained by the wider product team. For touch devices, this is primarily the two largest browsers – iOS Safari and Android Chrome. More widely however, this equates to the current and previous major version of iOS (11 and 12), Chrome (69 and 70), Firefox (63 and 62), Edge (42 and 44), and the latest version of Internet Explorer (11). We don’t officially support Samsung Internet, UC, or Opera. However, this may change as we enter into new markets with different user preferences. 
+// Support for responsive browsers mirrors those maintained by the wider product team. For touch devices, this is primarily the two largest browsers – iOS Safari and Android Chrome. We don’t officially support Samsung Internet, UC, or Opera. However, this may change as we enter into new markets with different user preferences. 
 //
 // Styleguide: Getting Started.Responsive.2.2
 
 // Performance
 //
-// Excluding the most high-end devices, touch driven devices have less computing power than a traditional desktop so response times that are slow to begin with, become even more apparent. An additional concern not present for desktop computers is the speed of the user’s data connection, and the cost that imparts on the user. Performance guidelines are difficult to set universally, as interactions need to be evaluated in isolation and their performance quantified based on their impact, but we consider 100ms to be a good benchmark. We’ve done what we can to make sure our components follow these standards, but you’ll have to maintain this standard in your own work, too. Read more in our [performance guidelines](/section-getting-started-performance.html) about ways to do this.
+// Excluding the most high-end devices, touch driven devices have less computing power than a traditional desktop so response times that are slow to begin with, become even more apparent. An additional concern that's prevalent in (although not exclusive to) mobile devices, is the speed of the user’s data connection, and the cost that imparts on the user. Performance guidelines are difficult to set universally, as interactions need to be evaluated in isolation and their performance quantified based on their impact, but we consider 100ms to be a good benchmark. We’ve done what we can to make sure our components follow these standards, but you’ll have to maintain this standard in your own work, too. Read more in our [performance guidelines](/section-getting-started-performance.html) about ways to do this.
 //
 // Styleguide: Getting Started.Responsive.2.3
 

@@ -14,7 +14,7 @@
 //
 // Tips:
 // Do: Actions should be descriptive and succinct
-// Do: Action should allow for string length variance when language changes
+// Do: Actions should allow for string length variance when language changes
 // Dont: Avoid wrapping or truncating action text
 // Dont: Don't fix width of an action
 //
@@ -40,7 +40,7 @@
 // For these elements avoid truncation, and instead, use wrapping to handle long strings. However, in limited situations where height or width restrictions on detail views are unavoidable, we recommend two approaches. For shorter strings (like a table column), truncate and add a tooltip to replicate the same content, but display it in full on click (persisting for touch users) and hover (temporary for mouse users). For longer content (like a user generated comment) consider the 'view more' approach – an explicit button to expand and collapse the height of the containing element, to reveal the rest of the string in its original context.
 //
 // Tips:
-// Do: Wrap text to handle long strings
+// Do: Wrap detail text to handle long strings
 // Do: Use a tooltip to display full string if unable to wrap text that isn't very long
 // Do: Use an explicit show/hide action to display full string if unable to wrap text that is long
 // Dont: Avoid truncating detail text
@@ -54,7 +54,7 @@
 // Navigational elements have the possibility of being both user-defined (eg. Client name) or business-defined (eg. Settings). Any business-defined navigational elements should be short and succinct, with the surrounding container allowing space for the text to be displayed on a single line, without truncation. User-defined navigational elements are unpredictable and so we should assume that the string could be long. To deal with this, provide an appropriate character limit if possible. If the user-defined string is too long for the surrounding container, you should wrap text to a new line. In rare situations, (eg. Sidebar navigation picklist with client names), you can truncate the text, as long as the destination context is not lost.
 //
 // Tips:
-// Do: Business-defined entry points should be succinct and descriptive
+// Do: Business-defined navigational elements should be succinct and descriptive
 // Do: If possible, provide an appropriate character limit for user-defined navigational elements
 // Do: Navigational elements should allow for string length variance when language changes
 // Warning: Truncate user-defined navigational elements, only if context of the destination is clear
@@ -70,7 +70,7 @@
 //
 // Tips:
 // Do: Display supplementary information in short, succinct strings
-// Do: Follow component specific guidance for destinct text treatment information
+// Do: Follow component specific guidance for distinct text treatment information
 // Dont: Avoid truncating numbers, as users often rely on accuracy for values in a supplementary context 
 //
 // Styleguide: Patterns.Text.5

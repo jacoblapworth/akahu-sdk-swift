@@ -240,19 +240,21 @@ code {
 
 .ds-tips {
 	display: flex;
-	align-items: center;
 }
 
 .ds-tips-positive {
 	color: $xui-color-green;
+	margin: 7px 5px;
 }
 
 .ds-tips-negative {
 	color: $xui-color-red;
+	margin: 6px 6px;
 }
 
 .ds-tips-warning {
 	color: $xui-color-orange;
+	margin: 5px 4px;
 }
 
 .ds-tips--detail {

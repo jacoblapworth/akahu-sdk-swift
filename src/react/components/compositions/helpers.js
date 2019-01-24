@@ -23,4 +23,12 @@ export function buildGlobalCompositionClasses({
 	);
 }
 
+export function buildLayoutClass({ retainWidth, compositionName }) {
+	return (
+		retainWidth
+		&& retainValues[retainWidth]
+		&& `${baseCompositionClass}-${compositionName}-retain-${retainWidth}`
+	) || `${baseCompositionClass}-auto-template`;
+}
+
 export default baseCompositionClass;

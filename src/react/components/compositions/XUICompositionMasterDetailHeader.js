@@ -6,7 +6,9 @@ import XUIGridAreaDetail from './XUIGridAreaDetail';
 import XUIGridAreaMaster from './XUIGridAreaMaster';
 import XUIGridAreaHeader from './XUIGridAreaHeader';
 
-import baseCompositionClass, { retainValues, buildGlobalCompositionClasses } from './helpers';
+import baseCompositionClass, { buildLayoutClass, buildGlobalCompositionClasses } from './helpers';
+
+const compositionName = 'masterdetailheader';
 
 export default class XUICompositionMasterDetailHeader extends PureComponent {
 	render() {
@@ -21,10 +23,8 @@ export default class XUICompositionMasterDetailHeader extends PureComponent {
 
 		const compositionClasses = cn(
 			buildGlobalCompositionClasses(spreadProps),
-			`${baseCompositionClass}-masterdetailheader`,
-			retainWidth &&
-				retainValues[retainWidth] &&
-				`${baseCompositionClass}-masterdetailheader-retain-${retainWidth}`,
+			buildLayoutClass({ retainWidth, compositionName }),
+			`${baseCompositionClass}-${compositionName}`,
 			className,
 		);
 

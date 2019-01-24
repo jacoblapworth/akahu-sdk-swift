@@ -5,7 +5,9 @@ import cn from 'classnames';
 import XUIGridAreaPrimary from './XUIGridAreaPrimary';
 import XUIGridAreaDetail from './XUIGridAreaDetail';
 
-import baseCompositionClass, { retainValues, buildGlobalCompositionClasses } from './helpers';
+import baseCompositionClass, { buildLayoutClass, buildGlobalCompositionClasses } from './helpers';
+
+const compositionName = 'split';
 
 export default class XUICompositionSplit extends PureComponent {
 	render() {
@@ -19,10 +21,8 @@ export default class XUICompositionSplit extends PureComponent {
 
 		const compositionClasses = cn(
 			buildGlobalCompositionClasses(spreadProps),
-			`${baseCompositionClass}-split`,
-			retainWidth &&
-				retainValues[retainWidth] &&
-				`${baseCompositionClass}-split-retain-${retainWidth}`,
+			buildLayoutClass({ retainWidth, compositionName }),
+			`${baseCompositionClass}-${compositionName}`,
 			className,
 		);
 

@@ -5,7 +5,6 @@ import XUIButton from '../button/XUIButton';
 import LeftVisualEl from './private/LeftVisualEl';
 import { ns } from '../helpers/xuiClassNamespace';
 import { baseClass, childSizeClassMap } from './private/constants';
-import { sizeShift } from '../helpers/sizes';
 
 class XUIInnerPill extends PureComponent {
 	render() {

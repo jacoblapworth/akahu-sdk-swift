@@ -70,7 +70,7 @@
 // Inputs have a variation in scale to enable greater hierarchy control in user interfaces
 //
 // Tips:
-// Do: Nest small Text inputs inside default sized elements and xsmall Text inputs inside small elements
+// Do: Nest small Text inputs inside medium sized elements and xsmall Text inputs inside small elements
 // Do: Use the same label and description font-size with all size variants
 // Warning: Use small and xsmall variants cautiously, as these are more difficult to read than default size
 // Dont: Don’t use a combination of size variants within a single form
@@ -109,10 +109,11 @@
 
 // Nesting
 //
-// Text inputs can have elements nested inside of them (sideElement). It is important that the appropriate size variants of these elements are used within each Text input size variant.
+// Text inputs can have elements nested inside of them using side elements. It is important that the appropriate size variants of these elements are used within each Text input size variant.
 //
 // Tips:
-// Do: Nest small elements inside default sized Text inputs and xsmall elements inside small Text inputs
+// Do: Nest small elements inside medium sized Text inputs and xsmall elements inside small Text inputs
+// Do: Nest icon buttons using the same size variant as the parent Text input
 // Dont: Don't nest an element using the same size variant as its parent (with the exception of icon-buttons)
 //
 // Definitions:
@@ -161,7 +162,7 @@
 //       </div>
 //     </div>
 //   </div>
-//   <div class="xui-validation xui-validation-layout" role="status" id="e">Text and Icon side elements are defined by the Text input size variant</div>
+//   <div class="xui-validation xui-validation-layout" role="status" id="e">Text and Icon side elements sizes set by default from the Text input size variant</div>
 // </div>
 // <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
 //   <label class="xui-text-label xui-fieldlabel-layout" for="f">Xsmall</label>

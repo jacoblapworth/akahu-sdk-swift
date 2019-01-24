@@ -335,7 +335,8 @@ describe('<XUI Structure/>', () => {
 		it('renders panel and panel section with automation id when qaHook prop is passed in', () => {
 			const wrapper = renderer.create(
 				<XUIPanel qaHook={qaHook}>
-					<XUIPanelSection qaHook={qaHook}></XUIPanelSection>
+					<XUIPanelSection qaHook={qaHook} />
+					<XUIPanelFooter qaHook={qaHook} />
 				</XUIPanel>
 			);
 			expect(wrapper).toMatchSnapshot();

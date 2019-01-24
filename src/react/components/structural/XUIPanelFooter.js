@@ -26,7 +26,7 @@ const XUIPanelFooter = ({
 XUIPanelFooter.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
-	qaHook: PropTypes,
+	qaHook: PropTypes.string,
 	/**
 	 * Main element tag type. Defaults to "footer"
 	 */

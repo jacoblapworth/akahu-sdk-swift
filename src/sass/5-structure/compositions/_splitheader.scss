@@ -33,19 +33,16 @@
 		@include composition-sh-small-gap;
 	}
 
-	@include xui-breakpoint-medium-up {
-		@include composition-sh-medium;
-		&.#{$ns}-composition-has-grid-gap {
-			@include composition-sh-medium-gap;
+	&.#{$ns}-composition-auto-template {
+		@include xui-breakpoint-medium-up {
+			@include composition-sh-medium;
+			&.#{$ns}-composition-has-grid-gap {
+				@include composition-sh-medium-gap;
+			}
 		}
 	}
 }
 
-.#{$ns}-composition-splitheader-retain-small {
-	@include xui-breakpoint-medium-up {
-		@include composition-sh-small;
-		&.#{$ns}-composition-has-grid-gap {
-			@include composition-sh-small-gap;
-		}
-	}
-}
+// No styles are needed for retain-small. When the auto-template class is
+// not present, layout will remain with the small template.
+// .#{$ns}-composition-splitheader-retain-small {}

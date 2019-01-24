@@ -12,6 +12,9 @@
 	grid-template:
 		"header header"
 		"master detail" / min-content 1fr;
+	&.#{$ns}-composition-has-auto-widths {
+		grid-template-columns: 25% 1fr;
+	}
 }
 
 // Gap template variants (necessary for IE & Autoprefixer)
@@ -32,22 +35,20 @@
 		@include composition-mdh-small-gap;
 	}
 
-	@include xui-breakpoint-medium-up {
-		@include composition-mdh-medium;
-		&.#{$ns}-composition-has-grid-gap {
-			@include composition-mdh-medium-gap;
+	&.#{$ns}-composition-auto-template {
+		@include xui-breakpoint-medium-up {
+			@include composition-mdh-medium;
+			&.#{$ns}-composition-has-grid-gap {
+				@include composition-mdh-medium-gap;
+			}
+		}
+		@include xui-breakpoint-xlarge-up {
+			@include xui-composition-narrow-left-max-widths;
 		}
 	}
 }
 
 .#{$ns}-composition-masterdetailheader-retain-small {
-	@include xui-breakpoint-medium-up {
-		@include composition-mdh-small;
-		&.#{$ns}-composition-has-grid-gap {
-			@include composition-mdh-small-gap;
-		}
-	}
-
 	& .#{$ns}-gridarea-master {
 		@include xui-utility-hidden-visually;
 	}

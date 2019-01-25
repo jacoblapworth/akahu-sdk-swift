@@ -42,7 +42,7 @@
 //
 // Styleguide: Compositions.MasterDetail.1.5
 
-// Master detail with header
+// Example
 //
 // When a page has a page header, include it in the composition to make use of the spacing and stacking behaviour.
 //
@@ -81,6 +81,19 @@
 // Composition properties
 //
 // Introduction: There are a number of spacing and layout properties that can be used to adjust the Master Detail composition.
+//
+// Storybook: /storybook/?selectedKind=Compositions&selectedStory=Master%20detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs
+//
+// Styleguide: Compositions.MasterDetail.3.5
+
+// Anatomy
+//
+// Classes:
+// -masterdetail: Wraps entire composition when no page header is included
+// -masterdetailheader: Wraps the whole composition when including a page header
+// -header: Wraps the page header if one is included
+// -master: Wraps the Master container
+// -detail: Wraps the Detail container
 //
 // Styleguide: Compositions.MasterDetail.4
 

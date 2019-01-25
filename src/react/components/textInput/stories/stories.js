@@ -162,8 +162,8 @@ TextInputWrapper.propTypes = {
 	isInvalid: PropTypes.bool,
 	validationMessage: PropTypes.string,
 	hintMessage: PropTypes.string,
-	leftElementType: PropTypes.oneOf(['icon', 'iconWithBackground', 'button', 'text', 'pill', 'avatar']),
-	rightElementType: PropTypes.oneOf(['icon', 'iconWithBackground', 'button', 'text', 'pill', 'avatar']),
+	leftElementType: PropTypes.oneOf(['icon', 'iconWithBackground', 'button', 'text', 'pill', 'avatar', 'icon button']),
+	rightElementType: PropTypes.oneOf(['icon', 'iconWithBackground', 'button', 'text', 'pill', 'avatar', 'icon button']),
 	leftElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
 	rightElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
 	placeholder: PropTypes.string,
@@ -191,7 +191,7 @@ storiesWithKnobs.add('Playground', () => (
 		isLabelHidden={boolean('is label hidden', false)}
 		placeholder={text('placeholder', 'placeholder text')}
 		value={text('value')}
-		size={select('size', ['medium', 'small', 'xsmall'], 'standard')}
+		size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
 		isMultiline={boolean('is multiline', false)}
 		minRows={number('min height of multiline input in rows', 0) || undefined}
 		maxRows={number('max height of multiline input in rows', 0) || undefined}

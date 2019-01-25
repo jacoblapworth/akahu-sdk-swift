@@ -5,7 +5,7 @@
 //
 // Teaser: A list of actions, filters or tabs.
 //
-// Introduction: Picklists are used to group a list of actions, filters or tabs.
+// Introduction: Picklists are used to group a list of pickitem actions, filters or tabs. Picklists are usually contained inside a panel or a dropdown.
 //
 // Components: Picklist
 //
@@ -22,8 +22,11 @@
 // xui-pickitem--body: A selectable pickitem
 // xui-pickitem--text: Text content within a pickitem
 //
+// Tips:
+// Warning: Avoid using picklists on anything but a white background, as colour contrast is not accessible
+//
 // Markup:
-// <div class='xui-panel'>
+// <div class="xui-panel">
 //  <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
 //    <li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
 //      <button type="button" class="xui-pickitem--body">
@@ -45,29 +48,54 @@
 //
 // Styleguide: Compounds.DisplayingData.Picklist.1
 
-// Selecting
+// Pick item states
 //
-// To indicate a pickitem has been selected, apply the following modifier.
+// To adjust the state of a pickitem, apply the following modifiers.
 //
 // Classes:
-// xui-pickitem-is-selected: Apply to item
+// xui-pickitem-is-selected: Selected pickitem
+// xui-pickitem-is-disabled: Disabled pickitem
+// xui-pickitem-is-invalid: Invalid pickitem
 //
 // Markup:
-// <div class='xui-panel'>
+// <div class="xui-panel xui-margin-bottom">
 //   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
 //     <li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
 //       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Status</span>
+//         <span class="xui-pickitem--text">Invoices</span>
 //       </button>
 //     </li>
 //     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium" role="treeitem" tabindex="-1" >
 //       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Date</span>
+//         <span class="xui-pickitem--text">Bills</span>
 //       </button>
 //     </li>
-//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
+//   </ul>
+// </div>
+// <div class="xui-panel xui-margin-bottom">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//     <li class="xui-pickitem xui-pickitem-medium xui-pickitem-is-disabled" role="treeitem" tabindex="-1" >
 //       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Amount</span>
+//         <span class="xui-pickitem--text">Invoices</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium xui-pickitem-is-disabled" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Bills</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+// <div class="xui-panel">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//     <li class="xui-pickitem xui-pickitem-medium xui-pickitem-is-invalid" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Invoices</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium xui-pickitem-is-invalid" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Bills</span>
 //       </button>
 //     </li>
 //   </ul>
@@ -75,30 +103,296 @@
 //
 // Styleguide: Compounds.DisplayingData.Picklist.2
 
+// Size variants
+//
+// Picklists have a range of size options that allow for greater control over visual hierarchy.
+//
+// Definitions:
+// Size variant: **Height**: **Class**
+// medium: 40px: `xui-picklist-medium`<br>`xui-pickitem-medium`
+// small: 32px: `xui-picklist-small`<br>`xui-pickitem-small`
+// xsmall: 24px: `xui-picklist-xsmall`<br>`xui-pickitem-xsmall`
+//
+// Tips:
+// Do: Use medium as a standard size variant
+// Do: Use small and xsmall variants for minor interactions
+// Warning: Be cautious when using small and xsmall variants as they have reduced legibility and hit area
+//
+// Markup:
+// <div class="xui-panel xui-margin-bottom-large">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Today</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Tomorrow</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next week</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next month</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+// <div class="xui-panel xui-margin-bottom-large">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="tree">
+//     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-small" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Today</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Tomorrow</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next week</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next month</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+// <div class="xui-panel">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="tree">
+//     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Today</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Tomorrow</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next week</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next month</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Picklist.3
 
-// Changing direction
+// Nesting
+//
+// Pickitems can have elements nested inside of them. It is important that the appropriate size variants of these elements are used within each pickitem size variant.
+//
+// Tips:
+// Do: Nest small elements inside medium sized pickitems and xsmall elements inside small pickitems
+// Do: Only nest supported elements inside pickitems (shown below)
+// Dont: Don't nest an element using the same size variant as its parent
+//
+// Definitions:
+// Size variant: **Elements available to nest**
+// medium: Avatar, Icon, Checkbox
+// small: Avatar, Icon, Checkbox
+// xsmall: Avatar, Icon
+//
+// Markup:
+// <div class="xui-panel xui-margin-bottom">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="group">
+// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" aria-selected="false" role="option" id="0-1">
+// 			<div class="xui-pickitem--body" role="presentation">
+// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
+// 					<input type="checkbox" tabindex="-1" aria-labelledby="aaa" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+// 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"></div>
+// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
+// 						<span class="">Retail</span>
+// 					</span>
+// 				</label>
+// 			</div>
+// 		</li>
+// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" aria-selected="false" role="option" id="0-1">
+// 			<div class="xui-pickitem--body" role="presentation">
+// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
+// 					<input type="checkbox" tabindex="-1" aria-labelledby="aab" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+// 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"></div>
+// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label" id="aab">
+// 						<span class="">Construction</span>
+// 					</span>
+// 				</label>
+// 			</div>
+// 		</li>
+//   </ul>
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">AW</abbr>
+//         </span>
+//         <span class="xui-pickitem--text">Alena Woo</span>
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-external" role="presentation"></use>
+//           </svg>
+//         </span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+// <div class="xui-panel xui-margin-bottom">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="group">
+// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-small" aria-selected="false" role="option" id="0-1">
+// 			<div class="xui-pickitem--body" role="presentation">
+// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
+// 					<input type="checkbox" tabindex="-1" aria-labelledby="aaa" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall" value="">
+// 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"></div>
+// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
+// 						<span class="">Retail</span>
+// 					</span>
+// 				</label>
+// 			</div>
+// 		</li>
+// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-small" aria-selected="false" role="option" id="0-1">
+// 			<div class="xui-pickitem--body" role="presentation">
+// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
+// 					<input type="checkbox" tabindex="-1" aria-labelledby="aab" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall" value="">
+// 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"></div>
+// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label" id="aab">
+// 						<span class="">Construction</span>
+// 					</span>
+// 				</label>
+// 			</div>
+// 		</li>
+//   </ul>
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="tree">
+//     <li class="xui-pickitem xui-pickitem-small">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <abbr class="xui-avatar xui-avatar-xsmall xui-avatar-color-1" role="presentation">AW</abbr>
+//         </span>
+//         <span class="xui-pickitem--text">Alena Woo</span>
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-external" role="presentation"></use>
+//           </svg>
+//         </span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+// <div class="xui-panel">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="tree">
+//     <li class="xui-pickitem xui-pickitem-xsmall">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <abbr class="xui-avatar xui-avatar-2xsmall xui-avatar-color-3" role="presentation">JA</abbr>
+//         </span>
+//         <span class="xui-pickitem--text">Jessica Alba</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <abbr class="xui-avatar xui-avatar-2xsmall xui-avatar-color-4" role="presentation">DJ</abbr>
+//         </span>
+//         <span class="xui-pickitem--text">Dwayne Johnson</span>
+//       </button>
+//     </li>
+//   </ul>
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="tree">
+//     <li class="xui-pickitem xui-pickitem-xsmall">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-plus" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Create new contact</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Picklist.4
+
+// Horizontal picklists
 //
 // To create a horizontal picklist, commonly referred to as tabs, apply the following modifier.
 // We also recommend removing `xui-picklist-layout` to allow pickitems to stretch the full height or their containing element.
 //
 // Classes:
 // xui-picklist-horizontal: Apply to picklist
+// xui-pickitem-is-horizontal: Apply to pickitem
 //
 // Markup:
-// <div class='xui-panel'>
-//   <div class='xui-panel--header xui-u-flex'>
+// <div class="xui-panel xui-margin-bottom">
+//   <div class="xui-u-flex">
 //     <ul class="xui-picklist xui-picklist-horizontal xui-picklist-medium" role="tree">
-//       <li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
+//       <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
 //         <button type="button" class="xui-pickitem--body">
 //           <span class="xui-pickitem--text">All</span>
 //         </button>
 //       </li>
-//       <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium" role="treeitem" tabindex="-1" >
+//       <li class="xui-pickitem xui-pickitem-medium xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
 //         <button type="button" class="xui-pickitem--body">
 //           <span class="xui-pickitem--text">Current</span>
 //         </button>
 //       </li>
-//       <li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
+//       <li class="xui-pickitem xui-pickitem-medium xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">History</span>
+//         </button>
+//       </li>
+//     </ul>
+//   </div>
+// </div>
+// <div class="xui-panel xui-margin-bottom">
+//   <div class="xui-u-flex">
+//     <ul class="xui-picklist xui-picklist-horizontal xui-picklist-small" role="tree">
+//       <li class="xui-pickitem xui-pickitem-small xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">All</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-small xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">Current</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-small xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">History</span>
+//         </button>
+//       </li>
+//     </ul>
+//   </div>
+// </div>
+// <div class="xui-panel">
+//   <div class="xui-u-flex">
+//     <ul class="xui-picklist xui-picklist-horizontal xui-picklist-xsmall" role="tree">
+//       <li class="xui-pickitem xui-pickitem-xsmall xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">All</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-xsmall xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">Current</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-xsmall xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
 //         <button type="button" class="xui-pickitem--body">
 //           <span class="xui-pickitem--text">History</span>
 //         </button>
@@ -107,7 +401,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Picklist.3
+// Styleguide: Compounds.DisplayingData.Picklist.5
 
 // Truncating
 //
@@ -117,257 +411,453 @@
 // Classes:
 // xui-pickitem-text-truncated: Apply to pickitem text
 //
-// Styleguide: Compounds.DisplayingData.Picklist.4
-
-// Common layouts
-//
-// Many different layouts are achievable by adding a few typography presets and utility classes.
-//
 // Styleguide: Compounds.DisplayingData.Picklist.6
 
-// Headings
+// Headers and dividers
 //
 // Classes:
-// xui-text-minor: Apply to heading
+// xui-picklist--header: Apply to heading list item wrapper
+// xui-picklist--header--text: Apply to heading text wrapper
+// xui-picklist--divider: Adds didving line break between items
 //
 // Markup:
-// <div class='xui-panel'>
-//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree" aria-labelledby="recent">
-//     <li id="recent" class="xui-margin-vertical-xsmall xui-padding-horizontal-large xui-text-minor xui-pickitem-text-truncated">
-//       Recent
+// <div class="xui-panel">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//     <li class="xui-picklist--header">
+//       <span class="xui-picklist--header--text">Recent</span>
 //     </li>
 //     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//       <button type='button' class="xui-pickitem--body">
-//         <span class="xui-pickitem--text xui-pickitem-text-truncated">
-//           302 — Entertainment
-//         </span>
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Monique Smith</span>
+//       </button>
+//     </li>
+//     <li class="xui-picklist--divider"></li>
+//     <li class="xui-picklist--header">
+//       <span class="xui-picklist--header--text">Suggested</span>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Ben Watts</span>
 //       </button>
 //     </li>
 //     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//       <button type='button' class="xui-pickitem--body">
-//         <span class="xui-pickitem--text xui-pickitem-text-truncated">
-//           440 — Overseas Travel
-//         </span>
-//       </button>
-//     </li>
-//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//       <button type='button' class="xui-pickitem--body">
-//         <span class="xui-pickitem--text xui-pickitem-text-truncated">
-//           301 — Office Supplies
-//         </span>
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Cleo Mitchell</span>
 //       </button>
 //     </li>
 //   </ul>
-//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree" aria-labelledby="all">
-//     <li id="all" class="xui-margin-vertical-xsmall xui-padding-horizontal-large xui-text-minor xui-pickitem-text-truncated">
-//       All
+// </div>
+// <div class="xui-panel xui-margin-top">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="tree" aria-labelledby="recent">
+//     <li class="xui-picklist--header">
+//       <span class="xui-picklist--header--text">Recent</span>
 //     </li>
-//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//       <button type='button' class="xui-pickitem--body">
-//         <span class="xui-pickitem--text xui-pickitem-text-truncated">
-//           300 — Sales
-//         </span>
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Monique Smith</span>
 //       </button>
 //     </li>
-//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//       <button type='button' class="xui-pickitem--body">
-//         <span class="xui-pickitem--text xui-pickitem-text-truncated">
-//           400 — Expenses
-//         </span>
+//     <li class="xui-picklist--divider"></li>
+//     <li class="xui-picklist--header">
+//       <span class="xui-picklist--header--text">Suggested</span>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Ben Watts</span>
 //       </button>
 //     </li>
-//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//       <button type='button' class="xui-pickitem--body">
-//         <span class="xui-pickitem--text xui-pickitem-text-truncated">
-//           500 — Fixed assets
-//         </span>
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Cleo Mitchell</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+// <div class="xui-panel xui-margin-top">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="tree" aria-labelledby="recent">
+//     <li class="xui-picklist--header">
+//       <span class="xui-picklist--header--text">Recent</span>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Monique Smith</span>
+//       </button>
+//     </li>
+//     <li class="xui-picklist--divider"></li>
+//     <li class="xui-picklist--header">
+//       <span class="xui-picklist--header--text">Suggested</span>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Ben Watts</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Cleo Mitchell</span>
 //       </button>
 //     </li>
 //   </ul>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Picklist.6.1
+// Styleguide: Compounds.DisplayingData.Picklist.7
 
-// Icon
+// Text styling
 //
 // Classes:
-// xui-pickitem--icon: Apply to icon
+// xui-pickitem--secondary: Apply to style inline secondary text
+// xui-pickitem--pinned: Apply to style right pinned text
 //
 // Markup:
-// <div class='xui-panel'>
+// <div class="xui-panel">
 //   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
 //     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//       <div class="xui-iconwrapper xui-pickitem--icon">
-//         <svg focusable="false" class="xui-icon xui-icon-color-black-muted">
-//           <use xlink:href="#xui-icon-plus" role="presentation"></use>
-//         </svg>
-//       </div>
-//       <span class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">
-//           Create new
-//         </span>
-//       </span>
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Nicole Crosby<span class="xui-pickitem--secondary">Admin</span></span>
+//         <span class="xui-pickitem--pinned">50.00</span>
+//       </button>
 //     </li>
 //     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//       <div class="xui-iconwrapper xui-pickitem--icon">
-//         <svg focusable="false" class="xui-icon xui-icon-color-black-muted">
-//           <use xlink:href="#xui-icon-help" role="presentation"></use>
-//         </svg>
-//       </div>
-//       <span class="xui-pickitem--body">
-//         <span class="xui-pickitem--text xui-pickitem-text-truncated">
-//           Help
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Rosie Cox<span class="xui-pickitem--secondary">Admin</span></span>
+//         <span class="xui-pickitem--pinned">60.00</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Michael Lillis</span>
+//         <span class="xui-pickitem--pinned">50.00</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+// <div class="xui-panel xui-margin-top">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="tree" aria-labelledby="recent">
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Nicole Crosby<span class="xui-pickitem--secondary">Admin</span></span>
+//         <span class="xui-pickitem--pinned">50.00</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Rosie Cox<span class="xui-pickitem--secondary">Admin</span></span>
+//         <span class="xui-pickitem--pinned">60.00</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Michael Lillis</span>
+//         <span class="xui-pickitem--pinned">50.00</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+// <div class="xui-panel xui-margin-top">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="tree" aria-labelledby="recent">
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Nicole Crosby<span class="xui-pickitem--secondary">Admin</span></span>
+//         <span class="xui-pickitem--pinned">50.00</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Rosie Cox<span class="xui-pickitem--secondary">Admin</span></span>
+//         <span class="xui-pickitem--pinned">60.00</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Michael Lillis</span>
+//         <span class="xui-pickitem--pinned">50.00</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Picklist.8
+
+// Side elements
+//
+// A side element is a generalised term for visual and interactive content, that is pinned to the left or right-hand side of a container. Below are perscribed elements that you can use inside the `xui-pickitem--sideelement` wrapper class. Side elements can be aligned left or right, depending on whether they are placed before or after the `xui-pickitem--text` container.
+//
+// Classes:
+// xui-pickitem--sideelement: Side element wrapper class
+//
+// Styleguide: Compounds.DisplayingData.Picklist.9
+
+// Icons
+//
+// Classes:
+// xui-icon: Apply to SVG icon within side element wrapper
+//
+// Markup:
+// <div class="xui-panel xui-margin-bottom">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">High priority</span>
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon xui-u-rotate-270">
+//             <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+//           </svg>
 //         </span>
-//       </span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Medium priority</span>
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon xui-u-rotate-270">
+//             <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+//           </svg>
+//         </span>
+//       </button>
 //     </li>
 //   </ul>
 //   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
-//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//       <div class="xui-iconwrapper xui-pickitem--icon">
-//         <svg focusable="false" class="xui-icon xui-icon-color-black-muted">
-//           <use xlink:href="#xui-icon-lock" role="presentation"></use>
-//         </svg>
-//       </div>
-//       <span class="xui-pickitem--body">
-//         <span class="xui-pickitem--text xui-pickitem-text-truncated">
-//           Logout
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-plus" role="presentation"></use>
+//           </svg>
 //         </span>
-//       </span>
+//         <span class="xui-pickitem--text">Create new group</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+// <div class="xui-panel xui-margin-bottom">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="tree">
+//     <li class="xui-pickitem xui-pickitem-small">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">High priority</span>
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon xui-u-rotate-270">
+//             <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+//           </svg>
+//         </span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-small">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Medium priority</span>
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon xui-u-rotate-270">
+//             <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+//           </svg>
+//         </span>
+//       </button>
+//     </li>
+//   </ul>
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="tree">
+//     <li class="xui-pickitem xui-pickitem-small">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-plus" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Create new group</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+// <div class="xui-panel">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="tree">
+//     <li class="xui-pickitem xui-pickitem-xsmall">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">High priority</span>
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon xui-u-rotate-270">
+//             <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+//           </svg>
+//         </span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Medium priority</span>
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon xui-u-rotate-270">
+//             <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+//           </svg>
+//         </span>
+//       </button>
+//     </li>
+//   </ul>
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="tree">
+//     <li class="xui-pickitem xui-pickitem-xsmall">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-plus" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Create new group</span>
+//       </button>
 //     </li>
 //   </ul>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Picklist.6.2
+// Styleguide: Compounds.DisplayingData.Picklist.9.1
 
-// Nested parent
+
+// Avatars
 //
 // Classes:
-// xui-text-secondary: Apply to secondary content
-// xui-icon-color-black-muted: Apply to icon
+// xui-avatar-small: Use for medium size variant pickitems
+// xui-avatar-xsmall: Use for small size variant pickitems
+// xui-avatar-2xsmall: Use for xsmall size variant pickitems
 //
 // Markup:
-// <div class='xui-panel'>
-// 	<ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
-// 		<li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
-// 			<button type="button" class="xui-pickitem--body">
-// 				<span class="xui-pickitem--text xui-pickitem-text-truncated">
-// 					<span>Status</span>
-// 					<span class="xui-text-secondary xui-margin-left-small">Draft, Sent</span>
-// 				</span>
-// 				<div class="xui-iconwrapper xui-margin-right-small">
-// 					<svg focusable="false" class="xui-icon xui-icon-rotate-270 xui-icon-color-black-muted">
-// 						<use xlink:href="#xui-icon-arrow" role="presentation"></use>
-// 					</svg>
-// 				</div>
-// 			</button>
-// 		</li>
-// 		<li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
-// 			<button type="button" class="xui-pickitem--body">
-// 				<span class="xui-pickitem--text xui-pickitem-text-truncated">
-// 					<span>Date range</span>
-// 					<span class="xui-text-secondary xui-margin-left-small">1 Apr 2016 — 31 Mar 2017</span>
-// 				</span>
-// 				<div class="xui-iconwrapper xui-margin-right-small">
-// 					<svg focusable="false" class="xui-icon xui-icon-rotate-270 xui-icon-color-black-muted">
-// 						<use xlink:href="#xui-icon-arrow" role="presentation"></use>
-// 					</svg>
-// 				</div>
-// 			</button>
-// 		</li>
-// 		<li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
-// 			<button type="button" class="xui-pickitem--body">
-// 				<span class="xui-pickitem--text xui-pickitem-text-truncated">
-// 					<span>Created by</span>
-// 					<span class="xui-text-secondary xui-margin-left-small">Tim Redmond +2 others</span>
-// 				</span>
-// 				<div class="xui-iconwrapper xui-margin-right-small">
-// 					<svg focusable="false" class="xui-icon xui-icon-rotate-270 xui-icon-color-black-muted">
-// 						<use xlink:href="#xui-icon-arrow" role="presentation"></use>
-// 					</svg>
-// 				</div>
-// 			</button>
-// 		</li>
-// 	</ul>
+// <div class="xui-panel xui-margin-bottom">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">JS</abbr>
+//         </span>
+//         <span class="xui-pickitem--text">Jam Sudson</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-2" role="presentation">HB</abbr>
+//         </span>
+//         <span class="xui-pickitem--text">Harry Bannah</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+// <div class="xui-panel xui-margin-bottom">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="tree">
+//     <li class="xui-pickitem xui-pickitem-small">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <abbr class="xui-avatar xui-avatar-xsmall xui-avatar-color-1" role="presentation">JS</abbr>
+//         </span>
+//         <span class="xui-pickitem--text">Jam Sudson</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-small">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <abbr class="xui-avatar xui-avatar-xsmall xui-avatar-color-2" role="presentation">HB</abbr>
+//         </span>
+//         <span class="xui-pickitem--text">Harry Bannah</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+// <div class="xui-panel">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="tree">
+//     <li class="xui-pickitem xui-pickitem-xsmall">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <abbr class="xui-avatar xui-avatar-2xsmall xui-avatar-color-1" role="presentation">JS</abbr>
+//         </span>
+//         <span class="xui-pickitem--text">Jam Sudson</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <abbr class="xui-avatar xui-avatar-2xsmall xui-avatar-color-2" role="presentation">HB</abbr>
+//         </span>
+//         <span class="xui-pickitem--text">Harry Bannah</span>
+//       </button>
+//     </li>
+//   </ul>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Picklist.6.3
+// Styleguide: Compounds.DisplayingData.Picklist.9.2
 
-// Pinned value
+// Multiselect picklist
+//
+// Tips:
+// Do: Replace any left side elements with checkbox when using a multiselect picklist
+// Dont: Don't display a left side element alongside a checkbox inside a pickitem
+// Dont: Multiselect is not supported for xsmall size variant picklists
 //
 // Classes:
-// xui-text-secondary: Apply to pinned value
-// xui-u-flex-inherit: Apply to pickitem text
+// xui-pickitem-multiselect: Apply to pickitems
+// xui-pickitem-multiselect--checkbox: Apply to pickitem label
+// xui-pickitem--input: Apply to style checkbox
+// xui-pickitem-multiselect--label: Apply to pickitem text wrapper
 //
 // Markup:
-// <div class='xui-panel'>
-// 	<ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
-// 		<li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
-// 			<button type="button" class="xui-pickitem--body">
-// 				<span class="xui-pickitem--text xui-u-flex-inherit">
-// 					<span class="xui-u-flex-1 xui-pickitem-text-truncated">Draft</span>
-// 					<span class="xui-text-secondary xui-padding-left-small">18</span>
-// 				</span>
-// 			</button>
-// 		</li>
-// 		<li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
-// 			<button type="button" class="xui-pickitem--body">
-// 				<span class="xui-pickitem--text xui-u-flex-inherit">
-// 					<span class="xui-u-flex-1 xui-pickitem-text-truncated">Sent</span>
-// 					<span class="xui-text-secondary xui-padding-left-small">3</span>
-// 				</span>
-// 			</button>
-// 		</li>
-// 		<li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
-// 			<button type="button" class="xui-pickitem--body">
-// 				<span class="xui-pickitem--text xui-u-flex-inherit">
-// 					<span class="xui-u-flex-1 xui-pickitem-text-truncated">Paid</span>
-// 					<span class="xui-text-secondary xui-padding-left-small">42</span>
-// 				</span>
-// 			</button>
-// 		</li>
-// 	</ul>
-// </div>
-//
-// Styleguide: Compounds.DisplayingData.Picklist.6.4
-
-// Checkbox
-//
-// Classes:
-// xui-pickitem--input: Apply to the checkbox
-// xui-pickitem--text: Apply to pickitem text
-//
-// Markup:
-// <div class='xui-panel'>
+// <div class="xui-panel xui-margin-bottom">
 // 	<ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="group">
-// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" role="option">
-// 			<div class="xui-pickitem--body">
-// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="discount">
-// 					<input type="checkbox" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" id="discount">
-// 					<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input"></div>
-// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text">
-//						<span>Discount</span>
+// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" aria-selected="false" role="option" id="0-1">
+// 			<div class="xui-pickitem--body" role="presentation">
+// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
+// 					<input type="checkbox" tabindex="-1" aria-labelledby="aaa" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+// 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"></div>
+// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
+// 						<span class="">Retail</span>
 // 					</span>
 // 				</label>
 // 			</div>
 // 		</li>
-// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" role="option">
-// 			<div class="xui-pickitem--body">
-// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="reference">
-// 					<input type="checkbox" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" id="reference">
-// 					<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input"></div>
-// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text">
-//						<span>Reference</span>
+// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" aria-selected="false" role="option" id="0-1">
+// 			<div class="xui-pickitem--body" role="presentation">
+// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
+// 					<input type="checkbox" tabindex="-1" aria-labelledby="aab" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+// 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"></div>
+// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label" id="aab">
+// 						<span class="">Construction</span>
 // 					</span>
 // 				</label>
 // 			</div>
 // 		</li>
-// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" role="option">
-// 			<div class="xui-pickitem--body">
-// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="quantity">
-// 					<input type="checkbox" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" id="quantity">
-// 					<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input"></div>
-// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text">
-//						<span>Quantity</span>
+// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" aria-selected="false" role="option" id="0-1">
+// 			<div class="xui-pickitem--body" role="presentation">
+// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
+// 					<input type="checkbox" tabindex="-1" aria-labelledby="aac" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+// 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"></div>
+// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label" id="aac">
+// 						<span class="">Professional services</span>
+// 					</span>
+// 				</label>
+// 			</div>
+// 		</li>
+// 	</ul>
+// </div>
+// <div class="xui-panel">
+// 	<ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="group">
+// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-small" aria-selected="false" role="option" id="0-1">
+// 			<div class="xui-pickitem--body" role="presentation">
+// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
+// 					<input type="checkbox" tabindex="-1" aria-labelledby="aaa" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall" value="">
+// 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"></div>
+// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
+// 						<span class="">Retail</span>
+// 					</span>
+// 				</label>
+// 			</div>
+// 		</li>
+// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-small" aria-selected="false" role="option" id="0-1">
+// 			<div class="xui-pickitem--body" role="presentation">
+// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
+// 					<input type="checkbox" tabindex="-1" aria-labelledby="aab" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall" value="">
+// 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"></div>
+// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label" id="aab">
+// 						<span class="">Construction</span>
+// 					</span>
+// 				</label>
+// 			</div>
+// 		</li>
+// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-small" aria-selected="false" role="option" id="0-1">
+// 			<div class="xui-pickitem--body" role="presentation">
+// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
+// 					<input type="checkbox" tabindex="-1" aria-labelledby="aac" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall" value="">
+// 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"></div>
+// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label" id="aac">
+// 						<span class="">Professional services</span>
 // 					</span>
 // 				</label>
 // 			</div>
@@ -375,83 +865,154 @@
 // 	</ul>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Picklist.6.5
+// Styleguide: Compounds.DisplayingData.Picklist.10
 
-// Avatar
+// Multiline pickitems
 //
 // Classes:
-// xui-avatar-small: Apply to avatar
+// xui-pickitem-multiline: Apply to pickitem to wrap content
+// xui-pickitem--heading: Apply to primary content
+// xui-pickitem--secondary: Apply to secondary content
 //
 // Markup:
-// <div class='xui-panel'>
+// <div class="xui-panel xui-margin-bottom">
 // 	<ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
-// 		<li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+// 		<li class="xui-pickitem xui-pickitem-multiline xui-pickitem-medium" role="treeitem" tabindex="-1" >
 // 			<button type="button" class="xui-pickitem--body">
-// 				<abbr class="xui-avatar xui-avatar-small xui-avatar-color-8 xui-margin-right">JM</abbr>
-// 				<span class="xui-pickitem--text xui-pickitem-text-truncated">James Magness</span>
+// 				<span class="xui-pickitem--sideelement">
+// 					<abbr class="xui-avatar xui-avatar-small xui-avatar-color-5" role="presentation">CT</abbr>
+// 				</span>
+// 				<span class="xui-pickitem--text">
+// 					<span class="xui-pickitem--heading xui-pickitem-text-truncated">Cam Trollope</span>
+// 					<span class="xui-pickitem--secondary xui-pickitem-text-truncated">cam.trollope@xero.com</span>
+// 				</span>
 // 			</button>
 // 		</li>
-// 		<li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+// 		<li class="xui-pickitem xui-pickitem-multiline xui-pickitem-medium" role="treeitem" tabindex="-1" >
 // 			<button type="button" class="xui-pickitem--body">
-// 				<abbr class="xui-avatar xui-avatar-small xui-avatar-color-5 xui-margin-right">TR</abbr>
-// 				<span class="xui-pickitem--text xui-pickitem-text-truncated">Tim Redmond</span>
-// 			</button>
-// 		</li>
-// 		<li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-// 			<button type="button" class="xui-pickitem--body">
-// 				<abbr class="xui-avatar xui-avatar-small xui-avatar-color-2 xui-margin-right">ME</abbr>
-// 				<span class="xui-pickitem--text xui-pickitem-text-truncated">Maxine Ellah</span>
+// 				<span class="xui-pickitem--sideelement">
+// 					<abbr class="xui-avatar xui-avatar-small xui-avatar-color-6" role="presentation">GC</abbr>
+// 				</span>
+// 				<span class="xui-pickitem--text">
+// 					<span class="xui-pickitem--heading xui-pickitem-text-truncated">Georgia Cottrell</span>
+// 					<span class="xui-pickitem--secondary xui-pickitem-text-truncated">georgia.cottrell@xero.com</span>
+// 				</span>
 // 			</button>
 // 		</li>
 // 	</ul>
-// </div>
-//
-// Styleguide: Compounds.DisplayingData.Picklist.6.6
-
-// Multine avatar
-//
-// Classes:
-// xui-text-emphasis: Apply to primary content
-// xui-text-secondary: Apply to secondary content
-//
-// Markup:
-// <div class='xui-panel'>
 // 	<ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
-// 		<li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
-// 			<button type="button" class="xui-pickitem--body">
-// 				<abbr class="xui-avatar xui-avatar xui-avatar-color-8 xui-margin-right-small">JM</abbr>
-// 				<span class="xui-pickitem--text xui-u-overflow-hidden xui-u-flex xui-u-flex-column">
-// 					<span class="xui-text-emphasis xui-pickitem-text-truncated">James Magness</span>
-// 					<span class="xui-text-secondary xui-pickitem-text-truncated">james.magness@xero.com</span>
-// 				</span>
-// 			</button>
+// 		<li class="xui-picklist--header">
+// 			<span class="xui-picklist--header--text">Removed users</span>
 // 		</li>
-// 		<li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
+// 		<li class="xui-pickitem xui-pickitem-multiline xui-pickitem-medium" role="treeitem" tabindex="-1" >
 // 			<button type="button" class="xui-pickitem--body">
-// 				<abbr class="xui-avatar xui-avatar xui-avatar-color-5 xui-margin-right-small">KH</abbr>
-// 				<span class="xui-pickitem--text xui-u-overflow-hidden xui-u-flex xui-u-flex-column">
-// 					<span class="xui-text-emphasis xui-pickitem-text-truncated">Tim Redmond</span>
-// 					<span class="xui-text-secondary xui-pickitem-text-truncated">tim.redmond@xero.com</span>
+// 				<span class="xui-pickitem--sideelement">
+// 					<svg focusable="false" class="xui-icon">
+// 						<use xlink:href="#xui-icon-contact" role="presentation"></use>
+// 					</svg>
 // 				</span>
-// 			</button>
-// 		</li>
-// 		<li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
-// 			<button type="button" class="xui-pickitem--body">
-// 				<abbr class="xui-avatar xui-avatar xui-avatar-color-2 xui-margin-right-small">FP</abbr>
-// 				<span class="xui-pickitem--text xui-u-overflow-hidden  xui-u-flex xui-u-flex-column">
-// 					<span class="xui-text-emphasis xui-pickitem-text-truncated">Maxine Ellah</span>
-// 					<span class="xui-text-secondary xui-pickitem-text-truncated">maxine.ellah@xero.com</span>
+// 				<span class="xui-pickitem--text">
+// 					<span class="xui-pickitem--heading xui-pickitem-text-truncated">Robb Schiller</span>
+// 					<span class="xui-pickitem--secondary xui-pickitem-text-truncated">robb.schiller@xero.com</span>
 // 				</span>
 // 			</button>
 // 		</li>
 // 	</ul>
 // </div>
+// <div class="xui-panel xui-margin-bottom">
+// 	<ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="tree">
+// 		<li class="xui-pickitem xui-pickitem-multiline xui-pickitem-small" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<span class="xui-pickitem--sideelement">
+// 					<abbr class="xui-avatar xui-avatar-xsmall xui-avatar-color-5" role="presentation">CT</abbr>
+// 				</span>
+// 				<span class="xui-pickitem--text">
+// 					<span class="xui-pickitem--heading xui-pickitem-text-truncated">Cam Trollope</span>
+// 					<span class="xui-pickitem--secondary xui-pickitem-text-truncated">cam.trollope@xero.com</span>
+// 				</span>
+// 			</button>
+// 		</li>
+// 		<li class="xui-pickitem xui-pickitem-multiline xui-pickitem-small" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<span class="xui-pickitem--sideelement">
+// 					<abbr class="xui-avatar xui-avatar-xsmall xui-avatar-color-6" role="presentation">GC</abbr>
+// 				</span>
+// 				<span class="xui-pickitem--text">
+// 					<span class="xui-pickitem--heading xui-pickitem-text-truncated">Georgia Cottrell</span>
+// 					<span class="xui-pickitem--secondary xui-pickitem-text-truncated">georgia.cottrell@xero.com</span>
+// 				</span>
+// 			</button>
+// 		</li>
+// 	</ul>
+// 	<ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="tree">
+// 		<li class="xui-picklist--header">
+// 			<span class="xui-picklist--header--text">Removed users</span>
+// 		</li>
+// 		<li class="xui-pickitem xui-pickitem-multiline xui-pickitem-small" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<span class="xui-pickitem--sideelement">
+// 					<svg focusable="false" class="xui-icon">
+// 						<use xlink:href="#xui-icon-contact" role="presentation"></use>
+// 					</svg>
+// 				</span>
+// 				<span class="xui-pickitem--text">
+// 					<span class="xui-pickitem--heading xui-pickitem-text-truncated">Robb Schiller</span>
+// 					<span class="xui-pickitem--secondary xui-pickitem-text-truncated">robb.schiller@xero.com</span>
+// 				</span>
+// 			</button>
+// 		</li>
+// 	</ul>
+// </div>
+// <div class="xui-panel">
+// 	<ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="tree">
+// 		<li class="xui-pickitem xui-pickitem-multiline xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<span class="xui-pickitem--sideelement">
+// 					<abbr class="xui-avatar xui-avatar-2xsmall xui-avatar-color-5" role="presentation">CT</abbr>
+// 				</span>
+// 				<span class="xui-pickitem--text">
+// 					<span class="xui-pickitem--heading xui-pickitem-text-truncated">Cam Trollope</span>
+// 					<span class="xui-pickitem--secondary xui-pickitem-text-truncated">cam.trollope@xero.com</span>
+// 				</span>
+// 			</button>
+// 		</li>
+// 		<li class="xui-pickitem xui-pickitem-multiline xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<span class="xui-pickitem--sideelement">
+// 					<abbr class="xui-avatar xui-avatar-2xsmall xui-avatar-color-6" role="presentation">GC</abbr>
+// 				</span>
+// 				<span class="xui-pickitem--text">
+// 					<span class="xui-pickitem--heading xui-pickitem-text-truncated">Georgia Cottrell</span>
+// 					<span class="xui-pickitem--secondary xui-pickitem-text-truncated">georgia.cottrell@xero.com</span>
+// 				</span>
+// 			</button>
+// 		</li>
+// 	</ul>
+// 	<ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="tree">
+// 		<li class="xui-picklist--header">
+// 			<span class="xui-picklist--header--text">Removed users</span>
+// 		</li>
+// 		<li class="xui-pickitem xui-pickitem-multiline xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<span class="xui-pickitem--sideelement">
+// 					<svg focusable="false" class="xui-icon">
+// 						<use xlink:href="#xui-icon-contact" role="presentation"></use>
+// 					</svg>
+// 				</span>
+// 				<span class="xui-pickitem--text">
+// 					<span class="xui-pickitem--heading xui-pickitem-text-truncated">Robb Schiller</span>
+// 					<span class="xui-pickitem--secondary xui-pickitem-text-truncated">robb.schiller@xero.com</span>
+// 				</span>
+// 			</button>
+// 		</li>
+// 	</ul>
+// </div>
 //
-// Styleguide: Compounds.DisplayingData.Picklist.6.7
+// Styleguide: Compounds.DisplayingData.Picklist.11
 
-// Expanding lists
+// Expanding picklists
 //
-// To hide and show a list of sub pickitems, apply the following classes.
+// To hide and show a list of sub-menu pickitems, apply the following classes.
 //
 // Classes:
 // xui-picklist--nestedcontainer: Apply to expanding pickitem
@@ -460,59 +1021,148 @@
 // xui-submenu: Container for a group of nested pickitems
 // xui-submenu-layout: Recommended layout modifier for a group of pickitems
 //
-// Styleguide: Compounds.DisplayingData.Picklist.8
+// Styleguide: Compounds.DisplayingData.Picklist.12
 
 // Standard
 //
-// Tips:
-// Do: If the parent pickitem does not have a destination, the whole row toggles visibility of children pickitems.
+// If the parent pickitem does not have a destination or function, use the standard (non-split) variant.
 //
 // Markup:
-// <div class="xui-panel">
-// 	<ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
-// 		<li class="xui-picklist--nestedcontainer" role="treeitem" aria-expanded="false">
-// 			<input id="nested-checkbox" type="checkbox" class="xui-pickitem--submenucontrol" aria-owns="nested" value="on" tabindex="-1">
-// 			<label for="nested-checkbox" class="xui-pickitem--body" title="Open or close the menu" role="button" aria-label="Open or close the menu" tabindex="-1">
-// 				<span class="xui-pickitem--text">Accounts</span>
-// 				<div class="xui-iconwrapper xui-submenu-uicontrol--icon">
+// <div class="xui-panel xui-margin-bottom">
+// 	<ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="group">
+// 		<li class="xui-picklist--nestedcontainer" aria-expanded="true">
+//			<input role="treeitem" type="checkbox" class="xui-pickitem--submenucontrol" id="nested-checkbox" tabindex="-1" aria-owns="nested">
+//			<label role="button" for="nested-checkbox" class="xui-submenu-uicontrol xui-pickitem--body" tabindex="0" aria-label="Toggle submenu">
+//				<span class="xui-pickitem--text">Clients</span>
+//				<div class="xui-submenu-uicontrol--icon xui-iconwrapper">
 // 					<svg focusable="false" class="xui-icon">
 // 						<use xlink:href="#xui-icon-arrow" role="presentation"></use>
 // 					</svg>
-// 				</div>
-// 			</label>
-// 			<ul id="nested" class="xui-submenu xui-submenu-layout xui-picklist-medium" role="group">
-// 				<li class="xui-pickitem xui-pickitem-medium" role="option">
-// 					<button type="button" class="xui-pickitem--body" tabindex="-1">
-// 						<span class="xui-pickitem--text">Sales</span>
-// 					</button>
-// 				</li>
-// 				<li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium" role="option">
-// 					<button type="button" class="xui-pickitem--body" tabindex="-1">
-// 						<span class="xui-pickitem--text">Purchases</span>
-// 					</button>
-// 				</li>
-// 				<li class="xui-pickitem xui-pickitem-medium" aria-selected="false" role="option">
-// 					<button type="button" class="xui-pickitem--body" tabindex="-1">
-// 						<span class="xui-pickitem--text">Expenses</span>
-// 					</button>
-// 				</li>
-// 			</ul>
-// 		</li>
+//				</div>
+//			</label>
+//			<ul role="listbox" class="xui-submenu xui-submenu-layout" id="nested">
+//				<li class="xui-pickitem xui-pickitem-medium" role="option" id="0-1">
+//					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--sideelement">
+// 							<abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-7" role="presentation">AC</abbr>
+// 						</span>
+//						<span class="xui-pickitem--text">Andy Carrell</span>
+//					</button>
+//				</li>
+//				<li class="xui-pickitem xui-pickitem-medium" role="option" id="0-2">
+//					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--sideelement">
+// 							<abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-8" role="presentation">JK</abbr>
+// 						</span>
+//						<span class="xui-pickitem--text">Jishaal Kalyan</span>
+//					</button>
+//				</li>
+//				<li class="xui-pickitem xui-pickitem-medium" role="option" id="0-3">
+//					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--sideelement">
+// 							<abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-9" role="presentation">SK</abbr>
+// 						</span>
+//						<span class="xui-pickitem--text">Simar Karla</span>
+//					</button>
+//				</li>
+//			</ul>
+//		</li>
+// 	</ul>
+// </div>
+// <div class="xui-panel xui-margin-bottom">
+// 	<ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="group">
+// 		<li class="xui-picklist--nestedcontainer" aria-expanded="true">
+//			<input role="treeitem" type="checkbox" class="xui-pickitem--submenucontrol" id="nested-checkbox-two" tabindex="-1" aria-owns="nested-2">
+//			<label role="button" for="nested-checkbox-two" class="xui-submenu-uicontrol xui-pickitem--body" tabindex="0" aria-label="Toggle submenu">
+//				<span class="xui-pickitem--text">Clients</span>
+//				<div class="xui-submenu-uicontrol--icon xui-iconwrapper">
+// 					<svg focusable="false" class="xui-icon">
+// 						<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 					</svg>
+//				</div>
+//			</label>
+//			<ul role="listbox" class="xui-submenu xui-submenu-layout" id="nested-2">
+//				<li class="xui-pickitem xui-pickitem-small" role="option" id="0-4">
+//					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--sideelement">
+// 							<abbr class="xui-avatar xui-avatar-business xui-avatar-xsmall xui-avatar-color-7" role="presentation">AC</abbr>
+// 						</span>
+//						<span class="xui-pickitem--text">Andy Carrell</span>
+//					</button>
+//				</li>
+//				<li class="xui-pickitem xui-pickitem-small" role="option" id="0-5">
+//					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--sideelement">
+// 							<abbr class="xui-avatar xui-avatar-business xui-avatar-xsmall xui-avatar-color-8" role="presentation">JK</abbr>
+// 						</span>
+//						<span class="xui-pickitem--text">Jishaal Kalyan</span>
+//					</button>
+//				</li>
+//				<li class="xui-pickitem xui-pickitem-small" role="option" id="0-6">
+//					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--sideelement">
+// 							<abbr class="xui-avatar xui-avatar-business xui-avatar-xsmall xui-avatar-color-9" role="presentation">SK</abbr>
+// 						</span>
+//						<span class="xui-pickitem--text">Simar Karla</span>
+//					</button>
+//				</li>
+//			</ul>
+//		</li>
+// 	</ul>
+// </div>
+// <div class="xui-panel">
+// 	<ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="group">
+// 		<li class="xui-picklist--nestedcontainer" aria-expanded="true">
+//			<input role="treeitem" type="checkbox" class="xui-pickitem--submenucontrol" id="nested-checkbox-three" tabindex="-1" aria-owns="nested-3">
+//			<label role="button" for="nested-checkbox-three" class="xui-submenu-uicontrol xui-pickitem--body" tabindex="0" aria-label="Toggle submenu">
+//				<span class="xui-pickitem--text">Clients</span>
+//				<div class="xui-submenu-uicontrol--icon xui-iconwrapper">
+// 					<svg focusable="false" class="xui-icon">
+// 						<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 					</svg>
+//				</div>
+//			</label>
+//			<ul role="listbox" class="xui-submenu xui-submenu-layout" id="nested-3">
+//				<li class="xui-pickitem xui-pickitem-xsmall" role="option" id="0-7">
+//					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--sideelement">
+// 							<abbr class="xui-avatar xui-avatar-business xui-avatar-2xsmall xui-avatar-color-7" role="presentation">AC</abbr>
+// 						</span>
+//						<span class="xui-pickitem--text">Andy Carrell</span>
+//					</button>
+//				</li>
+//				<li class="xui-pickitem xui-pickitem-xsmall" role="option" id="0-8">
+//					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--sideelement">
+// 							<abbr class="xui-avatar xui-avatar-business xui-avatar-2xsmall xui-avatar-color-8" role="presentation">JK</abbr>
+// 						</span>
+//						<span class="xui-pickitem--text">Jishaal Kalyan</span>
+//					</button>
+//				</li>
+//				<li class="xui-pickitem xui-pickitem-xsmall" role="option" id="0-9">
+//					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--sideelement">
+// 							<abbr class="xui-avatar xui-avatar-business xui-avatar-2xsmall xui-avatar-color-9" role="presentation">SK</abbr>
+// 						</span>
+//						<span class="xui-pickitem--text">Simar Karla</span>
+//					</button>
+//				</li>
+//			</ul>
+//		</li>
 // 	</ul>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Picklist.8.1
+// Styleguide: Compounds.DisplayingData.Picklist.12.1
 
 // Split
 //
-// Tips:
-// Do: If the parent pickitem can be selected separately from it's children, the row selects it, and a separate control toggles visibility of children pickitems
+// If the parent pickitem can be selected separately from it's children, the split variant is the appropriate functionality to use. This creates distinct controls for selecting the parent, as well as opening the sub-menu of pickitems.
 //
 // Classes:
 // xui-pickitem-split: Add to pickitem
 //
 // Markup:
-// <div class="xui-panel">
+// <div class="xui-panel xui-margin-bottom">
 // 	<ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
 // 		<li class="xui-picklist--nestedcontainer" role="treeitem" aria-expanded="false">
 // 			<input id="split-checkbox" type="checkbox" class="xui-pickitem--submenucontrol" tabindex="-1"/>
@@ -527,53 +1177,149 @@
 // 					</label>
 // 				</div>
 // 			</div>
-// 		<label for="split-checkbox" class="xui-submenu-uicontrol" title="Show or hide more options" aria-label="Show or hide more options" tabindex="-1" >
-// 			<div class="xui-iconwrapper xui-submenu-uicontrol--icon">
-// 				<svg focusable="false" class="xui-icon">
-// 					<use xlink:href="#xui-icon-arrow" role="presentation"></use>
-// 				</svg>
+// 			<label for="split-checkbox" class="xui-submenu-uicontrol" title="Show or hide more options" aria-label="Show or hide more options" tabindex="-1" >
+// 				<div class="xui-iconwrapper xui-submenu-uicontrol--icon">
+// 					<svg focusable="false" class="xui-icon">
+// 						<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 					</svg>
+// 				</div>
+// 			</label>
+// 			<ul id="split" class="xui-submenu xui-submenu-layout xui-picklist-medium" role="group">
+// 				<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" role="option">
+// 					<div class="xui-pickitem--body">
+// 						<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="tim">
+// 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" id="tim">
+// 							<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input"></div>
+// 							<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text">
+// 								<span>Tim Redmond</span>
+// 							</span>
+// 						</label>
+// 					</div>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" role="option">
+// 					<div class="xui-pickitem--body">
+// 						<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="finn">
+// 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" id="finn">
+// 							<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input"></div>
+// 							<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text">
+// 								<span>Finn Clark</span>
+// 							</span>
+// 						</label>
+// 					</div>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" role="option">
+// 					<div class="xui-pickitem--body">
+// 						<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="maxine">
+// 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" id="maxine">
+// 							<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input"></div>
+// 							<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text">
+// 								<span>Maxine Ellah</span>
+// 							</span>
+// 						</label>
+// 					</div>
+// 				</li>
+// 			</ul>
+// 		</li>
+// 	</ul>
+// </div>
+// <div class="xui-panel xui-margin-bottom">
+// 	<ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="tree">
+// 		<li class="xui-picklist--nestedcontainer" role="treeitem" aria-expanded="false">
+// 			<input id="split-checkbox-two" type="checkbox" class="xui-pickitem--submenucontrol" tabindex="-1"/>
+// 			<div class="xui-pickitem xui-pickitem-multiselect xui-pickitem-small xui-pickitem-split" id="splitTrigger">
+// 				<div class="xui-pickitem--body">
+// 					<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio">
+// 						<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall checked" tabindex="-1" checked>
+// 						<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-xsmall xui-pickitem--input"></div>
+// 						<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text">
+// 							<span>Staff</span>
+// 						</span>
+// 					</label>
+// 				</div>
 // 			</div>
-// 		</label>
-// 		<ul id="split" class="xui-submenu xui-submenu-layout xui-picklist-medium" role="group">
-// 			<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" role="option">
-// 				<div class="xui-pickitem--body">
-// 					<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="tim">
-// 						<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" id="tim">
-// 						<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input"></div>
-// 						<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text">
-// 							<span>Tim Redmond</span>
-// 						</span>
-// 					</label>
+// 			<label for="split-checkbox-two" class="xui-submenu-uicontrol" title="Show or hide more options" aria-label="Show or hide more options" tabindex="-1" >
+// 				<div class="xui-iconwrapper xui-submenu-uicontrol--icon">
+// 					<svg focusable="false" class="xui-icon">
+// 						<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 					</svg>
 // 				</div>
-// 			</li>
-// 			<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" role="option">
-// 				<div class="xui-pickitem--body">
-// 					<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="fin">
-// 						<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" id="finn">
-// 						<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input"></div>
-// 						<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text">
-// 							<span>Finn Clark</span>
-// 						</span>
-// 					</label>
+// 			</label>
+// 			<ul id="split" class="xui-submenu xui-submenu-layout xui-picklist-small" role="group">
+// 				<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-small" role="option">
+// 					<div class="xui-pickitem--body">
+// 						<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="zac">
+// 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall" id="zac">
+// 							<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-xsmall xui-pickitem--input"></div>
+// 							<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text">
+// 								<span>Zac Sanderson-Harris</span>
+// 							</span>
+// 						</label>
+// 					</div>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-small" role="option">
+// 					<div class="xui-pickitem--body">
+// 						<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="charlotte">
+// 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall" id="charlotte">
+// 							<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-xsmall xui-pickitem--input"></div>
+// 							<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text">
+// 								<span>Charlotte Gray</span>
+// 							</span>
+// 						</label>
+// 					</div>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-small" role="option">
+// 					<div class="xui-pickitem--body">
+// 						<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="james">
+// 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall" id="james">
+// 							<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-xsmall xui-pickitem--input"></div>
+// 							<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text">
+// 								<span>James Magness</span>
+// 							</span>
+// 						</label>
+// 					</div>
+// 				</li>
+// 			</ul>
+// 		</li>
+// 	</ul>
+// </div>
+// <div class="xui-panel">
+// 	<ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="tree">
+// 		<li class="xui-picklist--nestedcontainer" role="treeitem" aria-expanded="false">
+// 			<input id="split-checkbox-three" type="checkbox" class="xui-pickitem--submenucontrol" tabindex="-1"/>
+// 			<div class="xui-pickitem xui-pickitem-xsmall xui-pickitem-split" id="splitTrigger">
+// 				<button class="xui-pickitem--body">
+// 					<span class="xui-pickitem--text">Staff</span>
+// 				</button>
+// 			</div>
+// 			<label for="split-checkbox-three" class="xui-submenu-uicontrol" title="Show or hide more options" aria-label="Show or hide more options" tabindex="-1" >
+// 				<div class="xui-iconwrapper xui-submenu-uicontrol--icon">
+// 					<svg focusable="false" class="xui-icon">
+// 						<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 					</svg>
 // 				</div>
-// 			</li>
-// 			<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" role="option">
-// 				<div class="xui-pickitem--body">
-// 					<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="maxine">
-// 						<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" id="maxine">
-// 						<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input"></div>
-// 						<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text">
-// 							<span>Maxine Ellah</span>
-// 						</span>
-// 					</label>
-// 				</div>
-// 			</li>
-// 		</ul>
+// 			</label>
+// 			<ul id="split" class="xui-submenu xui-submenu-layout xui-picklist-xsmall" role="group">
+// 				<li class="xui-pickitem xui-pickitem-xsmall" role="option">
+// 					<button class="xui-pickitem--body">
+// 						<span class="xui-pickitem--text">Elise Wei</span>
+// 					</button>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem-xsmall" role="option">
+// 					<button class="xui-pickitem--body">
+// 						<span class="xui-pickitem--text">Alex Lapwood</span>
+// 					</button>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem-xsmall" role="option">
+// 					<button class="xui-pickitem--body">
+// 						<span class="xui-pickitem--text">Rachel Bowater</span>
+// 					</button>
+// 				</li>
+// 			</ul>
 // 		</li>
 // 	</ul>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Picklist.8.2
+// Styleguide: Compounds.DisplayingData.Picklist.12.2
 
 // Accessibility
 //
@@ -592,7 +1338,7 @@
 //
 // For selected pickitems, make sure to apply the `aria-selected` attribute.
 //
-// Styleguide: Compounds.DisplayingData.Picklist.10
+// Styleguide: Compounds.DisplayingData.Picklist.13
 
 // General picklist and pickitem styles
 
@@ -957,7 +1703,7 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	}
 	.#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
 		height: $xui-s-3xlarge;
-		min-width: $xui-s-3xlarge;
+		width: $xui-s-3xlarge;
 	}
 	.#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
 		@include xui-padding-vertical($xui-s-small);
@@ -982,7 +1728,7 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	}
 	.#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
 		height: $xui-s-2xlarge;
-		min-width: $xui-s-2xlarge;
+		width: $xui-s-2xlarge;
 	}
 	.#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
 		@include xui-padding-vertical($xui-s-xsmall);
@@ -1007,7 +1753,7 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	}
 	.#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
 		height: $xui-s-xlarge;
-		min-width: $xui-s-xlarge;
+		width: $xui-s-xlarge;
 	}
 	.#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
 		@include xui-padding-vertical($xui-s-2xsmall);
@@ -1238,7 +1984,7 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 .#{$ns}-pickitem-is-disabled {
 	.#{$ns}-pickitem--body,
 	.#{$ns}-pickitem-multiselect--label .#{$ns}-pickitem--text {
-		color: $xui-color-grey-3;
+		color: $xui-checkboxradio-label-disabled-color;
 		cursor: not-allowed;
 	}
 	&:hover {

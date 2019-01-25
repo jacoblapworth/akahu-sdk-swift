@@ -276,7 +276,7 @@ XUIButton.propTypes = {
 	variant: PropTypes.oneOf(Object.keys(variantClassNames)),
 
 	/**
-	 * Modifier for the size of the button. `standard`, `small`, or `xsmall`.
+	 * Modifier for the size of the button. `medium`, `small`, or `xsmall`.
 	*/
 	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
@@ -324,7 +324,7 @@ XUIButton.defaultProps = {
 	isLoading: false,
 	fullWidth: 'never',
 	retainLayout: true,
-	size: 'standard',
+	size: 'medium',
 	tabIndex: 0,
 	type: buttonTypes.button,
 	variant: 'standard',

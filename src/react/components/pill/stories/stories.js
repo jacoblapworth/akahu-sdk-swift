@@ -30,7 +30,7 @@ storiesWithKnobs.add('Playground', () => (
 		deleteButtonLabel={text('deleteButtonLabel', undefined)}
 		className={text('className', '')}
 		avatarProps={object('avatarProps', avatarProps)}
-		size={select('Size', Object.keys(sizeClasses), 'standard')}
+		size={select('Size', Object.keys(sizeClasses), 'medium')}
 	/>
 ));
 

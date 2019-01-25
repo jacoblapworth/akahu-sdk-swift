@@ -2,7 +2,7 @@
 
 exports[`<XUIButton/> adds minwidth when we need it to, for short buttons 1`] = `
 <button
-  className="xui-button xui-button-main xui-button-min-loader-width"
+  className="xui-button xui-button-main xui-button-medium xui-button-min-loader-width"
   disabled={false}
   onClick={[Function]}
   tabIndex={0}
@@ -14,7 +14,7 @@ exports[`<XUIButton/> adds minwidth when we need it to, for short buttons 1`] = 
 
 exports[`<XUIButton/> does retain layout checks with a myriad of combinations 1`] = `
 <button
-  className="xui-button xui-button-main"
+  className="xui-button xui-button-main xui-button-medium"
   disabled={false}
   onClick={[Function]}
   tabIndex={0}
@@ -26,7 +26,7 @@ exports[`<XUIButton/> does retain layout checks with a myriad of combinations 1`
 
 exports[`<XUIButton/> does retain layout checks with a myriad of combinations 2`] = `
 <button
-  className="xui-button xui-button-main"
+  className="xui-button xui-button-main xui-button-medium"
   disabled={true}
   onClick={[Function]}
   onKeyDown={null}
@@ -58,7 +58,7 @@ exports[`<XUIButton/> does retain layout checks with a myriad of combinations 2`
 
 exports[`<XUIButton/> does retain layout checks with a myriad of combinations 3`] = `
 <button
-  className="xui-button xui-button-main"
+  className="xui-button xui-button-main xui-button-medium"
   disabled={true}
   onClick={[Function]}
   onKeyDown={null}
@@ -86,7 +86,7 @@ exports[`<XUIButton/> does retain layout checks with a myriad of combinations 3`
 exports[`<XUIButton/> renders icon buttons with the correct icon size classes 1`] = `
 <div>
   <button
-    className="xui-button xui-button-icon"
+    className="xui-button xui-button-icon xui-button-icon-medium"
     disabled={false}
     onClick={[Function]}
     tabIndex={0}
@@ -112,14 +112,14 @@ exports[`<XUIButton/> renders icon buttons with the correct icon size classes 1`
 exports[`<XUIButton/> renders icon buttons with the correct inverted class 1`] = `
 <div>
   <button
-    className="xui-button xui-button-icon"
+    className="xui-button xui-button-icon xui-button-icon-medium"
     disabled={false}
     onClick={[Function]}
     tabIndex={0}
     type="button"
   />
   <button
-    className="xui-button xui-button-icon xui-button-icon-inverted"
+    className="xui-button xui-button-icon xui-button-icon-inverted xui-button-icon-medium"
     disabled={false}
     onClick={[Function]}
     tabIndex={0}

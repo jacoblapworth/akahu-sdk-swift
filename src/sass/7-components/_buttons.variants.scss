@@ -3,8 +3,6 @@
 
 @each $variant, $color in $xui-button-variants-bg {
 	.#{$ns}-button-#{$variant} {
-		@include xui-text-standard;
-
 		@if $variant == standard {
 			// TODO: figure out a way to do this without a border, as it adds unwanted width
 			@include xui-button-variant(
@@ -18,7 +16,7 @@
 			);
 		} @else {
 			@include xui-button-variant(
-				$color,//
+				$color,// bg color
 				mix($xui-color-grey-1, $color, 10%),// bg hover
 				mix($xui-color-grey-1, $color, 20%),// bg active
 				$xui-color-white,// text

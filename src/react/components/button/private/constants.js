@@ -9,7 +9,7 @@ export const baseClassName = `${ns}-button`;
 export const sizeClassNames = {
 	xsmall: `${baseClassName}-xsmall`,
 	small: `${baseClassName}-small`,
-	standard: '',
+	medium: `${baseClassName}-medium`,
 };
 
 /**
@@ -29,7 +29,7 @@ export const widthClassNames = {
 export const iconSizeClassNames = {
 	xsmall: `${baseClassName}-icon-xsmall`,
 	small: `${baseClassName}-icon-small`,
-	standard: '',
+	medium: `${baseClassName}-icon-medium`,
 };
 
 /**

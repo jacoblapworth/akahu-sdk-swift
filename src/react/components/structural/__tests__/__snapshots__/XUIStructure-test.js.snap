@@ -12,7 +12,7 @@ exports[`<XUI Structure/> Actions: renders the simplest actions with no extra se
       isLink={false}
       isLoading={false}
       retainLayout={true}
-      size="standard"
+      size="medium"
       tabIndex={0}
       type="button"
       variant="standard"
@@ -29,7 +29,7 @@ exports[`<XUI Structure/> Actions: renders the simplest actions with no extra se
       isLink={false}
       isLoading={false}
       retainLayout={true}
-      size="standard"
+      size="medium"
       tabIndex={0}
       type="button"
       variant="standard"
@@ -101,7 +101,7 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         0.00
       </div>
       <button
-        className="xui-button xui-button-icon"
+        className="xui-button xui-button-icon xui-button-icon-medium"
         disabled={false}
         onClick={[Function]}
         tabIndex={0}
@@ -178,7 +178,7 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         0.00
       </div>
       <button
-        className="xui-button xui-button-icon"
+        className="xui-button xui-button-icon xui-button-icon-medium"
         disabled={false}
         onClick={[Function]}
         tabIndex={0}
@@ -256,7 +256,7 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         0.00
       </div>
       <button
-        className="xui-button xui-button-icon"
+        className="xui-button xui-button-icon xui-button-icon-medium"
         disabled={false}
         onClick={[Function]}
         tabIndex={0}
@@ -337,7 +337,7 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         0.00
       </div>
       <button
-        className="xui-button xui-button-icon"
+        className="xui-button xui-button-icon xui-button-icon-medium"
         disabled={false}
         onClick={[Function]}
         tabIndex={0}
@@ -694,7 +694,7 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
             isLink={false}
             isLoading={false}
             retainLayout={true}
-            size="standard"
+            size="medium"
             tabIndex={0}
             type="button"
             variant="standard"
@@ -711,7 +711,7 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
             isLink={false}
             isLoading={false}
             retainLayout={true}
-            size="standard"
+            size="medium"
             tabIndex={0}
             type="button"
             variant="standard"

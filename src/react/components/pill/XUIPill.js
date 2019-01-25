@@ -160,7 +160,7 @@ export default class XUIPill extends PureComponent {
 
 XUIPill.defaultProps = {
 	deleteButtonLabel: 'Delete',
-	size: 'standard',
+	size: 'medium',
 };
 
 XUIPill.propTypes = {

@@ -38,7 +38,7 @@ const linkWasDeleted = () => {window.alert('deleted link')};
 
 Avatars can be added to `XUIPill` by passing an object to `avatarProps` matching the API for <a href="#avatar">Avatar</a>.
 
-**Note:** the small sized avatar variant should be used.
+**Note:** Avatars will inherit a size modifier that is one step smaller than the size of pill you choose. E.g Medium pill gets a Small avatar
 
 ```jsx
 <div>
@@ -59,15 +59,15 @@ Avatars can be added to `XUIPill` by passing an object to `avatarProps` matching
 
 ### Pill sizes
 
-Pills can be `standard`, `small`, or `xsmall` size, by passing one of these values to the `size` prop.
+Pills can be `medium`, `small`, or `xsmall` size, by passing one of these values to the `size` prop.
 
 ```jsx
 const NOOP = () => {};
 <div>
 	<XUIPill
-		value="Standard"
+		value="Medium"
 		avatarProps={{
-			value: 'A',
+			value: 'M',
 		}}
 		onDeleteClick={NOOP}
 	/>

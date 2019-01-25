@@ -2,12 +2,13 @@
 import React, { Fragment } from 'react';
 
 // Components we need to test with
-import XUIModal, { modalSizes } from '../XUIModal';
+import XUIModal from '../XUIModal';
 import XUIModalBody from '../XUIModalBody';
 import XUIModalFooter from '../XUIModalFooter';
 import XUIModalHeader from '../XUIModalHeader';
 import XUITextInput from '../../textInput/XUITextInput';
 import XUIButton from '../../button/XUIButton';
+import { modalSizes } from '../constants';
 
 // Story book things
 import { storiesOf } from '@storybook/react';

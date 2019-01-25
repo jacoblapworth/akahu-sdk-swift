@@ -10,16 +10,8 @@ import XUIButton from '../button/XUIButton';
 import XUIModalHeader from './XUIModalHeader';
 import { registerModal, deRegisterTopModal } from '../helpers/modalManager';
 import portalContainer, { portalClass } from '../helpers/portalContainer';
-import { baseClass } from './constants';
+import { baseClass, modalSizes } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
-
-export const modalSizes = {
-	small: `${baseClass}-width-small`,
-	medium: `${baseClass}-width-medium`,
-	large: `${baseClass}-width-large`,
-	xlarge: `${baseClass}-width-xlarge`,
-	fullscreen: `${baseClass}-fullscreen`,
-};
 
 const maskClass = `${ns}-mask`;
 

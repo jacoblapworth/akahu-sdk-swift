@@ -93,6 +93,9 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 		- The available values are `always`, `small-down`, and `never`.
 		- The `size` prop no longer accepts `full-width` or `full-width-mobile`.
 			- To get full-width buttons, set `fullWidth` to `always` or `small-down`
+- `Range`
+	- Range now supports size variants.
+  - Range now provides a React component `XUIRange`.
 - `RolloverCheckbox`
 	- The `size` prop has been removed, and the size of the rollover target is now determined by the size of the `rolloverComponent` content.
 	- Has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.

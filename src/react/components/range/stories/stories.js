@@ -31,7 +31,7 @@ storiesWithKnobs.add('Playground', () => {
 			step={number('step', 0)}
 			leftElement={showLeftElement && <XUIAvatar className="xui-margin-small" imageUrl={"https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"}/>}
 			rightElement={showRightElement && <XUIAvatar className="xui-margin-small" imageUrl={"https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"}/>}
-			size={select('size', ['default','small', 'xsmall'], 'default')}
+			size={select('size', ['medium','small', 'xsmall'], 'medium')}
 			validationMessage={text('validationMessage', 'validation text')}
 		/>
 	)

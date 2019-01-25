@@ -89,7 +89,7 @@ XUIRange.propTypes = {
 	/** Id of Range Component */
 	id: PropTypes.string,
 	/** Sizing of the circle touch object */
-	size: PropTypes.oneOf(['default', 'small', 'xsmall']),
+	size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
 	/** The incremement of the XUIRange slider value */
 	step: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	/** Default value of the XUIRange component */
@@ -112,4 +112,8 @@ XUIRange.propTypes = {
 	containerClasses: PropTypes.string,
 	/** Additional classes to be applied to the input */
 	inputClasses: PropTypes.string,
+};
+
+XUIRange.defaultProps = {
+	size: 'medium',
 };

@@ -6,10 +6,6 @@ const leftElement= {leftElement : <XUIAvatar className="xui-margin-small" imageU
 const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'is default',
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'disabled',
 		isDisabled: true,
 	},
@@ -33,6 +29,11 @@ const variations = [
 		storyTitle: 'left and right Elements',
 		leftElement: leftElement.leftElement,
 		rightElement: leftElement.leftElement
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'medium',
+		size: 'medium'
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

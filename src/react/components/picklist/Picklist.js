@@ -9,7 +9,7 @@ import NestedPicklistContainer from './NestedPicklistContainer';
 import SelectBoxOption from '../select-box/SelectBoxOption';
 
 /**
- * Presentational (aka dumb) component used to display a selectable list of Pickitems.
+ * Presentational component used to display a selectable list of Pickitems.
  *
  * @export
  * @class Picklist

@@ -9,7 +9,7 @@ import generateIds from '../controlwrapper/helpers';
 const baseClass = `${ns}-switch`;
 
 /**
- * Presentational (aka dumb) component that outputs the container necessary to implement
+ * Presentational component that outputs the container necessary to implement
  * the grouped switches pattern.
  *
  * @export

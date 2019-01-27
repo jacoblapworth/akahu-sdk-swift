@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { picklistClassName } from './private/constants';
 
 /**
- * Presentational (aka dumb) component used to display a non-selectable header in a
+ * Presentational component used to display a non-selectable header in a
  * list of items.
  *
  * @export

@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { picklistClassName } from './private/constants';
 
 /**
- * Presentational (aka dumb) component used to display a dividing line in a
+ * Presentational component used to display a dividing line in a
  * list of items.
  *
  * @export

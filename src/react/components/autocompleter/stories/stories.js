@@ -39,7 +39,6 @@ class PillWrapper extends PureComponent {
 				className="xui-autocompleter--pill"
 				onDeleteClick={this.deleteSelf}
 				key={id}
-				size="small"
 			/>
 		)
 	}
@@ -216,6 +215,7 @@ class DetailedListExample extends Component {
 			validationMessage,
 			hintMessage,
 			isInputLabelHidden,
+			inputSize,
 			picklistSize,
 		} = example.props;
 
@@ -257,6 +257,7 @@ class DetailedListExample extends Component {
 					validationMessage={validationMessage}
 					hintMessage={hintMessage}
 					pills={this.renderPills(selectedPeople)}
+					inputSize={inputSize}
 				>
 					{example.getItems()}
 				</XUIAutocompleter>
@@ -267,6 +268,7 @@ class DetailedListExample extends Component {
 DetailedListExample.propTypes = {
 	openDrawer: PropTypes.bool,
 	selectedPeople: PropTypes.number,
+	inputSize: PropTypes.oneOf(['small', 'medium']),
 	picklistSize: PropTypes.oneOf(['small', 'xsmall', 'medium']),
 };
 
@@ -294,6 +296,7 @@ storiesWithKnobs.add('Playground', () => {
 				validationMessage={text('validation msg', '')}
 				hintMessage={text('hint msg', '')}
 				dropdownSize={userSelectedSize || undefined}
+				inputSize={select('input size', ['medium', 'small'], 'medium')}
 				picklistSize={select('picklist size', ['small', 'xsmall', 'medium'], 'medium')}
 				isInputLabelHidden={boolean('Hide label', false)}
 			/>

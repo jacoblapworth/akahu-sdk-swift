@@ -60,8 +60,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- Buttons with `variant="icon"` or `variant="icon-inverted"` should receive the `size="small"` prop
 	- Buttons with `variant="icon-large"` or `variant="icon-inverted-large` should have `size="standard"` (or can be left undefined) and have their variant name switched to `variant="icon"` or `variant="icon-inverted"`
 - Icon's iconwrapper class set now requires a size class to be used alongside the base class. The size `medium` is the default, other options are `large` and `xlarge`.
-- TextInput side element contents should have their size checked (they should always have a size 1 smaller than the parent input - i.e. 'medium' `XUITextInput` contains 'small' `XUIButton`s)
-- Check for uses of `XUIPill` outside of `XUITextInput`. The codemod for this upgrade automatically adds `size="small"`, which should be removed in cases where `XUIPill` isn't in a text input
+- TextInput side element contents should have their size checked (they should always have a size 1 smaller than the parent input - i.e. 'medium' `XUITextInput` contains 'small' `XUIButton`s).
 - SelectBox prop `islabelHidden` case has been fixed to be `isLabelHidden`, for real this time.
 - Pill prop `defaultLayout` has been removed.
 - Single Pills are now deprecated in favour of using XUITextinputs with left and right elements in Read only mode.
@@ -100,6 +99,8 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - `RolloverCheckbox`
 	- The `size` prop has been removed, and the size of the rollover target is now determined by the size of the `rolloverComponent` content.
 	- Has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.
+- `Autocompleter`
+	- Has a new `inputSize` prop. The default value is `medium`. The other available size is `small`.
 
 ### Utility classes
 
@@ -157,6 +158,7 @@ All other existing values stay as they are (including `2xlarge`)
 - SelectBox has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
 - `RolloverCheckbox`has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.
 - XUIToggle's `variant` prop has been renamed to `size`. The default value is `medium`. Other available values are `small`.
+- Autocompleter has a new `inputSize` prop. The default value is `medium`. The other available size is `small`.
 
 ## Other changes
 

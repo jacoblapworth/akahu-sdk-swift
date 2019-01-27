@@ -10,6 +10,7 @@ import XUILoader from '../../loader/XUILoader';
 import DropDownToggled from '../../dropdown/DropDownToggled';
 import DropDownLayout from '../../dropdown/DropDownLayout';
 import uuidv4 from 'uuid/v4';
+import XUITextInput from '../../textInput/XUITextInput';
 
 jest.useFakeTimers();
 jest.mock('uuid/v4');
@@ -123,6 +124,19 @@ describe('XUIAutocompleter', () => {
 		const wrapper = mount(createComponent({ onSearch: onSearch, searchValue: 'z', searchDebounceTimeout: 500, pills: <XUIPill value="ABC" /> }));
 
 		expect(wrapper.find(XUIPill)).toBeDefined();
+	});
+
+	['medium', 'small'].forEach(size => {
+		it(`when inputSize is set to ${size}, input has a size of ${size}`, () => {
+			const wrapper = mount(
+				createComponent({
+					inputSize: size,
+					onSearch: onSearch,
+				})
+			);
+		
+			expect(wrapper.find(XUITextInput).props().size).toBe(size);
+		});
 	});
 
 	it('opens the dropdown when we trigger `openDropDown` and closes the dropdown when we trigger `closeDropDown`', () => {

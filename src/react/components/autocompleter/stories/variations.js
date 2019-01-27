@@ -3,6 +3,7 @@ const NOOP = require('../../helpers/noop');
 const storiesWithVariationsKindName = 'Instances/XUIAutocompleter';
 
 const dropdownSizes = ['small', 'medium', 'large', 'xlarge'];
+const inputSizes = ['small', 'medium'];
 
 const variations = [
 	{
@@ -37,6 +38,12 @@ const variations = [
 		storyTitle: 'shows a pill when an item is selected',
 		selectedPeople: 1,
 	},
+	...inputSizes.map(inputSize => ({
+		inputSize,
+		selectedPeople: 1,
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `shows a ${inputSize} input`,
+	})),
 	...dropdownSizes.map(dropdownSize => ({
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `shows a ${dropdownSize} dropdown`,

@@ -190,7 +190,6 @@ const XUIButton = require ( './button.js' ).default;
 				<XUIPill
 					value="Pill"
 					avatarProps={{value: 'Pill'}}
-					size="small"
 					onDeleteClick={()=>{}}
 				/>
 			</XUITextInputSideElement>
@@ -426,7 +425,7 @@ const closePath = require ('@xero/xui-icon/icons/cross').default;
 		placeholder="Medium size"
 		leftElement={
 			<XUITextInputSideElement type="pill">
-				<XUIPill avatarProps={{value:'Pill'}} value="Pill" size="small" onDeleteClick={()=>{}} />
+				<XUIPill avatarProps={{value:'Pill'}} value="Pill" onDeleteClick={()=>{}} />
 			</XUITextInputSideElement>
 		}
 		rightElement={
@@ -441,7 +440,7 @@ const closePath = require ('@xero/xui-icon/icons/cross').default;
 		size="small"
 		leftElement={
 			<XUITextInputSideElement type="pill">
-				<XUIPill avatarProps={{value:'Pill'}} value="Pill" size="xsmall" onDeleteClick={()=>{}} />
+				<XUIPill avatarProps={{value:'Pill'}} value="Pill" onDeleteClick={()=>{}} />
 			</XUITextInputSideElement>
 		}
 	/>

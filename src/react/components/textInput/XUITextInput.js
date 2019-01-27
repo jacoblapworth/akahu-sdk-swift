@@ -8,6 +8,8 @@ import { inputBaseClass, inputSizeClasses, baseSizeClasses } from './private/con
 import { calculateMaxHeight } from './private/helpers';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds from '../controlwrapper/helpers';
+import { sizeShift } from '../helpers/sizes';
+import SizeContext from '../../contexts/SizeContext';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
 const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
@@ -142,47 +144,49 @@ class XUITextInput extends PureComponent {
 		};
 
 		return (
-			<XUIControlWrapper
-				fieldClassName={rootClasses}
-				wrapperIds={this.wrapperIds}
-				{...{
-					qaHook,
-					onKeyDown,
-					label,
-					isInvalid,
-					validationMessage,
-					hintMessage,
-					isFieldLayout,
-					labelClassName,
-					isLabelHidden,
-				}}
-			>
-				<div
-					className={baseClasses}
-					data-automationid={qaHook}
-					{...otherProps}
+			<SizeContext.Provider value={sizeShift(size, -1)}>
+				<XUIControlWrapper
+					fieldClassName={rootClasses}
+					wrapperIds={this.wrapperIds}
+					{...{
+						qaHook,
+						onKeyDown,
+						label,
+						isInvalid,
+						validationMessage,
+						hintMessage,
+						isFieldLayout,
+						labelClassName,
+						isLabelHidden,
+					}}
 				>
-					{leftElement}
-					<InputEl
-						{...inputProps}
-						type={type}
-						value={value}
-						defaultValue={defaultValue}
-						data-automationid={qaHook && `${qaHook}--input`}
-						className={classes}
-						onFocusCapture={input.onFocus}
-						onBlurCapture={input.onBlur}
-						onChange={onChange}
-						placeholder={placeholder}
-						disabled={isDisabled}
-						ref={compose(inputRef, i => this.input = i)}
-						{...getAriaAttributes(this.wrapperIds, this.props)}
-						// used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
-						rows={isMultiline ? rows || minRows : undefined}
-					/>
-					{rightElement}
-				</div>
-			</XUIControlWrapper>
+					<div
+						className={baseClasses}
+						data-automationid={qaHook}
+						{...otherProps}
+					>
+						{leftElement}
+						<InputEl
+							{...inputProps}
+							type={type}
+							value={value}
+							defaultValue={defaultValue}
+							data-automationid={qaHook && `${qaHook}--input`}
+							className={classes}
+							onFocusCapture={input.onFocus}
+							onBlurCapture={input.onBlur}
+							onChange={onChange}
+							placeholder={placeholder}
+							disabled={isDisabled}
+							ref={compose(inputRef, i => this.input = i)}
+							{...getAriaAttributes(this.wrapperIds, this.props)}
+							// used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
+							rows={isMultiline ? rows || minRows : undefined}
+						/>
+						{rightElement}
+					</div>
+				</XUIControlWrapper>
+			</SizeContext.Provider>
 		);
 	}
 }

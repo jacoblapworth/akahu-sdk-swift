@@ -234,6 +234,7 @@ export default class XUIAutocompleter extends PureComponent {
 			inputLabel,
 			isInputLabelHidden,
 			inputProps,
+			inputSize,
 			maxLength,
 			dropdownId,
 			onOptionSelect,
@@ -312,6 +313,7 @@ export default class XUIAutocompleter extends PureComponent {
 					isInvalid={isInvalid}
 					validationMessage={validationMessage}
 					hintMessage={hintMessage}
+					size={inputSize}
 					inputProps={{
 						...inputProps,
 						'maxLength': maxLength,
@@ -456,7 +458,10 @@ XUIAutocompleter.propTypes = {
 	/** The debounce timeout before onSearch is called. Set to 0 to disable debouncing */
 	searchDebounceTimeout: PropTypes.number,
 
-	/** Maps to the 'size' property of the dropdown component. */
+	/** Maps to the `size` property of the `XUITextInput` component. */
+	inputSize: PropTypes.oneOf(['small', 'medium']),
+
+	/** Maps to the `size` property of the dropdown component. */
 	dropdownSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 
 	/** Maps to the `closeOnSelect` property of the DropDownToggled component. */
@@ -520,4 +525,5 @@ XUIAutocompleter.defaultProps = {
 	dropdownFixedWidth: false,
 	matchTriggerWidth: true,
 	disableWrapPills: false,
+	inputSize: 'medium',
 };

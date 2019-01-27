@@ -5256,19 +5256,19 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="0"
               >
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 1
                 </span>
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 2
                 </span>
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 3
@@ -5280,19 +5280,19 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="0"
               >
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 1
                 </span>
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 2
                 </span>
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 3
@@ -5304,19 +5304,19 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="0"
               >
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 1
                 </span>
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 2
                 </span>
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 3
@@ -5332,13 +5332,13 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="0"
               >
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 1
                 </span>
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 2
@@ -5350,13 +5350,13 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="0"
               >
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 1
                 </span>
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 2
@@ -5368,13 +5368,13 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="0"
               >
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 1
                 </span>
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 2
@@ -5390,7 +5390,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="0"
               >
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 1
@@ -5402,7 +5402,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="0"
               >
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 1
@@ -5414,7 +5414,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="0"
               >
                 <span
-                  className="xui-tag xui-margin-right-xsmall"
+                  className="xui-tag xui-margin-right-xsmall xui-tag-medium"
                   role="status"
                 >
                   tag 1

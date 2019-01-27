@@ -38,7 +38,7 @@ XUITag.propTypes = {
 
 XUITag.defaultProps = {
 	variant: 'standard',
-	size: 'standard',
+	size: 'medium',
 };
 
 export { XUITag as default, variants, sizes };

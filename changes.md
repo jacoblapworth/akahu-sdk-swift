@@ -130,6 +130,7 @@ All other existing values stay as they are (including `2xlarge`)
 	- Additional class `xui-button-standard` is now required when building a SelectBox without React.
 	- Additional class `xui-select--button-no-variant` is now required when building a SelectBox without React.
 	- `xui-button-fullwidth` is now required to make the SelectBox match the width of its container when building a SelectBox without React.
+- `XUITag` requires the addition of `xui-tag-medium` for a medium-sized display when building a XUITag without React.
 - `XUIToggle` requires the addition of `xui-toggle-medium` for a medium-sized display when building a XUIToggle without React.
 
 ### Component prop name changes
@@ -145,7 +146,7 @@ All other existing values stay as they are (including `2xlarge`)
   - Pill `size` prop now has a default of `medium`, instead of `standard`. This size is visually the same as XUI 14 aside from the font size changes. Other available values are `small` and `xsmall`.
 - XUIIcon now adds a class called `xui-iconwrapper-medium` by default. Use the `size` prop to alter this to `large` or `xlarge` at your discretion.
 - Text input now has a `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
-- Tag has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
+- Tag has a new `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
 - Checkbox and Radio have a new `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
 - XUIButton has a new `fullWidth` prop. The default value is `never`. Other available values are `always`, and `small-only`.
 	- This replaces the `full-width` and `full-width-mobile` sizes.

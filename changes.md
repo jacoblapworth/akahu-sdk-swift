@@ -130,6 +130,7 @@ All other existing values stay as they are (including `2xlarge`)
 	- Additional class `xui-button-standard` is now required when building a SelectBox without React.
 	- Additional class `xui-select--button-no-variant` is now required when building a SelectBox without React.
 	- `xui-button-fullwidth` is now required to make the SelectBox match the width of its container when building a SelectBox without React.
+- `XUIToggle` requires the addition of `xui-toggle-medium` for a medium-sized display when building a XUIToggle without React.
 
 ### Component prop name changes
 - `XUIColumn` props `gridColumnsMedium` and `gridColumnsWide` have been renamed to `gridColumnsSmallUp` and `gridColumnsLargeUp`, respectively.
@@ -154,6 +155,7 @@ All other existing values stay as they are (including `2xlarge`)
 - SelectBox has a new `size` prop. The default value is `medium`. Other available values are `small`, and `xsmall`.
 - SelectBox has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
 - `RolloverCheckbox`has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.
+- XUIToggle's `variant` prop has been renamed to `size`. The default value is `medium`. Other available values are `small`.
 
 ## Other changes
 

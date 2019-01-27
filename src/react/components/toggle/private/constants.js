@@ -8,8 +8,9 @@ export const colorMap = {
 	standard: '',
 };
 
-/** @private variantMap - Map variants to classes */
-export const variantMap = {
+/** @private sizeMap - Map sizes to classes */
+export const sizeMap = {
+	medium: `${baseClass}-medium`,
 	small: `${baseClass}-small`,
 };
 

@@ -67,8 +67,8 @@ describe('XUIToggle', function() {
 
 
 	// small variant inverted
-	it('should use the small modifier if the small variant is provided', function () {
-		const wrapper = mount(<XUIToggle variant="small" />);
+	it('should use the small modifier if the small size is specified', function () {
+		const wrapper = mount(<XUIToggle size="small" />);
 		expect(wrapper.find('.xui-toggle-small')).toHaveLength(1);
 	});
 

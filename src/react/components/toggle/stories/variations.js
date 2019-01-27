@@ -109,11 +109,11 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'is Small Variant',
+		storyTitle: 'is Small Size',
 		label: 'text-label',
 		isLabelHidden: true,
 		layout: 'fullwidth',
-		variant: 'small',
+		size: 'small',
 		options: [
 			{
 				name: 'tg7',

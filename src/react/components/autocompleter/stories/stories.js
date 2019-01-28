@@ -267,7 +267,7 @@ class DetailedListExample extends Component {
 DetailedListExample.propTypes = {
 	openDrawer: PropTypes.bool,
 	selectedPeople: PropTypes.number,
-	picklistSize: PropTypes.oneOf(['small', 'xsmall', 'standard']),
+	picklistSize: PropTypes.oneOf(['small', 'xsmall', 'medium']),
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
@@ -294,7 +294,7 @@ storiesWithKnobs.add('Playground', () => {
 				validationMessage={text('validation msg', '')}
 				hintMessage={text('hint msg', '')}
 				dropdownSize={userSelectedSize || undefined}
-				picklistSize={select('picklist size', ['small', 'xsmall', 'standard'], 'standard')}
+				picklistSize={select('picklist size', ['small', 'xsmall', 'medium'], 'medium')}
 				isInputLabelHidden={boolean('Hide label', false)}
 			/>
 		</div>

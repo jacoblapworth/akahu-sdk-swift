@@ -26,9 +26,9 @@
 // Use descriptive text inside Tags to convey information so it’s still meaningful to people who can’t discern colour.
 //
 // Definitions:
-// Standard: <span class="xui-tag">Standard</span>: none
+// Medium: <span class="xui-tag xui-tag-medium">Medium</span>: `-medium`
 // Small: <span class="xui-tag xui-tag-small">Small</span>: `-small`
-// Extra small: <span class="xui-tag xui-tag-xsmall">Extra small</span>: `-xsmall`
+// Xsmall: <span class="xui-tag xui-tag-xsmall">Xsmall</span>: `-xsmall`
 // Neutral: <span class="xui-tag xui-tag-neutral">Neutral</span>: `-neutral`
 // Positive: <span class="xui-tag xui-tag-positive">Positive</span>: `-positive`
 // Warning: <span class="xui-tag xui-tag-warning">Warning</span>: `-warning`
@@ -95,7 +95,6 @@
 // Styleguide: Building Blocks.Identifiers.Tag.2
 
 .#{$ns}-tag {
-	@include xui-text-standard;
 	background-color: $xui-tag-bg-color;
 	border-radius: $xui-radius;
 	box-shadow: inset 0 0 0 1px $xui-tag-shadow-color;
@@ -103,6 +102,10 @@
 	display: inline-block;
 	padding: 0 $xui-s-2xsmall;
 	vertical-align: middle;
+}
+
+.#{$ns}-tag-medium {
+	@include xui-text-standard;
 }
 
 .#{$ns}-tag-small {

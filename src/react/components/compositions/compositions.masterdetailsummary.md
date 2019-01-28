@@ -1,4 +1,7 @@
 <!-- Master detail summary -->
+<div class="xui-margin-vertical">
+	<a href="../section-compositions-masterdetailsummary.html" isDocLink>Master Detail Summary Composition in the XUI Documentation</a>
+</div>
 
 ```js
 

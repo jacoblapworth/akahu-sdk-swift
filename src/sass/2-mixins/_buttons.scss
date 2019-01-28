@@ -77,9 +77,6 @@ $border-color - Border color to use
 	border-radius: $xui-radius;
 	color: $color;
 	font-weight: bold;
-	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
-	min-height: $xui-control-size-standard;
-	padding: 11px $xui-input-padding-horizontal;
 	position: relative; // Set to enable z-index to take effect on focus
 	text-align: center;
 	text-decoration: none;

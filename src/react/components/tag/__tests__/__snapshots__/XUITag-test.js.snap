@@ -2,7 +2,7 @@
 
 exports[`<XUITag/> renders a qaHook when passed in 1`] = `
 <span
-  className="xui-tag"
+  className="xui-tag xui-tag-medium"
   data-automationid="schwifty"
   role="status"
 >

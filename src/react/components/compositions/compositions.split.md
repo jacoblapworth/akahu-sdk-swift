@@ -1,4 +1,7 @@
 <!-- Split -->
+<div class="xui-margin-vertical">
+	<a href="../section-compositions-split.html" isDocLink>Split Composition in the XUI Documentation</a>
+</div>
 
 ```js
 

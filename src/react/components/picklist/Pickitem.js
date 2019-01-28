@@ -6,7 +6,7 @@ import PickitemMultiselect from './private/PickitemMultiselect';
 import { pickitemClassName, sideElementClassName, sizeVariants } from './private/constants';
 
 /**
- * Presentational (aka dumb) component used to display a selectable item in a
+ * Presentational component used to display a selectable item in a
  * list of items.
  *
  * @export

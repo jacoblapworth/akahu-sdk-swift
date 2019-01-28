@@ -68,9 +68,9 @@ const checkboxToggle = {
 </ExampleContainer>
 ```
 
-### Variants
+### Sizes
 
-To make your toggles smaller (same size as small buttons), pass `"small"` to `XUIToggle`'s `variant` prop.
+To make your toggles smaller (same size as small buttons), pass `"small"` to `XUIToggle`'s `size` prop.
 
 ```jsx
 const noop = () => {};
@@ -87,7 +87,7 @@ const checkboxToggle = {
 };
 
 <div>
-	<XUIToggle className="xui-margin-bottom" variant="small" layout="fullwidth" label='radio toggle' isLabelHidden>
+	<XUIToggle className="xui-margin-bottom" size="small" layout="fullwidth" label='radio toggle' isLabelHidden>
 		<XUIToggleOption { ...radioToggle }>Uno</XUIToggleOption>
 		<XUIToggleOption { ...radioToggle }>Dos</XUIToggleOption>
 		<XUIToggleOption { ...radioToggle }>Tres</XUIToggleOption>

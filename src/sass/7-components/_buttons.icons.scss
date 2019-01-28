@@ -7,10 +7,9 @@
 	border-radius: 50%;
 	color: $xui-button-icon-color;
 	display: inline-flex;
-	height: $xui-control-size-standard;
+	flex-shrink: 0;
 	justify-content: center;
 	position: relative;
-	width: $xui-control-size-standard;
 
 	.#{$ns}-icon {
 		display: block;
@@ -29,6 +28,11 @@
 		}
 	}
 
+}
+
+.#{$ns}-button-icon-medium {
+	height: $xui-control-size-standard;
+	width: $xui-control-size-standard;
 }
 
 .#{$ns}-button-icon-small {

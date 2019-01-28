@@ -64,6 +64,7 @@ class XUIInnerPill extends PureComponent {
 				isLink={!!href}
 				variant="unstyled"
 				qaHook={innerPillQaHook}
+				size={size}
 			>
 				{contents}
 			</XUIButton>

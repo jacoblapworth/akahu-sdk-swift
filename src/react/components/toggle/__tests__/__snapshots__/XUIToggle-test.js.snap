@@ -7,7 +7,7 @@ exports[`XUIToggle should have a hidden label as aria-label if provided and flag
 >
   <div
     aria-label="This is a toggle"
-    className="xui-toggle"
+    className="xui-toggle xui-toggle-medium"
     role="radiogroup"
   />
 </div>
@@ -19,7 +19,7 @@ exports[`XUIToggle should have a qaHook if provided 1`] = `
   role="presentation"
 >
   <div
-    className="xui-toggle"
+    className="xui-toggle xui-toggle-medium"
     data-automationid="cheese-and-crackers"
     role="radiogroup"
   />
@@ -39,7 +39,7 @@ exports[`XUIToggle should have a visible label if provided 1`] = `
   </span>
   <div
     aria-labelledby="testCheckboxId"
-    className="xui-toggle"
+    className="xui-toggle xui-toggle-medium"
     role="radiogroup"
   />
 </div>
@@ -58,7 +58,7 @@ exports[`XUIToggle should have the fieldLayout class and a custom labelID, if pr
   </span>
   <div
     aria-labelledby="testing123"
-    className="xui-toggle"
+    className="xui-toggle xui-toggle-medium"
     role="radiogroup"
   />
 </div>

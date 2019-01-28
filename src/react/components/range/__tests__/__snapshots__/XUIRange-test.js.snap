@@ -91,7 +91,7 @@ exports[`Range LeftElement and RightElement work 1`] = `
     </svg>
     <input
       aria-describedby="testRangeId-message"
-      className="xui-rangeslider"
+      className="xui-rangeslider xui-rangeslider-thumb-medium"
       id="testRangeId-control"
       type="range"
     />
@@ -127,7 +127,7 @@ exports[`Range Simple case 1`] = `
     className="xui-rangeslider-container"
   >
     <input
-      className="xui-rangeslider"
+      className="xui-rangeslider xui-rangeslider-thumb-medium"
       id="testRangeId-control"
       type="range"
     />
@@ -152,7 +152,7 @@ exports[`Range invalid 1`] = `
     <input
       aria-describedby="testRangeId-message"
       aria-invalid={true}
-      className="xui-rangeslider xui-rangeslider-is-invalid"
+      className="xui-rangeslider xui-rangeslider-thumb-medium xui-rangeslider-is-invalid"
       id="testRangeId-control"
       max={80}
       min={16}
@@ -184,7 +184,7 @@ exports[`Range should be disabled 1`] = `
     className="xui-rangeslider-container"
   >
     <input
-      className="xui-rangeslider"
+      className="xui-rangeslider xui-rangeslider-thumb-medium"
       disabled={true}
       id="testRangeId-control"
       max={80}

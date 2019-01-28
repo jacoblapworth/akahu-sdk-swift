@@ -125,7 +125,13 @@ module.exports = {
 	'@xero/xui/react/toggle': [
 		{
 			isDefault: true,
-			props: [labelTextToLabel],
+			props: [
+				labelTextToLabel,
+				{
+					name: 'variant',
+					newName: 'size',
+				}
+			],
 		}
 	],
 	'@xero/xui/react/structural': [
@@ -174,7 +180,7 @@ module.exports = {
 						if (size === 'full-width') {
 							return j.literal('always');
 						}
-						
+
 						if (size === 'full-width-mobile') {
 							return j.literal('small-down');
 						}

@@ -389,6 +389,12 @@
 								"content": "../src/react/components/picklist/picklist.pickitem.md"
 							},
 							{
+								"components": "../src/react/components/picklist/PicklistHeader.js"
+							},
+							{
+								"components": "../src/react/components/picklist/PicklistDivider.js"
+							},
+							{
 								"name": "Stateful Picklist",
 								"components": "../src/react/components/picklist/StatefulPicklist.js",
 								"content": "../src/react/components/picklist/picklist.stateful.md"

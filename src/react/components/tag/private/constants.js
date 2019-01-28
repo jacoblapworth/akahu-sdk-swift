@@ -11,7 +11,7 @@ export const variants = {
 };
 
 export const sizes = {
+	medium: `${baseClass}-medium`,
 	small: `${baseClass}-small`,
 	xsmall: `${baseClass}-xsmall`,
-	standard: '',
 };

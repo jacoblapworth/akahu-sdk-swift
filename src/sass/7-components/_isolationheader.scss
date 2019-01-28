@@ -364,11 +364,11 @@
 	align-items: center;
 	align-self: stretch;
 	display: flex;
-	overflow: hidden;
 	white-space: nowrap;
 }
 
 .#{$ns}-isolationheader--navigation {
+	overflow: hidden;
 	padding-right: $xui-s-xsmall;
 }
 

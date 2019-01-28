@@ -6,13 +6,17 @@
 .#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle-option {
 	flex-basis: 100%;
 	flex-grow: 1;
-	min-height: $xui-control-size-standard;
 }
 
 // This forces text to wrap in IE11
 .#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle--text {
 	display: block;
 	width: 100%;
+}
+
+.#{$ns}-toggle-medium .#{$ns}-toggle--label,
+.#{$ns}-toggle-medium .#{$ns}-toggle--option, {
+	min-height: $xui-control-size-standard;
 }
 
 // Small variant
@@ -109,7 +113,6 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	min-height: $xui-control-size-standard; // TODO: remove layout assumption
 	min-width: $xui-control-size-standard; // TODO: remove layout assumption
 	position: relative; // For z-index
 	text-align: center;

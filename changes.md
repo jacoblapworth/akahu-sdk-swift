@@ -59,11 +59,12 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- Should not use the `isBoxed` prop (including when they're in icon button variants, you can also remove usages of the `xui-icon-inline` class)
 	- Buttons with `variant="icon"` or `variant="icon-inverted"` should receive the `size="small"` prop
 	- Buttons with `variant="icon-large"` or `variant="icon-inverted-large` should have `size="standard"` (or can be left undefined) and have their variant name switched to `variant="icon"` or `variant="icon-inverted"`
-- Icon's iconwrapper class set now requires a size class to be used alongside the base class.
+- Icon's iconwrapper class set now requires a size class to be used alongside the base class. The size `medium` is the default, other options are `large` and `xlarge`.
 - TextInput side element contents should have their size checked (they should always have a size 1 smaller than the parent input - i.e. 'medium' `XUITextInput` contains 'small' `XUIButton`s)
 - Check for uses of `XUIPill` outside of `XUITextInput`. The codemod for this upgrade automatically adds `size="small"`, which should be removed in cases where `XUIPill` isn't in a text input
 - SelectBox prop `islabelHidden` case has been fixed to be `isLabelHidden`, for real this time.
 - Pill prop `defaultLayout` has been removed.
+- Single Pills are now deprecated in favour of using XUITextinputs with left and right elements in Read only mode.
 - Pill `onDeleteClick` no longer has the component instance bound to `this`.
 - Switch no longer always maintains internal checked state. The API is now very similar to XUICheckbox and XUIRadio in that the component can be either used as a controlled or uncontrolled input.
   If users provide an isChecked value, the component will not maintain its own internal state. If users provide no isChecked value, the isDefaultChecked value will be used to populate the initial internally-managed state.
@@ -91,8 +92,11 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - `XUIButton`
 	- Has a new `fullWidth` prop. The default value is `never`.
 		- The available values are `always`, `small-down`, and `never`.
-		- The `size` prop no longer accepts `full-width` or `full-width-mobile`.
+		- The `size` prop no longer accepts `full-width` or `full-width-mobile`. `size` Now has a default of `medium` instead of `standard`. This is purely a terminology change.
 			- To get full-width buttons, set `fullWidth` to `always` or `small-down`
+- `Range`
+	- Range now supports size variants.
+  - Range now provides a React component `XUIRange`.
 - `RolloverCheckbox`
 	- The `size` prop has been removed, and the size of the rollover target is now determined by the size of the `rolloverComponent` content.
 	- Has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.
@@ -126,6 +130,8 @@ All other existing values stay as they are (including `2xlarge`)
 	- Additional class `xui-button-standard` is now required when building a SelectBox without React.
 	- Additional class `xui-select--button-no-variant` is now required when building a SelectBox without React.
 	- `xui-button-fullwidth` is now required to make the SelectBox match the width of its container when building a SelectBox without React.
+- `XUITag` requires the addition of `xui-tag-medium` for a medium-sized display when building a XUITag without React.
+- `XUIToggle` requires the addition of `xui-toggle-medium` for a medium-sized display when building a XUIToggle without React.
 
 ### Component prop name changes
 - `XUIColumn` props `gridColumnsMedium` and `gridColumnsWide` have been renamed to `gridColumnsSmallUp` and `gridColumnsLargeUp`, respectively.
@@ -137,17 +143,20 @@ All other existing values stay as they are (including `2xlarge`)
 ### Component props
 
 - Pill has a new `isLimitedWidth` prop to replace the `isMaxContentWidth` prop. The default for pills is now to fit their content, and you can apply `isLimitedWidth` to cap them at 200px. This prop change will be handled automatically by the upgrade codemod for existing Pills in your app.
+  - Pill `size` prop now has a default of `medium`, instead of `standard`. This size is visually the same as XUI 14 aside from the font size changes. Other available values are `small` and `xsmall`.
 - XUIIcon now adds a class called `xui-iconwrapper-medium` by default. Use the `size` prop to alter this to `large` or `xlarge` at your discretion.
 - Text input now has a `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
-- Tag has a new `size` prop. The default value is `standard`. Other available values are `small` and `xsmall`.
+- Tag has a new `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
 - Checkbox and Radio have a new `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
 - XUIButton has a new `fullWidth` prop. The default value is `never`. Other available values are `always`, and `small-only`.
 	- This replaces the `full-width` and `full-width-mobile` sizes.
+- XUIButton `size` prop now has a default of `medium`, instead of `standard`. This size is visually the same as XUI 14 aside from the font size changes. Other available values are `small` and `xsmall`.
 - SelectBox has a new `fullWidth` prop. The default value is `never`. Other available values are `always`, and `small-only`.
 	- This replaces the `full-width` and `full-width-mobile` sizes.
 - SelectBox has a new `size` prop. The default value is `medium`. Other available values are `small`, and `xsmall`.
 - SelectBox has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
 - `RolloverCheckbox`has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.
+- XUIToggle's `variant` prop has been renamed to `size`. The default value is `medium`. Other available values are `small`.
 
 ## Other changes
 

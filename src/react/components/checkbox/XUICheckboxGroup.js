@@ -9,7 +9,7 @@ import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIContr
 import generateIds from '../controlwrapper/helpers';
 
 /**
- * Presentational (aka dumb) component that outputs the container necessary to implement
+ * Presentational component that outputs the container necessary to implement
  * the grouped checkboxes pattern.
  *
  * @export

@@ -50,7 +50,7 @@
 
 // Master detail summary with header
 //
-// When a page has a page header, include it in the composition to make use of the spacing and stacking behaviour.
+// When a page has a content header, include it in the composition to make use of the spacing and stacking behaviour.
 //
 // Styleguide: Compositions.MasterDetailSummary.2
 
@@ -59,7 +59,7 @@
 // Markup:
 // <div class="xui-composition xui-composition-masterdetailsummaryheader xui-composition-is-finite">
 //   <div class="xui-gridarea-header">
-//     <div style="background: #2D2D73; color: white; height: 120px; padding: 20px;"> Page header </div>
+//     <div style="background: #2D2D73; color: white; height: 120px; padding: 20px;"> content header </div>
 //   </div>
 //   <div class="xui-gridarea-master">
 //     <div style="background: #5A5AE6; color: white; height: 380px; min-width: 200px; padding: 20px; width: 100%;"> Master </div>
@@ -79,9 +79,9 @@
 // Anatomy
 //
 // Classes:
-// xui-composition-masterdetailsummary: Wraps the entire composition when no page header is included
-// xui-composition-masterdetailsummaryheader: Wraps the entire composition when including a page header
-// xui-gridarea-header: Wraps the page header if one is included
+// xui-composition-masterdetailsummary: Wraps the entire composition when no content header is included
+// xui-composition-masterdetailsummaryheader: Wraps the entire composition when including a content header
+// xui-gridarea-header: Wraps the content header if one is included
 // xui-gridarea-master: Master container
 // xui-gridarea-detail: Detail container
 // xui-gridarea-summary: Summary container
@@ -153,16 +153,16 @@
 // Class list
 //
 // Classes:
-// xui-composition-masterdetailsummary: Style for Master detail summary composition when no page header is included
-// xui-composition-masterdetailsummaryheader: Style for Master detail summary composition when including a page header
+// xui-composition-masterdetailsummary: Style for Master detail summary composition when no content header is included
+// xui-composition-masterdetailsummaryheader: Style for Master detail summary composition when including a content header
 // xui-composition-grid-gap: Modifier for applying standard spacing between composition containers
 // xui-composition-has-auto-space-around: Modifier for applying $xui-s-large spacing around the outside of the composition
 // xui-composition-is-finite: Remove this class to have the composition span 100% width of page
 // xui-composition-masterdetailsummary-retain-small: Modifier to force composition to keep the small layout across all breakpoints
 // xui-composition-masterdetailsummary-retain-medium: Modifier to force composition to retain the medium layout across all breakpoints
-// xui-composition-masterdetailsummaryheader-retain-small: Modifier to force composition to keep the small layout across all breakpoints, when including a page header in the composition
-// xui-composition-masterdetailsummaryheader-retain-medium: Modifier to force composition to retain the medium layout across all breakpoints, when including a page header in the composition
-// xui-gridarea-header: Style for page header if the page has one
+// xui-composition-masterdetailsummaryheader-retain-small: Modifier to force composition to keep the small layout across all breakpoints, when including a content header in the composition
+// xui-composition-masterdetailsummaryheader-retain-medium: Modifier to force composition to retain the medium layout across all breakpoints, when including a content header in the composition
+// xui-gridarea-header: Style for content header if the page has one
 // xui-gridarea-master: Style for to Master container
 // xui-gridarea-detail: Style for to Detail container
 // xui-gridarea-summary: Style for to Summary container

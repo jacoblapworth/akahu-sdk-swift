@@ -39,7 +39,7 @@
 
 // Detail with header
 //
-// When a page has a page header, include it in the composition to make use of the spacing and stacking behaviour.
+// When a page has a content header, include it in the composition to make use of the spacing and stacking behaviour.
 //
 // Styleguide: Compositions.Detail.2
 
@@ -48,7 +48,7 @@
 // Markup:
 // <div class="xui-composition xui-composition-detailheader xui-composition-is-finite">
 //   <div class="xui-gridarea-header">
-//     <div style="background: #2D2D73; color: white; height: 120px; padding: 20px;"> Page header </div>
+//     <div style="background: #2D2D73; color: white; height: 120px; padding: 20px;"> content header </div>
 //   </div>
 //   <div class="xui-gridarea-detail">
 //     <div style="background: #C5C5F6; height: 380px; padding: 20px;"> Detail </div>
@@ -62,9 +62,9 @@
 // Anatomy
 //
 // Classes:
-// xui-composition-detail: Wraps the entire composition when no page header is included
-// xui-composition-detailheader: Wraps the entire composition when including a page header
-// xui-gridarea-header: Wraps the page header if one is included
+// xui-composition-detail: Wraps the entire composition when no content header is included
+// xui-composition-detailheader: Wraps the entire composition when including a content header
+// xui-gridarea-header: Wraps the content header if one is included
 // xui-gridarea-detail: Detail container
 //
 // Styleguide: Compositions.Detail.3
@@ -77,7 +77,7 @@
 
 // Grid gap
 //
-// Applies `$xui-s-large` spacing between the Detail container and the page header (if present). To achieve custom spacing, instead add spacing outside of the content itself.
+// Applies `$xui-s-large` spacing between the Detail container and the content header (if present). To achieve custom spacing, instead add spacing outside of the content itself.
 //
 // Tips:
 // Do: Use to set XUI defined, standard spacing between containers
@@ -119,11 +119,11 @@
 // Class list
 //
 // Classes:
-// xui-composition-detail: Style for the Detail composition when no page header is included
-// xui-composition-detailheader: Style for the Detail composition when including a page header
+// xui-composition-detail: Style for the Detail composition when no content header is included
+// xui-composition-detailheader: Style for the Detail composition when including a content header
 // xui-composition-has-auto-space-around: Modifier for applying $xui-s-large spacing around the outside of the composition
 // xui-composition-is-finite: Remove this class to have the composition span 100% width of page
-// xui-gridarea-header: Style for page header if the page has one
+// xui-gridarea-header: Style for content header if the page has one
 // xui-gridarea-detail: Style for Detail container
 //
 // Styleguide: Compositions.Detail.5

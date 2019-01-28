@@ -43,7 +43,7 @@
 
 // Split with header
 //
-// When a page has a page header, include it in the composition to make use of the spacing and stacking behaviour.
+// When a page has a content header, include it in the composition to make use of the spacing and stacking behaviour.
 //
 // Styleguide: Compositions.Split.2
 
@@ -52,7 +52,7 @@
 // Markup:
 // <div class="xui-composition xui-composition-splitheader xui-composition-is-finite">
 //   <div class="xui-gridarea-header">
-//     <div style="background: #2D2D73; color: white; height: 120px; padding: 20px;"> Page header </div>
+//     <div style="background: #2D2D73; color: white; height: 120px; padding: 20px;"> content header </div>
 //   </div>
 //   <div class="xui-gridarea-primary">
 //     <div style="background: #C5C5F6; height: 380px; padding: 20px;"> Primary </div>
@@ -70,9 +70,9 @@
 // Anatomy
 //
 // Classes:
-// xui-composition-split: Wraps entire composition when no page header is included
-// xui-composition-splitheader: Wraps the entire composition when including a page header
-// xui-gridarea-header: Wraps the page header if one is included
+// xui-composition-split: Wraps entire composition when no content header is included
+// xui-composition-splitheader: Wraps the entire composition when including a content header
+// xui-gridarea-header: Wraps the content header if one is included
 // xui-gridarea-primary: Wraps the Primary container
 // xui-gridarea-detail: Wraps the Detail container
 //
@@ -141,14 +141,14 @@
 // Class list
 //
 // Classes:
-// xui-composition-split: Style for Split composition when no page header is included
-// xui-composition-splitheader: Style for Split composition when including a page header
+// xui-composition-split: Style for Split composition when no content header is included
+// xui-composition-splitheader: Style for Split composition when including a content header
 // xui-composition-grid-gap: Modifier for applying standard spacing between composition containers
 // xui-composition-has-auto-space-around: Modifier for applying $xui-s-large spacing around the outside of the composition
 // xui-composition-is-finite: Remove this class to have the composition span 100% width of page
 // xui-composition-split-retain-small: Modifier that forces composition to keep the mobile layout across all breakpoints
-// xui-composition-splitheader-retain-small: Modifier to force the composition to maintain the mobile layout across all breakpoints, when including a page header in the composition
-// xui-gridarea-header: Style for page header subcomponent if the page has one
+// xui-composition-splitheader-retain-small: Modifier to force the composition to maintain the mobile layout across all breakpoints, when including a content header in the composition
+// xui-gridarea-header: Style for content header subcomponent if the page has one
 // xui-gridarea-primary: Style for Primary container subcomponent
 // xui-gridarea-detail: Style for Detail container subcomponent
 //

@@ -85,7 +85,8 @@ export default class XUIPill extends PureComponent {
 						hasTooltip,
 					} = this.state;
 
-					const size = this.props.size || inheritedSize;
+					const defaultSize = 'medium';
+					const size = this.props.size || inheritedSize || defaultSize;
 
 					const pillClasses = cn(
 						className,

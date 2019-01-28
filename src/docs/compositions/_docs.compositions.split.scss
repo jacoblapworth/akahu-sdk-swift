@@ -21,7 +21,7 @@
 
 // Split default behaviour
 //
-// The Split composition is made up of the Primary and Detail containers. The Primary container sits above the Detail container until the browser width is $xui-breakpoint-medium, from which point Detail sits to the right of the Primary container.
+// The Split composition is made up of the Primary and Detail containers. The Primary container sits above the Detail container until the browser width is $xui-breakpoint-medium, from which point Detail sits to the right of the Primary container. The entire composition has a max-width of 1200px.
 //
 // Styleguide: Compositions.Split.1
 

@@ -25,7 +25,7 @@
 
 // Master detail summary default
 //
-// When the browser is narrower than `$xui-breakpoint-medium` the Master container sits within a dropdown, and the Summary and Detail containers are stacked, with the Summary container on top. At `$xui-breakpoint-medium-to-large` the Master container is a column to the left of the Detail container, and the Summary container sits above the two. From `xui-breakpoint-large` the Summary container is a column to the right of the Master and Detail containers.
+// When the browser is narrower than `$xui-breakpoint-medium` the Master container sits within a dropdown, and the Summary and Detail containers are stacked, with the Summary container on top. At `$xui-breakpoint-medium-to-large` the Master container is a column to the left of the Detail container, and the Summary container sits above the two. From `xui-breakpoint-large` the Summary container is a column to the right of the Master and Detail containers. The entire composition has a max-width of 1200px.
 //
 // Styleguide: Compositions.MasterDetailSummary.1
 
@@ -97,7 +97,7 @@
 
 // Grid gap
 //
-// Applies `$xui-s-large` spacing between the composition containers. To achieve custom spacing around content within each composition container, instead add spacing outside of the content itself. Something random
+// Applies `$xui-s-large` spacing between the composition containers. To achieve custom spacing around content within each composition container, instead add spacing outside of the content itself.
 //
 // Tips:
 // Do: Use to set XUI defined, standard spacing between containers

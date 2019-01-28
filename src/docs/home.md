@@ -17,7 +17,7 @@
               e.preventDefault();
               showCollectorDialog();
           });
-      }, 
+      },
     fieldValues: {
           description : "*Rationale*\nHow does it improve the current implementation?\n-\n\nHow does it benefit the user?\n-\n\nHow does it assist others at Xero?\n-\n\n*Context*\nWhat product team or feature would use this?\n-\n\nAre you aware of any others with similar problems?\n-\n\n*Timeline requirements*\n[Hard or soft deadline]\n\n*Possible solution*\n[design/code]"
       }
@@ -85,8 +85,8 @@
 	<div class="xui-heading-xlarge xui-margin-bottom">Help improve our system</div>
 	<div class="ds-intro intro">XUI relies on feedback from you to maintain modern web experiences. Help us by reporting any bugs or requesting features that are pivotal to your products.</div>
 	<div class="xui-margin-top-2xlarge">
-		<button id="jira-feature-button" class="xui-button xui-button-standard xui-margin-right">Request a feature</button>
-		<button id="jira-bug-button" class="xui-button xui-button-borderless-main">Report a bug</button>
+		<button id="jira-feature-button" class="xui-button xui-button-standard xui-button-medium xui-margin-right">Request a feature</button>
+		<button id="jira-bug-button" class="xui-button xui-button-medium xui-button-borderless-main">Report a bug</button>
 	</div>
 </div>
 

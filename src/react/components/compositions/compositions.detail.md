@@ -1,4 +1,7 @@
 <!-- Detail -->
+<div class="xui-margin-vertical">
+	<a href="../section-compositions-detail.html" isDocLink>Detail Composition in the XUI Documentation</a>
+</div>
 
 ```js
 const XUICompositionDetail = require('./XUICompositionDetail').default;

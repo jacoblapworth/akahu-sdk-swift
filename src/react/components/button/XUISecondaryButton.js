@@ -48,7 +48,7 @@ XUISplitButton.propTypes = {
 	 * `unstyled`. */
 	variant: PropTypes.oneOf(Object.keys(variantClassNames)),
 
-	/** Modifier for the size of the button. `small`, `full-width`, or `full-width-layout`. */
+	/** Modifier for the size of the button. `xsmall`, `small`, or `medium`. */
 	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
 	/** Whether or not to render this button using an <a> tag */

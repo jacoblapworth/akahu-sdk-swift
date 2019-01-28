@@ -23,7 +23,7 @@
 
 // Detail summary default behaviour
 //
-//The Summary container is 100% width of its container when the browser is below $xui-breakpoint-medium. From $xui-breakpoint-medium-up Summary becomes a right side column that is 1/4 the width of the browser, with a max width of 247px. The entire composition has a max-width of 1200px.
+// When the browser is narrower than `xui-breakpoint-medium`, the Summary and Detail containers are full width and stacked with the Summary on top. From `$xui-breakpoint-medium` both containers are columns with the Summary on the right. The entire composition has a max-width of 1200px.
 //
 // Styleguide: Compositions.DetailSummary.1
 
@@ -93,13 +93,13 @@
 
 // Grid gap
 //
-// Applies `$xui-s-large` spacing between composition containers. To create custom spacing, add styles to the composition and its containers directly instead.
+// Applies `$xui-s-large` spacing between the Detail container and the page header (if present). To achieve custom spacing around content within each composition container, instead add spacing outside of the content itself.
 //
 // Tips:
 // Do: Use to set XUI defined, standard spacing between containers
 // Do: Use when each container's content spans the containers full width
 // Do: Consider using in conjuction with the xui-composition-has-auto-space-around class which adds $xui-s-large spacing around the outside of the composition
-// Dont: Don't use in conjuction with custom spacing between containers
+// Dont: Don't use in conjuction with custom spacing around content within containers
 //
 // Classes:
 // xui-composition-grid-gap: Applies standard spacing between composition containers
@@ -112,7 +112,7 @@
 //
 // Tips:
 // Do: Use to give spacing between the entire composition and the edge of the browser
-// Warning: Avoid adding extra spacing around the composition, instead add custom styles
+// Warning: Avoid combining with utility spacing classes. For custom spacing, use utility classes alone.
 //
 // Classes:
 // xui-composition-has-auto-space-around: Applies $xui-s-large spacing around the outside of the composition
@@ -121,7 +121,7 @@
 
 // Full width
 //
-// By default, compositions should have the `is-infinite` class which applies a max width of 1200px. Removing this class allows the composition to span the full width of the page.
+// By default, compositions should have the `is-finite` class which applies a max width of 1200px. Removing this class allows the composition to span the full width of the page.
 //
 // Tips:
 // Do: Apply when the Detail container holds wide media such as maps, images or tables

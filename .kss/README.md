@@ -119,7 +119,7 @@ Used alongside cards, they appear as the short introduction to its corresponding
 // Teaser: A short intro to the related card
 ```
 
-### Teaser-mage
+### Teaser-image
 
 For displaying images in cards, alongside Teaser content. The prop points to /kss-assets/ so add the image to this directory or include the subdirectory in the prop.
 

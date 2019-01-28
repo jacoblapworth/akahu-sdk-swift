@@ -22,7 +22,7 @@
 
 // Master detail default behaviour
 //
-// The Master container lives inside of a dropdown when the browser width is below `$xui-breakpoint-small`. From `$xui-breakpoint-small-up` the Master container is a left hand column 1/4 the width of the browser. The entire composition has a max-width of 1200px.
+// The Master container sits within of a dropdown when the browser width is below `$xui-breakpoint-medium`. From `$xui-breakpoint-medium` the Master container is a column to the left of the Detail container. The entire composition has a max-width of 1200px.
 //
 // Styleguide: Compositions.MasterDetail.1
 
@@ -85,27 +85,21 @@
 // Storybook: /storybook/?selectedKind=Compositions&selectedStory=Master%20detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs
 //
 // Styleguide: Compositions.MasterDetail.3.5
-
-// Anatomy
+// Composition properties
 //
-// Classes:
-// -masterdetail: Wraps entire composition when no page header is included
-// -masterdetailheader: Wraps the whole composition when including a page header
-// -header: Wraps the page header if one is included
-// -master: Wraps the Master container
-// -detail: Wraps the Detail container
+// Introduction: There are a number of spacing and layout properties that can be used to adjust the Master detail composition.
 //
 // Styleguide: Compositions.MasterDetail.4
 
 // Grid gap
 //
-// Applies `$xui-s-large` spacing between composition containers. To create custom spacing, add styles to the composition and its containers directly instead.
+// Applies `$xui-s-large` spacing between the Detail container and the page header (if present). To achieve custom spacing around content within each composition container, instead add spacing outside of the content itself.
 //
 // Tips:
 // Do: Use to set XUI defined, standard spacing between containers
 // Do: Use when each container's content spans the containers full width
-// Do: Consider using in conjuction with outer-spacing class which adds $xui-s-large spacing around the outside of the composition
-// Dont: Don't use in conjuction with custom spacing between containers
+// Do: Consider using in conjuction with the xui-composition-has-auto-space-around class which adds $xui-s-large spacing around the outside of the composition
+// Dont: Don't use in conjuction with custom spacing around content within containers
 //
 // Classes:
 // xui-composition-grid-gap: Applies standard spacing between composition containers
@@ -118,7 +112,7 @@
 //
 // Tips:
 // Do: Use to give spacing between the entire composition and the edge of the browser
-// Warning: Avoid adding extra spacing around the composition, instead add custom styles
+// Warning: Avoid combining with utility spacing classes. For custom spacing, use utility classes alone.
 //
 // Classes:
 // xui-composition-has-auto-space-around: Applies $xui-s-large spacing around the outside of the composition
@@ -127,7 +121,7 @@
 
 // Full width
 //
-// By default, compositions should have the `is-infinite` class which applies a max width of 1200px. Removing this class allows the composition to span the full width of the page.
+// By default, compositions should have the `is-finite` class which applies a max width of 1200px. Removing this class allows the composition to span the full width of the page.
 //
 // Tips:
 // Do: Apply when the Detail container holds wide media such as maps, images or tables

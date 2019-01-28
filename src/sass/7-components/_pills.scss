@@ -331,7 +331,7 @@
 
 .#{$ns}-pill {
 	align-items: center;
-	background-color: $xui-color-grey-alpha-6;
+	background-color: $xui-pill-bg-color;
 	border-radius: $xui-control-size-standard / 2;
 	cursor: default;
 	display: inline-flex;

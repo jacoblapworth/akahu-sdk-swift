@@ -139,7 +139,7 @@
 
 				{{#if components}}
 					{{#renderComponents components}}
-					<a class="ds-component-link xui-button xui-button-icon xui-button-icon-large" href="{{url}}" title="See the {{name}} React component">
+					<a class="ds-component-link xui-button xui-button-icon" href="{{url}}" title="See the {{name}} React component">
 						<svg
 							focusable="false"
 							class="xui-icon xui-iconwrapper-large xui-icon-color-blue"
@@ -235,11 +235,11 @@
 
 				<div class="ds-markup{{#isEqual exampleclass "ds-example-inline"}} ds-example-inline{{/isEqual}}{{#isEqual exampleclass "ds-example-markuponly"}} ds-example-inline{{/isEqual}}">
 					<header class="ds-markup--actions">
-						<label for="example-{{referenceNumber}}" class="xui-button xui-button-icon xui-button-icon-inverted ds-button-closemarkup" title="Close markup pane"
+						<label for="example-{{referenceNumber}}" class="xui-button xui-button-icon-medium xui-button-icon xui-button-icon-inverted ds-button-closemarkup" title="Close markup pane"
 						 aria-label="Close markup pane">
 								<svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg>
 							</label>
-						<button data-copyHook data-clipboard-text="{{markup}}" class="code-copy xui-button xui-button-icon xui-button-icon-inverted ds-copy-button--fixed" title="Copy code example"
+						<button data-copyHook data-clipboard-text="{{markup}}" class="code-copy xui-button xui-button-icon-medium xui-button-icon xui-button-icon-inverted ds-copy-button--fixed" title="Copy code example"
 						 aria-label="Copy code example">
 							<svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-copy"></use></svg>
 						</button>

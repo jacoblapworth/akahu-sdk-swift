@@ -6,7 +6,7 @@
 `XUIColumn` components are placed inside rows and accept props to determine their width within a 12-column grid.
 The `gridColumns` prop may be a number 1 through 12 or `full`, `half`, `third`, or `quarter` as shorthand. By default, columns will be the full width of the row.
 
-`XUIColumn` also accepts media-query-based widths to set different grid column counts at different viewport widths. `gridColumnsMedium` sets a number of columns for viewports 940-1160px wide, while `gridColumnsWide` is for viewports > 1160px.
+`XUIColumn` also accepts media-query-based widths to set different grid column counts at different viewport widths. `gridColumnsMedium` sets a number of columns for viewports 520-940px wide, while `gridColumnsWide` is for viewports > 940px.
 
 ```
 const XUIRow = require('../structural/XUIRow').default;

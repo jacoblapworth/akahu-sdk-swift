@@ -57,14 +57,14 @@ XUIColumn.propTypes = {
 		PropTypes.number,
 	]),
 	/**
-	 * Grid columns at viewport 940 - 1160px wide. Can be 1-12 or any of [full, half, third, quarter]
+	 * Grid columns at viewport 520 - 940px wide. Can be 1-12 or any of [full, half, third, quarter]
 	 */
 	gridColumnsMedium: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.number,
 	]),
 	/**
-	 * Grid columns at viewport > 1160px wide. Can be 1-12 or any of [full, half, third, quarter]
+	 * Grid columns at viewport > 940px wide. Can be 1-12 or any of [full, half, third, quarter]
 	 */
 	gridColumnsWide: PropTypes.oneOfType([
 		PropTypes.string,

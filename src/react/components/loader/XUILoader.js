@@ -41,7 +41,7 @@ XUILoader.propTypes = {
 	/** Defaults to `true`. Sets the default layout class on the loader wrapping div */
 	defaultLayout: PropTypes.bool,
 
-	/** Sets the size of the loader to be, standard (default), small, or xsmall */
+	/** Sets the size of the loader to be, medium (default), small, or xsmall */
 	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
 	/** Sets the loader to the inverted colour scheme */

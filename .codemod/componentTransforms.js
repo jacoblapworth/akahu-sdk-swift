@@ -154,7 +154,7 @@ module.exports = {
 					valueTransform: stringReplace({
 						'small': 'xsmall',
 						'standard': 'small',
-						'large': 'standard',
+						'large': 'medium',
 					}, 'small'),
 				}
 			]

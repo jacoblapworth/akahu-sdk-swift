@@ -12,10 +12,6 @@ module.exports = {
 			isDefault: true,
 			props: [
 				{
-					name: 'size',
-					valueTransform: stringReplace({}, 'small'),
-				},
-				{
 					name: 'isMaxContentWidth',
 					newName: 'isLimitedWidth',
 					valueTransform: invert(true),

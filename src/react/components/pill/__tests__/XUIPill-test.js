@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
+import Enzyme, { shallow, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIPill from '../XUIPill';
@@ -20,7 +20,7 @@ describe('<XUIPill />', () => {
 	});
 
 	it('renders the pill with the specified className prop', () => {
-		const pill = shallow(
+		const pill = render(
 			<XUIPill className='xui-test-class' />
 		);
 
@@ -36,7 +36,7 @@ describe('<XUIPill />', () => {
 	});
 
 	it('renders the pill with the invalid class when the isInvalid prop is true', () => {
-		const pill = shallow(
+		const pill = render (
 			<XUIPill isInvalid={true} />
 		);
 
@@ -83,11 +83,11 @@ describe('<XUIPill />', () => {
 
 	it('invokes the callback passed into the onDeleteClick prop with itself passed in as an argument', () => {
 		const callback = jest.fn();
-		const pill = shallow(
+		const pill = mount(
 			<XUIPill value="Pill" onDeleteClick={callback} />
 		);
 
-		pill.find('.xui-pill--button-icon').simulate('click');
+		pill.find('.xui-pill--button-icon').first().simulate('click');
 		expect(callback.mock.calls.length).toEqual(1);
 	});
 
@@ -169,15 +169,15 @@ describe('<XUIPill />', () => {
 	});
 
 	it('should render a label for the delete button when passed in', () => {
-		const pill = shallow(<XUIPill deleteButtonLabel="alternate delete label" onDeleteClick={NOOP}/>);
+		const pill = mount(<XUIPill deleteButtonLabel="alternate delete label" onDeleteClick={NOOP}/>);
 
-		expect(pill.find('.xui-pill--button-icon').html()).toContain('title="alternate delete label"');
+		expect(pill.find('.xui-pill--button-icon').first().html()).toContain('title="alternate delete label"');
 	});
 
 	it('should render a delete button label of \'Delete\' by default', () => {
-		const pill = shallow(<XUIPill onDeleteClick={NOOP}/>);
+		const pill = mount(<XUIPill onDeleteClick={NOOP}/>);
 
-		expect(pill.find('.xui-pill--button-icon').html()).toContain('title="Delete"');
+		expect(pill.find('.xui-pill--button-icon').first().html()).toContain('title="Delete"');
 	});
 
 	it('should switch the focus state when toggleFocus is called', () => {

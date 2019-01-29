@@ -5,8 +5,11 @@ import renderer from 'react-test-renderer';
 import XUITextInput from '../XUITextInput';
 import XUITextInputSideElement from '../XUITextInputSideElement';
 import XUIIcon from '../../icon/XUIIcon';
+import XUIPill from '../../pill/XUIPill';
+import XUIInnerPill from '../../pill/XUIInnerPill';
 import accessibility from '@xero/xui-icon/icons/accessibility';
 import NOOP from '../../helpers/noop';
+import {sizeShift} from '../../helpers/sizes';
 import uuidv4 from 'uuid/v4';
 
 jest.mock('uuid/v4');
@@ -317,6 +320,18 @@ describe('<XUITextInput>', () => {
 
 			expect(wrapper.find('.xui-textinput-borderless-solid')).toHaveLength(1);
 			expect(wrapper.find('.xui-textinput-borderless-inverted')).toHaveLength(1);
+		});
+	});
+
+	describe('Size of child elements', () => {
+		['medium', 'small'].forEach(size => {
+			it(`when size is set to ${size}, pills have a size of ${sizeShift(size, -1)}`, () => {
+				const wrapper = mount(
+					<XUITextInput leftElement={<XUIPill value="ABC" />} size={size}/>
+				);
+				
+				expect(wrapper.find(XUIInnerPill).props().size).toBe(sizeShift(size, -1));
+			});
 		});
 	});
 

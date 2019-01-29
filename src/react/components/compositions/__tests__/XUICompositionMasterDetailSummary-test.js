@@ -33,6 +33,23 @@ describe('<XUICompositionMasterDetailSummary>', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
+	it('should include custom class and toggle off default classes, if specified', () => {
+		const wrapper = renderer.create(
+			<XUICompositionMasterDetailSummary
+				master={<div></div>}
+				detail={<div></div>}
+				summary={<div></div>}
+				className="master-detail-summary"
+				isInfinite={true}
+				hasAutoSpaceAround={false}
+				hasGridGap={false}
+				hasAutoColumnWidths={false}
+				>
+			</XUICompositionMasterDetailSummary>
+		);
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should include layout restriction class for medium, if specified', () => {
 		const wrapper = renderer.create(
 			<XUICompositionMasterDetailSummary

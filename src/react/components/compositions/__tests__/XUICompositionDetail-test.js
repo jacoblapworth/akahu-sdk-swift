@@ -29,12 +29,13 @@ describe('<XUICompositionDetail>', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should include custom class and omit width-limiting class, if specified', () => {
+	it('should include custom class and toggle off default classes, if specified', () => {
 		const wrapper = renderer.create(
 			<XUICompositionDetail
 				detail={<div></div>}
 				className="single-without-head"
 				isInfinite={true}
+				hasAutoSpaceAround={false}
 				>
 			</XUICompositionDetail>
 		);

@@ -35,6 +35,24 @@ describe('<XUICompositionMasterDetailSummaryHeader>', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
+	it('should include custom class and toggle off default classes, if specified', () => {
+		const wrapper = renderer.create(
+			<XUICompositionMasterDetailSummaryHeader
+				master={<div></div>}
+				detail={<div></div>}
+				summary={<div></div>}
+				header={<div></div>}
+				className="master-detail-summary-with-head"
+				isInfinite={true}
+				hasAutoSpaceAround={false}
+				hasGridGap={false}
+				hasAutoColumnWidths={false}
+				>
+			</XUICompositionMasterDetailSummaryHeader>
+		);
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should include layout restriction class for medium, if specified', () => {
 		const wrapper = renderer.create(
 			<XUICompositionMasterDetailSummaryHeader

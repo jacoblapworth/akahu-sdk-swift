@@ -6,7 +6,9 @@ import XUIGridAreaDetail from './XUIGridAreaDetail';
 import XUIGridAreaSummary from './XUIGridAreaSummary';
 import XUIGridAreaHeader from './XUIGridAreaHeader';
 
-import baseCompositionClass, { retainValues, buildGlobalCompositionClasses } from './helpers';
+import baseCompositionClass, { buildLayoutClass, buildGlobalCompositionClasses } from './helpers';
+
+const compositionName = 'detailsummaryheader';
 
 export default class XUICompositionDetailSummaryHeader extends PureComponent {
 	render() {
@@ -21,10 +23,8 @@ export default class XUICompositionDetailSummaryHeader extends PureComponent {
 
 		const compositionClasses = cn(
 			buildGlobalCompositionClasses(spreadProps),
-			`${baseCompositionClass}-detailsummaryheader`,
-			retainWidth &&
-				retainValues[retainWidth] &&
-				`${baseCompositionClass}-detailsummaryheader-retain-${retainWidth}`,
+			buildLayoutClass({ retainWidth, compositionName }),
+			`${baseCompositionClass}-${compositionName}`,
 			className,
 		);
 
@@ -76,9 +76,14 @@ XUICompositionDetailSummaryHeader.propTypes = {
 	 * Whether to apply pre-set spacing to the outside of the composition grid. Defaults to true.
 	 */
 	hasAutoSpaceAround: PropTypes.bool,
+	/**
+	 * Whether to apply pre-set widths to columsn of the composition grid. Defaults to true.
+	 */
+	hasAutoColumnWidths: PropTypes.bool,
 };
 
 XUICompositionDetailSummaryHeader.defaultProps = {
 	hasGridGap: true,
 	hasAutoSpaceAround: true,
+	hasAutoColumnWidths: true,
 };

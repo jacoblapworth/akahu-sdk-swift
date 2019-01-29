@@ -6,7 +6,9 @@ import XUIGridAreaPrimary from './XUIGridAreaPrimary';
 import XUIGridAreaMain from './XUIGridAreaDetail';
 import XUIGridAreaHeader from './XUIGridAreaHeader';
 
-import baseCompositionClass, { retainValues, buildGlobalCompositionClasses } from './helpers';
+import baseCompositionClass, { buildLayoutClass, buildGlobalCompositionClasses } from './helpers';
+
+const compositionName = 'splitheader';
 
 export default class XUICompositionSplitHeader extends PureComponent {
 	render() {
@@ -21,10 +23,8 @@ export default class XUICompositionSplitHeader extends PureComponent {
 
 		const compositionClasses = cn(
 			buildGlobalCompositionClasses(spreadProps),
-			`${baseCompositionClass}-splitheader`,
-			retainWidth &&
-				retainValues[retainWidth] &&
-				`${baseCompositionClass}-splitheader-retain-${retainWidth}`,
+			buildLayoutClass({ retainWidth, compositionName }),
+			`${baseCompositionClass}-${compositionName}`,
 			className,
 		);
 

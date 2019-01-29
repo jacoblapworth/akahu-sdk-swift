@@ -14,12 +14,18 @@
 		"header header"
 		"summary summary"
 		"master detail" / min-content 1fr;
+	&.#{$ns}-composition-has-auto-widths {
+		grid-template-columns: 25% 1fr;
+	}
 }
 
 @mixin composition-mdsh-large {
 	grid-template:
 		"header header header"
 		"master detail summary" / min-content 1fr min-content;
+	&.#{$ns}-composition-has-auto-widths {
+		grid-template-columns: 25% 1fr 25%;
+	}
 }
 
 // Gap template variants (necessary for IE & Autoprefixer)
@@ -45,38 +51,39 @@
 		@include composition-mdsh-small-gap;
 	}
 
-	@include xui-breakpoint-medium-to-large {
-		@include composition-mdsh-medium;
-		&.#{$ns}-composition-has-grid-gap {
-			@include composition-mdsh-medium-gap;
+	&.#{$ns}-composition-auto-template {
+		@include xui-breakpoint-medium-to-large {
+			@include composition-mdsh-medium;
+			&.#{$ns}-composition-has-grid-gap {
+				@include composition-mdsh-medium-gap;
+			}
 		}
-	}
 
-	@include xui-breakpoint-large-up {
-		@include composition-mdsh-large;
-		&.#{$ns}-composition-has-grid-gap {
-			@include composition-mdsh-large-gap;
+		@include xui-breakpoint-large-up {
+			@include composition-mdsh-large;
+			&.#{$ns}-composition-has-grid-gap {
+				@include composition-mdsh-large-gap;
+			}
+		}
+		@include xui-breakpoint-xlarge-up {
+			@include xui-composition-3-column-max-widths;
 		}
 	}
 }
 
 .#{$ns}-composition-masterdetailsummaryheader-retain-medium {
-	@include xui-breakpoint-large-up {
+	@include xui-breakpoint-medium-up {
 		@include composition-mdsh-medium;
 		&.#{$ns}-composition-has-grid-gap {
 			@include composition-mdsh-medium-gap;
 		}
 	}
+	@include xui-breakpoint-xlarge-up {
+		@include xui-composition-narrow-left-max-widths;
+	}
 }
 
 .#{$ns}-composition-masterdetailsummaryheader-retain-small {
-	@include xui-breakpoint-medium-up {
-		@include composition-mdsh-small;
-		&.#{$ns}-composition-has-grid-gap {
-			@include composition-mdsh-small-gap;
-		}
-	}
-
 	& .#{$ns}-gridarea-master {
 		@include xui-utility-hidden-visually;
 	}

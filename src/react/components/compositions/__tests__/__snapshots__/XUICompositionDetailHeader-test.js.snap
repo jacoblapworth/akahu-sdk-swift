@@ -34,9 +34,9 @@ exports[`<XUICompositionDetailHeader> should do nothing with children 1`] = `
 </div>
 `;
 
-exports[`<XUICompositionDetailHeader> should include custom class and omit width-limiting class, if specified 1`] = `
+exports[`<XUICompositionDetailHeader> should include custom class and toggle off default classes, if specified 1`] = `
 <div
-  className="xui-composition xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-detailheader single-with-head"
+  className="xui-composition xui-composition-detailheader single-with-head"
 >
   <div
     className="xui-gridarea-header"

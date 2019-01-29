@@ -2,7 +2,7 @@
 
 exports[`<XUICompositionMasterDetailSummary> renders basic example 1`] = `
 <div
-  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-masterdetailsummary"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-has-auto-widths xui-composition-auto-template xui-composition-masterdetailsummary"
 >
   <div
     className="xui-gridarea-master"
@@ -24,7 +24,29 @@ exports[`<XUICompositionMasterDetailSummary> renders basic example 1`] = `
 
 exports[`<XUICompositionMasterDetailSummary> should do nothing with children 1`] = `
 <div
-  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-masterdetailsummary"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-has-auto-widths xui-composition-auto-template xui-composition-masterdetailsummary"
+>
+  <div
+    className="xui-gridarea-master"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-detail"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-summary"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<XUICompositionMasterDetailSummary> should include custom class and toggle off default classes, if specified 1`] = `
+<div
+  className="xui-composition xui-composition-auto-template xui-composition-masterdetailsummary master-detail-summary"
 >
   <div
     className="xui-gridarea-master"
@@ -46,7 +68,7 @@ exports[`<XUICompositionMasterDetailSummary> should do nothing with children 1`]
 
 exports[`<XUICompositionMasterDetailSummary> should include layout restriction class for medium, if specified 1`] = `
 <div
-  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-masterdetailsummary xui-composition-masterdetailsummary-retain-medium"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-has-auto-widths xui-composition-masterdetailsummary-retain-medium xui-composition-masterdetailsummary"
 >
   <div
     className="xui-gridarea-master"
@@ -68,7 +90,7 @@ exports[`<XUICompositionMasterDetailSummary> should include layout restriction c
 
 exports[`<XUICompositionMasterDetailSummary> should include layout restriction class for small, if specified 1`] = `
 <div
-  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-masterdetailsummary xui-composition-masterdetailsummary-retain-small"
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-has-auto-widths xui-composition-masterdetailsummary-retain-small xui-composition-masterdetailsummary"
 >
   <div
     className="xui-gridarea-master"

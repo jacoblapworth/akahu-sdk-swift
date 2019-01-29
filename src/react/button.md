@@ -84,7 +84,7 @@ The `size` prop allows you to modify the default button size.
 
 ```jsx
 <div>
-	<XUIButton>Standard</XUIButton>
+	<XUIButton>Medium</XUIButton>
 	<XUIButton size="small">Small</XUIButton>
 	<XUIButton size="xsmall">Extra small</XUIButton>
 </div>

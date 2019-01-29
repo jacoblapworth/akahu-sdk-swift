@@ -45,7 +45,7 @@
 //     <input class="xui-textinput xui-textinput--input xui-textinput-is-invalid" type="text" id="field3" placeholder="" />
 //     <div class="xui-validation xui-validation-layout xui-validation-is-invalid">Must be at least 9 digits</div>
 //   </div>
-//   <input class="xui-button xui-button-main" type="submit" value="Submit" />
+//   <input class="xui-button xui-button-medium xui-button-main" type="submit" value="Submit" />
 // </form>
 // </div>
 //
@@ -70,7 +70,7 @@
 //     <input class="xui-textinput xui-textinput--input" type="email" id="inline-email" placeholder="" />
 //   </div>
 //   <div class="xui-field-layout">
-//      <input class="xui-button xui-button-main" type="submit" value="Sign up" />
+//      <input class="xui-button xui-button-medium xui-button-main" type="submit" value="Sign up" />
 //   </div>
 // </form>
 //
@@ -156,13 +156,13 @@
 //     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
 //     <input class="xui-textinput xui-textinput--input xui-textinput-is-invalid xui-column-2-of-12" placeholder="Invalid input" aria-label="Invalid input" />
 //     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
-//     <button class="xui-button xui-button-main xui-column-2-of-12">Action</button>
+//     <button class="xui-button xui-button-medium xui-button-main xui-column-2-of-12">Action</button>
 //   </div>
 // </div>
 // <div class="xui-field-layout">
 //   <label for="horizontaldemofield3" class="xui-text-label xui-fieldlabel-layout">Another mix of select, input and button</label>
 //   <div class="xui-textinputgroup">
-//     <button id="horizontaldemofield3" class="xui-button xui-button-standard xui-column-2-of-12">Action</button>
+//     <button id="horizontaldemofield3" class="xui-button xui-button-medium xui-button-standard xui-column-2-of-12">Action</button>
 //     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
 //     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
 //     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
@@ -182,7 +182,7 @@
 // <div class="xui-field-layout">
 //   <label for="horizontaldemofield3" class="xui-text-label xui-fieldlabel-layout">Mix with input wrappers</label>
 //   <div class="xui-textinputgroup">
-//     <button id="horizontaldemofield3" class="xui-button xui-button-standard xui-column-2-of-12">Action</button>
+//     <button id="horizontaldemofield3" class="xui-button xui-button-medium xui-button-standard xui-column-2-of-12">Action</button>
 //     <div class="xui-column-2-of-12 xui-textinputwrapper">
 //       <input class="xui-textinput xui-textinput--input" />
 //     </div>

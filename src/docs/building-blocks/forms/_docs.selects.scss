@@ -11,7 +11,7 @@
 // Styleguide: Building Blocks.Controls.Select
 
 // Best practice
-// 
+//
 // Tips:
 // Do: Use a select when choosing from a basic list of options in a form
 // Do: Update the parent control after every change
@@ -29,7 +29,8 @@
 //
 // Classes:
 // xui-button: Style for a button
-// xui-button-standard: Modifier for a standard button
+// xui-button-standard: Modifier for a standard-style button
+// xui-button-medium: Modifier for a medium-size button
 // xui-button-fullwidth: 100% width
 // xui-select--button: Aligns the text like an input
 // xui-select--button-no-variant: Styles the button like an input
@@ -37,7 +38,7 @@
 // xui-select--caret: Icon styles
 //
 // Markup:
-// <button class="xui-button xui-button-standard xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
+// <button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
 //   <span class="xui-select--content">CSV</span>
 //   <svg focusable="false" class="xui-icon xui-select--caret">
 //     <use xlink:href="#xui-icon-caret" role="presentation" />
@@ -56,7 +57,7 @@
 //
 // Markup:
 // <div class="xui-select-layout">
-// <button class="xui-button xui-button-standard xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
+// <button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
 //   <span class="xui-select--content">CSV</span>
 //   <svg focusable="false" class="xui-icon xui-select--caret">
 //     <use xlink:href="#xui-icon-caret" role="presentation" />
@@ -88,9 +89,9 @@
 //
 // Classes:
 // xui-textcolor-faint: Changes text color
-// 
+//
 // Markup:
-// <button class="xui-button xui-button-standard xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
+// <button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
 //   <span class="xui-select--content xui-textcolor-faint">Select format</span>
 //   <svg focusable="false" class="xui-icon xui-select--caret">
 //     <use xlink:href="#xui-icon-caret" role="presentation" />
@@ -103,9 +104,9 @@
 //
 // To disable a select control, apply the `disabled` attribute.
 // This applies styles and prevents it from accepting focus.
-// 
+//
 // Markup:
-// <button class="xui-button xui-button-standard xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format" disabled>
+// <button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format" disabled>
 //   <span class="xui-select--content">PDF</span>
 //   <svg focusable="false" class="xui-icon xui-select--caret">
 //     <use xlink:href="#xui-icon-caret" role="presentation" />

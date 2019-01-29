@@ -100,7 +100,7 @@
 // small: <code>.xui-loader-xsmall</code>
 //
 // Markup:
-// <button type="button" disabled class="xui-button xui-button-main xui-button-is-disabled">
+// <button type="button" disabled class="xui-button xui-button-main xui-button-is-disabled xui-button-xsmall">
 //	 <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-valuetext="Button loading">
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
@@ -122,10 +122,10 @@
 // Flag: Experimental
 //
 // Markup:
-// <button type="button" class="xui-button xui-button-main">
+// <button type="button" class="xui-button xui-button-medium xui-button-main">
 //   Long button text
 // </button>
-// <button type="button" disabled class="xui-button xui-button-main xui-button-is-disabled">
+// <button type="button" disabled class="xui-button xui-button-medium xui-button-main xui-button-is-disabled">
 //   <div class="xui-button-hidden-content">Long button text</div>
 //	 <div class="xui-button--loader xui-loader xui-loader-small xui-loader-retain-layout" role="progressbar" aria-valuetext="Button loading">
 //     <div class="xui-loader--dot"></div>
@@ -265,8 +265,8 @@
 //       </form>
 //     </div>
 //     <footer class="xui-modal--footer xui-actions xui-actions-layout xui-padding-top-small xui-padding-large xui-u-hidden-content">
-//       <button type="button" class="xui-actions--secondary xui-button xui-button-standard">Cancel</button>
-//       <button type="button" class="xui-actions--primary xui-button xui-button-main">Save</button>
+//       <button type="button" class="xui-actions--secondary xui-button xui-button-medium xui-button-standard">Cancel</button>
+//       <button type="button" class="xui-actions--primary xui-button xui-button-medium xui-button-main">Save</button>
 //     </footer>
 //	 	<div class="xui-loader xui-loader-medium xui-loader-retain-layout" role="progressbar" aria-valuetext="Loading content">
 //			<div class="xui-loader--dot"></div>

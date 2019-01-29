@@ -39,7 +39,7 @@ function getRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const overflowButton = <XUIButton className="xui-button-icon-large" variant="icon" aria-label="More options"><XUIIcon icon={overflow}/></XUIButton>;
+const overflowButton = <XUIButton variant="icon" aria-label="More options"><XUIIcon icon={overflow}/></XUIButton>;
 const avatar = <XUIAvatar value="Tim Redmond" />;
 const actionButton = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>}/>;
 const positiveTag = <XUITag className="xui-margin-left-small" variant="positive">Paid</XUITag>;

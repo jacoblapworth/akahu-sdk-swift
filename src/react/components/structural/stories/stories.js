@@ -82,7 +82,7 @@ const buildExampleSections = (children) => {
 const buildExampleContentblockItem = (children) => {
 	return children.map((child, index) => {
 		if (child.overflow) {
-			child.overflow = <XUIButton className="xui-button-icon-large" variant="icon" aria-label="Overflow menu"><XUIIcon icon={overflow} isBoxed /></XUIButton>;
+			child.overflow = <XUIButton variant="icon" aria-label="Overflow menu"><XUIIcon icon={overflow} isBoxed /></XUIButton>;
 		}
 		if (child.tag) {
 			child.tags = <XUITag className="xui-margin-left-small" variant="positive">Positive</XUITag>;

@@ -145,7 +145,7 @@ All other existing values stay as they are (including `2xlarge`)
 
 - Pill has a new `isLimitedWidth` prop to replace the `isMaxContentWidth` prop. The default for pills is now to fit their content, and you can apply `isLimitedWidth` to cap them at 200px. This prop change will be handled automatically by the upgrade codemod for existing Pills in your app.
   - Pill `size` prop now has a default of `medium`, instead of `standard`. This size is visually the same as XUI 14 aside from the font size changes. Other available values are `small` and `xsmall`.
-- XUIIcon now adds a class called `xui-iconwrapper-medium` by default. Use the `size` prop to alter this to `large` or `xlarge` at your discretion.
+- XUIIcon, when `isBoxed` is true, now adds a class called `xui-iconwrapper-medium` by default. Use the `size` prop to alter this to `large` or `xlarge` at your discretion.
 - Text input now has a `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
 - Tag has a new `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
 - Checkbox and Radio have a new `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.

@@ -13,7 +13,7 @@ describe('XUIIcon', () => {
 		expect(wrapper.getDOMNode().getAttribute('class')).toEqual(expect.stringContaining('classyMcClassFace'));
 	});
 
-	it('Should render with the correct classes and dimensions for standard, large and xlarge sizes', function () {
+	it('Should render with the correct classes and dimensions for medium, large and xlarge sizes', function () {
 		const wrapper = renderer.create(
 			<div>
 				<XUIIcon icon={accessibility} isBoxed />

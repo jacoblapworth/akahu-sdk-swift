@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`XUIIcon Should render with the correct classes and dimensions for standard, large and xlarge sizes 1`] = `
+exports[`XUIIcon Should render with the correct classes and dimensions for medium, large and xlarge sizes 1`] = `
 <div>
   <div
     className="xui-iconwrapper xui-iconwrapper-medium"

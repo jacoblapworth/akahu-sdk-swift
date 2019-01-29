@@ -7,6 +7,8 @@
 //
 // Introduction: Tables are used to compare, contrast, and sort large amounts of data. They are often used as an advanced alternative view to a content block.
 //
+// Components: Tables
+//
 // Styleguide: Compounds.DisplayingData.Table
 
 // Anatomy
@@ -225,7 +227,7 @@
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">Mandarin</td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">1.35 billion</td>
 //           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-last xui-table--cell-divider">&nbsp;
-//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
+//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button"><div
 //                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
 //                       row options</title>
 //                     <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
@@ -241,7 +243,7 @@
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">English</td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">316.67 million</td>
 //           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-last xui-table--cell-divider">&nbsp;
-//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
+//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button"><div
 //                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
 //                       row options</title>
 //                     <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
@@ -257,7 +259,7 @@
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">Russian</td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">142.5 million</td>
 //           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-last xui-table--cell-divider">&nbsp;
-//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
+//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button"><div
 //                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
 //                       row options</title>
 //                     <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
@@ -321,7 +323,7 @@
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">Mandarin</td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">1.35 billion</td>
 //           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-last xui-table--cell-divider">&nbsp;
-//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
+//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button"><div
 //                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
 //                       row options</title>
 //                     <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
@@ -342,7 +344,7 @@
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">English</td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">316.67 million</td>
 //           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-last xui-table--cell-divider">&nbsp;
-//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
+//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button"><div
 //                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
 //                       row options</title>
 //                     <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
@@ -363,7 +365,7 @@
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-singleline">Russian</td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-default-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline">142.5 million</td>
 //           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-default-layout xui-table--cell-last xui-table--cell-divider">&nbsp;
-//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button"><div
+//             <div role="presentation" class="xui-table--overflowmenu-body" data-ref="toggled-wrapper"><button aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button"><div
 //                  class="xui-iconwrapper"><svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13"><title>More
 //                       row options</title>
 //                     <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"

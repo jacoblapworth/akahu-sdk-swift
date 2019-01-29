@@ -32,7 +32,7 @@
 // <div class='xui-panel xui-dropdown-large'>
 //  <div class="xui-datepicker">
 //   <header class="xui-datepicker--header">
-//     <button type="button" class="xui-button xui-button-icon xui-button-icon-large xui-datepicker--prevbutton" aria-label="Go to previous month" title="Go to previous month">
+//     <button type="button" class="xui-button xui-button-icon xui-button-icon-medium xui-datepicker--prevbutton" aria-label="Go to previous month" title="Go to previous month">
 //       <svg focusable="false" class="xui-icon xui-icon-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 //     </button>
 //     <form class="xui-datepicker--heading-dates">
@@ -54,7 +54,7 @@
 //         <label for="year" class="xui-datepicker--heading-label">2017</label>
 //       </div>
 //     </form>
-//     <button type="button" class="xui-button xui-button-icon xui-button-icon-large xui-datepicker--nextbutton" aria-label="Go to next month" title="Go to next month">
+//     <button type="button" class="xui-button xui-button-icon xui-button-icon-medium xui-datepicker--nextbutton" aria-label="Go to next month" title="Go to next month">
 //       <svg focusable="false" class="xui-icon xui-icon-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 //     </button>
 //   </header>
@@ -231,7 +231,7 @@
 // By default, datepickers span the full width of their containing element.
 // To set your own width, nest the datepicker within another component, such as a <a href="section-compounds-collectinginput-dropdowns.html">dropdown</a>, or apply your own value.
 // A smaller variant of the datepicker is also available by applying the following modifiers to `xui-datepicker`.
-// It is also recommended to remove the `xui-button-icon-large` modifier on the icon buttons when doing so.
+// It is also recommended to remove the `xui-button-icon-medium` modifier on the icon buttons when doing so.
 //
 // Definitions:
 // Standard: 40px controls, 100% width: none

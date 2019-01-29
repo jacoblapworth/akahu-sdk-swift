@@ -3,6 +3,8 @@
 
 // Content block
 //
+// Components: Content-block
+//
 // Teaser: Top-level views of detailed sub pages.
 //
 // Introduction: A content block is a simplified top-level view for a detailed sub page, often containing quick access to key actions.
@@ -59,7 +61,7 @@
 // 			</span>
 // 		</a>
 // 		<div class="xui-contentblockitem--rightcontent">
-// 			<button class="xui-button xui-button-icon" tabindex="0" type="button" title="More options">
+// 			<button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 // 				<svg focusable="false" class="xui-icon">
 // 					<use xlink:href="#xui-icon-overflow"></use>
 // 				</svg>
@@ -73,7 +75,7 @@
 // 			</span>
 // 		</a>
 // 		<div class="xui-contentblockitem--rightcontent">
-// 			<button class="xui-button xui-button-icon" tabindex="0" type="button" title="More options">
+// 			<button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 // 				<svg focusable="false" class="xui-icon">
 // 					<use xlink:href="#xui-icon-overflow"></use>
 // 				</svg>
@@ -104,7 +106,7 @@
 //         	<div class="xui-contentblockitem--secondaryheading">Item 2 Secondary<span class="xui-margin-horizontal-xsmall">•</span>Item 2 Secondary</div>
 //         </a>
 //         <div class="xui-contentblockitem--rightcontent">
-//             <button class="xui-button xui-button-icon" tabindex="0" type="button" title="More options">
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //                 <svg focusable="false" class="xui-icon">
 //                     <use xlink:href="#xui-icon-overflow"></use>
 //                 </svg>
@@ -119,7 +121,7 @@
 //         	<div class="xui-contentblockitem--secondaryheading">Item 2 Secondary<span class="xui-margin-horizontal-xsmall">•</span>Item 2 Secondary</div>
 //         </a>
 //         <div class="xui-contentblockitem--rightcontent">
-//             <button class="xui-button xui-button-icon" tabindex="0" type="button" title="More options">
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //                 <svg focusable="false" class="xui-icon">
 //                     <use xlink:href="#xui-icon-overflow"></use>
 //                 </svg>
@@ -155,7 +157,7 @@
 //             <div class="xui-contentblockitem--secondaryheading">Secondary<span class="xui-margin-horizontal-xsmall">•</span>Secondary</div>
 //         </a>
 //         <div class="xui-contentblockitem--rightcontent">
-//             <button class="xui-button xui-button-icon" tabindex="0" type="button" title="More options">
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //                 <svg focusable="false" class="xui-icon">
 //                     <use xlink:href="#xui-icon-overflow"></use>
 //                 </svg>
@@ -177,7 +179,7 @@
 //             <div class="xui-contentblockitem--secondaryheading">Secondary<span class="xui-margin-horizontal-xsmall">•</span>Secondary</div>
 //         </a>
 //         <div class="xui-contentblockitem--rightcontent">
-//             <button class="xui-button xui-button-icon" tabindex="0" type="button" title="More options">
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //                 <svg focusable="false" class="xui-icon">
 //                     <use xlink:href="#xui-icon-overflow"></use>
 //                 </svg>
@@ -209,7 +211,7 @@
 //         	<div class="xui-contentblockitem--secondaryheading">Secondary<span class="xui-margin-horizontal-xsmall">•</span>Secondary</div>
 //         </a>
 //         <div class="xui-contentblockitem--rightcontent">
-//             <button class="xui-button xui-button-icon" tabindex="0" type="button" title="More options">
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //                 <svg focusable="false" class="xui-icon">
 //                     <use xlink:href="#xui-icon-overflow"></use>
 //                 </svg>
@@ -227,7 +229,7 @@
 //         	<div class="xui-contentblockitem--secondaryheading">Secondary<span class="xui-margin-horizontal-xsmall">•</span>Secondary</div>
 //         </a>
 //         <div class="xui-contentblockitem--rightcontent">
-//             <button class="xui-button xui-button-icon" tabindex="0" type="button" title="More options">
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //                 <svg focusable="false" class="xui-icon">
 //                     <use xlink:href="#xui-icon-overflow"></use>
 //                 </svg>
@@ -260,7 +262,7 @@
 //         </a>
 //         <div class="xui-contentblockitem--rightcontent">
 //             <div class="xui-contentblockitem--pinnedvalue">0.00</div>
-//             <button class="xui-button xui-button-icon" tabindex="0" type="button" title="More options">
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //                 <svg focusable="false" class="xui-icon">
 //                     <use xlink:href="#xui-icon-overflow"></use>
 //                 </svg>
@@ -279,7 +281,7 @@
 //         </a>
 //         <div class="xui-contentblockitem--rightcontent">
 //             <div class="xui-contentblockitem--pinnedvalue">0.00</div>
-//             <button class="xui-button xui-button-icon" tabindex="0" type="button" title="More options">
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //                 <svg focusable="false" class="xui-icon">
 //                     <use xlink:href="#xui-icon-overflow"></use>
 //                 </svg>
@@ -314,7 +316,7 @@
 //             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
 //                 <button class="xui-button xui-actions--primary xui-button-standard xui-button-small" tabindex="0" type="button">Action</button>
 //             </div>
-//             <button class="xui-button xui-button-icon" tabindex="0" type="button" title="More options">
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //                 <svg focusable="false" class="xui-icon">
 //                     <use xlink:href="#xui-icon-overflow"></use>
 //                 </svg>
@@ -336,7 +338,7 @@
 //             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
 //                 <button class="xui-button xui-actions--primary xui-button-standard xui-button-small" tabindex="0" type="button">Action</button>
 //             </div>
-//             <button class="xui-button xui-button-icon" tabindex="0" type="button" title="More options">
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //                 <svg focusable="false" class="xui-icon">
 //                     <use xlink:href="#xui-icon-overflow"></use>
 //                 </svg>
@@ -369,7 +371,7 @@
 //       <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
 //         <button class="xui-button xui-actions--primary xui-button-standard xui-button-small" tabindex="0" type="button">Action</button>
 //       </div>
-//       <button class="xui-button xui-button-icon" tabindex="0" type="button" title="More options">
+//       <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-overflow"></use>
 //         </svg>
@@ -392,7 +394,7 @@
 //       <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
 //         <button class="xui-button xui-actions--primary xui-button-standard xui-button-small" tabindex="0" type="button">Action</button>
 //       </div>
-//       <button class="xui-button xui-button-icon" tabindex="0" type="button">
+//       <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button">
 //         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-overflow"></use>
 //         </svg>
@@ -415,7 +417,7 @@
 //       <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
 //         <button class="xui-button xui-actions--primary xui-button-standard xui-button-small" tabindex="0" type="button">Action</button>
 //       </div>
-//       <button class="xui-button xui-button-icon" tabindex="0" type="button">
+//       <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button">
 //         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-overflow"></use>
 //         </svg>
@@ -451,7 +453,7 @@
 //    Section
 // </div>
 //    <div class="xui-u-flex xui-u-flex-align-center xui-margin-horizontal-small">
-//      <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button" title="More options">
+//      <button aria-haspopup="true" class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //        <svg focusable="false" class="xui-icon">
 //          <use xlink:href="#xui-icon-overflow"></use>
 //        </svg>
@@ -475,7 +477,7 @@
 // 		<span class="xui-text-deemphasis xui-margin-left-xsmall">3</span>
 // </div>
 //    <div class="xui-u-flex xui-u-flex-align-center xui-margin-horizontal-small">
-//      <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button" title="More options">
+//      <button aria-haspopup="true" class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //        <svg focusable="false" class="xui-icon">
 //          <use xlink:href="#xui-icon-overflow"></use>
 //        </svg>
@@ -500,7 +502,7 @@
 // </div>
 //    <div class="xui-u-flex xui-u-flex-align-center xui-margin-horizontal-small">
 //      <div class="xui-text-deemphasis xui-text-align-right xui-margin-right-small">0.00</div>
-//			<button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button" title="More options">
+//			<button aria-haspopup="true" class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //        <svg focusable="false" class="xui-icon">
 //          <use xlink:href="#xui-icon-overflow"></use>
 //        </svg>
@@ -532,7 +534,7 @@
 // </div>
 //    <div class="xui-u-flex xui-u-flex-align-center xui-margin-horizontal-small">
 //      <div class="xui-text-deemphasis xui-text-align-right xui-margin-right-small">0.00</div>
-//			<button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button" title="More options">
+//			<button aria-haspopup="true" class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //        <svg focusable="false" class="xui-icon">
 //          <use xlink:href="#xui-icon-overflow"></use>
 //        </svg>
@@ -560,7 +562,7 @@
 // </div>
 //    <div class="xui-u-flex xui-u-flex-align-center xui-margin-horizontal-small">
 //      <div class="xui-text-deemphasis xui-text-align-right xui-margin-right-small">0.00</div>
-//			<button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button" title="More options">
+//			<button aria-haspopup="true" class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
 //        <svg focusable="false" class="xui-icon">
 //          <use xlink:href="#xui-icon-overflow"></use>
 //        </svg>

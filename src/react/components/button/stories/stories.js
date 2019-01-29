@@ -8,6 +8,8 @@ import XUIButtonGroup from '../XUIButtonGroup';
 import XUISplitButton from '../XUISecondaryButton';
 import XUISplitButtonGroup from '../XUISplitButtonGroup';
 import XUIIcon from '../../icon/XUIIcon';
+import DropDown from '../../dropdown/DropDown';
+import DropDownToggled from '../../dropdown/DropDownToggled';
 import view from '@xero/xui-icon/icons/view';
 
 // Story book things
@@ -18,11 +20,18 @@ import centered from '@storybook/addon-centered';
 import { storiesWithVariationsKindName, variations } from './variations';
 import { VariantClassNames, SizeClassNames, ButtonTypes } from '../private/constants';
 
+const dropdownWithTrigger = (
+	<DropDownToggled
+		trigger={<XUISplitButton key='split' variant='primary' aria-label='Other actions' />}
+		dropdown={<DropDown><p className="xui-padding-small">hello</p></DropDown>}
+	/>
+);
+
 const buttonContents = {
 	withCaret: ['Caret button', <XUIButtonCaret key='caret'/>],
 	asGroup: [<XUIButton key='one'>One</XUIButton>, <XUIButton key='two'>Two</XUIButton>],
 	asGroupSm: [<XUIButton key='one' size="small">One</XUIButton>, <XUIButton key='two' size="small">Two</XUIButton>],
-	asSplitGroup: [<XUIButton key='main'>Main</XUIButton>, <XUISplitButton key='split' aria-label='Other actions' />],
+	asSplitGroup: [<XUIButton key='main'>Main</XUIButton>, dropdownWithTrigger],
 	asSplitGroupMulti: [<XUIButton key='main'>This is a bunch of multi line text to make sure the icon displays correctly</XUIButton>, <XUISplitButton key='split' aria-label='Other actions' />],
 	asSplitGroupSm: [<XUIButton key='main' size="small">Main</XUIButton>, <XUISplitButton key='split' size="small" aria-label='Other actions' />],
 	icon: <XUIIcon icon={view} title="Preview" isBoxed />

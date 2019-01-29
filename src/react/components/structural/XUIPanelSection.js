@@ -8,6 +8,7 @@ const baseClass = `${ns}-panel--section`;
 export default class XUIPanelSection extends PureComponent {
 	render() {
 		const {
+			qaHook,
 			className,
 			children,
 			headerText,
@@ -19,7 +20,7 @@ export default class XUIPanelSection extends PureComponent {
 		const header = headerText && <div className={headerClasses}>{headerText}</div>;
 
 		return (
-			<div {...spreadProps} className={classes}>
+			<div {...spreadProps} className={classes} data-automationid={qaHook}>
 				{header}
 				{children}
 			</div>
@@ -30,6 +31,7 @@ export default class XUIPanelSection extends PureComponent {
 XUIPanelSection.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 	/**
 	 * Text to be placed in a "xui-panel--section-header" node
 	 */

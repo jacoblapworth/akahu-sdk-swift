@@ -137,28 +137,28 @@
 //
 // Markup:
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-pageheading--content-layout">
-//     <div class='xui-pageheading--tabs'>
-//       <h1 class="xui-pageheading--title">Contacts</h1>
-//       <ul class="xui-picklist xui-picklist-horizontal" role="tree">
-//        <li class="xui-pickitem xui-pickitem-is-selected" tabindex="-1" role="treeitem">
-//          <button type="button" class="xui-pickitem--body" tabindex="0">
-//            All
-//          </button>
-//        </li>
-//        <li class="xui-pickitem" tabindex="-1" role="treeitem">
-//          <button type="button" class="xui-pickitem--body" tabindex="0">
-//            Suppliers
-//          </button>
-//        </li>
-//        <li class="xui-pickitem" tabindex="-1" role="treeitem">
-//          <button type="button" class="xui-pickitem--body" tabindex="0">
-//            Customers
-//          </button>
-//        </li>
-//       </ul>
-//     </div>
-//   </div>
+// 	<div class="xui-pageheading--content xui-pageheading--content-layout">
+// 		<div class="xui-pageheading--tabs">
+// 			<h1 class="xui-pageheading--title">Contacts</h1>
+// 			<ul role="menu" class="xui-picklist xui-picklist-horizontal xui-picklist-medium">
+// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium xui-pickitem-is-selected" role="menuitem" id="one">
+// 					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--text">All</span>
+// 					</button>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium" role="menuitem" id="two">
+// 					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--text">Suppliers</span>
+// 					</button>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium" role="menuitem" id="three">
+// 					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--text">Customers</span>
+// 					</button>
+// 				</li>
+// 			</ul>
+// 		</div>
+// 	</div>
 // </header>
 //
 // Styleguide: Compounds.Navigation.Tabs

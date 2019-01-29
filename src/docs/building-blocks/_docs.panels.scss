@@ -288,18 +288,18 @@
 // Markup:
 // <div class="xui-panel xui-u-flex">
 //   <div class="xui-panel--sidebar">
-//     <ul class="xui-picklist xui-picklist-layout" role="tree">
-//       <li class="xui-pickitem xui-pickitem-is-selected" tabindex="-1" role="treeitem">
+//     <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//       <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium" tabindex="-1" role="treeitem">
 //         <button type="button" class="xui-pickitem--body" tabindex="0">
 //           <span class="xui-pickitem--text">Selected sidebar item</span>
 //         </button>
 //       </li>
-//       <li class="xui-pickitem" tabindex="-1" role="treeitem">
+//       <li class="xui-pickitem xui-pickitem-medium" tabindex="-1" role="treeitem">
 //         <button type="button" class="xui-pickitem--body" tabindex="0">
 //           <span class="xui-pickitem--text xui-text-truncated">Sidebar item</span>
 //         </button>
 //       </li>
-//       <li class="xui-pickitem" tabindex="-1" role="treeitem">
+//       <li class="xui-pickitem xui-pickitem-medium" tabindex="-1" role="treeitem">
 //         <button type="button" class="xui-pickitem--body" tabindex="0">
 //           <span class="xui-pickitem--text">Sidebar item</span>
 //         </button>

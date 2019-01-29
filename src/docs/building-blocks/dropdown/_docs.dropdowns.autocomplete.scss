@@ -59,34 +59,40 @@
 //   <div class='xui-dropdown--mask'></div>
 //   <div class='xui-dropdown--body'>
 //     <div class='xui-dropdown--scrollable-content'>
-//       <ul class="xui-picklist xui-picklist-layout" role="tree">
-//        <li class="xui-pickitem" role="treeitem">
-//          <button type="button" class="xui-pickitem--body">
-//            <abbr class="xui-avatar xui-avatar xui-avatar-color-8 xui-margin-right-small">IM</abbr>
-//            <span class="xui-pickitem--text xui-u-overflow-hidden xui-u-flex xui-u-flex-column">
-//              <span class="xui-text-emphasis xui-text-truncated">Isaac Minogue</span>
-//              <span class="xui-text-secondary xui-text-truncated">isaac.minogue@xero.com</span>
-//            </span>
-//          </button>
-//        </li>
-//        <li class="xui-pickitem" role="treeitem">
-//          <button type="button" class="xui-pickitem--body">
-//            <abbr class="xui-avatar xui-avatar xui-avatar-color-5 xui-margin-right-small">GP</abbr>
-//            <span class="xui-pickitem--text xui-u-overflow-hidden xui-u-flex xui-u-flex-column">
-//              <span class="xui-text-emphasis xui-text-truncated">Gareth Price</span>
-//              <span class="xui-text-secondary xui-text-truncated">gareth.price@xero.com</span>
-//            </span>
-//          </button>
-//        </li>
-//        <li class="xui-pickitem" role="treeitem">
-//          <button type="button" class="xui-pickitem--body">
-//            <abbr class="xui-avatar xui-avatar xui-avatar-color-2 xui-margin-right-small">IM</abbr>
-//            <span class="xui-pickitem--text xui-u-overflow-hidden xui-u-flex xui-u-flex-column">
-//              <span class="xui-text-emphasis xui-text-truncated">Ivan Miskovic</span>
-//              <span class="xui-text-secondary xui-text-truncated">ivan.miskovic@xero.com</span>
-//            </span>
-//          </button>
-//        </li>
+//       <ul role="group" class="xui-picklist xui-picklist-layout xui-picklist-medium">
+//				<li class="xui-pickitem xui-pickitem-text-truncated xui-pickitem-multiline xui-pickitem-medium" role="option" id="1">
+//					<button type="button" class="xui-pickitem--body" tabindex="-1">
+//						<span class="xui-pickitem--sideelement">
+//							<abbr class="xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">IM</abbr>
+//						</span>
+//						<span class="xui-pickitem--text xui-pickitem-text-truncated">
+//							<span class="xui-pickitem--heading xui-pickitem-text-truncated">Isaac Minogue</span>
+//							<span class="xui-pickitem--secondary xui-pickitem-text-truncated">isaac.minogue@xero.com</span>
+//						</span>
+//					</button>
+//				</li>
+//				<li class="xui-pickitem xui-pickitem-text-truncated xui-pickitem-multiline xui-pickitem-medium" role="option" id="2">
+//					<button type="button" class="xui-pickitem--body" tabindex="-1">
+//						<span class="xui-pickitem--sideelement">
+//							<abbr class="xui-avatar xui-avatar-small xui-avatar-color-5" role="presentation">GP</abbr>
+//						</span>
+//						<span class="xui-pickitem--text xui-pickitem-text-truncated">
+//							<span class="xui-pickitem--heading xui-pickitem-text-truncated">Gareth Price</span>
+//							<span class="xui-pickitem--secondary xui-pickitem-text-truncated">gareth.price@xero.com</span>
+//						</span>
+//					</button>
+//				</li>
+//				<li class="xui-pickitem xui-pickitem-text-truncated xui-pickitem-multiline xui-pickitem-medium" role="option" id="1">
+//					<button type="button" class="xui-pickitem--body" tabindex="-1">
+//						<span class="xui-pickitem--sideelement">
+//							<abbr class="xui-avatar xui-avatar-small xui-avatar-color-2" role="presentation">IM</abbr>
+//						</span>
+//						<span class="xui-pickitem--text xui-pickitem-text-truncated">
+//							<span class="xui-pickitem--heading xui-pickitem-text-truncated">Ivan Miskovic</span>
+//							<span class="xui-pickitem--secondary xui-pickitem-text-truncated">ivan.miskovic@xero.com</span>
+//						</span>
+//					</button>
+//				</li>
 //       </ul>
 //     </div>
 //   </div>

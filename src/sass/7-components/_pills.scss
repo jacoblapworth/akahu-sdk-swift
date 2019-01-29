@@ -434,7 +434,7 @@
 	}
 }
 
-&.#{$ns}-pill-is-focused {
+.#{$ns}-pill-is-focused {
 	background-color: $xui-pill-focused-bg-color;
 }
 

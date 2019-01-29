@@ -12,11 +12,14 @@
 		"definitions",
 		"note",
 		"teaser",
+		"teaser-image",
 		"exampleclass",
 		"introduction",
 		"tips",
 		"flag",
-		"storybook"
+		"storybook",
+		"image",
+		"image-caption"
 	],
 	"destination": "./dist/docs",
 	"css": [

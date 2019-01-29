@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="6116px" height="1730px" viewBox="0 0 6116 1730" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>devices_Detail Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-16.5%" y="-8.1%" width="133.1%" height="116.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="15" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M73,19 L348,19 C375.614237,19 398,41.3857625 398,69 L398,781 C398,808.614237 375.614237,831 348,831 L73,831 C45.3857625,831 23,808.614237 23,781 L23,69 C23,41.3857625 45.3857625,19 73,19 Z" id="path-2"></path>
+        <path d="M320,60 L2343,60 C2351.28427,60 2358,66.7157288 2358,75 L2358,1328 C2358,1336.28427 2351.28427,1343 2343,1343 L320,1343 C311.715729,1343 305,1336.28427 305,1328 L305,75 C305,66.7157288 311.715729,60 320,60 Z" id="path-4"></path>
+        <filter x="-1.9%" y="-3.0%" width="103.8%" height="106.0%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-7" x="0" y="0" width="2600" height="1537"></rect>
+    </defs>
+    <g id="devices_Detail-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="6116" height="1730"></rect>
+        <g id="iPhoneX---Black-Copy" filter="url(#filter-1)" transform="translate(38.000000, 824.000000)">
+            <g id="Screen">
+                <g id="Base">
+                    <path d="M58,1 L359,1 C391.032515,1 417,26.9674845 417,59 L417,794 C417,826.032515 391.032515,852 359,852 L58,852 C25.9674845,852 3.92285176e-15,826.032515 0,794 L0,59 C-3.92285176e-15,26.9674845 25.9674845,1 58,1 Z" id="Shadow"></path>
+                    <path d="M59,0 L358,0 C390.032515,-5.88427763e-15 416,25.9674845 416,58 L416,792 C416,824.032515 390.032515,850 358,850 L59,850 C26.9674845,850 1,824.032515 1,792 L1,58 C1,25.9674845 26.9674845,5.88427763e-15 59,0 Z" id="Device" fill="#000000"></path>
+                </g>
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                </mask>
+                <use id="SCREEN-MASK" fill="#F2F3F3" xlink:href="#path-2"></use>
+                <g id="Detail/Mobile" mask="url(#mask-3)">
+                    <g transform="translate(26.000000, 19.000000)">
+                        <rect id="Rectangle-Copy-2" fill="#F2F3F3" x="0" y="0" width="372" height="812"></rect>
+                        <rect id="Rectangle" fill="#C5C5F6" x="24.8" y="25.375" width="322.4" height="761.25"></rect>
+                    </g>
+                </g>
+                <g id="Buttons" mask="url(#mask-3)" fill="#333333" fill-rule="nonzero">
+                    <g transform="translate(-6.000000, 110.000000)">
+                        <path d="M2,0 L8,0 L8,33 L2,33 C1.44771525,33 1,32.5522847 1,32 L1,1 C1,0.44771525 1.44771525,1.01453063e-16 2,0 Z" id="Mute"></path>
+                        <path d="M1,62 L7,62 L7,124 L1,124 C0.44771525,124 6.76353751e-17,123.552285 0,123 L0,63 C-6.76353751e-17,62.4477153 0.44771525,62 1,62 Z" id="Sound-Up"></path>
+                        <path d="M423,82 L429,82 L429,182 L423,182 C422.447715,182 422,181.552285 422,181 L422,83 C422,82.4477153 422.447715,82 423,82 Z" id="Action-Button"></path>
+                        <path d="M1,140 L7,140 L7,202 L1,202 C0.44771525,202 6.76353751e-17,201.552285 0,201 L0,141 C-6.76353751e-17,140.447715 0.44771525,140 1,140 Z" id="Sound-Down"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="Macbook-Pro-Copy" transform="translate(621.000000, 187.000000)">
+            <path d="M250,1457 L2413,1457 L2413,30 C2413,16.1928813 2401.80712,5 2388,5 L275,5 C261.192881,5 250,16.1928813 250,30 L250,1457 Z" id="Screen-background" stroke="#9FA2A5" stroke-width="10" fill="#000000"></path>
+            <polygon id="Base" fill="#D8D8D8" points="0 1403 2663 1403 2663 1458 0 1458"></polygon>
+            <path d="M0,1458 L2663,1458 L2663,1458 C2663,1475.12083 2649.12083,1489 2632,1489 L31,1489 C13.8791728,1489 2.09669663e-15,1475.12083 0,1458 Z" id="Base-Bottom" fill="#9FA2A5"></path>
+            <mask id="mask-5" fill="white">
+                <use xlink:href="#path-4"></use>
+            </mask>
+            <use id="SCREEN-MASK" fill="#BD10E0" xlink:href="#path-4"></use>
+            <g id="Detail/Desktop-HD-100%" mask="url(#mask-5)">
+                <g transform="translate(304.000000, 57.000000)">
+                    <rect id="Rectangle" fill="#F2F3F3" x="0" y="0" width="2058" height="1292"></rect>
+                    <rect id="Rectangle-Copy-4" fill="#C5C5F6" x="45.7333333" y="40.375" width="1966.53333" height="1211.25"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="Flat-Browser-Copy" filter="url(#filter-6)" transform="translate(3489.000000, 0.000000)">
+            <rect id="Shadow" fill-rule="nonzero" x="0" y="0" width="2600" height="1670"></rect>
+            <g id="Navigation" fill-rule="nonzero">
+                <path d="M16.2350256,0 L2583.76497,1.24300837e-15 C2589.41025,2.60392355e-16 2591.45736,0.556953667 2593.52119,1.60279622 C2595.58501,2.64863878 2597.20472,4.18337022 2598.30846,6.13892578 C2599.41221,8.09448133 2600,10.0341988 2600,15.3833112 L2600,132 L0,132 L4.37276311e-16,15.3833112 C-2.54070129e-16,10.0341988 0.587790036,8.09448133 1.69153685,6.13892578 C2.79528366,4.18337022 4.41498725,2.64863878 6.47881435,1.60279622 C8.54264145,0.556953667 10.5897535,9.82616014e-16 16.2350256,0 Z" id="Navigation-BG" fill="#E2E3E5"></path>
+                <ellipse id="Close" fill="#C4C6CA" cx="70.2873843" cy="66.6" rx="15.830492" ry="15"></ellipse>
+                <ellipse id="Minimise" fill="#C4C6CA" cx="127.277155" cy="66.6" rx="15.830492" ry="15"></ellipse>
+                <ellipse id="Maximise" fill="#C4C6CA" cx="184.266926" cy="66.6" rx="15.830492" ry="15"></ellipse>
+                <path d="M271.536899,36 L2528.56052,36 C2531.38316,36 2532.40671,36.2784768 2533.43862,36.8013981 C2534.47054,37.3243194 2535.28039,38.0916851 2535.83226,39.0694629 C2536.38414,40.0472407 2536.67803,41.0170994 2536.67803,43.6916556 L2536.67803,88.3083444 C2536.67803,90.9829006 2536.38414,91.9527593 2535.83226,92.9305371 C2535.28039,93.9083149 2534.47054,94.6756806 2533.43862,95.1986019 C2532.40671,95.7215232 2531.38316,96 2528.56052,96 L271.536899,96 C268.714263,96 267.690707,95.7215232 266.658793,95.1986019 C265.62688,94.6756806 264.817028,93.9083149 264.265155,92.9305371 C263.713281,91.9527593 263.419386,90.9829006 263.419386,88.3083444 L263.419386,43.6916556 C263.419386,41.0170994 263.713281,40.0472407 264.265155,39.0694629 C264.817028,38.0916851 265.62688,37.3243194 266.658793,36.8013981 C267.690707,36.2784768 268.714263,36 271.536899,36 Z" id="Address-Bar" fill="#FFFFFF"></path>
+            </g>
+            <g id="Detail-Summary/Desktop-HD-100%" transform="translate(0.000000, 132.000000)">
+                <mask id="mask-8" fill="white">
+                    <use xlink:href="#path-7"></use>
+                </mask>
+                <use id="Mask" fill="#F2F3F3" xlink:href="#path-7"></use>
+                <g id="Detail/Desktop-HD" mask="url(#mask-8)">
+                    <rect id="Rectangle" fill="#F2F3F3" x="0" y="0" width="2600" height="1544"></rect>
+                    <rect id="Rectangle-Copy-4" fill="#C5C5F6" x="353.888889" y="48.25" width="1890.41667" height="1447.5"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -7,7 +7,7 @@
 .ds-card-wrapper {
 	margin-left: -10px;
 	margin-right: -10px;
-	@include xui-breakpoint-medium-up {
+	@include xui-breakpoint-large-up {
 		@include embiggen;
 	}
 }
@@ -32,16 +32,17 @@
 		background: $ds-card-hover-bg-color;
 	}
 
-	@include xui-breakpoint-small-to-medium {
+	@include xui-breakpoint-small-up {
 		min-width: calc(50% - 20px);
 	}
 
-	@include xui-breakpoint-medium-up {
+	@include xui-breakpoint-large-up {
 		max-width: calc(33.33% - 20px);
 		min-width: calc(33.33% - 20px);
 	}
 	.ds-card-content {
-		margin-top: $xui-s-2xsmall;
+		line-height: 1.8;
+		margin-top: $xui-s-xsmall;
 	}
 }
 

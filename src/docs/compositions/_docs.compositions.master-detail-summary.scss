@@ -4,65 +4,169 @@
 //
 // Teaser: This composition combines the behaviour of both the Master Detail, and the Detail Summary compositions.
 //
-// Introduction: Master Detail Summary is composed of three containers: Master, Detail, and Summary. The Master container houses content that controls or acts on behalf of what is viewed in the Detail container. The Summary container houses content that labels or summarizes what is viewed in the Detail container.
+// Teaser-image: composition-images/Master-Detail-Summary_browser.svg
 //
-// Weight: 4.4
+// Introduction: Master detail summary composition is useful for a layout that requires a list of content which controls or defines what is viewed in the main area, as well as a summary of the content within said main area.
 //
-// Styleguide: Compositions.MasterDetailSummary
-
-// Best practice
+// Image: /composition-images/Master-Detail-Summary_devices.svg
+//
+// Image-caption: Master detail summary behaviour at breakpoints small-down and small-to-medium, medium-to-large, and large-up.
 //
 // Tips:
 // Do: Use Master to house content that dictates what is shown in the Detail
 // Do: Use Master to house actions that apply to what is inside the Detail
 // Do: Use Summary to house simple content that isn’t integral to the understanding of the page
-// Warning: Avoid using Summary container to house actions, consider using Master Detail
 // Warning: Avoid having actions above the Summary area that affect what is viewed in the Detail area
 // Dont: Don’t use the Master container for primary navigation
 // Dont: Don’t hide important actions inside the Master dropdown at larger breakpoints by locking to the small layout
 // Dont: Don’t use the Summary container to house dense, long form content
 //
+// Weight: 4.4
+//
+// Styleguide: Compositions.MasterDetailSummary
+
+// Master detail summary default
+//
+// When the browser is narrower than `$xui-breakpoint-medium` the Master container sits within a dropdown, and the Summary and Detail containers are stacked, with the Summary container on top. At `$xui-breakpoint-medium-to-large` the Master container is a column to the left of the Detail container, and the Summary container sits above the two. From `xui-breakpoint-large` the Summary container is a column to the right of the Master and Detail containers. The entire composition has a max-width of 1200px.
+//
 // Styleguide: Compositions.MasterDetailSummary.1
 
-// Behaviour
-//
-// At x-breakpoint, Master content is inside a dropdown sitting above Summary and Detail, which are stacked. At x-breakpoint Master content is a left hand panel, Detail is in the center, and Summary on the right.
-//
-// Styleguide: Compositions.MasterDetailSummary.2
-
-// Master detail summary
+// Example
 //
 // Markup:
 // <div class="xui-composition xui-composition-masterdetailsummary xui-composition-is-finite">
 //   <div class="xui-gridarea-master">
-//     <div style="background: rgb(90, 90, 230); min-width: 250px; height: 100px; width: 100%;"></div>
+//     <div style="background: #5A5AE6; color: white; height: 380px; min-width: 200px; padding: 20px; width: 100%;"> Master </div>
 //   </div>
 //   <div class="xui-gridarea-detail">
-//     <div style="background: rgb(197, 197, 246); height: 100px;"></div>
+//     <div style="background: #C5C5F6; height: 380px; padding: 20px; "> Detail </div>
 //   </div>
 //   <div class="xui-gridarea-summary">
-//     <div style="background: rgb(173, 173, 243); min-width: 250px; height: 100px; width: 100%;"></div>
+//     <div style="background: #ADADF3; height: 380px; min-width: 200px; padding: 20px; width: 100%;"> Summary </div>
 //   </div>
 // </div>
 //
-// Styleguide: Compositions.MasterDetailSummary.3
+// Storybook: /storybook/?selectedKind=Compositions&selectedStory=Master%20detail%20summary&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=&knob-Retain%20a%20width=
+//
+// Styleguide: Compositions.MasterDetailSummary.1.1
 
 // Master detail summary with header
 //
+// When a page has a content header, include it in the composition to make use of the spacing and stacking behaviour.
+//
+// Styleguide: Compositions.MasterDetailSummary.2
+
+// Example
+//
 // Markup:
 // <div class="xui-composition xui-composition-masterdetailsummaryheader xui-composition-is-finite">
-//   <div class="xui-gridarea-header xui-width-xsmall-up xui-width-small-up xui-width-medium-up">
-//     <div style="background: rgb(180, 70, 200); height: 60px;"></div>
+//   <div class="xui-gridarea-header">
+//     <div style="background: #2D2D73; color: white; height: 120px; padding: 20px;"> content header </div>
 //   </div>
 //   <div class="xui-gridarea-master">
-//     <div style="background: rgb(90, 90, 230); min-width: 250px; height: 100px; width: 100%;"></div>
+//     <div style="background: #5A5AE6; color: white; height: 380px; min-width: 200px; padding: 20px; width: 100%;"> Master </div>
 //   </div>
 //   <div class="xui-gridarea-detail">
-//     <div style="background: rgb(197, 197, 246); height: 100px;"></div>
+//     <div style="background: #C5C5F6; height: 380px; padding: 20px;"> Detail </div>
 //   </div>
 //   <div class="xui-gridarea-summary">
-//     <div style="background: rgb(173, 173, 243); min-width: 250px; height: 100px; width: 100%;"></div>
+//     <div style="background: #ADADF3; min-width: 200px; height: 380px; padding: 20px; width: 100%;"> Summary </div>
 //   </div>
 // </div>
 //
+// Storybook: /storybook/?selectedKind=Compositions&selectedStory=Master%20detail%20summary&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=true&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=&knob-Retain%20a%20width=
+//
+// Styleguide: Compositions.MasterDetailSummary.2.5
+
+// Anatomy
+//
+// Classes:
+// xui-composition-masterdetailsummary: Wraps the entire composition when no content header is included
+// xui-composition-masterdetailsummaryheader: Wraps the entire composition when including a content header
+// xui-gridarea-header: Wraps the content header if one is included
+// xui-gridarea-master: Master container
+// xui-gridarea-detail: Detail container
+// xui-gridarea-summary: Summary container
+//
+// Styleguide: Compositions.MasterDetailSummary.3
+
+
+// Composition properties
+//
+// Introduction: There are a number of spacing and layout properties that can be used to adjust the Master detail summary composition.
+//
 // Styleguide: Compositions.MasterDetailSummary.4
+
+// Grid gap
+//
+// Applies `$xui-s-large` spacing between the composition containers. To achieve custom spacing around content within each composition container, instead add spacing outside of the content itself.
+//
+// Tips:
+// Do: Use to set XUI defined, standard spacing between containers
+// Do: Use when each container's content spans the containers full width
+// Do: Consider using in conjuction with the xui-composition-has-auto-space-around class which adds $xui-s-large spacing around the outside of the composition
+// Dont: Don't use in conjuction with custom spacing around content within containers
+//
+// Classes:
+// xui-composition-grid-gap: Applies standard spacing between composition containers
+//
+// Styleguide: Compositions.MasterDetailSummary.4.1
+
+// Outer spacing
+//
+// Applies `$xui-s-large` spacing around the entire composition.
+//
+// Tips:
+// Do: Use to give spacing between the entire composition and the edge of the browser
+// Warning: Avoid combining with utility spacing classes. For custom spacing, use utility classes alone.
+//
+// Classes:
+// xui-composition-has-auto-space-around: Applies $xui-s-large spacing around the outside of the composition
+//
+// Styleguide: Compositions.MasterDetailSummary.4.2
+
+// Full width
+//
+// By default, compositions should have the `is-finite` class which applies a max width of 1200px. Removing this class allows the composition to span the full width of the page.
+//
+// Tips:
+// Do: Apply when the Detail container holds wide media such as maps, images or tables
+// Warning: Avoid applying when content doesn't benefit from the extra space
+//
+// Classes:
+// xui-composition-is-finite: Remove this class to have the composition span 100% width of page
+//
+// Styleguide: Compositions.MasterDetailSummary.4.3
+
+// Retain layout
+//
+// Forces the composition to retain the small or medium layouts across all breakpoints. The small layout will keep the Master container hidden within a dropdown, and the Summary and Detail sections stacked, while the medium layout will keep the Summary container full width, sitting above the Master and Detail containers.
+//
+// Tips:
+// Do: Use when content won't fit using the three column layout even at larger breakpoints
+// Warning: Consider using the default layout and defining custom sizing on the Master and Summary containers, to allow content to fit
+//
+// Classes:
+// xui-composition-masterdetailsummary-retain-small: Forces composition to retain the small layout across all breakpoints
+// xui-composition-masterdetailsummary-retain-medium: Forces composition to retain the medium layout across all breakpoints
+//
+// Styleguide: Compositions.MasterDetailSummary.4.4
+
+// Class list
+//
+// Classes:
+// xui-composition-masterdetailsummary: Style for Master detail summary composition when no content header is included
+// xui-composition-masterdetailsummaryheader: Style for Master detail summary composition when including a content header
+// xui-composition-grid-gap: Modifier for applying standard spacing between composition containers
+// xui-composition-has-auto-space-around: Modifier for applying $xui-s-large spacing around the outside of the composition
+// xui-composition-is-finite: Remove this class to have the composition span 100% width of page
+// xui-composition-masterdetailsummary-retain-small: Modifier to force composition to keep the small layout across all breakpoints
+// xui-composition-masterdetailsummary-retain-medium: Modifier to force composition to retain the medium layout across all breakpoints
+// xui-composition-masterdetailsummaryheader-retain-small: Modifier to force composition to keep the small layout across all breakpoints, when including a content header in the composition
+// xui-composition-masterdetailsummaryheader-retain-medium: Modifier to force composition to retain the medium layout across all breakpoints, when including a content header in the composition
+// xui-gridarea-header: Style for content header if the page has one
+// xui-gridarea-master: Style for to Master container
+// xui-gridarea-detail: Style for to Detail container
+// xui-gridarea-summary: Style for to Summary container
+//
+// Styleguide: Compositions.MasterDetailSummary.5

@@ -181,7 +181,7 @@ module.exports = {
 				},
 				{
 					name: 'isResizable',
-					newName: remove(),
+					valueTransform: remove(),
 				},
 				{
 					name: 'readOnly',
@@ -189,11 +189,11 @@ module.exports = {
 				},
 				{
 					name: 'maxCharacters',
-					newName: remove(),
+					valueTransform: remove(),
 				},
 				{
 					name: 'defaultLayout',
-					newName: remove(),
+					valueTransform: remove(),
 				},
 				{
 					name: 'textareaId',

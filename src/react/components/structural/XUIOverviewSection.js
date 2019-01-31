@@ -10,6 +10,7 @@ const baseClass = `${ns}-overview`;
 export default class XUIOverviewSection extends PureComponent {
 	render() {
 		const {
+			qaHook,
 			className,
 			sentiment,
 			label,
@@ -24,7 +25,7 @@ export default class XUIOverviewSection extends PureComponent {
 		);
 
 		return (
-			<section {...spreadProps} className={classes}>
+			<section {...spreadProps} className={classes} data-automationid={qaHook}>
 				<div className={`${baseClass}--label`}>{label}</div>
 				<div className={valueClass}>{value}</div>
 			</section>
@@ -34,6 +35,7 @@ export default class XUIOverviewSection extends PureComponent {
 
 XUIOverviewSection.propTypes = {
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 	/**
 	 * Label for the section
 	 */

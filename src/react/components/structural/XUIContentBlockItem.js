@@ -8,6 +8,7 @@ const baseClass = `${ns}-contentblockitem`;
 export default class XUIContentBlockItem extends PureComponent {
 	render() {
 		const {
+			qaHook,
 			onClick,
 			onKeyDown,
 			action,
@@ -85,7 +86,7 @@ export default class XUIContentBlockItem extends PureComponent {
 		);
 
 		return (
-			<div className={divClasses}>
+			<div className={divClasses} data-automationid={qaHook}>
 				{builtLeftContent}
 				{children}
 				{builtMainContent}
@@ -98,6 +99,7 @@ export default class XUIContentBlockItem extends PureComponent {
 XUIContentBlockItem.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 
 	/**
 	 * Optional actions to be right aligned. Use the XUIActions component.

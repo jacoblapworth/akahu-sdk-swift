@@ -34,16 +34,14 @@
 @mixin xui-column-responsive-generator($padded: false) {
 
 	@for $i from $xui-layout-column-start through $xui-layout-columns {
-
 		$suffix: "#{$i}-of-#{$xui-layout-columns}";
-		$width: decimal-floor(100% / 12 * $i, 2);
 
 		@if ($padded == false) {
 
 			@include xui-breakpoint-small-up {
 				.#{$ns}-column-#{$suffix}-small-up {
 					float: left;
-					width: #{$width};
+					@include xui-column-width-generator($xui-layout-columns, $i);
 				}
 			}
 
@@ -52,7 +50,7 @@
 			@include xui-breakpoint-small-up {
 				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix}-small-up {
 					float: left;
-					width: calc( (100% - (12/#{$i}) * #{$xui-s-large}) / 12 * #{$i} );
+					@include xui-column-width-generator($xui-layout-columns, $i);
 				}
 			}
 		}
@@ -67,7 +65,7 @@
 			@include xui-breakpoint-large-up {
 				.#{$ns}-column-#{$suffix}-large-up {
 					float: left;
-					width: #{$width};
+					@include xui-column-width-generator($xui-layout-columns, $i, $xui-s-large);
 				}
 			}
 
@@ -76,7 +74,7 @@
 			@include xui-breakpoint-large-up {
 				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix}-large-up {
 					float: left;
-					width: calc( (100% - (12/#{$i}) * #{$xui-s-large}) / 12 * #{$i} );
+					@include xui-column-width-generator($xui-layout-columns, $i, $xui-s-large);
 				}
 			}
 		}
@@ -88,17 +86,16 @@
 	@for $i from $xui-layout-column-start through $xui-layout-columns {
 
 		$suffix: "#{$i}-of-#{$xui-layout-columns}";
-		$width: decimal-floor(100% / 12 * $i, 2);
 
 		@if ($padded == false) {
 			.#{$ns}-column-#{$suffix} {
 				float: left;
-				width: #{$width};
+				@include xui-column-width-generator($xui-layout-columns, $i);
 			}
 		} @else {
 			@if ($i < $xui-layout-columns) {
 				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix} {
-					width: calc( (100% - (12/#{$i}) * #{$xui-s-large}) / 12 * #{$i} - 0.05px ); // Fix for Firefox which accumulates rounding errors
+					@include xui-column-width-generator($xui-layout-columns, $i, $xui-s-large);
 				}
 			} @else {
 				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix} {

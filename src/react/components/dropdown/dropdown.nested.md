@@ -146,7 +146,10 @@ class NestedExample extends Component {
 		);
 
 		const dropdown = (
-			<NestedDropDown currentPanel={activePanel} onPanelChange={this.focusDatePicker} >
+			<NestedDropDown
+				currentPanel={activePanel}
+				onPanelChange={this.focusDatePicker}
+			>
 				<DropDownPanel panelId="convenienceDates" footer={dropdownFooter}>
 					<Picklist>
 						{convenienceDates.map(cd => (
@@ -191,7 +194,6 @@ class NestedExample extends Component {
 				closeOnSelect={false}
 				onClose={this.showConvenienceDates}
 				closeOnTab={false}
-				restrictFocus={isPicklist}
 				restrictToViewPort={isPicklist}
 			/>
 		);

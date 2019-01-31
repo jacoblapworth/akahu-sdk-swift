@@ -28,6 +28,7 @@ const buildTitleAndTabs = (title, tabs) => {
 export default class XUIPageHeader extends PureComponent {
 	render() {
 		const {
+			qaHook,
 			title,
 			tabs,
 			breadcrumb,
@@ -52,7 +53,7 @@ export default class XUIPageHeader extends PureComponent {
 		const divClasses = cn(`${baseClass}--content`, layoutClass, contentClassName);
 
 		return (
-			<header {...spreadProps} className={classes}>
+			<header {...spreadProps} className={classes} data-automationid={qaHook}>
 				<div className={divClasses}>
 					{!builtTitleAndTabs && clonedBreadcrumb}
 					{builtTitleAndTabs}
@@ -67,6 +68,7 @@ export default class XUIPageHeader extends PureComponent {
 XUIPageHeader.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 	/**
 	 * CSS class(es) to add to the the pageheading--content element. xui-page-width-standard
 	 * would go here

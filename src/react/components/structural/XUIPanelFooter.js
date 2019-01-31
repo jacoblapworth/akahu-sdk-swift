@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
 const XUIPanelFooter = ({
+	qaHook,
 	children,
 	className,
 	tagName,
@@ -15,6 +16,7 @@ const XUIPanelFooter = ({
 		<Tag
 			{...spreadProps}
 			className={classes}
+			data-automationid={qaHook}
 		>
 			{children}
 		</Tag>
@@ -24,6 +26,7 @@ const XUIPanelFooter = ({
 XUIPanelFooter.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 	/**
 	 * Main element tag type. Defaults to "footer"
 	 */

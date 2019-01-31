@@ -1,8 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<XUI Structure/> Actions: renders actions with automation id when qaHook prop is passed in 1`] = `
+<div
+  className="xui-actions xui-actions-layout"
+  data-automationid="qaHook"
+  primary={
+    <XUIButton
+      isDisabled={false}
+      isExternalLink={false}
+      isGrouped={false}
+      isLink={false}
+      isLoading={false}
+      retainLayout={true}
+      tabIndex={0}
+      type="button"
+      variant="standard"
+    >
+      Primary
+    </XUIButton>
+  }
+/>
+`;
+
 exports[`<XUI Structure/> Actions: renders the simplest actions with no extra settings passed 1`] = `
 <div
   className="xui-actions xui-actions-layout"
+  data-automationid={undefined}
   primary={
     <XUIButton
       fullWidth="never"
@@ -42,18 +65,33 @@ exports[`<XUI Structure/> Actions: renders the simplest actions with no extra se
 </div>
 `;
 
+exports[`<XUI Structure/> Content block and content block item renders content block and content block item with automation id when qaHook prop is passed in 1`] = `
+<div
+  className="xui-contentblock"
+  data-automationid="qaHook"
+>
+  <div
+    className="xui-contentblockitem xui-contentblockitem-layout"
+    data-automationid="qaHook"
+  />
+</div>
+`;
+
 exports[`<XUI Structure/> Content block and content block item renders content block item main content as anchor when onKeyDown prop is passed 1`] = `
 <div
   className="xui-contentblockitem xui-contentblockitem-layout"
+  data-automationid={undefined}
 />
 `;
 
 exports[`<XUI Structure/> Content block and content block item renders content block item tag position description by default 1`] = `
 <div
   className="xui-contentblock"
+  data-automationid={undefined}
 >
   <div
     className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius xui-contentblockitem-has-bottom-radius"
+    data-automationid={undefined}
   >
     <div
       className="xui-contentblockitem--leftcontent"
@@ -368,9 +406,11 @@ exports[`<XUI Structure/> Content block and content block item renders content b
 exports[`<XUI Structure/> Content block and content block item renders content block with content block item child and headings 1`] = `
 <div
   className="xui-contentblock"
+  data-automationid={undefined}
 >
   <div
     className="xui-contentblockitem xui-contentblockitem-layout"
+    data-automationid={undefined}
   >
     <div
       className="xui-contentblockitem--maincontent"
@@ -392,7 +432,27 @@ exports[`<XUI Structure/> Content block and content block item renders content b
 exports[`<XUI Structure/> Content block and content block item renders the base content block with no children 1`] = `
 <div
   className="xui-contentblock"
+  data-automationid={undefined}
 />
+`;
+
+exports[`<XUI Structure/> Overview block and section: renders overview block and overview section with automation id when qaHook prop is passed in 1`] = `
+<div
+  className="xui-overview xui-overview-layout"
+  data-automationid="qaHook"
+>
+  <section
+    className="xui-overview--section"
+    data-automationid="qaHook"
+  >
+    <div
+      className="xui-overview--label"
+    />
+    <div
+      className="xui-overview--value"
+    />
+  </section>
+</div>
 `;
 
 exports[`<XUI Structure/> Overview block and section: renders the base overview block with no extra settings passed 1`] = `
@@ -407,6 +467,7 @@ exports[`<XUI Structure/> Overview block and section: renders the base overview 
 >
   <section
     className="xui-overview--section"
+    data-automationid={undefined}
   >
     <div
       className="xui-overview--label"
@@ -422,6 +483,7 @@ exports[`<XUI Structure/> Overview block and section: renders the base overview 
   </section>
   <section
     className="xui-overview--section"
+    data-automationid={undefined}
   >
     <div
       className="xui-overview--label"
@@ -437,6 +499,7 @@ exports[`<XUI Structure/> Overview block and section: renders the base overview 
   </section>
   <section
     className="xui-overview--section"
+    data-automationid={undefined}
   >
     <div
       className="xui-overview--label"
@@ -452,6 +515,7 @@ exports[`<XUI Structure/> Overview block and section: renders the base overview 
   </section>
   <section
     className="xui-overview--section"
+    data-automationid={undefined}
   >
     <div
       className="xui-overview--label"
@@ -471,6 +535,7 @@ exports[`<XUI Structure/> Overview block and section: renders the base overview 
 exports[`<XUI Structure/> PageHeader and Breadcrumb: renders extra pageHeader classes that are passed in 1`] = `
 <header
   className="testClass xui-pageheading"
+  data-automationid={undefined}
 >
   <div
     className="xui-pageheading--content xui-pageheading--content-layout testClassTwo"
@@ -484,15 +549,103 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders extra pageHeader cl
 </header>
 `;
 
-exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader containing Breadcrumb from nodes 1`] = `
+exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader and breadcrumb with automation id when qaHook prop is passed in 1`] = `
 <header
   className="xui-pageheading"
+  data-automationid="qaHook"
 >
   <div
     className="xui-pageheading--content xui-pageheading--content-layout"
   >
     <ol
       className="xui-pageheading--breadcrumbs xui-breadcrumbs"
+      data-automationid="qaHook"
+    >
+      <li
+        className="xui-breadcrumb"
+      >
+        <a
+          className="xui-breadcrumb--link"
+          href="#1"
+        >
+          hello
+        </a>
+      </li>
+      <li
+        className="xui-breadcrumb-arrow"
+      >
+        <div
+          className="xui-breadcrumb--icon xui-u-rotate-270 xui-iconwrapper"
+          data-automationid={undefined}
+        >
+          <svg
+            className="xui-icon"
+            data-automationid={undefined}
+            focusable="false"
+            height={4}
+            viewBox="0 0 7 4"
+            width={7}
+          >
+            <path
+              d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
+              role="presentation"
+            />
+          </svg>
+        </div>
+      </li>
+      <li
+        className="xui-breadcrumb"
+      >
+        <a
+          className="xui-breadcrumb--link"
+          href="#2"
+        >
+          hiya
+        </a>
+      </li>
+      <li
+        className="xui-breadcrumb-arrow"
+      >
+        <div
+          className="xui-breadcrumb--icon xui-u-rotate-270 xui-iconwrapper"
+          data-automationid={undefined}
+        >
+          <svg
+            className="xui-icon"
+            data-automationid={undefined}
+            focusable="false"
+            height={4}
+            viewBox="0 0 7 4"
+            width={7}
+          >
+            <path
+              d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
+              role="presentation"
+            />
+          </svg>
+        </div>
+      </li>
+      <li
+        className="xui-breadcrumb"
+      >
+        yo
+      </li>
+    </ol>
+  </div>
+</header>
+`;
+
+exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader containing Breadcrumb from nodes 1`] = `
+<header
+  className="xui-pageheading"
+  data-automationid={undefined}
+>
+  <div
+    className="xui-pageheading--content xui-pageheading--content-layout"
+  >
+    <ol
+      className="xui-pageheading--breadcrumbs xui-breadcrumbs"
+      data-automationid={undefined}
     >
       <li
         className="xui-breadcrumb"
@@ -573,6 +726,7 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader containi
 exports[`<XUI Structure/> PageHeader and Breadcrumb: renders the simplest pageHeader with no extra settings passed 1`] = `
 <header
   className="xui-pageheading"
+  data-automationid={undefined}
 >
   <div
     className="xui-pageheading--content xui-pageheading--content-layout"
@@ -658,11 +812,13 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
   >
     <header
       className="xui-panel--heading xui-panel--header xui-panel--heading-layout"
+      data-automationid={undefined}
     >
       Hello there
     </header>
     <div
       className="xui-panel--section xui-padding-large"
+      data-automationid={undefined}
     >
       <div
         className="xui-panel--section--header test-header-class"
@@ -675,6 +831,7 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
     </div>
     <div
       className="xui-panel--section xui-padding-large"
+      data-automationid={undefined}
     >
       <p>
         Other critical info would go here.
@@ -682,9 +839,11 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
     </div>
     <footer
       className="xui-padding-small xui-panel--footer"
+      data-automationid={undefined}
     >
       <div
         className="xui-actions xui-actions-layout"
+        data-automationid={undefined}
         primary={
           <XUIButton
             fullWidth="never"
@@ -725,9 +884,26 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
 </div>
 `;
 
+exports[`<XUI Structure/> Panel and panel section: renders panel and panel section with automation id when qaHook prop is passed in 1`] = `
+<div
+  className="xui-panel"
+  data-automationid="qaHook"
+>
+  <div
+    className="xui-panel--section"
+    data-automationid="qaHook"
+  />
+  <footer
+    className="xui-panel--footer"
+    data-automationid="qaHook"
+  />
+</div>
+`;
+
 exports[`<XUI Structure/> Panel and panel section: renders panel in a different tag, if supplied 1`] = `
 <caption
   className="xui-panel"
+  data-automationid={undefined}
 >
   Content here
 </caption>
@@ -736,6 +912,7 @@ exports[`<XUI Structure/> Panel and panel section: renders panel in a different 
 exports[`<XUI Structure/> Panel and panel section: renders the base panel with no extra settings passed 1`] = `
 <div
   className="xui-panel"
+  data-automationid={undefined}
 >
   Content here
 </div>
@@ -744,14 +921,30 @@ exports[`<XUI Structure/> Panel and panel section: renders the base panel with n
 exports[`<XUI Structure/> Panel and panel section: renders the panel section with no extra settings passed 1`] = `
 <div
   className="xui-panel--section"
+  data-automationid={undefined}
 >
   Content here
 </div>
 `;
 
+exports[`<XUI Structure/> Rows and columns: renders column with automation id when qaHook prop is passed in  1`] = `
+<div
+  className="xui-column-12-of-12"
+  data-automationid="qaHook"
+/>
+`;
+
+exports[`<XUI Structure/> Rows and columns: renders row with automation id when qaHook prop is passed in 1`] = `
+<div
+  className="xui-row"
+  data-automationid="qaHook"
+/>
+`;
+
 exports[`<XUI Structure/> Rows and columns: renders the base column with no extra settings passed 1`] = `
 <div
   className="xui-column-12-of-12"
+  data-automationid={undefined}
 >
   Testing 💩
 </div>
@@ -760,6 +953,7 @@ exports[`<XUI Structure/> Rows and columns: renders the base column with no extr
 exports[`<XUI Structure/> Rows and columns: renders the base row with no extra settings passed 1`] = `
 <div
   className="xui-row"
+  data-automationid={undefined}
 >
   Testing 💩
 </div>

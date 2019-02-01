@@ -422,8 +422,8 @@
 	align-self: stretch; // Make hit target bigger vertically
 	border-radius: $xui-s-large;
 	color: $xui-pill-color;
-	text-align: left;
 	padding: 0; // Override the padding on the different sizes
+	text-align: left;
 
 	&:hover, &:active, &:focus {
 		color: $xui-pill-color;

@@ -155,7 +155,6 @@ NestedDropDown.defaultProps = {
 	ignoreKeyboardEvents: [],
 	isHidden: false,
 	hasKeyboardEvents: true,
-	restrictFocus: true,
 	size: 'large',
 	fixedWidth: true,
 	forceDesktop: false,

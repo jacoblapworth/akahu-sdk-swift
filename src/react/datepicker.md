@@ -47,7 +47,7 @@ To use a standard `XUIDatePicker`, you should use the `onSelectDate` callback to
 
 ### Date Ranges
 
-To enable date range selection, you should set `selectRange` to true, handle the date selection in `onSelectDate`, and pass the selected range to `XUIDatePicker` using the `selectedRange` prop.
+To enable date range selection, handle the date selection events in `onSelectDate`, and pass the selected range to `XUIDatePicker` using the `selectedRange` prop.
 
 ```
  const XUIDatePicker = require('./datepicker').default;
@@ -96,7 +96,6 @@ To enable date range selection, you should set `selectRange` to true, handle the
 			<XUIDatePicker
 				onSelectDate={this.onSelectDate}
 				selectedRange={this.state.selectedRange}
-				selectRange
 			/>
 		 );
 	 }

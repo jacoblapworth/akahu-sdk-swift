@@ -180,6 +180,16 @@ Configured in `.styleguidist/` folder. Checkout our [.styleguidist/README.md](.s
 
 Configured in `.storybook/` folder.
 
+#### Debugging
+
+XUI's React components can be debugged in Storybook with Visual Studio Code.
+
+To get started, install the [Debugger for chrome](https://github.com/Microsoft/vscode-chrome-debug) extension for Visual Studio Code.
+
+Next, go to the Debug panel and click the start button at the top of the panel.
+
+You can now add breakpoints that will be triggered by the Chrome window that opened automatically.
+
 ## Releasing XUI
 
 1. [Draft up the Release notes in GitHub](https://github.dev.xero.com/UXE/xui/releases/new).
@@ -234,6 +244,21 @@ How to run the codemod:
  ```bash
  jscodeshift -t node_modules/@xero/xui/codemod src/
  ```
+
+**NB** with Typescript, passing the root directory name won't work, so you'll need to manually create a list of files to transform.
+
+Powershell:
+```ps1
+npm i -g jscodeshift@0.6.3
+$files = Get-ChildItem -Path .\ -Filter *.tsx -Recurse -File -Name
+jscodeshift -t .\node_modules\@xero\xui\codemod\index.js --parser=tsx $files
+```
+
+```bash
+npm i -g jscodeshift@0.6.3
+files="$(find src/ -type f -name "*.tsx")"
+jscodeshift -t .\node_modules\@xero\xui\codemod\index.js --parser=tsx $files
+```
 
 ## Contributing to XUI
 

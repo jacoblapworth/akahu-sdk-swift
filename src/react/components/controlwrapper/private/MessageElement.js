@@ -15,7 +15,7 @@ export default class MessageElement extends PureComponent {
 		} = this.props;
 
 		const showingErrorMessage = isInvalid && validationMessage;
-		const messageElement = (validationMessage || hintMessage) && (
+		const messageElement = (showingErrorMessage || hintMessage) && (
 			<div
 				className={cn(
 					`${ns}-validation`,

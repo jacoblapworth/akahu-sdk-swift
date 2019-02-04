@@ -29,7 +29,7 @@
 	outline: none;
 	position: absolute;
 
-	@include xui-breakpoint-small-up {
+	@include xui-breakpoint-medium-up {
 		z-index: 1000;
 
 		.#{$ns}-dropdown--body {
@@ -48,7 +48,7 @@
 		}
 	}
 
-	@include xui-breakpoint-small-down {
+	@include xui-breakpoint-medium-down {
 		.#{$ns}-dropdown--mask {
 			/*
 		  Top and bottom are supposed to be -60px;  If they're not, unmasked content may become visible
@@ -162,7 +162,7 @@
 	display: flex;
 	flex-direction: column;
 
-	@include xui-breakpoint-small-up {
+	@include xui-breakpoint-medium-up {
 		border-radius: $xui-radius;
 		box-shadow: $xui-shadow-depth-lift;
 	}
@@ -182,7 +182,7 @@
 .#{$ns}-dropdown-is-open {
 	display: flex;
 
-	@include xui-breakpoint-small-down {
+	@include xui-breakpoint-medium-down {
 		&:not(.#{$ns}-dropdown-force-desktop) {
 			.#{$ns}-dropdown--mask {
 				flex-grow: 1;
@@ -213,7 +213,7 @@
 .#{$ns}-dropdown-is-closing {
 	display: flex;
 
-	@include xui-breakpoint-small-down {
+	@include xui-breakpoint-medium-down {
 		&:not(.#{$ns}-dropdown-force-desktop) {
 			.#{$ns}-dropdown--mask {
 				opacity: 0;
@@ -231,7 +231,7 @@
 }
 
 @each $number, $variant in $xui-width-variants-dropdown {
-	@include xui-breakpoint-small-up {
+	@include xui-breakpoint-medium-up {
 		.#{$ns}-dropdown-#{$variant} {
 			max-width: $xui-starting-width + ($xui-base-width * $number);
 		}
@@ -244,7 +244,7 @@
 			display: none;
 		}
 	}
-	@include xui-breakpoint-small-down {
+	@include xui-breakpoint-medium-down {
 		.#{$ns}-dropdown-#{$variant}.#{$ns}-dropdown-force-desktop {
 			max-width: $xui-starting-width + ($xui-base-width * $number);
 		}

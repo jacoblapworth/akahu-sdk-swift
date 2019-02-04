@@ -15,16 +15,16 @@
 		"summary summary"
 		"master detail" / min-content 1fr;
 	&.#{$ns}-composition-has-auto-widths {
-		grid-template-columns: 25% 1fr;
+		grid-template-columns: minmax(250px, max-content) 1fr;
 	}
 }
 
 @mixin composition-mdsh-large {
 	grid-template:
 		"header header header"
-		"master detail summary" / min-content 1fr min-content;
+		"master detail summary" / minmax(250px, max-content) 1fr min-content;
 	&.#{$ns}-composition-has-auto-widths {
-		grid-template-columns: 25% 1fr 25%;
+		grid-template-columns: minmax(250px, max-content) 1fr 25%;
 	}
 }
 

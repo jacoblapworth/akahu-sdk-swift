@@ -353,6 +353,12 @@
 	}
 }
 
+.#{$ns}-u-hidden-medium-up {
+	@include xui-breakpoint-medium-up {
+		display: none !important;
+	}
+}
+
 .#{$ns}-u-hidden-large-up {
 	@include xui-breakpoint-large-up {
 		display: none !important;

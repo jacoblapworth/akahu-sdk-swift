@@ -12,13 +12,6 @@ import XUIButton, {
 	XUISplitButtonGroup,
 	XUISecondaryButton
 } from '../../../button';
-import { XUIGridAreaMasterPanelDropdownEventLabel } from '../XUIGridAreaMasterPanelDropdown';
-
-const fireEvent = () => {
-	window.dispatchEvent(new CustomEvent(XUIGridAreaMasterPanelDropdownEventLabel, {
-		bubbles: true,
-	}))
-}
 
 export default class CustomHeader extends PureComponent {
 	state = {
@@ -34,7 +27,6 @@ export default class CustomHeader extends PureComponent {
 	render() {
 		const {
 			title,
-			showMediumDownButton
 		} = this.props;
 
 		const builtTabs = (
@@ -53,24 +45,12 @@ export default class CustomHeader extends PureComponent {
 			</Picklist>
 		);
 
-		const MediumDownButton = (
-			<XUIButton
-				className='xui-u-hidden-medium-up'
-				onClick={() => fireEvent()}
-			>
-				Show navigation
-			</XUIButton>
-		);
-
 		return (
 			<XUIPageHeader
 				title={title || 'Title'}
 				tabs={builtTabs}
 				actions={
 					<XUIActions
-						primaryAction={
-							showMediumDownButton && MediumDownButton
-						}
 						secondaryAction={
 							<XUISplitButtonGroup variant="create" isDisabled={false} >
 								<XUIButton>New thing</XUIButton>

@@ -36,7 +36,7 @@ const fireEvent = () => {
 	}))
 }
 
-const realHeader = (showMediumDownButton) => <CustomHeader showMediumDownButton={showMediumDownButton}/>;
+const realHeader = <CustomHeader />;
 
 const realMaster = (
 	<XUIGridAreaMasterPanelDropdown>
@@ -54,8 +54,8 @@ const realMaster = (
 	</XUIGridAreaMasterPanelDropdown>
 );
 
-const realSummary = <CustomSummary />
-const realDetail = <CustomContentBlock />;
+const realSummary = <CustomSummary />;
+const realDetail = (showMediumDownButton) => <CustomContentBlock showMediumDownButton={showMediumDownButton}/>;
 
 const realPrimary = (
 	<XUIPanel
@@ -68,8 +68,8 @@ const realPrimary = (
 const realAreas = {
 	master: realMaster,
 	summary: realSummary,
-	detail: realDetail,
-	header: realHeader(),
+	detail: realDetail(),
+	header: realHeader,
 	primary: realPrimary,
 	secondary: realDetail,
 }
@@ -103,7 +103,7 @@ storiesWithKnobs.add('Master detail summary', () => {
 
 	if (settings.isReal) {
 		const areas2 = {...areas};
-		areas2.header = realHeader(true);
+		areas2.detail = realDetail(true);
 		return (
 			<Fragment>
 				<Tag
@@ -138,7 +138,7 @@ storiesWithKnobs.add('Master detail', () => {
 
 	if (settings.isReal) {
 		const areas2 = {...areas};
-		areas2.header = realHeader(true);
+		areas2.detail = realDetail(true);
 		return (
 			<Fragment>
 				<Tag

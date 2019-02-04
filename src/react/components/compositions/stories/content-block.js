@@ -1,16 +1,40 @@
 import React, { PureComponent, Fragment } from 'react';
 import { XUIContentBlock, XUIContentBlockItem } from '../../../structural';
-import XUIButton from '../../../button';
+import XUIButton, { XUIButtonCaret } from '../../../button';
 import XUIIcon from '../../../icon';
 import overflow from '@xero/xui-icon/icons/overflow';
+import { XUIGridAreaMasterPanelDropdownEventLabel } from '../XUIGridAreaMasterPanelDropdown';
+
+const fireEvent = () => {
+	window.dispatchEvent(new CustomEvent(XUIGridAreaMasterPanelDropdownEventLabel, {
+		bubbles: true,
+	}))
+}
 
 export default class ContentBlock extends PureComponent {
 	render() {
+
+		const {
+			showMediumDownButton
+		} = this.props;
+
+		const MediumDownButton = showMediumDownButton ? (
+			<XUIButton
+				className='xui-u-hidden-medium-up'
+				onClick={() => fireEvent()}
+				variant="borderless-standard"
+				size="small"
+			>
+				Filter <XUIButtonCaret />
+			</XUIButton>
+		) : null;
+
 		return (
 
 				<XUIContentBlock className="xui-panel">
 					<XUIContentBlockItem
 						primaryHeading='Heading'
+						action={MediumDownButton}
 						/>
 					{[1,2,3].map(item => (
 						<XUIContentBlockItem

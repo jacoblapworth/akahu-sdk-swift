@@ -211,7 +211,7 @@ storiesWithKnobs.add('Split', () => {
 		}, '', '1'),
 	}
 	const areas = settings.isReal ? {
-		header: realHeader(),
+		header: realHeader,
 		primary: realPrimary,
 		secondary: <CustomForm />
 	} : blockAreas;

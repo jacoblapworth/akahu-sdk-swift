@@ -1,254 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper extra long content" correctly 1`] = `
-<XUIStepper
-  currentStep={0}
-  id="myCustomStepperId"
-  lockLayout="stacked"
-  tabs={
-    Array [
-      Object {
-        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
-      },
-      Object {
-        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
-        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
-      },
-      Object {
-        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
-        "name": "Standard",
-      },
-    ]
-  }
->
-  <div
-    className="xui-stepper"
-  >
-    <div
-      className="xui-stepper-wrapper xui-stepper-stacked"
-      role="tablist"
-      style={
-        Object {
-          "gridTemplateRows": "auto auto auto 1fr",
-        }
-      }
-    >
-      <div
-        aria-controls="myCustomStepperId-panel"
-        aria-selected={true}
-        className="xui-stepper-tab xui-stepper-tab-first"
-        id="myCustomStepperId-tab-0"
-        key="myCustomStepperId-tab-0"
-        role="tab"
-        style={
-          Object {
-            "order": 0,
-          }
-        }
-      >
-        <StepperTab
-          currentProgress={NaN}
-          handleClick={[Function]}
-          id="myCustomStepperId-tab-0"
-          isActive={true}
-          isComplete={false}
-          isStandard={false}
-          linkClasses="xui-stepper-link xui-stepper-link-active"
-          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
-          step={1}
-          tabIndex={0}
-        >
-          <button
-            className="xui-stepper-link xui-stepper-link-active"
-            onClick={[Function]}
-            tabIndex={0}
-            type="button"
-          >
-            <div
-              className="xui-stepper-link-wrapper"
-            >
-              <StepperIcon
-                isComplete={false}
-                step={1}
-              >
-                <div
-                  className="xui-stepper-link-icon"
-                >
-                  <span
-                    className="xui-stepper-link-step"
-                  >
-                    1
-                  </span>
-                </div>
-              </StepperIcon>
-              <div
-                className="xui-stepper-link-text"
-              >
-                <span
-                  className="xui-stepper-link-heading xui-heading-small"
-                >
-                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
-                </span>
-              </div>
-            </div>
-          </button>
-        </StepperTab>
-      </div>
-      <div
-        aria-controls="myCustomStepperId-panel"
-        aria-selected={false}
-        className="xui-stepper-tab"
-        id="myCustomStepperId-tab-1"
-        key="myCustomStepperId-tab-1"
-        role="tab"
-        style={
-          Object {
-            "order": 1,
-          }
-        }
-      >
-        <StepperTab
-          currentProgress={NaN}
-          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
-          handleClick={[Function]}
-          id="myCustomStepperId-tab-1"
-          isActive={false}
-          isComplete={false}
-          isStandard={true}
-          linkClasses="xui-stepper-link xui-stepper-link-standard"
-          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
-          step={2}
-          tabIndex={0}
-        >
-          <button
-            className="xui-stepper-link xui-stepper-link-standard"
-            onClick={[Function]}
-            tabIndex={0}
-            type="button"
-          >
-            <div
-              className="xui-stepper-link-wrapper"
-            >
-              <StepperIcon
-                isComplete={false}
-                step={2}
-              >
-                <div
-                  className="xui-stepper-link-icon"
-                >
-                  <span
-                    className="xui-stepper-link-step"
-                  >
-                    2
-                  </span>
-                </div>
-              </StepperIcon>
-              <div
-                className="xui-stepper-link-text"
-              >
-                <span
-                  className="xui-stepper-link-heading xui-heading-small"
-                >
-                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
-                </span>
-                <span
-                  className="xui-stepper-link-description"
-                >
-                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
-                </span>
-              </div>
-            </div>
-          </button>
-        </StepperTab>
-      </div>
-      <div
-        aria-controls="myCustomStepperId-panel"
-        aria-selected={false}
-        className="xui-stepper-tab xui-stepper-tab-last"
-        id="myCustomStepperId-tab-2"
-        key="myCustomStepperId-tab-2"
-        role="tab"
-        style={
-          Object {
-            "order": 2,
-          }
-        }
-      >
-        <StepperTab
-          currentProgress={NaN}
-          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
-          handleClick={[Function]}
-          id="myCustomStepperId-tab-2"
-          isActive={false}
-          isComplete={false}
-          isStandard={true}
-          linkClasses="xui-stepper-link xui-stepper-link-standard"
-          name="Standard"
-          step={3}
-          tabIndex={0}
-        >
-          <button
-            className="xui-stepper-link xui-stepper-link-standard"
-            onClick={[Function]}
-            tabIndex={0}
-            type="button"
-          >
-            <div
-              className="xui-stepper-link-wrapper"
-            >
-              <StepperIcon
-                isComplete={false}
-                step={3}
-              >
-                <div
-                  className="xui-stepper-link-icon"
-                >
-                  <span
-                    className="xui-stepper-link-step"
-                  >
-                    3
-                  </span>
-                </div>
-              </StepperIcon>
-              <div
-                className="xui-stepper-link-text"
-              >
-                <span
-                  className="xui-stepper-link-heading xui-heading-small"
-                >
-                  Standard
-                </span>
-                <span
-                  className="xui-stepper-link-description"
-                >
-                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
-                </span>
-              </div>
-            </div>
-          </button>
-        </StepperTab>
-      </div>
-      <div
-        aria-labelledby="myCustomStepperId-tab-0"
-        className="xui-stepper-section"
-        id="myCustomStepperId-panel"
-        role="tabpanel"
-        style={
-          Object {
-            "order": 0,
-          }
-        }
-      />
-    </div>
-  </div>
-</XUIStepper>
-`;
-
 exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper inline (stacked button) layout" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   hasStackedButtons={true}
   id="myCustomStepperId"
+  isTruncated={true}
   lockLayout="inline"
   tabs={
     Array [
@@ -304,6 +61,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isActive={true}
           isComplete={false}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-active"
           name="Standard"
           step={1}
@@ -333,7 +91,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -367,6 +125,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={false}
           isError={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-error"
           name="Error"
           step={2}
@@ -417,7 +176,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -455,6 +214,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={false}
           isDisabled={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-disabled"
           name="Disabled"
           step={3}
@@ -484,7 +244,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -517,6 +277,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isActive={false}
           isComplete={true}
           isStandard={true}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-standard"
           name="Complete"
           step={4}
@@ -549,7 +310,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -582,10 +343,567 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
+exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper inline (stacked buttons) with truncation" correctly 1`] = `
+<XUIStepper
+  currentStep={0}
+  hasStackedButtons={true}
+  id="myCustomStepperId"
+  isTruncated={true}
+  lockLayout="inline"
+  tabs={
+    Array [
+      Object {
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isComplete": true,
+        "isDisabled": true,
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isError": true,
+        "name": "Standard",
+      },
+    ]
+  }
+>
+  <div
+    className="xui-stepper"
+  >
+    <div
+      className="xui-stepper-wrapper xui-stepper-inline xui-stepper-stacked-links"
+      role="tablist"
+      style={
+        Object {
+          "gridTemplateRows": "auto auto auto 1fr",
+        }
+      }
+    >
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={true}
+        className="xui-stepper-tab xui-stepper-tab-first"
+        id="myCustomStepperId-tab-0"
+        key="myCustomStepperId-tab-0"
+        role="tab"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-0"
+          isActive={true}
+          isComplete={false}
+          isStandard={false}
+          isTruncated={true}
+          linkClasses="xui-stepper-link xui-stepper-link-active"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={1}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-active"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                step={1}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <span
+                    className="xui-stepper-link-step"
+                  >
+                    1
+                  </span>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab"
+        id="myCustomStepperId-tab-1"
+        key="myCustomStepperId-tab-1"
+        role="tab"
+        style={
+          Object {
+            "order": 1,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-1"
+          isActive={false}
+          isComplete={true}
+          isDisabled={true}
+          isStandard={false}
+          isTruncated={true}
+          linkClasses="xui-stepper-link xui-stepper-link-disabled"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={2}
+          tabIndex={-1}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-disabled"
+            onClick={[Function]}
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={true}
+                step={2}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <svg
+                    className="xui-stepper-icon-complete"
+                    viewBox="0 0 9 7"
+                  >
+                    <polygon
+                      points="0 4 1 3 3 5 8 0 9 1 3 7"
+                    />
+                  </svg>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab xui-stepper-tab-last"
+        id="myCustomStepperId-tab-2"
+        key="myCustomStepperId-tab-2"
+        role="tab"
+        style={
+          Object {
+            "order": 2,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-2"
+          isActive={false}
+          isComplete={false}
+          isError={true}
+          isStandard={false}
+          isTruncated={true}
+          linkClasses="xui-stepper-link xui-stepper-link-error"
+          name="Standard"
+          step={3}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-error"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                isError={true}
+                step={3}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <XUIIcon
+                    className="xui-stepper-icon-error"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="medium"
+                  >
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  Standard
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-labelledby="myCustomStepperId-tab-0"
+        className="xui-stepper-section"
+        id="myCustomStepperId-panel"
+        role="tabpanel"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      />
+    </div>
+  </div>
+</XUIStepper>
+`;
+
+exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper inline (stacked buttons) with wrapping" correctly 1`] = `
+<XUIStepper
+  currentStep={0}
+  hasStackedButtons={true}
+  id="myCustomStepperId"
+  isTruncated={false}
+  lockLayout="inline"
+  tabs={
+    Array [
+      Object {
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isComplete": true,
+        "isDisabled": true,
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isError": true,
+        "name": "Standard",
+      },
+    ]
+  }
+>
+  <div
+    className="xui-stepper"
+  >
+    <div
+      className="xui-stepper-wrapper xui-stepper-inline xui-stepper-stacked-links"
+      role="tablist"
+      style={
+        Object {
+          "gridTemplateRows": "auto auto auto 1fr",
+        }
+      }
+    >
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={true}
+        className="xui-stepper-tab xui-stepper-tab-first"
+        id="myCustomStepperId-tab-0"
+        key="myCustomStepperId-tab-0"
+        role="tab"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-0"
+          isActive={true}
+          isComplete={false}
+          isStandard={false}
+          isTruncated={false}
+          linkClasses="xui-stepper-link xui-stepper-link-active"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={1}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-active"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                step={1}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <span
+                    className="xui-stepper-link-step"
+                  >
+                    1
+                  </span>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab"
+        id="myCustomStepperId-tab-1"
+        key="myCustomStepperId-tab-1"
+        role="tab"
+        style={
+          Object {
+            "order": 1,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-1"
+          isActive={false}
+          isComplete={true}
+          isDisabled={true}
+          isStandard={false}
+          isTruncated={false}
+          linkClasses="xui-stepper-link xui-stepper-link-disabled"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={2}
+          tabIndex={-1}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-disabled"
+            onClick={[Function]}
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={true}
+                step={2}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <svg
+                    className="xui-stepper-icon-complete"
+                    viewBox="0 0 9 7"
+                  >
+                    <polygon
+                      points="0 4 1 3 3 5 8 0 9 1 3 7"
+                    />
+                  </svg>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab xui-stepper-tab-last"
+        id="myCustomStepperId-tab-2"
+        key="myCustomStepperId-tab-2"
+        role="tab"
+        style={
+          Object {
+            "order": 2,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-2"
+          isActive={false}
+          isComplete={false}
+          isError={true}
+          isStandard={false}
+          isTruncated={false}
+          linkClasses="xui-stepper-link xui-stepper-link-error"
+          name="Standard"
+          step={3}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-error"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                isError={true}
+                step={3}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <XUIIcon
+                    className="xui-stepper-icon-error"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="medium"
+                  >
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  Standard
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-labelledby="myCustomStepperId-tab-0"
+        className="xui-stepper-section"
+        id="myCustomStepperId-panel"
+        role="tabpanel"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      />
+    </div>
+  </div>
+</XUIStepper>
+`;
+
 exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper inline standard layout" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
+  isTruncated={true}
   lockLayout="inline"
   tabs={
     Array [
@@ -641,6 +959,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isActive={true}
           isComplete={false}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-active"
           name="Standard"
           step={1}
@@ -670,7 +989,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -704,6 +1023,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={false}
           isError={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-error"
           name="Error"
           step={2}
@@ -754,7 +1074,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -792,6 +1112,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={false}
           isDisabled={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-disabled"
           name="Disabled"
           step={3}
@@ -821,7 +1142,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -854,6 +1175,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isActive={false}
           isComplete={true}
           isStandard={true}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-standard"
           name="Complete"
           step={4}
@@ -886,7 +1208,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -919,10 +1241,565 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
+exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper inline with truncation" correctly 1`] = `
+<XUIStepper
+  currentStep={0}
+  id="myCustomStepperId"
+  isTruncated={true}
+  lockLayout="inline"
+  tabs={
+    Array [
+      Object {
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isComplete": true,
+        "isDisabled": true,
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isError": true,
+        "name": "Standard",
+      },
+    ]
+  }
+>
+  <div
+    className="xui-stepper"
+  >
+    <div
+      className="xui-stepper-wrapper xui-stepper-inline"
+      role="tablist"
+      style={
+        Object {
+          "gridTemplateRows": "auto auto auto 1fr",
+        }
+      }
+    >
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={true}
+        className="xui-stepper-tab xui-stepper-tab-first"
+        id="myCustomStepperId-tab-0"
+        key="myCustomStepperId-tab-0"
+        role="tab"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-0"
+          isActive={true}
+          isComplete={false}
+          isStandard={false}
+          isTruncated={true}
+          linkClasses="xui-stepper-link xui-stepper-link-active"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={1}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-active"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                step={1}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <span
+                    className="xui-stepper-link-step"
+                  >
+                    1
+                  </span>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab"
+        id="myCustomStepperId-tab-1"
+        key="myCustomStepperId-tab-1"
+        role="tab"
+        style={
+          Object {
+            "order": 1,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-1"
+          isActive={false}
+          isComplete={true}
+          isDisabled={true}
+          isStandard={false}
+          isTruncated={true}
+          linkClasses="xui-stepper-link xui-stepper-link-disabled"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={2}
+          tabIndex={-1}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-disabled"
+            onClick={[Function]}
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={true}
+                step={2}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <svg
+                    className="xui-stepper-icon-complete"
+                    viewBox="0 0 9 7"
+                  >
+                    <polygon
+                      points="0 4 1 3 3 5 8 0 9 1 3 7"
+                    />
+                  </svg>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab xui-stepper-tab-last"
+        id="myCustomStepperId-tab-2"
+        key="myCustomStepperId-tab-2"
+        role="tab"
+        style={
+          Object {
+            "order": 2,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-2"
+          isActive={false}
+          isComplete={false}
+          isError={true}
+          isStandard={false}
+          isTruncated={true}
+          linkClasses="xui-stepper-link xui-stepper-link-error"
+          name="Standard"
+          step={3}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-error"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                isError={true}
+                step={3}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <XUIIcon
+                    className="xui-stepper-icon-error"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="medium"
+                  >
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  Standard
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-labelledby="myCustomStepperId-tab-0"
+        className="xui-stepper-section"
+        id="myCustomStepperId-panel"
+        role="tabpanel"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      />
+    </div>
+  </div>
+</XUIStepper>
+`;
+
+exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper inline with wrapping" correctly 1`] = `
+<XUIStepper
+  currentStep={0}
+  id="myCustomStepperId"
+  isTruncated={false}
+  lockLayout="inline"
+  tabs={
+    Array [
+      Object {
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isComplete": true,
+        "isDisabled": true,
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isError": true,
+        "name": "Standard",
+      },
+    ]
+  }
+>
+  <div
+    className="xui-stepper"
+  >
+    <div
+      className="xui-stepper-wrapper xui-stepper-inline"
+      role="tablist"
+      style={
+        Object {
+          "gridTemplateRows": "auto auto auto 1fr",
+        }
+      }
+    >
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={true}
+        className="xui-stepper-tab xui-stepper-tab-first"
+        id="myCustomStepperId-tab-0"
+        key="myCustomStepperId-tab-0"
+        role="tab"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-0"
+          isActive={true}
+          isComplete={false}
+          isStandard={false}
+          isTruncated={false}
+          linkClasses="xui-stepper-link xui-stepper-link-active"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={1}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-active"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                step={1}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <span
+                    className="xui-stepper-link-step"
+                  >
+                    1
+                  </span>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab"
+        id="myCustomStepperId-tab-1"
+        key="myCustomStepperId-tab-1"
+        role="tab"
+        style={
+          Object {
+            "order": 1,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-1"
+          isActive={false}
+          isComplete={true}
+          isDisabled={true}
+          isStandard={false}
+          isTruncated={false}
+          linkClasses="xui-stepper-link xui-stepper-link-disabled"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={2}
+          tabIndex={-1}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-disabled"
+            onClick={[Function]}
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={true}
+                step={2}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <svg
+                    className="xui-stepper-icon-complete"
+                    viewBox="0 0 9 7"
+                  >
+                    <polygon
+                      points="0 4 1 3 3 5 8 0 9 1 3 7"
+                    />
+                  </svg>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab xui-stepper-tab-last"
+        id="myCustomStepperId-tab-2"
+        key="myCustomStepperId-tab-2"
+        role="tab"
+        style={
+          Object {
+            "order": 2,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-2"
+          isActive={false}
+          isComplete={false}
+          isError={true}
+          isStandard={false}
+          isTruncated={false}
+          linkClasses="xui-stepper-link xui-stepper-link-error"
+          name="Standard"
+          step={3}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-error"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                isError={true}
+                step={3}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <XUIIcon
+                    className="xui-stepper-icon-error"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="medium"
+                  >
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  Standard
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-labelledby="myCustomStepperId-tab-0"
+        className="xui-stepper-section"
+        id="myCustomStepperId-panel"
+        role="tabpanel"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      />
+    </div>
+  </div>
+</XUIStepper>
+`;
+
 exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper progress button combinations" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
+  isTruncated={true}
   lockLayout="stacked"
   tabs={
     Array [
@@ -1023,6 +1900,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={false}
           isProgress={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-active"
           name="Standard"
           step={1}
@@ -1156,7 +2034,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </XUIProgressCircular>
               </div>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -1190,6 +2068,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={false}
           isProgress={true}
           isStandard={true}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-standard"
           name="Standard"
           step={2}
@@ -1323,7 +2202,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </XUIProgressCircular>
               </div>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -1362,6 +2241,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isError={true}
           isProgress={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-error"
           name="Error"
           step={3}
@@ -1495,7 +2375,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </XUIProgressCircular>
               </div>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -1531,6 +2411,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isError={true}
           isProgress={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-error xui-stepper-link-disabled"
           name="Error"
           step={4}
@@ -1664,7 +2545,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </XUIProgressCircular>
               </div>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -1702,6 +2583,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={true}
           isProgress={true}
           isStandard={true}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-standard"
           name="Complete"
           step={5}
@@ -1735,7 +2617,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -1770,6 +2652,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isError={true}
           isProgress={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-error"
           name="Complete"
           step={6}
@@ -1821,7 +2704,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -1861,6 +2744,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isDisabled={true}
           isProgress={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-disabled"
           name="Complete"
           step={7}
@@ -1894,7 +2778,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -1933,6 +2817,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={true}
           isProgress={true}
           isStandard={true}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-standard"
           name="Complete"
           step={8}
@@ -1966,7 +2851,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -2003,6 +2888,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
+  isTruncated={true}
   lockLayout="sidebar"
   tabs={
     Array [
@@ -2058,6 +2944,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isActive={true}
           isComplete={false}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-active"
           name="Standard"
           step={1}
@@ -2087,7 +2974,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -2121,6 +3008,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={false}
           isError={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-error"
           name="Error"
           step={2}
@@ -2171,7 +3059,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -2209,6 +3097,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={false}
           isDisabled={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-disabled"
           name="Disabled"
           step={3}
@@ -2238,7 +3127,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -2271,6 +3160,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isActive={false}
           isComplete={true}
           isStandard={true}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-standard"
           name="Complete"
           step={4}
@@ -2303,7 +3193,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -2336,10 +3226,565 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
+exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper sidebar with truncation" correctly 1`] = `
+<XUIStepper
+  currentStep={0}
+  id="myCustomStepperId"
+  isTruncated={true}
+  lockLayout="sidebar"
+  tabs={
+    Array [
+      Object {
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isComplete": true,
+        "isDisabled": true,
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isError": true,
+        "name": "Standard",
+      },
+    ]
+  }
+>
+  <div
+    className="xui-stepper"
+  >
+    <div
+      className="xui-stepper-wrapper xui-stepper-sidebar"
+      role="tablist"
+      style={
+        Object {
+          "gridTemplateRows": "auto auto auto 1fr",
+        }
+      }
+    >
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={true}
+        className="xui-stepper-tab xui-stepper-tab-first"
+        id="myCustomStepperId-tab-0"
+        key="myCustomStepperId-tab-0"
+        role="tab"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-0"
+          isActive={true}
+          isComplete={false}
+          isStandard={false}
+          isTruncated={true}
+          linkClasses="xui-stepper-link xui-stepper-link-active"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={1}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-active"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                step={1}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <span
+                    className="xui-stepper-link-step"
+                  >
+                    1
+                  </span>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab"
+        id="myCustomStepperId-tab-1"
+        key="myCustomStepperId-tab-1"
+        role="tab"
+        style={
+          Object {
+            "order": 1,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-1"
+          isActive={false}
+          isComplete={true}
+          isDisabled={true}
+          isStandard={false}
+          isTruncated={true}
+          linkClasses="xui-stepper-link xui-stepper-link-disabled"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={2}
+          tabIndex={-1}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-disabled"
+            onClick={[Function]}
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={true}
+                step={2}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <svg
+                    className="xui-stepper-icon-complete"
+                    viewBox="0 0 9 7"
+                  >
+                    <polygon
+                      points="0 4 1 3 3 5 8 0 9 1 3 7"
+                    />
+                  </svg>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab xui-stepper-tab-last"
+        id="myCustomStepperId-tab-2"
+        key="myCustomStepperId-tab-2"
+        role="tab"
+        style={
+          Object {
+            "order": 2,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-2"
+          isActive={false}
+          isComplete={false}
+          isError={true}
+          isStandard={false}
+          isTruncated={true}
+          linkClasses="xui-stepper-link xui-stepper-link-error"
+          name="Standard"
+          step={3}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-error"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                isError={true}
+                step={3}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <XUIIcon
+                    className="xui-stepper-icon-error"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="medium"
+                  >
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  Standard
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-labelledby="myCustomStepperId-tab-0"
+        className="xui-stepper-section"
+        id="myCustomStepperId-panel"
+        role="tabpanel"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      />
+    </div>
+  </div>
+</XUIStepper>
+`;
+
+exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper sidebar with wrapping" correctly 1`] = `
+<XUIStepper
+  currentStep={0}
+  id="myCustomStepperId"
+  isTruncated={false}
+  lockLayout="sidebar"
+  tabs={
+    Array [
+      Object {
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isComplete": true,
+        "isDisabled": true,
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isError": true,
+        "name": "Standard",
+      },
+    ]
+  }
+>
+  <div
+    className="xui-stepper"
+  >
+    <div
+      className="xui-stepper-wrapper xui-stepper-sidebar"
+      role="tablist"
+      style={
+        Object {
+          "gridTemplateRows": "auto auto auto 1fr",
+        }
+      }
+    >
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={true}
+        className="xui-stepper-tab xui-stepper-tab-first"
+        id="myCustomStepperId-tab-0"
+        key="myCustomStepperId-tab-0"
+        role="tab"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-0"
+          isActive={true}
+          isComplete={false}
+          isStandard={false}
+          isTruncated={false}
+          linkClasses="xui-stepper-link xui-stepper-link-active"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={1}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-active"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                step={1}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <span
+                    className="xui-stepper-link-step"
+                  >
+                    1
+                  </span>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab"
+        id="myCustomStepperId-tab-1"
+        key="myCustomStepperId-tab-1"
+        role="tab"
+        style={
+          Object {
+            "order": 1,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-1"
+          isActive={false}
+          isComplete={true}
+          isDisabled={true}
+          isStandard={false}
+          isTruncated={false}
+          linkClasses="xui-stepper-link xui-stepper-link-disabled"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={2}
+          tabIndex={-1}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-disabled"
+            onClick={[Function]}
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={true}
+                step={2}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <svg
+                    className="xui-stepper-icon-complete"
+                    viewBox="0 0 9 7"
+                  >
+                    <polygon
+                      points="0 4 1 3 3 5 8 0 9 1 3 7"
+                    />
+                  </svg>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab xui-stepper-tab-last"
+        id="myCustomStepperId-tab-2"
+        key="myCustomStepperId-tab-2"
+        role="tab"
+        style={
+          Object {
+            "order": 2,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-2"
+          isActive={false}
+          isComplete={false}
+          isError={true}
+          isStandard={false}
+          isTruncated={false}
+          linkClasses="xui-stepper-link xui-stepper-link-error"
+          name="Standard"
+          step={3}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-error"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                isError={true}
+                step={3}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <XUIIcon
+                    className="xui-stepper-icon-error"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="medium"
+                  >
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  Standard
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-labelledby="myCustomStepperId-tab-0"
+        className="xui-stepper-section"
+        id="myCustomStepperId-panel"
+        role="tabpanel"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      />
+    </div>
+  </div>
+</XUIStepper>
+`;
+
 exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper stacked layout" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
+  isTruncated={true}
   lockLayout="stacked"
   tabs={
     Array [
@@ -2395,6 +3840,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isActive={true}
           isComplete={false}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-active"
           name="Standard"
           step={1}
@@ -2424,7 +3870,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -2458,6 +3904,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={false}
           isError={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-error"
           name="Error"
           step={2}
@@ -2508,7 +3955,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -2546,6 +3993,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={false}
           isDisabled={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-disabled"
           name="Disabled"
           step={3}
@@ -2575,7 +4023,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -2608,6 +4056,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isActive={false}
           isComplete={true}
           isStandard={true}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-standard"
           name="Complete"
           step={4}
@@ -2640,7 +4089,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -2673,10 +4122,565 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
+exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper stacked with truncation" correctly 1`] = `
+<XUIStepper
+  currentStep={0}
+  id="myCustomStepperId"
+  isTruncated={true}
+  lockLayout="stacked"
+  tabs={
+    Array [
+      Object {
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isComplete": true,
+        "isDisabled": true,
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isError": true,
+        "name": "Standard",
+      },
+    ]
+  }
+>
+  <div
+    className="xui-stepper"
+  >
+    <div
+      className="xui-stepper-wrapper xui-stepper-stacked"
+      role="tablist"
+      style={
+        Object {
+          "gridTemplateRows": "auto auto auto 1fr",
+        }
+      }
+    >
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={true}
+        className="xui-stepper-tab xui-stepper-tab-first"
+        id="myCustomStepperId-tab-0"
+        key="myCustomStepperId-tab-0"
+        role="tab"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-0"
+          isActive={true}
+          isComplete={false}
+          isStandard={false}
+          isTruncated={true}
+          linkClasses="xui-stepper-link xui-stepper-link-active"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={1}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-active"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                step={1}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <span
+                    className="xui-stepper-link-step"
+                  >
+                    1
+                  </span>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab"
+        id="myCustomStepperId-tab-1"
+        key="myCustomStepperId-tab-1"
+        role="tab"
+        style={
+          Object {
+            "order": 1,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-1"
+          isActive={false}
+          isComplete={true}
+          isDisabled={true}
+          isStandard={false}
+          isTruncated={true}
+          linkClasses="xui-stepper-link xui-stepper-link-disabled"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={2}
+          tabIndex={-1}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-disabled"
+            onClick={[Function]}
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={true}
+                step={2}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <svg
+                    className="xui-stepper-icon-complete"
+                    viewBox="0 0 9 7"
+                  >
+                    <polygon
+                      points="0 4 1 3 3 5 8 0 9 1 3 7"
+                    />
+                  </svg>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab xui-stepper-tab-last"
+        id="myCustomStepperId-tab-2"
+        key="myCustomStepperId-tab-2"
+        role="tab"
+        style={
+          Object {
+            "order": 2,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-2"
+          isActive={false}
+          isComplete={false}
+          isError={true}
+          isStandard={false}
+          isTruncated={true}
+          linkClasses="xui-stepper-link xui-stepper-link-error"
+          name="Standard"
+          step={3}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-error"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                isError={true}
+                step={3}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <XUIIcon
+                    className="xui-stepper-icon-error"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="medium"
+                  >
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  Standard
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-labelledby="myCustomStepperId-tab-0"
+        className="xui-stepper-section"
+        id="myCustomStepperId-panel"
+        role="tabpanel"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      />
+    </div>
+  </div>
+</XUIStepper>
+`;
+
+exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper stacked with wrapping" correctly 1`] = `
+<XUIStepper
+  currentStep={0}
+  id="myCustomStepperId"
+  isTruncated={false}
+  lockLayout="stacked"
+  tabs={
+    Array [
+      Object {
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isComplete": true,
+        "isDisabled": true,
+        "name": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+      },
+      Object {
+        "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
+        "isError": true,
+        "name": "Standard",
+      },
+    ]
+  }
+>
+  <div
+    className="xui-stepper"
+  >
+    <div
+      className="xui-stepper-wrapper xui-stepper-stacked"
+      role="tablist"
+      style={
+        Object {
+          "gridTemplateRows": "auto auto auto 1fr",
+        }
+      }
+    >
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={true}
+        className="xui-stepper-tab xui-stepper-tab-first"
+        id="myCustomStepperId-tab-0"
+        key="myCustomStepperId-tab-0"
+        role="tab"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-0"
+          isActive={true}
+          isComplete={false}
+          isStandard={false}
+          isTruncated={false}
+          linkClasses="xui-stepper-link xui-stepper-link-active"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={1}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-active"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                step={1}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <span
+                    className="xui-stepper-link-step"
+                  >
+                    1
+                  </span>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab"
+        id="myCustomStepperId-tab-1"
+        key="myCustomStepperId-tab-1"
+        role="tab"
+        style={
+          Object {
+            "order": 1,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-1"
+          isActive={false}
+          isComplete={true}
+          isDisabled={true}
+          isStandard={false}
+          isTruncated={false}
+          linkClasses="xui-stepper-link xui-stepper-link-disabled"
+          name="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          step={2}
+          tabIndex={-1}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-disabled"
+            onClick={[Function]}
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={true}
+                step={2}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <svg
+                    className="xui-stepper-icon-complete"
+                    viewBox="0 0 9 7"
+                  >
+                    <polygon
+                      points="0 4 1 3 3 5 8 0 9 1 3 7"
+                    />
+                  </svg>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-controls="myCustomStepperId-panel"
+        aria-selected={false}
+        className="xui-stepper-tab xui-stepper-tab-last"
+        id="myCustomStepperId-tab-2"
+        key="myCustomStepperId-tab-2"
+        role="tab"
+        style={
+          Object {
+            "order": 2,
+          }
+        }
+      >
+        <StepperTab
+          currentProgress={NaN}
+          description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
+          handleClick={[Function]}
+          id="myCustomStepperId-tab-2"
+          isActive={false}
+          isComplete={false}
+          isError={true}
+          isStandard={false}
+          isTruncated={false}
+          linkClasses="xui-stepper-link xui-stepper-link-error"
+          name="Standard"
+          step={3}
+          tabIndex={0}
+        >
+          <button
+            className="xui-stepper-link xui-stepper-link-error"
+            onClick={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="xui-stepper-link-wrapper"
+            >
+              <StepperIcon
+                isComplete={false}
+                isError={true}
+                step={3}
+              >
+                <div
+                  className="xui-stepper-link-icon"
+                >
+                  <XUIIcon
+                    className="xui-stepper-icon-error"
+                    icon={
+                      Object {
+                        "height": 8,
+                        "path": "M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z",
+                        "width": 2,
+                      }
+                    }
+                    role="presentation"
+                    size="medium"
+                  >
+                    <svg
+                      className="xui-icon xui-stepper-icon-error"
+                      focusable="false"
+                      height={8}
+                      viewBox="0 0 2 8"
+                      width={2}
+                    >
+                      <path
+                        d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </XUIIcon>
+                </div>
+              </StepperIcon>
+              <div
+                className="xui-stepper-link-text"
+              >
+                <span
+                  className="xui-stepper-link-heading xui-heading-small"
+                >
+                  Standard
+                </span>
+                <span
+                  className="xui-stepper-link-description"
+                >
+                  The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
+                </span>
+              </div>
+            </div>
+          </button>
+        </StepperTab>
+      </div>
+      <div
+        aria-labelledby="myCustomStepperId-tab-0"
+        className="xui-stepper-section"
+        id="myCustomStepperId-panel"
+        role="tabpanel"
+        style={
+          Object {
+            "order": 0,
+          }
+        }
+      />
+    </div>
+  </div>
+</XUIStepper>
+`;
+
 exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper standard button combinations" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
+  isTruncated={true}
   lockLayout="stacked"
   tabs={
     Array [
@@ -2748,6 +4752,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isActive={true}
           isComplete={false}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-active"
           name="Standard"
           step={1}
@@ -2777,7 +4782,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -2810,6 +4815,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isActive={false}
           isComplete={false}
           isStandard={true}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-standard"
           name="Standard"
           step={2}
@@ -2839,7 +4845,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -2877,6 +4883,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={false}
           isError={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-error"
           name="Error"
           step={3}
@@ -2927,7 +4934,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -2962,6 +4969,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isDisabled={true}
           isError={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-error xui-stepper-link-disabled"
           name="Error"
           step={4}
@@ -3012,7 +5020,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -3049,6 +5057,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isActive={false}
           isComplete={true}
           isStandard={true}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-standard"
           name="Complete"
           step={5}
@@ -3081,7 +5090,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -3115,6 +5124,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={true}
           isError={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-error"
           name="Complete"
           step={6}
@@ -3165,7 +5175,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"
@@ -3204,6 +5214,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           isComplete={true}
           isDisabled={true}
           isStandard={false}
+          isTruncated={true}
           linkClasses="xui-stepper-link xui-stepper-link-disabled"
           name="Complete"
           step={7}
@@ -3236,7 +5247,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 </div>
               </StepperIcon>
               <div
-                className="xui-stepper-link-text"
+                className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
                   className="xui-stepper-link-heading xui-heading-small"

@@ -11,7 +11,7 @@ import InlineDummyLayout, { testIsInlineRelevant } from './customElements/Inline
 import SideBarDummyLayout, { testIsSideBarRelevant } from './customElements/SideBarDummyLayout';
 
 const createTabs = ({
-	qaHook, tabs, id, ariaPanelId, currentStep, updateCurrentStep,
+	qaHook, tabs, id, ariaPanelId, currentStep, updateCurrentStep, isTruncated,
 }, overrides) => (
 
 	tabs.map((tabProps, index) => {
@@ -43,7 +43,7 @@ const createTabs = ({
 				style={{ order: index }}
 				data-automationid={qaHook && `${qaHook}-tab-${index}`}
 			>
-				<StepperTab {...enrichedProps} />
+				<StepperTab isTruncated={isTruncated} {...enrichedProps} />
 			</div>
 		);
 	})
@@ -105,10 +105,11 @@ class XUIStepper extends Component {
 			ariaActiveTabId,
 			ariaPanelId,
 			wrapperClasses,
+			isTruncated,
 		} = enrichStepperProps(props, state);
 
 		const tabProps = {
-			qaHook, tabs, id, ariaPanelId, currentStep, updateCurrentStep,
+			qaHook, tabs, id, ariaPanelId, currentStep, updateCurrentStep, isTruncated,
 		};
 		const visibleTabs = createTabs(tabProps);
 
@@ -221,4 +222,12 @@ XUIStepper.propTypes = {
 	 * automatically by default). */
 	lockLayout: PropTypes.oneOf(['stacked', 'sidebar', 'inline']),
 
+	/** Whether step names and description truncate or wrap. Defaults to true. */
+	isTruncated: PropTypes.bool,
 };
+
+
+XUIStepper.defaultProps = {
+	isTruncated: true,
+};
+

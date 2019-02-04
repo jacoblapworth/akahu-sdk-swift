@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import XUIProgressCircular from '../../progressindicator/XUIProgressCircular';
 import { NAME_SPACE } from '../helpers/constants';
 import StepperIcon from './StepperIcon';
@@ -25,6 +26,7 @@ export default class StepperTab extends PureComponent {
 			currentProgress,
 			tabIndex,
 			linkClasses,
+			isTruncated,
 		} = this.props;
 
 		return (
@@ -54,7 +56,12 @@ export default class StepperTab extends PureComponent {
 						)
 					}
 
-					<div className={`${NAME_SPACE}-link-text`}>
+					<div
+						className={cn(
+							`${NAME_SPACE}-link-text`,
+							isTruncated && `${NAME_SPACE}-link-text-truncated`,
+						)}
+					>
 
 						<span className={`${NAME_SPACE}-link-heading ${ns}-heading-small`}>
 							{name}
@@ -89,4 +96,5 @@ StepperTab.propTypes = {
 	isProgress: PropTypes.bool,
 	totalProgress: PropTypes.number,
 	currentProgress: PropTypes.number,
+	isTruncated: PropTypes.bool,
 };

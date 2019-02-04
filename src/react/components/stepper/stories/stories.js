@@ -37,6 +37,7 @@ storiesWithKnobs.add('Playground', () => {
 				hasStackedButtons={boolean('hasStackedButtons', false)}
 				lockLayout={layout}
 				tabs={object('tabs', baseProps.tabs)}
+				isTruncated={boolean('isTruncated', true)}
 			>
 				<h3 style={contentStyles}>Content Area</h3>
 			</XUIStepper>

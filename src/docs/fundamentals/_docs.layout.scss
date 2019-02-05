@@ -10,12 +10,23 @@
 //
 // Styleguide: Fundamentals.Layout
 
+// Page width
+//
+// Flag: deprecated
+//
+// To specify a sensible max-width on page content, apply one of the following width classes.
+//
+// Definitions:
+// Standard: 		940px:		`.xui-page-width-standard`
+// Large: 			1160px:			`.xui-page-width-large`
+//
+// Styleguide: Fundamentals.Layout.1
 
 // Creating columns
 //
 // Utilising XUI's 12 column grid provides easy access to the common layout divisors of halves, thirds, and quarters, as well other fractions in 1/12 increments.
 //
-// Styleguide: Fundamentals.Layout.1
+// Styleguide: Fundamentals.Layout.2
 
 // Rows
 //
@@ -51,7 +62,7 @@
 // 	<div class='xui-column-3-of-12'></div>
 // </div>
 //
-// Styleguide: Fundamentals.Layout.1.1
+// Styleguide: Fundamentals.Layout.2.1
 
 // Columns
 //
@@ -97,7 +108,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Fundamentals.Layout.1.2
+// Styleguide: Fundamentals.Layout.2.2
 
 // Breakpoints
 //
@@ -118,7 +129,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Fundamentals.Layout.2
+// Styleguide: Fundamentals.Layout.3
 
 // Breakpoint width values
 //
@@ -128,7 +139,7 @@
 // Large:				1000px:			`$xui-breakpoint-large`
 // xLarge:			1200px:			`$xui-breakpoint-xlarge`
 //
-// Styleguide: Fundamentals.Layout.2.1
+// Styleguide: Fundamentals.Layout.3.1
 
 // Mixins
 //
@@ -140,7 +151,7 @@
 // Size-up: `-up`
 // Size-only: `-only`
 //
-// Styleguide: Fundamentals.Layout.2.2
+// Styleguide: Fundamentals.Layout.3.2
 
 // Nesting
 //
@@ -158,7 +169,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Fundamentals.Layout.3
+// Styleguide: Fundamentals.Layout.4
 
 // Flex utilities
 //
@@ -176,7 +187,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Fundamentals.Layout.4
+// Styleguide: Fundamentals.Layout.5
 
 // Accessibility
 //
@@ -184,4 +195,4 @@
 // Each column of the grid must be able to be either active, selectable or editable, as well as being keyboard accessible, in order to apply the appropriate roles.
 //	Using the grid role means that the table is considered editable by default, unless the aria-readonlyattribute on the grid is set to true.
 //
-// Styleguide: Fundamentals.Layout.5
+// Styleguide: Fundamentals.Layout.6

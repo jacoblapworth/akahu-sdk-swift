@@ -128,6 +128,11 @@ export default class XUIRadio extends PureComponent {
 			labelClassName,
 		);
 
+		const messageClasses = cn(
+			`${baseClass}--message`,
+			!isLabelHidden && `${baseClass}--message-with-label`,
+		);
+
 		const inputProps = {
 			type: 'radio',
 			disabled: isDisabled,
@@ -157,10 +162,11 @@ export default class XUIRadio extends PureComponent {
 
 		return (
 			<XUIControlWrapperInline
-				fieldClassName={classes}
+				rootClassName={classes}
 				wrapperIds={this.wrapperIds}
 				onClick={onLabelClick}
 				labelClassName={labelClasses}
+				messageClassName={messageClasses}
 				label={children}
 				{...{
 					qaHook,

@@ -4,9 +4,21 @@
 $xui-switch-label-padding: $xui-s-xsmall;
 
 .#{$ns}-switch {
-	align-items: center;
-	display: inline-flex; // Inline inputs
-	position: relative;
+	display: inline-block; // Inline inputs
+
+	.#{$ns}-switch--field {
+		align-items: center;
+		display: flex;
+		max-width: 100%;
+		position: relative;
+	}
+
+	// Compatibility for controls that are not wrapped in a div
+	@at-root label#{&} {
+		align-items: center;
+		display: inline-flex; // Inline inputs
+		position: relative;
+	}
 }
 
 .#{$ns}-switch-is-disabled {
@@ -49,7 +61,7 @@ $xui-switch-label-padding: $xui-s-xsmall;
 }
 
 .#{$ns}-switch--checkbox {
-	@include xui-utility-hidden-visually;
+	@include xui-position-offscreen-input;
 	&:focus + .#{$ns}-switch--control {
 		box-shadow: $xui-shadow-focus;
 	}
@@ -92,8 +104,16 @@ $xui-switch-label-padding: $xui-s-xsmall;
 // Right-aligned input
 // ===================
 .#{$ns}-switch-reversed {
-	flex-direction: row-reverse;
-	justify-content: space-between;
+	.#{$ns}-switch--field {
+		flex-direction: row-reverse;
+		justify-content: space-between;
+	}
+
+	// Compatibility for controls that are not wrapped in a div
+	@at-root label#{&} {
+		flex-direction: row-reverse;
+		justify-content: space-between;
+	}
 
 	.#{$ns}-switch--label {
 		padding-right: $xui-switch-label-padding;
@@ -108,8 +128,13 @@ $xui-switch-label-padding: $xui-s-xsmall;
 	border-radius: $xui-radius;
 
 	.#{$ns}-switch {
-		display: flex; // Stacked inputs
+		display: block; // Stacked inputs
 		padding: $xui-switch-label-padding/2; // Border padding
+	}
+
+	// Compatibility for controls that are not wrapped in a div
+	label.#{$ns}-switch {
+		display: flex;
 	}
 
 	.#{$ns}-switch:nth-last-of-type(n+2) {

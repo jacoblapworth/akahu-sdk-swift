@@ -79,6 +79,8 @@ export default class XUISwitch extends PureComponent {
 			isDisabled && `${baseClass}-is-disabled`,
 		);
 
+		const fieldClasses = `${baseClass}--field`;
+
 		const labelClasses = cn(
 			`${baseClass}--label`,
 			calculatedSize && `${baseClass}--label-${calculatedSize}`,
@@ -88,6 +90,11 @@ export default class XUISwitch extends PureComponent {
 		const controlClasses = cn(
 			`${baseClass}--control`,
 			calculatedSize && `${baseClass}--control-${calculatedSize}`,
+		);
+
+		const messageClasses = cn(
+			`${baseClass}--message`,
+			!isLabelHidden && `${baseClass}--message-with-label`,
 		);
 
 		const inputProps = {
@@ -106,10 +113,12 @@ export default class XUISwitch extends PureComponent {
 
 		return (
 			<XUIControlWrapperInline
-				fieldClassName={classes}
+				rootClassName={classes}
 				wrapperIds={this.wrapperIds}
 				onClick={onLabelClick}
+				fieldClassName={fieldClasses}
 				labelClassName={labelClasses}
+				messageClassName={messageClasses}
 				label={children}
 				{...{
 					qaHook,

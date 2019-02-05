@@ -9,8 +9,13 @@
 	border-radius: $xui-radius;
 
 	.#{$ns}-styledcheckboxradio {
-		display: flex; // Stacked inputs
+		display: block; // Stacked inputs
 		padding: $xui-s-xsmall - 1px; // 1px to make up for border width
+	}
+
+	// Compatibility for controls that are not wrapped in a div
+	label.#{$ns}-styledcheckboxradio {
+		display: flex;
 	}
 
 	.#{$ns}-styledcheckboxradio:nth-last-of-type(n+2) {
@@ -65,18 +70,38 @@
 // Right-aligned input
 // ===================
 .#{$ns}-styledcheckboxradio-reversed {
-	flex-direction: row-reverse;
-	justify-content: space-between;
+	.#{$ns}-styledcheckboxradio--field {
+		flex-direction: row-reverse;
+		justify-content: space-between;
+	}
+
+	// Compatibility for controls that are not wrapped in a div
+	@at-root label#{&} {
+		flex-direction: row-reverse;
+		justify-content: space-between;
+	}
 }
 
 
 // Main styles
 // ===========
 .#{$ns}-styledcheckboxradio {
-	@include xui-text-line-height; // 1.5
-	align-items: flex-start;
-	display: inline-flex; // Inline inputs
+	display: inline-block; // Inline inputs
 	user-select: none;
+
+	// Compatibility for controls that are not wrapped in a div
+	@at-root label#{&} {
+		@include xui-text-line-height; // 1.5
+		align-items: flex-start;
+		display: inline-flex; // Inline inputs
+	}
+
+	.#{$ns}-styledcheckboxradio--field {
+		@include xui-text-line-height; // 1.5
+		align-items: flex-start;
+		display: flex;
+		max-width: 100%;
+	}
 
 	.#{$ns}-iconwrapper {
 		align-self: center;

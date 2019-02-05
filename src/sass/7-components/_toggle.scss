@@ -190,7 +190,14 @@
 
 // Option styles
 .#{$ns}-toggle-option {
-	display: flex;
+	.#{$ns}-toggle--field {
+		display: flex;
+	}
+
+	// Compatibility for controls that are not wrapped in a div
+	@at-root label#{&} {
+		display: flex;
+	}
 
 	&:nth-of-type(n+2) .#{$ns}-toggle--label {
 		border-left: none;

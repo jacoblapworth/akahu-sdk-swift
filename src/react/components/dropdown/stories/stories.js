@@ -151,7 +151,7 @@ storiesWithKnobs.add('Playground', () => {
 			trigger={trigger}
 			dropdown={
 				<DropDown
-					size={select('dropdown size', Object.keys(maxWidthDropdownSizes), 'xlarge')}
+					size={select('dropdown size', Object.keys(maxWidthDropdownSizes), 'large')}
 					restrictFocus={boolean('restrictFocus', false)}
 					animateClosed={boolean('animateClosed', false)}
 					animateOpen={boolean('animateOpen', false)}

@@ -204,7 +204,7 @@
 
 .#{$ns}-modal-layout {
 	max-width: calc(100vw - 2.5rem);  // Allows for minimum margin at the left/right of modal
-	width: $xui-starting-width + ($xui-base-width * 3);
+	width: 380px;
 	// Modal header
 	// -----------------------------------------------------------------------------
 	.#{$ns}-modal--header {

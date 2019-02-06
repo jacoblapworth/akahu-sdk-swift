@@ -237,7 +237,7 @@ DropDown.propTypes = {
 
 	/** Applies the correct XUI class based on the chose size. Default will
 	 * fits to children's width. */
-	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
+	size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
 
 	/** An array of keydown keycodes to be ignored from dropdown behaviour. */
 	ignoreKeyboardEvents: PropTypes.array,

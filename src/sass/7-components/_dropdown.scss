@@ -25,7 +25,7 @@
 	border-width: 0px 1px;
 	display: none;
 	flex-direction: column;
-	min-width: $xui-starting-width;
+	min-width: 100px;
 	outline: none;
 	position: absolute;
 
@@ -230,14 +230,14 @@
 	visibility: hidden;
 }
 
-@each $number, $variant in $xui-width-variants-dropdown {
+@each $size, $width in $xui-width-variants-dropdown {
 	@include xui-breakpoint-small-up {
-		.#{$ns}-dropdown-#{$variant} {
-			max-width: $xui-starting-width + ($xui-base-width * $number);
+		.#{$ns}-dropdown-#{$size} {
+			max-width: $width;
 		}
 
-		.#{$ns}-dropdown-fixed-#{$variant} {
-			width: $xui-starting-width + ($xui-base-width * $number);
+		.#{$ns}-dropdown-fixed-#{$size} {
+			width: $width;
 		}
 
 		.#{$ns}-dropdown--header-container.#{$ns}-dropdown-hide-small-up {
@@ -245,12 +245,12 @@
 		}
 	}
 	@include xui-breakpoint-small-down {
-		.#{$ns}-dropdown-#{$variant}.#{$ns}-dropdown-force-desktop {
-			max-width: $xui-starting-width + ($xui-base-width * $number);
+		.#{$ns}-dropdown-#{$size}.#{$ns}-dropdown-force-desktop {
+			max-width: $width;
 		}
 
-		.#{$ns}-dropdown-fixed-#{$variant}.#{$ns}-dropdown-force-desktop {
-			width: $xui-starting-width + ($xui-base-width * $number);
+		.#{$ns}-dropdown-fixed-#{$size}.#{$ns}-dropdown-force-desktop {
+			width: $width;
 		}
 	}
 }

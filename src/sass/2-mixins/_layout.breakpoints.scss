@@ -47,12 +47,6 @@ $xui-breakpoint-2xlarge: 1600px;
 	}
 }
 
-@mixin xui-breakpoint-medium-down {
-	@media screen and (max-width: $xui-breakpoint-medium - 0.02) {
-		@content;
-	}
-}
-
 @mixin xui-breakpoint-small-to-medium {
 	@media screen and (min-width: $xui-breakpoint-small) and (max-width: $xui-breakpoint-medium - 0.02) {
 		@content;

@@ -8,6 +8,7 @@ const classMap = {
 	'xui-select--button': 'xui-button-standard xui-button-fullwidth xui-select--button xui-select--button-no-variant'
 };
 
+
 const sizeMap = {
 	'xsmall': '2xsmall',
 	'small': 'small',
@@ -31,6 +32,26 @@ types.forEach(type => {
 		})
 	})
 });
+
+const dropdownClasses = [
+	'xui-dropdown',
+	'xui-dropdown-fixed',
+];
+
+const dropdownSizeMap = {
+	'small': 'small',
+	'medium': 'small',
+	'large': 'medium',
+	'xlarge': 'large'
+};
+
+dropdownClasses.forEach(dropdownClass => {
+	Object.keys(dropdownSizeMap).forEach(size => {
+		const prefix = `${dropdownClass}-`;
+		classMap[`${prefix}${size}`] = `${prefix}${dropdownSizeMap[size]}`
+	})
+});
+
 
 for (i = 1, max = 12; i <= max; i += 1) {
 	classMap[`xui-column-${i}-of-12-medium`] = `xui-column-${i}-of-12-small-up`;

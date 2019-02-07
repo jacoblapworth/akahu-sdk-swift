@@ -126,7 +126,9 @@ All other existing values stay as they are (including `2xlarge`)
 | xui-u-hidden-medium | xui-u-hidden-small-up |
 | xui-u-hidden-wide | xui-u-hidden-large-up |
 
-- `xui-page-width-<size>` classes have been deprecated, replacements come in the form of compositions.
+- `xui-page-width-<size>` classes have been deprecated, the sizes have been adjusted and replacements come in the form of compositions.
+  - `width-standard` old size was 940px, this is now 1000px
+	- `width-large` old size was 1160px, this is now 1200px.
 
 ---
 

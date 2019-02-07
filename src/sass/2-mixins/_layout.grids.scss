@@ -208,7 +208,7 @@
 @mixin xui-composition-3-column-max-widths {
 	&.#{$ns}-composition-has-auto-widths {
 		&.#{$ns}-composition-has-auto-space-around {
-			grid-template-columns: minmax(min-content, max-content) 1fr 290px;
+			grid-template-columns: 290px 1fr 290px;
 		}
 		&:not(.#{$ns}-composition-has-auto-space-around) {
 			grid-template-columns: 300px 1fr 300px;

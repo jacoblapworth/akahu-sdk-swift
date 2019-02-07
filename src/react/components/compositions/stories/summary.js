@@ -7,10 +7,15 @@ import {
 
 export default class Summary extends PureComponent {
 	render() {
+		const {
+			...other
+		} = this.props;
+
 		return (
 			<XUIOverviewBlock
 				hasBackground={false}
 				className='xui-panel'
+				{...other}
 			>
 				{['One', 'Two', 'Three'].map((item) => (
 					<XUIOverviewSection

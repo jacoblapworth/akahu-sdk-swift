@@ -18,6 +18,8 @@ import XUIGridAreaMasterPanelDropdown, { XUIGridAreaMasterPanelDropdownEventLabe
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import withReadme from 'storybook-readme/with-readme';
+import Readme from './README.md';
 
 import XUIPanel from '../../structural/XUIPanel';
 import XUIPicklist from '../../picklist/Picklist';
@@ -38,8 +40,8 @@ const fireEvent = () => {
 
 const realHeader = <CustomHeader />;
 
-const realMaster = (
-	<XUIGridAreaMasterPanelDropdown>
+const realMaster = (style = {}) => (
+	<XUIGridAreaMasterPanelDropdown style={style}>
 		<XUIPicklist>
 			{[1,2,3,4].map(item => (
 				<XUIPickItem
@@ -54,7 +56,9 @@ const realMaster = (
 	</XUIGridAreaMasterPanelDropdown>
 );
 
-const realSummary = <CustomSummary />;
+const realSummary = (style = {}) => (
+	<CustomSummary style={style}/>
+);
 const realDetail = (showMediumDownButton) => <CustomContentBlock showMediumDownButton={showMediumDownButton}/>;
 
 const realPrimary = (
@@ -66,8 +70,8 @@ const realPrimary = (
 );
 
 const realAreas = {
-	master: realMaster,
-	summary: realSummary,
+	master: realMaster(),
+	summary: realSummary(),
 	detail: realDetail(),
 	header: realHeader,
 	primary: realPrimary,
@@ -75,8 +79,12 @@ const realAreas = {
 }
 
 const blockAreas = {
-	master: (<div style={{background: '#50DCAA', height: '100px', width: '250px'}}></div>),
-	summary: (<div style={{background: '#FA8200', height: '100px', width: '100%'}}></div>),
+	master: ({width, minWidth} = {width: '100%', minWidth: undefined}) => (
+		<div style={{background: '#50DCAA', height: '100px', width, minWidth}}></div>
+	),
+	summary: ({width, minWidth} = {width: '100%', minWidth: undefined}) => (
+		<div style={{background: '#FA8200', height: '100px', width, minWidth}}></div>
+	),
 	detail: (<div style={{background: '#0078C8', height: '100px' }}></div>),
 	header: (<div style={{background: '#B446C8', height: '60px'}}></div>),
 	primary: (<div style={{background: '#ff6496', height: '100px'}}></div>),
@@ -85,13 +93,30 @@ const blockAreas = {
 
 const storiesWithKnobs = storiesOf('Compositions', module);
 storiesWithKnobs.addDecorator(withKnobs);
+storiesWithKnobs.addDecorator(withReadme([Readme]));
 storiesWithKnobs.add('Master detail summary', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUICompositionMasterDetailSummaryHeader : XUICompositionMasterDetailSummary;
+	const standardWidths = boolean('Apply standard widths to columns', true, '1');
+
+	const widthLeftColumn = !standardWidths && select('Pick a left column width', {
+		None: null,
+		'100px': '100px',
+		'250px': '250px',
+		'400px': '400px'
+	}, '250px', '1');
+
+	const widthRightColumn = !standardWidths && select('Pick a right column width', {
+		None: null,
+		'100px': '100px',
+		'250px': '250px',
+		'400px': '400px'
+	}, '250px', '1');
+
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
 		hasAutoSpaceAround: boolean('Apply context-dependent space between the grid and the viewport', true, '1'),
-		hasAutoColumnWidths: boolean('Apply standard widths to columns', true, '1'),
+		hasAutoColumnWidths: standardWidths,
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
@@ -99,16 +124,21 @@ storiesWithKnobs.add('Master detail summary', () => {
 			Small: 'small'
 		}, '', '1')
 	}
-	const areas = settings.isReal ? realAreas : blockAreas;
+
+	const areas = settings.isReal ? {...realAreas} : {...blockAreas};
+
+	if (widthLeftColumn != null) {
+		areas.master = settings.isReal ? realMaster({minWidth:widthLeftColumn, width: '100%'}): blockAreas.master({width:widthLeftColumn});
+		areas.summary = settings.isReal ? realSummary({minWidth:widthRightColumn, width: '100%'}): blockAreas.summary({minWidth:widthRightColumn, width: '100%'});
+	}
 
 	if (settings.isReal) {
-		const areas2 = {...areas};
-		areas2.detail = realDetail(true);
+		areas.detail = realDetail(true);
 		return (
 			<Fragment>
 				<Tag
 					{...settings}
-					{...areas2}
+					{...areas}
 				/>
 			</Fragment>
 		)
@@ -123,27 +153,47 @@ storiesWithKnobs.add('Master detail summary', () => {
 
 storiesWithKnobs.add('Master detail', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUICompositionMasterDetailHeader : XUICompositionMasterDetail;
+	const standardWidths = boolean('Apply standard widths to columns', true, '1');
+
+	const widthLeftColumn = !standardWidths && select('Pick a left column width', {
+		None: null,
+		'100px': '100px',
+		'250px': '250px',
+		'400px': '400px'
+	}, '250px', '1');
+
+	const widthRightColumn = !standardWidths && select('Pick a right column width', {
+		None: null,
+		'100px': '100px',
+		'250px': '250px',
+		'400px': '400px'
+	}, '250px', '1');
+
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
 		hasAutoSpaceAround: boolean('Apply context-dependent space between the grid and the viewport', true, '1'),
-		hasAutoColumnWidths: boolean('Apply standard widths to columns', false, '1'),
+		hasAutoColumnWidths: standardWidths,
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
 			Small: 'small'
 		}, '', '1')
 	}
-	const areas = settings.isReal ? realAreas : blockAreas;
+	const areas = settings.isReal ? {...realAreas} : {...blockAreas};
+
+	if (widthLeftColumn != null) {
+		areas.master = settings.isReal ? realMaster({minWidth:widthLeftColumn, width: '100%'}): blockAreas.master({width:widthLeftColumn});
+		areas.summary = settings.isReal ? realSummary({minWidth:widthRightColumn, width: '100%'}): blockAreas.summary({minWidth:widthRightColumn, width: '100%'});
+	}
 
 	if (settings.isReal) {
-		const areas2 = {...areas};
-		areas2.detail = realDetail(true);
+		areas.detail = realDetail(true);
 		return (
 			<Fragment>
 				<Tag
 					{...settings}
-					{...areas2}
+					{...areas}
 				/>
 			</Fragment>
 		)
@@ -158,18 +208,31 @@ storiesWithKnobs.add('Master detail', () => {
 
 storiesWithKnobs.add('Detail summary', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUICompositionDetailSummaryHeader : XUICompositionDetailSummary;
+
+	const standardWidths = boolean('Apply standard widths to columns', true, '1');
+
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
 		hasAutoSpaceAround: boolean('Apply context-dependent space between the grid and the viewport', true, '1'),
-		hasAutoColumnWidths: boolean('Apply standard widths to columns', true, '1'),
+		hasAutoColumnWidths: standardWidths,
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
 			Small: 'small'
 		}, '', '1')
 	}
-	const areas = settings.isReal ? realAreas : blockAreas;
+
+	const widthRightColumn = !standardWidths && select('Pick a right column width', {
+		None: null,
+		'100px': '100px',
+		'250px': '250px',
+		'400px': '400px'
+	}, '250px', '1');
+
+	const areas = settings.isReal ? {...realAreas} : {...blockAreas};
+
+	areas.summary = settings.isReal ? realSummary({minWidth:widthRightColumn, width: '100%'}) : blockAreas.summary({minWidth:widthRightColumn, width: '100%'});
 
 	return (
 		<Tag

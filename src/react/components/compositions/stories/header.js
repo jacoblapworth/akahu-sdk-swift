@@ -1,13 +1,6 @@
-import React, {
-	PureComponent
-} from 'react';
-import {
-	XUIActions,
-	XUIPageHeader
-} from '../../../structural';
-import Picklist, {
-	Pickitem
-} from '../../../picklist';
+import React, { PureComponent } from 'react';
+import { XUIActions, XUIPageHeader } from '../../../structural';
+import Picklist, { Pickitem } from '../../../picklist';
 import XUIButton, {
 	XUISplitButtonGroup,
 	XUISecondaryButton

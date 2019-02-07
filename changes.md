@@ -143,6 +143,7 @@ All other existing values stay as they are (including `2xlarge`)
 
 ### Component props
 
+- Dropdown has new values for `size` prop; `xsmall`, `small`, `medium` and `large`.
 - Pill has a new `isLimitedWidth` prop to replace the `isMaxContentWidth` prop. The default for pills is now to fit their content, and you can apply `isLimitedWidth` to cap them at 200px. This prop change will be handled automatically by the upgrade codemod for existing Pills in your app.
   - Pill `size` prop now has a default of `medium`, instead of `standard`. This size is visually the same as XUI 14 aside from the font size changes. Other available values are `small` and `xsmall`.
 - XUIIcon, when `isBoxed` is true, now adds a class called `xui-iconwrapper-medium` by default. Use the `size` prop to alter this to `large` or `xlarge` at your discretion.
@@ -164,3 +165,4 @@ All other existing values stay as they are (including `2xlarge`)
 
 - Modal widths have changed: small is 300px (was 340); medium is 400px (was 460); large is 600px (was 600) and xlarge is 800px (was 860).
 - In addition to renaming the utility classes that handle viewport-size-specific behaviour, the behaviour itself has changed, in some cases. `-medium` was previously affecting elements when the viewport was *between* 520px and 940px. The new `-small-up` replacement classes will affect elements when the viewport is 600px or greater, unless overridden with a `-large-up` class, which will take over at 1000px. This is in line with a mobile-first approach. In many cases, this will mean that developers need fewer classes to get the desired behaviour.
+- Along with new sizes being introduced for dropdown, the values of dropdown sizes have also changed: xsmall is 100px (xsmall previously didn't exist); small is 200px (was 140px); medium is 300px (was 220px) and large is 400px (was 300px). xlarge has been deprecated.

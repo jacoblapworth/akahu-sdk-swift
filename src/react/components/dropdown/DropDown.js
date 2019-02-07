@@ -235,8 +235,8 @@ DropDown.propTypes = {
 	/** Whether or not this component is hidden. */
 	isHidden: PropTypes.bool,
 
-	/** Applies the correct XUI class based on the chose size. Default will
-	 * fits to children's width. */
+	/** Applies the correct XUI class based on the chosen size. Default will
+	 * fit to children's width. */
 	size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
 
 	/** An array of keydown keycodes to be ignored from dropdown behaviour. */
@@ -257,7 +257,7 @@ DropDown.propTypes = {
 	/** Whether or not the dropdown should take focus and handle keyboard events automatically */
 	hasKeyboardEvents: PropTypes.bool,
 
-	/** Callback for adding additional onKeyPress funcitonality */
+	/** Callback for adding additional onKeyPress functionality */
 	onKeyDown: PropTypes.func,
 
 	/** Whether focus should be restricted to the dropdown while it's open. */
@@ -284,7 +284,7 @@ DropDown.propTypes = {
 	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
 
-	/** Force wrapping Panel childrens in a StatefulPicklist  */
+	/** Force wrapping Panel children in a StatefulPicklist  */
 	forceStatefulPicklist: PropTypes.bool,
 
 	/** Class to apply to the body element of the dropdown */

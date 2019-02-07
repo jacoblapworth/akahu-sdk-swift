@@ -42,12 +42,14 @@
 
 // Layout
 //
+// flag: under review
+//
 // At times it is desired to prevent the page header from extending wider than the width of the global header, or to match content that sits below it.
 // To do this, apply the following utility classes in addition to `xui-pageheading--content-layout`.
 //
 // Classes:
-// xui-page-width-standard: Sets a max width of 940px and centers horizontally
-// xui-page-width-large: Sets a max width of 1160px and centers horizontally
+// xui-page-width-standard: Sets a max width of 1000px and centers horizontally
+// xui-page-width-large: Sets a max width of 1200px and centers horizontally
 //
 // Styleguide: Compounds.Navigation.Page header.3
 

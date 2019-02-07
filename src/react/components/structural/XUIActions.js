@@ -27,13 +27,13 @@ export default class XUIActions extends PureComponent {
 		const Tag = tagName;
 
 		const clonedPrimary = primaryAction && React.cloneElement(primaryAction, {
-			className: cn(`${baseClass}--primary`, {
+			className: cn(`${baseClass}--primary`, primaryAction.props.className, {
 				[`${baseClass}--button-spacing`]: hasLayout && !isLinear,
 			}),
 		});
 
 		const clonedSecondary = secondaryAction && React.cloneElement(secondaryAction, {
-			className: `${baseClass}--secondary`,
+			className: cn(`${baseClass}--secondary`, secondaryAction.props.className),
 		});
 
 		return (

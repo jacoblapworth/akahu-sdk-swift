@@ -136,7 +136,7 @@
     "serve-static": "1.13.1",
     "simple-mock": "0.8.0",
     "sinon": "4.0.1",
-    "storybook-readme": "^3.0.6",
+    "storybook-readme": "^4.0.5",
     "style-loader": "0.19.0",
     "stylelint": "8.2.0",
     "stylelint-order": "0.7.0",

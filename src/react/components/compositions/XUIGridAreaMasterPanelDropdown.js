@@ -14,12 +14,18 @@ function isWideScreen(navContainer) {
 	const {
 		gridArea,
 		msGridRow,
+		gridColumnEnd,
+		gridColumnStart
 	} = window.getComputedStyle(navContainer);
 
 	return navContainer &&
 		(
 			(gridArea && gridArea.indexOf('master') > -1) ||
-			(msGridRow && parseInt(msGridRow) < 3)
+			(msGridRow && parseInt(msGridRow) < 3) ||
+			(
+				(gridColumnStart && gridColumnStart.indexOf('master') > -1) &&
+				(gridColumnEnd && gridColumnEnd.indexOf('master') > -1)
+			)
 		);
 }
 
@@ -45,7 +51,7 @@ export default class XUIGridAreaMasterPanelDropdown extends PureComponent {
 			trailing: true,
 		});
 
-		window.addEventListener(XUIGridAreaMasterPanelDropdownEventLabel, toggleHidden);
+		window.addEventListener(XUIGridAreaMasterPanelDropdownEventLabel, toggleHidden.bind(this));
 		window.addEventListener('resize', this._debouncedForceHidden);
 		window.addEventListener('resize', this._debouncedToggleDropdownPanel);
 
@@ -61,6 +67,7 @@ export default class XUIGridAreaMasterPanelDropdown extends PureComponent {
 			when you need to measure a DOM node before rendering something that depends on its size
 			or position
 		*/
+
 		this.setState(({ // eslint-disable-line react/no-did-mount-set-state
 			wideScreen: isWideScreen(this.wrapper.current.parentElement),
 			isDropdown: !isWideScreen(this.wrapper.current.parentElement),
@@ -90,11 +97,13 @@ export default class XUIGridAreaMasterPanelDropdown extends PureComponent {
 	}
 
 	toggleHidden = () => {
-		const wideScreen = isWideScreen(this.wrapper.current.parentElement);
-		this.setState(prevState => ({
-			dropdownHidden: wideScreen ? true : !prevState.dropdownHidden,
-			wideScreen,
-		}));
+		if (this.wrapper.current && this.wrapper.current.parentElement) {
+			const wideScreen = isWideScreen(this.wrapper.current.parentElement);
+			this.setState(prevState => ({
+				dropdownHidden: wideScreen ? true : !prevState.dropdownHidden,
+				wideScreen,
+			}));
+		}
 	}
 
 	render() {

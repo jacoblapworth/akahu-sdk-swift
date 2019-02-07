@@ -70,10 +70,13 @@ const longTabs = [
 	{
 		name: 'The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog',
 		description: 'The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog',
+		isComplete: true,
+		isDisabled: true,
 	},
 	{
 		name: 'Standard',
 		description: 'The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog',
+		isError: true,
 	},
 ];
 
@@ -143,8 +146,70 @@ const variations = [
 	{
 		...baseProps,
 		storyKind,
-		storyTitle: 'extra long content',
+		storyTitle: 'stacked with truncation',
 		lockLayout: 'stacked',
+		tabs: longTabs,
+	},
+
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'stacked with wrapping',
+		lockLayout: 'stacked',
+		isTruncated: false,
+		tabs: longTabs,
+	},
+
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'inline with truncation',
+		lockLayout: 'inline',
+		tabs: longTabs,
+	},
+
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'inline with wrapping',
+		lockLayout: 'inline',
+		isTruncated: false,
+		tabs: longTabs,
+	},
+
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'inline (stacked buttons) with truncation',
+		lockLayout: 'inline',
+		hasStackedButtons: true,
+		tabs: longTabs,
+	},
+
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'inline (stacked buttons) with wrapping',
+		lockLayout: 'inline',
+		isTruncated: false,
+		hasStackedButtons: true,
+		tabs: longTabs,
+	},
+
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'sidebar with truncation',
+		lockLayout: 'sidebar',
+		tabs: longTabs,
+	},
+
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'sidebar with wrapping',
+		lockLayout: 'sidebar',
+		isTruncated: false,
 		tabs: longTabs,
 	},
 

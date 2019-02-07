@@ -155,6 +155,7 @@
 // Link text
 //
 // Classes:
+// xui-stepper-link-text-truncated: Apply to the text wrapping element to truncate text
 // xui-stepper-link-heading: Used for title of step
 // xui-stepper-link-description: Used for short concise description of step
 //
@@ -164,14 +165,27 @@
 // <div class="xui-stepper xui-padding-vertical-large">
 //   <div class="xui-stepper-wrapper xui-stepper-inline" role="tablist">
 //     <div class="xui-stepper-tab xui-stepper-tab-first xui-stepper-tab-last" aria-controls="stepper-inline-standard-panel" aria-selected="true" role="tab" style="order: 0;">
-//       <button class="xui-stepper-link xui-stepper-link-standard" tabindex="0">
+//       <button class="xui-stepper-link xui-stepper-link-active" tabindex="0">
 //         <div class="xui-stepper-link-wrapper">
 //           <div class="xui-stepper-link-icon">
 //             <span class="xui-stepper-link-step">1</span>
 //           </div>
 //           <div class="xui-stepper-link-text">
 //             <span class="xui-stepper-link-heading xui-heading-small">Login details</span>
-//             <span class="xui-stepper-link-description">Enter username and password</span>
+//             <span class="xui-stepper-link-description">Enter username and password for full access to this feature</span>
+//           </div>
+//         </div>
+//       </button>
+//     </div>
+//     <div class="xui-stepper-tab xui-stepper-tab-last" aria-controls="stepper-inline-standard-panel" aria-selected="true" role="tab" style="order: 0;">
+//       <button class="xui-stepper-link xui-stepper-link-standard" tabindex="0">
+//         <div class="xui-stepper-link-wrapper">
+//           <div class="xui-stepper-link-icon">
+//             <span class="xui-stepper-link-step">2</span>
+//           </div>
+//           <div class="xui-stepper-link-text xui-stepper-link-text-truncated">
+//             <span class="xui-stepper-link-heading xui-heading-small">Account Information</span>
+//             <span class="xui-stepper-link-description">Add some further details about your organisation to set up a connection</span>
 //           </div>
 //         </div>
 //       </button>
@@ -496,7 +510,9 @@
 }
 
 .#{$ns}-stepper-tab {
+	box-sizing: content-box;
 	position: relative;
+	max-width: 300px;
 
 	&:before,
 	&:after {
@@ -759,6 +775,7 @@
 .#{$ns}-stepper-link-icon,
 .#{$ns}-stepper-link-progress {
 	$size: $xui-control-size-standard;
+	box-sizing: border-box;
 	display: inline-block;
 	flex-shrink: 0;
 	height: $size;
@@ -818,10 +835,19 @@
 	padding: 10px;
 }
 
+.#{$ns}-stepper-link-text {
+	overflow: hidden;
+}
+
 .#{$ns}-stepper-link-heading,
 .#{$ns}-stepper-link-description {
 	color: inherit;
 	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	.#{$ns}-stepper-link-text-truncated & {
+		white-space: nowrap;
+	}
 }
 
 .#{$ns}-stepper-link-description {

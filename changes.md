@@ -68,7 +68,9 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - Switch no longer always maintains internal checked state. The API is now very similar to XUICheckbox and XUIRadio in that the component can be either used as a controlled or uncontrolled input.
   If users provide an isChecked value, the component will not maintain its own internal state. If users provide no isChecked value, the isDefaultChecked value will be used to populate the initial internally-managed state.
 - Autocompleter uses a debounce rather than throttle for searching. The `searchThrottleInterval` prop is superceded by `searchDebounceTimeout`. The default value for this has been set to 200 (was previously 0). To disable debouncing, set this value to 0.
-- Stepper prop `updateCurrentStep` has been included into the main component API in favour of `handleClick` callbacks in every tab instance.
+- XUIStepper
+	- Prop `updateCurrentStep` has been included into the main component API in favour of `handleClick` callbacks in every tab instance.
+	- Each "step" now has a max-width of 300px. Text will truncate, by default, or you can set the new `isTruncated` prop to `false`, to cause text to wrap, instead.
 - Modal no longer supports `default` as a size value. The default prop value is `medium` (unchanged).
 - `Picklist`, `Pickitem`, and related components
 	- Have a new `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`. Size can be set at either the item or list level, and will be applied to the entire list.
@@ -159,6 +161,7 @@ All other existing values stay as they are (including `2xlarge`)
 - `RolloverCheckbox`has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.
 - XUIToggle's `variant` prop has been renamed to `size`. The default value is `medium`. Other available values are `small`.
 - Autocompleter has a new `inputSize` prop. The default value is `medium`. The other available size is `small`.
+- XUIStepper has a new `isTruncated` prop which defaults to `true`, truncating each "step" at 300px wide.
 
 ## Other changes
 

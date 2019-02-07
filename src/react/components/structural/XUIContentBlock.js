@@ -8,13 +8,14 @@ const baseClass = `${ns}-contentblock`;
 export default class XUIContentBlock extends PureComponent {
 	render() {
 		const {
+			qaHook,
 			className,
 			children,
 		} = this.props;
 		const listClasses = cn(className, baseClass);
 
 		return (
-			<div className={listClasses}>
+			<div className={listClasses} data-automationid={qaHook}>
 				{children}
 			</div>
 		);
@@ -24,6 +25,7 @@ export default class XUIContentBlock extends PureComponent {
 XUIContentBlock.propTypes = {
 	className: PropTypes.string,
 	children: PropTypes.node,
+	qaHook: PropTypes.string,
 };
 
 XUIContentBlock.defaultProps = {};

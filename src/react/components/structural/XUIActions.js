@@ -8,6 +8,7 @@ const baseClass = `${ns}-actions`;
 export default class XUIActions extends PureComponent {
 	render() {
 		const {
+			qaHook,
 			className,
 			children,
 			hasLayout,
@@ -36,7 +37,7 @@ export default class XUIActions extends PureComponent {
 		});
 
 		return (
-			<Tag {...spreadProps} className={classes}>
+			<Tag {...spreadProps} className={classes} data-automationid={qaHook}>
 				{children}
 				{clonedPrimary}
 				{clonedSecondary}
@@ -48,6 +49,7 @@ export default class XUIActions extends PureComponent {
 XUIActions.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 	/**
 	 * Applies standard layout settings. Defaults to true
 	 */

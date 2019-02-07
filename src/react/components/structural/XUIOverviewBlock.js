@@ -8,6 +8,7 @@ const baseClass = `${ns}-overview`;
 export default class XUIOverviewBlock extends PureComponent {
 	render() {
 		const {
+			qaHook,
 			children,
 			className,
 			hasLayout,
@@ -27,7 +28,7 @@ export default class XUIOverviewBlock extends PureComponent {
 		);
 
 		return (
-			<div {...spreadProps} className={classes}>
+			<div {...spreadProps} className={classes} data-automationid={qaHook}>
 				{children}
 			</div>
 		);
@@ -37,6 +38,7 @@ export default class XUIOverviewBlock extends PureComponent {
 XUIOverviewBlock.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 	/**
 	 * Applies default layout styling.
 	 */

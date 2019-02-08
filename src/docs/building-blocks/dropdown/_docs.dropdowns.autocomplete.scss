@@ -232,37 +232,65 @@
 
 // Single-select
 //
-// To indicate an option has been added to the autocompleter, simply insert a [pill](section-building-blocks-identifiers-pill.html).
-// Then, add the following modifier to provide the correct layout within the autocompleter.
+// To indicate a single selection has been made in an autocompleter, use [text input side elements](/section-building-blocks-controls-textinput.html#building-blocks-controls-textinput-5) to display a left element, such as an avatar (if applicapble), and a right icon button element to enable clearing the selection.
 //
 // Tips:
-// Do: Use pills to display multiple selections inside of an input from an autocompleter
+// Do: Use text input side elements to indicate a single selection
 // Do: Include an avatar if the selected option has an associated person or business
-//
-// Classes:
-// xui-autocompleter--pill: An individual pill inside the autocmpleter
+// Warning: Be cautious when using small and xsmall size variants as they have reduced legibility and hit area
 //
 // Markup:
-// <div class="xui-textinput xui-autocompleter--trigger-pillwrap">
-//	 <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
-// 			<span class="xui-pill--content">
-// 				<abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-1" role="presentation">CS</abbr>
-// 				<span class="xui-pill--text">Claire Symons</span>
-// 			</span>
-// 			<button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small" tabindex="0" type="button">
-// 				<svg focusable="false" class="xui-icon">
-// 					<use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-// 				</svg>
-// 			</button>
-//	 	</div>
-//   <input class="xui-autocompleter--textinput xui-textinput--input" placeholder="Add recipients" type="search" value="">
+// <div class="xui-textinput xui-textinput-medium xui-margin-bottom">
+//   <div class="xui-textinput--sideelement xui-textinput--sideelement-align-center xui-textinput--sideelement-avatar">
+//     <abbr class="xui-avatar xui-avatar-small xui-avatar-color-5" role="presentation">CH</abbr>
+//   </div>
+//   <input class="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium" placeholder="Select recipient" type="search" value="Chris Hemsworth">
+//   <div class="xui-textinput--sideelement xui-textinput--sideelement-align-center xui-textinput--sideelement-icon">
+//     <button title="Delete" aria-label="Delete" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+//       <div class="xui-iconwrapper xui-iconwrapper-medium">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
+//         </svg>
+//       </div>
+//     </button>
+//   </div>
+// </div>
+// <div class="xui-textinput xui-textinput-small xui-margin-bottom">
+//   <div class="xui-textinput--sideelement xui-textinput--sideelement-align-center xui-textinput--sideelement-avatar">
+//     <abbr class="xui-avatar xui-avatar-xsmall xui-avatar-color-5" role="presentation">CH</abbr>
+//   </div>
+//   <input class="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-small" placeholder="Select recipient" type="search" value="Chris Hemsworth">
+//   <div class="xui-textinput--sideelement xui-textinput--sideelement-align-center xui-textinput--sideelement-icon">
+//     <button title="Delete" aria-label="Delete" class="xui-button xui-button-icon xui-button-icon-small" tabindex="0" type="button">
+//       <div class="xui-iconwrapper xui-iconwrapper-small">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
+//         </svg>
+//       </div>
+//     </button>
+//   </div>
+// </div>
+// <div class="xui-textinput xui-textinput-xsmall">
+//   <div class="xui-textinput--sideelement xui-textinput--sideelement-align-center xui-textinput--sideelement-avatar">
+//     <abbr class="xui-avatar xui-avatar-2xsmall xui-avatar-color-5" role="presentation">CH</abbr>
+//   </div>
+//   <input class="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-xsmall" placeholder="Select recipient" type="search" value="Chris Hemsworth">
+//   <div class="xui-textinput--sideelement xui-textinput--sideelement-align-center xui-textinput--sideelement-icon">
+//     <button title="Delete" aria-label="Delete" class="xui-button xui-button-icon xui-button-icon-xsmall" tabindex="0" type="button">
+//       <div class="xui-iconwrapper xui-iconwrapper-xsmall">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
+//         </svg>
+//       </div>
+//     </button>
+//   </div>
 // </div>
 //
 // Styleguide: Compounds.CollectingInput.Autocompleter.4
 
 // Multi-select
 //
-// To indicate an option has been added to the autocompleter, simply insert a [pill](section-building-blocks-identifiers-pill.html).
+// To indicate an option has been added to the autocompleter, simply insert a [pill](/section-building-blocks-identifiers-pill.html).
 // Then, add the following modifier to provide the correct layout within the autocompleter.
 //
 // Tips:
@@ -486,8 +514,14 @@
 // xui-textinput-is-disabled: Apply to autocompleter container
 //
 // Markup:
-// <div class="xui-textinput xui-textinput-is-disabled">
-//   <input class="xui-textinput--input" placeholder="Add recipients" type="search" value="" disabled>
+// <div class="xui-textinput xui-textinput-medium xui-textinput-is-disabled xui-margin-bottom">
+//   <input class="xui-textinput--input xui-textinput--input-medium" placeholder="Add recipients" type="search" value="" disabled>
+// </div>
+// <div class="xui-textinput xui-textinput-small xui-textinput-is-disabled xui-margin-bottom">
+//   <input class="xui-textinput--input xui-textinput--input-small" placeholder="Add recipients" type="search" value="" disabled>
+// </div>
+// <div class="xui-textinput xui-textinput-xsmall xui-textinput-is-disabled">
+//   <input class="xui-textinput--input xui-textinput--input-xsmall" placeholder="Add recipients" type="search" value="" disabled>
 // </div>
 //
 // Styleguide: Compounds.CollectingInput.Autocompleter.6

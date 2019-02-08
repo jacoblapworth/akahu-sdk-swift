@@ -118,13 +118,20 @@ The following size classes have been changed:
 
 All other existing values stay as they are (including `2xlarge`)
 
-| Removed       | Replacement    |
-| xui-u-flex-*-narrow | xui-u-flex-*-small-down |
-| xui-u-flex-*-medium | xui-u-flex-*-small-up |
-| xui-u-flex-*-wide | xui-u-flex-*-large-up |
+Utility classes with breakpoint suffixes have been updated to reflect the new breakpoint naming convention.
+
+| Removed   					| Replacement							|
+|---------------------|-------------------------|
+| xui-u-flex-?-narrow | xui-u-flex-?-small-down |
+| xui-u-flex-?-medium | xui-u-flex-?-small-up   |
+| xui-u-flex-?-wide   | xui-u-flex-?-large-up   |
 | xui-u-hidden-narrow | xui-u-hidden-small-down |
-| xui-u-hidden-medium | xui-u-hidden-small-up |
-| xui-u-hidden-wide | xui-u-hidden-large-up |
+| xui-u-hidden-medium | xui-u-hidden-small-up   |
+| xui-u-hidden-wide   | xui-u-hidden-large-up   |
+
+- `xui-page-width-<size>` classes have been deprecated, the sizes have been adjusted and replacements come in the form of compositions.
+  - `width-standard` XUI 14 size was 940px, this is now 1000px
+  - `width-large` XUI 14 size was 1160px, this is now 1200px.
 
 ---
 

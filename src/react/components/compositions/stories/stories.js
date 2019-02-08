@@ -18,53 +18,32 @@ import XUIGridAreaMasterPanelDropdown, { XUIGridAreaMasterPanelDropdownEventLabe
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import withReadme from 'storybook-readme/with-readme';
+import Readme from './README.md';
 
 import XUIPanel from '../../structural/XUIPanel';
 import XUIPicklist from '../../picklist/Picklist';
 import XUIPickItem from '../../picklist/Pickitem';
-import XUIAvatar from '../../avatar/XUIAvatar';
 
-import XUIContentBlock from '../../structural/XUIContentBlock';
-import XUIContentBlockItem from '../../structural/XUIContentBlockItem';
-import XUIActions from '../../structural/XUIActions';
+// Custom Components
+import CustomContentBlock from './content-block';
+import CustomHeader from './header';
+import CustomSummary from './summary';
+import CustomForm from './form';
 import XUIButton from '../../button/XUIButton';
-import XUITag from '../../tag/XUITag';
-import XUIIcon from '../../icon/XUIIcon';
-import Picklist from '../../picklist/Picklist';
-import Pickitem from '../../picklist/Pickitem';
-import XUIPageHeader from '../../structural/XUIPageHeader';
-import overflow from '@xero/xui-icon/icons/overflow';
 
-function getRandomInt(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
+const fireEvent = () => {
+	window.dispatchEvent(new CustomEvent(XUIGridAreaMasterPanelDropdownEventLabel, {
+		bubbles: true,
+	}))
 }
 
-const overflowButton = <XUIButton variant="icon" aria-label="More options"><XUIIcon icon={overflow}/></XUIButton>;
-const avatar = <XUIAvatar value="Tim Redmond" />;
-const actionButton = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>}/>;
-const positiveTag = <XUITag className="xui-margin-left-small" variant="positive">Paid</XUITag>;
-const negativeTag = <XUITag className="xui-margin-left-small" variant="negative">Overdue</XUITag>;
+const realHeader = <CustomHeader />;
 
-const builtTabs = (
-	<Picklist>
-		<Pickitem ariaRole='menuitem' id="one">See all</Pickitem>
-		<Pickitem ariaRole='menuitem' id="two" isSelected>Edit</Pickitem>
-		<Pickitem ariaRole='menuitem' id="three" >Add</Pickitem>
-	</Picklist>
-);
-
-const realHeader = (
-	<XUIPanel
-		className="xui-u-flex xui-padding xui-u-fullwidth"
-		>
-		<XUIPageHeader title="Stuff on this page" tabs={builtTabs}></XUIPageHeader>
-	</XUIPanel>
-);
-
-const realMaster = (
-	<XUIGridAreaMasterPanelDropdown>
+const realMaster = (style = {}) => (
+	<XUIGridAreaMasterPanelDropdown style={style}>
 		<XUIPicklist>
-			{[1,2,3].map(item => (
+			{[1,2,3,4].map(item => (
 				<XUIPickItem
 					id={item}
 					onClick={() => fireEvent()}
@@ -77,87 +56,67 @@ const realMaster = (
 	</XUIGridAreaMasterPanelDropdown>
 );
 
-const realSummary = (
-	<XUIPanel
-		className="xui-u-flex xui-u-flex-column xui-padding"
-		style={{'minWidth': '250px'}}
-		>
-		<div className="xui-u-flex xui-u-flex-justify-center">
-			<XUIAvatar
-				value="xero"
-				size="large"
-				imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"
-				className="xui-u-flex-1"
-				/>
-		</div>
-		<div className="xui-u-flex xui-u-flex-justify-center">
-			<h2>Keri Henare</h2>
-		</div>
-	</XUIPanel>
+const realSummary = (style = {}) => (
+	<CustomSummary style={style}/>
 );
-
-const realDetail = (
-	<XUIPanel
-		className="xui-u-flex xui-u-flex-column xui-padding"
-		>
-		<h3>A list of things</h3>
-		<XUIContentBlock className="xui-panel">
-			{[1,2,3,4].map(item => (
-				<XUIContentBlockItem
-					key={item}
-					primaryHeading={`Primary ${item}`}
-					secondaryHeading={`Secondary ${item}`}
-					overflow={overflowButton}
-					leftContent={avatar}
-					pinnedValue={`${getRandomInt(0, 10)}.${getRandomInt(0, 9)}${getRandomInt(0, 9)}`}
-					action={actionButton}
-					tag={getRandomInt(0, 1) === 0 ? negativeTag : positiveTag}/>
-			))}
-		</XUIContentBlock>
-	</XUIPanel>
-);
+const realDetail = (showMediumDownButton) => <CustomContentBlock showMediumDownButton={showMediumDownButton}/>;
 
 const realPrimary = (
 	<XUIPanel
-		className="xui-u-flex xui-u-flex-column xui-padding"
+		className="xui-u-flex xui-u-flex-align-center xui-u-flex-justify-center xui-padding-5xlarge"
 	>
-		<img src="http://i.imgur.com/kg0CFnu.jpg" alt="" style={{maxWidth: '100%'}} />
+		<XUIButton>Upload an image</XUIButton>
 	</XUIPanel>
 );
 
 const realAreas = {
-	master: realMaster,
-	summary: realSummary,
-	detail: realDetail,
+	master: realMaster(),
+	summary: realSummary(),
+	detail: realDetail(),
 	header: realHeader,
 	primary: realPrimary,
 	secondary: realDetail,
 }
 
 const blockAreas = {
-	master: (<div style={{background: '#50DCAA', height: '100px', width: '100%'}}></div>),
-	summary: (<div style={{background: '#FA8200', height: '100px', width: '100%'}}></div>),
+	master: ({width, minWidth} = {width: '100%', minWidth: undefined}) => (
+		<div style={{background: '#50DCAA', height: '100px', width, minWidth}}></div>
+	),
+	summary: ({width, minWidth} = {width: '100%', minWidth: undefined}) => (
+		<div style={{background: '#FA8200', height: '100px', width, minWidth}}></div>
+	),
 	detail: (<div style={{background: '#0078C8', height: '100px' }}></div>),
 	header: (<div style={{background: '#B446C8', height: '60px'}}></div>),
 	primary: (<div style={{background: '#ff6496', height: '100px'}}></div>),
 	secondary: (<div style={{background: '#0078C8', height: '100px'}}></div>),
 };
 
-const fireEvent = () => {
-	window.dispatchEvent(new CustomEvent(XUIGridAreaMasterPanelDropdownEventLabel, {
-		bubbles: true,
-	}))
-}
-
 const storiesWithKnobs = storiesOf('Compositions', module);
 storiesWithKnobs.addDecorator(withKnobs);
+storiesWithKnobs.addDecorator(withReadme([Readme]));
 storiesWithKnobs.add('Master detail summary', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUICompositionMasterDetailSummaryHeader : XUICompositionMasterDetailSummary;
+	const standardWidths = boolean('Apply standard widths to columns', true, '1');
+
+	const widthLeftColumn = !standardWidths && select('Pick a left column width', {
+		None: null,
+		'100px': '100px',
+		'250px': '250px',
+		'400px': '400px'
+	}, '250px', '1');
+
+	const widthRightColumn = !standardWidths && select('Pick a right column width', {
+		None: null,
+		'100px': '100px',
+		'250px': '250px',
+		'400px': '400px'
+	}, '250px', '1');
+
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
 		hasAutoSpaceAround: boolean('Apply context-dependent space between the grid and the viewport', true, '1'),
-		hasAutoColumnWidths: boolean('Apply standard widths to columns', true, '1'),
+		hasAutoColumnWidths: standardWidths,
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
@@ -165,12 +124,18 @@ storiesWithKnobs.add('Master detail summary', () => {
 			Small: 'small'
 		}, '', '1')
 	}
-	const areas = settings.isReal ? realAreas : blockAreas;
+
+	const areas = settings.isReal ? {...realAreas} : {...blockAreas};
+
+	if (widthLeftColumn != null) {
+		areas.master = settings.isReal ? realMaster({minWidth:widthLeftColumn, width: '100%'}): blockAreas.master({width:widthLeftColumn});
+		areas.summary = settings.isReal ? realSummary({minWidth:widthRightColumn, width: '100%'}): blockAreas.summary({minWidth:widthRightColumn, width: '100%'});
+	}
 
 	if (settings.isReal) {
+		areas.detail = realDetail(true);
 		return (
 			<Fragment>
-				<button onClick={() => fireEvent()}>Hello</button>
 				<Tag
 					{...settings}
 					{...areas}
@@ -188,23 +153,44 @@ storiesWithKnobs.add('Master detail summary', () => {
 
 storiesWithKnobs.add('Master detail', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUICompositionMasterDetailHeader : XUICompositionMasterDetail;
+	const standardWidths = boolean('Apply standard widths to columns', true, '1');
+
+	const widthLeftColumn = !standardWidths && select('Pick a left column width', {
+		None: null,
+		'100px': '100px',
+		'250px': '250px',
+		'400px': '400px'
+	}, '250px', '1');
+
+	const widthRightColumn = !standardWidths && select('Pick a right column width', {
+		None: null,
+		'100px': '100px',
+		'250px': '250px',
+		'400px': '400px'
+	}, '250px', '1');
+
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
 		hasAutoSpaceAround: boolean('Apply context-dependent space between the grid and the viewport', true, '1'),
-		hasAutoColumnWidths: boolean('Apply standard widths to columns', true, '1'),
+		hasAutoColumnWidths: standardWidths,
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
 			Small: 'small'
 		}, '', '1')
 	}
-	const areas = settings.isReal ? realAreas : blockAreas;
+	const areas = settings.isReal ? {...realAreas} : {...blockAreas};
+
+	if (widthLeftColumn != null) {
+		areas.master = settings.isReal ? realMaster({minWidth:widthLeftColumn, width: '100%'}): blockAreas.master({width:widthLeftColumn});
+		areas.summary = settings.isReal ? realSummary({minWidth:widthRightColumn, width: '100%'}): blockAreas.summary({minWidth:widthRightColumn, width: '100%'});
+	}
 
 	if (settings.isReal) {
+		areas.detail = realDetail(true);
 		return (
 			<Fragment>
-			<button onClick={() => fireEvent()}>Hello</button>
 				<Tag
 					{...settings}
 					{...areas}
@@ -222,18 +208,31 @@ storiesWithKnobs.add('Master detail', () => {
 
 storiesWithKnobs.add('Detail summary', () => {
 	const Tag = boolean('Include content header', false, '1') ? XUICompositionDetailSummaryHeader : XUICompositionDetailSummary;
+
+	const standardWidths = boolean('Apply standard widths to columns', true, '1');
+
 	const settings = {
 		isReal: boolean('Show example content', false, '1'),
 		hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
 		hasAutoSpaceAround: boolean('Apply context-dependent space between the grid and the viewport', true, '1'),
-		hasAutoColumnWidths: boolean('Apply standard widths to columns', true, '1'),
+		hasAutoColumnWidths: standardWidths,
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
 			Small: 'small'
 		}, '', '1')
 	}
-	const areas = settings.isReal ? realAreas : blockAreas;
+
+	const widthRightColumn = !standardWidths && select('Pick a right column width', {
+		None: null,
+		'100px': '100px',
+		'250px': '250px',
+		'400px': '400px'
+	}, '250px', '1');
+
+	const areas = settings.isReal ? {...realAreas} : {...blockAreas};
+
+	areas.summary = settings.isReal ? realSummary({minWidth:widthRightColumn, width: '100%'}) : blockAreas.summary({minWidth:widthRightColumn, width: '100%'});
 
 	return (
 		<Tag
@@ -274,7 +273,11 @@ storiesWithKnobs.add('Split', () => {
 			Small: 'small'
 		}, '', '1'),
 	}
-	const areas = settings.isReal ? realAreas : blockAreas;
+	const areas = settings.isReal ? {
+		header: realHeader,
+		primary: realPrimary,
+		secondary: <CustomForm />
+	} : blockAreas;
 
 	return (
 		<Tag

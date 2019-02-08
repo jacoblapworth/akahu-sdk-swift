@@ -74,10 +74,10 @@ class XUIStepper extends Component {
 		const { lockLayout } = props;
 		const setLayout = newLayout => (newLayout !== layout) && this.setState({ layout: newLayout });
 
-		if (lockLayout) {
+		if (lockLayout && lockLayout !== 'vertical') {
 			setLayout(lockLayout);
 		} else if (rootNode) {
-			const isInline = testIsInlineRelevant(rootNode);
+			const isInline = testIsInlineRelevant(rootNode) && lockLayout !== 'vertical';
 			const isSideBar = testIsSideBarRelevant(rootNode);
 
 			if (isInline) {
@@ -219,8 +219,9 @@ XUIStepper.propTypes = {
 	hasStackedButtons: PropTypes.bool,
 
 	/** Lock the Stepper to only use a single layout style (the Stepper will augment its layout
-	 * automatically by default). */
-	lockLayout: PropTypes.oneOf(['stacked', 'sidebar', 'inline']),
+	 * automatically by default). Setting `vertical` will render as either a sidebar or stacked
+	 * depending on the space available. */
+	lockLayout: PropTypes.oneOf(['stacked', 'sidebar', 'inline', 'vertical']),
 
 	/** Whether step names and description truncate or wrap. Defaults to true. */
 	isTruncated: PropTypes.bool,

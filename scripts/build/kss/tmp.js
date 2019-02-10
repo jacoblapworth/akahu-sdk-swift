@@ -4,6 +4,8 @@ const postcss = require('postcss');
 const syntax = require('postcss-scss');
 const fs = require('fs');
 const path = require('path');
+const browsers = require('@xero/browserslist-autoprefixer');
+const autoprefixer = require('autoprefixer');
 const readFileAsync = promisify(fs.readFile);
 const writeFileAsync = promisify(fs.writeFile);
 const {
@@ -57,8 +59,8 @@ const generateKssFiles = (page, parser) => {
 			return sourceFileContent.replace(trimFileRegex, '');
 		})
 		.then(scss => {
-			return postcss()
-				.process(scss, { syntax })
+			return postcss([autoprefixer({grid: true, browsers})])
+				.process(scss, { from: scss, syntax })
 				.then(({ root }) => {
 					const output = parser(page, root, page.source, types);
 					const outputFileName = path.join(

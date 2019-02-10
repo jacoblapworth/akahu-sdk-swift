@@ -15,9 +15,15 @@ Avoid partially disabled groups in which one of the disabled options is pre-sele
 
 You can use as an uncontrolled component by not setting `isChecked` on any of the radio buttons, and optionally providing an `isDefaultChecked` property on one.
 
-```
+```jsx
 <div role="radiogroup" aria-label="test group">
-		<XUIRadio name="test" isDefaultChecked>Default option</XUIRadio>
+		<XUIRadio
+			name="test"
+			isDefaultChecked
+			hintMessage="Hint text"
+		>
+			Default option
+		</XUIRadio>
 		<XUIRadio name="test">Another option</XUIRadio>
 		<XUIRadio name="test">And another</XUIRadio>
 		<XUIRadio name="test" isDisabled>Disabled option</XUIRadio>
@@ -74,7 +80,7 @@ class Example extends PureComponent {
 
 Use the `isReversed` prop to have the label appear to the left of the checkbox element.
 
-```
+```jsx
 <div role="radiogroup" aria-label="reversed group">
 		<XUIRadio isReversed name="reversedRadios">An option</XUIRadio>
 		<XUIRadio isReversed name="reversedRadios">Another option</XUIRadio>
@@ -91,7 +97,7 @@ It is also possible to use the `isLabelHidden` prop to visually hide the label, 
 
 `iconMain` is the icon object from `@xero/xui-icon` to render in place of the standard radio control.
 
-```
+```jsx
 const customMainIcon = require ('@xero/xui-icon/icons/star').default;
 const customCheckIcon = require ('@xero/xui-icon/icons/suggestion').default;
 <div>

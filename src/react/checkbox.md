@@ -14,7 +14,12 @@ Enhanced version of HTML checkbox. Use in place of `<input type="checkbox" />`.
 
 ``` jsx
 <div>
-	<XUICheckbox isDefaultChecked>Default checked</XUICheckbox>
+	<XUICheckbox
+		isDefaultChecked
+		hintMessage="Hint text"
+	>
+		Default checked
+	</XUICheckbox>
 	<XUICheckbox>Unchecked by default</XUICheckbox>
 	<XUICheckbox>Also unchecked</XUICheckbox>
 </div>

@@ -180,6 +180,9 @@ class WrapPillsExample extends Component {
 					searchValue={value}
 					onBackspacePill={this.deleteLastPerson}
 					pills={this.renderPills(selectedPeopleIds)}
+					isInvalid={!value && !selectedPeopleIds.length}
+					validationMessage="Please enter a search term"
+					hintMessage="Begin entering a contact name"
 				>
 					{dropdownContents}
 				</XUIAutocompleter>

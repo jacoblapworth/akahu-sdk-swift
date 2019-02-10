@@ -2,14 +2,20 @@ Switches can be grouped together, making it easier to include them alongside inp
 
 The touch target for Switches in a group is the entire "row" of the Switch Group.
 
-```
-<XUISwitchGroup>
+```jsx
+<XUISwitchGroup
+	hintMessage="Grouped switches can have hints"
+>
 	<XUISwitch>Switch it up</XUISwitch>
 </XUISwitchGroup>
 ```
 
-```
-<XUISwitchGroup label="Birds of New Zealand">
+```jsx
+<XUISwitchGroup
+	label="Birds of New Zealand"
+	isInvalid
+	validationMessage="Grouped switches can have validation"
+>
 	<XUISwitch isReversed isDefaultChecked={true}>Tūī</XUISwitch>
 	<XUISwitch isReversed>Pīwakawaka</XUISwitch>
 	<XUISwitch isReversed>Ruru</XUISwitch>

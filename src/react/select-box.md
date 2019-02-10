@@ -130,6 +130,8 @@ class MiniApp extends Component {
 				name="isMultiselect"
 				onSelect={MiniApp.onBoatSelect}
 				ref={this.isMultiselect}
+				isInvalid={!MiniApp.state.selectedBoats.length}
+				validationMessage="Please select at least one boat"
 			>
 				{boats.map((opt, idx) => {
 					return (
@@ -289,6 +291,7 @@ class MiniApp extends Component {
 					name="selectOne"
 					ref={this.selectOne}
 					fullWidth="never"
+					hintMessage="Selecting your bank helps us set up your bank feed"
 				>
 					{banks.map((opt, idx) => {
 						return (

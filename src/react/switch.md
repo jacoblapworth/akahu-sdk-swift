@@ -6,7 +6,7 @@
 
 ## Example
 
-```
+```jsx
 const { PureComponent } = require('react');
 
 class Example extends PureComponent {
@@ -39,6 +39,7 @@ class Example extends PureComponent {
 					<XUISwitch
 						isDisabled
 						isChecked={this.state.isSecondSwitchChecked}
+						hintMessage="Can't touch this"
 					>
 						Disabled switch
 					</XUISwitch>

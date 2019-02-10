@@ -3,8 +3,11 @@ When grouping radios together, you still need to add a `name` to each Radio so t
 
 The touch target for Radios in a group is the entire "row" of the Radio Group.
 
-```
-<XUIRadioGroup label="cities">
+```jsx
+<XUIRadioGroup
+	label="cities"
+	hintMessage="Grouped radios can have hints and validation messages"
+>
 	<XUIRadio name="radioGroup">Wellington</XUIRadio>
 	<XUIRadio name="radioGroup">Canberra</XUIRadio>
 	<XUIRadio name="radioGroup">Washington D.C</XUIRadio>

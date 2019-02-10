@@ -28,14 +28,26 @@ const radioToggle = {
 
 <div>
 	<div className="xui-margin-bottom">
-		<XUIToggle layout="fullwidth" label='checkbox toggle' isLabelHidden>
+		<XUIToggle
+			layout="fullwidth"
+			label='checkbox toggle'
+			isLabelHidden
+			hintMessage="Select one or more values"
+		>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 		</XUIToggle>
-	</div><div className="xui-margin-bottom">
-		<XUIToggle layout="fullwidth" label='radio toggle' isLabelHidden>
+	</div>
+	<div>
+		<XUIToggle
+			layout="fullwidth"
+			label='radio toggle'
+			isLabelHidden
+			isInvalid
+			validationMessage="Select one value"
+		>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>

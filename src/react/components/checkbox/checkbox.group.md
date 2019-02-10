@@ -2,14 +2,19 @@ Checkboxes can be grouped together, making it easier to include them alongside i
 
 The touch target for Checkboxes in a group is the entire "row" of the Checkbox Group.
 
-```
-<XUICheckboxGroup>
+```jsx
+<XUICheckboxGroup
+	hintMessage="Grouped checkboxes can have hints"
+>
 	<XUICheckbox>Check me out!</XUICheckbox>
 </XUICheckboxGroup>
 ```
 
-```
-<XUICheckboxGroup>
+```jsx
+<XUICheckboxGroup
+	isInvalid
+	validationMessage="Grouped checkboxes can have validation"
+>
 	<XUICheckbox>Tūī</XUICheckbox>
 	<XUICheckbox>Pīwakawaka</XUICheckbox>
 	<XUICheckbox>Ruru</XUICheckbox>
@@ -18,7 +23,7 @@ The touch target for Checkboxes in a group is the entire "row" of the Checkbox G
 ```
 The Checkbox Group doesn't impact the checkboxes in any way, so you have the same flexibility with custom icons.
 
-```
+```jsx
 const customIcon = require ('@xero/xui-icon/icons/star').default;
 <XUICheckboxGroup>
 	<XUICheckbox isReversed iconMain={customIcon}>Cockatoo</XUICheckbox>

@@ -39,7 +39,6 @@ const dropdownClasses = [
 ];
 
 const dropdownSizeMap = {
-	'small': 'small',
 	'medium': 'small',
 	'large': 'medium',
 	'xlarge': 'large'
@@ -47,8 +46,7 @@ const dropdownSizeMap = {
 
 dropdownClasses.forEach(dropdownClass => {
 	Object.keys(dropdownSizeMap).forEach(size => {
-		const prefix = `${dropdownClass}-`;
-		classMap[`${prefix}${size}`] = `${prefix}${dropdownSizeMap[size]}`
+		classMap[`${dropdownClass}${size}`] = `${dropdownClass}${dropdownSizeMap[size]}`
 	})
 });
 

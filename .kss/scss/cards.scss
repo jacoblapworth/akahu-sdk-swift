@@ -26,7 +26,7 @@
 	position: relative;
 	overflow: hidden;
 	text-decoration: none;
-	width: 300px;
+	width: map-get($xui-width-variants-dropdown, medium);
 
 	&:hover {
 		background: $ds-card-hover-bg-color;

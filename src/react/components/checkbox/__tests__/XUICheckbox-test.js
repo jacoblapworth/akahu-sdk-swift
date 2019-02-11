@@ -41,7 +41,7 @@ describe('XUICheckbox', function() {
 	});
 
 	it('should use additional classes on the root node if provided', () => {
-		expect(wrapper.find('label').hasClass('dogs-are-totes-patotes')).toBeTruthy();
+		expect(wrapper.find('div').first().hasClass('dogs-are-totes-patotes')).toBeTruthy();
 	});
 
 	it('should be a small variant, if specified', () => {
@@ -129,7 +129,7 @@ describe('XUICheckbox', function() {
 	it('should use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true', () => {
 		const wrapper = mount(<XUICheckbox onChange={NOOP} isReversed={true} />);
 
-		expect(wrapper.find('label').hasClass('xui-styledcheckboxradio-reversed')).toBeTruthy();
+		expect(wrapper.find('div').first().hasClass('xui-styledcheckboxradio-reversed')).toBeTruthy();
 	});
 
 	it('should have the correct name if one is provided', function () {

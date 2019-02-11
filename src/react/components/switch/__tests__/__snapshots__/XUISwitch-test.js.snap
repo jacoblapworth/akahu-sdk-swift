@@ -2,7 +2,7 @@
 
 exports[`XUISwitch should accept an isChecked prop that determines the value of aria attributes 1`] = `
 <label
-  className="xui-switch"
+  className="xui-switch xui-switch-medium"
   onClick={[Function]}
   role="presentation"
 >
@@ -16,10 +16,10 @@ exports[`XUISwitch should accept an isChecked prop that determines the value of 
     type="checkbox"
   />
   <div
-    className="xui-switch--control"
+    className="xui-switch--control xui-switch--control-medium"
   />
   <span
-    className="xui-switch--label"
+    className="xui-switch--label xui-switch--label-medium"
     id="testLabelId"
   >
     Switch test
@@ -29,7 +29,7 @@ exports[`XUISwitch should accept an isChecked prop that determines the value of 
 
 exports[`XUISwitch should include a reversed class when a text label is present and isReversed is set 1`] = `
 <label
-  className="xui-switch xui-switch-reversed"
+  className="xui-switch xui-switch-medium xui-switch-reversed"
   onClick={[Function]}
   role="presentation"
 >
@@ -43,10 +43,10 @@ exports[`XUISwitch should include a reversed class when a text label is present 
     type="checkbox"
   />
   <div
-    className="xui-switch--control"
+    className="xui-switch--control xui-switch--control-medium"
   />
   <span
-    className="xui-switch--label"
+    className="xui-switch--label xui-switch--label-medium"
     id="testLabelId"
   >
     Switch test
@@ -56,7 +56,7 @@ exports[`XUISwitch should include a reversed class when a text label is present 
 
 exports[`XUISwitch should include a text label when label is passed 1`] = `
 <label
-  className="xui-switch"
+  className="xui-switch xui-switch-medium"
   onClick={[Function]}
   role="presentation"
 >
@@ -70,10 +70,10 @@ exports[`XUISwitch should include a text label when label is passed 1`] = `
     type="checkbox"
   />
   <div
-    className="xui-switch--control"
+    className="xui-switch--control xui-switch--control-medium"
   />
   <span
-    className="xui-switch--label"
+    className="xui-switch--label xui-switch--label-medium"
     id="testLabelId"
   >
     Switch test
@@ -83,7 +83,7 @@ exports[`XUISwitch should include a text label when label is passed 1`] = `
 
 exports[`XUISwitch should include an aria-label when label is passed and hidden 1`] = `
 <label
-  className="xui-switch"
+  className="xui-switch xui-switch-medium"
   onClick={[Function]}
   role="presentation"
 >
@@ -97,14 +97,14 @@ exports[`XUISwitch should include an aria-label when label is passed and hidden 
     type="checkbox"
   />
   <div
-    className="xui-switch--control"
+    className="xui-switch--control xui-switch--control-medium"
   />
 </label>
 `;
 
 exports[`XUISwitch should render an automationid for most elements when a qaHook value is passed 1`] = `
 <label
-  className="xui-switch"
+  className="xui-switch xui-switch-medium"
   data-automationid="switch-test"
   onClick={[Function]}
   role="presentation"
@@ -120,11 +120,11 @@ exports[`XUISwitch should render an automationid for most elements when a qaHook
     type="checkbox"
   />
   <div
-    className="xui-switch--control"
+    className="xui-switch--control xui-switch--control-medium"
     data-automationid="switch-test--switch"
   />
   <span
-    className="xui-switch--label"
+    className="xui-switch--label xui-switch--label-medium"
     data-automationid="switch-test--label"
     id="testSwitchId"
   >
@@ -135,7 +135,7 @@ exports[`XUISwitch should render an automationid for most elements when a qaHook
 
 exports[`XUISwitch should render checked 1`] = `
 <label
-  className="xui-switch"
+  className="xui-switch xui-switch-medium"
   onClick={[Function]}
   role="presentation"
 >
@@ -148,14 +148,14 @@ exports[`XUISwitch should render checked 1`] = `
     type="checkbox"
   />
   <div
-    className="xui-switch--control"
+    className="xui-switch--control xui-switch--control-medium"
   />
 </label>
 `;
 
 exports[`XUISwitch should render not checked and not disabled 1`] = `
 <label
-  className="xui-switch"
+  className="xui-switch xui-switch-medium"
   onClick={[Function]}
   role="presentation"
 >
@@ -168,7 +168,7 @@ exports[`XUISwitch should render not checked and not disabled 1`] = `
     type="checkbox"
   />
   <div
-    className="xui-switch--control"
+    className="xui-switch--control xui-switch--control-medium"
   />
 </label>
 `;

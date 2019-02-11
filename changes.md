@@ -140,6 +140,7 @@ Utility classes with breakpoint suffixes have been updated to reflect the new br
 	- Additional class `xui-button-standard` is now required when building a SelectBox without React.
 	- Additional class `xui-select--button-no-variant` is now required when building a SelectBox without React.
 	- `xui-button-fullwidth` is now required to make the SelectBox match the width of its container when building a SelectBox without React.
+- `XUISwitch` requires the addition of `xui-switch-medium`, as well as `-medium` classes on the label and control sub elements for a medium-sized display when building a XUISwitch without React.
 - `XUITag` requires the addition of `xui-tag-medium` for a medium-sized display when building a XUITag without React.
 - `XUIToggle` requires the addition of `xui-toggle-medium` for a medium-sized display when building a XUIToggle without React.
 

@@ -59,28 +59,41 @@ export default class XUISwitch extends PureComponent {
 			isInvalid,
 			validationMessage,
 			hintMessage,
+			// size, TODO: add size options.
+			// isGrouped, TODO: add grouping flag to match Checkbox/Radio. Maybe try context instead?
 		} = this.props;
 
 		const isChecked = this._isControlled ? this.props.isChecked : this.state.internalIsChecked;
 		const onChange = this._isControlled ? this.props.onChange : this.internalOnChange;
 
+		// Other size options coming soon. See Checkbox/Radio for how this will work.
+		// NB: Keeping this hard-coded, for the moment, so as not to expose a
+		// useless prop in the API in XUI15.
+		const calculatedSize = 'medium';
+
 		const classes = cn(
 			className,
 			baseClass,
+			calculatedSize && `${baseClass}-${calculatedSize}`,
 			isReversed && `${baseClass}-reversed`,
 			isDisabled && `${baseClass}-is-disabled`,
 		);
+
 		const labelClasses = cn(
 			`${baseClass}--label`,
+			calculatedSize && `${baseClass}--label-${calculatedSize}`,
 			labelClassName,
 		);
 
-		const inputClasses = `${baseClass}--checkbox`;
+		const controlClasses = cn(
+			`${baseClass}--control`,
+			calculatedSize && `${baseClass}--control-${calculatedSize}`,
+		);
 
 		const inputProps = {
 			'type': 'checkbox',
 			'role': 'switch',
-			'className': inputClasses,
+			'className': `${baseClass}--checkbox`,
 			'data-automationid': qaHook && `${qaHook}--input`,
 			'disabled': isDisabled || undefined,
 			'aria-checked': isChecked,
@@ -109,7 +122,7 @@ export default class XUISwitch extends PureComponent {
 				<input
 					{...inputProps}
 				/>
-				<div className={`${baseClass}--control`} data-automationid={qaHook && `${qaHook}--switch`} />
+				<div className={controlClasses} data-automationid={qaHook && `${qaHook}--switch`} />
 			</XUIControlWrapperInline>
 		);
 	}

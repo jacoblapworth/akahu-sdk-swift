@@ -15,29 +15,36 @@ $xui-switch-label-padding: $xui-s-xsmall;
 
 .#{$ns}-switch--control {
 	background-color: $xui-switch-bg-color;
-	border-radius: $xui-control-size-standard;
 	cursor: pointer;
 	display: inline-block;
-	height: 22px;
 	position: relative;
 	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 	user-select: none;
 	vertical-align: middle;
-	width: $xui-control-size-standard;
+
 	&::before {
 		background-color: $xui-switch-check-bg-color;
 		border-radius: 50%;
 		content: " ";
 		display: inline-block;
-		height: 18px;
-		margin: 2px;
 		position: absolute;
 		transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
-		width: 18px;
 	}
 	.#{$ns}-switch-is-disabled & {
 		background: $xui-switch-disabled-bg-color;
 		cursor: not-allowed;
+	}
+}
+
+.#{$ns}-switch--control-medium {
+	border-radius: $xui-control-size-standard;
+	height: 22px;
+	width: $xui-control-size-standard;
+
+	&::before {
+		height: 18px;
+		margin: 2px;
+		width: 18px;
 	}
 }
 
@@ -63,6 +70,13 @@ $xui-switch-label-padding: $xui-s-xsmall;
 // =============
 .#{$ns}-switch--label {
 	flex-grow: 1;
+
+	&.#{$ns}-switch--label-medium {
+		@include xui-text-standard;
+	}
+	&.#{$ns}-switch--label-small {
+		@include xui-text-small;
+	}
 
 	.#{$ns}-switch:not(.#{$ns}-switch-reversed) & {
 		padding-left: $xui-switch-label-padding;

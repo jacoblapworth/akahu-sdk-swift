@@ -23,21 +23,24 @@
 //
 // Classes:
 // xui-switch: Apply to label containing the switch
+// xui-switch-medium: Apply to the label containing the switch for standard sizing
 // xui-switch--checkbox: Apply to native input to hide it
 // xui-switch--control: Apply to input sibling element to animate it
+// xui-switch--control-medium: Apply to input sibling element for standard sizing
 // xui-switch--label: Apply to label
+// xui-switch--label-medium: Apply to label for standard sizing
 // xui-switch-reversed: Modifier to reverse order of label
 //
 // Markup:
-// <label class="xui-switch xui-margin-right-small" role="presentation">
+// <label class="xui-switch xui-switch-medium xui-margin-right-small" role="presentation">
 //  <input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch1">
-//  <div class="xui-switch--control"></div>
-//  <span id="switch1" class="xui-switch--label">Unchecked</span>
+//  <div class="xui-switch--control xui-switch--control-medium"></div>
+//  <span id="switch1" class="xui-switch--label xui-switch--label-medium">Unchecked</span>
 // </label>
-// <label class="xui-switch" role="presentation">
+// <label class="xui-switch xui-switch-medium" role="presentation">
 //  <input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch1" checked>
-//  <div class="xui-switch--control"></div>
-//  <span id="switch1" class="xui-switch--label">Checked</span>
+//  <div class="xui-switch--control xui-switch--control-medium"></div>
+//  <span id="switch1" class="xui-switch--label xui-switch--label-medium">Checked</span>
 // </label>
 //
 // Styleguide: Building Blocks.Controls.Switch.2
@@ -50,15 +53,15 @@
 // xui-switch-is-disabled: Apply to switch
 //
 // Markup:
-// <label class="xui-switch xui-margin-right-small xui-switch-is-disabled" role="presentation">
+// <label class="xui-switch xui-switch-medium xui-margin-right-small xui-switch-is-disabled" role="presentation">
 //  <input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch3" disabled>
-//  <div class="xui-switch--control"></div>
-//  <span id="switch3" class="xui-switch--label">Unchecked</span>
+//  <div class="xui-switch--control xui-switch--control-medium"></div>
+//  <span id="switch3" class="xui-switch--label xui-switch--label-medium">Unchecked</span>
 // </label>
-// <label class="xui-switch xui-switch-is-disabled" role="presentation">
+// <label class="xui-switch xui-switch-medium xui-switch-is-disabled" role="presentation">
 //  <input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch4" checked disabled>
-//  <div class="xui-switch--control"></div>
-//  <span id="switch4" class="xui-switch--label">Checked</span>
+//  <div class="xui-switch--control xui-switch--control-medium"></div>
+//  <span id="switch4" class="xui-switch--label xui-switch--label-medium">Checked</span>
 // </label>
 //
 // Styleguide: Building Blocks.Controls.Switch.3
@@ -73,15 +76,15 @@
 // Markup:
 // <label class="xui-text-label xui-fieldlabel-layout">Permissions</label>
 // <div class="xui-switch-group">
-//   <label class="xui-switch xui-switch-reversed" role="presentation">
+//   <label class="xui-switch xui-switch-medium xui-switch-reversed" role="presentation">
 //     <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch5">
-//     <div class="xui-switch--control"></div>
-//     <span id="switch5" class="xui-switch--label">Invoicing</span>
+//     <div class="xui-switch--control xui-switch--control-medium"></div>
+//     <span id="switch5" class="xui-switch--label xui-switch--label-medium">Invoicing</span>
 //   </label>
-//   <label class="xui-switch xui-switch-reversed" role="presentation">
+//   <label class="xui-switch xui-switch-medium xui-switch-reversed" role="presentation">
 //     <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch6">
-//     <div class="xui-switch--control"></div>
-//     <span id="switch6" class="xui-switch--label">Projects</span>
+//     <div class="xui-switch--control xui-switch--control-medium"></div>
+//     <span id="switch6" class="xui-switch--label xui-switch--label-medium">Projects</span>
 //   </label>
 // </div>
 //
@@ -94,10 +97,10 @@
 // Markup:
 // <label class="xui-text-label xui-fieldlabel-layout">Label</label>
 // <div class="xui-switch-group">
-//   <label class="xui-switch xui-switch-reversed" role="presentation">
+//   <label class="xui-switch xui-switch-medium xui-switch-reversed" role="presentation">
 //     <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch7">
-//     <div class="xui-switch--control"></div>
-//     <span id="switch7" class="xui-switch--label">Single switch</span>
+//     <div class="xui-switch--control xui-switch--control-medium"></div>
+//     <span id="switch7" class="xui-switch--label xui-switch--label-medium">Single switch</span>
 //   </label>
 // </div>
 //
@@ -110,10 +113,10 @@
 // Markup:
 // <label class="xui-text-label xui-fieldlabel-layout">Label</label>
 // <div class="xui-switch-group">
-//   <label class="xui-switch xui-switch-reversed" role="presentation">
+//   <label class="xui-switch xui-switch-medium xui-switch-reversed" role="presentation">
 //     <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch8">
-//     <div class="xui-switch--control"></div>
-//     <span id="switch8" class="xui-switch--label">Mutliline switch that spans</br>mutliple lines</span>
+//     <div class="xui-switch--control xui-switch--control-medium"></div>
+//     <span id="switch8" class="xui-switch--label xui-switch--label-medium">Mutliline switch that spans</br>mutliple lines</span>
 //   </label>
 // </div>
 //

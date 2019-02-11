@@ -121,7 +121,7 @@ const sideBySide = (
 			isHidden={false}
 			isLegacyDisplay={false}
 			dropdown={
-				<DropDown size="large" restrictFocus={false} fixedWidth>
+				<DropDown size="medium" restrictFocus={false} fixedWidth>
 					<Picklist>{createItems(toggledItems, 'one')}</Picklist>
 				</DropDown>
 			}
@@ -130,7 +130,7 @@ const sideBySide = (
 			trigger={<XUIButton>Open for even more goodies<XUIButtonCaret /></XUIButton>}
 			isHidden={false}
 			dropdown={
-				<DropDown size="large" restrictFocus={false}>
+				<DropDown size="medium" restrictFocus={false}>
 					<Picklist>{createItems(toggledItems, 'two')}</Picklist>
 				</DropDown>
 			}

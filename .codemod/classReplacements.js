@@ -46,7 +46,7 @@ const dropdownSizeMap = {
 
 dropdownClasses.forEach(dropdownClass => {
 	Object.keys(dropdownSizeMap).forEach(size => {
-		classMap[`${dropdownClass}${size}`] = `${dropdownClass}${dropdownSizeMap[size]}`
+		classMap[`${dropdownClass}-${size}`] = `${dropdownClass}-${dropdownSizeMap[size]}`
 	})
 });
 

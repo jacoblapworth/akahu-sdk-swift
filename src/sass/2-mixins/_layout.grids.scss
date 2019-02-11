@@ -65,7 +65,7 @@
 			@include xui-breakpoint-large-up {
 				.#{$ns}-column-#{$suffix}-large-up {
 					float: left;
-					@include xui-column-width-generator($xui-layout-columns, $i, $xui-s-large);
+					@include xui-column-width-generator($xui-layout-columns, $i, $xui-grid-gutter);
 				}
 			}
 
@@ -74,7 +74,7 @@
 			@include xui-breakpoint-large-up {
 				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix}-large-up {
 					float: left;
-					@include xui-column-width-generator($xui-layout-columns, $i, $xui-s-large);
+					@include xui-column-width-generator($xui-layout-columns, $i, $xui-grid-gutter);
 				}
 			}
 		}
@@ -95,11 +95,11 @@
 		} @else {
 			@if ($i < $xui-layout-columns) {
 				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix} {
-					@include xui-column-width-generator($xui-layout-columns, $i, $xui-s-large);
+					@include xui-column-width-generator($xui-layout-columns, $i, $xui-grid-gutter);
 				}
 			} @else {
 				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix} {
-					width: calc( 100% - #{$xui-s-large} );
+					width: calc( 100% - #{$xui-grid-gutter} );
 				}
 			}
 		}
@@ -198,7 +198,7 @@
 }
 
 @mixin xui-composition-grid-gap {
-	grid-gap: $xui-s-large $xui-s-large;
+	grid-gap: $xui-grid-gutter $xui-grid-gutter;
 }
 
 // Used for master-detail-summary layouts

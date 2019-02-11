@@ -2,7 +2,7 @@ const NOOP = require('../../helpers/noop');
 
 const storiesWithVariationsKindName = 'Instances/XUIAutocompleter';
 
-const dropdownSizes = ['small', 'medium', 'large', 'xlarge'];
+const dropdownSizes = ['xsmall', 'small', 'medium', 'large'];
 const inputSizes = ['small', 'medium'];
 
 const variations = [

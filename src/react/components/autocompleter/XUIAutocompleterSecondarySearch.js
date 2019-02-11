@@ -311,7 +311,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
 	searchThrottleInterval: PropTypes.number,
 
 	/** Maps to the 'size' property of the dropdown component. */
-	dropdownSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
+	dropdownSize: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
 
 	/** Maps to the `closeOnSelect` property of the DropDownToggled component. */
 	closeOnSelect: PropTypes.bool,

@@ -104,7 +104,7 @@ NestedDropDown.propTypes = {
 	isHidden: PropTypes.bool,
 
 	/** Applies correct XUI class based on prop value. Default will fits to children's width. */
-	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
+	size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
 
 	/** Pass in an array of KeyboardEvent keycodes to be ignored from dropdown behaviour. */
 	ignoreKeyboardEvents: PropTypes.array,
@@ -155,7 +155,7 @@ NestedDropDown.defaultProps = {
 	ignoreKeyboardEvents: [],
 	isHidden: false,
 	hasKeyboardEvents: true,
-	size: 'large',
+	size: 'medium',
 	fixedWidth: true,
 	forceDesktop: false,
 	animateOpen: false,

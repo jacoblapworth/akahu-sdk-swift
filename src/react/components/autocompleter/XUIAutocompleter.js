@@ -9,6 +9,7 @@ import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import XUITextInput from '../textInput/XUITextInput';
 import { ns } from '../helpers/xuiClassNamespace';
+import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 
 /**
  * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and
@@ -462,7 +463,7 @@ XUIAutocompleter.propTypes = {
 	inputSize: PropTypes.oneOf(['small', 'medium']),
 
 	/** Maps to the `size` property of the dropdown component. */
-	dropdownSize: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
+	dropdownSize: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
 	/** Maps to the `closeOnSelect` property of the DropDownToggled component. */
 	closeOnSelect: PropTypes.bool,

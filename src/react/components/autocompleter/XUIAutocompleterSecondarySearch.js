@@ -14,6 +14,7 @@ import compose from '../helpers/compose';
 import { ns } from '../helpers/xuiClassNamespace';
 
 import { intervalRunner, isVisible } from './private/helpers';
+import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 
 export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	constructor(props) {
@@ -311,7 +312,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
 	searchThrottleInterval: PropTypes.number,
 
 	/** Maps to the 'size' property of the dropdown component. */
-	dropdownSize: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
+	dropdownSize: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
 	/** Maps to the `closeOnSelect` property of the DropDownToggled component. */
 	closeOnSelect: PropTypes.bool,

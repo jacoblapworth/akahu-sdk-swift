@@ -5,6 +5,7 @@ import DropDownLayout from './DropDownLayout';
 import DropDownPanel from './DropDownPanel';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
 import { ns } from '../helpers/xuiClassNamespace';
+import { fixedWidthDropdownSizes } from './private/constants';
 
 /**
  * Wrapper for all content which will go inside of a dropdown.  It ensures the correct
@@ -237,7 +238,7 @@ DropDown.propTypes = {
 
 	/** Applies the correct XUI class based on the chosen size. Default will
 	 * fit to children's width. */
-	size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
+	size: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
 	/** An array of keydown keycodes to be ignored from dropdown behaviour. */
 	ignoreKeyboardEvents: PropTypes.array,

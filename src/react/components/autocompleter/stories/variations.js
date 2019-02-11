@@ -2,7 +2,8 @@ const NOOP = require('../../helpers/noop');
 
 const storiesWithVariationsKindName = 'Instances/XUIAutocompleter';
 
-const dropdownSizes = ['xsmall', 'small', 'medium', 'large'];
+import { fixedWidthDropdownSizes } from '../../dropdown/private/constants';
+
 const inputSizes = ['small', 'medium'];
 
 const variations = [
@@ -44,12 +45,6 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `shows a ${inputSize} input`,
 	})),
-	...dropdownSizes.map(dropdownSize => ({
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: `shows a ${dropdownSize} dropdown`,
-		openDrawer: true,
-		dropdownSize,
-	})),
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'shows a small picklist',
@@ -88,9 +83,18 @@ const variations = [
 	}
 ];
 
+Object.keys(fixedWidthDropdownSizes).map(dropdownSize =>
+	variations.push({
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `shows a ${dropdownSize} dropdown`,
+		openDrawer: true,
+		dropdownSize,
+	})
+);
+
 module.exports = {
 	variations,
 	NOOP,
 	storiesWithVariationsKindName,
-	dropdownSizes,
+	fixedWidthDropdownSizes,
 };

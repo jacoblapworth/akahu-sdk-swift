@@ -107,9 +107,9 @@ DropDownLayout.propTypes = {
 
 	className: PropTypes.string,
 
-	/** Applies the correct XUI class based on the chose size. Default will
+	/** Applies the correct XUI class based on the chosen size. Default will
 	 * fit to children's width. */
-	size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
+	size: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
 	/** Whether the fixed width class variant should be used for the size prop.
 	 * Does nothing without the size prop. */

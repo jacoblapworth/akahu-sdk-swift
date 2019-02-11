@@ -4,7 +4,7 @@ import cn from 'classnames';
 import DropDownLayout from './DropDownLayout';
 import DropDown from './DropDown';
 import compose from '../helpers/compose';
-import { baseClass } from './private/constants';
+import { baseClass, fixedWidthDropdownSizes } from './private/constants';
 
 /**
  * <strong>BETA</strong> This component is still under active development and it's API may change.
@@ -104,7 +104,7 @@ NestedDropDown.propTypes = {
 	isHidden: PropTypes.bool,
 
 	/** Applies correct XUI class based on prop value. Default will fits to children's width. */
-	size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
+	size: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
 	/** Pass in an array of KeyboardEvent keycodes to be ignored from dropdown behaviour. */
 	ignoreKeyboardEvents: PropTypes.array,

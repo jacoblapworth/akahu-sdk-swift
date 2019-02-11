@@ -37,16 +37,12 @@ export default class XUIToggle extends PureComponent {
 		const classes = cn(
 			className,
 			baseClass,
+			isInvalid && `${baseClass}-is-invalid`,
 			colorMap[color],
 			layoutMap[layout],
 			sizeMap[size],
 		);
 
-		const rootClasses = cn(
-			fieldClassName,
-			`${ns}-togglewrapper`,
-			isInvalid && `${ns}-togglewrapper-is-invalid`,
-		);
 
 		const ariaRole = (secondaryProps && secondaryProps.role) || this.toggleIsCheckbox()
 			? 'group'
@@ -54,7 +50,7 @@ export default class XUIToggle extends PureComponent {
 
 		return (
 			<XUIControlWrapper
-				fieldClassName={rootClasses}
+				fieldClassName={fieldClassName}
 				wrapperIds={this.wrapperIds}
 				isGroup
 				{...{

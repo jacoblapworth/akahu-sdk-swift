@@ -24,8 +24,8 @@
 		}
 	}
 
-	.#{$ns}-group-invalid &,
-	.#{$ns}-group-invalid & .#{$ns}-styledcheckboxradio {
+	&.#{$ns}-styledcheckboxradio-group-is-invalid,
+	&.#{$ns}-styledcheckboxradio-group-is-invalid .#{$ns}-styledcheckboxradio {
 		border-color: $xui-validation-invalid-color;
 	}
 }

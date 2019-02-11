@@ -2,7 +2,7 @@
 
 exports[`XUIToggle should have a hidden label as aria-label if provided and flagged 1`] = `
 <div
-  className="xui-togglewrapper"
+  className=""
   role="presentation"
 >
   <div
@@ -15,7 +15,7 @@ exports[`XUIToggle should have a hidden label as aria-label if provided and flag
 
 exports[`XUIToggle should have a qaHook if provided 1`] = `
 <div
-  className="xui-togglewrapper"
+  className=""
   role="presentation"
 >
   <div
@@ -28,7 +28,7 @@ exports[`XUIToggle should have a qaHook if provided 1`] = `
 
 exports[`XUIToggle should have a visible label if provided 1`] = `
 <div
-  className="xui-togglewrapper"
+  className=""
   role="presentation"
 >
   <span
@@ -47,7 +47,7 @@ exports[`XUIToggle should have a visible label if provided 1`] = `
 
 exports[`XUIToggle should have the fieldLayout class and a custom labelID, if provided 1`] = `
 <div
-  className="xui-togglewrapper xui-field-layout"
+  className="xui-field-layout"
   role="presentation"
 >
   <span

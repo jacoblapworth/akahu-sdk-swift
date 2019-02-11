@@ -34,14 +34,15 @@ export default class XUISwitchGroup extends PureComponent {
 			hintMessage,
 		} = this.props;
 
-		const rootClasses = cn(
-			fieldClassName,
-			isInvalid && `${ns}-group-invalid`,
+		const groupClasses = cn(
+			className,
+			`${baseClass}-group`,
+			isInvalid && `${baseClass}-group-is-invalid`,
 		);
 
 		return (
 			<XUIControlWrapper
-				fieldClassName={rootClasses}
+				fieldClassName={fieldClassName}
 				wrapperIds={this.wrapperIds}
 				isGroup
 				{...{
@@ -56,7 +57,7 @@ export default class XUISwitchGroup extends PureComponent {
 				}}
 			>
 				<div
-					className={cn(className, `${baseClass}-group`)}
+					className={groupClasses}
 					data-automationid={qaHook}
 					{...getAriaAttributes(this.wrapperIds, this.props, { isGroup: true })}
 				>

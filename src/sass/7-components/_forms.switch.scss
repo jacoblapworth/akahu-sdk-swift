@@ -135,9 +135,7 @@ $xui-switch-label-padding: $xui-s-xsmall;
 	}
 }
 
-.#{$ns}-group-invalid {
-	.#{$ns}-switch-group,
-	.#{$ns}-switch:nth-last-of-type(n+2) {
-		border-color: $xui-validation-invalid-color;
-	}
+.#{$ns}-switch-group-is-invalid,
+.#{$ns}-switch-group-is-invalid .#{$ns}-switch:nth-last-of-type(n+2) {
+	border-color: $xui-validation-invalid-color;
 }

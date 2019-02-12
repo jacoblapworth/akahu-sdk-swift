@@ -1,0 +1,47 @@
+@import "../../src/sass/mixins";
+@import "../../src/sass/vars";
+
+$regular-fontsizes:
+	xlarge $xui-font-size-xlarge,
+	large $xui-font-size-large,
+	medium $xui-font-size-medium,
+	small $xui-font-size-small,
+	xsmall $xui-font-size-xsmall;
+
+$extended-fontsizes:
+	5xlarge $xui-font-size-extended-5xlarge,
+	4xlarge $xui-font-size-extended-4xlarge,
+	2xlarge $xui-font-size-extended-2xlarge,
+	xlarge $xui-font-size-extended-xlarge,
+	large $xui-font-size-extended-large,
+	medium $xui-font-size-extended-medium,
+	small $xui-font-size-extended-small,
+	xsmall $xui-font-size-extended-xsmall;
+
+$new-fontsizes:
+	3xlarge $xui-new-font-size-3xlarge,
+	2xlarge $xui-new-font-size-2xlarge,
+	xlarge $xui-new-font-size-xlarge,
+	large $xui-new-font-size-large,
+	medium $xui-new-font-size-medium,
+	small $xui-new-font-size-small,
+	xsmall $xui-new-font-size-xsmall,
+	2xsmall $xui-new-font-size-2xsmall;
+
+@each $size, $var in $regular-fontsizes {
+	.ds-fontsize-#{$size} {
+		font-size: $var;
+	}
+}
+
+@each $size, $var in $extended-fontsizes {
+	.ds-fontsize-extended-#{$size} {
+		font-size: $var;
+	}
+}
+
+@each $size, $var in $new-fontsizes {
+	.ds-fontsize-new-#{$size} {
+		font-size: $var;
+	}
+}

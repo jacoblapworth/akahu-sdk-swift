@@ -9,9 +9,6 @@
 // Styleguide: Fundamentals.Typography
 
 
-
-
-
 // Type family
 //
 // XUI uses system fonts with a Helvetica/Arial font-stack.
@@ -21,19 +18,52 @@
 //
 // Styleguide: Fundamentals.Typography.10
 
-
-
-
-
 // Sizes
 //
 // XUI does not provide a CSS reset. Heading and paragraph elements will pickup user agent margins if not specified using [XUI spacing classes](./section-fundamentals-spacing.html).
 //
 // Definitions:
-// Default: 13px: Majority of any interface
-// Small: 11px: Provided in components like notes and subheads
+// xLarge: 21px: Overview block values.<br /><br /><span class="ds-fontsize-xlarge">xLarge</span>
+// Large: 17px: Breadcrumbs, Page heading titles<br /><br /><span class="ds-fontsize-large">Large</span>
+// Medium: 15px: Content Block pinned values, Modal Text Heading, `.xui-heading-section`, Textcontent base and H5 element font-size.<br /><br /><span class="ds-fontsize-medium">Medium</span>
+// Small: 13px: `.xui-text-label` and `.xui-text-secondary`<br /><br /><span class="ds-fontsize-small">Small</span>
+// xSmall: 11px: Form validation, Stepper Links, Stepper Descriptions, Minor text sizes.<br /><br /><span class="ds-fontsize-xsmall">xSmall</span>
 //
 // Styleguide: Fundamentals.Typography.20
+
+
+
+// Extended Font Sizes
+//
+// Font sizes based on 16px as a base font-size, and use REM units to calculate sizes.
+//
+// Definitions:
+// Extended 5xLarge: 2.25rem / 36px: Used in `.xui-heading-xlarge` when viewport size is wider than 1000px, or in `.xui-heading-2xlarge` when viewport size is larger than 600px and narrower than 1000px<br /><br /><span class="ds-fontsize-extended-5xlarge">5xLarge</span>
+// Extended 4xLarge: 2rem / 32px: Used in `.xui-heading-xlarge` when viewport size is wider than 600px and narrower than 1000px. Used in `.xui-heading-2xlarge` as a default size. Used in `.xui-textcontent` as a default size for H1 elements.<br /><br /><span class="ds-fontsize-extended-4xlarge">4xLarge</span>
+// Extended 2xLarge: 1.625rem / 26px: Used in `.xui-heading-xlarge` as a default size<br /><br /><span class="ds-fontsize-extended-2xlarge">2xLarge</span>
+// Extended xLarge: 1.375rem / 22px: Not currently used<br /><br /><span class="ds-fontsize-extended-xlarge">xLarge</span>
+// Extended Large: 1.125rem / 18px: Not currently used<br /><br /><span class="ds-fontsize-extended-large">Large</span>
+// Extended Medium: 1rem / 16px: Not currently used<br /><br /><span class="ds-fontsize-extended-medium">Medium</span>
+// Extended Small: 0.875rem / 14px: Not currently used<br /><br /><span class="ds-fontsize-extended-small">Small</span>
+// Extended xSmall: 0.75rem / 12px: Not currently used<br /><br /><span class="ds-fontsize-extended-xsmall">xSmall</span>
+//
+// Styleguide: Fundamentals.Typography.20.1
+
+// Flexi-control Font Sizes
+//
+// Font sizes with hard coded pixel values that are based on the Flexi-control sizing strategy.
+//
+// Definitions:
+// New 3xLarge: 72px: Not currently used<br /><br /><span class="ds-fontsize-new-3xlarge">3xLarge</span>
+// New 2xLarge: 48px: xLarge Avatars, `.xui-heading-2xlarge` when viewport size is wider than 1000px, or in `.xui-heading-3xlarge` as a default size.<br /><br /><span class="ds-fontsize-new-2xlarge">2xLarge</span>
+// New xLarge: 21px: Large Avatars, `.xui-heading-large`, Textcontent H2 elements.<br /><br /><span class="ds-fontsize-new-xlarge">xLarge</span>
+// New Large: 17px: Panel Heading, Isolation Header title, Isolation Header secondary title, `.xui-heading`, `.xui-heading-modal`, `.xui-heading-panel`, Textcontent H3 elements.<br /><br /><span class="ds-fontsize-new-large">Large</span>
+// New Medium: 15px: XUI container default, Default Avatar, Contentblock Primary Heading, Contentblock Secondary Heading, Medium labels for styled checkboxes and radios, Medium Switch labels, Medium textinputs, Medium picklist bodies, Medium pills, Medium tags, Panel section header, Accordion primary heading, Accordion pinned value, Chart title, `.xui-heading-item`, `.xui-heading-small`, Text content H4 elements.<br /><br /><span class="ds-fontsize-new-medium">Medium</span>
+// New Small: 13px: Small Avatars, Small Buttons, Contentblock Item Description, Default Datepicker Weekdays, Small labels for styled checkboxes and radios, Small Switch labels, Small textinputs, Small picklist bodies, Small pills, Small tags, tooltips, `.xui-heading-separator`, xSmall Headings.<br /><br /><span class="ds-fontsize-new-small">Small</span>
+// New xSmall: 11px: xSmall Avatars, xSmall Buttons, Chart Key Titles, Compact Datepicker Weekdays, xSmall labels for styled checkboxes and radios, xSmall text inputs, picklist header text, xSmall picklist bodies, xSmall pills, xSmall tags.<br /><br /><span class="ds-fontsize-new-xsmall">xSmall</span>
+// New 2xSmall: 9px: 2xSmall Avatars<br /><br /><span class="ds-fontsize-new-2xsmall">2xSmall</span>
+//
+// Styleguide: Fundamentals.Typography.20.2
 
 
 // Everyday headings
@@ -46,7 +76,7 @@
 // Small: `xui-heading-small`: <h5 class="xui-heading-small xui-margin-none">Street Address</h5>
 // Extra Small: `xui-heading-xsmall`: <h6 class="xui-heading-xsmall xui-margin-none">Map</h6>
 //
-// Styleguide: Fundamentals.Typography.20.1
+// Styleguide: Fundamentals.Typography.21
 
 
 // Display headings
@@ -60,7 +90,7 @@
 // XXL: `xui-heading-2xlarge`: <h1 class="xui-heading-2xlarge xui-text-truncated xui-margin-none">$3,724.00</h1>
 // XXL: `xui-heading-3xlarge`: <h1 class="xui-heading-3xlarge xui-text-truncated xui-margin-none">82.1%</h1>
 //
-// Styleguide: Fundamentals.Typography.20.2
+// Styleguide: Fundamentals.Typography.22
 
 
 // Text presets
@@ -75,7 +105,7 @@
 // Secondary: `xui-text-secondary`: Applies -muted colour, use for things like metadata
 // Minor: `xui-text-minor`: 11px and -muted, use sparingly for minor things like field notes
 //
-// Styleguide: Fundamentals.Typography.20.3
+// Styleguide: Fundamentals.Typography.23
 
 
 

@@ -137,6 +137,24 @@ test.add(storyNames.formOnAPage, () => {
 
 					</XUIColumn>
 
+
+					{/* Major section */}
+					<XUIColumn gridColumns="full" className="xui-padding-vertical">
+						<div><InputLabel>A set of checkboxes</InputLabel></div>
+						<XUICheckbox isDefaultChecked={false}>Unchecked</XUICheckbox>
+						<XUICheckbox isDefaultChecked>Checked</XUICheckbox>
+						<XUICheckbox isIndeterminate>Indeterminate</XUICheckbox>
+					</XUIColumn>
+
+					{/* Major section */}
+					<XUIColumn gridColumns="full" className="xui-padding-vertical">
+						<div><InputLabel>A set of radios</InputLabel></div>
+						<XUIRadio isDefaultChecked={false}>Unchecked</XUIRadio>
+						<XUIRadio isDefaultChecked>Checked</XUIRadio>
+						<XUIRadio isDisabled isDefaultChecked={false}>Unchecked</XUIRadio>
+						<XUIRadio isDisabled isDefaultChecked>Checked</XUIRadio>
+					</XUIColumn>
+
 					{/* Major section */}
 					<XUIColumn gridColumns="full" className="xui-padding-vertical">
 						<XUISwitch onChange={NOOP} isReversed >A switch</XUISwitch>

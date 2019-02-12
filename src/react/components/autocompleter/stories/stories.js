@@ -24,7 +24,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select, number } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
-import { variations, storiesWithVariationsKindName, dropdownSizes } from './variations';
+import { variations, storiesWithVariationsKindName, fixedWidthDropdownSizes } from './variations';
 
 class PillWrapper extends PureComponent {
 	deleteSelf = e => {
@@ -281,7 +281,7 @@ storiesWithKnobs.add('Playground', () => {
 	const selectedPerson = peopleDataSet.findIndex(i => i.name === userSelectedPerson) + 1;
 
 	const fullSize = boolean('Match dropdown width', true);
-	const userSelectedSize = fullSize ? '' : select('Dropdown size', dropdownSizes, 'small');
+	const userSelectedSize = fullSize ? '' : select('Dropdown size', fixedWidthDropdownSizes, 'small');
 
 	const containerWidth = `${number('Container width', 500)}px`;
 

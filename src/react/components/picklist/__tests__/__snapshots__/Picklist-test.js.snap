@@ -45,36 +45,40 @@ exports[`< Picklist /> example taking settings from first child and giving to al
       className="xui-pickitem--body"
       role="presentation"
     >
-      <label
-        className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
-        onClick={[Function]}
-        role="presentation"
+      <div
+        className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio xui-styledcheckboxradio-xsmall"
       >
-        <input
-          aria-labelledby="testPickitemCheckboxId"
-          checked={false}
-          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall"
-          disabled={false}
-          onChange={[Function]}
+        <label
+          className="xui-styledcheckboxradio--field"
           onClick={[Function]}
-          required={false}
-          tabIndex={-1}
-          type="checkbox"
-        />
-        <div
-          className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"
-        />
-        <span
-          className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label"
-          id="testPickitemCheckboxId"
+          role="presentation"
         >
+          <input
+            aria-labelledby="testPickitemCheckboxId"
+            checked={false}
+            className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall"
+            disabled={false}
+            onChange={[Function]}
+            onClick={[Function]}
+            required={false}
+            tabIndex={-1}
+            type="checkbox"
+          />
+          <div
+            className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"
+          />
           <span
-            className=""
+            className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label"
+            id="testPickitemCheckboxId"
           >
-            Item content
+            <span
+              className=""
+            >
+              Item content
+            </span>
           </span>
-        </span>
-      </label>
+        </label>
+      </div>
     </div>
   </li>
   <li
@@ -87,36 +91,40 @@ exports[`< Picklist /> example taking settings from first child and giving to al
       className="xui-pickitem--body"
       role="presentation"
     >
-      <label
-        className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
-        onClick={[Function]}
-        role="presentation"
+      <div
+        className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio xui-styledcheckboxradio-xsmall"
       >
-        <input
-          aria-labelledby="testPickitemCheckboxId"
-          checked={false}
-          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall"
-          disabled={false}
-          onChange={[Function]}
+        <label
+          className="xui-styledcheckboxradio--field"
           onClick={[Function]}
-          required={false}
-          tabIndex={-1}
-          type="checkbox"
-        />
-        <div
-          className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"
-        />
-        <span
-          className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label"
-          id="testPickitemCheckboxId"
+          role="presentation"
         >
+          <input
+            aria-labelledby="testPickitemCheckboxId"
+            checked={false}
+            className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall"
+            disabled={false}
+            onChange={[Function]}
+            onClick={[Function]}
+            required={false}
+            tabIndex={-1}
+            type="checkbox"
+          />
+          <div
+            className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"
+          />
           <span
-            className=""
+            className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label"
+            id="testPickitemCheckboxId"
           >
-            Item two
+            <span
+              className=""
+            >
+              Item two
+            </span>
           </span>
-        </span>
-      </label>
+        </label>
+      </div>
     </div>
   </li>
 </ul>

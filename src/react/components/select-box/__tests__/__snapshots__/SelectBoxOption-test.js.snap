@@ -118,36 +118,40 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
     className="xui-pickitem--body"
     role="presentation"
   >
-    <label
-      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
-      onClick={[Function]}
-      role="presentation"
+    <div
+      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio xui-styledcheckboxradio-small"
     >
-      <input
-        aria-labelledby="testCheckboxId"
-        checked={false}
-        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-        disabled={false}
-        onChange={[Function]}
+      <label
+        className="xui-styledcheckboxradio--field"
         onClick={[Function]}
-        required={false}
-        tabIndex={-1}
-        type="checkbox"
-      />
-      <div
-        className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
-      />
-      <span
-        className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
-        id="testCheckboxId"
+        role="presentation"
       >
+        <input
+          aria-labelledby="testCheckboxId"
+          checked={false}
+          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+          disabled={false}
+          onChange={[Function]}
+          onClick={[Function]}
+          required={false}
+          tabIndex={-1}
+          type="checkbox"
+        />
+        <div
+          className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
+        />
         <span
-          className=""
+          className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
+          id="testCheckboxId"
         >
-          .
+          <span
+            className=""
+          >
+            .
+          </span>
         </span>
-      </span>
-    </label>
+      </label>
+    </div>
   </div>
 </li>
 `;
@@ -251,36 +255,40 @@ exports[`<SelectBoxOption /> should render the option and the checkboxes as disa
     className="xui-pickitem--body"
     role="presentation"
   >
-    <label
-      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
-      onClick={[Function]}
-      role="presentation"
+    <div
+      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio xui-styledcheckboxradio-small xui-styledcheckboxradio-is-disabled"
     >
-      <input
-        aria-labelledby="testCheckboxId"
-        checked={false}
-        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-        disabled={true}
-        onChange={[Function]}
+      <label
+        className="xui-styledcheckboxradio--field"
         onClick={[Function]}
-        required={false}
-        tabIndex={-1}
-        type="checkbox"
-      />
-      <div
-        className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
-      />
-      <span
-        className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
-        id="testCheckboxId"
+        role="presentation"
       >
+        <input
+          aria-labelledby="testCheckboxId"
+          checked={false}
+          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+          disabled={true}
+          onChange={[Function]}
+          onClick={[Function]}
+          required={false}
+          tabIndex={-1}
+          type="checkbox"
+        />
+        <div
+          className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
+        />
         <span
-          className=""
+          className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
+          id="testCheckboxId"
         >
-          .
+          <span
+            className=""
+          >
+            .
+          </span>
         </span>
-      </span>
-    </label>
+      </label>
+    </div>
   </div>
 </li>
 `;

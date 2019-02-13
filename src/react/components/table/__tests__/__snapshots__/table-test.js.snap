@@ -186,26 +186,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-head xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select all rows"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select all rows"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </th>
               <th
                 className="xui-table--cell xui-heading-separator xui-table--cell-second"
@@ -247,26 +251,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -298,26 +306,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -349,26 +361,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -433,26 +449,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-head xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select all rows"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select all rows"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </th>
               <th
                 className="xui-table--cell xui-heading-separator xui-table--cell-second"
@@ -494,26 +514,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -545,26 +569,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={true}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={true}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -596,26 +624,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -680,26 +712,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-head xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select all rows"
-                    checked={true}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select all rows"
+                      checked={true}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </th>
               <th
                 className="xui-table--cell xui-heading-separator xui-table--cell-second"
@@ -741,26 +777,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={true}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={true}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -792,26 +832,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={true}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={true}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -843,26 +887,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={true}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={true}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -1637,26 +1685,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small xui-styledcheckboxradio-is-disabled"
                 >
-                  <input
-                    aria-label="Select all rows"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={true}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select all rows"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={true}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </th>
               <th
                 className="xui-table--cell xui-heading-separator xui-table--cell-second"
@@ -3007,26 +3059,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-head xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select all rows"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select all rows"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </th>
               <th
                 className="xui-table--cell xui-heading-separator xui-table--cell-second"
@@ -3131,26 +3187,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -3231,26 +3291,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -3331,26 +3395,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -3940,26 +4008,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-head xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select all rows"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select all rows"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </th>
               <th
                 className="xui-table--cell xui-heading-separator xui-table--cell-second"
@@ -4070,26 +4142,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -4209,26 +4285,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -4348,26 +4428,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -5610,26 +5694,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-head xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select all rows"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select all rows"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </th>
               <th
                 className="xui-table--cell xui-heading-separator xui-table--cell-second"
@@ -5677,26 +5765,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -5767,26 +5859,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -5857,26 +5953,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -7298,26 +7398,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-head xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select all rows"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select all rows"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </th>
               <th
                 className="xui-table--cell xui-heading-separator xui-table--cell-second"
@@ -7428,26 +7532,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
@@ -7567,26 +7675,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second"
@@ -7706,26 +7818,30 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 tabIndex="-1"
               >
                  
-                <label
-                  className="xui-table--checkbox-body xui-styledcheckboxradio"
-                  onClick={[Function]}
-                  role="presentation"
+                <div
+                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
                 >
-                  <input
-                    aria-label="Select row"
-                    checked={false}
-                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                    disabled={false}
-                    onChange={[Function]}
+                  <label
+                    className="xui-styledcheckboxradio--field"
                     onClick={[Function]}
-                    required={false}
-                    tabIndex={0}
-                    type="checkbox"
-                  />
-                  <div
-                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                  />
-                </label>
+                    role="presentation"
+                  >
+                    <input
+                      aria-label="Select row"
+                      checked={false}
+                      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      disabled={false}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      required={false}
+                      tabIndex={0}
+                      type="checkbox"
+                    />
+                    <div
+                      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    />
+                  </label>
+                </div>
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"

@@ -34,7 +34,7 @@
 // Example
 //
 // Markup:
-// <div class="xui-composition xui-composition-masterdetailsummary xui-composition-is-finite">
+// <div class="xui-composition xui-composition-masterdetailsummary xui-composition-auto-template xui-composition-is-finite">
 //   <div class="xui-gridarea-master">
 //     <div style="background: #5A5AE6; color: white; height: 380px; min-width: 200px; padding: 20px; width: 100%;"> Master </div>
 //   </div>
@@ -59,7 +59,7 @@
 // Example
 //
 // Markup:
-// <div class="xui-composition xui-composition-masterdetailsummaryheader xui-composition-is-finite">
+// <div class="xui-composition xui-composition-masterdetailsummaryheader xui-composition-auto-template xui-composition-is-finite">
 //   <div class="xui-gridarea-header">
 //     <div style="background: #2D2D73; color: white; height: 120px; padding: 20px;"> content header </div>
 //   </div>
@@ -97,6 +97,39 @@
 //
 // Styleguide: Compositions.MasterDetailSummary.4
 
+// Lock Layout
+//
+// You can allow the composition layout to respond to the viewport width (recommended) or it can retain the "small" layout at all breakpoints or the "medium" layout at medium or larger viewports. The small layout will keep the Master container hidden within a dropdown, and the Summary and Detail sections stacked, while the medium layout will keep the Summary container full width, sitting above the Master and Detail containers.
+//
+// Include the `xui-composition-auto-template` class on the composition container for a responsive layout, or omit it for either of the locked layouts.
+//
+// Tips:
+// Do: Lock the small layout across breakpoints when content won't fit using the three-column layout, even at larger breakpoints
+// Warning: Consider defining custom widths to allow content to fit the columns, rather than locking the layout
+// Dont: Omit the `xui-composition-auto-template` class for either of the locked layouts
+//
+// Classes:
+// xui-composition-auto-template: Allows the layout to adjust automatically to the viewport width
+// xui-composition-masterdetailsummary-retain-medium: Forces composition to retain the medium layout across medium and larger breakpoints
+// xui-composition-masterdetailsummaryheader-retain-medium: Forces composition to retain the medium layout across all medium and larger breakpoints, when including a content header in the composition
+//
+// Styleguide: Compositions.MasterDetailSummary.4.1
+
+// Auto Column Widths
+//
+// XUI provides pre-set column widths, suitable for content that can be flexibly sized. For the Master-Detail-Summary composition, the Master and Summary containers default to 25% (up to a certain maximum), and the Detail container fills the remaining space. The max-width of the Master and Summary containers will be 290px if [outer spacing](#compositions-masterdetailsummary-4-4) is present, or 300px if not.
+//
+// If page content must be in specifically-sized containers, you can provide the widths yourself. The Header and Detail containers will always expand to fill the maximum width, so you should explicitly set a width on the Master and Summary content.
+//
+// Tips:
+// Do: Use automatic column widths to get a standard column size without extra styles
+// Warning: If you choose to set your own widths, widths should be set in units, rather than percentages
+//
+// Classes:
+// xui-composition-has-auto-widths: Applies standard column widths for flexibly sized content
+//
+// Styleguide: Compositions.MasterDetailSummary.4.2
+
 // Grid gap
 //
 // Applies `$xui-s-large` spacing between the composition containers. To achieve custom spacing around content within each composition container, instead add spacing outside of the content itself.
@@ -110,7 +143,7 @@
 // Classes:
 // xui-composition-grid-gap: Applies standard spacing between composition containers
 //
-// Styleguide: Compositions.MasterDetailSummary.4.1
+// Styleguide: Compositions.MasterDetailSummary.4.3
 
 // Outer spacing
 //
@@ -123,7 +156,7 @@
 // Classes:
 // xui-composition-has-auto-space-around: Applies $xui-s-large spacing around the outside of the composition
 //
-// Styleguide: Compositions.MasterDetailSummary.4.2
+// Styleguide: Compositions.MasterDetailSummary.4.4
 
 // Full width
 //
@@ -136,34 +169,20 @@
 // Classes:
 // xui-composition-is-finite: Remove this class to have the composition span 100% width of page
 //
-// Styleguide: Compositions.MasterDetailSummary.4.3
-
-// Retain layout
-//
-// Forces the composition to retain the small or medium layouts across all breakpoints. The small layout will keep the Master container hidden within a dropdown, and the Summary and Detail sections stacked, while the medium layout will keep the Summary container full width, sitting above the Master and Detail containers.
-//
-// Tips:
-// Do: Use when content won't fit using the three column layout even at larger breakpoints
-// Warning: Consider using the default layout and defining custom sizing on the Master and Summary containers, to allow content to fit
-//
-// Classes:
-// xui-composition-masterdetailsummary-retain-small: Forces composition to retain the small layout across all breakpoints
-// xui-composition-masterdetailsummary-retain-medium: Forces composition to retain the medium layout across all breakpoints
-//
-// Styleguide: Compositions.MasterDetailSummary.4.4
+// Styleguide: Compositions.MasterDetailSummary.4.5
 
 // Class list
 //
 // Classes:
 // xui-composition-masterdetailsummary: Style for Master detail summary composition when no content header is included
 // xui-composition-masterdetailsummaryheader: Style for Master detail summary composition when including a content header
+// xui-composition-auto-template: Allows the layout to adjust automatically to the viewport width. Remove this class to lock the layout at the "small" or "medium" version
+// xui-composition-has-auto-widths: Applies standard column widths for flexibly sized content
 // xui-composition-grid-gap: Modifier for applying standard spacing between composition containers
 // xui-composition-has-auto-space-around: Modifier for applying $xui-s-large spacing around the outside of the composition
 // xui-composition-is-finite: Remove this class to have the composition span 100% width of page
-// xui-composition-masterdetailsummary-retain-small: Modifier to force composition to keep the small layout across all breakpoints
-// xui-composition-masterdetailsummary-retain-medium: Modifier to force composition to retain the medium layout across all breakpoints
-// xui-composition-masterdetailsummaryheader-retain-small: Modifier to force composition to keep the small layout across all breakpoints, when including a content header in the composition
-// xui-composition-masterdetailsummaryheader-retain-medium: Modifier to force composition to retain the medium layout across all breakpoints, when including a content header in the composition
+// xui-composition-masterdetailsummary-retain-medium: Forces composition to retain the medium layout across medium and larger breakpoints
+// xui-composition-masterdetailsummaryheader-retain-medium: Forces composition to retain the medium layout across all medium and larger breakpoints, when including a content header in the composition
 // xui-gridarea-header: Style for content header if the page has one
 // xui-gridarea-master: Style for to Master container
 // xui-gridarea-detail: Style for to Detail container

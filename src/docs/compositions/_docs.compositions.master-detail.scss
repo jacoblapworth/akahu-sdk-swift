@@ -4,7 +4,7 @@
 //
 // Teaser: The Master container houses content that controls or acts on content within the Detail area. The Master container is within a dropdown at narrow breakpoints, and a left hand column from xui-breakpoint-medium-up.
 //
-// Teaser-image: composition-images/Master-detail_browser.svg
+// Teaser-image: composition-images/Master-Detail_browser.svg
 //
 // Introduction: Master detail composition is useful for layouts that consist of a set of options or controls, that affect content within the main content container. The Master container holds the options/controls in a left side column, or within a dropdown when horizontal space is restricted. The Detail area houses the main content.
 //
@@ -31,7 +31,7 @@
 // Example
 //
 // Markup:
-// <div class="xui-composition xui-composition-masterdetail xui-composition-is-finite">
+// <div class="xui-composition xui-composition-masterdetail xui-composition-auto-template xui-composition-is-finite">
 //   <div class="xui-gridarea-master">
 //     <div style="background: #5A5AE6; color: white; height: 380px; min-width: 200px; padding: 20px; width: 100%;"> Master </div>
 //   </div>
@@ -53,7 +53,7 @@
 // Example
 //
 // Markup:
-// <div class="xui-composition xui-composition-masterdetailheader xui-composition-is-finite">
+// <div class="xui-composition xui-composition-masterdetailheader xui-composition-auto-template xui-composition-is-finite">
 //   <div class="xui-gridarea-header">
 //     <div style="background: #2D2D73; color: white; height: 120px; padding: 20px;"> content header </div>
 //   </div>
@@ -94,6 +94,34 @@
 //
 // Styleguide: Compositions.MasterDetail.4
 
+// Lock Layout
+//
+// You can allow the composition layout to respond to the viewport width (recommended) or it can retain the "small" layout across all breakpoints, keeping the Master container hidden within a dropdown. Include the `xui-composition-auto-template` class on the composition container for a responsive layout, or omit it for the locked layout.
+//
+// Tips:
+// Do: Lock the small layout across breakpoints when content won't fit using the two-column layout, even at larger breakpoints
+// Warning: Consider defining custom widths to allow content to fit the columns, rather than locking the small layout
+//
+// Classes:
+// xui-composition-auto-template: Allows the layout to adjust automatically to the viewport width
+//
+// Styleguide: Compositions.MasterDetail.4.1
+
+// Auto Column Widths
+//
+// XUI provides pre-set column widths, suitable for content that can be flexibly sized. For the Master-Detail composition, the Master container defaults to 25% (up to a certain maximum), and the Detail container fills the remaining space. The max-width of the Master container will be 290px if [outer spacing](#compositions-masterdetail-4-4) is present, or 300px if not.
+//
+// If page content must be in specifically-sized containers, you can provide the widths yourself. The Header and Detail containers will always expand to fill the maximum width, so you should explicitly set a width on the Master content.
+//
+// Tips:
+// Do: Use automatic column widths to get a standard column size without extra styles
+// Warning: If you choose to set your own widths, widths should be set in units, rather than percentages
+//
+// Classes:
+// xui-composition-has-auto-widths: Applies standard column widths for flexibly sized content
+//
+// Styleguide: Compositions.MasterDetail.4.2
+
 // Grid gap
 //
 // Applies `$xui-s-large` spacing between the composition containers. To achieve custom spacing around content within each composition container, instead add spacing outside of the content itself.
@@ -107,7 +135,7 @@
 // Classes:
 // xui-composition-grid-gap: Applies standard spacing between composition containers
 //
-// Styleguide: Compositions.MasterDetail.4.1
+// Styleguide: Compositions.MasterDetail.4.3
 
 // Outer spacing
 //
@@ -120,7 +148,7 @@
 // Classes:
 // xui-composition-has-auto-space-around: Applies $xui-s-large spacing around the outside of the composition
 //
-// Styleguide: Compositions.MasterDetail.4.2
+// Styleguide: Compositions.MasterDetail.4.4
 
 // Full width
 //
@@ -133,31 +161,18 @@
 // Classes:
 // xui-composition-is-finite: Remove this class to have the composition span 100% width of page
 //
-// Styleguide: Compositions.MasterDetail.4.3
-
-// Retain mobile layout
-//
-// Forces the composition to retain the mobile layout across all breakpoints, keeping the Master container hidden within a dropdown.
-//
-// Tips:
-// Do: Use when content won't fit using the two column layout even at larger breakpoints
-// Warning: Consider using the default layout and defining custom sizing on the Master container, to allow content to fit
-//
-// Classes:
-// xui-composition-retain-small: Forces composition to retain the mobile layout across all breakpoints
-//
-// Styleguide: Compositions.MasterDetail.4.4
+// Styleguide: Compositions.MasterDetail.4.5
 
 // Class list
 //
 // Classes:
 // xui-composition-masterdetail: Style for Master detail composition when no content header is included
 // xui-composition-masterdetailheader: Style for Master detail composition when including a content header
+// xui-composition-auto-template: Allows the layout to adjust automatically to the viewport width. Remove this class to lock the layout at the "small" version
+// xui-composition-has-auto-widths: Applies standard column widths for flexibly sized content
 // xui-composition-grid-gap: Modifier for applying standard spacing between composition containers
 // xui-composition-has-auto-space-around: Modifier for applying $xui-s-large spacing around the outside of the composition
 // xui-composition-is-finite: Remove this class to have the composition span 100% width of page
-// xui-composition-masterdetail-retain-small: Modifier to force composition to maintain the mobile layout across all breakpoints
-// xui-composition-masterdetailheader-retain-small: Modifier to force composition to maintain the mobile layout across all breakpoints, when including a content header in the composition
 // xui-gridarea-header: Style for content header if the page has one
 // xui-gridarea-master: Style for Master container subcomponent
 // xui-gridarea-detail: Style for Detail container subcomponent

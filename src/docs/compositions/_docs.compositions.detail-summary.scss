@@ -4,7 +4,7 @@
 //
 // Teaser: The Summary container houses content that sums up or labels the Detail container. Summary is a right-hand column which stacks above the Detail container at smaller breakpoints.
 //
-// Teaser-image: composition-images/Detail-summary_browser.svg
+// Teaser-image: composition-images/Detail-Summary_browser.svg
 //
 // Introduction: Detail summary composition is useful for layouts that require a small section displaying a summary of what is found in the main content area of the page. The Summary container sits above the Detail area by default, and becomes a right hand column when space allows.
 //
@@ -32,7 +32,7 @@
 // Example
 //
 // Markup:
-// <div class="xui-composition xui-composition-detailsummary xui-composition-is-finite">
+// <div class="xui-composition xui-composition-detailsummary xui-composition-auto-template xui-composition-is-finite">
 //   <div class="xui-gridarea-detail">
 //     <div style="background: #C5C5F6; height: 380px; padding: 20px;"> Detail </div>
 //   </div>
@@ -60,7 +60,7 @@
 // Example
 //
 // Markup:
-// <div class="xui-composition xui-composition-detailsummaryheader xui-composition-is-finite">
+// <div class="xui-composition xui-composition-detailsummaryheader xui-composition-auto-template xui-composition-is-finite">
 //   <div class="xui-gridarea-header">
 //     <div style="background: #2D2D73; color: white; height: 120px; padding: 20px;"> content header </div>
 //   </div>
@@ -93,6 +93,34 @@
 //
 // Styleguide: Compositions.DetailSummary.4
 
+// Lock Layout
+//
+// You can allow the composition layout to respond to the viewport width (recommended) or it can retain the "small" layout across all breakpoints, keeping the Summary container stacked above the Detail container. Include the `xui-composition-auto-template` class on the composition container for a responsive layout, or omit it for the locked layout.
+//
+// Tips:
+// Do: Lock the small layout across breakpoints when content won't fit using the two-column layout, even at larger breakpoints
+// Warning: Consider defining custom widths to allow content to fit the columns, rather than locking the small layout
+//
+// Classes:
+// xui-composition-auto-template: Allows the layout to adjust automatically to the viewport width
+//
+// Styleguide: Compositions.DetailSummary.4.1
+
+// Auto Column Widths
+//
+// XUI provides pre-set column widths, suitable for content that can be flexibly sized. For the Detail-Summary composition, the Summary container defaults to 25% (up to a certain maximum), and the Detail container fills the remaining space. The max-width of the Summary container will be 290px if [outer spacing](#compositions-detailsummary-4-4) is present, or 300px if not.
+//
+// If page content must be in specifically-sized containers, you can provide the widths yourself. The Header and Detail containers will always expand to fill the maximum width, so you should explicitly set a width on the Summary content.
+//
+// Tips:
+// Do: Use automatic column widths to get a standard column size without extra styles
+// Warning: If you choose to set your own widths, widths should be set in units, rather than percentages
+//
+// Classes:
+// xui-composition-has-auto-widths: Applies standard column widths for flexibly sized content
+//
+// Styleguide: Compositions.DetailSummary.4.2
+
 // Grid gap
 //
 // Applies `$xui-s-large` spacing between the composition containers. To achieve custom spacing around content within each composition container, instead add spacing outside of the content itself.
@@ -106,7 +134,7 @@
 // Classes:
 // xui-composition-grid-gap: Applies standard spacing between composition containers
 //
-// Styleguide: Compositions.DetailSummary.4.1
+// Styleguide: Compositions.DetailSummary.4.3
 
 // Outer spacing
 //
@@ -119,7 +147,7 @@
 // Classes:
 // xui-composition-has-auto-space-around: Applies $xui-s-large spacing around the outside of the composition
 //
-// Styleguide: Compositions.DetailSummary.4.2
+// Styleguide: Compositions.DetailSummary.4.4
 
 // Full width
 //
@@ -132,31 +160,18 @@
 // Classes:
 // xui-composition-is-finite: Remove this class to have the composition span 100% width of page
 //
-// Styleguide: Compositions.DetailSummary.4.3
-
-// Retain mobile layout
-//
-// Forces the composition to retain the mobile layout across all breakpoints, keeping the Summary container stacked above the Detail container.
-//
-// Tips:
-// Do: Use when content won't fit using the two column layout even at larger breakpoints
-// Warning: Consider using the default layout and defining custom sizing on the Master container, to allow content to fit
-//
-// Classes:
-// xui-composition-retain-small: Forces composition to retain the mobile layout across all breakpoints
-//
-// Styleguide: Compositions.DetailSummary.4.4
+// Styleguide: Compositions.DetailSummary.4.5
 
 // Class list
 //
 // Classes:
 // xui-composition-detailsummary: Style for Detail summary composition, when no content header is included
 // xui-composition-detailsummaryheader: Style for Detail summary composition, when including a content header
+// xui-composition-auto-template: Allows the layout to adjust automatically to the viewport width. Remove this class to lock the layout at the "small" version
+// xui-composition-has-auto-widths: Applies standard column widths for flexibly sized content
 // xui-composition-grid-gap: Modifier for applying standard spacing between composition containers
 // xui-composition-has-auto-space-around: Modifier for applying $xui-s-large spacing around the outside of the composition
 // xui-composition-is-finite: Remove this class to have the composition span 100% width of page
-// xui-composition-detailsummary-retain-small: Modifier to force composition to keep the mobile layout across all breakpoints
-// xui-composition-detailsummaryheader-retain-small: Modifier to force composition to keep the mobile layout across all breakpoints, when including a content header in the composition
 // xui-gridarea-header: Style for content header if the page has one
 // xui-gridarea-master: Style for Master container subcomponent
 // xui-gridarea-detail: Style for Detail container subcomponent

@@ -218,4 +218,19 @@ module.exports = {
 			],
 		}
 	],
+	'@xero/xui/react/dropdown': [
+		{
+			isDefault: true,
+			props: [
+				{
+					name: 'size',
+					valueTransform: stringReplace({
+						'medium': 'small',
+						'large': 'medium',
+						'xlarge': 'large'
+					})
+				}
+			]
+		}
+	]
 }

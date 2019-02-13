@@ -40,7 +40,7 @@ To use a standard `XUIDatePicker`, you should use the `onSelectDate` callback to
      }
    }
 
-   <div className="xui-panel xui-dropdown-large">
+   <div className="xui-panel xui-dropdown-medium">
    	<ExamplePicker />
    </div>
 ```
@@ -101,7 +101,7 @@ To enable date range selection, handle the date selection events in `onSelectDat
 	 }
  }
 
- <div className="xui-panel xui-dropdown-large">
+ <div className="xui-panel xui-dropdown-medium">
 	<RangePicker />
  </div>
  ```
@@ -151,7 +151,7 @@ To disable selection of certain dates, pass a callback to `isDateDisabled`. It s
 		}
 	}
 
-	<div className="xui-panel xui-dropdown-large">
+	<div className="xui-panel xui-dropdown-medium">
 		<DisabledDatePicker />
 	</div>
 ```
@@ -226,7 +226,7 @@ To keep `XUIDatePicker`'s height consistent, you can set `showFixedNumberOfWeeks
 		}
 	}
 
-	<div className="xui-panel xui-dropdown-large">
+	<div className="xui-panel xui-dropdown-medium">
 		<CompactPicker />
 	</div>
 ```

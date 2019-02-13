@@ -143,7 +143,7 @@ const variations = [
 		storyTitle: 'with wrapping in narrow list',
 		isOpen: true,
 		componentType: 'StatefulPicklist',
-		className: 'xui-dropdown-medium',
+		className: 'xui-dropdown-small',
 		lists: [{
 			isMultiselect: true,
 			items: [ { }, { }, { }, { }, ],
@@ -154,7 +154,7 @@ const variations = [
 		storyTitle: 'with truncation in narrow list',
 		isOpen: true,
 		componentType: 'StatefulPicklist',
-		className: 'xui-dropdown-medium',
+		className: 'xui-dropdown-small',
 		lists: [{
 			isMultiselect: true,
 			shouldTruncate: true,

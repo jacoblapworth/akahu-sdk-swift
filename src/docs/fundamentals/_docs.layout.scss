@@ -19,25 +19,56 @@
 // From XUI 15 onwards, a near-direct replacement to these classes come in the form of the [Detail Composition](/section-compositions-detail.html). If you are upgrading from XUI 14 or earlier, you will need to ensure your layout fits the larger 1200px single-width the detail composition provides, or adjust your layout accordingly.
 //
 // Definitions:
-// Standard: 		1000px:		`.xui-page-width-standard`
-// Large: 			1200px:			`.xui-page-width-large`
+// Standard: 1000px: `.xui-page-width-standard`
+// Large: 1200px: `.xui-page-width-large`
 //
 // Styleguide: Fundamentals.Layout.1
+
+// Breakpoints
+//
+// Definitions:
+// Small: 600px: `$xui-breakpoint-small`
+// Medium: 800px: `$xui-breakpoint-medium`
+// Large: 1000px: `$xui-breakpoint-large`
+// xLarge: 1200px: `$xui-breakpoint-xlarge`
+// 2xLarge: 1600px: `$xui-breakpoint-2xlarge`
+//
+// Styleguide: Fundamentals.Layout.2
+
+// Breakpoint Mixins
+//
+// Mixins can be used to apply media queries using breakpoint values. To create a modern web experience, applications should be built using a "mobile-first" approach. To enable this, we have `xui-breakpoint-<size>-up` mixins.
+//
+// If adding responsive experiences to existing legacy applications, it may be more appropriate to implement media queries that target specific ranges. To enable this, we have `xui-breakpoint-<size>-to-<size>` mixins, as well as a down mixin to target down to 0px browser width.
+//
+// Definitions:
+// small-up: 600px — ∞: `xui-breakpoint-small-up`
+// medium-up: 800px — ∞: `xui-breakpoint-medium-up`
+// large-up: 1000px — ∞: `xui-breakpoint-large-up`
+// xlarge-up: 1200px — ∞: `xui-breakpoint-xlarge-up`
+// 2xlarge-up: 1600px — ∞: `xui-breakpoint-2xlarge-up`
+// small-down: 0 — 600px: `xui-breakpoint-small-down`
+// small-to-medium: 600px — 800px: `xui-breakpoint-small-up`
+// medium-to-large: 800px — 1000px: `xui-breakpoint-medium-up`
+// large-to-xlarge: 1000px — 1200px: `xui-breakpoint-large-up`
+// xlarge-2xlarge: 1200px — 1600px: `xui-breakpoint-xlarge-up`
+//
+// Styleguide: Fundamentals.Layout.2.1
 
 // Creating columns
 //
 // Utilising XUI's 12 column grid provides easy access to the common layout divisors of halves, thirds, and quarters, as well other fractions in 1/12 increments.
 //
-// Styleguide: Fundamentals.Layout.2
+// Styleguide: Fundamentals.Layout.3
 
 // Rows
 //
 // To create a column-based layout, first specify which kind of layout is desired by adding one of the following classes to the parent.
 //
 // Definitions:
-// Standard:			Standard row:					`.xui-row`
-// Grid:					Row with gutters:			`.xui-row-grid`
-// Flex:					Flex based row:				`.xui-row-flex`
+// Standard: Standard row: `.xui-row`
+// Grid: Row with gutters: `.xui-row-grid`
+// Flex: Flex based row: `.xui-row-flex`
 //
 // Note: The `.xui-row-grid` variant uses negative margins
 //
@@ -64,25 +95,25 @@
 // 	<div class='xui-column-3-of-12'></div>
 // </div>
 //
-// Styleguide: Fundamentals.Layout.2.1
+// Styleguide: Fundamentals.Layout.3.1
 
 // Columns
 //
 // To specify the widths of child elements, use the following `.xui-column-*-of-12` classes.
 //
 // Definitions:
-// 1/12: 	Twelfth:								`-1-of-12`
-// 1/6: 		Sixth: 									`-2-of-12`
-// 1/4: 		Quarter: 							`-3-of-12`
-// 1/3: 		Third: 									`-4-of-12`
-// 5/12: 	Five twelfths: 	`-5-of-12`
-// 1/2: 		Half: 										`-6-of-12`
-// 7/12: 	Seven twelfths: `-7-of-12`
-// 2/3: 		Two thirds: 				`-8-of-12`
-// 3/4: 		Three quarters: `-9-of-12`
-// 5/6: 		Five sixths: 			`-10-of-12`
+// 1/12: Twelfth: `-1-of-12`
+// 1/6: Sixth: `-2-of-12`
+// 1/4: Quarter: `-3-of-12`
+// 1/3: Third: `-4-of-12`
+// 5/12: Five twelfths: `-5-of-12`
+// 1/2: Half: `-6-of-12`
+// 7/12: Seven twelfths: `-7-of-12`
+// 2/3: Two thirds: `-8-of-12`
+// 3/4: Three quarters: `-9-of-12`
+// 5/6: Five sixths: `-10-of-12`
 // 11/12: Eleven twelfths:`-11-of-12`
-// 1: 				Full width: 				`-12-of-12`
+// 1: Full width: `-12-of-12`
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -110,16 +141,16 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Fundamentals.Layout.2.2
+// Styleguide: Fundamentals.Layout.3.2
 
-// Breakpoints
+// Column breakpoints
 //
 // All columns are also available as responsive modifiers that alter layout at different viewports. Simply add one of the following modifiers to specify the desired behaviour.
 //
 // Definitions:
-// Always: 	∞:													none
-// Small and up: 	600px—∞: 		`-small-up`
-// Large and up: 		1000px—∞: 					`-large-up`
+// Always: ∞:													none
+// Small and up: 600px — ∞: `-small-up`
+// Large and up: 1000px — ∞: `-large-up`
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -131,29 +162,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Fundamentals.Layout.3
-
-// Breakpoint width values
-//
-// Definitions:
-// Small:				600px:			`$xui-breakpoint-small`
-// Medium:			800px:			`$xui-breakpoint-medium`
-// Large:				1000px:			`$xui-breakpoint-large`
-// xLarge:			1200px:			`$xui-breakpoint-xlarge`
-//
-// Styleguide: Fundamentals.Layout.3.1
-
-// Mixins
-//
-// There are a number of mixins which fit into the catergory of either **size-up** and **size-only**. The **size-up** mixins contain breakpoints with a `min-width` value, targeting a particular width size and up e.g.
-// The **size-only** mixins each target a segment of width sizes using `min-width` and `max-width` values.
-// To use these mixins `@include` them using the `xui-breakpoint-<size>-<direction>` naming pattern.
-//
-// Definitions:
-// Size-up: `-up`
-// Size-only: `-only`
-//
-// Styleguide: Fundamentals.Layout.3.2
+// Styleguide: Fundamentals.Layout.3.3
 
 // Nesting
 //

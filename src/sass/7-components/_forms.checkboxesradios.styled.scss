@@ -30,13 +30,6 @@
 		border-bottom: $xui-border-control;
 	}
 
-	.#{$ns}-styledcheckboxradio-reversed {
-		.#{$ns}-styledcheckboxradio--label {
-			margin: 0;
-			padding-left: $xui-s-xsmall - 2;
-		}
-	}
-
 	&.#{$ns}-styledcheckboxradio-group-is-invalid,
 	&.#{$ns}-styledcheckboxradio-group-is-invalid .#{$ns}-styledcheckboxradio {
 		border-color: $xui-validation-invalid-color;

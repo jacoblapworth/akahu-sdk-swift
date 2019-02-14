@@ -35,7 +35,7 @@ storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
-		const { isGroup, groupProps } = variation;
+		const { isGroup, isReversed, groupProps } = variation;
 		const label = typeof variation.labelText === 'string' ? variation.labelText : "Test radio";
 
 		// Remove story-specific properties
@@ -44,16 +44,16 @@ variations.forEach(variation => {
 		if(isGroup){
 			return (
 				<XUICheckboxGroup {...groupProps}>
-					<XUICheckbox isDefaultChecked={true}>
+					<XUICheckbox isDefaultChecked isReversed={isReversed}>
 						Kakapo
 					</XUICheckbox>
-					<XUICheckbox>
+					<XUICheckbox isReversed={isReversed}>
 						Weka
 					</XUICheckbox>
-					<XUICheckbox isDisabled={true}>
+					<XUICheckbox isDisabled isReversed={isReversed}>
 						Kea
 					</XUICheckbox>
-					<XUICheckbox>
+					<XUICheckbox isReversed={isReversed}>
 						Kiwi
 					</XUICheckbox>
 				</XUICheckboxGroup>

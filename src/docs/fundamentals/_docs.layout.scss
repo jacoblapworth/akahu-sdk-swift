@@ -37,11 +37,9 @@
 //
 // Styleguide: Fundamentals.Layout.2
 
-// Breakpoint Mixins
+// Breakpoint Up Mixins
 //
-// Mixins can be used to apply media queries using breakpoint values. To create a modern web experience, applications should be built using a "mobile-first" approach. To enable this, we have `xui-breakpoint-<size>-up` mixins.
-//
-// If adding responsive experiences to existing legacy applications, it may be more appropriate to implement media queries that target specific ranges. To enable this, we have `xui-breakpoint-<size>-to-<size>` mixins, as well as a down mixin to target down to 0px browser width.
+// Mixins can be used to apply media queries using breakpoint values. To create a modern web experience, applications should be built using a "[mobile-first](/section-getting-started-responsive.html#getting-started-responsive-3)" approach. To enable this, we have `xui-breakpoint-<size>-up` mixins.
 //
 // Definitions:
 // small-up: 600px — ∞: `xui-breakpoint-small-up`
@@ -49,13 +47,21 @@
 // large-up: 1000px — ∞: `xui-breakpoint-large-up`
 // xlarge-up: 1200px — ∞: `xui-breakpoint-xlarge-up`
 // 2xlarge-up: 1600px — ∞: `xui-breakpoint-2xlarge-up`
-// small-down: 0 — 600px: `xui-breakpoint-small-down`
-// small-to-medium: 600px — 800px: `xui-breakpoint-small-up`
-// medium-to-large: 800px — 1000px: `xui-breakpoint-medium-up`
-// large-to-xlarge: 1000px — 1200px: `xui-breakpoint-large-up`
-// xlarge-to-2xlarge: 1200px — 1600px: `xui-breakpoint-xlarge-up`
 //
 // Styleguide: Fundamentals.Layout.2.1
+
+// Breakpoint Range Mixins
+//
+// If adding responsive experiences to existing legacy applications, it may be more appropriate to implement media queries that target specific ranges. To enable this, we have `xui-breakpoint-<size>-to-<size>` mixins, as well as a down mixin to target down to 0px browser width.
+//
+// Definitions:
+// small-down: 0 — 600px: `xui-breakpoint-small-down`
+// small-to-medium: 600px — 800px: `xui-breakpoint-small-to-medium`
+// medium-to-large: 800px — 1000px: `xui-breakpoint-medium-to-large`
+// large-to-xlarge: 1000px — 1200px: `xui-breakpoint-large-to-xlarge`
+// xlarge-to-2xlarge: 1200px — 1600px: `xui-breakpoint-xlarge-to-2xlarge`
+//
+// Styleguide: Fundamentals.Layout.2.2
 
 // Creating columns
 //

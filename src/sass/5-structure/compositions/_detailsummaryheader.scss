@@ -27,6 +27,9 @@
 @mixin composition-dsh-medium-gap {
 	@include xui-composition-grid-gap;
 	@include composition-dsh-medium;
+	&.#{$ns}-composition-has-auto-widths {
+		-ms-grid-columns: 1fr $xui-grid-gutter 25%;
+	}
 }
 
 // Classes using templates at various breakpoints

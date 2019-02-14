@@ -206,9 +206,18 @@
 	&.#{$ns}-composition-has-auto-widths {
 		&.#{$ns}-composition-has-auto-space-around {
 			grid-template-columns: 290px 1fr 290px;
+
+			&.#{$ns}-composition-has-grid-gap {
+				-ms-grid-columns: 290px $xui-grid-gutter 1fr $xui-grid-gutter 290px;
+			}
 		}
+
 		&:not(.#{$ns}-composition-has-auto-space-around) {
 			grid-template-columns: 300px 1fr 300px;
+
+			&.#{$ns}-composition-has-grid-gap {
+				-ms-grid-columns: 300px $xui-grid-gutter 1fr $xui-grid-gutter 300px;
+			}
 		}
 	}
 }
@@ -218,9 +227,18 @@
 	&.#{$ns}-composition-has-auto-widths {
 		&.#{$ns}-composition-has-auto-space-around {
 			grid-template-columns: 290px 1fr;
+
+			&.#{$ns}-composition-has-grid-gap {
+				-ms-grid-columns: 290px $xui-grid-gutter 1fr;
+			}
 		}
+
 		&:not(.#{$ns}-composition-has-auto-space-around) {
 			grid-template-columns: 300px 1fr;
+
+			&.#{$ns}-composition-has-grid-gap {
+				-ms-grid-columns: 300px $xui-grid-gutter 1fr;
+			}
 		}
 	}
 }
@@ -230,9 +248,18 @@
 	&.#{$ns}-composition-has-auto-widths {
 		&.#{$ns}-composition-has-auto-space-around {
 			grid-template-columns: 1fr 290px;
+
+			&.#{$ns}-composition-has-grid-gap {
+				-ms-grid-columns: 1fr $xui-grid-gutter 290px;
+			}
 		}
+
 		&:not(.#{$ns}-composition-has-auto-space-around) {
 			grid-template-columns: 1fr 300px;
+
+			&.#{$ns}-composition-has-grid-gap {
+				-ms-grid-columns: 1fr $xui-grid-gutter 300px;
+			}
 		}
 	}
 }

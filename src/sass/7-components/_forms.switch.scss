@@ -5,6 +5,7 @@ $xui-switch-label-padding: $xui-s-xsmall;
 
 .#{$ns}-switch {
 	display: inline-block; // Inline inputs
+	vertical-align: top;
 
 	.#{$ns}-switch--field {
 		align-items: center;
@@ -75,6 +76,15 @@ $xui-switch-label-padding: $xui-s-xsmall;
 			left: auto;
 			transform: translate(18px);
 		}
+	}
+}
+
+// Message positioning
+// =============
+.#{$ns}-switch--message-with-label {
+	.#{$ns}-switch:not(.#{$ns}-switch-reversed) & {
+		margin-left: $xui-control-size-standard;
+		padding-left: $xui-switch-label-padding;
 	}
 }
 

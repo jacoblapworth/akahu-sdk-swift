@@ -112,15 +112,18 @@ export default class XUIRadio extends PureComponent {
 			size,
 		} = this.props;
 
+		// Grouped inputs default to 'small'.
+		const calculatedSize = (isGrouped && 'small') || size;
+
 		const classes = cn(
 			className,
-			`${baseClass}`,
+			baseClass,
+			calculatedSize && `${baseClass}-${calculatedSize}`,
 			isReversed && `${baseClass}-reversed`,
 			isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
 		);
 
-		// Grouped inputs default to 'small'.
-		const calculatedSize = (isGrouped && 'small') || size;
+		const fieldClasses = `${baseClass}--field`;
 
 		const labelClasses = cn(
 			`${baseClass}--label`,
@@ -165,6 +168,7 @@ export default class XUIRadio extends PureComponent {
 				rootClassName={classes}
 				wrapperIds={this.wrapperIds}
 				onClick={onLabelClick}
+				fieldClassName={fieldClasses}
 				labelClassName={labelClasses}
 				messageClassName={messageClasses}
 				label={children}

@@ -175,15 +175,18 @@ export default class XUICheckbox extends PureComponent {
 			size,
 		} = this.props;
 
+		// Grouped inputs default to 'small'.
+		const calculatedSize = (isGrouped && 'small') || size;
+
 		const classes = cn(
 			className,
 			baseClass,
+			calculatedSize && `${baseClass}-${calculatedSize}`,
 			isReversed && `${baseClass}-reversed`,
 			isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
 		);
 
-		// Grouped inputs default to 'small'.
-		const calculatedSize = (isGrouped && 'small') || size;
+		const fieldClasses = `${baseClass}--field`;
 
 		const labelClasses = cn(
 			`${baseClass}--label`,
@@ -231,6 +234,7 @@ export default class XUICheckbox extends PureComponent {
 				rootClassName={classes}
 				wrapperIds={this.wrapperIds}
 				onClick={onLabelClick}
+				fieldClassName={fieldClasses}
 				labelClassName={labelClasses}
 				messageClassName={messageClasses}
 				label={children}

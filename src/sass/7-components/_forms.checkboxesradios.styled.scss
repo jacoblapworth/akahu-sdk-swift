@@ -35,6 +35,23 @@
 	}
 }
 
+// Message positioning
+// =============
+.#{$ns}-styledcheckboxradio--message-with-label {
+	@include xui-padding-horizontal($xui-s-xsmall);
+
+	.#{$ns}-styledcheckboxradio:not(.#{$ns}-styledcheckboxradio-reversed) & {
+		margin-left: $xui-s-xlarge;
+
+		@at-root .#{$ns}-styledcheckboxradio-small#{&} {
+			margin-left: $xui-s-large;
+		}
+
+		@at-root .#{$ns}-styledcheckboxradio-xsmall#{&} {
+			margin-left: $xui-s-standard;
+		}
+	}
+}
 
 // Label spacing
 // =============
@@ -88,6 +105,7 @@
 .#{$ns}-styledcheckboxradio {
 	display: inline-block; // Inline inputs
 	user-select: none;
+	vertical-align: top;
 
 	// Compatibility for controls that are not wrapped in a div
 	@at-root label#{&} {

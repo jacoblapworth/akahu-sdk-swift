@@ -545,7 +545,7 @@
 }
 
 .#{$ns}-pill-medium {
-	@include xui-text-standard;
+	@include xui-text-medium;
 	@include xui-padding-horizontal($xui-s-standard);
 	height: $xui-control-size-standard;
 }

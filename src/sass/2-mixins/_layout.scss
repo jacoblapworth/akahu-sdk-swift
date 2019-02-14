@@ -8,7 +8,7 @@
 
 @mixin xui-container {
 	@include xui-font-smooth;
-	@include xui-text-standard;
+	@include xui-text-medium;
 	box-sizing: border-box;
 	color: $xui-color-grey-1; // xui-text-primary-color
 	font-family: $xui-font-family;

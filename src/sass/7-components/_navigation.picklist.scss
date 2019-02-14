@@ -1698,7 +1698,7 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 
 	// Item-level by list size
 	.#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
-		@include xui-text-standard;
+		@include xui-text-medium;
 		min-height: $xui-s-3xlarge;
 	}
 	.#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
@@ -1762,7 +1762,7 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 
 .#{$ns}-pickitem-medium {
 	.#{$ns}-pickitem--body {
-		@include xui-text-standard;
+		@include xui-text-medium;
 		min-height: $xui-s-3xlarge;
 	}
 	.#{$ns}-pickitem--body .#{$ns}-pickitem--input {

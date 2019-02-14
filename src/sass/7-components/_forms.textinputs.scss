@@ -163,7 +163,7 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 
 .#{$ns}-textinput-medium {
 	$input-inner-height: $xui-control-size-standard - 2; // -2 for borders
-	@include xui-text-standard;
+	@include xui-text-medium;
 	min-height: $xui-control-size-standard;
 
 	.#{$ns}-textinput--sideelement {

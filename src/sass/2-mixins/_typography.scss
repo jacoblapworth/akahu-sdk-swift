@@ -134,7 +134,7 @@
 	word-wrap: break-word;
 }
 
-@mixin xui-heading-2xlarge {
+@mixin xui-heading-3xlarge {
 	@include xui-text-proportional-nums;
 	@include xui-text-emphasis;
 
@@ -142,7 +142,7 @@
 	line-height: $xui-line-height-tight;
 }
 
-@mixin xui-heading-xlarge {
+@mixin xui-heading-2xlarge {
 	@include xui-text-proportional-nums;
 	@include xui-text-emphasis;
 
@@ -150,11 +150,19 @@
 	line-height: $xui-line-height-tight;
 }
 
-@mixin xui-heading-large {
+@mixin xui-heading-xlarge {
 	@include xui-text-proportional-nums;
 	@include xui-text-emphasis;
 
 	font-size: $xui-font-size-xlarge;
+	line-height: $xui-line-height-tight;
+}
+
+@mixin xui-heading-large {
+	@include xui-text-proportional-nums;
+	@include xui-text-emphasis;
+
+	font-size: $xui-font-size-large;
 	line-height: $xui-line-height-compact;
 }
 
@@ -165,21 +173,20 @@
 		@include xui-text-emphasis;
 	}
 
-	font-size: $xui-font-size-large;
+	font-size: $xui-font-size-medium;
 	line-height: $xui-line-height-compact;
 }
 
 @mixin xui-heading-small {
 	@include xui-text-emphasis;
 
-	font-size: $xui-font-size-medium;
+	font-size: $xui-font-size-small;
 	line-height: $xui-line-height-compact;
 }
 
 @mixin xui-heading-xsmall {
-	@include xui-text-deemphasis;
-	@include xui-text-muted;
+	@include xui-text-emphasis;
 
-	font-size: $xui-font-size-small;
+	font-size: $xui-font-size-xsmall;
 	line-height: $xui-line-height-compact;
 }

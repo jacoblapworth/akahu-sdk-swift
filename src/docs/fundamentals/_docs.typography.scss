@@ -26,31 +26,30 @@
 // **Note:** As XUI does not provide a css margin reset, heading and paragraph elements will pickup user agent margins if not otherwise specified using [XUI spacing classes](./section-fundamentals-spacing.html).
 //
 // Definitions:
-// 3xLarge: 72px: `.xui-heading-2xlarge`<br /><br /><span class="ds-fontsize-3xlarge">3xLarge</span>
-// 2xLarge: 48px: xLarge Avatars, `.xui-heading-xlarge` when viewport size is wider than 1000px, or in `.xui-heading-3xlarge` as a default size.<br /><br /><span class="ds-fontsize-2xlarge">2xLarge</span>
-// xLarge: 21px: Large Avatars, `.xui-heading-large`, Textcontent H2 elements, Overview block values.<br /><br /><span class="ds-fontsize-xlarge">xLarge</span>
-// Large: 17px: Panel Heading, Isolation Header title, Isolation Header secondary title, `.xui-heading-medium`, `.xui-heading-modal`, `.xui-heading-panel`, Textcontent H3 elements, Breadcrumbs, Page heading titles<br /><br /><span class="ds-fontsize-large">Large</span>
-// Medium: 15px: XUI container default, Default Avatar, Contentblock Primary Heading, Contentblock Secondary Heading, Medium labels for styled checkboxes and radios, Medium Switch labels, Medium textinputs, Medium picklist bodies, Medium pills, Medium tags, Panel section header, Accordion primary heading, Accordion pinned value, Chart title, `.xui-heading-item`, `.xui-heading-small`, Text content H4 elements, Content Block pinned values, Modal Text Heading, `.xui-heading-section`, Textcontent base and H5 element font-size.<br /><br /><span class="ds-fontsize-medium">Medium</span>
-// Small: 13px: Small Avatars, Small Buttons, Contentblock Item Description, Default Datepicker Weekdays, Small labels for styled checkboxes and radios, Small Switch labels, Small textinputs, Small picklist bodies, Small pills, Small tags, tooltips, `.xui-heading-separator`, xSmall Headings, `.xui-text-label` and `.xui-text-secondary`, `.xui-heading-xsmall`<br /><br /><span class="ds-fontsize-small">Small</span>
-// xSmall: 11px: xSmall Avatars, xSmall Buttons, Chart Key Titles, Compact Datepicker Weekdays, xSmall labels for styled checkboxes and radios, xSmall text inputs, picklist header text, xSmall picklist bodies, xSmall pills, xSmall tags, Form validation, Stepper Links, Stepper Descriptions, Minor text sizes.<br /><br /><span class="ds-fontsize-xsmall">xSmall</span>
-// 2xSmall: 9px: 2xSmall Avatars, Form validation, Stepper Links, Stepper Descriptions, Minor text sizes.<br /><br /><span class="ds-fontsize-2xsmall">2xSmall</span>
+// 3xLarge: 72px: <span class="ds-fontsize-3xlarge">3xLarge</span>
+// 2xLarge: 48px: <span class="ds-fontsize-2xlarge">2xLarge</span>
+// xLarge: 21px: <span class="ds-fontsize-xlarge">xLarge</span>
+// Large: 17px: <span class="ds-fontsize-large">Large</span>
+// Medium: 15px: <span class="ds-fontsize-medium">Medium</span>
+// Small: 13px: <span class="ds-fontsize-small">Small</span>
+// xSmall: 11px: <span class="ds-fontsize-xsmall">xSmall</span>
+// 2xSmall: 9px: <span class="ds-fontsize-2xsmall">2xSmall</span>
 //
 // Styleguide: Fundamentals.Typography.20
 
 
-// Everyday headings
+// Heading classes
 //
-// Headings are one scale up from regular sizes and have differing spacing rules attached. For example, a 2xlarge heading is equivalent to 3xlarge regular font-size. We also don't offer anything smaller then small headings.
+// Heading are similar to sizes, but also include additional font-weight and spacing rules.
 //
 // **Important:** If you're using headings in a modal or dropdown please use one of our [presets](#fundamentals-typography-23) instead.
 //
 // Definitions:
-// 2xLarge: `xui-heading-2xlarge`: <h1 class="xui-heading-2xlarge xui-text-truncated">2xlarge</h1>
-// xLarge: `xui-heading-xlarge`: <h2 class="xui-heading-xlarge xui-text-truncated">An xlarge sized heading</h2>
-// Large: `xui-heading-large`: <h3 class="xui-heading-large xui-margin-none">Directory Listing</h3>
-// Medium: `xui-heading` <span class="xui-tag xui-tag-negative xui-tag-small">Deprecated</span><br />`xui-heading-medium` <span class="xui-tag xui-tag-positive xui-tag-small">New</span>: <h4 class="xui-heading-medium xui-margin-none">Location</h4>
-// Small: `xui-heading-small`: <h5 class="xui-heading-small xui-margin-none">Street Address</h5>
-// Extra Small: `xui-heading-xsmall`: <h6 class="xui-heading-xsmall xui-margin-none">Map</h6>
+// xLarge: `xui-heading-xlarge`: <h2 class="xui-heading-xlarge xui-text-truncated">xLarge</h2>
+// Large: `xui-heading-large`: <h3 class="xui-heading-large xui-margin-none">Large</h3>
+// Medium: `xui-heading-medium`: <h4 class="xui-heading-medium xui-margin-none">Medium</h4>
+// Small: `xui-heading-small`: <h5 class="xui-heading-small xui-margin-none">Small</h5>
+// xSmall: `xui-heading-xsmall`: <h6 class="xui-heading-xsmall xui-margin-none">xSmall</h6>
 //
 // Styleguide: Fundamentals.Typography.21
 

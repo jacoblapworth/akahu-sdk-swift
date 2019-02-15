@@ -40,7 +40,6 @@
 	@include xui-heading-small;
 }
 
-.#{$ns}-heading, // TODO, DEPRECATE THIS
 .#{$ns}-heading-medium {
 	@include xui-heading-medium;
 }
@@ -55,4 +54,8 @@
 
 .#{$ns}-heading-2xlarge {
 	@include xui-heading-2xlarge;
+}
+
+.#{$ns}-heading-3xlarge {
+	@include xui-heading-3xlarge;
 }

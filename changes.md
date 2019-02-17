@@ -111,6 +111,11 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- Has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.
 - `Autocompleter`
 	- Has a new `inputSize` prop. The default value is `medium`. The other available size is `small`.
+- `XUISwitch`, `XUICheckbox`, and `XUIRadio`
+	- Have a new validation props.
+		- `hintMessage`	shows a hint message under the input.
+		- `validationMessage` shows a validation message under the input.
+		- `isInvalid` switches the `hintMessage` out for the `validationMessage`.
 
 ### Utility classes
 
@@ -179,6 +184,10 @@ Utility classes with breakpoint suffixes have been updated to reflect the new br
 - XUIToggle's `variant` prop has been renamed to `size`. The default value is `medium`. Other available values are `small`.
 - Autocompleter has a new `inputSize` prop. The default value is `medium`. The other available size is `small`.
 - XUIStepper has a new `isTruncated` prop which defaults to `true`, truncating each "step" at 300px wide.
+- `XUISwitch`, `XUICheckbox`, and `XUIRadio` have a new validation props.
+	- `hintMessage`	shows a hint message under the input.
+	- `validationMessage` shows a validation message under the input.
+	- `isInvalid` switches the `hintMessage` out for the `validationMessage`.
 
 ## Other changes
 

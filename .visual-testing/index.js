@@ -178,7 +178,12 @@ const componentsToTest = [
 		testsPrefix: 'Page Layouts',
 		variationsPath: '../.tmp/react-visualregression/stories/page-layouts/tests.js',
 		...fullPageSettings
-	}
+	},
+	{
+		testsPrefix: 'Compositions',
+		variationsPath: `${variationsPath}/compositions/stories/variations.js`,
+		selectors: '#root',
+	},
 ];
 
 // TODO: Investigate if it's possible to run storybook as a module

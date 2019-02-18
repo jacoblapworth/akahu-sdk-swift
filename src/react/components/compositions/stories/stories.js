@@ -20,6 +20,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import withReadme from 'storybook-readme/with-readme';
 import Readme from './README.md';
+import { variations, storiesWithVariationsKindName } from './variations';
 
 import XUIPanel from '../../structural/XUIPanel';
 import XUIPicklist from '../../picklist/Picklist';
@@ -285,4 +286,23 @@ storiesWithKnobs.add('Split', () => {
 			{...areas}
 		/>
 	)
+});
+
+const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+
+variations.forEach(variation => {
+	storiesWithVariations.add(variation.storyTitle, () => {
+		const variationMinusStoryDetails = { ...variation };
+		const Tag = variationMinusStoryDetails.composition;
+		const compositionProps = variationMinusStoryDetails.compositionProps;
+
+		const areasInstance = { ...blockAreas };
+
+		areasInstance.summary = compositionProps.hasAutoColumnWidths ?
+			blockAreas.summary() : blockAreas.summary({minWidth: '100px', width: '100%'});
+		areasInstance.master = compositionProps.hasAutoColumnWidths ?
+			blockAreas.master() : blockAreas.master({minWidth: '100px', width: '100%'});
+
+		return <Tag {...compositionProps} {...areasInstance} />;
+	});
 });

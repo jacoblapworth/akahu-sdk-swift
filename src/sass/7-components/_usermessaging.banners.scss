@@ -44,13 +44,13 @@
 //
 // Markup:
 // <div class="xui-banner xui-banner-layout" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
 //       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <p class="xui-banner--message">Standard banner</p>
 // </div>
 // <div class="xui-banner xui-banner-layout" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
 //       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <p class="xui-banner--message">Banner with actions</p>
@@ -60,7 +60,7 @@
 //   </ul>
 // </div>
 // <div class="xui-banner xui-banner-layout" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
 //       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <p class="xui-banner--message">Banner with secondary message</p>
@@ -89,13 +89,13 @@
 //
 // Markup:
 // <div class="xui-banner xui-banner-layout xui-banner-positive" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
 //       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <p class="xui-banner--message">Banner message</p>
 // </div>
 // <div class="xui-banner xui-banner-layout xui-banner-negative" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
 //       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <p class="xui-banner--message">Banner message</p>
@@ -169,7 +169,7 @@
 
 	.#{$ns}-banner--messagedetail {
 		@include xui-margin-vertical($xui-s-xsmall);
-		@include xui-margin-horizontal($xui-s-xsmall);
+		@include xui-margin-horizontal($xui-s-small);
 	}
 
 	.#{$ns}-banner--action {

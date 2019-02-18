@@ -31,6 +31,15 @@ const itemLabels = [
 	'This item will be a bit longer and just fine!',
 ];
 
+const logEvent = (event) => {console.log(event.type)};
+const logAllEvents = {
+	onClick: logEvent,
+  onFocus: logEvent,
+  onBlur: logEvent,
+  onKeyDown: logEvent,
+  onMouseOver: logEvent
+};
+
 const buildItemsFromSettings = function (settings, listIndex, componentType) {
 	const listItems = [];
 	settings.forEach((item, itemIndex) => {
@@ -117,6 +126,7 @@ storiesWithKnobs.add('Playground', () => {
 					rightElement={showRightElement && <XUIIcon icon={arrow} />}
 					leftElement={showLeftElement && <XUIAvatar value="Tim Redmond" size={avatarSize} />}
 					pinnedElement={showPinned && '42'}
+					{...logAllEvents}
 				>
 					Tim Redmond
 				</XUIPickitem>
@@ -126,6 +136,7 @@ storiesWithKnobs.add('Playground', () => {
 					rightElement={showRightElement && <XUIIcon icon={search} />}
 					leftElement={showLeftElement && <XUIAvatar value="James Magness" size={avatarSize} />}
 					{...(showLongStrings ? longStrings : shortStrings)}
+					{...logAllEvents}
 				/>
 				{showDivider && <XUIPicklistDivider className="custom-class" />}
 				{showHeader && <XUIPicklistHeader id="testme">Design</XUIPicklistHeader>}
@@ -134,6 +145,7 @@ storiesWithKnobs.add('Playground', () => {
 					id="3"
 					rightElement={showRightElement && <XUIIcon icon={contact} />}
 					leftElement={showLeftElement && <XUIAvatar value="Finn Clark" size={avatarSize} />}
+					{...logAllEvents}
 				>
 					Finn Clark
 				</XUIPickitem>

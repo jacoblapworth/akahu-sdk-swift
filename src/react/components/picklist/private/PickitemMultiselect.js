@@ -20,6 +20,8 @@ const PickitemMultiselect = ({
 	onKeyDown,
 	shouldTruncate,
 	onMouseOver,
+	onBlur,
+	onFocus,
 	isSelected,
 	children,
 	checkboxClassName,
@@ -61,7 +63,8 @@ const PickitemMultiselect = ({
 			onClick={onClick}
 			onKeyDown={onKeyDown}
 			onMouseOver={onMouseOver}
-			onFocus={onMouseOver}
+			onBlur={onBlur}
+			onFocus={onFocus || onMouseOver}
 			data-automationid={qaHook}
 			role="presentation"
 		>
@@ -97,6 +100,8 @@ PickitemMultiselect.propTypes = {
 	onClick: PropTypes.func,
 	onKeyDown: PropTypes.func,
 	onMouseOver: PropTypes.func,
+	onBlur: PropTypes.func,
+	onFocus: PropTypes.func,
 	shouldTruncate: PropTypes.bool,
 	qaHook: PropTypes.string,
 	size: PropTypes.oneOf(['medium', 'small']),

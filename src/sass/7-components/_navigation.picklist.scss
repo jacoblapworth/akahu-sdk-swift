@@ -1386,16 +1386,6 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	flex-grow: 1000000;
 	outline: none;
 	position: relative;
-	&:hover,
-	&:focus {
-		background: $xui-pickitem-focus-bg-color;
-	}
-	&:hover {
-		cursor: pointer;
-	}
-	&:active {
-		background: $xui-pickitem-active-bg-color;
-	}
 }
 
 .#{$ns}-pickitem--body {
@@ -1414,6 +1404,16 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	// In the specific context of a dropdownfooter, pickitems should be blue.
 	.#{$ns}-dropdown--footer--picklist & {
 		color: $xui-action-primary-color;
+	}
+	&:hover,
+	&:focus {
+		background: $xui-pickitem-focus-bg-color;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+	&:active {
+		background: $xui-pickitem-active-bg-color;
 	}
 }
 
@@ -1685,83 +1685,6 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	}
 }
 
-// Size-specific
-.#{$ns}-picklist-medium {
-	// List-level
-	&.#{$ns}-picklist-layout {
-		@include xui-padding-vertical($xui-s-small);
-	}
-	> .#{$ns}-picklist--header {
-		@include xui-padding-horizontal($xui-s-small);
-	}
-	> .#{$ns}-picklist--divider {
-		@include xui-margin-vertical($xui-s-small);
-	}
-
-	// Item-level by list size
-	.#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
-		@include xui-text-standard;
-		min-height: $xui-s-3xlarge;
-	}
-	.#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
-		height: $xui-s-3xlarge;
-		width: $xui-s-3xlarge;
-	}
-	.#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
-		@include xui-padding-vertical($xui-s-small);
-	}
-}
-.#{$ns}-picklist-small {
-	// List-level
-	&.#{$ns}-picklist-layout {
-		@include xui-padding-vertical($xui-s-xsmall);
-	}
-	> .#{$ns}-picklist--header {
-		@include xui-padding-horizontal($xui-s-xsmall);
-	}
-	> .#{$ns}-picklist--divider {
-		@include xui-margin-vertical($xui-s-xsmall);
-	}
-
-	// Item-level by list size
-	.#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
-		@include xui-text-small;
-		min-height: $xui-s-2xlarge;
-	}
-	.#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
-		height: $xui-s-2xlarge;
-		width: $xui-s-2xlarge;
-	}
-	.#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
-		@include xui-padding-vertical($xui-s-xsmall);
-	}
-}
-.#{$ns}-picklist-xsmall {
-	// List-level
-	&.#{$ns}-picklist-layout {
-		@include xui-padding-vertical($xui-s-2xsmall);
-	}
-	> .#{$ns}-picklist--header {
-		@include xui-padding-horizontal($xui-s-2xsmall);
-	}
-	> .#{$ns}-picklist--divider {
-		@include xui-margin-vertical($xui-s-2xsmall);
-	}
-
-	// Item-level by list size
-	.#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
-		@include xui-text-xsmall;
-		min-height: $xui-s-xlarge;
-	}
-	.#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
-		height: $xui-s-xlarge;
-		width: $xui-s-xlarge;
-	}
-	.#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
-		@include xui-padding-vertical($xui-s-2xsmall);
-	}
-}
-
 .#{$ns}-pickitem-medium {
 	.#{$ns}-pickitem--body {
 		@include xui-text-standard;
@@ -1817,12 +1740,22 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	}
 }
 
-// Size-specific vertical
-.#{$ns}-pickitem-medium:not(.#{$ns}-pickitem-is-horizontal),
 .#{$ns}-picklist-medium .#{$ns}-submenu-uicontrol:nth-child(2) {
 	@include xui-padding-horizontal($xui-s-small);
-	.#{$ns}-pickitem--sideelement,
-	{
+}
+.#{$ns}-picklist-small .#{$ns}-submenu-uicontrol:nth-child(2) {
+	@include xui-padding-horizontal($xui-s-xsmall);
+}
+.#{$ns}-picklist-xsmall .#{$ns}-submenu-uicontrol:nth-child(2) {
+	@include xui-padding-horizontal($xui-s-2xsmall);
+}
+
+// Size-specific vertical
+.#{$ns}-pickitem-medium:not(.#{$ns}-pickitem-is-horizontal) {
+	.#{$ns}-pickitem--body {
+		@include xui-padding-horizontal($xui-s-small);
+	}
+	.#{$ns}-pickitem--sideelement {
 		height: $xui-s-3xlarge;
 		min-width: $xui-s-3xlarge;
 	}
@@ -1835,9 +1768,10 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 		margin-left: $xui-s-standard;
 	}
 }
-.#{$ns}-pickitem-small:not(.#{$ns}-pickitem-is-horizontal),
-.#{$ns}-picklist-small .#{$ns}-submenu-uicontrol:nth-child(2) {
-	@include xui-padding-horizontal($xui-s-xsmall);
+.#{$ns}-pickitem-small:not(.#{$ns}-pickitem-is-horizontal) {
+	.#{$ns}-pickitem--body {
+		@include xui-padding-horizontal($xui-s-xsmall);
+	}
 	.#{$ns}-pickitem--sideelement {
 		height: $xui-s-2xlarge;
 		min-width: $xui-s-2xlarge;
@@ -1851,9 +1785,10 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 		margin-left: $xui-s-small;
 	}
 }
-.#{$ns}-pickitem-xsmall:not(.#{$ns}-pickitem-is-horizontal),
-.#{$ns}-picklist-xsmall .#{$ns}-submenu-uicontrol:nth-child(2) {
-	@include xui-padding-horizontal($xui-s-2xsmall);
+.#{$ns}-pickitem-xsmall:not(.#{$ns}-pickitem-is-horizontal) {
+	.#{$ns}-pickitem--body {
+		@include xui-padding-horizontal($xui-s-2xsmall);
+	}
 	.#{$ns}-pickitem--sideelement {
 		height: $xui-s-xlarge;
 		min-width: $xui-s-xlarge;
@@ -1870,7 +1805,9 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 
 // Size-specific horizontal
 .#{$ns}-pickitem-medium.#{$ns}-pickitem-is-horizontal {
-	@include xui-padding-horizontal($xui-s-large);
+	.#{$ns}-pickitem--body {
+		@include xui-padding-horizontal($xui-s-large);
+	}
 	&:not(.#{$ns}-pickitem-text-truncated) > .#{$ns}-pickitem--body {
 		@include xui-padding-vertical($xui-s-xsmall);
 	}
@@ -1889,7 +1826,9 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	}
 }
 .#{$ns}-pickitem-small.#{$ns}-pickitem-is-horizontal {
-	@include xui-padding-horizontal($xui-s-standard);
+	.#{$ns}-pickitem--body {
+		@include xui-padding-horizontal($xui-s-standard);
+	}
 	&:not(.#{$ns}-pickitem-text-truncated) > .#{$ns}-pickitem--body {
 		@include xui-padding-vertical($pickitem-small-padding);
 	}
@@ -1908,7 +1847,9 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	}
 }
 .#{$ns}-pickitem-xsmall.#{$ns}-pickitem-is-horizontal {
-	@include xui-padding-horizontal($xui-s-small);
+	.#{$ns}-pickitem--body {
+		@include xui-padding-horizontal($xui-s-small);
+	}
 	&:not(.#{$ns}-pickitem-text-truncated) > .#{$ns}-pickitem--body {
 		@include xui-padding-vertical($xui-s-2xsmall);
 	}
@@ -1975,6 +1916,92 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 	}
 	&:active {
 		color: $xui-pickitem-selected-active-color;
+	}
+}
+
+// Size-specific
+.#{$ns}-picklist-medium {
+	// List-level
+	&.#{$ns}-picklist-layout {
+		@include xui-padding-vertical($xui-s-small);
+	}
+	> .#{$ns}-picklist--header {
+		@include xui-padding-horizontal($xui-s-small);
+	}
+	> .#{$ns}-picklist--divider {
+		@include xui-margin-vertical($xui-s-small);
+	}
+
+	// Item-level by list size
+	.#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
+		@include xui-text-standard;
+		min-height: $xui-s-3xlarge;
+	}
+	.#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
+		height: $xui-s-3xlarge;
+		width: $xui-s-3xlarge;
+	}
+	.#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
+		@include xui-padding-vertical($xui-s-small);
+	}
+	.#{$ns}-submenu .#{$ns}-pickitem--body {
+		padding-left: $xui-s-small + $xui-s-large; // Double indent for sub menus.
+	}
+}
+.#{$ns}-picklist-small {
+	// List-level
+	&.#{$ns}-picklist-layout {
+		@include xui-padding-vertical($xui-s-xsmall);
+	}
+	> .#{$ns}-picklist--header {
+		@include xui-padding-horizontal($xui-s-xsmall);
+	}
+	> .#{$ns}-picklist--divider {
+		@include xui-margin-vertical($xui-s-xsmall);
+	}
+
+	// Item-level by list size
+	.#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
+		@include xui-text-small;
+		min-height: $xui-s-2xlarge;
+	}
+	.#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
+		height: $xui-s-2xlarge;
+		width: $xui-s-2xlarge;
+	}
+	.#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
+		@include xui-padding-vertical($xui-s-xsmall);
+	}
+	.#{$ns}-submenu .#{$ns}-pickitem--body {
+		padding-left: $xui-s-xsmall + $xui-s-standard; // Double indent for sub menus.
+	}
+}
+.#{$ns}-picklist-xsmall {
+	// List-level
+	&.#{$ns}-picklist-layout {
+		@include xui-padding-vertical($xui-s-2xsmall);
+	}
+	> .#{$ns}-picklist--header {
+		@include xui-padding-horizontal($xui-s-2xsmall);
+	}
+	> .#{$ns}-picklist--divider {
+		@include xui-margin-vertical($xui-s-2xsmall);
+	}
+
+	// Item-level by list size
+	.#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
+		@include xui-text-xsmall;
+		min-height: $xui-s-xlarge;
+	}
+	.#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
+		height: $xui-s-xlarge;
+		width: $xui-s-xlarge;
+	}
+	.#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
+		@include xui-padding-vertical($xui-s-2xsmall);
+	}
+	.#{$ns}-submenu .#{$ns}-pickitem--body {
+		padding-left: $xui-s-2xsmall + $xui-s-small; // Double indent for sub menus.
 	}
 }
 

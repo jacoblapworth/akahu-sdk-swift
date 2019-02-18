@@ -34,8 +34,11 @@ const variations = [
 				{
 					value: 'The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
 					isSelected: true,
+					href: 'http://xui.xero.com'
 				},
-				{ },
+				{
+					onClick: () => {console.log("clicked!")},
+				},
 				{ },
 			],
 			className: 'xui-column-5-of-12',
@@ -47,8 +50,12 @@ const variations = [
 		lists: [{
 			items: [
 				{ },
-				{ isSelected: true },
-				{ },
+				{ isSelected: true,
+					href: 'http://xui.xero.com'
+				},
+				{
+					onClick: () => {console.log("clicked!")},
+				},
 			],
 			isHorizontal: true,
 		}],

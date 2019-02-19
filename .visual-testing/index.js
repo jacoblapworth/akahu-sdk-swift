@@ -210,6 +210,10 @@ function buildScenarios() {
 			variationsFile[component.variationsProp || 'variations'];
 		scenarios = scenarios.concat(
 			variations.map(story => {
+				const viewports = (story.viewports || component.viewports || [])
+					// Create a shallow clone of viewports because Backstop mutates them
+					.map(viewport => ({...viewport}));
+
 				return {
 					label: `${component.testsPrefix} ${story.storyTitle}`,
 					url: buildUrl(story.storyKind, story.storyTitle),
@@ -218,7 +222,7 @@ function buildScenarios() {
 					selectorExpansion: component.captureAllSelectors,
 					delay,
 					readyEvent,
-					viewports: story.viewports || component.viewports
+					viewports
 				};
 			})
 		);

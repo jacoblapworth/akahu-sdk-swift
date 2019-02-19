@@ -19,7 +19,8 @@
 		"flag",
 		"storybook",
 		"image",
-		"image-caption"
+		"image-caption",
+		"language"
 	],
 	"destination": "./dist/docs",
 	"css": [

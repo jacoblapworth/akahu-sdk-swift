@@ -11,7 +11,7 @@ const asyncExecSync = promisify(execSync);
 function start() {
 	return taskRunner(taskSpinner => {
 		let execTask =
-			'./node_modules/.bin/start-storybook -p 9001 -c .storybook -s ./dist/css';
+			'./node_modules/.bin/start-storybook -p 9001 -c .storybook -s ./dist/css --ci';
 
 		if (isWindowsPlatform) {
 			execTask = convertExecTaskToWindows(execTask);

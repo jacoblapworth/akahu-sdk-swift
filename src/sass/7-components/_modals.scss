@@ -5,6 +5,8 @@
 //
 // Components: Modal
 //
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.dmxa22se8ql4
+//
 // Teaser: Add layers of infromation or interaction
 //
 // Introduction: Modals are used to provide additional functionality not available on the base page, and provide intermediary steps between larger flows.
@@ -204,7 +206,7 @@
 
 .#{$ns}-modal-layout {
 	max-width: calc(100vw - 2.5rem);  // Allows for minimum margin at the left/right of modal
-	width: $xui-starting-width + ($xui-base-width * 3);
+	width: map-get($xui-modal-widths, medium);
 	// Modal header
 	// -----------------------------------------------------------------------------
 	.#{$ns}-modal--header {

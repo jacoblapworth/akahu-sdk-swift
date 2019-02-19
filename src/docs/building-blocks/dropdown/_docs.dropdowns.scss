@@ -6,6 +6,8 @@
 //
 // Components: Dropdown
 //
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.dszy23b5puhq
+//
 // Teaser:
 // Used to reveal additional actions not present on the parent page.
 //
@@ -130,10 +132,10 @@
 // To set a max width, apply the following modifiers to `xui-dropdown-layout`.
 //
 // Definitions:
-// Small: 140px max-width: `xui-dropdown-small`
-// Medium: 220px max-width: `xui-dropdown-medium`
-// Large: 300px max-width: `xui-dropdown-large`
-// xlarge: 380px max-width: `xui-dropdown-xlarge`
+// xsmall: 100px max-width: `xui-dropdown-xsmall`
+// small: 200px max-width: `xui-dropdown-small`
+// medium: 300px max-width: `xui-dropdown-medium`
+// large: 400px max-width: `xui-dropdown-large`
 //
 // Styleguide: Compounds.CollectingInput.Dropdowns.12.1
 
@@ -145,10 +147,10 @@
 // To set a fixed width, apply the following modifiers to `xui-dropdown-layout`.
 //
 // Definitions:
-// Fixed Small: 140px width: `xui-dropdown-fixed-small`
-// Fixed Medium: 220px width: `xui-dropdown-fixed-medium`
-// Fixed Large: 300px width: `xui-dropdown-fixed-large`
-// Fixed xLarge: 380px width: `xui-dropdown-fixed-xlarge`
+// Fixed xsmall: 100px width: `xui-dropdown-fixed-xsmall`
+// Fixed small: 200px width: `xui-dropdown-fixed-small`
+// Fixed medium: 300px width: `xui-dropdown-fixed-medium`
+// Fixed large: 400px width: `xui-dropdown-fixed-large`
 //
 // Styleguide: Compounds.CollectingInput.Dropdowns.12.2
 
@@ -251,7 +253,7 @@
 // xui-dropdown--footer: Footer container
 //
 // Markup:
-// <div class='xui-dropdown-layout xui-dropdown-fullheight xui-dropdown-fixed-xlarge xui-dropdown-is-open'>
+// <div class='xui-dropdown-layout xui-dropdown-fullheight xui-dropdown-fixed-large xui-dropdown-is-open'>
 // <div class='xui-dropdown--mask'></div>
 //   <div class='xui-dropdown--body'>
 //     <div class="xui-dropdown--header-container">

@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import Pickitem from '../Pickitem';
@@ -107,5 +107,103 @@ describe('<Pickitem />', () => {
 			/>
 		);
 		expect(truncation).toMatchSnapshot();
+	});
+
+	it('passes event handlers to the PickitemBody (button)', () => {
+		const onClickMock = jest.fn();
+		const onBlurMock = jest.fn();
+		const onFocusMock = jest.fn();
+		const onMouseOverMock = jest.fn();
+		const onKeyDownMock = jest.fn();
+		const wrapper = mount(
+			<Pickitem
+				onClick={onClickMock}
+				onFocus={onFocusMock}
+				onBlur={onBlurMock}
+				onKeyDown={onKeyDownMock}
+				onMouseOver={onMouseOverMock}
+				id='item1'
+			>
+				Item 1
+			</Pickitem>
+		);
+
+		const button = wrapper.find('button').first();
+		button.simulate('click');
+		expect(onClickMock).toHaveBeenCalledTimes(1);
+		button.simulate('focus');
+		expect(onFocusMock).toHaveBeenCalledTimes(1);
+		button.simulate('blur');
+		expect(onBlurMock).toHaveBeenCalledTimes(1);
+		button.simulate('keydown');
+		expect(onKeyDownMock).toHaveBeenCalledTimes(1);
+		button.simulate('mouseover');
+		expect(onMouseOverMock).toHaveBeenCalledTimes(1);
+	});
+
+	it('passes event handlers to the PickitemBody (anchor)', () => {
+		const onClickMock = jest.fn();
+		const onBlurMock = jest.fn();
+		const onFocusMock = jest.fn();
+		const onMouseOverMock = jest.fn();
+		const onKeyDownMock = jest.fn();
+		const wrapper = mount(
+			<Pickitem
+				href="http://xui.xero.com"
+				onClick={onClickMock}
+				onFocus={onFocusMock}
+				onBlur={onBlurMock}
+				onKeyDown={onKeyDownMock}
+				onMouseOver={onMouseOverMock}
+				id='item1'
+			>
+				Item 1
+			</Pickitem>
+		);
+
+		const anchor = wrapper.find('a').first();
+		anchor.simulate('click');
+		expect(onClickMock).toHaveBeenCalledTimes(1);
+		anchor.simulate('focus');
+		expect(onFocusMock).toHaveBeenCalledTimes(1);
+		anchor.simulate('blur');
+		expect(onBlurMock).toHaveBeenCalledTimes(1);
+		anchor.simulate('keydown');
+		expect(onKeyDownMock).toHaveBeenCalledTimes(1);
+		anchor.simulate('mouseover');
+		expect(onMouseOverMock).toHaveBeenCalledTimes(1);
+	});
+
+	it('passes event handlers to the PickitemMultiselect', () => {
+		const onClickMock = jest.fn();
+		const onBlurMock = jest.fn();
+		const onFocusMock = jest.fn();
+		const onMouseOverMock = jest.fn();
+		const onKeyDownMock = jest.fn();
+		const wrapper = mount(
+			<Pickitem
+				isMultiselect
+				onClick={onClickMock}
+				onFocus={onFocusMock}
+				onBlur={onBlurMock}
+				onKeyDown={onKeyDownMock}
+				onMouseOver={onMouseOverMock}
+				id='item1'
+			>
+				Item 1
+			</Pickitem>
+		);
+
+		const label = wrapper.find('.xui-pickitem--body').first();
+		label.simulate('click');
+		expect(onClickMock).toHaveBeenCalledTimes(1);
+		label.first().simulate('focus');
+		expect(onFocusMock).toHaveBeenCalledTimes(1);
+		label.first().simulate('blur');
+		expect(onBlurMock).toHaveBeenCalledTimes(1);
+		label.first().simulate('keydown');
+		expect(onKeyDownMock).toHaveBeenCalledTimes(1);
+		label.first().simulate('mouseover');
+		expect(onMouseOverMock).toHaveBeenCalledTimes(1);
 	});
 })

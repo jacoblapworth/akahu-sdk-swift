@@ -36,7 +36,7 @@ class ChartKey extends PureComponent {
 		const dropdown = (
 			<DropDown
 				fixedWidth
-				size="medium"
+				size="small"
 				hasKeyboardEvents={false}
 				restrictFocus={false}
 			>

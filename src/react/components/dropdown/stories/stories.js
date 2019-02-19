@@ -121,7 +121,7 @@ const sideBySide = (
 			isHidden={false}
 			isLegacyDisplay={false}
 			dropdown={
-				<DropDown size="large" restrictFocus={false} fixedWidth>
+				<DropDown size="medium" restrictFocus={false} fixedWidth>
 					<Picklist>{createItems(toggledItems, 'one')}</Picklist>
 				</DropDown>
 			}
@@ -130,7 +130,7 @@ const sideBySide = (
 			trigger={<XUIButton>Open for even more goodies<XUIButtonCaret /></XUIButton>}
 			isHidden={false}
 			dropdown={
-				<DropDown size="large" restrictFocus={false}>
+				<DropDown size="medium" restrictFocus={false}>
 					<Picklist>{createItems(toggledItems, 'two')}</Picklist>
 				</DropDown>
 			}
@@ -151,7 +151,7 @@ storiesWithKnobs.add('Playground', () => {
 			trigger={trigger}
 			dropdown={
 				<DropDown
-					size={select('dropdown size', Object.keys(maxWidthDropdownSizes), 'xlarge')}
+					size={select('dropdown size', Object.keys(maxWidthDropdownSizes), 'large')}
 					restrictFocus={boolean('restrictFocus', false)}
 					animateClosed={boolean('animateClosed', false)}
 					animateOpen={boolean('animateOpen', false)}

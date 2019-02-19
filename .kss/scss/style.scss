@@ -1059,12 +1059,22 @@ $kss-color-padding: #eeebff;
 
 
 // -----------------------------------------------------------------------------
-// Component link
+// Component / Language links
 // -----------------------------------------------------------------------------
 
 .ds-component-link  {
-	position: absolute;
 	right: 0;
+	.xui-tooltip--tip {
+		margin: $xui-s-xsmall $xui-s-2xsmall 0 0;
+	}
+}
+
+.ds-language-link  {
+	right: 40px;
+}
+
+.ds-component-link, .ds-language-link {
+	position: absolute;
 	top: 0;
 	@include xui-breakpoint-small-up {
 		top: 0.7em; // visual correction when text bigger
@@ -1072,55 +1082,11 @@ $kss-color-padding: #eeebff;
 	.kss-section--depth-2 & {
 		top: $ds-section-space; // different positioning if used in a secondary section
 	}
-}
-
-a.ds-component-link:before {
-		content: "React component";
-		display: block;
-		position: absolute;
-		width: 9em;
-		background-color: $ds-code-bg-color;
-		right: 100%;
-		padding: 0.3em 0.3em 0.2em;
-		border-radius: 3px;
-		font-size: 12px;
-		text-align: center;
-		transform: translateY(-2px);
-		top: 20%;
-}
-
-a.ds-component-link:after {
-		display: block;
-		content: "";
-		position: absolute;
-		width: 0;
-		height: 0;
-		border-top: 5px solid transparent;
-		border-bottom: 5px solid transparent;
-		border-left: 5px solid $ds-code-bg-color;
-		transform: translateX(-1px) translateY(-2px);
-		z-index: 10;
-		right: calc(100% - 5px);
-		top: 39%;
-}
-
-.ds-component-link:after,
-.ds-component-link:before {
-	transition-timing-function: cubic-bezier(0.565, -10, 0.605, 10);
-	transition-property: transform;
-	transition-duration: 0.25s;
-	@include xui-breakpoint-small-down {
-		display: none;
-	}
-}
-
-.ds-component-link:hover {
-	@include xui-breakpoint-small-up {
-		&:after {
-			transform: translateX(-2px) translateY(-2px);
-		}
-		&:before {
-			transform: translateX(-1px) translateY(-2px);
+	.xui-tooltip:hover {
+		.xui-tooltip--tip {
+			transition-delay: $xui-motion-speed-medium;
+			opacity: 1;
+			pointer-events: auto;
 		}
 	}
 }

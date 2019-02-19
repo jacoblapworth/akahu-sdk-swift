@@ -34,8 +34,11 @@ const variations = [
 				{
 					value: 'The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
 					isSelected: true,
+					href: 'http://xui.xero.com'
 				},
-				{ },
+				{
+					onClick: () => {console.log("clicked!")},
+				},
 				{ },
 			],
 			className: 'xui-column-5-of-12',
@@ -47,8 +50,12 @@ const variations = [
 		lists: [{
 			items: [
 				{ },
-				{ isSelected: true },
-				{ },
+				{ isSelected: true,
+					href: 'http://xui.xero.com'
+				},
+				{
+					onClick: () => {console.log("clicked!")},
+				},
 			],
 			isHorizontal: true,
 		}],
@@ -143,7 +150,7 @@ const variations = [
 		storyTitle: 'with wrapping in narrow list',
 		isOpen: true,
 		componentType: 'StatefulPicklist',
-		className: 'xui-dropdown-medium',
+		className: 'xui-dropdown-small',
 		lists: [{
 			isMultiselect: true,
 			items: [ { }, { }, { }, { }, ],
@@ -154,7 +161,7 @@ const variations = [
 		storyTitle: 'with truncation in narrow list',
 		isOpen: true,
 		componentType: 'StatefulPicklist',
-		className: 'xui-dropdown-medium',
+		className: 'xui-dropdown-small',
 		lists: [{
 			isMultiselect: true,
 			shouldTruncate: true,

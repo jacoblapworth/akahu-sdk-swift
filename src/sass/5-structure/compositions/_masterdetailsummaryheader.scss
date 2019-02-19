@@ -37,11 +37,17 @@
 @mixin composition-mdsh-medium-gap {
 	@include xui-composition-grid-gap;
 	@include composition-mdsh-medium;
+	&.#{$ns}-composition-has-auto-widths {
+		-ms-grid-columns: 25% $xui-grid-gutter 1fr;
+	}
 }
 
 @mixin composition-mdsh-large-gap {
 	@include xui-composition-grid-gap;
 	@include composition-mdsh-large;
+	&.#{$ns}-composition-has-auto-widths {
+		-ms-grid-columns: 25% $xui-grid-gutter 1fr $xui-grid-gutter 25%;
+	}
 }
 
 // Classes using templates at various breakpoints

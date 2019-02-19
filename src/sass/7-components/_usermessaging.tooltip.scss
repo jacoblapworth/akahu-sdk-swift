@@ -36,9 +36,11 @@
 // xui-tooltip--tip: The class for the tip itself
 // xui-tooltip--tip-open: Sets the tooltip to be visible
 //
+// ExampleClass: ds-example-transparent
+//
 // Markup:
 // <span class="xui-tooltip xui-tooltip-tipopen">
-// 	<button aria-label="Info" class="xui-button xui-button-icon xui-button-fullwidth" tabindex="0" type="button">
+// 	<button aria-label="Info" class="xui-button xui-button-icon xui-button-icon-small xui-button-fullwidth" tabindex="0" type="button">
 // 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: column; top: -30px;">
@@ -57,7 +59,7 @@
 // Tips:
 // Warning: If done with React, the tooltip will automatically reposition when there is not sufficient space for the tip to appear in the preferred location.
 //
-// ExampleClass: ds-example-flush ds-example-transparent
+// ExampleClass: ds-example-transparent
 //
 // Classes:
 // -topleft: Above the trigger, aligned to the left edge
@@ -67,7 +69,7 @@
 //
 // Markup:
 // <span class="xui-tooltip xui-tooltip-tipopen">
-// 	<button aria-haspopup="true" class="xui-button xui-button-icon" tabindex="0" type="button">
+// 	<button aria-haspopup="true" class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button">
 // 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: row; top: -40px;">
@@ -77,7 +79,7 @@
 // 	</span>
 // </span>
 // <span class="xui-tooltip xui-tooltip-tipopen">
-// 	<button aria-haspopup="true" class="xui-button xui-button-standard xui-button-fullwidth" tabindex="0" type="button">
+// 	<button aria-haspopup="true" class="xui-button xui-button-medium xui-button-standard xui-button-fullwidth" tabindex="0" type="button">
 // 		This is a trigger button
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: column; top: -20px;">
@@ -88,7 +90,7 @@
 // </span>
 // <br />
 // <span class="xui-tooltip xui-tooltip-tipopen">
-// 	<button aria-haspopup="true" class="xui-button xui-button-standard xui-button-fullwidth" tabindex="0" type="button">
+// 	<button aria-haspopup="true" class="xui-button xui-button-medium xui-button-standard xui-button-fullwidth" tabindex="0" type="button">
 // 		This is a trigger button
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: column; top: auto;">
@@ -98,7 +100,7 @@
 // 	</span>
 // </span>
 // <span class="xui-tooltip xui-tooltip-tipopen">
-// 	<button aria-haspopup="true" class="xui-button xui-button-icon" tabindex="0" type="button">
+// 	<button aria-haspopup="true" class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button">
 // 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: row; top: 10px;">

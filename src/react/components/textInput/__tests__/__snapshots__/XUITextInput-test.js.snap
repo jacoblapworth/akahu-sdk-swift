@@ -3,7 +3,6 @@
 exports[`<XUITextInput> General Functionality should have a qahook on the input and wrapper 1`] = `
 <div
   className="xui-textinputwrapper"
-  role="presentation"
 >
   <div
     className="xui-textinput xui-textinput-medium"
@@ -29,7 +28,6 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
 <div>
   <div
     className="xui-textinputwrapper"
-    role="presentation"
   >
     <div
       className="xui-textinput xui-textinput-medium"
@@ -69,7 +67,6 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
   </div>
   <div
     className="xui-textinputwrapper"
-    role="presentation"
   >
     <div
       className="xui-textinput xui-textinput-medium"
@@ -109,7 +106,6 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
   </div>
   <div
     className="xui-textinputwrapper"
-    role="presentation"
   >
     <div
       className="xui-textinput xui-textinput-medium"
@@ -173,7 +169,6 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
 exports[`<XUITextInput> Text-only input forces resize visible class based on options passed in 1`] = `
 <div
   className="xui-textinputwrapper"
-  role="presentation"
 >
   <div
     className="xui-textinput xui-textinput-medium"
@@ -197,7 +192,6 @@ exports[`<XUITextInput> Text-only input forces resize visible class based on opt
 exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
 <div
   className="xui-textinputwrapper"
-  role="presentation"
 >
   <div
     className="xui-textinput xui-textinput-medium"
@@ -222,7 +216,6 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
 exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
 <div
   className="xui-textinputwrapper"
-  role="presentation"
 >
   <div
     className="xui-textinput xui-textinput-medium xui-textinput-is-disabled"
@@ -246,7 +239,6 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
 exports[`<XUITextInput> Text-only input includes custom classes on the correct nodes 1`] = `
 <div
   className="custom-field-class xui-textinputwrapper"
-  role="presentation"
 >
   <label
     className="custom-label-class xui-text-label xui-fieldlabel-layout"
@@ -275,7 +267,6 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
 exports[`<XUITextInput> Text-only input renders with a hidden label when one is provided 1`] = `
 <div
   className="xui-textinputwrapper"
-  role="presentation"
 >
   <div
     className="xui-textinput xui-textinput-medium"
@@ -299,7 +290,6 @@ exports[`<XUITextInput> Text-only input renders with a hidden label when one is 
 exports[`<XUITextInput> Text-only input renders with a label when one is provided 1`] = `
 <div
   className="xui-textinputwrapper"
-  role="presentation"
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
@@ -328,7 +318,6 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
 exports[`<XUITextInput> Text-only input sets the resize none class based on options passed in 1`] = `
 <div
   className="xui-textinputwrapper"
-  role="presentation"
 >
   <div
     className="xui-textinput xui-textinput-medium"
@@ -352,7 +341,6 @@ exports[`<XUITextInput> Text-only input sets the resize none class based on opti
 exports[`<XUITextInput> Validation and hints renders invalid textinputs with an error message correctly 1`] = `
 <div
   className="xui-textinputwrapper"
-  role="presentation"
 >
   <div
     className="xui-textinput xui-textinput-medium xui-textinput-is-invalid"
@@ -386,7 +374,6 @@ exports[`<XUITextInput> Validation and hints renders invalid textinputs with an 
 exports[`<XUITextInput> Validation and hints renders with a hint message if one is provided and the input is valid 1`] = `
 <div
   className="xui-textinputwrapper"
-  role="presentation"
 >
   <div
     className="xui-textinput xui-textinput-medium"

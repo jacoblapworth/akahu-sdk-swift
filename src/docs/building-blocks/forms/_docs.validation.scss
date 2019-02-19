@@ -55,7 +55,7 @@
 // <div role="combobox" aria-expanded="false" class="xui-field-layout" data-ref="toggled-wrapper">
 // 	<div aria-haspopup="listbox">
 // 		<div class="xui-autocompleter--textinputplaceholder" aria-hidden="true"></div>
-// 		<div class="xui-textinputwrapper" role="presentation">
+// 		<div class="xui-textinputwrapper">
 // 			<label class="xui-text-label xui-fieldlabel-layout" for="autocompleter-control">Contacts</label>
 // 			<div class="xui-autocompleter--trigger-pillwrap xui-textinput xui-textinput-medium xui-textinput-is-invalid">
 // 				<div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable">
@@ -74,7 +74,7 @@
 // 		</div>
 // 	</div>
 // </div>
-// <div role="presentation" class="xui-field-layout">
+// <div class="xui-field-layout">
 // 	<label class="xui-text-label xui-fieldlabel-layout" for="selectbox1-control">Favourite book</label>
 // 	<div class="xui-select-layout xui-select-is-invalid">
 // 		<div role="presentation" data-ref="toggled-wrapper">
@@ -97,7 +97,7 @@
 // 	<div class="xui-validation xui-validation-layout xui-validation-is-invalid" role="status" id="selectbox1-message">Invalid favourite book</div>
 // </div>
 // <div class="xui-row-grid">
-// <div class="xui-column-4-of-12 xui-field-layout" role="presentation">
+// <div class="xui-column-4-of-12 xui-field-layout">
 // 	<span class="xui-text-label xui-fieldlabel-layout" id="radio-group1">Fishes</span>
 // 	<div class="xui-styledcheckboxradio-group xui-styledcheckboxradio-group-is-invalid" role="radiogroup" aria-invalid="true" aria-labelledby="radio-group1" aria-describedby="radio-group1-message">
 // 		<label class="xui-styledcheckboxradio" role="presentation">
@@ -118,7 +118,7 @@
 // 	</div>
 // 	<div class="xui-validation xui-validation-layout xui-validation-is-invalid" role="status" id="radio-group1-message">Select one fish</div>
 // </div>
-// <div class="xui-column-4-of-12 xui-field-layout" role="presentation">
+// <div class="xui-column-4-of-12 xui-field-layout">
 // 	<span class="xui-text-label xui-fieldlabel-layout" id="checkbox-group1">Birds</span>
 // 	<div class="xui-styledcheckboxradio-group xui-styledcheckboxradio-group-is-invalid" aria-invalid="true" aria-labelledby="checkbox-group1" aria-describedby="checkbox-group1-message">
 // 		<label class="xui-styledcheckboxradio" role="presentation">
@@ -139,7 +139,7 @@
 // 	</div>
 // 	<div class="xui-validation xui-validation-layout xui-validation-is-invalid" role="status" id="checkbox-group1-message">Select at least one bird</div>
 // </div>
-// 	<div class="xui-column-4-of-12 xui-field-layout" role="presentation">
+// 	<div class="xui-column-4-of-12 xui-field-layout">
 // 		<span class="xui-text-label xui-fieldlabel-layout" id="switch-group1">Preferences</span>
 // 		<div class="xui-switch-group xui-switch-group-is-invalid" aria-invalid="true" aria-labelledby="switch-group1" aria-describedby="switch-group1-message">
 // 			<label class="xui-switch xui-switch-reversed" role="presentation">

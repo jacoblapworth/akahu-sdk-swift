@@ -85,11 +85,12 @@ export default class XUIControlWrapper extends PureComponent {
 		);
 
 		return (
+			/* eslint-disable jsx-a11y/no-static-element-interactions */
 			<div
 				className={rootClasses}
 				onKeyDown={onKeyDown}
 				onClick={onClick}
-				role="presentation"
+				role={(onClick || onKeyDown) && 'presentation'}
 			>
 				<LabelElement
 					{...{
@@ -111,6 +112,7 @@ export default class XUIControlWrapper extends PureComponent {
 				}}
 				/>
 			</div>
+			/* eslint-enable */
 		);
 	}
 }

@@ -32,7 +32,7 @@
 // Email: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="email" placeholder="example@xero.com" aria-label="Email"/></div>
 // Tel: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="tel" placeholder="Telephone number" aria-label="Telephone"/></div>
 //
-// Note: Avoid using type="date" due to severe browser inconsistency. Use type="text" aria-label="date" instead.
+// Note: Avoid using type="date" due to severe browser inconsistency. Use type="text" with an accessible label indicating the data type instead.
 //
 // exampleclass: ds-example-markuponly
 //
@@ -84,19 +84,19 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
+// <div class="xui-textinputwrapper xui-field-layout">
 //   <label class="xui-text-label xui-fieldlabel-layout" for="a">Medium</label>
 //   <div class="xui-textinput xui-textinput-medium">
 //     <input type="text" class="xui-textinput--input xui-textinput--input-medium" placeholder="Placeholder" aria-invalid="false" id="a">
 //   </div>
 // </div>
-// <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
+// <div class="xui-textinputwrapper xui-field-layout">
 //   <label class="xui-text-label xui-fieldlabel-layout" for="b">Small</label>
 //   <div class="xui-textinput xui-textinput-small">
 //     <input type="text" class="xui-textinput--input xui-textinput--input-small" placeholder="Placeholder" aria-invalid="false" id="b">
 //   </div>
 // </div>
-// <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
+// <div class="xui-textinputwrapper xui-field-layout">
 //   <label class="xui-text-label xui-fieldlabel-layout" for="c">Xsmall</label>
 //   <div class="xui-textinput xui-textinput-xsmall">
 //     <input type="text" class="xui-textinput--input xui-textinput--input-xsmall" placeholder="Placeholder" aria-invalid="false" id="c">
@@ -125,7 +125,7 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
+// <div class="xui-textinputwrapper xui-field-layout">
 //   <label class="xui-text-label xui-fieldlabel-layout" for="d">Medium</label>
 //   <div class="xui-textinput xui-textinput-medium">
 //     <div class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-pill">
@@ -149,7 +149,7 @@
 //   </div>
 //   <div class="xui-validation xui-validation-layout" role="status" id="d">Small pill and button variants</div>
 // </div>
-// <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
+// <div class="xui-textinputwrapper xui-field-layout">
 //   <label class="xui-text-label xui-fieldlabel-layout" for="e">Small</label>
 //   <div class="xui-textinput xui-textinput-small">
 //     <div class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-text">Website:</div>
@@ -164,7 +164,7 @@
 //   </div>
 //   <div class="xui-validation xui-validation-layout" role="status" id="e">Text and Icon side elements sizes set by default from the Text input size variant</div>
 // </div>
-// <div class="xui-textinput-wrapper xui-field-layout" role="presentation">
+// <div class="xui-textinputwrapper xui-field-layout">
 //   <label class="xui-text-label xui-fieldlabel-layout" for="f">Xsmall</label>
 //   <div class="xui-textinput xui-textinput-xsmall">
 //     <div class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-avatar">

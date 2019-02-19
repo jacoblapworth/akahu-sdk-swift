@@ -3,7 +3,6 @@
 exports[`Range All options selected 1`] = `
 <div
   className=""
-  role="presentation"
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
@@ -66,7 +65,6 @@ exports[`Range All options selected 1`] = `
 exports[`Range LeftElement and RightElement work 1`] = `
 <div
   className=""
-  role="presentation"
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
@@ -121,7 +119,6 @@ exports[`Range LeftElement and RightElement work 1`] = `
 exports[`Range Simple case 1`] = `
 <div
   className=""
-  role="presentation"
 >
   <div
     className="xui-rangeslider-container"
@@ -138,7 +135,6 @@ exports[`Range Simple case 1`] = `
 exports[`Range invalid 1`] = `
 <div
   className=""
-  role="presentation"
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
@@ -172,7 +168,6 @@ exports[`Range invalid 1`] = `
 exports[`Range should be disabled 1`] = `
 <div
   className=""
-  role="presentation"
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"

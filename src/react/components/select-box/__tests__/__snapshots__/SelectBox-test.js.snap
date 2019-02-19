@@ -6,7 +6,6 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
 >
   <div
     className=""
-    role="presentation"
   >
     <label
       className="xui-text-label xui-fieldlabel-layout"
@@ -68,7 +67,6 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
 <div>
   <div
     className=""
-    role="presentation"
   >
     <label
       className="xui-text-label xui-fieldlabel-layout"

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {
 	XUICompositionDetail,
 	XUICompositionDetailHeader,
@@ -36,65 +34,22 @@ const storiesWithVariationsKindName = 'Compositions/Tests';
 const variations = [];
 
 Object.keys(compositions).forEach(compositionName => {
-	const compositionProps = {};
-
-	for (let i = 0; i < 2; i += 1) { // outer space switch
-		compositionProps.hasAutoSpaceAround = !!i;
-		if (compositionName !== 'detail') {
-			for (let j = 0; j < 2; j += 1) { // gap switch
-				compositionProps.hasGridGap = !!j;
-				if (!(/^split|detailheader/i).test(compositionName)) {
-					for (let k = 0; k < 2; k += 1) { // column width switch
-						compositionProps.hasAutoColumnWidths = !!k;
-						const titleString = `${compositionName}${i ? ' hasAutoSpaceAround' : ''}${j ? ' hasGridGap' : ''}${k ? ' hasAutoColumnWidths' : ''}`;
-						pushVariation({
-							storyTitle: titleString,
-							composition: compositions[compositionName],
-							compositionProps: {...compositionProps},
-						});
-						compositionProps.isInfinite = true;
-						pushVariation({
-							storyTitle: `${titleString}${compositionProps.isInfinite && ' isInfinite'}`,
-							composition: compositions[compositionName],
-							compositionProps: { ...compositionProps },
-							viewports: biggestViewport,
-						});
-						delete compositionProps.isInfinite;
-					}
-				} else {
-					const titleString = `${compositionName}${i ? ' hasAutoSpaceAround' : ''}${j ? ' hasGridGap' : ''}`;
-					pushVariation({
-						storyTitle: titleString,
-						composition: compositions[compositionName],
-						compositionProps: {...compositionProps},
-					});
-					compositionProps.isInfinite = true;
-					pushVariation({
-						storyTitle: `${titleString}${compositionProps.isInfinite && ' isInfinite'}`,
-						composition: compositions[compositionName],
-						compositionProps: { ...compositionProps },
-						viewports: biggestViewport,
-					});
-					delete compositionProps.isInfinite;
-				}
-			}
-		} else {
-			const titleString = `${compositionName}${i ? ' hasAutoSpaceAround' : ''}`;
-			pushVariation({
-				storyTitle: titleString,
-				composition: compositions[compositionName],
-				compositionProps: {...compositionProps},
-			});
-			compositionProps.isInfinite = true;
-			pushVariation({
-				storyTitle: `${titleString}${compositionProps.isInfinite && ' isInfinite'}`,
-				composition: compositions[compositionName],
-				compositionProps: { ...compositionProps },
-				viewports: biggestViewport,
-			});
-			delete compositionProps.isInfinite;
+	[false, true].forEach(hasAutoSpaceAround => { // outer space switch
+		if (compositionName === 'detail') {
+			addComposition(compositionName, hasAutoSpaceAround);
+			return;
 		}
-	}
+		[false, true].forEach(hasGridGap => { // gap switch
+			if ((/^split|detailheader|^detail$/i).test(compositionName)) {
+				addComposition(compositionName, hasAutoSpaceAround, hasGridGap);
+				return;
+			}
+			
+			[false, true].forEach(hasAutoColumnWidths => { // column width switch
+				addComposition(compositionName, hasAutoSpaceAround, hasGridGap, hasAutoColumnWidths);
+			});
+		});
+	});
 });
 
 const lockableLayouts = [
@@ -105,30 +60,50 @@ const lockableLayouts = [
 ];
 
 lockableLayouts.forEach(compositionName => {
-	for (let l = 0; l < 2; l += 1) {
-		if (l) {
+	[false, true].forEach(hasHeader => {
+		if (hasHeader) {
 			compositionName += 'Header';
 		}
-		for (let m = 0; m < 2; m += 1) {
-			let titleString = `${compositionName} locked small${m ? ' hasGridGap' : ''}`;
+		[false, true].forEach(hasGridGap => {
+			let titleString = `${compositionName} locked small${hasGridGap ? ' hasGridGap' : ''}`;
 			pushVariation({
 				storyTitle: titleString,
 				composition: compositions[compositionName],
-				compositionProps: { retainWidth: 'small', hasGridGap: !!m },
+				compositionProps: { retainWidth: 'small', hasGridGap: hasGridGap },
 				viewports: lockViewports,
 			});
 			if ((/^masterDetailSummary/).test(compositionName)) {
-				titleString = `${compositionName} locked medium${m ? ' hasGridGap' : ''}`;
+				titleString = `${compositionName} locked medium${hasGridGap ? ' hasGridGap' : ''}`;
 				pushVariation({
 					storyTitle: titleString,
 					composition: compositions[compositionName],
-					compositionProps: { retainWidth: 'medium', hasGridGap: !!m },
+					compositionProps: { retainWidth: 'medium', hasGridGap: hasGridGap },
 					viewports: lockViewports,
 				});
 			}
-		}
-	}
+		});
+	});
 });
+
+function addComposition(compositionName, hasAutoSpaceAround, hasGridGap, hasAutoColumnWidths) {
+	const titleString = [
+		compositionName,
+		hasAutoSpaceAround && 'hasAutoSpaceAround',
+		hasGridGap && 'hasGridGap',
+		hasAutoColumnWidths && 'hasAutoColumnWidths'
+	].filter(value => Boolean(value)).join(' ');
+	pushVariation({
+		storyTitle: titleString,
+		composition: compositions[compositionName],
+		compositionProps: { hasAutoSpaceAround, hasGridGap, hasAutoColumnWidths },
+	});
+	pushVariation({
+		storyTitle: `${titleString} isInfinite`,
+		composition: compositions[compositionName],
+		compositionProps: { hasAutoSpaceAround, hasGridGap, hasAutoColumnWidths, isInfinite: true},
+		viewports: biggestViewport,
+	});
+}
 
 function pushVariation(settings) {
 	variations.push({

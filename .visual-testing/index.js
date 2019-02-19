@@ -179,11 +179,16 @@ const componentsToTest = [
 		variationsPath: '../.tmp/react-visualregression/stories/page-layouts/tests.js',
 		...fullPageSettings
 	},
-	{
-		testsPrefix: 'Compositions',
-		variationsPath: `${variationsPath}/compositions/stories/variations.js`,
-		selectors: '#root',
-	},
+	/* Uncomment the following vis-reg test if you are working on Compositions.
+	 * There are 408 visual regression tests for Compositions. Compositions are
+	 * also incredibly isolated from the rest of the codebase, so you shouldn't
+	 * need to run them unless you are working on Compositions.
+	 */
+	// {
+	// 	testsPrefix: 'Compositions',
+	// 	variationsPath: `${variationsPath}/compositions/stories/variations.js`,
+	// 	selectors: '#root',
+	// },
 ];
 
 // TODO: Investigate if it's possible to run storybook as a module

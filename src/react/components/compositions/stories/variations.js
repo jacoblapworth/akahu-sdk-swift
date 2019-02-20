@@ -40,7 +40,7 @@ Object.keys(compositions).forEach(compositionName => {
 			return;
 		}
 		[false, true].forEach(hasGridGap => { // gap switch
-			if ((/^split|detailheader|^detail$/i).test(compositionName)) {
+			if ((/^(split|detailheader)|^detail$/i).test(compositionName)) {
 				addComposition(compositionName, hasAutoSpaceAround, hasGridGap);
 				return;
 			}

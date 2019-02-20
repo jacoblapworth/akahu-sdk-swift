@@ -1215,7 +1215,7 @@ Array [
   Object {
     "composition": [Function],
     "compositionProps": Object {
-      "hasAutoColumnWidths": undefined,
+      "hasAutoColumnWidths": false,
       "hasAutoSpaceAround": false,
       "hasGridGap": false,
     },
@@ -1252,7 +1252,7 @@ Array [
   Object {
     "composition": [Function],
     "compositionProps": Object {
-      "hasAutoColumnWidths": undefined,
+      "hasAutoColumnWidths": false,
       "hasAutoSpaceAround": false,
       "hasGridGap": false,
       "isInfinite": true,
@@ -1270,7 +1270,62 @@ Array [
   Object {
     "composition": [Function],
     "compositionProps": Object {
-      "hasAutoColumnWidths": undefined,
+      "hasAutoColumnWidths": true,
+      "hasAutoSpaceAround": false,
+      "hasGridGap": false,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "masterDetailHeader hasAutoColumnWidths",
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+      Object {
+        "height": 1000,
+        "label": "between small and medium breakpoints",
+        "width": 700,
+      },
+      Object {
+        "height": 506.25,
+        "label": "between medium and large breakpoints",
+        "width": 900,
+      },
+      Object {
+        "height": 618.75,
+        "label": "between large and xlarge breakpoints",
+        "width": 1100,
+      },
+      Object {
+        "height": 787.5,
+        "label": "between xlarge and 2xlarge breakpoints",
+        "width": 1400,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
+      "hasAutoColumnWidths": true,
+      "hasAutoSpaceAround": false,
+      "hasGridGap": false,
+      "isInfinite": true,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "masterDetailHeader hasAutoColumnWidths isInfinite",
+    "viewports": Array [
+      Object {
+        "height": 911.25,
+        "label": "bigger than 2xlarge breakpoint",
+        "width": 1620,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
+      "hasAutoColumnWidths": false,
       "hasAutoSpaceAround": false,
       "hasGridGap": true,
     },
@@ -1307,7 +1362,7 @@ Array [
   Object {
     "composition": [Function],
     "compositionProps": Object {
-      "hasAutoColumnWidths": undefined,
+      "hasAutoColumnWidths": false,
       "hasAutoSpaceAround": false,
       "hasGridGap": true,
       "isInfinite": true,
@@ -1325,7 +1380,62 @@ Array [
   Object {
     "composition": [Function],
     "compositionProps": Object {
-      "hasAutoColumnWidths": undefined,
+      "hasAutoColumnWidths": true,
+      "hasAutoSpaceAround": false,
+      "hasGridGap": true,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "masterDetailHeader hasGridGap hasAutoColumnWidths",
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+      Object {
+        "height": 1000,
+        "label": "between small and medium breakpoints",
+        "width": 700,
+      },
+      Object {
+        "height": 506.25,
+        "label": "between medium and large breakpoints",
+        "width": 900,
+      },
+      Object {
+        "height": 618.75,
+        "label": "between large and xlarge breakpoints",
+        "width": 1100,
+      },
+      Object {
+        "height": 787.5,
+        "label": "between xlarge and 2xlarge breakpoints",
+        "width": 1400,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
+      "hasAutoColumnWidths": true,
+      "hasAutoSpaceAround": false,
+      "hasGridGap": true,
+      "isInfinite": true,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "masterDetailHeader hasGridGap hasAutoColumnWidths isInfinite",
+    "viewports": Array [
+      Object {
+        "height": 911.25,
+        "label": "bigger than 2xlarge breakpoint",
+        "width": 1620,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
+      "hasAutoColumnWidths": false,
       "hasAutoSpaceAround": true,
       "hasGridGap": false,
     },
@@ -1362,7 +1472,7 @@ Array [
   Object {
     "composition": [Function],
     "compositionProps": Object {
-      "hasAutoColumnWidths": undefined,
+      "hasAutoColumnWidths": false,
       "hasAutoSpaceAround": true,
       "hasGridGap": false,
       "isInfinite": true,
@@ -1380,7 +1490,62 @@ Array [
   Object {
     "composition": [Function],
     "compositionProps": Object {
-      "hasAutoColumnWidths": undefined,
+      "hasAutoColumnWidths": true,
+      "hasAutoSpaceAround": true,
+      "hasGridGap": false,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "masterDetailHeader hasAutoSpaceAround hasAutoColumnWidths",
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+      Object {
+        "height": 1000,
+        "label": "between small and medium breakpoints",
+        "width": 700,
+      },
+      Object {
+        "height": 506.25,
+        "label": "between medium and large breakpoints",
+        "width": 900,
+      },
+      Object {
+        "height": 618.75,
+        "label": "between large and xlarge breakpoints",
+        "width": 1100,
+      },
+      Object {
+        "height": 787.5,
+        "label": "between xlarge and 2xlarge breakpoints",
+        "width": 1400,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
+      "hasAutoColumnWidths": true,
+      "hasAutoSpaceAround": true,
+      "hasGridGap": false,
+      "isInfinite": true,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "masterDetailHeader hasAutoSpaceAround hasAutoColumnWidths isInfinite",
+    "viewports": Array [
+      Object {
+        "height": 911.25,
+        "label": "bigger than 2xlarge breakpoint",
+        "width": 1620,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
+      "hasAutoColumnWidths": false,
       "hasAutoSpaceAround": true,
       "hasGridGap": true,
     },
@@ -1417,13 +1582,68 @@ Array [
   Object {
     "composition": [Function],
     "compositionProps": Object {
-      "hasAutoColumnWidths": undefined,
+      "hasAutoColumnWidths": false,
       "hasAutoSpaceAround": true,
       "hasGridGap": true,
       "isInfinite": true,
     },
     "storyKind": "Compositions/Tests",
     "storyTitle": "masterDetailHeader hasAutoSpaceAround hasGridGap isInfinite",
+    "viewports": Array [
+      Object {
+        "height": 911.25,
+        "label": "bigger than 2xlarge breakpoint",
+        "width": 1620,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
+      "hasAutoColumnWidths": true,
+      "hasAutoSpaceAround": true,
+      "hasGridGap": true,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "masterDetailHeader hasAutoSpaceAround hasGridGap hasAutoColumnWidths",
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+      Object {
+        "height": 1000,
+        "label": "between small and medium breakpoints",
+        "width": 700,
+      },
+      Object {
+        "height": 506.25,
+        "label": "between medium and large breakpoints",
+        "width": 900,
+      },
+      Object {
+        "height": 618.75,
+        "label": "between large and xlarge breakpoints",
+        "width": 1100,
+      },
+      Object {
+        "height": 787.5,
+        "label": "between xlarge and 2xlarge breakpoints",
+        "width": 1400,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
+      "hasAutoColumnWidths": true,
+      "hasAutoSpaceAround": true,
+      "hasGridGap": true,
+      "isInfinite": true,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "masterDetailHeader hasAutoSpaceAround hasGridGap hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
         "height": 911.25,

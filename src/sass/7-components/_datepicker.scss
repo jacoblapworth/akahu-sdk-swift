@@ -434,13 +434,22 @@
 //
 // Styleguide: Compounds.CollectingInput.Datepicker.6
 
+// Responsive
+//
+// Tips:
+// Do: On smaller viewports, display datepicker in a dropdown sheet with a mask
+// Do: Allow users to dismiss datepicker by selecting the mask
+// Don't: Don't use compact datepicker variant in dropdown sheet, as this results in small touch targets
+//
+// Styleguide: Compounds.CollectingInput.Datepicker.7
+
 // Accessibility
 //
 // Datepickers must have keyboard support as described in the [W3C documentation](https://www.w3.org/TR/wai-aria-practices/#kbd_focus_discernable_predictable).
 // This may involve the use of the `tabindex` and `aria-activedescendant` attributes, which also require each active cell to have an `id`.
 // An accessible example of a datepicker can be found on the [Open Ajax Alliance](http://www.oaa-accessibility.org/examplep/datepicker1/).
 //
-// Styleguide: Compounds.CollectingInput.Datepicker.7
+// Styleguide: Compounds.CollectingInput.Datepicker.8
 
 $xui-datepicker-day-size: $xui-control-size-standard;
 $xui-datepicker-day-size-compact: 30px;

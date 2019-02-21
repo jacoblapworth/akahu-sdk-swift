@@ -255,20 +255,12 @@ class DatepickerDropdown extends Component {
     }
 
   render() {
-    const dropdownHeader = (
-      <DropDownHeader
-        title="Select date"
-        secondaryButtonContent="Cancel"
-        onSecondaryButtonClick={this.closeDropDown}
-      />
-    );
-
     const trigger = (
       <XUIButton>Select a date</XUIButton>
     );
 
     const dropdown = (
-      <Dropdown header={dropdownHeader}>
+      <Dropdown>
         <XUIDatePicker />
       </Dropdown>
     );

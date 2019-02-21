@@ -233,7 +233,7 @@ To keep `XUIDatePicker`'s height consistent, you can set `showFixedNumberOfWeeks
 
 ### Inside a dropdown
 
-When displaying the datepicker inside a dropdown we recommend you display a cancel button inside a dropdown header to enable cancellation of the action. Don't use compact datepicker variant in dropdown sheet, as this results in small touch targets
+Don't use compact datepicker variant in dropdown sheet, as this results in small touch targets
 
 ```
 const XUIDatepicker = require('./datepicker').default;

@@ -67,31 +67,31 @@
 //       </div>
 //     </div>
 //     <div class='xui-dropdown--scrollable-content'>
-//       <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
-//        <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//          <button type="button" class="xui-pickitem--body">
-// 						<span class="xui-pickitem--sideelement">
-//            	<abbr class="xui-avatar xui-avatar-small xui-avatar-color-8">JM</abbr>
-// 						</span>
-//            <span class="xui-pickitem--text xui-text-truncated">James Magness</span>
-//          </button>
-//        </li>
-//        <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//          <button type="button" class="xui-pickitem--body">
-// 						<span class="xui-pickitem--sideelement">
-//            	<abbr class="xui-avatar xui-avatar-small xui-avatar-color-5">TR</abbr>
-// 						</span>
-//            <span class="xui-pickitem--text xui-text-truncated">Tim Redmond</span>
-//          </button>
-//        </li>
-//        <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//          <button type="button" class="xui-pickitem--body">
-// 						<span class="xui-pickitem--sideelement">
-//            	<abbr class="xui-avatar xui-avatar-small xui-avatar-color-2">ME</abbr>
-// 						</span>
-//            <span class="xui-pickitem--text xui-text-truncated">Maxine Ellah</span>
-//          </button>
-//        </li>
+//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout" role="tree">
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--sideelement">
+//               <abbr class="xui-avatar xui-avatar-small xui-avatar-color-8">EW</abbr>
+//             </span>
+//             <span class="xui-pickitem--text xui-text-truncated">Elise Wei</span>
+//           </button>
+//         </li>
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--sideelement">
+//               <abbr class="xui-avatar xui-avatar-small xui-avatar-color-5">JM</abbr>
+//             </span>
+//             <span class="xui-pickitem--text xui-text-truncated">James Magness</span>
+//           </button>
+//         </li>
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--sideelement">
+//               <abbr class="xui-avatar xui-avatar-small xui-avatar-color-2">ME</abbr>
+//             </span>
+//             <span class="xui-pickitem--text xui-text-truncated">Maxine Ellah</span>
+//           </button>
+//         </li>
 //       </ul>
 //     </div>
 //   </div>
@@ -133,39 +133,42 @@
 //           </div>
 //           <input id="transparent-example" class="xui-textinput--input xui-padding-left-none" type="search" value="Tim" aria-label="Transparent input with icons" />
 //           <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//						 <div class="xui-iconwrapper xui-iconwrapper-large">
-// 							 <svg focusable="false" class="xui-icon" width="15" height="15" viewBox="0 0 15 15">
-//                 <use xlink:href="#xui-icon-clear" role="presentation" />
-//               </svg>
-//             </div>
+//             <button class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+//               <div class="xui-iconwrapper xui-iconwrapper-large">
+//                 <svg focusable="false" class="xui-icon">
+//                   <use xlink:href="#xui-icon-clear" role="presentation" />
+//                 </svg>
+//               </div>
+//             </button>
 //           </div>
 //         </div>
 //       </div>
 //     </div>
 //     <div class='xui-dropdown--scrollable-content'>
 //       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout" role="tree">
-//        <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//          <button type="button" class="xui-pickitem--body">
-// 						<span class="xui-pickitem--sideelement">
-//            	<abbr class="xui-avatar xui-avatar-small xui-avatar-color-7">TR</abbr>
-// 						</span>
-//            <span class="xui-pickitem--text xui-text-truncated">Tim Redmond</span>
-//          </button>
-//        </li>
 //         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//           <div class="xui-pickitem--icon xui-iconwrapper xui-iconwrapper-large">
-//             <svg focusable="false" class="xui-icon xui-icon-color-black-muted">
-//               <use xlink:href="#xui-icon-plus" role="presentation"></use>
-//             </svg>
-//           </div>
-//           <span class="xui-pickitem--body">
-//               <span class="xui-pickitem--text xui-u-flex-inherit">
-//               <span class="xui-u-flex-1 xui-text-truncated">Tim</span>
-//               <span class="xui-text-minor xui-padding-left-small">NEW</span>
-//            </span>
-//           </span>
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--sideelement">
+//               <abbr class="xui-avatar xui-avatar-small xui-avatar-color-7">TR</abbr>
+//             </span>
+//             <span class="xui-pickitem--text xui-text-truncated">Tim Redmond</span>
+//           </button>
 //         </li>
 //       </ul>
+//       <div class="xui-dropdown--footer">
+//         <ul class="xui-picklist xui-picklist-medium xui-picklist-layout">
+//           <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//             <button type="button" class="xui-pickitem--body">
+//               <span class="xui-pickitem--sideelement">
+//                 <svg focusable="false" class="xui-icon xui-icon-color-black-muted">
+//                   <use xlink:href="#xui-icon-plus" role="presentation"></use>
+//                 </svg>
+//               </span>
+//               <span class="xui-pickitem--text">Add 'Tim' as a new contact</span>
+//             </button>
+//           </li>
+//         </ul>
+//       </div>
 //     </div>
 //   </div>
 // </div>

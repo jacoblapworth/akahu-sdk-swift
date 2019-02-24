@@ -30,7 +30,6 @@
 //
 // Classes:
 // xui-toggle: Toggle container
-// xui-toggle-medium: Apply to toggle container
 // xui-toggle-option: Toggle option
 // xui-toggle--label: Toggle text content
 // xui-toggle--input: Apply to native input to hide it
@@ -42,15 +41,15 @@
 // <div class="xui-toggle xui-toggle-medium" role="radiogroup" aria-labelledby="test-label">
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="aa" class="xui-toggle--input" checked/>
-//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Including tax</span>
+//     <span class="xui-toggle--label xui-padding-horizontal">Including tax</span>
 //   </label>
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="aa" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Excluding tax</span>
+//     <span class="xui-toggle--label xui-padding-horizontal">Excluding tax</span>
 //   </label>
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="aa" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">No tax</span>
+//     <span class="xui-toggle--label xui-padding-horizontal">No tax</span>
 //   </label>
 // </div>
 //
@@ -71,30 +70,46 @@
 // <div class="xui-toggle xui-toggle-fullwidth-layout xui-toggle-medium" role="radiogroup" aria-label="bb">
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="bb" class="xui-toggle--input" checked/>
-//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">As they happen</span>
+//     <span class="xui-toggle--label xui-padding-horizontal">As they happen</span>
 //   </label>
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="bb" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Weekly summary</span>
+//     <span class="xui-toggle--label xui-padding-horizontal">Weekly summary</span>
 //   </label>
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="bb" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Never</span>
+//     <span class="xui-toggle--label xui-padding-horizontal">Never</span>
 //   </label>
 // </div>
 //
 // Styleguide: Building Blocks.Controls.Toggle.3
 
-// Size
+// Size variants
 //
 // To create a toggle for use in more compact spaces, apply the following modifier.
 //
-// Classes:
-// xui-toggle-small: Apply to toggle
+// Definitions:
+// Size variant: **Height**: **Class**
+// medium: 40px: `xui-toggle-medium`
+// small: 32px: `xui-toggle-small`
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
+// <div class="xui-margin-bottom xui-toggle xui-toggle-medium" role="radiogroup" aria-label="dd">
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="dd" class="xui-toggle--input" checked/>
+//     <span class="xui-toggle--label xui-padding-horizontal-small">Submitter</span>
+//   </label>
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="dd" class="xui-toggle--input"/>
+//     <span class="xui-toggle--label xui-padding-horizontal-small">Approver</span>
+//   </label>
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="dd" class="xui-toggle--input"/>
+//     <span class="xui-toggle--label xui-padding-horizontal-small">Admin</span>
+//   </label>
+// </div>
 // <div class="xui-toggle xui-toggle-small" role="radiogroup" aria-label="dd">
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="dd" class="xui-toggle--input" checked/>
@@ -123,35 +138,35 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class="xui-padding-large">
+// <div class="xui-padding-xsmall">
 //   <div class="xui-toggle xui-toggle-medium" role="radiogroup" aria-label="ee">
 //     <label class="xui-toggle-option xui-toggle-is-disabled">
 //     <input type="radio" name="ee" class="xui-toggle--input" disabled checked/>
-//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Limited</span>
+//       <span class="xui-toggle--label xui-padding-horizontal">Limited</span>
 //     </label>
 //     <label class="xui-toggle-option xui-toggle-is-disabled">
 //       <input type="radio" name="ee" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Standard</span>
+//       <span class="xui-toggle--label xui-padding-horizontal">Standard</span>
 //     </label>
 //     <label class="xui-toggle-option xui-toggle-is-disabled">
 //       <input type="radio" name="ee" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Admin</span>
+//       <span class="xui-toggle--label xui-padding-horizontal">Admin</span>
 //     </label>
 //   </div>
 // </div>
-// <div class="ds-example-dark xui-padding-large">
+// <div class="ds-example-dark">
 //   <div class="xui-toggle xui-toggle-inverted xui-toggle-medium" role="radiogroup" aria-label="kk">
 //     <label class="xui-toggle-option xui-toggle-is-disabled">
 //     <input type="radio" name="kk" class="xui-toggle--input" disabled checked/>
-//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Limited</span>
+//       <span class="xui-toggle--label xui-padding-horizontal">Limited</span>
 //     </label>
 //     <label class="xui-toggle-option xui-toggle-is-disabled">
 //       <input type="radio" name="kk" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Standard</span>
+//       <span class="xui-toggle--label xui-padding-horizontal">Standard</span>
 //     </label>
 //     <label class="xui-toggle-option xui-toggle-is-disabled">
 //       <input type="radio" name="kk" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Admin</span>
+//       <span class="xui-toggle--label xui-padding-horizontal">Admin</span>
 //     </label>
 //   </div>
 // </div>
@@ -171,7 +186,7 @@
 // <div class="xui-toggle xui-toggle-inverted xui-toggle-medium" role="radiogroup" aria-label="ff">
 //   <label class="xui-toggle-option">
 //   <input type="radio" name="ff" class="xui-toggle--input" checked/>
-//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal-small">
+//     <span class="xui-toggle--label xui-padding-horizontal-small">
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-desktop" role="presentation"/>
 //       </svg>
@@ -179,7 +194,7 @@
 //   </label>
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="ff" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal-small">
+//     <span class="xui-toggle--label xui-padding-horizontal-small">
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-mobile" role="presentation"/>
 //       </svg>
@@ -187,7 +202,7 @@
 //   </label>
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="ff" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal-small">
+//     <span class="xui-toggle--label xui-padding-horizontal-small">
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-print" role="presentation"/>
 //       </svg>

@@ -92,10 +92,17 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- The `isTextTruncated` prop can now be used without a `buttonVariant`.
 	- Has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
 - `XUIButton`
+	- Will inherit the `size` of `<XUISplitButtonGroup>` and `<XUIButtonGroup>`.
 	- Has a new `fullWidth` prop. The default value is `never`.
 		- The available values are `always`, `small-down`, and `never`.
 		- The `size` prop no longer accepts `full-width` or `full-width-mobile`. `size` Now has a default of `medium` instead of `standard`. This is purely a terminology change.
 			- To get full-width buttons, set `fullWidth` to `always` or `small-down`
+- `XUISplitButtonGroup`
+	- Has a new `size` prop. The default value is `medium`.
+		- The available sizes are `medium`, `small`, and `xsmall`.
+- `XUIButtonGroup`
+	- Has a new `size` prop. The default value is `medium`.
+		- The available sizes are `medium`, `small`, and `xsmall`.
 - `Range`
 	- Range now supports size variants.
   - Range now provides a React component `XUIRange`.

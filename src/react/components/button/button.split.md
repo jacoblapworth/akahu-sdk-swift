@@ -31,3 +31,14 @@ When using a split button as the trigger of a dropdown, variants are not inherit
 	/>
 </XUISplitButtonGroup>
 ```
+
+
+To set the size of a split button, you can set the `size` prop on `<XUISplitButtonGroup>`.
+
+```jsx
+
+<XUISplitButtonGroup variant="primary" size="small" >
+	<XUIButton>Small Split Button</XUIButton>
+	<XUISplitButton aria-label="More options" />
+</XUISplitButtonGroup>
+```

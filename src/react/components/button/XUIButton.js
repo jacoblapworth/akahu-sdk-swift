@@ -11,6 +11,7 @@ import {
 } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 import noop from '../helpers/noop';
+import SizeContext from '../../contexts/SizeContext';
 
 /**
  * Returns true if the button is a borderless variant
@@ -135,112 +136,124 @@ export default class XUIButton extends React.PureComponent {
 	}
 
 	render() {
-		const {
-			children,
-			className,
-			fullWidth,
-			href,
-			isDisabled,
-			isExternalLink,
-			isGrouped,
-			isInverted,
-			isLink,
-			isLoading,
-			minLoaderWidth,
-			onClick,
-			onKeyDown,
-			qaHook,
-			rel,
-			retainLayout,
-			size,
-			tabIndex,
-			target,
-			type,
-			variant,
-			...spreadProps
-		} = this.props;
-		const ElementType = isLink ? 'a' : 'button';
-		const variantClass = getVariantClass(variant);
-		const buttonDisabled = isDisabled || isLoading;
-		let buttonChildren = children;
-
-		const loader = (
-			<XUILoader
-				key={retainLayout && isLoading ? 'button-loader' : null}
-				retainLayout={retainLayout}
-				size="small"
-				defaultLayout={false}
-				className={`${ns}-button--loader`}
-			/>
-		);
-
-		if (retainLayout && isLoading) {
-			buttonChildren = [
-				<div className={`${ns}-button-hidden-content`} key="button-children">{children}</div>,
-				loader,
-			];
-		} else if (isLoading) {
-			buttonChildren = loader;
-		}
-
-		const isIconDependentClassNames = isIconVariant(variantClass) ? cn(iconSizeClassNames[size]) : cn(
-			sizeClassNames[size],
-			widthClassNames[fullWidth],
-			(isInverted &&
-				(isBorderlessVariant(variantClass)
-					? `${ns}-button-borderless-inverted`
-					: `${ns}-button-inverted`
-				)
-			),
-			isGrouped && `${ns}-button-grouped`,
-			minLoaderWidth && `${ns}-button-min-loader-width`,
-		);
-
-		const buttonClassNames = cn(
-			`${ns}-button`,
-			className,
-			variantClass,
-			isIconDependentClassNames,
-			isDisabled && `${ns}-button-is-disabled`,
-		);
-
-		const clickHandler = (isLink && buttonDisabled)
-			? event => event.preventDefault()
-			: onClick || noop;
-
-		const elementSpecificTypeProps = isLink ? {
-			'onKeyPress': e => {
-				handleSpacebarAsClick(e, { isDisabled, isLoading });
-			},
-			'href': getHref(href),
-			'target': target,
-			'rel': cn(rel, isExternalLink && 'external noopener noreferrer') || undefined,
-			'aria-disabled': isDisabled || isLoading || undefined,
-
-			/** If this is just a plain link styled to be a button, the button role is not needed.
-			 * However, if this is a link which is styled to look AND function like a button,
-			 * then we'll need the role.
-			 * */
-			'role': !href || onClick ? 'button' : undefined,
-		} : {
-			type,
-		};
-
-		// Standard props for all element types
-		const elementProps = {
-			...spreadProps,
-			onClick: clickHandler,
-			onKeyDown: buttonDisabled ? null : onKeyDown,
-			disabled: buttonDisabled,
-			className: buttonClassNames,
-			tabIndex: buttonDisabled ? -1 : tabIndex,
-			...elementSpecificTypeProps,
-		};
-
 		return (
-			<ElementType ref={n => this.rootNode = n} {...elementProps} data-automationid={qaHook}>
-				{buttonChildren}
-			</ElementType>
+			<SizeContext.Consumer>
+				{inheritedSize => {
+					const {
+						children,
+						className,
+						fullWidth,
+						href,
+						isDisabled,
+						isExternalLink,
+						isGrouped,
+						isInverted,
+						isLink,
+						isLoading,
+						minLoaderWidth,
+						onClick,
+						onKeyDown,
+						qaHook,
+						rel,
+						retainLayout,
+						tabIndex,
+						target,
+						type,
+						variant,
+						...spreadProps
+					} = this.props;
+
+					const defaultSize = 'medium';
+					const size = this.props.size || inheritedSize || defaultSize;
+					delete spreadProps.size;
+
+					const ElementType = isLink ? 'a' : 'button';
+					const variantClass = getVariantClass(variant);
+					const buttonDisabled = isDisabled || isLoading;
+					let buttonChildren = children;
+
+					const loader = (
+						<XUILoader
+							key={retainLayout && isLoading ? 'button-loader' : null}
+							retainLayout={retainLayout}
+							size="small"
+							defaultLayout={false}
+							className={`${ns}-button--loader`}
+						/>
+					);
+
+					if (retainLayout && isLoading) {
+						buttonChildren = [
+							<div className={`${ns}-button-hidden-content`} key="button-children">{children}</div>,
+							loader,
+						];
+					} else if (isLoading) {
+						buttonChildren = loader;
+					}
+
+					const isIconDependentClassNames = isIconVariant(variantClass)
+						? cn(iconSizeClassNames[size])
+						: cn(
+							sizeClassNames[size],
+							widthClassNames[fullWidth],
+							(isInverted &&
+						(isBorderlessVariant(variantClass)
+							? `${ns}-button-borderless-inverted`
+							: `${ns}-button-inverted`
+						)
+							),
+							isGrouped && `${ns}-button-grouped`,
+							minLoaderWidth && `${ns}-button-min-loader-width`,
+						);
+
+					const buttonClassNames = cn(
+						`${ns}-button`,
+						className,
+						variantClass,
+						isIconDependentClassNames,
+						isDisabled && `${ns}-button-is-disabled`,
+					);
+
+					const clickHandler = (isLink && buttonDisabled)
+						? event => event.preventDefault()
+						: onClick || noop;
+
+					const elementSpecificTypeProps = isLink ? {
+						'onKeyPress': e => {
+							handleSpacebarAsClick(e, { isDisabled, isLoading });
+						},
+						'href': getHref(href),
+						'target': target,
+						'rel': cn(rel, isExternalLink && 'external noopener noreferrer') || undefined,
+						'aria-disabled': isDisabled || isLoading || undefined,
+
+						/** If this is just a plain link styled to be a button, the button role is not needed.
+					 * However, if this is a link which is styled to look AND function like a button,
+					 * then we'll need the role.
+					 * */
+						'role': !href || onClick ? 'button' : undefined,
+					} : {
+						type,
+					};
+
+					// Standard props for all element types
+					const elementProps = {
+						...spreadProps,
+						onClick: clickHandler,
+						onKeyDown: buttonDisabled ? null : onKeyDown,
+						disabled: buttonDisabled,
+						className: buttonClassNames,
+						tabIndex: buttonDisabled ? -1 : tabIndex,
+						...elementSpecificTypeProps,
+					};
+
+					return (
+						<ElementType ref={n => this.rootNode = n} {...elementProps} data-automationid={qaHook}>
+							{buttonChildren}
+						</ElementType>
+					);
+				}}
+			</SizeContext.Consumer>
 		);
 	}
 }
@@ -324,7 +337,6 @@ XUIButton.defaultProps = {
 	isLoading: false,
 	fullWidth: 'never',
 	retainLayout: true,
-	size: 'medium',
 	tabIndex: 0,
 	type: buttonTypes.button,
 	variant: 'standard',

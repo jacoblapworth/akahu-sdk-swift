@@ -45,7 +45,7 @@
 		@include xui-margin-vertical(2px);
 	}
 	&.#{$ns}-styledcheckboxradio--label-medium {
-		@include xui-text-standard;
+		@include xui-text-medium;
 	}
 	&.#{$ns}-styledcheckboxradio--label-small {
 		@include xui-text-small;
@@ -56,7 +56,7 @@
 	.#{$ns}-styledcheckboxradio-group & {
 		// Override automatic sizing and margins
 		@include xui-margin-vertical(0);
-		@include xui-text-standard;
+		@include xui-text-medium;
 	}
 
 }

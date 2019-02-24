@@ -707,14 +707,14 @@
 }
 
 .#{$ns}-contentblockitem--primaryheading {
-	@include xui-text-standard;
+	@include xui-text-medium;
 	color: $xui-color-grey-1;
 	font-weight: $xui-font-weight-emphasis;
 	margin-right: $xui-s-small;
 }
 
 .#{$ns}-contentblockitem--secondaryheading {
-	@include xui-text-standard;
+	@include xui-text-medium;
 	@include xui-text-muted;
 	color: $xui-color-grey-1;
 	margin-right: $xui-s-small;

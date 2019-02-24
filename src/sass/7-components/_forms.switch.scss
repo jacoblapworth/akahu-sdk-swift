@@ -72,7 +72,7 @@ $xui-switch-label-padding: $xui-s-xsmall;
 	flex-grow: 1;
 
 	&.#{$ns}-switch--label-medium {
-		@include xui-text-standard;
+		@include xui-text-medium;
 	}
 	&.#{$ns}-switch--label-small {
 		@include xui-text-small;

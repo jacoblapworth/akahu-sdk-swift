@@ -3,7 +3,7 @@
 
 /* doiuse-disable object-fit*/
 .#{$ns}-avatar {
-	@include xui-text-standard;
+	@include xui-text-medium;
 	align-items: center;
 	border-radius: 50%;
 	color: $xui-color-white;
@@ -13,7 +13,7 @@
 	font-weight: bold;
 	height: $xui-control-size-standard;
 	justify-content: center;
-	line-height: $xui-font-size-small;
+	line-height: $xui-font-size-small; // TODO, use a line-height instead of a font-size variable
 	object-fit: contain;
 	overflow: hidden;
 	text-decoration: none;

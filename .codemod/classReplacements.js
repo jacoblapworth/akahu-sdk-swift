@@ -51,7 +51,7 @@ dropdownClasses.forEach(dropdownClass => {
 });
 
 
-for (i = 1, max = 12; i <= max; i += 1) {
+for (let i = 1, max = 12; i <= max; i += 1) {
 	classMap[`xui-column-${i}-of-12-medium`] = `xui-column-${i}-of-12-small-up`;
 	classMap[`xui-column-${i}-of-12-wide`] = `xui-column-${i}-of-12-large-up`;
 }

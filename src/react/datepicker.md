@@ -230,3 +230,49 @@ To keep `XUIDatePicker`'s height consistent, you can set `showFixedNumberOfWeeks
 		<CompactPicker />
 	</div>
 ```
+
+### Inside a dropdown
+
+Don't use compact datepicker variant in dropdown sheet, as this results in small touch targets
+
+```
+const XUIDatepicker = require('./datepicker').default;
+const {
+  default: Dropdown,
+  DropDownToggled,
+} = require('./dropdown');
+const { Component } = require ('react');
+
+class DatepickerDropdown extends Component {
+  constructor() {
+    super();
+
+    this.closeDropDown = this.closeDropDown.bind(this);
+  }
+
+   closeDropDown() {
+      this.ddt.closeDropDown();
+    }
+
+  render() {
+    const trigger = (
+      <XUIButton>Select a date</XUIButton>
+    );
+
+    const dropdown = (
+      <Dropdown>
+        <XUIDatePicker />
+      </Dropdown>
+    );
+
+    return (
+     <DropDownToggled
+        ref={c => this.ddt = c}
+        dropdown={dropdown}
+        trigger={trigger}
+     />
+    );
+  }
+}
+<DatepickerDropdown />
+```

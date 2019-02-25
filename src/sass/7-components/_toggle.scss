@@ -3,7 +3,8 @@
 
 // Full-width layout
 .#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle--label,
-.#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle-option {
+.#{$ns}-toggle-fullwidth-layout > .#{$ns}-toggle-optionwrapper,
+.#{$ns}-toggle-fullwidth-layout > .#{$ns}-toggle-option {
 	flex-basis: 100%;
 	flex-grow: 1;
 }
@@ -190,15 +191,11 @@
 
 // Option styles
 .#{$ns}-toggle-option {
-	.#{$ns}-toggle--field {
-		display: flex;
-	}
+	display: flex;
+}
 
-	// Compatibility for controls that are not wrapped in a div
-	@at-root label#{&} {
-		display: flex;
-	}
-
+.#{$ns}-toggle > .#{$ns}-toggle-optionwrapper,
+.#{$ns}-toggle > .#{$ns}-toggle-option {
 	&:nth-of-type(n+2) .#{$ns}-toggle--label {
 		border-left: none;
 	}

@@ -143,8 +143,8 @@
 // If a group of switches is invalid, add `xui-switch-group-is-invalid` to the group.
 //
 // Classes:
-// xui-switch: Wrapper for the field and validation message
-// xui-switch--field: Wrapper for the switch and label
+// xui-switchwrapper: Wrapper for the field and validation message
+// xui-switch: Wrapper for the switch and label
 // xui-switch--message: Positions the message under the switch
 // xui-switch--message-with-label: Positions the message under the label
 // xui-switch-group-is-invalid: Changes the colour of the group to indicate it is invalid
@@ -156,8 +156,8 @@
 // <div class="xui-row-grid">
 //   <!-- Switch without a label -->
 //   <div class="xui-column-6-of-12 xui-u-flex xui-u-flex-column">
-//     <div class="xui-switch xui-switch-medium">
-//       <label class="xui-switch--field">
+//     <div class="xui-switchwrapper xui-switch-medium">
+//       <label class="xui-switch">
 //         <input class="xui-switch--checkbox" type="checkbox">
 //         <div class="xui-switch--control xui-switch--control-medium"></div>
 //       </label>
@@ -168,8 +168,8 @@
 //   </div>
 //   <!-- Switch with a label -->
 //   <div class="xui-column-6-of-12 xui-u-flex xui-u-flex-column">
-//     <div class="xui-switch xui-switch-medium">
-//       <label class="xui-switch--field">
+//     <div class="xui-switchwrapper xui-switch-medium">
+//       <label class="xui-switch">
 //         <input class="xui-switch--checkbox" type="checkbox">
 //         <div class="xui-switch--control xui-switch--control-medium"></div>
 //         <span class="xui-switch--label xui-switch--label-medium">Switch label</span>

@@ -860,6 +860,7 @@ $xui-table-z-alert: 4;
 
 .#{$ns}-table--checkbox-body,
 .#{$ns}-table--checkbox-head {
+	margin: 2px;
 	position: absolute;
 }
 

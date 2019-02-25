@@ -116,14 +116,16 @@ export default class XUIRadio extends PureComponent {
 		const calculatedSize = (isGrouped && 'small') || size;
 
 		const classes = cn(
-			className,
 			baseClass,
-			calculatedSize && `${baseClass}-${calculatedSize}`,
 			isReversed && `${baseClass}-reversed`,
 			isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
 		);
 
-		const fieldClasses = `${baseClass}--field`;
+		const wrapperClasses = cn(
+			className,
+			`${baseClass}wrapper`,
+			calculatedSize && `${baseClass}-${calculatedSize}`,
+		);
 
 		const labelClasses = cn(
 			`${baseClass}--label`,
@@ -165,10 +167,10 @@ export default class XUIRadio extends PureComponent {
 
 		return (
 			<XUIControlWrapperInline
-				rootClassName={classes}
+				rootClassName={wrapperClasses}
 				wrapperIds={this.wrapperIds}
 				onClick={onLabelClick}
-				fieldClassName={fieldClasses}
+				fieldClassName={classes}
 				labelClassName={labelClasses}
 				messageClassName={messageClasses}
 				label={children}

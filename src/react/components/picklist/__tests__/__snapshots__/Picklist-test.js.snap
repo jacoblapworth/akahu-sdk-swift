@@ -46,10 +46,10 @@ exports[`< Picklist /> example taking settings from first child and giving to al
       role="presentation"
     >
       <div
-        className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio xui-styledcheckboxradio-xsmall"
+        className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-xsmall"
       >
         <label
-          className="xui-styledcheckboxradio--field"
+          className="xui-styledcheckboxradio"
           onClick={[Function]}
           role="presentation"
         >
@@ -92,10 +92,10 @@ exports[`< Picklist /> example taking settings from first child and giving to al
       role="presentation"
     >
       <div
-        className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio xui-styledcheckboxradio-xsmall"
+        className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-xsmall"
       >
         <label
-          className="xui-styledcheckboxradio--field"
+          className="xui-styledcheckboxradio"
           onClick={[Function]}
           role="presentation"
         >

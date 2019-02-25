@@ -8,14 +8,13 @@
 	border: $xui-border-control;
 	border-radius: $xui-radius;
 
-	.#{$ns}-styledcheckboxradio {
+	.#{$ns}-styledcheckboxradiowrapper {
 		display: block; // Stacked inputs
-		padding: $xui-s-xsmall - 1px; // 1px to make up for border width
 	}
 
-	// Compatibility for controls that are not wrapped in a div
-	label.#{$ns}-styledcheckboxradio {
+	.#{$ns}-styledcheckboxradio {
 		display: flex;
+		padding: $xui-s-xsmall - 1px; // 1px to make up for border width
 	}
 
 	.#{$ns}-styledcheckboxradio--radio-small,
@@ -26,11 +25,13 @@
 		@include xui-margin-left(2px);
 	}
 
+	.#{$ns}-styledcheckboxradiowrapper:nth-last-of-type(n+2),
 	.#{$ns}-styledcheckboxradio:nth-last-of-type(n+2) {
 		border-bottom: $xui-border-control;
 	}
 
 	&.#{$ns}-styledcheckboxradio-group-is-invalid,
+	&.#{$ns}-styledcheckboxradio-group-is-invalid .#{$ns}-styledcheckboxradiowrapper,
 	&.#{$ns}-styledcheckboxradio-group-is-invalid .#{$ns}-styledcheckboxradio {
 		border-color: $xui-validation-invalid-color;
 	}
@@ -85,18 +86,10 @@
 // Right-aligned input
 // ===================
 .#{$ns}-styledcheckboxradio-reversed {
-	.#{$ns}-styledcheckboxradio--field {
-		flex-direction: row-reverse;
-		justify-content: space-between;
-	}
+	flex-direction: row-reverse;
+	justify-content: space-between;
 
-	// Compatibility for controls that are not wrapped in a div
-	@at-root label#{&} {
-		flex-direction: row-reverse;
-		justify-content: space-between;
-	}
-
-	.#{$ns}-styledcheckboxradio--message-with-label {
+	+ .#{$ns}-styledcheckboxradio--message-with-label {
 		margin-left: 0;
 	}
 }
@@ -104,24 +97,23 @@
 
 // Main styles
 // ===========
-.#{$ns}-styledcheckboxradio {
+.#{$ns}-styledcheckboxradiowrapper {
 	display: inline-block; // Inline inputs
 	user-select: none;
 	vertical-align: top;
 
-	// Compatibility for controls that are not wrapped in a div
-	@at-root label#{&} {
-		@include xui-text-line-height; // 1.5
-		align-items: flex-start;
-		display: inline-flex; // Inline inputs
-	}
-
-	.#{$ns}-styledcheckboxradio--field {
-		@include xui-text-line-height; // 1.5
-		align-items: flex-start;
+	.#{$ns}-styledcheckboxradio {
 		display: flex;
 		max-width: 100%;
 	}
+}
+
+
+.#{$ns}-styledcheckboxradio {
+	@include xui-text-line-height; // 1.5
+	align-items: flex-start;
+	display: inline-flex; // Inline inputs
+	user-select: none;
 
 	.#{$ns}-iconwrapper {
 		align-self: center;

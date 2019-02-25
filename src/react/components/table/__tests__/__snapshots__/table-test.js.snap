@@ -187,10 +187,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-head xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -252,10 +252,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -307,10 +307,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -362,10 +362,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -450,10 +450,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-head xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -515,10 +515,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -570,10 +570,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -625,10 +625,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -713,10 +713,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-head xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -778,10 +778,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -833,10 +833,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -888,10 +888,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -1686,10 +1686,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small xui-styledcheckboxradio-is-disabled"
+                  className="xui-table--checkbox-head xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -3060,10 +3060,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-head xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -3188,10 +3188,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -3292,10 +3292,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -3396,10 +3396,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -4009,10 +4009,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-head xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -4143,10 +4143,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -4286,10 +4286,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -4429,10 +4429,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -5695,10 +5695,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-head xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -5766,10 +5766,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -5860,10 +5860,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -5954,10 +5954,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -7399,10 +7399,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-head xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -7533,10 +7533,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -7676,10 +7676,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -7819,10 +7819,10 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--checkbox-body xui-styledcheckboxradio xui-styledcheckboxradio-small"
+                  className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio--field"
+                    className="xui-styledcheckboxradio"
                     onClick={[Function]}
                     role="presentation"
                   >

@@ -35,10 +35,10 @@ export default function XUIToggleOption(props) {
 
 	return (
 		<XUIControlWrapperInline
-			rootClassName={classes}
+			rootClassName={`${baseClass}-optionwrapper`}
 			qaHook={qaHook}
 			wrapperIds={wrapperIds}
-			fieldClassName={`${baseClass}--field`}
+			fieldClassName={classes}
 			labelClassName={`${baseClass}--label`}
 			label={children}
 		>

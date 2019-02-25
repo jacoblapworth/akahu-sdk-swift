@@ -2,10 +2,10 @@
 
 exports[`XUIRadio should be a small variant, if specified 1`] = `
 <div
-  className="xui-styledcheckboxradio xui-styledcheckboxradio-small"
+  className="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
 >
   <label
-    className="xui-styledcheckboxradio--field"
+    className="xui-styledcheckboxradio"
     onClick={[Function]}
     role="presentation"
   >
@@ -34,10 +34,10 @@ exports[`XUIRadio should be a small variant, if specified 1`] = `
 
 exports[`XUIRadio should be a xsmall variant, if specified 1`] = `
 <div
-  className="xui-styledcheckboxradio xui-styledcheckboxradio-xsmall"
+  className="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-xsmall"
 >
   <label
-    className="xui-styledcheckboxradio--field"
+    className="xui-styledcheckboxradio"
     onClick={[Function]}
     role="presentation"
   >
@@ -66,10 +66,10 @@ exports[`XUIRadio should be a xsmall variant, if specified 1`] = `
 
 exports[`XUIRadio should have a hidden label, if specified 1`] = `
 <div
-  className="xui-styledcheckboxradio xui-styledcheckboxradio-medium"
+  className="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
 >
   <label
-    className="xui-styledcheckboxradio--field"
+    className="xui-styledcheckboxradio"
     onClick={[Function]}
     role="presentation"
   >
@@ -92,10 +92,10 @@ exports[`XUIRadio should have a hidden label, if specified 1`] = `
 
 exports[`XUIRadio should have label text if provided 1`] = `
 <div
-  className="xui-styledcheckboxradio xui-styledcheckboxradio-medium"
+  className="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
 >
   <label
-    className="xui-styledcheckboxradio--field"
+    className="xui-styledcheckboxradio"
     onClick={[Function]}
     role="presentation"
   >
@@ -124,10 +124,10 @@ exports[`XUIRadio should have label text if provided 1`] = `
 
 exports[`XUIRadio should render with an icon when one is provided 1`] = `
 <div
-  className="xui-styledcheckboxradio xui-styledcheckboxradio-medium"
+  className="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
 >
   <label
-    className="xui-styledcheckboxradio--field"
+    className="xui-styledcheckboxradio"
     onClick={[Function]}
     role="presentation"
   >

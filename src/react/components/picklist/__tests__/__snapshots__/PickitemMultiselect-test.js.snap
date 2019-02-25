@@ -6,10 +6,10 @@ exports[`<PickitemMultiselect /> basic example 1`] = `
   role="presentation"
 >
   <div
-    className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
+    className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper"
   >
     <label
-      className="xui-styledcheckboxradio--field"
+      className="xui-styledcheckboxradio"
       onClick={[Function]}
       role="presentation"
     >
@@ -48,10 +48,10 @@ exports[`<PickitemMultiselect /> is selected, adds truncation and custom classes
   role="presentation"
 >
   <div
-    className="custom-checkbox xui-pickitem-text-truncated xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
+    className="custom-checkbox xui-pickitem-text-truncated xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper"
   >
     <label
-      className="xui-styledcheckboxradio--field"
+      className="xui-styledcheckboxradio"
       onClick={[Function]}
       role="presentation"
     >

@@ -126,7 +126,7 @@ describe('XUIRadio', () => {
 	it('should use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true', function () {
 		const component = mount(<XUIRadio onChange={NOOP} isReversed={true} />);
 
-		expect(component.find('div').first().hasClass('xui-styledcheckboxradio-reversed')).toBeTruthy();
+		expect(component.find('label').hasClass('xui-styledcheckboxradio-reversed')).toBeTruthy();
 	});
 
 

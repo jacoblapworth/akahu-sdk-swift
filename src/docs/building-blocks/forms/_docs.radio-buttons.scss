@@ -223,8 +223,8 @@
 // If a group of radio buttons is invalid, add `xui-styledcheckboxradio-group-is-invalid` to the group.
 //
 // Classes:
-// xui-styledcheckboxradio: Wrapper for the field and validation message
-// xui-styledcheckboxradio--field: Wrapper for the radio button and label
+// xui-styledcheckboxradiowrapper: Wrapper for the field and validation message
+// xui-styledcheckboxradio: Wrapper for the radio button and label
 // xui-styledcheckboxradio--message: Positions the message under the radio button
 // xui-styledcheckboxradio--message-with-label: Positions the message under the label
 // xui-styledcheckboxradio-group-is-invalid: Changes the colour of the group to indicate it is invalid
@@ -236,8 +236,8 @@
 // <div class="xui-row-grid">
 //   <!-- Radio button without a label -->
 //   <div class="xui-column-6-of-12 xui-u-flex xui-u-flex-column">
-//     <div class="xui-styledcheckboxradio xui-styledcheckboxradio-medium">
-//       <label class="xui-styledcheckboxradio--field">
+//     <div class="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium">
+//       <label class="xui-styledcheckboxradio">
 //         <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium" type="radio">
 //         <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-medium"></div>
 //       </label>
@@ -245,8 +245,8 @@
 //         Hint message
 //       </div>
 //     </div>
-//     <div class="xui-styledcheckboxradio xui-styledcheckboxradio-small">
-//       <label class="xui-styledcheckboxradio--field">
+//     <div class="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small">
+//       <label class="xui-styledcheckboxradio">
 //         <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio">
 //         <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
 //       </label>
@@ -254,8 +254,8 @@
 //         Hint message
 //       </div>
 //     </div>
-//     <div class="xui-styledcheckboxradio xui-styledcheckboxradio-xsmall">
-//       <label class="xui-styledcheckboxradio--field">
+//     <div class="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-xsmall">
+//       <label class="xui-styledcheckboxradio">
 //         <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall" type="radio">
 //         <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-xsmall"></div>
 //       </label>
@@ -266,8 +266,8 @@
 //   </div>
 //   <!-- Radio with a label -->
 //   <div class="xui-column-6-of-12 xui-u-flex xui-u-flex-column">
-//     <div class="xui-styledcheckboxradio xui-styledcheckboxradio-medium">
-//       <label class="xui-styledcheckboxradio--field">
+//     <div class="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium">
+//       <label class="xui-styledcheckboxradio">
 //         <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium" type="radio">
 //         <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-medium"></div>
 //         <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-medium">Radio label</span>
@@ -276,8 +276,8 @@
 //         Hint message
 //       </div>
 //     </div>
-//     <div class="xui-styledcheckboxradio xui-styledcheckboxradio-small">
-//       <label class="xui-styledcheckboxradio--field">
+//     <div class="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small">
+//       <label class="xui-styledcheckboxradio">
 //         <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio">
 //         <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
 //         <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Radio label</span>
@@ -286,8 +286,8 @@
 //         Hint message
 //       </div>
 //     </div>
-//     <div class="xui-styledcheckboxradio xui-styledcheckboxradio-xsmall">
-//       <label class="xui-styledcheckboxradio--field">
+//     <div class="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-xsmall">
+//       <label class="xui-styledcheckboxradio">
 //         <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall" type="radio">
 //         <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-xsmall"></div>
 //         <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall">Radio label</span>
@@ -299,24 +299,24 @@
 //   </div>
 // </div>
 // <!-- Invalid radio group -->
-// <div class="xui-styledcheckboxradio-group xui-styledcheckboxradio-group-is-invalid">
-//   <div class="xui-styledcheckboxradio">
-//     <label class="xui-styledcheckboxradio--field">
-//       <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" aria-invalid="true">
+// <div class="xui-styledcheckboxradio-group xui-styledcheckboxradio-group-is-invalid" role="radiogroup">
+//   <div class="xui-styledcheckboxradiowrapper">
+//     <label class="xui-styledcheckboxradio">
+//       <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" name="rg5" aria-invalid="true">
 //       <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
 //       <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Invoice number</span>
 //     </label>
 //   </div>
-//   <div class="xui-styledcheckboxradio">
-//     <label class="xui-styledcheckboxradio--field">
-//       <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" aria-invalid="true">
+//   <div class="xui-styledcheckboxradiowrapper">
+//     <label class="xui-styledcheckboxradio">
+//       <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" name="rg5" aria-invalid="true">
 //       <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
 //       <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Reference</span>
 //     </label>
 //   </div>
-//   <div class="xui-styledcheckboxradio">
-//     <label class="xui-styledcheckboxradio--field">
-//       <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" aria-invalid="true">
+//   <div class="xui-styledcheckboxradiowrapper">
+//     <label class="xui-styledcheckboxradio">
+//       <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" name="rg5" aria-invalid="true">
 //       <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
 //       <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Due date</span>
 //     </label>
@@ -334,7 +334,7 @@
 // Classes:
 // xui-styledcheckboxradio-group: Container for a group of styled checkboxes or radio
 // xui-styledcheckboxradio: Container for a styled checkbox or radio
-// xui-styledcheckboxradio--field: Wrapper for the checkbox/radio and label (to be used with a validation message)
+// xui-styledcheckboxradiowrapper: Wrapper for the field and validation message
 // xui-styledcheckboxradio-reversed: Modifier for a right-aligned styled checkbox or radio
 // xui-styledcheckboxradio--radio: The html element that displays the radio button, if not a custom icon.
 // xui-styledcheckboxradio--focus: Subcomponent for focus layer of an svg checkbox or radio

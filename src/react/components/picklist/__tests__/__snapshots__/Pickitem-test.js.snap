@@ -33,10 +33,10 @@ exports[`<Pickitem /> renders a multiselect pickitem with truncation 1`] = `
     role="presentation"
   >
     <div
-      className="xui-pickitem-text-truncated xui-pickitem-multiselect--checkbox xui-styledcheckboxradio xui-styledcheckboxradio-small"
+      className="xui-pickitem-text-truncated xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
     >
       <label
-        className="xui-styledcheckboxradio--field"
+        className="xui-styledcheckboxradio"
         onClick={[Function]}
         role="presentation"
       >
@@ -193,10 +193,10 @@ exports[`<Pickitem /> renders a selected multiselect pickitem (overriding leftEl
     role="presentation"
   >
     <div
-      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio xui-styledcheckboxradio-small"
+      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
     >
       <label
-        className="xui-styledcheckboxradio--field"
+        className="xui-styledcheckboxradio"
         onClick={[Function]}
         role="presentation"
       >
@@ -242,10 +242,10 @@ exports[`<Pickitem /> renders a selected multiselect pickitem without selected s
     role="presentation"
   >
     <div
-      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio xui-styledcheckboxradio-small"
+      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
     >
       <label
-        className="xui-styledcheckboxradio--field"
+        className="xui-styledcheckboxradio"
         onClick={[Function]}
         role="presentation"
       >

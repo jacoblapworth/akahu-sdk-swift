@@ -119,10 +119,10 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
     role="presentation"
   >
     <div
-      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio xui-styledcheckboxradio-small"
+      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
     >
       <label
-        className="xui-styledcheckboxradio--field"
+        className="xui-styledcheckboxradio"
         onClick={[Function]}
         role="presentation"
       >
@@ -256,10 +256,10 @@ exports[`<SelectBoxOption /> should render the option and the checkboxes as disa
     role="presentation"
   >
     <div
-      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio xui-styledcheckboxradio-small xui-styledcheckboxradio-is-disabled"
+      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
     >
       <label
-        className="xui-styledcheckboxradio--field"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
         onClick={[Function]}
         role="presentation"
       >

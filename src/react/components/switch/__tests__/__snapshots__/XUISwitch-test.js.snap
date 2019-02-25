@@ -2,10 +2,10 @@
 
 exports[`XUISwitch should accept an isChecked prop that determines the value of aria attributes 1`] = `
 <div
-  className="xui-switch xui-switch-medium"
+  className="xui-switchwrapper xui-switch-medium"
 >
   <label
-    className="xui-switch--field"
+    className="xui-switch"
     onClick={[Function]}
     role="presentation"
   >
@@ -33,10 +33,10 @@ exports[`XUISwitch should accept an isChecked prop that determines the value of 
 
 exports[`XUISwitch should include a reversed class when a text label is present and isReversed is set 1`] = `
 <div
-  className="xui-switch xui-switch-medium xui-switch-reversed"
+  className="xui-switchwrapper xui-switch-medium"
 >
   <label
-    className="xui-switch--field"
+    className="xui-switch xui-switch-reversed"
     onClick={[Function]}
     role="presentation"
   >
@@ -64,10 +64,10 @@ exports[`XUISwitch should include a reversed class when a text label is present 
 
 exports[`XUISwitch should include a text label when label is passed 1`] = `
 <div
-  className="xui-switch xui-switch-medium"
+  className="xui-switchwrapper xui-switch-medium"
 >
   <label
-    className="xui-switch--field"
+    className="xui-switch"
     onClick={[Function]}
     role="presentation"
   >
@@ -95,10 +95,10 @@ exports[`XUISwitch should include a text label when label is passed 1`] = `
 
 exports[`XUISwitch should include an aria-label when label is passed and hidden 1`] = `
 <div
-  className="xui-switch xui-switch-medium"
+  className="xui-switchwrapper xui-switch-medium"
 >
   <label
-    className="xui-switch--field"
+    className="xui-switch"
     onClick={[Function]}
     role="presentation"
   >
@@ -120,10 +120,10 @@ exports[`XUISwitch should include an aria-label when label is passed and hidden 
 
 exports[`XUISwitch should render an automationid for most elements when a qaHook value is passed 1`] = `
 <div
-  className="xui-switch xui-switch-medium"
+  className="xui-switchwrapper xui-switch-medium"
 >
   <label
-    className="xui-switch--field"
+    className="xui-switch"
     data-automationid="switch-test"
     onClick={[Function]}
     role="presentation"
@@ -155,10 +155,10 @@ exports[`XUISwitch should render an automationid for most elements when a qaHook
 
 exports[`XUISwitch should render checked 1`] = `
 <div
-  className="xui-switch xui-switch-medium"
+  className="xui-switchwrapper xui-switch-medium"
 >
   <label
-    className="xui-switch--field"
+    className="xui-switch"
     onClick={[Function]}
     role="presentation"
   >
@@ -179,10 +179,10 @@ exports[`XUISwitch should render checked 1`] = `
 
 exports[`XUISwitch should render not checked and not disabled 1`] = `
 <div
-  className="xui-switch xui-switch-medium"
+  className="xui-switchwrapper xui-switch-medium"
 >
   <label
-    className="xui-switch--field"
+    className="xui-switch"
     onClick={[Function]}
     role="presentation"
   >

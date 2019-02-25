@@ -136,6 +136,8 @@
 //
 // Validation and hint messages can be shown for switches with and without a label.
 //
+// Add `aria-invalid="true"` to inputs to indicate that they are invalid.
+//
 // Add `xui-validation-is-invalid` to a message to display its error state.
 //
 // If the problem is with a group as a whole, add `xui-switch-group-is-invalid` to the group as well.
@@ -182,12 +184,12 @@
 // <label class="xui-text-label xui-fieldlabel-layout">Permissions</label>
 // <div class="xui-switch-group xui-switch-group-is-invalid">
 //   <label class="xui-switch xui-switch-medium xui-switch-reversed" role="presentation">
-//     <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch5">
+//     <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch5" aria-invalid="true">
 //     <div class="xui-switch--control xui-switch--control-medium"></div>
 //     <span id="switch5" class="xui-switch--label xui-switch--label-medium">Invoicing</span>
 //   </label>
 //   <label class="xui-switch xui-switch-medium xui-switch-reversed" role="presentation">
-//     <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch6">
+//     <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch6" aria-invalid="true">
 //     <div class="xui-switch--control xui-switch--control-medium"></div>
 //     <span id="switch6" class="xui-switch--label xui-switch--label-medium">Projects</span>
 //   </label>

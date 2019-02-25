@@ -216,6 +216,8 @@
 //
 // Validation and hint messages can be shown for radio buttons with and without a label.
 //
+// Add `aria-invalid="true"` to inputs to indicate that they are invalid.
+//
 // Add `xui-validation-is-invalid` to a message to display its error state.
 //
 // If the problem is with a group as a whole, add `xui-styledcheckboxradio-group-is-invalid` to the group as well.
@@ -300,21 +302,21 @@
 // <div class="xui-styledcheckboxradio-group xui-styledcheckboxradio-group-is-invalid">
 //   <div class="xui-styledcheckboxradio">
 //     <label class="xui-styledcheckboxradio--field">
-//       <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio">
+//       <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" aria-invalid="true">
 //       <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
 //       <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Invoice number</span>
 //     </label>
 //   </div>
 //   <div class="xui-styledcheckboxradio">
 //     <label class="xui-styledcheckboxradio--field">
-//       <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio">
+//       <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" aria-invalid="true">
 //       <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
 //       <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Reference</span>
 //     </label>
 //   </div>
 //   <div class="xui-styledcheckboxradio">
 //     <label class="xui-styledcheckboxradio--field">
-//       <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio">
+//       <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" type="radio" aria-invalid="true">
 //       <div class="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"></div>
 //       <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small">Due date</span>
 //     </label>

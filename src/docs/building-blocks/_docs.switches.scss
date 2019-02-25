@@ -138,9 +138,9 @@
 //
 // Add `aria-invalid="true"` to inputs to indicate that they are invalid.
 //
-// Add `xui-validation-is-invalid` to a message to display its error state.
+// Add `xui-validation-is-invalid` to a validation message to display its error state.
 //
-// If the problem is with a group as a whole, add `xui-switch-group-is-invalid` to the group as well.
+// If a group of switches is invalid, add `xui-switch-group-is-invalid` to the group.
 //
 // Classes:
 // xui-switch: Wrapper for the field and validation message

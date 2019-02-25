@@ -121,6 +121,8 @@ function handleSpacebarAsClick(event, { isDisabled, isLoading }) {
  */
 const focusRootNode = button => button.rootNode != null && button.rootNode.focus();
 
+const defaultSize = 'medium';
+
 export default class XUIButton extends React.PureComponent {
 	focus() {
 		focusRootNode(this);
@@ -163,7 +165,6 @@ export default class XUIButton extends React.PureComponent {
 						...spreadProps
 					} = this.props;
 
-					const defaultSize = 'medium';
 					const size = this.props.size || inheritedSize || defaultSize;
 					delete spreadProps.size;
 

@@ -41,18 +41,19 @@
 .#{$ns}-styledcheckboxradio--message-with-label {
 	@include xui-padding-horizontal($xui-s-xsmall);
 
-	.#{$ns}-styledcheckboxradio:not(.#{$ns}-styledcheckboxradio-reversed) & {
+	.#{$ns}-styledcheckboxradio-medium & {
 		margin-left: $xui-s-xlarge;
+	}
 
-		@at-root .#{$ns}-styledcheckboxradio-small#{&} {
-			margin-left: $xui-s-large;
-		}
+	.#{$ns}-styledcheckboxradio-small & {
+		margin-left: $xui-s-large;
+	}
 
-		@at-root .#{$ns}-styledcheckboxradio-xsmall#{&} {
-			margin-left: $xui-s-standard;
-		}
+	.#{$ns}-styledcheckboxradio-xsmall & {
+		margin-left: $xui-s-standard;
 	}
 }
+
 
 // Label spacing
 // =============
@@ -93,6 +94,10 @@
 	@at-root label#{&} {
 		flex-direction: row-reverse;
 		justify-content: space-between;
+	}
+
+	.#{$ns}-styledcheckboxradio--message-with-label {
+		margin-left: 0;
 	}
 }
 

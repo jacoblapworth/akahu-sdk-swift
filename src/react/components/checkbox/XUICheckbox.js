@@ -186,8 +186,6 @@ export default class XUICheckbox extends PureComponent {
 			isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
 		);
 
-		const fieldClasses = `${baseClass}--field`;
-
 		const labelClasses = cn(
 			`${baseClass}--label`,
 			calculatedSize && `${baseClass}--label-${calculatedSize}`,
@@ -234,7 +232,7 @@ export default class XUICheckbox extends PureComponent {
 				rootClassName={classes}
 				wrapperIds={this.wrapperIds}
 				onClick={onLabelClick}
-				fieldClassName={fieldClasses}
+				fieldClassName={`${baseClass}--field`}
 				labelClassName={labelClasses}
 				messageClassName={messageClasses}
 				label={children}

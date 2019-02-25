@@ -313,7 +313,7 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Top aligned right content"
 		rightElement={
 			<XUITextInputSideElement type="icon" alignment="top">
-				<XUIButton variant="icon" size="small" aria-label="attach">
+				<XUIButton variant="icon" aria-label="attach">
 					<XUIIcon icon={attachPath} />
 				</XUIButton>
 			</XUITextInputSideElement>
@@ -327,7 +327,7 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Center aligned right content"
 		rightElement={
 			<XUITextInputSideElement type="icon" alignment="center">
-				<XUIButton variant="icon" size="small" aria-label="attach">
+				<XUIButton variant="icon" aria-label="attach">
 					<XUIIcon icon={attachPath} />
 				</XUIButton>
 			</XUITextInputSideElement>
@@ -341,7 +341,7 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Bottom aligned right content"
 		rightElement={
 			<XUITextInputSideElement type="icon" alignment="bottom">
-				<XUIButton variant="icon" size="small" aria-label="attach">
+				<XUIButton variant="icon" aria-label="attach">
 					<XUIIcon icon={attachPath} />
 				</XUIButton>
 			</XUITextInputSideElement>
@@ -387,7 +387,7 @@ const closePath = require ('@xero/xui-icon/icons/cross').default;
 		}
 		rightElement={
 			<XUITextInputSideElement type="icon">
-					<XUIButton size="small" variant="icon">
+					<XUIButton variant="icon">
 						<XUIIcon icon={closePath}/>
 					</XUIButton>
 				</XUITextInputSideElement>
@@ -404,7 +404,7 @@ const closePath = require ('@xero/xui-icon/icons/cross').default;
 		}
 		rightElement={
 			<XUITextInputSideElement type="icon">
-					<XUIButton size="xsmall" variant="icon">
+					<XUIButton size="small" variant="icon">
 						<XUIIcon icon={closePath}/>
 					</XUIButton>
 				</XUITextInputSideElement>
@@ -651,7 +651,11 @@ class Example extends PureComponent {
 					<XUITextInputSideElement type="icon">
 						<XUIIcon isBoxed icon={search} />
 					</XUITextInputSideElement>}
-				rightElement={button}
+				rightElement={
+					<XUITextInputSideElement type="icon">
+						{button}
+					</XUITextInputSideElement>
+				}
 				onChange={this.onChange}
 				placeholder='This is a search box'
 				value={value}

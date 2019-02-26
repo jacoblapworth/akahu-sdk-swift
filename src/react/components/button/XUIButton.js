@@ -195,7 +195,7 @@ export default class XUIButton extends React.PureComponent {
 					const isIconDependentClassNames = isIconVariant(variantClass)
 						? cn(iconSizeClassNames[size])
 						: cn(
-							sizeClassNames[size],
+							variant !== 'unstyled' && sizeClassNames[size],
 							widthClassNames[fullWidth],
 							(isInverted &&
 						(isBorderlessVariant(variantClass)
@@ -291,6 +291,7 @@ XUIButton.propTypes = {
 
 	/**
 	 * Modifier for the size of the button. `medium`, `small`, or `xsmall`.
+	 * Buttons with `variant` set to `unstyled` will ignore the `size` property.
 	*/
 	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 

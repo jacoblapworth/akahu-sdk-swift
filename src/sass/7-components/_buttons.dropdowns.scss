@@ -6,7 +6,7 @@
 	vertical-align: middle;
 
 	.#{$ns}-button-split & {
-		@include xui-margin-horizontal($xui-s-small);
+		@include xui-margin-left(0px);
 	}
 
 	&.#{$ns}-blobicon {
@@ -20,7 +20,16 @@
 
 .#{$ns}-button-split {
 	flex-shrink: 0;
-	min-width: 0;
 	padding: 0;
 	vertical-align: top;
+
+	&.#{$ns}-button-medium{
+		min-width: $xui-control-size-standard;
+	}
+	&.#{$ns}-button-small{
+		min-width: $xui-control-size-small;
+	}
+	&.#{$ns}-button-xsmall{
+		min-width: $xui-control-size-xsmall;
+	}
 }

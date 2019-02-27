@@ -512,7 +512,6 @@
 }
 
 .#{$ns}-stepper-tab {
-	box-sizing: content-box;
 	max-width: 300px;
 	position: relative;
 
@@ -553,29 +552,32 @@
 
 .#{$ns}-stepper-inline .#{$ns}-stepper-tab {
 	// Reset any "Stacked" layout flex ordering set via JS when using an "Inline" layout.
+	margin: 0 30px;
 	order: 0 !important;
-	padding: 0 30px;
 
 	&:before,
 	&:after {
 		height: 1px;
-		left: 0;
 		top: 50%;
 		width: 30px;
 	}
 
 	&:after {
 		left: inherit;
-		right: 0;
+		right: -30px;
+	}
+
+	&:before {
+		left: -30px;
 	}
 }
 
 .#{$ns}-stepper-inline .#{$ns}-stepper-tab-first {
-	padding-left: 0;
+	margin-left: 0;
 }
 
 .#{$ns}-stepper-inline .#{$ns}-stepper-tab-last {
-	padding-right: 0;
+	margin-right: 0;
 }
 
 .#{$ns}-stepper-tab-first:before,
@@ -687,6 +689,13 @@
 	padding: 0;
 }
 
+.#{$ns}-stepper-stacked,
+.#{$ns}-stepper-sidebar {
+	.#{$ns}-stepper-tab {
+		max-width: 320px;
+	}
+}
+
 .#{$ns}-stepper-link-wrapper {
 	align-items: center;
 	display: flex;
@@ -695,7 +704,7 @@
 }
 
 .#{$ns}-stepper-stacked-links {
-	align-items: start;
+	align-items: flex-start;
 
 	.#{$ns}-stepper-tab:before,
 	.#{$ns}-stepper-tab:after {

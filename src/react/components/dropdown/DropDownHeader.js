@@ -52,7 +52,7 @@ export default class DropDownHeader extends PureComponent {
 				qaHook={qaHook != null ? `${qaHook}--button-back` : null}
 				size="small"
 			>
-				<XUIIcon icon={back} isBoxed />
+				<XUIIcon icon={back} />
 			</XUIButton>
 		) : null;
 

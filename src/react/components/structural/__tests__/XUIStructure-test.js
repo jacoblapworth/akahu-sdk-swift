@@ -382,7 +382,7 @@ describe('<XUI Structure/>', () => {
 			expect(wrapper.hasClass("xui-contentblockitem-layout")).toEqual(false);
 		});
 		it('renders content block item with everything', () => {
-			const testOverflow = <XUIButton variant="icon"><XUIIcon icon={overflow} isBoxed /></XUIButton>;
+			const testOverflow = <XUIButton variant="icon"><XUIIcon icon={overflow} /></XUIButton>;
 			const testLeftContent = <abbr className="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>;
 			const testActions = <XUIActions primaryAction={<XUIButton key='one' variant="primary" size="small">One</XUIButton>} secondaryAction={<XUIButton key='two' size="small">Two</XUIButton>}/>;
 			const testTag = <span className="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>;
@@ -407,7 +407,7 @@ describe('<XUI Structure/>', () => {
 		});
 
 		it('renders content block item tag position description by default', () => {
-			const testOverflow = <XUIButton variant="icon"><XUIIcon icon={overflow} isBoxed /></XUIButton>;
+			const testOverflow = <XUIButton variant="icon"><XUIIcon icon={overflow} /></XUIButton>;
 			const testLeftContent = <abbr className="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>;
 			const testActions = <XUIActions primaryAction={<XUIButton key='one' variant="primary" size="small">One</XUIButton>} secondaryAction={<XUIButton key='two' size="small">Two</XUIButton>}/>;
 			const testTag = <span className="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>;
@@ -432,7 +432,7 @@ describe('<XUI Structure/>', () => {
 		});
 
 		it('renders content block item tag position inline', () => {
-			const testOverflow = <XUIButton variant="icon"><XUIIcon icon={overflow} isBoxed /></XUIButton>;
+			const testOverflow = <XUIButton variant="icon"><XUIIcon icon={overflow} /></XUIButton>;
 			const testLeftContent = <abbr className="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>;
 			const testActions = <XUIActions primaryAction={<XUIButton key='one' variant="primary" size="small">One</XUIButton>} secondaryAction={<XUIButton key='two' size="small">Two</XUIButton>}/>;
 			const testTag = <span className="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>;
@@ -458,7 +458,7 @@ describe('<XUI Structure/>', () => {
 		});
 
 		it('renders content block item tag position right', () => {
-			const testOverflow = <XUIButton variant="icon"><XUIIcon icon={overflow} isBoxed /></XUIButton>;
+			const testOverflow = <XUIButton variant="icon"><XUIIcon icon={overflow} /></XUIButton>;
 			const testLeftContent = <abbr className="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>;
 			const testActions = <XUIActions primaryAction={<XUIButton key='one' variant="primary" size="small">One</XUIButton>} secondaryAction={<XUIButton key='two' size="small">Two</XUIButton>}/>;
 			const testTag = <span className="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>;

@@ -20,10 +20,10 @@ const info = require('@xero/xui-icon/icons/info').default;
 
 const triggerIcon = (
 	<XUIButton variant="icon" aria-label="More info">
-		<XUIIcon icon={info} isBoxed />
+		<XUIIcon icon={info} />
 	</XUIButton>
 );
-const triggerButton = <XUIButton fullWidth="always">A button</XUIButton>;
+const triggerButton = <XUIButton >A button</XUIButton>;
 
 <div>
 	<XUITooltip trigger={triggerIcon}>Tooltip with all default behavior</XUITooltip>

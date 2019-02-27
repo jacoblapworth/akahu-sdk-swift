@@ -60,7 +60,7 @@ const TextInputWrapper = props => {
 			return (
 				<XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
 					<XUIButton variant="icon" size={size}>
-						<XUIIcon icon={clearPath} isBoxed/>
+						<XUIIcon icon={clearPath} />
 					</XUIButton>
 				</XUITextInputSideElement>
 			);

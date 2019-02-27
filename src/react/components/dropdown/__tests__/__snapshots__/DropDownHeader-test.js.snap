@@ -19,22 +19,18 @@ exports[`<DropDownHeader/> should render a back button if back button click hand
         tabIndex={0}
         type="button"
       >
-        <div
-          className="xui-iconwrapper xui-iconwrapper-medium"
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={13}
+          viewBox="0 0 14 13"
+          width={14}
         >
-          <svg
-            className="xui-icon"
-            focusable="false"
-            height={13}
-            viewBox="0 0 14 13"
-            width={14}
-          >
-            <path
-              d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
-              role="presentation"
-            />
-          </svg>
-        </div>
+          <path
+            d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+            role="presentation"
+          />
+        </svg>
       </button>
     </div>
   </div>
@@ -60,22 +56,18 @@ exports[`<DropDownHeader/> should render all header contents in the correct orde
         tabIndex={0}
         type="button"
       >
-        <div
-          className="xui-iconwrapper xui-iconwrapper-medium"
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={13}
+          viewBox="0 0 14 13"
+          width={14}
         >
-          <svg
-            className="xui-icon"
-            focusable="false"
-            height={13}
-            viewBox="0 0 14 13"
-            width={14}
-          >
-            <path
-              d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
-              role="presentation"
-            />
-          </svg>
-        </div>
+          <path
+            d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+            role="presentation"
+          />
+        </svg>
       </button>
       <div>
         left content

@@ -215,7 +215,7 @@ const createTriggerLink = () =>
 	<a href="javascript:void(0);">A link</a> // eslint-disable-line jsx-a11y/anchor-is-valid
 ;
 
-const createTriggerIcon = () => <XUIButton variant="icon" aria-label="Info"><XUIIcon icon={info} isBoxed /></XUIButton>;
+const createTriggerIcon = () => <XUIButton variant="icon" aria-label="Info"><XUIIcon icon={info} /></XUIButton>;
 
 const getPositioningTest = () => {
 	const props = {

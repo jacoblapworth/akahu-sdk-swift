@@ -252,7 +252,7 @@ export default class XUIModal extends Component {
 				type="button"
 				variant="icon"
 			>
-				<XUIIcon icon={cross} isBoxed />
+				<XUIIcon icon={cross} />
 			</XUIButton>
 		) : null;
 		let headerElement;

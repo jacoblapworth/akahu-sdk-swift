@@ -140,22 +140,18 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         tabIndex={0}
         type="button"
       >
-        <div
-          className="xui-iconwrapper xui-iconwrapper-medium"
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={13}
+          viewBox="0 0 3 13"
+          width={3}
         >
-          <svg
-            className="xui-icon"
-            focusable="false"
-            height={13}
-            viewBox="0 0 3 13"
-            width={3}
-          >
-            <path
-              d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-              role="presentation"
-            />
-          </svg>
-        </div>
+          <path
+            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+            role="presentation"
+          />
+        </svg>
       </button>
     </div>
   </div>
@@ -217,22 +213,18 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         tabIndex={0}
         type="button"
       >
-        <div
-          className="xui-iconwrapper xui-iconwrapper-medium"
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={13}
+          viewBox="0 0 3 13"
+          width={3}
         >
-          <svg
-            className="xui-icon"
-            focusable="false"
-            height={13}
-            viewBox="0 0 3 13"
-            width={3}
-          >
-            <path
-              d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-              role="presentation"
-            />
-          </svg>
-        </div>
+          <path
+            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+            role="presentation"
+          />
+        </svg>
       </button>
     </div>
   </div>
@@ -295,22 +287,18 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         tabIndex={0}
         type="button"
       >
-        <div
-          className="xui-iconwrapper xui-iconwrapper-medium"
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={13}
+          viewBox="0 0 3 13"
+          width={3}
         >
-          <svg
-            className="xui-icon"
-            focusable="false"
-            height={13}
-            viewBox="0 0 3 13"
-            width={3}
-          >
-            <path
-              d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-              role="presentation"
-            />
-          </svg>
-        </div>
+          <path
+            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+            role="presentation"
+          />
+        </svg>
       </button>
     </div>
   </div>
@@ -376,22 +364,18 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         tabIndex={0}
         type="button"
       >
-        <div
-          className="xui-iconwrapper xui-iconwrapper-medium"
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={13}
+          viewBox="0 0 3 13"
+          width={3}
         >
-          <svg
-            className="xui-icon"
-            focusable="false"
-            height={13}
-            viewBox="0 0 3 13"
-            width={3}
-          >
-            <path
-              d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-              role="presentation"
-            />
-          </svg>
-        </div>
+          <path
+            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+            role="presentation"
+          />
+        </svg>
       </button>
     </div>
   </div>

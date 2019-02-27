@@ -54,7 +54,7 @@ const createHandlerTriggerButton = () => {
 
 const createTriggerLink = () => <a href="https://www.xero.com" target="_blank" rel="noopener noreferrer">A link</a>;
 
-const createTriggerIcon = () => <XUIButton variant="icon" aria-label="Info"><XUIIcon icon={info} isBoxed /></XUIButton>;
+const createTriggerIcon = () => <XUIButton variant="icon" aria-label="Info"><XUIIcon icon={info} /></XUIButton>;
 
 const createTriggerSpan = () => <span style={{ textDecoration: 'underline' }}>Beauty is everywhere</span>;
 

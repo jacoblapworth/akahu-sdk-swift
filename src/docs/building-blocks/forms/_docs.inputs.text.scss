@@ -155,7 +155,7 @@
 //     <div class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-text">Website:</div>
 //     <input type="text" class="xui-textinput--input xui-textinput--input-small" placeholder="" aria-invalid="false" aria-label="Input with pill" value="" id="e">
 //     <div class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon">
-//       <div class="xui-iconwrapper">
+//       <div class="xui-iconwrapper xui-iconwrapper-medium">
 //         <svg class="xui-icon" viewBox="0 0 14 14" role="presentation" style="height: 14px; width: 14px;">
 //           <path d="M6 12.41V11c-.976 0-2-1-2-2V8L1.537 6.358A5.502 5.502 0 0 0 6 12.409zM8 1.59V2c0 1.5-1 2-2.05 2H5c0 .5-.5 1-1 1H3v1h4c.5 0 1 .5 1 1v2h2c.5 0 1 .5 1 1v.775A5.502 5.502 0 0 0 8 1.59zM0 7c0-3.873 3.127-7 7-7s7 3.127 7 7-3.127 7-7 7a6.99 6.99 0 0 1-7-7z"></path>
 //         </svg>
@@ -199,7 +199,7 @@
 // Markup:
 // <div class="xui-textinput xui-textinput-medium xui-textinput-borderless xui-textinput-borderless-solid xui-margin-top-large">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//     <div class="xui-iconwrapper">
+//     <div class="xui-iconwrapper xui-iconwrapper-medium">
 //     	<svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-search" role="presentation" />
 //       </svg>
@@ -208,7 +208,7 @@
 //   <input class="xui-textinput--input xui-padding-horizontal-none" type="search" placeholder="Search contacts" aria-label="Search contacts"/>
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
-//       <div class="xui-iconwrapper">
+//       <div class="xui-iconwrapper xui-iconwrapper-medium">
 //         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-clear" role="presentation"/>
 //         </svg>
@@ -241,7 +241,7 @@
 // 	<div class="xui-margin-top-xlarge xui-margin-bottom-small xui-column-6-of-12">
 // 	 <div class="xui-textinput xui-textinput-medium xui-textinput-borderless xui-textinput-borderless-transparent">
 // 		<div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-// 			<div class="xui-iconwrapper">
+// 			<div class="xui-iconwrapper xui-iconwrapper-medium">
 //       <svg focusable="false" class="xui-icon">
 // 	  			<use xlink:href="#xui-icon-search" role="presentation" />
 // 	  		</svg>
@@ -271,7 +271,7 @@
 // <!-- Transparent + Inverted with icons-->
 // <div class="xui-margin-top xui-textinput xui-textinput-medium xui-textinput-borderless xui-textinput-borderless-transparent xui-textinput-borderless-inverted">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//     <div class="xui-iconwrapper">
+//     <div class="xui-iconwrapper xui-iconwrapper-medium">
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-search" role="presentation" />
 //       </svg>
@@ -302,7 +302,7 @@
 // <!-- Icon left -->
 // <div class="xui-textinput xui-textinput-medium xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//     <div class="xui-iconwrapper">
+//     <div class="xui-iconwrapper xui-iconwrapper-medium">
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-url" role="presentation" />
 //       </svg>
@@ -316,7 +316,7 @@
 // </div>
 // <div class="xui-textinput xui-textinput-medium xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//     <div class="xui-iconwrapper">
+//     <div class="xui-iconwrapper xui-iconwrapper-medium">
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-search" role="presentation" />
 //       </svg>
@@ -332,7 +332,7 @@
 // </div>
 // <div class="xui-textinput xui-textinput-medium xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon xui-textinput--sideelement-has-background xui-textinput--sideelement-twitter">
-//     <div class="xui-iconwrapper">
+//     <div class="xui-iconwrapper xui-iconwrapper-medium">
 //       <svg focusable="false" class="xui-icon">
 //          <use xlink:href="#xui-icon-social-twitter" role="presentation" />
 //       </svg>
@@ -352,7 +352,7 @@
 // Markup:
 // <div class="xui-textinput xui-textinput-medium xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//     <div class="xui-iconwrapper">
+//     <div class="xui-iconwrapper xui-iconwrapper-medium">
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-search" role="presentation" />
 //       </svg>
@@ -361,7 +361,7 @@
 //   <input class="xui-textinput--input xui-padding-horizontal-none" type="search" placeholder="Search" aria-label="Search"/>
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
-//       <div class="xui-iconwrapper">
+//       <div class="xui-iconwrapper xui-iconwrapper-medium">
 //         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-clear" role="presentation"/>
 //         </svg>
@@ -373,7 +373,7 @@
 //   <input class="xui-textinput--input xui-padding-right-none" id="issue-date" type="text" placeholder="Try 'next month'" aria-label="Issue date"/>
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <button type="button" class="xui-button xui-button-icon" title="Select a date" aria-label="Select a date">
-//       <div class="xui-iconwrapper">
+//       <div class="xui-iconwrapper xui-iconwrapper-medium">
 //         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-date-start" role="presentation"/>
 //         </svg>

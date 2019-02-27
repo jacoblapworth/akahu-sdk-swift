@@ -46,10 +46,7 @@ export default class ContentBlock extends PureComponent {
 									variant="icon"
 									aria-label="Overflow menu"
 								>
-									<XUIIcon
-										icon={overflow}
-										isBoxed
-										/>
+									<XUIIcon icon={overflow} />
 								</XUIButton>
 							}
 							/>
@@ -63,10 +60,7 @@ export default class ContentBlock extends PureComponent {
 								variant="icon"
 								aria-label="Overflow menu"
 							>
-								<XUIIcon
-									icon={overflow}
-									isBoxed
-									/>
+								<XUIIcon icon={overflow} />
 							</XUIButton>
 						}
 					/>

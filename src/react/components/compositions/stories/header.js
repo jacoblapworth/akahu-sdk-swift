@@ -45,7 +45,7 @@ export default class CustomHeader extends PureComponent {
 				actions={
 					<XUIActions
 						secondaryAction={
-							<XUISplitButtonGroup variant="create" isDisabled={false} >
+							<XUISplitButtonGroup size="small" variant="create" isDisabled={false} >
 								<XUIButton>New thing</XUIButton>
 								<XUISecondaryButton aria-label="More options" />
 							</XUISplitButtonGroup>

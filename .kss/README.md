@@ -160,10 +160,10 @@ For representing a status of that section, the 4 currently supported flags are '
 
 ### Storybook
 
-In some scenarios we want to link from the XUI Guide to specific Storybook examples. This should be done using an absolute link to a `/storybook/`route.
+In some scenarios we want to link from the XUI Guide to specific Storybook examples. This should be done using a relative link to a `storybook/`route.
 
 ```
-// Storybook: /storybook/?knob-Include%20content%20header=false&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=false&selectedKind=Compositions&selectedStory=Detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs
+// Storybook: storybook/?knob-Include%20content%20header=false&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=false&selectedKind=Compositions&selectedStory=Detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs
 ```
 
 ### Image

@@ -372,6 +372,5 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-modal--heading {
-	font-size: $xui-font-size-large;
-	font-weight: bold;
+	@include xui-heading-large;
 }

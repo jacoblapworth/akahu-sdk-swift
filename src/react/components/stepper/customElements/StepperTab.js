@@ -63,7 +63,7 @@ export default class StepperTab extends PureComponent {
 						)}
 					>
 
-						<span className={`${NAME_SPACE}-link-heading ${ns}-heading-small`}>
+						<span className={`${NAME_SPACE}-link-heading`}>
 							{name}
 						</span>
 

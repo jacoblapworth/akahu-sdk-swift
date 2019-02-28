@@ -21,7 +21,7 @@
 
 
 .#{$ns}-panel--heading {
-	@include xui-heading-medium;
+	@include xui-heading-large;
 	margin: 0;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .#{$ns}-panel--section--header {
-	@include xui-heading-small;
+	@include xui-heading-medium;
 	margin: 0;
 	text-align: center;
 

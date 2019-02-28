@@ -83,7 +83,7 @@
 }
 
 .#{$ns}-chart--title {
-	@include xui-heading-small;
+	@include xui-heading-medium;
 	flex-grow: 1;
 	overflow: hidden;
 	text-overflow: ellipsis;

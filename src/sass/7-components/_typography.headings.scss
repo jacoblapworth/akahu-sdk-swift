@@ -16,18 +16,15 @@
 	font-weight: $xui-font-weight-deemphasis;
 }
 
-.#{$ns}-heading-modal {
-	@include xui-heading-medium;
-	// other specific stuff to this element might go here???
-}
-
 .#{$ns}-heading-item {
 	@include xui-heading-small;
 	// other specific stuff to this element might go here???
 }
 
 .#{$ns}-heading-separator {
-	@include xui-heading-xsmall;
+	@include xui-heading-small;
+	@include xui-text-deemphasis;
+	@include xui-text-muted;
 }
 
 // Generic Headings

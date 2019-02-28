@@ -36,19 +36,20 @@
 // Classes:
 // xui-isolationheader: Base class
 // xui-isolationheader--navigation: Container for left-aligned elements
+// xui-isolationheader--title: Styling for primary title
+// xui-isolationheader--secondary-title: Styling for secondary title
 // xui-isolationheader--actions: Container for right-aligned actions
 // xui-isolationheader--button: Provides spacing for buttons inside the containers mentioned above
 //
 // Markup:
 // <header class="xui-isolationheader" role="banner">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-medium xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
+//     <button class="xui-button xui-button-icon xui-button-icon-medium" title="Return to source page" aria-label="Return to source page">
 //       <svg focusable="false" class="xui-icon">
-// 				 <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//         <use xlink:href="#xui-icon-cross" role="presentation" />
+//       </svg>
 //     </button>
-//     <h1 class="xui-heading xui-margin-vertical-none xui-text-truncated">
-//       Title
-//     </h1>
+//     <h2 class="xui-isolationheader--title xui-margin-left-small">Title</h2>
 //   </div>
 // </header>
 //
@@ -71,47 +72,39 @@
 // Markup:
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-medium xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
-//       <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <button class="xui-button xui-button-icon xui-button-icon-medium" title="Return to source page" aria-label="Return to source page">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross" role="presentation" />
+//       </svg>
 //     </button>
-//     <h1 class="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated">
-//       Title
-//     </h1>
-//     <h2 class="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-text-truncated">
-//       Subtitle
-//     </h2>
+//     <h2 class="xui-isolationheader--title xui-margin-left-small">Title</h2>
+//     <h2 class="xui-isolationheader--secondary-title">Subtitle</h2>
 //   </div>
 // </header>
 // <br>
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-medium xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
-//       <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <button class="xui-button xui-button-icon xui-button-icon-medium" title="Return to source page" aria-label="Return to source page">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross" role="presentation" />
+//       </svg>
 //     </button>
-//     <abbr class="xui-avatar xui-avatar-color-3 xui-avatar-business xui-margin-right" role="presentation">HE</abbr>
-//     <h1 class="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated">
-//       Title
-//     </h1>
-//     <h2 class="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-text-truncated">
-//       Subtitle
-//     </h2>
+//     <abbr class="xui-avatar xui-avatar-medium xui-avatar-color-3 xui-avatar-business xui-margin-left-small" role="presentation">HE</abbr>
+//     <h2 class="xui-isolationheader--title xui-margin-left">Title</h2>
+//     <h2 class="xui-isolationheader--secondary-title">Subtitle</h2>
 //   </div>
 // </header>
 // <br>
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-medium xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
-//       <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <button class="xui-button xui-button-icon xui-button-icon-medium" title="Return to source page" aria-label="Return to source page">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross" role="presentation" />
+//       </svg>
 //     </button>
-//     <h1 class="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated">
-//       Title
-//     </h1>
-//     <h2 class="xui-heading xui-margin-right-small xui-text-deemphasis xui-margin-vertical-none xui-text-truncated">
-//       Subtitle
-//     </h2>
-//     <span class="xui-tag">
-//       Tag
-//     </span>
+//     <h2 class="xui-isolationheader--title xui-margin-left-small">Title</h2>
+//     <h2 class="xui-isolationheader--secondary-title">Subtitle</h2>
+//     <span class="xui-tag xui-tag-medium">Tag</span>
 //   </div>
 // </header>
 //
@@ -129,52 +122,46 @@
 // Markup:
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-medium xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
+//     <button class="xui-button xui-button-icon xui-button-icon-medium" title="Return to source page" aria-label="Return to source page">
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross" role="presentation" />
 //       </svg>
 //     </button>
-//     <h1 class="xui-heading xui-margin-vertical-none xui-text-truncated">
-//       Title
-//     </h1>
+//     <h2 class="xui-isolationheader--title xui-margin-left-small">Title</h2>
 //   </div>
 //   <div class="xui-isolationheader--actions">
-//     <button class="xui-button xui-button-create xui-button-small xui-margin-right-xsmall">Primary</button>
+//     <button class="xui-button xui-button-create xui-button-small xui-isolationheader--button xui-margin-right-xsmall">Primary</button>
 //   </div>
 // </header>
 // <br>
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-medium xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
+//     <button class="xui-button xui-button-icon xui-button-icon-medium" title="Return to source page" aria-label="Return to source page">
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross" role="presentation" />
 //       </svg>
 //     </button>
-//     <h1 class="xui-heading xui-margin-vertical-none xui-text-truncated">
-//       Title
-//     </h1>
+//     <h2 class="xui-isolationheader--title xui-margin-left-small">Title</h2>
 //   </div>
 //   <div class="xui-isolationheader--actions">
-//     <button class="xui-button xui-button-standard xui-button-small xui-margin-right-small">Secondary</button>
-//     <button class="xui-button xui-button-main xui-button-small xui-margin-right-xsmall">Primary</button>
+//     <button class="xui-button xui-button-standard xui-button-small xui-isolationheader--button">Secondary</button>
+//     <button class="xui-button xui-button-main xui-button-small xui-isolationheader--button xui-margin-right-xsmall">Primary</button>
 //   </div>
 // </header>
 // <br>
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-medium xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
+//     <button class="xui-button xui-button-icon xui-button-icon-medium" title="Return to source page" aria-label="Return to source page">
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross" role="presentation" />
 //       </svg>
 //     </button>
-//     <h1 class="xui-heading xui-margin-vertical-none xui-text-truncated">
-//       Title
-//     </h1>
+//     <h2 class="xui-isolationheader--title xui-margin-left-small">Title</h2>
 //   </div>
 //   <div class="xui-isolationheader--actions">
-//     <button class="xui-button xui-button-standard xui-button-small xui-margin-right-small">Secondary</button>
-//     <button class="xui-button xui-button-main xui-button-small xui-margin-right-xsmall">Primary</button>
-//     <button class="xui-button xui-button-icon xui-button-icon-medium" title="Overflow menu" aria-label="Overflow menu">
+//     <button class="xui-button xui-button-standard xui-button-small xui-isolationheader--button">Secondary</button>
+//     <button class="xui-button xui-button-main xui-button-small xui-isolationheader--button">Primary</button>
+//     <button class="xui-button xui-button-icon xui-button-icon-medium xui-margin-left-xsmall" title="Overflow menu" aria-label="Overflow menu">
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-overflow" role="presentation" />
 //       </svg>
@@ -242,21 +229,21 @@
 // <header class="xui-isolationheader" style="overflow: visible;">
 //   <div class="xui-isolationheader--navigation" style="overflow: visible;">
 //     <span class="xui-tooltip xui-has-inline-trigger xui-tooltip-tipopen">
-//       <button class="xui-button xui-button-icon xui-button-icon-medium xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
-//         <svg focusable="false" class="xui-icon">
-//           <use xlink:href="#xui-icon-cross" role="presentation" />
-//         </svg>
+//       <button class="xui-button xui-button-icon xui-button-icon-medium" title="Return to source page" aria-label="Return to source page">
+//         <div class="xui-iconwrapper xui-iconwrapper-medium">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-cross" role="presentation" />
+//           </svg>
+//         </div>
 //       </button>
 //       <span class="xui-positioningInline" style="flex-direction: row; top: 10px; left: 5px;">
 //         <span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-bottomleft">Back to Xero</span>
 //       </span>
 //     </span>
-//     <h1 class="xui-heading xui-margin-vertical-none xui-text-truncated">
-//       Title
-//     </h1>
+//     <h2 class="xui-isolationheader--title xui-margin-left-small">Title</h2>
 //   </div>
 //   <div class="xui-isolationheader--actions">
-//     <button class="xui-button xui-button-create xui-button-small xui-margin-right-xsmall">Create</button>
+//     <button class="xui-button xui-button-create xui-button-small xui-isolationheader--button xui-margin-right-xsmall">Primary</button>
 //   </div>
 // </header>
 //
@@ -270,19 +257,15 @@
 // Markup:
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-medium xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
+//     <button class="xui-button xui-button-icon xui-button-icon-medium" title="Return to source page" aria-label="Return to source page">
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross" role="presentation" />
 //       </svg>
 //     </button>
-//     <h1 class="xui-heading xui-margin-vertical-none xui-text-truncated">
-//       Title
-//     </h1>
+//     <h2 class="xui-isolationheader--title xui-margin-left-small">Title</h2>
 //   </div>
 //   <div class="xui-isolationheader--actions">
-//     <button class="xui-button xui-button-create xui-button-is-disabled xui-button-small xui-margin-right-xsmall">
-//       Primary
-//     </button>
+//     <button class="xui-button xui-button-create xui-button-small xui-button-is-disabled xui-isolationheader--button xui-margin-right-xsmall">Primary</button>
 //   </div>
 // </header>
 // <div class="xui-stepper xui-padding-vertical-2xlarge">
@@ -380,13 +363,14 @@
 .#{$ns}-isolationheader--title {
 	@include xui-margin(0 $xui-s-small 0 0);
 	@include xui-text-truncated;
-	@include xui-heading-medium;
+	@include xui-heading-large;
 }
 
 .#{$ns}-isolationheader--secondary-title {
 	@include xui-margin(0 $xui-s-small 0 0);
 	@include xui-text-truncated;
-	@include xui-heading-medium(false);
+	@include xui-heading-large;
+	@include xui-text-deemphasis;
 }
 
 .#{$ns}-isolationheader--button:nth-child(2n) {

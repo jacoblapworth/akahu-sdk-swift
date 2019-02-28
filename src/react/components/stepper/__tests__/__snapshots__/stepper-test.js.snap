@@ -94,7 +94,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -179,7 +179,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Error
                 </span>
@@ -247,7 +247,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Disabled
                 </span>
@@ -313,7 +313,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Complete
                 </span>
@@ -434,7 +434,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -501,7 +501,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -591,7 +591,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -712,7 +712,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -779,7 +779,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -869,7 +869,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -992,7 +992,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -1077,7 +1077,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Error
                 </span>
@@ -1145,7 +1145,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Disabled
                 </span>
@@ -1211,7 +1211,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Complete
                 </span>
@@ -1331,7 +1331,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -1398,7 +1398,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -1488,7 +1488,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -1608,7 +1608,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -1675,7 +1675,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -1765,7 +1765,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -2037,7 +2037,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -2205,7 +2205,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -2378,7 +2378,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Error
                 </span>
@@ -2548,7 +2548,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Error
                 </span>
@@ -2620,7 +2620,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Complete
                 </span>
@@ -2707,7 +2707,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Complete
                 </span>
@@ -2781,7 +2781,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Complete
                 </span>
@@ -2854,7 +2854,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Complete
                 </span>
@@ -2977,7 +2977,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -3062,7 +3062,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Error
                 </span>
@@ -3130,7 +3130,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Disabled
                 </span>
@@ -3196,7 +3196,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Complete
                 </span>
@@ -3316,7 +3316,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -3383,7 +3383,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -3473,7 +3473,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -3593,7 +3593,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -3660,7 +3660,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -3750,7 +3750,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -3873,7 +3873,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -3958,7 +3958,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Error
                 </span>
@@ -4026,7 +4026,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Disabled
                 </span>
@@ -4092,7 +4092,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Complete
                 </span>
@@ -4212,7 +4212,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -4279,7 +4279,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -4369,7 +4369,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -4489,7 +4489,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -4556,7 +4556,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog
                 </span>
@@ -4646,7 +4646,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -4785,7 +4785,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -4848,7 +4848,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Standard
                 </span>
@@ -4937,7 +4937,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Error
                 </span>
@@ -5023,7 +5023,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Error
                 </span>
@@ -5093,7 +5093,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Complete
                 </span>
@@ -5178,7 +5178,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Complete
                 </span>
@@ -5250,7 +5250,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-text xui-stepper-link-text-truncated"
               >
                 <span
-                  className="xui-stepper-link-heading xui-heading-small"
+                  className="xui-stepper-link-heading"
                 >
                   Complete
                 </span>

@@ -256,4 +256,14 @@ describe('<XUIButton/>', () => {
 
 		expect(shortButton).toMatchSnapshot();
 	});
+
+	it('has a size class applied', () => {
+		const primary = renderIntoDocument(<XUIButton />);
+		assert.isTrue(primary.rootNode.classList.contains('xui-button-medium'));
+	});
+
+	it('does not have a size class applied if the variant is unstyled', () => {
+		const primary = renderIntoDocument(<XUIButton variant="unstyled" />);
+		assert.isFalse(primary.rootNode.classList.contains('xui-button-medium'));
+	});
 });

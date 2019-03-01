@@ -129,7 +129,7 @@ storiesWithKnobs.add('Master detail summary', () => {
 	const areas = settings.isReal ? {...realAreas} : {...blockAreas};
 
 	if (widthLeftColumn != null) {
-		areas.master = settings.isReal ? realMaster({minWidth:widthLeftColumn, width: '100%'}): blockAreas.master({width:widthLeftColumn});
+		areas.master = settings.isReal ? realMaster({minWidth:widthLeftColumn}): blockAreas.master({width:widthLeftColumn});
 		areas.summary = settings.isReal ? realSummary({minWidth:widthRightColumn, width: '100%'}): blockAreas.summary({minWidth:widthRightColumn, width: '100%'});
 	}
 

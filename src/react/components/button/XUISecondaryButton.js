@@ -44,7 +44,7 @@ XUISplitButton.propTypes = {
 
 	/** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`, `link`,
 	 * 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative',
-	 * 'borderless-negative', 'icon', 'icon-large', 'icon-inverted', 'icon-inverted-large' or
+	 * 'borderless-inverted', 'borderless-muted', 'icon', 'icon-inverted' or
 	 * `unstyled`. */
 	variant: PropTypes.oneOf(Object.keys(variantClassNames)),
 

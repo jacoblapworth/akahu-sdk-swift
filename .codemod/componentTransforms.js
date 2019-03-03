@@ -185,16 +185,46 @@ module.exports = {
 					}
 				},
 				{
-					name: 'size',
+					name: 'size', // If `icon` or `icon-inverted` variant, set size='small'
 					valueTransform: (node, j, path) => {
 						const sizeAttribute = path.value.openingElement.attributes.find(
 							attribute => attribute.name && attribute.name.name === 'size'
 						);
+						const variantAttribute = path.value.openingElement.attributes.find(
+							attribute => attribute.name && attribute.name.name === 'variant'
+						);
 
+						const variant = variantAttribute && variantAttribute.value && variantAttribute.value.value;
 						const size = sizeAttribute && sizeAttribute.value && sizeAttribute.value.value;
 
 						if (size === 'full-width' || size === 'full-width-mobile') {
 							return;
+						}
+
+						if (variant === 'icon' || variant === 'icon-inverted') {
+							return j.literal('small');
+						}
+						if (variant === 'icon-large' || variant === 'icon-inverted-large') {
+							return j.literal('medium');
+						}
+
+						return node && node.value;
+					},
+				},
+				{
+					name: 'variant',  // If `icon-large` or `icon-inverted-large` variant, set to non-sized variant
+					valueTransform: (node, j, path) => {
+						const variantAttribute = path.value.openingElement.attributes.find(
+							attribute => attribute.name && attribute.name.name === 'variant'
+						);
+
+						const variant = variantAttribute && variantAttribute.value && variantAttribute.value.value;
+
+						if (variant === 'icon-large') {
+							return j.literal('icon');
+						}
+						if (variant === 'icon-inverted-large') {
+							return j.literal('icon-inverted');
 						}
 
 						return node && node.value;

@@ -56,9 +56,9 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 ### Components
 
 - Icons in `XUIButton`
-	- Should not use the `isBoxed` prop (including when they're in icon button variants, you can also remove usages of the `xui-icon-inline` class)
-	- Buttons with `variant="icon"` or `variant="icon-inverted"` should receive the `size="small"` prop
-	- Buttons with `variant="icon-large"` or `variant="icon-inverted-large` should have `size="medium"` (or can be left undefined) and have their variant name switched to `variant="icon"` or `variant="icon-inverted"`
+	- Should not use the `isBoxed` prop nor have the `xui-icon-inline` class applied.
+	- Buttons with `"icon"` or `"icon-inverted"` variants should now have `size="small"`. Buttons with `"icon-large"` and `"icon-inverted-large"` variants should have `size="medium"` (or can be left undefined).
+	- Buttons should use the `"icon"` or `"icon-inverted"` variants, rather than size-specific variants. The `"icon-large"` and `"icon-inverted-large"` variants have been removed, and sizes are now handled via the `size` prop.
 - Icon's iconwrapper class set now requires a size class to be used alongside the base class. The size `medium` is the default, other options are `large` and `xlarge`.
 - TextInput side element contents should have their size checked (they should always have a size 1 smaller than the parent input - i.e. 'medium' `XUITextInput` contains 'small' `XUIButton`s).
 - SelectBox prop `islabelHidden` case has been fixed to be `isLabelHidden`, for real this time.

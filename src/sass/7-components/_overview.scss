@@ -26,6 +26,11 @@
 //
 // Flag: Experimental
 //
+// Tips:
+// Do: Use overview blocks to display a summary of content displayed a page
+// Dont: Don't display fewer than 2 items in an overview block
+// Dont: Don't display more than 6 items in an overview block
+//
 // Classes:
 // xui-overview: Overview block
 // xui-overview-layout: Default overview block layout
@@ -36,34 +41,110 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 //  Markup:
-// <div class="xui-overview xui-overview-layout">
+// <div class="xui-overview xui-overview-layout xui-overview-has-border xui-overview-solid xui-overview-text-align-center xui-margin-bottom">
 //   <section class="xui-overview--section">
-//     <div class="xui-overview--label">This quarter</div>
-//     <div class="xui-overview--value">None</div>
+//     <div class="xui-overview--label">Paid</div>
+//     <div class="xui-overview--value">2,000.00</div>
 //   </section>
 //   <section class="xui-overview--section">
-//     <div class="xui-overview--label">Last quarter</div>
-//     <div class="xui-overview--value">318.70</div>
+//     <div class="xui-overview--label">Unpaid</div>
+//     <div class="xui-overview--value">8,000.00</div>
+//   </section>
+// </div>
+// <div class="xui-overview xui-overview-layout xui-overview-has-border xui-overview-solid xui-overview-text-align-center">
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">John C</div>
+//     <div class="xui-overview--value">Done</div>
 //   </section>
 //   <section class="xui-overview--section">
-//     <div class="xui-overview--label">This year</div>
-//     <div class="xui-overview--value">1,159.20</div>
+//     <div class="xui-overview--label">Amber H</div>
+//     <div class="xui-overview--value">Done</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Kelly G</div>
+//     <div class="xui-overview--value">—</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Simona U</div>
+//     <div class="xui-overview--value">Done</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Pablo E</div>
+//     <div class="xui-overview--value">—</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Walter W</div>
+//     <div class="xui-overview--value">Done</div>
 //   </section>
 // </div>
 //
 // Styleguide: Compounds.DisplayingData.OverviewBlock.2
 
+// Style variants
+//
+// Overview blocks can be styled in a number of ways, to best fit the purpose of your content.
+//
+// Styleguide: Compounds.DisplayingData.OverviewBlock.3
+
+// Text alignment
+//
+// Depending on the content inside of an overview section, different text alignment may be desired. Apply one of these classes on either the overview or overview section wrapper to define text alignment.
+//
+// Tips:
+// Do: Use text alignment that's appropriate for the data in each the overview section
+// Do: Primarily use left or centre alignment for content
+// Warning: Avoid using right alignment for anything other than monetary values
+//
+// Classes:
+// xui-overview-text-align-left: Left text alignment
+// xui-overview-text-align-center: Centre text alignment
+// xui-overview-text-align-right: Right text alignment
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-overview xui-overview-layout xui-margin-bottom xui-overview-has-border xui-overview-solid">
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Status</div>
+//     <div class="xui-overview--value">In progress</div>
+//   </section>
+//   <section class="xui-overview--section xui-overview-text-align-right">
+//     <div class="xui-overview--label">Estimate</div>
+//     <div class="xui-overview--value">200.00</div>
+//   </section>
+//   <section class="xui-overview--section xui-overview-text-align-right">
+//     <div class="xui-overview--label">Invoiced amount</div>
+//     <div class="xui-overview--value">35.00</div>
+//   </section>
+// </div>
+// <div class="xui-overview xui-overview-layout xui-overview-text-align-center xui-overview-has-border xui-overview-solid">
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Estimate</div>
+//     <div class="xui-overview--value">500.00</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Invoiced</div>
+//     <div class="xui-overview--value">100.00</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Time & expenses</div>
+//     <div class="xui-overview--value">450.00</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Deadline</div>
+//     <div class="xui-overview--value">15 May</div>
+//   </section>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.OverviewBlock.3.1
+
 // Sentiment
 //
 // To indicate sentiment, apply one of our standard text color utilities.
 //
-// Use descriptive text as well as colour to convey information so it’s still meaningful to people who can’t discern colour.
-//
-// For example, using a `positive` sentiment:
-//
 // Tips:
-// Do: When using sentiment, use descriptive text like "+35%"
-// Dont: When using sentiment, avoid vague text like "35%"
+// Do: Use descriptive text as well as colour to convey information so it’s still meaningful to people who can’t discern colour
+// Warning: Avoid using red and green sentiment on a grey background, as this does not pass WCAG 2.0 AA standards for accessibility
 //
 // Classes:
 // xui-textcolor-positive: Positive sentiment
@@ -88,9 +169,135 @@
 //   </section>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.OverviewBlock.3
+// Styleguide: Compounds.DisplayingData.OverviewBlock.3.2
+
+// Border and background
+//
+// Depending on the page background, a border or background may be desired for displaying data inside an overview block. To do this, use the overview block classes provided.
+//
+// Classes:
+// xui-overview-has-border: Applies border
+// xui-overview-solid: Applies grey background colour
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-overview xui-overview-layout xui-margin-bottom">
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Draft</div>
+//     <div class="xui-overview--value">103.75</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Paid</div>
+//     <div class="xui-overview--value">20.00</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Unpaid</div>
+//     <div class="xui-overview--value">18.50</div>
+//   </section>
+// </div>
+// <div class="xui-overview xui-overview-layout xui-overview-has-border xui-margin-bottom">
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Draft</div>
+//     <div class="xui-overview--value">103.75</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Paid</div>
+//     <div class="xui-overview--value">20.00</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Unpaid</div>
+//     <div class="xui-overview--value">18.50</div>
+//   </section>
+// </div>
+// <div class="xui-overview xui-overview-layout xui-overview-solid xui-margin-bottom">
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Draft</div>
+//     <div class="xui-overview--value">103.75</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Paid</div>
+//     <div class="xui-overview--value">20.00</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Unpaid</div>
+//     <div class="xui-overview--value">18.50</div>
+//   </section>
+// </div>
+// <div class="xui-overview xui-overview-layout xui-overview-has-border xui-overview-solid">
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Draft</div>
+//     <div class="xui-overview--value">103.75</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Paid</div>
+//     <div class="xui-overview--value">20.00</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Unpaid</div>
+//     <div class="xui-overview--value">18.50</div>
+//   </section>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.OverviewBlock.3.3
+
+// Progress indicators
+//
+// To provide additional data visualisation, a progress indicator can be utilised inside an overview section. 
+//
+// Tips:
+// Do: Place progress indicators below text content
+// Do: Use colours that indicate the perceived sentiment of the data
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-overview xui-overview-layout xui-overview-text-align-center">
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Draft</div>
+//     <div class="xui-overview--value xui-textcolor-muted">200.00</div>
+//     <div class="xui-progress xui-progress-linear" data-xui-progress-current-color="grey" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10" aria-valuetext="20%">
+//       <div class="xui-progress--fragment" aria-describedby="testId-progress--tooltip">
+//         <div class="xui-progress-linear-wrapper">
+//           <div class="xui-progress-linear-track" style="height: 4px;">
+//             <div class="xui-progress-linear-current" style="height: 4px; width: 20%;"></div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Paid</div>
+//     <div class="xui-overview--value xui-textcolor-positive">100.00</div>
+//     <div class="xui-progress xui-progress-linear" data-xui-progress-current-color="green" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10" aria-valuetext="10%">
+//       <div class="xui-progress--fragment" aria-describedby="testId-progress--tooltip">
+//         <div class="xui-progress-linear-wrapper">
+//           <div class="xui-progress-linear-track" style="height: 4px;">
+//             <div class="xui-progress-linear-current" style="height: 4px; width: 10%;"></div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Unpaid</div>
+//     <div class="xui-overview--value xui-textcolor-negative">700.00</div>
+//     <div class="xui-progress xui-progress-linear xui-progress-error-soft" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10" aria-valuetext="70%">
+//       <div class="xui-progress--fragment" aria-describedby="testId-progress--tooltip">
+//         <div class="xui-progress-linear-wrapper">
+//           <div class="xui-progress-linear-track" style="height: 4px;">
+//             <div class="xui-progress-linear-current" style="height: 4px; width: 70%;"></div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </section>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.OverviewBlock.4
 
 .#{$ns}-overview {
+	border-radius: $xui-radius;
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
@@ -101,7 +308,6 @@
 }
 
 .#{$ns}-overview-has-border {
-	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-border-all;
 }
 

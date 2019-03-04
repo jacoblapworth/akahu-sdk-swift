@@ -2,7 +2,7 @@ The `StatefulPicklist` wraps the `Picklist` to keep track of which element is hi
 
 ### Components Using StatefulPicklist
 * [DropDown](#dropdown)
-* [SelectBox, inherited from Dropdown](#selectbox)
+* [SelectBox, inherited from Dropdown](#select-box)
 * [Autocompleter](#autocompleter)
 
 

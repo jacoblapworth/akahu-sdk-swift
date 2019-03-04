@@ -1,3 +1,97 @@
+// 15.0.0 Release update (March 2019)
+//
+// XUI 15.0.0 is themed around enabling and supporting responsive Xero applications. Responsive, much like accessibility, is a fundamental priority of building a progressive web application.
+// 
+// Globally, web usage is trending away from the desktop, towards a more diverse range of devices and input methods. Despite the fact we have mobile apps, much of Xero's functionality is still dependent on the web version of our product. Enabling a responsive experience for Xero is extremely important, not only to provide functional parity unlinked to device preference, but to capture users in markets that rely more heavily on the mobile web. 
+//
+// You can read more about Xero’s position on responsive [here](./section-getting-started-responsive.html).
+//
+// <a href="https://github.dev.xero.com/UXE/xui/releases/tag/15.0.0">Full release notes on Github</a>
+//
+// Styleguide: Updates.95
+
+// Enhancements
+//
+// All enhancements relate to our [WCAG 2.0 AA checklist/audit](https://docs.google.com/document/d/16pNZvUKGiVbY5grGgRnVZUUcc3vLQ7Ax_l4_mLSaTHo/edit?usp=sharing)
+//
+// **Color contrast**
+// <ul>
+//  <li>Adjustment to color variables values, which enable compliant contrast ratios (4.5:1) to be achieved across a range of scenarios. This includes introducing an 8th neutral variable.</li>
+//  <li>Adjustment to component text and background colors to be compliant with contrast ratios. This includes pseudo states for hover, active and focus.</li>
+// </ul>
+//
+// **Reduce reliance on color**
+// <ul>
+//  <li>Added additional descriptors to components that previously relied on a color change</li>
+//  <li>Anchor tags by now have `text-decoration: underline;` by default</li>
+//  <li>Disabled states now use `cursor: not-allowed;`</li>
+//  <li>Provided appropriate guidance in XUI docs to avoid reliance on color for presentation</li>
+// </ul>
+//
+// **Labelling**
+// <ul>
+//  <li>Added the ability to apply visible or invisible labels to form controls, for the benefit of assistive technology</li>
+//  <li>Standardised the labeling API across control components</li>
+//  <li>Updated ARIA roles and attributes on many components to better support use with assistive technology</li>
+// </ul>
+//
+// **Keyboard navigation**
+// <ul>
+//  <li>Improved keyboard navigation for some components</li>
+//  <li>Documented best practices for more complex cases</li>
+// </ul>
+//
+// Styleguide: Updates.95.2
+
+// Deprecations
+//
+// <ul>
+//  <li>`XUIInput` and `XUITextarea` components have been removed. These have been replaced with `XUITextinput`.</li>
+//  <li>Legacy accordion style has been deprecated and replaced with new styles</li>
+// </ul>
+//
+// Styleguide: Updates.95.3
+
+// Tooling
+//
+// <ul>
+//  <li>Provided additional accessibility checks in our build tools</li>
+//  <li>We are now using `node.js 10` to build and develop XUI</li>
+//  <li>The supported version of React has changed from `^16.2.0` to `^16.4.2`</li>
+// </ul>
+//
+// **Development process**
+// <ul>
+//  <li>XUI 14.0.0 has had a large overhaul to the organisation of SCSS files. If you are developing with low level access to XUI SCSS please make sure you using the supported vars and mixins entry points.</li>
+// </ul>
+//
+// Styleguide: Updates.95.4
+
+// Documentation
+//
+// <ul>
+//   <li>Added XUI responsive position page</li>
+//   <li>Added page _'Compositions'_ documentation</li>
+//   <li>Added design _'Patterns'_ nav item with first page on _'Displaying text'_</li>
+//   <li>Improved guidance around responsive layouts and breakpoints</li>
+//   <li>Improved guidance around spacing and sizing</li>
+//   <li>Improved responsive documenation for Global navigation</li>
+//   <li>Added size variant and nesting sections to all applicable element pages</li>
+//   <ul>
+//     <li>Button, Checkbox, Radio, Range, Select, Text input, Avatar, Loader, Pill, Tag</li>
+//   </ul>
+//   <li>Improved guidance and example markup for elements and compound pages</li>
+// </ul>
+//
+// Definitions:
+// New:			Responsive position:    [Getting started > Responsive](./section-getting-started-responsive.html)
+// Updated:		Typography:       	    [Fundamentals > Typography](./section-fundamentals-typography.html)
+// Updated:		Layout:              	[Fundamentals > Layout](./section-fundamentals-layout.html)
+// Updated:		Spacing:              	[Fundamentals > Spacing](./section-fundamentals-spacing.html)
+// Updated:		Colors:              	[Fundamentals > Colors](./section-fundamentals-colors.html)
+//
+// Styleguide: Updates.95.5
+
 // 14.0.0 Release update (August 2018)
 //
 // XUI 14.0.0 is themed around building and maintaining accessible products. Accessibility is an important aspect of modern web experiences, and we have dedicated this release to the enhancement of our components, documentation and tooling to enable our consumers to build products that are inclusive.
@@ -76,9 +170,9 @@
 //
 // Definitions:
 // New:			  Range input:         	[Elements > Controls > Range](./section-building-blocks-controls-range.html)
-// Updated:		Accessibility:       	[About > Accessibility](./section-getting-started-accessibility.html)
-// Updated:		Developing with XUI: 	[About > Developing with XUI](./section-getting-started-developing-with-xui.html)
-// Updated:		Designing with XUI:  	[About > Designing with XUI](./section-getting-started-designing-with-xui.html)
+// Updated:		Accessibility:       	[Getting started > Accessibility](./section-getting-started-accessibility.html)
+// Updated:		Developing with XUI: 	[Getting started > Developing with XUI](./section-getting-started-developing-with-xui.html)
+// Updated:		Designing with XUI:  	[Getting started > Designing with XUI](./section-getting-started-designing-with-xui.html)
 // Updated:		Colors:              	[Fundamentals > Colors](./section-fundamentals-colors.html)
 //
 // Styleguide: Updates.96.5
@@ -218,7 +312,7 @@
 // Definitions:
 // New:			Isolation header:	[Compounds > Navigation > Isolation header](./section-compounds-navigation-isolation-header.html)
 // New:			Stepper:					[Compounds > Navigation > Stepper](./section-compounds-navigation-stepper.html)
-// New:			Accessibility:		[About > Accessibility](./section-getting-started-accessibility.html)
+// New:			Accessibility:		[Getting started > Accessibility](./section-getting-started-accessibility.html)
 // Updated:	Table: 						[Compounds > Displaying data > Table](./section-compounds-displayingdata-table.html)
 //
 // Styleguide: Updates.99.4

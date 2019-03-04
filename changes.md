@@ -19,6 +19,8 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 * `xui-popover--arrow` has been removed. Apply `xui-popover-arrow` on the parent popover component instead.
 * `xui-stepper-tests` class has been removed. This was a hidden and internal class, but if you were referring to it, use `xui-stepper-hidden-content` instead.
 * `xui-pill-is-deleteable` has been removed. Use `xui-pill-is-deletable` instead.
+* `xui-contentblockitem--links` has been removed. Use `xui-contentblockitem--maincontent` instead.
+* `xui-contentblockitem--toplinks` has been removed. The nearest replacement is `xui-contentblockitem--headings`, which should wrap primary and secondary headings.
 * `xui-dropdown-show-mobile-only` has been removed. Use `xui-dropdown-hide-small-up` instead.
 * `xui-column-#-of-12-medium` classes have been removed. Use `xui-column-#-of-12-small-up` instead.
 * `xui-column-#-of-12-wide` classes have been removed. Use `xui-column-#-of-12-large-up` instead.

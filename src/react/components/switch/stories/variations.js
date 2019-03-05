@@ -27,17 +27,6 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'with hint text',
-		hintMessage: 'Whether or not to select',
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'invalid with message',
-		validationMessage: 'This option must be enabled to proceed',
-		isInvalid: true,
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is grouped and reversed',
 		isGroup: true,
 		groupProps: {
@@ -57,6 +46,28 @@ const variations = [
 		}
 	}
 ];
+
+[false, true].forEach(isInvalid => {
+	[false, true].forEach(isLabelHidden => {
+		[false, true].forEach(isReversed => {
+			const isInvalidTitle = isInvalid ? 'with validation error' : 'with hint text';
+
+			const isLabelHiddenTitle = isLabelHidden ? ' and hidden label' : '';
+
+			const isReversedTitle = isReversed ? ' and reversed': '';
+
+			variations.push({
+				storyKind: storiesWithVariationsKindName,
+				storyTitle: `${isInvalidTitle}${isLabelHiddenTitle}${isReversedTitle}`,
+				isInvalid,
+				isLabelHidden,
+				isReversed,
+				hintMessage: !isInvalid && 'Hint text',
+				validationMessage: isInvalid && 'Validation message',
+			})
+		});
+	});
+});
 
 module.exports = {
 	storiesWithVariationsKindName,

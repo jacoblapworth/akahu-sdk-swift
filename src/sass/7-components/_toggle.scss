@@ -3,7 +3,8 @@
 
 // Full-width layout
 .#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle--label,
-.#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle-option {
+.#{$ns}-toggle-fullwidth-layout > .#{$ns}-toggle-optionwrapper,
+.#{$ns}-toggle-fullwidth-layout > .#{$ns}-toggle-option {
 	flex-basis: 100%;
 	flex-grow: 1;
 }
@@ -15,7 +16,7 @@
 }
 
 .#{$ns}-toggle-medium .#{$ns}-toggle--label,
-.#{$ns}-toggle-medium .#{$ns}-toggle--option, {
+.#{$ns}-toggle-medium .#{$ns}-toggle--option {
 	min-height: $xui-control-size-standard;
 }
 
@@ -191,7 +192,10 @@
 // Option styles
 .#{$ns}-toggle-option {
 	display: flex;
+}
 
+.#{$ns}-toggle > .#{$ns}-toggle-optionwrapper,
+.#{$ns}-toggle > .#{$ns}-toggle-option {
 	&:nth-of-type(n+2) .#{$ns}-toggle--label {
 		border-left: none;
 	}

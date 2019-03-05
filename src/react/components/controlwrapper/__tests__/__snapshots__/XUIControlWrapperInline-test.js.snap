@@ -1,14 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUIControlWrapperInline> renders a hidden label, invalid, and an error message 1`] = `
-<label
-  role="presentation"
->
-  <input
-    aria-describedby="testGeneratedId-message"
-    aria-invalid={true}
-    type="checkbox"
-  />
+<div>
+  <label
+    role="presentation"
+  >
+    <input
+      aria-describedby="testGeneratedId-message"
+      aria-invalid={true}
+      type="checkbox"
+    />
+  </label>
   <div
     className="xui-validation xui-validation-layout xui-validation-is-invalid"
     id="testGeneratedId-message"
@@ -16,56 +18,62 @@ exports[`<XUIControlWrapperInline> renders a hidden label, invalid, and an error
   >
     oh no!
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUIControlWrapperInline> renders a simple HTML label, when provided 1`] = `
-<label
-  role="presentation"
->
-  <input
-    aria-invalid={false}
-    type="checkbox"
-  />
-  <span
-    id="testGeneratedId"
+<div>
+  <label
+    role="presentation"
   >
-    <span>
-      Impressive input label
+    <input
+      aria-invalid={false}
+      type="checkbox"
+    />
+    <span
+      id="testGeneratedId"
+    >
+      <span>
+        Impressive input label
+      </span>
     </span>
-  </span>
-</label>
+  </label>
+</div>
 `;
 
 exports[`<XUIControlWrapperInline> renders basic example 1`] = `
-<label
-  role="presentation"
->
-  <input
-    aria-invalid={false}
-    type="checkbox"
-  />
-</label>
+<div>
+  <label
+    role="presentation"
+  >
+    <input
+      aria-invalid={false}
+      type="checkbox"
+    />
+  </label>
+</div>
 `;
 
 exports[`<XUIControlWrapperInline> renders classes and qaHook on all elements 1`] = `
-<label
-  className="test-field-class"
-  data-automationid="ctrl-wrapper"
-  role="presentation"
->
-  <input
-    aria-describedby="testSpecificLabel-message"
-    aria-invalid={false}
-    type="checkbox"
-  />
-  <span
-    className="test-label-class"
-    data-automationid="ctrl-wrapper--label"
-    id="testSpecificLabel"
+<div>
+  <label
+    className="test-field-class"
+    data-automationid="ctrl-wrapper"
+    role="presentation"
   >
-    A label for testing
-  </span>
+    <input
+      aria-describedby="testSpecificLabel-message"
+      aria-invalid={false}
+      type="checkbox"
+    />
+    <span
+      className="test-label-class"
+      data-automationid="ctrl-wrapper--label"
+      id="testSpecificLabel"
+    >
+      A label for testing
+    </span>
+  </label>
   <div
     className="xui-validation xui-validation-layout"
     data-automationid="ctrl-wrapper--message"
@@ -74,5 +82,5 @@ exports[`<XUIControlWrapperInline> renders classes and qaHook on all elements 1`
   >
     I will give you a clue
   </div>
-</label>
+</div>
 `;

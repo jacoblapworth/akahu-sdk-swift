@@ -3,6 +3,19 @@
 
 $xui-switch-label-padding: $xui-s-xsmall;
 
+.#{$ns}-switchwrapper {
+	display: inline-block; // Inline inputs
+	vertical-align: top;
+
+	.#{$ns}-switch {
+		align-items: center;
+		display: flex;
+		max-width: 100%;
+		position: relative;
+	}
+}
+
+// Compatibility for controls that are not wrapped in a div
 .#{$ns}-switch {
 	align-items: center;
 	display: inline-flex; // Inline inputs
@@ -49,7 +62,7 @@ $xui-switch-label-padding: $xui-s-xsmall;
 }
 
 .#{$ns}-switch--checkbox {
-	@include xui-utility-hidden-visually;
+	@include xui-position-offscreen-input;
 	&:focus + .#{$ns}-switch--control {
 		box-shadow: $xui-shadow-focus;
 	}
@@ -63,6 +76,15 @@ $xui-switch-label-padding: $xui-s-xsmall;
 			left: auto;
 			transform: translate(18px);
 		}
+	}
+}
+
+// Message positioning
+// =============
+.#{$ns}-switch--message-with-label {
+	.#{$ns}-switch:not(.#{$ns}-switch-reversed) + & {
+		margin-left: $xui-control-size-standard;
+		padding-left: $xui-switch-label-padding;
 	}
 }
 
@@ -107,11 +129,16 @@ $xui-switch-label-padding: $xui-s-xsmall;
 	border: $xui-border-control;
 	border-radius: $xui-radius;
 
+	.#{$ns}-switchwrapper {
+		display: block; // Stacked inputs
+	}
+
 	.#{$ns}-switch {
-		display: flex; // Stacked inputs
+		display: flex;
 		padding: $xui-switch-label-padding/2; // Border padding
 	}
 
+	.#{$ns}-switchwrapper:nth-last-of-type(n+2),
 	.#{$ns}-switch:nth-last-of-type(n+2) {
 		border-bottom: $xui-border-control;
 	}
@@ -136,6 +163,7 @@ $xui-switch-label-padding: $xui-s-xsmall;
 }
 
 .#{$ns}-switch-group-is-invalid,
+.#{$ns}-switch-group-is-invalid .#{$ns}-switchwrapper:nth-last-of-type(n+2),
 .#{$ns}-switch-group-is-invalid .#{$ns}-switch:nth-last-of-type(n+2) {
 	border-color: $xui-validation-invalid-color;
 }

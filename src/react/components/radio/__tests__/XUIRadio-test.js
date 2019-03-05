@@ -42,7 +42,7 @@ describe('XUIRadio', () => {
 	it('should use additional classes on the root node if provided', () => {
 		const component = mount(<XUIRadio onChange={NOOP} className="dogs-are-totes-patotes" />);
 
-		expect(component.find('label').first().hasClass('dogs-are-totes-patotes')).toBeTruthy();
+		expect(component.find('div').first().hasClass('dogs-are-totes-patotes')).toBeTruthy();
 	});
 
 	it('should be a small variant, if specified', () => {
@@ -126,7 +126,7 @@ describe('XUIRadio', () => {
 	it('should use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true', function () {
 		const component = mount(<XUIRadio onChange={NOOP} isReversed={true} />);
 
-		expect(component.find('label').first().hasClass('xui-styledcheckboxradio-reversed')).toBeTruthy();
+		expect(component.find('label').hasClass('xui-styledcheckboxradio-reversed')).toBeTruthy();
 	});
 
 

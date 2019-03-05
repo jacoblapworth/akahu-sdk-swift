@@ -7,6 +7,7 @@ import { ns } from '../../helpers/xuiClassNamespace';
 export default class MessageElement extends PureComponent {
 	render() {
 		const {
+			className,
 			isInvalid,
 			validationMessage,
 			hintMessage,
@@ -21,6 +22,7 @@ export default class MessageElement extends PureComponent {
 					`${ns}-validation`,
 					`${ns}-validation-layout`,
 					showingErrorMessage && `${ns}-validation-is-invalid`,
+					className,
 				)}
 				data-automationid={qaHook && `${qaHook}--message`}
 				role="status"
@@ -34,6 +36,7 @@ export default class MessageElement extends PureComponent {
 }
 
 MessageElement.propTypes = {
+	className: PropTypes.string,
 	qaHook: PropTypes.string,
 	/** Whether the current input value is invalid */
 	isInvalid: PropTypes.bool,

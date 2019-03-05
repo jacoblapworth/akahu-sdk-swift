@@ -41,7 +41,7 @@ describe('XUICheckbox', function() {
 	});
 
 	it('should use additional classes on the root node if provided', () => {
-		expect(wrapper.find('label').hasClass('dogs-are-totes-patotes')).toBeTruthy();
+		expect(wrapper.find('div').first().hasClass('dogs-are-totes-patotes')).toBeTruthy();
 	});
 
 	it('should be a small variant, if specified', () => {

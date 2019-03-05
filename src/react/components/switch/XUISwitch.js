@@ -72,11 +72,15 @@ export default class XUISwitch extends PureComponent {
 		const calculatedSize = 'medium';
 
 		const classes = cn(
-			className,
 			baseClass,
-			calculatedSize && `${baseClass}-${calculatedSize}`,
 			isReversed && `${baseClass}-reversed`,
 			isDisabled && `${baseClass}-is-disabled`,
+		);
+
+		const wrapperClasses = cn(
+			className,
+			`${baseClass}wrapper`,
+			calculatedSize && `${baseClass}-${calculatedSize}`,
 		);
 
 		const labelClasses = cn(
@@ -88,6 +92,11 @@ export default class XUISwitch extends PureComponent {
 		const controlClasses = cn(
 			`${baseClass}--control`,
 			calculatedSize && `${baseClass}--control-${calculatedSize}`,
+		);
+
+		const messageClasses = cn(
+			`${baseClass}--message`,
+			!isLabelHidden && `${baseClass}--message-with-label`,
 		);
 
 		const inputProps = {
@@ -106,10 +115,12 @@ export default class XUISwitch extends PureComponent {
 
 		return (
 			<XUIControlWrapperInline
-				fieldClassName={classes}
+				rootClassName={wrapperClasses}
 				wrapperIds={this.wrapperIds}
 				onClick={onLabelClick}
+				fieldClassName={classes}
 				labelClassName={labelClasses}
+				messageClassName={messageClasses}
 				label={children}
 				{...{
 					qaHook,

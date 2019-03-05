@@ -5,36 +5,40 @@ exports[`<PickitemMultiselect /> basic example 1`] = `
   className="xui-pickitem--body"
   role="presentation"
 >
-  <label
-    className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
-    onClick={[Function]}
-    role="presentation"
+  <div
+    className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper"
   >
-    <input
-      aria-labelledby="testPickitemCheckboxId"
-      className="xui-styledcheckboxradio--input"
-      defaultChecked={false}
-      disabled={false}
-      onChange={[Function]}
+    <label
+      className="xui-styledcheckboxradio"
       onClick={[Function]}
-      required={false}
-      tabIndex={-1}
-      type="checkbox"
-    />
-    <div
-      className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
-    />
-    <span
-      className="xui-styledcheckboxradio--label xui-pickitem--text xui-pickitem-multiselect--label"
-      id="testPickitemCheckboxId"
+      role="presentation"
     >
+      <input
+        aria-labelledby="testPickitemCheckboxId"
+        className="xui-styledcheckboxradio--input"
+        defaultChecked={false}
+        disabled={false}
+        onChange={[Function]}
+        onClick={[Function]}
+        required={false}
+        tabIndex={-1}
+        type="checkbox"
+      />
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
+      />
       <span
-        className=""
+        className="xui-styledcheckboxradio--label xui-pickitem--text xui-pickitem-multiselect--label"
+        id="testPickitemCheckboxId"
       >
-        Item
+        <span
+          className=""
+        >
+          Item
+        </span>
       </span>
-    </span>
-  </label>
+    </label>
+  </div>
 </div>
 `;
 
@@ -43,39 +47,43 @@ exports[`<PickitemMultiselect /> is selected, adds truncation and custom classes
   className="xui-pickitem--body"
   role="presentation"
 >
-  <label
-    className="custom-checkbox xui-pickitem-text-truncated xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
-    onClick={[Function]}
-    role="presentation"
+  <div
+    className="custom-checkbox xui-pickitem-text-truncated xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper"
   >
-    <input
-      aria-labelledby="testPickitemCheckboxId"
-      checked={true}
-      className="xui-styledcheckboxradio--input"
-      disabled={false}
-      onChange={[Function]}
+    <label
+      className="xui-styledcheckboxradio"
       onClick={[Function]}
-      required={false}
-      tabIndex={-1}
-      type="checkbox"
-    />
-    <div
-      className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
-    />
-    <span
-      className="xui-styledcheckboxradio--label xui-pickitem--text xui-pickitem-multiselect--label xui-pickitem-text-truncated"
-      id="testPickitemCheckboxId"
+      role="presentation"
     >
+      <input
+        aria-labelledby="testPickitemCheckboxId"
+        checked={true}
+        className="xui-styledcheckboxradio--input"
+        disabled={false}
+        onChange={[Function]}
+        onClick={[Function]}
+        required={false}
+        tabIndex={-1}
+        type="checkbox"
+      />
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
+      />
       <span
-        className="xui-pickitem-text-truncated"
+        className="xui-styledcheckboxradio--label xui-pickitem--text xui-pickitem-multiselect--label xui-pickitem-text-truncated"
+        id="testPickitemCheckboxId"
       >
         <span
           className="xui-pickitem-text-truncated"
         >
-          Item
+          <span
+            className="xui-pickitem-text-truncated"
+          >
+            Item
+          </span>
         </span>
       </span>
-    </span>
-  </label>
+    </label>
+  </div>
 </div>
 `;

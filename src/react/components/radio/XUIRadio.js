@@ -112,20 +112,30 @@ export default class XUIRadio extends PureComponent {
 			size,
 		} = this.props;
 
+		// Grouped inputs default to 'small'.
+		const calculatedSize = (isGrouped && 'small') || size;
+
 		const classes = cn(
-			className,
-			`${baseClass}`,
+			baseClass,
 			isReversed && `${baseClass}-reversed`,
 			isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
 		);
 
-		// Grouped inputs default to 'small'.
-		const calculatedSize = (isGrouped && 'small') || size;
+		const wrapperClasses = cn(
+			className,
+			`${baseClass}wrapper`,
+			calculatedSize && `${baseClass}-${calculatedSize}`,
+		);
 
 		const labelClasses = cn(
 			`${baseClass}--label`,
 			calculatedSize && `${baseClass}--label-${calculatedSize}`,
 			labelClassName,
+		);
+
+		const messageClasses = cn(
+			`${baseClass}--message`,
+			!isLabelHidden && `${baseClass}--message-with-label`,
 		);
 
 		const inputProps = {
@@ -157,10 +167,12 @@ export default class XUIRadio extends PureComponent {
 
 		return (
 			<XUIControlWrapperInline
-				fieldClassName={classes}
+				rootClassName={wrapperClasses}
 				wrapperIds={this.wrapperIds}
 				onClick={onLabelClick}
+				fieldClassName={classes}
 				labelClassName={labelClasses}
+				messageClassName={messageClasses}
 				label={children}
 				{...{
 					qaHook,

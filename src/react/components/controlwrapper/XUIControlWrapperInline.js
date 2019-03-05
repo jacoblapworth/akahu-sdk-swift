@@ -49,7 +49,7 @@ export default class XUIControlWrapperInline extends PureComponent {
 	render() {
 		const {
 			children, // This refers to children of XUIControlWrapperInline. Usually the <input>
-			fieldClassName,
+			rootClassName,
 			onKeyDown,
 			onClick,
 			qaHook,
@@ -58,38 +58,44 @@ export default class XUIControlWrapperInline extends PureComponent {
 			hintMessage,
 			wrapperIds,
 			labelClassName,
+			messageClassName,
+			fieldClassName,
 			label,
 			isLabelHidden,
 		} = this.props;
 
 		return (
-			<label
-				className={fieldClassName}
-				onKeyDown={onKeyDown}
-				onClick={onClick}
-				data-automationid={qaHook}
-				role="presentation"
-			>
-				{children}
-				<LabelElement
-					isInline
+			<div className={rootClassName}>
+				<label
+					className={fieldClassName}
+					onKeyDown={onKeyDown}
+					onClick={onClick}
+					data-automationid={qaHook}
+					role="presentation"
+				>
+					{children}
+					<LabelElement
+						isInline
+						{...{
+							labelClassName,
+							label,
+							isLabelHidden,
+							qaHook,
+							wrapperIds,
+						}}
+					/>
+				</label>
+				<MessageElement
+					className={messageClassName}
 					{...{
-						labelClassName,
-						label,
-						isLabelHidden,
+						isInvalid,
+						validationMessage,
+						hintMessage,
 						qaHook,
 						wrapperIds,
 					}}
 				/>
-				<MessageElement {...{
-					isInvalid,
-					validationMessage,
-					hintMessage,
-					qaHook,
-					wrapperIds,
-				}}
-				/>
-			</label>
+			</div>
 		);
 	}
 }
@@ -109,10 +115,14 @@ XUIControlWrapperInline.propTypes = {
 	validationMessage: PropTypes.string,
 	/** Hint message to show under the input */
 	hintMessage: PropTypes.string,
+	/** Class names to be added to the root wrapper element */
+	rootClassName: PropTypes.string,
 	/** Class names to be added to the field wrapper element */
 	fieldClassName: PropTypes.string,
 	/** Class names to add to the label */
 	labelClassName: PropTypes.string,
+	/** Class names to add to the hint and validation messages */
+	messageClassName: PropTypes.string,
 	/** Should label be applied as an aria-label, rather than being visibly displayed. */
 	isLabelHidden(props, propName) {
 		if (props[propName] && props.label && typeof props.label[0] !== 'string') {

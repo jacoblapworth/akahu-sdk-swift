@@ -41,19 +41,6 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'with hint text',
-		labelText: 'Radio with a hint',
-		hintMessage: 'You must pick at least one to proceed',
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'invalid with message',
-		labelText: 'Invalid with validation message',
-		validationMessage: 'Please select an option to proceed',
-		isInvalid: true,
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Hidden Label',
 		isLabelHidden: true
 	},
@@ -88,6 +75,28 @@ const variations = [
 		labelText: 'You have no idea how choice our stuffed Tuis were aye. Every time I see those rip-off old man\'s beards it\'s like the sausage sizzle all over again aye, rack off. Anyway, James Cook is just Rhys Darby in disguise, to find the true meaning of life, one must start munting with the Edmonds Cook Book, mate.'
 	}
 ];
+
+[false, true].forEach(isInvalid => {
+	[false, true].forEach(isLabelHidden => {
+		[false, true].forEach(isReversed => {
+			const isInvalidTitle = isInvalid ? 'with validation error' : 'with hint text';
+
+			const isLabelHiddenTitle = isLabelHidden ? ' and hidden label' : '';
+
+			const isReversedTitle = isReversed ? ' and reversed': '';
+
+			variations.push({
+				storyKind: storiesWithVariationsKindName,
+				storyTitle: `${isInvalidTitle}${isLabelHiddenTitle}${isReversedTitle}`,
+				isInvalid,
+				isLabelHidden,
+				isReversed,
+				hintMessage: !isInvalid && 'Hint text',
+				validationMessage: isInvalid && 'Validation message',
+			})
+		});
+	});
+});
 
 module.exports = {
 	storiesWithVariationsKindName,

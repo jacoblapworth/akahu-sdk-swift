@@ -175,21 +175,32 @@ export default class XUICheckbox extends PureComponent {
 			size,
 		} = this.props;
 
-		const classes = cn(
-			className,
-			baseClass,
-			isReversed && `${baseClass}-reversed`,
-			isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
-		);
-
 		// Grouped inputs default to 'small'.
 		const calculatedSize = (isGrouped && 'small') || size;
+
+		const classes = cn(
+			baseClass,
+			isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
+			isReversed && `${baseClass}-reversed`,
+		);
+
+		const wrapperClasses = cn(
+			className,
+			`${baseClass}wrapper`,
+			calculatedSize && `${baseClass}-${calculatedSize}`,
+		);
 
 		const labelClasses = cn(
 			`${baseClass}--label`,
 			calculatedSize && `${baseClass}--label-${calculatedSize}`,
 			labelClassName,
 		);
+
+		const messageClasses = cn(
+			`${baseClass}--message`,
+			!isLabelHidden && `${baseClass}--message-with-label`,
+		);
+
 		const inputProps = {
 			type: 'checkbox',
 			disabled: isDisabled,
@@ -222,10 +233,12 @@ export default class XUICheckbox extends PureComponent {
 
 		return (
 			<XUIControlWrapperInline
-				fieldClassName={classes}
+				rootClassName={wrapperClasses}
 				wrapperIds={this.wrapperIds}
 				onClick={onLabelClick}
+				fieldClassName={classes}
 				labelClassName={labelClasses}
+				messageClassName={messageClasses}
 				label={children}
 				{...{
 					qaHook,

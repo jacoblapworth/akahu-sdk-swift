@@ -5,20 +5,23 @@ const entryComponentMap = new WeakMap();
 
 const handleEntries = entries => {
 	entries.forEach(entry => {
-		// If breakpoints are defined on the observed element,
+		// Match the DOM node with its component.
+		const entryComponent = entryComponentMap.get(entry.target);
+		// If breakpoints are defined on the observed element's component,
 		// use them. Otherwise use the defaults.
-		const hasCustomBreakpoints = entry.target.dataset.breakpoints !== undefined;
-		const breakpoints = hasCustomBreakpoints ?
-			JSON.parse(entry.target.dataset.breakpoints) :
-			defaultBreakpoints;
+		const customBreakpoints =
+			entryComponent._breakpoints !== undefined && entryComponent._breakpoints;
+		const breakpoints = customBreakpoints || defaultBreakpoints;
 
 		// Update the matching breakpoints on the observed element.
 		const newState = {};
-		const entryComponent = entryComponentMap.get(entry.target);
 		Object.keys(breakpoints).forEach(breakpoint => {
 			const minWidth = breakpoints[breakpoint];
 			newState[breakpoint] = entry.contentRect.width >= minWidth;
 		});
+		if (entryComponent._onResize && typeof entryComponent._onResize === 'function') {
+			entryComponent._onResize(entry.contentRect.width);
+		}
 		entryComponent.setState(newState);
 	});
 };
@@ -30,13 +33,19 @@ const handleEntries = entries => {
 const ro = new ResizeObserver(handleEntries);
 
 export const observe = component => {
-	const element = component._area.current;
+	const element = component && component._area && component._area.current;
+	if (!element) {
+		return;
+	}
 	entryComponentMap.set(element, component);
 	ro && ro.observe(element);
 };
 
 export const unobserve = component => {
-	const element = component._area.current;
+	const element = component && component._area && component._area.current;
+	if (!element) {
+		return;
+	}
 	entryComponentMap.delete(element, component);
 	ro && ro.unobserve(element);
 };

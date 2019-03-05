@@ -4,68 +4,71 @@
 // 
 // Globally, web usage is trending away from the desktop, towards a more diverse range of devices and input methods. Despite the fact we have mobile apps, much of Xero's functionality is still dependent on the web version of our product. Enabling a responsive experience for Xero is extremely important, not only to provide functional parity unlinked to device preference, but to capture users in markets that rely more heavily on the mobile web. 
 //
-// You can read more about Xero’s position on responsive [here](./section-getting-started-responsive.html).
+// You can read more about XUI’s position on responsive [here](./section-getting-started-responsive.html).
 //
 // <a href="https://github.dev.xero.com/UXE/xui/releases/tag/15.0.0">Full release notes on Github</a>
 //
 // Styleguide: Updates.95
 
+// New
+//
+// **Compositions**
+// <ul>
+//  <li>Composition components for handling responsive layouts — Detail, Master Detail, Detail Summary, Master Detail Summary, Split</li>
+//  <li>Properties for customising composition experience</li>
+//  <ul>
+//    <li>`hasAutoColumnWidths` — Whether to apply pre-set widths to columns of the composition grid. Defaults to true.</li>
+//    <li>`hasAutoSpaceAround` — Whether to apply pre-set spacing to the outside of the composition grid. Defaults to true.</li>
+//    <li>`hasGridGap` — Whether to apply a pre-set grid-gap between all grid areas. Defaults to true.</li>
+//    <li>`isInfinite` — Determines whether the main content takes full width of page. Defaults to false.</li>
+//    <li>`retainWidth` — Lets you set a retain width value so that the layout doesn't change when the viewport is equal to or larger than the width specified.</li>
+//  </ul>
+// </ul>
+//
+// **React components**
+// <ul>
+//  <li>`XUIRange`</li>
+//  <li>`XUISwitchGroup`</li>
+//  <li>Support for container queries</li>
+// </ul>
+//
+// Styleguide: Updates.95.1
+
 // Enhancements
 //
-// All enhancements relate to our [WCAG 2.0 AA checklist/audit](https://docs.google.com/document/d/16pNZvUKGiVbY5grGgRnVZUUcc3vLQ7Ax_l4_mLSaTHo/edit?usp=sharing)
-//
-// **Color contrast**
+// **Layout**
 // <ul>
-//  <li>Adjustment to color variables values, which enable compliant contrast ratios (4.5:1) to be achieved across a range of scenarios. This includes introducing an 8th neutral variable.</li>
-//  <li>Adjustment to component text and background colors to be compliant with contrast ratios. This includes pseudo states for hover, active and focus.</li>
+//  <li>Breakpoint values have been adjusted and renamed for clarity</li>
+//  <li>Page-width values have been updated</li>
 // </ul>
 //
-// **Reduce reliance on color**
+// **Component size variants**
 // <ul>
-//  <li>Added additional descriptors to components that previously relied on a color change</li>
-//  <li>Anchor tags by now have `text-decoration: underline;` by default</li>
-//  <li>Disabled states now use `cursor: not-allowed;`</li>
-//  <li>Provided appropriate guidance in XUI docs to avoid reliance on color for presentation</li>
+//  <li>A large set of changes have been made to XUI elements and compounds to allow for greater flexibility in sizing and spacing</li>
+//  <li>All components now follow the base unit of `4px` to allow for nesting of components and consistent allignment. Read more details around our [spacing guidance here](/section-fundamentals-spacing.html).</li>
+//  <li>`XUISwitch` and `XUIToggle` markup has been updated to support future size variants</li>
 // </ul>
 //
-// **Labelling**
+// **Component responsive updates**
 // <ul>
-//  <li>Added the ability to apply visible or invisible labels to form controls, for the benefit of assistive technology</li>
-//  <li>Standardised the labeling API across control components</li>
-//  <li>Updated ARIA roles and attributes on many components to better support use with assistive technology</li>
+//  <li>Many components have been updated to improve responsive behaviour. These include Stepper, Picklist/Pickitems, Content block, Overview block, Isolation header, Banner, Pill, Toast</li>
+//  <li>Dropdown and modal width variants have been updated to fit better with the new breakpoint scheme</li>
 // </ul>
 //
-// **Keyboard navigation**
+// **Other enhancements**
 // <ul>
-//  <li>Improved keyboard navigation for some components</li>
-//  <li>Documented best practices for more complex cases</li>
+//  <li>Form / control inputs now accept `isInvalid`, `validationMessage`, and `hintMessage` props, across the board. Additionally, labels may contain HTML, if not hidden as aria-labels. Read more about [labels and validation here](/section-compounds-collectinginput-forms.html).</li>
+//  <li>Pills now support tooltips out of the box</li>
+//  <li>Removed all uses of `standard` sizes in favor of `medium`</li>
 // </ul>
 //
 // Styleguide: Updates.95.2
 
 // Deprecations
 //
-// <ul>
-//  <li>`XUIInput` and `XUITextarea` components have been removed. These have been replaced with `XUITextinput`.</li>
-//  <li>Legacy accordion style has been deprecated and replaced with new styles</li>
-// </ul>
+// View our [changes.md](https://github.dev.xero.com/UXE/xui/blob/15.0.0/changes.md#removals) file for the full list of deprecations and removals.
 //
 // Styleguide: Updates.95.3
-
-// Tooling
-//
-// <ul>
-//  <li>Provided additional accessibility checks in our build tools</li>
-//  <li>We are now using `node.js 10` to build and develop XUI</li>
-//  <li>The supported version of React has changed from `^16.2.0` to `^16.4.2`</li>
-// </ul>
-//
-// **Development process**
-// <ul>
-//  <li>XUI 14.0.0 has had a large overhaul to the organisation of SCSS files. If you are developing with low level access to XUI SCSS please make sure you using the supported vars and mixins entry points.</li>
-// </ul>
-//
-// Styleguide: Updates.95.4
 
 // Documentation
 //
@@ -73,6 +76,7 @@
 //   <li>Added XUI responsive position page</li>
 //   <li>Added page _'Compositions'_ documentation</li>
 //   <li>Added design _'Patterns'_ nav item with first page on _'Displaying text'_</li>
+//   <li>Improved guidance around typography utilities and mixins</li>
 //   <li>Improved guidance around responsive layouts and breakpoints</li>
 //   <li>Improved guidance around spacing and sizing</li>
 //   <li>Improved responsive documenation for Global navigation</li>
@@ -85,10 +89,12 @@
 //
 // Definitions:
 // New:			Responsive position:    [Getting started > Responsive](./section-getting-started-responsive.html)
+// New:			Compositions:           [Compositions](./section-compositions.html)
+// New:			Patterns:               [Patterns](./section-patterns.html)
 // Updated:		Typography:       	    [Fundamentals > Typography](./section-fundamentals-typography.html)
 // Updated:		Layout:              	[Fundamentals > Layout](./section-fundamentals-layout.html)
 // Updated:		Spacing:              	[Fundamentals > Spacing](./section-fundamentals-spacing.html)
-// Updated:		Colors:              	[Fundamentals > Colors](./section-fundamentals-colors.html)
+// Updated:		Global navigation:      [Compounds > Global navigation](./section-compounds-navigation-global-navigation.html)
 //
 // Styleguide: Updates.95.5
 

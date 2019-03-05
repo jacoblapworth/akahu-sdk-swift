@@ -13,8 +13,6 @@ import XUICompositionMasterDetailSummary from '../XUICompositionMasterDetailSumm
 import XUICompositionMasterDetailHeader from '../XUICompositionMasterDetailHeader';
 import XUICompositionMasterDetail from '../XUICompositionMasterDetail';
 
-import XUIGridAreaMasterPanelDropdown, { XUIGridAreaMasterPanelDropdownEventLabel } from '../XUIGridAreaMasterPanelDropdown';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
@@ -40,7 +38,7 @@ const realHeader = <CustomHeader />;
 
 const realMaster = (style = {}, navigation = []) => {
 	return (
-		<XUIGridAreaMasterPanelDropdown style={style}>
+		<XUIPanel style={style}>
 			<StatefulPicklist
 				secondaryProps={{ role: null }}>
 				<XUIPicklist>
@@ -55,7 +53,7 @@ const realMaster = (style = {}, navigation = []) => {
 					))}
 				</XUIPicklist>
 			</StatefulPicklist>
-		</XUIGridAreaMasterPanelDropdown>
+		</XUIPanel>
 	);
 }
 

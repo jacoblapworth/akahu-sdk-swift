@@ -6,7 +6,6 @@ import XUIRadio from './XUIRadio';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds from '../controlwrapper/helpers';
 import { baseClass } from './constants';
-import { ns } from '../helpers/xuiClassNamespace';
 
 export default class XUIRadioGroup extends PureComponent {
 	wrapperIds = generateIds(this.props.labelId);

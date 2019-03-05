@@ -15,7 +15,7 @@ function isWideScreen(navContainer) {
 		gridArea,
 		msGridRow,
 		gridColumnEnd,
-		gridColumnStart
+		gridColumnStart,
 	} = window.getComputedStyle(navContainer);
 
 	return navContainer &&

@@ -4,7 +4,6 @@ import cn from 'classnames';
 import XUIProgressCircular from '../../progressindicator/XUIProgressCircular';
 import { NAME_SPACE } from '../helpers/constants';
 import StepperIcon from './StepperIcon';
-import { ns } from '../../helpers/xuiClassNamespace';
 
 export default class StepperTab extends PureComponent {
 	handleClick = () => {

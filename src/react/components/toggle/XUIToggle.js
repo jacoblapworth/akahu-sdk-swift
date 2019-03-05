@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import { colorMap, layoutMap, sizeMap, baseClass } from './private/constants';
-import { ns } from '../helpers/xuiClassNamespace';
 import '../helpers/xuiGlobalChecks';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds from '../controlwrapper/helpers';

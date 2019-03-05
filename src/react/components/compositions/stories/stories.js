@@ -25,6 +25,7 @@ import { variations, storiesWithVariationsKindName } from './variations';
 import XUIPanel from '../../structural/XUIPanel';
 import XUIPicklist from '../../picklist/Picklist';
 import XUIPickItem from '../../picklist/Pickitem';
+import StatefulPicklist from '../../picklist/StatefulPicklist';
 
 // Custom Components
 import CustomContentBlock from './content-block';
@@ -33,34 +34,41 @@ import CustomSummary from './summary';
 import CustomForm from './form';
 import XUIButton from '../../button/XUIButton';
 
-const fireEvent = () => {
-	window.dispatchEvent(new CustomEvent(XUIGridAreaMasterPanelDropdownEventLabel, {
-		bubbles: true,
-	}))
-}
+const onSelectItem = (itemNumber) => console.log(`selected ${itemNumber}`);
 
 const realHeader = <CustomHeader />;
 
-const realMaster = (style = {}) => (
-	<XUIGridAreaMasterPanelDropdown style={style}>
-		<XUIPicklist>
-			{[1,2,3,4].map(item => (
-				<XUIPickItem
-					id={item}
-					onClick={() => fireEvent()}
-					key={item}
-					>
-					{`Navigation item ${item}`}
-				</XUIPickItem>
-			))}
-		</XUIPicklist>
-	</XUIGridAreaMasterPanelDropdown>
-);
+const realMaster = (style = {}, navigation = []) => {
+	return (
+		<XUIGridAreaMasterPanelDropdown style={style}>
+			<StatefulPicklist
+				secondaryProps={{ role: null }}>
+				<XUIPicklist>
+					{navigation.map(item => (
+						<XUIPickItem
+							id={item}
+							key={item}
+							onSelect={onSelectItem.bind(this, item)}
+						>
+							Navigation item {item}
+						</XUIPickItem>
+					))}
+				</XUIPicklist>
+			</StatefulPicklist>
+		</XUIGridAreaMasterPanelDropdown>
+	);
+}
 
 const realSummary = (style = {}) => (
 	<CustomSummary style={style}/>
 );
-const realDetail = (showMediumDownButton) => <CustomContentBlock showMediumDownButton={showMediumDownButton}/>;
+const realDetail = (showMediumDownButton, navigation) => (
+	<CustomContentBlock
+		showMediumDownButton={showMediumDownButton}
+		dropdownOptions={navigation}
+		onSelectItem={onSelectItem}
+		/>
+);
 
 const realPrimary = (
 	<XUIPanel
@@ -128,13 +136,15 @@ storiesWithKnobs.add('Master detail summary', () => {
 
 	const areas = settings.isReal ? {...realAreas} : {...blockAreas};
 
+	const navigation = [1, 2, 3, 4];
+
 	if (widthLeftColumn != null) {
-		areas.master = settings.isReal ? realMaster({minWidth:widthLeftColumn}): blockAreas.master({width:widthLeftColumn});
+		areas.master = settings.isReal ? realMaster({minWidth:widthLeftColumn}, navigation): blockAreas.master({width:widthLeftColumn});
 		areas.summary = settings.isReal ? realSummary({minWidth:widthRightColumn, width: '100%'}): blockAreas.summary({minWidth:widthRightColumn, width: '100%'});
 	}
 
 	if (settings.isReal) {
-		areas.detail = realDetail(true);
+		areas.detail = realDetail(true, navigation);
 		return (
 			<Fragment>
 				<Tag

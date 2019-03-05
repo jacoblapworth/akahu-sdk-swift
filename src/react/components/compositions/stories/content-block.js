@@ -1,40 +1,58 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import { XUIContentBlock, XUIContentBlockItem } from '../../../structural';
 import XUIButton, { XUIButtonCaret } from '../../../button';
+import Dropdown, { DropDownToggled } from '../../../dropdown';
+import Picklist, { Pickitem } from '../../../picklist';
 import XUIIcon from '../../../icon';
 import overflow from '@xero/xui-icon/icons/overflow';
-import { XUIGridAreaMasterPanelDropdownEventLabel } from '../XUIGridAreaMasterPanelDropdown';
-
-const fireEvent = () => {
-	window.dispatchEvent(new CustomEvent(XUIGridAreaMasterPanelDropdownEventLabel, {
-		bubbles: true,
-	}))
-}
 
 export default class ContentBlock extends PureComponent {
 	render() {
 
 		const {
-			showMediumDownButton
+			showMediumDownButton,
+			dropdownOptions = [],
+			onSelectItem,
 		} = this.props;
 
-		const MediumDownButton = showMediumDownButton ? (
+		const MediumDownButton = (
 			<XUIButton
 				className='xui-u-hidden-medium-up'
-				onClick={() => fireEvent()}
 				variant="borderless-standard"
 				size="small"
 			>
 				Filter <XUIButtonCaret />
 			</XUIButton>
-		) : null;
+		);
+
+		const dropdown = (
+			<Dropdown>
+				<Picklist>
+					{dropdownOptions.map(item => (
+						<Pickitem
+							id={item}
+							key={item}
+							onSelect={onSelectItem.bind(this, item)}>
+							Navigation item {item}
+						</Pickitem>
+					))}
+				</Picklist>
+			</Dropdown>
+		);
+
+		const toggledDropdown = showMediumDownButton ? (
+			<DropDownToggled
+				trigger={MediumDownButton}
+				dropdown={dropdown}
+				/>
+		): null;
 
 		return (
 
 				<XUIContentBlock className="xui-panel">
 					<XUIContentBlockItem
 						primaryHeading='Heading'
-						action={MediumDownButton}
+						action={toggledDropdown}
 						/>
 					{[1,2,3].map(item => (
 						<XUIContentBlockItem

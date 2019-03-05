@@ -197,7 +197,7 @@ storiesWithKnobs.add('Master detail', () => {
 	}
 
 	if (settings.isReal) {
-		areas.detail = realDetail(true);
+		areas.detail = realDetail(true, navigation);
 		return (
 			<Fragment>
 				<Tag

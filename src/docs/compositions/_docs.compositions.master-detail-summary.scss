@@ -18,16 +18,16 @@
 // Do: Use Summary to house simple content that isn’t integral to the understanding of the page
 // Warning: Avoid having actions above the Summary area that affect what is viewed in the Detail area
 // Dont: Don’t use the Master container for primary navigation
-// Dont: Don’t hide important actions inside the Master dropdown at larger breakpoints by locking to the small layout
+// Dont: Don’t hide important actions inside the Master area at larger breakpoints by locking to the small layout
 // Dont: Don’t use the Summary container to house dense, long form content
 //
 // Weight: 4.4
 //
 // Styleguide: Compositions.MasterDetailSummary
 
-// Master detail summary default
+// Master detail summary default behaviour
 //
-// When the browser is narrower than `$xui-breakpoint-medium` the Master container sits within a dropdown, and the Summary and Detail containers are stacked, with the Summary container on top. At `$xui-breakpoint-medium-to-large` the Master container is a column to the left of the Detail container, and the Summary container sits above the two. From `xui-breakpoint-large` the Summary container is a column to the right of the Master and Detail containers. The entire composition has a max-width of 1200px.
+// When the browser is narrower than `$xui-breakpoint-medium` the Master container is hidden, and the Summary and Detail containers are stacked, with the Summary container on top. At `$xui-breakpoint-medium-to-large` the Master container is a column to the left of the Detail container, and the Summary container sits above the two. From `xui-breakpoint-large` the Summary container is a column to the right of the Master and Detail containers. The entire composition has a max-width of 1200px. To provide access to the Master content while viewing the small layout, we recommend encapsulating it and also passing it as a prop to one of the other content areas, where it can populate the panel of a DropDown.
 //
 // Styleguide: Compositions.MasterDetailSummary.1
 
@@ -99,7 +99,7 @@
 
 // Lock Layout
 //
-// You can allow the composition layout to respond to the viewport width (recommended) or it can retain the "small" layout at all breakpoints or the "medium" layout at medium or larger viewports. The small layout will keep the Master container hidden within a dropdown, and the Summary and Detail sections stacked, while the medium layout will keep the Summary container full width, sitting above the Master and Detail containers.
+// You can allow the composition layout to respond to the viewport width (recommended) or it can retain the "small" layout at all breakpoints or the "medium" layout at medium or larger viewports. The small layout will keep the Master container hidden, and the Summary and Detail sections stacked, while the medium layout will keep the Summary container full width, sitting above the Master and Detail containers.
 //
 // Include the `xui-composition-auto-template` class on the composition container for a responsive layout, or omit it for either of the locked layouts.
 //

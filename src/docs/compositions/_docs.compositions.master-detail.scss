@@ -2,11 +2,11 @@
 //
 // Components: Master-detail
 //
-// Teaser: The Master container houses content that controls or acts on content within the Detail area. The Master container is within a dropdown at narrow breakpoints, and a left hand column from xui-breakpoint-medium-up.
+// Teaser: The Master container houses content that controls or acts on content within the Detail area. The Master container is hidden at narrow breakpoints, and a left hand column from xui-breakpoint-medium-up.
 //
 // Teaser-image: composition-images/Master-Detail_browser.svg
 //
-// Introduction: Master detail composition is useful for layouts that consist of a set of options or controls, that affect content within the main content container. The Master container holds the options/controls in a left side column, or within a dropdown when horizontal space is restricted. The Detail area houses the main content.
+// Introduction: Master detail composition is useful for layouts that consist of a set of options or controls, that affect content within the main content container. The Master container holds the options/controls in a left side column, or is hidden when horizontal space is restricted. The Detail area houses the main content.
 //
 // Image: composition-images/Master-Detail_devices.svg
 //
@@ -24,7 +24,7 @@
 
 // Master detail default behaviour
 //
-// The Master container sits within of a dropdown when the browser width is below `$xui-breakpoint-medium`. From `$xui-breakpoint-medium` the Master container is a column to the left of the Detail container. The entire composition has a max-width of 1200px.
+// The Master container is hidden when the browser width is below `$xui-breakpoint-medium`. From `$xui-breakpoint-medium` the Master container is a column to the left of the Detail container. The entire composition has a max-width of 1200px. To provide access to the Master content while viewing the small layout, we recommend encapsulating it and also passing it as a prop to one of the other content areas, where it can populate the panel of a DropDown.
 //
 // Styleguide: Compositions.MasterDetail.1
 
@@ -96,7 +96,7 @@
 
 // Lock Layout
 //
-// You can allow the composition layout to respond to the viewport width (recommended) or it can retain the "small" layout across all breakpoints, keeping the Master container hidden within a dropdown. Include the `xui-composition-auto-template` class on the composition container for a responsive layout, or omit it for the locked layout.
+// You can allow the composition layout to respond to the viewport width (recommended) or it can retain the "small" layout across all breakpoints, keeping the Master container hidden. Include the `xui-composition-auto-template` class on the composition container for a responsive layout, or omit it for the locked layout.
 //
 // Tips:
 // Do: Lock the small layout across breakpoints when content won't fit using the two-column layout, even at larger breakpoints

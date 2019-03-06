@@ -4,4 +4,4 @@
 
 These compositional templates provide common page layouts with responsive behaviour.
 
-We recommend putting in as a child of the app as an adjacent next sibling to a page header component.
+We recommend implementing compositions as a child of the app and an adjacent next sibling to a page header component. For a full description of the configuration options and responsive behaviour of different compositions, please see the Guide.

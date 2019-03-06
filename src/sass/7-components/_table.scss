@@ -662,6 +662,7 @@ $xui-table-z-alert: 4;
 
 .#{$ns}-table {
 	border-radius: $xui-radius;
+	overflow: hidden;
 	position: relative;
 }
 

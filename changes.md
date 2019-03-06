@@ -62,18 +62,20 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- Buttons with `"icon"` or `"icon-inverted"` variants should now have `size="small"`. Buttons with `"icon-large"` and `"icon-inverted-large"` variants should have `size="medium"` (or can be left undefined).
 	- Buttons should use the `"icon"` or `"icon-inverted"` variants, rather than size-specific variants. The `"icon-large"` and `"icon-inverted-large"` variants have been removed, and sizes are now handled via the `size` prop.
 - Icon's iconwrapper class set now requires a size class to be used alongside the base class. The size `medium` is the default, other options are `large` and `xlarge`.
-- TextInput side element contents should have their size checked (they should always have a size 1 smaller than the parent input - i.e. 'medium' `XUITextInput` contains 'small' `XUIButton`s).
+- TextInput has a new `size` prop. The default value is `medium`. The other available values are `xsmall` and `small`.
+	- Side element contents should have their size checked (they should always have a size 1 smaller than the parent input - i.e. 'medium' `XUITextInput` contains 'small' `XUIButton`s).
 - SelectBox prop `islabelHidden` case has been fixed to be `isLabelHidden`, for real this time.
 - Pill prop `defaultLayout` has been removed.
 - Single Pills are now deprecated in favour of using XUITextinputs with left and right elements in Read only mode.
 - Pill `onDeleteClick` no longer has the component instance bound to `this`.
 - Switch no longer always maintains internal checked state. The API is now very similar to XUICheckbox and XUIRadio in that the component can be either used as a controlled or uncontrolled input.
   If users provide an isChecked value, the component will not maintain its own internal state. If users provide no isChecked value, the isDefaultChecked value will be used to populate the initial internally-managed state.
-- Autocompleter uses a debounce rather than throttle for searching. The `searchThrottleInterval` prop is superceded by `searchDebounceTimeout`. The default value for this has been set to 200 (was previously 0). To disable debouncing, set this value to 0.
 - XUIStepper
 	- Prop `updateCurrentStep` has been included into the main component API in favour of `handleClick` callbacks in every tab instance.
 	- Each "step" now has a max-width of 300px. Text will truncate, by default, or you can set the new `isTruncated` prop to `false`, to cause text to wrap, instead.
 - Modal no longer supports `default` as a size value. The default prop value is `medium` (unchanged).
+- `XUIModalHeader` prop `defaultLayout` has been removed.
+- `XUIModalFooter` prop `defaultLayout` has been removed.
 - `Picklist`, `Pickitem`, and related components
 	- Have a new `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`. Size can be set at either the item or list level, and will be applied to the entire list.
 	- `isMultiselect` and `shouldTruncate` can now be set at the list level and will set those properties for all items in the list. `isMultiselect` is not supported at the `xsmall` size.
@@ -83,6 +85,11 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 	- In support of the more contentblock-style Autocompleter picklists, Pickitems also have new `headerElement` and `isMultiline` props.
 	- Pickitem also now supports onBlur and onFocus handlers
 - ContentBlockItem has new `description` and `tagPosition` props. Description is styled similarly to the prior `secondaryHeading` content (which has now become more prominent), and `tagPosition` allows you to specify where tags will be placed. `pinnedValue`, `href`, `primaryHeading`, and `secondaryHeading` now only accept strings. The `tag` property has been changed to accept multiple tags, and is now labeled `tags`, accordingly.
+- OverviewBlock has new `textAlignment`, `hasBorder`, and `hasBackground` props.
+	- `textAlignment` supports left, center, and right alignment.
+	- `hasBorder` can be used to toggle the wrapping border on the entire block (defaults to true).
+	- `hasBackground` defines whether the block should have a solid background (defaults to true).
+- OverviewSection has a new `textAlignment` props. It supports left, center, and right alignment.
 - Loader size options have been switched from 'large', 'standard', and 'small' to be consistent with other component sizes. New size options are 'medium', 'small', and 'xsmall', and will be converted automatically if using the codemod. The largest size, 'medium' is now the default.
 - `SelectBox`
 	- Has a new `fullWidth` prop. The default value is `always`.
@@ -111,9 +118,10 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - `RolloverCheckbox`
 	- The `size` prop has been removed, and the size of the rollover target is now determined by the size of the `rolloverComponent` content.
 	- Has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.
-- `Autocompleter`
+- `XUIAutocompleter`
 	- Has a new `inputSize` prop. The default value is `medium`. The other available size is `small`.
-- `XUISwitch`, `XUICheckbox`, and `XUIRadio`
+	- Uses a debounce rather than throttle for searching. The `searchThrottleInterval` prop is superceded by `searchDebounceTimeout`. The default value for this has been set to 200 (was previously 0). To disable debouncing, set this value to 0.
+- `XUIAutocompleter`, `XUISwitch`, `XUICheckbox`, `XUIRadio`, `XUIRadioGroup`, `XUIRange`, `SelectBox` and`XUIToggle`
 	- Have a new validation props.
 		- `hintMessage`	shows a hint message under the input.
 		- `validationMessage` shows a validation message under the input.
@@ -168,10 +176,12 @@ Utility classes with breakpoint suffixes have been updated to reflect the new br
 
 ### Component props
 
-- Dropdown has new values for `size` prop; `xsmall`, `small`, `medium` and `large`.
+- `XUIDropDown` and `XUINestedDropDown` has new values for `size` prop; `xsmall`, `small`, `medium` and `large`.
+	- `XUIAutocompleter`'s `dropdownSize` prop also uses these new values.
 - Pill has a new `isLimitedWidth` prop to replace the `isMaxContentWidth` prop. The default for pills is now to fit their content, and you can apply `isLimitedWidth` to cap them at 200px. This prop change will be handled automatically by the upgrade codemod for existing Pills in your app.
-  - Pill `size` prop now has a default of `medium`, instead of `standard`. This size is visually the same as XUI 14 aside from the font size changes. Other available values are `small` and `xsmall`.
+	- Pill `size` prop now has a default of `medium`, instead of `standard`. This size is visually the same as XUI 14 aside from the font size changes. Other available values are `small` and `xsmall`.
 - XUIIcon, when `isBoxed` is true, now adds a class called `xui-iconwrapper-medium` by default. Use the `size` prop to alter this to `large` or `xlarge` at your discretion.
+- XUIIcon `size` prop now has a default of `medium`, instead of `standard`
 - Text input now has a `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
 - Tag has a new `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
 - Checkbox and Radio have a new `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.
@@ -184,12 +194,16 @@ Utility classes with breakpoint suffixes have been updated to reflect the new br
 - SelectBox has a new `caretTitle` prop. This can be used to set the title attribute on the caret. It defaults to `Toggle List`.
 - `RolloverCheckbox`has a new `checkboxSize` prop to allow control of the underlying checkbox using the new size variants.
 - XUIToggle's `variant` prop has been renamed to `size`. The default value is `medium`. Other available values are `small`.
-- Autocompleter has a new `inputSize` prop. The default value is `medium`. The other available size is `small`.
+- `XUIAutocompleter` and `XUIAutocompleterSecondarySearch`
+	- Have a new `inputSize` prop. The default value is `medium`. The other available size is `small`.
+	- Use a debounce rather than throttle for searching. The `searchThrottleInterval` prop is superceded by `searchDebounceTimeout`. The default value for this has been set to 200 (was previously 0). To disable debouncing, set this value to 0.
 - XUIStepper has a new `isTruncated` prop which defaults to `true`, truncating each "step" at 300px wide.
-- `XUISwitch`, `XUICheckbox`, and `XUIRadio` have a new validation props.
-	- `hintMessage`	shows a hint message under the input.
-	- `validationMessage` shows a validation message under the input.
-	- `isInvalid` switches the `hintMessage` out for the `validationMessage`.
+- `XUIAutocompleter`, `XUISwitch`, `XUICheckbox`, `XUIRadio`, `XUIRadioGroup`, `XUIRange`, `SelectBox` and`XUIToggle`
+	- Have a new validation props.
+		- `hintMessage`	shows a hint message under the input.
+		- `validationMessage` shows a validation message under the input.
+		- `isInvalid` switches the `hintMessage` out for the `validationMessage`.
+- `XUITooltip` has a new `isBlock` prop that can be used to force the wrapping element to be a `div` instead of a `span`.
 
 ## Other changes
 

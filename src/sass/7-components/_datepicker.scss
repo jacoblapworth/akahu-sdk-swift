@@ -44,7 +44,9 @@
 //           <option value="6">July</option>
 //           <option value="7">August</option>
 //         </select>
-//         <label for="month" class="xui-datepicker--heading-label">June</label>
+//         <label for="month" class="xui-button xui-button-standard xui-button-small xui-datepicker--heading-label xui-datepicker--month-select-label">June
+//           <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//         </label>
 //       </div>
 //       <div class="xui-datepicker--heading xui-datepicker--heading-year">
 //         <select id="year" class="xui-datepicker--heading-select xui-datepicker--yearselect-layout"
@@ -53,7 +55,9 @@
 //           <option value="2018">2018</option>
 //           <option value="2019">2019</option>
 //         </select>
-//         <label for="year" class="xui-datepicker--heading-label">2017</label>
+//         <label for="year" class="xui-button xui-button-standard xui-button-small xui-datepicker--heading-label xui-datepicker--year-select-label">2017
+//           <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//         </label>
 //       </div>
 //     </form>
 //     <button type="button" class="xui-button xui-button-icon xui-button-icon-medium xui-datepicker--nextbutton" aria-label="Go to next month" title="Go to next month">
@@ -255,7 +259,10 @@
 //           <option value="6">July</option>
 //           <option value="7">August</option>
 //         </select>
-//         <label for="month" class="xui-datepicker--heading-label">June</label>
+//         <label for="month" class="xui-button xui-button-standard xui-button-xsmall xui-datepicker--heading-label xui-datepicker--month-select-label">
+//          June
+//          <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//         </label>
 //       </div>
 //       <div class="xui-datepicker--heading xui-datepicker--heading-year">
 //         <select id="year" class="xui-datepicker--heading-select xui-datepicker--yearselect-layout"
@@ -264,7 +271,10 @@
 //           <option value="2018">2018</option>
 //           <option value="2019">2019</option>
 //         </select>
-//         <label for="year" class="xui-datepicker--heading-label">2017</label>
+//         <label for="year" class="xui-button xui-button-standard xui-button-xsmall xui-datepicker--heading-label xui-datepicker--month-select-label">
+//          2017
+//          <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//         </label>
 //       </div>
 //     </form>
 //     <button type="button" class="xui-button xui-button-icon xui-datepicker--nextbutton" aria-label="Go to next month" title="Go to next month">

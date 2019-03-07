@@ -140,6 +140,7 @@ Utility classes with breakpoint suffixes have been updated to reflect the new br
 	- Has a new `inputSize` prop. The default value is `medium`. The other available size is `small`.
 - `XUIDropDown` and `XUINestedDropDown` has new values for `size` prop; `xsmall`, `small`, `medium` and `large`.
 	- `XUIAutocompleter`'s `dropdownSize` prop also uses these new values.
+	- `XUIAutocompleterSecondarySearch`'s `dropdownSize` prop also uses these new values.
 - Pill has a new `isLimitedWidth` prop to replace the `isMaxContentWidth` prop. The default for pills is now to fit their content, and you can apply `isLimitedWidth` to cap them at 200px. This prop change will be handled automatically by the upgrade codemod for existing Pills in your app.
 - XUIIcon, when `isBoxed` is true, now adds a class called `xui-iconwrapper-medium` by default. Use the `size` prop to alter this to `large` or `xlarge` at your discretion.
 - Text input now has a `size` prop. The default value is `medium`. Other available values are `small` and `xsmall`.

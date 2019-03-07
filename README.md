@@ -11,14 +11,6 @@ XUI is a design system for Xero web applications. It includes standard approache
 * XUI Guide: https://xui.xero.com/
 * XUI on GitHub: https://github.dev.xero.com/UXE/xui
 
-### Jump to the latest docs
-[<img src="https://github.dev.xero.com/raw/UXE/xui/master/.github/working-with-xui.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/master/section-getting-started.html)
-[<img src="https://github.dev.xero.com/raw/UXE/xui/master/.github/fundamentals.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/master/section-fundamentals.html)
-[<img src="https://github.dev.xero.com/raw/UXE/xui/master/.github/building-blocks.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/master/section-building-blocks.html)
-[<img src="https://github.dev.xero.com/raw/UXE/xui/master/.github/react.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/master/react/)
-[<img src="https://github.dev.xero.com/raw/UXE/xui/master/.github/update.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/master/section-updates.html)
-[<img src="https://github.dev.xero.com/raw/UXE/xui/master/.github/feedback.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/master/section-feedback.html)
-
 ## Setting up XUI for local development
 
 ### Requirements

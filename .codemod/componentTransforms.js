@@ -66,17 +66,19 @@ module.exports = {
 					name: 'inputLabelText',
 					newName: 'inputLabel'
 				},
-			]
-		}
-	],
-	'@xero/xui/react/autocompleter': [
-		{
-			isDefault: true,
-			props: [
 				{
 					name: 'searchThrottleInterval',
 					newName: 'searchDebounceTimeout'
-				}
+				},
+				{
+					name: 'dropdownSize',
+					valueTransform: stringReplace({
+						'small': 'xsmall',
+						'medium': 'small',
+						'large': 'medium',
+						'xlarge': 'large'
+					})
+				},
 			]
 		},
 		{
@@ -85,6 +87,15 @@ module.exports = {
 				{
 					name: 'inputLabelText',
 					newName: 'inputLabel'
+				},
+				{
+					name: 'dropdownSize',
+					valueTransform: stringReplace({
+						'small': 'xsmall',
+						'medium': 'small',
+						'large': 'medium',
+						'xlarge': 'large'
+					})
 				},
 			]
 		}
@@ -255,6 +266,21 @@ module.exports = {
 				{
 					name: 'size',
 					valueTransform: stringReplace({
+						'small': 'xsmall',
+						'medium': 'small',
+						'large': 'medium',
+						'xlarge': 'large'
+					})
+				}
+			]
+		},
+		{
+			name: 'NestedDropDown',
+			props: [
+				{
+					name: 'size',
+					valueTransform: stringReplace({
+						'small': 'xsmall',
 						'medium': 'small',
 						'large': 'medium',
 						'xlarge': 'large'

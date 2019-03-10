@@ -3,9 +3,8 @@
 	<a href="../section-compositions-split.html" isDocLink>Split Composition in the XUI Documentation</a>
 </div>
 
-```js
-
-const XUICompositionSplit = require('./XUICompositionSplit').default;
+```jsx harmony
+import { XUICompositionSplit } from '../../compositions';
 
 const primaryContent = <div style={{background: '#ADADF3', height: '100px'}}></div>;
 const secondaryContent = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
@@ -15,8 +14,8 @@ const secondaryContent = <div style={{background: '#C5C5F6', height: '100px' }}>
 ```
 #### Split with header
 
-```js
-const XUICompositionSplitHeader = require('./XUICompositionSplitHeader').default;
+```jsx harmony
+import { XUICompositionSplitHeader } from '../../compositions';
 
 const headerContent = <div style={{background: '#B446C8', height: '60px'}}></div>;
 const primaryContent = <div style={{background: '#ADADF3', height: '100px'}}></div>;

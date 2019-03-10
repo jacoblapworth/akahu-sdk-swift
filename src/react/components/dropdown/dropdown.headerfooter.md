@@ -2,15 +2,15 @@
 
 If you've included any actions in the header or footer, set the `closeOnTab` property of `DropDownToggled` to `false`, so users navigating by keyboard are able to access them.
 
-```jsx
-const DropDownToggled = require('./DropDownToggled').default;
-const DropDownFooter = require('./DropDownFooter').default;
-const Pickitem = require('../picklist/Pickitem').default;
-const XUIIcon = require('../icon/XUIIcon').default;
-const checked = require ( '@xero/xui-icon/icons/checkbox-check' ).default;
-const searchPath = require ( '@xero/xui-icon/icons/search' ).default;
-const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;
-const { Component } = require ('react');
+```jsx harmony
+import { Component } from 'react';
+import DropDown, { DropDownToggled, DropDownHeader, DropDownFooter } from '../../dropdown';
+import XUITextInput, { XUITextInputSideElement } from '../../textinput';
+import Picklist, { Pickitem } from '../../picklist';
+import XUIButton, { XUIButtonCaret } from '../../button';
+import XUIIcon from '../../icon';
+import searchPath from '@xero/xui-icon/icons/search';
+import plusIcon from '@xero/xui-icon/icons/plus';
 
 const items = ['Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grapefruit', 'Honeydew', 'Iceberg Lettuce', 'Jackfruit', 'Kiwifruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tomato', 'Uglifruit', 'Valencia Orange', 'Watermelon', 'Xi gua','Yellow quash', 'Zucchini'].map( (text,id) => {
 	return { id, text };
@@ -19,12 +19,12 @@ const items = ['Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fenne
 const getNumberOfTrueValues = items => Object.keys(items).filter(key => !!items[key]).length;
 
 class XDD extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		const selected = {};
 
-		items.forEach(item => selected[item.id]=false);
+		items.forEach(item => selected[item.id] = false);
 
 		this.state = {
 			items,
@@ -119,7 +119,7 @@ class XDD extends Component {
 					inputRef={i => this.input = i}
 					placeholder="Search"
 					type="search"
-					value={this.search}
+					value={search}
 					onKeyDown={this.onSearchKeyDown}
 					onChange={this.onSearch}
 					isBorderlessSolid

@@ -37,12 +37,15 @@ Also note that the `<XUIAutocompleterEmptyState>` component needs to be wrapped 
 
 Currently it's recommended that you do not pass in a `rightElement` prop while using wrapping pills. At certain widths, the right element may wrap down to the next row without the input, which doesn't display nicely.
 
-```jsx
-const { boldMatch, decorateSubStr } = require('./autocompleter');
-const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
-const { Component, PureComponent, Fragment } = require('react');
-const people  = require('./components/autocompleter/private/people').default;
-const Pickitem = require('./components/picklist/Pickitem').default;
+```jsx harmony
+import { Component, PureComponent, Fragment } from 'react';
+
+import XUIAutocompleter, { XUIAutocompleterEmptyState, boldMatch, decorateSubStr } from './autocompleter';
+import XUIAvatar from './avatar';
+import XUIPill from './pill';
+import Picklist, { Pickitem 	} from './picklist';
+
+import people from './components/autocompleter/private/people';
 
 const filterPeople = (peopleToSearch, value, idsToExclude) => {
 	const val = value.toLowerCase();
@@ -55,8 +58,8 @@ const filterPeople = (peopleToSearch, value, idsToExclude) => {
 };
 
 class PillWrapper extends PureComponent {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.deleteSelf = this.deleteSelf.bind(this);
 	}
 
@@ -80,8 +83,8 @@ class PillWrapper extends PureComponent {
 
 //Example to show how the children can be styled however and you also define your own search criteria.
 class WrapPillsExample extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			value: '',
@@ -97,7 +100,7 @@ class WrapPillsExample extends Component {
 
 	onSearchChangeHandler(value) {
 		this.completer.current.openDropDown();
-		this.setState(prevState => ({ value }));
+		this.setState(() => ({ value }));
 	}
 
 	deletePerson(idToRemove) {
@@ -197,12 +200,15 @@ class WrapPillsExample extends Component {
 
 By default the pills and search bar will wrap inside the `XUIAutocompleter` input container. To disable this, set `disableWrapPills` to true.
 
-```jsx
-const { boldMatch, decorateSubStr } = require('./autocompleter');
-const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
-const { Component, PureComponent, Fragment } = require('react');
-const people  = require('./components/autocompleter/private/people').default;
-const Pickitem = require('./components/picklist/Pickitem').default;
+```jsx harmony
+import { Component, PureComponent, Fragment } from 'react';
+
+import XUIAvatar from './avatar';
+import XUIAutocompleter, { XUIAutocompleterEmptyState, boldMatch, decorateSubStr } from './autocompleter';
+import Picklist, { Pickitem } from './picklist';
+import XUIPill from './pill';
+
+import people from './components/autocompleter/private/people';
 
 const filterPeople = (peopleToSearch, value, idsToExclude) => {
 	const val = value.toLowerCase();
@@ -215,8 +221,8 @@ const filterPeople = (peopleToSearch, value, idsToExclude) => {
 };
 
 class PillWrapper extends PureComponent {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.deleteSelf = this.deleteSelf.bind(this);
 	}
 
@@ -240,8 +246,8 @@ class PillWrapper extends PureComponent {
 
 //Example to show how the children can be styled however and you also define your own search criteria.
 class DisableWrapPills extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			value: '',
@@ -355,15 +361,18 @@ class DisableWrapPills extends Component {
 
 When using `XUIAutocompleter` for selecting a single option, use the `leftElement` and `rightElement` props for adding information and options about the selected item and leave the `pills` prop empty.
 
-```jsx
-const { boldMatch, decorateSubStr } = require('./autocompleter');
-const XUIIcon = require('./components/icon/XUIIcon').default;
-const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
-const XUITextInputSideElement = require('./components/textInput/XUITextInputSideElement').default;
-const { Component, Fragment } = require('react');
-const people  = require('./components/autocompleter/private/people').default;
-const Pickitem = require('./components/picklist/Pickitem').default;
-const crossIcon = require('@xero/xui-icon/icons/cross-small').default;
+```jsx harmony
+import { Component, Fragment } from 'react';
+import crossIcon from '@xero/xui-icon/icons/cross-small';
+
+import XUIIcon from './icon';
+import XUIButton from './button';
+import XUIAvatar from './avatar';
+import XUIAutocompleter, { boldMatch, decorateSubStr } from './autocompleter';
+import Picklist, { Pickitem } from './picklist';
+import XUITextInputSideElement from './components/textInput/XUITextInputSideElement';
+
+import people  from './components/autocompleter/private/people';
 
 const filterPeople = (peopleToSearch, value) => {
 	const val = value.toLowerCase();
@@ -376,8 +385,8 @@ const filterPeople = (peopleToSearch, value) => {
 
 //Example to show how the children can be styled however and you also define your own search criteria.
 class SingleSelectExample extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			value: people[0].name,
@@ -489,13 +498,14 @@ The size of `XUIAutocompleter` can be set via the `inputSize` prop and supports 
 
 To set the size of the `Picklist`, you must specify the size using the `Picklist`s `size` prop.
 
-```jsx
+```jsx harmony
+import { Component, PureComponent, Fragment } from 'react';
+import XUIAvatar from './avatar';
+import XUIAutocompleter, { XUIAutocompleterEmptyState, boldMatch, decorateSubStr } from './autocompleter';
+import Picklist, { Pickitem } from './picklist';
+import XUIPill from './pill';
 
-const { boldMatch, decorateSubStr } = require('./autocompleter');
-const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
-const { Component, PureComponent, Fragment } = require('react');
-const people  = require('./components/autocompleter/private/people').default;
-const Pickitem = require('./components/picklist/Pickitem').default;
+import people  from './components/autocompleter/private/people';
 
 const filterPeople = (peopleToSearch, value, idsToExclude) => {
 	const val = value.toLowerCase();
@@ -508,8 +518,8 @@ const filterPeople = (peopleToSearch, value, idsToExclude) => {
 };
 
 class PillWrapper extends PureComponent {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.deleteSelf = this.deleteSelf.bind(this);
 	}
 
@@ -531,8 +541,8 @@ class PillWrapper extends PureComponent {
 };
 
 class WrapPillsExample extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			value: '',

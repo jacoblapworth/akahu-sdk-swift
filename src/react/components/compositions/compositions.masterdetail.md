@@ -3,9 +3,8 @@
 	<a href="../section-compositions-masterdetail.html" isDocLink>Master Detail Composition in the XUI Documentation</a>
 </div>
 
-```js
-
-const XUICompositionMasterDetail = require('./XUICompositionMasterDetail').default;
+```jsx harmony
+import { XUICompositionMasterDetail } from '../../compositions';
 
 const masterContent = <div style={{background: '#5A5AE6', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
 const detailContent = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
@@ -16,9 +15,8 @@ const detailContent = <div style={{background: '#C5C5F6', height: '100px' }}></d
 
 #### Master detail with header
 
-```js
-
-const XUICompositionMasterDetailHeader = require('./XUICompositionMasterDetailHeader').default;
+```jsx harmony
+import { XUICompositionMasterDetailHeader } from '../../compositions';
 
 const headerContent = <div style={{background: '#B446C8', height: '60px'}}></div>;
 const masterContent = <div style={{background: '#5A5AE6', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;

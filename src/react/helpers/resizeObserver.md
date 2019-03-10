@@ -17,10 +17,11 @@ Once set up, there are a few ways to use the observers.
 ## Examples
 
 ### Applies predefined classes at standard sizes
-```jsx
-const { Component } = require('react');
-const cn = require('classnames').default;
-const { observe, unobserve, getWidthClasses } = require('../helpers/resizeObserver');
+
+```jsx harmony
+import { Component } from 'react';
+import cn from 'classnames';
+import { observe, unobserve, getWidthClasses } from '../helpers/resizeObserver';
 
 const wrapperStyles = {
 	resize: 'horizontal',
@@ -28,8 +29,8 @@ const wrapperStyles = {
 };
 
 class SizeClassTest extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this._area = React.createRef();
 	}
 
@@ -66,16 +67,16 @@ class SizeClassTest extends Component {
 ```
 
 ### Applies custom breakpoints
-```jsx
-const { Component } = require('react');
-const cn = require('classnames').default;
-const XUIIcon = require('../components/icon/XUIIcon').default;
-const XUIButton = require('../components/button/XUIButton').default;
-const { observe, unobserve } = require('../helpers/resizeObserver');
-const info = require('@xero/xui-icon/icons/info').default;
-const cross = require('@xero/xui-icon/icons/cross').default;
-const search = require('@xero/xui-icon/icons/search').default;
-const accessibility = require('@xero/xui-icon/icons/accessibility').default;
+
+```jsx harmony
+import { Component } from 'react';
+import XUIIcon from '../icon';
+import XUIButton from '../button';
+import { observe, unobserve } from '../helpers/resizeObserver';
+import info from '@xero/xui-icon/icons/info';
+import cross from '@xero/xui-icon/icons/cross';
+import search from '@xero/xui-icon/icons/search';
+import accessibility from '@xero/xui-icon/icons/accessibility';
 
 const wrapperStyles = {
 	resize: 'horizontal',
@@ -83,8 +84,8 @@ const wrapperStyles = {
 };
 
 class BreakpointsTest extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.state = {};
 		this._area = React.createRef();
 		this._breakpoints = {
@@ -138,15 +139,13 @@ class BreakpointsTest extends Component {
 ```
 
 ### Component swapping on resize
-```jsx
-const { Component } = require('react');
-const overflow = require('@xero/xui-icon/icons/overflow').default;
-const XUIIcon = require('../components/icon/XUIIcon').default;
-const XUIButton = require('../components/button/XUIButton').default;
-const XUIButtonGroup = require('../components/button/XUIButtonGroup').default;
-const XUISecondaryButton = require('../components/button/XUISecondaryButton').default;
-const XUISplitButtonGroup = require('../components/button/XUISplitButtonGroup').default;
-const { observe, unobserve } = require('../helpers/resizeObserver');
+
+```jsx harmony
+import { Component } from 'react';
+import overflow from '@xero/xui-icon/icons/overflow';
+import XUIIcon from '../icon';
+import XUIButton, { XUIButtonGroup, XUISecondaryButton, XUISplitButtonGroup } from '../button';
+import { observe, unobserve } from '../helpers/resizeObserver';
 
 const buttonGroup = (
 	<XUIButtonGroup>
@@ -175,8 +174,8 @@ const wrapperStyles = {
 };
 
 class ComponentSwapper extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.state = { content: overflowButton };
 		this._area = React.createRef();
 	}

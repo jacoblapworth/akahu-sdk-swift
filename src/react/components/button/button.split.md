@@ -1,25 +1,30 @@
-A split button is used the present a primary action coupled with a dropdown trigger for secondary actions.
-The `<XUISplitButtonGroup>` component will inherit the `isDisabled` and the `variant` props from the parent component down to the button children. Provide an `aria-label` for the `XUISplitButton` to ensure accessibility.
+A split button group is used to present a primary action coupled with a dropdown trigger for secondary actions.
+The `<XUISplitButtonGroup>` component will inherit the `isDisabled` and the `variant` props from the parent component down to the button children. Provide an `aria-label` for the `XUISecondaryButton` to ensure accessibility.
 
-A split button can only be completely disabled - you cannot disable only one part of the button
+A `<XUISplitButtonGroup>` can only be completely disabled - you cannot disable only one part of the button
 
-```jsx
+```jsx harmony
+import XUIButton, { XUISplitButtonGroup, XUISecondaryButton } from "../../button";
+
 // try setting `isDisabled={true}`, or change the variant, and see how both buttons are disabled
 
 <XUISplitButtonGroup variant="primary" isDisabled={false} >
 	<XUIButton>Split Button</XUIButton>
-	<XUISplitButton aria-label="More options" />
+	<XUISecondaryButton aria-label="More options" />
 </XUISplitButtonGroup>
 ```
 
+When using a secondary button as the trigger of a dropdown, variants are not inherited. You might also need to adjust the height, if your button is multi-line.
 
-When using a split button as the trigger of a dropdown, variants are not inherited. You might also need to adjust the height, if your button is multi-line.
-```jsx
+```jsx harmony
+import XUIButton, { XUISplitButtonGroup, XUISecondaryButton } from "../../button";
+import Picklist, { Pickitem } from "../../picklist";
+import DropDown, { DropDownToggled } from "../../dropdown";
 
 <XUISplitButtonGroup variant="primary" isDisabled={false} >
 	<XUIButton>Dropdown Split Button</XUIButton>
 	<DropDownToggled
-		trigger={<XUISplitButton key='split' variant='primary' aria-label='Other actions' />}
+		trigger={<XUISecondaryButton key='split' variant='primary' aria-label='Other actions' />}
 		dropdown={
 			<DropDown>
 				<Picklist>
@@ -29,16 +34,5 @@ When using a split button as the trigger of a dropdown, variants are not inherit
 			</DropDown>
 		}
 	/>
-</XUISplitButtonGroup>
-```
-
-
-To set the size of a split button, you can set the `size` prop on `<XUISplitButtonGroup>`.
-
-```jsx
-
-<XUISplitButtonGroup variant="primary" size="small" >
-	<XUIButton>Small Split Button</XUIButton>
-	<XUISplitButton aria-label="More options" />
 </XUISplitButtonGroup>
 ```

@@ -3,19 +3,19 @@
 	<a href="../section-compositions-detail.html" isDocLink>Detail Composition in the XUI Documentation</a>
 </div>
 
-```js
-const XUICompositionDetail = require('./XUICompositionDetail').default;
+```jsx harmony
+import { XUICompositionDetail } from '../../compositions';
 
 const detailContent = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
 
 <XUICompositionDetail detail={detailContent} />
 
 ```
+
 #### Detail with header
 
-```js
-
-const XUICompositionDetailHeader = require('./XUICompositionDetailHeader').default;
+```jsx harmony
+import { XUICompositionDetailHeader } from '../../compositions';
 
 const headerContent = <div style={{background: '#B446C8', height: '60px'}}></div>;
 const detailContent = <div style={{background: '#C5C5F6', height: '100px' }}></div>;

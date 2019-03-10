@@ -21,17 +21,18 @@ A **bar** or **bar stack** can be targeted with an **active** state using the `a
 **Tip:** You can target a bars entire set of stacks by passing in `true` rather than targeting each individual stack.
 
 
-```
-require('array.prototype.find').shim();
-const {XUIBarChart} = require('./barchart');
+```jsx harmony
+import 'array.prototype.find';
+import { XUIBarChart } from './barchart';
+
 const data = [
 	{ id: 0, x: "Apple", y: 1 },
 	{ id: 1, x: "Potato", y: 2 },
 	{ id: 2, x: "Carrot", y: 3 },
 ];
 class Demo extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.handleBarClick = this.handleBarClick.bind(this);
 		this.state = { activeBars: {} };
 	}
@@ -65,9 +66,10 @@ class Demo extends React.Component {
 ```
 
 
-```
-require('array.prototype.find').shim();
-const {XUIBarChart} = require('./barchart');
+```jsx harmony
+import 'array.prototype.find';
+import { XUIBarChart } from './barchart';
+
 const keyLabel = ["Organic", "GMO"];
 const data = [
 	{ id: 0, x: "Apple", y: [1] },
@@ -75,8 +77,8 @@ const data = [
 	{ id: 2, x: "Carrot", y: [2, 1] },
 ];
 class Demo extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.handleBarClick = this.handleBarClick.bind(this);
 		this.state = { activeBars: {} };
 	}
@@ -148,27 +150,28 @@ The amount of labels per panel can be controlled via the prop `xAxisVisibleItems
 **Note:** This is a desired value, if we feel that that bars are not fitting to their panel area effectively the layout will be altered to better suit the user.
 
 
-```
-require('array.prototype.find').shim();
-const {XUIBarChart} = require('./barchart');
+```jsx harmony
+import 'array.prototype.find';
+import { XUIBarChart } from './barchart';
+
 const wrapperStyles = { display: 'inline-block', verticalAlign: 'top', minWidth: '300px', padding: '0 50px', width: '50%' };
 class Demo extends React.Component {
 	render() {
 		return (
 			<div>
 				<div style={wrapperStyles}>
-				<XUIBarChart
-					chartId="chartAvatarLabel"
-					chartTitle="Avatar Label"
-					chartDescription="The x-axis avatar label variant"
-					chartHeight={200}
-					xAxisType="avatar"
-					barsData={[
-						{ id: 0, x: "Layla Abernathy", y: 1 },
-						{ id: 1, x: "Heloise Stanton", y: 2 },
-						{ id: 2, x: "Rollin McCullough", y: 3 },
-					]}
-				/>
+					<XUIBarChart
+						chartId="chartAvatarLabel"
+						chartTitle="Avatar Label"
+						chartDescription="The x-axis avatar label variant"
+						chartHeight={200}
+						xAxisType="avatar"
+						barsData={[
+							{ id: 0, x: "Layla Abernathy", y: 1 },
+							{ id: 1, x: "Heloise Stanton", y: 2 },
+							{ id: 2, x: "Rollin McCullough", y: 3 },
+						]}
+					/>
 				</div>
 				<div style={wrapperStyles}>
 					<XUIBarChart
@@ -206,9 +209,10 @@ The y-axis customisation options are:
     + A greater `y` value will supersede this prop.
 
 
-```
-require('array.prototype.find').shim();
-const {XUIBarChart} = require('./barchart');
+```jsx harmony
+import 'array.prototype.find';
+import {XUIBarChart} from './barchart';
+
 const data = [
 	{ id: 0, x: "Apple", y: 1 },
 	{ id: 1, x: "Potato", y: 2 },
@@ -259,9 +263,11 @@ If there is no `barsData` an **empty** state is shown. The state customisation o
 + `emptyStateComponent`: Override the entire empty state component with your own.
 
 
-```
-require('array.prototype.find').shim();
-const {XUIBarChart} = require('./barchart');
+```jsx harmony
+
+import 'array.prototype.find';
+import {XUIBarChart} from './barchart';
+
 const data = [
 	{ id: 0, x: "Apple", y: 1 },
 	{ id: 1, x: "Potato", y: 2 },
@@ -273,14 +279,14 @@ class Demo extends React.Component {
 		return (
 			<div>
 				<div style={wrapperStyles}>
-				<XUIBarChart
-					chartId="chartLoading"
-					chartTitle="Loading State"
-					chartDescription="A depiction of the chart loading state"
-					chartHeight={200}
-					barsData={data}
-					isLoading
-				/>
+					<XUIBarChart
+						chartId="chartLoading"
+						chartTitle="Loading State"
+						chartDescription="A depiction of the chart loading state"
+						chartHeight={200}
+						barsData={data}
+						isLoading
+					/>
 				</div>
 				<div style={wrapperStyles}>
 					<XUIBarChart
@@ -335,9 +341,10 @@ Render the chart **key** providing a `keyLabel` prop referencing the **bar** or 
 + `keyTitle`: Customise the title of the _dropdown panel_.
 
 
-```
-require('array.prototype.find').shim();
-const {XUIBarChart} = require('./barchart');
+```jsx harmony
+import 'array.prototype.find';
+import {XUIBarChart} from './barchart';
+
 const data = [
 	{ id: 0, x: "Apple", y: 1 },
 	{ id: 1, x: "Potato", y: 2 },
@@ -349,6 +356,7 @@ const data = [
 	{ id: 7, x: "Pumpkin", y: 2 },
 	{ id: 8, x: "Lettuce", y: 3 },
 ];
+
 class Demo extends React.Component {
 	render() {
 		return (

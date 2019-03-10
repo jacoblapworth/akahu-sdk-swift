@@ -8,12 +8,13 @@ for behavioural aspects.
 
 ## Examples
 
-```
-const cross = require ('@xero/xui-icon/icons/cross').default;
-const overflow = require ('@xero/xui-icon/icons/overflow').default;
-const {XUIIsolationHeaderNavigation, XUIIsolationHeaderTitle, XUIIsolationHeaderSecondaryTitle, XUIIsolationHeaderActions} = require('./isolationheader');
-const XUIIcon = require('./icon').default;
-const XUIButton = require('./button').default;
+```jsx harmony
+import cross from '@xero/xui-icon/icons/cross';
+import overflow from '@xero/xui-icon/icons/overflow';
+
+import XUIIsolationHeader, { XUIIsolationHeaderNavigation, XUIIsolationHeaderTitle, XUIIsolationHeaderSecondaryTitle, XUIIsolationHeaderActions } from './isolationheader';
+import XUIIcon from './icon';
+import XUIButton from './button';
 
 <XUIIsolationHeader>
 	<XUIIsolationHeaderNavigation>

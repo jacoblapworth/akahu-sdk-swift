@@ -11,7 +11,7 @@ Most input use cases can be solved using `XUITextInput`'s base props. Additional
 We recommend being cautious when passing down a `type` to your input using `inputProps`. Currently some types don't work well for accessibility or internationalisation. For example, setting `type="number"` will not allow users to use `,` as a decimal separator, which is the correct decimal seporator in many regions.
 
 ```js
-const cn = require('classnames');
+import XUITextInput from './textinput';
 
 <div>
 	<XUITextInput
@@ -49,7 +49,9 @@ const cn = require('classnames');
 
 Labels can be set on `XUITextInput` by passing a value to the `label` prop.
 
-```jsx
+```jsx harmony
+import XUITextInput from './textinput';
+
 <XUITextInput
 	label="Label"
 />
@@ -59,12 +61,13 @@ Labels can be set on `XUITextInput` by passing a value to the `label` prop.
 
 Validation messages and styling should be added to inputs using the `validationMessage` and `isInvalid` props. Additionally, hint messages can be passed to inputs using the `hintMessage` prop. It's best to set `isFieldLayout=true` on all inputs to ensure consistent spacing between fields.
 
-```jsx
-const  { PureComponent } = require ( 'react' );
+```jsx harmony
+import { PureComponent } from 'react';
+import XUITextInput from './textinput';
 
 class Example extends PureComponent {
-	constructor(props) {
-		super(props);
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			text: ''
@@ -91,7 +94,7 @@ class Example extends PureComponent {
 				<XUITextInput
 					label="An invalid input"
 					validationMessage="Well it's not right"
-					isInvalid={true}
+					isInvalid
 					isFieldLayout
 				/>
 				<XUITextInput
@@ -120,7 +123,9 @@ class Example extends PureComponent {
 
 `XUITextInput` can be made into a multiline textarea by setting `isMultiline` to `true`. Additionally, `minRows`, `maxRows`, and `rows` may be set to set the vertical height of the input.
 
-```jsx
+```jsx harmony
+import XUITextInput from './textinput';
+
 <div>
 	<XUITextInput
 		isFieldLayout
@@ -154,20 +159,24 @@ class Example extends PureComponent {
 
 Content can be added to the side of a `XUITextInput` using the `leftElement` and `rightElement` props. It's recommended that you use the `XUITextInputSideElement` component to ensure the correct styling is applied.
 
-```jsx
-const linkedinPath = require ('@xero/xui-icon/icons/social-linkedin').default;
-const facebookPath = require ('@xero/xui-icon/icons/social-facebook').default;
-const searchPath = require ('@xero/xui-icon/icons/search').default;
-const attachPath = require ('@xero/xui-icon/icons/attach').default;
-const XUIIcon = require ( './icon.js' ).default;
-const XUIButton = require ( './button.js' ).default;
+```jsx harmony
+import linkedin from '@xero/xui-icon/icons/social-linkedin';
+import facebook from '@xero/xui-icon/icons/social-facebook';
+import search from '@xero/xui-icon/icons/search';
+import attach from '@xero/xui-icon/icons/attach';
+
+import XUIPill from './pill';
+import XUIAvatar from './avatar';	
+import XUITextInput, { XUITextInputSideElement } from './textinput';
+import XUIIcon from './icon';
+import XUIButton from './button';
 <div>
 	<XUITextInput
 		isFieldLayout
 		placeholder="Search"
 		leftElement={
 			<XUITextInputSideElement type="icon">
-				<XUIIcon isBoxed icon={searchPath} />
+				<XUIIcon isBoxed icon={search} />
 			</XUITextInputSideElement>
 		}
 		label='input'
@@ -200,7 +209,7 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Linkedin"
 		leftElement={
 			<XUITextInputSideElement type="icon" backgroundColor="linkedin">
-				<XUIIcon isBoxed icon={linkedinPath} />
+				<XUIIcon isBoxed icon={linkedin} />
 			</XUITextInputSideElement>
 		}
 		label='input'
@@ -211,7 +220,7 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Facebook"
 		leftElement={
 			<XUITextInputSideElement type="icon" backgroundColor="facebook">
-				<XUIIcon isBoxed icon={facebookPath} />
+				<XUIIcon isBoxed icon={facebook} />
 			</XUITextInputSideElement>
 		}
 		label='input'
@@ -222,7 +231,7 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Facebook Right"
 		rightElement={
 			<XUITextInputSideElement type="icon" backgroundColor="facebook">
-				<XUIIcon isBoxed icon={facebookPath} />
+				<XUIIcon isBoxed icon={facebook} />
 			</XUITextInputSideElement>
 		}
 		label='input'
@@ -314,7 +323,7 @@ const XUIButton = require ( './button.js' ).default;
 		rightElement={
 			<XUITextInputSideElement type="icon" alignment="top">
 				<XUIButton variant="icon" aria-label="attach">
-					<XUIIcon icon={attachPath} />
+					<XUIIcon icon={attach} />
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
@@ -328,7 +337,7 @@ const XUIButton = require ( './button.js' ).default;
 		rightElement={
 			<XUITextInputSideElement type="icon" alignment="center">
 				<XUIButton variant="icon" aria-label="attach">
-					<XUIIcon icon={attachPath} />
+					<XUIIcon icon={attach} />
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
@@ -342,7 +351,7 @@ const XUIButton = require ( './button.js' ).default;
 		rightElement={
 			<XUITextInputSideElement type="icon" alignment="bottom">
 				<XUIButton variant="icon" aria-label="attach">
-					<XUIIcon icon={attachPath} />
+					<XUIIcon icon={attach} />
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
@@ -355,7 +364,7 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Bottom aligned top-aligned content with background"
 		leftElement={
 			<XUITextInputSideElement type="icon" alignment="top" backgroundColor="facebook">
-				<XUIIcon isBoxed icon={facebookPath} />
+				<XUIIcon isBoxed icon={facebook} />
 			</XUITextInputSideElement>
 		}
 		label='input'
@@ -372,9 +381,14 @@ Inputs also have `small` and `xsmall` variants. To use these size variants with 
 
 Note that only avatars and text side elements have `2xsmall` size variants, so are the only side element options available for the `xsmall` text inputs.
 
-```jsx
-const XUIIcon = require ( './icon.js' ).default;
-const closePath = require ('@xero/xui-icon/icons/cross').default;
+```jsx harmony
+import closePath from '@xero/xui-icon/icons/cross';
+
+import XUIAvatar from './avatar';
+import XUIPill from './pill';
+import XUIButton from './button';
+import XUIIcon from './icon';
+import XUITextInput, { XUITextInputSideElement } from './textinput';
 
 <div>
 	<XUITextInput
@@ -448,10 +462,12 @@ const closePath = require ('@xero/xui-icon/icons/cross').default;
 ```
 
 #### Input Groups
-```js
-const XUIIcon = require('./icon.js').default;
-const facebook = require ('@xero/xui-icon/icons/social-facebook').default;
-const cn = require('classnames');
+
+```jsx harmony
+import XUIIcon from './icon';
+import XUITextInput, { XUITextInputSideElement } from './textinput';
+import facebook from '@xero/xui-icon/icons/social-facebook';
+
 <div>
 	<div className="xui-field-layout">
 		<div className='xui-textinputgroup'>
@@ -462,7 +478,7 @@ const cn = require('classnames');
 						To:
 					</XUITextInputSideElement>
 				}
-				isFieldLayout={true}
+				isFieldLayout
 				placeholder='placeholder'
 				isInvalid
 				validationMessage='invalid input'
@@ -532,8 +548,9 @@ const cn = require('classnames');
 ```
 
 #### Borderless Variants
-```js
-const cn = require('classnames');
+
+```jsx harmony
+import XUITextInput, { XUITextInputSideElement } from './textinput';
 
 <div style={{
 		padding: '10px',
@@ -545,8 +562,8 @@ const cn = require('classnames');
 				Transparent Borderless:
 			</XUITextInputSideElement>
 		}
-		isFieldLayout={true}
-		isBorderlessTransparent={true}
+		isFieldLayout
+		isBorderlessTransparent
 		placeholder='placeholder'
 		label='input'
 		isLabelHidden
@@ -557,7 +574,7 @@ const cn = require('classnames');
 				Solid Borderless:
 			</XUITextInputSideElement>
 		}
-		isBorderlessSolid={true}
+		isBorderlessSolid
 		placeholder='placeholder'
 		label='input'
 		isLabelHidden
@@ -565,52 +582,55 @@ const cn = require('classnames');
 </div>
 ```
 #### Inverted Borderless Variant
-```js
-const search = require ('@xero/xui-icon/icons/search').default;
-const cn = require('classnames');
-const XUIIcon = require('./icon.js').default;
-const ExampleContainer = require('./docs/ExampleContainer').default;
 
-	<ExampleContainer className="xui-padding-xsmall" isInverted>
-		<XUITextInput
-			leftElement={
-				<XUITextInputSideElement type="text">
-					Inverted Borderless Solid:
-				</XUITextInputSideElement>
-			}
-			isFieldLayout={true}
-			isBorderlessSolid={true}
-			isInverted={true}
-			placeholder='placeholder'
-			label='input'
-			isLabelHidden
-		/>
-		<XUITextInput
-			leftElement={
-				<XUITextInputSideElement type="icon">
-					<XUIIcon isBoxed icon={search} />
-				</XUITextInputSideElement>
-			}
-			isBorderlessTransparent={true}
-			isInverted={true}
-			placeholder='inverted borderless transparent'
-			label='input'
-			isLabelHidden
-		/>
-	</ExampleContainer>
+```jsx harmony
+import search from '@xero/xui-icon/icons/search';
+import XUITextInput, { XUITextInputSideElement } from './textinput';
+import XUIIcon from './icon';
+import ExampleContainer from './docs/ExampleContainer';
+
+<ExampleContainer className="xui-padding-xsmall" isInverted>
+	<XUITextInput
+		leftElement={
+			<XUITextInputSideElement type="text">
+				Inverted Borderless Solid:
+			</XUITextInputSideElement>
+		}
+		isFieldLayout
+		isBorderlessSolid
+		isInverted
+		placeholder='placeholder'
+		label='input'
+		isLabelHidden
+	/>
+	<XUITextInput
+		leftElement={
+			<XUITextInputSideElement type="icon">
+				<XUIIcon isBoxed icon={search} />
+			</XUITextInputSideElement>
+		}
+		isBorderlessTransparent
+		isInverted
+		placeholder='inverted borderless transparent'
+		label='input'
+		isLabelHidden
+	/>
+</ExampleContainer>
 ```
 
 #### Stateful Clear Button
 ```js
-const { PureComponent } = require ( 'react' );
-const clear = require ('@xero/xui-icon/icons/clear').default;
-const search = require ('@xero/xui-icon/icons/search').default;
-const XUIIcon = require('./icon.js').default;
-const XUIButton = require ( './button.js' ).default;
+import { PureComponent } from 'react';
+import clear from '@xero/xui-icon/icons/clear';
+import search from '@xero/xui-icon/icons/search';
+
+import XUITextInput, { XUITextInputSideElement } from './textinput';
+import XUIIcon from './icon';
+import XUIButton from './button';
 
 class Example extends PureComponent {
-	constructor(){
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.onChange = this.onChange.bind(this);
 		this.onClearButtonClick = this.onClearButtonClick.bind(this);
@@ -629,7 +649,7 @@ class Example extends PureComponent {
 	onClearButtonClick() {
 		this.setState({
 			value: ''
-		})
+		});
 	}
 
 	render(){

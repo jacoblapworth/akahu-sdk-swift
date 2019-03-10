@@ -2,17 +2,13 @@
 
 `NestedDropDown` is designed as a `DropDown` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown.  A quick example would be allowing the user to choose between some convenience dates and a fixed custom date like below.
 
-```jsx
-require('array.prototype.find').shim();
-const NestedDropDown = require('./NestedDropDown').default;
-const DropDownPanel = require('./DropDownPanel').default;
-const DropDownToggled = require('./DropDownToggled').default;
-const DropDownFooter = require('./DropDownFooter').default;
-const XUIButton = require('../../button').default;
-const XUIDatePicker = require('../../datepicker').default;
-const Picklist = require('../../picklist').default;
-const Pickitem = require('../picklist/Pickitem').default;
-const { Component } = require('react');
+```jsx harmony
+import 'array.prototype.find';
+import { Component } from 'react';
+import { DropDownToggled, DropDownHeader, DropDownFooter, NestedDropDown, DropDownPanel } from '../../dropdown';
+import XUIButton, { XUIButtonCaret } from '../../button';
+import XUIDatePicker from '../../datepicker';
+import Picklist, { Pickitem } from '../../picklist';
 
 const months = ['Jan', 'Feb', 'March', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const formatDate = date => `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
@@ -48,8 +44,8 @@ const convenienceDates = [
 ];
 
 class NestedExample extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			activePanel: 'convenienceDates',

@@ -8,35 +8,41 @@ Whatever you put between the start and end tags of `XUIButton` will appear as th
 
 You can give `XUIButton` a click handler to perform actions when the button is triggered, either by clicking on it, or by pressing `space` or `enter` when it has focus.
 
-```jsx
-	function handleClick() { alert('You clicked the button!'); }
-	<XUIButton onClick={handleClick}>Click this button</XUIButton>
+```jsx harmony
+import XUIButton from './button';
+
+function handleClick() { alert('You clicked the button!'); }
+
+<XUIButton onClick={handleClick}>Click this button</XUIButton>
 ```
 
 ### Variants
 
 Different styles of button are available by passing different values to the `variant` prop.
 
-```jsx
-	const ExampleContainer = require('./docs/ExampleContainer').default;
+```jsx harmony
+import XUIButton from './button';
+
+import ExampleContainer from './docs/ExampleContainer';
+
+<div>
 	<div>
-		<div>
-			<XUIButton className="xui-margin-right" variant="standard">Standard</XUIButton>
-			<XUIButton className="xui-margin-right" variant="primary">Primary</XUIButton>
-			<XUIButton className="xui-margin-right" variant="create">Create</XUIButton>
-			<XUIButton className="xui-margin-right" variant="negative">Negative</XUIButton>
-		</div>
-		<div className="xui-padding-xsmall">
-			<XUIButton className="xui-margin-right" variant="borderless-standard">Borderless Standard</XUIButton>
-			<XUIButton className="xui-margin-right" variant="borderless-primary">Borderless Primary</XUIButton>
-			<XUIButton className="xui-margin-right" variant="borderless-create">Borderless Create</XUIButton>
-			<XUIButton className="xui-margin-right" variant="borderless-negative">Borderless Negative</XUIButton>
-			<XUIButton className="xui-margin-right" variant="borderless-muted">Borderless Muted</XUIButton>
-		</div>
-		<ExampleContainer className="xui-padding-xsmall" isInverted>
-			<XUIButton className="xui-margin-right" variant="borderless-inverted">Borderless Inverted</XUIButton>
-		</ExampleContainer>
+		<XUIButton className="xui-margin-right" variant="standard">Standard</XUIButton>
+		<XUIButton className="xui-margin-right" variant="primary">Primary</XUIButton>
+		<XUIButton className="xui-margin-right" variant="create">Create</XUIButton>
+		<XUIButton className="xui-margin-right" variant="negative">Negative</XUIButton>
 	</div>
+	<div className="xui-padding-xsmall">
+		<XUIButton className="xui-margin-right" variant="borderless-standard">Borderless Standard</XUIButton>
+		<XUIButton className="xui-margin-right" variant="borderless-primary">Borderless Primary</XUIButton>
+		<XUIButton className="xui-margin-right" variant="borderless-create">Borderless Create</XUIButton>
+		<XUIButton className="xui-margin-right" variant="borderless-negative">Borderless Negative</XUIButton>
+		<XUIButton className="xui-margin-right" variant="borderless-muted">Borderless Muted</XUIButton>
+	</div>
+	<ExampleContainer className="xui-padding-xsmall" isInverted>
+		<XUIButton className="xui-margin-right" variant="borderless-inverted">Borderless Inverted</XUIButton>
+	</ExampleContainer>
+</div>
 ```
 
 Icon buttons are supported by the `icon` and `icon-inverted` variants.
@@ -45,44 +51,48 @@ When placing `XUIIcon` alone in a button, ensure accessibility by adding a `titl
 
 If you use these together with the `size` prop, the icon button size classes will be applied.
 
-```jsx
-	const ExampleContainer = require('./docs/ExampleContainer').default;
-	const XUIIcon = require('./components/icon/XUIIcon').default;
-	const icon = require('@xero/xui-icon/icons/overflow').default;
-	<div>
+```jsx harmony
+import overflowIcon from '@xero/xui-icon/icons/overflow';
 
-		<XUIButton variant="icon">
-			<XUIIcon icon={icon} title="Dots menu" />
+import XUIIcon from './icon';
+import XUIButton from './button';
+
+import ExampleContainer from './docs/ExampleContainer';
+
+<div>
+	<XUIButton variant="icon">
+		<XUIIcon icon={overflowIcon} title="Dots menu" />
+	</XUIButton>
+
+	<XUIButton variant="icon" size="small">
+		<XUIIcon icon={overflowIcon} title="Dots menu" />
+	</XUIButton>
+
+	<XUIButton variant="icon" size="xsmall">
+		<XUIIcon icon={overflowIcon} title="Dots menu" />
+	</XUIButton>
+
+	<ExampleContainer className="xui-padding-xsmall" isInverted>
+		<XUIButton variant="icon-inverted">
+			<XUIIcon icon={overflowIcon} title="Dots menu" />
 		</XUIButton>
-
-		<XUIButton variant="icon" size="small">
-			<XUIIcon icon={icon} title="Dots menu" />
+		<XUIButton variant="icon-inverted" size="small">
+			<XUIIcon icon={overflowIcon} title="Dots menu" />
 		</XUIButton>
-
-		<XUIButton variant="icon" size="xsmall">
-			<XUIIcon icon={icon} title="Dots menu" />
+		<XUIButton variant="icon-inverted" size="xsmall">
+			<XUIIcon icon={overflowIcon} title="Dots menu" />
 		</XUIButton>
-
-		<ExampleContainer className="xui-padding-xsmall" isInverted>
-			<XUIButton variant="icon-inverted">
-				<XUIIcon icon={icon} title="Dots menu" />
-			</XUIButton>
-			<XUIButton variant="icon-inverted" size="small">
-				<XUIIcon icon={icon} title="Dots menu" />
-			</XUIButton>
-			<XUIButton variant="icon-inverted" size="xsmall">
-				<XUIIcon icon={icon} title="Dots menu" />
-			</XUIButton>
-		</ExampleContainer>
-
-	</div>
+	</ExampleContainer>
+</div>
 ```
 
 ### Size
 
 The `size` prop allows you to modify the default button size.
 
-```jsx
+```jsx harmony
+import XUIButton from './button';
+
 <div>
 	<XUIButton>Medium</XUIButton>
 	<XUIButton size="small">Small</XUIButton>
@@ -98,34 +108,35 @@ You can make buttons span the width of their container by setting the `fullWidth
 `small-down` will only be a full-width button at mobile breakpoints.
 `never` will never be a full-width button (this is the default).
 
-```jsx
-	<div>
-		<div className="xui-margin-bottom">
+```jsx harmony
+import XUIButton from './button';
 
-			<XUIButton variant="primary" fullWidth='always'>
-				Full-width Button
-			</XUIButton>
+<div>
+	<div className="xui-margin-bottom">
+		<XUIButton variant="primary" fullWidth='always'>
+			Full-width Button
+		</XUIButton>
 
-		</div>
-		<div>
-
-			<XUIButton variant="create" fullWidth='small-down'>
-				Mobile Full-width Button
-			</XUIButton>
-
-		</div>
 	</div>
+	<div>
+		<XUIButton variant="create" fullWidth='small-down'>
+			Mobile Full-width Button
+		</XUIButton>
+	</div>
+</div>
 ```
 
 ### Disabled / Loading States
 
 You can programatically disable a button by setting the `isDisabled` prop to `true`. This will prevent interaction, including preventing it gaining focus.
 
-```
+```jsx harmony
+import XUIButton from './button';
+
 <div>
-	<XUIButton className="xui-margin-right" isDisabled={true}>Standard Button</XUIButton>
-	<XUIButton className="xui-margin-right" variant="create" isDisabled={true}>Variant Button</XUIButton>
-	<XUIButton variant="borderless-standard" isDisabled={true}>Borderless Button</XUIButton>
+	<XUIButton className="xui-margin-right" isDisabled>Standard Button</XUIButton>
+	<XUIButton className="xui-margin-right" variant="create" isDisabled>Variant Button</XUIButton>
+	<XUIButton variant="borderless-standard" isDisabled>Borderless Button</XUIButton>
 </div>
 ```
 
@@ -137,7 +148,9 @@ The `minLoaderWidth` prop modifies the button by applying a 75px min width on it
 
 The supplied loader inherits the text color of the button component.
 
-```jsx
+```jsx harmony
+import XUIButton from './button';
+
 <div>
 	<span className="xui-margin-right">
 		<XUIButton variant="primary" isLoading>

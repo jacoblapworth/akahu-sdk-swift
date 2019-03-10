@@ -12,15 +12,16 @@ The default tooltip is triggered on mouseover, and will appear centered above th
 
 **Note:** This component wraps the trigger component and the tooltip in an inline-block element for positioning purposes. It may be helpful to add `wrapperClassName` to apply styles that were directly affecting the trigger.
 
-```jsx
+```jsx harmony
+import infoIcon from '@xero/xui-icon/icons/info';
 
-const XUIButton = require('./components/button/XUIButton.js').default;
-const XUIIcon = require('./components/icon/XUIIcon.js').default;
-const info = require('@xero/xui-icon/icons/info').default;
+import XUIButton from './button';
+import XUIIcon from './icon';
+import XUITooltip from './tooltip';
 
 const triggerIcon = (
 	<XUIButton variant="icon" aria-label="More info">
-		<XUIIcon icon={info} />
+		<XUIIcon icon={infoIcon} />
 	</XUIButton>
 );
 const triggerButton = <XUIButton >A button</XUIButton>;
@@ -37,7 +38,10 @@ Min and max width of the tip, on-open and on-close hooks, the mix of triggering 
 
 Do not use `triggerOnClick` if your trigger has it's own explicit `onClick` or `onKeyDown` props, as those handlers will take precedent, and `XUITooltip` will not open on click or keydown. The default `triggerOnHover` behaviour is ideal for these cases, but the `onOpen` and `onClose` hooks are also available to handle events in a more custom way.
 
-```jsx
+```jsx harmony
+import XUIButton from './button';
+import XUITooltip from './tooltip';
+
 const triggerLink = (
 	<XUIButton
 		isLink
@@ -56,6 +60,7 @@ const props = {
     triggerOnHover: false,
     onOpen: logOpen,
 };
+
 <p>So often we avoid running water, and running water is a lot of fun. Isn&apos;t that fantastic? You can just push a little tree out of your brush like that. Look around, <XUITooltip trigger={triggerLink} {...props}>Here is a tip on an inline trigger</XUITooltip>. Beauty is everywhere, you only have to look to see it.</p>
 
 ```

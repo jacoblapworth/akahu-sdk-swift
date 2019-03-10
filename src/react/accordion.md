@@ -17,11 +17,9 @@ The bare minimum _Accordion_ composition can be achieved with the `items` and `c
 
 **Note:** Each item needs a unique `id`. By default an object _key_ named `id` is looked up in each item however you can specify a new key if there is a more relevant unique identifier using the prop `idKey`.
 
-```
-const {
-	default: XUIAccordion,
-	XUIAccordionItem,
-} = require('./accordion');
+```jsx harmony
+import XUIAccordion, { XUIAccordionItem } from './accordion';
+
 const items = [
 	{ id: 1, name: 'John Smith', content: 'Accountant' },
 	{ id: 2, name: 'Barry Allen', content: 'Bookkeeper' },
@@ -29,8 +27,8 @@ const items = [
 ];
 
 class Demo extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.createItem = this.createItem.bind(this);
 		this.handleItemClick = this.handleItemClick.bind(this);
 	}
@@ -70,11 +68,9 @@ You can also supply an `onItemClick` prop that returns the entire item from the 
 
 **Note:** if you are adding a `<button />` type element as content remember to [`stopPropagation`](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation) so the event does not bubble up and trigger the _Accordion_ _expand_ / _collapse_ toggle accidentally.
 
-```
-const {
-	default: XUIAccordion,
-	XUIAccordionItem,
-} = require('./accordion');
+```jsx harmony
+import XUIAccordion, { XUIAccordionItem } from './accordion';
+
 const items = [{ id: 1 }];
 const itemStyle = {
 	background: 'lightgray',
@@ -84,8 +80,8 @@ const itemStyle = {
 };
 
 class Demo extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.createItem = this.createItem.bind(this);
 		this.handleItemClick = this.handleItemClick.bind(this);
 	}
@@ -128,16 +124,11 @@ If no `children` content is supplied to a `<XUIAccordionItem />` then the _empty
 
 There is a default design that can be overridden or completely replaced (`emptyMessage`, `emptyIcon`, `emptyStateComponent`).
 
-```
-const {
-	default: XUIAccordion,
-	XUIAccordionItem,
-} = require('./accordion');
-const starIconPath = require ('@xero/xui-icon/icons/star').default;
-const XUIAvatar = require('./avatar').default;
-const XUIButton = require('./button').default;
-const XUIIcon = require('./icon').default;
-const icon = require('@xero/xui-icon/icons/overflow').default;
+```jsx harmony
+import starIcon from '@xero/xui-icon/icons/star';
+
+import XUIAccordion, { XUIAccordionItem } from './accordion';
+
 const createItem = ({ heading }) => <XUIAccordionItem primaryHeading={heading} />;
 
 <div>
@@ -148,7 +139,7 @@ const createItem = ({ heading }) => <XUIAccordionItem primaryHeading={heading} /
 	/>
 	<XUIAccordion
 		className="xui-margin-bottom-large"
-		emptyIcon={starIconPath}
+		emptyIcon={starIcon}
 		emptyMessage="Custom empty state message"
 		items={[{ id: 1, heading: 'Custom empty state' }]}
 		createItem={createItem}
@@ -171,16 +162,15 @@ const createItem = ({ heading }) => <XUIAccordionItem primaryHeading={heading} /
 
 You can nest other XUI component inside the `<XUIAccordionItem />` _(such as `<XUIContentBlock />`)_ to create robust compositions.
 
-```
-const {
-	default: XUIAccordion,
-	XUIAccordionItem,
-} = require('./accordion');
-const { XUIContentBlock, XUIContentBlockItem } = require('./structural.js');
-const { default: XUIAvatar } = require('./avatar.js');
-const { default: XUIButton } = require('./button.js');
-const { default: XUIIcon } = require('./icon.js');
-const { default: overflowPathData } = require('@xero/xui-icon/icons/overflow');
+```jsx harmony
+import overflowIcon from '@xero/xui-icon/icons/overflow';
+
+import { XUIContentBlock, XUIContentBlockItem } from './structural';
+import XUIAccordion, { XUIAccordionItem } from './accordion';
+import XUIAvatar from './avatar';
+import XUIButton from './button';
+import XUIIcon from './icon';
+
 const items = [{
 	name: 'John Smith',
 	contacts: [
@@ -204,8 +194,8 @@ const makeInteraction = (event, callback) => {
 }
 
 class Demo extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.createItem = this.createItem.bind(this);
 		this.handleUpdateInteraction = this.handleUpdateInteraction.bind(this);
 		this.handleOptionsInteraction = this.handleOptionsInteraction.bind(this);
@@ -229,7 +219,7 @@ class Demo extends React.Component {
 						variant="icon"
 						onKeyDown={this.handleOptionsInteraction}
 						onClick={this.handleOptionsInteraction}>
-						<XUIIcon icon={overflowPathData} title="Overflow menu" />
+						<XUIIcon icon={overflowIcon} title="Overflow menu" />
 					</XUIButton>
 				)}
 				action={(

@@ -15,11 +15,12 @@
 
 In the following example, the `buttonContent` of `SelectBox` is being set to value of the selected item in the example's state.
 
-```jsx
-const { Component } = require('react');
-const XUIIcon = require('./components/icon/XUIIcon').default;
-const TextHelpers = require ('./components/select-box/TextHelpers').default;
-const bank = require('@xero/xui-icon/icons/bank').default;
+```jsx harmony
+import { Component } from 'react';
+import bank from '@xero/xui-icon/icons/bank';
+import XUIIcon from './icon';
+import SelectBox, { SelectBoxOption } from './select-box';
+import TextHelpers from './components/select-box/TextHelpers';
 
 const banks = [
 	'ANZ',
@@ -29,17 +30,14 @@ const banks = [
 ];
 
 class SelectBoxExample extends Component {
-	constructor (props, context) {
-		super(props, context);
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			selectedBank: banks[2]
 		};
-		[
-			this.onBankSelect,
-		].forEach(fn => {
-			this[fn.name] = fn.bind(this);
-		});
+		
+		this.onBankSelect = this.onBankSelect.bind(this);
 		this.selectOne = React.createRef();
 	}
 
@@ -48,8 +46,6 @@ class SelectBoxExample extends Component {
 			selectedBank: value
 		});
 	}
-
-
 
 	render () {
 		const MiniApp = this;
@@ -94,14 +90,17 @@ class SelectBoxExample extends Component {
 
 You can select multiple values by keeping track of an array, rather than a single value. Use the `showCheckboxes` prop to help indicate that multiple selections are supported.
 
-```jsx
-const { Component } = require('react');
-const TextHelpers = require ('./components/select-box/TextHelpers').default;
+```jsx harmony
+import { Component } from 'react';
+import SelectBox, { SelectBoxOption } from './select-box';
+import TextHelpers from './components/select-box/TextHelpers';
 
 const boats = ['Waka', 'Pontoon', 'Sailboat', 'Schooner', 'Dingy'];
 
 class MiniApp extends Component {
-	constructor() {
+	constructor(...args) {
+		super(...args);
+		
 		this.state = {
 			selectedBoats: []
 		};
@@ -139,7 +138,7 @@ class MiniApp extends Component {
 							id={opt}
 							isSelected={MiniApp.state.selectedBoats.indexOf(opt) >= 0}
 							key={idx + opt + 'userDefined Key'}
-							showCheckboxes={true}
+							showCheckboxes
 							value={opt}
 						>
 							{opt}
@@ -160,11 +159,12 @@ The `size` prop allows you to change the default `SelectBox` size.
 
 If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
 
-```jsx
-const { Component } = require('react');
-const XUIIcon = require('./components/icon/XUIIcon').default;
-const TextHelpers = require ('./components/select-box/TextHelpers').default;
-const bank = require('@xero/xui-icon/icons/bank').default;
+```jsx harmony
+import { Component } from 'react';
+import SelectBox, { SelectBoxOption } from './select-box';
+import XUIIcon from './icon';
+import TextHelpers from './components/select-box/TextHelpers';
+import bank from '@xero/xui-icon/icons/bank';
 
 const banks = [
 	'ANZ',
@@ -174,17 +174,14 @@ const banks = [
 ];
 
 class MiniApp extends Component {
-	constructor (props, context) {
-		super(props, context);
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			selectedBank: banks[2]
 		};
-		[
-			this.onBankSelect,
-		].forEach(fn => {
-			this[fn.name] = fn.bind(this);
-		});
+		
+		this.onBankSelect = this.onBankSelect.bind(this);
 
 		this.selectOne = React.createRef();
 	}
@@ -237,11 +234,12 @@ class MiniApp extends Component {
 
 The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop. We recommend setting the `fullWidth` prop to `never` to prevent the SelectBox being full width with button variants.
 
-```jsx
-const { Component } = require('react');
-const XUIIcon = require('./components/icon/XUIIcon').default;
-const TextHelpers = require ('./components/select-box/TextHelpers').default;
-const bank = require('@xero/xui-icon/icons/bank').default;
+```jsx harmony
+import { Component } from 'react';
+import SelectBox, { SelectBoxOption } from './select-box';
+import XUIIcon from './icon';
+import TextHelpers from './components/select-box/TextHelpers';
+import bank from '@xero/xui-icon/icons/bank';
 
 const banks = [
 	'ANZ',
@@ -251,18 +249,14 @@ const banks = [
 ];
 
 class MiniApp extends Component {
-	constructor (props, context) {
-		super(props, context);
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			selectedBank: banks[2]
 		};
-		[
-			this.onBankSelect,
-		].forEach(fn => {
-			this[fn.name] = fn.bind(this);
-		});
-
+		
+		this.onBankSelect = this.onBankSelect.bind(this);
 		this.selectOne = React.createRef();
 	}
 
@@ -271,8 +265,6 @@ class MiniApp extends Component {
 			selectedBank: value
 		});
 	}
-
-
 
 	render () {
 		const MiniApp = this;
@@ -307,8 +299,6 @@ class MiniApp extends Component {
 						);
 					})}
 				</SelectBox>
-
-
 		);
 	}
 }

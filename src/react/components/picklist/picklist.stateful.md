@@ -23,12 +23,12 @@ In most cases you would be able to use a wrapper around the `StatefulPicklist`, 
 ### Example
 A thin wrapper around the `StatefulPicklist` to demonstrate the bare minimum to build a working component.
 
-```jsx
-const Pickitem = require('../picklist/Pickitem').default;
+```jsx harmony
+import Picklist, { StatefulPicklist, Pickitem } from '../../picklist';
 
 class BasicStatefulPicklist extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			selectedItem: 2
@@ -78,12 +78,12 @@ class BasicStatefulPicklist extends React.Component {
 <BasicStatefulPicklist />;
 ```
 
-```
-const Pickitem = require('../picklist/Pickitem').default;
+```jsx harmony
+import Picklist, { StatefulPicklist, Pickitem } from '../../picklist';
 
 class BasicHorizontalStatefulPicklist extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			selectedItem: 2

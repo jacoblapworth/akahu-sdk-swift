@@ -14,12 +14,9 @@ The `data` prop requires an object with **unique** keys that differentiate each 
 
 Each *Cell* inside the *Column* `body` prop is a function that passes through each rows `data` independently so you can cherry pick the relevant content for a particular *Cell*.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+
 const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
 };
@@ -46,12 +43,9 @@ const data = {
 
 If there is no *JSX* supplied to **any** *Column* `head` prop the *Table* `<th />` *Cells* will **not** be rendered.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+
 const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
 };
@@ -67,12 +61,9 @@ const data = {
 
 The `isResponsive` tag allows the *Table* to become horizontally scrollable when the amount of *Column* content causes an overflow.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+
 const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, purchased: 'John Smith', ordered: 1519865730672, delivered: 1520124930672, quantity: 128, address: '1 Watt St, Parnell, Auckland, 1052', paid: true }
 };
@@ -138,12 +129,9 @@ const data = {
 
 Changes overflowing *Column* content into a truncated *Column* view if a reasonable amount of legibility can still be maintained.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+
 const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, purchased: 'John Smith', ordered: 1519865730672, delivered: 1520124930672, quantity: 128, address: '1 Watt St, Parnell, Auckland, 1052', paid: true }
 };
@@ -212,12 +200,9 @@ Wrapping can be defined on a per *Cell* basis using the `hasWrapping` prop. By d
 
 **Note:** Wrapping will revert to a single line format when `isTruncated` or a row has an interaction created from `onRowClick`.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+
 const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', description: 'There was once a little banana, That lived in a grocery store, He loved to hang out with the other fruits, But mostly to explore.', price: 2.99 }
 };
@@ -251,12 +236,9 @@ const data = {
 
 Pass the `className` prop to the `<XUITable>` to add CSS classes to the outer most element of the the *Table* scaffold.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+
 const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
 };
@@ -293,12 +275,9 @@ document.head.appendChild(node);
 
 Pass the `className` prop to the `<XUITableCell>` to add CSS classes to each *Cell* on an individual basis.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+
 const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, paid: true },
 	def456: { fruit: 'Apple', color: 'Red', price: 3.49, paid: false }
@@ -332,12 +311,9 @@ Each rows *Checked* state is derived from checking for *"truthy"* row key / valu
 
 Interactions for the *"master"* and *"single"* checkbox toggles can be handled using the `onCheckAllToggle` and `onCheckOneToggle` props.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+
 const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
 	def456: { fruit: 'Apple', color: 'Red', price: 3.49, paid: false }
@@ -345,8 +321,8 @@ const data = {
 
 class Demo extends React.Component {
 
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.state = { checkedIds: { abc123: true, def456: false } };
 		this.handleCheckAllToggle = this.handleCheckAllToggle.bind(this);
 		this.handleCheckOneToggle = this.handleCheckOneToggle.bind(this);
@@ -410,13 +386,10 @@ Each row can generate a unique set of menu items by supplying the `createOverflo
 
 **Note:** If there are no menu items are generated the *Overflow Menu* will not be rendered for that row.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
-const { Pickitem } = require ( './picklist.js' );
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import { Pickitem } from './picklist';
+
 const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, paid: true },
 	def456: { fruit: 'Apple', color: 'Red', price: 3.49, paid: false }
@@ -459,21 +432,17 @@ If an **action** column is **active** in the *Table* it can be pinned to the rel
 + **Checkboxes** are pinned to the left of the scaffold by using the `hasPinnedFirstColumn` prop.
 + **Overflow Menu** are pinned to the right of the scaffold by using the `hasPinnedLastColumn` prop.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
-const { Pickitem } = require ( './picklist.js' );
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import { Pickitem } from './picklist';
 const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, purchased: 'John Smith', ordered: 1519865730672, delivered: 1520124930672, quantity: 128, address: '1 Watt St, Parnell, Auckland, 1052', paid: true }
 };
 
 class Demo extends React.Component {
 
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.state = { checkedIds: {} };
 		this.handleCheckAllToggle = this.handleCheckAllToggle.bind(this);
 		this.handleCheckOneToggle = this.handleCheckOneToggle.bind(this);
@@ -590,12 +559,10 @@ By default sorting is determined by a generic [sort](https://developer.mozilla.o
 
 By supplying the `customSort` prop you can create your own custom sort system. In this example we are sorting the `tags` column based on the length of the supplied array in each row.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import XUITag from './tag';
+
 const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', tags: [{ name: 'Foo', variant: 'positive' }, { name: 'Bar', variant: 'warning' }, { name: 'Baz', variant: 'negative' }], price: 2.99 },
 	def456: { fruit: 'Apple', color: 'Red', tags: [{ name: 'Foo', variant: 'positive' }, { name: 'Bar', variant: 'warning' }], price: 3.49 },
@@ -604,8 +571,8 @@ const data = {
 
 class Demo extends React.Component {
 
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.state = { activeSortKey: 'fruit', isSortAsc: true };
 		this.handleSortChange = this.handleSortChange.bind(this);
 	}
@@ -676,12 +643,9 @@ class Demo extends React.Component {
 
 Inject custom *JSX* into the header and footer area of the *Table* with the `header` and `footer` props.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+
 const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
 };
@@ -720,12 +684,9 @@ const Appendage = ({ children }) => (
 
 Appends a `<XUILoader />` after the last *Row* in the *Table* with the `isLoading` prop.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+
 const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
 };
@@ -762,15 +723,12 @@ The `onRowClick` prop works in conjunction with the `shouldRowClick` prop to det
 + A *Cell* interaction will be ** overridden** if its parent row has an interaction on it (**not** nesting links inside links). This can be seen in the below example where the *"Banana"* row has no *Cell* interactions even though they were requested.
 + You can nest interaction items (`<button />`, `<a />`) inside of a cell and ignore the generic cell states (e.g `:hover`). Just make sure you `stopPropagation` on the nested interaction elements _(see example below)_.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
-const XUIButton = require('./button').default;
-const XUIIcon = require('./icon').default;
-const tickIcon = require('@xero/xui-icon/icons/checkbox-check').default;
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import XUIButton from './button';
+import XUIIcon from './icon';
+import tickIcon from '@xero/xui-icon/icons/checkbox-check';
+
 const handleCellClick = ({price}) => alert(`You clicked $${price}`);
 const data = {
 	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
@@ -816,7 +774,7 @@ const data = {
 					onClick={event => event.stopPropagation()}
 					onKeyDown={event => event.stopPropagation()}
 					onPointerOver={event => event.stopPropagation()}>
-					<XUIIcon icon={tickIcon} />
+						<XUIIcon icon={tickIcon} />
 				</XUIButton>
 			</Cell>
 		) }
@@ -831,12 +789,9 @@ When there is no data in which to generate *Rows* as part of the table `<tbody /
 
 You can customise the default message with the `emptyMessage` prop.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+
 const data = {};
 
 <Table
@@ -863,12 +818,9 @@ const data = {};
 
 Alternatively you can supply a completely new empty state node to replace the default aesthetic with the `emptyStateComponent` prop.
 
-```
-const {
-	default: Table,
-	XUITableColumn: Column,
-	XUITableCell: Cell,
-} = require('./table');
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+
 const data = {};
 const emptyStateComponent = (
 	<div

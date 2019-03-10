@@ -2,7 +2,9 @@ Switches can be grouped together, making it easier to include them alongside inp
 
 The touch target for Switches in a group is the entire "row" of the Switch Group.
 
-```jsx
+```jsx harmony
+import XUISwitch, { XUISwitchGroup } from '../../switch';
+
 <XUISwitchGroup
 	hintMessage="Grouped switches can have hints"
 >
@@ -10,13 +12,15 @@ The touch target for Switches in a group is the entire "row" of the Switch Group
 </XUISwitchGroup>
 ```
 
-```jsx
+```jsx harmony
+import XUISwitch, { XUISwitchGroup } from '../../switch';
+
 <XUISwitchGroup
 	label="Birds of New Zealand"
 	isInvalid
 	validationMessage="Grouped switches can have validation"
 >
-	<XUISwitch isReversed isDefaultChecked={true}>Tūī</XUISwitch>
+	<XUISwitch isReversed isDefaultChecked>Tūī</XUISwitch>
 	<XUISwitch isReversed>Pīwakawaka</XUISwitch>
 	<XUISwitch isReversed>Ruru</XUISwitch>
 	<XUISwitch isReversed isDisabled>Moa</XUISwitch>

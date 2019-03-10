@@ -2,10 +2,12 @@ Nested Picklists are similar to a collapsable menu inside of the main list. To c
 
 For more information about the functionality of the lists such as keyboard handling, selected and highlighted state management please see the [`StatefulPicklist` section above](#stateful-picklist).
 
-```
+```jsx harmony
+import Picklist, { StatefulPicklist, Pickitem, NestedPicklist, NestedPicklistContainer, NestedPicklistTrigger } from '../../picklist';
+
 class StatefulMultiselectPicklist extends React.Component {
-	constructor(){
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			selectedItems: {
@@ -32,10 +34,9 @@ class StatefulMultiselectPicklist extends React.Component {
 
 	render(){
 		const smp = this;
-		const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 		return (
-			<StatefulPicklist onSelect={this.onOptionSelect} canFocus={true}>
+			<StatefulPicklist onSelect={this.onOptionSelect} canFocus>
 				<Picklist>
 					<NestedPicklistContainer id="nested">
 						<NestedPicklistTrigger id="nestedTrigger" ref={smp.trigger}>Nested List</NestedPicklistTrigger>
@@ -47,7 +48,7 @@ class StatefulMultiselectPicklist extends React.Component {
 						</NestedPicklist>
 					</NestedPicklistContainer>
 					<NestedPicklistContainer id="splitPicklistContainer">
-						<Pickitem id="splitTrigger" isSplit={true} isSelected={smp.state.selectedItems.splitTrigger}>
+						<Pickitem id="splitTrigger" isSplit isSelected={smp.state.selectedItems.splitTrigger}>
 							Split Trigger Item
 						</Pickitem>
 						<NestedPicklistTrigger id="nestedSplit" />

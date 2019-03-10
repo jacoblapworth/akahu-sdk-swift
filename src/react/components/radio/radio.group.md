@@ -3,7 +3,9 @@ When grouping radios together, you still need to add a `name` to each Radio so t
 
 The touch target for Radios in a group is the entire "row" of the Radio Group.
 
-```jsx
+```jsx harmony
+import XUIRadio, { XUIRadioGroup } from '../../radio';
+
 <XUIRadioGroup
 	label="cities"
 	hintMessage="Grouped radios can have hints and validation messages"

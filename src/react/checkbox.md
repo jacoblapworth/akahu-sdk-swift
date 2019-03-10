@@ -12,7 +12,9 @@ Enhanced version of HTML checkbox. Use in place of `<input type="checkbox" />`.
 
 `XUICheckbox` can be used as an uncontrolled component by omitting `isChecked` and (optionally) providing a `isDefaultChecked` property.
 
-``` jsx
+```jsx harmony
+import XUICheckbox from './checkbox';
+
 <div>
 	<XUICheckbox
 		isDefaultChecked
@@ -29,8 +31,11 @@ Enhanced version of HTML checkbox. Use in place of `<input type="checkbox" />`.
 
 Controlled `XUICheckbox`s' presentation are driven by the two props, `isChecked` and `isIndeterminate`. You can hook into the `onChange` event to update them when the user interacts with the checkbox.
 
-```jsx
-const { PureComponent } = require('react');
+```jsx harmony
+import { PureComponent } from 'react';
+
+import XUICheckbox from './checkbox';
+
 const options = ['Cat', 'Dog', 'Bird', 'Fish'];
 const selectedStates = {
 	ALL: 'ALL',
@@ -56,7 +61,9 @@ const getSelectedState = (selectedItems) => {
 }
 
 class Example extends PureComponent {
-	constructor() {
+	constructor(...args) {
+		super(...args);
+		
 		this.state = {
 			selectedItems: {},
 			selectedState: selectedStates.NONE,
@@ -127,7 +134,9 @@ class Example extends PureComponent {
 
 ### Disabled
 
-```jsx
+```jsx harmony
+import XUICheckbox from './checkbox';
+
 <div>
 	<XUICheckbox isDisabled>Unchecked</XUICheckbox>
 	<XUICheckbox isDisabled isDefaultChecked>Checked</XUICheckbox>
@@ -139,7 +148,9 @@ class Example extends PureComponent {
 
 Use the `isReversed` prop to have the label appear to the left of the checkbox element.
 
-```jsx
+```jsx harmony
+import XUICheckbox from './checkbox';
+
 <div>
 	<XUICheckbox isReversed isChecked={false}>Unchecked</XUICheckbox>
 	<XUICheckbox isReversed isChecked>Checked</XUICheckbox>
@@ -155,10 +166,12 @@ It is also possible to use the `isLabelHidden` prop to visually hide the label, 
 
 `iconMain` is the icon object from `@xero/xui-icon` to render in place of a checkbox.
 
-```jsx
-const customIcon = require ('@xero/xui-icon/icons/star').default;
+```jsx harmony
+import starIcon from '@xero/xui-icon/icons/star';
+import XUICheckbox from './checkbox';
+
 <div>
-	<XUICheckbox isChecked iconMain={customIcon}>
+	<XUICheckbox isChecked iconMain={starIcon}>
 		Favourite
 	</XUICheckbox>
 </div>

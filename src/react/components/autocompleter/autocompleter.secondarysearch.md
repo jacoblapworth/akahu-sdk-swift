@@ -2,11 +2,12 @@
 This component behaves similarly to an autocompleter, except that it is triggered by a button instead of an input. The input is a secondary interaction, focused by default when the DropDown opens. The `SecondarySearch` component is a separate component to the `Autocompleter` but share similar APIs.
 
 ```js
-const { boldMatch, decorateSubStr } = require('./helpers/highlighting');
-const Pickitem = require('../picklist/Pickitem').default;
-const DropDownFooter = require('../dropdown/DropDownFooter').default;
-const XUIIcon = require('../icon/XUIIcon').default;
-const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;
+import Picklist, { Pickitem } from "../../picklist";
+import { XUIAutocompleterSecondarySearch } from "../../autocompleter";
+import { DropDownFooter } from "../../dropdown";
+import XUIButton, { XUIButtonCaret } from "../../button";
+import XUIIcon from '../../icon';
+import plusIcon from "@xero/xui-icon/icons/plus";
 
 const SecondarySearchData = [
 	{ props: { id: 'ss1' }, text: "Cost" },
@@ -36,8 +37,8 @@ function createItems(items, selectedId) {
 }
 
 class SecondarySearchExample extends React.Component {
-	constructor() {
-		super(this.props);
+	constructor(...args) {
+		super(...args);
 
 		const sse = this;
 

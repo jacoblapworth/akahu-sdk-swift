@@ -6,12 +6,13 @@
 
 ## Example
 
-```jsx
-const { PureComponent } = require('react');
+```jsx harmony
+import { PureComponent } from 'react';
+import XUISwitch from './switch';
 
 class Example extends PureComponent {
-	constructor(props) {
-		super(props);
+	constructor(...args) {
+		super(...args);
 
 		this.onChange = this.onChange.bind(this);
 		this.state = {
@@ -29,7 +30,7 @@ class Example extends PureComponent {
 				<h3>Click the switch</h3>
 				<div className="xui-margin-bottom">
 					<XUISwitch
-						isDefaultChecked={true}
+						isDefaultChecked
 						onChange={this.onChange}
 					>
 						Enabled switch

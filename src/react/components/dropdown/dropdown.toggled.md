@@ -6,11 +6,13 @@
 
 If you want standard `Picklist` behaviour (close on select, keyboard handlers, etc) then you **must** have `Picklist` as an immediate child of the `DropDown`.  If you are missing these features, make sure that you are correctly using the `Picklist` component.
 
-```jsx
-const Pickitem = require('../picklist/Pickitem').default;
-const DropDownToggled = require('./DropDownToggled').default;
+```jsx harmony
+import { Component } from 'react';
+import XUIButton, { XUIButtonCaret } from '../../button';
+import Picklist, { Pickitem } from '../../picklist';
+import DropDown, { DropDownToggled } from '../../dropdown';
+
 const isSelected = (item, selectedIds) => item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
-const { Component } = require ('react');
 
 function createItems(items, selectedId) {
 	if (Array.isArray(items)) {
@@ -29,8 +31,8 @@ const toggledItems = ['Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant',
 });
 
 class ToggledDropDown extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.state = {
 			selectedId: null,
 		};
@@ -78,10 +80,12 @@ class ToggledDropDown extends Component {
 
 ### Multiselect `Picklist`
 
-```jsx
-const { Component } = require('react');
-const DropDownToggled = require('./DropDownToggled').default;
-const Pickitem = require('../picklist/Pickitem').default;
+```jsx harmony
+import { Component } from 'react';
+import XUIButton, { XUIButtonCaret } from '../../button';
+import Picklist, { Pickitem } from '../../picklist';
+import DropDown, { DropDownToggled } from '../../dropdown';
+
 const items = [
 	{ id: 'a', text: 'First' },
 	{ id: 'b', text: 'Second' },
@@ -90,8 +94,8 @@ const items = [
 ];
 
 class MultiselectExample extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			selected: {
@@ -163,24 +167,25 @@ Although using `DropDown` with `Picklist` provides the default behaviour, the AP
 
 ### Dropdown with a date picker
 
-```jsx
-const Pickitem = require('../picklist/Pickitem').default;
-const XUIDatePicker = require('../../datepicker').default;
-const XUIButton = require('../../button').default;
+```jsx harmony
+import { Component } from 'react';
+import XUIButton from '../../button';
+import DropDown, { DropDownToggled } from '../../dropdown';
+import XUIDatePicker from '../../datepicker';
 
 const today = new Date();
 const months = ['Jan', 'Feb', 'March', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 const formatDate = date => `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
 
-class SimpleDropDownDatePicker extends React.Component {
-	constructor() {
-		super();
+class SimpleDropDownDatePicker extends Component {
+	constructor(...args) {
+		super(...args);
 		this.datepicker = React.createRef();
 		this.ddt = React.createRef();
 
 		this.state = {
-			selectedDate: null,
+			selectedDate: today,
 			currentMonth: new Date(),
 		};
 
@@ -244,20 +249,21 @@ As mentioned, the above example is not using dropdown with its optimised use cas
 
 It is highly recommended that you use [`Autocompleter`](#autocompleter) to implement this pattern if it fits your use case.  It handles these customisations by default.
 
-```jsx
-require('array.prototype.find').shim();
-const debounce = require('lodash.debounce');
-const { Component } = require('react');
-const { boldMatch, decorateSubStr, XUIAutocompleterEmptyState } = require('../../autocompleter');
-const Pickitem = require('../picklist/Pickitem').default;
+```jsx harmony
+import 'array.prototype.find';
+import { Component } from 'react';
+import DropDown, { DropDownToggled } from '../../dropdown';
+import XUITextInput from '../../textinput';
+import { boldMatch, decorateSubStr, XUIAutocompleterEmptyState } from '../../autocompleter';
+import Picklist, { Pickitem } from '../../picklist';
 
 const items = ['Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grapefruit', 'Honeydew', 'Iceberg Lettuce', 'Jackfruit', 'Kiwifruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tomato', 'Uglifruit', 'Valencia Orange', 'Watermelon', 'Xi gua','Yellow quash', 'Zucchini'].map((text, id) => {
 	return { id, text };
 });
 
 class InputTriggerExample extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			inputValue: '',

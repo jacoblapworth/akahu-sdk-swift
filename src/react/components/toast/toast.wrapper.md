@@ -7,13 +7,16 @@ This example of `XUIToastWrapper` defines a `timeoutToast` method to dismiss the
 Make sure to give users enough time to trigger toast actions via keyboard navigation. If the inability to trigger an action is detrimental to the user, you should consider not using any timeout at all and instead relying on an action to close the toast.
 
 ```js
-const { PureComponent } = require ( 'react' );
+import { PureComponent } from 'react';
+import XUIToast, { XUIToastWrapper, XUIToastMessage } from '../../toast';
+import XUIButton from '../../button';
+
 const TOAST_TIMEOUT = 10000;
 const MAX_TOASTS = 2;
 
 class Example extends PureComponent {
-	constructor(props) {
-		super(props);
+	constructor(...args) {
+		super(...args);
 
 		this._toastCounter = 0;
 

@@ -9,9 +9,9 @@ Actions are used to wrap a selection of buttons (often two) and provide formatti
 
 A default action aligns a primary and secondary button to the right, with the primary as the rightmost.
 
-```
-const XUIActions = require('../structural/XUIActions').default;
-const XUIButton = require('../button/XUIButton').default;
+```jsx harmony
+import { XUIActions } from '../../structural';
+import XUIButton from '../../button';
 
 <XUIActions
 	primaryAction={<XUIButton key='one' variant="primary">Continue</XUIButton>}
@@ -23,9 +23,9 @@ const XUIButton = require('../button/XUIButton').default;
 
 The linear variant aligns the primary button to the right and the secondary button to the left.
 
-```
-const XUIActions = require('../structural/XUIActions').default;
-const XUIButton = require('../button/XUIButton').default;
+```jsx harmony
+import { XUIActions } from '../../structural';
+import XUIButton from '../../button';
 
 <XUIActions
 	isLinear

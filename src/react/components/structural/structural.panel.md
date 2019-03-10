@@ -7,8 +7,8 @@ Panels are top-level containers for grouping page content. XUIPanel can optional
 
 #### Default Panel
 
-```
-const XUIPanel = require('../structural/XUIPanel').default;
+```jsx harmony
+import { XUIPanel } from '../../structural';
 
 <XUIPanel className="xui-padding-small">
 	<p className="xui-padding-horizontal-small">You can create a new bill from here or email an attachment to yourorg-987654321@xero.com to generate it automatically.</p>
@@ -16,9 +16,9 @@ const XUIPanel = require('../structural/XUIPanel').default;
 ```
 
 #### Panel with Sections
-```
-const XUIPanel = require('../structural/XUIPanel').default;
-const XUIPanelSection = require('../structural/XUIPanelSection').default;
+
+```jsx harmony
+import { XUIPanel, XUIPanelSection } from '../../structural';
 
 <XUIPanel>
 	<XUIPanelSection
@@ -34,15 +34,11 @@ const XUIPanelSection = require('../structural/XUIPanelSection').default;
 ```
 
 #### Panel with Sidebar, Heading, and Footer
-```
-const XUIPanel = require('../structural/XUIPanel').default;
-const XUIPanelSection = require('../structural/XUIPanelSection').default;
-const XUIPanelHeading = require('../structural/XUIPanelHeading').default;
-const XUIPanelFooter = require('../structural/XUIPanelFooter').default;
-const XUIPicklist = require('../picklist/Picklist').default;
-const XUIPickitem = require('../picklist/Pickitem').default;
-const XUIActions = require('../structural/XUIActions').default;
-const XUIButton = require('../button/XUIButton').default;
+
+```jsx harmony
+import { XUIPanel, XUIPanelSection, XUIPanelHeading, XUIPanelFooter, XUIActions } from '../../structural';
+import Picklist, { Pickitem } from '../../picklist';
+import XUIButton from '../../button';
 
 const heading = <XUIPanelHeading>Invoices</XUIPanelHeading>;
 const footerActions = (
@@ -56,11 +52,11 @@ const footer = (
 	<XUIPanelFooter className="xui-padding-small">{footerActions}</XUIPanelFooter>
 );
 const exampleNav = (
-	<XUIPicklist secondaryProps={{role: "menu"}}>
-		<XUIPickitem key="1" id="panelpi1" ariaRole="menuitem">Bills</XUIPickitem>
-		<XUIPickitem key="2" id="panelpi2" ariaRole="menuitem" isSelected={true}>Invoices</XUIPickitem>
-		<XUIPickitem key="3" id="panelpi3" ariaRole="menuitem">Contacts</XUIPickitem>
-	</XUIPicklist>
+	<Picklist secondaryProps={{role: "menu"}}>
+		<Pickitem id="panelpi1" ariaRole="menuitem">Bills</Pickitem>
+		<Pickitem id="panelpi2" ariaRole="menuitem" isSelected>Invoices</Pickitem>
+		<Pickitem id="panelpi3" ariaRole="menuitem">Contacts</Pickitem>
+	</Picklist>
 );
 
 <XUIPanel

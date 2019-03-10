@@ -10,7 +10,9 @@ Capsules are used to draw attention to placeholders that will be replaced with d
 
 A default capsule is inline text with a border that can receive focus.
 
-```
+```jsx harmony
+import XUICapsule from './capsule';
+
 <div>
 	<div className="xui-heading-large">Capsules <XUICapsule>inherit</XUICapsule> font size & colour</div>
 	<div className="xui-heading">Capsules <XUICapsule>inherit</XUICapsule> font size & colour</div>
@@ -25,7 +27,9 @@ A default capsule is inline text with a border that can receive focus.
 
 Capsules can trigger actions passed in through the `onClick` and `href` props. These props will be triggered if the user clicks anywhere on the capsule.
 
-```
+```jsx harmony
+import XUICapsule from './capsule';
+
 <div>
 	This <XUICapsule isLink href='https://www.google.com' target='_blank'>capsule</XUICapsule> is interactive; it's a link to Google that will open in a new tab
 </div>
@@ -34,7 +38,10 @@ Capsules can trigger actions passed in through the `onClick` and `href` props. T
 ### Invalid capsules
 
 Invalid capsules, such as those containing incomplete formulas, are produced by setting the `isValid` property to `false`
-```
+
+```jsx harmony
+import XUICapsule from './capsule';
+
 <div>
 	This capsule is <XUICapsule isValid={false}>invalid</XUICapsule>
 </div>

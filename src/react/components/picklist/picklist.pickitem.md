@@ -2,13 +2,11 @@ Although not a required child of `Picklist`s, `Pickitem`s are the standard wrapp
 
 `Pickitem`s support many kinds of content. `PicklistHeader` and `PicklistDivider` can be used as siblings of `Pickitem`s.
 
-```jsx
-const Pickitem = require('../picklist/Pickitem').default;
-const PicklistHeader = require('../picklist/PicklistHeader').default;
-const PicklistDivider = require('../picklist/PicklistDivider').default;
-const XUIIcon = require('../icon/XUIIcon').default;
-const XUIAvatar = require ( '../avatar/XUIAvatar').default;
-const search = require ('@xero/xui-icon/icons/search').default;
+```jsx harmony
+import Picklist, { Pickitem, PicklistHeader, PicklistDivider } from '../../picklist';
+import XUIIcon from '../../icon';
+import XUIAvatar from '../../avatar';
+import search from '@xero/xui-icon/icons/search';
 
 <div>
 	<Picklist>

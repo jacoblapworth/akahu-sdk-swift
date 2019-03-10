@@ -12,13 +12,17 @@ The modal manages its own open/closed state as well as scroll-locking, handling 
 
 `XUIModal` should contain a `XUIModalHeader` to display a header, and have a callback to close the modal passed in to `XUIModal` via the `onClose` prop. By default this will enable closing via the `esc` key and by the close button which will be rendered on the right side of the header.
 
-```jsx
-const  { PureComponent } = require ( 'react' );
+```jsx harmony
+import { PureComponent } from 'react';
+import XUIModal, { XUIModalHeader, XUIModalBody } from './modal';
+import XUIButton from './button';
+import XUITextInput, { XUITextInputSideElement } from './textinput';
+
 const exampleURL = 'https://go.xero.com/blahblahblahexamplelinkhere';
 
 class Example extends PureComponent {
-	constructor(props) {
-		super(props);
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			showModal: false
@@ -85,12 +89,14 @@ class Example extends PureComponent {
 
 Modals are often used for user confirmation. A footer for adding actions can be added using `XUIModalFooter`. It's also recommended to use the [actions layout](../section-building-blocks-controls-button.html#building-blocks-controls-button-12) to display buttons as this provides standard padding and responsive behaviour.
 
-```jsx
-const  { PureComponent } = require ( 'react' );
+```jsx harmony
+import { PureComponent } from 'react';
+import XUIModal, { XUIModalHeader, XUIModalBody, XUIModalFooter } from './modal';
+import XUIButton from './button';
 
 class Example extends PureComponent {
-	constructor(props) {
-		super(props);
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			showModal: false
@@ -146,12 +152,15 @@ class Example extends PureComponent {
 
 Modals can be used as a step for users to fill in required fields before opening a new page.
 
-```jsx
-const  { PureComponent } = require ( 'react' );
+```jsx harmony
+import { PureComponent } from 'react';
+import XUITextInput from './textinput';
+import XUIModal, { XUIModalHeader, XUIModalBody, XUIModalFooter } from './modal';
+import XUIButton from './button';
 
 class Example extends PureComponent {
-	constructor(props) {
-		super(props);
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			showModal: false
@@ -202,12 +211,14 @@ class Example extends PureComponent {
 
 Modals can also be used without a header element to head the page with other content such as splash images.
 
-```jsx
-const  { PureComponent } = require ( 'react' );
+```jsx harmony
+import { PureComponent } from 'react';
+import XUIModal, { XUIModalBody, XUIModalFooter } from './modal';
+import XUIButton from './button';
 
 class Example extends PureComponent {
-	constructor(props) {
-		super(props);
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			showModal: false

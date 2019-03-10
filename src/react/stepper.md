@@ -18,7 +18,9 @@ You can opt out of the stepper's responsive functionality, however we **strongly
 
 Lock by supplying the string `inline` to the prop `lockLayout`.
 
-```
+```jsx harmony
+import XUIStepper from './stepper';
+
 const tabs = [
 	{ name: 'Tab 1' },
 	{ name: 'Tab 2' },
@@ -26,8 +28,8 @@ const tabs = [
 ];
 
 class Demo extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.state = { currentStep: 0 };
 		this.updateCurrentStep = this.updateCurrentStep.bind(this);
 	}
@@ -60,7 +62,9 @@ The `inline` layout also has the ability to stack its button content using the p
 
 + You can use this prop in both a _locked_ or _default_ layout state.
 
-```
+```jsx harmony
+import XUIStepper from './stepper';
+
 const tabs = [
 	{ name: 'Tab 1' },
 	{ name: 'Tab 2' },
@@ -68,8 +72,8 @@ const tabs = [
 ];
 
 class Demo extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.state = { currentStep: 0 };
 		this.updateCurrentStep = this.updateCurrentStep.bind(this);
 	}
@@ -100,7 +104,9 @@ class Demo extends React.Component {
 
 Lock by supplying the string `sidebar` to the prop `lockLayout`.
 
-```
+```jsx harmony
+import XUIStepper from './stepper';
+
 const tabs = [
 	{ name: 'Tab 1' },
 	{ name: 'Tab 2' },
@@ -108,8 +114,8 @@ const tabs = [
 ];
 
 class Demo extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.state = { currentStep: 0 };
 		this.updateCurrentStep = this.updateCurrentStep.bind(this);
 	}
@@ -140,7 +146,9 @@ class Demo extends React.Component {
 
 Lock by supplying the string `stacked` to the prop `lockLayout`.
 
-```
+```jsx harmony
+import XUIStepper from './stepper';
+
 const tabs = [
 	{ name: 'Tab 1' },
 	{ name: 'Tab 2' },
@@ -148,8 +156,8 @@ const tabs = [
 ];
 
 class Demo extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.state = { currentStep: 0 };
 		this.updateCurrentStep = this.updateCurrentStep.bind(this);
 	}
@@ -187,7 +195,9 @@ You as a developer control the tab configuration via the `tabs` prop. This gives
 + Change a tab to an *error* state via the `isError` prop.
 + Change a tab to a *complete* state via the `isComplete` prop.
 
-```
+```jsx harmony
+import XUIStepper from './stepper';
+
 const tabs = [
 	{ name: 'Active' },
 	{ name: 'Standard' },
@@ -198,8 +208,8 @@ const tabs = [
 ];
 
 class Demo extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.state = { currentStep: 0 };
 		this.updateCurrentStep = this.updateCurrentStep.bind(this);
 	}
@@ -234,7 +244,9 @@ In addition to the generic tab format a **Progress Indicator** can be included w
 + You can either lock a tab to the *complete* state with the `isComplete` prop or if the `totalProgress` and `currentProgress` values are equal the *complete* state
 will be applied automatically.
 
-```
+```jsx harmony
+import XUIStepper from './stepper';
+
 const tabs = [
 		{ name: 'Active', isProgress: true, totalProgress: 5, currentProgress: 3 },
 		{ name: 'Standard', isProgress: true, totalProgress: 5, currentProgress: 3 },
@@ -246,8 +258,8 @@ const tabs = [
 ];
 
 class Demo extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.state = { currentStep: 0 };
 		this.updateCurrentStep = this.updateCurrentStep.bind(this);
 	}

@@ -5,33 +5,40 @@ The underlying checkbox can be any of the available checkbox sizes. You can also
 ## Examples
 
 ### Standard with Avatar
-```
-const XUIAvatar = require('./components/avatar/XUIAvatar.js').default;
+
+```jsx harmony
+import XUIRolloverCheckbox from './rollovercheckbox';
+import XUIAvatar from './avatar';
 
 <XUIRolloverCheckbox
 	label='Rollover checkbox'
-	isCheckboxHidden={true}
+	isCheckboxHidden
 	rolloverComponent={<XUIAvatar value="Donald Duck" />}
 />
 ```
 
 ### Image with xsmall checkbox and extra margins
-```
+
+```jsx harmony
+import XUIRolloverCheckbox from './rollovercheckbox';
+
 <XUIRolloverCheckbox
 	label='Rollover checkbox'
-	isCheckboxHidden={true}
+	isCheckboxHidden
 	checkboxSize='xsmall'
-	rolloverComponent={<img className="xui-margin" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg" role="presentation"
-	/>}
+	rolloverComponent={<img className="xui-margin" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg" role="presentation" />}
 />
 ```
 
 ### Disabled
-```
+
+```jsx harmony
+import XUIRolloverCheckbox from './rollovercheckbox';
+
 <XUIRolloverCheckbox
 	label='Rollover checkbox'
-	isCheckboxHidden={true}
-	isDisabled={true}
+	isCheckboxHidden
+	isDisabled
 	rolloverComponent={<img src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg" role="presentation"/>}
 />
 ```

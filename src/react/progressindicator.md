@@ -15,14 +15,18 @@ There are a multitude of props that can augment the specifics of each main varia
 A single Circular or Linear track showing `progress` vs `total` values.
 
 #### Circular
-```
-const {XUIProgressCircular} = require('./progressindicator');
+
+```jsx harmony
+import { XUIProgressCircular } from './progressindicator';
+
 <XUIProgressCircular id="standard-circular" total={5} progress={3} />
 ```
 
 #### Linear
-```
-const {XUIProgressLinear} = require('./progressindicator');
+
+```jsx harmony
+import { XUIProgressLinear } from './progressindicator';
+
 <XUIProgressLinear id="standard-linear" total={5} progress={3} />
 ```
 
@@ -31,14 +35,18 @@ const {XUIProgressLinear} = require('./progressindicator');
 Track is split up into evenly spaced segments *(based on the `total` value)* with the `isSegmented` prop.
 
 #### Circular
-```
-const {XUIProgressCircular} = require('./progressindicator');
+
+```jsx harmony
+import { XUIProgressCircular } from './progressindicator';
+
 <XUIProgressCircular id="segments-circular" total={5} progress={3} isSegmented />
 ```
 
 #### Linear
-```
-const {XUIProgressLinear} = require('./progressindicator');
+
+```jsx harmony
+import { XUIProgressLinear } from './progressindicator';
+
 <XUIProgressLinear id="segments-linear" total={5} progress={3} isSegmented />
 ```
 
@@ -48,14 +56,17 @@ const {XUIProgressLinear} = require('./progressindicator');
 
 Set the thickness of the track using the `thickness` prop.
 
-```
-const {XUIProgressLinear} = require('./progressindicator');
+```jsx harmony
+import { XUIProgressLinear } from './progressindicator';
+
 <XUIProgressLinear id="thickness-linear" total={5} progress={3} thickness={20} />
 ```
 
 #### Circular
-```
-const {XUIProgressCircular} = require('./progressindicator');
+
+```jsx harmony
+import { XUIProgressCircular } from './progressindicator';
+
 <XUIProgressCircular id="thickness-circular" total={5} progress={3} thickness={7} />
 ```
 
@@ -69,8 +80,9 @@ Set the UI to fill the width of its parent container with the `isGrow` prop.
 + The height will automatically resize proportionally to retain the components circular shape.
 + The track `thickness` will automatically resize based on the components dimensions.
 
-```
-const {XUIProgressCircular} = require('./progressindicator');
+```jsx harmony
+import { XUIProgressCircular } from './progressindicator';
+
 <div style={{ background: '#F5F6F7', maxWidth: '300px', padding: '10px', width: 'calc(50vw / 4)' }}>
 	<XUIProgressCircular id="grow-dynamic-circular" total={5} progress={3} isGrow />
 </div>
@@ -78,8 +90,9 @@ const {XUIProgressCircular} = require('./progressindicator');
 
 You can override the generated track thickness with the `thickness` prop.
 
-```
-const {XUIProgressCircular} = require('./progressindicator');
+```jsx harmony
+import { XUIProgressCircular } from './progressindicator';
+
 <div style={{ background: '#F5F6F7', maxWidth: '300px', padding: '10px', width: 'calc(50vw / 4)' }}>
 	<XUIProgressCircular id="grow-static-circular" total={5} progress={3} isGrow thickness={30}/>
 </div>
@@ -91,8 +104,9 @@ Sets the Linear UI to fill the height of its parent container.
 
 **Note:** The Linear UI fills its parent containers width by default.
 
-```
-const {XUIProgressLinear} = require('./progressindicator');
+```jsx harmony
+import { XUIProgressLinear } from './progressindicator';
+
 <div style={{ background: '#F5F6F7', height: 'calc(50vw / 10)', maxHeight: '70px', padding: '10px' }}>
 	<XUIProgressLinear id="grow-linear" total={5} progress={3} isGrow />
 </div>
@@ -100,8 +114,9 @@ const {XUIProgressLinear} = require('./progressindicator');
 
 You can override the generated track thickness with the `thickness` prop. The track will be vertically centered inside the *grow* area.
 
-```
-const {XUIProgressLinear} = require('./progressindicator');
+```jsx harmony
+import { XUIProgressLinear } from './progressindicator';
+
 <div style={{ background: '#F5F6F7', height: '100px', padding: '10px' }}>
 	<XUIProgressLinear id="grow-linear" total={5} progress={3} isGrow thickness={10}/>
 </div>
@@ -112,8 +127,10 @@ const {XUIProgressLinear} = require('./progressindicator');
 Create a Tool Tip that is visible when a mouse cursor enters the component with the `hasToolTip` prop.
 
 #### Circular
-```
-const {XUIProgressCircular} = require('./progressindicator');
+
+```jsx harmony
+import { XUIProgressCircular } from './progressindicator';
+
 <XUIProgressCircular id="tooltip-circular" total={5} progress={3} hasToolTip />
 ```
 
@@ -122,8 +139,10 @@ You can supply the `toolTipMessage` prop a customised message to replace the def
 **Note:** The `aria-valuetext` attribute will also inherit the custom Tool Tip text.
 
 #### Linear
-```
-const {XUIProgressLinear} = require('./progressindicator');
+
+```jsx harmony
+import { XUIProgressLinear } from './progressindicator';
+
 <XUIProgressLinear id="tooltip-linear" total={5} progress={3} hasToolTip toolTipMessage="Answered 3 of 5 questions" />
 ```
 
@@ -134,14 +153,18 @@ Change the UI to illustrate when the `progress` exceeds the `total` value.
 **Note:** When `isOverflow` is not active the component ensures `progress` cannot be greater than the `total`.
 
 #### Circular
-```
-const {XUIProgressCircular} = require('./progressindicator');
+
+```jsx harmony
+import { XUIProgressCircular } from './progressindicator';
+
 <XUIProgressCircular id="overflow-circular" total={5} progress={7} isSegmented isOverflow />
 ```
 
 #### Linear
-```
-const {XUIProgressLinear} = require('./progressindicator');
+
+```jsx harmony
+import { XUIProgressLinear } from './progressindicator';
+
 <XUIProgressLinear id="overflow-linear" total={5} progress={7} isSegmented isOverflow />
 ```
 
@@ -152,14 +175,18 @@ Change the `progress` track into an error state with the `isSoftError` prop.
 **Note:** The soft error will not activate when the UI is in an active *overflow* state *(as the overflow automatic soft error will already be in effect)*.
 
 #### Circular
-```
-const {XUIProgressCircular} = require('./progressindicator');
+
+```jsx harmony
+import { XUIProgressCircular } from './progressindicator';
+
 <XUIProgressCircular id="soft-circular" total={5} progress={3} isSoftError />
 ```
 
 #### Linear
-```
-const {XUIProgressLinear} = require('./progressindicator');
+
+```jsx harmony
+import { XUIProgressLinear } from './progressindicator';
+
 <XUIProgressLinear id="soft-linear" total={5} progress={3} isSoftError />
 ```
 
@@ -181,14 +208,18 @@ Change the color of the `total` and `progress` track by supplying the `totalColo
 **Note:** The `error` color cannot be changed from the standard `$xui-progress-error-color`.
 
 #### Circular
-```
-const {XUIProgressCircular} = require('./progressindicator');
+
+```jsx harmony
+import { XUIProgressCircular } from './progressindicator';
+
 <XUIProgressCircular id="color-circular" total={5} progress={3} totalColor="grape" progressColor="mint" />
 ```
 
 #### Linear
-```
-const {XUIProgressLinear} = require('./progressindicator');
+
+```jsx harmony
+import { XUIProgressLinear } from './progressindicator';
+
 <XUIProgressLinear id="color-linear" total={5} progress={3} totalColor="yellow" progressColor="violet" />
 ```
 
@@ -198,8 +229,9 @@ const {XUIProgressLinear} = require('./progressindicator');
 
 Show a complete icon when the `progress` equals the `total` value with the `isAlertOnComplete` prop.
 
-```
-const {XUIProgressCircular} = require('./progressindicator');
+```jsx harmony
+import {XUIProgressCircular} from './progressindicator';
+
 <XUIProgressCircular id="complete-circular" total={5} progress={5} isAlertOnComplete />
 ```
 
@@ -207,15 +239,17 @@ const {XUIProgressCircular} = require('./progressindicator');
 
 Show an error icon with the `isHardError` prop.
 
-```
-const {XUIProgressCircular} = require('./progressindicator');
+```jsx harmony
+import { XUIProgressCircular } from './progressindicator';
+
 <XUIProgressCircular id="hard-circular" total={5} progress={3} isHardError />
 ```
 
 You can supply the `hardErrorAlert` prop some custom content *(JSX, String, Number)* to override the default error icon.
 
-```
-const {XUIProgressCircular} = require('./progressindicator');
+```jsx harmony
+import { XUIProgressCircular } from './progressindicator';
+
 <XUIProgressCircular id="hard-custom-circular" total={5} progress={3} isHardError hardErrorAlert=":-("/>
 ```
 
@@ -223,8 +257,9 @@ const {XUIProgressCircular} = require('./progressindicator');
 
 Supply content to reside in the center of the progress indicator circle using a traditional nested `children` format.
 
-```
-const {XUIProgressCircular} = require('./progressindicator');
+```jsx harmony
+import { XUIProgressCircular } from './progressindicator';
+
 <div style={{ width: '100px' }}>
 	<XUIProgressCircular id="central-content-circular1" total={5} progress={3} isGrow>
 		<img style={{ width: '100%', height: 'auto' }} alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" />
@@ -232,8 +267,9 @@ const {XUIProgressCircular} = require('./progressindicator');
 </div>
 ```
 
-```
-const {XUIProgressCircular} = require('./progressindicator');
+```jsx harmony
+import { XUIProgressCircular } from './progressindicator';
+
 <div style={{ width: '100px' }}>
 	<XUIProgressCircular id="central-content-circular2" total={5} progress={3} isGrow>
 		<div
@@ -251,8 +287,9 @@ const {XUIProgressCircular} = require('./progressindicator');
 
 Change the traditional segment *dashes* to instead render as circular *dots* using the `hasSegmentDots` prop.
 
-```
-const {XUIProgressLinear} = require('./progressindicator');
+```jsx harmony
+import { XUIProgressLinear } from './progressindicator';
+
 <div style={{ width: `${30 * 9}px` }}>
 	<XUIProgressLinear id="dots-linear" total={5} progress={3} thickness={30} isSegmented hasSegmentDots />
 </div>

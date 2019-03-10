@@ -4,7 +4,9 @@
 
 Tags are used to categorise content or indicate sentiment.
 
-```
+```jsx harmony
+import XUITag from './tag';
+
 <div>
 	<XUITag
 		className="xui-margin-right-xsmall"

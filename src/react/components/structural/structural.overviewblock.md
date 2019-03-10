@@ -7,9 +7,8 @@
 
 `XUIOverviewSection` takes `label`, `value`, and optional `sentiment` props. Sentiments consist of `positive`, `negative`, and `muted`, with a default of none.
 
-```
-const XUIOverviewBlock = require('../structural/XUIOverviewBlock').default;
-const XUIOverviewSection = require('../structural/XUIOverviewSection').default;
+```jsx harmony
+import { XUIOverviewBlock, XUIOverviewSection } from '../../structural';
 
 <XUIOverviewBlock>
 	<XUIOverviewSection label="Draft" value="$872.93" />

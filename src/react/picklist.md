@@ -10,10 +10,11 @@ A set of components that brings in the XUI styles to render a list of items. `Pi
 
 ### Standard Picklist
 
-```
-const { Pickitem } = require ( './picklist.js' );
+```jsx harmony
+import Picklist, { Pickitem } from './picklist';
+
 <Picklist secondaryProps={{ role: 'menu' }}>
-	<Pickitem ariaRole='menuitem' id="plainpi1" isSelected={true}>An empty item</Pickitem>
+	<Pickitem ariaRole='menuitem' id="plainpi1" isSelected>An empty item</Pickitem>
 	<Pickitem ariaRole='menuitem' id="plainpi2">Next Item</Pickitem>
 	<Pickitem ariaRole='menuitem' id="plainpi3">Another Item</Pickitem>
 	<Pickitem ariaRole='menuitem' id="plainpi4" href="http://xero.com">This is a link to xero.com</Pickitem>
@@ -23,8 +24,9 @@ const { Pickitem } = require ( './picklist.js' );
 
 ### Horizontal variant
 
-```
-const { Pickitem } = require ( './picklist.js' );
+```jsx harmony
+import Picklist, { Pickitem } from './picklist';
+
 <Picklist secondaryProps={{ role: 'menu' }} isHorizontal>
 	<Pickitem ariaRole='menuitem' id="plain1" isSelected shouldTruncate>
 		Projects

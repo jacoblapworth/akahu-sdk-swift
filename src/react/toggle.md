@@ -12,7 +12,9 @@ Avoid partially disabled groups in which one of the disabled options is pre-sele
 
 Use the `type` prop on `XUIToggleOption`s to specify whether they should behave like checkboxes or like radios.
 
-```jsx
+```jsx harmony
+import XUIToggle, { XUIToggleOption } from './toggle';
+
 const noop = () => {};
 const checkboxToggle = {
 	name: 'toggle-checkbox',
@@ -61,8 +63,10 @@ const radioToggle = {
 
 To use a `XUIToggle` within an dark section, pass `"inverted"` to `XUIToggle`'s `color` prop.
 
-```jsx
-const ExampleContainer = require('./docs/ExampleContainer').default;
+```jsx harmony
+import XUIToggle, { XUIToggleOption } from './toggle';
+import ExampleContainer from './docs/ExampleContainer';
+
 const noop = () => {};
 const checkboxToggle = {
 	name: 'toggle-checkbox-inverted',
@@ -84,18 +88,14 @@ const checkboxToggle = {
 
 To make your toggles smaller (same size as small buttons), pass `"small"` to `XUIToggle`'s `size` prop.
 
-```jsx
+```jsx harmony
+import XUIToggle, { XUIToggleOption } from './toggle';
+
 const noop = () => {};
 const radioToggle = {
 	name: 'toggle-radio-layout-size',
 	onChange: noop,
 	type: 'radio'
-};
-
-const checkboxToggle = {
-	name: 'toggle-checkbox-layout-size',
-	onChange: noop,
-	type: 'checkbox'
 };
 
 <div>
@@ -114,7 +114,10 @@ When using `XUIToggle` with text content, it's recommended to use the `fullwidth
 
 You can also choose not to specify a layout, if the markup of your toggle content has more complicated requirements.
 
-```jsx
+```jsx harmony
+import XUIToggle, { XUIToggleOption } from './toggle';
+import XUITextInput from './textinput';
+
 const noop = () => {};
 const checkboxToggle = {
 	name: 'toggle-checkbox',

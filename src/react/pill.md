@@ -10,7 +10,9 @@ Pills are used for signifying a selection has been made, either single or multip
 
 Pills can trigger actions passed in through the `onDeleteClick`, `onClick`, and `href` props. If `onDeleteClick` is added, a delete button will be rendered inside the pill. `onClick`, and `href` will be triggered if the user clicks anywhere on the pill other than the delete button.
 
-```jsx
+```jsx harmony
+import XUIPill from './pill';
+
 const wasDeleted = () => {window.alert('deleted')};
 const wasClicked = () => {window.alert('clicked')};
 const linkWasDeleted = () => {window.alert('deleted link')};
@@ -40,7 +42,9 @@ Avatars can be added to `XUIPill` by passing an object to `avatarProps` matching
 
 **Note:** Avatars will inherit a size modifier that is one step smaller than the size of pill you choose. E.g Medium pill gets a Small avatar
 
-```jsx
+```jsx harmony
+import XUIPill from './pill';
+
 <div>
 	<XUIPill
 		value="Avatar pill"
@@ -61,7 +65,9 @@ Avatars can be added to `XUIPill` by passing an object to `avatarProps` matching
 
 Pills can be `medium`, `small`, or `xsmall` size, by passing one of these values to the `size` prop.
 
-```jsx
+```jsx harmony
+import XUIPill from './pill';
+
 const NOOP = () => {};
 <div>
 	<XUIPill
@@ -94,7 +100,9 @@ const NOOP = () => {};
 
 Pills can be rendered as invalid by passing the `isInvalid` prop.
 
-```jsx
+```jsx harmony
+import XUIPill from './pill';
+
 <XUIPill
 	value="Invalid"
 	isInvalid
@@ -105,7 +113,9 @@ Pills can be rendered as invalid by passing the `isInvalid` prop.
 
 Content passed to `secondaryText` will be rendered using a secondary text modifier.
 
-```jsx
+```jsx harmony
+import XUIPill from './pill';
+
 <XUIPill
 	secondaryText="Secondary"
 	value="Primary"

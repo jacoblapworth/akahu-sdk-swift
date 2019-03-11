@@ -1,7 +1,9 @@
 A wrapper providing default layout of empty state information, designed to use with the autocompleter.
 
-```js
-const contact = require('@xero/xui-icon/icons/contact').default;
+```jsx harmony
+import contact from "@xero/xui-icon/icons/contact";
+import { XUIAutocompleterEmptyState } from "../../autocompleter";
+
 <XUIAutocompleterEmptyState
 	id="no_people"
 	icon={contact}

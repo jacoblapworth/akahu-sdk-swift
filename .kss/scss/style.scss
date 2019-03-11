@@ -14,7 +14,7 @@
 	font-size: 15px;
 	min-height: 100vh;
 	position: relative;
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		padding-left: $ds-nav-width;
 	}
 }
@@ -22,7 +22,7 @@
 .ds-main {
 	margin: auto;
 	padding: 3vh 5vw 3vh;
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		padding: 12vh $ds-main-side-padding 12vh;
 		width: auto;
 	}
@@ -39,11 +39,11 @@
 	display: block;
 	padding-top: calc(1em + 1vh);
 
-	@include xui-breakpoint-medium {
+	@include xui-breakpoint-small-to-medium {
 		column-count: 3;
 	}
 
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		column-count: 4;
 		@include embiggen;
 	}
@@ -98,7 +98,7 @@ $ds-section-space: calc(6rem + 2vh);
 	line-height: 1.15;
 	// Add padding to accommodate react link
 	padding-right: 10rem;
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-small-down {
 		padding-right: 3rem;
 	}
 }
@@ -207,8 +207,9 @@ code {
 // -----------------------------------------------------------------------------
 
 .ds-intro {
-		font-size: 19px;
 		color: $ds-text-secondary-color;
+		font-size: 19px;
+		line-height: 1.5;
 }
 
 .ds-description {
@@ -225,7 +226,7 @@ code {
 
 	td:not(.xui-table--cell) {
 		border: $xui-border-standard;
-		padding: $xui-s-xsmall $xui-s-small;
+		padding: $xui-s-2xsmall $xui-s-xsmall;
 	}
 
 	.xui-contentblock td {
@@ -240,19 +241,21 @@ code {
 
 .ds-tips {
 	display: flex;
-	align-items: center;
 }
 
 .ds-tips-positive {
-	color: #57c40a;
+	color: $xui-color-green;
+	margin: 7px 5px;
 }
 
 .ds-tips-negative {
-	color: #f6534e;
+	color: $xui-color-red;
+	margin: 6px 6px;
 }
 
 .ds-tips-warning {
-	color: #f8a900;
+	color: $xui-color-orange;
+	margin: 5px 4px;
 }
 
 .ds-tips--detail {
@@ -269,13 +272,13 @@ code {
 // -----------------------------------------------------------------------------
 
 .ds-section-wrap {
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		max-width: 46rem;
 	}
 }
 
 .ds-section-part-wide {
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		width: calc(100% + 20vw);
 	}
 }
@@ -291,12 +294,6 @@ section[class*="kss-section"] {
 .ds-input-markup,
 .ds-input-example {
 	display: none;
-}
-
-.ds-markup--label{
-	font-size: $xui-font-size-small;
-	color: $xui-color-blue;
-	display: inline-block;
 }
 
 // Labels need to be nested in another element for other styling reasons (full bleed)
@@ -414,7 +411,7 @@ $kss-color-padding: #eeebff;
 		position: relative; // makes dropdowns visible at mobile
 		z-index: 1000; // fixes overlapping breadcrumb
 	}
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-small-down {
 		min-height: 50vh;
 		max-width: initial;
 		width: initial;
@@ -451,7 +448,7 @@ $kss-color-padding: #eeebff;
 	padding: 4vh 2vh;
 	width: 33.33%;
 
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		width: 16.66%;
 	}
 }
@@ -469,7 +466,7 @@ $kss-color-padding: #eeebff;
 .ds-classtable-row {
 	display: flex;
 	flex-direction: column;
-	@include xui-breakpoint-medium-and-wide {
+	@include xui-breakpoint-small-up {
 		display: table-row;
 	}
 	border-bottom: 1px solid $ds-border-color;
@@ -482,15 +479,15 @@ $kss-color-padding: #eeebff;
 	padding: $xui-s-large 0 0 0;
 	white-space: nowrap;
 	width: 40%;
-	@include xui-breakpoint-medium-and-wide {
-		padding: $xui-s-small $xui-s-small $xui-s-small 0;
+	@include xui-breakpoint-small-up {
+		padding: $xui-s-xsmall $xui-s-xsmall $xui-s-xsmall 0;
 	}
 }
 
 .ds-classtable-description {
-	padding: $xui-s-xsmall 0 $xui-s-large;
-	@include xui-breakpoint-medium-and-wide{
-		padding: $xui-s-small 0 $xui-s-small $xui-s-small;
+	padding: $xui-s-2xsmall 0 $xui-s-large;
+	@include xui-breakpoint-small-up {
+		padding: $xui-s-xsmall 0 $xui-s-xsmall $xui-s-xsmall;
 	}
 }
 
@@ -537,7 +534,7 @@ $kss-color-padding: #eeebff;
 	& li {
 		list-style: none;
 	}
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		border-right: 1px solid $ds-border-color;
 		bottom: 0;
 		left: 0;
@@ -550,7 +547,7 @@ $kss-color-padding: #eeebff;
 .ds-nav--header {
 	margin: 0;
 	padding: .5rem 0;
-	@include xui-breakpoint-medium-and-narrow {
+	@include xui-breakpoint-small-to-medium {
 		padding: 0 $xui-s-large;
 	}
 }
@@ -737,7 +734,7 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-header {
-	padding: $xui-s-small 5vw;
+	padding: $xui-s-xsmall 5vw;
 	overflow: hidden;
 	width: 100%;
 	z-index: 1;
@@ -745,7 +742,7 @@ $kss-color-padding: #eeebff;
 .ds-header--link-accessible {
 	display: none ;
 }
-@include xui-breakpoint-wide {
+@include xui-breakpoint-medium-up {
 
 	.ds-xui-logo  {
 		display: none;
@@ -825,11 +822,11 @@ $kss-color-padding: #eeebff;
 
 .ds-color-swatch {
 	min-height: 60px;
-	padding: $xui-s-small;
+	padding: $xui-s-xsmall;
 	align-items: flex-start;
 	display: flex;
 	flex-flow: column nowrap;
-	height: $xui-s-6xlarge;
+	height: $xui-s-5xlarge;
 	justify-content: space-between;
 	width: 100%;
 	.ds-color-swatch-code:nth-child(n+2) {
@@ -899,7 +896,7 @@ $kss-color-padding: #eeebff;
 	display: flex;
 	flex-flow: row wrap;
 
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		@include embiggen;
 	}
 }
@@ -970,10 +967,10 @@ $kss-color-padding: #eeebff;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-	@include xui-breakpoint-medium-and-narrow {
+	@include xui-breakpoint-small-to-medium {
 		padding: 0 5vw;
 	}
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		position: fixed;
 		left: $ds-nav-width;
 		width: calc(100vw - #{$ds-nav-width});
@@ -1019,7 +1016,7 @@ $kss-color-padding: #eeebff;
 .ds-step--icon {
 	position: absolute;
 	left: -20px;
-	top: calc(50% - 15px);
+	top: calc(50% - 16px);
 }
 
 // Step text
@@ -1062,68 +1059,34 @@ $kss-color-padding: #eeebff;
 
 
 // -----------------------------------------------------------------------------
-// Component link
+// Component / Language links
 // -----------------------------------------------------------------------------
 
 .ds-component-link  {
-	position: absolute;
 	right: 0;
+	.xui-tooltip--tip {
+		margin: $xui-s-xsmall $xui-s-2xsmall 0 0;
+	}
+}
+
+.ds-language-link  {
+	right: 40px;
+}
+
+.ds-component-link, .ds-language-link {
+	position: absolute;
 	top: 0;
-	@include xui-breakpoint-medium-and-wide {
+	@include xui-breakpoint-small-up {
 		top: 0.7em; // visual correction when text bigger
 	}
 	.kss-section--depth-2 & {
 		top: $ds-section-space; // different positioning if used in a secondary section
 	}
-}
-
-a.ds-component-link:before {
-		content: "React component";
-		display: block;
-		position: absolute;
-		width: 9em;
-		background-color: $ds-code-bg-color;
-		right: 100%;
-		padding: 0.3em 0.3em 0.2em;
-		border-radius: 3px;
-		font-size: 12px;
-		text-align: center;
-		transform: translateY(-2px);
-		top: 20%;
-}
-
-a.ds-component-link:after {
-		display: block;
-		content: "";
-		position: absolute;
-		width: 0;
-		height: 0;
-		border-top: 5px solid transparent;
-		border-bottom: 5px solid transparent;
-		border-left: 5px solid $ds-code-bg-color;
-		transform: translateX(-1px) translateY(-2px);
-		z-index: 10;
-		right: calc(100% - 5px);
-		top: 39%;
-}
-
-.ds-component-link:after,
-.ds-component-link:before {
-	transition-timing-function: cubic-bezier(0.565, -10, 0.605, 10);
-	transition-property: transform;
-	transition-duration: 0.25s;
-	@include xui-breakpoint-narrow {
-		display: none;
-	}
-}
-
-.ds-component-link:hover {
-	@include xui-breakpoint-medium-and-wide {
-		&:after {
-			transform: translateX(-2px) translateY(-2px);
-		}
-		&:before {
-			transform: translateX(-1px) translateY(-2px);
+	.xui-tooltip:hover {
+		.xui-tooltip--tip {
+			transition-delay: $xui-motion-speed-medium;
+			opacity: 1;
+			pointer-events: auto;
 		}
 	}
 }
@@ -1172,3 +1135,4 @@ a.ds-component-link:after {
 @import "./home";
 @import "./redesign";
 @import "./example";
+@import "./utility-classes";

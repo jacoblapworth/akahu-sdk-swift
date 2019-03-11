@@ -40,10 +40,13 @@ storiesWithKnobs.add('Playground', () => (
 		<XUIToggle
 			color={select('color', Object.keys(colorMap), 'standard')}
 			layout={boolean('full-width?', false) ? 'fullwidth': undefined}
-			variant={boolean('small?', false) ? 'small': undefined}
-			labelText={text('labelText', 'Toggle label')}
+			size={boolean('small?', false) ? 'small': undefined}
+			label={text('label', 'Toggle label')}
 			isLabelHidden={boolean('isLabelHidden', false)}
 			isFieldLayout={boolean('isFieldLayout', true)}
+			isInvalid={boolean('isInvalid', false)}
+			validationMessage={text('validationMessage', '')}
+			hintMessage={text('hintMessage', '')}
 		>
 			{buildOptions(toggleOptions)}
 		</XUIToggle>

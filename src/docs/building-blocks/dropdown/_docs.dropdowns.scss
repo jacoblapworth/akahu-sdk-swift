@@ -4,6 +4,10 @@
 
 // Dropdown
 //
+// Components: Dropdown
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.dszy23b5puhq
+//
 // Teaser:
 // Used to reveal additional actions not present on the parent page.
 //
@@ -18,7 +22,7 @@
 // ExampleClass: ds-example-verticallycentered
 //
 // Dropdowns are the most common use case for the [picklist](section-compounds-displayingdata-picklist.html) component.
-// To create a dropdown, use the following classes, with a picklist inside.
+// To create a dropdown, use the following classes, with a picklist inside. Dropdowns can contain other elements but may require additional spacing adjustments.
 //
 // Classes:
 // xui-dropdown-layout: Dropdown container
@@ -26,26 +30,72 @@
 // xui-dropdown--body: Dropdown content
 //
 // Markup:
-// <div class='xui-dropdown-layout xui-dropdown-is-open'>
-//   <div class='xui-dropdown--mask'></div>
-//   <div class='xui-dropdown--body'>
-//     <ul class="xui-picklist xui-picklist-layout" role="tree">
-//       <li class="xui-pickitem" role="treeitem" tabindex="-1" >
-//         <button type="button" class="xui-pickitem--body">
-//           <span class="xui-pickitem--text">Edit</span>
-//         </button>
-//       </li>
-//       <li class="xui-pickitem" role="treeitem" tabindex="-1" >
-//         <button type="button" class="xui-pickitem--body">
-//           <span class="xui-pickitem--text">Delete</span>
-//         </button>
-//       </li>
-//       <li class="xui-pickitem" role="treeitem" tabindex="-1" >
-//         <button type="button" class="xui-pickitem--body">
-//           <span class="xui-pickitem--text">Copy</span>
-//         </button>
-//       </li>
-//     </ul>
+// <div class="xui-u-flex xui-u-flex-column xui-u-fullwidth">
+//   <div class='xui-dropdown-layout xui-dropdown-is-open xui-margin-bottom-large'>
+//     <div class='xui-dropdown--mask'></div>
+//     <div class='xui-dropdown--body'>
+//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout" role="tree">
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text">Edit</span>
+//           </button>
+//         </li>
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text">Delete</span>
+//           </button>
+//         </li>
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text">Copy</span>
+//           </button>
+//         </li>
+//       </ul>
+//     </div>
+//   </div>
+//   <div class='xui-dropdown-layout xui-dropdown-is-open xui-margin-bottom-large'>
+//     <div class='xui-dropdown--mask'></div>
+//     <div class='xui-dropdown--body'>
+//       <ul class="xui-picklist xui-picklist-small xui-picklist-layout" role="tree">
+//         <li class="xui-pickitem xui-pickitem-small" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text">Edit</span>
+//           </button>
+//         </li>
+//         <li class="xui-pickitem xui-pickitem-small" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text">Delete</span>
+//           </button>
+//         </li>
+//         <li class="xui-pickitem xui-pickitem-small" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text">Copy</span>
+//           </button>
+//         </li>
+//       </ul>
+//     </div>
+//   </div>
+//   <div class='xui-dropdown-layout xui-dropdown-is-open'>
+//     <div class='xui-dropdown--mask'></div>
+//     <div class='xui-dropdown--body'>
+//       <ul class="xui-picklist xui-picklist-xsmall xui-picklist-layout" role="tree">
+//         <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text">Edit</span>
+//           </button>
+//         </li>
+//         <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text">Delete</span>
+//           </button>
+//         </li>
+//         <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text">Copy</span>
+//           </button>
+//         </li>
+//       </ul>
+//     </div>
 //   </div>
 // </div>
 //
@@ -82,10 +132,10 @@
 // To set a max width, apply the following modifiers to `xui-dropdown-layout`.
 //
 // Definitions:
-// Small: 140px max-width: `xui-dropdown-small`
-// Medium: 220px max-width: `xui-dropdown-medium`
-// Large: 300px max-width: `xui-dropdown-large`
-// xlarge: 380px max-width: `xui-dropdown-xlarge`
+// xsmall: 100px max-width: `xui-dropdown-xsmall`
+// small: 200px max-width: `xui-dropdown-small`
+// medium: 300px max-width: `xui-dropdown-medium`
+// large: 400px max-width: `xui-dropdown-large`
 //
 // Styleguide: Compounds.CollectingInput.Dropdowns.12.1
 
@@ -97,10 +147,10 @@
 // To set a fixed width, apply the following modifiers to `xui-dropdown-layout`.
 //
 // Definitions:
-// Fixed Small: 140px width: `xui-dropdown-fixed-small`
-// Fixed Medium: 220px width: `xui-dropdown-fixed-medium`
-// Fixed Large: 300px width: `xui-dropdown-fixed-large`
-// Fixed xLarge: 380px width: `xui-dropdown-fixed-xlarge`
+// Fixed xsmall: 100px width: `xui-dropdown-fixed-xsmall`
+// Fixed small: 200px width: `xui-dropdown-fixed-small`
+// Fixed medium: 300px width: `xui-dropdown-fixed-medium`
+// Fixed large: 400px width: `xui-dropdown-fixed-large`
 //
 // Styleguide: Compounds.CollectingInput.Dropdowns.12.2
 
@@ -170,15 +220,24 @@
 //
 // Styleguide: Compounds.CollectingInput.Dropdowns.15.1
 
+// Max height
+//
+// Flag:
+// React only
+//
+// If using the [XUIDropdown](./react/#dropdown) React component, a `maxHeight` property can be added to define a custom max-height on the dropdown. Content scrolls internally if it exceeds this height.
+//
+// Styleguide: Compounds.CollectingInput.Dropdowns.15.2
+
 // Auto height
 //
 // Flag:
 // React only
 //
-// If using React, dropdown height is calculated automatically based on the remaining space above or below the trigger.
+// If using the [XUIDropdown](./react/#dropdown) React component, dropdown height is calculated automatically based on the remaining space above or below the trigger.
 // Content scrolls internally if it exceeds this height.
 //
-// Styleguide: Compounds.CollectingInput.Dropdowns.15.2
+// Styleguide: Compounds.CollectingInput.Dropdowns.15.3
 
 // Headers and footers
 //
@@ -194,7 +253,7 @@
 // xui-dropdown--footer: Footer container
 //
 // Markup:
-// <div class='xui-dropdown-layout xui-dropdown-fullheight xui-dropdown-xlarge xui-dropdown-is-open'>
+// <div class='xui-dropdown-layout xui-dropdown-fullheight xui-dropdown-fixed-large xui-dropdown-is-open'>
 // <div class='xui-dropdown--mask'></div>
 //   <div class='xui-dropdown--body'>
 //     <div class="xui-dropdown--header-container">
@@ -210,40 +269,40 @@
 //       </div>
 //     </div>
 //     <div class='xui-dropdown--scrollable-content'>
-//       <ul class="xui-picklist xui-picklist-layout" role="tree">
-//         <li class="xui-pickitem xui-pickitem-multiselect" role="option">
+//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout" role="tree">
+//         <li class="xui-pickitem xui-pickitem-medium xui-pickitem-multiselect" role="option">
 // 					<div class="xui-pickitem--body">
 // 						<label class="xui-styledcheckboxradio" for="customers">
 // 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="customers">
-// 							<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
-// 							<span class="xui-styledcheckboxradio--label">
-// 								<span class="xui-pickitem-multiselect--label">
+// 							<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input"></div>
+// 							<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-medium xui-pickitem--text xui-pickitem-multiselect--label">
+// 								<span>
 // 									Customers
 // 								</span>
 // 							</span>
 // 						</label>
 // 					</div>
 // 				</li>
-// 				<li class="xui-pickitem xui-pickitem-multiselect" role="option">
+// 				<li class="xui-pickitem xui-pickitem-medium xui-pickitem-multiselect" role="option">
 // 					<div class="xui-pickitem--body">
 // 						<label class="xui-styledcheckboxradio" for="suppliers">
 // 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="suppliers">
-// 							<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
-// 							<span class="xui-styledcheckboxradio--label">
-// 								<span class="xui-pickitem-multiselect--label">
+// 							<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input"></div>
+// 							<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-medium xui-pickitem--text xui-pickitem-multiselect--label">
+// 								<span>
 // 									Suppliers
 // 								</span>
 // 							</span>
 // 						</label>
 // 					</div>
 // 				</li>
-// 				<li class="xui-pickitem xui-pickitem-multiselect" role="option">
+// 				<li class="xui-pickitem xui-pickitem-medium xui-pickitem-multiselect" role="option">
 // 					<div class="xui-pickitem--body">
 // 						<label class="xui-styledcheckboxradio" for="overseas">
 // 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="overseas">
-// 							<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
-// 							<span class="xui-styledcheckboxradio--label">
-// 								<span class="xui-pickitem-multiselect--label">
+// 							<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input"></div>
+// 							<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-medium xui-pickitem--text xui-pickitem-multiselect--label">
+// 								<span>
 // 									Overseas clients
 // 								</span>
 // 							</span>
@@ -253,18 +312,16 @@
 //       </ul>
 //     </div>
 //     <div class="xui-dropdown--footer">
-//       <ul class="xui-picklist xui-picklist-layout" role="tree">
-//         <li class="xui-pickitem" role="treeitem">
-//           <div class="xui-iconwrapper xui-pickitem--icon">
-//             <svg focusable="false" class="xui-icon xui-icon-color-black-muted">
-//               <use xlink:href="#xui-icon-plus" role="presentation"></use>
-//             </svg>
-//           </div>
-//           <span class="xui-pickitem--body">
-//             <span class="xui-pickitem--text">
-//               New group
+//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout">
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--sideelement">
+//               <svg focusable="false" class="xui-icon xui-icon-color-black-muted">
+//                 <use xlink:href="#xui-icon-plus" role="presentation"></use>
+//               </svg>
 //             </span>
-//           </span>
+//             <span class="xui-pickitem--text">New group</span>
+//           </button>
 //         </li>
 //       </ul>
 //     </div>

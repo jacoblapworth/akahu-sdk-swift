@@ -16,6 +16,8 @@ import { ns } from '../helpers/xuiClassNamespace';
  * @extends {PureComponent}
  */
 export default class DropDownHeader extends PureComponent {
+	rootNode = React.createRef();
+
 	render() {
 		const {
 			children,
@@ -38,18 +40,19 @@ export default class DropDownHeader extends PureComponent {
 		const classes = cn(`${baseClass}--header`, className);
 		const headerClasses = cn(
 			`${baseClass}--header-container`,
-			onlyShowForMobile && `${ns}-u-hidden-medium ${ns}-u-hidden-wide`,
+			onlyShowForMobile && `${baseClass}-hide-small-up`,
 		);
 
 		const backButton = onBackButtonClick ? (
 			<XUIButton
-				variant="icon-large"
-				className={`${ns}-u-flex-none`}
+				variant="icon"
+				className={`${ns}-dropdown--headerbackbutton`}
 				onClick={onBackButtonClick}
 				aria-label={backButtonLabel}
 				qaHook={qaHook != null ? `${qaHook}--button-back` : null}
+				size="small"
 			>
-				<XUIIcon icon={back} isBoxed />
+				<XUIIcon icon={back} />
 			</XUIButton>
 		) : null;
 
@@ -125,7 +128,7 @@ export default class DropDownHeader extends PureComponent {
 
 		return (
 			<div
-				ref={h => this.rootNode = h}
+				ref={this.rootNode}
 				className={classes}
 				data-automationid={qaHook}
 			>

@@ -52,9 +52,10 @@ module.exports = {
 		'react/prefer-stateless-function': 0, // Worth disabling while PureComponent is more performant (the override of this rule for PureComponent doesn't work)
 		'react/require-default-props': 0, // We would need to add default `qaHook` and `children` props for most components
 		'react/sort-comp': 0, // TODO: Either remove class fields or implement this rule once they're supported
+		'react/no-did-mount-set-state': 0,
 	},
 	overrides: [{
-		"files": ['**/scripts/**/*.js'],
+		"files": ['**/scripts/**/*.js', 'babel.config.js'],
 		"rules": {
 			"import/no-extraneous-dependencies": "off",
 			"import/no-dynamic-require": "off"

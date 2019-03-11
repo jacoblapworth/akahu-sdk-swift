@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import exclamation from '@xero/xui-icon/icons/exclamation';
 import { NAME_SPACE } from '../helpers/constants';
+import XUIIcon from '../../icon/XUIIcon';
 
-// TODO: Re-enable this rule when exclamation mark icon is available in xui-icon
-/* eslint-disable max-len */
 export default class StepperIcon extends PureComponent {
 	render = () => {
 		const { isComplete, isError, children } = this.props;
@@ -11,12 +11,7 @@ export default class StepperIcon extends PureComponent {
 
 		if (isError) {
 			content = (
-				<svg
-					className={`${NAME_SPACE}-icon-error`}
-					viewBox="0 0 2 7"
-				>
-					<path d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z" />
-				</svg>
+				<XUIIcon className={`${NAME_SPACE}-icon-error`} icon={exclamation} />
 			);
 		} else if (isComplete) {
 			content = (

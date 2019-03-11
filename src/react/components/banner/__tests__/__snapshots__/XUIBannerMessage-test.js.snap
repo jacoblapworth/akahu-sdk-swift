@@ -14,7 +14,6 @@ exports[`<XUIBannerMessage /> should render a passed qaHook as an auotmation id 
 exports[`<XUIBannerMessage /> should render and includes no automation id by default 1`] = `
 <p
   className="xui-banner--message"
-  data-automationid={undefined}
 >
   <span>
     Message Content
@@ -25,7 +24,6 @@ exports[`<XUIBannerMessage /> should render and includes no automation id by def
 exports[`<XUIBannerMessage /> should render custom classes on the root p DOM node 1`] = `
 <p
   className="example-class xui-banner--message"
-  data-automationid={undefined}
 >
   <span>
     Message Content

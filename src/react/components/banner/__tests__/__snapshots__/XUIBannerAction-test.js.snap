@@ -6,11 +6,10 @@ exports[`<XUIBannerAction /> should render a passed qaHook as an auotmation id 1
   data-automationid="banner-action"
 >
   <button
-    className="xui-button xui-button-small xui-button-borderless-main"
+    className="xui-button xui-button-small xui-button-borderless-main xui-button-small"
     data-automationid="banner-action--button"
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     type="button"
   >
@@ -22,14 +21,11 @@ exports[`<XUIBannerAction /> should render a passed qaHook as an auotmation id 1
 exports[`<XUIBannerAction /> should render as a button be default and includes no automation id 1`] = `
 <li
   className="xui-banner--action"
-  data-automationid={undefined}
 >
   <button
-    className="xui-button xui-button-small xui-button-borderless-main"
-    data-automationid={undefined}
+    className="xui-button xui-button-small xui-button-borderless-main xui-button-small"
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     type="button"
   >
@@ -41,21 +37,14 @@ exports[`<XUIBannerAction /> should render as a button be default and includes n
 exports[`<XUIBannerAction /> should render as a link if an href value is passed and isLink prop is true 1`] = `
 <li
   className="xui-banner--action"
-  data-automationid={undefined}
 >
   <a
-    aria-disabled={undefined}
-    className="xui-button xui-button-small xui-button-borderless-main"
-    data-automationid={undefined}
+    className="xui-button xui-button-small xui-button-borderless-main xui-button-small"
     disabled={false}
     href="http://xero.com"
     onClick={[Function]}
-    onKeyDown={undefined}
     onKeyPress={[Function]}
-    rel={undefined}
-    role={undefined}
     tabIndex={0}
-    target={undefined}
   >
     Action
   </a>
@@ -65,14 +54,11 @@ exports[`<XUIBannerAction /> should render as a link if an href value is passed 
 exports[`<XUIBannerAction /> should render custom classes on the button DOM node 1`] = `
 <li
   className="xui-banner--action"
-  data-automationid={undefined}
 >
   <button
-    className="xui-button example-class xui-button-small xui-button-borderless-main"
-    data-automationid={undefined}
+    className="xui-button example-class xui-button-small xui-button-borderless-main xui-button-small"
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     type="button"
   >

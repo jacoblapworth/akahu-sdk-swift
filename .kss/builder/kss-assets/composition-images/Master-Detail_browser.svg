@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2498px" height="1730px" viewBox="0 0 2498 1730" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>devices_Master-Detail</title>
+  <desc>XUI Master Detail composition visualisation</desc>
+    <defs>
+        <filter x="-2.0%" y="-3.0%" width="104.1%" height="106.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="0" y="0" width="2459" height="1537"></rect>
+    </defs>
+    <g id="browser_Master-Detail" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flat-Browser-Copy" filter="url(#filter-1)" transform="translate(20.000000, 0.000000)">
+            <rect id="Shadow" fill-rule="nonzero" x="0" y="0" width="2459" height="1670"></rect>
+            <g id="Navigation" fill-rule="nonzero">
+                <path d="M15.3545877,0 L2443.64541,1.24300837e-15 C2448.98454,2.60392355e-16 2450.92063,0.556953667 2452.87254,1.60279622 C2454.82444,2.64863878 2456.35631,4.18337022 2457.4002,6.13892578 C2458.44409,8.09448133 2459,10.0341988 2459,15.3833112 L2459,132 L0,132 L4.1356248e-16,15.3833112 C-2.40291711e-16,10.0341988 0.555913731,8.09448133 1.5998035,6.13892578 C2.64369328,4.18337022 4.17555909,2.64863878 6.12746326,1.60279622 C8.07936743,0.556953667 10.015463,9.82616014e-16 15.3545877,0 Z" id="Navigation-BG" fill="#E2E3E5"></path>
+                <ellipse id="Close" fill="#C4C6CA" cx="66.4756454" cy="66.6" rx="14.9719922" ry="15"></ellipse>
+                <ellipse id="Minimise" fill="#C4C6CA" cx="120.374817" cy="66.6" rx="14.9719922" ry="15"></ellipse>
+                <ellipse id="Maximise" fill="#C4C6CA" cx="174.273989" cy="66.6" rx="14.9719922" ry="15"></ellipse>
+                <path d="M256.811244,36 L2391.43474,36 C2394.1043,36 2395.07235,36.2784768 2396.0483,36.8013981 C2397.02425,37.3243194 2397.79018,38.0916851 2398.31213,39.0694629 C2398.83407,40.0472407 2399.11203,41.0170994 2399.11203,43.6916556 L2399.11203,88.3083444 C2399.11203,90.9829006 2398.83407,91.9527593 2398.31213,92.9305371 C2397.79018,93.9083149 2397.02425,94.6756806 2396.0483,95.1986019 C2395.07235,95.7215232 2394.1043,96 2391.43474,96 L256.811244,96 C254.141682,96 253.173634,95.7215232 252.197682,95.1986019 C251.22173,94.6756806 250.455797,93.9083149 249.933852,92.9305371 C249.411907,91.9527593 249.13395,90.9829006 249.13395,88.3083444 L249.13395,43.6916556 C249.13395,41.0170994 249.411907,40.0472407 249.933852,39.0694629 C250.455797,38.0916851 251.22173,37.3243194 252.197682,36.8013981 C253.173634,36.2784768 254.141682,36 256.811244,36 Z" id="Address-Bar" fill="#FFFFFF"></path>
+            </g>
+            <g id="Detail-Summary/Desktop-HD-100%" transform="translate(0.000000, 132.000000)">
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                </mask>
+                <use id="Mask" fill="#F2F3F3" xlink:href="#path-2"></use>
+                <g id="Master-Detail/Desktop-HD-100%" mask="url(#mask-3)">
+                    <rect id="Rectangle" fill="#F2F3F3" x="0" y="0" width="2459" height="1544"></rect>
+                    <rect id="Rectangle-Copy-4" fill="#C5C5F6" x="568.64375" y="48.25" width="1835.71181" height="1447.5"></rect>
+                    <rect id="Rectangle-Copy-2" fill="#5A5AE6" x="54.6444444" y="48.25" width="459.354861" height="1447.5"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

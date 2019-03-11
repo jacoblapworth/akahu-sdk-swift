@@ -3,10 +3,14 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUISwitch from '../XUISwitch';
+import uuidv4 from 'uuid/v4';
 
 const NOOP = () => {};
 
 Enzyme.configure({ adapter: new Adapter() });
+
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => 'testSwitchId');
 
 describe('XUISwitch', function () {
 
@@ -17,11 +21,11 @@ describe('XUISwitch', function () {
 	});
 
 	it('should render checked', function () {
-		const component = shallow(
+		const component = renderer.create(
 			<XUISwitch isChecked={true} onChange={NOOP}/>
 		);
 
-		expect(component.html()).toContain('checked');
+		expect(component).toMatchSnapshot();
 	});
 
 	it('should pass a value to the input', function () {
@@ -48,14 +52,20 @@ describe('XUISwitch', function () {
 		expect(component.html()).toContain('disabled');
 	});
 
-	it('should render an automationid when a qaHook value is passed', () => {
-		const automationid = renderer.create(<XUISwitch qaHook="switch-test" onChange={NOOP}/>);
+	it('should render an automationid for most elements when a qaHook value is passed', () => {
+		const automationid = renderer.create(<XUISwitch qaHook="switch-test" onChange={NOOP}>Switch test</XUISwitch>);
 
 		expect(automationid).toMatchSnapshot();
 	});
 
-	it('should include a tex label when label is passed', () => {
+	it('should include a text label when label is passed', () => {
 		const ariaLabel = renderer.create(<XUISwitch onChange={NOOP} labelId="testLabelId">Switch test</XUISwitch>);
+
+		expect(ariaLabel).toMatchSnapshot();
+	});
+
+	it('should accept an isChecked prop that determines the value of aria attributes', () => {
+		const ariaLabel = renderer.create(<XUISwitch isChecked={true} onChange={NOOP} labelId="testLabelId">Switch test</XUISwitch>);
 
 		expect(ariaLabel).toMatchSnapshot();
 	});
@@ -66,7 +76,7 @@ describe('XUISwitch', function () {
 		expect(ariaLabel).toMatchSnapshot();
 	});
 
-	it('should include a reversed class when a text labe is present and isReversed is set', () => {
+	it('should include a reversed class when a text label is present and isReversed is set', () => {
 		const ariaLabel = renderer.create(<XUISwitch onChange={NOOP} labelId="testLabelId" isReversed>Switch test</XUISwitch>);
 
 		expect(ariaLabel).toMatchSnapshot();

@@ -1,4 +1,4 @@
-import React, { PureComponent, cloneElement } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import overflowPathData from '@xero/xui-icon/icons/overflow';
 import DropDown from '../../dropdown/DropDown';
@@ -10,11 +10,10 @@ import { NAME_SPACE } from '../helpers/constants';
 
 class OverflowMenu extends PureComponent {
 	createTrigger = overflowMenuTitle => (
-		<XUIButton variant="icon-large">
+		<XUIButton variant="icon">
 			<XUIIcon
 				icon={overflowPathData}
 				title={overflowMenuTitle}
-				isBoxed
 			/>
 		</XUIButton>
 	);
@@ -22,15 +21,15 @@ class OverflowMenu extends PureComponent {
 	createDropDown = items => (
 		<DropDown>
 			<Picklist>
-				{items.map((Item, key) => Item && cloneElement(Item, { key }))}
+				{items}
 			</Picklist>
 		</DropDown>
 	);
 
 	render = () => {
-		const { items, overflowMenuTitle } = this.props;
+		const { overflowMenuTitle, children } = this.props;
 		const trigger = this.createTrigger(overflowMenuTitle);
-		const dropdown = this.createDropDown(items);
+		const dropdown = this.createDropDown(children);
 
 		return (
 			<DropDownToggled
@@ -44,8 +43,15 @@ class OverflowMenu extends PureComponent {
 }
 
 OverflowMenu.propTypes = {
-	items: PropTypes.arrayOf(PropTypes.node).isRequired,
 	overflowMenuTitle: PropTypes.string,
+	children: PropTypes.oneOfType([
+		PropTypes.arrayOf(PropTypes.node),
+		PropTypes.bool,
+	]),
+};
+
+OverflowMenu.defaultProps = {
+	children: [],
 };
 
 export default OverflowMenu;

@@ -2,17 +2,13 @@
 
 exports[`<XUIAutocompleterEmptyState /> should change the icon when the name is passed to icon 1`] = `
 <div
-  className="xui-u-flex xui-padding-vertical-large xui-u-flex-column xui-u-flex-align-center xui-textcolor-muted"
-  data-automationid={undefined}
-  id={undefined}
+  className="xui-autocompleter--emptystate"
 >
   <div
     className="xui-iconwrapper xui-iconwrapper-large"
-    data-automationid={undefined}
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={14.666666666666666}
       viewBox="0 0 10 11"
@@ -30,17 +26,13 @@ exports[`<XUIAutocompleterEmptyState /> should change the icon when the name is 
 
 exports[`<XUIAutocompleterEmptyState /> should include an icon that defaults to search 1`] = `
 <div
-  className="xui-u-flex xui-padding-vertical-large xui-u-flex-column xui-u-flex-align-center xui-textcolor-muted"
-  data-automationid={undefined}
-  id={undefined}
+  className="xui-autocompleter--emptystate"
 >
   <div
     className="xui-iconwrapper xui-iconwrapper-large"
-    data-automationid={undefined}
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={20}
       viewBox="0 0 15 15"
@@ -58,17 +50,14 @@ exports[`<XUIAutocompleterEmptyState /> should include an icon that defaults to 
 
 exports[`<XUIAutocompleterEmptyState /> should render an automation id when passed in the qaHook prop 1`] = `
 <div
-  className="xui-u-flex xui-padding-vertical-large xui-u-flex-column xui-u-flex-align-center xui-textcolor-muted"
+  className="xui-autocompleter--emptystate"
   data-automationid="test-qahook"
-  id={undefined}
 >
   <div
     className="xui-iconwrapper xui-iconwrapper-large"
-    data-automationid={undefined}
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={20}
       viewBox="0 0 15 15"
@@ -86,17 +75,14 @@ exports[`<XUIAutocompleterEmptyState /> should render an automation id when pass
 
 exports[`<XUIAutocompleterEmptyState /> should render an id when passed in the id prop 1`] = `
 <div
-  className="xui-u-flex xui-padding-vertical-large xui-u-flex-column xui-u-flex-align-center xui-textcolor-muted"
-  data-automationid={undefined}
+  className="xui-autocompleter--emptystate"
   id="test-id"
 >
   <div
     className="xui-iconwrapper xui-iconwrapper-large"
-    data-automationid={undefined}
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={20}
       viewBox="0 0 15 15"
@@ -114,17 +100,13 @@ exports[`<XUIAutocompleterEmptyState /> should render an id when passed in the i
 
 exports[`<XUIAutocompleterEmptyState /> should render any children after the icon 1`] = `
 <div
-  className="xui-u-flex xui-padding-vertical-large xui-u-flex-column xui-u-flex-align-center xui-textcolor-muted"
-  data-automationid={undefined}
-  id={undefined}
+  className="xui-autocompleter--emptystate"
 >
   <div
     className="xui-iconwrapper xui-iconwrapper-large"
-    data-automationid={undefined}
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={20}
       viewBox="0 0 15 15"
@@ -142,17 +124,13 @@ exports[`<XUIAutocompleterEmptyState /> should render any children after the ico
 
 exports[`<XUIAutocompleterEmptyState /> should render extra classes on the root node when passed in the classname prop 1`] = `
 <div
-  className="xui-u-flex xui-padding-vertical-large xui-u-flex-column xui-u-flex-align-center xui-textcolor-muted test-class"
-  data-automationid={undefined}
-  id={undefined}
+  className="xui-autocompleter--emptystate test-class"
 >
   <div
     className="xui-iconwrapper xui-iconwrapper-large"
-    data-automationid={undefined}
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={20}
       viewBox="0 0 15 15"

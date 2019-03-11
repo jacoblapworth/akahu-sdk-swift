@@ -2,131 +2,123 @@
 
 exports[`SelectBox should render the appropriate automation id's when a qaHook is provided 1`] = `
 <div
-  className={undefined}
   data-automationid="test-selectbox"
 >
-  <label
-    className="xui-text-label xui-fieldlabel-layout"
-    data-automationid="test-selectbox---label"
-    htmlFor="testThisSelect"
-    onClick={[Function]}
-    role="presentation"
-  >
-    test
-  </label>
   <div
-    className="xui-select-layout"
-    data-automationid="test-selectbox---inputgroup"
+    className=""
   >
-    <div
-      aria-expanded={undefined}
-      aria-owns={undefined}
-      className={undefined}
-      data-automationid="test-selectbox---dropdowntoggled"
-      data-ref="toggled-wrapper"
-      role="presentation"
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
+      data-automationid="test-selectbox---label--label"
+      htmlFor="testDropdownId-control"
     >
-      <button
-        aria-activedescendant={null}
-        aria-controls={undefined}
-        aria-haspopup="listbox"
-        className="xui-button xui-select--button xui-button-standard"
-        data-automationid="test-selectbox---button"
-        disabled={false}
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        tabIndex={0}
-        type="button"
+      test
+    </label>
+    <div
+      className="xui-select-layout"
+      data-automationid="test-selectbox---inputgroup"
+    >
+      <div
+        data-automationid="test-selectbox---dropdowntoggled"
+        data-ref="toggled-wrapper"
+        role="presentation"
       >
-        <span
-          className="xui-select--content"
+        <button
+          aria-activedescendant={null}
+          aria-haspopup="listbox"
+          className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth"
+          data-automationid="test-selectbox---button"
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          tabIndex={0}
+          type="button"
         >
-          test
-        </span>
-        <svg
-          className="xui-icon xui-select--caret xui-button--caret"
-          data-automationid="test-selectbox---button-icon"
-          focusable="false"
-          height={5}
-          viewBox="0 0 10 5"
-          width={10}
-        >
-          <title>
-            Toggle List
-          </title>
-          <path
-            d="M0 0l5 5 5-5z"
-            role="presentation"
-          />
-        </svg>
-      </button>
+          <span
+            className="xui-select--content xui-select--content-truncated"
+          >
+            test
+          </span>
+          <svg
+            className="xui-icon xui-select--caret xui-button--caret"
+            data-automationid="test-selectbox---button-icon"
+            focusable="false"
+            height={5}
+            viewBox="0 0 10 5"
+            width={10}
+          >
+            <title>
+              Toggle List
+            </title>
+            <path
+              d="M0 0l5 5 5-5z"
+              role="presentation"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`SelectBox should render the trigger in a disabled state if \`isDisabled\` is set 1`] = `
-<div
-  className={undefined}
-  data-automationid={undefined}
->
-  <label
-    className="xui-text-label xui-fieldlabel-layout"
-    data-automationid={null}
-    htmlFor="testDropdownId"
-    onClick={[Function]}
-    role="presentation"
-  >
-    test
-  </label>
+<div>
   <div
-    className="xui-select-layout"
-    data-automationid={null}
+    className=""
   >
-    <div
-      aria-expanded={undefined}
-      aria-owns={undefined}
-      className={undefined}
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
       data-automationid={null}
-      data-ref="toggled-wrapper"
-      role="presentation"
+      htmlFor="testDropdownId-control"
     >
-      <button
-        aria-activedescendant={null}
-        aria-controls={undefined}
-        aria-haspopup="listbox"
-        className="xui-button xui-select--button xui-button-standard xui-button-is-disabled"
+      test
+    </label>
+    <div
+      className="xui-select-layout"
+      data-automationid={null}
+    >
+      <div
         data-automationid={null}
-        disabled={true}
-        onClick={[Function]}
-        onKeyDown={null}
-        onKeyUp={[Function]}
-        tabIndex={-1}
-        type="button"
+        data-ref="toggled-wrapper"
+        role="presentation"
       >
-        <span
-          className="xui-select--content"
-        >
-          test
-        </span>
-        <svg
-          className="xui-icon xui-select--caret xui-button--caret"
+        <button
+          aria-activedescendant={null}
+          aria-haspopup="listbox"
+          className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-is-disabled"
           data-automationid={null}
-          focusable="false"
-          height={5}
-          viewBox="0 0 10 5"
-          width={10}
+          disabled={true}
+          onClick={[Function]}
+          onKeyDown={null}
+          onKeyUp={[Function]}
+          tabIndex={-1}
+          type="button"
         >
-          <title>
-            Toggle List
-          </title>
-          <path
-            d="M0 0l5 5 5-5z"
-            role="presentation"
-          />
-        </svg>
-      </button>
+          <span
+            className="xui-select--content xui-select--content-truncated"
+          >
+            test
+          </span>
+          <svg
+            className="xui-icon xui-select--caret xui-button--caret"
+            data-automationid={null}
+            focusable="false"
+            height={5}
+            viewBox="0 0 10 5"
+            width={10}
+          >
+            <title>
+              Toggle List
+            </title>
+            <path
+              d="M0 0l5 5 5-5z"
+              role="presentation"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>

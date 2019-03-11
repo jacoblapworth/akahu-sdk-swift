@@ -18,23 +18,22 @@ import { withKnobs, boolean, text, number, select } from '@storybook/addon-knobs
 import centered from '@storybook/addon-centered';
 
 import { storiesWithVariationsKindName, variations } from './variations';
-import { VariantClassNames, SizeClassNames, ButtonTypes } from '../private/constants';
+import { variantClassNames, sizeClassNames, buttonTypes, widthClassNames } from '../private/constants';
 
 const dropdownWithTrigger = (
 	<DropDownToggled
-		trigger={<XUISplitButton key='split' variant='primary' aria-label='Other actions' />}
+		trigger={<XUISplitButton key="split" variant="primary" aria-label="Other actions" />}
 		dropdown={<DropDown><p className="xui-padding-small">hello</p></DropDown>}
 	/>
 );
 
 const buttonContents = {
-	withCaret: ['Caret button', <XUIButtonCaret key='caret'/>],
-	asGroup: [<XUIButton key='one'>One</XUIButton>, <XUIButton key='two'>Two</XUIButton>],
-	asGroupSm: [<XUIButton key='one' size="small">One</XUIButton>, <XUIButton key='two' size="small">Two</XUIButton>],
-	asSplitGroup: [<XUIButton key='main'>Main</XUIButton>, dropdownWithTrigger],
-	asSplitGroupMulti: [<XUIButton key='main'>This is a bunch of multi line text to make sure the icon displays correctly</XUIButton>, <XUISplitButton key='split' aria-label='Other actions' />],
-	asSplitGroupSm: [<XUIButton key='main' size="small">Main</XUIButton>, <XUISplitButton key='split' size="small" aria-label='Other actions' />],
-	icon: <XUIIcon icon={view} title="Preview" isBoxed />
+	withCaret: ['Caret button', <XUIButtonCaret key="caret"/>],
+	asGroup: [<XUIButton key="one">One</XUIButton>, <XUIButton key="two">Two</XUIButton>],
+	asSplitGroup: [<XUIButton key="main">Main</XUIButton>, <XUISplitButton key="split" aria-label="Other actions" />],
+	asSplitGroupMulti: [<XUIButton key="main">This is a bunch of multi line text to make sure the icon displays correctly</XUIButton>, <XUISplitButton key="split" aria-label="Other actions" />],
+	asSplitGroupDropdown: [<XUIButton key="main">Main</XUIButton>, dropdownWithTrigger],
+	icon: <XUIIcon icon={view} title="Preview" />
 };
 
 const ButtonWrapper = ({children}) => {
@@ -52,10 +51,11 @@ storiesWithKnobs.add('Playground', () => (
 		isExternalLink={boolean('isExternalLink', false)}
 		isLoading={boolean('isLoading', false)}
 		isGrouped={boolean('isGrouped', false)}
-		variant={select('variant', Object.keys(VariantClassNames), 'standard')}
-		size={select('size', Object.keys(SizeClassNames), 'full-width')}
+		variant={select('variant', Object.keys(variantClassNames), 'standard')}
+		size={select('size', Object.keys(sizeClassNames))}
+		fullWidth={select('fullWidth', Object.keys(widthClassNames), 'always')}
 		isLink={boolean('isLink', false)}
-		type={select('type', Object.keys(ButtonTypes).map(type => ButtonTypes[type]), 'button')}
+		type={select('type', Object.keys(buttonTypes).map(type => buttonTypes[type]), 'button')}
 		href={text('href', '')}
 		rel={text('rel', '')}
 		tabIndex={number('tabIndex', 0)}

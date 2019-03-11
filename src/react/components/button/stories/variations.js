@@ -1,8 +1,9 @@
 const privateConsts = require('../private/constants');
 
 const storiesWithVariationsKindName = 'Instances/XUIButton';
-const buttonVariants = Object.keys(privateConsts.VariantClassNames);
-const sizes = Object.keys(privateConsts.SizeClassNames);
+const buttonVariants = Object.keys(privateConsts.variantClassNames);
+const sizes = Object.keys(privateConsts.sizeClassNames);
+const iconSizes = Object.keys(privateConsts.iconSizeClassNames);
 const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -31,8 +32,9 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as a small Group',
-		contentsKey: 'asGroupSm',
-		componentType: 'XUIButtonGroup'
+		contentsKey: 'asGroup',
+		componentType: 'XUIButtonGroup',
+		size:'small',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -50,26 +52,40 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'as a small Split Button Group',
-		contentsKey: 'asSplitGroupSm',
+		storyTitle: 'as a small negative Split Button Group',
+		contentsKey: 'asSplitGroup',
 		componentType: 'XUISplitButtonGroup',
-		variant: 'negative'
+		variant: 'negative',
+		size: 'small',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as an xsmall Split Button Group with a dropdown',
+		contentsKey: 'asSplitGroupDropdown',
+		componentType: 'XUISplitButtonGroup',
+		size: 'xsmall',
+		variant: 'primary'
 	}
 ];
 
 buttonVariants.forEach((buttonVariant, index) => {
 	const isIcon = buttonVariant.match(/^icon/) && buttonVariant.match(/^icon/)[0];
-	const size = isIcon ? 'full-width' : sizes[index % sizes.length];
-	variations.push({
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: `as ${isIcon ? '' : size} ${buttonVariant}`,
-		href: buttonVariant === 'link' ? '#' : undefined,
-		isLink: buttonVariant === 'link',
-		size: size,
-		value: isIcon ? undefined : `${buttonVariant}`,
-		contentsKey: isIcon ? 'icon' : undefined,
-		variant: buttonVariant
-	});
+	const sizesToIterate = isIcon
+		? iconSizes
+		: [sizes[index % sizes.length]];
+
+	sizesToIterate.forEach(size =>
+		variations.push({
+			storyKind: storiesWithVariationsKindName,
+			storyTitle: `as ${size} ${buttonVariant}`,
+			href: buttonVariant === 'link' ? '#' : undefined,
+			isLink: buttonVariant === 'link',
+			size: size,
+			value: isIcon ? undefined : `${buttonVariant}`,
+			contentsKey: isIcon ? 'icon' : undefined,
+			variant: buttonVariant
+		})
+	);
 });
 
 sizes.forEach((sizeVariant) => {

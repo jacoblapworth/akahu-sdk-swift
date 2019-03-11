@@ -2,17 +2,27 @@ import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
+import { sizeClassNames } from './private/constants';
+import SizeContext from '../../contexts/SizeContext';
 
-export default function XUIButtonGroup({ children, className, qaHook }) {
+export default function XUIButtonGroup({ children, className, size, qaHook }) {
 	return (
-		<div className={cn(className, `${ns}-buttongroup`)} data-automationid={qaHook}>
-			{Children.map(children, child => cloneElement(child, { isGrouped: true }))}
-		</div>
+		<SizeContext.Provider value={size}>
+			<div className={cn(className, `${ns}-buttongroup`)} data-automationid={qaHook}>
+				{Children.map(children, child => cloneElement(child, { isGrouped: true }))}
+			</div>
+		</SizeContext.Provider>
 	);
 }
 
 XUIButtonGroup.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+
+	/**
+	 * Modifier for the size of the button group. `medium`, `small`, or `xsmall`.
+	 */
+	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
+
 	qaHook: PropTypes.string,
 };

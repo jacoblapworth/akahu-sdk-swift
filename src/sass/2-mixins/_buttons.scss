@@ -26,7 +26,7 @@ Standard XUI button shadow
 $color - alpha value for the box shadow to be applied with
 */
 @mixin xui-button-shadow($color) {
-	box-shadow: inset 0 0 0 40px $color;
+	box-shadow: inset 0 0 0 $xui-control-size-standard $color;
 }
 
 /*
@@ -77,9 +77,6 @@ $border-color - Border color to use
 	border-radius: $xui-radius;
 	color: $color;
 	font-weight: bold;
-	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
-	min-height: $xui-input-height;
-	padding: 11px $xui-input-padding-horizontal;
 	position: relative; // Set to enable z-index to take effect on focus
 	text-align: center;
 	text-decoration: none;
@@ -110,7 +107,7 @@ $background-active - Background color to use while active
 	color: $text-color;
 	font-weight: bold;
 	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
-	min-height: $xui-input-height;
+	min-height: $xui-control-size-standard;
 	padding: 11px $xui-input-padding-horizontal;
 	position: relative;
 	transition-duration: $xui-motion-speed-fast;

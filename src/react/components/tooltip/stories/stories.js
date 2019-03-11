@@ -20,7 +20,7 @@ import { positionOptions } from '../../positioning/private/constants';
 const createTriggerInput = props => (
 	<XUITextInput
 		placeholder="Placeholder text"
-		labelText="Input label"
+		label="Input label"
 		isLabelHidden
 		{...props}
 	/>
@@ -28,13 +28,13 @@ const createTriggerInput = props => (
 const createTipInput = () => (
 	<XUITextInput
 		placeholder="Placeholder text"
-		labelText="Input label"
+		label="Input label"
 		isLabelHidden
 		className="xui-input-borderless-inverted xui-input-borderless xui-input-borderless-solid"
 	/>
 );
 
-const createTriggerButton = () => <XUIButton size="full-width">A button</XUIButton>;
+const createTriggerButton = () => <XUIButton fullWidth="always">A button</XUIButton>;
 
 const createHandlerTriggerButton = () => {
 	const clickHandl = () => { console.log('click'); }; // eslint-disable-line no-console
@@ -42,7 +42,7 @@ const createHandlerTriggerButton = () => {
 	const blurHandl = () => { console.log('blur'); }; // eslint-disable-line no-console
 	return (
 		<XUIButton
-			size="full-width"
+			fullWidth="always"
 			onClick={clickHandl}
 			onFocus={focusHandl}
 			onBlur={blurHandl}
@@ -54,7 +54,7 @@ const createHandlerTriggerButton = () => {
 
 const createTriggerLink = () => <a href="https://www.xero.com" target="_blank" rel="noopener noreferrer">A link</a>;
 
-const createTriggerIcon = () => <XUIButton variant="icon" aria-label="Info"><XUIIcon icon={info} isBoxed /></XUIButton>;
+const createTriggerIcon = () => <XUIButton variant="icon" aria-label="Info"><XUIIcon icon={info} /></XUIButton>;
 
 const createTriggerSpan = () => <span style={{ textDecoration: 'underline' }}>Beauty is everywhere</span>;
 
@@ -137,27 +137,15 @@ storiesWithKnobs.add('Playground', () => {
 			}}
 			>
 				<XUITooltip trigger={createTriggerInput()} {...props}>
-					<XUIButton>
-						{props.preferredPosition}
-						<XUIButtonCaret key="caret" />
-					</XUIButton>
-					{createTipInput()}
-					{createTipInput()}
+					<p>Here there was once a paragraph of content that had some kind of explanation to go with it.</p>
 				</XUITooltip>
 				<XUITooltip trigger={createTriggerInput()} {...props}	>
-					<div style={{ width: '300px', height: '200px' }} />
-					<XUIButton>
-						{props.preferredPosition}
-						<XUIButtonCaret key="caret" />
-					</XUIButton>
+					<div style={{ height: '200px' }}>
+						<p>Here there was once a paragraph of content that had some kind of explanation to go with it.</p>
+					</div>
 				</XUITooltip>
 				<XUITooltip trigger={createTriggerInput()} {...props} >
-					<XUIButton>
-						{props.preferredPosition}
-						<XUIButtonCaret key="caret" />
-					</XUIButton>
-					{createTipInput()}
-					{createTipInput()}
+					<p>Here there was once a paragraph of content that had some kind of explanation to go with it.</p>
 				</XUITooltip>
 			</div>
 			<div style={{
@@ -176,12 +164,7 @@ storiesWithKnobs.add('Playground', () => {
 					{props.preferredPosition}
 				</XUITooltip>
 				<XUITooltip trigger={createTriggerInput()} {...props} >
-					<XUIButton>
-						{props.preferredPosition}
-						<XUIButtonCaret key="caret" />
-					</XUIButton>
-					{createTipInput()}
-					{createTipInput()}
+					<p>Here there was once a paragraph of content that had some kind of explanation to go with it.</p>
 				</XUITooltip>
 			</div>
 			<div style={{ position: 'fixed', left: '40px', top: '300px' }}>

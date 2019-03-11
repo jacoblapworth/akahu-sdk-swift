@@ -6,6 +6,8 @@
 //
 // Components: Dropdown
 //
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.kou6b67d5zkb
+//
 // Styleguide: Compounds.CollectingInput.Search
 
 // Best practice
@@ -24,23 +26,22 @@
 // To do this, use the following classes in combination with a [borderless input](section-building-blocks-controls-textinput.html#building-blocks-controls-textinput-7-8) and [picklist](section-compounds-displayingdata-picklist.html).
 //
 // Classes:
-// xui-dropdown-header: Header container
-// xui-dropdown-header-container: Header content
+// xui-dropdown--header: Header container
+// xui-dropdown--header-container: Header content
 // xui-dropdown--scrollable-content: Picklist container
 // xui-dropdown-fullheight: Apply to dropdown to make room for the software keyboard
-// xui-u-hidden-medium: Apply to header to hide between 520px and 940px
-// xui-u-hidden-wide: Apply to header to hide above 940px
+// xui-dropdown-hide-small-up: Apply to a dropdown sub-element such as the header or actions to hide above 600px
 //
 // Styleguide: Compounds.CollectingInput.Search.2
 
 // Standard
 //
 // Markup:
-// <div class='xui-dropdown-layout xui-dropdown-fixed-xlarge xui-dropdown-fullheight xui-dropdown-is-open'>
+// <div class='xui-dropdown-layout xui-dropdown-fixed-large xui-dropdown-fullheight xui-dropdown-is-open'>
 //   <div class='xui-dropdown--mask'></div>
 //   <div class='xui-dropdown--body'>
 //     <div class="xui-dropdown--header">
-//      <div class="xui-dropdown--header-container xui-u-hidden-medium xui-u-hidden-wide">
+//      <div class="xui-dropdown--header-container xui-dropdown-hide-small-up">
 //        <div class="xui-dropdown--header-leftcontent">
 //          <div class="xui-heading-small xui-margin-left-small xui-text-truncated">
 //            Assign to staff
@@ -55,7 +56,7 @@
 //       <div class="xui-dropdown--header-container">
 //         <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-solid xui-textinput-borderless-transparent">
 //           <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//             <div class="xui-iconwrapper">
+//             <div class="xui-iconwrapper xui-iconwrapper-large">
 //               <svg focusable="false" class="xui-icon">
 //                 <use xlink:href="#xui-icon-search" role="presentation" />
 //               </svg>
@@ -66,25 +67,31 @@
 //       </div>
 //     </div>
 //     <div class='xui-dropdown--scrollable-content'>
-//       <ul class="xui-picklist xui-picklist-layout" role="tree">
-//        <li class="xui-pickitem" role="treeitem">
-//          <button type="button" class="xui-pickitem--body">
-//            <abbr class="xui-avatar xui-avatar-small xui-avatar-color-8 xui-margin-right">JM</abbr>
-//            <span class="xui-pickitem--text xui-text-truncated">James Magness</span>
-//          </button>
-//        </li>
-//        <li class="xui-pickitem" role="treeitem">
-//          <button type="button" class="xui-pickitem--body">
-//            <abbr class="xui-avatar xui-avatar-small xui-avatar-color-5 xui-margin-right">KH</abbr>
-//            <span class="xui-pickitem--text xui-text-truncated">Kirk Holloway</span>
-//          </button>
-//        </li>
-//        <li class="xui-pickitem" role="treeitem">
-//          <button type="button" class="xui-pickitem--body">
-//            <abbr class="xui-avatar xui-avatar-small xui-avatar-color-2 xui-margin-right">FP</abbr>
-//            <span class="xui-pickitem--text xui-text-truncated">Fay Pickering</span>
-//          </button>
-//        </li>
+//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout" role="tree">
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--sideelement">
+//               <abbr class="xui-avatar xui-avatar-small xui-avatar-color-8">EW</abbr>
+//             </span>
+//             <span class="xui-pickitem--text xui-text-truncated">Elise Wei</span>
+//           </button>
+//         </li>
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--sideelement">
+//               <abbr class="xui-avatar xui-avatar-small xui-avatar-color-5">JM</abbr>
+//             </span>
+//             <span class="xui-pickitem--text xui-text-truncated">James Magness</span>
+//           </button>
+//         </li>
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--sideelement">
+//               <abbr class="xui-avatar xui-avatar-small xui-avatar-color-2">ME</abbr>
+//             </span>
+//             <span class="xui-pickitem--text xui-text-truncated">Maxine Ellah</span>
+//           </button>
+//         </li>
 //       </ul>
 //     </div>
 //   </div>
@@ -99,11 +106,11 @@
 // Do: Consider creating new items on the fly by including the search value as the last item in the list
 //
 // Markup:
-// <div class='xui-dropdown-layout xui-dropdown-fixed-xlarge xui-dropdown-fullheight xui-dropdown-is-open'>
+// <div class='xui-dropdown-layout xui-dropdown-fixed-large xui-dropdown-fullheight xui-dropdown-is-open'>
 //   <div class='xui-dropdown--mask'></div>
 //   <div class='xui-dropdown--body'>
 //     <div class="xui-dropdown--header">
-//      <div class="xui-dropdown--header-container xui-u-hidden-medium xui-u-hidden-wide">
+//      <div class="xui-dropdown--header-container xui-dropdown-hide-small-up">
 //        <div class="xui-dropdown--header-leftcontent">
 //          <div class="xui-heading-small xui-margin-left-small xui-text-truncated">
 //            Assign to staff
@@ -118,7 +125,7 @@
 //       <div class="xui-dropdown--header-container">
 //         <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-solid xui-textinput-borderless-transparent">
 //           <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//             <div class="xui-iconwrapper">
+//             <div class="xui-iconwrapper xui-iconwrapper-large">
 //               <svg focusable="false" class="xui-icon">
 //                 <use xlink:href="#xui-icon-search" role="presentation" />
 //               </svg>
@@ -126,37 +133,42 @@
 //           </div>
 //           <input id="transparent-example" class="xui-textinput--input xui-padding-left-none" type="search" value="Tim" aria-label="Transparent input with icons" />
 //           <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//             <div class="xui-button-icon">
-//               <svg focusable="false" class="xui-icon">
-//                 <use xlink:href="#xui-icon-clear" role="presentation" />
-//               </svg>
-//             </div>
+//             <button class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+//               <div class="xui-iconwrapper xui-iconwrapper-large">
+//                 <svg focusable="false" class="xui-icon">
+//                   <use xlink:href="#xui-icon-clear" role="presentation" />
+//                 </svg>
+//               </div>
+//             </button>
 //           </div>
 //         </div>
 //       </div>
 //     </div>
 //     <div class='xui-dropdown--scrollable-content'>
-//       <ul class="xui-picklist xui-picklist-layout" role="tree">
-//        <li class="xui-pickitem" role="treeitem">
-//          <button type="button" class="xui-pickitem--body">
-//            <abbr class="xui-avatar xui-avatar-small xui-avatar-color-7 xui-margin-right">TR</abbr>
-//            <span class="xui-pickitem--text xui-text-truncated">Tim Redmond</span>
-//          </button>
-//        </li>
-//         <li class="xui-pickitem" role="treeitem">
-//           <div class="xui-pickitem--icon xui-iconwrapper">
-//             <svg focusable="false" class="xui-icon xui-icon-color-black-muted">
-//               <use xlink:href="#xui-icon-plus" role="presentation"></use>
-//             </svg>
-//           </div>
-//           <span class="xui-pickitem--body">
-//               <span class="xui-pickitem--text xui-u-flex-inherit">
-//               <span class="xui-u-flex-1 xui-text-truncated">Tim</span>
-//               <span class="xui-text-minor xui-padding-left-small">NEW</span>
-//            </span>
-//           </span>
+//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout" role="tree">
+//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--sideelement">
+//               <abbr class="xui-avatar xui-avatar-small xui-avatar-color-7">TR</abbr>
+//             </span>
+//             <span class="xui-pickitem--text xui-text-truncated">Tim Redmond</span>
+//           </button>
 //         </li>
 //       </ul>
+//       <div class="xui-dropdown--footer">
+//         <ul class="xui-picklist xui-picklist-medium xui-picklist-layout">
+//           <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//             <button type="button" class="xui-pickitem--body">
+//               <span class="xui-pickitem--sideelement">
+//                 <svg focusable="false" class="xui-icon xui-icon-color-black-muted">
+//                   <use xlink:href="#xui-icon-plus" role="presentation"></use>
+//                 </svg>
+//               </span>
+//               <span class="xui-pickitem--text">Add 'Tim' as a new contact</span>
+//             </button>
+//           </li>
+//         </ul>
+//       </div>
 //     </div>
 //   </div>
 // </div>
@@ -170,11 +182,11 @@
 // Do: Include a suitable empty state if no results are found
 //
 // Markup:
-// <div class='xui-dropdown-layout xui-dropdown-fixed-xlarge xui-dropdown-fullheight xui-dropdown-is-open'>
+// <div class='xui-dropdown-layout xui-dropdown-fixed-large xui-dropdown-fullheight xui-dropdown-is-open'>
 //   <div class='xui-dropdown--mask'></div>
 //   <div class='xui-dropdown--body'>
 //     <div class="xui-dropdown--header">
-//      <div class="xui-dropdown--header-container xui-u-hidden-medium xui-u-hidden-wide">
+//      <div class="xui-dropdown--header-container xui-dropdown-hide-small-up">
 //        <div class="xui-dropdown--header-leftcontent">
 //          <div class="xui-heading-small xui-margin-left-small xui-text-truncated">
 //            Assign to staff
@@ -189,7 +201,7 @@
 //       <div class="xui-dropdown--header-container">
 //         <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-solid xui-textinput-borderless-transparent">
 //           <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//             <div class="xui-iconwrapper">
+//             <div class="xui-iconwrapper xui-iconwrapper-large">
 //               <svg focusable="false" class="xui-icon">
 //                 <use xlink:href="#xui-icon-search" role="presentation" />
 //               </svg>
@@ -201,7 +213,7 @@
 //     </div>
 //     <div class='xui-dropdown--scrollable-content xui-u-flex xui-u-flex-justify-center'>
 //       <div class="xui-u-flex xui-padding-large xui-u-flex-justify-center xui-u-flex-align-center xui-u-flex-column xui-textcolor-muted">
-//         <div class="xui-iconwrapper">
+//         <div class="xui-iconwrapper xui-iconwrapper-large">
 //           <svg focusable="false" class="xui-icon">
 //             <use xlink:href="#xui-icon-search" role="presentation"></use>
 //           </svg>

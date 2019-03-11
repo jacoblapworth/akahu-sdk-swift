@@ -3,7 +3,6 @@
 exports[`XUIAvatar Generic tests should accept a custom className 1`] = `
 <abbr
   className="test-class xui-avatar xui-avatar-color-8"
-  data-automationid={undefined}
   role="presentation"
 >
   T
@@ -23,7 +22,6 @@ exports[`XUIAvatar Generic tests should accept a custom qaHook 1`] = `
 exports[`XUIAvatar should render an \`abbr\` avatar when I give it a value 1`] = `
 <abbr
   className="xui-avatar xui-avatar-color-8"
-  data-automationid={undefined}
   role="presentation"
 >
   T
@@ -33,7 +31,6 @@ exports[`XUIAvatar should render an \`abbr\` avatar when I give it a value 1`] =
 exports[`XUIAvatar should render an \`abbr\` avatar when I give it an identifier and a value 1`] = `
 <abbr
   className="xui-avatar xui-avatar-color-7"
-  data-automationid={undefined}
   role="presentation"
 >
   T
@@ -44,7 +41,6 @@ exports[`XUIAvatar should render an \`img\` avatar when I give it an image 1`] =
 <img
   alt=""
   className="xui-avatar"
-  data-automationid={undefined}
   onError={[Function]}
   src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"
 />
@@ -52,8 +48,7 @@ exports[`XUIAvatar should render an \`img\` avatar when I give it an image 1`] =
 
 exports[`XUIAvatar should render in a range of sizes 1`] = `
 <abbr
-  className="xui-avatar xui-avatar-xsmall xui-avatar-color-8"
-  data-automationid={undefined}
+  className="xui-avatar xui-avatar-2xsmall xui-avatar-color-8"
   role="presentation"
 >
   T
@@ -62,8 +57,7 @@ exports[`XUIAvatar should render in a range of sizes 1`] = `
 
 exports[`XUIAvatar should render in a range of sizes 2`] = `
 <abbr
-  className="xui-avatar xui-avatar-small xui-avatar-color-8"
-  data-automationid={undefined}
+  className="xui-avatar xui-avatar-xsmall xui-avatar-color-8"
   role="presentation"
 >
   T
@@ -72,8 +66,7 @@ exports[`XUIAvatar should render in a range of sizes 2`] = `
 
 exports[`XUIAvatar should render in a range of sizes 3`] = `
 <abbr
-  className="xui-avatar xui-avatar-color-8"
-  data-automationid={undefined}
+  className="xui-avatar xui-avatar-small xui-avatar-color-8"
   role="presentation"
 >
   T
@@ -82,8 +75,7 @@ exports[`XUIAvatar should render in a range of sizes 3`] = `
 
 exports[`XUIAvatar should render in a range of sizes 4`] = `
 <abbr
-  className="xui-avatar xui-avatar-large xui-avatar-color-8"
-  data-automationid={undefined}
+  className="xui-avatar xui-avatar-color-8"
   role="presentation"
 >
   T
@@ -92,8 +84,7 @@ exports[`XUIAvatar should render in a range of sizes 4`] = `
 
 exports[`XUIAvatar should render in a range of sizes 5`] = `
 <abbr
-  className="xui-avatar xui-avatar-xlarge xui-avatar-color-8"
-  data-automationid={undefined}
+  className="xui-avatar xui-avatar-large xui-avatar-color-8"
   role="presentation"
 >
   T
@@ -102,8 +93,7 @@ exports[`XUIAvatar should render in a range of sizes 5`] = `
 
 exports[`XUIAvatar should render in a range of sizes 6`] = `
 <abbr
-  className="xui-avatar xui-avatar-2xlarge xui-avatar-color-8"
-  data-automationid={undefined}
+  className="xui-avatar xui-avatar-xlarge xui-avatar-color-8"
   role="presentation"
 >
   T
@@ -113,7 +103,6 @@ exports[`XUIAvatar should render in a range of sizes 6`] = `
 exports[`XUIAvatar should render in a range of variants 1`] = `
 <abbr
   className="xui-avatar xui-avatar-business xui-avatar-color-8"
-  data-automationid={undefined}
   role="presentation"
 >
   T

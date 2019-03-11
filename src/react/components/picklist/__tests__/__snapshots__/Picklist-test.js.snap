@@ -1,16 +1,189 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`< Picklist /> should render a automation id when a qaHook is passed in 1`] = `
+exports[`< Picklist /> example of list settings overriding item-level settings 1`] = `
 <ul
-  className="xui-picklist xui-picklist-layout"
-  data-automationid="picklist-example"
-  id={undefined}
-  onKeyDown={undefined}
-  onMouseDown={undefined}
+  className="xui-picklist xui-picklist-layout xui-picklist-small"
   role="group"
 >
-  <li>
-    Yo
+  <li
+    aria-selected={null}
+    className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-small"
+    id="pi1"
+    role="option"
+  >
+    <button
+      className="xui-pickitem--body"
+      rel={null}
+      type="button"
+    >
+      <span
+        className="xui-pickitem--text xui-pickitem-text-truncated"
+      >
+        <span
+          className="xui-pickitem-text-truncated"
+        >
+          Item content
+        </span>
+      </span>
+    </button>
+  </li>
+</ul>
+`;
+
+exports[`< Picklist /> example taking settings from first child and giving to all 1`] = `
+<ul
+  className="xui-picklist xui-picklist-layout xui-picklist-small"
+  role="group"
+>
+  <li
+    aria-selected={false}
+    className="xui-pickitem xui-pickitem-multiselect xui-pickitem-small"
+    id="pi1"
+    role="option"
+  >
+    <div
+      className="xui-pickitem--body"
+      role="presentation"
+    >
+      <div
+        className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-xsmall"
+      >
+        <label
+          className="xui-styledcheckboxradio"
+          onClick={[Function]}
+          role="presentation"
+        >
+          <input
+            aria-labelledby="testPickitemCheckboxId"
+            checked={false}
+            className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall"
+            disabled={false}
+            onChange={[Function]}
+            onClick={[Function]}
+            required={false}
+            tabIndex={-1}
+            type="checkbox"
+          />
+          <div
+            className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"
+          />
+          <span
+            className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label"
+            id="testPickitemCheckboxId"
+          >
+            <span
+              className=""
+            >
+              Item content
+            </span>
+          </span>
+        </label>
+      </div>
+    </div>
+  </li>
+  <li
+    aria-selected={false}
+    className="xui-pickitem xui-pickitem-multiselect xui-pickitem-small"
+    id="pi2"
+    role="option"
+  >
+    <div
+      className="xui-pickitem--body"
+      role="presentation"
+    >
+      <div
+        className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-xsmall"
+      >
+        <label
+          className="xui-styledcheckboxradio"
+          onClick={[Function]}
+          role="presentation"
+        >
+          <input
+            aria-labelledby="testPickitemCheckboxId"
+            checked={false}
+            className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall"
+            disabled={false}
+            onChange={[Function]}
+            onClick={[Function]}
+            required={false}
+            tabIndex={-1}
+            type="checkbox"
+          />
+          <div
+            className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"
+          />
+          <span
+            className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label"
+            id="testPickitemCheckboxId"
+          >
+            <span
+              className=""
+            >
+              Item two
+            </span>
+          </span>
+        </label>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`< Picklist /> example with most compatible options 1`] = `
+<ul
+  className="xui-picklist custom-picklist-class xui-picklist-horizontal xui-picklist-small"
+  data-automationid="picklist-example"
+  id="picklistId"
+  role="presentation"
+>
+  <li
+    aria-selected={null}
+    className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-is-horizontal xui-pickitem-small"
+    id="pi1"
+    role="option"
+  >
+    <button
+      className="xui-pickitem--body"
+      rel={null}
+      type="button"
+    >
+      <span
+        className="xui-pickitem--text xui-pickitem-text-truncated"
+      >
+        <span
+          className="xui-pickitem-text-truncated"
+        >
+          Item content
+        </span>
+      </span>
+    </button>
+  </li>
+</ul>
+`;
+
+exports[`< Picklist /> renders most basic example 1`] = `
+<ul
+  className="xui-picklist xui-picklist-layout xui-picklist-medium"
+  role="group"
+>
+  <li
+    aria-selected={null}
+    className="xui-pickitem xui-pickitem-medium"
+    id="pi1"
+    role="option"
+  >
+    <button
+      className="xui-pickitem--body"
+      rel={null}
+      type="button"
+    >
+      <span
+        className="xui-pickitem--text"
+      >
+        Item content
+      </span>
+    </button>
   </li>
 </ul>
 `;

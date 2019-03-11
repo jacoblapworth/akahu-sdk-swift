@@ -7,7 +7,7 @@ import XUICheckboxGroup from '../XUICheckboxGroup';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 import { variations, storiesWithVariationsKindName } from './variations';
@@ -18,11 +18,15 @@ storiesWithKnobs.addDecorator(withKnobs);
 
 storiesWithKnobs.add('Playground', () => (
 	<XUICheckbox
-		isLabelHidden={boolean('label hidden', false)}
-		isDisabled={boolean('disabled', false)}
-		isIndeterminate={boolean('indeterminate', false)}
-		isReversed={boolean('reversed', false)}
+		isLabelHidden={boolean('isLabelHidden', false)}
+		isDisabled={boolean('isDisabled', false)}
+		isIndeterminate={boolean('isIndeterminate', false)}
+		isReversed={boolean('isReversed', false)}
 		value={text('value', '')}
+		isInvalid={boolean('isInvalid', false)}
+		validationMessage={text('validationMessage', '')}
+		hintMessage={text('hintMessage', '')}
+		size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
 	>{text('label text', 'Test checkbox')}</XUICheckbox>
 ));
 
@@ -31,25 +35,25 @@ storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
-		const { isGroup } = variation;
-		const labelText = typeof variation.labelText === 'string' ? variation.labelText : "Test radio";
+		const { isGroup, isReversed, groupProps } = variation;
+		const label = typeof variation.labelText === 'string' ? variation.labelText : "Test radio";
 
 		// Remove story-specific properties
-		const checkboxProps = { ...variation, storyKind: undefined, storyTitle: undefined, isGroup: undefined, labelText: undefined };
+		const checkboxProps = { ...variation, storyKind: undefined, storyTitle: undefined, isGroup: undefined, label: undefined };
 
 		if(isGroup){
 			return (
-				<XUICheckboxGroup labelText="Birds">
-					<XUICheckbox isDefaultChecked={true}>
+				<XUICheckboxGroup {...groupProps}>
+					<XUICheckbox isDefaultChecked isReversed={isReversed}>
 						Kakapo
 					</XUICheckbox>
-					<XUICheckbox>
+					<XUICheckbox isReversed={isReversed}>
 						Weka
 					</XUICheckbox>
-					<XUICheckbox isDisabled={true}>
+					<XUICheckbox isDisabled isReversed={isReversed}>
 						Kea
 					</XUICheckbox>
-					<XUICheckbox>
+					<XUICheckbox isReversed={isReversed}>
 						Kiwi
 					</XUICheckbox>
 				</XUICheckboxGroup>
@@ -57,7 +61,7 @@ variations.forEach(variation => {
 		}
 
 		return (
-			<XUICheckbox	{...checkboxProps}>{labelText}</XUICheckbox>
+			<XUICheckbox	{...checkboxProps}>{label}</XUICheckbox>
 		)
 	});
 });

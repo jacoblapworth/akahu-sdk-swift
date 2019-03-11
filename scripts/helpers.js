@@ -78,10 +78,11 @@ function taskRunner(task, fileName) {
 	const perf = new CaptureScriptPerformance();
 	perf.start();
 
-	return task(thisTask).then(({ stdout, stderr }) => {
+	return task(thisTask).then(({ stdout, stderr } = {}) => {
 		if (stderr) {
 			console.error(stderr);
 			thisTask.fail(`${title} failed to finish successfully`);
+			process.exit(1);
 		}
 		if ((stdout !== null && typeof stdout === 'string') || stdout) {
 			typeof stdout === 'string' && console.log(`\n\n${stdout}`);
@@ -90,6 +91,12 @@ function taskRunner(task, fileName) {
 		perf.stop();
 		console.log(logScriptRunOutput(twoDecimals(perf.delta), title));
 		return ''; // Node will otherwise print `undefined` to the console
+	}).catch(reason => {
+		if (reason.signal === 'SIGINT') {
+			process.exit();
+		} else {
+			console.log(reason);
+		}
 	});
 }
 

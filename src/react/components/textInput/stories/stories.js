@@ -16,12 +16,15 @@ import centered from '@storybook/addon-centered';
 import { storiesWithVariationsKindName, variations } from './variations';
 import clearPath from '@xero/xui-icon/icons/clear';
 import facebookPath from '@xero/xui-icon/icons/social-facebook';
+import XUIPill from '../../pill/XUIPill';
+import XUIAvatar from '../../avatar/XUIAvatar';
+import { sizeShift } from '../../helpers/sizes';
 
 const inputProps = {};
 
 const TextInputWrapper = props => {
 	const {
-		labelText,
+		label,
 		inputProps,
 		isBorderlessTransparent,
 		isBorderlessSolid,
@@ -41,14 +44,24 @@ const TextInputWrapper = props => {
 		minRows,
 		maxRows,
 		rows,
+		size,
 	} = props;
 
 	const makeSideElement = (sideElementType, sideElementAlignment) => {
+		const childComponentSize = sizeShift(size, -1);
 		switch (sideElementType) {
 		case 'icon':
 			return (
 				<XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
-					<XUIIcon icon={clearPath} isBoxed />
+					<XUIIcon icon={clearPath} isBoxed/>
+				</XUITextInputSideElement>
+			);
+		case 'icon button':
+			return (
+				<XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
+					<XUIButton variant="icon" size={size}>
+						<XUIIcon icon={clearPath} />
+					</XUIButton>
 				</XUITextInputSideElement>
 			);
 		case 'iconWithBackground':
@@ -63,18 +76,39 @@ const TextInputWrapper = props => {
 			);
 		case 'text':
 			return (
-				<XUITextInputSideElement type="text" alignment={sideElementAlignment}>
-						Test
+				<XUITextInputSideElement type="text" alignment='center'>
+						Test:
 				</XUITextInputSideElement>
 			);
 		case 'button':
-			return (
-				<XUITextInputSideElement type="button" alignment={sideElementAlignment}>
-					<XUIButton variant="primary" size="small">
+			return (childComponentSize !== '2xsmall' &&
+				(<XUITextInputSideElement type="button" alignment={sideElementAlignment}>
+					<XUIButton variant="primary" size={childComponentSize}>
 							Test
 					</XUIButton>
-				</XUITextInputSideElement>
+				</XUITextInputSideElement>)
 			);
+		case 'pill':
+			return (childComponentSize !== '2xsmall' &&
+					(<XUITextInputSideElement type="pill" alignment={sideElementAlignment}>
+						<XUIPill
+								avatarProps={{
+									value: 'TP'
+								}}
+								value="Test Person"
+								size={childComponentSize}
+							/>
+					</XUITextInputSideElement>)
+			);
+		case 'avatar':
+		return (
+			<XUITextInputSideElement type="avatar" alignment={sideElementAlignment}>
+				<XUIAvatar
+					value="Test Person"
+					size={childComponentSize}
+				/>
+			</XUITextInputSideElement>
+		);
 		default:
 			return null;
 		}
@@ -82,15 +116,26 @@ const TextInputWrapper = props => {
 
 	return (
 		<XUITextInput
-			labelText={labelText}
-			inputProps={inputProps}
+			{...{
+				label,
+				inputProps,
+				isBorderlessTransparent,
+				isBorderlessSolid,
+				isInvalid,
+				validationMessage,
+				hintMessage,
+				placeholder,
+				isDisabled,
+				value,
+				isMultiline,
+				isLabelHidden,
+				minRows,
+				maxRows,
+				rows,
+				size,
+			}}
 			leftElement={makeSideElement(leftElementType, leftElementAlignment)}
 			rightElement={makeSideElement(rightElementType, rightElementAlignment)}
-			isBorderlessTransparent={isBorderlessTransparent}
-			isBorderlessSolid={isBorderlessSolid}
-			isInvalid={isInvalid}
-			validationMessage={validationMessage}
-			hintMessage={hintMessage}
 			type="text"
 			defaultValue={defaultValue || 'default Value'}
 			placeholder={placeholder}
@@ -105,16 +150,20 @@ const TextInputWrapper = props => {
 	);
 };
 
+TextInputWrapper.defaultProps = {
+	size: 'medium',
+};
+
 TextInputWrapper.propTypes = {
-	labelText: PropTypes.string,
+	label: PropTypes.node,
 	inputProps: PropTypes.object,
 	isBorderlessTransparent: PropTypes.bool,
 	isBorderlessSolid: PropTypes.bool,
 	isInvalid: PropTypes.bool,
 	validationMessage: PropTypes.string,
 	hintMessage: PropTypes.string,
-	leftElementType: PropTypes.oneOf(['icon', 'iconWithBackground', 'button', 'text']),
-	rightElementType: PropTypes.oneOf(['icon', 'iconWithBackground', 'button', 'text']),
+	leftElementType: PropTypes.oneOf(['icon', 'iconWithBackground', 'button', 'text', 'pill', 'avatar', 'icon button']),
+	rightElementType: PropTypes.oneOf(['icon', 'iconWithBackground', 'button', 'text', 'pill', 'avatar', 'icon button']),
 	leftElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
 	rightElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
 	placeholder: PropTypes.string,
@@ -126,9 +175,10 @@ TextInputWrapper.propTypes = {
 	minRows: PropTypes.number,
 	maxRows: PropTypes.number,
 	rows: PropTypes.number,
+	size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
 };
 
-const elementTypeOptions = [null, 'icon', 'iconWithBackground', 'button', 'text'];
+const elementTypeOptions = [null, 'icon', 'iconWithBackground', 'button', 'text', 'pill', 'avatar'];
 
 const elementAlignmentOptions = ['top', 'center', 'bottom'];
 
@@ -137,10 +187,11 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
 	<TextInputWrapper
-		labelText={text('label text', 'Test label')}
+		label={text('label text', 'Test label')}
 		isLabelHidden={boolean('is label hidden', false)}
 		placeholder={text('placeholder', 'placeholder text')}
 		value={text('value')}
+		size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
 		isMultiline={boolean('is multiline', false)}
 		minRows={number('min height of multiline input in rows', 0) || undefined}
 		maxRows={number('max height of multiline input in rows', 0) || undefined}
@@ -167,9 +218,13 @@ variations.forEach(variation => {
 		const variationMinusStoryDetails = { ...variation };
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
-		if (!variationMinusStoryDetails.labelText) {
-			variationMinusStoryDetails.labelText = 'Test label';
+		if (!variationMinusStoryDetails.label) {
+			variationMinusStoryDetails.label = 'Test label';
 			variationMinusStoryDetails.isLabelHidden = true;
+		}
+		if (variationMinusStoryDetails.noDefault) {
+			delete variationMinusStoryDetails.noDefault;
+			return <XUITextInput {...variationMinusStoryDetails} type="text" />
 		}
 
 		return <TextInputWrapper {...variationMinusStoryDetails} />;

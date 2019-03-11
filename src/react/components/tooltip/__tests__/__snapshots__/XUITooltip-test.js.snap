@@ -7,9 +7,7 @@ exports[`XUITooltip allows for different trigger components to be passed 1`] = `
   <span
     aria-describedby="test"
     onBlur={[Function]}
-    onClick={undefined}
     onFocus={[Function]}
-    onKeyDown={undefined}
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     style={
@@ -22,7 +20,6 @@ exports[`XUITooltip allows for different trigger components to be passed 1`] = `
   </span>
   <span
     className="xui-positioningInline"
-    data-automationid={undefined}
     style={
       Object {
         "flexDirection": "column",
@@ -33,7 +30,6 @@ exports[`XUITooltip allows for different trigger components to be passed 1`] = `
     <span
       aria-hidden={true}
       className="xui-tooltip--tip"
-      data-automationid={undefined}
       id="test"
       role="tooltip"
       style={
@@ -60,9 +56,7 @@ exports[`XUITooltip include an automation-id 1`] = `
     aria-describedby="test"
     href="javascript:void(0);"
     onBlur={[Function]}
-    onClick={undefined}
     onFocus={[Function]}
-    onKeyDown={undefined}
     onMouseOut={[Function]}
     onMouseOver={[Function]}
   >
@@ -108,9 +102,7 @@ exports[`XUITooltip include an id, if provided 1`] = `
     aria-describedby="test-tooltip-id"
     href="javascript:void(0);"
     onBlur={[Function]}
-    onClick={undefined}
     onFocus={[Function]}
-    onKeyDown={undefined}
     onMouseOut={[Function]}
     onMouseOver={[Function]}
   >
@@ -118,7 +110,6 @@ exports[`XUITooltip include an id, if provided 1`] = `
   </a>
   <span
     className="xui-positioningInline"
-    data-automationid={undefined}
     style={
       Object {
         "flexDirection": "column",
@@ -129,7 +120,6 @@ exports[`XUITooltip include an id, if provided 1`] = `
     <span
       aria-hidden={true}
       className="xui-tooltip--tip"
-      data-automationid={undefined}
       id="test-tooltip-id"
       role="tooltip"
       style={
@@ -156,9 +146,7 @@ exports[`XUITooltip include provided classNames 1`] = `
     aria-describedby="test"
     href="javascript:void(0);"
     onBlur={[Function]}
-    onClick={undefined}
     onFocus={[Function]}
-    onKeyDown={undefined}
     onMouseOut={[Function]}
     onMouseOver={[Function]}
   >
@@ -166,7 +154,6 @@ exports[`XUITooltip include provided classNames 1`] = `
   </a>
   <span
     className="xui-positioningInline test-tooltip-class"
-    data-automationid={undefined}
     style={
       Object {
         "flexDirection": "column",
@@ -177,7 +164,6 @@ exports[`XUITooltip include provided classNames 1`] = `
     <span
       aria-hidden={true}
       className="test-tooltip-class xui-tooltip--tip"
-      data-automationid={undefined}
       id="test"
       role="tooltip"
       style={
@@ -204,9 +190,7 @@ exports[`XUITooltip include provided wrapperClassNames 1`] = `
     aria-describedby="test"
     href="javascript:void(0);"
     onBlur={[Function]}
-    onClick={undefined}
     onFocus={[Function]}
-    onKeyDown={undefined}
     onMouseOut={[Function]}
     onMouseOver={[Function]}
   >
@@ -214,7 +198,6 @@ exports[`XUITooltip include provided wrapperClassNames 1`] = `
   </a>
   <span
     className="xui-positioningInline"
-    data-automationid={undefined}
     style={
       Object {
         "flexDirection": "column",
@@ -225,7 +208,6 @@ exports[`XUITooltip include provided wrapperClassNames 1`] = `
     <span
       aria-hidden={true}
       className="xui-tooltip--tip"
-      data-automationid={undefined}
       id="test"
       role="tooltip"
       style={
@@ -252,9 +234,7 @@ exports[`XUITooltip renders correctly 1`] = `
     aria-describedby="test"
     href="javascript:void(0);"
     onBlur={[Function]}
-    onClick={undefined}
     onFocus={[Function]}
-    onKeyDown={undefined}
     onMouseOut={[Function]}
     onMouseOver={[Function]}
   >
@@ -262,7 +242,6 @@ exports[`XUITooltip renders correctly 1`] = `
   </a>
   <span
     className="xui-positioningInline"
-    data-automationid={undefined}
     style={
       Object {
         "flexDirection": "column",
@@ -273,7 +252,6 @@ exports[`XUITooltip renders correctly 1`] = `
     <span
       aria-hidden={true}
       className="xui-tooltip--tip"
-      data-automationid={undefined}
       id="test"
       role="tooltip"
       style={
@@ -300,9 +278,7 @@ exports[`XUITooltip sets maxHeight 1`] = `
     aria-describedby="test"
     href="javascript:void(0);"
     onBlur={[Function]}
-    onClick={undefined}
     onFocus={[Function]}
-    onKeyDown={undefined}
     onMouseOut={[Function]}
     onMouseOver={[Function]}
   >
@@ -310,7 +286,6 @@ exports[`XUITooltip sets maxHeight 1`] = `
   </a>
   <span
     className="xui-positioningInline"
-    data-automationid={undefined}
     style={
       Object {
         "flexDirection": "column",
@@ -321,7 +296,6 @@ exports[`XUITooltip sets maxHeight 1`] = `
     <span
       aria-hidden={true}
       className="xui-tooltip--tip"
-      data-automationid={undefined}
       id="test"
       role="tooltip"
       style={
@@ -348,9 +322,7 @@ exports[`XUITooltip sets maxWidth 1`] = `
     aria-describedby="test"
     href="javascript:void(0);"
     onBlur={[Function]}
-    onClick={undefined}
     onFocus={[Function]}
-    onKeyDown={undefined}
     onMouseOut={[Function]}
     onMouseOver={[Function]}
   >
@@ -358,7 +330,6 @@ exports[`XUITooltip sets maxWidth 1`] = `
   </a>
   <span
     className="xui-positioningInline"
-    data-automationid={undefined}
     style={
       Object {
         "flexDirection": "column",
@@ -369,7 +340,6 @@ exports[`XUITooltip sets maxWidth 1`] = `
     <span
       aria-hidden={true}
       className="xui-tooltip--tip"
-      data-automationid={undefined}
       id="test"
       role="tooltip"
       style={
@@ -396,9 +366,7 @@ exports[`XUITooltip sets visibility classes, if set to be visible 1`] = `
     aria-describedby="test"
     href="javascript:void(0);"
     onBlur={[Function]}
-    onClick={undefined}
     onFocus={[Function]}
-    onKeyDown={undefined}
     onMouseOut={[Function]}
     onMouseOver={[Function]}
   >
@@ -406,7 +374,6 @@ exports[`XUITooltip sets visibility classes, if set to be visible 1`] = `
   </a>
   <span
     className="xui-positioningInline"
-    data-automationid={undefined}
     style={
       Object {
         "flexDirection": "column",
@@ -417,7 +384,6 @@ exports[`XUITooltip sets visibility classes, if set to be visible 1`] = `
     <span
       aria-hidden={false}
       className="xui-tooltip--tip xui-tooltip--tip-open"
-      data-automationid={undefined}
       id="test"
       role="tooltip"
       style={

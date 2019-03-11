@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import XUICheckbox from '../checkbox/XUICheckbox';
-import { sizeClassNames, baseClass } from './private/constants';
-import { ns } from '../helpers/xuiClassNamespace';
+import { baseClass } from './private/constants';
 
 export default class XUIRolloverCheckbox extends PureComponent {
 	state = {
@@ -60,11 +59,10 @@ export default class XUIRolloverCheckbox extends PureComponent {
 	/**
 	 * @public
 	 *
-	 * Handler attached to the target element for triggering the click event on the checkbox
-	 * when the target element is clicked.
+	 * Method to allow for programmatic triggering of the click event on the checkbox
 	 */
 	triggerCheckboxClick = () => {
-		this._checkbox._input.click();
+		this._checkbox._input.current.click();
 	};
 
 	/**
@@ -87,10 +85,10 @@ export default class XUIRolloverCheckbox extends PureComponent {
 			id,
 			rolloverComponent,
 			qaHook,
-			size,
 			isCheckboxHidden,
-			labelText,
+			label,
 			ariaLabelledBy,
+			checkboxSize,
 		} = this.props;
 		const {
 			isMouseOver,
@@ -105,10 +103,8 @@ export default class XUIRolloverCheckbox extends PureComponent {
 				className={cn(
 					`${baseClass}--target`,
 					isDisabled && `${baseClass}--target-disabled`,
-					sizeClassNames[size],
 					className,
 				)}
-				onClick={this.triggerCheckboxClick}
 				onMouseEnter={this.onMouseEnter}
 				onMouseLeave={this.onMouseLeave}
 				onFocus={this.onFocus}
@@ -116,8 +112,8 @@ export default class XUIRolloverCheckbox extends PureComponent {
 				data-automationid={qaHook}
 				role="presentation"
 			>
-				<div className={baseClass}>
-					<div className={!showRollover ? `${ns}-u-hidden-visually` : null}>
+				<div className={cn(baseClass, `${baseClass}-has-${checkboxSize}-checkbox`)}>
+					<div className={(!showRollover && `${baseClass}-hidden`) || undefined}>
 						{rolloverComponent}
 					</div>
 					<XUICheckbox
@@ -128,10 +124,14 @@ export default class XUIRolloverCheckbox extends PureComponent {
 						isLabelHidden
 						htmlClassName={`${baseClass}--checkbox`}
 						qaHook={qaHook && `${qaHook}--checkbox`}
-						className={showRollover ? `${ns}-u-hidden-visually` : null}
+						className={cn(
+							showRollover && `${baseClass}-hidden`,
+							`${baseClass}--styledcheckboxradio`,
+						)}
 						tabIndex={0}
 						labelId={ariaLabelledBy}
-					>{labelText}
+						size={checkboxSize}
+					>{label}
 					</XUICheckbox>
 				</div>
 			</div>
@@ -154,14 +154,15 @@ XUIRolloverCheckbox.propTypes = {
 	id: PropTypes.string,
 	/** Component to render when isCheckboxHidden is true and mouse is not over the component */
 	rolloverComponent: PropTypes.node,
-	/** Determine the size of the target, accepts small, medium, large or xlarge */
-	size: PropTypes.string,
 	/** Input label for accessibility purposes. Will not be visibly displayed. */
-	labelText: PropTypes.string,
+	label: PropTypes.node,
 	/** Optionally provide the id of an element that provides a label for the checkbox */
 	ariaLabelledBy: PropTypes.string,
+	/** Set the size of the checkbox revealed on rollover. Defaults to 'medium' */
+	checkboxSize: PropTypes.oneOf(['medium', 'small', 'xsmall']),
 };
 
 XUIRolloverCheckbox.defaultProps = {
 	isDisabled: false,
+	checkboxSize: 'medium',
 };

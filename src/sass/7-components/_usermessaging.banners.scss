@@ -9,6 +9,8 @@
 //
 // Components: Banner
 //
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.yhnmgwweghhm
+//
 // Flag: Under review
 //
 // Styleguide: Building Blocks.Alerts.Banner
@@ -42,13 +44,13 @@
 //
 // Markup:
 // <div class="xui-banner xui-banner-layout" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
 //       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <p class="xui-banner--message">Standard banner</p>
 // </div>
 // <div class="xui-banner xui-banner-layout" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
 //       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <p class="xui-banner--message">Banner with actions</p>
@@ -58,7 +60,7 @@
 //   </ul>
 // </div>
 // <div class="xui-banner xui-banner-layout" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
 //       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <p class="xui-banner--message">Banner with secondary message</p>
@@ -87,13 +89,13 @@
 //
 // Markup:
 // <div class="xui-banner xui-banner-layout xui-banner-positive" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
 //       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <p class="xui-banner--message">Banner message</p>
 // </div>
 // <div class="xui-banner xui-banner-layout xui-banner-negative" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
 //       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <p class="xui-banner--message">Banner message</p>
@@ -141,14 +143,14 @@
 }
 
 .#{$ns}-banner-layout {
-	@include xui-padding($xui-s-small);
+	@include xui-padding($xui-s-2xsmall);
 	@include xui-margin-bottom($xui-s-large);
 	@include xui-margin-horizontal(auto);
 
 	display: inline-block;
 	width: 100%;
 
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-small-down {
 		border-left: 0;
 		border-right: 0;
 		border-top: 0;
@@ -161,32 +163,21 @@
 	}
 
 	.#{$ns}-banner--message {
-		// The 7px here is to clear the standard paragraph height - 5px is too small
-		margin: $xui-s-xsmall $xui-s-small 7px $xui-s-xsmall;
+		margin: 0;
+		padding: $xui-s-xsmall $xui-s-small;
 	}
 
 	.#{$ns}-banner--messagedetail {
 		@include xui-margin-vertical($xui-s-xsmall);
-		@include xui-margin-horizontal($xui-s-xsmall);
+		@include xui-margin-horizontal($xui-s-small);
 	}
 
-	.#{$ns}-banner--actions {
-		display: flex;
-		flex-flow: wrap;
-		justify-content: flex-end;
-		margin: 0;
-		padding-left: 0;
-	}
-
-	// TODO: Deprecated in XUI12; remove in XUI14
-	.#{$ns}-banner--link {
-		@include xui-states-transparent;
-		display: inline-block;
-		padding: $xui-s-actionlink;
+	.#{$ns}-banner--action {
+		margin: $xui-s-2xsmall;
 	}
 
 	.#{$ns}-banner--close ~ .#{$ns}-banner--message {
-		max-width: calc(100% - 40px);
+		max-width: calc(100% - #{$xui-control-size-small + $xui-s-xsmall});
 	}
 
 	.#{$ns}-banner--close ~ .#{$ns}-banner--messagedetail {
@@ -207,6 +198,15 @@
 .#{$ns}-banner--actions,
 .#{$ns}-banner--close {
 	float: right;
+}
+
+.#{$ns}-banner--actions {
+	margin: 0;
+	padding: 0;
+}
+
+.#{$ns}-banner--close {
+	margin: $xui-s-2xsmall;
 }
 
 .#{$ns}-banner--action {

@@ -1,3 +1,5 @@
+@import "../vars";
+
 // Adds a clearfix to elements for self-clearing children https://css-tricks.com/snippets/css/clear-fix/
 @mixin xui-clearfix {
 	&::after {
@@ -11,7 +13,7 @@
 @mixin xui-position-offscreen-input {
 	display: inline;
 	flex: none; // Preserve width when the container has display: flex on Chrome
-	height: $xui-icon-standard;
+	height: $xui-s-xlarge;
 	left: 0 !important;
 	margin: 0 -4px 0 -9px; // Undo the width below so the element does not take up extra space. The weird -9px value is uniquely for FF on Windows
 	opacity: 0.01;
@@ -23,7 +25,7 @@
 
 // scss-lint:disable ImportantRule
 // Visually hides an element
-@mixin xui-utility-hidden-visually() {
+@mixin xui-utility-hidden-visually {
 	border: 0 !important;
 	clip: rect(1px, 1px, 1px, 1px);
 	height: 1px !important;
@@ -36,9 +38,18 @@
 	width: 1px !important;
 }
 
+// Visually hides text content
+// Used primarily to hide button text and simultanously
+// display a loader (to retain width)
+@mixin xui-utility-hidden-content {
+	opacity: 0;
+	pointer-events: none;
+	user-select: none;
+}
+
 // Conditionally expose styles when CSS Grid is supported. Great for creating
 // legacy browser fallbacks.
-@mixin xui-suports-css-grid() {
+@mixin xui-supports-css-grid {
 
 	@supports (display: grid) {
 		@content;

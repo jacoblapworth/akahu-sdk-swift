@@ -1,5 +1,20 @@
+import React from 'react';
+import commonViewports from '../../../stories/helpers/viewports';
+import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';
+
 const { rowVariants } = require('../private/constants');
 const storiesWithVariationsKindName = 'Instances/Structure';
+
+const buildPI = (total, progress) => {
+	return (
+		<XUIProgressLinear
+			id="testId"
+			total={total}
+			progress={progress}
+			hasToolTip={true}
+			toolTipMessage={`${progress} out of ${total}`}
+		/>
+	)};
 
 let variations = Object.keys(rowVariants).map(variant => ({
 		storyKind: storiesWithVariationsKindName,
@@ -9,6 +24,7 @@ let variations = Object.keys(rowVariants).map(variant => ({
 		type: 'row'
 	})
 );
+
 variations = [...variations,
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -48,6 +64,19 @@ variations = [...variations,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: `overview block minimalist and left-aligned with progress`,
+		type: 'overview',
+		hasBorder: false,
+		hasBackground: false,
+		textAlignment: 'left',
+		sections: [
+			{label: 'paid', value: '1,582.99', children: buildPI(10, 4)},
+			{label: 'unpaid', value: '0.68', children: buildPI(10, 6)},
+			{label: 'draft', value: '103.75', children: buildPI(10, 8)}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: `overview block with more sections and colors`,
 		type: 'overview',
 		sections: [
@@ -55,8 +84,13 @@ variations = [...variations,
 			{label: 'paid', value: '1,582.99', sentiment: 'positive'},
 			{label: 'unpaid', value: '0.68', sentiment: 'negative'},
 			{label: 'draft', value: '103.75', sentiment: 'muted'},
-			{label: 'there', value: 'you go'}
-		]
+			{label: 'there', value: 'you go'},
+			{label: 'paid', value: '1,582.99', sentiment: 'positive'},
+			{label: 'unpaid', value: '0.68', sentiment: 'negative'},
+			{label: 'draft', value: '103.75', sentiment: 'muted'},
+		],
+		style: {minWidth: "0px"},
+		viewports: commonViewports
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -114,14 +148,27 @@ variations = [...variations,
 			{
 				primaryHeading: 'Item 3 Primary (rollover)',
 				leftContent: "rollover",
-				overflow: true
+				overflow: true,
 			},
 			{
 				primaryHeading: 'Item 4 Primary',
 				secondaryHeading: 'Item 4 Secondary',
 				tag: true,
-				overflow: true
-			}
+				overflow: true,
+				description: 'Many people were hoping that if the Democrats won control of Congress'
+			},
+			{
+				primaryHeading: 'Item 5 Primary (rollover)',
+				leftContent: "rollover",
+				overflow: true,
+				description: 'Rollover with short description.',
+			},
+			{
+				primaryHeading: 'Item 6 Primary (rollover)',
+				leftContent: "rollover",
+				overflow: true,
+				description: 'Rollover with long description. Many people were hoping that if the Democrats won control of Congress. Many people were hoping that if the Democrats won control of Congress. Many people were hoping that if the Democrats won control of Congress. Many people were hoping that if the Democrats won control of Congress.'
+			},
 		]
 	},
 	{
@@ -145,22 +192,6 @@ variations = [...variations,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: `content block with everything`,
-		type: `content block`,
-		items: [
-			{
-				primaryHeading: 'Item 1 Primary',
-				secondaryHeading: 'Item 1 Secondary',
-				overflow: true,
-				leftContent: "avatar",
-				pinnedValue: true,
-				action: true,
-				tag: true
-			}
-		]
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
 		storyTitle: `content block without layout`,
 		type: `content block`,
 		items: [
@@ -168,6 +199,87 @@ variations = [...variations,
 				primaryHeading: 'Item 2 Primary',
 				secondaryHeading: 'Item 2 Secondary',
 				hasLayout: false,
+				overflow: true,
+				pinnedValue: true,
+				action: true
+			}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `content block with two children`,
+		type: `content block`,
+		items: [
+			{
+				primaryHeading: 'Item 1 Primary',
+				secondaryHeading: 'Item 1 Secondary',
+				hasLayout: true,
+				leftContent: "avatar",
+				tags: true,
+				description: 'Many people were hoping that if the Democrats won control of Congress they would reverse the online gambling ban, but experts doubt they will even try or that if they do that the will be successful.',
+				overflow: true,
+				pinnedValue: true,
+				action: true
+			},
+			{
+				primaryHeading: 'Item 2 Primary',
+				secondaryHeading: '12 Tantilise Street, Meadowbank, Auckland 1063, New Zealand',
+				hasLayout: true,
+				leftContent: "avatar",
+				overflow: true,
+				pinnedValue: true,
+				action: true
+			}
+		],
+		viewports: commonViewports
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `content block with no description but has tags`,
+		type: `content block`,
+		items: [
+			{
+				primaryHeading: 'Item 1 Primary',
+				secondaryHeading: 'Item 1 Secondary',
+				hasLayout: true,
+				leftContent: "avatar",
+				tags: true,
+				overflow: true,
+				pinnedValue: true,
+				action: true
+			}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `content block with tag position inline`,
+		type: `content block`,
+		items: [
+			{
+				primaryHeading: 'Item 1 Primary',
+				secondaryHeading: 'Item 1 Secondary',
+				hasLayout: true,
+				leftContent: "avatar",
+				tags: true,
+				tagPosition: 'inline',
+				overflow: true,
+				pinnedValue: true,
+				action: true
+			}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `content block with tag position right`,
+		type: `content block`,
+		items: [
+			{
+				primaryHeading: 'Item 1 Primary',
+				secondaryHeading: 'Item 1 Secondary',
+				hasLayout: true,
+				leftContent: "avatar",
+				tags: true,
+				tagPosition: 'right',
 				overflow: true,
 				pinnedValue: true,
 				action: true

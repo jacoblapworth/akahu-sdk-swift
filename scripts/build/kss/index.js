@@ -6,10 +6,17 @@ const postcssXui = require('../postcss/xui');
 const kssConfig = require('./config.json');
 const { succeed, fail } = taskRunnerReturns;
 
-module.exports = () => {
+module.exports = ({ skipPostCss = false } = {}) => {
 	return taskRunner(taskSpinner => {
 		return kssTmp().then(() => {
-			return Promise.all([kssSass, postcssXui]).then(() => {
+
+			const tasks = [kssSass];
+
+			if (!skipPostCss) {
+				tasks.push(postcssXui);
+			}
+
+			return Promise.all(tasks).then(() => {
 				taskSpinner.info('Built pre-requisites');
 				return kss(kssConfig)
 					.then(succeed)

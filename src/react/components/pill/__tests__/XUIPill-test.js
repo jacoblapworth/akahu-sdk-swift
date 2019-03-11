@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
+import Enzyme, { shallow, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIPill from '../XUIPill';
@@ -11,35 +11,20 @@ const NOOP = () => {};
 
 describe('<XUIPill />', () => {
 
-	it('renders with correct XUI classes including layout', () => {
-		const pill = shallow(<XUIPill />);
-
-		expect(pill.hasClass('xui-pill-layout')).toBeTruthy();
-	});
-
-	it('render pill text in a button by default', () => {
-		const pill = shallow(
-			<XUIPill />
-		);
-
-		expect(pill.hasClass('xui-pill')).toBeTruthy();
-		expect(pill.find('button')).toBeTruthy();
-	});
-
-	it('renders the pill with the specified className prop', () => {
-		const pill = shallow(
-			<XUIPill className='xui-test-class' />
-		);
-
-		expect(pill.hasClass('xui-test-class')).toBeTruthy();
-	});
-
 	it('renders the pill with the specified value prop', () => {
 		const pill = renderer.create(
 			<XUIPill value="Value Pill" />
 		);
 
 		expect(pill).toMatchSnapshot();
+	});
+
+	it('renders the pill with the specified className prop', () => {
+		const pill = render(
+			<XUIPill className='xui-test-class' />
+		);
+
+		expect(pill.hasClass('xui-test-class')).toBeTruthy();
 	});
 
 	it('will render the pill text in an "a" tag when a href prop is provided', () => {
@@ -51,7 +36,7 @@ describe('<XUIPill />', () => {
 	});
 
 	it('renders the pill with the invalid class when the isInvalid prop is true', () => {
-		const pill = shallow(
+		const pill = render (
 			<XUIPill isInvalid={true} />
 		);
 
@@ -96,29 +81,13 @@ describe('<XUIPill />', () => {
 		)).toThrow();
 	});
 
-	it('renders the pill without the xui-pill-layout class when defaultLayout prop is false', () => {
-		const pill = shallow(
-			<XUIPill defaultLayout={false} />
-		);
-
-		expect(pill.hasClass('xui-pill-layout')).toBeFalsy();
-	});
-
-	it('renders the pill without the xui-pill-layout class by default', () => {
-		const pill = shallow(
-			<XUIPill />
-		);
-
-		expect(pill.hasClass('xui-pill-layout')).toBeTruthy();
-	});
-
 	it('invokes the callback passed into the onDeleteClick prop with itself passed in as an argument', () => {
 		const callback = jest.fn();
-		const pill = shallow(
+		const pill = mount(
 			<XUIPill value="Pill" onDeleteClick={callback} />
 		);
 
-		pill.find('.xui-pill--button-icon').simulate('click');
+		pill.find('.xui-pill--button-icon').first().simulate('click');
 		expect(callback.mock.calls.length).toEqual(1);
 	});
 
@@ -145,31 +114,39 @@ describe('<XUIPill />', () => {
 			<XUIPill />
 		);
 
-		pill.childAt(0).simulate('focus')
+		pill.childAt(0).simulate('focus');
 
 		expect(pill.childAt(0).hasClass('xui-pill-is-focused')).toBeTruthy();
 	});
 
 	it('should render an automation id when a qaHook is passed in', () => {
-		const automationid = renderer.create(<XUIPill qaHook="pill-test" />);
+		const automationid = renderer.create(
+			<XUIPill qaHook="pill-test" />
+		);
 
 		expect(automationid).toMatchSnapshot();
 	});
 
 	it('should render a title when passed', () => {
-		const pill = renderer.create(<XUIPill title="pill title" />);
+		const pill = renderer.create(
+			<XUIPill title="pill title" />
+		);
 
 		expect(pill).toMatchSnapshot();
 	});
 
 	it('should render a target when passed in', () => {
-		const pill = renderer.create(<XUIPill href="http://xero.com" target="_blank" />);
+		const pill = renderer.create(
+			<XUIPill href="http://xero.com" target="_blank" />
+		);
 
 		expect(pill).toMatchSnapshot();
 	});
 
 	it('should render an error icon when invalid', () => {
-		const pill = renderer.create(<XUIPill value="Error pill" isInvalid />);
+		const pill = renderer.create(
+			<XUIPill value="Error pill" isInvalid />
+		);
 
 		expect(pill).toMatchSnapshot();
 	});
@@ -184,24 +161,26 @@ describe('<XUIPill />', () => {
 			value: 'A'
 		};
 
-		const pill = renderer.create(<XUIPill value="Error pill" isInvalid {...avatarProps} />);
+		const pill = renderer.create(
+			<XUIPill value="Error pill" isInvalid {...avatarProps} />
+		);
 
 		expect(pill).toMatchSnapshot();
 	});
 
 	it('should render a label for the delete button when passed in', () => {
-		const pill = shallow(<XUIPill deleteButtonLabel="alternate delete label" onDeleteClick={NOOP}/>);
+		const pill = mount(<XUIPill deleteButtonLabel="alternate delete label" onDeleteClick={NOOP}/>);
 
-		expect(pill.find('.xui-pill--button-icon').html()).toContain('title="alternate delete label"');
+		expect(pill.find('.xui-pill--button-icon').first().html()).toContain('title="alternate delete label"');
 	});
 
 	it('should render a delete button label of \'Delete\' by default', () => {
-		const pill = shallow(<XUIPill onDeleteClick={NOOP}/>);
+		const pill = mount(<XUIPill onDeleteClick={NOOP}/>);
 
-		expect(pill.find('.xui-pill--button-icon').html()).toContain('title="Delete"');
+		expect(pill.find('.xui-pill--button-icon').first().html()).toContain('title="Delete"');
 	});
 
-	it('should swicth the focus state when toggleFocus is called', () => {
+	it('should switch the focus state when toggleFocus is called', () => {
 		const pill = shallow(<XUIPill />);
 
 		expect(pill.state('isFocused')).toBeFalsy();
@@ -211,5 +190,32 @@ describe('<XUIPill />', () => {
 		expect(pill.state('isFocused')).toBeTruthy();
 	});
 
+	it('should render a pills with correct size modifiers', () => {
+		const sizes = ['medium', 'small', 'xsmall'];
+		sizes.forEach(size => {
+			const pill = renderer.create(
+				<XUIPill
+					size={size}
+					value="Test"
+					avatarProps={{
+						value: 'Test Render'
+					}}
+					onDeleteClick={NOOP}
+				/>
+			);
+			expect(pill).toMatchSnapshot();
+		});
+	});
 
-});
+	it('should render inside a tooltip when using the debug flag', () => {
+		const pill = renderer.create(<XUIPill debugShowToolTip/>);
+
+		expect(pill).toMatchSnapshot();
+	});
+
+	it('should render a pill with the maxwidth limiting class', () => {
+		const pill = renderer.create(<XUIPill isLimitedWidth/>);
+
+		expect(pill).toMatchSnapshot();
+	});
+})

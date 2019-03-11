@@ -6,11 +6,13 @@
 
 If you want standard `Picklist` behaviour (close on select, keyboard handlers, etc) then you **must** have `Picklist` as an immediate child of the `DropDown`.  If you are missing these features, make sure that you are correctly using the `Picklist` component.
 
-```
-const Pickitem = require('../picklist/Pickitem').default;
-const DropDownToggled = require('./DropDownToggled').default;
+```jsx harmony
+import { Component } from 'react';
+import XUIButton, { XUIButtonCaret } from '../../button';
+import Picklist, { Pickitem } from '../../picklist';
+import DropDown, { DropDownToggled } from '../../dropdown';
+
 const isSelected = (item, selectedIds) => item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
-const { Component } = require ('react');
 
 function createItems(items, selectedId) {
 	if (Array.isArray(items)) {
@@ -29,11 +31,12 @@ const toggledItems = ['Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant',
 });
 
 class ToggledDropDown extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.state = {
 			selectedId: null,
 		};
+		this.logOpen = this.logOpen.bind(this);
 		this.onSelect = this.onSelect.bind(this);
 	}
 
@@ -41,6 +44,10 @@ class ToggledDropDown extends Component {
 		this.setState({
 			selectedId: value,
 		});
+	}
+
+	logOpen() {
+		console.log('user wants to open the dropdown');
 	}
 
 	render() {
@@ -60,7 +67,7 @@ class ToggledDropDown extends Component {
 		return (
 			<DropDownToggled
 				className="exampleClass"
-				onOpen={() => console.log('user wants to open the dropdown')}
+				onOpen={this.logOpen}
 				trigger={trigger}
 				dropdown={dropdown}
 				qaHook="dropdown-example"
@@ -73,10 +80,12 @@ class ToggledDropDown extends Component {
 
 ### Multiselect `Picklist`
 
-```
-const { Component } = require('react');
-const DropDownToggled = require('./DropDownToggled').default;
-const Pickitem = require('../picklist/Pickitem').default;
+```jsx harmony
+import { Component } from 'react';
+import XUIButton, { XUIButtonCaret } from '../../button';
+import Picklist, { Pickitem } from '../../picklist';
+import DropDown, { DropDownToggled } from '../../dropdown';
+
 const items = [
 	{ id: 'a', text: 'First' },
 	{ id: 'b', text: 'Second' },
@@ -85,8 +94,8 @@ const items = [
 ];
 
 class MultiselectExample extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			selected: {
@@ -158,22 +167,25 @@ Although using `DropDown` with `Picklist` provides the default behaviour, the AP
 
 ### Dropdown with a date picker
 
-```
-const Pickitem = require('../picklist/Pickitem').default;
-const XUIDatePicker = require('../../datepicker').default;
-const XUIButton = require('../../button').default;
+```jsx harmony
+import { Component } from 'react';
+import XUIButton from '../../button';
+import DropDown, { DropDownToggled } from '../../dropdown';
+import XUIDatePicker from '../../datepicker';
 
 const today = new Date();
 const months = ['Jan', 'Feb', 'March', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 const formatDate = date => `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
 
-class SimpleDropDownDatePicker extends React.Component {
-	constructor() {
-		super();
+class SimpleDropDownDatePicker extends Component {
+	constructor(...args) {
+		super(...args);
+		this.datepicker = React.createRef();
+		this.ddt = React.createRef();
 
 		this.state = {
-			selectedDate: null,
+			selectedDate: today,
 			currentMonth: new Date(),
 		};
 
@@ -182,7 +194,7 @@ class SimpleDropDownDatePicker extends React.Component {
 	}
 
 	focusDatePicker() {
-		this.datepicker.focus();
+		this.datepicker.current.focus();
 	}
 
 	onSelectDate(day) {
@@ -190,7 +202,7 @@ class SimpleDropDownDatePicker extends React.Component {
 			selectedDate: day,
 			currentMonth: day,
 		});
-		this.ddt.closeDropDown();
+		this.ddt.current.closeDropDown();
 	}
 
   render() {
@@ -198,7 +210,7 @@ class SimpleDropDownDatePicker extends React.Component {
 		const dropdown = (
 			<DropDown>
 				<XUIDatePicker
-					ref={c => this.datepicker = c}
+					ref={this.datepicker}
 					displayedMonth={currentMonth}
 					onSelectDate={this.onSelectDate}
 					selectedDate={selectedDate}
@@ -212,7 +224,7 @@ class SimpleDropDownDatePicker extends React.Component {
 		);
     return (
       <DropDownToggled
-				ref={c => this.ddt = c}
+				ref={this.ddt}
 				trigger={trigger}
 				dropdown={dropdown}
 				closeOnTab={false}
@@ -237,20 +249,21 @@ As mentioned, the above example is not using dropdown with its optimised use cas
 
 It is highly recommended that you use [`Autocompleter`](#autocompleter) to implement this pattern if it fits your use case.  It handles these customisations by default.
 
-```jsx
-require('array.prototype.find').shim();
-const debounce = require('lodash.debounce');
-const { Component } = require('react');
-const { boldMatch, decorateSubStr, XUIAutocompleterEmptyState } = require('../../autocompleter');
-const Pickitem = require('../picklist/Pickitem').default;
+```jsx harmony
+import 'array.prototype.find';
+import { Component } from 'react';
+import DropDown, { DropDownToggled } from '../../dropdown';
+import XUITextInput from '../../textinput';
+import { boldMatch, decorateSubStr, XUIAutocompleterEmptyState } from '../../autocompleter';
+import Picklist, { Pickitem } from '../../picklist';
 
 const items = ['Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grapefruit', 'Honeydew', 'Iceberg Lettuce', 'Jackfruit', 'Kiwifruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tomato', 'Uglifruit', 'Valencia Orange', 'Watermelon', 'Xi gua','Yellow quash', 'Zucchini'].map((text, id) => {
 	return { id, text };
 });
 
 class InputTriggerExample extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			inputValue: '',
@@ -260,6 +273,8 @@ class InputTriggerExample extends Component {
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onInputKeyDown = this.onInputKeyDown.bind(this);
 		this.onSelect = this.onSelect.bind(this);
+
+		this.ddt = React.createRef();
 	}
 
 	onInputChange(event) {
@@ -269,10 +284,10 @@ class InputTriggerExample extends Component {
 	}
 
 	onInputKeyDown(event) {
-		if (this.ddt.isDropDownOpen() && this.dropdown != null) {
+		if (this.ddt.current.isDropDownOpen() && this.dropdown != null) {
 			this.dropdown.onKeyDown(event);
 		} else {
-			this.ddt.openDropDown();
+			this.ddt.current.openDropDown();
 		}
 	}
 
@@ -287,7 +302,7 @@ class InputTriggerExample extends Component {
 		const { selectedId, inputValue } = this.state;
 		const trigger = (
 			<XUITextInput
-				labelText='dropdown with text input trigger'
+				label='dropdown with text input trigger'
 				placeholder="Type Here"
 				value={inputValue}
 				onChange={this.onInputChange}
@@ -320,7 +335,7 @@ class InputTriggerExample extends Component {
 
 		const dropdown = (
 			<DropDown
-				ref={c => this.dropdown = c}
+				ref={d => this.dropdown = d}
 				hasKeyboardEvents={false}
 				restrictFocus={false}
 				onSelect={this.onSelect}
@@ -333,7 +348,7 @@ class InputTriggerExample extends Component {
 
 		return (
 			<DropDownToggled
-				ref={c => this.ddt = c}
+				ref={this.ddt}
 				trigger={trigger}
 				dropdown={dropdown}
 				triggerClickAction="none"

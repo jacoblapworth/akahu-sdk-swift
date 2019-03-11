@@ -31,7 +31,7 @@ storiesWithKnobs.add('Playground', () => {
 	const isStatic = boolean('static animations', false) ? 'xui-loader-static' : null;
 
 	const attrs = {
-		className: 'xui-panel',
+		className: 'xui-background-white',
 		isInverted: boolean('is inverted', false),
 		style: getContainerStyle(!defaultLayout)
 	};
@@ -66,7 +66,7 @@ variations.forEach(variation => {
 		const attrs = {
 			isInverted: variationMinusStoryDetails.isInverted,
 			style: getContainerStyle(hasContainerStyle),
-			className: 'xui-panel'
+			className: 'xui-background-white'
 		};
 
 		let example;

@@ -2,11 +2,13 @@ import cn from 'classnames';
 import React from 'react';
 import { NAME_SPACE } from './constants';
 
-const cellClassNames = {
+export const cellClassNames = {
+	cell: `${NAME_SPACE}--cell`,
 	first: `${NAME_SPACE}--cell-first`,
 	second: `${NAME_SPACE}--cell-second`,
 	secondtolast: `${NAME_SPACE}--cell-secondtolast`,
 	last: `${NAME_SPACE}--cell-last`,
+	defaultLayout: `${NAME_SPACE}--cell-layout`,
 };
 
 export const getCellLocation = ({ columns, columnIndex, hasCheckbox, hasOverflowMenu }) => {
@@ -76,12 +78,25 @@ const queryIsTruncated = ({ rootWidth }, props) => {
 	return isTruncated;
 };
 
-const sortDataByKey = (data, isAsc, key) => {
-	const comparison = isAsc
-		? (a, b) => a[key] > b[key]
-		: (a, b) => a[key] < b[key];
+const createSorter = () => (
+	(Intl && Intl.Collator)
+		// Where possible we utilise the more robust `Intl.Collator` as it can take
+		// things like string case sensitivity into account performantly.
+		// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+		// TODO: As part of next releases "Localisation" initiative, investigate
+		// supplying a local as a prop to influence sorting.
+		? new Intl.Collator('en', { sensitivity: 'base' }).compare
+		// If the current environment does not have this functionality (older android
+		// browsers) we fall back to old "generic" `.sort()` system.
+		: (a, b) => a > b
+);
 
-	return data.sort((a, b) => (comparison(a, b) ? 1 : -1));
+const sortDataByKey = (data, isAsc, key) => {
+	const sorter = createSorter();
+	const makeSort = (a, b) => sorter(a[key], b[key]);
+	const sortedData = data.sort(makeSort);
+
+	return isAsc ? sortedData : sortedData.reverse();
 };
 
 const flattenSuppliedData = (data, checkedIds) => {
@@ -127,7 +142,7 @@ export const enrichProps = (state, props, { tableNode }) => {
 	// If there is no header cell content then we remove the <head /> all together
 	// from the table.
 	const columns = React.Children.toArray(children);
-	const hasHeader = columns.some((col) => (col && col.props && col.props.head));
+	const hasHeader = columns.some(col => (col && col.props && col.props.head));
 
 	const tableWidth = tableNode && tableNode.clientWidth;
 

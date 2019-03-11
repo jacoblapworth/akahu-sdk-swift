@@ -4,7 +4,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Unstyled',
-		labelText: 'text-label',
+		label: 'text-label',
 		isLabelHidden: true,
 		options: [
 			{
@@ -24,7 +24,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Toggle Options',
-		labelText: 'text-label',
+		label: 'text-label',
 		labelId: 'testme',
 		layout: 'fullwidth',
 		options: [
@@ -42,12 +42,12 @@ const variations = [
 				name: 'tg3',
 				value: 'toggle3'
 			}
-		]
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Inverted Options',
-		labelText: 'text-label',
+		label: 'text-label',
 		isLabelHidden: true,
 		layout: 'fullwidth',
 		color: 'inverted',
@@ -71,7 +71,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checked / Disabled',
-		labelText: 'text-label',
+		label: 'text-label',
 		isLabelHidden: true,
 		layout: 'fullwidth',
 		options: [
@@ -90,7 +90,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Inverted Checked / Disabled',
-		labelText: 'text-label',
+		label: 'text-label',
 		isLabelHidden: true,
 		layout: 'fullwidth',
 		color: 'inverted',
@@ -109,11 +109,11 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'is Small Variant',
-		labelText: 'text-label',
+		storyTitle: 'is Small Size',
+		label: 'text-label',
 		isLabelHidden: true,
 		layout: 'fullwidth',
-		variant: 'small',
+		size: 'small',
 		options: [
 			{
 				name: 'tg7',
@@ -133,7 +133,7 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checkboxes',
-		labelText: 'text-label',
+		label: 'text-label',
 		isLabelHidden: true,
 		layout: 'fullwidth',
 		options: [
@@ -153,7 +153,60 @@ const variations = [
 				type: 'checkbox'
 			}
 		]
-	}
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with hint text',
+		label: 'Toggle with a hint',
+		hintMessage: 'You must pick at least one to proceed',
+		layout: 'fullwidth',
+		options: [
+			{
+				isDefaultChecked: true,
+				name: 'tg9',
+				value: 'toggle1',
+				type: 'checkbox'
+			},
+			{
+				name: 'tg9',
+				value: 'toggle2',
+				type: 'checkbox'
+			},
+			{
+				isDisabled: true,
+				name: 'tg9',
+				value: 'toggle3',
+				type: 'checkbox'
+			}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'invalid with message',
+		label: 'Invalid with validation message',
+		validationMessage: 'Please select an option to proceed',
+		isInvalid: true,
+		layout: 'fullwidth',
+		options: [
+			{
+				isDefaultChecked: true,
+				name: 'tg10',
+				value: 'toggle1',
+				type: 'checkbox'
+			},
+			{
+				name: 'tg10',
+				value: 'toggle2',
+				type: 'checkbox'
+			},
+			{
+				isDisabled: true,
+				name: 'tg10',
+				value: 'toggle3',
+				type: 'checkbox'
+			}
+		]
+	},
 ];
 
 module.exports = {

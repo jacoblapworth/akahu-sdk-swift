@@ -79,9 +79,9 @@ XUIPageHeader.propTypes = {
 	 */
 	hasLayout: PropTypes.bool,
 	/**
-	 * Plain text title. Not to be combined with breadcrumbs
+	 * Title text or node. Not to be combined with breadcrumbs
 	 */
-	title: PropTypes.string,
+	title: PropTypes.node,
 	/**
 	 * Horizontal picklist to act as tabs. XUIPicklist
 	 */

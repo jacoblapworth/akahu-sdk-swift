@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Range All options selected 1`] = `
+<div
+  className=""
+>
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    data-automationid="qaHook--label"
+    htmlFor="testRangeId-control"
+  >
+    All options selected
+  </label>
+  <div
+    className="xui-rangeslider-container containerClasses"
+  >
+    <svg
+      className="xui-icon"
+      focusable="false"
+      height={16}
+      viewBox="0 0 12 12"
+      width={16}
+    >
+      <path
+        d="M7 5h5v2H7v5H5V7H0V5h5V0h2v5z"
+        role="presentation"
+      />
+    </svg>
+    <input
+      aria-describedby="testRangeId-message"
+      aria-invalid={true}
+      className="xui-rangeslider xui-rangeslider-thumb-xsmall xui-rangeslider-is-invalid inputClasses"
+      defaultValue="20"
+      disabled={true}
+      id="testRangeId-control"
+      max="80"
+      min="16"
+      step="4"
+      type="range"
+    />
+    <svg
+      className="xui-icon"
+      focusable="false"
+      height={16}
+      viewBox="0 0 12 12"
+      width={16}
+    >
+      <path
+        d="M7 5h5v2H7v5H5V7H0V5h5V0h2v5z"
+        role="presentation"
+      />
+    </svg>
+  </div>
+  <div
+    className="xui-validation xui-validation-layout xui-validation-is-invalid"
+    data-automationid="qaHook--message"
+    id="testRangeId-message"
+    role="status"
+  >
+    validationMessage
+  </div>
+</div>
+`;
+
+exports[`Range LeftElement and RightElement work 1`] = `
+<div
+  className=""
+>
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    htmlFor="testRangeId-control"
+  >
+    svgs work
+  </label>
+  <div
+    className="xui-rangeslider-container"
+  >
+    <svg
+      className="xui-icon"
+      focusable="false"
+      height={16}
+      viewBox="0 0 12 12"
+      width={16}
+    >
+      <path
+        d="M7 5h5v2H7v5H5V7H0V5h5V0h2v5z"
+        role="presentation"
+      />
+    </svg>
+    <input
+      aria-describedby="testRangeId-message"
+      className="xui-rangeslider xui-rangeslider-thumb-medium"
+      id="testRangeId-control"
+      type="range"
+    />
+    <svg
+      className="xui-icon"
+      focusable="false"
+      height={16}
+      viewBox="0 0 12 12"
+      width={16}
+    >
+      <path
+        d="M7 5h5v2H7v5H5V7H0V5h5V0h2v5z"
+        role="presentation"
+      />
+    </svg>
+  </div>
+  <div
+    className="xui-validation xui-validation-layout"
+    id="testRangeId-message"
+    role="status"
+  >
+    hintMessage
+  </div>
+</div>
+`;
+
+exports[`Range Simple case 1`] = `
+<div
+  className=""
+>
+  <div
+    className="xui-rangeslider-container"
+  >
+    <input
+      className="xui-rangeslider xui-rangeslider-thumb-medium"
+      id="testRangeId-control"
+      type="range"
+    />
+  </div>
+</div>
+`;
+
+exports[`Range invalid 1`] = `
+<div
+  className=""
+>
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    htmlFor="testRangeId-control"
+  >
+    invalid
+  </label>
+  <div
+    className="xui-rangeslider-container"
+  >
+    <input
+      aria-describedby="testRangeId-message"
+      aria-invalid={true}
+      className="xui-rangeslider xui-rangeslider-thumb-medium xui-rangeslider-is-invalid"
+      id="testRangeId-control"
+      max={80}
+      min={16}
+      type="range"
+    />
+  </div>
+  <div
+    className="xui-validation xui-validation-layout xui-validation-is-invalid"
+    id="testRangeId-message"
+    role="status"
+  >
+    validationMessage
+  </div>
+</div>
+`;
+
+exports[`Range should be disabled 1`] = `
+<div
+  className=""
+>
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    htmlFor="testRangeId-control"
+  >
+    disabled
+  </label>
+  <div
+    className="xui-rangeslider-container"
+  >
+    <input
+      className="xui-rangeslider xui-rangeslider-thumb-medium"
+      disabled={true}
+      id="testRangeId-control"
+      max={80}
+      min={16}
+      type="range"
+    />
+  </div>
+  <div
+    className="xui-validation xui-validation-layout"
+    id="testRangeId-message"
+    role="status"
+  />
+</div>
+`;

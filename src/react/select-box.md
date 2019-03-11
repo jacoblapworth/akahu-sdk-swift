@@ -15,11 +15,12 @@
 
 In the following example, the `buttonContent` of `SelectBox` is being set to value of the selected item in the example's state.
 
-```jsx
-const { Component } = require('react');
-const XUIIcon = require('./components/icon/XUIIcon').default;
-const TextHelpers = require ('./components/select-box/TextHelpers').default;
-const bank = require('@xero/xui-icon/icons/bank').default;
+```jsx harmony
+import { Component } from 'react';
+import bank from '@xero/xui-icon/icons/bank';
+import XUIIcon from './icon';
+import SelectBox, { SelectBoxOption } from './select-box';
+import TextHelpers from './components/select-box/TextHelpers';
 
 const banks = [
 	'ANZ',
@@ -29,17 +30,15 @@ const banks = [
 ];
 
 class SelectBoxExample extends Component {
-	constructor (props, context) {
-		super(props, context);
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			selectedBank: banks[2]
 		};
-		[
-			this.onBankSelect,
-		].forEach(fn => {
-			this[fn.name] = fn.bind(this);
-		});
+		
+		this.onBankSelect = this.onBankSelect.bind(this);
+		this.selectOne = React.createRef();
 	}
 
 	onBankSelect(value) {
@@ -48,18 +47,16 @@ class SelectBoxExample extends Component {
 		});
 	}
 
-
-
 	render () {
 		const MiniApp = this;
 
 		return (
 				<SelectBox
-					ref={c => this.selectOne = c}
+					ref={this.selectOne}
 					name="selectOne"
-					labelText="Select a Bank"
+					label="Select a Bank"
 					buttonContent={
-						<span>
+						<span className="xui-u-flex">
 							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
 							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
 						</span>
@@ -70,10 +67,10 @@ class SelectBoxExample extends Component {
 						return (
 							<SelectBoxOption
 								id={opt}
-								key={idx + opt + 'userDefined Key'}
 								isSelected={opt === MiniApp.state.selectedBank}
-								value={opt}
+								key={idx + opt + 'userDefined Key'}
 								onSelect={MiniApp.onBankSelect}
+								value={opt}
 							>
 								{opt}
 							</SelectBoxOption>
@@ -93,18 +90,22 @@ class SelectBoxExample extends Component {
 
 You can select multiple values by keeping track of an array, rather than a single value. Use the `showCheckboxes` prop to help indicate that multiple selections are supported.
 
-```jsx
-const { Component } = require('react');
-const TextHelpers = require ('./components/select-box/TextHelpers').default;
+```jsx harmony
+import { Component } from 'react';
+import SelectBox, { SelectBoxOption } from './select-box';
+import TextHelpers from './components/select-box/TextHelpers';
 
 const boats = ['Waka', 'Pontoon', 'Sailboat', 'Schooner', 'Dingy'];
 
 class MiniApp extends Component {
-	constructor() {
+	constructor(...args) {
+		super(...args);
+		
 		this.state = {
 			selectedBoats: []
 		};
 		this.onBoatSelect = this.onBoatSelect.bind(this);
+		this.isMultiSelect = React.createRef();
 	}
 	onBoatSelect(value) {
 		if (this.state.selectedBoats.indexOf(value) > -1) {
@@ -122,20 +123,22 @@ class MiniApp extends Component {
 		const MiniApp = this;
 		return (
 			<SelectBox
-				ref={c => this.isMultiselect = c}
-				name="isMultiselect"
 				buttonContent={TextHelpers.getText(MiniApp.state.selectedBoats, 'Choose a few boats')}
-				labelText="Select Several Boats"
 				closeAfterSelection={false}
+				label="Select Several Boats"
+				name="isMultiselect"
 				onSelect={MiniApp.onBoatSelect}
+				ref={this.isMultiselect}
+				isInvalid={!MiniApp.state.selectedBoats.length}
+				validationMessage="Please select at least one boat"
 			>
 				{boats.map((opt, idx) => {
 					return (
 						<SelectBoxOption
 							id={opt}
-							key={idx + opt + 'userDefined Key'}
-							showCheckboxes={true}
 							isSelected={MiniApp.state.selectedBoats.indexOf(opt) >= 0}
+							key={idx + opt + 'userDefined Key'}
+							showCheckboxes
 							value={opt}
 						>
 							{opt}
@@ -150,15 +153,18 @@ class MiniApp extends Component {
 <MiniApp/>
 ```
 
-### Button variants
+### Sizes
 
-The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop.
+The `size` prop allows you to change the default `SelectBox` size.
 
-```jsx
-const { Component } = require('react');
-const XUIIcon = require('./components/icon/XUIIcon').default;
-const TextHelpers = require ('./components/select-box/TextHelpers').default;
-const bank = require('@xero/xui-icon/icons/bank').default;
+If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
+
+```jsx harmony
+import { Component } from 'react';
+import SelectBox, { SelectBoxOption } from './select-box';
+import XUIIcon from './icon';
+import TextHelpers from './components/select-box/TextHelpers';
+import bank from '@xero/xui-icon/icons/bank';
 
 const banks = [
 	'ANZ',
@@ -168,17 +174,16 @@ const banks = [
 ];
 
 class MiniApp extends Component {
-	constructor (props, context) {
-		super(props, context);
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			selectedBank: banks[2]
 		};
-		[
-			this.onBankSelect,
-		].forEach(fn => {
-			this[fn.name] = fn.bind(this);
-		});
+		
+		this.onBankSelect = this.onBankSelect.bind(this);
+
+		this.selectOne = React.createRef();
 	}
 
 	onBankSelect(value) {
@@ -187,41 +192,113 @@ class MiniApp extends Component {
 		});
 	}
 
-
-
 	render () {
 		const MiniApp = this;
 
 		return (
 				<SelectBox
-					ref={c => this.selectOne = c}
-					name="selectOne"
-					labelText="Select a Bank"
 					buttonContent={
-						<span>
+						<span className="xui-u-flex">
 							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
 							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
 						</span>
 					}
 					isTextTruncated={false}
-					buttonVariant="primary"
+					label="Select a Bank"
+					name="selectOne"
+					ref={this.selectOne}
+					size="small"
 				>
 					{banks.map((opt, idx) => {
 						return (
 							<SelectBoxOption
 								id={opt}
-								key={idx + opt + 'userDefined Key'}
 								isSelected={opt === MiniApp.state.selectedBank}
-								value={opt}
+								key={idx + opt + 'userDefined Key'}
 								onSelect={MiniApp.onBankSelect}
+								value={opt}
 							>
 								{opt}
 							</SelectBoxOption>
 						);
 					})}
 				</SelectBox>
+		);
+	}
+}
 
+<MiniApp />
+```
 
+### Button variants
+
+The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop. We recommend setting the `fullWidth` prop to `never` to prevent the SelectBox being full width with button variants.
+
+```jsx harmony
+import { Component } from 'react';
+import SelectBox, { SelectBoxOption } from './select-box';
+import XUIIcon from './icon';
+import TextHelpers from './components/select-box/TextHelpers';
+import bank from '@xero/xui-icon/icons/bank';
+
+const banks = [
+	'ANZ',
+	'ASB',
+	'Kiwi Bank',
+	'Westpac',
+];
+
+class MiniApp extends Component {
+	constructor(...args) {
+		super(...args);
+
+		this.state = {
+			selectedBank: banks[2]
+		};
+		
+		this.onBankSelect = this.onBankSelect.bind(this);
+		this.selectOne = React.createRef();
+	}
+
+	onBankSelect(value) {
+		this.setState({
+			selectedBank: value
+		});
+	}
+
+	render () {
+		const MiniApp = this;
+
+		return (
+				<SelectBox
+					buttonContent={
+						<span className="xui-u-flex">
+							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
+							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
+						</span>
+					}
+					buttonVariant="primary"
+					isTextTruncated={false}
+					label="Select a Bank"
+					name="selectOne"
+					ref={this.selectOne}
+					fullWidth="never"
+					hintMessage="Selecting your bank helps us set up your bank feed"
+				>
+					{banks.map((opt, idx) => {
+						return (
+							<SelectBoxOption
+								id={opt}
+								isSelected={opt === MiniApp.state.selectedBank}
+								key={idx + opt + 'userDefined Key'}
+								onSelect={MiniApp.onBankSelect}
+								value={opt}
+							>
+								{opt}
+							</SelectBoxOption>
+						);
+					})}
+				</SelectBox>
 		);
 	}
 }

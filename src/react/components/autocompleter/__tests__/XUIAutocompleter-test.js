@@ -10,11 +10,16 @@ import XUILoader from '../../loader/XUILoader';
 import DropDownToggled from '../../dropdown/DropDownToggled';
 import DropDownLayout from '../../dropdown/DropDownLayout';
 import uuidv4 from 'uuid/v4';
+import XUITextInput from '../../textInput/XUITextInput';
 
+jest.useFakeTimers();
 jest.mock('uuid/v4');
-uuidv4.mockImplementation(() => 'testDropdownId');
+uuidv4.mockImplementation(() => 'testAutocompleterId');
 
 Enzyme.configure({ adapter: new Adapter() });
+
+const onSearch = jest.fn();
+const defaultProps = {onSearch: onSearch, searchValue: 'z', searchDebounceTimeout: 500};
 
 describe('XUIAutocompleter', () => {
 	const createComponent = (props) => (
@@ -42,9 +47,20 @@ describe('XUIAutocompleter', () => {
 		expect(inputEl).toMatchSnapshot();
 	});
 
-	it('fires the onSearch callback when the input value has changed', () => {
-		const onSearch = jest.fn();
-		const searchComp = mount(createComponent({onSearch: onSearch, searchValue: 'z' }))
+	it('renders with the provided label', () => {
+		const inputEl = renderer.create(createComponent({inputLabel: "Im a little label"}));
+
+		expect(inputEl).toMatchSnapshot();
+	});
+
+	it('renders with a hidden label', () => {
+		const inputEl = renderer.create(createComponent({inputLabel: "Im a little label", isInputLabelHidden: true}));
+
+		expect(inputEl).toMatchSnapshot();
+	});
+
+	it('fires the onSearch callback when the input value has changed immediately if the searchDebounceTimeout value is 0', () => {
+		const searchComp = mount(createComponent(Object.assign(defaultProps, {searchDebounceTimeout: 0 })));
 
 		searchComp.find('input').simulate('change', {
 			target: {
@@ -55,45 +71,95 @@ describe('XUIAutocompleter', () => {
 		expect(onSearch.mock.calls.length).toEqual(1);
 	});
 
+	it('fires the onSearch callback when the input value has changed after 200ms by default', () => {
+		const searchComp = mount(createComponent(defaultProps))
+
+		searchComp.find('input').simulate('change', {
+			target: {
+				value: 'a'
+			}
+		});
+
+		expect(onSearch.mock.calls.length).toEqual(2);
+
+		setTimeout(() => {
+			expect(onSearch.mock.calls.length).toEqual(1);
+		}, 200);
+	});
+
+	it('fires the onSearch callback when the input value has changed after the given searchDebounceTimeout value', () => {
+		const searchComp = mount(createComponent(defaultProps))
+
+		searchComp.find('input').simulate('change', {
+			target: {
+				value: 'a'
+			}
+		});
+
+		expect(onSearch.mock.calls.length).toEqual(3);
+
+		// Test that the default is overridden
+		setTimeout(() => {
+			expect(onSearch.mock.calls.length).toEqual(0);
+		}, 200);
+
+		setTimeout(() => {
+			expect(onSearch.mock.calls.length).toEqual(1);
+		}, 500);
+	});
+
 	it('renders with loading as false by default', () => {
-		const wrapper = mount(createComponent());
+		const wrapper = mount(createComponent(defaultProps));
 		expect(wrapper.prop('loading')).toBeFalsy();
 	});
 
 	it('displays a XUILoader when loading is true', () => {
-		const wrapper = mount(createComponent({loading: true}));
+		const wrapper = mount(createComponent(Object.assign(defaultProps, {loading: true})));
 
 		expect(wrapper.find(XUILoader)).toBeDefined();
 		expect(wrapper.prop('loading')).toBeTruthy();
 	});
 
 	it('renders pills as children passed in through the pills prop', () => {
-		const wrapper = mount(createComponent({ pills: <XUIPill value="ABC" /> }));
+		const wrapper = mount(createComponent({ onSearch: onSearch, searchValue: 'z', searchDebounceTimeout: 500, pills: <XUIPill value="ABC" /> }));
 
 		expect(wrapper.find(XUIPill)).toBeDefined();
 	});
 
+	['medium', 'small'].forEach(size => {
+		it(`when inputSize is set to ${size}, input has a size of ${size}`, () => {
+			const wrapper = mount(
+				createComponent({
+					inputSize: size,
+					onSearch: onSearch,
+				})
+			);
+		
+			expect(wrapper.find(XUITextInput).props().size).toBe(size);
+		});
+	});
+
 	it('opens the dropdown when we trigger `openDropDown` and closes the dropdown when we trigger `closeDropDown`', () => {
-		const wrapper = mount(createComponent());
-		expect(wrapper.instance().ddt.state.isHidden).toBeTruthy();
+		const wrapper = mount(createComponent({onSearch: onSearch, searchValue: 'z', searchDebounceTimeout: 500}));
+		expect(wrapper.instance().ddt.current.state.isHidden).toBeTruthy();
 
 		wrapper.instance().openDropDown();
-		expect(wrapper.instance().ddt.state.isHidden).toBeFalsy()
+		expect(wrapper.instance().ddt.current.state.isHidden).toBeFalsy()
 
 		wrapper.instance().closeDropDown();
-		expect(wrapper.instance().ddt.state.isHidden).toBeTruthy();
+		expect(wrapper.instance().ddt.current.state.isHidden).toBeTruthy();
 	});
 
 	it('sets the dropdown to match trigger width if no dropdownSize is provided in the component props', () => {
-		const wrapper = mount(createComponent({ dropdownSize: null }));
+		const wrapper = mount(createComponent(Object.assign(defaultProps, {dropdownSize: null})));
 		expect(wrapper.find(DropDownToggled).props().matchTriggerWidth).toBeTruthy();
 	});
 
 	it('when disableWrapPills prop is applied disable pillwrap class is applied', () => {
-		const wrapper = mount(createComponent());
+		const wrapper = mount(createComponent(defaultProps));
 		expect(wrapper.find('.xui-autocompleter--trigger-nopillwrap').length).toEqual(0);
 
-		const disableWrapPills = mount(createComponent({ disableWrapPills: true, pills: [<XUIPill value="test" key="1" />] }));
+		const disableWrapPills = mount(createComponent(Object.assign(defaultProps, { disableWrapPills: true, pills: [<XUIPill value="test" key="1" />] })));
 		expect(disableWrapPills.find('.xui-autocompleter--pills-nopillwrap').length).toEqual(1);
 	});
 
@@ -152,41 +218,41 @@ describe('XUIAutocompleter', () => {
 	});
 
 	it('should ignore keyboard events for space as it\'s reserved for input interactions', () => {
-		const comp = mount(createComponent());
+		const comp = mount(createComponent(defaultProps));
 
 		comp.find('input').simulate('keyDown', {
 			keyCode: 32,
 			which: 32
 		});
 
-		expect(comp.instance().ddt.state.isHidden).toBeTruthy();
+		expect(comp.instance().ddt.current.state.isHidden).toBeTruthy();
 	});
 
 	it('should ignore keyboard events for the left arrow as it\'s reserved for input interactions', () => {
-		const comp = mount(createComponent());
+		const comp = mount(createComponent(defaultProps));
 
 		comp.find('input').simulate('keyDown', {
 			keyCode: 37,
 			which: 37
 		});
 
-		expect(comp.instance().ddt.state.isHidden).toBeTruthy();
+		expect(comp.instance().ddt.current.state.isHidden).toBeTruthy();
 	});
 
 	it('should ignore keyboard events for the right arrow as it\'s reserved for input interactions', () => {
-		const comp = mount(createComponent());
+		const comp = mount(createComponent(defaultProps));
 
 		comp.find('input').simulate('keyDown', {
 			keyCode: 39,
 			which: 39
 		});
 
-		expect(comp.instance().ddt.state.isHidden).toBeTruthy();
+		expect(comp.instance().ddt.current.state.isHidden).toBeTruthy();
 	});
 
 	describe.skip('Dropdown + Portal skipped tests', () => {
 		it('uses the correct size variant if one is defined and doesn\'t try match trigger width', () => {
-			const wrapper = mount(createComponent());
+			const wrapper = mount(createComponent(defaultProps));
 			expect(wrapper.find(DropDownLayout).props().size).toBe('medium');
 			expect(wrapper.find(DropDownToggled).props().matchTriggerWidth).toBeFalsy();
 		});

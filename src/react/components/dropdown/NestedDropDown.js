@@ -4,8 +4,7 @@ import cn from 'classnames';
 import DropDownLayout from './DropDownLayout';
 import DropDown from './DropDown';
 import compose from '../helpers/compose';
-import { baseClass } from './private/constants';
-import { ns } from '../helpers/xuiClassNamespace';
+import { baseClass, fixedWidthDropdownSizes } from './private/constants';
 
 /**
  * <strong>BETA</strong> This component is still under active development and it's API may change.
@@ -53,7 +52,7 @@ export default class NestedDropDown extends DropDown {
 				const isCurrentPanel = (child.props && child.props.panelId === currentPanel);
 
 				return (
-					<div className={isCurrentPanel ? '' : `${ns}-u-hidden`}>
+					<div className={isCurrentPanel ? '' : `${baseClass}-nested-is-hidden`}>
 						{
 							isCurrentPanel ?
 								React.cloneElement(child, {
@@ -105,7 +104,7 @@ NestedDropDown.propTypes = {
 	isHidden: PropTypes.bool,
 
 	/** Applies correct XUI class based on prop value. Default will fits to children's width. */
-	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
+	size: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
 	/** Pass in an array of KeyboardEvent keycodes to be ignored from dropdown behaviour. */
 	ignoreKeyboardEvents: PropTypes.array,
@@ -156,7 +155,7 @@ NestedDropDown.defaultProps = {
 	ignoreKeyboardEvents: [],
 	isHidden: false,
 	hasKeyboardEvents: true,
-	size: 'large',
+	size: 'medium',
 	fixedWidth: true,
 	forceDesktop: false,
 	animateOpen: false,

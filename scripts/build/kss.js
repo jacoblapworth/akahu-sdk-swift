@@ -3,10 +3,10 @@ const postcssKss = require('./postcss/kss');
 const { taskRunner, taskRunnerReturns } = require('../helpers');
 const { succeed, fail } = taskRunnerReturns;
 
-function build() {
+function build({ skipPostCss = false } = {}) {
 	return taskRunner(() => {
 		return buildKss()
-			.then(() => postcssKss())
+			.then(() => (!skipPostCss && postcssKss() || true))
 			.then(succeed)
 			.catch(fail);
 	}, __filename);

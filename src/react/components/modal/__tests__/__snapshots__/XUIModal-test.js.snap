@@ -10,7 +10,6 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
   role="presentation"
 >
   <section
-    aria-describedby={undefined}
     aria-labelledby="generatedHeaderId"
     className="xui-modal xui-modal-width-medium xui-modal-layout"
     data-automationid="xui-modal"
@@ -19,39 +18,31 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
     tabIndex={-1}
   >
     <header
-      className="xui-modal--header xui-modal--heading xui-padding-left-large"
-      data-automationid={undefined}
+      className="xui-modal--header xui-modal--heading"
       id="generatedHeaderId"
     >
       Test header
       <button
-        className="xui-button xui-modal--close xui-button-icon"
+        className="xui-button xui-modal--close xui-button-icon xui-button-icon-medium"
         data-automationid="xui-modal--close"
         disabled={false}
         onClick={[Function]}
-        onKeyDown={undefined}
         tabIndex={0}
         title="Close"
         type="button"
       >
-        <div
-          className="xui-iconwrapper"
-          data-automationid={undefined}
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={12}
+          viewBox="0 0 12 12"
+          width={12}
         >
-          <svg
-            className="xui-icon"
-            data-automationid={undefined}
-            focusable="false"
-            height={12}
-            viewBox="0 0 12 12"
-            width={12}
-          >
-            <path
-              d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"
-              role="presentation"
-            />
-          </svg>
-        </div>
+          <path
+            d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"
+            role="presentation"
+          />
+        </svg>
       </button>
     </header>
     <div>
@@ -66,13 +57,10 @@ exports[`XUIModal should render an automation id when a qaHook is passed in 1`] 
   aria-hidden={true}
   className="xui-mask xui-unmask"
   data-automationid="xui-modal--mask"
-  id={undefined}
   onClick={null}
   role="presentation"
 >
   <section
-    aria-describedby={undefined}
-    aria-labelledby={undefined}
     className="xui-modal xui-modal-width-medium xui-modal-layout"
     data-automationid="xui-modal"
     role={null}
@@ -80,38 +68,30 @@ exports[`XUIModal should render an automation id when a qaHook is passed in 1`] 
     tabIndex={-1}
   >
     <header
-      className="xui-modal--header xui-modal--heading xui-padding-left-large"
+      className="xui-modal--header xui-modal--heading"
       data-automationid="xui-modal--header"
-      id={undefined}
     >
       <button
-        className="xui-button xui-modal--close xui-button-icon"
+        className="xui-button xui-modal--close xui-button-icon xui-button-icon-medium"
         data-automationid="xui-modal--close"
         disabled={false}
         onClick={[Function]}
-        onKeyDown={undefined}
         tabIndex={0}
         title="Close"
         type="button"
       >
-        <div
-          className="xui-iconwrapper"
-          data-automationid={undefined}
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={12}
+          viewBox="0 0 12 12"
+          width={12}
         >
-          <svg
-            className="xui-icon"
-            data-automationid={undefined}
-            focusable="false"
-            height={12}
-            viewBox="0 0 12 12"
-            width={12}
-          >
-            <path
-              d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"
-              role="presentation"
-            />
-          </svg>
-        </div>
+          <path
+            d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"
+            role="presentation"
+          />
+        </svg>
       </button>
     </header>
     <div>

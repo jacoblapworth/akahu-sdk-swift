@@ -1,6 +1,6 @@
 module.exports = function (handlebars) {
 	const cardPartial = `
-		<div class="xui-u-flex ds-card-wrapper">
+		<div class="xui-u-flex xui-margin-top-2xlarge ds-card-wrapper">
 			{{#each @root.menu}}
 				{{#if isActive}}
 						{{> cardContents }}
@@ -14,6 +14,9 @@ module.exports = function (handlebars) {
 	{{#each menu as |menuItem|}}
 		{{#isEqual parentHeader @root.sections.0.header}}
 			<a href="section-{{referenceURI}}.html" class="xui-u-flex ds-card xui-padding">
+			{{#if teaser-image}}
+					<img class="xui-margin-bottom-small" style="width: 100%;" src="./kss-assets/{{teaser-image}}">
+			{{/if}}
 					<div class="xui-heading ds-card-header">{{header}}</div>
 					<div class="xui-text-secondary ds-card-content">{{{teaser}}}</div>
 			</a>

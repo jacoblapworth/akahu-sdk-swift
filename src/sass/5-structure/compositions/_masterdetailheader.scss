@@ -1,0 +1,58 @@
+@import "../../vars";
+@import "../../mixins";
+
+// Base grid templates
+@mixin composition-mdh-small {
+	grid-template:
+		"header"
+		"detail" / 1fr;
+}
+
+@mixin composition-mdh-medium {
+	grid-template:
+		"header header"
+		"master detail" / min-content 1fr;
+	&.#{$ns}-composition-has-auto-widths {
+		grid-template-columns: 25% 1fr;
+	}
+}
+
+// Gap template variants (necessary for IE & Autoprefixer)
+@mixin composition-mdh-small-gap {
+	@include xui-composition-grid-gap;
+	@include composition-mdh-small;
+}
+
+@mixin composition-mdh-medium-gap {
+	@include xui-composition-grid-gap;
+	@include composition-mdh-medium;
+	&.#{$ns}-composition-has-auto-widths {
+		-ms-grid-columns: 25% $xui-grid-gutter 1fr;
+	}
+}
+
+// Classes using templates at various breakpoints
+.#{$ns}-composition-masterdetailheader {
+	@include composition-mdh-small;
+	&.#{$ns}-composition-has-grid-gap {
+		@include composition-mdh-small-gap;
+	}
+
+	&.#{$ns}-composition-auto-template {
+		@include xui-breakpoint-medium-up {
+			@include composition-mdh-medium;
+			&.#{$ns}-composition-has-grid-gap {
+				@include composition-mdh-medium-gap;
+			}
+		}
+		@include xui-breakpoint-xlarge-up {
+			@include xui-composition-narrow-left-max-widths;
+		}
+	}
+}
+
+.#{$ns}-composition-masterdetailheader-retain-small {
+	& .#{$ns}-gridarea-master {
+		@include xui-utility-hidden-visually;
+	}
+}

@@ -7,10 +7,8 @@ exports[`<XUIToastActions /> should render a passed qaHook as an automation id 1
 >
   <button
     className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
-    data-automationid={undefined}
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     type="button"
   >
@@ -18,10 +16,8 @@ exports[`<XUIToastActions /> should render a passed qaHook as an automation id 1
   </button>
   <button
     className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
-    data-automationid={undefined}
     disabled={false}
     onClick={[Function]}
-    onKeyDown={undefined}
     tabIndex={0}
     type="button"
   >
@@ -36,34 +32,22 @@ exports[`<XUIToastActions /> should render actions passed in as children 1`] = `
   data-automationid="toast-actions"
 >
   <a
-    aria-disabled={undefined}
     className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
-    data-automationid={undefined}
     disabled={false}
     href="javascript:void(0)"
     onClick={[Function]}
-    onKeyDown={undefined}
     onKeyPress={[Function]}
-    rel={undefined}
-    role={undefined}
     tabIndex={0}
-    target={undefined}
   >
     Action 1
   </a>
   <a
-    aria-disabled={undefined}
     className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
-    data-automationid={undefined}
     disabled={false}
     href="javascript:void(0)"
     onClick={[Function]}
-    onKeyDown={undefined}
     onKeyPress={[Function]}
-    rel={undefined}
-    role={undefined}
     tabIndex={0}
-    target={undefined}
   >
     Action 2
   </a>
@@ -76,34 +60,22 @@ exports[`<XUIToastActions /> should render actions passed in using the primaryAc
   data-automationid="toast-actions"
 >
   <a
-    aria-disabled={undefined}
     className="xui-button xui-actions--primary xui-toast--action xui-button-borderless-main xui-button-small"
-    data-automationid={undefined}
     disabled={false}
     href="javascript:void(0)"
     onClick={[Function]}
-    onKeyDown={undefined}
     onKeyPress={[Function]}
-    rel={undefined}
-    role={undefined}
     tabIndex={0}
-    target={undefined}
   >
     Action 1
   </a>
   <a
-    aria-disabled={undefined}
     className="xui-button xui-actions--secondary xui-toast--action xui-button-borderless-main xui-button-small"
-    data-automationid={undefined}
     disabled={false}
     href="javascript:void(0)"
     onClick={[Function]}
-    onKeyDown={undefined}
     onKeyPress={[Function]}
-    rel={undefined}
-    role={undefined}
     tabIndex={0}
-    target={undefined}
   >
     Action 2
   </a>

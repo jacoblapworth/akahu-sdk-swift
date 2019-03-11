@@ -9,7 +9,6 @@ const avatarProps = {
 	variant: undefined, // business is the other option
 	value: 'Hello', // This has to be populated, or identifier
 	imageUrl: '',
-	size: 'small',
 	identifier: '',
 };
 
@@ -64,9 +63,16 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'with long text',
+		storyTitle: 'with long text and size limit',
 		value: 'I am the primary value, I have long text',
-		avatarProps
+		avatarProps,
+		isLimitedWidth: true,
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with long text and auto width',
+		value: 'I am the primary value, I have long text',
+		avatarProps,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -77,12 +83,51 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as small',
+		value: 'Small',
+		title: 'Small pill',
+		size: 'small',
+		onDeleteClick: NOOP,
+		onClick: NOOP,
+		deleteButtonLabel: 'Delete Button Label',
+		avatarProps
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as xsmall',
+		value: 'XSmall',
+		title: 'XSmall pill',
+		size: 'xsmall',
+		onDeleteClick: NOOP,
+		onClick: NOOP,
+		deleteButtonLabel: 'Delete Button Label',
+		avatarProps
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as single-select pill',
 		value: 'Single pill',
 		className: 'xui-pill-single',
 		isSingle: true,
 		defaultLayout: false,
 		avatarProps,
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'truncated text and tooltip',
+		value: 'I am the primary value, I have long text',
+		avatarProps,
+		debugShowToolTip: true,
+		isLimitedWidth: true,
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'truncated secondary text and tooltip',
+		value: 'I am the primary value, I have long text',
+		secondaryText: 'I am secondary text, I am long',
+		avatarProps,
+		debugShowToolTip: true,
+		isLimitedWidth: true,
 	},
 ];
 

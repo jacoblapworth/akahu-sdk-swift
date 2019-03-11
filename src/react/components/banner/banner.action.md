@@ -1,7 +1,10 @@
 ### Single Action
 
 Single action banners provide an additional call to action inside the banner.
-```
+
+```jsx harmony
+import XUIBanner, { XUIBannerMessage, XUIBannerActions, XUIBannerAction } from '../../banner';
+
 const onBannerClose = () => {alert( 'Single action banner closed' )};
 
 <div>
@@ -22,7 +25,10 @@ const onBannerClose = () => {alert( 'Single action banner closed' )};
 ### Multi Action
 
 Multi action banners can be wrapped in a `XUIBannerActions` component to provide more than one call to action. The message inside the `Banner` can also wrap larger descriptions, however this should be avoided if possible.
-```
+
+```jsx harmony
+import XUIBanner, { XUIBannerMessage, XUIBannerActions, XUIBannerAction } from '../../banner';
+
 const onBannerClose = () => {alert( 'Multi action banner closed' )};;
 
 <div>

@@ -15,7 +15,7 @@
 	&-layout {
 		margin-left: auto;
 
-		@include xui-breakpoint-narrow {
+		@include xui-breakpoint-small-down {
 			flex-direction: column;
 
 			.#{$ns}-actions--primary {
@@ -24,20 +24,14 @@
 			}
 
 			.#{$ns}-actions--secondary {
-				margin: $xui-s-standard 0 0;
+				margin: $xui-s-small 0 0;
 				order: 1;
 			}
 		}
 
-		@include xui-breakpoint-medium {
+		@include xui-breakpoint-small-up {
 			.#{$ns}-actions--primary {
-				margin-left: $xui-s-small;
-			}
-		}
-
-		@include xui-breakpoint-medium-and-wide {
-			.#{$ns}-actions--primary {
-				margin-left: $xui-s-small;
+				margin-left: $xui-s-xsmall;
 			}
 		}
 	}
@@ -52,7 +46,7 @@
 	}
 
 	&--button-spacing {
-		margin-left: $xui-s-small;
+		margin-left: $xui-s-xsmall;
 	}
 
 }

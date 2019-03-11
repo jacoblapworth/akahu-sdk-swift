@@ -3,7 +3,6 @@
 exports[`<XUIBannerMessageDetail /> should map the list of mesage details to list elements 1`] = `
 <ul
   className="xui-banner--messagedetail"
-  data-automationid={undefined}
 >
   <li>
     a
@@ -37,7 +36,6 @@ exports[`<XUIBannerMessageDetail /> should render a passed qaHook as an auotmati
 exports[`<XUIBannerMessageDetail /> should render and includes no automation id by default 1`] = `
 <ul
   className="xui-banner--messagedetail"
-  data-automationid={undefined}
 >
   <li>
     a
@@ -51,7 +49,6 @@ exports[`<XUIBannerMessageDetail /> should render and includes no automation id 
 exports[`<XUIBannerMessageDetail /> should render custom classes on the root p DOM node 1`] = `
 <ul
   className="example-class xui-banner--messagedetail"
-  data-automationid={undefined}
 >
   <li>
     a

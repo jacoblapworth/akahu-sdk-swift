@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import uuidv4 from 'uuid/v4';
+
 import '../helpers/xuiGlobalChecks';
 import { baseClass } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
+import XUIControlWrapperInline, { getAriaAttributes } from '../controlwrapper/XUIControlWrapperInline';
+import generateIds from '../controlwrapper/helpers';
 
 // TODO: If there is further need to conform to specific browser scenarios then
 // we will need to replace this snippet with something more robust and granular,
@@ -25,10 +27,10 @@ const isIeOrEdge =
  * @param xuiCheckbox - The checkbox instance for which to set the indeterminate DOM property
  */
 const setIndeterminate = xuiCheckbox => {
-	if (xuiCheckbox._input) {
+	if (xuiCheckbox._input.current) {
 		// TODO: Lint fix
 		// eslint-disable-next-line no-param-reassign
-		xuiCheckbox._input.indeterminate = xuiCheckbox.props.isIndeterminate;
+		xuiCheckbox._input.current.indeterminate = xuiCheckbox.props.isIndeterminate;
 	}
 };
 
@@ -78,14 +80,18 @@ const buildSvgCheckbox = (qaHook, { svgClassName, iconMain }) => {
 };
 
 /**
- * @function buildHtmlCheckbox - given the checkbox props supplied, select which checkbox
- * builder to trigger
+ * @function buildHtmlCheckbox - build the HTML version of the checkbox control
  * @param qaHook - Optional hook label
  * @param htmlClassName - Optional classname to add to html version of checkbox
+ * @param calculatedSize - String to specify the size of the checkbox
  *
  */
-const buildHtmlCheckbox = (qaHook, htmlClassName) => {
-	const htmlClasses = cn(`${baseClass}--checkbox`, htmlClassName);
+const buildHtmlCheckbox = (qaHook, htmlClassName, calculatedSize) => {
+	const htmlClasses = cn(
+		`${baseClass}--checkbox`,
+		htmlClassName,
+		calculatedSize && `${baseClass}--checkbox-${calculatedSize}`,
+	);
 	return (
 		<div className={htmlClasses} data-automationid={qaHook && `${qaHook}--checkbox`} />
 	);
@@ -97,13 +103,14 @@ const buildHtmlCheckbox = (qaHook, htmlClassName) => {
  * @param qaHook - Optional hook label
  * @param htmlClassName - Optional classname to add to html version of checkbox
  * @param svgSettings - Object containing optional svg properties (classname, icon paths)
+ * @param calculatedSize - String to specify the size of the checkbox
  *
  */
-const buildCheckbox = (qaHook, htmlClassName, svgSettings) => {
+const buildCheckbox = (qaHook, htmlClassName, svgSettings, calculatedSize) => {
 	if (svgSettings.iconMain) {
 		return buildSvgCheckbox(qaHook, svgSettings);
 	}
-	return buildHtmlCheckbox(qaHook, htmlClassName);
+	return buildHtmlCheckbox(qaHook, htmlClassName, calculatedSize);
 };
 
 /**
@@ -113,9 +120,10 @@ const buildCheckbox = (qaHook, htmlClassName, svgSettings) => {
  * @class XUICheckbox
  * @extends {Component}
  */
-export default class XUICheckbox extends Component {
-	// User can manually proivde an id, or we will generate one.
-	labelId = this.props.labelId || uuidv4();
+export default class XUICheckbox extends PureComponent {
+	// User can manually provide an id, or we will generate one.
+	wrapperIds = generateIds(this.props.labelId);
+	_input = React.createRef();
 
 	componentDidMount() {
 		setIndeterminate(this);
@@ -126,7 +134,7 @@ export default class XUICheckbox extends Component {
 	}
 
 	onClick = event => {
-		const { _input: { indeterminate }, props: { onChange, isIndeterminate } } = this;
+		const { _input: { current: { indeterminate } }, props: { onChange, isIndeterminate } } = this;
 
 		setIndeterminate(this);
 
@@ -160,45 +168,49 @@ export default class XUICheckbox extends Component {
 			svgClassName,
 			labelClassName,
 			htmlClassName,
+			isGrouped,
+			isInvalid,
+			validationMessage,
+			hintMessage,
+			size,
 		} = this.props;
 
+		// Grouped inputs default to 'small'.
+		const calculatedSize = (isGrouped && 'small') || size;
+
 		const classes = cn(
-			className,
 			baseClass,
-			isReversed && `${baseClass}-reversed`,
 			isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
+			isReversed && `${baseClass}-reversed`,
+		);
+
+		const wrapperClasses = cn(
+			className,
+			`${baseClass}wrapper`,
+			calculatedSize && `${baseClass}-${calculatedSize}`,
 		);
 
 		const labelClasses = cn(
 			`${baseClass}--label`,
+			calculatedSize && `${baseClass}--label-${calculatedSize}`,
 			labelClassName,
 		);
-		const labelElement =
-			!isLabelHidden &&
-			children && (
-				<span
-					id={this.labelId}
-					className={labelClasses}
-					data-automationid={qaHook && `${qaHook}--label`}
-				>
-					{children}
-				</span>
-			);
+
+		const messageClasses = cn(
+			`${baseClass}--message`,
+			!isLabelHidden && `${baseClass}--message-with-label`,
+		);
+
 		const inputProps = {
-			'type': 'checkbox',
-			'disabled': isDisabled,
-			'required': isRequired,
-			'onClick': this.onClick,
-			'aria-label': (isLabelHidden && children) || undefined,
-			// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-			'aria-labelledby':
-				(labelElement && this.labelId)
-				|| (!children && this.props.labelId)
-				|| undefined,
+			type: 'checkbox',
+			disabled: isDisabled,
+			required: isRequired,
+			onClick: this.onClick,
 			tabIndex,
 			name,
 			onChange,
 			value,
+			...getAriaAttributes(this.wrapperIds, this.props),
 		};
 		const svgSettings = {
 			svgClassName,
@@ -220,21 +232,34 @@ export default class XUICheckbox extends Component {
 		}
 
 		return (
-			<label
-				className={classes}
-				data-automationid={qaHook}
+			<XUIControlWrapperInline
+				rootClassName={wrapperClasses}
+				wrapperIds={this.wrapperIds}
 				onClick={onLabelClick}
-				role="presentation"
+				fieldClassName={classes}
+				labelClassName={labelClasses}
+				messageClassName={messageClasses}
+				label={children}
+				{...{
+					qaHook,
+					isInvalid,
+					validationMessage,
+					hintMessage,
+					isLabelHidden,
+				}}
 			>
 				<input
-					ref={cb => this._input = cb}
+					ref={this._input}
 					{...inputProps}
-					className={cn(`${baseClass}--input`, inputProps.className)}
+					className={cn(
+						`${baseClass}--input`,
+						inputProps.className,
+						calculatedSize && `${baseClass}--input-${calculatedSize}`,
+					)}
 					data-automationid={qaHook && `${qaHook}--input`}
 				/>
-				{buildCheckbox(qaHook, htmlClassName, svgSettings)}
-				{labelElement}
-			</label>
+				{buildCheckbox(qaHook, htmlClassName, svgSettings, calculatedSize)}
+			</XUIControlWrapperInline>
 		);
 	}
 }
@@ -295,12 +320,24 @@ XUICheckbox.propTypes = {
 	/** The tab-index property to place on the checkbox */
 	tabIndex: PropTypes.number,
 
-	/** Used to output an uncontrolled checkbox component.  If a value is passed to the
+	/** Used to output an uncontrolled checkbox component. If a value is passed to the
 	 * isChecked prop, this prop will be ignored. */
 	isDefaultChecked: PropTypes.bool,
 
 	/** Provide a specific label ID which will be used as the "labelleby" aria property */
 	labelId: PropTypes.string,
+
+	/** Used by XUI components to state whether the checkbox is part of a group */
+	isGrouped: PropTypes.bool,
+
+	/** Whether the current input value is invalid */
+	isInvalid: PropTypes.bool,
+	/** Validation message to show under the input if `isInvalid` is true */
+	validationMessage: PropTypes.string,
+	/** Hint message to show under the input */
+	hintMessage: PropTypes.string,
+	/** Size variant. Defaults to medium */
+	size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
 };
 
 XUICheckbox.defaultProps = {
@@ -309,4 +346,5 @@ XUICheckbox.defaultProps = {
 	isIndeterminate: false,
 	isRequired: false,
 	isReversed: false,
+	size: 'medium',
 };

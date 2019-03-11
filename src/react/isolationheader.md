@@ -8,23 +8,24 @@ for behavioural aspects.
 
 ## Examples
 
-```
-const cross = require ('@xero/xui-icon/icons/cross').default;
-const overflow = require ('@xero/xui-icon/icons/overflow').default;
-const {XUIIsolationHeaderNavigation, XUIIsolationHeaderTitle, XUIIsolationHeaderSecondaryTitle, XUIIsolationHeaderActions} = require('./isolationheader');
-const XUIIcon = require('./icon').default;
-const XUIButton = require('./button').default;
+```jsx harmony
+import cross from '@xero/xui-icon/icons/cross';
+import overflow from '@xero/xui-icon/icons/overflow';
+
+import XUIIsolationHeader, { XUIIsolationHeaderNavigation, XUIIsolationHeaderTitle, XUIIsolationHeaderSecondaryTitle, XUIIsolationHeaderActions } from './isolationheader';
+import XUIIcon from './icon';
+import XUIButton from './button';
 
 <XUIIsolationHeader>
 	<XUIIsolationHeaderNavigation>
-		<XUIButton className="xui-margin-right-small" variant="icon-large" aria-label="close">
+		<XUIButton className="xui-margin-right-small" variant="icon" aria-label="close">
 			<XUIIcon icon={cross} />
 		</XUIButton>
 		<XUIIsolationHeaderTitle>Main Title</XUIIsolationHeaderTitle>
 		<XUIIsolationHeaderSecondaryTitle>Secondary Title</XUIIsolationHeaderSecondaryTitle>
 	</XUIIsolationHeaderNavigation>
 	<XUIIsolationHeaderActions>
-		<XUIButton variant="icon-large" aria-label="more options">
+		<XUIButton variant="icon" aria-label="more options">
 			<XUIIcon icon={overflow} />
 		</XUIButton>
 	</XUIIsolationHeaderActions>

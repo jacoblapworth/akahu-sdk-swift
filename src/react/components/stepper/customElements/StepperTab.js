@@ -1,19 +1,23 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import XUIProgressCircular from '../../progressindicator/XUIProgressCircular';
 import { NAME_SPACE } from '../helpers/constants';
-import { enrichTabProps } from '../helpers/enrichprops';
 import StepperIcon from './StepperIcon';
-import { ns } from '../../helpers/xuiClassNamespace';
 
 export default class StepperTab extends PureComponent {
+	handleClick = () => {
+		const { handleClick, step } = this.props;
+
+		handleClick(step - 1);
+	};
+
 	render = () => {
 		const {
 			id,
 			name,
 			description,
 			step,
-			handleClick,
 			isError,
 			isComplete,
 			isProgress,
@@ -21,13 +25,14 @@ export default class StepperTab extends PureComponent {
 			currentProgress,
 			tabIndex,
 			linkClasses,
-		} = enrichTabProps(this.props);
+			isTruncated,
+		} = this.props;
 
 		return (
 			<button
 				type="button"
 				className={linkClasses}
-				onClick={handleClick}
+				onClick={this.handleClick}
 				tabIndex={tabIndex}
 			>
 
@@ -50,9 +55,14 @@ export default class StepperTab extends PureComponent {
 						)
 					}
 
-					<div className={`${NAME_SPACE}-link-text`}>
+					<div
+						className={cn(
+							`${NAME_SPACE}-link-text`,
+							isTruncated && `${NAME_SPACE}-link-text-truncated`,
+						)}
+					>
 
-						<span className={`${NAME_SPACE}-link-heading ${ns}-heading-small`}>
+						<span className={`${NAME_SPACE}-link-heading`}>
 							{name}
 						</span>
 
@@ -75,13 +85,15 @@ StepperTab.propTypes = {
 	id: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	description: PropTypes.string,
+	linkClasses: PropTypes.string,
 	step: PropTypes.number,
+	tabIndex: PropTypes.number,
 	handleClick: PropTypes.func,
 	isError: PropTypes.bool,
 	isComplete: PropTypes.bool,
 	isActive: PropTypes.bool,
-	isDisabled: PropTypes.bool,
 	isProgress: PropTypes.bool,
 	totalProgress: PropTypes.number,
 	currentProgress: PropTypes.number,
+	isTruncated: PropTypes.bool,
 };

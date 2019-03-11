@@ -1,9 +1,21 @@
 @import "../vars";
 @import "../mixins";
 
-// TODO: update uses of this var to $xui-s-xsmall, when flexible controls are available.
-$xui-switch-label-padding: $xui-s-small - 2;
+$xui-switch-label-padding: $xui-s-xsmall;
 
+.#{$ns}-switchwrapper {
+	display: inline-block; // Inline inputs
+	vertical-align: top;
+
+	.#{$ns}-switch {
+		align-items: center;
+		display: flex;
+		max-width: 100%;
+		position: relative;
+	}
+}
+
+// Compatibility for controls that are not wrapped in a div
 .#{$ns}-switch {
 	align-items: center;
 	display: inline-flex; // Inline inputs
@@ -16,25 +28,20 @@ $xui-switch-label-padding: $xui-s-small - 2;
 
 .#{$ns}-switch--control {
 	background-color: $xui-switch-bg-color;
-	border-radius: 40px;
 	cursor: pointer;
 	display: inline-block;
-	height: 22px;
 	position: relative;
 	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 	user-select: none;
 	vertical-align: middle;
-	width: 40px;
+
 	&::before {
 		background-color: $xui-switch-check-bg-color;
 		border-radius: 50%;
 		content: " ";
 		display: inline-block;
-		height: 18px;
-		margin: 2px;
 		position: absolute;
 		transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
-		width: 18px;
 	}
 	.#{$ns}-switch-is-disabled & {
 		background: $xui-switch-disabled-bg-color;
@@ -42,8 +49,20 @@ $xui-switch-label-padding: $xui-s-small - 2;
 	}
 }
 
+.#{$ns}-switch--control-medium {
+	border-radius: $xui-control-size-standard;
+	height: 22px;
+	width: $xui-control-size-standard;
+
+	&::before {
+		height: 18px;
+		margin: 2px;
+		width: 18px;
+	}
+}
+
 .#{$ns}-switch--checkbox {
-	@include xui-utility-hidden-visually;
+	@include xui-position-offscreen-input;
 	&:focus + .#{$ns}-switch--control {
 		box-shadow: $xui-shadow-focus;
 	}
@@ -60,10 +79,26 @@ $xui-switch-label-padding: $xui-s-small - 2;
 	}
 }
 
+// Message positioning
+// =============
+.#{$ns}-switch--message-with-label {
+	.#{$ns}-switch:not(.#{$ns}-switch-reversed) + & {
+		margin-left: $xui-control-size-standard;
+		padding-left: $xui-switch-label-padding;
+	}
+}
+
 // Label spacing
 // =============
 .#{$ns}-switch--label {
 	flex-grow: 1;
+
+	&.#{$ns}-switch--label-medium {
+		@include xui-text-medium;
+	}
+	&.#{$ns}-switch--label-small {
+		@include xui-text-small;
+	}
 
 	.#{$ns}-switch:not(.#{$ns}-switch-reversed) & {
 		padding-left: $xui-switch-label-padding;
@@ -94,11 +129,16 @@ $xui-switch-label-padding: $xui-s-small - 2;
 	border: $xui-border-control;
 	border-radius: $xui-radius;
 
+	.#{$ns}-switchwrapper {
+		display: block; // Stacked inputs
+	}
+
 	.#{$ns}-switch {
-		display: flex; // Stacked inputs
+		display: flex;
 		padding: $xui-switch-label-padding/2; // Border padding
 	}
 
+	.#{$ns}-switchwrapper:nth-last-of-type(n+2),
 	.#{$ns}-switch:nth-last-of-type(n+2) {
 		border-bottom: $xui-border-control;
 	}
@@ -120,4 +160,10 @@ $xui-switch-label-padding: $xui-s-small - 2;
 		flex-shrink: 0;
 		margin: $xui-switch-label-padding/2;
 	}
+}
+
+.#{$ns}-switch-group-is-invalid,
+.#{$ns}-switch-group-is-invalid .#{$ns}-switchwrapper:nth-last-of-type(n+2),
+.#{$ns}-switch-group-is-invalid .#{$ns}-switch:nth-last-of-type(n+2) {
+	border-color: $xui-validation-invalid-color;
 }

@@ -3,10 +3,11 @@ import React from 'react';
 
 // Components we need to test with
 import XUIPill from '../XUIPill';
+import { sizeClasses } from '../private/constants';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, object } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text, object, select} from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 import NOOP from '../../helpers/noop';
@@ -26,10 +27,10 @@ storiesWithKnobs.add('Playground', () => (
 		onClick={NOOP}
 		isInvalid={boolean('isInvalid', false)}
 		href={text('href', '')}
-		defaultLayout={boolean('defaultLayout', true)}
 		deleteButtonLabel={text('deleteButtonLabel', undefined)}
 		className={text('className', '')}
 		avatarProps={object('avatarProps', avatarProps)}
+		size={select('Size', Object.keys(sizeClasses), 'medium')}
 	/>
 ));
 

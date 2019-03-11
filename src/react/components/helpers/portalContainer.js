@@ -1,4 +1,6 @@
-export const portalClass = 'xui-portal';
+import { ns } from '../helpers/xuiClassNamespace';
+
+export const portalClass = `${ns}-portal`;
 
 function createPortalContainer() {
 	const container = document.createElement('div');

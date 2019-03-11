@@ -14,6 +14,7 @@ import compose from '../helpers/compose';
 import { ns } from '../helpers/xuiClassNamespace';
 
 import { intervalRunner, isVisible } from './private/helpers';
+import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 
 export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	constructor(props) {
@@ -22,6 +23,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 		this.state = {
 			value: props.searchValue,
 		};
+		this.rootNode = React.createRef();
 	}
 
 	componentDidUpdate(prevProps) {
@@ -53,7 +55,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 			const throttled = interval
 				? throttle(onSearch, interval, { trailing: true })
 				: onSearch;
-			this.throttledOnChange = event => {
+			this.debouncedOnChange = event => {
 				event.persist();
 				this.setState({
 					value: event.target.value,
@@ -61,7 +63,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				throttled(event.target.value);
 			};
 		} else {
-			this.throttledOnChange = undefined;
+			this.debouncedOnChange = undefined;
 		}
 	}
 
@@ -147,7 +149,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 			inputClassName,
 			inputContainerClassName,
 			placeholder,
-			inputLabelText,
+			inputLabel,
 			isInputLabelHidden,
 			inputProps,
 			inputId,
@@ -175,14 +177,10 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 			listQaHook = `${qaHook}--list`;
 			containerQaHook = `${qaHook}--container`;
 		}
-		const dropdownClasses = cn(
-			!dropdownSize && `${ns}-u-fullwidth`,
-			dropdownClassName,
-		);
+
 		const searchItem = (
 			<div className={`${ns}-dropdown--header-container`}>
 				<XUITextInput
-					inputClassName={inputClassName}
 					containerClassName={inputContainerClassName}
 					value={value || ''}
 					leftElement={
@@ -191,11 +189,13 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 						</XUITextInputSideElement>
 					}
 					placeholder={placeholder}
-					onChange={this.throttledOnChange}
+					onChange={this.debouncedOnChange}
+					inputClassName={inputClassName}
 					inputRef={c => this.input = c}
 					isBorderlessSolid
-					labelText={inputLabelText}
+					label={inputLabel}
 					isLabelHidden={isInputLabelHidden}
+					isFieldLayout={false}
 					inputProps={{
 						...inputProps,
 						'id': inputId,
@@ -206,7 +206,11 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				/>
 			</div>
 		);
-		const dropdownToggledClasses = !dropdownSize ? `${ns}-u-fullwidth` : null;
+		const dropdownClasses = cn(
+			!dropdownSize && `${ns}-dropdown-fullwidth`,
+			dropdownClassName,
+		);
+		const dropdownToggledClasses = !dropdownSize ? `${ns}-dropdown-fullwidth` : null;
 		const dropdown = (
 			<DropDown
 				ref={d => this.dropdown = d}
@@ -234,7 +238,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 
 		return (
 			<div
-				ref={c => this.rootNode = c}
+				ref={this.rootNode}
 				className={className}
 				data-automationid={containerQaHook}
 			>
@@ -308,7 +312,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
 	searchThrottleInterval: PropTypes.number,
 
 	/** Maps to the 'size' property of the dropdown component. */
-	dropdownSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
+	dropdownSize: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
 	/** Maps to the `closeOnSelect` property of the DropDownToggled component. */
 	closeOnSelect: PropTypes.bool,
@@ -327,7 +331,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
 	inputId: PropTypes.string,
 
 	/** Label to show above the input */
-	inputLabelText: PropTypes.string,
+	inputLabel: PropTypes.node,
 
 	/** Whether to allow the dropdown to take the full width of the wrapper (as SelectBox)
 	 * or wrap with an inline block. */

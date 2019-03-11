@@ -1,9 +1,8 @@
 @import "../vars";
 @import "../mixins";
 
-
+// TODO: Review whether these are components or not
 // Alignment
-
 
 .#{$ns}-text-align-left {
 	text-align: left;
@@ -19,19 +18,11 @@
 
 // Truncation
 
-
 .#{$ns}-text-truncated {
 	@include xui-text-truncated;
 }
 
-// TODO: remove width from xui-text-truncated in in XUI 14 because it messes with display: flex
-// (see isolation header story: "jam-packed")
-.#{$ns}-isolationheader .#{$ns}-text-truncated {
-	width: auto;
-}
-
 // Word-break
-
 
 /* doiuse-disable */
 .#{$ns}-text-wordbreak {
@@ -62,15 +53,15 @@
 
 // Line Height
 .#{$ns}-text-reset {
-	@include xui-text-line-height-reset;
+	line-height: $xui-line-height-reset;
 }
 
 .#{$ns}-text-tight {
-	@include xui-text-line-height-tight;
+	line-height: $xui-line-height-tight;
 }
 
 .#{$ns}-text-compact {
-	@include xui-text-line-height-compact;
+	line-height: $xui-line-height-compact;
 }
 
 // Color

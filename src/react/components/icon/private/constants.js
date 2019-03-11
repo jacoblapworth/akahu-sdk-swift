@@ -2,22 +2,24 @@ import { ns } from '../../helpers/xuiClassNamespace';
 
 export const baseClass = `${ns}-icon`;
 export const wrapperClass = `${baseClass}wrapper`;
+
+// Wrappers for legacy compatibility
 export const wrapperSizeClasses = {
-	standard: '',
+	medium: `${wrapperClass}-medium`,
 	large: `${wrapperClass}-large`,
 	xlarge: `${wrapperClass}-xlarge`,
 };
 
 export const iconSizeMultipliers = {
-	standard: 1,
+	medium: 1,
 	large: 4 / 3,
 	xlarge: 2,
 };
 
 export const rotationClasses = {
-	90: `${ns}-u-rotate-90`,
-	180: `${ns}-u-rotate-180`,
-	270: `${ns}-u-rotate-270`,
+	90: `${baseClass}-rotate-90`,
+	180: `${baseClass}-rotate-180`,
+	270: `${baseClass}-rotate-270`,
 };
 
 /* eslint-disable camelcase */

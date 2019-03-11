@@ -5,16 +5,16 @@
 The `XUIPageHeader` appears beneath the global header on a page. In a basic example, it is a white bar with a title. In more complex cases it could contain a [`XUIBreadcrumb`](#xuibreadcrumb), a [`Picklist`](#picklist) to present tabbed navigation, or a [`XUIActions`](#actions) component (and some combinations).
 
 #### Examples
-```
-const XUIPageHeader = require('../structural/XUIPageHeader').default;
+
+```jsx harmony
+import { XUIPageHeader } from '../../structural';
 
 <XUIPageHeader title="Account Settings"></XUIPageHeader>
 ```
 
-```
-const XUIPageHeader = require('../structural/XUIPageHeader').default;
-const Picklist = require('../picklist/Picklist').default;
-const Pickitem = require('../picklist/Pickitem').default;
+```jsx harmony
+import { XUIPageHeader } from '../../structural';
+import Picklist, { Pickitem } from '../../picklist';
 
 const builtTabs = (
 	<Picklist secondaryProps={{ role: 'menu' }}>
@@ -27,10 +27,9 @@ const builtTabs = (
 <XUIPageHeader title="Contacts" tabs={builtTabs}></XUIPageHeader>
 ```
 
-```
-const XUIPageHeader = require('../structural/XUIPageHeader').default;
-const XUIActions = require('../structural/XUIActions').default;
-const XUIButton = require('../button/XUIButton').default;
+```jsx harmony
+import { XUIPageHeader, XUIActions } from '../../structural';
+import XUIButton from '../../button';
 
 const builtActions = (
 	<XUIActions

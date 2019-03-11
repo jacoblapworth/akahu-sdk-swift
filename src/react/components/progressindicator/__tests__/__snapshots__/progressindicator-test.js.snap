@@ -13,52 +13,34 @@ exports[`<XUIProgressIndicator /> custom colors should not create a color overri
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
     progressColor="banana"
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
     totalColor="potato"
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
               thickness={3}
               total={5}
             >
@@ -124,11 +106,7 @@ exports[`<XUIProgressIndicator /> custom colors should not create a color overri
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -152,28 +130,19 @@ exports[`<XUIProgressIndicator /> custom colors should override default color wi
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
     progressColor="orange"
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
     totalColor="turquoise"
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular"
-      data-automationid={undefined}
       data-xui-progress-current-color="orange"
       data-xui-progress-total-color="turquoise"
       role="progressbar"
@@ -182,24 +151,15 @@ exports[`<XUIProgressIndicator /> custom colors should override default color wi
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
               thickness={3}
               total={5}
             >
@@ -265,11 +225,7 @@ exports[`<XUIProgressIndicator /> custom colors should override default color wi
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -292,51 +248,34 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={5}
     classes="xui-progress xui-progress-circular xui-progress-complete"
-    customContent={undefined}
     id="myCustomProgressId"
     isAlertOnComplete={true}
     isComplete={true}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={5}
-    toolTipId={undefined}
     toolTipMessage="5 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={5}
       aria-valuetext="5 of 5"
       className="xui-progress xui-progress-circular xui-progress-complete"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={5}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={5}
-              qaHook={undefined}
               thickness={3}
               total={5}
             >
@@ -403,9 +342,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
           </div>
         </CircularGrowth>
         <CircularIcon
-          hardErrorAlert={undefined}
           isComplete={true}
-          isHardError={undefined}
         >
           <div
             className="xui-progress-icon"
@@ -440,51 +377,33 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular xui-progress-error-hard"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
     isHardError={true}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular xui-progress-error-hard"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
               thickness={3}
               total={5}
             >
@@ -551,22 +470,37 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
           </div>
         </CircularGrowth>
         <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
           isHardError={true}
         >
           <div
             className="xui-progress-icon"
           >
             <ErrorIcon>
-              <svg
+              <XUIIcon
                 className="xui-progress-icon-error"
-                viewBox="0 0 2 7"
+                icon={
+                  Object {
+                    "height": 14,
+                    "path": "M2 0L0 7h2l-1 7 5-9H4l2-5z",
+                    "width": 6,
+                  }
+                }
+                role="presentation"
+                size="medium"
               >
-                <path
-                  d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"
-                />
-              </svg>
+                <svg
+                  className="xui-icon xui-progress-icon-error"
+                  focusable="false"
+                  height={14}
+                  viewBox="0 0 6 14"
+                  width={6}
+                >
+                  <path
+                    d="M2 0L0 7h2l-1 7 5-9H4l2-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </XUIIcon>
             </ErrorIcon>
           </div>
         </CircularIcon>
@@ -588,54 +522,36 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-grow xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
     isGrow={true}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-grow xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
           isGrow={true}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <ElementSize>
-            <div
-              className={undefined}
-            >
+            <div>
               <CircularTrack
-                customContent={undefined}
                 elementWidth={20}
                 id="myCustomProgressId"
                 isGrow={true}
-                isSegmented={undefined}
                 progress={3}
-                qaHook={undefined}
                 thickness={1.3098282872553617}
                 total={5}
               >
@@ -702,11 +618,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </div>
           </ElementSize>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -730,52 +642,34 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular xui-progress-error-hard"
-    customContent={undefined}
     hardErrorAlert="S"
     id="myCustomProgressId"
-    isComplete={undefined}
     isHardError={true}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular xui-progress-error-hard"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
               thickness={3}
               total={5}
             >
@@ -843,7 +737,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         </CircularGrowth>
         <CircularIcon
           hardErrorAlert="S"
-          isComplete={undefined}
           isHardError={true}
         >
           <div
@@ -870,54 +763,36 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-grow xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
     isGrow={true}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-grow xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
           isGrow={true}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <ElementSize>
-            <div
-              className={undefined}
-            >
+            <div>
               <CircularTrack
-                customContent={undefined}
                 elementWidth={20}
                 id="myCustomProgressId"
                 isGrow={true}
-                isSegmented={undefined}
                 progress={3}
-                qaHook={undefined}
                 thickness={1.3098282872553617}
                 total={5}
               >
@@ -984,11 +859,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </div>
           </ElementSize>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -1011,51 +882,33 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular xui-progress-error-hard"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
     isHardError={true}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular xui-progress-error-hard"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
               thickness={3}
               total={5}
             >
@@ -1122,22 +975,37 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
           </div>
         </CircularGrowth>
         <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
           isHardError={true}
         >
           <div
             className="xui-progress-icon"
           >
             <ErrorIcon>
-              <svg
+              <XUIIcon
                 className="xui-progress-icon-error"
-                viewBox="0 0 2 7"
+                icon={
+                  Object {
+                    "height": 14,
+                    "path": "M2 0L0 7h2l-1 7 5-9H4l2-5z",
+                    "width": 6,
+                  }
+                }
+                role="presentation"
+                size="medium"
               >
-                <path
-                  d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"
-                />
-              </svg>
+                <svg
+                  className="xui-icon xui-progress-icon-error"
+                  focusable="false"
+                  height={14}
+                  viewBox="0 0 6 14"
+                  width={6}
+                >
+                  <path
+                    d="M2 0L0 7h2l-1 7 5-9H4l2-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </XUIIcon>
             </ErrorIcon>
           </div>
         </CircularIcon>
@@ -1160,50 +1028,36 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={6}
     classes="xui-progress xui-progress-overflow xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
     isOverflow={true}
     isSegmented={true}
-    isSoftError={undefined}
     progress={5}
-    toolTipId={undefined}
     toolTipMessage="6 of 5"
     total={6}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={6}
       aria-valuetext="6 of 5"
       className="xui-progress xui-progress-overflow xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
           isSegmented={true}
           progress={5}
-          qaHook={undefined}
-          thickness={undefined}
           total={6}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
               isSegmented={true}
               progress={5}
-              qaHook={undefined}
               thickness={3}
               total={6}
             >
@@ -1270,11 +1124,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -1297,50 +1147,33 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={6}
     classes="xui-progress xui-progress-overflow xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
     isOverflow={true}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={5}
-    toolTipId={undefined}
     toolTipMessage="6 of 5"
     total={6}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={6}
       aria-valuetext="6 of 5"
       className="xui-progress xui-progress-overflow xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={5}
-          qaHook={undefined}
-          thickness={undefined}
           total={6}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={5}
-              qaHook={undefined}
               thickness={3}
               total={6}
             >
@@ -1406,11 +1239,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -1434,51 +1263,37 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
     isSegmented={true}
-    isSoftError={undefined}
     progress={3}
     thickness={5}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
           isSegmented={true}
           progress={3}
-          qaHook={undefined}
           thickness={5}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
               isSegmented={true}
               progress={3}
-              qaHook={undefined}
               thickness={5}
               total={5}
             >
@@ -1545,11 +1360,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -1572,50 +1383,35 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
     isSegmented={true}
-    isSoftError={undefined}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
           isSegmented={true}
           progress={3}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
               isSegmented={true}
               progress={3}
-              qaHook={undefined}
               thickness={3}
               total={5}
             >
@@ -1682,11 +1478,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -1709,50 +1501,33 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-error-soft xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
-    isSegmented={undefined}
     isSoftError={true}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-error-soft xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
               thickness={3}
               total={5}
             >
@@ -1818,11 +1593,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -1845,51 +1616,34 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
     thickness={99999}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
           thickness={99999}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
               thickness={99999}
               total={5}
             >
@@ -1955,11 +1709,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -1982,51 +1732,34 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
     thickness={0}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
           thickness={0}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
               thickness={0}
               total={5}
             >
@@ -2092,11 +1825,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -2119,51 +1848,34 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
     thickness={8}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
           thickness={8}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
               thickness={8}
               total={5}
             >
@@ -2229,11 +1941,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -2255,50 +1963,32 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
               thickness={3}
               total={5}
             >
@@ -2364,11 +2054,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -2391,27 +2077,19 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
-    customContent={undefined}
     hasToolTip={true}
     id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
     toolTipId="myCustomProgressId-progress--tooltip"
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <XUITooltip
@@ -2422,26 +2100,16 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         maxWidth={220}
         openDelay={500}
         preferredPosition="top"
-        qaHook={undefined}
         trigger={
           <div
             className="xui-progress--fragment"
           >
             <CircularGrowth
-              customContent={undefined}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
-              thickness={undefined}
               total={5}
             />
-            <CircularIcon
-              hardErrorAlert={undefined}
-              isComplete={undefined}
-              isHardError={undefined}
-            />
+            <CircularIcon />
           </div>
         }
         triggerOnBlur={true}
@@ -2464,24 +2132,15 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             onMouseOver={[Function]}
           >
             <CircularGrowth
-              customContent={undefined}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
-              thickness={undefined}
               total={5}
             >
               <div>
                 <CircularTrack
-                  customContent={undefined}
                   elementWidth={20}
                   id="myCustomProgressId"
-                  isGrow={undefined}
-                  isSegmented={undefined}
                   progress={3}
-                  qaHook={undefined}
                   thickness={3}
                   total={5}
                 >
@@ -2547,11 +2206,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                 </CircularTrack>
               </div>
             </CircularGrowth>
-            <CircularIcon
-              hardErrorAlert={undefined}
-              isComplete={undefined}
-              isHardError={undefined}
-            >
+            <CircularIcon>
               <div
                 className="xui-progress-icon"
               />
@@ -2635,6 +2290,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                 </div>
                 <span
                   class="xui-positioningInline"
+                  style="flex-direction: column;"
                 >
                   <span
                     aria-hidden="true"
@@ -2649,27 +2305,17 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               </span>
             }
             preferredPosition="top"
-            qaHook={undefined}
             shouldRestrictMaxHeight={true}
             trigger={
               <div
                 className="xui-progress--fragment"
               >
                 <CircularGrowth
-                  customContent={undefined}
                   id="myCustomProgressId"
-                  isGrow={undefined}
-                  isSegmented={undefined}
                   progress={3}
-                  qaHook={undefined}
-                  thickness={undefined}
                   total={5}
                 />
-                <CircularIcon
-                  hardErrorAlert={undefined}
-                  isComplete={undefined}
-                  isHardError={undefined}
-                />
+                <CircularIcon />
               </div>
             }
             triggerDropdownGap={10}
@@ -2682,7 +2328,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
           >
             <span
               className="xui-positioningInline"
-              data-automationid={undefined}
               style={
                 Object {
                   "flexDirection": "column",
@@ -2693,7 +2338,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               <span
                 aria-hidden={true}
                 className="xui-tooltip--tip"
-                data-automationid={undefined}
                 id="myCustomProgressId-progress--tooltip"
                 role="tooltip"
                 style={
@@ -2730,36 +2374,26 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-grow xui-progress-linear"
-    hasSegmentDots={undefined}
     id="myCustomProgressId"
     isGrow={true}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
     thickness={99999}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-grow xui-progress-linear"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <LinearGrowth
-          hasSegmentDots={undefined}
           isGrow={true}
-          isSegmented={undefined}
           progress={3}
           thickness={99999}
           total={5}
@@ -2772,9 +2406,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             >
               <LinearTrack
                 elementHeight={null}
-                hasSegmentDots={undefined}
                 isGrow={true}
-                isSegmented={undefined}
                 progress={3}
                 thickness={99999}
                 total={5}
@@ -2824,36 +2456,26 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-grow xui-progress-linear"
-    hasSegmentDots={undefined}
     id="myCustomProgressId"
     isGrow={true}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
     thickness={10}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-grow xui-progress-linear"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <LinearGrowth
-          hasSegmentDots={undefined}
           isGrow={true}
-          isSegmented={undefined}
           progress={3}
           thickness={10}
           total={5}
@@ -2866,9 +2488,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             >
               <LinearTrack
                 elementHeight={null}
-                hasSegmentDots={undefined}
                 isGrow={true}
-                isSegmented={undefined}
                 progress={3}
                 thickness={10}
                 total={5}
@@ -2917,37 +2537,26 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-grow xui-progress-linear"
-    hasSegmentDots={undefined}
     id="myCustomProgressId"
     isGrow={true}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-grow xui-progress-linear"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <LinearGrowth
-          hasSegmentDots={undefined}
           isGrow={true}
-          isSegmented={undefined}
           progress={3}
-          thickness={undefined}
           total={5}
         >
           <ElementSize
@@ -2958,9 +2567,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             >
               <LinearTrack
                 elementHeight={null}
-                hasSegmentDots={undefined}
                 isGrow={true}
-                isSegmented={undefined}
                 progress={3}
                 thickness={null}
                 total={5}
@@ -3010,41 +2617,30 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={6}
     classes="xui-progress xui-progress-overflow xui-progress-linear"
-    hasSegmentDots={undefined}
     id="myCustomProgressId"
     isOverflow={true}
     isSegmented={true}
-    isSoftError={undefined}
     progress={5}
-    toolTipId={undefined}
     toolTipMessage="6 of 5"
     total={6}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={6}
       aria-valuetext="6 of 5"
       className="xui-progress xui-progress-overflow xui-progress-linear"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <LinearGrowth
-          hasSegmentDots={undefined}
-          isGrow={undefined}
           isSegmented={true}
           progress={5}
-          thickness={undefined}
           total={6}
         >
           <LinearTrack
-            hasSegmentDots={undefined}
-            isGrow={undefined}
             isSegmented={true}
             progress={5}
             thickness={4}
@@ -3134,42 +2730,28 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={6}
     classes="xui-progress xui-progress-overflow xui-progress-linear"
-    hasSegmentDots={undefined}
     id="myCustomProgressId"
     isOverflow={true}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={5}
-    toolTipId={undefined}
     toolTipMessage="6 of 5"
     total={6}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={6}
       aria-valuetext="6 of 5"
       className="xui-progress xui-progress-overflow xui-progress-linear"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <LinearGrowth
-          hasSegmentDots={undefined}
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={5}
-          thickness={undefined}
           total={6}
         >
           <LinearTrack
-            hasSegmentDots={undefined}
-            isGrow={undefined}
-            isSegmented={undefined}
             progress={5}
             thickness={4}
             total={6}
@@ -3220,24 +2802,18 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     classes="xui-progress xui-progress-linear"
     hasSegmentDots={true}
     id="myCustomProgressId"
-    isOverflow={undefined}
     isSegmented={true}
-    isSoftError={undefined}
     progress={3}
     thickness={30}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-linear"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
@@ -3245,7 +2821,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
       >
         <LinearGrowth
           hasSegmentDots={true}
-          isGrow={undefined}
           isSegmented={true}
           progress={3}
           thickness={30}
@@ -3253,7 +2828,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         >
           <LinearTrack
             hasSegmentDots={true}
-            isGrow={undefined}
             isSegmented={true}
             progress={3}
             thickness={30}
@@ -3389,42 +2963,31 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-linear"
-    hasSegmentDots={undefined}
     id="myCustomProgressId"
-    isOverflow={undefined}
     isSegmented={true}
-    isSoftError={undefined}
     progress={3}
     thickness={30}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-linear"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <LinearGrowth
-          hasSegmentDots={undefined}
-          isGrow={undefined}
           isSegmented={true}
           progress={3}
           thickness={30}
           total={5}
         >
           <LinearTrack
-            hasSegmentDots={undefined}
-            isGrow={undefined}
             isSegmented={true}
             progress={3}
             thickness={30}
@@ -3504,41 +3067,29 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-linear"
-    hasSegmentDots={undefined}
     id="myCustomProgressId"
-    isOverflow={undefined}
     isSegmented={true}
-    isSoftError={undefined}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-linear"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <LinearGrowth
-          hasSegmentDots={undefined}
-          isGrow={undefined}
           isSegmented={true}
           progress={3}
-          thickness={undefined}
           total={5}
         >
           <LinearTrack
-            hasSegmentDots={undefined}
-            isGrow={undefined}
             isSegmented={true}
             progress={3}
             thickness={4}
@@ -3618,42 +3169,28 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-error-soft xui-progress-linear"
-    hasSegmentDots={undefined}
     id="myCustomProgressId"
-    isOverflow={undefined}
-    isSegmented={undefined}
     isSoftError={true}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-error-soft xui-progress-linear"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <LinearGrowth
-          hasSegmentDots={undefined}
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          thickness={undefined}
           total={5}
         >
           <LinearTrack
-            hasSegmentDots={undefined}
-            isGrow={undefined}
-            isSegmented={undefined}
             progress={3}
             thickness={4}
             total={5}
@@ -3700,43 +3237,29 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-linear"
-    hasSegmentDots={undefined}
     id="myCustomProgressId"
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
     thickness={0}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-linear"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <LinearGrowth
-          hasSegmentDots={undefined}
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
           thickness={0}
           total={5}
         >
           <LinearTrack
-            hasSegmentDots={undefined}
-            isGrow={undefined}
-            isSegmented={undefined}
             progress={3}
             thickness={0}
             total={5}
@@ -3783,43 +3306,29 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-linear"
-    hasSegmentDots={undefined}
     id="myCustomProgressId"
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
     thickness={30}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-linear"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <LinearGrowth
-          hasSegmentDots={undefined}
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
           thickness={30}
           total={5}
         >
           <LinearTrack
-            hasSegmentDots={undefined}
-            isGrow={undefined}
-            isSegmented={undefined}
             progress={3}
             thickness={30}
             total={5}
@@ -3865,42 +3374,27 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-linear"
-    hasSegmentDots={undefined}
     id="myCustomProgressId"
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-linear"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <LinearGrowth
-          hasSegmentDots={undefined}
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          thickness={undefined}
           total={5}
         >
           <LinearTrack
-            hasSegmentDots={undefined}
-            isGrow={undefined}
-            isSegmented={undefined}
             progress={3}
             thickness={4}
             total={5}
@@ -3947,26 +3441,19 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-linear"
-    hasSegmentDots={undefined}
     hasToolTip={true}
     id="myCustomProgressId"
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
     toolTipId="myCustomProgressId-progress--tooltip"
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-linear"
-      data-automationid={undefined}
       role="progressbar"
     >
       <XUITooltip
@@ -3977,17 +3464,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         maxWidth={220}
         openDelay={500}
         preferredPosition="top"
-        qaHook={undefined}
         trigger={
           <div
             className="xui-progress--fragment"
           >
             <LinearGrowth
-              hasSegmentDots={undefined}
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              thickness={undefined}
               total={5}
             />
           </div>
@@ -4012,17 +3494,10 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             onMouseOver={[Function]}
           >
             <LinearGrowth
-              hasSegmentDots={undefined}
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              thickness={undefined}
               total={5}
             >
               <LinearTrack
-                hasSegmentDots={undefined}
-                isGrow={undefined}
-                isSegmented={undefined}
                 progress={3}
                 thickness={4}
                 total={5}
@@ -4086,6 +3561,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                 </div>
                 <span
                   class="xui-positioningInline"
+                  style="flex-direction: column;"
                 >
                   <span
                     aria-hidden="true"
@@ -4100,18 +3576,13 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               </span>
             }
             preferredPosition="top"
-            qaHook={undefined}
             shouldRestrictMaxHeight={true}
             trigger={
               <div
                 className="xui-progress--fragment"
               >
                 <LinearGrowth
-                  hasSegmentDots={undefined}
-                  isGrow={undefined}
-                  isSegmented={undefined}
                   progress={3}
-                  thickness={undefined}
                   total={5}
                 />
               </div>
@@ -4126,7 +3597,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
           >
             <span
               className="xui-positioningInline"
-              data-automationid={undefined}
               style={
                 Object {
                   "flexDirection": "column",
@@ -4137,7 +3607,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               <span
                 aria-hidden={true}
                 className="xui-tooltip--tip"
-                data-automationid={undefined}
                 id="myCustomProgressId-progress--tooltip"
                 role="tooltip"
                 style={
@@ -4179,19 +3648,12 @@ exports[`<XUIProgressIndicator /> render supplied content as a child of the nest
       />
     }
     id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
     qaHook="progress-indicator"
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
@@ -4210,11 +3672,8 @@ exports[`<XUIProgressIndicator /> render supplied content as a child of the nest
             />
           }
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
           qaHook="progress-indicator"
-          thickness={undefined}
           total={5}
         >
           <div>
@@ -4226,8 +3685,6 @@ exports[`<XUIProgressIndicator /> render supplied content as a child of the nest
               }
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
               qaHook="progress-indicator"
               thickness={3}
@@ -4312,11 +3769,7 @@ exports[`<XUIProgressIndicator /> render supplied content as a child of the nest
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -4340,51 +3793,36 @@ exports[`<XUIProgressIndicator /> should default to a standard format when segme
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
     isLinear={true}
-    isOverflow={undefined}
     isSegmented={false}
-    isSoftError={undefined}
     progress={0}
-    toolTipId={undefined}
     toolTipMessage="3 of 0"
     total={0}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={0}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 0"
       className="xui-progress xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
           isSegmented={false}
           progress={0}
-          qaHook={undefined}
-          thickness={undefined}
           total={0}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
               isSegmented={false}
               progress={0}
-              qaHook={undefined}
               thickness={3}
               total={0}
             >
@@ -4450,11 +3888,7 @@ exports[`<XUIProgressIndicator /> should default to a standard format when segme
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -4478,51 +3912,35 @@ exports[`<XUIProgressIndicator /> should override a complete alert with a soft e
     ariaMin={0}
     ariaNow={5}
     classes="xui-progress xui-progress-error-soft xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
     isAlertOnComplete={true}
     isComplete={false}
-    isOverflow={undefined}
-    isSegmented={undefined}
     isSoftError={true}
     progress={5}
-    toolTipId={undefined}
     toolTipMessage="5 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={5}
       aria-valuetext="5 of 5"
       className="xui-progress xui-progress-error-soft xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={5}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={5}
-              qaHook={undefined}
               thickness={3}
               total={5}
             >
@@ -4589,9 +4007,7 @@ exports[`<XUIProgressIndicator /> should override a complete alert with a soft e
           </div>
         </CircularGrowth>
         <CircularIcon
-          hardErrorAlert={undefined}
           isComplete={false}
-          isHardError={undefined}
         >
           <div
             className="xui-progress-icon"
@@ -4616,51 +4032,34 @@ exports[`<XUIProgressIndicator /> should override a soft error alert with a hard
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular xui-progress-error-hard"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
     isHardError={true}
-    isOverflow={undefined}
-    isSegmented={undefined}
     isSoftError={false}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular xui-progress-error-hard"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
               thickness={3}
               total={5}
             >
@@ -4727,22 +4126,37 @@ exports[`<XUIProgressIndicator /> should override a soft error alert with a hard
           </div>
         </CircularGrowth>
         <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
           isHardError={true}
         >
           <div
             className="xui-progress-icon"
           >
             <ErrorIcon>
-              <svg
+              <XUIIcon
                 className="xui-progress-icon-error"
-                viewBox="0 0 2 7"
+                icon={
+                  Object {
+                    "height": 14,
+                    "path": "M2 0L0 7h2l-1 7 5-9H4l2-5z",
+                    "width": 6,
+                  }
+                }
+                role="presentation"
+                size="medium"
               >
-                <path
-                  d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"
-                />
-              </svg>
+                <svg
+                  className="xui-icon xui-progress-icon-error"
+                  focusable="false"
+                  height={14}
+                  viewBox="0 0 6 14"
+                  width={6}
+                >
+                  <path
+                    d="M2 0L0 7h2l-1 7 5-9H4l2-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </XUIIcon>
             </ErrorIcon>
           </div>
         </CircularIcon>
@@ -4770,7 +4184,6 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as jsx
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular xui-progress-error-hard"
-    customContent={undefined}
     hardErrorAlert={
       <img
         alt="error alert"
@@ -4778,49 +4191,32 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as jsx
       />
     }
     id="myCustomProgressId"
-    isComplete={undefined}
     isHardError={true}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular xui-progress-error-hard"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
               thickness={3}
               total={5}
             >
@@ -4893,7 +4289,6 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as jsx
               src="http://via.placeholder.com/20x20"
             />
           }
-          isComplete={undefined}
           isHardError={true}
         >
           <div
@@ -4924,52 +4319,34 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as tex
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular xui-progress-error-hard"
-    customContent={undefined}
     hardErrorAlert="S"
     id="myCustomProgressId"
-    isComplete={undefined}
     isHardError={true}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={3}
-    toolTipId={undefined}
     toolTipMessage="3 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 5"
       className="xui-progress xui-progress-circular xui-progress-error-hard"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={3}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={3}
-              qaHook={undefined}
               thickness={3}
               total={5}
             >
@@ -5037,7 +4414,6 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as tex
         </CircularGrowth>
         <CircularIcon
           hardErrorAlert="S"
-          isComplete={undefined}
           isHardError={true}
         >
           <div
@@ -5063,50 +4439,32 @@ exports[`<XUIProgressIndicator /> should set a negative progress value to 0 1`] 
     ariaMin={0}
     ariaNow={0}
     classes="xui-progress xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={0}
-    toolTipId={undefined}
     toolTipMessage="0 of 5"
     total={5}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={5}
       aria-valuemin={0}
       aria-valuenow={0}
       aria-valuetext="0 of 5"
       className="xui-progress xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={0}
-          qaHook={undefined}
-          thickness={undefined}
           total={5}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={0}
-              qaHook={undefined}
               thickness={3}
               total={5}
             >
@@ -5172,11 +4530,7 @@ exports[`<XUIProgressIndicator /> should set a negative progress value to 0 1`] 
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />
@@ -5198,50 +4552,32 @@ exports[`<XUIProgressIndicator /> should set a negative total value to 0 1`] = `
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
-    customContent={undefined}
     id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
     progress={0}
-    toolTipId={undefined}
     toolTipMessage="3 of 0"
     total={0}
   >
     <div
-      aria-label={undefined}
-      aria-labelledby={undefined}
       aria-valuemax={0}
       aria-valuemin={0}
       aria-valuenow={3}
       aria-valuetext="3 of 0"
       className="xui-progress xui-progress-circular"
-      data-automationid={undefined}
       role="progressbar"
     >
       <div
         className="xui-progress--fragment"
       >
         <CircularGrowth
-          customContent={undefined}
           id="myCustomProgressId"
-          isGrow={undefined}
-          isSegmented={undefined}
           progress={0}
-          qaHook={undefined}
-          thickness={undefined}
           total={0}
         >
           <div>
             <CircularTrack
-              customContent={undefined}
               elementWidth={20}
               id="myCustomProgressId"
-              isGrow={undefined}
-              isSegmented={undefined}
               progress={0}
-              qaHook={undefined}
               thickness={3}
               total={0}
             >
@@ -5307,11 +4643,7 @@ exports[`<XUIProgressIndicator /> should set a negative total value to 0 1`] = `
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          hardErrorAlert={undefined}
-          isComplete={undefined}
-          isHardError={undefined}
-        >
+        <CircularIcon>
           <div
             className="xui-progress-icon"
           />

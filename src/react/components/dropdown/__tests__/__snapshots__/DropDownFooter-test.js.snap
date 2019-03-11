@@ -3,32 +3,20 @@
 exports[`<DropDownFooter /> should render a picklist with context class when pickItems are passed 1`] = `
 <div
   className="xui-dropdown--footer"
-  data-automationid={undefined}
 >
   <ul
-    className="xui-picklist xui-dropdown--footer--picklist xui-picklist-layout"
-    data-automationid={undefined}
-    id={undefined}
-    onKeyDown={undefined}
-    onMouseDown={undefined}
+    className="xui-picklist xui-dropdown--footer--picklist xui-picklist-layout xui-picklist-medium"
     role="group"
   >
     <li
-      aria-label={undefined}
       aria-selected={null}
-      className="xui-pickitem"
-      data-automationid={undefined}
+      className="xui-pickitem xui-pickitem-medium"
       id="footerAction"
       role="option"
     >
       <button
         className="xui-pickitem--body"
-        data-automationid={undefined}
-        onClick={undefined}
-        onKeyDown={undefined}
-        onMouseOver={undefined}
         rel={null}
-        tabIndex={undefined}
         type="button"
       >
         <span

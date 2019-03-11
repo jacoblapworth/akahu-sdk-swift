@@ -12,24 +12,44 @@ The modal manages its own open/closed state as well as scroll-locking, handling 
 
 `XUIModal` should contain a `XUIModalHeader` to display a header, and have a callback to close the modal passed in to `XUIModal` via the `onClose` prop. By default this will enable closing via the `esc` key and by the close button which will be rendered on the right side of the header.
 
-```jsx
-const  { PureComponent } = require ( 'react' );
+```jsx harmony
+import { PureComponent } from 'react';
+import XUIModal, { XUIModalHeader, XUIModalBody } from './modal';
+import XUIButton from './button';
+import XUITextInput, { XUITextInputSideElement } from './textinput';
+
 const exampleURL = 'https://go.xero.com/blahblahblahexamplelinkhere';
 
 class Example extends PureComponent {
-	constructor(props) {
-		super(props);
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			showModal: false
 		};
+		this.showModal = this.showModal.bind(this);
+		this.hideModal = this.hideModal.bind(this);
+		this.selectAndCopy = this.selectAndCopy.bind(this);
 	}
+
+	showModal() {
+		this.setState({ showModal: true });
+	};
+
+	hideModal() {
+		this.setState({ showModal: false });
+	};
+
+	selectAndCopy() {
+		this.input && this.input.select();
+		document.execCommand('copy');
+	};
 
 	render() {
 		return (
 			<div>
-				<XUIButton onClick={() => this.setState({ showModal: true })}>Read-only modal</XUIButton>
-				<XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
+				<XUIButton onClick={this.showModal}>Read-only modal</XUIButton>
+				<XUIModal isOpen={this.state.showModal} onClose={this.hideModal}>
 					<XUIModalHeader qaHook="example-modal--header">Get link</XUIModalHeader>
 					<XUIModalBody qaHook="example-modal--body" className="xui-padding">
 						<div className="xui-padding-bottom">
@@ -46,10 +66,7 @@ class Example extends PureComponent {
 							rightElement={
 								<XUITextInputSideElement type="button">
 									<XUIButton
-										onClick={() => {
-											this.input.select();
-											document.execCommand('copy')
-										}}
+										onClick={this.selectAndCopy}
 										variant="primary"
 										size="small"
 									>
@@ -72,30 +89,37 @@ class Example extends PureComponent {
 
 Modals are often used for user confirmation. A footer for adding actions can be added using `XUIModalFooter`. It's also recommended to use the [actions layout](../section-building-blocks-controls-button.html#building-blocks-controls-button-12) to display buttons as this provides standard padding and responsive behaviour.
 
-```
-const  { PureComponent } = require ( 'react' );
+```jsx harmony
+import { PureComponent } from 'react';
+import XUIModal, { XUIModalHeader, XUIModalBody, XUIModalFooter } from './modal';
+import XUIButton from './button';
 
 class Example extends PureComponent {
-	constructor(props) {
-		super(props);
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			showModal: false
 		};
 		this.toggleModal = this.toggleModal.bind(this);
+		this.hideModal = this.hideModal.bind(this);
 	}
 
 	toggleModal() {
 		this.setState(prevState => ({
 			showModal: !prevState.showModal
 		}));
-	}
+	};
+
+	hideModal() {
+		this.setState({ showModal: false });
+	};
 
 	render() {
 		return (
 			<div>
 				<XUIButton onClick={this.toggleModal}>Confirmation modal</XUIButton>
-				<XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
+				<XUIModal isOpen={this.state.showModal} onClose={this.hideModal}>
 					<XUIModalHeader qaHook="example-modal--header">Delete John Smith</XUIModalHeader>
 					<XUIModalBody qaHook="example-modal--body">
 						This cannot be undone
@@ -128,30 +152,38 @@ class Example extends PureComponent {
 
 Modals can be used as a step for users to fill in required fields before opening a new page.
 
-```jsx
-const  { PureComponent } = require ( 'react' );
+```jsx harmony
+import { PureComponent } from 'react';
+import XUITextInput from './textinput';
+import XUIModal, { XUIModalHeader, XUIModalBody, XUIModalFooter } from './modal';
+import XUIButton from './button';
 
 class Example extends PureComponent {
-	constructor(props) {
-		super(props);
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			showModal: false
 		};
 		this.toggleModal = this.toggleModal.bind(this);
+		this.hideModal = this.hideModal.bind(this);
 	}
 
 	toggleModal() {
 		this.setState(prevState => ({
 			showModal: !prevState.showModal
 		}));
-	}
+	};
+
+	hideModal() {
+		this.setState({ showModal: false });
+	};
 
 	render() {
 		return (
 			<div>
 				<XUIButton onClick={this.toggleModal}>Modal with a form</XUIButton>
-				<XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
+				<XUIModal isOpen={this.state.showModal} onClose={this.hideModal}>
 					<XUIModalHeader>New project</XUIModalHeader>
 					<XUIModalBody>
 						<XUITextInput
@@ -179,30 +211,37 @@ class Example extends PureComponent {
 
 Modals can also be used without a header element to head the page with other content such as splash images.
 
-```
-const  { PureComponent } = require ( 'react' );
+```jsx harmony
+import { PureComponent } from 'react';
+import XUIModal, { XUIModalBody, XUIModalFooter } from './modal';
+import XUIButton from './button';
 
 class Example extends PureComponent {
-	constructor(props) {
-		super(props);
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			showModal: false
 		};
 		this.toggleModal = this.toggleModal.bind(this);
+		this.hideModal = this.hideModal.bind(this);
 	}
 
 	toggleModal() {
 		this.setState(prevState => ({
 			showModal: !prevState.showModal
 		}));
-	}
+	};
+
+	hideModal() {
+		this.setState({ showModal: false });
+	};
 
 	render() {
 		return (
 			<div>
 				<XUIButton onClick={this.toggleModal}>Modal without a header</XUIButton>
-				<XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })} size="large">
+				<XUIModal isOpen={this.state.showModal} onClose={this.hideModal} size="large">
 					<XUIModalBody>
 						<div className="xui-u-flex xui-u-flex-column xui-u-flex-align-center">
 							<img src="https://s3-ap-southeast-2.amazonaws.com/uxe-internal/spaceship_for_react_modal_demo.png" style={{maxWidth:'100%'}}/>

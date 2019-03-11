@@ -9,7 +9,7 @@ const storyBookLocation = path.resolve(
 	'storybook'
 );
 const testingDomain = path.resolve(storyBookLocation, 'iframe.html?');
-const variationsPath = '../.tmp/react-dev/components';
+const variationsPath = '../.tmp/react-visualregression/components';
 
 // For components or compositions with absolutely-positioned elements, use fullPageSettings.
 const fullPageSettings = {
@@ -114,6 +114,11 @@ const componentsToTest = [
 		delay: 500
 	},
 	{
+		testsPrefix: 'XUI Range',
+		variationsPath: `${variationsPath}/range/stories/variations.js`,
+		delay: 500
+	},
+	{
 		testsPrefix: 'Rollover Checkbox',
 		variationsPath: `${variationsPath}/rolloverCheckbox/stories/variations.js`
 	},
@@ -164,16 +169,26 @@ const componentsToTest = [
 		variationsPath: `${variationsPath}/structural/stories/variations.js`
 	},
 	{
-		testsPrefix: 'Compositions',
-		variationsPath: '../.tmp/react-dev/stories/compositions/tests.js',
+		testsPrefix: 'Components in Components',
+		variationsPath: '../.tmp/react-visualregression/stories/components-in-components/tests.js',
 		delay: 1500,
 		...fullPageSettings
 	},
 	{
 		testsPrefix: 'Page Layouts',
-		variationsPath: '../.tmp/react-dev/stories/page-layouts/tests.js',
+		variationsPath: '../.tmp/react-visualregression/stories/page-layouts/tests.js',
 		...fullPageSettings
-	}
+	},
+	/* Uncomment the following vis-reg test if you are working on Compositions.
+	 * There are 408 visual regression tests for Compositions. Compositions are
+	 * also incredibly isolated from the rest of the codebase, so you shouldn't
+	 * need to run them unless you are working on Compositions.
+	 */
+	// {
+	// 	testsPrefix: 'Compositions',
+	// 	variationsPath: `${variationsPath}/compositions/stories/variations.js`,
+	// 	selectors: '#root',
+	// },
 ];
 
 // TODO: Investigate if it's possible to run storybook as a module
@@ -200,6 +215,10 @@ function buildScenarios() {
 			variationsFile[component.variationsProp || 'variations'];
 		scenarios = scenarios.concat(
 			variations.map(story => {
+				const viewports = (story.viewports || component.viewports || [])
+					// Create a shallow clone of viewports because Backstop mutates them
+					.map(viewport => ({...viewport}));
+
 				return {
 					label: `${component.testsPrefix} ${story.storyTitle}`,
 					url: buildUrl(story.storyKind, story.storyTitle),
@@ -207,11 +226,13 @@ function buildScenarios() {
 					misMatchThreshold: component.misMatchThreshold || 0.6,
 					selectorExpansion: component.captureAllSelectors,
 					delay,
-					readyEvent
+					readyEvent,
+					viewports
 				};
 			})
 		);
 	});
+
 	return scenarios;
 }
 

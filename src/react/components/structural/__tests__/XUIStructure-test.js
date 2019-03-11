@@ -58,8 +58,8 @@ describe('<XUI Structure/>', () => {
 				expect(tag.hasClass(`xui-column-${columnShortNames[shorthand]}-of-12`)).toEqual(true);
 			});
 		});
-		it('renders the column with wide and medium column widths, if provided', () => {
-			const testCol = renderer.create(<XUIColumn gridColumnsMedium="3" gridColumnsWide="6">Testing 💩</XUIColumn>);
+		it('renders the column with breakpoint-dependent column widths, if provided', () => {
+			const testCol = renderer.create(<XUIColumn gridColumnsSmallUp="3" gridColumnsLargeUp="6">Testing 💩</XUIColumn>);
 			expect(testCol).toMatchSnapshot();
 		});
 		it('renders row classes that are passed in', () => {
@@ -152,11 +152,11 @@ describe('<XUI Structure/>', () => {
 		it('renders pageHeader with Breadcrumb and Actions', () => {
 			const wrapper = mount(<XUIPageHeader breadcrumb={exampleBreadcrumb} actions={actions} />);
 			expect(wrapper.find(".xui-pageheading--actions").length).toBe(1);
-			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(1);
+			expect(wrapper.find("ol.xui-breadcrumbs").length).toBe(1);
 		});
 		it('renders pageHeader containing Breadcrumb', () => {
 			const wrapper = mount(<XUIPageHeader breadcrumb={exampleBreadcrumb} />);
-			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(1);
+			expect(wrapper.find("ol.xui-breadcrumbs").length).toBe(1);
 		});
 		it('renders pageHeader containing Breadcrumb from nodes', () => {
 			const bcNodeObj = [
@@ -169,7 +169,7 @@ describe('<XUI Structure/>', () => {
 		});
 		it('renders pageHeader with title ONLY, if both Breadcrumb and title are passed', () => {
 			const wrapper = mount(<XUIPageHeader title="Testing 💩" breadcrumb={exampleBreadcrumb} />);
-			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(0);
+			expect(wrapper.find("ol.xui-breadcrumbs").length).toBe(0);
 		});
 		it('renders pageHeader containing tabs', () => {
 			const wrapper = mount(<XUIPageHeader tabs={tabs} />);
@@ -183,13 +183,13 @@ describe('<XUI Structure/>', () => {
 		it('renders pageHeader with tabs ONLY, if both Breadcrumb and tabs are passed', () => {
 			const wrapper = mount(<XUIPageHeader breadcrumb={exampleBreadcrumb} tabs={tabs} />);
 			expect(wrapper.find(".xui-pageheading--tabs").length).toBe(1);
-			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(0);
+			expect(wrapper.find("ol.xui-breadcrumbs").length).toBe(0);
 		});
 		it('renders pageHeader with tabs and title but not Breadcrumb, though Breadcrumb is passed', () => {
 			const wrapper = mount(<XUIPageHeader title="Testing 💩" tabs={tabs} breadcrumb={exampleBreadcrumb} />);
 			expect(wrapper.find(".xui-pageheading--tabs").length).toBe(1);
 			expect(wrapper.find(".xui-pageheading--title").length).toBe(1);
-			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(0);
+			expect(wrapper.find("ol.xui-breadcrumbs").length).toBe(0);
 		});
 		it('renders pageHeader and breadcrumb with automation id when qaHook prop is passed in', () => {
 			const wrapper = renderer.create(<XUIPageHeader qaHook={qaHook} breadcrumb={exampleBreadcrumb}></XUIPageHeader>);
@@ -210,11 +210,24 @@ describe('<XUI Structure/>', () => {
 			const wrapper = mount(<XUIOverviewBlock hasLayout={false} />);
 			expect(wrapper.find(".xui-overview-layout").length).toBe(0);
 		});
-		it('renders the base overview block with sections and sentiments', () => {
+		it('renders the base overview block with sections, children, sentiments, and options', () => {
 			const testBlock = renderer.create(
-				<XUIOverviewBlock>
+				<XUIOverviewBlock
+					hasBorder={false}
+					hasBackground={false}
+					textAlignment="left"
+				>
 					{Object.keys(overviewSentiments).map((sentiment, index) => {
-						return <XUIOverviewSection key={index} sentiment={sentiment} label={sentiment} value="100.23" />;
+						return (
+							<XUIOverviewSection
+								key={index}
+								sentiment={sentiment}
+								label={sentiment}
+								value="100.23"
+							>
+								test child content
+							</XUIOverviewSection>
+						);
 					})}
 				</XUIOverviewBlock>
 			);
@@ -369,7 +382,83 @@ describe('<XUI Structure/>', () => {
 			expect(wrapper.hasClass("xui-contentblockitem-layout")).toEqual(false);
 		});
 		it('renders content block item with everything', () => {
-			const testOverflow = <XUIButton variant="icon"><XUIIcon icon={overflow} isBoxed /></XUIButton>;
+			const testOverflow = <XUIButton variant="icon"><XUIIcon icon={overflow} /></XUIButton>;
+			const testLeftContent = <abbr className="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>;
+			const testActions = <XUIActions primaryAction={<XUIButton key='one' variant="primary" size="small">One</XUIButton>} secondaryAction={<XUIButton key='two' size="small">Two</XUIButton>}/>;
+			const testTag = <span className="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>;
+
+			const testContentblockWithEverything = renderer.create(
+				<XUIContentBlock>
+					<XUIContentBlockItem
+						isRowLink
+						hasTopRadius
+						hasBottomRadius
+						primaryHeading={testPrimaryHeading}
+						secondaryHeading="test secondary heading"
+						overflow={testOverflow}
+						leftContent={testLeftContent}
+						actions={testActions}
+						pinnedValue="0.00"
+						tags={testTag}
+					/>
+				</XUIContentBlock>
+			);
+			expect(testContentblockWithEverything).toMatchSnapshot();
+		});
+
+		it('renders content block item tag position description by default', () => {
+			const testOverflow = <XUIButton variant="icon"><XUIIcon icon={overflow} /></XUIButton>;
+			const testLeftContent = <abbr className="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>;
+			const testActions = <XUIActions primaryAction={<XUIButton key='one' variant="primary" size="small">One</XUIButton>} secondaryAction={<XUIButton key='two' size="small">Two</XUIButton>}/>;
+			const testTag = <span className="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>;
+
+			const testContentblockWithEverything = renderer.create(
+				<XUIContentBlock>
+					<XUIContentBlockItem
+						isRowLink
+						hasTopRadius
+						hasBottomRadius
+						primaryHeading={testPrimaryHeading}
+						secondaryHeading="test secondary heading"
+						overflow={testOverflow}
+						leftContent={testLeftContent}
+						actions={testActions}
+						pinnedValue="0.00"
+						tags={testTag}
+					/>
+				</XUIContentBlock>
+			);
+			expect(testContentblockWithEverything).toMatchSnapshot();
+		});
+
+		it('renders content block item tag position inline', () => {
+			const testOverflow = <XUIButton variant="icon"><XUIIcon icon={overflow} /></XUIButton>;
+			const testLeftContent = <abbr className="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>;
+			const testActions = <XUIActions primaryAction={<XUIButton key='one' variant="primary" size="small">One</XUIButton>} secondaryAction={<XUIButton key='two' size="small">Two</XUIButton>}/>;
+			const testTag = <span className="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>;
+
+			const testContentblockWithEverything = renderer.create(
+				<XUIContentBlock>
+					<XUIContentBlockItem
+						isRowLink
+						hasTopRadius
+						hasBottomRadius
+						primaryHeading={testPrimaryHeading}
+						secondaryHeading="test secondary heading"
+						overflow={testOverflow}
+						leftContent={testLeftContent}
+						actions={testActions}
+						pinnedValue="0.00"
+						tags={testTag}
+						tagPosition="inline"
+					/>
+				</XUIContentBlock>
+			);
+			expect(testContentblockWithEverything).toMatchSnapshot();
+		});
+
+		it('renders content block item tag position right', () => {
+			const testOverflow = <XUIButton variant="icon"><XUIIcon icon={overflow} /></XUIButton>;
 			const testLeftContent = <abbr className="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>;
 			const testActions = <XUIActions primaryAction={<XUIButton key='one' variant="primary" size="small">One</XUIButton>} secondaryAction={<XUIButton key='two' size="small">Two</XUIButton>}/>;
 			const testTag = <span className="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>;
@@ -387,6 +476,8 @@ describe('<XUI Structure/>', () => {
 						leftContent={testLeftContent}
 						actions={testActions}
 						pinnedValue="0.00"
+						tags={testTag}
+						tagPosition="right"
 						tag={testTag}
 						href={testHrefProp}
 					/>

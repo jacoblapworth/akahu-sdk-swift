@@ -97,7 +97,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 
 	it('should call the onOpen callback when the dropdown is opened', () => {
 		const onOpen = jest.fn();
-		const wrapper = mount(createComponent({ onOpen: onOpen }));
+		const wrapper = mount(createComponent({ onOpen: onOpen, searchValue: 'on open', onSearch: onOpen }));
 
 		wrapper.instance().openDropDown();
 

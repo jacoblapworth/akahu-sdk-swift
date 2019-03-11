@@ -1,79 +1,166 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`XUIRadio should have a hidden label, if specified 1`] = `
-<label
-  className="xui-styledcheckboxradio"
-  data-automationid={undefined}
-  onClick={[Function]}
-  role="presentation"
+exports[`XUIRadio should be a small variant, if specified 1`] = `
+<div
+  className="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
 >
-  <input
-    aria-label="Hidden label"
-    aria-labelledby={undefined}
-    className="xui-styledcheckboxradio--input"
-    data-automationid={undefined}
-    defaultChecked={false}
-    disabled={false}
-    id={undefined}
-    name={undefined}
-    onChange={[Function]}
-    required={false}
-    role="radio"
-    tabIndex={undefined}
-    type="radio"
-    value={undefined}
-  />
-  <div
-    className="xui-styledcheckboxradio--radio"
-    data-automationid={undefined}
-  />
-</label>
+  <label
+    className="xui-styledcheckboxradio"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <input
+      aria-labelledby="testRadioId"
+      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+      defaultChecked={false}
+      disabled={false}
+      onChange={[Function]}
+      required={false}
+      role="radio"
+      type="radio"
+    />
+    <div
+      className="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-small"
+    />
+    <span
+      className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small"
+      id="testRadioId"
+    >
+      Howdy, folks!
+    </span>
+  </label>
+</div>
+`;
+
+exports[`XUIRadio should be a xsmall variant, if specified 1`] = `
+<div
+  className="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-xsmall"
+>
+  <label
+    className="xui-styledcheckboxradio"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <input
+      aria-labelledby="testRadioId"
+      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall"
+      defaultChecked={false}
+      disabled={false}
+      onChange={[Function]}
+      required={false}
+      role="radio"
+      type="radio"
+    />
+    <div
+      className="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-xsmall"
+    />
+    <span
+      className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall"
+      id="testRadioId"
+    >
+      Howdy, folks!
+    </span>
+  </label>
+</div>
+`;
+
+exports[`XUIRadio should have a hidden label, if specified 1`] = `
+<div
+  className="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
+>
+  <label
+    className="xui-styledcheckboxradio"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <input
+      aria-label="Hidden label"
+      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
+      defaultChecked={false}
+      disabled={false}
+      onChange={[Function]}
+      required={false}
+      role="radio"
+      type="radio"
+    />
+    <div
+      className="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-medium"
+    />
+  </label>
+</div>
+`;
+
+exports[`XUIRadio should have label text if provided 1`] = `
+<div
+  className="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
+>
+  <label
+    className="xui-styledcheckboxradio"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <input
+      aria-labelledby="testRadioId"
+      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
+      defaultChecked={false}
+      disabled={false}
+      onChange={[Function]}
+      required={false}
+      role="radio"
+      type="radio"
+    />
+    <div
+      className="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-medium"
+    />
+    <span
+      className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-medium"
+      id="testRadioId"
+    >
+      Howdy, folks!
+    </span>
+  </label>
+</div>
 `;
 
 exports[`XUIRadio should render with an icon when one is provided 1`] = `
-<label
-  className="xui-styledcheckboxradio"
-  data-automationid={undefined}
-  onClick={[Function]}
-  role="presentation"
+<div
+  className="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
 >
-  <input
-    aria-label={undefined}
-    aria-labelledby={undefined}
-    className="xui-styledcheckboxradio--input"
-    data-automationid={undefined}
-    defaultChecked={false}
-    disabled={false}
-    id={undefined}
-    name={undefined}
-    onChange={[Function]}
-    required={false}
-    role="radio"
-    tabIndex={undefined}
-    type="radio"
-    value={undefined}
-  />
-  <div
-    className="xui-iconwrapper"
+  <label
+    className="xui-styledcheckboxradio"
+    onClick={[Function]}
+    role="presentation"
   >
-    <svg
-      className="xui-icon"
-      data-automationid={undefined}
-      height={15}
-      viewBox="0 0 15 15"
-      width={15}
+    <input
+      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
+      defaultChecked={false}
+      disabled={false}
+      onChange={[Function]}
+      required={false}
+      role="radio"
+      type="radio"
+    />
+    <div
+      className="xui-iconwrapper"
     >
-      <path
-        className="xui-styledcheckboxradio--focus"
-        d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z"
-        role="presentation"
-      />
-      <path
-        className="xui-styledcheckboxradio--main"
-        d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z"
-        role="presentation"
-      />
-    </svg>
-  </div>
-</label>
+      <svg
+        className="xui-icon"
+        height={15}
+        viewBox="0 0 15 15"
+        width={15}
+      >
+        <path
+          className="xui-styledcheckboxradio--focus"
+          d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z"
+          role="presentation"
+        />
+        <path
+          className="xui-styledcheckboxradio--main"
+          d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z"
+          role="presentation"
+        />
+      </svg>
+    </div>
+  </label>
+</div>
 `;

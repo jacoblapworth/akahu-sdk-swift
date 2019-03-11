@@ -4,7 +4,7 @@ import { NAME_SPACE, INLINE, LAYOUTS } from '../helpers/constants';
 import { createAriaTabId, createAriaPanelId } from '../helpers/utilities';
 
 export const enrichTabProps = props => {
-	const { isDisabled, isError, totalProgress } = props;
+	const { isDisabled, isError, totalProgress, updateCurrentStep } = props;
 
 	const currentProgress = props.currentProgress < 0
 		? 0 : Math.min(props.currentProgress, totalProgress);
@@ -15,8 +15,12 @@ export const enrichTabProps = props => {
 
 	const isStandard = !(isError || isActive || isDisabled);
 
-	const handleClick = !props.handleClick || isDisabled || isActive
-		? NOOP : props.handleClick;
+	const isUserHandledClick = (updateCurrentStep || props.handleClick) && !(isDisabled || isActive);
+	// In XUI 15 we deprecated the use of individual click handlers in each tab
+	// API in favour of a single hook. To stop legacy components from breaking
+	// we still fall back to the per tab handler if applicable.
+	// TODO: Remove the per tab click handler in XUI 16.
+	const handleClick = isUserHandledClick ? (updateCurrentStep || props.handleClick) : NOOP;
 
 	const tabIndex = isDisabled ? -1 : 0;
 

@@ -12,10 +12,15 @@
 		"definitions",
 		"note",
 		"teaser",
+		"teaser-image",
 		"exampleclass",
 		"introduction",
 		"tips",
-		"flag"
+		"flag",
+		"storybook",
+		"image",
+		"image-caption",
+		"language"
 	],
 	"destination": "./dist/docs",
 	"css": [
@@ -23,10 +28,9 @@
 		"./style.css"
 	],
 	"js": [
-		"./kss-assets/kss-script.js",
 		"./kss-assets/kss.js",
-		"./kss-assets/scrollspy.js",
 		"./kss-assets/prettify.js",
+		"./kss-assets/kss-script.js",
 		"https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js",
 		"https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.0.1/lunr.min.js",
 		"https://cdn.polyfill.io/v2/polyfill.js?features=Promise,fetch",
@@ -40,6 +44,7 @@
 	"extend": "./.kss/builder/extend",
 	"childPages": [
 		"Getting Started",
+		"Getting Started.Accessibility",
 		"Fundamentals",
 		"Building Blocks",
 		"Building Blocks.Controls",
@@ -50,6 +55,7 @@
 		"Compounds.CollectingInput",
 		"Compounds.DisplayingData",
 		"Compounds.RefiningData",
+		"Compositions",
 		"Patterns"
 	]
 }

@@ -26,16 +26,18 @@
 // xui-rollovercheckbox--target: The component hit target
 // xui-rollovercheckbox--target-disabled: disabled styling for the target
 //
-// 
+//
 //
 // Markup:
-// <div class="xui-rollovercheckbox--target" onmouseover="this.children[0].children[0].style = 'display:none'; this.children[0].children[1].style = 'display: flex'" onmouseout="this.children[0].children[0].style = 'display:flex'; this.children[0].children[1].style = 'display:none'">
-//  <div class="xui-rollovercheckbox">
+// <div class="xui-rollovercheckbox--target" onmouseover="this.children[0].childNodes.forEach(child => child.classList && child.classList.toggle('xui-rollovercheckbox-hidden'));" onmouseout="this.children[0].childNodes.forEach(child => child.classList && child.classList.toggle('xui-rollovercheckbox-hidden'));" >
+//  <div class="xui-rollovercheckbox xui-rollovercheckbox-has-medium-checkbox">
+//		<div>
 //      <abbr class="xui-avatar xui-avatar-color-9" title="Darryl King" role="presentation">DK</abbr>
-//      <label class="xui-styledcheckboxradio" style="display:none">
-//          <input class="xui-styledcheckboxradio--input" type="checkbox">
-//          <div class="xui-styledcheckboxradio--checkbox"></div>
-//      </label>
+//		</div>
+//    <label class="xui-rollovercheckbox-hidden xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio">
+//      <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium" type="checkbox">
+//      <div class="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"></div>
+//     </label>
 //  </div>
 // </div>
 //

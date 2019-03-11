@@ -1,26 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`XUIToggleOption should have a qaHook on the root node if provided 1`] = `
-<label
-  className="xui-toggle-option"
-  data-automationid="cheese-and-crackers"
-  htmlFor={undefined}
+<div
+  className="xui-toggle-optionwrapper"
 >
-  <input
-    checked={undefined}
-    className="xui-toggle--input"
-    data-automationid="cheese-and-crackers--input"
-    defaultChecked={undefined}
-    disabled={undefined}
-    id={undefined}
-    name={undefined}
-    onChange={[Function]}
-    required={undefined}
-    type="radio"
-    value={undefined}
-  />
-  <span
-    className="xui-toggle--label"
-  />
-</label>
+  <label
+    className="xui-toggle-option"
+    data-automationid="cheese-and-crackers"
+    role="presentation"
+  >
+    <input
+      className="xui-toggle--input"
+      data-automationid="cheese-and-crackers--input"
+      onChange={[Function]}
+      type="radio"
+    />
+  </label>
+</div>
+`;
+
+exports[`XUIToggleOption should have label text if provided 1`] = `
+<div
+  className="xui-toggle-optionwrapper"
+>
+  <label
+    className="xui-toggle-option"
+    role="presentation"
+  >
+    <input
+      aria-labelledby="testToggleId"
+      className="xui-toggle--input"
+      onChange={[Function]}
+      type="radio"
+    />
+    <span
+      className="xui-toggle--label"
+      id="testToggleId"
+    >
+      Howdy, folks!
+    </span>
+  </label>
+</div>
 `;

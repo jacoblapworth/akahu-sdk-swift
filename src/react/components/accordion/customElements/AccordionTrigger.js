@@ -7,13 +7,30 @@ import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
 
 export default class AccordionTrigger extends PureComponent {
+	handleTriggerInteraction = () => {
+		const {
+			updateOpenId,
+			onItemClick,
+			getItemData,
+			itemIndex,
+			itemId,
+			isOpen,
+		} = this.props;
+
+		updateOpenId(itemId);
+		if (onItemClick) {
+			const itemData = getItemData(itemIndex);
+			onItemClick({ ...itemData, isOpen: !isOpen });
+		}
+	};
+
 	onKeyDown = event => {
 		const spaceBar = 32;
 		const enterKey = 13;
 		const { keyCode } = event;
 
 		if (keyCode === spaceBar || keyCode === enterKey) {
-			this.props.onClick(event);
+			this.handleTriggerInteraction();
 			event.preventDefault(); // prevent spacebar scroll.
 		}
 	}
@@ -24,7 +41,6 @@ export default class AccordionTrigger extends PureComponent {
 			custom,
 			isOpen,
 			leftContent,
-			onClick,
 			toggleLabel,
 			overflow,
 			pinnedValue,
@@ -58,7 +74,7 @@ export default class AccordionTrigger extends PureComponent {
 		return (
 			<div
 				data-automationid={qaHook}
-				onClick={onClick}
+				onClick={this.handleTriggerInteraction}
 				onKeyDown={this.onKeyDown}
 				tabIndex="0"
 				role="button"
@@ -69,7 +85,7 @@ export default class AccordionTrigger extends PureComponent {
 			>
 				<div className={`${ns}-accordiontrigger--arrow`}>
 					<XUIButton
-						variant="icon-large"
+						variant="icon"
 						title={toggleLabel}
 						tabIndex={-1}
 					>
@@ -98,8 +114,10 @@ export default class AccordionTrigger extends PureComponent {
 AccordionTrigger.propTypes = {
 	qaHook: PropTypes.string,
 	custom: PropTypes.node,
-	onClick: PropTypes.func.isRequired,
+	onItemClick: PropTypes.func,
 	toggleLabel: PropTypes.string.isRequired,
+	updateOpenId: PropTypes.func.isRequired,
+	getItemData: PropTypes.func.isRequired,
 	isOpen: PropTypes.bool,
 	leftContent: PropTypes.node,
 	primaryHeading: PropTypes.node,
@@ -107,4 +125,9 @@ AccordionTrigger.propTypes = {
 	pinnedValue: PropTypes.node,
 	action: PropTypes.node,
 	overflow: PropTypes.node,
+	itemIndex: PropTypes.number,
+	itemId: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]),
 };

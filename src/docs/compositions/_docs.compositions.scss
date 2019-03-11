@@ -1,0 +1,22 @@
+// Compositions
+//
+// Components: Compositions
+//
+// Introduction: Compositions provide the structure and responsive behaviour of common page layouts. Each is composed of a number of empty containers that can house content, and offer a range of options for spacing, sizing and layout. Compositions are a great starting point for building new pages or updating fixed-width pages to be responsive.
+//
+// Weight: 4.0
+//
+// Styleguide: Compositions
+
+// Best practices
+//
+// Tips:
+// Do: Use a composition to control the layout of a whole page
+// Do: Insert compositions under the global navigation
+// Do: Use one composition per page
+// Do: Check applied content works well within the composition at different breakpoints
+// Warning: Avoid relying on compositions alone to achieve a working responsive design
+// Dont: Don’t change the tab order of the sections
+// Dont: Don’t force designs into existing compositions. If there isn’t one that works for you, roll your own.
+//
+// Styleguide: Compositions.1

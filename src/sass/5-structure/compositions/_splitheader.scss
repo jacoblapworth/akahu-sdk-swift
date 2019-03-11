@@ -1,0 +1,48 @@
+@import "../../vars";
+@import "../../mixins";
+
+// Base grid templates
+@mixin composition-sh-small {
+	grid-template:
+		"header"
+		"primary"
+		"detail" / 1fr;
+}
+
+@mixin composition-sh-medium {
+	grid-template:
+		"header header"
+		"primary detail" / 1fr 1fr;
+}
+
+// Gap template variants (necessary for IE & Autoprefixer)
+@mixin composition-sh-small-gap {
+	@include xui-composition-grid-gap;
+	@include composition-sh-small;
+}
+
+@mixin composition-sh-medium-gap {
+	@include xui-composition-grid-gap;
+	@include composition-sh-medium;
+}
+
+// Classes using templates at various breakpoints
+.#{$ns}-composition-splitheader {
+	@include composition-sh-small;
+	&.#{$ns}-composition-has-grid-gap {
+		@include composition-sh-small-gap;
+	}
+
+	&.#{$ns}-composition-auto-template {
+		@include xui-breakpoint-medium-up {
+			@include composition-sh-medium;
+			&.#{$ns}-composition-has-grid-gap {
+				@include composition-sh-medium-gap;
+			}
+		}
+	}
+}
+
+// No styles are needed for retain-small. When the auto-template class is
+// not present, layout will remain with the small template.
+// .#{$ns}-composition-splitheader-retain-small {}

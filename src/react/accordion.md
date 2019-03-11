@@ -17,25 +17,47 @@ The bare minimum _Accordion_ composition can be achieved with the `items` and `c
 
 **Note:** Each item needs a unique `id`. By default an object _key_ named `id` is looked up in each item however you can specify a new key if there is a more relevant unique identifier using the prop `idKey`.
 
-```
-const {
-	default: XUIAccordion,
-	XUIAccordionItem,
-} = require('./accordion');
-<XUIAccordion
-	items={[
-		{ id: 1, name: 'John Smith', content: 'Accountant' },
-		{ id: 2, name: 'Barry Allen', content: 'Bookkeeper' },
-		{ id: 3, name: 'Ernest Hemmingway' }
-	]}
-	createItem={({ name, content }) => (
-		<XUIAccordionItem
-			primaryHeading={name}
-			onItemClick={({id, isOpen}) => console.log(`clicked! ${id} | ${isOpen}`)}>
-			{ content &&  <div className="xui-padding-horizontal-large xui-padding-vertical-4xlarge">{content}</div> }
-		</XUIAccordionItem>
-	)}
-/>
+```jsx harmony
+import XUIAccordion, { XUIAccordionItem } from './accordion';
+
+const items = [
+	{ id: 1, name: 'John Smith', content: 'Accountant' },
+	{ id: 2, name: 'Barry Allen', content: 'Bookkeeper' },
+	{ id: 3, name: 'Ernest Hemmingway' }
+];
+
+class Demo extends React.Component {
+	constructor(...args) {
+		super(...args);
+		this.createItem = this.createItem.bind(this);
+		this.handleItemClick = this.handleItemClick.bind(this);
+	}
+
+	handleItemClick({id, isOpen}) {
+		console.log(`${isOpen ? 'Open' : 'Close'} item ${id}`);
+	}
+
+	createItem({ name, content }) {
+		return (
+			<XUIAccordionItem
+				primaryHeading={name}
+				onItemClick={this.handleItemClick}>
+				{ content &&  <div className="xui-padding-horizontal-large xui-padding-vertical-4xlarge">{content}</div> }
+			</XUIAccordionItem>
+		);
+	}
+
+	render() {
+		return (
+			<XUIAccordion
+				items={items}
+				createItem={this.createItem}
+			/>
+		);
+	}
+}
+
+<Demo />
 ```
 
 ## Accordion Item
@@ -46,27 +68,54 @@ You can also supply an `onItemClick` prop that returns the entire item from the 
 
 **Note:** if you are adding a `<button />` type element as content remember to [`stopPropagation`](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation) so the event does not bubble up and trigger the _Accordion_ _expand_ / _collapse_ toggle accidentally.
 
-```
-const {
-	default: XUIAccordion,
-	XUIAccordionItem,
-} = require('./accordion');
-const itemStyle = { background: 'lightgray', border: '1px solid darkgray', padding: '4px', outline: '1px solid gray' };
-<XUIAccordion
-	items={[{ id: 1 }]}
-	createItem={() => (
-		<XUIAccordionItem
-			primaryHeading={<div style={itemStyle}>Primary Heading</div>}
-			secondaryHeading={<div style={itemStyle}>Secondary Heading</div>}
-			leftContent={<div style={itemStyle}>Left Content</div>}
-			pinnedValue={<div style={itemStyle}>Pinned Value</div>}
-			action={<div style={itemStyle}>Action</div>}
-			overflow={<div style={itemStyle}>Overflow</div>}
-			custom={<div style={itemStyle}>Custom Content</div>}
-			onItemClick={({isOpen}) => alert(`${isOpen ? 'Open' : 'Close'} example item`)}
-		/>
-	)}
-/>
+```jsx harmony
+import XUIAccordion, { XUIAccordionItem } from './accordion';
+
+const items = [{ id: 1 }];
+const itemStyle = {
+	background: 'lightgray',
+	border: '1px solid darkgray',
+	padding: '4px',
+	outline: '1px solid gray',
+};
+
+class Demo extends React.Component {
+	constructor(...args) {
+		super(...args);
+		this.createItem = this.createItem.bind(this);
+		this.handleItemClick = this.handleItemClick.bind(this);
+	}
+
+	handleItemClick({id, isOpen}) {
+		console.log(`${isOpen ? 'Open' : 'Close'} item ${id}`);
+	}
+
+	createItem() {
+		return (
+			<XUIAccordionItem
+				primaryHeading={<div style={itemStyle}>Primary Heading</div>}
+				secondaryHeading={<div style={itemStyle}>Secondary Heading</div>}
+				leftContent={<div style={itemStyle}>Left Content</div>}
+				pinnedValue={<div style={itemStyle}>Pinned Value</div>}
+				action={<div style={itemStyle}>Action</div>}
+				overflow={<div style={itemStyle}>Overflow</div>}
+				custom={<div style={itemStyle}>Custom Content</div>}
+				onItemClick={this.handleItemClick}
+			/>
+		);
+	}
+
+	render() {
+		return (
+			<XUIAccordion
+				items={items}
+				createItem={this.createItem}
+			/>
+		);
+	}
+}
+
+<Demo />
 ```
 
 ## Empty State
@@ -75,28 +124,25 @@ If no `children` content is supplied to a `<XUIAccordionItem />` then the _empty
 
 There is a default design that can be overridden or completely replaced (`emptyMessage`, `emptyIcon`, `emptyStateComponent`).
 
-```
-const {
-	default: XUIAccordion,
-	XUIAccordionItem,
-} = require('./accordion');
-const starIconPath = require ('@xero/xui-icon/icons/star').default;
-const XUIAvatar = require('./avatar').default;
-const XUIButton = require('./button').default;
-const XUIIcon = require('./icon').default;
-const icon = require('@xero/xui-icon/icons/overflow').default;
+```jsx harmony
+import starIcon from '@xero/xui-icon/icons/star';
+
+import XUIAccordion, { XUIAccordionItem } from './accordion';
+
+const createItem = ({ heading }) => <XUIAccordionItem primaryHeading={heading} />;
+
 <div>
 	<XUIAccordion
 		className="xui-margin-bottom-large"
-		items={[{ id: 1 }]}
-		createItem={({ name }) => <XUIAccordionItem primaryHeading="Default empty state" />}
+		items={[{ id: 1, heading: 'Default empty state' }]}
+		createItem={createItem}
 	/>
 	<XUIAccordion
 		className="xui-margin-bottom-large"
-		emptyIcon={starIconPath}
+		emptyIcon={starIcon}
 		emptyMessage="Custom empty state message"
-		items={[{ id: 1 }]}
-		createItem={({ name }) => <XUIAccordionItem primaryHeading="Custom empty state" />}
+		items={[{ id: 1, heading: 'Custom empty state' }]}
+		createItem={createItem}
 	/>
 	<XUIAccordion
 		emptyStateComponent={(
@@ -106,8 +152,8 @@ const icon = require('@xero/xui-icon/icons/overflow').default;
 				Replace empty state component
 			</div>
 		)}
-		items={[{ id: 1 }]}
-		createItem={({ name }) => <XUIAccordionItem primaryHeading="Replace empty state" />}
+		items={[{ id: 1, heading: 'Replace empty state' }]}
+		createItem={createItem}
 	/>
 </div>
 ```
@@ -116,52 +162,99 @@ const icon = require('@xero/xui-icon/icons/overflow').default;
 
 You can nest other XUI component inside the `<XUIAccordionItem />` _(such as `<XUIContentBlock />`)_ to create robust compositions.
 
-```
-const {
-	default: XUIAccordion,
-	XUIAccordionItem,
-} = require('./accordion');
-const { XUIContentBlock, XUIContentBlockItem } = require('./structural.js');
-const { default: XUIAvatar } = require('./avatar.js');
-const { default: XUIButton } = require('./button.js');
-const { default: XUIIcon } = require('./icon.js');
-const { default: overflowPathData } = require('@xero/xui-icon/icons/overflow');
-<XUIAccordion
-	idKey="name"
-	items={[
-		{
-			name: 'John Smith',
-			contacts: [
-				{ contact: 'Peggy Olsen', minutes: '00:20' },
-				{ contact: 'Pete Campbell', minutes: '15:30' }
-			]
-		}
-	]}
-	createItem={({ name, contacts }) => (
-		<XUIAccordionItem
-			primaryHeading={name}
-			leftContent={<XUIAvatar value={name} className="xui-margin-right"/>}
-			overflow={<XUIButton variant="icon-large"><XUIIcon icon={overflowPathData} title="Overflow menu"/></XUIButton>}
-			action={(
-				<XUIButton
-					size="small"
-					className="xui-margin-right-small"
-					onClick={event => {
-						event.stopPropagation();
-						alert('Clicked update button');
-					}}>Update</XUIButton>
-			)}>
-				<XUIContentBlock>
-					{ contacts.map(({contact, minutes}) => (
-						<XUIContentBlockItem
-							key={contact}
-							primaryHeading={contact}
-							pinnedValue={minutes}
-							href="#"
-						/>
-					)) }
-				</XUIContentBlock>
-		</XUIAccordionItem>
-	)}
-/>
+```jsx harmony
+import overflowIcon from '@xero/xui-icon/icons/overflow';
+
+import { XUIContentBlock, XUIContentBlockItem } from './structural';
+import XUIAccordion, { XUIAccordionItem } from './accordion';
+import XUIAvatar from './avatar';
+import XUIButton from './button';
+import XUIIcon from './icon';
+
+const items = [{
+	name: 'John Smith',
+	contacts: [
+		{ contact: 'Peggy Olsen', minutes: '00:20' },
+		{ contact: 'Pete Campbell', minutes: '15:30' }
+	]
+}];
+const makeInteraction = (event, callback) => {
+	const { type, keyCode } = event;
+	const isClick = type === 'click';
+	const spaceBar = 32;
+	const enterKey = 13;
+	const isKeyboard = keyCode === spaceBar || keyCode === enterKey;
+	const isInteraction = isClick || isKeyboard;
+
+	if (isInteraction) {
+		callback();
+		event.stopPropagation();
+		event.preventDefault();
+	}
+}
+
+class Demo extends React.Component {
+	constructor(...args) {
+		super(...args);
+		this.createItem = this.createItem.bind(this);
+		this.handleUpdateInteraction = this.handleUpdateInteraction.bind(this);
+		this.handleOptionsInteraction = this.handleOptionsInteraction.bind(this);
+	}
+
+	handleUpdateInteraction(event) {
+		makeInteraction(event, () => console.log('Clicked update button'));
+	}
+
+	handleOptionsInteraction(event) {
+		makeInteraction(event, () => console.log('Clicked options button'));
+	}
+
+	createItem({ name, contacts }) {
+		return (
+			<XUIAccordionItem
+				primaryHeading={name}
+				leftContent={<XUIAvatar value={name} className="xui-margin-right" />}
+				overflow={(
+					<XUIButton
+						variant="icon"
+						onKeyDown={this.handleOptionsInteraction}
+						onClick={this.handleOptionsInteraction}>
+						<XUIIcon icon={overflowIcon} title="Overflow menu" />
+					</XUIButton>
+				)}
+				action={(
+					<XUIButton
+						size="small"
+						className="xui-margin-right-small"
+						onKeyDown={this.handleUpdateInteraction}
+						onClick={this.handleUpdateInteraction}>
+						Update
+					</XUIButton>
+				)}>
+					<XUIContentBlock>
+						{ contacts.map(({ contact, minutes }) => (
+							<XUIContentBlockItem
+								key={contact}
+								primaryHeading={contact}
+								pinnedValue={minutes}
+								href="#"
+							/>
+						)) }
+					</XUIContentBlock>
+			</XUIAccordionItem>
+		);
+	}
+
+	render() {
+		return (
+			<XUIAccordion
+				idKey="name"
+				items={items}
+				createItem={this.createItem}
+			/>
+		);
+	}
+}
+
+<Demo />
 ```

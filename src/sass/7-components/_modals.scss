@@ -5,6 +5,8 @@
 //
 // Components: Modal
 //
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.dmxa22se8ql4
+//
 // Teaser: Add layers of infromation or interaction
 //
 // Introduction: Modals are used to provide additional functionality not available on the base page, and provide intermediary steps between larger flows.
@@ -53,27 +55,45 @@
 // xui-modal--footer | Container for the modal body
 // xui-modal--heading | Style for the modal heading
 //
-// ExampleClass: ds-example-flush ds-example-transparent ds-example-tall
+// ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
 //	<div class="xui-mask xui-mask-is-active" aria-hidden="false">
-//		<section class="xui-modal xui-modal-layout" tabindex="0" role="dialog">
+//		<section class="xui-modal xui-modal-width-medium xui-modal-layout" tabindex="0" role="dialog">
 //			<header class="xui-modal--header">
 //				<div class='xui-modal--heading'>New project</div>
-//				<button title="Close" class="xui-modal--close xui-button xui-button-icon" tabindex="0" type="button">
+//				<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
 //					<svg focusable="false" class="xui-icon">
 //						<use xlink:href="#xui-icon-cross" role="presentation"/>
 //					</svg>
 //				</button>
 //			</header>
 //			<div class="xui-modal--body">
-//				<div class="xui-inputwrapper">
-//					<input type="text" class="xui-textinput xui-textinput--input" aria-label="Give it a title" placeholder="Give it a title">
+// 				<div class="xui-textinputwrapper xui-field-layout">
+// 					<label class="xui-text-label xui-fieldlabel-layout" for="a">Contact</label>
+// 					<div class="xui-textinput xui-textinput-medium">
+// 						<input type="text" class="xui-textinput--input xui-textinput--input-medium" placeholder="Find or create a contact" aria-invalid="false" id="a">
+// 					</div>
+//				</div>
+//				<div class="xui-textinputwrapper xui-field-layout">
+// 					<label class="xui-text-label xui-fieldlabel-layout" for="b">Project name</label>
+// 					<div class="xui-textinput xui-textinput-medium">
+// 						<input type="text" class="xui-textinput--input xui-textinput--input-medium" aria-invalid="false" id="b">
+// 					</div>
+//				</div>
+//				<div class="xui-textinputwrapper xui-field-layout">
+// 					<label class="xui-text-label xui-fieldlabel-layout" for="c">Deadline</label>
+// 					<button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
+//						<span class="xui-select--content">Select date</span>
+//						<svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
+//							<use xlink:href="#xui-icon-date-end" role="presentation" />
+//						</svg>
+//					</button>
 //				</div>
 //			</div>
 //			<footer class="xui-modal--footer xui-actions xui-actions-layout">
-//				<button class="xui-button xui-actions--primary xui-button-main" tabindex="0" type="button">Create project</button>
-//				<button class="xui-button xui-actions--secondary xui-button-standard" tabindex="0" type="button">Cancel</button>
+//				<button class="xui-button xui-button-medium xui-actions--primary xui-button-create" tabindex="0" type="button">Create project</button>
+//				<button class="xui-button xui-button-medium xui-actions--secondary xui-button-standard" tabindex="0" type="button">Cancel</button>
 //			</footer>
 //		</section>
 //	</div>
@@ -110,25 +130,100 @@
 // Styleguide: Compounds.CollectingInput.Modals.4.3
 
 
-// Sizes
+// Size variants
 //
-// To change the size of your modal, apply the following modifieres to `xui-modal`.
+// Modifiers can be applied to xui-modal to adjust its width. This set of widths provide the ability to ensure the most appropriate visual hierarchy. A good rule of thumb is that modals shouldn't be a great deal wider than their height.
 // Take note that at narrow viewports, a max-width of 100% overrides any class you may have selected.
 //
 // Definitions:
 // Small: 300px wide: `xui-modal-width-small`
-// Default: 380px wide: none
-// Medium: 460px wide: `xui-modal-width-medium`
-// Large: 620px wide: `xui-modal-width-large`
-// xLarge: 860px wide: `xui-modal-width-xlarge`
+// Medium: 400px wide: `xui-modal-width-medium`
+// Large: 600px wide: `xui-modal-width-large`
+// xLarge: 800px wide: `xui-modal-width-xlarge`
 // Full screen: 100vh height, 100vw width: `xui-modal-fullscreen`
+//
+// ExampleClass: ds-example-flush ds-example-transparent ds-example-wide
+//
+// Markup:
+// <div class="xui-mask xui-mask-is-active" aria-hidden="false">
+// 	<section class="xui-modal xui-modal-layout xui-modal-width-small" tabindex="0" role="dialog">
+// 		<header class="xui-modal--header">
+//			<div class='xui-modal--heading'>Delete contact</div>
+//			<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
+//				<svg focusable="false" class="xui-icon">
+//					<use xlink:href="#xui-icon-cross" role="presentation"/>
+//				</svg>
+//			</button>
+// 		</header>
+//		<div class="xui-modal--body">
+//			<div>Deleting this contact means you will no longer have access to their data</div>
+// 		</div>
+//		<footer class="xui-modal--footer xui-actions xui-actions-layout">
+//			<button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
+//		</footer>
+// 	</section>
+// </div>
+// <div class="xui-mask xui-mask-is-active" aria-hidden="false">
+// 	<section class="xui-modal xui-modal-layout xui-modal-width-medium" tabindex="0" role="dialog">
+// 		<header class="xui-modal--header">
+//			<div class='xui-modal--heading'>Delete contact</div>
+//			<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
+//				<svg focusable="false" class="xui-icon">
+//					<use xlink:href="#xui-icon-cross" role="presentation"/>
+//				</svg>
+//			</button>
+// 		</header>
+//		<div class="xui-modal--body">
+//			<div>Deleting this contact means you will no longer have access to their data</div>
+// 		</div>
+//		<footer class="xui-modal--footer xui-actions xui-actions-layout">
+//			<button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
+//		</footer>
+// 	</section>
+// </div>
+// <div class="xui-mask xui-mask-is-active" aria-hidden="false">
+// 	<section class="xui-modal xui-modal-layout xui-modal-width-large" tabindex="0" role="dialog">
+// 		<header class="xui-modal--header">
+//			<div class='xui-modal--heading'>Delete contact</div>
+//			<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
+//				<svg focusable="false" class="xui-icon">
+//					<use xlink:href="#xui-icon-cross" role="presentation"/>
+//				</svg>
+//			</button>
+// 		</header>
+//		<div class="xui-modal--body">
+//			<div>Deleting this contact means you will no longer have access to their data</div>
+// 		</div>
+//		<footer class="xui-modal--footer xui-actions xui-actions-layout">
+//			<button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
+//		</footer>
+// 	</section>
+// </div>
+// <div class="xui-mask xui-mask-is-active" aria-hidden="false">
+// 	<section class="xui-modal xui-modal-layout xui-modal-width-xlarge" tabindex="0" role="dialog">
+// 		<header class="xui-modal--header">
+//			<div class='xui-modal--heading'>Delete contact</div>
+//			<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
+//				<svg focusable="false" class="xui-icon">
+//					<use xlink:href="#xui-icon-cross" role="presentation"/>
+//				</svg>
+//			</button>
+// 		</header>
+//		<div class="xui-modal--body">
+//			<div>Deleting this contact means you will no longer have access to their data</div>
+// 		</div>
+//		<footer class="xui-modal--footer xui-actions xui-actions-layout">
+//			<button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
+//		</footer>
+// 	</section>
+// </div>
 //
 // Styleguide: Compounds.CollectingInput.Modals.5
 
 // Closing a modal
 //
-// Modals can be closed by either tapping the close button, tapping a button in the modal footer, or pressing ESC while the modal is open.
-// Tapping the mask should not close the modal, as accidental clicks may lose any changes made within the modal.
+// Modals can be closed by either selecting the close button, selecting a button in the modal footer, or pressing ESC while the modal is open.
+// Selecting the mask should not close the modal, as accidental clicks may lose any changes made within the modal.
 //
 // Styleguide: Compounds.CollectingInput.Modals.6
 
@@ -205,7 +300,7 @@
 
 .#{$ns}-modal-layout {
 	max-width: calc(100vw - 2.5rem);  // Allows for minimum margin at the left/right of modal
-	width: $xui-starting-width + ($xui-base-width * 3);
+	width: map-get($xui-modal-widths, medium);
 	// Modal header
 	// -----------------------------------------------------------------------------
 	.#{$ns}-modal--header {
@@ -225,7 +320,7 @@
 	.#{$ns}-modal--close {
 		align-self: flex-start;
 		margin-left: auto;
-		margin-right: -$xui-s-small;
+		margin-right: -$xui-s-xsmall;
 	}
 
 	// If a heading exists
@@ -236,7 +331,7 @@
 	// Modal body
 	// -----------------------------------------------------------------------------
 	.#{$ns}-modal--body {
-		padding: $xui-s-small $xui-s-large;
+		padding: $xui-s-xsmall $xui-s-large;
 	}
 
 	// Modal footer
@@ -253,9 +348,9 @@
 	overflow-y: scroll;
 }
 
-@each $number, $variant in $xui-width-variants-modal {
-	.#{$ns}-modal-width-#{$variant} {
-		width: $xui-starting-width + ($xui-base-width * $number);
+@each $size, $width in $xui-modal-widths {
+	.#{$ns}-modal-width-#{$size} {
+		width: $width;
 	}
 }
 
@@ -277,6 +372,5 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-modal--heading {
-	font-size: $xui-font-size-medium;
-	font-weight: bold;
+	@include xui-heading-large;
 }

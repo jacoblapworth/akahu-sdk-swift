@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import throttle from 'lodash.throttle';
+import debounce from 'lodash.debounce';
 import uuidv4 from 'uuid/v4';
 import Picklist from '../picklist/Picklist';
 import XUILoader from '../loader/XUILoader';
@@ -9,6 +9,7 @@ import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import XUITextInput from '../textInput/XUITextInput';
 import { ns } from '../helpers/xuiClassNamespace';
+import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 
 /**
  * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and
@@ -26,7 +27,12 @@ export default class XUIAutocompleter extends PureComponent {
 			focused: false,
 			value: props.searchValue,
 		};
-		this.bindOnChange(props.searchThrottleInterval);
+		this.bindOnChange(props.searchDebounceTimeout);
+		this.tg = React.createRef();
+		this.placeholder = React.createRef();
+		this.ddt = React.createRef();
+		this.rootNode = React.createRef();
+		this.noWrapPillContainer = React.createRef();
 	}
 
 	componentDidMount() {
@@ -37,12 +43,12 @@ export default class XUIAutocompleter extends PureComponent {
 		const {
 			pills,
 			disableWrapPills,
-			searchThrottleInterval,
+			searchDebounceTimeout,
 			searchValue,
 			placeholder,
 		} = this.props;
-		if (prevProps.searchThrottleInterval !== searchThrottleInterval) {
-			this.bindOnChange(searchThrottleInterval);
+		if (prevProps.searchDebounceTimeout !== searchDebounceTimeout) {
+			this.bindOnChange(searchDebounceTimeout);
 		}
 		if (prevProps.searchValue !== searchValue) {
 			// TODO: Investigate whether setState can be moved
@@ -55,40 +61,40 @@ export default class XUIAutocompleter extends PureComponent {
 		}
 		const morePillsExist = React.Children.count(pills) > React.Children.count(prevProps.pills);
 		if (morePillsExist && disableWrapPills) {
-			this.noWrapPillContainer.scrollLeft = this.noWrapPillContainer.scrollWidth;
+			this.noWrapPillContainer.current.scrollLeft = this.noWrapPillContainer.current.scrollWidth;
 		}
 		if (React.Children.count(pills) < React.Children.count(prevProps.pills)) {
-			this.ddt.repositionDropDown();
+			this.ddt.current.repositionDropDown();
 		}
 	}
 
 	/**
-	 * Bind an optionally throttled onSearch handler to the component instance.
+	 * Bind an optionally debounced onSearch handler to the component instance.
 	 *
 	 * @private
-	 * @param {number} interval
+	 * @param {number} timeout
 	 */
-	bindOnChange = interval => {
+	bindOnChange = timeout => {
 		const { onSearch } = this.props;
 		if (onSearch) {
-			const throttled = interval
-				? throttle(onSearch, interval, { trailing: true })
+			const debounced = timeout
+				? debounce(onSearch, timeout)
 				: onSearch;
-			this.throttledOnChange = event => {
+			this.debouncedOnChange = event => {
 				event.persist();
 				this.setState({
 					value: event.target.value,
 				});
-				throttled(event.target.value);
+				debounced(event.target.value);
 			};
 		} else {
-			this.throttledOnChange = undefined;
+			this.debouncedOnChange = undefined;
 		}
 	};
 
 	calculatePlaceholderWidth = () => {
-		if (this.placeholder != null) {
-			const placeholderWidth = getComputedStyle(this.placeholder).width;
+		if (this.placeholder.current != null) {
+			const placeholderWidth = getComputedStyle(this.placeholder.current).width;
 			const inputStyle = getComputedStyle(this.inputNode);
 			const inputWidth = `${
 				parseFloat(inputStyle.paddingLeft)
@@ -108,7 +114,7 @@ export default class XUIAutocompleter extends PureComponent {
 	 * Set the state as not hidden in order to toggle the list open.
 	 */
 	openDropDown = () => {
-		this.ddt.openDropDown();
+		this.ddt.current.openDropDown();
 	};
 
 	/**
@@ -116,7 +122,7 @@ export default class XUIAutocompleter extends PureComponent {
 	 * Set the state as hidden in order to toggle the list closed.
 	 */
 	closeDropDown = () => {
-		this.ddt.closeDropDown();
+		this.ddt.current.closeDropDown();
 	};
 
 	/**
@@ -151,7 +157,7 @@ export default class XUIAutocompleter extends PureComponent {
 			onBackspacePill,
 			pills,
 		} = this.props;
-		if (this.ddt.isDropDownOpen()) {
+		if (this.ddt.current.isDropDownOpen()) {
 			this.dropdown.onKeyDown(event);
 		}
 
@@ -183,7 +189,7 @@ export default class XUIAutocompleter extends PureComponent {
 
 	onBlur = () => {
 		setTimeout(() => {
-			if (this.rootNode && !this.rootNode.contains(document.activeElement)) {
+			if (this.rootNode.current && !this.rootNode.current.contains(document.activeElement)) {
 				this.setState({
 					focused: false,
 				});
@@ -199,7 +205,7 @@ export default class XUIAutocompleter extends PureComponent {
 		return disableWrapPills ? (
 			<div
 				className={`${ns}-autocompleter--pills-nopillwrap`}
-				ref={nwpc => this.noWrapPillContainer = nwpc}
+				ref={this.noWrapPillContainer}
 			>
 				{pills}
 			</div>
@@ -226,9 +232,10 @@ export default class XUIAutocompleter extends PureComponent {
 			placeholder,
 			rightElement,
 			isDisabled,
-			inputLabelText,
+			inputLabel,
 			isInputLabelHidden,
 			inputProps,
+			inputSize,
 			maxLength,
 			dropdownId,
 			onOptionSelect,
@@ -246,6 +253,9 @@ export default class XUIAutocompleter extends PureComponent {
 			closeOnSelect,
 			forceDesktop,
 			matchTriggerWidth,
+			isInvalid,
+			validationMessage,
+			hintMessage,
 			onKeyDown,
 		} = this.props;
 		const { value, focused, inputWidth } = this.state;
@@ -254,7 +264,7 @@ export default class XUIAutocompleter extends PureComponent {
 		let containerQaHook = null;
 		let dropdownQaHook = null;
 		if (qaHook) {
-			inputQaHook = `${qaHook}`; // TODO: Investigate whether we should add --input here in 14
+			inputQaHook = `${qaHook}`; // TODO: Investigate whether we should add --input here
 			listQaHook = `${qaHook}--list`;
 			containerQaHook = `${qaHook}--container`;
 			dropdownQaHook = `${qaHook}--dropdown`;
@@ -272,17 +282,16 @@ export default class XUIAutocompleter extends PureComponent {
 		const inputClassNames = cn(
 			inputClassName,
 			`${ns}-autocompleter--textinput`,
-			{ [`${ns}-padding-left-small`]: hasPills },
 		);
 
 		const trigger = (
 			<div
-				ref={tg => this.trigger = tg}
+				ref={this.tg}
 				onFocus={openOnFocus ? this.onInputFocus : null}
 				className={triggerClassName}
 			>
 				<div
-					ref={p => this.placeholder = p}
+					ref={this.placeholder}
 					className={`${ns}-autocompleter--textinputplaceholder`}
 					aria-hidden
 				>
@@ -296,12 +305,16 @@ export default class XUIAutocompleter extends PureComponent {
 					inputRef={i => this.inputNode = i}
 					placeholder={placeholder}
 					value={value || ''}
-					onChange={this.throttledOnChange}
+					onChange={this.debouncedOnChange}
 					onKeyDown={this.onInputKeyDown}
 					qaHook={inputQaHook}
 					isDisabled={isDisabled}
-					labelText={inputLabelText}
+					label={inputLabel}
 					isLabelHidden={isInputLabelHidden}
+					isInvalid={isInvalid}
+					validationMessage={validationMessage}
+					hintMessage={hintMessage}
+					size={inputSize}
 					inputProps={{
 						...inputProps,
 						'maxLength': maxLength,
@@ -344,7 +357,7 @@ export default class XUIAutocompleter extends PureComponent {
 
 		return (
 			<div
-				ref={c => completer.rootNode = c}
+				ref={this.rootNode}
 				className={classNames}
 				onFocus={this.onFocus}
 				onBlur={this.onBlur}
@@ -352,7 +365,7 @@ export default class XUIAutocompleter extends PureComponent {
 				id={id}
 			>
 				<DropDownToggled
-					ref={c => completer.ddt = c}
+					ref={this.ddt}
 					trigger={trigger}
 					dropdown={dropdown}
 					onOpen={onOpen}
@@ -371,7 +384,6 @@ export default class XUIAutocompleter extends PureComponent {
 	}
 }
 
-// TODO: Rename `pills` to `leftElement` for XUI 14.
 XUIAutocompleter.propTypes = {
 	/** Callback to handle when an option has been selected from the dropdown */
 	onOptionSelect: PropTypes.func,
@@ -406,7 +418,7 @@ XUIAutocompleter.propTypes = {
 	inputContainerClassName: PropTypes.string,
 
 	/** Label to show above the input */
-	inputLabelText: PropTypes.string,
+	inputLabel: PropTypes.node,
 
 	/** Should label be applied as an aria-label, rather than being visibly displayed. */
 	isInputLabelHidden: PropTypes.bool,
@@ -440,14 +452,18 @@ XUIAutocompleter.propTypes = {
 	/** Callback for when the list closes */
 	onClose: PropTypes.func,
 
-	/** Callback for when the user types into the search box */
+	/** Callback for when the user types into the search box.
+	 * The first argument passed in is the search term value. */
 	onSearch: PropTypes.func,
 
-	/** If you want to throttle the input's onChange handler, put the throttle interval here */
-	searchThrottleInterval: PropTypes.number,
+	/** The debounce timeout before onSearch is called. Set to 0 to disable debouncing */
+	searchDebounceTimeout: PropTypes.number,
 
-	/** Maps to the 'size' property of the dropdown component. */
-	dropdownSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
+	/** Maps to the `size` property of the `XUITextInput` component. */
+	inputSize: PropTypes.oneOf(['small', 'medium']),
+
+	/** Maps to the `size` property of the dropdown component. */
+	dropdownSize: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
 	/** Maps to the `closeOnSelect` property of the DropDownToggled component. */
 	closeOnSelect: PropTypes.bool,
@@ -493,15 +509,22 @@ XUIAutocompleter.propTypes = {
 
 	qaHook: PropTypes.string,
 	children: PropTypes.node,
+	/** Whether the current input value is invalid */
+	isInvalid: PropTypes.bool,
+	/** Validation message to show under the input if `isInvalid` is true */
+	validationMessage: PropTypes.string,
+	/** Hint message to show under the input */
+	hintMessage: PropTypes.string,
 };
 
 XUIAutocompleter.defaultProps = {
 	loading: false,
-	searchThrottleInterval: 0,
+	searchDebounceTimeout: 200,
 	openOnFocus: false,
 	closeOnTab: true,
 	forceDesktop: true,
 	dropdownFixedWidth: false,
 	matchTriggerWidth: true,
 	disableWrapPills: false,
+	inputSize: 'medium',
 };

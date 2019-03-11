@@ -8,7 +8,9 @@
 
 Standard banners are given a layout class by default and with no actionale buttons. The close button is only added when a `onCloseClick` callback prop is added.
 
-```
+```jsx harmony
+import XUIBanner, { XUIBannerMessage } from './banner';
+
 const onBannerClose = () => {alert( 'Standard banner closed' )};
 
 <div>

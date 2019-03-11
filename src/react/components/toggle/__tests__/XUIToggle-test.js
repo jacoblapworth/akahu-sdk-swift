@@ -41,21 +41,21 @@ describe('XUIToggle', function() {
 		expect(automationid).toMatchSnapshot();
 	});
 
-	// labelText property
+	// label property
 	it('should have a visible label if provided', function () {
-		const labelTest = renderer.create(<XUIToggle labelText='This is a toggle' />);
+		const labelTest = renderer.create(<XUIToggle label='This is a toggle' />);
 		expect(labelTest).toMatchSnapshot();
 	});
 
 	// isLabelHidden property
 	it('should have a hidden label as aria-label if provided and flagged', function () {
-		const labelHiddenTest = renderer.create(<XUIToggle labelText='This is a toggle' isLabelHidden />);
+		const labelHiddenTest = renderer.create(<XUIToggle label='This is a toggle' isLabelHidden />);
 		expect(labelHiddenTest).toMatchSnapshot();
 	});
 
 	// labelId property
 	it('should have the fieldLayout class and a custom labelID, if provided', function () {
-		const labelTest = renderer.create(<XUIToggle labelText='This is a toggle' labelId="testing123" isFieldLayout />);
+		const labelTest = renderer.create(<XUIToggle label='This is a toggle' labelId="testing123" isFieldLayout />);
 		expect(labelTest).toMatchSnapshot();
 	});
 
@@ -67,8 +67,8 @@ describe('XUIToggle', function() {
 
 
 	// small variant inverted
-	it('should use the small modifier if the small variant is provided', function () {
-		const wrapper = mount(<XUIToggle variant="small" />);
+	it('should use the small modifier if the small size is specified', function () {
+		const wrapper = mount(<XUIToggle size="small" />);
 		expect(wrapper.find('.xui-toggle-small')).toHaveLength(1);
 	});
 

@@ -15,7 +15,7 @@ $toast-max-width: 400px;
 	position: relative;
 	transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
 	z-index: 10;
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-small-down {
 		border-radius: 0;
 	}
 }
@@ -40,9 +40,8 @@ $toast-max-width: 400px;
 
 .#{$ns}-toast-layout {
 	margin: 0 $xui-s-large $xui-s-large $xui-s-large;
-	padding: $xui-s-small $xui-s-small $xui-s-small $xui-s-xsmall;
 
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-small-down {
 		margin: 0;
 		max-width: none;
 		width: 100%;
@@ -55,27 +54,21 @@ $toast-max-width: 400px;
 	.#{$ns}-toast--message {
 		float: initial;
 		margin: 0;
-		// The 6 and 7px values align the message height with the actions and close
-		// buttons. This ensures that the float system does not get interfered with
-		// when we responsively reflow the tooltip content.
-		padding: 6px $xui-s-small 7px;
+		padding: $xui-s-small $xui-s-standard;
 	}
 
 	.#{$ns}-toast--actions {
-		line-height: initial;
-		margin: 0;
+		margin: $xui-s-2xsmall 0 0 0;
 		padding: 0;
 	}
 
-	// Standardise the line height between these two elements as they were misaligned
-	// vertically (which became very obvious if the user had their browser UI zoomed in).
-	.#{$ns}-toast--message,
 	.#{$ns}-toast--action {
-		line-height: $xui-line-height-compact;
+		margin: $xui-s-2xsmall;
+		text-align: center;
 	}
 
 	.#{$ns}-toast--close ~ .#{$ns}-toast--message {
-		max-width: calc(#{$toast-max-width} - 50px);
+		max-width: calc(100% - #{$xui-control-size-small + $xui-s-standard});
 	}
 }
 
@@ -87,7 +80,7 @@ $toast-max-width: 400px;
 	position: fixed;
 	z-index: 8000;
 
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-small-down {
 		width: 100%;
 	}
 }
@@ -105,6 +98,10 @@ $toast-max-width: 400px;
 .#{$ns}-toast--close,
 .#{$ns}-toast--actions {
 	float: right;
+}
+
+.#{$ns}-toast--close {
+	margin: $xui-s-2xsmall;
 }
 
 .#{$ns}-toast-is-hidden {

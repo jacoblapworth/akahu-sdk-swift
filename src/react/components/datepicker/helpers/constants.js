@@ -1,3 +1,7 @@
+import { ns } from '../../helpers/xuiClassNamespace';
+
+export const baseClassName = `${ns}-datepicker`;
+
 export const englishMonths = [
 	'January',
 	'February',
@@ -14,21 +18,21 @@ export const englishMonths = [
 ];
 
 export const customClassNames = {
-	container: 'xui-datepicker',
-	interactionDisabled: 'xui-is-disabled',
-	navBar: 'xui-datepicker--header',
-	navButtonPrev: 'xui-datepicker--arrow-icon',
-	navButtonNext: 'xui-datepicker--arrow-icon',
-	month: 'xui-datepicker--body',
+	container: `${baseClassName}`,
+	interactionDisabled: `${ns}-is-disabled`,
+	navBar: `${baseClassName}--header`,
+	navButtonPrev: `${baseClassName}--arrow-icon`,
+	navButtonNext: `${baseClassName}--arrow-icon`,
+	month: `${baseClassName}--body`,
 	caption: '',
 	weekdays: '',
-	weekdaysRow: 'xui-datepicker--weekdays',
-	weekday: 'xui-datepicker--weekday',
+	weekdaysRow: `${baseClassName}--weekdays`,
+	weekday: `${baseClassName}--weekday`,
 	body: '',
-	week: 'xui-datepicker--week',
-	day: 'xui-datepicker--day',
-	today: 'xui-datepicker--day-is-today',
-	selected: 'xui-datepicker--day-is-selected',
-	outside: 'xui-datepicker--day-is-othermonth',
-	disabled: 'xui-datepicker--day-is-disabled',
+	week: `${baseClassName}--week`,
+	day: `${baseClassName}--day`,
+	today: `${baseClassName}--day-is-today`,
+	selected: `${baseClassName}--day-is-selected`,
+	outside: `${baseClassName}--day-is-othermonth`,
+	disabled: `${baseClassName}--day-is-disabled`,
 };

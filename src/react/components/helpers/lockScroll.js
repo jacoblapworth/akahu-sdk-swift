@@ -1,15 +1,18 @@
 import calcScrollbarWidth from 'scrollbar-width';
 import getComputedStyle from './getComputedStyle';
+import { ns } from './xuiClassNamespace';
 
 let scrollState = null;
 let scrollLockCount = 0;
+const lockScrollClassName = `${ns}-lockscroll`;
 
 /**
  * Test to see if the body scroll is currently locked
  *
  * @export
  */
-export const isScrollLocked = () => document.documentElement.classList.contains('xui-u-lockscroll');
+export const isScrollLocked = () =>
+	document.documentElement.classList.contains(lockScrollClassName);
 
 /**
  * Will set the scroll on the browser to be locked and visibly hidden so the content
@@ -25,7 +28,8 @@ export const lockScroll = () => {
 		const html = document.documentElement;
 		const existingPadding = parseInt(getComputedStyle(body, 'paddingRight'), 10);
 		const scrollbarSize = calcScrollbarWidth();
-		const newPadding = (typeof existingPadding === 'number' && isNaN(existingPadding)) || !Number.isFinite(existingPadding)
+		const newPadding = (typeof existingPadding === 'number' && isNaN(existingPadding)) ||
+			!Number.isFinite(existingPadding)
 			? scrollbarSize
 			: scrollbarSize + existingPadding;
 
@@ -36,7 +40,7 @@ export const lockScroll = () => {
 			left: scrollElement.scrollLeft,
 		};
 
-		html.classList.add('xui-u-lockscroll');
+		html.classList.add(lockScrollClassName);
 		body.style.paddingRight = `${newPadding}px`;
 		return true;
 	}
@@ -53,7 +57,7 @@ export const unlockScroll = () => {
 		const { body, documentElement: html } = document;
 
 		body.style.paddingRight = '';
-		html.classList.remove('xui-u-lockscroll');
+		html.classList.remove(lockScrollClassName);
 
 		/*
 		iOS still scrolls behind, so make sure the scroll position gets reset back to

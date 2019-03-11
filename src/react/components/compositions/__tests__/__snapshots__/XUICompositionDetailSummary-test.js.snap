@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUICompositionDetailSummary> renders basic example 1`] = `
+<div
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-has-auto-widths xui-composition-auto-template xui-composition-detailsummary"
+>
+  <div
+    className="xui-gridarea-detail"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-summary"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<XUICompositionDetailSummary> should do nothing with children 1`] = `
+<div
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-has-auto-widths xui-composition-auto-template xui-composition-detailsummary"
+>
+  <div
+    className="xui-gridarea-detail"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-summary"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<XUICompositionDetailSummary> should include custom class and toggle off default classes, if specified 1`] = `
+<div
+  className="xui-composition xui-composition-auto-template xui-composition-detailsummary summary-without-head"
+>
+  <div
+    className="xui-gridarea-detail"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-summary"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<XUICompositionDetailSummary> should include layout restriction class, if specified 1`] = `
+<div
+  className="xui-composition xui-composition-is-finite xui-composition-has-grid-gap xui-composition-has-auto-space-around xui-composition-has-auto-widths xui-composition-detailsummary-retain-small xui-composition-detailsummary"
+>
+  <div
+    className="xui-gridarea-detail"
+  >
+    <div />
+  </div>
+  <div
+    className="xui-gridarea-summary"
+  >
+    <div />
+  </div>
+</div>
+`;

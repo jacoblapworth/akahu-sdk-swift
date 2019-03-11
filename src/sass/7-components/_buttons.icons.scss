@@ -7,10 +7,9 @@
 	border-radius: 50%;
 	color: $xui-button-icon-color;
 	display: inline-flex;
-	height: $xui-icon-standard;
+	flex-shrink: 0;
 	justify-content: center;
 	position: relative;
-	width: $xui-icon-standard;
 
 	.#{$ns}-icon {
 		display: block;
@@ -31,7 +30,17 @@
 
 }
 
-.#{$ns}-button-icon-large {
-	height: $xui-icon-large;
-	width: $xui-icon-large;
+.#{$ns}-button-icon-medium {
+	height: $xui-control-size-standard;
+	width: $xui-control-size-standard;
+}
+
+.#{$ns}-button-icon-small {
+	height: $xui-control-size-small;
+	width: $xui-control-size-small;
+}
+
+.#{$ns}-button-icon-xsmall {
+	height: $xui-control-size-xsmall;
+	width: $xui-control-size-xsmall;
 }

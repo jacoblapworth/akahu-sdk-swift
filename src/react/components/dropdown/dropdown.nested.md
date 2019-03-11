@@ -2,17 +2,13 @@
 
 `NestedDropDown` is designed as a `DropDown` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown.  A quick example would be allowing the user to choose between some convenience dates and a fixed custom date like below.
 
-```jsx
-require('array.prototype.find').shim();
-const NestedDropDown = require('./NestedDropDown').default;
-const DropDownPanel = require('./DropDownPanel').default;
-const DropDownToggled = require('./DropDownToggled').default;
-const DropDownFooter = require('./DropDownFooter').default;
-const XUIButton = require('../../button').default;
-const XUIDatePicker = require('../../datepicker').default;
-const Picklist = require('../../picklist').default;
-const Pickitem = require('../picklist/Pickitem').default;
-const { Component } = require('react');
+```jsx harmony
+import 'array.prototype.find';
+import { Component } from 'react';
+import { DropDownToggled, DropDownHeader, DropDownFooter, NestedDropDown, DropDownPanel } from '../../dropdown';
+import XUIButton, { XUIButtonCaret } from '../../button';
+import XUIDatePicker from '../../datepicker';
+import Picklist, { Pickitem } from '../../picklist';
 
 const months = ['Jan', 'Feb', 'March', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const formatDate = date => `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
@@ -48,8 +44,8 @@ const convenienceDates = [
 ];
 
 class NestedExample extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			activePanel: 'convenienceDates',
@@ -57,8 +53,8 @@ class NestedExample extends Component {
 			selectedConvenienceDate: null,
 			selectedDate: null,
 		};
-		this.datepickerRefFn = c => this.datepicker = c;
-		this.ddtRefFn = c => this.ddt = c;
+		this.datepicker = React.createRef();
+		this.ddt = React.createRef();
 
 		this.closeDropDown = this.closeDropDown.bind(this);
 		this.focusDatePicker = this.focusDatePicker.bind(this);
@@ -66,15 +62,16 @@ class NestedExample extends Component {
 		this.showMonth = this.showMonth.bind(this);
 		this.selectConvenienceDate = this.selectConvenienceDate.bind(this);
 		this.selectDate = this.selectDate.bind(this);
+		this.selectCustomConvenience = this.selectCustomConvenience.bind(this);
 	}
 
 	closeDropDown() {
-		this.ddt.closeDropDown();
+		this.ddt.current.closeDropDown();
 	}
 
 	focusDatePicker() {
 		if (this.state.activePanel === 'customDate') {
-			this.datepicker.focus();
+			this.datepicker.current.focus();
 		}
 	}
 
@@ -113,6 +110,10 @@ class NestedExample extends Component {
 		this.closeDropDown();
 	}
 
+	selectCustomConvenience() {
+		this.selectConvenienceDate('custom');
+	}
+
 	render() {
 		const { activePanel, selectedDate } = this.state;
 		let triggerText = 'Select a Date';
@@ -132,7 +133,7 @@ class NestedExample extends Component {
 					<Pickitem
 						id="custom"
 						key="custom"
-						onClick={() => this.selectConvenienceDate('custom')}
+						onClick={this.selectCustomConvenience}
 					>
 						Custom Date
 					</Pickitem>
@@ -172,7 +173,7 @@ class NestedExample extends Component {
 					)}
 				>
 					<XUIDatePicker
-						ref={this.datepickerRefFn}
+						ref={this.datepicker}
 						displayedMonth={this.state.currentMonth}
 						selectedDate={this.state.selectedDate}
 						onSelectDate={this.selectDate}
@@ -183,7 +184,7 @@ class NestedExample extends Component {
 		const isPicklist = activePanel !== 'customDate';
 		return (
 			<DropDownToggled
-				ref={this.ddtRefFn}
+				ref={this.ddt}
 				trigger={trigger}
 				dropdown={dropdown}
 				closeOnSelect={false}

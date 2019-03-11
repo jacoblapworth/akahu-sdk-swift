@@ -12,6 +12,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
+import logReadyState from '../../../stories/helpers/log-ready-state';
 import { variations, storiesWithVariationsKindName } from './variations';
 import Pickitem from '../../picklist/Pickitem';
 import XUITag from '../../tag/XUITag';
@@ -20,6 +21,7 @@ import noop from '../../helpers/noop';
 const tableStyles = {
 	background: 'white',
 	display: 'inline-block',
+	verticalAlign: 'top',
 	marginBottom: '20px',
 	maxWidth: '500px',
 	minWidth: '300px',
@@ -198,8 +200,7 @@ class ScrollResetWrapper extends PureComponent {
 			const wrapper = node && node.querySelector('.xui-table-wrapper');
 			if (wrapper) {
 				wrapper.scrollLeft = 0;
-				// eslint-disable-next-line no-console
-				setTimeout(() => (console.log('xui-table-ready-event')), 100);
+				logReadyState('xui-table-ready-event');
 			}
 		}, 100);
 	}
@@ -274,11 +275,11 @@ const TestScaffold = ({
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 
 storiesWithVariations.addDecorator(centered);
+createCustomStyles();
 variations.forEach(variation => {
-	const { storyTitle, storyKind, examples } = variation; // eslint-disable-line no-unused-vars
+	const { storyTitle, examples } = variation;
 	const Comparison = examples.map(TestScaffold);
 
-	createCustomStyles();
 	storiesWithVariations.add(storyTitle, () => <div>{Comparison}</div>);
 });
 

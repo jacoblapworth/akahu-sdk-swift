@@ -8,8 +8,8 @@ function requireAll(requireContext) {
 function loadStories() {
 	require('./welcome.js');
 	requireAll(require.context('../src/react/components', true, /stories.js$/));
-	// Compositions
-	requireAll(require.context('../src/react/stories/compositions', true, /index.js$/));
+	// Components in Components
+	requireAll(require.context('../src/react/stories/components-in-components', true, /index.js$/));
 	// Page Layout
 	requireAll(require.context('../src/react/stories/page-layouts', true, /index.js$/));
 }

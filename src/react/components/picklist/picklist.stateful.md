@@ -2,7 +2,7 @@ The `StatefulPicklist` wraps the `Picklist` to keep track of which element is hi
 
 ### Components Using StatefulPicklist
 * [DropDown](#dropdown)
-* [SelectBox, inherited from Dropdown](#selectbox)
+* [SelectBox, inherited from Dropdown](#select-box)
 * [Autocompleter](#autocompleter)
 
 
@@ -23,12 +23,12 @@ In most cases you would be able to use a wrapper around the `StatefulPicklist`, 
 ### Example
 A thin wrapper around the `StatefulPicklist` to demonstrate the bare minimum to build a working component.
 
-```
-const Pickitem = require('../picklist/Pickitem').default;
+```jsx harmony
+import Picklist, { StatefulPicklist, Pickitem } from '../../picklist';
 
 class BasicStatefulPicklist extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			selectedItem: 2
@@ -36,32 +36,34 @@ class BasicStatefulPicklist extends React.Component {
 
 		this.onSelect = this.onSelect.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
+		this._rootNode = React.createRef();
+		this._list = React.createRef();
 	}
 
 	onSelect(value, item) {
 		this.setState({
 			selectedItem: item.props.id
 		});
-		this._rootNode.focus();
+		this._rootNode.current && this._rootNode.current.focus();
 	}
 
 	onKeyDown(event) {
-		this._list.onKeyDown(event);
+		this._list.current && this._list.current.onKeyDown(event);
 	}
 
 	render () {
 		return (
 				<div
 					id="spl-wrapper1"
-					ref={comp => this._rootNode = comp}
+					ref={this._rootNode}
 					tabIndex={0}
 					onKeyDown={this.onKeyDown}
 				>
-					<StatefulPicklist secondaryProps={{ role: null }} onSelect={this.onSelect} ref={comp => this._list = comp}>
+					<StatefulPicklist secondaryProps={{ role: null }} onSelect={this.onSelect} ref={this._list}>
 						<Picklist secondaryProps={{ role: 'menu' }}>
 							{[1, 2, 3, 4].map(i => {
 								return (
-									<Pickitem ariaRole='menuitem' id={`vertical_${i}`} key={i} isSelected={this.state.selectedItem === i}>
+									<Pickitem ariaRole='menuitem' id={`vertical_${i}`} key={i} isSelected={this.state.selectedItem === `vertical_${i}`}>
 										{`Item ${i}`}
 									</Pickitem>
 									)
@@ -76,12 +78,12 @@ class BasicStatefulPicklist extends React.Component {
 <BasicStatefulPicklist />;
 ```
 
-```
-const Pickitem = require('../picklist/Pickitem').default;
+```jsx harmony
+import Picklist, { StatefulPicklist, Pickitem } from '../../picklist';
 
 class BasicHorizontalStatefulPicklist extends React.Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 
 		this.state = {
 			selectedItem: 2
@@ -89,32 +91,34 @@ class BasicHorizontalStatefulPicklist extends React.Component {
 
 		this.onSelect = this.onSelect.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
+		this._rootNode = React.createRef();
+		this._list = React.createRef();
 	}
 
 	onSelect(value, item) {
 		this.setState({
 			selectedItem: item.props.id
 		});
-		this._rootNode.focus();
+		this._rootNode.current && this._rootNode.current.focus();
 	}
 
 	onKeyDown(event) {
-		this._list.onKeyDown(event);
+		this._list.current && this._list.current.onKeyDown(event);
 	}
 
 	render () {
 		return (
 				<div
 					id="spl-wrapper2"
-					ref={comp => this._rootNode = comp}
+					ref={this._rootNode}
 					tabIndex={0}
 					onKeyDown={this.onKeyDown}
 				>
-					<StatefulPicklist secondaryProps={{ role: null }} isHorizontal onSelect={this.onSelect} ref={comp => this._list = comp}>
+					<StatefulPicklist secondaryProps={{ role: null }} isHorizontal onSelect={this.onSelect} ref={this._list}>
 						<Picklist secondaryProps={{ role: 'menu' }} isHorizontal>
 							{[1, 2, 3, 4].map(i => {
 								return (
-									<Pickitem ariaRole='menuitem' id={`horizontal_${i}`} key={i} isSelected={this.state.selectedItem === i}>
+									<Pickitem ariaRole='menuitem' id={`horizontal_${i}`} key={i} isSelected={this.state.selectedItem === `horizontal_${i}`}>
 										{`Item ${i}`}
 									</Pickitem>
 									)

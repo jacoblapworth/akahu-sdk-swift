@@ -7,68 +7,76 @@
  * https://codepen.io/thebabydino/pen/qVQLzm
  */
 
-$xui-range-slider-height: 2px;
-$xui-range-slider-thumb-diameter: $xui-s-xlarge;
+$xui-rangeslider-height: 2px;
+$xui-rangeslider-thumb-diameter-medium: $xui-s-xlarge;
+$xui-rangeslider-thumb-diameter-small: $xui-s-large;
+$xui-rangeslider-thumb-diameter-xsmall: $xui-s-standard;
 
-@mixin xui-range-slider-track {
-	background: $xui-range-slider-track-color;
+@mixin xui-rangeslider-track {
+	background: $xui-rangeslider-track-color;
 	border: none;
 	box-sizing: border-box;
-	height: $xui-range-slider-height;
+	height: $xui-rangeslider-height;
 	width: 100%;
 }
 
-@mixin xui-range-slider-thumb {
+@mixin xui-rangeslider-thumb {
 	background: $xui-range-bg-color;
 	border: 1px solid $xui-range-border-color;
 	border-radius: 50%;
 	box-sizing: border-box;
-	height: $xui-range-slider-thumb-diameter;
-	width: $xui-range-slider-thumb-diameter;
 }
 
-.#{$ns}-range-slider {
+@mixin xui-rangeslider-thumb-size($size: $xui-rangeslider-thumb-diameter-medium) {
+	height: $size;
+	width: $size;
+}
+
+.#{$ns}-rangeslider-container {
+	align-items: center;
+	display: flex;
+}
+
+.#{$ns}-rangeslider {
 	-webkit-appearance: none;
 	background: transparent;
-	height: $xui-range-slider-thumb-diameter;
 	margin: 0;
-	padding: 0;
 	width: 100%;
 
-	&.#{$ns}-range-slider-is-invalid {
+	&.#{$ns}-rangeslider-is-invalid {
 		&::-webkit-slider-thumb {
-			border-color: $xui-range-slider-thumb-invalid-color;
+			border-color: $xui-rangeslider-thumb-invalid-color;
 		}
 		&::-moz-range-thumb {
-			border-color: $xui-range-slider-thumb-invalid-color;
+			border-color: $xui-rangeslider-thumb-invalid-color;
 		}
 		&::-ms-thumb {
-			border-color: $xui-range-slider-thumb-invalid-color;
+			border-color: $xui-rangeslider-thumb-invalid-color;
 		}
 		&::-webkit-slider-runnable-track {
-			background: $xui-range-slider-track-invalid-color;
+			background: $xui-rangeslider-track-invalid-color;
 		}
 
 		&::-moz-range-track {
-			background: $xui-range-slider-track-invalid-color;
+			background: $xui-rangeslider-track-invalid-color;
 		}
 
 		&::-ms-track {
-			background: $xui-range-slider-track-invalid-color;
-			color: $xui-range-slider-track-invalid-color;
+			background: $xui-rangeslider-track-invalid-color;
+			color: $xui-rangeslider-track-invalid-color;
 		}
 	}
 
 	&:disabled {
 		cursor: not-allowed;
 		&::-webkit-slider-thumb {
-			background: $xui-range-slider-thumb-disabled-color;
+			background: $xui-rangeslider-thumb-disabled-color;
 		}
 		&::-moz-range-thumb {
-			background: $xui-range-slider-thumb-disabled-color;
+			background: $xui-rangeslider-thumb-disabled-color;
 		}
 		&::-ms-thumb {
-			background: $xui-range-slider-thumb-disabled-color;
+			background: $xui-rangeslider-thumb-disabled-color;
 		}
 	}
 
@@ -78,35 +86,34 @@ $xui-range-slider-thumb-diameter: $xui-s-xlarge;
 	//	Chrome needs to come first so Edge’s `-ms-thumb` style will rule the day.
 
 	&::-webkit-slider-runnable-track {
-		@include xui-range-slider-track;
+		@include xui-rangeslider-track;
 	}
 
 	&::-moz-range-track {
-		@include xui-range-slider-track;
+		@include xui-rangeslider-track;
 	}
 
 	&::-ms-track {
-		@include xui-range-slider-track;
-		color: $xui-range-slider-track-color;
+		@include xui-rangeslider-track;
+		color: $xui-rangeslider-track-color;
 	}
 
 	&::-ms-fill-lower,
 	&::-ms-fill-upper {
-		background-color: $xui-range-slider-track-color;
+		background-color: $xui-rangeslider-track-color;
 	}
 
 	&::-webkit-slider-thumb {
-		@include xui-range-slider-thumb;
+		@include xui-rangeslider-thumb;
 		-webkit-appearance: none;
-		margin-top: ($xui-range-slider-height - $xui-range-slider-thumb-diameter) * 0.5;
 	}
 
 	&::-moz-range-thumb {
-		@include xui-range-slider-thumb;
+		@include xui-rangeslider-thumb;
 	}
 
 	&::-ms-thumb {
-		@include xui-range-slider-thumb;
+		@include xui-rangeslider-thumb;
 		margin-top: 0;
 	}
 
@@ -129,7 +136,7 @@ $xui-range-slider-thumb-diameter: $xui-s-xlarge;
 		}
 	}
 
-	&:hover:not(:disabled):not(.#{$ns}-range-slider-is-invalid) {
+	&:hover:not(:disabled):not(.#{$ns}-rangeslider-is-invalid) {
 		&::-webkit-slider-thumb {
 			border-color: $xui-range-border-hover-color;
 		}
@@ -143,7 +150,7 @@ $xui-range-slider-thumb-diameter: $xui-s-xlarge;
 		}
 	}
 
-	&:focus:not(:disabled):not(.#{$ns}-range-slider-is-invalid) {
+	&:focus:not(:disabled):not(.#{$ns}-rangeslider-is-invalid) {
 		&::-webkit-slider-thumb {
 			border-color: $xui-range-border-focus-color;
 		}
@@ -158,7 +165,7 @@ $xui-range-slider-thumb-diameter: $xui-s-xlarge;
 	}
 
 
-	&:active:not(:disabled):not(.#{$ns}-range-slider-is-invalid) {
+	&:active:not(:disabled):not(.#{$ns}-rangeslider-is-invalid) {
 		&::-webkit-slider-thumb {
 			border-color: $xui-range-border-active-color;
 		}
@@ -170,5 +177,58 @@ $xui-range-slider-thumb-diameter: $xui-s-xlarge;
 		&::-ms-thumb {
 			border-color: $xui-range-border-active-color;
 		}
+	}
+}
+
+.#{$ns}-rangeslider-thumb-medium {
+	height: $xui-rangeslider-thumb-diameter-medium;
+
+	&::-moz-range-thumb {
+		@include xui-rangeslider-thumb-size( $xui-rangeslider-thumb-diameter-medium);
+	}
+
+	&::-webkit-slider-thumb {
+		@include xui-rangeslider-thumb-size( $xui-rangeslider-thumb-diameter-medium);
+		margin-top: ($xui-rangeslider-height - $xui-rangeslider-thumb-diameter-medium) * 0.5;
+	}
+
+	&::-ms-thumb {
+		@include xui-rangeslider-thumb-size( $xui-rangeslider-thumb-diameter-medium);
+		margin-top: 0;
+	}
+}
+
+.#{$ns}-rangeslider-thumb-small {
+	height: $xui-rangeslider-thumb-diameter-small;
+
+	&::-moz-range-thumb {
+		@include xui-rangeslider-thumb-size( $xui-rangeslider-thumb-diameter-small);
+	}
+
+	&::-webkit-slider-thumb {
+		@include xui-rangeslider-thumb-size( $xui-rangeslider-thumb-diameter-small);
+		margin-top: ($xui-rangeslider-height - $xui-rangeslider-thumb-diameter-small) * 0.5;
+	}
+
+	&::-ms-thumb {
+		@include xui-rangeslider-thumb-size( $xui-rangeslider-thumb-diameter-small);
+		margin-top: 0;
+	}
+}
+
+.#{$ns}-rangeslider-thumb-xsmall {
+	height: $xui-rangeslider-thumb-diameter-xsmall;
+	&::-moz-range-thumb {
+		@include xui-rangeslider-thumb-size( $xui-rangeslider-thumb-diameter-xsmall);
+	}
+
+	&::-webkit-slider-thumb {
+		@include xui-rangeslider-thumb-size( $xui-rangeslider-thumb-diameter-xsmall);
+		margin-top: ($xui-rangeslider-height - $xui-rangeslider-thumb-diameter-xsmall) * 0.5;
+	}
+
+	&::-ms-thumb {
+		@include xui-rangeslider-thumb-size( $xui-rangeslider-thumb-diameter-xsmall);
+		margin-top: 0;
 	}
 }

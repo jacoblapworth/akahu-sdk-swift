@@ -1,4 +1,5 @@
 @import "../vars";
+@import "../mixins";
 
 // Tag
 //
@@ -8,87 +9,131 @@
 //
 // Components: Tag
 //
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.un9oianvfodl
+//
 // Styleguide: Building Blocks.Identifiers.Tag
 
-// Color
+// Style variants
 //
 // Tips:
-// Do: Use default or neutral tags for basic categorisation.
-// Do: Use colored tags to indicate sentiment.
-// Do: When using color variation, use descriptive text like "Invoiced"
-// Warning: Always provide a clear text label, as the meaning of colors is not universally understood.
-// Dont: When using color variation, avoid vague text like "INV 0032"
+// Do: Use default or neutral tags for basic categorisation
+// Do: Use colored tags to indicate sentiment
+// Do: Use descriptive text like "Invoiced"
+// Warning: Always provide descriptive copy, as the meaning of colors is not universally understood.
+// Dont: Avoid using vague copy inside of tags
 //
-// First, add `xui-tag` to provide the correct layout, then add an optional modifier of `xui-tag-*` to specify sentiment.
+// First, add `xui-tag` to provide the correct layout, then add an optional modifier of `xui-tag-*` to specify sentiment and/or size.
 //
 // Use descriptive text inside Tags to convey information so it’s still meaningful to people who can’t discern colour.
 //
 // Definitions:
-// Default: <span class="xui-tag">Default</span>: none
-// Neutral: <span class="xui-tag xui-tag-neutral">Neutral</span>: `-neutral`
-// Positive: <span class="xui-tag xui-tag-positive">Positive</span>: `-positive`
-// Warning: <span class="xui-tag xui-tag-warning">Warning</span>: `-warning`
-// Negative: <span class="xui-tag xui-tag-negative">Negative</span>: `-negative`
+// Default: <span class="xui-tag xui-tag-medium">Default</span>: No class
+// Neutral: <span class="xui-tag xui-tag-medium xui-tag-neutral">Neutral</span>: `-neutral`
+// Positive: <span class="xui-tag xui-tag-medium xui-tag-positive">Positive</span>: `-positive`
+// Warning: <span class="xui-tag xui-tag-medium xui-tag-warning">Warning</span>: `-warning`
+// Negative: <span class="xui-tag xui-tag-medium xui-tag-negative">Negative</span>: `-negative`
 //
 // Styleguide: Building Blocks.Identifiers.Tag.1
+
+// Size variants
+//
+// Tags have a range of size options that allow for greater control over visual hierarchy.
+//
+// Tips:
+// Do: Use medium as a standard size variant
+// Do: Use medium size variant in page headers
+// Do: Use small and xsmall variants when nesting inside of other elements, such as content blocks and pickitems
+// Warning: Be cautious when using xsmall variants as they have reduced legibility
+//
+// Definitions:
+// Size variant: **Height**: **Class**
+// medium: 24px: `xui-tag-medium`
+// small: 20px: `xui-tag-small`
+// xsmall: 16px: `xui-tag-xsmall`
+//
+// Markup:
+// <div class="xui-margin-bottom">
+//   <span class="xui-tag xui-tag-medium">Invoiced</span>
+// </div>
+// <div class="xui-margin-bottom">
+//   <span class="xui-tag xui-tag-small">Invoiced</span>
+// </div>
+// <div>
+//   <span class="xui-tag xui-tag-xsmall">Invoiced</span>
+// </div>
+//
+// Styleguide: Building Blocks.Identifiers.Tag.2
 
 // Implementation
 //
 // Always use a `<span>` element to create a tag, in order to retain the correct display properties when placed alongside text.
 //
-//
 // Markup:
-// <div class="xui-contentblock xui-panel">
-//   <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
-//     <div class="xui-contentblockitem--leftcontent">
-//       <abbr class="xui-avatar xui-avatar-color-7" role="presentation">FC</abbr>
-//     </div>
-//     <a class="xui-contentblockitem--links">
-//       <span class="xui-contentblockitem--toplinks">
-//         <span class="xui-heading-small">Finn Clark</span>
-//         <span class="xui-tag xui-tag-positive xui-margin-left-small">Paid</span>
-//       </span>
-//       <div class="xui-contentblockitem--secondaryheading">Active 2h ago<span class="xui-margin-horizontal-xsmall">•</span>email@address.com</div>
-//     </a>
-//     <div class="xui-contentblockitem--rightcontent">
-//       <div class="xui-contentblockitem--pinnedvalue">30,00.00</div>
-//       <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
-//         <button class="xui-button xui-actions--primary xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
+// <header class="xui-isolationheader xui-margin-bottom-2xlarge" role="banner">
+//   <div class="xui-isolationheader--navigation">
+//     <button aria-label="navigate" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+// 	     <svg focusable="false" class="xui-icon">
+// 		     <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   	   </svg>
+//     </button>
+//     <h2 class="xui-isolationheader--title xui-margin-left-small">Diana Pebbles</h2>
+//     <h2 class="xui-isolationheader--secondary-title">INV 1028</h2>
+//     <span class="xui-tag xui-tag-medium xui-tag-negative">Overdue</span>
+//   </div>
+// </header>
+// <div class="xui-panel xui-margin-bottom-2xlarge">
+//   <ul class="xui-contentblock">
+//     <li class="xui-contentblockitem xui-contentblockitem-layout">
+//       <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//         <abbr class="xui-avatar xui-avatar-color-3" role="presentation">FC</abbr>
 //       </div>
-//       <button class="xui-button xui-button-icon" tabindex="0" type="button" title="More options">
-//         <svg focusable="false" class="xui-icon">
-//           <use xlink:href="#xui-icon-overflow"></use>
-//         </svg>
-//       </button>
-//     </div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Finn Clark</span>
+//           <span class="xui-tag xui-tag-small xui-tag-positive">Paid</span>
+//         </div>
+//         <div class="xui-contentblockitem--description">
+//           <span class="xui-contentblockitem--description--text">Active 2h ago<span class="xui-margin-horizontal-xsmall">•</span><span>email.address@gmail.com</span></span>
+//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <div class="xui-contentblockitem--pinnedvalue">118.20</div>
+//         <button aria-label="Overflow menu" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+//           <div class="xui-iconwrapper xui-iconwrapper-medium">
+//             <svg focusable="false" class="xui-icon">
+//               <use xlink:href="#xui-icon-overflow"></use>
+//             </svg>
+//           </div>
+//         </button>
+//       </div>
+//     </li>
+//   </ul>
+// </div>
+// <div class='xui-dropdown-layout xui-dropdown-is-open xui-margin-bottom-large'>
+//   <div class='xui-dropdown--mask'></div>
+//   <div class='xui-dropdown--body'>
+//     <ul class="xui-picklist xui-picklist-small xui-picklist-layout" role="tree">
+//       <li class="xui-pickitem xui-pickitem-small" role="treeitem">
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">Agriculture</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-small" role="treeitem">
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">Professional Services</span>
+//           <span class="xui-tag xui-tag-xsmall xui-u-flex-justify-end">New</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-small" role="treeitem">
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">Retail</span>
+//         </button>
+//       </li>
+//     </ul>
 //   </div>
 // </div>
-// <div class="xui-dropdown xui-dropdown-is-open xui-dropdown-is-opening xui-margin-top-large">
-// 	<div class='xui-dropdown--body xui-u-fullwidth'>
-// 		<ul class="xui-picklist xui-picklist-layout">
-// 			<li class="xui-pickitem" aria-selected="false">
-// 				<button type="button" class="xui-button xui-pickitem--body xui-pickitem--text xui-u-flex xui-u-flex-justify-space-between">
-// 					<span class="xui-u-flex-1">
-// 						Resene paint – 15L<br>
-// 						<span class="xui-text-secondary">Canary yellow</span>
-// 					</span>
-// 					<span class="xui-tag">SKU-RE873</span>
-// 				</button>
-// 			</li>
-// 			<li class="xui-pickitem" aria-selected="false">
-// 				<button type="button" class="xui-button xui-pickitem--body xui-pickitem--text xui-u-flex xui-u-flex-justify-space-between">
-// 					<span class="xui-u-flex-1">
-// 						Paint roller<br>
-// 						<span class="xui-text-secondary">300 × 80 mm</span>
-// 					</span>
-// 					<span class="xui-tag">SKU-BL922</span>
-// 				</button>
-// 			</li>
-// 		</ul>
-// 	</div>
-// </div>
 //
-// Styleguide: Building Blocks.Identifiers.Tag.2
+// Styleguide: Building Blocks.Identifiers.Tag.3
 
 .#{$ns}-tag {
 	background-color: $xui-tag-bg-color;
@@ -96,11 +141,22 @@
 	box-shadow: inset 0 0 0 1px $xui-tag-shadow-color;
 	color: $xui-tag-color;
 	display: inline-block;
-	font-size: $xui-font-size-xsmall;
-	line-height: $xui-font-size-xsmall;
-	padding: 4px 6px;
+	padding: 0 $xui-s-2xsmall;
 	vertical-align: middle;
 }
+
+.#{$ns}-tag-medium {
+	@include xui-text-medium;
+}
+
+.#{$ns}-tag-small {
+	@include xui-text-small;
+}
+
+.#{$ns}-tag-xsmall {
+	@include xui-text-xsmall;
+}
+
 .#{$ns}-tag-neutral {
 	background-color: $xui-tag-neutral-bg-color;
 	box-shadow: inset 0 0 0 1px $xui-tag-neutral-shadow-color;
@@ -111,11 +167,13 @@
 	box-shadow: inset 0 0 0 1px $xui-tag-positive-shadow-color;
 	color: $xui-tag-positive-color;
 }
+
 .#{$ns}-tag-warning {
 	background-color: $xui-tag-warning-bg-color;
 	box-shadow: inset 0 0 0 1px $xui-tag-warning-shadow-color;
 	color: $xui-tag-warning-color;
 }
+
 .#{$ns}-tag-negative {
 	background-color: $xui-tag-negative-bg-color;
 	box-shadow: inset 0 0 0 1px $xui-tag-negative-shadow-color;

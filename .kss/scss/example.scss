@@ -10,6 +10,7 @@
 
 .ds-example-dark {
 	background: $ds-dark-bg-color;
+	padding: $xui-s-xsmall;
 }
 
 .ds-example-verticallycentered {
@@ -50,13 +51,13 @@
 
 .ds-markup.ds-example-markuponly {
 	position: relative;
-  @include xui-breakpoint-huge {
+  @include xui-breakpoint-large-up {
     @include embiggen;
   }
 }
 
 .ds-example-wide {
-  @include ds-breakpoint-massive {
+  @include xui-breakpoint-large-up {
     @include embiggen;
   }
 }

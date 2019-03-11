@@ -2,14 +2,23 @@ Checkboxes can be grouped together, making it easier to include them alongside i
 
 The touch target for Checkboxes in a group is the entire "row" of the Checkbox Group.
 
-```
-<XUICheckboxGroup>
+```jsx harmony
+import XUICheckbox, { XUICheckboxGroup } from '../../checkbox';
+
+<XUICheckboxGroup
+	hintMessage="Grouped checkboxes can have hints"
+>
 	<XUICheckbox>Check me out!</XUICheckbox>
 </XUICheckboxGroup>
 ```
 
-```
-<XUICheckboxGroup>
+```jsx harmony
+import XUICheckbox, { XUICheckboxGroup } from '../../checkbox';
+
+<XUICheckboxGroup
+	isInvalid
+	validationMessage="Grouped checkboxes can have validation"
+>
 	<XUICheckbox>Tūī</XUICheckbox>
 	<XUICheckbox>Pīwakawaka</XUICheckbox>
 	<XUICheckbox>Ruru</XUICheckbox>
@@ -18,11 +27,13 @@ The touch target for Checkboxes in a group is the entire "row" of the Checkbox G
 ```
 The Checkbox Group doesn't impact the checkboxes in any way, so you have the same flexibility with custom icons.
 
-```
-const customIcon = require ('@xero/xui-icon/icons/star').default;
+```jsx harmony
+import star from '@xero/xui-icon/icons/star';
+import XUICheckbox, { XUICheckboxGroup } from '../../checkbox';
+
 <XUICheckboxGroup>
-	<XUICheckbox isReversed iconMain={customIcon}>Cockatoo</XUICheckbox>
-	<XUICheckbox isReversed iconMain={customIcon}>Galah</XUICheckbox>
-	<XUICheckbox isReversed iconMain={customIcon}>Magpie</XUICheckbox>
+	<XUICheckbox isReversed iconMain={star}>Cockatoo</XUICheckbox>
+	<XUICheckbox isReversed iconMain={star}>Galah</XUICheckbox>
+	<XUICheckbox isReversed iconMain={star}>Magpie</XUICheckbox>
 </XUICheckboxGroup>
 ```

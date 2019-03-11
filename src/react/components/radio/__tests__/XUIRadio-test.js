@@ -1,13 +1,17 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIRadio from '../XUIRadio';
 import star from '@xero/xui-icon/icons/star';
+import uuidv4 from 'uuid/v4';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 const NOOP = () => {};
+
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => 'testRadioId');
 
 describe('XUIRadio', () => {
 
@@ -28,19 +32,30 @@ describe('XUIRadio', () => {
 
 	// children property (label text)
 	it('should have label text if provided', () => {
-		const component = shallow(<XUIRadio onChange={NOOP}>Howdy, folks!</XUIRadio>);
+		const component = renderer.create(<XUIRadio onChange={NOOP}>Howdy, folks!</XUIRadio>);
 
-		expect(component.text()).toEqual('Howdy, folks!');
+		expect(component).toMatchSnapshot();
 	});
 
 
 	// className property (additional classes)
 	it('should use additional classes on the root node if provided', () => {
-		const component = shallow(<XUIRadio onChange={NOOP} className="dogs-are-totes-patotes" />);
+		const component = mount(<XUIRadio onChange={NOOP} className="dogs-are-totes-patotes" />);
 
-		expect(component.hasClass('dogs-are-totes-patotes')).toBeTruthy();
+		expect(component.find('div').first().hasClass('dogs-are-totes-patotes')).toBeTruthy();
 	});
 
+	it('should be a small variant, if specified', () => {
+		const component = renderer.create(<XUIRadio onChange={NOOP} size="small">Howdy, folks!</XUIRadio>);
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should be a xsmall variant, if specified', () => {
+		const component = renderer.create(<XUIRadio onChange={NOOP} size="xsmall">Howdy, folks!</XUIRadio>);
+
+		expect(component).toMatchSnapshot();
+	});
 
 	// qaHook property
 	it.skip('should have a qaHook on the root node if provided', () => {
@@ -109,9 +124,9 @@ describe('XUIRadio', () => {
 
 	// isReversed property
 	it('should use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true', function () {
-		const component = shallow(<XUIRadio onChange={NOOP} isReversed={true} />);
+		const component = mount(<XUIRadio onChange={NOOP} isReversed={true} />);
 
-		expect(component.hasClass('xui-styledcheckboxradio-reversed')).toBeTruthy();
+		expect(component.find('label').hasClass('xui-styledcheckboxradio-reversed')).toBeTruthy();
 	});
 
 

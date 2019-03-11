@@ -2,6 +2,10 @@
 //
 // Teaser: Choose a number whose exact value is not important.
 //
+// Components: Range
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.gwx9ybn96p1v
+//
 // Introduction:
 // XUI provides a custom range slider for consistency across platforms and visual alignment with other form elements.
 //
@@ -19,26 +23,56 @@
 // To use the custom range slider, apply the following class.
 //
 // Classes:
-// xui-range-slider: Apply to the native input
+// xui-rangeslider: Apply to the native input
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <input aria-label="Slider" class="xui-range-slider" type="range" value="0"/>
+// <input aria-label="Slider" class="xui-rangeslider xui-rangeslider-thumb-medium" type="range" value="0"/>
 //
 // Styleguide: Building Blocks.Controls.Range.2
 
+// Size variants
+//
+// Range offers three size options that allow for greater control over visual hierarchy.
+//
+// Tips:
+// Do: Always specify the size variant when using CSS only.
+// Do: Use a smaller variant to reduce visual dominance of a range
+// Warning: When using smaller variants, ensure the visual weight of the range still expresses its interactive nature within its context
+//
+// Definitions:
+// Size variant:	**Height**: **Class**
+// medium: 24px: <code>.xui-rangeslider-thumb-medium</code>
+// small: 20px: <code>.xui-rangeslider-thumb-small</code>
+// xsmall: 16px: <code>.xui-rangeslider-thumb-xsmall</code>
+//
+// ExampleClass: ds-example-transparent
+//
+// Markup:
+// <label class='xui-u-flex xui-u-flex-align-center' for="range1" aria-label="medium sized range">
+//    <input id="range1" class="xui-rangeslider xui-rangeslider xui-rangeslider-thumb-medium xui-margin-small" type="range" value="50%"/>
+// </label>
+// <label class='xui-u-flex xui-u-flex-align-center' for="range2" aria-label="small sized range">
+//    <input id="range2" class="xui-rangeslider xui-rangeslider-thumb-small xui-margin-small" type="range" value="50%"/>
+// </label>
+// <label class='xui-u-flex xui-u-flex-align-center' for="range3" aria-label="xsmall sized range">
+//    <input id="range3" class="xui-rangeslider xui-rangeslider-thumb-xsmall xui-margin-small" type="range" value="50%"/>
+// </label>
+//
+// Styleguide: Building Blocks.Controls.Range.3
+
 // Value
 //
-// To set a default value, simply add alter the `value` attribute.
-// By default, it accepts numbers or percentages up to 100.
+// To set a default value, add the `value` attribute.
+// The `value` attribute accepts a number within the available range or a percentage, and must be expressed as a string.
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <input aria-label="Slider" class="xui-range-slider" type="range" value="50%"/>
+// <input aria-label="Slider" class="xui-rangeslider xui-rangeslider-thumb-medium" type="range" value="50%"/>
 //
-// Styleguide: Building Blocks.Controls.Range.3
+// Styleguide: Building Blocks.Controls.Range.4
 
 // Steps
 //
@@ -47,9 +81,9 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <input aria-label="Slider" class="xui-range-slider" type="range" step="25" value="50"/>
+// <input aria-label="Slider" class="xui-rangeslider xui-rangeslider-thumb-medium" type="range" step="25" value="50"/>
 //
-// Styleguide: Building Blocks.Controls.Range.4
+// Styleguide: Building Blocks.Controls.Range.5
 
 // Limits
 //
@@ -58,9 +92,9 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <input aria-label="Slider" class="xui-range-slider" type="range" min="0" max="4" value="2"/>
+// <input aria-label="Slider" class="xui-rangeslider xui-rangeslider-thumb-medium" type="range" min="0" max="4" value="2"/>
 //
-// Styleguide: Building Blocks.Controls.Range.5
+// Styleguide: Building Blocks.Controls.Range.6
 
 // Disabling
 //
@@ -69,9 +103,9 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <input aria-label="Slider" class="xui-range-slider" type="range" value="50%" disabled/>
+// <input aria-label="Slider" class="xui-rangeslider xui-rangeslider-thumb-medium" type="range" value="50%" disabled/>
 //
-// Styleguide: Building Blocks.Controls.Range.6
+// Styleguide: Building Blocks.Controls.Range.7
 
 // Labeling
 //
@@ -88,12 +122,12 @@
 //
 // Markup:
 // <div class="xui-field-layout">
-//   <label class="xui-text-label xui-fieldlabel-layout" for="range1">Label</label>
-//   <input id="range1" class="xui-range-slider" type="range" value="50%"/>
+//   <label class="xui-text-label xui-fieldlabel-layout" for="range4">Label</label>
+//   <input id="range4" class="xui-rangeslider xui-rangeslider-thumb-medium" type="range" value="50%"/>
 //   <div class="xui-validation xui-validation-layout">Validation text</div>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Range.7
+// Styleguide: Building Blocks.Controls.Range.8
 
 // Invalid
 //
@@ -101,18 +135,18 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Classes: 
-// xui-range-slider-is-invalid: Apply to native input
+// Classes:
+// xui-rangeslider-is-invalid: Apply to native input
 // xui-validation-is-invalid: Apply to validation
 //
 // Markup:
 // <div class="xui-field-layout">
-//   <label class="xui-text-label xui-fieldlabel-layout" for="range2">Label</label>
-//   <input id="range2" class="xui-range-slider xui-range-slider-is-invalid" type="range" value="50%"/>
+//   <label class="xui-text-label xui-fieldlabel-layout" for="range5">Label</label>
+//   <input id="range5" class="xui-rangeslider xui-rangeslider-thumb-medium xui-rangeslider-is-invalid" type="range" value="50%"/>
 //   <div class="xui-validation xui-validation-layout xui-validation-is-invalid">Invalid text</div>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Range.8
+// Styleguide: Building Blocks.Controls.Range.9
 
 // Layout
 //
@@ -122,14 +156,14 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <label class='xui-u-flex xui-u-flex-align-center' for="range3" aria-label="Image size">
+// <label class='xui-u-flex xui-u-flex-align-center' for="range6" aria-label="Image size">
 //    <svg class="xui-icon xui-icon-color-standard">
 //      <use role="presentation" xlink:href="#xui-icon-image"/>
 //    </svg>
-//    <input id="range3" class="xui-range-slider xui-margin-horizontal-small" type="range" value="50%"/>
+//    <input id="range6" class="xui-rangeslider xui-rangeslider-thumb-medium xui-margin-horizontal-small" type="range" value="50%"/>
 //    <svg class="xui-icon xui-icon-large xui-icon-color-standard">
 //      <use role="presentation" xlink:href="#xui-icon-image"/>
 //    </svg>
 // </label>
 //
-// Styleguide: Building Blocks.Controls.Range.9
+// Styleguide: Building Blocks.Controls.Range.10

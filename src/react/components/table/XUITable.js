@@ -158,6 +158,7 @@ class XUITable extends Component {
 
 		const className = cn(
 			NAME_SPACE,
+			`${ns}-panel`,
 			suppliedClasses,
 			{
 				[`${ns}-panel`]: !isBorderless,

@@ -10,17 +10,8 @@ import XUIButton from '../button/XUIButton';
 import XUIModalHeader from './XUIModalHeader';
 import { registerModal, deRegisterTopModal } from '../helpers/modalManager';
 import portalContainer, { portalClass } from '../helpers/portalContainer';
-import { baseClass } from './constants';
+import { baseClass, modalSizes } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
-
-export const modalSizes = {
-	default: `${baseClass}-width-default`,
-	small: `${baseClass}-width-small`,
-	medium: `${baseClass}-width-medium`,
-	large: `${baseClass}-width-large`,
-	xlarge: `${baseClass}-width-xlarge`,
-	fullscreen: `${baseClass}-fullscreen`,
-};
 
 const maskClass = `${ns}-mask`;
 
@@ -261,7 +252,7 @@ export default class XUIModal extends Component {
 				type="button"
 				variant="icon"
 			>
-				<XUIIcon icon={cross} isBoxed />
+				<XUIIcon icon={cross} />
 			</XUIButton>
 		) : null;
 		let headerElement;
@@ -344,7 +335,7 @@ XUIModal.propTypes = {
 	closeButtonLabel: PropTypes.string,
 
 	/** The size (aka width) of this modal */
-	size: PropTypes.oneOf(['default', 'small', 'medium', 'large', 'xlarge', 'fullscreen']),
+	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'fullscreen']),
 
 	/** Whether the modal is visible */
 	isOpen: PropTypes.bool,

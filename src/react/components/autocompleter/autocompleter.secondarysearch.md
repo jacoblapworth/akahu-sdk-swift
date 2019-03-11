@@ -2,11 +2,12 @@
 This component behaves similarly to an autocompleter, except that it is triggered by a button instead of an input. The input is a secondary interaction, focused by default when the DropDown opens. The `SecondarySearch` component is a separate component to the `Autocompleter` but share similar APIs.
 
 ```js
-const { boldMatch, decorateSubStr } = require('./helpers/highlighting');
-const Pickitem = require('../picklist/Pickitem').default;
-const DropDownFooter = require('../dropdown/DropDownFooter').default;
-const XUIIcon = require('../icon/XUIIcon').default;
-const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;
+import Picklist, { Pickitem } from "../../picklist";
+import { XUIAutocompleterSecondarySearch } from "../../autocompleter";
+import { DropDownFooter } from "../../dropdown";
+import XUIButton, { XUIButtonCaret } from "../../button";
+import XUIIcon from '../../icon';
+import plusIcon from "@xero/xui-icon/icons/plus";
 
 const SecondarySearchData = [
 	{ props: { id: 'ss1' }, text: "Cost" },
@@ -21,6 +22,8 @@ const SecondarySearchData = [
 
 const isSelected = (item, selectedIds) => item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
 
+const noop = () => {};
+
 function createItems(items, selectedId) {
 	if (Array.isArray(items)) {
 		return items.map(i => createItems(i, selectedId));
@@ -34,8 +37,8 @@ function createItems(items, selectedId) {
 }
 
 class SecondarySearchExample extends React.Component {
-	constructor() {
-		super(this.props);
+	constructor(...args) {
+		super(...args);
 
 		const sse = this;
 
@@ -46,6 +49,7 @@ class SecondarySearchExample extends React.Component {
 		}
 
 		sse.onSearch = sse.onSearch.bind(sse);
+		sse.onClose = sse.onClose.bind(sse);
 		sse.onOptionSelect = sse.onOptionSelect.bind(sse);
 	}
 
@@ -64,7 +68,7 @@ class SecondarySearchExample extends React.Component {
 			})
 	}
 
-	onClose(){
+	onClose() {
 		this.setState({
 			value: '',
 			data: SecondarySearchData
@@ -76,7 +80,7 @@ class SecondarySearchExample extends React.Component {
 		const { value, data } = sse.state;
 
 		const trigger = (
-			<XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger">
+			<XUIButton type="button" onClick={noop} data-ref="toggled_trigger">
 				Toggle Me <XUIButtonCaret />
 			</XUIButton>
 		);
@@ -105,13 +109,13 @@ class SecondarySearchExample extends React.Component {
 					onOptionSelect={sse.onOptionSelect}
 					onSearch={sse.onSearch}
 					searchValue={value}
-					dropdownSize='medium'
-					inputLabelText='secondary search label'
+					dropdownSize='small'
+					inputLabel='secondary search label'
 					isInputLabelHidden
 					qaHook='secondary-search'
 					footer={footer}
 					closeOnTab={false}
-					onClose={() => this.onClose()}
+					onClose={this.onClose}
 				>
 					<Picklist>
 						{items}

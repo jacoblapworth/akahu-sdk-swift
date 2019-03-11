@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PicklistDivider /> basic example 1`] = `
+<li
+  className="xui-picklist--divider"
+/>
+`;
+
+exports[`<PicklistDivider /> with custom class 1`] = `
+<li
+  className="xui-picklist--divider custom-divider"
+/>
+`;

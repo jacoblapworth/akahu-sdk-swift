@@ -3,7 +3,7 @@ import { ns } from '../../helpers/xuiClassNamespace';
 export const baseClass = `${ns}-loader`;
 
 export const sizeClassNames = {
-	standard: '',
-	large: `${baseClass}-large`,
+	xsmall: `${baseClass}-xsmall`,
 	small: `${baseClass}-small`,
+	medium: `${baseClass}-medium`,
 };

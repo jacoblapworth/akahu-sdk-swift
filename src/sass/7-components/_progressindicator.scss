@@ -5,6 +5,8 @@
 //
 // Components: progress-indicator
 //
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.3l5wf5ao6h5q
+//
 // Teaser: To communicate progress and indicate context.
 //
 // Introduction: Progress indicators are used to visually communicate progress.
@@ -453,12 +455,11 @@
 //
 // Styleguide: Building Blocks.Identifiers.ProgressIndicator.9
 
-$xui-progress-circular-min-width: 20px;
-$xui-progress-linear-min-height: 4px;
+$xui-progress-circular-min-width: $xui-s-large;
+$xui-progress-linear-min-height: $xui-s-2xsmall;
 
 
-// TODO: rename this to be XUI prefixed and kebab-cased
-@mixin addTotalTrackColor($color: $xui-progress-total-bg-color) {
+@mixin xui-stepper-add-total-track-color($color: $xui-progress-total-bg-color) {
 
 	&:not(.#{$ns}-progress-overflow) .#{$ns}-progress-linear-track {
 		background: $color;
@@ -469,8 +470,7 @@ $xui-progress-linear-min-height: 4px;
 	}
 }
 
-// TODO: rename this to be XUI prefixed and kebab-cased
-@mixin addCurrentTrackColor($color: $xui-progress-current-bg-color) {
+@mixin xui-stepper-add-current-track-color($color: $xui-progress-current-bg-color) {
 
 	&.#{$ns}-progress-complete .#{$ns}-progress-icon,
 	&:not(.#{$ns}-progress-error-soft) .#{$ns}-progress-linear-current {
@@ -486,8 +486,8 @@ $xui-progress-linear-min-height: 4px;
 	outline: 0;
 	position: relative;
 
-	@include addTotalTrackColor();
-	@include addCurrentTrackColor();
+	@include xui-stepper-add-total-track-color();
+	@include xui-stepper-add-current-track-color();
 }
 
 .#{$ns}-progress-circular {
@@ -704,10 +704,10 @@ $xui-progress-linear-min-height: 4px;
 	$value: nth($color, 2);
 
 	[data-#{$ns}-progress-total-color="#{$key}"] {
-		@include addTotalTrackColor($value);
+		@include xui-stepper-add-total-track-color($value);
 	}
 
 	[data-#{$ns}-progress-current-color="#{$key}"] {
-		@include addCurrentTrackColor($value);
+		@include xui-stepper-add-current-track-color($value);
 	}
 }

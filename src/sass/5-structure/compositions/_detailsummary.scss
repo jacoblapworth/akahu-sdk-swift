@@ -1,0 +1,55 @@
+@import "../../vars";
+@import "../../mixins";
+
+// Base grid templates
+@mixin composition-ds-small {
+	grid-template:
+		"summary"
+		"detail" / 1fr;
+}
+
+@mixin composition-ds-medium {
+	grid-template:
+		"detail summary" / 1fr min-content;
+	&.#{$ns}-composition-has-auto-widths {
+		grid-template-columns: 1fr 25%;
+	}
+}
+
+// Gap template variants (necessary for IE & Autoprefixer)
+@mixin composition-ds-small-gap {
+	@include xui-composition-grid-gap;
+	@include composition-ds-small;
+}
+
+@mixin composition-ds-medium-gap {
+	@include xui-composition-grid-gap;
+	@include composition-ds-medium;
+	&.#{$ns}-composition-has-auto-widths {
+		-ms-grid-columns: 1fr $xui-grid-gutter 25%;
+	}
+}
+
+// Classes using templates at various breakpoints
+.#{$ns}-composition-detailsummary {
+	@include composition-ds-small;
+	&.#{$ns}-composition-has-grid-gap {
+		@include composition-ds-small-gap;
+	}
+
+	&.#{$ns}-composition-auto-template {
+		@include xui-breakpoint-medium-up {
+			@include composition-ds-medium;
+			&.#{$ns}-composition-has-grid-gap {
+				@include composition-ds-medium-gap;
+			}
+		}
+		@include xui-breakpoint-xlarge-up {
+			@include xui-composition-narrow-right-max-widths;
+		}
+	}
+}
+
+// No styles are needed for retain-small. When the auto-template class is
+// not present, layout will remain with the small template.
+// .#{$ns}-composition-detailsummary-retain-small {}

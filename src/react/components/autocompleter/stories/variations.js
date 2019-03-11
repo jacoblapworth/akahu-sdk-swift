@@ -1,14 +1,22 @@
 const NOOP = require('../../helpers/noop');
+import { fixedWidthDropdownSizes } from '../../dropdown/private/constants';
 
 const storiesWithVariationsKindName = 'Instances/XUIAutocompleter';
 
-const dropdownSizes = ['small', 'medium', 'large', 'xlarge'];
+
+const inputSizes = ['small', 'medium'];
 
 const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'SecondarySearch',
+		storyType: 'XUIAutocompleterSecondarySearch',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'looks like an input',
 		openDrawer: false,
+		isInputLabelHidden: false,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -29,14 +37,26 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'shows a pill when an item is selected',
-		selectedPeople: 0,
+		selectedPeople: 1,
 	},
-	...dropdownSizes.map(dropdownSize => ({
+	...inputSizes.map(inputSize => ({
+		inputSize,
+		selectedPeople: 1,
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: `shows a ${dropdownSize} dropdown`,
-		openDrawer: true,
-		dropdownSize,
+		storyTitle: `shows a ${inputSize} input`,
 	})),
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'shows a small picklist',
+		openDrawer: true,
+		picklistSize: 'small'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'shows an xsmall picklist',
+		openDrawer: true,
+		picklistSize: 'xsmall'
+	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is disabled',
@@ -48,11 +68,33 @@ const variations = [
 		openDrawer: true,
 		noDrawerFooter: true,
 	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with wrapping pills',
+		selectedPeople: 6,
+		placeholder: 'Placeholder text'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with non-wrapping pills',
+		selectedPeople: 6,
+		disableWrapPills: true,
+		placeholder: 'Placeholder text'
+	}
 ];
+
+Object.keys(fixedWidthDropdownSizes).map(dropdownSize =>
+	variations.push({
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `shows a ${dropdownSize} dropdown`,
+		openDrawer: true,
+		dropdownSize,
+	})
+);
 
 module.exports = {
 	variations,
 	NOOP,
 	storiesWithVariationsKindName,
-	dropdownSizes,
+	fixedWidthDropdownSizes,
 };

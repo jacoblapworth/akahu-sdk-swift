@@ -13,10 +13,7 @@ export default class XUIIsolationHeaderTitle extends PureComponent {
 		} = this.props;
 		const classNames = cn(
 			className,
-			`${ns}-heading`,
-			`${ns}-margin-right-small`,
-			`${ns}-margin-vertical-none`,
-			`${ns}-text-truncated`,
+			`${ns}-isolationheader--title`,
 		);
 		return (
 			<h2 title={title} className={classNames} data-automationid={qaHook}>

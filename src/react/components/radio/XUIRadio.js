@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import uuidv4 from 'uuid/v4';
+
 import '../helpers/xuiGlobalChecks';
 import { baseClass } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
+import XUIControlWrapperInline, { getAriaAttributes } from '../controlwrapper/XUIControlWrapperInline';
+import generateIds from '../controlwrapper/helpers';
 
 /**
  * @function handleLabelClick - Prevent 2 click events bubbling. Since our input is
@@ -20,10 +22,16 @@ const onLabelClick = e => {
 	}
 };
 
+/**
+ * @function buildSvgRadio - If triggered with a custom icon path, build svg radio
+ * @param qaHook - Optional hook label
+ * @param svgSettings - Object containing optional svg properties (classname, icon paths)
+ *
+ */
 const buildSvgRadio = (qaHook, { svgClassName, iconMain }) => {
 	const svgClasses = cn(`${ns}-icon`, svgClassName);
 	return (
-		<div className="xui-iconwrapper">
+		<div className={`${ns}-iconwrapper`}>
 			<svg
 				className={svgClasses}
 				data-automationid={qaHook && `${qaHook}--icon`}
@@ -38,23 +46,43 @@ const buildSvgRadio = (qaHook, { svgClassName, iconMain }) => {
 	);
 };
 
-const buildHtmlRadio = (qaHook, htmlClassName) => {
-	const htmlClasses = cn(`${baseClass}--radio`, htmlClassName);
+/**
+ * @function buildHtmlRadio - build the HTML version of the radio control
+ * @param qaHook - Optional hook label
+ * @param htmlClassName - Optional classname to add to html version of radio
+ * @param calculatedSize - String to specify the size of the radio
+ *
+ */
+const buildHtmlRadio = (qaHook, htmlClassName, calculatedSize) => {
+	const htmlClasses = cn(
+		`${baseClass}--radio`,
+		htmlClassName,
+		calculatedSize && `${baseClass}--radio-${calculatedSize}`,
+	);
 	return (
 		<div className={htmlClasses} data-automationid={qaHook && `${qaHook}--radio`} />
 	);
 };
 
-const buildRadio = (qaHook, htmlClassName, svgSettings) => {
+/**
+ * @function buildRadio - given the radio props supplied, select which radio
+ * builder to trigger
+ * @param qaHook - Optional hook label
+ * @param htmlClassName - Optional classname to add to html version of radio
+ * @param svgSettings - Object containing optional svg properties (classname, icon paths)
+ * @param calculatedSize - String to specify the size of the radio
+ *
+ */
+const buildRadio = (qaHook, htmlClassName, svgSettings, calculatedSize) => {
 	if (svgSettings.iconMain) {
 		return buildSvgRadio(qaHook, svgSettings);
 	}
-	return buildHtmlRadio(qaHook, htmlClassName);
+	return buildHtmlRadio(qaHook, htmlClassName, calculatedSize);
 };
 
-export default class XUIRadio extends React.Component {
-	// User can manually proivde an id, or we will generate one.
-	labelId = this.props.labelId || uuidv4();
+export default class XUIRadio extends PureComponent {
+	// User can manually provide an id, or we will generate one.
+	wrapperIds = generateIds(this.props.labelId);
 
 	render() {
 		const {
@@ -77,45 +105,49 @@ export default class XUIRadio extends React.Component {
 			isLabelHidden,
 			role,
 			id,
+			isGrouped,
+			isInvalid,
+			validationMessage,
+			hintMessage,
+			size,
 		} = this.props;
 
+		// Grouped inputs default to 'small'.
+		const calculatedSize = (isGrouped && 'small') || size;
+
 		const classes = cn(
-			className,
-			`${baseClass}`,
+			baseClass,
 			isReversed && `${baseClass}-reversed`,
 			isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
 		);
 
+		const wrapperClasses = cn(
+			className,
+			`${baseClass}wrapper`,
+			calculatedSize && `${baseClass}-${calculatedSize}`,
+		);
+
 		const labelClasses = cn(
 			`${baseClass}--label`,
+			calculatedSize && `${baseClass}--label-${calculatedSize}`,
 			labelClassName,
 		);
-		const labelElement =
-			!isLabelHidden &&
-			children && (
-				<span
-					id={this.labelId}
-					className={labelClasses}
-					data-automationid={qaHook && `${qaHook}--label`}
-				>
-					{children}
-				</span>
-			);
+
+		const messageClasses = cn(
+			`${baseClass}--message`,
+			!isLabelHidden && `${baseClass}--message-with-label`,
+		);
+
 		const inputProps = {
-			'type': 'radio',
-			'disabled': isDisabled,
-			'required': isRequired,
-			'aria-label': (isLabelHidden && children) || undefined,
-			// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-			'aria-labelledby':
-				(labelElement && this.labelId)
-				|| (!children && this.props.labelId)
-				|| undefined,
+			type: 'radio',
+			disabled: isDisabled,
+			required: isRequired,
 			tabIndex,
 			name,
 			onChange,
 			value,
 			id,
+			...getAriaAttributes(this.wrapperIds, this.props),
 		};
 		const svgSettings = {
 			svgClassName,
@@ -134,16 +166,34 @@ export default class XUIRadio extends React.Component {
 		}
 
 		return (
-			<label className={classes} data-automationid={qaHook} onClick={onLabelClick} role="presentation">
+			<XUIControlWrapperInline
+				rootClassName={wrapperClasses}
+				wrapperIds={this.wrapperIds}
+				onClick={onLabelClick}
+				fieldClassName={classes}
+				labelClassName={labelClasses}
+				messageClassName={messageClasses}
+				label={children}
+				{...{
+					qaHook,
+					isInvalid,
+					validationMessage,
+					hintMessage,
+					isLabelHidden,
+				}}
+			>
 				<input
 					role={role}
-					className={`${baseClass}--input`}
+					className={cn(
+						`${baseClass}--input`,
+						inputProps.className,
+						calculatedSize && `${baseClass}--input-${calculatedSize}`,
+					)}
 					data-automationid={qaHook && `${qaHook}--input`}
 					{...inputProps}
 				/>
-				{buildRadio(qaHook, htmlClassName, svgSettings)}
-				{labelElement}
-			</label>
+				{buildRadio(qaHook, htmlClassName, svgSettings, calculatedSize)}
+			</XUIControlWrapperInline>
 		);
 	}
 }
@@ -197,7 +247,7 @@ XUIRadio.propTypes = {
 	 * accessible to screen readers. */
 	isLabelHidden: PropTypes.bool,
 
-	/** Used to output an uncontrolled checkbox component.  If a value is passed to the
+	/** Used to output an uncontrolled radio component.  If a value is passed to the
 	 * isChecked prop, this prop will be ignored. */
 	isDefaultChecked: PropTypes.bool,
 
@@ -208,6 +258,17 @@ XUIRadio.propTypes = {
 
 	/** Provide a specific label ID which will be used as the "labelleby" aria property */
 	labelId: PropTypes.string,
+
+	/** Used by XUI components to state whether the radio is part of a group */
+	isGrouped: PropTypes.bool,
+	/** Whether the current input value is invalid */
+	isInvalid: PropTypes.bool,
+	/** Validation message to show under the input if `isInvalid` is true */
+	validationMessage: PropTypes.string,
+	/** Hint message to show under the input */
+	hintMessage: PropTypes.string,
+	/** Size variant. Defaults to medium */
+	size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
 };
 
 XUIRadio.defaultProps = {
@@ -217,4 +278,5 @@ XUIRadio.defaultProps = {
 	isRequired: false,
 	isReversed: false,
 	role: 'radio',
+	size: 'medium',
 };

@@ -57,13 +57,13 @@ describe('XUIRadioGroup', function() {
 	});
 
 	it('should include a visible label', () => {
-		const labelTest = mount(<XUIRadioGroup labelText="Birds" />);
+		const labelTest = mount(<XUIRadioGroup label="Birds" />);
 		expect(labelTest.find('.xui-text-label')).toHaveLength(1);
 	});
 
 	it('should include a hidden ARIA label, if provided a label and flagged to hide', () => {
 		const testLabel = "Birds";
-		const hiddenLabelTest = mount(<XUIRadioGroup labelText={testLabel} isLabelHidden />);
+		const hiddenLabelTest = mount(<XUIRadioGroup label={testLabel} isLabelHidden />);
 		expect(hiddenLabelTest.find('[aria-label="Birds"]')).toHaveLength(1);
 	});
 });

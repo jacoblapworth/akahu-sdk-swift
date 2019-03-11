@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import crossIcon from '@xero/xui-icon/icons/cross';
+import XUIButton from '../button/XUIButton';
 import XUIIcon from '../../icon';
 import sentimentMap from './private/sentiments';
 import { ns } from '../helpers/xuiClassNamespace';
@@ -17,17 +18,17 @@ export default function XUIBanner({
 	defaultLayout,
 	role,
 }) {
-	const closeQAHook = qaHook && `${qaHook}-close--button`;
-
 	const closeButton = onCloseClick && (
-		<button
-			data-automationid={closeQAHook}
-			className={`${ns}-button ${ns}-button-icon ${ns}-banner--close`}
+		<XUIButton
+			className={`${ns}-banner--close`}
 			title="Close"
 			onClick={onCloseClick}
+			variant="icon"
+			size="small"
+			qaHook={qaHook && `${qaHook}-close--button`}
 		>
-			<XUIIcon icon={crossIcon} isBoxed />
-		</button>
+			<XUIIcon icon={crossIcon} />
+		</XUIButton>
 	);
 
 	const sentimentData = sentimentMap[sentiment];

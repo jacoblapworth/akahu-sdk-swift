@@ -5,6 +5,10 @@
 	background-color: $xui-panel-bg-color;
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-border-all;
+
+	&.#{$ns}-panel-has-sidebar {
+		display: flex;
+	}
 }
 
 // PANEL HEADER
@@ -12,12 +16,12 @@
 
 // .#{$ns}-panel--header is reserved
 .#{$ns}-panel--header {
-	min-height: 60px;
+	min-height: $xui-navigation-height;
 }
 
 
 .#{$ns}-panel--heading {
-	@include xui-heading-medium;
+	@include xui-heading-large;
 	margin: 0;
 }
 
@@ -41,11 +45,11 @@
 }
 
 .#{$ns}-panel--section--header {
-	@include xui-heading-small;
+	@include xui-heading-medium;
 	margin: 0;
 	text-align: center;
 
-	@media(min-width: 600px) {
+	@include xui-breakpoint-small-up {
 		@include xui-margin-horizontal-auto;
 	}
 }
@@ -56,7 +60,7 @@
 .#{$ns}-panel--footer {
 	border-top: $xui-border-standard;
 	display: flex;
-	min-height: 60px;
+	min-height: $xui-navigation-height;
 	&:first-child {
 		border-top: 0;
 	}
@@ -71,4 +75,8 @@
 .#{$ns}-panel--sidebar {
 	border-right: $xui-border-standard;
 	flex: 0 0 220px;
+}
+
+.#{$ns}-panel--main {
+	flex: 1;
 }

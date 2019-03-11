@@ -6,56 +6,73 @@
 //
 // Components: Avatar
 //
-// <div class="xui-u-flex" style="align-items: flex-end">
-//   <abbr class="xui-avatar xui-avatar-color-7 xui-avatar-xsmall xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">ABC</abbr>
-//   <img class="xui-avatar xui-avatar-small xui-margin-right" role="presentation" alt="Elmo" src="./kss-assets/elmo.png">
-//   <abbr class="xui-avatar xui-avatar-color-4 xui-avatar xui-avatar-business xui-margin-right" title="Hornblower Enterprises" role="presentation">HE</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-1 xui-avatar-large xui-margin-right" title="Darryl King" role="presentation">DK</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-2 xui-avatar-xlarge xui-avatar-business xui-margin-right" title="Cable News Network" role="presentation">CNN</abbr>
-//   <img class="xui-avatar xui-avatar-2xlarge xui-margin-right" role="presentation" alt="Big bird" src="./kss-assets/big-bird.png"/>
-// </div>
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.9afdgn2u1tvf
 //
 // Styleguide: Building Blocks.Identifiers.Avatar
 
 // Best practice
 //
+// Avatars exist to aid recognition so consistency is key. Only use avatars if you can ensure the same entity will look the same, in all parts of Xero, to a single user.
+//
 // Tips:
-// Do: Ensure they're consistent to the user throughout Xero
+// Do: Ensure they're consistent for the user throughout Xero
+// Do: Use the small avatar variant in toolbars
 // Dont: Avoid using as the only means of identifying a business or person
 //
 // Styleguide: Building Blocks.Identifiers.Avatar.1
 
 // Types
 //
-// There are 2 types of avatar in XUI. This helps users identify between clients and employees and between businesses and the individuals within them.
+// There are 2 variants of avatars in XUI. This helps users identify between contacts and Xero users.
 //
 // Definitions:
-// Contacts: `xui-avatar-business`: Square avatars with 1—3 letter acronyms. Suppliers, customers, clients... essentially any 'accounting entity.
-// Users: Default: Round avatars with 2 letter acronyms. These will be users with accounts – essentially any singular person*.
+// Users: (Default): Round avatars with 1-2 letter acronyms. These are used to identify users.
+// Contacts: `xui-avatar-business`: Square avatars with 1-3 letter acronyms. These are used to identify contacts such as suppliers, customers and clients.
 //
-// Note: *Avoid using avatars for payroll or expense employees if they cannot be resolved to a unique user account.
+// exampleClass: ds-example-transparent ds-example-flush
+// 
+// Markup:
+// <div>
+//   <abbr class="xui-avatar xui-avatar-color-7 xui-avatar-large xui-margin-right" role="presentation" title="Rosie Cox">RC</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-8 xui-avatar-large xui-avatar-business xui-margin-right" role="presentation" title="Rosie's Rulers">RR</abbr>
+// </div>
 //
 // Styleguide: Building Blocks.Identifiers.Avatar.2
 
-// Sizes
+// Size variants
+//
+// Avatars have a range of size options that allow for greater control over visual hierarchy.
+//
+// Tips:
+// Do: Use the size variant that is appropriate for the content its referencing
+// Do: Always nest Avatars one size variant below its parent's size variant
+// Warning: Use 2xsmall and xsmall variants cautiously, as these are more difficult to read than other sizes
+// Dont: Don’t use a combination of size variants within a singular group of items
 //
 // Definitions:
-// xSmall: 18px: <code>xui-avatar-xsmall</code>
-// Small: 24px: <code>xui-avatar-small</code>
-// Medium: 32px: default
-// Large: 48px: <code>xui-avatar-large</code>
-// xLarge: 80px: <code>xui-avatar-xlarge</code>
-// 2xLarge: 120px: <code>xui-avatar-2xlarge</code>
+// Size variant: **Height**: **Class**
+// 2xsmall: 16px: <code>xui-avatar-2xsmall</code>
+// xsmall: 24px: <code>xui-avatar-xsmall</code>
+// small: 32px: <code>xui-avatar-small</code>
+// medium: 40px: (default)
+// large: 80px: <code>xui-avatar-large</code>
+// xlarge: 120px: <code>xui-avatar-xlarge</code>
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
+// <div class="xui-u-flex" style="align-items: flex-end">
+//   <abbr class="xui-avatar xui-avatar-color-1 xui-avatar-2xsmall xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">AB</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-2 xui-avatar-xsmall xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">ABC</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-3 xui-avatar-small xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">ABC</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-4 xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">ABC</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-5 xui-avatar-large xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">ABC</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-6 xui-avatar-xlarge xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">ABC</abbr>
+// </div>
 //
 // Styleguide: Building Blocks.Identifiers.Avatar.3
 
-
-// Implementation
-//
-// Avatars exist to aid recognition so consistency is key. Only use avatars if
-// you can ensure the same entity will look the same, **in all parts of Xero,** to a single user.
-//
-// #### Images in avatars
+// Images
 //
 // If a logo or profile picture is available this should always be used. These
 // should be drawn from a consistent source – the contact or user record. That
@@ -64,24 +81,56 @@
 // Ideally the image will be pre-processed to square and appropriately resized. If the image is not square
 // it will be displayed in it’s entirety with the experimental `object-contain` property. However support in IE/Edge is limited.
 //
-// #### Colors in avatars
+// exampleClass: ds-example-transparent ds-example-flush
 //
-// If no image exists, then it’s background color and acronym should be displayed.
-// The color is selected deterministically from one of the ten approved colors
-// based on a unique **shared** attribute of the entity (eg. GUID).
-// If two entities share the same name then the color should be different.
+// <div class="xui-u-flex" style="align-items: flex-end">
+//   <img class="xui-avatar xui-avatar-2xsmall xui-avatar-business xui-margin-right" role="presentation"  alt="Elmo" src="./kss-assets/elmo.png" title="Elmo">
+//   <img class="xui-avatar xui-avatar-xsmall xui-avatar-business xui-margin-right" role="presentation"  alt="Elmo" src="./kss-assets/elmo.png" title="Elmo">
+//   <img class="xui-avatar xui-avatar-small xui-avatar-business xui-margin-right" role="presentation"  alt="Elmo" src="./kss-assets/elmo.png" title="Elmo">
+//   <img class="xui-avatar xui-avatar-business xui-margin-right" role="presentation"  alt="Elmo" src="./kss-assets/elmo.png" title="Elmo">
+//   <img class="xui-avatar xui-avatar-large xui-avatar-business xui-margin-right" role="presentation"  alt="Elmo" src="./kss-assets/elmo.png" title="Elmo">
+//   <img class="xui-avatar xui-avatar-xlarge xui-avatar-business xui-margin-right" role="presentation"  alt="Elmo" src="./kss-assets/elmo.png" title="Elmo">
+// </div>
+//
+// Styleguide: Building Blocks.Identifiers.Avatar.4
+
+// Colors
 //
 // The [react component](./react/#avatar) uses a hashing algorithm to deterime the correct color based on that shared value.
+//
+// Tips:
+// Do: If no image exists, then the Avatar background color and acronym should be displayed
+// Do: Colors are selected deterministically from one of the ten Avatar colors
+// Do: Colors should be based on a unique **shared** attribute of the entity (eg. GUID)
+// Do: If two entities share the same name then the color should be different
 //
 // Classes:
 // xui-avatar-color-: Sets the color to one of the defined options with an added modifier between 1 and 10.
 //
-// Styleguide: Building Blocks.Identifiers.Avatar.4
-
-// Grouping avatars
+// exampleClass: ds-example-transparent ds-example-flush
 //
-// Avatars can be displayed as an overlapping group. If more exist than it’s reasonable to display an additional counter can be added to the end.
-// The avatars can be displayed in any order considered useful eg. largest contributor or most recent addition.
+// Markup:
+// <div class="xui-u-flex" style="align-items: flex-end">
+//   <abbr class="xui-avatar xui-avatar-color-1 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-2 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-3 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-4 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-5 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-6 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-7 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-8 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-9 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-10 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
+// </div>
+//
+// Styleguide: Building Blocks.Identifiers.Avatar.5
+
+// Grouping
+//
+// Tips:
+// Do: Use an Avatar group to display many entities that belong to the same group
+// Do: If more entities exist than it’s reasonable to display, an additional counter should be added
+// Do: Display avatars in an order that makes sense to your content
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
@@ -105,10 +154,10 @@
 // xui-avatargroup: Class to be used as a wrapper div around an avatar group
 // xui-avatar-counter: Modifier for an avatar counter (e.g. +3)
 //
-// Styleguide: Building Blocks.Identifiers.Avatar.5
+// Styleguide: Building Blocks.Identifiers.Avatar.6
 
 // Accessibility
 //
 // Avatars alone are not meant to communicate the full identity of a person or business. Use them in combination with the entity's full name, except when grouped or when the name of the entity is not relevant to the information being displayed.
 //
-// Styleguide: Building Blocks.Identifiers.Avatar.6
+// Styleguide: Building Blocks.Identifiers.Avatar.7

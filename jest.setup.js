@@ -6,6 +6,8 @@ global.requestAnimationFrame = (callback) => {
 	setTimeout(callback, 0);
 };
 
+window.scrollTo = () => { };
+
 /* eslint-disable no-console */
 const util = require('util');
 

@@ -9,6 +9,8 @@
 //
 // Components: Datepicker
 //
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.t1j258a1knyn
+//
 // Styleguide: Compounds.CollectingInput.Datepicker
 
 // Anatomy
@@ -29,11 +31,11 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class='xui-panel xui-dropdown-large'>
+// <div class='xui-panel xui-dropdown-medium'>
 //  <div class="xui-datepicker">
 //   <header class="xui-datepicker--header">
-//     <button type="button" class="xui-button xui-button-icon xui-button-icon-large xui-datepicker--prevbutton" aria-label="Go to previous month" title="Go to previous month">
-//       <svg focusable="false" class="xui-icon xui-u-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//     <button type="button" class="xui-button xui-button-icon xui-button-icon-medium xui-datepicker--prevbutton" aria-label="Go to previous month" title="Go to previous month">
+//       <svg focusable="false" class="xui-icon xui-icon-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 //     </button>
 //     <form class="xui-datepicker--heading-dates">
 //       <div class="xui-datepicker--heading xui-datepicker--heading-month">
@@ -42,7 +44,9 @@
 //           <option value="6">July</option>
 //           <option value="7">August</option>
 //         </select>
-//         <label for="month" class="xui-datepicker--heading-label">June</label>
+//         <label for="month" class="xui-button xui-button-standard xui-button-small xui-datepicker--heading-label xui-datepicker--month-select-label">June
+//           <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//         </label>
 //       </div>
 //       <div class="xui-datepicker--heading xui-datepicker--heading-year">
 //         <select id="year" class="xui-datepicker--heading-select xui-datepicker--yearselect-layout"
@@ -51,11 +55,13 @@
 //           <option value="2018">2018</option>
 //           <option value="2019">2019</option>
 //         </select>
-//         <label for="year" class="xui-datepicker--heading-label">2017</label>
+//         <label for="year" class="xui-button xui-button-standard xui-button-small xui-datepicker--heading-label xui-datepicker--year-select-label">2017
+//           <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//         </label>
 //       </div>
 //     </form>
-//     <button type="button" class="xui-button xui-button-icon xui-button-icon-large xui-datepicker--nextbutton" aria-label="Go to next month" title="Go to next month">
-//       <svg focusable="false" class="xui-icon xui-u-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//     <button type="button" class="xui-button xui-button-icon xui-button-icon-medium xui-datepicker--nextbutton" aria-label="Go to next month" title="Go to next month">
+//       <svg focusable="false" class="xui-icon xui-icon-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 //     </button>
 //   </header>
 //   <div class="xui-datepicker--body" role="grid" aria-label="Select a day">
@@ -231,7 +237,7 @@
 // By default, datepickers span the full width of their containing element.
 // To set your own width, nest the datepicker within another component, such as a <a href="section-compounds-collectinginput-dropdowns.html">dropdown</a>, or apply your own value.
 // A smaller variant of the datepicker is also available by applying the following modifiers to `xui-datepicker`.
-// It is also recommended to remove the `xui-button-icon-large` modifier on the icon buttons when doing so.
+// It is also recommended to remove the `xui-button-icon-medium` modifier on the icon buttons when doing so.
 //
 // Definitions:
 // Standard: 40px controls, 100% width: none
@@ -244,7 +250,7 @@
 //  <div class="xui-datepicker xui-datepicker-compact">
 //   <header class="xui-datepicker--header">
 //     <button type="button" class="xui-button xui-button-icon xui-datepicker--prevbutton" aria-label="Go to previous month" title="Go to previous month">
-//       <svg focusable="false" class="xui-icon xui-u-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//       <svg focusable="false" class="xui-icon xui-icon-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 //     </button>
 //     <form class="xui-datepicker--heading-dates">
 //       <div class="xui-datepicker--heading xui-datepicker--heading-month">
@@ -253,7 +259,10 @@
 //           <option value="6">July</option>
 //           <option value="7">August</option>
 //         </select>
-//         <label for="month" class="xui-datepicker--heading-label">June</label>
+//         <label for="month" class="xui-button xui-button-standard xui-button-xsmall xui-datepicker--heading-label xui-datepicker--month-select-label">
+//          June
+//          <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//         </label>
 //       </div>
 //       <div class="xui-datepicker--heading xui-datepicker--heading-year">
 //         <select id="year" class="xui-datepicker--heading-select xui-datepicker--yearselect-layout"
@@ -262,11 +271,14 @@
 //           <option value="2018">2018</option>
 //           <option value="2019">2019</option>
 //         </select>
-//         <label for="year" class="xui-datepicker--heading-label">2017</label>
+//         <label for="year" class="xui-button xui-button-standard xui-button-xsmall xui-datepicker--heading-label xui-datepicker--month-select-label">
+//          2017
+//          <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//         </label>
 //       </div>
 //     </form>
 //     <button type="button" class="xui-button xui-button-icon xui-datepicker--nextbutton" aria-label="Go to next month" title="Go to next month">
-//       <svg focusable="false" class="xui-icon xui-u-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//       <svg focusable="false" class="xui-icon xui-icon-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 //     </button>
 //   </header>
 //   <div class="xui-datepicker--body" role="grid" aria-label="Select a day">
@@ -432,15 +444,24 @@
 //
 // Styleguide: Compounds.CollectingInput.Datepicker.6
 
+// Responsive
+//
+// Tips:
+// Do: On smaller viewports, display datepicker in a dropdown sheet with a mask
+// Do: Allow users to dismiss datepicker by selecting the mask
+// Don't: Don't use compact datepicker variant in dropdown sheet, as this results in small touch targets
+//
+// Styleguide: Compounds.CollectingInput.Datepicker.7
+
 // Accessibility
 //
 // Datepickers must have keyboard support as described in the [W3C documentation](https://www.w3.org/TR/wai-aria-practices/#kbd_focus_discernable_predictable).
 // This may involve the use of the `tabindex` and `aria-activedescendant` attributes, which also require each active cell to have an `id`.
 // An accessible example of a datepicker can be found on the [Open Ajax Alliance](http://www.oaa-accessibility.org/examplep/datepicker1/).
 //
-// Styleguide: Compounds.CollectingInput.Datepicker.7
+// Styleguide: Compounds.CollectingInput.Datepicker.8
 
-$xui-datepicker-day-size: 40px;
+$xui-datepicker-day-size: $xui-control-size-standard;
 $xui-datepicker-day-size-compact: 30px;
 
 @mixin xui-datepicker-highlight-size-left() {
@@ -463,12 +484,12 @@ $xui-datepicker-day-size-compact: 30px;
 .#{$ns}-datepicker {
 	border: none;
 	font-size: 0.9375rem;
-	padding-bottom: $xui-s-small;
+	padding-bottom: $xui-s-xsmall;
 	position: relative;
 	width: 100%;
 
 	&.#{$ns}-datepicker-compact {
-		padding-bottom: $xui-s-xsmall;
+		padding-bottom: $xui-s-2xsmall;
 	}
 }
 
@@ -494,7 +515,7 @@ $xui-datepicker-day-size-compact: 30px;
 }
 
 .#{$ns}-datepicker--prevbutton {
-	@include xui-margin-left($xui-s-xsmall);
+	@include xui-margin-left($xui-s-2xsmall);
 	min-width: $xui-datepicker-day-size;
 	.#{$ns}-datepicker-compact & {
 		min-width: $xui-datepicker-day-size-compact;
@@ -502,7 +523,7 @@ $xui-datepicker-day-size-compact: 30px;
 }
 
 .#{$ns}-datepicker--nextbutton {
-	@include xui-margin-right($xui-s-xsmall);
+	@include xui-margin-right($xui-s-2xsmall);
 	min-width: $xui-datepicker-day-size;
 	.#{$ns}-datepicker-compact & {
 		min-width: $xui-datepicker-day-size-compact;
@@ -518,7 +539,7 @@ $xui-datepicker-day-size-compact: 30px;
 }
 
 .#{$ns}-datepicker--heading {
-	@include xui-text-line-height-compact;
+	line-height: $xui-line-height-compact;
 	position: relative;
 }
 
@@ -548,22 +569,13 @@ $xui-datepicker-day-size-compact: 30px;
 	position: absolute;
 	top: 0;
 	width: 100%;
-
-	&:focus + .#{$ns}-datepicker--heading-label {
-		background: $xui-datepicker-heading-label-focus-bg-color;
-	}
-	&:active + .#{$ns}-datepicker--heading-label {
-		background: $xui-datepicker-heading-label-active-bg-color;
-	}
-	&:hover + .#{$ns}-datepicker--heading-label {
-		color: $xui-datepicker-heading-label-hover-color;
-	}
+}
+.#{$ns}-datepicker--heading-select-has-focus {
+	@include xui-state-focus-shadow;
 }
 
-.#{$ns}-datepicker--heading-label {
-	border-radius: 3px;
-	font-family: inherit;
-	padding: $xui-s-xsmall;
+.#{$ns}-datepicker--heading-label.#{$ns}-button-standard {
+	position: static;
 	user-select: none;
 
 	&:hover {
@@ -577,6 +589,17 @@ $xui-datepicker-day-size-compact: 30px;
 
 .#{$ns}-datepicker--heading-dates {
 	@include xui-flex-children;
+
+	:first-child .#{$ns}-button {
+		border-bottom-right-radius: 0;
+		border-right: none;
+		border-top-right-radius: 0;
+	}
+
+	:last-child .#{$ns}-button {
+		border-bottom-left-radius: 0;
+		border-top-left-radius: 0;
+	}
 }
 
 .#{$ns}-datepicker--body {
@@ -595,27 +618,20 @@ $xui-datepicker-day-size-compact: 30px;
 	border-top: 1px solid transparent;
 	display: flex;
 	justify-content: space-between;
-	padding-left: $xui-s-small;
-	padding-right: $xui-s-small;
-
-	.#{$ns}-datepicker-compact & {
-		padding-left: $xui-s-xsmall;
-		padding-right: $xui-s-xsmall;
-	}
 }
 
 .#{$ns}-datepicker--weekdays {
 	border-bottom: $xui-border-muted;
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: $xui-s-small;
-	padding-bottom: $xui-s-small;
-	padding-left: $xui-s-small;
-	padding-right: $xui-s-small;
+	margin-bottom: $xui-s-xsmall;
+	padding-bottom: $xui-s-xsmall;
+	padding-left: $xui-s-xsmall;
+	padding-right: $xui-s-xsmall;
 
 	.#{$ns}-datepicker-compact & {
-		margin-bottom: $xui-s-xsmall;
-		padding: $xui-s-xsmall;
+		margin-bottom: $xui-s-2xsmall;
+		padding: $xui-s-2xsmall;
 	}
 }
 
@@ -629,7 +645,6 @@ $xui-datepicker-day-size-compact: 30px;
 	height: $xui-datepicker-day-size;
 	justify-content: center;
 	line-height: 1;
-	padding: 0;
 	position: relative;
 	text-align: center;
 	user-select: none;
@@ -655,9 +670,25 @@ $xui-datepicker-day-size-compact: 30px;
 		outline: none;
 	}
 
+	&:first-of-type {
+		padding-left: $xui-s-xsmall;
+	}
+
+	&:last-of-type {
+		padding-right: $xui-s-xsmall;
+	}
+
 	.#{$ns}-datepicker-compact & {
 		height: $xui-datepicker-day-size-compact;
 		width: $xui-datepicker-day-size-compact;
+
+		&:first-of-type {
+			padding-left: $xui-s-2xsmall;
+		}
+
+		&:last-of-type {
+			padding-right: $xui-s-2xsmall;
+		}
 	}
 }
 
@@ -693,13 +724,17 @@ $xui-datepicker-day-size-compact: 30px;
 }
 
 .#{$ns}-datepicker--weekday {
+	@include xui-text-small;
 	color: $xui-datepicker-weekday-color;
 	cursor: default;
-	font-size: $xui-font-size-xsmall;
 	font-weight: normal;
 	text-align: center;
 	text-decoration: none;
 	user-select: none;
+
+	.#{$ns}-datepicker-compact & {
+		@include xui-text-xsmall;
+	}
 }
 
 .#{$ns}-datepicker--weekdaywrapper {

@@ -1,0 +1,8 @@
+@import "../../vars";
+@import "../../mixins";
+
+.#{$ns}-composition-detail {
+	grid-template:
+		"detail detail" / min-content;
+	-ms-grid-columns: 1fr;
+}

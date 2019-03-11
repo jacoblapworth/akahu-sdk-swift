@@ -24,7 +24,9 @@ export default class XUIContentBlockItem extends PureComponent {
 			pinnedValue,
 			secondaryHeading,
 			primaryHeading,
-			tag,
+			description,
+			tags,
+			tagPosition,
 		} = this.props;
 
 		const clonedAction = action && React.cloneElement(action, {
@@ -34,47 +36,85 @@ export default class XUIContentBlockItem extends PureComponent {
 			),
 		});
 
-		const builtPrimaryHeadingAndTag = primaryHeading && (
-			<span className={`${baseClass}--toplinks`}>
+		const tagPositionInline = tagPosition === 'inline';
+
+		const builtHeadings = primaryHeading && (
+			<div className={`${baseClass}--headings`}>
 				<span className={`${baseClass}--primaryheading`}>
 					{primaryHeading}
 				</span>
-				{tag}
-			</span>
+				{
+					secondaryHeading && (
+						<span className={`${baseClass}--secondaryheading`}>
+							{secondaryHeading}
+						</span>
+					)
+				}
+				{
+					tagPositionInline && tags
+				}
+			</div>
 		);
 
-		const builtSecondaryHeading = secondaryHeading &&
-			<div className={`${baseClass}--secondaryheading`}>
-				{secondaryHeading}
-			</div>;
+		const tagPositionDescription = tagPosition === 'description';
 
-		const builtPinnedValue = pinnedValue &&
+		let builtDescriptionArea = description && (
+			<div className={`${baseClass}--description`}>
+				<span className={`${baseClass}--description--text`}>
+					{description}
+				</span>
+				{tagPositionDescription && tags}
+			</div>
+		);
+
+		if (!description && tags && tagPositionDescription) {
+			builtDescriptionArea = (
+				<div className={`${baseClass}--description`}>
+					{tags}
+				</div>
+			);
+		}
+
+		const builtPinnedValue = pinnedValue && (
 			<div className={`${baseClass}--pinnedvalue`}>
 				{pinnedValue}
-			</div>;
+			</div>
+		);
 
-		const builtLeftContent = leftContent &&
-			<div className={`${baseClass}--leftcontent`}>
+		const leftContentClasses = cn(
+			`${baseClass}--leftcontent`,
+			description && `${baseClass}--leftcontent-layout`,
+		);
+
+		const builtLeftContent = leftContent && (
+			<div className={leftContentClasses}>
 				{leftContent}
-			</div>;
+			</div>
+		);
 
 		const Tag = href || onClick || onKeyDown ? 'a' : 'div';
 
-		const builtMainContent = (builtPrimaryHeadingAndTag || builtSecondaryHeading) && (
-			<Tag href={href} className={`${baseClass}--links`} onClick={onClick} onKeyDown={onKeyDown}>
-				{builtPrimaryHeadingAndTag}
-				{builtSecondaryHeading}
+		const builtMainContent = (builtHeadings || builtDescriptionArea) && (
+			<Tag href={href} className={`${baseClass}--maincontent`} onClick={onClick} onKeyDown={onKeyDown}>
+				{builtHeadings}
+				{builtDescriptionArea}
 			</Tag>
 		);
 
+		const tagPositionRight = tagPosition === 'right';
 
-		const builtRightContent = (builtPinnedValue || action || overflow) && (
-			<div className={`${baseClass}--rightcontent`}>
-				{builtPinnedValue}
-				{clonedAction}
-				{overflow}
-			</div>
-		);
+		const builtRightContent = (
+			builtPinnedValue ||
+			action ||
+			overflow ||
+			(tags && tagPositionRight)) && (
+				<div className={`${baseClass}--rightcontent`}>
+					{tagPositionRight && tags}
+					{builtPinnedValue}
+					{clonedAction}
+					{overflow}
+				</div>
+			);
 
 		const divClasses = cn(
 			`${baseClass}`,
@@ -136,7 +176,7 @@ XUIContentBlockItem.propTypes = {
 	/**
 	 * The `href` attribute to use on the anchor element
 	 */
-	href: PropTypes.node,
+	href: PropTypes.string,
 	/**
 	 * Any component passed as right most content, typically a `dropdown toggled` component
 	 */
@@ -144,21 +184,30 @@ XUIContentBlockItem.propTypes = {
 	/**
 	 * Text pinned to right side of content block
 	 */
-	pinnedValue: PropTypes.node,
+	pinnedValue: PropTypes.string,
 	/**
 	 * Plain text heading
 	 */
-	primaryHeading: PropTypes.node,
+	primaryHeading: PropTypes.string,
 	/**
 	 * Plain text secondary heading
 	 */
-	secondaryHeading: PropTypes.node,
+	secondaryHeading: PropTypes.string,
+	/**
+	 * Plain text secondary heading
+	 */
+	description: PropTypes.string,
 	/**
 	 * Tag or other user determined node to go to right of primary heading
 	 */
-	tag: PropTypes.element,
+	tags: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+	/**
+	 * Repositions the tags in other places around the component
+	 */
+	tagPosition: PropTypes.oneOf(['description', 'right', 'inline']),
 };
 
 XUIContentBlockItem.defaultProps = {
 	hasLayout: true,
+	tagPosition: 'description',
 };

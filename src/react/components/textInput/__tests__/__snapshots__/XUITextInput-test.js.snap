@@ -1,64 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUITextInput> General Functionality should have a qahook on the input and wrapper 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
-  htmlFor={undefined}
-  onKeyDown={undefined}
-  role="presentation"
 >
   <div
-    className="xui-textinput"
+    className="xui-textinput xui-textinput-medium"
     data-automationid="input-test"
   >
     <input
-      aria-describedby={undefined}
-      aria-label={undefined}
-      aria-labelledby={undefined}
-      className="xui-textinput--input"
+      className="xui-textinput--input xui-textinput--input-medium"
       data-automationid="input-test--input"
-      defaultValue={undefined}
-      disabled={undefined}
+      id="testGeneratedId-control"
       onBlurCapture={[Function]}
-      onChange={undefined}
       onFocusCapture={[Function]}
-      placeholder={undefined}
-      rows={undefined}
       style={
         Object {
           "maxHeight": undefined,
         }
       }
-      type={undefined}
-      value={undefined}
     />
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Side elements should render side elements correctly 1`] = `
 <div>
-  <label
+  <div
     className="xui-textinputwrapper"
-    htmlFor={undefined}
-    onKeyDown={undefined}
-    role="presentation"
   >
     <div
-      className="xui-textinput"
-      data-automationid={undefined}
+      className="xui-textinput xui-textinput-medium"
     >
       <div
-        className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
-        data-automationid={undefined}
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
       >
         <div
-          className="xui-iconwrapper"
-          data-automationid={undefined}
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"
-            data-automationid={undefined}
             focusable="false"
             height={17}
             viewBox="0 0 14 17"
@@ -72,70 +53,43 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         </div>
       </div>
       <input
-        aria-describedby={undefined}
-        aria-label={undefined}
-        aria-labelledby={undefined}
-        className="xui-textinput--input xui-padding-left-none"
-        data-automationid={undefined}
-        defaultValue={undefined}
-        disabled={undefined}
+        className="xui-textinput--input xui-textinput--input-medium"
+        id="testGeneratedId-control"
         onBlurCapture={[Function]}
-        onChange={undefined}
         onFocusCapture={[Function]}
-        placeholder={undefined}
-        rows={undefined}
         style={
           Object {
             "maxHeight": undefined,
           }
         }
-        type={undefined}
-        value={undefined}
       />
     </div>
-  </label>
-  <label
+  </div>
+  <div
     className="xui-textinputwrapper"
-    htmlFor={undefined}
-    onKeyDown={undefined}
-    role="presentation"
   >
     <div
-      className="xui-textinput"
-      data-automationid={undefined}
+      className="xui-textinput xui-textinput-medium"
     >
       <input
-        aria-describedby={undefined}
-        aria-label={undefined}
-        aria-labelledby={undefined}
-        className="xui-textinput--input xui-padding-right-none"
-        data-automationid={undefined}
-        defaultValue={undefined}
-        disabled={undefined}
+        className="xui-textinput--input xui-textinput--input-medium"
+        id="testGeneratedId-control"
         onBlurCapture={[Function]}
-        onChange={undefined}
         onFocusCapture={[Function]}
-        placeholder={undefined}
-        rows={undefined}
         style={
           Object {
             "maxHeight": undefined,
           }
         }
-        type={undefined}
-        value={undefined}
       />
       <div
-        className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
-        data-automationid={undefined}
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
       >
         <div
-          className="xui-iconwrapper"
-          data-automationid={undefined}
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"
-            data-automationid={undefined}
             focusable="false"
             height={17}
             viewBox="0 0 14 17"
@@ -149,28 +103,21 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         </div>
       </div>
     </div>
-  </label>
-  <label
+  </div>
+  <div
     className="xui-textinputwrapper"
-    htmlFor={undefined}
-    onKeyDown={undefined}
-    role="presentation"
   >
     <div
-      className="xui-textinput"
-      data-automationid={undefined}
+      className="xui-textinput xui-textinput-medium"
     >
       <div
-        className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
-        data-automationid={undefined}
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
       >
         <div
-          className="xui-iconwrapper"
-          data-automationid={undefined}
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"
-            data-automationid={undefined}
             focusable="false"
             height={17}
             viewBox="0 0 14 17"
@@ -184,37 +131,24 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         </div>
       </div>
       <input
-        aria-describedby={undefined}
-        aria-label={undefined}
-        aria-labelledby={undefined}
-        className="xui-textinput--input xui-padding-left-none xui-padding-right-none"
-        data-automationid={undefined}
-        defaultValue={undefined}
-        disabled={undefined}
+        className="xui-textinput--input xui-textinput--input-medium"
+        id="testGeneratedId-control"
         onBlurCapture={[Function]}
-        onChange={undefined}
         onFocusCapture={[Function]}
-        placeholder={undefined}
-        rows={undefined}
         style={
           Object {
             "maxHeight": undefined,
           }
         }
-        type={undefined}
-        value={undefined}
       />
       <div
-        className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
-        data-automationid={undefined}
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
       >
         <div
-          className="xui-iconwrapper"
-          data-automationid={undefined}
+          className="xui-iconwrapper xui-iconwrapper-medium"
         >
           <svg
             className="xui-icon"
-            data-automationid={undefined}
             focusable="false"
             height={17}
             viewBox="0 0 14 17"
@@ -228,286 +162,243 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         </div>
       </div>
     </div>
-  </label>
+  </div>
+</div>
+`;
+
+exports[`<XUITextInput> Text-only input forces resize visible class based on options passed in 1`] = `
+<div
+  className="xui-textinputwrapper"
+>
+  <div
+    className="xui-textinput xui-textinput-medium"
+  >
+    <textarea
+      className="xui-textinput--input xui-textinput--input-medium xui-textinput--input-resize-vertical"
+      id="testGeneratedId-control"
+      onBlurCapture={[Function]}
+      onFocusCapture={[Function]}
+      rows={3}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
 exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
-  htmlFor={undefined}
-  onKeyDown={undefined}
-  role="presentation"
 >
   <div
-    className="xui-textinput"
+    className="xui-textinput xui-textinput-medium"
     data-automationid="givenQAHook"
   >
     <input
-      aria-describedby={undefined}
-      aria-label={undefined}
-      aria-labelledby={undefined}
-      className="xui-textinput--input"
+      className="xui-textinput--input xui-textinput--input-medium"
       data-automationid="givenQAHook--input"
-      defaultValue={undefined}
-      disabled={undefined}
+      id="testGeneratedId-control"
       onBlurCapture={[Function]}
-      onChange={undefined}
       onFocusCapture={[Function]}
-      placeholder={undefined}
-      rows={undefined}
       style={
         Object {
           "maxHeight": undefined,
         }
       }
-      type={undefined}
-      value={undefined}
     />
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
-  htmlFor={undefined}
-  onKeyDown={undefined}
-  role="presentation"
 >
   <div
-    className="xui-textinput xui-textinput-is-disabled"
-    data-automationid={undefined}
+    className="xui-textinput xui-textinput-medium xui-textinput-is-disabled"
   >
     <input
-      aria-describedby={undefined}
-      aria-label={undefined}
-      aria-labelledby={undefined}
-      className="xui-textinput--input"
-      data-automationid={undefined}
-      defaultValue={undefined}
+      className="xui-textinput--input xui-textinput--input-medium"
       disabled={true}
+      id="testGeneratedId-control"
       onBlurCapture={[Function]}
-      onChange={undefined}
       onFocusCapture={[Function]}
-      placeholder={undefined}
-      rows={undefined}
       style={
         Object {
           "maxHeight": undefined,
         }
       }
-      type={undefined}
-      value={undefined}
     />
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Text-only input includes custom classes on the correct nodes 1`] = `
-<label
+<div
   className="custom-field-class xui-textinputwrapper"
-  htmlFor={undefined}
-  onKeyDown={undefined}
-  role="presentation"
 >
-  <span
+  <label
     className="custom-label-class xui-text-label xui-fieldlabel-layout"
-    id="testLabel"
+    htmlFor="testLabel-control"
   >
     test
-  </span>
+  </label>
   <div
-    className="custom-container-class xui-textinput"
-    data-automationid={undefined}
+    className="custom-container-class xui-textinput xui-textinput-medium"
   >
     <input
-      aria-describedby={undefined}
-      aria-label={undefined}
-      aria-labelledby="testLabel"
-      className="custom-input-class xui-textinput--input"
-      data-automationid={undefined}
-      defaultValue={undefined}
-      disabled={undefined}
+      className="custom-input-class xui-textinput--input xui-textinput--input-medium"
+      id="testLabel-control"
       onBlurCapture={[Function]}
-      onChange={undefined}
       onFocusCapture={[Function]}
-      placeholder={undefined}
-      rows={undefined}
       style={
         Object {
           "maxHeight": undefined,
         }
       }
-      type={undefined}
-      value={undefined}
     />
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Text-only input renders with a hidden label when one is provided 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
-  htmlFor={undefined}
-  onKeyDown={undefined}
-  role="presentation"
 >
   <div
-    className="xui-textinput"
-    data-automationid={undefined}
+    className="xui-textinput xui-textinput-medium"
   >
     <input
-      aria-describedby={undefined}
       aria-label="test"
-      aria-labelledby={undefined}
-      className="xui-textinput--input"
-      data-automationid={undefined}
-      defaultValue={undefined}
-      disabled={undefined}
+      className="xui-textinput--input xui-textinput--input-medium"
+      id="testGeneratedId-control"
       onBlurCapture={[Function]}
-      onChange={undefined}
       onFocusCapture={[Function]}
-      placeholder={undefined}
-      rows={undefined}
       style={
         Object {
           "maxHeight": undefined,
         }
       }
-      type={undefined}
-      value={undefined}
     />
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Text-only input renders with a label when one is provided 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
-  htmlFor={undefined}
-  onKeyDown={undefined}
-  role="presentation"
 >
-  <span
+  <label
     className="xui-text-label xui-fieldlabel-layout"
-    id="testLabel"
+    htmlFor="testLabel-control"
   >
     test
-  </span>
+  </label>
   <div
-    className="xui-textinput"
-    data-automationid={undefined}
+    className="xui-textinput xui-textinput-medium"
   >
     <input
-      aria-describedby={undefined}
-      aria-label={undefined}
-      aria-labelledby="testLabel"
-      className="xui-textinput--input"
-      data-automationid={undefined}
-      defaultValue={undefined}
-      disabled={undefined}
+      className="xui-textinput--input xui-textinput--input-medium"
+      id="testLabel-control"
       onBlurCapture={[Function]}
-      onChange={undefined}
       onFocusCapture={[Function]}
-      placeholder={undefined}
-      rows={undefined}
       style={
         Object {
           "maxHeight": undefined,
         }
       }
-      type={undefined}
-      value={undefined}
     />
   </div>
-</label>
+</div>
+`;
+
+exports[`<XUITextInput> Text-only input sets the resize none class based on options passed in 1`] = `
+<div
+  className="xui-textinputwrapper"
+>
+  <div
+    className="xui-textinput xui-textinput-medium"
+  >
+    <textarea
+      className="xui-textinput--input xui-textinput--input-medium xui-textinput--input-resize-none"
+      id="testGeneratedId-control"
+      onBlurCapture={[Function]}
+      onFocusCapture={[Function]}
+      rows={3}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
+    />
+  </div>
+</div>
 `;
 
 exports[`<XUITextInput> Validation and hints renders invalid textinputs with an error message correctly 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
-  htmlFor={undefined}
-  onKeyDown={undefined}
-  role="presentation"
 >
   <div
-    className="xui-textinput xui-textinput-is-invalid"
-    data-automationid={undefined}
+    className="xui-textinput xui-textinput-medium xui-textinput-is-invalid"
   >
     <input
-      aria-describedby="testGeneratedId-message"
-      aria-label={undefined}
-      aria-labelledby={undefined}
-      className="xui-textinput--input"
-      data-automationid={undefined}
-      defaultValue={undefined}
-      disabled={undefined}
+      aria-describedby="newTest-message"
+      aria-invalid={true}
+      aria-labelledby="newTest"
+      className="xui-textinput--input xui-textinput--input-medium"
+      id="newTest-control"
       onBlurCapture={[Function]}
       onChange={[Function]}
       onFocusCapture={[Function]}
-      placeholder={undefined}
-      rows={undefined}
       style={
         Object {
           "maxHeight": undefined,
         }
       }
-      type={undefined}
-      value={undefined}
     />
   </div>
   <div
     className="xui-validation xui-validation-layout xui-validation-is-invalid"
-    data-automationid={undefined}
-    id="testGeneratedId-message"
+    id="newTest-message"
     role="status"
   >
     Boo
   </div>
-</label>
+</div>
 `;
 
 exports[`<XUITextInput> Validation and hints renders with a hint message if one is provided and the input is valid 1`] = `
-<label
+<div
   className="xui-textinputwrapper"
-  htmlFor={undefined}
-  onKeyDown={undefined}
-  role="presentation"
 >
   <div
-    className="xui-textinput"
-    data-automationid={undefined}
+    className="xui-textinput xui-textinput-medium"
   >
     <input
-      aria-describedby="testGeneratedId-message"
-      aria-label={undefined}
-      aria-labelledby={undefined}
-      className="xui-textinput--input"
-      data-automationid={undefined}
-      defaultValue={undefined}
-      disabled={undefined}
+      aria-describedby="newTest-message"
+      aria-labelledby="newTest"
+      className="xui-textinput--input xui-textinput--input-medium"
+      id="newTest-control"
       onBlurCapture={[Function]}
       onChange={[Function]}
       onFocusCapture={[Function]}
-      placeholder={undefined}
-      rows={undefined}
       style={
         Object {
           "maxHeight": undefined,
         }
       }
-      type={undefined}
-      value={undefined}
     />
   </div>
   <div
     className="xui-validation xui-validation-layout"
-    data-automationid={undefined}
-    id="testGeneratedId-message"
+    id="newTest-message"
     role="status"
   >
     Boo
   </div>
-</label>
+</div>
 `;

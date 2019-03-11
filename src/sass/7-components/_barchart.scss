@@ -3,7 +3,9 @@
 
 // Bar chart
 //
-// Components: Barchart
+// Components: Bar-chart
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.snrpjucksju0
 //
 // Introduction: A bar chart presents categorical data with rectangular bars and heights proportional to the values that they represent - These bars can be plotted vertically, showing comparisons among discrete categories. The X-axis of the chart shows the specific categories being compared, and the Y-axis represents a measured value.
 //
@@ -56,15 +58,15 @@
 // 		 <div class="xui-chart--header">
 //       <h2 class="xui-chart--title">Chart title</h2>
 //       <nav class="xui-chart--pagination" role="navigation" aria-label="Chart Pagination">
-//         <button title="Previous set of data" disabled="" class="xui-button xui-button-icon xui-button-icon-large xui-button-is-disabled"
+//         <button title="Previous set of data" disabled="" class="xui-button xui-button-icon xui-button-icon-medium xui-button-is-disabled"
 //          tabindex="-1" type="button">
-//            <svg class="xui-icon xui-u-rotate-90"><use xlink:href="#xui-icon-arrow"></use></svg>
+//            <svg class="xui-icon xui-icon-rotate-90"><use xlink:href="#xui-icon-arrow"></use></svg>
 //         </button>Page 1 of 2
-//         <button title="Next set of data" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button">
-//           <svg class="xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow"></use></svg>
+//         <button title="Next set of data" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+//           <svg class="xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow"></use></svg>
 //         </button>
 //				 <div>
-//           <button title="Bar Chart key" aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0"
+//           <button title="Bar Chart key" aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0"
 //        type="button" aria-controls="8c6162f5-018e-465f-894f-ce114079074e">
 //             <svg class="xui-icon"><use xlink:href="#xui-icon-info"></use></svg>
 //           </button>
@@ -1214,7 +1216,7 @@
 //
 // Markup:
 // <div class="dropdown-toggled-wrapper" data-ref="toggled-wrapper" style="display: flex; flex-direction: row-reverse; width: 250px; height: 200px;">
-//   <button title="Graph key" aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0"
+//   <button title="Graph key" aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0"
 //    type="button" aria-controls="b078325c-10b8-4706-854f-62f96786f955">
 //     <svg focusable="false" class="xui-icon" viewBox="0 0 30 30">
 //       <path d="M15.5,23 C19.6421356,23 23,19.6421356 23,15.5 C23,11.3578644 19.6421356,8 15.5,8 C11.3578644,8 8,11.3578644 8,15.5 C8,19.6421356 11.3578644,23 15.5,23 Z M15,11 L16.9980196,11 L16.9980196,12.9979757 L15,12.9979757 L15,11 Z M14,14 L17,14 L17,18 L18,18 L18,19 L14,19 L14,18 L15,18 L15,15 L14,15 L14,14 Z"
@@ -1222,12 +1224,12 @@
 //     </svg>
 //   </button>
 //   <span class="xui-positioningInline" style="flex-direction: row; top: 6px; transform: translate(30px, 30px); z-index: 10;">
-//     <div class="xui-dropdown-layout xui-dropdown-fixed-medium xui-positioningInline--content-bottomright xui-dropdown-is-open"
+//     <div class="xui-dropdown-layout xui-dropdown-fixed-small xui-positioningInline--content-bottomright xui-dropdown-is-open"
 //      id="b078325c-10b8-4706-854f-62f96786f955" aria-expanded="true" style="max-height: 1012.94px; margin-left: 1px;">
 //       <div class="xui-dropdown--mask"></div>
 //       <div class="xui-dropdown--panel" aria-hidden="false" tabindex="0" style="max-height: 1012.94px;">
 //         <div class="xui-dropdown--body" style="overflow-y: auto; max-height: 1012.94px;">
-//           <div class="xui-u-flex xui-u-flex-column xui-dropdown--scrollable-container xui-u-flex-grow">
+//           <div class="xui-dropdown--scrollable-container">
 //             <div class="xui-dropdown--scrollable-content">
 //               <div class="xui-chart--key">
 //                 <div class="xui-chart--key-title">Graph key</div>
@@ -1540,7 +1542,7 @@
 //   <div class="xui-chart--header xui-padding-left-xsmall">
 //     <h2 class="xui-chart--title">Stacked Bar Implementation</h2>
 //     <div class="dropdown-toggled-wrapper" data-ref="toggled-wrapper" style="display: flex; flex-direction: row-reverse;">
-//       <button title="Graph key" aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0"
+//       <button title="Graph key" aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0"
 //        type="button" aria-controls="b078325c-10b8-4706-854f-62f96786f955">
 //         <svg focusable="false" class="xui-icon" viewBox="0 0 30 30">
 //           <path d="M15.5,23 C19.6421356,23 23,19.6421356 23,15.5 C23,11.3578644 19.6421356,8 15.5,8 C11.3578644,8 8,11.3578644 8,15.5 C8,19.6421356 11.3578644,23 15.5,23 Z M15,11 L16.9980196,11 L16.9980196,12.9979757 L15,12.9979757 L15,11 Z M14,14 L17,14 L17,18 L18,18 L18,19 L14,19 L14,18 L15,18 L15,15 L14,15 L14,14 Z"
@@ -1548,12 +1550,12 @@
 //         </svg>
 //       </button>
 //       <span class="xui-positioningInline" style="flex-direction: row; top: 6px; transform: translate(30px, 30px); z-index: 10;">
-//         <div class="xui-dropdown-layout xui-dropdown-fixed-medium xui-positioningInline--content-bottomright xui-dropdown-is-open"
+//         <div class="xui-dropdown-layout xui-dropdown-fixed-small xui-positioningInline--content-bottomright xui-dropdown-is-open"
 //          id="b078325c-10b8-4706-854f-62f96786f955" aria-expanded="true" style="max-height: 1012.94px; margin-left: 1px;">
 //           <div class="xui-dropdown--mask"></div>
 //           <div class="xui-dropdown--panel" aria-hidden="false" tabindex="0" style="max-height: 1012.94px;">
 //             <div class="xui-dropdown--body" style="overflow-y: auto; max-height: 1012.94px;">
-//               <div class="xui-u-flex xui-u-flex-column xui-dropdown--scrollable-container xui-u-flex-grow">
+//               <div class="xui-dropdown--scrollable-container">
 //                 <div class="xui-dropdown--scrollable-content">
 //                   <div class="xui-chart--key">
 //                     <div class="xui-chart--key-title">Graph key</div>
@@ -2981,54 +2983,24 @@
 //
 // Markup:
 // <div class="xui-chart xui-panel xui-padding-horizontal xui-padding-vertical-small">
-//   <div class="xui-chart--header xui-padding-left-xsmall">
-//     <h2 class="xui-chart--title">Pagination example</h2>
-//     <nav class="xui-chart--pagination" role="navigation" aria-label="Chart Pagination">
-//       <button title="Previous set of data" disabled="" class="xui-button xui-button-icon xui-button-icon-large xui-button-is-disabled"
-//        tabindex="-1" type="button">
-//         <svg focusable="false" class="xui-icon xui-u-rotate-90" viewBox="0 0 30 30">
-//           <path d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-//            role="presentation"></path>
-//         </svg>
-//       </button>Page 1 of 2
-//       <button title="Next set of data" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0" type="button">
-//         <svg focusable="false" class="xui-icon xui-u-rotate-270" viewBox="0 0 30 30">
-//           <path d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-//            role="presentation"></path>
-//         </svg>
-//       </button>
-//     </nav>
-//     <div class="dropdown-toggled-wrapper" data-ref="toggled-wrapper">
-//       <button title="Bar Chart key" aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0"
-//        type="button" aria-controls="8c6162f5-018e-465f-894f-ce114079074e">
-//         <svg focusable="false" class="xui-icon" viewBox="0 0 30 30">
-//           <path d="M15.5,23 C19.6421356,23 23,19.6421356 23,15.5 C23,11.3578644 19.6421356,8 15.5,8 C11.3578644,8 8,11.3578644 8,15.5 C8,19.6421356 11.3578644,23 15.5,23 Z M15,11 L16.9980196,11 L16.9980196,12.9979757 L15,12.9979757 L15,11 Z M14,14 L17,14 L17,18 L18,18 L18,19 L14,19 L14,18 L15,18 L15,15 L14,15 L14,14 Z"
-//            role="presentation"></path>
-//         </svg>
-//       </button>
-//       <span class="xui-positioningInline" style="flex-direction: column;">
-//         <div class="xui-dropdown-layout xui-dropdown-fixed-medium" id="8c6162f5-018e-465f-894f-ce114079074e" aria-expanded="false"
-//          style="">
-//           <div class="xui-dropdown--mask"></div>
-//           <div class="xui-dropdown--panel" aria-hidden="false" tabindex="0" style="">
-//             <div class="xui-dropdown--body" style="overflow-y: auto;">
-//               <div class="xui-u-flex xui-u-flex-column xui-dropdown--scrollable-container xui-u-flex-grow">
-//                 <div class="xui-dropdown--scrollable-content">
-//                   <div class="xui-chart--key">
-//                     <div class="xui-chart--key-title">Bar Chart key</div>
-//                     <ul class="xui-chart--key-list">
-//                       <li class="xui-chart--key-item">
-//                         <div class="xui-chart--key-icon" style="background: rgb(50, 70, 90);"></div>Healthy food</li>
-//                     </ul>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </span>
-//     </div>
-//   </div>
+// 	<div class="xui-chart--header xui-padding-left-xsmall">
+// 		<h2 class="xui-chart--title">Pagination example</h2>
+// 		<nav class="xui-chart--pagination" role="navigation" aria-label="Chart Pagination">
+// 			<button title="Previous set of data" disabled="" class="xui-button xui-button-icon xui-button-icon-medium xui-button-is-disabled"
+// 				tabindex="-1" type="button">
+// 				<svg class="xui-icon xui-icon-rotate-90"><use xlink:href="#xui-icon-arrow"></use></svg>
+// 			</button>Page 1 of 2
+// 			<button title="Next set of data" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+// 				<svg class="xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow"></use></svg>
+// 			</button>
+// 			<div>
+// 				<button title="Bar Chart key" aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0"
+// 					type="button" aria-controls="8c6162f5-018e-465f-894f-ce114079074e">
+// 					<svg class="xui-icon"><use xlink:href="#xui-icon-info"></use></svg>
+// 				</button>
+// 			</div>
+// 		</nav>
+// 	</div>
 //   <div class="xui-chart--position">
 //     <div class="xui-chart--base" style="height: 400px; overflow: hidden;">
 //       <div class="VictoryContainer" style="height: 100%; width: 100%; user-select: none; pointer-events: none; touch-action: none; position: relative;">
@@ -3405,39 +3377,24 @@
 //
 // Markup:
 // <div class="xui-chart xui-panel xui-padding-horizontal xui-padding-vertical-small">
-//   <div class="xui-chart--header xui-padding-left-xsmall">
-//     <h2 class="xui-chart--title">6 items max</h2>
-//     <div class="dropdown-toggled-wrapper" data-ref="toggled-wrapper">
-//       <button title="Bar Chart key" aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-large" tabindex="0"
-//        type="button" aria-controls="9baffe29-1878-4b4c-a74e-b23aaeb37750">
-//         <svg focusable="false" class="xui-icon" viewBox="0 0 30 30">
-//           <path d="M15.5,23 C19.6421356,23 23,19.6421356 23,15.5 C23,11.3578644 19.6421356,8 15.5,8 C11.3578644,8 8,11.3578644 8,15.5 C8,19.6421356 11.3578644,23 15.5,23 Z M15,11 L16.9980196,11 L16.9980196,12.9979757 L15,12.9979757 L15,11 Z M14,14 L17,14 L17,18 L18,18 L18,19 L14,19 L14,18 L15,18 L15,15 L14,15 L14,14 Z"
-//            role="presentation"></path>
-//         </svg>
-//       </button>
-//       <span class="xui-positioningInline" style="flex-direction: column;">
-//         <div class="xui-dropdown-layout xui-dropdown-fixed-medium" id="9baffe29-1878-4b4c-a74e-b23aaeb37750" aria-expanded="false"
-//          style="">
-//           <div class="xui-dropdown--mask"></div>
-//           <div class="xui-dropdown--panel" aria-hidden="false" tabindex="0" style="">
-//             <div class="xui-dropdown--body" style="overflow-y: auto;">
-//               <div class="xui-u-flex xui-u-flex-column xui-dropdown--scrollable-container xui-u-flex-grow">
-//                 <div class="xui-dropdown--scrollable-content">
-//                   <div class="xui-chart--key">
-//                     <div class="xui-chart--key-title">Bar Chart key</div>
-//                     <ul class="xui-chart--key-list">
-//                       <li class="xui-chart--key-item">
-//                         <div class="xui-chart--key-icon" style="background: rgb(50, 70, 90);"></div>Healthy food</li>
-//                     </ul>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </span>
-//     </div>
-//   </div>
+// 	<div class="xui-chart--header xui-padding-left-xsmall">
+// 		<h2 class="xui-chart--title">6 items max</h2>
+// 		<nav class="xui-chart--pagination" role="navigation" aria-label="Chart Pagination">
+// 			<button title="Previous set of data" disabled="" class="xui-button xui-button-icon xui-button-icon-medium xui-button-is-disabled"
+// 				tabindex="-1" type="button">
+// 				<svg class="xui-icon xui-icon-rotate-90"><use xlink:href="#xui-icon-arrow"></use></svg>
+// 			</button>Page 1 of 2
+// 			<button title="Next set of data" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+// 				<svg class="xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow"></use></svg>
+// 			</button>
+// 			<div>
+// 				<button title="Bar Chart key" aria-haspopup="listbox" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0"
+// 					type="button" aria-controls="8c6162f5-018e-465f-894f-ce114079074e">
+// 					<svg class="xui-icon"><use xlink:href="#xui-icon-info"></use></svg>
+// 				</button>
+// 			</div>
+// 		</nav>
+// 	</div>
 //   <div class="xui-chart--position">
 //     <div class="xui-chart--base xui-chart-has-right-shadow" style="height: 400px; overflow: hidden;">
 //       <div class="VictoryContainer" style="height: 100%; width: 100%; user-select: none; pointer-events: none; touch-action: none; position: relative;">

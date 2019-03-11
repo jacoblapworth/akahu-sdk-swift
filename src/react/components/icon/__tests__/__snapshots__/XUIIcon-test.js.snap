@@ -1,14 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`XUIIcon Should render with the correct classes and dimensions for standard, large and xlarge sizes 1`] = `
+exports[`XUIIcon Should render with the correct classes and dimensions for medium, large and xlarge sizes 1`] = `
 <div>
   <div
-    className="xui-iconwrapper"
-    data-automationid={undefined}
+    className="xui-iconwrapper xui-iconwrapper-medium"
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={17}
       viewBox="0 0 14 17"
@@ -22,11 +20,9 @@ exports[`XUIIcon Should render with the correct classes and dimensions for stand
   </div>
   <div
     className="xui-iconwrapper xui-iconwrapper-large"
-    data-automationid={undefined}
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={22.666666666666664}
       viewBox="0 0 14 17"
@@ -40,11 +36,9 @@ exports[`XUIIcon Should render with the correct classes and dimensions for stand
   </div>
   <div
     className="xui-iconwrapper xui-iconwrapper-xlarge"
-    data-automationid={undefined}
   >
     <svg
       className="xui-icon"
-      data-automationid={undefined}
       focusable="false"
       height={34}
       viewBox="0 0 14 17"

@@ -2,7 +2,17 @@
 //
 // Introduction: More accessible software is more inclusive software. We all want Xero to be as welcoming and usable as possible for all people.
 //
+// Weight: 1.5
+//
 // Styleguide: Getting Started.Accessibility
+
+// Overview
+//
+// Introduction: More accessible software is more inclusive software. We all want Xero to be as welcoming and usable as possible for all people.
+//
+// Weight: 1.51
+//
+// Styleguide: Getting Started.Accessibility.Overview
 
 // What is accessibility?
 //
@@ -10,7 +20,7 @@
 //
 // When we think about a variety of accessible use cases for Xero, we consider visual, auditory, motor, cognitive, situational impairments, and more. They don't necessarily permanent conditions either. In fact, many of us move in and out of contexts that may impair our access to the web. Some categories, like speech impairment, may become more relevant for Xero in the future, but aren't currently creating barriers in our software.
 //
-// Styleguide: Getting Started.Accessibility.1
+// Styleguide: Getting Started.Accessibility.Overview.1
 
 // What are the benefits?
 //
@@ -19,7 +29,7 @@
 // -  Making software that better serves more people broadens our potential market.
 // - As governments and regulatory bodies are also recognizing the benefits of accessibility, they're beginning to require it to do business. We're excited to get ahead of this, if we can.
 //
-// Styleguide: Getting Started.Accessibility.2
+// Styleguide: Getting Started.Accessibility.Overview.2
 
 // What does success look like?
 //
@@ -28,16 +38,16 @@
 // - Responsive is mostly related to devices, but also refers to different working modes preferred, or at times, required, by users. Someone working on-the-go may wish to access advanced web app features from a small mobile device with a touch interface, while a power user at their desk may wish to display as much data as possible on a very large monitor and navigate quickly using only their keyboard. Support for lower resolution displays also plays a part in this.
 // - Localisation is also a closely related concept, especially as we expand into new markets. In order for something to be accessible, people to be able to successfully perceive it, and understand it. To do this, we need to simultaneously consider concerns like culturally-specific color associations, multi-language support, and even details like making sure we're optimising for variable line-lengths.
 //
-// Styleguide: Getting Started.Accessibility.3
+// Styleguide: Getting Started.Accessibility.Overview.3
 
 // Who is responsible?
 //
 // In short, <a href="http://accessibility.voxmedia.com/" target="_blank">everyone</a>.
 // - Product managers and owners can advocate for accessibility, making it an acceptance criteria and building it into estimates of time and effort.
-// - Designers and writers have a wealth of resources available on the web about creating for accessibility. While XUI can do much of the work at a component-level, keep in mind how feature-specific patterns or interactions might introduce barriers to users with different impairments. See our <a href="https://docs.google.com/document/d/1L-wsibww_UyysZ808NSXYB1e5jG67sS_3o1ZrpfH38o/edit?usp=sharing" target="_blank">Guide to Accessible Design</a> for more details.
-// - Developers are responsible for a lot of the non-visible features such as keyboard navigation and accommodation for assistive technology like screen readers. See our <a href="https://docs.google.com/document/d/1a06iPJw_vDXMg15boqtLMt4VNtiXd6nB5alDG3p6Oxk/edit?usp=sharing" target="_blank">Guide to Accessible App Development</a>.
+// - Designers and writers have a wealth of resources available on the web about creating for accessibility. While XUI can do much of the work at a component-level, keep in mind how feature-specific patterns or interactions might introduce barriers to users with different impairments. See our [Accessible Design](section-getting-started-accessibility-design.html) page for more details.
+// - Developers are responsible for a lot of the non-visible features such as keyboard navigation and accommodation for assistive technology like screen readers. See our [Accessibile Development](section-getting-started-accessibility-development.html) page.
 //
-// Styleguide: Getting Started.Accessibility.4
+// Styleguide: Getting Started.Accessibility.Overview.4
 
 // Accessibility in XUI Components
 //
@@ -47,14 +57,14 @@
 // 3. Rendered components have been manually tested for keyboard navigability and input interaction both on a per-component level, and in some test environments with compositions of fuller pages.
 // 4. Color contrast has been evaluated against the WCAG 2.0 – AA standard, and a new palette developed to make XUI delightful for all users, including those with some level of vision impairment.
 // 5. Non-default states of UI components have also been audited by the design team to ensure non-text information is clear for low-vision users. For example, error, hover, focus, selected, and disabled states are being continuously revised.
-// 6. Standard sizes across the design system will soon be adjusted for improved readability and interaction. This will take the form of larger base fonts, less dense interfaces, and larger controls. However, increased density is still supported where it makes sense.
+// 6. Standard sizes across the design system have recently been adjusted for improved readability and interaction. This will take the form of larger base fonts, less dense interfaces, and larger controls. However, increased density is still supported where it makes sense.
 // 7. Very limited testing has been done with screen readers (primarily MacOS VoiceOver). We hope to dedicate additional resources to this, as the more readily-detected issues are resolved.
 //
 // We strongly recommend using the first three methods in your own application testing process.
 //
 // As a result of these audits, we've made significant upgrades to XUI, though we will probably not run out of candidate issues for some time. You can check progress within the XUI Accessibility project on Github. Remaining fixes will roll out into new versions of XUI.
 //
-// Styleguide: Getting Started.Accessibility.5
+// Styleguide: Getting Started.Accessibility.Overview.5
 
 // Other great general resources about accessibility:
 //
@@ -62,4 +72,4 @@
 // - <a href="https://accessibility.digital.gov/" targe="_blank">United States GSA's "Accessibility for Teams"</a>
 // - <a href="http://accessibility.voxmedia.com/" targe="_blank">Vox media's "Accessibility Guidelines"</a>
 //
-// Styleguide: Getting Started.Accessibility.6
+// Styleguide: Getting Started.Accessibility.Overview.6

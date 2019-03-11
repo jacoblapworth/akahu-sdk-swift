@@ -16,6 +16,12 @@ function buildXuiSass(clean) {
 					outFile: path.resolve(rootDirectory, './.tmp', 'xui.css'),
 					sourceMap: true,
 					includePaths: ['src/']
+				},
+				{
+					file: path.resolve(rootDirectory, 'src', 'sass', 'xui-base.scss'),
+					outFile: path.resolve(rootDirectory, './.tmp', 'xui-base.css'),
+					sourceMap: true,
+					includePaths: ['src/']
 				}
 			],
 			taskSpinner,

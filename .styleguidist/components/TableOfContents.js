@@ -5,6 +5,7 @@ import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unr
 const styles = ({ space, color, fontFamily, fontSize, borderRadius }) => ({
 	root: {
 		fontFamily: fontFamily.base,
+		paddingBottom: '3.5rem' // This space is for the fixed-position version-picker at the foot of the page.
 	},
 	search: {
 		padding: space[2],

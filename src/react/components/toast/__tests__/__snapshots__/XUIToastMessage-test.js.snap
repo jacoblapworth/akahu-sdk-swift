@@ -3,7 +3,6 @@
 exports[`<XUIToastMessage /> should render a passed custom class 1`] = `
 <p
   className="custom-class xui-toast--message"
-  data-automationid={undefined}
 >
   Message Content
 </p>

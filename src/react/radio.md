@@ -10,17 +10,24 @@ Avoid partially disabled groups in which one of the disabled options is pre-sele
 
 ## Examples
 
-
 ### Uncontrolled
 
 You can use as an uncontrolled component by not setting `isChecked` on any of the radio buttons, and optionally providing an `isDefaultChecked` property on one.
 
-```
+```jsx harmony
+import XUIRadio from './radio';
+
 <div role="radiogroup" aria-label="test group">
-		<XUIRadio name="test" isDefaultChecked>Default option</XUIRadio>
-		<XUIRadio name="test">Another option</XUIRadio>
-		<XUIRadio name="test">And another</XUIRadio>
-		<XUIRadio name="test" isDisabled>Disabled option</XUIRadio>
+	<XUIRadio
+		name="test"
+		isDefaultChecked
+		hintMessage="Hint text"
+	>
+		Default option
+	</XUIRadio>
+	<XUIRadio name="test">Another option</XUIRadio>
+	<XUIRadio name="test">And another</XUIRadio>
+	<XUIRadio name="test" isDisabled>Disabled option</XUIRadio>
 </div>
 ```
 
@@ -28,12 +35,16 @@ You can use as an uncontrolled component by not setting `isChecked` on any of th
 
 You can create controlled inputs by setting `isChecked` on radio items and using `onChange` to update the selected item.
 
-```jsx
-const { PureComponent } = require('react');
+```jsx harmony
+import XUIRadio from './radio';
+import { PureComponent } from 'react';
+
 const options = ['Cat', 'Dog', 'Bird', 'Fish'];
 
 class Example extends PureComponent {
-	constructor() {
+	constructor(...args) {
+		super(...args);
+		
 		this.state = {
 			selectedItem: null,
 		};
@@ -74,13 +85,15 @@ class Example extends PureComponent {
 
 Use the `isReversed` prop to have the label appear to the left of the checkbox element.
 
-```
+```jsx harmony
+import XUIRadio from './radio';
+
 <div role="radiogroup" aria-label="reversed group">
-		<XUIRadio isReversed name="reversedRadios">An option</XUIRadio>
-		<XUIRadio isReversed name="reversedRadios">Another option</XUIRadio>
-		<XUIRadio isReversed name="reversedRadios" isDisabled>Disabled option</XUIRadio>
-		<XUIRadio isReversed name="reversedRadios" isDisabled isDefaultChecked>Default and disabled</XUIRadio>
-	</div>
+	<XUIRadio isReversed name="reversedRadios">An option</XUIRadio>
+	<XUIRadio isReversed name="reversedRadios">Another option</XUIRadio>
+	<XUIRadio isReversed name="reversedRadios" isDisabled>Disabled option</XUIRadio>
+	<XUIRadio isReversed name="reversedRadios" isDisabled isDefaultChecked>Default and disabled</XUIRadio>
+</div>
 ```
 
 It is also possible to use the `isLabelHidden` prop to visually hide the label, but we strongly recommend providing a label for accessibility purposes, even if it will be hidden.
@@ -91,11 +104,12 @@ It is also possible to use the `isLabelHidden` prop to visually hide the label, 
 
 `iconMain` is the icon object from `@xero/xui-icon` to render in place of the standard radio control.
 
-```
-const customMainIcon = require ('@xero/xui-icon/icons/star').default;
-const customCheckIcon = require ('@xero/xui-icon/icons/suggestion').default;
+```jsx harmony
+import XUIRadio from './radio';
+import star from '@xero/xui-icon/icons/star';
+
 <div>
-	<XUIRadio name="customRadio" iconMain={customMainIcon}>
+	<XUIRadio name="customRadio" iconMain={star}>
 		Favourite
 	</XUIRadio>
 </div>

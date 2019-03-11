@@ -1,5 +1,40 @@
 const storiesWithVariationsKindName = 'Instances/XUITextInput';
-const variations = [
+
+const sideElements = [
+	{
+		type: 'icon',
+		name: 'icon',
+	},
+	{
+		type: 'iconWithBackground',
+		name: 'icon with background colour',
+	},
+	{
+		type: 'icon button',
+		name: 'icon button element',
+		size: 'xsmall'
+	},
+	{
+		type: 'button',
+		name: 'button element',
+	},
+	{
+		type: 'pill',
+		name: 'pill',
+	},
+	{
+		type: 'text',
+		name: 'text element',
+	},
+	{
+		type: 'avatar',
+		name: 'avatar',
+	}
+];
+
+const inputSizes = ['medium', 'small', 'xsmall'];
+
+const styleVariantStories = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is plain',
@@ -28,13 +63,22 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with placeholder and no default',
+		noDefault: true,
+		placeholder: "First name"
+	},
+];
+
+const labelAndValidationStories = [
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a label',
-		labelText: 'Label text',
+		label: 'Label text',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a hidden label',
-		labelText: 'Label text',
+		label: 'Label text',
 		isLabelHidden: true,
 	},
 	{
@@ -45,7 +89,27 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'is borderless solid invalid',
+		isBorderlessSolid: true,
+		isInvalid: true,
+		validationMessage: 'invalid solid input',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'is borderless transparent invalid',
+		isBorderlessTransparent: true,
+		isInvalid: true,
+		validationMessage: 'invalid transparent input',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is disabled',
+		isDisabled: true,
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'is borderless disabled',
+		isBorderlessSolid: true,
 		isDisabled: true,
 	},
 	{
@@ -54,54 +118,41 @@ const variations = [
 		hintMessage: 'here\'s a hint',
 		placeholder: 'This is a search box',
 	},
-	{
+];
+
+const sideElementVariantStories = sideElements.reduce((stories, sideElement) => [
+	...stories,
+	...['left', 'right'].map(side => ({
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a right icon',
+		storyTitle: `has a ${side} ${sideElement.name}`,
+		[`${side}ElementType`]: sideElement.type,
+		[`${side}ElementAlignment`]: 'center'
+	}))
+], []);
+
+const bothSideElementsWithSizes = inputSizes.map(size => {
+	return {
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `${size} with both side elements`,
+		leftElementType: 'avatar',
 		rightElementType: 'icon',
+		rightElementAlignment: 'center',
+		size,
+	};
+});
+
+const multilineStories = [
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as an xsmall multiline input',
+		isMultiline: true,
+		size: 'xsmall'
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a right icon with background colour',
-		rightElementType: 'iconWithBackground',
-		hasRightElementBackground: true,
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a right text element',
-		rightElementType: 'text',
-		hasRightElementBackground: true,
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a right button element',
-		rightElementType: 'button',
-		hasRightElementBackground: true,
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a left icon',
-		leftElementType: 'icon',
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a left icon with wrapping color',
-		leftElementType: 'iconWithBackground',
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a left text prompt',
-		leftElementType: 'text',
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has a left button',
-		leftElementType: 'button',
-	},
-	{
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'has both side elements',
-		leftElementType: 'button',
-		rightElementType: 'iconWithBackground',
+		storyTitle: 'as a small multiline input',
+		isMultiline: true,
+		size: 'small'
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -120,6 +171,7 @@ const variations = [
 		storyTitle: 'mutliline input with top aligned side element',
 		isMultiline: true,
 		rightElementType: 'iconWithBackground',
+		rightElementAlignment: 'top',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -135,9 +187,33 @@ const variations = [
 		rightElementType: 'iconWithBackground',
 		rightElementAlignment: 'bottom',
 	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'small mutliline input with both side elements',
+		isMultiline: true,
+		size: 'small',
+		rightElementType: 'button',
+		rightElementAlignment: 'bottom',
+		leftElementType: 'pill',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'xsmall mutliline input with both side elements',
+		isMultiline: true,
+		size: 'xsmall',
+		rightElementType: 'icon',
+		rightElementAlignment: 'center',
+		leftElementType: 'avatar',
+	},
 ];
 
 module.exports = {
 	storiesWithVariationsKindName,
-	variations,
+	variations: [
+		...styleVariantStories,
+		...labelAndValidationStories,
+		...sideElementVariantStories,
+		...bothSideElementsWithSizes,
+		...multilineStories,
+	],
 };

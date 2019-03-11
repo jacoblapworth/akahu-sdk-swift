@@ -24,6 +24,7 @@ export default function XUIBannerAction({
 				variant="link"
 				className={buttonClassName}
 				qaHook={buttonQaHook}
+				size="small"
 			>
 				{children}
 			</XUIButton>

@@ -6,8 +6,6 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
   data-automationid="dropdown-test--layout"
   id="1"
   onAnimationEnd={[Function]}
-  role={undefined}
-  style={undefined}
 >
   <div
     className="xui-dropdown--mask"
@@ -17,7 +15,6 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
     aria-hidden={false}
     className="xui-dropdown--panel"
     data-automationid="dropdown-test"
-    id={undefined}
     onKeyDown={[Function]}
     role="presentation"
     style={
@@ -41,9 +38,8 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
     >
       <div
         aria-activedescendant={null}
-        className="xui-u-flex xui-u-flex-column xui-dropdown--scrollable-container xui-u-flex-grow"
+        className="xui-dropdown--scrollable-container"
         data-automationid="dropdown-test--scrollable-container"
-        id={undefined}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
         role="listbox"
@@ -54,26 +50,18 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
           data-automationid="dropdown-test--scrollable-content"
         >
           <ul
-            className="xui-picklist xui-picklist-layout"
-            data-automationid={undefined}
-            id={undefined}
-            onKeyDown={undefined}
-            onMouseDown={undefined}
+            className="xui-picklist xui-picklist-layout xui-picklist-medium"
             role="group"
           >
             <li
-              aria-label={undefined}
               aria-selected={null}
-              className="xui-pickitem"
-              data-automationid={undefined}
+              className="xui-pickitem xui-pickitem-medium"
               id="required-id"
               role="option"
             >
               <button
                 className="xui-pickitem--body"
-                data-automationid={undefined}
                 onClick={[Function]}
-                onKeyDown={undefined}
                 onMouseOver={[Function]}
                 rel={null}
                 tabIndex="-1"
@@ -100,8 +88,6 @@ exports[`forceStatefulPicklist prop renders qaHooks on inner components when sta
   data-automationid="dropdown-test--layout"
   id="1"
   onAnimationEnd={[Function]}
-  role={undefined}
-  style={undefined}
 >
   <div
     className="xui-dropdown--mask"
@@ -111,7 +97,6 @@ exports[`forceStatefulPicklist prop renders qaHooks on inner components when sta
     aria-hidden={false}
     className="xui-dropdown--panel"
     data-automationid="dropdown-test"
-    id={undefined}
     onKeyDown={[Function]}
     role="presentation"
     style={
@@ -134,7 +119,7 @@ exports[`forceStatefulPicklist prop renders qaHooks on inner components when sta
       }
     >
       <div
-        className="xui-u-flex xui-u-flex-column xui-dropdown--scrollable-container xui-u-flex-grow"
+        className="xui-dropdown--scrollable-container"
         data-automationid="dropdown-test--scrollable-container"
       >
         <div

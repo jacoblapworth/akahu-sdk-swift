@@ -5,8 +5,11 @@ import renderer from 'react-test-renderer';
 import XUITextInput from '../XUITextInput';
 import XUITextInputSideElement from '../XUITextInputSideElement';
 import XUIIcon from '../../icon/XUIIcon';
+import XUIPill from '../../pill/XUIPill';
+import XUIInnerPill from '../../pill/XUIInnerPill';
 import accessibility from '@xero/xui-icon/icons/accessibility';
 import NOOP from '../../helpers/noop';
+import {sizeShift} from '../../helpers/sizes';
 import uuidv4 from 'uuid/v4';
 
 jest.mock('uuid/v4');
@@ -112,12 +115,12 @@ describe('<XUITextInput>', () => {
 		});
 
 		it('renders with a label when one is provided', () => {
-			const wrapper = renderer.create(<XUITextInput labelText="test" labelId="testLabel" />);
+			const wrapper = renderer.create(<XUITextInput label="test" labelId="testLabel" />);
 			expect(wrapper).toMatchSnapshot();
 		})
 
 		it('renders with a hidden label when one is provided', () => {
-			const wrapper = renderer.create(<XUITextInput labelText="test" isLabelHidden />);
+			const wrapper = renderer.create(<XUITextInput label="test" isLabelHidden />);
 			expect(wrapper).toMatchSnapshot();
 		})
 
@@ -128,7 +131,7 @@ describe('<XUITextInput>', () => {
 					containerClassName="custom-container-class"
 					inputClassName="custom-input-class"
 					labelClassName="custom-label-class"
-					labelText="test"
+					label="test"
 					labelId="testLabel"
 				/>);
 
@@ -145,6 +148,22 @@ describe('<XUITextInput>', () => {
 			const wrapper = mount(<XUITextInput defaultValue='hello' />);
 
 			expect(wrapper.find('input[defaultValue="hello"]')).toHaveLength(1);
+		});
+
+		it('sets the resize none class based on options passed in', () => {
+			const wrapper = renderer.create(
+				<XUITextInput isMultiline/>
+			);
+
+			expect(wrapper).toMatchSnapshot();
+		});
+
+		it('forces resize visible class based on options passed in', () => {
+			const wrapper = renderer.create(
+				<XUITextInput isMultiline isManuallyResizable/>
+			);
+
+			expect(wrapper).toMatchSnapshot();
 		});
 	});
 
@@ -166,6 +185,7 @@ describe('<XUITextInput>', () => {
 					onChange={ NOOP }
 					hintMessage="Boo"
 					validationMessage="Wut?"
+					labelId="newTest"
 				/>
 			);
 
@@ -178,6 +198,7 @@ describe('<XUITextInput>', () => {
 					onChange={ NOOP }
 					isInvalid={ true }
 					validationMessage="Boo"
+					labelId="newTest"
 				/>
 			);
 
@@ -299,6 +320,18 @@ describe('<XUITextInput>', () => {
 
 			expect(wrapper.find('.xui-textinput-borderless-solid')).toHaveLength(1);
 			expect(wrapper.find('.xui-textinput-borderless-inverted')).toHaveLength(1);
+		});
+	});
+
+	describe('Size of child elements', () => {
+		['medium', 'small'].forEach(size => {
+			it(`when size is set to ${size}, pills have a size of ${sizeShift(size, -1)}`, () => {
+				const wrapper = mount(
+					<XUITextInput leftElement={<XUIPill value="ABC" />} size={size}/>
+				);
+				
+				expect(wrapper.find(XUIInnerPill).props().size).toBe(sizeShift(size, -1));
+			});
 		});
 	});
 

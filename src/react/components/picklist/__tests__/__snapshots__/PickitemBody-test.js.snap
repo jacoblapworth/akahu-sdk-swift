@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PickitemBody /> adds truncation classes 1`] = `
+<button
+  className="xui-pickitem--body"
+  rel={null}
+  type="button"
+>
+  <span
+    className="xui-pickitem--text xui-pickitem-text-truncated"
+  >
+    <span
+      className="xui-pickitem-text-truncated"
+    >
+      Item
+    </span>
+  </span>
+</button>
+`;
+
+exports[`<PickitemBody /> creates a button by default 1`] = `
+<button
+  className="xui-pickitem--body"
+  rel={null}
+  type="button"
+>
+  <span
+    className="xui-pickitem--text"
+  >
+    Item
+  </span>
+</button>
+`;
+
+exports[`<PickitemBody /> creates an \`a\` tag when href is provided 1`] = `
+<a
+  className="xui-pickitem--body"
+  href="https://xero.com"
+  rel={null}
+>
+  <span
+    className="xui-pickitem--text"
+  >
+    Item
+  </span>
+</a>
+`;

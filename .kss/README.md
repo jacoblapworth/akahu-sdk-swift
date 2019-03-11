@@ -28,11 +28,15 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 * `definitions`
 * `note`
 * `teaser`
+* `teaser-image`
 * `exampleclass`
 * `card`
 * `introduction`
 * `tips`
 * `flag`
+* `storybook`
+* `image`
+* `image-caption`
 
 #### Adding new properties
 
@@ -115,6 +119,14 @@ Used alongside cards, they appear as the short introduction to its corresponding
 // Teaser: A short intro to the related card
 ```
 
+### Teaser-image
+
+For displaying images in cards, alongside Teaser content. The prop points to /kss-assets/ so add the image to this directory or include the subdirectory in the prop.
+
+```
+// Teaser-image: /subdirectory/image-name.svg
+```
+
 ### Example Class
 
 Classes to add to the example wrapper. Common cases are adding a background colour of transparent or removing spacing.
@@ -144,6 +156,30 @@ For representing a status of that section, the 4 currently supported flags are '
 
 ```
 // Flag: Experimental
+```
+
+### Storybook
+
+In some scenarios we want to link from the XUI Guide to specific Storybook examples. This should be done using a relative link to a `storybook/`route.
+
+```
+// Storybook: storybook/?knob-Include%20content%20header=false&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=false&selectedKind=Compositions&selectedStory=Detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs
+```
+
+### Image
+
+For displaying images. The prop points to /kss-assets/ so add the image to this directory or include the subdirectory in the prop.
+
+```
+// Image: /subdirectory/image-name.svg
+```
+
+### Image-caption
+
+Small text used to describe what is shown in an image. This should be the very next KSS prop following the related image.
+
+```
+// Image-caption: Caption to describe images
 ```
 
 ## Handlebars Index Template

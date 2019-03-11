@@ -5,19 +5,36 @@
 @import "../vars";
 @import "../mixins";
 
-$xui-input-icon-height: $xui-input-height - 2px; // height minus top and bottom borders
-$xui-input-icon-width: $xui-input-height - 4px; // need to ensure enough spacing between icon wrapper and placeholder
-$xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
-$xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to have a bigger z-index
-$xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
+$input-text-vertical-padding-xsmall: ($xui-control-size-xsmall - $xui-line-height-xsmall) / 2 - 1px;
+$input-text-vertical-padding-small: ($xui-control-size-small - $xui-line-height-small) / 2 - 1px;
+$input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-height-standard) / 2 - 1px;
 
+.#{$ns}-textinputwrapper {
+	display: block;
+}
 
+// The xui-textinput--input class needs to be defined before xui-textinput so that if a component has
+// both xui-textinput and xui-textinput--input applied (e.g. on a single <input /> with no wrapper),
+// the border styles and background colors from xui-textinput override those specified here.
+// This is a hack until we decide whether we want to stop supporting this use-case (it's scattered
+// throughout our docs)
 .#{$ns}-textinput--input {
 	@include xui-input-base;
+	@include xui-padding-vertical($input-text-vertical-padding-standard);
 	border: none;
 	flex: 1 1 auto;
 	min-width: 0; // Required for inputs to be able to shrink in IE 11
 	overflow: hidden;
+
+	&:first-child,
+	&.#{$ns}-textinput {
+		padding-left: $xui-s-standard;
+	}
+
+	&:last-child,
+	&.#{$ns}-textinput {
+		padding-right: $xui-s-standard;
+	}
 }
 
 .#{$ns}-textinput {
@@ -28,17 +45,15 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 	padding: 0;
 }
 
-.#{$ns}-textinputwrapper {
-	display: block;
-}
+.#{$ns}-textinput-is-invalid {
+	border-color: $xui-textinput-invalid-border-color;
+	z-index: 1;
 
-/* stylelint-disable no-duplicate-selectors  */
-// This is defined below xui-textinput to ensure the correct padding is applied
-.#{$ns}-textinput--input {
-	@include xui-padding-vertical(8px);
-	@include xui-padding-horizontal($xui-s-standard);
+	&:focus,
+	&:hover {
+		border-color: $xui-textinput-invalid-border-color;
+	}
 }
-/* stylelint-enable no-duplicate-selectors  */
 
 .#{$ns}-textinput-focus {
 	box-shadow: $xui-shadow-focus;
@@ -48,7 +63,7 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 }
 
 .#{$ns}-textinput-is-disabled {
-	@include xui-disabled-form;
+	@include xui-disabled-form-control;
 
 	.#{$ns}-textinput--input {
 		cursor: not-allowed;
@@ -60,46 +75,74 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 	cursor: text;
 	display: flex;
 	flex-shrink: 0;
-	margin: -1px;
+	margin: -1px; // This is required to correctly layout sidelement contents considering the input border
+
+	&-align-top {
+		align-items: flex-start;
+	}
+	&-align-center {
+		align-items: center;
+	}
+	&-align-bottom {
+		align-items: flex-end;
+	}
+	.#{$ns}-textinput-medium &:first-child{
+		margin-right: $xui-s-xsmall;
+	}
+	.#{$ns}-textinput-small &:first-child{
+		margin-right: $xui-s-xsmall - 2;
+	}
+	.#{$ns}-textinput-xsmall &:first-child{
+		margin-right: $xui-s-2xsmall;
+	}
+
+	.#{$ns}-textinput-medium &:last-child{
+		margin-left: $xui-s-xsmall;
+	}
+	.#{$ns}-textinput-small &:last-child{
+		margin-left: $xui-s-xsmall - 2;
+	}
+	.#{$ns}-textinput-xsmall &:last-child{
+		margin-left: $xui-s-2xsmall;
+	}
 }
 
 .#{$ns}-textinput--sideelement-icon {
-	padding: $xui-s-xsmall;
+	justify-content: center;
 }
 
 .#{$ns}-textinput--sideelement-text {
-	padding: $xui-s-small $xui-s-standard;
+	@include xui-margin-vertical(0);
 	pointer-events: none;
-}
-
-.#{$ns}-textinput--sideelement-avatar {
-	padding: $xui-input-avatar-padding-size;
-	pointer-events: none;
-}
-
-.#{$ns}-textinput--sideelement-button {
-	@include xui-padding-vertical($xui-s-xsmall);
 
 	&:first-child {
-		padding-left: $xui-s-xsmall;
-		padding-right: $xui-s-standard;
+		padding-left: $xui-s-standard;
+		padding-right: $xui-s-2xsmall;
 	}
 
 	&:last-child {
-		padding-left: $xui-s-standard;
-		padding-right: $xui-s-xsmall;
+		padding-left: $xui-s-2xsmall;
+		padding-right: $xui-s-standard;
 	}
+}
+
+.#{$ns}-textinput--sideelement-avatar {
+	pointer-events: none;
+}
+
+.#{$ns}-textinput--sideelement-avatar,
+.#{$ns}-textinput--sideelement-pill,
+.#{$ns}-textinput--sideelement-button {
+	@include xui-padding($xui-s-2xsmall);
 }
 
 .#{$ns}-textinput--sideelement-has-background {
 	&:first-child {
 		border-radius: $xui-radius 0 0 $xui-radius;
-		margin-right: $xui-s-standard;
 	}
 
 	&:last-child {
 		border-radius: 0 $xui-radius $xui-radius 0;
-		margin-left: $xui-s-standard;
 	}
 }
 
@@ -116,6 +159,110 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 .#{$ns}-textinput--sideelement-linkedin {
 	background-color: $xui-color-linkedin;
 	color: $xui-textinput-sideelement-inverted-color;
+}
+
+.#{$ns}-textinput-medium {
+	$input-inner-height: $xui-control-size-standard - 2; // -2 for borders
+	@include xui-text-medium;
+	min-height: $xui-control-size-standard;
+
+	.#{$ns}-textinput--sideelement {
+		min-height: $input-inner-height;
+		min-width: $input-inner-height;
+	}
+	.#{$ns}-iconwrapper {
+		height: $xui-control-size-standard;
+		width: $xui-control-size-standard;
+	}
+	.#{$ns}-textinput--sideelement-text {
+		@include xui-padding-vertical($input-text-vertical-padding-standard);
+	}
+}
+
+.#{$ns}-textinput-small {
+	$input-inner-height: $xui-control-size-small - 2; // -2 for borders
+	@include xui-text-small;
+	min-height: $xui-control-size-small;
+
+	.#{$ns}-textinput--sideelement {
+		min-height: $input-inner-height;
+		min-width: $input-inner-height;
+	}
+	.#{$ns}-iconwrapper {
+		height: $xui-control-size-small;
+		width: $xui-control-size-small;
+	}
+	.#{$ns}-textinput--sideelement-text {
+		@include xui-padding-vertical($input-text-vertical-padding-small)
+	}
+	.#{$ns}-textinput--sideelement-text:first-child {
+		padding-left: $xui-s-small;
+		padding-right: $xui-s-2xsmall;
+	}
+	.#{$ns}-textinput--sideelement-text:last-child {
+		padding-left: $xui-s-2xsmall;
+		padding-right: $xui-s-small;
+	}
+}
+
+.#{$ns}-textinput--input-small {
+	@include xui-padding-vertical($input-text-vertical-padding-small);
+	&:first-child,
+	&.#{$ns}-textinput {
+		padding-left: $xui-s-small;
+	}
+	&:last-child,
+	&.#{$ns}-textinput {
+		padding-right: $xui-s-small;
+	}
+}
+
+.#{$ns}-textinput-xsmall {
+	$input-inner-height: $xui-control-size-xsmall - 2; // -2 for borders
+	@include xui-text-xsmall;
+	min-height: $xui-control-size-xsmall;
+
+	.#{$ns}-textinput--sideelement {
+		min-height: $input-inner-height;
+		min-width: $input-inner-height;
+	}
+	.#{$ns}-iconwrapper {
+		height: $xui-control-size-xsmall;
+		width: $xui-control-size-xsmall;
+	}
+
+	.#{$ns}-textinput--sideelement-text {
+		@include xui-padding-vertical($input-text-vertical-padding-xsmall)
+	}
+	.#{$ns}-textinput--sideelement-text:first-child {
+		padding-left: $xui-s-xsmall;
+		padding-right: $xui-s-2xsmall;
+	}
+	.#{$ns}-textinput--sideelement-text:last-child {
+		padding-left: $xui-s-2xsmall;
+		padding-right: $xui-s-xsmall;
+	}
+}
+
+.#{$ns}-textinput--input-xsmall {
+	@include xui-padding-vertical($input-text-vertical-padding-xsmall);
+
+	&:first-child,
+	&.#{$ns}-textinput {
+		padding-left: $xui-s-xsmall;
+	}
+	&:last-child,
+	&.#{$ns}-textinput {
+		padding-right: $xui-s-xsmall;
+	}
+}
+
+.#{$ns}-textinput--input-resize-none {
+	resize: none;
+}
+
+.#{$ns}-textinput--input-resize-vertical {
+	resize: vertical;
 }
 
 // Borderless inputs
@@ -155,6 +302,14 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 		&.#{$ns}-textinput-focus {
 			background-color: $xui-textinput-borderless-solid-inverted-focus-bg-color;
 		}
+	}
+}
+
+.#{$ns}-textinput-borderless.#{$ns}-textinput-is-invalid {
+	background-color: $xui-textinput-borderless-invalid-bg-color;
+
+	&.#{$ns}-textinput-focus {
+		background-color: $xui-textinput-borderless-invalid-focus-bg-color;
 	}
 }
 

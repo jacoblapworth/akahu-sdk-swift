@@ -12,13 +12,15 @@ export default class XUIAccordion extends PureComponent {
 		openId: null,
 	};
 
-	updateOpenId = id => {
-		this.setState(prevState => ({
-			openId: prevState.openId === id ? null : id,
+	updateOpenId = itemId => {
+		this.setState(({ openId }) => ({
+			openId: openId === itemId ? null : itemId,
 		}));
 	};
 
-	createAccordionItem = ({ props: itemProps }, index) => {
+	getItemData = itemIndex => this.props.items[itemIndex];
+
+	createAccordionItem = ({ props: itemProps }, itemIndex) => {
 		const {
 			items,
 			idKey,
@@ -28,14 +30,10 @@ export default class XUIAccordion extends PureComponent {
 			emptyIcon,
 			emptyStateComponent,
 		} = this.props;
-		const { children, onItemClick, ...triggerProps } = itemProps;
-		const itemData = items[index];
+		const { children, ...triggerProps } = itemProps;
+		const itemData = items[itemIndex];
 		const itemId = itemData[idKey];
 		const isOpen = this.state.openId === itemId;
-		const handleClick = () => {
-			this.updateOpenId(itemId);
-			onItemClick && onItemClick({ ...itemData, isOpen: !isOpen });
-		};
 
 		return (
 			<AccordionWrapper
@@ -44,11 +42,16 @@ export default class XUIAccordion extends PureComponent {
 				qaHook={qaHook && `${qaHook}-wrapper`}
 				trigger={(
 					<AccordionTrigger
-						{...triggerProps}
+						{...{
+							...triggerProps,
+							toggleLabel,
+							isOpen,
+							itemIndex,
+							itemId,
+						}}
 						qaHook={qaHook && `${qaHook}-trigger`}
-						isOpen={isOpen}
-						onClick={handleClick}
-						toggleLabel={toggleLabel}
+						updateOpenId={this.updateOpenId}
+						getItemData={this.getItemData}
 					/>
 				)}
 			>
@@ -67,9 +70,7 @@ export default class XUIAccordion extends PureComponent {
 	};
 
 	render() {
-		const {
-			qaHook, className, items, createItem,
-		} = this.props;
+		const { qaHook, className, items, createItem } = this.props;
 		const shouldCreateItems = Boolean(items.length && createItem);
 
 		return (

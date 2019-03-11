@@ -1,6 +1,6 @@
 import React from 'react';
 import XUITag from '../XUITag';
-import { variants } from '../private/constants';
+import { variants, sizes } from '../private/constants';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
@@ -23,6 +23,15 @@ describe('<XUITag/>', () => {
 			const tag = shallow(<XUITag variant={variant}>Testing 💩</XUITag>);
 			if(variants[variant]){
 				expect(tag.hasClass(variants[variant])).toEqual(true);
+			}
+		});
+	});
+
+	it('renders with the correct size classes', () => {
+		Object.keys(sizes).forEach(size => {
+			const tag = shallow(<XUITag size={size}>Testing 💩</XUITag>);
+			if(sizes[size]){
+				expect(tag.hasClass(sizes[size])).toEqual(true);
 			}
 		});
 	});

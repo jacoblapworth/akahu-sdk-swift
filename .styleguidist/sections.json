@@ -93,6 +93,11 @@
 						]
 					},
 					{
+						"name": "Range",
+						"components": "../src/react/components/range/XUIRange.js",
+						"content": "../src/react/range.md"
+					},
+					{
 						"name": "Select-box",
 						"content": "../src/react/select-box.md",
 						"sections": [
@@ -109,7 +114,16 @@
 					{
 						"name": "Switch",
 						"content": "../src/react/switch.md",
-						"components": "../src/react/components/switch/XUISwitch.js"
+						"sections": [
+							{
+								"components": "../src/react/components/switch/XUISwitch.js"
+							},
+							{
+								"name": "Switch Groups",
+								"components": "../src/react/components/switch/XUISwitchGroup.js",
+								"content": "../src/react/components/switch/switch.group.md"
+							}
+						]
 					},
 					{
 						"name": "Text Input",
@@ -375,6 +389,12 @@
 								"content": "../src/react/components/picklist/picklist.pickitem.md"
 							},
 							{
+								"components": "../src/react/components/picklist/PicklistHeader.js"
+							},
+							{
+								"components": "../src/react/components/picklist/PicklistDivider.js"
+							},
+							{
 								"name": "Stateful Picklist",
 								"components": "../src/react/components/picklist/StatefulPicklist.js",
 								"content": "../src/react/components/picklist/picklist.stateful.md"
@@ -402,6 +422,81 @@
 						]
 					}
 				]
+			},
+			{
+				"name": "Compositions",
+				"content": "../src/react/compositions.md",
+				"sections": [
+					{
+						"name": "Detail",
+						"content": "../src/react/components/compositions/compositions.detail.md",
+						"sections":[
+							{
+								"components": "../src/react/components/compositions/XUICompositionDetail.js"
+							},
+							{
+								"components": "../src/react/components/compositions/XUICompositionDetailHeader.js"
+							}
+						]
+					},
+					{
+						"name": "Detail summary",
+						"content": "../src/react/components/compositions/compositions.detailsummary.md",
+						"sections":[
+							{
+								"components": "../src/react/components/compositions/XUICompositionDetailSummary.js"
+							},
+							{
+								"components": "../src/react/components/compositions/XUICompositionDetailSummaryHeader.js"
+							}
+						]
+					},
+					{
+						"name": "Master detail",
+						"content": "../src/react/components/compositions/compositions.masterdetail.md",
+						"sections":[
+							{
+								"components": "../src/react/components/compositions/XUICompositionMasterDetail.js"
+							},
+							{
+								"components": "../src/react/components/compositions/XUICompositionMasterDetailHeader.js"
+							}
+						]
+					},
+					{
+						"name": "Master detail summary",
+						"content": "../src/react/components/compositions/compositions.masterdetailsummary.md",
+						"sections":[
+							{
+								"components": "../src/react/components/compositions/XUICompositionMasterDetailSummary.js"
+							},
+							{
+								"components": "../src/react/components/compositions/XUICompositionMasterDetailSummaryHeader.js"
+							}
+						]
+					},
+					{
+						"name": "Split",
+						"content": "../src/react/components/compositions/compositions.split.md",
+						"sections":[
+							{
+								"components": "../src/react/components/compositions/XUICompositionSplit.js"
+							},
+							{
+								"components": "../src/react/components/compositions/XUICompositionSplitHeader.js"
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "Helpers",
+		"sections": [
+			{
+				"name": "Container Queries",
+				"content": "../src/react/helpers/resizeObserver.md"
 			}
 		]
 	}

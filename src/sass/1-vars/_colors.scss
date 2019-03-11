@@ -359,6 +359,8 @@ $xui-dropdown-divider-shadow-color: $xui-color-grey-alpha-6;
 
 $xui-validation-color: $xui-color-grey-alpha-2;
 $xui-validation-invalid-color: $xui-color-red;
+$xui-validation-invalid-light-color: mix($xui-color-white, $xui-color-red, 80%);
+$xui-validation-invalid-xlight-color: mix($xui-color-white, $xui-color-red, 90%);
 
 // Inputs
 
@@ -377,6 +379,8 @@ $xui-textinput-borderless-transparent-focus-bg-color: $xui-color-grey-alpha-8;
 
 $xui-input-hover-border-color: $xui-color-grey-alpha-3;
 $xui-textinput-invalid-border-color: $xui-color-red;
+$xui-textinput-borderless-invalid-bg-color: $xui-validation-invalid-xlight-color;
+$xui-textinput-borderless-invalid-focus-bg-color: $xui-validation-invalid-light-color;
 
 // Checkbox Radio
 
@@ -436,6 +440,7 @@ $xui-pickitem-active-bg-color: $xui-color-grey-alpha-7;
 $xui-pickitem-selected-color: $xui-color-blue;
 $xui-pickitem-selected-hover-color: mix($xui-color-grey-1, $xui-color-blue, 5%);
 $xui-pickitem-selected-active-color: mix($xui-color-grey-1, $xui-color-blue, 10%);
+$xui-pickitem-secondary-text-color: $xui-color-grey-3;
 $xui-submenu-uicontrol-icon-color: $xui-color-grey-alpha-2;
 
 // Page heading
@@ -555,10 +560,10 @@ $xui-range-border-color: $xui-control-border-color;
 $xui-range-border-hover-color: $xui-control-hover-border-color;
 $xui-range-border-focus-color: $xui-control-hover-border-color;
 $xui-range-border-active-color: $xui-control-active-border-color;
-$xui-range-slider-track-color: $xui-color-grey-5;
-$xui-range-slider-thumb-disabled-color: $xui-color-grey-7;
-$xui-range-slider-track-invalid-color: $xui-color-red;
-$xui-range-slider-thumb-invalid-color: $xui-color-red;
+$xui-rangeslider-track-color: $xui-color-grey-5;
+$xui-rangeslider-thumb-disabled-color: $xui-color-grey-7;
+$xui-rangeslider-track-invalid-color: $xui-color-red;
+$xui-rangeslider-thumb-invalid-color: $xui-color-red;
 
 // Stepper
 

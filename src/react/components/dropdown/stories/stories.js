@@ -121,7 +121,7 @@ const sideBySide = (
 			isHidden={false}
 			isLegacyDisplay={false}
 			dropdown={
-				<DropDown size="large" restrictFocus={false}>
+				<DropDown size="medium" restrictFocus={false} fixedWidth>
 					<Picklist>{createItems(toggledItems, 'one')}</Picklist>
 				</DropDown>
 			}
@@ -130,7 +130,7 @@ const sideBySide = (
 			trigger={<XUIButton>Open for even more goodies<XUIButtonCaret /></XUIButton>}
 			isHidden={false}
 			dropdown={
-				<DropDown size="large" restrictFocus={false}>
+				<DropDown size="medium" restrictFocus={false}>
 					<Picklist>{createItems(toggledItems, 'two')}</Picklist>
 				</DropDown>
 			}
@@ -151,7 +151,7 @@ storiesWithKnobs.add('Playground', () => {
 			trigger={trigger}
 			dropdown={
 				<DropDown
-					size={select('dropdown size', Object.keys(maxWidthDropdownSizes), 'xlarge')}
+					size={select('dropdown size', Object.keys(maxWidthDropdownSizes), 'large')}
 					restrictFocus={boolean('restrictFocus', false)}
 					animateClosed={boolean('animateClosed', false)}
 					animateOpen={boolean('animateOpen', false)}
@@ -203,19 +203,19 @@ function buildDropDown(ddSettings) {
 const createTriggerInput = props => (
 	<XUITextInput
 		placeholder="Placeholder text"
-		labelText="Input label"
+		label="Input label"
 		isLabelHidden
 		{...props}
 	/>
 );
 
-const createTriggerButton = () => <XUIButton size="full-width">A button</XUIButton>;
+const createTriggerButton = () => <XUIButton fullWidth="always">A button</XUIButton>;
 
 const createTriggerLink = () =>
 	<a href="javascript:void(0);">A link</a> // eslint-disable-line jsx-a11y/anchor-is-valid
 ;
 
-const createTriggerIcon = () => <XUIButton variant="icon" aria-label="Info"><XUIIcon icon={info} isBoxed /></XUIButton>;
+const createTriggerIcon = () => <XUIButton variant="icon" aria-label="Info"><XUIIcon icon={info} /></XUIButton>;
 
 const getPositioningTest = () => {
 	const props = {

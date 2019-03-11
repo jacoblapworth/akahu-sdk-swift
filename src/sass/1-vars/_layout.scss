@@ -2,31 +2,22 @@
 // @description Spacing units used within XUI components
 // @type spacing
 //
-$xui-s-xsmall: 5px;
-$xui-s-small: 10px;
-$xui-s-standard: 15px;
+$xui-s-2xsmall: 4px;
+$xui-s-xsmall: 8px;
+$xui-s-small: 12px;
+$xui-s-standard: 16px;
 $xui-s-large: 20px;
-$xui-s-xlarge: 25px;
-$xui-s-2xlarge: 30px;
-$xui-s-3xlarge: 35px;
-$xui-s-4xlarge: 40px;
-$xui-s-5xlarge: 50px;
-$xui-s-6xlarge: 60px;
-
-// @section Avatar Font Sizes
-// @description The font sizes to be used within avatars
-// @type font-size
-//
-$xui-font-size-avatar-small:  0.625rem; // 10/16
-$xui-font-size-avatar:        0.6875rem; // 11/16
-$xui-font-size-avatar-large:  0.875rem; // 14/16
-$xui-font-size-avatar-xlarge: 1.3125rem; // 21/16
+$xui-s-xlarge: 24px;
+$xui-s-2xlarge: 32px;
+$xui-s-3xlarge: 40px;
+$xui-s-4xlarge: 48px;
+$xui-s-5xlarge: 64px;
 
 // @section Icon Sizes
 // @description Sizes used for bounding boxes of XUI icons
 // @type icon
 //
-$xui-icon-standard: 30px;
+$xui-icon-medium: 30px;
 $xui-icon-large: 40px;
 $xui-icon-xlarge: 60px;
 
@@ -49,11 +40,19 @@ $xui-navigation-height: 60px;
 // @type table
 //
 $xui-form-width: 400px;
-$xui-input-height: 40px;
-$xui-input-height-small: 30px;
 $xui-input-padding-horizontal: $xui-s-standard;
 $xui-input-padding-vertical: 8px;
 $xui-input-padding: $xui-input-padding-vertical $xui-input-padding-horizontal;
+
+// @section Controlls
+// @type table
+//
+$xui-control-size-2xsmall: 16px;
+$xui-control-size-xsmall: 24px;
+$xui-control-size-small: 32px;
+$xui-control-size-standard: 40px;
+$xui-control-size-large: 80px;
+$xui-control-size-xlarge: 120px;
 
 // @section Class Suffixes
 // @type table
@@ -61,6 +60,7 @@ $xui-input-padding: $xui-input-padding-vertical $xui-input-padding-horizontal;
 $xui-class-suffix-auto: "-auto";
 $xui-class-suffix-none: "-none";
 $xui-class-suffix-small: "-small";
+$xui-class-suffix-2xsmall: "-2xsmall";
 $xui-class-suffix-xsmall: "-xsmall";
 $xui-class-suffix-standard: "";
 $xui-class-suffix-large: "-large";
@@ -75,12 +75,18 @@ $xui-class-suffix-6xlarge: "-6xlarge";
 
 $xui-s-actionlink: $xui-s-xsmall $xui-s-small;
 
-$xui-base-width: 80px;
-$xui-starting-width: 140px;
+$xui-width-variants-dropdown: (
+	xsmall: 100px,
+	small: 200px,
+	medium: 300px,
+	large: 400px
+);
 
-// These are multiples of a certain value ($xui-starting-width + ($xui-base-width * $number))
-
-$xui-width-variants-dropdown: (0, "small"), (1, "medium"), (2, "large"), (3, "xlarge");
-$xui-width-variants-modal: (2, "small"), (3, "default"), (4, "medium"), (6, "large"), (9, "xlarge");
+$xui-modal-widths: (
+	small : 300px,
+	medium : 400px,
+	large : 600px,
+	xlarge : 800px
+);
 
 // @tokenparserendignore

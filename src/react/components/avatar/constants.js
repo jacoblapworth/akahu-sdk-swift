@@ -1,20 +1,18 @@
 import { ns } from '../helpers/xuiClassNamespace';
 
 const avatarBaseClass = `${ns}-avatar`;
-const smallVariation = 'small';
-const largeVariation = 'large';
 
 /**
  * @public
  * Map of sizes to XUI Classes properties
  */
 export const sizeClassNames = {
-	'xsmall': `${avatarBaseClass}-x${smallVariation}`, // xui-avatar-xsmall
-	'small': `${avatarBaseClass}-${smallVariation}`, // xui-avatar-small
+	'2xsmall': `${avatarBaseClass}-2xsmall`,
+	'xsmall': `${avatarBaseClass}-xsmall`,
+	'small': `${avatarBaseClass}-small`,
 	'medium': '',
-	'large': `${avatarBaseClass}-${largeVariation}`, // xui-avatar-large
-	'xlarge': `${avatarBaseClass}-x${largeVariation}`, // xui-avatar-xlarge
-	'2xlarge': `${avatarBaseClass}-2x${largeVariation}`, // xui-avatar-2xlarge
+	'large': `${avatarBaseClass}-large`,
+	'xlarge': `${avatarBaseClass}-xlarge`,
 };
 
 /**

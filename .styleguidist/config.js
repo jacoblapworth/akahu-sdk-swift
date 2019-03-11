@@ -2,7 +2,7 @@ const path = require('path');
 const pkg = require('../package.json');
 const autoprefixer = require('autoprefixer');
 const browserlist = require('@xero/browserslist-autoprefixer');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const serveStatic = require('serve-static');
 
 const basePath = path.resolve(__dirname, '..');
@@ -20,31 +20,30 @@ const config = {
 			}
 		},
 		module: {
-			loaders: [
+			rules: [
 				{
-					loader: ExtractTextPlugin.extract({
-						use: [
-							'css-loader',
-							{
-								loader: 'postcss-loader',
-								options: {
-									ident: 'postcss',
-									plugins: () => [
-										autoprefixer({
-											browsers: browserlist,
-										}),
-									],
-								},
+					test: /\.(sa|sc|c)ss$/,
+					use: [
+						MiniCssExtractPlugin.loader,
+						'css-loader',
+						{
+							loader: 'postcss-loader',
+							options: {
+								ident: 'postcss',
+								plugins: () => [
+									autoprefixer({
+										browsers: browserlist,
+									}),
+								],
 							},
-							{
-								loader: 'sass-loader',
-							},
-						],
-					}),
-					test: /\.(scss|css)$/,
+						},
+						{
+							loader: 'sass-loader',
+						},
+					]
 				},
 				{
-					loaders: [
+					use: [
 						"file-loader",
 					],
 					test: /\.(gif|ico|jpg|jpeg|png|svg|webp)$/,
@@ -53,15 +52,17 @@ const config = {
 					exclude: [
 						/node_modules/,
 					],
-					loaders: [
-						"babel-loader?{\"cacheDirectory\":true,\"presets\":[\"@xero/babel-preset-xero\"]}",
+					use: [
+						"babel-loader?{\"cacheDirectory\":true,\"presets\":[\"@babel/preset-env\", \"@babel/preset-react\"],\"plugins\":[[\"@babel/plugin-proposal-class-properties\",{\"loose\":true}]]}",
 					],
-					test: /\.(js|jsx)$/,
+					test: /\.jsx?$/,
 				},
 			],
 		},
 		plugins: [
-			new ExtractTextPlugin('build/[name].css')
+			new MiniCssExtractPlugin({
+				filename: "build/[name].css"
+			})
 		],
 		resolve: {
 			alias: {
@@ -83,8 +84,21 @@ const config = {
 		},
 	},
 	title: 'XUI React Docs',
+	theme: {
+		color: {
+			codeComment: '#6d6d6d',
+			codePunctuation: '#999',
+			codeProperty: '#905',
+			codeDeleted: '#905',
+			codeString: '#690',
+			codeInserted: '#690',
+			codeOperator: '#9a6e3a',
+			codeKeyword: '#1673b1',
+			codeFunction: '#DD4A68',
+			codeVariable: '#e90',
+		}
+	},
 	styleguideDir: outputPath,
-	highlightTheme: 'erlang-dark',
 	ignore: [
 		"**/Positioning.js",
 		"**/Constants.js",

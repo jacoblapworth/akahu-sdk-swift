@@ -7,16 +7,16 @@
 }
 
 .#{$ns}-validation-layout {
-	margin-bottom: $xui-s-small;
+	margin-bottom: $xui-s-xsmall;
 	min-height: $xui-s-large;
-	padding-top: $xui-s-xsmall;
+	padding-top: $xui-s-2xsmall;
 }
 
 .#{$ns}-field-layout {
 	margin-bottom: $xui-s-2xlarge;
 
 	.#{$ns}-validation {
-		margin-bottom: -$xui-s-large - 1px; // Extra 1px to preˇvent vertical layout shifting
+		margin-bottom: -($xui-line-height-standard + $xui-s-2xsmall); // Validation line-height + padding
 	}
 }
 
@@ -30,12 +30,12 @@
 }
 
 .#{$ns}-form-inline {
-	// Narrow-first breakpoint style
+	// Mobile-first breakpoint style
 	margin: auto;
 	max-width: $xui-form-width;
 
-	// Medium and wide breakpoint style
-	@media screen and (min-width: $xui-breakpoint-narrow) {
+	// Wider viewport style
+	@include xui-breakpoint-small-up {
 		max-width: none;
 
 		.#{$ns}-field-layout {

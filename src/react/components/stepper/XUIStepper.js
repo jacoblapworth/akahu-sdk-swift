@@ -4,14 +4,14 @@ import cn from 'classnames';
 import throttle from 'lodash.throttle';
 import '../helpers/xuiGlobalChecks';
 import { NAME_SPACE, STACKED, SIDE_BAR, INLINE } from './helpers/constants';
-import { enrichStepperProps } from './helpers/enrichprops';
+import { enrichStepperProps, enrichTabProps } from './helpers/enrichprops';
 import { createAriaTabId } from './helpers/utilities';
 import StepperTab from './customElements/StepperTab';
 import InlineDummyLayout, { testIsInlineRelevant } from './customElements/InlineDummyLayout';
 import SideBarDummyLayout, { testIsSideBarRelevant } from './customElements/SideBarDummyLayout';
 
 const createTabs = ({
-	qaHook, tabs, id, ariaPanelId, currentStep,
+	qaHook, tabs, id, ariaPanelId, currentStep, updateCurrentStep, isTruncated,
 }, overrides) => (
 
 	tabs.map((tabProps, index) => {
@@ -19,13 +19,14 @@ const createTabs = ({
 		const isLast = index === tabs.length - 1;
 		const isActive = currentStep === index;
 		const ariaTabId = createAriaTabId(id, index);
-		const enrichedProps = {
+		const enrichedProps = enrichTabProps({
 			...tabProps,
 			...overrides,
+			updateCurrentStep,
 			isActive,
 			id: ariaTabId,
 			step: index + 1,
-		};
+		});
 		const tabClasses = cn(`${NAME_SPACE}-tab`, {
 			[`${NAME_SPACE}-tab-first`]: isFirst,
 			[`${NAME_SPACE}-tab-last`]: isLast,
@@ -42,7 +43,7 @@ const createTabs = ({
 				style={{ order: index }}
 				data-automationid={qaHook && `${qaHook}-tab-${index}`}
 			>
-				<StepperTab {...enrichedProps} />
+				<StepperTab isTruncated={isTruncated} {...enrichedProps} />
 			</div>
 		);
 	})
@@ -73,10 +74,10 @@ class XUIStepper extends Component {
 		const { lockLayout } = props;
 		const setLayout = newLayout => (newLayout !== layout) && this.setState({ layout: newLayout });
 
-		if (lockLayout) {
+		if (lockLayout && lockLayout !== 'vertical') {
 			setLayout(lockLayout);
 		} else if (rootNode) {
-			const isInline = testIsInlineRelevant(rootNode);
+			const isInline = testIsInlineRelevant(rootNode) && lockLayout !== 'vertical';
 			const isSideBar = testIsSideBarRelevant(rootNode);
 
 			if (isInline) {
@@ -97,16 +98,18 @@ class XUIStepper extends Component {
 			id,
 			qaHook,
 			currentStep,
+			updateCurrentStep,
 			lockLayout,
 			hasStackedButtons,
 			gridTemplateRows,
 			ariaActiveTabId,
 			ariaPanelId,
 			wrapperClasses,
+			isTruncated,
 		} = enrichStepperProps(props, state);
 
 		const tabProps = {
-			qaHook, tabs, id, ariaPanelId, currentStep,
+			qaHook, tabs, id, ariaPanelId, currentStep, updateCurrentStep, isTruncated,
 		};
 		const visibleTabs = createTabs(tabProps);
 
@@ -126,7 +129,7 @@ class XUIStepper extends Component {
 
 				{!lockLayout && (
 					<div
-						className={`${NAME_SPACE}-tests xui-u-hidden-content`}
+						className={`${NAME_SPACE}-hidden-content`}
 						aria-hidden="true"
 					>
 
@@ -186,9 +189,6 @@ XUIStepper.propTypes = {
 		description: PropTypes.string,
 
 		/** `. */
-		handleClick: PropTypes.func,
-
-		/** `. */
 		isError: PropTypes.bool,
 
 		/** `. */
@@ -212,11 +212,23 @@ XUIStepper.propTypes = {
 	 * (index is zero based). */
 	currentStep: PropTypes.number.isRequired,
 
+	/** A callback that receives an "index" value relating to the clicked "currentStep". */
+	updateCurrentStep: PropTypes.func,
+
 	/** Set the tab buttons to have a "stacked" layout (only applicable in the "inline" layout) */
 	hasStackedButtons: PropTypes.bool,
 
 	/** Lock the Stepper to only use a single layout style (the Stepper will augment its layout
-	 * automatically by default). */
-	lockLayout: PropTypes.oneOf(['stacked', 'sidebar', 'inline']),
+	 * automatically by default). Setting `vertical` will render as either a sidebar or stacked
+	 * depending on the space available. */
+	lockLayout: PropTypes.oneOf(['stacked', 'sidebar', 'inline', 'vertical']),
 
+	/** Whether step names and description truncate or wrap. Defaults to true. */
+	isTruncated: PropTypes.bool,
 };
+
+
+XUIStepper.defaultProps = {
+	isTruncated: true,
+};
+

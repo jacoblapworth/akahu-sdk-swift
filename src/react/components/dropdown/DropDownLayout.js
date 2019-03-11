@@ -59,7 +59,7 @@ export default class DropDownLayout extends PureComponent {
 			!isHidden && `${baseClass}-is-open`,
 			animateClosed && `${baseClass}-is-closing`,
 			animateOpen && `${baseClass}-is-opening`,
-			forceDesktop && `${baseClass}--force-desktop`,
+			forceDesktop && `${baseClass}-force-desktop`,
 		);
 
 		return (
@@ -107,9 +107,9 @@ DropDownLayout.propTypes = {
 
 	className: PropTypes.string,
 
-	/** Applies the correct XUI class based on the chose size. Default will
-	 * fits to children's width. */
-	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
+	/** Applies the correct XUI class based on the chosen size. Default will
+	 * fit to children's width. */
+	size: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
 	/** Whether the fixed width class variant should be used for the size prop.
 	 * Does nothing without the size prop. */

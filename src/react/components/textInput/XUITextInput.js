@@ -2,12 +2,14 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import autosize from 'autosize';
-import uuidv4 from 'uuid/v4';
 
 import compose from '../helpers/compose';
-import { inputBaseClass } from './private/constants';
+import { inputBaseClass, inputSizeClasses, baseSizeClasses } from './private/constants';
 import { calculateMaxHeight } from './private/helpers';
-import { ns } from '../helpers/xuiClassNamespace';
+import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
+import generateIds from '../controlwrapper/helpers';
+import { sizeShift } from '../helpers/sizes';
+import SizeContext from '../../contexts/SizeContext';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
 const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
@@ -18,7 +20,7 @@ class XUITextInput extends PureComponent {
 		hasFocus: false,
 	};
 
-	generatedId = uuidv4();
+	wrapperIds = generateIds(this.props.labelId);
 
 	componentDidMount() {
 		const { maxRows } = this.props;
@@ -68,10 +70,11 @@ class XUITextInput extends PureComponent {
 		const {
 			value,
 			type,
+			size,
 			isInvalid,
 			isBorderlessTransparent,
 			isBorderlessSolid,
-			labelText,
+			label,
 			validationMessage,
 			hintMessage,
 			onChange,
@@ -95,10 +98,10 @@ class XUITextInput extends PureComponent {
 			isLabelHidden,
 			minRows,
 			rows,
-			labelId,
 			// We want to remove these from the spread props, but they're not used in the render.
 			/* eslint-disable no-unused-vars */
 			maxRows,
+			labelId,
 			/* eslint-enable no-unused-vars */
 			...otherProps
 		} = input.props;
@@ -107,42 +110,23 @@ class XUITextInput extends PureComponent {
 			hasFocus,
 		} = this.state;
 
-		const calculatedLabelId = labelId || `${this.generatedId}-label`;
-		const messageId = `${this.generatedId}-message`;
-		const showingErrorMessage = isInvalid && validationMessage;
-		const message = (validationMessage || hintMessage) && (
-			<div
-				className={cn(
-					`${ns}-validation`,
-					`${ns}-validation-layout`,
-					showingErrorMessage && `${ns}-validation-is-invalid`,
-				)}
-				data-automationid={qaHook && `${qaHook}--message`}
-				role="status"
-				id={messageId}
-			>
-				{showingErrorMessage ? validationMessage : hintMessage}
-			</div>
-		);
-
 		const classes = cn(
 			inputClassName,
 			`${inputBaseClass}--input`,
-			leftElement && `${ns}-padding-left-none`,
-			rightElement && `${ns}-padding-right-none`,
-			(isMultiline && !isManuallyResizable) && `${ns}-u-resize-none`,
-			(isMultiline && isManuallyResizable) && `${ns}-u-resize-vertical`,
+			inputSizeClasses[size],
+			(isMultiline && !isManuallyResizable) && `${inputBaseClass}--input-resize-none`,
+			(isMultiline && isManuallyResizable) && `${inputBaseClass}--input-resize-vertical`,
 		);
 
 		const rootClasses = cn(
 			fieldClassName,
 			`${inputBaseClass}wrapper`,
-			isFieldLayout && `${ns}-field-layout`,
 		);
 
 		const baseClasses = cn(
 			containerClassName,
 			inputBaseClass,
+			baseSizeClasses[size],
 			isInvalid && `${inputBaseClass}-is-invalid`,
 			(isBorderlessTransparent || isBorderlessSolid) && `${inputBaseClass}-borderless`,
 			isBorderlessTransparent && `${inputBaseClass}-borderless-transparent`,
@@ -152,18 +136,6 @@ class XUITextInput extends PureComponent {
 			isDisabled && `${inputBaseClass}-is-disabled`,
 		);
 
-		const labelClasses = cn(
-			labelClassName,
-			`${ns}-text-label`,
-			`${ns}-fieldlabel-layout`,
-		);
-
-		const labelElement = labelText != null && !isLabelHidden && (
-			<span className={labelClasses} id={calculatedLabelId}>
-				{labelText}
-			</span>
-		);
-
 		const InputEl = isMultiline ? 'textarea' : 'input';
 
 		inputProps.style = {
@@ -171,52 +143,50 @@ class XUITextInput extends PureComponent {
 			maxHeight, // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
 		};
 
-		// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-		const ariaLabelledBy = (labelElement && calculatedLabelId)
-			|| (!labelText && labelId)
-			|| undefined;
-		// Add hidden label or placeholder as labelText if not labelled by anything else
-		const ariaLabel = (isLabelHidden && labelText)
-			|| (!ariaLabelledBy && placeholder)
-			|| undefined;
-
 		return (
-			<label
-				htmlFor={inputProps.id}
-				className={rootClasses}
-				onKeyDown={onKeyDown}
-				role="presentation"
-			>
-				{labelElement}
-				<div
-					className={baseClasses}
-					data-automationid={qaHook}
-					{...otherProps}
+			<SizeContext.Provider value={sizeShift(size, -1)}>
+				<XUIControlWrapper
+					fieldClassName={rootClasses}
+					wrapperIds={this.wrapperIds}
+					{...{
+						qaHook,
+						onKeyDown,
+						label,
+						isInvalid,
+						validationMessage,
+						hintMessage,
+						isFieldLayout,
+						labelClassName,
+						isLabelHidden,
+					}}
 				>
-					{leftElement}
-					<InputEl
-						{...inputProps}
-						type={type}
-						value={value}
-						defaultValue={defaultValue}
-						data-automationid={qaHook && `${qaHook}--input`}
-						className={classes}
-						onFocusCapture={input.onFocus}
-						onBlurCapture={input.onBlur}
-						onChange={onChange}
-						placeholder={placeholder}
-						disabled={isDisabled}
-						ref={compose(inputRef, i => this.input = i)}
-						aria-label={ariaLabel}
-						aria-labelledby={ariaLabelledBy}
-						aria-describedby={(message && messageId) || undefined}
-						// used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
-						rows={isMultiline ? rows || minRows : undefined}
-					/>
-					{rightElement}
-				</div>
-				{message}
-			</label>
+					<div
+						className={baseClasses}
+						data-automationid={qaHook}
+						{...otherProps}
+					>
+						{leftElement}
+						<InputEl
+							{...inputProps}
+							type={type}
+							value={value}
+							defaultValue={defaultValue}
+							data-automationid={qaHook && `${qaHook}--input`}
+							className={classes}
+							onFocusCapture={input.onFocus}
+							onBlurCapture={input.onBlur}
+							onChange={onChange}
+							placeholder={placeholder}
+							disabled={isDisabled}
+							ref={compose(inputRef, i => this.input = i)}
+							{...getAriaAttributes(this.wrapperIds, this.props)}
+							// used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
+							rows={isMultiline ? rows || minRows : undefined}
+						/>
+						{rightElement}
+					</div>
+				</XUIControlWrapper>
+			</SizeContext.Provider>
 		);
 	}
 }
@@ -241,6 +211,8 @@ XUITextInput.propTypes = {
 		'url',
 		'color',
 	]),
+	/** Size of the input - Can be `xsmall`, `small` or `medium` */
+	size: PropTypes.oneOf(Object.keys(baseSizeClasses)),
 	/** Function to call when the input value is changed */
 	onChange: PropTypes.func,
 	/** Function to call when the input is focused (does not include side elements) */
@@ -249,8 +221,8 @@ XUITextInput.propTypes = {
 	onBlur: PropTypes.func,
 	/** Function to call on keydown inside the textinput */
 	onKeyDown: PropTypes.func,
-	/** Input label. If isLabelHidden is true, this must be a string as it's applied as an attribute */
-	labelText: PropTypes.node,
+	/** Label to show above the input */
+	label: PropTypes.node,
 	/** Whether the current input value is invalid */
 	isInvalid: PropTypes.bool,
 	/** Validation message to show under the input if `isInvalid` is true */
@@ -317,6 +289,7 @@ XUITextInput.propTypes = {
 XUITextInput.defaultProps = {
 	inputProps: {},
 	minRows: 3,
+	size: 'medium',
 };
 
 export default XUITextInput;

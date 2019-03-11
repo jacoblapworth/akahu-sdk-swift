@@ -22,13 +22,17 @@ Avatars alone are not meant to communicate the full identity of a person or busi
 
 Circular avatars are used to represent people. This is the default avatar variant.
 
-```
+```jsx harmony
+import XUIAvatar from './avatar';
+
 <XUIAvatar value="Xero" qaHook="xero-avatar"/>
 ```
 
 Rectangular avatars are used to represent businesses (a company, a practice, etc). Use the `variant` "business" to get a rectangular avatar. Rectangular avatars display up to three letters.
 
-```
+```jsx harmony
+import XUIAvatar from './avatar';
+
 <XUIAvatar value="Xero User Interfaces" variant="business" />
 ```
 
@@ -38,7 +42,9 @@ You can use an image instead of a block of colour by providing an `imageUrl`.
 
 Although the CSS will attempt to scale the image to fit, as best practice we recommend using pre-scaled/resized images.
 
-```
+```jsx harmony
+import XUIAvatar from './avatar';
+
 <XUIAvatar
 	value="Xero"
 	imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" />
@@ -46,12 +52,13 @@ Although the CSS will attempt to scale the image to fit, as best practice we rec
 
 If the image supplied to `XUIAvatar` fails to load, the default avatar will be displayed as a fallback. If you need to handle other behaviour, you can also provide an `onError` handler.
 
-```
-const { Component } = require ('react');
+```jsx harmony
+import { Component } from 'react';
+import XUIAvatar from './avatar';
 
 class XUIAvatarWithErrorHandler extends Component {
-	constructor() {
-		super();
+	constructor(...args) {
+		super(...args);
 		this.state = {
 			message: '',
 		};
@@ -84,7 +91,9 @@ class XUIAvatarWithErrorHandler extends Component {
 
 The colour of `XUIAvatar` is determined by the contents of either the `value` or `identifier` props. It is recommended that you provide an `identifier` key so that a unique attribute of the entity determines the colour – different entities with the same value (e.g. name) should have different colours.
 
-```
+```jsx harmony
+import XUIAvatar from './avatar';
+
 <div>
 	<XUIAvatar className="xui-margin-right-small" value="Xero" identifier="a" />
 	<XUIAvatar className="xui-margin-right-small" value="Xero" identifier="b" />
@@ -97,9 +106,27 @@ The colour of `XUIAvatar` is determined by the contents of either the `value` or
 
 ### Sizes
 
-The `size` prop is an enum. The default value is `"medium"`.
+The `size` prop is an enum, it takes sizes from `2xsmall` to `xlarge`.
 
-```
-// Try changing 'size' in this example to 'large' or 'small'.
-<XUIAvatar value="xero" size="xlarge" qaHook="xlarge-xero"/>
+```jsx harmony
+import XUIAvatar from './avatar';
+
+<div>
+	<div className="xui-padding-bottom-small">
+		<XUIAvatar size="2xsmall" value="2 X Small" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar size="xsmall" value="X Small" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar size="small" value="Small" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar value="Medium" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar size="large" value="Large" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar size="xlarge" value="X Large" qaHook="xero-avatar" className="xui-margin-right-small"/>
+	</div>
+	<div>
+		<XUIAvatar variant="business" size="2xsmall" value="2 X Small" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar variant="business" size="xsmall" value="X Small" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar variant="business" size="small" value="Small" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar variant="business" value="Medium" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar variant="business" size="large" value="Large" qaHook="xero-avatar" className="xui-margin-right-small"/>
+		<XUIAvatar variant="business" size="xlarge" value="X Large" qaHook="xero-avatar" className="xui-margin-right-small"/>
+	</div>
+</div>
 ```

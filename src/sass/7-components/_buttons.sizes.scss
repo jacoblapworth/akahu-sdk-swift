@@ -1,14 +1,34 @@
 @import "../vars";
 @import "../mixins";
 
+.#{$ns}-button-fullwidth {
+	@include xui-layout-width-fullwidth;
+}
+
+// TODO: review this class (or at least its name) in a responsive context
 .#{$ns}-button-fullwidth-layout {
-	@include xui-breakpoint-narrow {
+	@include xui-breakpoint-small-down {
 		display: block;
 		width: 100%;
 	}
 }
 
+.#{$ns}-button-medium {
+	line-height: 1rem;
+	min-height: $xui-control-size-standard;
+	padding: 11px $xui-input-padding-horizontal;
+}
+
 .#{$ns}-button-small {
-	min-height: $xui-input-height-small;
-	padding: 6px $xui-s-small;
+	@include xui-text-small;
+
+	min-height: $xui-control-size-small;
+	padding: #{($xui-control-size-small - $xui-line-height-small)/2 - 1px} $xui-s-small;
+}
+
+.#{$ns}-button-xsmall {
+	@include xui-text-xsmall;
+
+	min-height: $xui-control-size-xsmall;
+	padding: #{($xui-control-size-xsmall - $xui-line-height-xsmall)/2 - 1px} $xui-s-xsmall;
 }

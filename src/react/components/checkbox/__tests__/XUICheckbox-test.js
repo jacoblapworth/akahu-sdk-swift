@@ -41,7 +41,19 @@ describe('XUICheckbox', function() {
 	});
 
 	it('should use additional classes on the root node if provided', () => {
-		expect(wrapper.find('label').hasClass('dogs-are-totes-patotes')).toBeTruthy();
+		expect(wrapper.find('div').first().hasClass('dogs-are-totes-patotes')).toBeTruthy();
+	});
+
+	it('should be a small variant, if specified', () => {
+		const component = renderer.create(<XUICheckbox onChange={NOOP} size="small">Howdy, folks!</XUICheckbox>);
+
+		expect(component).toMatchSnapshot();
+	});
+
+	it('should be a xsmall variant, if specified', () => {
+		const component = renderer.create(<XUICheckbox onChange={NOOP} size="xsmall">Howdy, folks!</XUICheckbox>);
+
+		expect(component).toMatchSnapshot();
 	});
 
 	it('should have a qaHook as an automation id if provided', () => {

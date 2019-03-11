@@ -1,53 +1,33 @@
 const invert = require('@xero/xuishift/transforms/invert');
 const stringReplace = require('@xero/xuishift/transforms/stringReplace');
-const remove = () => () => undefined;
 
-const XUIStatelessInputPropTransforms = [
-	{
-		name: 'button',
-		newName: 'button_REPLACE_WITH_rightElement',
-	},
-	{
-		name: 'className',
-		newName: 'inputClassName',
-	},
-	{
-		name: 'iconAttributes',
-		newName: 'iconAttributes_REPLACE_WITH_leftElement',
-	},
-	{
-		name: 'inputAttributes',
-		newName: 'inputProps',
-	},
-	{
-		name: 'clearButtonProps',
-		newName: 'clearButtonProps_REPLACE_WITH_rightElement',
-	},
-	{
-		name: 'hasClearButton',
-		newName: 'hasClearButton_REPLACE_WITH_rightElement',
-	},
-	{
-		name: 'isBorderless',
-		newName: 'isBorderlessTransparent',
-	}
-];
+const labelTextToLabel = {
+	name: 'labelText',
+	newName: 'label',
+};
 
 module.exports = {
-	'@xero/xui/react/icon': [
+	'@xero/xui/react/pill': [
 		{
 			isDefault: true,
 			props: [
 				{
-					name: 'isInline',
-					newName: 'isBoxed',
+					name: 'isMaxContentWidth',
+					newName: 'isLimitedWidth',
 					valueTransform: invert(true),
-				},
+				}
+			]
+		}
+	],
+	'@xero/xui/react/tag': [
+		{
+			isDefault: true,
+			props: [
 				{
-					name: 'path',
-					newName: 'icon'
-				},
-			],
+					name: 'size',
+					valueTransform: stringReplace({}, 'small'),
+				}
+			]
 		}
 	],
 	'@xero/xui/react/select-box': [
@@ -55,20 +35,123 @@ module.exports = {
 			isDefault: true,
 			props: [
 				{
-					name: 'label',
-					newName: 'labelText'
+					name: 'islabelHidden',
+					newName: 'isLabelHidden'
+				},
+				labelTextToLabel,
+				{
+					name: 'fullWidth',
+					valueTransform: (node, j, path) => {
+						const buttonVariantIsSet = path.value.openingElement.attributes.some(
+							attribute =>
+								attribute.name !== null &&
+								attribute.name.name === 'buttonVariant'
+						);
+
+						if (buttonVariantIsSet) {
+							return j.literal('never');
+						}
+
+						return node && node.value;
+					}
+				}
+			]
+		}
+	],
+	'@xero/xui/react/autocompleter': [
+		{
+			isDefault: true,
+			props: [
+				{
+					name: 'inputLabelText',
+					newName: 'inputLabel'
 				},
 				{
-					name: 'labelClasses',
-					newName: 'labelClassName'
+					name: 'searchThrottleInterval',
+					newName: 'searchDebounceTimeout'
 				},
 				{
-					name: 'labelHidden',
-					newName: 'islabelHidden'
+					name: 'dropdownSize',
+					valueTransform: stringReplace({
+						'small': 'xsmall',
+						'medium': 'small',
+						'large': 'medium',
+						'xlarge': 'large'
+					})
+				},
+			]
+		},
+		{
+			name: 'XUIAutocompleterSecondarySearch',
+			props: [
+				{
+					name: 'inputLabelText',
+					newName: 'inputLabel'
 				},
 				{
-					name: 'ariaId',
-					newName: 'id'
+					name: 'dropdownSize',
+					valueTransform: stringReplace({
+						'small': 'xsmall',
+						'medium': 'small',
+						'large': 'medium',
+						'xlarge': 'large'
+					})
+				},
+			]
+		}
+	],
+	'@xero/xui/react/checkbox': [
+		{
+			name: 'XUICheckboxGroup',
+			props: [labelTextToLabel],
+		}
+	],
+	'@xero/xui/react/radio': [
+		{
+			name: 'XUIRadioGroup',
+			props: [labelTextToLabel],
+		}
+	],
+	'@xero/xui/react/rollovercheckbox': [
+		{
+			isDefault: true,
+			props: [labelTextToLabel],
+		}
+	],
+	'@xero/xui/react/textinput': [
+		{
+			isDefault: true,
+			props: [labelTextToLabel, {
+				name: 'size',
+				valueTransform: stringReplace({
+					'standard': 'medium',
+				}),
+			}],
+		}
+	],
+	'@xero/xui/react/toggle': [
+		{
+			isDefault: true,
+			props: [
+				labelTextToLabel,
+				{
+					name: 'variant',
+					newName: 'size',
+				}
+			],
+		}
+	],
+	'@xero/xui/react/structural': [
+		{
+			name: 'XUIContentBlockItem',
+			props: [
+				{
+					name: 'tag',
+					newName: 'tags'
+				},
+				{
+					name: 'secondaryHeading',
+					newName: 'description'
 				},
 			]
 		}
@@ -78,148 +161,132 @@ module.exports = {
 			isDefault: true,
 			props: [
 				{
-					name: 'label',
-					newName: 'ariaLabel'
+					name: 'size',
+					valueTransform: stringReplace({
+						'small': 'xsmall',
+						'standard': 'small',
+						'large': 'medium',
+					}, 'small'),
 				}
 			]
 		}
 	],
-	'@xero/xui/react/switch': [
+	'@xero/xui/react/button': [
 		{
 			isDefault: true,
 			props: [
 				{
-					name: 'labelText',
-					newName: 'children'
-				}
-			]
-		}
-	],
-	'@xero/xui/react/autocompleter': [
-		{
-			name: 'XUIAutocompleterSecondarySearch',
-			props: [
-				{
-					name: 'isinputLabelHidden',
-					newName: 'isInputLabelHidden'
-				}
-			]
-		}
-	],
-	'@xero/xui/react/radio': [
-		{
-			name: 'XUIRadioGroup',
-			props: [
-				{
-					name: 'groupLabel',
-					newName: 'labelText'
+					name: 'fullWidth',
+					valueTransform: (node, j, path) => {
+						const sizeAttribute = path.value.openingElement.attributes.find(
+							attribute => attribute.name && attribute.name.name === 'size'
+						);
+
+						const size = sizeAttribute && sizeAttribute.value && sizeAttribute.value.value;
+
+						if (size === 'full-width') {
+							return j.literal('always');
+						}
+
+						if (size === 'full-width-mobile') {
+							return j.literal('small-down');
+						}
+
+						return node && node.value;
+					}
 				},
+				{
+					name: 'size', // If `icon` or `icon-inverted` variant, set size='small'
+					valueTransform: (node, j, path) => {
+						const sizeAttribute = path.value.openingElement.attributes.find(
+							attribute => attribute.name && attribute.name.name === 'size'
+						);
+						const variantAttribute = path.value.openingElement.attributes.find(
+							attribute => attribute.name && attribute.name.name === 'variant'
+						);
+
+						const variant = variantAttribute && variantAttribute.value && variantAttribute.value.value;
+						const size = sizeAttribute && sizeAttribute.value && sizeAttribute.value.value;
+
+						if (size === 'full-width' || size === 'full-width-mobile') {
+							return;
+						}
+
+						if (variant === 'icon' || variant === 'icon-inverted') {
+							return j.literal('small');
+						}
+						if (variant === 'icon-large' || variant === 'icon-inverted-large') {
+							return j.literal('medium');
+						}
+
+						return node && node.value;
+					},
+				},
+				{
+					name: 'variant',  // If `icon-large` or `icon-inverted-large` variant, set to non-sized variant
+					valueTransform: (node, j, path) => {
+						const variantAttribute = path.value.openingElement.attributes.find(
+							attribute => attribute.name && attribute.name.name === 'variant'
+						);
+
+						const variant = variantAttribute && variantAttribute.value && variantAttribute.value.value;
+
+						if (variant === 'icon-large') {
+							return j.literal('icon');
+						}
+						if (variant === 'icon-inverted-large') {
+							return j.literal('icon-inverted');
+						}
+
+						return node && node.value;
+					},
+				},
+			]
+		}
+	],
+	'@xero/xui/react/structural': [
+		{
+			name: 'XUIColumn',
+			props: [
+				{
+					name: 'gridColumnsMedium',
+					newName: 'gridColumnsSmallUp'
+				},
+				{
+					name: 'gridColumnsWide',
+					newName: 'gridColumnsLargeUp'
+				},
+			],
+		}
+	],
+	'@xero/xui/react/dropdown': [
+		{
+			isDefault: true,
+			props: [
+				{
+					name: 'size',
+					valueTransform: stringReplace({
+						'small': 'xsmall',
+						'medium': 'small',
+						'large': 'medium',
+						'xlarge': 'large'
+					})
+				}
 			]
 		},
 		{
-			isDefault: true,
+			name: 'NestedDropDown',
 			props: [
 				{
-					name: 'mainIconPath',
-					newName: 'mainIcon'
-				},
-			]
-		}
-	],
-	'@xero/xui/react/checkbox': [
-		{
-			name: 'XUICheckboxGroup',
-			props: [
-				{
-					name: 'groupLabel',
-					newName: 'labelText'
-				}
-			]
-		},
-		{
-			isDefault: true,
-			props: [
-				{
-					name: 'mainIconPath',
-					newName: 'mainIcon'
-				},
-			]
-		}
-	],
-	'@xero/xui/react/toggle': [
-		{
-			isDefault: true,
-			props: [
-				{
-					name: 'layout',
-					valueTransform: stringReplace({'form': 'fullwidth'}),
-				}
-			]
-		}
-	],
-	'@xero/xui/react/input': [
-		{
-			isDefault: true,
-			newName: 'XUITextInput',
-			props: XUIStatelessInputPropTransforms,
-		},
-		{
-			name: 'XUIStatelessInput',
-			newName: 'XUITextInput',
-			props: XUIStatelessInputPropTransforms,
-		},
-	],
-	'@xero/xui/react/textarea': [
-		{
-			isDefault: true,
-			newName: 'XUITextInput',
-			props: [
-				{
-					name: 'propThatDidntExistBefore',
-					newName: 'isMultiline',
-					valueTransform: invert(),
-				},
-				{
-					name: 'isResizable',
-					valueTransform: remove(),
-				},
-				{
-					name: 'readOnly',
-					newName: 'readOnly_MOVE_TO_inputProps',
-				},
-				{
-					name: 'maxCharacters',
-					valueTransform: remove(),
-				},
-				{
-					name: 'defaultLayout',
-					valueTransform: remove(),
-				},
-				{
-					name: 'textareaId',
-					newName: 'textareaID_MOVE_TO_inputProps',
-				},
-				{
-					name: 'textareaRef',
-					newName: 'inputRef',
-				},
-				{
-					name: 'className',
-					newName: 'inputClassName',
-				},
-				{
-					name: 'isBorderless',
-					newName: 'isBorderlessTransparent',
-				},
-				{
-					name: 'children',
-					newName: 'labelText',
-				},
-				{
-					name: 'style',
-					newName: 'style_MOVE_TO_inputProps',
+					name: 'size',
+					valueTransform: stringReplace({
+						'small': 'xsmall',
+						'medium': 'small',
+						'large': 'medium',
+						'xlarge': 'large'
+					})
 				}
 			]
 		}
 	]
-};
+}

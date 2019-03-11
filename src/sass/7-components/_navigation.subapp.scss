@@ -7,7 +7,7 @@
 	box-shadow: $xui-shadow-border-bottom;
 	display: flex;
 	flex-wrap: nowrap;
-	min-height: 60px;
+	min-height: $xui-navigation-height;
 	overflow: hidden;
 }
 
@@ -21,71 +21,30 @@
 .#{$ns}-pageheading--content-layout {
 	flex-flow: row wrap;
 	width: 100%;
-	@include xui-margin-horizontal($xui-s-small); // so page widths are not necessary
+	@include xui-margin-horizontal($xui-s-xsmall); // so page widths are not necessary
 	&.#{$ns}-page-width-standard {
-		@media (min-width:  #{$xui-page-width-small + 2 * $xui-s-small}) {
+		@media (min-width:  #{$xui-page-width-small + 2 * $xui-s-xsmall}) {
 			@include xui-margin-horizontal(auto);
 		}
 	}
 	&.#{$ns}-page-width-large {
-		@media (min-width:  #{$xui-page-width-large + 2 * $xui-s-small}) {
+		@media (min-width:  #{$xui-page-width-large + 2 * $xui-s-xsmall}) {
 			@include xui-margin-horizontal(auto);
 		}
 	}
 	.#{$ns}-pageheading--title {
-		@include xui-padding-left($xui-s-small);
+		@include xui-padding-left($xui-s-xsmall);
 		&.#{$ns}-page-width-standard {
-			@media (min-width:  #{$xui-page-width-small + 2 * $xui-s-small}) {
+			@media (min-width:  #{$xui-page-width-small + 2 * $xui-s-xsmall}) {
 				@include xui-padding-left(0);
 			}
 		}
 		&.#{$ns}-page-width-large {
-			@media (min-width:  #{$xui-page-width-large + 2 * $xui-s-small}) {
+			@media (min-width:  #{$xui-page-width-large + 2 * $xui-s-xsmall}) {
 				@include xui-padding-left(0);
 			}
 		}
 	}
-}
-
-.#{$ns}-pageheading--breadcrumbs, // TODO: deprecate in a later version
-.#{$ns}-breadcrumbs {
-	align-items: center;
-	display: flex;
-	flex: 1 1 auto;
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-.#{$ns}-breadcrumb {
-	font-size: $xui-font-size-large;
-	font-weight: bold;
-}
-
-.#{$ns}-breadcrumb-arrow {
-	align-items: flex-end;
-	display: flex;
-}
-
-.#{$ns}-breadcrumb--link {
-	@include xui-button-borderless($xui-breadcrumb-link-color, $xui-breadcrumb-link-hover-color, $xui-breadcrumb-link-active-color);
-	display: block;
-	line-height: inherit; // Overrides the line-height from the xui-button-borderless mixin, which is mostly good.
-	min-height: $xui-input-height-small;
-	outline: none;
-	padding: 6px $xui-s-small;
-	text-decoration: none;
-	.#{$ns}-breadcrumb:first-of-type & {
-		@include xui-margin-right(-$xui-s-small);
-	}
-	.#{$ns}-breadcrumb:nth-of-type(n+2) & {
-		@include xui-margin-horizontal(-$xui-s-small);
-	}
-}
-
-.#{$ns}-breadcrumb--icon {
-	color: $xui-breadcrumb-icon-color;
-	margin-top: 3px;
 }
 
 .#{$ns}-pageheading--title {
@@ -110,10 +69,12 @@
 	display: flex;
 	flex: 1 1 auto;
 	justify-content: flex-end;
+	margin-right: $xui-s-xsmall;
+
 	> .#{$ns}-button {
-		margin-left: $xui-s-small;
+		margin-left: $xui-s-xsmall;
 	}
 	> .#{$ns}-buttongroup {
-		margin-left: $xui-s-small;
+		margin-left: $xui-s-xsmall;
 	}
 }

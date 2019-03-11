@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIButton from '../button/XUIButton';
 import LeftVisualEl from './private/LeftVisualEl';
-import basePillClass from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
+import { baseClass, childSizeClassMap } from './private/constants';
 
 class XUIInnerPill extends PureComponent {
 	render() {
@@ -18,41 +18,53 @@ class XUIInnerPill extends PureComponent {
 			target,
 			title,
 			value,
+			size,
+			innerPillRef,
 			avatar,
 		} = this.props;
 
 		const isInteractive = href || onClick;
 
 		const className = cn(
-			`${basePillClass}--content`,
-			isInteractive && `${basePillClass}--button`,
+			`${baseClass}--content`,
+			isInteractive && `${baseClass}--button`,
 		);
 		const innerPillQaHook = qaHook && `${qaHook}--inner`;
 		const secondaryTextEl = secondaryText && (
-			<span className={`${ns}-color-grey-muted ${basePillClass}--secondary`}>
+			<span className={`${ns}-color-grey-muted ${baseClass}--secondary`} ref={innerPillRef}>
 				{secondaryText}
 			</span>
 		);
-		const valueEl = value && <span className={`${basePillClass}--text`}>{value}</span>;
+		const valueEl = value && (
+			<span className={`${baseClass}--text`} ref={!secondaryText && innerPillRef}>{value}</span>
+		);
 
 		const contents = (
 			<Fragment>
-				<LeftVisualEl isInvalid={isInvalid} avatarProps={avatarProps} avatar={avatar} />
+				<LeftVisualEl
+					isInvalid={isInvalid}
+					avatarProps={avatarProps}
+					size={childSizeClassMap[size]}
+					avatar={avatar}
+				/>
 				{secondaryTextEl}
 				{valueEl}
 			</Fragment>
 		);
 
-		return isInteractive ? (
+		return href || onClick ? (
 			<XUIButton
+				{...{
+					href,
+					target,
+					title,
+					onClick,
+				}}
 				className={className}
 				isLink={!!href}
-				href={href}
-				target={target}
-				title={title}
 				variant="unstyled"
-				onClick={onClick}
 				qaHook={innerPillQaHook}
+				size={size}
 			>
 				{contents}
 			</XUIButton>
@@ -88,6 +100,10 @@ XUIInnerPill.propTypes = {
 	value: PropTypes.string,
 	/** The pill is invalid and should display the invalid icon */
 	isInvalid: PropTypes.bool,
+	/** The ref to the text nodes - Used to determine showing tooltips when text is truncated */
+	innerPillRef: PropTypes.object,
+	/** The size of the pill */
+	size: PropTypes.oneOf(Object.keys(childSizeClassMap)),
 };
 
 export default XUIInnerPill;

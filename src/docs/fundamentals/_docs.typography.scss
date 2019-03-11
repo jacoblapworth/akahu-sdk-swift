@@ -9,9 +9,6 @@
 // Styleguide: Fundamentals.Typography
 
 
-
-
-
 // Type family
 //
 // XUI uses system fonts with a Helvetica/Arial font-stack.
@@ -22,45 +19,39 @@
 // Styleguide: Fundamentals.Typography.10
 
 
-
-
-
 // Sizes
 //
-// XUI does not provide a CSS reset. Heading and paragraph elements will pickup user agent margins if not specified using [XUI spacing classes](./section-fundamentals-spacing.html).
+// XUI Offers a wide range of font sizes to suit your needs.
+//
+// **Note:** As XUI does not provide a css margin reset, heading and paragraph elements will pickup user agent margins if not otherwise specified using [XUI spacing classes](./section-fundamentals-spacing.html).
 //
 // Definitions:
-// Default: 13px: Majority of any interface
-// Small: 11px: Provided in components like notes and subheads
+// 3xLarge: 72px: <span class="ds-fontsize-3xlarge">3xLarge</span>
+// 2xLarge: 48px: <span class="ds-fontsize-2xlarge">2xLarge</span>
+// xLarge: 21px: <span class="ds-fontsize-xlarge">xLarge</span>
+// Large: 17px: <span class="ds-fontsize-large">Large</span>
+// Medium: 15px: <span class="ds-fontsize-medium">Medium</span>
+// Small: 13px: <span class="ds-fontsize-small">Small</span>
+// xSmall: 11px: <span class="ds-fontsize-xsmall">xSmall</span>
+// 2xSmall: 9px: <span class="ds-fontsize-2xsmall">2xSmall</span>
 //
 // Styleguide: Fundamentals.Typography.20
 
 
-// Everyday headings
+// Heading classes
 //
-// Important! If you're using headings in a modal or dropdown please use one of our [presets](#fundamentals-typography-20-3) instead.
+// Heading are similar to sizes, but also include additional font-weight and spacing rules.
 //
-// Definitions:
-// Large: `xui-heading-large`: <h3 class="xui-heading-large xui-margin-none">Directory Listing</h3>
-// Medium: `xui-heading`: <h4 class="xui-heading xui-margin-none">Location</h4>
-// Small: `xui-heading-small`: <h5 class="xui-heading-small xui-margin-none">Street Address</h5>
-// Extra Small: `xui-heading-xsmall`: <h6 class="xui-heading-xsmall xui-margin-none">Map</h6>
-//
-// Styleguide: Fundamentals.Typography.20.1
-
-
-// Display headings
-//
-// Flag: Experimental
-//
-// Some of these sizes are set using viewport units and untested in real environments. Please experiment with these in HTML and let us know.
+// **Important:** If you're using headings in a modal or dropdown please use one of our [presets](#fundamentals-typography-23) instead.
 //
 // Definitions:
-// XL: `xui-heading-xlarge`: <h1 class="xui-heading-xlarge xui-text-truncated xui-margin-none">Welcome aboard</h1>
-// XXL: `xui-heading-2xlarge`: <h1 class="xui-heading-2xlarge xui-text-truncated xui-margin-none">$3,724.00</h1>
-// XXL: `xui-heading-3xlarge`: <h1 class="xui-heading-3xlarge xui-text-truncated xui-margin-none">82.1%</h1>
+// xLarge: `xui-heading-xlarge`: <h2 class="xui-heading-xlarge xui-text-truncated">xLarge</h2>
+// Large: `xui-heading-large`: <h3 class="xui-heading-large xui-margin-none">Large</h3>
+// Medium: `xui-heading-medium`: <h4 class="xui-heading-medium xui-margin-none">Medium</h4>
+// Small: `xui-heading-small`: <h5 class="xui-heading-small xui-margin-none">Small</h5>
+// xSmall: `xui-heading-xsmall`: <h6 class="xui-heading-xsmall xui-margin-none">xSmall</h6>
 //
-// Styleguide: Fundamentals.Typography.20.2
+// Styleguide: Fundamentals.Typography.21
 
 
 // Text presets
@@ -70,17 +61,11 @@
 // Preset combinations of size and color for specific elements enables future application-wide change with CSS only.
 //
 // Definitions:
-// Modal: `xui-heading-modal`: Standard heading for all modals
 // Separator: `xui-heading-separator`: Small subheads in dropdowns
 // Secondary: `xui-text-secondary`: Applies -muted colour, use for things like metadata
 // Minor: `xui-text-minor`: 11px and -muted, use sparingly for minor things like field notes
 //
-// Styleguide: Fundamentals.Typography.20.3
-
-
-
-
-
+// Styleguide: Fundamentals.Typography.23
 
 
 //  Color
@@ -143,10 +128,6 @@
 // Styleguide: Fundamentals.Typography.30.3
 
 
-
-
-
-
 // Links
 //
 // With a few exceptions, interactive elements in XUI should be **clearly different** from static ones.
@@ -181,8 +162,6 @@
 // </div>
 //
 // Styleguide: Fundamentals.Typography.40
-
-
 
 
 // Emphasis

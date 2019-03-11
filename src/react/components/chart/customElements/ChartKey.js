@@ -26,7 +26,7 @@ class ChartKey extends PureComponent {
 
 		const trigger = (
 			<XUIButton
-				variant="icon-large"
+				variant="icon"
 				title={title}
 			>
 				<XUIIcon icon={infoPathData} />
@@ -36,7 +36,7 @@ class ChartKey extends PureComponent {
 		const dropdown = (
 			<DropDown
 				fixedWidth
-				size="medium"
+				size="small"
 				hasKeyboardEvents={false}
 				restrictFocus={false}
 			>

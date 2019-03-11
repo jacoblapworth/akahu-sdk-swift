@@ -26,7 +26,7 @@ class ContentPagination extends PureComponent {
 				aria-label={paginationLabel}
 			>
 				<XUIButton
-					variant="icon-large"
+					variant="icon"
 					onClick={() => updatePanel(current - 1)}
 					title={paginationPreviousTitle}
 					isDisabled={current === 1}
@@ -40,7 +40,7 @@ class ContentPagination extends PureComponent {
 				{message}
 
 				<XUIButton
-					variant="icon-large"
+					variant="icon"
 					onClick={() => updatePanel(current + 1)}
 					title={paginationNextTitle}
 					isDisabled={current === total}

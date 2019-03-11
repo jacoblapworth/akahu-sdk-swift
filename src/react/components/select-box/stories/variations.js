@@ -30,8 +30,9 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with hidden label and button variant',
-		labelHidden: true,
+		isLabelHidden: true,
 		buttonVariant: 'create',
+		size: 'medium',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -47,8 +48,23 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with a hint message',
+		isOpen: false,
+		hintMessage: 'Please make a selection',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'invalid with an error message',
+		isOpen: false,
+		isInvalid: true,
+		hintMessage: 'Try me',
+		validationMessage: 'No good!',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'without matching trigger width',
 		matchTriggerWidth: false,
+		listItemSize: 'xsmall',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -69,6 +85,53 @@ const variations = [
 		buttonContent: 'Books',
 		closeAfterSelection: false,
 		items: buildCheckboxItems(),
+		listItemSize: 'small',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as full-width with medium size',
+		fullWidth: 'always',
+		size: 'medium',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as full-width with small size',
+		fullWidth: 'always',
+		size: 'small',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as medium size',
+		size: 'medium',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as small size',
+		size: 'small',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as xsmall size',
+		size: 'xsmall',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as full-width with small size and variant',
+		buttonVariant: 'primary',
+		fullWidth: 'always',
+		size: 'small',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as small size with variant',
+		buttonVariant: 'primary',
+		size: 'small',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as medium size with xsmall size list items',
+		listItemSize: 'xsmall',
+		size: 'medium',
 	},
 ];
 

@@ -7,6 +7,8 @@
 //
 // Components: Panel
 //
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.qcuf9cvxorda
+//
 // Styleguide: Compounds.DisplayingData.Panel
 
 // Best practice
@@ -69,7 +71,7 @@
 // <div class="xui-panel">
 //   <header class="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-align-center xui-u-flex-justify-space-between">
 //     <div class="xui-panel--heading xui-margin-left-small">Panel heading</div>
-//     <button type="button" class="xui-button xui-button-icon xui-button-icon-large" title="More options" aria-label="More options">
+//     <button type="button" class="xui-button xui-button-icon xui-button-icon-medium" title="More options" aria-label="More options">
 //       <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-overflow" role="presentation" /></svg>
 //     </button>
 //   </header>
@@ -133,8 +135,8 @@
 // Markup:
 // <div class="xui-panel">
 //  <footer class="xui-panel--footer xui-actions xui-actions-layout xui-padding-large">
-//    <button type="button" class="xui-button xui-button-standard xui-actions--secondary">Secondary</button>
-//    <button type="button" class="xui-button xui-button-main xui-actions--primary">Primary</button>
+//    <button type="button" class="xui-button xui-button-medium xui-button-standard xui-actions--secondary">Secondary</button>
+//    <button type="button" class="xui-button xui-button-medium xui-button-main xui-actions--primary">Primary</button>
 //  </footer>
 // </div>
 //
@@ -173,8 +175,8 @@
 //   </div>
 // </div>
 // <footer class="xui-panel--footer xui-actions xui-actions-layout xui-padding-large">
-//   <button type="button" class="xui-button xui-button-standard xui-actions--secondary">Secondary</button>
-//   <button type="submit" class="xui-button xui-button-main xui-actions--primary">Primary</button>
+//   <button type="button" class="xui-button xui-button-standard xui-button-medium xui-actions--secondary">Secondary</button>
+//   <button type="submit" class="xui-button xui-button-main xui-button-medium xui-actions--primary">Primary</button>
 // </footer>
 // </form>
 //
@@ -182,92 +184,86 @@
 
 // Content blocks
 //
-// Flag: Experimental
-//
 // ExampleClass: ds-example-wide
 //
-// Another common use case for panels is to contain a list of content blocks.
+// Another common use case for panels is to contain a list of content blocks. Wrapping a list of content blocks with a panel ensures the container to have a consistent border and rounded corners.
 //
 // Markup:
-// <div class='xui-panel xui-contentblock'>
-//   <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
-//     <div class="xui-margin-horizontal">
-//       <abbr class="xui-avatar xui-avatar-color-2" role="presentation">SB</abbr>
-//     </div>
-//     <a href="#" class="xui-contentblockitem--links">
-//       <span class="xui-text-truncated xui-u-flex xui-u-flex-align-center">
-//         <span class="xui-heading-small">Six Barrel Soda</span>
-//         <span class="xui-tag xui-tag-warning xui-margin-left-small">Awaiting payment</span>
-//       </span>
-//       <div class="xui-textcolor-muted xui-text-truncated">
-//         <span>INV0028</span>
-//         <span class="xui-margin-horizontal-xsmall">•</span>
-//         <span>Due 31 Dec 17</span>
+// <div class="xui-panel">
+//   <ul class="xui-contentblock">
+//     <li class="xui-contentblockitem xui-contentblockitem-layout">
+//       <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//         <abbr class="xui-avatar xui-avatar-business xui-avatar-color-2" role="presentation">SBS</abbr>
 //       </div>
-//     </a>
-//     <div class="xui-margin-horizontal-small">
-//       <div class="xui-u-flex xui-u-flex-align-center">
-//         <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">118.20</div>
-//         <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button" title="More options">
-//           <svg focusable="false" class="xui-icon">
-//             <use xlink:href="#xui-icon-overflow"></use>
-//           </svg>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Six Barrel Soda</span>
+//           <span class="xui-tag xui-tag-small xui-tag-warning">Awaiting payment</span>
+//         </div>
+//         <div class="xui-contentblockitem--description">
+//           <span class="xui-contentblockitem--description--text">INV034<span class="xui-margin-horizontal-xsmall">•</span><span>Due 31 Dec 2017</span></span>
+//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <div class="xui-contentblockitem--pinnedvalue">118.20</div>
+//         <button aria-label="Overflow menu" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+//           <div class="xui-iconwrapper xui-iconwrapper-medium">
+//             <svg focusable="false" class="xui-icon">
+//               <use xlink:href="#xui-icon-overflow"></use>
+//             </svg>
+//           </div>
 //         </button>
 //       </div>
-//     </div>
-//   </div>
-//   <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
-//     <div class="xui-margin-horizontal">
-//       <abbr class="xui-avatar xui-avatar-color-5" role="presentation">LB</abbr>
-//     </div>
-//     <a href="#" class="xui-contentblockitem--links">
-//       <span class="xui-text-truncated xui-u-flex xui-u-flex-align-center">
-//         <span class="xui-heading-small">Lucky Burger</span>
-//         <span class="xui-tag xui-tag-negative xui-margin-left-small">Overdue</span>
-//       </span>
-//       <div class="xui-textcolor-muted xui-text-truncated">
-//         <span>INV0023</span>
-//         <span class="xui-margin-horizontal-xsmall">•</span>
-//         <span>Due 19 Nov 17</span>
+//     </li>
+//     <li class="xui-contentblockitem xui-contentblockitem-layout">
+//       <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//         <abbr class="xui-avatar xui-avatar-business xui-avatar-color-5" role="presentation">LB</abbr>
 //       </div>
-//     </a>
-//     <div class="xui-margin-horizontal-small">
-//       <div class="xui-u-flex xui-u-flex-align-center">
-//         <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">346.40</div>
-//         <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button" title="More options">
-//           <svg focusable="false" class="xui-icon">
-//             <use xlink:href="#xui-icon-overflow"></use>
-//           </svg>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Lucky Burger</span>
+//           <span class="xui-tag xui-tag-small xui-tag-negative">Overdue</span>
+//         </div>
+//         <div class="xui-contentblockitem--description">
+//           <span class="xui-contentblockitem--description--text">INV031<span class="xui-margin-horizontal-xsmall">•</span><span>Due 1 Dec 2017</span></span>
+//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <div class="xui-contentblockitem--pinnedvalue">346.40</div>
+//         <button aria-label="Overflow menu" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+//           <div class="xui-iconwrapper xui-iconwrapper-medium">
+//             <svg focusable="false" class="xui-icon">
+//               <use xlink:href="#xui-icon-overflow"></use>
+//             </svg>
+//           </div>
 //         </button>
 //       </div>
-//     </div>
-//   </div>
-//   <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
-//     <div class="xui-margin-horizontal">
-//       <abbr class="xui-avatar xui-avatar-color-8" role="presentation">HE</abbr>
-//     </div>
-//     <a href="#" class="xui-contentblockitem--links">
-//       <span class="xui-text-truncated xui-u-flex xui-u-flex-align-center">
-//         <span class="xui-heading-small">Hornblower Enterprises</span>
-//         <span class="xui-tag xui-tag-positive xui-margin-left-small">Paid</span>
-//       </span>
-//       <div class="xui-textcolor-muted xui-text-truncated">
-//         <span>INV0021</span>
-//         <span class="xui-margin-horizontal-xsmall">•</span>
-//         <span>Due 28 Dec 17</span>
+//     </li>
+//     <li class="xui-contentblockitem xui-contentblockitem-layout">
+//       <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//         <abbr class="xui-avatar xui-avatar-business xui-avatar-color-7" role="presentation">HE</abbr>
 //       </div>
-//     </a>
-//     <div class="xui-margin-horizontal-small">
-//       <div class="xui-u-flex xui-u-flex-align-center">
-//         <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">74.99</div>
-//         <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button" title="More options">
-//           <svg focusable="false" class="xui-icon">
-//             <use xlink:href="#xui-icon-overflow"></use>
-//           </svg>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Hornblower Enterprises</span>
+//           <span class="xui-tag xui-tag-small xui-tag-positive">Paid</span>
+//         </div>
+//         <div class="xui-contentblockitem--description">
+//           <span class="xui-contentblockitem--description--text">INV031<span class="xui-margin-horizontal-xsmall">•</span><span>Due 5 Nov 2017</span></span>
+//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <div class="xui-contentblockitem--pinnedvalue">74.99</div>
+//         <button aria-label="Overflow menu" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+//           <div class="xui-iconwrapper xui-iconwrapper-medium">
+//             <svg focusable="false" class="xui-icon">
+//               <use xlink:href="#xui-icon-overflow"></use>
+//             </svg>
+//           </div>
 //         </button>
 //       </div>
-//     </div>
-//   </div>
+//     </li>
+//   </ul>
 // </div>
 //
 // Styleguide: Compounds.DisplayingData.Panel.9
@@ -288,18 +284,18 @@
 // Markup:
 // <div class="xui-panel xui-u-flex">
 //   <div class="xui-panel--sidebar">
-//     <ul class="xui-picklist xui-picklist-layout" role="tree">
-//       <li class="xui-pickitem xui-pickitem-is-selected" tabindex="-1" role="treeitem">
+//     <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//       <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium" tabindex="-1" role="treeitem">
 //         <button type="button" class="xui-pickitem--body" tabindex="0">
 //           <span class="xui-pickitem--text">Selected sidebar item</span>
 //         </button>
 //       </li>
-//       <li class="xui-pickitem" tabindex="-1" role="treeitem">
+//       <li class="xui-pickitem xui-pickitem-medium" tabindex="-1" role="treeitem">
 //         <button type="button" class="xui-pickitem--body" tabindex="0">
 //           <span class="xui-pickitem--text xui-text-truncated">Sidebar item</span>
 //         </button>
 //       </li>
-//       <li class="xui-pickitem" tabindex="-1" role="treeitem">
+//       <li class="xui-pickitem xui-pickitem-medium" tabindex="-1" role="treeitem">
 //         <button type="button" class="xui-pickitem--body" tabindex="0">
 //           <span class="xui-pickitem--text">Sidebar item</span>
 //         </button>
@@ -319,8 +315,8 @@
 //       </form>
 //     </div>
 //     <footer class="xui-panel--footer xui-actions xui-actions-layout xui-padding-large">
-//       <button type="button" class="xui-button xui-button-standard xui-actions--secondary">Secondary</button>
-//       <button type="button" class="xui-button xui-button-main xui-actions--primary">Primary</button>
+//       <button type="button" class="xui-button xui-button-medium xui-button-standard xui-actions--secondary">Secondary</button>
+//       <button type="button" class="xui-button xui-button-medium xui-button-main xui-actions--primary">Primary</button>
 //     </footer>
 //   </div>
 // </div>

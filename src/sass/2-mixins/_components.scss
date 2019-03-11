@@ -1,4 +1,7 @@
 @import "../vars";
+@import "./elements";
+@import "./states";
+@import "./typography";
 
 @mixin xui-input-base {
 	appearance: none; // For removing default input styling in Safari
@@ -31,7 +34,7 @@ Applies hover button styling and given contents on hover.
 	font-family: inherit;
 	font-size: inherit;
 	margin: 0; // Safari's default UA styles set 2px vertical padding
-	min-height: $xui-input-height;
+	min-height: $xui-control-size-standard;
 	outline: none;
 	padding: $xui-input-padding;
 	position: relative;
@@ -42,10 +45,9 @@ Applies hover button styling and given contents on hover.
 	}
 
 	&:disabled {
-		@include xui-disabled-form;
+		@include xui-disabled-form-control;
 	}
-	*::placeholder, // TODO: Go to a single selector when XUIInput is deprecated and only XUITextInput is supported.
-	&::placeholder {
+	*::placeholder {
 		color: $xui-input-placeholder-color;
 		opacity: 1;
 	}
@@ -80,7 +82,7 @@ $has-border - Whether the element using this has a border
 		left: $alignment;
 		position: absolute;
 		top: $alignment;
-		width: 4px;
+		width: $xui-s-2xsmall;
 	}
 }
 

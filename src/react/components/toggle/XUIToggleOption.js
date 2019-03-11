@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { baseClass } from './private/constants';
+import XUIControlWrapperInline, { getAriaAttributes } from '../controlwrapper/XUIControlWrapperInline';
+import generateIds from '../controlwrapper/helpers';
 
 /** @private typeMap - Map types to attributes */
 const typeMap = {
@@ -10,6 +12,7 @@ const typeMap = {
 };
 
 export default function XUIToggleOption(props) {
+	const wrapperIds = generateIds(props.id);
 	const {
 		children,
 		className,
@@ -31,7 +34,14 @@ export default function XUIToggleOption(props) {
 	);
 
 	return (
-		<label htmlFor={id} className={classes} data-automationid={qaHook}>
+		<XUIControlWrapperInline
+			rootClassName={`${baseClass}-optionwrapper`}
+			qaHook={qaHook}
+			wrapperIds={wrapperIds}
+			fieldClassName={classes}
+			labelClassName={`${baseClass}--label`}
+			label={children}
+		>
 			<input
 				className={`${baseClass}--input`}
 				data-automationid={qaHook && `${qaHook}--input`}
@@ -44,9 +54,9 @@ export default function XUIToggleOption(props) {
 				type={typeMap[type]}
 				value={value}
 				id={id}
+				{...getAriaAttributes(wrapperIds, props)}
 			/>
-			<span className={`${baseClass}--label`}>{children}</span>
-		</label>
+		</XUIControlWrapperInline>
 	);
 }
 

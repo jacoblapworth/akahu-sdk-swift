@@ -1,5 +1,5 @@
 // Libs
-import React, { Component } from 'react';
+import React, { Component, PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 // Components we need to test with
@@ -17,13 +17,32 @@ import plusIcon from '@xero/xui-icon/icons/plus';
 import XUIPill from '../../pill/XUIPill';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import { decorateSubStr, boldMatch } from '../helpers/highlighting';
+import { sizeShift } from '../../helpers/sizes';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select, number } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
-import { variations, storiesWithVariationsKindName, dropdownSizes } from './variations';
+import { variations, storiesWithVariationsKindName, fixedWidthDropdownSizes } from './variations';
+
+class PillWrapper extends PureComponent {
+	deleteSelf = e => {
+		this.props.onDeleteClick(this.props.id);
+	}
+
+	render() {
+		const { id } = this.props;
+		return (
+			<XUIPill
+				value={peopleDataSet[id].name}
+				className="xui-autocompleter--pill"
+				onDeleteClick={this.deleteSelf}
+				key={id}
+			/>
+		)
+	}
+};
 
 const filterPeople = (data, value, peopleToExclude) =>
 	data.filter(node => {
@@ -42,10 +61,11 @@ class DetailedListExample extends Component {
 		people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
 		selectedPeople: [peopleDataSet[0]],
 	};
+	completer = React.createRef();
 
 	onSearchChangeHandler = value => {
 		const example = this;
-		example.completer.openDropDown();
+		example.completer.current.openDropDown();
 		example.setState(prevState => ({
 			value,
 			people: filterPeople(peopleDataSet, value, prevState.selectedPeople),
@@ -90,33 +110,39 @@ class DetailedListExample extends Component {
 			value,
 			people,
 		} = example.state;
+		const listSize = example.props.picklistSize || 'medium';
 
 		if (!Array.isArray(people) || people.length <= 0) {
 			return <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>;
 		}
 
-		const items = people.map(item => (
-			<Pickitem
-				key={item.id}
-				id={item.id}
-				onSelect={() => this.selectPerson(item)}
-			>
-				<div className="xui-u-flex">
-					<XUIAvatar value={item.name} imageUrl={item.avatar} />
-					<div className="xui-u-grow xui-padding-left">
-						<div className="xui-heading-item xui-text-truncated">
-							{decorateSubStr(item.name, value || '', boldMatch)}
-						</div>
-						<div className="xui-text-secondary xui-text-truncated">
-							{decorateSubStr(item.email, value || '', boldMatch)}, {decorateSubStr(item.subtext, value || '', boldMatch)}
-						</div>
-					</div>
-				</div>
-			</Pickitem>
-		));
+		const items = people.map(item => {
+			const secondaryContent = (
+				<Fragment>
+					{decorateSubStr(item.email, value || '', boldMatch)}, {decorateSubStr(item.subtext, value || '', boldMatch)}
+				</Fragment>
+			);
+			const headingContent = (
+				<Fragment>
+					{decorateSubStr(item.name, value || '', boldMatch)}
+				</Fragment>
+			);
+			return (
+				<Pickitem
+					key={item.id}
+					id={item.id}
+					onSelect={() => this.selectPerson(item)}
+					shouldTruncate
+					leftElement={<XUIAvatar value={item.name} imageUrl={item.avatar} size={sizeShift(listSize, -1)} />}
+					secondaryElement={secondaryContent}
+					headingElement={headingContent}
+					isMultiline
+				/>
+			);
+		});
 
 		return (
-			<Picklist>{items}</Picklist>
+			<Picklist size={listSize}>{items}</Picklist>
 		);
 	}
 
@@ -127,12 +153,12 @@ class DetailedListExample extends Component {
 		} = this.props;
 
 		if (openDrawer) {
-			this.completer.openDropDown();
+			this.completer.current.openDropDown();
 		}
 
 		if (selectedPeople != null && typeof selectedPeople === 'number') {
 			this.setState({
-				selectedPeople: [peopleDataSet[0]],
+				selectedPeople: peopleDataSet.slice(0, selectedPeople)
 			});
 		} else {
 			this.setState({
@@ -148,14 +174,14 @@ class DetailedListExample extends Component {
 		} = nextProps;
 
 		if (openDrawer) {
-			this.completer.openDropDown();
+			this.completer.current.openDropDown();
 		} else {
-			this.completer.closeDropDown();
+			this.completer.current.closeDropDown();
 		}
 
 		if (selectedPeople != null && typeof selectedPeople === 'number') {
 			this.setState({
-				selectedPeople: [peopleDataSet[selectedPeople]],
+				selectedPeople: peopleDataSet.slice(0, selectedPeople),
 			});
 		} else {
 			this.setState({
@@ -163,6 +189,17 @@ class DetailedListExample extends Component {
 			});
 		}
 	}
+
+	renderPills(selectedPeople) {
+		return selectedPeople.map(person =>
+			<PillWrapper
+				id={person.id}
+				key={person.id}
+				onDeleteClick={this.deletePerson}
+			/>
+		)
+	}
+
 
 	render() {
 		const example = this;
@@ -173,6 +210,13 @@ class DetailedListExample extends Component {
 			dropdownSize,
 			isDisabled,
 			noDrawerFooter,
+			disableWrapPills,
+			isInvalid,
+			validationMessage,
+			hintMessage,
+			isInputLabelHidden,
+			inputSize,
+			picklistSize,
 		} = example.props;
 
 		const footer = (
@@ -182,9 +226,9 @@ class DetailedListExample extends Component {
 						<XUIIcon
 							icon={plusIcon}
 							isBoxed
-							className="xui-margin-right-xsmall"
+							className="xui-margin-right-small"
 						/>
-							Add New Person
+						Add New Person
 					</Pickitem>
 				)}
 			/>
@@ -194,7 +238,7 @@ class DetailedListExample extends Component {
 
 		return (
 				<XUIAutocompleter
-					ref={ac => example.completer = ac}
+					ref={this.completer}
 					onSearch={example.onSearchChangeHandler}
 					placeholder={placeholder}
 					searchValue={value}
@@ -206,18 +250,14 @@ class DetailedListExample extends Component {
 					loading={isLoading}
 					dropdownSize={dropdownSize}
 					isDisabled={isDisabled}
-					inputLabelText="Sample Autocompleter"
-					isInputLabelHidden
-					pills={
-						selectedPeople.map(person =>
-							<XUIPill
-								value={person.name}
-								className="xui-autocompleter--pill"
-								onDeleteClick={()=>this.deletePerson(person.id)}
-								key={person.id}
-							/>
-						)
-					}
+					inputLabel="Sample Autocompleter"
+					disableWrapPills={disableWrapPills}
+					isInputLabelHidden={isInputLabelHidden === undefined ? true : isInputLabelHidden}
+					isInvalid={isInvalid}
+					validationMessage={validationMessage}
+					hintMessage={hintMessage}
+					pills={this.renderPills(selectedPeople)}
+					inputSize={inputSize}
 				>
 					{example.getItems()}
 				</XUIAutocompleter>
@@ -228,6 +268,8 @@ class DetailedListExample extends Component {
 DetailedListExample.propTypes = {
 	openDrawer: PropTypes.bool,
 	selectedPeople: PropTypes.number,
+	inputSize: PropTypes.oneOf(['small', 'medium']),
+	picklistSize: PropTypes.oneOf(['small', 'xsmall', 'medium']),
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
@@ -235,10 +277,11 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
 	const userSelectedPerson = select('Select a person', peopleDataSet.map(person => person.name), 'Frida');
-	const selectedPerson = peopleDataSet.findIndex(i => i.name === userSelectedPerson);
+	// People are picked from the list with a slice, now, so index + 1.
+	const selectedPerson = peopleDataSet.findIndex(i => i.name === userSelectedPerson) + 1;
 
 	const fullSize = boolean('Match dropdown width', true);
-	const userSelectedSize = fullSize ? '' : select('Dropdown size', dropdownSizes, 'small');
+	const userSelectedSize = fullSize ? '' : select('Dropdown size', fixedWidthDropdownSizes, 'small');
 
 	const containerWidth = `${number('Container width', 500)}px`;
 
@@ -249,7 +292,13 @@ storiesWithKnobs.add('Playground', () => {
 				placeholder={text('Placeholder', '')}
 				selectedPeople={selectedPerson}
 				isDisabled={boolean('Disabled', false)}
+				isInvalid={boolean('Invalid', false)}
+				validationMessage={text('validation msg', '')}
+				hintMessage={text('hint msg', '')}
 				dropdownSize={userSelectedSize || undefined}
+				inputSize={select('input size', ['medium', 'small'], 'medium')}
+				picklistSize={select('picklist size', ['small', 'xsmall', 'medium'], 'medium')}
+				isInputLabelHidden={boolean('Hide label', false)}
 			/>
 		</div>
 	);
@@ -281,6 +330,8 @@ const SecondarySearchData = [
 ];
 
 class SecondarySearchExample extends React.Component {
+	autocompleterRef = React.createRef();
+
 	state = {
 		data: SecondarySearchData,
 		selectedItem: null,
@@ -298,6 +349,10 @@ class SecondarySearchExample extends React.Component {
 		this.setState({
 			data: matchingData,
 		});
+	}
+
+	componentDidMount() {
+		this.autocompleterRef.current.openDropDown();
 	}
 
 	render() {
@@ -319,7 +374,7 @@ class SecondarySearchExample extends React.Component {
 							<XUIIcon
 								icon={plusIcon}
 								isBoxed
-								className="xui-margin-right-xsmall"
+								className="xui-margin-right-small"
 							/>
 							Add New Person
 						</span>
@@ -335,11 +390,12 @@ class SecondarySearchExample extends React.Component {
 					onOptionSelect={this.onOptionSelect}
 					onSearch={this.onSearch}
 					dropdownSize="medium"
-					inputLabelText="secondary search label"
+					inputLabel="secondary search label"
 					isInputLabelHidden
 					qaHook='secondary-search'
 					closeOnTab={false}
 					footer={footer}
+					ref={this.autocompleterRef}
 				>
 					<Picklist>
 						{items}
@@ -353,13 +409,16 @@ class SecondarySearchExample extends React.Component {
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
-storiesWithVariations.add('Secondary', () => <SecondarySearchExample />);
-
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
 		const variationMinusStoryDetails = { ...variation };
 		variationMinusStoryDetails.storyKind = undefined;
 		variationMinusStoryDetails.storyTitle = undefined;
+		variationMinusStoryDetails.storyType = undefined;
+
+		if (variation.storyType === "XUIAutocompleterSecondarySearch") {
+			return <SecondarySearchExample />;
+		}
 
 		return (
 			<div style={{ width: '500px' }}>

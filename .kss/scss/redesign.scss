@@ -8,7 +8,7 @@
 		text-indent: -9999em;
 		margin: 0;
 	}
-	@include xui-breakpoint-medium-and-narrow {
+	@include xui-breakpoint-small-to-medium {
 		background-size: 40px;
 		transform: translateY(-5%);
 	}
@@ -17,7 +17,7 @@
 .ds-nav--header .ds-xui-logo {
 	flex: none;
 	display: block;
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-medium-up {
 		width: 100%;
 		min-height: calc(20vh);
 		background-position: 50% 50%;

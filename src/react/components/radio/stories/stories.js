@@ -7,7 +7,7 @@ import XUIRadioGroup from '../XUIRadioGroup';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 import { storiesWithVariationsKindName, variations } from './variations';
@@ -21,6 +21,10 @@ storiesWithKnobs.add('Playground', () => (
 		isChecked={boolean('isChecked', false)}
 		isReversed={boolean('isReversed', false)}
 		isLabelHidden={boolean('isLabelHidden', false)}
+		isInvalid={boolean('invalid', false)}
+		validationMessage={text('validationMessage', '')}
+		hintMessage={text('hintMessage', '')}
+		size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
 	>{text('label text', 'Test radio')}</XUIRadio>
 ));
 
@@ -30,17 +34,17 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
 
-		const {isGroup, isSeries} = variation;
-		const labelText = typeof variation.labelText === 'string' ? variation.labelText : "Test radio";
+		const {isGroup, isSeries, groupProps } = variation;
+		const label = typeof variation.labelText === 'string' ? variation.labelText : "Test radio";
 
 		// Remove story-specific properties
-		const radioProps = { ...variation, storyKind: undefined, storyTitle: undefined, isGroup: undefined, labelText: undefined };
+		const radioProps = { ...variation, storyKind: undefined, storyTitle: undefined, isGroup: undefined, label: undefined };
 
 		if (isGroup) {
-			return <XUIRadioGroup labelText="Radio Group">
+			return <XUIRadioGroup {...groupProps}>
 				<XUIRadio key="r0-1" isDefaultChecked={true} name="rg0">Medium radio label goes here</XUIRadio>
 				<XUIRadio key="r0-2" name="rg0">Longish radio label goes here, but this one really goes on and on and on and on</XUIRadio>
-				<XUIRadio key="r0-3" name="rg0">Third</XUIRadio>
+				<XUIRadio key="r0-3" name="rg0"><span>Third</span></XUIRadio>
 			</XUIRadioGroup>
 		} else if (isSeries) {
 			return <div aria-label="r1" role="radiogroup">
@@ -49,7 +53,7 @@ variations.forEach(variation => {
 				<XUIRadio key="r1-3" name="rg1">Third</XUIRadio>
 			</div>
 		} else {
-			return <XUIRadio {...radioProps}>{labelText}</XUIRadio>;
+			return <XUIRadio {...radioProps}>{label}</XUIRadio>;
 		}
 	});
 });

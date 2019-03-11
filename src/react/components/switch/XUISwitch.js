@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import uuidv4 from 'uuid/v4';
 
 import '../helpers/xuiGlobalChecks';
 import { ns } from '../helpers/xuiClassNamespace';
+import XUIControlWrapperInline, { getAriaAttributes } from '../controlwrapper/XUIControlWrapperInline';
+import generateIds from '../controlwrapper/helpers';
 
 const baseClass = `${ns}-switch`;
 
@@ -23,14 +24,30 @@ const onLabelClick = e => {
 };
 
 export default class XUISwitch extends PureComponent {
-	// User can manually proivde an id, or we will generate one.
-	labelId = this.props.labelId || uuidv4();
+	// User can manually provide an id, or we will generate one.
+	wrapperIds = generateIds(this.props.labelId);
+
+	constructor(props) {
+		super(props);
+
+		this._isControlled = typeof props.isChecked === 'boolean';
+
+		// We conditionally maintain state in order to support 'uncontrolled' component
+		this.state = {
+			internalIsChecked: this._isControlled ? null : !!props.isDefaultChecked,
+		};
+
+		this.internalOnChange = this.internalOnChange.bind(this);
+	}
+
+	internalOnChange(e) {
+		this.setState({ internalIsChecked: e.target.checked });
+		this.props.onChange && this.props.onChange(e);
+	}
 
 	render() {
 		const {
 			children,
-			onChange,
-			isChecked,
 			isDisabled,
 			name,
 			value,
@@ -39,77 +56,102 @@ export default class XUISwitch extends PureComponent {
 			isReversed,
 			isLabelHidden,
 			labelClassName,
+			isInvalid,
+			validationMessage,
+			hintMessage,
+			// size, TODO: add size options.
+			// isGrouped, TODO: add grouping flag to match Checkbox/Radio. Maybe try context instead?
 		} = this.props;
 
+		const isChecked = this._isControlled ? this.props.isChecked : this.state.internalIsChecked;
+		const onChange = this._isControlled ? this.props.onChange : this.internalOnChange;
+
+		// Other size options coming soon. See Checkbox/Radio for how this will work.
+		// NB: Keeping this hard-coded, for the moment, so as not to expose a
+		// useless prop in the API in XUI15.
+		const calculatedSize = 'medium';
+
 		const classes = cn(
-			className,
 			baseClass,
 			isReversed && `${baseClass}-reversed`,
 			isDisabled && `${baseClass}-is-disabled`,
 		);
+
+		const wrapperClasses = cn(
+			className,
+			`${baseClass}wrapper`,
+			calculatedSize && `${baseClass}-${calculatedSize}`,
+		);
+
 		const labelClasses = cn(
 			`${baseClass}--label`,
+			calculatedSize && `${baseClass}--label-${calculatedSize}`,
 			labelClassName,
 		);
-		const labelElement =
-			!isLabelHidden &&
-			children && (
-				<span
-					id={this.labelId}
-					className={labelClasses}
-					data-automationid={qaHook && `${qaHook}--label`}
-				>
-					{children}
-				</span>
-			);
 
-		const inputClasses = `${ns}-u-hidden-visually ${baseClass}--checkbox`;
+		const controlClasses = cn(
+			`${baseClass}--control`,
+			calculatedSize && `${baseClass}--control-${calculatedSize}`,
+		);
 
-		const ariaProps = {
+		const messageClasses = cn(
+			`${baseClass}--message`,
+			!isLabelHidden && `${baseClass}--message-with-label`,
+		);
+
+		const inputProps = {
+			'type': 'checkbox',
 			'role': 'switch',
-			'aria-checked': !!isChecked,
-			'aria-disabled': isDisabled || undefined,
-			'aria-label': (isLabelHidden && children) || undefined,
-			// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-			'aria-labelledby':
-				(labelElement && this.labelId)
-				|| (!children && this.props.labelId)
-				|| undefined,
+			'className': `${baseClass}--checkbox`,
+			'data-automationid': qaHook && `${qaHook}--input`,
+			'disabled': isDisabled || undefined,
+			'aria-checked': isChecked,
+			'checked': isChecked,
+			name,
+			value,
+			onChange,
+			...getAriaAttributes(this.wrapperIds, this.props),
 		};
 
 		return (
-			<label
-				data-automationid={qaHook && `${qaHook}--label`}
-				className={classes}
+			<XUIControlWrapperInline
+				rootClassName={wrapperClasses}
+				wrapperIds={this.wrapperIds}
 				onClick={onLabelClick}
-				role="presentation"
+				fieldClassName={classes}
+				labelClassName={labelClasses}
+				messageClassName={messageClasses}
+				label={children}
+				{...{
+					qaHook,
+					isInvalid,
+					validationMessage,
+					hintMessage,
+					isLabelHidden,
+				}}
 			>
 				<input
-					type="checkbox"
-					onChange={onChange}
-					checked={isChecked}
-					name={name}
-					value={value}
-					disabled={isDisabled || undefined}
-					className={inputClasses}
-					data-automationid={qaHook && `${qaHook}--input`}
-					{...ariaProps}
+					{...inputProps}
 				/>
-				<div className={`${ns}-switch--control`} data-automationid={qaHook} />
-				{labelElement}
-			</label>
+				<div className={controlClasses} data-automationid={qaHook && `${qaHook}--switch`} />
+			</XUIControlWrapperInline>
 		);
 	}
 }
 
 XUISwitch.propTypes = {
 	children: PropTypes.node,
-	/** Fires when the switch is turned on or off */
-	onChange: PropTypes.func.isRequired,
+	/** Fires when the switch is turned on or off. No longer required. */
+	onChange: PropTypes.func,
 	qaHook: PropTypes.string,
 	className: PropTypes.string,
-	/** Determines whether the switch is checked or unchecked */
+	/** Determines whether the switch is checked or unchecked.
+	 * This makes the switch a controlled component.
+	 * Omitting the isChecked prop will make it an uncontrolled component. */
 	isChecked: PropTypes.bool,
+	/** Used to provide an uncontrolled switch component. If a value is passed to the
+	 * isChecked prop, this prop will be ignored. */
+	isDefaultChecked: PropTypes.bool,
 	/** Determines whether the switch is enabled or disabled */
 	isDisabled: PropTypes.bool,
 	/** Name attribute for the input */
@@ -127,6 +169,12 @@ XUISwitch.propTypes = {
 	/** Prevents the label element from being displayed on the page. Label is still
 	 * accessible to screen readers. */
 	isLabelHidden: PropTypes.bool,
+	/** Whether the current input value is invalid */
+	isInvalid: PropTypes.bool,
+	/** Validation message to show under the input if `isInvalid` is true */
+	validationMessage: PropTypes.string,
+	/** Hint message to show under the input */
+	hintMessage: PropTypes.string,
 };
 
 XUISwitch.defaultProps = {

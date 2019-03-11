@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import crossSmall from '@xero/xui-icon/icons/cross-small';
@@ -6,115 +6,169 @@ import crossSmall from '@xero/xui-icon/icons/cross-small';
 import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
 import XUIInnerPill from './XUIInnerPill';
-import { ns } from '../helpers/xuiClassNamespace';
-import basePillClass from './private/constants';
+import XUITooltip from '../tooltip/XUITooltip';
+import { baseClass, sizeClasses } from './private/constants';
+import SizeContext from '../../contexts/SizeContext';
 
-/**
- * @private
- * @param {Function} callback
- * @param {Object} scope
- * @return {Function} the provided callback with the scope passed in as an argument.
- */
-function returnCallbackWithScope(callback, scope) {
-	return () => callback(scope);
+function shouldShowTooltip(domElement) {
+	return domElement && domElement.clientWidth < domElement.scrollWidth;
 }
 
-export default class XUIPill extends Component {
-	constructor(props) {
-		super(props);
+export default class XUIPill extends PureComponent {
+	state = {
+		isFocused: false,
+		hasTooltip: false,
+	};
 
-		this.state = {
-			isFocused: false,
-		};
+	_innerPill = React.createRef();
+	_tooltip = React.createRef();
+
+	componentDidMount() {
+		const innerPillElement = this._innerPill && this._innerPill.current;
+		const shouldHaveToolTip = this.state.hasTooltip === false && shouldShowTooltip(innerPillElement);
+
+		if (shouldHaveToolTip) {
+			this.setState({
+				hasTooltip: true,
+			});
+		}
 	}
 
 	toggleFocus = () => {
 		this.setState(prevState => ({
 			isFocused: !prevState.isFocused,
-		}));
+		}), () => {
+			if (this.state.isFocused && this.state.hasTooltip) {
+				this._tooltip.current.openTooltip();
+			} else if (this.state.hasTooltip) {
+				this._tooltip.current.closeTooltip();
+			}
+		});
+	}
+
+	hoverHandler = () => {
+		if (this.state.hasTooltip) {
+			this._tooltip.current.openTooltip();
+		}
+	}
+
+	blurHandler = () => {
+		if (this.state.hasTooltip) {
+			this._tooltip.current.closeTooltip();
+		}
 	}
 
 	render() {
-		const {
-			avatarProps,
-			className,
-			deleteButtonLabel,
-			defaultLayout,
-			href,
-			isInvalid,
-			onClick,
-			onDeleteClick,
-			qaHook,
-			secondaryText,
-			target,
-			title,
-			value,
-			isMaxContentWidth,
-			avatar,
-		} = this.props;
-		const { isFocused } = this.state;
-
-		const pillClasses = cn(
-			className,
-			basePillClass,
-			defaultLayout && `${basePillClass}-layout`,
-			!isMaxContentWidth && `${basePillClass}-maxwidth`, // TODO: Remove in XUI 14
-			isInvalid && `${basePillClass}-is-invalid`,
-			isFocused && `${basePillClass}-is-focused`,
-			onDeleteClick && `${basePillClass}-is-deleteable`,
-			(href || onClick) && `${basePillClass}-interactive`,
-		);
-
-		const closeButtonClasses = cn(
-			`${basePillClass}--button-icon`,
-			isInvalid && `${ns}-button-icon-inverted`,
-		);
-
-		const innerPillProps = {
-			avatarProps,
-			avatar,
-			href,
-			isInvalid,
-			onClick,
-			qaHook,
-			secondaryText,
-			target,
-			title,
-			value,
-		};
-
-		const onDeleteCallback = onDeleteClick && returnCallbackWithScope(onDeleteClick, this);
-
-		const deleteButton = onDeleteCallback && (
-			<XUIButton
-				className={closeButtonClasses}
-				variant="icon"
-				onClick={onDeleteCallback}
-				title={deleteButtonLabel}
-				aria-label={deleteButtonLabel}
-				qaHook={qaHook && `${qaHook}--delete`}
-			>
-				<XUIIcon icon={crossSmall} isBoxed />
-			</XUIButton>
-		);
-
 		return (
-			<div
-				className={pillClasses}
-				onFocus={this.toggleFocus}
-				onBlur={this.toggleFocus}
-				data-automationid={qaHook}
-			>
-				<XUIInnerPill {...innerPillProps} />
-				{deleteButton}
-			</div>
+			<SizeContext.Consumer>
+				{inheritedSize => {
+					const {
+						avatarProps,
+						className,
+						deleteButtonLabel,
+						href,
+						isInvalid,
+						onClick,
+						onDeleteClick,
+						qaHook,
+						secondaryText,
+						target,
+						title,
+						value,
+						isLimitedWidth,
+						debugShowToolTip,
+						avatar,
+					} = this.props;
+
+					const {
+						isFocused,
+						hasTooltip,
+					} = this.state;
+
+					const defaultSize = 'medium';
+					const size = this.props.size || inheritedSize || defaultSize;
+
+					const pillClasses = cn(
+						className,
+						baseClass,
+						isLimitedWidth && `${baseClass}-maxwidth`,
+						size && sizeClasses[size],
+						isInvalid && `${baseClass}-is-invalid`,
+						isFocused && `${baseClass}-is-focused`,
+						onDeleteClick && `${baseClass}-is-deletable`,
+						(avatarProps != null || isInvalid) && `${baseClass}-has-avatar`,
+						avatar && `${baseClass}-has-avatar`,
+						(href || onClick) && `${baseClass}-interactive`,
+					);
+
+					const deleteButton = onDeleteClick && (
+						<XUIButton
+							size={size}
+							className={`${baseClass}--button-icon`}
+							variant={isInvalid ? 'icon-inverted' : 'icon'}
+							onClick={onDeleteClick}
+							title={deleteButtonLabel}
+							aria-label={deleteButtonLabel}
+							qaHook={qaHook && `${qaHook}--delete`}
+						>
+							<XUIIcon icon={crossSmall} />
+						</XUIButton>
+					);
+
+					const content = (
+						<div
+							className={pillClasses}
+							onFocus={this.toggleFocus}
+							onBlur={this.toggleFocus}
+							onMouseEnter={this.hoverHandler}
+							onMouseLeave={this.blurHandler}
+							data-automationid={qaHook}
+						>
+							<XUIInnerPill
+								innerPillRef={this._innerPill}
+								{...{
+									avatarProps,
+									avatar,
+									href,
+									isInvalid,
+									onClick,
+									qaHook,
+									secondaryText,
+									target,
+									title,
+									value,
+									size,
+								}}
+							/>
+							{deleteButton}
+						</div>
+					);
+
+					if (hasTooltip || debugShowToolTip) {
+						return (
+							<XUITooltip
+								// Extra wrapping div required because tooltip has CSS that stomps on first child
+								trigger={<div>{content}</div>}
+								isHidden={!debugShowToolTip}
+								ref={this._tooltip}
+								id={debugShowToolTip && 'tooltipDebugId'}
+							>
+								{secondaryText}
+								{secondaryText && value ? <br /> : null}
+								{value}
+							</XUITooltip>
+						);
+					}
+
+					return content;
+				}}
+			</SizeContext.Consumer>
 		);
 	}
 }
 
 XUIPill.defaultProps = {
 	deleteButtonLabel: 'Delete',
-	defaultLayout: true,
 };
 
 XUIPill.propTypes = {
@@ -131,8 +185,6 @@ XUIPill.propTypes = {
 	className: PropTypes.string,
 	/** Specify an alternate label attribute for the delete button, defaults to 'Delete'. */
 	deleteButtonLabel: PropTypes.string,
-	/** Remove the XUI layout class by specifiying false. */
-	defaultLayout: PropTypes.bool,
 	/** This will make the value an `anchor` element instead of a `span` element and adds the
 	 * href as the link. */
 	href: PropTypes.string,
@@ -143,7 +195,7 @@ XUIPill.propTypes = {
 	/** Callback to fire when the delete pill button is clicked. When omitted, the delete button
 	 * is also ommitted from the view. */
 	onDeleteClick: PropTypes.func,
-	/** `. */
+	/** add a qahook to the component */
 	qaHook: PropTypes.string,
 	/** When an `href` is supplied, adds a target attribute, else is ignored. */
 	target: PropTypes.string,
@@ -153,6 +205,12 @@ XUIPill.propTypes = {
 	secondaryText: PropTypes.string,
 	/** The text to display inside the pill. */
 	value: PropTypes.string,
-	/** Whether the pill shouldn't have a set max-width */
-	isMaxContentWidth: PropTypes.bool,
+	/** Whether the pill should have a max-width of 200px */
+	isLimitedWidth: PropTypes.bool,
+	/** The size of the pill to render */
+	size: PropTypes.oneOf(Object.keys(sizeClasses)),
+	/**
+	 * @ignore
+	 * Dev / debug prop to show the tooltip initially on mount instead of based on a user event */
+	debugShowToolTip: PropTypes.bool,
 };

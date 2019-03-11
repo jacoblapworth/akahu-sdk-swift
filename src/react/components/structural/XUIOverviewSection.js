@@ -15,9 +15,18 @@ export default class XUIOverviewSection extends PureComponent {
 			sentiment,
 			label,
 			value,
+			textAlignment,
+			children,
 			...spreadProps
 		} = this.props;
-		const classes = cn(`${baseClass}--section`, className);
+
+		const classes = cn(
+			className,
+			// Only set the alignment here, if explicitly provided. Otherwise, just inherit.
+			textAlignment && `${baseClass}-text-align-${textAlignment}`,
+			`${baseClass}--section`,
+		);
+
 		const valueClass = cn(
 			`${baseClass}--value`,
 			(sentiment && overviewSentiments[sentiment]) &&
@@ -28,12 +37,14 @@ export default class XUIOverviewSection extends PureComponent {
 			<section {...spreadProps} className={classes} data-automationid={qaHook}>
 				<div className={`${baseClass}--label`}>{label}</div>
 				<div className={valueClass}>{value}</div>
+				{children}
 			</section>
 		);
 	}
 }
 
 XUIOverviewSection.propTypes = {
+	children: PropTypes.node,
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 	/**
@@ -49,6 +60,8 @@ XUIOverviewSection.propTypes = {
 	 * undefined for a default appearance
 	 */
 	sentiment: PropTypes.oneOf(Object.keys(overviewSentiments)),
+	/** How to align text in this section. Leave undefined to default
+	 * to the alignment of the parent block. */
+	textAlignment: PropTypes.oneOf(['left', 'center', 'right']),
 };
 
-XUIOverviewSection.defaultProps = {};

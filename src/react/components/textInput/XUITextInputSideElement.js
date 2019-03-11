@@ -1,20 +1,14 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { ns } from '../helpers/xuiClassNamespace';
 import { sideElementBaseClass } from './private/constants';
-
-const alignmentClasses = {
-	top: `${ns}-u-flex-align-start`,
-	center: `${ns}-u-flex-align-center`,
-	bottom: `${ns}-u-flex-align-end`,
-};
 
 const typeClasses = {
 	text: `${sideElementBaseClass}-text`,
 	icon: `${sideElementBaseClass}-icon`,
 	button: `${sideElementBaseClass}-button`,
 	avatar: `${sideElementBaseClass}-avatar`,
+	pill: `${sideElementBaseClass}-pill`,
 };
 
 export default class XUITextInputSideElement extends PureComponent {
@@ -31,7 +25,7 @@ export default class XUITextInputSideElement extends PureComponent {
 		const classes = cn(
 			sideElementBaseClass,
 			className,
-			alignmentClasses[alignment],
+			`${sideElementBaseClass}-align-${alignment}`,
 			typeClasses[type],
 			backgroundColor && `${sideElementBaseClass}-${backgroundColor}`,
 			backgroundColor && `${sideElementBaseClass}-has-background`,
@@ -56,7 +50,7 @@ XUITextInputSideElement.propTypes = {
 	/** Vertical alignment of the content */
 	alignment: PropTypes.oneOf(['top', 'center', 'bottom']),
 	/** Type of the contents being used */
-	type: PropTypes.oneOf(['text', 'icon', 'button', 'avatar']),
+	type: PropTypes.oneOf(Object.keys(typeClasses)),
 };
 
 XUITextInputSideElement.defaultProps = {

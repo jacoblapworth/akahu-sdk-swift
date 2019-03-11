@@ -3,43 +3,34 @@
 exports[`<DropDownHeader/> should render a back button if back button click handler is provided 1`] = `
 <div
   className="xui-dropdown--header"
-  data-automationid={undefined}
 >
   <div
     className="xui-dropdown--header-container"
   >
     <div
       className="xui-dropdown--header-leftcontent"
-      data-automationid={undefined}
     >
       <button
         aria-label="Back"
-        className="xui-button xui-u-flex-none xui-button-icon xui-button-icon-large"
+        className="xui-button xui-dropdown--headerbackbutton xui-button-icon xui-button-icon-small"
         data-automationid={null}
         disabled={false}
         onClick={[Function]}
-        onKeyDown={undefined}
         tabIndex={0}
         type="button"
       >
-        <div
-          className="xui-iconwrapper"
-          data-automationid={undefined}
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={13}
+          viewBox="0 0 14 13"
+          width={14}
         >
-          <svg
-            className="xui-icon"
-            data-automationid={undefined}
-            focusable="false"
-            height={13}
-            viewBox="0 0 14 13"
-            width={14}
-          >
-            <path
-              d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
-              role="presentation"
-            />
-          </svg>
-        </div>
+          <path
+            d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+            role="presentation"
+          />
+        </svg>
       </button>
     </div>
   </div>
@@ -49,61 +40,49 @@ exports[`<DropDownHeader/> should render a back button if back button click hand
 exports[`<DropDownHeader/> should render all header contents in the correct order 1`] = `
 <div
   className="xui-dropdown--header"
-  data-automationid={undefined}
 >
   <div
     className="xui-dropdown--header-container"
   >
     <div
       className="xui-dropdown--header-leftcontent"
-      data-automationid={undefined}
     >
       <button
         aria-label="Back"
-        className="xui-button xui-u-flex-none xui-button-icon xui-button-icon-large"
+        className="xui-button xui-dropdown--headerbackbutton xui-button-icon xui-button-icon-small"
         data-automationid={null}
         disabled={false}
         onClick={[Function]}
-        onKeyDown={undefined}
         tabIndex={0}
         type="button"
       >
-        <div
-          className="xui-iconwrapper"
-          data-automationid={undefined}
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={13}
+          viewBox="0 0 14 13"
+          width={14}
         >
-          <svg
-            className="xui-icon"
-            data-automationid={undefined}
-            focusable="false"
-            height={13}
-            viewBox="0 0 14 13"
-            width={14}
-          >
-            <path
-              d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
-              role="presentation"
-            />
-          </svg>
-        </div>
+          <path
+            d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+            role="presentation"
+          />
+        </svg>
       </button>
       <div>
         left content
       </div>
       <div
         className="xui-heading-small xui-margin-left-small xui-text-truncated"
-        data-automationid={undefined}
       >
         Title
       </div>
     </div>
     <div
       className="xui-dropdown--header-rightcontent"
-      data-automationid={undefined}
     >
       <div
         className="xui-margin-right-xsmall xui-dropdown--header-rightcontent"
-        data-automationid={undefined}
       >
         <div>
           right content
@@ -113,7 +92,6 @@ exports[`<DropDownHeader/> should render all header contents in the correct orde
           data-automationid={null}
           disabled={false}
           onClick={[Function]}
-          onKeyDown={undefined}
           tabIndex={0}
           type="button"
         >
@@ -124,7 +102,6 @@ exports[`<DropDownHeader/> should render all header contents in the correct orde
           data-automationid={null}
           disabled={false}
           onClick={[Function]}
-          onKeyDown={undefined}
           tabIndex={0}
           type="button"
         >
@@ -139,14 +116,12 @@ exports[`<DropDownHeader/> should render all header contents in the correct orde
 exports[`<DropDownHeader/> should render leftContent when provided 1`] = `
 <div
   className="xui-dropdown--header"
-  data-automationid={undefined}
 >
   <div
     className="xui-dropdown--header-container"
   >
     <div
       className="xui-dropdown--header-leftcontent"
-      data-automationid={undefined}
     >
       <div
         className="test"
@@ -161,25 +136,21 @@ exports[`<DropDownHeader/> should render leftContent when provided 1`] = `
 exports[`<DropDownHeader/> should render primary button with custom content when onPrimaryButtonClick and primaryButtonContent are provided 1`] = `
 <div
   className="xui-dropdown--header"
-  data-automationid={undefined}
 >
   <div
     className="xui-dropdown--header-container"
   >
     <div
       className="xui-dropdown--header-rightcontent"
-      data-automationid={undefined}
     >
       <div
         className="xui-margin-right-xsmall xui-dropdown--header-rightcontent"
-        data-automationid={undefined}
       >
         <button
           className="xui-button xui-margin-left-small xui-button-main xui-button-small"
           data-automationid={null}
           disabled={false}
           onClick={[Function]}
-          onKeyDown={undefined}
           tabIndex={0}
           type="button"
         >
@@ -194,25 +165,21 @@ exports[`<DropDownHeader/> should render primary button with custom content when
 exports[`<DropDownHeader/> should render primary button with default text when onPrimaryButtonClick is provided 1`] = `
 <div
   className="xui-dropdown--header"
-  data-automationid={undefined}
 >
   <div
     className="xui-dropdown--header-container"
   >
     <div
       className="xui-dropdown--header-rightcontent"
-      data-automationid={undefined}
     >
       <div
         className="xui-margin-right-xsmall xui-dropdown--header-rightcontent"
-        data-automationid={undefined}
       >
         <button
           className="xui-button xui-margin-left-small xui-button-main xui-button-small"
           data-automationid={null}
           disabled={false}
           onClick={[Function]}
-          onKeyDown={undefined}
           tabIndex={0}
           type="button"
         >
@@ -227,18 +194,15 @@ exports[`<DropDownHeader/> should render primary button with default text when o
 exports[`<DropDownHeader/> should render rightContent when provided 1`] = `
 <div
   className="xui-dropdown--header"
-  data-automationid={undefined}
 >
   <div
     className="xui-dropdown--header-container"
   >
     <div
       className="xui-dropdown--header-rightcontent"
-      data-automationid={undefined}
     >
       <div
         className="xui-margin-right-xsmall xui-dropdown--header-rightcontent"
-        data-automationid={undefined}
       >
         <div
           className="test"
@@ -254,25 +218,21 @@ exports[`<DropDownHeader/> should render rightContent when provided 1`] = `
 exports[`<DropDownHeader/> should render secondary button with custom content when onSecondaryButtonClick and secondaryButtonContent are provided 1`] = `
 <div
   className="xui-dropdown--header"
-  data-automationid={undefined}
 >
   <div
     className="xui-dropdown--header-container"
   >
     <div
       className="xui-dropdown--header-rightcontent"
-      data-automationid={undefined}
     >
       <div
         className="xui-margin-right-xsmall xui-dropdown--header-rightcontent"
-        data-automationid={undefined}
       >
         <button
           className="xui-button xui-button-standard xui-button-small"
           data-automationid={null}
           disabled={false}
           onClick={[Function]}
-          onKeyDown={undefined}
           tabIndex={0}
           type="button"
         >
@@ -287,25 +247,21 @@ exports[`<DropDownHeader/> should render secondary button with custom content wh
 exports[`<DropDownHeader/> should render secondary button with default text when onSecondaryButtonClick is provided 1`] = `
 <div
   className="xui-dropdown--header"
-  data-automationid={undefined}
 >
   <div
     className="xui-dropdown--header-container"
   >
     <div
       className="xui-dropdown--header-rightcontent"
-      data-automationid={undefined}
     >
       <div
         className="xui-margin-right-xsmall xui-dropdown--header-rightcontent"
-        data-automationid={undefined}
       >
         <button
           className="xui-button xui-button-standard xui-button-small"
           data-automationid={null}
           disabled={false}
           onClick={[Function]}
-          onKeyDown={undefined}
           tabIndex={0}
           type="button"
         >
@@ -320,18 +276,15 @@ exports[`<DropDownHeader/> should render secondary button with default text when
 exports[`<DropDownHeader/> should render with a title if one is present 1`] = `
 <div
   className="xui-dropdown--header"
-  data-automationid={undefined}
 >
   <div
     className="xui-dropdown--header-container"
   >
     <div
       className="xui-dropdown--header-leftcontent"
-      data-automationid={undefined}
     >
       <div
         className="xui-heading-small xui-margin-left-small xui-text-truncated"
-        data-automationid={undefined}
       >
         Title
       </div>
@@ -343,7 +296,6 @@ exports[`<DropDownHeader/> should render with a title if one is present 1`] = `
 exports[`<DropDownHeader/> should render with additional classes on the main element if className is provided 1`] = `
 <div
   className="xui-dropdown--header classy"
-  data-automationid={undefined}
 />
 `;
 

@@ -4,23 +4,17 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
 <div
   className=""
   data-automationid="baseAC--container"
-  id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
-    className={undefined}
     data-automationid="baseAC--dropdown"
     data-ref="toggled-wrapper"
     role="combobox"
   >
     <div
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
-      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -30,45 +24,34 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
-        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-medium"
           data-automationid="baseAC"
         >
           <input
             aria-autocomplete="list"
-            aria-describedby={undefined}
-            aria-label={undefined}
-            aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid="baseAC--input"
-            defaultValue={undefined}
-            disabled={undefined}
-            id="testDropdownId"
-            maxLength={undefined}
+            id="testAutocompleterId-control"
             onBlurCapture={[Function]}
-            onChange={undefined}
             onFocusCapture={[Function]}
-            placeholder={undefined}
             role="textbox"
-            rows={undefined}
             style={
               Object {
                 "flexBasis": undefined,
                 "maxHeight": undefined,
               }
             }
-            type={undefined}
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -78,23 +61,17 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
 <div
   className=""
   data-automationid={null}
-  id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
-    className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
     role="combobox"
   >
     <div
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
-      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -104,45 +81,156 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
-        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
-            aria-describedby={undefined}
-            aria-label={undefined}
-            aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            defaultValue={undefined}
-            disabled={undefined}
-            id="testDropdownId"
-            maxLength={undefined}
+            id="testAutocompleterId-control"
             onBlurCapture={[Function]}
-            onChange={undefined}
             onFocusCapture={[Function]}
-            placeholder={undefined}
             role="textbox"
-            rows={undefined}
             style={
               Object {
                 "flexBasis": undefined,
                 "maxHeight": undefined,
               }
             }
-            type={undefined}
             value="a"
           />
         </div>
-      </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`XUIAutocompleter renders with a hidden label 1`] = `
+<div
+  className=""
+  data-automationid={null}
+  onBlur={[Function]}
+  onFocus={[Function]}
+>
+  <div
+    data-automationid={null}
+    data-ref="toggled-wrapper"
+    role="combobox"
+  >
+    <div
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      onClick={[Function]}
+      onFocus={null}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+    >
+      <div
+        aria-hidden={true}
+        className="xui-autocompleter--textinputplaceholder"
+      />
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+        role="presentation"
+      >
+        <div
+          className="xui-textinput xui-textinput-medium"
+          data-automationid={null}
+        >
+          <input
+            aria-autocomplete="list"
+            aria-label="Im a little label"
+            aria-multiline={false}
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
+            data-automationid={null}
+            id="testAutocompleterId-control"
+            onBlurCapture={[Function]}
+            onFocusCapture={[Function]}
+            role="textbox"
+            style={
+              Object {
+                "flexBasis": undefined,
+                "maxHeight": undefined,
+              }
+            }
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`XUIAutocompleter renders with the provided label 1`] = `
+<div
+  className=""
+  data-automationid={null}
+  onBlur={[Function]}
+  onFocus={[Function]}
+>
+  <div
+    data-automationid={null}
+    data-ref="toggled-wrapper"
+    role="combobox"
+  >
+    <div
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      onClick={[Function]}
+      onFocus={null}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+    >
+      <div
+        aria-hidden={true}
+        className="xui-autocompleter--textinputplaceholder"
+      />
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+        role="presentation"
+      >
+        <label
+          className="xui-text-label xui-fieldlabel-layout"
+          data-automationid={null}
+          htmlFor="testAutocompleterId-control"
+        >
+          Im a little label
+        </label>
+        <div
+          className="xui-textinput xui-textinput-medium"
+          data-automationid={null}
+        >
+          <input
+            aria-autocomplete="list"
+            aria-multiline={false}
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
+            data-automationid={null}
+            id="testAutocompleterId-control"
+            onBlurCapture={[Function]}
+            onFocusCapture={[Function]}
+            role="textbox"
+            style={
+              Object {
+                "flexBasis": undefined,
+                "maxHeight": undefined,
+              }
+            }
+            value=""
+          />
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -152,23 +240,17 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
 <div
   className=""
   data-automationid={null}
-  id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
-    className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
     role="combobox"
   >
     <div
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
-      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -178,45 +260,34 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
-        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
-            aria-describedby={undefined}
-            aria-label={undefined}
-            aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            defaultValue={undefined}
-            disabled={undefined}
-            id="testDropdownId"
-            maxLength={undefined}
+            id="testAutocompleterId-control"
             onBlurCapture={[Function]}
-            onChange={undefined}
             onFocusCapture={[Function]}
-            placeholder={undefined}
             role="textbox"
-            rows={undefined}
             style={
               Object {
                 "flexBasis": undefined,
                 "maxHeight": undefined,
               }
             }
-            type={undefined}
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -226,23 +297,17 @@ exports[`XUIAutocompleter should render a class on the input element when passed
 <div
   className=""
   data-automationid={null}
-  id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
-    className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
     role="combobox"
   >
     <div
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
-      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -252,45 +317,34 @@ exports[`XUIAutocompleter should render a class on the input element when passed
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
-        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
-            aria-describedby={undefined}
-            aria-label={undefined}
-            aria-labelledby={undefined}
             aria-multiline={false}
-            className="test-class xui-autocompleter--textinput xui-textinput--input"
+            className="test-class xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            defaultValue={undefined}
-            disabled={undefined}
-            id="testDropdownId"
-            maxLength={undefined}
+            id="testAutocompleterId-control"
             onBlurCapture={[Function]}
-            onChange={undefined}
             onFocusCapture={[Function]}
-            placeholder={undefined}
             role="textbox"
-            rows={undefined}
             style={
               Object {
                 "flexBasis": undefined,
                 "maxHeight": undefined,
               }
             }
-            type={undefined}
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -300,23 +354,17 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
 <div
   className="test-class"
   data-automationid={null}
-  id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
-    className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
     role="combobox"
   >
     <div
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
-      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -326,45 +374,34 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
-        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
-            aria-describedby={undefined}
-            aria-label={undefined}
-            aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            defaultValue={undefined}
-            disabled={undefined}
-            id="testDropdownId"
-            maxLength={undefined}
+            id="testAutocompleterId-control"
             onBlurCapture={[Function]}
-            onChange={undefined}
             onFocusCapture={[Function]}
-            placeholder={undefined}
             role="textbox"
-            rows={undefined}
             style={
               Object {
                 "flexBasis": undefined,
                 "maxHeight": undefined,
               }
             }
-            type={undefined}
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -374,21 +411,16 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
 <div
   className=""
   data-automationid={null}
-  id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
-    className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
     role="combobox"
   >
     <div
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
       className="test-class"
       onClick={[Function]}
@@ -400,45 +432,34 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
-        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
-            aria-describedby={undefined}
-            aria-label={undefined}
-            aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            defaultValue={undefined}
-            disabled={undefined}
-            id="testDropdownId"
-            maxLength={undefined}
+            id="testAutocompleterId-control"
             onBlurCapture={[Function]}
-            onChange={undefined}
             onFocusCapture={[Function]}
-            placeholder={undefined}
             role="textbox"
-            rows={undefined}
             style={
               Object {
                 "flexBasis": undefined,
                 "maxHeight": undefined,
               }
             }
-            type={undefined}
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -448,23 +469,17 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
 <div
   className=""
   data-automationid={null}
-  id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
-    className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
     role="combobox"
   >
     <div
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
-      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -476,45 +491,36 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
       >
         Search
       </div>
-      <label
+      <div
         className="xui-textinputwrapper"
-        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
-            aria-describedby={undefined}
             aria-label="Search"
-            aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            defaultValue={undefined}
-            disabled={undefined}
-            id="testDropdownId"
-            maxLength={undefined}
+            id="testAutocompleterId-control"
             onBlurCapture={[Function]}
-            onChange={undefined}
             onFocusCapture={[Function]}
             placeholder="Search"
             role="textbox"
-            rows={undefined}
             style={
               Object {
                 "flexBasis": undefined,
                 "maxHeight": undefined,
               }
             }
-            type={undefined}
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -524,23 +530,17 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
 <div
   className=""
   data-automationid={null}
-  id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
-    className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
     role="combobox"
   >
     <div
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
-      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -550,45 +550,34 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
-        htmlFor="test-inputId"
         onKeyDown={[Function]}
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
-            aria-describedby={undefined}
-            aria-label={undefined}
-            aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            defaultValue={undefined}
-            disabled={undefined}
-            id="test-inputId"
-            maxLength={undefined}
+            id="testAutocompleterId-control"
             onBlurCapture={[Function]}
-            onChange={undefined}
             onFocusCapture={[Function]}
-            placeholder={undefined}
             role="textbox"
-            rows={undefined}
             style={
               Object {
                 "flexBasis": undefined,
                 "maxHeight": undefined,
               }
             }
-            type={undefined}
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -603,18 +592,13 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
   onFocus={[Function]}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
-    className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
     role="combobox"
   >
     <div
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
-      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -624,45 +608,34 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
-        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
-            aria-describedby={undefined}
-            aria-label={undefined}
-            aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            defaultValue={undefined}
-            disabled={undefined}
-            id="testDropdownId"
-            maxLength={undefined}
+            id="testAutocompleterId-control"
             onBlurCapture={[Function]}
-            onChange={undefined}
             onFocusCapture={[Function]}
-            placeholder={undefined}
             role="textbox"
-            rows={undefined}
             style={
               Object {
                 "flexBasis": undefined,
                 "maxHeight": undefined,
               }
             }
-            type={undefined}
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -672,23 +645,17 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
 <div
   className=""
   data-automationid={null}
-  id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
-    className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
     role="combobox"
   >
     <div
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
-      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -698,45 +665,35 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
-        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
         <div
-          className="xui-textinput xui-textinput-is-disabled"
+          className="xui-textinput xui-textinput-medium xui-textinput-is-disabled"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
-            aria-describedby={undefined}
-            aria-label={undefined}
-            aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            defaultValue={undefined}
             disabled={true}
-            id="testDropdownId"
-            maxLength={undefined}
+            id="testAutocompleterId-control"
             onBlurCapture={[Function]}
-            onChange={undefined}
             onFocusCapture={[Function]}
-            placeholder={undefined}
             role="textbox"
-            rows={undefined}
             style={
               Object {
                 "flexBasis": undefined,
                 "maxHeight": undefined,
               }
             }
-            type={undefined}
             value=""
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>
@@ -746,23 +703,17 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
 <div
   className=""
   data-automationid={null}
-  id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
-    aria-expanded={undefined}
-    aria-owns={undefined}
-    className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
     role="combobox"
   >
     <div
       aria-activedescendant={null}
-      aria-controls={undefined}
       aria-haspopup="listbox"
-      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -772,45 +723,35 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <label
+      <div
         className="xui-textinputwrapper"
-        htmlFor="testDropdownId"
         onKeyDown={[Function]}
         role="presentation"
       >
         <div
-          className="xui-textinput"
+          className="xui-textinput xui-textinput-medium"
           data-automationid={null}
         >
           <input
             aria-autocomplete="list"
-            aria-describedby={undefined}
-            aria-label={undefined}
-            aria-labelledby={undefined}
             aria-multiline={false}
-            className="xui-autocompleter--textinput xui-textinput--input"
+            className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            defaultValue={undefined}
-            disabled={undefined}
-            id="testDropdownId"
+            id="testAutocompleterId-control"
             maxLength={5}
             onBlurCapture={[Function]}
-            onChange={undefined}
             onFocusCapture={[Function]}
-            placeholder={undefined}
             role="textbox"
-            rows={undefined}
             style={
               Object {
                 "flexBasis": undefined,
                 "maxHeight": undefined,
               }
             }
-            type={undefined}
             value="123456"
           />
         </div>
-      </label>
+      </div>
     </div>
   </div>
 </div>

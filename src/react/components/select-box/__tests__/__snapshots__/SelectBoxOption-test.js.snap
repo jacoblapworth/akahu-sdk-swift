@@ -2,23 +2,15 @@
 
 exports[`<SelectBoxOption /> should render an a tag if an href prop is provided 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
 >
   <a
     className="xui-pickitem--body"
-    data-automationid={undefined}
     href="http://xero.com"
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
-    target={undefined}
   >
     <span
       className="xui-pickitem--text"
@@ -31,21 +23,14 @@ exports[`<SelectBoxOption /> should render an a tag if an href prop is provided 
 
 exports[`<SelectBoxOption /> should render an aria role if the ariaRole prop has a value 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="item"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -59,21 +44,14 @@ exports[`<SelectBoxOption /> should render an aria role if the ariaRole prop has
 
 exports[`<SelectBoxOption /> should render an aria role of option by default 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -87,9 +65,8 @@ exports[`<SelectBoxOption /> should render an aria role of option by default 1`]
 
 exports[`<SelectBoxOption /> should render an automaion id when provided with a qaHook 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
+  className="xui-pickitem xui-pickitem-medium"
   data-automationid="test-sbo"
   id="1"
   role="option"
@@ -97,11 +74,7 @@ exports[`<SelectBoxOption /> should render an automaion id when provided with a 
   <button
     className="xui-pickitem--body"
     data-automationid="test-sbo--body"
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -115,21 +88,14 @@ exports[`<SelectBoxOption /> should render an automaion id when provided with a 
 
 exports[`<SelectBoxOption /> should render an button element by default 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -143,81 +109,63 @@ exports[`<SelectBoxOption /> should render an button element by default 1`] = `
 
 exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes prop is set to true 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={false}
-  className="xui-pickitem xui-pickitem-multiselect"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium"
   id="1"
   role="option"
 >
   <div
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onFocus={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     role="presentation"
   >
-    <label
-      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
-      data-automationid={undefined}
-      onClick={[Function]}
-      role="presentation"
+    <div
+      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
     >
-      <input
-        aria-label={undefined}
-        aria-labelledby="testCheckboxId"
-        checked={false}
-        className="xui-styledcheckboxradio--input"
-        data-automationid={undefined}
-        disabled={false}
-        name={undefined}
-        onChange={[Function]}
+      <label
+        className="xui-styledcheckboxradio"
         onClick={[Function]}
-        required={false}
-        tabIndex={-1}
-        type="checkbox"
-        value={undefined}
-      />
-      <div
-        className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
-        data-automationid={undefined}
-      />
-      <span
-        className="xui-styledcheckboxradio--label xui-pickitem-multiselect--label"
-        data-automationid={undefined}
-        id="testCheckboxId"
+        role="presentation"
       >
+        <input
+          aria-labelledby="testCheckboxId"
+          checked={false}
+          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+          disabled={false}
+          onChange={[Function]}
+          onClick={[Function]}
+          required={false}
+          tabIndex={-1}
+          type="checkbox"
+        />
+        <div
+          className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
+        />
         <span
-          className=""
-          data-automationid={undefined}
+          className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
+          id="testCheckboxId"
         >
-          .
+          <span
+            className=""
+          >
+            .
+          </span>
         </span>
-      </span>
-    </label>
+      </label>
+    </div>
   </div>
 </li>
 `;
 
 exports[`<SelectBoxOption /> should render extra classes on the option element when values are added to the optionClasses prop 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem option-class"
-  data-automationid={undefined}
+  className="xui-pickitem option-class xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -231,28 +179,21 @@ exports[`<SelectBoxOption /> should render extra classes on the option element w
 
 exports[`<SelectBoxOption /> should render text as truncated when the truncatedText prop is set to true 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
       className="xui-pickitem--text"
     >
       <span
-        className="xui-text-truncated"
+        className="xui-select--option-truncated"
       >
         This text should be truncated and only visible on one line because it's so long.
       </span>
@@ -263,21 +204,14 @@ exports[`<SelectBoxOption /> should render text as truncated when the truncatedT
 
 exports[`<SelectBoxOption /> should render the correct value passed in 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -291,21 +225,14 @@ exports[`<SelectBoxOption /> should render the correct value passed in 1`] = `
 
 exports[`<SelectBoxOption /> should render the highlighted class if isHighlighted is true 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem xui-pickitem-is-hovered"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-is-hovered xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -319,81 +246,63 @@ exports[`<SelectBoxOption /> should render the highlighted class if isHighlighte
 
 exports[`<SelectBoxOption /> should render the option and the checkboxes as disabled when the isDisabled and showCheckboxes props are true 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={false}
-  className="xui-pickitem xui-pickitem-multiselect xui-is-disabled"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-multiselect xui-pickitem-is-disabled xui-pickitem-medium"
   id="1"
   role="option"
 >
   <div
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onFocus={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     role="presentation"
   >
-    <label
-      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
-      data-automationid={undefined}
-      onClick={[Function]}
-      role="presentation"
+    <div
+      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
     >
-      <input
-        aria-label={undefined}
-        aria-labelledby="testCheckboxId"
-        checked={false}
-        className="xui-styledcheckboxradio--input"
-        data-automationid={undefined}
-        disabled={false}
-        name={undefined}
-        onChange={[Function]}
+      <label
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
         onClick={[Function]}
-        required={false}
-        tabIndex={-1}
-        type="checkbox"
-        value={undefined}
-      />
-      <div
-        className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
-        data-automationid={undefined}
-      />
-      <span
-        className="xui-styledcheckboxradio--label xui-pickitem-multiselect--label"
-        data-automationid={undefined}
-        id="testCheckboxId"
+        role="presentation"
       >
+        <input
+          aria-labelledby="testCheckboxId"
+          checked={false}
+          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+          disabled={true}
+          onChange={[Function]}
+          onClick={[Function]}
+          required={false}
+          tabIndex={-1}
+          type="checkbox"
+        />
+        <div
+          className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
+        />
         <span
-          className=""
-          data-automationid={undefined}
+          className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
+          id="testCheckboxId"
         >
-          .
+          <span
+            className=""
+          >
+            .
+          </span>
         </span>
-      </span>
-    </label>
+      </label>
+    </div>
   </div>
 </li>
 `;
 
 exports[`<SelectBoxOption /> should render the option as disabled when the isDisabled prop is false 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -407,21 +316,14 @@ exports[`<SelectBoxOption /> should render the option as disabled when the isDis
 
 exports[`<SelectBoxOption /> should render the option as disabled when the isDisabled prop is true 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem xui-is-disabled"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-is-disabled xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -435,21 +337,14 @@ exports[`<SelectBoxOption /> should render the option as disabled when the isDis
 
 exports[`<SelectBoxOption /> should render the selected class if isSelected is true 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem xui-pickitem-is-selected"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -463,21 +358,14 @@ exports[`<SelectBoxOption /> should render the selected class if isSelected is t
 
 exports[`<SelectBoxOption /> shouldn't render checkboxes when the showCheckboxes prop is set to false 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -491,21 +379,14 @@ exports[`<SelectBoxOption /> shouldn't render checkboxes when the showCheckboxes
 
 exports[`<SelectBoxOption /> shouldn't render text as truncated when the truncatedText prop is set to false 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -519,21 +400,14 @@ exports[`<SelectBoxOption /> shouldn't render text as truncated when the truncat
 
 exports[`<SelectBoxOption /> shouldn't render the highlighted class by default 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -547,21 +421,14 @@ exports[`<SelectBoxOption /> shouldn't render the highlighted class by default 1
 
 exports[`<SelectBoxOption /> shouldn't render the highlighted class if isHighlighted is false 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -575,21 +442,14 @@ exports[`<SelectBoxOption /> shouldn't render the highlighted class if isHighlig
 
 exports[`<SelectBoxOption /> shouldn't render the selected class by default 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span
@@ -603,21 +463,14 @@ exports[`<SelectBoxOption /> shouldn't render the selected class by default 1`] 
 
 exports[`<SelectBoxOption /> shouldn't render the selected class if isSelected is false 1`] = `
 <li
-  aria-label={undefined}
   aria-selected={null}
-  className="xui-pickitem"
-  data-automationid={undefined}
+  className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
 >
   <button
     className="xui-pickitem--body"
-    data-automationid={undefined}
-    onClick={undefined}
-    onKeyDown={undefined}
-    onMouseOver={undefined}
     rel={null}
-    tabIndex={undefined}
     type="button"
   >
     <span

@@ -12,9 +12,11 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
 		const component = renderer.create(
 			<AccordionTrigger
 				toggleLabel="Toggle"
-				onClick={noop}
 				qaHook="test-qahook"
 				primaryHeading="John Smith"
+				onItemClick={noop}
+				updateOpenId={noop}
+				getItemData={noop}
 			/>
 		);
 
@@ -25,8 +27,10 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
 		const component = renderer.create(
 			<AccordionTrigger
 				toggleLabel="Toggle"
-				onClick={noop}
 				primaryHeading="John Smith"
+				onItemClick={noop}
+				updateOpenId={noop}
+				getItemData={noop}
 			/>
 		);
 
@@ -37,9 +41,11 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
 		const component = renderer.create(
 			<AccordionTrigger
 				toggleLabel="Toggle"
-				isOpen
-				onClick={noop}
 				primaryHeading="John Smith"
+				isOpen
+				onItemClick={noop}
+				updateOpenId={noop}
+				getItemData={noop}
 			/>
 		);
 
@@ -50,8 +56,10 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
 		const component = renderer.create(
 			<AccordionTrigger
 				toggleLabel="Toggle"
-				onClick={noop}
 				primaryHeading="John Smith"
+				onItemClick={noop}
+				updateOpenId={noop}
+				getItemData={noop}
 				leftContent={<abbr role="presentation">GB</abbr>}
 				secondaryHeading={(
 					<div>
@@ -75,9 +83,11 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
 		const component = mount(
 			<AccordionTrigger
 				toggleLabel="Toggle"
-				onClick={onClick}
-				qaHook={qaHook}
 				primaryHeading="John Smith"
+				qaHook={qaHook}
+				onItemClick={onClick}
+				updateOpenId={noop}
+				getItemData={noop}
 			/>
 		);
 
@@ -91,9 +101,11 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
 		const component = mount(
 			<AccordionTrigger
 				toggleLabel="Toggle"
-				onClick={onClick}
-				qaHook={qaHook}
 				primaryHeading="John Smith"
+				qaHook={qaHook}
+				onItemClick={onClick}
+				updateOpenId={noop}
+				getItemData={noop}
 			/>
 		);
 		const keyDownNode = component.find(`[data-automationid="${qaHook}"]`)

@@ -1,0 +1,93 @@
+@import "../../vars";
+@import "../../mixins";
+
+// Base grid templates
+@mixin composition-mds-small {
+	grid-template:
+		"summary"
+		"detail" / 1fr;
+}
+
+@mixin composition-mds-medium {
+	grid-template:
+		"summary summary"
+		"master detail" / min-content 1fr;
+	&.#{$ns}-composition-has-auto-widths {
+		grid-template-columns: 25% 1fr;
+	}
+}
+
+@mixin composition-mds-large {
+	grid-template:
+		"master detail summary" / min-content 1fr min-content;
+	&.#{$ns}-composition-has-auto-widths {
+		grid-template-columns: 25% 1fr 25%;
+	}
+}
+
+// Gap template variants (necessary for IE & Autoprefixer)
+@mixin composition-mds-small-gap {
+	@include xui-composition-grid-gap;
+	@include composition-mds-small;
+}
+
+@mixin composition-mds-medium-gap {
+	@include xui-composition-grid-gap;
+	@include composition-mds-medium;
+	&.#{$ns}-composition-has-auto-widths {
+		-ms-grid-columns: 25% $xui-grid-gutter 1fr;
+	}
+}
+
+@mixin composition-mds-large-gap {
+	@include xui-composition-grid-gap;
+	@include composition-mds-large;
+	&.#{$ns}-composition-has-auto-widths {
+		-ms-grid-columns: 25% $xui-grid-gutter 1fr $xui-grid-gutter 25%;
+	}
+}
+
+// Classes using templates at various breakpoints
+.#{$ns}-composition-masterdetailsummary {
+	@include composition-mds-small;
+	&.#{$ns}-composition-has-grid-gap {
+		@include composition-mds-small-gap;
+	}
+
+	&.#{$ns}-composition-auto-template {
+		@include xui-breakpoint-medium-to-large {
+			@include composition-mds-medium;
+			&.#{$ns}-composition-has-grid-gap {
+				@include composition-mds-medium-gap;
+			}
+		}
+
+		@include xui-breakpoint-large-up {
+			@include composition-mds-large;
+			&.#{$ns}-composition-has-grid-gap {
+				@include composition-mds-large-gap;
+			}
+		}
+		@include xui-breakpoint-xlarge-up {
+			@include xui-composition-3-column-max-widths;
+		}
+	}
+}
+
+.#{$ns}-composition-masterdetailsummary-retain-medium {
+	@include xui-breakpoint-medium-up {
+		@include composition-mds-medium;
+		&.#{$ns}-composition-has-grid-gap {
+			@include composition-mds-medium-gap;
+		}
+	}
+	@include xui-breakpoint-xlarge-up {
+		@include xui-composition-narrow-left-max-widths;
+	}
+}
+
+.#{$ns}-composition-masterdetailsummary-retain-small {
+	& .#{$ns}-gridarea-master {
+		@include xui-utility-hidden-visually;
+	}
+}

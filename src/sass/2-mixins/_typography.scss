@@ -12,12 +12,44 @@
 	}
 */
 
-@mixin xui-text-small {
-	font-size: $xui-font-size-small;
+@mixin xui-text-2xsmall {
+	font-size: $xui-font-size-2xsmall;
+	line-height: $xui-line-height-xsmall;
 }
 
 @mixin xui-text-xsmall {
 	font-size: $xui-font-size-xsmall;
+	line-height: $xui-line-height-xsmall;
+}
+
+@mixin xui-text-small {
+	font-size: $xui-font-size-small;
+	line-height: $xui-line-height-small;
+}
+
+@mixin xui-text-medium {
+	font-size: $xui-font-size-medium;
+	line-height: $xui-line-height-standard;
+}
+
+@mixin xui-text-large {
+	font-size: $xui-font-size-large;
+	line-height: $xui-line-height-large;
+}
+
+@mixin xui-text-xlarge {
+	font-size: $xui-font-size-xlarge;
+	line-height: $xui-line-height-xlarge;
+}
+
+@mixin xui-text-2xlarge {
+	font-size: $xui-font-size-2xlarge;
+	line-height: $xui-line-height-2xlarge;
+}
+
+@mixin xui-text-3xlarge {
+	font-size: $xui-font-size-3xlarge;
+	line-height: $xui-line-height-3xlarge;
 }
 
 @mixin xui-text-line-height-reset {
@@ -82,7 +114,6 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	width: 100%;
 }
 
 @mixin xui-text-wordbreak {
@@ -103,32 +134,49 @@
 	word-wrap: break-word;
 }
 
-@mixin xui-heading-large {
-	@include xui-text-line-height-compact;
+@mixin xui-heading-3xlarge {
 	@include xui-text-proportional-nums;
 	@include xui-text-emphasis;
-
-	font-size: $xui-font-size-xlarge;
+	@include xui-text-3xlarge;
+	line-height: $xui-line-height-tight;
 }
 
-@mixin xui-heading-medium {
-	@include xui-text-line-height-compact;
+@mixin xui-heading-2xlarge {
+	@include xui-text-proportional-nums;
 	@include xui-text-emphasis;
+	@include xui-text-2xlarge;
+	line-height: $xui-line-height-tight;
+}
 
-	font-size: $xui-font-size-large;
+@mixin xui-heading-xlarge {
+	@include xui-text-proportional-nums;
+	@include xui-text-emphasis;
+	@include xui-text-xlarge;
+	line-height: $xui-line-height-tight;
+}
+
+@mixin xui-heading-large {
+	@include xui-text-proportional-nums;
+	@include xui-text-emphasis;
+	@include xui-text-large;
+	line-height: $xui-line-height-compact;
+}
+
+@mixin xui-heading-medium($emphasis: true) {
+	@if (not($emphasis)) {
+		@include xui-text-deemphasis;
+	} @else {
+		@include xui-text-emphasis;
+	}
+	@include xui-text-medium;
 }
 
 @mixin xui-heading-small {
-	@include xui-text-line-height-compact;
 	@include xui-text-emphasis;
-
-	font-size: $xui-font-size-medium;
+	@include xui-text-small;
 }
 
 @mixin xui-heading-xsmall {
-	@include xui-text-line-height-compact;
-	@include xui-text-deemphasis;
-	@include xui-text-muted;
-
-	font-size: $xui-font-size-small;
+	@include xui-text-emphasis;
+	@include xui-text-xsmall;
 }

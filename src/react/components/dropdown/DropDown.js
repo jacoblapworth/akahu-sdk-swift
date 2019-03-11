@@ -5,6 +5,7 @@ import DropDownLayout from './DropDownLayout';
 import DropDownPanel from './DropDownPanel';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
 import { ns } from '../helpers/xuiClassNamespace';
+import { fixedWidthDropdownSizes } from './private/constants';
 
 /**
  * Wrapper for all content which will go inside of a dropdown.  It ensures the correct
@@ -17,6 +18,8 @@ import { ns } from '../helpers/xuiClassNamespace';
  * @extends {PureComponent}
  */
 export default class DropDown extends PureComponent {
+	panel = React.createRef();
+
 	componentDidMount() {
 		const { isHidden, restrictFocus } = this.props;
 		if (!isHidden && restrictFocus) {
@@ -26,14 +29,15 @@ export default class DropDown extends PureComponent {
 
 	componentDidUpdate(prevProps) {
 		const dropdown = this;
+		const currentPanel = dropdown.panel.current;
 		const { isHidden, hasKeyboardEvents, restrictFocus } = dropdown.props;
 		if (!isHidden) {
-			if (hasKeyboardEvents && !dropdown.panel.hasFocus()) {
-				dropdown.panel.focus();
+			if (hasKeyboardEvents && currentPanel && !currentPanel.hasFocus()) {
+				currentPanel.focus();
 			}
-			const id = dropdown.panel && dropdown.panel.getHighlightedId();
+			const id = currentPanel && currentPanel.getHighlightedId();
 			if (id) {
-				dropdown.panel.scrollIdIntoView(id);
+				currentPanel.scrollIdIntoView(id);
 			}
 		}
 		if (isHidden !== prevProps.isHidden || restrictFocus !== prevProps.restrictFocus) {
@@ -63,8 +67,8 @@ export default class DropDown extends PureComponent {
 	 * @memberof DropDown
 	 */
 	onKeyDown = event => {
-		if (this.panel != null) {
-			this.panel.onKeyDown(event);
+		if (this.panel.current != null) {
+			this.panel.current.onKeyDown(event);
 		}
 	};
 
@@ -81,21 +85,21 @@ export default class DropDown extends PureComponent {
 	 * Limits the focusable elements to those within the dropdown
 	 * */
 	_restrictFocus = event => {
-		const dropdown = this;
-		if (dropdown.panel != null && dropdown.panel.rootNode != null) {
-			const { rootNode } = dropdown.panel;
+		const currentPanel = this.panel.current;
+		if (currentPanel != null && currentPanel.rootNode.current != null) {
+			const { rootNode } = currentPanel;
 			const targetIsWindow = event.target === window;
-			if (targetIsWindow || !rootNode.contains(event.target)) {
+			if (targetIsWindow || !rootNode.current.contains(event.target)) {
 				event.stopPropagation();
-				rootNode.focus();
+				rootNode.current.focus();
 			}
 		}
 	};
 
 	onHighlightChange = item => {
-		if (item != null) {
+		if (item != null && this.panel.current) {
 			const { onHighlightChange } = this.props;
-			this.panel.scrollIdIntoView(item.props.id);
+			this.panel.current.scrollIdIntoView(item.props.id);
 			onHighlightChange && onHighlightChange(item);
 		}
 	};
@@ -109,7 +113,7 @@ export default class DropDown extends PureComponent {
 	 * @memberof DropDown
 	 */
 	highlightItem = (item, event) => {
-		this.panel.highlightItem(item, event);
+		this.panel.current.highlightItem(item, event);
 	};
 
 	/**
@@ -119,7 +123,7 @@ export default class DropDown extends PureComponent {
 	 * @memberof DropDown
 	 */
 	selectHighlighted = () => {
-		this.panel.selectHighlighted();
+		this.panel.current.selectHighlighted();
 	};
 
 	/**
@@ -129,18 +133,19 @@ export default class DropDown extends PureComponent {
 	 * @memberof DropDownPanel
 	 */
 	highlightInitial = () => {
-		if (this.panel != null) {
-			this.panel.highlightInitial();
-			const highlightedId = this.panel.getHighlightedId();
+		const currentPanel = this.panel.current;
+		if (currentPanel != null) {
+			currentPanel.highlightInitial();
+			const highlightedId = currentPanel.getHighlightedId();
 			if (highlightedId != null) {
-				this.panel.scrollIdIntoView(highlightedId);
+				currentPanel.scrollIdIntoView(highlightedId);
 			}
 		}
 	};
 
 	highlightFirstItem = () => {
-		if (this.panel != null) {
-			this.panel.highlightFirstItem();
+		if (this.panel.current != null) {
+			this.panel.current.highlightFirstItem();
 		}
 	}
 
@@ -206,7 +211,7 @@ export default class DropDown extends PureComponent {
 					onKeyDown={this.keyDownHandler}
 					onSelect={onSelect}
 					qaHook={qaHook}
-					ref={c => this.panel = c}
+					ref={this.panel}
 					shouldManageInitialHighlight={shouldManageInitialHighlight}
 					style={{
 						maxHeight: style && style.maxHeight,
@@ -231,9 +236,9 @@ DropDown.propTypes = {
 	/** Whether or not this component is hidden. */
 	isHidden: PropTypes.bool,
 
-	/** Applies the correct XUI class based on the chose size. Default will
-	 * fits to children's width. */
-	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
+	/** Applies the correct XUI class based on the chosen size. Default will
+	 * fit to children's width. */
+	size: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
 	/** An array of keydown keycodes to be ignored from dropdown behaviour. */
 	ignoreKeyboardEvents: PropTypes.array,
@@ -253,7 +258,7 @@ DropDown.propTypes = {
 	/** Whether or not the dropdown should take focus and handle keyboard events automatically */
 	hasKeyboardEvents: PropTypes.bool,
 
-	/** Callback for adding additional onKeyPress funcitonality */
+	/** Callback for adding additional onKeyPress functionality */
 	onKeyDown: PropTypes.func,
 
 	/** Whether focus should be restricted to the dropdown while it's open. */
@@ -280,7 +285,7 @@ DropDown.propTypes = {
 	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
 
-	/** Force wrapping Panel childrens in a StatefulPicklist  */
+	/** Force wrapping Panel children in a StatefulPicklist  */
 	forceStatefulPicklist: PropTypes.bool,
 
 	/** Class to apply to the body element of the dropdown */

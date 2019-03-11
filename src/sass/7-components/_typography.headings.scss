@@ -1,6 +1,10 @@
 @import "../vars";
 @import "../mixins";
 
+// Presets
+// TODO: Review whether these are components or not
+
+
 .#{$ns}-heading-panel {
 	@include xui-heading-medium;
 	// other specific stuff to this element might go here???
@@ -12,18 +16,15 @@
 	font-weight: $xui-font-weight-deemphasis;
 }
 
-.#{$ns}-heading-modal {
-	@include xui-heading-medium;
-	// other specific stuff to this element might go here???
-}
-
 .#{$ns}-heading-item {
 	@include xui-heading-small;
 	// other specific stuff to this element might go here???
 }
 
 .#{$ns}-heading-separator {
-	@include xui-heading-xsmall;
+	@include xui-heading-small;
+	@include xui-text-deemphasis;
+	@include xui-text-muted;
 }
 
 // Generic Headings
@@ -36,7 +37,7 @@
 	@include xui-heading-small;
 }
 
-.#{$ns}-heading {
+.#{$ns}-heading-medium {
 	@include xui-heading-medium;
 }
 
@@ -45,45 +46,13 @@
 }
 
 .#{$ns}-heading-xlarge {
-	@include xui-text-spacing-tight;
-	@include xui-text-emphasis;
-	@include xui-text-line-height-tight;
-	@include xui-text-proportional-nums;
-	font-size: $xui-font-size-extended-2xlarge;
-
-	@include xui-breakpoint-medium-and-wide {
-		font-size: $xui-font-size-extended-4xlarge;
-	}
-
-	@include xui-breakpoint-huge {
-		font-size: $xui-font-size-extended-5xlarge;
-	}
+	@include xui-heading-xlarge;
 }
 
 .#{$ns}-heading-2xlarge {
-	@include xui-text-spacing-tight;
-	@include xui-text-emphasis;
-	@include xui-text-line-height-tight;
-	@include xui-text-proportional-nums;
-	font-size: $xui-font-size-extended-4xlarge;
-
-	@include xui-breakpoint-medium-and-wide {
-		font-size: $xui-font-size-extended-5xlarge;
-	}
-
-	@include xui-breakpoint-huge {
-		font-size: 48px;
-	}
+	@include xui-heading-2xlarge;
 }
 
 .#{$ns}-heading-3xlarge {
-	@include xui-text-spacing-tight;
-	@include xui-text-emphasis;
-	@include xui-text-line-height-tight;
-	@include xui-text-proportional-nums;
-	font-size: 48px;
-
-	@include xui-breakpoint-medium-and-wide {
-		font-size: 5vw;
-	}
+	@include xui-heading-3xlarge;
 }

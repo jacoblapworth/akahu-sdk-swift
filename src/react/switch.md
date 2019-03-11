@@ -6,18 +6,22 @@
 
 ## Example
 
-```
-const { PureComponent } = require('react');
-
-const NOOP = () => {};
+```jsx harmony
+import { PureComponent } from 'react';
+import XUISwitch from './switch';
 
 class Example extends PureComponent {
-	constructor(props) {
-		super(props);
+	constructor(...args) {
+		super(...args);
 
+		this.onChange = this.onChange.bind(this);
 		this.state = {
-			isChecked: true,
+			isSecondSwitchChecked: true,
 		};
+	}
+
+	onChange() {
+		this.setState(prevState => ({ isSecondSwitchChecked: !prevState.isSecondSwitchChecked }));
 	}
 
 	render() {
@@ -26,8 +30,8 @@ class Example extends PureComponent {
 				<h3>Click the switch</h3>
 				<div className="xui-margin-bottom">
 					<XUISwitch
-						isChecked={this.state.isChecked}
-						onChange={() => this.setState(prevState => ({ isChecked: !prevState.isChecked }))}
+						isDefaultChecked
+						onChange={this.onChange}
 					>
 						Enabled switch
 					</XUISwitch>
@@ -35,8 +39,8 @@ class Example extends PureComponent {
 				<div>
 					<XUISwitch
 						isDisabled
-						isChecked={this.state.isChecked}
-						onChange={NOOP}
+						isChecked={this.state.isSecondSwitchChecked}
+						hintMessage="Can't touch this"
 					>
 						Disabled switch
 					</XUISwitch>

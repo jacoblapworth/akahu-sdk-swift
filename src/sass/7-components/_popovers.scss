@@ -4,6 +4,8 @@
 //
 // Teaser: To highlight pertinent features or provide additional helper text.
 //
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.i0mg8rwa59ob
+//
 // Introduction: Popovers are used to highlight pertinent new features or provide additional helper text without affecting the underlying page layout.
 //
 // Styleguide: Building Blocks.Alerts.Popover
@@ -101,106 +103,10 @@
 	position: relative;
 }
 
-// TODO: Deprecated in XUI12, remove in XUI14
-.#{$ns}-popover--arrow {
-	display: inline-block;
-	fill: $xui-popover-bg-color;
-	//If font-size is set to inherit, when font size is too big the arrow will shift down and out of place
-	font-size: 1px;
-	height: 16px;
-	left: 15px;
-	opacity: 1;
-	position: absolute;
-	top: -8px;
-	vertical-align: middle;
-	width: 16px;
-
-	&-topleft {
-		left: 15px;
-		top: -8px;
-	}
-
-	&-topcenter {
-		left: 50%;
-		transform: translateX(-50%);
-	}
-
-	&-topright {
-		left: auto;
-		right: 15px;
-	}
-
-	&-bottomleft {
-		bottom: -8px;
-		top: auto;
-		transform: rotate(180deg);
-	}
-
-	&-bottomcenter {
-		bottom: -8px;
-		left: 50%;
-		top: auto;
-		transform: translateX(-50%) rotate(180deg);
-	}
-
-	&-bottomright {
-		bottom: -8px;
-		left: auto;
-		right: 15px;
-		top: auto;
-		transform: rotate(180deg);
-	}
-
-	&-lefttop {
-		left: -8px;
-		top: 15px;
-		transform: rotate(270deg);
-	}
-
-	&-leftcenter {
-		left: -8px;
-		top: 50%;
-		transform: translateY(-50%) rotate(270deg);
-	}
-
-	&-leftbottom {
-		bottom: 15px;
-		left: -8px;
-		top: auto;
-		transform: rotate(270deg);
-	}
-
-	&-righttop {
-		left: auto;
-		right: -8px;
-		top: 15px;
-		transform: rotate(90deg);
-	}
-
-	&-rightcenter {
-		left: auto;
-		right: -8px;
-		top: 50%;
-		transform: translateY(-50%) rotate(90deg);
-	}
-
-	&-rightbottom {
-		bottom: 15px;
-		left: auto;
-		right: -8px;
-		top: auto;
-		transform: rotate(90deg);
-	}
-
-	&--border {
-		stroke: $xui-popover-arrow-border-color;
-	}
-}
-
 .#{$ns}-popover-arrow:before {
-	border-bottom: 8px solid $xui-popover-arrow-border-color;
-	border-left: 8px solid transparent;
-	border-right: 8px solid transparent;
+	border-bottom: $xui-s-xsmall solid $xui-popover-arrow-border-color;
+	border-left: $xui-s-xsmall solid transparent;
+	border-right: $xui-s-xsmall solid transparent;
 	content: '';
 	left: 15px;
 	position: absolute;
@@ -208,9 +114,9 @@
 }
 
 .#{$ns}-popover-arrow:after {
-	border-bottom: 8px solid $xui-popover-bg-color;
-	border-left: 8px solid transparent;
-	border-right: 8px solid transparent;
+	border-bottom: $xui-s-xsmall solid $xui-popover-bg-color;
+	border-left: $xui-s-xsmall solid transparent;
+	border-right: $xui-s-xsmall solid transparent;
 	content: '';
 	left: 15px;
 	position: absolute;

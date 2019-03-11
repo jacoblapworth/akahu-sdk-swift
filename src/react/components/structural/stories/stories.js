@@ -28,10 +28,11 @@ import { rowVariants } from '../private/constants';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, number, text } from '@storybook/addon-knobs';
+import { withKnobs, select, number, text, boolean } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 import { variations, storiesWithVariationsKindName } from './variations';
+import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';
 
 const buildColumns = (widths) => {
 	return widths.map((width, index) => {
@@ -81,17 +82,23 @@ const buildExampleSections = (children) => {
 const buildExampleContentblockItem = (children) => {
 	return children.map((child, index) => {
 		if (child.overflow) {
-			child.overflow = <XUIButton className="xui-button-icon-large" variant="icon" aria-label="Overflow menu"><XUIIcon icon={overflow} isBoxed /></XUIButton>;
+			child.overflow = <XUIButton variant="icon" aria-label="Overflow menu"><XUIIcon icon={overflow} /></XUIButton>;
 		}
 		if (child.tag) {
-			child.tag = <XUITag className="xui-margin-left-small" variant="positive">Positive</XUITag>;
+			child.tags = <XUITag className="xui-margin-left-small" variant="positive">Positive</XUITag>;
+		}
+		if (child.tags) {
+			child.tags = [
+				<XUITag className="xui-margin-right-xsmall" variant="positive" key="positive-tag" size="small">Positive</XUITag>,
+				<XUITag className="xui-margin-right" variant="negative" key="negative-tag" size="small">Negative</XUITag>
+			]
 		}
 		if (child.leftContent === "checkbox") {
 			child.leftContent = <XUICheckbox isLabelHidden>Row checkbox</XUICheckbox>;
 		} else if (child.leftContent === "avatar") {
 			child.leftContent = <XUIAvatar value="Pixar" />;
 		} else if (child.leftContent === "rollover") {
-			child.leftContent = <XUIRolloverCheckbox isCheckboxHidden={true} labelText="contentBlockItem rollover" rolloverComponent={<XUIAvatar value="Tim Redmond" />}/>;
+			child.leftContent = <XUIRolloverCheckbox isCheckboxHidden={true} label="contentBlockItem rollover" rolloverComponent={<XUIAvatar value="Tim Redmond" />}/>;
 		}
 		if (child.action) {
 			child.action = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>}/>;
@@ -110,7 +117,7 @@ const exampleClickHandler = () => {
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
-storiesWithKnobs.add('Playground', () => {
+storiesWithKnobs.add('Columns Playground', () => {
 	const columnCount = number('number of columns', 3);
 	const columnWidths = text('list of column widths', '2 8 2');
 	function buildColumnsArray() {
@@ -133,6 +140,46 @@ storiesWithKnobs.add('Playground', () => {
 		<XUIRow variant={select('variant', Object.keys(rowVariants), 'standard')} className="xui-padding-small" style={{backgroundColor: "#028DDE"}}>
 			{buildColumns(buildColumnsArray())}
 		</XUIRow>
+	);
+});
+
+storiesWithKnobs.add('OverviewBlock Playground', () => {
+	const indicator = (<XUIProgressLinear
+		id="testId"
+		total={10}
+		progress={4}
+		hasToolTip={true}
+		toolTipMessage={`4 out of 10`}
+	/>);
+	const includeProgress = boolean('include progress?', false);
+	const blockTextAlignment = select('textAlignment', ['left', 'center', 'right'], 'center');
+	return (
+		<XUIOverviewBlock
+			hasBorder={boolean('hasBorder', true)}
+			hasBackground={boolean('hasBackground', true)}
+			textAlignment={blockTextAlignment}
+		>
+			<XUIOverviewSection
+				label="Draft"
+				value="$1,234.56"
+				sentiment={select('sentiment for first', ['positive', 'negative', 'muted', 'standard'], 'standard')}
+				textAlignment={select('alignment for first', ['left', 'center', 'right'], blockTextAlignment)}
+			>
+				{includeProgress && indicator}
+			</XUIOverviewSection>
+			<XUIOverviewSection
+				label="Paid"
+				value="$5,432.10"
+			>
+				{includeProgress && indicator}
+			</XUIOverviewSection>
+			<XUIOverviewSection
+				label="Overdue"
+				value="$34.56"
+			>
+				{includeProgress && indicator}
+			</XUIOverviewSection>
+		</XUIOverviewBlock>
 	);
 });
 
@@ -166,9 +213,9 @@ variations.forEach(variation => {
 				</div>
 			);
 		} else if (type === "overview") {
-			const { sections } = variationMinusStoryDetails;
+			const { sections, style } = variationMinusStoryDetails;
 			return (
-				<div style={{minWidth: "500px"}}>
+				<div style={style || {minWidth: "500px"}}>
 					<XUIOverviewBlock {...variationMinusStoryDetails}>
 						{buildExampleSections(sections)}
 					</XUIOverviewBlock>
@@ -213,9 +260,9 @@ variations.forEach(variation => {
 		} else if (type === "content block") {
 			const { items } = variationMinusStoryDetails;
 			return (
-				<div className="xui-panel" style={{minWidth: "700px"}}>
+				<XUIPanel>
 					<XUIContentBlock {...variationMinusStoryDetails}>{buildExampleContentblockItem(items)}</XUIContentBlock>
-				</div>
+				</XUIPanel>
 			)
 		}
 	});

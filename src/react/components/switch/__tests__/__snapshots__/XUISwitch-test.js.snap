@@ -1,160 +1,202 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`XUISwitch should include a reversed class when a text labe is present and isReversed is set 1`] = `
-<label
-  className="xui-switch xui-switch-reversed"
-  data-automationid={undefined}
-  onClick={[Function]}
-  role="presentation"
+exports[`XUISwitch should accept an isChecked prop that determines the value of aria attributes 1`] = `
+<div
+  className="xui-switchwrapper xui-switch-medium"
 >
-  <input
-    aria-checked={false}
-    aria-disabled={undefined}
-    aria-label={undefined}
-    aria-labelledby="testLabelId"
-    checked={undefined}
-    className="xui-u-hidden-visually xui-switch--checkbox"
-    data-automationid={undefined}
-    disabled={undefined}
-    name={undefined}
-    onChange={[Function]}
-    role="switch"
-    type="checkbox"
-    value={undefined}
-  />
-  <div
-    className="xui-switch--control"
-    data-automationid={undefined}
-  />
-  <span
-    className="xui-switch--label"
-    data-automationid={undefined}
-    id="testLabelId"
+  <label
+    className="xui-switch"
+    onClick={[Function]}
+    role="presentation"
   >
-    Switch test
-  </span>
-</label>
+    <input
+      aria-checked={true}
+      aria-labelledby="testLabelId"
+      checked={true}
+      className="xui-switch--checkbox"
+      onChange={[Function]}
+      role="switch"
+      type="checkbox"
+    />
+    <div
+      className="xui-switch--control xui-switch--control-medium"
+    />
+    <span
+      className="xui-switch--label xui-switch--label-medium"
+      id="testLabelId"
+    >
+      Switch test
+    </span>
+  </label>
+</div>
 `;
 
-exports[`XUISwitch should include a tex label when label is passed 1`] = `
-<label
-  className="xui-switch"
-  data-automationid={undefined}
-  onClick={[Function]}
-  role="presentation"
+exports[`XUISwitch should include a reversed class when a text label is present and isReversed is set 1`] = `
+<div
+  className="xui-switchwrapper xui-switch-medium"
 >
-  <input
-    aria-checked={false}
-    aria-disabled={undefined}
-    aria-label={undefined}
-    aria-labelledby="testLabelId"
-    checked={undefined}
-    className="xui-u-hidden-visually xui-switch--checkbox"
-    data-automationid={undefined}
-    disabled={undefined}
-    name={undefined}
-    onChange={[Function]}
-    role="switch"
-    type="checkbox"
-    value={undefined}
-  />
-  <div
-    className="xui-switch--control"
-    data-automationid={undefined}
-  />
-  <span
-    className="xui-switch--label"
-    data-automationid={undefined}
-    id="testLabelId"
+  <label
+    className="xui-switch xui-switch-reversed"
+    onClick={[Function]}
+    role="presentation"
   >
-    Switch test
-  </span>
-</label>
+    <input
+      aria-checked={false}
+      aria-labelledby="testLabelId"
+      checked={false}
+      className="xui-switch--checkbox"
+      onChange={[Function]}
+      role="switch"
+      type="checkbox"
+    />
+    <div
+      className="xui-switch--control xui-switch--control-medium"
+    />
+    <span
+      className="xui-switch--label xui-switch--label-medium"
+      id="testLabelId"
+    >
+      Switch test
+    </span>
+  </label>
+</div>
+`;
+
+exports[`XUISwitch should include a text label when label is passed 1`] = `
+<div
+  className="xui-switchwrapper xui-switch-medium"
+>
+  <label
+    className="xui-switch"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <input
+      aria-checked={false}
+      aria-labelledby="testLabelId"
+      checked={false}
+      className="xui-switch--checkbox"
+      onChange={[Function]}
+      role="switch"
+      type="checkbox"
+    />
+    <div
+      className="xui-switch--control xui-switch--control-medium"
+    />
+    <span
+      className="xui-switch--label xui-switch--label-medium"
+      id="testLabelId"
+    >
+      Switch test
+    </span>
+  </label>
+</div>
 `;
 
 exports[`XUISwitch should include an aria-label when label is passed and hidden 1`] = `
-<label
-  className="xui-switch"
-  data-automationid={undefined}
-  onClick={[Function]}
-  role="presentation"
+<div
+  className="xui-switchwrapper xui-switch-medium"
 >
-  <input
-    aria-checked={false}
-    aria-disabled={undefined}
-    aria-label="Switch test"
-    aria-labelledby={undefined}
-    checked={undefined}
-    className="xui-u-hidden-visually xui-switch--checkbox"
-    data-automationid={undefined}
-    disabled={undefined}
-    name={undefined}
-    onChange={[Function]}
-    role="switch"
-    type="checkbox"
-    value={undefined}
-  />
-  <div
-    className="xui-switch--control"
-    data-automationid={undefined}
-  />
-</label>
+  <label
+    className="xui-switch"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <input
+      aria-checked={false}
+      aria-label="Switch test"
+      checked={false}
+      className="xui-switch--checkbox"
+      onChange={[Function]}
+      role="switch"
+      type="checkbox"
+    />
+    <div
+      className="xui-switch--control xui-switch--control-medium"
+    />
+  </label>
+</div>
 `;
 
-exports[`XUISwitch should render an automationid when a qaHook value is passed 1`] = `
-<label
-  className="xui-switch"
-  data-automationid="switch-test--label"
-  onClick={[Function]}
-  role="presentation"
+exports[`XUISwitch should render an automationid for most elements when a qaHook value is passed 1`] = `
+<div
+  className="xui-switchwrapper xui-switch-medium"
 >
-  <input
-    aria-checked={false}
-    aria-disabled={undefined}
-    aria-label={undefined}
-    aria-labelledby={undefined}
-    checked={undefined}
-    className="xui-u-hidden-visually xui-switch--checkbox"
-    data-automationid="switch-test--input"
-    disabled={undefined}
-    name={undefined}
-    onChange={[Function]}
-    role="switch"
-    type="checkbox"
-    value={undefined}
-  />
-  <div
-    className="xui-switch--control"
+  <label
+    className="xui-switch"
     data-automationid="switch-test"
-  />
-</label>
+    onClick={[Function]}
+    role="presentation"
+  >
+    <input
+      aria-checked={false}
+      aria-labelledby="testSwitchId"
+      checked={false}
+      className="xui-switch--checkbox"
+      data-automationid="switch-test--input"
+      onChange={[Function]}
+      role="switch"
+      type="checkbox"
+    />
+    <div
+      className="xui-switch--control xui-switch--control-medium"
+      data-automationid="switch-test--switch"
+    />
+    <span
+      className="xui-switch--label xui-switch--label-medium"
+      data-automationid="switch-test--label"
+      id="testSwitchId"
+    >
+      Switch test
+    </span>
+  </label>
+</div>
+`;
+
+exports[`XUISwitch should render checked 1`] = `
+<div
+  className="xui-switchwrapper xui-switch-medium"
+>
+  <label
+    className="xui-switch"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <input
+      aria-checked={true}
+      checked={true}
+      className="xui-switch--checkbox"
+      onChange={[Function]}
+      role="switch"
+      type="checkbox"
+    />
+    <div
+      className="xui-switch--control xui-switch--control-medium"
+    />
+  </label>
+</div>
 `;
 
 exports[`XUISwitch should render not checked and not disabled 1`] = `
-<label
-  className="xui-switch"
-  data-automationid={undefined}
-  onClick={[Function]}
-  role="presentation"
+<div
+  className="xui-switchwrapper xui-switch-medium"
 >
-  <input
-    aria-checked={false}
-    aria-disabled={undefined}
-    aria-label={undefined}
-    aria-labelledby={undefined}
-    checked={undefined}
-    className="xui-u-hidden-visually xui-switch--checkbox"
-    data-automationid={undefined}
-    disabled={undefined}
-    name={undefined}
-    onChange={[Function]}
-    role="switch"
-    type="checkbox"
-    value={undefined}
-  />
-  <div
-    className="xui-switch--control"
-    data-automationid={undefined}
-  />
-</label>
+  <label
+    className="xui-switch"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <input
+      aria-checked={false}
+      checked={false}
+      className="xui-switch--checkbox"
+      onChange={[Function]}
+      role="switch"
+      type="checkbox"
+    />
+    <div
+      className="xui-switch--control xui-switch--control-medium"
+    />
+  </label>
+</div>
 `;

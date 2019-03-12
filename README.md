@@ -19,7 +19,8 @@ You'll need:
 
  * Node.js [nvm](https://github.com/creationix/nvm) (MacOS) or [nvm-windows](https://github.com/coreybutler/nvm-windows) (Windows) is recommended. If you don't use `nvm`, check the `.nvmrc` file to see which version of node to use.
  * [ESLint](http://eslint.org/) plugin installed and configured [for your code editor or IDE](http://eslint.org/docs/user-guide/integrations). If possible, you should configure it to run `--fix` every time you save.  It'll make your life easier.
- * [Editorconfig](http://editorconfig.org/) plugin installed and configured for you code editor or IDE
+ * [Editorconfig](http://editorconfig.org/) plugin installed and configured for you code editor or IDE.
+ * [Prettier](https://prettier.io/) plugin installed for you code editor or IDE. Configure your code editor or IDE to format on save.
  * A command line. Bash/zsh/etc MacOs. Git Bash Windows.
 
 ### Clone and install
@@ -127,6 +128,8 @@ rm .git/hooks/pre-commit .git/hooks/post-commit .git/hooks/pre-push .git/hooks/p
 ## Pre-commit
 
 Lint your code and catch problems that will cause your build to fail in the CI environment. This will run automatically before a commit.
+
+You may end up with extra formatting changes after committing. Please commit these as a separate commit labeled `Prettier`.
 
 ## Post-merge
 

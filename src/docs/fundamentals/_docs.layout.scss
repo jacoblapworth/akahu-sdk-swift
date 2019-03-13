@@ -208,10 +208,38 @@
 //
 // Styleguide: Fundamentals.Layout.5
 
+// Z-Index
+//
+// Tips:
+// Do: Rely on the default layer value where possible
+// Do: Use `$xui-z-index-[component-type] + n` to define a layer within the correct range in which your component should live
+// Do: Use the very next value necessary to move your component up in the schema eg. `$xui-z-index-[component-type] + 1`)
+// Warning: If a layer is not accurately indexed for your context, consider if the context is an anti-pattern or UX concern before shifting it up in the layer schema
+// Dont: Use an arbitrary number to layer components
+//
+// The following variables serve as reference points in the XUI layer schema. They can be used to custom style application content in line with, above, or below existing layers.
+//
+// Definitions:
+// Tooltip: `$xui-z-index-tooltip`: Value of 9000. Topmost layer of an app.
+// Toast: `$xui-z-index-toast`: Value of 8000. Layer occupied by toasts.
+// Sheet: `$xui-z-index-sheet`: Value of 7000. Layer for dropdown content, when displayed in a narrow viewport.
+// Overlay: `$xui-z-index-overlay`: Value of 6000. The mask layer behind a sheet.
+// Modal: `$xui-z-index-modal`: Value of 5000. Layer occupied by modals.
+// Mask: `$xui-z-index-mask`: Value of 4000. Translucent layer that appears behind modals.
+// Nav: `$xui-z-index-nav`: Value of 3000. Layer for the blue navigation bar and its related elements.
+// Header: `$xui-z-index-header`: Value of 2000. Layer occupied by white header bars, including fixed-position isolation header.
+// Dropdown: `$xui-z-index-dropdown`: Value of 1000. Dropdown content appears at this level.
+// Focus: `$xui-z-index-focus`: Value of 2. Focus rings and similar elements to show focus appear in this layer.
+// Body: `$xui-z-index-body`: Value of 1. Layer occupied by body content.
+// Html: `$xui-z-index-html`: Value of 0. Default stacking context for HTML.
+// Hidden: `$xui-z-index-hidden`: Value of -1. For hiding one element behind another.
+//
+// Styleguide: Fundamentals.Layout.6
+
 // Accessibility
 //
 // If you are using interactive elements within a tabular layout containing rows and columns, please refer to the <a href="https://www.w3.org/TR/wai-aria-1.1/#grid">aria grid role documentation</a>.
 // Each column of the grid must be able to be either active, selectable or editable, as well as being keyboard accessible, in order to apply the appropriate roles.
 //	Using the grid role means that the table is considered editable by default, unless the aria-readonlyattribute on the grid is set to true.
 //
-// Styleguide: Fundamentals.Layout.6
+// Styleguide: Fundamentals.Layout.7

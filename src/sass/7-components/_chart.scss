@@ -4,6 +4,7 @@
 .#{$ns}-chart--position,
 .#{$ns}-chart--base {
 	position: relative;
+	transition: opacity $xui-motion-speed-medium $xui-motion-curve-enter;
 }
 
 .#{$ns}-chart--position * {

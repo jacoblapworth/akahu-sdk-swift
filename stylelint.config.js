@@ -4,7 +4,7 @@ module.exports = {
 		['src/sass/_conflicts.scss', 'src/sass/tmp/*']
 	],
 	rules: {
-		"indentation": "tab",
+		"indentation": 2,
 		"max-line-length": 305,
 		"max-nesting-depth": 3,
 		"no-duplicate-selectors": true,

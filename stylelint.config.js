@@ -1,10 +1,10 @@
 module.exports = {
 	plugins: ["stylelint-order"],
 	ignoreFiles: [
-		['src/sass/_conflicts.scss', 'src/sass/tmp/*']
+		['src/sass/_conflicts.scss', 'src/sass/tmp/*'],
 	],
 	rules: {
-		"indentation": "tab",
+		"indentation": "space",
 		"max-line-length": 305,
 		"max-nesting-depth": 3,
 		"no-duplicate-selectors": true,
@@ -18,6 +18,6 @@ module.exports = {
 		"declaration-bang-space-after": "never",
 		"declaration-bang-space-before": "always",
 		"declaration-colon-space-after":"always",
-		"declaration-colon-space-before":"never"
-	}
+		"declaration-colon-space-before":"never",
+	},
 };

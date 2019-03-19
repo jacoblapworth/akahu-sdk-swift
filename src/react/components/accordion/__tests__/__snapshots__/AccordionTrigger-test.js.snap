@@ -218,6 +218,9 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
     </div>
     <div
       className="xui-accordiontrigger--rightcontent"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="presentation"
     >
       <div
         className="xui-accordiontrigger--pinnedvalue"

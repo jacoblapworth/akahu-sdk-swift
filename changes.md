@@ -24,9 +24,9 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 * `xui-dropdown-show-mobile-only` has been removed. Use `xui-dropdown-hide-small-up` instead.
 * `xui-column-#-of-12-medium` classes have been removed. Use `xui-column-#-of-12-small-up` instead.
 * `xui-column-#-of-12-wide` classes have been removed. Use `xui-column-#-of-12-large-up` instead.
-* `xui-breakpoint-narrow` mixin has been removed. Use `xui-breakpoint-small-down` instead.
-* `xui-breakpoint-medium` mixin has been removed. Use `xui-breakpoint-medium-only` instead.
-* `xui-breakpoint-wide` mixin has been removed. Use `xui-breakpoint-large-up` instead.
+* `xui-breakpoint-narrow` mixin (not variable) has been removed. Use `xui-breakpoint-small-down` instead.
+* `xui-breakpoint-medium` mixin (not variable) has been removed. Use `xui-breakpoint-medium-to-large` instead.
+* `xui-breakpoint-wide` mixin (not variable) has been removed. Use `xui-breakpoint-large-up` instead.
 * `xui-breakpoint-huge` mixin has been removed. Use `xui-breakpoint-xlarge-up` instead.
 * `xui-breakpoint-medium-and-narrow` mixin has been removed. Use `xui-breakpoint-small-up` instead
 * `xui-breakpoint-medium-and-wide` mixin has been removed. Use `xui-breakpoint-large-up` instead
@@ -34,13 +34,13 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 
 ### Breakpoint variable name & value changes
 
-- Old breakpoint variable names & values
+- Old breakpoint variable (not mixin) names & values
 
 	- `xui-breakpoint-narrow: 520px`
 	- `xui-breakpoint-medium: 940px`
 	- `xui-breakpoint-wide: 1160px`
 
-- New breakpoint variable names & values
+- New breakpoint variable (not mixin) names & values
 
 	- `xui-breakpoint-small: 600px`
 	- `xui-breakpoint-medium: 800px`
@@ -82,7 +82,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - `SelectBox`
 	- No longer shrinks to a standard width when a `buttonVariant` is supplied. To prevent your `SelectBox` from going full-width, set the `fullWidth` prop to `never`.
 - `XUIButton`
-	- The `size` prop now has a default of `medium` instead of `standard`. This size is visually the same as XUI 14 aside from the font size changes. 
+	- The `size` prop now has a default of `medium` instead of `standard`. This size is visually the same as XUI 14 aside from the font size changes.
 		- Other available values are `small` and `xsmall`.
 	- The `size` prop no longer accepts `full-width` or `full-width-mobile`.
 		- To get full-width buttons, set `fullWidth` to `always` or `small-down`

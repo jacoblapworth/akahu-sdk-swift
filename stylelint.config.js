@@ -2,7 +2,7 @@ module.exports = {
   plugins: ['stylelint-order'],
   ignoreFiles: [['src/sass/_conflicts.scss', 'src/sass/tmp/*']],
   rules: {
-    indentation: 2,
+    // indentation: 2, // TODO: Enable this once the repo is Prettier
     'max-line-length': 305,
     'max-nesting-depth': 3,
     'no-duplicate-selectors': true,

@@ -1,43 +1,42 @@
-@import "../../vars";
-@import "../../mixins";
+@import '../../vars';
+@import '../../mixins';
 
 // Base grid templates
 @mixin composition-s-small {
-	grid-template:
-		"primary"
-		"detail" / 1fr;
+  grid-template:
+    'primary'
+    'detail' / minmax(0, 1fr);
 }
 
 @mixin composition-s-medium {
-	grid-template:
-		"primary detail" / 1fr 1fr;
+  grid-template: 'primary detail' / minmax(0, 1fr) minmax(0, 1fr);
 }
 
 // Gap template variants (necessary for IE & Autoprefixer)
 @mixin composition-s-small-gap {
-	@include xui-composition-grid-gap;
-	@include composition-s-small;
+  @include xui-composition-grid-gap;
+  @include composition-s-small;
 }
 
 @mixin composition-s-medium-gap {
-	@include xui-composition-grid-gap;
-	@include composition-s-medium;
+  @include xui-composition-grid-gap;
+  @include composition-s-medium;
 }
 
 // Classes using templates at various breakpoints
 .#{$ns}-composition-split {
-	@include composition-s-small;
-	&.#{$ns}-composition-has-grid-gap {
-		@include composition-s-small-gap;
-	}
-	&.#{$ns}-composition-auto-template {
-		@include xui-breakpoint-medium-up {
-			@include composition-s-medium;
-			&.#{$ns}-composition-has-grid-gap {
-				@include composition-s-medium-gap;
-			}
-		}
-	}
+  @include composition-s-small;
+  &.#{$ns}-composition-has-grid-gap {
+    @include composition-s-small-gap;
+  }
+  &.#{$ns}-composition-auto-template {
+    @include xui-breakpoint-medium-up {
+      @include composition-s-medium;
+      &.#{$ns}-composition-has-grid-gap {
+        @include composition-s-medium-gap;
+      }
+    }
+  }
 }
 
 // No styles are needed for retain-small. When the auto-template class is

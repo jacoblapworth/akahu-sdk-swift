@@ -11,7 +11,6 @@ import { nonBackstopStoryNames, compositionKind } from '../tests';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 
-/* eslint-disable react/prop-types, no-console */
 class Example extends Component {
 	state = { showModal: false };
 
@@ -33,7 +32,6 @@ class Example extends Component {
 	}
 }
 <Example />
-/* eslint-enable react/prop-types, no-console */
 
 const test = storiesOf(compositionKind, module);
 test.addDecorator(withKnobs);
@@ -44,14 +42,14 @@ test.add(nonBackstopStoryNames.fiveNestedModals, () => {
 	if (body && body.style) { body.style.height = "200%"; }
 	const isUsingPortal = boolean('isUsingPortal', true);
 	return (
-		<Example settings={{ isUsingPortal: isUsingPortal}} textLabel="first">
-			<Example settings={{size: "xlarge", isUsingPortal: isUsingPortal}} textLabel="second">
-				<Example settings={{size: "large", isUsingPortal: isUsingPortal}} textLabel="third">
-					<Example settings={{size: "medium", isUsingPortal: isUsingPortal}} textLabel="fourth">
-						<Example settings={{size: "small", isUsingPortal: isUsingPortal}} textLabel="fifth" />
+		<Example settings={{ isUsingPortal }} textLabel="first">
+			<Example settings={{size: "xlarge", isUsingPortal}} textLabel="second">
+				<Example settings={{size: "large", isUsingPortal}} textLabel="third">
+					<Example settings={{size: "medium", isUsingPortal}} textLabel="fourth">
+						<Example settings={{size: "small", isUsingPortal}} textLabel="fifth" />
 					</Example>
 				</Example>
-				<div style={{height: "1000px"}}></div>
+				<div style={{height: "1000px"}} />
 			</Example>
 		</Example>
 	);

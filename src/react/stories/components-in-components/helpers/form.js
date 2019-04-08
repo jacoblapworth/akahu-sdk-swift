@@ -10,7 +10,7 @@ export default class Form extends React.PureComponent {
 
 	componentDidMount() {
 		this._regularInputs = this._form.querySelectorAll(
-			'input:not([type="radio"]):not([type="checkbox"]):not(.xui-autocompleter--input)'
+			'input:not([type="radio"]):not([type="checkbox"]):not(.xui-autocompleter--input)',
 		);
 		this._textareas = this._form.querySelectorAll('textarea');
 		this._radioGroups = this._form.querySelectorAll('input[type=radio]');
@@ -39,7 +39,7 @@ export default class Form extends React.PureComponent {
 			...this._regularInputs,
 			...this._textareas,
 			...radiosForReportingBack,
-			...checkBoxes
+			...checkBoxes,
 		].reduce((acc, input) => {
 			acc[input.name] = input.value;
 			return acc;
@@ -71,9 +71,9 @@ export default class Form extends React.PureComponent {
 				className={cn(
 					{
 						'xui-form-inline': inline && !stacked && !noLayout,
-						'xui-form-layout': stacked && !inline && !noLayout
+						'xui-form-layout': stacked && !inline && !noLayout,
 					},
-					className
+					className,
 				)}
 				onKeyUp={this.onAllEvents}
 				onClick={this.onAllEvents}
@@ -90,5 +90,5 @@ Form.propTypes = {
 	className: PropTypes.string,
 	inline: PropTypes.bool,
 	stacked: PropTypes.bool,
-	noLayout: PropTypes.bool
+	noLayout: PropTypes.bool,
 };

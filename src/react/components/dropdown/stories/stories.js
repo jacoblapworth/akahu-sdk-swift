@@ -191,7 +191,7 @@ const createTriggerInput = props => (
 
 const createTriggerButton = () => <XUIButton fullWidth="always">A button</XUIButton>;
 
-const createTriggerLink = () => <a href="javascript:void(0);">A link</a>; // eslint-disable-line jsx-a11y/anchor-is-valid
+const createTriggerLink = () => <a href="javascript:void(0);">A link</a>;
 const createTriggerIcon = () => (
   <XUIButton variant="icon" aria-label="Info">
     <XUIIcon icon={info} />
@@ -299,21 +299,19 @@ const getPositioningTest = () => {
   );
 };
 
-const hintLabel = props => {
-  return (
-    <DropDownToggled
-      trigger={createTriggerInput(props.triggerSettings)}
-      className="xui-margin-right-large"
-      isHidden={false}
-      {...props}
-      dropdown={
-        <DropDown size="medium" restrictFocus={false} fixedWidth>
-          <Picklist>{createItems(toggledItems, 'seven')}</Picklist>
-        </DropDown>
-      }
-    />
-  );
-};
+const hintLabel = props => (
+  <DropDownToggled
+    trigger={createTriggerInput(props.triggerSettings)}
+    className="xui-margin-right-large"
+    isHidden={false}
+    {...props}
+    dropdown={
+      <DropDown size="medium" restrictFocus={false} fixedWidth>
+        <Picklist>{createItems(toggledItems, 'seven')}</Picklist>
+      </DropDown>
+    }
+  />
+);
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);

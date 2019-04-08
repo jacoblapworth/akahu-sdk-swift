@@ -8,56 +8,56 @@ const avatarVariations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with value',
-		value: 'value'
+		value: 'value',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with identifier',
 		value: ' ',
-		identifier: 'random id'
+		identifier: 'random id',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with value and identifier',
 		identifier: 'random id',
-		value: 'value'
+		value: 'value',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with image',
 		imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg',
-		value: 'value'
+		value: 'value',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with broken image, no value or id',
-		imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenaresnnnn/24.jpg'
+		imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenaresnnnn/24.jpg',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'variant business',
 		value: 'business',
-		variant: 'business'
+		variant: 'business',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `standard sizes`,
 		sizes,
-		value: 'value'
+		value: 'value',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `business sizes`,
 		sizes,
 		variant: 'business',
-		value: 'value'
+		value: 'value',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'grouped avatars',
 		value: 'value',
 		grouped: true,
-		avatarLength: 3
+		avatarLength: 3,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -65,7 +65,7 @@ const avatarVariations = [
 		value: 'value',
 		grouped: true,
 		avatarLength: 5,
-		maxAvatars: 3
+		maxAvatars: 3,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -73,7 +73,7 @@ const avatarVariations = [
 		value: 'value',
 		grouped: true,
 		variant: 'business',
-		avatarLength: 3
+		avatarLength: 3,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -82,7 +82,7 @@ const avatarVariations = [
 		grouped: true,
 		variant: 'business',
 		avatarLength: 5,
-		maxAvatars: 3
+		maxAvatars: 3,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -91,7 +91,7 @@ const avatarVariations = [
 		grouped: true,
 		sizes,
 		avatarLength: 5,
-		maxAvatars: 3
+		maxAvatars: 3,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -101,16 +101,16 @@ const avatarVariations = [
 		sizes,
 		variant: 'business',
 		avatarLength: 5,
-		maxAvatars: 3
+		maxAvatars: 3,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `color variants`,
-		colors: true
-	}
+		colors: true,
+	},
 ]
 
 module.exports = {
 	variations: avatarVariations,
-	storiesWithVariationsKindName
+	storiesWithVariationsKindName,
 }

@@ -33,7 +33,7 @@ storiesWithKnobs.add('Playground', () => {
 	const attrs = {
 		className: 'xui-background-white',
 		isInverted: boolean('is inverted', false),
-		style: getContainerStyle(!defaultLayout)
+		style: getContainerStyle(!defaultLayout),
 	};
 
 	return (
@@ -44,8 +44,7 @@ storiesWithKnobs.add('Playground', () => {
 				isInverted={attrs.isInverted}
 				retainLayout={retainLayout}
 				className={isStatic}
-			>
-			</XUILoader>
+			/>
 		</ExampleContainer>
 	);
 
@@ -66,7 +65,7 @@ variations.forEach(variation => {
 		const attrs = {
 			isInverted: variationMinusStoryDetails.isInverted,
 			style: getContainerStyle(hasContainerStyle),
-			className: 'xui-background-white'
+			className: 'xui-background-white',
 		};
 
 		let example;
@@ -75,10 +74,10 @@ variations.forEach(variation => {
 			delete variationMinusStoryDetails.sizes;
 			example = (
 				<div>
-					{sizes.map(size => <XUILoader key={size} size={size} {...variationMinusStoryDetails} className="xui-loader-static"></XUILoader>)}
+					{sizes.map(size => <XUILoader key={size} size={size} {...variationMinusStoryDetails} className="xui-loader-static" />)}
 				</div>);
 		} else {
-			example = <XUILoader {...variationMinusStoryDetails} className="xui-loader-static"></XUILoader>;
+			example = <XUILoader {...variationMinusStoryDetails} className="xui-loader-static" />;
 		}
 		return (
 			<ExampleContainer {...attrs}>

@@ -3,17 +3,17 @@ import { XUIActions, XUIPageHeader } from '../../../structural';
 import Picklist, { Pickitem } from '../../../picklist';
 import XUIButton, {
 	XUISplitButtonGroup,
-	XUISecondaryButton
+	XUISecondaryButton,
 } from '../../../button';
 
 export default class CustomHeader extends PureComponent {
 	state = {
-		selectedTab: 1
+		selectedTab: 1,
 	};
 
-	onTabClick = (a) => {
+	onTabClick = a => {
 		this.setState({
-			selectedTab: a
+			selectedTab: a,
 		})
 	}
 
@@ -24,7 +24,7 @@ export default class CustomHeader extends PureComponent {
 
 		const builtTabs = (
 			<Picklist>
-				{[0, 1].map((item) => (
+				{[0, 1].map(item => (
 					<Pickitem
 						ariaRole='menuitem'
 						id={`number_${item}`}

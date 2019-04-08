@@ -33,8 +33,7 @@ test.add(storyNames.dateDDInModal, () => {
 			<XUIDatePicker
 				onSelectDate={NOOP}
 				displayedMonth={displayMonth}
-			>
-			</XUIDatePicker>
+			/>
 		</DropDown>
 	);
 

@@ -23,16 +23,16 @@ const toggleOptions = [
 	{
 		isChecked: true,
 		name: 'tg1',
-		value: 'toggle1'
+		value: 'toggle1',
 	},
 	{
 		isDisabled: true,
 		name: 'tg1',
-		value: 'toggle2'
+		value: 'toggle2',
 	},
 	{
 		name: 'tg1',
-		value: 'toggle3'
+		value: 'toggle3',
 	},
 ];
 storiesWithKnobs.add('Playground', () => (
@@ -59,13 +59,13 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
 		const variationMinusStoryDetails = { ...variation };
-		const options = variationMinusStoryDetails.options;
+		const { options } = variationMinusStoryDetails;
 		delete variationMinusStoryDetails.options;
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
 		const attrs = {
-			isInverted: variationMinusStoryDetails.color == 'inverted',
-			style: { width: "500px" }
+			isInverted: variationMinusStoryDetails.color === 'inverted',
+			style: { width: "500px" },
 		};
 		return (
 			<ExampleContainer {...attrs}>
@@ -77,9 +77,12 @@ variations.forEach(variation => {
 	});
 });
 
-const buildOptions = function (options) {
-	return options.map((option, index) => {
+const buildOptions = options =>
+	options.map((option, index) => {
 		option.onChange = NOOP;
-		return <XUIToggleOption key={index} {...option}>{option.value}</XUIToggleOption>;
+		return (
+			<XUIToggleOption key={index} {...option}>
+				{option.value}
+			</XUIToggleOption>
+		);
 	});
-};

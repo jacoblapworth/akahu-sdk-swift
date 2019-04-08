@@ -1,5 +1,6 @@
-const privateConsts = require('../private/constants');
 import commonViewports from '../../../stories/helpers/viewports';
+
+const privateConsts = require('../private/constants');
 const NOOP = require('../../helpers/noop');
 
 const storiesWithVariationsKindName = 'Instances/Dropdown';

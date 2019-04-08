@@ -220,7 +220,7 @@ class Positioning extends PureComponent {
                 triggerDropdownGap,
                 isNotResponsive,
               });
-        this.setState(styles); // eslint-disable-line react/no-did-mount-set-state
+        this.setState(styles); 
       }
     }
 

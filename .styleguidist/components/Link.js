@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import Styled from 'rsg-components/Styled';
 import XUIIcon from '../../src/react/icon';
 import bookmark from '@xero/xui-icon/icons/bookmark';
 
@@ -12,13 +13,13 @@ export const styles = ({ color }) => ({
 			fontSize: '15px',
 			lineHeight: 1.5,
 			color: color.link,
-			textDecoration: 'none'
+			textDecoration: 'none',
 		},
 
 	},
 });
 
-const toggleChildren = function () {
+const toggleChildren = () => {
 
 };
 

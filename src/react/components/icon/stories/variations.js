@@ -7,25 +7,25 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'single icon',
 		icon: 'cross',
-		className: "capture"
+		className: "capture",
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with different colors',
 		icon: 'star',
-		subVariants: Object.keys(colorClasses).map(color => ({ color }))
+		subVariants: Object.keys(colorClasses).map(color => ({ color })),
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with different sizes',
 		icon: 'accessibility',
-		subVariants: Object.keys(wrapperSizeClasses).map(size => ({ size }))
+		subVariants: Object.keys(wrapperSizeClasses).map(size => ({ size })),
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with different rotation',
 		icon: 'arrow',
-		subVariants: Object.keys(rotationClasses).map(rotation => ({ rotation }))
+		subVariants: Object.keys(rotationClasses).map(rotation => ({ rotation })),
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -33,9 +33,9 @@ const variations = [
 		icon: 'arrow',
 		subVariants: Object.keys(wrapperSizeClasses).map(size => ({
 			size,
-			isBoxed: true
+			isBoxed: true,
 		})),
-	}
+	},
 
 ];
 

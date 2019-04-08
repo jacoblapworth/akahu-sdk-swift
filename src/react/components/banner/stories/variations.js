@@ -8,14 +8,14 @@ const variations = [
 		storyTitle: 'with a positive sentiment',
 		sentiment: 'positive',
 		messageText: 'Positive Banner Message',
-		onCloseClick: NOOP
+		onCloseClick: NOOP,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with a negative sentiment',
 		sentiment: 'negative',
 		messageText: 'Negative Banner Message',
-		onCloseClick: NOOP
+		onCloseClick: NOOP,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -23,8 +23,8 @@ const variations = [
 		messageText: 'With One Action',
 		onCloseClick: NOOP,
 		actionProps: [{
-			text: 'Action'
-		}]
+			text: 'Action',
+		}],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -32,11 +32,11 @@ const variations = [
 		messageText: 'With Two Actions',
 		onCloseClick: NOOP,
 		actionProps: [{
-			text: 'Action One'
+			text: 'Action One',
 		},
 		{
-			text: 'Action Two'
-		}]
+			text: 'Action Two',
+		}],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -45,17 +45,17 @@ const variations = [
 		onCloseClick: NOOP,
 		actionProps: [{
 			text: 'Long long test string to see if this will break. Long long test string to see if this will break.' +
-			'Long long test string to see if this will break. Long long test string to see if this will break.'
+			'Long long test string to see if this will break. Long long test string to see if this will break.',
 		},
 		{
 			text: 'Long long test string to see if this will break. Long long test string to see if this will break.' +
-			 'Long long test string to see if this will break. Long long test string to see if this will break.'
-		}]
-	}
+			 'Long long test string to see if this will break. Long long test string to see if this will break.',
+		}],
+	},
 ];
 
 module.exports = {
 	storiesWithVariationsKindName,
 	variations,
-	NOOP
+	NOOP,
 }

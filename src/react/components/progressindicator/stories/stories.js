@@ -59,12 +59,12 @@ storiesWithKnobs.addDecorator(withKnobs);
 
 storiesWithKnobs.add('Playground | Circular', () => {
   const totalColor =
-    select('totalColor', colorOptions, defaultColor) == defaultColor
+    select('totalColor', colorOptions, defaultColor) === defaultColor
       ? undefined
       : select('totalColor', colorOptions, defaultColor);
 
   const progressColor =
-    select('progressColor', colorOptions, defaultColor) == defaultColor
+    select('progressColor', colorOptions, defaultColor) === defaultColor
       ? undefined
       : select('progressColor', colorOptions, defaultColor);
 
@@ -93,12 +93,12 @@ storiesWithKnobs.add('Playground | Circular', () => {
 
 storiesWithKnobs.add('Playground | Linear', () => {
   const totalColor =
-    select('totalColor', colorOptions, defaultColor) == defaultColor
+    select('totalColor', colorOptions, defaultColor) === defaultColor
       ? undefined
       : select('totalColor', colorOptions, defaultColor);
 
   const progressColor =
-    select('progressColor', colorOptions, defaultColor) == defaultColor
+    select('progressColor', colorOptions, defaultColor) === defaultColor
       ? undefined
       : select('progressColor', colorOptions, defaultColor);
 
@@ -212,7 +212,6 @@ class ToolTipComparison extends PureComponent {
         node && node.querySelector('.xui-progress [aria-describedby$="progress--tooltip"]');
       if (wrapper) {
         wrapper.click();
-        // eslint-disable-next-line no-console
         logReadyState(readyEvent);
       }
     }, 100);
@@ -240,7 +239,7 @@ const createToolTipComparison = (styles, Component, props) => (
 );
 
 variations.forEach(variation => {
-  const { storyTitle, storyKind, ...props } = variation; // eslint-disable-line no-unused-vars
+  const { storyTitle, storyKind, ...props } = variation;
   const isLinear = storyTitle.startsWith('linear');
   const isColor = storyTitle.startsWith('color');
   const isTooltip = storyTitle.endsWith('tooltip');

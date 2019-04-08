@@ -14,7 +14,7 @@ import { storiesWithVariationsKindName, variations, wkdShort, customMonths, curr
 
 const weekStarts = {
 	0: 'Sun (0)',
-	1: 'Mon (1)'
+	1: 'Mon (1)',
 };
 
 function minDate(d1, d2) {
@@ -28,11 +28,11 @@ function maxDate(d1, d2) {
 class ExamplePicker extends React.Component {
 	state = {
 		selectedDate: null,
-		selectedRange: null
+		selectedRange: null,
 	};
 
 	onSelectDate = newDate => {
-		if (this.props.selectRange) { // eslint-disable-line react/prop-types
+		if (this.props.selectRange) { 
 			this.setState(prevState => {
 				const { selectedRange } = prevState;
 				if (selectedRange && selectedRange.from && !selectedRange.to) {
@@ -41,7 +41,7 @@ class ExamplePicker extends React.Component {
 							from: minDate(selectedRange.from, newDate),
 							to: maxDate(selectedRange.from, newDate),
 						},
-						selectedDate: null
+						selectedDate: null,
 					};
 				}
 				return {
@@ -49,13 +49,13 @@ class ExamplePicker extends React.Component {
 						from: newDate,
 						to: null,
 					},
-					selectedDate: null
+					selectedDate: null,
 				};
 			});
 		} else {
 			this.setState({
 				selectedDate: newDate,
-				selectedRange: null
+				selectedRange: null,
 			});
 		}
 	};
@@ -104,6 +104,6 @@ variations.forEach(variation => {
 		variationMinusStoryDetails.onSelectDate = NOOP;
 		variationMinusStoryDetails.displayedMonth = currentMonth0;
 
-		return <XUIDatePicker {...variationMinusStoryDetails}></XUIDatePicker>
+		return <XUIDatePicker {...variationMinusStoryDetails} />
 	});
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import Styled from 'rsg-components/Styled';
 
 export const styles = ({ space, fontFamily, fontSize, color }) => ({
 	pathline: {

@@ -18,13 +18,11 @@ import { variations, storiesWithVariationsKindName, NOOP } from './variations';
 class DetailedBanner extends Component {
     render() {
         const { props } = this;
-        const actions = props.actionProps && props.actionProps.map( (action, i) => {
-           return (
-                <XUIBannerAction key={i} href="#">
-                    {action.text}
-                </XUIBannerAction>
-            )
-        });
+        const actions = props.actionProps && props.actionProps.map( (action, i) => (
+            <XUIBannerAction key={i} href="#">
+                {action.text}
+            </XUIBannerAction>
+        ));
 
         return (
             <XUIBanner {...props}>
@@ -51,9 +49,9 @@ storiesWithKnobs.add('Playground', () => (
         className={text('className', '')}
         messageText={text('messageText', 'A Banner\'s Message')}
         actionProps={object('actions', [{
-            text: 'Action'
+            text: 'Action',
         }])}
-    />
+	/>
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
@@ -65,6 +63,6 @@ variations.forEach(variation => {
 		variationMinusStoryDetails.storyKind = undefined;
 		variationMinusStoryDetails.storyTitle = undefined;
 
-		return <DetailedBanner {...variationMinusStoryDetails}/>
+		return <DetailedBanner {...variationMinusStoryDetails} />
 	});
 });

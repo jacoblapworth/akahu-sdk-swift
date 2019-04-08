@@ -41,7 +41,7 @@ export default class CustomForm extends PureComponent {
 						label="Project"
 						buttonContent="Choose a project"
 						containerClasses='xui-field-layout'
-						/>
+					/>
 
 					<XUITextInput
 						leftElement={

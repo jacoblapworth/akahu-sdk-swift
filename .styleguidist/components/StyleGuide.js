@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Logo from 'rsg-components/Logo'; // eslint-disable-line import/no-unresolved
-import Markdown from 'rsg-components/Markdown'; // eslint-disable-line import/no-unresolved
-import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import Logo from 'rsg-components/Logo';
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import Markdown from 'rsg-components/Markdown';
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import Styled from 'rsg-components/Styled';
 import cx from 'classnames';
 
 import '../styles.scss';

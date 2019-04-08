@@ -69,7 +69,7 @@ lockableLayouts.forEach(compositionName => {
 			pushVariation({
 				storyTitle: titleString,
 				composition: compositions[compositionName],
-				compositionProps: { retainWidth: 'small', hasGridGap: hasGridGap },
+				compositionProps: { retainWidth: 'small', hasGridGap },
 				viewports: lockViewports,
 			});
 			if ((/^masterDetailSummary/).test(compositionName)) {
@@ -77,7 +77,7 @@ lockableLayouts.forEach(compositionName => {
 				pushVariation({
 					storyTitle: titleString,
 					composition: compositions[compositionName],
-					compositionProps: { retainWidth: 'medium', hasGridGap: hasGridGap },
+					compositionProps: { retainWidth: 'medium', hasGridGap },
 					viewports: lockViewports,
 				});
 			}
@@ -90,7 +90,7 @@ function addComposition(compositionName, hasAutoSpaceAround, hasGridGap, hasAuto
 		compositionName,
 		hasAutoSpaceAround && 'hasAutoSpaceAround',
 		hasGridGap && 'hasGridGap',
-		hasAutoColumnWidths && 'hasAutoColumnWidths'
+		hasAutoColumnWidths && 'hasAutoColumnWidths',
 	].filter(value => Boolean(value)).join(' ');
 	pushVariation({
 		storyTitle: titleString,
@@ -109,11 +109,11 @@ function pushVariation(settings) {
 	variations.push({
 		storyKind: storiesWithVariationsKindName,
 		viewports: compViewports,
-		...settings
+		...settings,
 	});
 };
 
 module.exports = {
 	storiesWithVariationsKindName,
-	variations
+	variations,
 };

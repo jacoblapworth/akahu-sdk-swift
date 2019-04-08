@@ -4,23 +4,23 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'default',
 		href: "http://www.xero.com",
-		value: "Capsule"
+		value: "Capsule",
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'not interactive but valid',
-		value: "Capsule"
+		value: "Capsule",
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is invalid',
 		isValid: false,
 		isLink: false,
-		value: "Invalid capsule"
-	}
+		value: "Invalid capsule",
+	},
 ];
 
 module.exports = {
 	storiesWithVariationsKindName,
-	variations
+	variations,
 }

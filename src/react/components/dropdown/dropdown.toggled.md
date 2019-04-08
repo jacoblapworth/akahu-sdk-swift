@@ -57,7 +57,7 @@ const toggledItems = [
   'Valencia Orange',
   'Watermelon',
   'Xi gua',
-  'Yellow quash',
+  'Yellow Squash',
   'Zucchini',
 ].map((text, id) => {
   return { props: { id }, text };
@@ -342,8 +342,13 @@ class InputTriggerExample extends Component {
   }
 
   onInputChange(event) {
+    const invalidInput = !!event.target.value.match(/[\!\.\^%&#]/);
+    if (invalidInput) {
+      this.ddt.current.closeDropDown();
+    }
     this.setState({
       inputValue: event.target.value,
+      isInvalid: invalidInput,
     });
   }
 
@@ -371,6 +376,8 @@ class InputTriggerExample extends Component {
         value={inputValue}
         onChange={this.onInputChange}
         onKeyDown={this.onInputKeyDown}
+        isInvalid={this.state.isInvalid}
+        validationMessage="Special characters are not allowed"
       />
     );
 
@@ -427,6 +434,10 @@ class InputTriggerExample extends Component {
 - `onKeyDown=function` -> `XUITextInput`:
   - If `triggerClickAction="none"`, you should open the dropdown here by calling `DropDownToggled.openDropDown`.
   - `keydown` events should be passed down to `DropDown.onKeyDown` to default `DropDown` keyboard navigation such as closing on `esc`, `Picklist` navigation etc.
+
+#### Validation with dropdown triggers
+
+Since the input triggering the dropdown could potentially be invalid (eg., the input includes forbidden characters), you may wish to close the dropdown panel at validation time, to ensure any messaging is visible to the user. This is included in the above example, in the `onInputChange` handler.
 
 ### Inline display
 

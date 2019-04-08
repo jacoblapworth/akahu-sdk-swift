@@ -86,6 +86,7 @@
 // Do: Use provided XUI composition components for handling responsive reflowing logic
 // Do: Use provided media query mixins to create additional conditional logic based off of screen width
 // Do: Build pages using -up media-queries where possible to avoid specificity problems
+// Do: Include a meta viewport tag with the necessary settings in the page <head> of your app
 // Do: Use provided best practices and components to consistently build resilient and responsive experiences
 // Do: Consider small devices and slow network connections in your API design to help limit requests and provide caching for patchy networks
 // Do: Understand the impact of losing a connection and take measures to avoid your app breaking completely if this occurs

@@ -48,13 +48,13 @@
 //
 // Aim to cater for at least 95% of form factors in markets we are in, or are about to enter into. However, we draw the line of support at 300px wide going down. Going up, we don’t have a specific limit, as the impacts to the user experience are less severe in that direction.
 //
-// Support for responsive browsers mirrors those maintained by the wider product team. For touch devices, this is primarily the two largest browsers – iOS Safari and Android Chrome. We don’t officially support Samsung Internet, UC, or Opera. However, this may change as we enter into new markets with different user preferences. 
+// Support for responsive browsers mirrors those maintained by the wider product team. For touch devices, this is primarily the two largest browsers – iOS Safari and Android Chrome. We don’t officially support Samsung Internet, UC, or Opera. However, this may change as we enter into new markets with different user preferences.
 //
 // Styleguide: Getting Started.Responsive.2.2
 
 // Performance
 //
-// Excluding the most high-end devices, touch driven devices have less computing power than a traditional desktop so response times that are slow to begin with, become even more apparent. An additional concern that's prevalent in (although not exclusive to) mobile devices, is the speed of the user’s data connection, and the cost that imparts on the user. Performance guidelines are difficult to set universally, as interactions need to be evaluated in isolation and their performance quantified based on their impact, but we consider 100ms to be a good benchmark. We’ve done what we can to make sure our components follow these standards, but you’ll have to maintain this standard in your own work, too. Read more in our [performance guidelines](/section-getting-started-performance.html) about ways to do this.
+// Excluding the most high-end devices, touch driven devices have less computing power than a traditional desktop so response times that are slow to begin with, become even more apparent. An additional concern that's prevalent in (although not exclusive to) mobile devices, is the speed of the user’s data connection, and the cost that imparts on the user. Performance guidelines are difficult to set universally, as interactions need to be evaluated in isolation and their performance quantified based on their impact, but we consider 100ms to be a good benchmark. We’ve done what we can to make sure our components follow these standards, but you’ll have to maintain this standard in your own work, too. Read more in our [performance guidelines](section-getting-started-performance.html) about ways to do this.
 //
 // Styleguide: Getting Started.Responsive.2.3
 
@@ -62,7 +62,7 @@
 //
 // As a designer, the most impactful change you can make is to start designing at a small width. It’s far easier to add to designs with progressively more space than it is to retrofit a complex interface into a smaller space, potentially having to compromise on functionality.
 //
-// XUI has built [Compositions](/section-compositions.html) to handle all the reflowing logic straight out of the box. The composition solutions do all the heavy lifting for a responsive layout without any customisation. Designing with the specific composition logic in mind will help you create a consistent responsive experience.
+// XUI has built [Compositions](section-compositions.html) to handle all the reflowing logic straight out of the box. The composition solutions do all the heavy lifting for a responsive layout without any customisation. Designing with the specific composition logic in mind will help you create a consistent responsive experience.
 //
 // Tips:
 // Do: Design pages and flows small-up.
@@ -86,6 +86,7 @@
 // Do: Use provided XUI composition components for handling responsive reflowing logic
 // Do: Use provided media query mixins to create additional conditional logic based off of screen width
 // Do: Build pages using -up media-queries where possible to avoid specificity problems
+// Do: Include a meta viewport tag with the necessary settings in the page <head> of your app
 // Do: Use provided best practices and components to consistently build resilient and responsive experiences
 // Do: Consider small devices and slow network connections in your API design to help limit requests and provide caching for patchy networks
 // Do: Understand the impact of losing a connection and take measures to avoid your app breaking completely if this occurs

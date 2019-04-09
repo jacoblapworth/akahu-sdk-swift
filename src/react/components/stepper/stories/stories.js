@@ -49,7 +49,7 @@ const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
-	const { storyTitle, storyKind, ...props } = variation; // eslint-disable-line no-unused-vars
+	const { storyTitle, storyKind, ...props } = variation; 
 	const width = props.lockLayout === 'stacked' ? '400px' : 'auto';
 	const Comparison = (
 		<div style={{ ...wrapperStyles, width }}>

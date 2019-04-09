@@ -34,7 +34,7 @@ const variations = [
 				{
 					value: 'The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
 					isSelected: true,
-					href: 'http://xui.xero.com'
+					href: 'http://xui.xero.com',
 				},
 				{
 					onClick: () => {console.log("clicked!")},
@@ -51,7 +51,7 @@ const variations = [
 			items: [
 				{ },
 				{ isSelected: true,
-					href: 'http://xui.xero.com'
+					href: 'http://xui.xero.com',
 				},
 				{
 					onClick: () => {console.log("clicked!")},
@@ -110,11 +110,11 @@ const variations = [
 		storyTitle: 'as Nested (open)',
 		isOpen: true,
 		lists: [{
-			items: [ { }, { isSelected: true }, ],
+			items: [ { }, { isSelected: true } ],
 		},
 		{
 			isMultiselect: true,
-			items: [ { isSelected: true, }, { }, { isDisabled: true, }, ],
+			items: [ { isSelected: true }, { }, { isDisabled: true } ],
 		}],
 		componentType: 'NestedPicklist',
 	},
@@ -123,27 +123,27 @@ const variations = [
 		storyTitle: 'as Nested small (open)',
 		isOpen: true,
 		lists: [{
-			items: [ { }, { isSelected: true }, ],
+			items: [ { }, { isSelected: true } ],
 		},
 		{
 			isMultiselect: true,
-			items: [ { isSelected: true, }, { }, { isDisabled: true, }, ],
+			items: [ { isSelected: true }, { }, { isDisabled: true } ],
 		}],
 		componentType: 'NestedPicklist',
-		size: 'small'
+		size: 'small',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as Nested xsmall (open)',
 		isOpen: true,
 		lists: [{
-			items: [ { }, { isSelected: true }, ],
+			items: [ { }, { isSelected: true } ],
 		},
 		{
-			items: [ { isSelected: true, }, { }, { isDisabled: true, }, ],
+			items: [ { isSelected: true }, { }, { isDisabled: true } ],
 		}],
 		componentType: 'NestedPicklist',
-		size: 'xsmall'
+		size: 'xsmall',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -153,7 +153,7 @@ const variations = [
 		className: 'xui-dropdown-small',
 		lists: [{
 			isMultiselect: true,
-			items: [ { }, { }, { }, { }, ],
+			items: [ { }, { }, { }, { } ],
 		}],
 	},
 	{
@@ -165,7 +165,7 @@ const variations = [
 		lists: [{
 			isMultiselect: true,
 			shouldTruncate: true,
-			items: [ { }, { }, { }, { }, ],
+			items: [ { }, { }, { }, { } ],
 		}],
 	},
 	{
@@ -303,7 +303,6 @@ const variations = [
 				},
 				{
 					value: "Tim Redmond",
-					secondaryElement: "Developer",
 					pinnedElement: "3",
 					secondaryElement: "The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.",
 				},

@@ -72,7 +72,7 @@ const defaultBarProps = {
 	index: 2,
 };
 
-const defaultPaginatioProps = {
+const defaultPaginationProps = {
 	qaHook: 'myChart',
 	current: 2,
 	total: 5,
@@ -223,7 +223,7 @@ describe('<XUIBarChart />', () => {
 			const createMessage = jest.fn();
 			mount((
 				<ContentPagination
-					{...defaultPaginatioProps}
+					{...defaultPaginationProps}
 					createMessage={createMessage}
 				/>
 			));
@@ -237,7 +237,7 @@ describe('<XUIBarChart />', () => {
 		it('Should disable the "previous" button when the current panel is at its "minimum" value', () => {
 			const component = renderer.create((
 				<ContentPagination
-					{...defaultPaginatioProps}
+					{...defaultPaginationProps}
 					current={1}
 				/>
 			));
@@ -247,8 +247,8 @@ describe('<XUIBarChart />', () => {
 		it('Should disable the "next" button when the current panel is at its "maximum" value', () => {
 			const component = renderer.create((
 				<ContentPagination
-					{...defaultPaginatioProps}
-					current={defaultPaginatioProps.total}
+					{...defaultPaginationProps}
+					current={defaultPaginationProps.total}
 				/>
 			));
 			expect(component).toMatchSnapshot();

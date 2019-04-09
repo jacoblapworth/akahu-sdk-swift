@@ -1,7 +1,7 @@
 const privateConsts = require('../../positioning/private/constants');
 
 const storiesWithVariationsKindName = 'Instances/XUITooltip';
-const positionOptions = (privateConsts.positionOptions);
+const { positionOptions } = privateConsts;
 
 const longTipText = "So often we avoid running water, and running water is a lot of fun. Isn't that fantastic? You can just push a little tree out of your brush like that.";
 

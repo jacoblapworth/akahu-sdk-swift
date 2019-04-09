@@ -13,7 +13,8 @@ const waitsInProgress = [];
 export const waitFor = (test, message, done, timeLeft = 100) => {
 	waitsInProgress.push(setTimeout(() => {
 		if (timeLeft <= 0) {
-			console.warn(message); // eslint-disable-line no-console
+			// eslint-disable-next-line no-console
+			console.warn(message); 
 			done();
 		} else if (test()) {
 			done();

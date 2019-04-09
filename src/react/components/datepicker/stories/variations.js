@@ -28,14 +28,14 @@ const customMonths = [
 	'septembre',
 	'octobre',
 	'novembre',
-	'decembre'
+	'decembre',
 ];
 
 const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as Single Selected Date',
-		selectedDate: currentMonth1
+		selectedDate: currentMonth1,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -43,7 +43,7 @@ const variations = [
 		selectedDate: currentMonth2,
 		minDate: currentMonth0,
 		maxDate: currentMonth3,
-		isCompact: true
+		isCompact: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -52,8 +52,8 @@ const variations = [
 		maxDate: currentMonth3,
 		selectedRange: {
 			from: currentMonth0,
-			to: currentMonth2
-		}
+			to: currentMonth2,
+		},
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -61,31 +61,31 @@ const variations = [
 		minDate: currentMonth0,
 		selectedRange: {
 			from: currentMonth3,
-			to: nextMonth
-		}
+			to: nextMonth,
+		},
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as Hiding Days in Other Months',
-		showDaysInOtherMonths: false
+		showDaysInOtherMonths: false,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as Showing Fixed Number of Weeks',
-		showFixedNumberOfWeeks: true
+		showFixedNumberOfWeeks: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as Weeks Starting on Monday with Custom Labels',
 		firstDayOfWeek: 1,
 		weekdaysShort: wkdShort,
-		months: customMonths
+		months: customMonths,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as Right-to-Left',
-		dir: 'rtl'
-	}
+		dir: 'rtl',
+	},
 ];
 
 module.exports = {
@@ -93,5 +93,5 @@ module.exports = {
 	variations,
 	wkdShort,
 	customMonths,
-	currentMonth0
+	currentMonth0,
 }

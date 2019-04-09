@@ -15,8 +15,6 @@ import { XUIRow, XUIColumn } from '../../../structural';
 import Form from '../helpers/form';
 import InputLabel from '../helpers/inputlabel';
 
-const NOOP = () => {};
-
 import { storyNames, compositionKind } from '../tests';
 
 // Story book things
@@ -24,6 +22,8 @@ import { storiesOf } from '@storybook/react';
 import { withReadme } from 'storybook-readme';
 import readme from './README.md';
 import XUITextInput from '../../../textinput';
+
+const NOOP = () => {};
 
 const test = storiesOf(compositionKind, module);
 test.addDecorator(withReadme(readme));
@@ -58,10 +58,11 @@ const toggledItems = [
 		<Pickitem
 			key={id}
 			id={text}
-			isSelected={false}>
+			isSelected={false}
+		>
 			{text}
 		</Pickitem>
-	)
+	),
 );
 
 test.add(storyNames.formOnAPage, () => {
@@ -186,7 +187,6 @@ test.add(storyNames.formOnAPage, () => {
 								name="selectOne"
 								buttonContent="Hello world"
 								isTextTruncated={false}
-								label="A simple select box"
 								isFieldLayout
 							>
 								<SelectBoxOption

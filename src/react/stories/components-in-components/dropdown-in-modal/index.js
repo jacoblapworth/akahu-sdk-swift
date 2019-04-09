@@ -47,10 +47,11 @@ const toggledItems = [
 		<Pickitem
 			key={id}
 			id={text}
-			isSelected={false}>
+			isSelected={false}
+		>
 			{text}
 		</Pickitem>
-	)
+	),
 );
 
 test.add(storyNames.dropDownInModal, () => {

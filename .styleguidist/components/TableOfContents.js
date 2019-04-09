@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import Styled from 'rsg-components/Styled';
 
 const styles = ({ space, color, fontFamily, fontSize, borderRadius }) => ({
 	root: {
 		fontFamily: fontFamily.base,
-		paddingBottom: '3.5rem' // This space is for the fixed-position version-picker at the foot of the page.
+		paddingBottom: '3.5rem', // This space is for the fixed-position version-picker at the foot of the page.
 	},
 	search: {
 		padding: space[2],
@@ -25,7 +26,7 @@ const styles = ({ space, color, fontFamily, fontSize, borderRadius }) => ({
 			isolate: false,
 			borderColor: color.link,
 			outline: 0,
-		}
+		},
 	},
 });
 

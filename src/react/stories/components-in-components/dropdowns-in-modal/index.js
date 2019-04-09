@@ -19,16 +19,16 @@ import { storyNames, compositionKind } from '../tests';
 const test = storiesOf(compositionKind, module);
 test.addDecorator(withReadme(readme));
 
-const buildDropdownPicklist = (items) => {
+const buildDropdownPicklist = items => {
 	const pickItems = items.map((text, id) => (
 		<Pickitem
 			key={id}
 			id={text}
-			isSelected={false}>
+			isSelected={false}
+		>
 			{text}
 		</Pickitem>
-		)
-	);
+	));
 	return (
 		<DropDown>
 			<Picklist>
@@ -38,56 +38,51 @@ const buildDropdownPicklist = (items) => {
 	);
 };
 
-const buildTrigger = (text) => {
-	return (
-		<XUIButton>
-			{text}
+const buildTrigger = text => (
+	<XUIButton>
+		{text}
 		<XUIButtonCaret />
 	</XUIButton>
-	);
-};
+);
 
-test.add(storyNames.multiDropDowns, () => {
-
-	return (
-		<div className="xui-u-flex">
-			<XUITextInput
-				fieldClassName="xui-margin-small"
-				label="Input label"
-				isLabelHidden
-			/>
-			<XUIModal isOpen>
-				<XUIModalBody>
-					This is some Modal content.
-					<XUITextInput
-						label="Input label"
-						isLabelHidden
-					/>
-					<DropDownToggled
-						trigger={buildTrigger('Short Trigger')}
-						dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
-						isHidden={false}
-					/>
-					This is some Modal content.
-					<XUITextInput
-						label="Input label"
-						isLabelHidden
-					/>
-					<DropDownToggled
-						trigger={buildTrigger('Medium Dropdown Trigger')}
-						dropdown={buildDropdownPicklist(lists.MedListMedItems)}
-					/>
-					<XUITextInput
-						label="Input label"
-						isLabelHidden
-					/>
-				</XUIModalBody>
-			</XUIModal>
-			<XUITextInput
-				fieldClassName="xui-margin-vertical-small"
-				label="Input label"
-				isLabelHidden
-			/>
-		</div>
-	);
-});
+test.add(storyNames.multiDropDowns, () => (
+	<div className="xui-u-flex">
+		<XUITextInput
+			fieldClassName="xui-margin-small"
+			label="Input label"
+			isLabelHidden
+		/>
+		<XUIModal isOpen>
+			<XUIModalBody>
+				This is some Modal content.
+				<XUITextInput
+					label="Input label"
+					isLabelHidden
+				/>
+				<DropDownToggled
+					trigger={buildTrigger('Short Trigger')}
+					dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
+					isHidden={false}
+				/>
+				This is some Modal content.
+				<XUITextInput
+					label="Input label"
+					isLabelHidden
+				/>
+				<DropDownToggled
+					trigger={buildTrigger('Medium Dropdown Trigger')}
+					dropdown={buildDropdownPicklist(lists.MedListMedItems)}
+				/>
+				<XUITextInput
+					label="Input label"
+					isLabelHidden
+				/>
+			</XUIModalBody>
+		</XUIModal>
+		<XUITextInput
+			fieldClassName="xui-margin-vertical-small"
+			label="Input label"
+			isLabelHidden
+		/>
+	</div>
+));

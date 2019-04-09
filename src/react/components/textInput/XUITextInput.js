@@ -27,7 +27,8 @@ class XUITextInput extends PureComponent {
 
 		if (shouldAutomaticallyResize(this.props) && this.input) {
 			if (maxRows != null) {
-				this.setState({ // eslint-disable-line react/no-did-mount-set-state
+				// eslint-disable-next-line react/no-did-mount-set-state
+				this.setState({ 
 					maxHeight: calculateMaxHeight({
 						textArea: this.input,
 						maxRows,

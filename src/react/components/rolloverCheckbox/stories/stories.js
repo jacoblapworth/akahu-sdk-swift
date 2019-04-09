@@ -40,16 +40,16 @@ variations.forEach(variation => {
 		variationMinusStoryDetails.storyTitle = undefined;
 		variationMinusStoryDetails.label = "Rollover checkbox";
 
-		if (variationMinusStoryDetails.altRollover == 'big') {
+		if (variationMinusStoryDetails.altRollover === 'big') {
 			delete variationMinusStoryDetails.altRollover;
-			variationMinusStoryDetails.rolloverComponent = <div style={{ width: '40px', height: '70px', backgroundColor: 'blue'}}/>;
-		} else if (variationMinusStoryDetails.altRollover == 'small') {
+			variationMinusStoryDetails.rolloverComponent = <div style={{ width: '40px', height: '70px', backgroundColor: 'blue'}} />;
+		} else if (variationMinusStoryDetails.altRollover === 'small') {
 			delete variationMinusStoryDetails.altRollover;
-			variationMinusStoryDetails.rolloverComponent = <XUIAvatar value="abc" size="2xsmall"/>;
+			variationMinusStoryDetails.rolloverComponent = <XUIAvatar value="abc" size="2xsmall" />;
 		} else {
 			variationMinusStoryDetails.rolloverComponent = <XUIAvatar value="abc" />;
 		}
 
-		return <XUIRolloverCheckbox {...variationMinusStoryDetails}/>
+		return <XUIRolloverCheckbox {...variationMinusStoryDetails} />
 	});
 });

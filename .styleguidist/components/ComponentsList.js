@@ -1,14 +1,15 @@
-/* eslint quote-props: ["error", "as-needed"] */
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Link from 'rsg-components/Link'; // eslint-disable-line import/no-unresolved
-import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import Link from 'rsg-components/Link';
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import Styled from 'rsg-components/Styled';
 import allSections from '../sections.json';
 
 const styles = ({ color, fontFamily, fontSize, space }) => ({
 	list: {
-		margin: 0, // eslint-disable-line quote-props
+		margin: 0,
 		padding: 0,
 	},
 	item: {
@@ -19,14 +20,14 @@ const styles = ({ color, fontFamily, fontSize, space }) => ({
 		fontSize: fontSize.base,
 		listStyle: 'none',
 		overflow: 'hidden',
-		textOverflow: 'ellipsis'
+		textOverflow: 'ellipsis',
 	},
 	topLevelItem: {
-		backgroundColor: '#fff'
+		backgroundColor: '#fff',
 	},
 	firstChildItem: {
 		fontWeight: 'bold !important',
-		padding: 'none !important'
+		padding: 'none !important',
 	},
 	heading: {
 		color: color.base,
@@ -40,9 +41,9 @@ const styles = ({ color, fontFamily, fontSize, space }) => ({
 			paddingBottom: 'calc(0.75em + 0.5vh)',
 			paddingLeft: 'calc(0.7rem + .7vw)',
 			color: color.link,
-			textDecoration: 'none'
+			textDecoration: 'none',
 		},
-	}
+	},
 });
 
 const matches = (item, text) => item.name === text;
@@ -70,9 +71,7 @@ const walkMenu = (array, test) => {
 		return true;
 	}
 	if(Array.isArray(array)){
-		const iterator = child => {
-			return walkMenu(child, test);
-		}
+		const iterator = child => walkMenu(child, test);
 
 		if(array.some(iterator)){
 			return true;
@@ -94,8 +93,8 @@ export function ComponentsListRenderer({ classes, items }) {
 					className={cx(
 						classes.item,
 						{
-							[classes.topLevelItem] : contains(allSections, name)
-						}
+							[classes.topLevelItem] : contains(allSections, name),
+						},
 					)}
 					key={name}
 				>
@@ -103,8 +102,8 @@ export function ComponentsListRenderer({ classes, items }) {
 						className={cx(
 							heading && classes.heading,
 							{
-								[classes.firstChildItem] : contains(allSections[1].sections, name)
-							}
+								[classes.firstChildItem] : contains(allSections[1].sections, name),
+							},
 						)}
 						href={`#${slug}`}
 					>
@@ -112,7 +111,7 @@ export function ComponentsListRenderer({ classes, items }) {
 					</Link>
 					{content}
 				</li>
-				: null
+				: null,
 			)}
 		</ul>
 	);

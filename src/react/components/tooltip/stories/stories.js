@@ -6,7 +6,6 @@ import XUIIcon from '../../icon/XUIIcon';
 import XUITooltip from '../XUITooltip';
 import XUITextInput from '../../textInput/XUITextInput';
 import XUIButton from '../../button/XUIButton';
-import XUIButtonCaret from '../../button/XUIButtonCaret';
 import info from '@xero/xui-icon/icons/info';
 
 // Story book things
@@ -25,21 +24,13 @@ const createTriggerInput = props => (
 		{...props}
 	/>
 );
-const createTipInput = () => (
-	<XUITextInput
-		placeholder="Placeholder text"
-		label="Input label"
-		isLabelHidden
-		className="xui-input-borderless-inverted xui-input-borderless xui-input-borderless-solid"
-	/>
-);
 
 const createTriggerButton = () => <XUIButton fullWidth="always">A button</XUIButton>;
 
 const createHandlerTriggerButton = () => {
-	const clickHandl = () => { console.log('click'); }; // eslint-disable-line no-console
-	const focusHandl = () => { console.log('focus'); }; // eslint-disable-line no-console
-	const blurHandl = () => { console.log('blur'); }; // eslint-disable-line no-console
+	const clickHandl = () => { console.log('click'); }; 
+	const focusHandl = () => { console.log('focus'); };
+	const blurHandl = () => { console.log('blur'); };
 	return (
 		<XUIButton
 			fullWidth="always"

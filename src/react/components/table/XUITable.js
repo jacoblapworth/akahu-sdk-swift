@@ -379,7 +379,7 @@ XUITable.propTypes = {
 
 	/** A function that receives a single rows data set and determines if that particular
 	 * row should have the `onRowClick` click handler applied to it. */
-	shouldRowCLick: PropTypes.func,
+	shouldRowClick: PropTypes.func,
 
 	// - - - - - - //
 	// Appendages. //

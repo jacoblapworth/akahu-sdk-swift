@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import Styled from 'rsg-components/Styled';
 
 const styles = ({ space, color, borderRadius }) => ({
 	root: {
@@ -14,7 +15,7 @@ const styles = ({ space, color, borderRadius }) => ({
 	controls: {
 		display: 'flex',
 		alignItems: 'center',
-	}
+	},
 });
 
 export function PlaygroundRenderer({ classes, name, preview, tabButtons, tabBody }) {
@@ -40,7 +41,7 @@ PlaygroundRenderer.propTypes = {
 	name: PropTypes.string.isRequired,
 	preview: PropTypes.node.isRequired,
 	tabButtons: PropTypes.node.isRequired,
-	tabBody: PropTypes.node.isRequired
+	tabBody: PropTypes.node.isRequired,
 };
 
 export default Styled(styles)(PlaygroundRenderer);

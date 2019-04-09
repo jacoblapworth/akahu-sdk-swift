@@ -47,19 +47,17 @@ function getComponent({isPositionFixed, title, secondaryTitle, navigationIcon, a
 }
 /* eslint-enable react/prop-types */
 
-storiesWithKnobs.add('Playground', () => {
-	return getComponent({
-		title: text('Title', ''),
-		secondaryTitle: text('Secondary title', ''),
-		isPositionFixed: boolean('Is position fixed', false),
-		navigationIcon: select('Navigation icon', flattenedIconList, 'cross'),
-		actionIcon: select('Action icon', flattenedIconList, 'overflow'),
-		hasActionsPrimaryButton: boolean('Has primary action button', false),
-		hasActionsSecondaryButton: boolean('Has secondary action button', false),
-		hasTag: boolean('Has tag', false),
-		hasAvatar: boolean('Has avatar', false)
-	});
-});
+storiesWithKnobs.add('Playground', () => getComponent({
+	title: text('Title', ''),
+	secondaryTitle: text('Secondary title', ''),
+	isPositionFixed: boolean('Is position fixed', false),
+	navigationIcon: select('Navigation icon', flattenedIconList, 'cross'),
+	actionIcon: select('Action icon', flattenedIconList, 'overflow'),
+	hasActionsPrimaryButton: boolean('Has primary action button', false),
+	hasActionsSecondaryButton: boolean('Has secondary action button', false),
+	hasTag: boolean('Has tag', false),
+	hasAvatar: boolean('Has avatar', false),
+}));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);

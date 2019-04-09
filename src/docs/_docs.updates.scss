@@ -1,8 +1,8 @@
 // 15.0.0 Release update (March 2019)
 //
 // XUI 15.0.0 is themed around enabling and supporting responsive Xero applications. Responsive, much like accessibility, is a fundamental priority of building a progressive web application.
-// 
-// Globally, web usage is trending away from the desktop, towards a more diverse range of devices and input methods. Despite the fact we have mobile apps, much of Xero's functionality is still dependent on the web version of our product. Enabling a responsive experience for Xero is extremely important, not only to provide functional parity unlinked to device preference, but to capture users in markets that rely more heavily on the mobile web. 
+//
+// Globally, web usage is trending away from the desktop, towards a more diverse range of devices and input methods. Despite the fact we have mobile apps, much of Xero's functionality is still dependent on the web version of our product. Enabling a responsive experience for Xero is extremely important, not only to provide functional parity unlinked to device preference, but to capture users in markets that rely more heavily on the mobile web.
 //
 // You can read more about XUI’s position on responsive [here](./section-getting-started-responsive.html).
 //
@@ -45,7 +45,7 @@
 // **Component size variants**
 // <ul>
 //  <li>A large set of changes have been made to XUI elements and compounds to allow for greater flexibility in sizing and spacing</li>
-//  <li>All components now follow the base unit of `4px` to allow for nesting of components and consistent allignment. Read more details around our [spacing guidance here](/section-fundamentals-spacing.html).</li>
+//  <li>All components now follow the base unit of `4px` to allow for nesting of components and consistent allignment. Read more details around our [spacing guidance here](section-fundamentals-spacing.html).</li>
 //  <li>`XUISwitch` and `XUIToggle` markup has been updated to support future size variants</li>
 // </ul>
 //
@@ -58,7 +58,7 @@
 //
 // **Other enhancements**
 // <ul>
-//  <li>Form / control inputs now accept `isInvalid`, `validationMessage`, and `hintMessage` props, across the board. Additionally, labels may contain HTML, if not hidden as aria-labels. Read more about [labels and validation here](/section-compounds-collectinginput-forms.html).</li>
+//  <li>Form / control inputs now accept `isInvalid`, `validationMessage`, and `hintMessage` props, across the board. Additionally, labels may contain HTML, if not hidden as aria-labels. Read more about [labels and validation here](section-compounds-collectinginput-forms.html).</li>
 //  <li>Pills now support tooltips out of the box</li>
 //  <li>Removed all uses of `standard` sizes in favor of `medium`</li>
 // </ul>

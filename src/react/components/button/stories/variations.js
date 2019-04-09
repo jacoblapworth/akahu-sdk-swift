@@ -9,25 +9,25 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as Disabled',
 		isDisabled: true,
-		value: 'Disabled button'
+		value: 'Disabled button',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with Caret',
 		contentsKey: 'withCaret',
-		variant: 'create'
+		variant: 'create',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'small with Caret',
 		contentsKey: 'withCaret',
-		size: 'small'
+		size: 'small',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as a Group',
 		contentsKey: 'asGroup',
-		componentType: 'XUIButtonGroup'
+		componentType: 'XUIButtonGroup',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -41,7 +41,7 @@ const variations = [
 		storyTitle: 'as a Split Button Group',
 		contentsKey: 'asSplitGroup',
 		componentType: 'XUISplitButtonGroup',
-		variant: 'primary'
+		variant: 'primary',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -64,8 +64,8 @@ const variations = [
 		contentsKey: 'asSplitGroupDropdown',
 		componentType: 'XUISplitButtonGroup',
 		size: 'xsmall',
-		variant: 'primary'
-	}
+		variant: 'primary',
+	},
 ];
 
 buttonVariants.forEach((buttonVariant, index) => {
@@ -80,15 +80,15 @@ buttonVariants.forEach((buttonVariant, index) => {
 			storyTitle: `as ${size} ${buttonVariant}`,
 			href: buttonVariant === 'link' ? '#' : undefined,
 			isLink: buttonVariant === 'link',
-			size: size,
+			size,
 			value: isIcon ? undefined : `${buttonVariant}`,
 			contentsKey: isIcon ? 'icon' : undefined,
-			variant: buttonVariant
-		})
+			variant: buttonVariant,
+		}),
 	);
 });
 
-sizes.forEach((sizeVariant) => {
+sizes.forEach(sizeVariant => {
 	variations.push(
 		{
 			storyKind: storiesWithVariationsKindName,
@@ -96,12 +96,12 @@ sizes.forEach((sizeVariant) => {
 			size: sizeVariant,
 			isLoading: true,
 			className: 'xui-loader-static', // Prevent dots from animating and causing diffs due to timing issues
-			value: 'This is a button'
-		}
+			value: 'This is a button',
+		},
 	);
 });
 
 module.exports = {
 	storiesWithVariationsKindName,
-	variations
+	variations,
 };

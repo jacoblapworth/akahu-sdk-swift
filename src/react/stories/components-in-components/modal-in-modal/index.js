@@ -15,16 +15,16 @@ import { storiesOf } from '@storybook/react';
 import { withReadme } from 'storybook-readme';
 import readme from './README.md';
 
-const buildDropdownPicklist = (items) => {
+const buildDropdownPicklist = items => {
 	const pickItems = items.map((text, id) => (
 		<Pickitem
 			key={id}
 			id={text}
-			isSelected={false}>
+			isSelected={false}
+		>
 			{text}
 		</Pickitem>
-		)
-	);
+	));
 	return (
 		<DropDown>
 			<Picklist>
@@ -34,21 +34,19 @@ const buildDropdownPicklist = (items) => {
 	);
 };
 
-const buildTrigger = (text) => {
-	return (
-		<XUIButton>
-			{text}
+const buildTrigger = text => (
+	<XUIButton>
+		{text}
 		<XUIButtonCaret />
 	</XUIButton>
-	);
-};
+);
 
 class Example extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			showModal: false
+			showModal: false,
 		};
 	}
 
@@ -76,7 +74,7 @@ class Example2 extends Component {
 		super(props);
 
 		this.state = {
-			showModal: false
+			showModal: false,
 		};
 	}
 
@@ -93,7 +91,7 @@ class Example2 extends Component {
 								trigger={buildTrigger('Short Trigger')}
 								dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
 								isHidden={false}
-								repositionOnScroll={true}
+								repositionOnScroll
 								isLegacyDisplay={false}
 							/>
 						</div>

@@ -32,40 +32,39 @@ import CustomSummary from './summary';
 import CustomForm from './form';
 import XUIButton from '../../button/XUIButton';
 
-const onSelectItem = (itemNumber) => console.log(`selected ${itemNumber}`);
+const onSelectItem = itemNumber => console.log(`selected ${itemNumber}`);
 
 const realHeader = <CustomHeader />;
 
-const realMaster = (style = {}, navigation = []) => {
-	return (
-		<XUIPanel style={style}>
-			<StatefulPicklist
-				secondaryProps={{ role: null }}>
-				<XUIPicklist>
-					{navigation.map(item => (
-						<XUIPickItem
-							id={item}
-							key={item}
-							onSelect={onSelectItem.bind(this, item)}
-						>
-							Navigation item {item}
-						</XUIPickItem>
-					))}
-				</XUIPicklist>
-			</StatefulPicklist>
-		</XUIPanel>
-	);
-}
+const realMaster = (style = {}, navigation = []) => (
+	<XUIPanel style={style}>
+		<StatefulPicklist
+			secondaryProps={{ role: null }}
+		>
+			<XUIPicklist>
+				{navigation.map(item => (
+					<XUIPickItem
+						id={item}
+						key={item}
+						onSelect={onSelectItem.bind(this, item)}
+					>
+						Navigation item {item}
+					</XUIPickItem>
+				))}
+			</XUIPicklist>
+		</StatefulPicklist>
+	</XUIPanel>
+);
 
 const realSummary = (style = {}) => (
-	<CustomSummary style={style}/>
+	<CustomSummary style={style} />
 );
 const realDetail = (showMediumDownButton, navigation) => (
 	<CustomContentBlock
 		showMediumDownButton={showMediumDownButton}
 		dropdownOptions={navigation}
 		onSelectItem={onSelectItem}
-		/>
+	/>
 );
 
 const realPrimary = (
@@ -87,15 +86,15 @@ const realAreas = {
 
 const blockAreas = {
 	master: ({width, minWidth} = {width: '100%', minWidth: undefined}) => (
-		<div style={{background: '#50DCAA', height: '100px', width, minWidth}}></div>
+		<div style={{background: '#50DCAA', height: '100px', width, minWidth}} />
 	),
 	summary: ({width, minWidth} = {width: '100%', minWidth: undefined}) => (
-		<div style={{background: '#FA8200', height: '100px', width, minWidth}}></div>
+		<div style={{background: '#FA8200', height: '100px', width, minWidth}} />
 	),
-	detail: (<div style={{background: '#0078C8', height: '100px' }}></div>),
-	header: (<div style={{background: '#B446C8', height: '60px'}}></div>),
-	primary: (<div style={{background: '#ff6496', height: '100px'}}></div>),
-	secondary: (<div style={{background: '#0078C8', height: '100px'}}></div>),
+	detail: (<div style={{background: '#0078C8', height: '100px' }} />),
+	header: (<div style={{background: '#B446C8', height: '60px'}} />),
+	primary: (<div style={{background: '#ff6496', height: '100px'}} />),
+	secondary: (<div style={{background: '#0078C8', height: '100px'}} />),
 };
 
 const storiesWithKnobs = storiesOf('Compositions', module);
@@ -109,14 +108,14 @@ storiesWithKnobs.add('Master detail summary', () => {
 		None: null,
 		'100px': '100px',
 		'250px': '250px',
-		'400px': '400px'
+		'400px': '400px',
 	}, '250px', '1');
 
 	const widthRightColumn = !standardWidths && select('Pick a right column width', {
 		None: null,
 		'100px': '100px',
 		'250px': '250px',
-		'400px': '400px'
+		'400px': '400px',
 	}, '250px', '1');
 
 	const settings = {
@@ -128,8 +127,8 @@ storiesWithKnobs.add('Master detail summary', () => {
 		retainWidth: select('Retain a width', {
 			None: '',
 			Medium: 'medium',
-			Small: 'small'
-		}, '', '1')
+			Small: 'small',
+		}, '', '1'),
 	}
 
 	const areas = settings.isReal ? {...realAreas} : {...blockAreas};
@@ -168,14 +167,14 @@ storiesWithKnobs.add('Master detail', () => {
 		None: null,
 		'100px': '100px',
 		'250px': '250px',
-		'400px': '400px'
+		'400px': '400px',
 	}, '250px', '1');
 
 	const widthRightColumn = !standardWidths && select('Pick a right column width', {
 		None: null,
 		'100px': '100px',
 		'250px': '250px',
-		'400px': '400px'
+		'400px': '400px',
 	}, '250px', '1');
 
 	const settings = {
@@ -186,8 +185,8 @@ storiesWithKnobs.add('Master detail', () => {
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
-			Small: 'small'
-		}, '', '1')
+			Small: 'small',
+		}, '', '1'),
 	}
 	const areas = settings.isReal ? {...realAreas} : {...blockAreas};
 
@@ -207,14 +206,14 @@ storiesWithKnobs.add('Master detail', () => {
 					{...areas}
 				/>
 			</Fragment>
-		)
+		);
 	}
 	return (
 		<Tag
 			{...settings}
 			{...areas}
 		/>
-	)
+	);
 });
 
 storiesWithKnobs.add('Detail summary', () => {
@@ -230,15 +229,15 @@ storiesWithKnobs.add('Detail summary', () => {
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
-			Small: 'small'
-		}, '', '1')
-	}
+			Small: 'small',
+		}, '', '1'),
+	};
 
 	const widthRightColumn = !standardWidths && select('Pick a right column width', {
 		None: null,
 		'100px': '100px',
 		'250px': '250px',
-		'400px': '400px'
+		'400px': '400px',
 	}, '250px', '1');
 
 	const areas = settings.isReal ? {...realAreas} : {...blockAreas};
@@ -250,7 +249,7 @@ storiesWithKnobs.add('Detail summary', () => {
 			{...settings}
 			{...areas}
 		/>
-	)
+	);
 });
 
 storiesWithKnobs.add('Detail', () => {
@@ -268,7 +267,7 @@ storiesWithKnobs.add('Detail', () => {
 			{...settings}
 			{...areas}
 		/>
-	)
+	);
 });
 
 
@@ -281,13 +280,13 @@ storiesWithKnobs.add('Split', () => {
 		isInfinite: boolean('Expand width infinitely', false, '1'),
 		retainWidth: select('Retain a width', {
 			None: '',
-			Small: 'small'
+			Small: 'small',
 		}, '', '1'),
-	}
+	};
 	const areas = settings.isReal ? {
 		header: realHeader,
 		primary: realPrimary,
-		secondary: <CustomForm />
+		secondary: <CustomForm />,
 	} : blockAreas;
 
 	return (
@@ -295,7 +294,7 @@ storiesWithKnobs.add('Split', () => {
 			{...settings}
 			{...areas}
 		/>
-	)
+	);
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);

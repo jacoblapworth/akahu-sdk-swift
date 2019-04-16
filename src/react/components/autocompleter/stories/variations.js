@@ -1,4 +1,4 @@
-const NOOP = require('../../helpers/noop');
+import NOOP from'../../helpers/noop';
 import { fixedWidthDropdownSizes } from '../../dropdown/private/constants';
 
 const storiesWithVariationsKindName = 'Instances/XUIAutocompleter';

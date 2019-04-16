@@ -1,6 +1,6 @@
 import React from 'react';
 import XUIAvatar from '../../avatar/XUIAvatar';
-const NOOP = require('../../helpers/noop');
+import NOOP from'../../helpers/noop';
 const storiesWithVariationsKindName = 'Instances/XUIPill';
 
 const avatarProps = {

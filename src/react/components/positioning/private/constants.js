@@ -1,4 +1,4 @@
-const positionOptions = [
+export const positionOptions = [
 	'top',
 	'top-left',
 	'top-center',
@@ -16,20 +16,12 @@ const positionOptions = [
 	'left-center',
 	'left-bottom',
 ];
-const defaultAlignemnt = 'center';
-const flipDirection = {
+export const defaultAlignemnt = 'center';
+export const flipDirection = {
 	top: 'bottom',
 	bottom: 'top',
 	left: 'right',
 	right: 'left',
 };
-const verticals = ['top', 'bottom'];
-const horizontals = ['left', 'right'];
-
-module.exports = {
-	positionOptions,
-	defaultAlignemnt,
-	flipDirection,
-	verticals,
-	horizontals,
-};
+export const verticals = ['top', 'bottom'];
+export const horizontals = ['left', 'right'];

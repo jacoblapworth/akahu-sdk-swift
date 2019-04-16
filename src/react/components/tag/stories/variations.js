@@ -1,4 +1,4 @@
-const NOOP = require('../../helpers/noop');
+import NOOP from'../../helpers/noop';
 const { sizes, variants } = require('../private/constants');
 const storiesWithVariationsKindName = 'Instances/XUITag';
 

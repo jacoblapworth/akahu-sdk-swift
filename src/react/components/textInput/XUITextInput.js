@@ -227,9 +227,9 @@ XUITextInput.propTypes = {
 	/** Whether the current input value is invalid */
 	isInvalid: PropTypes.bool,
 	/** Validation message to show under the input if `isInvalid` is true */
-	validationMessage: PropTypes.string,
+	validationMessage: PropTypes.node,
 	/** Hint message to show under the input */
-	hintMessage: PropTypes.string,
+	hintMessage: PropTypes.node,
 	/** Props to be spread onto the input element itself */
 	inputProps: PropTypes.object,
 	/** Sets a ref for the input element */

@@ -114,7 +114,7 @@ XUIToast.propTypes = {
 	/** Custom Actions */
 	actions: PropTypes.arrayOf(PropTypes.node),
 	/** Custom toast message */
-	message: PropTypes.string,
+	message: PropTypes.node,
 	/** First and primary action. Always use this one first before using
 	 * `secondaryAction` */
 	primaryAction: PropTypes.node,

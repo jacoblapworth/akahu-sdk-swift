@@ -58,6 +58,6 @@ CheckBoxCell.propTypes = {
 	rowId: PropTypes.string.isRequired,
 	isChecked: PropTypes.bool,
 	onCheckOneToggle: PropTypes.func,
-	checkOneRowLabel: PropTypes.string,
+	checkOneRowLabel: PropTypes.node,
 	dividerClasses: PropTypes.string,
 };

@@ -335,10 +335,10 @@ XUITable.propTypes = {
 	onCheckOneToggle: PropTypes.func,
 
 	/** Describes the "single row" checkbox functionality for accessibility purposes. */
-	checkOneRowLabel: PropTypes.string,
+	checkOneRowLabel: PropTypes.node,
 
 	/** Describes the "all rows" checkbox functionality for accessibility purposes. */
-	checkAllRowsLabel: PropTypes.string,
+	checkAllRowsLabel: PropTypes.node,
 
 	// - - - - - - - //
 	// Overflow Menu. //
@@ -399,7 +399,7 @@ XUITable.propTypes = {
 	emptyStateComponent: PropTypes.node,
 
 	/** Change the default "Empty State" message with a custom version. */
-	emptyMessage: PropTypes.string,
+	emptyMessage: PropTypes.node,
 
 };
 

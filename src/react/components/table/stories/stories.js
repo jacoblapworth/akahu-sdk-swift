@@ -153,6 +153,7 @@ storiesWithKnobs.add('Playground', () => {
 				isResponsive={boolean('isResponsive', false)}
 				isTruncated={boolean('isTruncated', false)}
 				isLoading={boolean('isLoading', false)}
+				isBorderless={boolean('isBorderless', false)}
 				header={prependHeader && <Appendage>Header</Appendage>}
 				footer={appendFooter && <Appendage>Footer</Appendage>}
 			>

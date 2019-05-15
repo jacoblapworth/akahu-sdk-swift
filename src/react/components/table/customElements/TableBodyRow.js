@@ -176,7 +176,7 @@ TableBodyRow.propTypes = {
 	hasCheckbox: PropTypes.bool,
 	isChecked: PropTypes.bool,
 	onCheckOneToggle: PropTypes.func,
-	checkOneRowLabel: PropTypes.string,
+	checkOneRowLabel: PropTypes.node,
 
 	// Overflow Menu.
 	hasOverflowMenu: PropTypes.bool,

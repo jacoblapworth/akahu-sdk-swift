@@ -156,7 +156,7 @@ class XUITable extends Component {
       hasPointerEvents,
     } = enrichProps(state, props, { rootNode, tableNode, wrapperNode });
 
-    const className = cn(NAME_SPACE, `${ns}-panel`, suppliedClasses, {
+    const className = cn(NAME_SPACE, suppliedClasses, {
       [`${ns}-panel`]: !isBorderless,
       [`${NAME_SPACE}-responsive`]: isResponsive,
       [`${NAME_SPACE}-withtruncation`]: isTruncated,

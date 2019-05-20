@@ -44,21 +44,12 @@ exports[`<XUIProgressIndicator /> custom colors should not create a color overri
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -106,11 +97,6 @@ exports[`<XUIProgressIndicator /> custom colors should not create a color overri
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -163,21 +149,12 @@ exports[`<XUIProgressIndicator /> custom colors should override default color wi
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -225,11 +202,6 @@ exports[`<XUIProgressIndicator /> custom colors should override default color wi
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -279,21 +251,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -421,21 +384,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -567,21 +521,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                 thickness={1.3098282872553617}
                 total={5}
               >
-                <IE11SvgScaleHack
-                  key="canvas"
-                  viewBoxHeight={20}
-                  viewBoxWidth={20}
-                >
-                  <canvas
-                    className="xui-progress-circular-scaler"
-                    height={20}
-                    width={20}
-                  />
-                </IE11SvgScaleHack>
                 <svg
                   className="xui-progress-circular-wrapper"
+                  height={20}
                   key="svg"
                   viewBox="0 0 20 20"
+                  width={20}
                 >
                   <defs>
                     <mask
@@ -630,11 +575,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </div>
           </ElementSize>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -685,21 +625,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -808,21 +739,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                 thickness={1.3098282872553617}
                 total={5}
               >
-                <IE11SvgScaleHack
-                  key="canvas"
-                  viewBoxHeight={20}
-                  viewBoxWidth={20}
-                >
-                  <canvas
-                    className="xui-progress-circular-scaler"
-                    height={20}
-                    width={20}
-                  />
-                </IE11SvgScaleHack>
                 <svg
                   className="xui-progress-circular-wrapper"
+                  height={20}
                   key="svg"
                   viewBox="0 0 20 20"
+                  width={20}
                 >
                   <defs>
                     <mask
@@ -871,11 +793,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </div>
           </ElementSize>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -924,21 +841,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -1068,21 +976,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -1208,21 +1107,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -1270,11 +1160,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -1327,21 +1212,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={3}
               total={6}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -1390,11 +1266,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -1443,21 +1314,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={3}
               total={6}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -1505,11 +1367,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -1563,21 +1420,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={5}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -1626,11 +1474,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -1681,21 +1524,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -1744,11 +1578,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -1797,21 +1626,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -1859,11 +1679,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -1913,21 +1728,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={99999}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -1975,11 +1781,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -2029,21 +1830,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={0}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -2091,11 +1883,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -2145,21 +1932,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={8}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -2207,11 +1985,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -2258,21 +2031,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -2320,11 +2084,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -2375,7 +2134,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               progress={3}
               total={5}
             />
-            <CircularIcon />
           </div>
         }
         triggerOnBlur={true}
@@ -2410,21 +2168,12 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                   thickness={3}
                   total={5}
                 >
-                  <IE11SvgScaleHack
-                    key="canvas"
-                    viewBoxHeight={20}
-                    viewBoxWidth={20}
-                  >
-                    <canvas
-                      className="xui-progress-circular-scaler"
-                      height={20}
-                      width={20}
-                    />
-                  </IE11SvgScaleHack>
                   <svg
                     className="xui-progress-circular-wrapper"
+                    height={20}
                     key="svg"
                     viewBox="0 0 20 20"
+                    width={20}
                   >
                     <defs>
                       <mask
@@ -2472,11 +2221,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                 </CircularTrack>
               </div>
             </CircularGrowth>
-            <CircularIcon>
-              <div
-                className="xui-progress-icon"
-              />
-            </CircularIcon>
           </div>
           <PositioningInline
             closeDelay={100}
@@ -2497,14 +2241,11 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                   class="xui-progress--fragment"
                 >
                   <div>
-                    <canvas
-                      class="xui-progress-circular-scaler"
-                      height="20"
-                      width="20"
-                    />
                     <svg
                       class="xui-progress-circular-wrapper"
+                      height="20"
                       viewBox="0 0 20 20"
+                      width="20"
                     >
                       <defs>
                         <mask
@@ -2550,9 +2291,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                       </g>
                     </svg>
                   </div>
-                  <div
-                    class="xui-progress-icon"
-                  />
                 </div>
                 <span
                   class="xui-positioningInline"
@@ -2581,7 +2319,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                   progress={3}
                   total={5}
                 />
-                <CircularIcon />
               </div>
             }
             triggerDropdownGap={10}
@@ -3896,156 +3633,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
-exports[`<XUIProgressIndicator /> render supplied content as a child of the nested progress indicator 1`] = `
-<XUIProgressCircular
-  id="myCustomProgressId"
-  progress={3}
-  qaHook="progress-indicator"
-  total={5}
->
-  <ProgressWrapper
-    ariaMax={5}
-    ariaMin={0}
-    ariaNow={3}
-    classes="xui-progress xui-progress-circular"
-    customContent={
-      <img
-        src="/my-image.png"
-      />
-    }
-    id="myCustomProgressId"
-    progress={3}
-    qaHook="progress-indicator"
-    toolTipMessage="3 of 5"
-    total={5}
-  >
-    <div
-      aria-valuemax={5}
-      aria-valuemin={0}
-      aria-valuenow={3}
-      aria-valuetext="3 of 5"
-      className="xui-progress xui-progress-circular"
-      data-automationid="progress-indicator"
-      role="progressbar"
-    >
-      <div
-        className="xui-progress--fragment"
-      >
-        <CircularGrowth
-          customContent={
-            <img
-              src="/my-image.png"
-            />
-          }
-          id="myCustomProgressId"
-          progress={3}
-          qaHook="progress-indicator"
-          total={5}
-        >
-          <div>
-            <CircularTrack
-              customContent={
-                <img
-                  src="/my-image.png"
-                />
-              }
-              elementWidth={20}
-              id="myCustomProgressId"
-              progress={3}
-              qaHook="progress-indicator"
-              thickness={3}
-              total={5}
-            >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
-              <div
-                className="xui-progress-circular-content"
-                data-automationid="progress-indicator-custom-content"
-                key="content"
-                style={
-                  Object {
-                    "bottom": "calc(15% - 1px)",
-                    "left": "calc(15% - 1px)",
-                    "right": "calc(15% - 1px)",
-                    "top": "calc(15% - 1px)",
-                  }
-                }
-              >
-                <img
-                  src="/my-image.png"
-                />
-              </div>
-              <svg
-                className="xui-progress-circular-wrapper"
-                key="svg"
-                viewBox="0 0 20 20"
-              >
-                <defs>
-                  <mask
-                    height={20}
-                    id="myCustomProgressId-progress-mask"
-                    maskUnits="userSpaceOnUse"
-                    width={20}
-                    x="0"
-                    y="0"
-                  >
-                    <circle
-                      className="
-							xui-progress-circular-mask
-							xui-progress-roundcap
-						"
-                      cx={10}
-                      cy={10}
-                      r={8.5}
-                      strokeDasharray="initial"
-                      strokeWidth={3}
-                    />
-                  </mask>
-                </defs>
-                <g
-                  mask="url(#myCustomProgressId-progress-mask)"
-                >
-                  <circle
-                    className="xui-progress-circular-track"
-                    cx={10}
-                    cy={10}
-                    r={8.5}
-                    strokeWidth={3}
-                  />
-                  <circle
-                    className="xui-progress-circular-current xui-progress-roundcap"
-                    cx={10}
-                    cy={10}
-                    r={8.5}
-                    strokeDasharray={53.40707511102649}
-                    strokeDashoffset={21.362830044410597}
-                    strokeWidth={3}
-                  />
-                </g>
-              </svg>
-            </CircularTrack>
-          </div>
-        </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
-      </div>
-    </div>
-  </ProgressWrapper>
-</XUIProgressCircular>
-`;
-
 exports[`<XUIProgressIndicator /> should default to a standard format when segments are calculated at less than one 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
@@ -4092,21 +3679,12 @@ exports[`<XUIProgressIndicator /> should default to a standard format when segme
               thickness={3}
               total={0}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -4154,11 +3732,6 @@ exports[`<XUIProgressIndicator /> should default to a standard format when segme
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -4210,21 +3783,12 @@ exports[`<XUIProgressIndicator /> should override a complete alert with a soft e
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -4272,13 +3836,6 @@ exports[`<XUIProgressIndicator /> should override a complete alert with a soft e
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon
-          isComplete={false}
-        >
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -4329,21 +3886,12 @@ exports[`<XUIProgressIndicator /> should override a soft error alert with a hard
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -4484,21 +4032,12 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as jsx
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -4614,21 +4153,12 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as tex
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -4692,6 +4222,252 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as tex
 </XUIProgressCircular>
 `;
 
+exports[`<XUIProgressIndicator /> should render supplied content as a child of the nested progress indicator 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  progress={3}
+  qaHook="progress-indicator"
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular"
+    customContent={
+      <img
+        src="/my-image.png"
+      />
+    }
+    id="myCustomProgressId"
+    progress={3}
+    qaHook="progress-indicator"
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular"
+      data-automationid="progress-indicator"
+      role="progressbar"
+    >
+      <div
+        className="xui-progress--fragment"
+      >
+        <CircularGrowth
+          customContent={
+            <img
+              src="/my-image.png"
+            />
+          }
+          id="myCustomProgressId"
+          progress={3}
+          qaHook="progress-indicator"
+          total={5}
+        >
+          <div>
+            <CircularTrack
+              customContent={
+                <img
+                  src="/my-image.png"
+                />
+              }
+              elementWidth={20}
+              id="myCustomProgressId"
+              progress={3}
+              qaHook="progress-indicator"
+              thickness={3}
+              total={5}
+            >
+              <div
+                className="xui-progress-circular-content"
+                data-automationid="progress-indicator-custom-content"
+                key="content"
+                style={
+                  Object {
+                    "bottom": "calc(15% - 1px)",
+                    "left": "calc(15% - 1px)",
+                    "right": "calc(15% - 1px)",
+                    "top": "calc(15% - 1px)",
+                  }
+                }
+              >
+                <img
+                  src="/my-image.png"
+                />
+              </div>
+              <svg
+                className="xui-progress-circular-wrapper"
+                height={20}
+                key="svg"
+                viewBox="0 0 20 20"
+                width={20}
+              >
+                <defs>
+                  <mask
+                    height={20}
+                    id="myCustomProgressId-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={20}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={10}
+                      cy={10}
+                      r={8.5}
+                      strokeDasharray="initial"
+                      strokeWidth={3}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#myCustomProgressId-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeWidth={3}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeDasharray={53.40707511102649}
+                    strokeDashoffset={21.362830044410597}
+                    strokeWidth={3}
+                  />
+                </g>
+              </svg>
+            </CircularTrack>
+          </div>
+        </CircularGrowth>
+      </div>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> should render with a canvas element if it thinks the browser is IE11 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular"
+    id="myCustomProgressId"
+    progress={3}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular"
+      role="progressbar"
+    >
+      <div
+        className="xui-progress--fragment"
+      >
+        <CircularGrowth
+          id="myCustomProgressId"
+          progress={3}
+          total={5}
+        >
+          <div>
+            <CircularTrack
+              elementWidth={20}
+              id="myCustomProgressId"
+              progress={3}
+              thickness={3}
+              total={5}
+            >
+              <IE11SvgScaleHack
+                key="canvas"
+                viewBoxHeight={20}
+                viewBoxWidth={20}
+              >
+                <canvas
+                  className="xui-progress-circular-scaler"
+                  height={20}
+                  width={20}
+                />
+              </IE11SvgScaleHack>
+              <svg
+                className="xui-progress-circular-wrapper xui-progress-circular-wrapper-ie11"
+                height={20}
+                key="svg"
+                viewBox="0 0 20 20"
+                width={20}
+              >
+                <defs>
+                  <mask
+                    height={20}
+                    id="myCustomProgressId-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={20}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={10}
+                      cy={10}
+                      r={8.5}
+                      strokeDasharray="initial"
+                      strokeWidth={3}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#myCustomProgressId-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeWidth={3}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeDasharray={53.40707511102649}
+                    strokeDashoffset={21.362830044410597}
+                    strokeWidth={3}
+                  />
+                </g>
+              </svg>
+            </CircularTrack>
+          </div>
+        </CircularGrowth>
+      </div>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
 exports[`<XUIProgressIndicator /> should set a negative progress value to 0 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
@@ -4732,21 +4508,12 @@ exports[`<XUIProgressIndicator /> should set a negative progress value to 0 1`] 
               thickness={3}
               total={5}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -4794,11 +4561,6 @@ exports[`<XUIProgressIndicator /> should set a negative progress value to 0 1`] 
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>
@@ -4845,21 +4607,12 @@ exports[`<XUIProgressIndicator /> should set a negative total value to 0 1`] = `
               thickness={3}
               total={0}
             >
-              <IE11SvgScaleHack
-                key="canvas"
-                viewBoxHeight={20}
-                viewBoxWidth={20}
-              >
-                <canvas
-                  className="xui-progress-circular-scaler"
-                  height={20}
-                  width={20}
-                />
-              </IE11SvgScaleHack>
               <svg
                 className="xui-progress-circular-wrapper"
+                height={20}
                 key="svg"
                 viewBox="0 0 20 20"
+                width={20}
               >
                 <defs>
                   <mask
@@ -4907,11 +4660,6 @@ exports[`<XUIProgressIndicator /> should set a negative total value to 0 1`] = `
             </CircularTrack>
           </div>
         </CircularGrowth>
-        <CircularIcon>
-          <div
-            className="xui-progress-icon"
-          />
-        </CircularIcon>
       </div>
     </div>
   </ProgressWrapper>

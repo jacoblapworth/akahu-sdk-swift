@@ -514,11 +514,14 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
 .#{$ns}-progress-circular-wrapper {
   display: block;
   height: 100%;
+  transform: rotate(-90deg);
+  width: 100%;
+}
+
+.#{$ns}-progress-circular-wrapper-ie11 {
   left: 0;
   position: absolute;
   top: 0;
-  transform: rotate(-90deg);
-  width: 100%;
 }
 
 .#{$ns}-progress-circular-track,

@@ -23,6 +23,6 @@ const config = {
 	transform: {
 		'^.+\\.jsx?$': 'babel-jest'
 	},
-	setupTestFrameworkScriptFile: '<rootDir>/jest.setup.js'
+	setupFilesAfterEnv: ['<rootDir>/jest.setup.js']
 }
 module.exports = config;

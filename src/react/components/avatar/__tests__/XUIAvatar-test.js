@@ -34,9 +34,9 @@ describe('XUIAvatar', () => {
 		expect(jestDom.find('abbr')).toHaveLength(1);
 	});
 
-	it('should render an `img` avatar when I give it an image', () => {
+	it('should render an `img` avatar when I give it an image and a value', () => {
 
-		const test = <XUIAvatar imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"/>;
+		const test = <XUIAvatar imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg" value="Test"/>;
 
 		const snap = renderer.create(test);
 		expect(snap).toMatchSnapshot();
@@ -84,6 +84,7 @@ describe('XUIAvatar', () => {
 			const onErrorHandler = jest.fn();
 			const mountedComponent = mount(
 				<XUIAvatar
+					value="Test"
 					onError={onErrorHandler}
 					imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/25.jpg"/>
 			);
@@ -99,6 +100,7 @@ describe('XUIAvatar', () => {
 
 			const mountedComponent = mount(
 				<XUIAvatar
+					value="Test"
 					onError={onErrorHandler}
 					imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/25.jpg"/>
 			);
@@ -133,11 +135,12 @@ describe('XUIAvatar', () => {
 	});
 
 	describe('Expected proptype failures', () => {
-		it('should throw an error if you dont pass either a value or an imageUrl property', () => {
+		it('should throw an error if you dont pass a value property', () => {
 			expect(() => renderer.create(
-				<XUIAvatar />
+				<XUIAvatar
+				imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"
+				 />
 			)).toThrow();
 		});
 	});
-
 });

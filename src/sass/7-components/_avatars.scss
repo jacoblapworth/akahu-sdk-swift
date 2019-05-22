@@ -107,3 +107,8 @@ $xui-avatar-swatches: (
 
 	$idx: $idx + 1;
 }
+
+.#{$ns}-avatar-hidden {
+	@include xui-utility-hidden;
+}
+

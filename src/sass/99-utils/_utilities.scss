@@ -2,8 +2,8 @@
  * A collection of general-purpose utility rules.
  */
 
-@import "../mixins";
-@import "../vars";
+@import '../mixins';
+@import '../vars';
 
 // Utilities
 //
@@ -228,179 +228,175 @@
 // Styleguide: Fundamentals.Utilities.8
 
 .#{$ns}-u-flex {
-	display: flex;
+  display: flex;
 }
 
 .#{$ns}-u-flex-inline {
-	display: inline-flex;
+  display: inline-flex;
 }
 
 .#{$ns}-u-flex-none {
-	flex: none;
+  flex: none;
 }
 
 .#{$ns}-u-flex-1 {
-	flex: 1;
+  flex: 1;
 }
 
 .#{$ns}-u-flex-grow {
-	flex-basis: auto;
-	flex-grow: 1;
+  flex-basis: auto;
+  flex-grow: 1;
 }
 
 .#{$ns}-u-flex-inherit {
-	align-items: inherit;
-	display: inherit;
-	flex-direction: inherit;
-	justify-content: inherit;
-	width: inherit; // For IE11 and Chrome
+  align-items: inherit;
+  display: inherit;
+  flex-direction: inherit;
+  justify-content: inherit;
+  width: inherit; // For IE11 and Chrome
 }
 
 @mixin make-flex-classes($suffix) {
-	.#{$ns}-u-flex-align-start#{$suffix} {
-		align-items: flex-start;
-	}
+  .#{$ns}-u-flex-align-start#{$suffix} {
+    align-items: flex-start;
+  }
 
-	.#{$ns}-u-flex-align-end#{$suffix} {
-		align-items: flex-end;
-	}
+  .#{$ns}-u-flex-align-end#{$suffix} {
+    align-items: flex-end;
+  }
 
-	.#{$ns}-u-flex-align-stretch#{$suffix} {
-		align-items: stretch;
-	}
+  .#{$ns}-u-flex-align-stretch#{$suffix} {
+    align-items: stretch;
+  }
 
-	.#{$ns}-u-flex-align-center#{$suffix} {
-		align-items: center;
-	}
+  .#{$ns}-u-flex-align-center#{$suffix} {
+    align-items: center;
+  }
 
-	.#{$ns}-u-flex-row#{$suffix} {
-		flex-direction: row;
-	}
+  .#{$ns}-u-flex-row#{$suffix} {
+    flex-direction: row;
+  }
 
-	.#{$ns}-u-flex-column#{$suffix} {
-		flex-direction: column;
-	}
+  .#{$ns}-u-flex-column#{$suffix} {
+    flex-direction: column;
+  }
 
-	.#{$ns}-u-flex-justify-space-between#{$suffix} {
-		justify-content: space-between;
-	}
+  .#{$ns}-u-flex-justify-space-between#{$suffix} {
+    justify-content: space-between;
+  }
 
-	.#{$ns}-u-flex-justify-space-around#{$suffix}{
-		justify-content: space-around;
-	}
+  .#{$ns}-u-flex-justify-space-around#{$suffix} {
+    justify-content: space-around;
+  }
 
-	.#{$ns}-u-flex-justify-start#{$suffix} {
-		justify-content: flex-start;
-	}
+  .#{$ns}-u-flex-justify-start#{$suffix} {
+    justify-content: flex-start;
+  }
 
-	.#{$ns}-u-flex-justify-end#{$suffix} {
-		justify-content: flex-end;
-	}
+  .#{$ns}-u-flex-justify-end#{$suffix} {
+    justify-content: flex-end;
+  }
 
-	.#{$ns}-u-flex-justify-center#{$suffix} {
-		justify-content: center;
-	}
+  .#{$ns}-u-flex-justify-center#{$suffix} {
+    justify-content: center;
+  }
 }
 
 @include make-flex-classes('');
 @include xui-breakpoint-small-down {
-	@include make-flex-classes('-small-down');
+  @include make-flex-classes('-small-down');
 }
 @include xui-breakpoint-small-up {
-	@include make-flex-classes('-small-up');
+  @include make-flex-classes('-small-up');
 }
 @include xui-breakpoint-large-up {
-	@include make-flex-classes('-large-up');
+  @include make-flex-classes('-large-up');
 }
 
 .#{$ns}-u-display-block {
-	display: block;
+  display: block;
 }
 
 .#{$ns}-u-display-inline-block {
-	display: inline-block;
+  display: inline-block;
 }
 
 .#{$ns}-u-display-inline {
-	display: inline;
+  display: inline;
 }
 
-// scss-lint:disable ImportantRule
 .#{$ns}-u-hidden {
-	display: none !important;
-	// Screen readers sometimes ignore display:none as per
-	// http://www.456bereastreet.com/archive/200711/screen_readers_sometimes_ignore_displaynone/
-	visibility: hidden !important;
+  @include xui-utility-hidden;
 }
 
 .#{$ns}-u-hidden-visually {
-	@include xui-utility-hidden-visually;
+  @include xui-utility-hidden-visually;
 }
 
 .#{$ns}-u-hidden-content {
-	@include xui-utility-hidden-content;
+  @include xui-utility-hidden-content;
 }
 
 .#{$ns}-u-hidden-small-down {
-	@include xui-breakpoint-small-down {
-		display: none !important;
-	}
+  @include xui-breakpoint-small-down {
+    display: none !important;
+  }
 }
 
 .#{$ns}-u-hidden-small-up {
-	@include xui-breakpoint-small-up {
-		display: none !important;
-	}
+  @include xui-breakpoint-small-up {
+    display: none !important;
+  }
 }
 
 .#{$ns}-u-hidden-medium-up {
-	@include xui-breakpoint-medium-up {
-		display: none !important;
-	}
+  @include xui-breakpoint-medium-up {
+    display: none !important;
+  }
 }
 
 .#{$ns}-u-hidden-large-up {
-	@include xui-breakpoint-large-up {
-		display: none !important;
-	}
+  @include xui-breakpoint-large-up {
+    display: none !important;
+  }
 }
 
 .#{$ns}-u-overflow-hidden {
-	overflow: hidden !important;
+  overflow: hidden !important;
 }
 
 .#{$ns}-u-fullwidth {
-	@include xui-layout-width-fullwidth;
+  @include xui-layout-width-fullwidth;
 }
 
 .#{$ns}-u-noselect {
-	user-select: none;
+  user-select: none;
 }
 
 .#{$ns}-u-resize-none {
-	resize: none;
+  resize: none;
 }
 
 .#{$ns}-u-resize-vertical {
-	resize: vertical;
+  resize: vertical;
 }
 
 .#{$ns}-u-rotate-90 {
-	transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .#{$ns}-u-rotate-180 {
-	transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .#{$ns}-u-rotate-270 {
-	transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
 .#{$ns}-u-position-fixed {
-	position: fixed;
+  position: fixed;
 }
 
 .#{$ns}-u-position-relative {
-	position: relative;
+  position: relative;
 }

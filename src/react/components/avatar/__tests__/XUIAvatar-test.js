@@ -34,9 +34,9 @@ describe('XUIAvatar', () => {
 		expect(jestDom.find('abbr')).toHaveLength(1);
 	});
 
-	it('should render an `img` avatar when I give it an image and a value', () => {
+	it('should render an `img` avatar when I give it an image', () => {
 
-		const test = <XUIAvatar imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg" value="Test"/>;
+		const test = <XUIAvatar imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"/>;
 
 		const snap = renderer.create(test);
 		expect(snap).toMatchSnapshot();
@@ -135,11 +135,9 @@ describe('XUIAvatar', () => {
 	});
 
 	describe('Expected proptype failures', () => {
-		it('should throw an error if you dont pass a value property', () => {
+		it('should throw an error if you dont pass either a value or an imageUrl property', () => {
 			expect(() => renderer.create(
-				<XUIAvatar
-				imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"
-				 />
+				<XUIAvatar />
 			)).toThrow();
 		});
 	});

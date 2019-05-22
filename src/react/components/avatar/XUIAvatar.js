@@ -7,7 +7,7 @@ import { getAvatarColorClass, abbreviateAvatar } from './utils';
 
 export default class XUIAvatar extends PureComponent {
   state = {
-    imageLoad: false,
+    imageLoaded: false,
   };
 
   /**
@@ -21,12 +21,12 @@ export default class XUIAvatar extends PureComponent {
 
   onLoad = () => {
     this.setState({
-      imageLoad: true,
+      imageLoaded: true,
     });
   };
 
   render() {
-    const { imageLoad } = this.state;
+    const { imageLoaded } = this.state;
 
     const { qaHook, className, imageUrl, size, identifier, value, variant } = this.props;
 
@@ -45,7 +45,7 @@ export default class XUIAvatar extends PureComponent {
             onError={this.onError}
             onLoad={this.onLoad}
             data-automationid={qaHook}
-            className={cn(avatarClassNames, {[classNames.hidden]: !imageLoad })}
+            className={cn(avatarClassNames, {[classNames.hidden]: !imageLoaded })}
             alt=""
             src={imageUrl}
           />
@@ -53,7 +53,7 @@ export default class XUIAvatar extends PureComponent {
         <abbr
           data-automationid={qaHook}
           className={cn(avatarClassNames, getAvatarColorClass(identifier || value || imageUrl), {
-            [classNames.hidden]: imageUrl && imageLoad,
+            [classNames.hidden]: imageUrl && imageLoaded,
           })}
           role="presentation"
         >
@@ -71,18 +71,18 @@ XUIAvatar.propTypes = {
   /** The avatar variant */
   variant: PropTypes.oneOf(Object.keys(variantClassNames)),
 
-  /** The text to display in the avatar */
-  value(props, propName) {
-    const value = props[propName];
-    if (!value) {
-      return new Error('XUIAvatar component requires a ' + 'non-empty `value`');
-    }
-    if (typeof value !== 'string') {
-      return new Error('XUIAvatar: `value` must be a string');
-    }
-    return null;
-  },
-
+	/** The text to display in the avatar */
+	value(props, propName) {
+		const valOrUrl = props[propName] || props.imageUrl;
+		if (!valOrUrl) {
+			return new Error('XUIAvatar component requires either a ' +
+				'non-empty `value` or `imageUrl` property');
+		}
+		if (typeof valOrUrl !== 'string') {
+			return new Error('XUIAvatar: `value` or `imageUrl` must be a string');
+		}
+		return null;
+	},
   /** the image the component should render. Initials rendered otherwise */
   imageUrl: PropTypes.string,
 

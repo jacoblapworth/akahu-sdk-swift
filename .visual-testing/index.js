@@ -255,7 +255,7 @@ module.exports = {
 		ci_report: './.visual-testing/ci-report'
 	},
 	report: ['browser', 'CI'],
-	engine: 'puppeteer',
+	engine: 'chrome',
 	engineFlags: [],
 	asyncCaptureLimit: 4,
 	asyncCompareLimit: 50,

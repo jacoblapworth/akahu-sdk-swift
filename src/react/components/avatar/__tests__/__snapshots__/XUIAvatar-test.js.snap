@@ -37,7 +37,7 @@ exports[`XUIAvatar should render an \`abbr\` avatar when I give it an identifier
 </abbr>
 `;
 
-exports[`XUIAvatar should render an \`img\` avatar when I give it an image and a value 1`] = `
+exports[`XUIAvatar should render an \`img\` avatar when I give it an image 1`] = `
 Array [
   <img
     alt=""
@@ -47,10 +47,10 @@ Array [
     src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"
   />,
   <abbr
-    className="xui-avatar xui-avatar-color-8"
+    className="xui-avatar xui-avatar-color-4"
     role="presentation"
   >
-    T
+    
   </abbr>,
 ]
 `;

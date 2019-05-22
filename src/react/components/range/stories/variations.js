@@ -3,7 +3,7 @@ import React from 'react';
 
 const storiesWithVariationsKindName = 'Instances/XUIRange';
 
-const leftElement= {leftElement : <XUIAvatar className="xui-margin-small" value="Test" imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" /> };
+const leftElement= {leftElement : <XUIAvatar className="xui-margin-small" imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" /> };
 const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,

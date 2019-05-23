@@ -84,6 +84,7 @@ describe('XUIAvatar', () => {
 			const onErrorHandler = jest.fn();
 			const mountedComponent = mount(
 				<XUIAvatar
+					value="Test"
 					onError={onErrorHandler}
 					imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/25.jpg"/>
 			);
@@ -99,6 +100,7 @@ describe('XUIAvatar', () => {
 
 			const mountedComponent = mount(
 				<XUIAvatar
+					value="Test"
 					onError={onErrorHandler}
 					imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/25.jpg"/>
 			);
@@ -139,5 +141,4 @@ describe('XUIAvatar', () => {
 			)).toThrow();
 		});
 	});
-
 });

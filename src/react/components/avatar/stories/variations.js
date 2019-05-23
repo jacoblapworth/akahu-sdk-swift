@@ -25,8 +25,8 @@ const avatarVariations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with image',
-		imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg',
-		value: 'value',
+    imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg',
+    value: 'value',
   },
   {
     storyKind: storiesWithVariationsKindName,

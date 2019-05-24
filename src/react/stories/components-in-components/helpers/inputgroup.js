@@ -8,7 +8,7 @@ const InputGroup = ({ children, className, isFieldLayout, ...other }) => {
 		1: 'full',
 		2: 'half',
 		3: 'third',
-		4: 'quarter'
+		4: 'quarter',
 	};
 
 	const noOfChildren = React.Children.count(children);
@@ -18,7 +18,7 @@ const InputGroup = ({ children, className, isFieldLayout, ...other }) => {
 		<div
 			{...other}
 			className={cn(className, 'xui-textinputgroup', {
-				'xui-field-layout': isFieldLayout
+				'xui-field-layout': isFieldLayout,
 			})}
 		>
 			{children.map((child, idx) => {
@@ -26,8 +26,8 @@ const InputGroup = ({ children, className, isFieldLayout, ...other }) => {
 					key: idx,
 					fieldClassName: getAllClasses({
 						className: child.props.className,
-						gridColumns: columnChosen
-					})
+						gridColumns: columnChosen,
+					}),
 				});
 				return newChild;
 			})}
@@ -37,7 +37,7 @@ const InputGroup = ({ children, className, isFieldLayout, ...other }) => {
 InputGroup.propTypes = {
 	children: PropTypes.any,
 	className: PropTypes.string,
-	isFieldLayout: PropTypes.bool
+	isFieldLayout: PropTypes.bool,
 };
 
 export default InputGroup;

@@ -4,26 +4,26 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Default',
-		isDisabled: false
+		isDisabled: false,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checked and reversed',
 		isChecked: true,
 		isDisabled: false,
-		isReversed: true
+		isReversed: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Disabled with Hidden Label',
 		isDisabled: true,
-		isLabelHidden: true
+		isLabelHidden: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checked and Disabled',
 		isChecked: true,
-		isDisabled: true
+		isDisabled: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -32,7 +32,7 @@ const variations = [
 		groupProps: {
 			label: 'Group of switches',
 			hintMessage: 'This is a hint message',
-		}
+		},
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -43,8 +43,8 @@ const variations = [
 			hintMessage: 'hello',
 			isInvalid: true,
 			validationMessage: 'whoops',
-		}
-	}
+		},
+	},
 ];
 
 [false, true].forEach(isInvalid => {
@@ -71,5 +71,5 @@ const variations = [
 
 module.exports = {
 	storiesWithVariationsKindName,
-	variations
+	variations,
 }

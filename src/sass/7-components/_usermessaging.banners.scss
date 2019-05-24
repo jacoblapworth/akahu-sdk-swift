@@ -1,5 +1,5 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Banner
 //
@@ -64,7 +64,9 @@
 //       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <p class="xui-banner--message">Banner with secondary message</p>
-//   <div class="xui-banner--messagedetail">Secondary message</div>
+//   <ul class="xui-banner--messagedetail">
+//   	<li>Secondary message</li>
+//   </ul>
 //   <ul class="xui-banner--actions">
 //     <li class="xui-banner--action"><button class="xui-button xui-button-borderless-main xui-button-small" type="button">Action</button></li>
 //     <li class="xui-banner--action"><button class="xui-button xui-button-borderless-main xui-button-small" type="button">Action</button></li>
@@ -125,103 +127,102 @@
 // Styleguide: Building Blocks.Alerts.Banner.4
 
 .#{$ns}-banner {
-	background-color: $xui-banner-bg-color;
-	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-border-all;
-	color: $xui-banner-color;
-	opacity: 1;
-	position: relative;
-	transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
+  background-color: $xui-banner-bg-color;
+  border-radius: $xui-radius;
+  box-shadow: $xui-shadow-border-all;
+  color: $xui-banner-color;
+  opacity: 1;
+  position: relative;
+  transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
 }
 
 .#{$ns}-banner-positive {
-	@include xui-highlight-left($xui-banner-positive-bg-color, $xui-radius, true);
+  @include xui-highlight-left($xui-banner-positive-bg-color, $xui-radius, true);
 }
 
 .#{$ns}-banner-negative {
-	@include xui-highlight-left($xui-bannger-negative-bg-color, $xui-radius, true);
+  @include xui-highlight-left($xui-bannger-negative-bg-color, $xui-radius, true);
 }
 
 .#{$ns}-banner-layout {
-	@include xui-padding($xui-s-2xsmall);
-	@include xui-margin-bottom($xui-s-large);
-	@include xui-margin-horizontal(auto);
+  @include xui-padding($xui-s-2xsmall);
+  @include xui-margin-bottom($xui-s-large);
+  @include xui-margin-horizontal(auto);
 
-	display: inline-block;
-	width: 100%;
+  display: inline-block;
+  width: 100%;
 
-	@include xui-breakpoint-small-down {
-		border-left: 0;
-		border-right: 0;
-		border-top: 0;
-		margin-top: 0;
-		width: 100%;
+  @include xui-breakpoint-small-down {
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin-top: 0;
+    width: 100%;
 
-		&::before {
-			border-radius: 0;
-		}
-	}
+    &::before {
+      border-radius: 0;
+    }
+  }
 
-	.#{$ns}-banner--message {
-		margin: 0;
-		padding: $xui-s-xsmall $xui-s-small;
-	}
+  .#{$ns}-banner--message {
+    margin: 0;
+    padding: $xui-s-xsmall $xui-s-small;
+  }
 
-	.#{$ns}-banner--messagedetail {
-		@include xui-margin-vertical($xui-s-xsmall);
-		@include xui-margin-horizontal($xui-s-small);
-	}
+  .#{$ns}-banner--messagedetail {
+    @include xui-margin-vertical($xui-s-xsmall);
+    @include xui-margin-horizontal($xui-s-small);
+  }
 
-	.#{$ns}-banner--action {
-		margin: $xui-s-2xsmall;
-	}
+  .#{$ns}-banner--action {
+    margin: $xui-s-2xsmall;
+  }
 
-	.#{$ns}-banner--close ~ .#{$ns}-banner--message {
-		max-width: calc(100% - #{$xui-control-size-small + $xui-s-xsmall});
-	}
+  .#{$ns}-banner--close ~ .#{$ns}-banner--message {
+    max-width: calc(100% - #{$xui-control-size-small + $xui-s-xsmall});
+  }
 
-	.#{$ns}-banner--close ~ .#{$ns}-banner--messagedetail {
-		max-width: calc(100% - 40px);
-	}
+  .#{$ns}-banner--close ~ .#{$ns}-banner--messagedetail {
+    max-width: calc(100% - 40px);
+  }
 }
-
 
 .#{$ns}-banner--message,
 .#{$ns}-banner--actions {
-	display: inline-block;
+  display: inline-block;
 }
 
 .#{$ns}-banner--messagedetail {
-	color: $xui-banner-message-color;
+  color: $xui-banner-message-color;
 }
 
 .#{$ns}-banner--actions,
 .#{$ns}-banner--close {
-	float: right;
+  float: right;
 }
 
 .#{$ns}-banner--actions {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .#{$ns}-banner--close {
-	margin: $xui-s-2xsmall;
+  margin: $xui-s-2xsmall;
 }
 
 .#{$ns}-banner--action {
-	display: inline-block;
-	font-weight: bold;
+  display: inline-block;
+  font-weight: bold;
 }
 
 @keyframes #{$ns}-banner-animation {
-	0% {
-		margin-top: -$xui-s-large;
-		opacity: 0;
-	}
+  0% {
+    margin-top: -$xui-s-large;
+    opacity: 0;
+  }
 
-	100% {
-		margin-top: 0;
-		opacity: 1;
-	}
+  100% {
+    margin-top: 0;
+    opacity: 1;
+  }
 }

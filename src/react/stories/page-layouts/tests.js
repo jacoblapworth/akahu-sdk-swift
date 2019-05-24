@@ -12,9 +12,9 @@ const variations = [];
 Object.keys(storyNames).forEach(name => {
 	variations.push(
 		{
-			storyKind: storyKind,
-			storyTitle: storyNames[name]
-		}
+			storyKind,
+			storyTitle: storyNames[name],
+		},
 	);
 });
 
@@ -22,5 +22,5 @@ Object.keys(storyNames).forEach(name => {
 module.exports = {
 	variations,
 	storyNames,
-	storyKind
+	storyKind,
 };

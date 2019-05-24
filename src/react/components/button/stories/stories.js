@@ -28,17 +28,17 @@ const dropdownWithTrigger = (
 );
 
 const buttonContents = {
-	withCaret: ['Caret button', <XUIButtonCaret key="caret"/>],
+	withCaret: ['Caret button', <XUIButtonCaret key="caret" />],
 	asGroup: [<XUIButton key="one">One</XUIButton>, <XUIButton key="two">Two</XUIButton>],
 	asSplitGroup: [<XUIButton key="main">Main</XUIButton>, <XUISplitButton key="split" aria-label="Other actions" />],
 	asSplitGroupMulti: [<XUIButton key="main">This is a bunch of multi line text to make sure the icon displays correctly</XUIButton>, <XUISplitButton key="split" aria-label="Other actions" />],
 	asSplitGroupDropdown: [<XUIButton key="main">Main</XUIButton>, dropdownWithTrigger],
-	icon: <XUIIcon icon={view} title="Preview" />
+	icon: <XUIIcon icon={view} title="Preview" />,
 };
 
-const ButtonWrapper = ({children}) => {
-	return <div style={{ maxWidth: "150px" }}>{children}</div>;
-}
+const ButtonWrapper = ({children}) => (
+	<div style={{ maxWidth: "150px" }}>{children}</div>
+);
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
@@ -64,7 +64,9 @@ storiesWithKnobs.add('Playground', () => (
 		isInverted={boolean('isInverted', false)}
 		retainLayout={boolean('retainLayout', true)}
 		minLoaderWidth={boolean('minLoaderWidth', false)}
-	>Test button</XUIButton>
+	>
+		Test button
+	</XUIButton>
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
@@ -83,10 +85,16 @@ variations.forEach(variation => {
 
 		if (componentType === 'XUIButtonGroup') {
 			return <XUIButtonGroup {...variationMinusStoryDetails}>{value}</XUIButtonGroup>;
-		} else if (componentType === 'XUISplitButtonGroup') {
-			return <ButtonWrapper><XUISplitButtonGroup {...variationMinusStoryDetails}>{value}</XUISplitButtonGroup></ButtonWrapper>;
-		} else {
-			return <XUIButton {...variationMinusStoryDetails}>{value}</XUIButton>;
 		}
+		if (componentType === 'XUISplitButtonGroup') {
+			return (
+				<ButtonWrapper>
+					<XUISplitButtonGroup {...variationMinusStoryDetails}>
+						{value}
+					</XUISplitButtonGroup>
+				</ButtonWrapper>
+			);
+		}
+		return <XUIButton {...variationMinusStoryDetails}>{value}</XUIButton>;
 	});
 });

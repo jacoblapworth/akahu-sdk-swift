@@ -53,7 +53,7 @@ const TextInputWrapper = props => {
 		case 'icon':
 			return (
 				<XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
-					<XUIIcon icon={clearPath} isBoxed/>
+					<XUIIcon icon={clearPath} isBoxed />
 				</XUITextInputSideElement>
 			);
 		case 'icon button':
@@ -86,19 +86,19 @@ const TextInputWrapper = props => {
 					<XUIButton variant="primary" size={childComponentSize}>
 							Test
 					</XUIButton>
-				</XUITextInputSideElement>)
+     </XUITextInputSideElement>)
 			);
 		case 'pill':
 			return (childComponentSize !== '2xsmall' &&
 					(<XUITextInputSideElement type="pill" alignment={sideElementAlignment}>
 						<XUIPill
 								avatarProps={{
-									value: 'TP'
+									value: 'TP',
 								}}
 								value="Test Person"
 								size={childComponentSize}
-							/>
-					</XUITextInputSideElement>)
+						/>
+      </XUITextInputSideElement>)
 			);
 		case 'avatar':
 		return (

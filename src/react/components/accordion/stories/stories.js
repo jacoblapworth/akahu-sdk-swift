@@ -80,7 +80,7 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
 	const {
 		storyTitle, createItem, ...props
-	} = variation; // eslint-disable-line no-unused-vars
+	} = variation; 
 	const Comparison = (
 		<div style={{ minWidth: '300px', width: '100vw', maxWidth: '930px' }}>
 			<XUIAccordion

@@ -56,7 +56,8 @@ const createLinearSegmentDots = ({ total, progress, thickness }) => (
 
 		return (
 			<div
-				key={index}// eslint-disable-line react/no-array-index-key
+				// eslint-disable-next-line react/no-array-index-key
+				key={index}
 				className={`${NAME_SPACE}-linear-dot`}
 				style={{ margin, height }}
 			>
@@ -94,7 +95,8 @@ const createLinearSegmentDashes = ({ total, progress, thickness }) => (
 
 		return (
 			<div
-				key={index}// eslint-disable-line react/no-array-index-key
+				// eslint-disable-next-line react/no-array-index-key
+				key={index}
 				className={itemClasses}
 				style={{ margin, height }}
 			/>

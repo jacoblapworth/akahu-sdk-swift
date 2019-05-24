@@ -1,265 +1,250 @@
-@import "utilities";
-@import "../vars";
-@import "functions.decimals";
-@import "./layout.marginpadding";
-@import "./layout.breakpoints";
+@import 'utilities';
+@import '../vars';
+@import 'functions.decimals';
+@import './layout.marginpadding';
+@import './layout.breakpoints';
 
 // Only works on pure numbers, not percentages or pixels. Perform any math first.
-@function xui-truncate-number($numbertotruncate, $truncateto : .01) {
-	$truncation-amount: $numbertotruncate % $truncateto;
-	@return $numbertotruncate - $truncation-amount;
+@function xui-truncate-number($numbertotruncate, $truncateto: 0.01) {
+  $truncation-amount: $numbertotruncate % $truncateto;
+  @return $numbertotruncate - $truncation-amount;
 }
 
 // Convert a pure number into a percentage to use for styling.
 @function xui-convert-to-percentage($numbertoconvert) {
-	@return $numbertoconvert * 1%;
+  @return $numbertoconvert * 1%;
 }
 
-@mixin xui-column-width-generator($numberofcolumns, $columnpercentage, $gutter : 0) {
-	$calculated-width: 100;
-	$single-column-width: 100 / $numberofcolumns;
-	@if($columnpercentage < $numberofcolumns) {
-		$calculated-width: $single-column-width * $columnpercentage;
-		$truncated-width: xui-truncate-number($calculated-width);
-		@if(type-of($gutter) == number and $gutter > 0) {
-			width: calc(#{xui-convert-to-percentage($truncated-width)} - #{$gutter});
-		} @else {
-			width: xui-convert-to-percentage($truncated-width);
-		}
-	} @else {
-		width: xui-convert-to-percentage($calculated-width);
-	}
+@mixin xui-column-width-generator($numberofcolumns, $columnpercentage, $gutter: 0) {
+  $calculated-width: 100;
+  $single-column-width: 100 / $numberofcolumns;
+  @if ($columnpercentage < $numberofcolumns) {
+    $calculated-width: $single-column-width * $columnpercentage;
+    $truncated-width: xui-truncate-number($calculated-width);
+    @if (type-of($gutter) == number and $gutter > 0) {
+      width: calc(#{xui-convert-to-percentage($truncated-width)} - #{$gutter});
+    } @else {
+      width: xui-convert-to-percentage($truncated-width);
+    }
+  } @else {
+    width: xui-convert-to-percentage($calculated-width);
+  }
 }
 
 @mixin xui-column-responsive-generator($padded: false) {
+  @for $i from $xui-layout-column-start through $xui-layout-columns {
+    $suffix: '#{$i}-of-#{$xui-layout-columns}';
 
-	@for $i from $xui-layout-column-start through $xui-layout-columns {
-		$suffix: "#{$i}-of-#{$xui-layout-columns}";
+    @if ($padded == false) {
+      @include xui-breakpoint-small-up {
+        .#{$ns}-column-#{$suffix}-small-up {
+          float: left;
+          @include xui-column-width-generator($xui-layout-columns, $i);
+        }
+      }
+    } @else {
+      @include xui-breakpoint-small-up {
+        .#{$ns}-row-grid > .#{$ns}-column-#{$suffix}-small-up {
+          float: left;
+          @include xui-column-width-generator($xui-layout-columns, $i);
+        }
+      }
+    }
+  }
+  @for $i from $xui-layout-column-start through $xui-layout-columns {
+    $suffix: '#{$i}-of-#{$xui-layout-columns}';
+    $width: decimal-floor(100% / 12 * $i, 2);
 
-		@if ($padded == false) {
-
-			@include xui-breakpoint-small-up {
-				.#{$ns}-column-#{$suffix}-small-up {
-					float: left;
-					@include xui-column-width-generator($xui-layout-columns, $i);
-				}
-			}
-
-		} @else {
-
-			@include xui-breakpoint-small-up {
-				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix}-small-up {
-					float: left;
-					@include xui-column-width-generator($xui-layout-columns, $i);
-				}
-			}
-		}
-	}
-	@for $i from $xui-layout-column-start through $xui-layout-columns {
-
-		$suffix: "#{$i}-of-#{$xui-layout-columns}";
-		$width: decimal-floor(100% / 12 * $i, 2);
-
-		@if ($padded == false) {
-
-			@include xui-breakpoint-large-up {
-				.#{$ns}-column-#{$suffix}-large-up {
-					float: left;
-					@include xui-column-width-generator($xui-layout-columns, $i, $xui-grid-gutter);
-				}
-			}
-
-		} @else {
-
-			@include xui-breakpoint-large-up {
-				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix}-large-up {
-					float: left;
-					@include xui-column-width-generator($xui-layout-columns, $i, $xui-grid-gutter);
-				}
-			}
-		}
-	}
+    @if ($padded == false) {
+      @include xui-breakpoint-large-up {
+        .#{$ns}-column-#{$suffix}-large-up {
+          float: left;
+          @include xui-column-width-generator($xui-layout-columns, $i, $xui-grid-gutter);
+        }
+      }
+    } @else {
+      @include xui-breakpoint-large-up {
+        .#{$ns}-row-grid > .#{$ns}-column-#{$suffix}-large-up {
+          float: left;
+          @include xui-column-width-generator($xui-layout-columns, $i, $xui-grid-gutter);
+        }
+      }
+    }
+  }
 }
 
 @mixin xui-column-width-generator2($padded: false) {
+  @for $i from $xui-layout-column-start through $xui-layout-columns {
+    $suffix: '#{$i}-of-#{$xui-layout-columns}';
 
-	@for $i from $xui-layout-column-start through $xui-layout-columns {
-
-		$suffix: "#{$i}-of-#{$xui-layout-columns}";
-
-		@if ($padded == false) {
-			.#{$ns}-column-#{$suffix} {
-				float: left;
-				@include xui-column-width-generator($xui-layout-columns, $i);
-			}
-		} @else {
-			@if ($i < $xui-layout-columns) {
-				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix} {
-					@include xui-column-width-generator($xui-layout-columns, $i, $xui-grid-gutter);
-				}
-			} @else {
-				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix} {
-					width: calc( 100% - #{$xui-grid-gutter} );
-				}
-			}
-		}
-
-	}
-
+    @if ($padded == false) {
+      .#{$ns}-column-#{$suffix} {
+        float: left;
+        @include xui-column-width-generator($xui-layout-columns, $i);
+      }
+    } @else {
+      @if ($i < $xui-layout-columns) {
+        .#{$ns}-row-grid > .#{$ns}-column-#{$suffix} {
+          @include xui-column-width-generator($xui-layout-columns, $i, $xui-grid-gutter);
+        }
+      } @else {
+        .#{$ns}-row-grid > .#{$ns}-column-#{$suffix} {
+          width: calc(100% - #{$xui-grid-gutter});
+        }
+      }
+    }
+  }
 }
 
 @mixin xui-page-width-and-spacing-standard {
-	max-width: $xui-page-width-small;
-	@include xui-margin-horizontal(auto);
-	@include xui-column-width-generator(1, 1);
+  max-width: $xui-page-width-small;
+  @include xui-margin-horizontal(auto);
+  @include xui-column-width-generator(1, 1);
 }
 
 @mixin xui-page-width-and-spacing-large {
-	max-width: $xui-page-width-large;
-	@include xui-margin-horizontal(auto);
-	@include xui-column-width-generator(1, 1);
+  max-width: $xui-page-width-large;
+  @include xui-margin-horizontal(auto);
+  @include xui-column-width-generator(1, 1);
 }
 
-@mixin xui-page-layout-sidebar-right($columns: 9, $columnmain: 6, $suffix: "") {
-	.#{$ns}-page-layout-sidebar-right--main#{$suffix} {
-		@include xui-column-width-generator($columns, $columnmain);
-		display: inline-block;
-		vertical-align: top;
+@mixin xui-page-layout-sidebar-right($columns: 9, $columnmain: 6, $suffix: '') {
+  .#{$ns}-page-layout-sidebar-right--main#{$suffix} {
+    @include xui-column-width-generator($columns, $columnmain);
+    display: inline-block;
+    vertical-align: top;
 
-		@include xui-breakpoint-small-down {
-			@include xui-column-width-generator(1, 1);
-		}
-	}
+    @include xui-breakpoint-small-down {
+      @include xui-column-width-generator(1, 1);
+    }
+  }
 
-	.#{$ns}-page-layout-sidebar-right--sidebar#{$suffix} {
-		@include xui-margin-left($xui-grid-gutter);
-		@include xui-column-width-generator($columns, ($columns - $columnmain), $xui-grid-gutter);
-		display: inline-block;
-		vertical-align: top;
+  .#{$ns}-page-layout-sidebar-right--sidebar#{$suffix} {
+    @include xui-margin-left($xui-grid-gutter);
+    @include xui-column-width-generator($columns, ($columns - $columnmain), $xui-grid-gutter);
+    display: inline-block;
+    vertical-align: top;
 
-		@include xui-breakpoint-small-down {
-			@include xui-margin-left(0);
-			@include xui-column-width-generator(1, 1);
-		}
-	}
-
+    @include xui-breakpoint-small-down {
+      @include xui-margin-left(0);
+      @include xui-column-width-generator(1, 1);
+    }
+  }
 }
 
-@mixin xui-page-layout-sidebar-left($columns: 9, $columnmain: 6, $suffix: "") {
-	.#{$ns}-page-layout-sidebar-left--sidebar#{$suffix} {
-		@include xui-margin-right($xui-grid-gutter);
-		@include xui-column-width-generator($columns, ($columns - $columnmain), $xui-grid-gutter);
-		display: inline-block;
-		vertical-align: top;
+@mixin xui-page-layout-sidebar-left($columns: 9, $columnmain: 6, $suffix: '') {
+  .#{$ns}-page-layout-sidebar-left--sidebar#{$suffix} {
+    @include xui-margin-right($xui-grid-gutter);
+    @include xui-column-width-generator($columns, ($columns - $columnmain), $xui-grid-gutter);
+    display: inline-block;
+    vertical-align: top;
 
-		@include xui-breakpoint-small-down {
-			@include xui-margin-right(0);
-			@include xui-column-width-generator(1, 1);
-		}
-	}
+    @include xui-breakpoint-small-down {
+      @include xui-margin-right(0);
+      @include xui-column-width-generator(1, 1);
+    }
+  }
 
-	.#{$ns}-page-layout-sidebar-left--main#{$suffix} {
-		@include xui-column-width-generator($columns, $columnmain);
-		display: inline-block;
-		vertical-align: top;
+  .#{$ns}-page-layout-sidebar-left--main#{$suffix} {
+    @include xui-column-width-generator($columns, $columnmain);
+    display: inline-block;
+    vertical-align: top;
 
-		@include xui-breakpoint-small-down {
-			@include xui-column-width-generator(1, 1);
-		}
-	}
-
+    @include xui-breakpoint-small-down {
+      @include xui-column-width-generator(1, 1);
+    }
+  }
 }
 
 @mixin xui-page-layout-split {
-	.#{$ns}-page-layout-split-left {
-		@include xui-margin-right($xui-grid-gutter / 2);
-		@include xui-column-width-generator(2, 1, $xui-grid-gutter / 2);
-		display: inline-block;
-		vertical-align: top;
+  .#{$ns}-page-layout-split-left {
+    @include xui-margin-right($xui-grid-gutter / 2);
+    @include xui-column-width-generator(2, 1, $xui-grid-gutter / 2);
+    display: inline-block;
+    vertical-align: top;
 
-		@include xui-breakpoint-small-to-medium {
-			@include xui-margin-right(0);
-			@include xui-column-width-generator(1, 1);
-		}
-	}
+    @include xui-breakpoint-small-to-medium {
+      @include xui-margin-right(0);
+      @include xui-column-width-generator(1, 1);
+    }
+  }
 
-	.#{$ns}-page-layout-split-right {
-		@include xui-margin-left($xui-grid-gutter / 2);
-		@include xui-column-width-generator(2, 1, $xui-grid-gutter / 2);
-		display: inline-block;
-		vertical-align: top;
+  .#{$ns}-page-layout-split-right {
+    @include xui-margin-left($xui-grid-gutter / 2);
+    @include xui-column-width-generator(2, 1, $xui-grid-gutter / 2);
+    display: inline-block;
+    vertical-align: top;
 
-		@include xui-breakpoint-small-to-medium {
-			@include xui-margin-left(0);
-			@include xui-column-width-generator(1, 1);
-		}
-	}
-
+    @include xui-breakpoint-small-to-medium {
+      @include xui-margin-left(0);
+      @include xui-column-width-generator(1, 1);
+    }
+  }
 }
 
 @mixin xui-composition-grid-gap {
-	grid-gap: $xui-grid-gutter $xui-grid-gutter;
+  grid-gap: $xui-grid-gutter $xui-grid-gutter;
 }
 
 // Used for master-detail-summary layouts
 @mixin xui-composition-3-column-max-widths {
-	&.#{$ns}-composition-has-auto-widths {
-		&.#{$ns}-composition-has-auto-space-around {
-			grid-template-columns: 290px 1fr 290px;
+  &.#{$ns}-composition-has-auto-widths {
+    &.#{$ns}-composition-has-auto-space-around {
+      grid-template-columns: 290px minmax(0, 1fr) 290px;
 
-			&.#{$ns}-composition-has-grid-gap {
-				-ms-grid-columns: 290px $xui-grid-gutter 1fr $xui-grid-gutter 290px;
-			}
-		}
+      &.#{$ns}-composition-has-grid-gap {
+        -ms-grid-columns: 290px $xui-grid-gutter minmax(0, 1fr) $xui-grid-gutter 290px;
+      }
+    }
 
-		&:not(.#{$ns}-composition-has-auto-space-around) {
-			grid-template-columns: 300px 1fr 300px;
+    &:not(.#{$ns}-composition-has-auto-space-around) {
+      grid-template-columns: 300px minmax(0, 1fr) 300px;
 
-			&.#{$ns}-composition-has-grid-gap {
-				-ms-grid-columns: 300px $xui-grid-gutter 1fr $xui-grid-gutter 300px;
-			}
-		}
-	}
+      &.#{$ns}-composition-has-grid-gap {
+        -ms-grid-columns: 300px $xui-grid-gutter minmax(0, 1fr) $xui-grid-gutter 300px;
+      }
+    }
+  }
 }
 
 // Used for master-detail and medium-locked master-detail-summary layouts
 @mixin xui-composition-narrow-left-max-widths {
-	&.#{$ns}-composition-has-auto-widths {
-		&.#{$ns}-composition-has-auto-space-around {
-			grid-template-columns: 290px 1fr;
+  &.#{$ns}-composition-has-auto-widths {
+    &.#{$ns}-composition-has-auto-space-around {
+      grid-template-columns: 290px minmax(0, 1fr);
 
-			&.#{$ns}-composition-has-grid-gap {
-				-ms-grid-columns: 290px $xui-grid-gutter 1fr;
-			}
-		}
+      &.#{$ns}-composition-has-grid-gap {
+        -ms-grid-columns: 290px $xui-grid-gutter minmax(0, 1fr);
+      }
+    }
 
-		&:not(.#{$ns}-composition-has-auto-space-around) {
-			grid-template-columns: 300px 1fr;
+    &:not(.#{$ns}-composition-has-auto-space-around) {
+      grid-template-columns: 300px minmax(0, 1fr);
 
-			&.#{$ns}-composition-has-grid-gap {
-				-ms-grid-columns: 300px $xui-grid-gutter 1fr;
-			}
-		}
-	}
+      &.#{$ns}-composition-has-grid-gap {
+        -ms-grid-columns: 300px $xui-grid-gutter minmax(0, 1fr);
+      }
+    }
+  }
 }
 
 // Used for detail-summary layouts
 @mixin xui-composition-narrow-right-max-widths {
-	&.#{$ns}-composition-has-auto-widths {
-		&.#{$ns}-composition-has-auto-space-around {
-			grid-template-columns: 1fr 290px;
+  &.#{$ns}-composition-has-auto-widths {
+    &.#{$ns}-composition-has-auto-space-around {
+      grid-template-columns: minmax(0, 1fr) 290px;
 
-			&.#{$ns}-composition-has-grid-gap {
-				-ms-grid-columns: 1fr $xui-grid-gutter 290px;
-			}
-		}
+      &.#{$ns}-composition-has-grid-gap {
+        -ms-grid-columns: minmax(0, 1fr) $xui-grid-gutter 290px;
+      }
+    }
 
-		&:not(.#{$ns}-composition-has-auto-space-around) {
-			grid-template-columns: 1fr 300px;
+    &:not(.#{$ns}-composition-has-auto-space-around) {
+      grid-template-columns: minmax(0, 1fr) 300px;
 
-			&.#{$ns}-composition-has-grid-gap {
-				-ms-grid-columns: 1fr $xui-grid-gutter 300px;
-			}
-		}
-	}
+      &.#{$ns}-composition-has-grid-gap {
+        -ms-grid-columns: minmax(0, 1fr) $xui-grid-gutter 300px;
+      }
+    }
+  }
 }

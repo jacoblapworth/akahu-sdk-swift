@@ -1,6 +1,7 @@
 import React from 'react';
 import XUIAvatar from '../../avatar/XUIAvatar';
-import NOOP from'../../helpers/noop';
+import NOOP from '../../helpers/noop';
+
 const storiesWithVariationsKindName = 'Instances/XUIPill';
 
 const avatarProps = {
@@ -29,7 +30,7 @@ const variations = [
 		storyTitle: 'as invalid',
 		value: 'Invalid Pill',
 		isInvalid: true,
-		avatarProps
+		avatarProps,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -59,7 +60,7 @@ const variations = [
 		storyTitle: 'can have secondary text',
 		value: 'Primary',
 		secondaryText: 'Secondary',
-		avatarProps
+		avatarProps,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -79,7 +80,7 @@ const variations = [
 		storyTitle: 'with qaHooks',
 		value: 'Inspect me',
 		qaHook: 'qaHook',
-		avatarProps
+		avatarProps,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -90,7 +91,7 @@ const variations = [
 		onDeleteClick: NOOP,
 		onClick: NOOP,
 		deleteButtonLabel: 'Delete Button Label',
-		avatarProps
+		avatarProps,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -101,7 +102,7 @@ const variations = [
 		onDeleteClick: NOOP,
 		onClick: NOOP,
 		deleteButtonLabel: 'Delete Button Label',
-		avatarProps
+		avatarProps,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -134,5 +135,5 @@ const variations = [
 module.exports = {
 	storiesWithVariationsKindName,
 	variations,
-	avatarProps
+	avatarProps,
 }

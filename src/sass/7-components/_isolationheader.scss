@@ -335,6 +335,7 @@
 	position: fixed;
 	right: 0;
 	top: 0;
+	z-index: $xui-z-index-header;
 }
 
 .#{$ns}-isolationheader-inverted {

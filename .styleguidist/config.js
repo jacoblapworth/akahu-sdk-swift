@@ -17,7 +17,7 @@ const config = {
 			publicPath: 'http://localhost:6060/react/',
 			before(app) {
 				app.use('/', serveStatic(path.resolve('dist', 'docs')))
-			}
+			},
 		},
 		module: {
 			rules: [
@@ -40,7 +40,7 @@ const config = {
 						{
 							loader: 'sass-loader',
 						},
-					]
+					],
 				},
 				{
 					use: [
@@ -61,8 +61,8 @@ const config = {
 		},
 		plugins: [
 			new MiniCssExtractPlugin({
-				filename: "build/[name].css"
-			})
+				filename: "build/[name].css",
+			}),
 		],
 		resolve: {
 			alias: {
@@ -74,7 +74,7 @@ const config = {
 				"rsg-components/TableOfContents/TableOfContentsRenderer": path.resolve(styleguidePath, "components/TableOfContents"),
 				"rsg-components/Wrapper/Wrapper": path.resolve(styleguidePath, "components/Wrapper"),
 				"rsg-components/Pathline": path.resolve(styleguidePath, "components/Pathline"),
-				"rsg-components/Playground/PlaygroundRenderer": path.resolve(styleguidePath, "components/PlaygroundRenderer")
+				"rsg-components/Playground/PlaygroundRenderer": path.resolve(styleguidePath, "components/PlaygroundRenderer"),
 			},
 			extensions: [
 				".js",
@@ -96,14 +96,14 @@ const config = {
 			codeKeyword: '#1673b1',
 			codeFunction: '#DD4A68',
 			codeVariable: '#e90',
-		}
+		},
 	},
 	styleguideDir: outputPath,
 	ignore: [
 		"**/Positioning.js",
 		"**/Constants.js",
 		"**/TextHelpers.js",
-		"**/__tests__/**"
+		"**/__tests__/**",
 	],
 	sections: componentSections,
 	getComponentPathLine(componentPath) {
@@ -123,7 +123,7 @@ const config = {
 		}
 
 		return `import ${name} from '${pkg.name}/react/${dirToLower}';`;
-  }
+  },
 };
 
 module.exports = config;

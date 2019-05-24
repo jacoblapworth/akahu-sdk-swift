@@ -9,17 +9,17 @@ const variations = [
 		options: [
 			{
 				name: 'tg2',
-				value: 'toggle1'
+				value: 'toggle1',
 			},
 			{
 				name: 'tg2',
-				value: 'toggle2'
+				value: 'toggle2',
 			},
 			{
 				name: 'tg2',
-				value: 'toggle3'
-			}
-		]
+				value: 'toggle3',
+			},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -30,18 +30,18 @@ const variations = [
 		options: [
 			{
 				name: 'tg3',
-				value: 'toggle1'
+				value: 'toggle1',
 			},
 			{
 				isDefaultChecked: true,
 				name: 'tg3',
-				value: 'toggle2'
+				value: 'toggle2',
 			},
 			{
 				isDisabled: true,
 				name: 'tg3',
-				value: 'toggle3'
-			}
+				value: 'toggle3',
+			},
 		],
 	},
 	{
@@ -54,19 +54,19 @@ const variations = [
 		options: [
 			{
 				name: 'tg4',
-				value: 'toggle1'
+				value: 'toggle1',
 			},
 			{
 				isDefaultChecked: true,
 				name: 'tg4',
-				value: 'toggle2'
+				value: 'toggle2',
 			},
 			{
 				isDisabled: true,
 				name: 'tg4',
-				value: 'toggle3'
-			}
-		]
+				value: 'toggle3',
+			},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -77,15 +77,15 @@ const variations = [
 		options: [
 			{
 				name: 'tg5',
-				value: 'toggle1'
+				value: 'toggle1',
 			},
 			{
 				isChecked: true,
 				isDisabled: true,
 				name: 'tg5',
-				value: 'toggle2'
-			}
-		]
+				value: 'toggle2',
+			},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -97,15 +97,15 @@ const variations = [
 		options: [
 			{
 				name: 'tg6',
-				value: 'toggle1'
+				value: 'toggle1',
 			},
 			{
 				isChecked: true,
 				isDisabled: true,
 				name: 'tg6',
-				value: 'toggle2'
-			}
-		]
+				value: 'toggle2',
+			},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -117,18 +117,18 @@ const variations = [
 		options: [
 			{
 				name: 'tg7',
-				value: 'toggle1'
+				value: 'toggle1',
 			},
 			{
 				name: 'tg7',
-				value: 'toggle2'
+				value: 'toggle2',
 			},
 			{
 				isDefaultChecked: true,
 				name: 'tg7',
-				value: 'toggle3'
-			}
-		]
+				value: 'toggle3',
+			},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -140,19 +140,19 @@ const variations = [
 			{
 				name: 'tg8',
 				value: 'toggle1',
-				type: 'checkbox'
+				type: 'checkbox',
 			},
 			{
 				name: 'tg8',
 				value: 'toggle2',
-				type: 'checkbox'
+				type: 'checkbox',
 			},
 			{
 				name: 'tg8',
 				value: 'toggle3',
-				type: 'checkbox'
-			}
-		]
+				type: 'checkbox',
+			},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -165,20 +165,20 @@ const variations = [
 				isDefaultChecked: true,
 				name: 'tg9',
 				value: 'toggle1',
-				type: 'checkbox'
+				type: 'checkbox',
 			},
 			{
 				name: 'tg9',
 				value: 'toggle2',
-				type: 'checkbox'
+				type: 'checkbox',
 			},
 			{
 				isDisabled: true,
 				name: 'tg9',
 				value: 'toggle3',
-				type: 'checkbox'
-			}
-		]
+				type: 'checkbox',
+			},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -192,24 +192,24 @@ const variations = [
 				isDefaultChecked: true,
 				name: 'tg10',
 				value: 'toggle1',
-				type: 'checkbox'
+				type: 'checkbox',
 			},
 			{
 				name: 'tg10',
 				value: 'toggle2',
-				type: 'checkbox'
+				type: 'checkbox',
 			},
 			{
 				isDisabled: true,
 				name: 'tg10',
 				value: 'toggle3',
-				type: 'checkbox'
-			}
-		]
+				type: 'checkbox',
+			},
+		],
 	},
 ];
 
 module.exports = {
 	storiesWithVariationsKindName,
-	variations
+	variations,
 }

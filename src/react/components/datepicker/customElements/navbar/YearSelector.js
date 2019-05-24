@@ -100,6 +100,7 @@ YearSelector.propTypes = {
 	onChange: PropTypes.func,
 	onKeyDown: PropTypes.func,
 	// TODO: Implement locale
-	locale: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+	// eslint-disable-next-line react/no-unused-prop-types
+	locale: PropTypes.string, 
 	size: PropTypes.oneOf(Object.keys(buttonSizeClasses)),
 };

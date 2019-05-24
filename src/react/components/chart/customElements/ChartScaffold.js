@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
+import cn from 'classnames';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel, Line } from 'victory';
 import { barChartTheme } from '../helpers/theme';
 import { testIsCloseEnough, pause } from '../helpers/utilities';
@@ -11,6 +12,7 @@ import StackedBar from './StackedBar';
 import GraphTooltip from './GraphTooltip';
 import ContentPagination from './ContentPagination';
 import ChartKey from './ChartKey';
+
 
 class ChartScaffold extends PureComponent {
 	constructor() {
@@ -32,6 +34,8 @@ class ChartScaffold extends PureComponent {
 		toolTipPosition: { /* left: 0, right: 0, width, 0, height: 0 */ },
 		toolTipMessage: null,
 		panelCurrent: 1,
+		hasXAxisCalculated: false,
+		hasYAxisCalculated: false,
 	};
 
 	// We utilise a "pause" system to ensure the various DOM elements update before
@@ -87,7 +91,6 @@ class ChartScaffold extends PureComponent {
 
 		if (shouldUpdate) {
 			this.setState({
-				...this.state,
 				toolTipPosition: nextPosition,
 				toolTipMessage,
 			});
@@ -100,7 +103,7 @@ class ChartScaffold extends PureComponent {
 		const shouldUpdate = !testIsCloseEnough(chartWidth || CHART_WIDTH, state.chartWidth);
 
 		if (shouldUpdate) {
-			this.setState({ ...state, chartWidth });
+			this.setState({ chartWidth });
 		}
 	};
 
@@ -111,7 +114,9 @@ class ChartScaffold extends PureComponent {
 		const shouldUpdate = !testIsCloseEnough(xAxisHeight || X_AXIS_HEIGHT, state.xAxisHeight);
 
 		if (shouldUpdate) {
-			this.setState({ ...state, xAxisHeight });
+			this.setState({ xAxisHeight });
+		} else {
+			this.setState({ hasXAxisCalculated: true });
 		}
 	});
 
@@ -122,7 +127,9 @@ class ChartScaffold extends PureComponent {
 		const shouldUpdate = !testIsCloseEnough(yAxisWidth || Y_AXIS_WIDTH, state.yAxisWidth);
 
 		if (shouldUpdate) {
-			this.setState({ ...state, yAxisWidth });
+			this.setState({ yAxisWidth });
+		} else {
+			this.setState({ hasYAxisCalculated: true });
 		}
 	});
 
@@ -162,10 +169,7 @@ class ChartScaffold extends PureComponent {
 		const shouldUpdate = sanitisedPage !== state.panelCurrent;
 
 		if (shouldUpdate) {
-			this.setState({
-				...state,
-				panelCurrent: sanitisedPage,
-			});
+			this.setState({ panelCurrent: sanitisedPage });
 		}
 	};
 
@@ -175,9 +179,10 @@ class ChartScaffold extends PureComponent {
 			: ((this.contentNode && this.contentNode.scrollLeft) || 0)
 	);
 
-	render = () => {
+	render() {
 		const { props, state } = this;
-		const params = enrichParams(state, props, barChartTheme);
+		// Linter can't detect the use of the state properties unless the state is spread.
+		const params = enrichParams({ ...state }, props, barChartTheme);
 		const {
 			qaHook,
 
@@ -215,7 +220,6 @@ class ChartScaffold extends PureComponent {
 				data-automationid={qaHook}
 				className={chartClassName}
 			>
-
 				{hasChartHeader && (
 					<div className={`${NAME_SPACE}-chart--header`}>
 
@@ -252,7 +256,13 @@ class ChartScaffold extends PureComponent {
 					</div>
 				)}
 
-				<div className={`${NAME_SPACE}-chart--position`}>
+				<div
+					className={cn(
+						`${NAME_SPACE}-chart--position`,
+						(!this.state.hasXAxisCalculated || !this.state.hasYAxisCalculated) &&
+						`${NAME_SPACE}-u-hidden-content`,
+					)}
+				>
 					<div
 						className={`${NAME_SPACE}-chart--base`}
 						ref={node => (this.rootNode = node)}
@@ -515,7 +525,7 @@ class ChartScaffold extends PureComponent {
 				</div>
 			</div>
 		);
-	};
+	}
 }
 
 export default ChartScaffold;

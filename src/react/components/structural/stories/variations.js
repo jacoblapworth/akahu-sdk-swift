@@ -3,26 +3,26 @@ import commonViewports from '../../../stories/helpers/viewports';
 import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';
 
 const { rowVariants } = require('../private/constants');
+
 const storiesWithVariationsKindName = 'Instances/Structure';
 
-const buildPI = (total, progress) => {
-	return (
-		<XUIProgressLinear
-			id="testId"
-			total={total}
-			progress={progress}
-			hasToolTip={true}
-			toolTipMessage={`${progress} out of ${total}`}
-		/>
-	)};
+const buildPI = (total, progress) => (
+	<XUIProgressLinear
+		id="testId"
+		total={total}
+		progress={progress}
+		hasToolTip
+		toolTipMessage={`${progress} out of ${total}`}
+	/>
+);
 
 let variations = Object.keys(rowVariants).map(variant => ({
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `With a ${variant} variant`,
-		variant: variant,
+		variant,
 		columnWidths: ["3", "6", "3"],
-		type: 'row'
-	})
+		type: 'row',
+	}),
 );
 
 variations = [...variations,
@@ -30,27 +30,27 @@ variations = [...variations,
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `pageheader with title`,
 		type: 'pageheader',
-		title: 'Testing title'
+		title: 'Testing title',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `pageheader with breadcrumbs`,
 		type: 'pageheader',
-		breadcrumb: true
+		breadcrumb: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `pageheader with title and tabs`,
 		type: 'pageheader',
 		title: 'Testing tabs',
-		tabs: true
+		tabs: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `pageheader with breadcrumb and actions`,
 		type: 'pageheader',
 		breadcrumb: true,
-		actions: true
+		actions: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -59,8 +59,8 @@ variations = [...variations,
 		sections: [
 			{label: 'hello', value: 'there'},
 			{label: 'good', value: 'morning'},
-			{label: 'good', value: 'bye'}
-		]
+			{label: 'good', value: 'bye'},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -72,8 +72,8 @@ variations = [...variations,
 		sections: [
 			{label: 'paid', value: '1,582.99', children: buildPI(10, 4)},
 			{label: 'unpaid', value: '0.68', children: buildPI(10, 6)},
-			{label: 'draft', value: '103.75', children: buildPI(10, 8)}
-		]
+			{label: 'draft', value: '103.75', children: buildPI(10, 8)},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -90,7 +90,7 @@ variations = [...variations,
 			{label: 'draft', value: '103.75', sentiment: 'muted'},
 		],
 		style: {minWidth: "0px"},
-		viewports: commonViewports
+		viewports: commonViewports,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -99,18 +99,18 @@ variations = [...variations,
 		hasLayout: false,
 		sections: [
 			{label: 'hello', value: 'there'},
-			{label: 'there', value: 'you go'}
-		]
+			{label: 'there', value: 'you go'},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `panel - simple`,
-		type: 'panel'
+		type: 'panel',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `panel with all options`,
-		type: 'panel-sidebar'
+		type: 'panel-sidebar',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -119,14 +119,14 @@ variations = [...variations,
 		items: [
 			{
 				primaryHeading: 'Item 1 Primary',
-				overflow: true
+				overflow: true,
 			},
 			{
 				primaryHeading: 'Item 2 Primary',
 				secondaryHeading: 'Item 2 Secondary',
-				overflow: true
-			}
-		]
+				overflow: true,
+			},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -137,13 +137,13 @@ variations = [...variations,
 				primaryHeading: 'Item 1 Primary (avatar)',
 				secondaryHeading: 'Item 1 Secondary',
 				leftContent: "avatar",
-				overflow: true
+				overflow: true,
 			},
 			{
 				primaryHeading: 'Item 2 Primary (checkbox)',
 				secondaryHeading: 'Item 2 Secondary',
 				leftContent: "checkbox",
-				overflow: true
+				overflow: true,
 			},
 			{
 				primaryHeading: 'Item 3 Primary (rollover)',
@@ -155,7 +155,7 @@ variations = [...variations,
 				secondaryHeading: 'Item 4 Secondary',
 				tag: true,
 				overflow: true,
-				description: 'Many people were hoping that if the Democrats won control of Congress'
+				description: 'Many people were hoping that if the Democrats won control of Congress',
 			},
 			{
 				primaryHeading: 'Item 5 Primary (rollover)',
@@ -167,9 +167,9 @@ variations = [...variations,
 				primaryHeading: 'Item 6 Primary (rollover)',
 				leftContent: "rollover",
 				overflow: true,
-				description: 'Rollover with long description. Many people were hoping that if the Democrats won control of Congress. Many people were hoping that if the Democrats won control of Congress. Many people were hoping that if the Democrats won control of Congress. Many people were hoping that if the Democrats won control of Congress.'
+				description: 'Rollover with long description. Many people were hoping that if the Democrats won control of Congress. Many people were hoping that if the Democrats won control of Congress. Many people were hoping that if the Democrats won control of Congress. Many people were hoping that if the Democrats won control of Congress.',
 			},
-		]
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -180,15 +180,15 @@ variations = [...variations,
 				primaryHeading: 'Item 1 Primary',
 				secondaryHeading: 'Item 1 Secondary',
 				pinnedValue: true,
-				overflow: true
+				overflow: true,
 			},
 			{
 				primaryHeading: 'Item 2 Primary',
 				secondaryHeading: 'Item 2 Secondary',
 				action: true,
-				overflow: true
-			}
-		]
+				overflow: true,
+			},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -201,9 +201,9 @@ variations = [...variations,
 				hasLayout: false,
 				overflow: true,
 				pinnedValue: true,
-				action: true
-			}
-		]
+				action: true,
+			},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -219,7 +219,7 @@ variations = [...variations,
 				description: 'Many people were hoping that if the Democrats won control of Congress they would reverse the online gambling ban, but experts doubt they will even try or that if they do that the will be successful.',
 				overflow: true,
 				pinnedValue: true,
-				action: true
+				action: true,
 			},
 			{
 				primaryHeading: 'Item 2 Primary',
@@ -228,10 +228,10 @@ variations = [...variations,
 				leftContent: "avatar",
 				overflow: true,
 				pinnedValue: true,
-				action: true
-			}
+				action: true,
+			},
 		],
-		viewports: commonViewports
+		viewports: commonViewports,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -246,9 +246,9 @@ variations = [...variations,
 				tags: true,
 				overflow: true,
 				pinnedValue: true,
-				action: true
-			}
-		]
+				action: true,
+			},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -264,9 +264,9 @@ variations = [...variations,
 				tagPosition: 'inline',
 				overflow: true,
 				pinnedValue: true,
-				action: true
-			}
-		]
+				action: true,
+			},
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -282,13 +282,13 @@ variations = [...variations,
 				tagPosition: 'right',
 				overflow: true,
 				pinnedValue: true,
-				action: true
-			}
-		]
-	}
+				action: true,
+			},
+		],
+	},
 ];
 
 module.exports = {
 	storiesWithVariationsKindName,
-	variations
+	variations,
 }

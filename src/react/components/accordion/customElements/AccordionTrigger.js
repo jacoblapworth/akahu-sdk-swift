@@ -5,129 +5,120 @@ import arrowPath from '@xero/xui-icon/icons/arrow';
 import { ns } from '../../helpers/xuiClassNamespace';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
+import preventDefault from '../../helpers/preventDefault';
 
 export default class AccordionTrigger extends PureComponent {
-	handleTriggerInteraction = () => {
-		const {
-			updateOpenId,
-			onItemClick,
-			getItemData,
-			itemIndex,
-			itemId,
-			isOpen,
-		} = this.props;
+  handleTriggerInteraction = event => {
+    const { updateOpenId, onItemClick, getItemData, itemIndex, itemId, isOpen } = this.props;
 
-		updateOpenId(itemId);
-		if (onItemClick) {
-			const itemData = getItemData(itemIndex);
-			onItemClick({ ...itemData, isOpen: !isOpen });
-		}
-	};
+    if (event.defaultPrevented) {
+      return;
+    }
 
-	onKeyDown = event => {
-		const spaceBar = 32;
-		const enterKey = 13;
-		const { keyCode } = event;
+    updateOpenId(itemId);
+    if (onItemClick) {
+      const itemData = getItemData(itemIndex);
+      onItemClick({ ...itemData, isOpen: !isOpen });
+    }
+  };
 
-		if (keyCode === spaceBar || keyCode === enterKey) {
-			this.handleTriggerInteraction();
-			event.preventDefault(); // prevent spacebar scroll.
-		}
-	}
+  onKeyDown = event => {
+    const spaceBar = 32;
+    const enterKey = 13;
+    const { keyCode } = event;
 
-	render() {
-		const {
-			action,
-			custom,
-			isOpen,
-			leftContent,
-			toggleLabel,
-			overflow,
-			pinnedValue,
-			qaHook,
-			primaryHeading,
-			secondaryHeading,
-		} = this.props;
+    if (keyCode === spaceBar || keyCode === enterKey) {
+      this.handleTriggerInteraction(event);
+      event.preventDefault(); // prevent spacebar scroll.
+    }
+  };
 
-		const primaryHeadingScaffold = primaryHeading && (
-			<div className={`${ns}-accordiontrigger--primaryheading`}>
-				{primaryHeading}
-			</div>);
+  render() {
+    const {
+      action,
+      custom,
+      isOpen,
+      leftContent,
+      toggleLabel,
+      overflow,
+      pinnedValue,
+      qaHook,
+      primaryHeading,
+      secondaryHeading,
+    } = this.props;
 
-		const secondaryHeadingScaffold = secondaryHeading && (
-			<div className={`${ns}-accordiontrigger--secondaryheading`}>
-				{secondaryHeading}
-			</div>);
+    const primaryHeadingScaffold = primaryHeading && (
+      <div className={`${ns}-accordiontrigger--primaryheading`}>{primaryHeading}</div>
+    );
 
-		const pinnedValueScaffold = pinnedValue && (
-			<div className={`${ns}-accordiontrigger--pinnedvalue`}>
-				{pinnedValue}
-			</div>);
+    const secondaryHeadingScaffold = secondaryHeading && (
+      <div className={`${ns}-accordiontrigger--secondaryheading`}>{secondaryHeading}</div>
+    );
 
-		const builtRightContent = (pinnedValueScaffold || action || overflow) && (
-			<div className={`${ns}-accordiontrigger--rightcontent`}>
-				{pinnedValueScaffold}
-				{action}
-				<div className={`${ns}-accordiontrigger--overflowcontent`}>{overflow}</div>
-			</div>);
+    const pinnedValueScaffold = pinnedValue && (
+      <div className={`${ns}-accordiontrigger--pinnedvalue`}>{pinnedValue}</div>
+    );
 
-		return (
-			<div
-				data-automationid={qaHook}
-				onClick={this.handleTriggerInteraction}
-				onKeyDown={this.onKeyDown}
-				tabIndex="0"
-				role="button"
-				aria-label={toggleLabel}
-				className={cn(`${ns}-accordiontrigger`, {
-					[`${ns}-accordiontrigger-is-open`]: isOpen,
-				})}
-			>
-				<div className={`${ns}-accordiontrigger--arrow`}>
-					<XUIButton
-						variant="icon"
-						title={toggleLabel}
-						tabIndex={-1}
-					>
-						<XUIIcon
-							icon={arrowPath}
-							rotation={isOpen ? 180 : null}
-						/>
-					</XUIButton>
-				</div>
+    const builtRightContent = (pinnedValueScaffold || action || overflow) && (
+      <div
+        className={`${ns}-accordiontrigger--rightcontent`}
+        onClick={preventDefault}
+        onKeyDown={preventDefault}
+        role="presentation"
+      >
+        {pinnedValueScaffold}
+        {action}
+        <div className={`${ns}-accordiontrigger--overflowcontent`}>{overflow}</div>
+      </div>
+    );
 
-				{leftContent}
+    return (
+      <div
+        data-automationid={qaHook}
+        onClick={this.handleTriggerInteraction}
+        onKeyDown={this.onKeyDown}
+        tabIndex="0"
+        role="button"
+        aria-label={toggleLabel}
+        className={cn(`${ns}-accordiontrigger`, {
+          [`${ns}-accordiontrigger-is-open`]: isOpen,
+        })}
+      >
+        <div className={`${ns}-accordiontrigger--arrow`}>
+          <XUIButton variant="icon" title={toggleLabel} tabIndex={-1}>
+            <XUIIcon icon={arrowPath} rotation={isOpen ? 180 : null} />
+          </XUIButton>
+        </div>
 
-				<div className={`${ns}-accordiontrigger--content`}>
-					<div className={`${ns}-accordiontrigger--headings`}>
-						{primaryHeadingScaffold}
-						{secondaryHeadingScaffold}
-					</div>
-					{custom}
-					{builtRightContent}
-				</div>
-			</div>
-		);
-	}
+        {leftContent}
+
+        <div className={`${ns}-accordiontrigger--content`}>
+          <div className={`${ns}-accordiontrigger--headings`}>
+            {primaryHeadingScaffold}
+            {secondaryHeadingScaffold}
+          </div>
+          {custom}
+          {builtRightContent}
+        </div>
+      </div>
+    );
+  }
 }
 
 AccordionTrigger.propTypes = {
-	qaHook: PropTypes.string,
-	custom: PropTypes.node,
-	onItemClick: PropTypes.func,
-	toggleLabel: PropTypes.string.isRequired,
-	updateOpenId: PropTypes.func.isRequired,
-	getItemData: PropTypes.func.isRequired,
-	isOpen: PropTypes.bool,
-	leftContent: PropTypes.node,
-	primaryHeading: PropTypes.node,
-	secondaryHeading: PropTypes.node,
-	pinnedValue: PropTypes.node,
-	action: PropTypes.node,
-	overflow: PropTypes.node,
-	itemIndex: PropTypes.number,
-	itemId: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number,
-	]),
+  qaHook: PropTypes.string,
+  custom: PropTypes.node,
+  onItemClick: PropTypes.func,
+  toggleLabel: PropTypes.string.isRequired,
+  updateOpenId: PropTypes.func.isRequired,
+  getItemData: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool,
+  leftContent: PropTypes.node,
+  primaryHeading: PropTypes.node,
+  secondaryHeading: PropTypes.node,
+  pinnedValue: PropTypes.node,
+  action: PropTypes.node,
+  overflow: PropTypes.node,
+  itemIndex: PropTypes.number,
+  itemId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };

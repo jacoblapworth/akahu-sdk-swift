@@ -27,7 +27,9 @@ storiesWithKnobs.add('Playground', () => (
 		validationMessage={text('validationMessage', '')}
 		hintMessage={text('hintMessage', '')}
 		size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
-	>{text('label text', 'Test checkbox')}</XUICheckbox>
+	>
+		{text('label text', 'Test checkbox')}
+	</XUICheckbox>
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);

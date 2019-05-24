@@ -35,7 +35,8 @@ export default function CustomWeekday({
 CustomWeekday.propTypes = {
 	weekday: PropTypes.number,
 	locale: PropTypes.string,
-	localeUtils: DayPickerPropTypes.default.localeUtils, // eslint-disable-line react/no-typos
+	// eslint-disable-next-line react/no-typos
+	localeUtils: DayPickerPropTypes.default.localeUtils, 
 
 	weekdaysLong: PropTypes.arrayOf(PropTypes.string),
 	weekdaysShort: PropTypes.arrayOf(PropTypes.string),

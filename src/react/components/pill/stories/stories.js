@@ -57,11 +57,11 @@ variations.forEach(variation => {
 			delete variationMinusStoryDetails.isSingle;
 			return (
 				<div className="xui-textinput" style={{ width: '200px' }}>
-					<XUIPill {...variationMinusStoryDetails}/>
+					<XUIPill {...variationMinusStoryDetails} />
 				</div>
 			);
 		}
 
-		return <XUIPill {...variationMinusStoryDetails}/>
+		return <XUIPill {...variationMinusStoryDetails} />
 	});
 });

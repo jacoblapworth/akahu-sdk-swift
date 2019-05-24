@@ -18,143 +18,134 @@ import MessageElement from './private/MessageElement';
  */
 /* eslint-enable max-len */
 export function getAriaAttributes(ids, props, groupedSetting = {}) {
-	const { isGroup } = groupedSetting;
-	const {
-		label,
-		isLabelHidden,
-		validationMessage,
-		hintMessage,
-		labelId,
-		isInvalid,
-	} = props;
+  const { isGroup } = groupedSetting;
+  const { label, isLabelHidden, validationMessage, hintMessage, labelId, isInvalid } = props;
 
-	// props.placeholder pulls possible backup label from a textInput.
-	// props.buttonContent pulls possible backup label from a selectBox.
-	const fallBackLabel = props.placeholder || props.buttonContent;
+  // props.placeholder pulls possible backup label from a textInput.
+  // props.buttonContent pulls possible backup label from a selectBox.
+  const fallBackLabel = props.placeholder || props.buttonContent;
 
-	// Create a "labelledby" attribute if there is no label content and the user has
-	// provided an id, or if this is a visible label for a group.
-	const ariaLabelledBy = (!label && labelId)
-		|| (label && !isLabelHidden && isGroup && ids.label)
-		|| undefined;
+  // Create a "labelledby" attribute if there is no label content and the user has
+  // provided an id, or if this is a visible label for a group.
+  const ariaLabelledBy =
+    (!label && labelId) || (label && !isLabelHidden && isGroup && ids.label) || undefined;
 
-	// Add hidden label if specified by the user, and provided content is a string
-	// (or fallBackLabel as label if that's all we've got)
-	const ariaLabel = (label && isLabelHidden && typeof label[0] === 'string' && label)
-		|| (!label && !ariaLabelledBy && fallBackLabel)
-		|| undefined;
+  // Add hidden label if specified by the user, and provided content is a string
+  // (or fallBackLabel as label if that's all we've got)
+  const ariaLabel =
+    (label && isLabelHidden && typeof label[0] === 'string' && label) ||
+    (!label && !ariaLabelledBy && fallBackLabel) ||
+    undefined;
 
-	// Create a "describedby" attribute if there is a hint or validation message to display.
-	const ariaDescribedBy = ((hintMessage || (validationMessage && isInvalid)) && ids.message)
-		|| undefined;
+  // Create a "describedby" attribute if there is a hint or validation message to display.
+  const ariaDescribedBy =
+    ((hintMessage || (validationMessage && isInvalid)) && ids.message) || undefined;
 
-	// Only provide a control ID if the label will be using htmlFor to target it.
-	const controlId = (!isGroup && ids.control) || undefined;
+  // Only provide a control ID if the label will be using htmlFor to target it.
+  const controlId = (!isGroup && ids.control) || undefined;
 
-	return {
-		'aria-invalid': isInvalid,
-		'aria-label': ariaLabel,
-		'aria-labelledby': ariaLabelledBy,
-		'aria-describedby': ariaDescribedBy,
-		'id': controlId,
-	};
+  return {
+    'aria-invalid': isInvalid,
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledBy,
+    'aria-describedby': ariaDescribedBy,
+    id: controlId,
+  };
 }
 
 export default class XUIControlWrapper extends PureComponent {
-	render() {
-		const {
-			children,
-			fieldClassName,
-			onKeyDown,
-			isFieldLayout,
-			onClick,
-			labelClassName,
-			label,
-			isLabelHidden,
-			qaHook,
-			wrapperIds,
-			isInvalid,
-			validationMessage,
-			hintMessage,
-			isGroup,
-		} = this.props;
+  render() {
+    const {
+      children,
+      fieldClassName,
+      onKeyDown,
+      isFieldLayout,
+      onClick,
+      labelClassName,
+      label,
+      isLabelHidden,
+      qaHook,
+      wrapperIds,
+      isInvalid,
+      validationMessage,
+      hintMessage,
+      isGroup,
+    } = this.props;
 
-		const rootClasses = cn(
-			fieldClassName,
-			isFieldLayout && `${ns}-field-layout`,
-		);
+    const rootClasses = cn(fieldClassName, isFieldLayout && `${ns}-field-layout`);
 
-		return (
-			/* eslint-disable jsx-a11y/no-static-element-interactions */
-			<div
-				className={rootClasses}
-				onKeyDown={onKeyDown}
-				onClick={onClick}
-				role={(onClick || onKeyDown) && 'presentation'}
-			>
-				<LabelElement
-					{...{
-						label,
-						labelClassName,
-						isLabelHidden,
-						qaHook,
-						wrapperIds,
-						isGroup,
-					}}
-				/>
-				{children}
-				<MessageElement {...{
-					isInvalid,
-					validationMessage,
-					hintMessage,
-					qaHook,
-					wrapperIds,
-				}}
-				/>
-			</div>
-			/* eslint-enable */
-		);
-	}
+    return (
+      /* eslint-disable jsx-a11y/no-static-element-interactions */
+      <div
+        className={rootClasses}
+        onKeyDown={onKeyDown}
+        onClick={onClick}
+        role={(onClick || onKeyDown) && 'presentation'}
+      >
+        <LabelElement
+          {...{
+            label,
+            labelClassName,
+            isLabelHidden,
+            qaHook,
+            wrapperIds,
+            isGroup,
+          }}
+        />
+        {children}
+        <MessageElement
+          {...{
+            isInvalid,
+            validationMessage,
+            hintMessage,
+            qaHook,
+            wrapperIds,
+          }}
+        />
+      </div>
+      /* eslint-enable */
+    );
+  }
 }
 
 XUIControlWrapper.propTypes = {
-	qaHook: PropTypes.string,
-	children: PropTypes.node,
-	/** Function to call on keydown inside the control */
-	onKeyDown: PropTypes.func,
-	/** Function to call on click inside the control */
-	onClick: PropTypes.func,
-	/** Label to show above the input */
-	label: PropTypes.node,
-	/** Whether the current input value is invalid */
-	isInvalid: PropTypes.bool,
-	/** Validation message to show under the input if `isInvalid` is true */
-	validationMessage: PropTypes.string,
-	/** Hint message to show under the input */
-	hintMessage: PropTypes.string,
-	/** Whether to use the field layout classes */
-	isFieldLayout: PropTypes.bool,
-	/** Class names to be added to the field wrapper element */
-	fieldClassName: PropTypes.string,
-	/** Class names to add to the label */
-	labelClassName: PropTypes.string,
-	/** Should label be applied as an aria-label, rather than being visibly displayed. */
-	isLabelHidden(props, propName) {
-		if (props[propName] && props.label && typeof props.label[0] !== 'string') {
-			return new Error('To include a hidden label ensure the label is plain text.');
-		}
-		return null;
-	},
-	/** IDs generated by generateIds and passed in from the parent component */
-	wrapperIds: PropTypes.shape({
-		label: PropTypes.string,
-		control: PropTypes.string,
-		message: PropTypes.string,
-	}).isRequired,
-	/** Whether this will be used to wrap multple controls with their own labels */
-	isGroup: PropTypes.bool,
+  qaHook: PropTypes.string,
+  children: PropTypes.node,
+  /** Function to call on keydown inside the control */
+  onKeyDown: PropTypes.func,
+  /** Function to call on click inside the control */
+  onClick: PropTypes.func,
+  /** Label to show above the input */
+  label: PropTypes.node,
+  /** Whether the current input value is invalid */
+  isInvalid: PropTypes.bool,
+  /** Validation message to show under the input if `isInvalid` is true */
+  validationMessage: PropTypes.node,
+  /** Hint message to show under the input */
+  hintMessage: PropTypes.node,
+  /** Whether to use the field layout classes */
+  isFieldLayout: PropTypes.bool,
+  /** Class names to be added to the field wrapper element */
+  fieldClassName: PropTypes.string,
+  /** Class names to add to the label */
+  labelClassName: PropTypes.string,
+  /** Should label be applied as an aria-label, rather than being visibly displayed. */
+  isLabelHidden(props, propName) {
+    if (props[propName] && props.label && typeof props.label[0] !== 'string') {
+      return new Error('To include a hidden label ensure the label is plain text.');
+    }
+    return null;
+  },
+  /** IDs generated by generateIds and passed in from the parent component */
+  wrapperIds: PropTypes.shape({
+    label: PropTypes.string,
+    control: PropTypes.string,
+    message: PropTypes.string,
+  }).isRequired,
+  /** Whether this will be used to wrap multple controls with their own labels */
+  isGroup: PropTypes.bool,
 };
 
 XUIControlWrapper.defaultProps = {
-	isGroup: false,
+  isGroup: false,
 };

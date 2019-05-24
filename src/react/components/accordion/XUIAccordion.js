@@ -8,119 +8,109 @@ import AccordionTrigger from './customElements/AccordionTrigger';
 import EmptyState from './customElements/EmptyState';
 
 export default class XUIAccordion extends PureComponent {
-	state = {
-		openId: null,
-	};
+  state = {
+    openId: null,
+  };
 
-	updateOpenId = itemId => {
-		this.setState(({ openId }) => ({
-			openId: openId === itemId ? null : itemId,
-		}));
-	};
+  updateOpenId = itemId => {
+    this.setState(({ openId }) => ({
+      openId: openId === itemId ? null : itemId,
+    }));
+  };
 
-	getItemData = itemIndex => this.props.items[itemIndex];
+  getItemData = itemIndex => this.props.items[itemIndex];
 
-	createAccordionItem = ({ props: itemProps }, itemIndex) => {
-		const {
-			items,
-			idKey,
-			qaHook,
-			toggleLabel,
-			emptyMessage,
-			emptyIcon,
-			emptyStateComponent,
-		} = this.props;
-		const { children, ...triggerProps } = itemProps;
-		const itemData = items[itemIndex];
-		const itemId = itemData[idKey];
-		const isOpen = this.state.openId === itemId;
+  createAccordionItem = ({ props: itemProps }, itemIndex) => {
+    const {
+      items,
+      idKey,
+      qaHook,
+      toggleLabel,
+      emptyMessage,
+      emptyIcon,
+      emptyStateComponent,
+    } = this.props;
+    const { children, ...triggerProps } = itemProps;
+    const itemData = items[itemIndex];
+    const itemId = itemData[idKey];
+    const isOpen = this.state.openId === itemId;
 
-		return (
-			<AccordionWrapper
-				key={itemId}
-				isOpen={isOpen}
-				qaHook={qaHook && `${qaHook}-wrapper`}
-				trigger={(
-					<AccordionTrigger
-						{...{
-							...triggerProps,
-							toggleLabel,
-							isOpen,
-							itemIndex,
-							itemId,
-						}}
-						qaHook={qaHook && `${qaHook}-trigger`}
-						updateOpenId={this.updateOpenId}
-						getItemData={this.getItemData}
-					/>
-				)}
-			>
-				{isOpen && (
-					children ||
-					emptyStateComponent ||
-					<EmptyState
-						qaHook={qaHook && `${qaHook}-empty`}
-						emptyIcon={emptyIcon}
-					>
-						{emptyMessage}
-					</EmptyState>
-				)}
-			</AccordionWrapper>
-		);
-	};
+    return (
+      <AccordionWrapper
+        key={itemId}
+        isOpen={isOpen}
+        qaHook={qaHook && `${qaHook}-wrapper`}
+        trigger={
+          <AccordionTrigger
+            {...{
+              ...triggerProps,
+              toggleLabel,
+              isOpen,
+              itemIndex,
+              itemId,
+            }}
+            qaHook={qaHook && `${qaHook}-trigger`}
+            updateOpenId={this.updateOpenId}
+            getItemData={this.getItemData}
+          />
+        }
+      >
+        {isOpen &&
+          (children || emptyStateComponent || (
+            <EmptyState qaHook={qaHook && `${qaHook}-empty`} emptyIcon={emptyIcon}>
+              {emptyMessage}
+            </EmptyState>
+          ))}
+      </AccordionWrapper>
+    );
+  };
 
-	render() {
-		const { qaHook, className, items, createItem } = this.props;
-		const shouldCreateItems = Boolean(items.length && createItem);
+  render() {
+    const { qaHook, className, items, createItem } = this.props;
+    const shouldCreateItems = Boolean(items.length && createItem);
 
-		return (
-			<div
-				data-automationid={qaHook}
-				className={cn(`${ns}-accordion`, className)}
-			>
-				{shouldCreateItems && items.map(createItem).map(this.createAccordionItem)}
-			</div>
-		);
-	}
+    return (
+      <div data-automationid={qaHook} className={cn(`${ns}-accordion`, className)}>
+        {shouldCreateItems && items.map(createItem).map(this.createAccordionItem)}
+      </div>
+    );
+  }
 }
 
 XUIAccordion.propTypes = {
-	qaHook: PropTypes.string,
+  qaHook: PropTypes.string,
 
-	/** Attached to the outer most element of the accordion component. */
-	className: PropTypes.string,
+  /** Attached to the outer most element of the accordion component. */
+  className: PropTypes.string,
 
-	/** A list of the data to be displayed in the accordion. item in the array is individually
-	 * passed through to the `createItem` function to create an `<XUIAccordionItem />`. */
-	items: PropTypes.array,
+  /** A list of the data to be displayed in the accordion. item in the array is individually
+   * passed through to the `createItem` function to create an `<XUIAccordionItem />`. */
+  items: PropTypes.array,
 
-	/** String representing the key of the unique identifier for each item in data. */
-	idKey: PropTypes.string,
+  /** String representing the key of the unique identifier for each item in data. */
+  idKey: PropTypes.string,
 
-	/** A function that receives an item from the "items" prop and expects a populated
-	 * `<XUIAccordionItem />` component back. */
-	createItem: PropTypes.func,
+  /** A function that receives an item from the "items" prop and expects a populated
+   * `<XUIAccordionItem />` component back. */
+  createItem: PropTypes.func,
 
-	/** Accessibility label representing the `<XUIAccordionItem />` toggle functionality. */
-	toggleLabel: PropTypes.string,
+  /** Accessibility label representing the `<XUIAccordionItem />` toggle functionality. */
+  toggleLabel: PropTypes.string,
 
-	/** Customise the default "empty" message. */
-	emptyMessage: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.element,
-	]),
+  /** Customise the default "empty" message. */
+  emptyMessage: PropTypes.node,
 
-	/** Customise the default "empty" icon path data. */
-	emptyIcon: PropTypes.object,
+  /** Customise the default "empty" icon path data. */
+  emptyIcon: PropTypes.object,
 
-	/** Override the default "empty" component. */
-	emptyStateComponent: PropTypes.element,
+  /** Override the default "empty" component. */
+  emptyStateComponent: PropTypes.element,
 };
 
 XUIAccordion.defaultProps = {
-	idKey: 'id',
-	items: [],
-	toggleLabel: 'Toggle',
-	emptyMessage: 'Nothing available to show',
-	emptyIcon: listIcon,
+  idKey: 'id',
+  items: [],
+  toggleLabel: 'Toggle',
+  emptyMessage: 'Nothing available to show',
+  emptyIcon: listIcon,
 };

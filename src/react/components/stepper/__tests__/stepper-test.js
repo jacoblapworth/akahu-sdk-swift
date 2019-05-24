@@ -8,21 +8,13 @@ import { variations } from '../stories/variations';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<XUIStepper />', () => {
+  describe('emulate stories', () => {
+    variations.forEach(({ storyKind, storyTitle, ...props }) => {
+      it(`should render scenario "${storyKind} ${storyTitle}" correctly`, () => {
+        const component = mount(<XUIStepper {...props} />);
 
-	describe('emulate stories', () => {
-
-		variations.forEach(({ storyKind, storyTitle, ...props }) => {
-
-			it(`should render scenario "${storyKind} ${storyTitle}" correctly`, () => {
-
-				const component = mount(<XUIStepper {...props} />);
-
-				expect(toJson(component)).toMatchSnapshot();
-
-			});
-
-		});
-
-	});
-
+        expect(toJson(component)).toMatchSnapshot();
+      });
+    });
+  });
 });

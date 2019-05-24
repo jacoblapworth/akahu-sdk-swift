@@ -6,32 +6,24 @@ import XUIIcon from '../../icon/XUIIcon';
 import { ns } from '../../helpers/xuiClassNamespace';
 
 export default class EmptyState extends PureComponent {
-	render() {
-		const {
-			defaultLayout,
-			className,
-			children,
-		} = this.props;
+  render() {
+    const { defaultLayout, className, children } = this.props;
 
-		return (
-			<div className={cn(
-				defaultLayout && `${ns}-table--emptystate`,
-				className,
-			)}
-			>
-				<XUIIcon icon={tablePathData} size="large" isBoxed />
-				<div>{children}</div>
-			</div>
-		);
-	}
+    return (
+      <div className={cn(defaultLayout && `${ns}-table--emptystate`, className)}>
+        <XUIIcon icon={tablePathData} size="large" isBoxed />
+        <div>{children}</div>
+      </div>
+    );
+  }
 }
 
 EmptyState.propTypes = {
-	children: PropTypes.string,
-	defaultLayout: PropTypes.bool,
-	className: PropTypes.string,
+  children: PropTypes.node,
+  defaultLayout: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 EmptyState.defaultProps = {
-	defaultLayout: true,
+  defaultLayout: true,
 };

@@ -58,7 +58,7 @@ const filterPeople = (peopleToSearch, value, idsToExclude) => {
       idsToExclude.indexOf(index) === -1 &&
       (person.name.toLowerCase().indexOf(val) > -1 ||
         person.email.toLowerCase().indexOf(val) > -1 ||
-        person.subtext.toLowerCase().indexOf(val) > -1),
+        person.subtext.toLowerCase().indexOf(val) > -1)
   );
 };
 
@@ -93,7 +93,7 @@ class WrapPillsExample extends Component {
 
     this.state = {
       value: '',
-      selectedPeopleIds: [0],
+      selectedPeopleIds: [0]
     };
 
     this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
@@ -112,26 +112,26 @@ class WrapPillsExample extends Component {
     }
     this.setState({
       value,
-      isInvalid: invalidInput,
+      isInvalid: invalidInput
     });
   }
 
   deletePerson(idToRemove) {
     this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds.filter(id => id !== idToRemove)],
+      selectedPeopleIds: [...prevState.selectedPeopleIds.filter(id => id !== idToRemove)]
     }));
   }
 
   deleteLastPerson() {
     this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds.slice(0, -1)],
+      selectedPeopleIds: [...prevState.selectedPeopleIds.slice(0, -1)]
     }));
   }
 
   selectPerson(person) {
     this.setState(prevState => ({
       selectedPeopleIds: [...prevState.selectedPeopleIds, person],
-      value: '',
+      value: ''
     }));
   }
 
@@ -235,7 +235,7 @@ const filterPeople = (peopleToSearch, value, idsToExclude) => {
       idsToExclude.indexOf(index) === -1 &&
       (person.name.toLowerCase().indexOf(val) > -1 ||
         person.email.toLowerCase().indexOf(val) > -1 ||
-        person.subtext.toLowerCase().indexOf(val) > -1),
+        person.subtext.toLowerCase().indexOf(val) > -1)
   );
 };
 
@@ -270,7 +270,7 @@ class DisableWrapPills extends Component {
 
     this.state = {
       value: '',
-      selectedPeopleIds: [0],
+      selectedPeopleIds: [0]
     };
 
     this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
@@ -287,20 +287,20 @@ class DisableWrapPills extends Component {
 
   deletePerson(idToRemove) {
     this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds.filter(id => id !== idToRemove)],
+      selectedPeopleIds: [...prevState.selectedPeopleIds.filter(id => id !== idToRemove)]
     }));
   }
 
   deleteLastPerson() {
     this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds.slice(0, -1)],
+      selectedPeopleIds: [...prevState.selectedPeopleIds.slice(0, -1)]
     }));
   }
 
   selectPerson(person) {
     this.setState(prevState => ({
       selectedPeopleIds: [...prevState.selectedPeopleIds, person],
-      value: '',
+      value: ''
     }));
   }
 
@@ -394,7 +394,7 @@ const filterPeople = (peopleToSearch, value) => {
     person =>
       person.name.toLowerCase().indexOf(val) > -1 ||
       person.email.toLowerCase().indexOf(val) > -1 ||
-      person.subtext.toLowerCase().indexOf(val) > -1,
+      person.subtext.toLowerCase().indexOf(val) > -1
   );
 };
 
@@ -405,7 +405,7 @@ class SingleSelectExample extends Component {
 
     this.state = {
       value: people[0].name,
-      selectedPersonId: 0,
+      selectedPersonId: 0
     };
 
     this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
@@ -421,7 +421,7 @@ class SingleSelectExample extends Component {
       const textIsCurrentName = selectedPersonId != null && value === people[selectedPersonId].name;
       return {
         value,
-        selectedPersonId: textIsCurrentName ? selectedPersonId : null,
+        selectedPersonId: textIsCurrentName ? selectedPersonId : null
       };
     });
   }
@@ -429,7 +429,7 @@ class SingleSelectExample extends Component {
   selectPerson(selectedPersonId) {
     this.setState(prevState => ({
       selectedPersonId,
-      value: selectedPersonId != null ? people[selectedPersonId].name : '',
+      value: selectedPersonId != null ? people[selectedPersonId].name : ''
     }));
   }
 
@@ -480,7 +480,7 @@ class SingleSelectExample extends Component {
     );
     const rightElement = selectedPersonId != null && (
       <XUITextInputSideElement type="icon">
-        <XUIButton variant="icon" size="small" onClick={this.clearSelection} aria-label="Clear">
+        <XUIButton variant="icon" size="medium" onClick={this.clearSelection} aria-label="Clear">
           <XUIIcon icon={crossIcon} />
         </XUIButton>
       </XUITextInputSideElement>
@@ -532,7 +532,7 @@ const filterPeople = (peopleToSearch, value, idsToExclude) => {
       idsToExclude.indexOf(index) === -1 &&
       (person.name.toLowerCase().indexOf(val) > -1 ||
         person.email.toLowerCase().indexOf(val) > -1 ||
-        person.subtext.toLowerCase().indexOf(val) > -1),
+        person.subtext.toLowerCase().indexOf(val) > -1)
   );
 };
 
@@ -565,7 +565,7 @@ class WrapPillsExample extends Component {
 
     this.state = {
       value: '',
-      selectedPeopleIds: [0],
+      selectedPeopleIds: [0]
     };
 
     this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
@@ -582,20 +582,20 @@ class WrapPillsExample extends Component {
 
   deletePerson(idToRemove) {
     this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds.filter(id => id !== idToRemove)],
+      selectedPeopleIds: [...prevState.selectedPeopleIds.filter(id => id !== idToRemove)]
     }));
   }
 
   deleteLastPerson() {
     this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds.slice(0, -1)],
+      selectedPeopleIds: [...prevState.selectedPeopleIds.slice(0, -1)]
     }));
   }
 
   selectPerson(person) {
     this.setState(prevState => ({
       selectedPeopleIds: [...prevState.selectedPeopleIds, person],
-      value: '',
+      value: ''
     }));
   }
 

@@ -33,8 +33,7 @@ storiesWithKnobs.add('Playground', () => {
 			role={text('Role', undefined)}
 		/>
 	)
-}
-);
+});
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);

@@ -5,21 +5,21 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with a positive sentiment',
 		sentiment: 'positive',
-		messageText: 'Positive Message'
+		messageText: 'Positive Message',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with a negative sentiment',
 		sentiment: 'negative',
-		messageText: 'Negative Message'
+		messageText: 'Negative Message',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		messageText: 'Toast with an action',
 		storyTitle: 'with an action',
 		actionProps: [{
-			text: 'Actions'
-		}]
+			text: 'Actions',
+		}],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -27,8 +27,8 @@ const variations = [
 		storyTitle: 'with two small actions',
 		actionProps: [
 			{ text: 'Action 1' },
-			{ text: 'Action 2' }
-		]
+			{ text: 'Action 2' },
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -36,8 +36,8 @@ const variations = [
 		storyTitle: 'with two medium actions',
 		actionProps: [
 			{ text: 'Action 1 medium' },
-			{ text: 'Action 2 medium' }
-		]
+			{ text: 'Action 2 medium' },
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -45,47 +45,47 @@ const variations = [
 		storyTitle: 'with two long actions',
 		actionProps: [
 			{ text: 'Action One with a large amount of text to force wrapping' },
-			{ text: 'Action Two with a large amount of text to force wrapping' }
-		]
+			{ text: 'Action Two with a large amount of text to force wrapping' },
+		],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		message: 'Toast with two actions',
 		storyTitle: 'message as prop and two actions',
 		actionProps: [{
-			text: 'Action One'
+			text: 'Action One',
 		},
 		{
-			text: 'Action Two'
-		}]
+			text: 'Action Two',
+		}],
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		message: 'Toast with two actions',
 		storyTitle: 'message as prop and two actions as props',
 		actionProps: [{
-			text: 'Action ONE'
+			text: 'Action ONE',
 		},
 		{
-			text: 'Action TWO'
+			text: 'Action TWO',
 		}],
-		actionsAsProps: true
+		actionsAsProps: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		message: 'Toast using XUIActions under the hood',
 		storyTitle: 'using XUIActions',
 		actionProps: [{
-			text: 'Action ONE'
+			text: 'Action ONE',
 		},
 		{
-			text: 'Action TWO'
+			text: 'Action TWO',
 		}],
-		usingXUIActions: true
-	}
+		usingXUIActions: true,
+	},
 ];
 
 module.exports = {
 	storiesWithVariationsKindName,
-	variations
+	variations,
 }

@@ -8,7 +8,6 @@
 //
 // Styleguide: Fundamentals.Typography
 
-
 // Type family
 //
 // XUI uses system fonts with a Helvetica/Arial font-stack.
@@ -17,7 +16,6 @@
 // Font stack: "Helvetica Neue", Helvetica, Arial, sans-serif
 //
 // Styleguide: Fundamentals.Typography.10
-
 
 // Sizes
 //
@@ -37,7 +35,6 @@
 //
 // Styleguide: Fundamentals.Typography.20
 
-
 // Heading classes
 //
 // Heading are similar to sizes, but also include additional font-weight and spacing rules.
@@ -53,7 +50,6 @@
 //
 // Styleguide: Fundamentals.Typography.21
 
-
 // Text presets
 //
 // Flag: Under review
@@ -67,11 +63,9 @@
 //
 // Styleguide: Fundamentals.Typography.23
 
-
 //  Color
 //
 // Styleguide: Fundamentals.Typography.30
-
 
 // Common colours
 //
@@ -81,7 +75,6 @@
 // Faint: `xui-textcolor-faint`: Use very sparingly for inconsequential things due to its poor accessibility.
 //
 // Styleguide: Fundamentals.Typography.30.1
-
 
 // Sentiment colours
 //
@@ -98,7 +91,6 @@
 // Negative: `xui-textcolor-negative`:	<div class="xui-container"><span class="xui-textcolor-negative">Yes, delete this invoice</span></div>
 //
 // Styleguide: Fundamentals.Typography.30.2
-
 
 // Text on dark backgrounds
 //
@@ -127,11 +119,10 @@
 //
 // Styleguide: Fundamentals.Typography.30.3
 
-
 // Links
 //
 // With a few exceptions, interactive elements in XUI should be **clearly different** from static ones.
-// Links in XUI should only be used for elements that have an `href` – otherwise use a [button](/section-building-blocks-controls-button.html).
+// Links in XUI should only be used for elements that have an `href` – otherwise use a [button](section-building-blocks-controls-button.html).
 //
 //
 // Definitions:
@@ -163,7 +154,6 @@
 //
 // Styleguide: Fundamentals.Typography.40
 
-
 // Emphasis
 //
 // Tips:
@@ -178,7 +168,6 @@
 //
 // Styleguide: Fundamentals.Typography.51
 
-
 // Letter Spacing
 //
 // Common components, like headings, declare their own letter spacing where required – these classes should not be used very often.
@@ -188,7 +177,6 @@
 // Loose: 0.01em: `xui-text-spacing-loose` <br/>Can improve legibility of very small text, especially uppercase.
 //
 // Styleguide: Fundamentals.Typography.52
-
 
 // Line Height
 //
@@ -203,7 +191,6 @@
 //
 // Styleguide: Fundamentals.Typography.53
 
-
 // Alignment
 //
 // Classes that can be added to change the alignment of text.
@@ -214,7 +201,6 @@
 // xui-text-align-right: Mostly for numeric data, to assist with scanning via the decimal place
 //
 // Styleguide: Fundamentals.Typography.54
-
 
 // Truncation
 //
@@ -228,7 +214,6 @@
 //
 // Styleguide: Fundamentals.Typography.55
 
-
 // Word-break
 //
 // Long words without hyphens won't automatically break when they reach the edge of their container.
@@ -240,7 +225,6 @@
 // xui-text-wordbreak: Helps long words like URLs not break out of their parent container
 //
 // Styleguide: Fundamentals.Typography.56
-
 
 // Long-form text
 //

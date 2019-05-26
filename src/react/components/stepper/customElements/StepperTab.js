@@ -6,94 +6,75 @@ import { NAME_SPACE } from '../helpers/constants';
 import StepperIcon from './StepperIcon';
 
 export default class StepperTab extends PureComponent {
-	handleClick = () => {
-		const { handleClick, step } = this.props;
+  handleClick = () => {
+    const { handleClick, step } = this.props;
 
-		handleClick(step - 1);
-	};
+    handleClick(step - 1);
+  };
 
-	render = () => {
-		const {
-			id,
-			name,
-			description,
-			step,
-			isError,
-			isComplete,
-			isProgress,
-			totalProgress,
-			currentProgress,
-			tabIndex,
-			linkClasses,
-			isTruncated,
-		} = this.props;
+  render = () => {
+    const {
+      id,
+      name,
+      description,
+      step,
+      isError,
+      isComplete,
+      isProgress,
+      totalProgress,
+      currentProgress,
+      tabIndex,
+      linkClasses,
+      isTruncated,
+    } = this.props;
 
-		return (
-			<button
-				type="button"
-				className={linkClasses}
-				onClick={this.handleClick}
-				tabIndex={tabIndex}
-			>
+    return (
+      <button type="button" className={linkClasses} onClick={this.handleClick} tabIndex={tabIndex}>
+        <div className={`${NAME_SPACE}-link-wrapper`}>
+          {isProgress && !isComplete ? (
+            <div className={`${NAME_SPACE}-link-progress`}>
+              <XUIProgressCircular
+                id={id}
+                total={totalProgress}
+                progress={currentProgress}
+                ariaLabel={name}
+              />
+            </div>
+          ) : (
+            <StepperIcon {...{ isComplete, isError, step }}>
+              <span className={`${NAME_SPACE}-link-step`}>{step}</span>
+            </StepperIcon>
+          )}
 
-				<div className={`${NAME_SPACE}-link-wrapper`}>
+          <div
+            className={cn(
+              `${NAME_SPACE}-link-text`,
+              isTruncated && `${NAME_SPACE}-link-text-truncated`,
+            )}
+          >
+            <span className={`${NAME_SPACE}-link-heading`}>{name}</span>
 
-					{isProgress && !isComplete
-						? (
-							<div className={`${NAME_SPACE}-link-progress`}>
-								<XUIProgressCircular
-									id={id}
-									total={totalProgress}
-									progress={currentProgress}
-									ariaLabel={name}
-								/>
-							</div>
-						) : (
-							<StepperIcon {...{ isComplete, isError, step }}>
-								<span className={`${NAME_SPACE}-link-step`}>{step}</span>
-							</StepperIcon>
-						)
-					}
-
-					<div
-						className={cn(
-							`${NAME_SPACE}-link-text`,
-							isTruncated && `${NAME_SPACE}-link-text-truncated`,
-						)}
-					>
-
-						<span className={`${NAME_SPACE}-link-heading`}>
-							{name}
-						</span>
-
-						{description && (
-							<span className={`${NAME_SPACE}-link-description`}>
-								{description}
-							</span>
-						)}
-
-					</div>
-
-				</div>
-
-			</button>
-		);
-	};
+            {description && <span className={`${NAME_SPACE}-link-description`}>{description}</span>}
+          </div>
+        </div>
+      </button>
+    );
+  };
 }
 
 StepperTab.propTypes = {
-	id: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	description: PropTypes.string,
-	linkClasses: PropTypes.string,
-	step: PropTypes.number,
-	tabIndex: PropTypes.number,
-	handleClick: PropTypes.func,
-	isError: PropTypes.bool,
-	isComplete: PropTypes.bool,
-	isActive: PropTypes.bool,
-	isProgress: PropTypes.bool,
-	totalProgress: PropTypes.number,
-	currentProgress: PropTypes.number,
-	isTruncated: PropTypes.bool,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.node,
+  linkClasses: PropTypes.string,
+  step: PropTypes.number,
+  tabIndex: PropTypes.number,
+  handleClick: PropTypes.func,
+  isError: PropTypes.bool,
+  isComplete: PropTypes.bool,
+  isActive: PropTypes.bool,
+  isProgress: PropTypes.bool,
+  totalProgress: PropTypes.number,
+  currentProgress: PropTypes.number,
+  isTruncated: PropTypes.bool,
 };

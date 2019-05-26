@@ -1,5 +1,5 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Picklist
 //
@@ -706,7 +706,6 @@
 //
 // Styleguide: Compounds.DisplayingData.Picklist.9.1
 
-
 // Avatars
 //
 // Classes:
@@ -1348,677 +1347,680 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 
 // Lists and list-level sub-elements
 .#{$ns}-picklist {
-	@include xui-listreset;
-	position: relative;
+  @include xui-listreset;
+  position: relative;
 
-	& + .#{$ns}-picklist {
-		border-top: 1px solid $xui-color-grey-alpha-6;
-	}
+  & + .#{$ns}-picklist {
+    border-top: 1px solid $xui-color-grey-alpha-6;
+  }
 }
 
 .#{$ns}-picklist-horizontal {
-	display: inline-flex;
-	max-width: 100%;
-	min-height: inherit; // IE11 bug fix
+  display: inline-flex;
+  max-width: 100%;
+  min-height: inherit; // IE11 bug fix
 }
 
 .#{$ns}-picklist--header {
-	align-items: center;
-	color: $xui-pickitem-secondary-text-color;
-	display: flex;
-	min-height: $xui-s-2xlarge;
+  align-items: center;
+  color: $xui-pickitem-secondary-text-color;
+  display: flex;
+  min-height: $xui-s-2xlarge;
 }
 
 .#{$ns}-picklist--header--text {
-	@include xui-text-xsmall;
-	@include xui-padding-horizontal($xui-s-xsmall);
+  @include xui-text-xsmall;
+  @include xui-padding-horizontal($xui-s-xsmall);
 }
 
 .#{$ns}-picklist--divider {
-	border-bottom: $xui-border-standard;
-	height: 0px;
+  border-bottom: $xui-border-standard;
+  height: 0px;
 }
 
 // Pickitems and their sub-elements
 .#{$ns}-pickitem {
-	align-items: center;
-	display: flex;
-	flex-grow: 1000000;
-	outline: none;
-	position: relative;
+  align-items: center;
+  display: flex;
+  flex-grow: 1000000;
+  outline: none;
+  position: relative;
 }
 
 .#{$ns}-pickitem--body {
-	align-items: center;
-	background: transparent;
-	border: 0;
-	color: inherit;
-	cursor: pointer;
-	font-family: $xui-font-family;
-	outline: none;
-	padding: 0px; // Removes default browser button padding
-	text-align: left;
-	text-decoration: none; // In case pickitem body element is a link
-	width: 100%;
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font-family: $xui-font-family;
+  outline: none;
+  padding: 0px; // Removes default browser button padding
+  text-align: left;
+  text-decoration: none; // In case pickitem body element is a link
+  width: 100%;
 
-	// In the specific context of a dropdownfooter, pickitems should be blue.
-	.#{$ns}-dropdown--footer--picklist & {
-		color: $xui-action-primary-color;
-	}
-	&:hover,
-	&:focus {
-		background: $xui-pickitem-focus-bg-color;
-	}
-	&:hover {
-		cursor: pointer;
-	}
-	&:active {
-		background: $xui-pickitem-active-bg-color;
-	}
+  // In the specific context of a dropdownfooter, pickitems should be blue.
+  .#{$ns}-dropdown--footer--picklist & {
+    color: $xui-action-primary-color;
+  }
+  .#{$ns}-pickitem:not(.#{$ns}-pickitem-is-disabled) > & {
+    &:hover,
+    &:focus {
+      background: $xui-pickitem-focus-bg-color;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &:active {
+      background: $xui-pickitem-active-bg-color;
+    }
+  }
 }
 
 .#{$ns}-pickitem--text {
-	@include xui-text-wordbreak;
+  @include xui-text-wordbreak;
 
-	.#{$ns}-pickitem-multiselect--checkbox &.#{$ns}-styledcheckboxradio--label {
-		// Use existing pickitem sizing for the checkbox labels.
-		font-size: 100%;
-		// Overriding in-built margins for checkbox/radio labels.
-		@include xui-margin-vertical(2px);
-		margin-left: $xui-s-2xsmall;
-		margin-right: 0px;
-	}
-	&.#{$ns}-pickitem-text-truncated {
-		display: flex;
-	}
-	.#{$ns}-pickitem-multiline & {
-		flex-wrap: wrap;
-	}
+  .#{$ns}-pickitem-multiselect--checkbox &.#{$ns}-styledcheckboxradio--label {
+    // Use existing pickitem sizing for the checkbox labels.
+    font-size: 100%;
+    // Overriding in-built margins for checkbox/radio labels.
+    @include xui-margin-vertical(2px);
+    margin-left: $xui-s-2xsmall;
+    margin-right: 0px;
+  }
+  &.#{$ns}-pickitem-text-truncated {
+    display: flex;
+  }
+  .#{$ns}-pickitem-multiline & {
+    flex-wrap: wrap;
+  }
 }
 .#{$ns}-pickitem--heading {
-	@include xui-text-emphasis;
-	width: 100%;
+  @include xui-text-emphasis;
+  width: 100%;
 }
 
 .#{$ns}-pickitem--secondary {
-	color: $xui-pickitem-secondary-text-color;
-	.#{$ns}-pickitem .#{$ns}-pickitem--text .#{$ns}-pickitem--heading + & {
-		margin-left: 0px;
-		max-width: 100%;
-	}
-	&.#{$ns}-pickitem-text-truncated {
-		max-width: 60%;
-		min-width: 20%;
-	}
+  color: $xui-pickitem-secondary-text-color;
+  .#{$ns}-pickitem .#{$ns}-pickitem--text .#{$ns}-pickitem--heading + & {
+    margin-left: 0px;
+    max-width: 100%;
+  }
+  &.#{$ns}-pickitem-text-truncated {
+    max-width: 60%;
+    min-width: 20%;
+  }
 }
 
 .#{$ns}-pickitem--pinned {
-	align-self: flex-start;
-	color: $xui-pickitem-secondary-text-color;
-	flex-shrink: 0;
-	max-width: 20%;
-	padding-right: $xui-s-2xsmall;
-	text-align: right;
-	.#{$ns}-pickitem--text > & {
-		float: right;
-	}
-	.#{$ns}-pickitem--text.#{$ns}-pickitem-text-truncated > & {
-		order: 1;
-	}
+  align-self: flex-start;
+  color: $xui-pickitem-secondary-text-color;
+  flex-shrink: 0;
+  max-width: 20%;
+  padding-right: $xui-s-2xsmall;
+  text-align: right;
+  .#{$ns}-pickitem--text > & {
+    float: right;
+  }
+  .#{$ns}-pickitem--text.#{$ns}-pickitem-text-truncated > & {
+    order: 1;
+  }
 }
 
 .#{$ns}-pickitem--sideelement {
-	align-items: center;
-	justify-content: center;
-	// Most styles for sideelement are specific to size or orientation.
-	.#{$ns}-icon {
-		pointer-events: none;
-	}
+  align-items: center;
+  justify-content: center;
+  // Most styles for sideelement are specific to size or orientation.
+  .#{$ns}-icon {
+    pointer-events: none;
+  }
 }
 
 .#{$ns}-pickitem-multiselect--checkbox {
-	flex-grow: 1;
-	&:last-child {
-		padding-right: $xui-s-xsmall;
-	}
-	&:nth-last-child(n+2) {
-		padding-right: $xui-s-2xsmall;
-	}
-	&.#{$ns}-pickitem-text-truncated {
-		display: inline-flex;
-	}
+  flex-grow: 1;
+  &:last-child {
+    padding-right: $xui-s-xsmall;
+  }
+  &:nth-last-child(n + 2) {
+    padding-right: $xui-s-2xsmall;
+  }
+  &.#{$ns}-pickitem-text-truncated {
+    display: inline-flex;
+  }
 }
 
-.#{$ns}-pickitem-multiselect--label > .#{$ns}-pickitem-text-truncated:not(.#{$ns}-pickitem--pinned) {
-	display: flex;
-	flex: auto;
+.#{$ns}-pickitem-multiselect--label
+  > .#{$ns}-pickitem-text-truncated:not(.#{$ns}-pickitem--pinned) {
+  display: flex;
+  flex: auto;
 }
 
 // Nested lists and their controlling elements
 .#{$ns}-picklist--nestedcontainer {
-	display: flex;
-	flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
-	> .#{$ns}-pickitem-split {
-		border-right: 1px solid $xui-color-grey-alpha-7;
-	}
+  > .#{$ns}-pickitem-split {
+    border-right: 1px solid $xui-color-grey-alpha-7;
+  }
 }
 
 // Submenu more specificity for layout adjustments
 .#{$ns}-submenu {
-	@include xui-listreset;
-	flex: none;
-	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+  @include xui-listreset;
+  flex: none;
+  transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 
-	.#{$ns}-pickitem-multiselect--checkbox {
-		padding-left: $xui-s-xsmall;
-	}
-	.#{$ns}-pickitem--sideelement:first-child {
-		margin-left: $xui-s-xsmall;
-	}
+  .#{$ns}-pickitem-multiselect--checkbox {
+    padding-left: $xui-s-xsmall;
+  }
+  .#{$ns}-pickitem--sideelement:first-child {
+    margin-left: $xui-s-xsmall;
+  }
 }
 
 .#{$ns}-submenu-layout {
-	flex: 0 0 auto;
-	max-height: 0;
-	overflow: hidden;
-	width: 100%;
+  flex: 0 0 auto;
+  max-height: 0;
+  overflow: hidden;
+  width: 100%;
 }
 
 .#{$ns}-submenu-uicontrol {
-	display: flex;
-	flex: 0 0 auto;
-	outline: none;
+  display: flex;
+  flex: 0 0 auto;
+  outline: none;
 
-	.#{$ns}-pickitem--text {
-		width: 100%;
-	}
-	.#{$ns}-pickitem--text:first-child {
-		padding-left: $xui-s-xsmall;
-	}
-	.#{$ns}-pickitem--text:nth-child(n + 2) {
-		padding-left: $xui-s-2xsmall;
-	}
-	.#{$ns}-pickitem--text:last-child {
-		padding-right: $xui-s-xsmall;
-	}
-	.#{$ns}-pickitem--text:nth-last-child(n + 2) {
-		padding-right: $xui-s-2xsmall;
-	}
-	.#{$ns}-pickitem--sideelement {
-		display: flex;
-	}
-	.#{$ns}-pickitem-split + & {
-		border-radius: 50%;
-		margin-left: $xui-s-2xsmall;
-	}
+  .#{$ns}-pickitem--text {
+    width: 100%;
+  }
+  .#{$ns}-pickitem--text:first-child {
+    padding-left: $xui-s-xsmall;
+  }
+  .#{$ns}-pickitem--text:nth-child(n + 2) {
+    padding-left: $xui-s-2xsmall;
+  }
+  .#{$ns}-pickitem--text:last-child {
+    padding-right: $xui-s-xsmall;
+  }
+  .#{$ns}-pickitem--text:nth-last-child(n + 2) {
+    padding-right: $xui-s-2xsmall;
+  }
+  .#{$ns}-pickitem--sideelement {
+    display: flex;
+  }
+  .#{$ns}-pickitem-split + & {
+    border-radius: 50%;
+    margin-left: $xui-s-2xsmall;
+  }
 
-	&:hover,
-	&:focus {
-		background: $xui-pickitem-focus-bg-color;
-	}
+  &:hover,
+  &:focus {
+    background: $xui-pickitem-focus-bg-color;
+  }
 
-	&:active {
-		background: $xui-pickitem-active-bg-color;
-	}
+  &:active {
+    background: $xui-pickitem-active-bg-color;
+  }
 }
 
 .#{$ns}-submenu-uicontrol--icon {
-	align-self: center;
-	color: $xui-submenu-uicontrol-icon-color;
-	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+  align-self: center;
+  color: $xui-submenu-uicontrol-icon-color;
+  transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 }
 
 .#{$ns}-pickitem--submenucontrol {
-	@include xui-utility-hidden-visually;
-	flex-grow: 0;
+  @include xui-utility-hidden-visually;
+  flex-grow: 0;
 
-	&:checked {
-		& + .#{$ns}-pickitem-split .#{$ns}-submenu-uicontrol--icon {
-			transform: rotate(180deg);
-		}
+  &:checked {
+    & + .#{$ns}-pickitem-split .#{$ns}-submenu-uicontrol--icon {
+      transform: rotate(180deg);
+    }
 
-		& ~ .#{$ns}-submenu-uicontrol .#{$ns}-submenu-uicontrol--icon {
-			transform: rotate(180deg);
-		}
+    & ~ .#{$ns}-submenu-uicontrol .#{$ns}-submenu-uicontrol--icon {
+      transform: rotate(180deg);
+    }
 
-		& ~ .#{$ns}-submenu-layout {
-			max-height: 100vh;
-			overflow: auto;
-		}
-
-	}
+    & ~ .#{$ns}-submenu-layout {
+      max-height: 100vh;
+      overflow: auto;
+    }
+  }
 }
 
 .#{$ns}-pickitem-split {
-	align-items: stretch;
-	display: flex;
-	flex-flow: row nowrap;
+  align-items: stretch;
+  display: flex;
+  flex-flow: row nowrap;
 
-	.#{$ns}-pickitem {
-		border-right: 1px solid rgba($xui-color-black, 0.1);
-		flex: 1 1 auto;
-	}
-
+  .#{$ns}-pickitem {
+    border-right: 1px solid rgba($xui-color-black, 0.1);
+    flex: 1 1 auto;
+  }
 }
 
 .#{$ns}-pickitem--uicontrol {
-	align-items: center;
-	display: flex;
-	padding: 3px;
+  align-items: center;
+  display: flex;
+  padding: 3px;
 
-	&:hover,
-	&:focus {
-		background: $xui-pickitem-focus-bg-color;
-	}
+  &:hover,
+  &:focus {
+    background: $xui-pickitem-focus-bg-color;
+  }
 
-	&:active {
-		background: $xui-pickitem-active-bg-color;
-	}
+  &:active {
+    background: $xui-pickitem-active-bg-color;
+  }
 }
 
 // Item-level more specific styles
 // Vertical
 .#{$ns}-pickitem:not(.#{$ns}-pickitem-is-horizontal) {
-	.#{$ns}-pickitem--body {
-		display: flex;
-	}
-	.#{$ns}-pickitem--text {
-		flex-grow: 100;
-		max-width: 100%;
-	}
-	.#{$ns}-pickitem--body > .#{$ns}-pickitem--text:last-child {
-		padding-right: $xui-s-xsmall;
-	}
-	.#{$ns}-pickitem--body > .#{$ns}-pickitem--text:nth-last-child(n+2) {
-		padding-right: $xui-s-2xsmall;
-	}
-	&:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body .#{$ns}-pickitem--text:first-child {
-		padding-left: $xui-s-xsmall;
-	}
-	&:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body .#{$ns}-pickitem--text:nth-child(n+2) {
-		padding-left: $xui-s-2xsmall;
-	}
-	.#{$ns}-pickitem--sideelement {
-		display: flex;
-	}
+  .#{$ns}-pickitem--body {
+    display: flex;
+  }
+  .#{$ns}-pickitem--text {
+    flex-grow: 100;
+    max-width: 100%;
+  }
+  .#{$ns}-pickitem--body > .#{$ns}-pickitem--text:last-child {
+    padding-right: $xui-s-xsmall;
+  }
+  .#{$ns}-pickitem--body > .#{$ns}-pickitem--text:nth-last-child(n + 2) {
+    padding-right: $xui-s-2xsmall;
+  }
+  &:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body .#{$ns}-pickitem--text:first-child {
+    padding-left: $xui-s-xsmall;
+  }
+  &:not(.#{$ns}-pickitem-multiselect)
+    > .#{$ns}-pickitem--body
+    .#{$ns}-pickitem--text:nth-child(n + 2) {
+    padding-left: $xui-s-2xsmall;
+  }
+  .#{$ns}-pickitem--sideelement {
+    display: flex;
+  }
 }
 
 // Horizontal
 .#{$ns}-pickitem.#{$ns}-pickitem-is-horizontal {
-	.#{$ns}-pickitem {
-		// Fix for text truncation - see https://scottwhittaker.net/flexbox/2017/02/05/flexbox-and-text-truncation.html
-		min-width: 0;
-	}
-	.#{$ns}-pickitem--sideelement {
-		display: inline-flex;
-		vertical-align: middle;
-	}
-	.#{$ns}-pickitem--body {
-		text-align: left;
-	}
-	&.#{$ns}-pickitem-text-truncated .#{$ns}-pickitem--body {
-		display: flex;
-	}
-	&:not(.#{$ns}-pickitem-text-truncated) .#{$ns}-pickitem--body {
-		display: block;
-	}
-	.#{$ns}-pickitem--body::after {
-		content: "";
-		display: inline-block;
-		vertical-align: middle;
-	}
-	&.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) {
-		// This selector shouldn't need to be so strong.
-		.#{$ns}-pickitem--body:before {
-			/* Remove default left border */
-			border-left: none;
-			border-top: none;
-			width: 100%;
-		}
-	}
-	.#{$ns}-pickitem--text {
-		width: 100%;
-	}
-	.#{$ns}-pickitem--text,
-	.#{$ns}-pickitem--pinned {
-		vertical-align: middle;
-	}
+  .#{$ns}-pickitem {
+    // Fix for text truncation - see https://scottwhittaker.net/flexbox/2017/02/05/flexbox-and-text-truncation.html
+    min-width: 0;
+  }
+  .#{$ns}-pickitem--sideelement {
+    display: inline-flex;
+    vertical-align: middle;
+  }
+  .#{$ns}-pickitem--body {
+    text-align: left;
+  }
+  &.#{$ns}-pickitem-text-truncated .#{$ns}-pickitem--body {
+    display: flex;
+  }
+  &:not(.#{$ns}-pickitem-text-truncated) .#{$ns}-pickitem--body {
+    display: block;
+  }
+  .#{$ns}-pickitem--body::after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) {
+    // This selector shouldn't need to be so strong.
+    .#{$ns}-pickitem--body:before {
+      /* Remove default left border */
+      border-left: none;
+      border-top: none;
+      width: 100%;
+    }
+  }
+  .#{$ns}-pickitem--text {
+    width: 100%;
+  }
+  .#{$ns}-pickitem--text,
+  .#{$ns}-pickitem--pinned {
+    vertical-align: middle;
+  }
 }
 
 .#{$ns}-pickitem-medium {
-	.#{$ns}-pickitem--body {
-		@include xui-text-medium;
-		min-height: $xui-s-3xlarge;
-	}
-	.#{$ns}-pickitem--body .#{$ns}-pickitem--input {
-		margin: ($xui-s-xsmall + 2);
-	}
-	.#{$ns}-submenu & .#{$ns}-pickitem--body {
-		padding-left: $xui-s-large;
-	}
-	.#{$ns}-pickitem--text,
-	&:not(.#{$ns}-pickitem-multiselect) .#{$ns}-pickitem--pinned {
-		@include xui-padding-vertical($xui-s-xsmall);
-	}
-	&.#{$ns}-pickitem-split + .#{$ns}-submenu-uicontrol {
-		margin-right: $xui-s-small;
-	}
+  .#{$ns}-pickitem--body {
+    @include xui-text-medium;
+    min-height: $xui-s-3xlarge;
+  }
+  .#{$ns}-pickitem--body .#{$ns}-pickitem--input {
+    margin: ($xui-s-xsmall + 2);
+  }
+  .#{$ns}-submenu & .#{$ns}-pickitem--body {
+    padding-left: $xui-s-large;
+  }
+  .#{$ns}-pickitem--text,
+  &:not(.#{$ns}-pickitem-multiselect) .#{$ns}-pickitem--pinned {
+    @include xui-padding-vertical($xui-s-xsmall);
+  }
+  &.#{$ns}-pickitem-split + .#{$ns}-submenu-uicontrol {
+    margin-right: $xui-s-small;
+  }
 }
 .#{$ns}-pickitem-small {
-	.#{$ns}-pickitem--body {
-		@include xui-text-small;
-		min-height: $xui-s-2xlarge;
-	}
-	.#{$ns}-pickitem--body .#{$ns}-pickitem--input {
-		margin: $xui-s-xsmall;
-	}
-	.#{$ns}-submenu & .#{$ns}-pickitem--body {
-		padding-left: $xui-s-standard;
-	}
-	.#{$ns}-pickitem--text,
-	&:not(.#{$ns}-pickitem-multiselect) .#{$ns}-pickitem--pinned {
-		@include xui-padding-vertical($pickitem-small-padding);
-	}
-	&.#{$ns}-pickitem-split + .#{$ns}-submenu-uicontrol {
-		margin-right: $xui-s-xsmall;
-	}
+  .#{$ns}-pickitem--body {
+    @include xui-text-small;
+    min-height: $xui-s-2xlarge;
+  }
+  .#{$ns}-pickitem--body .#{$ns}-pickitem--input {
+    margin: $xui-s-xsmall;
+  }
+  .#{$ns}-submenu & .#{$ns}-pickitem--body {
+    padding-left: $xui-s-standard;
+  }
+  .#{$ns}-pickitem--text,
+  &:not(.#{$ns}-pickitem-multiselect) .#{$ns}-pickitem--pinned {
+    @include xui-padding-vertical($pickitem-small-padding);
+  }
+  &.#{$ns}-pickitem-split + .#{$ns}-submenu-uicontrol {
+    margin-right: $xui-s-xsmall;
+  }
 }
 .#{$ns}-pickitem-xsmall {
-	.#{$ns}-pickitem--body {
-		@include xui-text-xsmall;
-		min-height: $xui-s-xlarge;
-	}
-	.#{$ns}-submenu & .#{$ns}-pickitem--body {
-		padding-left: $xui-s-small;
-	}
-	.#{$ns}-pickitem--text,
-	.#{$ns}-pickitem--pinned {
-		@include xui-padding-vertical($xui-s-2xsmall);
-	}
-	&.#{$ns}-pickitem-split + .#{$ns}-submenu-uicontrol {
-		margin-right: $xui-s-2xsmall;
-	}
+  .#{$ns}-pickitem--body {
+    @include xui-text-xsmall;
+    min-height: $xui-s-xlarge;
+  }
+  .#{$ns}-submenu & .#{$ns}-pickitem--body {
+    padding-left: $xui-s-small;
+  }
+  .#{$ns}-pickitem--text,
+  .#{$ns}-pickitem--pinned {
+    @include xui-padding-vertical($xui-s-2xsmall);
+  }
+  &.#{$ns}-pickitem-split + .#{$ns}-submenu-uicontrol {
+    margin-right: $xui-s-2xsmall;
+  }
 }
 
 .#{$ns}-picklist-medium .#{$ns}-submenu-uicontrol:nth-child(2) {
-	@include xui-padding-horizontal($xui-s-small);
+  @include xui-padding-horizontal($xui-s-small);
 }
 .#{$ns}-picklist-small .#{$ns}-submenu-uicontrol:nth-child(2) {
-	@include xui-padding-horizontal($xui-s-xsmall);
+  @include xui-padding-horizontal($xui-s-xsmall);
 }
 .#{$ns}-picklist-xsmall .#{$ns}-submenu-uicontrol:nth-child(2) {
-	@include xui-padding-horizontal($xui-s-2xsmall);
+  @include xui-padding-horizontal($xui-s-2xsmall);
 }
 
 // Size-specific vertical
 .#{$ns}-pickitem-medium:not(.#{$ns}-pickitem-is-horizontal) {
-	.#{$ns}-pickitem--body {
-		@include xui-padding-horizontal($xui-s-small);
-	}
-	.#{$ns}-pickitem--sideelement {
-		height: $xui-s-3xlarge;
-		min-width: $xui-s-3xlarge;
-	}
-	&.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body::before {
-		border-left-width: 3px;
-		width: 3px;
-	}
-	.#{$ns}-pickitem--secondary,
-	.#{$ns}-pickitem--pinned {
-		margin-left: $xui-s-standard;
-	}
+  .#{$ns}-pickitem--body {
+    @include xui-padding-horizontal($xui-s-small);
+  }
+  .#{$ns}-pickitem--sideelement {
+    height: $xui-s-3xlarge;
+    min-width: $xui-s-3xlarge;
+  }
+  &.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body::before {
+    border-left-width: 3px;
+    width: 3px;
+  }
+  .#{$ns}-pickitem--secondary,
+  .#{$ns}-pickitem--pinned {
+    margin-left: $xui-s-standard;
+  }
 }
 .#{$ns}-pickitem-small:not(.#{$ns}-pickitem-is-horizontal) {
-	.#{$ns}-pickitem--body {
-		@include xui-padding-horizontal($xui-s-xsmall);
-	}
-	.#{$ns}-pickitem--sideelement {
-		height: $xui-s-2xlarge;
-		min-width: $xui-s-2xlarge;
-	}
-	&.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body::before {
-		border-left-width: 2px;
-		width: 2px;
-	}
-	.#{$ns}-pickitem--secondary,
-	.#{$ns}-pickitem--pinned {
-		margin-left: $xui-s-small;
-	}
+  .#{$ns}-pickitem--body {
+    @include xui-padding-horizontal($xui-s-xsmall);
+  }
+  .#{$ns}-pickitem--sideelement {
+    height: $xui-s-2xlarge;
+    min-width: $xui-s-2xlarge;
+  }
+  &.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body::before {
+    border-left-width: 2px;
+    width: 2px;
+  }
+  .#{$ns}-pickitem--secondary,
+  .#{$ns}-pickitem--pinned {
+    margin-left: $xui-s-small;
+  }
 }
 .#{$ns}-pickitem-xsmall:not(.#{$ns}-pickitem-is-horizontal) {
-	.#{$ns}-pickitem--body {
-		@include xui-padding-horizontal($xui-s-2xsmall);
-	}
-	.#{$ns}-pickitem--sideelement {
-		height: $xui-s-xlarge;
-		min-width: $xui-s-xlarge;
-	}
-	&.#{$ns}-pickitem-is-selected > .#{$ns}-pickitem--body::before {
-		border-left-width: 1px;
-		width: 1px;
-	}
-	.#{$ns}-pickitem--secondary,
-	.#{$ns}-pickitem--pinned {
-		margin-left: $xui-s-xsmall;
-	}
+  .#{$ns}-pickitem--body {
+    @include xui-padding-horizontal($xui-s-2xsmall);
+  }
+  .#{$ns}-pickitem--sideelement {
+    height: $xui-s-xlarge;
+    min-width: $xui-s-xlarge;
+  }
+  &.#{$ns}-pickitem-is-selected > .#{$ns}-pickitem--body::before {
+    border-left-width: 1px;
+    width: 1px;
+  }
+  .#{$ns}-pickitem--secondary,
+  .#{$ns}-pickitem--pinned {
+    margin-left: $xui-s-xsmall;
+  }
 }
 
 // Size-specific horizontal
 .#{$ns}-pickitem-medium.#{$ns}-pickitem-is-horizontal {
-	.#{$ns}-pickitem--body {
-		@include xui-padding-horizontal($xui-s-large);
-	}
-	&:not(.#{$ns}-pickitem-text-truncated) > .#{$ns}-pickitem--body {
-		@include xui-padding-vertical($xui-s-xsmall);
-	}
-	&.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body:before {
-		border-bottom-width: 3px;
-	}
-	.#{$ns}-pickitem--text:nth-child(n+2),
-	.#{$ns}-pickitem--secondary {
-		padding-left: $xui-s-xsmall;
-	}
-	.#{$ns}-pickitem--text:nth-last-child(n+2) {
-		padding-right: $xui-s-xsmall;
-	}
-	.#{$ns}-pickitem--body::after {
-		min-height: $xui-line-height-standard;
-	}
+  .#{$ns}-pickitem--body {
+    @include xui-padding-horizontal($xui-s-large);
+  }
+  &:not(.#{$ns}-pickitem-text-truncated) > .#{$ns}-pickitem--body {
+    @include xui-padding-vertical($xui-s-xsmall);
+  }
+  &.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body:before {
+    border-bottom-width: 3px;
+  }
+  .#{$ns}-pickitem--text:nth-child(n + 2),
+  .#{$ns}-pickitem--secondary {
+    padding-left: $xui-s-xsmall;
+  }
+  .#{$ns}-pickitem--text:nth-last-child(n + 2) {
+    padding-right: $xui-s-xsmall;
+  }
+  .#{$ns}-pickitem--body::after {
+    min-height: $xui-line-height-standard;
+  }
 }
 .#{$ns}-pickitem-small.#{$ns}-pickitem-is-horizontal {
-	.#{$ns}-pickitem--body {
-		@include xui-padding-horizontal($xui-s-standard);
-	}
-	&:not(.#{$ns}-pickitem-text-truncated) > .#{$ns}-pickitem--body {
-		@include xui-padding-vertical($pickitem-small-padding);
-	}
-	&.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body:before {
-		border-bottom-width: 2px;
-	}
-	.#{$ns}-pickitem--text:nth-child(n+2),
-	.#{$ns}-pickitem--secondary {
-		padding-left: $pickitem-small-padding;
-	}
-	.#{$ns}-pickitem--text:nth-last-child(n+2) {
-		padding-right: $pickitem-small-padding;
-	}
-	.#{$ns}-pickitem--body::after {
-		min-height: $xui-line-height-small;
-	}
+  .#{$ns}-pickitem--body {
+    @include xui-padding-horizontal($xui-s-standard);
+  }
+  &:not(.#{$ns}-pickitem-text-truncated) > .#{$ns}-pickitem--body {
+    @include xui-padding-vertical($pickitem-small-padding);
+  }
+  &.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body:before {
+    border-bottom-width: 2px;
+  }
+  .#{$ns}-pickitem--text:nth-child(n + 2),
+  .#{$ns}-pickitem--secondary {
+    padding-left: $pickitem-small-padding;
+  }
+  .#{$ns}-pickitem--text:nth-last-child(n + 2) {
+    padding-right: $pickitem-small-padding;
+  }
+  .#{$ns}-pickitem--body::after {
+    min-height: $xui-line-height-small;
+  }
 }
 .#{$ns}-pickitem-xsmall.#{$ns}-pickitem-is-horizontal {
-	.#{$ns}-pickitem--body {
-		@include xui-padding-horizontal($xui-s-small);
-	}
-	&:not(.#{$ns}-pickitem-text-truncated) > .#{$ns}-pickitem--body {
-		@include xui-padding-vertical($xui-s-2xsmall);
-	}
-	&.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body:before {
-		border-bottom-width: 1px;
-	}
-	.#{$ns}-pickitem--text:nth-child(n+2),
-	.#{$ns}-pickitem--secondary {
-		padding-left: $xui-s-2xsmall;
-	}
-	.#{$ns}-pickitem--text:nth-last-child(n+2) {
-		padding-right: $xui-s-2xsmall;
-	}
-	.#{$ns}-pickitem--body::after {
-		min-height: $xui-line-height-xsmall;
-	}
+  .#{$ns}-pickitem--body {
+    @include xui-padding-horizontal($xui-s-small);
+  }
+  &:not(.#{$ns}-pickitem-text-truncated) > .#{$ns}-pickitem--body {
+    @include xui-padding-vertical($xui-s-2xsmall);
+  }
+  &.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body:before {
+    border-bottom-width: 1px;
+  }
+  .#{$ns}-pickitem--text:nth-child(n + 2),
+  .#{$ns}-pickitem--secondary {
+    padding-left: $xui-s-2xsmall;
+  }
+  .#{$ns}-pickitem--text:nth-last-child(n + 2) {
+    padding-right: $xui-s-2xsmall;
+  }
+  .#{$ns}-pickitem--body::after {
+    min-height: $xui-line-height-xsmall;
+  }
 }
 
 // State-specific
 .#{$ns}-pickitem-is-invalid .#{$ns}-pickitem--body {
-	color: $xui-invalid-color;
+  color: $xui-invalid-color;
 }
 
 .#{$ns}-pickitem-is-hovered {
-	background: $xui-pickitem-focus-bg-color;
-	&:hover,
-	&:focus {
-		background: $xui-pickitem-focus-bg-color;
-	}
+  background: $xui-pickitem-focus-bg-color;
+  &:hover,
+  &:focus {
+    background: $xui-pickitem-focus-bg-color;
+  }
 
-	&:active {
-		background: $xui-pickitem-active-bg-color;
-	}
-	// Specificity exists to encapsulate the style update and eliminate nested menus
-	// also receiving these styles.
-	> .#{$ns}-pickitem--body {
-		background: transparent;
-		&:focus,
-		&:hover,
-		&:active {
-			background: transparent;
-		}
-	}
+  &:active {
+    background: $xui-pickitem-active-bg-color;
+  }
+  // Specificity exists to encapsulate the style update and eliminate nested menus
+  // also receiving these styles.
+  > .#{$ns}-pickitem--body {
+    background: transparent;
+    &:focus,
+    &:hover,
+    &:active {
+      background: transparent;
+    }
+  }
 }
 
 .#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) {
-	&:not(.#{$ns}-pickitem-is-invalid):not(.#{$ns}-pickitem-is-disabled) > .#{$ns}-pickitem--body {
-		color: $xui-pickitem-selected-color;
-	}
-	> .#{$ns}-pickitem--body::before {
-		border-color: currentColor;
-		border-right-width: 0px;
-		border-style: solid;
-		bottom: 0;
-		content: " ";
-		display: block;
-		left: 0;
-		position: absolute;
-		top: 0;
-		z-index: 1;
-	}
-	&:hover, &:focus {
-		color: $xui-pickitem-selected-hover-color;
-	}
-	&:active {
-		color: $xui-pickitem-selected-active-color;
-	}
+  &:not(.#{$ns}-pickitem-is-invalid):not(.#{$ns}-pickitem-is-disabled) > .#{$ns}-pickitem--body {
+    color: $xui-pickitem-selected-color;
+  }
+  > .#{$ns}-pickitem--body::before {
+    border-color: currentColor;
+    border-right-width: 0px;
+    border-style: solid;
+    bottom: 0;
+    content: ' ';
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+  &:hover,
+  &:focus {
+    color: $xui-pickitem-selected-hover-color;
+  }
+  &:active {
+    color: $xui-pickitem-selected-active-color;
+  }
 }
 
 // Size-specific
 .#{$ns}-picklist-medium {
-	// List-level
-	&.#{$ns}-picklist-layout {
-		@include xui-padding-vertical($xui-s-small);
-	}
-	> .#{$ns}-picklist--header {
-		@include xui-padding-horizontal($xui-s-small);
-	}
-	> .#{$ns}-picklist--divider {
-		@include xui-margin-vertical($xui-s-small);
-	}
+  // List-level
+  &.#{$ns}-picklist-layout {
+    @include xui-padding-vertical($xui-s-small);
+  }
+  > .#{$ns}-picklist--header {
+    @include xui-padding-horizontal($xui-s-small);
+  }
+  > .#{$ns}-picklist--divider {
+    @include xui-margin-vertical($xui-s-small);
+  }
 
-	// Item-level by list size
-	.#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
-		@include xui-text-medium;
-		min-height: $xui-s-3xlarge;
-	}
-	.#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
-		height: $xui-s-3xlarge;
-		width: $xui-s-3xlarge;
-	}
-	.#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
-		@include xui-padding-vertical($xui-s-small);
-	}
-	.#{$ns}-submenu .#{$ns}-pickitem--body {
-		padding-left: $xui-s-small + $xui-s-large; // Double indent for sub menus.
-	}
+  // Item-level by list size
+  .#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
+    @include xui-text-medium;
+    min-height: $xui-s-3xlarge;
+  }
+  .#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
+    height: $xui-s-3xlarge;
+    width: $xui-s-3xlarge;
+  }
+  .#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
+    @include xui-padding-vertical($xui-s-small);
+  }
+  .#{$ns}-submenu .#{$ns}-pickitem--body {
+    padding-left: $xui-s-small + $xui-s-large; // Double indent for sub menus.
+  }
 }
 .#{$ns}-picklist-small {
-	// List-level
-	&.#{$ns}-picklist-layout {
-		@include xui-padding-vertical($xui-s-xsmall);
-	}
-	> .#{$ns}-picklist--header {
-		@include xui-padding-horizontal($xui-s-xsmall);
-	}
-	> .#{$ns}-picklist--divider {
-		@include xui-margin-vertical($xui-s-xsmall);
-	}
+  // List-level
+  &.#{$ns}-picklist-layout {
+    @include xui-padding-vertical($xui-s-xsmall);
+  }
+  > .#{$ns}-picklist--header {
+    @include xui-padding-horizontal($xui-s-xsmall);
+  }
+  > .#{$ns}-picklist--divider {
+    @include xui-margin-vertical($xui-s-xsmall);
+  }
 
-	// Item-level by list size
-	.#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
-		@include xui-text-small;
-		min-height: $xui-s-2xlarge;
-	}
-	.#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
-		height: $xui-s-2xlarge;
-		width: $xui-s-2xlarge;
-	}
-	.#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
-		@include xui-padding-vertical($xui-s-xsmall);
-	}
-	.#{$ns}-submenu .#{$ns}-pickitem--body {
-		padding-left: $xui-s-xsmall + $xui-s-standard; // Double indent for sub menus.
-	}
+  // Item-level by list size
+  .#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
+    @include xui-text-small;
+    min-height: $xui-s-2xlarge;
+  }
+  .#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
+    height: $xui-s-2xlarge;
+    width: $xui-s-2xlarge;
+  }
+  .#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
+    @include xui-padding-vertical($xui-s-xsmall);
+  }
+  .#{$ns}-submenu .#{$ns}-pickitem--body {
+    padding-left: $xui-s-xsmall + $xui-s-standard; // Double indent for sub menus.
+  }
 }
 .#{$ns}-picklist-xsmall {
-	// List-level
-	&.#{$ns}-picklist-layout {
-		@include xui-padding-vertical($xui-s-2xsmall);
-	}
-	> .#{$ns}-picklist--header {
-		@include xui-padding-horizontal($xui-s-2xsmall);
-	}
-	> .#{$ns}-picklist--divider {
-		@include xui-margin-vertical($xui-s-2xsmall);
-	}
+  // List-level
+  &.#{$ns}-picklist-layout {
+    @include xui-padding-vertical($xui-s-2xsmall);
+  }
+  > .#{$ns}-picklist--header {
+    @include xui-padding-horizontal($xui-s-2xsmall);
+  }
+  > .#{$ns}-picklist--divider {
+    @include xui-margin-vertical($xui-s-2xsmall);
+  }
 
-	// Item-level by list size
-	.#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
-		@include xui-text-xsmall;
-		min-height: $xui-s-xlarge;
-	}
-	.#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
-		height: $xui-s-xlarge;
-		width: $xui-s-xlarge;
-	}
-	.#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
-		@include xui-padding-vertical($xui-s-2xsmall);
-	}
-	.#{$ns}-submenu .#{$ns}-pickitem--body {
-		padding-left: $xui-s-2xsmall + $xui-s-small; // Double indent for sub menus.
-	}
+  // Item-level by list size
+  .#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
+    @include xui-text-xsmall;
+    min-height: $xui-s-xlarge;
+  }
+  .#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
+    height: $xui-s-xlarge;
+    width: $xui-s-xlarge;
+  }
+  .#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
+    @include xui-padding-vertical($xui-s-2xsmall);
+  }
+  .#{$ns}-submenu .#{$ns}-pickitem--body {
+    padding-left: $xui-s-2xsmall + $xui-s-small; // Double indent for sub menus.
+  }
 }
 
 // Utility style that can be applied to pickitems and sub-elements.
 .#{$ns}-pickitem-text-truncated {
-	@include xui-text-truncated
+  @include xui-text-truncated;
 }
 
 .#{$ns}-pickitem-is-disabled {
-	.#{$ns}-pickitem--body,
-	.#{$ns}-pickitem-multiselect--label .#{$ns}-pickitem--text {
-		color: $xui-checkboxradio-label-disabled-color;
-		cursor: not-allowed;
-	}
-	&:hover {
-		background-color: transparent;
-		cursor: not-allowed;
-	}
+  .#{$ns}-pickitem--body {
+    color: $xui-checkboxradio-label-disabled-color;
+    cursor: not-allowed;
+  }
+  &:hover {
+    background-color: transparent;
+    cursor: not-allowed;
+  }
 }

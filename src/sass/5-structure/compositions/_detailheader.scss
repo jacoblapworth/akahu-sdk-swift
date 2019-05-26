@@ -1,23 +1,23 @@
-@import "../../vars";
-@import "../../mixins";
+@import '../../vars';
+@import '../../mixins';
 
 // Base grid template
 @mixin composition-dh {
-	grid-template:
-		"header"
-		"detail" / 1fr;
+  grid-template:
+    'header'
+    'detail' / minmax(0, 1fr);
 }
 
 // Gap template variant (necessary for IE & Autoprefixer)
 @mixin composition-dh-gap {
-	@include xui-composition-grid-gap;
-	@include composition-dh;
+  @include xui-composition-grid-gap;
+  @include composition-dh;
 }
 
 // Classes using templates at various breakpoints
 .#{$ns}-composition-detailheader {
-	@include composition-dh;
-	&.#{$ns}-composition-has-grid-gap {
-		@include composition-dh-gap;
-	}
+  @include composition-dh;
+  &.#{$ns}-composition-has-grid-gap {
+    @include composition-dh-gap;
+  }
 }

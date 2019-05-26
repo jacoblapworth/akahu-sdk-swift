@@ -27,14 +27,14 @@ import InputGroup from '../helpers/inputgroup';
 import LayoutSelect from './select-box';
 import PanelSection from './panel-section';
 
-const NOOP = () => {};
-
 import { storyNames, compositionKind } from '../tests';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withReadme } from 'storybook-readme';
 import readme from './README.md';
+
+const NOOP = () => {};
 
 const test = storiesOf(compositionKind, module);
 test.addDecorator(withReadme(readme));
@@ -55,19 +55,18 @@ const inputMap = {
 	whatColour2: 'what-colour2',
 	people: 'chosen-people',
 	whatBird: 'what-bird',
-	thingOn: 'thing-on'
+	thingOn: 'thing-on',
 };
 
-const filterPeople = (data, value, peopleToExclude) => {
-	return data.filter(node => {
+const filterPeople = (data, value, peopleToExclude) =>
+	data.filter(node => {
 		const val = value.toLowerCase();
 
-		//You could use String.includes here, however you would need to add the polyfill for IE11 support.
+		// You could use String.includes here, however you would need to add the polyfill for IE11 support.
 		return !peopleToExclude.find(person => person.id === node.id) && (node.name.toLowerCase().indexOf(val) > -1
 		|| node.email.toLowerCase().indexOf(val) > -1
 		|| node.subtext.toLowerCase().indexOf(val) > -1);
 	});
-};
 
 test.add(storyNames.formLayout, () => {
 
@@ -102,8 +101,8 @@ test.add(storyNames.formLayout, () => {
 		onSearchChangeHandler(value) {
 			this._autocompleter.openDropDown();
 			this.setState(prevState => ({
-				value: value,
-				people: filterPeople(people, value, prevState.selectedPeople)
+				value,
+				people: filterPeople(people, value, prevState.selectedPeople),
 			}));
 		}
 
@@ -113,7 +112,7 @@ test.add(storyNames.formLayout, () => {
 				return {
 					value: '',
 					selectedPeople,
-					people: filterPeople(people, '', selectedPeople)
+					people: filterPeople(people, '', selectedPeople),
 				}
 			});
 		}
@@ -123,7 +122,7 @@ test.add(storyNames.formLayout, () => {
 				const selectedPeople = [...prevState.selectedPeople].filter(person => person.id !== id);
 				return {
 					selectedPeople,
-					people: filterPeople(people, prevState.value, selectedPeople)
+					people: filterPeople(people, prevState.value, selectedPeople),
 				}
 			});
 		}
@@ -135,7 +134,7 @@ test.add(storyNames.formLayout, () => {
 		getItems(){
 			const {
 				value,
-				people
+				people,
 			} = this.state;
 
 			if (!Array.isArray(people) || people.length <= 0){
@@ -176,7 +175,7 @@ test.add(storyNames.formLayout, () => {
 			} = this.state;
 
 			const {
-				banks
+				banks,
 			} = this.props;
 
 			return (
@@ -201,7 +200,7 @@ test.add(storyNames.formLayout, () => {
 								hintMessage="Found on the top of your IR3 statement"
 								inputProps={{
 									name: inputMap.ird,
-									id: inputMap.ird
+									id: inputMap.ird,
 								}}
 							/>
 
@@ -213,7 +212,7 @@ test.add(storyNames.formLayout, () => {
 								isFieldLayout
 								inputProps={{
 									name: inputMap.bank,
-									id: inputMap.bank
+									id: inputMap.bank,
 								}}
 							/>
 
@@ -259,7 +258,8 @@ test.add(storyNames.formLayout, () => {
 														key={key}
 														id={`${inputMap.foodType}-${title}`}
 														value={title}
-														isSelected={title === foodType}>
+														isSelected={title === foodType}
+													>
 														{title}
 													</Pickitem>
 												))}
@@ -273,7 +273,7 @@ test.add(storyNames.formLayout, () => {
 									isLabelHidden
 									inputProps={{
 										name: inputMap.foodName,
-										id: inputMap.foodName
+										id: inputMap.foodName,
 									}}
 								/>
 							</div>
@@ -284,7 +284,7 @@ test.add(storyNames.formLayout, () => {
 								maxRows={5}
 								inputProps={{
 									name: inputMap.autoResize,
-									id: inputMap.autoResize
+									id: inputMap.autoResize,
 								}}
 								isFieldLayout
 								label="This textarea auto-resizes"
@@ -300,7 +300,8 @@ test.add(storyNames.formLayout, () => {
 								name={inputMap.bankChoice}
 								htmlFor={inputMap.bankChoice}
 								id={inputMap.bankChoice}
-								onSelect={NOOP}>
+								onSelect={NOOP}
+							>
 								{banks}
 							</LayoutSelect>
 
@@ -320,14 +321,14 @@ test.add(storyNames.formLayout, () => {
 								name={inputMap.people}
 								id={inputMap.people}
 								pills={
-									selectedPeople.map(person =>
+									selectedPeople.map(person => (
 										<XUIPill
 											value={person.name}
 											className="xui-autocompleter--pill"
 											onDeleteClick={() => this.deletePerson(person.id)}
 											key={person.id}
 										/>
-									)
+									))
 								}
 							>
 								{this.getItems()}
@@ -346,17 +347,18 @@ test.add(storyNames.formLayout, () => {
 										'Wellington',
 										'Canberra',
 										'Washington D.C',
-										'Carthage'
+										'Carthage',
 									].map(
 										label => (
 											<XUIRadio
 												id={`${inputMap.whatCity}-${label}`} // Had to add this to the component, it didn't exist before
 												key={label}
 												value={label}
-												name={inputMap.whatCity}>
+												name={inputMap.whatCity}
+											>
 												{label}
 											</XUIRadio>
-										)
+										),
 									)
 								}
 							</XUIRadioGroup>
@@ -370,17 +372,18 @@ test.add(storyNames.formLayout, () => {
 										'Tūī',
 										'Pīwakawaka',
 										'Ruru',
-										'Moa'
+										'Moa',
 									].map(
 										label => (
 											<XUICheckbox
 												id={`${inputMap.whatBird}-${label}`} // Had to add this to the component, it didn't exist before
 												key={label}
 												value={label}
-												name={`${inputMap.whatBird}-${label}`}>
+												name={`${inputMap.whatBird}-${label}`}
+											>
 												{label}
 											</XUICheckbox>
-										)
+										),
 									)
 								}
 							</XUICheckboxGroup>
@@ -391,7 +394,7 @@ test.add(storyNames.formLayout, () => {
 										'Red',
 										'Blue',
 										'Green',
-										'Yellow'
+										'Yellow',
 									].map(
 										label => (
 											<XUIToggleOption
@@ -404,7 +407,7 @@ test.add(storyNames.formLayout, () => {
 											>
 												{label}
 											</XUIToggleOption>
-										)
+										),
 									)
 								}
 							</XUIToggle>
@@ -415,7 +418,7 @@ test.add(storyNames.formLayout, () => {
 										'Red',
 										'Blue',
 										'Green',
-										'Yellow'
+										'Yellow',
 									].map(
 										label => (
 											<XUIToggleOption
@@ -428,7 +431,7 @@ test.add(storyNames.formLayout, () => {
 											>
 												{label}
 											</XUIToggleOption>
-										)
+										),
 									)
 								}
 							</XUIToggle>
@@ -447,7 +450,8 @@ test.add(storyNames.formLayout, () => {
 							</p>
 							<XUIButton
 								variant="primary"
-								onClick={this.logForm}>
+								onClick={this.logForm}
+							>
 									Submit
 							</XUIButton>
 						</footer>
@@ -458,16 +462,18 @@ test.add(storyNames.formLayout, () => {
 		}
 	}
 	Page.propTypes = {
-		banks : PropTypes.array
+		banks : PropTypes.array,
 	}
 
 	return (
-		<Page banks={[
-			'',
-			'ANZ',
-			'ASB',
-			'Kiwi Bank',
-			'Westpac',
-		]} />
+		<Page
+			banks={[
+				'',
+				'ANZ',
+				'ASB',
+				'Kiwi Bank',
+				'Westpac',
+			]}
+		/>
 	);
 });

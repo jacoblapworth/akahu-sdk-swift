@@ -29,8 +29,8 @@ storiesWithKnobs.add('Playground', () => {
 			max={number('max', 100)}
 			min={number('min', 0)}
 			step={number('step', 0)}
-			leftElement={showLeftElement && <XUIAvatar className="xui-margin-small" imageUrl={"https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"}/>}
-			rightElement={showRightElement && <XUIAvatar className="xui-margin-small" imageUrl={"https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"}/>}
+			leftElement={showLeftElement && <XUIAvatar className="xui-margin-small" imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" />}
+			rightElement={showRightElement && <XUIAvatar className="xui-margin-small" imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" />}
 			size={select('size', ['medium','small', 'xsmall'], 'medium')}
 			validationMessage={text('validationMessage', 'validation text')}
 		/>

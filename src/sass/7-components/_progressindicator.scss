@@ -1,5 +1,5 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Progress indicator
 //
@@ -458,256 +458,256 @@
 $xui-progress-circular-min-width: $xui-s-large;
 $xui-progress-linear-min-height: $xui-s-2xsmall;
 
-
 @mixin xui-stepper-add-total-track-color($color: $xui-progress-total-bg-color) {
+  &:not(.#{$ns}-progress-overflow) .#{$ns}-progress-linear-track {
+    background: $color;
+  }
 
-	&:not(.#{$ns}-progress-overflow) .#{$ns}-progress-linear-track {
-		background: $color;
-	}
-
-	&:not(.#{$ns}-progress-overflow) .#{$ns}-progress-circular-track {
-		stroke: $color;
-	}
+  &:not(.#{$ns}-progress-overflow) .#{$ns}-progress-circular-track {
+    stroke: $color;
+  }
 }
 
 @mixin xui-stepper-add-current-track-color($color: $xui-progress-current-bg-color) {
+  &.#{$ns}-progress-complete .#{$ns}-progress-icon,
+  &:not(.#{$ns}-progress-error-soft) .#{$ns}-progress-linear-current {
+    background: $color;
+  }
 
-	&.#{$ns}-progress-complete .#{$ns}-progress-icon,
-	&:not(.#{$ns}-progress-error-soft) .#{$ns}-progress-linear-current {
-		background: $color;
-	}
-
-	&:not(.#{$ns}-progress-error-soft) .#{$ns}-progress-circular-current {
-		stroke: $color;
-	}
+  &:not(.#{$ns}-progress-error-soft) .#{$ns}-progress-circular-current {
+    stroke: $color;
+  }
 }
 
 .#{$ns}-progress {
-	outline: 0;
-	position: relative;
+  outline: 0;
+  position: relative;
 
-	@include xui-stepper-add-total-track-color();
-	@include xui-stepper-add-current-track-color();
+  @include xui-stepper-add-total-track-color();
+  @include xui-stepper-add-current-track-color();
 }
 
 .#{$ns}-progress-circular {
-	height: auto;
-	width: $xui-progress-circular-min-width;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: center;
+  width: $xui-progress-circular-min-width;
+}
+
+.#{$ns}-progress--fragment {
+  position: relative;
 }
 
 .#{$ns}-progress-circular.#{$ns}-progress-grow {
-	min-width: $xui-progress-circular-min-width;
-	width: 100%;
+  min-width: $xui-progress-circular-min-width;
+  width: 100%;
 }
 
 .#{$ns}-progress-circular-scaler {
-	display: block;
-	height: auto;
-	width: 100%;
+  display: block;
+  height: auto;
+  width: 100%;
 }
 
 // TODO go through this file and rename classes to match our conventions (-- rather than - for subcomponents)
 .#{$ns}-progress-circular-wrapper {
-	display: block;
-	height: 100%;
-	left: 0;
-	position: absolute;
-	top: 0;
-	transform: rotate(-90deg);
-	width: 100%;
+  display: block;
+  height: 100%;
+  transform: rotate(-90deg);
+  width: 100%;
+}
+
+.#{$ns}-progress-circular-wrapper-ie11 {
+  left: 0;
+  position: absolute;
+  top: 0;
 }
 
 .#{$ns}-progress-circular-track,
 .#{$ns}-progress-circular-current {
-	fill: none;
+  fill: none;
 }
 
 .#{$ns}-progress-overflow .#{$ns}-progress-circular-track,
 .#{$ns}-progress-error-soft .#{$ns}-progress-circular-current {
-	stroke: $xui-progress-error-color;
+  stroke: $xui-progress-error-color;
 }
 
 .#{$ns}-progress-circular-current {
-	transition: {
-		duration: $xui-motion-speed-medium;
-		property: background, stroke-dashoffset;
-	}
+  transition: {
+    duration: $xui-motion-speed-medium;
+    property: background, stroke-dashoffset;
+  }
 }
 
 .#{$ns}-progress-circular-mask {
-	fill: black;
-	stroke: white;
+  fill: black;
+  stroke: white;
 }
 
 .#{$ns}-progress-circular-content {
-	border-radius: 50%;
-	bottom: 0;
-	left: 0;
-	overflow: hidden;
-	position: absolute;
-	right: 0;
-	top: 0;
+  border-radius: 50%;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .#{$ns}-progress-linear {
-	width: 100%;
+  width: 100%;
 }
 
 .#{$ns}-progress-linear-wrapper,
 .#{$ns}-progress-linear-track,
 .#{$ns}-progress-linear-current {
-	border-radius: 9999px;
-	width: 100%;
+  border-radius: 9999px;
+  width: 100%;
 }
 
 .#{$ns}-progress-linear-wrapper {
-	align-items: center;
-	display: flex;
-	justify-content: space-between;
-	overflow: hidden;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .#{$ns}-progress-linear-track,
 .#{$ns}-progress-linear-current {
-	height: $xui-progress-linear-min-height;
+  height: $xui-progress-linear-min-height;
 }
 
 .#{$ns}-progress-linear.#{$ns}-progress-grow {
-
-	&,
-	& [class*="progress"] {
-		height: 100%;
-	}
+  &,
+  & [class*='progress'] {
+    height: 100%;
+  }
 }
 
 .#{$ns}-progress-overflow .#{$ns}-progress-linear-track,
 .#{$ns}-progress-error-soft .#{$ns}-progress-linear-current,
 .#{$ns}-progress-error-hard .#{$ns}-progress-linear-current {
-	background: $xui-progress-error-color;
+  background: $xui-progress-error-color;
 }
 
 .#{$ns}-progress-linear-current {
-	will-change: width;
-	transition: {
-		duration: $xui-motion-speed-medium;
-		property: background, width;
-	}
+  will-change: width;
+  transition: {
+    duration: $xui-motion-speed-medium;
+    property: background, width;
+  }
 }
 
 .#{$ns}-progress-linear-segment {
-	margin: 0 $xui-progress-linear-min-height;
+  margin: 0 $xui-progress-linear-min-height;
 
-	&:first-child {
-		margin-left: 0;
-	}
+  &:first-child {
+    margin-left: 0;
+  }
 
-	&:last-child {
-		margin-right: 0;
-	}
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .#{$ns}-progress-linear-dot {
-	position: relative;
-	width: 0;
+  position: relative;
+  width: 0;
 }
 
 .#{$ns}-progress-linear-dot .#{$ns}-progress-linear-current,
 .#{$ns}-progress-linear-dot .#{$ns}-progress-linear-track {
-	height: 100%;
-	position: absolute;
-	top: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
 }
 
 .#{$ns}-progress-linear .#{$ns}-progress-icon {
-	display: none;
+  display: none;
 }
 
 .#{$ns}-progress-roundcap {
-	stroke-linecap: round;
+  stroke-linecap: round;
 }
 
 .#{$ns}-progress-hitbox {
-	height: 100%;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 100%;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 // Specificity exists here to match that of the tooltip classes
 .#{$ns}-progress .#{$ns}-progress--tooltip {
-	display: block;
-	height: 100%;
-	line-height: 1;
-	width: 100%;
+  display: block;
+  height: 100%;
+  line-height: 1;
+  width: 100%;
 }
 
 .#{$ns}-progress-complete .#{$ns}-progress-icon,
 .#{$ns}-progress-error-hard .#{$ns}-progress-icon {
-	opacity: 1;
-	transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
 
 .#{$ns}-progress-error-hard .#{$ns}-progress-icon {
-	background: $xui-progress-error-color;
+  background: $xui-progress-error-color;
 }
 
 .#{$ns}-progress-icon {
-	align-items: center;
-	border-radius: 50%;
-	color: $xui-progress-icon-color;
-	display: flex;
-	height: 100%;
-	justify-content: center;
-	left: 0;
-	opacity: 0;
-	position: absolute;
-	top: 0;
-	transform: scale(0.5);
-	transition: {
-		duration: $xui-motion-speed-medium;
-		property: opacity, transform;
-	};
-	width: 100%;
+  align-items: center;
+  border-radius: 50%;
+  color: $xui-progress-icon-color;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transform: scale(0.5);
+  transition: {
+    duration: $xui-motion-speed-medium;
+    property: opacity, transform;
+  }
+  width: 100%;
 }
 
 .#{$ns}-progress-icon-complete,
 .#{$ns}-progress-icon-error {
-	display: block;
-	fill: currentColor;
+  display: block;
+  fill: currentColor;
 }
 
 .#{$ns}-progress-icon-complete {
-	height: 8px;
-	width: 10px;
+  height: 8px;
+  width: 10px;
 }
 
 .#{$ns}-progress-grow .#{$ns}-progress-icon-complete {
-	height: auto;
-	width: 50%;
-}
-
-.#{$ns}-progress-icon-error {
-	height: 7px;
-	width: 2px;
+  height: auto;
+  width: 50%;
 }
 
 .#{$ns}-progress-grow .#{$ns}-progress-icon-error {
-	height: 30%;
-	width: auto;
+  height: 30%;
+  width: auto;
 }
 
 @for $i from 1 through length($xui-progress-colors) {
+  $color: nth($xui-progress-colors, $i);
+  $key: nth($color, 1);
+  $value: nth($color, 2);
 
-	$color: nth($xui-progress-colors, $i);
-	$key: nth($color, 1);
-	$value: nth($color, 2);
+  [data-#{$ns}-progress-total-color='#{$key}'] {
+    @include xui-stepper-add-total-track-color($value);
+  }
 
-	[data-#{$ns}-progress-total-color="#{$key}"] {
-		@include xui-stepper-add-total-track-color($value);
-	}
-
-	[data-#{$ns}-progress-current-color="#{$key}"] {
-		@include xui-stepper-add-current-track-color($value);
-	}
+  [data-#{$ns}-progress-current-color='#{$key}'] {
+    @include xui-stepper-add-current-track-color($value);
+  }
 }

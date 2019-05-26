@@ -24,6 +24,14 @@
 }
 
 // scss-lint:disable ImportantRule
+@mixin xui-utility-hidden {
+	display: none !important;
+	// Screen readers sometimes ignore display:none as per
+	// http://www.456bereastreet.com/archive/200711/screen_readers_sometimes_ignore_displaynone/
+	visibility: hidden !important;
+}
+
+// scss-lint:disable ImportantRule
 // Visually hides an element
 @mixin xui-utility-hidden-visually {
 	border: 0 !important;

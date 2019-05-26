@@ -17,16 +17,16 @@ import { variations, storiesWithVariationsKindName } from './variations';
 
 const NOOP = () => {};
 
-const ucFirst = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+const ucFirst = string => string.charAt(0).toUpperCase() + string.slice(1);
 
 class DetailedToast extends Component {
-	render(){
+	render() {
 		const { props } = this;
 
-		const allActions = props.actionProps && props.actionProps.map((action, i) =>
+		const allActions = props.actionProps && props.actionProps.map((action, i) => (
 			<XUIToastAction key={i} href='#'>
-				{action.text}
-			</XUIToastAction>
+					{action.text}
+			</XUIToastAction>),
 		);
 
 		const childMessage = props.messageText ? (
@@ -69,7 +69,7 @@ storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
 
 	const sentiments = {
-		'': 'No Sentiment'
+		'': 'No Sentiment',
 	};
 
 	Object.keys(sentimentMap).forEach(key => {
@@ -93,7 +93,7 @@ storiesWithKnobs.add('Playground', () => {
 			className={text('className', '')}
 			messageText={text('message', 'Message text')}
 			actionProps={object('actions', [{
-				text: 'Action'
+				text: 'Action',
 			}])}
 		/>
 	)
@@ -115,7 +115,8 @@ variations.forEach(variation => {
 				onMouseLeave={NOOP}
 				onFocus={NOOP}
 				onBlur={NOOP}
-				{...variationMinusStoryDetails}/>
+				{...variationMinusStoryDetails}
+			/>
 		)
 	});
 });

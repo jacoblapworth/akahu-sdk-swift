@@ -25,7 +25,9 @@ storiesWithKnobs.add('Playground', () => (
 		validationMessage={text('validationMessage', '')}
 		hintMessage={text('hintMessage', '')}
 		size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
-	>{text('label text', 'Test radio')}</XUIRadio>
+	>
+		{text('label text', 'Test radio')}
+	</XUIRadio>
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
@@ -41,19 +43,23 @@ variations.forEach(variation => {
 		const radioProps = { ...variation, storyKind: undefined, storyTitle: undefined, isGroup: undefined, label: undefined };
 
 		if (isGroup) {
-			return <XUIRadioGroup {...groupProps}>
-				<XUIRadio key="r0-1" isDefaultChecked={true} name="rg0">Medium radio label goes here</XUIRadio>
-				<XUIRadio key="r0-2" name="rg0">Longish radio label goes here, but this one really goes on and on and on and on</XUIRadio>
-				<XUIRadio key="r0-3" name="rg0"><span>Third</span></XUIRadio>
-			</XUIRadioGroup>
-		} else if (isSeries) {
-			return <div aria-label="r1" role="radiogroup">
-				<XUIRadio key="r1-1" name="rg1">Medium radio label goes here</XUIRadio>
-				<XUIRadio key="r1-2" isDefaultChecked={true} name="rg1">Longish radio label goes here, but this one really goes on and on and on and on</XUIRadio>
-				<XUIRadio key="r1-3" name="rg1">Third</XUIRadio>
-			</div>
-		} else {
-			return <XUIRadio {...radioProps}>{label}</XUIRadio>;
+			return (
+				<XUIRadioGroup {...groupProps}>
+					<XUIRadio key="r0-1" isDefaultChecked name="rg0">Medium radio label goes here</XUIRadio>
+					<XUIRadio key="r0-2" name="rg0">Longish radio label goes here, but this one really goes on and on and on and on</XUIRadio>
+					<XUIRadio key="r0-3" name="rg0"><span>Third</span></XUIRadio>
+				</XUIRadioGroup>
+			);
 		}
+		if (isSeries) {
+			return (
+				<div aria-label="r1" role="radiogroup">
+					<XUIRadio key="r1-1" name="rg1">Medium radio label goes here</XUIRadio>
+					<XUIRadio key="r1-2" isDefaultChecked name="rg1">Longish radio label goes here, but this one really goes on and on and on and on</XUIRadio>
+					<XUIRadio key="r1-3" name="rg1">Third</XUIRadio>
+				</div>
+			);
+		} 
+		return <XUIRadio {...radioProps}>{label}</XUIRadio>;
 	});
 });

@@ -33,18 +33,10 @@ const buildSidebar = (side, suffix) => {
 	);
 };
 
-test.add(storyNames.leftSidebar, () => {
-	return buildSidebar('left');
-});
+test.add(storyNames.leftSidebar, () => buildSidebar('left'));
 
-test.add(storyNames.leftSidebarSmall, () => {
-	return buildSidebar('left', 'small');
-});
+test.add(storyNames.leftSidebarSmall, () => buildSidebar('left', 'small'));
 
-test.add(storyNames.rightSidebar, () => {
-	return buildSidebar('right');
-});
+test.add(storyNames.rightSidebar, () => buildSidebar('right'));
 
-test.add(storyNames.rightSidebarSmall, () => {
-	return buildSidebar('right', 'small');
-});
+test.add(storyNames.rightSidebarSmall, () => buildSidebar('right', 'small'));

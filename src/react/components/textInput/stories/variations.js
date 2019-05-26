@@ -12,7 +12,7 @@ const sideElements = [
 	{
 		type: 'icon button',
 		name: 'icon button element',
-		size: 'xsmall'
+		size: 'xsmall',
 	},
 	{
 		type: 'button',
@@ -29,7 +29,7 @@ const sideElements = [
 	{
 		type: 'avatar',
 		name: 'avatar',
-	}
+	},
 ];
 
 const inputSizes = ['medium', 'small', 'xsmall'];
@@ -65,7 +65,7 @@ const styleVariantStories = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with placeholder and no default',
 		noDefault: true,
-		placeholder: "First name"
+		placeholder: "First name",
 	},
 ];
 
@@ -126,33 +126,31 @@ const sideElementVariantStories = sideElements.reduce((stories, sideElement) => 
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `has a ${side} ${sideElement.name}`,
 		[`${side}ElementType`]: sideElement.type,
-		[`${side}ElementAlignment`]: 'center'
-	}))
+		[`${side}ElementAlignment`]: 'center',
+	})),
 ], []);
 
-const bothSideElementsWithSizes = inputSizes.map(size => {
-	return {
-		storyKind: storiesWithVariationsKindName,
-		storyTitle: `${size} with both side elements`,
-		leftElementType: 'avatar',
-		rightElementType: 'icon',
-		rightElementAlignment: 'center',
-		size,
-	};
-});
+const bothSideElementsWithSizes = inputSizes.map(size => ({
+	storyKind: storiesWithVariationsKindName,
+	storyTitle: `${size} with both side elements`,
+	leftElementType: 'avatar',
+	rightElementType: 'icon',
+	rightElementAlignment: 'center',
+	size,
+}));
 
 const multilineStories = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as an xsmall multiline input',
 		isMultiline: true,
-		size: 'xsmall'
+		size: 'xsmall',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as a small multiline input',
 		isMultiline: true,
-		size: 'small'
+		size: 'small',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

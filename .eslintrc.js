@@ -54,5 +54,35 @@ module.exports = {
         'import/no-dynamic-require': 'off',
       },
     },
+    {
+      files: ['**/stories/**', '.styleguidist/**'],
+      /**
+       * Feel free to turn any of these back on by removing the rule from the
+       * object below, just make sure you update all of the stories to adhere
+       * to that rule.
+       */
+      rules: {
+        'consistent-return': 'off',
+        'import/first': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'jsx-a11y/anchor-is-valid': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'no-alert': 'off',
+        'no-console': 'off',
+        'no-param-reassign': 'off',
+        'no-script-url': 'off',
+        'no-shadow': 'off',
+        'no-unused-vars': 'off',
+        'no-use-before-define': 'off',
+        'prefer-destructuring': 'off',
+        'react/jsx-no-bind': 'off',
+        'react/no-array-index-key': 'off',
+        'react/no-multi-comp': 'off',
+        'react/no-unused-prop-types': 'off',
+        'react/no-unused-state': 'off',
+        'react/prop-types': 'off',
+      },
+    },
   ],
 };

@@ -1,508 +1,513 @@
 [
-	{
-		"name": "Introduction",
-		"content": "../src/docs/react/introduction.md"
-	},
-	{
-		"name": "Components",
-		"sections": [
-			{
-				"name": "Icon",
-				"content": "../src/react/icon.md",
-				"components": "../src/react/components/icon/XUIIcon.js"
+  {
+    "name": "Introduction",
+    "content": "../src/docs/react/introduction.md"
+  },
+  {
+    "name": "Components",
+    "sections": [
+      {
+        "name": "Icon",
+        "content": "../src/react/icon.md",
+        "components": "../src/react/components/icon/XUIIcon.js"
 			},
 			{
 				"name": "Illustrations",
 				"content": "../src/react/illustration.md",
 				"components": "../src/react/components/illustration/XUIIllustration.js"
 			},
-			{
-				"name": "Layout",
-				"content": "../src/react/structural.md",
-				"sections": [
-					{
-						"name": "Row",
-						"components": "../src/react/components/structural/XUIRow.js",
-						"content": "../src/react/components/structural/structural.row.md"
-					},
-					{
-						"name": "Column",
-						"components": "../src/react/components/structural/XUIColumn.js",
-						"content": "../src/react/components/structural/structural.column.md"
-					}
-				]
-			},
-			{
-				"name": "Controls",
-				"sections": [
-					{
-						"name": "Button",
-						"content": "../src/react/button.md",
-						"sections": [
-							{
-								"components": "../src/react/components/button/XUIButton.js"
-							},
-							{
-								"name": "Button Caret",
-								"components": "../src/react/components/button/XUIButtonCaret.js",
-								"content": "../src/react/components/button/button.caret.md"
-							},
-							{
-								"name": "Button Groups",
-								"components": "../src/react/components/button/XUIButtonGroup.js",
-								"content": "../src/react/components/button/button.group.md"
-							},
-							{
-								"name": "Split Buttons",
-								"components": "../src/react/components/button/XUIS*.js",
-								"content": "../src/react/components/button/button.split.md"
-							},
-							{
-								"name": "Actions",
-								"components": "../src/react/components/structural/XUIActions.js",
-								"content": "../src/react/components/structural/structural.actions.md"
-							}
-						]
-					},
-					{
-						"name": "Checkbox",
-						"content": "../src/react/checkbox.md",
-						"sections": [
-							{
-								"components": "../src/react/components/checkbox/XUICheckbox.js"
-							},
-							{
-								"name": "Checkbox Groups",
-								"components": "../src/react/components/checkbox/XUICheckboxGroup.js",
-								"content": "../src/react/components/checkbox/checkbox.group.md"
-							},
-							{
-								"name": "Rollover Checkbox",
-								"content": "../src/react/rollovercheckbox.md",
-								"components": "../src/react/components/rolloverCheckbox/rolloverCheckbox.js"
-							}
-						]
-					},
-					{
-						"name": "Radio",
-						"content": "../src/react/radio.md",
-						"sections": [
-							{
-								"components": "../src/react/components/radio/XUIRadio.js"
-							},
-							{
-								"name": "Radio Groups",
-								"components": "../src/react/components/radio/XUIRadioGroup.js",
-								"content": "../src/react/components/radio/radio.group.md"
-							}
-						]
-					},
-					{
-						"name": "Range",
-						"components": "../src/react/components/range/XUIRange.js",
-						"content": "../src/react/range.md"
-					},
-					{
-						"name": "Select-box",
-						"content": "../src/react/select-box.md",
-						"sections": [
-							{
-								"components": "../src/react/components/select-box/SelectBox.js"
-							},
-							{
-								"name": "Select Box Option",
-								"components": "../src/react/components/select-box/SelectBoxOption.js",
-								"content": "../src/react/components/select-box/selectbox.option.md"
-							}
-						]
-					},
-					{
-						"name": "Switch",
-						"content": "../src/react/switch.md",
-						"sections": [
-							{
-								"components": "../src/react/components/switch/XUISwitch.js"
-							},
-							{
-								"name": "Switch Groups",
-								"components": "../src/react/components/switch/XUISwitchGroup.js",
-								"content": "../src/react/components/switch/switch.group.md"
-							}
-						]
-					},
-					{
-						"name": "Text Input",
-						"content": "../src/react/textinput.md",
-						"components": "../src/react/components/textInput/XUITextInput.js",
-						"sections": [
-							{
-								"components": "../src/react/components/textInput/XUITextInputSideElement.js"
-							}
-						]
-					},
-					{
-						"name": "Toggle",
-						"content": "../src/react/toggle.md",
-						"components": "../src/react/components/toggle/XUIToggle*.js"
-					}
-				]
-			},
-			{
-				"name": "Identifiers",
-				"sections": [
-					{
-						"name": "Avatar",
-						"content": "../src/react/avatar.md",
-						"sections": [
-							{
-								"components": "../src/react/components/avatar/XUIAvatar.js"
-							},
-							{
-								"name": "Avatar Groups",
-								"components": "../src/react/components/avatar/XUIAvatarGroup.js",
-								"content": "../src/react/components/avatar/avatar.group.md"
-							}
-						]
-					},
-					{
-						"name": "Capsule",
-						"content": "../src/react/capsule.md",
-						"components": "../src/react/components/capsule/XUICapsule.js"
-					},
-					{
-						"name": "Loader",
-						"content": "../src/react/loader.md",
-						"components": "../src/react/components/loader/XUILoader.js"
-					},
-					{
-						"name": "Pill",
-						"content": "../src/react/pill.md",
-						"components": "../src/react/components/pill/XUIPill.js"
-					},
-					{
-						"name": "Progress Indicator",
-						"content": "../src/react/progressindicator.md",
-						"sections": [
-							{
-								"components": "../src/react/components/progressindicator/XUIProgressCircular.js"
-							},
-							{
-								"components": "../src/react/components/progressindicator/XUIProgressLinear.js"
-							}
-						]
-					},
-					{
-						"name": "Tag",
-						"content": "../src/react/tag.md",
-						"components": "../src/react/components/tag/XUITag.js"
-					}
-				]
-			},
-			{
-				"name": "Alerts",
-				"sections": [
-					{
-						"name": "Banner",
-						"content": "../src/react/banner.md",
-						"sections": [
-							{
-								"components": "../src/react/components/banner/XUIBanner.js"
-							},
-							{
-								"name": "Banner Actions",
-								"components": "../src/react/components/banner/XUIBannerAction*(s).js",
-								"content": "../src/react/components/banner/banner.action.md"
-							},
-							{
-								"name": "Banner Message",
-								"components": "../src/react/components/banner/XUIBannerMessage.js",
-								"content": "../src/react/components/banner/banner.message.md"
-							}
-						]
-					},
-					{
-						"name": "Toast",
-						"content": "../src/react/toast.md",
-						"sections": [
-							{
-								"components": "../src/react/components/toast/XUIToast.js"
-							},
-							{
-								"name": "Toast Actions",
-								"components": "../src/react/components/toast/XUIToastAction*(s).js",
-								"content": "../src/react/components/toast/toast.action.md"
-							},
-							{
-								"name": "Toast Message",
-								"components": "../src/react/components/toast/XUIToastMessage.js",
-								"content": "../src/react/components/toast/toast.message.md"
-							},
-							{
-								"name": "Toast Wrapper",
-								"components": "../src/react/components/toast/XUIToastWrapper.js",
-								"content": "../src/react/components/toast/toast.wrapper.md"
-							}
-						]
-					},
-					{
-						"name": "Tooltip",
-						"content": "../src/react/tooltip.md",
-						"components": "../src/react/components/tooltip/XUITooltip.js"
-					}
-				]
-			},
-			{
-				"name": "Navigation",
-				"sections": [
-					{
-						"name": "Breadcrumb",
-						"components": "../src/react/components/structural/XUIBreadcrumb.js",
-						"content": "../src/react/components/structural/structural.breadcrumb.md"
-					},
-					{
-						"name": "Isolation Header",
-						"content": "../src/react/isolationheader.md",
-						"components": "../src/react/components/isolationheader/XUIIsolationHeader.js"
-					},
-					{
-						"name": "Page Header",
-						"components": "../src/react/components/structural/XUIPageHeader.js",
-						"content": "../src/react/components/structural/structural.pageheader.md"
-					},
-					{
-						"name": "Stepper",
-						"content": "../src/react/stepper.md",
-						"components": "../src/react/components/stepper/XUIStepper.js"
-					}
-				]
-			},
-			{
-				"name": "Collecting Input",
-				"sections": [
-					{
-						"name": "Autocompleter",
-						"content": "../src/react/autocompleter.md",
-						"sections": [
-							{
-								"components": "../src/react/components/autocompleter/XUIAutocompleter.js"
-							},
-							{
-								"name": "Autocompleter Secondary Search",
-								"components": "../src/react/components/autocompleter/XUIAutocompleterSecondarySearch.js",
-								"content": "../src/react/components/autocompleter/autocompleter.secondarysearch.md"
-							},
-							{
-								"name": "Autocompleter Empty State",
-								"components": "../src/react/components/autocompleter/XUIAutocompleterEmptyState.js",
-								"content": "../src/react/components/autocompleter/autocompleter.emptystate.md"
-							}
-						]
-					},
-					{
-						"name": "Datepicker",
-						"content": "../src/react/datepicker.md",
-						"components": "../src/react/components/datepicker/XUIDatePicker.js"
-					},
-					{
-						"name": "Dropdown",
-						"components": "../src/react/components/dropdown/DropDown.js",
-						"content": "../src/react/dropdown.md",
-						"sections": [
-							{
-								"name": "Dropdown Toggled",
-								"components": "../src/react/components/dropdown/DropDownToggled.js",
-								"content": "../src/react/components/dropdown/dropdown.toggled.md"
-							},
-							{
-								"name": "Dropdown Header & Footer",
-								"components": "../src/react/components/dropdown/*(DropDownHeader|DropDownFooter).js",
-								"content": "../src/react/components/dropdown/dropdown.headerfooter.md"
-							},
-							{
-								"name": "Nested Dropdowns",
-								"components": "../src/react/components/dropdown/*(DropDownPanel|NestedDropDown).js",
-								"content": "../src/react/components/dropdown/dropdown.nested.md"
-							}
-						]
-					},
-					{
-						"name": "Modal",
-						"content": "../src/react/modal.md",
-						"sections": [
-							{
-								"components": "../src/react/components/modal/XUIModal.js"
-							},
-							{
-								"name": "Modal Header & Footer",
-								"components": "../src/react/components/modal/*(XUIModalHeader|XUIModalFooter).js",
-								"content": "../src/react/components/modal/modal.headerfooter.md"
-							},
-							{
-								"name": "Modal Body",
-								"components": "../src/react/components/modal/XUIModalBody.js",
-								"content": "../src/react/components/modal/modal.body.md"
-							}
-						]
-					}
-				]
-			},
-			{
-				"name": "Displaying data",
-				"sections": [
-					{
-						"name": "Accordion",
-						"content": "../src/react/accordion.md",
-						"sections": [
-							{
-								"components": "../src/react/components/accordion/XUIAccordion.js"
-							},
-							{
-								"components": "../src/react/components/accordion/XUIAccordionItem.js"
-							}
-						]
-					},
-					{
-						"name": "Bar chart",
-						"components": "../src/react/components/chart/XUIBarChart.js",
-						"content": "../src/react/barchart.md"
-					},
-					{
-						"name": "Content Block",
-						"content": "../src/react/components/structural/structural.contentblock.md",
-						"components": "../src/react/components/structural/XUIContentBlock*.js"
-					},
-					{
-						"name": "Overview Block",
-						"content": "../src/react/components/structural/structural.overviewblock.md",
-						"components": "../src/react/components/structural/XUIOverview*.js"
-					},
-					{
-						"name": "Panel",
-						"content": "../src/react/components/structural/structural.panel.md",
-						"components": "../src/react/components/structural/XUIPanel*.js"
-					},
-					{
-						"name": "Picklist",
-						"content": "../src/react/picklist.md",
-						"sections": [
-							{
-								"components": "../src/react/components/picklist/Picklist.js"
-							},
-							{
-								"name": "Pick Item",
-								"components": "../src/react/components/picklist/Pickitem.js",
-								"content": "../src/react/components/picklist/picklist.pickitem.md"
-							},
-							{
-								"components": "../src/react/components/picklist/PicklistHeader.js"
-							},
-							{
-								"components": "../src/react/components/picklist/PicklistDivider.js"
-							},
-							{
-								"name": "Stateful Picklist",
-								"components": "../src/react/components/picklist/StatefulPicklist.js",
-								"content": "../src/react/components/picklist/picklist.stateful.md"
-							},
-							{
-								"name": "Nested Picklist",
-								"components": "../src/react/components/picklist/NestedPicklist*.js",
-								"content": "../src/react/components/picklist/picklist.nested.md"
-							}
-						]
-					},
-					{
-						"name": "Tables",
-						"content": "../src/react/table.md",
-						"sections": [
-							{
-								"components": "../src/react/components/table/XUITable.js"
-							},
-							{
-								"components": "../src/react/components/table/XUITableColumn.js"
-							},
-							{
-								"components": "../src/react/components/table/XUITableCell.js"
-							}
-						]
-					}
-				]
-			},
-			{
-				"name": "Compositions",
-				"content": "../src/react/compositions.md",
-				"sections": [
-					{
-						"name": "Detail",
-						"content": "../src/react/components/compositions/compositions.detail.md",
-						"sections":[
-							{
-								"components": "../src/react/components/compositions/XUICompositionDetail.js"
-							},
-							{
-								"components": "../src/react/components/compositions/XUICompositionDetailHeader.js"
-							}
-						]
-					},
-					{
-						"name": "Detail summary",
-						"content": "../src/react/components/compositions/compositions.detailsummary.md",
-						"sections":[
-							{
-								"components": "../src/react/components/compositions/XUICompositionDetailSummary.js"
-							},
-							{
-								"components": "../src/react/components/compositions/XUICompositionDetailSummaryHeader.js"
-							}
-						]
-					},
-					{
-						"name": "Master detail",
-						"content": "../src/react/components/compositions/compositions.masterdetail.md",
-						"sections":[
-							{
-								"components": "../src/react/components/compositions/XUICompositionMasterDetail.js"
-							},
-							{
-								"components": "../src/react/components/compositions/XUICompositionMasterDetailHeader.js"
-							}
-						]
-					},
-					{
-						"name": "Master detail summary",
-						"content": "../src/react/components/compositions/compositions.masterdetailsummary.md",
-						"sections":[
-							{
-								"components": "../src/react/components/compositions/XUICompositionMasterDetailSummary.js"
-							},
-							{
-								"components": "../src/react/components/compositions/XUICompositionMasterDetailSummaryHeader.js"
-							}
-						]
-					},
-					{
-						"name": "Split",
-						"content": "../src/react/components/compositions/compositions.split.md",
-						"sections":[
-							{
-								"components": "../src/react/components/compositions/XUICompositionSplit.js"
-							},
-							{
-								"components": "../src/react/components/compositions/XUICompositionSplitHeader.js"
-							}
-						]
-					}
-				]
-			}
-		]
-	},
-	{
-		"name": "Helpers",
-		"sections": [
-			{
-				"name": "Container Queries",
-				"content": "../src/react/helpers/resizeObserver.md"
-			}
-		]
-	}
+      {
+        "name": "Layout",
+        "content": "../src/react/structural.md",
+        "sections": [
+          {
+            "name": "Row",
+            "components": "../src/react/components/structural/XUIRow.js",
+            "content": "../src/react/components/structural/structural.row.md"
+          },
+          {
+            "name": "Column",
+            "components": "../src/react/components/structural/XUIColumn.js",
+            "content": "../src/react/components/structural/structural.column.md"
+          }
+        ]
+      },
+      {
+        "name": "Controls",
+        "sections": [
+          {
+            "name": "Button",
+            "content": "../src/react/button.md",
+            "sections": [
+              {
+                "components": "../src/react/components/button/XUIButton.js"
+              },
+              {
+                "name": "Button Caret",
+                "components": "../src/react/components/button/XUIButtonCaret.js",
+                "content": "../src/react/components/button/button.caret.md"
+              },
+              {
+                "name": "Button Groups",
+                "components": "../src/react/components/button/XUIButtonGroup.js",
+                "content": "../src/react/components/button/button.group.md"
+              },
+              {
+                "name": "Split Buttons",
+                "components": "../src/react/components/button/XUIS*.js",
+                "content": "../src/react/components/button/button.split.md"
+              },
+              {
+                "name": "Actions",
+                "components": "../src/react/components/structural/XUIActions.js",
+                "content": "../src/react/components/structural/structural.actions.md"
+              }
+            ]
+          },
+          {
+            "name": "Checkbox",
+            "content": "../src/react/checkbox.md",
+            "sections": [
+              {
+                "components": "../src/react/components/checkbox/XUICheckbox.js"
+              },
+              {
+                "name": "Checkbox Groups",
+                "components": "../src/react/components/checkbox/XUICheckboxGroup.js",
+                "content": "../src/react/components/checkbox/checkbox.group.md"
+              },
+              {
+                "name": "Rollover Checkbox",
+                "content": "../src/react/rollovercheckbox.md",
+                "components": "../src/react/components/rolloverCheckbox/rolloverCheckbox.js"
+              }
+            ]
+          },
+          {
+            "name": "Radio",
+            "content": "../src/react/radio.md",
+            "sections": [
+              {
+                "components": "../src/react/components/radio/XUIRadio.js"
+              },
+              {
+                "name": "Radio Groups",
+                "components": "../src/react/components/radio/XUIRadioGroup.js",
+                "content": "../src/react/components/radio/radio.group.md"
+              }
+            ]
+          },
+          {
+            "name": "Range",
+            "components": "../src/react/components/range/XUIRange.js",
+            "content": "../src/react/range.md"
+          },
+          {
+            "name": "Select-box",
+            "content": "../src/react/select-box.md",
+            "sections": [
+              {
+                "components": "../src/react/components/select-box/SelectBox.js"
+              },
+              {
+                "name": "Select Box Option",
+                "components": "../src/react/components/select-box/SelectBoxOption.js",
+                "content": "../src/react/components/select-box/selectbox.option.md"
+              }
+            ]
+          },
+          {
+            "name": "Switch",
+            "content": "../src/react/switch.md",
+            "sections": [
+              {
+                "components": "../src/react/components/switch/XUISwitch.js"
+              },
+              {
+                "name": "Switch Groups",
+                "components": "../src/react/components/switch/XUISwitchGroup.js",
+                "content": "../src/react/components/switch/switch.group.md"
+              }
+            ]
+          },
+          {
+            "name": "Text Input",
+            "content": "../src/react/textinput.md",
+            "components": "../src/react/components/textInput/XUITextInput.js",
+            "sections": [
+              {
+                "components": "../src/react/components/textInput/XUITextInputSideElement.js"
+              }
+            ]
+          },
+          {
+            "name": "Toggle",
+            "content": "../src/react/toggle.md",
+            "components": "../src/react/components/toggle/XUIToggle*.js"
+          }
+        ]
+      },
+      {
+        "name": "Identifiers",
+        "sections": [
+          {
+            "name": "Avatar",
+            "content": "../src/react/avatar.md",
+            "sections": [
+              {
+                "components": "../src/react/components/avatar/XUIAvatar.js"
+              },
+              {
+                "name": "Avatar Groups",
+                "components": "../src/react/components/avatar/XUIAvatarGroup.js",
+                "content": "../src/react/components/avatar/avatar.group.md"
+              }
+            ]
+          },
+          {
+            "name": "Capsule",
+            "content": "../src/react/capsule.md",
+            "components": "../src/react/components/capsule/XUICapsule.js"
+          },
+          {
+            "name": "Loader",
+            "content": "../src/react/loader.md",
+            "components": "../src/react/components/loader/XUILoader.js"
+          },
+          {
+            "name": "Pill",
+            "content": "../src/react/pill.md",
+            "components": "../src/react/components/pill/XUIPill.js"
+          },
+          {
+            "name": "Progress Indicator",
+            "content": "../src/react/progressindicator.md",
+            "sections": [
+              {
+                "components": "../src/react/components/progressindicator/XUIProgressCircular.js"
+              },
+              {
+                "components": "../src/react/components/progressindicator/XUIProgressLinear.js"
+              }
+            ]
+          },
+          {
+            "name": "Tag",
+            "content": "../src/react/tag.md",
+            "components": "../src/react/components/tag/XUITag.js"
+          }
+        ]
+      },
+      {
+        "name": "Alerts",
+        "sections": [
+          {
+            "name": "Banner",
+            "content": "../src/react/banner.md",
+            "sections": [
+              {
+                "components": "../src/react/components/banner/XUIBanner.js"
+              },
+              {
+                "name": "Banner Actions",
+                "components": "../src/react/components/banner/XUIBannerAction*(s).js",
+                "content": "../src/react/components/banner/banner.action.md"
+              },
+              {
+                "name": "Banner Message",
+                "components": "../src/react/components/banner/XUIBannerMessage.js",
+                "content": "../src/react/components/banner/banner.message.md"
+              },
+              {
+                "name": "Banner Message Detail",
+                "components": "../src/react/components/banner/XUIBannerMessageDetail.js",
+                "content": "../src/react/components/banner/banner.messageDetail.md"
+              }
+            ]
+          },
+          {
+            "name": "Toast",
+            "content": "../src/react/toast.md",
+            "sections": [
+              {
+                "components": "../src/react/components/toast/XUIToast.js"
+              },
+              {
+                "name": "Toast Actions",
+                "components": "../src/react/components/toast/XUIToastAction*(s).js",
+                "content": "../src/react/components/toast/toast.action.md"
+              },
+              {
+                "name": "Toast Message",
+                "components": "../src/react/components/toast/XUIToastMessage.js",
+                "content": "../src/react/components/toast/toast.message.md"
+              },
+              {
+                "name": "Toast Wrapper",
+                "components": "../src/react/components/toast/XUIToastWrapper.js",
+                "content": "../src/react/components/toast/toast.wrapper.md"
+              }
+            ]
+          },
+          {
+            "name": "Tooltip",
+            "content": "../src/react/tooltip.md",
+            "components": "../src/react/components/tooltip/XUITooltip.js"
+          }
+        ]
+      },
+      {
+        "name": "Navigation",
+        "sections": [
+          {
+            "name": "Breadcrumb",
+            "components": "../src/react/components/structural/XUIBreadcrumb.js",
+            "content": "../src/react/components/structural/structural.breadcrumb.md"
+          },
+          {
+            "name": "Isolation Header",
+            "content": "../src/react/isolationheader.md",
+            "components": "../src/react/components/isolationheader/XUIIsolationHeader.js"
+          },
+          {
+            "name": "Page Header",
+            "components": "../src/react/components/structural/XUIPageHeader.js",
+            "content": "../src/react/components/structural/structural.pageheader.md"
+          },
+          {
+            "name": "Stepper",
+            "content": "../src/react/stepper.md",
+            "components": "../src/react/components/stepper/XUIStepper.js"
+          }
+        ]
+      },
+      {
+        "name": "Collecting Input",
+        "sections": [
+          {
+            "name": "Autocompleter",
+            "content": "../src/react/autocompleter.md",
+            "sections": [
+              {
+                "components": "../src/react/components/autocompleter/XUIAutocompleter.js"
+              },
+              {
+                "name": "Autocompleter Secondary Search",
+                "components": "../src/react/components/autocompleter/XUIAutocompleterSecondarySearch.js",
+                "content": "../src/react/components/autocompleter/autocompleter.secondarysearch.md"
+              },
+              {
+                "name": "Autocompleter Empty State",
+                "components": "../src/react/components/autocompleter/XUIAutocompleterEmptyState.js",
+                "content": "../src/react/components/autocompleter/autocompleter.emptystate.md"
+              }
+            ]
+          },
+          {
+            "name": "Datepicker",
+            "content": "../src/react/datepicker.md",
+            "components": "../src/react/components/datepicker/XUIDatePicker.js"
+          },
+          {
+            "name": "Dropdown",
+            "components": "../src/react/components/dropdown/DropDown.js",
+            "content": "../src/react/dropdown.md",
+            "sections": [
+              {
+                "name": "Dropdown Toggled",
+                "components": "../src/react/components/dropdown/DropDownToggled.js",
+                "content": "../src/react/components/dropdown/dropdown.toggled.md"
+              },
+              {
+                "name": "Dropdown Header & Footer",
+                "components": "../src/react/components/dropdown/*(DropDownHeader|DropDownFooter).js",
+                "content": "../src/react/components/dropdown/dropdown.headerfooter.md"
+              },
+              {
+                "name": "Nested Dropdowns",
+                "components": "../src/react/components/dropdown/*(DropDownPanel|NestedDropDown).js",
+                "content": "../src/react/components/dropdown/dropdown.nested.md"
+              }
+            ]
+          },
+          {
+            "name": "Modal",
+            "content": "../src/react/modal.md",
+            "sections": [
+              {
+                "components": "../src/react/components/modal/XUIModal.js"
+              },
+              {
+                "name": "Modal Header & Footer",
+                "components": "../src/react/components/modal/*(XUIModalHeader|XUIModalFooter).js",
+                "content": "../src/react/components/modal/modal.headerfooter.md"
+              },
+              {
+                "name": "Modal Body",
+                "components": "../src/react/components/modal/XUIModalBody.js",
+                "content": "../src/react/components/modal/modal.body.md"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Displaying data",
+        "sections": [
+          {
+            "name": "Accordion",
+            "content": "../src/react/accordion.md",
+            "sections": [
+              {
+                "components": "../src/react/components/accordion/XUIAccordion.js"
+              },
+              {
+                "components": "../src/react/components/accordion/XUIAccordionItem.js"
+              }
+            ]
+          },
+          {
+            "name": "Bar chart",
+            "components": "../src/react/components/chart/XUIBarChart.js",
+            "content": "../src/react/barchart.md"
+          },
+          {
+            "name": "Content Block",
+            "content": "../src/react/components/structural/structural.contentblock.md",
+            "components": "../src/react/components/structural/XUIContentBlock*.js"
+          },
+          {
+            "name": "Overview Block",
+            "content": "../src/react/components/structural/structural.overviewblock.md",
+            "components": "../src/react/components/structural/XUIOverview*.js"
+          },
+          {
+            "name": "Panel",
+            "content": "../src/react/components/structural/structural.panel.md",
+            "components": "../src/react/components/structural/XUIPanel*.js"
+          },
+          {
+            "name": "Picklist",
+            "content": "../src/react/picklist.md",
+            "sections": [
+              {
+                "components": "../src/react/components/picklist/Picklist.js"
+              },
+              {
+                "name": "Pick Item",
+                "components": "../src/react/components/picklist/Pickitem.js",
+                "content": "../src/react/components/picklist/picklist.pickitem.md"
+              },
+              {
+                "components": "../src/react/components/picklist/PicklistHeader.js"
+              },
+              {
+                "components": "../src/react/components/picklist/PicklistDivider.js"
+              },
+              {
+                "name": "Stateful Picklist",
+                "components": "../src/react/components/picklist/StatefulPicklist.js",
+                "content": "../src/react/components/picklist/picklist.stateful.md"
+              },
+              {
+                "name": "Nested Picklist",
+                "components": "../src/react/components/picklist/NestedPicklist*.js",
+                "content": "../src/react/components/picklist/picklist.nested.md"
+              }
+            ]
+          },
+          {
+            "name": "Tables",
+            "content": "../src/react/table.md",
+            "sections": [
+              {
+                "components": "../src/react/components/table/XUITable.js"
+              },
+              {
+                "components": "../src/react/components/table/XUITableColumn.js"
+              },
+              {
+                "components": "../src/react/components/table/XUITableCell.js"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Compositions",
+        "content": "../src/react/compositions.md",
+        "sections": [
+          {
+            "name": "Detail",
+            "content": "../src/react/components/compositions/compositions.detail.md",
+            "sections": [
+              {
+                "components": "../src/react/components/compositions/XUICompositionDetail.js"
+              },
+              {
+                "components": "../src/react/components/compositions/XUICompositionDetailHeader.js"
+              }
+            ]
+          },
+          {
+            "name": "Detail summary",
+            "content": "../src/react/components/compositions/compositions.detailsummary.md",
+            "sections": [
+              {
+                "components": "../src/react/components/compositions/XUICompositionDetailSummary.js"
+              },
+              {
+                "components": "../src/react/components/compositions/XUICompositionDetailSummaryHeader.js"
+              }
+            ]
+          },
+          {
+            "name": "Master detail",
+            "content": "../src/react/components/compositions/compositions.masterdetail.md",
+            "sections": [
+              {
+                "components": "../src/react/components/compositions/XUICompositionMasterDetail.js"
+              },
+              {
+                "components": "../src/react/components/compositions/XUICompositionMasterDetailHeader.js"
+              }
+            ]
+          },
+          {
+            "name": "Master detail summary",
+            "content": "../src/react/components/compositions/compositions.masterdetailsummary.md",
+            "sections": [
+              {
+                "components": "../src/react/components/compositions/XUICompositionMasterDetailSummary.js"
+              },
+              {
+                "components": "../src/react/components/compositions/XUICompositionMasterDetailSummaryHeader.js"
+              }
+            ]
+          },
+          {
+            "name": "Split",
+            "content": "../src/react/components/compositions/compositions.split.md",
+            "sections": [
+              {
+                "components": "../src/react/components/compositions/XUICompositionSplit.js"
+              },
+              {
+                "components": "../src/react/components/compositions/XUICompositionSplitHeader.js"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Helpers",
+    "sections": [
+      {
+        "name": "Container Queries",
+        "content": "../src/react/helpers/resizeObserver.md"
+      }
+    ]
+  }
 ]

@@ -34,53 +34,43 @@ import centered from '@storybook/addon-centered';
 import { variations, storiesWithVariationsKindName } from './variations';
 import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';
 
-const buildColumns = (widths) => {
-	return widths.map((width, index) => {
-		return (
-			<XUIColumn
-				key={index}
-				gridColumns={width}
-				className="xui-padding-small"
-				style={{backgroundColor: "RGBA(255,255,255,0.5)"}}
-			>
-				Content of a column with width {width}, here.
-			</XUIColumn>
-		);
-	});
-};
+const buildColumns = widths => widths.map((width, index) => (
+	<XUIColumn
+		key={index}
+		gridColumns={width}
+		className="xui-padding-small"
+		style={{backgroundColor: "RGBA(255,255,255,0.5)"}}
+	>
+		Content of a column with width {width}, here.
+	</XUIColumn>
+));
 
 const exampleTabs = (
 	<XUIPicklist secondaryProps={{role: "menu"}}>
 		<XUIPickitem id="1" ariaRole="menuitem">Tab 1</XUIPickitem>
-		<XUIPickitem id="2" ariaRole="menuitem" isSelected={true}>Tab 2</XUIPickitem>
+		<XUIPickitem id="2" ariaRole="menuitem" isSelected>Tab 2</XUIPickitem>
 		<XUIPickitem id="3" ariaRole="menuitem">This is tab 3</XUIPickitem>
 	</XUIPicklist>
 );
-const buildActions = (props) => {
-	return (
-		<XUIActions
-			primaryAction={<XUIButton variant="primary" size="small">One</XUIButton>}
-			secondaryAction={<XUIButton size="small">Two</XUIButton>}
-			{...props}
-		/>
-	);
-};
+const buildActions = props => (
+	<XUIActions
+		primaryAction={<XUIButton variant="primary" size="small">One</XUIButton>}
+		secondaryAction={<XUIButton size="small">Two</XUIButton>}
+		{...props}
+	/>
+);
 
 const sampleBreadcrumb = [
 	<span role="link" tabIndex="0" onClick={() => alert('hello')} onKeyDown={() => {}} key="1">hello</span>,
 	{label: "hiya I have multiple words", href: "#2"},
 	{label: "yo"}];
-const exampleBreadcrumb = (
-	<XUIBreadcrumb breadcrumbs={sampleBreadcrumb}></XUIBreadcrumb>
-);
-const buildExampleSections = (children) => {
-	return children.map((child, index) => {
-		return <XUIOverviewSection key={index} {...child} />
-	});
-};
+const exampleBreadcrumb = <XUIBreadcrumb breadcrumbs={sampleBreadcrumb} />;
+const buildExampleSections = children => children.map((child, index) => (
+	<XUIOverviewSection key={index} {...child} />
+));
 
-const buildExampleContentblockItem = (children) => {
-	return children.map((child, index) => {
+const buildExampleContentblockItem = children =>
+	children.map((child, index) => {
 		if (child.overflow) {
 			child.overflow = <XUIButton variant="icon" aria-label="Overflow menu"><XUIIcon icon={overflow} /></XUIButton>;
 		}
@@ -90,7 +80,7 @@ const buildExampleContentblockItem = (children) => {
 		if (child.tags) {
 			child.tags = [
 				<XUITag className="xui-margin-right-xsmall" variant="positive" key="positive-tag" size="small">Positive</XUITag>,
-				<XUITag className="xui-margin-right" variant="negative" key="negative-tag" size="small">Negative</XUITag>
+				<XUITag className="xui-margin-right" variant="negative" key="negative-tag" size="small">Negative</XUITag>,
 			]
 		}
 		if (child.leftContent === "checkbox") {
@@ -98,21 +88,18 @@ const buildExampleContentblockItem = (children) => {
 		} else if (child.leftContent === "avatar") {
 			child.leftContent = <XUIAvatar value="Pixar" />;
 		} else if (child.leftContent === "rollover") {
-			child.leftContent = <XUIRolloverCheckbox isCheckboxHidden={true} label="contentBlockItem rollover" rolloverComponent={<XUIAvatar value="Tim Redmond" />}/>;
+			child.leftContent = <XUIRolloverCheckbox isCheckboxHidden label="contentBlockItem rollover" rolloverComponent={<XUIAvatar value="Tim Redmond" />} />;
 		}
 		if (child.action) {
-			child.action = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>}/>;
+			child.action = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>} />;
 		}
 		if (child.pinnedValue) {
 			child.pinnedValue = "0.00";
 		}
-		return <XUIContentBlockItem key={index} {...child} onClick={exampleClickHandler}/>
+		return <XUIContentBlockItem key={index} {...child} onClick={exampleClickHandler} />
 	});
-};
 
-const exampleClickHandler = () => {
-	return console.log("clicked")
- };
+const exampleClickHandler = () => console.log("clicked");
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
@@ -125,16 +112,16 @@ storiesWithKnobs.add('Columns Playground', () => {
 		if (!widthsArr || !widthsArr.length || widthsArr[0] === "") {
 			widthsArr = [];
 		}
-		if (widthsArr.length == columnCount) {
-			return widthsArr;
-		} else if (widthsArr.length > columnCount) {
-			return widthsArr.slice(0, columnCount);
-		} else {
-			while (widthsArr.length < columnCount) {
-				widthsArr.push("1");
-			}
+		if (widthsArr.length === columnCount) {
 			return widthsArr;
 		}
+		if (widthsArr.length > columnCount) {
+			return widthsArr.slice(0, columnCount);
+		} 
+		while (widthsArr.length < columnCount) {
+			widthsArr.push("1");
+		}
+		return widthsArr;
 	}
 	return (
 		<XUIRow variant={select('variant', Object.keys(rowVariants), 'standard')} className="xui-padding-small" style={{backgroundColor: "#028DDE"}}>
@@ -148,8 +135,8 @@ storiesWithKnobs.add('OverviewBlock Playground', () => {
 		id="testId"
 		total={10}
 		progress={4}
-		hasToolTip={true}
-		toolTipMessage={`4 out of 10`}
+		hasToolTip
+		toolTipMessage="4 out of 10"
 	/>);
 	const includeProgress = boolean('include progress?', false);
 	const blockTextAlignment = select('textAlignment', ['left', 'center', 'right'], 'center');
@@ -197,7 +184,8 @@ variations.forEach(variation => {
 					{buildColumns(columnWidths)}
 				</XUIRow>
 			);
-		} else if (type === "pageheader") {
+		}
+		if (type === "pageheader") {
 			if (variationMinusStoryDetails.tabs) {
 				variationMinusStoryDetails.tabs = exampleTabs;
 			}
@@ -209,10 +197,11 @@ variations.forEach(variation => {
 			}
 			return (
 				<div style={{minWidth: '700px'}}>
-					<XUIPageHeader {...variationMinusStoryDetails}></XUIPageHeader>
+					<XUIPageHeader {...variationMinusStoryDetails} />
 				</div>
 			);
-		} else if (type === "overview") {
+		}
+		if (type === "overview") {
 			const { sections, style } = variationMinusStoryDetails;
 			return (
 				<div style={style || {minWidth: "500px"}}>
@@ -220,8 +209,9 @@ variations.forEach(variation => {
 						{buildExampleSections(sections)}
 					</XUIOverviewBlock>
 				</div>
-			)
-		} else if (type === "panel") {
+			);
+		}
+		if (type === "panel") {
 			const heading = <XUIPanelHeading>Hello there <XUIIcon icon={overflow} /></XUIPanelHeading>;
 			return (
 				<XUIPanel
@@ -234,8 +224,9 @@ variations.forEach(variation => {
 							<p>Some important text might go here.</p>
 						</XUIPanelSection>
 				</XUIPanel>
-			)
-		} else if (type === "panel-sidebar") {
+			);
+		}
+		if (type === "panel-sidebar") {
 			const heading = <XUIPanelHeading>Hello there</XUIPanelHeading>;
 			const footer = <XUIPanelFooter className="xui-padding-small">{buildActions()}</XUIPanelFooter>;
 			return (
@@ -256,14 +247,15 @@ variations.forEach(variation => {
 							</XUIPanelSection>
 					</XUIPanel>
 				</div>
-			)
-		} else if (type === "content block") {
+			);
+		}
+		if (type === "content block") {
 			const { items } = variationMinusStoryDetails;
 			return (
 				<XUIPanel>
 					<XUIContentBlock {...variationMinusStoryDetails}>{buildExampleContentblockItem(items)}</XUIContentBlock>
 				</XUIPanel>
-			)
+			);
 		}
 	});
 });

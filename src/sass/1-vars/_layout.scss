@@ -98,3 +98,18 @@ $xui-modal-widths: (
 );
 
 // @tokenparserendignore
+
+// Z-index stacking scheme.
+$xui-z-index-tooltip: 9000;
+$xui-z-index-toast: 8000;
+$xui-z-index-sheet: 7000;
+$xui-z-index-overlay: 6000;
+$xui-z-index-modal: 5000;
+$xui-z-index-mask: 4000;
+$xui-z-index-nav: 3000;
+$xui-z-index-header: 2000;
+$xui-z-index-dropdown: 1000;
+$xui-z-index-focus: 2;
+$xui-z-index-body: 1;
+$xui-z-index-html: 0;
+$xui-z-index-hidden: -1;

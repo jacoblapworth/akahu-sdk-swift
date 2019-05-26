@@ -165,7 +165,8 @@ const createInteractionParams = (isBarStacked, paramsStacked) => {
 	switch (true) {
 	case isBarStacked: return paramsStacked;
 	default: {
-		const { stackIndex, y, ...paramsPlain } = paramsStacked; // eslint-disable-line no-unused-vars
+		// eslint-disable-next-line no-unused-vars
+		const { stackIndex, y, ...paramsPlain } = paramsStacked; 
 		return { ...paramsPlain, y: y[0] };
 	}
 	}

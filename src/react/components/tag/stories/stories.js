@@ -20,7 +20,7 @@ storiesWithKnobs.add('Playground', () => (
 		size={select('size', Object.keys(sizes), 'medium')}
 	>
 		{text('value', 'Plain tag')}
-    </XUITag>
+ </XUITag>
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
@@ -32,6 +32,6 @@ variations.forEach(variation => {
 		variationMinusStoryDetails.storyKind = undefined;
 		variationMinusStoryDetails.storyTitle = undefined;
 
-		return <XUITag {...variationMinusStoryDetails}/>
+		return <XUITag {...variationMinusStoryDetails} />
 	});
 });

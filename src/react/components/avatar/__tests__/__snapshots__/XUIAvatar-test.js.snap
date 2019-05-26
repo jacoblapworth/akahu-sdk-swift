@@ -38,12 +38,21 @@ exports[`XUIAvatar should render an \`abbr\` avatar when I give it an identifier
 `;
 
 exports[`XUIAvatar should render an \`img\` avatar when I give it an image 1`] = `
-<img
-  alt=""
-  className="xui-avatar"
-  onError={[Function]}
-  src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"
-/>
+Array [
+  <img
+    alt=""
+    className="xui-avatar xui-avatar-hidden"
+    onError={[Function]}
+    onLoad={[Function]}
+    src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"
+  />,
+  <abbr
+    className="xui-avatar xui-avatar-color-4"
+    role="presentation"
+  >
+    
+  </abbr>,
+]
 `;
 
 exports[`XUIAvatar should render in a range of sizes 1`] = `

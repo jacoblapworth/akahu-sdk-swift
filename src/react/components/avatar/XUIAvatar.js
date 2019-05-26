@@ -6,71 +6,70 @@ import { sizeClassNames, classNames, variantClassNames } from './constants';
 import { getAvatarColorClass, abbreviateAvatar } from './utils';
 
 export default class XUIAvatar extends PureComponent {
-	state = {
-		imageError: false,
-	};
+  state = {
+    imageLoaded: false,
+  };
 
-	/**
-	 * onError handler for the image element
-	 * @param {Error} e Error object
-	 */
-	onError = e => {
-		const { onError } = this.props;
+  /**
+   * onError handler for the image element
+   * @param {Error} e Error object
+   */
+  onError = e => {
+    const { onError } = this.props;
+    onError && onError(e);
+  };
 
-		this.setState({
-			imageError: true,
-		});
+  onLoad = () => {
+    this.setState({
+      imageLoaded: true,
+    });
+  };
 
-		onError && onError(e);
-	};
+  render() {
+    const { imageLoaded } = this.state;
 
-	render() {
-		const { imageError } = this.state;
-		const {
-			qaHook,
-			className,
-			imageUrl,
-			size,
-			identifier,
-			value,
-			variant,
-		} = this.props;
+    const { qaHook, className, imageUrl, size, identifier, value, variant } = this.props;
 
-		const avatarClassNames = cn(
-			className,
-			classNames.base,
-			sizeClassNames[size],
-			variantClassNames[variant],
-		);
+    const avatarClassNames = cn(
+      className,
+      classNames.base,
+      sizeClassNames[size],
+      variantClassNames[variant],
+    );
 
-		const avatarCharacterCount = variant === 'business' && size !== '2xsmall'
-			? 3 : 2; // 2xsmall cannot fit 3 characters without overflowing
-		return imageUrl && !imageError ? (
-			<img
-				onError={this.onError}
-				data-automationid={qaHook}
-				className={avatarClassNames}
-				alt=""
-				src={imageUrl}
-			/>
-		) : (
-			<abbr
-				data-automationid={qaHook}
-				className={cn(avatarClassNames, getAvatarColorClass(identifier || value || imageUrl))}
-				role="presentation"
-			>
-				{abbreviateAvatar(value, avatarCharacterCount)}
-			</abbr>
-		);
-	}
+    const avatarCharacterCount = variant === 'business' && size !== '2xsmall' ? 3 : 2; // 2xsmall cannot fit 3 characters without overflowing
+    return (
+      <React.Fragment>
+        {imageUrl && (
+          <img
+            onError={this.onError}
+            onLoad={this.onLoad}
+            data-automationid={qaHook}
+            className={cn(avatarClassNames, {[classNames.hidden]: !imageLoaded })}
+            alt=""
+            src={imageUrl}
+          />
+        )}
+        <abbr
+          data-automationid={qaHook}
+          className={cn(avatarClassNames, getAvatarColorClass(identifier || value || imageUrl), {
+            [classNames.hidden]: imageUrl && imageLoaded,
+          })}
+          role="presentation"
+        >
+          {abbreviateAvatar(value, avatarCharacterCount)}
+        </abbr>
+      </React.Fragment>
+    );
+  }
 }
 
 XUIAvatar.propTypes = {
-	className: PropTypes.string,
-	qaHook: PropTypes.string,
+  className: PropTypes.string,
+  qaHook: PropTypes.string,
 
-	/** The avatar variant */
-	variant: PropTypes.oneOf(Object.keys(variantClassNames)),
+  /** The avatar variant */
+  variant: PropTypes.oneOf(Object.keys(variantClassNames)),
 
 	/** The text to display in the avatar */
 	value(props, propName) {
@@ -84,22 +83,21 @@ XUIAvatar.propTypes = {
 		}
 		return null;
 	},
+  /** the image the component should render. Initials rendered otherwise */
+  imageUrl: PropTypes.string,
 
-	/** the image the component should render. Initials rendered otherwise */
-	imageUrl: PropTypes.string,
+  /** The size of the avatar. Can be small, medium, large or xlarge */
+  size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
-	/** The size of the avatar. Can be small, medium, large or xlarge */
-	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
+  /** A unique string that will be used to generate the color of the avatar if color is not
+   * provided. If this is not set then value is used as the identifier. */
+  identifier: PropTypes.string,
 
-	/** A unique string that will be used to generate the color of the avatar if color is not
-	 * provided. If this is not set then value is used as the identifier. */
-	identifier: PropTypes.string,
-
-	/** Error handler if the avatar image fails to load */
-	onError: PropTypes.func,
+  /** Error handler if the avatar image fails to load */
+  onError: PropTypes.func,
 };
 
 XUIAvatar.defaultProps = {
-	size: 'medium',
-	value: '',
+  size: 'medium',
+  value: '',
 };

@@ -1,36 +1,37 @@
 const constants = require('../private/constants');
+
 const storiesWithVariationsKindName = 'Instances/XUILoader';
 
 const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'with default layout'
+		storyTitle: 'with default layout',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'without default layout',
-		defaultLayout: false
+		defaultLayout: false,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with retain layout',
-		retainLayout: true
+		retainLayout: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with inverted',
-		isInverted: true
+		isInverted: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with sizes',
 		defaultLayout: false,
-		sizes: Object.keys(constants.sizeClassNames)
+		sizes: Object.keys(constants.sizeClassNames),
 	},
 
 ]
 
 module.exports = {
 	storiesWithVariationsKindName,
-	variations
+	variations,
 }

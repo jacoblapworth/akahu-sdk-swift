@@ -8,12 +8,12 @@ export default class PanelSection extends React.PureComponent {
 			headerContent,
 			formLayout,
 			className,
-			children
+			children,
 		} = this.props;
 
 		const parentClasses = cn(
 			'xui-panel--section',
-			className
+			className,
 		);
 
 		const renderChildren = formLayout ? (
@@ -34,5 +34,5 @@ PanelSection.propTypes = {
 	headerContent: PropTypes.any,
 	formLayout: PropTypes.bool,
 	className: PropTypes.string,
-	children: PropTypes.any
+	children: PropTypes.any,
 };

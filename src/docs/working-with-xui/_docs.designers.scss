@@ -8,7 +8,6 @@
 //
 // Styleguide: Getting Started.Designing with XUI
 
-
 // Why it matters
 //
 // * <strong>Efficiency</strong>
@@ -30,7 +29,6 @@
 // XUI provides a solid foundation for growth.
 //
 // Styleguide: Getting Started.Designing with XUI.1
-
 
 // Designing responsibly
 //
@@ -72,7 +70,6 @@
 //
 // Styleguide: Getting Started.Designing with XUI.2
 
-
 // Contributing
 //
 // * <strong>Slack</strong>
@@ -95,37 +92,12 @@
 //
 // Styleguide: Getting Started.Designing with XUI.3
 
-
 // Getting started
 //
-// * <strong>Symbols</strong>
+// * <strong>Sketch</strong>
 // </br>
-// Consuming XUI as a library in Sketch lets you set it once and then forget about it.
-// Once set, any updates will come automatically via the notification bar in the top right corner, which you can choose to incorporate via visual diffs.
-// To set this up, first create a new file in Sketch.
-// In the application menu, navigate to `Sketch` → `Preferences` or hit `command` + `,`.
-// Select `Libraries`, then click `Add Library`.
-// When the file picker opens, set it to `Dropbox`/`Xero`/`Product`/`XUI`/`XUI-Library.sketch`.
-// The thumbnail will indicate the current version.
-// You can then insert symbols via the `Insert` option in the menu.
-//
-// * <strong>Assets</strong>
-// </br>
-// Dragging and dropping elements from a local duplicate of `XUI-Library.sketch` file is also a common practice.
-// We refer to this method as the sticker sheet method.
-// To do this, visit [Github](https://github.dev.xero.com/designers/xui-toolkit/releases), click the most recent release, then download and extract the ZIP file.
-// Open the Sketch file and simply copy and paste elements between your files.
-// Every now and then, repeat this process to make sure you have the most recent version.
-// Most importantly, downloading from Github helps prevent the master file in Dropbox getting overridden with accidental edits.
-//
-// * <strong>Colors</strong>
-// </br>
-// Sketch is notoriously bad at setting up color palettes.
-// To get around this issue, we’ve adopted a third-party plugin to help you consume XUI colors.
-// To set it up, download the plugin from [Github](https://github.com/andrewfiorillo/sketch-palettes/archive/master.zip), extract the ZIP file and double click the file to install.
-// If you don’t want the default Sketch colors, first remove them by clicking `Clear Palette…` in the plugin menu.
-// Then, load the palette located in `Dropbox`/`Xero`/`Product`/`XUI`/`XUI-X.X.X.sketchpalette`.
-// You can specify to load it just for your current file, or globally.
+// XUI provides a Sketch Library that [can be found on Sketch Cloud](https://sketch.cloud/s/yypWq).
+// This library provides a set of symbols that represent XUI components, and allows the user to edit their content, layout and states. To use this library, follow the link above and in Sketch Cloud select ‘Use as Library’. This will ensure you receive notifications when updates to the Library are available. In Sketch Cloud you can navigate to the pages found within the Sketch file to view symbols and leave comments/feedback/requests.
 //
 // * <strong>Codepen</strong>
 // </br>
@@ -142,5 +114,3 @@
 // And if you’d like to learn more about front-end, we’re always willing to help.
 //
 // Styleguide: Getting Started.Designing with XUI.4
-
-

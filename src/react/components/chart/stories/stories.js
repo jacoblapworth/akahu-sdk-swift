@@ -125,7 +125,6 @@ storiesWithKnobs.add('Playground', () => {
 	);
 });
 
-/* eslint-disable react/prop-types, no-console */
 class EventReadyWrapper extends PureComponent {
 	constructor() {
 		super();
@@ -179,13 +178,12 @@ const TestScaffold = ({
 		/>
 	</div>
 );
-/* eslint-enable react/prop-types, no-console */
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 
 storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
-	const { storyTitle, storyKind, examples } = variation; // eslint-disable-line no-unused-vars
+	const { storyTitle, storyKind, examples } = variation; 
 	const Comparison = examples.map(TestScaffold);
 
 	storiesWithVariations.add(storyTitle, () => (

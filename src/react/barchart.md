@@ -251,8 +251,7 @@ The chart can change its state to reflect its supplied props.
 
 #### Loading
 
-Display the **loading** state using the prop `isLoading`
-
+Display the **loading** state using the prop `isLoading`.
 
 #### Empty
 

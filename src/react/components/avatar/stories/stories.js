@@ -13,7 +13,7 @@ import {
 	boolean,
 	text,
 	select,
-	number
+	number,
 } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
@@ -33,7 +33,7 @@ storiesWithKnobs.add('Playground', () => {
 	props.imageUrl = props.image
 		? text(
 				'Image URL',
-				'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg'
+				'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg',
 			)
 		: undefined;
 	const size = select('Size', Object.keys(sizeClassNames), 'medium');
@@ -45,20 +45,20 @@ storiesWithKnobs.add('Playground', () => {
 			range: true,
 			min: 1,
 			max: 10,
-			step: 1
+			step: 1,
 		});
 		const maxAvatars = number('Maximum avatars', 10, {
 			range: true,
 			min: 2,
 			max: 10,
-			step: 1
+			step: 1,
 		});
 		const generatedAvatars = [];
 
-		for (let i = 0; i < numberOfAvatars; i++) {
+		for (let i = 0; i < numberOfAvatars; i+= 1) {
 			const thisAvatarProps = {
 				...props,
-				value: `${i + 1} ${props.value}`
+				value: `${i + 1} ${props.value}`,
 			};
 			generatedAvatars.push(<XUIAvatar key={i} {...thisAvatarProps} />);
 		}
@@ -78,13 +78,13 @@ storiesWithVariations.addDecorator(centered);
 
 function generateAvatars({ avatarLength, variant, value, size }) {
 	const generatedAvatars = [];
-	for (let i = 0; i < avatarLength; i++) {
+	for (let i = 0; i < avatarLength; i+= 1) {
 		const thisAvatarProps = {
 			variant,
-			value: `${i + 1} ${value}`
+			value: `${i + 1} ${value}`,
 		};
 		generatedAvatars.push(
-			<XUIAvatar key={i} {...thisAvatarProps} size={size} />
+			<XUIAvatar key={i} {...thisAvatarProps} size={size} />,
 		);
 	}
 	return generatedAvatars;
@@ -100,7 +100,7 @@ variations.forEach(variation => {
 			maxAvatars,
 			variant,
 			value,
-			colors
+			colors,
 		} = variationMinusStoryDetails;
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
@@ -116,7 +116,7 @@ variations.forEach(variation => {
 						avatarLength,
 						variant,
 						size,
-						value
+						value,
 					});
 					return (
 						<XUIAvatarGroup
@@ -129,13 +129,13 @@ variations.forEach(variation => {
 						</XUIAvatarGroup>
 					);
 				});
-			} else {
-				const avatars = generateAvatars({ avatarLength, variant, value });
-
-				return (
-					<XUIAvatarGroup maxAvatars={maxAvatars}>{avatars}</XUIAvatarGroup>
-				);
 			}
+			const avatars = generateAvatars({ avatarLength, variant, value });
+
+			return (
+				<XUIAvatarGroup maxAvatars={maxAvatars}>{avatars}</XUIAvatarGroup>
+			);
+			
 		}
 
 		if (sizes) {

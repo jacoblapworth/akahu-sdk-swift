@@ -31,20 +31,20 @@ const itemLabels = [
 	'This item will be a bit longer and just fine!',
 ];
 
-const logEvent = (event) => {console.log(event.type)};
+const logEvent = event => {console.log(event.type)};
 const logAllEvents = {
 	onClick: logEvent,
   onFocus: logEvent,
   onBlur: logEvent,
   onKeyDown: logEvent,
-  onMouseOver: logEvent
+  onMouseOver: logEvent,
 };
 
-const buildItemsFromSettings = function (settings, listIndex, componentType) {
+const buildItemsFromSettings = (settings, listIndex, componentType) => {
 	const listItems = [];
 	settings.forEach((item, itemIndex) => {
 		const unique = `${listIndex}-${itemIndex}`;
-		const role = componentType == 'StatefulPicklist' ? 'treeitem' : undefined;
+		const role = componentType === 'StatefulPicklist' ? 'treeitem' : undefined;
 		let builtItem;
 		if (item.isHeader) {
 			builtItem = <XUIPicklistHeader key={unique}>{item.children}</XUIPicklistHeader>;
@@ -62,14 +62,14 @@ const buildItemsFromSettings = function (settings, listIndex, componentType) {
 	return listItems;
 };
 
-const buildLists = function (lists, componentType) {
+const buildLists = (lists, componentType) => {
 	const builtLists = [];
 	lists.forEach((list, index) => {
 		const listObj = { ...list };
 		const listItems = buildItemsFromSettings(listObj.items, index, componentType);
 		delete listObj.items;
 		const secProps = {
-			role: componentType != 'StatefulPicklist' ? 'listbox' : 'tree',
+			role: componentType !== 'StatefulPicklist' ? 'listbox' : 'tree',
 		};
 		if (componentType === 'NestedPicklist') {
 			builtLists.push(<NestedPicklist key={index} secondaryProps={secProps} {...listObj}>{listItems}</NestedPicklist>);

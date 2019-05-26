@@ -1961,21 +1961,12 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                               thickness={3}
                               total={5}
                             >
-                              <IE11SvgScaleHack
-                                key="canvas"
-                                viewBoxHeight={20}
-                                viewBoxWidth={20}
-                              >
-                                <canvas
-                                  className="xui-progress-circular-scaler"
-                                  height={20}
-                                  width={20}
-                                />
-                              </IE11SvgScaleHack>
                               <svg
                                 className="xui-progress-circular-wrapper"
+                                height={20}
                                 key="svg"
                                 viewBox="0 0 20 20"
+                                width={20}
                               >
                                 <defs>
                                   <mask
@@ -2023,11 +2014,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                             </CircularTrack>
                           </div>
                         </CircularGrowth>
-                        <CircularIcon>
-                          <div
-                            className="xui-progress-icon"
-                          />
-                        </CircularIcon>
                       </div>
                     </div>
                   </ProgressWrapper>
@@ -2129,21 +2115,12 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                               thickness={3}
                               total={5}
                             >
-                              <IE11SvgScaleHack
-                                key="canvas"
-                                viewBoxHeight={20}
-                                viewBoxWidth={20}
-                              >
-                                <canvas
-                                  className="xui-progress-circular-scaler"
-                                  height={20}
-                                  width={20}
-                                />
-                              </IE11SvgScaleHack>
                               <svg
                                 className="xui-progress-circular-wrapper"
+                                height={20}
                                 key="svg"
                                 viewBox="0 0 20 20"
+                                width={20}
                               >
                                 <defs>
                                   <mask
@@ -2191,11 +2168,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                             </CircularTrack>
                           </div>
                         </CircularGrowth>
-                        <CircularIcon>
-                          <div
-                            className="xui-progress-icon"
-                          />
-                        </CircularIcon>
                       </div>
                     </div>
                   </ProgressWrapper>
@@ -2302,21 +2274,12 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                               thickness={3}
                               total={5}
                             >
-                              <IE11SvgScaleHack
-                                key="canvas"
-                                viewBoxHeight={20}
-                                viewBoxWidth={20}
-                              >
-                                <canvas
-                                  className="xui-progress-circular-scaler"
-                                  height={20}
-                                  width={20}
-                                />
-                              </IE11SvgScaleHack>
                               <svg
                                 className="xui-progress-circular-wrapper"
+                                height={20}
                                 key="svg"
                                 viewBox="0 0 20 20"
+                                width={20}
                               >
                                 <defs>
                                   <mask
@@ -2364,11 +2327,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                             </CircularTrack>
                           </div>
                         </CircularGrowth>
-                        <CircularIcon>
-                          <div
-                            className="xui-progress-icon"
-                          />
-                        </CircularIcon>
                       </div>
                     </div>
                   </ProgressWrapper>
@@ -2472,21 +2430,12 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                               thickness={3}
                               total={5}
                             >
-                              <IE11SvgScaleHack
-                                key="canvas"
-                                viewBoxHeight={20}
-                                viewBoxWidth={20}
-                              >
-                                <canvas
-                                  className="xui-progress-circular-scaler"
-                                  height={20}
-                                  width={20}
-                                />
-                              </IE11SvgScaleHack>
                               <svg
                                 className="xui-progress-circular-wrapper"
+                                height={20}
                                 key="svg"
                                 viewBox="0 0 20 20"
+                                width={20}
                               >
                                 <defs>
                                   <mask
@@ -2534,11 +2483,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                             </CircularTrack>
                           </div>
                         </CircularGrowth>
-                        <CircularIcon>
-                          <div
-                            className="xui-progress-icon"
-                          />
-                        </CircularIcon>
                       </div>
                     </div>
                   </ProgressWrapper>

@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import XUICapsule from '../XUICapsule';
 
-const onClick = () => alert('You clicked the capsule'); // eslint-disable-line no-alert
+// eslint-disable-next-line no-alert
+const onClick = () => alert('You clicked the capsule'); 
 const baseClass = 'xui-capsule';
 const largeHeadingClass = 'xui-heading-large';
 const mediumHeadingClass = 'xui-heading';

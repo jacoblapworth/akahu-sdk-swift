@@ -6,14 +6,12 @@ Accordions are used to display a vertically expandable & collapsible list that r
 
 The _Accordion_ is broken up into two key components `import XUIAccordion, { XUIAccordionItem } from '@xero/xui/react/accordion';`.
 
-
-
 ## Basic
 
 The bare minimum _Accordion_ composition can be achieved with the `items` and `createItem` prop.
 
-+ `items` represents the generic data structure of each _Accordion_ item.
-+ `createItem` returns a `<XUIAccordionItem />` that represents a single _item_ from the `items` prop.
+- `items` represents the generic data structure of each _Accordion_ item.
+- `createItem` returns a `<XUIAccordionItem />` that represents a single _item_ from the `items` prop.
 
 **Note:** Each item needs a unique `id`. By default an object _key_ named `id` is looked up in each item however you can specify a new key if there is a more relevant unique identifier using the prop `idKey`.
 
@@ -21,43 +19,38 @@ The bare minimum _Accordion_ composition can be achieved with the `items` and `c
 import XUIAccordion, { XUIAccordionItem } from './accordion';
 
 const items = [
-	{ id: 1, name: 'John Smith', content: 'Accountant' },
-	{ id: 2, name: 'Barry Allen', content: 'Bookkeeper' },
-	{ id: 3, name: 'Ernest Hemmingway' }
+  { id: 1, name: 'John Smith', content: 'Accountant' },
+  { id: 2, name: 'Barry Allen', content: 'Bookkeeper' },
+  { id: 3, name: 'Ernest Hemmingway' },
 ];
 
 class Demo extends React.Component {
-	constructor(...args) {
-		super(...args);
-		this.createItem = this.createItem.bind(this);
-		this.handleItemClick = this.handleItemClick.bind(this);
-	}
+  constructor(...args) {
+    super(...args);
+    this.createItem = this.createItem.bind(this);
+    this.handleItemClick = this.handleItemClick.bind(this);
+  }
 
-	handleItemClick({id, isOpen}) {
-		console.log(`${isOpen ? 'Open' : 'Close'} item ${id}`);
-	}
+  handleItemClick({ id, isOpen }) {
+    console.log(`${isOpen ? 'Open' : 'Close'} item ${id}`);
+  }
 
-	createItem({ name, content }) {
-		return (
-			<XUIAccordionItem
-				primaryHeading={name}
-				onItemClick={this.handleItemClick}>
-				{ content &&  <div className="xui-padding-horizontal-large xui-padding-vertical-4xlarge">{content}</div> }
-			</XUIAccordionItem>
-		);
-	}
+  createItem({ name, content }) {
+    return (
+      <XUIAccordionItem primaryHeading={name} onItemClick={this.handleItemClick}>
+        {content && (
+          <div className="xui-padding-horizontal-large xui-padding-vertical-4xlarge">{content}</div>
+        )}
+      </XUIAccordionItem>
+    );
+  }
 
-	render() {
-		return (
-			<XUIAccordion
-				items={items}
-				createItem={this.createItem}
-			/>
-		);
-	}
+  render() {
+    return <XUIAccordion items={items} createItem={this.createItem} />;
+  }
 }
 
-<Demo />
+<Demo />;
 ```
 
 ## Accordion Item
@@ -73,49 +66,44 @@ import XUIAccordion, { XUIAccordionItem } from './accordion';
 
 const items = [{ id: 1 }];
 const itemStyle = {
-	background: 'lightgray',
-	border: '1px solid darkgray',
-	padding: '4px',
-	outline: '1px solid gray',
+  background: 'lightgray',
+  border: '1px solid darkgray',
+  padding: '4px',
+  outline: '1px solid gray',
 };
 
 class Demo extends React.Component {
-	constructor(...args) {
-		super(...args);
-		this.createItem = this.createItem.bind(this);
-		this.handleItemClick = this.handleItemClick.bind(this);
-	}
+  constructor(...args) {
+    super(...args);
+    this.createItem = this.createItem.bind(this);
+    this.handleItemClick = this.handleItemClick.bind(this);
+  }
 
-	handleItemClick({id, isOpen}) {
-		console.log(`${isOpen ? 'Open' : 'Close'} item ${id}`);
-	}
+  handleItemClick({ id, isOpen }) {
+    console.log(`${isOpen ? 'Open' : 'Close'} item ${id}`);
+  }
 
-	createItem() {
-		return (
-			<XUIAccordionItem
-				primaryHeading={<div style={itemStyle}>Primary Heading</div>}
-				secondaryHeading={<div style={itemStyle}>Secondary Heading</div>}
-				leftContent={<div style={itemStyle}>Left Content</div>}
-				pinnedValue={<div style={itemStyle}>Pinned Value</div>}
-				action={<div style={itemStyle}>Action</div>}
-				overflow={<div style={itemStyle}>Overflow</div>}
-				custom={<div style={itemStyle}>Custom Content</div>}
-				onItemClick={this.handleItemClick}
-			/>
-		);
-	}
+  createItem() {
+    return (
+      <XUIAccordionItem
+        primaryHeading={<div style={itemStyle}>Primary Heading</div>}
+        secondaryHeading={<div style={itemStyle}>Secondary Heading</div>}
+        leftContent={<div style={itemStyle}>Left Content</div>}
+        pinnedValue={<div style={itemStyle}>Pinned Value</div>}
+        action={<div style={itemStyle}>Action</div>}
+        overflow={<div style={itemStyle}>Overflow</div>}
+        custom={<div style={itemStyle}>Custom Content</div>}
+        onItemClick={this.handleItemClick}
+      />
+    );
+  }
 
-	render() {
-		return (
-			<XUIAccordion
-				items={items}
-				createItem={this.createItem}
-			/>
-		);
-	}
+  render() {
+    return <XUIAccordion items={items} createItem={this.createItem} />;
+  }
 }
 
-<Demo />
+<Demo />;
 ```
 
 ## Empty State
@@ -132,30 +120,31 @@ import XUIAccordion, { XUIAccordionItem } from './accordion';
 const createItem = ({ heading }) => <XUIAccordionItem primaryHeading={heading} />;
 
 <div>
-	<XUIAccordion
-		className="xui-margin-bottom-large"
-		items={[{ id: 1, heading: 'Default empty state' }]}
-		createItem={createItem}
-	/>
-	<XUIAccordion
-		className="xui-margin-bottom-large"
-		emptyIcon={starIcon}
-		emptyMessage="Custom empty state message"
-		items={[{ id: 1, heading: 'Custom empty state' }]}
-		createItem={createItem}
-	/>
-	<XUIAccordion
-		emptyStateComponent={(
-			<div
-				className="xui-heading xui-textcolor-inverted xui-padding-vertical-large xui-text-align-center"
-				style={ { background: 'darkgray' } }>
-				Replace empty state component
-			</div>
-		)}
-		items={[{ id: 1, heading: 'Replace empty state' }]}
-		createItem={createItem}
-	/>
-</div>
+  <XUIAccordion
+    className="xui-margin-bottom-large"
+    items={[{ id: 1, heading: 'Default empty state' }]}
+    createItem={createItem}
+  />
+  <XUIAccordion
+    className="xui-margin-bottom-large"
+    emptyIcon={starIcon}
+    emptyMessage="Custom empty state message"
+    items={[{ id: 1, heading: 'Custom empty state' }]}
+    createItem={createItem}
+  />
+  <XUIAccordion
+    emptyStateComponent={
+      <div
+        className="xui-heading xui-textcolor-inverted xui-padding-vertical-large xui-text-align-center"
+        style={{ background: 'darkgray' }}
+      >
+        Replace empty state component
+      </div>
+    }
+    items={[{ id: 1, heading: 'Replace empty state' }]}
+    createItem={createItem}
+  />
+</div>;
 ```
 
 ## Example
@@ -171,90 +160,87 @@ import XUIAvatar from './avatar';
 import XUIButton from './button';
 import XUIIcon from './icon';
 
-const items = [{
-	name: 'John Smith',
-	contacts: [
-		{ contact: 'Peggy Olsen', minutes: '00:20' },
-		{ contact: 'Pete Campbell', minutes: '15:30' }
-	]
-}];
+const items = [
+  {
+    name: 'John Smith',
+    contacts: [
+      { contact: 'Peggy Olsen', minutes: '00:20' },
+      { contact: 'Pete Campbell', minutes: '15:30' },
+    ],
+  },
+];
 const makeInteraction = (event, callback) => {
-	const { type, keyCode } = event;
-	const isClick = type === 'click';
-	const spaceBar = 32;
-	const enterKey = 13;
-	const isKeyboard = keyCode === spaceBar || keyCode === enterKey;
-	const isInteraction = isClick || isKeyboard;
+  const { type, keyCode } = event;
+  const isClick = type === 'click';
+  const spaceBar = 32;
+  const enterKey = 13;
+  const isKeyboard = keyCode === spaceBar || keyCode === enterKey;
+  const isInteraction = isClick || isKeyboard;
 
-	if (isInteraction) {
-		callback();
-		event.stopPropagation();
-		event.preventDefault();
-	}
-}
+  if (isInteraction) {
+    callback();
+  }
+};
 
 class Demo extends React.Component {
-	constructor(...args) {
-		super(...args);
-		this.createItem = this.createItem.bind(this);
-		this.handleUpdateInteraction = this.handleUpdateInteraction.bind(this);
-		this.handleOptionsInteraction = this.handleOptionsInteraction.bind(this);
-	}
+  constructor(...args) {
+    super(...args);
+    this.createItem = this.createItem.bind(this);
+    this.handleUpdateInteraction = this.handleUpdateInteraction.bind(this);
+    this.handleOptionsInteraction = this.handleOptionsInteraction.bind(this);
+  }
 
-	handleUpdateInteraction(event) {
-		makeInteraction(event, () => console.log('Clicked update button'));
-	}
+  handleUpdateInteraction(event) {
+    makeInteraction(event, () => console.log('Clicked update button'));
+  }
 
-	handleOptionsInteraction(event) {
-		makeInteraction(event, () => console.log('Clicked options button'));
-	}
+  handleOptionsInteraction(event) {
+    makeInteraction(event, () => console.log('Clicked options button'));
+  }
 
-	createItem({ name, contacts }) {
-		return (
-			<XUIAccordionItem
-				primaryHeading={name}
-				leftContent={<XUIAvatar value={name} className="xui-margin-right" />}
-				overflow={(
-					<XUIButton
-						variant="icon"
-						onKeyDown={this.handleOptionsInteraction}
-						onClick={this.handleOptionsInteraction}>
-						<XUIIcon icon={overflowIcon} title="Overflow menu" />
-					</XUIButton>
-				)}
-				action={(
-					<XUIButton
-						size="small"
-						className="xui-margin-right-small"
-						onKeyDown={this.handleUpdateInteraction}
-						onClick={this.handleUpdateInteraction}>
-						Update
-					</XUIButton>
-				)}>
-					<XUIContentBlock>
-						{ contacts.map(({ contact, minutes }) => (
-							<XUIContentBlockItem
-								key={contact}
-								primaryHeading={contact}
-								pinnedValue={minutes}
-								href="#"
-							/>
-						)) }
-					</XUIContentBlock>
-			</XUIAccordionItem>
-		);
-	}
+  createItem({ name, contacts }) {
+    return (
+      <XUIAccordionItem
+        primaryHeading={name}
+        leftContent={<XUIAvatar value={name} className="xui-margin-right" />}
+        overflow={
+          <XUIButton
+            variant="icon"
+            onKeyDown={this.handleOptionsInteraction}
+            onClick={this.handleOptionsInteraction}
+          >
+            <XUIIcon icon={overflowIcon} title="Overflow menu" />
+          </XUIButton>
+        }
+        action={
+          <XUIButton
+            size="small"
+            className="xui-margin-right-small"
+            onKeyDown={this.handleUpdateInteraction}
+            onClick={this.handleUpdateInteraction}
+          >
+            Update
+          </XUIButton>
+        }
+      >
+        <XUIContentBlock>
+          {contacts.map(({ contact, minutes }) => (
+            <XUIContentBlockItem
+              key={contact}
+              primaryHeading={contact}
+              pinnedValue={minutes}
+              href="#"
+            />
+          ))}
+        </XUIContentBlock>
+      </XUIAccordionItem>
+    );
+  }
 
-	render() {
-		return (
-			<XUIAccordion
-				idKey="name"
-				items={items}
-				createItem={this.createItem}
-			/>
-		);
-	}
+  render() {
+    return <XUIAccordion idKey="name" items={items} createItem={this.createItem} />;
+  }
 }
 
-<Demo />
+<Demo />;
 ```

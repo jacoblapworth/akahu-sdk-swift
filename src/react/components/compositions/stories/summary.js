@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import {
 	XUIOverviewBlock,
-	XUIOverviewSection
+	XUIOverviewSection,
 } from '../../../structural';
 
 
@@ -17,13 +17,14 @@ export default class Summary extends PureComponent {
 				className='xui-panel'
 				{...other}
 			>
-				{['One', 'Two', 'Three'].map((item) => (
+				{['One', 'Two', 'Three'].map(item => (
 					<XUIOverviewSection
 						label={`Summary ${item.toLowerCase()}`}
 						value={item}
-						key={item}/>
+						key={item}
+					/>
 				))}
 			</XUIOverviewBlock>
-		)
+		);
 	}
 }

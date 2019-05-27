@@ -82,6 +82,11 @@ const componentsToTest = [
 		selectors: '.capture'
 	},
 	{
+		testsPrefix: 'XUI Illustration',
+		variationsPath: `${variationsPath}/illustration/stories/variations.js`,
+		selectors: '.capture'
+	},
+	{
 		testsPrefix: 'XUI Loader',
 		variationsPath: `${variationsPath}/loader/stories/variations.js`,
 		misMatchThreshold: 5

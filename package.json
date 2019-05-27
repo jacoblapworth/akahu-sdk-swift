@@ -1,6 +1,6 @@
 {
   "name": "@xero/xui",
-  "version": "15.0.3",
+  "version": "15.1.0",
   "description": "Shared styles for Xero applications",
   "private": true,
   "repository": {
@@ -14,6 +14,7 @@
   },
   "files": [
     "react",
+    "react-es6",
     "sass",
     "codemod"
   ],

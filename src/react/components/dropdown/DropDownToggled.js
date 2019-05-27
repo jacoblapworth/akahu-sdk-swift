@@ -12,6 +12,7 @@ import {
   throttleToFrame,
 } from './private/helpers';
 import compose from '../helpers/compose';
+import { isKeySpacebar, eventKeyValues } from '../helpers/reactKeyHandler';
 import { baseClass, dropdownPositionOptions } from './private/constants';
 
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
@@ -27,11 +28,6 @@ function scrollIntoViewIfNecessary(node) {
     node.scrollIntoView();
   }
 }
-// Some helper functions for clarity over keyCode usage.
-const isSpaceKey = keyCode => keyCode === 32;
-const isTabKey = keyCode => keyCode === 9;
-const isEscapeKey = keyCode => keyCode === 27;
-const isDownArrowKey = keyCode => keyCode === 40;
 
 /**
  * Attempt to set focus onto the trigger either via native DOM APIs or
@@ -290,9 +286,11 @@ export default class DropDownToggled extends PureComponent {
    * @param {KeyboardEvent} event key down event object
    */
   onDropDownKeyDown = event => {
-    const { keyCode } = event;
-    if (!this.state.isHidden && (isEscapeKey(keyCode) || isTabKey(keyCode))) {
-      if (!isTabKey(keyCode) || this.props.closeOnTab) {
+    if (
+      !this.state.isHidden &&
+      (event.key === eventKeyValues.escape || event.key === eventKeyValues.tab)
+    ) {
+      if (event.key !== 'Tab' || this.props.closeOnTab) {
         this.closeDropDown();
       }
     }
@@ -304,14 +302,15 @@ export default class DropDownToggled extends PureComponent {
    * @param {KeyboardEvent} event key down event object
    */
   onTriggerKeyDown = event => {
-    const { keyCode } = event;
-
-    if (isDownArrowKey(keyCode) && this.state.isHidden) {
+    if (event.key === eventKeyValues.down && this.state.isHidden) {
       this.preventDefaultIEHandler(event);
       this.openDropDown();
-    } else if (!this.state.isHidden && (isTabKey(keyCode) || isEscapeKey(keyCode))) {
+    } else if (
+      !this.state.isHidden &&
+      (event.key === eventKeyValues.escape || event.key === eventKeyValues.tab)
+    ) {
       // If the user doesn't want to close when the tab key is hit, don't
-      if (!isTabKey(keyCode) || this.props.closeOnTab) {
+      if (!event.key === eventKeyValues.tab || this.props.closeOnTab) {
         this.closeDropDown();
       }
     }
@@ -325,8 +324,7 @@ export default class DropDownToggled extends PureComponent {
    * @param {KeyboardEvent} event key down event object
    */
   spacebarKeyHandler = event => {
-    const { keyCode } = event;
-    if (isSpaceKey(keyCode) && this.props.dropdown.props.ignoreKeyboardEvents.indexOf(32) === -1) {
+    if (isKeySpacebar(event) && this.props.dropdown.props.ignoreKeyboardEvents.indexOf(32) === -1) {
       this.preventDefaultIEHandler(event);
       if (this.state.isHidden) {
         this.openDropDown();
@@ -337,7 +335,7 @@ export default class DropDownToggled extends PureComponent {
   };
 
   onTriggerKeyUp = event => {
-    if (isSpaceKey(event.keyCode) && this.state.isHidden) {
+    if (isKeySpacebar(event) && this.state.isHidden) {
       this.preventDefaultIEHandler(event);
     }
   };

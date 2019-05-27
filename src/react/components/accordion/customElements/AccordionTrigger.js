@@ -6,6 +6,7 @@ import { ns } from '../../helpers/xuiClassNamespace';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
 import preventDefault from '../../helpers/preventDefault';
+import { isKeyClick } from '../../helpers/reactKeyHandler';
 
 export default class AccordionTrigger extends PureComponent {
   handleTriggerInteraction = event => {
@@ -23,11 +24,7 @@ export default class AccordionTrigger extends PureComponent {
   };
 
   onKeyDown = event => {
-    const spaceBar = 32;
-    const enterKey = 13;
-    const { keyCode } = event;
-
-    if (keyCode === spaceBar || keyCode === enterKey) {
+    if (isKeyClick(event)) {
       this.handleTriggerInteraction(event);
       event.preventDefault(); // prevent spacebar scroll.
     }

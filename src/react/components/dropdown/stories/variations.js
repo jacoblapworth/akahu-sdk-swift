@@ -1,7 +1,7 @@
 import commonViewports from '../../../stories/helpers/viewports';
+import NOOP from '../../helpers/noop';
 
 const privateConsts = require('../private/constants');
-const NOOP = require('../../helpers/noop');
 
 const storiesWithVariationsKindName = 'Instances/Dropdown';
 

@@ -10,7 +10,12 @@
         "name": "Icon",
         "content": "../src/react/icon.md",
         "components": "../src/react/components/icon/XUIIcon.js"
-      },
+			},
+			{
+				"name": "Illustrations",
+				"content": "../src/react/illustration.md",
+				"components": "../src/react/components/illustration/XUIIllustration.js"
+			},
       {
         "name": "Layout",
         "content": "../src/react/structural.md",

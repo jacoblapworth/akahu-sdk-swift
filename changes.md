@@ -132,6 +132,9 @@ Utility classes with breakpoint suffixes have been updated to reflect the new br
 
 ## Additions
 
+### Components
+- Added `XUIIllustration` to support the [the new illustrations repo](https://github.dev.xero.com/UXE/illustrations).
+
 ### Component props
 
 - `XUIAutocompleter`

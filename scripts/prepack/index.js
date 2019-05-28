@@ -12,6 +12,8 @@ const sassSourceLocation = path.join(rootDirectory, 'src', 'sass');
 const sassMoveToLocation = path.join(rootDirectory, 'sass');
 const codemodBuildOutputLocation = path.join(rootDirectory, 'dist', 'codemod');
 const codemodMoveToLocation = path.join(rootDirectory, 'codemod');
+const reactES6SourceLocation = path.join(rootDirectory, 'src', 'react');
+const reactES6OutputLocation = path.join(rootDirectory, 'react-es6');
 
 function prepack() {
 	taskRunner(taskSpinner => {
@@ -25,6 +27,7 @@ function prepack() {
 			ncp(reactBuildOutputPath, reactMoveToLocation);
 			ncp(sassSourceLocation, sassMoveToLocation);
 			ncp(codemodBuildOutputLocation, codemodMoveToLocation);
+			ncp(reactES6SourceLocation, reactES6OutputLocation);
 		});
 	}, __filename);
 }

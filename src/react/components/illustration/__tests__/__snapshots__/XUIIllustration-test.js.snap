@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUIIllustration Should render with any additional classes provided through the className prop 1`] = `
+<img
+  alt=""
+  className="classyMcClassFace xui-illustration"
+  src="illustration.svg"
+  style={
+    Object {
+      "height": undefined,
+      "padding": undefined,
+    }
+  }
+/>
+`;
+
+exports[`XUIIllustration Should render with the correct classes for small, medium, and large sizes 1`] = `
+<div>
+  <img
+    alt=""
+    className="xui-illustration xui-illustration-small"
+    src="illustration.svg"
+    style={
+      Object {
+        "height": undefined,
+        "padding": undefined,
+      }
+    }
+  />
+  <img
+    alt=""
+    className="xui-illustration xui-illustration-medium"
+    src="illustration.svg"
+    style={
+      Object {
+        "height": undefined,
+        "padding": undefined,
+      }
+    }
+  />
+  <img
+    alt=""
+    className="xui-illustration xui-illustration-large"
+    src="illustration.svg"
+    style={
+      Object {
+        "height": undefined,
+        "padding": undefined,
+      }
+    }
+  />
+</div>
+`;

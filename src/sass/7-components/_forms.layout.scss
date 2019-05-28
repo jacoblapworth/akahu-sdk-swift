@@ -7,16 +7,16 @@
 }
 
 .#{$ns}-validation-layout {
-	margin-bottom: $xui-s-xsmall;
+	margin-bottom: $xui-s-small;
 	min-height: $xui-s-large;
-	padding-top: $xui-s-2xsmall;
+	padding-top: $xui-s-xsmall;
 }
 
 .#{$ns}-field-layout {
 	margin-bottom: $xui-s-2xlarge;
 
 	.#{$ns}-validation {
-		margin-bottom: -($xui-line-height-standard + $xui-s-2xsmall); // Validation line-height + padding
+		margin-bottom: -($xui-line-height-xsmall + $xui-s-xsmall); // Validation line-height + padding
 	}
 }
 

@@ -21,8 +21,8 @@
 }
 
 .#{$ns}-validation {
+	@include xui-text-xsmall;
 	color: $xui-validation-color;
-	font-size: $xui-font-size-xsmall;
 }
 
 .#{$ns}-validation-is-invalid {

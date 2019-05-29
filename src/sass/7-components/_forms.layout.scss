@@ -1,46 +1,46 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 .#{$ns}-form-layout {
-	@include xui-margin-horizontal-auto;
-	max-width: $xui-form-width;
+  @include xui-margin-horizontal-auto;
+  max-width: $xui-form-width;
 }
 
 .#{$ns}-validation-layout {
-	margin-bottom: $xui-s-xsmall;
-	min-height: $xui-s-large;
-	padding-top: $xui-s-2xsmall;
+  margin-bottom: $xui-s-small;
+  min-height: $xui-s-xlarge;
+  padding-top: $xui-s-xsmall;
 }
 
 .#{$ns}-field-layout {
-	margin-bottom: $xui-s-2xlarge;
+  margin-bottom: $xui-s-2xlarge;
 
-	.#{$ns}-validation {
-		margin-bottom: -($xui-line-height-standard + $xui-s-2xsmall); // Validation line-height + padding
-	}
+  .#{$ns}-validation {
+    margin-bottom: -($xui-line-height-xsmall + $xui-s-xsmall); // Validation line-height + padding
+  }
 }
 
 .#{$ns}-validation {
-	color: $xui-validation-color;
-	font-size: $xui-font-size-xsmall;
+  @include xui-text-xsmall;
+  color: $xui-validation-color;
 }
 
 .#{$ns}-validation-is-invalid {
-	color: $xui-validation-invalid-color;
+  color: $xui-validation-invalid-color;
 }
 
 .#{$ns}-form-inline {
-	// Mobile-first breakpoint style
-	margin: auto;
-	max-width: $xui-form-width;
+  // Mobile-first breakpoint style
+  margin: auto;
+  max-width: $xui-form-width;
 
-	// Wider viewport style
-	@include xui-breakpoint-small-up {
-		max-width: none;
+  // Wider viewport style
+  @include xui-breakpoint-small-up {
+    max-width: none;
 
-		.#{$ns}-field-layout {
-			display: inline-block;
-			vertical-align: bottom;
-		}
-	}
+    .#{$ns}-field-layout {
+      display: inline-block;
+      vertical-align: bottom;
+    }
+  }
 }

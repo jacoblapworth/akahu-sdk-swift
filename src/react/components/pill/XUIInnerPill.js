@@ -33,7 +33,10 @@ class XUIInnerPill extends PureComponent {
       </span>
     );
     const valueEl = value && (
-      <span className={`${baseClass}--text`} ref={!secondaryText && innerPillRef}>
+      <span
+        className={`${baseClass}--text`}
+        ref={!secondaryText && innerPillRef ? innerPillRef : null}
+      >
         {value}
       </span>
     );

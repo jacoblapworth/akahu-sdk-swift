@@ -17,10 +17,6 @@
 // <link rel="stylesheet" href="https://edge.xero.com/style/xui/15.1.1/xui.min.css"/>
 // ```
 //
-// #### Sherlock
-//
-// You can use [Sherlock](https://github.dev.xero.com/Xero/Sherlock) to resolve the latest version of XUI for a given semver range.
-// A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.json`.
 // If you are building an application that may live alongside other versions of XUI on the same page, see the [Advanced usage](#getting-started-developing-with-xui-5) section below.
 //
 // #### Add base classes to HTML template
@@ -72,7 +68,7 @@
 
 // Installing React components
 //
-// We use an internal artifactory server to host XUI Components. Make them available to NPM by adding the following to .npmrc in your projects root folder. More info on Confluence: [Consuming Xero NPM Modules](https://confluence.inside.xero.com/display/FED/Using+Artifactory).
+// We use an internal artifactory server to host XUI Components. Make them available to NPM by adding the following to .npmrc in your project's root folder. More info on Confluence: [Consuming Xero NPM Modules](https://confluence.inside.xero.com/display/FED/Using+Artifactory).
 //
 // <!--?prettify?-->
 // ```js
@@ -91,7 +87,7 @@
 //
 // Related components are grouped together in a single entry point to make importing related components easier. Components will always export a default and may have additional named exports.
 //
-// Use standard es6 import syntax to import XUI components.
+// There are two main ways of importing XUI components. The first involves importing code that has been pre-processed by Babel. This includes dependencies on `core-js` to bring in the polyfills required for XUI's components to work in the browsers Xero supports.
 //
 // <!--?prettify lang=js?-->
 // ```
@@ -99,7 +95,21 @@
 // import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 // ```
 //
+// You can also opt to import the ES6 source by changing the `@xero/xui/react` directory to `@xui/react/react-es6` in your imports.
+//
+// <!--?prettify lang=js?-->
+// ```
+// import XUIButton, { XUIButtonCaret } from '@xero/xui/react-es6/button';
+// import DropDown, { DropDownToggled } from '@xero/xui/react-es6/dropdown';
+// ```
+//
+// Importing ES6 source can provide better tree-shaking and debugging, but you become responsible for transpilation and ensuring the appropriate polyfills are included. If you choose this option, we recommend implementing a rewrite of `@xero/xui/react` to `@xero/xui/react-6` at the build tool level [using `resolve.alias if you use Webpack`](https://webpack.js.org/configuration/resolve/#resolvealias) because any other dependencies that depend on XUI, such as `xui-layout`, will likely import code from the non-ES6 folder as this has been the default in the past. This leads to undesirable code duplication and increases artifact bundle sizes.
+//
+// Regardless of which option you choose, we highly recommend the use of a bundle analyzer such as [webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer). If you use the preprocessed code, please check that you don't end up including multiple versions of `core-js` polyfills. If you use the ES6 source code, then please check that you don't end up including multiple versions of XUI components from other dependencies that don't use the ES6 source code in their imports.
+//
 // Full component documentation can be found in the [XUI React Docs](./react/).
+//
+// By default, XUI provides code that has been processed by Babel. This includes a dependency on `core-js` polyfills as added by `@babel/preset-env` and `@babel/polyfill` via `useBuiltIns: 'usage'`.
 //
 // Styleguide: Getting Started.Developing with XUI.2
 

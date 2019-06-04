@@ -239,6 +239,10 @@ How to run the codemod:
  ```bash
  jscodeshift -t node_modules/@xero/xui/codemod src/
  ```
+1. If you've already upgraded to the current major version and wish to run a supplemental codemod from a minor/patch
+ ```bash
+ jscodeshift -t node_modules/@xero/xui/codemod/<version> src/
+ ```
 
 **NB** with Typescript, passing the root directory name won't work, so you'll need to manually create a list of files to transform.
 

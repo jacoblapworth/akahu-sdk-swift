@@ -7,7 +7,7 @@ import compose from '../helpers/compose';
 import { inputBaseClass, inputSizeClasses, baseSizeClasses } from './private/constants';
 import { calculateMaxHeight } from './private/helpers';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
-import generateIds from '../controlwrapper/helpers';
+import generateIds, { generateIdsFromControlId } from '../controlwrapper/helpers';
 import { sizeShift } from '../helpers/sizes';
 import SizeContext from '../../contexts/SizeContext';
 
@@ -20,7 +20,14 @@ class XUITextInput extends PureComponent {
     hasFocus: false,
   };
 
-  wrapperIds = generateIds(this.props.labelId);
+  wrapperIds = this.getWrapperIds();
+
+  getWrapperIds() {
+    const { inputProps, labelId } = this.props;
+    return inputProps && inputProps.id
+      ? generateIdsFromControlId(inputProps.id)
+      : generateIds(labelId);
+  }
 
   componentDidMount() {
     const { maxRows } = this.props;

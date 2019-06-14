@@ -16,6 +16,7 @@ const variations = [
     storyTitle: 'looks like an input',
     openDrawer: false,
     isInputLabelHidden: false,
+    inputId: 'test_input_id',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -39,6 +40,9 @@ const variations = [
     openDrawer: true,
     isInputLabelHidden: false,
     hintMessage: 'This is a hint',
+    inputProps: {
+      id: 'test_input_id',
+    },
   },
   {
     storyKind: storiesWithVariationsKindName,

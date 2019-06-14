@@ -207,6 +207,8 @@ class DetailedListExample extends Component {
       isInputLabelHidden,
       inputSize,
       picklistSize,
+      inputId,
+      inputProps,
     } = example.props;
 
     const footer = (
@@ -244,6 +246,8 @@ class DetailedListExample extends Component {
         hintMessage={hintMessage}
         pills={this.renderPills(selectedPeople)}
         inputSize={inputSize}
+        inputId={inputId}
+        inputProps={inputProps}
       >
         {example.getItems()}
       </XUIAutocompleter>
@@ -393,6 +397,7 @@ class SecondarySearchExample extends React.Component {
           closeOnTab={false}
           footer={footer}
           ref={this.autocompleterRef}
+          inputId="secondary_input_id"
         >
           <Picklist>{items}</Picklist>
         </XUIAutocompleterSecondarySearch>

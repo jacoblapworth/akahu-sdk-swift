@@ -1,4 +1,4 @@
-import commonViewports from '../../../stories/helpers/viewports';
+import { commonViewports } from '../../../stories/helpers/viewports';
 import NOOP from '../../helpers/noop';
 
 const privateConsts = require('../private/constants');

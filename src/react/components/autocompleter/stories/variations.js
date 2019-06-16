@@ -1,5 +1,6 @@
 import NOOP from '../../helpers/noop';
 import { fixedWidthDropdownSizes } from '../../dropdown/private/constants';
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const storiesWithVariationsKindName = 'Instances/XUIAutocompleter';
 
@@ -10,6 +11,7 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'SecondarySearch',
     storyType: 'XUIAutocompleterSecondarySearch',
+    viewports: desktopPlus320,
   },
   {
     storyKind: storiesWithVariationsKindName,

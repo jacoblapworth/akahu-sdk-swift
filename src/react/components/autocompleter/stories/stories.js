@@ -22,7 +22,7 @@ import { sizeShift } from '../../helpers/sizes';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select, number } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import centered from '../../../../../.storybook/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName, fixedWidthDropdownSizes } from './variations';
 
@@ -385,7 +385,7 @@ class SecondarySearchExample extends React.Component {
     );
 
     return (
-      <div>
+      <div style={{ width: 'auto' }}>
         <XUIAutocompleterSecondarySearch
           trigger={trigger}
           onOptionSelect={this.onOptionSelect}
@@ -421,7 +421,7 @@ variations.forEach(variation => {
     }
 
     return (
-      <div style={{ width: '500px' }}>
+      <div style={{ maxWidth: '500px' }}>
         <DetailedListExample {...variationMinusStoryDetails} />
       </div>
     );

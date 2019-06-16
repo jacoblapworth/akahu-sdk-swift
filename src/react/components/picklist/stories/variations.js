@@ -30,6 +30,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'as Truncating items',
+    panelSize: '350px',
     lists: [
       {
         shouldTruncate: true,
@@ -47,7 +48,6 @@ const variations = [
           },
           {},
         ],
-        className: 'xui-column-5-of-12',
       },
     ],
   },
@@ -155,7 +155,7 @@ const variations = [
     storyTitle: 'with wrapping in narrow list',
     isOpen: true,
     componentType: 'StatefulPicklist',
-    className: 'xui-dropdown-small xui-dropdown-force-desktop',
+    panelSize: '200px',
     lists: [
       {
         isMultiselect: true,
@@ -168,7 +168,7 @@ const variations = [
     storyTitle: 'with truncation in narrow list',
     isOpen: true,
     componentType: 'StatefulPicklist',
-    className: 'xui-dropdown-small xui-dropdown-force-desktop',
+    panelSize: '200px',
     lists: [
       {
         isMultiselect: true,
@@ -180,7 +180,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with headings',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         items: [
@@ -195,7 +194,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with secondary copy',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         items: [
@@ -209,7 +207,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with pinned values',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         items: [
@@ -223,7 +220,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with avatars',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         items: [
@@ -237,7 +233,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with an icon',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         items: [{ value: 'Create new', leftElement: <XUIIcon icon={view} /> }],
@@ -247,7 +242,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'invalid with right media',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         items: [
@@ -277,7 +271,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'small with all the things',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         size: 'small',
@@ -312,7 +305,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'small multiselect',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         size: 'small',
@@ -343,7 +335,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'xsmall wrapping with all the things',
-    componentType: 'wrapWithPanel',
     panelSize: '300px',
     lists: [
       {
@@ -381,7 +372,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'xsmall truncating with all the things',
-    componentType: 'wrapWithPanel',
     panelSize: '300px',
     lists: [
       {
@@ -420,8 +410,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'horizontal with avatars',
-    componentType: 'wrapWithPanel',
-    panelSize: 'auto',
     lists: [
       {
         isHorizontal: true,
@@ -440,8 +428,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'small horizontal with right media',
-    componentType: 'wrapWithPanel',
-    panelSize: 'auto',
     lists: [
       {
         isHorizontal: true,
@@ -468,7 +454,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'xsmall horizontal with wrapping et al',
-    componentType: 'wrapWithPanel',
     panelSize: '275px',
     lists: [
       {
@@ -498,7 +483,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'small horizontal with truncation',
-    componentType: 'wrapWithPanel',
     panelSize: '275px',
     lists: [
       {
@@ -526,7 +510,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'multiselect with truncation',
-    componentType: 'wrapWithPanel',
     panelSize: '400px',
     lists: [
       {

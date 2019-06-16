@@ -1,5 +1,5 @@
 import React from 'react';
-import commonViewports from '../../../stories/helpers/viewports';
+import { commonViewports } from '../../../stories/helpers/viewports';
 import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';
 
 const { rowVariants } = require('../private/constants');

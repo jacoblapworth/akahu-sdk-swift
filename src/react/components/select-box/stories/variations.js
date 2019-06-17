@@ -1,3 +1,5 @@
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
+
 const storiesWithVariationsKindName = 'Instances/SelectBox';
 const listHelpers = require('../../helpers/list');
 
@@ -26,6 +28,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'is default',
+    viewports: desktopPlus320,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -83,6 +86,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with checkboxes and option variations',
+    viewports: desktopPlus320,
     buttonContent: 'Books',
     closeAfterSelection: false,
     items: buildCheckboxItems(),
@@ -121,6 +125,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'as medium size width by viewport',
+    viewports: desktopPlus320,
     fullWidth: 'small-down',
     size: 'medium',
     isOpen: false,

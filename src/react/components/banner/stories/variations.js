@@ -1,4 +1,5 @@
 import NOOP from '../../helpers/noop';
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const storiesWithVariationsKindName = 'Instances/XUIBanner';
 
@@ -45,6 +46,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with two actions with long strings',
+    viewports: desktopPlus320,
     messageText: 'With Two Actions But Really Really Long Strings',
     onCloseClick: NOOP,
     actionProps: [
@@ -80,6 +82,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with message and detail',
+    viewports: desktopPlus320,
     messageText: 'This is the main banner message',
     onCloseClick: NOOP,
     detailItems: [
@@ -116,6 +119,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'string length stress test',
+    viewports: desktopPlus320,
     messageText:
       'Long long test string to see if this will break. Long long test string to see if this will break.' +
       'Long long test string to see if this will break. Long long test string to see if this will break.' +

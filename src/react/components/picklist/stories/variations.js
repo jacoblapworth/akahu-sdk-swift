@@ -1,5 +1,6 @@
 const storiesWithVariationsKindName = 'Instances/XUIPicklist';
 import React from 'react';
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIIcon from '../../icon/XUIIcon';
 import view from '@xero/xui-icon/icons/view';
@@ -153,6 +154,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with wrapping in narrow list',
+    viewports: desktopPlus320,
     isOpen: true,
     componentType: 'StatefulPicklist',
     panelSize: '200px',
@@ -166,6 +168,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with truncation in narrow list',
+    viewports: desktopPlus320,
     isOpen: true,
     componentType: 'StatefulPicklist',
     panelSize: '200px',
@@ -410,6 +413,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'horizontal with avatars',
+    viewports: desktopPlus320,
     lists: [
       {
         isHorizontal: true,
@@ -428,6 +432,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'small horizontal with right media',
+    viewports: desktopPlus320,
     lists: [
       {
         isHorizontal: true,
@@ -454,6 +459,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'xsmall horizontal with wrapping et al',
+    viewports: desktopPlus320,
     panelSize: '275px',
     lists: [
       {
@@ -483,6 +489,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'small horizontal with truncation',
+    viewports: desktopPlus320,
     panelSize: '275px',
     lists: [
       {
@@ -510,6 +517,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'multiselect with truncation',
+    viewports: desktopPlus320,
     panelSize: '400px',
     lists: [
       {

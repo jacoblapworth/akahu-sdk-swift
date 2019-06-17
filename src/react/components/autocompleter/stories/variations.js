@@ -85,6 +85,7 @@ const variations = [
     storyTitle: 'with wrapping pills',
     selectedPeople: 6,
     placeholder: 'Placeholder text',
+    viewports: desktopPlus320,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -92,6 +93,7 @@ const variations = [
     selectedPeople: 6,
     disableWrapPills: true,
     placeholder: 'Placeholder text',
+    viewports: desktopPlus320,
   },
 ];
 

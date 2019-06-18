@@ -127,7 +127,7 @@ const checkboxToggle = {
 
 <form className="xui-form-layout">
 	<div className="xui-field-layout">
-		<XUITextInput type="url" placeholer="http://www.xero.com" label="Input" />
+		<XUITextInput type="url" placeholder="http://www.xero.com" label="Input" />
 	</div>
 	<div className="xui-field-layout">
 		<XUIToggle layout="fullwidth" label='Toggle'>

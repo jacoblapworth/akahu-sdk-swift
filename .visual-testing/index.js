@@ -1,5 +1,6 @@
 const { execSync } = require('child_process');
 const path = require('path');
+const { standardDesktopViewport } = require('../src/react/stories/helpers/viewports');
 
 const storyBookLocation = path.resolve(
 	__dirname,
@@ -84,7 +85,6 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Illustration',
 		variationsPath: `${variationsPath}/illustration/stories/variations.js`,
-		selectors: '.capture'
 	},
 	{
 		testsPrefix: 'XUI Loader',
@@ -245,13 +245,7 @@ const scenarios = buildScenarios();
 
 module.exports = {
 	id: 'backstop_default',
-	viewports: [
-		{
-			label: 'just desktop',
-			width: 1024,
-			height: 768
-		}
-	],
+  viewports: [standardDesktopViewport],
 	scenarios,
 	paths: {
 		bitmaps_reference: './.visual-testing/reference',

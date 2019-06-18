@@ -1,18 +1,26 @@
 const generateXUIShiftTemplate = require('@xero/xuishift');
 const { rootDirectory } = require('../helpers');
 const path = require('path');
-const classMapPath = path.join(rootDirectory, '.codemod', 'classReplacements.js');
-const componentTransformsPath = path.join(rootDirectory, '.codemod', 'componentTransforms.js');
-const outputPath = path.join(rootDirectory, 'dist', 'codemod', 'index.js');
+const modSources = ['codemod', 'codemod/15.1.2'];
 
 process.env.NODE_ENV = 'production';
 
 function createCodemod() {
-	generateXUIShiftTemplate({
-		classMapPath,
-		componentTransformsPath,
-		outputPath
-	});
+  modSources.forEach(source => {
+    const classMapPath = path.join(rootDirectory, `.${source}`, 'classReplacements.js');
+    const componentTransformsPath = path.join(
+      rootDirectory,
+      `.${source}`,
+      'componentTransforms.js',
+    );
+    const outputPath = path.join(rootDirectory, 'dist', `${source}`, 'index.js');
+
+    generateXUIShiftTemplate({
+      classMapPath,
+      componentTransformsPath,
+      outputPath,
+    });
+  });
 }
 
 module.exports = createCodemod;

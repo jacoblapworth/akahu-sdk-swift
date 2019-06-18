@@ -1,4 +1,4 @@
-import commonViewports from '../../../stories/helpers/viewports';
+import { commonViewports, desktopPlus320 } from '../../../stories/helpers/viewports';
 import NOOP from '../../helpers/noop';
 
 const privateConsts = require('../private/constants');
@@ -21,6 +21,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with Header and Footer',
+    viewports: desktopPlus320,
     ddSettings: {
       headerAndFooter: true,
     },
@@ -30,6 +31,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with a DatePicker',
+    viewports: desktopPlus320,
     ddSettings: {
       children: 'datepicker',
     },

@@ -21,19 +21,19 @@ exports[`<XUIControlWrapper> renders a hidden label, invalid, and an error messa
 </div>
 `;
 
-exports[`<XUIControlWrapper> renders a simple label, when provided 1`] = `
+exports[`<XUIControlWrapper> renders a simple label based on control ID, when provided 1`] = `
 <div
   className="xui-field-layout"
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
-    htmlFor="testGeneratedId-control"
+    htmlFor="controlSpecificId"
   >
     Impressive input label
   </label>
   <input
     aria-invalid={false}
-    id="testGeneratedId-control"
+    id="controlSpecificId"
     type="text"
   />
 </div>

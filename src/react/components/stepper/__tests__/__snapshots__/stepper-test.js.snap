@@ -368,6 +368,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       },
     ]
   }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
+      },
+    ]
+  }
 >
   <div
     className="xui-stepper"
@@ -643,6 +657,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
         "isError": true,
         "name": "Standard",
+      },
+    ]
+  }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
       },
     ]
   }
@@ -1265,6 +1293,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       },
     ]
   }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
+      },
+    ]
+  }
 >
   <div
     className="xui-stepper"
@@ -1539,6 +1581,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
         "isError": true,
         "name": "Standard",
+      },
+    ]
+  }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
       },
     ]
   }
@@ -3194,6 +3250,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       },
     ]
   }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
+      },
+    ]
+  }
 >
   <div
     className="xui-stepper"
@@ -3468,6 +3538,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
         "isError": true,
         "name": "Standard",
+      },
+    ]
+  }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
       },
     ]
   }
@@ -4090,6 +4174,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       },
     ]
   }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
+      },
+    ]
+  }
 >
   <div
     className="xui-stepper"
@@ -4364,6 +4462,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         "description": "The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog",
         "isError": true,
         "name": "Standard",
+      },
+    ]
+  }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
       },
     ]
   }

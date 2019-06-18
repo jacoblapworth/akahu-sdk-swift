@@ -22,7 +22,7 @@ import { sizeShift } from '../../helpers/sizes';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select, number } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import centered from '../../../../../.storybook/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName, fixedWidthDropdownSizes } from './variations';
 
@@ -207,6 +207,8 @@ class DetailedListExample extends Component {
       isInputLabelHidden,
       inputSize,
       picklistSize,
+      inputId,
+      inputProps,
     } = example.props;
 
     const footer = (
@@ -244,6 +246,8 @@ class DetailedListExample extends Component {
         hintMessage={hintMessage}
         pills={this.renderPills(selectedPeople)}
         inputSize={inputSize}
+        inputId={inputId}
+        inputProps={inputProps}
       >
         {example.getItems()}
       </XUIAutocompleter>
@@ -381,7 +385,7 @@ class SecondarySearchExample extends React.Component {
     );
 
     return (
-      <div>
+      <div style={{ width: 'auto' }}>
         <XUIAutocompleterSecondarySearch
           trigger={trigger}
           onOptionSelect={this.onOptionSelect}
@@ -393,6 +397,7 @@ class SecondarySearchExample extends React.Component {
           closeOnTab={false}
           footer={footer}
           ref={this.autocompleterRef}
+          inputId="secondary_input_id"
         >
           <Picklist>{items}</Picklist>
         </XUIAutocompleterSecondarySearch>
@@ -416,7 +421,7 @@ variations.forEach(variation => {
     }
 
     return (
-      <div style={{ width: '500px' }}>
+      <div style={{ maxWidth: '500px' }}>
         <DetailedListExample {...variationMinusStoryDetails} />
       </div>
     );

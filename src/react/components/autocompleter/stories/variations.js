@@ -1,5 +1,6 @@
 import NOOP from '../../helpers/noop';
 import { fixedWidthDropdownSizes } from '../../dropdown/private/constants';
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const storiesWithVariationsKindName = 'Instances/XUIAutocompleter';
 
@@ -10,12 +11,14 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'SecondarySearch',
     storyType: 'XUIAutocompleterSecondarySearch',
+    viewports: desktopPlus320,
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'looks like an input',
     openDrawer: false,
     isInputLabelHidden: false,
+    inputId: 'test_input_id',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -39,6 +42,9 @@ const variations = [
     openDrawer: true,
     isInputLabelHidden: false,
     hintMessage: 'This is a hint',
+    inputProps: {
+      id: 'test_input_id',
+    },
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -79,6 +85,7 @@ const variations = [
     storyTitle: 'with wrapping pills',
     selectedPeople: 6,
     placeholder: 'Placeholder text',
+    viewports: desktopPlus320,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -86,6 +93,7 @@ const variations = [
     selectedPeople: 6,
     disableWrapPills: true,
     placeholder: 'Placeholder text',
+    viewports: desktopPlus320,
   },
 ];
 

@@ -1,3 +1,5 @@
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
+
 const storyKind = 'Instances/XUIProgressIndicator';
 const baseProps = {
   id: 'myCustomProgressId',
@@ -200,12 +202,14 @@ const variations = [
     ...baseProps,
     storyKind,
     storyTitle: 'circular multiline',
+    viewports: desktopPlus320,
     progress: 3,
   },
   {
     ...baseProps,
     storyKind,
     storyTitle: 'circular multiline completion alert',
+    viewports: desktopPlus320,
     progress: 5,
     isAlertOnComplete: true,
   },

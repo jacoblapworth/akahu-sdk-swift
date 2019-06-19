@@ -1,3 +1,5 @@
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
+
 const constants = require('../constants');
 
 const sizes = Object.keys(constants.sizeClassNames);
@@ -88,21 +90,23 @@ const avatarVariations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'grouped avatars many sizes',
+    viewports: desktopPlus320,
     value: 'value',
     grouped: true,
     sizes,
-    avatarLength: 5,
-    maxAvatars: 3,
+    avatarLength: 20,
+    maxAvatars: 10,
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'grouped avatars many sizes business',
+    viewports: desktopPlus320,
     value: 'value',
     grouped: true,
     sizes,
     variant: 'business',
-    avatarLength: 5,
-    maxAvatars: 3,
+    avatarLength: 20,
+    maxAvatars: 10,
   },
   {
     storyKind: storiesWithVariationsKindName,

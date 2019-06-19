@@ -49,6 +49,14 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    messageText:
+      'The action you attempted could not be completed at this time. Please try again in a few minutes.',
+    storyTitle: 'with a long message',
+    viewports: desktopPlus320,
+    actionProps: [{ text: 'Action 1 medium' }, { text: 'Action 2 medium' }],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     message: 'Toast with two actions',
     storyTitle: 'message as prop and two actions',
     actionProps: [

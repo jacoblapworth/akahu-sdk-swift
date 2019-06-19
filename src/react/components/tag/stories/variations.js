@@ -1,3 +1,4 @@
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
 import NOOP from '../../helpers/noop';
 
 const { sizes, variants } = require('../private/constants');
@@ -18,8 +19,15 @@ const sizeVariations = Object.keys(sizes).map(size => ({
   size,
 }));
 
+const longContent = {
+  children: 'Located in another part of the world with variable time zones',
+  storyKind: storiesWithVariationsKindName,
+  storyTitle: 'with long content',
+  viewports: desktopPlus320,
+};
+
 module.exports = {
   storiesWithVariationsKindName,
-  variations: [...variantVariations, ...sizeVariations],
+  variations: [...variantVariations, ...sizeVariations, longContent],
   NOOP,
 };

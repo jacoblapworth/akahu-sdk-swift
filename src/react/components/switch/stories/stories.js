@@ -41,15 +41,17 @@ variations.forEach(variation => {
 		variationMinusStoryDetails.onChange = NOOP;
 		if (isGroup) {
 			return (
-				<XUISwitchGroup {...groupProps}>
-					<XUISwitch onChange={NOOP} isReversed isDefaultChecked>One option you might try</XUISwitch>
-					<XUISwitch onChange={NOOP} isReversed isDisabled>Another that is not an option</XUISwitch>
-					<XUISwitch onChange={NOOP} isReversed>Third option</XUISwitch>
-					<XUISwitch onChange={NOOP} isReversed isChecked>Yet another switch option</XUISwitch>
-				</XUISwitchGroup>
+				<div style={{ maxWidth: '600px' }}>
+					<XUISwitchGroup {...groupProps}>
+						<XUISwitch onChange={NOOP} isReversed isDefaultChecked>One option you might try</XUISwitch>
+						<XUISwitch onChange={NOOP} isReversed isDisabled>Another that is not an option</XUISwitch>
+						<XUISwitch onChange={NOOP} isReversed>Third option</XUISwitch>
+						<XUISwitch onChange={NOOP} isReversed isChecked>Yet another switch option, but this one is a good deal longer and may potetially wrap to a new line</XUISwitch>
+					</XUISwitchGroup>
+				</div>
 			);
 		}
 
-		return <XUISwitch {...variationMinusStoryDetails}>Sample switch label</XUISwitch>
+		return <XUISwitch {...variationMinusStoryDetails}>{variationMinusStoryDetails.labelText || `Sample switch label`}</XUISwitch>
 	});
 });

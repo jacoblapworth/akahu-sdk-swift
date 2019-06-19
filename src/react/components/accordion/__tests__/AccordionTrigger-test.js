@@ -109,10 +109,10 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
         getItemData={noop}
       />,
     );
-    const keyDownNode = component.find(`[data-automationid="${qaHook}"]`);
+    const keyPressNode = component.find(`[data-automationid="${qaHook}"]`);
     const keys = [' ', 'Enter'];
 
-    keys.forEach(key => keyDownNode.simulate('keyDown', { key }));
+    keys.forEach(key => keyPressNode.simulate('keyPress', { key }));
     expect(onClick).toHaveBeenCalledTimes(2);
   });
 

@@ -1,292 +1,329 @@
 const invert = require('@xero/xuishift/transforms/invert');
 const stringReplace = require('@xero/xuishift/transforms/stringReplace');
 
-const labelTextToLabel = {
-	name: 'labelText',
-	newName: 'label',
+module.exports = {
+  '@xero/xui/react/accordion': [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'toggleLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Toggle');
+            }
+
+            return node && node.value;
+          },
+        },
+        {
+          name: 'emptyMessage',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Nothing available to show');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
+  '@xero/xui/react/autocompleter': [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'loadingLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Loading');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+    {
+      name: 'XUIAutocompleterEmptyState',
+      props: [
+        {
+          name: 'children',
+          valueTransform: (node, j, path) => {
+            if (node !== undefined) {
+              return node.value;
+            }
+
+            if (path.value.children.length === 0) {
+              return j.literal('No results found');
+            }
+
+            return;
+          },
+        },
+      ],
+    },
+  ],
+  '@xero/xui/react/barchart': [
+    {
+      isDefault: true,
+      props: getBarChartProps(),
+    },
+    {
+      name: 'XUIBarChart',
+      props: getBarChartProps(),
+    },
+  ],
+  '@xero/xui/react/button': [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'loadingLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Loading');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
+  '@xero/xui/react/dropdown': [
+    {
+      name: 'DropDownHeader',
+      props: [
+        {
+          name: 'primaryButtonContent',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Apply');
+            }
+
+            return node && node.value;
+          },
+        },
+        {
+          name: 'secondaryButtonContent',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Cancel');
+            }
+
+            return node && node.value;
+          },
+        },
+        {
+          name: 'backButtonLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Back');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
+  '@xero/xui/react/modal': [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'closeButtonLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Close');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
+  '@xero/xui/react/picklist': [
+    {
+      name: 'NestedPicklistTrigger',
+      props: [
+        {
+          name: 'ariaLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Toggle submenu');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
+  '@xero/xui/react/loader': [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'ariaLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Loading');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
+  '@xero/xui/react/pill': [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'deleteButtonLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Delete');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
+  '@xero/xui/react/select-box': [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'caretTitle',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Toggle list');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
+  '@xero/xui/react/table': [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'loaderLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Loading more data');
+            }
+
+            return node && node.value;
+          },
+        },
+        {
+          name: 'emptyMessage',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Nothing to show here');
+            }
+
+            return node && node.value;
+          },
+        },
+        {
+          name: 'checkOneRowLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Select row');
+            }
+
+            return node && node.value;
+          },
+        },
+        {
+          name: 'checkAllRowsLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Select all rows');
+            }
+
+            return node && node.value;
+          },
+        },
+        {
+          name: 'overflowMenuTitle',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('More row options');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
 };
 
-module.exports = {
-	'@xero/xui/react/pill': [
-		{
-			isDefault: true,
-			props: [
-				{
-					name: 'isMaxContentWidth',
-					newName: 'isLimitedWidth',
-					valueTransform: invert(true),
-				}
-			]
-		}
-	],
-	'@xero/xui/react/tag': [
-		{
-			isDefault: true,
-			props: [
-				{
-					name: 'size',
-					valueTransform: stringReplace({}, 'small'),
-				}
-			]
-		}
-	],
-	'@xero/xui/react/select-box': [
-		{
-			isDefault: true,
-			props: [
-				{
-					name: 'islabelHidden',
-					newName: 'isLabelHidden'
-				},
-				labelTextToLabel,
-				{
-					name: 'fullWidth',
-					valueTransform: (node, j, path) => {
-						const buttonVariantIsSet = path.value.openingElement.attributes.some(
-							attribute =>
-								attribute.name !== null &&
-								attribute.name.name === 'buttonVariant'
-						);
+function getBarChartProps() {
+  return [
+    {
+      name: 'keyTitle',
+      valueTransform: (node, j) => {
+        if (node === undefined) {
+          return j.literal('Graph key');
+        }
 
-						if (buttonVariantIsSet) {
-							return j.literal('never');
-						}
+        return node && node.value;
+      },
+    },
+    {
+      name: 'emptyMessage',
+      valueTransform: (node, j) => {
+        if (node === undefined) {
+          return j.literal('There is no data to display');
+        }
 
-						return node && node.value;
-					}
-				}
-			]
-		}
-	],
-	'@xero/xui/react/autocompleter': [
-		{
-			isDefault: true,
-			props: [
-				{
-					name: 'inputLabelText',
-					newName: 'inputLabel'
-				},
-				{
-					name: 'searchThrottleInterval',
-					newName: 'searchDebounceTimeout'
-				},
-				{
-					name: 'dropdownSize',
-					valueTransform: stringReplace({
-						'small': 'xsmall',
-						'medium': 'small',
-						'large': 'medium',
-						'xlarge': 'large'
-					})
-				},
-			]
-		},
-		{
-			name: 'XUIAutocompleterSecondarySearch',
-			props: [
-				{
-					name: 'inputLabelText',
-					newName: 'inputLabel'
-				},
-				{
-					name: 'dropdownSize',
-					valueTransform: stringReplace({
-						'small': 'xsmall',
-						'medium': 'small',
-						'large': 'medium',
-						'xlarge': 'large'
-					})
-				},
-			]
-		}
-	],
-	'@xero/xui/react/checkbox': [
-		{
-			name: 'XUICheckboxGroup',
-			props: [labelTextToLabel],
-		}
-	],
-	'@xero/xui/react/radio': [
-		{
-			name: 'XUIRadioGroup',
-			props: [labelTextToLabel],
-		}
-	],
-	'@xero/xui/react/rollovercheckbox': [
-		{
-			isDefault: true,
-			props: [labelTextToLabel],
-		}
-	],
-	'@xero/xui/react/textinput': [
-		{
-			isDefault: true,
-			props: [labelTextToLabel, {
-				name: 'size',
-				valueTransform: stringReplace({
-					'standard': 'medium',
-				}),
-			}],
-		}
-	],
-	'@xero/xui/react/toggle': [
-		{
-			isDefault: true,
-			props: [
-				labelTextToLabel,
-				{
-					name: 'variant',
-					newName: 'size',
-				}
-			],
-		}
-	],
-	'@xero/xui/react/structural': [
-		{
-			name: 'XUIContentBlockItem',
-			props: [
-				{
-					name: 'tag',
-					newName: 'tags'
-				},
-				{
-					name: 'secondaryHeading',
-					newName: 'description'
-				},
-			]
-		}
-	],
-	'@xero/xui/react/loader': [
-		{
-			isDefault: true,
-			props: [
-				{
-					name: 'size',
-					valueTransform: stringReplace({
-						'small': 'xsmall',
-						'standard': 'small',
-						'large': 'medium',
-					}, 'small'),
-				}
-			]
-		}
-	],
-	'@xero/xui/react/button': [
-		{
-			isDefault: true,
-			props: [
-				{
-					name: 'fullWidth',
-					valueTransform: (node, j, path) => {
-						const sizeAttribute = path.value.openingElement.attributes.find(
-							attribute => attribute.name && attribute.name.name === 'size'
-						);
+        return node && node.value;
+      },
+    },
+    {
+      name: 'paginationNextTitle',
+      valueTransform: (node, j) => {
+        if (node === undefined) {
+          return j.literal('Next page');
+        }
 
-						const size = sizeAttribute && sizeAttribute.value && sizeAttribute.value.value;
+        return node && node.value;
+      },
+    },
+    {
+      name: 'paginationPreviousTitle',
+      valueTransform: (node, j) => {
+        if (node === undefined) {
+          return j.literal('Previous page');
+        }
 
-						if (size === 'full-width') {
-							return j.literal('always');
-						}
+        return node && node.value;
+      },
+    },
+    {
+      name: 'loadingLabel',
+      valueTransform: (node, j) => {
+        if (node === undefined) {
+          return j.literal('Loading');
+        }
 
-						if (size === 'full-width-mobile') {
-							return j.literal('small-down');
-						}
-
-						return node && node.value;
-					}
-				},
-				{
-					name: 'size', // If `icon` or `icon-inverted` variant, set size='small'
-					valueTransform: (node, j, path) => {
-						const sizeAttribute = path.value.openingElement.attributes.find(
-							attribute => attribute.name && attribute.name.name === 'size'
-						);
-						const variantAttribute = path.value.openingElement.attributes.find(
-							attribute => attribute.name && attribute.name.name === 'variant'
-						);
-
-						const variant = variantAttribute && variantAttribute.value && variantAttribute.value.value;
-						const size = sizeAttribute && sizeAttribute.value && sizeAttribute.value.value;
-
-						if (size === 'full-width' || size === 'full-width-mobile') {
-							return;
-						}
-
-						if (variant === 'icon' || variant === 'icon-inverted') {
-							return j.literal('small');
-						}
-						if (variant === 'icon-large' || variant === 'icon-inverted-large') {
-							return j.literal('medium');
-						}
-
-						return node && node.value;
-					},
-				},
-				{
-					name: 'variant',  // If `icon-large` or `icon-inverted-large` variant, set to non-sized variant
-					valueTransform: (node, j, path) => {
-						const variantAttribute = path.value.openingElement.attributes.find(
-							attribute => attribute.name && attribute.name.name === 'variant'
-						);
-
-						const variant = variantAttribute && variantAttribute.value && variantAttribute.value.value;
-
-						if (variant === 'icon-large') {
-							return j.literal('icon');
-						}
-						if (variant === 'icon-inverted-large') {
-							return j.literal('icon-inverted');
-						}
-
-						return node && node.value;
-					},
-				},
-			]
-		}
-	],
-	'@xero/xui/react/structural': [
-		{
-			name: 'XUIColumn',
-			props: [
-				{
-					name: 'gridColumnsMedium',
-					newName: 'gridColumnsSmallUp'
-				},
-				{
-					name: 'gridColumnsWide',
-					newName: 'gridColumnsLargeUp'
-				},
-			],
-		}
-	],
-	'@xero/xui/react/dropdown': [
-		{
-			isDefault: true,
-			props: [
-				{
-					name: 'size',
-					valueTransform: stringReplace({
-						'small': 'xsmall',
-						'medium': 'small',
-						'large': 'medium',
-						'xlarge': 'large'
-					})
-				}
-			]
-		},
-		{
-			name: 'NestedDropDown',
-			props: [
-				{
-					name: 'size',
-					valueTransform: stringReplace({
-						'small': 'xsmall',
-						'medium': 'small',
-						'large': 'medium',
-						'xlarge': 'large'
-					})
-				}
-			]
-		}
-	]
+        return node && node.value;
+      },
+    },
+  ];
 }

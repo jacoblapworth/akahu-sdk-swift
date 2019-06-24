@@ -8,8 +8,17 @@ import { baseClass } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 
 /**
- * Wrapper component for contents of a dropdown header. Certain elements (back button, title, etc)
- * are added and controlled via props, but children nodes are also allowed for extra customization.
+ * Wrapper component for contents of a dropdown header. You can add primary,
+ * secondary, and/or back buttons by providing the appropriate callback and
+ * button content:
+ *
+ * | Button | Callback | Content/label |
+ * |-|-|-|
+ * | Primary button | `onPrimaryButtonClick` | `primaryButtonContent` |
+ * | Secondary button | `onSecondaryButtonClick` | `secondaryButtonContent` |
+ * | Back button | `onBackButtonClick` | `backButtonLabel` |
+ *
+ * Child nodes are also allowed for extra customisation.
  *
  * @export
  * @class DropDownHeader
@@ -150,10 +159,12 @@ DropDownHeader.propTypes = {
   /** If present, is used in the header */
   title: PropTypes.node,
 
-  /** Callback for when the primary button is clicked */
+  /** Callback for when the primary button is clicked (button will not be
+   * rendered if this is not provided) */
   onPrimaryButtonClick: PropTypes.func,
 
-  /** Callback for when the secondary button is clicked */
+  /** Callback for when the secondary button is clicked (button will not be
+   * rendered if this is not provided) */
   onSecondaryButtonClick: PropTypes.func,
 
   /** Content to render within the primary button */
@@ -165,14 +176,18 @@ DropDownHeader.propTypes = {
   /** Whether the primary button is disabled */
   isPrimaryButtonDisabled: PropTypes.bool,
 
-  /** Whether the primary button is disabled */
+  /** Whether the secondary button is disabled */
   isSecondaryButtonDisabled: PropTypes.bool,
 
-  /** Callback for when the back button is pressed (back button will not be rendered
+  /** Callback for when the back button is pressed (button will not be rendered
    * if this is not provided) */
   onBackButtonClick: PropTypes.func,
 
-  /** Specify an alternate label attribute for the back button, defaults to 'Back'. */
+  /**
+   * `aria-label` attribute for the back button
+   * <br />
+   * Recommended English value: *Back*
+   */
   backButtonLabel: PropTypes.string,
 
   /** Whether the header should only be shown at mobile sizes. */
@@ -188,8 +203,5 @@ DropDownHeader.propTypes = {
 };
 
 DropDownHeader.defaultProps = {
-  primaryButtonContent: 'Apply',
-  secondaryButtonContent: 'Cancel',
-  backButtonLabel: 'Back',
   onlyShowForMobile: false,
 };

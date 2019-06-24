@@ -94,14 +94,22 @@ XUIAccordion.propTypes = {
    * `<XUIAccordionItem />` component back. */
   createItem: PropTypes.func,
 
-  /** Accessibility label representing the `<XUIAccordionItem />` toggle functionality. */
-  toggleLabel: PropTypes.string,
-
-  /** Customise the default "empty" message. */
-  emptyMessage: PropTypes.node,
+  /**
+   * Accessibility label representing the `<XUIAccordionItem />` toggle functionality.
+   * <br />
+   * Recommended English value: *Toggle*
+   */
+  toggleLabel: PropTypes.string.isRequired,
 
   /** Customise the default "empty" icon path data. */
   emptyIcon: PropTypes.object,
+
+  /**
+   * The message to show if the accordion is empty.
+   * <br />
+   * Recommended English value: *Nothing available to show*
+   */
+  emptyMessage: PropTypes.node,
 
   /** Override the default "empty" component. */
   emptyStateComponent: PropTypes.element,
@@ -110,7 +118,5 @@ XUIAccordion.propTypes = {
 XUIAccordion.defaultProps = {
   idKey: 'id',
   items: [],
-  toggleLabel: 'Toggle',
-  emptyMessage: 'Nothing available to show',
   emptyIcon: listIcon,
 };

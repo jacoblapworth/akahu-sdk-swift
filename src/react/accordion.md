@@ -8,10 +8,11 @@ The _Accordion_ is broken up into two key components `import XUIAccordion, { XUI
 
 ## Basic
 
-The bare minimum _Accordion_ composition can be achieved with the `items` and `createItem` prop.
+The bare minimum _Accordion_ composition can be achieved with the `items`, `createItem`, and `toggleLabel` props.
 
 - `items` represents the generic data structure of each _Accordion_ item.
 - `createItem` returns a `<XUIAccordionItem />` that represents a single _item_ from the `items` prop.
+- `toggleLabel` is an accessibility label for the accordion trigger.
 
 **Note:** Each item needs a unique `id`. By default an object _key_ named `id` is looked up in each item however you can specify a new key if there is a more relevant unique identifier using the prop `idKey`.
 
@@ -37,7 +38,11 @@ class Demo extends React.Component {
 
   createItem({ name, content }) {
     return (
-      <XUIAccordionItem primaryHeading={name} onItemClick={this.handleItemClick}>
+      <XUIAccordionItem
+        primaryHeading={name}
+        onItemClick={this.handleItemClick}
+        toggleLabel="Toggle"
+      >
         {content && (
           <div className="xui-padding-horizontal-large xui-padding-vertical-4xlarge">{content}</div>
         )}
@@ -46,7 +51,14 @@ class Demo extends React.Component {
   }
 
   render() {
-    return <XUIAccordion items={items} createItem={this.createItem} />;
+    return (
+      <XUIAccordion
+        items={items}
+        createItem={this.createItem}
+        toggleLabel="Toggle"
+        emptyMessage="Nothing available to show"
+      />
+    );
   }
 }
 
@@ -99,7 +111,14 @@ class Demo extends React.Component {
   }
 
   render() {
-    return <XUIAccordion items={items} createItem={this.createItem} />;
+    return (
+      <XUIAccordion
+        items={items}
+        createItem={this.createItem}
+        toggleLabel="Toggle"
+        emptyMessage="Nothing available to show"
+      />
+    );
   }
 }
 
@@ -110,7 +129,11 @@ class Demo extends React.Component {
 
 If no `children` content is supplied to a `<XUIAccordionItem />` then the _empty state_ component will be rendered instead.
 
-There is a default design that can be overridden or completely replaced (`emptyMessage`, `emptyIcon`, `emptyStateComponent`).
+An `emptyMessage` should be supplied to `<XUIAccordionItem />` to be used when there are no `children` to render.
+
+The default icon for the empty state can be overridden with the `emptyIcon` prop.
+
+You can also replace the entire empty state component by providing your own `emptyStateComponent`.
 
 ```jsx harmony
 import starIcon from '@xero/xui-icon/icons/star';
@@ -124,6 +147,8 @@ const createItem = ({ heading }) => <XUIAccordionItem primaryHeading={heading} /
     className="xui-margin-bottom-large"
     items={[{ id: 1, heading: 'Default empty state' }]}
     createItem={createItem}
+    toggleLabel="Toggle"
+    emptyMessage="Nothing available to show"
   />
   <XUIAccordion
     className="xui-margin-bottom-large"
@@ -131,6 +156,7 @@ const createItem = ({ heading }) => <XUIAccordionItem primaryHeading={heading} /
     emptyMessage="Custom empty state message"
     items={[{ id: 1, heading: 'Custom empty state' }]}
     createItem={createItem}
+    toggleLabel="Toggle"
   />
   <XUIAccordion
     emptyStateComponent={
@@ -143,13 +169,14 @@ const createItem = ({ heading }) => <XUIAccordionItem primaryHeading={heading} /
     }
     items={[{ id: 1, heading: 'Replace empty state' }]}
     createItem={createItem}
+    toggleLabel="Toggle"
   />
 </div>;
 ```
 
 ## Example
 
-You can nest other XUI component inside the `<XUIAccordionItem />` _(such as `<XUIContentBlock />`)_ to create robust compositions.
+You can nest other XUI components inside the `<XUIAccordionItem />` _(such as `<XUIContentBlock />`)_ to create robust compositions.
 
 ```jsx harmony
 import overflowIcon from '@xero/xui-icon/icons/overflow';
@@ -232,7 +259,15 @@ class Demo extends React.Component {
   }
 
   render() {
-    return <XUIAccordion idKey="name" items={items} createItem={this.createItem} />;
+    return (
+      <XUIAccordion
+        idKey="name"
+        items={items}
+        createItem={this.createItem}
+        toggleLabel="Toggle"
+        emptyMessage="Nothing available to show"
+      />
+    );
   }
 }
 

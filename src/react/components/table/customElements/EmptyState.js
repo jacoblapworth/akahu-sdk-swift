@@ -19,7 +19,7 @@ export default class EmptyState extends PureComponent {
 }
 
 EmptyState.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   defaultLayout: PropTypes.bool,
   className: PropTypes.string,
 };

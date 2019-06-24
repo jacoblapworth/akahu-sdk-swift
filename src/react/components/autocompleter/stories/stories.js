@@ -38,6 +38,7 @@ class PillWrapper extends PureComponent {
         value={peopleDataSet[id].name}
         className="xui-autocompleter--pill"
         onDeleteClick={this.deleteSelf}
+        deleteButtonLabel="Delete"
         key={id}
       />
     );
@@ -244,6 +245,7 @@ class DetailedListExample extends Component {
         hintMessage={hintMessage}
         pills={this.renderPills(selectedPeople)}
         inputSize={inputSize}
+        loadingLabel="Loading"
       >
         {example.getItems()}
       </XUIAutocompleter>
@@ -365,7 +367,11 @@ class SecondarySearchExample extends React.Component {
     );
 
     const items =
-      data.length > 0 ? createItems(data, this.state.selectedItem) : <XUIAutocompleterEmptyState />;
+      data.length > 0 ? (
+        createItems(data, this.state.selectedItem)
+      ) : (
+        <XUIAutocompleterEmptyState>No results found</XUIAutocompleterEmptyState>
+      );
 
     const footer = (
       <DropDownFooter

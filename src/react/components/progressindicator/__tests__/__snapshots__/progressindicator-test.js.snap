@@ -939,6 +939,20 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
   isAlertOnComplete={true}
   progress={5}
   total={5}
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
+      },
+    ]
+  }
 >
   <ProgressWrapper
     ariaMax={5}
@@ -951,6 +965,20 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     progress={5}
     toolTipMessage="5 of 5"
     total={5}
+    viewports={
+      Array [
+        Object {
+          "height": 768,
+          "label": "just desktop",
+          "width": 1024,
+        },
+        Object {
+          "height": 500,
+          "label": "smaller than xsmall breakpoint",
+          "width": 320,
+        },
+      ]
+    }
   >
     <div
       aria-valuemax={5}
@@ -1072,6 +1100,20 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
   id="myCustomProgressId"
   progress={3}
   total={5}
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
+      },
+    ]
+  }
 >
   <ProgressWrapper
     ariaMax={5}
@@ -1082,6 +1124,20 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     progress={3}
     toolTipMessage="3 of 5"
     total={5}
+    viewports={
+      Array [
+        Object {
+          "height": 768,
+          "label": "just desktop",
+          "width": 1024,
+        },
+        Object {
+          "height": 500,
+          "label": "smaller than xsmall breakpoint",
+          "width": 320,
+        },
+      ]
+    }
   >
     <div
       aria-valuemax={5}

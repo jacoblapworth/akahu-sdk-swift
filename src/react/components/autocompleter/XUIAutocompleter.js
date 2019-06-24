@@ -10,6 +10,7 @@ import DropDownToggled from '../dropdown/DropDownToggled';
 import XUITextInput from '../textInput/XUITextInput';
 import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
+import { eventKeyValues } from '../helpers/reactKeyHandler';
 
 /**
  * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and
@@ -150,7 +151,7 @@ export default class XUIAutocompleter extends PureComponent {
     }
 
     if (
-      event.key === 'Backspace' &&
+      event.key === eventKeyValues.backspace &&
       this.inputNode.value === '' &&
       onBackspacePill &&
       pills &&

@@ -1,3 +1,5 @@
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
+
 const { sizeClasses } = require('../private/constants');
 
 const storiesWithVariationsKindName = 'Instances/XUIIllustration';
@@ -25,6 +27,7 @@ const variations = [
 const sizeVariations = Object.keys(sizeClasses).map(size => ({
   storyKind: storiesWithVariationsKindName,
   storyTitle: `${size} illustration`,
+  viewports: desktopPlus320,
   size,
 }));
 

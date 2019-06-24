@@ -6,6 +6,7 @@ import { ns } from '../../helpers/xuiClassNamespace';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
 import preventDefault from '../../helpers/preventDefault';
+import { isKeyClick } from '../../helpers/reactKeyHandler';
 
 export default class AccordionTrigger extends PureComponent {
   handleTriggerInteraction = event => {
@@ -22,12 +23,8 @@ export default class AccordionTrigger extends PureComponent {
     }
   };
 
-  onKeyDown = event => {
-    const spaceBar = 32;
-    const enterKey = 13;
-    const { keyCode } = event;
-
-    if (keyCode === spaceBar || keyCode === enterKey) {
+  onKeyPress = event => {
+    if (isKeyClick(event)) {
       this.handleTriggerInteraction(event);
       event.preventDefault(); // prevent spacebar scroll.
     }
@@ -63,7 +60,7 @@ export default class AccordionTrigger extends PureComponent {
       <div
         className={`${ns}-accordiontrigger--rightcontent`}
         onClick={preventDefault}
-        onKeyDown={preventDefault}
+        onKeyPress={preventDefault}
         role="presentation"
       >
         {pinnedValueScaffold}
@@ -76,7 +73,7 @@ export default class AccordionTrigger extends PureComponent {
       <div
         data-automationid={qaHook}
         onClick={this.handleTriggerInteraction}
-        onKeyDown={this.onKeyDown}
+        onKeyPress={this.onKeyPress}
         tabIndex="0"
         role="button"
         aria-label={toggleLabel}

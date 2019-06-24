@@ -21,7 +21,7 @@ import XUIAccordion, { XUIAccordionItem } from './accordion';
 const items = [
   { id: 1, name: 'John Smith', content: 'Accountant' },
   { id: 2, name: 'Barry Allen', content: 'Bookkeeper' },
-  { id: 3, name: 'Ernest Hemmingway' },
+  { id: 3, name: 'Ernest Hemmingway' }
 ];
 
 class Demo extends React.Component {
@@ -69,7 +69,7 @@ const itemStyle = {
   background: 'lightgray',
   border: '1px solid darkgray',
   padding: '4px',
-  outline: '1px solid gray',
+  outline: '1px solid gray'
 };
 
 class Demo extends React.Component {
@@ -159,25 +159,19 @@ import XUIAccordion, { XUIAccordionItem } from './accordion';
 import XUIAvatar from './avatar';
 import XUIButton from './button';
 import XUIIcon from './icon';
+import { isKeyClick } from './helpers/reactKeyHandler';
 
 const items = [
   {
     name: 'John Smith',
     contacts: [
       { contact: 'Peggy Olsen', minutes: '00:20' },
-      { contact: 'Pete Campbell', minutes: '15:30' },
-    ],
-  },
+      { contact: 'Pete Campbell', minutes: '15:30' }
+    ]
+  }
 ];
 const makeInteraction = (event, callback) => {
-  const { type, keyCode } = event;
-  const isClick = type === 'click';
-  const spaceBar = 32;
-  const enterKey = 13;
-  const isKeyboard = keyCode === spaceBar || keyCode === enterKey;
-  const isInteraction = isClick || isKeyboard;
-
-  if (isInteraction) {
+  if (event.type === 'click' || isKeyClick(event)) {
     callback();
   }
 };

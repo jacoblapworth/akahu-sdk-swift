@@ -490,6 +490,7 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
 .#{$ns}-progress-circular {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   height: auto;
   justify-content: center;
   width: $xui-progress-circular-min-width;

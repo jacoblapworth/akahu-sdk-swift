@@ -118,6 +118,15 @@ Utility classes with breakpoint suffixes have been updated to reflect the new br
   - `width-standard` XUI 14 size was 940px, this is now 1000px
   - `width-large` XUI 14 size was 1160px, this is now 1200px.
 
+Underlying font sizes for heading utility classes have been updated. To maintain your current sizes...
+
+| Please update				| To            			|
+| ------------------- | ------------------	|
+| xui-heading-xsmall	| xui-heading-small 	|
+| xui-heading-small 	| xui-heading-medium  |
+| xui-heading-medium	| xui-heading-large		|
+| xui-heading-large		| xui-heading-xlarge	|
+
 ---
 
 ### Component classes

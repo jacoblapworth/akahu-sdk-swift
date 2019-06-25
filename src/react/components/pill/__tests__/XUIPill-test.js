@@ -44,7 +44,7 @@ describe('<XUIPill />', () => {
 	});
 
 	it('will render avatars when passed as an avatar prop', () => {
-		const imageUrl = "https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg";
+		const imageUrl = "https://xui.xero.com/static/xpert-avatar.png";
 		const avatarProps = {
 			imageUrl,
 			size: 'small',
@@ -68,7 +68,7 @@ describe('<XUIPill />', () => {
 	});
 
 	it('expect an error if both avatar and avatarProps are provided', () => {
-		const imageUrl = "https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg";
+		const imageUrl = "https://xui.xero.com/static/xpert-avatar.png";
 		const avatar = <XUIAvatar value="value pill" size="small" />
 		const avatarProps = {
 			imageUrl,
@@ -153,7 +153,7 @@ describe('<XUIPill />', () => {
 
 	it('should render an error icon when invalid even with an avatar', () => {
 
-		const imageUrl = "https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg";
+		const imageUrl = "https://xui.xero.com/static/xpert-avatar.png";
 		const avatarProps = {
 			imageUrl,
 			size: 'small',

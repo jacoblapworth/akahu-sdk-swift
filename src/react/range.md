@@ -29,7 +29,7 @@ import XUIIcon from './icon';
 import XUIRange from './range';
 
 <XUIRange
-	leftElement={<XUIAvatar className="xui-margin-small" imageUrl={"https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"}/>}
+	leftElement={<XUIAvatar className="xui-margin-small" imageUrl={"https://xui.xero.com/static/xpert-avatar.png"}/>}
 	rightElement={<XUIIcon className="xui-margin-small" icon={plus} />}
   label="Avatars & SVGs Range Label"
 />

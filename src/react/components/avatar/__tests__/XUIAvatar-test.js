@@ -36,7 +36,7 @@ describe('XUIAvatar', () => {
 
 	it('should render an `img` avatar when I give it an image', () => {
 
-		const test = <XUIAvatar imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"/>;
+		const test = <XUIAvatar imageUrl="https://xui.xero.com/static/xpert-avatar.png"/>;
 
 		const snap = renderer.create(test);
 		expect(snap).toMatchSnapshot();
@@ -56,7 +56,7 @@ describe('XUIAvatar', () => {
 			<XUIAvatar
 				value="Test"
 				onError={performTestsAfterError}
-				imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/25.jpg"/>
+				imageUrl="https://xui.xero.com/static/broken-path.jpg"/>
 		);
 
 	})
@@ -86,7 +86,7 @@ describe('XUIAvatar', () => {
 				<XUIAvatar
 					value="Test"
 					onError={onErrorHandler}
-					imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/25.jpg"/>
+					imageUrl="https://xui.xero.com/static/broken-path.jpg"/>
 			);
 
 			mountedComponent.find('img').simulate('error');
@@ -102,7 +102,7 @@ describe('XUIAvatar', () => {
 				<XUIAvatar
 					value="Test"
 					onError={onErrorHandler}
-					imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/25.jpg"/>
+					imageUrl="https://xui.xero.com/static/broken-path.jpg"/>
 			);
 
 			mountedComponent.instance().onError(testString);

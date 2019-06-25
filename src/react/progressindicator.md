@@ -262,7 +262,7 @@ import { XUIProgressCircular } from './progressindicator';
 
 <div style={{ width: '100px' }}>
 	<XUIProgressCircular id="central-content-circular1" total={5} progress={3} isGrow>
-		<img style={{ width: '100%', height: 'auto' }} alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" />
+		<img style={{ width: '100%', height: 'auto' }} alt="" src="https://xui.xero.com/static/xpert-avatar.png" />
 	</XUIProgressCircular>
 </div>
 ```

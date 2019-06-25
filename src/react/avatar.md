@@ -47,7 +47,7 @@ import XUIAvatar from './avatar';
 
 <XUIAvatar
 	value="Xero"
-	imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" />
+	imageUrl="https://xui.xero.com/static/xpert-avatar.png" />
 ```
 
 If the image supplied to `XUIAvatar` fails to load, the default avatar will be displayed as a fallback. If you need to handle other behaviour, you can also provide an `onError` handler.

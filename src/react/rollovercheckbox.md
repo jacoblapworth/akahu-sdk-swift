@@ -26,7 +26,7 @@ import XUIRolloverCheckbox from './rollovercheckbox';
 	label='Rollover checkbox'
 	isCheckboxHidden
 	checkboxSize='xsmall'
-	rolloverComponent={<img className="xui-margin" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg" role="presentation" />}
+	rolloverComponent={<img style={{ width: '24px', height: '24px' }} className="xui-margin" src="https://xui.xero.com/static/xpert-avatar.png" role="presentation" />}
 />
 ```
 
@@ -39,6 +39,6 @@ import XUIRolloverCheckbox from './rollovercheckbox';
 	label='Rollover checkbox'
 	isCheckboxHidden
 	isDisabled
-	rolloverComponent={<img src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg" role="presentation"/>}
+	rolloverComponent={<img style={{ width: '24px', height: 'auto' }}src="https://xui.xero.com/static/xpert-avatar.png" role="presentation"/>}
 />
 ```

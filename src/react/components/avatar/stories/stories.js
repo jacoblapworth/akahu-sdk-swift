@@ -33,7 +33,7 @@ storiesWithKnobs.add('Playground', () => {
 	props.imageUrl = props.image
 		? text(
 				'Image URL',
-				'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg',
+				'https://xui.xero.com/static/xpert-avatar.png',
 			)
 		: undefined;
 	const size = select('Size', Object.keys(sizeClassNames), 'medium');
@@ -135,7 +135,7 @@ variations.forEach(variation => {
 			return (
 				<XUIAvatarGroup maxAvatars={maxAvatars}>{avatars}</XUIAvatarGroup>
 			);
-			
+
 		}
 
 		if (sizes) {

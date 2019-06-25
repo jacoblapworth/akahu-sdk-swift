@@ -27,13 +27,13 @@ const avatarVariations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with image',
-    imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg',
+    imageUrl: 'https://xui.xero.com/static/xpert-avatar.png',
     value: 'value',
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with broken image, no id',
-    imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenaresnnnn/24.jpg',
+    imageUrl: 'https://xui.xero.com/static/broken-path.jpg',
     value: 'value',
   },
   {

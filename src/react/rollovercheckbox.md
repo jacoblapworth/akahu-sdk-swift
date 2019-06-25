@@ -11,10 +11,10 @@ import XUIRolloverCheckbox from './rollovercheckbox';
 import XUIAvatar from './avatar';
 
 <XUIRolloverCheckbox
-	label='Rollover checkbox'
-	isCheckboxHidden
-	rolloverComponent={<XUIAvatar value="Donald Duck" />}
-/>
+  label="Rollover checkbox"
+  isCheckboxHidden
+  rolloverComponent={<XUIAvatar value="Donald Duck" />}
+/>;
 ```
 
 ### Image with xsmall checkbox and extra margins
@@ -23,11 +23,18 @@ import XUIAvatar from './avatar';
 import XUIRolloverCheckbox from './rollovercheckbox';
 
 <XUIRolloverCheckbox
-	label='Rollover checkbox'
-	isCheckboxHidden
-	checkboxSize='xsmall'
-	rolloverComponent={<img style={{ width: '24px', height: '24px' }} className="xui-margin" src="https://xui.xero.com/static/xpert-avatar.png" role="presentation" />}
-/>
+  label="Rollover checkbox"
+  isCheckboxHidden
+  checkboxSize="xsmall"
+  rolloverComponent={
+    <img
+      style={{ width: '24px', height: '24px' }}
+      className="xui-margin"
+      src="https://xui.xero.com/static/xpert-avatar.png"
+      role="presentation"
+    />
+  }
+/>;
 ```
 
 ### Disabled
@@ -36,9 +43,15 @@ import XUIRolloverCheckbox from './rollovercheckbox';
 import XUIRolloverCheckbox from './rollovercheckbox';
 
 <XUIRolloverCheckbox
-	label='Rollover checkbox'
-	isCheckboxHidden
-	isDisabled
-	rolloverComponent={<img style={{ width: '24px', height: 'auto' }}src="https://xui.xero.com/static/xpert-avatar.png" role="presentation"/>}
-/>
+  label="Rollover checkbox"
+  isCheckboxHidden
+  isDisabled
+  rolloverComponent={
+    <img
+      style={{ width: '24px', height: 'auto' }}
+      src="https://xui.xero.com/static/xpert-avatar.png"
+      role="presentation"
+    />
+  }
+/>;
 ```

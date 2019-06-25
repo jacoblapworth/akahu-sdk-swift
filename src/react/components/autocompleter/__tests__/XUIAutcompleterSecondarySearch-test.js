@@ -8,6 +8,7 @@ import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import Pill from '../../pill/XUIPill';
 import uuidv4 from 'uuid/v4';
+import { eventKeyValues } from '../../helpers/reactKeyHandler';
 
 jest.mock('uuid/v4');
 uuidv4.mockImplementation(() => 'testDropdownId');
@@ -29,6 +30,13 @@ const createComponent = props => (
 )
 
 describe('<XUIAutoCompleterSecondarySearch />', () => {
+	let wrapper
+	afterEach(()=>{
+		if (wrapper) {
+			wrapper.unmount()
+		}
+	})
+	
 	it('should render an automation id when a qahook is passed', () => {
 		const automationid = renderer.create(createComponent({ qaHook: 'secondary-search' }));
 
@@ -54,14 +62,14 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 	});
 
 	it('displays a XUILoader when loading is true', () => {
-		const wrapper = mount(createComponent({loading: true}));
+		wrapper = mount(createComponent({loading: true}));
 
 		expect(wrapper.find(XUILoader)).toBeDefined();
 		expect(wrapper.prop('loading')).toBeTruthy();
 	});
 
 	it('renders with loading as false by default', () => {
-		const wrapper = mount(createComponent());
+		wrapper = mount(createComponent());
 		expect(wrapper.prop('loading')).toBeFalsy();
 	});
 
@@ -90,14 +98,14 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 	});
 
 	it('renders pills as children passed in through the pills prop', () => {
-		const wrapper = mount(createComponent({ pills: <Pill value="ABC" /> }));
+		wrapper = mount(createComponent({ pills: <Pill value="ABC" /> }));
 
 		expect(wrapper.find(Pill)).toBeDefined();
 	});
 
 	it('should call the onOpen callback when the dropdown is opened', () => {
 		const onOpen = jest.fn();
-		const wrapper = mount(createComponent({ onOpen: onOpen, searchValue: 'on open', onSearch: onOpen }));
+		wrapper = mount(createComponent({ onOpen: onOpen, searchValue: 'on open', onSearch: onOpen }));
 
 		wrapper.instance().openDropDown();
 
@@ -128,5 +136,13 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 		const dropdownToggledComp = searchComp.find('DropDownToggled');
 
 		expect(dropdownToggledComp.prop('isBlock')).toBeTruthy();
+	});
+
+	it('should open the dropdown when space is pressed', () => {
+		wrapper = mount(createComponent({ onSearch: () => {} }));
+		const trigger = wrapper.find('button');
+		trigger.simulate('keyDown', { key: eventKeyValues.space, keyCode: 32, which: 32 });
+  
+		expect(wrapper.instance().ddt.state.isHidden).toBeFalsy();
 	});
 });

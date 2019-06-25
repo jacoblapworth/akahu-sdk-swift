@@ -102,6 +102,13 @@ describe('<DropDownToggled />', () => {
 
       expect(wrapper.instance().isDropDownOpen()).toBeTruthy();
     });
+
+    it('opens the list when space is pressed from the trigger', () => {
+      const trigger = wrapper.find('.xui-button');
+      trigger.simulate('keyDown', { key: eventKeyValues.space, keyCode: 32, which: 32 });
+
+      expect(wrapper.state('isHidden')).toBeFalsy();
+    });
   });
 
   describe('dropdown rendered open', () => {

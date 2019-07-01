@@ -116,9 +116,7 @@
 		box-shadow: 0 1px 0 0 $xui-dropdown-divider-shadow-color;
 		display: flex;
 		justify-content: space-between;
-		min-height: $xui-navigation-height;
-		padding-left: $xui-s-xsmall;
-		padding-right: $xui-s-xsmall;
+		padding:  $xui-s-small;
 		width: 100%;
 
 		.#{$ns}-textinputwrapper {

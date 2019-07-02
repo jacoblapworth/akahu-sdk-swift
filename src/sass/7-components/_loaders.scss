@@ -413,6 +413,9 @@
 }
 
 .#{$ns}-loader-layout {
+	// IE11 doesn’t respect `min-height` if an element doesn’t have an explicit height
+	// https://github.com/philipwalton/flexbugs/issues/231
+	height: 0;
 	min-height: 140px;
 	padding: $xui-s-large;
 }

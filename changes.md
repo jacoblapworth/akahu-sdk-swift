@@ -120,12 +120,12 @@ Utility classes with breakpoint suffixes have been updated to reflect the new br
 
 Underlying font sizes for heading utility classes have been updated. To maintain your current sizes...
 
-| Please update				| To            			|
-| ------------------- | ------------------	|
-| xui-heading-xsmall	| xui-heading-small 	|
-| xui-heading-small 	| xui-heading-medium  |
-| xui-heading-medium	| xui-heading-large		|
-| xui-heading-large		| xui-heading-xlarge	|
+| Please update      | To                 |
+| ------------------ | ------------------ |
+| xui-heading-xsmall | xui-heading-small  |
+| xui-heading-small  | xui-heading-medium |
+| xui-heading-medium | xui-heading-large  |
+| xui-heading-large  | xui-heading-xlarge |
 
 ---
 
@@ -142,6 +142,7 @@ Underlying font sizes for heading utility classes have been updated. To maintain
 ## Additions
 
 ### Components
+
 - Added `XUIIllustration` to support the [the new illustrations repo](https://github.dev.xero.com/UXE/illustrations).
 
 ### Component props

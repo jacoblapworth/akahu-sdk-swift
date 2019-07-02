@@ -255,7 +255,9 @@ class Positioning extends PureComponent {
         const spaceBelowTrigger = calcSpaceBelow(triggerRect);
         const availableSpace =
           Math.max(spaceAboveTrigger, spaceBelowTrigger) - viewportGutter - triggerDropdownGap;
-        const calculatedHeight = Math.round(maxHeight ? Math.min(availableSpace, maxHeight) : availableSpace);
+        const calculatedHeight = Math.round(
+          maxHeight ? Math.min(availableSpace, maxHeight) : availableSpace,
+        );
 
         this.setState({
           maxHeight: calculatedHeight,

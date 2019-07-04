@@ -1,3 +1,5 @@
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
+
 const storiesWithVariationsKindName = 'Instances/XUITextInput';
 
 const sideElements = [
@@ -216,6 +218,49 @@ const multilineStories = [
     },
   },
 ];
+const responsiveStories = [
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with flexible width',
+    viewports: desktopPlus320,
+    label: 'Flexible width',
+    customDecorator: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'flex-width input with both side elements',
+    viewports: desktopPlus320,
+    rightElementType: 'text',
+    leftElementType: 'button',
+    customDecorator: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'flex-width mutliline input with both side elements',
+    viewports: desktopPlus320,
+    isMultiline: true,
+    rightElementType: 'pill',
+    leftElementType: 'iconWithBackground',
+    customDecorator: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'flex-width input with both side elements (long)',
+    viewports: desktopPlus320,
+    leftElementType: 'longText',
+    rightElementType: 'longButton',
+    customDecorator: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'flex-width mutliline input with both side elements (long)',
+    viewports: desktopPlus320,
+    isMultiline: true,
+    leftElementType: 'longText',
+    rightElementType: 'longButton',
+    customDecorator: true,
+  },
+];
 
 module.exports = {
   storiesWithVariationsKindName,
@@ -225,5 +270,6 @@ module.exports = {
     ...sideElementVariantStories,
     ...bothSideElementsWithSizes,
     ...multilineStories,
+    ...responsiveStories,
   ],
 };

@@ -211,6 +211,30 @@ const variations = [
       },
     ],
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with long strings',
+    viewports: desktopPlus320,
+    label: 'Toggle with long options strings',
+    hintMessage: 'You must pick at least one to proceed',
+    layout: 'fullwidth',
+    options: [
+      {
+        isDefaultChecked: true,
+        name: 'tg11',
+        value: 'One very appealing option',
+      },
+      {
+        name: 'tg11',
+        value: 'Another almost equally appealing option',
+      },
+      {
+        isDisabled: true,
+        name: 'tg11',
+        value: 'Yet a third option that is strangely alluring',
+      },
+    ],
+  },
 ];
 
 module.exports = {

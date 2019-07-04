@@ -24,7 +24,7 @@ import XUIIllustration from './illustration';
 
 <XUIIllustration
   size="medium"
-  src="https://edge.xero-uat.com/illustration/scene/concierge-envelope-01/concierge-envelope-01.svg"
+  src="https://edge.xero.com/illustration/scene/concierges-envelope-01/concierges-envelope-01.svg"
 />;
 ```
 
@@ -40,6 +40,6 @@ import XUIIllustration from './illustration';
 <XUIIllustration
   height={200}
   padding={20}
-  src="https://edge.xero-uat.com/illustration/scene/concierge-envelope-01/concierge-envelope-01.svg"
+  src="https://edge.xero.com/illustration/scene/concierges-envelope-01/concierges-envelope-01.svg"
 />;
 ```

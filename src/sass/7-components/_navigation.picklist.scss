@@ -241,9 +241,9 @@
 //     <li class="xui-pickitem xui-pickitem-medium">
 //       <button class="xui-pickitem--body">
 //         <span class="xui-pickitem--sideelement">
-//           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">AW</abbr>
+//           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">FC</abbr>
 //         </span>
-//         <span class="xui-pickitem--text">Alena Woo</span>
+//         <span class="xui-pickitem--text">Finn Clark</span>
 //         <span class="xui-pickitem--sideelement">
 //           <svg focusable="false" class="xui-icon">
 //             <use xlink:href="#xui-icon-external" role="presentation"></use>
@@ -282,9 +282,9 @@
 //     <li class="xui-pickitem xui-pickitem-small">
 //       <button class="xui-pickitem--body">
 //         <span class="xui-pickitem--sideelement">
-//           <abbr class="xui-avatar xui-avatar-xsmall xui-avatar-color-1" role="presentation">AW</abbr>
+//           <abbr class="xui-avatar xui-avatar-xsmall xui-avatar-color-1" role="presentation">FC</abbr>
 //         </span>
-//         <span class="xui-pickitem--text">Alena Woo</span>
+//         <span class="xui-pickitem--text">Finn Clark</span>
 //         <span class="xui-pickitem--sideelement">
 //           <svg focusable="false" class="xui-icon">
 //             <use xlink:href="#xui-icon-external" role="presentation"></use>
@@ -1210,11 +1210,11 @@
 // 				</li>
 // 				<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" role="option">
 // 					<div class="xui-pickitem--body">
-// 						<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="maxine">
-// 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" id="maxine">
+// 						<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="grzegorz">
+// 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" id="grzegorz">
 // 							<div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input"></div>
 // 							<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text">
-// 								<span>Maxine Ellah</span>
+// 								<span>Grzegorz Pawłowski-Chudziński</span>
 // 							</span>
 // 						</label>
 // 					</div>
@@ -1356,7 +1356,7 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
 }
 
 .#{$ns}-picklist-horizontal {
-  display: inline-flex;
+  display: flex;
   max-width: 100%;
   min-height: inherit; // IE11 bug fix
 }
@@ -1394,6 +1394,8 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
   color: inherit;
   cursor: pointer;
   font-family: $xui-font-family;
+  margin-bottom: 0; // Removes some default margins from Safari
+  margin-top: 0; // Removes some default margins from Safari
   outline: none;
   padding: 0px; // Removes default browser button padding
   text-align: left;
@@ -1665,11 +1667,6 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
   &:not(.#{$ns}-pickitem-text-truncated) .#{$ns}-pickitem--body {
     display: block;
   }
-  .#{$ns}-pickitem--body::after {
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-  }
   &.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) {
     // This selector shouldn't need to be so strong.
     .#{$ns}-pickitem--body:before {
@@ -1824,9 +1821,6 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
   .#{$ns}-pickitem--text:nth-last-child(n + 2) {
     padding-right: $xui-s-xsmall;
   }
-  .#{$ns}-pickitem--body::after {
-    min-height: $xui-line-height-standard;
-  }
 }
 .#{$ns}-pickitem-small.#{$ns}-pickitem-is-horizontal {
   .#{$ns}-pickitem--body {
@@ -1845,9 +1839,6 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
   .#{$ns}-pickitem--text:nth-last-child(n + 2) {
     padding-right: $pickitem-small-padding;
   }
-  .#{$ns}-pickitem--body::after {
-    min-height: $xui-line-height-small;
-  }
 }
 .#{$ns}-pickitem-xsmall.#{$ns}-pickitem-is-horizontal {
   .#{$ns}-pickitem--body {
@@ -1865,9 +1856,6 @@ $pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small va
   }
   .#{$ns}-pickitem--text:nth-last-child(n + 2) {
     padding-right: $xui-s-2xsmall;
-  }
-  .#{$ns}-pickitem--body::after {
-    min-height: $xui-line-height-xsmall;
   }
 }
 

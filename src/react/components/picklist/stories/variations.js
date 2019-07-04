@@ -228,7 +228,7 @@ const variations = [
         items: [
           { value: 'James Magness', leftElement: <XUIAvatar value="James Magness" size="small" /> },
           { value: 'Tim Redmond', leftElement: <XUIAvatar value="Tim Redmond" size="small" /> },
-          { value: 'Maxine Ellah', leftElement: <XUIAvatar value="Maxine Ellah" size="small" /> },
+          { value: 'Vicky Min', leftElement: <XUIAvatar value="Vicky Min" size="small" /> },
         ],
       },
     ],
@@ -295,8 +295,8 @@ const variations = [
           { isDivider: true },
           { isHeader: true, children: 'Recent' },
           {
-            value: 'Maxine Ellah',
-            leftElement: <XUIAvatar value="Maxine Ellah" size="xsmall" />,
+            value: 'Grzegorz Pawłowski-Chudziński',
+            leftElement: <XUIAvatar value="Grzegorz Pawłowski-Chudziński" size="xsmall" />,
             rightElement: <XUIIcon icon={iconsList[2]} />,
             secondaryElement: 'Developer',
             pinnedElement: '42',
@@ -326,7 +326,7 @@ const variations = [
           },
           {
             value:
-              'Maxine Ellah The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
+              'Alex Lapwood The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
             secondaryElement: 'Developer',
             pinnedElement: '42',
             isSelected: true,
@@ -362,8 +362,8 @@ const variations = [
             pinnedElement: '3',
           },
           {
-            value: 'Maxine Ellah',
-            leftElement: <XUIAvatar value="Maxine Ellah" size="2xsmall" />,
+            value: 'Nick Piesco',
+            leftElement: <XUIAvatar value="Nick Piesco" size="2xsmall" />,
             rightElement: <XUIIcon icon={iconsList[2]} />,
             secondaryElement: 'Developer',
             pinnedElement: '42',
@@ -400,8 +400,8 @@ const variations = [
             pinnedElement: '3',
           },
           {
-            value: 'Maxine Ellah',
-            leftElement: <XUIAvatar value="Maxine Ellah" size="2xsmall" />,
+            value: 'Vicky Min',
+            leftElement: <XUIAvatar value="Vicky Min" size="2xsmall" />,
             rightElement: <XUIIcon icon={iconsList[2]} />,
             secondaryElement: 'Developer',
             pinnedElement: '42',
@@ -424,7 +424,10 @@ const variations = [
             isSelected: true,
           },
           { value: 'Tim Redmond', leftElement: <XUIAvatar value="Tim Redmond" size="small" /> },
-          { value: 'Maxine Ellah', leftElement: <XUIAvatar value="Maxine Ellah" size="small" /> },
+          {
+            value: 'Grzegorz Pawłowski-Chudziński',
+            leftElement: <XUIAvatar value="Grzegorz Pawłowski-Chudziński" size="small" />,
+          },
         ],
       },
     ],
@@ -478,7 +481,7 @@ const variations = [
             leftElement: <XUIIcon icon={iconsList[2]} />,
           },
           {
-            value: 'Maxine Ellah',
+            value: 'Alex Lapwood',
             pinnedElement: '42',
             leftElement: <XUIIcon icon={iconsList[3]} />,
           },
@@ -507,7 +510,7 @@ const variations = [
             leftElement: <XUIIcon icon={iconsList[2]} />,
           },
           {
-            value: 'Maxine Ellah',
+            value: 'Finn Clark',
             leftElement: <XUIIcon icon={iconsList[3]} />,
           },
         ],
@@ -542,9 +545,9 @@ const variations = [
             pinnedElement: '3',
           },
           {
-            value: 'Maxine Ellah',
+            value: 'Zac Sanderson-Harris',
             rightElement: <XUIIcon icon={iconsList[2]} />,
-            secondaryElement: 'Developer',
+            secondaryElement: 'Designer',
             pinnedElement: '42',
           },
         ],

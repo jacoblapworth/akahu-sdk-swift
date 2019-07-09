@@ -242,11 +242,8 @@ class DropDownPanel extends PureComponent {
 		} = this.props;
 
 		let maxHeight = style && style.maxHeight;
-		let overflowY;
 		if (checkIsNarrowViewport()) {
 			maxHeight = header == null ? '80vh' : '100vh';
-		} else {
-			overflowY = 'auto';
 		}
 
 		const shouldAddStatefulPicklist = forceStatefulPicklist || this.containsPicklist();
@@ -270,7 +267,6 @@ class DropDownPanel extends PureComponent {
 					className={cn(`${baseClass}--body`, bodyClassName)}
 					style={{
 						maxHeight,
-						overflowY,
 					}}
 					role="presentation"
 				>

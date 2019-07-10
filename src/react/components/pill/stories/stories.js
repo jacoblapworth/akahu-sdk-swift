@@ -31,6 +31,7 @@ storiesWithKnobs.add('Playground', () => (
 		className={text('className', '')}
 		avatarProps={object('avatarProps', avatarProps)}
 		size={select('Size', Object.keys(sizeClasses), 'medium')}
+		isLimitedWidth={boolean('isLimitedWidth', false)}
 	/>
 ));
 

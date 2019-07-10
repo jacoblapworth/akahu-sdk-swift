@@ -1,5 +1,5 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Tooltip
 //
@@ -112,179 +112,176 @@
 //
 // Styleguide: Building Blocks.Alerts.Tooltip.3
 
-
-
 .#{$ns}-tooltip {
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
 
-	cursor: pointer;
-	display: inline-block;
-	overflow: hidden;
+  &.#{$ns}-tooltip-with-pill {
+    display: inline-flex;
+  }
 
-	&.#{$ns}-tooltip-with-pill {
-		display: inline-flex;
-	}
+  &.#{$ns}-tooltip-tipopen,
+  &.#{$ns}-tooltip-tipanimating,
+  &.#{$ns}-has-focused-trigger {
+    overflow: visible;
+    display: inline-block;
+  }
+  &.#{$ns}-has-inline-trigger {
+    vertical-align: bottom;
 
-	&.#{$ns}-tooltip-tipopen,
-	&.#{$ns}-tooltip-tipanimating,
-	&.#{$ns}-has-focused-trigger {
-		overflow: visible;
-		display: inline-block;
-	}
-	&.#{$ns}-has-inline-trigger {
-		vertical-align: bottom;
+    & > *:first-child {
+      display: flex;
+    }
+  }
 
-		& > *:first-child {
-			display: flex;
-		}
-	}
-
-	&-is-block {
-		display: block;
-	}
+  &-is-block {
+    display: block;
+  }
 }
 
 .#{$ns}-positioningInline {
-	align-content: center;
-	display: flex;
-	height: 0;
-	justify-content: center;
-	position: relative;
-	width: 100%;
+  align-content: center;
+  display: flex;
+  height: 0;
+  justify-content: center;
+  position: relative;
+  width: 100%;
 }
 
 .#{$ns}-tooltip--tip {
-	@include xui-text-small;
-	background-color: $xui-tooltip-bg-color;
-	border-radius: $xui-radius;
-	bottom: 0;
-	box-shadow: 0 0 0 1px $xui-tooltip-outline-shadow-color, 0 3px 6px 0 $xui-tooltip-shadow-color;
-	color: $xui-tooltip-color;
-	cursor: auto;
-	display: block;
-	line-height: $xui-line-height;
-	opacity: 0;
-	overflow-wrap: break-word;
-	padding: $xui-s-2xsmall $xui-s-xsmall;
-	pointer-events: none;
-	position: absolute;
-	right: 0;
-	text-align: center;
-	transition: opacity $xui-motion-speed-fast linear;
-	width: max-content;
-	width: intrinsic; // Safari's non-standard implementation of max-content.
-	z-index: 3;
-	> * {
-		box-sizing: border-box;
-	}
+  @include xui-text-small;
+  background-color: $xui-tooltip-bg-color;
+  border-radius: $xui-radius;
+  bottom: 0;
+  box-shadow: 0 0 0 1px $xui-tooltip-outline-shadow-color, 0 3px 6px 0 $xui-tooltip-shadow-color;
+  color: $xui-tooltip-color;
+  cursor: auto;
+  display: block;
+  line-height: $xui-line-height;
+  opacity: 0;
+  overflow-wrap: break-word;
+  padding: $xui-s-2xsmall $xui-s-xsmall;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  transition: opacity $xui-motion-speed-fast linear;
+  width: max-content;
+  width: intrinsic; // Safari's non-standard implementation of max-content.
+  z-index: 3;
+  > * {
+    box-sizing: border-box;
+  }
 
-	&.#{$ns}-tooltip--tip-open {
-		opacity: 1;
-		pointer-events: auto;
-	}
-	&.#{$ns}-tooltip--tip-animating {
-		pointer-events: auto;
-	}
+  &.#{$ns}-tooltip--tip-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  &.#{$ns}-tooltip--tip-animating {
+    pointer-events: auto;
+  }
 
-	&:after {
-		background: $xui-tooltip-bg-color;
-		box-shadow: 1px 1px 0 0 $xui-tooltip-shadow-color;
-		content: '';
-		height: 10px;
-		position: absolute;
-		transform: translateX(-50%) translateY(-50%) rotate(45deg);
-		transform-origin: center;
-		width: 10px;
-		z-index: -1;
-	}
+  &:after {
+    background: $xui-tooltip-bg-color;
+    box-shadow: 1px 1px 0 0 $xui-tooltip-shadow-color;
+    content: '';
+    height: 10px;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform-origin: center;
+    width: 10px;
+    z-index: -1;
+  }
 }
 
 // Vertically placed popups
 .#{$ns}-positioningInline--content-topleft,
 .#{$ns}-positioningInline--content-topcenter,
 .#{$ns}-positioningInline--content-topright {
-	bottom: 100%;
-	&:after {
-		bottom: -10px;
-	}
+  bottom: 100%;
+  &:after {
+    bottom: -10px;
+  }
 }
 .#{$ns}-positioningInline--content-bottomleft,
 .#{$ns}-positioningInline--content-bottomcenter,
 .#{$ns}-positioningInline--content-bottomright {
-	bottom: auto;
-	top: 100%;
-	&:after {
-		box-shadow: -1px -1px 0 0 $xui-tooltip-shadow-color;
-		top: 0px;
-	}
+  bottom: auto;
+  top: 100%;
+  &:after {
+    box-shadow: -1px -1px 0 0 $xui-tooltip-shadow-color;
+    top: 0px;
+  }
 }
 .#{$ns}-positioningInline--content-topleft,
 .#{$ns}-positioningInline--content-bottomleft {
-	left: 0;
-	right: auto;
-	&:after {
-		left: 15px;
-	}
+  left: 0;
+  right: auto;
+  &:after {
+    left: 15px;
+  }
 }
 .#{$ns}-positioningInline--content-topcenter,
 .#{$ns}-positioningInline--content-bottomcenter {
-	left: 50%; // See notes below.
-	right: auto;
-	transform: translateX(-50%); // See notes below.
-	&:after {
-		left: 50%;
-	}
+  left: 50%; // See notes below.
+  right: auto;
+  transform: translateX(-50%); // See notes below.
+  &:after {
+    left: 50%;
+  }
 }
 .#{$ns}-positioningInline--content-topright,
 .#{$ns}-positioningInline--content-bottomright {
-	right: 0px;
-	&:after {
-		right: 5px;
-	}
+  right: 0px;
+  &:after {
+    right: 5px;
+  }
 }
 
 // Horizontally placed tooltips
 .#{$ns}-positioningInline--content-righttop,
 .#{$ns}-positioningInline--content-rightcenter,
 .#{$ns}-positioningInline--content-rightbottom {
-	left: calc(100% + 10px);
-	right: auto;
-	&:after {
-		box-shadow: -1px 1px 0 0 $xui-tooltip-shadow-color;
-		left: 0px;
-	}
+  left: calc(100% + 10px);
+  right: auto;
+  &:after {
+    box-shadow: -1px 1px 0 0 $xui-tooltip-shadow-color;
+    left: 0px;
+  }
 }
 .#{$ns}-positioningInline--content-lefttop,
 .#{$ns}-positioningInline--content-leftcenter,
 .#{$ns}-positioningInline--content-leftbottom {
-	right: calc(100% + 10px);
-	&:after {
-		box-shadow: 1px -1px 0 0 $xui-tooltip-shadow-color;
-		right: -10px;
-	}
+  right: calc(100% + 10px);
+  &:after {
+    box-shadow: 1px -1px 0 0 $xui-tooltip-shadow-color;
+    right: -10px;
+  }
 }
 .#{$ns}-positioningInline--content-righttop,
 .#{$ns}-positioningInline--content-lefttop {
-	bottom: auto;
-	top: 0;
-	&:after {
-		top: 15px;
-	}
+  bottom: auto;
+  top: 0;
+  &:after {
+    top: 15px;
+  }
 }
 .#{$ns}-positioningInline--content-rightcenter,
 .#{$ns}-positioningInline--content-leftcenter {
-	bottom: auto;
-	top: 50%; // See notes below.
-	transform: translateY(-50%); // See notes below.
-	&:after {
-		top: 50%;
-	}
+  bottom: auto;
+  top: 50%; // See notes below.
+  transform: translateY(-50%); // See notes below.
+  &:after {
+    top: 50%;
+  }
 }
 .#{$ns}-positioningInline--content-rightbottom,
 .#{$ns}-positioningInline--content-leftbottom {
-	bottom: -100%;
-	&:after {
-		bottom: 5px;
-	}
+  bottom: -100%;
+  &:after {
+    bottom: 5px;
+  }
 }
 
 // NB: These are largely for IE, but appear harmless in Chrome, at least for now. No text blurriness observed,

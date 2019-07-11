@@ -471,6 +471,7 @@
 //
 // Styleguide: Compounds.Navigation.Stepper.3.4
 
+$stepper-tab-max-width: 300px;
 
 @mixin xui-stepper-link-color($color) {
 	color: $color;
@@ -512,7 +513,7 @@
 }
 
 .#{$ns}-stepper-tab {
-	max-width: 300px;
+	max-width: $stepper-tab-max-width;
 	position: relative;
 
 	&:before,
@@ -692,13 +693,15 @@
 .#{$ns}-stepper-stacked,
 .#{$ns}-stepper-sidebar {
 	.#{$ns}-stepper-tab {
-		max-width: 320px;
+		// Add child `.xui-stepper-link` padding of 10px
+		max-width: $stepper-tab-max-width + 20px;
 	}
 }
 
 .#{$ns}-stepper-link-wrapper {
 	align-items: center;
 	display: flex;
+	max-width: $stepper-tab-max-width;
 	padding-right: $xui-s-standard;
 	text-align: left;
 }

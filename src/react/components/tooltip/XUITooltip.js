@@ -129,7 +129,7 @@ export default class XUITooltip extends PureComponent {
       triggerOnClick,
       triggerOnHover,
       isBlock,
-      withPill,
+      useInlineFlex,
     } = this.props;
     const { isHidden, isAnimating } = this.state;
     const ignoreFocus = !this.state.isFocused || !triggerOnFocus;
@@ -143,7 +143,7 @@ export default class XUITooltip extends PureComponent {
       !isHidden && `${baseClass}-tipopen`,
       isAnimating && `${baseClass}-tipanimating`,
       isBlock && `${baseClass}-is-block`,
-      withPill && `${baseClass}-with-pill`,
+      useInlineFlex && `${baseClass}-inline-flex`,
     );
 
     const tipClasses = cn(
@@ -264,8 +264,8 @@ XUITooltip.propTypes = {
   /** Force the wrapping element to be a div, instead of a span */
   isBlock: PropTypes.bool,
 
-  /**  */
-  withPill: PropTypes.bool,
+  /** When tooltip is hidden, use display inline-flex instead of inline-block. */
+  useInlineFlex: PropTypes.bool,
 
   /**
    * Preferred side of the trigger and alignment in relation to the trigger for showing the tip.

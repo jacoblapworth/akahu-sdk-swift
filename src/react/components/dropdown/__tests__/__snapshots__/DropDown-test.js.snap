@@ -32,7 +32,6 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
       style={
         Object {
           "maxHeight": "80vh",
-          "overflowY": undefined,
         }
       }
     >
@@ -114,7 +113,6 @@ exports[`forceStatefulPicklist prop renders qaHooks on inner components when sta
       style={
         Object {
           "maxHeight": "80vh",
-          "overflowY": undefined,
         }
       }
     >

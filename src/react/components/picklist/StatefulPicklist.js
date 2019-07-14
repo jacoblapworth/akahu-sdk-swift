@@ -291,7 +291,7 @@ class StatefulPicklist extends Component {
               getInstanceForChild(spl.idCache, container).toggle();
             }
           } else {
-            spl.selectHighlighted(el);
+            spl.selectHighlighted(spl.findItemById(el.props.id));
           }
         }
       } else if (isKeyArrow(event)) {

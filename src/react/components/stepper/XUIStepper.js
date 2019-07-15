@@ -43,7 +43,7 @@ const createTabs = (
         style={{ order: index }}
         data-automationid={qaHook && `${qaHook}-tab-${index}`}
       >
-        <StepperTab isTruncated={isTruncated} {...enrichedProps} />
+        <StepperTab index={index} isTruncated={isTruncated} qaHook={qaHook} {...enrichedProps} />
       </div>
     );
   });
@@ -122,7 +122,7 @@ class XUIStepper extends Component {
     // instances with the same `id` value (which will blow up the page). The
     // progress indicator does not augment the space taken up by the tab (we fall
     // back to the icon layout that uses the same size) so it will not effect the math.
-    const hiddenTabs = createTabs(tabProps, { isProgress: false });
+    const hiddenTabs = createTabs(tabProps, { isHidden: true, isProgress: false });
 
     return (
       <div className={NAME_SPACE} ref={node => (this.rootNode = node)} data-automationid={qaHook}>

@@ -4,7 +4,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
 <div
   aria-label="Toggle"
   className="xui-accordiontrigger"
-  data-automationid="test-qahook"
+  data-automationid="test-id"
   onClick={[Function]}
   onKeyPress={[Function]}
   role="button"

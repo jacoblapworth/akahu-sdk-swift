@@ -10,16 +10,15 @@ import { isKeyClick } from '../../helpers/reactKeyHandler';
 
 export default class AccordionTrigger extends PureComponent {
   handleTriggerInteraction = event => {
-    const { updateOpenId, onItemClick, getItemData, itemIndex, itemId, isOpen } = this.props;
+    const { updateOpenAccordionItem, onItemClick, onItemClickArgs, isOpen } = this.props;
 
     if (event.defaultPrevented) {
       return;
     }
 
-    updateOpenId(itemId);
+    updateOpenAccordionItem();
     if (onItemClick) {
-      const itemData = getItemData(itemIndex);
-      onItemClick({ ...itemData, isOpen: !isOpen });
+      onItemClick({ ...onItemClickArgs, isOpen: !isOpen });
     }
   };
 
@@ -107,8 +106,8 @@ AccordionTrigger.propTypes = {
   custom: PropTypes.node,
   onItemClick: PropTypes.func,
   toggleLabel: PropTypes.string.isRequired,
-  updateOpenId: PropTypes.func.isRequired,
-  getItemData: PropTypes.func.isRequired,
+  updateOpenAccordionItem: PropTypes.func.isRequired,
+  onItemClickArgs: PropTypes.object,
   isOpen: PropTypes.bool,
   leftContent: PropTypes.node,
   primaryHeading: PropTypes.node,
@@ -116,6 +115,4 @@ AccordionTrigger.propTypes = {
   pinnedValue: PropTypes.node,
   action: PropTypes.node,
   overflow: PropTypes.node,
-  itemIndex: PropTypes.number,
-  itemId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };

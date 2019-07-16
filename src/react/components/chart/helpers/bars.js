@@ -189,7 +189,7 @@ const enrichParams = (state, props, chartTheme) => {
     paginationLabel,
     paginationNextTitle,
     paginationPreviousTitle,
-    avatarImageUrl,
+    avatarImageUrlData,
   } = props;
 
   const {
@@ -285,7 +285,7 @@ const enrichParams = (state, props, chartTheme) => {
     qaHook,
 
     // Array of objects with id and path to an image to be used as avatar label. Id has to correspond tothe id used in dataset.
-    avatarImageUrl,
+    avatarImageUrlData,
 
     // Chart...
     chartId,

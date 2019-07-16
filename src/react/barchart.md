@@ -187,7 +187,7 @@ class Demo extends React.Component {
             chartDescription="The x-axis avatar label variant"
             chartHeight={200}
             xAxisType="avatar"
-            avatarImageUrl={[
+            avatarImageUrlData={[
               { id: 0, url: 'https://xui.xero.com/static/xpert-avatar.png' },
               { id: 1, url: 'https://placekitten.com/100/100' },
               { id: 2, url: 'https://placekitten.com/200/200' }

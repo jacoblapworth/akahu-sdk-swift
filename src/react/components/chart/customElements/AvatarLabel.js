@@ -112,7 +112,7 @@ class AvatarLabel extends PureComponent {
       labelWidth,
       labelTop,
       labelHeight,
-      avatarImageUrl,
+      avatarImageUrlData,
       barsData,
       // Victory...
       index: labelIndex,
@@ -144,9 +144,9 @@ class AvatarLabel extends PureComponent {
 
     let avatarUrl;
 
-    if (avatarImageUrl) {
-      const avatarImageObject = avatarImageUrl.find(
-        avatarUrlData => avatarUrlData.id === barsData[labelIndex].id,
+    if (avatarImageUrlData) {
+      const avatarImageObject = avatarImageUrlData.find(
+        avatarItemUrlData => avatarItemUrlData.id === barsData[labelIndex].id,
       );
 
       if (avatarImageObject) {
@@ -176,7 +176,7 @@ class AvatarLabel extends PureComponent {
           <text x={avatarTextLeft} y={avatarTextTop} textAnchor="middle">
             <tspan style={avatarStyle}>{avatarText}</tspan>
           </text>
-          {avatarImageUrl && avatarUrl && (
+          {avatarImageUrlData && avatarUrl && (
             <image
               transform={`translate(-${AVATAR_RADIUS},-${AVATAR_RADIUS})`}
               x={avatarCircleLeft}
@@ -215,6 +215,6 @@ AvatarLabel.propTypes = {
   labelTop: PropTypes.number,
   index: PropTypes.number,
   text: PropTypes.string,
-  avatarImageUrl: PropTypes.array,
+  avatarImageUrlData: PropTypes.array,
   barsData: PropTypes.array,
 };

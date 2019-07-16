@@ -245,7 +245,7 @@ const variations = [
         chartHeight: 200,
         barsData: [{ id: 0, x: 'Apple', y: 1 }],
         xAxisType: 'avatar',
-        avatarImageUrl: [{ id: 0, url: 'https://xui.xero.com/static/xpert-avatar.png' }],
+        avatarImageUrlData: [{ id: 0, url: 'https://xui.xero.com/static/xpert-avatar.png' }],
         testStyles: { flexGrow: 'initial', width: '110px' },
       },
       {
@@ -255,7 +255,7 @@ const variations = [
         chartHeight: 200,
         barsData: [{ id: 0, x: 'Apple', y: 1 }],
         xAxisType: 'avatar',
-        avatarImageUrl: [{ id: 0, url: 'https://placekitten.com/100/100' }],
+        avatarImageUrlData: [{ id: 0, url: 'https://placekitten.com/100/100' }],
         testStyles: { flexGrow: 'initial', width: '130px' },
       },
       {
@@ -265,7 +265,7 @@ const variations = [
         chartHeight: 200,
         barsData: [{ id: 0, x: 'Apple', y: 1 }],
         xAxisType: 'avatar',
-        avatarImageUrl: [{ id: 0, url: 'https://placekitten.com/200/200' }],
+        avatarImageUrlData: [{ id: 0, url: 'https://placekitten.com/200/200' }],
         testStyles: { flexGrow: 'initial', width: '160px' },
       },
       {
@@ -275,7 +275,7 @@ const variations = [
         chartHeight: 200,
         barsData: [{ id: 0, x: 'Apple', y: 1 }],
         xAxisType: 'avatar',
-        avatarImageUrl: [{ id: 0, url: 'https://placekitten.com/300/300' }],
+        avatarImageUrlData: [{ id: 0, url: 'https://placekitten.com/300/300' }],
       },
     ],
   },

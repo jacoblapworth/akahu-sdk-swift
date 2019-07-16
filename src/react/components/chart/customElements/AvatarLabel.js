@@ -178,13 +178,14 @@ class AvatarLabel extends PureComponent {
           </text>
           {avatarImageUrlData && avatarUrl && (
             <image
-              transform={`translate(${avatarCircleLeft - AVATAR_RADIUS},${avatarCircleTop - AVATAR_RADIUS})`}
+              transform={`translate(${avatarCircleLeft - AVATAR_RADIUS},${avatarCircleTop -
+                AVATAR_RADIUS})`}
               x={0}
               y={0}
               width={AVATAR_RADIUS * 2}
               height={AVATAR_RADIUS * 2}
               href={avatarUrl}
-              clipPath='circle()'
+              clipPath="circle()"
             />
           )}
           {tagText && (

@@ -107,7 +107,10 @@ XUIBarChart.propTypes = {
   xAxisType: PropTypes.oneOf(['abbreviation', 'avatar', 'standard']),
 
   /** The maximum numbers of bars to distribute in the x-axis */
-  xAxisVisibleItems: PropTypes.number,
+	xAxisVisibleItems: PropTypes.number,
+
+  /** Path to an image to be used with avatar label. */
+  avatarImageUrl: PropTypes.string,
 
   /** The maximum number to place at the top of the y-axis */
   yAxisDefaultTopValue: PropTypes.number,

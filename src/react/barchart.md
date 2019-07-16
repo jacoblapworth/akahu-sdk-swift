@@ -175,6 +175,21 @@ class Demo extends React.Component {
 				</div>
 				<div style={wrapperStyles}>
 					<XUIBarChart
+							chartId="chartAvatarLabel"
+							chartTitle="Avatar Label"
+							chartDescription="The x-axis avatar label variant"
+							chartHeight={200}
+							xAxisType="avatar"
+							avatarImageUrl={[{ id: 0, url:'https://xui.xero.com/static/xpert-avatar.png' }, { id: 1, url:'https://placekitten.com/100/100' }, { id: 2, url:'https://placekitten.com/200/200' }]}
+							barsData={[
+								{ id: 0, x: "Layla Abernathy", y: 1 },
+								{ id: 1, x: "Heloise Stanton", y: 2 },
+								{ id: 2, x: "Rollin McCullough", y: 3 },
+							]}
+						/>
+				</div>
+				<div style={wrapperStyles}>
+					<XUIBarChart
 						chartId="chartAbbreviationLabel"
 						chartTitle="Abbreviation Label"
 						chartDescription="The x-axis abbreviation label variant"

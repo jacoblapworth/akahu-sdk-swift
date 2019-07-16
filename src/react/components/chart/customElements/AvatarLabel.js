@@ -113,6 +113,7 @@ class AvatarLabel extends PureComponent {
       labelTop,
       labelHeight,
       avatarImageUrl,
+      barsData,
       // Victory...
       index: labelIndex,
       text: textRaw,
@@ -141,6 +142,16 @@ class AvatarLabel extends PureComponent {
       toolTipOffset,
     } = getResponsiveOptions(responsiveOptions, { labelWidth, labelIndex, textRaw });
 
+		let avatarUrl;
+
+    if (avatarImageUrl) {
+			const avatarImageObject = avatarImageUrl.find(avatarUrlData => avatarUrlData.id === barsData[labelIndex].id);
+
+			if(avatarImageObject) {
+				avatarUrl = avatarImageObject.url;
+			}
+    }
+
     return (
       <XAxisLabelWrapper
         shouldCalculateCenter={shouldCalculateCenter}
@@ -163,14 +174,14 @@ class AvatarLabel extends PureComponent {
           <text x={avatarTextLeft} y={avatarTextTop} textAnchor="middle">
             <tspan style={avatarStyle}>{avatarText}</tspan>
           </text>
-          {avatarImageUrl && (
+          {avatarImageUrl && avatarUrl && (
             <image
               transform={`translate(-${AVATAR_RADIUS},-${AVATAR_RADIUS})`}
               x={avatarCircleLeft}
               y={avatarCircleTop}
               width={AVATAR_RADIUS * 2}
               height={AVATAR_RADIUS * 2}
-              href={avatarImageUrl}
+              href={avatarUrl}
               clipPath={`circle(50% at 50% 50%)`}
             />
           )}
@@ -202,5 +213,6 @@ AvatarLabel.propTypes = {
   labelTop: PropTypes.number,
   index: PropTypes.number,
   text: PropTypes.string,
-  avatarImageUrl: PropTypes.string,
+  avatarImageUrl: PropTypes.array,
+  barsData: PropTypes.array,
 };

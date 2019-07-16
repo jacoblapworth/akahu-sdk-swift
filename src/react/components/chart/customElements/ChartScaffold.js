@@ -492,6 +492,7 @@ class ChartScaffold extends PureComponent {
                         isToolTipHidden={isXAxisToolTipHidden}
                         updateToolTip={this.updateToolTip}
                         avatarImageUrl={avatarImageUrl}
+                        barsData={barsData}
                       />
                     }
                   />
@@ -577,5 +578,5 @@ ChartScaffold.propTypes = {
   paginationNextTitle: PropTypes.string,
   paginationPreviousTitle: PropTypes.string,
   createPaginationMessage: PropTypes.func,
-  avatarImageUrl: PropTypes.string,
+  avatarImageUrl: PropTypes.array,
 };

@@ -20,112 +20,114 @@ A **bar** or **bar stack** can be targeted with an **active** state using the `a
 
 **Tip:** You can target a bars entire set of stacks by passing in `true` rather than targeting each individual stack.
 
-
 ```jsx harmony
 import 'array.prototype.find';
 import { XUIBarChart } from './barchart';
 
 const data = [
-	{ id: 0, x: "Apple", y: 1 },
-	{ id: 1, x: "Potato", y: 2 },
-	{ id: 2, x: "Carrot", y: 3 },
+  { id: 0, x: 'Apple', y: 1 },
+  { id: 1, x: 'Potato', y: 2 },
+  { id: 2, x: 'Carrot', y: 3 }
 ];
 class Demo extends React.Component {
-	constructor(...args) {
-		super(...args);
-		this.handleBarClick = this.handleBarClick.bind(this);
-		this.state = { activeBars: {} };
-	}
-	handleBarClick(event, {id}) {
-		const { activeBars } = this.state
-		const activeState = activeBars[id] || false;
-		this.setState({ activeBars: {
-			...activeBars,
-			[id]: !activeState
-		} });
-	}
-	render() {
-		return (
-			<XUIBarChart
-				chartId="chartPlainBar"
-				chartTitle="Plain Bar Implementation"
-				chartDescription="An implementation showing props that are specific to plain bars"
-				chartHeight={300}
-				barsData={data}
-				onBarClick={this.handleBarClick}
-				activeBars={this.state.activeBars}
-				createBarToolTipMessage={({y}) => `${y} Item${Math.sqrt(y * y) === 1 ? '' : 's'}`}
-				keyLabel="Healthy food"
-				barColor="#FF6496"
-				barColorActive="rgba(0,0,0,0.5)"
-			/>
-		);
-	}
+  constructor(...args) {
+    super(...args);
+    this.handleBarClick = this.handleBarClick.bind(this);
+    this.state = { activeBars: {} };
+  }
+  handleBarClick(event, { id }) {
+    const { activeBars } = this.state;
+    const activeState = activeBars[id] || false;
+    this.setState({
+      activeBars: {
+        ...activeBars,
+        [id]: !activeState
+      }
+    });
+  }
+  render() {
+    return (
+      <XUIBarChart
+        chartId="chartPlainBar"
+        chartTitle="Plain Bar Implementation"
+        chartDescription="An implementation showing props that are specific to plain bars"
+        chartHeight={300}
+        barsData={data}
+        onBarClick={this.handleBarClick}
+        activeBars={this.state.activeBars}
+        createBarToolTipMessage={({ y }) => `${y} Item${Math.sqrt(y * y) === 1 ? '' : 's'}`}
+        keyLabel="Healthy food"
+        barColor="#FF6496"
+        barColorActive="rgba(0,0,0,0.5)"
+      />
+    );
+  }
 }
-<Demo />
+<Demo />;
 ```
-
 
 ```jsx harmony
 import 'array.prototype.find';
 import { XUIBarChart } from './barchart';
 
-const keyLabel = ["Organic", "GMO"];
+const keyLabel = ['Organic', 'GMO'];
 const data = [
-	{ id: 0, x: "Apple", y: [1] },
-	{ id: 1, x: "Potato", y: [1, 1] },
-	{ id: 2, x: "Carrot", y: [2, 1] },
+  { id: 0, x: 'Apple', y: [1] },
+  { id: 1, x: 'Potato', y: [1, 1] },
+  { id: 2, x: 'Carrot', y: [2, 1] }
 ];
 class Demo extends React.Component {
-	constructor(...args) {
-		super(...args);
-		this.handleBarClick = this.handleBarClick.bind(this);
-		this.state = { activeBars: {} };
-	}
-	handleBarClick(event, { id, stackIndex }) {
-		const { activeBars } = this.state
-		const activeBar = activeBars[id] || [];
-		const activeIndex = activeBar.indexOf(stackIndex);
-		const isActive = activeIndex >= 0;
-		this.setState({ activeBars: {
-			...activeBars,
-			[id]: isActive
-				? [...activeBar.slice(0, activeIndex), ...activeBar.slice(activeIndex + 1)]
-				: [...activeBar, stackIndex]
-		}});
-	}
-	render() {
-		return (
-			<XUIBarChart
-				chartId="chartStackedBar"
-				chartTitle="Stacked Bar Implementation"
-				chartDescription="An implementation showing props that are specific to stacked bars"
-				chartHeight={300}
-				isBarStacked
-				barsData={data}
-				onBarClick={this.handleBarClick}
-				activeBars={this.state.activeBars}
-				createBarToolTipMessage={({y, stackIndex}) => {
-					const value = y[stackIndex];
-					return `${value} ${keyLabel[stackIndex]} Item${Math.sqrt(value * value) === 1 ? '' : 's'}`
-				}}
-				keyLabel={keyLabel}
-				barColor={["#5A5AE6", "#50DCAA"]}
-				barColorActive="rgba(0,0,0,0.5)"
-			/>
-		);
-	}
+  constructor(...args) {
+    super(...args);
+    this.handleBarClick = this.handleBarClick.bind(this);
+    this.state = { activeBars: {} };
+  }
+  handleBarClick(event, { id, stackIndex }) {
+    const { activeBars } = this.state;
+    const activeBar = activeBars[id] || [];
+    const activeIndex = activeBar.indexOf(stackIndex);
+    const isActive = activeIndex >= 0;
+    this.setState({
+      activeBars: {
+        ...activeBars,
+        [id]: isActive
+          ? [...activeBar.slice(0, activeIndex), ...activeBar.slice(activeIndex + 1)]
+          : [...activeBar, stackIndex]
+      }
+    });
+  }
+  render() {
+    return (
+      <XUIBarChart
+        chartId="chartStackedBar"
+        chartTitle="Stacked Bar Implementation"
+        chartDescription="An implementation showing props that are specific to stacked bars"
+        chartHeight={300}
+        isBarStacked
+        barsData={data}
+        onBarClick={this.handleBarClick}
+        activeBars={this.state.activeBars}
+        createBarToolTipMessage={({ y, stackIndex }) => {
+          const value = y[stackIndex];
+          return `${value} ${keyLabel[stackIndex]} Item${
+            Math.sqrt(value * value) === 1 ? '' : 's'
+          }`;
+        }}
+        keyLabel={keyLabel}
+        barColor={['#5A5AE6', '#50DCAA']}
+        barColorActive="rgba(0,0,0,0.5)"
+      />
+    );
+  }
 }
-<Demo />
+<Demo />;
 ```
-
 
 ### Tooltips
 
 Tooltips are _on_ for all chart elements by default. Specifying which tooltip(s) to hide can be done via the `isXAxisToolTipHidden` and `isBarToolTipHidden` props.
 
 The **bar** tooltip can be customised using the prop `createBarToolTipMessage`. This is a function that is supplied arguments relevant to the **bar** or **stack**.
-
 
 ### X-Axis Labels
 
@@ -149,66 +151,74 @@ The amount of labels per panel can be controlled via the prop `xAxisVisibleItems
 
 **Note:** This is a desired value, if we feel that that bars are not fitting to their panel area effectively the layout will be altered to better suit the user.
 
-
 ```jsx harmony
 import 'array.prototype.find';
 import { XUIBarChart } from './barchart';
 
-const wrapperStyles = { display: 'inline-block', verticalAlign: 'top', minWidth: '300px', padding: '0 50px', width: '50%' };
+const wrapperStyles = {
+  display: 'inline-block',
+  verticalAlign: 'top',
+  minWidth: '300px',
+  padding: '0 50px',
+  width: '50%'
+};
 class Demo extends React.Component {
-	render() {
-		return (
-			<div>
-				<div style={wrapperStyles}>
-					<XUIBarChart
-						chartId="chartAvatarLabel"
-						chartTitle="Avatar Label"
-						chartDescription="The x-axis avatar label variant"
-						chartHeight={200}
-						xAxisType="avatar"
-						barsData={[
-							{ id: 0, x: "Layla Abernathy", y: 1 },
-							{ id: 1, x: "Heloise Stanton", y: 2 },
-							{ id: 2, x: "Rollin McCullough", y: 3 },
-						]}
-					/>
-				</div>
-				<div style={wrapperStyles}>
-					<XUIBarChart
-							chartId="chartAvatarLabel"
-							chartTitle="Avatar Label"
-							chartDescription="The x-axis avatar label variant"
-							chartHeight={200}
-							xAxisType="avatar"
-							avatarImageUrl={[{ id: 0, url:'https://xui.xero.com/static/xpert-avatar.png' }, { id: 1, url:'https://placekitten.com/100/100' }, { id: 2, url:'https://placekitten.com/200/200' }]}
-							barsData={[
-								{ id: 0, x: "Layla Abernathy", y: 1 },
-								{ id: 1, x: "Heloise Stanton", y: 2 },
-								{ id: 2, x: "Rollin McCullough", y: 3 },
-							]}
-						/>
-				</div>
-				<div style={wrapperStyles}>
-					<XUIBarChart
-						chartId="chartAbbreviationLabel"
-						chartTitle="Abbreviation Label"
-						chartDescription="The x-axis abbreviation label variant"
-						chartHeight={200}
-						xAxisType="abbreviation"
-						barsData={[
-							{ id: 0, x: "M | Mon | Monday | Monday 21 May", y: 1 },
-							{ id: 1, x: "T | Tue | Tuesday | Tuesday 22 May", y: 2 },
-							{ id: 2, x: "W | Wed | Wednesday | Wednesday 23 May", y: 3 },
-						]}
-					/>
-				</div>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <div style={wrapperStyles}>
+          <XUIBarChart
+            chartId="chartAvatarLabel"
+            chartTitle="Avatar Label"
+            chartDescription="The x-axis avatar label variant"
+            chartHeight={200}
+            xAxisType="avatar"
+            barsData={[
+              { id: 0, x: 'Layla Abernathy', y: 1 },
+              { id: 1, x: 'Heloise Stanton', y: 2 },
+              { id: 2, x: 'Rollin McCullough', y: 3 }
+            ]}
+          />
+        </div>
+        <div style={wrapperStyles}>
+          <XUIBarChart
+            chartId="chartAvatarLabel"
+            chartTitle="Avatar Label"
+            chartDescription="The x-axis avatar label variant"
+            chartHeight={200}
+            xAxisType="avatar"
+            avatarImageUrl={[
+              { id: 0, url: 'https://xui.xero.com/static/xpert-avatar.png' },
+              { id: 1, url: 'https://placekitten.com/100/100' },
+              { id: 2, url: 'https://placekitten.com/200/200' }
+            ]}
+            barsData={[
+              { id: 0, x: 'Layla Abernathy', y: 1 },
+              { id: 1, x: 'Heloise Stanton', y: 2 },
+              { id: 2, x: 'Rollin McCullough', y: 3 }
+            ]}
+          />
+        </div>
+        <div style={wrapperStyles}>
+          <XUIBarChart
+            chartId="chartAbbreviationLabel"
+            chartTitle="Abbreviation Label"
+            chartDescription="The x-axis abbreviation label variant"
+            chartHeight={200}
+            xAxisType="abbreviation"
+            barsData={[
+              { id: 0, x: 'M | Mon | Monday | Monday 21 May', y: 1 },
+              { id: 1, x: 'T | Tue | Tuesday | Tuesday 22 May', y: 2 },
+              { id: 2, x: 'W | Wed | Wednesday | Wednesday 23 May', y: 3 }
+            ]}
+          />
+        </div>
+      </div>
+    );
+  }
 }
-<Demo />
+<Demo />;
 ```
-
 
 ### Y-Axis
 
@@ -216,41 +226,39 @@ The y-axis **tick** values are derived from the `y` key value pair in the `barsD
 
 The y-axis customisation options are:
 
-+ `createYAxisLabelFormat`: A function that returns an augmentation of the _"raw"_ `y` value
+- `createYAxisLabelFormat`: A function that returns an augmentation of the _"raw"_ `y` value
 
-+ `yAxisDefaultTopValue`: A custom _"max"_ value to appear at the top of the axis. **Note:**
+- `yAxisDefaultTopValue`: A custom _"max"_ value to appear at the top of the axis. **Note:**
 
-    + This custom value is still sanitised by our _"internal"_ display system and therefore may be changed slightly.
-    + A greater `y` value will supersede this prop.
-
+  - This custom value is still sanitised by our _"internal"_ display system and therefore may be changed slightly.
+  - A greater `y` value will supersede this prop.
 
 ```jsx harmony
 import 'array.prototype.find';
-import {XUIBarChart} from './barchart';
+import { XUIBarChart } from './barchart';
 
 const data = [
-	{ id: 0, x: "Apple", y: 1 },
-	{ id: 1, x: "Potato", y: 2 },
-	{ id: 2, x: "Carrot", y: 3 },
+  { id: 0, x: 'Apple', y: 1 },
+  { id: 1, x: 'Potato', y: 2 },
+  { id: 2, x: 'Carrot', y: 3 }
 ];
 class Demo extends React.Component {
-	render() {
-		return (
-			<XUIBarChart
-				chartId="chartYAxisCustomisation"
-				chartTitle="Y-Axis Customisation"
-				chartDescription="An example of different y-axis customisations"
-				chartHeight={300}
-				yAxisDefaultTopValue={20}
-				createYAxisLabelFormat={(value) => `${Math.round(value * 100)}k`}
-				barsData={data}
-			/>
-		);
-	}
+  render() {
+    return (
+      <XUIBarChart
+        chartId="chartYAxisCustomisation"
+        chartTitle="Y-Axis Customisation"
+        chartDescription="An example of different y-axis customisations"
+        chartHeight={300}
+        yAxisDefaultTopValue={20}
+        createYAxisLabelFormat={value => `${Math.round(value * 100)}k`}
+        barsData={data}
+      />
+    );
+  }
 }
-<Demo />
+<Demo />;
 ```
-
 
 ### Height
 
@@ -258,11 +266,9 @@ The `height` of the chart can be controlled with the `chartHeight` prop.
 
 **Note:** The `width` of the chart will **always** expand to fill it's container and is **not** controlled via a prop.
 
-
 ### States
 
 The chart can change its state to reflect its supplied props.
-
 
 #### Loading
 
@@ -272,65 +278,67 @@ Display the **loading** state using the prop `isLoading`.
 
 If there is no `barsData` an **empty** state is shown. The state customisation options are:
 
-+ `emptyMessage`: Override the default empty message.
+- `emptyMessage`: Override the default empty message.
 
-+ `emptyStateComponent`: Override the entire empty state component with your own.
-
+- `emptyStateComponent`: Override the entire empty state component with your own.
 
 ```jsx harmony
-
 import 'array.prototype.find';
-import {XUIBarChart} from './barchart';
+import { XUIBarChart } from './barchart';
 
 const data = [
-	{ id: 0, x: "Apple", y: 1 },
-	{ id: 1, x: "Potato", y: 2 },
-	{ id: 2, x: "Carrot", y: 3 },
+  { id: 0, x: 'Apple', y: 1 },
+  { id: 1, x: 'Potato', y: 2 },
+  { id: 2, x: 'Carrot', y: 3 }
 ];
-const wrapperStyles = { display: 'inline-block', verticalAlign: 'top', minWidth: '300px', padding: '0 50px', width: '50%' };
+const wrapperStyles = {
+  display: 'inline-block',
+  verticalAlign: 'top',
+  minWidth: '300px',
+  padding: '0 50px',
+  width: '50%'
+};
 class Demo extends React.Component {
-	render() {
-		return (
-			<div>
-				<div style={wrapperStyles}>
-					<XUIBarChart
-						chartId="chartLoading"
-						chartTitle="Loading State"
-						chartDescription="A depiction of the chart loading state"
-						chartHeight={200}
-						barsData={data}
-						isLoading
-					/>
-				</div>
-				<div style={wrapperStyles}>
-					<XUIBarChart
-						chartId="chartEmpty"
-						chartTitle="Empty State"
-						chartDescription="A depiction of the chart empty state"
-						chartHeight={200}
-						// emptyMessage="Sorry 🙁, there is no data to display!"
-						// emptyStateComponent={(
-						//   <div className="xui-text-align-center">
-						//     <h3 className="xui-heading-xlarge">Sorry 🙁</h3>
-						//     <p className="xui-heading-small">There is no data to display!</p>
-						//   </div>
-						// )}
-					/>
-				</div>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <div style={wrapperStyles}>
+          <XUIBarChart
+            chartId="chartLoading"
+            chartTitle="Loading State"
+            chartDescription="A depiction of the chart loading state"
+            chartHeight={200}
+            barsData={data}
+            isLoading
+          />
+        </div>
+        <div style={wrapperStyles}>
+          <XUIBarChart
+            chartId="chartEmpty"
+            chartTitle="Empty State"
+            chartDescription="A depiction of the chart empty state"
+            chartHeight={200}
+            // emptyMessage="Sorry 🙁, there is no data to display!"
+            // emptyStateComponent={(
+            //   <div className="xui-text-align-center">
+            //     <h3 className="xui-heading-xlarge">Sorry 🙁</h3>
+            //     <p className="xui-heading-small">There is no data to display!</p>
+            //   </div>
+            // )}
+          />
+        </div>
+      </div>
+    );
+  }
 }
-<Demo />
+<Demo />;
 ```
-
 
 ### Title / Description
 
 Add a chart **title** (`<title />`) and **description** (`<desc />`) with the `chartTitle` and `chartDescription` props.
 
 The chart **title** is shown visually be default but you can choose to hide it _(and have it persist on the `<svg />` `title` tag **only**)_ with the `isChartTitleHidden` prop .
-
 
 #### Overflow
 
@@ -339,58 +347,58 @@ By default the chart will try and fit in as many bar instances as it can into a 
 There are two types of overflow to choose from:
 
 #### Scroll
+
 The default which uses a horizontal scrolling panel to reveal hidden content.
 
 #### Pagination
+
 Activated via the prop `hasPagination`. The hidden content is revealed via the **next** and **previous** buttons. This overflow option can be customised further.
 
-+ `createPaginationMessage`: Create a custom message based on the charts _current_ and _total_ panels.
-+ `paginationNextLabel` / `paginationPreviousLabel`: Customise the **next** and **previous** button `title`.
-
+- `createPaginationMessage`: Create a custom message based on the charts _current_ and _total_ panels.
+- `paginationNextLabel` / `paginationPreviousLabel`: Customise the **next** and **previous** button `title`.
 
 ### Key
 
 Render the chart **key** providing a `keyLabel` prop referencing the **bar** or **bar stack** label(s). The key customisation options are:
 
-+ `keyTitle`: Customise the title of the _dropdown panel_.
-
+- `keyTitle`: Customise the title of the _dropdown panel_.
 
 ```jsx harmony
 import 'array.prototype.find';
-import {XUIBarChart} from './barchart';
+import { XUIBarChart } from './barchart';
 
 const data = [
-	{ id: 0, x: "Apple", y: 1 },
-	{ id: 1, x: "Potato", y: 2 },
-	{ id: 2, x: "Carrot", y: 3 },
-	{ id: 3, x: "Banana", y: 4 },
-	{ id: 4, x: "Berry", y: 2 },
-	{ id: 5, x: "Orange", y: 1 },
-	{ id: 6, x: "Beetroot", y: 4 },
-	{ id: 7, x: "Pumpkin", y: 2 },
-	{ id: 8, x: "Lettuce", y: 3 },
+  { id: 0, x: 'Apple', y: 1 },
+  { id: 1, x: 'Potato', y: 2 },
+  { id: 2, x: 'Carrot', y: 3 },
+  { id: 3, x: 'Banana', y: 4 },
+  { id: 4, x: 'Berry', y: 2 },
+  { id: 5, x: 'Orange', y: 1 },
+  { id: 6, x: 'Beetroot', y: 4 },
+  { id: 7, x: 'Pumpkin', y: 2 },
+  { id: 8, x: 'Lettuce', y: 3 }
 ];
 
 class Demo extends React.Component {
-	render() {
-		return (
-			<XUIBarChart
-				chartId="chartOverflow"
-				chartTitle="Overflow"
-				chartDescription="An example of the chart overflow system"
-				chartHeight={300}
-				barsData={data}
-				xAxisVisibleItems={5}
-				keyTitle="Bar Chart key"
-				keyLabel="Healthy food"
-				hasPagination
-				createPaginationMessage={(current, total) => `Page ${current} of ${total}`}
-				paginationLabel="Chart Pagination"
-				paginationNextTitle="Next set of data"
-				paginationPreviousTitle="Previous set of data"
-			/>
-		);
-	}
+  render() {
+    return (
+      <XUIBarChart
+        chartId="chartOverflow"
+        chartTitle="Overflow"
+        chartDescription="An example of the chart overflow system"
+        chartHeight={300}
+        barsData={data}
+        xAxisVisibleItems={5}
+        keyTitle="Bar Chart key"
+        keyLabel="Healthy food"
+        hasPagination
+        createPaginationMessage={(current, total) => `Page ${current} of ${total}`}
+        paginationLabel="Chart Pagination"
+        paginationNextTitle="Next set of data"
+        paginationPreviousTitle="Previous set of data"
+      />
+    );
+  }
 }
-<Demo />
+<Demo />;
 ```

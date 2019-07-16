@@ -142,14 +142,16 @@ class AvatarLabel extends PureComponent {
       toolTipOffset,
     } = getResponsiveOptions(responsiveOptions, { labelWidth, labelIndex, textRaw });
 
-		let avatarUrl;
+    let avatarUrl;
 
     if (avatarImageUrl) {
-			const avatarImageObject = avatarImageUrl.find(avatarUrlData => avatarUrlData.id === barsData[labelIndex].id);
+      const avatarImageObject = avatarImageUrl.find(
+        avatarUrlData => avatarUrlData.id === barsData[labelIndex].id,
+      );
 
-			if(avatarImageObject) {
-				avatarUrl = avatarImageObject.url;
-			}
+      if (avatarImageObject) {
+        avatarUrl = avatarImageObject.url;
+      }
     }
 
     return (

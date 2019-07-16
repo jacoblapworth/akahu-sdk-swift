@@ -184,7 +184,7 @@ class AvatarLabel extends PureComponent {
               width={AVATAR_RADIUS * 2}
               height={AVATAR_RADIUS * 2}
               href={avatarUrl}
-              clipPath='circle(50% at 50% 50%)'
+              clipPath="circle(50% at 50% 50%)"
             />
           )}
           {tagText && (

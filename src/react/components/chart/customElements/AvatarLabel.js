@@ -108,7 +108,7 @@ const responsiveOptions = {
 class AvatarLabel extends PureComponent {
 	render = () => {
 		const {
-			isToolTipHidden, updateToolTip, labelWidth, labelTop, labelHeight,
+			isToolTipHidden, updateToolTip, labelWidth, labelTop, labelHeight, avatarImageUrl,
 			// Victory...
 			index: labelIndex, text: textRaw,
 			// Unused Victory references...
@@ -151,7 +151,18 @@ class AvatarLabel extends PureComponent {
 					>
 						<tspan style={avatarStyle}>{avatarText}</tspan>
 					</text>
-
+					{
+						avatarImageUrl &&
+							<image
+								transform={`translate(-${AVATAR_RADIUS},-${AVATAR_RADIUS})`}
+								x={avatarCircleLeft}
+								y={avatarCircleTop}
+								width={AVATAR_RADIUS*2}
+								height={AVATAR_RADIUS*2}
+								href={avatarImageUrl}
+								clipPath="circle()"
+							/>
+					}
 					{tagText && (
 						<TruncatedText
 							className={`${NAME_SPACE}-chart--measure`}
@@ -180,4 +191,5 @@ AvatarLabel.propTypes = {
 	labelTop: PropTypes.number,
 	index: PropTypes.number,
 	text: PropTypes.string,
+	avatarImageUrl: PropTypes.string
 };

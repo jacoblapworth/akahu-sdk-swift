@@ -166,7 +166,7 @@ const createInteractionParams = (isBarStacked, paramsStacked) => {
 	case isBarStacked: return paramsStacked;
 	default: {
 		// eslint-disable-next-line no-unused-vars
-		const { stackIndex, y, ...paramsPlain } = paramsStacked; 
+		const { stackIndex, y, ...paramsPlain } = paramsStacked;
 		return { ...paramsPlain, y: y[0] };
 	}
 	}
@@ -200,6 +200,7 @@ const enrichParams = (state, props, chartTheme) => {
 		paginationLabel,
 		paginationNextTitle,
 		paginationPreviousTitle,
+		avatarImageUrl,
 	} = props;
 
 	const {
@@ -295,6 +296,9 @@ const enrichParams = (state, props, chartTheme) => {
 
 	return {
 		qaHook,
+
+		// Path to an image to be used with avatar label.
+		avatarImageUrl,
 
 		// Chart...
 		chartId,

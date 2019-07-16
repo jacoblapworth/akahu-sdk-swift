@@ -109,7 +109,7 @@ XUIBarChart.propTypes = {
   /** The maximum numbers of bars to distribute in the x-axis */
   xAxisVisibleItems: PropTypes.number,
 
-  /** Array of objects with id and url to be used for avatar images. Id has to correspond with id in dataset. */
+  /** Array of objects with id and url to be used for avatar images. The id has to correspond with the id in the barsData dataset. */
   avatarImageUrlData: PropTypes.array,
 
   /** The maximum number to place at the top of the y-axis */

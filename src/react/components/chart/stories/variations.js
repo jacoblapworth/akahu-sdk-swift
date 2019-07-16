@@ -243,7 +243,9 @@ const variations = [
         chartTitle: 'Tiny Avatar Label',
         chartDescription: 'Show just the avatar icon',
         chartHeight: 200,
-        barsData: [{ id: 0, x: 'Apple', y: 1, avatarUrl: 'https://xui.xero.com/static/xpert-avatar.png' }],
+        barsData: [
+          { id: 0, x: 'Apple', y: 1, avatarUrl: 'https://xui.xero.com/static/xpert-avatar.png' },
+        ],
         xAxisType: 'avatar',
         testStyles: { flexGrow: 'initial', width: '110px' },
       },

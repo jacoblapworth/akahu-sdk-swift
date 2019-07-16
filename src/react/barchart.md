@@ -188,7 +188,12 @@ class Demo extends React.Component {
             chartHeight={200}
             xAxisType="avatar"
             barsData={[
-              { id: 0, x: 'Layla Abernathy', y: 1, avatarUrl: 'https://xui.xero.com/static/xpert-avatar.png' },
+              {
+                id: 0,
+                x: 'Layla Abernathy',
+                y: 1,
+                avatarUrl: 'https://xui.xero.com/static/xpert-avatar.png'
+              },
               { id: 1, x: 'Heloise Stanton', y: 2, avatarUrl: 'https://placekitten.com/100/100' },
               { id: 2, x: 'Rollin McCullough', y: 3, avatarUrl: 'https://placekitten.com/200/200' }
             ]}

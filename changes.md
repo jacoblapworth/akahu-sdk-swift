@@ -204,8 +204,7 @@ Underlying font sizes for heading utility classes have been updated. To maintain
 - `Range`
   - Range now supports size variants.
   - Range now provides a React component `XUIRange`.
-- `XUIBarChart` has a new prop `avatarImageUrlData`
-  - `avatarImageUrlData` array of objects with id and url to be used for avatar images.
+- `XUIBarChart` accepts new object property `avatarUrl` as part of `barsData` array. It should contain a path to an image that will be used as an avatar for the specified data point.
 
 ## Other changes
 

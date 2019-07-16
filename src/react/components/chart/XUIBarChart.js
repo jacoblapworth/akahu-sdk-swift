@@ -72,6 +72,9 @@ XUIBarChart.propTypes = {
         /** Multiple values for stacked bar. */
         PropTypes.arrayOf(PropTypes.number),
       ]),
+
+      /** When 'avatar' xAxisType is used this property can be used to displays images intead of innitials for avatars. */
+      avatarUrl: PropTypes.string,
     }),
   ),
 
@@ -108,9 +111,6 @@ XUIBarChart.propTypes = {
 
   /** The maximum numbers of bars to distribute in the x-axis */
   xAxisVisibleItems: PropTypes.number,
-
-  /** Array of objects with id and url to be used for avatar images. The id has to correspond with the id in the barsData dataset. */
-  avatarImageUrlData: PropTypes.array,
 
   /** The maximum number to place at the top of the y-axis */
   yAxisDefaultTopValue: PropTypes.number,

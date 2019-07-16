@@ -187,15 +187,10 @@ class Demo extends React.Component {
             chartDescription="The x-axis avatar label variant"
             chartHeight={200}
             xAxisType="avatar"
-            avatarImageUrlData={[
-              { id: 0, url: 'https://xui.xero.com/static/xpert-avatar.png' },
-              { id: 1, url: 'https://placekitten.com/100/100' },
-              { id: 2, url: 'https://placekitten.com/200/200' }
-            ]}
             barsData={[
-              { id: 0, x: 'Layla Abernathy', y: 1 },
-              { id: 1, x: 'Heloise Stanton', y: 2 },
-              { id: 2, x: 'Rollin McCullough', y: 3 }
+              { id: 0, x: 'Layla Abernathy', y: 1, avatarUrl: 'https://xui.xero.com/static/xpert-avatar.png' },
+              { id: 1, x: 'Heloise Stanton', y: 2, avatarUrl: 'https://placekitten.com/100/100' },
+              { id: 2, x: 'Rollin McCullough', y: 3, avatarUrl: 'https://placekitten.com/200/200' }
             ]}
           />
         </div>

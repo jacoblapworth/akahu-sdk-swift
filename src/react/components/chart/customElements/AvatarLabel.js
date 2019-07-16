@@ -112,7 +112,6 @@ class AvatarLabel extends PureComponent {
       labelWidth,
       labelTop,
       labelHeight,
-      avatarImageUrlData,
       barsData,
       // Victory...
       index: labelIndex,
@@ -142,17 +141,8 @@ class AvatarLabel extends PureComponent {
       toolTipOffset,
     } = getResponsiveOptions(responsiveOptions, { labelWidth, labelIndex, textRaw });
 
-    let avatarUrl;
-
-    if (avatarImageUrlData) {
-      const avatarImageObject = avatarImageUrlData.find(
-        avatarItemUrlData => avatarItemUrlData.id === barsData[labelIndex].id,
-      );
-
-      if (avatarImageObject) {
-        avatarUrl = avatarImageObject.url;
-      }
-    }
+    // Use avatar image if it was passed in the dataset.
+    const { avatarUrl } = barsData[labelIndex];
 
     return (
       <XAxisLabelWrapper
@@ -176,7 +166,7 @@ class AvatarLabel extends PureComponent {
           <text x={avatarTextLeft} y={avatarTextTop} textAnchor="middle">
             <tspan style={avatarStyle}>{avatarText}</tspan>
           </text>
-          {avatarImageUrlData && avatarUrl && (
+          {avatarUrl && (
             <image
               transform={`translate(${avatarCircleLeft - AVATAR_RADIUS},${avatarCircleTop -
                 AVATAR_RADIUS})`}
@@ -216,6 +206,5 @@ AvatarLabel.propTypes = {
   labelTop: PropTypes.number,
   index: PropTypes.number,
   text: PropTypes.string,
-  avatarImageUrlData: PropTypes.array,
   barsData: PropTypes.array,
 };

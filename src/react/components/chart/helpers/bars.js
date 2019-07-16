@@ -284,9 +284,6 @@ const enrichParams = (state, props, chartTheme) => {
   return {
     qaHook,
 
-    // Array of objects with id and path to an image to be used as avatar label. Id has to correspond tothe id used in dataset.
-    avatarImageUrlData,
-
     // Chart...
     chartId,
     isBarStacked,

@@ -200,8 +200,6 @@ class ChartScaffold extends PureComponent {
     const params = enrichParams({ ...state }, props, barChartTheme);
     const {
       qaHook,
-      // Path to an image to be used with avatar label.
-      avatarImageUrlData,
 
       // Chart...
       chartId,
@@ -491,7 +489,6 @@ class ChartScaffold extends PureComponent {
                         labelHeight={chartBottom}
                         isToolTipHidden={isXAxisToolTipHidden}
                         updateToolTip={this.updateToolTip}
-                        avatarImageUrlData={avatarImageUrlData}
                         barsData={barsData}
                       />
                     }
@@ -578,5 +575,4 @@ ChartScaffold.propTypes = {
   paginationNextTitle: PropTypes.string,
   paginationPreviousTitle: PropTypes.string,
   createPaginationMessage: PropTypes.func,
-  avatarImageUrlData: PropTypes.array,
 };

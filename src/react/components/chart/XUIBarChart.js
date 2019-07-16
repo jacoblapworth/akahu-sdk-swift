@@ -73,7 +73,7 @@ XUIBarChart.propTypes = {
         PropTypes.arrayOf(PropTypes.number),
       ]),
 
-      /** When 'avatar' xAxisType is used this property can be used to displays images intead of innitials for avatars. */
+      /** Optional URL for a custom avatar image when the chart‘s `xAxisType` is `avatar`. */
       avatarUrl: PropTypes.string,
     }),
   ),

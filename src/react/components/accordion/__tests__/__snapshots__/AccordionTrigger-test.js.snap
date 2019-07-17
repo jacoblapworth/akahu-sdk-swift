@@ -14,7 +14,8 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
     className="xui-accordiontrigger--arrow"
   >
     <button
-      className="xui-button xui-button-icon xui-button-icon-medium"
+      aria-label="Toggle"
+      className="xui-button xui-button-icon-medium xui-button-icon"
       disabled={false}
       onClick={[Function]}
       tabIndex={-1}
@@ -64,7 +65,8 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
     className="xui-accordiontrigger--arrow"
   >
     <button
-      className="xui-button xui-button-icon xui-button-icon-medium"
+      aria-label="Toggle"
+      className="xui-button xui-button-icon-medium xui-button-icon"
       disabled={false}
       onClick={[Function]}
       tabIndex={-1}
@@ -114,7 +116,8 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
     className="xui-accordiontrigger--arrow"
   >
     <button
-      className="xui-button xui-button-icon xui-button-icon-medium"
+      aria-label="Toggle"
+      className="xui-button xui-button-icon-medium xui-button-icon"
       disabled={false}
       onClick={[Function]}
       tabIndex={-1}
@@ -164,7 +167,8 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
     className="xui-accordiontrigger--arrow"
   >
     <button
-      className="xui-button xui-button-icon xui-button-icon-medium"
+      aria-label="Toggle"
+      className="xui-button xui-button-icon-medium xui-button-icon"
       disabled={false}
       onClick={[Function]}
       tabIndex={-1}

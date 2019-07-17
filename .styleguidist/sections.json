@@ -10,12 +10,12 @@
         "name": "Icon",
         "content": "../src/react/icon.md",
         "components": "../src/react/components/icon/XUIIcon.js"
-			},
-			{
-				"name": "Illustrations",
-				"content": "../src/react/illustration.md",
-				"components": "../src/react/components/illustration/XUIIllustration.js"
-			},
+      },
+      {
+        "name": "Illustrations",
+        "content": "../src/react/illustration.md",
+        "components": "../src/react/components/illustration/XUIIllustration.js"
+      },
       {
         "name": "Layout",
         "content": "../src/react/structural.md",
@@ -56,6 +56,11 @@
                 "name": "Split Buttons",
                 "components": "../src/react/components/button/XUIS*.js",
                 "content": "../src/react/components/button/button.split.md"
+              },
+              {
+                "name": "Icon Button",
+                "components": "../src/react/components/button/XUIIconButton.js",
+                "content": "../src/react/components/button/button.icon.md"
               },
               {
                 "name": "Actions",

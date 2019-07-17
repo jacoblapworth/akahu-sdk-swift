@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import arrowPath from '@xero/xui-icon/icons/arrow';
 import { ns } from '../../helpers/xuiClassNamespace';
-import XUIIcon from '../../icon/XUIIcon';
-import XUIButton from '../../button/XUIButton';
+import XUIIconButton from '../../button/XUIIconButton';
 import preventDefault from '../../helpers/preventDefault';
 import { isKeyClick } from '../../helpers/reactKeyHandler';
 
@@ -81,9 +80,13 @@ export default class AccordionTrigger extends PureComponent {
         })}
       >
         <div className={`${ns}-accordiontrigger--arrow`}>
-          <XUIButton variant="icon" title={toggleLabel} tabIndex={-1}>
-            <XUIIcon icon={arrowPath} rotation={isOpen ? 180 : null} />
-          </XUIButton>
+          <XUIIconButton
+            icon={arrowPath}
+            ariaLabel={toggleLabel}
+            title={toggleLabel}
+            tabIndex={-1}
+            rotation={isOpen ? 180 : null}
+          />
         </div>
 
         {leftContent}

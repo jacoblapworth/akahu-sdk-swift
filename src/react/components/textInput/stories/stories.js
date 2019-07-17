@@ -7,6 +7,7 @@ import XUITextInput from '../XUITextInput';
 import XUITextInputSideElement from '../XUITextInputSideElement';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
+import XUIIconButton from '../../button/XUIIconButton';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -76,9 +77,7 @@ const TextInputWrapper = props => {
       case 'icon button':
         return (
           <XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
-            <XUIButton variant="icon" size={size}>
-              <XUIIcon icon={clearPath} />
-            </XUIButton>
+            <XUIIconButton icon={clearPath} ariaLabel="Clear Path" size={size} />
           </XUITextInputSideElement>
         );
       case 'iconWithBackground':

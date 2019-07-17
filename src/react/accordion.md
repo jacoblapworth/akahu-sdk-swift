@@ -158,8 +158,7 @@ import overflowIcon from '@xero/xui-icon/icons/overflow';
 import { XUIContentBlock, XUIContentBlockItem } from './structural';
 import XUIAccordion, { XUIAccordionItem } from './accordion';
 import XUIAvatar from './avatar';
-import XUIButton from './button';
-import XUIIcon from './icon';
+import XUIButton, { XUIIconButton } from './button';
 import { isKeyClick } from './helpers/reactKeyHandler';
 
 const items = [
@@ -199,13 +198,13 @@ class Demo extends React.Component {
         primaryHeading={name}
         leftContent={<XUIAvatar value={name} className="xui-margin-right" />}
         overflow={
-          <XUIButton
-            variant="icon"
+          <XUIIconButton
+            icon={overflowIcon}
+            ariaLabel="Overflow menu"
+            title="Overflow menu"
             onKeyDown={this.handleOptionsInteraction}
             onClick={this.handleOptionsInteraction}
-          >
-            <XUIIcon icon={overflowIcon} title="Overflow menu" />
-          </XUIButton>
+          />
         }
         action={
           <XUIButton

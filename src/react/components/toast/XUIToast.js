@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import cross from '@xero/xui-icon/icons/cross';
-import XUIButton from '../button/XUIButton';
-import XUIIcon from '../icon/XUIIcon';
+import XUIIconButton from '../button/XUIIconButton';
 import { sentimentMap, baseClass } from './private/constants';
 import XUIToastActions from './XUIToastActions';
 import XUIToastMessage from './XUIToastMessage';
@@ -51,15 +50,14 @@ export default function XUIToast({
   );
 
   const close = onCloseClick ? (
-    <XUIButton
+    <XUIIconButton
+      icon={cross}
+      ariaLabel="Close"
       qaHook={buttonQAHook}
       className={`${baseClass}--close`}
-      variant="icon"
       title="Close"
       onClick={onCloseClick}
-    >
-      <XUIIcon icon={cross} />
-    </XUIButton>
+    />
   ) : null;
 
   return (

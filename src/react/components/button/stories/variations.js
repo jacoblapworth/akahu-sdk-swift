@@ -128,6 +128,21 @@ sizes.forEach(sizeVariant => {
   });
 });
 
+iconSizes.forEach(iconSize => {
+  const iconButton = {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `${iconSize} iconButton`,
+    componentType: 'XUIIconButton',
+    size: iconSize,
+  };
+  variations.push(iconButton);
+  variations.push({
+    ...iconButton,
+    isInverted: true,
+    storyTitle: `${iconSize} inverted ${iconButton.storyTitle}`,
+  });
+});
+
 module.exports = {
   storiesWithVariationsKindName,
   variations,

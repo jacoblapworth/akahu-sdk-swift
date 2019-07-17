@@ -324,7 +324,15 @@ export default class DropDownToggled extends PureComponent {
    * @param {KeyboardEvent} event key down event object
    */
   spacebarKeyHandler = event => {
-    if (isKeySpacebar(event) && this.props.dropdown.props.ignoreKeyboardEvents.indexOf(32) === -1) {
+    const { firstChild: trigger } = this.wrapper.current;
+
+    if (
+      isKeySpacebar(event) &&
+      //  The space event is ignored in autocompleter
+      (this.props.dropdown.props.ignoreKeyboardEvents.indexOf(32) === -1 ||
+        //  Space should still be able to open the dropdown in autocompleterSecondarySeach (button as a trigger)
+        event.target.contains(trigger))
+    ) {
       this.preventDefaultIEHandler(event);
       if (this.state.isHidden) {
         this.openDropDown();

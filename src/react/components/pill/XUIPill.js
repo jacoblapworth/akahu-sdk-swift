@@ -149,6 +149,7 @@ export default class XUIPill extends PureComponent {
                 // Extra wrapping div required because tooltip has CSS that stomps on first child
                 trigger={<div>{content}</div>}
                 isHidden={!debugShowToolTip}
+                useInlineFlex
                 ref={this._tooltip}
                 id={debugShowToolTip && 'tooltipDebugId'}
               >

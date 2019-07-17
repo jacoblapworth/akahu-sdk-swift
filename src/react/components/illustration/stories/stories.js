@@ -21,7 +21,7 @@ storiesWithKnobs.add('Playground', () => {
   const padding = text('Padding');
   const src = text(
     'Illustration URL',
-    'https://edge.xero-uat.com/illustration/scene/concierge-envelope-01/concierge-envelope-01.svg',
+    'https://edge.xero.com/illustration/scene/concierges-envelope-01/concierges-envelope-01.svg',
   );
   const alt = text('Alternative text');
   const className = text('Classes');
@@ -52,7 +52,7 @@ variations.forEach(variation => {
     return (
       <div style={{ maxWidth: '600px' }}>
         <XUIIllustration
-          src="https://edge.xero-uat.com/illustration/scene/concierge-envelope-01/concierge-envelope-01.svg"
+          src="https://edge.xero.com/illustration/scene/concierges-envelope-01/concierges-envelope-01.svg"
           {...variationMinusStoryDetails}
         />
       </div>

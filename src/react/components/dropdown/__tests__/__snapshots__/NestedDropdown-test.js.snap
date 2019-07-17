@@ -28,7 +28,6 @@ exports[`<NestedDropdown /> should add the animation close class when the animat
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -95,7 +94,6 @@ exports[`<NestedDropdown /> should add the animation close class when the animat
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -174,7 +172,6 @@ exports[`<NestedDropdown /> should add the animation open class when the animate
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -241,7 +238,6 @@ exports[`<NestedDropdown /> should add the animation open class when the animate
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -320,7 +316,6 @@ exports[`<NestedDropdown /> should allow for a footer to be rendered to the corr
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -387,7 +382,6 @@ exports[`<NestedDropdown /> should allow for a footer to be rendered to the corr
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -466,7 +460,6 @@ exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -533,7 +526,6 @@ exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -612,7 +604,6 @@ exports[`<NestedDropdown /> should be a size large by default 1`] = `
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -679,7 +670,6 @@ exports[`<NestedDropdown /> should be a size large by default 1`] = `
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -758,7 +748,6 @@ exports[`<NestedDropdown /> should render a passed id instead of automatically g
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -825,7 +814,6 @@ exports[`<NestedDropdown /> should render a passed id instead of automatically g
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -904,7 +892,6 @@ exports[`<NestedDropdown /> should render additional classes when passed in the 
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -971,7 +958,6 @@ exports[`<NestedDropdown /> should render additional classes when passed in the 
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -1052,7 +1038,6 @@ exports[`<NestedDropdown /> should render an automationid when a qaHook is passe
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -1119,7 +1104,6 @@ exports[`<NestedDropdown /> should render an automationid when a qaHook is passe
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -1198,7 +1182,6 @@ exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to 
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -1265,7 +1248,6 @@ exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to 
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -1344,7 +1326,6 @@ exports[`<NestedDropdown /> should render visible if the isHidden prop is set to
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -1411,7 +1392,6 @@ exports[`<NestedDropdown /> should render visible if the isHidden prop is set to
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -1490,7 +1470,6 @@ exports[`<NestedDropdown /> shouldn't add the animation close class when animate
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -1557,7 +1536,6 @@ exports[`<NestedDropdown /> shouldn't add the animation close class when animate
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -1636,7 +1614,6 @@ exports[`<NestedDropdown /> shouldn't add the animation open class when animateO
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >
@@ -1703,7 +1680,6 @@ exports[`<NestedDropdown /> shouldn't add the animation open class when animateO
         style={
           Object {
             "maxHeight": "80vh",
-            "overflowY": undefined,
           }
         }
       >

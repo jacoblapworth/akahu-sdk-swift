@@ -80,7 +80,7 @@ export default class DropDownHeader extends PureComponent {
 
     const titleSection = title ? (
       <div
-        className={`${ns}-heading-small ${ns}-margin-left-small ${ns}-text-truncated`}
+        className={`${ns}-heading-medium ${ns}-margin-left-2xsmall ${ns}-text-truncated`}
         data-automationid={qaHook && `${qaHook}--header-title`}
       >
         {title}
@@ -106,7 +106,7 @@ export default class DropDownHeader extends PureComponent {
           data-automationid={qaHook && `${qaHook}--header-right`}
         >
           <div
-            className={`${ns}-margin-right-xsmall ${baseClass}--header-rightcontent`}
+            className={`${baseClass}--header-rightcontent`}
             data-automationid={qaHook && `${qaHook}--header-rightcontent`}
           >
             {rightContent}

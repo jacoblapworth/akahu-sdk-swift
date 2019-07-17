@@ -11,7 +11,8 @@ const tests = {
 	ci: () => jest({ coverage: true, noCache: true, ci: true }),
 	jest: () => jest(),
 	updateSnaps: () => jest({ u: true }),
-	visualApprove: () => visualApprove()
+	visualApprove: () => visualApprove(),
+	watchTest: () => jest({ watch: true }),
 };
 
 const isRunningFromNPM = process.env.npm_config_argv != null;
@@ -64,6 +65,10 @@ function testTask(...args) {
 								name: 'Approve Visual Changes',
 								value: 'visualApprove'
 							},
+							{
+								name: 'Watch files for changes',
+								value: 'watchTest'
+							}
 						]
 					}
 				])

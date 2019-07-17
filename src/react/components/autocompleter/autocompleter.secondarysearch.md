@@ -2,7 +2,7 @@ This component behaves similarly to an autocompleter, except that it is triggere
 
 ```jsx harmony
 import Picklist, { Pickitem } from '../../picklist';
-import { XUIAutocompleterSecondarySearch } from '../../autocompleter';
+import { XUIAutocompleterSecondarySearch, XUIAutocompleterEmptyState } from '../../autocompleter';
 import { DropDownFooter } from '../../dropdown';
 import XUIButton, { XUIButtonCaret } from '../../button';
 import XUIIcon from '../../icon';
@@ -16,7 +16,7 @@ const SecondarySearchData = [
   { props: { id: 'ss5' }, text: 'Something Unrelated' },
   { props: { id: 'ss6' }, text: 'Random Item' },
   { props: { id: 'ss7' }, text: 'Coats' },
-  { props: { id: 'ss8' }, text: 'Big Coat' },
+  { props: { id: 'ss8' }, text: 'Big Coat' }
 ];
 
 const isSelected = (item, selectedIds) =>
@@ -50,7 +50,7 @@ class SecondarySearchExample extends React.Component {
     sse.state = {
       data: SecondarySearchData,
       selectedItem: null,
-      value: '',
+      value: ''
     };
 
     sse.onSearch = sse.onSearch.bind(sse);
@@ -60,25 +60,25 @@ class SecondarySearchExample extends React.Component {
 
   onOptionSelect(value) {
     this.setState({
-      selectedItem: value,
+      selectedItem: value
     });
   }
 
   onSearch(value) {
     const matchingData = SecondarySearchData.filter(item =>
-      item.text.toLowerCase().includes(value.toLowerCase()),
+      item.text.toLowerCase().includes(value.toLowerCase())
     );
 
     this.setState({
       data: matchingData,
-      value: value,
+      value: value
     });
   }
 
   onClose() {
     this.setState({
       value: '',
-      data: SecondarySearchData,
+      data: SecondarySearchData
     });
   }
 

@@ -44,7 +44,7 @@ Array [
     className="xui-avatar xui-avatar-hidden"
     onError={[Function]}
     onLoad={[Function]}
-    src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"
+    src="https://xui.xero.com/static/xpert-avatar.png"
   />,
   <abbr
     className="xui-avatar xui-avatar-color-4"

@@ -328,7 +328,7 @@ exports[`<XUIPill /> should render an error icon when invalid even with an avata
 
 exports[`<XUIPill /> should render inside a tooltip when using the debug flag 1`] = `
 <span
-  className="xui-tooltip xui-tooltip-tipopen"
+  className="xui-tooltip xui-tooltip-tipopen xui-tooltip-inline-flex"
 >
   <div
     aria-describedby="tooltipDebugId"

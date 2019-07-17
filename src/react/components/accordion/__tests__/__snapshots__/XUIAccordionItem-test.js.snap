@@ -17,7 +17,8 @@ exports[`<XUIAccordionItem /> Should render children instead of empty state comp
         class="xui-accordiontrigger--arrow"
       >
         <button
-          class="xui-button xui-button-icon xui-button-icon-medium"
+          aria-label="Toggle"
+          class="xui-button xui-button-icon-medium xui-button-icon"
           tabindex="-1"
           title="Toggle"
           type="button"
@@ -70,7 +71,8 @@ exports[`<XUIAccordionItem /> Should render the empty state component provided b
         class="xui-accordiontrigger--arrow"
       >
         <button
-          class="xui-button xui-button-icon xui-button-icon-medium"
+          aria-label="Toggle"
+          class="xui-button xui-button-icon-medium xui-button-icon"
           tabindex="-1"
           title="Toggle"
           type="button"
@@ -126,7 +128,8 @@ exports[`<XUIAccordionItem /> should render the base component with only require
       className="xui-accordiontrigger--arrow"
     >
       <button
-        className="xui-button xui-button-icon xui-button-icon-medium"
+        aria-label="Toggle"
+        className="xui-button xui-button-icon-medium xui-button-icon"
         disabled={false}
         onClick={[Function]}
         tabIndex={-1}

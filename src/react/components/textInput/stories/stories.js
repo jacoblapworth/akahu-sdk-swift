@@ -7,11 +7,13 @@ import XUITextInput from '../XUITextInput';
 import XUITextInputSideElement from '../XUITextInputSideElement';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
+import XUIIconButton from '../../button/XUIIconButton';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, object, text, select, number } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
+import customCentered from '../../../../../.storybook/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';
 import clearPath from '@xero/xui-icon/icons/clear';
@@ -75,9 +77,7 @@ const TextInputWrapper = props => {
       case 'icon button':
         return (
           <XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
-            <XUIButton variant="icon" size={size}>
-              <XUIIcon icon={clearPath} />
-            </XUIButton>
+            <XUIIconButton icon={clearPath} ariaLabel="Clear Path" size={size} />
           </XUITextInputSideElement>
         );
       case 'iconWithBackground':
@@ -125,6 +125,22 @@ const TextInputWrapper = props => {
           <XUITextInputSideElement type="avatar" alignment={sideElementAlignment}>
             <XUIAvatar value="Test Person" size={childComponentSize} />
           </XUITextInputSideElement>
+        );
+      case 'longText':
+        return (
+          <XUITextInputSideElement type="text" alignment="center">
+            A longer text label in this space:
+          </XUITextInputSideElement>
+        );
+      case 'longButton':
+        return (
+          childComponentSize !== '2xsmall' && (
+            <XUITextInputSideElement type="button" alignment={sideElementAlignment}>
+              <XUIButton variant="primary" size={childComponentSize}>
+                Elaborate explanation for an onclick action
+              </XUIButton>
+            </XUITextInputSideElement>
+          )
         );
       default:
         return null;
@@ -188,6 +204,8 @@ TextInputWrapper.propTypes = {
     'pill',
     'avatar',
     'icon button',
+    'longText',
+    'longButton',
   ]),
   rightElementType: PropTypes.oneOf([
     'icon',
@@ -197,6 +215,8 @@ TextInputWrapper.propTypes = {
     'pill',
     'avatar',
     'icon button',
+    'longText',
+    'longButton',
   ]),
   leftElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
   rightElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
@@ -252,14 +272,24 @@ storiesWithKnobs.add('Playground', () => (
   />
 ));
 
-const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(centered);
+const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module).addDecorator(
+  centered,
+);
+const storiesWithResponsiveVariations = storiesOf(
+  storiesWithVariationsKindName,
+  module,
+).addDecorator(customCentered);
 
 variations.forEach(variation => {
-  storiesWithVariations.add(variation.storyTitle, () => {
+  const targetStories = variation.customDecorator
+    ? storiesWithResponsiveVariations
+    : storiesWithVariations;
+
+  targetStories.add(variation.storyTitle, () => {
     const variationMinusStoryDetails = { ...variation };
     delete variationMinusStoryDetails.storyKind;
     delete variationMinusStoryDetails.storyTitle;
+    delete variationMinusStoryDetails.customDecorator;
     if (!variationMinusStoryDetails.label) {
       variationMinusStoryDetails.label = 'Test label';
       variationMinusStoryDetails.isLabelHidden = true;

@@ -1,3 +1,5 @@
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
+
 const privateConsts = require('../private/constants');
 
 const storiesWithVariationsKindName = 'Instances/XUIButton';
@@ -10,6 +12,13 @@ const variations = [
     storyTitle: 'as Disabled',
     isDisabled: true,
     value: 'Disabled button',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with multiline content',
+    viewports: desktopPlus320,
+    value:
+      'Some very long text to test how buttons behave when their content is longer than the alotted space. Some very long text to test how buttons behave when their content is longer than the alotted space.',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -27,6 +36,13 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'as a Group',
     contentsKey: 'asGroup',
+    componentType: 'XUIButtonGroup',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as a Group with multiline content',
+    viewports: desktopPlus320,
+    contentsKey: 'asMultiGroup',
     componentType: 'XUIButtonGroup',
   },
   {
@@ -66,6 +82,21 @@ const variations = [
     size: 'xsmall',
     variant: 'primary',
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as small fullWidth',
+    viewports: desktopPlus320,
+    value: 'fullWidth always',
+    fullWidth: 'always',
+    size: 'small',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as medium fullWidth small-down',
+    viewports: desktopPlus320,
+    value: 'fullWidth small-down',
+    fullWidth: 'small-down',
+  },
 ];
 
 buttonVariants.forEach((buttonVariant, index) => {
@@ -95,6 +126,21 @@ sizes.forEach(sizeVariant => {
     loadingLabel: 'Loading',
     className: 'xui-loader-static', // Prevent dots from animating and causing diffs due to timing issues
     value: 'This is a button',
+  });
+});
+
+iconSizes.forEach(iconSize => {
+  const iconButton = {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `${iconSize} iconButton`,
+    componentType: 'XUIIconButton',
+    size: iconSize,
+  };
+  variations.push(iconButton);
+  variations.push({
+    ...iconButton,
+    isInverted: true,
+    storyTitle: `${iconSize} inverted ${iconButton.storyTitle}`,
   });
 });
 

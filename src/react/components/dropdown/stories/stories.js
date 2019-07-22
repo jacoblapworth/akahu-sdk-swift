@@ -10,6 +10,7 @@ import DropDownHeader from '../DropDownHeader';
 import DropDownFooter from '../DropDownFooter';
 import XUIButton from '../../button/XUIButton';
 import XUIButtonCaret from '../../button/XUIButtonCaret';
+import XUIIconButton from '../../button/XUIIconButton';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import XUIDatePicker from '../../datepicker/XUIDatePicker';
@@ -195,11 +196,7 @@ const createTriggerInput = props => (
 const createTriggerButton = () => <XUIButton fullWidth="always">A button</XUIButton>;
 
 const createTriggerLink = () => <a href="javascript:void(0);">A link</a>;
-const createTriggerIcon = () => (
-  <XUIButton variant="icon" aria-label="Info">
-    <XUIIcon icon={info} />
-  </XUIButton>
-);
+const createTriggerIcon = () => <XUIIconButton icon={info} ariaLabel="Info" />;
 
 const getPositioningTest = () => {
   const props = {

@@ -16,15 +16,12 @@ Enhanced version of HTML checkbox. Use in place of `<input type="checkbox" />`.
 import XUICheckbox from './checkbox';
 
 <div>
-	<XUICheckbox
-		isDefaultChecked
-		hintMessage="Hint text"
-	>
-		Default checked
-	</XUICheckbox>
-	<XUICheckbox>Unchecked by default</XUICheckbox>
-	<XUICheckbox>Also unchecked</XUICheckbox>
-</div>
+  <XUICheckbox isDefaultChecked hintMessage="Hint text">
+    Default checked
+  </XUICheckbox>
+  <XUICheckbox>Unchecked by default</XUICheckbox>
+  <XUICheckbox>Also unchecked</XUICheckbox>
+</div>;
 ```
 
 ### Controlled
@@ -38,98 +35,96 @@ import XUICheckbox from './checkbox';
 
 const options = ['Cat', 'Dog', 'Bird', 'Fish'];
 const selectedStates = {
-	ALL: 'ALL',
-	INDETERMINATE: 'INDETERMINATE',
-	NONE: 'NONE',
+  ALL: 'ALL',
+  INDETERMINATE: 'INDETERMINATE',
+  NONE: 'NONE'
 };
 
-const values = object =>
-	Object.keys(object).reduce((values, key) =>
-		[
-			...values,
-			object[key],
-		], []);
+const values = object => Object.keys(object).reduce((values, key) => [...values, object[key]], []);
 
-const getSelectedState = (selectedItems) => {
-	const numberOfSelectedValues = values(selectedItems).filter(value => value).length;
-	if (numberOfSelectedValues === 0) {
-		return selectedStates.NONE;
-	} else if (numberOfSelectedValues === options.length) {
-		return selectedStates.ALL;
-	}
-	return selectedStates.INDETERMINATE;
-}
+const getSelectedState = selectedItems => {
+  const numberOfSelectedValues = values(selectedItems).filter(value => value).length;
+  if (numberOfSelectedValues === 0) {
+    return selectedStates.NONE;
+  } else if (numberOfSelectedValues === options.length) {
+    return selectedStates.ALL;
+  }
+  return selectedStates.INDETERMINATE;
+};
 
 class Example extends PureComponent {
-	constructor(...args) {
-		super(...args);
-		
-		this.state = {
-			selectedItems: {},
-			selectedState: selectedStates.NONE,
-		};
+  constructor(...args) {
+    super(...args);
 
-		this.onChange = this.onChange.bind(this);
-		this.toggleAll = this.toggleAll.bind(this);
-	}
+    this.state = {
+      selectedItems: {},
+      selectedState: selectedStates.NONE
+    };
 
-	onChange(e) {
-		const value = e.target.value;
-		this.setState(prevState => {
-			const selectedItems = {
-				...prevState.selectedItems,
-				[value]: !prevState.selectedItems[value],
-			};
-			return {
-				selectedItems,
-				selectedState: getSelectedState(selectedItems),
-			};
-		});
-	}
+    this.onChange = this.onChange.bind(this);
+    this.toggleAll = this.toggleAll.bind(this);
+  }
 
-	toggleAll() {
-		this.setState(prevState => {
-			const newSelectedState = prevState.selectedState === selectedStates.ALL ? false : true;
-			return {
-				selectedItems: options.reduce((selectedItems, option) => ({
-					...selectedItems,
-					[option]: newSelectedState
-				}), {}),
-				selectedState: newSelectedState ? selectedStates.ALL : selectedStates.NONE,
-			};
-		});
-	}
+  onChange(e) {
+    const value = e.target.value;
+    this.setState(prevState => {
+      const selectedItems = {
+        ...prevState.selectedItems,
+        [value]: !prevState.selectedItems[value]
+      };
+      return {
+        selectedItems,
+        selectedState: getSelectedState(selectedItems)
+      };
+    });
+  }
 
-	render() {
-		const { selectedItems, selectedState } = this.state;
-		return (
-			<div>
-				Which animals do you like?
-				<div>
-					<XUICheckbox
-						isIndeterminate={selectedState === selectedStates.INDETERMINATE}
-						isChecked={selectedState === selectedStates.ALL}
-						onChange={this.toggleAll}
-					>
-						All
-					</XUICheckbox>
-					{options.map(option => (
-						<XUICheckbox
-							key={option}
-							value={option}
-							isChecked={selectedItems[option]}
-							onChange={this.onChange}
-						>
-							{option}
-						</XUICheckbox>
-					))}
-				</div>
-			</div>
-		)
-	}
+  toggleAll() {
+    this.setState(prevState => {
+      const newSelectedState = prevState.selectedState === selectedStates.ALL ? false : true;
+      return {
+        selectedItems: options.reduce(
+          (selectedItems, option) => ({
+            ...selectedItems,
+            [option]: newSelectedState
+          }),
+          {}
+        ),
+        selectedState: newSelectedState ? selectedStates.ALL : selectedStates.NONE
+      };
+    });
+  }
+
+  render() {
+    const { selectedItems, selectedState } = this.state;
+    return (
+      <div>
+        Which animals do you like?
+        <div>
+          <XUICheckbox
+            isIndeterminate={selectedState === selectedStates.INDETERMINATE}
+            isChecked={selectedState === selectedStates.ALL}
+            onChange={this.toggleAll}
+          >
+            All
+          </XUICheckbox>
+          {options.map(option => (
+            <XUICheckbox
+              key={option}
+              value={option}
+              isChecked={selectedItems[option]}
+              onChange={this.onChange}
+            >
+              {option}
+            </XUICheckbox>
+          ))}
+        </div>
+      </div>
+    );
+  }
 }
 
-<Example/>
+<Example />;
 ```
 
 ### Disabled
@@ -138,10 +133,14 @@ class Example extends PureComponent {
 import XUICheckbox from './checkbox';
 
 <div>
-	<XUICheckbox isDisabled>Unchecked</XUICheckbox>
-	<XUICheckbox isDisabled isDefaultChecked>Checked</XUICheckbox>
-	<XUICheckbox isDisabled isChecked={false} isIndeterminate>Indeterminate</XUICheckbox>
-</div>
+  <XUICheckbox isDisabled>Unchecked</XUICheckbox>
+  <XUICheckbox isDisabled isDefaultChecked>
+    Checked
+  </XUICheckbox>
+  <XUICheckbox isDisabled isChecked={false} isIndeterminate>
+    Indeterminate
+  </XUICheckbox>
+</div>;
 ```
 
 ### Reversed labels
@@ -149,13 +148,45 @@ import XUICheckbox from './checkbox';
 Use the `isReversed` prop to have the label appear to the left of the checkbox element.
 
 ```jsx harmony
+import { PureComponent } from 'react';
 import XUICheckbox from './checkbox';
 
-<div>
-	<XUICheckbox isReversed isChecked={false}>Unchecked</XUICheckbox>
-	<XUICheckbox isReversed isChecked>Checked</XUICheckbox>
-	<XUICheckbox isReversed isIndeterminate>Indeterminate</XUICheckbox>
-</div>
+class Example extends PureComponent {
+  constructor() {
+    this.state = {
+      isIndeterminate: true
+    };
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange() {
+    this.setState({
+      isIndeterminate: !this.state.isIndeterminate
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <XUICheckbox isReversed isDefaultChecked={false}>
+          Unchecked
+        </XUICheckbox>
+        <XUICheckbox isReversed isDefaultChecked>
+          Checked
+        </XUICheckbox>
+        <XUICheckbox
+          isReversed
+          isIndeterminate={this.state.isIndeterminate}
+          onChange={this.onChange}
+        >
+          Indeterminate
+        </XUICheckbox>
+      </div>
+    );
+  }
+}
+
+<Example />;
 ```
 
 It is also possible to use the `isLabelHidden` prop to visually hide the label, but we strongly recommend providing a label for accessibility purposes, even if it will be hidden.
@@ -171,8 +202,8 @@ import starIcon from '@xero/xui-icon/icons/star';
 import XUICheckbox from './checkbox';
 
 <div>
-	<XUICheckbox isChecked iconMain={starIcon}>
-		Favourite
-	</XUICheckbox>
-</div>
+  <XUICheckbox isChecked iconMain={starIcon}>
+    Favourite
+  </XUICheckbox>
+</div>;
 ```

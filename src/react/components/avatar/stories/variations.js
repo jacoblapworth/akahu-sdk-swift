@@ -1,3 +1,5 @@
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
+
 const constants = require('../constants');
 
 const sizes = Object.keys(constants.sizeClassNames);
@@ -25,13 +27,13 @@ const avatarVariations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with image',
-    imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg',
+    imageUrl: 'https://xui.xero.com/static/xpert-avatar.png',
     value: 'value',
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with broken image, no id',
-    imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenaresnnnn/24.jpg',
+    imageUrl: 'https://xui.xero.com/static/broken-path.jpg',
     value: 'value',
   },
   {
@@ -88,21 +90,23 @@ const avatarVariations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'grouped avatars many sizes',
+    viewports: desktopPlus320,
     value: 'value',
     grouped: true,
     sizes,
-    avatarLength: 5,
-    maxAvatars: 3,
+    avatarLength: 20,
+    maxAvatars: 10,
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'grouped avatars many sizes business',
+    viewports: desktopPlus320,
     value: 'value',
     grouped: true,
     sizes,
     variant: 'business',
-    avatarLength: 5,
-    maxAvatars: 3,
+    avatarLength: 20,
+    maxAvatars: 10,
   },
   {
     storyKind: storiesWithVariationsKindName,

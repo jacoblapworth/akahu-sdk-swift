@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import crossSmall from '@xero/xui-icon/icons/cross-small';
 
-import XUIIcon from '../icon/XUIIcon';
-import XUIButton from '../button/XUIButton';
+import XUIIconButton from '../button/XUIIconButton';
 import XUIInnerPill from './XUIInnerPill';
 import XUITooltip from '../tooltip/XUITooltip';
 import { baseClass, sizeClasses } from './private/constants';
@@ -103,17 +102,16 @@ export default class XUIPill extends PureComponent {
           );
 
           const deleteButton = onDeleteClick && (
-            <XUIButton
+            <XUIIconButton
+              icon={crossSmall}
+              ariaLabel={deleteButtonLabel}
               size={size}
               className={`${baseClass}--button-icon`}
-              variant={isInvalid ? 'icon-inverted' : 'icon'}
+              isInverted={isInvalid}
               onClick={onDeleteClick}
               title={deleteButtonLabel}
-              aria-label={deleteButtonLabel}
               qaHook={qaHook && `${qaHook}--delete`}
-            >
-              <XUIIcon icon={crossSmall} />
-            </XUIButton>
+            />
           );
 
           const content = (
@@ -151,6 +149,7 @@ export default class XUIPill extends PureComponent {
                 // Extra wrapping div required because tooltip has CSS that stomps on first child
                 trigger={<div>{content}</div>}
                 isHidden={!debugShowToolTip}
+                useInlineFlex
                 ref={this._tooltip}
                 id={debugShowToolTip && 'tooltipDebugId'}
               >

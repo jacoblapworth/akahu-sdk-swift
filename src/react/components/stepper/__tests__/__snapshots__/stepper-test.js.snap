@@ -58,6 +58,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-0"
+          index={0}
           isActive={true}
           isComplete={false}
           isStandard={false}
@@ -69,6 +70,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
+            data-istabactive={true}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -121,6 +123,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="Invalid Email"
           handleClick={[Function]}
           id="myCustomStepperId-tab-1"
+          index={1}
           isActive={false}
           isComplete={false}
           isError={true}
@@ -133,6 +136,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -210,6 +214,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-2"
+          index={2}
           isActive={false}
           isComplete={false}
           isDisabled={true}
@@ -222,6 +227,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -274,6 +280,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="All done =)"
           handleClick={[Function]}
           id="myCustomStepperId-tab-3"
+          index={3}
           isActive={false}
           isComplete={true}
           isStandard={true}
@@ -285,6 +292,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -368,6 +376,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       },
     ]
   }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
+      },
+    ]
+  }
 >
   <div
     className="xui-stepper"
@@ -398,6 +420,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-0"
+          index={0}
           isActive={true}
           isComplete={false}
           isStandard={false}
@@ -409,6 +432,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
+            data-istabactive={true}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -461,6 +485,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-1"
+          index={1}
           isActive={false}
           isComplete={true}
           isDisabled={true}
@@ -473,6 +498,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -533,6 +559,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-2"
+          index={2}
           isActive={false}
           isComplete={false}
           isError={true}
@@ -545,6 +572,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -646,6 +674,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       },
     ]
   }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
+      },
+    ]
+  }
 >
   <div
     className="xui-stepper"
@@ -676,6 +718,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-0"
+          index={0}
           isActive={true}
           isComplete={false}
           isStandard={false}
@@ -687,6 +730,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
+            data-istabactive={true}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -739,6 +783,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-1"
+          index={1}
           isActive={false}
           isComplete={true}
           isDisabled={true}
@@ -751,6 +796,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -811,6 +857,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-2"
+          index={2}
           isActive={false}
           isComplete={false}
           isError={true}
@@ -823,6 +870,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -956,6 +1004,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-0"
+          index={0}
           isActive={true}
           isComplete={false}
           isStandard={false}
@@ -967,6 +1016,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
+            data-istabactive={true}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -1019,6 +1069,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="Invalid Email"
           handleClick={[Function]}
           id="myCustomStepperId-tab-1"
+          index={1}
           isActive={false}
           isComplete={false}
           isError={true}
@@ -1031,6 +1082,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -1108,6 +1160,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-2"
+          index={2}
           isActive={false}
           isComplete={false}
           isDisabled={true}
@@ -1120,6 +1173,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -1172,6 +1226,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="All done =)"
           handleClick={[Function]}
           id="myCustomStepperId-tab-3"
+          index={3}
           isActive={false}
           isComplete={true}
           isStandard={true}
@@ -1183,6 +1238,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -1265,6 +1321,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       },
     ]
   }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
+      },
+    ]
+  }
 >
   <div
     className="xui-stepper"
@@ -1295,6 +1365,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-0"
+          index={0}
           isActive={true}
           isComplete={false}
           isStandard={false}
@@ -1306,6 +1377,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
+            data-istabactive={true}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -1358,6 +1430,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-1"
+          index={1}
           isActive={false}
           isComplete={true}
           isDisabled={true}
@@ -1370,6 +1443,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -1430,6 +1504,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-2"
+          index={2}
           isActive={false}
           isComplete={false}
           isError={true}
@@ -1442,6 +1517,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -1542,6 +1618,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       },
     ]
   }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
+      },
+    ]
+  }
 >
   <div
     className="xui-stepper"
@@ -1572,6 +1662,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-0"
+          index={0}
           isActive={true}
           isComplete={false}
           isStandard={false}
@@ -1583,6 +1674,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
+            data-istabactive={true}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -1635,6 +1727,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-1"
+          index={1}
           isActive={false}
           isComplete={true}
           isDisabled={true}
@@ -1647,6 +1740,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -1707,6 +1801,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-2"
+          index={2}
           isActive={false}
           isComplete={false}
           isError={true}
@@ -1719,6 +1814,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -1896,6 +1992,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={3}
           handleClick={[Function]}
           id="myCustomStepperId-tab-0"
+          index={0}
           isActive={true}
           isComplete={false}
           isProgress={true}
@@ -1909,6 +2006,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
+            data-istabactive={true}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -2050,6 +2148,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="Multiline"
           handleClick={[Function]}
           id="myCustomStepperId-tab-1"
+          index={1}
           isActive={false}
           isComplete={false}
           isProgress={true}
@@ -2063,6 +2162,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -2208,6 +2308,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={3}
           handleClick={[Function]}
           id="myCustomStepperId-tab-2"
+          index={2}
           isActive={false}
           isComplete={false}
           isError={true}
@@ -2222,6 +2323,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -2363,6 +2465,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="With \\"isDisabled\\" prop"
           handleClick={[Function]}
           id="myCustomStepperId-tab-3"
+          index={3}
           isActive={false}
           isComplete={false}
           isDisabled={true}
@@ -2378,6 +2481,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -2523,6 +2627,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={3}
           handleClick={[Function]}
           id="myCustomStepperId-tab-4"
+          index={4}
           isActive={false}
           isComplete={true}
           isProgress={true}
@@ -2536,6 +2641,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -2591,6 +2697,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="With \\"isError\\" prop"
           handleClick={[Function]}
           id="myCustomStepperId-tab-5"
+          index={5}
           isActive={false}
           isComplete={true}
           isError={true}
@@ -2605,6 +2712,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -2683,6 +2791,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="With \\"isDisabled\\" prop"
           handleClick={[Function]}
           id="myCustomStepperId-tab-6"
+          index={6}
           isActive={false}
           isComplete={true}
           isDisabled={true}
@@ -2697,6 +2806,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -2757,6 +2867,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="When progress is complete"
           handleClick={[Function]}
           id="myCustomStepperId-tab-7"
+          index={7}
           isActive={false}
           isComplete={true}
           isProgress={true}
@@ -2770,6 +2881,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -2885,6 +2997,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-0"
+          index={0}
           isActive={true}
           isComplete={false}
           isStandard={false}
@@ -2896,6 +3009,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
+            data-istabactive={true}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -2948,6 +3062,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="Invalid Email"
           handleClick={[Function]}
           id="myCustomStepperId-tab-1"
+          index={1}
           isActive={false}
           isComplete={false}
           isError={true}
@@ -2960,6 +3075,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -3037,6 +3153,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-2"
+          index={2}
           isActive={false}
           isComplete={false}
           isDisabled={true}
@@ -3049,6 +3166,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -3101,6 +3219,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="All done =)"
           handleClick={[Function]}
           id="myCustomStepperId-tab-3"
+          index={3}
           isActive={false}
           isComplete={true}
           isStandard={true}
@@ -3112,6 +3231,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -3194,6 +3314,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       },
     ]
   }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
+      },
+    ]
+  }
 >
   <div
     className="xui-stepper"
@@ -3224,6 +3358,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-0"
+          index={0}
           isActive={true}
           isComplete={false}
           isStandard={false}
@@ -3235,6 +3370,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
+            data-istabactive={true}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -3287,6 +3423,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-1"
+          index={1}
           isActive={false}
           isComplete={true}
           isDisabled={true}
@@ -3299,6 +3436,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -3359,6 +3497,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-2"
+          index={2}
           isActive={false}
           isComplete={false}
           isError={true}
@@ -3371,6 +3510,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -3471,6 +3611,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       },
     ]
   }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
+      },
+    ]
+  }
 >
   <div
     className="xui-stepper"
@@ -3501,6 +3655,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-0"
+          index={0}
           isActive={true}
           isComplete={false}
           isStandard={false}
@@ -3512,6 +3667,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
+            data-istabactive={true}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -3564,6 +3720,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-1"
+          index={1}
           isActive={false}
           isComplete={true}
           isDisabled={true}
@@ -3576,6 +3733,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -3636,6 +3794,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-2"
+          index={2}
           isActive={false}
           isComplete={false}
           isError={true}
@@ -3648,6 +3807,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -3781,6 +3941,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-0"
+          index={0}
           isActive={true}
           isComplete={false}
           isStandard={false}
@@ -3792,6 +3953,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
+            data-istabactive={true}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -3844,6 +4006,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="Invalid Email"
           handleClick={[Function]}
           id="myCustomStepperId-tab-1"
+          index={1}
           isActive={false}
           isComplete={false}
           isError={true}
@@ -3856,6 +4019,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -3933,6 +4097,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-2"
+          index={2}
           isActive={false}
           isComplete={false}
           isDisabled={true}
@@ -3945,6 +4110,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -3997,6 +4163,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="All done =)"
           handleClick={[Function]}
           id="myCustomStepperId-tab-3"
+          index={3}
           isActive={false}
           isComplete={true}
           isStandard={true}
@@ -4008,6 +4175,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -4090,6 +4258,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       },
     ]
   }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
+      },
+    ]
+  }
 >
   <div
     className="xui-stepper"
@@ -4120,6 +4302,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-0"
+          index={0}
           isActive={true}
           isComplete={false}
           isStandard={false}
@@ -4131,6 +4314,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
+            data-istabactive={true}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -4183,6 +4367,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-1"
+          index={1}
           isActive={false}
           isComplete={true}
           isDisabled={true}
@@ -4195,6 +4380,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -4255,6 +4441,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-2"
+          index={2}
           isActive={false}
           isComplete={false}
           isError={true}
@@ -4267,6 +4454,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -4367,6 +4555,20 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
       },
     ]
   }
+  viewports={
+    Array [
+      Object {
+        "height": 768,
+        "label": "just desktop",
+        "width": 1024,
+      },
+      Object {
+        "height": 500,
+        "label": "smaller than xsmall breakpoint",
+        "width": 320,
+      },
+    ]
+  }
 >
   <div
     className="xui-stepper"
@@ -4397,6 +4599,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-0"
+          index={0}
           isActive={true}
           isComplete={false}
           isStandard={false}
@@ -4408,6 +4611,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
+            data-istabactive={true}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -4460,6 +4664,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-1"
+          index={1}
           isActive={false}
           isComplete={true}
           isDisabled={true}
@@ -4472,6 +4677,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -4532,6 +4738,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog"
           handleClick={[Function]}
           id="myCustomStepperId-tab-2"
+          index={2}
           isActive={false}
           isComplete={false}
           isError={true}
@@ -4544,6 +4751,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -4693,6 +4901,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-0"
+          index={0}
           isActive={true}
           isComplete={false}
           isStandard={false}
@@ -4704,6 +4913,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-active"
+            data-istabactive={true}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -4756,6 +4966,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="Multiline"
           handleClick={[Function]}
           id="myCustomStepperId-tab-1"
+          index={1}
           isActive={false}
           isComplete={false}
           isStandard={true}
@@ -4767,6 +4978,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -4823,6 +5035,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-2"
+          index={2}
           isActive={false}
           isComplete={false}
           isError={true}
@@ -4835,6 +5048,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -4908,6 +5122,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="With \\"isDisabled\\" prop"
           handleClick={[Function]}
           id="myCustomStepperId-tab-3"
+          index={3}
           isActive={false}
           isComplete={false}
           isDisabled={true}
@@ -4921,6 +5136,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"
@@ -4998,6 +5214,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           currentProgress={NaN}
           handleClick={[Function]}
           id="myCustomStepperId-tab-4"
+          index={4}
           isActive={false}
           isComplete={true}
           isStandard={true}
@@ -5009,6 +5226,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-standard"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -5064,6 +5282,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="With \\"isError\\" prop"
           handleClick={[Function]}
           id="myCustomStepperId-tab-5"
+          index={5}
           isActive={false}
           isComplete={true}
           isError={true}
@@ -5076,6 +5295,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-error"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={0}
             type="button"
@@ -5154,6 +5374,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
           description="With \\"isDisabled\\" prop"
           handleClick={[Function]}
           id="myCustomStepperId-tab-6"
+          index={6}
           isActive={false}
           isComplete={true}
           isDisabled={true}
@@ -5166,6 +5387,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
         >
           <button
             className="xui-stepper-link xui-stepper-link-disabled"
+            data-istabactive={false}
             onClick={[Function]}
             tabIndex={-1}
             type="button"

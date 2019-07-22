@@ -30,6 +30,7 @@ $xui-switch-label-padding: $xui-s-xsmall;
 	background-color: $xui-switch-bg-color;
 	cursor: pointer;
 	display: inline-block;
+	flex-shrink: 0;
 	position: relative;
 	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 	user-select: none;

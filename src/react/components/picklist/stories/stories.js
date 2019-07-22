@@ -21,7 +21,7 @@ import contact from '@xero/xui-icon/icons/contact';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import centered from '../../../../../.storybook/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';
 
@@ -178,12 +178,14 @@ variations.forEach(variation => {
   } = variation;
 
   storiesWithVariations.add(storyTitle, () => {
-    const listComponents = buildLists(lists, componentType);
+    let listComponents = buildLists(lists, componentType);
 
     if (componentType === 'StatefulPicklist') {
-      return <StatefulPicklist {...variationMinusStoryDetails}>{listComponents}</StatefulPicklist>;
+      listComponents = (
+        <StatefulPicklist {...variationMinusStoryDetails}>{listComponents}</StatefulPicklist>
+      );
     } else if (componentType === 'NestedPicklist') {
-      return (
+      listComponents = (
         <XUIPicklist {...variationMinusStoryDetails}>
           <NestedPicklistContainer id="nested" isOpen={isOpen}>
             <NestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedTrigger">
@@ -204,13 +206,19 @@ variations.forEach(variation => {
           </NestedPicklistContainer>
         </XUIPicklist>
       );
-    } else if (componentType === 'wrapWithPanel') {
-      return (
-        <div className="xui-panel" style={{ width: panelSize || '500px' }}>
-          {listComponents}
-        </div>
-      );
     }
-    return listComponents;
+    const horizontalPanelStyles = { maxWidth: 'max-content', width: 'auto' };
+    return (
+      <div
+        className="xui-panel"
+        style={
+          !panelSize && lists[0].isHorizontal
+            ? horizontalPanelStyles
+            : { maxWidth: panelSize || '500px' }
+        }
+      >
+        {listComponents}
+      </div>
+    );
   });
 });

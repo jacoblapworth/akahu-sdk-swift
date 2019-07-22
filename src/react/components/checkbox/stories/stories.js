@@ -45,20 +45,22 @@ variations.forEach(variation => {
 
 		if(isGroup){
 			return (
-				<XUICheckboxGroup {...groupProps}>
-					<XUICheckbox isDefaultChecked isReversed={isReversed}>
-						Kakapo
-					</XUICheckbox>
-					<XUICheckbox isReversed={isReversed}>
-						Weka
-					</XUICheckbox>
-					<XUICheckbox isDisabled isReversed={isReversed}>
-						Kea
-					</XUICheckbox>
-					<XUICheckbox isReversed={isReversed}>
-						Kiwi
-					</XUICheckbox>
-				</XUICheckboxGroup>
+				<div style={{ maxWidth: '600px' }}>
+					<XUICheckboxGroup {...groupProps}>
+						<XUICheckbox isDefaultChecked isReversed={isReversed}>
+							Kakapo
+						</XUICheckbox>
+						<XUICheckbox isReversed={isReversed}>
+							Weka
+						</XUICheckbox>
+						<XUICheckbox isDisabled isReversed={isReversed}>
+							Kea
+						</XUICheckbox>
+						<XUICheckbox isReversed={isReversed}>
+							Yet another option, but this one is a good deal longer and may potetially wrap to a new line
+						</XUICheckbox>
+					</XUICheckboxGroup>
+				</div>
 			);
 		}
 

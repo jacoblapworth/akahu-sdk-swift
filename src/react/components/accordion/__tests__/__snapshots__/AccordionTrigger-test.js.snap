@@ -4,9 +4,9 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
 <div
   aria-label="Toggle"
   className="xui-accordiontrigger"
-  data-automationid="test-qahook"
+  data-automationid="test-id"
   onClick={[Function]}
-  onKeyDown={[Function]}
+  onKeyPress={[Function]}
   role="button"
   tabIndex="0"
 >
@@ -14,7 +14,8 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
     className="xui-accordiontrigger--arrow"
   >
     <button
-      className="xui-button xui-button-icon xui-button-icon-medium"
+      aria-label="Toggle"
+      className="xui-button xui-button-icon-medium xui-button-icon"
       disabled={false}
       onClick={[Function]}
       tabIndex={-1}
@@ -56,7 +57,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
   aria-label="Toggle"
   className="xui-accordiontrigger"
   onClick={[Function]}
-  onKeyDown={[Function]}
+  onKeyPress={[Function]}
   role="button"
   tabIndex="0"
 >
@@ -64,7 +65,8 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
     className="xui-accordiontrigger--arrow"
   >
     <button
-      className="xui-button xui-button-icon xui-button-icon-medium"
+      aria-label="Toggle"
+      className="xui-button xui-button-icon-medium xui-button-icon"
       disabled={false}
       onClick={[Function]}
       tabIndex={-1}
@@ -106,7 +108,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
   aria-label="Toggle"
   className="xui-accordiontrigger xui-accordiontrigger-is-open"
   onClick={[Function]}
-  onKeyDown={[Function]}
+  onKeyPress={[Function]}
   role="button"
   tabIndex="0"
 >
@@ -114,7 +116,8 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
     className="xui-accordiontrigger--arrow"
   >
     <button
-      className="xui-button xui-button-icon xui-button-icon-medium"
+      aria-label="Toggle"
+      className="xui-button xui-button-icon-medium xui-button-icon"
       disabled={false}
       onClick={[Function]}
       tabIndex={-1}
@@ -156,7 +159,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
   aria-label="Toggle"
   className="xui-accordiontrigger"
   onClick={[Function]}
-  onKeyDown={[Function]}
+  onKeyPress={[Function]}
   role="button"
   tabIndex="0"
 >
@@ -164,7 +167,8 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
     className="xui-accordiontrigger--arrow"
   >
     <button
-      className="xui-button xui-button-icon xui-button-icon-medium"
+      aria-label="Toggle"
+      className="xui-button xui-button-icon-medium xui-button-icon"
       disabled={false}
       onClick={[Function]}
       tabIndex={-1}
@@ -219,7 +223,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
     <div
       className="xui-accordiontrigger--rightcontent"
       onClick={[Function]}
-      onKeyDown={[Function]}
+      onKeyPress={[Function]}
       role="presentation"
     >
       <div

@@ -3,81 +3,76 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import listIcon from '@xero/xui-icon/icons/list';
 import { ns } from '../helpers/xuiClassNamespace';
-import AccordionWrapper from './customElements/AccordionWrapper';
-import AccordionTrigger from './customElements/AccordionTrigger';
 import EmptyState from './customElements/EmptyState';
+import XUIAccordionContext from './XUIAccordionContext';
 
 export default class XUIAccordion extends PureComponent {
   state = {
-    openId: null,
+    openItem: null,
   };
 
-  updateOpenId = itemId => {
-    this.setState(({ openId }) => ({
-      openId: openId === itemId ? null : itemId,
-    }));
-  };
-
-  getItemData = itemIndex => this.props.items[itemIndex];
-
-  createAccordionItem = ({ props: itemProps }, itemIndex) => {
-    const {
-      items,
-      idKey,
-      qaHook,
-      toggleLabel,
-      emptyMessage,
-      emptyIcon,
-      emptyStateComponent,
-    } = this.props;
-    const { children, ...triggerProps } = itemProps;
-    const itemData = items[itemIndex];
-    const itemId = itemData[idKey];
-    const isOpen = this.state.openId === itemId;
-
-    return (
-      <AccordionWrapper
-        key={itemId}
-        isOpen={isOpen}
-        qaHook={qaHook && `${qaHook}-wrapper`}
-        trigger={
-          <AccordionTrigger
-            {...{
-              ...triggerProps,
-              toggleLabel,
-              isOpen,
-              itemIndex,
-              itemId,
-            }}
-            qaHook={qaHook && `${qaHook}-trigger`}
-            updateOpenId={this.updateOpenId}
-            getItemData={this.getItemData}
-          />
-        }
-      >
-        {isOpen &&
-          (children || emptyStateComponent || (
-            <EmptyState qaHook={qaHook && `${qaHook}-empty`} emptyIcon={emptyIcon}>
-              {emptyMessage}
-            </EmptyState>
-          ))}
-      </AccordionWrapper>
-    );
+  /**
+   * This function is called when an accordionItem is clicked. It is responsible for closing the currently
+   * open accordion item and updating the open accordion item reference in state. If the clicked item is closing,
+   * it will set the openItem reference to null, making sure we don't close it if it's clicked again.
+   *
+   * @param item - The reference to the XUIAccordionItem that has been clicked
+   * @param isOpening - Whether or not the XUIAccordionItem is now opening since being clicked
+   * */
+  updateOpenAccordionItem = (item, isOpening) => {
+    const { openItem } = this.state;
+    openItem && openItem.closeItem();
+    this.setState({
+      openItem: isOpening ? item : null,
+    });
   };
 
   render() {
-    const { qaHook, className, items, createItem } = this.props;
-    const shouldCreateItems = Boolean(items.length && createItem);
+    const {
+      qaHook,
+      className,
+      items,
+      createItem,
+      emptyStateComponent,
+      emptyIcon,
+      emptyMessage,
+      toggleLabel,
+      idKey,
+      children,
+    } = this.props;
+    const shouldCreateItems = !!(items.length && createItem);
+
+    const emptyComponent = emptyStateComponent || (
+      <EmptyState qaHook={qaHook && `${qaHook}-empty`} emptyIcon={emptyIcon}>
+        {emptyMessage}
+      </EmptyState>
+    );
 
     return (
       <div data-automationid={qaHook} className={cn(`${ns}-accordion`, className)}>
-        {shouldCreateItems && items.map(createItem).map(this.createAccordionItem)}
+        <XUIAccordionContext.Provider
+          value={{
+            emptyStateComponent: emptyComponent,
+            updateOpenAccordionItem: this.updateOpenAccordionItem,
+            toggleLabel,
+            qaHook,
+          }}
+        >
+          {// TODO: Remove element clone in breaking-changes when `onItemClick` props can be swapped
+          // for ID
+          shouldCreateItems &&
+            items.map(item =>
+              React.cloneElement(createItem(item), { onItemClickArgs: item, key: item[idKey] }),
+            )}
+          {children}
+        </XUIAccordionContext.Provider>
       </div>
     );
   }
 }
 
 XUIAccordion.propTypes = {
+  children: PropTypes.node,
   qaHook: PropTypes.string,
 
   /** Attached to the outer most element of the accordion component. */

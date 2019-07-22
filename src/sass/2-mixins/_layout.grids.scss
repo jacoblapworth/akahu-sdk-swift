@@ -184,6 +184,10 @@
 
 @mixin xui-composition-grid-gap {
   grid-gap: $xui-grid-gutter $xui-grid-gutter;
+  // Transform forces a repaint solves issues where
+  // Removing and reapplying the grid gap class wouldn't
+  // show a grid gap in some browsers.
+  -webkit-transform: scale(1);
 }
 
 // Used for master-detail-summary layouts

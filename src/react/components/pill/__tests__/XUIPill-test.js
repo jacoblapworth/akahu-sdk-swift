@@ -35,7 +35,7 @@ describe('<XUIPill />', () => {
   });
 
   it('will render avatars when passed as an avatar prop', () => {
-    const imageUrl = 'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg';
+    const imageUrl = 'https://xui.xero.com/static/xpert-avatar.png';
     const avatarProps = {
       imageUrl,
       size: 'small',
@@ -55,7 +55,7 @@ describe('<XUIPill />', () => {
   });
 
   it('expect an error if both avatar and avatarProps are provided', () => {
-    const imageUrl = 'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg';
+    const imageUrl = 'https://xui.xero.com/static/xpert-avatar.png';
     const avatar = <XUIAvatar value="value pill" size="small" />;
     const avatarProps = {
       imageUrl,
@@ -128,7 +128,7 @@ describe('<XUIPill />', () => {
   });
 
   it('should render an error icon when invalid even with an avatar', () => {
-    const imageUrl = 'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg';
+    const imageUrl = 'https://xui.xero.com/static/xpert-avatar.png';
     const avatarProps = {
       imageUrl,
       size: 'small',
@@ -150,6 +150,17 @@ describe('<XUIPill />', () => {
         .first()
         .html(),
     ).toContain('title="alternate delete label"');
+  });
+
+  it("should render a delete button label of 'Delete' by default", () => {
+    const pill = mount(<XUIPill onDeleteClick={NOOP} deleteButtonLabel="Delete" />);
+
+    expect(
+      pill
+        .find('.xui-pill--button-icon')
+        .first()
+        .html(),
+    ).toContain('title="Delete"');
   });
 
   it('should switch the focus state when toggleFocus is called', () => {

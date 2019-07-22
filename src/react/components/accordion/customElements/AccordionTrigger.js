@@ -3,27 +3,25 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import arrowPath from '@xero/xui-icon/icons/arrow';
 import { ns } from '../../helpers/xuiClassNamespace';
-import XUIIcon from '../../icon/XUIIcon';
-import XUIButton from '../../button/XUIButton';
+import XUIIconButton from '../../button/XUIIconButton';
 import preventDefault from '../../helpers/preventDefault';
 import { isKeyClick } from '../../helpers/reactKeyHandler';
 
 export default class AccordionTrigger extends PureComponent {
   handleTriggerInteraction = event => {
-    const { updateOpenId, onItemClick, getItemData, itemIndex, itemId, isOpen } = this.props;
+    const { updateOpenAccordionItem, onItemClick, onItemClickArgs, isOpen } = this.props;
 
     if (event.defaultPrevented) {
       return;
     }
 
-    updateOpenId(itemId);
+    updateOpenAccordionItem();
     if (onItemClick) {
-      const itemData = getItemData(itemIndex);
-      onItemClick({ ...itemData, isOpen: !isOpen });
+      onItemClick({ ...onItemClickArgs, isOpen: !isOpen });
     }
   };
 
-  onKeyDown = event => {
+  onKeyPress = event => {
     if (isKeyClick(event)) {
       this.handleTriggerInteraction(event);
       event.preventDefault(); // prevent spacebar scroll.
@@ -60,7 +58,7 @@ export default class AccordionTrigger extends PureComponent {
       <div
         className={`${ns}-accordiontrigger--rightcontent`}
         onClick={preventDefault}
-        onKeyDown={preventDefault}
+        onKeyPress={preventDefault}
         role="presentation"
       >
         {pinnedValueScaffold}
@@ -73,7 +71,7 @@ export default class AccordionTrigger extends PureComponent {
       <div
         data-automationid={qaHook}
         onClick={this.handleTriggerInteraction}
-        onKeyDown={this.onKeyDown}
+        onKeyPress={this.onKeyPress}
         tabIndex="0"
         role="button"
         aria-label={toggleLabel}
@@ -82,9 +80,13 @@ export default class AccordionTrigger extends PureComponent {
         })}
       >
         <div className={`${ns}-accordiontrigger--arrow`}>
-          <XUIButton variant="icon" title={toggleLabel} tabIndex={-1}>
-            <XUIIcon icon={arrowPath} rotation={isOpen ? 180 : null} />
-          </XUIButton>
+          <XUIIconButton
+            icon={arrowPath}
+            ariaLabel={toggleLabel}
+            title={toggleLabel}
+            tabIndex={-1}
+            rotation={isOpen ? 180 : null}
+          />
         </div>
 
         {leftContent}
@@ -107,8 +109,8 @@ AccordionTrigger.propTypes = {
   custom: PropTypes.node,
   onItemClick: PropTypes.func,
   toggleLabel: PropTypes.string.isRequired,
-  updateOpenId: PropTypes.func.isRequired,
-  getItemData: PropTypes.func.isRequired,
+  updateOpenAccordionItem: PropTypes.func.isRequired,
+  onItemClickArgs: PropTypes.object,
   isOpen: PropTypes.bool,
   leftContent: PropTypes.node,
   primaryHeading: PropTypes.node,
@@ -116,6 +118,4 @@ AccordionTrigger.propTypes = {
   pinnedValue: PropTypes.node,
   action: PropTypes.node,
   overflow: PropTypes.node,
-  itemIndex: PropTypes.number,
-  itemId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };

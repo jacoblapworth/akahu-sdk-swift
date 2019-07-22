@@ -1,5 +1,6 @@
 const storiesWithVariationsKindName = 'Instances/XUIPicklist';
 import React from 'react';
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIIcon from '../../icon/XUIIcon';
 import view from '@xero/xui-icon/icons/view';
@@ -30,6 +31,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'as Truncating items',
+    panelSize: '350px',
     lists: [
       {
         shouldTruncate: true,
@@ -47,7 +49,6 @@ const variations = [
           },
           {},
         ],
-        className: 'xui-column-5-of-12',
       },
     ],
   },
@@ -153,9 +154,10 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with wrapping in narrow list',
+    viewports: desktopPlus320,
     isOpen: true,
     componentType: 'StatefulPicklist',
-    className: 'xui-dropdown-small xui-dropdown-force-desktop',
+    panelSize: '200px',
     lists: [
       {
         isMultiselect: true,
@@ -166,9 +168,10 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with truncation in narrow list',
+    viewports: desktopPlus320,
     isOpen: true,
     componentType: 'StatefulPicklist',
-    className: 'xui-dropdown-small xui-dropdown-force-desktop',
+    panelSize: '200px',
     lists: [
       {
         isMultiselect: true,
@@ -180,7 +183,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with headings',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         items: [
@@ -195,7 +197,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with secondary copy',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         items: [
@@ -209,7 +210,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with pinned values',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         items: [
@@ -223,13 +223,12 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with avatars',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         items: [
           { value: 'James Magness', leftElement: <XUIAvatar value="James Magness" size="small" /> },
           { value: 'Tim Redmond', leftElement: <XUIAvatar value="Tim Redmond" size="small" /> },
-          { value: 'Maxine Ellah', leftElement: <XUIAvatar value="Maxine Ellah" size="small" /> },
+          { value: 'Vicky Min', leftElement: <XUIAvatar value="Vicky Min" size="small" /> },
         ],
       },
     ],
@@ -237,7 +236,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with an icon',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         items: [{ value: 'Create new', leftElement: <XUIIcon icon={view} /> }],
@@ -247,7 +245,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'invalid with right media',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         items: [
@@ -277,7 +274,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'small with all the things',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         size: 'small',
@@ -299,8 +295,8 @@ const variations = [
           { isDivider: true },
           { isHeader: true, children: 'Recent' },
           {
-            value: 'Maxine Ellah',
-            leftElement: <XUIAvatar value="Maxine Ellah" size="xsmall" />,
+            value: 'Grzegorz Pawłowski-Chudziński',
+            leftElement: <XUIAvatar value="Grzegorz Pawłowski-Chudziński" size="xsmall" />,
             rightElement: <XUIIcon icon={iconsList[2]} />,
             secondaryElement: 'Developer',
             pinnedElement: '42',
@@ -312,7 +308,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'small multiselect',
-    componentType: 'wrapWithPanel',
     lists: [
       {
         size: 'small',
@@ -331,7 +326,7 @@ const variations = [
           },
           {
             value:
-              'Maxine Ellah The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
+              'Alex Lapwood The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
             secondaryElement: 'Developer',
             pinnedElement: '42',
             isSelected: true,
@@ -343,7 +338,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'xsmall wrapping with all the things',
-    componentType: 'wrapWithPanel',
     panelSize: '300px',
     lists: [
       {
@@ -368,8 +362,8 @@ const variations = [
             pinnedElement: '3',
           },
           {
-            value: 'Maxine Ellah',
-            leftElement: <XUIAvatar value="Maxine Ellah" size="2xsmall" />,
+            value: 'Nick Piesco',
+            leftElement: <XUIAvatar value="Nick Piesco" size="2xsmall" />,
             rightElement: <XUIIcon icon={iconsList[2]} />,
             secondaryElement: 'Developer',
             pinnedElement: '42',
@@ -381,7 +375,6 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'xsmall truncating with all the things',
-    componentType: 'wrapWithPanel',
     panelSize: '300px',
     lists: [
       {
@@ -407,8 +400,8 @@ const variations = [
             pinnedElement: '3',
           },
           {
-            value: 'Maxine Ellah',
-            leftElement: <XUIAvatar value="Maxine Ellah" size="2xsmall" />,
+            value: 'Vicky Min',
+            leftElement: <XUIAvatar value="Vicky Min" size="2xsmall" />,
             rightElement: <XUIIcon icon={iconsList[2]} />,
             secondaryElement: 'Developer',
             pinnedElement: '42',
@@ -420,8 +413,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'horizontal with avatars',
-    componentType: 'wrapWithPanel',
-    panelSize: 'auto',
+    viewports: desktopPlus320,
     lists: [
       {
         isHorizontal: true,
@@ -432,7 +424,10 @@ const variations = [
             isSelected: true,
           },
           { value: 'Tim Redmond', leftElement: <XUIAvatar value="Tim Redmond" size="small" /> },
-          { value: 'Maxine Ellah', leftElement: <XUIAvatar value="Maxine Ellah" size="small" /> },
+          {
+            value: 'Grzegorz Pawłowski-Chudziński',
+            leftElement: <XUIAvatar value="Grzegorz Pawłowski-Chudziński" size="small" />,
+          },
         ],
       },
     ],
@@ -440,8 +435,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'small horizontal with right media',
-    componentType: 'wrapWithPanel',
-    panelSize: 'auto',
+    viewports: desktopPlus320,
     lists: [
       {
         isHorizontal: true,
@@ -468,7 +462,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'xsmall horizontal with wrapping et al',
-    componentType: 'wrapWithPanel',
+    viewports: desktopPlus320,
     panelSize: '275px',
     lists: [
       {
@@ -487,7 +481,7 @@ const variations = [
             leftElement: <XUIIcon icon={iconsList[2]} />,
           },
           {
-            value: 'Maxine Ellah',
+            value: 'Alex Lapwood',
             pinnedElement: '42',
             leftElement: <XUIIcon icon={iconsList[3]} />,
           },
@@ -498,7 +492,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'small horizontal with truncation',
-    componentType: 'wrapWithPanel',
+    viewports: desktopPlus320,
     panelSize: '275px',
     lists: [
       {
@@ -516,7 +510,7 @@ const variations = [
             leftElement: <XUIIcon icon={iconsList[2]} />,
           },
           {
-            value: 'Maxine Ellah',
+            value: 'Finn Clark',
             leftElement: <XUIIcon icon={iconsList[3]} />,
           },
         ],
@@ -526,7 +520,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'multiselect with truncation',
-    componentType: 'wrapWithPanel',
+    viewports: desktopPlus320,
     panelSize: '400px',
     lists: [
       {
@@ -551,9 +545,9 @@ const variations = [
             pinnedElement: '3',
           },
           {
-            value: 'Maxine Ellah',
+            value: 'Zac Sanderson-Harris',
             rightElement: <XUIIcon icon={iconsList[2]} />,
-            secondaryElement: 'Developer',
+            secondaryElement: 'Designer',
             pinnedElement: '42',
           },
         ],

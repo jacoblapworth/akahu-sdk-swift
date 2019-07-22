@@ -6,6 +6,11 @@ import XUIAccordion from '../XUIAccordion';
 import XUIAccordionItem from '../XUIAccordionItem';
 
 Enzyme.configure({ adapter: new Adapter() });
+const qaHook = 'test-id';
+
+const openAccordionItemChild = component => {
+  component.root.find(node => node.type === XUIAccordionItem).instance.setState({ isOpen: true });
+};
 
 describe('<XUIAccordion />', () => {
   it('should render the base component with only required props passed', () => {
@@ -29,7 +34,7 @@ describe('<XUIAccordion />', () => {
   it('should render the accordion with a custom qa hook', () => {
     const component = renderer.create(
       <XUIAccordion
-        qaHook="testHook"
+        qaHook={qaHook}
         toggleLabel="Toggle"
         emptyMessage="Nothing available to show"
       />,
@@ -40,7 +45,6 @@ describe('<XUIAccordion />', () => {
   it('should render a closed accordion item', () => {
     const component = renderer.create(
       <XUIAccordion
-        qaHook="testHook"
         className="testClass"
         items={[{ id: 1, name: 'John Smith', content: 'Accountant' }]}
         createItem={({ name }) => <XUIAccordionItem primaryHeading={name} />}
@@ -63,8 +67,7 @@ describe('<XUIAccordion />', () => {
         emptyMessage="Nothing available to show"
       />,
     );
-
-    component.getInstance().setState({ openId: 1 });
+    openAccordionItemChild(component);
     expect(component).toMatchSnapshot();
   });
 
@@ -78,7 +81,7 @@ describe('<XUIAccordion />', () => {
       />,
     );
 
-    component.getInstance().setState({ openId: 1 });
+    openAccordionItemChild(component);
     expect(component).toMatchSnapshot();
   });
 
@@ -92,7 +95,7 @@ describe('<XUIAccordion />', () => {
       />,
     );
 
-    component.getInstance().setState({ openId: 1 });
+    openAccordionItemChild(component);
     expect(component).toMatchSnapshot();
   });
 
@@ -106,7 +109,7 @@ describe('<XUIAccordion />', () => {
       />,
     );
 
-    component.getInstance().setState({ openId: 1 });
+    openAccordionItemChild(component);
     expect(component).toMatchSnapshot();
   });
 

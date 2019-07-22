@@ -10,7 +10,7 @@ import education from '@xero/xui-icon/icons/education';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import centered from '../../../../../.storybook/xuiResponsiveCenter';
 
 import { variantClassNames } from '../../button/private/constants';
 import { storiesWithVariationsKindName, variations } from './variations';
@@ -100,15 +100,19 @@ variations.forEach(variation => {
     delete variationMinusStoryDetails.items;
     delete variationMinusStoryDetails.storyKind;
     delete variationMinusStoryDetails.storyTitle;
+    const display = variationMinusStoryDetails.fullWidth === 'never' ? 'flex' : '';
 
     return (
-      <SelectBox
-        {...variationMinusStoryDetails}
-        label={variation.storyTitle}
-        caretTitle="Toggle list"
-      >
-        {createItems({ items, size: listItemSize })}
-      </SelectBox>
+      <div style={{ maxWidth: '600px', display }}>
+        <SelectBox
+          {...variationMinusStoryDetails}
+          label={variation.storyTitle}
+          containerClasses={`xui-margin-horizontal-auto ${variation.containerClasses}`}
+          caretTitle="Toggle list"
+        >
+          {createItems({ items, size: listItemSize })}
+        </SelectBox>
+      </div>
     );
   });
 });

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import back from '@xero/xui-icon/icons/back';
 import cn from 'classnames';
 import XUIButton from '../button/XUIButton';
-import XUIIcon from '../icon/XUIIcon';
+import XUIIconButton from '../button/XUIIconButton';
 import { baseClass } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 
@@ -53,16 +53,14 @@ export default class DropDownHeader extends PureComponent {
     );
 
     const backButton = onBackButtonClick ? (
-      <XUIButton
-        variant="icon"
+      <XUIIconButton
+        icon={back}
         className={`${ns}-dropdown--headerbackbutton`}
         onClick={onBackButtonClick}
-        aria-label={backButtonLabel}
+        ariaLabel={backButtonLabel}
         qaHook={qaHook != null ? `${qaHook}--button-back` : null}
         size="small"
-      >
-        <XUIIcon icon={back} />
-      </XUIButton>
+      />
     ) : null;
 
     const secondaryButton = onSecondaryButtonClick ? (
@@ -91,7 +89,7 @@ export default class DropDownHeader extends PureComponent {
 
     const titleSection = title ? (
       <div
-        className={`${ns}-heading-small ${ns}-margin-left-small ${ns}-text-truncated`}
+        className={`${ns}-heading-medium ${ns}-margin-left-2xsmall ${ns}-text-truncated`}
         data-automationid={qaHook && `${qaHook}--header-title`}
       >
         {title}
@@ -117,7 +115,7 @@ export default class DropDownHeader extends PureComponent {
           data-automationid={qaHook && `${qaHook}--header-right`}
         >
           <div
-            className={`${ns}-margin-right-xsmall ${baseClass}--header-rightcontent`}
+            className={`${baseClass}--header-rightcontent`}
             data-automationid={qaHook && `${qaHook}--header-rightcontent`}
           >
             {rightContent}

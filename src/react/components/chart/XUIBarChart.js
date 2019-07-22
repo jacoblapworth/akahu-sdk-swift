@@ -76,6 +76,9 @@ XUIBarChart.propTypes = {
         /** Multiple values for stacked bar. */
         PropTypes.arrayOf(PropTypes.number),
       ]),
+
+      /** Optional URL for a custom avatar image when the chart‘s `xAxisType` is `avatar`. */
+      avatarUrl: PropTypes.string,
     }),
   ),
 

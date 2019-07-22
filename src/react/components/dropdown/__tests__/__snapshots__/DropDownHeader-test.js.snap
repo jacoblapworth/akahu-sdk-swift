@@ -12,7 +12,7 @@ exports[`<DropDownHeader/> should render a back button if back button click hand
     >
       <button
         aria-label="Back"
-        className="xui-button xui-dropdown--headerbackbutton xui-button-icon xui-button-icon-small"
+        className="xui-button xui-dropdown--headerbackbutton xui-button-icon-small xui-button-icon"
         data-automationid={null}
         disabled={false}
         onClick={[Function]}
@@ -49,7 +49,7 @@ exports[`<DropDownHeader/> should render all header contents in the correct orde
     >
       <button
         aria-label="Back"
-        className="xui-button xui-dropdown--headerbackbutton xui-button-icon xui-button-icon-small"
+        className="xui-button xui-dropdown--headerbackbutton xui-button-icon-small xui-button-icon"
         data-automationid={null}
         disabled={false}
         onClick={[Function]}
@@ -73,7 +73,7 @@ exports[`<DropDownHeader/> should render all header contents in the correct orde
         left content
       </div>
       <div
-        className="xui-heading-small xui-margin-left-small xui-text-truncated"
+        className="xui-heading-medium xui-margin-left-2xsmall xui-text-truncated"
       >
         Title
       </div>
@@ -82,7 +82,7 @@ exports[`<DropDownHeader/> should render all header contents in the correct orde
       className="xui-dropdown--header-rightcontent"
     >
       <div
-        className="xui-margin-right-xsmall xui-dropdown--header-rightcontent"
+        className="xui-dropdown--header-rightcontent"
       >
         <div>
           right content
@@ -144,7 +144,7 @@ exports[`<DropDownHeader/> should render primary button with custom content when
       className="xui-dropdown--header-rightcontent"
     >
       <div
-        className="xui-margin-right-xsmall xui-dropdown--header-rightcontent"
+        className="xui-dropdown--header-rightcontent"
       >
         <button
           className="xui-button xui-margin-left-small xui-button-main xui-button-small"
@@ -173,7 +173,7 @@ exports[`<DropDownHeader/> should render primary button with default text when o
       className="xui-dropdown--header-rightcontent"
     >
       <div
-        className="xui-margin-right-xsmall xui-dropdown--header-rightcontent"
+        className="xui-dropdown--header-rightcontent"
       >
         <button
           className="xui-button xui-margin-left-small xui-button-main xui-button-small"
@@ -202,7 +202,7 @@ exports[`<DropDownHeader/> should render rightContent when provided 1`] = `
       className="xui-dropdown--header-rightcontent"
     >
       <div
-        className="xui-margin-right-xsmall xui-dropdown--header-rightcontent"
+        className="xui-dropdown--header-rightcontent"
       >
         <div
           className="test"
@@ -226,7 +226,7 @@ exports[`<DropDownHeader/> should render secondary button with custom content wh
       className="xui-dropdown--header-rightcontent"
     >
       <div
-        className="xui-margin-right-xsmall xui-dropdown--header-rightcontent"
+        className="xui-dropdown--header-rightcontent"
       >
         <button
           className="xui-button xui-button-standard xui-button-small"
@@ -255,7 +255,7 @@ exports[`<DropDownHeader/> should render secondary button with default text when
       className="xui-dropdown--header-rightcontent"
     >
       <div
-        className="xui-margin-right-xsmall xui-dropdown--header-rightcontent"
+        className="xui-dropdown--header-rightcontent"
       >
         <button
           className="xui-button xui-button-standard xui-button-small"
@@ -284,7 +284,7 @@ exports[`<DropDownHeader/> should render with a title if one is present 1`] = `
       className="xui-dropdown--header-leftcontent"
     >
       <div
-        className="xui-heading-small xui-margin-left-small xui-text-truncated"
+        className="xui-heading-medium xui-margin-left-2xsmall xui-text-truncated"
       >
         Title
       </div>

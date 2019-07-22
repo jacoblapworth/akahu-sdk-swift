@@ -167,7 +167,7 @@ import XUIPill from './pill';
 import XUIAvatar from './avatar';
 import XUITextInput, { XUITextInputSideElement } from './textinput';
 import XUIIcon from './icon';
-import XUIButton from './button';
+import XUIButton, { XUIIconButton } from './button';
 <div>
   <XUITextInput
     isFieldLayout
@@ -317,9 +317,7 @@ import XUIButton from './button';
     placeholder="Top aligned right content"
     rightElement={
       <XUITextInputSideElement type="icon" alignment="top">
-        <XUIButton variant="icon" aria-label="attach">
-          <XUIIcon icon={attach} />
-        </XUIButton>
+        <XUIIconButton icon={attach} ariaLabel="attach" />
       </XUITextInputSideElement>
     }
     label="input"
@@ -331,9 +329,7 @@ import XUIButton from './button';
     placeholder="Center aligned right content"
     rightElement={
       <XUITextInputSideElement type="icon" alignment="center">
-        <XUIButton variant="icon" aria-label="attach">
-          <XUIIcon icon={attach} />
-        </XUIButton>
+        <XUIIconButton icon={attach} ariaLabel="attach" />
       </XUITextInputSideElement>
     }
     label="input"
@@ -345,9 +341,7 @@ import XUIButton from './button';
     placeholder="Bottom aligned right content"
     rightElement={
       <XUITextInputSideElement type="icon" alignment="bottom">
-        <XUIButton variant="icon" aria-label="attach">
-          <XUIIcon icon={attach} />
-        </XUIButton>
+        <XUIIconButton icon={attach} ariaLabel="attach" />
       </XUITextInputSideElement>
     }
     label="input"
@@ -379,8 +373,7 @@ import closePath from '@xero/xui-icon/icons/cross';
 
 import XUIAvatar from './avatar';
 import XUIPill from './pill';
-import XUIButton from './button';
-import XUIIcon from './icon';
+import XUIButton, { XUIIconButton } from './button';
 import XUITextInput, { XUITextInputSideElement } from './textinput';
 
 <div>
@@ -394,9 +387,7 @@ import XUITextInput, { XUITextInputSideElement } from './textinput';
     }
     rightElement={
       <XUITextInputSideElement type="icon">
-        <XUIButton variant="icon">
-          <XUIIcon icon={closePath} />
-        </XUIButton>
+        <XUIIconButton icon={closePath} ariaLabel="Close Path" />
       </XUITextInputSideElement>
     }
   />
@@ -411,9 +402,7 @@ import XUITextInput, { XUITextInputSideElement } from './textinput';
     }
     rightElement={
       <XUITextInputSideElement type="icon">
-        <XUIButton size="small" variant="icon">
-          <XUIIcon icon={closePath} />
-        </XUIButton>
+        <XUIIconButton icon={closePath} ariaLabel="Close Path" />
       </XUITextInputSideElement>
     }
   />
@@ -611,7 +600,7 @@ import search from '@xero/xui-icon/icons/search';
 
 import XUITextInput, { XUITextInputSideElement } from './textinput';
 import XUIIcon from './icon';
-import XUIButton from './button';
+import { XUIIconButton } from './button';
 
 class Example extends PureComponent {
   constructor(...args) {
@@ -641,9 +630,7 @@ class Example extends PureComponent {
     const { value } = this.state;
 
     const button = (
-      <XUIButton onClick={this.onClearButtonClick} variant="icon" aria-label="clear">
-        <XUIIcon icon={clear} />
-      </XUIButton>
+      <XUIIconButton icon={clear} ariaLabel="clear" onClick={this.onClearButtonClick} />
     );
 
     return (

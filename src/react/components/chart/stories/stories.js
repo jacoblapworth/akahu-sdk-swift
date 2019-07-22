@@ -8,6 +8,7 @@ import XUIBarChart from '../XUIBarChart';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, object, boolean, text, select, number, color } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
+import customCentered from '../../../../../.storybook/xuiResponsiveCenter';
 
 import logReadyState from '../../../stories/helpers/log-ready-state';
 import { variations, storiesWithVariationsKindName } from './variations';
@@ -175,7 +176,8 @@ class EventReadyWrapper extends PureComponent {
         style={{
           display: 'flex',
           flexWrap: 'wrap',
-          width: '1000px',
+          width: '100vw',
+          maxWidth: '1000px',
         }}
       >
         {this.props.children}
@@ -205,14 +207,19 @@ const TestScaffold = ({ testStyles, emptyStateComponent, ...testProps }, testInd
   </div>
 );
 
-const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-
-storiesWithVariations.addDecorator(centered);
+const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module).addDecorator(
+  centered,
+);
+const storiesWithResponsiveVariations = storiesOf(
+  storiesWithVariationsKindName,
+  module,
+).addDecorator(customCentered);
 variations.forEach(variation => {
-  const { storyTitle, storyKind, examples } = variation;
+  const { storyTitle, storyKind, examples, customDecorator } = variation;
   const Comparison = examples.map(TestScaffold);
+  const targetStories = customDecorator ? storiesWithResponsiveVariations : storiesWithVariations;
 
-  storiesWithVariations.add(storyTitle, () => <EventReadyWrapper>{Comparison}</EventReadyWrapper>);
+  targetStories.add(storyTitle, () => <EventReadyWrapper>{Comparison}</EventReadyWrapper>);
 });
 
 export default TestScaffold;

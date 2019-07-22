@@ -73,6 +73,8 @@ When placing `XUIIcon` alone in a button, ensure accessibility by adding a `titl
 
 If you use these together with the `size` prop, the icon button size classes will be applied.
 
+**Note:** `icon` and `icon-inverted` variants will be **deprecated** in XUI 16. You can use `XUIIconButton` as a replacement.
+
 ```jsx harmony
 import overflowIcon from '@xero/xui-icon/icons/overflow';
 

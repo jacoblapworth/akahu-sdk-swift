@@ -2,7 +2,7 @@ This component behaves similarly to an autocompleter, except that it is triggere
 
 ```jsx harmony
 import Picklist, { Pickitem } from '../../picklist';
-import { XUIAutocompleterSecondarySearch } from '../../autocompleter';
+import { XUIAutocompleterSecondarySearch, XUIAutocompleterEmptyState } from '../../autocompleter';
 import { DropDownFooter } from '../../dropdown';
 import XUIButton, { XUIButtonCaret } from '../../button';
 import XUIIcon from '../../icon';

@@ -5,8 +5,7 @@ import verge from 'verge';
 import { Portal } from 'react-portal';
 import uuidv4 from 'uuid/v4';
 import cross from '@xero/xui-icon/icons/cross';
-import XUIIcon from '../icon/XUIIcon';
-import XUIButton from '../button/XUIButton';
+import XUIIconButton from '../button/XUIIconButton';
 import XUIModalHeader from './XUIModalHeader';
 import { registerModal, deRegisterTopModal } from '../helpers/modalManager';
 import portalContainer, { portalClass } from '../helpers/portalContainer';
@@ -235,17 +234,16 @@ export default class XUIModal extends Component {
         : null;
 
     const closeButton = onClose ? (
-      <XUIButton
+      <XUIIconButton
+        icon={cross}
+        ariaLabel={closeButtonLabel}
         qaHook={qaHook && `${qaHook}--close`}
         onClick={onClose}
         title={closeButtonLabel}
         className={cn(`${baseClass}--close`, closeClassName)}
         key="close-button"
         type="button"
-        variant="icon"
-      >
-        <XUIIcon icon={cross} />
-      </XUIButton>
+      />
     ) : null;
     let headerElement;
     const finalChildren = Children.map(children, child => {

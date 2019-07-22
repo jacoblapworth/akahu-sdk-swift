@@ -10,7 +10,7 @@ import {
 	XUICompositionDetailSummary,
 	XUICompositionDetailSummaryHeader,
 } from '../../../compositions';
-import commonViewports from '../../../stories/helpers/viewports';
+import { commonViewports } from '../../../stories/helpers/viewports';
 
 const compositions = {
 	detail: XUICompositionDetail,
@@ -44,7 +44,7 @@ Object.keys(compositions).forEach(compositionName => {
 				addComposition(compositionName, hasAutoSpaceAround, hasGridGap);
 				return;
 			}
-			
+
 			[false, true].forEach(hasAutoColumnWidths => { // column width switch
 				addComposition(compositionName, hasAutoSpaceAround, hasGridGap, hasAutoColumnWidths);
 			});

@@ -8,7 +8,7 @@ The _Accordion_ is broken up into two key components `import XUIAccordion, { XUI
 
 ## Basic
 
-The bare minimum _Accordion_ composition can be achieved with a `XUIAccordion` component with `XUIAccordionItem`s as childrenand `toggleLabel` props.
+The bare minimum _Accordion_ composition can be achieved with a `XUIAccordion` component with `XUIAccordionItem`s as children and `toggleLabel` props.
 
 We also still allow the previous API which the `items` and `createItem` props.
 

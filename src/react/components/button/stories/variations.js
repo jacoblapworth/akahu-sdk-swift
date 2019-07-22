@@ -123,6 +123,7 @@ sizes.forEach(sizeVariant => {
     storyTitle: `${sizeVariant} with a Loader`,
     size: sizeVariant,
     isLoading: true,
+    loadingLabel: 'Loading',
     className: 'xui-loader-static', // Prevent dots from animating and causing diffs due to timing issues
     value: 'This is a button',
   });

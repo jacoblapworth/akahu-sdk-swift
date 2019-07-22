@@ -155,6 +155,7 @@ export default class XUIButton extends React.PureComponent {
             isInverted,
             isLink,
             isLoading,
+            loadingLabel,
             minLoaderWidth,
             onClick,
             onKeyDown,
@@ -176,13 +177,14 @@ export default class XUIButton extends React.PureComponent {
           const buttonDisabled = isDisabled || isLoading;
           let buttonChildren = children;
 
-          const loader = (
+          const loader = isLoading && (
             <XUILoader
               key={retainLayout && isLoading ? 'button-loader' : null}
               retainLayout={retainLayout}
               size="small"
               defaultLayout={false}
               className={`${ns}-button--loader`}
+              ariaLabel={loadingLabel}
             />
           );
 
@@ -282,6 +284,12 @@ XUIButton.propTypes = {
   /** If true, shows a loader inside the button and also disables the button to prevent
    * clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */
   isLoading: PropTypes.bool,
+
+  /**
+   * Accessibility label for the `<XUILoader>`. This is required if the
+   * `isLoading` prop is set to `true`.
+   */
+  loadingLabel: PropTypes.string,
 
   /** If this button is part of a parent button group */
   isGrouped: PropTypes.bool,

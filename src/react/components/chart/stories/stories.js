@@ -197,6 +197,10 @@ const TestScaffold = ({ testStyles, emptyStateComponent, ...testProps }, testInd
     }}
   >
     <XUIBarChart
+      keyTitle="Graph key"
+      emptyMessage="There is no data to display"
+      paginationNextTitle="Next page"
+      paginationPreviousTitle="Previous page"
       {...testProps}
       emptyStateComponent={emptyStateComponent && <span>{emptyStateComponent}</span>}
     />

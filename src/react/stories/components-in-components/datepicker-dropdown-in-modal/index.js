@@ -21,34 +21,30 @@ const test = storiesOf(compositionKind, module);
 test.addDecorator(withReadme(readme));
 
 test.add(storyNames.dateDDInModal, () => {
+  const trigger = (
+    <XUIButton>
+      Datepicker Button
+      <XUIButtonCaret />
+    </XUIButton>
+  );
+  const dropdown = (
+    <DropDown>
+      <XUIDatePicker onSelectDate={NOOP} displayedMonth={displayMonth} />
+    </DropDown>
+  );
 
-	const trigger = (
-		<XUIButton>
-			Datepicker Button
-			<XUIButtonCaret />
-		</XUIButton>
-	);
-	const dropdown = (
-		<DropDown>
-			<XUIDatePicker
-				onSelectDate={NOOP}
-				displayedMonth={displayMonth}
-			/>
-		</DropDown>
-	);
-
-	return (
-		<XUIModal isOpen>
-			<XUIModalBody>
-				This is some Datepicker Modal content.
-				<DropDownToggled
-					isLegacyDisplay={false}
-					trigger={trigger}
-					dropdown={dropdown}
-					isHidden={false}
-					restrictToViewPort={false}
-				/>
-			</XUIModalBody>
-		</XUIModal>
-	);
+  return (
+    <XUIModal isOpen closeButtonLabel="Close">
+      <XUIModalBody>
+        This is some Datepicker Modal content.
+        <DropDownToggled
+          isLegacyDisplay={false}
+          trigger={trigger}
+          dropdown={dropdown}
+          isHidden={false}
+          restrictToViewPort={false}
+        />
+      </XUIModalBody>
+    </XUIModal>
+  );
 });

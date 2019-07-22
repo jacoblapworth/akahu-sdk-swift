@@ -8,32 +8,40 @@ Pills are used for signifying a selection has been made, either single or multip
 
 ### Click actions
 
-Pills can trigger actions passed in through the `onDeleteClick`, `onClick`, and `href` props. If `onDeleteClick` is added, a delete button will be rendered inside the pill. `onClick`, and `href` will be triggered if the user clicks anywhere on the pill other than the delete button.
+Pills can trigger actions passed in through the `onDeleteClick`, `onClick`, and `href` props.
+
+If `onDeleteClick` is added, a delete button will be rendered inside the pill, and a `deleteButtonLabel` will be required for accessibility.
+
+`onClick` and `href` will be triggered if the user clicks anywhere on the pill other than the delete button.
 
 ```jsx harmony
 import XUIPill from './pill';
 
-const wasDeleted = () => {window.alert('deleted')};
-const wasClicked = () => {window.alert('clicked')};
-const linkWasDeleted = () => {window.alert('deleted link')};
+const wasDeleted = () => {
+  window.alert('deleted');
+};
+const wasClicked = () => {
+  window.alert('clicked');
+};
+const linkWasDeleted = () => {
+  window.alert('deleted link');
+};
 
 <div>
-	<XUIPill
-		value="Deletable selection"
-		onDeleteClick={wasDeleted}
-		className="xui-margin-right-xsmall"
-	/>
-	<XUIPill
-		value="Undeletable"
-		onClick={wasClicked}
-		className="xui-margin-right-xsmall"
-	/>
-	<XUIPill
-		href="https://xero.com"
-		value="Link Pill"
-		onDeleteClick={linkWasDeleted}
-	/>
-</div>
+  <XUIPill
+    value="Deletable selection"
+    onDeleteClick={wasDeleted}
+    deleteButtonLabel="Delete"
+    className="xui-margin-right-xsmall"
+  />
+  <XUIPill value="Undeletable" onClick={wasClicked} className="xui-margin-right-xsmall" />
+  <XUIPill
+    href="https://xero.com"
+    value="Link Pill"
+    onDeleteClick={linkWasDeleted}
+    deleteButtonLabel="Delete"
+  />
+</div>;
 ```
 
 ### Pill Avatars
@@ -46,19 +54,16 @@ Avatars can be added to `XUIPill` by passing an object to `avatarProps` matching
 import XUIPill from './pill';
 
 <div>
-	<XUIPill
-		value="Avatar pill"
-		className="xui-margin-right-xsmall"
-		avatarProps={{
-			value: 'SJ',
-			imageUrl: 'https://s3-ap-southeast-2.amazonaws.com/uxe-internal/mario_icon.png'
-		}}
-	/>
-	<XUIPill
-		value="Avatar pill"
-		avatarProps={{value: 'SJ'}}
-	/>
-</div>
+  <XUIPill
+    value="Avatar pill"
+    className="xui-margin-right-xsmall"
+    avatarProps={{
+      value: 'SJ',
+      imageUrl: 'https://s3-ap-southeast-2.amazonaws.com/uxe-internal/mario_icon.png'
+    }}
+  />
+  <XUIPill value="Avatar pill" avatarProps={{ value: 'SJ' }} />
+</div>;
 ```
 
 ### Pill sizes
@@ -70,30 +75,33 @@ import XUIPill from './pill';
 
 const NOOP = () => {};
 <div>
-	<XUIPill
-		value="Medium"
-		avatarProps={{
-			value: 'M',
-		}}
-		onDeleteClick={NOOP}
-	/>
-	<XUIPill
-		value="Small"
-		size="small"
-		avatarProps={{
-			value: 'Small',
-		}}
-		onDeleteClick={NOOP}
-	/>
-	<XUIPill
-		value="Extra small"
-		size="xsmall"
-		avatarProps={{
-			value: 'Xtra Small',
-		}}
-		onDeleteClick={NOOP}
-	/>
-</div>
+  <XUIPill
+    value="Medium"
+    avatarProps={{
+      value: 'M'
+    }}
+    onDeleteClick={NOOP}
+    deleteButtonLabel="Delete"
+  />
+  <XUIPill
+    value="Small"
+    size="small"
+    avatarProps={{
+      value: 'Small'
+    }}
+    onDeleteClick={NOOP}
+    deleteButtonLabel="Delete"
+  />
+  <XUIPill
+    value="Extra small"
+    size="xsmall"
+    avatarProps={{
+      value: 'Xtra Small'
+    }}
+    onDeleteClick={NOOP}
+    deleteButtonLabel="Delete"
+  />
+</div>;
 ```
 
 ### Invalid pills
@@ -103,10 +111,7 @@ Pills can be rendered as invalid by passing the `isInvalid` prop.
 ```jsx harmony
 import XUIPill from './pill';
 
-<XUIPill
-	value="Invalid"
-	isInvalid
-/>
+<XUIPill value="Invalid" isInvalid />;
 ```
 
 ### Secondary text
@@ -116,8 +121,5 @@ Content passed to `secondaryText` will be rendered using a secondary text modifi
 ```jsx harmony
 import XUIPill from './pill';
 
-<XUIPill
-	secondaryText="Secondary"
-	value="Primary"
-/>
+<XUIPill secondaryText="Secondary" value="Primary" />;
 ```

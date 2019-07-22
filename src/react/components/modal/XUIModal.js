@@ -316,8 +316,12 @@ XUIModal.propTypes = {
   /** Bind a function to fire when the modal requests to be hidden */
   onClose: PropTypes.func,
 
-  /** Label to be applied to the modal close "X" button, for accessibility. Defaults to "Close" */
-  closeButtonLabel: PropTypes.string,
+  /**
+   * Label to be applied to the modal close "X" button, for accessibility.
+   * <br />
+   * Recommended English value: *Close*
+   */
+  closeButtonLabel: PropTypes.string.isRequired,
 
   /** The size (aka width) of this modal */
   size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'fullscreen']),
@@ -369,5 +373,4 @@ XUIModal.defaultProps = {
   restrictFocus: true,
   isUsingPortal: true,
   isForm: false,
-  closeButtonLabel: 'Close',
 };

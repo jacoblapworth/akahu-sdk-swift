@@ -194,7 +194,12 @@ import XUIButton, { XUIIconButton } from './button';
     placeholder="Pill"
     leftElement={
       <XUITextInputSideElement type="pill">
-        <XUIPill value="Pill" avatarProps={{ value: 'Pill' }} onDeleteClick={() => {}} />
+        <XUIPill
+          value="Pill"
+          avatarProps={{ value: 'Pill' }}
+          onDeleteClick={() => {}}
+          deleteButtonLabel="Delete"
+        />
       </XUITextInputSideElement>
     }
   />
@@ -416,7 +421,12 @@ import XUITextInput, { XUITextInputSideElement } from './textinput';
     placeholder="Medium size"
     leftElement={
       <XUITextInputSideElement type="pill">
-        <XUIPill avatarProps={{ value: 'Pill' }} value="Pill" onDeleteClick={() => {}} />
+        <XUIPill
+          avatarProps={{ value: 'Pill' }}
+          value="Pill"
+          onDeleteClick={() => {}}
+          deleteButtonLabel="Delete"
+        />
       </XUITextInputSideElement>
     }
     rightElement={
@@ -433,7 +443,12 @@ import XUITextInput, { XUITextInputSideElement } from './textinput';
     size="small"
     leftElement={
       <XUITextInputSideElement type="pill">
-        <XUIPill avatarProps={{ value: 'Pill' }} value="Pill" onDeleteClick={() => {}} />
+        <XUIPill
+          avatarProps={{ value: 'Pill' }}
+          value="Pill"
+          onDeleteClick={() => {}}
+          deleteButtonLabel="Delete"
+        />
       </XUITextInputSideElement>
     }
   />

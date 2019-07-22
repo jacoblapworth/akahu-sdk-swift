@@ -70,7 +70,9 @@ describe('<XUIPill />', () => {
 
   it('invokes the callback passed into the onDeleteClick prop with itself passed in as an argument', () => {
     const callback = jest.fn();
-    const pill = mount(<XUIPill value="Pill" onDeleteClick={callback} />);
+    const pill = mount(
+      <XUIPill value="Pill" onDeleteClick={callback} deleteButtonLabel="Delete" />,
+    );
 
     pill
       .find('.xui-pill--button-icon')
@@ -182,6 +184,7 @@ describe('<XUIPill />', () => {
             value: 'Test Render',
           }}
           onDeleteClick={NOOP}
+          deleteButtonLabel="Delete"
         />,
       );
       expect(pill).toMatchSnapshot();

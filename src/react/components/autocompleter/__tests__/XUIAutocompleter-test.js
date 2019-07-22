@@ -20,7 +20,12 @@ uuidv4.mockImplementation(() => 'testAutocompleterId');
 Enzyme.configure({ adapter: new Adapter() });
 
 const onSearch = jest.fn();
-const defaultProps = { onSearch: onSearch, searchValue: 'z', searchDebounceTimeout: 500 };
+const defaultProps = {
+  onSearch: onSearch,
+  searchValue: 'z',
+  searchDebounceTimeout: 500,
+  loadingLabel: 'Loading',
+};
 
 describe('XUIAutocompleter', () => {
   const createComponent = props => (
@@ -115,7 +120,9 @@ describe('XUIAutocompleter', () => {
   });
 
   it('displays a XUILoader when loading is true', () => {
-    const wrapper = mount(createComponent(Object.assign(defaultProps, { loading: true })));
+    const wrapper = mount(
+      createComponent(Object.assign(defaultProps, { loading: true, loadingLabel: '' })),
+    );
 
     expect(wrapper.find(XUILoader)).toBeDefined();
     expect(wrapper.prop('loading')).toBeTruthy();

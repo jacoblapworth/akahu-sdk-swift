@@ -8,13 +8,14 @@
 
 `XUILoader` is given a layout class by default. This is good for putting in large empty states, like panels, while loading data.
 
-We recommend using the `ariaLabel` prop to provide information to screen readers.
+Use the required `ariaLabel` prop to provide information to screen readers.
 
 ```jsx harmony
 import XUILoader from './loader';
 
-<XUILoader ariaLabel="Loading more data" />
+<XUILoader ariaLabel="Loading" />;
 ```
+
 ### Disabled Layout
 
 For more flexibility in styling and using Loaders in your application, set the prop `defaultLayout` to `false`.
@@ -22,7 +23,7 @@ For more flexibility in styling and using Loaders in your application, set the p
 ```jsx harmony
 import XUILoader from './loader';
 
-<XUILoader defaultLayout={false} />
+<XUILoader ariaLabel="Loading" defaultLayout={false} />;
 ```
 
 ### Sizes
@@ -32,7 +33,7 @@ Apart from the `medium` size, Loaders can also be `small` or `xsmall`.
 ```jsx harmony
 import XUILoader from './loader';
 
-<XUILoader size="medium" defaultLayout={false} />
+<XUILoader ariaLabel="Loading" size="medium" defaultLayout={false} />;
 ```
 
 ### Inverted
@@ -44,7 +45,6 @@ import XUILoader from './loader';
 import ExampleContainer from './docs/ExampleContainer';
 
 <ExampleContainer className="xui-padding-xsmall" isInverted>
-  <XUILoader isInverted />
-</ExampleContainer>
+  <XUILoader ariaLabel="Loading" isInverted />
+</ExampleContainer>;
 ```
-

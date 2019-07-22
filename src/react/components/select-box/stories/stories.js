@@ -74,6 +74,7 @@ storiesWithKnobs.add('Playground', () => {
       }
       fullWidth={fullWidth}
       size={size}
+      caretTitle={text('caretTitle', 'Toggle list')}
     >
       {createItems({ items: toggledItems, size: listItemSize })}
     </SelectBox>
@@ -107,6 +108,7 @@ variations.forEach(variation => {
           {...variationMinusStoryDetails}
           label={variation.storyTitle}
           containerClasses={`xui-margin-horizontal-auto ${variation.containerClasses}`}
+          caretTitle="Toggle list"
         >
           {createItems({ items, size: listItemSize })}
         </SelectBox>

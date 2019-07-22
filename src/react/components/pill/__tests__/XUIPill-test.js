@@ -153,7 +153,7 @@ describe('<XUIPill />', () => {
   });
 
   it("should render a delete button label of 'Delete' by default", () => {
-    const pill = mount(<XUIPill onDeleteClick={NOOP} />);
+    const pill = mount(<XUIPill onDeleteClick={NOOP} deleteButtonLabel="Delete" />);
 
     expect(
       pill

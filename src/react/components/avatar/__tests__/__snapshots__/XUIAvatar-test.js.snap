@@ -47,10 +47,10 @@ Array [
     src="https://xui.xero.com/static/xpert-avatar.png"
   />,
   <abbr
-    className="xui-avatar xui-avatar-color-4"
+    className="xui-avatar xui-avatar-color-8"
     role="presentation"
   >
-    
+    T
   </abbr>,
 ]
 `;

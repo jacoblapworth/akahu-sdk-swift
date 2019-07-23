@@ -66,3 +66,5 @@ Below is a list of components that have been affected by this change. The codemo
   - `overflowMenuTitle`: "More row options"
 
 ## Other changes
+
+- `XUIAvatar` now requires the value prop for accessibility and for cases in which images have not loaded

@@ -126,27 +126,6 @@ describe('<XUIButton/>', () => {
     assert.isTrue(onClick.calledOnce);
   });
 
-  it('renders icon buttons with the correct inverted class', () => {
-    const iconButton = renderer.create(
-      <div>
-        <XUIButton variant="icon" onClick={noop} />
-        <XUIButton variant="icon-inverted" onClick={noop} />
-      </div>,
-    );
-    expect(iconButton).toMatchSnapshot();
-  });
-
-  it('renders icon buttons with the correct icon size classes', () => {
-    const iconButtonSizeVariants = renderer.create(
-      <div>
-        <XUIButton variant="icon" onClick={noop} />
-        <XUIButton variant="icon" size="small" onClick={noop} />
-        <XUIButton variant="icon" size="xsmall" onClick={noop} />
-      </div>,
-    );
-    expect(iconButtonSizeVariants).toMatchSnapshot();
-  });
-
   it('renders borderless buttons with the correct classes', () => {
     const primary = renderIntoDocument(
       <XUIButton variant="borderless-primary" onClick={() => {}} />,
@@ -235,26 +214,6 @@ describe('<XUIButton/>', () => {
     assert.isFalse(
       borderlessInvertedbutton.rootNode.classList.contains('xui-button-inverted'),
       'Borderless primary button does not have regular inverted class',
-    );
-
-    const iconInvertedbutton = renderIntoDocument(
-      <XUIButton variant="icon-inverted">test</XUIButton>,
-    );
-    assert.isTrue(
-      iconInvertedbutton.rootNode.classList.contains('xui-button-icon'),
-      'Icon button has borderless primary class',
-    );
-    assert.isTrue(
-      iconInvertedbutton.rootNode.classList.contains('xui-button-icon-inverted'),
-      'Icon button has borderless inverted class',
-    );
-    assert.isFalse(
-      iconInvertedbutton.rootNode.classList.contains('xui-button-borderless-inverted'),
-      'Icon button does not have borderless inverted class',
-    );
-    assert.isFalse(
-      iconInvertedbutton.rootNode.classList.contains('xui-button-inverted'),
-      'Icon button does not have regular inverted class',
     );
   });
 

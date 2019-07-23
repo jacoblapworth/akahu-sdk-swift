@@ -67,48 +67,7 @@ import ExampleContainer from './docs/ExampleContainer';
 </div>;
 ```
 
-Icon buttons are supported by the `icon` and `icon-inverted` variants.
-
-When placing `XUIIcon` alone in a button, ensure accessibility by adding a `title` prop on the `XUIIcon`, or a `title` and `aria-label` on the button itself.
-
-If you use these together with the `size` prop, the icon button size classes will be applied.
-
-**Note:** `icon` and `icon-inverted` variants will be **deprecated** in XUI 16. You can use `XUIIconButton` as a replacement.
-
-```jsx harmony
-import overflowIcon from '@xero/xui-icon/icons/overflow';
-
-import XUIIcon from './icon';
-import XUIButton from './button';
-
-import ExampleContainer from './docs/ExampleContainer';
-
-<div>
-  <XUIButton variant="icon">
-    <XUIIcon icon={overflowIcon} title="Dots menu" />
-  </XUIButton>
-
-  <XUIButton variant="icon" size="small">
-    <XUIIcon icon={overflowIcon} title="Dots menu" />
-  </XUIButton>
-
-  <XUIButton variant="icon" size="xsmall">
-    <XUIIcon icon={overflowIcon} title="Dots menu" />
-  </XUIButton>
-
-  <ExampleContainer className="xui-padding-xsmall" isInverted>
-    <XUIButton variant="icon-inverted">
-      <XUIIcon icon={overflowIcon} title="Dots menu" />
-    </XUIButton>
-    <XUIButton variant="icon-inverted" size="small">
-      <XUIIcon icon={overflowIcon} title="Dots menu" />
-    </XUIButton>
-    <XUIButton variant="icon-inverted" size="xsmall">
-      <XUIIcon icon={overflowIcon} title="Dots menu" />
-    </XUIButton>
-  </ExampleContainer>
-</div>;
-```
+**Note:** For a button that contains only an icon, use [IconButton](#icon-button)
 
 ### Size
 

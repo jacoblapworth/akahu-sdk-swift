@@ -23,6 +23,9 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 
 ## XUI React components
 
+- icons in `XUIButton`
+  - `icon` and `icon-inverted` variants of `XUIButton` have been **deprecated**. As a replacement, you can use `XUIIconButton` for buttons that only contain an icon.
+
 ### Component props
 
 Going forward, XUI will no longer provide default English values with its React components. This was a difficult decision to make, but we ultimately believe that localisation is a responsibility best handled by product teams.

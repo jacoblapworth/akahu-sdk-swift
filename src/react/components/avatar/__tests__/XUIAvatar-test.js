@@ -32,7 +32,7 @@ describe('XUIAvatar', () => {
   });
 
   it('should render an `img` avatar when I give it an image', () => {
-    const test = <XUIAvatar imageUrl="https://xui.xero.com/static/xpert-avatar.png" />;
+    const test = <XUIAvatar value="Test" imageUrl="https://xui.xero.com/static/xpert-avatar.png" />;
 
     const snap = renderer.create(test);
     expect(snap).toMatchSnapshot();
@@ -132,7 +132,9 @@ describe('XUIAvatar', () => {
 
   describe('Expected proptype failures', () => {
     it('should throw an error if you dont pass either a value or an imageUrl property', () => {
-      expect(() => renderer.create(<XUIAvatar />)).toThrow();
+      expect(() =>
+        renderer.create(<XUIAvatar imageUrl="https://xui.xero.com/static/broken-path.jpg" />),
+      ).toThrow();
     });
   });
 });

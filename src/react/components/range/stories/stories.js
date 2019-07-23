@@ -31,6 +31,7 @@ storiesWithKnobs.add('Playground', () => {
       leftElement={
         showLeftElement && (
           <XUIAvatar
+            value="left"
             className="xui-margin-small"
             imageUrl="https://xui.xero.com/static/xpert-avatar.png"
           />
@@ -39,6 +40,7 @@ storiesWithKnobs.add('Playground', () => {
       rightElement={
         showRightElement && (
           <XUIAvatar
+            value="right"
             className="xui-margin-small"
             imageUrl="https://xui.xero.com/static/xpert-avatar.png"
           />

@@ -68,7 +68,7 @@
     </a>
   </div>
 	<div class="ds-tile--home ds-tile--home-language ds-tile--home-language">
-    <a href="https://product-language-guide.xero-support.com/">
+    <a href="/product-language-guide/">
       <h3 class="xui-heading">Language guide</h3>
 			<p>Guide for understanding how we speak to people through our products.</p>
     </a>

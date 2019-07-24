@@ -31,6 +31,7 @@ export default class XUIIconButton extends PureComponent {
 
     return (
       <XUIButton
+        ref={n => (this.rootNode = n && n.rootNode)}
         variant="unstyled"
         className={cn(
           className,

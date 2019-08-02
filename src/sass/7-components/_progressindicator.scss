@@ -296,10 +296,10 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="4" aria-valuetext="4 of 4" class="xui-progress xui-progress-circular xui-progress-complete" role="progressbar">
-// 	<div>
-// 		<div>
-// 			<canvas class="xui-progress-circular-scaler" height="100" width="100"></canvas><svg class="xui-progress-circular-wrapper" viewbox="0 0 100 100">
+// <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="4" aria-valuetext="4 of 4" class="xui-progress xui-progress-circular xui-progress-complete" role="progressbar" style="height: 20px; width: 20px;">
+// 	<div style="height:100%; width: 100%">
+// 		<div style="height:100%; width: 100%">
+// 			<svg class="xui-progress-circular-wrapper" viewbox="0 0 100 100">
 // 			<defs>
 // 				<mask height="100" id="myCustomProgressId-progress-mask" maskunits="userSpaceOnUse" width="100" x="0" y="0">
 // 					<circle class="xui-progress-circular-mask xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="initial" stroke-width="11.476068685097855"></circle>
@@ -414,10 +414,10 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="2" aria-valuetext="2 of 4" class="xui-progress xui-progress-circular xui-progress-error-hard" role="progressbar">
-// 	<div>
-// 		<div>
-// 			<canvas class="xui-progress-circular-scaler" height="100" width="100"></canvas><svg class="xui-progress-circular-wrapper" viewbox="0 0 100 100">
+// <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="2" aria-valuetext="2 of 4" class="xui-progress xui-progress-circular xui-progress-error-hard" role="progressbar" style="height: 20px; width: 20px;">
+// 	<div style="height:100%; width: 100%">
+// 		<div style="height:100%; width: 100%">
+// 			<svg class="xui-progress-circular-wrapper" viewbox="0 0 100 100">
 // 			<defs>
 // 				<mask height="100" id="myCustomProgressId-progress-mask" maskunits="userSpaceOnUse" width="100" x="0" y="0">
 // 					<circle class="xui-progress-circular-mask xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="initial" stroke-width="11.476068685097855"></circle>
@@ -684,7 +684,8 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
   fill: currentColor;
 }
 
-.#{$ns}-progress-icon-complete {
+.#{$ns}-progress-icon-complete,
+.#{$ns}-progress-icon-error {
   height: 8px;
   width: 10px;
 }

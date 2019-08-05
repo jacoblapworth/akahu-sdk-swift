@@ -296,24 +296,26 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="4" aria-valuetext="4 of 4" class="xui-progress xui-progress-circular xui-progress-complete" role="progressbar">
-// 	<div>
+// <div class="xui-progress xui-progress-circular xui-progress-complete" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" aria-valuetext="5 of 5">
+// 	<div class="xui-progress--fragment">
 // 		<div>
-// 			<canvas class="xui-progress-circular-scaler" height="100" width="100"></canvas><svg class="xui-progress-circular-wrapper" viewbox="0 0 100 100">
-// 			<defs>
-// 				<mask height="100" id="myCustomProgressId-progress-mask" maskunits="userSpaceOnUse" width="100" x="0" y="0">
-// 					<circle class="xui-progress-circular-mask xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="initial" stroke-width="11.476068685097855"></circle>
-// 				</mask>
-// 			</defs>
-// 			<g mask="url(#myCustomProgressId-progress-mask)">
-// 				<circle class="xui-progress-circular-track" cx="50" cy="50" r="44.26196565745107" stroke-width="11.476068685097855"></circle>
-// 				<circle class="xui-progress-circular-current xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="278.106132285784" stroke-dashoffset="0" stroke-width="11.476068685097855"></circle>
-// 			</g></svg>
+// 			<svg height="20" width="20" class="xui-progress-circular-wrapper" viewBox="0 0 20 20">
+// 				<defs>
+// 					<mask id="complete-circular-progress-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+// 						<circle stroke-dasharray="initial" class="xui-progress-circular-mask xui-progress-roundcap" stroke-width="3" r="8.5" cx="10" cy="10"></circle>
+// 					</mask>
+// 				</defs>
+// 				<g mask="url(#complete-circular-progress-mask)">
+// 					<circle class="xui-progress-circular-track" stroke-width="3" r="8.5" cx="10" cy="10"></circle>
+// 					<circle class="xui-progress-circular-current xui-progress-roundcap" stroke-dasharray="53.40707511102649" stroke-dashoffset="0" stroke-width="3" r="8.5" cx="10" cy="10"></circle>
+// 				</g>
+// 			</svg>
 // 		</div>
-// 	</div>
-// 	<div class="xui-progress-icon">
-// 		<svg class="xui-progress-icon-complete" viewbox="0 0 9 7">
-// 		<polygon points="0 4 1 3 3 5 8 0 9 1 3 7"></polygon></svg>
+// 		<div class="xui-progress-icon">
+// 			<svg focusable="false" class="xui-icon" width="13" height="10" viewBox="0 0 13 10">
+// 				<path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z" role="presentation"></path>
+// 			</svg>
+// 		</div>
 // 	</div>
 // </div>
 //
@@ -414,24 +416,26 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="2" aria-valuetext="2 of 4" class="xui-progress xui-progress-circular xui-progress-error-hard" role="progressbar">
-// 	<div>
+// <div class="xui-progress xui-progress-circular xui-progress-error-hard" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" aria-valuetext="3 of 5">
+// 	<div class="xui-progress--fragment">
 // 		<div>
-// 			<canvas class="xui-progress-circular-scaler" height="100" width="100"></canvas><svg class="xui-progress-circular-wrapper" viewbox="0 0 100 100">
-// 			<defs>
-// 				<mask height="100" id="myCustomProgressId-progress-mask" maskunits="userSpaceOnUse" width="100" x="0" y="0">
-// 					<circle class="xui-progress-circular-mask xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="initial" stroke-width="11.476068685097855"></circle>
-// 				</mask>
-// 			</defs>
-// 			<g mask="url(#myCustomProgressId-progress-mask)">
-// 				<circle class="xui-progress-circular-track" cx="50" cy="50" r="44.26196565745107" stroke-width="11.476068685097855"></circle>
-// 				<circle class="xui-progress-circular-current xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="278.106132285784" stroke-dashoffset="139.053066142892" stroke-width="11.476068685097855"></circle>
-// 			</g></svg>
+// 			<svg height="20" width="20" class="xui-progress-circular-wrapper" viewBox="0 0 20 20">
+// 				<defs>
+// 					<mask id="hard-circular-progress-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+// 						<circle stroke-dasharray="initial" class="xui-progress-circular-mask xui-progress-roundcap" stroke-width="3" r="8.5" cx="10" cy="10"></circle>
+// 					</mask>
+// 				</defs>
+// 				<g mask="url(#hard-circular-progress-mask)">
+// 					<circle class="xui-progress-circular-track" stroke-width="3" r="8.5" cx="10" cy="10"></circle>
+// 					<circle class="xui-progress-circular-current xui-progress-roundcap" stroke-dasharray="53.40707511102649" stroke-dashoffset="21.362830044410597" stroke-width="3" r="8.5" cx="10" cy="10"></circle>
+// 				</g>
+// 			</svg>
 // 		</div>
-// 	</div>
-// 	<div class="xui-progress-icon">
-// 		<svg class="xui-progress-icon-error" viewbox="0 0 2 7">
-// 		<path d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"></path></svg>
+// 		<div class="xui-progress-icon">
+// 			<svg focusable="false" class="xui-icon xui-progress-icon-error" width="2" height="8" viewBox="0 0 2 8">
+// 				<path d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z" role="presentation"></path>
+// 			</svg>
+// 		</div>
 // 	</div>
 // </div>
 //

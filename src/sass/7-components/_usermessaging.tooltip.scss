@@ -119,13 +119,22 @@
 
   &.#{$ns}-tooltip-inline-flex {
     display: inline-flex;
+
+    &.#{$ns}-tooltip-tipopen,
+    &.#{$ns}-tooltip-tipanimating,
+    &.#{$ns}-has-focused-trigger {
+      display: inline-block;
+    }
+
+    .#{$ns}-positioningInline {
+      display: block;
+    }
   }
 
   &.#{$ns}-tooltip-tipopen,
   &.#{$ns}-tooltip-tipanimating,
   &.#{$ns}-has-focused-trigger {
     overflow: visible;
-    display: inline-block;
   }
   &.#{$ns}-has-inline-trigger {
     vertical-align: bottom;

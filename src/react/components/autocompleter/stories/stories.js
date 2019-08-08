@@ -26,7 +26,7 @@ import centered from '../../../../../.storybook/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName, fixedWidthDropdownSizes } from './variations';
 
-class PillWrapper extends PureComponent {
+export class PillWrapper extends PureComponent {
   deleteSelf = e => {
     this.props.onDeleteClick(this.props.id);
   };
@@ -44,7 +44,7 @@ class PillWrapper extends PureComponent {
   }
 }
 
-const filterPeople = (data, value, peopleToExclude) =>
+export const filterPeople = (data, value, peopleToExclude) =>
   data.filter(node => {
     const val = (value && value.toLowerCase()) || '';
 
@@ -58,7 +58,7 @@ const filterPeople = (data, value, peopleToExclude) =>
   });
 
 // Example to show how the children can be styled however and you also define your own search criteria.
-class DetailedListExample extends Component {
+export class DetailedListExample extends Component {
   state = {
     value: '',
     people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
@@ -214,7 +214,7 @@ class DetailedListExample extends Component {
     const footer = (
       <DropDownFooter
         pickItems={
-          <Pickitem id="footerAction">
+          <Pickitem size={picklistSize} id="footerAction">
             <XUIIcon icon={plusIcon} isBoxed className="xui-margin-right-small" />
             Add New Person
           </Pickitem>
@@ -238,7 +238,7 @@ class DetailedListExample extends Component {
         loading={isLoading}
         dropdownSize={dropdownSize}
         isDisabled={isDisabled}
-        inputLabel="Sample Autocompleter"
+        inputLabel={this.props.inputLabel || 'Sample Autocompleter'}
         disableWrapPills={disableWrapPills}
         isInputLabelHidden={isInputLabelHidden === undefined ? true : isInputLabelHidden}
         isInvalid={isInvalid}
@@ -331,7 +331,7 @@ const SecondarySearchData = [
   { props: { id: 'ss8' }, text: 'Big Coat' },
 ];
 
-class SecondarySearchExample extends React.Component {
+export class SecondarySearchExample extends React.Component {
   autocompleterRef = React.createRef();
 
   state = {
@@ -356,14 +356,16 @@ class SecondarySearchExample extends React.Component {
   };
 
   componentDidMount() {
-    this.autocompleterRef.current.openDropDown();
+    if (!this.props.isClosed) {
+      this.autocompleterRef.current.openDropDown();
+    }
   }
 
   render() {
     const { data } = this.state;
 
-    const trigger = (
-      <XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger">
+    const trigger = this.props.trigger || (
+      <XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger" fullWidth="small-down">
         Toggle Me <XUIButtonCaret />
       </XUIButton>
     );
@@ -374,7 +376,7 @@ class SecondarySearchExample extends React.Component {
     const footer = (
       <DropDownFooter
         pickItems={
-          <Pickitem id="footerAction">
+          <Pickitem size={this.props.listSize} id="footerAction">
             <span>
               <XUIIcon icon={plusIcon} isBoxed className="xui-margin-right-small" />
               Add New Person
@@ -387,6 +389,7 @@ class SecondarySearchExample extends React.Component {
     return (
       <div style={{ width: 'auto' }}>
         <XUIAutocompleterSecondarySearch
+          className={this.props.className}
           trigger={trigger}
           onOptionSelect={this.onOptionSelect}
           onSearch={this.onSearch}
@@ -399,7 +402,7 @@ class SecondarySearchExample extends React.Component {
           ref={this.autocompleterRef}
           inputId="secondary_input_id"
         >
-          <Picklist>{items}</Picklist>
+          <Picklist size={this.props.listSize}>{items}</Picklist>
         </XUIAutocompleterSecondarySearch>
       </div>
     );

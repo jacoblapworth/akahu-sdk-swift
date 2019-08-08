@@ -146,7 +146,7 @@ const componentsToTest = [
   },
   {
     testsPrefix: 'XUI TextInput',
-    variationsPath: `${variationsPath}/textinput/stories/variations.js`,
+    variationsPath: `${variationsPath}/textInput/stories/variations.js`,
     delay: 1500,
   },
   {

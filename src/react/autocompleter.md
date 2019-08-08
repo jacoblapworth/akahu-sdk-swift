@@ -379,8 +379,7 @@ When using `XUIAutocompleter` for selecting a single option, use the `leftElemen
 import { Component, Fragment } from 'react';
 import crossIcon from '@xero/xui-icon/icons/cross-small';
 
-import XUIIcon from './icon';
-import XUIButton from './button';
+import { XUIIconButton } from './button';
 import XUIAvatar from './avatar';
 import XUIAutocompleter, { boldMatch, decorateSubStr } from './autocompleter';
 import Picklist, { Pickitem } from './picklist';
@@ -480,9 +479,7 @@ class SingleSelectExample extends Component {
     );
     const rightElement = selectedPersonId != null && (
       <XUITextInputSideElement type="icon">
-        <XUIButton variant="icon" size="medium" onClick={this.clearSelection} aria-label="Clear">
-          <XUIIcon icon={crossIcon} />
-        </XUIButton>
+        <XUIIconButton icon={crossIcon} ariaLabel="Clear" onClick={this.clearSelection} />
       </XUITextInputSideElement>
     );
 

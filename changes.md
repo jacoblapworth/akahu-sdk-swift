@@ -65,6 +65,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - Single Pills are now deprecated in favour of using XUITextinputs with left and right elements in Read only mode.
 - Pill `onDeleteClick` no longer has the component instance bound to `this`.
 - Pill `size` prop now has a default of `medium`, instead of `standard`. This size is visually the same as XUI 14 aside from the font size changes. Other available values are `small` and `xsmall`.
+- Pill with tooltip passes `useInlineFlex` prop to tooltip to add `xui-tooltip-inline-flex` class that updates display, fixing alignment next to other pills.
 - Switch no longer always maintains internal checked state. The API is now very similar to XUICheckbox and XUIRadio in that the component can be either used as a controlled or uncontrolled input.
   - If users provide an isChecked value, the component will not maintain its own internal state.
   - If users provide no isChecked value, the isDefaultChecked value will be used to populate the initial internally-managed state.
@@ -144,6 +145,7 @@ Underlying font sizes for heading utility classes have been updated. To maintain
 ### Components
 
 - Added `XUIIllustration` to support the [the new illustrations repo](https://github.dev.xero.com/UXE/illustrations).
+- Added `XUIIconButton` to provide a easier way to use icon buttons.
 
 ### Component props
 
@@ -204,6 +206,7 @@ Underlying font sizes for heading utility classes have been updated. To maintain
 - `Range`
   - Range now supports size variants.
   - Range now provides a React component `XUIRange`.
+- `XUIBarChart` accepts new object property `avatarUrl` as part of `barsData` array. It should contain a path to an image that will be used as an avatar for the specified data point.
 
 ## Other changes
 

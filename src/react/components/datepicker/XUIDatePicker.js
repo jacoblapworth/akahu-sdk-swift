@@ -7,12 +7,12 @@ import CustomCaption from './customElements/CustomCaption';
 import CustomWeekday from './customElements/CustomWeekday';
 import { customClassNames } from './helpers/constants';
 import {
-	normalizeRange,
-	formatDateISO,
-	isRangeComplete,
-	isPartialRange,
-	isStartOfPartialRange,
-	normalizeDisplayedMonth,
+  normalizeRange,
+  formatDateISO,
+  isRangeComplete,
+  isPartialRange,
+  isStartOfPartialRange,
+  normalizeDisplayedMonth,
 } from './helpers/utils';
 import { ns } from '../helpers/xuiClassNamespace';
 
@@ -35,34 +35,53 @@ const customWeekdayElement = <CustomWeekday />;
  * @returns {Object}
  */
 function getRangeModifiers(range, hoverDate, isDayDisabled) {
-	return {
-		[`${ns}-datepicker--day-is-selected-middle ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]: day =>
-			!isDayDisabled(day) && isRangeComplete(range) && DateUtils.isDayBetween(day, range.from, range.to),
+  return {
+    [`${ns}-datepicker--day-is-selected-middle ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]: day =>
+      !isDayDisabled(day) &&
+      isRangeComplete(range) &&
+      DateUtils.isDayBetween(day, range.from, range.to),
 
-		[`${ns}-datepicker--day-is-selected-start ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]: day =>
-			!isDayDisabled(day) && isRangeComplete(range) && DateUtils.isSameDay(day, range.from),
+    [`${ns}-datepicker--day-is-selected-start ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]: day =>
+      !isDayDisabled(day) && isRangeComplete(range) && DateUtils.isSameDay(day, range.from),
 
-		[`${ns}-datepicker--day-is-selected-end ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]: day =>
-			!isDayDisabled(day) && isRangeComplete(range) && DateUtils.isSameDay(day, range.to),
+    [`${ns}-datepicker--day-is-selected-end ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]: day =>
+      !isDayDisabled(day) && isRangeComplete(range) && DateUtils.isSameDay(day, range.to),
 
-		[`${ns}-datepicker--day-is-hovered-middle ${ns}-datepicker--day-is-in-range`]: day =>
-			!isDayDisabled(day) && isPartialRange(range) && hoverDate != null && DateUtils.isDayBetween(day, range.from, hoverDate),
+    [`${ns}-datepicker--day-is-hovered-middle ${ns}-datepicker--day-is-in-range`]: day =>
+      !isDayDisabled(day) &&
+      isPartialRange(range) &&
+      hoverDate != null &&
+      DateUtils.isDayBetween(day, range.from, hoverDate),
 
-		[`${ns}-datepicker--day-is-hovered-start ${ns}-datepicker--day-is-in-range`]: day =>
-			!isDayDisabled(day) && isPartialRange(range) && hoverDate != null && DateUtils.isSameDay(day, hoverDate) && DateUtils.isDayBefore(hoverDate, range.from),
+    [`${ns}-datepicker--day-is-hovered-start ${ns}-datepicker--day-is-in-range`]: day =>
+      !isDayDisabled(day) &&
+      isPartialRange(range) &&
+      hoverDate != null &&
+      DateUtils.isSameDay(day, hoverDate) &&
+      DateUtils.isDayBefore(hoverDate, range.from),
 
-		[`${ns}-datepicker--day-is-hovered-end ${ns}-datepicker--day-is-in-range`]: day =>
-			!isDayDisabled(day) && isPartialRange(range) && hoverDate != null && DateUtils.isSameDay(day, hoverDate) && DateUtils.isDayAfter(hoverDate, range.from),
+    [`${ns}-datepicker--day-is-hovered-end ${ns}-datepicker--day-is-in-range`]: day =>
+      !isDayDisabled(day) &&
+      isPartialRange(range) &&
+      hoverDate != null &&
+      DateUtils.isSameDay(day, hoverDate) &&
+      DateUtils.isDayAfter(hoverDate, range.from),
 
-		[`${ns}-datepicker--day-is-selected-hovered-end ${ns}-datepicker--day-is-in-range`]: day =>
-			!isDayDisabled(day) && isStartOfPartialRange(day, range) && hoverDate != null && DateUtils.isDayBefore(hoverDate, day),
+    [`${ns}-datepicker--day-is-selected-hovered-end ${ns}-datepicker--day-is-in-range`]: day =>
+      !isDayDisabled(day) &&
+      isStartOfPartialRange(day, range) &&
+      hoverDate != null &&
+      DateUtils.isDayBefore(hoverDate, day),
 
-		[`${ns}-datepicker--day-is-selected-hovered-start ${ns}-datepicker--day-is-in-range`]: day =>
-			!isDayDisabled(day) && isStartOfPartialRange(day, range) && hoverDate != null && DateUtils.isDayAfter(hoverDate, day),
+    [`${ns}-datepicker--day-is-selected-hovered-start ${ns}-datepicker--day-is-in-range`]: day =>
+      !isDayDisabled(day) &&
+      isStartOfPartialRange(day, range) &&
+      hoverDate != null &&
+      DateUtils.isDayAfter(hoverDate, day),
 
-		[`${ns}-datepicker--day-selectable`]: day =>
-			!isDayDisabled(day) && !isStartOfPartialRange(day, range),
-	};
+    [`${ns}-datepicker--day-selectable`]: day =>
+      !isDayDisabled(day) && !isStartOfPartialRange(day, range),
+  };
 }
 /* eslint-enable max-len */
 
@@ -81,326 +100,329 @@ function getRangeModifiers(range, hoverDate, isDayDisabled) {
  * @returns {Object}
  */
 function getSingleDayModifiers(selectedDate, hoverDate, isDayDisabled) {
-	return {
-		[`${ns}-datepicker--day-selectable`]: day =>
-			!(DateUtils.isSameDay(day, selectedDate) || isDayDisabled(day)),
-	};
+  return {
+    [`${ns}-datepicker--day-selectable`]: day =>
+      !(DateUtils.isSameDay(day, selectedDate) || isDayDisabled(day)),
+  };
 }
 
 export default class XUIDatePicker extends PureComponent {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.state = {
-			hoverDate: null,
-			currentMonth: normalizeDisplayedMonth(props.displayedMonth, props.minDate, props.maxDate),
-		};
+    this.state = {
+      hoverDate: null,
+      currentMonth: normalizeDisplayedMonth(props.displayedMonth, props.minDate, props.maxDate),
+    };
 
-		this.dateRefs = {};
-		this.focus = this.focus.bind(this);
-	}
+    this.dateRefs = {};
+    this.focus = this.focus.bind(this);
+  }
 
-	componentDidUpdate(prevProps, prevState) {
-		if (prevState.currentMonth !== this.state.currentMonth && this.props.onMonthChange != null) {
-			const currentMonth = this.state.currentMonth.getMonth();
-			const currentYear = this.state.currentMonth.getFullYear();
-			const prevMonth = prevState.currentMonth.getMonth();
-			const prevYear = prevState.currentMonth.getFullYear();
-			if (currentMonth !== prevMonth || currentYear !== prevYear) {
-				this.props.onMonthChange(this.state.currentMonth);
-			}
-		}
-	}
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.currentMonth !== this.state.currentMonth && this.props.onMonthChange != null) {
+      const currentMonth = this.state.currentMonth.getMonth();
+      const currentYear = this.state.currentMonth.getFullYear();
+      const prevMonth = prevState.currentMonth.getMonth();
+      const prevYear = prevState.currentMonth.getFullYear();
+      if (currentMonth !== prevMonth || currentYear !== prevYear) {
+        this.props.onMonthChange(this.state.currentMonth);
+      }
+    }
+  }
 
-	componentWillReceiveProps(nextProps) {
-		const { displayedMonth } = nextProps;
-		if (
-			displayedMonth instanceof Date
-			&& !DateUtils.isSameDay(displayedMonth, this.props.displayedMonth)
-		) {
-			const nextDisplayedMonth =
-				normalizeDisplayedMonth(displayedMonth, nextProps.minDate, nextProps.maxDate);
-			if (
-				nextDisplayedMonth.getFullYear() !== this.state.currentMonth.getFullYear() ||
-				nextDisplayedMonth.getMonth() !== this.state.currentMonth.getMonth()
-			) {
-				this.setState({ currentMonth: nextDisplayedMonth });
-			}
-		}
-	}
+  componentWillReceiveProps(nextProps) {
+    const { displayedMonth } = nextProps;
+    if (
+      displayedMonth instanceof Date &&
+      !DateUtils.isSameDay(displayedMonth, this.props.displayedMonth)
+    ) {
+      const nextDisplayedMonth = normalizeDisplayedMonth(
+        displayedMonth,
+        nextProps.minDate,
+        nextProps.maxDate,
+      );
+      if (
+        nextDisplayedMonth.getFullYear() !== this.state.currentMonth.getFullYear() ||
+        nextDisplayedMonth.getMonth() !== this.state.currentMonth.getMonth()
+      ) {
+        this.setState({ currentMonth: nextDisplayedMonth });
+      }
+    }
+  }
 
-	/**
-	 * Focus the first date of the month, if the datepicker has been rendered.
-	 *
-	 * @public
-	 * @memberof XUIDatePicker
-	 */
-	focus() {
-		if (this.dayPicker != null) {
-			this.dayPicker.focusFirstDayOfMonth();
-		}
-	}
+  /**
+   * Focus the first date of the month, if the datepicker has been rendered.
+   *
+   * @public
+   * @memberof XUIDatePicker
+   */
+  focus() {
+    if (this.dayPicker != null) {
+      this.dayPicker.focusFirstDayOfMonth();
+    }
+  }
 
-	isDayDisabled = day => {
-		const { minDate, maxDate, isDateDisabled } = this.props;
-		if (typeof isDateDisabled === 'function' && isDateDisabled(day)) {
-			return true;
-		}
-		const minDateSet = minDate != null;
-		const maxDateSet = maxDate != null;
-		if (!minDateSet && !maxDateSet) {
-			return false;
-		}
-		if (minDateSet && maxDateSet) {
-			return DateUtils.isDayBefore(day, minDate) || DateUtils.isDayAfter(day, maxDate);
-		}
-		if (minDateSet) {
-			return DateUtils.isDayBefore(day, minDate);
-		}
-		return DateUtils.isDayAfter(day, maxDate);
-	}
+  isDayDisabled = day => {
+    const { minDate, maxDate, isDateDisabled } = this.props;
+    if (typeof isDateDisabled === 'function' && isDateDisabled(day)) {
+      return true;
+    }
+    const minDateSet = minDate != null;
+    const maxDateSet = maxDate != null;
+    if (!minDateSet && !maxDateSet) {
+      return false;
+    }
+    if (minDateSet && maxDateSet) {
+      return DateUtils.isDayBefore(day, minDate) || DateUtils.isDayAfter(day, maxDate);
+    }
+    if (minDateSet) {
+      return DateUtils.isDayBefore(day, minDate);
+    }
+    return DateUtils.isDayAfter(day, maxDate);
+  };
 
-	onDayFocus = (date, modifiers) => {
-		const disabled = modifiers[customClassNames.disabled];
+  onDayFocus = (date, modifiers) => {
+    const disabled = modifiers[customClassNames.disabled];
 
-		// Determine if this date should get date range hover styles
-		const shouldSetDay = isPartialRange(this.props.selectedRange) && !disabled;
-		this.setState({
-			hoverDate: shouldSetDay ? date : null,
-		});
-	}
+    // Determine if this date should get date range hover styles
+    const shouldSetDay = isPartialRange(this.props.selectedRange) && !disabled;
+    this.setState({
+      hoverDate: shouldSetDay ? date : null,
+    });
+  };
 
-	onDayMouseEnter = (date, modifiers) => {
-		const disabled = modifiers[customClassNames.disabled];
-		/*
+  onDayMouseEnter = (date, modifiers) => {
+    const disabled = modifiers[customClassNames.disabled];
+    /*
 		When the user navigates via the keyboard, focus is manually moved between elements.
 		So, for the keyboard and mouse to have the same state, we need to manually set focus
 		on the day that we're hovering.
 		*/
-		if (!disabled) {
-			const dayNode = this.dateRefs[formatDateISO(date)];
-			setTimeout(() => dayNode != null && dayNode.parentNode.focus(), 0);
-		}
+    if (!disabled) {
+      const dayNode = this.dateRefs[formatDateISO(date)];
+      setTimeout(() => dayNode != null && dayNode.parentNode.focus(), 0);
+    }
 
-		// Determine if this date should get hover styles
-		const shouldSetDay = isPartialRange(this.props.selectedRange) && !disabled;
-		this.setState({
-			hoverDate: shouldSetDay ? date : null,
-		});
-	}
+    // Determine if this date should get hover styles
+    const shouldSetDay = isPartialRange(this.props.selectedRange) && !disabled;
+    this.setState({
+      hoverDate: shouldSetDay ? date : null,
+    });
+  };
 
-	onMonthChange = month => {
-		this.dateRefs = {};
-		this.setState({
-			currentMonth: normalizeDisplayedMonth(month, this.props.minDate, this.props.maxDate),
-		});
-	}
+  onMonthChange = month => {
+    this.dateRefs = {};
+    this.setState({
+      currentMonth: normalizeDisplayedMonth(month, this.props.minDate, this.props.maxDate),
+    });
+  };
 
-	onSelectDate = (date, modifiers) => {
-		const { onSelectDate } = this.props;
-		if (!modifiers[customClassNames.disabled]) {
-			if (onSelectDate) {
-				onSelectDate(date);
-			}
-		}
-	}
+  onSelectDate = (date, modifiers) => {
+    const { onSelectDate } = this.props;
+    if (!modifiers[customClassNames.disabled]) {
+      if (onSelectDate) {
+        onSelectDate(date);
+      }
+    }
+  };
 
-	/**
-	 * Method to render the contents of a single day cell in the datepicker.
-	 *
-	 * @private
-	 * @param {Date} day
-	 * @returns {Object}
-	 */
-	renderDay = day => {
-		const dateTime = formatDateISO(day);
-		return (
-			<time
-				ref={n => this.dateRefs[dateTime] = n}
-				dateTime={dateTime}
-				className={`${ns}-datepicker--day--time`}
-			>
-				{day.getDate()}
-			</time>
-		);
-	}
+  /**
+   * Method to render the contents of a single day cell in the datepicker.
+   *
+   * @private
+   * @param {Date} day
+   * @returns {Object}
+   */
+  renderDay = day => {
+    const dateTime = formatDateISO(day);
+    return (
+      <time
+        ref={n => (this.dateRefs[dateTime] = n)}
+        dateTime={dateTime}
+        className={`${ns}-datepicker--day--time`}
+      >
+        {day.getDate()}
+      </time>
+    );
+  };
 
-	render() {
-		const {
-			dir,
-			firstDayOfWeek,
-			isCompact,
-			locale,
-			maxDate,
-			minDate,
-			months,
-			nextButtonLabel,
-			prevButtonLabel,
-			qaHook,
-			selectedDate,
-			selectedRange,
-			showDaysInOtherMonths,
-			showFixedNumberOfWeeks,
-			weekdaysLong,
-			weekdaysShort,
-		} = this.props;
-		const normalizedRange = normalizeRange(selectedRange);
-		const modifiers = selectedRange
-			? getRangeModifiers(normalizedRange, this.state.hoverDate, this.isDayDisabled)
-			: getSingleDayModifiers(selectedDate, this.state.hoverDate, this.isDayDisabled);
-		const selectedDays = [];
-		const customNavbarElement = (
-			<CustomNavbar
-				isCompact={isCompact}
-				classNames={customClassNames}
-				onMonthSelect={this.onMonthChange}
-				minDate={minDate}
-				maxDate={maxDate}
-				months={months}
-				locale={locale}
-				qaHook={qaHook}
-			/>
-		);
-		if (selectedDate != null) {
-			selectedDays.push(selectedDate);
-		}
-		if (isPartialRange(normalizedRange)) {
-			selectedDays.push(normalizedRange.from);
-		}
-		if (isRangeComplete(normalizedRange)) {
-			selectedDays.push(normalizedRange);
-		}
-		let classes = customClassNames;
-		if (isCompact) {
-			classes = {
-				...customClassNames,
-				container: `${customClassNames.container} ${ns}-datepicker-compact`,
-			};
-		}
+  render() {
+    const {
+      dir,
+      firstDayOfWeek,
+      isCompact,
+      locale,
+      maxDate,
+      minDate,
+      months,
+      nextButtonLabel,
+      prevButtonLabel,
+      qaHook,
+      selectedDate,
+      selectedRange,
+      showDaysInOtherMonths,
+      showFixedNumberOfWeeks,
+      weekdaysLong,
+      weekdaysShort,
+    } = this.props;
+    const normalizedRange = normalizeRange(selectedRange);
+    const modifiers = selectedRange
+      ? getRangeModifiers(normalizedRange, this.state.hoverDate, this.isDayDisabled)
+      : getSingleDayModifiers(selectedDate, this.state.hoverDate, this.isDayDisabled);
+    const selectedDays = [];
+    const customNavbarElement = (
+      <CustomNavbar
+        isCompact={isCompact}
+        classNames={customClassNames}
+        onMonthSelect={this.onMonthChange}
+        minDate={minDate}
+        maxDate={maxDate}
+        months={months}
+        locale={locale}
+        qaHook={qaHook}
+      />
+    );
+    if (selectedDate != null) {
+      selectedDays.push(selectedDate);
+    }
+    if (isPartialRange(normalizedRange)) {
+      selectedDays.push(normalizedRange.from);
+    }
+    if (isRangeComplete(normalizedRange)) {
+      selectedDays.push(normalizedRange);
+    }
+    let classes = customClassNames;
+    if (isCompact) {
+      classes = {
+        ...customClassNames,
+        container: `${customClassNames.container} ${ns}-datepicker-compact`,
+      };
+    }
 
-		return (
-			<ReactDayPicker
-				captionElement={customCaptionElement}
-				classNames={classes}
-				containerProps={{
-					'data-automationid': qaHook,
-				}}
-				dir={dir}
-				disabledDays={this.isDayDisabled}
-				showOutsideDays={showDaysInOtherMonths}
-				firstDayOfWeek={firstDayOfWeek}
-				fixedWeeks={showFixedNumberOfWeeks}
-				fromMonth={minDate}
-				labels={{
-					nextMonth: nextButtonLabel,
-					previousMonth: prevButtonLabel,
-				}}
-				enableOutsideDaysClick={false}
-				locale={locale}
-				modifiers={modifiers}
-				month={this.state.currentMonth}
-				months={months}
-				navbarElement={customNavbarElement}
-				onDayClick={this.onSelectDate}
-				onDayFocus={this.onDayFocus}
-				onDayMouseEnter={this.onDayMouseEnter}
-				onMonthChange={this.onMonthChange}
-				ref={c => this.dayPicker = c}
-				renderDay={this.renderDay}
-				selectedDays={selectedDays}
-				toMonth={maxDate}
-				weekdayElement={customWeekdayElement}
-				weekdaysLong={weekdaysLong}
-				weekdaysShort={weekdaysShort}
-			/>
-		);
-	}
+    return (
+      <ReactDayPicker
+        captionElement={customCaptionElement}
+        classNames={classes}
+        containerProps={{
+          'data-automationid': qaHook,
+        }}
+        dir={dir}
+        disabledDays={this.isDayDisabled}
+        showOutsideDays={showDaysInOtherMonths}
+        firstDayOfWeek={firstDayOfWeek}
+        fixedWeeks={showFixedNumberOfWeeks}
+        fromMonth={minDate}
+        labels={{
+          nextMonth: nextButtonLabel,
+          previousMonth: prevButtonLabel,
+        }}
+        enableOutsideDaysClick={false}
+        locale={locale}
+        modifiers={modifiers}
+        month={this.state.currentMonth}
+        months={months}
+        navbarElement={customNavbarElement}
+        onDayClick={this.onSelectDate}
+        onDayFocus={this.onDayFocus}
+        onDayMouseEnter={this.onDayMouseEnter}
+        onMonthChange={this.onMonthChange}
+        ref={c => (this.dayPicker = c)}
+        renderDay={this.renderDay}
+        selectedDays={selectedDays}
+        toMonth={maxDate}
+        weekdayElement={customWeekdayElement}
+        weekdaysLong={weekdaysLong}
+        weekdaysShort={weekdaysShort}
+      />
+    );
+  }
 }
 
 XUIDatePicker.propTypes = {
-	qaHook: PropTypes.string,
+  qaHook: PropTypes.string,
 
-	/** Callback for when the user selects a date.  Will fire even if the date has
-	 * already been selected.  Will not fire for disbled days. */
-	onSelectDate: PropTypes.func.isRequired,
+  /** Callback for when the user selects a date.  Will fire even if the date has
+   * already been selected.  Will not fire for disbled days. */
+  onSelectDate: PropTypes.func.isRequired,
 
-	/** Callback for when a user switches to a different month */
-	onMonthChange: PropTypes.func,
+  /** Callback for when a user switches to a different month */
+  onMonthChange: PropTypes.func,
 
-	/** If you only want to display a single selected day without allowing the user
-	 * to select a date range, pass that Date in here. */
-	selectedDate: PropTypes.instanceOf(Date),
+  /** If you only want to display a single selected day without allowing the user
+   * to select a date range, pass that Date in here. */
+  selectedDate: PropTypes.instanceOf(Date),
 
-	/** If you want to disable every date before a given day, pass in the minimum enabled
-	 * date here.  Can be used with the isDateDisabled function. */
-	minDate: PropTypes.instanceOf(Date),
+  /** If you want to disable every date before a given day, pass in the minimum enabled
+   * date here.  Can be used with the isDateDisabled function. */
+  minDate: PropTypes.instanceOf(Date),
 
-	/** If you want to disable every date after a given day, pass in the maximum enabled
-	 * date here.  Can be used with the isDateDisabled function. */
-	maxDate: PropTypes.instanceOf(Date),
+  /** If you want to disable every date after a given day, pass in the maximum enabled
+   * date here.  Can be used with the isDateDisabled function. */
+  maxDate: PropTypes.instanceOf(Date),
 
-	/** A date which represents the year and month that the calendar will display. Could
-	 * be any day in the given day and month. */
-	displayedMonth: PropTypes.instanceOf(Date),
+  /** A date which represents the year and month that the calendar will display. Could
+   * be any day in the given day and month. */
+  displayedMonth: PropTypes.instanceOf(Date),
 
-	/** An accessibility label for the next month button that will be read to users with
-	 * a screen reader.  */
-	nextButtonLabel: PropTypes.string,
+  /** An accessibility label for the next month button that will be read to users with
+   * a screen reader.  */
+  nextButtonLabel: PropTypes.string,
 
-	/** An accessibility label for the previous month button that will be read to users
-	 * with a screen reader. */
-	prevButtonLabel: PropTypes.string,
+  /** An accessibility label for the previous month button that will be read to users
+   * with a screen reader. */
+  prevButtonLabel: PropTypes.string,
 
-	/**
-	 * If the user is selecting a date range, this will contain the dates the user has
-	 * selected "from" and "to". If the user has only selected the first date in the range,
-	 * pass that in as the "from" property.
-	 */
-	selectedRange: PropTypes.shape({
-		from: PropTypes.instanceOf(Date),
-		to: PropTypes.instanceOf(Date),
-	}),
+  /**
+   * If the user is selecting a date range, this will contain the dates the user has
+   * selected "from" and "to". If the user has only selected the first date in the range,
+   * pass that in as the "from" property.
+   */
+  selectedRange: PropTypes.shape({
+    from: PropTypes.instanceOf(Date),
+    to: PropTypes.instanceOf(Date),
+  }),
 
-	/** If you need to render a calendar in a small amount of horizontal space, set this
-	 * flag to shrink things down a bit. */
-	isCompact: PropTypes.bool,
+  /** If you need to render a calendar in a small amount of horizontal space, set this
+   * flag to shrink things down a bit. */
+  isCompact: PropTypes.bool,
 
-	/** A function that we can use to determine whether or not a day should be disabled.  */
-	isDateDisabled: PropTypes.func,
+  /** A function that we can use to determine whether or not a day should be disabled.  */
+  isDateDisabled: PropTypes.func,
 
-	/** Whether or not to display days that occur in months other than the one you're focused on */
-	showDaysInOtherMonths: PropTypes.bool,
+  /** Whether or not to display days that occur in months other than the one you're focused on */
+  showDaysInOtherMonths: PropTypes.bool,
 
-	/** Whether or not to show six full weeks no matter how many days are in the month. */
-	showFixedNumberOfWeeks: PropTypes.bool,
+  /** Whether or not to show six full weeks no matter how many days are in the month. */
+  showFixedNumberOfWeeks: PropTypes.bool,
 
-	/** The locale of the calendar */
-	locale: PropTypes.string,
+  /** The locale of the calendar */
+  locale: PropTypes.string,
 
-	/** An array of localized month names */
-	months: PropTypes.arrayOf(PropTypes.string),
+  /** An array of localised month names */
+  months: PropTypes.arrayOf(PropTypes.string),
 
-	/** An array of localized full weekday names (ex: ["Sunday", "Monday", ...]) */
-	weekdaysLong: PropTypes.arrayOf(PropTypes.string),
+  /** An array of localised full weekday names (e.g. ["Sunday", "Monday", ...]) */
+  weekdaysLong: PropTypes.arrayOf(PropTypes.string),
 
-	/** An array of localized short weeday names (ex: ["Su", "Mo", ...]) */
-	weekdaysShort: PropTypes.arrayOf(PropTypes.string),
+  /** An array of localised short weekday names (e.g. ["Su", "Mo", ...]) */
+  weekdaysShort: PropTypes.arrayOf(PropTypes.string),
 
-	/** Which day of the week should be displayed as the first day of the week?  Sunday === 0 */
-	firstDayOfWeek: PropTypes.number,
+  /** Which day of the week should be displayed as the first day of the week?  Sunday === 0 */
+  firstDayOfWeek: PropTypes.number,
 
-	/** Whether the language is right-to-left or left-to-right */
-	dir: PropTypes.oneOf(['ltr', 'rtl']),
+  /** Whether the language is right-to-left or left-to-right */
+  dir: PropTypes.oneOf(['ltr', 'rtl']),
 };
 
 XUIDatePicker.defaultProps = {
-	dir: 'ltr',
-	isCompact: false,
-	locale: 'en',
-	nextButtonLabel: 'Next Month',
-	prevButtonLabel: 'Previous Month',
-	qaHook: undefined,
-	showDaysInOtherMonths: true,
-	showFixedNumberOfWeeks: false,
-	weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+  dir: 'ltr',
+  isCompact: false,
+  locale: 'en',
+  nextButtonLabel: 'Next Month',
+  prevButtonLabel: 'Previous Month',
+  qaHook: undefined,
+  showDaysInOtherMonths: true,
+  showFixedNumberOfWeeks: false,
+  weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
 };

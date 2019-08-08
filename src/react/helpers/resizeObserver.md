@@ -24,54 +24,49 @@ import cn from 'classnames';
 import { observe, unobserve, getWidthClasses } from '../helpers/resizeObserver';
 
 const wrapperStyles = {
-	resize: 'horizontal',
-	overflow: 'hidden',
+  resize: 'horizontal',
+  overflow: 'hidden'
 };
 
 class SizeClassTest extends Component {
-	constructor(...args) {
-		super(...args);
-		this._area = React.createRef();
-	}
+  constructor(...args) {
+    super(...args);
+    this._area = React.createRef();
+  }
 
-	componentDidMount() {
-		this._area.current && observe(this);
-	}
+  componentDidMount() {
+    this._area.current && observe(this);
+  }
 
-	componentWillUnmount() {
-		this._area.current && unobserve(this);
-	}
+  componentWillUnmount() {
+    this._area.current && unobserve(this);
+  }
 
-	render() {
-		const classNames = cn(
-			...getWidthClasses(this.state),
-		);
+  render() {
+    const classNames = cn(...getWidthClasses(this.state));
 
-		return (
-			<div
-				/* On a separate element so width-classes are easier to read */
-				className="xui-panel xui-padding-xsmall"
-				style={wrapperStyles}
-			>
-				<div
-					ref={this._area}
-					className={classNames}
-				>
-					This panel is resizeable in some browsers. Try it (or resize your window), and check out the classes on the inner element.
-				</div>
-			</div>
-		);
-	}
+    return (
+      <div
+        /* On a separate element so width-classes are easier to read */
+        className="xui-panel xui-padding-xsmall"
+        style={wrapperStyles}
+      >
+        <div ref={this._area} className={classNames}>
+          This panel is resizeable in some browsers. Try it (or resize your window), and check out
+          the classes on the inner element.
+        </div>
+      </div>
+    );
+  }
 }
-<SizeClassTest />
+<SizeClassTest />;
 ```
 
 ### Applies custom breakpoints
 
 ```jsx harmony
 import { Component } from 'react';
-import XUIIcon from '../icon';
-import XUIButton from '../button';
+import { XUIIconButton } from '../button';
 import { observe, unobserve } from '../helpers/resizeObserver';
 import info from '@xero/xui-icon/icons/info';
 import cross from '@xero/xui-icon/icons/cross';
@@ -79,63 +74,47 @@ import search from '@xero/xui-icon/icons/search';
 import accessibility from '@xero/xui-icon/icons/accessibility';
 
 const wrapperStyles = {
-	resize: 'horizontal',
-	overflow: 'hidden',
+  resize: 'horizontal',
+  overflow: 'hidden'
 };
 
 class BreakpointsTest extends Component {
-	constructor(...args) {
-		super(...args);
-		this.state = {};
-		this._area = React.createRef();
-		this._breakpoints = {
-			'info': 950,
-			'cross': 750,
-			'search': 550,
-			'accessibility': 350,
-		};
-	}
+  constructor(...args) {
+    super(...args);
+    this.state = {};
+    this._area = React.createRef();
+    this._breakpoints = {
+      info: 950,
+      cross: 750,
+      search: 550,
+      accessibility: 350
+    };
+  }
 
-	componentDidMount() {
-		this._area.current && observe(this);
-	}
+  componentDidMount() {
+    this._area.current && observe(this);
+  }
 
-	componentWillUnmount() {
-		this._area.current && unobserve(this);
-	}
+  componentWillUnmount() {
+    this._area.current && unobserve(this);
+  }
 
-	render() {
-		return (
-			<div
-				ref={this._area}
-				className="xui-panel xui-padding-xsmall"
-				style={wrapperStyles}
-			>
-				{this.state.accessibility && (
-					<XUIButton variant="icon">
-						<XUIIcon icon={accessibility} title="Hello" />
-					</XUIButton>
-				)}
-				{this.state.search && (
-					<XUIButton variant="icon">
-						<XUIIcon icon={search} title="Find one" />
-					</XUIButton>
-				)}
-				{this.state.cross && (
-					<XUIButton variant="icon">
-						<XUIIcon icon={cross} title="Add another" />
-					</XUIButton>
-				)}
-				{this.state.info && (
-					<XUIButton variant="icon">
-						<XUIIcon icon={info} title="More info" />
-					</XUIButton>
-				)}
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div ref={this._area} className="xui-panel xui-padding-xsmall" style={wrapperStyles}>
+        {this.state.accessibility && (
+          <XUIIconButton icon={accessibility} ariaLabel="Hello" title="Hello" />
+        )}
+        {this.state.search && <XUIIconButton icon={search} ariaLabel="Find one" title="Find one" />}
+        {this.state.cross && (
+          <XUIIconButton icon={cross} ariaLabel="Add another" title="Add another" />
+        )}
+        {this.state.info && <XUIIconButton icon={info} ariaLabel="More info" title="More info" />}
+      </div>
+    );
+  }
 }
-<BreakpointsTest />
+<BreakpointsTest />;
 ```
 
 ### Component swapping on resize
@@ -144,73 +123,72 @@ class BreakpointsTest extends Component {
 import { Component } from 'react';
 import overflow from '@xero/xui-icon/icons/overflow';
 import XUIIcon from '../icon';
-import XUIButton, { XUIButtonGroup, XUISecondaryButton, XUISplitButtonGroup } from '../button';
+import XUIButton, {
+  XUIButtonGroup,
+  XUISecondaryButton,
+  XUISplitButtonGroup,
+  XUIIconButton
+} from '../button';
 import { observe, unobserve } from '../helpers/resizeObserver';
 
 const buttonGroup = (
-	<XUIButtonGroup>
-		<XUIButton key="one">One</XUIButton>
-		<XUIButton key="two">Two</XUIButton>
-	</XUIButtonGroup>
+  <XUIButtonGroup>
+    <XUIButton key="one">One</XUIButton>
+    <XUIButton key="two">Two</XUIButton>
+  </XUIButtonGroup>
 );
 
 const splitButton = (
-	<XUISplitButtonGroup>
-		<XUIButton key="main">Main</XUIButton>
-		<XUISecondaryButton key="split" aria-label="Other actions" />
-	</XUISplitButtonGroup>
+  <XUISplitButtonGroup>
+    <XUIButton key="main">Main</XUIButton>
+    <XUISecondaryButton key="split" aria-label="Other actions" />
+  </XUISplitButtonGroup>
 );
 
 const overflowButton = (
-	<XUIButton variant="icon">
-		<XUIIcon icon={overflow} title="More options" />
-	</XUIButton>
+  <XUIIconButton icon={overflow} ariaLabel="More options" title="More options" />
 );
 
 const wrapperStyles = {
-	resize: 'horizontal',
-	overflow: 'hidden',
-	maxWidth: '100%',
+  resize: 'horizontal',
+  overflow: 'hidden',
+  maxWidth: '100%'
 };
 
 class ComponentSwapper extends Component {
-	constructor(...args) {
-		super(...args);
-		this.state = { content: overflowButton };
-		this._area = React.createRef();
-	}
+  constructor(...args) {
+    super(...args);
+    this.state = { content: overflowButton };
+    this._area = React.createRef();
+  }
 
-	componentDidMount() {
-		this._area.current && observe(this);
-	}
+  componentDidMount() {
+    this._area.current && observe(this);
+  }
 
-	componentWillUnmount() {
-		this._area.current && unobserve(this);
-	}
+  componentWillUnmount() {
+    this._area.current && unobserve(this);
+  }
 
-	_onResize(width) {
-		let content;
-		if (width < 600) {
-			content = overflowButton;
-		} else if (width < 800) {
-			content = splitButton;
-		} else {
-			content = buttonGroup;
-		}
-		this.setState({ content });
-	};
+  _onResize(width) {
+    let content;
+    if (width < 600) {
+      content = overflowButton;
+    } else if (width < 800) {
+      content = splitButton;
+    } else {
+      content = buttonGroup;
+    }
+    this.setState({ content });
+  }
 
-	render() {
-		return (
-			<div
-				ref={this._area}
-				style={wrapperStyles}
-				className="xui-panel xui-padding-xsmall"
-			>
-				{this.state.content}
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div ref={this._area} style={wrapperStyles} className="xui-panel xui-padding-xsmall">
+        {this.state.content}
+      </div>
+    );
+  }
 }
-<ComponentSwapper />
+<ComponentSwapper />;
 ```

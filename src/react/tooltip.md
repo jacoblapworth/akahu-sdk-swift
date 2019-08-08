@@ -15,23 +15,23 @@ The default tooltip is triggered on mouseover, and will appear centered above th
 ```jsx harmony
 import infoIcon from '@xero/xui-icon/icons/info';
 
-import XUIButton from './button';
+import XUIButton, { XUIIconButton } from './button';
 import XUIIcon from './icon';
 import XUITooltip from './tooltip';
 
 const triggerIcon = (
-	<XUIButton variant="icon" aria-label="More info">
-		<XUIIcon icon={infoIcon} />
-	</XUIButton>
+  <span>
+    <XUIIconButton icon={infoIcon} ariaLabel="More info" />
+  </span>
 );
-const triggerButton = <XUIButton >A button</XUIButton>;
+const triggerButton = <XUIButton>A button</XUIButton>;
 
 <div>
-	<XUITooltip trigger={triggerIcon}>Tooltip with all default behavior</XUITooltip>
-	<XUITooltip trigger={triggerButton}>Another tooltip with all default behavior</XUITooltip>
-</div>
-
+  <XUITooltip trigger={triggerIcon}>Tooltip with all default behavior</XUITooltip>
+  <XUITooltip trigger={triggerButton}>Another tooltip with all default behavior</XUITooltip>
+</div>;
 ```
+
 ### Other settings
 
 Min and max width of the tip, on-open and on-close hooks, the mix of triggering events, and preferred location of the tip are all available to be adjusted. The following is an example of a click-triggered tooltip. For focusable elements, `Enter` keyboard events will be treated as a click.
@@ -43,33 +43,37 @@ import XUIButton from './button';
 import XUITooltip from './tooltip';
 
 const triggerLink = (
-	<XUIButton
-		isLink
-		variant="unstyled"
-		href="#"
-		style={{textDecoration: "underline"}}
-	>
-		look at what we have
-	</XUIButton>
+  <XUIButton isLink variant="unstyled" href="#" style={{ textDecoration: 'underline' }}>
+    look at what we have
+  </XUIButton>
 );
-const logOpen = () => {console.log('opening');}
-
-const props = {
-	preferredPosition: "bottom-left",
-    triggerOnClick: true,
-    triggerOnHover: false,
-    onOpen: logOpen,
+const logOpen = () => {
+  console.log('opening');
 };
 
-<p>So often we avoid running water, and running water is a lot of fun. Isn&apos;t that fantastic? You can just push a little tree out of your brush like that. Look around, <XUITooltip trigger={triggerLink} {...props}>Here is a tip on an inline trigger</XUITooltip>. Beauty is everywhere, you only have to look to see it.</p>
+const props = {
+  preferredPosition: 'bottom-left',
+  triggerOnClick: true,
+  triggerOnHover: false,
+  onOpen: logOpen
+};
 
+<p>
+  So often we avoid running water, and running water is a lot of fun. Isn&apos;t that fantastic? You
+  can just push a little tree out of your brush like that. Look around,{' '}
+  <XUITooltip trigger={triggerLink} {...props}>
+    Here is a tip on an inline trigger
+  </XUITooltip>
+  . Beauty is everywhere, you only have to look to see it.
+</p>;
 ```
 
 ### Positioning
 
 Position of the tooltip is expressed as a side of the trigger and alignment on that side, for example "right-top" would be on the right side of the trigger, with the top of the tip flush to the top of the trigger. You can also specify only a side, and the alignment will default to `center`.
 If the tip won't fit in the preferred position, the following steps will be tried in this order:
-* it will be flipped to the other side of the trigger
-* its alignment will be adjusted to take advantage of the available space in the viewport
-* it will be rotated to the perpendicular side (left/right to top/bottom or vice-versa)
-* it will be placed below, as this is the best direction to expand the document, if no other option works
+
+- it will be flipped to the other side of the trigger
+- its alignment will be adjusted to take advantage of the available space in the viewport
+- it will be rotated to the perpendicular side (left/right to top/bottom or vice-versa)
+- it will be placed below, as this is the best direction to expand the document, if no other option works

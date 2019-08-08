@@ -19,7 +19,8 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
         className="xui-accordiontrigger--arrow"
       >
         <button
-          className="xui-button xui-button-icon xui-button-icon-medium"
+          aria-label="Toggle"
+          className="xui-button xui-button-icon-medium xui-button-icon"
           disabled={false}
           onClick={[Function]}
           tabIndex={-1}
@@ -64,16 +65,13 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
 exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
 <div
   className="xui-accordion testClass"
-  data-automationid="testHook"
 >
   <div
     className="xui-accordionwrapper"
-    data-automationid="testHook-wrapper"
   >
     <div
       aria-label="Toggle"
       className="xui-accordiontrigger"
-      data-automationid="testHook-trigger"
       onClick={[Function]}
       onKeyPress={[Function]}
       role="button"
@@ -83,7 +81,8 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
         className="xui-accordiontrigger--arrow"
       >
         <button
-          className="xui-button xui-button-icon xui-button-icon-medium"
+          aria-label="Toggle"
+          className="xui-button xui-button-icon-medium xui-button-icon"
           disabled={false}
           onClick={[Function]}
           tabIndex={-1}
@@ -144,7 +143,8 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
         className="xui-accordiontrigger--arrow"
       >
         <button
-          className="xui-button xui-button-icon xui-button-icon-medium"
+          aria-label="Toggle"
+          className="xui-button xui-button-icon-medium xui-button-icon"
           disabled={false}
           onClick={[Function]}
           tabIndex={-1}
@@ -203,7 +203,8 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
         className="xui-accordiontrigger--arrow"
       >
         <button
-          className="xui-button xui-button-icon xui-button-icon-medium"
+          aria-label="Toggle"
+          className="xui-button xui-button-icon-medium xui-button-icon"
           disabled={false}
           onClick={[Function]}
           tabIndex={-1}
@@ -282,7 +283,8 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
         className="xui-accordiontrigger--arrow"
       >
         <button
-          className="xui-button xui-button-icon xui-button-icon-medium"
+          aria-label="Toggle"
+          className="xui-button xui-button-icon-medium xui-button-icon"
           disabled={false}
           onClick={[Function]}
           tabIndex={-1}
@@ -335,7 +337,7 @@ exports[`<XUIAccordion /> should render the accordion with a custom class name 1
 exports[`<XUIAccordion /> should render the accordion with a custom qa hook 1`] = `
 <div
   className="xui-accordion"
-  data-automationid="testHook"
+  data-automationid="test-id"
 />
 `;
 
@@ -364,7 +366,8 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
         className="xui-accordiontrigger--arrow"
       >
         <button
-          className="xui-button xui-button-icon xui-button-icon-medium"
+          aria-label="Toggle"
+          className="xui-button xui-button-icon-medium xui-button-icon"
           disabled={false}
           onClick={[Function]}
           tabIndex={-1}

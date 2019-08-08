@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIIconButton/> renders iconButtons with the correct icon size classes 1`] = `
+<div>
+  <button
+    aria-label="Test Icon Button"
+    className="xui-button xui-button-icon-medium xui-button-icon"
+    disabled={false}
+    onClick={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <svg
+      className="xui-icon"
+      focusable="false"
+      height={13}
+      viewBox="0 0 3 13"
+      width={3}
+    >
+      <path
+        d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+        role="presentation"
+      />
+    </svg>
+  </button>
+  <button
+    aria-label="Test Icon Button"
+    className="xui-button xui-button-icon-small xui-button-icon"
+    disabled={false}
+    onClick={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <svg
+      className="xui-icon"
+      focusable="false"
+      height={13}
+      viewBox="0 0 3 13"
+      width={3}
+    >
+      <path
+        d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+        role="presentation"
+      />
+    </svg>
+  </button>
+  <button
+    aria-label="Test Icon Button"
+    className="xui-button xui-button-icon-xsmall xui-button-icon"
+    disabled={false}
+    onClick={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <svg
+      className="xui-icon"
+      focusable="false"
+      height={13}
+      viewBox="0 0 3 13"
+      width={3}
+    >
+      <path
+        d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+        role="presentation"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`<XUIIconButton/> should render an inverted iconButton with an \`isInverted\` prop 1`] = `
+<button
+  aria-label="Test Icon Button"
+  className="xui-button xui-button-icon-medium xui-button-icon xui-button-icon-inverted"
+  disabled={false}
+  onClick={[Function]}
+  tabIndex={0}
+  type="button"
+>
+  <svg
+    className="xui-icon"
+    focusable="false"
+    height={13}
+    viewBox="0 0 3 13"
+    width={3}
+  >
+    <path
+      d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+      role="presentation"
+    />
+  </svg>
+</button>
+`;

@@ -1,0 +1,91 @@
+// CodePen with XUI
+//
+// Introduction:
+// CodePen can be used to quickly prototype or design with real XUI components. [The Xero product team](https://codepen.io/team/xero) already has templates that provide the XUI library.
+//
+// Weight: 1.0
+//
+// Styleguide: Getting Started.CodePen with XUI
+
+// Getting access to CodePen
+//
+// To get access to the examples, [create CodePen account](https://codepen.io/accounts/signup/user/free/) with your Xero email address and reach out to someone in Design Ops or XUI to be added to the Xero team.
+//
+// Styleguide: Getting Started.CodePen with XUI.1
+
+// Using existing CodePen templates
+//
+// Once you have a working CodePen account, you can go to any Pen (template environment) and fork it (hit the `Fork` button in the top right) – this will create your own space for exploration.
+//
+// Take [HTML + CSS Template + React (XUI 15.1.3)](https://codepen.io/team/xero/pen/86b5f91260de0579b6f6d7337c6b7424) for example. This allows you to use XUI as React components but also HTML markup.
+//
+// Image: codepen/codepen_controls.png
+//
+// Image-caption: Click on "Fork" to create your own environment for experiments.
+//
+// Styleguide: Getting Started.CodePen with XUI.1.1
+
+// CodePen with XUI React components
+//
+// Let's say you want to try out a XUI React component in CodePen.
+//
+// Open a CodePen template with [XUI and React](https://codepen.io/team/xero/pen/86b5f91260de0579b6f6d7337c6b7424) and fork it.
+// Go to [the React documentation](https://xui.xero.com/15.1.3/react/) and pick a component. Let's use [Pill](https://xui.xero.com/15.1.3/react/#pill) with Avatars. Click on `View Code` below the example and copy it. You don't need any "import" statements, just the markup.
+//
+// Image: codepen/codepen_xui_pill.png
+//
+// Image-caption: Copy Pill code.
+//
+// Replace the example in CodePen with your copied markup.
+//
+// Styleguide: Getting Started.CodePen with XUI.2
+
+// Pill example code
+//
+// Make sure that you have one top level HTML node so if you want multiple components, wrap them with a `<div></div>`.
+// Lastly, prefix each component's name with XUI, for example `XUIPill` becomes `XUI.XUIPill`. You only need to do this in CodePen because of the way we are bundling and importing the distribution files.
+//
+// exampleclass: ds-example-markuponly
+//
+// Markup:
+// ReactDOM.render(
+//  <div>
+//   <XUI.XUIPill
+//    value="Avatar pill"
+//    className="xui-margin-right-xsmall"
+//    avatarProps=\{{
+//     value: 'SJ',
+//     imageUrl: 'https://s3-ap-southeast-2.amazonaws.com/uxe-internal/mario_icon.png'
+//    }}
+//   />
+//   <XUI.XUIPill
+//    value="Avatar pill"
+//    avatarProps=\{{value: 'SJ'}}
+//   />
+//  </div>,
+//  document.getElementById('app'));
+// )
+//
+// Styleguide: Getting Started.CodePen with XUI.2.1
+
+// Finished example Pen
+//
+// Image: codepen/codepen_example_react_pill.png
+//
+// Image-caption: Finished example.
+//
+// Styleguide: Getting Started.CodePen with XUI.2.2
+
+// CodePen with XUI HTML and CSS examples
+//
+// You can use the XUI CodePen templates to create Pens using XUI HTML and CSS.
+//
+// Open the same CodePen template with [XUI and React](https://codepen.io/team/xero/pen/86b5f91260de0579b6f6d7337c6b7424) and fork it.
+//
+// Go to [XUI documentation](https://xui.xero.com/15.1.3/) and pick a component. Let's use [Textarea](https://xui.xero.com/15.1.3/section-building-blocks-controls-textinput.html#building-blocks-controls-textinput-3). Copy HTML example, and paste (for example below `<p class="my-custom-class">Example content</p>`). You can also add any XUI CSS class like for example `xui-text-align-center`. There is no need to edit any JS section with this approach.
+//
+// Image: codepen/codepen_html_example.png
+//
+// Image-caption: Complete HTML markup example.
+//
+// Styleguide: Getting Started.CodePen with XUI.3

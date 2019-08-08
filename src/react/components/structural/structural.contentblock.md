@@ -34,7 +34,7 @@ const overflowButton = <XUIIconButton icon={overflow} ariaLabel="More options" /
 </XUIContentBlock>;
 ```
 
-Generally, the content inside a content block is split into left or right content. the props available to be passed on the left are `leftContent`, `primaryHeading`, `secondaryHeading` and `tag`. On the right, they are `pinnedValue`, `action` and `overflow`.
+Generally, the content inside a content block is split into left or right content. The props available to be passed on the left are `leftContent`, `primaryHeading`, `secondaryHeading`, `description` and `tags`. On the right, they are `pinnedValue`, `action` and `overflow`.
 
 #### Complex Content block
 
@@ -46,6 +46,8 @@ import XUITag from '../../tag';
 import XUIIcon from '../../icon';
 import overflow from '@xero/xui-icon/icons/overflow';
 
+const description =
+  'Quinoa sustainable celiac deep v polaroid four loko disrupt. Keytar cloud bread pinterest freegan, artisan hot chicken air plant ethical. Tbh selvage synth marfa affogato tacos +1, beard food truck sriracha tousled readymade. Pour-over distillery tilde venmo. Shoreditch vinyl tbh selvage, vexillologist iPhone flannel hoodie. Live-edge gluten-free brooklyn, gastropub lo-fi schlitz vinyl.';
 const overflowButton = <XUIIconButton icon={overflow} ariaLabel="More options" />;
 const avatar = <XUIAvatar value="Tim Redmond" />;
 const actionButton = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>} />;
@@ -62,11 +64,13 @@ const callback = () => {
   <XUIContentBlockItem
     primaryHeading="Primary"
     secondaryHeading="Secondary"
+    description={description}
     overflow={overflowButton}
     leftContent={avatar}
     pinnedValue="0.00"
     action={actionButton}
-    tag={tag}
+    tags={tag}
+    tagPosition="inline"
     onClick={callback}
   />
 </XUIContentBlock>;

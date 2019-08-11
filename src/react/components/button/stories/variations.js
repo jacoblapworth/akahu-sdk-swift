@@ -127,6 +127,12 @@ sizes.forEach(sizeVariant => {
     className: 'xui-loader-static', // Prevent dots from animating and causing diffs due to timing issues
     value: 'This is a button',
   });
+  variations.push({
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `${sizeVariant} with short content`,
+    size: sizeVariant,
+    value: 'B',
+  })
 });
 
 iconSizes.forEach(iconSize => {

@@ -71,3 +71,10 @@ Below is a list of components that have been affected by this change. The codemo
 ## Other changes
 
 - `XUIAvatar` now requires the value prop for accessibility and for cases in which images have not loaded
+
+## Responsive Enhancements
+
+- Button
+  - Added a `min-width` of 40px in `xui-button`(`xui-icon-button` is not included).
+  - Set `text-align: center` in `xui-button` to make sure the content in the anchor is centered.
+  - Removed the `min-width` value set in `xui-button-split`.

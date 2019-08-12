@@ -1,4 +1,13 @@
 module.exports = (page, scenario) => {
-  const clickSelector = scenario.clickSelector;
-  page.click(clickSelector);
+  const { clickSelector, hoverSelector } = scenario;
+
+  if (clickSelector) {
+    page.click(clickSelector);
+  }
+
+  if (hoverSelector) {
+    page.rect(hoverSelector).result(rect => {
+      page.mouseMoved(rect.left, rect.top);
+    });
+  }
 };

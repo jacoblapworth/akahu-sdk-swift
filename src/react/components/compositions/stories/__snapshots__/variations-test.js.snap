@@ -3932,5 +3932,335 @@ Array [
       },
     ],
   },
+  Object {
+    "composition": [Function],
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "detail sample",
+    "useRealAreas": true,
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+      Object {
+        "height": 1000,
+        "label": "between small and medium breakpoints",
+        "width": 700,
+      },
+      Object {
+        "height": 506.25,
+        "label": "between medium and large breakpoints",
+        "width": 900,
+      },
+      Object {
+        "height": 618.75,
+        "label": "between large and xlarge breakpoints",
+        "width": 1100,
+      },
+      Object {
+        "height": 787.5,
+        "label": "between xlarge and 2xlarge breakpoints",
+        "width": 1400,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "detailHeader sample",
+    "useRealAreas": true,
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+      Object {
+        "height": 1000,
+        "label": "between small and medium breakpoints",
+        "width": 700,
+      },
+      Object {
+        "height": 506.25,
+        "label": "between medium and large breakpoints",
+        "width": 900,
+      },
+      Object {
+        "height": 618.75,
+        "label": "between large and xlarge breakpoints",
+        "width": 1100,
+      },
+      Object {
+        "height": 787.5,
+        "label": "between xlarge and 2xlarge breakpoints",
+        "width": 1400,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "split sample",
+    "useRealAreas": true,
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+      Object {
+        "height": 1000,
+        "label": "between small and medium breakpoints",
+        "width": 700,
+      },
+      Object {
+        "height": 506.25,
+        "label": "between medium and large breakpoints",
+        "width": 900,
+      },
+      Object {
+        "height": 618.75,
+        "label": "between large and xlarge breakpoints",
+        "width": 1100,
+      },
+      Object {
+        "height": 787.5,
+        "label": "between xlarge and 2xlarge breakpoints",
+        "width": 1400,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "splitHeader sample",
+    "useRealAreas": true,
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+      Object {
+        "height": 1000,
+        "label": "between small and medium breakpoints",
+        "width": 700,
+      },
+      Object {
+        "height": 506.25,
+        "label": "between medium and large breakpoints",
+        "width": 900,
+      },
+      Object {
+        "height": 618.75,
+        "label": "between large and xlarge breakpoints",
+        "width": 1100,
+      },
+      Object {
+        "height": 787.5,
+        "label": "between xlarge and 2xlarge breakpoints",
+        "width": 1400,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "masterDetail sample",
+    "useRealAreas": true,
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+      Object {
+        "height": 1000,
+        "label": "between small and medium breakpoints",
+        "width": 700,
+      },
+      Object {
+        "height": 506.25,
+        "label": "between medium and large breakpoints",
+        "width": 900,
+      },
+      Object {
+        "height": 618.75,
+        "label": "between large and xlarge breakpoints",
+        "width": 1100,
+      },
+      Object {
+        "height": 787.5,
+        "label": "between xlarge and 2xlarge breakpoints",
+        "width": 1400,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "masterDetailHeader sample",
+    "useRealAreas": true,
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+      Object {
+        "height": 1000,
+        "label": "between small and medium breakpoints",
+        "width": 700,
+      },
+      Object {
+        "height": 506.25,
+        "label": "between medium and large breakpoints",
+        "width": 900,
+      },
+      Object {
+        "height": 618.75,
+        "label": "between large and xlarge breakpoints",
+        "width": 1100,
+      },
+      Object {
+        "height": 787.5,
+        "label": "between xlarge and 2xlarge breakpoints",
+        "width": 1400,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "masterDetailSummary sample",
+    "useRealAreas": true,
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+      Object {
+        "height": 1000,
+        "label": "between small and medium breakpoints",
+        "width": 700,
+      },
+      Object {
+        "height": 506.25,
+        "label": "between medium and large breakpoints",
+        "width": 900,
+      },
+      Object {
+        "height": 618.75,
+        "label": "between large and xlarge breakpoints",
+        "width": 1100,
+      },
+      Object {
+        "height": 787.5,
+        "label": "between xlarge and 2xlarge breakpoints",
+        "width": 1400,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "masterDetailSummaryHeader sample",
+    "useRealAreas": true,
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+      Object {
+        "height": 1000,
+        "label": "between small and medium breakpoints",
+        "width": 700,
+      },
+      Object {
+        "height": 506.25,
+        "label": "between medium and large breakpoints",
+        "width": 900,
+      },
+      Object {
+        "height": 618.75,
+        "label": "between large and xlarge breakpoints",
+        "width": 1100,
+      },
+      Object {
+        "height": 787.5,
+        "label": "between xlarge and 2xlarge breakpoints",
+        "width": 1400,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "detailSummary sample",
+    "useRealAreas": true,
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+      Object {
+        "height": 1000,
+        "label": "between small and medium breakpoints",
+        "width": 700,
+      },
+      Object {
+        "height": 506.25,
+        "label": "between medium and large breakpoints",
+        "width": 900,
+      },
+      Object {
+        "height": 618.75,
+        "label": "between large and xlarge breakpoints",
+        "width": 1100,
+      },
+      Object {
+        "height": 787.5,
+        "label": "between xlarge and 2xlarge breakpoints",
+        "width": 1400,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "detailSummaryHeader sample",
+    "useRealAreas": true,
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+      Object {
+        "height": 1000,
+        "label": "between small and medium breakpoints",
+        "width": 700,
+      },
+      Object {
+        "height": 506.25,
+        "label": "between medium and large breakpoints",
+        "width": 900,
+      },
+      Object {
+        "height": 618.75,
+        "label": "between large and xlarge breakpoints",
+        "width": 1100,
+      },
+      Object {
+        "height": 787.5,
+        "label": "between xlarge and 2xlarge breakpoints",
+        "width": 1400,
+      },
+    ],
+  },
 ]
 `;

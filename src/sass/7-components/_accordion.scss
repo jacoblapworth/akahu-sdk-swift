@@ -1,5 +1,5 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Accordion
 //
@@ -628,172 +628,171 @@
 //
 // Styleguide: Compounds.DisplayingData.Accordion.4.4
 
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 $xui-accordion-pop-width: $xui-s-xsmall;
 
 .#{$ns}-accordion {
-	width: 100%;
+  width: 100%;
 }
 
 .#{$ns}-accordion--emptystate {
-	@include xui-text-muted;
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	height: 140px;
-	justify-content: center;
+  @include xui-text-muted;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+  justify-content: center;
 }
 
 .#{$ns}-accordionwrapper {
-	background-color: $xui-color-white;
-	box-shadow: $xui-shadow-border-all;
-	outline: 0;
-	position: relative;
-	transition-duration: $xui-motion-speed-fast;
-	transition-property: width, margin, padding;
-	width: 100%;
-	// There is an issue with the expand animation on IE where the fast content
-	// expand toggle animation is suboptimal. Because the animation is a very subtle
-	// enhancement it was decided to remove the effect for the offending browsers.
-	// The `-ms` declaration needs to come after the other transition references and
-	// therefore needs to ignore the alphabetical linting rule.
-	// stylelint-disable-next-line order/properties-alphabetical-order
-	-ms-transition: none;
+  background-color: $xui-color-white;
+  box-shadow: $xui-shadow-border-all;
+  outline: 0;
+  position: relative;
+  transition-duration: $xui-motion-speed-fast;
+  transition-property: width, margin, padding;
+  width: 100%;
+  // There is an issue with the expand animation on IE where the fast content
+  // expand toggle animation is suboptimal. Because the animation is a very subtle
+  // enhancement it was decided to remove the effect for the offending browsers.
+  // The `-ms` declaration needs to come after the other transition references and
+  // therefore needs to ignore the alphabetical linting rule.
+  // stylelint-disable-next-line order/properties-alphabetical-order
+  -ms-transition: none;
 
-	@include xui-breakpoint-medium-up {
-		&:first-child {
-			border-top-left-radius: $xui-radius;
-			border-top-right-radius: $xui-radius;
-		}
+  @include xui-breakpoint-medium-up {
+    &:first-child {
+      border-top-left-radius: $xui-radius;
+      border-top-right-radius: $xui-radius;
+    }
 
-		&:last-child {
-			border-bottom-left-radius: $xui-radius;
-			border-bottom-right-radius: $xui-radius;
-		}
-	}
+    &:last-child {
+      border-bottom-left-radius: $xui-radius;
+      border-bottom-right-radius: $xui-radius;
+    }
+  }
 }
 
 .#{$ns}-accordionwrapper--content {
-	opacity: 0;
+  opacity: 0;
 }
 
 .#{$ns}-accordionwrapper--content-is-open {
-	border-top: $xui-border-muted;
-	opacity: 1;
-	transition: opacity $xui-motion-speed-fast ease-in-out $xui-motion-speed-fast;
-	// stylelint-disable-next-line order/properties-alphabetical-order
-	-ms-transition: none;
+  border-top: $xui-border-muted;
+  opacity: 1;
+  transition: opacity $xui-motion-speed-fast ease-in-out $xui-motion-speed-fast;
+  // stylelint-disable-next-line order/properties-alphabetical-order
+  -ms-transition: none;
 }
 
 .#{$ns}-accordionwrapper-no-pop {
-	border-radius: 0;
-	@include xui-highlight-left($xui-color-blue);
+  border-radius: 0;
+  @include xui-highlight-left($xui-color-blue);
 }
 
 .#{$ns}-accordionwrapper-is-open {
-	box-shadow: $xui-shadow-depth-lift;
-	z-index: 1;
+  box-shadow: $xui-shadow-depth-lift;
+  z-index: 1;
 }
 
 .#{$ns}-accordionwrapper-pop {
-	border-radius: $xui-radius;
-	margin-left: -$xui-accordion-pop-width;
-	width: calc(100% + #{2 * $xui-accordion-pop-width});
+  border-radius: $xui-radius;
+  margin-left: -$xui-accordion-pop-width;
+  width: calc(100% + #{2 * $xui-accordion-pop-width});
 
-	.#{$ns}-accordiontrigger-is-open {
-		padding-left: $xui-accordion-pop-width;
-		padding-right: $xui-accordion-pop-width;
-	}
+  .#{$ns}-accordiontrigger-is-open {
+    padding-left: $xui-accordion-pop-width;
+    padding-right: $xui-accordion-pop-width;
+  }
 }
 
 .#{$ns}-accordiontrigger {
-	align-items: center;
-	border-top: $xui-border-muted;
-	cursor: pointer;
-	display: flex;
-	margin: 0;
-	transition-duration: $xui-motion-speed-fast;
-	transition-property: width, margin, padding;
-	// stylelint-disable-next-line order/properties-alphabetical-order
-	-ms-transition: none;
+  align-items: center;
+  border-top: $xui-border-muted;
+  cursor: pointer;
+  display: flex;
+  margin: 0;
+  transition-duration: $xui-motion-speed-fast;
+  transition-property: width, margin, padding;
+  // stylelint-disable-next-line order/properties-alphabetical-order
+  -ms-transition: none;
 
-	&:first-child {
-		border-top: 0;
-	}
+  &:first-child {
+    border-top: 0;
+  }
 
-	&:hover {
-		background: $xui-color-grey-alpha-8;
-	}
+  &:hover {
+    background: $xui-color-grey-alpha-8;
+  }
 
-	&:active {
-		background: $xui-color-grey-alpha-7;
-	}
+  &:active {
+    background: $xui-color-grey-alpha-7;
+  }
 }
 
 .#{$ns}-accordiontrigger--arrow {
-	align-items: center;
-	display: flex;
-	flex-shrink: 0;
-	justify-content: center;
-	overflow: hidden;
-	padding: $xui-s-xsmall;
-	width: $xui-icon-xlarge;
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  overflow: hidden;
+  padding: $xui-s-xsmall;
+  width: $xui-icon-xlarge;
 
-	@include xui-breakpoint-small-down {
-		align-self: flex-start;
-	}
+  @include xui-breakpoint-small-down {
+    align-self: flex-start;
+  }
 }
 
 .#{$ns}-accordiontrigger--arrow .#{$ns}-icon {
-	transition-duration: $xui-motion-speed-fast;
-	transition-property: all;
+  transition-duration: $xui-motion-speed-fast;
+  transition-property: all;
 }
 
 .#{$ns}-accordiontrigger--rightcontent {
-	align-items: center;
-	align-self: stretch;
-	display: flex;
-	flex-shrink: 0;
-	padding: $xui-s-xsmall $xui-s-large $xui-s-xsmall $xui-s-xsmall;
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex-shrink: 0;
+  padding: $xui-s-standard $xui-s-large $xui-s-standard $xui-s-xsmall;
 
-	@include xui-breakpoint-small-down {
-		align-self: flex-start;
-	}
+  @include xui-breakpoint-small-down {
+    align-self: flex-start;
+  }
 }
 
 .#{$ns}-accordiontrigger--content {
-	align-items: center;
-	display: flex;
-	flex-basis: auto;
-	flex-grow: 1;
+  align-items: center;
+  display: flex;
+  flex-basis: auto;
+  flex-grow: 1;
 }
 
 .#{$ns}-accordiontrigger--headings {
-	flex-basis: auto;
-	flex-grow: 1;
-	padding: $xui-s-standard 0;
+  flex-basis: auto;
+  flex-grow: 1;
+  padding: $xui-s-standard 0;
 }
 
 .#{$ns}-accordiontrigger--primaryheading {
-	@include xui-text-medium;
-	@include xui-text-emphasis;
-	@include xui-text-wordbreak;
+  @include xui-text-medium;
+  @include xui-text-emphasis;
+  @include xui-text-wordbreak;
 }
 
 .#{$ns}-accordiontrigger--secondaryheading {
-	@include xui-heading-small;
-	@include xui-text-deemphasis;
-	@include xui-text-muted;
-	@include xui-text-wordbreak;
+  @include xui-heading-small;
+  @include xui-text-deemphasis;
+  @include xui-text-muted;
+  @include xui-text-wordbreak;
 }
 
 .#{$ns}-accordiontrigger--pinnedvalue {
-	@include xui-text-medium;
-	padding: $xui-s-small 0;
+  @include xui-text-medium;
 }
 
 .#{$ns}-accordiontrigger--overflowcontent .xui-button-icon {
-	margin-right: -#{$xui-s-small};
+  margin-right: -#{$xui-s-small};
 }

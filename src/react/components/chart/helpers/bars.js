@@ -189,7 +189,6 @@ const enrichParams = (state, props, chartTheme) => {
     paginationLabel,
     paginationNextTitle,
     paginationPreviousTitle,
-    avatarImageUrlData,
   } = props;
 
   const {

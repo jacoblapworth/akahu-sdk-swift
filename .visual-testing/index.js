@@ -146,7 +146,7 @@ const componentsToTest = [
   },
   {
     testsPrefix: 'XUI TextInput',
-    variationsPath: `${variationsPath}/textinput/stories/variations.js`,
+    variationsPath: `${variationsPath}/textInput/stories/variations.js`,
     delay: 1500,
   },
   {
@@ -207,7 +207,7 @@ function buildUrl(kind, story) {
 function buildScenarios() {
   let scenarios = [];
   componentsToTest.forEach(component => {
-    const { delay, hoverSelector, postInteractionWait, readyEvent } = component;
+    const { delay, readyEvent } = component;
     const variationsFile = require(component.variationsPath);
     const variations = variationsFile && variationsFile[component.variationsProp || 'variations'];
     scenarios = scenarios.concat(
@@ -227,10 +227,14 @@ function buildScenarios() {
           viewports,
         };
 
-        const clickSelector = story.clickSelector;
-        // Ship with an onReady script that enables the click selector
-        if (clickSelector) {
-          scenarioProp.clickSelector = clickSelector;
+        const { clickSelector, hoverSelector } = story;
+        // Ship with an onReady script that enables the click/hover selector
+        if (clickSelector || hoverSelector) {
+          if (clickSelector) {
+            scenarioProp.clickSelector = clickSelector;
+          } else {
+            scenarioProp.hoverSelector = hoverSelector;
+          }
           scenarioProp.onReadyScript = 'onReady.js';
         }
 

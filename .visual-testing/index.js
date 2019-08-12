@@ -207,7 +207,7 @@ function buildUrl(kind, story) {
 function buildScenarios() {
   let scenarios = [];
   componentsToTest.forEach(component => {
-    const { delay, hoverSelector, postInteractionWait, readyEvent } = component;
+    const { delay, readyEvent } = component;
     const variationsFile = require(component.variationsPath);
     const variations = variationsFile && variationsFile[component.variationsProp || 'variations'];
     scenarios = scenarios.concat(
@@ -216,7 +216,7 @@ function buildScenarios() {
           // Create a shallow clone of viewports because Backstop mutates them
           .map(viewport => ({ ...viewport }));
 
-        return {
+        const scenarioProp = {
           label: `${component.testsPrefix} ${story.storyTitle}`,
           url: buildUrl(story.storyKind, story.storyTitle),
           selectors: [component.selectors || '#root > div > div'],
@@ -226,6 +226,19 @@ function buildScenarios() {
           readyEvent,
           viewports,
         };
+
+        const { clickSelector, hoverSelector } = story;
+        // Ship with an onReady script that enables the click/hover selector
+        if (clickSelector || hoverSelector) {
+          if (clickSelector) {
+            scenarioProp.clickSelector = clickSelector;
+          } else {
+            scenarioProp.hoverSelector = hoverSelector;
+          }
+          scenarioProp.onReadyScript = 'onReady.js';
+        }
+
+        return scenarioProp;
       }),
     );
   });
@@ -244,6 +257,7 @@ module.exports = {
     bitmaps_test: './.visual-testing/tests',
     html_report: './.visual-testing/web-report',
     ci_report: './.visual-testing/ci-report',
+    engine_scripts: './.visual-testing',
   },
   report: ['browser', 'CI'],
   engine: 'chrome',

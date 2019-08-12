@@ -365,14 +365,9 @@ export class SecondarySearchExample extends React.Component {
     const { data } = this.state;
 
     const trigger = this.props.trigger || (
-			<XUIButton
-				type="button"
-				onClick={() => {}}
-				data-ref="toggled_trigger"
-				fullWidth="small-down"
-			>
+      <XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger" fullWidth="small-down">
         Toggle Me <XUIButtonCaret />
-			</XUIButton>
+      </XUIButton>
     );
 
     const items =

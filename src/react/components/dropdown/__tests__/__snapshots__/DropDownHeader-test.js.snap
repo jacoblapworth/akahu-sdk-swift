@@ -12,7 +12,7 @@ exports[`<DropDownHeader/> should render a back button if back button click hand
     >
       <button
         aria-label="Back"
-        className="xui-button xui-dropdown--headerbackbutton xui-button-icon xui-button-icon-small"
+        className="xui-button xui-dropdown--headerbackbutton xui-button-icon-small xui-button-icon"
         data-automationid={null}
         disabled={false}
         onClick={[Function]}
@@ -49,7 +49,7 @@ exports[`<DropDownHeader/> should render all header contents in the correct orde
     >
       <button
         aria-label="Back"
-        className="xui-button xui-dropdown--headerbackbutton xui-button-icon xui-button-icon-small"
+        className="xui-button xui-dropdown--headerbackbutton xui-button-icon-small xui-button-icon"
         data-automationid={null}
         disabled={false}
         onClick={[Function]}

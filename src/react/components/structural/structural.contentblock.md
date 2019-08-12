@@ -10,15 +10,11 @@
 
 ```jsx harmony
 import { XUIContentBlock, XUIContentBlockItem } from '../../structural';
-import XUIButton from '../../button';
+import { XUIIconButton } from '../../button';
 import XUIIcon from '../../icon';
 import overflow from '@xero/xui-icon/icons/overflow';
 
-const overflowButton = (
-  <XUIButton variant="icon" aria-label="More options">
-    <XUIIcon icon={overflow} />
-  </XUIButton>
-);
+const overflowButton = <XUIIconButton icon={overflow} ariaLabel="More options" />;
 
 <XUIContentBlock className="xui-panel">
   <XUIContentBlockItem
@@ -44,7 +40,7 @@ Generally, the content inside a content block is split into left or right conten
 
 ```jsx harmony
 import { XUIContentBlock, XUIContentBlockItem, XUIActions } from '../../structural';
-import XUIButton from '../../button';
+import XUIButton, { XUIIconButton } from '../../button';
 import XUIAvatar from '../../avatar';
 import XUITag from '../../tag';
 import XUIIcon from '../../icon';
@@ -52,11 +48,7 @@ import overflow from '@xero/xui-icon/icons/overflow';
 
 const description =
   'Quinoa sustainable celiac deep v polaroid four loko disrupt. Keytar cloud bread pinterest freegan, artisan hot chicken air plant ethical. Tbh selvage synth marfa affogato tacos +1, beard food truck sriracha tousled readymade. Pour-over distillery tilde venmo. Shoreditch vinyl tbh selvage, vexillologist iPhone flannel hoodie. Live-edge gluten-free brooklyn, gastropub lo-fi schlitz vinyl.';
-const overflowButton = (
-  <XUIButton variant="icon" aria-label="More options">
-    <XUIIcon icon={overflow} />
-  </XUIButton>
-);
+const overflowButton = <XUIIconButton icon={overflow} ariaLabel="More options" />;
 const avatar = <XUIAvatar value="Tim Redmond" />;
 const actionButton = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>} />;
 const tag = (

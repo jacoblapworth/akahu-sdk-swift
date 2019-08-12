@@ -3,8 +3,7 @@ import { DateUtils } from 'react-day-picker';
 import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 import arrow from '@xero/xui-icon/icons/arrow';
-import XUIIcon from '../../icon/XUIIcon';
-import XUIButton from '../../button/XUIButton';
+import XUIIconButton from '../../button/XUIIconButton';
 import MonthSelector from './navbar/MonthSelector';
 import YearSelector from './navbar/YearSelector';
 import { baseClassName } from '../helpers/constants';
@@ -127,36 +126,34 @@ export default class CustomNavbar extends PureComponent {
 
     return (
       <header className={classNames.navBar}>
-        <XUIButton
+        <XUIIconButton
+          icon={arrow}
+          rotation="90"
           size={controlSize}
-          variant="icon"
           isDisabled={!showPreviousButton}
           className={classNames.navButtonPrev}
           // Can't just pass a function because DayPicker expects a function callback arg
           onClick={() => previousClickHandler()}
-          aria-label={labels.previousMonth}
+          ariaLabel={labels.previousMonth}
           qaHook={qaHook && `${qaHook}--previous-month-button`}
-        >
-          <XUIIcon icon={arrow} rotation="90" />
-        </XUIButton>
+        />
 
         <div className={`${baseClassName}--heading-dates`}>
           {dir === 'rtl' ? yearSelector : monthSelector}
           {dir === 'rtl' ? monthSelector : yearSelector}
         </div>
 
-        <XUIButton
+        <XUIIconButton
+          icon={arrow}
+          rotation="270"
           size={controlSize}
-          variant="icon"
           isDisabled={!showNextButton}
           className={classNames.navButtonNext}
           // Can't just pass a function because DayPicker expects a function callback arg
           onClick={() => nextClickHandler()}
-          aria-label={labels.nextMonth}
+          ariaLabel={labels.nextMonth}
           qaHook={qaHook && `${qaHook}--next-month-button`}
-        >
-          <XUIIcon icon={arrow} rotation="270" />
-        </XUIButton>
+        />
       </header>
     );
   }

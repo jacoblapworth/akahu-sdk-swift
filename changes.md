@@ -145,6 +145,7 @@ Underlying font sizes for heading utility classes have been updated. To maintain
 ### Components
 
 - Added `XUIIllustration` to support the [the new illustrations repo](https://github.dev.xero.com/UXE/illustrations).
+- Added `XUIIconButton` to provide a easier way to use icon buttons.
 
 ### Component props
 
@@ -205,6 +206,7 @@ Underlying font sizes for heading utility classes have been updated. To maintain
 - `Range`
   - Range now supports size variants.
   - Range now provides a React component `XUIRange`.
+- `XUIBarChart` accepts new object property `avatarUrl` as part of `barsData` array. It should contain a path to an image that will be used as an avatar for the specified data point.
 
 ## Other changes
 

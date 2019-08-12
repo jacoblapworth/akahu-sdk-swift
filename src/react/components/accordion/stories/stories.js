@@ -8,9 +8,9 @@ import { variations, storiesWithVariationsKindName } from './variations';
 import { createArray } from '../../progressindicator/helpers/utilities';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIButton from '../../button/XUIButton';
+import XUIIconButton from '../../button/XUIIconButton';
 import XUIContentBlock from '../../structural/XUIContentBlock';
 import XUIContentBlockItem from '../../structural/XUIContentBlockItem';
-import XUIIcon from '../../icon/XUIIcon';
 import overflowPathData from '@xero/xui-icon/icons/overflow';
 import notificationPathData from '@xero/xui-icon/icons/notification';
 import copyPathData from '@xero/xui-icon/icons/copy';
@@ -61,17 +61,22 @@ storiesWithKnobs.add('Playground', () => {
     ),
     onItemClick: hasOnItemClick ? onItemClick : undefined,
     overflow: hasOverflow && (
-      <XUIButton variant="icon" className="xui-margin-left-small">
-        <XUIIcon icon={overflowPathData} title="Overflow menu" />
-      </XUIButton>
+      <XUIIconButton
+        icon={overflowPathData}
+        ariaLabel="Overflow menu"
+        className="xui-margin-left-small"
+        title="Overflow menu"
+      />
     ),
     custom: hasCustom && [
-      <XUIButton key="0" variant="icon" className="xui-margin-left-small">
-        <XUIIcon icon={notificationPathData} title="Overflow menu" />
-      </XUIButton>,
-      <XUIButton key="1" variant="icon">
-        <XUIIcon icon={copyPathData} title="Overflow menu" />
-      </XUIButton>,
+      <XUIIconButton
+        icon={notificationPathData}
+        ariaLabel="Overflow menu"
+        key="0"
+        className="xui-margin-left-small"
+        title="Overflow menu"
+      />,
+      <XUIIconButton icon={copyPathData} ariaLabel="Overflow menu" key="1" title="Overflow menu" />,
     ],
   }));
 
@@ -88,9 +93,11 @@ storiesWithKnobs.add('Playground', () => {
                     key={index}
                     primaryHeading={names[index]}
                     overflow={
-                      <XUIButton variant="icon">
-                        <XUIIcon icon={overflowPathData} title="Overflow menu" />
-                      </XUIButton>
+                      <XUIIconButton
+                        icon={overflowPathData}
+                        ariaLabel="Overflow menu"
+                        title="Overflow menu"
+                      />
                     }
                     pinnedValue={`${3 * item.id}:00`}
                     href="#"

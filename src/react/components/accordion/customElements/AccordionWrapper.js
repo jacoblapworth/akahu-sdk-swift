@@ -1,69 +1,61 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { getRectangle, shouldAccordionPop } from '../private/helpers';
+import { shouldAccordionPop } from '../private/helpers';
 import { ns } from '../../helpers/xuiClassNamespace';
 
 export default class AccordionWrapper extends PureComponent {
-	state = { left: null, right: null };
+  state = {
+    shouldPop: false,
+  };
 
-	componentDidMount() {
-		this.setRect();
-	}
+  setRef = ref => {
+    this.accordionItem = ref;
+  };
 
-	componentDidUpdate(prevProps) {
-		if (prevProps.isOpen !== this.props.isOpen) this.setRect();
-	}
+  componentDidMount() {
+    this.setState({
+      shouldPop: shouldAccordionPop(this.accordionItem),
+    });
+  }
 
-	popClassName() {
-		if (!this.props.isOpen) return '';
-		const accordionShouldPop = shouldAccordionPop({
-			left: this.state.left,
-			right: this.state.right,
-		});
-		if (accordionShouldPop) return `${ns}-accordionwrapper-pop`;
-		return `${ns}-accordionwrapper-no-pop`;
-	}
+  componentDidUpdate() {
+    // eslint-disable-next-line react/no-did-update-set-state
+    this.setState({
+      shouldPop: shouldAccordionPop(this.accordionItem),
+    });
+  }
 
-	setRect = () => {
-		const { left, right } = getRectangle(this.accordionItem);
-		this.setState({ left, right });
-	};
+  render() {
+    const { children, isOpen, qaHook, trigger } = this.props;
+    const { shouldPop } = this.state;
 
-	setRef = ref => {
-		this.accordionItem = ref;
-	};
-
-	render() {
-		const {
-			children, isOpen, qaHook, trigger,
-		} = this.props;
-
-		return (
-			<div
-				ref={this.setRef}
-				data-automationid={qaHook}
-				className={cn(
-					`${ns}-accordionwrapper`,
-					{ [`${ns}-accordionwrapper-is-open`]: isOpen },
-					this.popClassName(),
-				)}
-			>
-				{trigger}
-				<div className={cn(`${ns}-accordionwrapper--content`, {
-					[`${ns}-accordionwrapper--content-is-open`]: isOpen,
-				})}
-				>
-					{children}
-				</div>
-			</div>
-		);
-	}
+    return (
+      <div
+        ref={this.setRef}
+        data-automationid={qaHook}
+        className={cn(`${ns}-accordionwrapper`, {
+          [`${ns}-accordionwrapper-is-open`]: isOpen,
+          [`${ns}-accordionwrapper-pop`]: isOpen && shouldPop,
+          [`${ns}-accordionwrapper-no-pop`]: isOpen && !shouldPop,
+        })}
+      >
+        {trigger}
+        <div
+          className={cn(`${ns}-accordionwrapper--content`, {
+            [`${ns}-accordionwrapper--content-is-open`]: isOpen,
+          })}
+        >
+          {children}
+        </div>
+      </div>
+    );
+  }
 }
 
 AccordionWrapper.propTypes = {
-	qaHook: PropTypes.string,
-	children: PropTypes.node,
-	isOpen: PropTypes.bool.isRequired,
-	trigger: PropTypes.node.isRequired,
+  qaHook: PropTypes.string,
+  children: PropTypes.node,
+  isOpen: PropTypes.bool.isRequired,
+  trigger: PropTypes.node.isRequired,
 };

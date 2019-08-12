@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIAccordionItem /> Should render children instead of empty state component when children are provided 1`] = `
+<div>
+  <div
+    class="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
+    data-automationid="test-hook-wrapper"
+  >
+    <div
+      aria-label="Toggle"
+      class="xui-accordiontrigger xui-accordiontrigger-is-open"
+      data-automationid="test-hook-trigger"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="xui-accordiontrigger--arrow"
+      >
+        <button
+          aria-label="Toggle"
+          class="xui-button xui-button-icon-medium xui-button-icon"
+          tabindex="-1"
+          title="Toggle"
+          type="button"
+        >
+          <svg
+            class="xui-icon xui-icon-rotate-180"
+            focusable="false"
+            height="7"
+            viewBox="0 0 11 7"
+            width="11"
+          >
+            <path
+              d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+              role="presentation"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="xui-accordiontrigger--content"
+      >
+        <div
+          class="xui-accordiontrigger--headings"
+        />
+      </div>
+    </div>
+    <div
+      class="xui-accordionwrapper--content xui-accordionwrapper--content-is-open"
+    >
+      Children! 👩‍👧‍👧
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordionItem /> Should render the empty state component provided by XUIAccordionContext with no children 1`] = `
+<div>
+  <div
+    class="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
+    data-automationid="test-hook-wrapper"
+  >
+    <div
+      aria-label="Toggle"
+      class="xui-accordiontrigger xui-accordiontrigger-is-open"
+      data-automationid="test-hook-trigger"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="xui-accordiontrigger--arrow"
+      >
+        <button
+          aria-label="Toggle"
+          class="xui-button xui-button-icon-medium xui-button-icon"
+          tabindex="-1"
+          title="Toggle"
+          type="button"
+        >
+          <svg
+            class="xui-icon xui-icon-rotate-180"
+            focusable="false"
+            height="7"
+            viewBox="0 0 11 7"
+            width="11"
+          >
+            <path
+              d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+              role="presentation"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="xui-accordiontrigger--content"
+      >
+        <div
+          class="xui-accordiontrigger--headings"
+        />
+      </div>
+    </div>
+    <div
+      class="xui-accordionwrapper--content xui-accordionwrapper--content-is-open"
+    >
+      <div
+        id="empty-state-component"
+      >
+        Empty!
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordionItem /> should render the base component with only required props passed 1`] = `
+<div
+  className="xui-accordionwrapper"
+>
+  <div
+    aria-label="Toggle"
+    className="xui-accordiontrigger"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex="0"
+  >
+    <div
+      className="xui-accordiontrigger--arrow"
+    >
+      <button
+        aria-label="Toggle"
+        className="xui-button xui-button-icon-medium xui-button-icon"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={-1}
+        title="Toggle"
+        type="button"
+      >
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={7}
+          viewBox="0 0 11 7"
+          width={11}
+        >
+          <path
+            d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+            role="presentation"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      className="xui-accordiontrigger--content"
+    >
+      <div
+        className="xui-accordiontrigger--headings"
+      />
+    </div>
+  </div>
+  <div
+    className="xui-accordionwrapper--content"
+  />
+</div>
+`;

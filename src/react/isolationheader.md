@@ -12,22 +12,22 @@ for behavioural aspects.
 import cross from '@xero/xui-icon/icons/cross';
 import overflow from '@xero/xui-icon/icons/overflow';
 
-import XUIIsolationHeader, { XUIIsolationHeaderNavigation, XUIIsolationHeaderTitle, XUIIsolationHeaderSecondaryTitle, XUIIsolationHeaderActions } from './isolationheader';
-import XUIIcon from './icon';
-import XUIButton from './button';
+import XUIIsolationHeader, {
+  XUIIsolationHeaderNavigation,
+  XUIIsolationHeaderTitle,
+  XUIIsolationHeaderSecondaryTitle,
+  XUIIsolationHeaderActions
+} from './isolationheader';
+import { XUIIconButton } from './button';
 
 <XUIIsolationHeader>
-	<XUIIsolationHeaderNavigation>
-		<XUIButton className="xui-margin-right-small" variant="icon" aria-label="close">
-			<XUIIcon icon={cross} />
-		</XUIButton>
-		<XUIIsolationHeaderTitle>Main Title</XUIIsolationHeaderTitle>
-		<XUIIsolationHeaderSecondaryTitle>Secondary Title</XUIIsolationHeaderSecondaryTitle>
-	</XUIIsolationHeaderNavigation>
-	<XUIIsolationHeaderActions>
-		<XUIButton variant="icon" aria-label="more options">
-			<XUIIcon icon={overflow} />
-		</XUIButton>
-	</XUIIsolationHeaderActions>
-</XUIIsolationHeader>
+  <XUIIsolationHeaderNavigation>
+    <XUIIconButton icon={cross} ariaLabel="close" className="xui-margin-right-small" />
+    <XUIIsolationHeaderTitle>Main Title</XUIIsolationHeaderTitle>
+    <XUIIsolationHeaderSecondaryTitle>Secondary Title</XUIIsolationHeaderSecondaryTitle>
+  </XUIIsolationHeaderNavigation>
+  <XUIIsolationHeaderActions>
+    <XUIIconButton icon={overflow} ariaLabel="more options" />
+  </XUIIsolationHeaderActions>
+</XUIIsolationHeader>;
 ```

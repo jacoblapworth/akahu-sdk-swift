@@ -2858,12 +2858,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -2873,9 +2875,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"
@@ -2922,12 +2921,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -2937,9 +2938,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"
@@ -2986,12 +2984,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -3001,9 +3001,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"
@@ -3714,12 +3711,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -3729,9 +3728,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"
@@ -3827,12 +3823,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -3842,9 +3840,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"
@@ -3940,12 +3935,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -3955,9 +3952,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"
@@ -4250,12 +4244,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -4265,9 +4261,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"
@@ -4393,12 +4386,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -4408,9 +4403,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"
@@ -4536,12 +4528,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -4551,9 +4545,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"
@@ -5824,12 +5815,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -5839,9 +5832,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"
@@ -5918,12 +5908,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -5933,9 +5925,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"
@@ -6012,12 +6001,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -6027,9 +6018,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"
@@ -7640,12 +7628,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -7655,9 +7645,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"
@@ -7783,12 +7770,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -7798,9 +7787,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"
@@ -7926,12 +7912,14 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-haspopup="listbox"
-                    className="xui-button xui-button-icon xui-button-icon-medium"
+                    aria-label="More row options"
+                    className="xui-button xui-button-icon-medium xui-button-icon"
                     disabled={false}
                     onClick={[Function]}
                     onKeyDown={[Function]}
                     onKeyUp={[Function]}
                     tabIndex={0}
+                    title="More row options"
                     type="button"
                   >
                     <svg
@@ -7941,9 +7929,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       viewBox="0 0 3 13"
                       width={3}
                     >
-                      <title>
-                        More row options
-                      </title>
                       <path
                         d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                         role="presentation"

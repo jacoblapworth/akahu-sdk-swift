@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-		<a href="../section-compounds-displayingdata-accordion.html" isDocLink>Accordion in the XUI Documentation</a>
+    <a href="../section-compounds-displayingdata-accordion.html" isDocLink>Accordion in the XUI Documentation</a>
 </div>
 
 Accordions are used to display a vertically expandable & collapsible list that reveals and hides additional content
@@ -8,12 +8,12 @@ The _Accordion_ is broken up into two key components `import XUIAccordion, { XUI
 
 ## Basic
 
-The bare minimum _Accordion_ composition can be achieved with the `items` and `createItem` prop.
+The bare minimum _Accordion_ composition can be achieved with a `XUIAccordion` component with `XUIAccordionItem`s as children.
 
-- `items` represents the generic data structure of each _Accordion_ item.
-- `createItem` returns a `<XUIAccordionItem />` that represents a single _item_ from the `items` prop.
+We also still allow the previous API which the `items` and `createItem` props.
 
-**Note:** Each item needs a unique `id`. By default an object _key_ named `id` is looked up in each item however you can specify a new key if there is a more relevant unique identifier using the prop `idKey`.
+- `items` is an array of objects to pass to `createItem` as props.
+- `createItem` takes a single item from `items` and returns a `<XUIAccordionItem>`
 
 ```jsx harmony
 import XUIAccordion, { XUIAccordionItem } from './accordion';
@@ -27,7 +27,6 @@ const items = [
 class Demo extends React.Component {
   constructor(...args) {
     super(...args);
-    this.createItem = this.createItem.bind(this);
     this.handleItemClick = this.handleItemClick.bind(this);
   }
 
@@ -35,18 +34,20 @@ class Demo extends React.Component {
     console.log(`${isOpen ? 'Open' : 'Close'} item ${id}`);
   }
 
-  createItem({ name, content }) {
-    return (
-      <XUIAccordionItem primaryHeading={name} onItemClick={this.handleItemClick}>
-        {content && (
-          <div className="xui-padding-horizontal-large xui-padding-vertical-4xlarge">{content}</div>
-        )}
-      </XUIAccordionItem>
-    );
-  }
-
   render() {
-    return <XUIAccordion items={items} createItem={this.createItem} />;
+    return (
+      <XUIAccordion>
+        {items.map(({ id, name, content }) => (
+          <XUIAccordionItem key={id} primaryHeading={name} onItemClick={this.handleItemClick}>
+            {content && (
+              <div className="xui-padding-horizontal-large xui-padding-vertical-4xlarge">
+                {content}
+              </div>
+            )}
+          </XUIAccordionItem>
+        ))}
+      </XUIAccordion>
+    );
   }
 }
 
@@ -157,8 +158,7 @@ import overflowIcon from '@xero/xui-icon/icons/overflow';
 import { XUIContentBlock, XUIContentBlockItem } from './structural';
 import XUIAccordion, { XUIAccordionItem } from './accordion';
 import XUIAvatar from './avatar';
-import XUIButton from './button';
-import XUIIcon from './icon';
+import XUIButton, { XUIIconButton } from './button';
 import { isKeyClick } from './helpers/reactKeyHandler';
 
 const items = [
@@ -198,13 +198,13 @@ class Demo extends React.Component {
         primaryHeading={name}
         leftContent={<XUIAvatar value={name} className="xui-margin-right" />}
         overflow={
-          <XUIButton
-            variant="icon"
+          <XUIIconButton
+            icon={overflowIcon}
+            ariaLabel="Overflow menu"
+            title="Overflow menu"
             onKeyDown={this.handleOptionsInteraction}
             onClick={this.handleOptionsInteraction}
-          >
-            <XUIIcon icon={overflowIcon} title="Overflow menu" />
-          </XUIButton>
+          />
         }
         action={
           <XUIButton

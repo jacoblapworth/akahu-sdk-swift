@@ -7,6 +7,7 @@ import XUIButtonCaret from '../XUIButtonCaret';
 import XUIButtonGroup from '../XUIButtonGroup';
 import XUISplitButton from '../XUISecondaryButton';
 import XUISplitButtonGroup from '../XUISplitButtonGroup';
+import XUIIconButton from '../XUIIconButton';
 import XUIIcon from '../../icon/XUIIcon';
 import DropDown from '../../dropdown/DropDown';
 import DropDownToggled from '../../dropdown/DropDownToggled';
@@ -111,17 +112,26 @@ variations.forEach(variation => {
       <div style={{ maxWidth: '600px', width }}>{children}</div>
     );
 
-    let buttonContent = <XUIButton {...variationMinusStoryDetails}>{value}</XUIButton>;
+    let buttonContent;
 
-    if (componentType === 'XUIButtonGroup') {
-      buttonContent = <XUIButtonGroup {...variationMinusStoryDetails}>{value}</XUIButtonGroup>;
-    }
-    if (componentType === 'XUISplitButtonGroup') {
-      buttonContent = (
-        <div style={{ maxWidth: '150px' }}>
-          <XUISplitButtonGroup {...variationMinusStoryDetails}>{value}</XUISplitButtonGroup>
-        </div>
-      );
+    switch (componentType) {
+      case 'XUIButtonGroup':
+        buttonContent = <XUIButtonGroup {...variationMinusStoryDetails}>{value}</XUIButtonGroup>;
+        break;
+      case 'XUISplitButtonGroup':
+        buttonContent = (
+          <div style={{ maxWidth: '150px' }}>
+            <XUISplitButtonGroup {...variationMinusStoryDetails}>{value}</XUISplitButtonGroup>
+          </div>
+        );
+        break;
+      case 'XUIIconButton':
+        buttonContent = (
+          <XUIIconButton icon={view} {...variationMinusStoryDetails} ariaLabel="Dot Menu" />
+        );
+        break;
+      default:
+        buttonContent = <XUIButton {...variationMinusStoryDetails}>{value}</XUIButton>;
     }
     return <ButtonWrapper>{buttonContent}</ButtonWrapper>;
   });

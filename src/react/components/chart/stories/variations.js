@@ -236,6 +236,49 @@ const variations = [
   },
   {
     storyKind,
+    storyTitle: 'Avatar Image X-Axis Label',
+    examples: [
+      {
+        chartId: 'tinyAvatarLabel',
+        chartTitle: 'Tiny Avatar Label',
+        chartDescription: 'Show just the avatar icon',
+        chartHeight: 200,
+        barsData: [
+          { id: 0, x: 'Apple', y: 1, avatarUrl: 'https://xui.xero.com/static/xpert-avatar.png' },
+        ],
+        xAxisType: 'avatar',
+        testStyles: { flexGrow: 'initial', width: '110px' },
+      },
+      {
+        chartId: 'smallAvatarLabel',
+        chartTitle: 'Small Avatar Label',
+        chartDescription: 'Show the small font stacked avatar and label variant',
+        chartHeight: 200,
+        barsData: [{ id: 0, x: 'Apple', y: 1, avatarUrl: 'https://placekitten.com/100/100' }],
+        xAxisType: 'avatar',
+        testStyles: { flexGrow: 'initial', width: '130px' },
+      },
+      {
+        chartId: 'mediumAvatarLabel',
+        chartTitle: 'MediumAvatarLabel',
+        chartDescription: 'Show the large font stacked avatar and label variant',
+        chartHeight: 200,
+        barsData: [{ id: 0, x: 'Apple', y: 1, avatarUrl: 'https://placekitten.com/200/200' }],
+        xAxisType: 'avatar',
+        testStyles: { flexGrow: 'initial', width: '160px' },
+      },
+      {
+        chartId: 'largeAvatarLabel',
+        chartTitle: 'Label Avatar Label',
+        chartDescription: 'Show the large font inline avatar and label variant',
+        chartHeight: 200,
+        barsData: [{ id: 0, x: 'Apple', y: 1, avatarUrl: 'https://placekitten.com/300/300' }],
+        xAxisType: 'avatar',
+      },
+    ],
+  },
+  {
+    storyKind,
     storyTitle: 'Abbreviation X-Axis Label',
     examples: [
       {

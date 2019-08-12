@@ -134,7 +134,8 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         0.00
       </div>
       <button
-        className="xui-button xui-button-icon xui-button-icon-medium"
+        aria-label="Overflow Menu"
+        className="xui-button xui-button-icon-medium xui-button-icon"
         disabled={false}
         onClick={[Function]}
         tabIndex={0}
@@ -207,7 +208,8 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         0.00
       </div>
       <button
-        className="xui-button xui-button-icon xui-button-icon-medium"
+        aria-label="Overflow Menu"
+        className="xui-button xui-button-icon-medium xui-button-icon"
         disabled={false}
         onClick={[Function]}
         tabIndex={0}
@@ -281,7 +283,8 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         0.00
       </div>
       <button
-        className="xui-button xui-button-icon xui-button-icon-medium"
+        aria-label="Overflow Menu"
+        className="xui-button xui-button-icon-medium xui-button-icon"
         disabled={false}
         onClick={[Function]}
         tabIndex={0}
@@ -358,7 +361,8 @@ exports[`<XUI Structure/> Content block and content block item renders content b
         0.00
       </div>
       <button
-        className="xui-button xui-button-icon xui-button-icon-medium"
+        aria-label="Overflow Menu"
+        className="xui-button xui-button-icon-medium xui-button-icon"
         disabled={false}
         onClick={[Function]}
         tabIndex={0}

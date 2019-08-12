@@ -13,6 +13,7 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
     aria-labelledby="generatedHeaderId"
     className="xui-modal xui-modal-width-medium xui-modal-layout"
     data-automationid="xui-modal"
+    onKeyDown={[Function]}
     role={null}
     style={null}
     tabIndex={-1}
@@ -64,6 +65,7 @@ exports[`XUIModal should render an automation id when a qaHook is passed in 1`] 
   <section
     className="xui-modal xui-modal-width-medium xui-modal-layout"
     data-automationid="xui-modal"
+    onKeyDown={[Function]}
     role={null}
     style={null}
     tabIndex={-1}

@@ -4,7 +4,6 @@ import cn from 'classnames';
 import XUILoader from '../loader/XUILoader';
 import {
   buttonTypes,
-  iconSizeClassNames,
   sizeClassNames,
   variantClassNames,
   widthClassNames,
@@ -22,15 +21,6 @@ import SizeContext from '../../contexts/SizeContext';
  * @return {boolean} True if is a borderless button
  */
 const isBorderlessVariant = variant => variant.indexOf('borderless') > -1;
-
-/**
- * Returns true if the button is an icon variant
- *
- * @private
- * @param {string} variant - The button variant
- * @return {boolean} True if is an icon button
- */
-const isIconVariant = variant => variant.indexOf('icon') > -1;
 
 /**
  * Returns a class name for the button depending on the button variant string given. Will return
@@ -155,6 +145,7 @@ export default class XUIButton extends React.PureComponent {
             isInverted,
             isLink,
             isLoading,
+            loadingLabel,
             minLoaderWidth,
             onClick,
             onKeyDown,
@@ -176,13 +167,14 @@ export default class XUIButton extends React.PureComponent {
           const buttonDisabled = isDisabled || isLoading;
           let buttonChildren = children;
 
-          const loader = (
+          const loader = isLoading && (
             <XUILoader
               key={retainLayout && isLoading ? 'button-loader' : null}
               retainLayout={retainLayout}
               size="small"
               defaultLayout={false}
               className={`${ns}-button--loader`}
+              ariaLabel={loadingLabel}
             />
           );
 
@@ -197,24 +189,22 @@ export default class XUIButton extends React.PureComponent {
             buttonChildren = loader;
           }
 
-          const isIconDependentClassNames = isIconVariant(variantClass)
-            ? cn(iconSizeClassNames[size])
-            : cn(
-                variant !== 'unstyled' && sizeClassNames[size],
-                widthClassNames[fullWidth],
-                isInverted &&
-                  (isBorderlessVariant(variantClass)
-                    ? `${ns}-button-borderless-inverted`
-                    : `${ns}-button-inverted`),
-                isGrouped && `${ns}-button-grouped`,
-                minLoaderWidth && `${ns}-button-min-loader-width`,
-              );
+          const combinedPropClassNames = cn(
+            variant !== 'unstyled' && sizeClassNames[size],
+            widthClassNames[fullWidth],
+            isInverted &&
+              (isBorderlessVariant(variantClass)
+                ? `${ns}-button-borderless-inverted`
+                : `${ns}-button-inverted`),
+            isGrouped && `${ns}-button-grouped`,
+            minLoaderWidth && `${ns}-button-min-loader-width`,
+          );
 
           const buttonClassNames = cn(
             `${ns}-button`,
             className,
             variantClass,
-            isIconDependentClassNames,
+            combinedPropClassNames,
             isDisabled && `${ns}-button-is-disabled`,
           );
 
@@ -283,6 +273,12 @@ XUIButton.propTypes = {
    * clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */
   isLoading: PropTypes.bool,
 
+  /**
+   * Accessibility label for the `<XUILoader>`. This is required if the
+   * `isLoading` prop is set to `true`.
+   */
+  loadingLabel: PropTypes.string,
+
   /** If this button is part of a parent button group */
   isGrouped: PropTypes.bool,
 
@@ -294,7 +290,8 @@ XUIButton.propTypes = {
 
   /** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`, `link`,
    * 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative',
-   * 'borderless-negative', 'icon', 'icon-inverted', or `unstyled`. */
+   * 'borderless-negative' or `unstyled`.
+   */
   variant: PropTypes.oneOf(Object.keys(variantClassNames)),
 
   /**

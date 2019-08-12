@@ -228,6 +228,7 @@ export default class XUIAutocompleter extends PureComponent {
       dropdownFixedWidth,
       footer,
       loading,
+      loadingLabel,
       children,
       className,
       id,
@@ -326,7 +327,7 @@ export default class XUIAutocompleter extends PureComponent {
       >
         {loading ? (
           <Picklist>
-            <XUILoader />
+            <XUILoader ariaLabel={loadingLabel} />
           </Picklist>
         ) : (
           children
@@ -376,6 +377,14 @@ XUIAutocompleter.propTypes = {
    * State for this should be managed externally and it's defaulted to false.
    */
   loading: PropTypes.bool,
+
+  /**
+   * Accessibility label for the `<XUILoader>`. This is required if the
+   * `loading` prop is set to `true`.
+   * <br />
+   * Recommended English value: *Loading*
+   */
+  loadingLabel: PropTypes.string,
 
   /** ID to be added to the root node of the completer */
   id: PropTypes.string,

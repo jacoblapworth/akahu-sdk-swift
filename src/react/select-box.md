@@ -6,8 +6,8 @@
 
 ### Related Components
 
-* [`Dropdown`](#dropdown)
-* [`Autocompleter`](#autocompleter)
+- [`Dropdown`](#dropdown)
+- [`Autocompleter`](#autocompleter)
 
 ## Examples
 
@@ -22,68 +22,62 @@ import XUIIcon from './icon';
 import SelectBox, { SelectBoxOption } from './select-box';
 import TextHelpers from './components/select-box/TextHelpers';
 
-const banks = [
-	'ANZ',
-	'ASB',
-	'Kiwi Bank',
-	'Westpac',
-];
+const banks = ['ANZ', 'ASB', 'Kiwi Bank', 'Westpac'];
 
 class SelectBoxExample extends Component {
-	constructor(...args) {
-		super(...args);
+  constructor(...args) {
+    super(...args);
 
-		this.state = {
-			selectedBank: banks[2]
-		};
-		
-		this.onBankSelect = this.onBankSelect.bind(this);
-		this.selectOne = React.createRef();
-	}
+    this.state = {
+      selectedBank: banks[2]
+    };
 
-	onBankSelect(value) {
-		this.setState({
-			selectedBank: value
-		});
-	}
+    this.onBankSelect = this.onBankSelect.bind(this);
+    this.selectOne = React.createRef();
+  }
 
-	render () {
-		const MiniApp = this;
+  onBankSelect(value) {
+    this.setState({
+      selectedBank: value
+    });
+  }
 
-		return (
-				<SelectBox
-					ref={this.selectOne}
-					name="selectOne"
-					label="Select a Bank"
-					buttonContent={
-						<span className="xui-u-flex">
-							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
-							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
-						</span>
-					}
-					isTextTruncated={false}
-				>
-					{banks.map((opt, idx) => {
-						return (
-							<SelectBoxOption
-								id={opt}
-								isSelected={opt === MiniApp.state.selectedBank}
-								key={idx + opt + 'userDefined Key'}
-								onSelect={MiniApp.onBankSelect}
-								value={opt}
-							>
-								{opt}
-							</SelectBoxOption>
-						);
-					})}
-				</SelectBox>
+  render() {
+    const MiniApp = this;
 
-
-		);
-	}
+    return (
+      <SelectBox
+        ref={this.selectOne}
+        name="selectOne"
+        label="Select a Bank"
+        buttonContent={
+          <span className="xui-u-flex">
+            <XUIIcon icon={bank} className="xui-margin-right-xsmall" />
+            {TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
+          </span>
+        }
+        isTextTruncated={false}
+        caretTitle="Toggle list"
+      >
+        {banks.map((opt, idx) => {
+          return (
+            <SelectBoxOption
+              id={opt}
+              isSelected={opt === MiniApp.state.selectedBank}
+              key={idx + opt + 'userDefined Key'}
+              onSelect={MiniApp.onBankSelect}
+              value={opt}
+            >
+              {opt}
+            </SelectBoxOption>
+          );
+        })}
+      </SelectBox>
+    );
+  }
 }
 
-<SelectBoxExample />
+<SelectBoxExample />;
 ```
 
 ### Multi Select
@@ -98,59 +92,60 @@ import TextHelpers from './components/select-box/TextHelpers';
 const boats = ['Waka', 'Pontoon', 'Sailboat', 'Schooner', 'Dingy'];
 
 class MiniApp extends Component {
-	constructor(...args) {
-		super(...args);
-		
-		this.state = {
-			selectedBoats: []
-		};
-		this.onBoatSelect = this.onBoatSelect.bind(this);
-		this.isMultiSelect = React.createRef();
-	}
-	onBoatSelect(value) {
-		if (this.state.selectedBoats.indexOf(value) > -1) {
-			this.setState({
-				selectedBoats: this.state.selectedBoats.filter(boat => boat !== value)
-			});
-		} else {
-			this.setState({
-				selectedBoats: [...this.state.selectedBoats, value]
-			});
-		}
-	}
+  constructor(...args) {
+    super(...args);
 
-	render() {
-		const MiniApp = this;
-		return (
-			<SelectBox
-				buttonContent={TextHelpers.getText(MiniApp.state.selectedBoats, 'Choose a few boats')}
-				closeAfterSelection={false}
-				label="Select Several Boats"
-				name="isMultiselect"
-				onSelect={MiniApp.onBoatSelect}
-				ref={this.isMultiselect}
-				isInvalid={!MiniApp.state.selectedBoats.length}
-				validationMessage="Please select at least one boat"
-			>
-				{boats.map((opt, idx) => {
-					return (
-						<SelectBoxOption
-							id={opt}
-							isSelected={MiniApp.state.selectedBoats.indexOf(opt) >= 0}
-							key={idx + opt + 'userDefined Key'}
-							showCheckboxes
-							value={opt}
-						>
-							{opt}
-						</SelectBoxOption>
-					);
-				})}
-			</SelectBox>
-		);
-	}
+    this.state = {
+      selectedBoats: []
+    };
+    this.onBoatSelect = this.onBoatSelect.bind(this);
+    this.isMultiSelect = React.createRef();
+  }
+  onBoatSelect(value) {
+    if (this.state.selectedBoats.indexOf(value) > -1) {
+      this.setState({
+        selectedBoats: this.state.selectedBoats.filter(boat => boat !== value)
+      });
+    } else {
+      this.setState({
+        selectedBoats: [...this.state.selectedBoats, value]
+      });
+    }
+  }
+
+  render() {
+    const MiniApp = this;
+    return (
+      <SelectBox
+        buttonContent={TextHelpers.getText(MiniApp.state.selectedBoats, 'Choose a few boats')}
+        closeAfterSelection={false}
+        label="Select Several Boats"
+        name="isMultiselect"
+        onSelect={MiniApp.onBoatSelect}
+        ref={this.isMultiselect}
+        isInvalid={!MiniApp.state.selectedBoats.length}
+        validationMessage="Please select at least one boat"
+        caretTitle="Toggle list"
+      >
+        {boats.map((opt, idx) => {
+          return (
+            <SelectBoxOption
+              id={opt}
+              isSelected={MiniApp.state.selectedBoats.indexOf(opt) >= 0}
+              key={idx + opt + 'userDefined Key'}
+              showCheckboxes
+              value={opt}
+            >
+              {opt}
+            </SelectBoxOption>
+          );
+        })}
+      </SelectBox>
+    );
+  }
 }
 
-<MiniApp/>
+<MiniApp />;
 ```
 
 ### Sizes
@@ -166,68 +161,64 @@ import XUIIcon from './icon';
 import TextHelpers from './components/select-box/TextHelpers';
 import bank from '@xero/xui-icon/icons/bank';
 
-const banks = [
-	'ANZ',
-	'ASB',
-	'Kiwi Bank',
-	'Westpac',
-];
+const banks = ['ANZ', 'ASB', 'Kiwi Bank', 'Westpac'];
 
 class MiniApp extends Component {
-	constructor(...args) {
-		super(...args);
+  constructor(...args) {
+    super(...args);
 
-		this.state = {
-			selectedBank: banks[2]
-		};
-		
-		this.onBankSelect = this.onBankSelect.bind(this);
+    this.state = {
+      selectedBank: banks[2]
+    };
 
-		this.selectOne = React.createRef();
-	}
+    this.onBankSelect = this.onBankSelect.bind(this);
 
-	onBankSelect(value) {
-		this.setState({
-			selectedBank: value
-		});
-	}
+    this.selectOne = React.createRef();
+  }
 
-	render () {
-		const MiniApp = this;
+  onBankSelect(value) {
+    this.setState({
+      selectedBank: value
+    });
+  }
 
-		return (
-				<SelectBox
-					buttonContent={
-						<span className="xui-u-flex">
-							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
-							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
-						</span>
-					}
-					isTextTruncated={false}
-					label="Select a Bank"
-					name="selectOne"
-					ref={this.selectOne}
-					size="small"
-				>
-					{banks.map((opt, idx) => {
-						return (
-							<SelectBoxOption
-								id={opt}
-								isSelected={opt === MiniApp.state.selectedBank}
-								key={idx + opt + 'userDefined Key'}
-								onSelect={MiniApp.onBankSelect}
-								value={opt}
-							>
-								{opt}
-							</SelectBoxOption>
-						);
-					})}
-				</SelectBox>
-		);
-	}
+  render() {
+    const MiniApp = this;
+
+    return (
+      <SelectBox
+        buttonContent={
+          <span className="xui-u-flex">
+            <XUIIcon icon={bank} className="xui-margin-right-xsmall" />
+            {TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
+          </span>
+        }
+        isTextTruncated={false}
+        label="Select a Bank"
+        name="selectOne"
+        ref={this.selectOne}
+        size="small"
+        caretTitle="Toggle list"
+      >
+        {banks.map((opt, idx) => {
+          return (
+            <SelectBoxOption
+              id={opt}
+              isSelected={opt === MiniApp.state.selectedBank}
+              key={idx + opt + 'userDefined Key'}
+              onSelect={MiniApp.onBankSelect}
+              value={opt}
+            >
+              {opt}
+            </SelectBoxOption>
+          );
+        })}
+      </SelectBox>
+    );
+  }
 }
 
-<MiniApp />
+<MiniApp />;
 ```
 
 ### Button variants
@@ -241,67 +232,63 @@ import XUIIcon from './icon';
 import TextHelpers from './components/select-box/TextHelpers';
 import bank from '@xero/xui-icon/icons/bank';
 
-const banks = [
-	'ANZ',
-	'ASB',
-	'Kiwi Bank',
-	'Westpac',
-];
+const banks = ['ANZ', 'ASB', 'Kiwi Bank', 'Westpac'];
 
 class MiniApp extends Component {
-	constructor(...args) {
-		super(...args);
+  constructor(...args) {
+    super(...args);
 
-		this.state = {
-			selectedBank: banks[2]
-		};
-		
-		this.onBankSelect = this.onBankSelect.bind(this);
-		this.selectOne = React.createRef();
-	}
+    this.state = {
+      selectedBank: banks[2]
+    };
 
-	onBankSelect(value) {
-		this.setState({
-			selectedBank: value
-		});
-	}
+    this.onBankSelect = this.onBankSelect.bind(this);
+    this.selectOne = React.createRef();
+  }
 
-	render () {
-		const MiniApp = this;
+  onBankSelect(value) {
+    this.setState({
+      selectedBank: value
+    });
+  }
 
-		return (
-				<SelectBox
-					buttonContent={
-						<span className="xui-u-flex">
-							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
-							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
-						</span>
-					}
-					buttonVariant="primary"
-					isTextTruncated={false}
-					label="Select a Bank"
-					name="selectOne"
-					ref={this.selectOne}
-					fullWidth="never"
-					hintMessage="Selecting your bank helps us set up your bank feed"
-				>
-					{banks.map((opt, idx) => {
-						return (
-							<SelectBoxOption
-								id={opt}
-								isSelected={opt === MiniApp.state.selectedBank}
-								key={idx + opt + 'userDefined Key'}
-								onSelect={MiniApp.onBankSelect}
-								value={opt}
-							>
-								{opt}
-							</SelectBoxOption>
-						);
-					})}
-				</SelectBox>
-		);
-	}
+  render() {
+    const MiniApp = this;
+
+    return (
+      <SelectBox
+        buttonContent={
+          <span className="xui-u-flex">
+            <XUIIcon icon={bank} className="xui-margin-right-xsmall" />
+            {TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
+          </span>
+        }
+        buttonVariant="primary"
+        isTextTruncated={false}
+        label="Select a Bank"
+        name="selectOne"
+        ref={this.selectOne}
+        fullWidth="never"
+        hintMessage="Selecting your bank helps us set up your bank feed"
+        caretTitle="Toggle list"
+      >
+        {banks.map((opt, idx) => {
+          return (
+            <SelectBoxOption
+              id={opt}
+              isSelected={opt === MiniApp.state.selectedBank}
+              key={idx + opt + 'userDefined Key'}
+              onSelect={MiniApp.onBankSelect}
+              value={opt}
+            >
+              {opt}
+            </SelectBoxOption>
+          );
+        })}
+      </SelectBox>
+    );
+  }
 }
 
-<MiniApp />
+<MiniApp />;
 ```

@@ -202,8 +202,12 @@ SelectBox.propTypes = {
   /** Additional classes to be applied to the inputGroup */
   inputGroupClasses: PropTypes.string,
 
-  /** Optional title for button caret */
-  caretTitle: PropTypes.string,
+  /**
+   * Title for the button caret
+   * <br />
+   * Recommended English value: *Toggle list*
+   */
+  caretTitle: PropTypes.string.isRequired,
 
   /** Optional callback to be executed when dropdown closes */
   onDropdownHide: PropTypes.func,
@@ -270,7 +274,6 @@ SelectBox.propTypes = {
 };
 
 SelectBox.defaultProps = {
-  caretTitle: 'Toggle List',
   closeAfterSelection: true,
   defaultLayout: true,
   forceDesktop: false,

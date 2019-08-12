@@ -14,17 +14,31 @@ const openAccordionItemChild = component => {
 
 describe('<XUIAccordion />', () => {
   it('should render the base component with only required props passed', () => {
-    const component = renderer.create(<XUIAccordion />);
+    const component = renderer.create(
+      <XUIAccordion toggleLabel="Toggle" emptyMessage="Nothing available to show" />,
+    );
     expect(component).toMatchSnapshot();
   });
 
   it('should render the accordion with a custom class name', () => {
-    const component = renderer.create(<XUIAccordion className="testClass" />);
+    const component = renderer.create(
+      <XUIAccordion
+        className="testClass"
+        toggleLabel="Toggle"
+        emptyMessage="Nothing available to show"
+      />,
+    );
     expect(component).toMatchSnapshot();
   });
 
   it('should render the accordion with a custom qa hook', () => {
-    const component = renderer.create(<XUIAccordion qaHook={qaHook} />);
+    const component = renderer.create(
+      <XUIAccordion
+        qaHook={qaHook}
+        toggleLabel="Toggle"
+        emptyMessage="Nothing available to show"
+      />,
+    );
     expect(component).toMatchSnapshot();
   });
 
@@ -34,6 +48,8 @@ describe('<XUIAccordion />', () => {
         className="testClass"
         items={[{ id: 1, name: 'John Smith', content: 'Accountant' }]}
         createItem={({ name }) => <XUIAccordionItem primaryHeading={name} />}
+        toggleLabel="Toggle"
+        emptyMessage="Nothing available to show"
       />,
     );
 
@@ -47,6 +63,8 @@ describe('<XUIAccordion />', () => {
         createItem={({ name, content }) => (
           <XUIAccordionItem primaryHeading={name}>{content}</XUIAccordionItem>
         )}
+        toggleLabel="Toggle"
+        emptyMessage="Nothing available to show"
       />,
     );
     openAccordionItemChild(component);
@@ -58,6 +76,8 @@ describe('<XUIAccordion />', () => {
       <XUIAccordion
         items={[{ id: 1, name: 'John Smith' }]}
         createItem={({ content }) => <XUIAccordionItem>{content}</XUIAccordionItem>}
+        toggleLabel="Toggle"
+        emptyMessage="Nothing available to show"
       />,
     );
 
@@ -71,6 +91,7 @@ describe('<XUIAccordion />', () => {
         items={[{ id: 1, name: 'John Smith' }]}
         createItem={({ content }) => <XUIAccordionItem>{content}</XUIAccordionItem>}
         emptyMessage="Custom empty state message"
+        toggleLabel="Toggle"
       />,
     );
 
@@ -84,6 +105,7 @@ describe('<XUIAccordion />', () => {
         items={[{ id: 1, name: 'John Smith' }]}
         createItem={({ content }) => <XUIAccordionItem>{content}</XUIAccordionItem>}
         emptyStateComponent={<div>Custom empty state component</div>}
+        toggleLabel="Toggle"
       />,
     );
 
@@ -99,6 +121,8 @@ describe('<XUIAccordion />', () => {
         createItem={({ name, content }) => (
           <XUIAccordionItem primaryHeading={name}>{content}</XUIAccordionItem>
         )}
+        toggleLabel="Toggle"
+        emptyMessage="Nothing available to show"
       />,
     );
 
@@ -106,6 +130,7 @@ describe('<XUIAccordion />', () => {
   });
 
   it('should call supplied item callback', () => {
+    const qaHook = 'test-id';
     const onItemClick = jest.fn();
     const getArgs = () => onItemClick.mock.calls[0][0];
     const component = mount(
@@ -118,6 +143,8 @@ describe('<XUIAccordion />', () => {
             {content}
           </XUIAccordionItem>
         )}
+        toggleLabel="Toggle"
+        emptyMessage="Nothing available to show"
       />,
     );
 

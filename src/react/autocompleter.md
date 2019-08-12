@@ -29,7 +29,7 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 ### Multi-select
 
-`XUIAutocompleter` can be passed an array of pills to display to the left of the input. Each pill should have the `xui-autocompleter--pill` class applied to receive the correct padding. `XUIAutocompleter` also provides a configurable empty state for when no search results are returned.
+`XUIAutocompleter` can be passed an array of pills to display to the left of the input. Each pill should have the `xui-autocompleter--pill` class applied to receive the correct padding. We recommend using `XUIAutocompleterEmptyState` for when no search results are returned.
 
 You should add a callback to `onBackspacePill` which removes the last selected element. This will be called if the backspace key is pressed while the input is empty.
 
@@ -79,6 +79,7 @@ class PillWrapper extends PureComponent {
         value={people[id].name}
         className="xui-autocompleter--pill"
         onDeleteClick={this.deleteSelf}
+        deleteButtonLabel="Delete"
         key={id}
         size="small"
       />
@@ -256,6 +257,7 @@ class PillWrapper extends PureComponent {
         value={people[id].name}
         className="xui-autocompleter--pill"
         onDeleteClick={this.deleteSelf}
+        deleteButtonLabel="Delete"
         key={id}
         size="small"
       />
@@ -550,6 +552,7 @@ class PillWrapper extends PureComponent {
         value={people[id].name}
         className="xui-autocompleter--pill"
         onDeleteClick={this.deleteSelf}
+        deleteButtonLabel="Delete"
         key={id}
       />
     );

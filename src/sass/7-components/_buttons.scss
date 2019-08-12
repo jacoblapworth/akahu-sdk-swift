@@ -1,5 +1,5 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Button
 //
@@ -486,34 +486,40 @@
 // Styleguide: Building Blocks.Controls.Button.50
 
 .#{$ns}-button {
-	@include xui-button-reset;
+  @include xui-button-reset;
+  // Touch target fix for buttons, except iconButtons
+  &:not(.#{$ns}-button-icon) {
+    min-width: $xui-minimum-touch-target;
+  }
+  // To make sure content in link is centered
+  text-align: center;
 }
 
-@import "buttons.variants";
-@import "buttons.borderless";
-@import "buttons.sizes";
-@import "buttons.groups";
-@import "buttons.dropdowns";
-@import "buttons.icons";
-@import "buttons.states";
+@import 'buttons.variants';
+@import 'buttons.borderless';
+@import 'buttons.sizes';
+@import 'buttons.groups';
+@import 'buttons.dropdowns';
+@import 'buttons.icons';
+@import 'buttons.states';
 
 .#{$ns}-button-inverted {
-	@include xui-state-focus-inverted;
-	&.#{$ns}-button-standard {
-		// Corrects button height when placed on inverted background
-		border-color: $xui-color-white;
-		// Retains left-hand border style for buttongroups
-		&.#{$ns}-button-grouped:nth-child(n+2) {
-			border-left: 1px solid $xui-button-border-color;
-		}
-	}
-	&:focus {
-		@include xui-button-focus($xui-shadow-focus-inverted);
-	}
-	&:hover {
-		box-shadow: inherit;
-	}
-	&:active {
-		box-shadow: inherit;
-	}
+  @include xui-state-focus-inverted;
+  &.#{$ns}-button-standard {
+    // Corrects button height when placed on inverted background
+    border-color: $xui-color-white;
+    // Retains left-hand border style for buttongroups
+    &.#{$ns}-button-grouped:nth-child(n + 2) {
+      border-left: 1px solid $xui-button-border-color;
+    }
+  }
+  &:focus {
+    @include xui-button-focus($xui-shadow-focus-inverted);
+  }
+  &:hover {
+    box-shadow: inherit;
+  }
+  &:active {
+    box-shadow: inherit;
+  }
 }

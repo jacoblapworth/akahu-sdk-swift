@@ -107,6 +107,8 @@ storiesWithKnobs.add('Playground', () => {
             )}
           </XUIAccordionItem>
         )}
+        toggleLabel="Toggle"
+        emptyMessage="Nothing available to show"
       />
     </div>
   );
@@ -119,6 +121,8 @@ variations.forEach(variation => {
   const Comparison = (
     <div style={{ maxWidth: '930px' }}>
       <XUIAccordion
+        toggleLabel="Toggle"
+        emptyMessage="Nothing available to show"
         {...props}
         createItem={props => {
           const { children, ...item } = createItem(props);

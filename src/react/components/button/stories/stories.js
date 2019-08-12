@@ -69,6 +69,7 @@ storiesWithKnobs.add('Playground', () => (
       isDisabled={boolean('isDisabled', false)}
       isExternalLink={boolean('isExternalLink', false)}
       isLoading={boolean('isLoading', false)}
+      loadingLabel={text('loadingLabel', 'Loading')}
       isGrouped={boolean('isGrouped', false)}
       variant={select('variant', Object.keys(variantClassNames), 'standard')}
       size={select('size', Object.keys(sizeClassNames))}

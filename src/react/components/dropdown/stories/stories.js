@@ -54,6 +54,8 @@ const header = (
     title="Dropdown header"
     onPrimaryButtonClick={NOOP}
     onSecondaryButtonClick={NOOP}
+    primaryButtonContent="Apply"
+    secondaryButtonContent="Cancel"
   />
 );
 const footer = (
@@ -85,8 +87,9 @@ const nested = (
         <DropDownHeader
           title="Example Title"
           onBackButtonClick={NOOP}
-          secondaryButtonContent="Cancel"
           onSecondaryButtonClick={NOOP}
+          secondaryButtonContent="Cancel"
+          backButtonLabel="Back"
         />
       }
     >

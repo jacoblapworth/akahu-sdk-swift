@@ -48,7 +48,7 @@ import XUIAvatar from './avatar';
 <XUIAvatar value="Xero" imageUrl="https://xui.xero.com/static/xpert-avatar.png" />;
 ```
 
-If the image supplied to `XUIAvatar` fails to load, the default avatar will be displayed as a fallback. If you need to handle other behaviour, you can also provide an `onError` handler.
+If the image supplied to `XUIAvatar` fails to load, the default avatar will be displayed as a fallback using the required `value` prop. If you need to handle other behaviour, you can also provide an `onError` handler.
 
 ```jsx harmony
 import { Component } from 'react';

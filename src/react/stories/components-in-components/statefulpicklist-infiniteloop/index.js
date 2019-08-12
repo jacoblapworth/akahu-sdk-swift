@@ -17,69 +17,66 @@ const test = storiesOf(compositionKind, module);
 test.addDecorator(withReadme(readme));
 
 test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
-	const ConditionalRender = ({ shouldRender, render, children }) => {
-		if (render) {
-			return shouldRender ? render : null;
-		}
-		return shouldRender ? children : null;
-	}
+  const ConditionalRender = ({ shouldRender, render, children }) => {
+    if (render) {
+      return shouldRender ? render : null;
+    }
+    return shouldRender ? children : null;
+  };
 
-	class BasicStatefulPicklist extends React.Component {
-		state = {
-			loading: false,
-			value: '',
-		};
+  class BasicStatefulPicklist extends React.Component {
+    state = {
+      loading: false,
+      value: '',
+    };
 
-		onSearch = value => {
-			this.setState(() => ({
-				loading: true,
-				value,
-			}));
-		};
+    onSearch = value => {
+      this.setState(() => ({
+        loading: true,
+        value,
+      }));
+    };
 
-		onSelect = () => {}
+    onSelect = () => {};
 
-		renderFooter = shouldRender => (
-			<ConditionalRender shouldRender={shouldRender}>
-				<DropDownFooter
-					pickItems={(
-						<Pickitem id="footerAction" onSelect={this.onSelect}>
-							<span>Add New Fruit</span>
-						</Pickitem>
-					)}
-				/>
-			</ConditionalRender>
-		);
+    renderFooter = shouldRender => (
+      <ConditionalRender shouldRender={shouldRender}>
+        <DropDownFooter
+          pickItems={
+            <Pickitem id="footerAction" onSelect={this.onSelect}>
+              <span>Add New Fruit</span>
+            </Pickitem>
+          }
+        />
+      </ConditionalRender>
+    );
 
-		render() {
-			return (
-				<div
-					id="spl-wrapper"
-					ref={comp => (this._rootNode = comp)}
-					style={{ width: '300px' }}
-				>
-					<XUIAutoCompleter
-						loading={this.state.loading}
-						className="xui-u-fullwidth"
-						footer={this.renderFooter(false)}
-						onSearch={this.onSearch}
-						value={this.state.value}
-						inputLabel="label here"
-						isInputLabelHidden
-						openOnFocus
-					>
-						<Picklist>
-							{[1, 2, 3, 4].map(item => (
-								<Pickitem key={item} id={item}>
-									{item}
-								</Pickitem>
-							))}
-						</Picklist>
-					</XUIAutoCompleter>
-				</div>
-			);
-		}
-	}
+    render() {
+      return (
+        <div id="spl-wrapper" ref={comp => (this._rootNode = comp)} style={{ width: '300px' }}>
+          <XUIAutoCompleter
+            loading={this.state.loading}
+            className="xui-u-fullwidth"
+            footer={this.renderFooter(false)}
+            onSearch={this.onSearch}
+            value={this.state.value}
+            inputLabel="label here"
+            isInputLabelHidden
+            openOnFocus
+            loadingLabel="Loading"
+          >
+            <Picklist>
+              {[1, 2, 3, 4].map(item => (
+                <Pickitem key={item} id={item}>
+                  {item}
+                </Pickitem>
+              ))}
+            </Picklist>
+          </XUIAutoCompleter>
+        </div>
+      );
+    }
+  }
 
-	return <BasicStatefulPicklist />;
+  return <BasicStatefulPicklist />;
 });

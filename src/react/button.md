@@ -67,48 +67,7 @@ import ExampleContainer from './docs/ExampleContainer';
 </div>;
 ```
 
-Icon buttons are supported by the `icon` and `icon-inverted` variants.
-
-When placing `XUIIcon` alone in a button, ensure accessibility by adding a `title` prop on the `XUIIcon`, or a `title` and `aria-label` on the button itself.
-
-If you use these together with the `size` prop, the icon button size classes will be applied.
-
-**Note:** `icon` and `icon-inverted` variants will be **deprecated** in XUI 16. You can use `XUIIconButton` as a replacement.
-
-```jsx harmony
-import overflowIcon from '@xero/xui-icon/icons/overflow';
-
-import XUIIcon from './icon';
-import XUIButton from './button';
-
-import ExampleContainer from './docs/ExampleContainer';
-
-<div>
-  <XUIButton variant="icon">
-    <XUIIcon icon={overflowIcon} title="Dots menu" />
-  </XUIButton>
-
-  <XUIButton variant="icon" size="small">
-    <XUIIcon icon={overflowIcon} title="Dots menu" />
-  </XUIButton>
-
-  <XUIButton variant="icon" size="xsmall">
-    <XUIIcon icon={overflowIcon} title="Dots menu" />
-  </XUIButton>
-
-  <ExampleContainer className="xui-padding-xsmall" isInverted>
-    <XUIButton variant="icon-inverted">
-      <XUIIcon icon={overflowIcon} title="Dots menu" />
-    </XUIButton>
-    <XUIButton variant="icon-inverted" size="small">
-      <XUIIcon icon={overflowIcon} title="Dots menu" />
-    </XUIButton>
-    <XUIButton variant="icon-inverted" size="xsmall">
-      <XUIIcon icon={overflowIcon} title="Dots menu" />
-    </XUIButton>
-  </ExampleContainer>
-</div>;
-```
+**Note:** For a button that contains only an icon, use [IconButton](#icon-button)
 
 ### Size
 
@@ -169,7 +128,7 @@ import XUIButton from './button';
 </div>;
 ```
 
-The `isLoading` prop replaces the contents of the button with a loader, as well as disabling the button.
+The `isLoading` prop replaces the contents of the button with a loader, as well as disabling the button. You must also provide a `loadingLabel`, which adds an `aria-label` to the loader for accessibility purposes.
 
 The `retainLayout` prop modifies the internals to keep the original button size, but shows a loader instead of the content
 
@@ -182,21 +141,21 @@ import XUIButton from './button';
 
 <div>
   <span className="xui-margin-right">
-    <XUIButton variant="primary" isLoading>
+    <XUIButton variant="primary" isLoading loadingLabel="Loading">
       This text won't be displayed, because of the loader.
     </XUIButton>
   </span>
   <span className="xui-margin-right">
-    <XUIButton variant="primary" isLoading minLoaderWidth>
+    <XUIButton variant="primary" isLoading loadingLabel="Loading" minLoaderWidth>
       No
     </XUIButton>
   </span>
   <span className="xui-margin-right">
-    <XUIButton variant="primary" minLoaderWidth>
+    <XUIButton variant="primary" loadingLabel="Loading" minLoaderWidth>
       No
     </XUIButton>
   </span>
-  <XUIButton variant="primary" isLoading retainLayout={false}>
+  <XUIButton variant="primary" isLoading loadingLabel="Loading" retainLayout={false}>
     This text won't be displayed, because of the loader.
   </XUIButton>
 </div>;

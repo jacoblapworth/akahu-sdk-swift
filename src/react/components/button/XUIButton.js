@@ -6,6 +6,7 @@ import {
   buttonTypes,
   sizeClassNames,
   variantClassNames,
+  textButtonVariants,
   widthClassNames,
 } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
@@ -292,7 +293,7 @@ XUIButton.propTypes = {
    * 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative',
    * 'borderless-negative' or `unstyled`.
    */
-  variant: PropTypes.oneOf(Object.keys(variantClassNames)),
+  variant: PropTypes.oneOf(textButtonVariants),
 
   /**
    * Modifier for the size of the button. `medium`, `small`, or `xsmall`.

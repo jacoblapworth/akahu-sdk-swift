@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIButton from './XUIButton';
 import XUIButtonCaret from './XUIButtonCaret';
-import { variantClassNames, sizeClassNames, buttonTypes } from './private/constants';
+import { textButtonVariants, sizeClassNames, buttonTypes } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 
 export default class XUISplitButton extends PureComponent {
@@ -52,7 +52,7 @@ XUISplitButton.propTypes = {
    * 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative',
    * 'borderless-inverted', 'borderless-muted' or `unstyled`.
    */
-  variant: PropTypes.oneOf(Object.keys(variantClassNames)),
+  variant: PropTypes.oneOf(textButtonVariants),
 
   /** Modifier for the size of the button. `xsmall`, `small`, or `medium`. */
   size: PropTypes.oneOf(Object.keys(sizeClassNames)),

@@ -31,6 +31,7 @@ export default class XUIIconButton extends PureComponent {
 
     return (
       <XUIButton
+        {...otherProps}
         ref={n => (this.rootNode = n && n.rootNode)}
         variant="unstyled"
         className={cn(
@@ -39,7 +40,6 @@ export default class XUIIconButton extends PureComponent {
           variantClassNames[isInverted ? 'icon-inverted' : 'icon'],
         )}
         aria-label={ariaLabel}
-        {...otherProps}
       >
         <XUIIcon
           icon={icon}

@@ -7,9 +7,9 @@ export const baseClassName = `${ns}-button`;
  * Map of sizes to XUI Classes properties
  */
 export const sizeClassNames = {
-	xsmall: `${baseClassName}-xsmall`,
-	small: `${baseClassName}-small`,
-	medium: `${baseClassName}-medium`,
+  xsmall: `${baseClassName}-xsmall`,
+  small: `${baseClassName}-small`,
+  medium: `${baseClassName}-medium`,
 };
 
 /**
@@ -17,9 +17,9 @@ export const sizeClassNames = {
  * Map of widths to XUI Classes properties
  */
 export const widthClassNames = {
-	'always': `${baseClassName}-fullwidth`,
-	'small-down': `${baseClassName}-fullwidth-layout`,
-	'never': '',
+  always: `${baseClassName}-fullwidth`,
+  'small-down': `${baseClassName}-fullwidth-layout`,
+  never: '',
 };
 
 /**
@@ -27,9 +27,9 @@ export const widthClassNames = {
  * Map of sizes to XUI Classes properties for icons
  */
 export const iconSizeClassNames = {
-	xsmall: `${baseClassName}-icon-xsmall`,
-	small: `${baseClassName}-icon-small`,
-	medium: `${baseClassName}-icon-medium`,
+  xsmall: `${baseClassName}-icon-xsmall`,
+  small: `${baseClassName}-icon-small`,
+  medium: `${baseClassName}-icon-medium`,
 };
 
 /**
@@ -37,28 +37,36 @@ export const iconSizeClassNames = {
  * Map of variants to class names
  */
 export const variantClassNames = {
-	'standard': `${baseClassName}-standard`,
-	'primary': `${baseClassName}-main`,
-	'create': `${baseClassName}-create`,
-	'link': `${baseClassName}-borderless-main`,
-	'negative': `${baseClassName}-negative`,
-	'borderless-standard': `${baseClassName}-borderless-standard`,
-	'borderless-primary': `${baseClassName}-borderless-main`,
-	'borderless-create': `${baseClassName}-borderless-create`,
-	'borderless-negative': `${baseClassName}-borderless-negative`,
-	'borderless-inverted': `${baseClassName}-borderless-inverted`,
-	'borderless-muted': `${baseClassName}-borderless-muted`,
-	'icon': `${baseClassName}-icon`,
-	'icon-inverted': `${baseClassName}-icon ${baseClassName}-icon-inverted`,
-	'unstyled': '',
+  standard: `${baseClassName}-standard`,
+  primary: `${baseClassName}-main`,
+  create: `${baseClassName}-create`,
+  link: `${baseClassName}-borderless-main`,
+  negative: `${baseClassName}-negative`,
+  'borderless-standard': `${baseClassName}-borderless-standard`,
+  'borderless-primary': `${baseClassName}-borderless-main`,
+  'borderless-create': `${baseClassName}-borderless-create`,
+  'borderless-negative': `${baseClassName}-borderless-negative`,
+  'borderless-inverted': `${baseClassName}-borderless-inverted`,
+  'borderless-muted': `${baseClassName}-borderless-muted`,
+  icon: `${baseClassName}-icon`,
+  'icon-inverted': `${baseClassName}-icon ${baseClassName}-icon-inverted`,
+  unstyled: '',
 };
+
+/**
+ * @public
+ * Array of button variants excluding icon variants.
+ */
+export const textButtonVariants = Object.keys(variantClassNames).filter(
+  name => name.indexOf('icon') !== 0,
+);
 
 /**
  * @public
  * Map of button types to class names
  */
 export const buttonTypes = {
-	submit: 'submit',
-	button: 'button',
-	reset: 'reset',
+  submit: 'submit',
+  button: 'button',
+  reset: 'reset',
 };

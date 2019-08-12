@@ -3,7 +3,6 @@ import { desktopPlus320 } from '../../../stories/helpers/viewports';
 const privateConsts = require('../private/constants');
 
 const storiesWithVariationsKindName = 'Instances/XUIButton';
-const buttonVariants = Object.keys(privateConsts.variantClassNames);
 const sizes = Object.keys(privateConsts.sizeClassNames);
 const iconSizes = Object.keys(privateConsts.iconSizeClassNames);
 const variations = [
@@ -99,9 +98,8 @@ const variations = [
   },
 ];
 
-buttonVariants.forEach((buttonVariant, index) => {
-  const isIcon = buttonVariant.match(/^icon/) && buttonVariant.match(/^icon/)[0];
-  const sizesToIterate = isIcon ? iconSizes : [sizes[index % sizes.length]];
+privateConsts.textButtonVariants.forEach((buttonVariant, index) => {
+  const sizesToIterate = [sizes[index % sizes.length]];
 
   sizesToIterate.forEach(size =>
     variations.push({
@@ -110,8 +108,7 @@ buttonVariants.forEach((buttonVariant, index) => {
       href: buttonVariant === 'link' ? '#' : undefined,
       isLink: buttonVariant === 'link',
       size,
-      value: isIcon ? undefined : `${buttonVariant}`,
-      contentsKey: isIcon ? 'icon' : undefined,
+      value: buttonVariant,
       variant: buttonVariant,
     }),
   );
@@ -132,7 +129,7 @@ sizes.forEach(sizeVariant => {
     storyTitle: `${sizeVariant} with short content`,
     size: sizeVariant,
     value: 'B',
-  })
+  });
 });
 
 iconSizes.forEach(iconSize => {

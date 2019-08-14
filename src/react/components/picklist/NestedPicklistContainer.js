@@ -27,7 +27,8 @@ export default class NestedPicklistContainer extends PureComponent {
 		};
 	}
 
-	componentWillReceiveProps(nextProps) {
+	// eslint-disable-next-line camelcase
+	UNSAFE_componentWillReceiveProps(nextProps) {
 		if (this.props.isOpen !== nextProps.isOpen) {
 			this.setState({
 				open: nextProps.isOpen,

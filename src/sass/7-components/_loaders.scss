@@ -88,8 +88,8 @@
 
 // Buttons
 //
-// When nesting a loader within a button, apply `xui-button--loader` class to the loader.
-// The loader will inherit button text color.
+// When nesting a loader within a button, apply `xui-button--loader` class to the loader and `xui-button-is-disabled` to the containing button.
+// The loader will inherit button text color, and appear disabled.
 //
 // Tips:
 // Do: Use the correct size variant of the loader when nesting in a button

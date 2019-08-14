@@ -215,7 +215,7 @@ export default class XUIButton extends React.PureComponent {
             className,
             variantClass,
             isIconDependentClassNames,
-            isDisabled && `${ns}-button-is-disabled`,
+            buttonDisabled && `${ns}-button-is-disabled`,
           );
 
           const clickHandler =

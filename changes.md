@@ -78,3 +78,6 @@ Below is a list of components that have been affected by this change. The codemo
   - Added a `min-width` of 40px in `xui-button`(`xui-icon-button` is not included).
   - Set `text-align: center` in `xui-button` to make sure the content in the anchor is centered.
   - Removed the `min-width` value set in `xui-button-split`.
+
+- Tag
+  - Added a `min-width` of 40px to `xui-tag`

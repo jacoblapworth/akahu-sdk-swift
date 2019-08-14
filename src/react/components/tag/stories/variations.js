@@ -26,8 +26,15 @@ const longContent = {
   viewports: desktopPlus320,
 };
 
+const shortContent = {
+  children: 'Z',
+  storyKind: storiesWithVariationsKindName,
+  storyTitle: 'with short content',
+  viewports: desktopPlus320,
+};
+
 module.exports = {
   storiesWithVariationsKindName,
-  variations: [...variantVariations, ...sizeVariations, longContent],
+  variations: [...variantVariations, ...sizeVariations, longContent, shortContent],
   NOOP,
 };

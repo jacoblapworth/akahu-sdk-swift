@@ -41,8 +41,6 @@
 //
 // Styleguide: Building Blocks.Controls.TextInput.2
 
-
-
 // Textarea
 //
 // The [text input component](./react/#text-input) can be set to **autogrow** within limits or a fixed height. It includes an
@@ -63,8 +61,6 @@
 //
 // Styleguide: Building Blocks.Controls.TextInput.3
 
-
-
 // Size variants
 //
 // Inputs have a variation in scale to enable greater hierarchy control in user interfaces
@@ -74,6 +70,7 @@
 // Do: Use the same label and description font-size with all size variants
 // Warning: Use small and xsmall variants cautiously, as these are more difficult to read than default size
 // Dont: Don’t use a combination of size variants within a single form
+// Dont: Don't vertically stack small and xsmall Text inputs. Small and xsmall variants now have a sunsetting flag due to poor touch interaction potential.
 //
 // Definitions:
 // Size variant: **Height**: **Class**
@@ -104,8 +101,6 @@
 // </div>
 //
 // Styleguide: Building Blocks.Controls.TextInput.4
-
-
 
 // Nesting
 //
@@ -184,7 +179,6 @@
 //
 // Styleguide: Building Blocks.Controls.TextInput.5
 
-
 // Borderless text inputs
 //
 // Add `xui-input-borderless` to remove border from input and `xui-textinput-borderless-solid` to add grey tint.
@@ -218,9 +212,6 @@
 // </div>
 //
 // Styleguide: Building Blocks.Controls.TextInput.6
-
-
-
 
 // Transparent text inputs
 //
@@ -256,7 +247,6 @@
 //
 // Styleguide: Building Blocks.Controls.TextInput.7
 
-
 // Inverted inputs
 //
 // Both transparent and solid inputs can be used on dark backgrounds by adding `xui-inputwrapper-borderless-inverted`. Make sure your background color is dark enough!
@@ -281,7 +271,6 @@
 // </div>
 //
 // Styleguide: Building Blocks.Controls.TextInput.8
-
 
 // Adding icons
 //

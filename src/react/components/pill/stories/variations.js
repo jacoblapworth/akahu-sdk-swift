@@ -28,6 +28,13 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with short content small',
+    value: 'N',
+    omitDeleteBtn: true,
+    size: 'small',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'as invalid',
     value: 'Invalid Pill',
     isInvalid: true,

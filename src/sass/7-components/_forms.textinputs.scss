@@ -2,15 +2,16 @@
  * Styles for form text inputs.
  */
 
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 $input-text-vertical-padding-xsmall: ($xui-control-size-xsmall - $xui-line-height-xsmall) / 2 - 1px;
 $input-text-vertical-padding-small: ($xui-control-size-small - $xui-line-height-small) / 2 - 1px;
-$input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-height-standard) / 2 - 1px;
+$input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-height-standard) / 2 -
+  1px;
 
 .#{$ns}-textinputwrapper {
-	display: block;
+  display: block;
 }
 
 // The xui-textinput--input class needs to be defined before xui-textinput so that if a component has
@@ -19,418 +20,424 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 // This is a hack until we decide whether we want to stop supporting this use-case (it's scattered
 // throughout our docs)
 .#{$ns}-textinput--input {
-	@include xui-input-base;
-	@include xui-padding-vertical($input-text-vertical-padding-standard);
-	border: none;
-	flex: 1 1 auto;
-	min-width: 0; // Required for inputs to be able to shrink in IE 11
-	overflow: hidden;
+  @include xui-input-base;
+  @include xui-padding-vertical($input-text-vertical-padding-standard);
+  border: none;
+  flex: 1 1 auto;
+  // Fix the following problem in IE 11:
+  // If min-width set in xui-textinput takes effect, the value (when over 40px) will overflow the input.
+  min-width: $xui-minimum-touch-target;
+  overflow: hidden;
 
-	&:first-child,
-	&.#{$ns}-textinput {
-		padding-left: $xui-s-standard;
-	}
+  &:first-child,
+  &.#{$ns}-textinput {
+    padding-left: $xui-s-standard;
+  }
 
-	&:last-child,
-	&.#{$ns}-textinput {
-		padding-right: $xui-s-standard;
-	}
+  &:last-child,
+  &.#{$ns}-textinput {
+    padding-right: $xui-s-standard;
+  }
 }
 
 .#{$ns}-textinput {
-	@include xui-commoninput;
-	align-items: center;
-	cursor: text;
-	display: flex;
-	padding: 0;
+  @include xui-commoninput;
+  align-items: center;
+  cursor: text;
+  display: flex;
+  min-width: $xui-minimum-touch-target;
+  padding: 0;
 }
 
 .#{$ns}-textinput-is-invalid {
-	border-color: $xui-textinput-invalid-border-color;
-	z-index: 1;
+  border-color: $xui-textinput-invalid-border-color;
+  z-index: 1;
 
-	&:focus,
-	&:hover {
-		border-color: $xui-textinput-invalid-border-color;
-	}
+  &:focus,
+  &:hover {
+    border-color: $xui-textinput-invalid-border-color;
+  }
 }
 
 .#{$ns}-textinput-focus {
-	box-shadow: $xui-shadow-focus;
-	outline: none;
-	transition: box-shadow 0.1s;
-	z-index: 2;
+  box-shadow: $xui-shadow-focus;
+  outline: none;
+  transition: box-shadow 0.1s;
+  z-index: 2;
 }
 
 .#{$ns}-textinput-is-disabled {
-	@include xui-disabled-form-control;
+  @include xui-disabled-form-control;
 
-	.#{$ns}-textinput--input {
-		cursor: not-allowed;
-	}
+  .#{$ns}-textinput--input {
+    cursor: not-allowed;
+  }
 }
 
 .#{$ns}-textinput--sideelement {
-	align-self: stretch;
-	cursor: text;
-	display: flex;
-	flex-shrink: 0;
-	margin: -1px; // This is required to correctly layout sidelement contents considering the input border
+  align-self: stretch;
+  cursor: text;
+  display: flex;
+  flex-shrink: 0;
+  margin: -1px; // This is required to correctly layout sidelement contents considering the input border
 
-	&-align-top {
-		align-items: flex-start;
-	}
-	&-align-center {
-		align-items: center;
-	}
-	&-align-bottom {
-		align-items: flex-end;
-	}
-	.#{$ns}-textinput-medium &:first-child{
-		margin-right: $xui-s-xsmall;
-	}
-	.#{$ns}-textinput-small &:first-child{
-		margin-right: $xui-s-xsmall - 2;
-	}
-	.#{$ns}-textinput-xsmall &:first-child{
-		margin-right: $xui-s-2xsmall;
-	}
+  &-align-top {
+    align-items: flex-start;
+  }
+  &-align-center {
+    align-items: center;
+  }
+  &-align-bottom {
+    align-items: flex-end;
+  }
+  .#{$ns}-textinput-medium &:first-child {
+    margin-right: $xui-s-xsmall;
+  }
+  .#{$ns}-textinput-small &:first-child {
+    margin-right: $xui-s-xsmall - 2;
+  }
+  .#{$ns}-textinput-xsmall &:first-child {
+    margin-right: $xui-s-2xsmall;
+  }
 
-	.#{$ns}-textinput-medium &:last-child{
-		margin-left: $xui-s-xsmall;
-	}
-	.#{$ns}-textinput-small &:last-child{
-		margin-left: $xui-s-xsmall - 2;
-	}
-	.#{$ns}-textinput-xsmall &:last-child{
-		margin-left: $xui-s-2xsmall;
-	}
+  .#{$ns}-textinput-medium &:last-child {
+    margin-left: $xui-s-xsmall;
+  }
+  .#{$ns}-textinput-small &:last-child {
+    margin-left: $xui-s-xsmall - 2;
+  }
+  .#{$ns}-textinput-xsmall &:last-child {
+    margin-left: $xui-s-2xsmall;
+  }
 }
 
 .#{$ns}-textinput--sideelement-icon {
-	justify-content: center;
+  justify-content: center;
 }
 
 .#{$ns}-textinput--sideelement-text {
-	@include xui-margin-vertical(0);
-	pointer-events: none;
+  @include xui-margin-vertical(0);
+  pointer-events: none;
 
-	&:first-child {
-		padding-left: $xui-s-standard;
-		padding-right: $xui-s-2xsmall;
-	}
+  &:first-child {
+    padding-left: $xui-s-standard;
+    padding-right: $xui-s-2xsmall;
+  }
 
-	&:last-child {
-		padding-left: $xui-s-2xsmall;
-		padding-right: $xui-s-standard;
-	}
+  &:last-child {
+    padding-left: $xui-s-2xsmall;
+    padding-right: $xui-s-standard;
+  }
 }
 
 .#{$ns}-textinput--sideelement-avatar {
-	pointer-events: none;
+  pointer-events: none;
 }
 
 .#{$ns}-textinput--sideelement-avatar,
 .#{$ns}-textinput--sideelement-pill,
 .#{$ns}-textinput--sideelement-button {
-	@include xui-padding($xui-s-2xsmall);
+  @include xui-padding($xui-s-2xsmall);
 }
 
 .#{$ns}-textinput--sideelement-has-background {
-	&:first-child {
-		border-radius: $xui-radius 0 0 $xui-radius;
-	}
+  &:first-child {
+    border-radius: $xui-radius 0 0 $xui-radius;
+  }
 
-	&:last-child {
-		border-radius: 0 $xui-radius $xui-radius 0;
-	}
+  &:last-child {
+    border-radius: 0 $xui-radius $xui-radius 0;
+  }
 }
 
 .#{$ns}-textinput--sideelement-twitter {
-	background-color: $xui-color-twitter;
-	color: $xui-textinput-sideelement-inverted-color;
+  background-color: $xui-color-twitter;
+  color: $xui-textinput-sideelement-inverted-color;
 }
 
 .#{$ns}-textinput--sideelement-facebook {
-	background-color: $xui-color-facebook;
-	color: $xui-textinput-sideelement-inverted-color;
+  background-color: $xui-color-facebook;
+  color: $xui-textinput-sideelement-inverted-color;
 }
 
 .#{$ns}-textinput--sideelement-linkedin {
-	background-color: $xui-color-linkedin;
-	color: $xui-textinput-sideelement-inverted-color;
+  background-color: $xui-color-linkedin;
+  color: $xui-textinput-sideelement-inverted-color;
 }
 
 .#{$ns}-textinput-medium {
-	$input-inner-height: $xui-control-size-standard - 2; // -2 for borders
-	@include xui-text-medium;
-	min-height: $xui-control-size-standard;
+  $input-inner-height: $xui-control-size-standard - 2; // -2 for borders
+  @include xui-text-medium;
+  min-height: $xui-control-size-standard;
 
-	.#{$ns}-textinput--sideelement {
-		min-height: $input-inner-height;
-		min-width: $input-inner-height;
-	}
-	.#{$ns}-iconwrapper {
-		height: $xui-control-size-standard;
-		width: $xui-control-size-standard;
-	}
-	.#{$ns}-textinput--sideelement-text {
-		@include xui-padding-vertical($input-text-vertical-padding-standard);
-	}
+  .#{$ns}-textinput--sideelement {
+    min-height: $input-inner-height;
+    min-width: $input-inner-height;
+  }
+  .#{$ns}-iconwrapper {
+    height: $xui-control-size-standard;
+    width: $xui-control-size-standard;
+  }
+  .#{$ns}-textinput--sideelement-text {
+    @include xui-padding-vertical($input-text-vertical-padding-standard);
+  }
 }
 
 .#{$ns}-textinput-small {
-	$input-inner-height: $xui-control-size-small - 2; // -2 for borders
-	@include xui-text-small;
-	min-height: $xui-control-size-small;
+  $input-inner-height: $xui-control-size-small - 2; // -2 for borders
+  @include xui-text-small;
+  min-height: $xui-control-size-small;
 
-	.#{$ns}-textinput--sideelement {
-		min-height: $input-inner-height;
-		min-width: $input-inner-height;
-	}
-	.#{$ns}-iconwrapper {
-		height: $xui-control-size-small;
-		width: $xui-control-size-small;
-	}
-	.#{$ns}-textinput--sideelement-text {
-		@include xui-padding-vertical($input-text-vertical-padding-small)
-	}
-	.#{$ns}-textinput--sideelement-text:first-child {
-		padding-left: $xui-s-small;
-		padding-right: $xui-s-2xsmall;
-	}
-	.#{$ns}-textinput--sideelement-text:last-child {
-		padding-left: $xui-s-2xsmall;
-		padding-right: $xui-s-small;
-	}
+  .#{$ns}-textinput--sideelement {
+    min-height: $input-inner-height;
+    min-width: $input-inner-height;
+  }
+  .#{$ns}-iconwrapper {
+    height: $xui-control-size-small;
+    width: $xui-control-size-small;
+  }
+  .#{$ns}-textinput--sideelement-text {
+    @include xui-padding-vertical($input-text-vertical-padding-small);
+  }
+  .#{$ns}-textinput--sideelement-text:first-child {
+    padding-left: $xui-s-small;
+    padding-right: $xui-s-2xsmall;
+  }
+  .#{$ns}-textinput--sideelement-text:last-child {
+    padding-left: $xui-s-2xsmall;
+    padding-right: $xui-s-small;
+  }
 }
 
 .#{$ns}-textinput--input-small {
-	@include xui-padding-vertical($input-text-vertical-padding-small);
-	&:first-child,
-	&.#{$ns}-textinput {
-		padding-left: $xui-s-small;
-	}
-	&:last-child,
-	&.#{$ns}-textinput {
-		padding-right: $xui-s-small;
-	}
+  @include xui-padding-vertical($input-text-vertical-padding-small);
+  &:first-child,
+  &.#{$ns}-textinput {
+    padding-left: $xui-s-small;
+  }
+  &:last-child,
+  &.#{$ns}-textinput {
+    padding-right: $xui-s-small;
+  }
 }
 
 .#{$ns}-textinput-xsmall {
-	$input-inner-height: $xui-control-size-xsmall - 2; // -2 for borders
-	@include xui-text-xsmall;
-	min-height: $xui-control-size-xsmall;
+  $input-inner-height: $xui-control-size-xsmall - 2; // -2 for borders
+  @include xui-text-xsmall;
+  min-height: $xui-control-size-xsmall;
 
-	.#{$ns}-textinput--sideelement {
-		min-height: $input-inner-height;
-		min-width: $input-inner-height;
-	}
-	.#{$ns}-iconwrapper {
-		height: $xui-control-size-xsmall;
-		width: $xui-control-size-xsmall;
-	}
+  .#{$ns}-textinput--sideelement {
+    min-height: $input-inner-height;
+    min-width: $input-inner-height;
+  }
+  .#{$ns}-iconwrapper {
+    height: $xui-control-size-xsmall;
+    width: $xui-control-size-xsmall;
+  }
 
-	.#{$ns}-textinput--sideelement-text {
-		@include xui-padding-vertical($input-text-vertical-padding-xsmall)
-	}
-	.#{$ns}-textinput--sideelement-text:first-child {
-		padding-left: $xui-s-xsmall;
-		padding-right: $xui-s-2xsmall;
-	}
-	.#{$ns}-textinput--sideelement-text:last-child {
-		padding-left: $xui-s-2xsmall;
-		padding-right: $xui-s-xsmall;
-	}
+  .#{$ns}-textinput--sideelement-text {
+    @include xui-padding-vertical($input-text-vertical-padding-xsmall);
+  }
+  .#{$ns}-textinput--sideelement-text:first-child {
+    padding-left: $xui-s-xsmall;
+    padding-right: $xui-s-2xsmall;
+  }
+  .#{$ns}-textinput--sideelement-text:last-child {
+    padding-left: $xui-s-2xsmall;
+    padding-right: $xui-s-xsmall;
+  }
 }
 
 .#{$ns}-textinput--input-xsmall {
-	@include xui-padding-vertical($input-text-vertical-padding-xsmall);
+  @include xui-padding-vertical($input-text-vertical-padding-xsmall);
 
-	&:first-child,
-	&.#{$ns}-textinput {
-		padding-left: $xui-s-xsmall;
-	}
-	&:last-child,
-	&.#{$ns}-textinput {
-		padding-right: $xui-s-xsmall;
-	}
+  &:first-child,
+  &.#{$ns}-textinput {
+    padding-left: $xui-s-xsmall;
+  }
+  &:last-child,
+  &.#{$ns}-textinput {
+    padding-right: $xui-s-xsmall;
+  }
 }
 
 .#{$ns}-textinput--input-resize-none {
-	resize: none;
+  resize: none;
 }
 
 .#{$ns}-textinput--input-resize-vertical {
-	resize: vertical;
+  resize: vertical;
 }
 
 // Borderless inputs
 
 .#{$ns}-textinput-borderless {
-	border: 0;
+  border: 0;
 
-	&:focus {
-		box-shadow: none;
-	}
+  &:focus {
+    box-shadow: none;
+  }
 }
 
 .#{$ns}-textinput-borderless-transparent {
-	background-color: transparent;
+  background-color: transparent;
 
-	&.#{$ns}-textinput-focus {
-		background-color: $xui-textinput-borderless-transparent-focus-bg-color;
-		box-shadow: none;
-	}
+  &.#{$ns}-textinput-focus {
+    background-color: $xui-textinput-borderless-transparent-focus-bg-color;
+    box-shadow: none;
+  }
 
-	&.#{$ns}-textinput-borderless-inverted.#{$ns}-textinput-focus {
-		background-color: $xui-textinput-borderless-transparent-inverted-focus-bg-color;
-	}
+  &.#{$ns}-textinput-borderless-inverted.#{$ns}-textinput-focus {
+    background-color: $xui-textinput-borderless-transparent-inverted-focus-bg-color;
+  }
 }
 
 .#{$ns}-textinput-borderless-solid {
-	background-color: $xui-textinput-borderless-solid-bg-color;
+  background-color: $xui-textinput-borderless-solid-bg-color;
 
-	&.#{$ns}-textinput-focus {
-		background-color: $xui-textinput-borderless-solid-focus-bg-color;
-		box-shadow: none;
-	}
+  &.#{$ns}-textinput-focus {
+    background-color: $xui-textinput-borderless-solid-focus-bg-color;
+    box-shadow: none;
+  }
 
-	&.#{$ns}-textinput-borderless-inverted {
-		background-color: $xui-textinput-borderless-solid-inverted-bg-color;
+  &.#{$ns}-textinput-borderless-inverted {
+    background-color: $xui-textinput-borderless-solid-inverted-bg-color;
 
-		&.#{$ns}-textinput-focus {
-			background-color: $xui-textinput-borderless-solid-inverted-focus-bg-color;
-		}
-	}
+    &.#{$ns}-textinput-focus {
+      background-color: $xui-textinput-borderless-solid-inverted-focus-bg-color;
+    }
+  }
 }
 
 .#{$ns}-textinput-borderless.#{$ns}-textinput-is-invalid {
-	background-color: $xui-textinput-borderless-invalid-bg-color;
+  background-color: $xui-textinput-borderless-invalid-bg-color;
 
-	&.#{$ns}-textinput-focus {
-		background-color: $xui-textinput-borderless-invalid-focus-bg-color;
-	}
+  &.#{$ns}-textinput-focus {
+    background-color: $xui-textinput-borderless-invalid-focus-bg-color;
+  }
 }
 
 .#{$ns}-textinput-borderless-inverted {
-	color: $xui-textinput-borderless-inverted-color;
+  color: $xui-textinput-borderless-inverted-color;
 
-	&.#{$ns}-textinput--input,
-	.#{$ns}-textinput--input {
-		color: $xui-textinput-borderless-inverted-color;
+  &.#{$ns}-textinput--input,
+  .#{$ns}-textinput--input {
+    color: $xui-textinput-borderless-inverted-color;
 
-		&::placeholder {
-			color: $xui-input-placeholder-inverted-color;
-		}
-	}
+    &::placeholder {
+      color: $xui-input-placeholder-inverted-color;
+    }
+  }
 }
 
 .#{$ns}-verticaltextinputgroup {
-	// Only add top border radius to the first element
-	> .#{$ns}-textinput:first-of-type,
-	.#{$ns}-textinputwrapper:first-of-type > .#{$ns}-textinput {
-		border-radius: $xui-radius $xui-radius 0 0;
+  // Only add top border radius to the first element
+  > .#{$ns}-textinput:first-of-type,
+  .#{$ns}-textinputwrapper:first-of-type > .#{$ns}-textinput {
+    border-radius: $xui-radius $xui-radius 0 0;
 
-		> .#{$ns}-textinput--sideelement:first-child {
-			border-radius: $xui-radius 0 0 0;
-		}
+    > .#{$ns}-textinput--sideelement:first-child {
+      border-radius: $xui-radius 0 0 0;
+    }
 
-		> .#{$ns}-textinput--sideelement:last-child {
-			border-radius: 0 $xui-radius 0 0;
-		}
-	}
+    > .#{$ns}-textinput--sideelement:last-child {
+      border-radius: 0 $xui-radius 0 0;
+    }
+  }
 
-	// Add the margin adjustment to all elements but the first
-	.#{$ns}-textinput:nth-of-type(n+2),
-	.#{$ns}-textinputwrapper:nth-of-type(n+2) > .#{$ns}-textinput {
-		margin-top: -1px;
-	}
+  // Add the margin adjustment to all elements but the first
+  .#{$ns}-textinput:nth-of-type(n + 2),
+  .#{$ns}-textinputwrapper:nth-of-type(n + 2) > .#{$ns}-textinput {
+    margin-top: -1px;
+  }
 
-	// On all elements except the first and last one, border radius 0 is required
-	.#{$ns}-textinput:nth-of-type(n+2):nth-last-of-type(n+2),
-	.#{$ns}-textinputwrapper:nth-of-type(n+2):nth-last-of-type(n+2) > .#{$ns}-textinput {
-		border-radius: 0;
-	}
+  // On all elements except the first and last one, border radius 0 is required
+  .#{$ns}-textinput:nth-of-type(n + 2):nth-last-of-type(n + 2),
+  .#{$ns}-textinputwrapper:nth-of-type(n + 2):nth-last-of-type(n + 2) > .#{$ns}-textinput {
+    border-radius: 0;
+  }
 
-	// Only add bottom border radius to the last element
-	> .#{$ns}-textinput:last-of-type,
-	.#{$ns}-textinputwrapper:last-of-type .#{$ns}-textinput {
-		border-radius: 0 0 $xui-radius $xui-radius;
+  // Only add bottom border radius to the last element
+  > .#{$ns}-textinput:last-of-type,
+  .#{$ns}-textinputwrapper:last-of-type .#{$ns}-textinput {
+    border-radius: 0 0 $xui-radius $xui-radius;
 
-		> .#{$ns}-textinput--sideelement:first-child {
-			border-radius: 0 0 0 $xui-radius;
-		}
+    > .#{$ns}-textinput--sideelement:first-child {
+      border-radius: 0 0 0 $xui-radius;
+    }
 
-		> .#{$ns}-textinput--sideelement:last-child {
-			border-radius: 0 0 $xui-radius 0;
-		}
-	}
+    > .#{$ns}-textinput--sideelement:last-child {
+      border-radius: 0 0 $xui-radius 0;
+    }
+  }
 }
-
 
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper,
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper > .#{$ns}-button,
 .#{$ns}-textinputgroup > .#{$ns}-textinput,
 .#{$ns}-textinputgroup > .#{$ns}-button,
 .#{$ns}-textinputgroup .#{$ns}-select--control {
-	border-radius: 0;
+  border-radius: 0;
 
-	// All but the first child have a left border
-	// There is an exception for invalid styling further down
-	&:nth-child(n+2) {
-		border-left: 0;
-	}
+  // All but the first child have a left border
+  // There is an exception for invalid styling further down
+  &:nth-child(n + 2) {
+    border-left: 0;
+  }
 }
 
 // This is excluded from the list above to prevent the nth-child selector kicking in unnecessarily on the wrong element
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper > .#{$ns}-textinput {
-	border-radius: 0;
+  border-radius: 0;
 
-	.#{$ns}-textinput--sideelement {
-		border-radius: 0;
-	}
+  .#{$ns}-textinput--sideelement {
+    border-radius: 0;
+  }
 }
 
-.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:nth-child(n+2) > .#{$ns}-textinput {
-	border-left: 0;
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:nth-child(n + 2) > .#{$ns}-textinput {
+  border-left: 0;
 }
 
-.#{$ns}-textinputgroup .#{$ns}-select:nth-child(n+2) {
-	.#{$ns}-select--control {
-		border-left: 0;
-	}
+.#{$ns}-textinputgroup .#{$ns}-select:nth-child(n + 2) {
+  .#{$ns}-select--control {
+    border-left: 0;
+  }
 }
 
 .#{$ns}-textinputgroup > .#{$ns}-textinput:first-child,
 .#{$ns}-textinputgroup > .#{$ns}-textinput:first-child > .#{$ns}-textinput--sideelement:first-child,
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:first-child > .#{$ns}-textinput,
-.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:first-child .#{$ns}-textinput--sideelement:first-child,
+.#{$ns}-textinputgroup
+  > .#{$ns}-textinputwrapper:first-child
+  .#{$ns}-textinput--sideelement:first-child,
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:first-child > .#{$ns}-button,
 .#{$ns}-textinputgroup > .#{$ns}-button:first-child,
 .#{$ns}-textinputgroup > .#{$ns}-select:first-child > .#{$ns}-select--control {
-	border-bottom-left-radius: $xui-radius;
-	border-top-left-radius: $xui-radius;
+  border-bottom-left-radius: $xui-radius;
+  border-top-left-radius: $xui-radius;
 }
 
 .#{$ns}-textinputgroup > .#{$ns}-textinput:last-child,
 .#{$ns}-textinputgroup > .#{$ns}-textinput:last-child > .#{$ns}-textinput--sideelement:last-child,
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:last-child > .#{$ns}-textinput,
-.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:last-child > .#{$ns}-textinput--sideelement:last-child,
+.#{$ns}-textinputgroup
+  > .#{$ns}-textinputwrapper:last-child
+  > .#{$ns}-textinput--sideelement:last-child,
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:last-child > .#{$ns}-button,
 .#{$ns}-textinputgroup > .#{$ns}-button:last-child,
 .#{$ns}-textinputgroup > .#{$ns}-select:last-child > .#{$ns}-select--control {
-	border-bottom-right-radius: $xui-radius;
-	border-top-right-radius: $xui-radius;
+  border-bottom-right-radius: $xui-radius;
+  border-top-right-radius: $xui-radius;
 }
 
 .#{$ns}-textinputgroup {
-	@include xui-clearfix;
+  @include xui-clearfix;
 
-	.#{$ns}-textinput-is-invalid:nth-child(n+2),
-	.#{$ns}-textinputwrapper:nth-child(n+2) .#{$ns}-textinput-is-invalid,
-	.#{$ns}-select:nth-child(n+2) > .#{$ns}-select--control.#{$ns}-textinput-is-invalid {
-		border-left: 1px solid $xui-textinput-invalid-border-color;
-		margin-left: -1px;
-	}
+  .#{$ns}-textinput-is-invalid:nth-child(n + 2),
+  .#{$ns}-textinputwrapper:nth-child(n + 2) .#{$ns}-textinput-is-invalid,
+  .#{$ns}-select:nth-child(n + 2) > .#{$ns}-select--control.#{$ns}-textinput-is-invalid {
+    border-left: 1px solid $xui-textinput-invalid-border-color;
+    margin-left: -1px;
+  }
 }

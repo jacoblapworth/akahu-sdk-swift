@@ -131,7 +131,8 @@ export default class XUIDatePicker extends PureComponent {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { displayedMonth } = nextProps;
     if (
       displayedMonth instanceof Date &&

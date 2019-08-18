@@ -70,7 +70,8 @@ export default class XUIModal extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (shouldUpdateListeners(this.props, nextProps)) {
       this.removeListeners();
     }

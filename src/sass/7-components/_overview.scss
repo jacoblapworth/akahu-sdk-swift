@@ -1,5 +1,5 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Overview block
 //
@@ -243,7 +243,7 @@
 
 // Progress indicators
 //
-// To provide additional data visualisation, a progress indicator can be utilised inside an overview section. 
+// To provide additional data visualisation, a progress indicator can be utilised inside an overview section.
 //
 // Tips:
 // Do: Place progress indicators below text content
@@ -297,62 +297,62 @@
 // Styleguide: Compounds.DisplayingData.OverviewBlock.4
 
 .#{$ns}-overview {
-	border-radius: $xui-radius;
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
+  border-radius: $xui-radius;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .#{$ns}-overview-solid {
-	background-color: $xui-overview-bg-color;
+  background-color: $xui-overview-bg-color;
 }
 
 .#{$ns}-overview-has-border {
-	box-shadow: $xui-shadow-border-all;
+  box-shadow: $xui-shadow-border-all;
 }
 
 .#{$ns}-overview--section {
-	display: flex;
-	flex: 1 0 auto;
-	flex-flow: column nowrap;
-	justify-content: center;
+  display: flex;
+  flex: 1 0 auto;
+  flex-flow: column nowrap;
+  justify-content: center;
 
-	.#{$ns}-progress-linear {
-		margin-top: $xui-s-small;
-	}
+  .#{$ns}-progress-linear {
+    margin-top: $xui-s-small;
+  }
 }
 
 .#{$ns}-overview--label {
-	color: $xui-overview-label-color;
+  color: $xui-overview-label-color;
 }
 
 .#{$ns}-overview--value {
-	font-size: $xui-font-size-xlarge;
-	font-weight: $xui-font-weight-emphasis;
+  font-size: $xui-font-size-xlarge;
+  font-weight: $xui-font-weight-emphasis;
 }
 
 .#{$ns}-overview-layout {
-	@include xui-margin-horizontal(auto);
+  @include xui-margin-horizontal(auto);
 
-	@include xui-breakpoint-small-down {
-		border-left: 0;
-		border-radius: 0;
-		border-right: 0;
-	}
+  @include xui-breakpoint-small-down {
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+  }
 
-	.#{$ns}-overview--section {
-		@include xui-padding($xui-s-large);
-	}
+  .#{$ns}-overview--section {
+    @include xui-padding($xui-s-large);
+  }
 }
 
 .#{$ns}-overview-text-align {
-	&-center {
-		text-align: center;
-	}
-	&-left {
-		text-align: left;
-	}
-	&-right {
-		text-align: right;
-	}
+  &-center {
+    text-align: center;
+  }
+  &-left {
+    text-align: left;
+  }
+  &-right {
+    text-align: right;
+  }
 }

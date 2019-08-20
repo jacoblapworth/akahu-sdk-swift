@@ -60,6 +60,37 @@
 //
 // Styleguide: Getting Started.Responsive.2.3
 
+// Touch targets
+//
+// Touch targets are the parts of the screen that respond to user input, such as a cursor or a finger press. Depending on the size of the component, touch targets may extend beyond the visual bounds of its width and height. It is important to have adequately sized touch targets, so that users can confidently and accurately interact with elements with a finger press, as well as a cursor.
+//
+// For more information on touch targets, read [this article from Nielsen Norman Group](https://www.nngroup.com/articles/touch-target-size/)
+//
+// Styleguide: Getting Started.Responsive.3
+
+// Touch target size
+//
+// A 40px by 40px touch target is applied by default to all XUI components, with the exception of some `small` and `xsmall` size variants – These will however, have a minimum width or height of 40px to account for at least one dimension. Our goal is to further improve these touch targets in the future.
+//
+// Components with a fixed width and height, such as icon buttons, checkboxes, and radios have “invisible” touch targets. These are touch targets that meet the minimum size requirement, but don’t affect the component's original visual dimensions. This technique is used to retain layouts while optimising for a more accessible interaction.
+//
+// Tips:
+// Do: Apply minimum touch target size of 40px by 40px to account for touch driven input methods
+// Do: Components with a fixed width and height smaller than the defined minimum touch target should have an invisible touch target applied to them
+// Warning: If an interactive element cannot meet the touch target size requirement size requirement in both width and height, apply to at least one dimension
+//
+// Styleguide: Getting Started.Responsive.3.1
+
+// Touch target spacing
+//
+// It’s important to consider the interactive elements that surround components as to avoid any overlapping of invisible touch targets. Overlapping touch targets can cause users to "slip", and interact with something they weren't intending to.
+//
+// Tips:
+// Do: Provide adequate space between interactive elements so that touch targets don’t overlap
+// Don't: Don’t present multiple small components inline or stacked on top of each other without additional spacing
+//
+// Styleguide: Getting Started.Responsive.3.2
+
 // Designing for responsive
 //
 // As a designer, the most impactful change you can make is to start designing at a small width. It’s far easier to add to designs with progressively more space than it is to retrofit a complex interface into a smaller space, potentially having to compromise on functionality.
@@ -70,7 +101,7 @@
 // Do: Design pages and flows small-up.
 // Do: Use provided best practices and components to consistently build resilient and responsive experiences.
 // Do: Use provided XUI composition components for handling responsive reflowing logic.
-// Do: Ensure hit-areas for interactive controls are large enough to be easily tappable. The -medium size variants of controls are recommended for smaller devices where touch is the primary input mechanism.
+// Do: Ensure touch targets for interactive controls are large enough to be easily tappable. The -medium size variants of controls are recommended for smaller devices where touch is the primary input mechanism.
 // Do: Provide adequate space between controls to prevent mis-taps around clickable areas, and separate blocks of content.
 // Warning: Consider the impacts a long page may have on getting back to the navigation or other key functions.
 // Dont: Avoid reducing font size for body copy, as what’s readable on a large display often requires zooming on a smaller one. XUI 15 provides a baseline default that is easily readable at all viewports.
@@ -78,7 +109,7 @@
 // Dont: Don't rely on hover for essential functionality, as it's not accessible for touch-driven devices. Use click events instead.
 // Dont: Don't add or remove essential functionality based off viewport size. A user should be able to do what they need to, regardless of device or browser width.
 //
-// Styleguide: Getting Started.Responsive.3
+// Styleguide: Getting Started.Responsive.4
 
 // Developing for responsive
 //
@@ -96,4 +127,4 @@
 // Dont: Never disable zoom programmatically. This is the only tool our users have to to enable access on pages that haven’t been built responsively.
 // Dont: Don't rely on hover for essential functionality, as it's not accessible for touch-driven devices. Use click events instead.
 //
-// Styleguide: Getting Started.Responsive.4
+// Styleguide: Getting Started.Responsive.5

@@ -89,3 +89,5 @@ Below is a list of components that have been affected by this change. The codemo
   - Add a `min-width` of 40px in `xui-rangeslider-container`.
 - Tag
   - Added a `min-width` of 40px to `xui-tag`
+- Progress indicator
+  - Added a `min-width` of 40px to `xui-progress-linear`

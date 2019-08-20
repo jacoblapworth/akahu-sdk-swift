@@ -248,7 +248,7 @@
 //
 // Tips:
 // Do: Use segments when there are distinct steps within a larger goal, such as days in the week
-// Warning: Currently only constand step widths are possible.
+// Warning: Currently only constant step widths are possible.
 // Don't: Avoid using too many segments in the circular variant as they become visually indecipherable, use a linear instead
 //
 // ExampleClass: ds-example-flush ds-example-transparent
@@ -563,6 +563,7 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
 
 .#{$ns}-progress-linear {
   width: 100%;
+  min-width: $xui-minimum-touch-target;
 }
 
 .#{$ns}-progress-linear-wrapper,

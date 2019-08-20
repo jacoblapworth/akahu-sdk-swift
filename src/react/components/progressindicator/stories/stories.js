@@ -53,6 +53,11 @@ const colorStyle = {
   padding: '10px',
 };
 
+const tinyWidthStyle = {
+  ...linearStyles,
+  width: 'auto',
+};
+
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
@@ -246,6 +251,7 @@ variations.forEach(variation => {
   const isCustomContent = storyTitle.startsWith('circular custom content');
   const isErrorWithIcon = storyTitle.startsWith('circular custom (icon) hard error');
   const isMultiline = storyTitle.startsWith('circular multiline');
+  const isVeryShort = storyTitle.endsWith('very short');
   let Comparison;
 
   if (isColor) {
@@ -254,6 +260,8 @@ variations.forEach(variation => {
     Comparison = createToolTipComparison(linearStyles, XUIProgressLinear, props);
   } else if (isTooltip) {
     Comparison = createToolTipComparison(circularStyles, XUIProgressCircular, props);
+  } else if (isVeryShort && isLinear) {
+    Comparison = createStandardComparison(tinyWidthStyle, XUIProgressLinear, props);
   } else if (isLinear) {
     Comparison = createStandardComparison(linearStyles, XUIProgressLinear, props);
   } else if (isCustomContent) {

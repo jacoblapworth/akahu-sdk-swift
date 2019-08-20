@@ -1108,24 +1108,29 @@ $kss-color-padding: #eeebff;
   }
 }
 
-.ds-status--experimental {
-  background: $xui-color-violet;
-}
-
-.ds-status--underreview {
-  background: $xui-color-yellow;
-}
-
-.ds-status--seekingfeedback {
-  background: $xui-color-green;
-}
-
-.ds-status--deprecated {
+.ds-status--sunsetting {
   background: $xui-color-red;
+}
+
+.ds-status--wip {
+  background: $xui-color-orange;
+}
+
+.ds-status--updatescoming {
+  background: $xui-color-turquoise-dark;
+}
+
+.ds-status--new {
+  background: $xui-color-blue;
+}
+
+.ds-status--updated {
+  background: $xui-color-grape;
 }
 
 @import './cards';
 @import './markup';
+@import './hover-tooltip';
 @import './copy-code-blocks';
 @import './home';
 @import './redesign';

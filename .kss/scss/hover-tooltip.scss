@@ -1,0 +1,50 @@
+.hover-tooltip {
+  background: $ds-markup-bg-color;
+  color: $xui-color-white;
+  border-radius: $xui-radius;
+  display: flex;
+  min-height: 25px;
+  justify-content: center;
+  opacity: 0;
+  padding: $xui-s-xsmall;
+  position: absolute;
+  bottom: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition-property: opacity, bottom;
+  transition-duration: $xui-motion-speed-fast;
+  transition-timing-function: $xui-motion-curve-exit;
+  transition-delay: $xui-motion-delay-long;
+  width: max-content;
+  max-width: 250px;
+  line-height: 1.5;
+  font-size: $xui-font-size-small;
+  text-transform: none;
+
+  &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid $ds-markup-bg-color;
+    transform: rotate(90deg) translateX(7px);
+    bottom: 0;
+    left: 50%;
+  }
+
+  &:hover {
+    color: $ds-markup-hover-color;
+  }
+
+  :hover > & {
+    opacity: 1;
+    bottom: 110%;
+  }
+
+  .ds-flag & {
+    text-align: left;
+  }
+}

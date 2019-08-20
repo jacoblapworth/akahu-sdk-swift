@@ -84,10 +84,15 @@
 							<svg class="xui-icon ds-anchor-hash"> <use xlink:href="#xui-icon-hash" role="presentation"/></svg>
 						</a>
 						<span>{{header}}</span>
-						{{#if flag}}
-							<span class="ds-flag {{getStatusClass flag}}">
-									{{flag}}
-							</span>
+						{{#if flags}}
+							{{#renderFlags flags}}
+								<span class="ds-flag {{#if flag.shortName}}{{getStatusClass flag.shortName}}{{/if}}">
+										{{flag.label}}
+										{{#if flag.desc}}
+											<button class="hover-tooltip xui-button">{{flag.desc}}</button>
+										{{/if}}
+								</span>
+							{{/renderFlags}}
 						{{/if}}
 					</h{{depth}}>
 

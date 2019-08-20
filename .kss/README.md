@@ -20,23 +20,23 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 
 ### XUI custom KSS props
 
-* `tokens`
-* `tokenType`
-* `classes`
-* `markdown`
-* `components`
-* `definitions`
-* `note`
-* `teaser`
-* `teaser-image`
-* `exampleclass`
-* `card`
-* `introduction`
-* `tips`
-* `flag`
-* `storybook`
-* `image`
-* `image-caption`
+- `tokens`
+- `tokenType`
+- `classes`
+- `markdown`
+- `components`
+- `definitions`
+- `note`
+- `teaser`
+- `teaser-image`
+- `exampleclass`
+- `card`
+- `introduction`
+- `tips`
+- `flag`
+- `storybook`
+- `image`
+- `image-caption`
 
 #### Adding new properties
 
@@ -68,8 +68,8 @@ Classes processes a colon separated list of class names and descriptions and pla
 
 Allows authoring of markdown documents to be included with KSS blocks.
 
-* Markdown docs come immediately after headings and precede description blocks.
-* files are referenced as relative paths to the src/docs directory
+- Markdown docs come immediately after headings and precede description blocks.
+- files are referenced as relative paths to the src/docs directory
 
 Example of adding in `overview.md` into the toast section.
 https://github.dev.xero.com/UXE/xui/pull/1678/files#diff-96f1935c2eb02812d31a3ada2243c1fdR12
@@ -79,6 +79,7 @@ https://github.dev.xero.com/UXE/xui/pull/1678/files#diff-96f1935c2eb02812d31a3ad
 Creates links under the description of the KSS block to the relevant React Component examples available at `react/`. Component names must match an anchor in the XUI Component Styleguide, e.g. `Select-box`, not `Select Box`. It uses the custom helper [components.js](https://github.dev.xero.com/UXE/xui/blob/master/kss/builder/extend/classes.js) to parse the list of component names.
 
 Supports specifying multiple components separated by commas:
+
 ```
 // Components: Checkbox, Radio
 ```
@@ -150,12 +151,12 @@ Or sometimes referred to as "Do's" and "Don'ts", are section displayed alongside
 // Warning: You have been warned
 ```
 
-### Flag
+### Flags
 
-For representing a status of that section, the 4 currently supported flags are 'Experimental', 'Deprecated', 'Under Review' and 'Seeking Feedback'.
+For representing a status of that section, there are several currently supported flags. For components and features that have been added or updated since the prior major version, use 'new' or 'updated'. We can additionally notify users about future change with 'sunsetting', 'updatesComing', and 'wip'. 'sunsetting' indicates that the component or feature will be removed from the codebase in a future major update. 'updatesComing' indicates significant change planned for an otherwise stable component, and 'wip' indicates that the component is unstable and might undergo breaking changes at any time. A component may be 'new' or 'updated' plus one of the other flags.
 
 ```
-// Flag: Experimental
+// Flags: new wip
 ```
 
 ### Storybook
@@ -186,9 +187,9 @@ Small text used to describe what is shown in an image. This should be the very n
 
 The main `index.hbs` file holds the root handlebars template. It pulls in a number of partials from the `kss/builder/extends` folder to build up our documentation. A few key points to understanding this file are below.
 
-* Cards are automatically populated on all pages with children unless whitelisted by the `{{ifStyleguide pageName}}` helper. This currently filters out the 'Building Blocks' and 'Working With XUI' pages.
-* The 'Jump to' menu is automatically created on every page with sections and no children.
-* A helper `{{renderSectionInMarkdown sectionName}}` can be used to parse any test through `marked` to format as markdown. Currently only used with introductions but flexible enough to be used elsewhere.
-* If a section is marked to have a React component associated with it, this is rendered with a generated URL to link to the React documentation.
-* Definition tables are handled in two separate partials, `renderTwoCols` and `renderDefinitions`, to create the table output in the documentation.
-* Examples and their markup are handled in the index template under a section marked `<!--ds-example-->`.
+- Cards are automatically populated on all pages with children unless whitelisted by the `{{ifStyleguide pageName}}` helper. This currently filters out the 'Building Blocks' and 'Working With XUI' pages.
+- The 'Jump to' menu is automatically created on every page with sections and no children.
+- A helper `{{renderSectionInMarkdown sectionName}}` can be used to parse any test through `marked` to format as markdown. Currently only used with introductions but flexible enough to be used elsewhere.
+- If a section is marked to have a React component associated with it, this is rendered with a generated URL to link to the React documentation.
+- Definition tables are handled in two separate partials, `renderTwoCols` and `renderDefinitions`, to create the table output in the documentation.
+- Examples and their markup are handled in the index template under a section marked `<!--ds-example-->`.

@@ -1,5 +1,5 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Content block
 //
@@ -576,7 +576,7 @@
 
 // Content block headers
 //
-// Flag: Under review
+// Flags: Under review
 //
 // To style content block headers, the following typography preset is required.
 //
@@ -968,140 +968,141 @@
 // Styleguide: Compounds.DisplayingData.ContentBlock.6.5
 
 .#{$ns}-contentblock {
-	border-collapse: collapse;
-	margin: 0;
-	padding: 0;
-	width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .#{$ns}-contentblockitem {
-	border-top: $xui-border-standard;
-	min-height: inherit; // IE11 bug fix TODO: Link to docs on what the bugfix is
-	position: relative;
+  border-top: $xui-border-standard;
+  min-height: inherit; // IE11 bug fix TODO: Link to docs on what the bugfix is
+  position: relative;
 
-	&:first-of-type {
-		border-top: 0;
-	}
+  &:first-of-type {
+    border-top: 0;
+  }
 }
 
 .#{$ns}-contentblockitem-rowlink {
-	color: inherit; // Remove default link color
-	text-decoration: none; // Remove default link underline
+  color: inherit; // Remove default link color
+  text-decoration: none; // Remove default link underline
 
-	&:hover,
-	&:focus {
-		background-color: $xui-color-grey-8;
-	}
-	&:active {
-		background-color: $xui-color-grey-7;
-	}
+  &:hover,
+  &:focus {
+    background-color: $xui-color-grey-8;
+  }
+  &:active {
+    background-color: $xui-color-grey-7;
+  }
 }
 
 .#{$ns}-contentblockitem-has-top-radius {
-	border-top-left-radius: $xui-radius;
-	border-top-right-radius: $xui-radius;
+  border-top-left-radius: $xui-radius;
+  border-top-right-radius: $xui-radius;
 }
 
 .#{$ns}-contentblockitem-has-bottom-radius {
-	border-bottom-left-radius: $xui-radius;
-	border-bottom-right-radius: $xui-radius;
+  border-bottom-left-radius: $xui-radius;
+  border-bottom-right-radius: $xui-radius;
 }
 
 .#{$ns}-contentblockitem-layout {
-	align-items: center;
-	display: flex;
+  align-items: center;
+  display: flex;
 
-	$content-min-height-size: 56px;
+  $content-min-height-size: 56px;
 
-	.#{$ns}-contentblockitem--actions {
-		margin-right: $xui-s-xsmall;
+  .#{$ns}-contentblockitem--actions {
+    margin-right: $xui-s-xsmall;
 
-		// This is to fix a bug where in actions, we assume that the buttons stack at smaller
-		// Viewport sizes, meaning that in the case of contentblocks, it gets weird top margin
-		// Applied and therefore causes a bug.
-		// TODO: work out a way to get another class on the element, instead of targeting this specific child
-		.#{$ns}-actions--secondary {
-			margin-top: 0;
-		}
-	}
+    // This is to fix a bug where in actions, we assume that the buttons stack at smaller
+    // Viewport sizes, meaning that in the case of contentblocks, it gets weird top margin
+    // Applied and therefore causes a bug.
+    // TODO: work out a way to get another class on the element, instead of targeting this specific child
+    .#{$ns}-actions--secondary {
+      margin-top: 0;
+    }
+  }
 
-	.#{$ns}-contentblockitem--maincontent {
-		flex: 1;
-		padding: $xui-s-small $xui-s-standard;
-		text-decoration: none;
-	}
+  .#{$ns}-contentblockitem--maincontent {
+    flex: 1;
+    padding: $xui-s-small $xui-s-standard;
+    text-decoration: none;
+  }
 
-	.#{$ns}-contentblockitem--rightcontent {
-		align-items: center;
-		align-self: flex-start;
-		display: flex;
-		margin-left: $xui-s-xsmall;
-		margin-right: $xui-s-xsmall;
-		min-height: $content-min-height-size;
-	}
+  .#{$ns}-contentblockitem--rightcontent {
+    align-items: center;
+    align-self: flex-start;
+    display: flex;
+    margin-left: $xui-s-xsmall;
+    margin-right: $xui-s-xsmall;
+    min-height: $content-min-height-size;
+  }
 
-	.#{$ns}-contentblockitem--leftcontent {
-		align-self: start;
-		min-height: $content-min-height-size;
-		min-width: $content-min-height-size + $xui-s-small;
-		@include xui-flex-children;
+  .#{$ns}-contentblockitem--leftcontent {
+    align-self: start;
+    min-height: $content-min-height-size;
+    min-width: $content-min-height-size + $xui-s-small;
+    @include xui-flex-children;
 
-		& + .#{$ns}-contentblockitem--maincontent {
-			padding: $xui-s-small $xui-s-standard $xui-s-small 0;
-		}
-	}
+    & + .#{$ns}-contentblockitem--maincontent {
+      padding: $xui-s-small $xui-s-standard $xui-s-small 0;
+    }
+  }
 
-	.#{$ns}-contentblockitem--headings {
-		align-items: baseline;
-		display: flex;
-		flex-flow: wrap;
-	}
+  .#{$ns}-contentblockitem--headings {
+    align-items: baseline;
+    display: flex;
+    flex-flow: wrap;
+  }
 
-	.#{$ns}-contentblockitem--pinnedvalue {
-		margin-right: $xui-s-xsmall;
-		text-align: right;
-	}
+  .#{$ns}-contentblockitem--pinnedvalue {
+    margin-right: $xui-s-xsmall;
+    text-align: right;
+  }
 
-	.#{$ns}-contentblockitem--pinnedvalue:nth-last-child(odd) {
-		margin-right: $xui-s-large;
-	}
+  .#{$ns}-contentblockitem--pinnedvalue:nth-last-child(odd) {
+    margin-right: $xui-s-large;
+  }
 }
 
 .#{$ns}-contentblockitem--primaryheading {
-	@include xui-text-medium;
-	color: $xui-color-grey-1;
-	font-weight: $xui-font-weight-emphasis;
-	margin-right: $xui-s-small;
+  @include xui-text-medium;
+  color: $xui-color-grey-1;
+  font-weight: $xui-font-weight-emphasis;
+  margin-right: $xui-s-small;
 }
 
 .#{$ns}-contentblockitem--secondaryheading {
-	@include xui-text-medium;
-	color: $xui-color-grey-1;
-	margin-right: $xui-s-small;
+  @include xui-text-medium;
+  color: $xui-color-grey-1;
+  margin-right: $xui-s-small;
 }
 
 .#{$ns}-contentblockitem--pinnedvalue {
-	font-size: $xui-font-size-medium;
-	font-weight: $xui-font-weight-deemphasis;
-	line-height: $xui-line-height-compact;
+  font-size: $xui-font-size-medium;
+  font-weight: $xui-font-weight-deemphasis;
+  line-height: $xui-line-height-compact;
 }
 
 .#{$ns}-contentblockitem--description {
-	display: block;
-	line-height: 1;
+  display: block;
+  line-height: 1;
 }
 
 .#{$ns}-contentblockitem--description--text {
-	color: $xui-color-grey-2;
-	@include xui-text-small;
-	margin-right: $xui-s-small;
+  color: $xui-color-grey-2;
+  @include xui-text-small;
+  margin-right: $xui-s-small;
 }
 
 .#{$ns}-contentblockitem--leftcontent-layout {
-	padding-top: $xui-s-standard;
+  padding-top: $xui-s-standard;
 }
 
-.#{$ns}-rowlink { // TODO: This isn't a component, nor is it content blocks, re-work it out
-	color: inherit;
-	display: block;
+.#{$ns}-rowlink {
+  // TODO: This isn't a component, nor is it content blocks, re-work it out
+  color: inherit;
+  display: block;
 }

@@ -1,4 +1,4 @@
-@import "../vars";
+@import '../vars';
 
 // Motion
 //
@@ -6,7 +6,7 @@
 //
 // Introduction: XUI utilises a number of transitions to help communicate change to the customer in a meaningful way.
 //
-// Flag: Under review
+// Flags: Under review
 //
 // Styleguide: Fundamentals.Motion
 
@@ -24,7 +24,6 @@
 // Scale down: Decrease size and animate opacity out: `.xui-transition-scaledown`
 //
 // Styleguide: Fundamentals.Motion.1
-
 
 // Custom transitions
 //
@@ -63,97 +62,97 @@
 // TODO: Review whether these are components or not
 
 .#{$ns}-transition-scaleup {
-	opacity: 1;
-	pointer-events: auto;
-	transform: scale(1);
-	transition-duration: $xui-motion-speed-fast;
-	transition-property: transform, opacity;
-	transition-timing-function: $xui-motion-curve-enter;
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+  transition-duration: $xui-motion-speed-fast;
+  transition-property: transform, opacity;
+  transition-timing-function: $xui-motion-curve-enter;
 }
 
 .#{$ns}-transition-scaledown {
-	opacity: 0;
-	pointer-events: none;
-	transform: scale(0.9);
-	transition-duration: $xui-motion-speed-fast;
-	transition-property: transform, opacity;
-	transition-timing-function: $xui-motion-curve-exit;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.9);
+  transition-duration: $xui-motion-speed-fast;
+  transition-property: transform, opacity;
+  transition-timing-function: $xui-motion-curve-exit;
 }
 
 .#{$ns}-transition-fadein {
-	opacity: 1;
-	pointer-events: auto;
-	transition-duration: $xui-motion-speed-fast;
-	transition-property: opacity;
-	transition-timing-function: $xui-motion-curve-enter;
+  opacity: 1;
+  pointer-events: auto;
+  transition-duration: $xui-motion-speed-fast;
+  transition-property: opacity;
+  transition-timing-function: $xui-motion-curve-enter;
 }
 
 .#{$ns}-transition-fadeout {
-	opacity: 0;
-	pointer-events: none;
-	transition-duration: $xui-motion-speed-fast;
-	transition-property: opacity;
-	transition-timing-function: $xui-motion-curve-exit;
+  opacity: 0;
+  pointer-events: none;
+  transition-duration: $xui-motion-speed-fast;
+  transition-property: opacity;
+  transition-timing-function: $xui-motion-curve-exit;
 }
 
 .#{$ns}-transition-grow {
-	max-height: 100vh;
-	opacity: 1;
-	overflow: hidden;
-	pointer-events: auto;
-	transition-duration: $xui-motion-speed-fast;
-	transition-property: max-height, opacity;
-	transition-timing-function: $xui-motion-curve-enter;
+  max-height: 100vh;
+  opacity: 1;
+  overflow: hidden;
+  pointer-events: auto;
+  transition-duration: $xui-motion-speed-fast;
+  transition-property: max-height, opacity;
+  transition-timing-function: $xui-motion-curve-enter;
 }
 
 .#{$ns}-transition-shrink {
-	max-height: 0;
-	opacity: 0;
-	overflow: hidden;
-	pointer-events: none;
-	transition-duration: $xui-motion-speed-fast;
-	transition-property: max-height, opacity;
-	transition-timing-function: $xui-motion-curve-exit;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition-duration: $xui-motion-speed-fast;
+  transition-property: max-height, opacity;
+  transition-timing-function: $xui-motion-curve-exit;
 }
 
 .#{$ns}-transition {
-	transition-duration: $xui-motion-speed-medium;
-	transition-property: all;
-	transition-timing-function: $xui-motion-curve-standard;
+  transition-duration: $xui-motion-speed-medium;
+  transition-property: all;
+  transition-timing-function: $xui-motion-curve-standard;
 }
 
 .#{$ns}-transition-speed-fast {
-	transition-duration: $xui-motion-speed-fast;
+  transition-duration: $xui-motion-speed-fast;
 }
 
 .#{$ns}-transition-speed-medium {
-	transition-duration: $xui-motion-speed-medium;
+  transition-duration: $xui-motion-speed-medium;
 }
 
 .#{$ns}-transition-speed-slow {
-	transition-duration: $xui-motion-speed-slow;
+  transition-duration: $xui-motion-speed-slow;
 }
 
 .#{$ns}-transition-curve-standard {
-	transition-timing-function: $xui-motion-curve-standard;
+  transition-timing-function: $xui-motion-curve-standard;
 }
 
 .#{$ns}-transition-curve-enter {
-	transition-timing-function: $xui-motion-curve-enter;
+  transition-timing-function: $xui-motion-curve-enter;
 }
 
 .#{$ns}-transition-curve-exit {
-	transition-timing-function: $xui-motion-curve-exit;
+  transition-timing-function: $xui-motion-curve-exit;
 }
 
 .#{$ns}-transition-delay-short {
-	transition-delay: $xui-motion-delay-short;
+  transition-delay: $xui-motion-delay-short;
 }
 
 .#{$ns}-transition-delay-medium {
-	transition-delay: $xui-motion-delay-medium;
+  transition-delay: $xui-motion-delay-medium;
 }
 
 .#{$ns}-transition-delay-long {
-	transition-delay: $xui-motion-delay-long;
+  transition-delay: $xui-motion-delay-long;
 }

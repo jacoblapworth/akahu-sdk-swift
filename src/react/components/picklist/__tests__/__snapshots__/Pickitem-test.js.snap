@@ -53,7 +53,11 @@ exports[`<Pickitem /> renders a multiselect pickitem with truncation 1`] = `
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label xui-pickitem-text-truncated"
           id="testPickitemCheckboxId"
@@ -213,7 +217,11 @@ exports[`<Pickitem /> renders a selected multiselect pickitem (overriding leftEl
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
           id="testPickitemCheckboxId"
@@ -262,7 +270,11 @@ exports[`<Pickitem /> renders a selected multiselect pickitem without selected s
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
           id="testPickitemCheckboxId"

@@ -1,0 +1,14 @@
+@import '../vars';
+@import '../mixins';
+
+// Must be placed inside an element with `position: relative`.
+.#{$ns}-touchtarget {
+  height: 100%;
+  left: 50%;
+  min-height: $xui-minimum-touch-target;
+  min-width: $xui-minimum-touch-target;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}

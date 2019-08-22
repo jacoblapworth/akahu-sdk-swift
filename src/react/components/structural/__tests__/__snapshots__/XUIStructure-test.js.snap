@@ -153,6 +153,9 @@ exports[`<XUI Structure/> Content block and content block item renders content b
             role="presentation"
           />
         </svg>
+        <div
+          className="xui-touchtarget"
+        />
       </button>
     </div>
   </div>
@@ -227,6 +230,9 @@ exports[`<XUI Structure/> Content block and content block item renders content b
             role="presentation"
           />
         </svg>
+        <div
+          className="xui-touchtarget"
+        />
       </button>
     </div>
   </div>
@@ -302,6 +308,9 @@ exports[`<XUI Structure/> Content block and content block item renders content b
             role="presentation"
           />
         </svg>
+        <div
+          className="xui-touchtarget"
+        />
       </button>
     </div>
   </div>
@@ -380,6 +389,9 @@ exports[`<XUI Structure/> Content block and content block item renders content b
             role="presentation"
           />
         </svg>
+        <div
+          className="xui-touchtarget"
+        />
       </button>
     </div>
   </div>

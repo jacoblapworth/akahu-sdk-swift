@@ -7,32 +7,31 @@ exports[`<DropDownHeader/> should render a back button if back button click hand
   <div
     className="xui-dropdown--header-container"
   >
-    <div
-      className="xui-dropdown--header-leftcontent"
+    <button
+      aria-label="Back"
+      className="xui-button xui-dropdown--headerbackbutton xui-button-icon-small xui-button-icon"
+      data-automationid={null}
+      disabled={false}
+      onClick={[Function]}
+      tabIndex={0}
+      type="button"
     >
-      <button
-        aria-label="Back"
-        className="xui-button xui-dropdown--headerbackbutton xui-button-icon-small xui-button-icon"
-        data-automationid={null}
-        disabled={false}
-        onClick={[Function]}
-        tabIndex={0}
-        type="button"
+      <svg
+        className="xui-icon"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
       >
-        <svg
-          className="xui-icon"
-          focusable="false"
-          height={13}
-          viewBox="0 0 14 13"
-          width={14}
-        >
-          <path
-            d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
-            role="presentation"
-          />
-        </svg>
-      </button>
-    </div>
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
   </div>
 </div>
 `;
@@ -44,31 +43,34 @@ exports[`<DropDownHeader/> should render all header contents in the correct orde
   <div
     className="xui-dropdown--header-container"
   >
+    <button
+      aria-label="Back"
+      className="xui-button xui-dropdown--headerbackbutton xui-button-icon-small xui-button-icon"
+      data-automationid={null}
+      disabled={false}
+      onClick={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <svg
+        className="xui-icon"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
     <div
       className="xui-dropdown--header-leftcontent"
     >
-      <button
-        aria-label="Back"
-        className="xui-button xui-dropdown--headerbackbutton xui-button-icon-small xui-button-icon"
-        data-automationid={null}
-        disabled={false}
-        onClick={[Function]}
-        tabIndex={0}
-        type="button"
-      >
-        <svg
-          className="xui-icon"
-          focusable="false"
-          height={13}
-          viewBox="0 0 14 13"
-          width={14}
-        >
-          <path
-            d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
-            role="presentation"
-          />
-        </svg>
-      </button>
       <div>
         left content
       </div>

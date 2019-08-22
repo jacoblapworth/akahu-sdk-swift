@@ -34,6 +34,9 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
           role="presentation"
         />
       </svg>
+      <div
+        className="xui-touchtarget"
+      />
     </button>
   </div>
   <div
@@ -85,6 +88,9 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
           role="presentation"
         />
       </svg>
+      <div
+        className="xui-touchtarget"
+      />
     </button>
   </div>
   <div
@@ -136,6 +142,9 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
           role="presentation"
         />
       </svg>
+      <div
+        className="xui-touchtarget"
+      />
     </button>
   </div>
   <div
@@ -187,6 +196,9 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
           role="presentation"
         />
       </svg>
+      <div
+        className="xui-touchtarget"
+      />
     </button>
   </div>
   <abbr

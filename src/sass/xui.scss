@@ -27,77 +27,78 @@
 
 // Unopinionated global tooling
 // -----------------------------------------------------------------------------
-@import "vars";
-@import "mixins";
+@import 'vars';
+@import 'mixins';
 
 // Opinionated global resets
 // -----------------------------------------------------------------------------
-@import "3-reset/reset";
+@import '3-reset/reset';
 
 // Application basics
 // -----------------------------------------------------------------------------
-@import "4-base/base";
+@import '4-base/base';
 
 // Application structure and layout
 // -----------------------------------------------------------------------------
-@import "5-structure/page.content";
-@import "5-structure/gridarea-header";
-@import "5-structure/gridarea-detail";
-@import "5-structure/gridarea-summary";
-@import "5-structure/gridarea-master";
-@import "5-structure/gridarea-primary";
-@import "5-structure/base";
-@import "5-structure/compositions/detail";
-@import "5-structure/compositions/detailheader";
-@import "5-structure/compositions/split";
-@import "5-structure/compositions/splitheader";
-@import "5-structure/compositions/detailsummary";
-@import "5-structure/compositions/detailsummaryheader";
-@import "5-structure/compositions/masterdetail";
-@import "5-structure/compositions/masterdetailheader";
-@import "5-structure/compositions/masterdetailsummary";
-@import "5-structure/compositions/masterdetailsummaryheader";
+@import '5-structure/page.content';
+@import '5-structure/gridarea-header';
+@import '5-structure/gridarea-detail';
+@import '5-structure/gridarea-summary';
+@import '5-structure/gridarea-master';
+@import '5-structure/gridarea-primary';
+@import '5-structure/base';
+@import '5-structure/compositions/detail';
+@import '5-structure/compositions/detailheader';
+@import '5-structure/compositions/split';
+@import '5-structure/compositions/splitheader';
+@import '5-structure/compositions/detailsummary';
+@import '5-structure/compositions/detailsummaryheader';
+@import '5-structure/compositions/masterdetail';
+@import '5-structure/compositions/masterdetailheader';
+@import '5-structure/compositions/masterdetailsummary';
+@import '5-structure/compositions/masterdetailsummaryheader';
 
 // Visual containers
 // -----------------------------------------------------------------------------
-@import "6-containers/panels";
+@import '6-containers/panels';
 
 // Components
 // -----------------------------------------------------------------------------
-@import "7-components/icons";
-@import "7-components/illustrations";
-@import "7-components/buttons";
-@import "7-components/accordion";
-@import "7-components/actions";
-@import "7-components/avatars";
-@import "7-components/avatars.groups";
-@import "7-components/datepicker";
-@import "7-components/popovers";
-@import "7-components/contentblocks";
-@import "7-components/table";
-@import "7-components/forms";
-@import "7-components/loaders";
-@import "7-components/isolationheader";
-@import "7-components/navigation";
-@import "7-components/modals";
-@import "7-components/motion";
-@import "7-components/pills";
-@import "7-components/progressindicator";
-@import "7-components/stepper";
-@import "7-components/usermessaging";
-@import "7-components/overview";
-@import "7-components/dropdown";
-@import "7-components/colors";
-@import "7-components/chart";
-@import "7-components/typography";
-@import "7-components/globalstates";
-@import "7-components/autocompleter";
-@import "7-components/rolloverCheckbox";
-@import "7-components/toggle";
+@import '7-components/icons';
+@import '7-components/illustrations';
+@import '7-components/buttons';
+@import '7-components/accordion';
+@import '7-components/actions';
+@import '7-components/avatars';
+@import '7-components/avatars.groups';
+@import '7-components/datepicker';
+@import '7-components/popovers';
+@import '7-components/contentblocks';
+@import '7-components/table';
+@import '7-components/forms';
+@import '7-components/loaders';
+@import '7-components/isolationheader';
+@import '7-components/navigation';
+@import '7-components/modals';
+@import '7-components/motion';
+@import '7-components/pills';
+@import '7-components/progressindicator';
+@import '7-components/stepper';
+@import '7-components/usermessaging';
+@import '7-components/overview';
+@import '7-components/dropdown';
+@import '7-components/colors';
+@import '7-components/chart';
+@import '7-components/typography';
+@import '7-components/globalstates';
+@import '7-components/autocompleter';
+@import '7-components/rolloverCheckbox';
+@import '7-components/toggle';
+@import '7-components/touchtarget';
 
 // Utilities
 // -----------------------------------------------------------------------------
-@import "99-utils/animation-keyframes"; // XUI keyframes. Should only be imported once as they are global
-@import "99-utils/utilities";
-@import "99-utils/marginpadding";
-@import "99-utils/grid";
+@import '99-utils/animation-keyframes'; // XUI keyframes. Should only be imported once as they are global
+@import '99-utils/utilities';
+@import '99-utils/marginpadding';
+@import '99-utils/grid';

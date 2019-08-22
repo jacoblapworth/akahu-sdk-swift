@@ -1,4 +1,3 @@
-
 // Toast
 //
 // Components: Toast
@@ -10,7 +9,6 @@
 // Introduction: Toasts are used for visual confirmation of user actions or system events.
 //
 // Styleguide: Building Blocks.Alerts.Toast
-
 
 // Best Practice
 //
@@ -39,12 +37,13 @@
 //
 // Markup:
 // <div class="xui-toast xui-toast-layout" role="status">
-// 	<button title="Close" class="xui-button xui-toast--close xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
-// 		<svg focusable="false" class="xui-icon" width="12" height="12" viewBox="0 0 12 12">
-// 			<use xlink:href="#xui-icon-cross" role="presentation" />
-// 		</svg>
-// 	</button>
-// 	<p class="xui-toast--message">Bill created</p>
+//   <button title="Close" class="xui-button xui-toast--close xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+//     <svg focusable="false" class="xui-icon" width="12" height="12" viewBox="0 0 12 12">
+//       <use xlink:href="#xui-icon-cross" role="presentation" />
+//     </svg>
+//     <div class="xui-touchtarget"></div>
+//   </button>
+//   <p class="xui-toast--message">Bill created</p>
 // </div>
 //
 // Styleguide: Building Blocks.Alerts.Toast.2
@@ -70,15 +69,16 @@
 //
 // Markup:
 // <div class="xui-toast xui-toast-layout" role="status">
-// 	<button title="Close" class="xui-button xui-toast--close xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
-// 		<svg focusable="false" class="xui-icon" width="12" height="12" viewBox="0 0 12 12">
-// 			<use xlink:href="#xui-icon-cross" role="presentation" />
-// 		</svg>
-// 	</button>
-// 	<p class="xui-toast--message">Invoice deleted</p>
-// 	<div class="xui-actions xui-toast--actions">
-// 		<button type="button" class="xui-button xui-toast--action xui-button-borderless-main xui-button-small">Undo</button>
-// 	</div>
+//   <button title="Close" class="xui-button xui-toast--close xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+//     <svg focusable="false" class="xui-icon" width="12" height="12" viewBox="0 0 12 12">
+//       <use xlink:href="#xui-icon-cross" role="presentation" />
+//     </svg>
+//     <div class="xui-touchtarget"></div>
+//   </button>
+//   <p class="xui-toast--message">Invoice deleted</p>
+//   <div class="xui-actions xui-toast--actions">
+//     <button type="button" class="xui-button xui-toast--action xui-button-borderless-main xui-button-small">Undo</button>
+//   </div>
 // </div>
 //
 // Styleguide: Building Blocks.Alerts.Toast.4
@@ -91,15 +91,16 @@
 //
 // Markup:
 // <div class="xui-toast xui-toast-layout" role="status">
-// 	<button title="Close" class="xui-button xui-toast--close xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
-// 		<svg focusable="false" class="xui-icon" width="12" height="12" viewBox="0 0 12 12">
-// 			<use xlink:href="#xui-icon-cross" role="presentation" />
-// 		</svg>
-// 	</button>
-// 	<p class="xui-toast--message">Smart invoicing has been set as your default view. Update this anytime from invoice settings.</p>
-// 	<div class="xui-toast--actions">
-// 		<button type="button" class="xui-button xui-toast--action xui-button-borderless-main xui-button-small">Invoice settings</button>
-// 	</div>
+//   <button title="Close" class="xui-button xui-toast--close xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+//     <svg focusable="false" class="xui-icon" width="12" height="12" viewBox="0 0 12 12">
+//       <use xlink:href="#xui-icon-cross" role="presentation" />
+//     </svg>
+//     <div class="xui-touchtarget"></div>
+//   </button>
+//   <p class="xui-toast--message">Smart invoicing has been set as your default view. Update this anytime from invoice settings.</p>
+//   <div class="xui-toast--actions">
+//     <button type="button" class="xui-button xui-toast--action xui-button-borderless-main xui-button-small">Invoice settings</button>
+//   </div>
 // </div>
 //
 // Styleguide: Building Blocks.Alerts.Toast.5
@@ -121,10 +122,10 @@
 //
 // Markup:
 // <div class="xui-toast xui-toast-layout xui-toast-negative" role="status">
-// 	<p class="xui-toast--message">No connection</p>
+//   <p class="xui-toast--message">No connection</p>
 // </div>
 // <div class="xui-toast xui-toast-layout xui-toast-positive" role="status">
-// 	<p class="xui-toast--message">Connected</p>
+//   <p class="xui-toast--message">Connected</p>
 // </div>
 //
 // Styleguide: Building Blocks.Alerts.Toast.6

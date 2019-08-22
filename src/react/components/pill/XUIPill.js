@@ -103,14 +103,15 @@ export default class XUIPill extends PureComponent {
 
           const deleteButton = onDeleteClick && (
             <XUIIconButton
-              icon={crossSmall}
               ariaLabel={deleteButtonLabel}
-              size={size}
               className={`${baseClass}--button-icon`}
+              icon={crossSmall}
+              disableTouchTargetFix={size === 'xsmall'}
               isInverted={isInvalid}
               onClick={onDeleteClick}
-              title={deleteButtonLabel}
               qaHook={qaHook && `${qaHook}--delete`}
+              size={size}
+              title={deleteButtonLabel}
             />
           );
 

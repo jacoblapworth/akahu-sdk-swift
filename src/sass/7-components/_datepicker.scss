@@ -1,5 +1,5 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Datepicker
 //
@@ -36,6 +36,7 @@
 //   <header class="xui-datepicker--header">
 //     <button type="button" class="xui-button xui-button-icon xui-button-icon-medium xui-datepicker--prevbutton" aria-label="Go to previous month" title="Go to previous month">
 //       <svg focusable="false" class="xui-icon xui-icon-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //     <form class="xui-datepicker--heading-dates">
 //       <div class="xui-datepicker--heading xui-datepicker--heading-month">
@@ -62,6 +63,7 @@
 //     </form>
 //     <button type="button" class="xui-button xui-button-icon xui-button-icon-medium xui-datepicker--nextbutton" aria-label="Go to next month" title="Go to next month">
 //       <svg focusable="false" class="xui-icon xui-icon-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //   </header>
 //   <div class="xui-datepicker--body" role="grid" aria-label="Select a day">
@@ -217,8 +219,6 @@
 // Labels: `xui-datepicker--heading-label`
 //
 // Styleguide: Compounds.CollectingInput.Datepicker.2
-
-
 
 // Icon buttons
 //
@@ -465,405 +465,407 @@ $xui-datepicker-day-size: $xui-control-size-standard;
 $xui-datepicker-day-size-compact: 30px;
 
 @mixin xui-datepicker-highlight-size-left() {
-	border-radius: $xui-datepicker-day-size / 2 0 0 $xui-datepicker-day-size / 2;
-	width: $xui-datepicker-day-size / 2;
-	.#{$ns}-datepicker-compact & {
-		border-radius: $xui-datepicker-day-size-compact / 2 0 0 $xui-datepicker-day-size-compact / 2;
-		width: $xui-datepicker-day-size-compact / 2;
-	}
+  border-radius: $xui-datepicker-day-size / 2 0 0 $xui-datepicker-day-size / 2;
+  width: $xui-datepicker-day-size / 2;
+  .#{$ns}-datepicker-compact & {
+    border-radius: $xui-datepicker-day-size-compact / 2 0 0 $xui-datepicker-day-size-compact / 2;
+    width: $xui-datepicker-day-size-compact / 2;
+  }
 }
 @mixin xui-datepicker-highlight-size-right() {
-	border-radius: 0 $xui-datepicker-day-size / 2 $xui-datepicker-day-size / 2 0;
-	width: $xui-datepicker-day-size / 2;
-	.#{$ns}-datepicker-compact & {
-		border-radius: 0 $xui-datepicker-day-size-compact / 2 $xui-datepicker-day-size-compact / 2 0;
-		width: $xui-datepicker-day-size-compact / 2;
-	}
+  border-radius: 0 $xui-datepicker-day-size / 2 $xui-datepicker-day-size / 2 0;
+  width: $xui-datepicker-day-size / 2;
+  .#{$ns}-datepicker-compact & {
+    border-radius: 0 $xui-datepicker-day-size-compact / 2 $xui-datepicker-day-size-compact / 2 0;
+    width: $xui-datepicker-day-size-compact / 2;
+  }
 }
 
 .#{$ns}-datepicker {
-	border: none;
-	font-size: 0.9375rem;
-	padding-bottom: $xui-s-xsmall;
-	position: relative;
-	width: 100%;
+  border: none;
+  font-size: 0.9375rem;
+  padding-bottom: $xui-s-xsmall;
+  position: relative;
+  width: 100%;
 
-	&.#{$ns}-datepicker-compact {
-		padding-bottom: $xui-s-2xsmall;
-	}
+  &.#{$ns}-datepicker-compact {
+    padding-bottom: $xui-s-2xsmall;
+  }
 }
 
 .#{$ns}-datepicker--header {
-	@include xui-flex-children(center, space-between);
-	flex-flow: row nowrap;
-	padding: $xui-s-small;
+  @include xui-flex-children(center, space-between);
+  flex-flow: row nowrap;
+  padding: $xui-s-small;
 
-	.#{$ns}-datepicker-compact & {
-		padding: $xui-s-xsmall;
-	}
+  .#{$ns}-datepicker-compact & {
+    padding: $xui-s-xsmall;
+  }
 }
 
 .#{$ns}-datepicker--monthselect-layout {
-	right: 0;
-	text-align: right;
-	text-align-last: right;
+  right: 0;
+  text-align: right;
+  text-align-last: right;
 }
 
 .#{$ns}-datepicker--monthoption-layout {
-	text-align: left;
-	text-align-last: left;
+  text-align: left;
+  text-align-last: left;
 }
 
 .#{$ns}-datepicker--prevbutton {
-	@include xui-margin-left($xui-s-2xsmall);
-	min-width: $xui-datepicker-day-size;
-	.#{$ns}-datepicker-compact & {
-		min-width: $xui-datepicker-day-size-compact;
-	}
+  @include xui-margin-left($xui-s-2xsmall);
+  min-width: $xui-datepicker-day-size;
+  .#{$ns}-datepicker-compact & {
+    min-width: $xui-datepicker-day-size-compact;
+  }
 }
 
 .#{$ns}-datepicker--nextbutton {
-	@include xui-margin-right($xui-s-2xsmall);
-	min-width: $xui-datepicker-day-size;
-	.#{$ns}-datepicker-compact & {
-		min-width: $xui-datepicker-day-size-compact;
-	}
+  @include xui-margin-right($xui-s-2xsmall);
+  min-width: $xui-datepicker-day-size;
+  .#{$ns}-datepicker-compact & {
+    min-width: $xui-datepicker-day-size-compact;
+  }
 }
 
 // This should be deprecated in favour of adding a xui-u-hidden-visually class on the button SVG
 .#{$ns}-datepicker--button-is-disabled {
-	cursor: default;
-	&::before {
-		color: $xui-datepicker-button-disabled-color;
-	}
+  cursor: default;
+  &::before {
+    color: $xui-datepicker-button-disabled-color;
+  }
 }
 
 .#{$ns}-datepicker--heading {
-	line-height: $xui-line-height-compact;
-	position: relative;
+  line-height: $xui-line-height-compact;
+  position: relative;
 }
 
 .#{$ns}-datepicker--heading-month {
-	font-weight: $xui-font-weight-emphasis;
+  font-weight: $xui-font-weight-emphasis;
 }
 
 .#{$ns}-datepicker--yearselect-layout {
-	left: 0;
-	text-align: left;
+  left: 0;
+  text-align: left;
 }
 
 .#{$ns}-datepicker--heading--selection {
-	pointer-events: none;
+  pointer-events: none;
 }
 
 .#{$ns}-datepicker--heading-select {
-	appearance: none;
-	background: none;
-	border: none;
-	cursor: pointer;
-	font-family: $xui-font-family;
-	font-size: 1em;
-	height: 100%;
-	left: 0;
-	opacity: 0.01;
-	position: absolute;
-	top: 0;
-	width: 100%;
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: $xui-font-family;
+  font-size: 1em;
+  height: 100%;
+  left: 0;
+  opacity: 0.01;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 .#{$ns}-datepicker--heading-select-has-focus {
-	@include xui-state-focus-shadow;
+  @include xui-state-focus-shadow;
 }
 
 .#{$ns}-datepicker--heading-label.#{$ns}-button-standard {
-	position: static;
-	user-select: none;
+  position: static;
+  user-select: none;
 
-	&:hover {
-		cursor: default;
-	}
+  &:hover {
+    cursor: default;
+  }
 }
 
 .#{$ns}-datepicker--heading--selection-bold {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .#{$ns}-datepicker--heading-dates {
-	@include xui-flex-children;
+  @include xui-flex-children;
 
-	:first-child .#{$ns}-button {
-		border-bottom-right-radius: 0;
-		border-right: none;
-		border-top-right-radius: 0;
-	}
+  :first-child .#{$ns}-button {
+    border-bottom-right-radius: 0;
+    border-right: none;
+    border-top-right-radius: 0;
+  }
 
-	:last-child .#{$ns}-button {
-		border-bottom-left-radius: 0;
-		border-top-left-radius: 0;
-	}
+  :last-child .#{$ns}-button {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
 }
 
 .#{$ns}-datepicker--body {
-	border: 0;
-	margin: 0;
-	overflow: hidden;
-	width: 100%;
+  border: 0;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
 
-	&:focus {
-		outline: none;
-	}
+  &:focus {
+    outline: none;
+  }
 }
 
 .#{$ns}-datepicker--week {
-	border-bottom: 1px solid transparent;
-	border-top: 1px solid transparent;
-	display: flex;
-	justify-content: space-between;
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  display: flex;
+  justify-content: space-between;
 }
 
 .#{$ns}-datepicker--weekdays {
-	border-bottom: $xui-border-muted;
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: $xui-s-xsmall;
-	padding-bottom: $xui-s-xsmall;
-	padding-left: $xui-s-xsmall;
-	padding-right: $xui-s-xsmall;
+  border-bottom: $xui-border-muted;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $xui-s-xsmall;
+  padding-bottom: $xui-s-xsmall;
+  padding-left: $xui-s-xsmall;
+  padding-right: $xui-s-xsmall;
 
-	.#{$ns}-datepicker-compact & {
-		margin-bottom: $xui-s-2xsmall;
-		padding: $xui-s-2xsmall;
-	}
+  .#{$ns}-datepicker-compact & {
+    margin-bottom: $xui-s-2xsmall;
+    padding: $xui-s-2xsmall;
+  }
 }
 
 .#{$ns}-datepicker--day {
-	border: 0;
-	box-sizing: content-box;
-	cursor: pointer;
-	display: flex;
-	flex: 1 0 auto;
-	font-size: inherit;
-	height: $xui-datepicker-day-size;
-	justify-content: center;
-	line-height: 1;
-	position: relative;
-	text-align: center;
-	user-select: none;
-	width: $xui-datepicker-day-size;
-	z-index: 0;
+  border: 0;
+  box-sizing: content-box;
+  cursor: pointer;
+  display: flex;
+  flex: 1 0 auto;
+  font-size: inherit;
+  height: $xui-datepicker-day-size;
+  justify-content: center;
+  line-height: 1;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  width: $xui-datepicker-day-size;
+  z-index: 0;
 
-	&::after, &::before {
-		content: '';
-		height: 100%;
-		position: absolute;
-		top: 0;
-		width: 50%;
-	}
+  &::after,
+  &::before {
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 50%;
+  }
 
-	&::after {
-		left: 50%;
-	}
-	&::before {
-		right: 50%;
-	}
+  &::after {
+    left: 50%;
+  }
+  &::before {
+    right: 50%;
+  }
 
-	&:active, &:focus {
-		outline: none;
-	}
+  &:active,
+  &:focus {
+    outline: none;
+  }
 
-	&:first-of-type {
-		padding-left: $xui-s-xsmall;
-	}
+  &:first-of-type {
+    padding-left: $xui-s-xsmall;
+  }
 
-	&:last-of-type {
-		padding-right: $xui-s-xsmall;
-	}
+  &:last-of-type {
+    padding-right: $xui-s-xsmall;
+  }
 
-	.#{$ns}-datepicker-compact & {
-		height: $xui-datepicker-day-size-compact;
-		width: $xui-datepicker-day-size-compact;
+  .#{$ns}-datepicker-compact & {
+    height: $xui-datepicker-day-size-compact;
+    width: $xui-datepicker-day-size-compact;
 
-		&:first-of-type {
-			padding-left: $xui-s-2xsmall;
-		}
+    &:first-of-type {
+      padding-left: $xui-s-2xsmall;
+    }
 
-		&:last-of-type {
-			padding-right: $xui-s-2xsmall;
-		}
-	}
+    &:last-of-type {
+      padding-right: $xui-s-2xsmall;
+    }
+  }
 }
 
 .#{$ns}-datepicker--day-selectable {
-	&:not(.#{$ns}-datepicker--day-is-in-range) {
-		&:active, &:focus {
-			.#{$ns}-datepicker--day--time {
-				background-color: $xui-datepicker-day-focus-bg-color;
-			}
-		}
-	}
-	&:not(.#{$ns}-datepicker--day-is-in-selected-range):active {
-		.#{$ns}-datepicker--day--time {
-			background-color: $xui-datepicker-day-bg-color;
-		}
-	}
+  &:not(.#{$ns}-datepicker--day-is-in-range) {
+    &:active,
+    &:focus {
+      .#{$ns}-datepicker--day--time {
+        background-color: $xui-datepicker-day-focus-bg-color;
+      }
+    }
+  }
+  &:not(.#{$ns}-datepicker--day-is-in-selected-range):active {
+    .#{$ns}-datepicker--day--time {
+      background-color: $xui-datepicker-day-bg-color;
+    }
+  }
 }
 
 .#{$ns}-datepicker--day--time {
-	@include xui-flex-children;
-	background: transparent;
-	border-radius: 50%;
-	height: $xui-datepicker-day-size;
-	pointer-events: none;
-	position: relative;
-	width: $xui-datepicker-day-size;
-	z-index: 1;
+  @include xui-flex-children;
+  background: transparent;
+  border-radius: 50%;
+  height: $xui-datepicker-day-size;
+  pointer-events: none;
+  position: relative;
+  width: $xui-datepicker-day-size;
+  z-index: 1;
 
-	.#{$ns}-datepicker-compact & {
-		height: $xui-datepicker-day-size-compact;
-		width: $xui-datepicker-day-size-compact;
-	}
+  .#{$ns}-datepicker-compact & {
+    height: $xui-datepicker-day-size-compact;
+    width: $xui-datepicker-day-size-compact;
+  }
 }
 
 .#{$ns}-datepicker--weekday {
-	@include xui-text-small;
-	color: $xui-datepicker-weekday-color;
-	cursor: default;
-	font-weight: normal;
-	text-align: center;
-	text-decoration: none;
-	user-select: none;
+  @include xui-text-small;
+  color: $xui-datepicker-weekday-color;
+  cursor: default;
+  font-weight: normal;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
 
-	.#{$ns}-datepicker-compact & {
-		@include xui-text-xsmall;
-	}
+  .#{$ns}-datepicker-compact & {
+    @include xui-text-xsmall;
+  }
 }
 
 .#{$ns}-datepicker--weekdaywrapper {
-	flex: 1;
-	text-align: center;
+  flex: 1;
+  text-align: center;
 }
 
 .#{$ns}-datepicker--day-is-othermonth {
-	color: $xui-datepicker-othermonth-color;
+  color: $xui-datepicker-othermonth-color;
 }
 
 .#{$ns}-datepicker--day-is-today {
-	color: $xui-datepicker-today-color;
-	font-weight: bold;
+  color: $xui-datepicker-today-color;
+  font-weight: bold;
 }
 
 .#{$ns}-datepicker--day-is-selected {
-	&:not(.#{$ns}-datepicker--day-is-selected-middle) {
-		.#{$ns}-datepicker--day--time {
-			background: $xui-datepicker-selected-bg-color;
-			box-shadow: 0 0 0 0 $xui-datepicker-selected-shadow-color;
-			color: $xui-datepicker-selected-color;
-			transition: box-shadow $xui-motion-speed-fast $xui-motion-curve-standard;
-		}
-	}
-	&:focus {
-		.#{$ns}-datepicker--day--time {
-			background: $xui-datepicker-selected-focus-bg-color;
-		}
-	}
-	&:active,
-	&:active:focus {
-		.#{$ns}-datepicker--day--time {
-			box-shadow: 0 0 0 2px $xui-datepicker-selected-active-shadow-color;
-		}
-	}
+  &:not(.#{$ns}-datepicker--day-is-selected-middle) {
+    .#{$ns}-datepicker--day--time {
+      background: $xui-datepicker-selected-bg-color;
+      box-shadow: 0 0 0 0 $xui-datepicker-selected-shadow-color;
+      color: $xui-datepicker-selected-color;
+      transition: box-shadow $xui-motion-speed-fast $xui-motion-curve-standard;
+    }
+  }
+  &:focus {
+    .#{$ns}-datepicker--day--time {
+      background: $xui-datepicker-selected-focus-bg-color;
+    }
+  }
+  &:active,
+  &:active:focus {
+    .#{$ns}-datepicker--day--time {
+      box-shadow: 0 0 0 2px $xui-datepicker-selected-active-shadow-color;
+    }
+  }
 }
 
 .#{$ns}-datepicker--day-is-disabled {
-	cursor: not-allowed;
-	.#{$ns}-datepicker--day--time {
-		color: $xui-datepicker-disabled-color;
-	}
+  cursor: not-allowed;
+  .#{$ns}-datepicker--day--time {
+    color: $xui-datepicker-disabled-color;
+  }
 }
 
 .#{$ns}-datepicker--day-is-hovered-start {
-	&::before {
-		background: $xui-datepicker-hover-bg-color;
-		@include xui-datepicker-highlight-size-left();
-	}
-	&::after {
-		background: $xui-datepicker-hover-bg-color;
-	}
+  &::before {
+    background: $xui-datepicker-hover-bg-color;
+    @include xui-datepicker-highlight-size-left();
+  }
+  &::after {
+    background: $xui-datepicker-hover-bg-color;
+  }
 }
 
 .#{$ns}-datepicker--day-is-hovered-middle {
-	&::before {
-		background: $xui-datepicker-hover-bg-color;
-	}
-	&::after {
-		background: $xui-datepicker-hover-bg-color;
-	}
+  &::before {
+    background: $xui-datepicker-hover-bg-color;
+  }
+  &::after {
+    background: $xui-datepicker-hover-bg-color;
+  }
 }
 
 .#{$ns}-datepicker--day-is-hovered-end {
-	&::before {
-		background: $xui-datepicker-hover-bg-color;
-	}
-	&::after {
-		background: $xui-datepicker-hover-bg-color;
-		@include xui-datepicker-highlight-size-right();
-	}
+  &::before {
+    background: $xui-datepicker-hover-bg-color;
+  }
+  &::after {
+    background: $xui-datepicker-hover-bg-color;
+    @include xui-datepicker-highlight-size-right();
+  }
 }
 
 .#{$ns}-datepicker--day-is-selected-start {
-	&::before {
-		background: $xui-datepicker-selected-bg-color;
-		@include xui-datepicker-highlight-size-left();
-	}
-	&::after {
-		background: $xui-datepicker-selected-bg-color;
-	}
-	.#{$ns}-datepicker--day--time {
-		color: $xui-datepicker-selected-color;
-	}
+  &::before {
+    background: $xui-datepicker-selected-bg-color;
+    @include xui-datepicker-highlight-size-left();
+  }
+  &::after {
+    background: $xui-datepicker-selected-bg-color;
+  }
+  .#{$ns}-datepicker--day--time {
+    color: $xui-datepicker-selected-color;
+  }
 }
 
 .#{$ns}-datepicker--day-is-selected-middle {
-	&::before {
-		background: $xui-datepicker-selected-bg-color;
-	}
-	&::after {
-		background: $xui-datepicker-selected-bg-color;
-	}
-	.#{$ns}-datepicker--day--time {
-		color: $xui-datepicker-selected-color;
-	}
+  &::before {
+    background: $xui-datepicker-selected-bg-color;
+  }
+  &::after {
+    background: $xui-datepicker-selected-bg-color;
+  }
+  .#{$ns}-datepicker--day--time {
+    color: $xui-datepicker-selected-color;
+  }
 }
 
-
 .#{$ns}-datepicker--day-is-selected-end {
-	&::before {
-		background: $xui-datepicker-selected-bg-color;
-	}
-	&::after {
-		background: $xui-datepicker-selected-bg-color;
-		@include xui-datepicker-highlight-size-right();
-	}
-	.#{$ns}-datepicker--day--time {
-		color: $xui-datepicker-selected-color;
-	}
+  &::before {
+    background: $xui-datepicker-selected-bg-color;
+  }
+  &::after {
+    background: $xui-datepicker-selected-bg-color;
+    @include xui-datepicker-highlight-size-right();
+  }
+  .#{$ns}-datepicker--day--time {
+    color: $xui-datepicker-selected-color;
+  }
 }
 
 .#{$ns}-datepicker--day-is-selected-hovered-start {
-	&::before {
-		background: $xui-datepicker-hover-bg-color;
-		@include xui-datepicker-highlight-size-left();
-	}
-	&::after {
-		background: $xui-datepicker-hover-bg-color;
-	}
+  &::before {
+    background: $xui-datepicker-hover-bg-color;
+    @include xui-datepicker-highlight-size-left();
+  }
+  &::after {
+    background: $xui-datepicker-hover-bg-color;
+  }
 }
 
 .#{$ns}-datepicker--day-is-selected-hovered-end {
-	&::before {
-		background: $xui-datepicker-hover-bg-color;
-	}
-	&::after {
-		background: $xui-datepicker-hover-bg-color;
-		@include xui-datepicker-highlight-size-right();
-	}
+  &::before {
+    background: $xui-datepicker-hover-bg-color;
+  }
+  &::after {
+    background: $xui-datepicker-hover-bg-color;
+    @include xui-datepicker-highlight-size-right();
+  }
 }

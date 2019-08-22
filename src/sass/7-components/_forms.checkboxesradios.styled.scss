@@ -114,7 +114,7 @@
     align-self: center;
     flex-shrink: 0; // Prevent SVG from shrinking when label text is long
     height: $xui-s-xlarge;
-    pointer-events: none;
+    position: relative;
     width: $xui-s-xlarge;
   }
 

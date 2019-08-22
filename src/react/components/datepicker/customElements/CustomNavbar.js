@@ -127,15 +127,16 @@ export default class CustomNavbar extends PureComponent {
     return (
       <header className={classNames.navBar}>
         <XUIIconButton
-          icon={arrow}
-          rotation="90"
-          size={controlSize}
-          isDisabled={!showPreviousButton}
+          ariaLabel={labels.previousMonth}
           className={classNames.navButtonPrev}
+          disableTouchTargetFix={isCompact}
+          icon={arrow}
+          isDisabled={!showPreviousButton}
           // Can't just pass a function because DayPicker expects a function callback arg
           onClick={() => previousClickHandler()}
-          ariaLabel={labels.previousMonth}
           qaHook={qaHook && `${qaHook}--previous-month-button`}
+          rotation="90"
+          size={controlSize}
         />
 
         <div className={`${baseClassName}--heading-dates`}>
@@ -144,15 +145,16 @@ export default class CustomNavbar extends PureComponent {
         </div>
 
         <XUIIconButton
-          icon={arrow}
-          rotation="270"
-          size={controlSize}
-          isDisabled={!showNextButton}
+          ariaLabel={labels.nextMonth}
           className={classNames.navButtonNext}
+          disableTouchTargetFix={isCompact}
+          icon={arrow}
+          isDisabled={!showNextButton}
           // Can't just pass a function because DayPicker expects a function callback arg
           onClick={() => nextClickHandler()}
-          ariaLabel={labels.nextMonth}
           qaHook={qaHook && `${qaHook}--next-month-button`}
+          rotation="270"
+          size={controlSize}
         />
       </header>
     );

@@ -66,7 +66,11 @@ exports[`< Picklist /> example taking settings from first child and giving to al
           />
           <div
             className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"
-          />
+          >
+            <div
+              className="xui-touchtarget"
+            />
+          </div>
           <span
             className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label"
             id="testPickitemCheckboxId"
@@ -112,7 +116,11 @@ exports[`< Picklist /> example taking settings from first child and giving to al
           />
           <div
             className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"
-          />
+          >
+            <div
+              className="xui-touchtarget"
+            />
+          </div>
           <span
             className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label"
             id="testPickitemCheckboxId"

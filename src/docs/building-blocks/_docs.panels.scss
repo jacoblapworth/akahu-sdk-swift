@@ -1,4 +1,3 @@
-
 // Panel
 //
 // Teaser: Top-level container for grouping page content, that gives definition against the standard grey page.
@@ -73,6 +72,7 @@
 //     <div class="xui-panel--heading xui-margin-left-small">Panel heading</div>
 //     <button type="button" class="xui-button xui-button-icon xui-button-icon-medium" title="More options" aria-label="More options">
 //       <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-overflow" role="presentation" /></svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //   </header>
 // </div>
@@ -212,6 +212,7 @@
 //               <use xlink:href="#xui-icon-overflow"></use>
 //             </svg>
 //           </div>
+//           <div class="xui-touchtarget"></div>
 //         </button>
 //       </div>
 //     </li>
@@ -236,6 +237,7 @@
 //               <use xlink:href="#xui-icon-overflow"></use>
 //             </svg>
 //           </div>
+//           <div class="xui-touchtarget"></div>
 //         </button>
 //       </div>
 //     </li>
@@ -259,6 +261,7 @@
 //             <svg focusable="false" class="xui-icon">
 //               <use xlink:href="#xui-icon-overflow"></use>
 //             </svg>
+//             <div class="xui-touchtarget"></div>
 //           </div>
 //         </button>
 //       </div>

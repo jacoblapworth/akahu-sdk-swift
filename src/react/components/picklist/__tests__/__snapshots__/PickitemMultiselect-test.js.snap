@@ -26,7 +26,11 @@ exports[`<PickitemMultiselect /> basic example 1`] = `
       />
       <div
         className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
-      />
+      >
+        <div
+          className="xui-touchtarget"
+        />
+      </div>
       <span
         className="xui-styledcheckboxradio--label xui-pickitem--text xui-pickitem-multiselect--label"
         id="testPickitemCheckboxId"
@@ -68,7 +72,11 @@ exports[`<PickitemMultiselect /> is selected, adds truncation and custom classes
       />
       <div
         className="xui-styledcheckboxradio--checkbox xui-pickitem--input"
-      />
+      >
+        <div
+          className="xui-touchtarget"
+        />
+      </div>
       <span
         className="xui-styledcheckboxradio--label xui-pickitem--text xui-pickitem-multiselect--label xui-pickitem-text-truncated"
         id="testPickitemCheckboxId"

@@ -200,7 +200,9 @@
 //           <th class="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first" tabindex="-1">&nbsp;
 //             <label class="xui-table--checkbox-head xui-styledcheckboxradio" role="presentation">
 //               <input type="checkbox" tabindex="0" aria-label="Select all rows" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
-//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div>
+//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                 <div class="xui-touchtarget"></div>
+//               </div>
 //             </label>
 //           </th>
 //           <th class="xui-table--cell xui-heading-separator xui-table--sortbutton" role="button" tabindex="0">
@@ -224,7 +226,15 @@
 //       </thead>
 //       <tbody class="xui-table--body">
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value=""><div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div></label></td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">
+//              &nbsp;
+//              <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation" >
+//                <input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value=""/>
+//                <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small" >
+//                  <div class="xui-touchtarget"></div>
+//                </div>
+//              </label>
+//           </td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"><span class="xui-text-emphasis">China</span></td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline">Beijing</td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline">Mandarin</td>
@@ -236,12 +246,21 @@
 //                   <title>More row options</title>
 //                   <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" role="presentation"></path>
 //                 </svg>
+//                 <div class="xui-touchtarget"></div>
 //               </button>
 //             </div>
 //           </td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value=""><div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div></label></td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">
+//             &nbsp;
+//             <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
+//               <input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                 <div class="xui-touchtarget"></div>
+//               </div>
+//             </label>
+//           </td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"><span class="xui-text-emphasis">United States</span></td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline">Washington, D.C.</td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline">English</td>
@@ -253,12 +272,21 @@
 //                   <title>More row options</title>
 //                   <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" role="presentation"></path>
 //                 </svg>
+//                 <div class="xui-touchtarget"></div>
 //               </button>
 //             </div>
 //           </td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value=""><div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div></label></td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">
+//             &nbsp;
+//             <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
+//               <input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                 <div class="xui-touchtarget"></div>
+//               </div>
+//             </label>
+//           </td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"><span class="xui-text-emphasis">Russia</span></td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline">Moscow</td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline">Russian</td>
@@ -270,6 +298,7 @@
 //                   <title>More row options</title>
 //                   <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" role="presentation"></path>
 //                 </svg>
+//                 <div class="xui-touchtarget"></div>
 //               </button>
 //             </div>
 //           </td>
@@ -297,7 +326,9 @@
 //           <th class="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first" tabindex="-1">&nbsp;
 //             <label class="xui-table--checkbox-head xui-styledcheckboxradio" role="presentation">
 //               <input type="checkbox" tabindex="0" aria-label="Select all rows" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
-//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div>
+//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                 <div class="xui-touchtarget"></div>
+//               </div>
 //             </label>
 //           </th>
 //           <th class="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--sortbutton" role="button" tabindex="0">
@@ -320,7 +351,15 @@
 //       </thead>
 //       <tbody class="xui-table--body">
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value=""><div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div></label></td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">
+//             &nbsp;
+//             <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
+//               <input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                 <div class="xui-touchtarget"></div>
+//               </div>
+//             </label>
+//           </td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
 //             <div class="xui-u-flex xui-u-flex-align-center">
 //               <span class="xui-margin-right"><abbr class="xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">C</abbr></span>
@@ -337,12 +376,21 @@
 //                   <title>More row options</title>
 //                   <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" role="presentation"></path>
 //                 </svg>
+//                 <div class="xui-touchtarget"></div>
 //               </button>
 //             </div>
 //           </td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value=""><div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div></label></td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">
+//             &nbsp;
+//             <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
+//               <input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                 <div class="xui-touchtarget"></div>
+//               </div>
+//             </label>
+//           </td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
 //             <div class="xui-u-flex xui-u-flex-align-center">
 //               <span class="xui-margin-right"><abbr class="xui-avatar xui-avatar-small xui-avatar-color-2" role="presentation">US</abbr></span>
@@ -359,12 +407,21 @@
 //                   <title>More row options</title>
 //                   <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" role="presentation"></path>
 //                 </svg>
+//                 <div class="xui-touchtarget"></div>
 //               </button>
 //             </div>
 //           </td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value=""><div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div></label></td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">
+//             &nbsp;
+//             <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
+//               <input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                 <div class="xui-touchtarget"></div>
+//               </div>
+//             </label>
+//           </td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
 //             <div class="xui-u-flex xui-u-flex-align-center">
 //               <span class="xui-margin-right"><abbr class="xui-avatar xui-avatar-small xui-avatar-color-3" role="presentation">R</abbr></span>
@@ -381,6 +438,7 @@
 //                   <title>More row options</title>
 //                   <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" role="presentation"></path>
 //                 </svg>
+//                 <div class="xui-touchtarget"></div>
 //               </button>
 //             </div>
 //           </td>
@@ -418,7 +476,9 @@
 //           <th class="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first" tabindex="-1">&nbsp;
 //             <label class="xui-table--checkbox-head xui-styledcheckboxradio" role="presentation">
 //               <input type="checkbox" tabindex="0" aria-label="Select all rows" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
-//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div>
+//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                 <div class="xui-touchtarget"></div>
+//               </div>
 //             </label>
 //           </th>
 //           <th class="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--sortbutton" role="button" tabindex="0">
@@ -441,7 +501,15 @@
 //       </thead>
 //       <tbody class="xui-table--body">
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value=""><div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div></label></td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">
+//             &nbsp;
+//             <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
+//               <input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                 <div class="xui-touchtarget"></div>
+//               </div>
+//             </label>
+//           </td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
 //             <span class="xui-text-emphasis">China</span>
 //           </td>
@@ -455,12 +523,21 @@
 //                   <title>More row options</title>
 //                   <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" role="presentation"></path>
 //                 </svg>
+//                 <div class="xui-touchtarget"></div>
 //               </button>
 //             </div>
 //           </td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value=""><div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div></label></td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">
+//              &nbsp;
+//              <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
+//                <input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+//                <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                  <div class="xui-touchtarget"></div>
+//                </div>
+//              </label>
+//           </td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
 //             <span class="xui-text-emphasis">United States</span>
 //           </td>
@@ -474,12 +551,21 @@
 //                   <title>More row options</title>
 //                   <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" role="presentation"></path>
 //                 </svg>
+//                 <div class="xui-touchtarget"></div>
 //               </button>
 //             </div>
 //           </td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value=""><div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div></label></td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">
+//             &nbsp;
+//             <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
+//               <input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                  <div class="xui-touchtarget"></div>
+//               </div>
+//             </label>
+//           </td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
 //             <span class="xui-text-emphasis">Russia</span>
 //           </td>
@@ -493,6 +579,7 @@
 //                   <title>More row options</title>
 //                   <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" role="presentation"></path>
 //                 </svg>
+//                 <div class="xui-touchtarget"></div>
 //               </button>
 //             </div>
 //           </td>
@@ -509,7 +596,9 @@
 //           <th class="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first" tabindex="-1">&nbsp;
 //             <label class="xui-table--checkbox-head xui-styledcheckboxradio" role="presentation">
 //               <input type="checkbox" tabindex="0" aria-label="Select all rows" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
-//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div>
+//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                  <div class="xui-touchtarget"></div>
+//               </div>
 //             </label>
 //           </th>
 //           <th class="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--sortbutton" role="button" tabindex="0">
@@ -532,7 +621,15 @@
 //       </thead>
 //       <tbody class="xui-table--body">
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value=""><div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div></label></td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">
+//             &nbsp;
+//             <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
+//               <input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                  <div class="xui-touchtarget"></div>
+//               </div>
+//             </label>
+//           </td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
 //             <span class="xui-text-emphasis">China</span>
 //           </td>
@@ -546,12 +643,21 @@
 //                   <title>More row options</title>
 //                   <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" role="presentation"></path>
 //                 </svg>
+//                 <div class="xui-touchtarget"></div>
 //               </button>
 //             </div>
 //           </td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value=""><div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div></label></td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">
+//             &nbsp;
+//             <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
+//               <input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                 <div class="xui-touchtarget"></div>
+//               </div>
+//             </label>
+//           </td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
 //             <span class="xui-text-emphasis">United States</span>
 //           </td>
@@ -565,12 +671,21 @@
 //                   <title>More row options</title>
 //                   <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" role="presentation"></path>
 //                 </svg>
+//                 <div class="xui-touchtarget"></div>
 //               </button>
 //             </div>
 //           </td>
 //         </tr>
 //         <tr class="xui-table--row">
-//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">&nbsp;<label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation"><input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value=""><div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"></div></label></td>
+//           <td tabindex="-1" class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider">
+//             &nbsp;
+//             <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
+//               <input type="checkbox" tabindex="0" aria-label="Select row" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
+//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small">
+//                 <div class="xui-touchtarget"></div>
+//               </div>
+//             </label>
+//           </td>
 //           <td tabindex="0" class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline">
 //             <span class="xui-text-emphasis">Russia</span>
 //           </td>
@@ -584,6 +699,7 @@
 //                   <title>More row options</title>
 //                   <path d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" role="presentation"></path>
 //                 </svg>
+//                 <div class="xui-touchtarget"></div>
 //               </button>
 //             </div>
 //           </td>

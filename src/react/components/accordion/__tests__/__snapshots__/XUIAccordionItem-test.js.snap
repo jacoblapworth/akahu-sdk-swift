@@ -35,6 +35,9 @@ exports[`<XUIAccordionItem /> Should render children instead of empty state comp
               role="presentation"
             />
           </svg>
+          <div
+            class="xui-touchtarget"
+          />
         </button>
       </div>
       <div
@@ -89,6 +92,9 @@ exports[`<XUIAccordionItem /> Should render the empty state component provided b
               role="presentation"
             />
           </svg>
+          <div
+            class="xui-touchtarget"
+          />
         </button>
       </div>
       <div
@@ -148,6 +154,9 @@ exports[`<XUIAccordionItem /> should render the base component with only require
             role="presentation"
           />
         </svg>
+        <div
+          className="xui-touchtarget"
+        />
       </button>
     </div>
     <div

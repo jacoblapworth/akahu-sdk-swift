@@ -140,10 +140,13 @@
 
 // Size variants
 //
-// Selects have a range of size options that allow for greater control over visual hierarchy.
+// Selects have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
 //
 // Tips:
-// Do: Match the size variant of dropdown and picklist to chosen select size variant
+// Do: Use 'medium' size by default
+// Do: Match the size variant of dropdown and picklist to the select size variant
+// Warning: Use 'small' and 'xsmall' variants cautiosly, as they have reduced legibility and touch targets
+// Don't: Don't use a combination of size variants within a single form
 //
 // Definitions:
 // Size variant: **Height**: **Class**
@@ -465,4 +468,3 @@
 //  </div>
 //
 // Styleguide: Building Blocks.Controls.Select.8
-

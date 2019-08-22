@@ -34,10 +34,10 @@
 
 // Size variants
 //
-// Range offers three size options that allow for greater control over visual hierarchy.
+// Range offers three size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
 //
 // Tips:
-// Do: Always specify the size variant when using CSS only.
+// Do: Always specify the size variant when using HTML/CSS only
 // Do: Use a smaller variant to reduce visual dominance of a range
 // Warning: When using smaller variants, ensure the visual weight of the range still expresses its interactive nature within its context
 //
@@ -47,7 +47,7 @@
 // small: 20px: <code>.xui-rangeslider-thumb-small</code>
 // xsmall: 16px: <code>.xui-rangeslider-thumb-xsmall</code>
 //
-// ExampleClass: ds-example-transparent
+// ExampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
 // <label class='xui-u-flex xui-u-flex-align-center' for="range1" aria-label="medium sized range">

@@ -45,7 +45,7 @@
 
 // Size variants
 //
-// Pills have a range of size options that allow for greater control over visual hierarchy. A size variant needs to be specified to enable correct styling.
+// Pills have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2). A size variant needs to be specified to enable correct styling.
 //
 // Definitions:
 // Size variant: **Height**: **Class**
@@ -54,9 +54,9 @@
 // xsmall: 24px: `xui-pill-xsmall`
 //
 // Tips:
-// Do: Use medium as a standard size variant
-// Do: Use small and xsmall variants nested inside other elements
-// Warning: Be cautious when using small and xsmall variants as they have reduced legibility and hit area
+// Do: Use 'medium' as a standard size variant
+// Do: Use 'small' and 'xsmall' variants nested inside other elements
+// Warning: Be cautious when using 'small' and 'xsmall' variants as they have reduced legibility and touch targets
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //

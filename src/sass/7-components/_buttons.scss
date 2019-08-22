@@ -100,12 +100,12 @@
 
 // Size variants
 //
-// Buttons have a range of size options that allow for greater control over visual hierarchy.
+// Buttons have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
 //
 // Tips:
-// Do: Use standard variant by default
-// Do: Use small and xsmall variants nested inside other elements
-// Warning: Use xsmall variant cautiously, as this is more difficult to read
+// Do: Use 'medium' variant by default
+// Do: Use 'small' and 'xsmall' variants when nested inside other elements (except for icon-button which should use the same size variant as its parent)
+// Warning: Be cautious when using 'xsmall' variant, as it has reduced legibility and touch target
 // Dont: Don’t mix and match size variants inline with each other
 //
 // Definitions:
@@ -183,6 +183,7 @@
 //
 // Tips:
 // Do: Use icons from XUI icon set
+// Do: When nesting icon-buttons, use the same size variant as the parent
 // Do: Use icon buttons to optimise screen real-estate on small screen sizes
 // Do: Always include descriptive Title and ARIA labels on buttons
 // Warning: Ensure that users understand an icon and its purpose before solely relying on one to convey meaning
@@ -190,7 +191,6 @@
 // Classes:
 // xui-button-icon: Apply to button
 //
-// ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
 // <button type="button" class="xui-button xui-button-icon xui-button-icon-small" title="Close the window" aria-label="Close the window">
@@ -199,16 +199,11 @@
 //
 // Styleguide: Building Blocks.Controls.Button.6
 
-// Size variants
+// Icon button size variants
 //
-// Buttons have a range of size options that allow for greater control over visual hierarchy.
+// Icon buttons require their own classes to be applied to use size variants. Follow the same [size variants as regular buttons](./section-building-blocks-controls-button.html#building-blocks-controls-button-4).
 //
-// Tips:
-// Do: Use standard variant by default
-// Do: Use standard variant for Isolation header, Modal and Toast
-// Do: Use small and xsmall variants nested inside other elements
-// Warning: Use xsmall for minor interactions, as this has a smaller touch target
-// Dont: Don’t mix and match size variants inline with each other
+//**Note:** Icon buttons nested inside controls should use the same size variant as the control.
 //
 // Definitions:
 // Size variant: **Height**: **Class**
@@ -216,24 +211,16 @@
 // small: 32px: `xui-button-icon-small`
 // xsmall: 24px: `xui-button-icon-xsmall`
 //
-// exampleClass: ds-example-transparent ds-example-flush
-//
 // Markup:
-// <div class="xui-margin-vertical">
 //   <button type="button" class="xui-button xui-button-icon-medium xui-button-icon" title="Close the window" aria-label="Close the window">
 //     <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
-// </div>
-// <div class="xui-margin-vertical">
 //   <button type="button" class="xui-button xui-button-icon-small xui-button-icon" title="Close the window" aria-label="Close the window">
 //     <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
-// </div>
-// <div class="xui-margin-vertical">
 //   <button type="button" class="xui-button xui-button-icon-xsmall xui-button-icon" title="Close the window" aria-label="Close the window">
 //     <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
-// </div>
 //
 // Styleguide: Building Blocks.Controls.Button.6.1
 

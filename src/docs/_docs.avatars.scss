@@ -30,7 +30,7 @@
 // Contacts: `xui-avatar-business`: Square avatars with 1-3 letter acronyms. These are used to identify contacts such as suppliers, customers and clients.
 //
 // exampleClass: ds-example-transparent ds-example-flush
-// 
+//
 // Markup:
 // <div>
 //   <abbr class="xui-avatar xui-avatar-color-7 xui-avatar-large xui-margin-right" role="presentation" title="Rosie Cox">RC</abbr>
@@ -41,12 +41,12 @@
 
 // Size variants
 //
-// Avatars have a range of size options that allow for greater control over visual hierarchy.
+// Avatars have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
 //
 // Tips:
 // Do: Use the size variant that is appropriate for the content its referencing
 // Do: Always nest Avatars one size variant below its parent's size variant
-// Warning: Use 2xsmall and xsmall variants cautiously, as these are more difficult to read than other sizes
+// Warning: Use 'xsmall' and '2xsmall' variants cautiously, as they have reduced legibility
 // Dont: Don’t use a combination of size variants within a singular group of items
 //
 // Definitions:

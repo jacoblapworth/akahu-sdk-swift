@@ -38,12 +38,12 @@
 
 // Size variants
 //
-// Checkboxes have a range of size options that allow for greater control over visual hierarchy. Add a class with the size variant modifier to the the `--input`, `--checkbox` and `--label` subcomponents.
+// Checkboxes have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2). Add a class with the size variant modifier to the the `--input`, `--checkbox` and `--label` subcomponents.
 //
 // Tips:
-// Do: Use the medium size variant when not nesting Checkbox
-// Do: Use the small size variant inside Checkbox groups
-// Warning: Be cautious when using small and xsmall variants as they have reduced legibility and hit area
+// Do: Use the 'medium' size variant when not nesting Checkbox
+// Do: Use the 'small' size variant inside Checkbox groups
+// Warning: Be cautious when using 'small' or 'xsmall' variants, as they have reduced legibility and touch targets
 // Don't: Don’t use a combination of size variants within a single form
 //
 // Definitions:
@@ -51,8 +51,6 @@
 // medium: 24px: <code>-medium</code>
 // small: 20px: <code>-small</code>
 // xsmall: 16px: <code>-xsmall</code>
-//
-// ExampleClass: ds-example-transparent
 //
 // Markup:
 // <div class="xui-margin-bottom">
@@ -156,7 +154,6 @@
 //
 // Styleguide: Building Blocks.Controls.Checkbox.4
 
-
 // Single checkbox
 //
 // To retain the grouped format if only one option is present, simply include one instead of many.
@@ -172,7 +169,6 @@
 // </div>
 //
 // Styleguide: Building Blocks.Controls.Checkbox.4.1
-
 
 // Multiline checkbox
 //
@@ -205,14 +201,12 @@
 //
 // Styleguide: Building Blocks.Controls.Checkbox.5
 
-
 // Indeterminate
 //
 // To indicate only a subset of children are selected, use the `:indeterminate` attribute.
 // However, this state is not exposed via HTML, and needs to be set via Javascript.
 //
 // Styleguide: Building Blocks.Controls.Checkbox.6
-
 
 // Custom icons
 //
@@ -272,7 +266,6 @@
 // </div>
 //
 // Styleguide: Building Blocks.Controls.Checkbox.7
-
 
 // Validation and hint messages
 //
@@ -389,7 +382,6 @@
 // </div>
 //
 // Styleguide: Building Blocks.Controls.Checkbox.8
-
 
 // Class list
 //

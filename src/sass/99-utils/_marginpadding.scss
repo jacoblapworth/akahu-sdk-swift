@@ -1,5 +1,5 @@
-@import "../mixins";
-@import "../vars";
+@import '../mixins';
+@import '../vars';
 
 // Spacing
 //
@@ -15,46 +15,29 @@
 //
 // Styleguide: Fundamentals.Spacing.1
 
-// Size variants for controls
+// Interface density
 //
-// XUI provides sizing variants for many interactive controls based on a standardised spacing system. Differently sized controls can be used to finely tune information density and hierarchy. For example, nesting a button inside an input illustrates a relationship between the two controls, but requires a smaller sized button to do so.
+// XUI provides size variants for a range of spacing utilities, components and typographic elements. These variants help when nesting components, or tweaking density and hierarchy within interfaces.
 //
-// In addition to the default size, many interactive controls support `-xsmall` and `-small`.
+// Use higher density interfaces to ease with scanning and readability of large or complex data-sets.
+//
+// Component specific guidelines are available on pages alongside the components that provide size variants, and general guidelines are below.
 //
 // Styleguide: Fundamentals.Spacing.2
 
 // Best practice
 //
 // Tips:
-// Do: Use smaller controls in high density interfaces, but consider accessibility implications
-// Do: Use larger elements to increase prominence, touch friendliness and to aid accessibility
-// Do: Give nested elements a size that is one variant smallar than their parent
-// Do: Refer to individual components' best practices for sizing and nesting guidelines
-// Don't: Don't use varying sizes of controls without objective reasoning
+// Do: Use 'medium' size variants by default.
+// Do: Use smaller size variants and higher density, for long, complex, or comparative data sets.
+// Do: Provide enough space between high-density sections, to ensure they appear distinctly seperate.
+// Do: When nesting a component, use a size variant that is one smaller than its parent.
+// Do: Refer to individual components' best practice notes for sizing and nesting guidelines.
+// Do: Consider other ways to simplify data sets. For example, can you combine first-name and last-name fields into a single field, or split a long form into a few smaller steps?
+// Warning: Don't always default to high-density interfaces. They can impact accessibility by reducing touch targets and readability.
+// Don't: Don't use varying sizes of controls without very considered reasons.
 //
 // Styleguide: Fundamentals.Spacing.2.1
-
-// Example
-//
-//
-// Markup:
-// <div class='xui-avatar xui-avatar-color-1 xui-avatar-xsmall xui-margin-right-xsmall'> AA </div>
-// <button class='xui-button xui-button-main xui-button-xsmall xui-margin-right-small'>Button</button>
-// <div class='xui-avatar xui-avatar-color-1 xui-avatar-small xui-margin-right-xsmall'> AA </div>
-// <button class='xui-button xui-button-main xui-button-small xui-margin-right-small'>Button</button>
-// <div class='xui-avatar xui-avatar-color-1 xui-margin-right-xsmall'> AA </div>
-// <button class='xui-button xui-button-main xui-button-medium xui-margin-right-small xui-margin-bottom-large'>Button</button>
-// <div class="xui-textinput xui-textinput-xsmall xui-margin-bottom-xsmall">
-//     <input type="text" class="xui-textinput--input xui-textinput--input-xsmall" placeholder="Placeholder text">
-// </div>
-// <div class="xui-textinput xui-textinput-small xui-margin-bottom-xsmall">
-//     <input type="text" class="xui-textinput--input xui-textinput--input-small" placeholder="Placeholder text">
-// </div>
-// <div class="xui-textinput xui-margin-bottom-xsmall">
-//     <input type="text" class="xui-textinput--input" placeholder="Placeholder text">
-// </div>
-//
-// Styleguide: Fundamentals.Spacing.2.2
 
 // Defining spacing
 //

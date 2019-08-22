@@ -107,7 +107,7 @@
 
 // Size variants
 //
-// Picklists have a range of size options that allow for greater control over visual hierarchy.
+// Picklists have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
 //
 // Definitions:
 // Size variant: **Height**: **Class**
@@ -116,9 +116,8 @@
 // xsmall: 24px: `xui-picklist-xsmall`<br>`xui-pickitem-xsmall`
 //
 // Tips:
-// Do: Use medium as a standard size variant
-// Do: Use small and xsmall variants for minor interactions
-// Warning: Be cautious when using small and xsmall variants as they have reduced legibility and hit area
+// Do: Use 'medium' as a standard size variant
+// Warning: Be cautious when using 'small' and 'xsmall' variants as they have reduced legibility and touch targets
 //
 // Markup:
 // <div class="xui-panel xui-margin-bottom-large">

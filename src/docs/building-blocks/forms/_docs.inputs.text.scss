@@ -63,12 +63,13 @@
 
 // Size variants
 //
-// Inputs have a variation in scale to enable greater hierarchy control in user interfaces
+// Inputs offer a range of size variants to enable greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
 //
 // Tips:
-// Do: Nest small Text inputs inside medium sized elements and xsmall Text inputs inside small elements
+// Do: Default to 'medium' size variant
+// Do: Nest 'small' text-inputs inside 'medium' sized elements and 'xsmall' text-inputs inside 'small' elements
 // Do: Use the same label and description font-size with all size variants
-// Warning: Use small and xsmall variants cautiously, as these are more difficult to read than default size
+// Warning: Use 'small' and 'xsmall' variants cautiously, as they have reduced legibility and touch targets
 // Dont: Don’t use a combination of size variants within a single form
 //
 // Definitions:
@@ -76,8 +77,6 @@
 // medium: 40px: `xui-textinput--input-medium`
 // small: 32px: `xui-textinput--input-small`
 // xsmall: 24px: `xui-textinput--input-xsmall`
-//
-// exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
 // <div class="xui-textinputwrapper xui-field-layout">
@@ -115,8 +114,6 @@
 // medium: Avatar, Button, Icon, Pill, Text
 // small: Avatar, Button, Icon, Pill, Text
 // xsmall: Avatar, Icon, Text
-//
-// exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
 // <div class="xui-textinputwrapper xui-field-layout">

@@ -37,13 +37,13 @@
 
 // Size variants
 //
-// Tags have a range of size options that allow for greater control over visual hierarchy.
+// Tags have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
 //
 // Tips:
-// Do: Use medium as a standard size variant
-// Do: Use medium size variant in page headers
-// Do: Use small and xsmall variants when nesting inside of other elements, such as content blocks and pickitems
-// Warning: Be cautious when using xsmall variants as they have reduced legibility
+// Do: Use 'medium' as a standard size variant
+// Do: Use 'medium' size variant in page headers
+// Do: Use 'small' and 'xsmall' variants when nesting inside of other elements, such as content blocks and pickitems
+// Warning: Be cautious when using 'xsmall' variants as they have reduced legibility
 //
 // Definitions:
 // Size variant: **Height**: **Class**
@@ -141,10 +141,10 @@
   box-shadow: inset 0 0 0 1px $xui-tag-shadow-color;
   color: $xui-tag-color;
   display: inline-block;
-  padding: 0 $xui-s-2xsmall;
-  vertical-align: middle;
   min-width: $xui-minimum-touch-target;
+  padding: 0 $xui-s-2xsmall;
   text-align: center;
+  vertical-align: middle;
 }
 
 .#{$ns}-tag-medium {

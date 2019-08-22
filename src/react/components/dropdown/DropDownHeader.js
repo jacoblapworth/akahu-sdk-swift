@@ -97,12 +97,11 @@ export default class DropDownHeader extends PureComponent {
     ) : null;
 
     const leftHeader =
-      backButton || title || leftContent ? (
+      title || leftContent ? (
         <div
           className={`${baseClass}--header-leftcontent`}
           data-automationid={qaHook && `${qaHook}--header-left`}
         >
-          {backButton}
           {leftContent}
           {titleSection}
         </div>
@@ -126,8 +125,9 @@ export default class DropDownHeader extends PureComponent {
       ) : null;
 
     const header =
-      leftHeader || rightHeader ? (
+      backButton || leftHeader || rightHeader ? (
         <div className={headerClasses}>
+          {backButton}
           {leftHeader}
           {rightHeader}
         </div>

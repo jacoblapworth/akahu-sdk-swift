@@ -9,6 +9,7 @@ import XUIControlWrapperInline, {
   getAriaAttributes,
 } from '../controlwrapper/XUIControlWrapperInline';
 import generateIds from '../controlwrapper/helpers';
+import XUITouchTarget from '../touchtarget/XUITouchTarget';
 
 /**
  * @function handleLabelClick - Prevent 2 click events bubbling. Since our input is
@@ -44,6 +45,7 @@ const buildSvgRadio = (qaHook, { svgClassName, iconMain }) => {
         <path className={`${baseClass}--focus`} role="presentation" d={iconMain.path} />
         <path className={`${baseClass}--main`} role="presentation" d={iconMain.path} />
       </svg>
+      <XUITouchTarget />
     </div>
   );
 };
@@ -61,7 +63,11 @@ const buildHtmlRadio = (qaHook, htmlClassName, calculatedSize) => {
     htmlClassName,
     calculatedSize && `${baseClass}--radio-${calculatedSize}`,
   );
-  return <div className={htmlClasses} data-automationid={qaHook && `${qaHook}--radio`} />;
+  return (
+    <div className={htmlClasses} data-automationid={qaHook && `${qaHook}--radio`}>
+      <XUITouchTarget />
+    </div>
+  );
 };
 
 /**

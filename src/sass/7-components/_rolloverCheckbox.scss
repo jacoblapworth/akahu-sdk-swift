@@ -1,63 +1,62 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 //Coontainer for the rollover component and checkbox to sit in.
 
 $xui-checkbox-focus: 6px;
 
 .#{$ns}-rollovercheckbox {
-	align-items: center;
-	display: flex;
-	justify-content: center;
-	overflow: hidden;
-	position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
 .#{$ns}-rollovercheckbox--target {
-	cursor: pointer;
-	display: inline-flex;
-	height: 100%;
+  cursor: pointer;
+  display: inline-flex;
+  height: 100%;
 }
 
 .#{$ns}-rollovercheckbox--target-disabled {
-	cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 // The following size-based styles prevent the hit area from ever being smaller than the checkbox.
 .#{$ns}-rollovercheckbox-has-xsmall-checkbox {
-	// Xsmall checkbox + focus ring
-	min-height: $xui-s-standard + $xui-checkbox-focus;
-	min-width: $xui-s-standard + $xui-checkbox-focus;
+  // Xsmall checkbox + focus ring
+  min-height: $xui-s-standard + $xui-checkbox-focus;
+  min-width: $xui-s-standard + $xui-checkbox-focus;
 }
 
 .#{$ns}-rollovercheckbox-has-small-checkbox {
-	// Small checkbox + focus ring
-	min-height: $xui-s-large + $xui-checkbox-focus;
-	min-width: $xui-s-large + $xui-checkbox-focus;
+  // Small checkbox + focus ring
+  min-height: $xui-s-large + $xui-checkbox-focus;
+  min-width: $xui-s-large + $xui-checkbox-focus;
 }
 
 .#{$ns}-rollovercheckbox-has-medium-checkbox {
-	// Medium checkbox + focus ring
-	min-height: $xui-s-xlarge + $xui-checkbox-focus;
-	min-width: $xui-s-xlarge + $xui-checkbox-focus;
+  // Medium checkbox + focus ring
+  min-height: $xui-s-xlarge + $xui-checkbox-focus;
+  min-width: $xui-s-xlarge + $xui-checkbox-focus;
 }
 
 .#{$ns}-rollovercheckbox--styledcheckboxradio {
-	// Centers the checkbox within the size of the rollover content, if larger.
-	display: flex;
-	height: 100%;
-	justify-content: center;
-	left: 0px;
-	position: absolute;
-	top: 0px;
-	width: 100%;
+  // Centers the checkbox within the size of the rollover content, if larger.
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
 }
 
 .#{$ns}-rollovercheckbox-hidden {
-	// Styled this way to still take up space to build an appropriate hit area.
-	opacity: 0;
-	z-index: -1;
+  // Styled this way to still take up space to build an appropriate hit area.
+  opacity: 0;
+  z-index: -1;
 }
 
 .#{$ns}-rollovercheckbox--checkbox {
-	align-self: center;
+  align-self: center;
 }

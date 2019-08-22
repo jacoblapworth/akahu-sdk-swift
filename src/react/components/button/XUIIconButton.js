@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIButton from './XUIButton';
 import XUIIcon from '../icon/XUIIcon';
+import XUITouchTarget from '../touchtarget/XUITouchTarget';
 import {
   sizeClassNames,
   iconSizeClassNames,
@@ -14,16 +15,18 @@ import { colorClasses, wrapperSizeClasses, rotationClasses } from '../icon/priva
 export default class XUIIconButton extends PureComponent {
   render() {
     const {
-      className,
-      icon,
       ariaLabel,
-      size,
-      isInverted,
-      iconSize,
+      className,
       desc,
+      // eslint-disable-next-line react/prop-types
+      disableTouchTargetFix, // Used internally for components that have been sunset and do not support the required touch target size TODO: Remove this (and all references to it) once xsmall pills and compact calendars have been removed
+      icon,
+      iconColor,
+      iconSize,
+      isInverted,
       role,
       rotation,
-      iconColor,
+      size,
       ...otherProps
     } = this.props;
 
@@ -49,6 +52,7 @@ export default class XUIIconButton extends PureComponent {
           rotation={rotation}
           color={iconColor}
         />
+        {!disableTouchTargetFix && <XUITouchTarget />}
       </XUIButton>
     );
   }

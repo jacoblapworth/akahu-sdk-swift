@@ -104,6 +104,9 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 1`] = `
         role="presentation"
       />
     </svg>
+    <div
+      className="xui-touchtarget"
+    />
   </button>
 </div>
 `;
@@ -152,6 +155,9 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 2`] = `
         role="presentation"
       />
     </svg>
+    <div
+      className="xui-touchtarget"
+    />
   </button>
 </div>
 `;

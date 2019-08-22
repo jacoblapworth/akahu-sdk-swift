@@ -37,7 +37,11 @@ exports[`XUIRolloverCheckbox allows for a user defined rollover component to be 
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>
@@ -81,7 +85,11 @@ exports[`XUIRolloverCheckbox displays the checkbox when it's set to be shown 1`]
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>
@@ -123,7 +131,11 @@ exports[`XUIRolloverCheckbox doesn't display the checkbox when it's set to hidde
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>
@@ -169,7 +181,11 @@ exports[`XUIRolloverCheckbox include an automation-id 1`] = `
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"
           data-automationid="test-rollovercheckbox--checkbox--checkbox"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>
@@ -214,7 +230,11 @@ exports[`XUIRolloverCheckbox includes an aria-label, when provided 1`] = `
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>
@@ -258,7 +278,11 @@ exports[`XUIRolloverCheckbox renders a variety of size checkboxes will be a medi
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>
@@ -302,7 +326,11 @@ exports[`XUIRolloverCheckbox renders a variety of size checkboxes will be a smal
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-small"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>
@@ -346,7 +374,11 @@ exports[`XUIRolloverCheckbox renders a variety of size checkboxes will be a xsma
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-xsmall"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>
@@ -391,7 +423,11 @@ exports[`XUIRolloverCheckbox renders an id on the root node when passed 1`] = `
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>
@@ -435,7 +471,11 @@ exports[`XUIRolloverCheckbox renders checked when specified 1`] = `
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>
@@ -477,7 +517,11 @@ exports[`XUIRolloverCheckbox renders correctly 1`] = `
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>
@@ -521,7 +565,11 @@ exports[`XUIRolloverCheckbox renders unchecked when specified 1`] = `
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>
@@ -565,7 +613,11 @@ exports[`XUIRolloverCheckbox should render the disabled classes and a disabled c
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>
@@ -609,7 +661,11 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes and a disable
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>
@@ -653,7 +709,11 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes or a disabled
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
       </label>
     </div>
   </div>

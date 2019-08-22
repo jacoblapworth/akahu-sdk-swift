@@ -3,166 +3,166 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import XUICheckbox from '../checkbox/XUICheckbox';
+import XUITouchTarget from '../touchtarget/XUITouchTarget';
+
 import { baseClass } from './private/constants';
 
 export default class XUIRolloverCheckbox extends PureComponent {
-	state = {
-		isMouseOver: false,
-	};
+  state = {
+    isMouseOver: false,
+  };
 
-	/**
-	 * @public
-	 *
-	 * Handler attached to the target element for setting mouse over state to true.
-	 */
-	onMouseEnter = () => {
-		if (this.props.isCheckboxHidden) {
-			this.setState({
-				isMouseOver: true,
-			});
-		}
-	};
+  /**
+   * @public
+   *
+   * Handler attached to the target element for setting mouse over state to true.
+   */
+  onMouseEnter = () => {
+    if (this.props.isCheckboxHidden) {
+      this.setState({
+        isMouseOver: true,
+      });
+    }
+  };
 
-	/**
-	 * @public
-	 *
-	 * Handler attached to the target element for setting mouse over state to false.
-	 */
-	onMouseLeave = () => {
-		this.setState({
-			isMouseOver: false,
-		});
-	};
+  /**
+   * @public
+   *
+   * Handler attached to the target element for setting mouse over state to false.
+   */
+  onMouseLeave = () => {
+    this.setState({
+      isMouseOver: false,
+    });
+  };
 
-	/**
-	 * @public
-	 *
-	 * Handler attached to the target element for setting focus state.
-	 */
-	onFocus = () => {
-		this.setState({
-			hasFocus: true,
-		});
-	};
+  /**
+   * @public
+   *
+   * Handler attached to the target element for setting focus state.
+   */
+  onFocus = () => {
+    this.setState({
+      hasFocus: true,
+    });
+  };
 
-	/**
-	 * @public
-	 *
-	 * Handler attached to the target element for setting focus state to false.
-	 */
-	onBlur = () => {
-		this.setState({
-			hasFocus: false,
-		});
-	};
+  /**
+   * @public
+   *
+   * Handler attached to the target element for setting focus state to false.
+   */
+  onBlur = () => {
+    this.setState({
+      hasFocus: false,
+    });
+  };
 
-	/**
-	 * @public
-	 *
-	 * Method to allow for programmatic triggering of the click event on the checkbox
-	 */
-	triggerCheckboxClick = () => {
-		this._checkbox._input.current.click();
-	};
+  /**
+   * @public
+   *
+   * Method to allow for programmatic triggering of the click event on the checkbox
+   */
+  triggerCheckboxClick = () => {
+    this._checkbox._input.current.click();
+  };
 
-	/**
-	* @public
-	*
-	* Handler passed to the CheckboxToggle so it can be called on change of the checkbox.
-	* Also retians the checked state of the list item.
-	* @param {Event} e
-	*/
-	onSelect = e => {
-		const { onSelect } = this.props;
-		onSelect && onSelect(e, this);
-	};
+  /**
+   * @public
+   *
+   * Handler passed to the CheckboxToggle so it can be called on change of the checkbox.
+   * Also retians the checked state of the list item.
+   * @param {Event} e
+   */
+  onSelect = e => {
+    const { onSelect } = this.props;
+    onSelect && onSelect(e, this);
+  };
 
-	render() {
-		const {
-			isChecked,
-			isDisabled,
-			className,
-			id,
-			rolloverComponent,
-			qaHook,
-			isCheckboxHidden,
-			label,
-			ariaLabelledBy,
-			checkboxSize,
-		} = this.props;
-		const {
-			isMouseOver,
-			hasFocus,
-		} = this.state;
+  render() {
+    const {
+      isChecked,
+      isDisabled,
+      className,
+      id,
+      rolloverComponent,
+      qaHook,
+      isCheckboxHidden,
+      label,
+      ariaLabelledBy,
+      checkboxSize,
+    } = this.props;
+    const { isMouseOver, hasFocus } = this.state;
 
-		const showRollover = isCheckboxHidden && !isMouseOver && !hasFocus && !!rolloverComponent;
+    const showRollover = isCheckboxHidden && !isMouseOver && !hasFocus && !!rolloverComponent;
 
-		return (
-			<div
-				id={id}
-				className={cn(
-					`${baseClass}--target`,
-					isDisabled && `${baseClass}--target-disabled`,
-					className,
-				)}
-				onMouseEnter={this.onMouseEnter}
-				onMouseLeave={this.onMouseLeave}
-				onFocus={this.onFocus}
-				onBlur={this.onBlur}
-				data-automationid={qaHook}
-				role="presentation"
-			>
-				<div className={cn(baseClass, `${baseClass}-has-${checkboxSize}-checkbox`)}>
-					<div className={(!showRollover && `${baseClass}-hidden`) || undefined}>
-						{rolloverComponent}
-					</div>
-					<XUICheckbox
-						ref={c => this._checkbox = c}
-						onChange={this.onSelect}
-						isChecked={isChecked}
-						isDisabled={isDisabled}
-						isLabelHidden
-						htmlClassName={`${baseClass}--checkbox`}
-						qaHook={qaHook && `${qaHook}--checkbox`}
-						className={cn(
-							showRollover && `${baseClass}-hidden`,
-							`${baseClass}--styledcheckboxradio`,
-						)}
-						tabIndex={0}
-						labelId={ariaLabelledBy}
-						size={checkboxSize}
-					>{label}
-					</XUICheckbox>
-				</div>
-			</div>
-		);
-	}
+    return (
+      <div
+        id={id}
+        className={cn(
+          `${baseClass}--target`,
+          isDisabled && `${baseClass}--target-disabled`,
+          className,
+        )}
+        onMouseEnter={this.onMouseEnter}
+        onMouseLeave={this.onMouseLeave}
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
+        data-automationid={qaHook}
+        role="presentation"
+      >
+        <div className={cn(baseClass, `${baseClass}-has-${checkboxSize}-checkbox`)}>
+          <div className={(!showRollover && `${baseClass}-hidden`) || undefined}>
+            {rolloverComponent}
+          </div>
+          <XUICheckbox
+            ref={c => (this._checkbox = c)}
+            onChange={this.onSelect}
+            isChecked={isChecked}
+            isDisabled={isDisabled}
+            isLabelHidden
+            htmlClassName={`${baseClass}--checkbox`}
+            qaHook={qaHook && `${qaHook}--checkbox`}
+            className={cn(
+              showRollover && `${baseClass}-hidden`,
+              `${baseClass}--styledcheckboxradio`,
+            )}
+            tabIndex={0}
+            labelId={ariaLabelledBy}
+            size={checkboxSize}
+          >
+            {label}
+          </XUICheckbox>
+        </div>
+      </div>
+    );
+  }
 }
 
 XUIRolloverCheckbox.propTypes = {
-	qaHook: PropTypes.string,
-	className: PropTypes.string,
-	/** Callback for when checkbox is selected */
-	onSelect: PropTypes.func,
-	/** Whether the checkbox is currently checked */
-	isChecked: PropTypes.bool,
-	/** Whether to show the checkbox instead of the rollover component */
-	isCheckboxHidden: PropTypes.bool,
-	/** Applies disabled styling when true */
-	isDisabled: PropTypes.bool,
-	/** Id to apply to the wrapping div */
-	id: PropTypes.string,
-	/** Component to render when isCheckboxHidden is true and mouse is not over the component */
-	rolloverComponent: PropTypes.node,
-	/** Input label for accessibility purposes. Will not be visibly displayed. */
-	label: PropTypes.node,
-	/** Optionally provide the id of an element that provides a label for the checkbox */
-	ariaLabelledBy: PropTypes.string,
-	/** Set the size of the checkbox revealed on rollover. Defaults to 'medium' */
-	checkboxSize: PropTypes.oneOf(['medium', 'small', 'xsmall']),
+  qaHook: PropTypes.string,
+  className: PropTypes.string,
+  /** Callback for when checkbox is selected */
+  onSelect: PropTypes.func,
+  /** Whether the checkbox is currently checked */
+  isChecked: PropTypes.bool,
+  /** Whether to show the checkbox instead of the rollover component */
+  isCheckboxHidden: PropTypes.bool,
+  /** Applies disabled styling when true */
+  isDisabled: PropTypes.bool,
+  /** Id to apply to the wrapping div */
+  id: PropTypes.string,
+  /** Component to render when isCheckboxHidden is true and mouse is not over the component */
+  rolloverComponent: PropTypes.node,
+  /** Input label for accessibility purposes. Will not be visibly displayed. */
+  label: PropTypes.node,
+  /** Optionally provide the id of an element that provides a label for the checkbox */
+  ariaLabelledBy: PropTypes.string,
+  /** Set the size of the checkbox revealed on rollover. Defaults to 'medium' */
+  checkboxSize: PropTypes.oneOf(['medium', 'small', 'xsmall']),
 };
 
 XUIRolloverCheckbox.defaultProps = {
-	isDisabled: false,
-	checkboxSize: 'medium',
+  isDisabled: false,
+  checkboxSize: 'medium',
 };

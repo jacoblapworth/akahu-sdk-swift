@@ -139,7 +139,11 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
           id="testCheckboxId"
@@ -276,7 +280,11 @@ exports[`<SelectBoxOption /> should render the option and the checkboxes as disa
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
           id="testCheckboxId"

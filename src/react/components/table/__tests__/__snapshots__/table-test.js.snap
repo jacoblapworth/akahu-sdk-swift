@@ -207,7 +207,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </th>
@@ -272,7 +276,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -327,7 +335,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -382,7 +394,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -470,7 +486,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </th>
@@ -535,7 +555,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -590,7 +614,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -645,7 +673,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -733,7 +765,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </th>
@@ -798,7 +834,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -853,7 +893,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -908,7 +952,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -1706,7 +1754,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </th>
@@ -2880,6 +2932,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>
@@ -2943,6 +2998,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>
@@ -3006,6 +3064,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>
@@ -3077,7 +3138,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </th>
@@ -3205,7 +3270,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -3309,7 +3378,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -3413,7 +3486,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -3733,6 +3810,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>
@@ -3845,6 +3925,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>
@@ -3957,6 +4040,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>
@@ -4023,7 +4109,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </th>
@@ -4157,7 +4247,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -4266,6 +4360,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>
@@ -4299,7 +4396,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -4408,6 +4509,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>
@@ -4441,7 +4545,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -4550,6 +4658,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>
@@ -5706,7 +5817,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </th>
@@ -5777,7 +5892,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -5837,6 +5956,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>
@@ -5870,7 +5992,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -5930,6 +6056,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>
@@ -5963,7 +6092,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -6023,6 +6156,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>
@@ -7407,7 +7543,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </th>
@@ -7541,7 +7681,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -7650,6 +7794,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>
@@ -7683,7 +7830,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -7792,6 +7943,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>
@@ -7825,7 +7979,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     />
                     <div
                       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-                    />
+                    >
+                      <div
+                        className="xui-touchtarget"
+                      />
+                    </div>
                   </label>
                 </div>
               </td>
@@ -7934,6 +8092,9 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                         role="presentation"
                       />
                     </svg>
+                    <div
+                      className="xui-touchtarget"
+                    />
                   </button>
                 </div>
               </td>

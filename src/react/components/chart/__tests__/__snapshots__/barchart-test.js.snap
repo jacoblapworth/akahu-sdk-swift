@@ -27,6 +27,9 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "next" button
         role="presentation"
       />
     </svg>
+    <div
+      className="xui-touchtarget"
+    />
   </button>
   <button
     aria-label="Next"
@@ -50,6 +53,9 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "next" button
         role="presentation"
       />
     </svg>
+    <div
+      className="xui-touchtarget"
+    />
   </button>
 </nav>
 `;
@@ -82,6 +88,9 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "previous" bu
         role="presentation"
       />
     </svg>
+    <div
+      className="xui-touchtarget"
+    />
   </button>
   <button
     aria-label="Next"
@@ -104,6 +113,9 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "previous" bu
         role="presentation"
       />
     </svg>
+    <div
+      className="xui-touchtarget"
+    />
   </button>
 </nav>
 `;

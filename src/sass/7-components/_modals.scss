@@ -1,5 +1,5 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Modal
 //
@@ -58,45 +58,46 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-//	<div class="xui-mask xui-mask-is-active" aria-hidden="false">
-//		<section class="xui-modal xui-modal-width-medium xui-modal-layout" tabindex="0" role="dialog">
-//			<header class="xui-modal--header">
-//				<div class='xui-modal--heading'>New project</div>
-//				<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
-//					<svg focusable="false" class="xui-icon">
-//						<use xlink:href="#xui-icon-cross" role="presentation"/>
-//					</svg>
-//				</button>
-//			</header>
-//			<div class="xui-modal--body">
-// 				<div class="xui-textinputwrapper xui-field-layout">
-// 					<label class="xui-text-label xui-fieldlabel-layout" for="a">Contact</label>
-// 					<div class="xui-textinput xui-textinput-medium">
-// 						<input type="text" class="xui-textinput--input xui-textinput--input-medium" placeholder="Find or create a contact" aria-invalid="false" id="a">
-// 					</div>
-//				</div>
-//				<div class="xui-textinputwrapper xui-field-layout">
-// 					<label class="xui-text-label xui-fieldlabel-layout" for="b">Project name</label>
-// 					<div class="xui-textinput xui-textinput-medium">
-// 						<input type="text" class="xui-textinput--input xui-textinput--input-medium" aria-invalid="false" id="b">
-// 					</div>
-//				</div>
-//				<div class="xui-textinputwrapper xui-field-layout">
-// 					<label class="xui-text-label xui-fieldlabel-layout" for="c">Deadline</label>
-// 					<button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//						<span class="xui-select--content">Select date</span>
-//						<svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//							<use xlink:href="#xui-icon-date-end" role="presentation" />
-//						</svg>
-//					</button>
-//				</div>
-//			</div>
-//			<footer class="xui-modal--footer xui-actions xui-actions-layout">
-//				<button class="xui-button xui-button-medium xui-actions--primary xui-button-create" tabindex="0" type="button">Create project</button>
-//				<button class="xui-button xui-button-medium xui-actions--secondary xui-button-standard" tabindex="0" type="button">Cancel</button>
-//			</footer>
-//		</section>
-//	</div>
+//  <div class="xui-mask xui-mask-is-active" aria-hidden="false">
+//    <section class="xui-modal xui-modal-width-medium xui-modal-layout" tabindex="0" role="dialog">
+//      <header class="xui-modal--header">
+//        <div class='xui-modal--heading'>New project</div>
+//        <button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
+//          <svg focusable="false" class="xui-icon">
+//            <use xlink:href="#xui-icon-cross" role="presentation"/>
+//          </svg>
+//          <div class="xui-touchtarget"></div>
+//        </button>
+//      </header>
+//      <div class="xui-modal--body">
+//         <div class="xui-textinputwrapper xui-field-layout">
+//           <label class="xui-text-label xui-fieldlabel-layout" for="a">Contact</label>
+//           <div class="xui-textinput xui-textinput-medium">
+//             <input type="text" class="xui-textinput--input xui-textinput--input-medium" placeholder="Find or create a contact" aria-invalid="false" id="a">
+//           </div>
+//        </div>
+//        <div class="xui-textinputwrapper xui-field-layout">
+//           <label class="xui-text-label xui-fieldlabel-layout" for="b">Project name</label>
+//           <div class="xui-textinput xui-textinput-medium">
+//             <input type="text" class="xui-textinput--input xui-textinput--input-medium" aria-invalid="false" id="b">
+//           </div>
+//        </div>
+//        <div class="xui-textinputwrapper xui-field-layout">
+//           <label class="xui-text-label xui-fieldlabel-layout" for="c">Deadline</label>
+//           <button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
+//            <span class="xui-select--content">Select date</span>
+//            <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
+//              <use xlink:href="#xui-icon-date-end" role="presentation" />
+//            </svg>
+//          </button>
+//        </div>
+//      </div>
+//      <footer class="xui-modal--footer xui-actions xui-actions-layout">
+//        <button class="xui-button xui-button-medium xui-actions--primary xui-button-create" tabindex="0" type="button">Create project</button>
+//        <button class="xui-button xui-button-medium xui-actions--secondary xui-button-standard" tabindex="0" type="button">Cancel</button>
+//      </footer>
+//    </section>
+//  </div>
 //
 // Styleguide: Compounds.CollectingInput.Modals.4
 
@@ -129,7 +130,6 @@
 //
 // Styleguide: Compounds.CollectingInput.Modals.4.3
 
-
 // Size variants
 //
 // Modifiers can be applied to xui-modal to adjust its width. This set of widths provide the ability to ensure the most appropriate visual hierarchy. A good rule of thumb is that modals shouldn't be a great deal wider than their height.
@@ -146,76 +146,80 @@
 //
 // Markup:
 // <div class="xui-mask xui-mask-is-active" aria-hidden="false">
-// 	<section class="xui-modal xui-modal-layout xui-modal-width-small" tabindex="0" role="dialog">
-// 		<header class="xui-modal--header">
-//			<div class='xui-modal--heading'>Delete contact</div>
-//			<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
-//				<svg focusable="false" class="xui-icon">
-//					<use xlink:href="#xui-icon-cross" role="presentation"/>
-//				</svg>
-//			</button>
-// 		</header>
-//		<div class="xui-modal--body">
-//			<div>Deleting this contact means you will no longer have access to their data</div>
-// 		</div>
-//		<footer class="xui-modal--footer xui-actions xui-actions-layout">
-//			<button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
-//		</footer>
-// 	</section>
+//   <section class="xui-modal xui-modal-layout xui-modal-width-small" tabindex="0" role="dialog">
+//     <header class="xui-modal--header">
+//       <div class='xui-modal--heading'>Delete contact</div>
+//       <button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-cross" role="presentation"/>
+//         </svg>
+//         <div class="xui-touchtarget"></div>
+//       </button>
+//     </header>
+//     <div class="xui-modal--body">
+//       <div>Deleting this contact means you will no longer have access to their data</div>
+//     </div>
+//     <footer class="xui-modal--footer xui-actions xui-actions-layout">
+//       <button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
+//     </footer>
+//   </section>
 // </div>
 // <div class="xui-mask xui-mask-is-active" aria-hidden="false">
-// 	<section class="xui-modal xui-modal-layout xui-modal-width-medium" tabindex="0" role="dialog">
-// 		<header class="xui-modal--header">
-//			<div class='xui-modal--heading'>Delete contact</div>
-//			<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
-//				<svg focusable="false" class="xui-icon">
-//					<use xlink:href="#xui-icon-cross" role="presentation"/>
-//				</svg>
-//			</button>
-// 		</header>
-//		<div class="xui-modal--body">
-//			<div>Deleting this contact means you will no longer have access to their data</div>
-// 		</div>
-//		<footer class="xui-modal--footer xui-actions xui-actions-layout">
-//			<button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
-//		</footer>
-// 	</section>
+//   <section class="xui-modal xui-modal-layout xui-modal-width-medium" tabindex="0" role="dialog">
+//     <header class="xui-modal--header">
+//       <div class='xui-modal--heading'>Delete contact</div>
+//       <button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-cross" role="presentation"/>
+//         </svg>
+//         <div class="xui-touchtarget"></div>
+//       </button>
+//     </header>
+//     <div class="xui-modal--body">
+//       <div>Deleting this contact means you will no longer have access to their data</div>
+//     </div>
+//     <footer class="xui-modal--footer xui-actions xui-actions-layout">
+//       <button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
+//     </footer>
+//   </section>
 // </div>
 // <div class="xui-mask xui-mask-is-active" aria-hidden="false">
-// 	<section class="xui-modal xui-modal-layout xui-modal-width-large" tabindex="0" role="dialog">
-// 		<header class="xui-modal--header">
-//			<div class='xui-modal--heading'>Delete contact</div>
-//			<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
-//				<svg focusable="false" class="xui-icon">
-//					<use xlink:href="#xui-icon-cross" role="presentation"/>
-//				</svg>
-//			</button>
-// 		</header>
-//		<div class="xui-modal--body">
-//			<div>Deleting this contact means you will no longer have access to their data</div>
-// 		</div>
-//		<footer class="xui-modal--footer xui-actions xui-actions-layout">
-//			<button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
-//		</footer>
-// 	</section>
+//   <section class="xui-modal xui-modal-layout xui-modal-width-large" tabindex="0" role="dialog">
+//     <header class="xui-modal--header">
+//       <div class='xui-modal--heading'>Delete contact</div>
+//       <button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-cross" role="presentation"/>
+//         </svg>
+//         <div class="xui-touchtarget"></div>
+//       </button>
+//     </header>
+//     <div class="xui-modal--body">
+//       <div>Deleting this contact means you will no longer have access to their data</div>
+//     </div>
+//     <footer class="xui-modal--footer xui-actions xui-actions-layout">
+//       <button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
+//     </footer>
+//   </section>
 // </div>
 // <div class="xui-mask xui-mask-is-active" aria-hidden="false">
-// 	<section class="xui-modal xui-modal-layout xui-modal-width-xlarge" tabindex="0" role="dialog">
-// 		<header class="xui-modal--header">
-//			<div class='xui-modal--heading'>Delete contact</div>
-//			<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
-//				<svg focusable="false" class="xui-icon">
-//					<use xlink:href="#xui-icon-cross" role="presentation"/>
-//				</svg>
-//			</button>
-// 		</header>
-//		<div class="xui-modal--body">
-//			<div>Deleting this contact means you will no longer have access to their data</div>
-// 		</div>
-//		<footer class="xui-modal--footer xui-actions xui-actions-layout">
-//			<button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
-//		</footer>
-// 	</section>
+//   <section class="xui-modal xui-modal-layout xui-modal-width-xlarge" tabindex="0" role="dialog">
+//     <header class="xui-modal--header">
+//       <div class='xui-modal--heading'>Delete contact</div>
+//       <button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-cross" role="presentation"/>
+//         </svg>
+//         <div class="xui-touchtarget"></div>
+//       </button>
+//     </header>
+//     <div class="xui-modal--body">
+//       <div>Deleting this contact means you will no longer have access to their data</div>
+//     </div>
+//     <footer class="xui-modal--footer xui-actions xui-actions-layout">
+//       <button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
+//     </footer>
+//   </section>
 // </div>
 //
 // Styleguide: Compounds.CollectingInput.Modals.5
@@ -260,117 +264,116 @@
 // Styleguide: Compounds.CollectingInput.Modals.9
 
 .#{$ns}-mask {
-	align-items: center;
-	background-color: $xui-mask-bg-color;
-	bottom: 0;
-	display: flex;
-	justify-content: center;
-	left: 0;
-	opacity: 0;
-	overflow-y: auto;
-	padding: $xui-s-standard;
-	pointer-events: none;
-	position: fixed;
-	right: 0;
-	top: 0;
-	transition: opacity $xui-motion-speed-medium $xui-motion-curve-standard;
-	visibility: hidden;
-	z-index: 10;
+  align-items: center;
+  background-color: $xui-mask-bg-color;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  overflow-y: auto;
+  padding: $xui-s-standard;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: opacity $xui-motion-speed-medium $xui-motion-curve-standard;
+  visibility: hidden;
+  z-index: 10;
 }
 
 .#{$ns}-mask-is-active {
-	opacity: 1;
-	pointer-events: auto;
-	visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
 }
 
 .#{$ns}-unmask {
-	background-color: transparentize($xui-color-grey-1, 1);
+  background-color: transparentize($xui-color-grey-1, 1);
 }
 
 .#{$ns}-modal {
-	align-self: flex-start;
-	background-color: $xui-modal-bg-color;
-	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-depth-pop;
-	margin-bottom: $xui-s-standard;
-	outline: none;
-	position: relative;
+  align-self: flex-start;
+  background-color: $xui-modal-bg-color;
+  border-radius: $xui-radius;
+  box-shadow: $xui-shadow-depth-pop;
+  margin-bottom: $xui-s-standard;
+  outline: none;
+  position: relative;
 }
 
 .#{$ns}-modal-layout {
-	max-width: calc(100vw - 2.5rem);  // Allows for minimum margin at the left/right of modal
-	width: map-get($xui-modal-widths, medium);
-	// Modal header
-	// -----------------------------------------------------------------------------
-	.#{$ns}-modal--header {
-		align-content: stretch;
-		align-items: center;
-		// If a background color is specified, ensure the border radius stays
-		border-top-left-radius: inherit;
-		border-top-right-radius: inherit;
-		display: flex;
-		flex-shrink: 0;
-		justify-content: space-between;
-		padding: $xui-s-small $xui-s-large;
-	}
+  max-width: calc(100vw - 2.5rem); // Allows for minimum margin at the left/right of modal
+  width: map-get($xui-modal-widths, medium);
+  // Modal header
+  // -----------------------------------------------------------------------------
+  .#{$ns}-modal--header {
+    align-content: stretch;
+    align-items: center;
+    // If a background color is specified, ensure the border radius stays
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-between;
+    padding: $xui-s-small $xui-s-large;
+  }
 
-	// Modal close
-	// -----------------------------------------------------------------------------
-	.#{$ns}-modal--close {
-		align-self: flex-start;
-		margin-left: auto;
-		margin-right: -$xui-s-xsmall;
-	}
+  // Modal close
+  // -----------------------------------------------------------------------------
+  .#{$ns}-modal--close {
+    align-self: flex-start;
+    margin-left: auto;
+    margin-right: -$xui-s-xsmall;
+  }
 
-	// If a heading exists
-	.#{$ns}-modal--heading ~ .#{$ns}-modal--close {
-		margin-left: $xui-s-large;
-	}
+  // If a heading exists
+  .#{$ns}-modal--heading ~ .#{$ns}-modal--close {
+    margin-left: $xui-s-large;
+  }
 
-	// Modal body
-	// -----------------------------------------------------------------------------
-	.#{$ns}-modal--body {
-		padding: $xui-s-xsmall $xui-s-large;
-	}
+  // Modal body
+  // -----------------------------------------------------------------------------
+  .#{$ns}-modal--body {
+    padding: $xui-s-xsmall $xui-s-large;
+  }
 
-	// Modal footer
-	// -----------------------------------------------------------------------------
-	.#{$ns}-modal--footer {
-		padding: $xui-s-large;
-	}
-
+  // Modal footer
+  // -----------------------------------------------------------------------------
+  .#{$ns}-modal--footer {
+    padding: $xui-s-large;
+  }
 }
 
 .#{$ns}-modal--body-layout {
-	@include xui-overflow-shadow;
-	max-height: 45vh;
-	overflow-y: scroll;
+  @include xui-overflow-shadow;
+  max-height: 45vh;
+  overflow-y: scroll;
 }
 
 @each $size, $width in $xui-modal-widths {
-	.#{$ns}-modal-width-#{$size} {
-		width: $width;
-	}
+  .#{$ns}-modal-width-#{$size} {
+    width: $width;
+  }
 }
 
 .#{$ns}-modal-fullscreen {
-	border-radius: 0;
-	display: flex;
-	flex-flow: column nowrap;
-	height: 100%;
-	left: 0;
-	max-height: 100%; // Overrides any max height set by the `modal-layout` class
-	max-width: 100vw; // Overrides any max width set by the `modal-layout` class
-	overflow: auto;
-	position: fixed;
-	top: 0;
-	width: 100vw;
+  border-radius: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  left: 0;
+  max-height: 100%; // Overrides any max height set by the `modal-layout` class
+  max-width: 100vw; // Overrides any max width set by the `modal-layout` class
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100vw;
 }
 
 // Modal heading
 // -----------------------------------------------------------------------------
 
 .#{$ns}-modal--heading {
-	@include xui-heading-large;
+  @include xui-heading-large;
 }

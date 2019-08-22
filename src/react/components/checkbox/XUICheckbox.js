@@ -9,6 +9,7 @@ import XUIControlWrapperInline, {
   getAriaAttributes,
 } from '../controlwrapper/XUIControlWrapperInline';
 import generateIds from '../controlwrapper/helpers';
+import XUITouchTarget from '../touchtarget/XUITouchTarget';
 
 // TODO: If there is further need to conform to specific browser scenarios then
 // we will need to replace this snippet with something more robust and granular,
@@ -73,6 +74,7 @@ const buildSvgCheckbox = (qaHook, { svgClassName, iconMain }) => {
         {createPathWithClass(`${baseClass}--focus`)}
         {createPathWithClass(`${baseClass}--main`)}
       </svg>
+      <XUITouchTarget />
     </div>
   );
 };
@@ -90,7 +92,11 @@ const buildHtmlCheckbox = (qaHook, htmlClassName, calculatedSize) => {
     htmlClassName,
     calculatedSize && `${baseClass}--checkbox-${calculatedSize}`,
   );
-  return <div className={htmlClasses} data-automationid={qaHook && `${qaHook}--checkbox`} />;
+  return (
+    <div className={htmlClasses} data-automationid={qaHook && `${qaHook}--checkbox`}>
+      <XUITouchTarget />
+    </div>
+  );
 };
 
 /**

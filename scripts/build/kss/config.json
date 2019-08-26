@@ -34,7 +34,7 @@
   ],
   "title": "XUI",
   "homepage": "../../src/docs/home.md",
-  "builder": "./.kss/builder",
+  "builder": ".kss/builder",
   "extend": "./.kss/builder/extend",
   "childPages": [
     "Getting Started",

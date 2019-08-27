@@ -8,7 +8,7 @@ import XUIProgressCircular from '../XUIProgressCircular';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, number, text, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import centered from '@storybook/addon-centered/react';
 
 import { COLORS } from '../helpers/constants';
 import { variations, storiesWithVariationsKindName } from './variations';

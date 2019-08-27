@@ -14,6 +14,22 @@ To determine our child pages and correctly render our sections, we've created a 
 
 This method is unreasonably large and we only need to hook it around line 290 in the `sectionRoots.forEach` and there is not really a simpler way. So it is mostly copy paste. The section inside the `sectionRoots` iteration decides which roots to build as html pages and which content to include on them.
 
+### Debugging KSS
+
+Check the command line parameters
+
+```
+$ npx kss --help
+```
+
+Run kss from the CLI with custom configs or additional parameters.
+
+```
+$ node --inspect-brk node_modules/kss/bin/kss --config=./config.json --builder=/Users/james.magness/dev/uxe/xui/.kss/builder/
+```
+Using `--inspext-brk` allows you to hook Chrome devtools up for debugging, it is a standard Node.js thing and very useful. Further reading on this: [Debugging Node.js with Chrome DevTools](https://medium.com/@paul_irish/debugging-node-js-nightlies-with-chrome-devtools-7c4a1b95ae27)
+
+
 ## Customisations (node/handlebars)
 
 KSS supports custom properties and we have a number all pre-defined in our [config.json](https://github.dev.xero.com/UXE/xui/blob/master/kss/config.json#L3) these allow us to push KSS beyond it's initial design by adding custom handlebars templates and helpers when these props are used.

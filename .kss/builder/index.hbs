@@ -84,10 +84,15 @@
 							<svg class="xui-icon ds-anchor-hash"> <use xlink:href="#xui-icon-hash" role="presentation"/></svg>
 						</a>
 						<span>{{header}}</span>
-						{{#if flag}}
-							<span class="ds-flag {{getStatusClass flag}}">
-									{{flag}}
-							</span>
+						{{#if flags}}
+							{{#renderFlags flags}}
+								<span class="ds-flag {{#if flag.shortName}}{{getStatusClass flag.shortName}}{{/if}}">
+										{{flag.label}}
+										{{#if flag.desc}}
+											<button class="hover-tooltip xui-button">{{flag.desc}}</button>
+										{{/if}}
+								</span>
+							{{/renderFlags}}
 						{{/if}}
 					</h{{depth}}>
 
@@ -245,17 +250,17 @@
 						{{/each}}
 						</div>
 					{{/if}}
-
+					<div class="ds-example-links">
+						<label for="markup-{{referenceNumber}}" class="xui-button xui-button-borderless-main xui-button-small ds-example-markuplink xui-margin-top-large{{#isEqual exampleclass "ds-example-inline"}} xui-u-hidden{{/isEqual}}{{#isEqual exampleclass "ds-example-markuponly"}} xui-u-hidden{{/isEqual}}">Show markup</label>
+						{{#if storybook}}
+							<a href="{{storybook}}" target="_blank" class="xui-button xui-button-borderless-main xui-button-small xui-margin-top-large ds-example-storybooklink">Open Storybook example
+								<svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-external" role="presentation"/></svg>
+							</a>
+						{{/if}}
+					</div>
 				</div>
 				<!--ds-example-->
-				<div>
-					<label for="markup-{{referenceNumber}}" class="xui-button xui-button-borderless-main xui-button-small xui-margin-top-large{{#isEqual exampleclass "ds-example-inline"}} xui-u-hidden{{/isEqual}}{{#isEqual exampleclass "ds-example-markuponly"}} xui-u-hidden{{/isEqual}}">Show markup</label>
-					{{#if storybook}}
-						<a href="{{storybook}}" target="_blank" class="xui-button xui-button-borderless-main xui-button-small xui-margin-top-large">Open Storybook example
-							<svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-external" role="presentation"/></svg>
-						</a>
-					{{/if}}
-				</div>
+
 				<!--ds-markup-->
 
 				<div class="ds-markup{{#isEqual exampleclass "ds-example-inline"}} ds-example-inline{{/isEqual}}{{#isEqual exampleclass "ds-example-markuponly"}} ds-example-inline{{/isEqual}}">

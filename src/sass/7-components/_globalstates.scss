@@ -1,8 +1,8 @@
-@import "../vars";
+@import '../vars';
 
 // Disabling
 //
-// Flag: Under review
+// Flags: Under review
 //
 // Many components already have styles defined for their disabled state, so please refer to those guidelines first. However, this class is available as a fallback if none are available.
 //
@@ -14,18 +14,18 @@
 // TODO: Revisit whether this is a component or not
 
 .#{$ns}-is-disabled {
-	cursor: default;
-	opacity: 0.4;
-	pointer-events: none;
+  cursor: default;
+  opacity: 0.4;
+  pointer-events: none;
 
-	&:hover,
-	&:active,
-	&:focus {
-		background-color: inherit;
-	}
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: inherit;
+  }
 
-	> * {
-		cursor: default;
-		pointer-events: none;
-	}
+  > * {
+    cursor: default;
+    pointer-events: none;
+  }
 }

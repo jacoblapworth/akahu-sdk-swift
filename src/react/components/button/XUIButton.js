@@ -43,16 +43,14 @@ const isIconVariant = variant => variant.indexOf('icon') > -1;
 const getVariantClass = variant =>
   variantClassNames[variant] !== undefined ? variantClassNames[variant] : `${ns}-button-standard`;
 
-/* eslint-disable no-script-url */
 /**
- * Replaces any href of `#` or undefined with `javascript:void(0)`. Else returns the passed href.
+ * Replaces any href of `#` or undefined with an empty string. Else returns the passed href.
  *
  * @private
  * @param {string} href - A given link's href
  * @return {string} The href that will be assigned to a link
  */
-const getHref = href => (!href || href === '#' ? 'javascript:void(0)' : href);
-/* eslint-enable no-script-url */
+const getHref = href => (!href || href === '#' ? '' : href);
 
 /**
  * KeyPress handler which will dispatch a click event when the space bar is pressed.
@@ -215,7 +213,7 @@ export default class XUIButton extends React.PureComponent {
             className,
             variantClass,
             isIconDependentClassNames,
-            isDisabled && `${ns}-button-is-disabled`,
+            buttonDisabled && `${ns}-button-is-disabled`,
           );
 
           const clickHandler =

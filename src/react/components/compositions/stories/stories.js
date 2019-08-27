@@ -16,8 +16,9 @@ import XUICompositionMasterDetail from '../XUICompositionMasterDetail';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
-import withReadme from 'storybook-readme/with-readme';
-import Readme from './README.md';
+// TODO: storybook-readme is commented out until the package fixes issues with IE11.
+// import { addReadme } from 'storybook-readme';
+// import readme from './README.md';
 import { variations, storiesWithVariationsKindName } from './variations';
 
 import XUIPanel from '../../structural/XUIPanel';
@@ -89,7 +90,13 @@ const blockAreas = {
 
 const storiesWithKnobs = storiesOf('Compositions', module);
 storiesWithKnobs.addDecorator(withKnobs);
-storiesWithKnobs.addDecorator(withReadme([Readme]));
+// TODO: storybook-readme is commented out until the package fixes issues with IE11.
+// test.addDecorator(addReadme);
+// test.addParameters({
+// 	readme: {
+// 		sidebar: readme
+// 	}
+// });
 storiesWithKnobs.add('Master detail summary', () => {
   const Tag = boolean('Include content header', false, '1')
     ? XUICompositionMasterDetailSummaryHeader

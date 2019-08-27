@@ -12,105 +12,105 @@ import { nonBackstopStoryNames, compositionKind } from '../tests';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withReadme } from 'storybook-readme';
-import readme from './README.md';
+// TODO: storybook-readme is commented out until the package fixes issues with IE11.
+// import { addReadme } from 'storybook-readme';
+// import readme from './README.md';
 
 const buildDropdownPicklist = items => {
-	const pickItems = items.map((text, id) => (
-		<Pickitem
-			key={id}
-			id={text}
-			isSelected={false}
-		>
-			{text}
-		</Pickitem>
-	));
-	return (
-		<DropDown>
-			<Picklist>
-				{pickItems}
-			</Picklist>
-		</DropDown>
-	);
+  const pickItems = items.map((text, id) => (
+    <Pickitem key={id} id={text} isSelected={false}>
+      {text}
+    </Pickitem>
+  ));
+  return (
+    <DropDown>
+      <Picklist>{pickItems}</Picklist>
+    </DropDown>
+  );
 };
 
 const buildTrigger = text => (
-	<XUIButton>
-		{text}
-		<XUIButtonCaret />
-	</XUIButton>
+  <XUIButton>
+    {text}
+    <XUIButtonCaret />
+  </XUIButton>
 );
 
 class Example extends Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.state = {
-			showModal: false,
-		};
-	}
+    this.state = {
+      showModal: false,
+    };
+  }
 
-	render() {
-		return (
-			<div>
-				<XUIButton onClick={() => this.setState({ showModal: true })}>First modal</XUIButton>
-				<XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
-					<XUIModalHeader>First modal</XUIModalHeader>
-					<XUIModalBody className="xui-padding">
-						<div className="xui-padding-bottom">
-							This is the first layer modal
-							<Example2 />
-						</div>
-					</XUIModalBody>
-				</XUIModal>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <XUIButton onClick={() => this.setState({ showModal: true })}>First modal</XUIButton>
+        <XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
+          <XUIModalHeader>First modal</XUIModalHeader>
+          <XUIModalBody className="xui-padding">
+            <div className="xui-padding-bottom">
+              This is the first layer modal
+              <Example2 />
+            </div>
+          </XUIModalBody>
+        </XUIModal>
+      </div>
+    );
+  }
 }
-<Example />
+<Example />;
 
 class Example2 extends Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.state = {
-			showModal: false,
-		};
-	}
+    this.state = {
+      showModal: false,
+    };
+  }
 
-	render() {
-		return (
-			<div>
-				<XUIButton onClick={() => this.setState({ showModal: true })}>Second modal</XUIButton>
-				<XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
-					<XUIModalHeader>Second modal</XUIModalHeader>
-					<XUIModalBody className="xui-padding">
-						<div className="xui-padding-bottom" style={{height: "1000px"}}>
-							This is the second layer modal
-							<DropDownToggled
-								trigger={buildTrigger('Short Trigger')}
-								dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
-								isHidden={false}
-								repositionOnScroll
-								isLegacyDisplay={false}
-							/>
-						</div>
-					</XUIModalBody>
-				</XUIModal>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <XUIButton onClick={() => this.setState({ showModal: true })}>Second modal</XUIButton>
+        <XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
+          <XUIModalHeader>Second modal</XUIModalHeader>
+          <XUIModalBody className="xui-padding">
+            <div className="xui-padding-bottom" style={{ height: '1000px' }}>
+              This is the second layer modal
+              <DropDownToggled
+                trigger={buildTrigger('Short Trigger')}
+                dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
+                isHidden={false}
+                repositionOnScroll
+                isLegacyDisplay={false}
+              />
+            </div>
+          </XUIModalBody>
+        </XUIModal>
+      </div>
+    );
+  }
 }
-<Example2 />
+<Example2 />;
 
 const test = storiesOf(compositionKind, module);
-test.addDecorator(withReadme(readme));
-
+// TODO: storybook-readme is commented out until the package fixes issues with IE11.
+// test.addDecorator(addReadme);
+// test.addParameters({
+// 	readme: {
+// 		sidebar: readme
+// 	}
+// });
 
 test.add(nonBackstopStoryNames.modalInModal, () => {
-	const body = document.querySelector('body.xui-container');
-	if (body && body.style) { body.style.height = "200%"; }
-	return (
-		<Example />
-	);
+  const body = document.querySelector('body.xui-container');
+  if (body && body.style) {
+    body.style.height = '200%';
+  }
+  return <Example />;
 });

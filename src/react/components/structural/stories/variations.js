@@ -19,9 +19,9 @@ const buildPI = (total, progress) => (
 let variations = Object.keys(rowVariants).map(variant => ({
   storyKind: storiesWithVariationsKindName,
   storyTitle: `With a ${variant} variant`,
-  viewports: desktopPlus320,
+  viewports: [...desktopPlus320, commonViewports[2]],
   variant,
-  columnWidths: ['3', '6', '3'],
+  columnWidths: ['6', '3', '3', '6', '6', '6', '6', '12'],
   type: 'row',
 }));
 

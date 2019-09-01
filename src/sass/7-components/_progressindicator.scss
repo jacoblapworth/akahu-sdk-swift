@@ -562,8 +562,8 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
 }
 
 .#{$ns}-progress-linear {
-  width: 100%;
   min-width: $xui-minimum-touch-target;
+  width: 100%;
 }
 
 .#{$ns}-progress-linear-wrapper,

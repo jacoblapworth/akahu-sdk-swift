@@ -900,9 +900,9 @@ $xui-table-z-alert: 4;
   background: $xui-table-bg-color;
   cursor: pointer;
   height: $xui-s-4xlarge;
+  min-width: $xui-minimum-touch-target;
   outline: 0;
   overflow: hidden;
-  min-width: $xui-minimum-touch-target;
   text-align: left;
   transition: {
     duration: $xui-motion-speed-fast;

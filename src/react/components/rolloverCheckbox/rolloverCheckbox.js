@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import XUICheckbox from '../checkbox/XUICheckbox';
-import XUITouchTarget from '../touchtarget/XUITouchTarget';
 
 import { baseClass } from './private/constants';
 

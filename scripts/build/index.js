@@ -32,9 +32,7 @@ async function build() {
           buildKss({
             skipPostCss: true,
           }),
-          buildStorybook({
-            skipPostCss: false, // KSS build (build/kss/index.js) cleans the whole storybook directory with copied xui.css and xui-base.css. Keeping post css task restores it.
-          }),
+          buildStorybook(),
           buildTokens(),
           buildUmd(),
         ]).then(({ stdout, stderr }) => console.log('stdout and stderr >>> ', stdout, stderr));

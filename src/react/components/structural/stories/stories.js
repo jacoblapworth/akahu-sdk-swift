@@ -40,6 +40,8 @@ const buildColumns = widths =>
     <XUIColumn
       key={index}
       gridColumns={width}
+      gridColumnsSmallUp={width}
+      gridColumnsLargeUp={width}
       className="xui-padding-small"
       style={{ backgroundColor: 'RGBA(255,255,255,0.5)' }}
     >

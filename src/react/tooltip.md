@@ -8,7 +8,7 @@
 
 ### Default tooltip
 
-The default tooltip is triggered on mouseover, and will appear centered above the trigger, if enough space is available. It is intended to contain short text, but will wrap, if necessary.
+The default tooltip is triggered on mouseover or as part of a touch-press event chain, and will appear centered above the trigger, if enough space is available. It is intended to contain short text, but will wrap, if necessary.
 
 **Note:** This component wraps the trigger component and the tooltip in an inline-block element for positioning purposes. It may be helpful to add `wrapperClassName` to apply styles that were directly affecting the trigger.
 

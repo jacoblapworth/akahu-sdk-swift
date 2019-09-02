@@ -18,16 +18,13 @@
 @mixin xui-column-width-generator($numberofcolumns, $columnpercentage, $gutter: 0) {
   $calculated-width: 100;
   $single-column-width: 100 / $numberofcolumns;
-  @if ($columnpercentage < $numberofcolumns) {
-    $calculated-width: $single-column-width * $columnpercentage;
-    $truncated-width: xui-truncate-number($calculated-width);
-    @if (type-of($gutter) == number and $gutter > 0) {
-      width: calc(#{xui-convert-to-percentage($truncated-width)} - #{$gutter});
-    } @else {
-      width: xui-convert-to-percentage($truncated-width);
-    }
+
+  $calculated-width: $single-column-width * $columnpercentage;
+  $truncated-width: xui-truncate-number($calculated-width);
+  @if (type-of($gutter) == number and $gutter > 0) {
+    width: calc(#{xui-convert-to-percentage($truncated-width)} - #{$gutter});
   } @else {
-    width: xui-convert-to-percentage($calculated-width);
+    width: xui-convert-to-percentage($truncated-width);
   }
 }
 
@@ -46,7 +43,7 @@
       @include xui-breakpoint-small-up {
         .#{$ns}-row-grid > .#{$ns}-column-#{$suffix}-small-up {
           float: left;
-          @include xui-column-width-generator($xui-layout-columns, $i);
+          @include xui-column-width-generator($xui-layout-columns, $i, $xui-grid-gutter);
         }
       }
     }
@@ -59,7 +56,7 @@
       @include xui-breakpoint-large-up {
         .#{$ns}-column-#{$suffix}-large-up {
           float: left;
-          @include xui-column-width-generator($xui-layout-columns, $i, $xui-grid-gutter);
+          @include xui-column-width-generator($xui-layout-columns, $i);
         }
       }
     } @else {

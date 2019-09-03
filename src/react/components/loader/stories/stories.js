@@ -8,7 +8,7 @@ import { sizeClassNames } from '../private/constants';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import centered from '@storybook/addon-centered/react';
 
 import ExampleContainer from '../../../docs/ExampleContainer';
 

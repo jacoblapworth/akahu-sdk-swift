@@ -30,7 +30,7 @@ import { rowVariants } from '../private/constants';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, number, text, boolean } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';
@@ -40,6 +40,8 @@ const buildColumns = widths =>
     <XUIColumn
       key={index}
       gridColumns={width}
+      gridColumnsSmallUp={width}
+      gridColumnsLargeUp={width}
       className="xui-padding-small"
       style={{ backgroundColor: 'RGBA(255,255,255,0.5)' }}
     >

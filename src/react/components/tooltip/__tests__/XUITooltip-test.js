@@ -12,7 +12,7 @@ jest.useFakeTimers();
 const setup = (props = {}, fn = renderer.create) => {
   jest.clearAllTimers();
   const createTriggerLink = () => {
-    return <a href="javascript:void(0);">A link</a>;
+    return <a href="#">A link</a>;
   };
 
   const expected = fn(

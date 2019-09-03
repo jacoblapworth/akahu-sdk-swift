@@ -71,6 +71,7 @@
 // Do: Use the same label and description font-size with all size variants
 // Warning: Use 'small' and 'xsmall' variants cautiously, as they have reduced legibility and touch targets
 // Dont: Don’t use a combination of size variants within a single form
+// Dont: Don't vertically stack small and xsmall Text inputs. Small and xsmall variants now have a sunsetting flag due to poor touch interaction potential.
 //
 // Definitions:
 // Size variant: **Height**: **Class**

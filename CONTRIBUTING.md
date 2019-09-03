@@ -243,7 +243,7 @@ Both sections should cover renames, additions, removals, or altered behaviour.
 
 #### CSS deprecation documentation
 
-CSS deprecations should be detailed in a 5th level KSS block, with a deprecated flag applied. If the deprecated classes are in the same page as their suggested replacement, they should appear beneath their replacement. Alternatively, they should be positioned at the bottom of the page.
+CSS deprecations should be detailed in a 5th level KSS block, with a 'sunsetting' flag applied. If the deprecated classes are in the same page as their suggested replacement, they should appear beneath their replacement. Alternatively, they should be positioned at the bottom of the page.
 
 e.g.
 ```

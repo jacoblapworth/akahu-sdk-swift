@@ -14,13 +14,17 @@
 // Anatomy
 //
 // Checkboxes benefit from the built-in functionality of native inputs, but extend their style to match our visual language.
-// To create one, use the following classes.
+// To create one, use the following classes and insert the [touch target element](section-getting-started-responsive.html#getting-started-responsive-3) inside the checkbox.
+//
+// Tips:
+// Warning: If displaying multiple checkboxes, ensure there is adequate space between so that touch targets don't overlap
 //
 // Classes:
 // xui-styledcheckboxradio: Wrapper for the checkbox
 // xui-styledcheckboxradio--input: Native input, visually hidden
 // xui-styledcheckboxradio--checkbox: Styled control
 // xui-styledcheckboxradio--label: Text label
+// xui-touchtarget: Apply to an empty element inside the checkbox
 //
 // Markup:
 // <label class="xui-styledcheckboxradio">
@@ -47,7 +51,7 @@
 // Tips:
 // Do: Use the 'medium' size variant when not nesting Checkbox
 // Do: Use the 'small' size variant inside Checkbox groups
-// Warning: Be cautious when using 'small' or 'xsmall' variants, as they have reduced legibility and touch targets
+// Warning: Be cautious when using 'small' or 'xsmall' variants, as they have reduced legibility
 // Don't: Don’t use a combination of size variants within a single form
 //
 // Definitions:
@@ -465,5 +469,6 @@
 // xui-styledcheckboxradio--input-xsmall: Sets the input size to xsmall
 // xui-styledcheckboxradio--checkbox-xsmall: Sets the checkbox size to xsmall
 // xui-styledcheckboxradio--label-xsmall: Sets the label size to xsmall
+// xui-touchtarget: Invisible touch target element inside a checkbox
 //
 // Styleguide: Building Blocks.Controls.Checkbox.50

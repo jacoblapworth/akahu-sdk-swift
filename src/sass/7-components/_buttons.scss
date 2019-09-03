@@ -179,7 +179,7 @@
 // Icon buttons
 //
 // At times, icon-only buttons are desired for optimal space utilisation, or quick actions that are common and performed frequently.
-// To create one, apply the following class to the button, and insert the desired [icon](section-fundamentals-icons.html) inside.
+// To create one, apply the following class to the button, and insert the desired [icon](section-fundamentals-icons.html) and the [touch target element](section-getting-started-responsive.html#getting-started-responsive-3) inside.
 //
 // Tips:
 // Do: Use icons from XUI icon set
@@ -187,10 +187,11 @@
 // Do: Use icon buttons to optimise screen real-estate on small screen sizes
 // Do: Always include descriptive Title and ARIA labels on buttons
 // Warning: Ensure that users understand an icon and its purpose before solely relying on one to convey meaning
+// Warning: If displaying multiple icon buttons, ensure there is adequate space between so that touch targets don't overlap
 //
 // Classes:
 // xui-button-icon: Apply to button
-//
+// xui-touchtarget: Apply to an empty element inside the icon button
 //
 // Markup:
 // <button type="button" class="xui-button xui-button-icon xui-button-icon-small" title="Close the window" aria-label="Close the window">
@@ -475,6 +476,7 @@
 // xui-button-xsmall: Modifier for a xsmall button
 // xui-button-icon-small: Modifier for a small icon button
 // xui-button-icon-xsmall: Modifier for a xsmall icon button
+// xui-touchtarget: Invisible touch target element inside an icon button
 //
 // Styleguide: Building Blocks.Controls.Button.50
 

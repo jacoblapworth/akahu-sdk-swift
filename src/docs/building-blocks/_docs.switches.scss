@@ -21,7 +21,11 @@
 // Anatomy
 //
 // To create a switch, use the following classes in combination with a native checkbox input.
-// To turn the switch on, simply add the `checked` attribute to the input.
+// To turn the switch on, add the `checked` attribute to the input.
+// Visit our [touch target documentation](section-getting-started-responsive.html#getting-started-responsive-3) for more information about the invisble `xui-touchtarget` element.
+//
+// Tips:
+// Warning: If displaying multiple switches, ensure there is adequate space between so that touch targets don't overlap
 //
 // Classes:
 // xui-switch: Apply to label containing the switch
@@ -32,6 +36,7 @@
 // xui-switch--label: Apply to label
 // xui-switch--label-medium: Apply to label for standard sizing
 // xui-switch-reversed: Modifier to reverse order of label
+// xui-touchtarget: Apply to an empty element inside the switch control
 //
 // Markup:
 // <label class="xui-switch xui-switch-medium xui-margin-right-small" role="presentation">

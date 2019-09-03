@@ -12,7 +12,7 @@ import XUIIconButton from '../../button/XUIIconButton';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, object, text, select, number } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import centered from '@storybook/addon-centered/react';
 import customCentered from '../../../../../.storybook/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';

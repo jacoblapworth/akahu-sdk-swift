@@ -364,7 +364,7 @@ Inputs also have `small` and `xsmall` variants. To use these size variants with 
 Note that only avatars and text side elements have `2xsmall` size variants, so are the only side element options available for the `xsmall` text inputs.
 
 ```jsx harmony
-import closePath from '@xero/xui-icon/icons/cross';
+import crossSmall from '@xero/xui-icon/icons/cross-small';
 
 import XUIAvatar from './avatar';
 import XUIPill from './pill';
@@ -382,7 +382,7 @@ import XUITextInput, { XUITextInputSideElement } from './textinput';
     }
     rightElement={
       <XUITextInputSideElement type="icon">
-        <XUIIconButton icon={closePath} ariaLabel="Close Path" />
+        <XUIIconButton icon={crossSmall} ariaLabel="Clear content" />
       </XUITextInputSideElement>
     }
   />
@@ -397,7 +397,7 @@ import XUITextInput, { XUITextInputSideElement } from './textinput';
     }
     rightElement={
       <XUITextInputSideElement type="icon">
-        <XUIIconButton icon={closePath} ariaLabel="Close Path" />
+        <XUIIconButton size="small" icon={crossSmall} ariaLabel="Clear content" />
       </XUITextInputSideElement>
     }
   />
@@ -408,6 +408,11 @@ import XUITextInput, { XUITextInputSideElement } from './textinput';
     leftElement={
       <XUITextInputSideElement type="avatar">
         <XUIAvatar value="bob" size="2xsmall" />
+      </XUITextInputSideElement>
+    }
+    rightElement={
+      <XUITextInputSideElement type="icon">
+        <XUIIconButton size="xsmall" icon={crossSmall} ariaLabel="Clear content" />
       </XUITextInputSideElement>
     }
   />
@@ -441,6 +446,8 @@ import XUITextInput, { XUITextInputSideElement } from './textinput';
 ```
 
 #### Input Groups
+
+Don't vertically stack `small` and `xsmall` Text inputs. `small` and `xsmall` variants now have a `sunsetting` flag due to poor touch interaction potential.
 
 ```jsx harmony
 import XUIIcon from './icon';

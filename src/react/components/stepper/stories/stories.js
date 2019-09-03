@@ -7,7 +7,7 @@ import XUIStepper from '../XUIStepper';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, number, text, select, object } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName, baseProps } from './variations';
 

@@ -21,7 +21,7 @@ import search from '@xero/xui-icon/icons/search';
       Finn Clark
     </Pickitem>
   </Picklist>
-  <Picklist size="small">
+  <Picklist>
     <Pickitem id="pi3">Katie Macoy</Pickitem>
     <Pickitem id="pi4" isInvalid>
       Isaac Minogue
@@ -30,7 +30,7 @@ import search from '@xero/xui-icon/icons/search';
     <Pickitem
       id="pi2"
       shouldTruncate
-      leftElement={<XUIAvatar value="Zac Sanderson-Harris" size="xsmall" />}
+      leftElement={<XUIAvatar value="Zac Sanderson-Harris" size="small" />}
       secondaryElement="zac.sandersonharris@xero.com"
       headingElement="Zac Sanderson-Harris"
       isMultiline

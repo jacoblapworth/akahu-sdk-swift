@@ -26,7 +26,7 @@ exports[`<XUIButton/> does retain layout checks with a myriad of combinations 1`
 
 exports[`<XUIButton/> does retain layout checks with a myriad of combinations 2`] = `
 <button
-  className="xui-button xui-button-main xui-button-medium"
+  className="xui-button xui-button-main xui-button-medium xui-button-is-disabled"
   disabled={true}
   onClick={[Function]}
   onKeyDown={null}
@@ -58,7 +58,7 @@ exports[`<XUIButton/> does retain layout checks with a myriad of combinations 2`
 
 exports[`<XUIButton/> does retain layout checks with a myriad of combinations 3`] = `
 <button
-  className="xui-button xui-button-main xui-button-medium"
+  className="xui-button xui-button-main xui-button-medium xui-button-is-disabled"
   disabled={true}
   onClick={[Function]}
   onKeyDown={null}

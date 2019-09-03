@@ -12,6 +12,7 @@ import portalContainer, { portalClass } from '../helpers/portalContainer';
 import { baseClass, modalSizes } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
 import { eventKeyValues } from '../helpers/reactKeyHandler';
+import getFocusableDescendants from '../helpers/getFocusableDescendants';
 
 const maskClass = `${ns}-mask`;
 
@@ -69,7 +70,8 @@ export default class XUIModal extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (shouldUpdateListeners(this.props, nextProps)) {
       this.removeListeners();
     }
@@ -176,16 +178,56 @@ export default class XUIModal extends Component {
    * */
   _restrictFocus = event => {
     const { isOpen, restrictFocus } = this.props;
-    if (isOpen && restrictFocus) {
-      /* Need to check if the focus is within this modal mask, or in another portalled element
-			(e.g. dropdowns) */
-      const maskAndPortalNodes = [...document.querySelectorAll(`.${portalClass}, .${maskClass}`)];
-      const targetIsWindow = event.target === window;
-      if (targetIsWindow || !maskAndPortalNodes.some(node => node.contains(event.target))) {
-        event.stopPropagation();
-        if (this._modalNode) {
-          this._modalNode.focus();
-        }
+
+    if (!this._modalNode || !isOpen || !restrictFocus) {
+      return;
+    }
+
+    if (event.target === window || event.target === document) {
+      return;
+    }
+
+    // Need to check if the focus is within this modal mask, or in another portalled element (e.g. dropdowns)
+    const maskAndPortalNodes = [...document.querySelectorAll(`.${portalClass}, .${maskClass}`)];
+    if (!maskAndPortalNodes.some(node => node.contains(event.target))) {
+      event.stopPropagation();
+      this._modalNode.focus();
+    }
+  };
+
+  /**
+   * @param {Object} event - A keyDown event
+   * Overrides the `Tab` key's default behaviour to allow focusing on a modal with a positive tab
+   * index.
+   *
+   * Giving an element a positive tab index means that reverse tabbing (shift + tab) from it will
+   * hand the focus over to the browser.
+   */
+  _manageTabFocus = event => {
+    const { isUsingPortal, restrictFocus } = this.props;
+    if (event.key !== 'Tab' || restrictFocus === false) {
+      return;
+    }
+
+    const focusableDescendants = getFocusableDescendants(this._modalNode);
+    const firstFocusableDescendant = focusableDescendants[0];
+    const lastFocusableDescendant = [...focusableDescendants].slice(-1)[0];
+
+    if (!event.shiftKey) {
+      // Tabbing forwards
+      if (event.target === this._modalNode) {
+        event.preventDefault();
+        firstFocusableDescendant.focus();
+      }
+    } else {
+      // Tabbing backwards
+      if (event.target === firstFocusableDescendant) {
+        event.preventDefault();
+        this._modalNode.focus();
+      }
+      if (event.target === this._modalNode && !isUsingPortal) {
+        event.preventDefault();
+        lastFocusableDescendant.focus();
       }
     }
   };
@@ -208,6 +250,7 @@ export default class XUIModal extends Component {
       isForm,
       isUsingPortal,
       closeButtonLabel,
+      restrictFocus,
     } = this.props;
     const { positionSettings, isTopModal } = this.state;
 
@@ -266,6 +309,12 @@ export default class XUIModal extends Component {
       );
     }
     const MainElement = isForm ? 'form' : 'section';
+    let modalTabIndex = -1;
+    if (isOpen && isTopModal) {
+      // Setting the tabIndex to a positive integer allows the focus to return to the browser when shift+tabbing out of the modal. We use the highest possible tab index (32767) just incase the modal has a child with a positive tab index.
+      const useTabIndexHack = restrictFocus && isUsingPortal;
+      modalTabIndex = useTabIndexHack ? 32767 : 0;
+    }
     const childNodes = (
       <div
         id={id}
@@ -278,7 +327,7 @@ export default class XUIModal extends Component {
       >
         <MainElement
           className={modalClasses}
-          tabIndex={isOpen && isTopModal ? 0 : -1}
+          tabIndex={modalTabIndex}
           role={isOpen ? 'dialog' : null}
           style={positionSettings}
           // If a modal header has been provided, it can be used for the label.
@@ -286,6 +335,7 @@ export default class XUIModal extends Component {
           aria-describedby={ariaDescribedBy}
           data-automationid={qaHook}
           ref={m => (this._modalNode = m)}
+          onKeyDown={this._manageTabFocus}
         >
           {headerElement}
           {finalChildren}

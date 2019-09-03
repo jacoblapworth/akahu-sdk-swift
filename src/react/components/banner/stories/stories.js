@@ -11,7 +11,7 @@ import XUIBannerMessageDetail from '../XUIBannerMessageDetail';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, object, array } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName, NOOP } from './variations';
 

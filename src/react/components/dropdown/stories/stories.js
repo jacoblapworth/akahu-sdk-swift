@@ -22,7 +22,7 @@ import plusIcon from '@xero/xui-icon/icons/plus';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import centered from '@storybook/addon-centered/react';
 
 import { storiesWithVariationsKindName, variations, NOOP } from './variations';
 import { ShortListShortItems, LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';

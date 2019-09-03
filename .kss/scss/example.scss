@@ -1,16 +1,16 @@
-@import "../../src/sass/mixins";
-@import "../../src/sass/vars";
-@import "./mixins";
-@import "./vars";
+@import '../../src/sass/mixins';
+@import '../../src/sass/vars';
+@import './mixins';
+@import './vars';
 
 .ds-example-default {
-	background: $ds-example-default-bg-color;
-	padding: $xui-s-large;
+  background: $ds-example-default-bg-color;
+  padding: $xui-s-large;
 }
 
 .ds-example-dark {
-	background: $ds-dark-bg-color;
-	padding: $xui-s-xsmall;
+  background: $ds-dark-bg-color;
+  padding: $xui-s-xsmall;
 }
 
 .ds-example-verticallycentered {
@@ -21,7 +21,7 @@
 }
 
 .ds-example-transparent {
-	background: transparent;
+  background: transparent;
 }
 
 .ds-example-header {
@@ -35,22 +35,22 @@
 }
 
 .ds-example-narrow {
-	.ds-example--inner  {
-		width: 300px; // TBA
-	}
+  .ds-example--inner {
+    width: 300px; // TBA
+  }
 }
 
 .ds-example-inline,
 .ds-example-markuponly {
-	padding-right: 3rem;
+  padding-right: 3rem;
 }
 
 .ds-example-tall {
-	min-height: 667px;
+  min-height: 667px;
 }
 
 .ds-markup.ds-example-markuponly {
-	position: relative;
+  position: relative;
   @include xui-breakpoint-large-up {
     @include embiggen;
   }
@@ -60,4 +60,8 @@
   @include xui-breakpoint-large-up {
     @include embiggen;
   }
+}
+
+.ds-example-nomarkuplink + .ds-example-links .ds-example-markuplink {
+  display: none;
 }

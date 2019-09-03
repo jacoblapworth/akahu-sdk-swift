@@ -54,7 +54,7 @@ exports[`XUITooltip include an automation-id 1`] = `
 >
   <a
     aria-describedby="test"
-    href="javascript:void(0);"
+    href="#"
     onBlur={[Function]}
     onFocus={[Function]}
     onMouseOut={[Function]}
@@ -100,7 +100,7 @@ exports[`XUITooltip include an id, if provided 1`] = `
 >
   <a
     aria-describedby="test-tooltip-id"
-    href="javascript:void(0);"
+    href="#"
     onBlur={[Function]}
     onFocus={[Function]}
     onMouseOut={[Function]}
@@ -144,7 +144,7 @@ exports[`XUITooltip include provided classNames 1`] = `
 >
   <a
     aria-describedby="test"
-    href="javascript:void(0);"
+    href="#"
     onBlur={[Function]}
     onFocus={[Function]}
     onMouseOut={[Function]}
@@ -188,7 +188,7 @@ exports[`XUITooltip include provided wrapperClassNames 1`] = `
 >
   <a
     aria-describedby="test"
-    href="javascript:void(0);"
+    href="#"
     onBlur={[Function]}
     onFocus={[Function]}
     onMouseOut={[Function]}
@@ -232,7 +232,7 @@ exports[`XUITooltip renders correctly 1`] = `
 >
   <a
     aria-describedby="test"
-    href="javascript:void(0);"
+    href="#"
     onBlur={[Function]}
     onFocus={[Function]}
     onMouseOut={[Function]}
@@ -276,7 +276,7 @@ exports[`XUITooltip sets maxHeight 1`] = `
 >
   <a
     aria-describedby="test"
-    href="javascript:void(0);"
+    href="#"
     onBlur={[Function]}
     onFocus={[Function]}
     onMouseOut={[Function]}
@@ -320,7 +320,7 @@ exports[`XUITooltip sets maxWidth 1`] = `
 >
   <a
     aria-describedby="test"
-    href="javascript:void(0);"
+    href="#"
     onBlur={[Function]}
     onFocus={[Function]}
     onMouseOut={[Function]}
@@ -364,7 +364,7 @@ exports[`XUITooltip sets visibility classes, if set to be visible 1`] = `
 >
   <a
     aria-describedby="test"
-    href="javascript:void(0);"
+    href="#"
     onBlur={[Function]}
     onFocus={[Function]}
     onMouseOut={[Function]}

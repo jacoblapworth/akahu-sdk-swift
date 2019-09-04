@@ -78,7 +78,7 @@ describe('<XUIButton/>', () => {
     assert.isTrue(onClick.calledOnce);
   });
 
-  it('should render a loader if the `isLoading` prop is true', () => {
+  it('should render a loader and in a disabled style if the `isLoading` prop is true', () => {
     const button = renderIntoDocument(
       <XUIButton onClick={noop} isLoading={true} loadingLabel="Loading">
         Hai
@@ -88,6 +88,7 @@ describe('<XUIButton/>', () => {
     const node = button.rootNode;
     assert.strictEqual(node.children.length, 2);
     assert.isTrue(node.children[1].classList.contains('xui-button--loader'));
+    assert.isTrue(node.classList.contains('xui-button-is-disabled'));
   });
 
   it('should not allow clicks if the `isLoading` prop is true', () => {

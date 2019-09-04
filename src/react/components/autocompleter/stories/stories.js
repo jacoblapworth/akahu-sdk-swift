@@ -166,7 +166,8 @@ export class DetailedListExample extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { openDrawer, selectedPeople } = nextProps;
 
     if (openDrawer) {

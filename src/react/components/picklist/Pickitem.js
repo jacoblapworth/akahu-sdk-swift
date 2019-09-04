@@ -195,7 +195,8 @@ Pickitem.propTypes = {
   /** Props to pass to the pickitem body */
   pickitemBodyProps: PropTypes.object,
   /** Size variant. Where possible, please set this on the containing picklist,
-   * which will override any per-item settings. */
+   * which will override any per-item settings.
+   * `small` and `xsmall` sizes are `sunsetting` due to poor touch interaction potential. */
   size: PropTypes.oneOf(sizeVariants),
   /** Content to be added to the left of the pickitem. */
   leftElement: PropTypes.node,

@@ -1,77 +1,76 @@
 // scss-lint:disable Prefix
-@import "../../src/sass/mixins";
-@import "../../src/sass/vars";
-@import "./mixins";
-@import "./vars";
-
+@import '../../src/sass/mixins';
+@import '../../src/sass/vars';
+@import './mixins';
+@import './vars';
 
 .ds-html {
-	background: $ds-html-bg-color;
+  background: $ds-html-bg-color;
 }
 
 .ds-body {
-	background: $ds-body-bg-color;
-	font-size: 15px;
-	min-height: 100vh;
-	position: relative;
-	@include xui-breakpoint-medium-up {
-		padding-left: $ds-nav-width;
-	}
+  background: $ds-body-bg-color;
+  font-size: 15px;
+  min-height: 100vh;
+  position: relative;
+  @include xui-breakpoint-medium-up {
+    padding-left: $ds-nav-width;
+  }
 }
 
 .ds-main {
-	margin: auto;
-	padding: 3vh 5vw 3vh;
-	@include xui-breakpoint-medium-up {
-		padding: 12vh $ds-main-side-padding 12vh;
-		width: auto;
-	}
+  margin: auto;
+  padding: 3vh 5vw 3vh;
+  @include xui-breakpoint-medium-up {
+    padding: 12vh $ds-main-side-padding 12vh;
+    width: auto;
+  }
 }
 
 .ds-example-wrap {
-	background: $ds-example-wrap-bg-color;
-	border: 0;
-	padding: 20px;
+  background: $ds-example-wrap-bg-color;
+  border: 0;
+  padding: 20px;
 }
 
 .ds-column-wrapper {
-	column-count: 2;
-	display: block;
-	padding-top: calc(1em + 1vh);
+  column-count: 2;
+  display: block;
+  padding-top: calc(1em + 1vh);
 
-	@include xui-breakpoint-small-to-medium {
-		column-count: 3;
-	}
+  @include xui-breakpoint-small-to-medium {
+    column-count: 3;
+  }
 
-	@include xui-breakpoint-medium-up {
-		column-count: 4;
-		@include embiggen;
-	}
+  @include xui-breakpoint-medium-up {
+    column-count: 4;
+    @include embiggen;
+  }
 }
 
 .ds-column {
-	margin-bottom: calc(1.5em + 1vh);
-	break-inside: avoid;
+  margin-bottom: calc(1.5em + 1vh);
+  break-inside: avoid;
 }
 
 .ds-column-item {
-	font-size: $xui-font-size-large;
-	font-weight: $xui-font-weight-emphasis;
-	display: block;
-	padding-right: calc(0.75em + 0.7vh);
+  font-size: $xui-font-size-large;
+  font-weight: $xui-font-weight-emphasis;
+  display: block;
+  padding-right: calc(0.75em + 0.7vh);
 }
 
 .ds-column-child-wrapper {
-	padding-top: calc(0.5em + 0.5vh);
+  padding-top: calc(0.5em + 0.5vh);
 }
 
 .ds-column-child-item {
-	font-size: $xui-font-size-small;
-	font-weight: normal;
-	padding-bottom: calc(0.5em + 0.5vh);
-	&:last-child {
-		padding-bottom: 0;
-	}
+  font-size: $xui-font-size-small;
+  font-weight: normal;
+  padding-bottom: calc(0.5em + 0.5vh);
+  &:last-child {
+    padding-bottom: 0;
+  }
 }
 //--------------------------
 // Headings
@@ -83,123 +82,124 @@
 $ds-section-space: calc(6rem + 2vh);
 
 .ds-title {
-	color: $ds-text-heading-color;
-	font-family: $xui-font-family;
-	margin-left: -$xui-s-large;
-	padding-left: $xui-s-large;
-	position: relative;
-	display: flex;
-	align-items: baseline;
+  color: $ds-text-heading-color;
+  font-family: $xui-font-family;
+  margin-left: -$xui-s-large;
+  padding-left: $xui-s-large;
+  position: relative;
+  display: flex;
+  align-items: baseline;
 }
 
 .ds-title--level-1 {
-	font-size: calc(1.6em + 1.5vw);
-	letter-spacing: -0.006em;
-	line-height: 1.15;
-	// Add padding to accommodate react link
-	padding-right: 10rem;
-	@include xui-breakpoint-small-down {
-		padding-right: 3rem;
-	}
+  font-size: calc(1.6em + 1.5vw);
+  letter-spacing: -0.006em;
+  line-height: 1.15;
+  // Add padding to accommodate react link
+  padding-right: 10rem;
+  @include xui-breakpoint-small-down {
+    padding-right: 3rem;
+  }
 }
 
-.ds-title--level-2, .ds-description h2 {
-	font-size: calc(1.2em + .4vw);
-	padding-top: $ds-section-space;
-	letter-spacing: -0.006em;
+.ds-title--level-2,
+.ds-description h2 {
+  font-size: calc(1.2em + 0.4vw);
+  padding-top: $ds-section-space;
+  letter-spacing: -0.006em;
 }
 
-.ds-title--level-3, .ds-description h3 {
-	padding-top: calc(4rem + 2vh);
-	margin-top: 0;
-	font-size: 13px;
-	text-transform: uppercase;
-	letter-spacing: $xui-letter-spacing-loose;
+.ds-title--level-3,
+.ds-description h3 {
+  padding-top: calc(4rem + 2vh);
+  margin-top: 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: $xui-letter-spacing-loose;
 }
 
-[id*=fundamentals-variables-mixins] .ds-title--level-3 {
-	text-transform: none;
+[id*='fundamentals-variables-mixins'] .ds-title--level-3 {
+  text-transform: none;
 }
 
 // use 4th level blocks as callouts
 .kss-section--depth-4 {
-	padding: 20px;
-	border: 1px solid $ds-border-color;
-	border-radius: 3px;
+  padding: 20px;
+  border: 1px solid $ds-border-color;
+  border-radius: 3px;
 }
 
-*[class^="ds-title"] + *[class^="ds-title"] {
-	margin-top: 0;
+*[class^='ds-title'] + *[class^='ds-title'] {
+  margin-top: 0;
 }
 
-*[class^="ds-title"]:first-child,
+*[class^='ds-title']:first-child,
 .ds-h0:first-child {
-	margin-top: 0;
+  margin-top: 0;
 }
 
 // Page anchors
 
 .ds-anchor {
-	visibility: hidden;
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	text-align: left;
-	margin-left: -20px;
-	font-size: 13px;
-	transform: translateY(-20%);
+  visibility: hidden;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: left;
+  margin-left: -20px;
+  font-size: 13px;
+  transform: translateY(-20%);
 }
 
 .ds-anchor-hash {
-	vertical-align: middle;
-	margin: 0 -6px 0;
+  vertical-align: middle;
+  margin: 0 -6px 0;
 }
 
 .ds-title:hover > .ds-anchor {
-	visibility: visible;
+  visibility: visible;
 }
 
 // Masssive heading
 
 .ds-h0 {
-	font-size: calc(2.4rem + 3vw);
-	letter-spacing: -0.006em;
-	line-height: 1;
-	margin-bottom: 0.4em;
+  font-size: calc(2.4rem + 3vw);
+  letter-spacing: -0.006em;
+  line-height: 1;
+  margin-bottom: 0.4em;
 }
 
 // -----------------------------------------------------------------------------
 // Descriptions & typography
 // -----------------------------------------------------------------------------
 
-
-*[class^="ds-title"] + *[class^="ds-title"] {
-	margin-top: 0;
+*[class^='ds-title'] + *[class^='ds-title'] {
+  margin-top: 0;
 }
 
-*[class^="ds-title"]:first-child {
-	margin-top: 0;
+*[class^='ds-title']:first-child {
+  margin-top: 0;
 }
 
 // Page anchors
 
 .ds-anchor {
-	visibility: hidden;
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	text-align: left;
-	margin-left: -20px;
-	font-size: 13px;
-	transform: translateY(-20%);
+  visibility: hidden;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: left;
+  margin-left: -20px;
+  font-size: 13px;
+  transform: translateY(-20%);
 }
 
 .ds-title:hover > .ds-anchor {
-	visibility: visible;
+  visibility: visible;
 }
 
 code {
-	font-family: "SFMono-Regular", monospace;
+  font-family: 'SFMono-Regular', monospace;
 }
 
 // -----------------------------------------------------------------------------
@@ -207,64 +207,62 @@ code {
 // -----------------------------------------------------------------------------
 
 .ds-intro {
-		color: $ds-text-secondary-color;
-		font-size: 19px;
-		line-height: 1.5;
+  color: $ds-text-secondary-color;
+  font-size: 19px;
+  line-height: 1.5;
 }
 
 .ds-description {
+  pre {
+    padding: 15px 25px;
+    width: 100%;
+    background: $ds-dark-bg-color;
+  }
 
-	pre {
-		padding: 15px 25px;
-		width: 100%;
-		background: $ds-dark-bg-color;
-	}
+  table {
+    width: 100%;
+  }
 
-	table {
-		width: 100%;
-	}
+  td:not(.xui-table--cell) {
+    border: $xui-border-standard;
+    padding: $xui-s-2xsmall $xui-s-xsmall;
+  }
 
-	td:not(.xui-table--cell) {
-		border: $xui-border-standard;
-		padding: $xui-s-2xsmall $xui-s-xsmall;
-	}
-
-	.xui-contentblock td {
-		border: none;
-	}
+  .xui-contentblock td {
+    border: none;
+  }
 }
-
 
 // -----------------------------------------------------------------------------
 // Tips (Do's and Don'ts)
 // -----------------------------------------------------------------------------
 
 .ds-tips {
-	display: flex;
+  display: flex;
 }
 
 .ds-tips-positive {
-	color: $xui-color-green;
-	margin: 7px 5px;
+  color: $xui-color-green;
+  margin: 7px 5px;
 }
 
 .ds-tips-negative {
-	color: $xui-color-red;
-	margin: 6px 6px;
+  color: $xui-color-red;
+  margin: 6px 6px;
 }
 
 .ds-tips-warning {
-	color: $xui-color-orange;
-	margin: 5px 4px;
+  color: $xui-color-orange;
+  margin: 5px 4px;
 }
 
 .ds-tips--detail {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .ds-tips:last-child {
-	margin-bottom: $xui-s-large;
+  margin-bottom: $xui-s-large;
 }
 
 // -----------------------------------------------------------------------------
@@ -272,19 +270,19 @@ code {
 // -----------------------------------------------------------------------------
 
 .ds-section-wrap {
-	@include xui-breakpoint-medium-up {
-		max-width: 46rem;
-	}
+  @include xui-breakpoint-medium-up {
+    max-width: 46rem;
+  }
 }
 
 .ds-section-part-wide {
-	@include xui-breakpoint-medium-up {
-		width: calc(100% + 20vw);
-	}
+  @include xui-breakpoint-medium-up {
+    width: calc(100% + 20vw);
+  }
 }
 
-section[class*="kss-section"] {
-	position: relative;
+section[class*='kss-section'] {
+  position: relative;
 }
 
 // -----------------------------------------------------------------------------
@@ -293,50 +291,48 @@ section[class*="kss-section"] {
 
 .ds-input-markup,
 .ds-input-example {
-	display: none;
+  display: none;
 }
 
 // Labels need to be nested in another element for other styling reasons (full bleed)
 .ds-input-all:checked ~ * .ds-all-label,
 .ds-input-markup:checked ~ * .ds-markup-label,
 .ds-input-example:checked ~ * .ds-example-label {
-	border-bottom: 3px $xui-color-blue solid;
-	color: $xui-color-blue;
+  border-bottom: 3px $xui-color-blue solid;
+  color: $xui-color-blue;
 }
 
+.ds-example {
+  position: relative;
+  width: 100%;
 
+  .xui-toastwrapper {
+    position: relative;
+    z-index: 100;
+  }
 
-.ds-example{
-	position: relative;
-	width: 100%;
+  .xui-sidedrawer {
+    float: right;
+    position: relative;
+  }
 
-	.xui-toastwrapper {
-		position: relative;
-		z-index: 100;
-	}
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
 
-	.xui-sidedrawer {
-		float: right;
-		position: relative;
-	}
-
-	&::after {
-		clear: both;
-		content: "";
-		display: table;
-	}
-
-	.xui-mask {
-		opacity: 1;
-		padding: 60px 0;
-		position: relative;
-		width: 100%;
-		z-index: 0;
-	}
-	// This is handled in React, but this is here just so that the docs are more accurate
-	.xui-autocompleter--input:not(:placeholder-shown) ~ .xui-autocompleter--placeholder {
-		color: transparent;
-	}
+  .xui-mask {
+    opacity: 1;
+    padding: 60px 0;
+    position: relative;
+    width: 100%;
+    z-index: 0;
+  }
+  // This is handled in React, but this is here just so that the docs are more accurate
+  .xui-autocompleter--input:not(:placeholder-shown) ~ .xui-autocompleter--placeholder {
+    color: transparent;
+  }
 }
 
 // Layout.Margin and Layout.Padding
@@ -344,168 +340,167 @@ $kss-color-margin: #fffedf;
 $kss-color-padding: #eeebff;
 
 .ds-spacing-example {
-	background: url("./kss-assets/ryanbear.gif") center center $ds-code-bg-color;
-	background-size: 130%;
-	border: $xui-border-standard;
+  background: url('./kss-assets/ryanbear.gif') center center $ds-code-bg-color;
+  background-size: 130%;
+  border: $xui-border-standard;
 }
 
 .ds-space-example {
-	background: $xui-color-yellow;
-	display: inline-block;
-	border: 1px solid $xui-color-yellow;
-	> * {
-		background: $ds-example-alpha-bg-color;
-		border: 1px solid $xui-color-yellow;
-		height: $xui-s-5xlarge;
-		width: $xui-s-5xlarge;
-	}
+  background: $xui-color-yellow;
+  display: inline-block;
+  border: 1px solid $xui-color-yellow;
+  > * {
+    background: $ds-example-alpha-bg-color;
+    border: 1px solid $xui-color-yellow;
+    height: $xui-s-5xlarge;
+    width: $xui-s-5xlarge;
+  }
 }
 
 .ds-column-example {
-	background: $xui-color-blue;
-	border: 1px solid $xui-color-blue;
-	padding: calc(#{$xui-s-standard} - 2px);
-	&:nth-child(n+2) {
-		margin-top: $xui-s-standard;
-	}
-	> * {
-		border: 1px solid $xui-color-blue;
-		background: $ds-example-alpha-bg-color;
-		min-height: $xui-s-5xlarge;
-		min-width: $xui-s-5xlarge;
-	}
-	> .ds-column-example {
-		border: none;
-		padding: $xui-s-standard;
-	}
-	span {
-		color: $xui-color-white;
-		align-self: center;
-		text-align: center;
-		width: 100%;
-	}
+  background: $xui-color-blue;
+  border: 1px solid $xui-color-blue;
+  padding: calc(#{$xui-s-standard} - 2px);
+  &:nth-child(n + 2) {
+    margin-top: $xui-s-standard;
+  }
+  > * {
+    border: 1px solid $xui-color-blue;
+    background: $ds-example-alpha-bg-color;
+    min-height: $xui-s-5xlarge;
+    min-width: $xui-s-5xlarge;
+  }
+  > .ds-column-example {
+    border: none;
+    padding: $xui-s-standard;
+  }
+  span {
+    color: $xui-color-white;
+    align-self: center;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 .ds-flex-example {
-	background: $xui-color-violet;
-	border: 1px solid $xui-color-violet;
-	padding: $xui-s-standard;
+  background: $xui-color-violet;
+  border: 1px solid $xui-color-violet;
+  padding: $xui-s-standard;
 
-	&[class*='xui-u-flex-align'] {
-		height: 200px;
-	}
-	&:nth-child(n+2) {
-		margin-top: $xui-s-standard;
-	}
-	> * {
-		background: $ds-example-alpha-bg-color;
-		border: 1px solid $xui-color-violet;
-		min-height: $xui-s-5xlarge;
-		width: $xui-s-5xlarge;
-	}
+  &[class*='xui-u-flex-align'] {
+    height: 200px;
+  }
+  &:nth-child(n + 2) {
+    margin-top: $xui-s-standard;
+  }
+  > * {
+    background: $ds-example-alpha-bg-color;
+    border: 1px solid $xui-color-violet;
+    min-height: $xui-s-5xlarge;
+    width: $xui-s-5xlarge;
+  }
 }
 
 // Dropdowns
 .xui-dropdown-layout {
-	&:not(.xui-dropdown--force-desktop) {
-		position: relative; // makes dropdowns visible at mobile
-		z-index: 1000; // fixes overlapping breadcrumb
-	}
-	@include xui-breakpoint-small-down {
-		min-height: 50vh;
-		max-width: initial;
-		width: initial;
-		overflow: hidden;
+  &:not(.xui-dropdown--force-desktop) {
+    position: relative; // makes dropdowns visible at mobile
+    z-index: 1000; // fixes overlapping breadcrumb
+  }
+  @include xui-breakpoint-small-down {
+    min-height: 50vh;
+    max-width: initial;
+    width: initial;
+    overflow: hidden;
 
+    .#{$ns}-select & {
+      margin-top: -55px;
+    }
 
-		.#{$ns}-select & {
-			margin-top: -55px;
-		}
+    .#{$ns}-dropdown--mask {
+      position: absolute;
+      width: 100%;
+    }
 
-		.#{$ns}-dropdown--mask {
-			position: absolute;
-			width: 100%;
-		}
-
-		.#{$ns}-dropdown--body {
-			max-height: 80%;
-			width: 100%;
-		}
-	}
+    .#{$ns}-dropdown--body {
+      max-height: 80%;
+      width: 100%;
+    }
+  }
 }
 
 .icon-main {
-	h4 {
-		margin-top: $xui-s-xlarge;
-		margin-bottom: $xui-s-large;
-		color: $ds-text-heading-color;
-	}
+  h4 {
+    margin-top: $xui-s-xlarge;
+    margin-bottom: $xui-s-large;
+    color: $ds-text-heading-color;
+  }
 }
 
 .ds-icons {
-	box-shadow: -1px -1px 0 $ds-inverted--light inset;
-	margin: 0;
-	padding: 4vh 2vh;
-	width: 33.33%;
+  box-shadow: -1px -1px 0 $ds-inverted--light inset;
+  margin: 0;
+  padding: 4vh 2vh;
+  width: 33.33%;
 
-	@include xui-breakpoint-medium-up {
-		width: 16.66%;
-	}
+  @include xui-breakpoint-medium-up {
+    width: 16.66%;
+  }
 }
 
 .ds-copy-button {
-	position: absolute;
-	right: 0;
-	top: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .ds-classtable {
-	width: 100%;
+  width: 100%;
 }
 
 .ds-classtable-row {
-	display: flex;
-	flex-direction: column;
-	@include xui-breakpoint-small-up {
-		display: table-row;
-	}
-	border-bottom: 1px solid $ds-border-color;
-	&:first-of-type {
-		border-top: 1px solid $ds-border-color;
-	}
+  display: flex;
+  flex-direction: column;
+  @include xui-breakpoint-small-up {
+    display: table-row;
+  }
+  border-bottom: 1px solid $ds-border-color;
+  &:first-of-type {
+    border-top: 1px solid $ds-border-color;
+  }
 }
 
 .ds-classtable-classname {
-	padding: $xui-s-large 0 0 0;
-	white-space: nowrap;
-	width: 40%;
-	@include xui-breakpoint-small-up {
-		padding: $xui-s-xsmall $xui-s-xsmall $xui-s-xsmall 0;
-	}
+  padding: $xui-s-large 0 0 0;
+  white-space: nowrap;
+  width: 40%;
+  @include xui-breakpoint-small-up {
+    padding: $xui-s-xsmall $xui-s-xsmall $xui-s-xsmall 0;
+  }
 }
 
 .ds-classtable-description {
-	padding: $xui-s-2xsmall 0 $xui-s-large;
-	@include xui-breakpoint-small-up {
-		padding: $xui-s-xsmall 0 $xui-s-xsmall $xui-s-xsmall;
-	}
+  padding: $xui-s-2xsmall 0 $xui-s-large;
+  @include xui-breakpoint-small-up {
+    padding: $xui-s-xsmall 0 $xui-s-xsmall $xui-s-xsmall;
+  }
 }
 
 .ds-parameters-table-header {
-	color: $ds-text-heading-color;
-	font-weight: bold;
-	text-align: left;
-	white-space: nowrap;
+  color: $ds-text-heading-color;
+  font-weight: bold;
+  text-align: left;
+  white-space: nowrap;
 }
 
 .ds-parameters-table-name {
-	white-space: nowrap;
-	width: 1%;
+  white-space: nowrap;
+  width: 1%;
 }
 
 .ds-parameters-table-defaultvalue {
-	white-space: nowrap;
-	width: 1%;
+  white-space: nowrap;
+  width: 1%;
 }
 
 // -----------------------------------------------------------------------------
@@ -514,443 +509,439 @@ $kss-color-padding: #eeebff;
 
 .ds-nav--menu a,
 .ds-nav--header a {
-	outline: none;
-	& :focus {
-		background: $ds-nav-focus-bg-color;
-
-	}
+  outline: none;
+  & :focus {
+    background: $ds-nav-focus-bg-color;
+  }
 }
 
 .ds-nav--menu,
 .ds-nav--menu ul {
-	margin:0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .ds-nav--menu {
-	min-width: 200px;
-	overflow: auto;
-	padding-bottom: 3.5rem;
-	& li {
-		list-style: none;
-	}
-	@include xui-breakpoint-medium-up {
-		border-right: 1px solid $ds-border-color;
-		bottom: 0;
-		left: 0;
-		position: fixed;
-		top: 0;
-		width: $ds-nav-width;
-	}
+  min-width: 200px;
+  overflow: auto;
+  padding-bottom: 3.5rem;
+  & li {
+    list-style: none;
+  }
+  @include xui-breakpoint-medium-up {
+    border-right: 1px solid $ds-border-color;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: $ds-nav-width;
+  }
 }
 
 .ds-nav--header {
-	margin: 0;
-	padding: .5rem 0;
-	@include xui-breakpoint-small-to-medium {
-		padding: 0 $xui-s-large;
-	}
+  margin: 0;
+  padding: 0.5rem 0;
+  @include xui-breakpoint-small-to-medium {
+    padding: 0 $xui-s-large;
+  }
 }
 
 .ds-nav--item-state {
-	// hide <input> element
-	height: 0;
-	width: 0;
-	opacity: 0;
-	position: absolute;
+  // hide <input> element
+  height: 0;
+  width: 0;
+  opacity: 0;
+  position: absolute;
 
-	// style siblings based on input checked state
-	&:checked ~ .ds-nav--item {
-		background: $ds-nav-focus-bg-color;
-		box-shadow: 0 -1px 0 0 $ds-border-color;
-	}
-	&:checked ~ .ds-nav--item .ds-nav--item--icon svg {
-		transform: rotate(180deg);
-		opacity: 1;
-	}
-	&:focus ~ .ds-nav--item .ds-nav--item--icon {
-		outline: none;
-		background: $ds-nav-focus-bg-color;
-	}
-	&:checked ~ .ds-nav--nested {
-		padding: $xui-s-small 0;
-		transition: .3s ease-in-out;
-		pointer-events: initial ;
-		display: block;
-		height: auto ;
-		opacity: 1 ;
-		border-bottom: 1px solid $ds-nav-border-color;
-		& .ds-nav--child {
-			visibility: visible;
-		}
-	}
+  // style siblings based on input checked state
+  &:checked ~ .ds-nav--item {
+    background: $ds-nav-focus-bg-color;
+    box-shadow: 0 -1px 0 0 $ds-border-color;
+  }
+  &:checked ~ .ds-nav--item .ds-nav--item--icon svg {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+  &:focus ~ .ds-nav--item .ds-nav--item--icon {
+    outline: none;
+    background: $ds-nav-focus-bg-color;
+  }
+  &:checked ~ .ds-nav--nested {
+    padding: $xui-s-small 0;
+    transition: 0.3s ease-in-out;
+    pointer-events: initial;
+    display: block;
+    height: auto;
+    opacity: 1;
+    border-bottom: 1px solid $ds-nav-border-color;
+    & .ds-nav--child {
+      visibility: visible;
+    }
+  }
 }
 
 .ds-nav--item {
-	align-items: stretch;
-	border-bottom: 1px solid $ds-nav-border-color;
-	display: flex;
-	font-size: 13px; // RESETTING DOCS 15px so line height for spacing works.
-	position: relative;
-	vertical-align: middle;
-	&:hover .ds-nav--item--icon:after {
-		box-shadow: $ds-shadow-border-left;
-	}
+  align-items: stretch;
+  border-bottom: 1px solid $ds-nav-border-color;
+  display: flex;
+  font-size: 13px; // RESETTING DOCS 15px so line height for spacing works.
+  position: relative;
+  vertical-align: middle;
+  &:hover .ds-nav--item--icon:after {
+    box-shadow: $ds-shadow-border-left;
+  }
 }
 
 .ds-nav--item--index {
-	align-items: center;
-	color: $ds-text-secondary-color;
-	display: flex;
-	font-size: $xui-font-size-medium;
-	height: 52px;
-	padding: 0 $xui-s-large;
-	text-decoration: none;
-	transition: all .15s ease-in-out;
-	width: 100%;
+  align-items: center;
+  color: $ds-text-secondary-color;
+  display: flex;
+  font-size: $xui-font-size-medium;
+  height: 52px;
+  padding: 0 $xui-s-large;
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+  width: 100%;
 
-	&:hover:not(:focus) {
-		background: $ds-nav-item-hover-bg-color;
-		color: $ds-text-primary-color;
-	}
-	&:focus:not(:active) {
-		background: $ds-nav-item-hover-bg-color;
-	}
-	&:active {
-		background: $ds-nav-item-active-bg-color;
-	}
-	&:before {
-		height: 52px;
-		@include ds-selected;
-	}
+  &:hover:not(:focus) {
+    background: $ds-nav-item-hover-bg-color;
+    color: $ds-text-primary-color;
+  }
+  &:focus:not(:active) {
+    background: $ds-nav-item-hover-bg-color;
+  }
+  &:active {
+    background: $ds-nav-item-active-bg-color;
+  }
+  &:before {
+    height: 52px;
+    @include ds-selected;
+  }
 }
 
 .ds-nav--item--icon {
-	align-items: center;
-	display: flex;
-	flex-shrink: 0;
-	justify-content: center;
-	transition: all .15s ease-in-out;
-	width: 52px;
-	user-select: none; // Prevent double click selecting child content
-	&:hover:not(:focus) {
-		background: $ds-nav-focus-bg-color;
-	}
-	& svg {
-		transition: all 0.3s ease;
-	}
-	&:hover .ds-nav--item--icon-fill {
-		fill: $ds-nav-icon-hover-fill;
-	}
-	// this is a little box that we can style with the above
-	// `&:hover .ds-nav--item--icon:after` selector
-	&:after {
-		background: transparent;
-		content: '';
-		height: 52px;
-		position: absolute;
-		right: 0;
-		top: 0;
-		width: 52px;
-	}
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  transition: all 0.15s ease-in-out;
+  width: 52px;
+  user-select: none; // Prevent double click selecting child content
+  &:hover:not(:focus) {
+    background: $ds-nav-focus-bg-color;
+  }
+  & svg {
+    transition: all 0.3s ease;
+  }
+  &:hover .ds-nav--item--icon-fill {
+    fill: $ds-nav-icon-hover-fill;
+  }
+  // this is a little box that we can style with the above
+  // `&:hover .ds-nav--item--icon:after` selector
+  &:after {
+    background: transparent;
+    content: '';
+    height: 52px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 52px;
+  }
 }
 
 .ds-nav--item--icon-fill {
-	fill: $ds-nav-icon-fill;
+  fill: $ds-nav-icon-fill;
 }
 
 // Visually hidden to allow transitions on open
 // children are `visibility: hidden` to remove from the tab flow
 .ds-nav--nested {
-	background: $ds-nav-focus-bg-color;
-	height: 0;
-	opacity: 0;
-	overflow: hidden;
-	pointer-events: none;
-	width: 100%;
-	& .ds-nav--child {
-		visibility: hidden;
-	}
+  background: $ds-nav-focus-bg-color;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  width: 100%;
+  & .ds-nav--child {
+    visibility: hidden;
+  }
 }
 
 .ds-nav--group-header {
-	color: $ds-text-secondary-color;
-	display: inline-block;
-	font-size: 11px;
-	padding-left: $xui-s-large;
-	padding-right: $xui-s-large;
-	width: 100%;
+  color: $ds-text-secondary-color;
+  display: inline-block;
+  font-size: 11px;
+  padding-left: $xui-s-large;
+  padding-right: $xui-s-large;
+  width: 100%;
 }
 
 .ds-nav--nested li:nth-child(1) .ds-nav--group-header {
   padding-top: $xui-s-small;
 }
 
-.ds-nav--nested li:nth-child(n+2) .ds-nav--group-header {
+.ds-nav--nested li:nth-child(n + 2) .ds-nav--group-header {
   box-shadow: $ds-shadow-border-top;
   padding-top: $xui-s-large;
   margin-top: $xui-s-small;
 }
 
-
 .ds-nav--child {
-	color: $ds-text-primary-color;
-	display: inline-block;
-	font-size: $xui-font-size-medium;
-	height: auto;
-	padding: 6px $xui-s-large;
-	position: relative;
-	text-decoration: none;
-	transition: all .15s ease-in-out;
-	width: 100%;
+  color: $ds-text-primary-color;
+  display: inline-block;
+  font-size: $xui-font-size-medium;
+  height: auto;
+  padding: 6px $xui-s-large;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+  width: 100%;
 
-	&:hover {
-		color: $xui-color-blue;
-	}
-	&:focus {
-		background: $ds-nav-focus-bg-color;
-	}
-	&:active {
-		color: $xui-color-blue-dark;
-		background: $ds-nav-active-bg-color;
-	}
-	&:before {
-		height: 100%;
-		@include ds-selected;
-	}
+  &:hover {
+    color: $xui-color-blue;
+  }
+  &:focus {
+    background: $ds-nav-focus-bg-color;
+  }
+  &:active {
+    color: $xui-color-blue-dark;
+    background: $ds-nav-active-bg-color;
+  }
+  &:before {
+    height: 100%;
+    @include ds-selected;
+  }
 }
 
 .ds-nav--item-is-selected,
 .ds-nav--child-is-selected {
-	color: $xui-color-blue;
-	&:before {
-		opacity: 1;
-	}
+  color: $xui-color-blue;
+  &:before {
+    opacity: 1;
+  }
 }
 
 .ds-xero-icon {
-	height: 60px;
-	position: absolute;
+  height: 60px;
+  position: absolute;
 }
 
 .ds-header {
-	padding: $xui-s-xsmall 5vw;
-	overflow: hidden;
-	width: 100%;
-	z-index: 1;
+  padding: $xui-s-xsmall 5vw;
+  overflow: hidden;
+  width: 100%;
+  z-index: 1;
 }
 .ds-header--link-accessible {
-	display: none ;
+  display: none;
 }
 @include xui-breakpoint-medium-up {
-
-	.ds-xui-logo  {
-		display: none;
-	}
-	.ds-header--link {
-		position: absolute;
-		top: 0;
-		left: 0;
-		padding: 10px;
-		height: 0;
-		width: 0;
-		overflow: hidden;
-		&:hover,
-		&:active,
-		&:focus {
-			box-shadow: $xui-shadow-depth-overlap-top;
-			display: flex;
-			height: 56px;
-			justify-content: center;
-			outline: none;
-			width: 17rem;
-			z-index: 2;
-		}
-	}
-	.ds-header--link-menu {
-		display: none;
-	}
-	.ds-header--link-accessible {
-		display: flex ;
-		align-items: center;
-		margin-left: -8px;
-	}
+  .ds-xui-logo {
+    display: none;
+  }
+  .ds-header--link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    &:hover,
+    &:active,
+    &:focus {
+      box-shadow: $xui-shadow-depth-overlap-top;
+      display: flex;
+      height: 56px;
+      justify-content: center;
+      outline: none;
+      width: 17rem;
+      z-index: 2;
+    }
+  }
+  .ds-header--link-menu {
+    display: none;
+  }
+  .ds-header--link-accessible {
+    display: flex;
+    align-items: center;
+    margin-left: -8px;
+  }
 }
 
 .ds-header--link {
-	&:hover,
-	&:active,
-	&:focus {
-		background: $ds-nav-focus-bg-color;
-	}
+  &:hover,
+  &:active,
+  &:focus {
+    background: $ds-nav-focus-bg-color;
+  }
 }
 .ds-defaultexample-label {
-	color: $xui-color-blue;
+  color: $xui-color-blue;
 }
 
 // -----------------------------------------------------------------------------
 // Variables
 // -----------------------------------------------------------------------------
 .ds-token-wrap {
-	border: $xui-border-standard;
+  border: $xui-border-standard;
 }
 
 .ds-token-table {
-	margin: auto;
-	width: 100%;
+  margin: auto;
+  width: 100%;
 }
 
 .ds-token-table-color {
-	max-width: 800px;
+  max-width: 800px;
 }
 
 .ds-token-box {
-	background-color: $xui-color-white;
-	padding-bottom: 100%;
+  background-color: $xui-color-white;
+  padding-bottom: 100%;
 }
 
 .ds-color-swatch-code {
-	background: transparent;
-	font-size: $xui-font-size-xsmall;
-	position: relative;
-	font-weight: bold;
+  background: transparent;
+  font-size: $xui-font-size-xsmall;
+  position: relative;
+  font-weight: bold;
 }
 
 .ds-color-swatch-code-light {
-	color: $xui-color-white;
+  color: $xui-color-white;
 }
 
 .ds-color-swatch {
-	min-height: 60px;
-	padding: $xui-s-xsmall;
-	align-items: flex-start;
-	display: flex;
-	flex-flow: column nowrap;
-	height: $xui-s-5xlarge;
-	justify-content: space-between;
-	width: 100%;
-	.ds-color-swatch-code:nth-child(n+2) {
-		text-transform: uppercase;
-	}
-	code {
-		font-size: 11px;
-	}
+  min-height: 60px;
+  padding: $xui-s-xsmall;
+  align-items: flex-start;
+  display: flex;
+  flex-flow: column nowrap;
+  height: $xui-s-5xlarge;
+  justify-content: space-between;
+  width: 100%;
+  .ds-color-swatch-code:nth-child(n + 2) {
+    text-transform: uppercase;
+  }
+  code {
+    font-size: 11px;
+  }
 }
 
 .ds-border-variable {
-	font-size: 13px;
-	position: relative;
+  font-size: 13px;
+  position: relative;
 }
 
 .ds-color-swatch-container {
-	min-width: 240px;
+  min-width: 240px;
 }
 
 .ds-background-blue {
-	background-color: $xui-color-blue;
+  background-color: $xui-color-blue;
 }
 
 .ds-color-swatch-main {
-	min-height: 150px;
+  min-height: 150px;
 }
 
 .ds-border-swatch-top {
-	min-height: 0;
-	max-height: 60px;
+  min-height: 0;
+  max-height: 60px;
 }
 
 .ds-border-swatch-bottom {
-	align-self: flex-end;
-	min-height: 0;
-	max-height: 60px;
+  align-self: flex-end;
+  min-height: 0;
+  max-height: 60px;
 }
 
 .ds-border-swatch {
-	background-color: $xui-color-white;
-	height: 100%;
-	width: 100%;
-	code {
-		display: none;
-	}
+  background-color: $xui-color-white;
+  height: 100%;
+  width: 100%;
+  code {
+    display: none;
+  }
 }
 
 .ds-border-swatch-container {
-	display: flex;
-	background-color: $ds-code-bg-color;
-	height: 240px;
-	padding: $xui-s-large;
-	width: 240px;
-
+  display: flex;
+  background-color: $ds-code-bg-color;
+  height: 240px;
+  padding: $xui-s-large;
+  width: 240px;
 }
 
 .ds-color-section {
-	align-items: flex-start;
-	display: flex;
-	flex-flow: row nowrap;
-	.ds-border-swatch-container {
-		margin-top: $xui-s-large;
-	}
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row nowrap;
+  .ds-border-swatch-container {
+    margin-top: $xui-s-large;
+  }
 }
 
 .ds-brights-section {
-	display: flex;
-	flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
 
-	@include xui-breakpoint-medium-up {
-		@include embiggen;
-	}
+  @include xui-breakpoint-medium-up {
+    @include embiggen;
+  }
 }
 
 .ds-brights-group {
-	display: flex;
-	flex: 0 0 220px;
-	flex-flow: column nowrap;
+  display: flex;
+  flex: 0 0 220px;
+  flex-flow: column nowrap;
 }
 
 .ds-token-text {
-	background: none;
-	color: inherit;
-	font-size: $xui-font-size-medium;
-	font-weight: bold;
-	padding: 0
+  background: none;
+  color: inherit;
+  font-size: $xui-font-size-medium;
+  font-weight: bold;
+  padding: 0;
 }
 
 .ds-token-text--floating {
-	color: $xui-color-black;
-	background: rgba($xui-color-white,0.5);
-	display: inline-block;
-	margin-top: 5px;
-	max-width: 100%;
-	overflow-x: auto;
-	padding: 0.25em 0.5em;
+  color: $xui-color-black;
+  background: rgba($xui-color-white, 0.5);
+  display: inline-block;
+  margin-top: 5px;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0.25em 0.5em;
 }
 
 .ds-token-grid--cell {
-	min-height: 3rem;
-	position: relative;
+  min-height: 3rem;
+  position: relative;
 }
 
 .ds-token-vertical-align {
-	align-items: center;
-	display: flex;
+  align-items: center;
+  display: flex;
 }
 
 .ds-token-table--row {
-	padding: 2vh;
+  padding: 2vh;
 }
 
 // Icons
 .icon-icons {
-	border: 1px solid #ebedef;
-	margin: 0 -1px -1px 0;
-	min-width: 6rem;
-	padding: 1rem 0 1.3rem;
-	width: 8.33%;
+  border: 1px solid #ebedef;
+  margin: 0 -1px -1px 0;
+  min-width: 6rem;
+  padding: 1rem 0 1.3rem;
+  width: 8.33%;
 }
 
 // Illustrations
 .ds-example .#{$ns}-illustration {
-	background: white;
+  background: white;
 }
 
 // -----------------------------------------------------------------------------
@@ -958,142 +949,141 @@ $kss-color-padding: #eeebff;
 // -----------------------------------------------------------------------------
 
 .ds-page-header {
-		margin: 0;
-		padding: 0 $ds-nav-gutter;
-		position: sticky;
-		top: 0;
-		left: 0;
-		right: 0;
-		width: auto;
-		z-index: 8888;
-		background: #fff;
-		border-bottom: 1px solid $ds-border-color;
-		height: $ds-page-header-height;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	@include xui-breakpoint-small-to-medium {
-		padding: 0 5vw;
-	}
-	@include xui-breakpoint-medium-up {
-		position: fixed;
-		left: $ds-nav-width;
-		width: calc(100vw - #{$ds-nav-width});
-	}
+  margin: 0;
+  padding: 0 $ds-nav-gutter;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  z-index: 8888;
+  background: #fff;
+  border-bottom: 1px solid $ds-border-color;
+  height: $ds-page-header-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include xui-breakpoint-small-to-medium {
+    padding: 0 5vw;
+  }
+  @include xui-breakpoint-medium-up {
+    position: fixed;
+    left: $ds-nav-width;
+    width: calc(100vw - #{$ds-nav-width});
+  }
 }
 
 .ds-steps {
-	@include xui-listreset;
-	color: $ds-text-secondary-color;
-	cursor: default;
-	display: flex;
-	justify-content: center;
-	margin-left: -10px;
+  @include xui-listreset;
+  color: $ds-text-secondary-color;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  margin-left: -10px;
 }
 
 .ds-step {
-	align-items: center;
-	display: flex;
-	position: relative;
+  align-items: center;
+  display: flex;
+  position: relative;
 
-	&:nth-last-child(n+2) {
-		margin-right: 10px;
-	}
+  &:nth-last-child(n + 2) {
+    margin-right: 10px;
+  }
 
-	&::after {
-		background-color: transparent;
-		bottom: 0;
-		content: "";
-		display: block;
-		height: 3px;
-		left: 10px; // Offset $xui-s-actionlink
-		position: absolute;
-		width: calc(100% - 20px); // (100%) - (20px offset $xui-s-actionlink)
-	}
+  &::after {
+    background-color: transparent;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 3px;
+    left: 10px; // Offset $xui-s-actionlink
+    position: absolute;
+    width: calc(100% - 20px); // (100%) - (20px offset $xui-s-actionlink)
+  }
 }
 
-
 .ds-step-layout {
-	@include xui-padding-vertical($xui-s-standard);
+  @include xui-padding-vertical($xui-s-standard);
 }
 
 // Step icon
 .ds-step--icon {
-	position: absolute;
-	left: -20px;
-	top: calc(50% - 16px);
+  position: absolute;
+  left: -20px;
+  top: calc(50% - 16px);
 }
 
 // Step text
 .ds-step--body {
-	@include xui-text-line-height-compact;
-	text-decoration: none;
-	color: currentColor;
-	outline: none;
-	padding: $xui-s-actionlink;
-	text-align: center;
+  @include xui-text-line-height-compact;
+  text-decoration: none;
+  color: currentColor;
+  outline: none;
+  padding: $xui-s-actionlink;
+  text-align: center;
 }
 
 // Interactive completed step
 .ds-steps-interactive {
-	.ds-step-is-complete .ds-step--body {
-		&:hover {
-			color: $xui-color-blue;
-		}
+  .ds-step-is-complete .ds-step--body {
+    &:hover {
+      color: $xui-color-blue;
+    }
 
-		&:focus {
-			background-color: $ds-breadcrumb-focus-bg-color;
-			border-radius: $xui-radius;
-		}
+    &:focus {
+      background-color: $ds-breadcrumb-focus-bg-color;
+      border-radius: $xui-radius;
+    }
 
-		&:active {
-			background-color: $ds-breadcrumb-active-bg-color;
-			border-radius: $xui-radius;
-		}
-	}
+    &:active {
+      background-color: $ds-breadcrumb-active-bg-color;
+      border-radius: $xui-radius;
+    }
+  }
 }
 
 .ds-steps-interactive .ds-step-is-complete .ds-step--body {
-	padding: 5px 10px;
-	font-size: 13px;
-	color: $ds-text-secondary-color;
-	&:hover {
-		color: $ds-text-primary-color;
-	}
+  padding: 5px 10px;
+  font-size: 13px;
+  color: $ds-text-secondary-color;
+  &:hover {
+    color: $ds-text-primary-color;
+  }
 }
-
 
 // -----------------------------------------------------------------------------
 // Component / Language links
 // -----------------------------------------------------------------------------
 
-.ds-component-link  {
-	right: 0;
-	.xui-tooltip--tip {
-		margin: $xui-s-xsmall $xui-s-2xsmall 0 0;
-	}
+.ds-component-link {
+  right: 0;
+  .xui-tooltip--tip {
+    margin: $xui-s-xsmall $xui-s-2xsmall 0 0;
+  }
 }
 
-.ds-language-link  {
-	right: 40px;
+.ds-language-link {
+  right: 40px;
 }
 
-.ds-component-link, .ds-language-link {
-	position: absolute;
-	top: 0;
-	@include xui-breakpoint-small-up {
-		top: 0.7em; // visual correction when text bigger
-	}
-	.kss-section--depth-2 & {
-		top: $ds-section-space; // different positioning if used in a secondary section
-	}
-	.xui-tooltip:hover {
-		.xui-tooltip--tip {
-			transition-delay: $xui-motion-speed-medium;
-			opacity: 1;
-			pointer-events: auto;
-		}
-	}
+.ds-component-link,
+.ds-language-link {
+  position: absolute;
+  top: 0;
+  @include xui-breakpoint-small-up {
+    top: 0.7em; // visual correction when text bigger
+  }
+  .kss-section--depth-2 & {
+    top: $ds-section-space; // different positioning if used in a secondary section
+  }
+  .xui-tooltip:hover {
+    .xui-tooltip--tip {
+      transition-delay: $xui-motion-speed-medium;
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -1101,43 +1091,48 @@ $kss-color-padding: #eeebff;
 // -----------------------------------------------------------------------------
 
 .ds-flag {
-	background: $ds-flag-bg-color;
-	display: inline-block;
-	color: #fff;
-	font-size: 11px;
-	font-weight: bold;
-	letter-spacing: $xui-letter-spacing-loose;
-	text-transform: uppercase;
-	padding-left: 0.3em;
-	padding-right: 0.3em;
-	margin-right: 0.2em;
-	position: relative;
-	top: -0.2em;
-	&:not(:first-child) {
-		margin-left: 0.2em;
-	}
+  background: $ds-flag-bg-color;
+  display: inline-block;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: $xui-letter-spacing-loose;
+  text-transform: uppercase;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  margin-right: 0.2em;
+  position: relative;
+  top: -0.2em;
+  &:not(:first-child) {
+    margin-left: 0.8em;
+  }
 }
 
-.ds-status--experimental {
-	background: $xui-color-violet;
+.ds-status--sunsetting {
+  background: $xui-color-red;
 }
 
-.ds-status--underreview {
-	background: $xui-color-yellow;
+.ds-status--wip {
+  background: $xui-color-orange;
 }
 
-.ds-status--seekingfeedback {
-	background: $xui-color-green;
+.ds-status--updatescoming {
+  background: $xui-color-turquoise-dark;
 }
 
-.ds-status--deprecated {
-	background: $xui-color-red;
+.ds-status--new {
+  background: $xui-color-blue;
 }
 
-@import "./cards";
-@import "./markup";
-@import "./copy-code-blocks";
-@import "./home";
-@import "./redesign";
-@import "./example";
-@import "./utility-classes";
+.ds-status--updated {
+  background: $xui-color-grape;
+}
+
+@import './cards';
+@import './markup';
+@import './hover-tooltip';
+@import './copy-code-blocks';
+@import './home';
+@import './redesign';
+@import './example';
+@import './utility-classes';

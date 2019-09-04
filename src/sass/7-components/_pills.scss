@@ -418,11 +418,11 @@
 
 // Single select pills
 //
-// Flag: Deprecated
+// Flags: sunsetting
 //
 // Single select pills have been deprecated, but you can still achieve the same result by using a text input with left and right elements.
 //
-// exampleClass: ds-example-transparent ds-example-flush
+// exampleClass: ds-example-transparent ds-example-flush ds-example-nomarkuplink
 //
 // Markup:
 // <div class="xui-textinputwrapper xui-field-layout">
@@ -467,7 +467,7 @@
 // Classes:
 // xui-pill-single: Apply to pill.
 //
-// exampleClass: ds-example-transparent ds-example-flush
+// exampleClass: ds-example-transparent ds-example-flush ds-example-nomarkuplink
 //
 // Markup:
 // <div class="xui-textinput" tabindex="0">

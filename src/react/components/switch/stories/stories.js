@@ -8,7 +8,7 @@ import XUISwitchGroup from '../XUISwitchGroup';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import centered from '@storybook/addon-centered/react';
 import NOOP from '../../helpers/noop';
 
 import { variations, storiesWithVariationsKindName } from './variations';

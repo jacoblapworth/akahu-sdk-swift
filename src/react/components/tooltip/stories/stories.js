@@ -11,7 +11,7 @@ import info from '@xero/xui-icon/icons/info';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select, number } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 import { positionOptions } from '../../positioning/private/constants';

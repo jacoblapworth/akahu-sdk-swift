@@ -75,7 +75,7 @@
 
 // Retain layout
 //
-// Flag: Experimental
+// Flags: Experimental
 //
 // You may find that replacing an element's content with a loader alters the width and height of the element, even when applying the `xui-loader-layout` class.
 // If this is undesirable, apply the following utility classes instead of removing the content.
@@ -88,8 +88,8 @@
 
 // Buttons
 //
-// When nesting a loader within a button, apply `xui-button--loader` class to the loader.
-// The loader will inherit button text color.
+// When nesting a loader within a button, apply `xui-button--loader` class to the loader and `xui-button-is-disabled` to the containing button.
+// The loader will inherit button text color, and appear disabled.
 //
 // Tips:
 // Do: Use the correct size variant of the loader when nesting in a button
@@ -129,7 +129,7 @@
 
 // Retain layout
 //
-// Flag: Experimental
+// Flags: Experimental
 //
 // Markup:
 // <button type="button" class="xui-button xui-button-medium xui-button-standard">Save & add another</button>
@@ -167,7 +167,7 @@
 
 // Retain layout
 //
-// Flag: Experimental
+// Flags: Experimental
 //
 // Markup:
 // <div class="xui-dropdown-layout xui-dropdown-is-open xui-dropdown-is-opening">
@@ -229,7 +229,7 @@
 
 // Retain layout
 //
-// Flag: Experimental
+// Flags: Experimental
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -304,7 +304,7 @@
 
 // Retain layout
 //
-// Flag: Experimental
+// Flags: Experimental
 //
 // Markup:
 // <div class="xui-panel">

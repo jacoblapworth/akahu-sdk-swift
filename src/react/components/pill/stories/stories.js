@@ -8,7 +8,7 @@ import { sizeClasses } from '../private/constants';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, object, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import centered from '@storybook/addon-centered/react';
 
 import NOOP from '../../helpers/noop';
 import { variations, avatarProps, storiesWithVariationsKindName } from './variations';

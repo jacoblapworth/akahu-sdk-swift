@@ -609,11 +609,16 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader and brea
         </div>
       </li>
       <li
-        className="xui-breadcrumb"
+        className="xui-breadcrumb xui-breadcrumb-no-link"
       >
         yo
       </li>
     </ol>
+    <h1
+      className="xui-pageheading--title"
+    >
+      Test
+    </h1>
   </div>
 </header>
 `;
@@ -700,6 +705,11 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader containi
         </span>
       </li>
     </ol>
+    <h1
+      className="xui-pageheading--title"
+    >
+      Test
+    </h1>
   </div>
 </header>
 `;

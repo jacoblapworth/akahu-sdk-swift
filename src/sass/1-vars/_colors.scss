@@ -43,8 +43,6 @@ $xui-action-negative-color: $xui-color-red;
 // Positive: Primary creation actions or indicating positive sentiment
 $xui-action-positive-color: $xui-color-green;
 
-
-
 // @section Transparent greys
 // @description Use transparent greys to create borders and backgrounds which darken any underlying color.
 // @type transparent-color
@@ -56,13 +54,13 @@ $xui-color-grey-alpha-2: rgba($xui-color-grey-1, 0.75);
 // Grey alpha 3
 $xui-color-grey-alpha-3: rgba($xui-color-grey-1, 0.65);
 // Grey alpha 4
-$xui-color-grey-alpha-4: rgba($xui-color-grey-1, 0.50);
+$xui-color-grey-alpha-4: rgba($xui-color-grey-1, 0.5);
 // Grey alpha 5
 $xui-color-grey-alpha-5: rgba($xui-color-grey-1, 0.35);
 // Grey alpha 6
-$xui-color-grey-alpha-6: rgba($xui-color-grey-1, 0.20);
+$xui-color-grey-alpha-6: rgba($xui-color-grey-1, 0.2);
 // Grey alpha 7
-$xui-color-grey-alpha-7: rgba($xui-color-grey-1, 0.10);
+$xui-color-grey-alpha-7: rgba($xui-color-grey-1, 0.1);
 // Grey alpha 8
 $xui-color-grey-alpha-8: rgba($xui-color-grey-1, 0.05);
 
@@ -75,13 +73,13 @@ $xui-color-white-alpha-2: rgba($xui-color-white, 0.75);
 // White alpha 3
 $xui-color-white-alpha-3: rgba($xui-color-white, 0.65);
 // White alpha 4
-$xui-color-white-alpha-4: rgba($xui-color-white, 0.50);
+$xui-color-white-alpha-4: rgba($xui-color-white, 0.5);
 // White alpha 5
 $xui-color-white-alpha-5: rgba($xui-color-white, 0.35);
 // White alpha 6
-$xui-color-white-alpha-6: rgba($xui-color-white, 0.20);
+$xui-color-white-alpha-6: rgba($xui-color-white, 0.2);
 // White alpha 7
-$xui-color-white-alpha-7: rgba($xui-color-white, 0.10);
+$xui-color-white-alpha-7: rgba($xui-color-white, 0.1);
 // White alpha 8
 $xui-color-white-alpha-8: rgba($xui-color-white, 0.05);
 
@@ -90,64 +88,64 @@ $xui-color-white-alpha-8: rgba($xui-color-white, 0.05);
 // @type brights
 //
 $xui-color-red: $xui-color-red; // This is needed to add the color into the docs color grid
-$xui-color-red-xlight:        mix($xui-color-white, $xui-color-red, 65%);
-$xui-color-red-light:         mix($xui-color-white, $xui-color-red, 50%);
-$xui-color-red-dark:          mix(#000, $xui-color-red, 50%);
-$xui-color-red-xdark:         mix(#000, $xui-color-red, 65%);
+$xui-color-red-xlight: mix($xui-color-white, $xui-color-red, 65%);
+$xui-color-red-light: mix($xui-color-white, $xui-color-red, 50%);
+$xui-color-red-dark: mix(#000, $xui-color-red, 50%);
+$xui-color-red-xdark: mix(#000, $xui-color-red, 65%);
 
 $xui-color-orange: #fa8200;
-$xui-color-orange-xlight:     mix($xui-color-white, $xui-color-orange, 65%);
-$xui-color-orange-light:      mix($xui-color-white, $xui-color-orange, 50%);
-$xui-color-orange-dark:       mix(#000, $xui-color-orange, 50%);
-$xui-color-orange-xdark:      mix(#000, $xui-color-orange, 65%);
+$xui-color-orange-xlight: mix($xui-color-white, $xui-color-orange, 65%);
+$xui-color-orange-light: mix($xui-color-white, $xui-color-orange, 50%);
+$xui-color-orange-dark: mix(#000, $xui-color-orange, 50%);
+$xui-color-orange-xdark: mix(#000, $xui-color-orange, 65%);
 
 $xui-color-yellow: #faaa00;
-$xui-color-yellow-xlight:     mix($xui-color-white, $xui-color-yellow, 65%);
-$xui-color-yellow-light:      mix($xui-color-white, $xui-color-yellow, 50%);
-$xui-color-yellow-dark:       mix(#000, $xui-color-yellow, 50%);
-$xui-color-yellow-xdark:      mix(#000, $xui-color-yellow, 65%);
+$xui-color-yellow-xlight: mix($xui-color-white, $xui-color-yellow, 65%);
+$xui-color-yellow-light: mix($xui-color-white, $xui-color-yellow, 50%);
+$xui-color-yellow-dark: mix(#000, $xui-color-yellow, 50%);
+$xui-color-yellow-xdark: mix(#000, $xui-color-yellow, 65%);
 
 $xui-color-green: $xui-color-green; // This is needed to add the color into the docs color grid
-$xui-color-green-xlight:      mix($xui-color-white, $xui-color-green, 65%);
-$xui-color-green-light:       mix($xui-color-white, $xui-color-green, 50%);
-$xui-color-green-dark:        mix(#000, $xui-color-green, 50%);
-$xui-color-green-xdark:       mix(#000, $xui-color-green, 65%);
+$xui-color-green-xlight: mix($xui-color-white, $xui-color-green, 65%);
+$xui-color-green-light: mix($xui-color-white, $xui-color-green, 50%);
+$xui-color-green-dark: mix(#000, $xui-color-green, 50%);
+$xui-color-green-xdark: mix(#000, $xui-color-green, 65%);
 
 $xui-color-mint: #50dcaa;
-$xui-color-mint-xlight:       mix($xui-color-white, $xui-color-mint, 65%);
-$xui-color-mint-light:        mix($xui-color-white, $xui-color-mint, 50%);
-$xui-color-mint-dark:         mix(#000, $xui-color-mint, 50%);
-$xui-color-mint-xdark:        mix(#000, $xui-color-mint, 65%);
+$xui-color-mint-xlight: mix($xui-color-white, $xui-color-mint, 65%);
+$xui-color-mint-light: mix($xui-color-white, $xui-color-mint, 50%);
+$xui-color-mint-dark: mix(#000, $xui-color-mint, 50%);
+$xui-color-mint-xdark: mix(#000, $xui-color-mint, 65%);
 
 $xui-color-turquoise: #3cdcfa;
-$xui-color-turquoise-xlight:  mix($xui-color-white,$xui-color-turquoise, 65%);
-$xui-color-turquoise-light:   mix($xui-color-white,$xui-color-turquoise, 50%);
-$xui-color-turquoise-dark:    mix(#000, $xui-color-turquoise, 50%);
-$xui-color-turquoise-xdark:   mix(#000, $xui-color-turquoise, 65%);
+$xui-color-turquoise-xlight: mix($xui-color-white, $xui-color-turquoise, 65%);
+$xui-color-turquoise-light: mix($xui-color-white, $xui-color-turquoise, 50%);
+$xui-color-turquoise-dark: mix(#000, $xui-color-turquoise, 50%);
+$xui-color-turquoise-xdark: mix(#000, $xui-color-turquoise, 65%);
 
 $xui-color-blue: $xui-color-blue; // This is needed to add the color into the docs color grid
-$xui-color-blue-xlight:       mix($xui-color-white, $xui-color-blue, 65%);
-$xui-color-blue-light:        mix($xui-color-white, $xui-color-blue, 50%);
-$xui-color-blue-dark:         mix(#000, $xui-color-blue, 50%);
-$xui-color-blue-xdark:        mix(#000, $xui-color-blue, 65%);
+$xui-color-blue-xlight: mix($xui-color-white, $xui-color-blue, 65%);
+$xui-color-blue-light: mix($xui-color-white, $xui-color-blue, 50%);
+$xui-color-blue-dark: mix(#000, $xui-color-blue, 50%);
+$xui-color-blue-xdark: mix(#000, $xui-color-blue, 65%);
 
 $xui-color-violet: #5a5ae6;
-$xui-color-violet-xlight:     mix($xui-color-white,$xui-color-violet, 65%);
-$xui-color-violet-light:      mix($xui-color-white,$xui-color-violet, 50%);
-$xui-color-violet-dark:       mix(#000,$xui-color-violet, 50%);
-$xui-color-violet-xdark:      mix(#000,$xui-color-violet, 65%);
+$xui-color-violet-xlight: mix($xui-color-white, $xui-color-violet, 65%);
+$xui-color-violet-light: mix($xui-color-white, $xui-color-violet, 50%);
+$xui-color-violet-dark: mix(#000, $xui-color-violet, 50%);
+$xui-color-violet-xdark: mix(#000, $xui-color-violet, 65%);
 
 $xui-color-grape: #b446c8;
-$xui-color-grape-xlight:      mix($xui-color-white, $xui-color-grape, 65%);
-$xui-color-grape-light:       mix($xui-color-white, $xui-color-grape, 50%);
-$xui-color-grape-dark:        mix(#000, $xui-color-grape, 50%);
-$xui-color-grape-xdark:       mix(#000, $xui-color-grape, 65%);
+$xui-color-grape-xlight: mix($xui-color-white, $xui-color-grape, 65%);
+$xui-color-grape-light: mix($xui-color-white, $xui-color-grape, 50%);
+$xui-color-grape-dark: mix(#000, $xui-color-grape, 50%);
+$xui-color-grape-xdark: mix(#000, $xui-color-grape, 65%);
 
 $xui-color-pink: #ff6496;
-$xui-color-pink-xlight:       mix($xui-color-white, $xui-color-pink, 65%);
-$xui-color-pink-light:        mix($xui-color-white, $xui-color-pink, 50%);
-$xui-color-pink-dark:         mix(#000, $xui-color-pink, 50%);
-$xui-color-pink-xdark:        mix(#000, $xui-color-pink, 65%);
+$xui-color-pink-xlight: mix($xui-color-white, $xui-color-pink, 65%);
+$xui-color-pink-light: mix($xui-color-white, $xui-color-pink, 50%);
+$xui-color-pink-dark: mix(#000, $xui-color-pink, 50%);
+$xui-color-pink-xdark: mix(#000, $xui-color-pink, 65%);
 
 // @section Specialty colors
 // @description Provide extra recognition for common brand or file types. Most often used for icons.
@@ -188,7 +186,6 @@ $xui-control-disabled-border-color: $xui-color-grey-alpha-4;
 $xui-control-disabled-bg-color: $xui-color-grey-alpha-7;
 $xui-control-disabled-color: $xui-color-grey-alpha-2;
 $xui-control-bg-color: $xui-color-white;
-
 
 $xui-invalid-color: $xui-color-red;
 $xui-invalid-bg-color: $xui-color-red;
@@ -250,10 +247,10 @@ $xui-avatar-color-10: $xui-color-pink-xdark;
 // button
 
 $xui-button-variants-bg: (
-	standard : $xui-color-white,
-	main : $xui-color-blue,
-	create : $xui-color-green,
-	negative : $xui-color-red
+  standard: $xui-color-white,
+  main: $xui-color-blue,
+  create: $xui-color-green,
+  negative: $xui-color-red,
 );
 
 $xui-button-icon-color: $xui-color-grey-alpha-3;
@@ -318,6 +315,7 @@ $xui-toggle-label-inverted-disabled-border-color: $xui-color-white-alpha-6;
 $xui-toggle-label-inverted-disabled-color: $xui-color-white-alpha-2;
 
 $xui-shadow-focus: 0 0 0 3px $xui-color-grey-alpha-6;
+$xui-shadow-focus-inset: inset 0 0 0 3px $xui-color-grey-alpha-6;
 $xui-shadow-focus-inverted: 0 0 0 3px $xui-color-white-alpha-5;
 
 $xui-color-white-muted: $xui-color-white-alpha-2;
@@ -449,7 +447,7 @@ $xui-pageheading-bg-color: $xui-color-white;
 $xui-breadcrumb-link-color: $xui-color-blue;
 $xui-breadcrumb-link-hover-color: mix($xui-color-grey-1, $xui-color-blue, 5%);
 $xui-breadcrumb-link-active-color: mix($xui-color-grey-1, $xui-color-blue, 10%);
-$xui-breadcrumb-icon-color: $xui-color-grey-alpha-2;
+$xui-breadcrumb-icon-color: $xui-color-grey-alpha-4;
 
 // Overview
 
@@ -589,7 +587,6 @@ $xui-stepper-line-bg-color: $xui-color-grey-6;
 
 // Controls
 
-
 $xui-input-disabled: $xui-color-grey-8;
 
 // Progress Indicator
@@ -600,16 +597,16 @@ $xui-progress-total-bg-color: $xui-color-grey-alpha-7;
 $xui-progress-current-bg-color: $xui-color-blue;
 $xui-progress-error-color: $xui-color-red;
 $xui-progress-colors: (
-	(orange,  $xui-color-orange),
-	(yellow,  $xui-color-yellow),
-	(green,  $xui-color-green),
-	(mint,  $xui-color-mint),
-	(turquoise,  $xui-color-turquoise),
-	(blue,  $xui-color-blue),
-	(violet,  $xui-color-violet),
-	(grape,  $xui-color-grape),
-	(pink,  $xui-color-pink),
-	(grey,  $xui-color-grey-1),
+  (orange, $xui-color-orange),
+  (yellow, $xui-color-yellow),
+  (green, $xui-color-green),
+  (mint, $xui-color-mint),
+  (turquoise, $xui-color-turquoise),
+  (blue, $xui-color-blue),
+  (violet, $xui-color-violet),
+  (grape, $xui-color-grape),
+  (pink, $xui-color-pink),
+  (grey, $xui-color-grey-1)
 );
 $xui-progress-icon-color: $xui-color-white;
 
@@ -619,27 +616,26 @@ $xui-color-icon: $xui-color-grey-3;
 $xui-color-icon-hover: $xui-color-grey-2;
 $xui-color-icon-decorative: $xui-color-grey-4;
 
-$icon-colours:
-	(
-		standard: $xui-color-black-muted,
-		black: $xui-color-grey-1,
-		black-muted: $xui-color-black-muted,
-		black-faint: $xui-color-black-faint,
-		white: $xui-color-white,
-		white-muted: $xui-color-white-muted,
-		white-faint: $xui-color-white-faint,
-		blue: $xui-color-blue,
-		dark-blue: $xui-color-blue-xdark,
-		red: $xui-color-red,
-		green: $xui-color-green,
-		orange: $xui-color-orange,
-		yellow: $xui-color-yellow,
-		mint: $xui-color-mint,
-		turquoise: $xui-color-turquoise,
-		violet: $xui-color-violet,
-		grape: $xui-color-grape,
-		pink: $xui-color-pink,
-		file-spreadsheet: $xui-color-file-spreadsheet,
-		file-pdf: $xui-color-file-pdf
-	);
+$icon-colours: (
+  standard: $xui-color-black-muted,
+  black: $xui-color-grey-1,
+  black-muted: $xui-color-black-muted,
+  black-faint: $xui-color-black-faint,
+  white: $xui-color-white,
+  white-muted: $xui-color-white-muted,
+  white-faint: $xui-color-white-faint,
+  blue: $xui-color-blue,
+  dark-blue: $xui-color-blue-xdark,
+  red: $xui-color-red,
+  green: $xui-color-green,
+  orange: $xui-color-orange,
+  yellow: $xui-color-yellow,
+  mint: $xui-color-mint,
+  turquoise: $xui-color-turquoise,
+  violet: $xui-color-violet,
+  grape: $xui-color-grape,
+  pink: $xui-color-pink,
+  file-spreadsheet: $xui-color-file-spreadsheet,
+  file-pdf: $xui-color-file-pdf,
+);
 // @tokenparserendignore

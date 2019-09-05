@@ -31,6 +31,7 @@ import { rowVariants } from '../private/constants';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, number, text, boolean } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+import customCentered from '../../../../../.storybook/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';
@@ -80,6 +81,13 @@ const sampleBreadcrumb = [
   </span>,
   { label: 'hiya I have multiple words', href: '#2' },
   { label: 'yo' },
+];
+const longSampleBreadcrumb = [
+  <span role="link" tabIndex="0" onClick={() => alert('hello')} onKeyDown={() => {}} key="1">
+    Organisation settings
+  </span>,
+  { label: 'Edit organisation', href: '#2' },
+  { label: 'Invite new member', href: '#3' },
 ];
 const exampleBreadcrumb = <XUIBreadcrumb breadcrumbs={sampleBreadcrumb} />;
 const buildExampleSections = children =>
@@ -213,13 +221,38 @@ storiesWithKnobs.add('OverviewBlock Playground', () => {
   );
 });
 
-const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(centered);
+storiesWithKnobs.add('PageHeader Playground', () => {
+  const showTabs = boolean('include tabs?', false);
+  const showActions = boolean('include actions?', false);
+  const showBreadcrumb = boolean('include breadcrumb?', false);
+  return (
+    <XUIPageHeader
+      title={text('Title text (if any)', 'Title goes here')}
+      tabs={showTabs && exampleTabs}
+      actions={showActions && buildActions()}
+      breadcrumb={showBreadcrumb && <XUIBreadcrumb breadcrumbs={longSampleBreadcrumb} />}
+      hasLayout={boolean('hasLayout?', true)}
+    />
+  );
+});
+
+const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module).addDecorator(
+  centered,
+);
+const storiesWithFullFlexibility = storiesOf(storiesWithVariationsKindName, module).addDecorator(
+  customCentered,
+);
 
 variations.forEach(variation => {
   const { storyTitle, columnWidths, type, ...variationMinusStoryDetails } = variation;
+  const targetStories = variation.customDecorator
+    ? storiesWithFullFlexibility
+    : storiesWithVariations;
+
   delete variationMinusStoryDetails.storyKind;
-  storiesWithVariations.add(storyTitle, () => {
+  delete variationMinusStoryDetails.customDecorator;
+
+  targetStories.add(storyTitle, () => {
     if (type === 'row') {
       return (
         <XUIRow
@@ -239,13 +272,15 @@ variations.forEach(variation => {
         variationMinusStoryDetails.actions = buildActions();
       }
       if (variationMinusStoryDetails.breadcrumb) {
+        variationMinusStoryDetails.breadcrumb = (
+          <XUIBreadcrumb breadcrumbs={longSampleBreadcrumb} />
+        );
+      }
+      if (variationMinusStoryDetails.fakeBreadcrumb) {
+        delete variationMinusStoryDetails.fakeBreadcrumb;
         variationMinusStoryDetails.breadcrumb = exampleBreadcrumb;
       }
-      return (
-        <div style={{ minWidth: '700px' }}>
-          <XUIPageHeader {...variationMinusStoryDetails} />
-        </div>
-      );
+      return <XUIPageHeader {...variationMinusStoryDetails} />;
     }
     if (type === 'overview') {
       const { sections, style } = variationMinusStoryDetails;
@@ -272,7 +307,7 @@ variations.forEach(variation => {
       );
     }
     if (type === 'panel-sidebar') {
-      const heading = <XUIPanelHeading>Hello there</XUIPanelHeading>;
+      const heading = <XUIPanelHeading>{exampleBreadcrumb}</XUIPanelHeading>;
       const footer = (
         <XUIPanelFooter className="xui-padding-small">{buildActions()}</XUIPanelFooter>
       );

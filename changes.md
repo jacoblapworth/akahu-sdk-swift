@@ -39,6 +39,8 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 
 ## XUI CSS components
 
+- Non-linked text items appearing as part of a Breadcrumb should now have the `xui-breadcrumb-no-link` class applied to them
+
 ### Invisible touch targets
 
 Several CSS components require a new child element with the `.xui-touchtarget` class. This class will add an invisible touch target with a minimum width and height of 40px. The following CSS components will need to be updated manually (If you are using the React components you do not need to do this).
@@ -58,6 +60,7 @@ Several CSS components require a new child element with the `.xui-touchtarget` c
 ### Component props
 
 - `XUIAvatar` now requires the value prop for accessibility and for cases in which images have not loaded
+- `XUIPageHeader` now requires that `breadcrumb` only be used in combination with `title`, where previously the two could _not_ be used together.
 
 ### Internationalisation
 

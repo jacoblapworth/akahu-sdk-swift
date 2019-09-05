@@ -87,9 +87,27 @@
 
 // Breadcrumbs
 //
+// Combine breadcrumbs with a title in a page header to give the user a sense of their location and an easy way to navigate back to earlier pages.
+//
 // Components: Breadcrumb
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.kqgl1qf20sek
+//
+// Styleguide: Compounds.Navigation.Breadcrumbs
+
+// Best practice
+//
+// Tips:
+// Do: Make every breadcrumb a useful navigation link
+// Do: Use a page title to indicate the current page
+// Do: Use breadcrumbs to illustrate the structure of the sitemap or information architecture – not the users' journey
+// Warning: Avoid nesting pages more than three levels deep
+// Warning: Long strings may be truncated in narrow containers
+// Don't: Don't include the current page title in the breadcrumbs, use a title instead
+//
+// Styleguide: Compounds.Navigation.Breadcrumbs.1
+
+// Anatomy
 //
 // To provide links to parent pages, use the following breadcrumb classes.
 //
@@ -97,6 +115,7 @@
 // xui-breadcrumbs: Breadcrumb container
 // xui-breadcrumb: Breadcrumb item
 // xui-breadcrumb-arrow: Breadcrumb item that only contains an arrow icon
+// xui-breadcrumb-no-link: Breadcrumb item containing only text that is not a link
 // xui-breadcrumb--link: Breadcrumb link
 // xui-breadcrumb--icon: Icons between breadcrumbs
 //
@@ -105,7 +124,7 @@
 // Markup:
 // <header class="xui-pageheading">
 //   <div class="xui-pageheading--content xui-pageheading--content-layout" role="navigation" aria-label="Title">
-//     <ol class="xui-breadcrumbs">
+//     <ol class="xui-pageheading--breadcrumbs xui-breadcrumbs">
 //       <li class="xui-breadcrumb">
 //         <a href="#" class="xui-breadcrumb--link">Settings</a>
 //       </li>
@@ -117,19 +136,12 @@
 //       <li class="xui-breadcrumb">
 //         <a href="#" class="xui-breadcrumb--link">Permissions</a>
 //       </li>
-//       <li class="xui-breadcrumb-arrow">
-//				 <div class="xui-breadcrumb--icon xui-icon-rotate-270 xui-iconwrapper xui-iconwrapper-medium">
-//       	   <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
-//				 <div/>
-//       </li>
-//       <li class="xui-breadcrumb">
-//         Edit permissions
-//       </li>
 //     </ol>
+// 		 <h1 class="xui-pageheading--title">Edit permissions</h1>
 //   </div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Breadcrumbs
+// Styleguide: Compounds.Navigation.Breadcrumbs.2
 
 // Tabs
 //

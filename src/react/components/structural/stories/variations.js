@@ -32,12 +32,7 @@ variations = [
     storyTitle: `pageheader with title`,
     type: 'pageheader',
     title: 'Testing title',
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: `pageheader with breadcrumbs`,
-    type: 'pageheader',
-    breadcrumb: true,
+    customDecorator: true,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -46,6 +41,7 @@ variations = [
     type: 'pageheader',
     title: 'Testing tabs',
     tabs: true,
+    customDecorator: true,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -55,6 +51,16 @@ variations = [
     title: 'Testing tabs',
     tabs: true,
     hoverSelector: '.xui-pickitem:first-child',
+    customDecorator: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `pageheader with title and breadcrumb`,
+    viewports: desktopPlus320,
+    type: 'pageheader',
+    title: 'Testing a longer title',
+    breadcrumb: true,
+    customDecorator: true,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -64,14 +70,17 @@ variations = [
     title: 'Testing tabs',
     tabs: true,
     hoverSelector: '.xui-pickitem-is-selected',
+    customDecorator: true,
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: `pageheader with breadcrumb and actions`,
     viewports: desktopPlus320,
     type: 'pageheader',
+    title: 'Testing title',
     breadcrumb: true,
     actions: true,
+    customDecorator: true,
   },
   {
     storyKind: storiesWithVariationsKindName,

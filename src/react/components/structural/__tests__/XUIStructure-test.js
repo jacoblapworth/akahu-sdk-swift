@@ -154,13 +154,14 @@ describe('<XUI Structure/>', () => {
       expect(wrapper.find('.xui-pageheading--tabs').length).toBe(1);
     });
     it('renders pageHeader with Breadcrumb and Actions', () => {
-      const wrapper = mount(<XUIPageHeader breadcrumb={exampleBreadcrumb} actions={actions} />);
+      const wrapper = mount(
+        <XUIPageHeader breadcrumb={exampleBreadcrumb} actions={actions} title="Test" />,
+      );
       expect(wrapper.find('.xui-pageheading--actions').length).toBe(1);
       expect(wrapper.find('ol.xui-breadcrumbs').length).toBe(1);
     });
-    it('renders pageHeader containing Breadcrumb', () => {
-      const wrapper = mount(<XUIPageHeader breadcrumb={exampleBreadcrumb} />);
-      expect(wrapper.find('ol.xui-breadcrumbs').length).toBe(1);
+    it('errors when passed a Breadcrumb with no title', () => {
+      expect(() => renderer.create(<XUIPageHeader breadcrumb={exampleBreadcrumb} />)).toThrow();
     });
     it('renders pageHeader containing Breadcrumb from nodes', () => {
       const bcNodeObj = [
@@ -173,12 +174,10 @@ describe('<XUI Structure/>', () => {
         <span key="3">yo</span>,
       ];
       const exampleNodeBreadcrumb = <XUIBreadcrumb breadcrumbs={bcNodeObj} />;
-      const testPageHeader = renderer.create(<XUIPageHeader breadcrumb={exampleNodeBreadcrumb} />);
+      const testPageHeader = renderer.create(
+        <XUIPageHeader breadcrumb={exampleNodeBreadcrumb} title="Test" />,
+      );
       expect(testPageHeader).toMatchSnapshot();
-    });
-    it('renders pageHeader with title ONLY, if both Breadcrumb and title are passed', () => {
-      const wrapper = mount(<XUIPageHeader title="Testing 💩" breadcrumb={exampleBreadcrumb} />);
-      expect(wrapper.find('ol.xui-breadcrumbs').length).toBe(0);
     });
     it('renders pageHeader containing tabs', () => {
       const wrapper = mount(<XUIPageHeader tabs={tabs} />);
@@ -189,22 +188,17 @@ describe('<XUI Structure/>', () => {
       const wrapper = mount(<XUIPageHeader title="Testing 💩" tabs={tabs} />);
       expect(wrapper.find('.xui-pageheading--tabs').length).toBe(1);
     });
-    it('renders pageHeader with tabs ONLY, if both Breadcrumb and tabs are passed', () => {
-      const wrapper = mount(<XUIPageHeader breadcrumb={exampleBreadcrumb} tabs={tabs} />);
-      expect(wrapper.find('.xui-pageheading--tabs').length).toBe(1);
-      expect(wrapper.find('ol.xui-breadcrumbs').length).toBe(0);
-    });
-    it('renders pageHeader with tabs and title but not Breadcrumb, though Breadcrumb is passed', () => {
+    it('renders pageHeader with tabs, title, and Breadcrumb when all are passed', () => {
       const wrapper = mount(
         <XUIPageHeader title="Testing 💩" tabs={tabs} breadcrumb={exampleBreadcrumb} />,
       );
       expect(wrapper.find('.xui-pageheading--tabs').length).toBe(1);
       expect(wrapper.find('.xui-pageheading--title').length).toBe(1);
-      expect(wrapper.find('ol.xui-breadcrumbs').length).toBe(0);
+      expect(wrapper.find('ol.xui-breadcrumbs').length).toBe(1);
     });
     it('renders pageHeader and breadcrumb with automation id when qaHook prop is passed in', () => {
       const wrapper = renderer.create(
-        <XUIPageHeader qaHook={qaHook} breadcrumb={exampleBreadcrumb} />,
+        <XUIPageHeader qaHook={qaHook} breadcrumb={exampleBreadcrumb} title="Test" />,
       );
       expect(wrapper).toMatchSnapshot();
     });

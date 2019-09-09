@@ -3,7 +3,7 @@ import XUIAccordion from '../XUIAccordion';
 import XUIAccordionItem from '../XUIAccordionItem';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, number } from '@storybook/addon-knobs';
-import centered from '../../../../../.storybook/xuiResponsiveCenter';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 import { variations, storiesWithVariationsKindName } from './variations';
 import { createArray } from '../../progressindicator/helpers/utilities';
 import XUIAvatar from '../../avatar/XUIAvatar';

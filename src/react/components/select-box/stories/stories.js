@@ -10,7 +10,7 @@ import education from '@xero/xui-icon/icons/education';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
-import centered from '../../../../../.storybook/xuiResponsiveCenter';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variantClassNames } from '../../button/private/constants';
 import { storiesWithVariationsKindName, variations } from './variations';

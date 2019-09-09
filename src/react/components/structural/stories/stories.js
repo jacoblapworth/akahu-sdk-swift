@@ -31,7 +31,7 @@ import { rowVariants } from '../private/constants';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, number, text, boolean } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
-import customCentered from '../../../../../.storybook/xuiResponsiveCenter';
+import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';

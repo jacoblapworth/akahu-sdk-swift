@@ -23,14 +23,14 @@
     padding: 5px;
   }
   .xui-custom-decorator-outer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    display: flex;
     align-items: center;
+    bottom: 0;
+    display: flex;
+    left: 0;
     overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
   }
   .xui-custom-decorator-inner {
     display: inline-table;
@@ -39,9 +39,13 @@
     padding: 5px;
   }
   .xui-custom-decorator-inner > * {
-    width: calc(100vw - 10px);
     margin-left: auto;
     margin-right: auto;
+    width: calc(100vw - 10px);
+  }
+  .xui-decorator-revealTouchTargets .xui-touchtarget {
+    background: rgba(60, 220, 250, 0.25);
+    outline: #0078c8 dashed 1px;
   }
 </style>
 <!-- This style block designed to cater for static loaders as we need for screenshot testing -->

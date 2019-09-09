@@ -8,7 +8,7 @@ import XUIBarChart from '../XUIBarChart';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, object, boolean, text, select, number, color } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
-import customCentered from '../../../../../.storybook/xuiResponsiveCenter';
+import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import logReadyState from '../../../stories/helpers/log-ready-state';
 import { variations, storiesWithVariationsKindName } from './variations';

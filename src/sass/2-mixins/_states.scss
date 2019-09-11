@@ -1,41 +1,41 @@
-@import "../vars";
+@import '../vars';
 
 // Focus ring along, for reuse, as needed
-@mixin xui-state-focus-shadow ($shadow: $xui-shadow-focus) {
-	box-shadow: $shadow;
-	outline: none;
-	transition: box-shadow $xui-motion-speed-fast;
+@mixin xui-state-focus-shadow($shadow: $xui-shadow-focus) {
+  box-shadow: $shadow;
+  outline: none;
+  transition: box-shadow $xui-motion-speed-fast;
 }
 
 // Applies standard focus styling and given content on focus
 @mixin xui-state-focus {
-	&:focus {
-		@content;
-		@include xui-state-focus-shadow;
-	}
+  &:focus {
+    @content;
+    @include xui-state-focus-shadow;
+  }
 }
 
 // Applies standard focus styling on focus
 @mixin xui-state-focus-inverted {
-	&:focus {
-		box-shadow: $xui-shadow-focus-inverted;
-		outline: none;
-		transition: box-shadow $xui-motion-speed-fast;
-	}
+  &:focus {
+    box-shadow: $xui-shadow-focus-inverted;
+    outline: none;
+    transition: box-shadow $xui-motion-speed-fast;
+  }
 }
 
 @mixin xui-states-transparent {
-	&:hover {
-		color: $xui-color-blue-xdark;
-	}
+  &:hover {
+    color: $xui-color-blue-xdark;
+  }
 
-	&:focus {
-		background-color: $xui-color-grey-alpha-7;
-		border-radius: $xui-radius;
-	}
+  &:focus {
+    background-color: $xui-color-grey-alpha-7;
+    border-radius: $xui-radius;
+  }
 
-	&:active {
-		background-color: $xui-color-grey-alpha-6;
-		border-radius: $xui-radius;
-	}
+  &:active {
+    background-color: $xui-color-grey-alpha-6;
+    border-radius: $xui-radius;
+  }
 }

@@ -312,6 +312,111 @@ exports[`<Pickitem /> renders a small pickitem with highlighting 1`] = `
 </li>
 `;
 
+exports[`<Pickitem /> renders a truncating pickitem with leftelement 1`] = `
+<li
+  aria-selected={null}
+  className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium xui-pickitem-has-leftelement"
+  id="item1"
+  role="option"
+>
+  <button
+    className="xui-pickitem--body"
+    rel={null}
+    type="button"
+  >
+    <span
+      className="xui-pickitem--sideelement"
+    >
+      <abbr
+        className="xui-avatar xui-avatar-2xsmall xui-avatar-color-3"
+        role="presentation"
+      >
+        TR
+      </abbr>
+    </span>
+    <span
+      className="xui-pickitem--text xui-pickitem-text-truncated"
+    >
+      <span
+        className="xui-pickitem-text-truncated"
+      >
+        Item 1
+      </span>
+    </span>
+  </button>
+</li>
+`;
+
+exports[`<Pickitem /> renders a truncating pickitem with secondary text 1`] = `
+<li
+  aria-selected={null}
+  className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium xui-pickitem-has-secondarytext"
+  id="item1"
+  role="option"
+>
+  <button
+    className="xui-pickitem--body"
+    rel={null}
+    type="button"
+  >
+    <span
+      className="xui-pickitem--text xui-pickitem-text-truncated"
+    >
+      <span
+        className="xui-pickitem-text-truncated"
+      >
+        Item 1
+      </span>
+      <span
+        className="xui-pickitem--secondary xui-pickitem-text-truncated"
+      >
+        Here is a bunch of secondary text
+      </span>
+    </span>
+  </button>
+</li>
+`;
+
+exports[`<Pickitem /> renders a truncating pickitem with secondary text and leftelement 1`] = `
+<li
+  aria-selected={null}
+  className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium xui-pickitem-has-leftelement-secondarytext"
+  id="item1"
+  role="option"
+>
+  <button
+    className="xui-pickitem--body"
+    rel={null}
+    type="button"
+  >
+    <span
+      className="xui-pickitem--sideelement"
+    >
+      <abbr
+        className="xui-avatar xui-avatar-2xsmall xui-avatar-color-3"
+        role="presentation"
+      >
+        TR
+      </abbr>
+    </span>
+    <span
+      className="xui-pickitem--text xui-pickitem-text-truncated"
+    >
+      <span
+        className="xui-pickitem-text-truncated"
+      >
+        Item 1
+      </span>
+      <span
+        className="xui-pickitem--secondary xui-pickitem-text-truncated"
+      >
+        Here is a bunch of secondary text
+      </span>
+    </span>
+  </button>
+</li>
+`;
+
 exports[`<Pickitem /> renders an xsmall pickitem with selected & invalid state 1`] = `
 <li
   aria-selected={null}

@@ -54,6 +54,13 @@ export default class Pickitem extends PureComponent {
     const truncationClassName = (shouldTruncate && `${pickitemClassName}-text-truncated`) || '';
 
     const validatedMultiselect = isMultiselect && size !== 'xsmall'; // No multiselect for xsmall;
+
+    let pickItemMinWidthClassName; // This is used to set min-width for pickItem when truncating
+    if (shouldTruncate && !rightElement && !pinnedElement && (leftElement || secondaryElement)) {
+      const leftElementClassName = cn(leftElement && '-leftelement');
+      const secondaryElementClassName = cn(secondaryElement && '-secondarytext');
+      pickItemMinWidthClassName = `${pickitemClassName}-has${leftElementClassName}${secondaryElementClassName}`;
+    }
     const classes = cn(
       `${pickitemClassName}`,
       className,
@@ -67,6 +74,7 @@ export default class Pickitem extends PureComponent {
       isDisabled && `${pickitemClassName}-is-disabled`,
       size && `${pickitemClassName}-${size}`,
       isInvalid && `${pickitemClassName}-is-invalid`,
+      pickItemMinWidthClassName,
     );
     const listeners = !isDisabled
       ? {

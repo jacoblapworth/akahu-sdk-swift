@@ -14,18 +14,30 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
   - Set `text-align: center` in `xui-button` to make sure the content in the anchor is centered.
   - Removed the `min-width` value set in `xui-button-split`.
 - Input
-  - Add a `min-width` of 40px in `xui-textinput` and `xui-textinput-input`.
+  - Added a `min-width` of 40px in `xui-textinput` and `xui-textinput-input`.
 - Pill
-  - Add a `min-width` of 40px in `xui-pill`.
+  - Added a `min-width` of 40px in `xui-pill`.
   - Set `justify-content: center` in `xui-pill--content`.
 - Table
-  - Add a `min-width` of 40px in `xui-table--sortbutton`.
+  - Added a `min-width` of 40px in `xui-table--sortbutton`.
 - Range
-  - Add a `min-width` of 40px in `xui-rangeslider-container`.
+  - Added a `min-width` of 40px in `xui-rangeslider-container`.
 - Tag
-  - Added a `min-width` of 40px to `xui-tag`
+  - Added a `min-width` of 40px to `xui-tag`.
 - Progress indicator
-  - Added a `min-width` of 40px to `xui-progress-linear`
+  - Added a `min-width` of 40px to `xui-progress-linear`.
+- Picklist
+  - Added a `min-width` of 80px in truncated `xui-pickitem`.
+  - Set `max-width` to 75% instead of 60% and removed `min-width: 20%` in truncated `xui-pickitem--secondary`.
+  - Added a `min-width` of 40px in `xui-pickitem-text-truncated` which is under `xui-pickitem--text`.
+  - Horizontal Pickitem
+    - Removed `xui-padding-vertical` and `xui-text-wordbreak` mixin in `xui-pickitem--text`.
+    - Set `justify-content: center`, `text-align: center` and `display: flex` in `xui-pickitem--body`.
+    - Set `justify-content: center` and removed `width: 100%` in `xui-pickitem--text`.
+    - Added `min-width` in `xui-pickitem--sideelement` for different sizes of pickitems:
+      - medium: 40px
+      - small: 32px
+      - xsmall: 24px
 
 ### Removals
 
@@ -40,6 +52,13 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 ## XUI CSS components
 
 - Non-linked text items appearing as part of a Breadcrumb should now have the `xui-breadcrumb-no-link` class applied to them
+- Truncated Pickitems with a leftElement and/or secondaryText now require one of the following classes:
+  - For Pickitems with a leftElement and secondaryText.
+    - `xui-pickitem-has-leftelement-secondarytext`
+  - For Pickitems with leftElement and no secondaryText.
+    - `xui-pickitem-has-leftelement`
+  - For Pickitems with secondaryText and no leftElement.
+    - `xui-pickitem-has-secondarytext`
 
 ### Invisible touch targets
 

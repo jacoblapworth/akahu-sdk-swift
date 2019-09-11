@@ -10,13 +10,13 @@ We always want help improving documentation, examples and test coverage. Even if
 
 **Some useful info**
 
-* If you are working on an issue, assign it to yourself in Github so we know you're having a look at it.
-* Ensure you're working on a forked copy of XUI and preferably a sensibly named branch.
-* Include relevant documentation updates and tests in along with any code changes.
-* Write meaningful commit and PR messages ([Anatomy Of a Good Commit Message](https://adamcod.es/2012/07/03/anatomy-of-a-good-commit-message.html) has some good info).
-* Always add a "rel|ref|fixes:" issue reference and always ensure an issue exists before opening a PR.
-* cc @UXE/uxe-team or @UXE/developers or use the Reviewers github functionality for code reviews.
-* Ask questions on issues, PRs or in [Slack](https://xero.slack.com/messages/C565NP1A5).
+- If you are working on an issue, assign it to yourself in Github so we know you're having a look at it.
+- Ensure you're working on a forked copy of XUI and preferably a sensibly named branch.
+- Include relevant documentation updates and tests in along with any code changes.
+- Write meaningful commit and PR messages ([Anatomy Of a Good Commit Message](https://adamcod.es/2012/07/03/anatomy-of-a-good-commit-message.html) has some good info).
+- Always add a "rel|ref|fixes:" issue reference and always ensure an issue exists before opening a PR.
+- cc @UXE/uxe-team or @UXE/developers or use the Reviewers github functionality for code reviews.
+- Ask questions on issues, PRs or in [Slack](https://xero.slack.com/messages/C565NP1A5).
 
 ## Bugs
 
@@ -46,19 +46,19 @@ All classes must be prefixed with the namespace variable (which resolves to `xui
 
 Classes should follow the format:
 
- * `xui-component`
- * `xui-component-modifier`
- * `xui-component--subcomponent`
- * `xui-component--subcomponent-modifier`
- * `xui-component-is-state`
- * `xui-is-globalstate`
+- `xui-component`
+- `xui-component-modifier`
+- `xui-component--subcomponent`
+- `xui-component--subcomponent-modifier`
+- `xui-component-is-state`
+- `xui-is-globalstate`
 
 This format is a [BEM](https://en.bem.info/)-inspired evolution of [SMACSS](https://smacss.com/).
 
- * `xui-component` represents the highest level of an abstraction or component.
- * `xui-component-modifier` represents a different state or variation of `xui-component`. It is used in conjunction with the high-level class.
- * `xui-component--subcomponent` represents a subcomponent of `xui-component` that
-   helps form `xui-component` as a whole.
+- `xui-component` represents the highest level of an abstraction or component.
+- `xui-component-modifier` represents a different state or variation of `xui-component`. It is used in conjunction with the high-level class.
+- `xui-component--subcomponent` represents a subcomponent of `xui-component` that
+  helps form `xui-component` as a whole.
 
 Use class selectors wherever possible. Use attribute selectors only if absolutely required.
 Do not use ids or element selectors.
@@ -161,11 +161,11 @@ React components use JSX and ES2017. We need to transpile our ES2017 source code
 
 `npm run build:babel` transpiles the raw source in `src/react` down to ES5 and puts the output into a new folder called `react` in the root folder of the project. This folder is listed in the `files` property of the `package.json`, so it'll be bundled up for publishing.
 
-`npm run copy:sass` is run last and just copies the raw SCSS files into a folder called `scss` in the root folder of the project. Many consumers use the variables and mixins we provide to ensure that they are using the right colors and/or consistent spacing within their application.  Moving this up to a root level folder allows consumers to import the SCSS variables and mixins from the more appropriate `@xero/xui/scss` path.
+`npm run copy:sass` is run last and just copies the raw SCSS files into a folder called `scss` in the root folder of the project. Many consumers use the variables and mixins we provide to ensure that they are using the right colors and/or consistent spacing within their application. Moving this up to a root level folder allows consumers to import the SCSS variables and mixins from the more appropriate `@xero/xui/scss` path.
 
 ## UMD module for prototyping
 
-The [UMD specification](http://bob.yexley.net/umd-javascript-that-runs-anywhere/) is a module format that allows module code to be used in any or no module system.  This makes it an ideal target for creating a build of all the XUI components that can be used for demos, bug reports, and any other non-production use case.
+The [UMD specification](http://bob.yexley.net/umd-javascript-that-runs-anywhere/) is a module format that allows module code to be used in any or no module system. This makes it an ideal target for creating a build of all the XUI components that can be used for demos, bug reports, and any other non-production use case.
 
 For the UMD build we want to bundle everything up and attach it to the `window` object or a single module export. We have a script to import everything and re-export it as a flat object.
 
@@ -191,10 +191,10 @@ and open your PR against the `breaking-changes` branch (or other feature branch)
 The XUI documentation is generated from annotations of our SCSS, JavaScript and markdown files. Please ensure that your change
 is also correctly reflected in the generated documentation. Things to check:
 
-* CSS class names have descriptions
-* XUI Guide examples are updated
-* Components and examples are updated to use any new CSS
-* Relevant deprecation notices with recomended replacements
+- CSS class names have descriptions
+- XUI Guide examples are updated
+- Components and examples are updated to use any new CSS
+- Relevant deprecation notices with recomended replacements
 
 You should cc [@UXE/uxe-team](https://github.dev.xero.com/orgs/UXE/teams/uxe-team)
 on pull requests for prompt feedback.
@@ -212,12 +212,12 @@ coordinate releases.
 
 This includes:
 
-* Removing or renaming existing classes. All our classes are public and should be considered XUI's "API"
-* Removing or renaming existing mixins, variables or anything else that would be available if XUI's individual
-SCSS files were imported by a project
-* Modifying properties of existing classes in a way that could break standard web layouts implemented with those classes.
-Since projects may subscribe to a semver range (either patch or minor), we do not want layouts breaking unexpectedly.
-* Changes to Component APIs
+- Removing or renaming existing classes. All our classes are public and should be considered XUI's "API"
+- Removing or renaming existing mixins, variables or anything else that would be available if XUI's individual
+  SCSS files were imported by a project
+- Modifying properties of existing classes in a way that could break standard web layouts implemented with those classes.
+  Since projects may subscribe to a semver range (either patch or minor), we do not want layouts breaking unexpectedly.
+- Changes to Component APIs
 
 New CSS classes are not considered breaking changes. Changes to existing classes that do not impact
 layout are also not considered breaking changes (e.g. font-weight, color, border-color, box-shadow, etc).
@@ -236,16 +236,17 @@ Both sections should cover renames, additions, removals, or altered behaviour.
 
 ### Deprecations
 
-* All deprecations should come with a suggested alternative. This may mean just changing classes used, DOM structure, or the Component used.
-* Search through the docs and components of the version the deprecation is being made at to make sure all usage of the deprecated item is replaced with the suggested alternative.
-* Add TODO comments next to the deprecations to highlight their future removal.
-* Deprecations may be introduced in patch releases so long as they are documentation-only (e.g. signaling that something will be removed in a future version).
+- All deprecations should come with a suggested alternative. This may mean just changing classes used, DOM structure, or the Component used.
+- Search through the docs and components of the version the deprecation is being made at to make sure all usage of the deprecated item is replaced with the suggested alternative.
+- Add TODO comments next to the deprecations to highlight their future removal.
+- Deprecations may be introduced in patch releases so long as they are documentation-only (e.g. signaling that something will be removed in a future version).
 
 #### CSS deprecation documentation
 
 CSS deprecations should be detailed in a 5th level KSS block, with a 'sunsetting' flag applied. If the deprecated classes are in the same page as their suggested replacement, they should appear beneath their replacement. Alternatively, they should be positioned at the bottom of the page.
 
 e.g.
+
 ```
 // Sentiment colours
 //
@@ -256,44 +257,42 @@ e.g.
 // Styleguide: Fundamentals.Typography.30.2
 ```
 
-Documentation style guide
--------------------------
+## Documentation style guide
 
 Our documentation writing style is based on [the Financial Times Origami documentation style guide](https://github.com/Financial-Times/ft-origami/blob/gh-pages/README.md#origami). It exists as guidance to help keep our documentation consistent.
 
 1. Be conversational
-	* Use contractions: "we're" over "we are"
-	* Starting sentences with conjunctions like 'but' or 'so' is allowed
+   - Use contractions: "we're" over "we are"
+   - Starting sentences with conjunctions like 'but' or 'so' is allowed
 1. Prefer "we" to "I"
-	* **good**: "we recommend you do X"
-	* **bad**: "I recommend you do X"
+   - **good**: "we recommend you do X"
+   - **bad**: "I recommend you do X"
 1. Use the active voice. If you need help with this one, use [http://www.hemingwayapp.com/](http://www.hemingwayapp.com/)
-	* **good**: "we recommend you do X"
-	* **bad**: "it is recommended you do X"
+   - **good**: "we recommend you do X"
+   - **bad**: "it is recommended you do X"
 1. Omit fluff. Avoid qualifiers like "pretty", "mostly", "probably"
 1. Prefer short sentences to long sentences
 1. Use British English
-	* **good**: organise, favour
-	* **bad**: organize, favor
+   - **good**: organise, favour
+   - **bad**: organize, favor
 1. Avoid metaphors or turns of phrase that non-native English speakers may not be familiar with
-	* **good**: "this site has everything you need to know"
-	* **bad**: "this site is a one stop shop for XUI"
+   - **good**: "this site has everything you need to know"
+   - **bad**: "this site is a one stop shop for XUI"
 1. [Avoid "simply" and other words that trivialise concepts and ideas that might not be trivial](https://css-tricks.com/words-avoid-educational-writing/)
 1. When referring to XUI React components; use back-ticks, correct capitalisation, and no spaces
-	* **good**: `XUIButton`, `DropDown`
-	* **bad**: `XUI Button`, DropDown
+   - **good**: `XUIButton`, `DropDown`
+   - **bad**: `XUI Button`, DropDown
 1. Structure documentation for skim readers
-	* Code variables go in `back-ticks`
-	* Use tables
-	* Use asides for extra tidbits
-	* Use **strong** and _emphasis_ where appropriate
-	* Use lists
-	* Break things up with informative headings
+   - Code variables go in `back-ticks`
+   - Use tables
+   - Use asides for extra tidbits
+   - Use **strong** and _emphasis_ where appropriate
+   - Use lists
+   - Break things up with informative headings
 1. Always capitalise XUI when referring to the product
 1. Never capitalise modules
-	* **good**: avatar, button
-	* **bad**: Avatar, Button
-
+   - **good**: avatar, button
+   - **bad**: Avatar, Button
 
 ### Need help?
 

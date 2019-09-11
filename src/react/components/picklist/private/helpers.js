@@ -1,4 +1,5 @@
 import React, { Children } from 'react';
+import ReactPropTypesSecret from 'prop-types/lib/ReactPropTypesSecret';
 import compose from '../../helpers/compose';
 // TODO: Fix up lint rules for this file
 /* eslint-disable */
@@ -416,4 +417,20 @@ export function getPropsFromFirstChildOrList(children, listProps) {
 	const listMultiselect = listProps.isMultiselect !== undefined ? listProps.isMultiselect
 		: (firstItem && firstItem.props.isMultiselect) || undefined;
 	return { listSize, listMultiselect };
+}
+
+/**
+ * Custom propType validator for checking props that should not be used when `_isHorizontal` is `true`.
+ *
+ * @param {PropTypes.Validator} propTypeValidator A PropType validator. e.g. `PropTypes.string`
+ * @param  {...any} parameters All parameters supplied by propTypes.
+ */
+export function verticalOnlyProp(propTypeValidator, ...parameters) {
+  const [props, propName, componentName] = parameters;
+
+  if (props[propName] && props._isHorizontal) {
+    return new Error(`\`${propName}\` is not supported by horizontal \`${componentName}\`.`);
+  }
+
+  return propTypeValidator(...parameters, ReactPropTypesSecret);
 }

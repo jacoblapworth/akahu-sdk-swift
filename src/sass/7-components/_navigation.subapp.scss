@@ -38,6 +38,10 @@
     flex: 1 1 auto;
     margin: 0;
   }
+  > .#{$ns}-pageheading--title {
+    margin-left: $xui-s-xsmall;
+    margin-right: $xui-s-xlarge;
+  }
   &.#{$ns}-pageheading--content-no-tabs {
     @include xui-breakpoint-small-up {
       flex-flow: unset;

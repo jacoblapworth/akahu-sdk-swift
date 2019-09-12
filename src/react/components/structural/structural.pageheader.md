@@ -9,7 +9,7 @@ The `XUIPageHeader` appears beneath the global header on a page. In a basic exam
 ```jsx harmony
 import { XUIPageHeader } from '../../structural';
 
-<XUIPageHeader title="Account Settings"></XUIPageHeader>
+<XUIPageHeader title="Account Settings" />;
 ```
 
 ```jsx harmony
@@ -17,14 +17,20 @@ import { XUIPageHeader } from '../../structural';
 import Picklist, { Pickitem } from '../../picklist';
 
 const builtTabs = (
-	<Picklist secondaryProps={{ role: 'menu' }}>
-		<Pickitem ariaRole='menuitem' id="one">See all</Pickitem>
-		<Pickitem ariaRole='menuitem' id="two" isSelected>Edit</Pickitem>
-		<Pickitem ariaRole='menuitem' id="three" >Add</Pickitem>
-	</Picklist>
+  <Picklist secondaryProps={{ role: 'menu' }}>
+    <Pickitem ariaRole="menuitem" id="one">
+      See all
+    </Pickitem>
+    <Pickitem ariaRole="menuitem" id="two" isSelected>
+      Edit
+    </Pickitem>
+    <Pickitem ariaRole="menuitem" id="three">
+      Add
+    </Pickitem>
+  </Picklist>
 );
 
-<XUIPageHeader title="Contacts" tabs={builtTabs}></XUIPageHeader>
+<XUIPageHeader title="Contacts" tabs={builtTabs} />;
 ```
 
 ```jsx harmony
@@ -32,11 +38,72 @@ import { XUIPageHeader, XUIActions } from '../../structural';
 import XUIButton from '../../button';
 
 const builtActions = (
-	<XUIActions
-		primaryAction={<XUIButton key='one' variant="primary" size="small">Create</XUIButton>}
-		secondaryAction={<XUIButton key='two' size="small">Discard</XUIButton>}
-	/>
+  <XUIActions
+    primaryAction={
+      <XUIButton key="one" variant="primary" size="small">
+        Create
+      </XUIButton>
+    }
+    secondaryAction={
+      <XUIButton key="two" size="small">
+        Discard
+      </XUIButton>
+    }
+  />
 );
 
-<XUIPageHeader title="Create Invoice" actions={builtActions}></XUIPageHeader>
+<XUIPageHeader title="Create Invoice" actions={builtActions} />;
+```
+
+```jsx harmony
+import { XUIPageHeader, XUIActions, XUIBreadcrumb } from '../../structural';
+import XUIButton from '../../button';
+import XUITag from '../../tag';
+import Picklist, { Pickitem } from '../../picklist';
+
+const builtActions = (
+  <XUIActions
+    primaryAction={
+      <XUIButton key="one" variant="primary" size="small">
+        Create
+      </XUIButton>
+    }
+    secondaryAction={
+      <XUIButton key="two" size="small">
+        Discard
+      </XUIButton>
+    }
+  />
+);
+
+const sampleBreadcrumb = [
+  <span role="link" tabIndex="0" onClick={() => alert('hello')} onKeyDown={() => {}} key="1">
+    Organisation settings
+  </span>,
+  { label: 'Edit organisation', href: '#2' }
+];
+const builtBreadcrumb = <XUIBreadcrumb breadcrumbs={sampleBreadcrumb} />;
+
+const builtTabs = (
+  <Picklist secondaryProps={{ role: 'menu' }}>
+    <Pickitem ariaRole="menuitem" id="one">
+      See all
+    </Pickitem>
+    <Pickitem ariaRole="menuitem" id="two" isSelected>
+      Edit
+    </Pickitem>
+    <Pickitem ariaRole="menuitem" id="three">
+      Add
+    </Pickitem>
+  </Picklist>
+);
+
+<XUIPageHeader
+  title="New member"
+  secondary="Create a read-only member"
+  tags={<XUITag size="small">Pending</XUITag>}
+  actions={builtActions}
+  breadcrumb={builtBreadcrumb}
+  tabs={builtTabs}
+/>;
 ```

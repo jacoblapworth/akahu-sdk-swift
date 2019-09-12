@@ -33,7 +33,14 @@ import { withKnobs, select, number, text, boolean } from '@storybook/addon-knobs
 import centered from '@storybook/addon-centered/react';
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import {
+	gridColumnsVariations,
+	pageHeaderVariations,
+	overviewBlockVariations,
+	panelVariations,
+	contentBlockVariations,
+	storiesWithVariationsKindName,
+} from './variations';
 import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';
 
 const buildColumns = widths =>
@@ -63,14 +70,30 @@ const exampleTabs = (
     </XUIPickitem>
   </XUIPicklist>
 );
-const buildActions = props => (
+const longExampleTabs = (
+  <XUIPicklist secondaryProps={{ role: 'menu' }}>
+    <XUIPickitem id="1" ariaRole="menuitem">
+      Organisation Settings
+    </XUIPickitem>
+    <XUIPickitem id="2" ariaRole="menuitem" isSelected>
+      Edit Profile
+    </XUIPickitem>
+    <XUIPickitem id="3" ariaRole="menuitem">
+      Invite a New Member
+    </XUIPickitem>
+  </XUIPicklist>
+);
+const buildActions = (props = {}) => (
   <XUIActions
+    hasLayout={false}
     primaryAction={
-      <XUIButton variant="primary" size="small">
-        One
+      <XUIButton variant="primary" size="small" className="xui-margin-left-xsmall">
+        {props.longContent ? 'ActionCompletion' : 'One'}
       </XUIButton>
     }
-    secondaryAction={<XUIButton size="small">Two</XUIButton>}
+    secondaryAction={
+      <XUIButton size="small">{props.longContent ? 'Action2Completion' : 'Two'}</XUIButton>
+    }
     {...props}
   />
 );
@@ -145,7 +168,7 @@ const buildExampleContentblockItem = children =>
 const exampleClickHandler = () => console.log('clicked');
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
+storiesWithKnobs.addDecorator(customCentered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Columns Playground', () => {
   const columnCount = number('number of columns', 3);
@@ -225,6 +248,19 @@ storiesWithKnobs.add('PageHeader Playground', () => {
   const showTabs = boolean('include tabs?', false);
   const showActions = boolean('include actions?', false);
   const showBreadcrumb = boolean('include breadcrumb?', false);
+  const showSecondary = boolean('include secondary?', false);
+  const showTags = boolean('include tags?', false);
+  const sampleTags = [
+    <XUITag key="a" size="small">
+      Tag one
+    </XUITag>,
+    <XUITag key="b" size="small">
+      Two
+    </XUITag>,
+    <XUITag key="c" size="small">
+      Another
+    </XUITag>,
+  ];
   return (
     <XUIPageHeader
       title={text('Title text (if any)', 'Title goes here')}
@@ -232,6 +268,8 @@ storiesWithKnobs.add('PageHeader Playground', () => {
       actions={showActions && buildActions()}
       breadcrumb={showBreadcrumb && <XUIBreadcrumb breadcrumbs={longSampleBreadcrumb} />}
       hasLayout={boolean('hasLayout?', true)}
+      secondary={showSecondary && 'Secondary content here'}
+      tags={showTags && sampleTags}
     />
   );
 });
@@ -243,96 +281,113 @@ const storiesWithFullFlexibility = storiesOf(storiesWithVariationsKindName, modu
   customCentered,
 );
 
-variations.forEach(variation => {
-  const { storyTitle, columnWidths, type, ...variationMinusStoryDetails } = variation;
-  const targetStories = variation.customDecorator
-    ? storiesWithFullFlexibility
-    : storiesWithVariations;
 
-  delete variationMinusStoryDetails.storyKind;
-  delete variationMinusStoryDetails.customDecorator;
+const handleVariation = ( variationSet, renderer ) => {
+	variationSet.forEach(variation => {
+		const { storyTitle, ...variationMinusStoryDetails } = variation;
+		const targetStories = variation.customDecorator
+			? storiesWithFullFlexibility
+			: storiesWithVariations;
 
-  targetStories.add(storyTitle, () => {
-    if (type === 'row') {
-      return (
-        <XUIRow
-          {...variationMinusStoryDetails}
-          style={{ backgroundColor: '#028DDE' }}
-          className="xui-padding-small"
-        >
-          {buildColumns(columnWidths)}
-        </XUIRow>
-      );
-    }
-    if (type === 'pageheader') {
-      if (variationMinusStoryDetails.tabs) {
-        variationMinusStoryDetails.tabs = exampleTabs;
-      }
-      if (variationMinusStoryDetails.actions) {
-        variationMinusStoryDetails.actions = buildActions();
-      }
-      if (variationMinusStoryDetails.breadcrumb) {
-        variationMinusStoryDetails.breadcrumb = (
-          <XUIBreadcrumb breadcrumbs={longSampleBreadcrumb} />
-        );
-      }
-      if (variationMinusStoryDetails.fakeBreadcrumb) {
-        delete variationMinusStoryDetails.fakeBreadcrumb;
-        variationMinusStoryDetails.breadcrumb = exampleBreadcrumb;
-      }
-      return <XUIPageHeader {...variationMinusStoryDetails} />;
-    }
-    if (type === 'overview') {
-      const { sections, style } = variationMinusStoryDetails;
-      return (
-        <div style={style || { minWidth: '500px' }}>
-          <XUIOverviewBlock {...variationMinusStoryDetails}>
-            {buildExampleSections(sections)}
-          </XUIOverviewBlock>
-        </div>
-      );
-    }
-    if (type === 'panel') {
-      const heading = (
-        <XUIPanelHeading>
-          Hello there <XUIIcon icon={overflow} />
-        </XUIPanelHeading>
-      );
-      return (
-        <XUIPanel heading={heading}>
-          <XUIPanelSection headerText="I'm a section header" className="xui-padding-large">
-            <p>Some important text might go here.</p>
-          </XUIPanelSection>
-        </XUIPanel>
-      );
-    }
-    if (type === 'panel-sidebar') {
-      const heading = <XUIPanelHeading>{exampleBreadcrumb}</XUIPanelHeading>;
-      const footer = (
-        <XUIPanelFooter className="xui-padding-small">{buildActions()}</XUIPanelFooter>
-      );
-      return (
-        <div style={{ minWidth: '700px' }}>
-          <XUIPanel heading={heading} footer={footer} sidebar={exampleTabs}>
-            <XUIPanelSection headerText="I'm a section header" className="xui-padding-large">
-              <p>Some important text might go here.</p>
-            </XUIPanelSection>
-            <XUIPanelSection className="xui-padding-large">
-              <p>Other critical info would go here.</p>
-            </XUIPanelSection>
-          </XUIPanel>
-        </div>
-      );
-    }
-    if (type === 'content block') {
-      const { items } = variationMinusStoryDetails;
-      return (
-        <XUIPanel>
-          <XUIContentBlock {...variationMinusStoryDetails}>
-            {buildExampleContentblockItem(items)}
-          </XUIContentBlock>
-        </XUIPanel>
-      );
-    }
-  });
+		delete variationMinusStoryDetails.storyKind;
+		delete variationMinusStoryDetails.customDecorator;
+		targetStories.add(storyTitle, () => renderer(variationMinusStoryDetails));
+	});
+};
+
+handleVariation(gridColumnsVariations, variationMinusStoryDetails => (
+	<XUIRow
+		{...variationMinusStoryDetails}
+		style={{ backgroundColor: '#028DDE' }}
+		className="xui-padding-small"
+	>
+		{buildColumns(variationMinusStoryDetails.columnWidths)}
+	</XUIRow>
+));
+
+handleVariation(pageHeaderVariations, variationMinusStoryDetails => {
+	const sampleTitle = variationMinusStoryDetails.longContent
+		? 'Testing a longer title Testing a longer title Testing a longer title Testing a longer title'
+		: 'Title text for testing';
+	const sampleSecondary = variationMinusStoryDetails.longContent
+		? 'Longer secondary title would go Longer secondary title would go Longer secondary title would go here'
+		: 'Secondary text for testing';
+
+	variationMinusStoryDetails.breadcrumb = variationMinusStoryDetails.breadcrumb && (<XUIBreadcrumb breadcrumbs={longSampleBreadcrumb} /> );
+	variationMinusStoryDetails.title = typeof variationMinusStoryDetails.title === 'string' ? variationMinusStoryDetails.title : sampleTitle;
+	variationMinusStoryDetails.secondary = variationMinusStoryDetails.secondary
+		&& (typeof variationMinusStoryDetails.secondary === 'string' ? variationMinusStoryDetails.secondary : sampleSecondary);
+
+	if (variationMinusStoryDetails.tags) {
+		variationMinusStoryDetails.tags = [
+			<XUITag key="a" size="small">
+				{variationMinusStoryDetails.longContent ? 'Invoice RUE67875NHKERMEG6655' : 'Tag one'}
+			</XUITag>,
+			<XUITag key="b" size="small">
+				{variationMinusStoryDetails.longContent ? 'Invoice FURH672348493GGYMBKE' : 'Two'}
+			</XUITag>,
+			<XUITag key="c" size="small">
+				{variationMinusStoryDetails.longContent ? 'Invoice NTU346474HJTEBEF697F' : 'Another'}
+			</XUITag>,
+		];
+	}
+	if (variationMinusStoryDetails.tabs) {
+		variationMinusStoryDetails.tabs = variationMinusStoryDetails.longContent ? longExampleTabs : exampleTabs;
+	}
+	if (variationMinusStoryDetails.actions) {
+		variationMinusStoryDetails.actions = buildActions({ hasLayout: false, longContent: variationMinusStoryDetails.longContent });
+	}
+
+	return <XUIPageHeader {...variationMinusStoryDetails} />;
 });
+
+handleVariation(overviewBlockVariations, variationMinusStoryDetails => (
+	<div style={variationMinusStoryDetails.style || { minWidth: '500px' }}>
+		<XUIOverviewBlock {...variationMinusStoryDetails}>
+			{buildExampleSections(variationMinusStoryDetails.sections)}
+		</XUIOverviewBlock>
+	</div>
+));
+
+handleVariation(panelVariations, variationMinusStoryDetails => {
+	if (variationMinusStoryDetails.type === 'panel') {
+		const heading = (
+			<XUIPanelHeading>
+				Hello there <XUIIcon icon={overflow} />
+			</XUIPanelHeading>
+		);
+		return (
+			<XUIPanel heading={heading}>
+				<XUIPanelSection headerText="I'm a section header" className="xui-padding-large">
+					<p>Some important text might go here.</p>
+				</XUIPanelSection>
+			</XUIPanel>
+		);
+	}
+	if (variationMinusStoryDetails.type === 'panel-sidebar') {
+		const heading = <XUIPanelHeading>{exampleBreadcrumb}</XUIPanelHeading>;
+		const footer = (
+			<XUIPanelFooter className="xui-padding-small">{buildActions()}</XUIPanelFooter>
+		);
+		return (
+			<div style={{ minWidth: '700px' }}>
+				<XUIPanel heading={heading} footer={footer} sidebar={exampleTabs}>
+					<XUIPanelSection headerText="I'm a section header" className="xui-padding-large">
+						<p>Some important text might go here.</p>
+					</XUIPanelSection>
+					<XUIPanelSection className="xui-padding-large">
+						<p>Other critical info would go here.</p>
+					</XUIPanelSection>
+				</XUIPanel>
+			</div>
+		);
+	}
+});
+
+handleVariation(contentBlockVariations, variationMinusStoryDetails => (
+	<XUIPanel>
+		<XUIContentBlock {...variationMinusStoryDetails}>
+			{buildExampleContentblockItem(variationMinusStoryDetails.items)}
+		</XUIContentBlock>
+	</XUIPanel>
+));

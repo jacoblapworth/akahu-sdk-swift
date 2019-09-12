@@ -16,7 +16,7 @@ const buildPI = (total, progress) => (
   />
 );
 
-let variations = Object.keys(rowVariants).map(variant => ({
+const gridColumnsVariations = Object.keys(rowVariants).map(variant => ({
   storyKind: storiesWithVariationsKindName,
   storyTitle: `With a ${variant} variant`,
   viewports: [...desktopPlus320, commonViewports[2]],
@@ -25,8 +25,7 @@ let variations = Object.keys(rowVariants).map(variant => ({
   type: 'row',
 }));
 
-variations = [
-  ...variations,
+const pageHeaderVariations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: `pageheader with title`,
@@ -59,7 +58,33 @@ variations = [
     viewports: desktopPlus320,
     type: 'pageheader',
     title: 'Testing a longer title',
+    longContent: true,
     breadcrumb: true,
+    customDecorator: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `pageheader with all the things`,
+    viewports: desktopPlus320,
+    type: 'pageheader',
+    secondary: true,
+    tags: true,
+    breadcrumb: true,
+    tabs: true,
+    actions: true,
+    customDecorator: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `pageheader with all the things (long)`,
+    viewports: desktopPlus320,
+    type: 'pageheader',
+    longContent: true,
+    secondary: true,
+    tags: true,
+    breadcrumb: true,
+    tabs: true,
+    actions: true,
     customDecorator: true,
   },
   {
@@ -82,6 +107,19 @@ variations = [
     actions: true,
     customDecorator: true,
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `pageheader with title and actions`,
+    viewports: desktopPlus320,
+    type: 'pageheader',
+    title: 'Testing title and actions',
+    secondary: 'Longer content that could go here',
+    actions: true,
+    customDecorator: true,
+  },
+];
+
+const overviewBlockVariations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: `overview block`,
@@ -130,6 +168,9 @@ variations = [
     hasLayout: false,
     sections: [{ label: 'hello', value: 'there' }, { label: 'there', value: 'you go' }],
   },
+];
+
+const panelVariations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: `panel - simple`,
@@ -141,6 +182,9 @@ variations = [
     viewports: desktopPlus320,
     type: 'panel-sidebar',
   },
+];
+
+const contentBlockVariations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: `content block with standard and secondary heading`,
@@ -321,7 +365,20 @@ variations = [
   },
 ];
 
+const variations = [
+  ...gridColumnsVariations,
+  ...pageHeaderVariations,
+  ...overviewBlockVariations,
+  ...panelVariations,
+  ...contentBlockVariations,
+];
+
 module.exports = {
   storiesWithVariationsKindName,
+  gridColumnsVariations,
+  pageHeaderVariations,
+  overviewBlockVariations,
+  panelVariations,
+  contentBlockVariations,
   variations,
 };

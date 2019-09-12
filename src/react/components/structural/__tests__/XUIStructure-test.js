@@ -151,7 +151,7 @@ describe('<XUI Structure/>', () => {
       const wrapper = mount(<XUIPageHeader title="Testing 💩" tabs={tabs} actions={actions} />);
       expect(wrapper.find('.xui-pageheading--actions').length).toBe(1);
       expect(wrapper.find('.xui-pageheading--title').length).toBe(1);
-      expect(wrapper.find('.xui-pageheading--tabs').length).toBe(1);
+      expect(wrapper.find('ul.xui-pageheading--tabs').length).toBe(1);
     });
     it('renders pageHeader with Breadcrumb and Actions', () => {
       const wrapper = mount(
@@ -181,18 +181,18 @@ describe('<XUI Structure/>', () => {
     });
     it('renders pageHeader containing tabs', () => {
       const wrapper = mount(<XUIPageHeader tabs={tabs} />);
-      expect(wrapper.find('.xui-pageheading--tabs').length).toBe(1);
+      expect(wrapper.find('ul.xui-pageheading--tabs').length).toBe(1);
       expect(wrapper.find('.xui-pageheading--title').length).toBe(0);
     });
     it('renders pageHeader containing title and tabs', () => {
       const wrapper = mount(<XUIPageHeader title="Testing 💩" tabs={tabs} />);
-      expect(wrapper.find('.xui-pageheading--tabs').length).toBe(1);
+      expect(wrapper.find('ul.xui-pageheading--tabs').length).toBe(1);
     });
     it('renders pageHeader with tabs, title, and Breadcrumb when all are passed', () => {
       const wrapper = mount(
         <XUIPageHeader title="Testing 💩" tabs={tabs} breadcrumb={exampleBreadcrumb} />,
       );
-      expect(wrapper.find('.xui-pageheading--tabs').length).toBe(1);
+      expect(wrapper.find('ul.xui-pageheading--tabs').length).toBe(1);
       expect(wrapper.find('.xui-pageheading--title').length).toBe(1);
       expect(wrapper.find('ol.xui-breadcrumbs').length).toBe(1);
     });

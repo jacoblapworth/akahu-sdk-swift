@@ -20,42 +20,35 @@
 
 .#{$ns}-pageheading--content-layout {
   flex-flow: row wrap;
-  // The calc accommodates the margins specified in the following rule
-  width: calc(100% - #{2 * $xui-s-xsmall});
-  @include xui-margin-horizontal($xui-s-xsmall); // so page widths are not necessary
+  width: 100%;
   &.#{$ns}-page-width-standard {
-    @media (min-width:  #{$xui-page-width-small + 2 * $xui-s-xsmall}) {
+    @media (min-width: #{$xui-page-width-small + 2 * $xui-s-xsmall}) {
       @include xui-margin-horizontal(auto);
     }
   }
   &.#{$ns}-page-width-large {
-    @media (min-width:  #{$xui-page-width-large + 2 * $xui-s-xsmall}) {
+    @media (min-width: #{$xui-page-width-large + 2 * $xui-s-xsmall}) {
       @include xui-margin-horizontal(auto);
     }
   }
   .#{$ns}-pageheading--title {
     @include xui-padding-left($xui-s-xsmall);
-    &.#{$ns}-page-width-standard {
-      @media (min-width:  #{$xui-page-width-small + 2 * $xui-s-xsmall}) {
-        @include xui-padding-left(0);
-      }
-    }
-    &.#{$ns}-page-width-large {
-      @media (min-width:  #{$xui-page-width-large + 2 * $xui-s-xsmall}) {
-        @include xui-padding-left(0);
-      }
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+    margin: 0;
+  }
+  &.#{$ns}-pageheading--content-no-tabs {
+    @include xui-breakpoint-small-up {
+      flex-flow: unset;
     }
   }
 }
 
 .#{$ns}-pageheading--title {
-  align-items: center;
-  display: flex;
-  flex: 1 1 auto;
   font-size: $xui-font-size-large;
   font-weight: bold;
   line-height: $xui-line-height-standard;
-  margin: 0;
 }
 
 .#{$ns}-pageheading--tabs {
@@ -64,10 +57,6 @@
   .#{$ns}-picklist-horizontal {
     margin-left: $xui-s-2xlarge;
   }
-}
-.#{$ns}-pageheading--breadcrumbs + .#{$ns}-pageheading--title,
-.#{$ns}-pageheading--breadcrumbs + .#{$ns}-pageheading--tabs {
-  width: 100%;
 }
 
 .#{$ns}-pageheading--actions {
@@ -82,5 +71,57 @@
   }
   > .#{$ns}-buttongroup {
     margin-left: $xui-s-xsmall;
+  }
+}
+.#{$ns}-pageheading--leftcontent {
+  @include xui-padding-vertical($xui-s-standard);
+  @include xui-margin-left($xui-s-xsmall);
+  @include xui-margin-right($xui-s-standard);
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  justify-content: center;
+  // Removing the margins from the parent in the width calculation
+  max-width: calc(100% - #{$xui-s-xsmall + $xui-s-standard});
+}
+.#{$ns}-pageheading--titlewrapper {
+  @include xui-margin-right($xui-s-xsmall);
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  .#{$ns}-pageheading--title {
+    flex-grow: 0;
+  }
+}
+.#{$ns}-pageheading--secondarytitle {
+  @include xui-padding-left($xui-s-xsmall);
+}
+.#{$ns}-pageheading--tags {
+  @include xui-padding-left($xui-s-xsmall);
+  .#{$ns}-tag:not(:last-of-type) {
+    margin-right: $xui-s-xsmall;
+  }
+}
+.#{$ns}-pageheading--rightcontent {
+  align-content: flex-start;
+  display: flex;
+  flex: 1 1 auto;
+  flex-flow: row wrap-reverse;
+  justify-content: space-between;
+  max-width: 100%;
+  .#{$ns}-pageheading--actions {
+    @include xui-margin-horizontal($xui-s-standard);
+    align-self: center;
+    flex-grow: 0;
+  }
+  .#{$ns}-pageheading--tabs {
+    min-height: $xui-navigation-height;
+  }
+  &.#{$ns}-pageheading--rightcontent-no-tabs {
+    align-self: flex-end;
+    justify-content: flex-end;
+    // Height of the nav minus height of the button, over two.
+    padding-bottom: 0.5 * ($xui-navigation-height - $xui-s-2xlarge);
   }
 }

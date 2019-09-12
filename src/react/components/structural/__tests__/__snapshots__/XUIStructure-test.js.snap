@@ -525,13 +525,21 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders extra pageHeader cl
   className="testClass xui-pageheading"
 >
   <div
-    className="xui-pageheading--content xui-pageheading--content-layout testClassTwo"
+    className="xui-pageheading--content xui-pageheading--content-no-tabs xui-pageheading--content-layout testClassTwo"
   >
-    <h1
-      className="xui-pageheading--title"
+    <div
+      className="xui-pageheading--leftcontent"
     >
-      Testing 💩
-    </h1>
+      <div
+        className="xui-pageheading--titlewrapper"
+      >
+        <h1
+          className="xui-pageheading--title"
+        >
+          Testing 💩
+        </h1>
+      </div>
+    </div>
   </div>
 </header>
 `;
@@ -542,83 +550,91 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader and brea
   data-automationid="qaHook"
 >
   <div
-    className="xui-pageheading--content xui-pageheading--content-layout"
+    className="xui-pageheading--content xui-pageheading--content-no-tabs xui-pageheading--content-layout"
   >
-    <ol
-      className="xui-pageheading--breadcrumbs xui-breadcrumbs"
-      data-automationid="qaHook"
+    <div
+      className="xui-pageheading--leftcontent"
     >
-      <li
-        className="xui-breadcrumb"
+      <ol
+        className="xui-pageheading--breadcrumbs xui-breadcrumbs"
+        data-automationid="qaHook"
       >
-        <a
-          className="xui-breadcrumb--link"
-          href="#1"
+        <li
+          className="xui-breadcrumb"
         >
-          hello
-        </a>
-      </li>
-      <li
-        className="xui-breadcrumb-arrow"
-      >
-        <div
-          className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
-        >
-          <svg
-            className="xui-icon xui-icon-rotate-270"
-            focusable="false"
-            height={4}
-            viewBox="0 0 7 4"
-            width={7}
+          <a
+            className="xui-breadcrumb--link"
+            href="#1"
           >
-            <path
-              d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
-              role="presentation"
-            />
-          </svg>
-        </div>
-      </li>
-      <li
-        className="xui-breadcrumb"
-      >
-        <a
-          className="xui-breadcrumb--link"
-          href="#2"
+            hello
+          </a>
+        </li>
+        <li
+          className="xui-breadcrumb-arrow"
         >
-          hiya
-        </a>
-      </li>
-      <li
-        className="xui-breadcrumb-arrow"
-      >
-        <div
-          className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
-        >
-          <svg
-            className="xui-icon xui-icon-rotate-270"
-            focusable="false"
-            height={4}
-            viewBox="0 0 7 4"
-            width={7}
+          <div
+            className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
           >
-            <path
-              d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
-              role="presentation"
-            />
-          </svg>
-        </div>
-      </li>
-      <li
-        className="xui-breadcrumb xui-breadcrumb-no-link"
+            <svg
+              className="xui-icon xui-icon-rotate-270"
+              focusable="false"
+              height={4}
+              viewBox="0 0 7 4"
+              width={7}
+            >
+              <path
+                d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
+                role="presentation"
+              />
+            </svg>
+          </div>
+        </li>
+        <li
+          className="xui-breadcrumb"
+        >
+          <a
+            className="xui-breadcrumb--link"
+            href="#2"
+          >
+            hiya
+          </a>
+        </li>
+        <li
+          className="xui-breadcrumb-arrow"
+        >
+          <div
+            className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
+          >
+            <svg
+              className="xui-icon xui-icon-rotate-270"
+              focusable="false"
+              height={4}
+              viewBox="0 0 7 4"
+              width={7}
+            >
+              <path
+                d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
+                role="presentation"
+              />
+            </svg>
+          </div>
+        </li>
+        <li
+          className="xui-breadcrumb xui-breadcrumb-no-link"
+        >
+          yo
+        </li>
+      </ol>
+      <div
+        className="xui-pageheading--titlewrapper"
       >
-        yo
-      </li>
-    </ol>
-    <h1
-      className="xui-pageheading--title"
-    >
-      Test
-    </h1>
+        <h1
+          className="xui-pageheading--title"
+        >
+          Test
+        </h1>
+      </div>
+    </div>
   </div>
 </header>
 `;
@@ -628,88 +644,96 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader containi
   className="xui-pageheading"
 >
   <div
-    className="xui-pageheading--content xui-pageheading--content-layout"
+    className="xui-pageheading--content xui-pageheading--content-no-tabs xui-pageheading--content-layout"
   >
-    <ol
-      className="xui-pageheading--breadcrumbs xui-breadcrumbs"
+    <div
+      className="xui-pageheading--leftcontent"
     >
-      <li
-        className="xui-breadcrumb"
+      <ol
+        className="xui-pageheading--breadcrumbs xui-breadcrumbs"
       >
-        <span
-          className="xui-breadcrumb--link"
-          onClick={[Function]}
-          role="link"
+        <li
+          className="xui-breadcrumb"
         >
-          hello
-        </span>
-      </li>
-      <li
-        className="xui-breadcrumb-arrow"
-      >
-        <div
-          className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
-        >
-          <svg
-            className="xui-icon xui-icon-rotate-270"
-            focusable="false"
-            height={4}
-            viewBox="0 0 7 4"
-            width={7}
+          <span
+            className="xui-breadcrumb--link"
+            onClick={[Function]}
+            role="link"
           >
-            <path
-              d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
-              role="presentation"
-            />
-          </svg>
-        </div>
-      </li>
-      <li
-        className="xui-breadcrumb"
-      >
-        <span
-          className="xui-breadcrumb--link"
-          onClick={[Function]}
-          role="link"
+            hello
+          </span>
+        </li>
+        <li
+          className="xui-breadcrumb-arrow"
         >
-          hello
-        </span>
-      </li>
-      <li
-        className="xui-breadcrumb-arrow"
-      >
-        <div
-          className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
-        >
-          <svg
-            className="xui-icon xui-icon-rotate-270"
-            focusable="false"
-            height={4}
-            viewBox="0 0 7 4"
-            width={7}
+          <div
+            className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
           >
-            <path
-              d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
-              role="presentation"
-            />
-          </svg>
-        </div>
-      </li>
-      <li
-        className="xui-breadcrumb"
-      >
-        <span
-          className="xui-breadcrumb--link"
+            <svg
+              className="xui-icon xui-icon-rotate-270"
+              focusable="false"
+              height={4}
+              viewBox="0 0 7 4"
+              width={7}
+            >
+              <path
+                d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
+                role="presentation"
+              />
+            </svg>
+          </div>
+        </li>
+        <li
+          className="xui-breadcrumb"
         >
-          yo
-        </span>
-      </li>
-    </ol>
-    <h1
-      className="xui-pageheading--title"
-    >
-      Test
-    </h1>
+          <span
+            className="xui-breadcrumb--link"
+            onClick={[Function]}
+            role="link"
+          >
+            hello
+          </span>
+        </li>
+        <li
+          className="xui-breadcrumb-arrow"
+        >
+          <div
+            className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
+          >
+            <svg
+              className="xui-icon xui-icon-rotate-270"
+              focusable="false"
+              height={4}
+              viewBox="0 0 7 4"
+              width={7}
+            >
+              <path
+                d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
+                role="presentation"
+              />
+            </svg>
+          </div>
+        </li>
+        <li
+          className="xui-breadcrumb"
+        >
+          <span
+            className="xui-breadcrumb--link"
+          >
+            yo
+          </span>
+        </li>
+      </ol>
+      <div
+        className="xui-pageheading--titlewrapper"
+      >
+        <h1
+          className="xui-pageheading--title"
+        >
+          Test
+        </h1>
+      </div>
+    </div>
   </div>
 </header>
 `;
@@ -719,13 +743,21 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders the simplest pageHe
   className="xui-pageheading"
 >
   <div
-    className="xui-pageheading--content xui-pageheading--content-layout"
+    className="xui-pageheading--content xui-pageheading--content-no-tabs xui-pageheading--content-layout"
   >
-    <h1
-      className="xui-pageheading--title"
+    <div
+      className="xui-pageheading--leftcontent"
     >
-      Testing 💩
-    </h1>
+      <div
+        className="xui-pageheading--titlewrapper"
+      >
+        <h1
+          className="xui-pageheading--title"
+        >
+          Testing 💩
+        </h1>
+      </div>
+    </div>
   </div>
 </header>
 `;

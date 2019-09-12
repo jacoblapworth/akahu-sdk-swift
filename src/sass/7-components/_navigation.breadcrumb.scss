@@ -41,18 +41,57 @@
   @include xui-padding-horizontal($xui-s-xsmall);
   @include xui-text-truncated;
   border-radius: $xui-radius;
-  color: $xui-color-blue;
+  color: $xui-link-color;
   display: block;
   outline: none;
   text-decoration: none;
   width: 100%;
   &:hover {
-    color: $xui-color-blue; // overriding the a:hover color
+    color: $xui-link-color; // overriding the a:hover color
     cursor: pointer;
     text-decoration: underline;
   }
   &:focus {
-    color: $xui-color-blue; // overriding the a:focus color
     @include xui-state-focus-shadow($xui-shadow-focus-inset);
+    color: $xui-link-color; // overriding the a:focus color
+  }
+}
+
+.#{$ns}-pageheading--content,
+.#{$ns}-pageheading--leftcontent {
+  .#{$ns}-breadcrumbs {
+    flex-grow: 0;
+    max-width: 100%;
+  }
+  .#{$ns}-breadcrumb {
+    @include xui-text-small;
+    @include xui-text-truncated;
+    min-width: $xui-minimum-touch-target;
+  }
+  .#{$ns}-breadcrumb:last-of-type {
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+  .#{$ns}-breadcrumb--link {
+    @include xui-padding-horizontal($xui-s-xsmall);
+    @include xui-text-truncated;
+    border-radius: $xui-radius;
+    color: $xui-color-blue;
+    &:hover {
+      color: $xui-color-blue;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    &:focus {
+      @include xui-state-focus-shadow($xui-shadow-focus-inset);
+    }
+  }
+  .#{$ns}-breadcrumb-arrow {
+    align-items: center;
+    height: $xui-s-large;
+    width: $xui-s-xsmall;
+  }
+  .#{$ns}-breadcrumb--icon {
+    color: $xui-breadcrumb-icon-color;
   }
 }

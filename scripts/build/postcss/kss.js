@@ -18,7 +18,7 @@ const postcssKss = () => {
 				{
 					inputFile: path.resolve(rootDirectory, 'dist', 'docs', 'style.css'),
 					mapFile: path.resolve(rootDirectory, 'dist', 'docs', 'style.css.map'),
-					processors: [autoprefixer({ browsers })]
+					processors: [autoprefixer({ overrideBrowserslist: browsers })]
 				},
 				taskSpinner
 			)

@@ -60,7 +60,7 @@ const generateKssFiles = (page, parser) => {
 			return sourceFileContent.replace(trimFileRegex, '');
 		})
 		.then(scss => {
-			return postcss([autoprefixer({grid: true, browsers})])
+			return postcss([autoprefixer({grid: true, overrideBrowserslist: browsers})])
 				.process(scss, { from: scss, syntax })
 				.then(({ root }) => {
 					const output = parser(page, root, page.source, types);

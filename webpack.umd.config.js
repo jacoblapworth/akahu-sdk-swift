@@ -38,7 +38,7 @@ module.exports = {
 							ident: 'postcss',
 							plugins: () => [
 								autoprefixer({
-									browsers: require('@xero/browserslist-autoprefixer'),
+									overrideBrowserslist: require('@xero/browserslist-autoprefixer'),
 								}),
 							]
 						}

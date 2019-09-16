@@ -33,7 +33,7 @@ class CheckBoxCell extends PureComponent {
     const isIndeterminate = Boolean(totalCheckIds && !isChecked);
 
     return (
-      <TableData className={className} tabIndex="-1" isHead>
+      <TableData className={className} tabIndex={-1} isHead>
         {NBSP}
         {onCheckAllToggle && (
           <XUICheckbox

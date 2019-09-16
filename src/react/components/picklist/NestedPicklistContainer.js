@@ -101,7 +101,7 @@ export default class NestedPicklistContainer extends PureComponent {
           checked={isExpanded}
           className={`${pickitemClassName}--submenucontrol`}
           id={`${id}-checkbox`}
-          tabIndex="-1"
+          tabIndex={-1}
           onChange={container.toggle}
           aria-owns={id}
         />

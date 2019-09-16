@@ -72,7 +72,7 @@ export default class AccordionTrigger extends PureComponent {
         data-automationid={qaHook}
         onClick={this.handleTriggerInteraction}
         onKeyPress={this.onKeyPress}
-        tabIndex="0"
+        tabIndex={0}
         role="button"
         aria-label={toggleLabel}
         className={cn(`${ns}-accordiontrigger`, {

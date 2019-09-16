@@ -68,7 +68,7 @@ class TableBodyRow extends PureComponent {
       ? {
           onClick: this.handleRowInteraction,
           onKeyDown: this.handleRowInteraction,
-          tabIndex: '0',
+          tabIndex: 0,
           role: 'button',
           onPointerOver: this.addPrecedence,
           onPointerOut: this.removePrecedence,

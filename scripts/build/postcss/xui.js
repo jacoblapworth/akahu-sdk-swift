@@ -55,7 +55,7 @@ const postcssXui = ({ skipSassXui = false } = {}) =>
 								title: __filename,
 								inputFile: path.resolve(rootDirectory, './.tmp', `${file}.css`),
 								mapFile: path.resolve(rootDirectory, './.tmp', `${file}.css.map`),
-								processors: [autoprefixer({grid: true, browsers})]
+								processors: [autoprefixer({grid: true, overrideBrowserslist: browsers})]
 							},
 							taskSpinner
 						)

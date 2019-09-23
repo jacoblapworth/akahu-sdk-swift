@@ -260,7 +260,9 @@ class XUITable extends Component {
 }
 
 XUITable.propTypes = {
-  /** The row data for the table body. Each row is differentiated by a unique object key. */
+  /** The row data for the table body. Each row is differentiated by a unique object key.
+   * Pass the key `rowClassName` in a row object to apply a custom class.
+   */
   data: PropTypes.object.isRequired,
 
   /** The Column component(s) that will appear in the table layout. */

@@ -1373,6 +1373,149 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
       </div>
     </div>
   </div>
+  <div
+    className="xui-loader-static"
+    style={
+      Object {
+        "background": "white",
+        "display": "inline-block",
+        "marginBottom": "20px",
+        "maxWidth": "500px",
+        "minWidth": "300px",
+        "padding": "20px",
+        "verticalAlign": "top",
+        "width": "50%",
+      }
+    }
+  >
+    <div
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+    >
+      <div
+        className="xui-table-wrapper"
+        onScroll={[Function]}
+      >
+        <table
+          className="xui-table-element"
+        >
+          <thead
+            className="xui-table--head"
+          >
+            <tr
+              className="xui-table--row xui-text-align-left"
+            >
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-first"
+                onFocus={[Function]}
+                tabIndex={0}
+              >
+                <span>
+                  Header 1
+                </span>
+              </th>
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--cell-secondtolast"
+                onFocus={[Function]}
+                tabIndex={0}
+              >
+                <span>
+                  Header 2
+                </span>
+              </th>
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-last"
+                onFocus={[Function]}
+                tabIndex={0}
+              >
+                <span>
+                  Header 3
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            className="xui-table--body"
+          >
+            <tr
+              className="xui-table-visualTesting-row xui-table--row"
+            >
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+                onFocus={[Function]}
+                tabIndex="0"
+              >
+                Cell 1
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+                onFocus={[Function]}
+                tabIndex="0"
+              >
+                Cell 2
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
+                onFocus={[Function]}
+                tabIndex="0"
+              >
+                Cell 3
+              </td>
+            </tr>
+            <tr
+              className="xui-table--row"
+            >
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+                onFocus={[Function]}
+                tabIndex="0"
+              >
+                Cell 1
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+                onFocus={[Function]}
+                tabIndex="0"
+              >
+                Cell 2
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
+                onFocus={[Function]}
+                tabIndex="0"
+              >
+                Cell 3
+              </td>
+            </tr>
+            <tr
+              className="xui-table-visualTesting-row xui-table--row"
+            >
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+                onFocus={[Function]}
+                tabIndex="0"
+              >
+                Cell 1
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+                onFocus={[Function]}
+                tabIndex="0"
+              >
+                Cell 2
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
+                onFocus={[Function]}
+                tabIndex="0"
+              >
+                Cell 3
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 

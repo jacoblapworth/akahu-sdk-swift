@@ -49,6 +49,11 @@ const customStyles = `
 	font-weight: bold !important;
 }
 
+.xui-table-visualTesting-row {
+  font-style: italic;
+  font-weight: bold;
+}
+
 `;
 
 const createOverflowMenu = () => [
@@ -82,7 +87,7 @@ storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const data = {
     0: {},
-    1: {},
+    1: { rowClassName: text('custom row className for row 1', '') },
     2: {},
   };
 

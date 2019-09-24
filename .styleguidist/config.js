@@ -32,7 +32,7 @@ const config = {
 								ident: 'postcss',
 								plugins: () => [
 									autoprefixer({
-										browsers: browserlist,
+										overrideBrowserslist: browserlist,
 									}),
 								],
 							},

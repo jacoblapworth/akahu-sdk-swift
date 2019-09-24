@@ -253,6 +253,8 @@ DropDown.propTypes = {
   onSelect: PropTypes.func,
 
   /** Whether or not the dropdown should take focus and handle keyboard events automatically */
+  // ESLint thinks we don’t use this for some reason
+  // eslint-disable-next-line react/no-unused-prop-types
   hasKeyboardEvents: PropTypes.bool,
 
   /** Callback for adding additional onKeyPress functionality */

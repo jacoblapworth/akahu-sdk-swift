@@ -213,6 +213,9 @@ XUIRadio.propTypes = {
   /** The input is selected */
   isChecked: PropTypes.bool,
 
+  /** The input is indeterminate */
+  isIndeterminate: PropTypes.bool,
+
   /** The input is disabled */
   isDisabled: PropTypes.bool,
 

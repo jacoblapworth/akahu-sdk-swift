@@ -71,21 +71,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -96,21 +96,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -121,21 +121,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -183,7 +183,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -248,7 +248,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -279,21 +279,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -303,7 +303,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -334,21 +334,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -358,7 +358,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -389,21 +389,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -446,7 +446,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -511,7 +511,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -542,21 +542,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -566,7 +566,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -597,21 +597,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -621,7 +621,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -652,21 +652,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -709,7 +709,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -774,7 +774,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -805,21 +805,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -829,7 +829,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -860,21 +860,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -884,7 +884,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -915,21 +915,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -1013,21 +1013,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -1038,21 +1038,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -1063,21 +1063,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -1156,21 +1156,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -1181,21 +1181,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table-visualTesting-cell xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table-visualTesting-cell xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table-visualTesting-cell xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -1206,21 +1206,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -1299,21 +1299,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -1324,21 +1324,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -1349,21 +1349,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -1442,21 +1442,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -1467,21 +1467,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -1492,21 +1492,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -1825,7 +1825,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -2006,21 +2006,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2031,21 +2031,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2056,21 +2056,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2149,21 +2149,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2174,21 +2174,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2199,21 +2199,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2324,21 +2324,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2349,21 +2349,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2374,21 +2374,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2488,21 +2488,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2513,21 +2513,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2538,21 +2538,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2706,21 +2706,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2731,21 +2731,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2756,21 +2756,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -2970,27 +2970,27 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -3033,27 +3033,27 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -3096,27 +3096,27 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -3196,7 +3196,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -3324,7 +3324,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -3355,70 +3355,70 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
@@ -3428,7 +3428,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -3459,70 +3459,70 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
@@ -3532,7 +3532,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -3563,70 +3563,70 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
@@ -3774,76 +3774,76 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -3886,76 +3886,76 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -3998,76 +3998,76 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -4142,7 +4142,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -4276,7 +4276,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -4307,76 +4307,76 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -4418,7 +4418,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -4449,76 +4449,76 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -4560,7 +4560,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -4591,76 +4591,76 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -4839,70 +4839,70 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
@@ -4913,70 +4913,70 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
@@ -4987,70 +4987,70 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
@@ -5151,21 +5151,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Apple
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Apple
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Apple
               </td>
@@ -5176,21 +5176,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Banana
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Banana
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Banana
               </td>
@@ -5201,21 +5201,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Carrot
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Carrot
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Carrot
               </td>
@@ -5311,21 +5311,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Carrot
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Carrot
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Carrot
               </td>
@@ -5336,21 +5336,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Banana
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Banana
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Banana
               </td>
@@ -5361,21 +5361,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Apple
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Apple
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Apple
               </td>
@@ -5471,7 +5471,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 <span
                   className="xui-tag xui-margin-right-xsmall xui-tag-medium"
@@ -5495,7 +5495,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 <span
                   className="xui-tag xui-margin-right-xsmall xui-tag-medium"
@@ -5519,7 +5519,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 <span
                   className="xui-tag xui-margin-right-xsmall xui-tag-medium"
@@ -5547,7 +5547,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 <span
                   className="xui-tag xui-margin-right-xsmall xui-tag-medium"
@@ -5565,7 +5565,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 <span
                   className="xui-tag xui-margin-right-xsmall xui-tag-medium"
@@ -5583,7 +5583,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 <span
                   className="xui-tag xui-margin-right-xsmall xui-tag-medium"
@@ -5605,7 +5605,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 <span
                   className="xui-tag xui-margin-right-xsmall xui-tag-medium"
@@ -5617,7 +5617,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 <span
                   className="xui-tag xui-margin-right-xsmall xui-tag-medium"
@@ -5629,7 +5629,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 <span
                   className="xui-tag xui-margin-right-xsmall xui-tag-medium"
@@ -5718,21 +5718,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -5743,21 +5743,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
@@ -5768,21 +5768,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -5825,7 +5825,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -5896,7 +5896,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -5927,27 +5927,27 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -5989,7 +5989,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -6020,27 +6020,27 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -6082,7 +6082,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -6113,27 +6113,27 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -6312,70 +6312,70 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
@@ -6386,70 +6386,70 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
@@ -6460,70 +6460,70 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
@@ -6647,56 +6647,56 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
@@ -6707,56 +6707,56 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
@@ -6767,56 +6767,56 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
@@ -6922,42 +6922,42 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
@@ -6968,42 +6968,42 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
@@ -7014,42 +7014,42 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
@@ -7133,21 +7133,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -7158,21 +7158,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
@@ -7183,21 +7183,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -7276,21 +7276,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -7301,21 +7301,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
@@ -7326,21 +7326,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -7419,21 +7419,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -7444,21 +7444,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
@@ -7469,21 +7469,21 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -7526,7 +7526,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -7660,7 +7660,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -7691,76 +7691,76 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -7802,7 +7802,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -7833,76 +7833,76 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -7944,7 +7944,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -7975,76 +7975,76 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 4
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 5
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 6
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 7
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 8
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 9
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 10
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                  
                 <div
@@ -8156,26 +8156,26 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               onPointerOut={[Function]}
               onPointerOver={[Function]}
               role="button"
-              tabIndex="0"
+              tabIndex={0}
             >
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>
@@ -8187,26 +8187,26 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               onPointerOut={[Function]}
               onPointerOver={[Function]}
               role="button"
-              tabIndex="0"
+              tabIndex={0}
             >
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 The quick brown fox jumps over the lazy dog
               </td>
@@ -8218,26 +8218,26 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               onPointerOut={[Function]}
               onPointerOver={[Function]}
               role="button"
-              tabIndex="0"
+              tabIndex={0}
             >
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 1
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 2
               </td>
               <td
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
                 onFocus={[Function]}
-                tabIndex="0"
+                tabIndex={0}
               >
                 Cell 3
               </td>

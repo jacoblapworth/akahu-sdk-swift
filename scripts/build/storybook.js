@@ -25,7 +25,7 @@ function build({ skipPostCss = false } = {}) {
     return Promise.all([
       asyncExec(execTask, {
         stdio: [0, 1, 2],
-        maxBuffer: 1024 * 1000, // 1000kb
+        maxBuffer: 1024 * 1200, // 1200kb
       }),
       !skipPostCss && postcssXui(),
     ])

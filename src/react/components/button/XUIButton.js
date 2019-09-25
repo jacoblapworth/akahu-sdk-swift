@@ -319,7 +319,7 @@ XUIButton.propTypes = {
   rel: PropTypes.string,
 
   /** The HTML tabIndex attribute value */
-  tabIndex: PropTypes.number,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   /** The `target` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
   target: PropTypes.string,

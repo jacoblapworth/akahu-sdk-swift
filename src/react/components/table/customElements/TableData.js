@@ -21,7 +21,7 @@ HeadData.propTypes = {
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
-  tabIndex: PropTypes.number,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 class BodyData extends PureComponent {
@@ -76,7 +76,7 @@ BodyData.propTypes = {
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
-  tabIndex: PropTypes.number,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 const TableData = ({ isHead, ...props }) =>
@@ -84,7 +84,7 @@ const TableData = ({ isHead, ...props }) =>
 
 TableData.propTypes = {
   isHead: PropTypes.bool,
-  tabIndex: PropTypes.number,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   // Ignore remaining props - we address them in <HeadData /> and <BodyData />.
 };
 

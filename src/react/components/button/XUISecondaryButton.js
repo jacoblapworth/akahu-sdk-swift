@@ -63,8 +63,8 @@ XUISplitButton.propTypes = {
 	/** The `rel` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
 	rel: PropTypes.string,
 
-	/** The HTML tabIndex property to put on the component */
-	tabIndex: PropTypes.number,
+  /** The HTML tabIndex property to put on the component */
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
 	/** The `target` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
 	target: PropTypes.string,

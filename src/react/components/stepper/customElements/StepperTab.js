@@ -83,7 +83,7 @@ StepperTab.propTypes = {
   linkClasses: PropTypes.string,
   step: PropTypes.number,
   index: PropTypes.number.isRequired,
-  tabIndex: PropTypes.number,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   handleClick: PropTypes.func,
   isError: PropTypes.bool,
   isHidden: PropTypes.bool,

@@ -244,7 +244,7 @@ XUIRadio.propTypes = {
   htmlClassName: PropTypes.string,
 
   /** The tabindex property to place on the radio input */
-  tabIndex: PropTypes.number,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   /** Prevents the label element from being displayed on the page. Label is still
    * accessible to screen readers. */

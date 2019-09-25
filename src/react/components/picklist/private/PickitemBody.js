@@ -88,7 +88,7 @@ PickitemBody.propTypes = {
 	target: PropTypes.string,
 	shouldTruncate: PropTypes.bool,
 	qaHook: PropTypes.string,
-	tabIndex: PropTypes.string,
+	tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	/** Standard text */
 	primaryElement: PropTypes.node,
 	/** Less important text to appear beside primary. */

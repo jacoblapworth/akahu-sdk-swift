@@ -319,7 +319,7 @@ XUICheckbox.propTypes = {
   htmlClassName: PropTypes.string,
 
   /** The tab-index property to place on the checkbox */
-  tabIndex: PropTypes.number,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   /** Used to output an uncontrolled checkbox component. If a value is passed to the
    * isChecked prop, this prop will be ignored. */

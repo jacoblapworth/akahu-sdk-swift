@@ -3,31 +3,68 @@
 	<a href="../section-compositions-masterdetail.html" isDocLink>Master Detail Composition in the XUI Documentation</a>
 </div>
 
+The master detail composition is useful for layouts that consist of a set of options or controls that affect content within the main content container. The Master container holds the options/controls in a left side column, or is hidden when horizontal space is restricted. The Detail area houses the main content. To provide access to the Master content while viewing the small layout, we recommend encapsulating it and also passing it as a prop to one of the other content areas, where it can populate the panel of a DropDown.
+
 ```jsx harmony
+import { PureComponent } from 'react';
+import overflowIcon from '@xero/xui-icon/icons/overflow';
+
 import { XUICompositionMasterDetail } from '../../compositions';
+import { XUIIconButton } from '../../button';
+import DropDown, { DropDownToggled } from '../../dropdown';
 
-const masterContent = (
-  <div style={{ background: '#5A5AE6', minWidth: '250px', height: '100px', width: '100%' }} />
-);
-const detailContent = <div style={{ background: '#C5C5F6', height: '100px' }} />;
+class DetailContent extends PureComponent {
+  render() {
+    return (
+      <div style={{ background: '#C5C5F6', height: '100px' }} className="xui-padding">
+        <DropDownToggled
+          className="xui-u-hidden-medium-up"
+          trigger={<XUIIconButton title="Show master" icon={overflowIcon} />}
+          dropdown={<DropDown>{this.props.masterContent}</DropDown>}
+        />
+      </div>
+    );
+  }
+}
 
-<XUICompositionMasterDetail master={masterContent} detail={detailContent} />;
+const masterContent = <div style={{ background: '#5A5AE6', height: '100px', width: '100%' }}></div>;
+
+<XUICompositionMasterDetail
+  master={masterContent}
+  detail={<DetailContent masterContent={masterContent} />}
+/>;
 ```
 
 #### Master detail with header
 
 ```jsx harmony
-import { XUICompositionMasterDetailHeader } from '../../compositions';
+import { PureComponent } from 'react';
+import overflowIcon from '@xero/xui-icon/icons/overflow';
 
-const headerContent = <div style={{ background: '#B446C8', height: '60px' }} />;
-const masterContent = (
-  <div style={{ background: '#5A5AE6', minWidth: '250px', height: '100px', width: '100%' }} />
-);
-const detailContent = <div style={{ background: '#C5C5F6', height: '100px' }} />;
+import { XUICompositionMasterDetailHeader } from '../../compositions';
+import { XUIIconButton } from '../../button';
+import DropDown, { DropDownToggled } from '../../dropdown';
+
+const headerContent = <div style={{ background: '#B446C8', height: '60px' }}></div>;
+const masterContent = <div style={{ background: '#5A5AE6', height: '100px', width: '100%' }}></div>;
+
+class DetailContent extends PureComponent {
+  render() {
+    return (
+      <div style={{ background: '#C5C5F6', height: '100px' }} className="xui-padding">
+        <DropDownToggled
+          className="xui-u-hidden-medium-up"
+          trigger={<XUIIconButton title="Show master" icon={overflowIcon} />}
+          dropdown={<DropDown>{this.props.masterContent}</DropDown>}
+        />
+      </div>
+    );
+  }
+}
 
 <XUICompositionMasterDetailHeader
   header={headerContent}
-  detail={detailContent}
   master={masterContent}
+  detail={<DetailContent masterContent={masterContent} />}
 />;
 ```

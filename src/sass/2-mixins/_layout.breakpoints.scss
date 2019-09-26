@@ -12,61 +12,61 @@ $xui-breakpoint-xlarge: 1200px;
 $xui-breakpoint-2xlarge: 1600px;
 
 @mixin xui-breakpoint-small-up {
-	@media screen and (min-width: $xui-breakpoint-small) {
-		@content;
-	}
+  @media screen and (min-width: $xui-breakpoint-small) {
+    @content;
+  }
 }
 
 @mixin xui-breakpoint-medium-up {
-	@media screen and (min-width: $xui-breakpoint-medium) {
-		@content;
-	}
+  @media screen and (min-width: $xui-breakpoint-medium) {
+    @content;
+  }
 }
 
 @mixin xui-breakpoint-large-up {
-	@media screen and (min-width: $xui-breakpoint-large) {
-		@content;
-	}
+  @media screen and (min-width: $xui-breakpoint-large) {
+    @content;
+  }
 }
 
 @mixin xui-breakpoint-xlarge-up {
-	@media screen and (min-width: $xui-breakpoint-xlarge) {
-		@content;
-	}
+  @media screen and (min-width: $xui-breakpoint-xlarge) {
+    @content;
+  }
 }
 @mixin xui-breakpoint-2xlarge-up {
-	@media screen and (min-width: $xui-breakpoint-2xlarge) {
-		@content;
-	}
+  @media screen and (min-width: $xui-breakpoint-2xlarge) {
+    @content;
+  }
 }
 
 // Due to a bug in Webkit which rounds up from .99, the upper range value for these is set to <width-size> - 0.02 to prevent this. Link to issue: https://bugs.webkit.org/show_bug.cgi?id=178261
 @mixin xui-breakpoint-small-down {
-	@media screen and (max-width: $xui-breakpoint-small - 0.02) {
-		@content;
-	}
+  @media screen and (max-width: $xui-breakpoint-small - 0.02) {
+    @content;
+  }
 }
 
 @mixin xui-breakpoint-small-to-medium {
-	@media screen and (min-width: $xui-breakpoint-small) and (max-width: $xui-breakpoint-medium - 0.02) {
-		@content;
-	}
+  @media screen and (min-width: $xui-breakpoint-small) and (max-width: $xui-breakpoint-medium - 0.02) {
+    @content;
+  }
 }
 
 @mixin xui-breakpoint-medium-to-large {
-	@media screen and (min-width: $xui-breakpoint-medium) and (max-width: $xui-breakpoint-large - 0.02) {
-		@content;
-	}
+  @media screen and (min-width: $xui-breakpoint-medium) and (max-width: $xui-breakpoint-large - 0.02) {
+    @content;
+  }
 }
 
 @mixin xui-breakpoint-large-to-xlarge {
-	@media screen and (min-width: $xui-breakpoint-large) and (max-width: $xui-breakpoint-xlarge - 0.02) {
-		@content;
-	}
+  @media screen and (min-width: $xui-breakpoint-large) and (max-width: $xui-breakpoint-xlarge - 0.02) {
+    @content;
+  }
 }
 
 @mixin xui-breakpoint-xlarge-to-2xlarge {
-	@media screen and (min-width: $xui-breakpoint-xlarge) and (max-width: $xui-breakpoint-2xlarge - 0.02) {
-		@content;
-	}
+  @media screen and (min-width: $xui-breakpoint-xlarge) and (max-width: $xui-breakpoint-2xlarge - 0.02) {
+    @content;
+  }
 }

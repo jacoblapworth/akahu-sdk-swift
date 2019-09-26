@@ -13,8 +13,9 @@ We recommend using the `ariaLabel` prop to provide information to screen readers
 ```jsx harmony
 import XUILoader from './loader';
 
-<XUILoader ariaLabel="Loading more data" />
+<XUILoader ariaLabel="Loading more data" />;
 ```
+
 ### Disabled Layout
 
 For more flexibility in styling and using Loaders in your application, set the prop `defaultLayout` to `false`.
@@ -22,7 +23,7 @@ For more flexibility in styling and using Loaders in your application, set the p
 ```jsx harmony
 import XUILoader from './loader';
 
-<XUILoader defaultLayout={false} />
+<XUILoader defaultLayout={false} />;
 ```
 
 ### Sizes
@@ -32,7 +33,7 @@ Apart from the `medium` size, Loaders can also be `small` or `xsmall`.
 ```jsx harmony
 import XUILoader from './loader';
 
-<XUILoader size="medium" defaultLayout={false} />
+<XUILoader size="medium" defaultLayout={false} />;
 ```
 
 ### Inverted
@@ -45,6 +46,5 @@ import ExampleContainer from './docs/ExampleContainer';
 
 <ExampleContainer className="xui-padding-xsmall" isInverted>
   <XUILoader isInverted />
-</ExampleContainer>
+</ExampleContainer>;
 ```
-

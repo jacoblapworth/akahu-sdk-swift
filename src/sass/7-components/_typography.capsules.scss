@@ -1,5 +1,5 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Capsule
 //
@@ -60,42 +60,42 @@
 // Styleguide: Building Blocks.Identifiers.Capsule.4
 
 .#{$ns}-capsule {
-	border-radius: $xui-radius;
-	box-shadow: 0 0 0 1px $xui-capsule-border-color;
-	display: inline;
-	padding: 0.01em 0.1em;
+  border-radius: $xui-radius;
+  box-shadow: 0 0 0 1px $xui-capsule-border-color;
+  display: inline;
+  padding: 0.01em 0.1em;
 
-	.#{$ns}-icon {
-		vertical-align: bottom;
-	}
+  .#{$ns}-icon {
+    vertical-align: bottom;
+  }
 
-	&:hover {
-		box-shadow: 0 0 0 1px $xui-capsule-hover-border-color;
-	}
+  &:hover {
+    box-shadow: 0 0 0 1px $xui-capsule-hover-border-color;
+  }
 
-	&:focus {
-		background: $xui-capsule-focus-bg-color;
-		box-shadow: $xui-shadow-focus;
-		color: $xui-capsule-focus-color;
-	}
+  &:focus {
+    background: $xui-capsule-focus-bg-color;
+    box-shadow: $xui-shadow-focus;
+    color: $xui-capsule-focus-color;
+  }
 }
 
 .#{$ns}-capsule-interactive {
-	color: $xui-capsule-interactive-color;
+  color: $xui-capsule-interactive-color;
 }
 
 .#{$ns}-capsule-invalid {
-	background: $xui-invalid-bg-color;
-	color: $xui-capsule-invalid-color;
+  background: $xui-invalid-bg-color;
+  color: $xui-capsule-invalid-color;
 
-	&:hover {
-		background-color: $xui-invalid-hover-bg-color;
-		color: $xui-capsule-invalid-color;
-	}
+  &:hover {
+    background-color: $xui-invalid-hover-bg-color;
+    color: $xui-capsule-invalid-color;
+  }
 
-	&:focus {
-		background-color: $xui-invalid-bg-color;
-		box-shadow: $xui-shadow-focus;
-		color: $xui-capsule-invalid-color;
-	}
+  &:focus {
+    background-color: $xui-invalid-bg-color;
+    box-shadow: $xui-shadow-focus;
+    color: $xui-capsule-invalid-color;
+  }
 }

@@ -88,8 +88,10 @@ TableData.propTypes = {
   // Ignore remaining props - we address them in <HeadData /> and <BodyData />.
 };
 
+/* eslint-disable react/default-props-match-prop-types */
 TableData.defaultProps = {
   tabIndex: 0,
 };
+/* eslint-enable react/default-props-match-prop-types */
 
 export default TableData;

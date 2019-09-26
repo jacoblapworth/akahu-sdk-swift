@@ -79,14 +79,14 @@ const variations = [
     viewports: desktopPlus320,
     labelText:
       "You have no idea how choice our stuffed Tuis were aye. Every time I see those rip-off old man's beards it's like the sausage sizzle all over again aye, rack off. Anyway, James Cook is just Rhys Darby in disguise, to find the true meaning of life, one must start munting with the Edmonds Cook Book, mate.",
-	},
-	{
+  },
+  {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'has a long label and hint/vaildation',
     viewports: desktopPlus320,
     labelText:
-			"You have no idea how choice our stuffed Tuis were aye. Every time I see those rip-off old man's beards it's like the sausage sizzle all over again aye, rack off. Anyway, James Cook is just Rhys Darby in disguise.",
-		hintMessage: "Here is some additional info to help with your choice",
+      "You have no idea how choice our stuffed Tuis were aye. Every time I see those rip-off old man's beards it's like the sausage sizzle all over again aye, rack off. Anyway, James Cook is just Rhys Darby in disguise.",
+    hintMessage: 'Here is some additional info to help with your choice',
   },
 ];
 

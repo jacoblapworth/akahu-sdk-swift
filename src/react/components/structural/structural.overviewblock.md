@@ -1,4 +1,3 @@
-
 <div class="xui-margin-vertical">
 	<a href="../section-compounds-displayingdata-overviewblock.html" isDocLink>Overview blocks in the XUI Documentation</a>
 </div>
@@ -11,8 +10,8 @@
 import { XUIOverviewBlock, XUIOverviewSection } from '../../structural';
 
 <XUIOverviewBlock>
-	<XUIOverviewSection label="Draft" value="$872.93" />
-	<XUIOverviewSection label="Paid" value="$2,354.02" sentiment="positive" />
-	<XUIOverviewSection label="Past due" value="$96.25" sentiment="negative" />
-</XUIOverviewBlock>
+  <XUIOverviewSection label="Draft" value="$872.93" />
+  <XUIOverviewSection label="Paid" value="$2,354.02" sentiment="positive" />
+  <XUIOverviewSection label="Past due" value="$96.25" sentiment="negative" />
+</XUIOverviewBlock>;
 ```

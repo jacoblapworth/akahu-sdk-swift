@@ -65,10 +65,10 @@ export default class Picklist extends Component {
       <ul
         {...secondaryProps}
         className={classes}
+        data-automationid={qaHook}
         id={id}
         onKeyDown={onKeyDown}
         onMouseDown={onMouseDown}
-        data-automationid={qaHook}
       >
         {newChildren}
       </ul>

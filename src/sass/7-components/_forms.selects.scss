@@ -1,94 +1,93 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 .#{$ns}-select--control {
-	@include xui-commoninput;
-	cursor: pointer;
-	padding-right: $xui-s-3xlarge;
+  @include xui-commoninput;
+  cursor: pointer;
+  padding-right: $xui-s-3xlarge;
 
-	&::-ms-expand {
-		display: none;
-	}
+  &::-ms-expand {
+    display: none;
+  }
 
-	&:-moz-focusring {
-		color: transparent;
-		text-shadow: 0 0 0 $xui-color-black;
-	}
-	&:focus ~ .#{$ns}-select--caret {
-		z-index: 3;
-	}
-	~ .#{$ns}-select--caret {
-		position: absolute;
-		right: $xui-s-standard;
-		top: 50%;
-		transform: translate(0,-50%);
-	}
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 $xui-color-black;
+  }
+  &:focus ~ .#{$ns}-select--caret {
+    z-index: 3;
+  }
+  ~ .#{$ns}-select--caret {
+    position: absolute;
+    right: $xui-s-standard;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
 }
 
 .#{$ns}-select {
-	position: relative; // Required for the native select to position its caret correctly
+  position: relative; // Required for the native select to position its caret correctly
 }
 
 .#{$ns}-select--button {
-	display: flex;
-	max-width: 100%;
-	text-align: left;
+  display: flex;
+  max-width: 100%;
+  text-align: left;
 
-	&:disabled {
-		@include xui-disabled-form-control;
-	}
+  &:disabled {
+    @include xui-disabled-form-control;
+  }
 
-	.#{$ns}-select-is-invalid & {
-		border-color: $xui-validation-invalid-color;
-	}
+  .#{$ns}-select-is-invalid & {
+    border-color: $xui-validation-invalid-color;
+  }
 }
 
 .#{$ns}-select--button-no-variant {
-	background-color: $xui-color-white;
-	border: $xui-border-control;
-	border-radius: $xui-radius;
-	color: $xui-select-color;
-	font-weight: normal;
+  background-color: $xui-color-white;
+  border: $xui-border-control;
+  border-radius: $xui-radius;
+  color: $xui-select-color;
+  font-weight: normal;
 
-	&:hover {
-		color: $xui-select-color;
-	}
+  &:hover {
+    color: $xui-select-color;
+  }
 
-	&:active {
-		color: $xui-select-color;
-	}
+  &:active {
+    color: $xui-select-color;
+  }
 
-	.#{$ns}-select--caret {
-		fill: $xui-color-grey-2;
-	}
+  .#{$ns}-select--caret {
+    fill: $xui-color-grey-2;
+  }
 }
 
 .#{$ns}-select--caret {
-	align-self: center;
+  align-self: center;
 }
 
 .#{$ns}-select--content {
-	width: 100%; // This could be flex: 1;
+  width: 100%; // This could be flex: 1;
 }
 
 .#{$ns}-select--content-truncated,
 .#{$ns}-select--option-truncated {
-	@include xui-text-truncated;
+  @include xui-text-truncated;
 }
 
 .#{$ns}-dropdownmenu-select {
-	border-radius: 0 0 $xui-radius $xui-radius;
-	border-top: 0;
+  border-radius: 0 0 $xui-radius $xui-radius;
+  border-top: 0;
 }
 
 .#{$ns}-select-layout {
+  .#{$ns}-dropdown--body {
+    border-top: 0;
 
-	.#{$ns}-dropdown--body {
-		border-top: 0;
-
-		@include xui-breakpoint-small-down {
-			border: 0;
-			border-radius: 0;
-		}
-	}
+    @include xui-breakpoint-small-down {
+      border: 0;
+      border-radius: 0;
+    }
+  }
 }

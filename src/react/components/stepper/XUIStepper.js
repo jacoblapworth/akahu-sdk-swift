@@ -34,14 +34,14 @@ const createTabs = (
 
     return (
       <div
-        key={ariaTabId}
-        id={ariaTabId}
-        className={tabClasses}
         aria-controls={ariaPanelId}
         aria-selected={isActive}
+        className={tabClasses}
+        data-automationid={qaHook && `${qaHook}-tab-${index}`}
+        id={ariaTabId}
+        key={ariaTabId}
         role="tab"
         style={{ order: index }}
-        data-automationid={qaHook && `${qaHook}-tab-${index}`}
       >
         <StepperTab index={index} isTruncated={isTruncated} qaHook={qaHook} {...enrichedProps} />
       </div>
@@ -125,9 +125,9 @@ class XUIStepper extends Component {
     const hiddenTabs = createTabs(tabProps, { isHidden: true, isProgress: false });
 
     return (
-      <div className={NAME_SPACE} ref={node => (this.rootNode = node)} data-automationid={qaHook}>
+      <div className={NAME_SPACE} data-automationid={qaHook} ref={node => (this.rootNode = node)}>
         {!lockLayout && (
-          <div className={`${NAME_SPACE}-hidden-content`} aria-hidden="true">
+          <div aria-hidden="true" className={`${NAME_SPACE}-hidden-content`}>
             {/* Render "dummy" UI scenarios in secret to determine what layout the
 						component best conforms to the <XUIStepper /> width if no pre-defined
 						layout has been supplied. */}
@@ -136,16 +136,16 @@ class XUIStepper extends Component {
           </div>
         )}
 
-        <div className={wrapperClasses} style={{ gridTemplateRows }} role="tablist">
+        <div className={wrapperClasses} role="tablist" style={{ gridTemplateRows }}>
           {visibleTabs}
 
           <div
-            id={ariaPanelId}
-            className={`${NAME_SPACE}-section`}
-            style={{ order: currentStep }}
-            role="tabpanel"
             aria-labelledby={ariaActiveTabId}
+            className={`${NAME_SPACE}-section`}
             data-automationid={qaHook && `${qaHook}-content`}
+            id={ariaPanelId}
+            role="tabpanel"
+            style={{ order: currentStep }}
           >
             {children}
           </div>

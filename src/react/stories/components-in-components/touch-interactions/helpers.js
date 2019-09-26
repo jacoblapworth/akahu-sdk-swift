@@ -60,46 +60,46 @@ const createSizedIconButtons = size => {
 
 const switches = (
   <Fragment>
-    <XUISwitch onChange={NOOP} isDefaultChecked>
+    <XUISwitch isDefaultChecked onChange={NOOP}>
       One option you might try
     </XUISwitch>
-    <XUISwitch onChange={NOOP} isDisabled>
+    <XUISwitch isDisabled onChange={NOOP}>
       Another that is not an option
     </XUISwitch>
     <XUISwitch onChange={NOOP}>Third option</XUISwitch>
-    <XUISwitch onChange={NOOP} isDefaultChecked>
+    <XUISwitch isDefaultChecked onChange={NOOP}>
       Yet another switch option
     </XUISwitch>
   </Fragment>
 );
 const createCheckboxes = size => (
   <Fragment>
-    <XUICheckbox size={size} id="bird-tui" key="tui" value="tui" name="">
+    <XUICheckbox id="bird-tui" key="tui" name="" size={size} value="tui">
       Tūī
     </XUICheckbox>
-    <XUICheckbox size={size} id="bird-piwakawaka" key="piwakawaka" value="" name="piwakawaka">
+    <XUICheckbox id="bird-piwakawaka" key="piwakawaka" name="piwakawaka" size={size} value="">
       Pīwakawaka
     </XUICheckbox>
-    <XUICheckbox size={size} id="bird-ruru" key="ruru" value="ruru" name="ruru">
+    <XUICheckbox id="bird-ruru" key="ruru" name="ruru" size={size} value="ruru">
       Ruru
     </XUICheckbox>
-    <XUICheckbox size={size} id="bird-moa" key="moa" value="moa" name="moa" isDisabled>
+    <XUICheckbox id="bird-moa" isDisabled key="moa" name="moa" size={size} value="moa">
       Moa
     </XUICheckbox>
   </Fragment>
 );
 const createRadios = size => (
   <Fragment>
-    <XUIRadio size={size} id="city-wellington" key="wellington" value="wellington" name="city">
+    <XUIRadio id="city-wellington" key="wellington" name="city" size={size} value="wellington">
       Wellington
     </XUIRadio>
-    <XUIRadio size={size} id="city-canberra" key="canberra" value="canberra" name="city">
+    <XUIRadio id="city-canberra" key="canberra" name="city" size={size} value="canberra">
       Canberra
     </XUIRadio>
-    <XUIRadio size={size} id="city-dc" key="dc" value="dc" name="city">
+    <XUIRadio id="city-dc" key="dc" name="city" size={size} value="dc">
       Washington D.C.
     </XUIRadio>
-    <XUIRadio size={size} id="city-carthage" key="carthage" value="carthage" name="city" isDisabled>
+    <XUIRadio id="city-carthage" isDisabled key="carthage" name="city" size={size} value="carthage">
       Carthage
     </XUIRadio>
   </Fragment>
@@ -123,9 +123,9 @@ class RangeWrapper extends React.Component {
     return (
       <Fragment>
         <XUIRange
-          onInput={this.updateRangeValue}
           max={100}
           min={0}
+          onInput={this.updateRangeValue}
           {...this.props}
           label={`${this.props.label} ${this.state.rangeValue}`}
         />
@@ -142,8 +142,8 @@ class TooltipWrapper extends React.Component {
       <XUITooltip
         trigger={
           <XUIButton
-            size={size}
             className={`xui-margin-right${sizeSuffix} xui-margin-bottom${sizeSuffix}`}
+            size={size}
           >
             {buttonContent}
           </XUIButton>

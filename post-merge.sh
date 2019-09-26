@@ -1,4 +1,8 @@
 #!/bin/sh
+
+# exit when any command fails
+set -e
+
 echo "running post-merge hook"
 
 changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"

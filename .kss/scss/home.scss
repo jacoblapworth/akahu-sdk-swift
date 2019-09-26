@@ -2,167 +2,170 @@
 // Tiles on home page
 //-----------------------
 
-@import "../../src/sass/mixins";
-@import "../../src/sass/vars";
-@import "./mixins";
+@import '../../src/sass/mixins';
+@import '../../src/sass/vars';
+@import './mixins';
 
 .ds-header--home {
-	margin: 0 0 100px 0.5vw;
-	h1 {
-		font-size: calc(2.4rem + 2vw);
-		margin: 0 0 40px;
-	}
+  margin: 0 0 100px 0.5vw;
+  h1 {
+    font-size: calc(2.4rem + 2vw);
+    margin: 0 0 40px;
+  }
 }
 
 .ds-panel--feedback {
-	background-color: $xui-color-white;
-	border-left: 4px solid $xui-color-orange;
+  background-color: $xui-color-white;
+  border-left: 4px solid $xui-color-orange;
 }
 
 .ds-tilegroup--home {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	margin: 0 0 100px;
-	@include xui-breakpoint-large-up {
-		@include embiggen;
-	}
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 0 100px;
+  @include xui-breakpoint-large-up {
+    @include embiggen;
+  }
 }
 
 .ds-tile--home-small {
-	background-color: $xui-color-white;
-	border-radius: 3px;
-	box-shadow: $xui-shadow-border-all;
-	display: inline-block;
-	height: 210px;
-	margin: 1vw 0.5vw 20px;
-	transform: perspective(1px) translateZ(0);
-	transition: all $xui-motion-speed-medium $ds-motion-curve-bouncy;
-	vertical-align: middle;
-	width: calc(33.3% - 1vw);
-	&:hover {
-		box-shadow: $xui-shadow-depth-pop;
-		transform: translateY(-4px);
-	}
-	a {
-		color: $xui-color-blue;
-	}
-	p {
-		color: $xui-color-grey-1;
-		opacity: 1;
-	}
-	.xui-heading-large {
-		color: $xui-color-blue;
-		line-height: 1;
-		margin: 0;
-		padding-bottom: $xui-s-small;
-	}
-	@include xui-breakpoint-medium-to-large {
-		background-image: none !important;
-		height: 140px;
-		margin: 2vw 1vw 1vw;
-		width: 100%;
-	}
-	@include xui-breakpoint-small-to-medium {
-		background-image: none !important;
-		height: 150px;
-		margin: 2vw 1vw 1vw;
-		width: 100%;
-	}
-	@include xui-breakpoint-small-down {
-		background-image: none !important;
-		height: 150px;
-		margin: 2vw 1vw 1vw;
-		width: 100%;
-	}
+  background-color: $xui-color-white;
+  border-radius: 3px;
+  box-shadow: $xui-shadow-border-all;
+  display: inline-block;
+  height: 210px;
+  margin: 1vw 0.5vw 20px;
+  transform: perspective(1px) translateZ(0);
+  transition: all $xui-motion-speed-medium $ds-motion-curve-bouncy;
+  vertical-align: middle;
+  width: calc(33.3% - 1vw);
+  &:hover {
+    box-shadow: $xui-shadow-depth-pop;
+    transform: translateY(-4px);
+  }
+  a {
+    color: $xui-color-blue;
+  }
+  p {
+    color: $xui-color-grey-1;
+    opacity: 1;
+  }
+  .xui-heading-large {
+    color: $xui-color-blue;
+    line-height: 1;
+    margin: 0;
+    padding-bottom: $xui-s-small;
+  }
+  @include xui-breakpoint-medium-to-large {
+    background-image: none !important;
+    height: 140px;
+    margin: 2vw 1vw 1vw;
+    width: 100%;
+  }
+  @include xui-breakpoint-small-to-medium {
+    background-image: none !important;
+    height: 150px;
+    margin: 2vw 1vw 1vw;
+    width: 100%;
+  }
+  @include xui-breakpoint-small-down {
+    background-image: none !important;
+    height: 150px;
+    margin: 2vw 1vw 1vw;
+    width: 100%;
+  }
 }
 
 .ds-tile--home {
-	background-color: $xui-color-blue-xdark;
-	background-position: 50% 100%;
-	background-repeat: no-repeat;
-	background-size: 100% auto;
-	border-radius: 3px;
-	box-shadow: $xui-shadow-depth-pop;
-	display: inline-block;
-	height: 220px;
-	margin: 1vw 0.5vw 0;
-	transform: perspective(1px) translateZ(0);
-	transition: all $xui-motion-speed-medium $ds-motion-curve-bouncy;
-	vertical-align: middle;
-	width: calc(25% - 1vw);
-	svg {
-		fill: $xui-color-white;
-	}
-	.xui-heading {
-		color: $xui-color-white;
-		line-height: 1.15;
-		margin: 0;
-		padding-bottom: $xui-s-small;
-	}
+  background-color: $xui-color-blue-xdark;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  border-radius: 3px;
+  box-shadow: $xui-shadow-depth-pop;
+  display: inline-block;
+  height: 220px;
+  margin: 1vw 0.5vw 0;
+  transform: perspective(1px) translateZ(0);
+  transition: all $xui-motion-speed-medium $ds-motion-curve-bouncy;
+  vertical-align: middle;
+  width: calc(25% - 1vw);
+  svg {
+    fill: $xui-color-white;
+  }
+  .xui-heading {
+    color: $xui-color-white;
+    line-height: 1.15;
+    margin: 0;
+    padding-bottom: $xui-s-small;
+  }
 
-	@include xui-breakpoint-medium-to-large {
-		height: 150px;
-		margin: 2vw 1vw 0;
-		width: calc(50% - 2vw);
-	}
-	@include xui-breakpoint-small-to-medium {
-		height: 180px;
-		margin: 2vw 1vw 0;
-		width: calc(50% - 2vw);
-	}
-	@include xui-breakpoint-small-down {
-		height: 180px;
-		margin: 2vw 1vw 0;
-		width: calc(50% - 2vw);
-	}
+  @include xui-breakpoint-medium-to-large {
+    height: 150px;
+    margin: 2vw 1vw 0;
+    width: calc(50% - 2vw);
+  }
+  @include xui-breakpoint-small-to-medium {
+    height: 180px;
+    margin: 2vw 1vw 0;
+    width: calc(50% - 2vw);
+  }
+  @include xui-breakpoint-small-down {
+    height: 180px;
+    margin: 2vw 1vw 0;
+    width: calc(50% - 2vw);
+  }
 }
 
 .ds-tile--home:hover {
-	background-color: $xui-color-blue-dark;
-	background-image: none;
-	box-shadow: $xui-shadow-depth-pop;
-	transform: scale(1.05);
-	p {
-		opacity: 1;
-	}
+  background-color: $xui-color-blue-dark;
+  background-image: none;
+  box-shadow: $xui-shadow-depth-pop;
+  transform: scale(1.05);
+  p {
+    opacity: 1;
+  }
 }
 
-.ds-tile--home p{
-	color: $xui-color-white-alpha-2;
+.ds-tile--home p {
+  color: $xui-color-white-alpha-2;
 }
 
 .ds-tile--home a,
 .ds-tile--home-small a {
-	display: block;
-	height: 100%;
-	left: 0;
-	padding: calc(0.5rem + 1vw);
-	position: absolute;
-	text-decoration: none;
-	top: 0;
-	width: 100%;
+  display: block;
+  height: 100%;
+  left: 0;
+  padding: calc(0.5rem + 1vw);
+  position: absolute;
+  text-decoration: none;
+  top: 0;
+  width: 100%;
 }
 
 // Specific background images
 
 .ds-tile--home-fundamentals {
-	background-image: linear-gradient(to bottom, $xui-color-white 0%,rgba(255,255,255,.8) 100%), url(./kss-assets/illustration/spiral.png);
-	background-size: 220%;
-	background-repeat: no-repeat;
-	background-position: 50% 20px;
+  background-image: linear-gradient(to bottom, $xui-color-white 0%, rgba(255, 255, 255, 0.8) 100%),
+    url(./kss-assets/illustration/spiral.png);
+  background-size: 220%;
+  background-repeat: no-repeat;
+  background-position: 50% 20px;
 }
 
 .ds-tile--home-elements {
-	background-image: linear-gradient(to bottom, $xui-color-white 0%,rgba(255,255,255,.9) 100%), url(./kss-assets/illustration/block.png);
-	background-size: 200%;
-	background-repeat: no-repeat;
-	background-position: 5% 20px;
+  background-image: linear-gradient(to bottom, $xui-color-white 0%, rgba(255, 255, 255, 0.9) 100%),
+    url(./kss-assets/illustration/block.png);
+  background-size: 200%;
+  background-repeat: no-repeat;
+  background-position: 5% 20px;
 }
 
 .ds-tile--home-compounds {
-	background-image: linear-gradient(to bottom, $xui-color-white 0%,rgba(255,255,255,.9) 100%), url(./kss-assets/illustration/gradient.png);
-	background-size: 100%;
-	background-repeat: no-repeat;
-	background-position: 0 60px;
+  background-image: linear-gradient(to bottom, $xui-color-white 0%, rgba(255, 255, 255, 0.9) 100%),
+    url(./kss-assets/illustration/gradient.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0 60px;
 }

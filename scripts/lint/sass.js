@@ -5,22 +5,21 @@ const { taskRunner, isWindowsPlatform, convertExecTaskToWindows } = require('../
 const asyncExec = promisify(exec);
 
 function lint() {
-	return taskRunner(
-		taskSpinner => {
-			let execTask = 
-				'./node_modules/.bin/stylelint --syntax scss ./src/sass/**/*.scss';
+  return taskRunner(
+    taskSpinner => {
+      let execTask = './node_modules/.bin/stylelint --syntax scss ./src/sass/**/*.scss';
 
-			if (isWindowsPlatform) {
-				execTask = convertExecTaskToWindows(execTask);
-			}
-			taskSpinner.info(`Executing task: ${execTask}`);
-			return asyncExec(execTask, {
-				stdio: [0, 1, 2]
-			});
-		},
+      if (isWindowsPlatform) {
+        execTask = convertExecTaskToWindows(execTask);
+      }
+      taskSpinner.info(`Executing task: ${execTask}`);
+      return asyncExec(execTask, {
+        stdio: [0, 1, 2],
+      });
+    },
 
-		__filename
-	);
+    __filename,
+  );
 }
 
 module.exports = lint;

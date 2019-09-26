@@ -1,4 +1,3 @@
-
 <div class="xui-margin-vertical">
 	<a href="../section-fundamentals-layout.html#fundamentals-layout-2-2" isDocLink>Columns in the XUI Documentation</a>
 </div>
@@ -11,36 +10,53 @@ The `gridColumns` prop may be a number 1 through 12 or `full`, `half`, `third`, 
 ```jsx harmony
 import { XUIRow, XUIColumn } from '../../structural';
 
-const rowStyle = {backgroundColor: "#028DDE"};
-const colStyle = {backgroundColor: "RGBA(255,255,255,0.5)"};
+const rowStyle = { backgroundColor: '#028DDE' };
+const colStyle = { backgroundColor: 'RGBA(255,255,255,0.5)' };
 
 <div>
-	<XUIRow variant={"grid"} style={rowStyle} className="xui-padding-small xui-margin-bottom-large">
-		<XUIColumn gridColumns={"quarter"} gridColumnsSmallUp={"full"} className="xui-padding-small" style={colStyle}>
-			This column will change at narrower viewports.
-		</XUIColumn>
-		<XUIColumn gridColumns={"quarter"} gridColumnsSmallUp={"full"} className="xui-padding-small" style={colStyle}>
-			Responsive column width.
-		</XUIColumn>
-		<XUIColumn gridColumns={"half"} gridColumnsSmallUp={"full"} className="xui-padding-small" style={colStyle}>
-			This column will change at narrower viewports.
-		</XUIColumn>
-	</XUIRow>
-	<XUIRow variant={"flex"} style={rowStyle} className="xui-padding-small">
-		<XUIColumn gridColumns={2} className="xui-padding-small" style={colStyle}>
-			2 out of 12 columns wide.<br />
-			More text.
-		</XUIColumn>
-		<XUIColumn gridColumns={3} className="xui-padding-small" style={colStyle}>
-			3 out of 12 columns wide.
-		</XUIColumn>
-		<XUIColumn gridColumns={2} className="xui-padding-small" style={colStyle}>
-			2 out of 12 columns wide.<br />
-			More text.
-		</XUIColumn>
-		<XUIColumn gridColumns={5} className="xui-padding-small" style={colStyle}>
-			5 out of 12 columns wide.
-		</XUIColumn>
-	</XUIRow>
-</div>
+  <XUIRow variant={'grid'} style={rowStyle} className="xui-padding-small xui-margin-bottom-large">
+    <XUIColumn
+      gridColumns={'quarter'}
+      gridColumnsSmallUp={'full'}
+      className="xui-padding-small"
+      style={colStyle}
+    >
+      This column will change at narrower viewports.
+    </XUIColumn>
+    <XUIColumn
+      gridColumns={'quarter'}
+      gridColumnsSmallUp={'full'}
+      className="xui-padding-small"
+      style={colStyle}
+    >
+      Responsive column width.
+    </XUIColumn>
+    <XUIColumn
+      gridColumns={'half'}
+      gridColumnsSmallUp={'full'}
+      className="xui-padding-small"
+      style={colStyle}
+    >
+      This column will change at narrower viewports.
+    </XUIColumn>
+  </XUIRow>
+  <XUIRow variant={'flex'} style={rowStyle} className="xui-padding-small">
+    <XUIColumn gridColumns={2} className="xui-padding-small" style={colStyle}>
+      2 out of 12 columns wide.
+      <br />
+      More text.
+    </XUIColumn>
+    <XUIColumn gridColumns={3} className="xui-padding-small" style={colStyle}>
+      3 out of 12 columns wide.
+    </XUIColumn>
+    <XUIColumn gridColumns={2} className="xui-padding-small" style={colStyle}>
+      2 out of 12 columns wide.
+      <br />
+      More text.
+    </XUIColumn>
+    <XUIColumn gridColumns={5} className="xui-padding-small" style={colStyle}>
+      5 out of 12 columns wide.
+    </XUIColumn>
+  </XUIRow>
+</div>;
 ```

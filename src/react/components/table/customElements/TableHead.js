@@ -33,18 +33,18 @@ class CheckBoxCell extends PureComponent {
     const isIndeterminate = Boolean(totalCheckIds && !isChecked);
 
     return (
-      <TableData className={className} tabIndex={-1} isHead>
+      <TableData className={className} isHead tabIndex={-1}>
         {NBSP}
         {onCheckAllToggle && (
           <XUICheckbox
-            isDisabled={isDisabled}
-            isChecked={isChecked}
-            isIndeterminate={isIndeterminate}
             className={`${NAME_SPACE}--checkbox-head`}
+            isChecked={isChecked}
+            isDisabled={isDisabled}
+            isGrouped
+            isIndeterminate={isIndeterminate}
+            isLabelHidden
             onChange={onCheckAllToggle}
             tabIndex={0}
-            isGrouped
-            isLabelHidden
           >
             {checkAllRowsLabel}
           </XUICheckbox>
@@ -121,8 +121,8 @@ class SortButton extends PureComponent {
         <div>
           <span>{children}</span>
           <XUIIcon
-            icon={sortPathData}
             className={`${NAME_SPACE}--sortbutton-icon`}
+            icon={sortPathData}
             rotation={isSortAsc ? null : 180}
           />
         </div>

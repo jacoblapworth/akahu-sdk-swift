@@ -45,10 +45,10 @@ export default class DropDownHeader extends PureComponent {
 
     const backButton = onBackButtonClick ? (
       <XUIIconButton
-        icon={back}
-        className={`${ns}-dropdown--headerbackbutton`}
-        onClick={onBackButtonClick}
         ariaLabel={backButtonLabel}
+        className={`${ns}-dropdown--headerbackbutton`}
+        icon={back}
+        onClick={onBackButtonClick}
         qaHook={qaHook != null ? `${qaHook}--button-back` : null}
         size="small"
       />
@@ -56,10 +56,10 @@ export default class DropDownHeader extends PureComponent {
 
     const secondaryButton = onSecondaryButtonClick ? (
       <XUIButton
-        size="small"
-        onClick={onSecondaryButtonClick}
         isDisabled={isSecondaryButtonDisabled}
+        onClick={onSecondaryButtonClick}
         qaHook={qaHook != null ? `${qaHook}--button-secondary` : null}
+        size="small"
       >
         {secondaryButtonContent}
       </XUIButton>
@@ -68,11 +68,11 @@ export default class DropDownHeader extends PureComponent {
     const primaryButton = onPrimaryButtonClick ? (
       <XUIButton
         className={secondaryButtonContent ? `${ns}-margin-left-small` : ''}
+        isDisabled={isPrimaryButtonDisabled}
+        onClick={onPrimaryButtonClick}
+        qaHook={qaHook != null ? `${qaHook}--button-primary` : null}
         size="small"
         variant="primary"
-        onClick={onPrimaryButtonClick}
-        isDisabled={isPrimaryButtonDisabled}
-        qaHook={qaHook != null ? `${qaHook}--button-primary` : null}
       >
         {primaryButtonContent}
       </XUIButton>
@@ -125,7 +125,7 @@ export default class DropDownHeader extends PureComponent {
       ) : null;
 
     return (
-      <div ref={this.rootNode} className={classes} data-automationid={qaHook}>
+      <div className={classes} data-automationid={qaHook} ref={this.rootNode}>
         {header}
         {Children.map(children, child => (
           <div

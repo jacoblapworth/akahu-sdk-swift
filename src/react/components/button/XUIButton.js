@@ -176,11 +176,11 @@ export default class XUIButton extends React.PureComponent {
 
           const loader = (
             <XUILoader
+              className={`${ns}-button--loader`}
+              defaultLayout={false}
               key={retainLayout && isLoading ? 'button-loader' : null}
               retainLayout={retainLayout}
               size="small"
-              defaultLayout={false}
-              className={`${ns}-button--loader`}
             />
           );
 

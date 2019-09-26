@@ -1,11 +1,11 @@
-@import "../vars";
+@import '../vars';
 
 // This is a stand-alone file and should only be imported once per project at the top level SCSS file
 // as these translate directly to global CSS keyframes. Importing this file more than once will lead to
 // these keyframes appearing numerous times in the compiled CSS.
 
 @keyframes #{$ns}-animation-autofill {
-	to {
-		background: $xui-color-white;
-	}
+  to {
+    background: $xui-color-white;
+  }
 }

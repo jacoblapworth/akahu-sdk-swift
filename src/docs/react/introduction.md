@@ -1,4 +1,4 @@
-## *XUI React Docs provide technical, API documentation and interactive examples.*
+## _XUI React Docs provide technical, API documentation and interactive examples._
 
 ## Getting Started
 

@@ -178,20 +178,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
       <div className={`${ns}-dropdown--header-container`}>
         <XUITextInput
           containerClassName={inputContainerClassName}
-          value={value || ''}
-          leftElement={
-            <XUITextInputSideElement>
-              <XUIIcon icon={searchPath} isBoxed />
-            </XUITextInputSideElement>
-          }
-          placeholder={placeholder}
-          onChange={this.debouncedOnChange}
           inputClassName={inputClassName}
-          inputRef={c => (this.input = c)}
-          isBorderlessSolid
-          label={inputLabel}
-          isLabelHidden={isInputLabelHidden}
-          isFieldLayout={false}
           inputProps={{
             ...inputProps,
             id: inputId,
@@ -199,6 +186,19 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
             'aria-multiline': false,
             'aria-autocomplete': 'list',
           }}
+          inputRef={c => (this.input = c)}
+          isBorderlessSolid
+          isFieldLayout={false}
+          isLabelHidden={isInputLabelHidden}
+          label={inputLabel}
+          leftElement={
+            <XUITextInputSideElement>
+              <XUIIcon icon={searchPath} isBoxed />
+            </XUITextInputSideElement>
+          }
+          onChange={this.debouncedOnChange}
+          placeholder={placeholder}
+          value={value || ''}
         />
       </div>
     );
@@ -206,46 +206,45 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
     const dropdownToggledClasses = !dropdownSize ? `${ns}-dropdown-fullwidth` : null;
     const dropdown = (
       <DropDown
-        ref={d => (this.dropdown = d)}
-        /* Space doesn't select in an autocompleter; left and right arrow keys should move
-				cursor in the input */
-        ignoreKeyboardEvents={[32, 37, 39]}
+        ariaRole="combobox"
+        className={dropdownClasses}
+        fixedWidth={dropdownFixedWidth}
+        footer={footer}
+        forceStatefulPicklist
         hasKeyboardEvents={false}
+        header={searchItem}
+        id={id}
+        // Space doesn't select in an autocompleter; left and right arrow keys should move cursor in the input
+        ignoreKeyboardEvents={[32, 37, 39]}
         onKeyDown={onKeyDown}
         onSelect={onOptionSelect}
-        id={id}
-        className={dropdownClasses}
         qaHook={listQaHook}
-        size={dropdownSize}
-        fixedWidth={dropdownFixedWidth}
-        header={searchItem}
-        footer={footer}
+        ref={d => (this.dropdown = d)}
         restrictFocus={restrictFocus}
         shouldManageInitialHighlight={false}
-        forceStatefulPicklist
-        ariaRole="combobox"
+        size={dropdownSize}
       >
         {children}
       </DropDown>
     );
 
     return (
-      <div ref={this.rootNode} className={className} data-automationid={containerQaHook}>
+      <div className={className} data-automationid={containerQaHook} ref={this.rootNode}>
         <DropDownToggled
-          ref={c => (this.ddt = c)}
-          trigger={trigger}
+          className={dropdownToggledClasses}
+          closeOnSelect={closeOnSelect}
+          closeOnTab={closeOnTab}
           dropdown={dropdown}
-          onOpen={this.onOpen}
+          forceDesktop={forceDesktop}
+          isBlock={isBlock}
+          matchTriggerWidth={matchTriggerWidth}
           onClose={compose(
             onClose,
             this.clearValue,
           )}
-          closeOnTab={closeOnTab}
-          closeOnSelect={closeOnSelect}
-          className={dropdownToggledClasses}
-          matchTriggerWidth={matchTriggerWidth}
-          isBlock={isBlock}
-          forceDesktop={forceDesktop}
+          onOpen={this.onOpen}
+          ref={c => (this.ddt = c)}
+          trigger={trigger}
         />
       </div>
     );

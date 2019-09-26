@@ -69,23 +69,23 @@ export default class AccordionTrigger extends PureComponent {
 
     return (
       <div
-        data-automationid={qaHook}
-        onClick={this.handleTriggerInteraction}
-        onKeyPress={this.onKeyPress}
-        tabIndex={0}
-        role="button"
         aria-label={toggleLabel}
         className={cn(`${ns}-accordiontrigger`, {
           [`${ns}-accordiontrigger-is-open`]: isOpen,
         })}
+        data-automationid={qaHook}
+        onClick={this.handleTriggerInteraction}
+        onKeyPress={this.onKeyPress}
+        role="button"
+        tabIndex={0}
       >
         <div className={`${ns}-accordiontrigger--arrow`}>
           <XUIIconButton
-            icon={arrowPath}
             ariaLabel={toggleLabel}
-            title={toggleLabel}
-            tabIndex={-1}
+            icon={arrowPath}
             rotation={isOpen ? 180 : null}
+            tabIndex={-1}
+            title={toggleLabel}
           />
         </div>
 

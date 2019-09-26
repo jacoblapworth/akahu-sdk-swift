@@ -38,11 +38,11 @@ import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';
 const buildColumns = widths =>
   widths.map((width, index) => (
     <XUIColumn
-      key={index}
-      gridColumns={width}
-      gridColumnsSmallUp={width}
-      gridColumnsLargeUp={width}
       className="xui-padding-small"
+      gridColumns={width}
+      gridColumnsLargeUp={width}
+      gridColumnsSmallUp={width}
+      key={index}
       style={{ backgroundColor: 'RGBA(255,255,255,0.5)' }}
     >
       Content of a column with width {width}, here.
@@ -51,13 +51,13 @@ const buildColumns = widths =>
 
 const exampleTabs = (
   <XUIPicklist secondaryProps={{ role: 'menu' }}>
-    <XUIPickitem id="1" ariaRole="menuitem">
+    <XUIPickitem ariaRole="menuitem" id="1">
       Tab 1
     </XUIPickitem>
-    <XUIPickitem id="2" ariaRole="menuitem" isSelected>
+    <XUIPickitem ariaRole="menuitem" id="2" isSelected>
       Tab 2
     </XUIPickitem>
-    <XUIPickitem id="3" ariaRole="menuitem">
+    <XUIPickitem ariaRole="menuitem" id="3">
       This is tab 3
     </XUIPickitem>
   </XUIPicklist>
@@ -65,7 +65,7 @@ const exampleTabs = (
 const buildActions = props => (
   <XUIActions
     primaryAction={
-      <XUIButton variant="primary" size="small">
+      <XUIButton size="small" variant="primary">
         One
       </XUIButton>
     }
@@ -75,7 +75,7 @@ const buildActions = props => (
 );
 
 const sampleBreadcrumb = [
-  <span role="link" tabIndex="0" onClick={() => alert('hello')} onKeyDown={() => {}} key="1">
+  <span key="1" onClick={() => alert('hello')} onKeyDown={() => {}} role="link" tabIndex="0">
     hello
   </span>,
   { label: 'hiya I have multiple words', href: '#2' },
@@ -88,7 +88,7 @@ const buildExampleSections = children =>
 const buildExampleContentblockItem = children =>
   children.map((child, index) => {
     if (child.overflow) {
-      child.overflow = <XUIIconButton icon={overflow} ariaLabel="Overflow menu" />;
+      child.overflow = <XUIIconButton ariaLabel="Overflow menu" icon={overflow} />;
     }
     if (child.tag) {
       child.tags = (
@@ -101,13 +101,13 @@ const buildExampleContentblockItem = children =>
       child.tags = [
         <XUITag
           className="xui-margin-right-xsmall"
-          variant="positive"
           key="positive-tag"
           size="small"
+          variant="positive"
         >
           Positive
         </XUITag>,
-        <XUITag className="xui-margin-right" variant="negative" key="negative-tag" size="small">
+        <XUITag className="xui-margin-right" key="negative-tag" size="small" variant="negative">
           Negative
         </XUITag>,
       ];
@@ -160,9 +160,9 @@ storiesWithKnobs.add('Columns Playground', () => {
   }
   return (
     <XUIRow
-      variant={select('variant', Object.keys(rowVariants), 'standard')}
       className="xui-padding-small"
       style={{ backgroundColor: '#028DDE' }}
+      variant={select('variant', Object.keys(rowVariants), 'standard')}
     >
       {buildColumns(buildColumnsArray())}
     </XUIRow>
@@ -172,24 +172,23 @@ storiesWithKnobs.add('Columns Playground', () => {
 storiesWithKnobs.add('OverviewBlock Playground', () => {
   const indicator = (
     <XUIProgressLinear
-      id="testId"
-      total={10}
-      progress={4}
       hasToolTip
+      id="testId"
+      progress={4}
       toolTipMessage="4 out of 10"
+      total={10}
     />
   );
   const includeProgress = boolean('include progress?', false);
   const blockTextAlignment = select('textAlignment', ['left', 'center', 'right'], 'center');
   return (
     <XUIOverviewBlock
-      hasBorder={boolean('hasBorder', true)}
       hasBackground={boolean('hasBackground', true)}
+      hasBorder={boolean('hasBorder', true)}
       textAlignment={blockTextAlignment}
     >
       <XUIOverviewSection
         label="Draft"
-        value="$1,234.56"
         sentiment={select(
           'sentiment for first',
           ['positive', 'negative', 'muted', 'standard'],
@@ -200,6 +199,7 @@ storiesWithKnobs.add('OverviewBlock Playground', () => {
           ['left', 'center', 'right'],
           blockTextAlignment,
         )}
+        value="$1,234.56"
       >
         {includeProgress && indicator}
       </XUIOverviewSection>
@@ -224,8 +224,8 @@ variations.forEach(variation => {
       return (
         <XUIRow
           {...variationMinusStoryDetails}
-          style={{ backgroundColor: '#028DDE' }}
           className="xui-padding-small"
+          style={{ backgroundColor: '#028DDE' }}
         >
           {buildColumns(columnWidths)}
         </XUIRow>
@@ -265,7 +265,7 @@ variations.forEach(variation => {
       );
       return (
         <XUIPanel heading={heading}>
-          <XUIPanelSection headerText="I'm a section header" className="xui-padding-large">
+          <XUIPanelSection className="xui-padding-large" headerText="I'm a section header">
             <p>Some important text might go here.</p>
           </XUIPanelSection>
         </XUIPanel>
@@ -278,8 +278,8 @@ variations.forEach(variation => {
       );
       return (
         <div style={{ minWidth: '700px' }}>
-          <XUIPanel heading={heading} footer={footer} sidebar={exampleTabs}>
-            <XUIPanelSection headerText="I'm a section header" className="xui-padding-large">
+          <XUIPanel footer={footer} heading={heading} sidebar={exampleTabs}>
+            <XUIPanelSection className="xui-padding-large" headerText="I'm a section header">
               <p>Some important text might go here.</p>
             </XUIPanelSection>
             <XUIPanelSection className="xui-padding-large">

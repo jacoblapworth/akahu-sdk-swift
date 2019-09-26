@@ -71,14 +71,14 @@
 // Tips:
 // Do: Display supplementary information in short, succinct strings
 // Do: Follow component specific guidance for distinct text treatment information
-// Dont: Avoid truncating numbers, as users often rely on accuracy for values in a supplementary context 
+// Dont: Avoid truncating numbers, as users often rely on accuracy for values in a supplementary context
 //
 // Styleguide: Patterns.Text.5
 
 // Shorthand
 //
-// Several elements in Xero adopt shorthand for familiar words and strings. An example of this might be a placeholder like 'DD/MM/YY' to suggest formatting for an input, a string like 'W' or 'Wed' to suggest the day of the week, or acronyms like 'FY19' to reference industry conventional date ranges. This is an accepted approach and helps prevent displaying excess amounts of information where that makes sense, however, we recommend showing more detail whenever possible. 
-// 
+// Several elements in Xero adopt shorthand for familiar words and strings. An example of this might be a placeholder like 'DD/MM/YY' to suggest formatting for an input, a string like 'W' or 'Wed' to suggest the day of the week, or acronyms like 'FY19' to reference industry conventional date ranges. This is an accepted approach and helps prevent displaying excess amounts of information where that makes sense, however, we recommend showing more detail whenever possible.
+//
 // A component like the XUI chart does this well, and selectively introduces more detailed labels as the width of the viewport grows. Additionally, be aware of the different conventions across regions, as well as the level of familiarity of these terms for particular users.
 //
 // Tips:

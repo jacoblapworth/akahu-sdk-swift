@@ -8,7 +8,7 @@ import { DateUtils } from 'react-day-picker';
  * @returns {String}
  */
 export function zeroPad(number) {
-	return number < 10 ? `0${number}` : number.toString();
+  return number < 10 ? `0${number}` : number.toString();
 }
 
 /**
@@ -19,13 +19,13 @@ export function zeroPad(number) {
  * @returns {Boolean}
  */
 export function normalizeRange(range) {
-	if (!range) {
-		return null;
-	}
-	return {
-		from: range.from == null ? null : range.from,
-		to: range.to == null ? null : range.to,
-	};
+  if (!range) {
+    return null;
+  }
+  return {
+    from: range.from == null ? null : range.from,
+    to: range.to == null ? null : range.to,
+  };
 }
 
 /**
@@ -37,7 +37,7 @@ export function normalizeRange(range) {
  * @returns {String}
  */
 export function formatDateISO(date) {
-	return `${date.getFullYear()}-${zeroPad(date.getMonth() + 1)}-${zeroPad(date.getDate())}`;
+  return `${date.getFullYear()}-${zeroPad(date.getMonth() + 1)}-${zeroPad(date.getDate())}`;
 }
 
 /**
@@ -48,7 +48,7 @@ export function formatDateISO(date) {
  * @returns {Boolean}
  */
 export function isRangeComplete(range) {
-	return range != null && range.from != null && range.to != null;
+  return range != null && range.from != null && range.to != null;
 }
 
 /**
@@ -59,7 +59,7 @@ export function isRangeComplete(range) {
  * @returns {Boolean}
  */
 export function isPartialRange(range) {
-	return range != null && range.from != null && range.to == null;
+  return range != null && range.from != null && range.to == null;
 }
 
 /**
@@ -71,7 +71,7 @@ export function isPartialRange(range) {
  * @returns {Boolean}
  */
 export function isStartOfPartialRange(day, range) {
-	return isPartialRange(range) && DateUtils.isSameDay(day, range.from);
+  return isPartialRange(range) && DateUtils.isSameDay(day, range.from);
 }
 
 /**
@@ -83,16 +83,16 @@ export function isStartOfPartialRange(day, range) {
  * @returns {Boolean}
  */
 const isBeforeMinMonth = (date, minDate) => {
-	if (minDate == null) {
-		return false;
-	}
-	if (date.getFullYear() < minDate.getFullYear()) {
-		return true;
-	}
-	if (date.getFullYear() === minDate.getFullYear()) {
-		return date.getMonth() < minDate.getMonth();
-	}
-	return false;
+  if (minDate == null) {
+    return false;
+  }
+  if (date.getFullYear() < minDate.getFullYear()) {
+    return true;
+  }
+  if (date.getFullYear() === minDate.getFullYear()) {
+    return date.getMonth() < minDate.getMonth();
+  }
+  return false;
 };
 
 /**
@@ -104,16 +104,16 @@ const isBeforeMinMonth = (date, minDate) => {
  * @returns {Boolean}
  */
 const isAfterMaxMonth = (date, maxDate) => {
-	if (maxDate == null) {
-		return false;
-	}
-	if (maxDate.getFullYear() < date.getFullYear()) {
-		return true;
-	}
-	if (maxDate.getFullYear() === date.getFullYear()) {
-		return maxDate.getMonth() < date.getMonth();
-	}
-	return false;
+  if (maxDate == null) {
+    return false;
+  }
+  if (maxDate.getFullYear() < date.getFullYear()) {
+    return true;
+  }
+  if (maxDate.getFullYear() === date.getFullYear()) {
+    return maxDate.getMonth() < date.getMonth();
+  }
+  return false;
 };
 
 /**
@@ -126,12 +126,12 @@ const isAfterMaxMonth = (date, maxDate) => {
  * @returns {Date}
  */
 export function normalizeDisplayedMonth(displayedMonth, minDate, maxDate) {
-	const normalized = displayedMonth == null ? new Date() : displayedMonth;
-	if (isBeforeMinMonth(normalized, minDate)) {
-		return DateUtils.clone(minDate);
-	}
-	if (isAfterMaxMonth(normalized, maxDate)) {
-		return DateUtils.clone(maxDate);
-	}
-	return normalized;
+  const normalized = displayedMonth == null ? new Date() : displayedMonth;
+  if (isBeforeMinMonth(normalized, minDate)) {
+    return DateUtils.clone(minDate);
+  }
+  if (isAfterMaxMonth(normalized, maxDate)) {
+    return DateUtils.clone(maxDate);
+  }
+  return normalized;
 }

@@ -28,9 +28,8 @@ export default class DropDown extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    const dropdown = this;
-    const currentPanel = dropdown.panel.current;
-    const { isHidden, hasKeyboardEvents, restrictFocus } = dropdown.props;
+    const currentPanel = this.panel.current;
+    const { isHidden, hasKeyboardEvents, restrictFocus } = this.props;
     if (!isHidden) {
       if (hasKeyboardEvents && currentPanel && !currentPanel.hasFocus()) {
         currentPanel.focus();
@@ -187,6 +186,7 @@ export default class DropDown extends PureComponent {
       <DropDownLayout
         animateClosed={animateClosed}
         animateOpen={animateOpen}
+        ariaRole={ariaRole}
         className={dropdownClasses}
         fixedWidth={fixedWidth}
         forceDesktop={forceDesktop}
@@ -194,12 +194,12 @@ export default class DropDown extends PureComponent {
         isHidden={isHidden}
         onCloseAnimationEnd={onCloseAnimationEnd}
         onOpenAnimationEnd={onOpenAnimationEnd}
+        qaHook={qaHook && `${qaHook}--layout`}
         size={size}
         style={style}
-        qaHook={qaHook && `${qaHook}--layout`}
-        ariaRole={ariaRole}
       >
         <DropDownPanel
+          bodyClassName={bodyClassName}
           footer={footer}
           forceStatefulPicklist={forceStatefulPicklist}
           header={header}
@@ -213,7 +213,6 @@ export default class DropDown extends PureComponent {
           style={{
             maxHeight: style && style.maxHeight,
           }}
-          bodyClassName={bodyClassName}
         >
           {children}
         </DropDownPanel>
@@ -253,8 +252,6 @@ DropDown.propTypes = {
   onSelect: PropTypes.func,
 
   /** Whether or not the dropdown should take focus and handle keyboard events automatically */
-  // ESLint thinks we don’t use this for some reason
-  // eslint-disable-next-line react/no-unused-prop-types
   hasKeyboardEvents: PropTypes.bool,
 
   /** Callback for adding additional onKeyPress functionality */

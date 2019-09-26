@@ -6,39 +6,29 @@ import { ns } from '../helpers/xuiClassNamespace';
 import { observe, unobserve, getWidthClasses } from '../helpers/resizeObserver';
 
 export default class XUIGridAreaHeader extends PureComponent {
-	_area = React.createRef();
+  _area = React.createRef();
 
-	componentDidMount() {
-		this._area.current && observe(this);
-	}
+  componentDidMount() {
+    this._area.current && observe(this);
+  }
 
-	componentWillUnmount() {
-		this._area.current && unobserve(this);
-	}
+  componentWillUnmount() {
+    this._area.current && unobserve(this);
+  }
 
-	render() {
-		const {
-			children,
-			...otherProps
-		} = this.props;
+  render() {
+    const { children, ...otherProps } = this.props;
 
-		const classNames = cn(
-			`${ns}-gridarea-header`,
-			...getWidthClasses(this.state),
-		);
+    const classNames = cn(`${ns}-gridarea-header`, ...getWidthClasses(this.state));
 
-		return (
-			<div
-				ref={this._area}
-				className={classNames}
-				{...otherProps}
-			>
-				{children}
-			</div>
-		);
-	}
+    return (
+      <div className={classNames} ref={this._area} {...otherProps}>
+        {children}
+      </div>
+    );
+  }
 }
 
 XUIGridAreaHeader.propTypes = {
-	children: PropTypes.any,
+  children: PropTypes.any,
 };

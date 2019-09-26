@@ -2,8 +2,6 @@
 
 Ref: https://jira.teamxero.com/browse/XUI-
 
-
-
 ## Checklist
 
 - [ ] The title of this PR is prefixed with the branch it is being merged into 🏷️

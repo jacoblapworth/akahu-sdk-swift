@@ -8,58 +8,47 @@ import XUICompositionMasterDetailHeader from '../XUICompositionMasterDetailHeade
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<XUICompositionMasterDetailHeader>', () => {
+  it('renders basic example', () => {
+    const wrapper = renderer.create(
+      <XUICompositionMasterDetailHeader header={<div />} master={<div />} detail={<div />} />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 
-	it('renders basic example', () => {
-		const wrapper = renderer.create(
-			<XUICompositionMasterDetailHeader
-				header={<div></div>}
-				master={<div></div>}
-				detail={<div></div>}
-				/>
-		);
-		expect(wrapper).toMatchSnapshot();
-	});
+  it('should do nothing with children', () => {
+    const wrapper = renderer.create(
+      <XUICompositionMasterDetailHeader header={<div />} master={<div />} detail={<div />}>
+        Hello
+      </XUICompositionMasterDetailHeader>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 
-	it('should do nothing with children', () => {
-		const wrapper = renderer.create(
-			<XUICompositionMasterDetailHeader
-				header={<div></div>}
-				master={<div></div>}
-				detail={<div></div>}
-				>
-				Hello
-			</XUICompositionMasterDetailHeader>
-		);
-		expect(wrapper).toMatchSnapshot();
-	});
+  it('should include custom class and toggle off default classes, if specified', () => {
+    const wrapper = renderer.create(
+      <XUICompositionMasterDetailHeader
+        header={<div />}
+        master={<div />}
+        detail={<div />}
+        className="master-detail-with-head"
+        isInfinite={true}
+        hasAutoSpaceAround={false}
+        hasGridGap={false}
+        hasAutoColumnWidths={false}
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 
-	it('should include custom class and toggle off default classes, if specified', () => {
-		const wrapper = renderer.create(
-			<XUICompositionMasterDetailHeader
-				header={<div></div>}
-				master={<div></div>}
-				detail={<div></div>}
-				className="master-detail-with-head"
-				isInfinite={true}
-				hasAutoSpaceAround={false}
-				hasGridGap={false}
-				hasAutoColumnWidths={false}
-				>
-			</XUICompositionMasterDetailHeader>
-		);
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should include layout restriction class, if specified', () => {
-		const wrapper = renderer.create(
-			<XUICompositionMasterDetailHeader
-				header={<div></div>}
-				master={<div></div>}
-				detail={<div></div>}
-				retainWidth='small'
-				>
-			</XUICompositionMasterDetailHeader>
-		);
-		expect(wrapper).toMatchSnapshot();
-	});
+  it('should include layout restriction class, if specified', () => {
+    const wrapper = renderer.create(
+      <XUICompositionMasterDetailHeader
+        header={<div />}
+        master={<div />}
+        detail={<div />}
+        retainWidth="small"
+      />,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });

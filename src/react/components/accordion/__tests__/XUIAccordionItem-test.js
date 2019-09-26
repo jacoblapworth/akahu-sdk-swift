@@ -36,7 +36,7 @@ describe('<XUIAccordionItem />', () => {
         }}
       >
         <XUIAccordionItem />
-      </XUIAccordionContext.Provider>
+      </XUIAccordionContext.Provider>,
     );
     expect(component).toMatchSnapshot();
   });

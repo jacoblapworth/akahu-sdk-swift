@@ -45,18 +45,18 @@ const createLinearSegmentDots = ({ total, progress, thickness }) =>
 
     return (
       <div
+        className={`${NAME_SPACE}-linear-dot`}
         // eslint-disable-next-line react/no-array-index-key
         key={index}
-        className={`${NAME_SPACE}-linear-dot`}
         style={{ margin, height }}
       >
         {/*
-					The current / progress tracks are nested inside of a "dot" element so
-					that they can be absolutely positioned centrally inside the `width: 0`
-					dot container. This allows the visual dots to overlap each other when
-					there are too many to space evenly. When flexing the items they "squish"
-					at condensed sizes.
-				*/}
+          The current / progress tracks are nested inside of a "dot" element so
+          that they can be absolutely positioned centrally inside the `width: 0`
+          dot container. This allows the visual dots to overlap each other when
+          there are too many to space evenly. When flexing the items they "squish"
+          at condensed sizes.
+        */}
         <div className={itemClasses} style={{ height, left, width }} />
       </div>
     );
@@ -77,9 +77,9 @@ const createLinearSegmentDashes = ({ total, progress, thickness }) =>
 
     return (
       <div
+        className={itemClasses}
         // eslint-disable-next-line react/no-array-index-key
         key={index}
-        className={itemClasses}
         style={{ margin, height }}
       />
     );
@@ -128,11 +128,12 @@ LinearTrack.propTypes = {
   ...dashProps,
   isSegmented: PropTypes.bool,
   elementHeight: PropTypes.number,
-  thickness: PropTypes.number,
 };
 
+/* eslint-disable react/default-props-match-prop-types */
 LinearTrack.defaultProps = {
   thickness: DEFAULT_THICKNESS,
 };
+/* eslint-enable react/default-props-match-prop-types */
 
 export default WithLinearGrowth(LinearTrack);

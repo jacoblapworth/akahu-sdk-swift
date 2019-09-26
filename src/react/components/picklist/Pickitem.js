@@ -105,12 +105,12 @@ export default class Pickitem extends PureComponent {
 
     return (
       <Tag
-        className={classes}
-        aria-selected={validatedMultiselect ? isSelected : null}
-        role={itemRole}
-        id={id}
-        data-automationid={qaHook}
         aria-label={ariaLabel}
+        aria-selected={validatedMultiselect ? isSelected : null}
+        className={classes}
+        data-automationid={qaHook}
+        id={id}
+        role={itemRole}
       >
         <BodyComponent
           {...{
@@ -125,12 +125,12 @@ export default class Pickitem extends PureComponent {
             ...pickitemBodyProps,
             ...listeners,
           }}
+          headingElement={headingWrapped}
           leftElement={wrappedLeft}
+          pinnedElement={pinnedWrapped}
           qaHook={qaHook && `${qaHook}--body`}
           rightElement={wrappedRight}
           secondaryElement={secondaryWrapped}
-          pinnedElement={pinnedWrapped}
-          headingElement={headingWrapped}
         >
           {children}
         </BodyComponent>

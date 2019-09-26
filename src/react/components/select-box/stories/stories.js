@@ -23,7 +23,7 @@ function createItems(settings) {
   }
   items.props.id += suffix || '';
   return (
-    <SelectBoxOption {...items.props} value={items.props.id} key={items.props.id} size={size}>
+    <SelectBoxOption {...items.props} key={items.props.id} size={size} value={items.props.id}>
       {items.text}
     </SelectBoxOption>
   );
@@ -33,7 +33,7 @@ const toggledItems = AddIdPropsToTextList(LongListLongItems);
 
 const button = (
   <span className="xui-u-flex">
-    <XUIIcon icon={education} className="xui-margin-right-xsmall" />
+    <XUIIcon className="xui-margin-right-xsmall" icon={education} />
     Choose a classic book
   </span>
 );
@@ -47,33 +47,33 @@ storiesWithKnobs.add('Playground', () => {
   const fullWidth = select('fullWidth', ['always', 'small-down', 'never']);
   return (
     <SelectBox
-      label={text('label', 'Label for the select box')}
-      isLabelHidden={boolean('isLabelHidden', false)}
       buttonClasses={text('buttonClasses', '')}
-      containerClasses={text('containerClasses', '')}
-      dropDownClasses={text('dropDownClasses', '')}
-      inputGroupClasses={text('inputGroupClasses', '')}
+      buttonContent={
+        <span className="xui-u-flex">
+          <XUIIcon className="xui-margin-right-xsmall" icon={education} />
+          {text('placeholder text', 'Choose a classic book')}
+        </span>
+      }
       buttonVariant={
         select('buttonVariant', ['none', ...Object.keys(variantClassNames)], 'none') === 'none'
           ? undefined
           : select('buttonVariant', ['none', ...Object.keys(variantClassNames)], 'none')
       }
-      isTextTruncated={boolean('isTextTruncated', false)}
-      matchTriggerWidth={boolean('matchTriggerWidth', true)}
-      forceDesktop={boolean('forceDesktop', true)}
+      containerClasses={text('containerClasses', '')}
       defaultLayout={boolean('defaultLayout', true)}
+      dropDownClasses={text('dropDownClasses', '')}
+      forceDesktop={boolean('forceDesktop', true)}
+      fullWidth={fullWidth}
+      hintMessage={text('hintMessage', '')}
+      inputGroupClasses={text('inputGroupClasses', '')}
       isDisabled={boolean('isDisabled', false)}
       isInvalid={boolean('isInvalid', false)}
-      validationMessage={text('validationMessage', '')}
-      hintMessage={text('hintMessage', '')}
-      buttonContent={
-        <span className="xui-u-flex">
-          <XUIIcon icon={education} className="xui-margin-right-xsmall" />
-          {text('placeholder text', 'Choose a classic book')}
-        </span>
-      }
-      fullWidth={fullWidth}
+      isLabelHidden={boolean('isLabelHidden', false)}
+      isTextTruncated={boolean('isTextTruncated', false)}
+      label={text('label', 'Label for the select box')}
+      matchTriggerWidth={boolean('matchTriggerWidth', true)}
       size={size}
+      validationMessage={text('validationMessage', '')}
     >
       {createItems({ items: toggledItems, size: listItemSize })}
     </SelectBox>
@@ -105,8 +105,8 @@ variations.forEach(variation => {
       <div style={{ maxWidth: '600px', display }}>
         <SelectBox
           {...variationMinusStoryDetails}
-          label={variation.storyTitle}
           containerClasses={`xui-margin-horizontal-auto ${variation.containerClasses}`}
+          label={variation.storyTitle}
         >
           {createItems({ items, size: listItemSize })}
         </SelectBox>

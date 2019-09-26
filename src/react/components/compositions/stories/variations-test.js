@@ -1,5 +1,5 @@
-import {variations} from "./variations";
+import { variations } from './variations';
 
 it('Composition variations are generated correctly', () => {
-    expect(variations).toMatchSnapshot();
+  expect(variations).toMatchSnapshot();
 });

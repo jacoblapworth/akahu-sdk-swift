@@ -262,13 +262,13 @@ class ChartScaffold extends PureComponent {
     } = params;
 
     return (
-      <div data-automationid={qaHook} className={chartClassName}>
+      <div className={chartClassName} data-automationid={qaHook}>
         {hasChartHeader && (
           <div className={`${NAME_SPACE}-chart--header`}>
             {hasChartTitle && (
               <h2
-                data-automationid={qaHook && `${qaHook}--title`}
                 className={`${NAME_SPACE}-chart--title`}
+                data-automationid={qaHook && `${qaHook}--title`}
               >
                 {chartTitle}
               </h2>
@@ -276,23 +276,23 @@ class ChartScaffold extends PureComponent {
 
             {hasPagination && (
               <ContentPagination
-                qaHook={qaHook && `${qaHook}--pagination`}
-                current={panelCurrent}
-                total={panelsTotal}
                 createMessage={createPaginationMessage}
-                updatePanel={this.updatePanel}
+                current={panelCurrent}
                 paginationLabel={paginationLabel}
                 paginationNextTitle={paginationNextTitle}
                 paginationPreviousTitle={paginationPreviousTitle}
+                qaHook={qaHook && `${qaHook}--pagination`}
+                total={panelsTotal}
+                updatePanel={this.updatePanel}
               />
             )}
 
             {hasKey && (
               <ChartKey
+                colors={barColorStacks}
+                labels={keyLabel}
                 qaHook={qaHook && `${qaHook}--key`}
                 title={keyTitle}
-                labels={keyLabel}
-                colors={barColorStacks}
               />
             )}
           </div>
@@ -376,36 +376,36 @@ class ChartScaffold extends PureComponent {
               //           ------------->  s c r o l l  t o  v i e w  ------------->
             }
             <VictoryChart
-              theme={chartTheme}
+              containerComponent={
+                <VictoryContainer desc={chartDescription} responsive title={chartTitle} />
+              }
               // Push bars "middle" alignment back into the graph "bar" area.
               // We are controlling this via bespoke components and therefore reset
               // everything back to zero.
               domainPadding={{ x: 0 }}
               // Height of the "svg" graph (px).
               height={chartHeight}
-              width={chartWidth}
               // The space around the "bar" area and the rest of the graph.
               padding={chartPadding}
-              containerComponent={
-                <VictoryContainer responsive title={chartTitle} desc={chartDescription} />
-              }
+              theme={chartTheme}
+              width={chartWidth}
             >
               <VictoryAxis
-                dependentAxis
-                orientation="left"
-                scale={{ y: 'linear' }}
-                padding={chartPadding}
-                tickFormat={createYAxisLabelFormat}
-                tickValues={yAxisTickValues}
-                groupComponent={
-                  <g
-                    data-automationid={qaHook && `${qaHook}--yaxis`}
-                    className={`${NAME_SPACE}-chart--yaxis`}
-                  />
-                }
-                tickLabelComponent={<VictoryLabel className={`${NAME_SPACE}-chart--measure`} />}
                 // Add the zero at the start of the axis (is hidden by default).
                 crossAxis={false}
+                dependentAxis
+                groupComponent={
+                  <g
+                    className={`${NAME_SPACE}-chart--yaxis`}
+                    data-automationid={qaHook && `${qaHook}--yaxis`}
+                  />
+                }
+                orientation="left"
+                padding={chartPadding}
+                scale={{ y: 'linear' }}
+                tickFormat={createYAxisLabelFormat}
+                tickLabelComponent={<VictoryLabel className={`${NAME_SPACE}-chart--measure`} />}
+                tickValues={yAxisTickValues}
               />
             </VictoryChart>
 
@@ -421,12 +421,12 @@ class ChartScaffold extends PureComponent {
 
             <div
               className={`${NAME_SPACE}-chart--content`}
+              onScroll={this.throttledContentScroll}
               ref={node => (this.contentNode = node)}
               style={{
                 left: `${chartLeft}px`,
                 width: `${panelWidth}px`,
               }}
-              onScroll={this.throttledContentScroll}
             >
               <div
                 className={`${NAME_SPACE}-chart--scroll`}
@@ -437,18 +437,9 @@ class ChartScaffold extends PureComponent {
                 }}
               >
                 <VictoryChart
-                  theme={chartTheme}
-                  // Push bars "middle" alignment back into the graph "bar" area.
-                  // We are controlling this via bespoke components and therefore reset
-                  // everything back to zero.
-                  domainPadding={{ x: 0 }}
-                  // Height of the "svg" graph (px).
-                  height={chartHeight}
-                  width={barsWidth}
-                  // The space around the "bar" area and the rest of the graph.
-                  padding={chartPadding}
                   containerComponent={
                     <VictoryContainer
+                      desc={chartDescription}
                       // We want the content to spill out of the charting bounds
                       // (due to our responsive scrolling system). In that regard
                       // we turn off then "responsive" flag which removes the
@@ -456,67 +447,76 @@ class ChartScaffold extends PureComponent {
                       // on our static sizes that we measure.
                       responsive={false}
                       title={chartTitle}
-                      desc={chartDescription}
                     />
                   }
+                  // Push bars "middle" alignment back into the graph "bar" area.
+                  // We are controlling this via bespoke components and therefore reset
+                  // everything back to zero.
+                  domainPadding={{ x: 0 }}
+                  // Height of the "svg" graph (px).
+                  height={chartHeight}
+                  // The space around the "bar" area and the rest of the graph.
+                  padding={chartPadding}
+                  theme={chartTheme}
+                  width={barsWidth}
                 >
                   <VictoryAxis
                     dependentAxis={false}
-                    orientation="bottom"
-                    scale={{ x: 'linear' }}
-                    padding={chartPadding}
-                    width={barsWidth}
-                    tickValues={xAxisTickValues}
-                    groupComponent={
-                      <g
-                        data-automationid={qaHook && `${qaHook}--xaxis`}
-                        className={`${NAME_SPACE}-chart--xaxis`}
-                      />
-                    }
                     gridComponent={
                       <Line
-                        type="grid"
                         style={{
                           stroke: 'transparent',
                           strokeWidth: 0,
                         }}
+                        type="grid"
                       />
                     }
+                    groupComponent={
+                      <g
+                        className={`${NAME_SPACE}-chart--xaxis`}
+                        data-automationid={qaHook && `${qaHook}--xaxis`}
+                      />
+                    }
+                    orientation="bottom"
+                    padding={chartPadding}
+                    scale={{ x: 'linear' }}
                     tickLabelComponent={
                       <XAxisLabel
-                        labelWidth={barWidth}
-                        labelTop={chartHeight - chartBottom}
-                        labelHeight={chartBottom}
-                        isToolTipHidden={isXAxisToolTipHidden}
-                        updateToolTip={this.updateToolTip}
                         barsData={barsData}
+                        isToolTipHidden={isXAxisToolTipHidden}
+                        labelHeight={chartBottom}
+                        labelTop={chartHeight - chartBottom}
+                        labelWidth={barWidth}
+                        updateToolTip={this.updateToolTip}
                       />
                     }
+                    tickValues={xAxisTickValues}
+                    width={barsWidth}
                   />
 
                   <VictoryBar
                     data={barsData}
-                    groupComponent={
-                      <g
-                        data-automationid={qaHook && `${qaHook}--bars`}
-                        className={`${NAME_SPACE}-chart--bars`}
-                      />
-                    }
                     dataComponent={
                       <StackedBar
-                        chartId={chartId}
-                        isBarStacked={isBarStacked}
-                        yAxisTickValues={yAxisTickValues}
-                        yAxisHeight={yAxisHeight}
-                        colorStacks={barColorStacks}
-                        colorActive={barColorActive}
-                        onBarClick={onBarClick}
                         activeBars={activeBars}
                         barWidth={barWidth}
-                        padding={chartPadding}
-                        isToolTipHidden={isBarToolTipHidden}
+                        chartId={chartId}
+                        colorActive={barColorActive}
+                        colorStacks={barColorStacks}
                         createToolTipMessage={createBarToolTipMessage}
+                        isBarStacked={isBarStacked}
+                        isToolTipHidden={isBarToolTipHidden}
+                        onBarClick={onBarClick}
+                        padding={chartPadding}
                         updateToolTip={this.updateToolTip}
+                        yAxisHeight={yAxisHeight}
+                        yAxisTickValues={yAxisTickValues}
+                      />
+                    }
+                    groupComponent={
+                      <g
+                        className={`${NAME_SPACE}-chart--bars`}
+                        data-automationid={qaHook && `${qaHook}--bars`}
                       />
                     }
                   />
@@ -528,7 +528,6 @@ class ChartScaffold extends PureComponent {
           {hasToolTip && (
             <GraphTooltip
               {...toolTipPosition}
-              qaHook={qaHook}
               message={toolTipMessage}
               // Describes the current state of the contents horizontal scroll for
               // either a native or pagination system. This is needed to get an
@@ -538,6 +537,7 @@ class ChartScaffold extends PureComponent {
               // overflow edge cases that are frequently encountered on each edge
               // of the wrapping container.
               offset={this.findScrollOffset(params) - chartLeft}
+              qaHook={qaHook}
             />
           )}
         </div>

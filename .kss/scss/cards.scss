@@ -1,54 +1,51 @@
 // scss-lint:disable Prefix
-@import "../../src/sass/mixins";
-@import "../../src/sass/vars";
-
+@import '../../src/sass/mixins';
+@import '../../src/sass/vars';
 
 // Outdent to compensate for padding on each card
 .ds-card-wrapper {
-	margin-left: -10px;
-	margin-right: -10px;
-	@include xui-breakpoint-large-up {
-		@include embiggen;
-	}
+  margin-left: -10px;
+  margin-right: -10px;
+  @include xui-breakpoint-large-up {
+    @include embiggen;
+  }
 }
 
 .ds-card {
-	background: $xui-color-white;
-	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-border-all;
-	cursor: pointer;
-	flex-direction: column;
-	flex: 1;
-	margin: $xui-s-xsmall;
-	min-height: 8rem;
-	max-width: calc(50% - 20px);
-	min-width: calc(100% - 20px);
-	position: relative;
-	overflow: hidden;
-	text-decoration: none;
-	width: map-get($xui-width-variants-dropdown, medium);
+  background: $xui-color-white;
+  border-radius: $xui-radius;
+  box-shadow: $xui-shadow-border-all;
+  cursor: pointer;
+  flex-direction: column;
+  flex: 1;
+  margin: $xui-s-xsmall;
+  min-height: 8rem;
+  max-width: calc(50% - 20px);
+  min-width: calc(100% - 20px);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  width: map-get($xui-width-variants-dropdown, medium);
 
-	&:hover {
-		background: $ds-card-hover-bg-color;
-	}
+  &:hover {
+    background: $ds-card-hover-bg-color;
+  }
 
-	@include xui-breakpoint-small-up {
-		min-width: calc(50% - 20px);
-	}
+  @include xui-breakpoint-small-up {
+    min-width: calc(50% - 20px);
+  }
 
-	@include xui-breakpoint-large-up {
-		max-width: calc(33.33% - 20px);
-		min-width: calc(33.33% - 20px);
-	}
-	.ds-card-content {
-		line-height: 1.8;
-		margin-top: $xui-s-xsmall;
-	}
+  @include xui-breakpoint-large-up {
+    max-width: calc(33.33% - 20px);
+    min-width: calc(33.33% - 20px);
+  }
+  .ds-card-content {
+    line-height: 1.8;
+    margin-top: $xui-s-xsmall;
+  }
 }
 
-
-
 .ds-card-wrapper {
-	flex-flow: wrap;
-	display: flex;
+  flex-flow: wrap;
+  display: flex;
 }

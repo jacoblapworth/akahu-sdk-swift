@@ -1,72 +1,72 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Text Content
 
 .#{$ns}-textcontent {
-	font-size: $xui-font-size-medium;
-	line-height: $xui-line-height;
+  font-size: $xui-font-size-medium;
+  line-height: $xui-line-height;
 
-	* {
-		margin: 1em 0 0;
-	}
+  * {
+    margin: 1em 0 0;
+  }
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		margin-top: 2em;
-	}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2em;
+  }
 
-	h1 {
-		@include xui-text-spacing-tight;
-		@include xui-heading-xlarge;
-	}
+  h1 {
+    @include xui-text-spacing-tight;
+    @include xui-heading-xlarge;
+  }
 
-	h2 {
-		@include xui-text-spacing-tight;
-		@include xui-heading-large;
-	}
+  h2 {
+    @include xui-text-spacing-tight;
+    @include xui-heading-large;
+  }
 
-	h3 {
-		@include xui-heading-medium;
-	}
+  h3 {
+    @include xui-heading-medium;
+  }
 
-	h4 {
-		@include xui-heading-small;
-	}
+  h4 {
+    @include xui-heading-small;
+  }
 
-	h5 {
-		@include xui-text-muted;
-		@include xui-text-deemphasis;
+  h5 {
+    @include xui-text-muted;
+    @include xui-text-deemphasis;
 
-		font-size: $xui-font-size-medium;
-		line-height: $xui-line-height-compact;
-	}
+    font-size: $xui-font-size-medium;
+    line-height: $xui-line-height-compact;
+  }
 
-	h6 {
-		@include xui-heading-xsmall;
-	}
+  h6 {
+    @include xui-heading-xsmall;
+  }
 
-	hr {
-		background: $xui-color-grey-6;
-		border: 0;
-		height: 1px;
-		margin: 3rem 0;
-		width: 100%;
-	}
+  hr {
+    background: $xui-color-grey-6;
+    border: 0;
+    height: 1px;
+    margin: 3rem 0;
+    width: 100%;
+  }
 
-	dt {
-		font-weight: bold;
+  dt {
+    font-weight: bold;
 
-		&::after {
-			content: ":";
-		}
-	}
+    &::after {
+      content: ':';
+    }
+  }
 
-	dd {
-		margin-left: 1em;
-	}
+  dd {
+    margin-left: 1em;
+  }
 }

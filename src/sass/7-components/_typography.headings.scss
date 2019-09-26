@@ -1,58 +1,57 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Presets
 // TODO: Review whether these are components or not
 
-
 .#{$ns}-heading-panel {
-	@include xui-heading-medium;
-	// other specific stuff to this element might go here???
+  @include xui-heading-medium;
+  // other specific stuff to this element might go here???
 }
 
 .#{$ns}-heading-section {
-	color: $xui-text-primary-color;
-	font-size: $xui-font-size-medium;
-	font-weight: $xui-font-weight-deemphasis;
+  color: $xui-text-primary-color;
+  font-size: $xui-font-size-medium;
+  font-weight: $xui-font-weight-deemphasis;
 }
 
 .#{$ns}-heading-item {
-	@include xui-heading-small;
-	// other specific stuff to this element might go here???
+  @include xui-heading-small;
+  // other specific stuff to this element might go here???
 }
 
 .#{$ns}-heading-separator {
-	@include xui-heading-small;
-	@include xui-text-deemphasis;
-	@include xui-text-muted;
+  @include xui-heading-small;
+  @include xui-text-deemphasis;
+  @include xui-text-muted;
 }
 
 // Generic Headings
 
 .#{$ns}-heading-xsmall {
-	@include xui-heading-xsmall;
+  @include xui-heading-xsmall;
 }
 
 .#{$ns}-heading-small {
-	@include xui-heading-small;
+  @include xui-heading-small;
 }
 
 .#{$ns}-heading-medium {
-	@include xui-heading-medium;
+  @include xui-heading-medium;
 }
 
 .#{$ns}-heading-large {
-	@include xui-heading-large;
+  @include xui-heading-large;
 }
 
 .#{$ns}-heading-xlarge {
-	@include xui-heading-xlarge;
+  @include xui-heading-xlarge;
 }
 
 .#{$ns}-heading-2xlarge {
-	@include xui-heading-2xlarge;
+  @include xui-heading-2xlarge;
 }
 
 .#{$ns}-heading-3xlarge {
-	@include xui-heading-3xlarge;
+  @include xui-heading-3xlarge;
 }

@@ -27,12 +27,12 @@ export default function XUIIcon(props) {
 
   const svgElement = (
     <svg
+      className={svgClasses}
       data-automationid={qaHook}
       focusable="false"
-      className={svgClasses}
-      width={icon.width * sizeMultiplier}
       height={icon.height * sizeMultiplier}
       viewBox={`0 0 ${icon.width} ${icon.height}`}
+      width={icon.width * sizeMultiplier}
     >
       {optionalTitle}
       {optionalDescription}

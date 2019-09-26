@@ -5,14 +5,13 @@ const { taskRunner } = require('../helpers');
 const asyncExec = promisify(exec);
 
 function chromeKiller() {
-	return taskRunner(
-		() =>
-			asyncExec(
-				'./node_modules/.bin/chrome-killer --no-chrome --including-main-process',
-				{ stdio: [0, 1, 2] }
-			),
-		__filename
-	);
+  return taskRunner(
+    () =>
+      asyncExec('./node_modules/.bin/chrome-killer --no-chrome --including-main-process', {
+        stdio: [0, 1, 2],
+      }),
+    __filename,
+  );
 }
 
 module.exports = chromeKiller;

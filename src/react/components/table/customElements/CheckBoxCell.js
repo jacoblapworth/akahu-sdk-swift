@@ -32,10 +32,10 @@ export default class CheckBoxCell extends PureComponent {
         <XUICheckbox
           className={`${NAME_SPACE}--checkbox-body`}
           isChecked={isChecked}
-          onChange={this.handleChange}
-          tabIndex={0}
           isGrouped
           isLabelHidden
+          onChange={this.handleChange}
+          tabIndex={0}
         >
           {checkOneRowLabel}
         </XUICheckbox>

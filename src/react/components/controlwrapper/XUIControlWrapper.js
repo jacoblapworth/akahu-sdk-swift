@@ -6,7 +6,6 @@ import { ns } from '../helpers/xuiClassNamespace';
 import LabelElement from './private/LabelElement';
 import MessageElement from './private/MessageElement';
 
-/* eslint-disable max-len */
 /**
  * @public
  * Get the collection of aria attributes to be applied to the control.
@@ -16,7 +15,6 @@ import MessageElement from './private/MessageElement';
  * @param {Boolean} isGroup - Whether or not this label is for a group of controls
  * @returns {{aria-invalid: boolean, aria-label: string, aria-labelledby: string, aria-describedby: string}}
  */
-/* eslint-enable max-len */
 export function getAriaAttributes(ids, props, groupedSetting = {}) {
   const { isGroup } = groupedSetting;
   const { label, isLabelHidden, validationMessage, hintMessage, labelId, isInvalid } = props;
@@ -78,8 +76,8 @@ export default class XUIControlWrapper extends PureComponent {
       /* eslint-disable jsx-a11y/no-static-element-interactions */
       <div
         className={rootClasses}
-        onKeyDown={onKeyDown}
         onClick={onClick}
+        onKeyDown={onKeyDown}
         role={(onClick || onKeyDown) && 'presentation'}
       >
         <LabelElement

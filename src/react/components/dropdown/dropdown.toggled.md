@@ -58,7 +58,7 @@ const toggledItems = [
   'Watermelon',
   'Xi gua',
   'Yellow Squash',
-  'Zucchini',
+  'Zucchini'
 ].map((text, id) => {
   return { props: { id }, text };
 });
@@ -67,7 +67,7 @@ class ToggledDropDown extends Component {
   constructor(...args) {
     super(...args);
     this.state = {
-      selectedId: null,
+      selectedId: null
     };
     this.logOpen = this.logOpen.bind(this);
     this.onSelect = this.onSelect.bind(this);
@@ -75,7 +75,7 @@ class ToggledDropDown extends Component {
 
   onSelect(value) {
     this.setState({
-      selectedId: value,
+      selectedId: value
     });
   }
 
@@ -121,7 +121,7 @@ const items = [
   { id: 'a', text: 'First' },
   { id: 'b', text: 'Second' },
   { id: 'c', text: 'Third' },
-  { id: 'd', text: 'Fourth' },
+  { id: 'd', text: 'Fourth' }
 ];
 
 class MultiselectExample extends Component {
@@ -133,8 +133,8 @@ class MultiselectExample extends Component {
         a: false,
         b: false,
         c: false,
-        d: false,
-      },
+        d: false
+      }
     };
 
     this.onSelect = this.onSelect.bind(this);
@@ -144,8 +144,8 @@ class MultiselectExample extends Component {
     this.setState(state => ({
       selected: {
         ...state.selected,
-        [value]: !state.selected[value],
-      },
+        [value]: !state.selected[value]
+      }
     }));
   }
 
@@ -211,7 +211,7 @@ const months = [
   'Sep',
   'Oct',
   'Nov',
-  'Dec',
+  'Dec'
 ];
 
 const formatDate = date => `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
@@ -224,7 +224,7 @@ class SimpleDropDownDatePicker extends Component {
 
     this.state = {
       selectedDate: today,
-      currentMonth: new Date(),
+      currentMonth: new Date()
     };
 
     this.onSelectDate = this.onSelectDate.bind(this);
@@ -238,7 +238,7 @@ class SimpleDropDownDatePicker extends Component {
   onSelectDate(day) {
     this.setState({
       selectedDate: day,
-      currentMonth: day,
+      currentMonth: day
     });
     this.ddt.current.closeDropDown();
   }
@@ -320,7 +320,7 @@ const items = [
   'Watermelon',
   'Xi gua',
   'Yellow quash',
-  'Zucchini',
+  'Zucchini'
 ].map((text, id) => {
   return { id, text };
 });
@@ -331,7 +331,7 @@ class InputTriggerExample extends Component {
 
     this.state = {
       inputValue: '',
-      selectedId: null,
+      selectedId: null
     };
 
     this.onInputChange = this.onInputChange.bind(this);
@@ -348,7 +348,7 @@ class InputTriggerExample extends Component {
     }
     this.setState({
       inputValue: event.target.value,
-      isInvalid: invalidInput,
+      isInvalid: invalidInput
     });
   }
 
@@ -363,7 +363,7 @@ class InputTriggerExample extends Component {
   onSelect(value) {
     this.setState({
       inputValue: items.find(item => item.id === value).text,
-      selectedId: value,
+      selectedId: value
     });
   }
 

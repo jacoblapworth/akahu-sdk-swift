@@ -246,43 +246,43 @@ class DropDownPanel extends PureComponent {
 
     return (
       <div
-        ref={this.rootNode}
+        aria-hidden={isHidden}
         className={`${baseClass}--panel`}
         data-automationid={qaHook}
-        aria-hidden={isHidden}
         id={panelId}
-        tabIndex={-1}
-        role="presentation"
         onKeyDown={this.keyDownHandler}
+        ref={this.rootNode}
+        role="presentation"
         style={style}
+        tabIndex={-1}
       >
         <div
-          onMouseUp={this.iOSHack}
-          data-automationid={qaHook && `${qaHook}--body`}
           className={cn(`${baseClass}--body`, bodyClassName)}
+          data-automationid={qaHook && `${qaHook}--body`}
+          onMouseUp={this.iOSHack}
+          role="presentation"
           style={{
             maxHeight,
           }}
-          role="presentation"
         >
           {header}
           {shouldAddStatefulPicklist ? (
             <Fragment>
               <StatefulPicklist
                 className={scrollableContainerClasses}
-                ref={this.list}
-                onSelect={onSelect}
                 ignoreKeyboardEvents={ignoreKeyboardEvents}
                 onHighlightChange={onHighlightChange}
+                onSelect={onSelect}
                 qaHook={qaHook && `${qaHook}--scrollable-container`}
+                ref={this.list}
                 // Need the role here, because ARIA state needs to be managed at the same level.
                 secondaryProps={{ role: 'listbox' }}
                 shouldManageInitialHighlight={shouldManageInitialHighlight}
               >
                 <div
                   className={`${baseClass}--scrollable-content`}
-                  ref={this._scrollableContent}
                   data-automationid={qaHook && `${qaHook}--scrollable-content`}
+                  ref={this._scrollableContent}
                 >
                   {children}
                 </div>
@@ -296,8 +296,8 @@ class DropDownPanel extends PureComponent {
             >
               <div
                 className={`${baseClass}--scrollable-content`}
-                ref={this._scrollableContent}
                 data-automationid={qaHook && `${qaHook}--scrollable-content`}
+                ref={this._scrollableContent}
               >
                 {children}
               </div>

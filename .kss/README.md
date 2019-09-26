@@ -27,8 +27,8 @@ Run kss from the CLI with custom configs or additional parameters.
 ```
 $ node --inspect-brk node_modules/kss/bin/kss --config=./config.json --builder=/Users/james.magness/dev/uxe/xui/.kss/builder/
 ```
-Using `--inspext-brk` allows you to hook Chrome devtools up for debugging, it is a standard Node.js thing and very useful. Further reading on this: [Debugging Node.js with Chrome DevTools](https://medium.com/@paul_irish/debugging-node-js-nightlies-with-chrome-devtools-7c4a1b95ae27)
 
+Using `--inspect-brk` allows you to hook Chrome devtools up for debugging, it is a standard Node.js thing and very useful. Further reading on this: [Debugging Node.js with Chrome DevTools](https://medium.com/@paul_irish/debugging-node-js-nightlies-with-chrome-devtools-7c4a1b95ae27)
 
 ## Customisations (node/handlebars)
 

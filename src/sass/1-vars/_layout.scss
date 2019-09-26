@@ -65,36 +65,36 @@ $xui-control-size-xlarge: 120px;
 // @section Class Suffixes
 // @type table
 //
-$xui-class-suffix-auto: "-auto";
-$xui-class-suffix-none: "-none";
-$xui-class-suffix-small: "-small";
-$xui-class-suffix-2xsmall: "-2xsmall";
-$xui-class-suffix-xsmall: "-xsmall";
-$xui-class-suffix-standard: "";
-$xui-class-suffix-large: "-large";
-$xui-class-suffix-xlarge: "-xlarge";
-$xui-class-suffix-2xlarge: "-2xlarge";
-$xui-class-suffix-3xlarge: "-3xlarge";
-$xui-class-suffix-4xlarge: "-4xlarge";
-$xui-class-suffix-5xlarge: "-5xlarge";
-$xui-class-suffix-6xlarge: "-6xlarge";
+$xui-class-suffix-auto: '-auto';
+$xui-class-suffix-none: '-none';
+$xui-class-suffix-small: '-small';
+$xui-class-suffix-2xsmall: '-2xsmall';
+$xui-class-suffix-xsmall: '-xsmall';
+$xui-class-suffix-standard: '';
+$xui-class-suffix-large: '-large';
+$xui-class-suffix-xlarge: '-xlarge';
+$xui-class-suffix-2xlarge: '-2xlarge';
+$xui-class-suffix-3xlarge: '-3xlarge';
+$xui-class-suffix-4xlarge: '-4xlarge';
+$xui-class-suffix-5xlarge: '-5xlarge';
+$xui-class-suffix-6xlarge: '-6xlarge';
 
 // @tokenparserstartignore
 
 $xui-s-actionlink: $xui-s-xsmall $xui-s-small;
 
 $xui-width-variants-dropdown: (
-	xsmall: 100px,
-	small: 200px,
-	medium: 300px,
-	large: 400px
+  xsmall: 100px,
+  small: 200px,
+  medium: 300px,
+  large: 400px,
 );
 
 $xui-modal-widths: (
-	small : 300px,
-	medium : 400px,
-	large : 600px,
-	xlarge : 800px
+  small: 300px,
+  medium: 400px,
+  large: 600px,
+  xlarge: 800px,
 );
 
 // @tokenparserendignore

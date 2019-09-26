@@ -1,65 +1,64 @@
-@import "../vars";
+@import '../vars';
 
 // Adds a clearfix to elements for self-clearing children https://css-tricks.com/snippets/css/clear-fix/
 @mixin xui-clearfix {
-	&::after {
-		clear: both;
-		content: "";
-		display: table;
-	}
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
 }
 
 // Can be added to a native input to visually hide it. Useful for creating inputs styled by other elements such as SVGs.
 @mixin xui-position-offscreen-input {
-	display: inline;
-	flex: none; // Preserve width when the container has display: flex on Chrome
-	height: $xui-s-xlarge;
-	left: 0 !important;
-	margin: 0 -4px 0 -9px; // Undo the width below so the element does not take up extra space. The weird -9px value is uniquely for FF on Windows
-	opacity: 0.01;
-	padding: 0;
-	position: relative !important;
-	width: 13px; // Min width of radios/checkboxes on Firefox is 4px, which sets 2px borders that cannot be undone, but due to the FF bug above this becomes the sum of the negative margins
-	z-index: -1;
+  display: inline;
+  flex: none; // Preserve width when the container has display: flex on Chrome
+  height: $xui-s-xlarge;
+  left: 0 !important;
+  margin: 0 -4px 0 -9px; // Undo the width below so the element does not take up extra space. The weird -9px value is uniquely for FF on Windows
+  opacity: 0.01;
+  padding: 0;
+  position: relative !important;
+  width: 13px; // Min width of radios/checkboxes on Firefox is 4px, which sets 2px borders that cannot be undone, but due to the FF bug above this becomes the sum of the negative margins
+  z-index: -1;
 }
 
 // scss-lint:disable ImportantRule
 @mixin xui-utility-hidden {
-	display: none !important;
-	// Screen readers sometimes ignore display:none as per
-	// http://www.456bereastreet.com/archive/200711/screen_readers_sometimes_ignore_displaynone/
-	visibility: hidden !important;
+  display: none !important;
+  // Screen readers sometimes ignore display:none as per
+  // http://www.456bereastreet.com/archive/200711/screen_readers_sometimes_ignore_displaynone/
+  visibility: hidden !important;
 }
 
 // scss-lint:disable ImportantRule
 // Visually hides an element
 @mixin xui-utility-hidden-visually {
-	border: 0 !important;
-	clip: rect(1px, 1px, 1px, 1px);
-	height: 1px !important;
-	left: 0 !important;
-	overflow: hidden;
-	padding: 0 !important;
-	position: absolute !important;
-	top: 0 !important;
-	white-space: nowrap !important; // See https://css-tricks.com/beware-smushed-off-screen-accessible-text/
-	width: 1px !important;
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px !important;
+  left: 0 !important;
+  overflow: hidden;
+  padding: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+  white-space: nowrap !important; // See https://css-tricks.com/beware-smushed-off-screen-accessible-text/
+  width: 1px !important;
 }
 
 // Visually hides text content
 // Used primarily to hide button text and simultanously
 // display a loader (to retain width)
 @mixin xui-utility-hidden-content {
-	opacity: 0;
-	pointer-events: none;
-	user-select: none;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
 }
 
 // Conditionally expose styles when CSS Grid is supported. Great for creating
 // legacy browser fallbacks.
 @mixin xui-supports-css-grid {
-
-	@supports (display: grid) {
-		@content;
-	}
+  @supports (display: grid) {
+    @content;
+  }
 }

@@ -50,63 +50,63 @@ storiesWithKnobs.add('Playground', () => {
     id: index + 1,
     primaryHeading: hasPrimaryHeading && names[index],
     secondaryHeading: hasSecondaryHeading && addresses[index],
-    leftContent: hasLeftContent && <XUIAvatar value={names[index]} className="xui-margin-right" />,
+    leftContent: hasLeftContent && <XUIAvatar className="xui-margin-right" value={names[index]} />,
     pinnedValue: hasPinnedValue && (
       <span className="xui-margin-horizontal-small">{`${3 * index}:00`}</span>
     ),
     action: hasAction && (
-      <XUIButton size="small" className="xui-margin-left-small">
+      <XUIButton className="xui-margin-left-small" size="small">
         Update
       </XUIButton>
     ),
     onItemClick: hasOnItemClick ? onItemClick : undefined,
     overflow: hasOverflow && (
       <XUIIconButton
-        icon={overflowPathData}
         ariaLabel="Overflow menu"
         className="xui-margin-left-small"
+        icon={overflowPathData}
         title="Overflow menu"
       />
     ),
     custom: hasCustom && [
       <XUIIconButton
-        icon={notificationPathData}
         ariaLabel="Overflow menu"
-        key="0"
         className="xui-margin-left-small"
+        icon={notificationPathData}
+        key="0"
         title="Overflow menu"
       />,
-      <XUIIconButton icon={copyPathData} ariaLabel="Overflow menu" key="1" title="Overflow menu" />,
+      <XUIIconButton ariaLabel="Overflow menu" icon={copyPathData} key="1" title="Overflow menu" />,
     ],
   }));
 
   return (
     <div style={{ maxWidth: '930px' }}>
       <XUIAccordion
-        items={items}
         createItem={item => (
           <XUIAccordionItem {...item}>
             {!hasEmptyState && (
               <XUIContentBlock>
                 {createArray(item.id).map((_, index) => (
                   <XUIContentBlockItem
+                    href="#"
                     key={index}
-                    primaryHeading={names[index]}
                     overflow={
                       <XUIIconButton
-                        icon={overflowPathData}
                         ariaLabel="Overflow menu"
+                        icon={overflowPathData}
                         title="Overflow menu"
                       />
                     }
                     pinnedValue={`${3 * item.id}:00`}
-                    href="#"
+                    primaryHeading={names[index]}
                   />
                 ))}
               </XUIContentBlock>
             )}
           </XUIAccordionItem>
         )}
+        items={items}
       />
     </div>
   );

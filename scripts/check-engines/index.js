@@ -5,11 +5,11 @@ const checkEnginesAsync = promisify(checkEngines);
 const { succeed, fail } = taskRunnerReturns;
 
 function runCheckEngines() {
-	return taskRunner(() => {
-		return checkEnginesAsync()
-			.then(succeed)
-			.catch(fail);
-	}, __filename);
+  return taskRunner(() => {
+    return checkEnginesAsync()
+      .then(succeed)
+      .catch(fail);
+  }, __filename);
 }
 
 module.exports = runCheckEngines;

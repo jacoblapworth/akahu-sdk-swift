@@ -4,26 +4,26 @@ import defaultBreakpoints, { widthClasses } from './breakpoints';
 const entryComponentMap = new WeakMap();
 
 const handleEntries = entries => {
-	entries.forEach(entry => {
-		// Match the DOM node with its component.
-		const entryComponent = entryComponentMap.get(entry.target);
-		// If breakpoints are defined on the observed element's component,
-		// use them. Otherwise use the defaults.
-		const customBreakpoints =
-			entryComponent._breakpoints !== undefined && entryComponent._breakpoints;
-		const breakpoints = customBreakpoints || defaultBreakpoints;
+  entries.forEach(entry => {
+    // Match the DOM node with its component.
+    const entryComponent = entryComponentMap.get(entry.target);
+    // If breakpoints are defined on the observed element's component,
+    // use them. Otherwise use the defaults.
+    const customBreakpoints =
+      entryComponent._breakpoints !== undefined && entryComponent._breakpoints;
+    const breakpoints = customBreakpoints || defaultBreakpoints;
 
-		// Update the matching breakpoints on the observed element.
-		const newState = {};
-		Object.keys(breakpoints).forEach(breakpoint => {
-			const minWidth = breakpoints[breakpoint];
-			newState[breakpoint] = entry.contentRect.width >= minWidth;
-		});
-		if (entryComponent._onResize && typeof entryComponent._onResize === 'function') {
-			entryComponent._onResize(entry.contentRect.width);
-		}
-		entryComponent.setState(newState);
-	});
+    // Update the matching breakpoints on the observed element.
+    const newState = {};
+    Object.keys(breakpoints).forEach(breakpoint => {
+      const minWidth = breakpoints[breakpoint];
+      newState[breakpoint] = entry.contentRect.width >= minWidth;
+    });
+    if (entryComponent._onResize && typeof entryComponent._onResize === 'function') {
+      entryComponent._onResize(entry.contentRect.width);
+    }
+    entryComponent.setState(newState);
+  });
 };
 
 // Create a single ResizeObserver instance to handle all
@@ -33,24 +33,24 @@ const handleEntries = entries => {
 const ro = new ResizeObserver(handleEntries);
 
 export const observe = component => {
-	const element = component && component._area && component._area.current;
-	if (!element) {
-		return;
-	}
-	entryComponentMap.set(element, component);
-	ro && ro.observe(element);
+  const element = component && component._area && component._area.current;
+  if (!element) {
+    return;
+  }
+  entryComponentMap.set(element, component);
+  ro && ro.observe(element);
 };
 
 export const unobserve = component => {
-	const element = component && component._area && component._area.current;
-	if (!element) {
-		return;
-	}
-	entryComponentMap.delete(element, component);
-	ro && ro.unobserve(element);
+  const element = component && component._area && component._area.current;
+  if (!element) {
+    return;
+  }
+  entryComponentMap.delete(element, component);
+  ro && ro.unobserve(element);
 };
 
 export const getWidthClasses = stateObj => {
-	if (!stateObj) return [];
-	return Object.keys(widthClasses).map(width => stateObj[width] && widthClasses[width]);
+  if (!stateObj) return [];
+  return Object.keys(widthClasses).map(width => stateObj[width] && widthClasses[width]);
 };

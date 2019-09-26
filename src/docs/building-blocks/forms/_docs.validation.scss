@@ -9,9 +9,6 @@
 //
 // Styleguide: Compounds.CollectingInput.Forms.7
 
-
-
-
 // Feedback on fields
 //
 // Add `xui-textinput-is-invalid`, or similar `-is-invalid` classname to controls to display their error state. For text input groups, if the problem is with a group, as a whole, add the class to all nested inputs. For Switches, adding `xui-switch-group-is-invalid` to the group wrapper will set the validity state for all children and messages. For Checkboxes and Radios, adding `xui-styledcheckboxradio-group-is-invalid` serves the same purpose.
@@ -201,7 +198,6 @@
 //
 // Styleguide: Compounds.CollectingInput.Forms.7.4
 
-
 // Feedback in modals
 //
 // Identifying errors on submission of complex, non-linear documents can sometimes be tricky. Use a small modal dialog to provide feedback _and_ capture the information.
@@ -234,9 +230,6 @@
 //
 // Styleguide: Compounds.CollectingInput.Forms.7.2
 
-
-
-
 // Other feedback options
 //
 // Tips:
@@ -245,7 +238,6 @@
 // Warning: Only prevent submission if fields are few and requirements very clear
 //
 // Styleguide: Compounds.CollectingInput.Forms.7.3
-
 
 // Classes:
 // xui-validation: Used to style text below inputs (to clarify format or provide supporting info)

@@ -50,8 +50,8 @@ export default class XUICheckboxGroup extends PureComponent {
     return (
       <XUIControlWrapper
         fieldClassName={fieldClassName}
-        wrapperIds={this.wrapperIds}
         isGroup
+        wrapperIds={this.wrapperIds}
         {...{
           qaHook,
           label,

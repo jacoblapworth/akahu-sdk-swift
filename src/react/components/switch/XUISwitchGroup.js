@@ -43,8 +43,8 @@ export default class XUISwitchGroup extends PureComponent {
     return (
       <XUIControlWrapper
         fieldClassName={fieldClassName}
-        wrapperIds={this.wrapperIds}
         isGroup
+        wrapperIds={this.wrapperIds}
         {...{
           qaHook,
           label,

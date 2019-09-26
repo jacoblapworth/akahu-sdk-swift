@@ -66,8 +66,8 @@ export default class XUIAccordionItem extends PureComponent {
               onItemClick,
               onItemClickArgs,
             }}
-            updateOpenAccordionItem={this.onItemClick}
             qaHook={qaHook && `${qaHook}-trigger`}
+            updateOpenAccordionItem={this.onItemClick}
           />
         }
       >

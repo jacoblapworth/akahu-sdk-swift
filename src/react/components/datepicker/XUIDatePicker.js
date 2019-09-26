@@ -19,7 +19,6 @@ import { ns } from '../helpers/xuiClassNamespace';
 const customCaptionElement = <CustomCaption />;
 const customWeekdayElement = <CustomWeekday />;
 
-/* eslint-disable max-len */
 /**
  * This is the collection of modifiers necessary when selecting a date range.
  *
@@ -83,7 +82,6 @@ function getRangeModifiers(range, hoverDate, isDayDisabled) {
       !isDayDisabled(day) && !isStartOfPartialRange(day, range),
   };
 }
-/* eslint-enable max-len */
 
 /**
  * This is the collection of modifiers necessary when selecting a single date.
@@ -239,9 +237,9 @@ export default class XUIDatePicker extends PureComponent {
     const dateTime = formatDateISO(day);
     return (
       <time
-        ref={n => (this.dateRefs[dateTime] = n)}
-        dateTime={dateTime}
         className={`${ns}-datepicker--day--time`}
+        dateTime={dateTime}
+        ref={n => (this.dateRefs[dateTime] = n)}
       >
         {day.getDate()}
       </time>
@@ -274,13 +272,13 @@ export default class XUIDatePicker extends PureComponent {
     const selectedDays = [];
     const customNavbarElement = (
       <CustomNavbar
-        isCompact={isCompact}
         classNames={customClassNames}
-        onMonthSelect={this.onMonthChange}
-        minDate={minDate}
-        maxDate={maxDate}
-        months={months}
+        isCompact={isCompact}
         locale={locale}
+        maxDate={maxDate}
+        minDate={minDate}
+        months={months}
+        onMonthSelect={this.onMonthChange}
         qaHook={qaHook}
       />
     );
@@ -310,7 +308,7 @@ export default class XUIDatePicker extends PureComponent {
         }}
         dir={dir}
         disabledDays={this.isDayDisabled}
-        showOutsideDays={showDaysInOtherMonths}
+        enableOutsideDaysClick={false}
         firstDayOfWeek={firstDayOfWeek}
         fixedWeeks={showFixedNumberOfWeeks}
         fromMonth={minDate}
@@ -318,7 +316,6 @@ export default class XUIDatePicker extends PureComponent {
           nextMonth: nextButtonLabel,
           previousMonth: prevButtonLabel,
         }}
-        enableOutsideDaysClick={false}
         locale={locale}
         modifiers={modifiers}
         month={this.state.currentMonth}
@@ -331,6 +328,7 @@ export default class XUIDatePicker extends PureComponent {
         ref={c => (this.dayPicker = c)}
         renderDay={this.renderDay}
         selectedDays={selectedDays}
+        showOutsideDays={showDaysInOtherMonths}
         toMonth={maxDate}
         weekdayElement={customWeekdayElement}
         weekdaysLong={weekdaysLong}

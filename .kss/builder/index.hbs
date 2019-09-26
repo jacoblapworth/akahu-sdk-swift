@@ -86,12 +86,12 @@
 						<span>{{header}}</span>
 						{{#if flags}}
 							{{#renderFlags flags}}
-								<span class="ds-flag {{#if flag.shortName}}{{getStatusClass flag.shortName}}{{/if}}">
+								<a href="./section-getting-started.html#getting-started-5" class="ds-flag {{#if flag.shortName}}{{getStatusClass flag.shortName}}{{/if}}">
 										{{flag.label}}
 										{{#if flag.desc}}
 											<button class="hover-tooltip xui-button">{{flag.desc}}</button>
 										{{/if}}
-								</span>
+								</a>
 							{{/renderFlags}}
 						{{/if}}
 					</h{{depth}}>
@@ -283,6 +283,16 @@
 			</div>
 			{{/if}}
 
+			{{#ifStyleguide "Getting Started.5" }}
+				<div class="kss-style ds-section-part">
+					<dl class="ds-definition ds-definition-two-cols">
+						{{#renderFlagDefs}}
+							<dt class="ds-definition--term">{{definition.dt}}</dt>
+							<dd class="ds-definition--description">{{definition.dd }}</dd>
+						{{/renderFlagDefs}}
+					</dl>
+				</div>
+			{{/ifStyleguide}}
 			{{#ifStyleguide "Fundamentals.Icons.7" }}
 				{{xuiIconDocs}}
 			{{/ifStyleguide}}

@@ -226,6 +226,17 @@ const variations = [
         hasHeaderClassName: true,
         tableProps,
       },
+      {
+        columns: 3,
+        tableProps: {
+          ...tableProps,
+          data: {
+            ...data,
+            0: { rowClassName: 'xui-table-visualTesting-row' },
+            2: { rowClassName: 'xui-table-visualTesting-row' },
+          },
+        },
+      },
     ],
   },
 

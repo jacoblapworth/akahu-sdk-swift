@@ -1,5 +1,5 @@
 module.exports = {
-	globals: {
-		Promise: false
-	}
-}
+  globals: {
+    Promise: false,
+  },
+};

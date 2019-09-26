@@ -1,46 +1,50 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 .#{$ns}-button-icon {
-	@include xui-button-icon-states;
-	align-items: center;
-	border-radius: 50%;
-	color: $xui-button-icon-color;
-	display: inline-flex;
-	flex-shrink: 0;
-	justify-content: center;
-	position: relative;
+  @include xui-button-icon-states;
+  align-items: center;
+  border-radius: 50%;
+  color: $xui-button-icon-color;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  position: relative;
 
-	.#{$ns}-icon {
-		display: block;
-	}
+  .#{$ns}-icon {
+    display: block;
+  }
 
-	&.#{$ns}-button-is-disabled {
-		@include xui-button-is-disabled(none, $xui-button-icon-disabled-color, initial);
-	}
+  &.#{$ns}-button-is-disabled {
+    @include xui-button-is-disabled(none, $xui-button-icon-disabled-color, initial);
+  }
 
-	&-inverted {
-		@include xui-button-icon-states($xui-color-white, $xui-button-borderless-inverted-focus-bg-color, $xui-button-borderless-inverted-active-bg-color, $xui-button-borderless-inverted-focus-bg-color);
-		color: $xui-button-icon-inverted-color;
+  &-inverted {
+    @include xui-button-icon-states(
+      $xui-color-white,
+      $xui-button-borderless-inverted-focus-bg-color,
+      $xui-button-borderless-inverted-active-bg-color,
+      $xui-button-borderless-inverted-focus-bg-color
+    );
+    color: $xui-button-icon-inverted-color;
 
-		&.#{$ns}-button-is-disabled {
-			@include xui-button-is-disabled(none, $xui-button-icon-inverted-disabled-color, initial);
-		}
-	}
-
+    &.#{$ns}-button-is-disabled {
+      @include xui-button-is-disabled(none, $xui-button-icon-inverted-disabled-color, initial);
+    }
+  }
 }
 
 .#{$ns}-button-icon-medium {
-	height: $xui-control-size-standard;
-	width: $xui-control-size-standard;
+  height: $xui-control-size-standard;
+  width: $xui-control-size-standard;
 }
 
 .#{$ns}-button-icon-small {
-	height: $xui-control-size-small;
-	width: $xui-control-size-small;
+  height: $xui-control-size-small;
+  width: $xui-control-size-small;
 }
 
 .#{$ns}-button-icon-xsmall {
-	height: $xui-control-size-xsmall;
-	width: $xui-control-size-xsmall;
+  height: $xui-control-size-xsmall;
+  width: $xui-control-size-xsmall;
 }

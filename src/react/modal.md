@@ -21,68 +21,62 @@ import XUITextInput, { XUITextInputSideElement } from './textinput';
 const exampleURL = 'https://go.xero.com/blahblahblahexamplelinkhere';
 
 class Example extends PureComponent {
-	constructor(...args) {
-		super(...args);
+  constructor(...args) {
+    super(...args);
 
-		this.state = {
-			showModal: false
-		};
-		this.showModal = this.showModal.bind(this);
-		this.hideModal = this.hideModal.bind(this);
-		this.selectAndCopy = this.selectAndCopy.bind(this);
-	}
+    this.state = {
+      showModal: false
+    };
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
+    this.selectAndCopy = this.selectAndCopy.bind(this);
+  }
 
-	showModal() {
-		this.setState({ showModal: true });
-	};
+  showModal() {
+    this.setState({ showModal: true });
+  }
 
-	hideModal() {
-		this.setState({ showModal: false });
-	};
+  hideModal() {
+    this.setState({ showModal: false });
+  }
 
-	selectAndCopy() {
-		this.input && this.input.select();
-		document.execCommand('copy');
-	};
+  selectAndCopy() {
+    this.input && this.input.select();
+    document.execCommand('copy');
+  }
 
-	render() {
-		return (
-			<div>
-				<XUIButton onClick={this.showModal}>Read-only modal</XUIButton>
-				<XUIModal isOpen={this.state.showModal} onClose={this.hideModal}>
-					<XUIModalHeader qaHook="example-modal--header">Get link</XUIModalHeader>
-					<XUIModalBody qaHook="example-modal--body" className="xui-padding">
-						<div className="xui-padding-bottom">
-							Anyone with this link can view this invoice.
-						</div>
-						<XUITextInput
-							fieldClassName="xui-padding-bottom"
-							value={exampleURL}
-							inputProps={{
-								readOnly: true,
-								id: "copyUrlExampleInput"
-							}}
-							inputRef={i => this.input = i}
-							rightElement={
-								<XUITextInputSideElement type="button">
-									<XUIButton
-										onClick={this.selectAndCopy}
-										variant="primary"
-										size="small"
-									>
-										Copy
-									</XUIButton>
-								</XUITextInputSideElement>
-							}
-						/>
-					</XUIModalBody>
-				</XUIModal>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <XUIButton onClick={this.showModal}>Read-only modal</XUIButton>
+        <XUIModal isOpen={this.state.showModal} onClose={this.hideModal}>
+          <XUIModalHeader qaHook="example-modal--header">Get link</XUIModalHeader>
+          <XUIModalBody qaHook="example-modal--body" className="xui-padding">
+            <div className="xui-padding-bottom">Anyone with this link can view this invoice.</div>
+            <XUITextInput
+              fieldClassName="xui-padding-bottom"
+              value={exampleURL}
+              inputProps={{
+                readOnly: true,
+                id: 'copyUrlExampleInput'
+              }}
+              inputRef={i => (this.input = i)}
+              rightElement={
+                <XUITextInputSideElement type="button">
+                  <XUIButton onClick={this.selectAndCopy} variant="primary" size="small">
+                    Copy
+                  </XUIButton>
+                </XUITextInputSideElement>
+              }
+            />
+          </XUIModalBody>
+        </XUIModal>
+      </div>
+    );
+  }
 }
 
-<Example />
+<Example />;
 ```
 
 ### Confirmation modal
@@ -95,57 +89,55 @@ import XUIModal, { XUIModalHeader, XUIModalBody, XUIModalFooter } from './modal'
 import XUIButton from './button';
 
 class Example extends PureComponent {
-	constructor(...args) {
-		super(...args);
+  constructor(...args) {
+    super(...args);
 
-		this.state = {
-			showModal: false
-		};
-		this.toggleModal = this.toggleModal.bind(this);
-		this.hideModal = this.hideModal.bind(this);
-	}
+    this.state = {
+      showModal: false
+    };
+    this.toggleModal = this.toggleModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
+  }
 
-	toggleModal() {
-		this.setState(prevState => ({
-			showModal: !prevState.showModal
-		}));
-	};
+  toggleModal() {
+    this.setState(prevState => ({
+      showModal: !prevState.showModal
+    }));
+  }
 
-	hideModal() {
-		this.setState({ showModal: false });
-	};
+  hideModal() {
+    this.setState({ showModal: false });
+  }
 
-	render() {
-		return (
-			<div>
-				<XUIButton onClick={this.toggleModal}>Confirmation modal</XUIButton>
-				<XUIModal isOpen={this.state.showModal} onClose={this.hideModal}>
-					<XUIModalHeader qaHook="example-modal--header">Delete John Smith</XUIModalHeader>
-					<XUIModalBody qaHook="example-modal--body">
-						This cannot be undone
-					</XUIModalBody>
-					<XUIModalFooter className="xui-actions xui-actions-layout xui-padding-large" qaHook="example-modal--header">
-						<XUIButton
-							variant="negative"
-							className="xui-actions--primary"
-							onClick={this.toggleModal}
-						>
-							Delete
-						</XUIButton>
-						<XUIButton
-							className="xui-actions--secondary"
-							onClick={this.toggleModal}
-						>
-							Cancel
-						</XUIButton>
-					</XUIModalFooter>
-				</XUIModal>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <XUIButton onClick={this.toggleModal}>Confirmation modal</XUIButton>
+        <XUIModal isOpen={this.state.showModal} onClose={this.hideModal}>
+          <XUIModalHeader qaHook="example-modal--header">Delete John Smith</XUIModalHeader>
+          <XUIModalBody qaHook="example-modal--body">This cannot be undone</XUIModalBody>
+          <XUIModalFooter
+            className="xui-actions xui-actions-layout xui-padding-large"
+            qaHook="example-modal--header"
+          >
+            <XUIButton
+              variant="negative"
+              className="xui-actions--primary"
+              onClick={this.toggleModal}
+            >
+              Delete
+            </XUIButton>
+            <XUIButton className="xui-actions--secondary" onClick={this.toggleModal}>
+              Cancel
+            </XUIButton>
+          </XUIModalFooter>
+        </XUIModal>
+      </div>
+    );
+  }
 }
 
-<Example />
+<Example />;
 ```
 
 ### Modal with user input
@@ -159,52 +151,51 @@ import XUIModal, { XUIModalHeader, XUIModalBody, XUIModalFooter } from './modal'
 import XUIButton from './button';
 
 class Example extends PureComponent {
-	constructor(...args) {
-		super(...args);
+  constructor(...args) {
+    super(...args);
 
-		this.state = {
-			showModal: false
-		};
-		this.toggleModal = this.toggleModal.bind(this);
-		this.hideModal = this.hideModal.bind(this);
-	}
+    this.state = {
+      showModal: false
+    };
+    this.toggleModal = this.toggleModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
+  }
 
-	toggleModal() {
-		this.setState(prevState => ({
-			showModal: !prevState.showModal
-		}));
-	};
+  toggleModal() {
+    this.setState(prevState => ({
+      showModal: !prevState.showModal
+    }));
+  }
 
-	hideModal() {
-		this.setState({ showModal: false });
-	};
+  hideModal() {
+    this.setState({ showModal: false });
+  }
 
-	render() {
-		return (
-			<div>
-				<XUIButton onClick={this.toggleModal}>Modal with a form</XUIButton>
-				<XUIModal isOpen={this.state.showModal} onClose={this.hideModal}>
-					<XUIModalHeader>New project</XUIModalHeader>
-					<XUIModalBody>
-						<XUITextInput
-							placeholder="Give it a title"
-						/>
-					</XUIModalBody>
-					<XUIModalFooter className="xui-actions xui-actions-layout xui-padding-large">
-						<XUIButton variant="primary"
-							className="xui-actions--primary"
-							onClick={this.toggleModal}
-						>
-							Create project
-						</XUIButton>
-					</XUIModalFooter>
-				</XUIModal>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <XUIButton onClick={this.toggleModal}>Modal with a form</XUIButton>
+        <XUIModal isOpen={this.state.showModal} onClose={this.hideModal}>
+          <XUIModalHeader>New project</XUIModalHeader>
+          <XUIModalBody>
+            <XUITextInput placeholder="Give it a title" />
+          </XUIModalBody>
+          <XUIModalFooter className="xui-actions xui-actions-layout xui-padding-large">
+            <XUIButton
+              variant="primary"
+              className="xui-actions--primary"
+              onClick={this.toggleModal}
+            >
+              Create project
+            </XUIButton>
+          </XUIModalFooter>
+        </XUIModal>
+      </div>
+    );
+  }
 }
 
-<Example />
+<Example />;
 ```
 
 ### Headerless Modal
@@ -217,60 +208,62 @@ import XUIModal, { XUIModalBody, XUIModalFooter } from './modal';
 import XUIButton from './button';
 
 class Example extends PureComponent {
-	constructor(...args) {
-		super(...args);
+  constructor(...args) {
+    super(...args);
 
-		this.state = {
-			showModal: false
-		};
-		this.toggleModal = this.toggleModal.bind(this);
-		this.hideModal = this.hideModal.bind(this);
-	}
+    this.state = {
+      showModal: false
+    };
+    this.toggleModal = this.toggleModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
+  }
 
-	toggleModal() {
-		this.setState(prevState => ({
-			showModal: !prevState.showModal
-		}));
-	};
+  toggleModal() {
+    this.setState(prevState => ({
+      showModal: !prevState.showModal
+    }));
+  }
 
-	hideModal() {
-		this.setState({ showModal: false });
-	};
+  hideModal() {
+    this.setState({ showModal: false });
+  }
 
-	render() {
-		return (
-			<div>
-				<XUIButton onClick={this.toggleModal}>Modal without a header</XUIButton>
-				<XUIModal isOpen={this.state.showModal} onClose={this.hideModal} size="large">
-					<XUIModalBody>
-						<div className="xui-u-flex xui-u-flex-column xui-u-flex-align-center">
-							<img src="https://s3-ap-southeast-2.amazonaws.com/uxe-internal/spaceship_for_react_modal_demo.png" style={{maxWidth:'100%'}}/>
-							<h2>Welcome to Projects</h2>
-							<div className="xui-padding-2xlarge">
-								<p className="xui-padding-bottom"> At the moment, only you can use Projects for this Xero organisation.</p>
-								<p>To invite others to use Projects, select them from the user list and click the Projects user check box.</p>
-							</div>
-						</div>
-					</XUIModalBody>
-					<XUIModalFooter className="xui-u-flex xui-u-flex-justify-center">
-						<XUIButton
-							className="xui-margin-right"
-							variant="borderless-primary"
-						>
-							Just for me now
-						</XUIButton>
-						<XUIButton
-							variant="primary"
-							onClick={this.toggleModal}
-						>
-							Add Projects users
-						</XUIButton>
-					</XUIModalFooter>
-				</XUIModal>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <XUIButton onClick={this.toggleModal}>Modal without a header</XUIButton>
+        <XUIModal isOpen={this.state.showModal} onClose={this.hideModal} size="large">
+          <XUIModalBody>
+            <div className="xui-u-flex xui-u-flex-column xui-u-flex-align-center">
+              <img
+                src="https://s3-ap-southeast-2.amazonaws.com/uxe-internal/spaceship_for_react_modal_demo.png"
+                style={{ maxWidth: '100%' }}
+              />
+              <h2>Welcome to Projects</h2>
+              <div className="xui-padding-2xlarge">
+                <p className="xui-padding-bottom">
+                  At the moment, only you can use Projects for this Xero organisation.
+                </p>
+                <p>
+                  To invite others to use Projects, select them from the user list and click the
+                  Projects user check box.
+                </p>
+              </div>
+            </div>
+          </XUIModalBody>
+          <XUIModalFooter className="xui-u-flex xui-u-flex-justify-center">
+            <XUIButton className="xui-margin-right" variant="borderless-primary">
+              Just for me now
+            </XUIButton>
+            <XUIButton variant="primary" onClick={this.toggleModal}>
+              Add Projects users
+            </XUIButton>
+          </XUIModalFooter>
+        </XUIModal>
+      </div>
+    );
+  }
 }
 
-<Example />
+<Example />;
 ```

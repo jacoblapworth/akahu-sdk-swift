@@ -18,12 +18,12 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <XUISwitch
+    hintMessage={text('hintMessage', '')}
     isDisabled={boolean('isDisabled', false)}
+    isInvalid={boolean('isInvalid', false)}
     isLabelHidden={boolean('isLabelHidden', false)}
     isReversed={boolean('isReversed', false)}
-    isInvalid={boolean('isInvalid', false)}
     validationMessage={text('validationMessage', '')}
-    hintMessage={text('hintMessage', '')}
   >
     {text('label text', 'Sample switch label')}
   </XUISwitch>
@@ -43,16 +43,16 @@ variations.forEach(variation => {
       return (
         <div style={{ maxWidth: '600px' }}>
           <XUISwitchGroup {...groupProps}>
-            <XUISwitch onChange={NOOP} isReversed isDefaultChecked>
+            <XUISwitch isDefaultChecked isReversed onChange={NOOP}>
               One option you might try
             </XUISwitch>
-            <XUISwitch onChange={NOOP} isReversed isDisabled>
+            <XUISwitch isDisabled isReversed onChange={NOOP}>
               Another that is not an option
             </XUISwitch>
-            <XUISwitch onChange={NOOP} isReversed>
+            <XUISwitch isReversed onChange={NOOP}>
               Third option
             </XUISwitch>
-            <XUISwitch onChange={NOOP} isReversed isChecked>
+            <XUISwitch isChecked isReversed onChange={NOOP}>
               Yet another switch option, but this one is a good deal longer and may potetially wrap
               to a new line
             </XUISwitch>

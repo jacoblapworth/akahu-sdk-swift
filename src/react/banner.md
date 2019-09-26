@@ -11,14 +11,16 @@ Standard banners are given a layout class by default and with no actionale butto
 ```jsx harmony
 import XUIBanner, { XUIBannerMessage } from './banner';
 
-const onBannerClose = () => {alert( 'Standard banner closed' )};
+const onBannerClose = () => {
+  alert('Standard banner closed');
+};
 
 <div>
-	<XUIBanner>
-		<XUIBannerMessage qaHook="banner-example--message">System Message</XUIBannerMessage>
-	</XUIBanner>
-	<XUIBanner sentiment="negative" onCloseClick={onBannerClose}>
-		<XUIBannerMessage>Negative sentiment with close button</XUIBannerMessage>
-	</XUIBanner>
-</div>
+  <XUIBanner>
+    <XUIBannerMessage qaHook="banner-example--message">System Message</XUIBannerMessage>
+  </XUIBanner>
+  <XUIBanner sentiment="negative" onCloseClick={onBannerClose}>
+    <XUIBannerMessage>Negative sentiment with close button</XUIBannerMessage>
+  </XUIBanner>
+</div>;
 ```

@@ -26,7 +26,7 @@ class DetailedToast extends Component {
     const allActions =
       props.actionProps &&
       props.actionProps.map((action, i) => (
-        <XUIToastAction key={i} href="#">
+        <XUIToastAction href="#" key={i}>
           {action.text}
         </XUIToastAction>
       ));
@@ -78,22 +78,22 @@ storiesWithKnobs.add('Playground', () => {
 
   return (
     <DetailedToast
-      role={text('role', 'status')}
-      sentiment={selectedSentiment}
-      qaHook={text('qaHook', '')}
-      onCloseClick={NOOP}
-      onMouseOver={NOOP}
-      onMouseLeave={NOOP}
-      onFocus={NOOP}
-      onBlur={NOOP}
-      defaultLayout={boolean('defaultLayout', true)}
-      className={text('className', '')}
-      messageText={text('message', 'Message text')}
       actionProps={object('actions', [
         {
           text: 'Action',
         },
       ])}
+      className={text('className', '')}
+      defaultLayout={boolean('defaultLayout', true)}
+      messageText={text('message', 'Message text')}
+      onBlur={NOOP}
+      onCloseClick={NOOP}
+      onFocus={NOOP}
+      onMouseLeave={NOOP}
+      onMouseOver={NOOP}
+      qaHook={text('qaHook', '')}
+      role={text('role', 'status')}
+      sentiment={selectedSentiment}
     />
   );
 });
@@ -109,11 +109,11 @@ variations.forEach(variation => {
 
     return (
       <DetailedToast
-        onCloseClick={NOOP}
-        onMouseOver={NOOP}
-        onMouseLeave={NOOP}
-        onFocus={NOOP}
         onBlur={NOOP}
+        onCloseClick={NOOP}
+        onFocus={NOOP}
+        onMouseLeave={NOOP}
+        onMouseOver={NOOP}
         {...variationMinusStoryDetails}
       />
     );

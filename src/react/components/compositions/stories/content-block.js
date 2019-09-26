@@ -30,7 +30,7 @@ export default class ContentBlock extends PureComponent {
     const { showMediumDownButton, dropdownOptions = [], onSelectItem } = this.props;
 
     const MediumDownButton = (
-      <XUIButton className="xui-u-hidden-medium-up" variant="borderless-standard" size="small">
+      <XUIButton className="xui-u-hidden-medium-up" size="small" variant="borderless-standard">
         Filter <XUIButtonCaret />
       </XUIButton>
     );
@@ -48,44 +48,44 @@ export default class ContentBlock extends PureComponent {
     );
 
     const toggledDropdown = showMediumDownButton ? (
-      <DropDownToggled trigger={MediumDownButton} dropdown={dropdown} />
+      <DropDownToggled dropdown={dropdown} trigger={MediumDownButton} />
     ) : null;
 
     return (
       <XUIPanel>
         <XUIPanelSection className="xui-padding-bottom">
           <XUIContentBlock className="xui-panel">
-            <XUIContentBlockItem primaryHeading="Heading" action={toggledDropdown} />
+            <XUIContentBlockItem action={toggledDropdown} primaryHeading="Heading" />
             {[1, 2, 3].map(item => (
               <XUIContentBlockItem
                 key={item}
+                overflow={<XUIIconButton ariaLabel="Overflow menu" icon={overflow} />}
                 primaryHeading="Title"
                 secondaryHeading="Subtitle"
-                overflow={<XUIIconButton icon={overflow} ariaLabel="Overflow menu" />}
               />
             ))}
             <XUIContentBlockItem
+              description="Description &middot; Description &middot; Description"
+              overflow={<XUIIconButton ariaLabel="Overflow menu" icon={overflow} />}
               primaryHeading="Title"
               secondaryHeading="Subtitle"
-              description="Description &middot; Description &middot; Description"
-              overflow={<XUIIconButton icon={overflow} ariaLabel="Overflow menu" />}
             />
           </XUIContentBlock>
         </XUIPanelSection>
         <XUIPanelSection className="xui-padding-top">
           <Table data={this.data}>
-            <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
-            <Column head={<Cell>Color</Cell>} body={({ color }) => <Cell>{color}</Cell>} />
+            <Column body={({ fruit }) => <Cell>{fruit}</Cell>} head={<Cell>Fruit</Cell>} />
+            <Column body={({ color }) => <Cell>{color}</Cell>} head={<Cell>Color</Cell>} />
             <Column
-              head={<Cell>Price / kg</Cell>}
               body={({ price }) => <Cell>{`$${price}`}</Cell>}
+              head={<Cell>Price / kg</Cell>}
             />
-            <Column head={<Cell>One</Cell>} body={({ one }) => <Cell>{`${one}`}</Cell>} />
-            <Column head={<Cell>Two</Cell>} body={({ two }) => <Cell>{`${two}`}</Cell>} />
-            <Column head={<Cell>Three</Cell>} body={({ three }) => <Cell>{`${three}`}</Cell>} />
-            <Column head={<Cell>Four</Cell>} body={({ four }) => <Cell>{`${four}`}</Cell>} />
-            <Column head={<Cell>Five</Cell>} body={({ five }) => <Cell>{`${five}`}</Cell>} />
-            <Column head={<Cell>Six</Cell>} body={({ six }) => <Cell>{`${six}`}</Cell>} />
+            <Column body={({ one }) => <Cell>{`${one}`}</Cell>} head={<Cell>One</Cell>} />
+            <Column body={({ two }) => <Cell>{`${two}`}</Cell>} head={<Cell>Two</Cell>} />
+            <Column body={({ three }) => <Cell>{`${three}`}</Cell>} head={<Cell>Three</Cell>} />
+            <Column body={({ four }) => <Cell>{`${four}`}</Cell>} head={<Cell>Four</Cell>} />
+            <Column body={({ five }) => <Cell>{`${five}`}</Cell>} head={<Cell>Five</Cell>} />
+            <Column body={({ six }) => <Cell>{`${six}`}</Cell>} head={<Cell>Six</Cell>} />
           </Table>
         </XUIPanelSection>
       </XUIPanel>

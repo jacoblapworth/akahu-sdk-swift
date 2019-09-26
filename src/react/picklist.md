@@ -14,12 +14,22 @@ A set of components that brings in the XUI styles to render a list of items. `Pi
 import Picklist, { Pickitem } from './picklist';
 
 <Picklist secondaryProps={{ role: 'menu' }}>
-	<Pickitem ariaRole='menuitem' id="plainpi1" isSelected>An empty item</Pickitem>
-	<Pickitem ariaRole='menuitem' id="plainpi2">Next Item</Pickitem>
-	<Pickitem ariaRole='menuitem' id="plainpi3">Another Item</Pickitem>
-	<Pickitem ariaRole='menuitem' id="plainpi4" href="http://xero.com">This is a link to xero.com</Pickitem>
-	<Pickitem ariaRole='menuitem' id="plainpi5">Last Item</Pickitem>
-</Picklist>
+  <Pickitem ariaRole="menuitem" id="plainpi1" isSelected>
+    An empty item
+  </Pickitem>
+  <Pickitem ariaRole="menuitem" id="plainpi2">
+    Next Item
+  </Pickitem>
+  <Pickitem ariaRole="menuitem" id="plainpi3">
+    Another Item
+  </Pickitem>
+  <Pickitem ariaRole="menuitem" id="plainpi4" href="http://xero.com">
+    This is a link to xero.com
+  </Pickitem>
+  <Pickitem ariaRole="menuitem" id="plainpi5">
+    Last Item
+  </Pickitem>
+</Picklist>;
 ```
 
 ### Horizontal variant
@@ -28,14 +38,14 @@ import Picklist, { Pickitem } from './picklist';
 import Picklist, { Pickitem } from './picklist';
 
 <Picklist secondaryProps={{ role: 'menu' }} isHorizontal>
-	<Pickitem ariaRole='menuitem' id="plain1" isSelected shouldTruncate>
-		Projects
-	</Pickitem>
-	<Pickitem ariaRole='menuitem' id="plain2" shouldTruncate>
-		Timesheets
-	</Pickitem>
-	<Pickitem ariaRole='menuitem' id="plain3" shouldTruncate>
-		Other things
-	</Pickitem>
-</Picklist>
+  <Pickitem ariaRole="menuitem" id="plain1" isSelected shouldTruncate>
+    Projects
+  </Pickitem>
+  <Pickitem ariaRole="menuitem" id="plain2" shouldTruncate>
+    Timesheets
+  </Pickitem>
+  <Pickitem ariaRole="menuitem" id="plain3" shouldTruncate>
+    Other things
+  </Pickitem>
+</Picklist>;
 ```

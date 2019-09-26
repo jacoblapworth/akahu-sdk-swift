@@ -1,15 +1,16 @@
-XUI
-===
+# XUI
 
 [![TC_build_status](https://teamcity1.inside.xero-support.com/app/rest/builds/buildType:id:Xui_Style_Master/statusIcon)](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_Master)
 [![](https://github.dev.xero.com/pages/UXE/Home/interrupt.svg)](https://slack.com/app_redirect?channel=C565NP1A5)
 
 ## Make things people know and love
+
 XUI is a design system for Xero web applications. It includes standard approaches and patterns plus the front-end code to implement them. XUI lets us focus on user problems over UI problems, keep a large codebase healthy, and get to market quickly.
 
 ### Always get the latest versions here:
-* XUI Guide: https://xui.xero.com/
-* XUI on GitHub: https://github.dev.xero.com/UXE/xui
+
+- XUI Guide: https://xui.xero.com/
+- XUI on GitHub: https://github.dev.xero.com/UXE/xui
 
 ## Setting up XUI for local development
 
@@ -17,11 +18,11 @@ XUI is a design system for Xero web applications. It includes standard approache
 
 You'll need:
 
- * Node.js [nvm](https://github.com/creationix/nvm) (MacOS) or [nvm-windows](https://github.com/coreybutler/nvm-windows) (Windows) is recommended. If you don't use `nvm`, check the `.nvmrc` file to see which version of node to use.
- * [ESLint](http://eslint.org/) plugin installed and configured [for your code editor or IDE](http://eslint.org/docs/user-guide/integrations). If possible, you should configure it to run `--fix` every time you save.  It'll make your life easier.
- * [Editorconfig](http://editorconfig.org/) plugin installed and configured for you code editor or IDE.
- * [Prettier](https://prettier.io/) plugin installed for you code editor or IDE. Configure your code editor or IDE to format on save.
- * A command line. Bash/zsh/etc MacOs. Git Bash Windows.
+- Node.js [nvm](https://github.com/creationix/nvm) (MacOS) or [nvm-windows](https://github.com/coreybutler/nvm-windows) (Windows) is recommended. If you don't use `nvm`, check the `.nvmrc` file to see which version of node to use.
+- [ESLint](http://eslint.org/) plugin installed and configured [for your code editor or IDE](http://eslint.org/docs/user-guide/integrations). If possible, you should configure it to run `--fix` every time you save. It'll make your life easier.
+- [Editorconfig](http://editorconfig.org/) plugin installed and configured for you code editor or IDE.
+- [Prettier](https://prettier.io/) plugin installed for you code editor or IDE. Configure your code editor or IDE to format on save.
+- A command line. Bash/zsh/etc MacOs. Git Bash Windows.
 
 ### Clone and install
 
@@ -62,15 +63,16 @@ This is running a webpack dev server for the docs site and watches to automatica
 #### Folder structure
 
 XUI has a number of top level folders. When contributing all the interesting files are under the `src` folder.
-* `src/docs/` contain SCSS and markdown files used by the documentation system.
-* `src/react/` has entry points for all the components.
-* Each component has a sub folder inside `src/react/components/`.
-  * Only public  UI components should live in the root of the associated component folder.
-  * Tests should always live in the `__tests__` folder.
-  * Stories should always live in the `stories` folder.
-  * Private helpers, constants, etc should live in a `private` folder.
-  * This convention makes it easier to target only our components, exclude unit tests, etc in our various build tasks.
-* `src/sass/` contains all the SCSS partials and is organised following ITCSS conventions.
+
+- `src/docs/` contain SCSS and markdown files used by the documentation system.
+- `src/react/` has entry points for all the components.
+- Each component has a sub folder inside `src/react/components/`.
+  - Only public UI components should live in the root of the associated component folder.
+  - Tests should always live in the `__tests__` folder.
+  - Stories should always live in the `stories` folder.
+  - Private helpers, constants, etc should live in a `private` folder.
+  - This convention makes it easier to target only our components, exclude unit tests, etc in our various build tasks.
+- `src/sass/` contains all the SCSS partials and is organised following ITCSS conventions.
 
 ```
 src/
@@ -102,22 +104,24 @@ src/
 
 XUI has a few npm scripts. `npm start` should be enough for all development tasks.
 
-
-Script              | Description
---------------------|-------------
-`npm install`       | Installs dependencies; Typically only needed to run after you clone the repo for the first time or change any dependencies.
-`npm start`         | Builds all the sites, and outputs such as the XUI css files, and starts up servers for each site for you to start developing on.
-`npm run lint`      | Lints the React components to ensure code quality.
-`npm run test`      | Runs all the React component unit tests to ensure components meet their prescribed definitions.
-`npm run test -- -i`| Runs the interactive variant of the test script which gives you additional test options including visual regression, code coverage and more.
-`npm run build`     | Compiles the stylesheet, Builds the KSS docs, Styleguide and Storybook apps. Compiles tokens and creates the UMD bundle. Used for creating a release.
-`npm run release`   | This script is reserved for running before we plan on doing a release on a local and before doing the release PR. Updates all versions of XUI in package(-lock).json, and a few other files where required to the new version we plan to release
+| Script                 | Description                                                                                                                                                                                                                                      |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `npm install`          | Installs dependencies; Typically only needed to run after you clone the repo for the first time or change any dependencies.                                                                                                                      |
+| `npm start`            | Builds all the sites, and outputs such as the XUI css files, and starts up servers for each site for you to start developing on.                                                                                                                 |
+| `npm run lint`         | Lints the React components to ensure code quality.                                                                                                                                                                                               |
+| `npm run lint:fix`     | Lints the React components to ensure code quality and automatically fixes problems where possible.                                                                                                                                               |
+| `npm run prettier`     | Checks code and documentation formatting with Prettier.                                                                                                                                                                                          |
+| `npm run prettier:fix` | Formats code and documentation with Prettier.                                                                                                                                                                                                    |
+| `npm run test`         | Runs all the React component unit tests to ensure components meet their prescribed definitions.                                                                                                                                                  |
+| `npm run test -- -i`   | Runs the interactive variant of the test script which gives you additional test options including visual regression, code coverage and more.                                                                                                     |
+| `npm run build`        | Compiles the stylesheet, Builds the KSS docs, Styleguide and Storybook apps. Compiles tokens and creates the UMD bundle. Used for creating a release.                                                                                            |
+| `npm run release`      | This script is reserved for running before we plan on doing a release on a local and before doing the release PR. Updates all versions of XUI in package(-lock).json, and a few other files where required to the new version we plan to release |
 
 ## Hooks
 
 We use [Husky](https://www.npmjs.com/package/husky) to run **Git Hooks** for the following scenarios:
 
-**Note:** If you are using a clone of the XUI repo from < 2018 then you may need to remove our legacy Git hooks for Husky to work *(Husky will **not** overwrite existing Git hooks)*. Please run the snippet below or reach out on our [Slack channel](https://xero.slack.com/messages/C565NP1A5) for assistance.
+**Note:** If you are using a clone of the XUI repo from < 2018 then you may need to remove our legacy Git hooks for Husky to work _(Husky will **not** overwrite existing Git hooks)_. Please run the snippet below or reach out on our [Slack channel](https://xero.slack.com/messages/C565NP1A5) for assistance.
 
 ```
 rm .git/hooks/pre-commit .git/hooks/post-commit .git/hooks/pre-push .git/hooks/post-checkout .git/hooks/post-merge\
@@ -128,8 +132,6 @@ rm .git/hooks/pre-commit .git/hooks/post-commit .git/hooks/pre-push .git/hooks/p
 ## Pre-commit
 
 Lint your code and catch problems that will cause your build to fail in the CI environment. This will run automatically before a commit.
-
-You may end up with extra formatting changes after committing. Please commit these as a separate commit labeled `Prettier`.
 
 ## Post-merge
 
@@ -188,13 +190,13 @@ You can now add breakpoints that will be triggered by the Chrome window that ope
 ## Releasing XUI
 
 1. [Draft up the Release notes in GitHub](https://github.dev.xero.com/UXE/xui/releases/new).
-  - The release description should provide clear documentation describing what has changed since the last release. Best practice is to include PR numbers per change.
-    * The release notes can be organised under the following sections:
-    * New features
-    * Bug fixes
-    * Deprecations
-    * Any notable documentation updates
-    * Removals (`breaking-changes` only)
+   - The release description should provide clear documentation describing what has changed since the last release. Best practice is to include PR numbers per change.
+     - The release notes can be organised under the following sections:
+     - New features
+     - Bug fixes
+     - Deprecations
+     - Any notable documentation updates
+     - Removals (`breaking-changes` only)
 2. Ensure locally, you're on the latest commit on the branch; patch, minor or breaking-changes; that you want to release.
 3. Run `npm run release` on your branch and choose the appropriate release type. Verify the version you want to release matches the intended release type.
 4. Open a PR to the upstream branch with your changes post `npm run release`
@@ -202,11 +204,11 @@ You can now add breakpoints that will be triggered by the Chrome window that ope
 6. Tag the release in Github matching the updated version in package.json
 7. [Log into AWS](https://ap-southeast-2.console.aws.amazon.com/codepipeline/home?region=ap-southeast-2#/view/xui-code-pipeline) and approve the release. Note: You'll need `Developer @ xero-platformdevelopment-test` as minimum permissions to approve the release.
 8. Once the release is finalised, you will need to verify everything has been released correctly.
-  - XUI CSS : hit https://edge.xero.com/style/xui/%3Cyour-new-version%3E/xui.css, expect 200
-  - Sherlock JSON: hit https://edge.xero.com/style/xui/sherlock.json, expect 200 and version exists in JSON
-  - Check you can install expected XUI version into test app, or your own app.
-  - Check docs branch has been updated in github
-  - Check docs have been released on the website https://xui.xero.com/%3Cyour-new-version%3E/
+   - XUI CSS : hit https://edge.xero.com/style/xui/%3Cyour-new-version%3E/xui.css, expect 200
+   - Sherlock JSON: hit https://edge.xero.com/style/xui/sherlock.json, expect 200 and version exists in JSON
+   - Check you can install expected XUI version into test app, or your own app.
+   - Check docs branch has been updated in github
+   - Check docs have been released on the website https://xui.xero.com/%3Cyour-new-version%3E/
 
 ### Alpha/beta releases
 
@@ -216,8 +218,8 @@ All releases from `breaking-changes` should also supply an up-to-date list of al
 
 The UXE team manage releases of XUI via AWS Codepipeline. Following are the common builds that make up the continuous integration and continuous deployment pipeline.
 
-* [Pull request](https://ap-southeast-2.console.aws.amazon.com/codebuild/home?region=ap-southeast-2#/projects/xui-pull-requests/view) all pull requests run lint test scripts. Triggered by new or updated Pull Request.
-* [Deploy to Production](https://ap-southeast-2.console.aws.amazon.com/codepipeline/home?region=ap-southeast-2#/view/xui-code-pipeline) deploy a release build of XUI to production. Triggered by new tags against the repository.
+- [Pull request](https://ap-southeast-2.console.aws.amazon.com/codebuild/home?region=ap-southeast-2#/projects/xui-pull-requests/view) all pull requests run lint test scripts. Triggered by new or updated Pull Request.
+- [Deploy to Production](https://ap-southeast-2.console.aws.amazon.com/codepipeline/home?region=ap-southeast-2#/view/xui-code-pipeline) deploy a release build of XUI to production. Triggered by new tags against the repository.
 
 ### Upgrading between versions of XUI
 
@@ -232,26 +234,34 @@ The codemod contains transforms for moving from the previous major version of XU
 How to run the codemod:
 
 1. Install jscodeshift
- ```bash
- npm i -g jscodeshift@~0.5.0
- ```
+
+```bash
+npm i -g jscodeshift@~0.5.0
+```
+
 1. Run the codemod
- ```bash
- jscodeshift -t node_modules/@xero/xui/codemod src/
- ```
+
+```bash
+jscodeshift -t node_modules/@xero/xui/codemod src/
+```
+
 1. If you've already upgraded to the current major version and wish to run a supplemental codemod from a minor/patch
- ```bash
- jscodeshift -t node_modules/@xero/xui/codemod/<version> src/
- ```
+
+```bash
+jscodeshift -t node_modules/@xero/xui/codemod/<version> src/
+```
 
 **NB** with Typescript, passing the root directory name won't work, so you'll need to manually create a list of files to transform.
 
 Powershell:
+
 ```ps1
 npm i -g jscodeshift@0.6.3
 $files = Get-ChildItem -Path .\ -Filter *.tsx -Recurse -File -Name
 jscodeshift -t .\node_modules\@xero\xui\codemod\index.js --parser=tsx $files
 ```
+
+Bash:
 
 ```bash
 npm i -g jscodeshift@0.6.3

@@ -32,13 +32,13 @@ export default class AccordionWrapper extends PureComponent {
 
     return (
       <div
-        ref={this.setRef}
-        data-automationid={qaHook}
         className={cn(`${ns}-accordionwrapper`, {
           [`${ns}-accordionwrapper-is-open`]: isOpen,
           [`${ns}-accordionwrapper-pop`]: isOpen && shouldPop,
           [`${ns}-accordionwrapper-no-pop`]: isOpen && !shouldPop,
         })}
+        data-automationid={qaHook}
+        ref={this.setRef}
       >
         {trigger}
         <div

@@ -1,16 +1,5 @@
-const sizes = [
-	'xsmall',
-	'small',
-	'medium',
-];
+const sizes = ['xsmall', 'small', 'medium'];
 
-const widths = [
-	'always',
-	'small-down',
-	'never',
-];
+const widths = ['always', 'small-down', 'never'];
 
-export {
-	sizes,
-	widths,
-};
+export { sizes, widths };

@@ -36,7 +36,7 @@ test.add(storyNames.dateDDInModal, () => {
   );
   const dropdown = (
     <DropDown>
-      <XUIDatePicker onSelectDate={NOOP} displayedMonth={displayMonth} />
+      <XUIDatePicker displayedMonth={displayMonth} onSelectDate={NOOP} />
     </DropDown>
   );
 
@@ -45,11 +45,11 @@ test.add(storyNames.dateDDInModal, () => {
       <XUIModalBody>
         This is some Datepicker Modal content.
         <DropDownToggled
-          isLegacyDisplay={false}
-          trigger={trigger}
           dropdown={dropdown}
           isHidden={false}
+          isLegacyDisplay={false}
           restrictToViewPort={false}
+          trigger={trigger}
         />
       </XUIModalBody>
     </XUIModal>

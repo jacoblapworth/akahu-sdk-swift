@@ -27,15 +27,15 @@ export default class CheckBoxCell extends PureComponent {
     );
 
     return (
-      <TableData className={className} tabIndex="-1">
+      <TableData className={className} tabIndex={-1}>
         {NBSP}
         <XUICheckbox
           className={`${NAME_SPACE}--checkbox-body`}
           isChecked={isChecked}
-          onChange={this.handleChange}
-          tabIndex={0}
           isGrouped
           isLabelHidden
+          onChange={this.handleChange}
+          tabIndex={0}
         >
           {checkOneRowLabel}
         </XUICheckbox>

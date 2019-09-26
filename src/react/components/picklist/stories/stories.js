@@ -54,7 +54,7 @@ const buildItemsFromSettings = (settings, listIndex, componentType) => {
       builtItem = <XUIPicklistDivider key={unique} />;
     } else {
       builtItem = (
-        <XUIPickitem key={unique} id={unique} ariaRole={role} {...item}>
+        <XUIPickitem ariaRole={role} id={unique} key={unique} {...item}>
           {item.value || itemLabels[itemIndex % itemLabels.length]}
         </XUIPickitem>
       );
@@ -122,39 +122,39 @@ storiesWithKnobs.add('Playground', () => {
       <XUIPicklist
         defaultLayout={boolean('defaultLayout', true)}
         isHorizontal={boolean('isHorizontal', false)}
-        secondaryProps={{ role: 'listbox' }}
-        size={picklistSize}
         isMultiselect={isMultiselect}
+        secondaryProps={{ role: 'listbox' }}
         shouldTruncate={shouldTruncate}
+        size={picklistSize}
       >
         <XUIPickitem
-          key="1"
           id="1"
-          isSelected={boolean('first item isSelected', false)}
           isDisabled={boolean('first item isDisabled', false)}
           isInvalid={boolean('first item isInvalid', false)}
-          rightElement={showRightElement && <XUIIcon icon={arrow} />}
-          leftElement={showLeftElement && <XUIAvatar value="Tim Redmond" size={avatarSize} />}
+          isSelected={boolean('first item isSelected', false)}
+          key="1"
+          leftElement={showLeftElement && <XUIAvatar size={avatarSize} value="Tim Redmond" />}
           pinnedElement={showPinned && '42'}
+          rightElement={showRightElement && <XUIIcon icon={arrow} />}
           {...logAllEvents}
         >
           Tim Redmond
         </XUIPickitem>
         <XUIPickitem
-          key="2"
           id="2"
+          key="2"
+          leftElement={showLeftElement && <XUIAvatar size={avatarSize} value="James Magness" />}
           rightElement={showRightElement && <XUIIcon icon={search} />}
-          leftElement={showLeftElement && <XUIAvatar value="James Magness" size={avatarSize} />}
           {...(showLongStrings ? longStrings : shortStrings)}
           {...logAllEvents}
         />
         {showDivider && <XUIPicklistDivider className="custom-class" />}
         {showHeader && <XUIPicklistHeader id="testme">Design</XUIPicklistHeader>}
         <XUIPickitem
-          key="3"
           id="3"
+          key="3"
+          leftElement={showLeftElement && <XUIAvatar size={avatarSize} value="Finn Clark" />}
           rightElement={showRightElement && <XUIIcon icon={contact} />}
-          leftElement={showLeftElement && <XUIAvatar value="Finn Clark" size={avatarSize} />}
           {...logAllEvents}
         >
           Finn Clark
@@ -194,8 +194,8 @@ variations.forEach(variation => {
           <NestedPicklistContainer id="split" isOpen={isOpen}>
             <XUIPickitem
               id="splitTrigger"
-              isSplit
               isMultiselect={listComponents[1].props.isMultiselect}
+              isSplit
             >
               Split nested list
             </XUIPickitem>

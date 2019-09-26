@@ -17,14 +17,14 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <XUIRadio
-    isDisabled={boolean('isDisabled', false)}
-    isChecked={boolean('isChecked', false)}
-    isReversed={boolean('isReversed', false)}
-    isLabelHidden={boolean('isLabelHidden', false)}
-    isInvalid={boolean('invalid', false)}
-    validationMessage={text('validationMessage', '')}
     hintMessage={text('hintMessage', '')}
+    isChecked={boolean('isChecked', false)}
+    isDisabled={boolean('isDisabled', false)}
+    isInvalid={boolean('invalid', false)}
+    isLabelHidden={boolean('isLabelHidden', false)}
+    isReversed={boolean('isReversed', false)}
     size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
+    validationMessage={text('validationMessage', '')}
   >
     {text('label text', 'Test radio')}
   </XUIRadio>
@@ -50,7 +50,7 @@ variations.forEach(variation => {
     if (isGroup) {
       return (
         <XUIRadioGroup {...groupProps}>
-          <XUIRadio key="r0-1" isDefaultChecked name="rg0">
+          <XUIRadio isDefaultChecked key="r0-1" name="rg0">
             Medium radio label goes here
           </XUIRadio>
           <XUIRadio key="r0-2" name="rg0">
@@ -68,7 +68,7 @@ variations.forEach(variation => {
           <XUIRadio key="r1-1" name="rg1">
             Medium radio label goes here
           </XUIRadio>
-          <XUIRadio key="r1-2" isDefaultChecked name="rg1">
+          <XUIRadio isDefaultChecked key="r1-2" name="rg1">
             Longish radio label goes here, but this one really goes on and on and on and on
           </XUIRadio>
           <XUIRadio key="r1-3" name="rg1">

@@ -16,20 +16,17 @@ const reactES6SourceLocation = path.join(rootDirectory, 'src', 'react');
 const reactES6OutputLocation = path.join(rootDirectory, 'react-es6');
 
 function prepack() {
-	taskRunner(taskSpinner => {
-		taskSpinner.info('Done with basic build promises');
-		return Promise.all([
-			babelBuild(),
-			codemodBuild()
-		])
-		.then(({ stdout }) => console.log(stdout)) //eslint-disable-line no-console
-		.then(() => {
-			ncp(reactBuildOutputPath, reactMoveToLocation);
-			ncp(sassSourceLocation, sassMoveToLocation);
-			ncp(codemodBuildOutputLocation, codemodMoveToLocation);
-			ncp(reactES6SourceLocation, reactES6OutputLocation);
-		});
-	}, __filename);
+  taskRunner(taskSpinner => {
+    taskSpinner.info('Done with basic build promises');
+    return Promise.all([babelBuild(), codemodBuild()])
+      .then(({ stdout }) => console.log(stdout)) //eslint-disable-line no-console
+      .then(() => {
+        ncp(reactBuildOutputPath, reactMoveToLocation);
+        ncp(sassSourceLocation, sassMoveToLocation);
+        ncp(codemodBuildOutputLocation, codemodMoveToLocation);
+        ncp(reactES6SourceLocation, reactES6OutputLocation);
+      });
+  }, __filename);
 }
 
 module.exports = prepack;

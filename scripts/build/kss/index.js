@@ -7,24 +7,23 @@ const kssConfig = require('./config.json');
 const { succeed, fail } = taskRunnerReturns;
 
 module.exports = ({ skipPostCss = false } = {}) => {
-	return taskRunner(taskSpinner => {
-		return kssTmp().then(() => {
+  return taskRunner(taskSpinner => {
+    return kssTmp().then(() => {
+      const tasks = [kssSass];
 
-			const tasks = [kssSass];
+      if (!skipPostCss) {
+        tasks.push(postcssXui);
+      }
 
-			if (!skipPostCss) {
-				tasks.push(postcssXui);
-			}
-
-			return Promise.all(tasks).then(() => {
-				taskSpinner.info('Built pre-requisites');
-				return kss(kssConfig)
-					.then(succeed)
-					.catch(fail);
-			});
-		});
-	}, __filename);
+      return Promise.all(tasks).then(() => {
+        taskSpinner.info('Built pre-requisites');
+        return kss(kssConfig)
+          .then(succeed)
+          .catch(fail);
+      });
+    });
+  }, __filename);
 };
 require('make-runnable/custom')({
-	printOutputFrame: false
+  printOutputFrame: false,
 });

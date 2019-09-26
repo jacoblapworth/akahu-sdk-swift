@@ -39,11 +39,11 @@ storiesWithKnobs.add('Playground', () => {
   return (
     <ExampleContainer {...attrs}>
       <XUILoader
+        className={isStatic}
         defaultLayout={defaultLayout}
-        size={size}
         isInverted={attrs.isInverted}
         retainLayout={retainLayout}
-        className={isStatic}
+        size={size}
       />
     </ExampleContainer>
   );

@@ -189,15 +189,15 @@ export default class XUITooltip extends PureComponent {
         {clonedTrigger}
         <PositioningInline
           {...this.props}
-          parentRef={this.state.wrapper}
           isVisible={!this.state.isHidden}
+          parentRef={this.state.wrapper}
         >
           <span
-            role="tooltip"
             aria-hidden={this.state.isHidden}
-            id={this.tooltipId}
             className={tipClasses}
             data-automationid={qaHook && `${qaHook}--tooltip`}
+            id={this.tooltipId}
+            role="tooltip"
           >
             {children}
           </span>

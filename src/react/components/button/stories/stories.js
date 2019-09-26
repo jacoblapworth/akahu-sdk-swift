@@ -28,12 +28,12 @@ import {
 
 const dropdownWithTrigger = (
   <DropDownToggled
-    trigger={<XUISplitButton key="split" variant="primary" aria-label="Other actions" />}
     dropdown={
       <DropDown>
         <p className="xui-padding-small">hello</p>
       </DropDown>
     }
+    trigger={<XUISplitButton aria-label="Other actions" key="split" variant="primary" />}
   />
 );
 
@@ -46,13 +46,13 @@ const buttonContents = {
   ],
   asSplitGroup: [
     <XUIButton key="main">Main</XUIButton>,
-    <XUISplitButton key="split" aria-label="Other actions" />,
+    <XUISplitButton aria-label="Other actions" key="split" />,
   ],
   asSplitGroupMulti: [
     <XUIButton key="main">
       This is a bunch of multi line text to make sure the icon displays correctly
     </XUIButton>,
-    <XUISplitButton key="split" aria-label="Other actions" />,
+    <XUISplitButton aria-label="Other actions" key="split" />,
   ],
   asSplitGroupDropdown: [<XUIButton key="main">Main</XUIButton>, dropdownWithTrigger],
   icon: <XUIIcon icon={view} title="Preview" />,
@@ -65,24 +65,24 @@ storiesWithKnobs.add('Playground', () => (
   <div style={{ maxWidth: '600px' }}>
     <XUIButton
       className={text('className', '')}
-      qaHook={text('qaHook', '')}
+      fullWidth={select('fullWidth', Object.keys(widthClassNames), 'never')}
+      href={text('href', '')}
       isDisabled={boolean('isDisabled', false)}
       isExternalLink={boolean('isExternalLink', false)}
-      isLoading={boolean('isLoading', false)}
       isGrouped={boolean('isGrouped', false)}
-      variant={select('variant', Object.keys(variantClassNames), 'standard')}
-      size={select('size', Object.keys(sizeClassNames))}
-      fullWidth={select('fullWidth', Object.keys(widthClassNames), 'never')}
+      isInverted={boolean('isInverted', false)}
       isLink={boolean('isLink', false)}
-      type={select('type', Object.keys(buttonTypes).map(type => buttonTypes[type]), 'button')}
-      href={text('href', '')}
+      isLoading={boolean('isLoading', false)}
+      minLoaderWidth={boolean('minLoaderWidth', false)}
+      qaHook={text('qaHook', '')}
       rel={text('rel', '')}
+      retainLayout={boolean('retainLayout', true)}
+      size={select('size', Object.keys(sizeClassNames))}
       tabIndex={number('tabIndex', 0)}
       target={text('target', '')}
       title={text('title', '')}
-      isInverted={boolean('isInverted', false)}
-      retainLayout={boolean('retainLayout', true)}
-      minLoaderWidth={boolean('minLoaderWidth', false)}
+      type={select('type', Object.keys(buttonTypes).map(type => buttonTypes[type]), 'button')}
+      variant={select('variant', Object.keys(variantClassNames), 'standard')}
     >
       Test button
     </XUIButton>

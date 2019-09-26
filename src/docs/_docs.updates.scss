@@ -361,22 +361,14 @@
 //
 // Styleguide: Updates.100.2
 
-// Sketch files
+// Design assets
 //
-// There is a separate Github repository managed by design, that holds the most recent Sketch file. The file name provides an indication of the XUI version it corresponds to.
-//
-// [designers/xui-toolkit/releases](https://github.dev.xero.com/designers/xui-toolkit/releases)
+// XUI design assets live in the [Design Systems project in Figma](https://www.figma.com/files/713083859032680705/team/713195599671588940/%5BDesign%5D-Systems). Updates to a XUI Library will be announced within any Figma file referencing one, or by the XUI team in the #xui-design Slack channel. New files will be announced in Slack.
 //
 // Styleguide: Updates.100.3
 
-// Deprecation
+// Flags
 //
-// You may find sections of code marked for deprecation. This means they are still available in our codebase, but will be removed in an upcoming major release. 
+// You may find sections of the documentation that are marked with flags to highlight recent or upcoming changes, or other pertinent info. See the [full list of definitions](./section-getting-started.html#getting-started-5) for common flags.
 //
 // Styleguide: Updates.100.4
-
-// Work in progress flags
-//
-// You’ll also find a 'work in progress' flag alongside newer sections of the design system. These patterns are available to use, but are not guaranteed to be in the next major release. At the very least, they may be subject to change. This gives us a way to test patterns and solidify them before they are fully endorsed.
-//
-// Styleguide: Updates.100.5

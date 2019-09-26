@@ -6,10 +6,9 @@
 ```jsx harmony
 import { XUICompositionDetail } from '../../compositions';
 
-const detailContent = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
+const detailContent = <div style={{ background: '#C5C5F6', height: '100px' }}></div>;
 
-<XUICompositionDetail detail={detailContent} />
-
+<XUICompositionDetail detail={detailContent} />;
 ```
 
 #### Detail with header
@@ -17,10 +16,8 @@ const detailContent = <div style={{background: '#C5C5F6', height: '100px' }}></d
 ```jsx harmony
 import { XUICompositionDetailHeader } from '../../compositions';
 
-const headerContent = <div style={{background: '#B446C8', height: '60px'}}></div>;
-const detailContent = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
+const headerContent = <div style={{ background: '#B446C8', height: '60px' }}></div>;
+const detailContent = <div style={{ background: '#C5C5F6', height: '100px' }}></div>;
 
-
-<XUICompositionDetailHeader header={headerContent} detail={detailContent} />
-
+<XUICompositionDetailHeader header={headerContent} detail={detailContent} />;
 ```

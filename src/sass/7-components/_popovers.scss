@@ -1,4 +1,4 @@
-@import "../vars";
+@import '../vars';
 
 // Popover
 //
@@ -97,182 +97,182 @@
 // Styleguide: Building Blocks.Alerts.Popover.4
 
 .#{$ns}-popover {
-	background-color: $xui-popover-bg-color;
-	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-depth-lift;
-	position: relative;
+  background-color: $xui-popover-bg-color;
+  border-radius: $xui-radius;
+  box-shadow: $xui-shadow-depth-lift;
+  position: relative;
 }
 
 .#{$ns}-popover-arrow:before {
-	border-bottom: $xui-s-xsmall solid $xui-popover-arrow-border-color;
-	border-left: $xui-s-xsmall solid transparent;
-	border-right: $xui-s-xsmall solid transparent;
-	content: '';
-	left: 15px;
-	position: absolute;
-	top: -9px;
+  border-bottom: $xui-s-xsmall solid $xui-popover-arrow-border-color;
+  border-left: $xui-s-xsmall solid transparent;
+  border-right: $xui-s-xsmall solid transparent;
+  content: '';
+  left: 15px;
+  position: absolute;
+  top: -9px;
 }
 
 .#{$ns}-popover-arrow:after {
-	border-bottom: $xui-s-xsmall solid $xui-popover-bg-color;
-	border-left: $xui-s-xsmall solid transparent;
-	border-right: $xui-s-xsmall solid transparent;
-	content: '';
-	left: 15px;
-	position: absolute;
-	top: -7px;
+  border-bottom: $xui-s-xsmall solid $xui-popover-bg-color;
+  border-left: $xui-s-xsmall solid transparent;
+  border-right: $xui-s-xsmall solid transparent;
+  content: '';
+  left: 15px;
+  position: absolute;
+  top: -7px;
 }
 
 .#{$ns}-popover-arrow {
-	&-topleft:before {
-		left: 15px;
-		top: -9px;
-	}
+  &-topleft:before {
+    left: 15px;
+    top: -9px;
+  }
 
-	&-topcenter:before {
-		left: 50%;
-		transform: translateX(-50%);
-	}
+  &-topcenter:before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-	&-topright:before {
-		left: auto;
-		right: 15px;
-	}
+  &-topright:before {
+    left: auto;
+    right: 15px;
+  }
 
-	&-bottomleft:before {
-		bottom: -9px;
-		top: auto;
-		transform: rotate(180deg);
-	}
+  &-bottomleft:before {
+    bottom: -9px;
+    top: auto;
+    transform: rotate(180deg);
+  }
 
-	&-bottomcenter:before {
-		bottom: -9px;
-		left: 50%;
-		top: auto;
-		transform: translateX(-50%) rotate(180deg);
-	}
+  &-bottomcenter:before {
+    bottom: -9px;
+    left: 50%;
+    top: auto;
+    transform: translateX(-50%) rotate(180deg);
+  }
 
-	&-bottomright:before {
-		bottom: -9px;
-		left: auto;
-		right: 15px;
-		top: auto;
-		transform: rotate(180deg);
-	}
+  &-bottomright:before {
+    bottom: -9px;
+    left: auto;
+    right: 15px;
+    top: auto;
+    transform: rotate(180deg);
+  }
 
-	&-lefttop:before {
-		left: -13px;
-		top: 15px;
-		transform: rotate(270deg);
-	}
+  &-lefttop:before {
+    left: -13px;
+    top: 15px;
+    transform: rotate(270deg);
+  }
 
-	&-leftcenter:before {
-		left: -13px;
-		top: 50%;
-		transform: translateY(-50%) rotate(270deg);
-	}
+  &-leftcenter:before {
+    left: -13px;
+    top: 50%;
+    transform: translateY(-50%) rotate(270deg);
+  }
 
-	&-leftbottom:before {
-		bottom: 15px;
-		left: -13px;
-		top: auto;
-		transform: rotate(270deg);
-	}
+  &-leftbottom:before {
+    bottom: 15px;
+    left: -13px;
+    top: auto;
+    transform: rotate(270deg);
+  }
 
-	&-righttop:before {
-		left: auto;
-		right: -13px;
-		top: 15px;
-		transform: rotate(90deg);
-	}
+  &-righttop:before {
+    left: auto;
+    right: -13px;
+    top: 15px;
+    transform: rotate(90deg);
+  }
 
-	&-rightcenter:before {
-		left: auto;
-		right: -13px;
-		top: 50%;
-		transform: translateY(-50%) rotate(90deg);
-	}
+  &-rightcenter:before {
+    left: auto;
+    right: -13px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+  }
 
-	&-rightbottom:before {
-		bottom: 15px;
-		left: auto;
-		right: -13px;
-		top: auto;
-		transform: rotate(90deg);
-	}
-	&-topleft:after {
-		left: 15px;
-		top: -7px;
-	}
-	&-topcenter:after {
-		left: 50%;
-		transform: translateX(-50%);
-	}
+  &-rightbottom:before {
+    bottom: 15px;
+    left: auto;
+    right: -13px;
+    top: auto;
+    transform: rotate(90deg);
+  }
+  &-topleft:after {
+    left: 15px;
+    top: -7px;
+  }
+  &-topcenter:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-	&-topright:after {
-		left: auto;
-		right: 15px;
-	}
+  &-topright:after {
+    left: auto;
+    right: 15px;
+  }
 
-	&-bottomleft:after {
-		bottom: -7px;
-		top: auto;
-		transform: rotate(180deg);
-	}
+  &-bottomleft:after {
+    bottom: -7px;
+    top: auto;
+    transform: rotate(180deg);
+  }
 
-	&-bottomcenter:after {
-		bottom: -7px;
-		left: 50%;
-		top: auto;
-		transform: translateX(-50%) rotate(180deg);
-	}
+  &-bottomcenter:after {
+    bottom: -7px;
+    left: 50%;
+    top: auto;
+    transform: translateX(-50%) rotate(180deg);
+  }
 
-	&-bottomright:after {
-		bottom: -7px;
-		left: auto;
-		right: 15px;
-		top: auto;
-		transform: rotate(180deg);
-	}
+  &-bottomright:after {
+    bottom: -7px;
+    left: auto;
+    right: 15px;
+    top: auto;
+    transform: rotate(180deg);
+  }
 
-	&-lefttop:after {
-		left: -11px;
-		top: 15px;
-		transform: rotate(270deg);
-	}
+  &-lefttop:after {
+    left: -11px;
+    top: 15px;
+    transform: rotate(270deg);
+  }
 
-	&-leftcenter:after {
-		left: -11px;
-		top: 50%;
-		transform: translateY(-50%) rotate(270deg);
-	}
+  &-leftcenter:after {
+    left: -11px;
+    top: 50%;
+    transform: translateY(-50%) rotate(270deg);
+  }
 
-	&-leftbottom:after {
-		bottom: 15px;
-		left: -11px;
-		top: auto;
-		transform: rotate(270deg);
-	}
+  &-leftbottom:after {
+    bottom: 15px;
+    left: -11px;
+    top: auto;
+    transform: rotate(270deg);
+  }
 
-	&-righttop:after {
-		left: auto;
-		right: -11px;
-		top: 15px;
-		transform: rotate(90deg);
-	}
+  &-righttop:after {
+    left: auto;
+    right: -11px;
+    top: 15px;
+    transform: rotate(90deg);
+  }
 
-	&-rightcenter:after {
-		left: auto;
-		right: -11px;
-		top: 50%;
-		transform: translateY(-50%) rotate(90deg);
-	}
+  &-rightcenter:after {
+    left: auto;
+    right: -11px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+  }
 
-	&-rightbottom:after {
-		bottom: 15px;
-		left: auto;
-		right: -11px;
-		top: auto;
-		transform: rotate(90deg);
-	}
+  &-rightbottom:after {
+    bottom: 15px;
+    left: auto;
+    right: -11px;
+    top: auto;
+    transform: rotate(90deg);
+  }
 }

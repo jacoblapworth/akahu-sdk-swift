@@ -226,9 +226,9 @@ const variations = [
     lists: [
       {
         items: [
-          { value: 'James Magness', leftElement: <XUIAvatar value="James Magness" size="small" /> },
-          { value: 'Tim Redmond', leftElement: <XUIAvatar value="Tim Redmond" size="small" /> },
-          { value: 'Vicky Min', leftElement: <XUIAvatar value="Vicky Min" size="small" /> },
+          { value: 'James Magness', leftElement: <XUIAvatar size="small" value="James Magness" /> },
+          { value: 'Tim Redmond', leftElement: <XUIAvatar size="small" value="Tim Redmond" /> },
+          { value: 'Vicky Min', leftElement: <XUIAvatar size="small" value="Vicky Min" /> },
         ],
       },
     ],
@@ -280,14 +280,14 @@ const variations = [
         items: [
           {
             value: 'James Magness',
-            leftElement: <XUIAvatar value="James Magness" size="xsmall" />,
+            leftElement: <XUIAvatar size="xsmall" value="James Magness" />,
             rightElement: <XUIIcon icon={iconsList[0]} />,
             secondaryElement: 'Team lead',
             pinnedElement: '18',
           },
           {
             value: 'Tim Redmond',
-            leftElement: <XUIAvatar value="Tim Redmond" size="xsmall" />,
+            leftElement: <XUIAvatar size="xsmall" value="Tim Redmond" />,
             rightElement: <XUIIcon icon={iconsList[1]} />,
             secondaryElement: 'Developer',
             pinnedElement: '3',
@@ -296,7 +296,7 @@ const variations = [
           { isHeader: true, children: 'Recent' },
           {
             value: 'Grzegorz Pawłowski-Chudziński',
-            leftElement: <XUIAvatar value="Grzegorz Pawłowski-Chudziński" size="xsmall" />,
+            leftElement: <XUIAvatar size="xsmall" value="Grzegorz Pawłowski-Chudziński" />,
             rightElement: <XUIIcon icon={iconsList[2]} />,
             secondaryElement: 'Developer',
             pinnedElement: '42',
@@ -345,7 +345,7 @@ const variations = [
         items: [
           {
             value: 'James Magness',
-            leftElement: <XUIAvatar value="James Magness" size="2xsmall" />,
+            leftElement: <XUIAvatar size="2xsmall" value="James Magness" />,
             rightElement: <XUIIcon icon={iconsList[0]} />,
             secondaryElement:
               'The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
@@ -356,14 +356,14 @@ const variations = [
           {
             value:
               'Tim Redmond The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
-            leftElement: <XUIAvatar value="Tim Redmond" size="2xsmall" />,
+            leftElement: <XUIAvatar size="2xsmall" value="Tim Redmond" />,
             rightElement: <XUIIcon icon={iconsList[1]} />,
             secondaryElement: 'Developer',
             pinnedElement: '3',
           },
           {
             value: 'Nick Piesco',
-            leftElement: <XUIAvatar value="Nick Piesco" size="2xsmall" />,
+            leftElement: <XUIAvatar size="2xsmall" value="Nick Piesco" />,
             rightElement: <XUIIcon icon={iconsList[2]} />,
             secondaryElement: 'Developer',
             pinnedElement: '42',
@@ -383,7 +383,7 @@ const variations = [
         items: [
           {
             value: 'James Magness',
-            leftElement: <XUIAvatar value="James Magness" size="2xsmall" />,
+            leftElement: <XUIAvatar size="2xsmall" value="James Magness" />,
             rightElement: <XUIIcon icon={iconsList[0]} />,
             secondaryElement:
               'The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
@@ -394,14 +394,14 @@ const variations = [
           {
             value:
               'Tim Redmond The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
-            leftElement: <XUIAvatar value="Tim Redmond" size="2xsmall" />,
+            leftElement: <XUIAvatar size="2xsmall" value="Tim Redmond" />,
             rightElement: <XUIIcon icon={iconsList[1]} />,
             secondaryElement: 'Developer',
             pinnedElement: '3',
           },
           {
             value: 'Vicky Min',
-            leftElement: <XUIAvatar value="Vicky Min" size="2xsmall" />,
+            leftElement: <XUIAvatar size="2xsmall" value="Vicky Min" />,
             rightElement: <XUIIcon icon={iconsList[2]} />,
             secondaryElement: 'Developer',
             pinnedElement: '42',
@@ -420,13 +420,13 @@ const variations = [
         items: [
           {
             value: 'James Magness',
-            leftElement: <XUIAvatar value="James Magness" size="small" />,
+            leftElement: <XUIAvatar size="small" value="James Magness" />,
             isSelected: true,
           },
-          { value: 'Tim Redmond', leftElement: <XUIAvatar value="Tim Redmond" size="small" /> },
+          { value: 'Tim Redmond', leftElement: <XUIAvatar size="small" value="Tim Redmond" /> },
           {
             value: 'Grzegorz Pawłowski-Chudziński',
-            leftElement: <XUIAvatar value="Grzegorz Pawłowski-Chudziński" size="small" />,
+            leftElement: <XUIAvatar size="small" value="Grzegorz Pawłowski-Chudziński" />,
           },
         ],
       },

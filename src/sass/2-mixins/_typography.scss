@@ -1,4 +1,4 @@
-@import "../vars";
+@import '../vars';
 /*
 	Mixins for line-heights
 
@@ -13,170 +13,170 @@
 */
 
 @mixin xui-text-2xsmall {
-	font-size: $xui-font-size-2xsmall;
-	line-height: $xui-line-height-xsmall;
+  font-size: $xui-font-size-2xsmall;
+  line-height: $xui-line-height-xsmall;
 }
 
 @mixin xui-text-xsmall {
-	font-size: $xui-font-size-xsmall;
-	line-height: $xui-line-height-xsmall;
+  font-size: $xui-font-size-xsmall;
+  line-height: $xui-line-height-xsmall;
 }
 
 @mixin xui-text-small {
-	font-size: $xui-font-size-small;
-	line-height: $xui-line-height-small;
+  font-size: $xui-font-size-small;
+  line-height: $xui-line-height-small;
 }
 
 @mixin xui-text-medium {
-	font-size: $xui-font-size-medium;
-	line-height: $xui-line-height-standard;
+  font-size: $xui-font-size-medium;
+  line-height: $xui-line-height-standard;
 }
 
 @mixin xui-text-large {
-	font-size: $xui-font-size-large;
-	line-height: $xui-line-height-large;
+  font-size: $xui-font-size-large;
+  line-height: $xui-line-height-large;
 }
 
 @mixin xui-text-xlarge {
-	font-size: $xui-font-size-xlarge;
-	line-height: $xui-line-height-xlarge;
+  font-size: $xui-font-size-xlarge;
+  line-height: $xui-line-height-xlarge;
 }
 
 @mixin xui-text-2xlarge {
-	font-size: $xui-font-size-2xlarge;
-	line-height: $xui-line-height-2xlarge;
+  font-size: $xui-font-size-2xlarge;
+  line-height: $xui-line-height-2xlarge;
 }
 
 @mixin xui-text-3xlarge {
-	font-size: $xui-font-size-3xlarge;
-	line-height: $xui-line-height-3xlarge;
+  font-size: $xui-font-size-3xlarge;
+  line-height: $xui-line-height-3xlarge;
 }
 
 @mixin xui-text-line-height-reset {
-	line-height: $xui-line-height-reset;
+  line-height: $xui-line-height-reset;
 }
 
 @mixin xui-text-line-height-tight {
-	line-height: $xui-line-height-tight;
+  line-height: $xui-line-height-tight;
 }
 
 @mixin xui-text-line-height-compact {
-	line-height: $xui-line-height-compact;
+  line-height: $xui-line-height-compact;
 }
 
 @mixin xui-text-line-height {
-	line-height: $xui-line-height;
+  line-height: $xui-line-height;
 }
 
 @mixin xui-text-proportional-nums {
-	font-feature-settings: "pnum" 1;
-	font-variant-numeric: proportional-nums;
+  font-feature-settings: 'pnum' 1;
+  font-variant-numeric: proportional-nums;
 }
 
 @mixin xui-text-tabular-nums {
-	font-feature-settings: "tnum" 1;
-	font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+  font-variant-numeric: tabular-nums;
 }
 
 // Font-weight
 @mixin xui-text-emphasis {
-	font-weight: $xui-font-weight-emphasis;
+  font-weight: $xui-font-weight-emphasis;
 }
 
 @mixin xui-text-deemphasis {
-	font-weight: $xui-font-weight-deemphasis;
+  font-weight: $xui-font-weight-deemphasis;
 }
 
 // Text color
 @mixin xui-text-muted {
-	color: $xui-text-muted-color;
+  color: $xui-text-muted-color;
 }
 
 @mixin xui-text-positive {
-	color: $xui-text-positive-color;
+  color: $xui-text-positive-color;
 }
 
 @mixin xui-text-negative {
-	color: $xui-text-negative-color;
+  color: $xui-text-negative-color;
 }
 
 // Letter spacing
 @mixin xui-text-spacing-tight {
-	letter-spacing: $xui-letter-spacing-tight;
+  letter-spacing: $xui-letter-spacing-tight;
 }
 
 @mixin xui-text-spacing-loose {
-	letter-spacing: $xui-letter-spacing-loose;
+  letter-spacing: $xui-letter-spacing-loose;
 }
 
 @mixin xui-text-truncated {
-	display: block; // other display values do not allow for truncation
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+  display: block; // other display values do not allow for truncation
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @mixin xui-text-wordbreak {
-	// chrome doesn't support this but what can you do ¯\_(ツ)_/¯
-	hyphens: auto;
+  // chrome doesn't support this but what can you do ¯\_(ツ)_/¯
+  hyphens: auto;
 
-	// This is technically the same as word-wrap, but use both for maximum support
-	overflow-wrap: break-word;
+  // This is technically the same as word-wrap, but use both for maximum support
+  overflow-wrap: break-word;
 
-	// auto-prefixer wasn't putting this in in my tests so manually add it for IE11 support
-	-ms-word-break: break-all;
+  // auto-prefixer wasn't putting this in in my tests so manually add it for IE11 support
+  -ms-word-break: break-all;
 
-	// This is for firefox support
-	word-break: break-word;
+  // This is for firefox support
+  word-break: break-word;
 
-	// We want this to take precedence over word-break: break-all or words will break without
-	// moving to the next line when they're separated by spaces
-	word-wrap: break-word;
+  // We want this to take precedence over word-break: break-all or words will break without
+  // moving to the next line when they're separated by spaces
+  word-wrap: break-word;
 }
 
 @mixin xui-heading-3xlarge {
-	@include xui-text-proportional-nums;
-	@include xui-text-emphasis;
-	@include xui-text-3xlarge;
-	line-height: $xui-line-height-tight;
+  @include xui-text-proportional-nums;
+  @include xui-text-emphasis;
+  @include xui-text-3xlarge;
+  line-height: $xui-line-height-tight;
 }
 
 @mixin xui-heading-2xlarge {
-	@include xui-text-proportional-nums;
-	@include xui-text-emphasis;
-	@include xui-text-2xlarge;
-	line-height: $xui-line-height-tight;
+  @include xui-text-proportional-nums;
+  @include xui-text-emphasis;
+  @include xui-text-2xlarge;
+  line-height: $xui-line-height-tight;
 }
 
 @mixin xui-heading-xlarge {
-	@include xui-text-proportional-nums;
-	@include xui-text-emphasis;
-	@include xui-text-xlarge;
-	line-height: $xui-line-height-tight;
+  @include xui-text-proportional-nums;
+  @include xui-text-emphasis;
+  @include xui-text-xlarge;
+  line-height: $xui-line-height-tight;
 }
 
 @mixin xui-heading-large {
-	@include xui-text-proportional-nums;
-	@include xui-text-emphasis;
-	@include xui-text-large;
-	line-height: $xui-line-height-compact;
+  @include xui-text-proportional-nums;
+  @include xui-text-emphasis;
+  @include xui-text-large;
+  line-height: $xui-line-height-compact;
 }
 
 @mixin xui-heading-medium($emphasis: true) {
-	@if (not($emphasis)) {
-		@include xui-text-deemphasis;
-	} @else {
-		@include xui-text-emphasis;
-	}
-	@include xui-text-medium;
+  @if (not($emphasis)) {
+    @include xui-text-deemphasis;
+  } @else {
+    @include xui-text-emphasis;
+  }
+  @include xui-text-medium;
 }
 
 @mixin xui-heading-small {
-	@include xui-text-emphasis;
-	@include xui-text-small;
+  @include xui-text-emphasis;
+  @include xui-text-small;
 }
 
 @mixin xui-heading-xsmall {
-	@include xui-text-emphasis;
-	@include xui-text-xsmall;
+  @include xui-text-emphasis;
+  @include xui-text-xsmall;
 }

@@ -51,7 +51,7 @@ storiesWithKnobs.add('Playground', () => {
     <div className="xui-text-align-center">
       <h3 className="xui-heading-xlarge">
         Sorry{' '}
-        <span role="img" aria-label="Confused face">
+        <span aria-label="Confused face" role="img">
           🙁
         </span>
       </h3>
@@ -142,10 +142,10 @@ storiesWithKnobs.add('Playground', () => {
           loadingLabel,
         }}
         // Make sure functions are are delayed correctly (not booleans from knobs).
-        createYAxisLabelFormat={createYAxisLabelFormat || undefined}
-        createPaginationMessage={createPaginationMessage || undefined}
-        onBarClick={onBarClick || undefined}
         createBarToolTipMessage={createBarToolTipMessage || undefined}
+        createPaginationMessage={createPaginationMessage || undefined}
+        createYAxisLabelFormat={createYAxisLabelFormat || undefined}
+        onBarClick={onBarClick || undefined}
       />
     </div>
   );
@@ -188,8 +188,8 @@ class EventReadyWrapper extends PureComponent {
 
 const TestScaffold = ({ testStyles, emptyStateComponent, ...testProps }, testIndex) => (
   <div
-    key={testIndex}
     className="xui-loader-static"
+    key={testIndex}
     style={{
       flexGrow: 1,
       padding: '20px',

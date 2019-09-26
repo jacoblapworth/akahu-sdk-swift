@@ -1,18 +1,18 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 .#{$ns}-avatargroup {
-	display: flex;
+  display: flex;
 
-	.#{$ns}-avatar {
-		@include xui-all-but-first {
-			box-shadow: -2px 0 0 0 $xui-color-grey-alpha-6;
-			margin-left: -1.25em;
-		}
-	}
+  .#{$ns}-avatar {
+    @include xui-all-but-first {
+      box-shadow: -2px 0 0 0 $xui-color-grey-alpha-6;
+      margin-left: -1.25em;
+    }
+  }
 }
 
 .#{$ns}-avatar-counter {
-	background-color: $xui-avatar-counter-bg-color;
-	color: $xui-avatar-counter-color;
+  background-color: $xui-avatar-counter-bg-color;
+  color: $xui-avatar-counter-color;
 }

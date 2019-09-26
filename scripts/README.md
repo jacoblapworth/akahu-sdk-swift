@@ -14,7 +14,7 @@ If you find yourself in need of automating a task in the code-base, you may add 
 
 ### Some conventions
 
-> *Conventions are, in fact, a necessary evil* - TimR
+> _Conventions are, in fact, a necessary evil_ - TimR
 
 - Treat writing your scripts the same way you would write a lambda, or micro-service; Single use, Single responsibility functions that perform one task.
   - That being said, it's OK to write chains. Chains are functions that use many of your micro-service functions together.
@@ -31,34 +31,46 @@ This was created originally to replace an older, aging Grunt pipeline. Grunt was
 ## Script checklist
 
 #### backstop
+
 - approve.js : Approves screenshot comparison changes, in relation to visual regression testing. You would typically run this script manually.
 
 #### build
+
 - [x] babel.js
 - [x] index.js
 - [x] kss.js
 - [x] storybook.js
 - [x] styleguidist.js
 - [x] umd_webpack.js
+
 ##### cssmin
+
 - index.js : Builds the XUI css files, then minifies the core distributable
+
 ##### kss
+
 - index.js : Creates the KSS site, and outputs it to the `dist/docs` directory
 - tmp.js : Outputs some documentation around tokens, into the `src/sass/tmp` directory
+
 ##### postcss
+
 - [x] doPostCss.js
 - [x] kss.js
 - [x] tokens.js
 - [x] xui.js
+
 ##### sass
+
 - [x] compileSass.js - not a runnable task
 - [x] kss.js
 - [x] xui.js
 
 #### check-engines
+
 - [x] index.js
 
 #### clean
+
 - [x] css.js
 - [x] docs.js
 - [x] headless_chrome.js
@@ -69,33 +81,41 @@ This was created originally to replace an older, aging Grunt pipeline. Grunt was
 - [x] umd_assets.js
 
 #### lint
+
 - [x] js_fix.js
 - [x] js.js
 - [x] sass.js
 
 #### postinstall
+
 - [x] index.js
 
 #### release // N/A
 
 #### security
+
 - [x] index.js
 
 #### start
+
 - [x] index.js
 
 #### storybook
+
 - [x] index.js
 
 #### styleguide
+
 - [x] index.js
 
 #### test // N/A
 
 #### umd
+
 - [x] create_entry_point.js
 
 #### update-versions
+
 - [x] index.js
 
 #### watch // N/A

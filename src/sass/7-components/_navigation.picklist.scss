@@ -107,24 +107,22 @@
 
 // Size variants
 //
-// flags: under review
+// Picklist offers a range of size variants. All but `-medium` are being “sunset” because they don’t meet our minimum touch target standards.
 //
-// Picklists have a range of size options that allow for greater control over visual hierarchy.
+// Tips:
+// Do: Medium size should be used for all picklists
+// Dont: Don't use small and xsmall size variants. Small and xsmall variants now have a “Sunsetting” flag because they don’t meet our minimum touch target standards.
+//
+// Styleguide: Compounds.DisplayingData.Picklist.3
+
+// Medium
 //
 // Definitions:
 // Size variant: **Height**: **Class**
 // medium: 40px: `xui-picklist-medium`<br>`xui-pickitem-medium`
-// small: 32px: `xui-picklist-small`<br>`xui-pickitem-small`
-// xsmall: 24px: `xui-picklist-xsmall`<br>`xui-pickitem-xsmall`
-//
-// Tips:
-// Do: Use medium as a standard size variant
-// Do: Use small and xsmall variants for minor interactions
-// Warning: Be cautious when using small and xsmall variants as they have reduced legibility and hit area
-// Dont: Don't use small and xsmall sizes. Small and xsmall variants now have a sunsetting flag due to poor touch interaction potential.
 //
 // Markup:
-// <div class="xui-panel xui-margin-bottom-large">
+// <div class="xui-panel">
 //   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
 //     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium" role="treeitem" tabindex="-1" >
 //       <button type="button" class="xui-pickitem--body">
@@ -149,64 +147,94 @@
 //   </ul>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Picklist.3
+// Styleguide: Compounds.DisplayingData.Picklist.3.1
 
-// Nesting
+// Small, xsmall
 //
-// flags: under review
-//
-// Pickitems can have elements nested inside of them. It is important that the appropriate size variants of these elements are used within each pickitem size variant.
-//
-// Tips:
-// Do: Nest small elements inside medium sized pickitems
-// Do: Only nest supported elements inside pickitems (shown below)
-// Dont: Don't nest an element using the same size variant as its parent
-// Dont: Don't use small and xsmall sizes. Small and xsmall variants now have a sunsetting flag due to poor touch interaction potential.
+// flags: sunsetting
 //
 // Definitions:
-// Size variant: **Elements available to nest**
-// medium: Avatar, Icon, Checkbox
-// small: Avatar, Icon, Checkbox
-// xsmall: Avatar, Icon
+// Size variant: **Height**: **Class**
+// small: 32px: `xui-picklist-small`<br>`xui-pickitem-small`
+// xsmall: 24px: `xui-picklist-xsmall`<br>`xui-pickitem-xsmall`
 //
 // Markup:
 // <div class="xui-panel xui-margin-bottom">
-//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="group">
-// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" aria-selected="false" role="option" id="0-1">
-// 			<div class="xui-pickitem--body" role="presentation">
-// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
-// 					<input type="checkbox" tabindex="-1" aria-labelledby="aaa" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
-// 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"></div>
-// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
-// 						<span class="">Retail</span>
-// 					</span>
-// 				</label>
-// 			</div>
-// 		</li>
-// 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" aria-selected="false" role="option" id="0-1">
-// 			<div class="xui-pickitem--body" role="presentation">
-// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
-// 					<input type="checkbox" tabindex="-1" aria-labelledby="aab" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small" value="">
-// 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"></div>
-// 					<span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label" id="aab">
-// 						<span class="">Construction</span>
-// 					</span>
-// 				</label>
-// 			</div>
-// 		</li>
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="tree">
+//     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-small" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Today</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Tomorrow</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next week</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next month</span>
+//       </button>
+//     </li>
 //   </ul>
+// </div>
+// <div class="xui-panel">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="tree">
+//     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Today</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Tomorrow</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next week</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next month</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Picklist.3.2
+
+// Text styling
+//
+// Classes:
+// xui-pickitem--secondary: Apply to style inline secondary text
+// xui-pickitem--pinned: Apply to style right pinned text
+//
+// Markup:
+// <div class="xui-panel">
 //   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
-//     <li class="xui-pickitem xui-pickitem-medium">
-//       <button class="xui-pickitem--body">
-//         <span class="xui-pickitem--sideelement">
-//           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">FC</abbr>
-//         </span>
-//         <span class="xui-pickitem--text">Finn Clark</span>
-//         <span class="xui-pickitem--sideelement">
-//           <svg focusable="false" class="xui-icon">
-//             <use xlink:href="#xui-icon-external" role="presentation"></use>
-//           </svg>
-//         </span>
+//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Nicole Crosby<span class="xui-pickitem--secondary">Admin</span></span>
+//         <span class="xui-pickitem--pinned">50.00</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Rosie Cox<span class="xui-pickitem--secondary">Admin</span></span>
+//         <span class="xui-pickitem--pinned">60.00</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Michael Lillis</span>
+//         <span class="xui-pickitem--pinned">50.00</span>
 //       </button>
 //     </li>
 //   </ul>
@@ -214,39 +242,88 @@
 //
 // Styleguide: Compounds.DisplayingData.Picklist.4
 
-// Horizontal picklists
+// Side elements
 //
-// To create a horizontal picklist, commonly referred to as tabs, apply the following modifier.
-// We also recommend removing `xui-picklist-layout` to allow pickitems to stretch the full height or their containing element.
+// A side element is a generalised term for visual and interactive content, that is pinned to the left or right-hand side of a container. Below are prescribed elements that you can use inside the `xui-pickitem--sideelement` wrapper class. Side elements can be aligned left or right, depending on whether they are placed before or after the `xui-pickitem--text` container.
 //
 // Classes:
-// xui-picklist-horizontal: Apply to picklist
-// xui-pickitem-is-horizontal: Apply to pickitem
-//
-// Markup:
-// <div class="xui-panel xui-margin-bottom">
-//   <div class="xui-u-flex">
-//     <ul class="xui-picklist xui-picklist-horizontal xui-picklist-medium" role="tree">
-//       <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
-//         <button type="button" class="xui-pickitem--body">
-//           <span class="xui-pickitem--text">All</span>
-//         </button>
-//       </li>
-//       <li class="xui-pickitem xui-pickitem-medium xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
-//         <button type="button" class="xui-pickitem--body">
-//           <span class="xui-pickitem--text">Current</span>
-//         </button>
-//       </li>
-//       <li class="xui-pickitem xui-pickitem-medium xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
-//         <button type="button" class="xui-pickitem--body">
-//           <span class="xui-pickitem--text">History</span>
-//         </button>
-//       </li>
-//     </ul>
-//   </div>
-// </div>
+// xui-pickitem--sideelement: Side element wrapper class
 //
 // Styleguide: Compounds.DisplayingData.Picklist.5
+
+// Icons
+//
+// Classes:
+// xui-icon: Apply to SVG icon within side element wrapper
+//
+// Markup:
+// <div class="xui-panel">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">High priority</span>
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon xui-u-rotate-270">
+//             <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+//           </svg>
+//         </span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Medium priority</span>
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon xui-u-rotate-270">
+//             <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+//           </svg>
+//         </span>
+//       </button>
+//     </li>
+//   </ul>
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-plus" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Create new group</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Picklist.5.1
+
+// Avatars
+//
+// Classes:
+// xui-avatar-small: Apply to avatar within side element wrapper
+//
+// Markup:
+// <div class="xui-panel">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">JS</abbr>
+//         </span>
+//         <span class="xui-pickitem--text">Jam Sudson</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-2" role="presentation">HB</abbr>
+//         </span>
+//         <span class="xui-pickitem--text">Harry Bannah</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Picklist.5.2
 
 // Truncating
 //
@@ -295,128 +372,6 @@
 //
 // Styleguide: Compounds.DisplayingData.Picklist.7
 
-// Text styling
-//
-// Classes:
-// xui-pickitem--secondary: Apply to style inline secondary text
-// xui-pickitem--pinned: Apply to style right pinned text
-//
-// Markup:
-// <div class="xui-panel">
-//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
-//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Nicole Crosby<span class="xui-pickitem--secondary">Admin</span></span>
-//         <span class="xui-pickitem--pinned">50.00</span>
-//       </button>
-//     </li>
-//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Rosie Cox<span class="xui-pickitem--secondary">Admin</span></span>
-//         <span class="xui-pickitem--pinned">60.00</span>
-//       </button>
-//     </li>
-//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text xui-pickitem-text-truncated">Michael Lillis</span>
-//         <span class="xui-pickitem--pinned">50.00</span>
-//       </button>
-//     </li>
-//   </ul>
-// </div>
-//
-// Styleguide: Compounds.DisplayingData.Picklist.8
-
-// Side elements
-//
-// A side element is a generalised term for visual and interactive content, that is pinned to the left or right-hand side of a container. Below are prescribed elements that you can use inside the `xui-pickitem--sideelement` wrapper class. Side elements can be aligned left or right, depending on whether they are placed before or after the `xui-pickitem--text` container.
-//
-// Classes:
-// xui-pickitem--sideelement: Side element wrapper class
-//
-// Styleguide: Compounds.DisplayingData.Picklist.9
-
-// Icons
-//
-// Classes:
-// xui-icon: Apply to SVG icon within side element wrapper
-//
-// Markup:
-// <div class="xui-panel xui-margin-bottom">
-//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
-//     <li class="xui-pickitem xui-pickitem-medium">
-//       <button class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">High priority</span>
-//         <span class="xui-pickitem--sideelement">
-//           <svg focusable="false" class="xui-icon xui-u-rotate-270">
-//             <use xlink:href="#xui-icon-arrow" role="presentation"></use>
-//           </svg>
-//         </span>
-//       </button>
-//     </li>
-//     <li class="xui-pickitem xui-pickitem-medium">
-//       <button class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Medium priority</span>
-//         <span class="xui-pickitem--sideelement">
-//           <svg focusable="false" class="xui-icon xui-u-rotate-270">
-//             <use xlink:href="#xui-icon-arrow" role="presentation"></use>
-//           </svg>
-//         </span>
-//       </button>
-//     </li>
-//   </ul>
-//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
-//     <li class="xui-pickitem xui-pickitem-medium">
-//       <button class="xui-pickitem--body">
-//         <span class="xui-pickitem--sideelement">
-//           <svg focusable="false" class="xui-icon">
-//             <use xlink:href="#xui-icon-plus" role="presentation"></use>
-//           </svg>
-//         </span>
-//         <span class="xui-pickitem--text">Create new group</span>
-//       </button>
-//     </li>
-//   </ul>
-// </div>
-//
-// Styleguide: Compounds.DisplayingData.Picklist.9.1
-
-// Avatars
-//
-// flags: under review
-//
-// Tips:
-// Dont: Don't use small and xsmall sizes. Small and xsmall variants now have a sunsetting flag due to poor touch interaction potential.
-//
-// Classes:
-// xui-avatar-small: Use for medium size variant pickitems
-// xui-avatar-xsmall: Use for small size variant pickitems
-// xui-avatar-2xsmall: Use for xsmall size variant pickitems
-//
-// Markup:
-// <div class="xui-panel xui-margin-bottom">
-//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
-//     <li class="xui-pickitem xui-pickitem-medium">
-//       <button class="xui-pickitem--body">
-//         <span class="xui-pickitem--sideelement">
-//           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">JS</abbr>
-//         </span>
-//         <span class="xui-pickitem--text">Jam Sudson</span>
-//       </button>
-//     </li>
-//     <li class="xui-pickitem xui-pickitem-medium">
-//       <button class="xui-pickitem--body">
-//         <span class="xui-pickitem--sideelement">
-//           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-2" role="presentation">HB</abbr>
-//         </span>
-//         <span class="xui-pickitem--text">Harry Bannah</span>
-//       </button>
-//     </li>
-//   </ul>
-// </div>
-//
-// Styleguide: Compounds.DisplayingData.Picklist.9.2
-
 // Multiselect picklist
 //
 // Tips:
@@ -431,7 +386,7 @@
 // xui-pickitem-multiselect--label: Apply to pickitem text wrapper
 //
 // Markup:
-// <div class="xui-panel xui-margin-bottom">
+// <div class="xui-panel">
 // 	<ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="group">
 // 		<li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" aria-selected="false" role="option" id="0-1">
 // 			<div class="xui-pickitem--body" role="presentation">
@@ -469,7 +424,7 @@
 // 	</ul>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Picklist.10
+// Styleguide: Compounds.DisplayingData.Picklist.8
 
 // Multiline pickitems
 //
@@ -479,7 +434,7 @@
 // xui-pickitem--secondary: Apply to secondary content
 //
 // Markup:
-// <div class="xui-panel xui-margin-bottom">
+// <div class="xui-panel">
 // 	<ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
 // 		<li class="xui-pickitem xui-pickitem-multiline xui-pickitem-medium" role="treeitem" tabindex="-1" >
 // 			<button type="button" class="xui-pickitem--body">
@@ -524,7 +479,7 @@
 // 	</ul>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Picklist.11
+// Styleguide: Compounds.DisplayingData.Picklist.9
 
 // Expanding picklists
 //
@@ -537,14 +492,14 @@
 // xui-submenu: Container for a group of nested pickitems
 // xui-submenu-layout: Recommended layout modifier for a group of pickitems
 //
-// Styleguide: Compounds.DisplayingData.Picklist.12
+// Styleguide: Compounds.DisplayingData.Picklist.10
 
 // Standard
 //
 // If the parent pickitem does not have a destination or function, use the standard (non-split) variant.
 //
 // Markup:
-// <div class="xui-panel xui-margin-bottom">
+// <div class="xui-panel">
 // 	<ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="group">
 // 		<li class="xui-picklist--nestedcontainer" aria-expanded="true">
 //			<input role="treeitem" type="checkbox" class="xui-pickitem--submenucontrol" id="nested-checkbox" tabindex="-1" aria-owns="nested">
@@ -586,7 +541,7 @@
 // 	</ul>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Picklist.12.1
+// Styleguide: Compounds.DisplayingData.Picklist.10.1
 
 // Split
 //
@@ -596,7 +551,7 @@
 // xui-pickitem-split: Add to pickitem
 //
 // Markup:
-// <div class="xui-panel xui-margin-bottom">
+// <div class="xui-panel">
 // 	<ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
 // 		<li class="xui-picklist--nestedcontainer" role="treeitem" aria-expanded="false">
 // 			<input id="split-checkbox" type="checkbox" class="xui-pickitem--submenucontrol" tabindex="-1"/>
@@ -657,7 +612,43 @@
 // 	</ul>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Picklist.12.2
+// Styleguide: Compounds.DisplayingData.Picklist.10.2
+
+// Horizontal picklists
+//
+// flags: updatesComing
+//
+// To create a horizontal picklist, commonly referred to as tabs, apply the following modifier.
+// We also recommend removing `xui-picklist-layout` to allow pickitems to stretch the full height or their containing element.
+//
+// Classes:
+// xui-picklist-horizontal: Apply to picklist
+// xui-pickitem-is-horizontal: Apply to pickitem
+//
+// Markup:
+// <div class="xui-panel">
+//   <div class="xui-u-flex">
+//     <ul class="xui-picklist xui-picklist-horizontal xui-picklist-medium" role="tree">
+//       <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">All</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-medium xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">Current</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-medium xui-pickitem-is-horizontal" role="treeitem" tabindex="-1" >
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">History</span>
+//         </button>
+//       </li>
+//     </ul>
+//   </div>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Picklist.11
 
 // Accessibility
 //

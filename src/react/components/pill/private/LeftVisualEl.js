@@ -7,42 +7,39 @@ import XUIIcon from '../../icon/XUIIcon';
 import { baseClass, childSizes } from './constants';
 
 export default class LeftVisualEl extends PureComponent {
-	render() {
-		const { isInvalid, avatarProps, size, avatar } = this.props;
-		if (!isInvalid && !avatarProps && !avatar) { return null; }
+  render() {
+    const { isInvalid, avatarProps, size, avatar } = this.props;
+    if (!isInvalid && !avatarProps && !avatar) {
+      return null;
+    }
 
-		const avatarClass = `${baseClass}--avatar`;
-		const avatarClasses = cn(
-			avatarProps && avatarProps.className,
-			avatarClass,
-		);
+    const avatarClass = `${baseClass}--avatar`;
+    const avatarClasses = cn(avatarProps && avatarProps.className, avatarClass);
 
-		const pillAvatar = avatar
-			? React.cloneElement(avatar, { className: cn(avatar.props.className, avatarClasses) })
-			: (avatarProps && <XUIAvatar {...avatarProps} className={avatarClasses} size={size} />)
-				|| null;
+    const pillAvatar = avatar
+      ? React.cloneElement(avatar, { className: cn(avatar.props.className, avatarClasses) })
+      : (avatarProps && <XUIAvatar {...avatarProps} className={avatarClasses} size={size} />) ||
+        null;
 
-		return isInvalid ? (
-			<div
-				className={cn(
-					avatarClass,
-					`${baseClass}--erroricon`,
-					`${baseClass}--erroricon-${size}`,
-				)}
-			>
-				<XUIIcon
-					size={size && size.indexOf('small') === -1 ? size : 'medium'}
-					icon={exclamation}
-					color="red"
-				/>
-			</div>
-		) : pillAvatar;
-	}
+    return isInvalid ? (
+      <div
+        className={cn(avatarClass, `${baseClass}--erroricon`, `${baseClass}--erroricon-${size}`)}
+      >
+        <XUIIcon
+          color="red"
+          icon={exclamation}
+          size={size && size.indexOf('small') === -1 ? size : 'medium'}
+        />
+      </div>
+    ) : (
+      pillAvatar
+    );
+  }
 }
 
 LeftVisualEl.propTypes = {
-	isInvalid: PropTypes.bool,
-	avatarProps: PropTypes.object,
-	size: PropTypes.oneOf(childSizes),
-	avatar: PropTypes.element,
+  isInvalid: PropTypes.bool,
+  avatarProps: PropTypes.object,
+  size: PropTypes.oneOf(childSizes),
+  avatar: PropTypes.element,
 };

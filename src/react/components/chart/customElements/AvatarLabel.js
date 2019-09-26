@@ -146,15 +146,15 @@ class AvatarLabel extends PureComponent {
 
     return (
       <XAxisLabelWrapper
-        shouldCalculateCenter={shouldCalculateCenter}
-        toolTipMessage={textRaw}
-        toolTipOffset={toolTipOffset}
         isToolTipHidden={isToolTipHidden}
-        updateToolTip={updateToolTip}
+        labelHeight={labelHeight}
         labelLeft={labelWidth * labelIndex}
         labelTop={labelTop}
         labelWidth={labelWidth}
-        labelHeight={labelHeight}
+        shouldCalculateCenter={shouldCalculateCenter}
+        toolTipMessage={textRaw}
+        toolTipOffset={toolTipOffset}
+        updateToolTip={updateToolTip}
       >
         <g>
           <circle
@@ -163,29 +163,29 @@ class AvatarLabel extends PureComponent {
             cy={avatarCircleTop}
             r={AVATAR_RADIUS}
           />
-          <text x={avatarTextLeft} y={avatarTextTop} textAnchor="middle">
+          <text textAnchor="middle" x={avatarTextLeft} y={avatarTextTop}>
             <tspan style={avatarStyle}>{avatarText}</tspan>
           </text>
           {avatarUrl && (
             <image
-              transform={`translate(${avatarCircleLeft - AVATAR_RADIUS},${avatarCircleTop -
-                AVATAR_RADIUS})`}
-              x={0}
-              y={0}
-              width={AVATAR_RADIUS * 2}
+              clipPath="circle()"
               height={AVATAR_RADIUS * 2}
               href={avatarUrl}
-              clipPath="circle()"
+              transform={`translate(${avatarCircleLeft - AVATAR_RADIUS},${avatarCircleTop -
+                AVATAR_RADIUS})`}
+              width={AVATAR_RADIUS * 2}
+              x={0}
+              y={0}
             />
           )}
           {tagText && (
             <TruncatedText
               className={`${NAME_SPACE}-chart--measure`}
+              maxWidth={tagTextWidth}
+              style={tagStyle}
+              textAnchor={tagAnchor}
               x={tagLeft}
               y={tagTop}
-              textAnchor={tagAnchor}
-              style={tagStyle}
-              maxWidth={tagTextWidth}
             >
               {tagText}
             </TruncatedText>

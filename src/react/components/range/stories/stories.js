@@ -22,12 +22,9 @@ storiesWithKnobs.add('Playground', () => {
 
   return (
     <XUIRange
-      label={text('label', 'Label for the select box')}
       isDisabled={boolean('isDisabled', false)}
       isInvalid={boolean('isInvalid', false)}
-      max={number('max', 100)}
-      min={number('min', 0)}
-      step={number('step', 0)}
+      label={text('label', 'Label for the select box')}
       leftElement={
         showLeftElement && (
           <XUIAvatar
@@ -36,6 +33,8 @@ storiesWithKnobs.add('Playground', () => {
           />
         )
       }
+      max={number('max', 100)}
+      min={number('min', 0)}
       rightElement={
         showRightElement && (
           <XUIAvatar
@@ -45,6 +44,7 @@ storiesWithKnobs.add('Playground', () => {
         )
       }
       size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
+      step={number('step', 0)}
       validationMessage={text('validationMessage', 'validation text')}
     />
   );

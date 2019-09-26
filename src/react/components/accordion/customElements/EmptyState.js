@@ -4,23 +4,20 @@ import XUIIcon from '../../icon/XUIIcon';
 import { ns } from '../../helpers/xuiClassNamespace';
 
 export default class XUIAccordionItemEmptyState extends PureComponent {
-	render() {
-		const { children, qaHook, emptyIcon } = this.props;
+  render() {
+    const { children, qaHook, emptyIcon } = this.props;
 
-		return (
-			<div
-				data-automationid={qaHook}
-				className={`${ns}-accordion--emptystate`}
-			>
-				<XUIIcon size="large" icon={emptyIcon} isBoxed />
-				<div>{children}</div>
-			</div>
-		);
-	}
+    return (
+      <div className={`${ns}-accordion--emptystate`} data-automationid={qaHook}>
+        <XUIIcon icon={emptyIcon} isBoxed size="large" />
+        <div>{children}</div>
+      </div>
+    );
+  }
 }
 
 XUIAccordionItemEmptyState.propTypes = {
-	qaHook: PropTypes.string,
-	emptyIcon: PropTypes.object,
-	children: PropTypes.node,
+  qaHook: PropTypes.string,
+  emptyIcon: PropTypes.object,
+  children: PropTypes.node,
 };

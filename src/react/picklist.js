@@ -8,12 +8,12 @@ import PicklistHeader from './components/picklist/PicklistHeader';
 import PicklistDivider from './components/picklist/PicklistDivider';
 
 export {
-	Picklist as default,
-	Pickitem,
-	StatefulPicklist,
-	PicklistHeader,
-	PicklistDivider,
-	NestedPicklist,
-	NestedPicklistContainer,
-	NestedPicklistTrigger,
+  Picklist as default,
+  Pickitem,
+  StatefulPicklist,
+  PicklistHeader,
+  PicklistDivider,
+  NestedPicklist,
+  NestedPicklistContainer,
+  NestedPicklistTrigger,
 };

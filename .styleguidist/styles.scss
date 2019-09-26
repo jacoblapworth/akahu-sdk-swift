@@ -2,35 +2,37 @@
 @import '../src/sass/_mixins.scss';
 
 #rsg-root {
-	p a {
-		display: inline;
-	}
+  p a {
+    display: inline;
+  }
 
-	main h1:not(.xui-pageheading--title) {
-		margin-top: 3em;
-	}
+  main h1:not(.xui-pageheading--title) {
+    margin-top: 3em;
+  }
 
-	li code,
-	p code {
-		font-size: 13px;
-		background: $xui-color-grey-6;
-		color: $xui-color-grey-1;
-		border-radius: 3px;
-		padding: 0 4px;
-	}
-	h3 {
-		font-weight: bold;
-	}
+  li code,
+  p code {
+    font-size: 13px;
+    background: $xui-color-grey-6;
+    color: $xui-color-grey-1;
+    border-radius: 3px;
+    padding: 0 4px;
+  }
+  h3 {
+    font-weight: bold;
+  }
 
-	code, pre, [class*="pathline-"] {
-		overflow-x: auto;
-	}
+  code,
+  pre,
+  [class*='pathline-'] {
+    overflow-x: auto;
+  }
 
-	ul li a {
-		cursor: pointer;
-	}
+  ul li a {
+    cursor: pointer;
+  }
 
-	.rsg--sidebar-4 ul ul ul ul a {
-		font-size: 11px;
-}
+  .rsg--sidebar-4 ul ul ul ul a {
+    font-size: 11px;
+  }
 }

@@ -75,8 +75,8 @@ export default class XUIContentBlockItem extends PureComponent {
 
     const builtMainContent = (builtHeadings || builtDescriptionArea) && (
       <Tag
-        href={href}
         className={`${baseClass}--maincontent`}
+        href={href}
         onClick={onClick}
         onKeyDown={onKeyDown}
       >

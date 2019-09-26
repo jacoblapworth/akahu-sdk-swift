@@ -30,17 +30,17 @@ class XAxisLabelWrapper extends PureComponent {
     return (
       <Fragment>
         <svg
-          y={labelTop}
-          x={labelLeft}
           height={labelHeight}
-          width={labelWidth}
           viewBox={`0 0 ${labelWidth} ${labelHeight}`}
+          width={labelWidth}
+          x={labelLeft}
+          y={labelTop}
         >
           {shouldCalculateCenter ? (
             // We want to run the centering sequence as little as possible as it's
             // a "small" design enhancement for a "large" overhead. Unless explicitly
             // requested we bypass this component.
-            <HorizontallyCenterContent wrapperWidth={labelWidth} wrapperHeight={labelHeight}>
+            <HorizontallyCenterContent wrapperHeight={labelHeight} wrapperWidth={labelWidth}>
               {children}
             </HorizontallyCenterContent>
           ) : (
@@ -50,13 +50,13 @@ class XAxisLabelWrapper extends PureComponent {
 
         {!isToolTipHidden && toolTipMessage && (
           <rect
-            y={labelTop}
-            x={labelLeft}
-            width={labelWidth}
-            height={labelHeight - toolTipOffset}
             fill="transparent"
+            height={labelHeight - toolTipOffset}
             onMouseEnter={this.handleToolTipShow}
             onMouseLeave={this.handleToolTipHide}
+            width={labelWidth}
+            x={labelLeft}
+            y={labelTop}
           />
         )}
       </Fragment>

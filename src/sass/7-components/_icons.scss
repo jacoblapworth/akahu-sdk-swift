@@ -1,5 +1,5 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Icons
 //
@@ -204,54 +204,53 @@
 
 /* xui-iconsymbol is added to the icon blob produced by the xui-icon repository */
 .#{$ns}-iconsymbol {
-	fill-rule: evenodd;
-	shape-rendering: auto;
+  fill-rule: evenodd;
+  shape-rendering: auto;
 }
 
 .#{$ns}-iconwrapper {
-	align-items: center;
-	display: inline-flex;
-	justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
 
-	&-medium {
-		height: $xui-icon-medium;
-		width: $xui-icon-medium;
-	}
+  &-medium {
+    height: $xui-icon-medium;
+    width: $xui-icon-medium;
+  }
 
-	&-large {
-		height: $xui-icon-large;
-		width: $xui-icon-large;
-	}
+  &-large {
+    height: $xui-icon-large;
+    width: $xui-icon-large;
+  }
 
-	&-xlarge {
-		height: $xui-icon-xlarge;
-		width: $xui-icon-xlarge;
-	}
+  &-xlarge {
+    height: $xui-icon-xlarge;
+    width: $xui-icon-xlarge;
+  }
 }
 
 .#{$ns}-icon {
-	display: inline-block;
-	fill: currentColor;
-	fill-rule: evenodd;
-	flex: none; // Prevent distortion if parent has display: flex
-	pointer-events: none; // Don't hog the cursor if inside buttons/links
+  display: inline-block;
+  fill: currentColor;
+  fill-rule: evenodd;
+  flex: none; // Prevent distortion if parent has display: flex
+  pointer-events: none; // Don't hog the cursor if inside buttons/links
 }
 
 .#{$ns}-icon-rotate-90 {
-	transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .#{$ns}-icon-rotate-180 {
-	transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .#{$ns}-icon-rotate-270 {
-	transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
-
 @each $colourName, $colorHex in $icon-colours {
-	.#{$ns}-icon-color-#{$colourName} {
-		fill: $colorHex;
-	}
+  .#{$ns}-icon-color-#{$colourName} {
+    fill: $colorHex;
+  }
 }

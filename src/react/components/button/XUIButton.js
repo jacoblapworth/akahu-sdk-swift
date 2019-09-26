@@ -176,11 +176,11 @@ export default class XUIButton extends React.PureComponent {
 
           const loader = (
             <XUILoader
+              className={`${ns}-button--loader`}
+              defaultLayout={false}
               key={retainLayout && isLoading ? 'button-loader' : null}
               retainLayout={retainLayout}
               size="small"
-              defaultLayout={false}
-              className={`${ns}-button--loader`}
             />
           );
 
@@ -319,7 +319,7 @@ XUIButton.propTypes = {
   rel: PropTypes.string,
 
   /** The HTML tabIndex attribute value */
-  tabIndex: PropTypes.number,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   /** The `target` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
   target: PropTypes.string,

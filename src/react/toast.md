@@ -11,13 +11,12 @@
 ```jsx harmony
 import XUIToast from './toast';
 
-const onToastClose = () => {alert( 'Standard toast closed' )};
+const onToastClose = () => {
+  alert('Standard toast closed');
+};
 
 <div>
-	<XUIToast message="System Message" />
-	<XUIToast
-		onCloseClick={onToastClose}
-		message="Standard">
-	</XUIToast>
-</div>
+  <XUIToast message="System Message" />
+  <XUIToast onCloseClick={onToastClose} message="Standard" />
+</div>;
 ```

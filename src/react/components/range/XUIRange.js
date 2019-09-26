@@ -35,33 +35,33 @@ export default class XUIRange extends PureComponent {
 
     return (
       <XUIControlWrapper
-        wrapperIds={this.wrapperIds}
+        hintMessage={hintMessage}
+        isInvalid={isInvalid}
         isLabelHidden={isLabelHidden}
         label={label}
-        validationMessage={validationMessage}
-        hintMessage={hintMessage}
         qaHook={qaHook}
-        isInvalid={isInvalid}
+        validationMessage={validationMessage}
+        wrapperIds={this.wrapperIds}
       >
         <div className={cn(`${baseClass}-container`, containerClasses)}>
           {leftElement}
           <input
-            name={name}
-            onClick={onClick}
-            onInput={onInput}
-            id={id}
             className={cn(
               `${baseClass}`,
               size && `${baseClass}-thumb-${size}`,
               isInvalid && `${baseClass}-is-invalid`,
               inputClasses,
             )}
+            defaultValue={defaultValue}
+            disabled={isDisabled}
+            id={id}
+            max={max}
+            min={min}
+            name={name}
+            onClick={onClick}
+            onInput={onInput}
             step={step}
             type="range"
-            defaultValue={defaultValue}
-            min={min}
-            max={max}
-            disabled={isDisabled}
             {...getAriaAttributes(this.wrapperIds, this.props)}
           />
           {rightElement}

@@ -8,12 +8,12 @@ import PropTypes from 'prop-types';
  * it's children we need to create a wrapper.
  */
 export default class StatefulPicklistWrapper extends Component {
-	render() {
-		const { children, ...spreadProps } = this.props;
-		return <div {...spreadProps}>{children}</div>;
-	}
+  render() {
+    const { children, ...spreadProps } = this.props;
+    return <div {...spreadProps}>{children}</div>;
+  }
 }
 
 StatefulPicklistWrapper.propTypes = {
-	children: PropTypes.node,
+  children: PropTypes.node,
 };

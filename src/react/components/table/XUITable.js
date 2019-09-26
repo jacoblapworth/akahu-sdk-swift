@@ -1,4 +1,4 @@
-import 'core-js/library/fn/array/virtual/fill';
+import 'core-js/features/array/fill';
 import 'element-closest';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -169,11 +169,11 @@ class XUITable extends Component {
     const handleScroll = hasPinnedFirstColumn || hasPinnedLastColumn ? this.scrollThrottled : noop;
 
     return (
-      <div className={className} ref={node => (this.rootNode = node)} data-automationid={qaHook}>
+      <div className={className} data-automationid={qaHook} ref={node => (this.rootNode = node)}>
         {header && (
           <div
-            data-automationid={qaHook && `${qaHook}-header`}
             className={`${NAME_SPACE}--customheader`}
+            data-automationid={qaHook && `${qaHook}-header`}
           >
             {header}
           </div>
@@ -181,12 +181,12 @@ class XUITable extends Component {
 
         <div
           className={`${NAME_SPACE}-wrapper`}
-          ref={node => (this.wrapperNode = node)}
           onScroll={handleScroll}
+          ref={node => (this.wrapperNode = node)}
         >
           <table
-            data-automationid={qaHook && `${qaHook}-table`}
             className={`${NAME_SPACE}-element`}
+            data-automationid={qaHook && `${qaHook}-table`}
             ref={node => (this.tableNode = node)}
           >
             {hasHeader && (
@@ -248,8 +248,8 @@ class XUITable extends Component {
 
         {footer && (
           <div
-            data-automationid={qaHook && `${qaHook}-footer`}
             className={`${NAME_SPACE}--customfooter`}
+            data-automationid={qaHook && `${qaHook}-footer`}
           >
             {footer}
           </div>
@@ -260,7 +260,9 @@ class XUITable extends Component {
 }
 
 XUITable.propTypes = {
-  /** The row data for the table body. Each row is differentiated by a unique object key. */
+  /** The row data for the table body. Each row is differentiated by a unique object key.
+   * Pass the key `rowClassName` in a row object to apply a custom class.
+   */
   data: PropTypes.object.isRequired,
 
   /** The Column component(s) that will appear in the table layout. */

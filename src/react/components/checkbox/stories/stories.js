@@ -18,15 +18,15 @@ storiesWithKnobs.addDecorator(withKnobs);
 
 storiesWithKnobs.add('Playground', () => (
   <XUICheckbox
-    isLabelHidden={boolean('isLabelHidden', false)}
+    hintMessage={text('hintMessage', '')}
     isDisabled={boolean('isDisabled', false)}
     isIndeterminate={boolean('isIndeterminate', false)}
-    isReversed={boolean('isReversed', false)}
-    value={text('value', '')}
     isInvalid={boolean('isInvalid', false)}
-    validationMessage={text('validationMessage', '')}
-    hintMessage={text('hintMessage', '')}
+    isLabelHidden={boolean('isLabelHidden', false)}
+    isReversed={boolean('isReversed', false)}
     size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
+    validationMessage={text('validationMessage', '')}
+    value={text('value', '')}
   >
     {text('label text', 'Test checkbox')}
   </XUICheckbox>

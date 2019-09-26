@@ -278,13 +278,13 @@ export default class XUIModal extends Component {
 
     const closeButton = onClose ? (
       <XUIIconButton
-        icon={cross}
         ariaLabel={closeButtonLabel}
-        qaHook={qaHook && `${qaHook}--close`}
-        onClick={onClose}
-        title={closeButtonLabel}
         className={cn(`${baseClass}--close`, closeClassName)}
+        icon={cross}
         key="close-button"
+        onClick={onClose}
+        qaHook={qaHook && `${qaHook}--close`}
+        title={closeButtonLabel}
         type="button"
       />
     ) : null;
@@ -317,25 +317,25 @@ export default class XUIModal extends Component {
     }
     const childNodes = (
       <div
-        id={id}
-        className={maskClasses}
-        onClick={overlayClickHandler}
         aria-hidden={!isOpen || !isTopModal}
+        className={maskClasses}
         data-automationid={qaHook && `${qaHook}--mask`}
+        id={id}
+        onClick={overlayClickHandler}
         ref={m => (this._maskNode = m)}
         role="presentation"
       >
         <MainElement
-          className={modalClasses}
-          tabIndex={modalTabIndex}
-          role={isOpen ? 'dialog' : null}
-          style={positionSettings}
+          aria-describedby={ariaDescribedBy}
           // If a modal header has been provided, it can be used for the label.
           aria-labelledby={ariaLabelledBy || (headerElement && headerElement.props.id) || undefined}
-          aria-describedby={ariaDescribedBy}
+          className={modalClasses}
           data-automationid={qaHook}
-          ref={m => (this._modalNode = m)}
           onKeyDown={this._manageTabFocus}
+          ref={m => (this._modalNode = m)}
+          role={isOpen ? 'dialog' : null}
+          style={positionSettings}
+          tabIndex={modalTabIndex}
         >
           {headerElement}
           {finalChildren}

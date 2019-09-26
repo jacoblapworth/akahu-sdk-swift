@@ -12,7 +12,7 @@ const lockScrollClassName = `${ns}-lockscroll`;
  * @export
  */
 export const isScrollLocked = () =>
-	document.documentElement.classList.contains(lockScrollClassName);
+  document.documentElement.classList.contains(lockScrollClassName);
 
 /**
  * Will set the scroll on the browser to be locked and visibly hidden so the content
@@ -22,29 +22,30 @@ export const isScrollLocked = () =>
  * @export
  */
 export const lockScroll = () => {
-	scrollLockCount += 1;
-	if (!isScrollLocked()) {
-		const { body } = document;
-		const html = document.documentElement;
-		const existingPadding = parseInt(getComputedStyle(body, 'paddingRight'), 10);
-		const scrollbarSize = calcScrollbarWidth();
-		const newPadding = (typeof existingPadding === 'number' && isNaN(existingPadding)) ||
-			!Number.isFinite(existingPadding)
-			? scrollbarSize
-			: scrollbarSize + existingPadding;
+  scrollLockCount += 1;
+  if (!isScrollLocked()) {
+    const { body } = document;
+    const html = document.documentElement;
+    const existingPadding = parseInt(getComputedStyle(body, 'paddingRight'), 10);
+    const scrollbarSize = calcScrollbarWidth();
+    const newPadding =
+      (typeof existingPadding === 'number' && isNaN(existingPadding)) ||
+      !Number.isFinite(existingPadding)
+        ? scrollbarSize
+        : scrollbarSize + existingPadding;
 
-		// FF scrolls the HTML element.  Chrome scrolls the body.  Handle either.
-		const scrollElement = body.scrollTop > 0 || html.scrollTop === 0 ? body : html;
-		scrollState = {
-			top: scrollElement.scrollTop,
-			left: scrollElement.scrollLeft,
-		};
+    // FF scrolls the HTML element.  Chrome scrolls the body.  Handle either.
+    const scrollElement = body.scrollTop > 0 || html.scrollTop === 0 ? body : html;
+    scrollState = {
+      top: scrollElement.scrollTop,
+      left: scrollElement.scrollLeft,
+    };
 
-		html.classList.add(lockScrollClassName);
-		body.style.paddingRight = `${newPadding}px`;
-		return true;
-	}
-	return false;
+    html.classList.add(lockScrollClassName);
+    body.style.paddingRight = `${newPadding}px`;
+    return true;
+  }
+  return false;
 };
 
 /**
@@ -53,21 +54,21 @@ export const lockScroll = () => {
  * @export
  */
 export const unlockScroll = () => {
-	if (scrollLockCount <= 1 && isScrollLocked()) {
-		const { body, documentElement: html } = document;
+  if (scrollLockCount <= 1 && isScrollLocked()) {
+    const { body, documentElement: html } = document;
 
-		body.style.paddingRight = '';
-		html.classList.remove(lockScrollClassName);
+    body.style.paddingRight = '';
+    html.classList.remove(lockScrollClassName);
 
-		/*
+    /*
 		iOS still scrolls behind, so make sure the scroll position gets reset back to
 		what it was when we locked scrolling.
 
 		@author dev-johnsanders
 		*/
-		window.scrollTo(scrollState.left, scrollState.top);
-	}
-	if (scrollLockCount) {
-		scrollLockCount -= 1;
-	}
+    window.scrollTo(scrollState.left, scrollState.top);
+  }
+  if (scrollLockCount) {
+    scrollLockCount -= 1;
+  }
 };

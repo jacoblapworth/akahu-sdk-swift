@@ -49,10 +49,15 @@ const customStyles = `
 	font-weight: bold !important;
 }
 
+.xui-table-visualTesting-row {
+  font-style: italic;
+  font-weight: bold;
+}
+
 `;
 
 const createOverflowMenu = () => [
-  <Pickitem key="0" id="0" onClick={noop}>
+  <Pickitem id="0" key="0" onClick={noop}>
     Menu Option
   </Pickitem>,
 ];
@@ -70,7 +75,7 @@ const createCustomStyles = () => {
 
 const createTags = total =>
   new Array(total).fill(0).map((_, index) => (
-    <XUITag key={index} className="xui-margin-right-xsmall">
+    <XUITag className="xui-margin-right-xsmall" key={index}>
       {`tag ${index + 1}`}
     </XUITag>
   ));
@@ -82,7 +87,7 @@ storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const data = {
     0: {},
-    1: {},
+    1: { rowClassName: text('custom row className for row 1', '') },
     2: {},
   };
 
@@ -139,38 +144,38 @@ storiesWithKnobs.add('Playground', () => {
     <div style={tableStyles}>
       <Table
         {...tableProps}
-        data={data}
         className={text('className', '')}
+        data={data}
+        footer={appendFooter && <Appendage>Footer</Appendage>}
+        header={prependHeader && <Appendage>Header</Appendage>}
+        isBorderless={boolean('isBorderless', false)}
+        isLoading={boolean('isLoading', false)}
         isResponsive={boolean('isResponsive', false)}
         isTruncated={boolean('isTruncated', false)}
-        isLoading={boolean('isLoading', false)}
-        isBorderless={boolean('isBorderless', false)}
-        header={prependHeader && <Appendage>Header</Appendage>}
-        footer={appendFooter && <Appendage>Footer</Appendage>}
       >
         <Column
+          body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
           head={<Cell sortKey="header-1">Header 1</Cell>}
-          body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
         />
 
         <Column
+          body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
           head={<Cell sortKey="header-2">Header 2</Cell>}
-          body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
         />
 
         <Column
-          head={<Cell sortKey="header-3">Header 3</Cell>}
           body={data => <Cell {...cellProps}>Super looooooooonooooooooooog text {data._id}</Cell>}
+          head={<Cell sortKey="header-3">Header 3</Cell>}
         />
 
         <Column
+          body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
           head={<Cell sortKey="header-4">Header 4</Cell>}
-          body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
         />
 
         <Column
-          head={<Cell sortKey="header-5">Header 5</Cell>}
           body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
+          head={<Cell sortKey="header-5">Header 5</Cell>}
         />
       </Table>
     </div>
@@ -214,31 +219,31 @@ const TestScaffold = (
   <ScrollResetWrapper key={tableIndex} style={{ ...tableStyles, ...styleOverrides }}>
     <Table
       {...tableProps}
+      createOverflowMenu={tableProps.hasOverflowMenu && createOverflowMenu}
       emptyStateComponent={
         tableProps.emptyStateComponent && <Appendage>Custom Empty State</Appendage>
       }
-      createOverflowMenu={tableProps.hasOverflowMenu && createOverflowMenu}
-      header={tableProps.header && <Appendage>Header</Appendage>}
       footer={tableProps.footer && <Appendage>Footer</Appendage>}
+      header={tableProps.header && <Appendage>Header</Appendage>}
     >
       {new Array(columns).fill(0).map((_, columnIndex) => (
         <Column
-          key={columnIndex}
+          body={({ content, tags, className, hasWrapping }) => (
+            <Cell className={className} hasWrapping={hasWrapping}>
+              {content || (tags && createTags(tags.length)) || `Cell ${columnIndex + 1}`}
+            </Cell>
+          )}
           head={
             !removeHeader && (
               <Cell
-                {...tableProps.activeSortKey && !columnIndex && { sortKey: 'content' }}
+                {...(tableProps.activeSortKey && !columnIndex && { sortKey: 'content' })}
                 className={hasHeaderClassName && 'xui-table-visualTesting-cell'}
               >
                 {`Header ${columnIndex + 1}`}
               </Cell>
             )
           }
-          body={({ content, tags, className, hasWrapping }) => (
-            <Cell className={className} hasWrapping={hasWrapping}>
-              {content || (tags && createTags(tags.length)) || `Cell ${columnIndex + 1}`}
-            </Cell>
-          )}
+          key={columnIndex}
         />
       ))}
     </Table>

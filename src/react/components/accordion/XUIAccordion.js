@@ -43,13 +43,13 @@ export default class XUIAccordion extends PureComponent {
     const shouldCreateItems = !!(items.length && createItem);
 
     const emptyComponent = emptyStateComponent || (
-      <EmptyState qaHook={qaHook && `${qaHook}-empty`} emptyIcon={emptyIcon}>
+      <EmptyState emptyIcon={emptyIcon} qaHook={qaHook && `${qaHook}-empty`}>
         {emptyMessage}
       </EmptyState>
     );
 
     return (
-      <div data-automationid={qaHook} className={cn(`${ns}-accordion`, className)}>
+      <div className={cn(`${ns}-accordion`, className)} data-automationid={qaHook}>
         <XUIAccordionContext.Provider
           value={{
             emptyStateComponent: emptyComponent,

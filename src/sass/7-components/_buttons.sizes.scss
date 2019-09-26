@@ -1,34 +1,34 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 .#{$ns}-button-fullwidth {
-	@include xui-layout-width-fullwidth;
+  @include xui-layout-width-fullwidth;
 }
 
 // TODO: review this class (or at least its name) in a responsive context
 .#{$ns}-button-fullwidth-layout {
-	@include xui-breakpoint-small-down {
-		display: block;
-		width: 100%;
-	}
+  @include xui-breakpoint-small-down {
+    display: block;
+    width: 100%;
+  }
 }
 
 .#{$ns}-button-medium {
-	line-height: 1rem;
-	min-height: $xui-control-size-standard;
-	padding: 11px $xui-input-padding-horizontal;
+  line-height: 1rem;
+  min-height: $xui-control-size-standard;
+  padding: 11px $xui-input-padding-horizontal;
 }
 
 .#{$ns}-button-small {
-	@include xui-text-small;
+  @include xui-text-small;
 
-	min-height: $xui-control-size-small;
-	padding: #{($xui-control-size-small - $xui-line-height-small)/2 - 1px} $xui-s-small;
+  min-height: $xui-control-size-small;
+  padding: #{($xui-control-size-small - $xui-line-height-small) / 2 - 1px} $xui-s-small;
 }
 
 .#{$ns}-button-xsmall {
-	@include xui-text-xsmall;
+  @include xui-text-xsmall;
 
-	min-height: $xui-control-size-xsmall;
-	padding: #{($xui-control-size-xsmall - $xui-line-height-xsmall)/2 - 1px} $xui-s-xsmall;
+  min-height: $xui-control-size-xsmall;
+  padding: #{($xui-control-size-xsmall - $xui-line-height-xsmall) / 2 - 1px} $xui-s-xsmall;
 }

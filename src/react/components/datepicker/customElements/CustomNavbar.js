@@ -99,27 +99,27 @@ export default class CustomNavbar extends PureComponent {
     const controlSize = isCompact ? 'xsmall' : 'small';
     const monthSelector = (
       <MonthSelector
-        minDate={minDate}
-        maxDate={maxDate}
-        months={months}
         currentMonthDate={currentMonthDate}
-        selectRef={n => (this.monthSelect = n)}
         id={this.monthId}
+        maxDate={maxDate}
+        minDate={minDate}
+        months={months}
         onChange={this.onMonthChange}
         onKeyDown={this.onMonthSelectKeyDown}
+        selectRef={n => (this.monthSelect = n)}
         size={controlSize}
       />
     );
     const yearSelector = (
       <YearSelector
-        minDate={minDate}
-        maxDate={maxDate}
         currentMonthDate={currentMonthDate}
-        selectRef={n => (this.yearSelect = n)}
         id={this.yearId}
+        locale={locale}
+        maxDate={maxDate}
+        minDate={minDate}
         onChange={this.onYearChange}
         onKeyDown={this.onYearSelectKeyDown}
-        locale={locale}
+        selectRef={n => (this.yearSelect = n)}
         size={controlSize}
       />
     );
@@ -127,15 +127,15 @@ export default class CustomNavbar extends PureComponent {
     return (
       <header className={classNames.navBar}>
         <XUIIconButton
-          icon={arrow}
-          rotation="90"
-          size={controlSize}
-          isDisabled={!showPreviousButton}
+          ariaLabel={labels.previousMonth}
           className={classNames.navButtonPrev}
+          icon={arrow}
+          isDisabled={!showPreviousButton}
           // Can't just pass a function because DayPicker expects a function callback arg
           onClick={() => previousClickHandler()}
-          ariaLabel={labels.previousMonth}
           qaHook={qaHook && `${qaHook}--previous-month-button`}
+          rotation="90"
+          size={controlSize}
         />
 
         <div className={`${baseClassName}--heading-dates`}>
@@ -144,15 +144,15 @@ export default class CustomNavbar extends PureComponent {
         </div>
 
         <XUIIconButton
-          icon={arrow}
-          rotation="270"
-          size={controlSize}
-          isDisabled={!showNextButton}
+          ariaLabel={labels.nextMonth}
           className={classNames.navButtonNext}
+          icon={arrow}
+          isDisabled={!showNextButton}
           // Can't just pass a function because DayPicker expects a function callback arg
           onClick={() => nextClickHandler()}
-          ariaLabel={labels.nextMonth}
           qaHook={qaHook && `${qaHook}--next-month-button`}
+          rotation="270"
+          size={controlSize}
         />
       </header>
     );

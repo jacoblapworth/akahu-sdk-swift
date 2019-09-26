@@ -1,52 +1,51 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 .#{$ns}-actions {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 
-	// Modifications
-	&-linear {
-		justify-content: space-between;
-	}
+  // Modifications
+  &-linear {
+    justify-content: space-between;
+  }
 
-	// Layout
-	&-layout {
-		margin-left: auto;
+  // Layout
+  &-layout {
+    margin-left: auto;
 
-		@include xui-breakpoint-small-down {
-			flex-direction: column;
+    @include xui-breakpoint-small-down {
+      flex-direction: column;
 
-			.#{$ns}-actions--primary {
-				margin: 0;
-				order: 0;
-			}
+      .#{$ns}-actions--primary {
+        margin: 0;
+        order: 0;
+      }
 
-			.#{$ns}-actions--secondary {
-				margin: $xui-s-small 0 0;
-				order: 1;
-			}
-		}
+      .#{$ns}-actions--secondary {
+        margin: $xui-s-small 0 0;
+        order: 1;
+      }
+    }
 
-		@include xui-breakpoint-small-up {
-			.#{$ns}-actions--primary {
-				margin-left: $xui-s-xsmall;
-			}
-		}
-	}
+    @include xui-breakpoint-small-up {
+      .#{$ns}-actions--primary {
+        margin-left: $xui-s-xsmall;
+      }
+    }
+  }
 
-	// Subs
-	&--primary {
-		order: 1;
-	}
+  // Subs
+  &--primary {
+    order: 1;
+  }
 
-	&--secondary {
-		order: 0;
-	}
+  &--secondary {
+    order: 0;
+  }
 
-	&--button-spacing {
-		margin-left: $xui-s-xsmall;
-	}
-
+  &--button-spacing {
+    margin-left: $xui-s-xsmall;
+  }
 }

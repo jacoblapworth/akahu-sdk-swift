@@ -1,114 +1,115 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 $toast-max-width: 400px;
 
 .#{$ns}-toast {
-	@include xui-clearfix;
-	background: $xui-toast-bg-color;
-	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-depth-lift;
-	color: $xui-toast-color;
-	display: inline-block;
-	max-width: $toast-max-width;
-	opacity: 1;
-	position: relative;
-	transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
-	z-index: 10;
-	@include xui-breakpoint-small-down {
-		border-radius: 0;
-	}
+  @include xui-clearfix;
+  background: $xui-toast-bg-color;
+  border-radius: $xui-radius;
+  box-shadow: $xui-shadow-depth-lift;
+  color: $xui-toast-color;
+  display: inline-block;
+  max-width: $toast-max-width;
+  opacity: 1;
+  position: relative;
+  transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
+  z-index: 10;
+  @include xui-breakpoint-small-down {
+    border-radius: 0;
+  }
 }
 
 // Fix for problem with IE11 not understanding that containers don't need a set width
 // To be able to correctly calculate the following (calc(100% - 45px));
 // This sets the width to be a hard width and the calculations all work again
 // With the side-effect of forcing the toasts to all be 400px in size.
-@media all and (-ms-high-contrast:none) {
-	*::-ms-backdrop, .#{$ns}-toast {
-		width: $toast-max-width;
-	}
+@media all and (-ms-high-contrast: none) {
+  *::-ms-backdrop,
+  .#{$ns}-toast {
+    width: $toast-max-width;
+  }
 }
 
 .#{$ns}-toast-positive {
-	@include xui-highlight-left($xui-banner-positive-bg-color, $xui-radius, true);
+  @include xui-highlight-left($xui-banner-positive-bg-color, $xui-radius, true);
 }
 
 .#{$ns}-toast-negative {
-	@include xui-highlight-left($xui-bannger-negative-bg-color, $xui-radius, true);
+  @include xui-highlight-left($xui-bannger-negative-bg-color, $xui-radius, true);
 }
 
 .#{$ns}-toast-layout {
-	margin: 0 $xui-s-large $xui-s-large $xui-s-large;
+  margin: 0 $xui-s-large $xui-s-large $xui-s-large;
 
-	@include xui-breakpoint-small-down {
-		margin: 0;
-		max-width: none;
-		width: 100%;
+  @include xui-breakpoint-small-down {
+    margin: 0;
+    max-width: none;
+    width: 100%;
 
-		&::before {
-			border-radius: 0;
-		}
-	}
+    &::before {
+      border-radius: 0;
+    }
+  }
 
-	.#{$ns}-toast--message {
-		float: initial;
-		margin: 0;
-		padding: $xui-s-small $xui-s-standard;
-	}
+  .#{$ns}-toast--message {
+    float: initial;
+    margin: 0;
+    padding: $xui-s-small $xui-s-standard;
+  }
 
-	.#{$ns}-toast--actions {
-		margin: $xui-s-2xsmall 0 0 0;
-		padding: 0;
-	}
+  .#{$ns}-toast--actions {
+    margin: $xui-s-2xsmall 0 0 0;
+    padding: 0;
+  }
 
-	.#{$ns}-toast--action {
-		margin: $xui-s-2xsmall;
-		text-align: center;
-	}
+  .#{$ns}-toast--action {
+    margin: $xui-s-2xsmall;
+    text-align: center;
+  }
 
-	.#{$ns}-toast--close ~ .#{$ns}-toast--message {
-		max-width: calc(100% - #{$xui-control-size-small + $xui-s-standard});
-	}
+  .#{$ns}-toast--close ~ .#{$ns}-toast--message {
+    max-width: calc(100% - #{$xui-control-size-small + $xui-s-standard});
+  }
 }
 
 .#{$ns}-toastwrapper {
-	bottom: 0;
-	display: flex;
-	flex-flow: column nowrap;
-	left: 0;
-	position: fixed;
-	z-index: 8000;
+  bottom: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  left: 0;
+  position: fixed;
+  z-index: 8000;
 
-	@include xui-breakpoint-small-down {
-		width: 100%;
-	}
+  @include xui-breakpoint-small-down {
+    width: 100%;
+  }
 }
 
 .#{$ns}-toast--message,
 .#{$ns}-toast--actions,
 .#{$ns}-toast--action {
-	display: inline-block;
+  display: inline-block;
 }
 
 .#{$ns}-toast--message {
-	float: left;
+  float: left;
 }
 
 .#{$ns}-toast--close,
 .#{$ns}-toast--actions {
-	float: right;
+  float: right;
 }
 
 .#{$ns}-toast--close {
-	margin: $xui-s-2xsmall;
+  margin: $xui-s-2xsmall;
 }
 
 .#{$ns}-toast-is-hidden {
-	@include xui-margin-vertical(0);
-	@include xui-padding-vertical(0);
-	max-height: 0;
-	opacity: 0;
-	overflow: hidden;
-	pointer-events: none;
+  @include xui-margin-vertical(0);
+  @include xui-padding-vertical(0);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
 }

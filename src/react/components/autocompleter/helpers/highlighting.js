@@ -14,41 +14,41 @@ import uuidv4 from 'uuid/v4';
  * @param {function} decorateFn - Function which will map the string to whatever you want
  * @returns {Array.<string|JSX>|string}
  */
-export const decorateSubStr = (str, searchStr, decorateFn)	=> {
-	// If the search string is the same as the result, return a decorated full match
-	if (str === searchStr) {
-		// v1() creates a unique time based key
-		return decorateFn(str, uuidv4());
-	}
+export const decorateSubStr = (str, searchStr, decorateFn) => {
+  // If the search string is the same as the result, return a decorated full match
+  if (str === searchStr) {
+    // v1() creates a unique time based key
+    return decorateFn(str, uuidv4());
+  }
 
-	// If there's no search string or its greater than a match there's no need to
-	// decorate in this case.
-	if (!str || !searchStr || searchStr.length > str.length) {
-		return str;
-	}
-	const matchRegex = new RegExp(searchStr, 'ig');
-	const matches = str.match(matchRegex);
-	if (!matches) {
-		return str;
-	}
+  // If there's no search string or its greater than a match there's no need to
+  // decorate in this case.
+  if (!str || !searchStr || searchStr.length > str.length) {
+    return str;
+  }
+  const matchRegex = new RegExp(searchStr, 'ig');
+  const matches = str.match(matchRegex);
+  if (!matches) {
+    return str;
+  }
 
-	// Decorate matches by splitting 'str' using the matchRegex, creating an array which can contain
-	// all string parts and matches, then merging the items in the split string with the decorated
-	// matches.
-	const splitString = str.split(matchRegex);
-	const result = [];
-	let resultIdx = 0;
-	for (let i = 0; i < splitString.length; i += 1) {
-		if (splitString[i]) {
-			result[resultIdx] = splitString[i];
-			resultIdx += 1;
-		}
-		if (matches[i]) {
-			result[resultIdx] = decorateFn(matches[i], uuidv4());
-			resultIdx += 1;
-		}
-	}
-	return result;
+  // Decorate matches by splitting 'str' using the matchRegex, creating an array which can contain
+  // all string parts and matches, then merging the items in the split string with the decorated
+  // matches.
+  const splitString = str.split(matchRegex);
+  const result = [];
+  let resultIdx = 0;
+  for (let i = 0; i < splitString.length; i += 1) {
+    if (splitString[i]) {
+      result[resultIdx] = splitString[i];
+      resultIdx += 1;
+    }
+    if (matches[i]) {
+      result[resultIdx] = decorateFn(matches[i], uuidv4());
+      resultIdx += 1;
+    }
+  }
+  return result;
 };
 
 /**
@@ -61,4 +61,4 @@ export const decorateSubStr = (str, searchStr, decorateFn)	=> {
  *
  * @returns {React.Component}
  */
-export const boldMatch = (str, id) => (<strong key={id}>{str}</strong>);
+export const boldMatch = (str, id) => <strong key={id}>{str}</strong>;

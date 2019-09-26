@@ -7,13 +7,13 @@
  * base element selectors, xui-body and xui-html classes.
  */
 
-@import "vars";
-@import "mixins";
+@import 'vars';
+@import 'mixins';
 
 // Opinionated global resets
 // -----------------------------------------------------------------------------
-@import "3-reset/reset";
+@import '3-reset/reset';
 
 // Application basics
 // -----------------------------------------------------------------------------
-@import "4-base/base";
+@import '4-base/base';

@@ -14,7 +14,6 @@
 //
 // Styleguide: Compounds.Navigation.Isolation header
 
-
 // Best practice
 //
 // Tips:
@@ -319,61 +318,61 @@
 // Styleguide: Compounds.Navigation.Isolation header.5
 
 .#{$ns}-isolationheader {
-	align-items: center;
-	background-color: $xui-isolationheader-bg-color;
-	box-shadow: $xui-shadow-depth-overlap-top;
-	color: $xui-isolationheader-color;
-	display: flex;
-	height: $xui-navigation-height;
-	overflow: hidden;
-	padding: 0 $xui-s-xsmall;
-	white-space: nowrap;
+  align-items: center;
+  background-color: $xui-isolationheader-bg-color;
+  box-shadow: $xui-shadow-depth-overlap-top;
+  color: $xui-isolationheader-color;
+  display: flex;
+  height: $xui-navigation-height;
+  overflow: hidden;
+  padding: 0 $xui-s-xsmall;
+  white-space: nowrap;
 }
 
 .#{$ns}-isolationheader-fixed {
-	left: 0;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: $xui-z-index-header;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: $xui-z-index-header;
 }
 
 .#{$ns}-isolationheader-inverted {
-	background: $xui-isolationheader-inverted-bg-color;
-	color: $xui-color-white;
+  background: $xui-isolationheader-inverted-bg-color;
+  color: $xui-color-white;
 }
 
 .#{$ns}-isolationheader--navigation,
 .#{$ns}-isolationheader--actions {
-	align-items: center;
-	align-self: stretch;
-	display: flex;
-	white-space: nowrap;
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  white-space: nowrap;
 }
 
 .#{$ns}-isolationheader--navigation {
-	overflow: hidden;
-	padding-right: $xui-s-xsmall;
+  overflow: hidden;
+  padding-right: $xui-s-xsmall;
 }
 
 .#{$ns}-isolationheader--actions {
-	flex-shrink: 0; // The navigation can shrink because it should be mostly text; the actions should be buttons
-	margin-left: auto;
+  flex-shrink: 0; // The navigation can shrink because it should be mostly text; the actions should be buttons
+  margin-left: auto;
 }
 
 .#{$ns}-isolationheader--title {
-	@include xui-margin(0 $xui-s-small 0 0);
-	@include xui-text-truncated;
-	@include xui-heading-large;
+  @include xui-margin(0 $xui-s-small 0 0);
+  @include xui-text-truncated;
+  @include xui-heading-large;
 }
 
 .#{$ns}-isolationheader--secondary-title {
-	@include xui-margin(0 $xui-s-small 0 0);
-	@include xui-text-truncated;
-	@include xui-heading-large;
-	@include xui-text-deemphasis;
+  @include xui-margin(0 $xui-s-small 0 0);
+  @include xui-text-truncated;
+  @include xui-heading-large;
+  @include xui-text-deemphasis;
 }
 
 .#{$ns}-isolationheader--button:nth-child(2n) {
-	margin-left: $xui-s-small;
+  margin-left: $xui-s-small;
 }

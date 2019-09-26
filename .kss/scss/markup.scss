@@ -1,75 +1,73 @@
-
 .ds-input-example:checked ~ .ds-markup:not(.ds-example-inline) {
-	display:none;
+  display: none;
 }
 
 .ds-markup-open {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .ds-markup {
-	background: $ds-markup-bg-color;
-	display: block;
-	padding-top: 1rem;
-	padding-left: 1rem;
-	padding-right: 1rem;
-	padding-bottom: 1rem;
-	width: 100%;
+  background: $ds-markup-bg-color;
+  display: block;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  width: 100%;
 }
 
 .ds-markup--actions {
-	position: absolute;
-	right: 10px;
-	z-index: 100;
+  position: absolute;
+  right: 10px;
+  z-index: 100;
 }
 
 .ds-button-closemarkup,
 .ds-markup--actions h3 {
-	display: none;
+  display: none;
 }
 
-
 .ds-markup:not(.ds-example-inline) {
-	position: fixed;
-	top: 0;
-	right: 0;
-	left: 0;
-	bottom: 0;
-	height: 100vh;
-	overflow: auto;
-	z-index: 9999;
-	padding-top: calc(1rem + #{$ds-page-header-height});
-	@include ds-breakpoint-massive {
-		left: 80rem;
-		width: auto;
-	}
-	.ds-markup--actions {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: row-reverse;
-		position: fixed;
-		left: 0;
-		top: 0;
-		right: 0;
-		background: $ds-markup-bg-color;
-		height: $ds-page-header-height;
-		padding-left: 1rem;
-		padding-right: 1rem;
-		border-bottom: 1px solid rgba($xui-color-white, 0.1);
-		@include ds-breakpoint-massive {
-			left: 80rem;
-		}
-	}
-	.ds-button-closemarkup,
-	.ds-markup--actions h3 {
-		display: flex;
-	}
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  overflow: auto;
+  z-index: 9999;
+  padding-top: calc(1rem + #{$ds-page-header-height});
+  @include ds-breakpoint-massive {
+    left: 80rem;
+    width: auto;
+  }
+  .ds-markup--actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    background: $ds-markup-bg-color;
+    height: $ds-page-header-height;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-bottom: 1px solid rgba($xui-color-white, 0.1);
+    @include ds-breakpoint-massive {
+      left: 80rem;
+    }
+  }
+  .ds-button-closemarkup,
+  .ds-markup--actions h3 {
+    display: flex;
+  }
 }
 
 // scss-lint:disable Prefix
 .kss-style code {
-	font-size: 13px;
+  font-size: 13px;
 }
 
 // the below layout class assumes all the rules, if position is subsequently
@@ -78,15 +76,15 @@
 .ds-markup-wrap code,
 .ds-description code,
 .kss-style code {
-	display: inline-block;
-	position: relative;
-	top: -1px;
+  display: inline-block;
+  position: relative;
+  top: -1px;
 }
 
 code {
-	background: $ds-code-bg-color;
-	border-radius: $xui-radius;
-	padding: 0 4px;
+  background: $ds-code-bg-color;
+  border-radius: $xui-radius;
+  padding: 0 4px;
   word-break: break-word;
 }
 // ------------------------------------------------------------------------------
@@ -96,7 +94,6 @@ code {
 /* Pretty printing styles. Used with prettify.js. */
 
 @media screen {
-
   /* string content */
 
   .str {
@@ -160,12 +157,12 @@ code {
   /* markup attribute value */
 
   .atv {
-		color: $xui-color-turquoise;
+    color: $xui-color-turquoise;
   }
 
-	/* plain text */
+  /* plain text */
 
-	.pln {
+  .pln {
     color: $xui-color-white;
   }
 
@@ -188,42 +185,40 @@ code {
   }
 }
 
-
 .prettyprinted code {
-	background: none;
+  background: none;
 }
 
 .linenums {
-	border: 0;
-	list-style: none;
-	margin: 0;
-	white-space: pre-wrap;
-	counter-reset: step;
-	line-height: 1.7;
-	tab-size: 15px;
+  border: 0;
+  list-style: none;
+  margin: 0;
+  white-space: pre-wrap;
+  counter-reset: step;
+  line-height: 1.7;
+  tab-size: 15px;
 
-	& li {
-		counter-increment: step 1;
-		position: relative;
-		&:before {
-			content: counter(step);
-			color: $ds-markup-linenum-color;
-			left: -2rem;
-			position: absolute;
-		}
-	}
+  & li {
+    counter-increment: step 1;
+    position: relative;
+    &:before {
+      content: counter(step);
+      color: $ds-markup-linenum-color;
+      left: -2rem;
+      position: absolute;
+    }
+  }
 
-	code {
-		display: block;
-		padding-left: 3em;
-		text-indent: -3em;
-		&::first-line {
-			// background: red;
-		}
-	}
+  code {
+    display: block;
+    padding-left: 3em;
+    text-indent: -3em;
+    &::first-line {
+      // background: red;
+    }
+  }
 
-	li:last-of-type {
-		border-bottom: 0;
-	}
-
+  li:last-of-type {
+    border-bottom: 0;
+  }
 }

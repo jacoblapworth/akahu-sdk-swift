@@ -59,16 +59,16 @@ const onLabelClick = e => {
 const buildSvgCheckbox = (qaHook, { svgClassName, iconMain }) => {
   const svgClasses = cn(`${ns}-icon`, svgClassName);
   const createPathWithClass = className => (
-    <path d={iconMain.path} className={className} role="presentation" />
+    <path className={className} d={iconMain.path} role="presentation" />
   );
   return (
     <div className={`${ns}-iconwrapper`}>
       <svg
         className={svgClasses}
         data-automationid={qaHook && `${qaHook}--icon`}
-        width={iconMain.width}
         height={iconMain.height}
         viewBox={`0 0 ${iconMain.width} ${iconMain.height}`}
+        width={iconMain.width}
       >
         {createPathWithClass(`${baseClass}--focus`)}
         {createPathWithClass(`${baseClass}--main`)}
@@ -234,13 +234,13 @@ export default class XUICheckbox extends PureComponent {
 
     return (
       <XUIControlWrapperInline
-        rootClassName={wrapperClasses}
-        wrapperIds={this.wrapperIds}
-        onClick={onLabelClick}
         fieldClassName={classes}
+        label={children}
         labelClassName={labelClasses}
         messageClassName={messageClasses}
-        label={children}
+        onClick={onLabelClick}
+        rootClassName={wrapperClasses}
+        wrapperIds={this.wrapperIds}
         {...{
           qaHook,
           isInvalid,
@@ -319,7 +319,7 @@ XUICheckbox.propTypes = {
   htmlClassName: PropTypes.string,
 
   /** The tab-index property to place on the checkbox */
-  tabIndex: PropTypes.number,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   /** Used to output an uncontrolled checkbox component. If a value is passed to the
    * isChecked prop, this prop will be ignored. */

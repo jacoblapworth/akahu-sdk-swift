@@ -42,19 +42,19 @@ export default class XUIAvatar extends PureComponent {
       <React.Fragment>
         {imageUrl && (
           <img
+            alt=""
+            className={cn(avatarClassNames, { [classNames.hidden]: !imageLoaded })}
+            data-automationid={qaHook}
             onError={this.onError}
             onLoad={this.onLoad}
-            data-automationid={qaHook}
-            className={cn(avatarClassNames, {[classNames.hidden]: !imageLoaded })}
-            alt=""
             src={imageUrl}
           />
         )}
         <abbr
-          data-automationid={qaHook}
           className={cn(avatarClassNames, getAvatarColorClass(identifier || value || imageUrl), {
             [classNames.hidden]: imageUrl && imageLoaded,
           })}
+          data-automationid={qaHook}
           role="presentation"
         >
           {abbreviateAvatar(value, avatarCharacterCount)}
@@ -71,18 +71,19 @@ XUIAvatar.propTypes = {
   /** The avatar variant */
   variant: PropTypes.oneOf(Object.keys(variantClassNames)),
 
-	/** The text to display in the avatar */
-	value(props, propName) {
-		const valOrUrl = props[propName] || props.imageUrl;
-		if (!valOrUrl) {
-			return new Error('XUIAvatar component requires either a ' +
-				'non-empty `value` or `imageUrl` property');
-		}
-		if (typeof valOrUrl !== 'string') {
-			return new Error('XUIAvatar: `value` or `imageUrl` must be a string');
-		}
-		return null;
-	},
+  /** The text to display in the avatar */
+  value(props, propName) {
+    const valOrUrl = props[propName] || props.imageUrl;
+    if (!valOrUrl) {
+      return new Error(
+        'XUIAvatar component requires either a non-empty `value` or `imageUrl` property',
+      );
+    }
+    if (typeof valOrUrl !== 'string') {
+      return new Error('XUIAvatar: `value` or `imageUrl` must be a string');
+    }
+    return null;
+  },
   /** the image the component should render. Initials rendered otherwise */
   imageUrl: PropTypes.string,
 

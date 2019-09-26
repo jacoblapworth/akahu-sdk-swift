@@ -5,9 +5,9 @@ import XUIIsolationHeaderTitle from './components/isolationheader/XUIIsolationHe
 import XUIIsolationHeaderSecondaryTitle from './components/isolationheader/XUIIsolationHeaderSecondaryTitle';
 
 export {
-	XUIIsolationHeader as default,
-	XUIIsolationHeaderActions,
-	XUIIsolationHeaderNavigation,
-	XUIIsolationHeaderTitle,
-	XUIIsolationHeaderSecondaryTitle,
+  XUIIsolationHeader as default,
+  XUIIsolationHeaderActions,
+  XUIIsolationHeaderNavigation,
+  XUIIsolationHeaderTitle,
+  XUIIsolationHeaderSecondaryTitle,
 };

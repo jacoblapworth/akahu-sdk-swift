@@ -4,19 +4,18 @@ const { taskRunner, isWindowsPlatform, convertExecTaskToWindows } = require('../
 const asyncExec = promisify(exec);
 
 function checkSecurity() {
-	return taskRunner(taskSpinner => {
-		let execTask = 
-			'./node_modules/.bin/nsp check';
+  return taskRunner(taskSpinner => {
+    let execTask = './node_modules/.bin/nsp check';
 
-		if (isWindowsPlatform) {
-			execTask = convertExecTaskToWindows(execTask);
-		}
-		
-		taskSpinner.info(`Executing task: ${execTask}`);
-		return asyncExec(execTask, {
-			stdio: [0, 1, 2]
-		});
-	}, __filename);
+    if (isWindowsPlatform) {
+      execTask = convertExecTaskToWindows(execTask);
+    }
+
+    taskSpinner.info(`Executing task: ${execTask}`);
+    return asyncExec(execTask, {
+      stdio: [0, 1, 2],
+    });
+  }, __filename);
 }
 
 module.exports = checkSecurity;

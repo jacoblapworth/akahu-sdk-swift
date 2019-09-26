@@ -1,4 +1,4 @@
-<!-- 
+<!--
 
 XUI issues are now managed through Jira.
 

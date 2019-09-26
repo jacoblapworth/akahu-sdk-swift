@@ -1,35 +1,34 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 .#{$ns}-button--caret {
-	margin-left: $xui-s-xsmall;
-	vertical-align: middle;
+  margin-left: $xui-s-xsmall;
+  vertical-align: middle;
 
-	.#{$ns}-button-split & {
-		@include xui-margin-left(0px);
-	}
+  .#{$ns}-button-split & {
+    @include xui-margin-left(0px);
+  }
 
-	&.#{$ns}-blobicon {
-		@include xui-margin-top(-7px);
-		@include xui-margin-left(-6px);
-		@include xui-margin-right(-10px);
-		@include xui-margin-bottom(-11px);
-	}
+  &.#{$ns}-blobicon {
+    @include xui-margin-top(-7px);
+    @include xui-margin-left(-6px);
+    @include xui-margin-right(-10px);
+    @include xui-margin-bottom(-11px);
+  }
 }
 
-
 .#{$ns}-button-split {
-	flex-shrink: 0;
-	padding: 0;
-	vertical-align: top;
+  flex-shrink: 0;
+  padding: 0;
+  vertical-align: top;
 
-	&.#{$ns}-button-medium{
-		min-width: $xui-control-size-standard;
-	}
-	&.#{$ns}-button-small{
-		min-width: $xui-control-size-small;
-	}
-	&.#{$ns}-button-xsmall{
-		min-width: $xui-control-size-xsmall;
-	}
+  &.#{$ns}-button-medium {
+    min-width: $xui-control-size-standard;
+  }
+  &.#{$ns}-button-small {
+    min-width: $xui-control-size-small;
+  }
+  &.#{$ns}-button-xsmall {
+    min-width: $xui-control-size-xsmall;
+  }
 }

@@ -6,10 +6,10 @@ import DropDownPanel from './components/dropdown/DropDownPanel';
 import NestedDropDown from './components/dropdown/NestedDropDown';
 
 export {
-	DropDown as default,
-	DropDownToggled,
-	DropDownHeader,
-	DropDownFooter,
-	DropDownPanel,
-	NestedDropDown,
+  DropDown as default,
+  DropDownToggled,
+  DropDownHeader,
+  DropDownFooter,
+  DropDownPanel,
+  NestedDropDown,
 };

@@ -10,14 +10,14 @@ import XUICompositionDetailSummary from './components/compositions/XUICompositio
 import XUICompositionDetailSummaryHeader from './components/compositions/XUICompositionDetailSummaryHeader';
 
 export {
-	XUICompositionDetail,
-	XUICompositionDetailHeader,
-	XUICompositionSplit,
-	XUICompositionSplitHeader,
-	XUICompositionMasterDetail,
-	XUICompositionMasterDetailHeader,
-	XUICompositionMasterDetailSummary,
-	XUICompositionMasterDetailSummaryHeader,
-	XUICompositionDetailSummary,
-	XUICompositionDetailSummaryHeader,
+  XUICompositionDetail,
+  XUICompositionDetailHeader,
+  XUICompositionSplit,
+  XUICompositionSplitHeader,
+  XUICompositionMasterDetail,
+  XUICompositionMasterDetailHeader,
+  XUICompositionMasterDetailSummary,
+  XUICompositionMasterDetailSummaryHeader,
+  XUICompositionDetailSummary,
+  XUICompositionDetailSummaryHeader,
 };

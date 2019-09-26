@@ -1,29 +1,29 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // Standard Text
 
 // TODO: Review whether these are components or not
 
 .#{$ns}-text-label {
-	@include xui-text-emphasis;
-	@include xui-text-muted;
-	font-size: $xui-font-size-small;
+  @include xui-text-emphasis;
+  @include xui-text-muted;
+  font-size: $xui-font-size-small;
 }
 
 .#{$ns}-text-secondary {
-	@include xui-text-muted;
-	font-size: $xui-font-size-small;
+  @include xui-text-muted;
+  font-size: $xui-font-size-small;
 }
 
 .#{$ns}-text-minor {
-	@include xui-text-muted;
-	font-size: $xui-font-size-xsmall;
+  @include xui-text-muted;
+  font-size: $xui-font-size-xsmall;
 }
 
-@import "typography.capsules";
-@import "typography.headings";
-@import "typography.textcontent";
-@import "typography.links";
-@import "typography.utilities";
-@import "typography.tags";
+@import 'typography.capsules';
+@import 'typography.headings';
+@import 'typography.textcontent';
+@import 'typography.links';
+@import 'typography.utilities';
+@import 'typography.tags';

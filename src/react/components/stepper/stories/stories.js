@@ -30,13 +30,13 @@ storiesWithKnobs.add('Playground', () => {
   return (
     <div style={wrapperStyles}>
       <XUIStepper
-        id={text('id', `myStepperId_${layout}`)}
-        qaHook={text('qaHook', 'myStepperQaHook')}
         currentStep={number('currentStep', 0)}
         hasStackedButtons={boolean('hasStackedButtons', false)}
-        lockLayout={layout}
-        tabs={object('tabs', baseProps.tabs)}
+        id={text('id', `myStepperId_${layout}`)}
         isTruncated={boolean('isTruncated', true)}
+        lockLayout={layout}
+        qaHook={text('qaHook', 'myStepperQaHook')}
+        tabs={object('tabs', baseProps.tabs)}
       >
         <h3 style={contentStyles}>Content Area</h3>
       </XUIStepper>

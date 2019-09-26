@@ -68,9 +68,9 @@ export default class DropDownDateRange extends React.Component {
     const dropdown = (
       <DropDown>
         <XUIDatePicker
-          ref={this.datepicker}
           displayedMonth={currentMonth}
           onSelectDate={this.onSelectDate}
+          ref={this.datepicker}
           selectedRange={selectedRange}
         />
       </DropDown>
@@ -84,12 +84,12 @@ export default class DropDownDateRange extends React.Component {
     );
     return (
       <DropDownToggled
-        ref={this.ddt}
-        trigger={trigger}
-        dropdown={dropdown}
         closeOnTab={false}
-        restrictToViewPort={false}
+        dropdown={dropdown}
         onOpenAnimationEnd={this.focusDatePicker}
+        ref={this.ddt}
+        restrictToViewPort={false}
+        trigger={trigger}
       />
     );
   }

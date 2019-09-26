@@ -19,13 +19,13 @@ import filePdf from '@xero/xui-icon/icons/file-pdf';
 import XUIIcon from './icon';
 
 <section>
-	<h3>Standard Icon</h3>
-	<XUIIcon icon={star} />
-	<h3>Rotated</h3>
-	<XUIIcon icon={arrow} rotation="90" />
-	<h3>Coloured</h3>
-	<XUIIcon icon={fileWord} color="blue"/>
-	<XUIIcon icon={fileExcel} color="file_spreadsheet"/>
-	<XUIIcon icon={filePdf} color="file_pdf"/>
-</section>
+  <h3>Standard Icon</h3>
+  <XUIIcon icon={star} />
+  <h3>Rotated</h3>
+  <XUIIcon icon={arrow} rotation="90" />
+  <h3>Coloured</h3>
+  <XUIIcon icon={fileWord} color="blue" />
+  <XUIIcon icon={fileExcel} color="file_spreadsheet" />
+  <XUIIcon icon={filePdf} color="file_pdf" />
+</section>;
 ```

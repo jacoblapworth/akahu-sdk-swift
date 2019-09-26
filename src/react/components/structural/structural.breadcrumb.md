@@ -10,10 +10,13 @@ import { XUIPageHeader, XUIBreadcrumb } from '../../structural';
 const logHi = () => console.log('hello');
 
 const breadcrumbLinks = [
-	<span tabIndex={0} role="link" onClick={logHi} key="a">Elements</span>,
-	{key: "b", label: "Identifiers", href: "#breadcrumb"},
-	{key: "c", label: "Avatar"}];
-const builtBreadcrumb = <XUIBreadcrumb breadcrumbs={breadcrumbLinks}></XUIBreadcrumb>;
+  <span tabIndex={0} role="link" onClick={logHi} key="a">
+    Elements
+  </span>,
+  { key: 'b', label: 'Identifiers', href: '#breadcrumb' },
+  { key: 'c', label: 'Avatar' }
+];
+const builtBreadcrumb = <XUIBreadcrumb breadcrumbs={breadcrumbLinks} />;
 
-<XUIPageHeader breadcrumb={builtBreadcrumb}></XUIPageHeader>
+<XUIPageHeader breadcrumb={builtBreadcrumb} />;
 ```

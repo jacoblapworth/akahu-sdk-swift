@@ -23,14 +23,14 @@ storiesWithKnobs.add('Playground', () => {
 
   return (
     <XUIIcon
-      icon={flattenedIconMap[icon]}
-      size={select('Size', Object.keys(wrapperSizeClasses), 'large')}
-      rotation={rotation > 0 ? rotation : null}
       color={color === 'standard' ? undefined : color}
-      isBoxed={boolean('Boxed', true)}
-      title={text('Title', '')}
       desc={text('Desc', '')}
+      icon={flattenedIconMap[icon]}
+      isBoxed={boolean('Boxed', true)}
       role={text('Role', undefined)}
+      rotation={rotation > 0 ? rotation : null}
+      size={select('Size', Object.keys(wrapperSizeClasses), 'large')}
+      title={text('Title', '')}
     />
   );
 });

@@ -17,13 +17,13 @@ class GraphTooltip extends PureComponent {
         }}
       >
         <XUITooltip
-          qaHook={qaHook}
-          trigger={<div style={{ width, height }} />}
           isHidden={false}
           preferredPosition={preferred}
-          triggerOnFocus={false}
+          qaHook={qaHook}
+          trigger={<div style={{ width, height }} />}
           triggerOnBlur={false}
           triggerOnClick={false}
+          triggerOnFocus={false}
           triggerOnHover={false}
         >
           {message}

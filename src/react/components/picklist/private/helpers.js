@@ -1,4 +1,5 @@
 import React, { Children } from 'react';
+import ReactPropTypesSecret from 'prop-types/lib/ReactPropTypesSecret';
 import compose from '../../helpers/compose';
 // TODO: Fix up lint rules for this file
 /* eslint-disable */
@@ -13,7 +14,7 @@ import compose from '../../helpers/compose';
  * @returns {React.element}
  */
 export function getInstanceForChild(idCache, component) {
-	return idCache[getId(component)];
+  return idCache[getId(component)];
 }
 
 /**
@@ -51,8 +52,8 @@ const isNestedListContainer = node => isComponent(node) && node.props._isGroupCo
  * @param {Object} idCache
  * @returns {boolean}
  */
-const isCollapsedNestedListContainer =
-	(node, idCache) => !!(isNestedListContainer(node) && idCache && !getInstanceForChild(idCache, node).isOpen());
+const isCollapsedNestedListContainer = (node, idCache) =>
+  !!(isNestedListContainer(node) && idCache && !getInstanceForChild(idCache, node).isOpen());
 
 /**
  * @public
@@ -83,26 +84,28 @@ const isNestedList = node => isComponent(node) && node.props._isGroup;
  * @returns {boolean}
  */
 export function walk(node, test, opts = {}) {
-	const { inCollapsedGroup, idCache } = opts;
-	if (test(node, inCollapsedGroup) === true) {
-		return true;
-	}
-	if (isComponent(node)) {
-		if (Array.isArray(node.props.children)) {
-			const iterator = child => {
-				const childOpts = {
-					inCollapsedGroup: inCollapsedGroup || (isNestedList(child) && isCollapsedNestedListContainer(node, idCache)),
-					idCache,
-				};
-				return walk(child, test, childOpts);
-			};
-			if (node.props.children.some(iterator)) {
-				return true;
-			}
-		} else if (node.props.children != null) {
-			return walk(node.props.children, test, opts);
-		}
-	}
+  const { inCollapsedGroup, idCache } = opts;
+  if (test(node, inCollapsedGroup) === true) {
+    return true;
+  }
+  if (isComponent(node)) {
+    if (Array.isArray(node.props.children)) {
+      const iterator = child => {
+        const childOpts = {
+          inCollapsedGroup:
+            inCollapsedGroup ||
+            (isNestedList(child) && isCollapsedNestedListContainer(node, idCache)),
+          idCache,
+        };
+        return walk(child, test, childOpts);
+      };
+      if (node.props.children.some(iterator)) {
+        return true;
+      }
+    } else if (node.props.children != null) {
+      return walk(node.props.children, test, opts);
+    }
+  }
 }
 
 /**
@@ -114,15 +117,15 @@ export function walk(node, test, opts = {}) {
  * @returns {boolean}
  */
 function contains(parent, target) {
-	let found = false;
-	const find = node => {
-		if (matches(node, target)) {
-			found = true;
-			return true;
-		}
-	};
-	walk(parent, find);
-	return found;
+  let found = false;
+  const find = node => {
+    if (matches(node, target)) {
+      found = true;
+      return true;
+    }
+  };
+  walk(parent, find);
+  return found;
 }
 
 /**
@@ -180,16 +183,15 @@ const isEnabledMenuItem = node => isMenuItem(node) && !node.props.isDisabled;
  * @return {Component|null} Last Menu Item in the dropdown
  */
 function findLastMenuItem(node, idCache) {
-	let lastItem = null;
-	const findLast = (node, inCollapsedGroup) => {
-		if (!inCollapsedGroup && isEnabledMenuItem(node)) {
-			lastItem = node;
-		}
-	};
-	walk(node, findLast, { idCache });
-	return lastItem;
+  let lastItem = null;
+  const findLast = (node, inCollapsedGroup) => {
+    if (!inCollapsedGroup && isEnabledMenuItem(node)) {
+      lastItem = node;
+    }
+  };
+  walk(node, findLast, { idCache });
+  return lastItem;
 }
-
 
 /**
  * Find the item the precedes the current highlighted item, even if this is in the
@@ -203,26 +205,26 @@ function findLastMenuItem(node, idCache) {
  * @return (Component|null) nextItem that should be highlighted.
  */
 export function findPreviousItem(node, el, idCache) {
-	if (!el) {
-		return findLastMenuItem(node, idCache);
-	}
+  if (!el) {
+    return findLastMenuItem(node, idCache);
+  }
 
-	let previousItem = null;
+  let previousItem = null;
 
-	const findPrevious = (node, inCollapsedGroup) => {
-		if (matches(node, el)) {
-			return true;
-		}
-		if (!inCollapsedGroup && isEnabledMenuItem(node)) {
-			previousItem = node;
-		}
-	};
+  const findPrevious = (node, inCollapsedGroup) => {
+    if (matches(node, el)) {
+      return true;
+    }
+    if (!inCollapsedGroup && isEnabledMenuItem(node)) {
+      previousItem = node;
+    }
+  };
 
-	walk(node, findPrevious, { idCache });
-	if (previousItem == null) {
-		return findLastMenuItem(node, idCache);
-	}
-	return previousItem;
+  walk(node, findPrevious, { idCache });
+  if (previousItem == null) {
+    return findLastMenuItem(node, idCache);
+  }
+  return previousItem;
 }
 
 /**
@@ -234,16 +236,16 @@ export function findPreviousItem(node, el, idCache) {
  * @return {React.element|null} First item in the dropdown.
  */
 export function findFirstMenuItem(node, idCache) {
-	let item = null;
-	const findFirst = node => {
-		if (isEnabledMenuItem(node)) {
-			item = node;
-			return true;
-		}
-	};
-	walk(node, findFirst);
+  let item = null;
+  const findFirst = node => {
+    if (isEnabledMenuItem(node)) {
+      item = node;
+      return true;
+    }
+  };
+  walk(node, findFirst);
 
-	return item != null && idCache && idCache[item.props.id] == null ? null : item;
+  return item != null && idCache && idCache[item.props.id] == null ? null : item;
 }
 
 /**
@@ -258,31 +260,31 @@ export function findFirstMenuItem(node, idCache) {
  * @return {Component|null} nextItem that should be highlighted.
  */
 export function findNextItem(node, el, idCache) {
-	let nextItem = null;
-	let found = false;
+  let nextItem = null;
+  let found = false;
 
-	// If there is no highlighted element, select the first item in the first group
-	if (!el) {
-		return findFirstMenuItem(node);
-	}
+  // If there is no highlighted element, select the first item in the first group
+  if (!el) {
+    return findFirstMenuItem(node);
+  }
 
-	const findNextMenuItem = (node, inCollapsedGroup) => {
-		if (found && !inCollapsedGroup && isEnabledMenuItem(node)) {
-			nextItem = node;
-			return true;
-		}
-		if (!found && matches(node, el)) {
-			found = true;
-		}
-	};
+  const findNextMenuItem = (node, inCollapsedGroup) => {
+    if (found && !inCollapsedGroup && isEnabledMenuItem(node)) {
+      nextItem = node;
+      return true;
+    }
+    if (!found && matches(node, el)) {
+      found = true;
+    }
+  };
 
-	walk(node, findNextMenuItem, { idCache });
+  walk(node, findNextMenuItem, { idCache });
 
-	if (nextItem == null) {
-		return findFirstMenuItem(node);
-	}
+  if (nextItem == null) {
+    return findFirstMenuItem(node);
+  }
 
-	return nextItem;
+  return nextItem;
 }
 
 /**
@@ -295,16 +297,16 @@ export function findNextItem(node, el, idCache) {
  * @returns {Component|null}
  */
 export function findInitialHighlightedItem(node, idCache) {
-	let item = null;
-	const findSelected = (node, inCollapsedGroup) => {
-		if (!inCollapsedGroup && isSelectedMenuItem(node)) {
-			item = node;
-			return true;
-		}
-	};
-	walk(node, findSelected, { idCache });
+  let item = null;
+  const findSelected = (node, inCollapsedGroup) => {
+    if (!inCollapsedGroup && isSelectedMenuItem(node)) {
+      item = node;
+      return true;
+    }
+  };
+  walk(node, findSelected, { idCache });
 
-	return item == null ? findFirstMenuItem(node, idCache) : item;
+  return item == null ? findFirstMenuItem(node, idCache) : item;
 }
 
 /**
@@ -316,23 +318,23 @@ export function findInitialHighlightedItem(node, idCache) {
  * @returns {Component|null}
  */
 export function findParentGroupContainer(list, target) {
-	let container = null;
-	let found = false;
-	const findGroup = node => {
-		if (!found && isNestedListContainer(node)) {
-			container = node;
-		}
+  let container = null;
+  let found = false;
+  const findGroup = node => {
+    if (!found && isNestedListContainer(node)) {
+      container = node;
+    }
 
-		if (matches(node, target)) {
-			found = true;
-			return true;
-		}
-	};
-	walk(list, findGroup);
-	if (found && contains(container, target)) {
-		return container;
-	}
-	return null;
+    if (matches(node, target)) {
+      found = true;
+      return true;
+    }
+  };
+  walk(list, findGroup);
+  if (found && contains(container, target)) {
+    return container;
+  }
+  return null;
 }
 
 /**
@@ -345,23 +347,34 @@ export function findParentGroupContainer(list, target) {
  * @returns {React.element}
  */
 function cloneMenuItem(node, spl) {
-	const id = node.props.id;
-	const injectedProps = {
-		isHighlighted: matches(node, spl.state.highlightedElement),
-		onMouseOver: compose(node.props.onMouseOver, event => spl.onMouseOver(event, id)),
-		ref: compose(node.ref, c => spl.idCache[getId(node)] = c),
-		pickitemBodyProps: {
-			tabIndex: '-1',
-		},
-	};
+  const id = node.props.id;
+  const injectedProps = {
+    isHighlighted: matches(node, spl.state.highlightedElement),
+    onMouseOver: compose(
+      node.props.onMouseOver,
+      event => spl.onMouseOver(event, id),
+    ),
+    ref: compose(
+      node.ref,
+      c => (spl.idCache[getId(node)] = c),
+    ),
+    pickitemBodyProps: {
+      tabIndex: '-1',
+    },
+  };
 
-	if (!isNestedListTrigger(node)) {
-		injectedProps.onClick = compose(node.props.onClick, event => spl.onClick(event, id));
-	}
+  if (!isNestedListTrigger(node)) {
+    injectedProps.onClick = compose(
+      node.props.onClick,
+      event => spl.onClick(event, id),
+    );
+  }
 
-	const children = isNestedListTrigger(node) ? cloneChildren(node.props.children, spl) : node.props.children;
+  const children = isNestedListTrigger(node)
+    ? cloneChildren(node.props.children, spl)
+    : node.props.children;
 
-	return React.cloneElement(node, injectedProps, children);
+  return React.cloneElement(node, injectedProps, children);
 }
 
 /**
@@ -373,19 +386,22 @@ function cloneMenuItem(node, spl) {
  * @returns {React.element}
  */
 function cloneChildElement(node, spl) {
-	if (isComponent(node)) {
-		if (isMenuItem(node)) {
-			return cloneMenuItem(node, spl);
-		}
-		if (node.props.children) {
-			const injectedProps = {};
-			if (isNestedListContainer(node)) {
-				injectedProps.ref = compose(node.ref, c => spl.idCache[getId(node)] = c);
-			}
-			return React.cloneElement(node, injectedProps, cloneChildren(node.props.children, spl));
-		}
-	}
-	return node;
+  if (isComponent(node)) {
+    if (isMenuItem(node)) {
+      return cloneMenuItem(node, spl);
+    }
+    if (node.props.children) {
+      const injectedProps = {};
+      if (isNestedListContainer(node)) {
+        injectedProps.ref = compose(
+          node.ref,
+          c => (spl.idCache[getId(node)] = c),
+        );
+      }
+      return React.cloneElement(node, injectedProps, cloneChildren(node.props.children, spl));
+    }
+  }
+  return node;
 }
 
 /**
@@ -397,9 +413,9 @@ function cloneChildElement(node, spl) {
  * @returns {Component|Component[]}
  */
 export function cloneChildren(children, spl) {
-	// Using Children.map to avoid having to add arbitrary keys, which will mess
-	// all kinds of things up. Don't just use Array.prototype.map here!
-	return Children.map(children, child => cloneChildElement(child, spl));
+  // Using Children.map to avoid having to add arbitrary keys, which will mess
+  // all kinds of things up. Don't just use Array.prototype.map here!
+  return Children.map(children, child => cloneChildElement(child, spl));
 }
 
 /**
@@ -410,10 +426,28 @@ export function cloneChildren(children, spl) {
  * @param {object} listProps
  */
 export function getPropsFromFirstChildOrList(children, listProps) {
-	const firstItem = Children.count(children) > 0 && Children.toArray(children)[0];
-	const listSize = listProps.size !== undefined ? listProps.size
-		: (firstItem && firstItem.props.size) || 'medium';
-	const listMultiselect = listProps.isMultiselect !== undefined ? listProps.isMultiselect
-		: (firstItem && firstItem.props.isMultiselect) || undefined;
-	return { listSize, listMultiselect };
+  const firstItem = Children.count(children) > 0 && Children.toArray(children)[0];
+  const listSize =
+    listProps.size !== undefined ? listProps.size : (firstItem && firstItem.props.size) || 'medium';
+  const listMultiselect =
+    listProps.isMultiselect !== undefined
+      ? listProps.isMultiselect
+      : (firstItem && firstItem.props.isMultiselect) || undefined;
+  return { listSize, listMultiselect };
+}
+
+/**
+ * Custom propType validator for checking props that should not be used when `_isHorizontal` is `true`.
+ *
+ * @param {PropTypes.Validator} propTypeValidator A PropType validator. e.g. `PropTypes.string`
+ * @param  {...any} parameters All parameters supplied by propTypes.
+ */
+export function verticalOnlyProp(propTypeValidator, ...parameters) {
+  const [props, propName, componentName] = parameters;
+
+  if (props[propName] && props._isHorizontal) {
+    return new Error(`\`${propName}\` is not supported by horizontal \`${componentName}\`.`);
+  }
+
+  return propTypeValidator(...parameters, ReactPropTypesSecret);
 }

@@ -90,20 +90,20 @@ export default class NestedPicklistContainer extends PureComponent {
     );
     return (
       <li
-        data-automationid={qaHook}
-        className={cn(className, `${picklistClassName}--nestedcontainer`)}
         aria-expanded={isExpanded}
+        className={cn(className, `${picklistClassName}--nestedcontainer`)}
+        data-automationid={qaHook}
       >
         <input
           {...secondaryProps}
-          data-automationid={qaHook && `${qaHook}--checkbox`}
-          type="checkbox"
+          aria-owns={id}
           checked={isExpanded}
           className={`${pickitemClassName}--submenucontrol`}
+          data-automationid={qaHook && `${qaHook}--checkbox`}
           id={`${id}-checkbox`}
-          tabIndex="-1"
           onChange={container.toggle}
-          aria-owns={id}
+          tabIndex={-1}
+          type="checkbox"
         />
         {newChildren}
       </li>

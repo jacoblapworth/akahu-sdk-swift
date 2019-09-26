@@ -20,28 +20,28 @@ class ContentPagination extends PureComponent {
 
     return (
       <nav
-        data-automationid={qaHook && `${qaHook}--pagination`}
-        className={`${NAME_SPACE}-chart--pagination`}
         aria-label={paginationLabel}
+        className={`${NAME_SPACE}-chart--pagination`}
+        data-automationid={qaHook && `${qaHook}--pagination`}
       >
         <XUIIconButton
-          icon={arrowPathData}
           ariaLabel={paginationPreviousTitle}
-          onClick={() => updatePanel(current - 1)}
-          title={paginationPreviousTitle}
+          icon={arrowPathData}
           isDisabled={current === 1}
+          onClick={() => updatePanel(current - 1)}
           rotation="90"
+          title={paginationPreviousTitle}
         />
 
         {message}
 
         <XUIIconButton
-          icon={arrowPathData}
           ariaLabel={paginationNextTitle}
-          onClick={() => updatePanel(current + 1)}
-          title={paginationNextTitle}
+          icon={arrowPathData}
           isDisabled={current === total}
+          onClick={() => updatePanel(current + 1)}
           rotation="270"
+          title={paginationNextTitle}
         />
       </nav>
     );

@@ -264,35 +264,21 @@ export default class XUIAutocompleter extends PureComponent {
 
     const trigger = (
       <div
-        ref={this.tg}
-        onFocus={openOnFocus ? this.onInputFocus : null}
         className={triggerClassName}
+        onFocus={openOnFocus ? this.onInputFocus : null}
+        ref={this.tg}
       >
         <div
-          ref={this.placeholder}
-          className={`${ns}-autocompleter--textinputplaceholder`}
           aria-hidden
+          className={`${ns}-autocompleter--textinputplaceholder`}
+          ref={this.placeholder}
         >
           {placeholder}
         </div>
         <XUITextInput
-          leftElement={textInputLeftElement}
-          rightElement={rightElement}
           containerClassName={containerClassNames}
-          inputClassName={inputClassNames}
-          inputRef={i => (this.inputNode = i)}
-          placeholder={placeholder}
-          value={value || ''}
-          onChange={this.debouncedOnChange}
-          onKeyDown={this.onInputKeyDown}
-          qaHook={inputQaHook}
-          isDisabled={isDisabled}
-          label={inputLabel}
-          isLabelHidden={isInputLabelHidden}
-          isInvalid={isInvalid}
-          validationMessage={validationMessage}
           hintMessage={hintMessage}
-          size={inputSize}
+          inputClassName={inputClassNames}
           inputProps={{
             ...inputProps,
             maxLength,
@@ -304,25 +290,39 @@ export default class XUIAutocompleter extends PureComponent {
               flexBasis: inputWidth,
             },
           }}
+          inputRef={i => (this.inputNode = i)}
+          isDisabled={isDisabled}
+          isInvalid={isInvalid}
+          isLabelHidden={isInputLabelHidden}
+          label={inputLabel}
+          leftElement={textInputLeftElement}
+          onChange={this.debouncedOnChange}
+          onKeyDown={this.onInputKeyDown}
+          placeholder={placeholder}
+          qaHook={inputQaHook}
+          rightElement={rightElement}
+          size={inputSize}
+          validationMessage={validationMessage}
+          value={value || ''}
         />
       </div>
     );
 
     const dropdown = (
       <DropDown
-        ref={c => (completer.dropdown = c)}
-        ignoreKeyboardEvents={ignoreKeyboardEvents}
-        id={dropdownId}
-        onSelect={onOptionSelect}
-        hasKeyboardEvents={false}
         className={dropdownClassName}
-        qaHook={listQaHook}
-        restrictFocus={false}
-        size={dropdownSize}
         fixedWidth={dropdownFixedWidth}
         footer={footer}
-        onKeyDown={onKeyDown}
+        hasKeyboardEvents={false}
+        id={dropdownId}
+        ignoreKeyboardEvents={ignoreKeyboardEvents}
         onHighlightChange={completer.onHighlightChange}
+        onKeyDown={onKeyDown}
+        onSelect={onOptionSelect}
+        qaHook={listQaHook}
+        ref={c => (completer.dropdown = c)}
+        restrictFocus={false}
+        size={dropdownSize}
       >
         {loading ? (
           <Picklist>
@@ -338,27 +338,27 @@ export default class XUIAutocompleter extends PureComponent {
 
     return (
       <div
-        ref={this.rootNode}
         className={classNames}
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}
         data-automationid={containerQaHook}
         id={id}
+        onBlur={this.onBlur}
+        onFocus={this.onFocus}
+        ref={this.rootNode}
       >
         <DropDownToggled
+          ariaRole="combobox"
+          closeOnSelect={closeOnSelect}
+          closeOnTab={closeOnTab}
+          dropdown={dropdown}
+          forceDesktop={forceDesktop}
+          isBlock
+          matchTriggerWidth={matchTriggerWidth && !dropdownSize}
+          onClose={onClose}
+          onOpen={onOpen}
+          qaHook={dropdownQaHook}
           ref={this.ddt}
           trigger={trigger}
-          dropdown={dropdown}
-          onOpen={onOpen}
-          onClose={onClose}
-          closeOnTab={closeOnTab}
-          closeOnSelect={closeOnSelect}
           triggerClickAction="none"
-          forceDesktop={forceDesktop}
-          matchTriggerWidth={matchTriggerWidth && !dropdownSize}
-          qaHook={dropdownQaHook}
-          isBlock
-          ariaRole="combobox"
         />
       </div>
     );

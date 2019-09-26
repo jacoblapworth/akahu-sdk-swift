@@ -16,8 +16,8 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <XUITag
-    variant={select('variant', Object.keys(variants), 'standard')}
     size={select('size', Object.keys(sizes), 'medium')}
+    variant={select('variant', Object.keys(variants), 'standard')}
   >
     {text('value', 'Plain tag')}
   </XUITag>

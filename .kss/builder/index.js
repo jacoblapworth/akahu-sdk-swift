@@ -15,6 +15,9 @@
  */
 
 const KssBuilderBaseHandlebars = require('kss/builder/handlebars');
+const path = require('path');
+const Promise = require('bluebird');
+const glob = Promise.promisify(require('glob'));
 
 /**
  * A kss-node builder that takes input files and builds a style guide using
@@ -316,8 +319,8 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
 							selector = new RegExp(rootReference + '(\\.\\d+)*');
 						}
 						// query sections and offset to ensure top levels start at depth 1
-						sections = this.styleGuide.sections(selector).map( s => s.depth(s.depth() + offset));
-						buildPageTasks.push(this.buildPage('section', options, rootReference, sections ));
+						sections = this.styleGuide.sections(selector).map(s => s.depth(s.depth() + offset));
+						buildPageTasks.push(this.buildPage('section', options, rootReference, sections));
 					});
 				} else {
 					// Root pages without children (Updates, feedback, etc.)
@@ -381,17 +384,17 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
 
 			menuItem.children = this.styleGuide.sections(rootSection.reference() + '.*').slice(1).map(toMenuItem);
 			menuItem.parentHeader = parentHeader;
-			menuItem.parentReferenceURI = parentReferenceURI ? parentReferenceURI: rootSection.reference();
+			menuItem.parentReferenceURI = parentReferenceURI ? parentReferenceURI : rootSection.reference();
 			// Check if the current menu item has child pages
 			if (this.options.childPages.indexOf(reference) !== -1) {
 				// get all child sections and remove any that are not pages
 				// using a convention of a numbered section name over a string.
-				const items = this.styleGuide.sections(reference + '.x').filter( x => {
+				const items = this.styleGuide.sections(reference + '.x').filter(x => {
 					return isNaN(x.reference().split('.').pop());
 				});
 				// set the child pages of the current menu item
 				menuItem.menu = items.map(buildMenu(menuItem.header, menuItem.referenceURI));
-				menuItem.isActive = menuItem.menu.some( i => i.isActive ) || menuItem.isActive;
+				menuItem.isActive = menuItem.menu.some(i => i.isActive) || menuItem.isActive;
 			}
 
 			return menuItem;

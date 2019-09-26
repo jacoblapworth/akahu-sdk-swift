@@ -4,16 +4,16 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import PicklistDivider from '../PicklistDivider';
 
-Enzyme.configure({ adapter : new Adapter() });
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<PicklistDivider />', () => {
-	it('basic example', () => {
-		const header = renderer.create(<PicklistDivider />);
-		expect(header).toMatchSnapshot();
-	});
+  it('basic example', () => {
+    const header = renderer.create(<PicklistDivider />);
+    expect(header).toMatchSnapshot();
+  });
 
-	it('with custom class', () => {
-		const header = renderer.create(<PicklistDivider className="custom-divider" />);
-		expect(header).toMatchSnapshot();
-	});
+  it('with custom class', () => {
+    const header = renderer.create(<PicklistDivider className="custom-divider" />);
+    expect(header).toMatchSnapshot();
+  });
 });

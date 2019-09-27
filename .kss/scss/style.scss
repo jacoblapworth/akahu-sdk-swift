@@ -88,7 +88,7 @@ $ds-section-space: calc(6rem + 2vh);
   padding-left: $xui-s-large;
   position: relative;
   display: flex;
-  align-items: baseline;
+  align-items: end;
 }
 
 .ds-title--level-1 {
@@ -1105,6 +1105,9 @@ $kss-color-padding: #eeebff;
   top: -0.2em;
   &:not(:first-child) {
     margin-left: 0.8em;
+  }
+  .ds-title--level-1 & {
+    line-height: 2.25;
   }
 }
 

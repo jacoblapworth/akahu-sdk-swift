@@ -1,5 +1,7 @@
 // Page header
 //
+// flags: updatesComing
+//
 // Teaser: Guidance on how to use page-specific page navigation.
 //
 // Introduction: How to use page-specific navigation.
@@ -116,7 +118,7 @@
 
 // Layout
 //
-// flags: under review
+// flags: wip
 //
 // At times it is desired to prevent the page header from extending wider than the width of the global header, or to match content that sits below it.
 // To do this, apply the following utility classes in addition to `xui-pageheading--content-layout`.
@@ -267,6 +269,8 @@
 // Breadcrumbs
 //
 // Combine breadcrumbs with a title in a page header to give the user a sense of their location and an easy way to navigate back to earlier pages.
+//
+// flags: updatesComing
 //
 // Components: Breadcrumb
 //

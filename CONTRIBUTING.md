@@ -40,6 +40,16 @@ If you're only fixing a bug, it's fine to submit a pull request right away.
 
 ESLint helps us catch common errors that cause bugs in many programs. XUI extends a simple rule set based on `eslint:recommended` and `react:recommended`.
 
+## Prettier
+
+We use [Prettier](https://github.com/prettier/prettier) to format our JavaScript code.
+
+If you want realtime code formatting in your editor, there are [Prettier integrations available for all popular editors](https://github.com/prettier/prettier#editor-integration).
+
+We recommend setting up your editor to format on save, in VSCode this is the `editor.formatOnSave` setting.
+
+If you don't format your code in your editor, you can run `npm run prettier:fix` to run Prettier over your changes.
+
 ## SCSS
 
 All classes must be prefixed with the namespace variable (which resolves to `xui` by default), e.g. `.#{$ns}-component`

@@ -1,15 +1,15 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 /**
  * An aggregator stylesheet of input elements that can be found in forms.
  */
 
-@import "forms.layout";
-@import "forms.labels";
-@import "forms.inputgroups";
-@import "forms.checkboxesradios.styled";
-@import "forms.range";
-@import "forms.switch";
-@import "forms.selects";
-@import "forms.textinputs";
+@import 'forms.layout';
+@import 'forms.labels';
+@import 'forms.inputgroups';
+@import 'forms.checkboxesradios.styled';
+@import 'forms.range';
+@import 'forms.switch';
+@import 'forms.selects';
+@import 'forms.textinputs';

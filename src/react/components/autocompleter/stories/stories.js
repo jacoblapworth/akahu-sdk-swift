@@ -35,11 +35,11 @@ export class PillWrapper extends PureComponent {
     const { id } = this.props;
     return (
       <XUIPill
-        value={peopleDataSet[id].name}
         className="xui-autocompleter--pill"
-        onDeleteClick={this.deleteSelf}
         deleteButtonLabel="Delete"
         key={id}
+        onDeleteClick={this.deleteSelf}
+        value={peopleDataSet[id].name}
       />
     );
   }
@@ -131,16 +131,16 @@ export class DetailedListExample extends Component {
       );
       return (
         <Pickitem
-          key={item.id}
-          id={item.id}
-          onSelect={() => this.selectPerson(item)}
-          shouldTruncate
-          leftElement={
-            <XUIAvatar value={item.name} imageUrl={item.avatar} size={sizeShift(listSize, -1)} />
-          }
-          secondaryElement={secondaryContent}
           headingElement={headingContent}
+          id={item.id}
           isMultiline
+          key={item.id}
+          leftElement={
+            <XUIAvatar imageUrl={item.avatar} size={sizeShift(listSize, -1)} value={item.name} />
+          }
+          onSelect={() => this.selectPerson(item)}
+          secondaryElement={secondaryContent}
+          shouldTruncate
         />
       );
     });
@@ -216,8 +216,8 @@ export class DetailedListExample extends Component {
     const footer = (
       <DropDownFooter
         pickItems={
-          <Pickitem size={picklistSize} id="footerAction">
-            <XUIIcon icon={plusIcon} isBoxed className="xui-margin-right-small" />
+          <Pickitem id="footerAction" size={picklistSize}>
+            <XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />
             Add New Person
           </Pickitem>
         }
@@ -228,29 +228,29 @@ export class DetailedListExample extends Component {
 
     return (
       <XUIAutocompleter
-        ref={this.completer}
-        onSearch={example.onSearchChangeHandler}
-        placeholder={placeholder}
-        searchValue={value}
-        dropdownFixedWidth={dropdownFixedWidth}
-        footer={noDrawerFooter ? null : footer}
         closeOnTab={noDrawerFooter}
-        onClose={() => this.onClose()}
-        onBackspacePill={this.deleteLastPerson}
-        loading={isLoading}
-        dropdownSize={dropdownSize}
-        isDisabled={isDisabled}
-        inputLabel={this.props.inputLabel || 'Sample Autocompleter'}
         disableWrapPills={disableWrapPills}
+        dropdownFixedWidth={dropdownFixedWidth}
+        dropdownSize={dropdownSize}
+        footer={noDrawerFooter ? null : footer}
+        hintMessage={hintMessage}
+        inputId={inputId}
+        inputLabel={this.props.inputLabel || 'Sample Autocompleter'}
+        inputProps={inputProps}
+        inputSize={inputSize}
+        isDisabled={isDisabled}
         isInputLabelHidden={isInputLabelHidden === undefined ? true : isInputLabelHidden}
         isInvalid={isInvalid}
-        validationMessage={validationMessage}
-        hintMessage={hintMessage}
-        pills={this.renderPills(selectedPeople)}
-        inputSize={inputSize}
-        inputId={inputId}
-        inputProps={inputProps}
+        loading={isLoading}
         loadingLabel="Loading"
+        onBackspacePill={this.deleteLastPerson}
+        onClose={() => this.onClose()}
+        onSearch={example.onSearchChangeHandler}
+        pills={this.renderPills(selectedPeople)}
+        placeholder={placeholder}
+        ref={this.completer}
+        searchValue={value}
+        validationMessage={validationMessage}
       >
         {example.getItems()}
       </XUIAutocompleter>
@@ -287,17 +287,17 @@ storiesWithKnobs.add('Playground', () => {
   return (
     <div style={{ width: containerWidth }}>
       <DetailedListExample
+        dropdownSize={userSelectedSize || undefined}
+        hintMessage={text('hint msg', '')}
+        inputSize={select('input size', ['medium', 'small'], 'medium')}
+        isDisabled={boolean('Disabled', false)}
+        isInputLabelHidden={boolean('Hide label', false)}
+        isInvalid={boolean('Invalid', false)}
         openDrawer={boolean('Drawer open', false)}
+        picklistSize={select('picklist size', ['small', 'xsmall', 'medium'], 'medium')}
         placeholder={text('Placeholder', '')}
         selectedPeople={selectedPerson}
-        isDisabled={boolean('Disabled', false)}
-        isInvalid={boolean('Invalid', false)}
         validationMessage={text('validation msg', '')}
-        hintMessage={text('hint msg', '')}
-        dropdownSize={userSelectedSize || undefined}
-        inputSize={select('input size', ['medium', 'small'], 'medium')}
-        picklistSize={select('picklist size', ['small', 'xsmall', 'medium'], 'medium')}
-        isInputLabelHidden={boolean('Hide label', false)}
       />
     </div>
   );
@@ -314,9 +314,9 @@ function createItems(item, selectedId) {
   return (
     <Pickitem
       {...item.props}
-      value={item.props.id}
-      key={item.props.id}
       isSelected={isSelected(item, selectedId)}
+      key={item.props.id}
+      value={item.props.id}
     >
       {item.text}
     </Pickitem>
@@ -368,7 +368,7 @@ export class SecondarySearchExample extends React.Component {
     const { data } = this.state;
 
     const trigger = this.props.trigger || (
-      <XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger" fullWidth="small-down">
+      <XUIButton data-ref="toggled_trigger" fullWidth="small-down" onClick={() => {}} type="button">
         Toggle Me <XUIButtonCaret />
       </XUIButton>
     );
@@ -383,9 +383,9 @@ export class SecondarySearchExample extends React.Component {
     const footer = (
       <DropDownFooter
         pickItems={
-          <Pickitem size={this.props.listSize} id="footerAction">
+          <Pickitem id="footerAction" size={this.props.listSize}>
             <span>
-              <XUIIcon icon={plusIcon} isBoxed className="xui-margin-right-small" />
+              <XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />
               Add New Person
             </span>
           </Pickitem>
@@ -397,17 +397,17 @@ export class SecondarySearchExample extends React.Component {
       <div style={{ width: 'auto' }}>
         <XUIAutocompleterSecondarySearch
           className={this.props.className}
-          trigger={trigger}
-          onOptionSelect={this.onOptionSelect}
-          onSearch={this.onSearch}
+          closeOnTab={false}
           dropdownSize="medium"
+          footer={footer}
+          inputId="secondary_input_id"
           inputLabel="secondary search label"
           isInputLabelHidden
+          onOptionSelect={this.onOptionSelect}
+          onSearch={this.onSearch}
           qaHook="secondary-search"
-          closeOnTab={false}
-          footer={footer}
           ref={this.autocompleterRef}
-          inputId="secondary_input_id"
+          trigger={trigger}
         >
           <Picklist size={this.props.listSize}>{items}</Picklist>
         </XUIAutocompleterSecondarySearch>

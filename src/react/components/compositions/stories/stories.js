@@ -54,9 +54,9 @@ const realMaster = (style = {}, navigation = []) => (
 const realSummary = (style = {}) => <CustomSummary style={style} />;
 const realDetail = (showMediumDownButton, navigation) => (
   <CustomContentBlock
-    showMediumDownButton={showMediumDownButton}
     dropdownOptions={navigation}
     onSelectItem={onSelectItem}
+    showMediumDownButton={showMediumDownButton}
   />
 );
 

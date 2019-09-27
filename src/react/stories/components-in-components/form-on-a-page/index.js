@@ -63,7 +63,7 @@ const toggledItems = [
   'Yellow quash',
   'Zucchini',
 ].map((text, id) => (
-  <Pickitem key={id} id={text} isSelected={false}>
+  <Pickitem id={text} isSelected={false} key={id}>
     {text}
   </Pickitem>
 ));
@@ -83,14 +83,14 @@ test.add(storyNames.formOnAPage, () => {
 
   return (
     <div className="xui-panel xui-page-width-standard xui-margin-vertical-xlarge xui-padding-horizontal">
-      <Form stacked className="xui-padding-vertical">
+      <Form className="xui-padding-vertical" stacked>
         <XUIRow variant="grid">
           {/* Major section */}
           <XUIColumn gridColumns="half">
             <XUITextInput label="An input" />
           </XUIColumn>
           <XUIColumn gridColumns="half">
-            <XUITextInput isFieldLayout hintMessage="I'm second" label="Another input" />
+            <XUITextInput hintMessage="I'm second" isFieldLayout label="Another input" />
           </XUIColumn>
 
           {/* Major section */}
@@ -104,10 +104,10 @@ test.add(storyNames.formOnAPage, () => {
             <InputLabel>A set of radios</InputLabel>
             <XUIRadio isDefaultChecked={false}>Unchecked</XUIRadio>
             <XUIRadio isDefaultChecked>Checked</XUIRadio>
-            <XUIRadio isDisabled isDefaultChecked={false}>
+            <XUIRadio isDefaultChecked={false} isDisabled>
               Unchecked
             </XUIRadio>
-            <XUIRadio isDisabled isDefaultChecked>
+            <XUIRadio isDefaultChecked isDisabled>
               Checked
             </XUIRadio>
           </XUIColumn>
@@ -126,14 +126,14 @@ test.add(storyNames.formOnAPage, () => {
               <XUIRadio name="radioGroup">Wellington</XUIRadio>
               <XUIRadio name="radioGroup">Canberra</XUIRadio>
               <XUIRadio name="radioGroup">Washington D.C</XUIRadio>
-              <XUIRadio name="radioGroup" isDisabled>
+              <XUIRadio isDisabled name="radioGroup">
                 Carthage
               </XUIRadio>
             </XUIRadioGroup>
           </XUIColumn>
 
           {/* Major section */}
-          <XUIColumn gridColumns="full" className="xui-padding-vertical">
+          <XUIColumn className="xui-padding-vertical" gridColumns="full">
             <div>
               <InputLabel>A set of checkboxes</InputLabel>
             </div>
@@ -143,23 +143,23 @@ test.add(storyNames.formOnAPage, () => {
           </XUIColumn>
 
           {/* Major section */}
-          <XUIColumn gridColumns="full" className="xui-padding-vertical">
+          <XUIColumn className="xui-padding-vertical" gridColumns="full">
             <div>
               <InputLabel>A set of radios</InputLabel>
             </div>
             <XUIRadio isDefaultChecked={false}>Unchecked</XUIRadio>
             <XUIRadio isDefaultChecked>Checked</XUIRadio>
-            <XUIRadio isDisabled isDefaultChecked={false}>
+            <XUIRadio isDefaultChecked={false} isDisabled>
               Unchecked
             </XUIRadio>
-            <XUIRadio isDisabled isDefaultChecked>
+            <XUIRadio isDefaultChecked isDisabled>
               Checked
             </XUIRadio>
           </XUIColumn>
 
           {/* Major section */}
-          <XUIColumn gridColumns="full" className="xui-padding-vertical">
-            <XUISwitch onChange={NOOP} isReversed>
+          <XUIColumn className="xui-padding-vertical" gridColumns="full">
+            <XUISwitch isReversed onChange={NOOP}>
               A switch
             </XUISwitch>
           </XUIColumn>
@@ -167,28 +167,28 @@ test.add(storyNames.formOnAPage, () => {
           {/* Major section */}
           <XUIColumn gridColumns="full">
             <XUITextInput
-              label="A textarea"
               isMultiline
-              minRows={2}
+              label="A textarea"
               maxRows={5}
+              minRows={2}
               textareaId="textarea-auto-resize"
             />
           </XUIColumn>
 
           {/* Major section */}
-          <XUIColumn gridColumns="full" className="xui-padding-vertical">
+          <XUIColumn className="xui-padding-vertical" gridColumns="full">
             <XUIColumn gridColumns="half">
               <InputLabel>A dropdown button</InputLabel>
-              <DropDownToggled trigger={trigger} dropdown={dropdown} />
+              <DropDownToggled dropdown={dropdown} trigger={trigger} />
             </XUIColumn>
             <XUIColumn gridColumns="half">
               <SelectBox
+                buttonContent="Hello world"
+                caretTitle="Toggle list"
+                isFieldLayout
+                isTextTruncated={false}
                 label="A simple select box"
                 name="selectOne"
-                buttonContent="Hello world"
-                isTextTruncated={false}
-                isFieldLayout
-                caretTitle="Toggle list"
               >
                 <SelectBoxOption id="1" key={1} value="1">
                   It&apos;s a wonderful day

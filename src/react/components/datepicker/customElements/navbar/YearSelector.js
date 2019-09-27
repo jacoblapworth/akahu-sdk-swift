@@ -8,99 +8,98 @@ import { ns } from '../../../helpers/xuiClassNamespace';
 import { baseClassName } from '../../helpers/constants';
 
 const buttonSizeClasses = {
-	small: `${ns}-button-small`,
-	xsmall: `${ns}-button-xsmall`,
+  small: `${ns}-button-small`,
+  xsmall: `${ns}-button-xsmall`,
 };
 
 export default class YearSelector extends PureComponent {
-	state = {};
-	setFocus = () => {
-		this.setState({ hasFocus: true });
-	}
-	setBlur = () => {
-		this.setState({ hasFocus: false });
-	}
-	render() {
-		const {
-			minDate,
-			maxDate,
-			currentMonthDate,
-			id,
-			selectRef,
-			onChange,
-			onKeyDown,
-			size,
-		} = this.props;
+  state = {};
+  setFocus = () => {
+    this.setState({ hasFocus: true });
+  };
+  setBlur = () => {
+    this.setState({ hasFocus: false });
+  };
+  render() {
+    const {
+      minDate,
+      maxDate,
+      currentMonthDate,
+      id,
+      selectRef,
+      onChange,
+      onKeyDown,
+      size,
+    } = this.props;
 
-		const currentYear = currentMonthDate.getFullYear();
-		const startYear = minDate ? minDate.getFullYear() : currentYear - 10;
-		const maxYear = maxDate ? maxDate.getFullYear() : currentYear + 10;
-		const visibleYears = [];
-		for (let i = startYear; i <= maxYear; i += 1) {
-			visibleYears.push(i);
-		}
-		const label = (
-			<label
-				htmlFor={id}
-				className={cn(
-					`${ns}-button`,
-					`${ns}-button-standard`,
-					`${ns}-datepicker--heading-label`,
-					`${ns}-datepicker--year-select-label`,
-					buttonSizeClasses[size],
-					this.state.hasFocus && `${ns}-datepicker--heading-select-has-focus`,
-				)}
-			>
-				{currentYear}
-				<XUIIcon icon={caret} className={`${ns}-button--caret`} />
-			</label>
-		);
+    const currentYear = currentMonthDate.getFullYear();
+    const startYear = minDate ? minDate.getFullYear() : currentYear - 10;
+    const maxYear = maxDate ? maxDate.getFullYear() : currentYear + 10;
+    const visibleYears = [];
+    for (let i = startYear; i <= maxYear; i += 1) {
+      visibleYears.push(i);
+    }
+    const label = (
+      <label
+        className={cn(
+          `${ns}-button`,
+          `${ns}-button-standard`,
+          `${ns}-datepicker--heading-label`,
+          `${ns}-datepicker--year-select-label`,
+          buttonSizeClasses[size],
+          this.state.hasFocus && `${ns}-datepicker--heading-select-has-focus`,
+        )}
+        htmlFor={id}
+      >
+        {currentYear}
+        <XUIIcon className={`${ns}-button--caret`} icon={caret} />
+      </label>
+    );
 
-		/* eslint-disable jsx-a11y/no-onchange */
-		const select = visibleYears.length === 1
-			? null
-			: (
-				<select
-					ref={selectRef}
-					id={id}
-					className={`${baseClassName}--heading-select ${baseClassName}--yearselect-layout`}
-					name="year"
-					value={currentYear}
-					onChange={onChange}
-					onKeyDown={onKeyDown}
-					onFocus={this.setFocus}
-					onBlur={this.setBlur}
-				>
-					{
-						visibleYears.map(year => (
-							<option key={year} value={year}>
-								{year}
-							</option>
-						))
-					}
-				</select>
-			);
-		/* eslint-enable jsx-a11y/no-onchange */
+    /* eslint-disable jsx-a11y/no-onchange */
+    const select =
+      visibleYears.length === 1 ? null : (
+        <select
+          className={`${baseClassName}--heading-select ${baseClassName}--yearselect-layout`}
+          id={id}
+          name="year"
+          onBlur={this.setBlur}
+          onChange={onChange}
+          onFocus={this.setFocus}
+          onKeyDown={onKeyDown}
+          ref={selectRef}
+          value={currentYear}
+        >
+          {visibleYears.map(year => (
+            <option key={year} value={year}>
+              {year}
+            </option>
+          ))}
+        </select>
+      );
+    /* eslint-enable jsx-a11y/no-onchange */
 
-		return (
-			<div className={`${baseClassName}--heading ${ns}-heading-item ${baseClassName}--heading-year`}>
-				{select}
-				{label}
-			</div>
-		);
-	}
+    return (
+      <div
+        className={`${baseClassName}--heading ${ns}-heading-item ${baseClassName}--heading-year`}
+      >
+        {select}
+        {label}
+      </div>
+    );
+  }
 }
 
 YearSelector.propTypes = {
-	minDate: PropTypes.instanceOf(Date),
-	maxDate: PropTypes.instanceOf(Date),
-	currentMonthDate: PropTypes.instanceOf(Date).isRequired,
-	id: PropTypes.string.isRequired,
-	selectRef: PropTypes.func,
-	onChange: PropTypes.func,
-	onKeyDown: PropTypes.func,
-	// TODO: Implement locale
-	// eslint-disable-next-line react/no-unused-prop-types
-	locale: PropTypes.string, 
-	size: PropTypes.oneOf(Object.keys(buttonSizeClasses)),
+  minDate: PropTypes.instanceOf(Date),
+  maxDate: PropTypes.instanceOf(Date),
+  currentMonthDate: PropTypes.instanceOf(Date).isRequired,
+  id: PropTypes.string.isRequired,
+  selectRef: PropTypes.func,
+  onChange: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  // TODO: Implement locale
+  // eslint-disable-next-line react/no-unused-prop-types
+  locale: PropTypes.string,
+  size: PropTypes.oneOf(Object.keys(buttonSizeClasses)),
 };

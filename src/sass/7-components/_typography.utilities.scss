@@ -1,117 +1,115 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // TODO: Review whether these are components or not
 // Alignment
 
 .#{$ns}-text-align-left {
-	text-align: left;
+  text-align: left;
 }
 
 .#{$ns}-text-align-center {
-	text-align: center;
+  text-align: center;
 }
 
 .#{$ns}-text-align-right {
-	text-align: right;
+  text-align: right;
 }
 
 // Truncation
 
 .#{$ns}-text-truncated {
-	@include xui-text-truncated;
+  @include xui-text-truncated;
 }
 
 // Word-break
 
 /* doiuse-disable */
 .#{$ns}-text-wordbreak {
-	@include xui-text-wordbreak;
+  @include xui-text-wordbreak;
 }
 /* doiuse-enable */
-
 
 // Emphasis
 
 .#{$ns}-text-emphasis {
-	font-weight: $xui-font-weight-emphasis;
+  font-weight: $xui-font-weight-emphasis;
 }
 
 .#{$ns}-text-deemphasis {
-	font-weight: $xui-font-weight-deemphasis;
+  font-weight: $xui-font-weight-deemphasis;
 }
 
 // Letter Spacing
 
 .#{$ns}-text-spacing-tight {
-	@include xui-text-spacing-tight;
+  @include xui-text-spacing-tight;
 }
 
 .#{$ns}-text-spacing-loose {
-	@include xui-text-spacing-loose;
+  @include xui-text-spacing-loose;
 }
 
 // Line Height
 .#{$ns}-text-reset {
-	line-height: $xui-line-height-reset;
+  line-height: $xui-line-height-reset;
 }
 
 .#{$ns}-text-tight {
-	line-height: $xui-line-height-tight;
+  line-height: $xui-line-height-tight;
 }
 
 .#{$ns}-text-compact {
-	line-height: $xui-line-height-compact;
+  line-height: $xui-line-height-compact;
 }
 
 // Color
 
 .#{$ns}-textcolor-standard {
-	color: $xui-text-primary-color;
+  color: $xui-text-primary-color;
 }
 
 .#{$ns}-textcolor-muted {
-	@include xui-text-muted;
+  @include xui-text-muted;
 }
 
 .#{$ns}-text-placeholder,
 .#{$ns}-textcolor-faint {
-	color: $xui-text-faint-color;
+  color: $xui-text-faint-color;
 }
 
 .#{$ns}-textcolor-icon {
-	color: $xui-text-icon-color;
+  color: $xui-text-icon-color;
 }
 
 .#{$ns}-textcolor-positive {
-	@include xui-text-positive;
+  @include xui-text-positive;
 }
 
 .#{$ns}-textcolor-negative {
-	@include xui-text-negative;
+  @include xui-text-negative;
 }
 
 // Inverted colors
 
-
 .#{$ns}-textcolor-inverted {
-	color: $xui-text-inverted-color;
+  color: $xui-text-inverted-color;
 }
 
 .#{$ns}-textcolor-inverted-muted {
-	color: $xui-text-inverted-muted;
+  color: $xui-text-inverted-muted;
 }
 
 .#{$ns}-textcolor-inverted-faint {
-	color: $xui-text-inverted-faint;
+  color: $xui-text-inverted-faint;
 }
 
 // Decoration
 
 .#{$ns}-text-decoration-none {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .#{$ns}-text-underline {
-	text-decoration: underline;
+  text-decoration: underline;
 }

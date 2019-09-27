@@ -166,20 +166,20 @@ class XUITextInput extends PureComponent {
             {leftElement}
             <InputEl
               {...inputProps}
-              type={type}
-              value={value}
-              defaultValue={defaultValue}
-              data-automationid={qaHook && `${qaHook}--input`}
               className={classes}
-              onFocusCapture={input.onFocus}
+              data-automationid={qaHook && `${qaHook}--input`}
+              defaultValue={defaultValue}
+              disabled={isDisabled}
               onBlurCapture={input.onBlur}
               onChange={onChange}
+              onFocusCapture={input.onFocus}
               placeholder={placeholder}
-              disabled={isDisabled}
               ref={compose(
                 inputRef,
                 i => (this.input = i),
               )}
+              type={type}
+              value={value}
               {...getAriaAttributes(this.wrapperIds, this.props)}
               // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
               rows={isMultiline ? rows || minRows : undefined}

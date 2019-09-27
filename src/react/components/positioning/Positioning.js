@@ -308,10 +308,10 @@ class Positioning extends PureComponent {
     return isVisible ? (
       <Portal node={portalContainer()}>
         <div
-          style={isVisible && !positioned ? stylesForCalculation : null}
-          ref={portal => (this.positionEl = portal)}
           className={`${ns}-container`}
           data-automationid={qaHook}
+          ref={portal => (this.positionEl = portal)}
+          style={isVisible && !positioned ? stylesForCalculation : null}
         >
           {clonedChildren}
         </div>

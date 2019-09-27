@@ -323,14 +323,14 @@ class StatefulPicklist extends Component {
     return (
       <StatefulPicklistWrapper
         {...secondaryProps}
-        data-automationid={qaHook}
-        ref={spl.list}
-        onMouseDown={e => e.preventDefault()}
-        onKeyDown={spl.onKeyDown}
-        className={className}
-        id={id}
-        tabIndex={canFocus ? 0 : null}
         aria-activedescendant={spl.getHighlightedId()}
+        className={className}
+        data-automationid={qaHook}
+        id={id}
+        onKeyDown={spl.onKeyDown}
+        onMouseDown={e => e.preventDefault()}
+        ref={spl.list}
+        tabIndex={canFocus ? 0 : null}
       >
         {cloneChildren(children, spl)}
       </StatefulPicklistWrapper>

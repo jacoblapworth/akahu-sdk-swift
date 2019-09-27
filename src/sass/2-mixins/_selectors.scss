@@ -3,28 +3,28 @@
 
 // Contents will be applied to all but the first element in a group
 @mixin xui-all-but-first {
-	&:nth-child(n+2) {
-		@content;
-	}
+  &:nth-child(n + 2) {
+    @content;
+  }
 }
 
 // Contents will be applied to all but the last element in a group
 @mixin xui-all-but-last {
-	&:nth-last-child(n+2) {
-		@content;
-	}
+  &:nth-last-child(n + 2) {
+    @content;
+  }
 }
 
 // Contents will be applied to all but the first element of its type in a group
 @mixin xui-all-but-first-of-type {
-	&:nth-of-type(n+2) {
-		@content;
-	}
+  &:nth-of-type(n + 2) {
+    @content;
+  }
 }
 
 // Contents will be applied to all but the last element of its type in a group
 @mixin xui-all-but-last-of-type {
-	&:nth-last-of-type(n+2) {
-		@content;
-	}
+  &:nth-last-of-type(n + 2) {
+    @content;
+  }
 }

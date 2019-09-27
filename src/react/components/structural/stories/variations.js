@@ -8,11 +8,11 @@ const storiesWithVariationsKindName = 'Instances/Structure';
 
 const buildPI = (total, progress) => (
   <XUIProgressLinear
-    id="testId"
-    total={total}
-    progress={progress}
     hasToolTip
+    id="testId"
+    progress={progress}
     toolTipMessage={`${progress} out of ${total}`}
+    total={total}
   />
 );
 

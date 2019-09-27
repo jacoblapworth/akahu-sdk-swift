@@ -14,33 +14,31 @@ import { baseClass } from './private/constants';
  * @extends {PureComponent}
  */
 export default class DropDownFooter extends PureComponent {
-	rootNode = React.createRef();
+  rootNode = React.createRef();
 
-	render() {
-		const { children, className, qaHook, pickItems } = this.props;
+  render() {
+    const { children, className, qaHook, pickItems } = this.props;
 
-		const footerClass = `${baseClass}--footer`;
-		const classes = cn(footerClass, className);
-		const pickList = pickItems && (
-			<Picklist className={`${footerClass}--picklist`}>
-				{pickItems}
-			</Picklist>
-		);
-		return (
-			<div className={classes} ref={this.rootNode} data-automationid={qaHook}>
-				{pickList}
-				{children}
-			</div>
-		);
-	}
+    const footerClass = `${baseClass}--footer`;
+    const classes = cn(footerClass, className);
+    const pickList = pickItems && (
+      <Picklist className={`${footerClass}--picklist`}>{pickItems}</Picklist>
+    );
+    return (
+      <div className={classes} data-automationid={qaHook} ref={this.rootNode}>
+        {pickList}
+        {children}
+      </div>
+    );
+  }
 }
 
 DropDownFooter.propTypes = {
-	className: PropTypes.string,
-	children: PropTypes.node,
-	qaHook: PropTypes.string,
-	/** An optional array of one or more PickItem components to be added to the DropDownFooter
-	 * in a PickList with standardised styling.
-	 */
-	pickItems: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+  className: PropTypes.string,
+  children: PropTypes.node,
+  qaHook: PropTypes.string,
+  /** An optional array of one or more PickItem components to be added to the DropDownFooter
+   * in a PickList with standardised styling.
+   */
+  pickItems: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 };

@@ -76,21 +76,21 @@ storiesWithKnobs.add('Playground | Circular', () => {
   return (
     <div style={playgroundStyle}>
       <XUIProgressCircular
-        id={text('id', 'myCustomCircularId')}
-        total={number('total', 10)}
-        progress={number('progress', 5)}
-        isSegmented={boolean('isSegmented', false)}
-        isGrow={boolean('isGrow', false)}
-        thickness={number('thickness', 3)}
-        hasToolTip={boolean('hasToolTip', false)}
-        toolTipMessage={text('toolTipMessage', '')}
-        isAlertOnComplete={boolean('isAlertOnComplete', false)}
-        isOverflow={boolean('isOverflow', false)}
-        isSoftError={boolean('isSoftError', false)}
-        isHardError={boolean('isHardError', false)}
         hardErrorAlert={text('hardErrorAlert', '')}
-        totalColor={totalColor}
+        hasToolTip={boolean('hasToolTip', false)}
+        id={text('id', 'myCustomCircularId')}
+        isAlertOnComplete={boolean('isAlertOnComplete', false)}
+        isGrow={boolean('isGrow', false)}
+        isHardError={boolean('isHardError', false)}
+        isOverflow={boolean('isOverflow', false)}
+        isSegmented={boolean('isSegmented', false)}
+        isSoftError={boolean('isSoftError', false)}
+        progress={number('progress', 5)}
         progressColor={progressColor}
+        thickness={number('thickness', 3)}
+        toolTipMessage={text('toolTipMessage', '')}
+        total={number('total', 10)}
+        totalColor={totalColor}
       />
     </div>
   );
@@ -110,19 +110,19 @@ storiesWithKnobs.add('Playground | Linear', () => {
   return (
     <div style={playgroundStyle}>
       <XUIProgressLinear
-        id={text('id', 'myCustomLinearId')}
-        total={number('total', 10)}
-        progress={number('progress', 5)}
-        isSegmented={boolean('isSegmented', false)}
-        isGrow={boolean('isGrow', false)}
-        thickness={number('thickness', 4)}
         hasSegmentDots={boolean('hasSegmentDots', false)}
         hasToolTip={boolean('hasToolTip', false)}
-        toolTipMessage={text('toolTipMessage', '')}
+        id={text('id', 'myCustomLinearId')}
+        isGrow={boolean('isGrow', false)}
         isOverflow={boolean('isOverflow', false)}
+        isSegmented={boolean('isSegmented', false)}
         isSoftError={boolean('isSoftError', false)}
-        totalColor={totalColor}
+        progress={number('progress', 5)}
         progressColor={progressColor}
+        thickness={number('thickness', 4)}
+        toolTipMessage={text('toolTipMessage', '')}
+        total={number('total', 10)}
+        totalColor={totalColor}
       />
     </div>
   );
@@ -151,8 +151,8 @@ class StandardComparison extends PureComponent {
 
 const createStandardComparison = (styles, Component, props, componentChildren, children) => (
   <StandardComparison
-    style={styles}
     component={<Component {...props}>{componentChildren}</Component>}
+    style={styles}
   >
     {children}
   </StandardComparison>
@@ -240,7 +240,7 @@ class ToolTipComparison extends PureComponent {
 }
 
 const createToolTipComparison = (styles, Component, props) => (
-  <ToolTipComparison style={{ ...styles }} component={<Component {...props} />} />
+  <ToolTipComparison component={<Component {...props} />} style={{ ...styles }} />
 );
 
 variations.forEach(variation => {
@@ -267,9 +267,9 @@ variations.forEach(variation => {
   } else if (isCustomContent) {
     const children = (
       <img
-        style={{ width: '100%', height: 'auto' }}
         alt="custom indicator fill"
         src="http://via.placeholder.com/350x350"
+        style={{ width: '100%', height: 'auto' }}
       />
     );
 

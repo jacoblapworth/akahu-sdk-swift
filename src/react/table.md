@@ -265,6 +265,33 @@ document.head.appendChild(node);
 </Table>;
 ```
 
+Pass the `rowClassName` key in a row object of the `data` prop of `<XUITable>` to apply a custom class.
+
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+
+const data = {
+  abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, rowClassName: 'xui-table-reactdocs-row' }
+};
+const node = document.createElement('style');
+
+node.innerHTML = `
+.xui-table-reactdocs-row {
+  font-style: italic;
+	font-weight: bold;
+}
+`;
+document.head.appendChild(node);
+
+<Table data={data} className="xui-table-reactdocs-shadow">
+  <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
+
+  <Column head={<Cell>Color</Cell>} body={({ color }) => <Cell>{color}</Cell>} />
+
+  <Column head={<Cell>Price / kg</Cell>} body={({ price }) => <Cell>{`$${price}`}</Cell>} />
+</Table>;
+```
+
 Pass the `className` prop to the `<XUITableCell>` to add CSS classes to each _Cell_ on an individual basis.
 
 ```jsx harmony

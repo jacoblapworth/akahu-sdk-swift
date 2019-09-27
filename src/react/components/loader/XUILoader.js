@@ -18,10 +18,10 @@ const XUILoader = props => {
 
   return (
     <div
-      data-automationid={props.qaHook}
-      className={className}
-      role="progressbar"
       aria-label={props.ariaLabel}
+      className={className}
+      data-automationid={props.qaHook}
+      role="progressbar"
     >
       {dot}
       {dot}

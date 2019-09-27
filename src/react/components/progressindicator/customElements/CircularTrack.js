@@ -103,9 +103,9 @@ const CircularTrack = ({
 
     customContent ? (
       <div
-        key="content"
-        data-automationid={qaHook && `${qaHook}-custom-content`}
         className={`${NAME_SPACE}-circular-content`}
+        data-automationid={qaHook && `${qaHook}-custom-content`}
+        key="content"
         style={contentStyles}
       >
         {customContent}
@@ -113,23 +113,23 @@ const CircularTrack = ({
     ) : null,
 
     <svg
-      key="svg"
-      height={viewBoxHeight}
-      width={viewBoxWidth}
       className={cn(
         `${NAME_SPACE}-circular-wrapper`,
         isIE11 && `${NAME_SPACE}-circular-wrapper-ie11`,
       )}
+      height={viewBoxHeight}
+      key="svg"
       viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
+      width={viewBoxWidth}
     >
       <defs>
         <mask
+          height={viewBoxHeight}
           id={`${id}-progress-mask`}
           maskUnits="userSpaceOnUse"
+          width={viewBoxWidth}
           x="0"
           y="0"
-          width={viewBoxWidth}
-          height={viewBoxHeight}
         >
           <circle
             {...dashes}
@@ -137,10 +137,10 @@ const CircularTrack = ({
 							${NAME_SPACE}-circular-mask
 							${NAME_SPACE}-roundcap
 						`}
-            strokeWidth={strokeWidth}
-            r={radius}
             cx={center}
             cy={center}
+            r={radius}
+            strokeWidth={strokeWidth}
           />
         </mask>
       </defs>
@@ -148,20 +148,20 @@ const CircularTrack = ({
       <g mask={`url(#${id}-progress-mask)`}>
         <circle
           className={`${NAME_SPACE}-circular-track`}
-          strokeWidth={strokeWidth}
-          r={radius}
           cx={center}
           cy={center}
+          r={radius}
+          strokeWidth={strokeWidth}
         />
 
         <circle
           className={progressClasses}
+          cx={center}
+          cy={center}
+          r={radius}
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           strokeWidth={strokeWidth}
-          r={radius}
-          cx={center}
-          cy={center}
         />
       </g>
     </svg>,

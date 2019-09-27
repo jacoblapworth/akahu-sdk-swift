@@ -1,6 +1,6 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const starIcon = require ('@xero/xui-icon/icons/star').default;
+const starIcon = require('@xero/xui-icon/icons/star').default;
 
 const storiesWithVariationsKindName = 'Instances/XUICheckbox';
 
@@ -116,34 +116,34 @@ const variations = [
     storyTitle: 'has a long label and hint/vaildation',
     viewports: desktopPlus320,
     labelText:
-			"You have no idea how choice our stuffed Tuis were aye. Every time I see those rip-off old man's beards it's like the sausage sizzle all over again aye, rack off. Anyway, James Cook is just Rhys Darby in disguise.",
-		hintMessage: "Here is some additional info to help with your choice",
-	},
+      "You have no idea how choice our stuffed Tuis were aye. Every time I see those rip-off old man's beards it's like the sausage sizzle all over again aye, rack off. Anyway, James Cook is just Rhys Darby in disguise.",
+    hintMessage: 'Here is some additional info to help with your choice',
+  },
 ];
 
 [false, true].forEach(isInvalid => {
-	[false, true].forEach(isLabelHidden => {
-		[false, true].forEach(isReversed => {
-			const isInvalidTitle = isInvalid ? 'with validation error' : 'with hint text';
+  [false, true].forEach(isLabelHidden => {
+    [false, true].forEach(isReversed => {
+      const isInvalidTitle = isInvalid ? 'with validation error' : 'with hint text';
 
-			const isLabelHiddenTitle = isLabelHidden ? ' and hidden label' : '';
+      const isLabelHiddenTitle = isLabelHidden ? ' and hidden label' : '';
 
-			const isReversedTitle = isReversed ? ' and reversed': '';
+      const isReversedTitle = isReversed ? ' and reversed' : '';
 
-			variations.push({
-				storyKind: storiesWithVariationsKindName,
-				storyTitle: `${isInvalidTitle}${isLabelHiddenTitle}${isReversedTitle}`,
-				isInvalid,
-				isLabelHidden,
-				isReversed,
-				hintMessage: !isInvalid && 'Hint text',
-				validationMessage: isInvalid && 'Validation message',
-			})
-		});
-	});
+      variations.push({
+        storyKind: storiesWithVariationsKindName,
+        storyTitle: `${isInvalidTitle}${isLabelHiddenTitle}${isReversedTitle}`,
+        isInvalid,
+        isLabelHidden,
+        isReversed,
+        hintMessage: !isInvalid && 'Hint text',
+        validationMessage: isInvalid && 'Validation message',
+      });
+    });
+  });
 });
 
 module.exports = {
-	storiesWithVariationsKindName,
-	variations,
+  storiesWithVariationsKindName,
+  variations,
 };

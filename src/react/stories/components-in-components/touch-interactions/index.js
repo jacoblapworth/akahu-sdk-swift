@@ -61,6 +61,7 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
       isSelectedById: {},
       overallSize: 'medium',
     };
+
     datePickerDate = new Date('Dec 02 2017 00:00:00 GMT+1300');
 
     toggleSelection(id) {
@@ -77,23 +78,23 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
         <XUICompositionDetail
           detail={
             <XUIPanel>
-              <XUIPanelSection id="size-toggle" className="xui-padding-xlarge">
+              <XUIPanelSection className="xui-padding-xlarge" id="size-toggle">
                 <XUIToggle
-                  label="Size (where applicable)"
-                  isFieldLayout
-                  layout="fullwidth"
                   hintMessage="Not all controls are available in small or xsmall"
+                  isFieldLayout
+                  label="Size (where applicable)"
+                  layout="fullwidth"
                   size={noXsmallSize}
                 >
                   {sizes.map(size => (
                     <XUIToggleOption
-                      key={`toggle-${size}`}
                       isDefaultChecked={size === 'medium'}
-                      type="radio"
+                      key={`toggle-${size}`}
                       name="size-toggle"
                       onChange={() => {
                         this.setState({ overallSize: size });
                       }}
+                      type="radio"
                     >
                       {size}
                     </XUIToggleOption>
@@ -101,20 +102,20 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                 </XUIToggle>
               </XUIPanelSection>
               {/* Dropdowns */}
-              <XUIPanelSection id="dropdowns" className="xui-padding-xlarge">
+              <XUIPanelSection className="xui-padding-xlarge" id="dropdowns">
                 <XUIPanelHeading hasLayout={false}>Dropdown-type controls</XUIPanelHeading>
                 <DetailedListExample
-                  placeholder="e.g. Mario"
-                  validationMessage="Pick a valid person"
                   hintMessage="Enter a name"
                   inputLabel="Autocompleter test"
-                  isInputLabelHidden={false}
                   inputSize={noXsmallSize}
+                  isInputLabelHidden={false}
                   picklistSize={overallSize}
+                  placeholder="e.g. Mario"
+                  validationMessage="Pick a valid person"
                 />
                 <SecondarySearchExample
-                  isClosed
                   className="xui-field-layout"
+                  isClosed
                   listSize={overallSize}
                   trigger={
                     <XUIButton fullWidth="small-down" size={overallSize}>
@@ -126,54 +127,54 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                 <DropDownDateRange size={overallSize} />
               </XUIPanelSection>
               {/* Hover interaction */}
-              <XUIPanelSection id="hover" className="xui-padding-xlarge">
+              <XUIPanelSection className="xui-padding-xlarge" id="hover">
                 <XUIPanelHeading hasLayout={false}>Things with hover states</XUIPanelHeading>
                 <div>
                   <TooltipWrapper
                     buttonContent="Click for tooltip"
+                    size={overallSize}
                     tipContent="Hello. I am a click-only tip."
                     triggers={['click']}
-                    size={overallSize}
                   />
                   <TooltipWrapper
                     buttonContent="Focus for tooltip"
+                    size={overallSize}
                     tipContent="Hello. I am a focus-only tip."
                     triggers={['focus']}
-                    size={overallSize}
                   />
                   <TooltipWrapper
                     buttonContent="Hover for tooltip"
+                    size={overallSize}
                     tipContent="Hello. I am a hover-only tip."
                     triggers={['hover']}
-                    size={overallSize}
                   />
                 </div>
                 <div>
                   <TooltipWrapper
                     buttonContent="Click or hover"
+                    size={overallSize}
                     tipContent="Hello. I am a click-hover tip."
                     triggers={['hover', 'click']}
-                    size={overallSize}
                   />
                   <TooltipWrapper
                     buttonContent="Focus or click"
+                    size={overallSize}
                     tipContent="Hello. I am a focus-click tip."
                     triggers={['focus', 'click']}
-                    size={overallSize}
                   />
                   <TooltipWrapper
                     buttonContent="Hover or focus"
+                    size={overallSize}
                     tipContent="Hello. I am a hover-focus tip."
                     triggers={['focus', 'hover']}
-                    size={overallSize}
                   />
                 </div>
                 <div>
                   <TooltipWrapper
                     buttonContent="Any action"
+                    size={overallSize}
                     tipContent="Hello. I am a click-hover-focus tip."
                     triggers={['focus', 'hover', 'click']}
-                    size={overallSize}
                   />
                 </div>
                 <XUIRow>
@@ -186,23 +187,23 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                   </XUIColumn>
                   <XUIColumn gridColumns="half">
                     <XUIRolloverCheckbox
+                      checkboxSize={overallSize}
                       className="xui-margin-left-small"
                       isCheckboxHidden
-                      rolloverComponent={
-                        <XUIAvatar value="Finn Clark" size={avatarSizeMap[overallSize]} />
-                      }
-                      checkboxSize={overallSize}
                       label="Rollover checkbox"
+                      rolloverComponent={
+                        <XUIAvatar size={avatarSizeMap[overallSize]} value="Finn Clark" />
+                      }
                     />
                   </XUIColumn>
                 </XUIRow>
               </XUIPanelSection>
               {/* Basic controls */}
-              <XUIPanelSection id="simple" className="xui-padding-xlarge">
+              <XUIPanelSection className="xui-padding-xlarge" id="simple">
                 <XUIPanelHeading hasLayout={false}>Simpler controls</XUIPanelHeading>
                 <div className="xui-field-layout">
-                  <RangeWrapper size={overallSize} step={0} label="Smooth" />
-                  <RangeWrapper size={overallSize} step={10} label="Stepped" />
+                  <RangeWrapper label="Smooth" size={overallSize} step={0} />
+                  <RangeWrapper label="Stepped" size={overallSize} step={10} />
                 </div>
                 <XUIRadioGroup isFieldLayout label="Choose a city">
                   {createRadios(noXsmallSize)}
@@ -216,7 +217,7 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                 <div className="xui-field-layout">{switches}</div>
               </XUIPanelSection>
               {/* Big-finger tests */}
-              <XUIPanelSection id="hit-areas" className="xui-padding-xlarge">
+              <XUIPanelSection className="xui-padding-xlarge" id="hit-areas">
                 <XUIPanelHeading hasLayout={false}>Hit-area tests</XUIPanelHeading>
                 <XUITextInput
                   isFieldLayout
@@ -224,9 +225,9 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                   rightElement={
                     <XUITextInputSideElement type="icon">
                       <XUIButton
-                        variant="icon"
-                        size={overallSize}
                         onClick={() => console.log('Textinput button fire')}
+                        size={overallSize}
+                        variant="icon"
                       >
                         <XUIIcon icon={view} />
                       </XUIButton>
@@ -236,13 +237,13 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                 />
                 Buttons (incl unstyled):
                 <XUIRow id="buttons" variant="flex">
-                  <XUIColumn gridColumns="half" className="xui-field-layout">
+                  <XUIColumn className="xui-field-layout" gridColumns="half">
                     {createSizedLoggingButtons({
                       stringArray: ['1', '2', '3', '4', '5', '6'],
                       size: overallSize,
                     })}
                   </XUIColumn>
-                  <XUIColumn gridColumns="half" className="xui-field-layout">
+                  <XUIColumn className="xui-field-layout" gridColumns="half">
                     {/* These are unstyled links, simulating text */}
                     {createSizedLoggingButtons({
                       stringArray: ['one ', 'two ', 'three', 'four ', 'five ', 'six'],
@@ -254,37 +255,37 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                       },
                     })}
                   </XUIColumn>
-                  <XUIColumn gridColumns="full" className="xui-field-layout">
+                  <XUIColumn className="xui-field-layout" gridColumns="full">
                     {createSizedIconButtons(overallSize)}
                   </XUIColumn>
                 </XUIRow>
-                <div id="pills" className="xui-field-layout">
+                <div className="xui-field-layout" id="pills">
                   Pills:
                   <br />
                   <XUIPill
-                    value="Just a delete"
                     onDeleteClick={() => console.log('delete pill 1')}
                     size={overallSize}
+                    value="Just a delete"
                   />
                   <XUIPill
-                    value="Link and delete"
-                    onDeleteClick={() => console.log('delete pill 2')}
                     href="#pills"
+                    onDeleteClick={() => console.log('delete pill 2')}
                     size={overallSize}
+                    value="Link and delete"
                   />
                   <XUIPill
-                    value="Onclick and delete"
-                    onDeleteClick={() => console.log('delete pill 3')}
                     onClick={() => console.log('clicking pill 3')}
+                    onDeleteClick={() => console.log('delete pill 3')}
                     size={overallSize}
+                    value="Onclick and delete"
                   />
-                  <XUIPill value="Just a link" href="#pills" size={overallSize} />
+                  <XUIPill href="#pills" size={overallSize} value="Just a link" />
                   <XUIPill
-                    value="All the things"
                     avatarProps={{ value: 'Hi Mom' }}
-                    onDeleteClick={() => console.log('delete pill 5')}
                     onClick={() => console.log('clicking pill 5')}
+                    onDeleteClick={() => console.log('delete pill 5')}
                     size={overallSize}
+                    value="All the things"
                   />
                 </div>
                 <div className="xui-field-layout">
@@ -299,25 +300,25 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                 </div>
                 Vertical picklists:
                 <XUIRow
+                  className="xui-u-flex-align-stretch xui-margin-bottom-small"
                   id="vertical-picklists"
                   variant="flex"
-                  className="xui-u-flex-align-stretch xui-margin-bottom-small"
                 >
-                  <XUIColumn gridColumns="full" gridColumnsSmallUp="half" className="xui-panel">
+                  <XUIColumn className="xui-panel" gridColumns="full" gridColumnsSmallUp="half">
                     {createPicklist({
                       prefix: '1',
                       customProps: { sizeHeader: true },
                       size: overallSize,
                     })}
                   </XUIColumn>
-                  <XUIColumn gridColumns="full" gridColumnsSmallUp="half" className="xui-panel">
+                  <XUIColumn className="xui-panel" gridColumns="full" gridColumnsSmallUp="half">
                     <Picklist isMultiselect size={noXsmallSize}>
                       <PicklistHeader>{noXsmallSize}</PicklistHeader>
                       {multiSelectItems.map(id => (
                         <Pickitem
                           id={`2_${id}`}
-                          key={`2_${id}`}
                           isSelected={this.state.isSelectedById[`2_${id}`]}
+                          key={`2_${id}`}
                           onClick={this.toggleSelection.bind(this, `2_${id}`)}
                         >
                           {id}

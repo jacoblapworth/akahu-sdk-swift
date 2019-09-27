@@ -54,18 +54,18 @@ const withChildContent = {
       id,
       primaryHeading: name,
       secondaryHeading: `${totalContacts} project${totalContacts === 1 ? '' : 's'}`,
-      leftContent: <XUIAvatar value={name} className="xui-margin-right" />,
+      leftContent: <XUIAvatar className="xui-margin-right" value={name} />,
       action: <XUIButton size="small">See more</XUIButton>,
       children: Boolean(totalContacts) && (
         <XUIContentBlock>
           {contacts.map(({ contact, project, minutes, percentage }, key) => (
             <XUIContentBlockItem
+              href="#"
               key={key}
-              primaryHeading={`${contact} - ${project}`}
-              secondaryHeading={`${minutes} chargeable (${percentage}%)`}
               leftContent={<XUIAvatar size="medium" value={contact} variant="business" />}
               pinnedValue={minutes}
-              href="#"
+              primaryHeading={`${contact} - ${project}`}
+              secondaryHeading={`${minutes} chargeable (${percentage}%)`}
             />
           ))}
         </XUIContentBlock>
@@ -100,7 +100,7 @@ const variations = [
       primaryHeading: name,
       secondaryHeading: projects,
       pinnedValue: <span className="xui-margin-right-small">{minutes}</span>,
-      leftContent: <XUIAvatar value={name} className="xui-margin-right" />,
+      leftContent: <XUIAvatar className="xui-margin-right" value={name} />,
       action: <XUIButton size="small">See more</XUIButton>,
     }),
   },

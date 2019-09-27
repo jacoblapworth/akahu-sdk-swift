@@ -2,12 +2,12 @@ const flagDefinitions = {
   sunsetting: {
     label: 'Sunsetting',
     desc:
-      'This component will be removed in a future major release. Not recommended for development.',
+      'This feature will be removed in the next major release. Not recommended for development.',
   },
   updatesComing: {
     label: 'Updates coming',
     desc:
-      'Significant changes related to this component are likely to be included in the next major release.',
+      'Significant changes related to this feature are likely to be included in the next major release.',
   },
   wip: {
     label: 'Work in progress',
@@ -15,11 +15,11 @@ const flagDefinitions = {
   },
   new: {
     label: 'New',
-    desc: 'This component was added since the prior major version.',
+    desc: 'This feature was added since the prior major version.',
   },
   updated: {
     label: 'Updated',
-    desc: 'This component was significantly changed since the prior major version.',
+    desc: 'This feature was significantly changed since the prior major version.',
   },
   reactOnly: {
     label: 'React only',

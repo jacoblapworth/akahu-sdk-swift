@@ -16,7 +16,7 @@ import { NAME_SPACE } from '../helpers/constants';
  */
 const ChartEmptyState = ({ emptyMessage }) => (
   <div className={`${NAME_SPACE}-chart--empty`}>
-    <XUIIcon icon={chart} size="large" isBoxed />
+    <XUIIcon icon={chart} isBoxed size="large" />
     <div>{emptyMessage}</div>
   </div>
 );
@@ -33,8 +33,8 @@ class ChartEmpty extends PureComponent {
 
     return (
       <div
-        data-automationid={qaHook && `${qaHook}--empty`}
         className={chartClassName}
+        data-automationid={qaHook && `${qaHook}--empty`}
         style={{ minHeight: `${emptyHeight}px` }}
       >
         {emptyStateComponent || <ChartEmptyState emptyMessage={emptyMessage} />}

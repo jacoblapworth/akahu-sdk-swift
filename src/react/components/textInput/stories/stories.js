@@ -70,37 +70,37 @@ const TextInputWrapper = props => {
     switch (sideElementType) {
       case 'icon':
         return (
-          <XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
+          <XUITextInputSideElement alignment={sideElementAlignment} type="icon">
             <XUIIcon icon={clearPath} isBoxed />
           </XUITextInputSideElement>
         );
       case 'icon button':
         return (
-          <XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
-            <XUIIconButton icon={clearPath} ariaLabel="Clear Path" size={size} />
+          <XUITextInputSideElement alignment={sideElementAlignment} type="icon">
+            <XUIIconButton ariaLabel="Clear Path" icon={clearPath} size={size} />
           </XUITextInputSideElement>
         );
       case 'iconWithBackground':
         return (
           <XUITextInputSideElement
-            type="icon"
-            backgroundColor="facebook"
             alignment={sideElementAlignment}
+            backgroundColor="facebook"
+            type="icon"
           >
             <XUIIcon icon={facebookPath} isBoxed />
           </XUITextInputSideElement>
         );
       case 'text':
         return (
-          <XUITextInputSideElement type="text" alignment="center">
+          <XUITextInputSideElement alignment="center" type="text">
             Test:
           </XUITextInputSideElement>
         );
       case 'button':
         return (
           childComponentSize !== '2xsmall' && (
-            <XUITextInputSideElement type="button" alignment={sideElementAlignment}>
-              <XUIButton variant="primary" size={childComponentSize}>
+            <XUITextInputSideElement alignment={sideElementAlignment} type="button">
+              <XUIButton size={childComponentSize} variant="primary">
                 Test
               </XUIButton>
             </XUITextInputSideElement>
@@ -109,34 +109,34 @@ const TextInputWrapper = props => {
       case 'pill':
         return (
           childComponentSize !== '2xsmall' && (
-            <XUITextInputSideElement type="pill" alignment={sideElementAlignment}>
+            <XUITextInputSideElement alignment={sideElementAlignment} type="pill">
               <XUIPill
                 avatarProps={{
                   value: 'TP',
                 }}
-                value="Test Person"
                 size={childComponentSize}
+                value="Test Person"
               />
             </XUITextInputSideElement>
           )
         );
       case 'avatar':
         return (
-          <XUITextInputSideElement type="avatar" alignment={sideElementAlignment}>
-            <XUIAvatar value="Test Person" size={childComponentSize} />
+          <XUITextInputSideElement alignment={sideElementAlignment} type="avatar">
+            <XUIAvatar size={childComponentSize} value="Test Person" />
           </XUITextInputSideElement>
         );
       case 'longText':
         return (
-          <XUITextInputSideElement type="text" alignment="center">
+          <XUITextInputSideElement alignment="center" type="text">
             A longer text label in this space:
           </XUITextInputSideElement>
         );
       case 'longButton':
         return (
           childComponentSize !== '2xsmall' && (
-            <XUITextInputSideElement type="button" alignment={sideElementAlignment}>
-              <XUIButton variant="primary" size={childComponentSize}>
+            <XUITextInputSideElement alignment={sideElementAlignment} type="button">
+              <XUIButton size={childComponentSize} variant="primary">
                 Elaborate explanation for an onclick action
               </XUIButton>
             </XUITextInputSideElement>
@@ -167,19 +167,19 @@ const TextInputWrapper = props => {
         rows,
         size,
       }}
-      leftElement={makeSideElement(leftElementType, leftElementAlignment)}
-      rightElement={makeSideElement(rightElementType, rightElementAlignment)}
-      type="text"
       defaultValue={defaultValue || 'default Value'}
-      placeholder={placeholder}
       isDisabled={isDisabled}
-      value={value}
-      isMultiline={isMultiline}
       isLabelHidden={isLabelHidden}
-      minRows={minRows}
+      isMultiline={isMultiline}
+      leftElement={makeSideElement(leftElementType, leftElementAlignment)}
       maxRows={maxRows}
-      rows={rows}
+      minRows={minRows}
       onKeyDown={logKeyEvent}
+      placeholder={placeholder}
+      rightElement={makeSideElement(rightElementType, rightElementAlignment)}
+      rows={rows}
+      type="text"
+      value={value}
     />
   );
 };
@@ -241,34 +241,34 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <TextInputWrapper
-    label={text('label text', 'Test label')}
+    hintMessage={text('hint message', '')}
+    inputProps={object('input props', inputProps)}
+    isBorderlessSolid={boolean('is borderless solid', false)}
+    isBorderlessTransparent={boolean('is borderless transparent', false)}
+    isDisabled={boolean('is disabled', false)}
+    isInvalid={boolean('is invalid', false)}
     isLabelHidden={boolean('is label hidden', false)}
-    placeholder={text('placeholder', 'placeholder text')}
-    value={text('value')}
-    size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
     isMultiline={boolean('is multiline', false)}
-    minRows={number('min height of multiline input in rows', 0) || undefined}
-    maxRows={number('max height of multiline input in rows', 0) || undefined}
-    rows={number('set height of multiline input in rows', 0) || undefined}
-    leftElementType={select('left side element type', elementTypeOptions)}
+    label={text('label text', 'Test label')}
     leftElementAlignment={select(
       'left side element vertical alignment',
       elementAlignmentOptions,
       'top',
     )}
-    rightElementType={select('right side element type', elementTypeOptions)}
+    leftElementType={select('left side element type', elementTypeOptions)}
+    maxRows={number('max height of multiline input in rows', 0) || undefined}
+    minRows={number('min height of multiline input in rows', 0) || undefined}
+    placeholder={text('placeholder', 'placeholder text')}
     rightElementAlignment={select(
       'right side element vertical alignment',
       elementAlignmentOptions,
       'top',
     )}
-    isBorderlessTransparent={boolean('is borderless transparent', false)}
-    isBorderlessSolid={boolean('is borderless solid', false)}
-    isInvalid={boolean('is invalid', false)}
+    rightElementType={select('right side element type', elementTypeOptions)}
+    rows={number('set height of multiline input in rows', 0) || undefined}
+    size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
     validationMessage={text('validation message', '')}
-    hintMessage={text('hint message', '')}
-    isDisabled={boolean('is disabled', false)}
-    inputProps={object('input props', inputProps)}
+    value={text('value')}
   />
 ));
 

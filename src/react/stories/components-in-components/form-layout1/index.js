@@ -102,7 +102,7 @@ test.add(storyNames.formLayout, () => {
 
     logForm() {
       const { selectedPeople: people, foodType } = this.state;
-      const data = Object.assign({}, this._form.getInputs(), { people, foodType });
+      const data = { ...this._form.getInputs(), people, foodType };
       console.log(data); // eslint-disable-line
     }
 
@@ -149,9 +149,9 @@ test.add(storyNames.formLayout, () => {
       }
 
       const items = people.map(item => (
-        <Pickitem key={item.id} id={item.id} onSelect={() => this.selectPerson(item)}>
+        <Pickitem id={item.id} key={item.id} onSelect={() => this.selectPerson(item)}>
           <div className="xui-u-flex">
-            <XUIAvatar value={item.name} imageUrl={item.avatar} />
+            <XUIAvatar imageUrl={item.avatar} value={item.name} />
             <div className="xui-u-grow xui-padding-left">
               <div className="xui-heading-item xui-text-truncated">
                 {decorateSubStr(item.name, value || '', boldMatch)}
@@ -182,52 +182,52 @@ test.add(storyNames.formLayout, () => {
               </div>
             </header>
 
-            <PanelSection formLayout headerContent="Inputs" className="xui-padding-vertical">
+            <PanelSection className="xui-padding-vertical" formLayout headerContent="Inputs">
               <XUITextInput
-                label="Account Holder"
-                isFieldLayout
-                name={inputMap.ah}
                 id={inputMap.ah}
+                isFieldLayout
+                label="Account Holder"
+                name={inputMap.ah}
               />
 
               <XUITextInput
-                label="IRD Number"
-                isFieldLayout
                 hintMessage="Found on the top of your IR3 statement"
                 inputProps={{
                   name: inputMap.ird,
                   id: inputMap.ird,
                 }}
+                isFieldLayout
+                label="IRD Number"
               />
 
               <XUITextInput
-                label="Bank account number"
                 defaultValue="A very invalid message"
-                validationMessage="Well, it's not right is it"
-                isInvalid
-                isFieldLayout
                 inputProps={{
                   name: inputMap.bank,
                   id: inputMap.bank,
                 }}
+                isFieldLayout
+                isInvalid
+                label="Bank account number"
+                validationMessage="Well, it's not right is it"
               />
 
               <InputLabel>Your name</InputLabel>
               <InputGroup isFieldLayout>
                 <XUITextInput
-                  label="First name"
-                  isLabelHidden
                   inputProps={{ name: inputMap.nameFirst, id: inputMap.nameFirst }}
+                  isLabelHidden
+                  label="First name"
                 />
                 <XUITextInput
-                  label="Middle name"
-                  isLabelHidden
                   inputProps={{ name: inputMap.nameMiddle, id: inputMap.nameMiddle }}
+                  isLabelHidden
+                  label="Middle name"
                 />
                 <XUITextInput
-                  label="Last name"
-                  isLabelHidden
                   inputProps={{ name: inputMap.nameLast, id: inputMap.nameLast }}
+                  isLabelHidden
+                  label="Last name"
                 />
               </InputGroup>
 
@@ -235,22 +235,15 @@ test.add(storyNames.formLayout, () => {
               <div className="xui-textinputgroup xui-field-layout xui-u-flex">
                 <DropDownToggled
                   className="xui-textinputwrapper"
-                  onOpen={() => {}}
-                  trigger={
-                    <XUIButton>
-                      {foodType || 'Food Type'}
-                      <XUIButtonCaret />
-                    </XUIButton>
-                  }
                   dropdown={
                     <DropDown onSelect={value => this.setState({ ...this.state, foodType: value })}>
                       <Picklist>
                         {['Vegetable', 'Fruit', 'Meat'].map((title, key) => (
                           <Pickitem
-                            key={key}
                             id={`${inputMap.foodType}-${title}`}
-                            value={title}
                             isSelected={title === foodType}
+                            key={key}
+                            value={title}
                           >
                             {title}
                           </Pickitem>
@@ -258,82 +251,89 @@ test.add(storyNames.formLayout, () => {
                       </Picklist>
                     </DropDown>
                   }
+                  onOpen={() => {}}
+                  trigger={
+                    <XUIButton>
+                      {foodType || 'Food Type'}
+                      <XUIButtonCaret />
+                    </XUIButton>
+                  }
                 />
                 <XUITextInput
                   fieldClassName="xui-u-flex-1"
-                  label="Input label"
-                  isLabelHidden
                   inputProps={{
                     name: inputMap.foodName,
                     id: inputMap.foodName,
                   }}
+                  isLabelHidden
+                  label="Input label"
                 />
               </div>
 
               <XUITextInput
-                isMultiline
-                minRows={2}
-                maxRows={5}
                 inputProps={{
                   name: inputMap.autoResize,
                   id: inputMap.autoResize,
                 }}
                 isFieldLayout
+                isMultiline
                 label="This textarea auto-resizes"
+                maxRows={5}
+                minRows={2}
               />
             </PanelSection>
 
-            <PanelSection formLayout headerContent="Selects" className="xui-padding-vertical">
+            <PanelSection className="xui-padding-vertical" formLayout headerContent="Selects">
               <LayoutSelect
-                label="Please select a bank" // Use this instead of <InputLabel /> (inconsistent)
-                title="Choose a bank"
-                name={inputMap.bankChoice}
                 htmlFor={inputMap.bankChoice}
                 id={inputMap.bankChoice}
+                label="Please select a bank" // Use this instead of <InputLabel /> (inconsistent)
+                name={inputMap.bankChoice}
                 onSelect={NOOP}
+                title="Choose a bank"
               >
                 {banks}
               </LayoutSelect>
 
               <InputLabel htmlFor={inputMap.people}>Add people</InputLabel>
               <XUIAutocompleter
+                className="xui-field-layout"
+                dropdownFixedWidth
+                id={inputMap.people}
                 inputLabel="input label"
                 isInputLabelHidden
-                className="xui-field-layout"
-                ref={ac => (this._autocompleter = ac)}
-                onSearch={this.onSearchChangeHandler}
-                placeholder="Search"
-                searchValue={value}
-                dropdownFixedWidth
-                onClose={this.closeAutoCompleter}
                 name={inputMap.people}
-                id={inputMap.people}
+                onClose={this.closeAutoCompleter}
+                onSearch={this.onSearchChangeHandler}
                 pills={selectedPeople.map(person => (
                   <XUIPill
-                    value={person.name}
                     className="xui-autocompleter--pill"
-                    onDeleteClick={() => this.deletePerson(person.id)}
                     deleteButtonLabel="Delete"
                     key={person.id}
+                    onDeleteClick={() => this.deletePerson(person.id)}
+                    value={person.name}
                   />
                 ))}
+                placeholder="Search"
+                ref={ac => (this._autocompleter = ac)}
+                searchValue={value}
               >
                 {this.getItems()}
               </XUIAutocompleter>
             </PanelSection>
 
             <PanelSection
+              className="xui-padding-vertical"
               formLayout
               headerContent="Radios and Checkboxes"
-              className="xui-padding-vertical"
             >
               <XUIRadioGroup isFieldLayout label="Choose a city">
                 {['Wellington', 'Canberra', 'Washington D.C', 'Carthage'].map(label => (
                   <XUIRadio
                     id={`${inputMap.whatCity}-${label}`} // Had to add this to the component, it didn't exist before
                     key={label}
-                    value={label}
                     name={inputMap.whatCity}
+                    value={label}
                   >
                     {label}
                   </XUIRadio>
@@ -345,23 +345,23 @@ test.add(storyNames.formLayout, () => {
                   <XUICheckbox
                     id={`${inputMap.whatBird}-${label}`} // Had to add this to the component, it didn't exist before
                     key={label}
-                    value={label}
                     name={`${inputMap.whatBird}-${label}`}
+                    value={label}
                   >
                     {label}
                   </XUICheckbox>
                 ))}
               </XUICheckboxGroup>
 
-              <XUIToggle className="xui-field-layout" layout="fullwidth" label="Choose one colour">
+              <XUIToggle className="xui-field-layout" label="Choose one colour" layout="fullwidth">
                 {['Red', 'Blue', 'Green', 'Yellow'].map(label => (
                   <XUIToggleOption
                     id={`${inputMap.whatColour}-${label}`} // Had to add this to the component, it didn't exist before
                     key={label}
                     name={inputMap.whatColour}
-                    value={label}
+                    onChange={NOOP}
                     type="radio"
-                    onChange={NOOP} // this shit was required
+                    value={label}
                   >
                     {label}
                   </XUIToggleOption>
@@ -370,17 +370,17 @@ test.add(storyNames.formLayout, () => {
 
               <XUIToggle
                 className="xui-field-layout"
-                layout="fullwidth"
                 label="Choose many colours"
+                layout="fullwidth"
               >
                 {['Red', 'Blue', 'Green', 'Yellow'].map(label => (
                   <XUIToggleOption
                     id={`${inputMap.whatColour2}-${label}`} // Had to add this to the component, it didn't exist before
                     key={label}
                     name={`${inputMap.whatColour2}-${label}`}
-                    value={label}
+                    onChange={() => {}}
                     type="checkbox"
-                    onChange={() => {}} // this shit was required
+                    value={label}
                   >
                     {label}
                   </XUIToggleOption>
@@ -388,12 +388,12 @@ test.add(storyNames.formLayout, () => {
               </XUIToggle>
             </PanelSection>
 
-            <PanelSection formLayout headerContent="Switches" className="xui-padding-vertical">
+            <PanelSection className="xui-padding-vertical" formLayout headerContent="Switches">
               <XUISwitch
-                onChange={NOOP}
-                name={inputMap.thingOn}
-                labelId={inputMap.thingOn}
                 isReversed
+                labelId={inputMap.thingOn}
+                name={inputMap.thingOn}
+                onChange={NOOP}
               >
                 Is the thing on
               </XUISwitch>
@@ -404,7 +404,7 @@ test.add(storyNames.formLayout, () => {
                 The results of the form are published as an object to the <XUITag>console</XUITag>{' '}
                 when you click this button <XUIIcon icon={arrow} rotation="270" />
               </p>
-              <XUIButton variant="primary" onClick={this.logForm}>
+              <XUIButton onClick={this.logForm} variant="primary">
                 Submit
               </XUIButton>
             </footer>

@@ -51,25 +51,25 @@ export default function XUIToast({
 
   const close = onCloseClick ? (
     <XUIIconButton
-      icon={cross}
       ariaLabel="Close"
-      qaHook={buttonQAHook}
       className={`${baseClass}--close`}
-      title="Close"
+      icon={cross}
       onClick={onCloseClick}
+      qaHook={buttonQAHook}
+      title="Close"
     />
   ) : null;
 
   return (
     <div
-      className={classNames}
-      onMouseOver={onMouseOver}
-      onMouseLeave={onMouseLeave}
-      onFocus={onMouseOver}
-      onBlur={onMouseLeave}
-      role={a11yRole}
       aria-hidden={isHidden}
+      className={classNames}
       data-automationid={qaHook}
+      onBlur={onMouseLeave}
+      onFocus={onMouseOver}
+      onMouseLeave={onMouseLeave}
+      onMouseOver={onMouseOver}
+      role={a11yRole}
     >
       {close}
       {displayMessage}

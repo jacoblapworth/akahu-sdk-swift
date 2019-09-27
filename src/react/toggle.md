@@ -17,46 +17,46 @@ import XUIToggle, { XUIToggleOption } from './toggle';
 
 const noop = () => {};
 const checkboxToggle = {
-	name: 'toggle-checkbox',
-	onChange: noop,
-	type: 'checkbox'
+  name: 'toggle-checkbox',
+  onChange: noop,
+  type: 'checkbox'
 };
 
 const radioToggle = {
-	name: 'toggle-radio',
-	onChange: noop,
-	type: 'radio'
+  name: 'toggle-radio',
+  onChange: noop,
+  type: 'radio'
 };
 
 <div>
-	<div className="xui-margin-bottom">
-		<XUIToggle
-			layout="fullwidth"
-			label='checkbox toggle'
-			isLabelHidden
-			hintMessage="Select one or more values"
-		>
-			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
-			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
-			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
-			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
-		</XUIToggle>
-	</div>
-	<div>
-		<XUIToggle
-			layout="fullwidth"
-			label='radio toggle'
-			isLabelHidden
-			isInvalid
-			validationMessage="Select one value"
-		>
-			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
-			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
-			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
-			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
-		</XUIToggle>
-	</div>
-</div>
+  <div className="xui-margin-bottom">
+    <XUIToggle
+      layout="fullwidth"
+      label="checkbox toggle"
+      isLabelHidden
+      hintMessage="Select one or more values"
+    >
+      <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
+      <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
+      <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
+      <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
+    </XUIToggle>
+  </div>
+  <div>
+    <XUIToggle
+      layout="fullwidth"
+      label="radio toggle"
+      isLabelHidden
+      isInvalid
+      validationMessage="Select one value"
+    >
+      <XUIToggleOption {...radioToggle}>Radio</XUIToggleOption>
+      <XUIToggleOption {...radioToggle}>Radio</XUIToggleOption>
+      <XUIToggleOption {...radioToggle}>Radio</XUIToggleOption>
+      <XUIToggleOption {...radioToggle}>Radio</XUIToggleOption>
+    </XUIToggle>
+  </div>
+</div>;
 ```
 
 ### Inverted Color
@@ -69,19 +69,23 @@ import ExampleContainer from './docs/ExampleContainer';
 
 const noop = () => {};
 const checkboxToggle = {
-	name: 'toggle-checkbox-inverted',
-	onChange: noop,
-	type: 'checkbox'
+  name: 'toggle-checkbox-inverted',
+  onChange: noop,
+  type: 'checkbox'
 };
 
 <ExampleContainer className="xui-padding xui-color-white" isInverted>
-	<XUIToggle layout="fullwidth" color="inverted" label="checkbox toggle" isLabelHidden>
-		<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
-		<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
-		<XUIToggleOption { ...checkboxToggle } isDisabled isChecked>Disabled</XUIToggleOption>
-		<XUIToggleOption { ...checkboxToggle } isDisabled>Disabled</XUIToggleOption>
-	</XUIToggle>
-</ExampleContainer>
+  <XUIToggle layout="fullwidth" color="inverted" label="checkbox toggle" isLabelHidden>
+    <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
+    <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
+    <XUIToggleOption {...checkboxToggle} isDisabled isChecked>
+      Disabled
+    </XUIToggleOption>
+    <XUIToggleOption {...checkboxToggle} isDisabled>
+      Disabled
+    </XUIToggleOption>
+  </XUIToggle>
+</ExampleContainer>;
 ```
 
 ### Sizes
@@ -93,19 +97,25 @@ import XUIToggle, { XUIToggleOption } from './toggle';
 
 const noop = () => {};
 const radioToggle = {
-	name: 'toggle-radio-layout-size',
-	onChange: noop,
-	type: 'radio'
+  name: 'toggle-radio-layout-size',
+  onChange: noop,
+  type: 'radio'
 };
 
 <div>
-	<XUIToggle className="xui-margin-bottom" size="small" layout="fullwidth" label='radio toggle' isLabelHidden>
-		<XUIToggleOption { ...radioToggle }>Uno</XUIToggleOption>
-		<XUIToggleOption { ...radioToggle }>Dos</XUIToggleOption>
-		<XUIToggleOption { ...radioToggle }>Tres</XUIToggleOption>
-		<XUIToggleOption { ...radioToggle }>Cuatro</XUIToggleOption>
-	</XUIToggle>
-</div>
+  <XUIToggle
+    className="xui-margin-bottom"
+    size="small"
+    layout="fullwidth"
+    label="radio toggle"
+    isLabelHidden
+  >
+    <XUIToggleOption {...radioToggle}>Uno</XUIToggleOption>
+    <XUIToggleOption {...radioToggle}>Dos</XUIToggleOption>
+    <XUIToggleOption {...radioToggle}>Tres</XUIToggleOption>
+    <XUIToggleOption {...radioToggle}>Cuatro</XUIToggleOption>
+  </XUIToggle>
+</div>;
 ```
 
 ### Other Supported Layouts
@@ -120,22 +130,21 @@ import XUITextInput from './textinput';
 
 const noop = () => {};
 const checkboxToggle = {
-	name: 'toggle-checkbox',
-	onChange: noop,
-	type: 'checkbox'
+  name: 'toggle-checkbox',
+  onChange: noop,
+  type: 'checkbox'
 };
 
 <form className="xui-form-layout">
-	<div className="xui-field-layout">
-		<XUITextInput type="url" placeholder="http://www.xero.com" label="Input" />
-	</div>
-	<div className="xui-field-layout">
-		<XUIToggle layout="fullwidth" label='Toggle'>
-			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
-			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
-			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
-		</XUIToggle>
-	</div>
-</form>
-
+  <div className="xui-field-layout">
+    <XUITextInput type="url" placeholder="http://www.xero.com" label="Input" />
+  </div>
+  <div className="xui-field-layout">
+    <XUIToggle layout="fullwidth" label="Toggle">
+      <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
+      <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
+      <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
+    </XUIToggle>
+  </div>
+</form>;
 ```

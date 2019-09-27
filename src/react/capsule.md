@@ -14,13 +14,25 @@ A default capsule is inline text with a border that can receive focus.
 import XUICapsule from './capsule';
 
 <div>
-	<div className="xui-heading-large">Capsules <XUICapsule>inherit</XUICapsule> font size & colour</div>
-	<div className="xui-heading">Capsules <XUICapsule>inherit</XUICapsule> font size & colour</div>
-	<div className="xui-heading-small">Capsules <XUICapsule>inherit</XUICapsule> font size & colour</div>
-	<div className="xui-heading-xsmall">Capsules <XUICapsule>inherit</XUICapsule> font size & colour</div>
-	<div>Capsules <XUICapsule>inherit</XUICapsule> font size & colour</div>
-	<div className="xui-text-minor">Capsules <XUICapsule>inherit</XUICapsule> font size & colour</div>
-</div>
+  <div className="xui-heading-large">
+    Capsules <XUICapsule>inherit</XUICapsule> font size & colour
+  </div>
+  <div className="xui-heading">
+    Capsules <XUICapsule>inherit</XUICapsule> font size & colour
+  </div>
+  <div className="xui-heading-small">
+    Capsules <XUICapsule>inherit</XUICapsule> font size & colour
+  </div>
+  <div className="xui-heading-xsmall">
+    Capsules <XUICapsule>inherit</XUICapsule> font size & colour
+  </div>
+  <div>
+    Capsules <XUICapsule>inherit</XUICapsule> font size & colour
+  </div>
+  <div className="xui-text-minor">
+    Capsules <XUICapsule>inherit</XUICapsule> font size & colour
+  </div>
+</div>;
 ```
 
 ### Interactive capsules
@@ -31,8 +43,11 @@ Capsules can trigger actions passed in through the `onClick` and `href` props. T
 import XUICapsule from './capsule';
 
 <div>
-	This <XUICapsule isLink href='https://www.google.com' target='_blank'>capsule</XUICapsule> is interactive; it's a link to Google that will open in a new tab
-</div>
+  This
+  <XUICapsule isLink href="https://www.google.com" target="_blank">
+    capsule
+  </XUICapsule> is interactive; it's a link to Google that will open in a new tab
+</div>;
 ```
 
 ### Invalid capsules
@@ -43,6 +58,6 @@ Invalid capsules, such as those containing incomplete formulas, are produced by 
 import XUICapsule from './capsule';
 
 <div>
-	This capsule is <XUICapsule isValid={false}>invalid</XUICapsule>
-</div>
+  This capsule is <XUICapsule isValid={false}>invalid</XUICapsule>
+</div>;
 ```

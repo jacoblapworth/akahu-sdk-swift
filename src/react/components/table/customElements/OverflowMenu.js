@@ -10,8 +10,8 @@ import { NAME_SPACE } from '../helpers/constants';
 class OverflowMenu extends PureComponent {
   createTrigger = overflowMenuTitle => (
     <XUIIconButton
-      icon={overflowPathData}
       ariaLabel={overflowMenuTitle}
+      icon={overflowPathData}
       title={overflowMenuTitle}
     />
   );
@@ -29,10 +29,10 @@ class OverflowMenu extends PureComponent {
 
     return (
       <DropDownToggled
-        trigger={trigger}
-        dropdown={dropdown}
         className={`${NAME_SPACE}--overflowmenu-body`}
+        dropdown={dropdown}
         isLegacyDisplay
+        trigger={trigger}
       />
     );
   };

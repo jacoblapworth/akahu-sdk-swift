@@ -1,6 +1,3 @@
-const invert = require('@xero/xuishift/transforms/invert');
-const stringReplace = require('@xero/xuishift/transforms/stringReplace');
-
 module.exports = {
   '@xero/xui/react/accordion': [
     {

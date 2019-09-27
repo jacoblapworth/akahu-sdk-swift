@@ -38,12 +38,12 @@ const buildSvgRadio = (qaHook, { svgClassName, iconMain }) => {
       <svg
         className={svgClasses}
         data-automationid={qaHook && `${qaHook}--icon`}
-        width={iconMain.width}
         height={iconMain.height}
         viewBox={`0 0 ${iconMain.width} ${iconMain.height}`}
+        width={iconMain.width}
       >
-        <path className={`${baseClass}--focus`} role="presentation" d={iconMain.path} />
-        <path className={`${baseClass}--main`} role="presentation" d={iconMain.path} />
+        <path className={`${baseClass}--focus`} d={iconMain.path} role="presentation" />
+        <path className={`${baseClass}--main`} d={iconMain.path} role="presentation" />
       </svg>
       <XUITouchTarget />
     </div>
@@ -173,13 +173,13 @@ export default class XUIRadio extends PureComponent {
 
     return (
       <XUIControlWrapperInline
-        rootClassName={wrapperClasses}
-        wrapperIds={this.wrapperIds}
-        onClick={onLabelClick}
         fieldClassName={classes}
+        label={children}
         labelClassName={labelClasses}
         messageClassName={messageClasses}
-        label={children}
+        onClick={onLabelClick}
+        rootClassName={wrapperClasses}
+        wrapperIds={this.wrapperIds}
         {...{
           qaHook,
           isInvalid,
@@ -189,13 +189,13 @@ export default class XUIRadio extends PureComponent {
         }}
       >
         <input
-          role={role}
           className={cn(
             `${baseClass}--input`,
             inputProps.className,
             calculatedSize && `${baseClass}--input-${calculatedSize}`,
           )}
           data-automationid={qaHook && `${qaHook}--input`}
+          role={role}
           {...inputProps}
         />
         {buildRadio(qaHook, htmlClassName, svgSettings, calculatedSize)}
@@ -247,7 +247,7 @@ XUIRadio.propTypes = {
   htmlClassName: PropTypes.string,
 
   /** The tabindex property to place on the radio input */
-  tabIndex: PropTypes.number,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   /** Prevents the label element from being displayed on the page. Label is still
    * accessible to screen readers. */
@@ -280,7 +280,6 @@ XUIRadio.propTypes = {
 XUIRadio.defaultProps = {
   isLabelHidden: false,
   isDisabled: false,
-  isIndeterminate: false,
   isRequired: false,
   isReversed: false,
   role: 'radio',

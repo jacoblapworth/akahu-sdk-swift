@@ -37,21 +37,21 @@ export default class StepperTab extends PureComponent {
 
     return (
       <button
-        type="button"
         className={linkClasses}
-        onClick={this.handleClick}
         data-automationid={automationId}
         data-istabactive={isTabActive}
+        onClick={this.handleClick}
         tabIndex={tabIndex}
+        type="button"
       >
         <div className={`${NAME_SPACE}-link-wrapper`}>
           {isProgress && !isComplete ? (
             <div className={`${NAME_SPACE}-link-progress`}>
               <XUIProgressCircular
-                id={id}
-                total={totalProgress}
-                progress={currentProgress}
                 ariaLabel={name}
+                id={id}
+                progress={currentProgress}
+                total={totalProgress}
               />
             </div>
           ) : (
@@ -83,7 +83,7 @@ StepperTab.propTypes = {
   linkClasses: PropTypes.string,
   step: PropTypes.number,
   index: PropTypes.number.isRequired,
-  tabIndex: PropTypes.number,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   handleClick: PropTypes.func,
   isError: PropTypes.bool,
   isHidden: PropTypes.bool,

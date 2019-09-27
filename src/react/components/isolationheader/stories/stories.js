@@ -41,9 +41,9 @@ function getComponent({
       <XUIIsolationHeader isPositionFixed={isPositionFixed}>
         <XUIIsolationHeaderNavigation>
           {navigationIcon && (
-            <XUIIconButton icon={flattenedIconMap[navigationIcon]} ariaLabel="navigate" />
+            <XUIIconButton ariaLabel="navigate" icon={flattenedIconMap[navigationIcon]} />
           )}
-          {hasAvatar && <XUIAvatar size="small" className="xui-margin-right-small" value="ABC" />}
+          {hasAvatar && <XUIAvatar className="xui-margin-right-small" size="small" value="ABC" />}
           {title && <XUIIsolationHeaderTitle>{title}</XUIIsolationHeaderTitle>}
           {secondaryTitle && (
             <XUIIsolationHeaderSecondaryTitle>{secondaryTitle}</XUIIsolationHeaderSecondaryTitle>
@@ -56,16 +56,16 @@ function getComponent({
         </XUIIsolationHeaderNavigation>
         <XUIIsolationHeaderActions>
           {hasActionsSecondaryButton && (
-            <XUIButton size="small" className="xui-isolationheader--button" variant="standard">
+            <XUIButton className="xui-isolationheader--button" size="small" variant="standard">
               Secondary
             </XUIButton>
           )}
           {hasActionsPrimaryButton && (
-            <XUIButton size="small" className="xui-isolationheader--button" variant="primary">
+            <XUIButton className="xui-isolationheader--button" size="small" variant="primary">
               Primary
             </XUIButton>
           )}
-          {actionIcon && <XUIIconButton icon={flattenedIconMap[actionIcon]} ariaLabel="action" />}
+          {actionIcon && <XUIIconButton ariaLabel="action" icon={flattenedIconMap[actionIcon]} />}
         </XUIIsolationHeaderActions>
       </XUIIsolationHeader>
     </div>

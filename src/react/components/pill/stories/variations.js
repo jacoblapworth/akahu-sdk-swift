@@ -53,7 +53,7 @@ const variations = [
     storyTitle: 'as a link',
     value: 'Click Me Pill',
     href: 'https://www.xero.com',
-    avatar: <XUIAvatar value="Hello" size="small" />,
+    avatar: <XUIAvatar size="small" value="Hello" />,
   },
   {
     storyKind: storiesWithVariationsKindName,

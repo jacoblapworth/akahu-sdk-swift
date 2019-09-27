@@ -1,4 +1,3 @@
-
 /**
  * Simple predicated used to determine if the ListBox's root DOM node can actually be focused.
  *
@@ -20,24 +19,24 @@ export const isVisible = node => node && window.getComputedStyle(node).visibilit
  * @param {Function} callback
  */
 export const intervalRunner = (predicate, callback) => {
-	if (predicate()) {
-		callback();
-	} else {
-		let counter = 0;
-		let interval = 0;
-		const maxCount = 5;
-		const delay = 100;
-		const checker = () => {
-			const check = predicate();
-			if (check) {
-				callback();
-			}
-			if (check || counter > maxCount) {
-				clearInterval(interval);
-			}
-			counter += 1;
-		};
+  if (predicate()) {
+    callback();
+  } else {
+    let counter = 0;
+    let interval = 0;
+    const maxCount = 5;
+    const delay = 100;
+    const checker = () => {
+      const check = predicate();
+      if (check) {
+        callback();
+      }
+      if (check || counter > maxCount) {
+        clearInterval(interval);
+      }
+      counter += 1;
+    };
 
-		interval = setInterval(checker, delay);
-	}
+    interval = setInterval(checker, delay);
+  }
 };

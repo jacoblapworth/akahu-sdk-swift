@@ -4,9 +4,9 @@ import XUIAutocompleterEmptyState from './components/autocompleter/XUIAutocomple
 import { boldMatch, decorateSubStr } from './components/autocompleter/helpers/highlighting';
 
 export {
-	XUIAutocompleter as default,
-	XUIAutocompleterEmptyState,
-	XUIAutocompleterSecondarySearch,
-	boldMatch,
-	decorateSubStr,
+  XUIAutocompleter as default,
+  XUIAutocompleterEmptyState,
+  XUIAutocompleterSecondarySearch,
+  boldMatch,
+  decorateSubStr,
 };

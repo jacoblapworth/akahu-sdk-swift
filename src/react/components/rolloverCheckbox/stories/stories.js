@@ -17,21 +17,21 @@ storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const sizedAvatar = (
     <XUIAvatar
-      value="abc"
       size={select(
         'size of the rollover target',
         ['xlarge', 'large', 'medium', 'small', 'xsmall', '2xsmall'],
         'medium',
       )}
+      value="abc"
     />
   );
   return (
     <XUIRolloverCheckbox
+      checkboxSize={select('size of the checkbox', ['medium', 'small', 'xsmall'], 'medium')}
       isCheckboxHidden={boolean('checkbox hidden', true)}
       isDisabled={boolean('disabled', false)}
-      rolloverComponent={sizedAvatar}
       label="Rollover checkbox"
-      checkboxSize={select('size of the checkbox', ['medium', 'small', 'xsmall'], 'medium')}
+      rolloverComponent={sizedAvatar}
     />
   );
 });
@@ -53,7 +53,7 @@ variations.forEach(variation => {
       );
     } else if (variationMinusStoryDetails.altRollover === 'small') {
       delete variationMinusStoryDetails.altRollover;
-      variationMinusStoryDetails.rolloverComponent = <XUIAvatar value="abc" size="2xsmall" />;
+      variationMinusStoryDetails.rolloverComponent = <XUIAvatar size="2xsmall" value="abc" />;
     } else {
       variationMinusStoryDetails.rolloverComponent = <XUIAvatar value="abc" />;
     }

@@ -44,10 +44,10 @@ class XUIInnerPill extends PureComponent {
     const contents = (
       <Fragment>
         <LeftVisualEl
-          isInvalid={isInvalid}
-          avatarProps={avatarProps}
-          size={childSizeClassMap[size]}
           avatar={avatar}
+          avatarProps={avatarProps}
+          isInvalid={isInvalid}
+          size={childSizeClassMap[size]}
         />
         {secondaryTextEl}
         {valueEl}
@@ -64,9 +64,9 @@ class XUIInnerPill extends PureComponent {
         }}
         className={className}
         isLink={!!href}
-        variant="unstyled"
         qaHook={innerPillQaHook}
         size={size}
+        variant="unstyled"
       >
         {contents}
       </XUIButton>

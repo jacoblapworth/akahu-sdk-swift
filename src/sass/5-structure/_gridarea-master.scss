@@ -1,21 +1,21 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // We're keeping this block as its own media query rather than figuring out
 // how to override xui-utility-hidden-visually
 @include xui-breakpoint-small-down {
-	.#{$ns}-gridarea-master {
-		@include xui-utility-hidden-visually;
-	}
+  .#{$ns}-gridarea-master {
+    @include xui-utility-hidden-visually;
+  }
 }
 @include xui-breakpoint-small-to-medium {
-	.#{$ns}-gridarea-master {
-		@include xui-utility-hidden-visually;
-	}
+  .#{$ns}-gridarea-master {
+    @include xui-utility-hidden-visually;
+  }
 }
 
 @include xui-breakpoint-medium-up {
-	.#{$ns}-gridarea-master {
-		grid-area: master;
-	}
+  .#{$ns}-gridarea-master {
+    grid-area: master;
+  }
 }

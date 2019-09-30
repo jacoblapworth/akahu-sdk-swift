@@ -7,161 +7,193 @@ import XUIRolloverCheckbox from '../rolloverCheckbox';
 Enzyme.configure({ adapter: new Adapter() });
 
 const setup = (fn = renderer.create, props = {}) => {
-	const onSelectSpy = jest.fn();
+  const onSelectSpy = jest.fn();
 
-	const expected = fn(
-		<XUIRolloverCheckbox onSelect={onSelectSpy} {...props} />
-	);
+  const expected = fn(<XUIRolloverCheckbox onSelect={onSelectSpy} {...props} />);
 
-	return {
-		expected,
-		onSelectSpy
-	};
+  return {
+    expected,
+    onSelectSpy,
+  };
 };
 
 describe('XUIRolloverCheckbox', () => {
-	it('renders correctly', () => {
-		const { expected } = setup();
+  it('renders correctly', () => {
+    const { expected } = setup();
 
-		expect(expected).toMatchSnapshot();
-	});
+    expect(expected).toMatchSnapshot();
+  });
 
-	it('include an automation-id', () => {
-		const { expected } = setup(renderer.create, { qaHook: 'test-rollovercheckbox'});
+  it('include an automation-id', () => {
+    const { expected } = setup(renderer.create, { qaHook: 'test-rollovercheckbox' });
 
-		expect(expected).toMatchSnapshot();
-	});
+    expect(expected).toMatchSnapshot();
+  });
 
-	it('allows for a user defined rollover component to be passed', () => {
-		const { expected } = setup(renderer.create, { isCheckboxHidden: true, rolloverComponent: <div id="rolloverComponent"></div> });
+  it('allows for a user defined rollover component to be passed', () => {
+    const { expected } = setup(renderer.create, {
+      isCheckboxHidden: true,
+      rolloverComponent: <div id="rolloverComponent" />,
+    });
 
-		expect(expected).toMatchSnapshot();
-	});
+    expect(expected).toMatchSnapshot();
+  });
 
-	it('doesn\'t display the checkbox when it\'s set to hidden', () => {
-		const { expected } = setup(renderer.create, { isCheckboxHidden: true, rolloverComponent: <div></div> });
+  it("doesn't display the checkbox when it's set to hidden", () => {
+    const { expected } = setup(renderer.create, {
+      isCheckboxHidden: true,
+      rolloverComponent: <div />,
+    });
 
-		expect(expected).toMatchSnapshot();
-	});
+    expect(expected).toMatchSnapshot();
+  });
 
-	it('displays the checkbox when it\'s set to be shown', () => {
-		const { expected } = setup(renderer.create, { isCheckboxHidden: false, rolloverComponent: <div></div> });
+  it("displays the checkbox when it's set to be shown", () => {
+    const { expected } = setup(renderer.create, {
+      isCheckboxHidden: false,
+      rolloverComponent: <div />,
+    });
 
-		expect(expected).toMatchSnapshot();
-	});
+    expect(expected).toMatchSnapshot();
+  });
 
-	it('renders checked when specified', () => {
-		const { expected } = setup(renderer.create, { isChecked: true , rolloverComponent: <div></div> });
+  it('renders checked when specified', () => {
+    const { expected } = setup(renderer.create, { isChecked: true, rolloverComponent: <div /> });
 
-		expect(expected).toMatchSnapshot();
-	});
+    expect(expected).toMatchSnapshot();
+  });
 
-	it('renders unchecked when specified', () => {
-		const { expected } = setup(renderer.create, { isChecked: false , rolloverComponent: <div></div> });
+  it('renders unchecked when specified', () => {
+    const { expected } = setup(renderer.create, { isChecked: false, rolloverComponent: <div /> });
 
-		expect(expected).toMatchSnapshot();
-	});
+    expect(expected).toMatchSnapshot();
+  });
 
-	it('renders an id on the root node when passed', () => {
-		const { expected } = setup(renderer.create, { id: 'test-id' , rolloverComponent: <div></div> });
+  it('renders an id on the root node when passed', () => {
+    const { expected } = setup(renderer.create, { id: 'test-id', rolloverComponent: <div /> });
 
-		expect(expected).toMatchSnapshot();
-	});
+    expect(expected).toMatchSnapshot();
+  });
 
-	it('includes an aria-label, when provided', () => {
-		const { expected } = setup(renderer.create, { label: 'Test label', rolloverComponent: <div></div> });
+  it('includes an aria-label, when provided', () => {
+    const { expected } = setup(renderer.create, {
+      label: 'Test label',
+      rolloverComponent: <div />,
+    });
 
-		expect(expected).toMatchSnapshot();
-	});
+    expect(expected).toMatchSnapshot();
+  });
 
-	describe('renders a variety of size checkboxes', () => {
-		it('will be a small checkbox when passed in the checkboxSize prop', () => {
-			const { expected } = setup(renderer.create, { checkboxSize: 'small' , rolloverComponent: <div></div> });
+  describe('renders a variety of size checkboxes', () => {
+    it('will be a small checkbox when passed in the checkboxSize prop', () => {
+      const { expected } = setup(renderer.create, {
+        checkboxSize: 'small',
+        rolloverComponent: <div />,
+      });
 
-			expect(expected).toMatchSnapshot();
-		});
+      expect(expected).toMatchSnapshot();
+    });
 
-		it('will be a medium checkbox when medium is set on the checkboxSize prop.', () => {
-			const { expected } = setup(renderer.create, { checkboxSize: 'medium' , rolloverComponent: <div></div> });
+    it('will be a medium checkbox when medium is set on the checkboxSize prop.', () => {
+      const { expected } = setup(renderer.create, {
+        checkboxSize: 'medium',
+        rolloverComponent: <div />,
+      });
 
-			expect(expected).toMatchSnapshot();
-		});
+      expect(expected).toMatchSnapshot();
+    });
 
-		it('will be a xsmall checkbox when passed in the checkboxSize prop', () => {
-			const { expected } = setup(renderer.create, { checkboxSize: 'xsmall' , rolloverComponent: <div></div> });
+    it('will be a xsmall checkbox when passed in the checkboxSize prop', () => {
+      const { expected } = setup(renderer.create, {
+        checkboxSize: 'xsmall',
+        rolloverComponent: <div />,
+      });
 
-			expect(expected).toMatchSnapshot();
-		});
-	})
+      expect(expected).toMatchSnapshot();
+    });
+  });
 
-	it('calls the onSelect spy when the checkbox is clicked', () => {
-		const { expected, onSelectSpy } = setup(mount, {isCheckboxHidden: false, rolloverComponent: <div></div> });
+  it('calls the onSelect spy when the checkbox is clicked', () => {
+    const { expected, onSelectSpy } = setup(mount, {
+      isCheckboxHidden: false,
+      rolloverComponent: <div />,
+    });
 
-		expected.find('input').simulate('change');
+    expected.find('input').simulate('change');
 
-		expect(onSelectSpy).toHaveBeenCalledTimes(1);
-	});
+    expect(onSelectSpy).toHaveBeenCalledTimes(1);
+  });
 
-	it('should save the focus state when the target element is in focus', () => {
-		const { expected } = setup(mount, {isCheckboxHidden: false, rolloverComponent: <div></div> });
+  it('should save the focus state when the target element is in focus', () => {
+    const { expected } = setup(mount, { isCheckboxHidden: false, rolloverComponent: <div /> });
 
-		expected.find('.xui-rollovercheckbox--target').simulate('focus');
+    expected.find('.xui-rollovercheckbox--target').simulate('focus');
 
-		expect(expected.state().hasFocus).toBeTruthy();
-	});
+    expect(expected.state().hasFocus).toBeTruthy();
+  });
 
-	it('should save the focus state when the target element is blurred', () => {
-		const { expected } = setup(mount, {isCheckboxHidden: false, rolloverComponent: <div></div> });
+  it('should save the focus state when the target element is blurred', () => {
+    const { expected } = setup(mount, { isCheckboxHidden: false, rolloverComponent: <div /> });
 
-		expected.find('.xui-rollovercheckbox--target').simulate('focus');
-		expected.find('.xui-rollovercheckbox--target').simulate('blur');
+    expected.find('.xui-rollovercheckbox--target').simulate('focus');
+    expected.find('.xui-rollovercheckbox--target').simulate('blur');
 
-		expect(expected.state().hasFocus).toBeFalsy();
-	});
+    expect(expected.state().hasFocus).toBeFalsy();
+  });
 
-	it('should save the isMouseOver state when the target element mouse over event has fired', () => {
-		const { expected } = setup(mount, {isCheckboxHidden: true, rolloverComponent: <div></div> });
+  it('should save the isMouseOver state when the target element mouse over event has fired', () => {
+    const { expected } = setup(mount, { isCheckboxHidden: true, rolloverComponent: <div /> });
 
-		expected.find('.xui-rollovercheckbox--target').simulate('mouseEnter');
+    expected.find('.xui-rollovercheckbox--target').simulate('mouseEnter');
 
-		expect(expected.state().isMouseOver).toBeTruthy();
-	});
+    expect(expected.state().isMouseOver).toBeTruthy();
+  });
 
-	it('should save the isMouseOver state when the target element mouse leave event has fired', () => {
-		const { expected } = setup(mount, {isCheckboxHidden: false, rolloverComponent: <div></div> });
+  it('should save the isMouseOver state when the target element mouse leave event has fired', () => {
+    const { expected } = setup(mount, { isCheckboxHidden: false, rolloverComponent: <div /> });
 
-		expected.find('.xui-rollovercheckbox--target').simulate('mouseEnter');
-		expected.find('.xui-rollovercheckbox--target').simulate('mouseLeave');
+    expected.find('.xui-rollovercheckbox--target').simulate('mouseEnter');
+    expected.find('.xui-rollovercheckbox--target').simulate('mouseLeave');
 
-		expect(expected.state().isMouseOver).toBeFalsy();
-	});
+    expect(expected.state().isMouseOver).toBeFalsy();
+  });
 
-	it('should check the checkbox when the click method is triggered', () => {
-		// Testing the actual click of the DOM element doesn't accurately reflect cross-browser behavior, anyway
-		const { expected } = setup(mount, {isCheckboxHidden: false, rolloverComponent: <div></div> });
+  it('should check the checkbox when the click method is triggered', () => {
+    // Testing the actual click of the DOM element doesn't accurately reflect cross-browser behavior, anyway
+    const { expected } = setup(mount, { isCheckboxHidden: false, rolloverComponent: <div /> });
 
-		expected.instance().triggerCheckboxClick();
+    expected.instance().triggerCheckboxClick();
 
-		//Using a ref check here as the snapshot doesn't represent a checked state of the input.
-		expect(expected.instance()._checkbox._input.current.checked).toBeTruthy();
-	});
+    //Using a ref check here as the snapshot doesn't represent a checked state of the input.
+    expect(expected.instance()._checkbox._input.current.checked).toBeTruthy();
+  });
 
-	it('should render the disabled classes and a disabled checkbox when isDisabled prop is true', () => {
-		const { expected } = setup(renderer.create, {isCheckboxHidden: false, isDisabled: true, rolloverComponent: <div></div> });
+  it('should render the disabled classes and a disabled checkbox when isDisabled prop is true', () => {
+    const { expected } = setup(renderer.create, {
+      isCheckboxHidden: false,
+      isDisabled: true,
+      rolloverComponent: <div />,
+    });
 
-		expect(expected).toMatchSnapshot();
-	});
+    expect(expected).toMatchSnapshot();
+  });
 
-	it('shouldn\'t render the disabled classes or a disabled checkbox when isDisabled prop is false', () => {
-		const { expected } = setup(renderer.create, {isCheckboxHidden: false, isDisabled: false, rolloverComponent: <div></div> });
+  it("shouldn't render the disabled classes or a disabled checkbox when isDisabled prop is false", () => {
+    const { expected } = setup(renderer.create, {
+      isCheckboxHidden: false,
+      isDisabled: false,
+      rolloverComponent: <div />,
+    });
 
-		expect(expected).toMatchSnapshot();
-	});
+    expect(expected).toMatchSnapshot();
+  });
 
-	it('shouldn\'t render the disabled classes and a disabled checkbox by default', () => {
-		const { expected } = setup(renderer.create, {isCheckboxHidden: false, rolloverComponent: <div></div> });
+  it("shouldn't render the disabled classes and a disabled checkbox by default", () => {
+    const { expected } = setup(renderer.create, {
+      isCheckboxHidden: false,
+      rolloverComponent: <div />,
+    });
 
-		expect(expected).toMatchSnapshot();
-	});
-
+    expect(expected).toMatchSnapshot();
+  });
 });

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import LabelElement from './private/LabelElement';
 import MessageElement from './private/MessageElement';
 
-/* eslint-disable max-len */
 /**
  * @public
  * Get the collection of aria attributes to be applied to the control.
@@ -13,7 +12,6 @@ import MessageElement from './private/MessageElement';
  * @param {Object} props - props of the parent control component
  * @returns {{aria-invalid: boolean, aria-label: string, aria-labelledby: string, aria-describedby: string}}
  */
-/* eslint-enable max-len */
 export function getAriaAttributes(ids, props) {
   const {
     children, // This refers to children of the parent control component. Often plain text.
@@ -67,9 +65,9 @@ export default class XUIControlWrapperInline extends PureComponent {
       <div className={rootClassName}>
         <label
           className={fieldClassName}
-          onKeyDown={onKeyDown}
-          onClick={onClick}
           data-automationid={qaHook}
+          onClick={onClick}
+          onKeyDown={onKeyDown}
           role="presentation"
         >
           {children}

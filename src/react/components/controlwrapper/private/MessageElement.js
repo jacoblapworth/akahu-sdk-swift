@@ -18,8 +18,8 @@ export default class MessageElement extends PureComponent {
           className,
         )}
         data-automationid={qaHook && `${qaHook}--message`}
-        role="status"
         id={wrapperIds.message}
+        role="status"
       >
         {showingErrorMessage ? validationMessage : hintMessage}
       </div>

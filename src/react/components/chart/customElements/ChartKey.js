@@ -8,7 +8,7 @@ import { NAME_SPACE } from '../helpers/constants';
 
 class ChartKey extends PureComponent {
   createLabel = (label, index) => (
-    <li key={label} className={`${NAME_SPACE}-chart--key-item`}>
+    <li className={`${NAME_SPACE}-chart--key-item`} key={label}>
       <div
         className={`${NAME_SPACE}-chart--key-icon`}
         style={{ background: this.props.colors[index] }}
@@ -20,10 +20,10 @@ class ChartKey extends PureComponent {
   render = () => {
     const { qaHook, title, labels } = this.props;
 
-    const trigger = <XUIIconButton icon={infoPathData} ariaLabel={title} title={title} />;
+    const trigger = <XUIIconButton ariaLabel={title} icon={infoPathData} title={title} />;
 
     const dropdown = (
-      <DropDown fixedWidth size="small" hasKeyboardEvents={false} restrictFocus={false}>
+      <DropDown fixedWidth hasKeyboardEvents={false} restrictFocus={false} size="small">
         <div className={`${NAME_SPACE}-chart--key`}>
           <div className={`${NAME_SPACE}-chart--key-title`}>{title}</div>
           <ul className={`${NAME_SPACE}-chart--key-list`}>{labels.map(this.createLabel)}</ul>
@@ -32,7 +32,7 @@ class ChartKey extends PureComponent {
     );
 
     return (
-      <DropDownToggled qaHook={qaHook && `${qaHook}--key`} trigger={trigger} dropdown={dropdown} />
+      <DropDownToggled dropdown={dropdown} qaHook={qaHook && `${qaHook}--key`} trigger={trigger} />
     );
   };
 }

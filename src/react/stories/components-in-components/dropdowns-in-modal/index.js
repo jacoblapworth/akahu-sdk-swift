@@ -28,7 +28,7 @@ const test = storiesOf(compositionKind, module);
 
 const buildDropdownPicklist = items => {
   const pickItems = items.map((text, id) => (
-    <Pickitem key={id} id={text} isSelected={false}>
+    <Pickitem id={text} isSelected={false} key={id}>
       {text}
     </Pickitem>
   ));
@@ -48,25 +48,25 @@ const buildTrigger = text => (
 
 test.add(storyNames.multiDropDowns, () => (
   <div className="xui-u-flex">
-    <XUITextInput fieldClassName="xui-margin-small" label="Input label" isLabelHidden />
-    <XUIModal isOpen closeButtonLabel="Close">
+    <XUITextInput fieldClassName="xui-margin-small" isLabelHidden label="Input label" />
+    <XUIModal closeButtonLabel="Close" isOpen>
       <XUIModalBody>
         This is some Modal content.
-        <XUITextInput label="Input label" isLabelHidden />
+        <XUITextInput isLabelHidden label="Input label" />
         <DropDownToggled
-          trigger={buildTrigger('Short Trigger')}
           dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
           isHidden={false}
+          trigger={buildTrigger('Short Trigger')}
         />
         This is some Modal content.
-        <XUITextInput label="Input label" isLabelHidden />
+        <XUITextInput isLabelHidden label="Input label" />
         <DropDownToggled
-          trigger={buildTrigger('Medium Dropdown Trigger')}
           dropdown={buildDropdownPicklist(lists.MedListMedItems)}
+          trigger={buildTrigger('Medium Dropdown Trigger')}
         />
-        <XUITextInput label="Input label" isLabelHidden />
+        <XUITextInput isLabelHidden label="Input label" />
       </XUIModalBody>
     </XUIModal>
-    <XUITextInput fieldClassName="xui-margin-vertical-small" label="Input label" isLabelHidden />
+    <XUITextInput fieldClassName="xui-margin-vertical-small" isLabelHidden label="Input label" />
   </div>
 ));

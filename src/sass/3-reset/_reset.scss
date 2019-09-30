@@ -6,11 +6,11 @@
  * Styles affecting the entire page.
  */
 
-@import "../vars";
+@import '../vars';
 
 html {
-	font-size: 100%; // Explicitly set font-size for rems - same as the UA default (usually 16px)
-	-webkit-text-size-adjust: 100%; // Prevent font size adjustments from orientation changes in iOS
+  font-size: 100%; // Explicitly set font-size for rems - same as the UA default (usually 16px)
+  -webkit-text-size-adjust: 100%; // Prevent font size adjustments from orientation changes in iOS
 }
 
 // Generally we don't use * selectors, however as this is a CSS WG
@@ -19,21 +19,21 @@ html {
 *,
 *::before,
 *::after {
-	box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body,
 form {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 main {
-	display: block; // Needed for IE11 which thinks it should be inline...
+  display: block; // Needed for IE11 which thinks it should be inline...
 }
 
 label:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 /**
@@ -44,70 +44,69 @@ label:hover {
  */
 
 // Removes the 'spinner' elements in a number input
-input[type=number] {
-	-moz-appearance: textfield;
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 // Removes the inner focus ring that Firefox applies to inputs
 input::-moz-focus-inner {
-	border: 0;
-	padding: 0;
+  border: 0;
+  padding: 0;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 // Removes the inner padding and cancel 'X' button in Safari and Chrome on OS X
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-	-webkit-appearance: none;
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
 }
 
 // Remove yellow background from autofilled inputs
 input:-webkit-autofill {
-	-webkit-animation-fill-mode: both;
-	-webkit-animation-name: #{$ns}-animation-autofill;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-name: #{$ns}-animation-autofill;
 }
 
 // There is a bug in Mozilla which causes it to render 1 more row than specified at all heights
 // http://stackoverflow.com/questions/7695945/height-of-textarea-does-not-match-the-rows-in-firefox
 // This additional space is added to preserve space for scroll-bars, which isn't ideal.
 textarea {
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 table {
-	border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 // Removes the inner focus ring that Firefox applies to buttons
 button::-moz-focus-inner {
-	border: 0;
-	padding: 0;
+  border: 0;
+  padding: 0;
 }
-
 
 // This is arguably the most non reset out of the lot since it applies a custom colour
 // That said, it's a nice default but may cause problems if we decide later on that we
 // Really want to apply theming, and default colours on links no longer are
 // accessible by default
 a {
-	color: $xui-link-color;
-	cursor: pointer;
+  color: $xui-link-color;
+  cursor: pointer;
 
-	// CSS Order chosen to specifically show light to dark unless focused.
-	&:hover {
-		color: $xui-color-blue-dark;
-	}
+  // CSS Order chosen to specifically show light to dark unless focused.
+  &:hover {
+    color: $xui-color-blue-dark;
+  }
 
-	&:active {
-		color: $xui-color-blue-xdark;
-	}
+  &:active {
+    color: $xui-color-blue-xdark;
+  }
 
-	&:focus {
-		color: $xui-color-blue-dark;
-	}
+  &:focus {
+    color: $xui-color-blue-dark;
+  }
 }

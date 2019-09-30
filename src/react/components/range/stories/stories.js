@@ -22,31 +22,31 @@ storiesWithKnobs.add('Playground', () => {
 
   return (
     <XUIRange
-      label={text('label', 'Label for the select box')}
       isDisabled={boolean('isDisabled', false)}
       isInvalid={boolean('isInvalid', false)}
-      max={number('max', 100)}
-      min={number('min', 0)}
-      step={number('step', 0)}
+      label={text('label', 'Label for the select box')}
       leftElement={
         showLeftElement && (
           <XUIAvatar
-            value="left"
             className="xui-margin-small"
             imageUrl="https://xui.xero.com/static/xpert-avatar.png"
+            value="left"
           />
         )
       }
+      max={number('max', 100)}
+      min={number('min', 0)}
       rightElement={
         showRightElement && (
           <XUIAvatar
-            value="right"
             className="xui-margin-small"
             imageUrl="https://xui.xero.com/static/xpert-avatar.png"
+            value="right"
           />
         )
       }
       size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
+      step={number('step', 0)}
       validationMessage={text('validationMessage', 'validation text')}
     />
   );

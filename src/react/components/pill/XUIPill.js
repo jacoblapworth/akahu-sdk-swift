@@ -105,8 +105,8 @@ export default class XUIPill extends PureComponent {
             <XUIIconButton
               ariaLabel={deleteButtonLabel}
               className={`${baseClass}--button-icon`}
-              icon={crossSmall}
               disableTouchTargetFix={size === 'xsmall'}
+              icon={crossSmall}
               isInverted={isInvalid}
               onClick={onDeleteClick}
               qaHook={qaHook && `${qaHook}--delete`}
@@ -118,11 +118,11 @@ export default class XUIPill extends PureComponent {
           const content = (
             <div
               className={pillClasses}
-              onFocus={this.toggleFocus}
+              data-automationid={qaHook}
               onBlur={this.toggleFocus}
+              onFocus={this.toggleFocus}
               onMouseEnter={this.hoverHandler}
               onMouseLeave={this.blurHandler}
-              data-automationid={qaHook}
             >
               <XUIInnerPill
                 innerPillRef={this._innerPill}
@@ -147,12 +147,12 @@ export default class XUIPill extends PureComponent {
           if (hasTooltip || debugShowToolTip) {
             return (
               <XUITooltip
+                id={debugShowToolTip && 'tooltipDebugId'}
+                isHidden={!debugShowToolTip}
+                ref={this._tooltip}
                 // Extra wrapping div required because tooltip has CSS that stomps on first child
                 trigger={<div>{content}</div>}
-                isHidden={!debugShowToolTip}
                 useInlineFlex
-                ref={this._tooltip}
-                id={debugShowToolTip && 'tooltipDebugId'}
               >
                 {secondaryText}
                 {secondaryText && value ? <br /> : null}

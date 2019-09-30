@@ -21,7 +21,7 @@ class DetailedBanner extends Component {
     const actions =
       props.actionProps &&
       props.actionProps.map((action, i) => (
-        <XUIBannerAction key={i} href="#">
+        <XUIBannerAction href="#" key={i}>
           {action.text}
         </XUIBannerAction>
       ));
@@ -49,17 +49,17 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <DetailedBanner
-    qaHook={text('qaHook', '')}
-    onCloseClick={NOOP}
-    defaultLayout={boolean('hasLayout', true)}
-    className={text('className', '')}
-    messageText={text('messageText', "A Banner's Message")}
     actionProps={object('actions', [
       {
         text: 'Action',
       },
     ])}
+    className={text('className', '')}
+    defaultLayout={boolean('hasLayout', true)}
     detailItems={array('detailItems', [])}
+    messageText={text('messageText', "A Banner's Message")}
+    onCloseClick={NOOP}
+    qaHook={text('qaHook', '')}
   />
 ));
 

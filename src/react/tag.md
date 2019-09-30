@@ -8,30 +8,18 @@ Tags are used to categorise content or indicate sentiment.
 import XUITag from './tag';
 
 <div>
-	<XUITag
-		className="xui-margin-right-xsmall"
-		variant="positive"
-	>
-		Positive tag
-	</XUITag>
-	<XUITag
-		className="xui-margin-right-xsmall"
-		variant="warning"
-	>
-		Warning tag
-	</XUITag>
-	<XUITag
-		className="xui-margin-right-xsmall"
-		variant="negative"
-	>
-		Negative tag
-	</XUITag>
-	<XUITag
-		className="xui-margin-right-xsmall"
-		variant="neutral"
-	>
-		Neutral tag
-	</XUITag>
-	<XUITag className="xui-margin-right-xsmall">Default tag</XUITag>
-</div>
+  <XUITag className="xui-margin-right-xsmall" variant="positive">
+    Positive tag
+  </XUITag>
+  <XUITag className="xui-margin-right-xsmall" variant="warning">
+    Warning tag
+  </XUITag>
+  <XUITag className="xui-margin-right-xsmall" variant="negative">
+    Negative tag
+  </XUITag>
+  <XUITag className="xui-margin-right-xsmall" variant="neutral">
+    Neutral tag
+  </XUITag>
+  <XUITag className="xui-margin-right-xsmall">Default tag</XUITag>
+</div>;
 ```

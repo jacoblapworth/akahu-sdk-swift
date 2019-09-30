@@ -34,29 +34,29 @@ export default class LayoutSelect extends React.Component {
     return (
       <div className={className}>
         <SelectBox
-          ref={c => (this.selectOne = c)}
-          name={name}
-          label={label}
-          htmlFor={htmlFor}
           buttonContent={
             <span className="xui-u-flex">
-              <XUIIcon icon={bank} className="xui-margin-right-xsmall" />
+              <XUIIcon className="xui-margin-right-xsmall" icon={bank} />
               {displayText}
             </span>
           }
-          isTextTruncated={false}
-          isFieldLayout
           caretTitle="Toggle list"
+          htmlFor={htmlFor}
+          isFieldLayout
+          isTextTruncated={false}
+          label={label}
+          name={name}
+          ref={c => (this.selectOne = c)}
         >
           {children &&
             children.map((opt, idx) => (
               <SelectBoxOption
                 id={opt}
+                isSelected={opt === selectedItem && selectedItem !== ''}
                 // eslint-disable-next-line prefer-template
                 key={idx + opt + 'userDefined key'}
-                isSelected={opt === selectedItem && selectedItem !== ''}
-                value={opt}
                 onSelect={this.onSelect}
+                value={opt}
               >
                 {opt}
               </SelectBoxOption>
@@ -65,8 +65,8 @@ export default class LayoutSelect extends React.Component {
         <input
           hidden
           id={selectedItem}
-          value={selectedItem != null ? selectedItem : ''}
           name={name}
+          value={selectedItem != null ? selectedItem : ''}
         />
       </div>
     );

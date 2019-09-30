@@ -1,5 +1,5 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 // TODO: Review whether these are utilities or not
 
@@ -8,21 +8,19 @@ Grid types
 */
 .#{$ns}-row,
 .#{$ns}-row-grid {
-	@include xui-clearfix;
+  @include xui-clearfix;
 }
 
 .#{$ns}-row-flex {
-	display: flex;
-	flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
 }
-
 
 /*
 Generate Regular columns, 1 to 12 with responsive variants
 Responsive variants are : -small-up, -large-up
 */
 @include xui-column-width-generator2();
-
 
 /*
 The spacing between columns will be $xui-grid-gutter, and the space added to
@@ -35,13 +33,13 @@ Setting up the parent class for padded columns
 This is our "Grid" since we want a nice even space between the columns
 */
 .#{$ns}-row-grid {
-	margin-left: - $xui-half-column-padding;
-	margin-right: - $xui-half-column-padding;
+  margin-left: -$xui-half-column-padding;
+  margin-right: -$xui-half-column-padding;
 
-	> [class*="xui-column"] {
-		margin-left: $xui-half-column-padding;
-		margin-right: $xui-half-column-padding;
-	}
+  > [class*='xui-column'] {
+    margin-left: $xui-half-column-padding;
+    margin-right: $xui-half-column-padding;
+  }
 }
 
 /*

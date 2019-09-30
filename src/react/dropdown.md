@@ -10,8 +10,8 @@ Using a [`Picklist`](#picklist) in `DropDown` gives behaviour similar to a `sele
 
 You may find one of these simpler components meets your requirements:
 
-* [`SelectBox`](#select-box) A simplified wrapper for `DropDown` and `DropDownToggled`, acts like a `<select/>` element
-* [`Autocompleter`](#autocompleter) Has a text input for a trigger and allows the user to search through and select from a list of items.
+- [`SelectBox`](#select-box) A simplified wrapper for `DropDown` and `DropDownToggled`, acts like a `<select/>` element
+- [`Autocompleter`](#autocompleter) Has a text input for a trigger and allows the user to search through and select from a list of items.
 
 ### Terminology
 
@@ -19,7 +19,7 @@ Dropdowns are deceptively complex, so it's important to understand the terms use
 
 #### DropDown
 
-This is the container for the elements that are conditionally shown on the page. It's a positioned element that floats on top of most other content.  Examples of content include the selectable items in a `SelectBox` or the `XUIDatePicker` calendar paired up with a text input.
+This is the container for the elements that are conditionally shown on the page. It's a positioned element that floats on top of most other content. Examples of content include the selectable items in a `SelectBox` or the `XUIDatePicker` calendar paired up with a text input.
 
 #### Trigger
 

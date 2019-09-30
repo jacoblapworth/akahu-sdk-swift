@@ -118,13 +118,13 @@ export default class XUISwitch extends PureComponent {
 
     return (
       <XUIControlWrapperInline
-        rootClassName={wrapperClasses}
-        wrapperIds={this.wrapperIds}
-        onClick={onLabelClick}
         fieldClassName={classes}
+        label={children}
         labelClassName={labelClasses}
         messageClassName={messageClasses}
-        label={children}
+        onClick={onLabelClick}
+        rootClassName={wrapperClasses}
+        wrapperIds={this.wrapperIds}
         {...{
           qaHook,
           isInvalid,

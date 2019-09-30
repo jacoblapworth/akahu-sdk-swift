@@ -1,32 +1,36 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 @each $variant, $color in $xui-button-variants-bg {
-	.#{$ns}-button-#{$variant} {
-		@if $variant == standard {
-			// TODO: figure out a way to do this without a border, as it adds unwanted width
-			@include xui-button-variant(
-				$color,// bg color
-				$xui-button-standard-hover-bg-color,// bg hover
-				$xui-button-standard-active-bg-color,// bg active
-				$xui-color-blue,// text
-				$xui-button-standard-hover-color,// text hover
-				$xui-button-standard-active-color,// text active
-				$xui-button-border-color// border color
-			);
-		} @else {
-			@include xui-button-variant(
-				$color,// bg color
-				mix($xui-color-grey-1, $color, 10%),// bg hover
-				mix($xui-color-grey-1, $color, 20%),// bg active
-				$xui-color-white,// text
-				$xui-color-white,// text hover
-				$xui-color-white,// text active
-				$color// border color
-			);
-		}
+  .#{$ns}-button-#{$variant} {
+    $bg-color: $color;
+    $bg-hover: mix($xui-color-grey-1, $color, 10%);
+    $bg-active: mix($xui-color-grey-1, $color, 20%);
+    $text: $xui-color-white;
+    $text-hover: $xui-color-white;
+    $text-active: $xui-color-white;
+    $border-color: $color;
 
-		@include xui-button-focus($xui-shadow-focus);
-	}
+    @if $variant == standard {
+      // TODO: figure out a way to do this without a border, as it adds unwanted width
+      $bg-hover: $xui-button-standard-hover-bg-color;
+      $bg-active: $xui-button-standard-active-bg-color;
+      $text: $xui-color-blue;
+      $text-hover: $xui-button-standard-hover-color;
+      $text-active: $xui-button-standard-active-color;
+      $border-color: $xui-button-border-color;
+    }
 
+    @include xui-button-variant(
+      $bg-color,
+      $bg-hover,
+      $bg-active,
+      $text,
+      $text-hover,
+      $text-active,
+      $border-color
+    );
+
+    @include xui-button-focus($xui-shadow-focus);
+  }
 }

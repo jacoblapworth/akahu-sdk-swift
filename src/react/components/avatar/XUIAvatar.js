@@ -42,19 +42,19 @@ export default class XUIAvatar extends PureComponent {
       <React.Fragment>
         {imageUrl && (
           <img
+            alt=""
+            className={cn(avatarClassNames, { [classNames.hidden]: !imageLoaded })}
+            data-automationid={qaHook}
             onError={this.onError}
             onLoad={this.onLoad}
-            data-automationid={qaHook}
-            className={cn(avatarClassNames, { [classNames.hidden]: !imageLoaded })}
-            alt=""
             src={imageUrl}
           />
         )}
         <abbr
-          data-automationid={qaHook}
           className={cn(avatarClassNames, getAvatarColorClass(identifier || value), {
             [classNames.hidden]: imageUrl && imageLoaded,
           })}
+          data-automationid={qaHook}
           role="presentation"
         >
           {abbreviateAvatar(value, avatarCharacterCount)}

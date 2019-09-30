@@ -48,8 +48,8 @@ export default class XUIToggle extends PureComponent {
     return (
       <XUIControlWrapper
         fieldClassName={fieldClassName}
-        wrapperIds={this.wrapperIds}
         isGroup
+        wrapperIds={this.wrapperIds}
         {...{
           qaHook,
           label,
@@ -63,9 +63,9 @@ export default class XUIToggle extends PureComponent {
       >
         <div
           {...secondaryProps}
-          role={ariaRole}
           className={classes}
           data-automationid={qaHook}
+          role={ariaRole}
           {...getAriaAttributes(this.wrapperIds, this.props, { isGroup: true })}
         >
           {children}

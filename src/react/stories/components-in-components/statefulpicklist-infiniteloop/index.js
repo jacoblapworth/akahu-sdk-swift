@@ -62,19 +62,19 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
       return (
         <div id="spl-wrapper" ref={comp => (this._rootNode = comp)} style={{ width: '300px' }}>
           <XUIAutoCompleter
-            loading={this.state.loading}
             className="xui-u-fullwidth"
             footer={this.renderFooter(false)}
-            onSearch={this.onSearch}
-            value={this.state.value}
             inputLabel="label here"
             isInputLabelHidden
-            openOnFocus
+            loading={this.state.loading}
             loadingLabel="Loading"
+            onSearch={this.onSearch}
+            openOnFocus
+            value={this.state.value}
           >
             <Picklist>
               {[1, 2, 3, 4].map(item => (
-                <Pickitem key={item} id={item}>
+                <Pickitem id={item} key={item}>
                   {item}
                 </Pickitem>
               ))}

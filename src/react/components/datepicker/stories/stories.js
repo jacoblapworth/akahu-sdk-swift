@@ -83,23 +83,23 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <ExamplePicker
-    minDate={date('minDate', '') ? new Date(date('minDate', '')) : undefined}
-    maxDate={date('maxDate', '') ? new Date(date('maxDate', '')) : undefined}
+    dir={select('direction', ['ltr', 'rtl'])}
     displayedMonth={date('displayedMonth', '') ? new Date(date('displayedMonth', '')) : undefined}
+    firstDayOfWeek={parseInt(select('firstDayOfWeek', weekStarts, '0'))}
     isCompact={boolean('isCompact', false)}
+    maxDate={date('maxDate', '') ? new Date(date('maxDate', '')) : undefined}
+    minDate={date('minDate', '') ? new Date(date('minDate', '')) : undefined}
+    months={
+      select('months', ['standard', 'custom'], 'standard') === 'custom' ? customMonths : undefined
+    }
+    selectRange={boolean('select range', false)}
     showDaysInOtherMonths={boolean('showDaysInOtherMonths', false)}
     showFixedNumberOfWeeks={boolean('showFixedNumberOfWeeks', false)}
-    firstDayOfWeek={parseInt(select('firstDayOfWeek', weekStarts, '0'))}
     weekdaysShort={
       select('weekdaysShort', ['standard', 'custom'], 'standard') === 'custom'
         ? wkdShort
         : undefined
     }
-    months={
-      select('months', ['standard', 'custom'], 'standard') === 'custom' ? customMonths : undefined
-    }
-    dir={select('direction', ['ltr', 'rtl'])}
-    selectRange={boolean('select range', false)}
   />
 ));
 

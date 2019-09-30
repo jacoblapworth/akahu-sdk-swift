@@ -6,7 +6,7 @@ const rimrafAsync = promisify(rimraf);
 const { succeed, fail } = taskRunnerReturns;
 
 module.exports = dirOrFile => {
-	return rimrafAsync(dirOrFile)
-		.then(succeed)
-		.catch(fail);
+  return rimrafAsync(dirOrFile)
+    .then(succeed)
+    .catch(fail);
 };

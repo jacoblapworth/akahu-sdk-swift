@@ -7,26 +7,25 @@ const writeFileAsync = promisify(fs.writeFile);
 const readFileAsync = promisify(fs.readFile);
 
 function doMinifyTask({ inputFile, taskSpinner, input, output }) {
-	return new CleanCSS({ returnPromise: true })
-		.minify(inputFile)
-		.then(async ({ styles }) => await writeFileAsync(output, styles))
-		.then(() => taskSpinner.info(`${input} ${chalk.green('=>')} ${output}`));
+  return new CleanCSS({ returnPromise: true })
+    .minify(inputFile)
+    .then(async ({ styles }) => await writeFileAsync(output, styles))
+    .then(() => taskSpinner.info(`${input} ${chalk.green('=>')} ${output}`));
 }
 
 const getInputFile = input => readFileAsync(input);
 
 function minify(options, taskSpinner) {
-	const { input, output } = options;
+  const { input, output } = options;
 
-	return getInputFile(input)
-		.then(inputFile =>
-			doMinifyTask({
-				inputFile,
-				input,
-				output,
-				taskSpinner
-			})
-		);
+  return getInputFile(input).then(inputFile =>
+    doMinifyTask({
+      inputFile,
+      input,
+      output,
+      taskSpinner,
+    }),
+  );
 }
 
 module.exports = minify;

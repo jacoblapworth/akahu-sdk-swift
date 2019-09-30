@@ -52,7 +52,7 @@ const toggledItems = [
   'Yellow quash',
   'Zucchini',
 ].map((text, id) => (
-  <Pickitem key={id} id={text} isSelected={false}>
+  <Pickitem id={text} isSelected={false} key={id}>
     {text}
   </Pickitem>
 ));
@@ -71,10 +71,10 @@ test.add(storyNames.dropDownInModal, () => {
   );
 
   return (
-    <XUIModal isOpen closeButtonLabel="Close">
+    <XUIModal closeButtonLabel="Close" isOpen>
       <XUIModalBody>
         This is some Modal content.
-        <DropDownToggled trigger={trigger} dropdown={dropdown} />
+        <DropDownToggled dropdown={dropdown} trigger={trigger} />
       </XUIModalBody>
     </XUIModal>
   );

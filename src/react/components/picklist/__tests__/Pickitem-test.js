@@ -255,4 +255,34 @@ describe('<Pickitem />', () => {
     label.first().simulate('mouseover');
     expect(onMouseOverMock).toHaveBeenCalledTimes(1);
   });
+
+  describe('Horizontal Pickitem', () => {
+    const incompatibleProps = {
+      isMultiselect: true,
+      checkboxClassName: 'test',
+      isSplit: true,
+      isMultiline: true,
+      rightElement: <div>Test</div>,
+      pinnedElement: <div>Test</div>,
+      headingElement: <div>Test</div>,
+    };
+
+    Object.keys(incompatibleProps).forEach(incompatibleProp => {
+      it(`throws an error when trying to use ${incompatibleProp}`, () => {
+        expect(() => {
+          mount(
+            <Pickitem
+              _isHorizontal
+              id="test"
+              {...{ [incompatibleProp]: incompatibleProps[incompatibleProp] }}
+            >
+              Test
+            </Pickitem>,
+          );
+        }).toThrowError(
+          `Warning: Failed prop type: \`${incompatibleProp}\` is not supported by horizontal \`Pickitem\`.`,
+        );
+      });
+    });
+  });
 });

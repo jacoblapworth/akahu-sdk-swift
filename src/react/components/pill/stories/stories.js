@@ -18,20 +18,20 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <XUIPill
-    value={text('value', 'Plain pill')}
-    secondaryText={text('secondaryText', '')}
-    title={text('title', '')}
-    target={text('target', '')}
-    qaHook={text('qaHook', '')}
-    onDeleteClick={NOOP}
-    onClick={NOOP}
-    isInvalid={boolean('isInvalid', false)}
-    href={text('href', '')}
-    deleteButtonLabel={text('deleteButtonLabel', 'Delete')}
-    className={text('className', '')}
     avatarProps={object('avatarProps', avatarProps)}
-    size={select('Size', Object.keys(sizeClasses), 'medium')}
+    className={text('className', '')}
+    deleteButtonLabel={text('deleteButtonLabel', 'Delete')}
+    href={text('href', '')}
+    isInvalid={boolean('isInvalid', false)}
     isLimitedWidth={boolean('isLimitedWidth', false)}
+    onClick={NOOP}
+    onDeleteClick={NOOP}
+    qaHook={text('qaHook', '')}
+    secondaryText={text('secondaryText', '')}
+    size={select('Size', Object.keys(sizeClasses), 'medium')}
+    target={text('target', '')}
+    title={text('title', '')}
+    value={text('value', 'Plain pill')}
   />
 ));
 

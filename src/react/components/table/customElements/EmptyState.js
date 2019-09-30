@@ -11,7 +11,7 @@ export default class EmptyState extends PureComponent {
 
     return (
       <div className={cn(defaultLayout && `${ns}-table--emptystate`, className)}>
-        <XUIIcon icon={tablePathData} size="large" isBoxed />
+        <XUIIcon icon={tablePathData} isBoxed size="large" />
         <div>{children}</div>
       </div>
     );

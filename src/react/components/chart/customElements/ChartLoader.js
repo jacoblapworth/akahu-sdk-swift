@@ -11,8 +11,8 @@ class ChartLoader extends PureComponent {
 
     return (
       <div
-        data-automationid={qaHook && `${qaHook}--loader`}
         className={chartClassName}
+        data-automationid={qaHook && `${qaHook}--loader`}
         style={{ height: `${chartHeight}px` }}
       >
         <XUILoader ariaLabel={loadingLabel} />

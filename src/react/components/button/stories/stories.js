@@ -27,12 +27,12 @@ import {
 
 const dropdownWithTrigger = (
   <DropDownToggled
-    trigger={<XUISplitButton key="split" variant="primary" aria-label="Other actions" />}
     dropdown={
       <DropDown>
         <p className="xui-padding-small">hello</p>
       </DropDown>
     }
+    trigger={<XUISplitButton aria-label="Other actions" key="split" variant="primary" />}
   />
 );
 
@@ -45,13 +45,13 @@ const buttonContents = {
   ],
   asSplitGroup: [
     <XUIButton key="main">Main</XUIButton>,
-    <XUISplitButton key="split" aria-label="Other actions" />,
+    <XUISplitButton aria-label="Other actions" key="split" />,
   ],
   asSplitGroupMulti: [
     <XUIButton key="main">
       This is a bunch of multi line text to make sure the icon displays correctly
     </XUIButton>,
-    <XUISplitButton key="split" aria-label="Other actions" />,
+    <XUISplitButton aria-label="Other actions" key="split" />,
   ],
   asSplitGroupDropdown: [<XUIButton key="main">Main</XUIButton>, dropdownWithTrigger],
 };
@@ -65,28 +65,28 @@ storiesWithKnobs.add('Playground', () => {
   return (
     <div style={{ maxWidth: '600px' }}>
       <Tag
+        ariaLabel={isIcon ? 'View' : undefined}
         className={text('className', '')}
-        qaHook={text('qaHook', '')}
+        fullWidth={select('fullWidth', Object.keys(widthClassNames), 'never')}
+        href={text('href', '')}
+        icon={isIcon ? view : undefined}
         isDisabled={boolean('isDisabled', false)}
         isExternalLink={boolean('isExternalLink', false)}
+        isGrouped={boolean('isGrouped', false)}
+        isInverted={boolean('isInverted', false)}
+        isLink={boolean('isLink', false)}
         isLoading={boolean('isLoading', false)}
         loadingLabel={text('loadingLabel', 'Loading')}
-        isGrouped={boolean('isGrouped', false)}
-        variant={!isIcon && select('variant', textButtonVariants, 'standard')}
-        size={select('size', Object.keys(sizeClassNames))}
-        fullWidth={select('fullWidth', Object.keys(widthClassNames), 'never')}
-        isLink={boolean('isLink', false)}
-        type={select('type', Object.keys(buttonTypes).map(type => buttonTypes[type]), 'button')}
-        href={text('href', '')}
+        minLoaderWidth={boolean('minLoaderWidth', false)}
+        qaHook={text('qaHook', '')}
         rel={text('rel', '')}
+        retainLayout={boolean('retainLayout', true)}
+        size={select('size', Object.keys(sizeClassNames))}
         tabIndex={number('tabIndex', 0)}
         target={text('target', '')}
         title={text('title', '')}
-        isInverted={boolean('isInverted', false)}
-        retainLayout={boolean('retainLayout', true)}
-        minLoaderWidth={boolean('minLoaderWidth', false)}
-        icon={isIcon ? view : undefined}
-        ariaLabel={isIcon ? 'View' : undefined}
+        type={select('type', Object.keys(buttonTypes).map(type => buttonTypes[type]), 'button')}
+        variant={!isIcon && select('variant', textButtonVariants, 'standard')}
       >
         {isIcon ? null : 'Test button'}
       </Tag>

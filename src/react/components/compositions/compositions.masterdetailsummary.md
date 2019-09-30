@@ -6,12 +6,19 @@
 ```jsx harmony
 import { XUICompositionMasterDetailSummary } from '../../compositions';
 
-const detailContent = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
-const masterContent = <div style={{background: '#5A5AE6', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
-const summaryContent = <div style={{background: '#ADADF3', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
+const detailContent = <div style={{ background: '#C5C5F6', height: '100px' }} />;
+const masterContent = (
+  <div style={{ background: '#5A5AE6', minWidth: '250px', height: '100px', width: '100%' }} />
+);
+const summaryContent = (
+  <div style={{ background: '#ADADF3', minWidth: '250px', height: '100px', width: '100%' }} />
+);
 
-<XUICompositionMasterDetailSummary master={masterContent} detail={detailContent} summary={summaryContent} />
-
+<XUICompositionMasterDetailSummary
+  master={masterContent}
+  detail={detailContent}
+  summary={summaryContent}
+/>;
 ```
 
 #### Master detail summary with header
@@ -19,11 +26,19 @@ const summaryContent = <div style={{background: '#ADADF3', 'minWidth': '250px', 
 ```jsx harmony
 import { XUICompositionMasterDetailSummaryHeader } from '../../compositions';
 
-const headerContent = <div style={{background: '#B446C8', height: '60px'}}></div>;
-const detailContent = <div style={{background: '#C5C5F6', height: '100px' }}></div>;
-const masterContent = <div style={{background: '#5A5AE6', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
-const summaryContent = <div style={{background: '#ADADF3', 'minWidth': '250px', height: '100px', width: '100%'}}></div>;
+const headerContent = <div style={{ background: '#B446C8', height: '60px' }} />;
+const detailContent = <div style={{ background: '#C5C5F6', height: '100px' }} />;
+const masterContent = (
+  <div style={{ background: '#5A5AE6', minWidth: '250px', height: '100px', width: '100%' }} />
+);
+const summaryContent = (
+  <div style={{ background: '#ADADF3', minWidth: '250px', height: '100px', width: '100%' }} />
+);
 
-<XUICompositionMasterDetailSummaryHeader header={headerContent} detail={detailContent} master={masterContent} summary={summaryContent} />
+<XUICompositionMasterDetailSummaryHeader
+  header={headerContent}
+  detail={detailContent}
+  master={masterContent}
+  summary={summaryContent}
+/>;
 ```
-

@@ -18,7 +18,7 @@ import { storiesOf } from '@storybook/react';
 
 const buildDropdownPicklist = items => {
   const pickItems = items.map((text, id) => (
-    <Pickitem key={id} id={text} isSelected={false}>
+    <Pickitem id={text} isSelected={false} key={id}>
       {text}
     </Pickitem>
   ));
@@ -50,9 +50,9 @@ class Example extends Component {
       <div>
         <XUIButton onClick={() => this.setState({ showModal: true })}>First modal</XUIButton>
         <XUIModal
+          closeButtonLabel="Close"
           isOpen={this.state.showModal}
           onClose={() => this.setState({ showModal: false })}
-          closeButtonLabel="Close"
         >
           <XUIModalHeader>First modal</XUIModalHeader>
           <XUIModalBody className="xui-padding">
@@ -82,20 +82,20 @@ class Example2 extends Component {
       <div>
         <XUIButton onClick={() => this.setState({ showModal: true })}>Second modal</XUIButton>
         <XUIModal
+          closeButtonLabel="Close"
           isOpen={this.state.showModal}
           onClose={() => this.setState({ showModal: false })}
-          closeButtonLabel="Close"
         >
           <XUIModalHeader>Second modal</XUIModalHeader>
           <XUIModalBody className="xui-padding">
             <div className="xui-padding-bottom" style={{ height: '1000px' }}>
               This is the second layer modal
               <DropDownToggled
-                trigger={buildTrigger('Short Trigger')}
                 dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
                 isHidden={false}
-                repositionOnScroll
                 isLegacyDisplay={false}
+                repositionOnScroll
+                trigger={buildTrigger('Short Trigger')}
               />
             </div>
           </XUIModalBody>

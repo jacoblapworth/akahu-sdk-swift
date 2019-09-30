@@ -16,167 +16,183 @@ jest.mock('uuid/v4');
 uuidv4.mockImplementation(() => 'testCheckboxId');
 
 describe('XUICheckbox', function() {
-	let wrapper;
-	let input;
-	//<use /> tags
+  let wrapper;
+  let input;
+  //<use /> tags
 
-	beforeEach( () => {
-		wrapper = mount(
-			<XUICheckbox
-				onChange={NOOP}
-				className="dogs-are-totes-patotes"
-				qaHook="cheese-and-crackers"
-			>
-				Howdy, folks!
-			</XUICheckbox>, { attachTo: div });
-		input = wrapper.find('input');
-	});
+  beforeEach(() => {
+    wrapper = mount(
+      <XUICheckbox onChange={NOOP} className="dogs-are-totes-patotes" qaHook="cheese-and-crackers">
+        Howdy, folks!
+      </XUICheckbox>,
+      { attachTo: div },
+    );
+    input = wrapper.find('input');
+  });
 
-	it('should be of type checkbox', () => {
-		expect(input.instance().type).toEqual('checkbox');
-	});
+  it('should be of type checkbox', () => {
+    expect(input.instance().type).toEqual('checkbox');
+  });
 
-	it('should have label text if provided', () => {
-		expect(wrapper.find('label').text()).toEqual('Howdy, folks!');
-	});
+  it('should have label text if provided', () => {
+    expect(wrapper.find('label').text()).toEqual('Howdy, folks!');
+  });
 
-	it('should use additional classes on the root node if provided', () => {
-		expect(wrapper.find('div').first().hasClass('dogs-are-totes-patotes')).toBeTruthy();
-	});
+  it('should use additional classes on the root node if provided', () => {
+    expect(
+      wrapper
+        .find('div')
+        .first()
+        .hasClass('dogs-are-totes-patotes'),
+    ).toBeTruthy();
+  });
 
-	it('should be a small variant, if specified', () => {
-		const component = renderer.create(<XUICheckbox onChange={NOOP} size="small">Howdy, folks!</XUICheckbox>);
+  it('should be a small variant, if specified', () => {
+    const component = renderer.create(
+      <XUICheckbox onChange={NOOP} size="small">
+        Howdy, folks!
+      </XUICheckbox>,
+    );
 
-		expect(component).toMatchSnapshot();
-	});
+    expect(component).toMatchSnapshot();
+  });
 
-	it('should be a xsmall variant, if specified', () => {
-		const component = renderer.create(<XUICheckbox onChange={NOOP} size="xsmall">Howdy, folks!</XUICheckbox>);
+  it('should be a xsmall variant, if specified', () => {
+    const component = renderer.create(
+      <XUICheckbox onChange={NOOP} size="xsmall">
+        Howdy, folks!
+      </XUICheckbox>,
+    );
 
-		expect(component).toMatchSnapshot();
-	});
+    expect(component).toMatchSnapshot();
+  });
 
-	it('should have a qaHook as an automation id if provided', () => {
-		const automationid = renderer.create(
-			<XUICheckbox qaHook="test-checkbox" onChange={NOOP} />
-		);
+  it('should have a qaHook as an automation id if provided', () => {
+    const automationid = renderer.create(<XUICheckbox qaHook="test-checkbox" onChange={NOOP} />);
 
-		expect(automationid).toMatchSnapshot();
-	});
+    expect(automationid).toMatchSnapshot();
+  });
 
-	it('should have a hidden label, if specified', () => {
-		const hiddenLabel = renderer.create(
-			<XUICheckbox onChange={NOOP} isLabelHidden>Hidden label</XUICheckbox>
-		);
+  it('should have a hidden label, if specified', () => {
+    const hiddenLabel = renderer.create(
+      <XUICheckbox onChange={NOOP} isLabelHidden>
+        Hidden label
+      </XUICheckbox>,
+    );
 
-		expect(hiddenLabel).toMatchSnapshot();
-	});
-	it('should have a visible label, if specified', () => {
-		const visibleLabel = renderer.create(
-			<XUICheckbox onChange={NOOP}>Visible label</XUICheckbox>
-		);
+    expect(hiddenLabel).toMatchSnapshot();
+  });
+  it('should have a visible label, if specified', () => {
+    const visibleLabel = renderer.create(<XUICheckbox onChange={NOOP}>Visible label</XUICheckbox>);
 
-		expect(visibleLabel).toMatchSnapshot();
-	});
+    expect(visibleLabel).toMatchSnapshot();
+  });
 
-	it('should be unchecked by default', () => {
-		const wrapper = mount(<XUICheckbox onChange={NOOP} />);
+  it('should be unchecked by default', () => {
+    const wrapper = mount(<XUICheckbox onChange={NOOP} />);
 
-		const node = wrapper.find('input').instance();
-		expect(node.checked).toBeFalsy();
-	});
+    const node = wrapper.find('input').instance();
+    expect(node.checked).toBeFalsy();
+  });
 
-	it('should be selected and disabled if isChecked and isDisabled are both true', () => {
-		const wrapper = mount(<XUICheckbox onChange={NOOP} isChecked={true} isDisabled={true} />);
+  it('should be selected and disabled if isChecked and isDisabled are both true', () => {
+    const wrapper = mount(<XUICheckbox onChange={NOOP} isChecked={true} isDisabled={true} />);
 
-		const node = wrapper.find('input').instance();
-		expect(node.checked).toBeTruthy();
-		expect(node.disabled).toBeTruthy();
-	});
+    const node = wrapper.find('input').instance();
+    expect(node.checked).toBeTruthy();
+    expect(node.disabled).toBeTruthy();
+  });
 
+  it('should be indeterminate if isIndeterminate is true', () => {
+    mount(<XUICheckbox className="indeterminate" onChange={NOOP} isIndeterminate={true} />, {
+      attachTo: div,
+    });
 
-	it('should be indeterminate if isIndeterminate is true', () => {
-		mount(<XUICheckbox className="indeterminate" onChange={NOOP} isIndeterminate={true} />, {attachTo: div});
+    //haven't been able to use wrapper.find as we need a true DOM representation to find the property.
+    const node = document.querySelector('.indeterminate input');
+    expect(node.indeterminate).toBeTruthy();
+  });
 
-		//haven't been able to use wrapper.find as we need a true DOM representation to find the property.
-		const node = document.querySelector('.indeterminate input');
-		expect(node.indeterminate).toBeTruthy();
-	});
+  it('should update the indeterminate property when isIndeterminate changes state', () => {
+    const wrapper = mount(
+      <XUICheckbox className="indeterminate" onChange={NOOP} isIndeterminate={true} />,
+      { attachTo: div },
+    );
 
+    //haven't been able to use wrapper.find as we need a true DOM representation to find the property.
+    const node = document.querySelector('.indeterminate input');
 
-	it('should update the indeterminate property when isIndeterminate changes state', () => {
-		const wrapper = mount(<XUICheckbox className="indeterminate" onChange={NOOP} isIndeterminate={true} />, {attachTo: div});
+    expect(node).toBeDefined();
+    expect(node.indeterminate).toBeTruthy();
 
-		//haven't been able to use wrapper.find as we need a true DOM representation to find the property.
-		const node = document.querySelector('.indeterminate input');
+    wrapper.setProps({ isIndeterminate: false });
 
-		expect(node).toBeDefined();
-		expect(node.indeterminate).toBeTruthy();
+    expect(node.indeterminate).toBeFalsy();
+  });
 
-		wrapper.setProps({isIndeterminate : false});
+  it('should be required for form submission if isRequired is true', () => {
+    const wrapper = mount(<XUICheckbox onChange={NOOP} isRequired={true} />);
 
-		expect(node.indeterminate).toBeFalsy();
-	});
+    const node = wrapper.find('input');
+    expect(node.props().required).toBeTruthy();
+  });
 
+  it('should use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true', () => {
+    const wrapper = mount(<XUICheckbox onChange={NOOP} isReversed={true} />);
 
-	it('should be required for form submission if isRequired is true', () => {
-		const wrapper = mount(<XUICheckbox onChange={NOOP} isRequired={true} />);
+    expect(wrapper.find('label').hasClass('xui-styledcheckboxradio-reversed')).toBeTruthy();
+  });
 
-		const node = wrapper.find('input');
-		expect(node.props().required).toBeTruthy();
-	});
+  it('should have the correct name if one is provided', function() {
+    const wrapper = mount(<XUICheckbox onChange={NOOP} name="Patrick" />);
 
-	it('should use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true', () => {
-		const wrapper = mount(<XUICheckbox onChange={NOOP} isReversed={true} />);
+    const node = wrapper.find('input');
+    expect(node.props().name).toEqual('Patrick');
+  });
 
-		expect(wrapper.find('label').hasClass('xui-styledcheckboxradio-reversed')).toBeTruthy();
-	});
+  it('should call the provided onChange function every time the control changes state', () => {
+    let toggle = false;
+    const wrapper = mount(
+      <XUICheckbox
+        onChange={() => {
+          toggle = !toggle;
+        }}
+      />,
+    );
 
-	it('should have the correct name if one is provided', function () {
-		const wrapper = mount(<XUICheckbox onChange={NOOP} name="Patrick" />);
+    const node = wrapper.find('input');
 
-		const node = wrapper.find('input');
-		expect(node.props().name).toEqual('Patrick');
-	});
+    node.simulate('change');
+    expect(toggle).toBeTruthy();
+    node.simulate('change');
+    expect(toggle).toBeFalsy();
+  });
 
-	it('should call the provided onChange function every time the control changes state', () => {
-		let toggle = false;
-		const wrapper = mount(<XUICheckbox onChange={() => {toggle = !toggle}} />);
+  it('should have the correct value if one is provided', () => {
+    const wrapper = mount(<XUICheckbox onChange={NOOP} value="64" />);
+    expect(wrapper.find('input[type="checkbox"]').props().value).toEqual('64');
+  });
 
-		const node = wrapper.find('input');
+  it('should allow setting a custom tabIndex on the input', function() {
+    const wrapper = mount(
+      <XUICheckbox onChange={NOOP} tabIndex={-1}>
+        Howdy, folks!
+      </XUICheckbox>,
+      { attachTo: div },
+    );
+    expect(wrapper.find('input[type="checkbox"]').props().tabIndex).toEqual(-1);
+  });
 
-		node.simulate('change');
-		expect(toggle).toBeTruthy();
-		node.simulate('change');
-		expect(toggle).toBeFalsy();
-	});
+  it('should not display label if isLabelHidden is true', () => {
+    const wrapper = mount(<XUICheckbox onChange={NOOP} isLabelHidden={true} />);
+    const nodes = wrapper.find('span');
 
-	it('should have the correct value if one is provided', () => {
-		const wrapper = mount(<XUICheckbox onChange={NOOP} value="64" />);
-		expect(wrapper.find('input[type="checkbox"]').props().value).toEqual('64');
-	});
+    expect(nodes.length).toBe(0);
+  });
 
-	it('should allow setting a custom tabIndex on the input', function () {
-		const wrapper = mount(
-			<XUICheckbox onChange={NOOP} tabIndex={-1}>
-				Howdy, folks!
-			</XUICheckbox>, {attachTo: div}
-		);
-		expect(wrapper.find('input[type="checkbox"]').props().tabIndex).toEqual(-1);
-	});
+  it('should render with an icon when one is provided', () => {
+    const icon = renderer.create(<XUICheckbox iconMain={star} onChange={NOOP} />);
 
-	it('should not display label if isLabelHidden is true', () => {
-		const wrapper = mount(<XUICheckbox onChange={NOOP} isLabelHidden={true} />);
-		const nodes = wrapper.find('span');
-
-		expect(nodes.length).toBe(0);
-	});
-
-	it('should render with an icon when one is provided', () => {
-		const icon = renderer.create(
-			<XUICheckbox iconMain={star} onChange={NOOP} />
-		);
-
-		expect(icon).toMatchSnapshot();
-	});
+    expect(icon).toMatchSnapshot();
+  });
 });

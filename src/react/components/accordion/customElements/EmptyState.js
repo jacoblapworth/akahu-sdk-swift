@@ -8,8 +8,8 @@ export default class XUIAccordionItemEmptyState extends PureComponent {
     const { children, qaHook, emptyIcon } = this.props;
 
     return (
-      <div data-automationid={qaHook} className={`${ns}-accordion--emptystate`}>
-        <XUIIcon size="large" icon={emptyIcon} isBoxed />
+      <div className={`${ns}-accordion--emptystate`} data-automationid={qaHook}>
+        <XUIIcon icon={emptyIcon} isBoxed size="large" />
         <div>{children}</div>
       </div>
     );

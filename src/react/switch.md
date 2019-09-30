@@ -11,44 +11,41 @@ import { PureComponent } from 'react';
 import XUISwitch from './switch';
 
 class Example extends PureComponent {
-	constructor(...args) {
-		super(...args);
+  constructor(...args) {
+    super(...args);
 
-		this.onChange = this.onChange.bind(this);
-		this.state = {
-			isSecondSwitchChecked: true,
-		};
-	}
+    this.onChange = this.onChange.bind(this);
+    this.state = {
+      isSecondSwitchChecked: true
+    };
+  }
 
-	onChange() {
-		this.setState(prevState => ({ isSecondSwitchChecked: !prevState.isSecondSwitchChecked }));
-	}
+  onChange() {
+    this.setState(prevState => ({ isSecondSwitchChecked: !prevState.isSecondSwitchChecked }));
+  }
 
-	render() {
-		return (
-			<div>
-				<h3>Click the switch</h3>
-				<div className="xui-margin-bottom">
-					<XUISwitch
-						isDefaultChecked
-						onChange={this.onChange}
-					>
-						Enabled switch
-					</XUISwitch>
-				</div>
-				<div>
-					<XUISwitch
-						isDisabled
-						isChecked={this.state.isSecondSwitchChecked}
-						hintMessage="Can't touch this"
-					>
-						Disabled switch
-					</XUISwitch>
-				</div>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <h3>Click the switch</h3>
+        <div className="xui-margin-bottom">
+          <XUISwitch isDefaultChecked onChange={this.onChange}>
+            Enabled switch
+          </XUISwitch>
+        </div>
+        <div>
+          <XUISwitch
+            isDisabled
+            isChecked={this.state.isSecondSwitchChecked}
+            hintMessage="Can't touch this"
+          >
+            Disabled switch
+          </XUISwitch>
+        </div>
+      </div>
+    );
+  }
 }
 
-<Example />
+<Example />;
 ```

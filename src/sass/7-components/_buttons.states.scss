@@ -1,34 +1,35 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 .#{$ns}-button:disabled {
-	cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 .#{$ns}-button-is-disabled {
-	@include xui-button-is-disabled(null); // Null sets no background color by default (useful for link styles)
+  @include xui-button-is-disabled(
+    null
+  ); // Null sets no background color by default (useful for link styles)
 
-	&:hover,
-	&:focus {
-		@include xui-button-is-disabled;
-	}
+  &:hover,
+  &:focus {
+    @include xui-button-is-disabled;
+  }
 
-	@each $variant, $color in $xui-button-variants-bg {
-
-		@if $variant != standard {
-			&.#{$ns}-button-#{$variant} {
-				@include xui-button-is-disabled($xui-button-disabled-bg-color, $xui-color-white);
-			}
-		}
-	}
+  @each $variant, $color in $xui-button-variants-bg {
+    @if $variant != standard {
+      &.#{$ns}-button-#{$variant} {
+        @include xui-button-is-disabled($xui-button-disabled-bg-color, $xui-color-white);
+      }
+    }
+  }
 }
 
 .#{$ns}-button-min-loader-width {
-	min-width: 75px;
+  min-width: 75px;
 }
 
 // Buttons when displaying loaders inside them, need to hide the main content
 // This lets buttons retain size (width) while showing the loader
 .#{$ns}-button-hidden-content {
-	@include xui-utility-hidden-content;
+  @include xui-utility-hidden-content;
 }

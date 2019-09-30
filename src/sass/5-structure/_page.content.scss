@@ -30,18 +30,18 @@
 // |               |           |                                     |                         |
 // +---------------+-----------+-------------------------------------+-------------------------+
 
-@import "../mixins";
+@import '../mixins';
 
 .#{$ns}-page-width-standard {
-	@include xui-page-width-and-spacing-standard;
+  @include xui-page-width-and-spacing-standard;
 }
 
 .#{$ns}-page-width-large {
-	@include xui-page-width-and-spacing-large;
+  @include xui-page-width-and-spacing-large;
 }
 
 @include xui-page-layout-sidebar-right;
-@include xui-page-layout-sidebar-right(9, 7, "-small");
+@include xui-page-layout-sidebar-right(9, 7, '-small');
 @include xui-page-layout-sidebar-left;
-@include xui-page-layout-sidebar-left(9, 7, "-small");
+@include xui-page-layout-sidebar-left(9, 7, '-small');
 @include xui-page-layout-split;

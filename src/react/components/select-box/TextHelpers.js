@@ -9,29 +9,29 @@
  * @return {Number}   Value used by javaScript's native sort to determine order for items a, b
  */
 function compareValuesByLength(a, b) {
-	// By length of stings
-	if (a.length < b.length) {
-		return -1;
-	}
-	if (a.length > b.length) {
-		return 1;
-	}
+  // By length of stings
+  if (a.length < b.length) {
+    return -1;
+  }
+  if (a.length > b.length) {
+    return 1;
+  }
 
-	// Alphabetically if comparing two strings of same length
-	if (typeof a === 'string' && typeof b === 'string') {
-		return a.localeCompare(b, undefined, { sensitivity: 'base' });
-	}
+  // Alphabetically if comparing two strings of same length
+  if (typeof a === 'string' && typeof b === 'string') {
+    return a.localeCompare(b, undefined, { sensitivity: 'base' });
+  }
 
-	// Otherwise compare size of numbers
-	if (a < b) {
-		return -1;
-	}
-	if (a > b) {
-		return 1;
-	}
+  // Otherwise compare size of numbers
+  if (a < b) {
+    return -1;
+  }
+  if (a > b) {
+    return 1;
+  }
 
-	// Default
-	return 0;
+  // Default
+  return 0;
 }
 
 /**
@@ -42,7 +42,7 @@ function compareValuesByLength(a, b) {
  * @return {String}
  */
 function createMultipleSelectionText(values) {
-	return values.sort(compareValuesByLength).join(', ');
+  return values.sort(compareValuesByLength).join(', ');
 }
 
 /**
@@ -54,20 +54,20 @@ function createMultipleSelectionText(values) {
  * @return {String}
  */
 function getText(value, placeholder) {
-	let text;
-	if (Array.isArray(value)) {
-		if (value.length > 1) {
-			text = createMultipleSelectionText(value);
-		} else {
-			text = value[0];
-		}
-	} else {
-		text = value;
-	}
+  let text;
+  if (Array.isArray(value)) {
+    if (value.length > 1) {
+      text = createMultipleSelectionText(value);
+    } else {
+      text = value[0];
+    }
+  } else {
+    text = value;
+  }
 
-	return text || placeholder || '';
+  return text || placeholder || '';
 }
 
 export default {
-	getText,
+  getText,
 };

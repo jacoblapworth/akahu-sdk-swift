@@ -128,74 +128,74 @@ test.add(storyNames.touchTargets, () => {
               <XUIPanelSection className="xui-padding-xlarge">
                 <div className="xui-margin-bottom-large">
                   <XUIPill
-                    value="Medium"
                     avatarProps={{
                       value: 'M',
                     }}
-                    onDeleteClick={NOOP}
                     deleteButtonLabel="Delete"
+                    onDeleteClick={NOOP}
+                    value="Medium"
                   />
                   <XUIPill
-                    value="Medium"
                     avatarProps={{
                       value: 'M',
                     }}
-                    onDeleteClick={NOOP}
                     deleteButtonLabel="Delete"
+                    onDeleteClick={NOOP}
+                    value="Medium"
                   />
                   <XUIPill
-                    value="Medium"
                     avatarProps={{
                       value: 'M',
                     }}
-                    onDeleteClick={NOOP}
                     deleteButtonLabel="Delete"
+                    onDeleteClick={NOOP}
+                    value="Medium"
                   />
                 </div>
                 <div className="xui-margin-bottom-large">
                   <XUIPill
-                    value="Small"
-                    size="small"
                     avatarProps={{
                       value: 'Small',
                     }}
-                    onDeleteClick={NOOP}
                     deleteButtonLabel="Delete"
+                    onDeleteClick={NOOP}
+                    size="small"
+                    value="Small"
                   />
                   <XUIPill
-                    value="Small"
-                    size="small"
                     avatarProps={{
                       value: 'Small',
                     }}
-                    onDeleteClick={NOOP}
                     deleteButtonLabel="Delete"
+                    onDeleteClick={NOOP}
+                    size="small"
+                    value="Small"
                   />
                   <XUIPill
-                    value="Small"
-                    size="small"
                     avatarProps={{
                       value: 'Small',
                     }}
-                    onDeleteClick={NOOP}
                     deleteButtonLabel="Delete"
+                    onDeleteClick={NOOP}
+                    size="small"
+                    value="Small"
                   />
                 </div>
               </XUIPanelSection>
               <XUIPanelSection className="xui-padding-xlarge">
                 <XUITextInput
                   isFieldLayout
-                  placeholder="Pill"
                   leftElement={
                     <XUITextInputSideElement type="pill">
                       <XUIPill
-                        value="Pill"
                         avatarProps={{ value: 'Pill' }}
-                        onDeleteClick={NOOP}
                         deleteButtonLabel="Delete"
+                        onDeleteClick={NOOP}
+                        value="Pill"
                       />
                     </XUITextInputSideElement>
                   }
+                  placeholder="Pill"
                   rightElement={
                     <XUITextInputSideElement type="icon">
                       <XUIIconButton ariaLabel="Overflow menu" icon={overflowIcon} />
@@ -211,8 +211,8 @@ test.add(storyNames.touchTargets, () => {
               <XUIPanelSection className="xui-padding-xlarge">
                 <XUITable
                   checkAllRowsLabel="Select all rows"
-                  checkedIds={{ abc123: true, def456: false }}
                   checkOneRowLabel="Select row"
+                  checkedIds={{ abc123: true, def456: false }}
                   createOverflowMenu={() => [<XUIPickItem>Edit</XUIPickItem>]}
                   data={{
                     abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
@@ -223,18 +223,18 @@ test.add(storyNames.touchTargets, () => {
                   overflowMenuTitle="More row options"
                 >
                   <XUITableColumn
-                    head={<XUITableCell>Fruit</XUITableCell>}
                     body={({ fruit }) => <XUITableCell>{fruit}</XUITableCell>}
+                    head={<XUITableCell>Fruit</XUITableCell>}
                   />
 
                   <XUITableColumn
-                    head={<XUITableCell>Color</XUITableCell>}
                     body={({ color }) => <XUITableCell>{color}</XUITableCell>}
+                    head={<XUITableCell>Color</XUITableCell>}
                   />
 
                   <XUITableColumn
-                    head={<XUITableCell>Price / kg</XUITableCell>}
                     body={({ price }) => <XUITableCell>{`$${price}`}</XUITableCell>}
+                    head={<XUITableCell>Price / kg</XUITableCell>}
                   />
                 </XUITable>
               </XUIPanelSection>

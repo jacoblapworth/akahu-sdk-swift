@@ -17,7 +17,7 @@ import { variations, storiesWithVariationsKindName } from './variations';
 import { positionOptions } from '../../positioning/private/constants';
 
 const createTriggerInput = props => (
-  <XUITextInput placeholder="Placeholder text" label="Input label" isLabelHidden {...props} />
+  <XUITextInput isLabelHidden label="Input label" placeholder="Placeholder text" {...props} />
 );
 
 const createTriggerButton = () => <XUIButton fullWidth="always">A button</XUIButton>;
@@ -33,19 +33,19 @@ const createHandlerTriggerButton = () => {
     console.log('blur');
   };
   return (
-    <XUIButton fullWidth="always" onClick={clickHandl} onFocus={focusHandl} onBlur={blurHandl}>
+    <XUIButton fullWidth="always" onBlur={blurHandl} onClick={clickHandl} onFocus={focusHandl}>
       No tip on click
     </XUIButton>
   );
 };
 
 const createTriggerLink = () => (
-  <a href="https://www.xero.com" target="_blank" rel="noopener noreferrer">
+  <a href="https://www.xero.com" rel="noopener noreferrer" target="_blank">
     A link
   </a>
 );
 
-const createTriggerIcon = () => <XUIIconButton icon={info} ariaLabel="Info" />;
+const createTriggerIcon = () => <XUIIconButton ariaLabel="Info" icon={info} />;
 
 const createTriggerSpan = () => (
   <span style={{ textDecoration: 'underline' }}>Beauty is everywhere</span>
@@ -116,7 +116,7 @@ storiesWithKnobs.add('Playground', () => {
           width: '100%',
         }}
       >
-        <XUITooltip wrapperClassName="xui-u-fullwidth" trigger={createTriggerInput()} {...props}>
+        <XUITooltip trigger={createTriggerInput()} wrapperClassName="xui-u-fullwidth" {...props}>
           What do I do...
         </XUITooltip>
       </div>

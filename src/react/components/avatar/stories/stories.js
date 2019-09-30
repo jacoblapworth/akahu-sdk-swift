@@ -53,7 +53,7 @@ storiesWithKnobs.add('Playground', () => {
     }
 
     return (
-      <XUIAvatarGroup maxAvatars={maxAvatars} avatarSize={size}>
+      <XUIAvatarGroup avatarSize={size} maxAvatars={maxAvatars}>
         {generatedAvatars}
       </XUIAvatarGroup>
     );
@@ -108,9 +108,9 @@ variations.forEach(variation => {
           return (
             <XUIAvatarGroup
               avatarSize={size}
-              maxAvatars={maxAvatars}
-              key={idx}
               className="xui-margin-small"
+              key={idx}
+              maxAvatars={maxAvatars}
             >
               {avatars}
             </XUIAvatarGroup>
@@ -129,8 +129,8 @@ variations.forEach(variation => {
         <XUIAvatar
           key={idx}
           {...variationMinusStoryDetails}
-          size={size}
           className="xui-margin-small"
+          size={size}
         />
       ));
     }

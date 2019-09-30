@@ -21,8 +21,8 @@ storiesWithKnobs.add('Playground', () => {
 
   return (
     <XUICapsule
-      isValid={boolean('is valid', true)}
       href={href}
+      isValid={boolean('is valid', true)}
       onClick={isInteractive ? interactiveOnClick : null}
     >
       Capsule

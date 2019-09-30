@@ -12,22 +12,15 @@ import { picklistClassName } from './private/constants';
  * @extends {PureComponent}
  */
 export default class PicklistDivider extends PureComponent {
-	render() {
-		const {
-			className,
-		} = this.props;
+  render() {
+    const { className } = this.props;
 
-		const classes = cn(
-			`${picklistClassName}--divider`,
-			className,
-		);
+    const classes = cn(`${picklistClassName}--divider`, className);
 
-		return (
-			<li className={classes} />
-		);
-	}
+    return <li className={classes} />;
+  }
 }
 
 PicklistDivider.propTypes = {
-	className: PropTypes.string,
+  className: PropTypes.string,
 };

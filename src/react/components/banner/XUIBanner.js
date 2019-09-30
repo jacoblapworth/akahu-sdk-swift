@@ -19,13 +19,13 @@ export default function XUIBanner({
 }) {
   const closeButton = onCloseClick && (
     <XUIIconButton
-      icon={crossIcon}
       ariaLabel="Close"
       className={`${ns}-banner--close`}
-      title="Close"
+      icon={crossIcon}
       onClick={onCloseClick}
-      size="small"
       qaHook={qaHook && `${qaHook}-close--button`}
+      size="small"
+      title="Close"
     />
   );
 
@@ -44,7 +44,7 @@ export default function XUIBanner({
   );
 
   return (
-    <div data-automationid={qaHook} className={classes} role={bannerRole}>
+    <div className={classes} data-automationid={qaHook} role={bannerRole}>
       {closeButton}
       {children}
     </div>

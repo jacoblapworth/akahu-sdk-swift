@@ -12,35 +12,23 @@ import { picklistClassName } from './private/constants';
  * @extends {PureComponent}
  */
 export default class PicklistHeader extends PureComponent {
-	render() {
-		const {
-			id,
-			className,
-			ariaRole,
-			children,
-		} = this.props;
+  render() {
+    const { id, className, ariaRole, children } = this.props;
 
-		const classes = cn(
-			`${picklistClassName}--header`,
-			className,
-		);
+    const classes = cn(`${picklistClassName}--header`, className);
 
-		return (
-			<li
-				className={classes}
-				role={ariaRole}
-				id={id}
-			>
-				<span className={`${picklistClassName}--header--text`}>{children}</span>
-			</li>
-		);
-	}
+    return (
+      <li className={classes} id={id} role={ariaRole}>
+        <span className={`${picklistClassName}--header--text`}>{children}</span>
+      </li>
+    );
+  }
 }
 
 PicklistHeader.propTypes = {
-	children: PropTypes.node,
-	className: PropTypes.string,
-	id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-	/** ARIA attribute defining what purpose this item serves. */
-	ariaRole: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** ARIA attribute defining what purpose this item serves. */
+  ariaRole: PropTypes.string,
 };

@@ -35,22 +35,22 @@ export default class XUIIconButton extends PureComponent {
     return (
       <XUIButton
         {...otherProps}
-        ref={n => (this.rootNode = n && n.rootNode)}
-        variant="unstyled"
+        aria-label={ariaLabel}
         className={cn(
           className,
           iconSizeClass,
           variantClassNames[isInverted ? 'icon-inverted' : 'icon'],
         )}
-        aria-label={ariaLabel}
+        ref={n => (this.rootNode = n && n.rootNode)}
+        variant="unstyled"
       >
         <XUIIcon
-          icon={icon}
-          size={iconSize}
+          color={iconColor}
           desc={desc}
+          icon={icon}
           role={role}
           rotation={rotation}
-          color={iconColor}
+          size={iconSize}
         />
         {!disableTouchTargetFix && <XUITouchTarget />}
       </XUIButton>
@@ -102,7 +102,7 @@ XUIIconButton.propTypes = {
   rel: PropTypes.string,
 
   /** The HTML tabIndex attribute value */
-  tabIndex: PropTypes.number,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   /** The `target` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
   target: PropTypes.string,

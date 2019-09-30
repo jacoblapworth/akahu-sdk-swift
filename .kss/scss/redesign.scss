@@ -1,82 +1,81 @@
 // Header
 
 .ds-xui-logo {
-	background-image: url(./kss-assets/logo.svg);
-	background-repeat: no-repeat;
-	background-position-y: center;
-	h1 {
-		text-indent: -9999em;
-		margin: 0;
-	}
-	@include xui-breakpoint-small-to-medium {
-		background-size: 40px;
-		transform: translateY(-5%);
-	}
+  background-image: url(./kss-assets/logo.svg);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  h1 {
+    text-indent: -9999em;
+    margin: 0;
+  }
+  @include xui-breakpoint-small-to-medium {
+    background-size: 40px;
+    transform: translateY(-5%);
+  }
 }
 
 .ds-nav--header .ds-xui-logo {
-	flex: none;
-	display: block;
-	@include xui-breakpoint-medium-up {
-		width: 100%;
-		min-height: calc(20vh);
-		background-position: 50% 50%;
-	}
+  flex: none;
+  display: block;
+  @include xui-breakpoint-medium-up {
+    width: 100%;
+    min-height: calc(20vh);
+    background-position: 50% 50%;
+  }
 }
 
 .ds-nav-icon {
-	margin: -5px -8px -6px;
-	position: absolute;
-	right: $ds-nav-gutter;
-	transition: 0.1s all ease;
+  margin: -5px -8px -6px;
+  position: absolute;
+  right: $ds-nav-gutter;
+  transition: 0.1s all ease;
 }
 
-
 .ds-definition {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 3vh 0;
-	font-size: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3vh 0;
+  font-size: 15px;
 }
 
 .ds-definition--term,
 .ds-definition--description {
-	padding-top: 0.7rem;
-	padding-bottom: 0.7rem;
-	border-bottom: 1px solid $ds-border-color;
-	&:first-of-type {
-		border-top: 1px solid $ds-border-color;
-	}
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid $ds-border-color;
+  &:first-of-type {
+    border-top: 1px solid $ds-border-color;
+  }
 }
 
 .ds-definition--term {
-	font-weight: bold;
-	color: $ds-definition-color;
-	flex: 1 0 20%;
-	.ds-definition-two-cols & {
-		flex-basis: 40%;
-	}
+  font-weight: bold;
+  color: $ds-definition-color;
+  flex: 1 0 20%;
+  .ds-definition-two-cols & {
+    flex-basis: 40%;
+  }
 }
 
 .ds-definition--description {
-	display: flex;
-	flex: 1 0 80%;
-	margin:0;
-	.ds-definition-two-cols & {
-		flex-basis: 60%;
-	}
-	& > * {
-		margin: 0;
-		flex: 1 0 60%;
-		&:first-child {
-			flex-basis: 40%;
-		}
-		&:only-child {
-			flex-basis: 100%;
-		}
-	}
+  display: flex;
+  flex: 1 0 80%;
+  margin: 0;
+  .ds-definition-two-cols & {
+    flex-basis: 60%;
+  }
+  & > * {
+    margin: 0;
+    flex: 1 0 60%;
+    &:first-child {
+      flex-basis: 40%;
+    }
+    &:only-child {
+      flex-basis: 100%;
+    }
+  }
 }
 
 .ds-note {
-	font-size: 85%;
+  font-size: 85%;
 }

@@ -1,41 +1,41 @@
-@import "../vars";
-@import "../mixins";
+@import '../vars';
+@import '../mixins';
 
 .#{$ns}-buttongroup {
-	display: inline-flex;
+  display: inline-flex;
 
-	> .#{$ns}-button-grouped:first-child,
-	> :first-child > .#{$ns}-button {
-		border-bottom-left-radius: $xui-radius;
-		border-top-left-radius: $xui-radius;
-	}
+  > .#{$ns}-button-grouped:first-child,
+  > :first-child > .#{$ns}-button {
+    border-bottom-left-radius: $xui-radius;
+    border-top-left-radius: $xui-radius;
+  }
 
-	> .#{$ns}-button-grouped:nth-child(n+2),
-	> :nth-child(n+2) > .#{$ns}-button {
-		border-left: 0;
-		margin-left: 1px;
+  > .#{$ns}-button-grouped:nth-child(n + 2),
+  > :nth-child(n + 2) > .#{$ns}-button {
+    border-left: 0;
+    margin-left: 1px;
 
-		&.#{$ns}-button-standard {
-			margin-left: 0;
-		}
-	}
+    &.#{$ns}-button-standard {
+      margin-left: 0;
+    }
+  }
 
-	> .#{$ns}-button-grouped:last-child,
-	> :last-child > .#{$ns}-button {
-		border-bottom-right-radius: $xui-radius;
-		border-top-right-radius: $xui-radius;
-	}
+  > .#{$ns}-button-grouped:last-child,
+  > :last-child > .#{$ns}-button {
+    border-bottom-right-radius: $xui-radius;
+    border-top-right-radius: $xui-radius;
+  }
 }
 
 .#{$ns}-button-grouped {
-	border-radius: 0;
+  border-radius: 0;
 
-	&:hover {
-		z-index: 2; // show full border on hover
-	}
+  &:hover {
+    z-index: 2; // show full border on hover
+  }
 
-	&:focus,
-	&:active {
-		z-index: 3; // override full border on focus/active
-	}
+  &:focus,
+  &:active {
+    z-index: 3; // override full border on focus/active
+  }
 }

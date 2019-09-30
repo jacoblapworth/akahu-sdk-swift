@@ -11,7 +11,7 @@ const XUIAutocompleterEmptyState = props => (
     data-automationid={props.qaHook}
     id={props.id}
   >
-    <XUIIcon icon={props.icon} size="large" isBoxed />
+    <XUIIcon icon={props.icon} isBoxed size="large" />
     {props.children}
   </div>
 );

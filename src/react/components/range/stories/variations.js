@@ -6,9 +6,9 @@ const storiesWithVariationsKindName = 'Instances/XUIRange';
 const leftElement = {
   leftElement: (
     <XUIAvatar
-      value="left"
       className="xui-margin-small"
       imageUrl="https://xui.xero.com/static/xpert-avatar.png"
+      value="left"
     />
   ),
 };

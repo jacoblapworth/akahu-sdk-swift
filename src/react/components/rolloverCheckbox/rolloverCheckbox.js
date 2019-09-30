@@ -97,17 +97,17 @@ export default class XUIRolloverCheckbox extends PureComponent {
 
     return (
       <div
-        id={id}
         className={cn(
           `${baseClass}--target`,
           isDisabled && `${baseClass}--target-disabled`,
           className,
         )}
+        data-automationid={qaHook}
+        id={id}
+        onBlur={this.onBlur}
+        onFocus={this.onFocus}
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}
-        data-automationid={qaHook}
         role="presentation"
       >
         <div className={cn(baseClass, `${baseClass}-has-${checkboxSize}-checkbox`)}>
@@ -115,20 +115,20 @@ export default class XUIRolloverCheckbox extends PureComponent {
             {rolloverComponent}
           </div>
           <XUICheckbox
-            ref={c => (this._checkbox = c)}
-            onChange={this.onSelect}
-            isChecked={isChecked}
-            isDisabled={isDisabled}
-            isLabelHidden
-            htmlClassName={`${baseClass}--checkbox`}
-            qaHook={qaHook && `${qaHook}--checkbox`}
             className={cn(
               showRollover && `${baseClass}-hidden`,
               `${baseClass}--styledcheckboxradio`,
             )}
-            tabIndex={0}
+            htmlClassName={`${baseClass}--checkbox`}
+            isChecked={isChecked}
+            isDisabled={isDisabled}
+            isLabelHidden
             labelId={ariaLabelledBy}
+            onChange={this.onSelect}
+            qaHook={qaHook && `${qaHook}--checkbox`}
+            ref={c => (this._checkbox = c)}
             size={checkboxSize}
+            tabIndex={0}
           >
             {label}
           </XUICheckbox>

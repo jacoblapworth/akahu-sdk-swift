@@ -5,16 +5,16 @@ const { logTaskTitle } = require('../helpers');
 const watchPaths = ['src/sass/*', '!src/sass/tmp/*'];
 
 gaze(watchPaths, (err, watcher) => {
-	logTaskTitle(__filename);
+  logTaskTitle(__filename);
 
-	// On changed/added/deleted
-	watcher.on('all', (event, filepath) => {
-		if (filepath === '') {
-			return;
-		}
+  // On changed/added/deleted
+  watcher.on('all', (event, filepath) => {
+    if (filepath === '') {
+      return;
+    }
 
-		if (/.\.scss$/.test(filepath)) {
-			postcssXui();
-		}
-	});
+    if (/.\.scss$/.test(filepath)) {
+      postcssXui();
+    }
+  });
 });

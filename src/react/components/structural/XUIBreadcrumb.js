@@ -17,7 +17,7 @@ const getCrumbLabel = crumb => {
     return crumb.label;
   }
   return (
-    <a href={crumb.href} className={`${baseClass}--link`}>
+    <a className={`${baseClass}--link`} href={crumb.href}>
       {crumb.label}
     </a>
   );
@@ -36,14 +36,14 @@ export default class XUIBreadcrumb extends PureComponent {
         typeof crumbContent === 'string' && `${baseClass}-no-link`,
       );
       crumbElements.push(
-        <li key={itemIndex} className={crumbClasses}>
+        <li className={crumbClasses} key={itemIndex}>
           {crumbContent}
         </li>,
       );
       if (itemIndex !== breadcrumbs.length - 1) {
         crumbElements.push(
-          <li key={`arrow-${itemIndex}`} className={`${baseClass}-arrow`}>
-            <XUIIcon className={`${baseClass}--icon`} rotation={270} icon={arrow} isBoxed />
+          <li className={`${baseClass}-arrow`} key={`arrow-${itemIndex}`}>
+            <XUIIcon className={`${baseClass}--icon`} icon={arrow} isBoxed rotation={270} />
           </li>,
         );
       }

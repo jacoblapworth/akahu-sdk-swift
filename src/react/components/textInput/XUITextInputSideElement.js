@@ -4,56 +4,49 @@ import cn from 'classnames';
 import { sideElementBaseClass } from './private/constants';
 
 const typeClasses = {
-	text: `${sideElementBaseClass}-text`,
-	icon: `${sideElementBaseClass}-icon`,
-	button: `${sideElementBaseClass}-button`,
-	avatar: `${sideElementBaseClass}-avatar`,
-	pill: `${sideElementBaseClass}-pill`,
+  text: `${sideElementBaseClass}-text`,
+  icon: `${sideElementBaseClass}-icon`,
+  button: `${sideElementBaseClass}-button`,
+  avatar: `${sideElementBaseClass}-avatar`,
+  pill: `${sideElementBaseClass}-pill`,
 };
 
 export default class XUITextInputSideElement extends PureComponent {
-	render() {
-		const {
-			backgroundColor,
-			className,
-			qaHook,
-			children,
-			alignment,
-			type,
-		} = this.props;
+  render() {
+    const { backgroundColor, className, qaHook, children, alignment, type } = this.props;
 
-		const classes = cn(
-			sideElementBaseClass,
-			className,
-			`${sideElementBaseClass}-align-${alignment}`,
-			typeClasses[type],
-			backgroundColor && `${sideElementBaseClass}-${backgroundColor}`,
-			backgroundColor && `${sideElementBaseClass}-has-background`,
-		);
+    const classes = cn(
+      sideElementBaseClass,
+      className,
+      `${sideElementBaseClass}-align-${alignment}`,
+      typeClasses[type],
+      backgroundColor && `${sideElementBaseClass}-${backgroundColor}`,
+      backgroundColor && `${sideElementBaseClass}-has-background`,
+    );
 
-		return (
-			<div className={classes} data-automationid={qaHook}>
-				{children}
-			</div>
-		);
-	}
+    return (
+      <div className={classes} data-automationid={qaHook}>
+        {children}
+      </div>
+    );
+  }
 }
 
 XUITextInputSideElement.propTypes = {
-	children: PropTypes.node,
-	qaHook: PropTypes.string,
-	/** Classes to apply to the container element */
-	className: PropTypes.string,
-	/** The background colour for the side element - should only be used with
-	 * icons where appropriate */
-	backgroundColor: PropTypes.string,
-	/** Vertical alignment of the content */
-	alignment: PropTypes.oneOf(['top', 'center', 'bottom']),
-	/** Type of the contents being used */
-	type: PropTypes.oneOf(Object.keys(typeClasses)),
+  children: PropTypes.node,
+  qaHook: PropTypes.string,
+  /** Classes to apply to the container element */
+  className: PropTypes.string,
+  /** The background colour for the side element - should only be used with
+   * icons where appropriate */
+  backgroundColor: PropTypes.string,
+  /** Vertical alignment of the content */
+  alignment: PropTypes.oneOf(['top', 'center', 'bottom']),
+  /** Type of the contents being used */
+  type: PropTypes.oneOf(Object.keys(typeClasses)),
 };
 
 XUITextInputSideElement.defaultProps = {
-	alignment: 'top',
-	type: 'icon',
+  alignment: 'top',
+  type: 'icon',
 };

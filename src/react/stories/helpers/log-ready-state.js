@@ -20,8 +20,8 @@ const isHeadless = /Headless/.test(navigator.userAgent);
 // + https://github.com/garris/BackstopJS/issues/739
 // + https://github.com/garris/BackstopJS/issues/674
 const logReadyState = readyState =>
-	// eslint-disable-next-line no-console
-	isHeadless && setInterval(() => console.log(readyState), 100);
+  // eslint-disable-next-line no-console
+  isHeadless && setInterval(() => console.log(readyState), 100);
 
 // Because Backstop creates a new instance for every visual test we do not need
 // to "clear" the "setInterval" because it will be destroyed when Backstop finishes.

@@ -1,4 +1,3 @@
-
 <div class="xui-margin-vertical">
 	<a href="../section-building-blocks-controls-button.html#building-blocks-controls-button-12" isDocLink>Actions in the XUI Documentation</a>
 </div>
@@ -14,9 +13,13 @@ import { XUIActions } from '../../structural';
 import XUIButton from '../../button';
 
 <XUIActions
-	primaryAction={<XUIButton key='one' variant="primary">Continue</XUIButton>}
-	secondaryAction={<XUIButton key='two'>Cancel</XUIButton>}
-/>
+  primaryAction={
+    <XUIButton key="one" variant="primary">
+      Continue
+    </XUIButton>
+  }
+  secondaryAction={<XUIButton key="two">Cancel</XUIButton>}
+/>;
 ```
 
 #### Linear action
@@ -28,8 +31,12 @@ import { XUIActions } from '../../structural';
 import XUIButton from '../../button';
 
 <XUIActions
-	isLinear
-	primaryAction={<XUIButton key='one' variant="primary">Next</XUIButton>}
-	secondaryAction={<XUIButton key='two'>Previous</XUIButton>}
-/>
+  isLinear
+  primaryAction={
+    <XUIButton key="one" variant="primary">
+      Next
+    </XUIButton>
+  }
+  secondaryAction={<XUIButton key="two">Previous</XUIButton>}
+/>;
 ```

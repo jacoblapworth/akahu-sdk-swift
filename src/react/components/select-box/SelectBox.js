@@ -114,13 +114,13 @@ export default class SelectBox extends Component {
 
     const dropdown = (
       <DropDown
+        // These aria attributes currently go nowhere
+        ariaAttributes={getAriaAttributes(this.wrapperIds.control, this.props)}
         className={dropDownClasses}
+        id={selectBox.selectId}
         onSelect={onSelect}
         qaHook={setQaHook(qaHook, qaHooks.dropdown)}
         restrictFocus={restrictFocus}
-        id={selectBox.selectId}
-        // These aria attributes currently go nowhere
-        ariaAttributes={getAriaAttributes(this.wrapperIds.control, this.props)}
       >
         <Picklist>
           {React.Children.map(children, child => {
@@ -135,10 +135,10 @@ export default class SelectBox extends Component {
     );
 
     return (
-      <div data-automationid={qaHook} className={containerClasses}>
+      <div className={containerClasses} data-automationid={qaHook}>
         <XUIControlWrapper
-          qaHook={setQaHook(qaHook, qaHooks.label)}
           isFieldLayout={isFieldLayout}
+          qaHook={setQaHook(qaHook, qaHooks.label)}
           wrapperIds={this.wrapperIds}
           {...{
             isLabelHidden,
@@ -157,16 +157,16 @@ export default class SelectBox extends Component {
               trigger
             ) : (
               <DropDownToggled
+                closeOnSelect={closeAfterSelection}
+                dropdown={dropdown}
+                forceDesktop={forceDesktop}
+                isBlock
+                isHidden={!isOpen}
+                matchTriggerWidth={matchTriggerWidth}
+                onClose={onDropdownHide}
+                qaHook={setQaHook(qaHook, qaHooks.dropdownToggled)}
                 ref={c => (selectBox.ddt = c)}
                 trigger={trigger}
-                dropdown={dropdown}
-                onClose={onDropdownHide}
-                closeOnSelect={closeAfterSelection}
-                isHidden={!isOpen}
-                forceDesktop={forceDesktop}
-                matchTriggerWidth={matchTriggerWidth}
-                qaHook={setQaHook(qaHook, qaHooks.dropdownToggled)}
-                isBlock
               />
             )}
           </div>

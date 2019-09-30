@@ -39,18 +39,17 @@ export default class NestedPicklistTrigger extends PureComponent {
     return (
       <label
         {...secondaryProps}
-        htmlFor={`${id}-checkbox`}
-        ref={n => (this.rootNode = n)}
-        data-automationid={qaHook}
+        aria-label={ariaLabel}
         className={classNames}
+        data-automationid={qaHook}
+        htmlFor={`${id}-checkbox`}
         onClick={onClick}
+        onFocus={onMouseOver}
         onKeyDown={onClick}
         onMouseOver={onMouseOver}
-        onFocus={onMouseOver}
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+        ref={n => (this.rootNode = n)}
         role="button"
         tabIndex={0}
-        aria-label={ariaLabel}
       >
         {wrappedLeft}
         {hasChildren ? <span className={itemTextClassName}>{children}</span> : null}

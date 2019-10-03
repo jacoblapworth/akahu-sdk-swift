@@ -140,7 +140,7 @@ exports[`< Picklist /> example taking settings from first child and giving to al
 
 exports[`< Picklist /> example with most compatible options 1`] = `
 <ul
-  className="xui-picklist custom-picklist-class xui-picklist-horizontal xui-picklist-small"
+  className="xui-picklist xui-picklist-small custom-picklist-class xui-picklist-horizontal"
   data-automationid="picklist-example"
   id="picklistId"
   role="presentation"

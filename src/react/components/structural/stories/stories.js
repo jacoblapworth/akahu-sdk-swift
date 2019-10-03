@@ -70,8 +70,8 @@ const exampleTabs = (
     </XUIPickitem>
   </XUIPicklist>
 );
-const longExampleTabs = (
-  <XUIPicklist secondaryProps={{ role: 'menu' }}>
+const longExampleTabs = breakpoint => (
+  <XUIPicklist secondaryProps={{ role: 'menu' }} swapAtBreakpoint={breakpoint}>
     <XUIPickitem ariaRole="menuitem" id="1">
       Organisation Settings
     </XUIPickitem>
@@ -340,7 +340,7 @@ handleVariation(pageHeaderVariations, variationMinusStoryDetails => {
   }
   if (variationMinusStoryDetails.tabs) {
     variationMinusStoryDetails.tabs = variationMinusStoryDetails.longContent
-      ? longExampleTabs
+      ? longExampleTabs(variationMinusStoryDetails.swapAtBreakpoint)
       : exampleTabs;
   }
   if (variationMinusStoryDetails.actions) {

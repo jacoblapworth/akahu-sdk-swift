@@ -44,6 +44,17 @@ const pageHeaderVariations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: `pageheader with title and tabs (swap to tabDropDown in small breakpoint)`,
+    viewports: desktopPlus320,
+    type: 'pageheader',
+    title: 'Testing tabDropDown Swap',
+    tabs: true,
+    customDecorator: true,
+    longContent: true,
+    swapAtBreakpoint: 'small',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: `pageheader with title and tabs hover`,
     viewports: desktopPlus320,
     type: 'pageheader',

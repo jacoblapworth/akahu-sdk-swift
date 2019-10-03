@@ -120,7 +120,11 @@
     flex-grow: 0;
   }
   .#{$ns}-pageheading--tabs {
+    flex-grow: 1;
     min-height: $xui-navigation-height;
+  }
+  .#{$ns}-pickitem {
+    flex-grow: 0;
   }
   &.#{$ns}-pageheading--rightcontent-no-tabs {
     align-self: flex-end;

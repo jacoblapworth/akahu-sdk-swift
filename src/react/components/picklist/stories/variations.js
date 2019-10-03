@@ -273,6 +273,37 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Tab Dropdown with leftelement and secondarytext',
+    panelSize: '100vw',
+    viewports: desktopPlus320,
+    lists: [
+      {
+        isHorizontal: true,
+        swapAtBreakpoint: 'small',
+        shouldTruncate: true,
+        items: [
+          {
+            value: 'Status',
+            secondaryElement: 'Draft, Sent',
+            isSelected: true,
+            leftElement: <XUIIcon icon={iconsList[3]} />,
+          },
+          {
+            value: 'Task & expenses',
+            secondaryElement: '3772',
+            leftElement: <XUIIcon icon={iconsList[3]} />,
+          },
+          {
+            value: 'Created by',
+            secondaryElement: 'Tim Redmond +2 others',
+            leftElement: <XUIAvatar size="small" value="Tim Redmond" />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with Multiselect',
     lists: [
       {

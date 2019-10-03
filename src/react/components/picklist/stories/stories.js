@@ -24,6 +24,7 @@ import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';
+import { userBreakpoints } from '../../helpers/breakpoints';
 
 const itemLabels = [
   'Hello, I am an item',
@@ -126,6 +127,7 @@ storiesWithKnobs.add('Playground', () => {
         secondaryProps={{ role: 'listbox' }}
         shouldTruncate={shouldTruncate}
         size={picklistSize}
+        swapAtBreakpoint={select('swapAtBreakpoint', [null, ...Object.keys(userBreakpoints)])}
       >
         <XUIPickitem
           id="1"

@@ -19,15 +19,17 @@ import { storyNames, compositionKind } from '../tests';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withReadme } from 'storybook-readme';
-import readme from './README.md';
+// TODO: storybook-readme is commented out until the package fixes issues with IE11.
+// import { withReadme } from 'storybook-readme';
+// import readme from './README.md';
 
 const NOOP = () => {};
 
 const test = storiesOf(compositionKind, module);
 
 test.addDecorator(revealTouchTargets);
-test.addDecorator(withReadme(readme));
+// TODO: storybook-readme is commented out until the package fixes issues with IE11.
+// test.addDecorator(withReadme(readme));
 
 test.add(storyNames.touchTargets, () => {
   class TouchTargets extends React.Component {

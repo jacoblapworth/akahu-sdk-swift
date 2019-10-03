@@ -19,22 +19,29 @@ const sizeVariations = Object.keys(sizes).map(size => ({
   size,
 }));
 
-const longContent = {
-  children: 'Located in another part of the world with variable time zones',
-  storyKind: storiesWithVariationsKindName,
-  storyTitle: 'with long content',
-  viewports: desktopPlus320,
-};
-
-const shortContent = {
-  children: 'Z',
-  storyKind: storiesWithVariationsKindName,
-  storyTitle: 'with short content',
-  viewports: desktopPlus320,
-};
+const variations = [
+  ...variantVariations,
+  ...sizeVariations,
+  {
+    children: 'Located in another part of the world with variable time zones',
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with long content',
+    viewports: desktopPlus320,
+  },
+  {
+    children: 'Located in another part of the world with variable time zones',
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with long content truncated',
+  },
+  {
+    children: 'Z',
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with short content',
+  },
+];
 
 module.exports = {
   storiesWithVariationsKindName,
-  variations: [...variantVariations, ...sizeVariations, longContent, shortContent],
+  variations,
   NOOP,
 };

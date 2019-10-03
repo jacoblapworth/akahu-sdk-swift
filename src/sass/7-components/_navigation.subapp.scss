@@ -102,6 +102,8 @@
   @include xui-padding-left($xui-s-xsmall);
 }
 .#{$ns}-pageheading--tags {
+  max-width: 100%;
+
   @include xui-padding-left($xui-s-xsmall);
   .#{$ns}-tag:not(:last-of-type) {
     margin-right: $xui-s-xsmall;

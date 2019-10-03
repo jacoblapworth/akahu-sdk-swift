@@ -152,6 +152,11 @@
   &-is-block {
     display: block;
   }
+
+  &.#{$ns}-tooltip-limitwidth {
+    max-width: 100%;
+    min-width: $xui-minimum-touch-target;
+  }
 }
 
 .#{$ns}-positioningInline {

@@ -27,11 +27,20 @@ const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
+  const { storyTitle, storyKind, ...props } = variation;
+  const isTruncated = storyTitle.endsWith('truncated');
+
   storiesWithVariations.add(variation.storyTitle, () => {
     const variationMinusStoryDetails = { ...variation };
     variationMinusStoryDetails.storyKind = undefined;
     variationMinusStoryDetails.storyTitle = undefined;
 
-    return <XUITag {...variationMinusStoryDetails} />;
+    return isTruncated ? (
+      <div style={{ width: '100px' }}>
+        <XUITag {...variationMinusStoryDetails} />
+      </div>
+    ) : (
+      <XUITag {...variationMinusStoryDetails} />
+    );
   });
 });

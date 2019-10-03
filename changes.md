@@ -60,6 +60,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
   - For Pickitems with secondaryText and no leftElement.
     - `xui-pickitem-has-secondarytext`
 - Significant changes have been made to the markup and CSS for Page Headers to support an improved responsive experience. Please see the [documentation](https://xui.xero.com/16.0.0/section-compounds-navigation-page-header.html) for details on the new structure for page headers that have content more complex than a title alone.
+- Updated HTML structure for `Tag` component. Tags will be truncated instead of wrapping its content can't fit available space. When truncated, a tooltip will be added to display full text.
 
 ### Invisible touch targets
 

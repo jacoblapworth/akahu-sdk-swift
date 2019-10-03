@@ -11,16 +11,18 @@ describe('<XUITag/>', () => {
   it('renders with just the base class when no variant is passed in', () => {
     const wrapper = mount(<XUITag>Testing 💩</XUITag>);
     const tag = wrapper.find('span');
-    expect(tag.hasClass('xui-tag')).toBeTruthy();
+    expect(tag.at(0).hasClass('xui-tag')).toBeTruthy();
+    expect(tag.at(1).hasClass('xui-tagcontent')).toBeTruthy();
     Object.keys(variants)
       .map(key => variants[key])
-      .forEach(variantClass => expect(tag.hasClass(variantClass)).toEqual(false));
-    expect(tag.text()).toEqual('Testing 💩');
+      .forEach(variantClass => expect(tag.at(0).hasClass(variantClass)).toEqual(false));
+    expect(tag.at(1).text()).toEqual('Testing 💩');
   });
 
   it('renders with the correct variant classes', () => {
     Object.keys(variants).forEach(variant => {
-      const tag = shallow(<XUITag variant={variant}>Testing 💩</XUITag>);
+      const wrapper = mount(<XUITag variant={variant}>Testing 💩</XUITag>);
+      const tag = wrapper.find('.xui-tag');
       if (variants[variant]) {
         expect(tag.hasClass(variants[variant])).toEqual(true);
       }
@@ -29,7 +31,8 @@ describe('<XUITag/>', () => {
 
   it('renders with the correct size classes', () => {
     Object.keys(sizes).forEach(size => {
-      const tag = shallow(<XUITag size={size}>Testing 💩</XUITag>);
+      const wrapper = mount(<XUITag size={size}>Testing 💩</XUITag>);
+      const tag = wrapper.find('.xui-tag');
       if (sizes[size]) {
         expect(tag.hasClass(sizes[size])).toEqual(true);
       }
@@ -43,7 +46,11 @@ describe('<XUITag/>', () => {
   });
 
   it('renders a qaHook when passed in', () => {
-    const automationid = renderer.create(<XUITag qaHook="schwifty">Testing 💩</XUITag>);
+    const automationid = renderer.create(
+      <XUITag qaHook="schwifty" id="test">
+        Testing 💩
+      </XUITag>,
+    );
     expect(automationid).toMatchSnapshot();
   });
 });

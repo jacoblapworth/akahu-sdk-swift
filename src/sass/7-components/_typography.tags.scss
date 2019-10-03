@@ -19,19 +19,20 @@
 // Do: Use default or neutral tags for basic categorisation
 // Do: Use colored tags to indicate sentiment
 // Do: Use descriptive text like "Invoiced"
+// Do: Ensure tag copy is short and succinct
 // Warning: Always provide descriptive copy, as the meaning of colors is not universally understood.
 // Dont: Avoid using vague copy inside of tags
 //
-// First, add `xui-tag` to provide the correct layout, then add an optional modifier of `xui-tag-*` to specify sentiment and/or size.
+// First, add `xui-tag` to provide the correct layout, then add an optional modifier of `xui-tag-*` to specify sentiment and/or size. Don't forget to add another span inside with `xui-tagcontent`.
 //
 // Use descriptive text inside Tags to convey information so it’s still meaningful to people who can’t discern colour.
 //
 // Definitions:
-// Default: <span class="xui-tag xui-tag-medium">Default</span>: No class
-// Neutral: <span class="xui-tag xui-tag-medium xui-tag-neutral">Neutral</span>: `-neutral`
-// Positive: <span class="xui-tag xui-tag-medium xui-tag-positive">Positive</span>: `-positive`
-// Warning: <span class="xui-tag xui-tag-medium xui-tag-warning">Warning</span>: `-warning`
-// Negative: <span class="xui-tag xui-tag-medium xui-tag-negative">Negative</span>: `-negative`
+// Default: <span class="xui-tag xui-tag-medium"><span class="xui-tagcontent">Default</span></span>: No class
+// Neutral: <span class="xui-tag xui-tag-medium xui-tag-neutral"><span class="xui-tagcontent">Neutral</span></span>: `-neutral`
+// Positive: <span class="xui-tag xui-tag-medium xui-tag-positive"><span class="xui-tagcontent">Positive</span></span>: `-positive`
+// Warning: <span class="xui-tag xui-tag-medium xui-tag-warning"><span class="xui-tagcontent">Warning</span></span>: `-warning`
+// Negative: <span class="xui-tag xui-tag-medium xui-tag-negative"><span class="xui-tagcontent">Negative</span></span>: `-negative`
 //
 // Styleguide: Building Blocks.Identifiers.Tag.1
 
@@ -53,13 +54,25 @@
 //
 // Markup:
 // <div class="xui-margin-bottom">
-//   <span class="xui-tag xui-tag-medium">Invoiced</span>
+//   <span class="xui-tag xui-tag-medium">
+//     <span class="xui-tagcontent">
+//       Invoiced
+//     </span>
+//   </span>
 // </div>
 // <div class="xui-margin-bottom">
-//   <span class="xui-tag xui-tag-small">Invoiced</span>
+//   <span class="xui-tag xui-tag-small">
+//     <span class="xui-tagcontent">
+//       Invoiced
+//     </span>
+//   </span>
 // </div>
 // <div>
-//   <span class="xui-tag xui-tag-xsmall">Invoiced</span>
+//   <span class="xui-tag xui-tag-xsmall">
+//     <span class="xui-tagcontent">
+//       Invoiced
+//     </span>
+//   </span>
 // </div>
 //
 // Styleguide: Building Blocks.Identifiers.Tag.2
@@ -79,7 +92,11 @@
 //     </button>
 //     <h2 class="xui-isolationheader--title xui-margin-left-small">Diana Pebbles</h2>
 //     <h2 class="xui-isolationheader--secondary-title">INV 1028</h2>
-//     <span class="xui-tag xui-tag-medium xui-tag-negative">Overdue</span>
+//     <span class="xui-tag xui-tag-medium xui-tag-negative">
+//       <span class="xui-tagcontent">
+//         Overdue
+//       </span>
+//     </span>
 //   </div>
 // </header>
 // <div class="xui-panel xui-margin-bottom-2xlarge">
@@ -91,7 +108,11 @@
 //       <div class="xui-contentblockitem--maincontent">
 //         <div class="xui-contentblockitem--headings">
 //           <span class="xui-contentblockitem--primaryheading">Finn Clark</span>
-//           <span class="xui-tag xui-tag-small xui-tag-positive">Paid</span>
+//           <span class="xui-tag xui-tag-small xui-tag-positive">
+//             <span class="xui-tagcontent">
+//               Paid
+//             </span>
+//           </span>
 //         </div>
 //         <div class="xui-contentblockitem--description">
 //           <span class="xui-contentblockitem--description--text">Active 2h ago<span class="xui-margin-horizontal-xsmall">•</span><span>email.address@gmail.com</span></span>
@@ -123,7 +144,11 @@
 //       <li class="xui-pickitem xui-pickitem-small" role="treeitem">
 //         <button type="button" class="xui-pickitem--body">
 //           <span class="xui-pickitem--text">Professional Services</span>
-//           <span class="xui-tag xui-tag-xsmall xui-u-flex-justify-end">New</span>
+//           <span class="xui-tag xui-tag-xsmall xui-u-flex-justify-end">
+//             <span class="xui-tagcontent">
+//               New
+//             </span>
+//           </span>
 //         </button>
 //       </li>
 //       <li class="xui-pickitem xui-pickitem-small" role="treeitem">
@@ -137,7 +162,48 @@
 //
 // Styleguide: Building Blocks.Identifiers.Tag.3
 
+// Truncated Tags
+//
+// Tags that don't fit their containers are truncated and should have tooltips to describe the full content when a tag is hovered.
+//
+// Markup:
+// <div style="width:200px;">
+//   <span class="xui-tag xui-tag-positive xui-tag-small">
+//     <span class="xui-tooltip xui-tooltip-limitwidth xui-tooltip-tipopen">
+//       <span class="xui-tagcontent xui-tag-is-block" role="status" aria-describedby="replace-with-tag-id">
+//         Test for a very long tag in a 200px container.
+//       </span>
+//       <span class="xui-positioningInline" style="flex-direction: row; top: -30px;">
+//         <span aria-hidden="true" class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-topcenter" id="replace-with-tag-id" role="tooltip" style="max-width: 220px;">
+//           Test for a very long tag in a 200px container.
+//         </span>
+//       </span>
+//     </span>
+//   </span>
+// </div>
+//
+// Styleguide: Building Blocks.Identifiers.Tag.4
+
 .#{$ns}-tag {
+  max-width: 100%;
+  min-width: $xui-minimum-touch-target;
+  display: inline-grid; // now long tags without parents take only screen width, not more.
+
+  .#{$ns}-tooltip {
+    cursor: initial;
+  }
+
+  .#{$ns}-tagcontent {
+    display: inline-block;
+  }
+
+  .#{$ns}-tag-is-block {
+    display: block;
+  }
+}
+
+.#{$ns}-tagcontent {
+  @include xui-text-truncated;
   background-color: $xui-tag-bg-color;
   border-radius: $xui-radius;
   box-shadow: inset 0 0 0 1px $xui-tag-shadow-color;
@@ -147,39 +213,40 @@
   padding: 0 $xui-s-2xsmall;
   text-align: center;
   vertical-align: middle;
-}
+  max-width: 100%;
 
-.#{$ns}-tag-medium {
-  @include xui-text-medium;
-}
+  .#{$ns}-tag-medium & {
+    @include xui-text-medium;
+  }
 
-.#{$ns}-tag-small {
-  @include xui-text-small;
-}
+  .#{$ns}-tag-small & {
+    @include xui-text-small;
+  }
 
-.#{$ns}-tag-xsmall {
-  @include xui-text-xsmall;
-}
+  .#{$ns}-tag-xsmall & {
+    @include xui-text-xsmall;
+  }
 
-.#{$ns}-tag-neutral {
-  background-color: $xui-tag-neutral-bg-color;
-  box-shadow: inset 0 0 0 1px $xui-tag-neutral-shadow-color;
-}
+  .#{$ns}-tag-neutral & {
+    background-color: $xui-tag-neutral-bg-color;
+    box-shadow: inset 0 0 0 1px $xui-tag-neutral-shadow-color;
+  }
 
-.#{$ns}-tag-positive {
-  background-color: $xui-tag-positive-bg-color;
-  box-shadow: inset 0 0 0 1px $xui-tag-positive-shadow-color;
-  color: $xui-tag-positive-color;
-}
+  .#{$ns}-tag-positive & {
+    background-color: $xui-tag-positive-bg-color;
+    box-shadow: inset 0 0 0 1px $xui-tag-positive-shadow-color;
+    color: $xui-tag-positive-color;
+  }
 
-.#{$ns}-tag-warning {
-  background-color: $xui-tag-warning-bg-color;
-  box-shadow: inset 0 0 0 1px $xui-tag-warning-shadow-color;
-  color: $xui-tag-warning-color;
-}
+  .#{$ns}-tag-warning & {
+    background-color: $xui-tag-warning-bg-color;
+    box-shadow: inset 0 0 0 1px $xui-tag-warning-shadow-color;
+    color: $xui-tag-warning-color;
+  }
 
-.#{$ns}-tag-negative {
-  background-color: $xui-tag-negative-bg-color;
-  box-shadow: inset 0 0 0 1px $xui-tag-negative-shadow-color;
-  color: $xui-tag-negative-color;
+  .#{$ns}-tag-negative & {
+    background-color: $xui-tag-negative-bg-color;
+    box-shadow: inset 0 0 0 1px $xui-tag-negative-shadow-color;
+    color: $xui-tag-negative-color;
+  }
 }

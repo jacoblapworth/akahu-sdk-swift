@@ -3,9 +3,13 @@
 exports[`<XUITag/> renders a qaHook when passed in 1`] = `
 <span
   className="xui-tag xui-tag-medium"
-  data-automationid="schwifty"
-  role="status"
 >
-  Testing 💩
+  <span
+    className="xui-tagcontent"
+    data-automationid="schwifty"
+    role="status"
+  >
+    Testing 💩
+  </span>
 </span>
 `;

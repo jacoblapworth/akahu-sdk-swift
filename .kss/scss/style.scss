@@ -126,7 +126,7 @@ $ds-section-space: calc(6rem + 2vh);
 .kss-section--depth-4 {
   padding: 20px;
   border: 1px solid $ds-border-color;
-  border-radius: 3px;
+  border-radius: $xui-radius;
 }
 
 *[class^='ds-title'] + *[class^='ds-title'] {

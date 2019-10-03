@@ -173,7 +173,7 @@
 
 .#{$ns}-chart--key-icon {
   background: $xui-color-grey-5;
-  border-radius: 50%;
+  border-radius: $xui-radius-circle;
   height: $xui-s-small;
   left: $xui-s-small;
   position: absolute;

@@ -4,7 +4,7 @@
 .#{$ns}-button-icon {
   @include xui-button-icon-states;
   align-items: center;
-  border-radius: 50%;
+  border-radius: $xui-radius-circle;
   color: $xui-button-icon-color;
   display: inline-flex;
   flex-shrink: 0;

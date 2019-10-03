@@ -23,7 +23,7 @@ $xui-rangeslider-thumb-diameter-xsmall: $xui-s-standard;
 @mixin xui-rangeslider-thumb {
   background: $xui-range-bg-color;
   border: 1px solid $xui-range-border-color;
-  border-radius: 50%;
+  border-radius: $xui-radius-circle;
   box-sizing: border-box;
 }
 

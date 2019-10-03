@@ -31,7 +31,7 @@
 
 .ds-tile--home-small {
   background-color: $xui-color-white;
-  border-radius: 3px;
+  border-radius: $xui-radius;
   box-shadow: $xui-shadow-border-all;
   display: inline-block;
   height: 210px;
@@ -82,7 +82,7 @@
   background-position: 50% 100%;
   background-repeat: no-repeat;
   background-size: 100% auto;
-  border-radius: 3px;
+  border-radius: $xui-radius;
   box-shadow: $xui-shadow-depth-pop;
   display: inline-block;
   height: 220px;

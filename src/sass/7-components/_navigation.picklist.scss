@@ -993,7 +993,7 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
     display: flex;
   }
   .#{$ns}-pickitem-split + & {
-    border-radius: 50%;
+    border-radius: $xui-radius-circle;
     margin-left: $xui-s-2xsmall;
   }
 

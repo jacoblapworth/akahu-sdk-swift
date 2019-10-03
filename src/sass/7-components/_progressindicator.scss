@@ -550,7 +550,7 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
 }
 
 .#{$ns}-progress-circular-content {
-  border-radius: 50%;
+  border-radius: $xui-radius-circle;
   bottom: 0;
   left: 0;
   overflow: hidden;
@@ -567,7 +567,7 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
 .#{$ns}-progress-linear-wrapper,
 .#{$ns}-progress-linear-track,
 .#{$ns}-progress-linear-current {
-  border-radius: 9999px;
+  border-radius: $xui-radius-max;
   width: 100%;
 }
 
@@ -664,7 +664,7 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
 
 .#{$ns}-progress-icon {
   align-items: center;
-  border-radius: 50%;
+  border-radius: $xui-radius-circle;
   color: $xui-progress-icon-color;
   display: flex;
   height: 100%;

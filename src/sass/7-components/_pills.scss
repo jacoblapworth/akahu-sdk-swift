@@ -509,7 +509,7 @@
 .#{$ns}-pill {
   align-items: center;
   background-color: $xui-pill-bg-color;
-  border-radius: $xui-control-size-standard / 2;
+  border-radius: $xui-radius-max;
   cursor: default;
   display: inline-flex;
   max-width: 100%;
@@ -606,7 +606,6 @@
 
 .#{$ns}-pill--button {
   align-self: stretch; // Make hit target bigger vertically
-  border-radius: $xui-s-large;
   color: $xui-pill-color;
   padding: 0; // Override the padding on the different sizes
   text-align: left;
@@ -690,7 +689,7 @@
 .#{$ns}-pill--erroricon {
   align-items: center;
   background: $xui-color-white;
-  border-radius: 50%;
+  border-radius: $xui-radius-circle;
   display: inline-flex;
   flex-shrink: 0;
   justify-content: center;

@@ -423,7 +423,7 @@
   animation: #{$ns}-loader-animation $animation-time infinite $animation-easing;
   animation-fill-mode: both;
   background-color: currentColor;
-  border-radius: 50%;
+  border-radius: $xui-radius-circle;
   // Gives a fake AA effect to the dot during animation
   // Needed to help fix rendering on Firefox
   box-shadow: 0 0 1px currentColor;

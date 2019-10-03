@@ -713,7 +713,7 @@ $xui-datepicker-day-size-compact: 30px;
 .#{$ns}-datepicker--day--time {
   @include xui-flex-children;
   background: transparent;
-  border-radius: 50%;
+  border-radius: $xui-radius-circle;
   height: $xui-datepicker-day-size;
   pointer-events: none;
   position: relative;

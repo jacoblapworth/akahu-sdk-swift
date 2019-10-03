@@ -54,7 +54,7 @@ class DetailContent extends PureComponent {
       <div style={{ background: '#C5C5F6', height: '100px' }} className="xui-padding">
         <DropDownToggled
           className="xui-u-hidden-medium-up"
-          trigger={<XUIIconButton title="Show master" icon={overflowIcon} />}
+          trigger={<XUIIconButton ariaLabel="Show master" icon={overflowIcon} />}
           dropdown={<DropDown>{this.props.masterContent}</DropDown>}
         />
       </div>

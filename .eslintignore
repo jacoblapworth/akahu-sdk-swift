@@ -1,11 +1,44 @@
-node_modules
-src/sass
-dist/*
-coverage/*
 scripts/
-.visual-testing/*
-.tmp/*
-.kss/*
 src/react/components/*/__tests__/*-test.js
+
+# The following entries are copied verbatim from .gitignore
+
+# Library and framework files/directories
+/.bundle
+/node_modules
+npm-debug.log*
+yarn.lock
+
+# Build/Output files/directories
+/dist
+/react
+/react-es6
+/sass
+/codemod
 src/react/umd.js
-!/.styleguidist
+.tmp
+
+# IDE files/directores
+/.idea
+*.iml
+.vscode/chrome/*
+.vscode/settings.json
+
+#OSX
+.DS_Store
+
+# Generated Colours Page
+src/sass/tmp
+
+# Code quality / coverage
+/coverage
+
+# Visual Regression / backstop
+.visual-testing/tests/*
+.visual-testing/ci-report/*
+.visual-testing/web-report/*
+.out/*
+.tmp
+
+# NPM debug logs
+npm-debug.log.*

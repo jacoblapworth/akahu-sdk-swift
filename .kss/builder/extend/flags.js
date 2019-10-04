@@ -55,6 +55,20 @@ const renderFlags = (data, block) => {
   return newBlock;
 };
 
+const renderFlagDefs = block => {
+  let newBlock = '';
+
+  for (let flag in flagDefinitions) {
+    this.definition = {
+      dt: flagDefinitions[flag].label,
+      dd: flagDefinitions[flag].desc,
+    };
+    newBlock += block.fn(this);
+  }
+  return newBlock;
+};
+
 module.exports = function(handlebars) {
   handlebars.registerHelper('renderFlags', renderFlags);
+  handlebars.registerHelper('renderFlagDefs', renderFlagDefs);
 };

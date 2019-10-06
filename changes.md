@@ -32,8 +32,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
   - Added a `min-width` of 40px in `xui-pickitem-text-truncated` which is under `xui-pickitem--text`.
   - Horizontal Pickitem
     - Removed `xui-padding-vertical` and `xui-text-wordbreak` mixin in `xui-pickitem--text`.
-    - Set `justify-content: center`, `text-align: center` and `display: flex` in `xui-pickitem--body`.
-    - Set `justify-content: center` and removed `width: 100%` in `xui-pickitem--text`.
+    - Content in `.xui-pickitem--body` and `.xui-pickitem--text` is now centred using Flexbox.
     - Added `min-width` in `xui-pickitem--sideelement` for different sizes of pickitems:
       - medium: 40px
       - small: 32px
@@ -82,6 +81,7 @@ Several CSS components require a new child element with the `.xui-touchtarget` c
 
 - `XUIAvatar` now requires the value prop for accessibility and for cases in which images have not loaded
 - `XUIPageHeader` now requires that `breadcrumb` only be used in combination with `title`, where previously the two could _not_ be used together.
+- `Picklist` added a prop `swapAtBreakpoint`, which defines the swap breakpoint (container width) between tab-styled dropdown and horizontal picklist.
 
 ### Internationalisation
 

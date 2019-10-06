@@ -34,18 +34,29 @@ import Picklist, { Pickitem } from './picklist';
 
 ### Horizontal variant
 
+In horizontal variant, you can use prop `swapAtBreakpoint` to define the swap breakpoint (container width) between tab-styled dropdown and horizontal picklist.
+
+Try to resize: Click and drag the bottom right corner of the following container.
+
 ```jsx harmony
 import Picklist, { Pickitem } from './picklist';
 
-<Picklist secondaryProps={{ role: 'menu' }} isHorizontal>
-  <Pickitem ariaRole="menuitem" id="plain1" isSelected shouldTruncate>
-    Projects
-  </Pickitem>
-  <Pickitem ariaRole="menuitem" id="plain2" shouldTruncate>
-    Timesheets
-  </Pickitem>
-  <Pickitem ariaRole="menuitem" id="plain3" shouldTruncate>
-    Other things
-  </Pickitem>
-</Picklist>;
+const wrapperStyles = {
+  resize: 'horizontal',
+  overflow: 'hidden'
+};
+
+<div className="xui-panel xui-padding-xsmall" style={wrapperStyles}>
+  <Picklist secondaryProps={{ role: 'menu' }} isHorizontal swapAtBreakpoint="small">
+    <Pickitem ariaRole="menuitem" id="plain1" isSelected shouldTruncate>
+      Projects
+    </Pickitem>
+    <Pickitem ariaRole="menuitem" id="plain2" shouldTruncate>
+      Timesheets
+    </Pickitem>
+    <Pickitem ariaRole="menuitem" id="plain3" shouldTruncate>
+      Other things
+    </Pickitem>
+  </Picklist>
+</div>;
 ```

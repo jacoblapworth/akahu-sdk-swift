@@ -520,6 +520,190 @@ exports[`<XUI Structure/> Overview block and section: renders the base overview 
 </div>
 `;
 
+exports[`<XUI Structure/> PageHeader and Breadcrumb: does not condense Breadcrumb, if breadcrumb length < 3 1`] = `
+<ol
+  className="xui-breadcrumbs"
+>
+  <li
+    className="xui-breadcrumb"
+  >
+    <a
+      className="xui-breadcrumb--link"
+      href="#1"
+    >
+      Settings
+    </a>
+  </li>
+  <li
+    className="xui-breadcrumb-arrow"
+  >
+    <div
+      className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
+    >
+      <svg
+        className="xui-icon xui-icon-rotate-270"
+        focusable="false"
+        height={4}
+        viewBox="0 0 7 4"
+        width={7}
+      >
+        <path
+          d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
+          role="presentation"
+        />
+      </svg>
+    </div>
+  </li>
+  <li
+    className="xui-breadcrumb"
+  >
+    <a
+      className="xui-breadcrumb--link"
+      href="#2"
+    >
+      Edit
+    </a>
+  </li>
+</ol>
+`;
+
+exports[`<XUI Structure/> PageHeader and Breadcrumb: does not condense Breadcrumb, if context is too wide 1`] = `
+<ol
+  className="xui-breadcrumbs"
+>
+  <li
+    className="xui-breadcrumb"
+  >
+    <a
+      className="xui-breadcrumb--link"
+      href="#1"
+    >
+      Settings
+    </a>
+  </li>
+  <li
+    className="xui-breadcrumb-arrow"
+  >
+    <div
+      className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
+    >
+      <svg
+        className="xui-icon xui-icon-rotate-270"
+        focusable="false"
+        height={4}
+        viewBox="0 0 7 4"
+        width={7}
+      >
+        <path
+          d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
+          role="presentation"
+        />
+      </svg>
+    </div>
+  </li>
+  <li
+    className="xui-breadcrumb"
+  >
+    <a
+      className="xui-breadcrumb--link"
+      href="#2"
+    >
+      Edit
+    </a>
+  </li>
+  <li
+    className="xui-breadcrumb-arrow"
+  >
+    <div
+      className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
+    >
+      <svg
+        className="xui-icon xui-icon-rotate-270"
+        focusable="false"
+        height={4}
+        viewBox="0 0 7 4"
+        width={7}
+      >
+        <path
+          d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
+          role="presentation"
+        />
+      </svg>
+    </div>
+  </li>
+  <li
+    className="xui-breadcrumb"
+  >
+    <a
+      className="xui-breadcrumb--link"
+      href="#3"
+    >
+      Invite
+    </a>
+  </li>
+</ol>
+`;
+
+exports[`<XUI Structure/> PageHeader and Breadcrumb: renders compact Breadcrumb, when at a width context below the specified size and breadcrumb length > 2 1`] = `
+<ol
+  className="xui-breadcrumbs"
+>
+  <li
+    className="xui-breadcrumb"
+  >
+    <div
+      className=""
+      data-ref="toggled-wrapper"
+      role="presentation"
+    >
+      <button
+        aria-activedescendant={null}
+        aria-haspopup="listbox"
+        className="xui-button xui-breadcrumb--link xui-breadcrumb--dropdowntrigger"
+        disabled={false}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        ...
+      </button>
+    </div>
+  </li>
+  <li
+    className="xui-breadcrumb-arrow"
+  >
+    <div
+      className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
+    >
+      <svg
+        className="xui-icon xui-icon-rotate-270"
+        focusable="false"
+        height={4}
+        viewBox="0 0 7 4"
+        width={7}
+      >
+        <path
+          d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
+          role="presentation"
+        />
+      </svg>
+    </div>
+  </li>
+  <li
+    className="xui-breadcrumb"
+  >
+    <a
+      className="xui-breadcrumb--link"
+      href="#3"
+    >
+      Invite
+    </a>
+  </li>
+</ol>
+`;
+
 exports[`<XUI Structure/> PageHeader and Breadcrumb: renders extra pageHeader classes that are passed in 1`] = `
 <header
   className="testClass xui-pageheading"
@@ -562,12 +746,15 @@ exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader and brea
         <li
           className="xui-breadcrumb"
         >
-          <a
-            className="xui-breadcrumb--link"
-            href="#1"
+          <span
+            className="testy-mctesterson xui-breadcrumb--link"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="link"
+            tabIndex="0"
           >
             hello
-          </a>
+          </span>
         </li>
         <li
           className="xui-breadcrumb-arrow"

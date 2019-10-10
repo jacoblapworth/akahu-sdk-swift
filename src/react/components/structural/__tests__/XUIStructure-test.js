@@ -16,7 +16,7 @@ import XUIPanelHeading from '../XUIPanelHeading';
 import XUIPanelFooter from '../XUIPanelFooter';
 import XUIContentBlock from '../XUIContentBlock';
 import XUIContentBlockItem from '../XUIContentBlockItem';
-import XUIIcon from '../../icon/XUIIcon';
+import WidthContext from '../../../contexts/WidthContext';
 import overflow from '@xero/xui-icon/icons/overflow';
 import { rowVariants, columnShortNames, overviewSentiments } from '../private/constants';
 import Enzyme, { mount, shallow } from 'enzyme';
@@ -122,7 +122,22 @@ describe('<XUI Structure/>', () => {
   });
   describe('PageHeader and Breadcrumb:', () => {
     const actions = <XUIActions primary={primary} secondary={secondary} />;
-    const bcObj = [{ label: 'hello', href: '#1' }, { label: 'hiya', href: '#2' }, { label: 'yo' }];
+    const bcObj = [<span
+      className="testy-mctesterson"
+      key="1"
+      onClick={() => alert('hello')}
+      onKeyDown={() => {}}
+      role="link"
+      tabIndex="0"
+    >
+      hello
+    </span>, { label: 'hiya', href: '#2' }, { label: 'yo' }];
+    const bcObj2 = [{ label: 'Settings', href: '#1' }, { label: 'Edit', href: '#2' }];
+    const bcObj3 = [
+      { label: 'Settings', href: '#1' },
+      { label: 'Edit', href: '#2' },
+      { label: 'Invite', href: '#3' },
+    ];
     const exampleBreadcrumb = <XUIBreadcrumb breadcrumbs={bcObj} qaHook={qaHook} />;
     it('renders the simplest pageHeader with no extra settings passed', () => {
       const testPageHeader = renderer.create(<XUIPageHeader title="Testing 💩" />);
@@ -201,6 +216,30 @@ describe('<XUI Structure/>', () => {
         <XUIPageHeader qaHook={qaHook} breadcrumb={exampleBreadcrumb} title="Test" />,
       );
       expect(wrapper).toMatchSnapshot();
+    });
+    it('renders compact Breadcrumb, when at a width context below the specified size and breadcrumb length > 2', () => {
+      const contextualBc = renderer.create(
+        <WidthContext.Provider value={{ medium: false, small: true }}>
+          <XUIBreadcrumb breadcrumbs={bcObj3} swapAtBreakpoint="medium" />
+        </WidthContext.Provider>,
+      );
+      expect(contextualBc).toMatchSnapshot();
+    });
+    it('does not condense Breadcrumb, if context is too wide', () => {
+      const contextualBc = renderer.create(
+        <WidthContext.Provider value={{ medium: true, small: true }}>
+          <XUIBreadcrumb breadcrumbs={bcObj3} swapAtBreakpoint="medium" />
+        </WidthContext.Provider>,
+      );
+      expect(contextualBc).toMatchSnapshot();
+    });
+    it('does not condense Breadcrumb, if breadcrumb length < 3', () => {
+      const contextualBc = renderer.create(
+        <WidthContext.Provider value={{ medium: false, small: true }}>
+          <XUIBreadcrumb breadcrumbs={bcObj2} swapAtBreakpoint="medium" />
+        </WidthContext.Provider>,
+      );
+      expect(contextualBc).toMatchSnapshot();
     });
   });
   describe('Overview block and section:', () => {

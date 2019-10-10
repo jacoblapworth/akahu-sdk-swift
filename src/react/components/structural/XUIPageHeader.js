@@ -2,10 +2,23 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
+import { observe, unobserve } from '../helpers/resizeObserver';
+import WidthContext from '../../contexts/WidthContext';
 
 const baseClass = `${ns}-pageheading`;
 
 export default class XUIPageHeader extends PureComponent {
+  _area = React.createRef();
+  state = {};
+
+  componentDidMount() {
+    this._area.current && observe(this);
+  }
+
+  componentWillUnmount() {
+    this._area.current && unobserve(this);
+  }
+
   render() {
     const {
       qaHook,
@@ -68,15 +81,16 @@ export default class XUIPageHeader extends PureComponent {
         {actions && <div className={`${baseClass}--actions`}>{actions}</div>}
       </div>
     );
-
     return (
-      <header {...spreadProps} className={classes} data-automationid={qaHook}>
-        <div className={divClasses}>
-          {leftContent}
-          {children}
-          {rightContent}
-        </div>
-      </header>
+      <WidthContext.Provider value={this.state}>
+        <header {...spreadProps} className={classes} data-automationid={qaHook}>
+          <div className={divClasses} ref={this._area}>
+            {leftContent}
+            {children}
+            {rightContent}
+          </div>
+        </header>
+      </WidthContext.Provider>
     );
   }
 }

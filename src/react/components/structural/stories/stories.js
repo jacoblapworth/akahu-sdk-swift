@@ -26,6 +26,7 @@ import XUIRolloverCheckbox from '../../rolloverCheckbox/rolloverCheckbox';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUITag from '../../tag/XUITag';
 import { rowVariants } from '../private/constants';
+import { userBreakpoints } from '../../helpers/breakpoints';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -57,8 +58,8 @@ const buildColumns = widths =>
     </XUIColumn>
   ));
 
-const exampleTabs = (
-  <XUIPicklist secondaryProps={{ role: 'menu' }}>
+const exampleTabs = breakpoint => (
+  <XUIPicklist isHorizontal secondaryProps={{ role: 'menu' }} swapAtBreakpoint={breakpoint}>
     <XUIPickitem ariaRole="menuitem" id="1">
       Tab 1
     </XUIPickitem>
@@ -71,7 +72,7 @@ const exampleTabs = (
   </XUIPicklist>
 );
 const longExampleTabs = breakpoint => (
-  <XUIPicklist secondaryProps={{ role: 'menu' }} swapAtBreakpoint={breakpoint}>
+  <XUIPicklist isHorizontal secondaryProps={{ role: 'menu' }} swapAtBreakpoint={breakpoint}>
     <XUIPickitem ariaRole="menuitem" id="1">
       Organisation Settings
     </XUIPickitem>
@@ -83,30 +84,46 @@ const longExampleTabs = breakpoint => (
     </XUIPickitem>
   </XUIPicklist>
 );
-const buildActions = (props = {}) => (
-  <XUIActions
-    hasLayout={false}
-    primaryAction={
-      <XUIButton className="xui-margin-left-xsmall" size="small" variant="primary">
-        {props.longContent ? 'ActionCompletion' : 'One'}
-      </XUIButton>
-    }
-    secondaryAction={
-      <XUIButton size="small">{props.longContent ? 'Action2Completion' : 'Two'}</XUIButton>
-    }
-    {...props}
-  />
-);
+const buildActions = ({ longContent, ...props } = {}) => {
+  return (
+    <XUIActions
+      hasLayout={false}
+      primaryAction={
+        <XUIButton className="xui-margin-left-xsmall" size="small" variant="primary">
+          {longContent ? 'ActionCompletion' : 'One'}
+        </XUIButton>
+      }
+      secondaryAction={
+        <XUIButton size="small">{longContent ? 'Action2Completion' : 'Two'}</XUIButton>
+      }
+      {...props}
+    />
+  );
+};
 
 const sampleBreadcrumb = [
-  <span key="1" onClick={() => alert('hello')} onKeyDown={() => {}} role="link" tabIndex="0">
+  <span
+    className="testy-mctesterson"
+    key="1"
+    onClick={() => alert('hello')}
+    onKeyDown={() => {}}
+    role="link"
+    tabIndex="0"
+  >
     hello
   </span>,
   { label: 'hiya I have multiple words', href: '#2' },
   { label: 'yo' },
 ];
 const longSampleBreadcrumb = [
-  <span key="1" onClick={() => alert('hello')} onKeyDown={() => {}} role="link" tabIndex="0">
+  <span
+    className="testy-mctesterson"
+    key="1"
+    onClick={() => alert('hello')}
+    onKeyDown={() => {}}
+    role="link"
+    tabIndex="0"
+  >
     Organisation settings
   </span>,
   { label: 'Edit organisation', href: '#2' },
@@ -250,6 +267,12 @@ storiesWithKnobs.add('PageHeader Playground', () => {
   const showBreadcrumb = boolean('include breadcrumb?', false);
   const showSecondary = boolean('include secondary?', false);
   const showTags = boolean('include tags?', false);
+  const bcSwapPoint = select(
+    'breadcrumb swap point',
+    [null, ...Object.keys(userBreakpoints)],
+    null,
+  );
+  const tabsSwapPoint = select('tabs swap point', [null, ...Object.keys(userBreakpoints)], null);
   const sampleTags = [
     <XUITag key="a" size="small">
       Tag one
@@ -264,11 +287,15 @@ storiesWithKnobs.add('PageHeader Playground', () => {
   return (
     <XUIPageHeader
       actions={showActions && buildActions()}
-      breadcrumb={showBreadcrumb && <XUIBreadcrumb breadcrumbs={longSampleBreadcrumb} />}
+      breadcrumb={
+        showBreadcrumb && (
+          <XUIBreadcrumb breadcrumbs={longSampleBreadcrumb} swapAtBreakpoint={bcSwapPoint} />
+        )
+      }
       hasLayout={boolean('hasLayout?', true)}
-      secondary={showSecondary && 'Secondary content here'}
-      tabs={showTabs && exampleTabs}
-      tags={showTags && sampleTags}
+      secondary={showSecondary ? 'Secondary content here' : ''}
+      tabs={showTabs ? exampleTabs(tabsSwapPoint) : undefined}
+      tags={showTags ? sampleTags : undefined}
       title={text('Title text (if any)', 'Title goes here')}
     />
   );
@@ -305,52 +332,59 @@ handleVariation(gridColumnsVariations, variationMinusStoryDetails => (
 ));
 
 handleVariation(pageHeaderVariations, variationMinusStoryDetails => {
-  const sampleTitle = variationMinusStoryDetails.longContent
+  const {
+    longContent,
+    breadcrumbSwapPoint,
+    tabsSwapPoint,
+    clickSelector,
+    hoverSelector,
+    ...variation
+  } = variationMinusStoryDetails;
+
+  const sampleTitle = longContent
     ? 'Testing a longer title Testing a longer title Testing a longer title Testing a longer title'
     : 'Title text for testing';
-  const sampleSecondary = variationMinusStoryDetails.longContent
+  const sampleSecondary = longContent
     ? 'Longer secondary title would go Longer secondary title would go Longer secondary title would go here'
     : 'Secondary text for testing';
 
-  variationMinusStoryDetails.breadcrumb = variationMinusStoryDetails.breadcrumb && (
-    <XUIBreadcrumb breadcrumbs={longSampleBreadcrumb} />
+  variation.breadcrumb = variation.breadcrumb && (
+    <XUIBreadcrumb
+      breadcrumbs={
+        (typeof variation.breadcrumb !== 'boolean' && variation.breadcrumb) || longSampleBreadcrumb
+      }
+      swapAtBreakpoint={breadcrumbSwapPoint}
+    />
   );
-  variationMinusStoryDetails.title =
-    typeof variationMinusStoryDetails.title === 'string'
-      ? variationMinusStoryDetails.title
-      : sampleTitle;
-  variationMinusStoryDetails.secondary =
-    variationMinusStoryDetails.secondary &&
-    (typeof variationMinusStoryDetails.secondary === 'string'
-      ? variationMinusStoryDetails.secondary
-      : sampleSecondary);
+  variation.title = typeof variation.title === 'string' ? variation.title : sampleTitle;
+  variation.secondary =
+    variation.secondary &&
+    (typeof variation.secondary === 'string' ? variation.secondary : sampleSecondary);
 
-  if (variationMinusStoryDetails.tags) {
-    variationMinusStoryDetails.tags = [
+  if (variation.tags) {
+    variation.tags = [
       <XUITag key="a" size="small">
-        {variationMinusStoryDetails.longContent ? 'Invoice RUE67875NHKERMEG6655' : 'Tag one'}
+        {longContent ? 'Invoice RUE67875NHKERMEG6655' : 'Tag one'}
       </XUITag>,
       <XUITag key="b" size="small">
-        {variationMinusStoryDetails.longContent ? 'Invoice FURH672348493GGYMBKE' : 'Two'}
+        {longContent ? 'Invoice FURH672348493GGYMBKE' : 'Two'}
       </XUITag>,
       <XUITag key="c" size="small">
-        {variationMinusStoryDetails.longContent ? 'Invoice NTU346474HJTEBEF697F' : 'Another'}
+        {longContent ? 'Invoice NTU346474HJTEBEF697F' : 'Another'}
       </XUITag>,
     ];
   }
-  if (variationMinusStoryDetails.tabs) {
-    variationMinusStoryDetails.tabs = variationMinusStoryDetails.longContent
-      ? longExampleTabs(variationMinusStoryDetails.swapAtBreakpoint)
-      : exampleTabs;
+  if (variation.tabs) {
+    variation.tabs = longContent ? longExampleTabs(tabsSwapPoint) : exampleTabs(tabsSwapPoint);
   }
-  if (variationMinusStoryDetails.actions) {
-    variationMinusStoryDetails.actions = buildActions({
+  if (variation.actions) {
+    variation.actions = buildActions({
       hasLayout: false,
-      longContent: variationMinusStoryDetails.longContent,
+      longContent,
     });
   }
 
-  return <XUIPageHeader {...variationMinusStoryDetails} />;
+  return <XUIPageHeader {...variation} />;
 });
 
 handleVariation(overviewBlockVariations, variationMinusStoryDetails => (
@@ -381,7 +415,7 @@ handleVariation(panelVariations, variationMinusStoryDetails => {
     const footer = <XUIPanelFooter className="xui-padding-small">{buildActions()}</XUIPanelFooter>;
     return (
       <div style={{ minWidth: '700px' }}>
-        <XUIPanel footer={footer} heading={heading} sidebar={exampleTabs}>
+        <XUIPanel footer={footer} heading={heading} sidebar={exampleTabs()}>
           <XUIPanelSection className="xui-padding-large" headerText="I'm a section header">
             <p>Some important text might go here.</p>
           </XUIPanelSection>

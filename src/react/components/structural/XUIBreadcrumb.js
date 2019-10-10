@@ -3,15 +3,64 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import arrow from '@xero/xui-icon/icons/arrow-small';
 import XUIIcon from '../icon/XUIIcon';
+import XUIButton from '../button/XUIButton';
 import { ns } from '../helpers/xuiClassNamespace';
+import { userBreakpoints } from '../helpers/breakpoints';
+import WidthContext from '../../contexts/WidthContext';
+import Picklist, { Pickitem } from '../../picklist';
+import DropDown, { DropDownToggled } from '../../dropdown';
 
 const baseClass = `${ns}-breadcrumb`;
+
+const compactTrigger = (
+  <XUIButton className={`${baseClass}--link ${baseClass}--dropdowntrigger`} variant="unstyled">
+    ...
+  </XUIButton>
+);
+
+const qualifiesForCompact = ({ swapAtBreakpoint, headerSizeState, crumbLength }) => {
+  if (!swapAtBreakpoint || !headerSizeState || crumbLength < 3) {
+    return false;
+  }
+  return !headerSizeState[swapAtBreakpoint];
+};
+
+// Builds the dropdown along with final, uncondensed breadcrumbitem.
+const buildCompactBreadcrumbs = breadcrumbs => {
+  // Build the set of pickitems that will go in the dropdown.
+  const bcPickitems = breadcrumbs.slice(0, -1).map((crumb, index) => {
+    const unique = `breadcrumb-${index}`;
+    return (
+      <Pickitem href={crumb.href} id={unique} key={unique}>
+        {crumb.label || crumb}
+      </Pickitem>
+    );
+  });
+
+  // Build the list of new breadcrumb objects, including the dropdown with trigger.
+  const compactItems = [];
+  compactItems.push(
+    <DropDownToggled
+      dropdown={
+        <DropDown>
+          <Picklist>{bcPickitems}</Picklist>
+        </DropDown>
+      }
+      trigger={compactTrigger}
+    />,
+  );
+
+  // Add the final breadcrumb from the original set.
+  compactItems.push(breadcrumbs.slice(-1)[0]);
+  return compactItems;
+};
 
 const getCrumbLabel = crumb => {
   if (crumb.type) {
     // HTML nodes and React components have a type property. Objects do not.
     return React.cloneElement(crumb, {
-      className: cn(crumb.className, `${baseClass}--link`),
+      // Don't tack the link class onto a ddt.
+      className: cn(crumb.props.className, crumb.type !== DropDownToggled && `${baseClass}--link`),
     });
   } else if (!crumb.href) {
     return crumb.label;
@@ -23,38 +72,58 @@ const getCrumbLabel = crumb => {
   );
 };
 
-export default class XUIBreadcrumb extends PureComponent {
-  render() {
-    const { qaHook, breadcrumbs, className } = this.props;
-    const listClasses = cn(className, `${baseClass}s`);
-    const crumbElements = [];
-    /* eslint-disable react/no-array-index-key */
-    breadcrumbs.forEach((crumb, itemIndex) => {
-      const crumbContent = getCrumbLabel(crumb);
-      const crumbClasses = cn(
-        baseClass,
-        typeof crumbContent === 'string' && `${baseClass}-no-link`,
-      );
-      crumbElements.push(
-        <li className={crumbClasses} key={itemIndex}>
-          {crumbContent}
+const buildCrumbsWithCarets = crumbItemsToUse => {
+  const crumbsWithCarets = [];
+
+  /* eslint-disable react/no-array-index-key */
+  crumbItemsToUse.forEach((crumb, itemIndex) => {
+    const crumbContent = getCrumbLabel(crumb);
+    const crumbClasses = cn(baseClass, typeof crumbContent === 'string' && `${baseClass}-no-link`);
+    crumbsWithCarets.push(
+      <li className={crumbClasses} key={itemIndex}>
+        {crumbContent}
+      </li>,
+    );
+    // Add a trailing caret, except for the last item.
+    if (itemIndex !== crumbItemsToUse.length - 1) {
+      crumbsWithCarets.push(
+        <li className={`${baseClass}-arrow`} key={`arrow-${itemIndex}`}>
+          <XUIIcon className={`${baseClass}--icon`} icon={arrow} isBoxed rotation={270} />
         </li>,
       );
-      if (itemIndex !== breadcrumbs.length - 1) {
-        crumbElements.push(
-          <li className={`${baseClass}-arrow`} key={`arrow-${itemIndex}`}>
-            <XUIIcon className={`${baseClass}--icon`} icon={arrow} isBoxed rotation={270} />
-          </li>,
-        );
-      }
-    });
+    }
+  });
+  return crumbsWithCarets;
+};
 
-    return (
-      <ol className={listClasses} data-automationid={qaHook}>
-        {crumbElements}
-      </ol>
-    );
-  }
+export default function XUIBreadcrumb({ qaHook, breadcrumbs, className, swapAtBreakpoint }) {
+  return (
+    <WidthContext.Consumer>
+      {headerSizeState => {
+        const listClasses = cn(className, `${baseClass}s`);
+        // Choose either the full set or the compact set, depending on context and props.
+        let crumbItemsToUse;
+        if (
+          qualifiesForCompact({
+            crumbLength: breadcrumbs.length,
+            swapAtBreakpoint,
+            headerSizeState,
+          })
+        ) {
+          // Build the picklist, if props and item count call for it.
+          crumbItemsToUse = buildCompactBreadcrumbs(breadcrumbs);
+        } else {
+          crumbItemsToUse = breadcrumbs;
+        }
+
+        return (
+          <ol className={listClasses} data-automationid={qaHook}>
+            {buildCrumbsWithCarets(crumbItemsToUse)}
+          </ol>
+        );
+      }}
+    </WidthContext.Consumer>
+  );
 }
 
 XUIBreadcrumb.propTypes = {
@@ -72,6 +141,12 @@ XUIBreadcrumb.propTypes = {
       }),
     ]),
   ),
+  /**
+   * If a breadcrumb trail is more than two items long, items other than the last
+   * will be condensed into a dropdown below this breakpoint. Functionality relies
+   * on breadcrumbs appearing in PageHeader or another WidthContext provider.
+   */
+  swapAtBreakpoint: PropTypes.oneOf(Object.keys(userBreakpoints)),
 };
 
 XUIBreadcrumb.defaultProps = {};

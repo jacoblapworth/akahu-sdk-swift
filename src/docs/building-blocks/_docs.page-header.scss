@@ -268,7 +268,7 @@
 
 // Breadcrumbs
 //
-// Combine breadcrumbs with a title in a page header to give the user a sense of their location and an easy way to navigate back to earlier pages.
+// Combine breadcrumbs with a title in a page header to give the user a sense of their location and an easy way to navigate to parent pages.
 //
 // flags: updatesComing
 //
@@ -301,6 +301,7 @@
 // xui-breadcrumb-no-link: Breadcrumb item containing only text that is not a link. This is only applicable in some custom settings, outside of the page header
 // xui-breadcrumb--link: Breadcrumb link
 // xui-breadcrumb--icon: Icons between breadcrumbs
+// xui-breadcrumb--dropdowntrigger: For the compact variant of breadcrumbs, this class is applied to the dropdown trigger
 //
 // ExampleClass: ds-example-wide
 //
@@ -310,8 +311,52 @@
 // 		<div class="xui-pageheading--leftcontent">
 // 			<ol class="xui-pageheading--breadcrumbs xui-breadcrumbs">
 // 				<li class="xui-breadcrumb">
-// 					<a href="#1" class="xui-breadcrumb--link">Settings</a>
+// 					<a href="#1" class="xui-breadcrumb--link">Organisations</a>
 // 				</li>
+// 				<li class="xui-breadcrumb-arrow">
+// 					<div class="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium">
+// 						<svg focusable="false" class="xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
+// 					</div>
+// 				</li>
+// 				<li class="xui-breadcrumb">
+// 					<a href="#2" class="xui-breadcrumb--link">Settings</a>
+// 				</li>
+// 				<li class="xui-breadcrumb-arrow">
+// 					<div class="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium">
+// 						<svg focusable="false" class="xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
+// 					</div>
+// 				</li>
+// 				<li class="xui-breadcrumb">
+// 					<a href="#3" class="xui-breadcrumb--link">Permissions</a>
+// 				</li>
+// 			</ol>
+// 			<div class="xui-pageheading--titlewrapper">
+// 				<h1 class="xui-pageheading--title">Edit permissions</h1>
+// 			</div>
+// 		</div>
+// 	</div>
+// </header>
+//
+// Styleguide: Compounds.Navigation.Breadcrumbs.2
+
+// Compact Breadcrumbs
+//
+// It's also possible to provide higher-level breadcrumb items in a dropdown behind an ellipsis link, when shown in narrower containers. This pattern is used to condense all breadcrumb items except for the page's direct parent. Compact breadcrumbs should only be used for three or more breadcrumb items and if all items can't reasonably be shown at full length.
+//
+// ExampleClass: ds-example-narrow
+//
+// Markup:
+// <header class="xui-pageheading">
+// 	<div class="xui-pageheading--content xui-pageheading--content-layout">
+// 		<div class="xui-pageheading--leftcontent">
+// 			<ol class="xui-pageheading--breadcrumbs xui-breadcrumbs">
+// 				<li class="xui-breadcrumb">
+//          <div>
+//            <button class="xui-button xui-breadcrumb--link xui-breadcrumb--dropdowntrigger" tabindex="0" type="button">
+//              ...
+//            </button>
+//          </div>
+//        </li>
 // 				<li class="xui-breadcrumb-arrow">
 // 					<div class="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium">
 // 						<svg focusable="false" class="xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
@@ -328,7 +373,7 @@
 // 	</div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Breadcrumbs.2
+// Styleguide: Compounds.Navigation.Breadcrumbs.2.1
 
 // Tabs
 //

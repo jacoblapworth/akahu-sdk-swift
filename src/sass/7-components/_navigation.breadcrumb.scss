@@ -55,6 +55,10 @@
     @include xui-state-focus-shadow($xui-shadow-focus-inset);
     color: $xui-link-color; // overriding the a:focus color
   }
+  &.#{$ns}-breadcrumb--dropdowntrigger {
+    line-height: inherit;
+    text-align: left;
+  }
 }
 
 .#{$ns}-pageheading--content,

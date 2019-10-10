@@ -82,6 +82,7 @@ Several CSS components require a new child element with the `.xui-touchtarget` c
 - `XUIAvatar` now requires the value prop for accessibility and for cases in which images have not loaded
 - `XUIPageHeader` now requires that `breadcrumb` only be used in combination with `title`, where previously the two could _not_ be used together.
 - `Picklist` added a prop `swapAtBreakpoint`, which defines the swap breakpoint (container width) between tab-styled dropdown and horizontal picklist.
+- `XUIBreadcrumb` has a new prop `swapAtBreakpoint`, which defines the pageHeader width at which the component will condense early breadcrumb items into a dropdown. This behaviour is optional, and will not occur if no `swapAtBreakpoint` is supplied, or if the set of breadcrumbs is only one or two items.
 
 ### Internationalisation
 

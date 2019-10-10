@@ -18,5 +18,39 @@ const breadcrumbLinks = [
 ];
 const builtBreadcrumb = <XUIBreadcrumb breadcrumbs={breadcrumbLinks} />;
 
-<XUIPageHeader breadcrumb={builtBreadcrumb} title="Update your account" />;
+const wrapperStyles = {
+  resize: 'horizontal',
+  overflow: 'hidden'
+};
+
+<div className="xui-panel xui-padding-small" style={wrapperStyles}>
+  <XUIPageHeader breadcrumb={builtBreadcrumb} title="Update your account" />
+</div>;
+```
+
+`XUIBreadcrumb` accepts a `swapAtBreakpoint`. If the PageHeader is narrower than the specified breakpoint and there are three or more breadcrumb items, breadcrumb items other than the last will appear in a dropdown. If the PageHeader is wider than the specified breakpoint or has fewer than three items, all items will appear fully expanded.
+
+Try to resize: Click and drag the bottom right corner of the following container.
+
+```jsx harmony
+import { XUIPageHeader, XUIBreadcrumb } from '../../structural';
+
+const logHi = () => console.log('hello');
+
+const breadcrumbLinks = [
+  <span tabIndex={0} role="link" onClick={logHi} key="a">
+    Elements
+  </span>,
+  { key: 'b', label: 'Identifiers', href: '#breadcrumb' },
+  { key: 'c', label: 'Avatar', href: '#breadcrumb2' }
+];
+const builtBreadcrumb = <XUIBreadcrumb breadcrumbs={breadcrumbLinks} swapAtBreakpoint="small" />;
+
+const wrapperStyles = {
+  resize: 'horizontal',
+  overflow: 'hidden'
+};
+<div className="xui-panel xui-padding-small" style={wrapperStyles}>
+  <XUIPageHeader breadcrumb={builtBreadcrumb} title="Update your account" />
+</div>;
 ```

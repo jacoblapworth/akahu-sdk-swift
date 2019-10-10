@@ -130,7 +130,7 @@ export default class XUIAutocompleter extends PureComponent {
    * Focuses the text input
    */
   focusInput = () => {
-    this.inputNode.focus();
+    this.inputNode && this.inputNode.focus();
   };
 
   /**
@@ -404,7 +404,11 @@ XUIAutocompleter.propTypes = {
   /** Should label be applied as an aria-label, rather than being visibly displayed. */
   isInputLabelHidden: PropTypes.bool,
 
-  /** Attributes to set on the native input element */
+  /**
+   * Attributes to set on the native input element. <br>
+   * **Note:**
+   * *It's not recommended to pass `autoFocus` to `inputProps` as it hijacks the focus on load to focus that specific element.*
+   */
   inputProps: PropTypes.object,
 
   /** CSS class(es) to go on the trigger element which contains the input and pills */

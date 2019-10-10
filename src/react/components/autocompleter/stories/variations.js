@@ -44,6 +44,7 @@ const variations = [
     hintMessage: 'This is a hint',
     inputProps: {
       id: 'test_input_id',
+      autoFocus: true,
     },
   },
   {

@@ -342,9 +342,10 @@ XUIAutocompleterSecondarySearch.propTypes = {
   restrictFocus: PropTypes.bool,
 
   /**
-   * Setting to true will allow the dropdown's width to be set dependent of the trigger width.
-   * Note: Setting this to true will override any size prop on DropDown. XUI design has also decided
-   * to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
+   * Setting to true will allow the dropdown's width to be set dependent of the trigger width. <br>
+   * **Note:** *Setting this to true will override any size prop on DropDown.* <br>
+   * XUI design has also decided to keep a minimum width on the dropdown,
+   * so dropdown may not match the width of narrow triggers.
    */
   matchTriggerWidth: PropTypes.bool,
 

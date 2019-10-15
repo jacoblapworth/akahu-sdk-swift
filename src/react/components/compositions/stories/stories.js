@@ -21,7 +21,7 @@ import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 // import readme from './README.md';
 import { variations, storiesWithVariationsKindName } from './variations';
 
-import XUIPanel from '../../structural/XUIPanel';
+import XUIPanel from '../../panel/XUIPanel';
 import XUIPicklist from '../../picklist/Picklist';
 import XUIPickItem from '../../picklist/Pickitem';
 import StatefulPicklist from '../../picklist/StatefulPicklist';

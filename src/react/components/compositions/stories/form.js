@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { XUIPanel } from '../../../structural';
+import { XUIPanel } from '../../../contentblock';
 import { XUIIconButton } from '../../../button';
 import XUITextInput, { XUITextInputSideElement } from '../../../textinput';
 import XUISelect from '../../../select-box';

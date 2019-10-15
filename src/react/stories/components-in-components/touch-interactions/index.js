@@ -1,7 +1,8 @@
 // Libs
 import React from 'react';
 import { XUICompositionDetail } from '../../../compositions';
-import { XUIPanel, XUIPanelHeading, XUIPanelSection, XUIColumn, XUIRow } from '../../../structural';
+import { XUIColumn, XUIRow } from '../../../structural';
+import { XUIPanel, XUIPanelHeading, XUIPanelSection } from '../../../panel';
 import XUIButton, { XUIButtonCaret } from '../../../button';
 import XUIRolloverCheckbox from '../../../rollovercheckbox';
 import XUIAvatar from '../../../avatar';

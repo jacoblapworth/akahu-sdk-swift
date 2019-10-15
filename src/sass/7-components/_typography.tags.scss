@@ -185,9 +185,9 @@
 // Styleguide: Building Blocks.Identifiers.Tag.4
 
 .#{$ns}-tag {
+  display: inline-grid; // now long tags without parents take only screen width, not more.
   max-width: 100%;
   min-width: $xui-minimum-touch-target;
-  display: inline-grid; // now long tags without parents take only screen width, not more.
 
   .#{$ns}-tooltip {
     cursor: initial;
@@ -209,11 +209,11 @@
   box-shadow: inset 0 0 0 1px $xui-tag-shadow-color;
   color: $xui-tag-color;
   display: inline-block;
+  max-width: 100%;
   min-width: $xui-minimum-touch-target;
   padding: 0 $xui-s-2xsmall;
   text-align: center;
   vertical-align: middle;
-  max-width: 100%;
 
   .#{$ns}-tag-medium & {
     @include xui-text-medium;

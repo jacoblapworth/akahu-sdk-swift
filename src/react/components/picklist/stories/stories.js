@@ -13,7 +13,7 @@ import NestedPicklist from '../NestedPicklist';
 import { sizeShift } from '../../helpers/sizes';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIIcon from '../../icon/XUIIcon';
-import XUIPanel from '../../structural/XUIPanel';
+import XUIPanel from '../../panel/XUIPanel';
 import arrow from '@xero/xui-icon/icons/arrow';
 import search from '@xero/xui-icon/icons/search';
 import contact from '@xero/xui-icon/icons/contact';

@@ -7,14 +7,14 @@ The `XUIPageHeader` appears beneath the global header on a page. In a basic exam
 #### Examples
 
 ```jsx harmony
-import { XUIPageHeader } from '../../structural';
+import { XUIPageHeader } from './pageheader';
 
 <XUIPageHeader title="Account Settings" />;
 ```
 
 ```jsx harmony
-import { XUIPageHeader } from '../../structural';
-import Picklist, { Pickitem } from '../../picklist';
+import { XUIPageHeader } from './pageheader';
+import Picklist, { Pickitem } from './picklist';
 
 const builtTabs = (
   <Picklist secondaryProps={{ role: 'menu' }}>
@@ -34,8 +34,9 @@ const builtTabs = (
 ```
 
 ```jsx harmony
-import { XUIPageHeader, XUIActions } from '../../structural';
-import XUIButton from '../../button';
+import { XUIPageHeader } from './pageheader';
+import XUIActions from './actions';
+import XUIButton from './button';
 
 const builtActions = (
   <XUIActions
@@ -56,10 +57,11 @@ const builtActions = (
 ```
 
 ```jsx harmony
-import { XUIPageHeader, XUIActions, XUIBreadcrumb } from '../../structural';
-import XUIButton from '../../button';
-import XUITag from '../../tag';
-import Picklist, { Pickitem } from '../../picklist';
+import { XUIPageHeader, XUIBreadcrumb } from './pageheader';
+import XUIActions from './actions';
+import XUIButton from './button';
+import XUITag from './tag';
+import Picklist, { Pickitem } from './picklist';
 
 const builtActions = (
   <XUIActions

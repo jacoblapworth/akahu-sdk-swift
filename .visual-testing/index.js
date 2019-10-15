@@ -63,6 +63,10 @@ const componentsToTest = [
     delay: 500,
   },
   {
+    testsPrefix: 'XUI ContentBlock',
+    variationsPath: `${variationsPath}/contentblock/stories/variations.js`,
+  },
+  {
     testsPrefix: 'XUI DatePicker',
     variationsPath: `${variationsPath}/datepicker/stories/variations.js`,
   },
@@ -89,6 +93,18 @@ const componentsToTest = [
     testsPrefix: 'XUI Modal',
     variationsPath: `${variationsPath}/modal/stories/variations.js`,
     ...fullPageSettings,
+  },
+  {
+    testsPrefix: 'XUI OverviewBlock',
+    variationsPath: `${variationsPath}/overviewblock/stories/variations.js`,
+  },
+  {
+    testsPrefix: 'XUI PageHeader',
+    variationsPath: `${variationsPath}/pageheader/stories/variations.js`,
+  },
+  {
+    testsPrefix: 'XUI Panel',
+    variationsPath: `${variationsPath}/panel/stories/variations.js`,
   },
   {
     testsPrefix: 'XUI Picklist',

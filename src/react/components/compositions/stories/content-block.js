@@ -4,7 +4,7 @@ import {
   XUIContentBlockItem,
   XUIPanel,
   XUIPanelSection,
-} from '../../../structural';
+} from '../../../contentblock';
 import XUIButton, { XUIButtonCaret, XUIIconButton } from '../../../button';
 import Dropdown, { DropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';

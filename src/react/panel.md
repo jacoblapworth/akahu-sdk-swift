@@ -7,7 +7,7 @@ Panels are top-level containers for grouping page content. XUIPanel can optional
 #### Default Panel
 
 ```jsx harmony
-import { XUIPanel } from '../../structural';
+import { XUIPanel } from './panel';
 
 <XUIPanel className="xui-padding-small">
   <p className="xui-padding-horizontal-small">
@@ -20,7 +20,7 @@ import { XUIPanel } from '../../structural';
 #### Panel with Sections
 
 ```jsx harmony
-import { XUIPanel, XUIPanelSection } from '../../structural';
+import { XUIPanel, XUIPanelSection } from './panel';
 
 <XUIPanel>
   <XUIPanelSection headerText="Organisation Settings" className="xui-padding-large">
@@ -40,15 +40,10 @@ import { XUIPanel, XUIPanelSection } from '../../structural';
 #### Panel with Sidebar, Heading, and Footer
 
 ```jsx harmony
-import {
-  XUIPanel,
-  XUIPanelSection,
-  XUIPanelHeading,
-  XUIPanelFooter,
-  XUIActions
-} from '../../structural';
-import Picklist, { Pickitem } from '../../picklist';
-import XUIButton from '../../button';
+import { XUIPanel, XUIPanelSection, XUIPanelHeading, XUIPanelFooter } from './panel';
+import XUIActions from './actions';
+import Picklist, { Pickitem } from './picklist';
+import XUIButton from './button';
 
 const heading = <XUIPanelHeading>Invoices</XUIPanelHeading>;
 const footerActions = (

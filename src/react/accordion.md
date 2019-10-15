@@ -176,7 +176,7 @@ You can nest other XUI components inside the `<XUIAccordionItem />` _(such as `<
 ```jsx harmony
 import overflowIcon from '@xero/xui-icon/icons/overflow';
 
-import { XUIContentBlock, XUIContentBlockItem } from './structural';
+import { XUIContentBlock, XUIContentBlockItem } from './contentblock';
 import XUIAccordion, { XUIAccordionItem } from './accordion';
 import XUIAvatar from './avatar';
 import XUIButton, { XUIIconButton } from './button';

@@ -1,8 +1,8 @@
 const React = require('react');
 const XUIAvatar = require('../../avatar/XUIAvatar').default;
 const XUIButton = require('../../button/XUIButton').default;
-const XUIContentBlock = require('../../structural/XUIContentBlock').default;
-const XUIContentBlockItem = require('../../structural/XUIContentBlockItem').default;
+const XUIContentBlock = require('../../contentblock/XUIContentBlock').default;
+const XUIContentBlockItem = require('../../contentblock/XUIContentBlockItem').default;
 
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 

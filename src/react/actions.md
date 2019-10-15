@@ -9,8 +9,8 @@ Actions are used to wrap a selection of buttons (often two) and provide formatti
 A default action aligns a primary and secondary button to the right, with the primary as the rightmost.
 
 ```jsx harmony
-import { XUIActions } from '../../structural';
-import XUIButton from '../../button';
+import XUIActions from './actions';
+import XUIButton from './button';
 
 <XUIActions
   primaryAction={
@@ -27,8 +27,8 @@ import XUIButton from '../../button';
 The linear variant aligns the primary button to the right and the secondary button to the left.
 
 ```jsx harmony
-import { XUIActions } from '../../structural';
-import XUIButton from '../../button';
+import XUIActions from './actions';
+import XUIButton from './button';
 
 <XUIActions
   isLinear

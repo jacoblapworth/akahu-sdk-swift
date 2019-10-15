@@ -9,7 +9,7 @@ import XUIDatePicker from '../../../datepicker';
 import { XUIPickItem } from '../../../picklist';
 import XUIPill from '../../../pill';
 import XUIRadio, { XUIRadioGroup } from '../../../radio';
-import { XUIPanel, XUIPanelSection } from '../../../structural';
+import { XUIPanel, XUIPanelSection } from '../../../panel';
 import XUISwitch, { XUISwitchGroup } from '../../../switch';
 import XUITable, { XUITableColumn, XUITableCell } from '../../../table';
 import XUITextInput, { XUITextInputSideElement } from '../../../textinput';

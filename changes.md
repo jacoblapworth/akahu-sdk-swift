@@ -9,44 +9,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 
 ## XUI CSS
 
-- Button
-  - Added a `min-width` of 40px in `xui-button`(`xui-icon-button` is not included).
-  - Set `text-align: center` in `xui-button` to make sure the content in the anchor is centered.
-  - Removed the `min-width` value set in `xui-button-split`.
-- Input
-  - Added a `min-width` of 40px in `xui-textinput` and `xui-textinput-input`.
-- Pill
-  - Added a `min-width` of 40px in `xui-pill`.
-  - Set `justify-content: center` in `xui-pill--content`.
-- Table
-  - Added a `min-width` of 40px in `xui-table--sortbutton`.
-- Range
-  - Added a `min-width` of 40px in `xui-rangeslider-container`.
-- Tag
-  - Added a `min-width` of 40px to `xui-tag`.
-- Progress indicator
-  - Added a `min-width` of 40px to `xui-progress-linear`.
-- Picklist
-  - Added a `min-width` of 80px in truncated `xui-pickitem`.
-  - Set `max-width` to 75% instead of 60% and removed `min-width: 20%` in truncated `xui-pickitem--secondary`.
-  - Added a `min-width` of 40px in `xui-pickitem-text-truncated` which is under `xui-pickitem--text`.
-  - Horizontal Pickitem
-    - Removed `xui-padding-vertical` and `xui-text-wordbreak` mixin in `xui-pickitem--text`.
-    - Content in `.xui-pickitem--body` and `.xui-pickitem--text` is now centred using Flexbox.
-    - Added `min-width` in `xui-pickitem--sideelement` for different sizes of pickitems:
-      - medium: 40px
-      - small: 32px
-      - xsmall: 24px
-
-### Removals
-
-### Breakpoint variable name & value changes
-
-### Mixin renames
-
-### Utility classes
-
-### Additions
+Button, TextInput, Pill, Table, Range, Tag, Progress indicator, Picklist, and Horizontal Pickitem have all had style adjustments (often setting a min-width of 40px on some part of the component), to improve the size of their interactive targets for touch devices. Be sure to check these components for visual regressions in your application.
 
 ## XUI CSS components
 
@@ -59,7 +22,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
   - For Pickitems with secondaryText and no leftElement.
     - `xui-pickitem-has-secondarytext`
 - Significant changes have been made to the markup and CSS for Page Headers to support an improved responsive experience. Please see the [documentation](https://xui.xero.com/16.0.0/section-compounds-navigation-page-header.html) for details on the new structure for page headers that have content more complex than a title alone.
-- Updated HTML structure for `Tag` component. Tags will be truncated instead of wrapping its content can't fit available space. When truncated, a tooltip will be added to display full text.
+- Updated HTML structure for `Tag` component. Tags will be truncated instead of wrapping its content can't fit available space. When truncated, a tooltip will be added to display full text. Tags also now require a `xui-tagcontent` element to wrap the inner text.
 
 ### Invisible touch targets
 

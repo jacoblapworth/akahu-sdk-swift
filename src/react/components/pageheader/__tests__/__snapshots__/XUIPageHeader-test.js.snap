@@ -1,55 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUI PageHeader and Breadcrumb/> does not condense Breadcrumb, if breadcrumb length < 3 1`] = `
+exports[`<XUI PageHeader and BreadcrumbTrail/> does not condense Breadcrumb, if context is too wide 1`] = `
 <ol
-  className="xui-breadcrumbs"
->
-  <li
-    className="xui-breadcrumb"
-  >
-    <a
-      className="xui-breadcrumb--link"
-      href="#1"
-    >
-      Settings
-    </a>
-  </li>
-  <li
-    className="xui-breadcrumb-arrow"
-  >
-    <div
-      className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
-    >
-      <svg
-        className="xui-icon xui-icon-rotate-270"
-        focusable="false"
-        height={4}
-        viewBox="0 0 7 4"
-        width={7}
-      >
-        <path
-          d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
-          role="presentation"
-        />
-      </svg>
-    </div>
-  </li>
-  <li
-    className="xui-breadcrumb"
-  >
-    <a
-      className="xui-breadcrumb--link"
-      href="#2"
-    >
-      Edit
-    </a>
-  </li>
-</ol>
-`;
-
-exports[`<XUI PageHeader and Breadcrumb/> does not condense Breadcrumb, if context is too wide 1`] = `
-<ol
-  className="xui-breadcrumbs"
+  className="xui-breadcrumbtrail"
 >
   <li
     className="xui-breadcrumb"
@@ -124,9 +77,56 @@ exports[`<XUI PageHeader and Breadcrumb/> does not condense Breadcrumb, if conte
 </ol>
 `;
 
-exports[`<XUI PageHeader and Breadcrumb/> renders compact Breadcrumb, when at a width context below the specified size and breadcrumb length > 2 1`] = `
+exports[`<XUI PageHeader and BreadcrumbTrail/> does not condense XUIBreadcrumbTrail, if breadcrumb length < 3 1`] = `
 <ol
-  className="xui-breadcrumbs"
+  className="xui-breadcrumbtrail"
+>
+  <li
+    className="xui-breadcrumb"
+  >
+    <a
+      className="xui-breadcrumb--link"
+      href="#1"
+    >
+      Settings
+    </a>
+  </li>
+  <li
+    className="xui-breadcrumb-arrow"
+  >
+    <div
+      className="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium"
+    >
+      <svg
+        className="xui-icon xui-icon-rotate-270"
+        focusable="false"
+        height={4}
+        viewBox="0 0 7 4"
+        width={7}
+      >
+        <path
+          d="M3.5 2.588L.75 0 0 .706 3.5 4 7 .706 6.25 0z"
+          role="presentation"
+        />
+      </svg>
+    </div>
+  </li>
+  <li
+    className="xui-breadcrumb"
+  >
+    <a
+      className="xui-breadcrumb--link"
+      href="#2"
+    >
+      Edit
+    </a>
+  </li>
+</ol>
+`;
+
+exports[`<XUI PageHeader and BreadcrumbTrail/> renders compact XUIBreadcrumbTrail, when at a width context below the specified size and breadcrumb length > 2 1`] = `
+<ol
+  className="xui-breadcrumbtrail"
 >
   <li
     className="xui-breadcrumb"
@@ -184,7 +184,7 @@ exports[`<XUI PageHeader and Breadcrumb/> renders compact Breadcrumb, when at a 
 </ol>
 `;
 
-exports[`<XUI PageHeader and Breadcrumb/> renders extra pageHeader classes that are passed in 1`] = `
+exports[`<XUI PageHeader and BreadcrumbTrail/> renders extra pageHeader classes that are passed in 1`] = `
 <header
   className="testClass xui-pageheading"
 >
@@ -208,7 +208,7 @@ exports[`<XUI PageHeader and Breadcrumb/> renders extra pageHeader classes that 
 </header>
 `;
 
-exports[`<XUI PageHeader and Breadcrumb/> renders pageHeader and breadcrumb with automation id when qaHook prop is passed in 1`] = `
+exports[`<XUI PageHeader and BreadcrumbTrail/> renders pageHeader and breadcrumbtrail with automation id when qaHook prop is passed in 1`] = `
 <header
   className="xui-pageheading"
   data-automationid="qaHook"
@@ -220,7 +220,7 @@ exports[`<XUI PageHeader and Breadcrumb/> renders pageHeader and breadcrumb with
       className="xui-pageheading--leftcontent"
     >
       <ol
-        className="xui-pageheading--breadcrumbs xui-breadcrumbs"
+        className="xui-pageheading--breadcrumbtrail xui-breadcrumbtrail"
         data-automationid="qaHook"
       >
         <li
@@ -306,7 +306,7 @@ exports[`<XUI PageHeader and Breadcrumb/> renders pageHeader and breadcrumb with
 </header>
 `;
 
-exports[`<XUI PageHeader and Breadcrumb/> renders pageHeader containing Breadcrumb from nodes 1`] = `
+exports[`<XUI PageHeader and BreadcrumbTrail/> renders pageHeader containing XUIBreadcrumbTrail from nodes 1`] = `
 <header
   className="xui-pageheading"
 >
@@ -317,7 +317,7 @@ exports[`<XUI PageHeader and Breadcrumb/> renders pageHeader containing Breadcru
       className="xui-pageheading--leftcontent"
     >
       <ol
-        className="xui-pageheading--breadcrumbs xui-breadcrumbs"
+        className="xui-pageheading--breadcrumbtrail xui-breadcrumbtrail"
       >
         <li
           className="xui-breadcrumb"
@@ -405,7 +405,7 @@ exports[`<XUI PageHeader and Breadcrumb/> renders pageHeader containing Breadcru
 </header>
 `;
 
-exports[`<XUI PageHeader and Breadcrumb/> renders the simplest pageHeader with no extra settings passed 1`] = `
+exports[`<XUI PageHeader and BreadcrumbTrail/> renders the simplest pageHeader with no extra settings passed 1`] = `
 <header
   className="xui-pageheading"
 >

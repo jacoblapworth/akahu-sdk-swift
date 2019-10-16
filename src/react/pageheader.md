@@ -2,7 +2,7 @@
 	<a href="../section-compounds-navigation-page-header.html" isDocLink>Page Header in the XUI Documentation</a>
 </div>
 
-The `XUIPageHeader` appears beneath the global header on a page. In a basic example, it is a white bar with a title. In more complex cases it could contain a [`XUIBreadcrumb`](#xuibreadcrumb), a [`Picklist`](#picklist) to present tabbed navigation, or a [`XUIActions`](#actions) component (and some combinations).
+The `XUIPageHeader` appears beneath the global header on a page. In a basic example, it is a white bar with a title. In more complex cases it could contain a [`XUIBreadcrumbTrail`](#xuibreadcrumbtrail), a [`Picklist`](#picklist) to present tabbed navigation, or a [`XUIActions`](#actions) component (and some combinations).
 
 #### Examples
 
@@ -57,7 +57,7 @@ const builtActions = (
 ```
 
 ```jsx harmony
-import { XUIPageHeader, XUIBreadcrumb } from './pageheader';
+import { XUIPageHeader, XUIBreadcrumbTrail } from './pageheader';
 import XUIActions from './actions';
 import XUIButton from './button';
 import XUITag from './tag';
@@ -84,7 +84,7 @@ const sampleBreadcrumb = [
   </span>,
   { label: 'Edit organisation', href: '#2' }
 ];
-const builtBreadcrumb = <XUIBreadcrumb breadcrumbs={sampleBreadcrumb} />;
+const builtBreadcrumb = <XUIBreadcrumbTrail breadcrumbs={sampleBreadcrumb} />;
 
 const builtTabs = (
   <Picklist secondaryProps={{ role: 'menu' }}>

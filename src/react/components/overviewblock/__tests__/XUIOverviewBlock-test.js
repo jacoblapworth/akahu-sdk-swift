@@ -28,12 +28,7 @@ describe('<XUI OverviewBlock and OverviewSection/>', () => {
       <XUIOverviewBlock hasBorder={false} hasBackground={false} textAlignment="left">
         {Object.keys(overviewSentiments).map((sentiment, index) => {
           return (
-            <XUIOverviewSection
-              key={index}
-              sentiment={sentiment}
-              label={sentiment}
-              value="100.23"
-            >
+            <XUIOverviewSection key={index} sentiment={sentiment} label={sentiment} value="100.23">
               test child content
             </XUIOverviewSection>
           );

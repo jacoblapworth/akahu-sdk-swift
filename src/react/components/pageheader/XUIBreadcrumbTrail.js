@@ -96,11 +96,11 @@ const buildCrumbsWithCarets = crumbItemsToUse => {
   return crumbsWithCarets;
 };
 
-export default function XUIBreadcrumb({ qaHook, breadcrumbs, className, swapAtBreakpoint }) {
+export default function XUIBreadcrumbTrail({ qaHook, breadcrumbs, className, swapAtBreakpoint }) {
   return (
     <WidthContext.Consumer>
       {headerSizeState => {
-        const listClasses = cn(className, `${baseClass}s`);
+        const listClasses = cn(className, `${baseClass}trail`);
         // Choose either the full set or the compact set, depending on context and props.
         let crumbItemsToUse;
         if (
@@ -126,7 +126,7 @@ export default function XUIBreadcrumb({ qaHook, breadcrumbs, className, swapAtBr
   );
 }
 
-XUIBreadcrumb.propTypes = {
+XUIBreadcrumbTrail.propTypes = {
   className: PropTypes.string,
   qaHook: PropTypes.string,
   /**
@@ -149,4 +149,4 @@ XUIBreadcrumb.propTypes = {
   swapAtBreakpoint: PropTypes.oneOf(Object.keys(userBreakpoints)),
 };
 
-XUIBreadcrumb.defaultProps = {};
+XUIBreadcrumbTrail.defaultProps = {};

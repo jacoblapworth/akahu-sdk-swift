@@ -1,6 +1,6 @@
 import React from 'react';
 import XUIPageHeader from '../XUIPageHeader';
-import XUIBreadcrumb from '../XUIBreadcrumb';
+import XUIBreadcrumbTrail from '../XUIBreadcrumbTrail';
 import XUIPicklist from '../../picklist/Picklist';
 import XUIPickitem from '../../picklist/Pickitem';
 import XUIButton from '../../button/XUIButton';
@@ -12,7 +12,7 @@ import renderer from 'react-test-renderer';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<XUI PageHeader and Breadcrumb/>', () => {
+describe('<XUI PageHeader and BreadcrumbTrail/>', () => {
   const qaHook = 'qaHook';
   const primary = <XUIButton>Primary</XUIButton>;
   const secondary = <XUIButton>Secondary</XUIButton>;
@@ -26,23 +26,27 @@ describe('<XUI PageHeader and Breadcrumb/>', () => {
     </XUIPicklist>
   );
   const actions = <XUIActions primary={primary} secondary={secondary} />;
-  const bcObj = [<span
-    className="testy-mctesterson"
-    key="1"
-    onClick={() => alert('hello')}
-    onKeyDown={() => {}}
-    role="link"
-    tabIndex="0"
-  >
-    hello
-  </span>, { label: 'hiya', href: '#2' }, { label: 'yo' }];
+  const bcObj = [
+    <span
+      className="testy-mctesterson"
+      key="1"
+      onClick={() => alert('hello')}
+      onKeyDown={() => {}}
+      role="link"
+      tabIndex="0"
+    >
+      hello
+    </span>,
+    { label: 'hiya', href: '#2' },
+    { label: 'yo' },
+  ];
   const bcObj2 = [{ label: 'Settings', href: '#1' }, { label: 'Edit', href: '#2' }];
   const bcObj3 = [
     { label: 'Settings', href: '#1' },
     { label: 'Edit', href: '#2' },
     { label: 'Invite', href: '#3' },
   ];
-  const exampleBreadcrumb = <XUIBreadcrumb breadcrumbs={bcObj} qaHook={qaHook} />;
+  const exampleBreadcrumb = <XUIBreadcrumbTrail breadcrumbs={bcObj} qaHook={qaHook} />;
   it('renders the simplest pageHeader with no extra settings passed', () => {
     const testPageHeader = renderer.create(<XUIPageHeader title="Testing 💩" />);
     expect(testPageHeader).toMatchSnapshot();
@@ -72,17 +76,17 @@ describe('<XUI PageHeader and Breadcrumb/>', () => {
     expect(wrapper.find('.xui-pageheading--title').length).toBe(1);
     expect(wrapper.find('ul.xui-pageheading--tabs').length).toBe(1);
   });
-  it('renders pageHeader with Breadcrumb and Actions', () => {
+  it('renders pageHeader with XUIBreadcrumbTrail and Actions', () => {
     const wrapper = mount(
       <XUIPageHeader breadcrumb={exampleBreadcrumb} actions={actions} title="Test" />,
     );
     expect(wrapper.find('.xui-pageheading--actions').length).toBe(1);
-    expect(wrapper.find('ol.xui-breadcrumbs').length).toBe(1);
+    expect(wrapper.find('ol.xui-breadcrumbtrail').length).toBe(1);
   });
-  it('errors when passed a Breadcrumb with no title', () => {
+  it('errors when passed a XUIBreadcrumbTrail with no title', () => {
     expect(() => renderer.create(<XUIPageHeader breadcrumb={exampleBreadcrumb} />)).toThrow();
   });
-  it('renders pageHeader containing Breadcrumb from nodes', () => {
+  it('renders pageHeader containing XUIBreadcrumbTrail from nodes', () => {
     const bcNodeObj = [
       <span role="link" onClick={() => alert('hello')} key="1">
         hello
@@ -92,7 +96,7 @@ describe('<XUI PageHeader and Breadcrumb/>', () => {
       </span>,
       <span key="3">yo</span>,
     ];
-    const exampleNodeBreadcrumb = <XUIBreadcrumb breadcrumbs={bcNodeObj} />;
+    const exampleNodeBreadcrumb = <XUIBreadcrumbTrail breadcrumbs={bcNodeObj} />;
     const testPageHeader = renderer.create(
       <XUIPageHeader breadcrumb={exampleNodeBreadcrumb} title="Test" />,
     );
@@ -107,24 +111,24 @@ describe('<XUI PageHeader and Breadcrumb/>', () => {
     const wrapper = mount(<XUIPageHeader title="Testing 💩" tabs={tabs} />);
     expect(wrapper.find('ul.xui-pageheading--tabs').length).toBe(1);
   });
-  it('renders pageHeader with tabs, title, and Breadcrumb when all are passed', () => {
+  it('renders pageHeader with tabs, title, and XUIBreadcrumbTrail when all are passed', () => {
     const wrapper = mount(
       <XUIPageHeader title="Testing 💩" tabs={tabs} breadcrumb={exampleBreadcrumb} />,
     );
     expect(wrapper.find('ul.xui-pageheading--tabs').length).toBe(1);
     expect(wrapper.find('.xui-pageheading--title').length).toBe(1);
-    expect(wrapper.find('ol.xui-breadcrumbs').length).toBe(1);
+    expect(wrapper.find('ol.xui-breadcrumbtrail').length).toBe(1);
   });
-  it('renders pageHeader and breadcrumb with automation id when qaHook prop is passed in', () => {
+  it('renders pageHeader and breadcrumbtrail with automation id when qaHook prop is passed in', () => {
     const wrapper = renderer.create(
       <XUIPageHeader qaHook={qaHook} breadcrumb={exampleBreadcrumb} title="Test" />,
     );
     expect(wrapper).toMatchSnapshot();
   });
-  it('renders compact Breadcrumb, when at a width context below the specified size and breadcrumb length > 2', () => {
+  it('renders compact XUIBreadcrumbTrail, when at a width context below the specified size and breadcrumb length > 2', () => {
     const contextualBc = renderer.create(
       <WidthContext.Provider value={{ medium: false, small: true }}>
-        <XUIBreadcrumb breadcrumbs={bcObj3} swapAtBreakpoint="medium" />
+        <XUIBreadcrumbTrail breadcrumbs={bcObj3} swapAtBreakpoint="medium" />
       </WidthContext.Provider>,
     );
     expect(contextualBc).toMatchSnapshot();
@@ -132,15 +136,15 @@ describe('<XUI PageHeader and Breadcrumb/>', () => {
   it('does not condense Breadcrumb, if context is too wide', () => {
     const contextualBc = renderer.create(
       <WidthContext.Provider value={{ medium: true, small: true }}>
-        <XUIBreadcrumb breadcrumbs={bcObj3} swapAtBreakpoint="medium" />
+        <XUIBreadcrumbTrail breadcrumbs={bcObj3} swapAtBreakpoint="medium" />
       </WidthContext.Provider>,
     );
     expect(contextualBc).toMatchSnapshot();
   });
-  it('does not condense Breadcrumb, if breadcrumb length < 3', () => {
+  it('does not condense XUIBreadcrumbTrail, if breadcrumb length < 3', () => {
     const contextualBc = renderer.create(
       <WidthContext.Provider value={{ medium: false, small: true }}>
-        <XUIBreadcrumb breadcrumbs={bcObj2} swapAtBreakpoint="medium" />
+        <XUIBreadcrumbTrail breadcrumbs={bcObj2} swapAtBreakpoint="medium" />
       </WidthContext.Provider>,
     );
     expect(contextualBc).toMatchSnapshot();

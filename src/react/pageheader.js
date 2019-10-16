@@ -1,4 +1,4 @@
-import XUIBreadcrumb from './components/pageheader/XUIBreadcrumb';
+import XUIBreadcrumbTrail from './components/pageheader/XUIBreadcrumbTrail';
 import XUIPageHeader from './components/pageheader/XUIPageHeader';
 
-export { XUIBreadcrumb, XUIPageHeader };
+export { XUIBreadcrumbTrail, XUIPageHeader };

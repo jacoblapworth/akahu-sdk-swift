@@ -268,6 +268,12 @@ module.exports = {
       ],
     },
   ],
+  '@xero/xui/react/structural': [
+    {
+      name: 'XUIBreadcrumb',
+      newName: 'XUIBreadcrumbTrail',
+    },
+  ],
 };
 
 function getBarChartProps() {

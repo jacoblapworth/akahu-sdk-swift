@@ -52,7 +52,7 @@ export default class XUIPageHeader extends PureComponent {
       breadcrumb &&
       React.cloneElement(breadcrumb, {
         // Add the necessary pagehead class to the provided breadcrumb.
-        className: cn(breadcrumb.props.className, `${baseClass}--breadcrumbs`),
+        className: cn(breadcrumb.props.className, `${baseClass}--breadcrumbtrail`),
       });
     const clonedTabs =
       tabs &&

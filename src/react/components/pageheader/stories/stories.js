@@ -3,7 +3,7 @@ import React from 'react';
 
 // Components we need to test with
 import XUIPageHeader from '../XUIPageHeader';
-import XUIBreadcrumb from '../XUIBreadcrumb';
+import XUIBreadcrumbTrail from '../XUIBreadcrumbTrail';
 import XUIPicklist from '../../picklist/Picklist';
 import XUIPickitem from '../../picklist/Pickitem';
 import XUIButton from '../../button/XUIButton';
@@ -108,7 +108,7 @@ storiesWithKnobs.add('Playground', () => {
       actions={showActions && buildActions()}
       breadcrumb={
         showBreadcrumb && (
-          <XUIBreadcrumb breadcrumbs={longSampleBreadcrumb} swapAtBreakpoint={bcSwapPoint} />
+          <XUIBreadcrumbTrail breadcrumbs={longSampleBreadcrumb} swapAtBreakpoint={bcSwapPoint} />
         )
       }
       hasLayout={boolean('hasLayout?', true)}
@@ -144,7 +144,7 @@ variations.forEach(baseVariation => {
       : 'Secondary text for testing';
 
     variation.breadcrumb = variation.breadcrumb && (
-      <XUIBreadcrumb
+      <XUIBreadcrumbTrail
         breadcrumbs={
           (typeof variation.breadcrumb !== 'boolean' && variation.breadcrumb) ||
           longSampleBreadcrumb

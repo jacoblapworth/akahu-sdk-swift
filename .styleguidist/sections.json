@@ -265,9 +265,9 @@
         "name": "Navigation",
         "sections": [
           {
-            "name": "Breadcrumb",
-            "components": "../src/react/components/pageheader/XUIBreadcrumb.js",
-            "content": "../src/react/components/pageheader/pageheader.breadcrumb.md"
+            "name": "Breadcrumb Trail",
+            "components": "../src/react/components/pageheader/XUIBreadcrumbTrail.js",
+            "content": "../src/react/components/pageheader/pageheader.breadcrumbtrail.md"
           },
           {
             "name": "Isolation Header",

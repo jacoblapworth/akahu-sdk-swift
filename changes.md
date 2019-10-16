@@ -11,9 +11,14 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 
 Button, TextInput, Pill, Table, Range, Tag, Progress indicator, Picklist, and Horizontal Pickitem have all had style adjustments (often setting a min-width of 40px on some part of the component), to improve the size of their interactive targets for touch devices. Be sure to check these components for visual regressions in your application.
 
+### Removals
+
+- BreadcrumbTrail
+  - `xui-pageheading--breadcrumbs` and `xui-breadcrumbs` have been replaced with `xui-pageheading--breadcrumbtrail` and `xui-breadcrumbtrail`, respectively.
+
 ## XUI CSS components
 
-- Non-linked text items appearing as part of a Breadcrumb should now have the `xui-breadcrumb-no-link` class applied to them
+- Non-linked text items appearing as part of a BreadcrumbTrail should now have the `xui-breadcrumb-no-link` class applied to them
 - Truncated Pickitems with a leftElement and/or secondaryText now require one of the following classes:
   - For Pickitems with a leftElement and secondaryText.
     - `xui-pickitem-has-leftelement-secondarytext`
@@ -39,13 +44,14 @@ Several CSS components require a new child element with the `.xui-touchtarget` c
 
 - icons in `XUIButton`
   - `icon` and `icon-inverted` variants of `XUIButton` have been **removed**. As a replacement, you can use `XUIIconButton` for buttons that only contain an icon.
+- `XUIBreadcrumb` has been renamed to `XUIBreadcrumbTrail`
 
 ### Component props
 
 - `XUIAvatar` now requires the value prop for accessibility and for cases in which images have not loaded
-- `XUIPageHeader` now requires that `breadcrumb` only be used in combination with `title`, where previously the two could _not_ be used together.
+- `XUIPageHeader` now requires that `breadcrumbs` only be used in combination with `title`, where previously the two could _not_ be used together.
 - `Picklist` added a prop `swapAtBreakpoint`, which defines the swap breakpoint (container width) between tab-styled dropdown and horizontal picklist.
-- `XUIBreadcrumb` has a new prop `swapAtBreakpoint`, which defines the pageHeader width at which the component will condense early breadcrumb items into a dropdown. This behaviour is optional, and will not occur if no `swapAtBreakpoint` is supplied, or if the set of breadcrumbs is only one or two items.
+- `XUIBreadcrumbTrail` has a new prop `swapAtBreakpoint`, which defines the pageHeader width at which the component will condense early breadcrumb items into a dropdown. This behaviour is optional, and will not occur if no `swapAtBreakpoint` is supplied, or if the set of breadcrumbs is only one or two items.
 
 ### Internationalisation
 

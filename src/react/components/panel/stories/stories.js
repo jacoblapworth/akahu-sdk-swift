@@ -3,7 +3,7 @@ import React from 'react';
 
 // Components we need to test with
 import XUIIcon from '../../icon/XUIIcon';
-import XUIBreadcrumb from '../../pageheader/XUIBreadcrumb';
+import XUIBreadcrumbTrail from '../../pageheader/XUIBreadcrumbTrail';
 import XUIPicklist from '../../picklist/Picklist';
 import XUIPickitem from '../../picklist/Pickitem';
 import XUIButton from '../../button/XUIButton';
@@ -58,7 +58,7 @@ const sampleBreadcrumb = [
   { label: 'hiya I have multiple words', href: '#2' },
   { label: 'yo' },
 ];
-const exampleBreadcrumb = <XUIBreadcrumb breadcrumbs={sampleBreadcrumb} />;
+const exampleBreadcrumb = <XUIBreadcrumbTrail breadcrumbs={sampleBreadcrumb} />;
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);

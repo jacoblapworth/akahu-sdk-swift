@@ -1,7 +1,7 @@
 @import '../vars';
 @import '../mixins';
 
-.#{$ns}-breadcrumbs {
+.#{$ns}-breadcrumbtrail {
   align-items: center;
   display: flex;
   flex: 1 1 auto;
@@ -63,7 +63,7 @@
 
 .#{$ns}-pageheading--content,
 .#{$ns}-pageheading--leftcontent {
-  .#{$ns}-breadcrumbs {
+  .#{$ns}-breadcrumbtrail {
     flex-grow: 0;
     max-width: 100%;
   }

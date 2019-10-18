@@ -20,7 +20,7 @@ XUIButtonGroup.propTypes = {
   className: PropTypes.string,
 
   /**
-   * Modifier for the size of the button group. `medium` value is supported. `small` and `xsmall` variants now have a `sunsetting` flag due to poor touch interaction potential.
+   * Modifier for the size of the button. `medium`, `small`, or `xsmall`.
    */
   size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 

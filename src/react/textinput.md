@@ -447,7 +447,7 @@ import XUITextInput, { XUITextInputSideElement } from './textinput';
 
 #### Input Groups
 
-Don't vertically stack `small` and `xsmall` Text inputs. `small` and `xsmall` variants now have a `sunsetting` flag due to poor touch interaction potential.
+**Note:** _Don’t vertically stack `small` and `xsmall` text inputs due to poor touch interaction potential._
 
 ```jsx harmony
 import XUIIcon from './icon';

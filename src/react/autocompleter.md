@@ -507,6 +507,8 @@ class SingleSelectExample extends Component {
 
 The size of `XUIAutocompleter` can be set via the `inputSize` prop and supports `medium` and `small` sizes. If the pills supplied to the autocompleter do not have a size explicitly set, then they will automatically choose the correct size based on the `inputSize`.
 
+**Note:** _The `small` variant now is `sunsetting` because it doesn’t meet [XUI touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommended to use._
+
 To set the size of the `Picklist`, you must specify the size using the `Picklist`s `size` prop.
 
 ```jsx harmony

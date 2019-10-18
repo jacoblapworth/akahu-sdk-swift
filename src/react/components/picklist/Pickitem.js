@@ -216,8 +216,10 @@ Pickitem.propTypes = {
   /** Props to pass to the pickitem body */
   pickitemBodyProps: PropTypes.object,
   /** Size variant. Where possible, please set this on the containing picklist,
-   * which will override any per-item settings.
-   * `small` and `xsmall` sizes are `sunsetting` due to poor touch interaction potential. */
+   * which will override any per-item settings.<br>
+   * **Note:**
+   * *`small` and `xsmall` variants now are `sunsetting` because they don’t meet [XUI minimum touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommended to use.*
+   */
   size: PropTypes.oneOf(sizeVariants),
   /** Content to be added to the left of the pickitem. */
   leftElement: PropTypes.node,

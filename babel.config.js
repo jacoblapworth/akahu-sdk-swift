@@ -1,41 +1,45 @@
 const browsers = require('@xero/browserslist-autoprefixer');
 
-const babelConfig = {
-  env: {
-    development: {
-      presets: ['@babel/preset-env', '@babel/preset-react'],
-      plugins: [
-        [
-          '@babel/plugin-proposal-class-properties',
-          {
-            loose: true,
-          },
-        ],
-      ],
-    },
-    production: {
-      presets: [
-        [
-          '@babel/preset-env',
-          {
+const classPropertiesPlugin = [
+  '@babel/plugin-proposal-class-properties',
+  {
+    loose: true,
+  },
+];
+
+const productionConfig = {
+  presets: [
+    [
+      '@babel/preset-env',
+      process.env.ES6_OUTPUT === 'true'
+        ? {
+            // These settings ensure that Babel produces ES6-spec-compliant modules rather than ES5 in commonJS.
+            modules: false,
+            targets: {
+              esmodules: true,
+            },
+          }
+        : {
+            // These settings produce ES5 commonJS-based output that works in the browsers defined in @xero/browserslist-autoprefixer
             useBuiltIns: 'usage',
             corejs: '3',
             targets: {
               browsers,
             },
           },
-        ],
-        '@babel/preset-react',
-      ],
-      plugins: [
-        [
-          '@babel/plugin-proposal-class-properties',
-          {
-            loose: true,
-          },
-        ],
-      ],
+    ],
+    '@babel/preset-react',
+  ],
+  plugins: [classPropertiesPlugin],
+};
+
+const babelConfig = {
+  env: {
+    development: {
+      presets: ['@babel/preset-env', '@babel/preset-react'],
+      plugins: [classPropertiesPlugin],
     },
+    production: productionConfig,
     test: {
       presets: [
         [
@@ -57,12 +61,7 @@ const babelConfig = {
             extensions: ['.scss'],
           },
         ],
-        [
-          '@babel/plugin-proposal-class-properties',
-          {
-            loose: true,
-          },
-        ],
+        classPropertiesPlugin,
         [
           '@babel/plugin-transform-runtime',
           {

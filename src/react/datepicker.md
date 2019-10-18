@@ -153,6 +153,8 @@ class DisabledDatePicker extends React.Component {
 
 This view slims down some of the padding to allow for a smaller view when needed.
 
+**Note:** _The compact variant now is `sunsetting` because it doesn’t meet [XUI touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommend to use._
+
 ```jsx harmony
 import XUIDatePicker from './datepicker';
 

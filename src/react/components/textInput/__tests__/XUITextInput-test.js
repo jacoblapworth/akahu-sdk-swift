@@ -301,7 +301,7 @@ describe('<XUITextInput>', () => {
 
       wrapper.find('input').simulate('focus');
 
-      expect(onFocus.mock.calls.length).toBeGreaterThan(0);
+      expect(onFocus).toHaveBeenCalledTimes(1);
     });
 
     it('should set internal focused state to false when blurred', () => {
@@ -319,7 +319,7 @@ describe('<XUITextInput>', () => {
 
       wrapper.find('input').simulate('blur');
 
-      expect(onBlur.mock.calls.length).toBeGreaterThan(0);
+      expect(onBlur).toHaveBeenCalledTimes(1);
     });
 
     it('calls onChange when input changes', () => {

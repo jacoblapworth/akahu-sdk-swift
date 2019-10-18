@@ -123,13 +123,16 @@ storiesWithKnobs.add('Playground', () => {
 
   const onRowClick = boolean('onRowClick', false);
   const rowClickProps = onRowClick && {
-    onRowClick: ({ _id }) => () => alert(`Click row ${_id}`),
+    onRowClick: ({ _id }) => alert(`Click row ${_id}`),
+    shouldRowClick: () => true,
   };
 
   const onCellClick = boolean('onCellClick', false);
   const hasWrapping = boolean('hasWrapping', false);
   const cellProps = {
-    ...(onCellClick && { onCellClick: ({ _id }) => () => alert(`Click cell in row ${_id}`) }),
+    ...(onCellClick && {
+      onCellClick: ({ _id }) => alert(`Click cell in row ${_id}`),
+    }),
     hasWrapping,
   };
 

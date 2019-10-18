@@ -382,8 +382,12 @@ XUIDatePicker.propTypes = {
     to: PropTypes.instanceOf(Date),
   }),
 
-  /** If you need to render a calendar in a small amount of horizontal space, set this
-   * flag to shrink things down a bit. */
+  /**
+   * If you need to render a calendar in a small amount of horizontal space, set this
+   * flag to shrink things down a bit.<br>
+   * **Note:**
+   * * The compact variant now is `sunsetting` because it doesn’t meet [XUI touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommend to use.*
+   */
   isCompact: PropTypes.bool,
 
   /** A function that we can use to determine whether or not a day should be disabled.  */

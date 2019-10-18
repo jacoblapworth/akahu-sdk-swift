@@ -60,6 +60,8 @@ import XUIPill from './pill';
 
 Pills can be `medium`, `small`, or `xsmall` size, by passing one of these values to the `size` prop.
 
+**Note:** _The `xsmall` variant now is `sunsetting` because it doesn't meet [XUI touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommend to use._
+
 ```jsx harmony
 import XUIPill from './pill';
 

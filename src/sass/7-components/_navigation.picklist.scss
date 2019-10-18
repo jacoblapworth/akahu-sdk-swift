@@ -107,6 +107,111 @@
 //
 // Styleguide: Compounds.DisplayingData.Picklist.2
 
+// Size variants
+//
+// Picklist offers a range of size variants. All but `-medium` are being “sunset” because they don’t meet [XUI minimum touch target standards](./section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4).
+//
+// Tips:
+// Do: Medium size should be used for all picklists
+// Dont: Don't use small and xsmall size variants.
+//
+// Styleguide: Compounds.DisplayingData.Picklist.3
+
+// Medium
+//
+// Definitions:
+// Size variant: **Height**: **Class**
+// medium: 40px: `xui-picklist-medium`<br>`xui-pickitem-medium`
+//
+// Markup:
+// <div class="xui-panel">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Today</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Tomorrow</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next week</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next month</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Picklist.3.1
+
+// Small, xsmall
+//
+// flags: sunsetting
+//
+// Definitions:
+// Size variant: **Height**: **Class**
+// small: 32px: `xui-picklist-small`<br>`xui-pickitem-small`
+// xsmall: 24px: `xui-picklist-xsmall`<br>`xui-pickitem-xsmall`
+//
+// Markup:
+// <div class="xui-panel xui-margin-bottom">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="tree">
+//     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-small" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Today</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Tomorrow</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next week</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-small" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next month</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+// <div class="xui-panel">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="tree">
+//     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Today</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Tomorrow</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next week</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Next month</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+//
+// Styleguide: Compounds.DisplayingData.Picklist.3.2
+
 // Text styling
 //
 // Classes:

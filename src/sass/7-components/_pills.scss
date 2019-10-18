@@ -46,17 +46,18 @@
 // Size variants
 //
 // Pills have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2). A size variant needs to be specified to enable correct styling.
+// The xsmall variant now has a “Sunsetting” flag because it doesn't meet [XUI touch target standards](./section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4).
 //
 // Definitions:
 // Size variant: **Height**: **Class**
 // medium: 40px: `xui-pill-medium`
 // small: 32px: `xui-pill-small`
-// xsmall: 24px: `xui-pill-xsmall`
 //
 // Tips:
-// Do: Use 'medium' as a standard size variant
-// Do: Use 'small' and 'xsmall' variants nested inside other elements
-// Warning: Be cautious when using 'small' and 'xsmall' variants as they have reduced legibility and touch targets
+// Do: Use medium as a standard size variant
+// Do: Use small variant nested inside other elements
+// Warning: Be cautious when using small variant as they have reduced legibility and hit area
+// Dont: Don't use xsmall size variant.
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
@@ -68,14 +69,28 @@
 //     </span>
 //   </div>
 // </div>
-// <div class="xui-margin-bottom">
+// <div>
 //   <div class="xui-pill xui-pill-small">
 //     <span class="xui-pill--content">
 //       <span class="xui-pill--text">Small pill</span>
 //     </span>
 //   </div>
 // </div>
-// <div class="xui-margin-bottom">
+//
+// Styleguide: Building Blocks.Identifiers.Pill.3
+
+// Xsmall
+//
+// flags: sunsetting
+//
+// Definitions:
+// Size variant: **Height**: **Class**
+// xsmall: 24px: `xui-pill-xsmall`
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
+// <div>
 //   <div class="xui-pill xui-pill-xsmall">
 //     <span class="xui-pill--content">
 //       <span class="xui-pill--text">Xsmall pill</span>
@@ -83,7 +98,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.3
+// Styleguide: Building Blocks.Identifiers.Pill.3.1
 
 // Clearing selection
 //
@@ -109,7 +124,7 @@
 //     </button>
 //   </div>
 // </div>
-// <div class="xui-margin-bottom">
+// <div>
 //   <div class="xui-pill xui-pill-small xui-pill-is-deletable">
 //     <span class="xui-pill--content">
 //       <span class="xui-pill--text">Construction</span>
@@ -119,18 +134,6 @@
 //         <use xlink:href="#xui-icon-cross-small" role="presentation"/>
 // 	     </svg>
 //       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-pill xui-pill-xsmall xui-pill-is-deletable">
-//     <span class="xui-pill--content">
-//       <span class="xui-pill--text">Construction</span>
-//     </span>
-//     <button class="xui-button xui-button-icon xui-button-icon-xsmall xui-pill--button-icon">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"/>
-// 	     </svg>
 //     </button>
 //   </div>
 // </div>
@@ -160,7 +163,7 @@
 //     </button>
 //   </div>
 // </div>
-// <div class="xui-margin-bottom">
+// <div>
 //   <div class="xui-pill xui-pill-small xui-pill-is-deletable">
 //     <span class="xui-pill--content">
 //       <span class="xui-pill--secondary">Status</span>
@@ -169,17 +172,6 @@
 //     <button class="xui-button xui-button-icon xui-button-icon-small xui-pill--button-icon">
 //       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
 //       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-pill xui-pill-xsmall xui-pill-is-deletable">
-//     <span class="xui-pill--content">
-//       <span class="xui-pill--secondary">Status</span>
-//       <span class="xui-pill--text">Under review</span>
-//     </span>
-//     <button class="xui-button xui-button-icon xui-button-icon-xsmall xui-pill--button-icon">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
 //     </button>
 //   </div>
 // </div>
@@ -210,7 +202,7 @@
 //     </button>
 //   </div>
 // </div>
-// <div class="xui-margin-bottom">
+// <div>
 //   <div class="xui-pill xui-pill-small xui-pill-is-deletable xui-pill-interactive xui-pill-has-avatar">
 //     <span class="xui-pill--content">
 //       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-8" role="presentation">BA</abbr>
@@ -219,17 +211,6 @@
 //     <button class="xui-button xui-button-icon xui-button-icon-small xui-pill--button-icon">
 //       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
 //       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-pill xui-pill-xsmall xui-pill-is-deletable xui-pill-interactive xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-2xsmall xui-avatar-color-8" role="presentation">BA</abbr>
-//       <span class="xui-pill--text">Bert Aldridge</span>
-//     </span>
-//     <button class="xui-button xui-button-icon xui-button-icon-xsmall xui-pill--button-icon">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
 //     </button>
 //   </div>
 // </div>
@@ -255,17 +236,10 @@
 //     </button>
 //   </div>
 // </div>
-// <div class="xui-margin-bottom">
+// <div>
 //   <div class="xui-pill xui-pill-small xui-pill-interactive">
 //     <button type='button' class="xui-button xui-pill--button xui-pill--content">
 //       <span class="xui-pill--text">example.email@small.com</span>
-//     </button>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-pill xui-pill-xsmall xui-pill-interactive">
-//     <button type='button' class="xui-button xui-pill--button xui-pill--content">
-//       <span class="xui-pill--text">example.email@xsmall.com</span>
 //     </button>
 //   </div>
 // </div>
@@ -293,7 +267,7 @@
 //     </button>
 //   </div>
 // </div>
-// <div class="xui-margin-bottom">
+// <div>
 //   <div class="xui-pill xui-pill-small xui-pill-is-deletable xui-pill-interactive">
 //     <a href="#" class="xui-button xui-button-small xui-pill--button xui-pill--content">
 //       <span class="xui-pill--text">Facebook profile</span>
@@ -301,16 +275,6 @@
 //     <button class="xui-button xui-button-icon xui-button-icon-small xui-pill--button-icon">
 //       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
 //       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-pill xui-pill-xsmall xui-pill-is-deletable xui-pill-interactive">
-//     <a href="#" class="xui-button xui-button-xsmall xui-pill--button xui-pill--content">
-//       <span class="xui-pill--text">Facebook profile</span>
-//     </a>
-//     <button class="xui-button xui-button-icon xui-button-icon-xsmall xui-pill--button-icon">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
 //     </button>
 //   </div>
 // </div>
@@ -326,7 +290,6 @@
 // xui-pill--erroricon: Styles error icon
 // xui-pill--erroricon-small: Error icon size variant for medium pills
 // xui-pill--erroricon-xsmall: Error icon size variant for small pills
-// xui-pill--erroricon-2xsmall: Error icon size variant for xsmall pills
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
@@ -347,7 +310,7 @@
 //     </button>
 //   </div>
 // </div>
-// <div class="xui-margin-bottom">
+// <div>
 //   <div class="xui-pill xui-pill-small xui-pill-is-invalid xui-pill-is-deletable xui-pill-interactive">
 //     <button class="xui-button xui-button-small xui-pill--content xui-pill--button" tabindex="0" type="button">
 //       <div class="xui-pill--avatar xui-pill--erroricon xui-pill--erroricon-xsmall">
@@ -363,6 +326,21 @@
 //     </button>
 //   </div>
 // </div>
+//
+// Styleguide: Building Blocks.Identifiers.Pill.8
+
+// 2xsmall Error Icon
+//
+// This class sizes error icons correctly inside xsmall pills, which are "sunsetting", so it is not recommended to use.
+//
+// Classes:
+// xui-pill--erroricon-2xsmall: Error icon size variant for xsmall pills
+//
+// flags: sunsetting
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
 // <div>
 //   <div class="xui-pill xui-pill-xsmall xui-pill-is-invalid xui-pill-is-deletable xui-pill-interactive">
 //     <button class="xui-button xui-button-xsmall xui-pill--content xui-pill--button" tabindex="0" type="button">
@@ -379,7 +357,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.8
+// Styleguide: Building Blocks.Identifiers.Pill.8.1
 
 // Indicating focus
 //
@@ -399,16 +377,9 @@
 //     </button>
 //   </div>
 // </div>
-// <div class="xui-margin-bottom">
+// <div>
 //   <div class="xui-pill xui-pill-small xui-pill-is-focused xui-pill-interactive">
 //     <button type='button' class="xui-button xui-button-small xui-pill--button xui-pill--content">
-//       <span class="xui-pill--text">Focused pill</span>
-//     </button>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-pill xui-pill-xsmall xui-pill-is-focused xui-pill-interactive">
-//     <button type='button' class="xui-button xui-button-xsmall xui-pill--button xui-pill--content">
 //       <span class="xui-pill--text">Focused pill</span>
 //     </button>
 //   </div>

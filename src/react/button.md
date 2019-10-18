@@ -73,6 +73,8 @@ import ExampleContainer from './docs/ExampleContainer';
 
 The `size` prop allows you to modify the default button size.
 
+**Note:** _Don’t vertically stack all variants of `small` and `xsmall` buttons due to poor touch interaction potential._
+
 ```jsx harmony
 import XUIButton from './button';
 

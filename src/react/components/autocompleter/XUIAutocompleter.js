@@ -444,7 +444,11 @@ XUIAutocompleter.propTypes = {
   /** The debounce timeout before onSearch is called. Set to 0 to disable debouncing */
   searchDebounceTimeout: PropTypes.number,
 
-  /** Maps to the `size` property of the `XUITextInput` component. */
+  /**
+   * Maps to the `size` property of the `XUITextInput` component.<br>
+   * **Note:**
+   * *The `small` variant now is `sunsetting` because it doesn’t meet [XUI touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommended to use.*
+   */
   inputSize: PropTypes.oneOf(['small', 'medium']),
 
   /** Maps to the `size` property of the dropdown component. */

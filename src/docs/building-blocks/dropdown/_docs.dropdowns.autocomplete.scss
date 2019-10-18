@@ -104,17 +104,17 @@
 
 // Size variants
 //
-// Autocompleters have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2). Use the [Text input](section-building-blocks-controls-textinput.html) and [Picklist](section-compounds-displayingdata-picklist.html) size variants to dictate your size preference for Autocompleter. If using the React component, use the dedicated properties to adjust size variant.
+// Autocompleters have a range of size options that allow for greater control over visual hierarchy. Use the [Text input](section-building-blocks-controls-textinput.html) and [Picklist](section-compounds-displayingdata-picklist.html) size variants to dictate the your size preference for Autocompleter. If using the react component, use the dedicated properties to adjust size variant.
+// Small and xsmall variants now have a “Sunsetting” flag because they don’t meet [XUI touch target standards](./section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4).
 //
 // Tips:
-// Do: Use 'medium' size variant by default, especially when using inside a form
-// Warning: Be cautious when using 'xsmall' and 'small' size variants as they have reduced legibility and touch targets
-// Dont: Don't use 'xsmall' size variant classes for multi-select autocompleters as pills are not supported
+// Do: Use medium size variant by default, especially when using inside a form
+// Dont: Don't use small and xsmall size variants.
 //
 // exampleclass: ds-example-narrow
 //
 // Markup:
-// <div class="xui-margin-bottom-2xlarge">
+// <div>
 //   <div class="xui-textinput xui-textinput-medium">
 //     <input class="xui-textinput--input xui-textinput--input-medium xui-autocompleter--textinput" placeholder="Add client" type="search" value="">
 //   </div>
@@ -152,6 +152,14 @@
 //     </div>
 //   </div>
 // </div>
+//
+// Styleguide: Compounds.CollectingInput.Autocompleter.3
+
+// Small, Xsmall
+//
+// flags: sunsetting
+//
+// Markup:
 // <div class="xui-margin-bottom-2xlarge">
 //   <div class="xui-textinput xui-textinput-small">
 //     <input class="xui-textinput--input xui-textinput--input-small xui-autocompleter--textinput" placeholder="Add client" type="search" value="">
@@ -229,7 +237,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Autocompleter.3
+// Styleguide: Compounds.CollectingInput.Autocompleter.3.1
 
 // Single-select
 //
@@ -238,10 +246,9 @@
 // Tips:
 // Do: Use text input side elements to indicate a single selection
 // Do: Include an avatar if the selected option has an associated person or business
-// Warning: Be cautious when using small and xsmall size variants as they have reduced legibility and hit area
 //
 // Markup:
-// <div class="xui-textinput xui-textinput-medium xui-margin-bottom">
+// <div class="xui-textinput xui-textinput-medium">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-align-center xui-textinput--sideelement-avatar">
 //     <abbr class="xui-avatar xui-avatar-small xui-avatar-color-5" role="presentation">CH</abbr>
 //   </div>
@@ -293,13 +300,12 @@
 // Tips:
 // Do: Use pills to display multiple selections inside of an input from an autocompleter
 // Do: Include an avatar if the selected option has an associated person or business
-// Dont: Don't use xsmall size variants for multi-select autocompleters
 //
 // Classes:
 // xui-autocompleter--pill: An individual pill inside the autocmpleter
 //
 // Markup:
-// <div class="xui-margin-bottom xui-textinput xui-textinput-medium xui-autocompleter--trigger-pillwrap">
+// <div class="xui-textinput xui-textinput-medium xui-autocompleter--trigger-pillwrap">
 //   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
 //     <span class="xui-pill--content">
 //       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-1" role="presentation">CS</abbr>
@@ -325,31 +331,6 @@
 //     </button>
 //   </div>
 //   <input class="xui-autocompleter--textinput xui-textinput--input" placeholder="Add recipients" type="search" value="">
-// </div>
-// <div class="xui-textinput xui-textinput-small xui-autocompleter--trigger-pillwrap">
-//   <div class="xui-autocompleter--pill xui-pill xui-pill-xsmall xui-pill-is-deletable xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-2xsmall xui-avatar-color-1" role="presentation">CS</abbr>
-//       <span class="xui-pill--text">Claire Symons</span>
-//     </span>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-xsmall" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//     </button>
-//   </div>
-//   <div class="xui-autocompleter--pill xui-pill xui-pill-xsmall xui-pill-is-deletable xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-2xsmall xui-avatar-color-2" role="presentation">RK</abbr>
-//       <span class="xui-pill--text">Ray Koh</span>
-//     </span>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-xsmall" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//     </button>
-//   </div>
-//   <input class="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-small" placeholder="Add recipients" type="search" value="">
 // </div>
 //
 // Styleguide: Compounds.CollectingInput.Autocompleter.5
@@ -591,14 +572,8 @@
 // xui-textinput-is-disabled: Apply to autocompleter container
 //
 // Markup:
-// <div class="xui-textinput xui-textinput-medium xui-textinput-is-disabled xui-margin-bottom">
+// <div class="xui-textinput xui-textinput-medium xui-textinput-is-disabled">
 //   <input class="xui-textinput--input xui-textinput--input-medium" placeholder="Add recipients" type="search" value="" disabled>
-// </div>
-// <div class="xui-textinput xui-textinput-small xui-textinput-is-disabled xui-margin-bottom">
-//   <input class="xui-textinput--input xui-textinput--input-small" placeholder="Add recipients" type="search" value="" disabled>
-// </div>
-// <div class="xui-textinput xui-textinput-xsmall xui-textinput-is-disabled">
-//   <input class="xui-textinput--input xui-textinput--input-xsmall" placeholder="Add recipients" type="search" value="" disabled>
 // </div>
 //
 // Styleguide: Compounds.CollectingInput.Autocompleter.7

@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 import { createCellLocationClasses, cellClassNames } from '../helpers/utilities';
 import { NAME_SPACE, NBSP } from '../helpers/constants';
+import preventDefault from '../../helpers/preventDefault';
 
 import TableData from './TableData';
 import OverflowMenu from './OverflowMenu';
@@ -23,7 +24,12 @@ export default class OverflowMenuCell extends PureComponent {
     );
 
     return (
-      <TableData className={className} tabIndex={-1}>
+      <TableData
+        className={className}
+        onClick={preventDefault}
+        onKeyPress={preventDefault}
+        tabIndex={-1}
+      >
         {NBSP}
         {hasItems && (
           <OverflowMenu overflowMenuTitle={overflowMenuTitle}>{overflowMenuItems}</OverflowMenu>

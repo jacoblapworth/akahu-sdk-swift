@@ -681,10 +681,10 @@ DropDownToggled.propTypes = {
   repositionOnScroll: PropTypes.bool,
 
   /**
-   * Setting to true will for the dropdown to be as wide as the trigger.
-   * Note: Setting this to true will override any size prop on DropDown.  XUI design has also
-   * decided to keep a minimum width on the dropdown, so dropdown may not match the width of
-   * narrow triggers.
+   * Setting to true will for the dropdown to be as wide as the trigger. <br>
+   * **Note:** *Setting this to true will override any size prop on DropDown.* <br>
+   * XUI design has also to keep a minimum width on the dropdown,
+   * so dropdown may not match the width of narrow triggers.
    */
   matchTriggerWidth: PropTypes.bool,
 

@@ -236,11 +236,21 @@
 //
 // By default, datepickers span the full width of their containing element.
 // To set your own width, nest the datepicker within another component, such as a <a href="section-compounds-collectinginput-dropdowns.html">dropdown</a>, or apply your own value.
-// A smaller variant of the datepicker is also available by applying the following modifiers to `xui-datepicker`.
-// It is also recommended to remove the `xui-button-icon-medium` modifier on the icon buttons when doing so.
+// Compact variant now has a “Sunsetting” flag because it doesn’t meet [XUI touch target standards](./section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4).
+//
+// Tips:
+// Dont: Don't use compact variant.
 //
 // Definitions:
 // Standard: 40px controls, 100% width: none
+//
+// Styleguide: Compounds.CollectingInput.Datepicker.4
+
+// Compact
+//
+// flags: sunsetting
+//
+// Definitions:
 // Compact: 30px controls, 100% width: `-compact`
 //
 // ExampleClass: ds-example-flush ds-example-transparent
@@ -414,7 +424,7 @@
 // </div>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Datepicker.4
+// Styleguide: Compounds.CollectingInput.Datepicker.4.1
 
 // Single dates
 //
@@ -446,10 +456,12 @@
 
 // Responsive
 //
+// Compact variant now has a “Sunsetting” flag because it doesn’t meet [XUI touch target standards](./section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4)
+//
 // Tips:
 // Do: On smaller viewports, display datepicker in a dropdown sheet with a mask
 // Do: Allow users to dismiss datepicker by selecting the mask
-// Don't: Don't use compact datepicker variant in dropdown sheet, as this results in small touch targets
+// Dont: Don't use compact variant.
 //
 // Styleguide: Compounds.CollectingInput.Datepicker.7
 

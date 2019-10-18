@@ -12,13 +12,13 @@ const sassSourceLocation = path.join(rootDirectory, 'src', 'sass');
 const sassMoveToLocation = path.join(rootDirectory, 'sass');
 const codemodBuildOutputLocation = path.join(rootDirectory, 'dist', 'codemod');
 const codemodMoveToLocation = path.join(rootDirectory, 'codemod');
-const reactES6SourceLocation = path.join(rootDirectory, 'src', 'react');
+const reactES6SourceLocation = path.join(rootDirectory, 'dist', 'react-es6');
 const reactES6OutputLocation = path.join(rootDirectory, 'react-es6');
 
 function prepack() {
   taskRunner(taskSpinner => {
     taskSpinner.info('Done with basic build promises');
-    return Promise.all([babelBuild(), codemodBuild()])
+    return Promise.all([babelBuild(), babelBuild({ shouldOutputES6: true }), codemodBuild()])
       .then(({ stdout }) => console.log(stdout)) //eslint-disable-line no-console
       .then(() => {
         ncp(reactBuildOutputPath, reactMoveToLocation);

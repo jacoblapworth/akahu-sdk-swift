@@ -83,26 +83,39 @@ class PositioningInline extends Positioning {
     const triggerDOM = parentRef != null && parentRef.firstChild;
 
     if (isBaseRendered(baseRect) && triggerDOM != null && verge.inViewport(triggerDOM)) {
+      const triggerRect = triggerDOM.getBoundingClientRect();
+      const spaces = getSpacesAroundTrigger(triggerRect);
+
+      // Common measurements needed for setting sizes, depending on various positioning values
+      const largerVerticalSpace =
+        Math.max(spaces.above, spaces.below) - viewportGutter - triggerDropdownGap;
+      const largerHorizontalSpace =
+        Math.max(spaces.left, spaces.right) - viewportGutter - triggerDropdownGap;
+      const possibleHorizCenteredSize = Math.min(spaces.left, spaces.right) * 2;
+      const possibleVertCenteredSize = Math.min(spaces.above, spaces.below) * 2;
+      const largestAvailableWidth =
+        Math.max(largerHorizontalSpace, possibleHorizCenteredSize) + triggerRect.width;
+      const largestAvailableHeight =
+        Math.max(largerVerticalSpace, possibleVertCenteredSize) + triggerRect.height;
+
+      const maxDimensions = {
+        maxHeight,
+        maxWidth,
+      };
+
       if (!this.props.isNotResponsive && isNarrowViewport()) {
-        // For mobile or very small screens, offer the full viewport, as max. Figure positioning later.
-        const viewportH = verge.viewportH();
-        const viewportW = verge.viewportW();
-        this.setState({
-          maxHeight: maxHeight ? Math.min(viewportH, maxHeight) : viewportH,
-          maxWidth: maxWidth ? Math.min(viewportW, maxWidth) : viewportW,
-        });
+        // For mobile or very small screens, use the largest available space as max. Figure positioning later.
+        maxDimensions.maxHeight = maxHeight
+          ? Math.min(largestAvailableHeight, maxHeight)
+          : largestAvailableHeight;
+        maxDimensions.maxWidth = maxWidth
+          ? Math.min(largestAvailableWidth, maxWidth)
+          : largestAvailableWidth;
+        this.setState(maxDimensions);
       } else {
-        const triggerRect = triggerDOM.getBoundingClientRect();
-        const spaces = getSpacesAroundTrigger(triggerRect);
-        const maxDimensions = {
-          maxHeight,
-          maxWidth,
-        };
+        // Non-mobile treatment.
         if (positionVertically) {
           if (shouldRestrictMaxHeight) {
-            // Get viewport size either above or below, minus gutters.
-            const largerVerticalSpace =
-              Math.max(spaces.above, spaces.below) - viewportGutter - triggerDropdownGap;
             maxDimensions.maxHeight = maxHeight
               ? Math.min(largerVerticalSpace, maxHeight)
               : largerVerticalSpace;
@@ -110,10 +123,6 @@ class PositioningInline extends Positioning {
             maxDimensions.maxHeight = null;
           }
 
-          // Widest the tip could be in any alignment.
-          const possibleCenteredSize = Math.min(spaces.left, spaces.right) * 2;
-          const largestAvailableWidth =
-            Math.max(spaces.left, spaces.right, possibleCenteredSize) + triggerRect.width;
           if (maxWidth === -1) {
             maxDimensions.maxWidth = null;
           } else {
@@ -122,17 +131,10 @@ class PositioningInline extends Positioning {
               : largestAvailableWidth;
           }
         } else {
-          // Get viewport size to the left or right, minus gutters.
-          const largerHorizontalSpace =
-            Math.max(spaces.left, spaces.right) - viewportGutter - triggerDropdownGap;
           maxDimensions.maxWidth = maxWidth
             ? Math.min(largerHorizontalSpace, maxWidth)
             : largerHorizontalSpace;
 
-          // Tallest the tip could be in any alignment.
-          const possibleCenteredSize = Math.min(spaces.above, spaces.below) * 2;
-          const largestAvailableHeight =
-            Math.max(spaces.above, spaces.below, possibleCenteredSize) + triggerRect.height;
           maxDimensions.maxHeight = maxHeight
             ? Math.min(largestAvailableHeight, maxHeight)
             : largestAvailableHeight;

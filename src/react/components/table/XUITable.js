@@ -1,5 +1,4 @@
 import 'core-js/features/array/fill';
-import 'element-closest';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';

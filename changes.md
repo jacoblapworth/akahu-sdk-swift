@@ -15,6 +15,14 @@ Button, TextInput, Pill, Table, Range, Tag, Progress indicator, Picklist, and Ho
 
 - BreadcrumbTrail
   - `xui-pageheading--breadcrumbs` and `xui-breadcrumbs` have been replaced with `xui-pageheading--breadcrumbtrail` and `xui-breadcrumbtrail`, respectively.
+- The `xui-heading-medium` mixin no longer has an `emphasis` parameter.
+
+### Typography changes
+
+- Headings: large, xlarge, 2xlarge, 3xlarge
+  - updated line height to `28px` for large (**removed** `1.3077`), `32px` for xlarge (**removed** `1.15`), `72px` for 2xlarge (**removed** `1.15`), `96px` for 3xlarge headings (**removed** `1.15`)
+- `xui-avatar-2xsmall`
+  - `xui-avatar-2xsmall` uses now line height corresponding to its font-size (12px instead of 16px).
 
 ## XUI CSS components
 

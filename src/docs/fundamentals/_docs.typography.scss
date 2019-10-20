@@ -39,18 +39,19 @@
 
 // Heading classes
 //
-// flags: wip
-//
 // Heading are similar to sizes, but also include additional font-weight and spacing rules.
 //
 // **Important:** If you're using headings in a modal or dropdown please use one of our [presets](#fundamentals-typography-23) instead.
 //
 // Definitions:
-// xLarge: `xui-heading-xlarge`: <h2 class="xui-heading-xlarge xui-text-truncated">xLarge</h2>
-// Large: `xui-heading-large`: <h3 class="xui-heading-large xui-margin-none">Large</h3>
-// Medium: `xui-heading-medium`: <h4 class="xui-heading-medium xui-margin-none">Medium</h4>
-// Small: `xui-heading-small`: <h5 class="xui-heading-small xui-margin-none">Small</h5>
-// xSmall: `xui-heading-xsmall`: <h6 class="xui-heading-xsmall xui-margin-none">xSmall</h6>
+// Type: **CSS class**: **font size/line height**
+// 3XLarge: `xui-heading-3xlarge`: <span class="xui-heading-3xlarge">72px/96px</span>
+// 2XLarge: `xui-heading-2xlarge`: <span class="xui-heading-2xlarge">48px/72px</span>
+// XLarge: `xui-heading-xlarge`: <span class="xui-heading-xlarge">21px/32px</span>
+// Large: `xui-heading-large`: <span class="xui-heading-large">17px/28px</span>
+// Standard: `xui-heading-medium`: <span class="xui-heading-medium">15px/24px</span>
+// Small: `xui-heading-small`: <span class="xui-heading-small">13px/20px</span>
+// XSmall: `xui-heading-xsmall`: <span class="xui-heading-xsmall">11px/16px</span>
 //
 // Styleguide: Fundamentals.Typography.21
 

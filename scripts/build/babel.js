@@ -9,10 +9,14 @@ const {
 const asyncExec = promisify(exec);
 const { succeed, fail } = taskRunnerReturns;
 
-function build() {
+function build(options = {}) {
+  const { shouldOutputES6 } = options;
+  const outputDir = shouldOutputES6 ? 'dist/react-es6' : 'dist/react';
+
   return taskRunner(taskSpinner => {
-    let execTask =
-      './node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/babel src/react/ --out-dir dist/react --copy-files --source-maps --ignore **/stories,**/__tests__,**/docs';
+    let execTask = `./node_modules/.bin/cross-env ${
+      shouldOutputES6 ? 'ES6_OUTPUT=true' : ''
+    } NODE_ENV=production ./node_modules/.bin/babel src/react/ --out-dir ${outputDir} --copy-files --source-maps --ignore **/stories,**/__tests__,**/docs`;
 
     if (isWindowsPlatform) {
       execTask = convertExecTaskToWindows(execTask);

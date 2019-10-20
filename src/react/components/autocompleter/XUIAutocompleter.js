@@ -130,7 +130,7 @@ export default class XUIAutocompleter extends PureComponent {
    * Focuses the text input
    */
   focusInput = () => {
-    this.inputNode.focus();
+    this.inputNode && this.inputNode.focus();
   };
 
   /**
@@ -404,7 +404,11 @@ XUIAutocompleter.propTypes = {
   /** Should label be applied as an aria-label, rather than being visibly displayed. */
   isInputLabelHidden: PropTypes.bool,
 
-  /** Attributes to set on the native input element */
+  /**
+   * Attributes to set on the native input element. <br>
+   * **Note:**
+   * *It's not recommended to pass `autoFocus` to `inputProps` as it hijacks the focus on load to focus that specific element.*
+   */
   inputProps: PropTypes.object,
 
   /** CSS class(es) to go on the trigger element which contains the input and pills */
@@ -440,7 +444,11 @@ XUIAutocompleter.propTypes = {
   /** The debounce timeout before onSearch is called. Set to 0 to disable debouncing */
   searchDebounceTimeout: PropTypes.number,
 
-  /** Maps to the `size` property of the `XUITextInput` component. */
+  /**
+   * Maps to the `size` property of the `XUITextInput` component.<br>
+   * **Note:**
+   * *The `small` variant now is `sunsetting` because it doesn’t meet [XUI touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommended to use.*
+   */
   inputSize: PropTypes.oneOf(['small', 'medium']),
 
   /** Maps to the `size` property of the dropdown component. */
@@ -467,9 +475,10 @@ XUIAutocompleter.propTypes = {
   dropdownFixedWidth: PropTypes.bool,
 
   /**
-   * Setting to false will allow the dropdown's width to be set independent of the trigger width.
-   * Note: Setting this to true will override any size prop on DropDown.  XUI design has also decided
-   * to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
+   * Setting to false will allow the dropdown's width to be set independent of the trigger width. <br>
+   * **Note:** *Setting this to true will override any size prop on DropDown.* <br>
+   * XUI design has also decided to keep a minimum width on the dropdown,
+   * so dropdown may not match the width of narrow triggers.
    */
   matchTriggerWidth: PropTypes.bool,
 

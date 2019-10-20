@@ -207,7 +207,11 @@ XUIPill.propTypes = {
   value: PropTypes.node,
   /** Whether the pill should have a max-width of 200px */
   isLimitedWidth: PropTypes.bool,
-  /** The size of the pill to render */
+  /**
+   * The size of the pill to render.<br>
+   * **Note:**
+   * *The `xsmall` variant now is `sunsetting` because it doesn't meet [XUI touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommend to use.*
+   */
   size: PropTypes.oneOf(Object.keys(sizeClasses)),
   /**
    * @ignore

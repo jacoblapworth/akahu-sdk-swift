@@ -11,6 +11,7 @@ import {
   queryIsValidInteraction,
 } from '../helpers/utilities';
 import { NAME_SPACE, NBSP } from '../helpers/constants';
+import preventDefault from '../../helpers/preventDefault';
 import TableData from './TableData';
 import { ns } from '../../helpers/xuiClassNamespace';
 
@@ -33,7 +34,13 @@ class CheckBoxCell extends PureComponent {
     const isIndeterminate = Boolean(totalCheckIds && !isChecked);
 
     return (
-      <TableData className={className} isHead tabIndex={-1}>
+      <TableData
+        className={className}
+        isHead
+        onClick={preventDefault}
+        onKeyPress={preventDefault}
+        tabIndex={-1}
+      >
         {NBSP}
         {onCheckAllToggle && (
           <XUICheckbox
@@ -70,7 +77,7 @@ class OverflowMenuCell extends PureComponent {
     );
 
     return (
-      <TableData className={className} isHead>
+      <TableData className={className} isHead onClick={preventDefault} onKeyPress={preventDefault}>
         {NBSP}
       </TableData>
     );

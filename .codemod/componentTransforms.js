@@ -272,6 +272,47 @@ module.exports = {
     {
       name: 'XUIBreadcrumb',
       newName: 'XUIBreadcrumbTrail',
+      newImportPath: '@xero/xui/react/pageheader',
+    },
+    {
+      name: 'XUIPageHeader',
+      newImportPath: '@xero/xui/react/pageheader',
+    },
+    {
+      name: 'XUIActions',
+      newImportPath: '@xero/xui/react/actions',
+    },
+    {
+      name: 'XUIContentBlock',
+      newImportPath: '@xero/xui/react/contentblock',
+    },
+    {
+      name: 'XUIContentBlockItem',
+      newImportPath: '@xero/xui/react/contentblock',
+    },
+    {
+      name: 'XUIOverviewBlock',
+      newImportPath: '@xero/xui/react/overviewblock',
+    },
+    {
+      name: 'XUIOverviewSection',
+      newImportPath: '@xero/xui/react/overviewblock',
+    },
+    {
+      name: 'XUIPanel',
+      newImportPath: '@xero/xui/react/panel',
+    },
+    {
+      name: 'XUIPanelHeading',
+      newImportPath: '@xero/xui/react/panel',
+    },
+    {
+      name: 'XUIPanelFooter',
+      newImportPath: '@xero/xui/react/panel',
+    },
+    {
+      name: 'XUIPanelSection',
+      newImportPath: '@xero/xui/react/panel',
     },
   ],
 };

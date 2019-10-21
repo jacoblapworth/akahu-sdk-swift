@@ -48,6 +48,14 @@ Several CSS components require a new child element with the `.xui-touchtarget` c
 
 ## XUI React components
 
+- Many of the exports previously exported from `structural.js` have been moved out to their own, more specific exports. The codemod will resolve as many of these path updates as it can and inform you of any it is unable to handle.
+  - XUIBreadcrumbTrail and XUIPageHeader are now exported from `pageheader.js`
+  - XUIActions is now exported from `actions.js`
+  - XUIContentBlock and XUIContentBlockItem are now exported from `contentblock.js`
+  - XUIOverviewBlock and XUIOverviewSection are now exported from `overviewblock.js`
+  - XUIPanel, XUIPanelHeading, XUIPanelFooter, and XUIPanelSection are now exported from `panel.js`
+  - XUIColumn and XUIRow **have not** been moved and are still exported from `structural.js`
+
 ### Removals
 
 - icons in `XUIButton`

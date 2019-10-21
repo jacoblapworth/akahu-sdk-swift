@@ -21,7 +21,10 @@ class TableBodyRow extends PureComponent {
     const { onRowClick, rowData } = this.props;
     const { target, currentTarget } = event;
     const actionClassName = `${NAME_SPACE}--cell-action`;
-    const isAction = target.classList.contains(`${actionClassName}`) || event.defaultPrevented;
+    const isAction =
+      target.classList.contains(`${actionClassName}`) ||
+      target.type === 'checkbox' ||
+      event.defaultPrevented;
     const isValidInteraction = queryIsValidInteraction(event);
 
     if (!isAction && isValidInteraction) {

@@ -35,6 +35,7 @@ Button, TextInput, Pill, Table, Range, Tag, Progress indicator, Picklist, and Ho
   - For Pickitems with secondaryText and no leftElement.
     - `xui-pickitem-has-secondarytext`
 - Significant changes have been made to the markup and CSS for Page Headers to support an improved responsive experience. Please see the [documentation](https://xui.xero.com/16.0.0/section-compounds-navigation-page-header.html) for details on the new structure for page headers that have content more complex than a title alone.
+- Isolation Headers have been overhauled to largely match the new structure of Page Headers. Please see the [documentation](https://xui.xero.com/16.0.0/section-compounds-navigation-isolation-header.html) for details.
 - Updated HTML structure for `Tag` component. Tags will be truncated instead of wrapping its content can't fit available space. When truncated, a tooltip will be added to display full text. Tags also now require a `xui-tagcontent` element to wrap the inner text.
 
 ### Invisible touch targets
@@ -61,11 +62,13 @@ Several CSS components require a new child element with the `.xui-touchtarget` c
 - icons in `XUIButton`
   - `icon` and `icon-inverted` variants of `XUIButton` have been **removed**. As a replacement, you can use `XUIIconButton` for buttons that only contain an icon.
 - `XUIBreadcrumb` has been renamed to `XUIBreadcrumbTrail`
+- `XUIIsolationHeaderNavigation`, `XUIIsolationHeaderTitle`, `XUIIsolationHeaderSecondaryTitle`, and `XUIIsolationHeaderActions` have been **removed**. `XUIIsolationHeader` now accepts `navigationButton`, `title`, `secondary`, and `actions` as props instead.
 
 ### Component props
 
 - `XUIAvatar` now requires the value prop for accessibility and for cases in which images have not loaded
 - `XUIPageHeader` now requires that `breadcrumbs` only be used in combination with `title`, where previously the two could _not_ be used together.
+- `XUIIsolationHeader` has a new API similar to that of `XUIPageHeader`. It still accepts `children`; but for best results, we recommend updating your project to use the new API.
 - `Picklist` added a prop `swapAtBreakpoint`, which defines the swap breakpoint (container width) between tab-styled dropdown and horizontal picklist.
 - `XUIBreadcrumbTrail` has a new prop `swapAtBreakpoint`, which defines the pageHeader width at which the component will condense early breadcrumb items into a dropdown. This behaviour is optional, and will not occur if no `swapAtBreakpoint` is supplied, or if the set of breadcrumbs is only one or two items.
 

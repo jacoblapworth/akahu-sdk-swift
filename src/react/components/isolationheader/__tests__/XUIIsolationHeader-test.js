@@ -2,82 +2,59 @@ import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+
+import XUIAvatar from '../../avatar/XUIAvatar';
+import XUIButton from '../../button/XUIButton';
+import XUIIconButton from '../../button/XUIIconButton';
 import XUIIsolationHeader from '../XUIIsolationHeader';
-import XUIIsolationHeaderActions from '../XUIIsolationHeaderActions';
-import XUIIsolationHeaderNavigation from '../XUIIsolationHeaderNavigation';
-import XUIIsolationHeaderTitle from '../XUIIsolationHeaderTitle';
-import XUIIsolationHeaderSecondaryTitle from '../XUIIsolationHeaderSecondaryTitle';
+import XUITag from '../../tag/XUITag';
+
+import cross from '@xero/xui-icon/icons/cross';
+import overflow from '@xero/xui-icon/icons/overflow';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<XUIIsolationHeader>', () => {
-  describe('Standard', () => {
-    it('should render an automation id when a qaHook is passed in', () => {
-      const qaHook = 'qahook';
+  const actions = (
+    <React.Fragment>
+      <XUIButton size="small" variant="primary">
+        Primary
+      </XUIButton>
+      <XUIButton size="small" variant="standard">
+        Secondary
+      </XUIButton>
+      <XUIIconButton ariaLabel="action" icon={overflow} />
+    </React.Fragment>
+  );
+  const avatar = <XUIAvatar size="small" value="ABC" />;
+  const navigationButton = <XUIIconButton ariaLabel="navigate" icon={cross} />;
+  const tags = [
+    <XUITag size="small" variant="positive" key="tag-1">
+      First tag
+    </XUITag>,
+    <XUITag size="small" variant="positive" key="tag-2">
+      Second tag
+    </XUITag>,
+  ];
 
-      const wrapper = renderer.create(
-        <XUIIsolationHeader isInverted qaHook={qaHook}>
-          <XUIIsolationHeaderNavigation>
-            <XUIIsolationHeaderTitle title="Tooltip">My title</XUIIsolationHeaderTitle>
-            <XUIIsolationHeaderSecondaryTitle title="Tooltip">
-              My secondary title
-            </XUIIsolationHeaderSecondaryTitle>
-          </XUIIsolationHeaderNavigation>
-          <XUIIsolationHeaderActions>Tools</XUIIsolationHeaderActions>
-        </XUIIsolationHeader>,
-      );
+  it('renders correctly', () => {
+    const isolationHeader = renderer.create(
+      <XUIIsolationHeader
+        actions={actions}
+        avatar={avatar}
+        className="my-awesome-classname"
+        hasLayout
+        navigationButton={navigationButton}
+        qaHook="qaHook"
+        secondary="My secondary title"
+        title="My title"
+        tags={tags}
+        title="Main title"
+      >
+        <div>All my children</div>
+      </XUIIsolationHeader>,
+    );
 
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render with the given className if provided', () => {
-      const className = 'klass';
-
-      const wrapper = renderer.create(
-        <XUIIsolationHeader isInverted className={className}>
-          <XUIIsolationHeaderNavigation>
-            <XUIIsolationHeaderTitle>My title</XUIIsolationHeaderTitle>
-            <XUIIsolationHeaderSecondaryTitle>My secondary title</XUIIsolationHeaderSecondaryTitle>
-          </XUIIsolationHeaderNavigation>
-          <XUIIsolationHeaderActions>Tools</XUIIsolationHeaderActions>
-        </XUIIsolationHeader>,
-      );
-
-      expect(wrapper).toMatchSnapshot();
-    });
-  });
-
-  describe('Inverted', () => {
-    it('should render an automation id when a qaHook is passed in', () => {
-      const qaHook = 'qahook';
-
-      const wrapper = renderer.create(
-        <XUIIsolationHeader isInverted qaHook={qaHook}>
-          <XUIIsolationHeaderNavigation>
-            <XUIIsolationHeaderTitle>My title</XUIIsolationHeaderTitle>
-            <XUIIsolationHeaderSecondaryTitle>My secondary title</XUIIsolationHeaderSecondaryTitle>
-          </XUIIsolationHeaderNavigation>
-          <XUIIsolationHeaderActions>Tools</XUIIsolationHeaderActions>
-        </XUIIsolationHeader>,
-      );
-
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should render with the given className if provided', () => {
-      const className = 'klass';
-
-      const wrapper = renderer.create(
-        <XUIIsolationHeader isInverted className={className}>
-          <XUIIsolationHeaderNavigation>
-            <XUIIsolationHeaderTitle>My title</XUIIsolationHeaderTitle>
-            <XUIIsolationHeaderSecondaryTitle>My secondary title</XUIIsolationHeaderSecondaryTitle>
-          </XUIIsolationHeaderNavigation>
-          <XUIIsolationHeaderActions>Tools</XUIIsolationHeaderActions>
-        </XUIIsolationHeader>,
-      );
-
-      expect(wrapper).toMatchSnapshot();
-    });
+    expect(isolationHeader).toMatchSnapshot();
   });
 });

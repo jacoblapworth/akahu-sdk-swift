@@ -126,6 +126,24 @@ module.exports = {
       ],
     },
   ],
+  '@xero/xui/react/isolationheader': [
+    {
+      name: 'XUIIsolationHeaderActions',
+      newName: IsolationHeaderActions_MOVE_TO_PROP_ON_ISOLATION_HEADER,
+    },
+    {
+      name: 'XUIIsolationHeaderNavigation',
+      newName: IsolationHeaderNavigation_MOVE_TO_PROP_ON_ISOLATION_HEADER,
+    },
+    {
+      name: 'XUIIsolationHeaderSecondaryTitle',
+      newName: IsolationHeaderSecondaryTitle_MOVE_TO_PROP_ON_ISOLATION_HEADER,
+    },
+    {
+      name: 'XUIIsolationHeaderTitle',
+      newName: IsolationHeaderTitle_MOVE_TO_PROP_ON_ISOLATION_HEADER,
+    },
+  ],
   '@xero/xui/react/modal': [
     {
       isDefault: true,

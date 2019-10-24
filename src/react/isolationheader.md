@@ -10,24 +10,23 @@ for behavioural aspects.
 
 ```jsx harmony
 import cross from '@xero/xui-icon/icons/cross';
-import overflow from '@xero/xui-icon/icons/overflow';
 
-import XUIIsolationHeader, {
-  XUIIsolationHeaderNavigation,
-  XUIIsolationHeaderTitle,
-  XUIIsolationHeaderSecondaryTitle,
-  XUIIsolationHeaderActions
-} from './isolationheader';
-import { XUIIconButton } from './button';
+import XUIIsolationHeader from './isolationheader';
+import XUIButton, { XUIIconButton } from './button';
 
-<XUIIsolationHeader>
-  <XUIIsolationHeaderNavigation>
-    <XUIIconButton icon={cross} ariaLabel="close" className="xui-margin-right-small" />
-    <XUIIsolationHeaderTitle>Main Title</XUIIsolationHeaderTitle>
-    <XUIIsolationHeaderSecondaryTitle>Secondary Title</XUIIsolationHeaderSecondaryTitle>
-  </XUIIsolationHeaderNavigation>
-  <XUIIsolationHeaderActions>
-    <XUIIconButton icon={overflow} ariaLabel="more options" />
-  </XUIIsolationHeaderActions>
-</XUIIsolationHeader>;
+const navigationButton = <XUIIconButton icon={cross} ariaLabel="close" />;
+const title = 'Main Title';
+const secondary = 'Secondary Title';
+const actions = (
+  <XUIButton ariaLabel="Primary action" variant="primary">
+    Primary
+  </XUIButton>
+);
+
+<XUIIsolationHeader
+  actions={actions}
+  navigationButton={navigationButton}
+  secondary={secondary}
+  title={title}
+/>;
 ```

@@ -1,113 +1,142 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIIsolationHeader> Inverted should render an automation id when a qaHook is passed in 1`] = `
+exports[`<XUIIsolationHeader> renders correctly 1`] = `
 <header
-  className="xui-isolationheader"
-  data-automationid="qahook"
-  role="banner"
+  className="my-awesome-classname xui-isolationheader"
+  data-automationid="qaHook"
 >
   <div
-    className="xui-isolationheader--navigation"
+    className="xui-isolationheader--content xui-isolationheader--content-layout"
   >
-    <h2
-      className="xui-isolationheader--title"
+    <div
+      className="xui-isolationheader--leftcontent"
     >
-      My title
-    </h2>
-    <h2
-      className="xui-isolationheader--secondary-title"
+      <div
+        className="xui-isolationheader--controlcontent"
+      >
+        <button
+          aria-label="navigate"
+          className="xui-button xui-button-icon-medium xui-button-icon"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <svg
+            className="xui-icon"
+            focusable="false"
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <path
+              d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"
+              role="presentation"
+            />
+          </svg>
+          <div
+            className="xui-touchtarget"
+          />
+        </button>
+        <abbr
+          className="xui-avatar xui-avatar-small xui-avatar-color-4"
+          role="presentation"
+        >
+          A
+        </abbr>
+      </div>
+      <div
+        className="xui-isolationheader--titlewrapper"
+      >
+        <h1
+          className="xui-isolationheader--title"
+        >
+          Main title
+        </h1>
+        <div
+          className="xui-isolationheader--secondarytitle"
+        >
+          My secondary title
+        </div>
+        <div
+          className="xui-isolationheader--tags"
+        >
+          <span
+            className="xui-tag xui-tag-positive xui-tag-small"
+          >
+            <span
+              className="xui-tagcontent"
+              role="status"
+            >
+              First tag
+            </span>
+          </span>
+          <span
+            className="xui-tag xui-tag-positive xui-tag-small"
+          >
+            <span
+              className="xui-tagcontent"
+              role="status"
+            >
+              Second tag
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div>
+      All my children
+    </div>
+    <div
+      className="xui-isolationheader--rightcontent"
     >
-      My secondary title
-    </h2>
-  </div>
-  <div
-    className="xui-isolationheader--actions"
-  >
-    Tools
-  </div>
-</header>
-`;
-
-exports[`<XUIIsolationHeader> Inverted should render with the given className if provided 1`] = `
-<header
-  className="klass xui-isolationheader"
-  role="banner"
->
-  <div
-    className="xui-isolationheader--navigation"
-  >
-    <h2
-      className="xui-isolationheader--title"
-    >
-      My title
-    </h2>
-    <h2
-      className="xui-isolationheader--secondary-title"
-    >
-      My secondary title
-    </h2>
-  </div>
-  <div
-    className="xui-isolationheader--actions"
-  >
-    Tools
-  </div>
-</header>
-`;
-
-exports[`<XUIIsolationHeader> Standard should render an automation id when a qaHook is passed in 1`] = `
-<header
-  className="xui-isolationheader"
-  data-automationid="qahook"
-  role="banner"
->
-  <div
-    className="xui-isolationheader--navigation"
-  >
-    <h2
-      className="xui-isolationheader--title"
-      title="Tooltip"
-    >
-      My title
-    </h2>
-    <h2
-      className="xui-isolationheader--secondary-title"
-      title="Tooltip"
-    >
-      My secondary title
-    </h2>
-  </div>
-  <div
-    className="xui-isolationheader--actions"
-  >
-    Tools
-  </div>
-</header>
-`;
-
-exports[`<XUIIsolationHeader> Standard should render with the given className if provided 1`] = `
-<header
-  className="klass xui-isolationheader"
-  role="banner"
->
-  <div
-    className="xui-isolationheader--navigation"
-  >
-    <h2
-      className="xui-isolationheader--title"
-    >
-      My title
-    </h2>
-    <h2
-      className="xui-isolationheader--secondary-title"
-    >
-      My secondary title
-    </h2>
-  </div>
-  <div
-    className="xui-isolationheader--actions"
-  >
-    Tools
+      <div
+        className="xui-isolationheader--actions"
+      >
+        <button
+          className="xui-button xui-button-main xui-button-small"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          Primary
+        </button>
+        <button
+          className="xui-button xui-button-standard xui-button-small"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          Secondary
+        </button>
+        <button
+          aria-label="action"
+          className="xui-button xui-button-icon-medium xui-button-icon"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <svg
+            className="xui-icon"
+            focusable="false"
+            height={13}
+            viewBox="0 0 3 13"
+            width={3}
+          >
+            <path
+              d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+              role="presentation"
+            />
+          </svg>
+          <div
+            className="xui-touchtarget"
+          />
+        </button>
+      </div>
+    </div>
   </div>
 </header>
 `;

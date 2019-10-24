@@ -28,6 +28,7 @@ export const customClassNames = {
   weekdays: '',
   weekdaysRow: `${baseClassName}--weekdays`,
   weekday: `${baseClassName}--weekday`,
+  weekNumber: '',
   body: '',
   week: `${baseClassName}--week`,
   day: `${baseClassName}--day`,

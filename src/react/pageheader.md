@@ -103,7 +103,11 @@ const builtTabs = (
 <XUIPageHeader
   title="New member"
   secondary="Create a read-only member"
-  tags={<XUITag size="small">Pending</XUITag>}
+  tags={[
+    <XUITag key="pending" size="small">
+      Pending
+    </XUITag>
+  ]}
   actions={builtActions}
   breadcrumb={builtBreadcrumb}
   tabs={builtTabs}

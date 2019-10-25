@@ -219,7 +219,6 @@ export default class XUIAutocompleter extends PureComponent {
       inputLabel,
       isInputLabelHidden,
       inputProps,
-      inputSize,
       maxLength,
       dropdownId,
       onOptionSelect,
@@ -302,7 +301,7 @@ export default class XUIAutocompleter extends PureComponent {
           placeholder={placeholder}
           qaHook={inputQaHook}
           rightElement={rightElement}
-          size={inputSize}
+          size="medium"
           validationMessage={validationMessage}
           value={value || ''}
         />
@@ -453,13 +452,6 @@ XUIAutocompleter.propTypes = {
   /** The debounce timeout before onSearch is called. Set to 0 to disable debouncing */
   searchDebounceTimeout: PropTypes.number,
 
-  /**
-   * Maps to the `size` property of the `XUITextInput` component.<br>
-   * **Note:**
-   * *The `small` variant now is `sunsetting` because it doesn’t meet [XUI touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommended to use.*
-   */
-  inputSize: PropTypes.oneOf(['small', 'medium']),
-
   /** Maps to the `size` property of the dropdown component. */
   dropdownSize: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
@@ -525,5 +517,4 @@ XUIAutocompleter.defaultProps = {
   dropdownFixedWidth: false,
   matchTriggerWidth: true,
   disableWrapPills: false,
-  inputSize: 'medium',
 };

@@ -38,14 +38,6 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as Compact, Selected Date with min/max',
-    selectedDate: currentMonth2,
-    minDate: currentMonth0,
-    maxDate: currentMonth3,
-    isCompact: true,
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
     storyTitle: 'as Selected range with wider min/max',
     minDate: pastMonth,
     maxDate: currentMonth3,

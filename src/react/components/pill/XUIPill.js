@@ -105,7 +105,6 @@ export default class XUIPill extends PureComponent {
             <XUIIconButton
               ariaLabel={deleteButtonLabel}
               className={`${baseClass}--button-icon`}
-              disableTouchTargetFix={size === 'xsmall'}
               icon={crossSmall}
               isInverted={isInvalid}
               onClick={onDeleteClick}
@@ -215,11 +214,7 @@ XUIPill.propTypes = {
   value: PropTypes.node,
   /** Whether the pill should have a max-width of 200px */
   isLimitedWidth: PropTypes.bool,
-  /**
-   * The size of the pill to render.<br>
-   * **Note:**
-   * *The `xsmall` variant now is `sunsetting` because it doesn't meet [XUI touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommend to use.*
-   */
+  /** The size of the pill to render. Can be `medium` or `small`. */
   size: PropTypes.oneOf(Object.keys(sizeClasses)),
   /**
    * @ignore

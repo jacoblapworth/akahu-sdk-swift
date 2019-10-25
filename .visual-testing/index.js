@@ -189,11 +189,6 @@ const componentsToTest = [
     delay: 1500,
     ...fullPageSettings,
   },
-  {
-    testsPrefix: 'Page Layouts',
-    variationsPath: '../.tmp/react-visualregression/stories/page-layouts/tests.js',
-    ...fullPageSettings,
-  },
   /* Uncomment the following vis-reg test if you are working on Compositions.
    * There are 408 visual regression tests for Compositions. Compositions are
    * also incredibly isolated from the rest of the codebase, so you shouldn't

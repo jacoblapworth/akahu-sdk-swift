@@ -89,14 +89,13 @@ export default class CustomNavbar extends PureComponent {
       months,
       maxDate,
       minDate,
-      isCompact,
       locale,
       qaHook,
     } = this.props;
     const currentMonthDate = DateUtils.addMonths(previousMonth, 1);
     const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
     const nextClickHandler = dir === 'rtl' ? onPreviousClick : onNextClick;
-    const controlSize = isCompact ? 'xsmall' : 'small';
+    const controlSize = 'small';
     const monthSelector = (
       <MonthSelector
         currentMonthDate={currentMonthDate}
@@ -129,7 +128,6 @@ export default class CustomNavbar extends PureComponent {
         <XUIIconButton
           ariaLabel={labels.previousMonth}
           className={classNames.navButtonPrev}
-          disableTouchTargetFix={isCompact}
           icon={arrow}
           isDisabled={!showPreviousButton}
           // Can't just pass a function because DayPicker expects a function callback arg
@@ -147,7 +145,6 @@ export default class CustomNavbar extends PureComponent {
         <XUIIconButton
           ariaLabel={labels.nextMonth}
           className={classNames.navButtonNext}
-          disableTouchTargetFix={isCompact}
           icon={arrow}
           isDisabled={!showNextButton}
           // Can't just pass a function because DayPicker expects a function callback arg
@@ -181,12 +178,10 @@ CustomNavbar.propTypes = {
   onMonthSelect: PropTypes.func,
   minDate: PropTypes.instanceOf(Date),
   maxDate: PropTypes.instanceOf(Date),
-  isCompact: PropTypes.bool,
   locale: PropTypes.string,
   qaHook: PropTypes.string,
 };
 
 CustomNavbar.defaultProps = {
-  isCompact: false,
   dir: 'ltr',
 };

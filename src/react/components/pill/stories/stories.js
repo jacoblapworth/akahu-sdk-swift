@@ -55,15 +55,6 @@ variations.forEach(variation => {
       delete variationMinusStoryDetails.omitDeleteBtn;
     }
 
-    if (variationMinusStoryDetails.isSingle) {
-      delete variationMinusStoryDetails.isSingle;
-      return (
-        <div className="xui-textinput" style={{ width: '200px' }}>
-          <XUIPill {...variationMinusStoryDetails} />
-        </div>
-      );
-    }
-
     return <XUIPill {...variationMinusStoryDetails} />;
   });
 });

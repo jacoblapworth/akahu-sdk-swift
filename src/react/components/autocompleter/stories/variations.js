@@ -4,8 +4,6 @@ import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const storiesWithVariationsKindName = 'Instances/XUIAutocompleter';
 
-const inputSizes = ['small', 'medium'];
-
 const variations = [
   {
     storyKind: storiesWithVariationsKindName,
@@ -50,24 +48,6 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'shows a pill when an item is selected',
     selectedPeople: 1,
-  },
-  ...inputSizes.map(inputSize => ({
-    inputSize,
-    selectedPeople: 1,
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: `shows a ${inputSize} input`,
-  })),
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'shows a small picklist',
-    openDrawer: true,
-    picklistSize: 'small',
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'shows an xsmall picklist',
-    openDrawer: true,
-    picklistSize: 'xsmall',
   },
   {
     storyKind: storiesWithVariationsKindName,

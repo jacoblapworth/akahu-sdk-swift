@@ -18,8 +18,6 @@ export default class XUIIconButton extends PureComponent {
       ariaLabel,
       className,
       desc,
-      // eslint-disable-next-line react/prop-types
-      disableTouchTargetFix, // Used internally for components that have been sunset and do not support the required touch target size TODO: Remove this (and all references to it) once xsmall pills and compact calendars have been removed
       icon,
       iconColor,
       iconSize,
@@ -52,7 +50,7 @@ export default class XUIIconButton extends PureComponent {
           rotation={rotation}
           size={iconSize}
         />
-        {!disableTouchTargetFix && <XUITouchTarget />}
+        <XUITouchTarget />
       </XUIButton>
     );
   }

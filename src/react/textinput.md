@@ -422,7 +422,6 @@ import XUITextInput, { XUITextInputSideElement } from './textinput';
     }
   />
   <XUITextInput
-    fieldClassName="xui-margin-bottom"
     placeholder="Medium size"
     leftElement={
       <XUITextInputSideElement type="pill">
@@ -439,21 +438,6 @@ import XUITextInput, { XUITextInputSideElement } from './textinput';
         <XUIButton size="small" variant="standard">
           Label
         </XUIButton>
-      </XUITextInputSideElement>
-    }
-  />
-  <XUITextInput
-    fieldClassName="xui-margin-bottom"
-    placeholder="Small size"
-    size="small"
-    leftElement={
-      <XUITextInputSideElement type="pill">
-        <XUIPill
-          avatarProps={{ value: 'Pill' }}
-          value="Pill"
-          onDeleteClick={() => {}}
-          deleteButtonLabel="Delete"
-        />
       </XUITextInputSideElement>
     }
   />

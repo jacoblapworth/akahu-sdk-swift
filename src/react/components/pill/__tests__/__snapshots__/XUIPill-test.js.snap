@@ -162,54 +162,6 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 2`] = `
 </div>
 `;
 
-exports[`<XUIPill /> should render a pills with correct size modifiers 3`] = `
-<div
-  className="xui-pill xui-pill-xsmall xui-pill-is-deletable xui-pill-has-avatar"
-  onBlur={[Function]}
-  onFocus={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
->
-  <span
-    className="xui-pill--content"
-  >
-    <abbr
-      className="xui-pill--avatar xui-avatar xui-avatar-2xsmall xui-avatar-color-8"
-      role="presentation"
-    >
-      TR
-    </abbr>
-    <span
-      className="xui-pill--text"
-    >
-      Test
-    </span>
-  </span>
-  <button
-    aria-label="Delete"
-    className="xui-button xui-pill--button-icon xui-button-icon-xsmall xui-button-icon"
-    disabled={false}
-    onClick={[Function]}
-    tabIndex={0}
-    title="Delete"
-    type="button"
-  >
-    <svg
-      className="xui-icon"
-      focusable="false"
-      height={7}
-      viewBox="0 0 7 7"
-      width={7}
-    >
-      <path
-        d="M4.25 3.5L7 6.25 6.25 7 3.5 4.25.75 7 0 6.25 2.75 3.5 0 .75.75 0 3.5 2.75 6.25 0 7 .75 4.25 3.5z"
-        role="presentation"
-      />
-    </svg>
-  </button>
-</div>
-`;
-
 exports[`<XUIPill /> should render a target when passed in 1`] = `
 <div
   className="xui-pill xui-pill-medium xui-pill-interactive"

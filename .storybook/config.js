@@ -1,4 +1,4 @@
-import { configure, addDecorator, setAddon } from '@storybook/react';
+import { configure, addDecorator } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 
 function requireAll(requireContext) {
@@ -10,8 +10,6 @@ function loadStories() {
   requireAll(require.context('../src/react/components', true, /stories.js$/));
   // Components in Components
   requireAll(require.context('../src/react/stories/components-in-components', true, /index.js$/));
-  // Page Layout
-  requireAll(require.context('../src/react/stories/page-layouts', true, /index.js$/));
 }
 
 addDecorator(withA11y);

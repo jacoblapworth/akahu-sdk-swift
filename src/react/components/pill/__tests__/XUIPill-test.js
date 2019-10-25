@@ -174,7 +174,7 @@ describe('<XUIPill />', () => {
   });
 
   it('should render a pills with correct size modifiers', () => {
-    const sizes = ['medium', 'small', 'xsmall'];
+    const sizes = ['medium', 'small'];
     sizes.forEach(size => {
       const pill = renderer.create(
         <XUIPill

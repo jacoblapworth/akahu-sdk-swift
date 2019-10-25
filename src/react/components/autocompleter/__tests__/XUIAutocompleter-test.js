@@ -141,19 +141,6 @@ describe('XUIAutocompleter', () => {
     expect(wrapper.find(XUIPill)).toBeDefined();
   });
 
-  ['medium', 'small'].forEach(size => {
-    it(`when inputSize is set to ${size}, input has a size of ${size}`, () => {
-      const wrapper = mount(
-        createComponent({
-          inputSize: size,
-          onSearch: onSearch,
-        }),
-      );
-
-      expect(wrapper.find(XUITextInput).props().size).toBe(size);
-    });
-  });
-
   it('opens the dropdown when we trigger `openDropDown` and closes the dropdown when we trigger `closeDropDown`', () => {
     const wrapper = mount(
       createComponent({ onSearch: onSearch, searchValue: 'z', searchDebounceTimeout: 500 }),

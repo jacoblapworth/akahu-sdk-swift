@@ -198,7 +198,9 @@
 //       <div class="xui-contentblockitem--maincontent">
 //         <div class="xui-contentblockitem--headings">
 //           <span class="xui-contentblockitem--primaryheading">Six Barrel Soda</span>
-//           <span class="xui-tag xui-tag-small xui-tag-warning">Awaiting payment</span>
+//           <span class="xui-tag xui-tag-small xui-tag-warning">
+//             <span class="xui-tagcontent">Awaiting payment</span>
+//           </span>
 //         </div>
 //         <div class="xui-contentblockitem--description">
 //           <span class="xui-contentblockitem--description--text">INV034<span class="xui-margin-horizontal-xsmall">•</span><span>Due 31 Dec 2017</span></span>
@@ -223,7 +225,9 @@
 //       <div class="xui-contentblockitem--maincontent">
 //         <div class="xui-contentblockitem--headings">
 //           <span class="xui-contentblockitem--primaryheading">Lucky Burger</span>
-//           <span class="xui-tag xui-tag-small xui-tag-negative">Overdue</span>
+//           <span class="xui-tag xui-tag-small xui-tag-negative">
+//             <span class="xui-tagcontent">Overdue</span>
+//           </span>
 //         </div>
 //         <div class="xui-contentblockitem--description">
 //           <span class="xui-contentblockitem--description--text">INV031<span class="xui-margin-horizontal-xsmall">•</span><span>Due 1 Dec 2017</span></span>
@@ -248,7 +252,9 @@
 //       <div class="xui-contentblockitem--maincontent">
 //         <div class="xui-contentblockitem--headings">
 //           <span class="xui-contentblockitem--primaryheading">Hornblower Enterprises</span>
-//           <span class="xui-tag xui-tag-small xui-tag-positive">Paid</span>
+//           <span class="xui-tag xui-tag-small xui-tag-positive">
+//             <span class="xui-tagcontent">Paid</span>
+//           </span>
 //         </div>
 //         <div class="xui-contentblockitem--description">
 //           <span class="xui-contentblockitem--description--text">INV031<span class="xui-margin-horizontal-xsmall">•</span><span>Due 5 Nov 2017</span></span>

@@ -71,6 +71,7 @@ Several CSS components require a new child element with the `.xui-touchtarget` c
 - `XUIIsolationHeader` has a new API similar to that of `XUIPageHeader`. It still accepts `children`; but for best results, we recommend updating your project to use the new API.
 - `Picklist` added a prop `swapAtBreakpoint`, which defines the swap breakpoint (container width) between tab-styled dropdown and horizontal picklist.
 - `XUIBreadcrumbTrail` has a new prop `swapAtBreakpoint`, which defines the pageHeader width at which the component will condense early breadcrumb items into a dropdown. This behaviour is optional, and will not occur if no `swapAtBreakpoint` is supplied, or if the set of breadcrumbs is only one or two items.
+- `XUIAutocompleterSecondarySearch` requires previously optional `onSearch` function for every single use
 
 ### Internationalisation
 

@@ -297,7 +297,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
   onClose: PropTypes.func,
 
   /** Callback for when the user types into the search box */
-  onSearch: PropTypes.func,
+  onSearch: PropTypes.func.isRequired,
 
   /** If you want to throttle the input's onChange handler, put the throttle interval here */
   searchThrottleInterval: PropTypes.number,
@@ -312,7 +312,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
    * if you've supplied a footer element with any links or interaction. */
   closeOnTab: PropTypes.bool,
 
-  /** Callback for adding additional onKeyPress funcitonality */
+  /** Callback for adding additional onKeyPress functionality */
   onKeyDown: PropTypes.func,
 
   /** Will be passed directly down to the DropDownToggled component as the main trigger. */

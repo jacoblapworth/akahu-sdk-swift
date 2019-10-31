@@ -20,13 +20,14 @@ let openCalled = false;
 let closeCalled = false;
 
 const getTrigger = props => (
-  <button {...props} className="xui-button xui-button-standard">
+  <button className="xui-button xui-button-standard" {...props}>
     HOC Button
   </button>
 );
+
 const getDropDown = props => {
   return (
-    <DropDown {...props}>
+    <DropDown restrictFocus={false}>
       <Picklist>
         <Pickitem id="1">Im the whole shabang!</Pickitem>
         <Pickitem id="2">Earnings from Busking</Pickitem>
@@ -38,8 +39,8 @@ const getDropDown = props => {
   );
 };
 
-function getWrapper(props = {}) {
-  return mount(
+const testDropDown = (props = {}) => {
+  return (
     <DropDownToggled
       className="testClass"
       forceDesktop={true}
@@ -48,12 +49,9 @@ function getWrapper(props = {}) {
       trigger={getTrigger()}
       dropdown={getDropDown()}
       {...props}
-    />,
-    {
-      attachTo: div,
-    },
+    />
   );
-}
+};
 
 describe('<DropDownToggled />', () => {
   beforeEach(() => {
@@ -64,7 +62,9 @@ describe('<DropDownToggled />', () => {
   describe('dropdown rendered closed', function() {
     let wrapper;
     beforeEach(function() {
-      wrapper = getWrapper();
+      wrapper = mount(testDropDown(), {
+        wrappingComponent: ({ children }) => <div className="test-container">{children}</div>,
+      });
     });
 
     it('renders the list closed', () => {
@@ -114,7 +114,7 @@ describe('<DropDownToggled />', () => {
   describe('dropdown rendered open', () => {
     let wrapper;
     beforeEach(() => {
-      wrapper = getWrapper({ isHidden: false });
+      wrapper = mount(testDropDown({ isHidden: false }));
     });
 
     it('closes the list when the esc key is pressed', () => {

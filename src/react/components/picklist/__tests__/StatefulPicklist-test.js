@@ -28,7 +28,6 @@ describe('<StatefulPicklist /> API Methods', () => {
             <Pickitem id="anotheritem4">Another Item 4</Pickitem>
           </Picklist>
         </StatefulPicklist>,
-        { attachTo: div },
       );
     });
 

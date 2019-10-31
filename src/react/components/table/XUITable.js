@@ -52,7 +52,7 @@ class XUITable extends Component {
     const wrapperWidth = wrapperNode && wrapperNode.clientWidth;
     const tableWidth = tableNode && tableNode.clientWidth;
     const leftAction = scrollLeft > 0;
-    const rightAction = scrollLeft + wrapperWidth < tableWidth;
+    const rightAction = scrollLeft + wrapperWidth < tableWidth - 1; // `scrollLeft + wrapper width` is 1px less than `tableWidth` in Firefox when fully scrolled to the right
 
     if (leftAction) {
       rootNode.classList.add(`${NAME_SPACE}-overflowleft`);

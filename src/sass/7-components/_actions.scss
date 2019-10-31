@@ -28,12 +28,6 @@
         order: 1;
       }
     }
-
-    @include xui-breakpoint-small-up {
-      .#{$ns}-actions--primary {
-        margin-left: $xui-s-xsmall;
-      }
-    }
   }
 
   // Subs

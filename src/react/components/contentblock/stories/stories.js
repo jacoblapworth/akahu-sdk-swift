@@ -16,26 +16,10 @@ import XUITag from '../../tag/XUITag';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, number, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
-import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
-
-const buildActions = (props = {}) => (
-  <XUIActions
-    hasLayout={false}
-    primaryAction={
-      <XUIButton className="xui-margin-left-xsmall" size="small" variant="primary">
-        {props.longContent ? 'ActionCompletion' : 'One'}
-      </XUIButton>
-    }
-    secondaryAction={
-      <XUIButton size="small">{props.longContent ? 'Action2Completion' : 'Two'}</XUIButton>
-    }
-    {...props}
-  />
-);
 
 const buildExampleContentblockItem = children =>
   children.map((child, index) => {
@@ -87,6 +71,61 @@ const buildExampleContentblockItem = children =>
   });
 
 const exampleClickHandler = () => console.log('clicked');
+
+const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+storiesWithKnobs.addDecorator(centered);
+storiesWithKnobs.addDecorator(withKnobs);
+storiesWithKnobs.add('Playground', () => {
+  const staticItems = [
+    {
+      primaryHeading: 'Item 2 Primary (checkbox)',
+      secondaryHeading: 'Item 2 Secondary',
+      leftContent: 'checkbox',
+      overflow: true,
+    },
+    {
+      primaryHeading: 'Item 3 Primary (rollover)',
+      leftContent: 'rollover',
+      overflow: true,
+    },
+    {
+      primaryHeading: 'Item 4 Primary',
+      secondaryHeading: 'Item 4 Secondary',
+      tag: true,
+      overflow: true,
+      description: 'Many people were hoping that if the Democrats won control of Congress',
+    },
+  ];
+  const leftContent = select('left content', ['rollover', 'checkbox', 'avatar', 'none'], 'none');
+  const hasTag = boolean('Has tag?', false);
+  const dynamicSettings = {
+    primaryHeading: text('primaryHeading', 'Item 1 Primary'),
+    secondaryHeading: text('secondaryHeading', '') || undefined,
+    overflow: boolean('Has overflow menu?', false) ? (
+      <XUIIconButton ariaLabel="Overflow menu" icon={overflow} />
+    ) : (
+      undefined
+    ),
+    action: boolean('Has action?', false) ? (
+      <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>} />
+    ) : (
+      undefined
+    ),
+    description: text('description', '') || undefined,
+    leftContent: leftContent === 'none' ? undefined : leftContent,
+    tag: hasTag,
+    tagPosition:
+      (hasTag && select('Tag position', ['description', 'right', 'inline'], 'description')) ||
+      undefined,
+    pinnedValue: boolean('Pinned value', false) || undefined,
+  };
+  return (
+    <XUIContentBlock className="xui-panel">
+      {buildExampleContentblockItem([dynamicSettings])}
+      {buildExampleContentblockItem(staticItems)}
+    </XUIContentBlock>
+  );
+});
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);

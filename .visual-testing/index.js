@@ -31,6 +31,10 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/accordion/stories/variations.js`,
   },
   {
+    testsPrefix: 'XUI Actions',
+    variationsPath: `${variationsPath}/actions/stories/variations.js`,
+  },
+  {
     testsPrefix: 'XUI Autocompleter',
     variationsPath: `${variationsPath}/autocompleter/stories/variations.js`,
     ...fullPageSettings,

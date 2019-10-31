@@ -16,9 +16,8 @@ import XUIPanelFooter from '../XUIPanelFooter';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, number, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
-import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 
@@ -60,6 +59,41 @@ const sampleBreadcrumb = [
 ];
 const exampleBreadcrumb = <XUIBreadcrumbTrail breadcrumbs={sampleBreadcrumb} />;
 
+const heading = (
+  <XUIPanelHeading>
+    Hello there <XUIIcon icon={overflow} />
+  </XUIPanelHeading>
+);
+const footer = <XUIPanelFooter className="xui-padding-small">{buildActions()}</XUIPanelFooter>;
+const section = settings => {
+  return (
+    <XUIPanelSection {...settings}>
+      <p className="xui-padding-large">Some important text might go here.</p>
+    </XUIPanelSection>
+  );
+};
+
+const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+storiesWithKnobs.addDecorator(centered);
+storiesWithKnobs.addDecorator(withKnobs);
+storiesWithKnobs.add('Playground', () => {
+  const hasHeading = boolean('Has panel heading?', false);
+  const hasFooter = boolean('Has panel footer?', false);
+  const panelContent = <p className="xui-padding-large">Some important text might go here.</p>;
+  const builtSection = boolean('Has panel section?', false);
+  const headerText = builtSection && text('Section header', '');
+  const settings = {
+    heading: hasHeading ? heading : undefined,
+    footer: hasFooter ? footer : undefined,
+  };
+  return (
+    <XUIPanel {...settings}>
+      {!builtSection && panelContent}
+      {builtSection && section({ headerText })}
+    </XUIPanel>
+  );
+});
+
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
@@ -67,24 +101,12 @@ variations.forEach(variation => {
   const { storyTitle, type } = variation;
   storiesWithVariations.add(storyTitle, () => {
     if (type === 'panel') {
-      const heading = (
-        <XUIPanelHeading>
-          Hello there <XUIIcon icon={overflow} />
-        </XUIPanelHeading>
-      );
       return (
-        <XUIPanel heading={heading}>
-          <XUIPanelSection className="xui-padding-large" headerText="I'm a section header">
-            <p>Some important text might go here.</p>
-          </XUIPanelSection>
-        </XUIPanel>
+        <XUIPanel heading={heading}>{section({ headerText: "I'm a section header" })}</XUIPanel>
       );
     }
     if (type === 'panel-sidebar') {
       const heading = <XUIPanelHeading>{exampleBreadcrumb}</XUIPanelHeading>;
-      const footer = (
-        <XUIPanelFooter className="xui-padding-small">{buildActions()}</XUIPanelFooter>
-      );
       return (
         <div style={{ minWidth: '700px' }}>
           <XUIPanel footer={footer} heading={heading} sidebar={exampleTabs}>

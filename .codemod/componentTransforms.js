@@ -129,19 +129,23 @@ module.exports = {
   '@xero/xui/react/isolationheader': [
     {
       name: 'XUIIsolationHeaderActions',
-      newName: IsolationHeaderActions_MOVE_TO_PROP_ON_ISOLATION_HEADER,
+      newName: 'IsolationHeaderActions_MOVE_TO_PROP_ON_ISOLATION_HEADER',
+      props: [],
     },
     {
       name: 'XUIIsolationHeaderNavigation',
-      newName: IsolationHeaderNavigation_MOVE_TO_PROP_ON_ISOLATION_HEADER,
+      newName: 'IsolationHeaderNavigation_MOVE_TO_PROP_ON_ISOLATION_HEADER',
+      props: [],
     },
     {
       name: 'XUIIsolationHeaderSecondaryTitle',
-      newName: IsolationHeaderSecondaryTitle_MOVE_TO_PROP_ON_ISOLATION_HEADER,
+      newName: 'IsolationHeaderSecondaryTitle_MOVE_TO_PROP_ON_ISOLATION_HEADER',
+      props: [],
     },
     {
       name: 'XUIIsolationHeaderTitle',
-      newName: IsolationHeaderTitle_MOVE_TO_PROP_ON_ISOLATION_HEADER,
+      newName: 'IsolationHeaderTitle_MOVE_TO_PROP_ON_ISOLATION_HEADER',
+      props: [],
     },
   ],
   '@xero/xui/react/modal': [
@@ -291,46 +295,57 @@ module.exports = {
       name: 'XUIBreadcrumb',
       newName: 'XUIBreadcrumbTrail',
       newImportPath: '@xero/xui/react/pageheader',
+      props: [],
     },
     {
       name: 'XUIPageHeader',
       newImportPath: '@xero/xui/react/pageheader',
+      props: [],
     },
     {
       name: 'XUIActions',
       newImportPath: '@xero/xui/react/actions',
+      props: [],
     },
     {
       name: 'XUIContentBlock',
       newImportPath: '@xero/xui/react/contentblock',
+      props: [],
     },
     {
       name: 'XUIContentBlockItem',
       newImportPath: '@xero/xui/react/contentblock',
+      props: [],
     },
     {
       name: 'XUIOverviewBlock',
       newImportPath: '@xero/xui/react/overviewblock',
+      props: [],
     },
     {
       name: 'XUIOverviewSection',
       newImportPath: '@xero/xui/react/overviewblock',
+      props: [],
     },
     {
       name: 'XUIPanel',
       newImportPath: '@xero/xui/react/panel',
+      props: [],
     },
     {
       name: 'XUIPanelHeading',
       newImportPath: '@xero/xui/react/panel',
+      props: [],
     },
     {
       name: 'XUIPanelFooter',
       newImportPath: '@xero/xui/react/panel',
+      props: [],
     },
     {
       name: 'XUIPanelSection',
       newImportPath: '@xero/xui/react/panel',
+      props: [],
     },
   ],
 };

@@ -46,7 +46,7 @@ exports[`<XUIIsolationHeader> renders correctly 1`] = `
         </abbr>
       </div>
       <div
-        className="xui-isolationheader--titlewrapper"
+        className="xui-isolationheader--titlewrapper xui-isolationheader--titlewrapper-has-avatar"
       >
         <h1
           className="xui-isolationheader--title"

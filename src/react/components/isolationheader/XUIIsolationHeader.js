@@ -22,6 +22,10 @@ export default function XUIIsolationHeader({
   const classes = cn(className, baseClass);
   const layoutClass = hasLayout ? `${baseClass}--content-layout` : '';
   const divClasses = cn(`${baseClass}--content`, layoutClass, contentClassName);
+  const titleWrapperClasses = cn(
+    `${baseClass}--titlewrapper`,
+    avatar && `${baseClass}--titlewrapper-has-avatar`,
+  );
 
   const controlContent = (
     <div className={`${baseClass}--controlcontent`}>
@@ -30,7 +34,7 @@ export default function XUIIsolationHeader({
     </div>
   );
   const titleWrapper = (title || secondary || tags) && (
-    <div className={`${baseClass}--titlewrapper`}>
+    <div className={titleWrapperClasses}>
       {title && <h1 className={`${baseClass}--title`}>{title}</h1>}
       {secondary && <div className={`${baseClass}--secondarytitle`}>{secondary}</div>}
       {tags && <div className={`${baseClass}--tags`}>{tags}</div>}

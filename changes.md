@@ -63,6 +63,7 @@ Several CSS components require a new child element with the `.xui-touchtarget` c
   - `icon` and `icon-inverted` variants of `XUIButton` have been **removed**. As a replacement, you can use `XUIIconButton` for buttons that only contain an icon.
 - `XUIBreadcrumb` has been renamed to `XUIBreadcrumbTrail`
 - `XUIIsolationHeaderNavigation`, `XUIIsolationHeaderTitle`, `XUIIsolationHeaderSecondaryTitle`, and `XUIIsolationHeaderActions` have been **removed**. `XUIIsolationHeader` now accepts `navigationButton`, `title`, `secondary`, and `actions` as props instead.
+- Correspondingly, the Sass variables `$xui-isolationheader-bg-color`, `$xui-isolationheader-color`, and `$xui-isolationheader-inverted-bg-color` have been **removed**. Please use `$xui-pageheading-bg-color`, `$xui-text-primary-color`, and `$xui-color-grey-2`, respectively, instead.
 
 ### Component props
 

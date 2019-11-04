@@ -64,8 +64,12 @@
 .#{$ns}-pageheading--content,
 .#{$ns}-pageheading--leftcontent {
   .#{$ns}-breadcrumbtrail {
+    // Offset padding of first breadcrumb link
+    @include xui-margin-left(-$xui-s-xsmall);
+    // Match right-side spacing to title, secondary title, and tags
+    @include xui-margin-right($xui-s-2xsmall);
     flex-grow: 0;
-    max-width: 100%;
+    max-width: calc(100% + #{$xui-s-2xsmall}); // Offset right margin
   }
   .#{$ns}-breadcrumb {
     @include xui-text-small;

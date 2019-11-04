@@ -6,7 +6,7 @@
     display: inline;
   }
 
-  main h1:not(.xui-pageheading--title) {
+  main h1:not(.xui-isolationheader--title):not(.xui-pageheading--title) {
     margin-top: 3em;
   }
 

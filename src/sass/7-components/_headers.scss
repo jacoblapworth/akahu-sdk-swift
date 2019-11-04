@@ -29,7 +29,6 @@
       }
     }
     .#{$classname}--title {
-      @include xui-padding-left($xui-s-xsmall);
       align-items: center;
       display: flex;
       flex: 1 1 auto;
@@ -45,45 +44,20 @@
       }
     }
   }
-  &--title {
-    font-size: $xui-font-size-large;
-    font-weight: bold;
-    line-height: $xui-line-height-standard;
-  }
-  &--tabs {
-    align-items: stretch;
-    display: flex;
-    .#{$ns}-picklist-horizontal {
-      @include xui-margin-left($xui-s-2xlarge);
-    }
-  }
-  &--actions {
-    @include xui-margin-right($xui-s-xsmall);
-    align-items: center; /* Required for button height not to stretch */
-    display: flex;
-    flex: 1 1 auto;
-    justify-content: flex-end;
-    > .#{$ns}-button {
-      @include xui-margin-left($xui-s-xsmall);
-    }
-    > .#{$ns}-buttongroup {
-      @include xui-margin-left($xui-s-xsmall);
-    }
-  }
   &--leftcontent {
-    @include xui-margin-left($xui-s-xsmall);
-    @include xui-margin-right($xui-s-standard);
+    @include xui-margin-left($xui-s-standard);
+    @include xui-margin-right($xui-s-2xsmall);
     @include xui-padding-vertical($xui-s-standard);
     display: flex;
     flex: 0 1 auto;
     flex-direction: column;
     justify-content: center;
     // Removing the margins from the parent in the width calculation
-    max-width: calc(100% - #{$xui-s-xsmall + $xui-s-standard});
+    max-width: calc(100% - #{$xui-s-standard + $xui-s-2xsmall});
   }
   &--titlewrapper {
     @include xui-margin-right($xui-s-xsmall);
-    align-items: baseline;
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -95,14 +69,24 @@
       flex-grow: 0;
     }
   }
+  &--title {
+    @include xui-padding-right($xui-s-small);
+    font-size: $xui-font-size-large;
+    font-weight: bold;
+    line-height: $xui-line-height-standard;
+  }
   &--secondarytitle {
-    @include xui-padding-left($xui-s-xsmall);
+    @include xui-padding-right($xui-s-small);
+    font-size: $xui-font-size-large;
   }
   &--tags {
-    @include xui-padding-left($xui-s-xsmall);
+    @include xui-padding-right($xui-s-small);
     max-width: 100%;
-    .#{$ns}-tag:not(:last-of-type) {
-      margin-right: $xui-s-xsmall;
+    .#{$ns}-tag {
+      vertical-align: middle;
+      &:not(:last-of-type) {
+        margin-right: $xui-s-xsmall;
+      }
     }
   }
   &--rightcontent {
@@ -131,6 +115,26 @@
     // Height of the nav minus height of the button, over two.
     padding-bottom: 0.5 * ($xui-navigation-height - $xui-s-2xlarge);
   }
+  &--tabs {
+    align-items: stretch;
+    display: flex;
+    .#{$ns}-picklist-horizontal {
+      @include xui-margin-left($xui-s-2xlarge);
+    }
+  }
+  &--actions {
+    @include xui-margin-right($xui-s-xsmall);
+    align-items: center; /* Required for button height not to stretch */
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    > .#{$ns}-button {
+      @include xui-margin-left($xui-s-xsmall);
+    }
+    > .#{$ns}-buttongroup {
+      @include xui-margin-left($xui-s-xsmall);
+    }
+  }
 }
 
 .#{$ns}-pageheading {
@@ -151,7 +155,6 @@ $isolationheader-text-spacing: ($xui-navigation-height - $xui-line-height-standa
     }
   }
   &--leftcontent {
-    @include xui-margin-left($xui-s-standard);
     @include xui-padding-vertical(0);
     flex-direction: row;
   }
@@ -160,17 +163,18 @@ $isolationheader-text-spacing: ($xui-navigation-height - $xui-line-height-standa
     align-items: flex-start;
     display: flex;
     flex: 0 0 auto; // For IE11
+    .#{$ns}-button {
+      @include xui-margin-right($xui-s-small);
+    }
     .#{$ns}-avatar {
       @include xui-margin-top($xui-s-2xsmall);
-      @include xui-margin-left($xui-s-small);
     }
   }
   &--titlewrapper {
     @include xui-padding-vertical($isolationheader-text-spacing);
-    @include xui-padding-left($xui-s-xsmall);
   }
-  &--title {
-    @include xui-padding-left($xui-s-standard);
+  &--titlewrapper-has-avatar {
+    @include xui-margin-left($xui-s-standard);
   }
   &--tags {
     align-self: center;

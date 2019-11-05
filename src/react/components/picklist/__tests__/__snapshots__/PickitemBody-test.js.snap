@@ -34,7 +34,7 @@ exports[`<PickitemBody /> creates a button by default 1`] = `
 
 exports[`<PickitemBody /> creates an \`a\` tag when href is provided 1`] = `
 <a
-  className="xui-pickitem--body"
+  className="xui-pickitem--body xui-pickitem-link--body"
   href="https://xero.com"
   rel={null}
 >

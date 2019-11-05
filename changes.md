@@ -142,6 +142,7 @@ Underlying font sizes for heading utility classes have been updated. To maintain
 - `XUISwitch` requires the addition of `xui-switch-medium`, as well as `-medium` classes on the label and control sub elements for a medium-sized display when building a XUISwitch without React.
 - `XUITag` requires the addition of `xui-tag-medium` for a medium-sized display when building a XUITag without React.
 - `XUIToggle` requires the addition of `xui-toggle-medium` for a medium-sized display when building a XUIToggle without React.
+- `XUIPickItem` composed of an anchor `a` tag requires additional class `xui-pickitem-link--body` to correctly align tabs in `XUIPageHeader`
 
 ## Additions
 

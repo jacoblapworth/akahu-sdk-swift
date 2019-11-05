@@ -57,7 +57,7 @@
   background-color: $xui-toggle-label-checked-bg-color;
   border-color: $xui-toggle-label-checked-border-color;
   color: $xui-toggle-label-checked-color;
-  z-index: 1;
+  z-index: $xui-z-index-body;
 }
 
 // Checked, hover
@@ -145,7 +145,6 @@
     background-color: $xui-toggle-label-inverted-checked-bg-color;
     border-color: $xui-toggle-label-inverted-checked-border-color;
     color: $xui-toggle-label-inverted-checked-color;
-    z-index: 1;
   }
 
   // Checked, hover

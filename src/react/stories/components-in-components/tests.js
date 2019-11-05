@@ -16,6 +16,7 @@ const nonBackstopStoryNames = {
   modalInModal: 'Modal in a modal with dropdown',
   fiveNestedModals: 'Multiple nested modals',
   touchInteractions: 'Touch interaction tests',
+  layeringElements: 'Layering elements',
 };
 
 const variations = [];

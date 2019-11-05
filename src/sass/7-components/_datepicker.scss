@@ -435,7 +435,7 @@ $xui-datepicker-day-size: $xui-control-size-standard;
   text-align: center;
   user-select: none;
   width: $xui-datepicker-day-size;
-  z-index: 0;
+  z-index: $xui-z-index-html;
 
   &::after,
   &::before {
@@ -490,7 +490,7 @@ $xui-datepicker-day-size: $xui-control-size-standard;
   pointer-events: none;
   position: relative;
   width: $xui-datepicker-day-size;
-  z-index: 1;
+  z-index: $xui-z-index-body;
 }
 
 .#{$ns}-datepicker--weekday {

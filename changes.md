@@ -11,11 +11,15 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 
 Button, TextInput, Pill, Table, Range, Tag, Progress indicator, Picklist, and Horizontal Pickitem have all had style adjustments (often setting a min-width of 40px on some part of the component), to improve the size of their interactive targets for touch devices. Be sure to check these components for visual regressions in your application.
 
+XUI had previously provided a set of z-index variables to indicate where elements should stack in the third dimension, but those variables had not actually been used internally to style XUI components. Components now use them, and variables and documentation have been updated to better reflect how stacking occurs in XUI. See [the Z-index documentation](https://xui.xero.com/16.0.0/section-fundamentals-layout.html#fundamentals-layout-6) for the latest.
+
 ### Removals
 
 - BreadcrumbTrail
   - `xui-pageheading--breadcrumbs` and `xui-breadcrumbs` have been replaced with `xui-pageheading--breadcrumbtrail` and `xui-breadcrumbtrail`, respectively.
 - The `xui-heading-medium` mixin no longer has an `emphasis` parameter.
+- Z-index variables `$xui-z-index-tooltip` and `$xui-z-index-mask` have been removed without replacement. `
+- `$xui-z-index-overlay` has been renamed to the more-apt `$xui-z-index-sheetmask`
 
 ### Typography changes
 

@@ -188,7 +188,8 @@
   transition: opacity $xui-motion-speed-fast linear;
   width: max-content;
   width: intrinsic; // Safari's non-standard implementation of max-content.
-  z-index: 3;
+  // Tooltip should be above surrounding content, but below any other overlays.
+  z-index: $xui-z-index-contextualtop;
   > * {
     box-sizing: border-box;
   }
@@ -210,7 +211,7 @@
     transform: translateX(-50%) translateY(-50%) rotate(45deg);
     transform-origin: center;
     width: 10px;
-    z-index: -1;
+    z-index: $xui-z-index-hidden;
   }
 }
 

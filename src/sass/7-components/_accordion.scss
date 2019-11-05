@@ -715,7 +715,7 @@ $xui-accordion-pop-width: $xui-s-xsmall;
 
 .#{$ns}-accordionwrapper-is-open {
   box-shadow: $xui-shadow-depth-lift;
-  z-index: 1;
+  z-index: $xui-z-index-body;
 }
 
 .#{$ns}-accordionwrapper-pop {

@@ -14,7 +14,10 @@ $toast-max-width: 400px;
   opacity: 1;
   position: relative;
   transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
-  z-index: 10;
+  // Toast wrapper has a much higher z-index which will set a shiny new context
+  // in most cases, but if one were to place a toast inline, we wouldn't want to get
+  // quite as extreme.
+  z-index: $xui-z-index-contextualtop;
   @include xui-breakpoint-small-down {
     border-radius: 0;
   }
@@ -79,7 +82,7 @@ $toast-max-width: 400px;
   flex-flow: column nowrap;
   left: 0;
   position: fixed;
-  z-index: 8000;
+  z-index: $xui-z-index-toast;
 
   @include xui-breakpoint-small-down {
     width: 100%;

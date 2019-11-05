@@ -1452,7 +1452,7 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
     left: 0;
     position: absolute;
     top: 0;
-    z-index: 1;
+    z-index: $xui-z-index-body;
   }
   &:hover,
   &:focus {

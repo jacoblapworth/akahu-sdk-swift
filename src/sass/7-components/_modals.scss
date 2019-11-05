@@ -279,7 +279,8 @@
   top: 0;
   transition: opacity $xui-motion-speed-medium $xui-motion-curve-standard;
   visibility: hidden;
-  z-index: 10;
+  // Modal mask needs to fall above main content but below a dropdown, sheet, or overlay.
+  z-index: $xui-z-index-contextualtop;
 }
 
 .#{$ns}-mask-is-active {
@@ -300,6 +301,7 @@
   margin-bottom: $xui-s-standard;
   outline: none;
   position: relative;
+  z-index: $xui-z-index-modal;
 }
 
 .#{$ns}-modal-layout {

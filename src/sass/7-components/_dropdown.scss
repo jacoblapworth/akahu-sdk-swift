@@ -30,7 +30,7 @@
   position: absolute;
 
   @include xui-breakpoint-small-up {
-    z-index: 1000;
+    z-index: $xui-z-index-dropdown;
 
     .#{$ns}-dropdown--body {
       height: 100%;
@@ -41,7 +41,7 @@
   }
 
   &.#{$ns}-dropdown-force-desktop {
-    z-index: 1000;
+    z-index: $xui-z-index-dropdown;
 
     .#{$ns}-dropdown--body {
       overflow: hidden;
@@ -67,7 +67,7 @@
       left: 0;
       position: fixed;
       width: 100%;
-      z-index: 9999;
+      z-index: $xui-z-index-sheetmask;
 
       .#{$ns}-dropdown--body {
         bottom: 0;
@@ -76,6 +76,7 @@
         position: absolute;
         transform: translateY(0);
         width: 100%;
+        z-index: $xui-z-index-sheet;
       }
 
       .#{$ns}-dropdown--header {

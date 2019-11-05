@@ -22,7 +22,7 @@ Applies hover button styling and given contents on hover.
 */
 @mixin xui-commoninput {
   @include xui-state-focus {
-    z-index: 2;
+    z-index: $xui-z-index-focus;
   }
   @include xui-text-line-height; // 1.5
   appearance: none; // For removing drop-shadow on iOS and select arrows in Firefox

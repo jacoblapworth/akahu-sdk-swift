@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import PickitemBody from './private/PickitemBody';
 import PickitemMultiselect from './private/PickitemMultiselect';
-import { pickitemClassName, sideElementClassName, sizeVariants } from './private/constants';
+import { pickitemClassName, sideElementClassName } from './private/constants';
 import { verticalOnlyProp } from './private/helpers';
 
 /**
@@ -42,7 +42,6 @@ export default class Pickitem extends PureComponent {
       pickitemBodyProps,
       leftElement,
       rightElement,
-      size,
       primaryElement,
       secondaryElement,
       isInvalid,
@@ -53,8 +52,6 @@ export default class Pickitem extends PureComponent {
     } = pickItem.props;
 
     const truncationClassName = (shouldTruncate && `${pickitemClassName}-text-truncated`) || '';
-
-    const validatedMultiselect = isMultiselect && size !== 'xsmall'; // No multiselect for xsmall;
 
     let pickItemMinWidthClassName; // This is used to set min-width for pickItem when truncating
     if (shouldTruncate && !rightElement && !pinnedElement && (leftElement || secondaryElement)) {
@@ -70,10 +67,10 @@ export default class Pickitem extends PureComponent {
       isMultiline && `${pickitemClassName}-multiline`,
       _isHorizontal && `${pickitemClassName}-is-horizontal`,
       isSelected && !disableSelectedStyles && `${pickitemClassName}-is-selected`,
-      validatedMultiselect && `${pickitemClassName}-multiselect`,
+      isMultiselect && `${pickitemClassName}-multiselect`,
       isSplit && `${pickitemClassName}-split`,
       isDisabled && `${pickitemClassName}-is-disabled`,
-      size && `${pickitemClassName}-${size}`,
+      `${pickitemClassName}-medium`,
       isInvalid && `${pickitemClassName}-is-invalid`,
       pickItemMinWidthClassName,
     );
@@ -88,7 +85,7 @@ export default class Pickitem extends PureComponent {
       : null;
 
     const Tag = isSplit ? 'div' : 'li';
-    const BodyComponent = validatedMultiselect ? PickitemMultiselect : PickitemBody;
+    const BodyComponent = isMultiselect ? PickitemMultiselect : PickitemBody;
     const itemRole = isSplit ? undefined : ariaRole;
 
     const wrappedLeft = leftElement && <span className={sideElementClassName}>{leftElement}</span>;
@@ -114,7 +111,7 @@ export default class Pickitem extends PureComponent {
     return (
       <Tag
         aria-label={ariaLabel}
-        aria-selected={validatedMultiselect ? isSelected : null}
+        aria-selected={isMultiselect ? isSelected : null}
         className={classes}
         data-automationid={qaHook}
         id={id}
@@ -128,7 +125,6 @@ export default class Pickitem extends PureComponent {
             href,
             checkboxClassName,
             target,
-            size,
             primaryElement,
             ...pickitemBodyProps,
             ...listeners,
@@ -182,12 +178,7 @@ Pickitem.propTypes = {
    * ⚠️ *Vertical picklists only*
    */
   isMultiselect(...parameters) {
-    return verticalOnlyProp((props, propName) => {
-      if (props[propName] && props.size && props.size === 'xsmall') {
-        return new Error('Multiselect is not supported for xsmall pickitems.');
-      }
-      return null;
-    }, ...parameters);
+    return verticalOnlyProp(PropTypes.bool, ...parameters);
   },
   /**
    * Classes can be passed to the XUICheckbox component in PickItemBody.<br>
@@ -223,12 +214,6 @@ Pickitem.propTypes = {
   },
   /** Props to pass to the pickitem body */
   pickitemBodyProps: PropTypes.object,
-  /** Size variant. Where possible, please set this on the containing picklist,
-   * which will override any per-item settings.<br>
-   * **Note:**
-   * *`small` and `xsmall` variants now are `sunsetting` because they don’t meet [XUI minimum touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommended to use.*
-   */
-  size: PropTypes.oneOf(sizeVariants),
   /** Content to be added to the left of the pickitem. */
   leftElement: PropTypes.node,
   /**
@@ -266,7 +251,6 @@ Pickitem.defaultProps = {
   disableSelectedStyles: false,
   isSplit: false,
   isDisabled: false,
-  size: 'medium',
   /*
 	 DO NOT REMOVE
 	 This property is needed so that the StatefulPicklist will properly recognize this

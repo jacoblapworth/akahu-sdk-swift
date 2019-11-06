@@ -91,7 +91,7 @@ exports[`<Pickitem /> renders a multiselect pickitem with truncation 1`] = `
 exports[`<Pickitem /> renders a pickitem with most compatible options 1`] = `
 <li
   aria-selected={null}
-  className="xui-pickitem custom-classname xui-pickitem-multiline xui-pickitem-is-selected xui-pickitem-is-disabled xui-pickitem-xsmall xui-pickitem-is-invalid"
+  className="xui-pickitem custom-classname xui-pickitem-multiline xui-pickitem-is-selected xui-pickitem-is-disabled xui-pickitem-medium xui-pickitem-is-invalid"
   id="item1"
   role="option"
 >
@@ -291,27 +291,6 @@ exports[`<Pickitem /> renders a selected multiselect pickitem without selected s
 </li>
 `;
 
-exports[`<Pickitem /> renders a small pickitem with highlighting 1`] = `
-<li
-  aria-selected={null}
-  className="xui-pickitem xui-pickitem-is-hovered xui-pickitem-small"
-  id="item1"
-  role="option"
->
-  <button
-    className="xui-pickitem--body"
-    rel={null}
-    type="button"
-  >
-    <span
-      className="xui-pickitem--text"
-    >
-      Item 1
-    </span>
-  </button>
-</li>
-`;
-
 exports[`<Pickitem /> renders a truncating pickitem with leftelement 1`] = `
 <li
   aria-selected={null}
@@ -412,27 +391,6 @@ exports[`<Pickitem /> renders a truncating pickitem with secondary text and left
       >
         Here is a bunch of secondary text
       </span>
-    </span>
-  </button>
-</li>
-`;
-
-exports[`<Pickitem /> renders an xsmall pickitem with selected & invalid state 1`] = `
-<li
-  aria-selected={null}
-  className="xui-pickitem xui-pickitem-is-selected xui-pickitem-xsmall xui-pickitem-is-invalid"
-  id="item1"
-  role="option"
->
-  <button
-    className="xui-pickitem--body"
-    rel={null}
-    type="button"
-  >
-    <span
-      className="xui-pickitem--text"
-    >
-      Item 1
     </span>
   </button>
 </li>

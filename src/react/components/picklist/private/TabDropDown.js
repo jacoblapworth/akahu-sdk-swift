@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { sizeVariants } from './constants';
 import DropDown from '../../dropdown/DropDown';
 import DropDownToggled from '../../dropdown/DropDownToggled';
 
@@ -12,7 +11,7 @@ import DropDownToggled from '../../dropdown/DropDownToggled';
  *
  * @param {Object} props
  */
-const TabDropDown = ({ ulProps, dropdownList, size, className }) => {
+const TabDropDown = ({ ulProps, dropdownList, className }) => {
   let tabItem = dropdownList[0];
   const dropdown = (
     <DropDown>
@@ -24,7 +23,6 @@ const TabDropDown = ({ ulProps, dropdownList, size, className }) => {
           return (
             child &&
             React.cloneElement(child, {
-              size,
               _isHorizontal: false,
             })
           );
@@ -34,7 +32,6 @@ const TabDropDown = ({ ulProps, dropdownList, size, className }) => {
   );
 
   const tabSelectTrigger = React.cloneElement(tabItem, {
-    size,
     id: `tabDropDownTrigger-${tabItem.props.id || 0}`,
     pickitemBodyProps: { showButtonCaret: true },
   });
@@ -45,8 +42,6 @@ const TabDropDown = ({ ulProps, dropdownList, size, className }) => {
 TabDropDown.propTypes = {
   ulProps: PropTypes.object,
   dropdownList: PropTypes.array,
-  /** Size variant. Inherited from Picklist */
-  size: PropTypes.oneOf(sizeVariants),
   className: PropTypes.string,
 };
 

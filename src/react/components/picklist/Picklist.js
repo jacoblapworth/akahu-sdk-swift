@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { observe, unobserve } from '../helpers/resizeObserver';
 import '../helpers/xuiGlobalChecks';
-import { picklistClassName, sizeVariants } from './private/constants';
+import { picklistClassName } from './private/constants';
 import Pickitem from './Pickitem';
 import { getPropsFromFirstChildOrList, horizontalOnlyProp } from './private/helpers';
 import { userBreakpoints } from '../helpers/breakpoints';
@@ -133,12 +133,6 @@ Picklist.propTypes = {
   defaultLayout: PropTypes.bool,
   /** Whether to render as horizontal pickitems */
   isHorizontal: PropTypes.bool,
-  /**
-   * Size variant<br>
-   * **Note:**
-   * *`small` and `xsmall` variants now are `sunsetting` because they don’t meet [XUI minimum touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommended to use.*
-   */
-  size: PropTypes.oneOf(sizeVariants),
   /**
    * When true checkboxes will be added to the layout of the child components.<br>
    * ⚠️ *Vertical picklists only*

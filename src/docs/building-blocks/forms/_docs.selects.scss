@@ -144,7 +144,6 @@
 //
 // Tips:
 // Do: Use 'medium' size by default
-// Do: Match the size variant of dropdown and picklist to the select size variant
 // Warning: Use 'small' and 'xsmall' variants cautiosly, as they have reduced legibility and touch targets
 // Don't: Don't use a combination of size variants within a single form
 //
@@ -162,22 +161,6 @@
 //       <use xlink:href="#xui-icon-caret" role="presentation" />
 //     </svg>
 //   </button>
-//   <div class="xui-dropdown-layout xui-margin-top-2xsmall xui-u-fullwidth xui-dropdown-is-open">
-//     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body">
-//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout">
-//         <li class="xui-pickitem xui-pickitem-medium" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Yesterday</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-medium xui-pickitem-is-selected" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Today</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-medium" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Tomorrow</button>
-//         </li>
-//       </ul>
-//     </div>
-//   </div>
 // </div>
 // <div class="xui-select-layout xui-margin-bottom">
 //   <button class="xui-button xui-button-standard xui-button-small xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
@@ -186,22 +169,6 @@
 //       <use xlink:href="#xui-icon-caret" role="presentation" />
 //     </svg>
 //   </button>
-//   <div class="xui-dropdown-layout xui-margin-top-2xsmall xui-u-fullwidth xui-dropdown-is-open">
-//     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body">
-//       <ul class="xui-picklist xui-picklist-small xui-picklist-layout">
-//         <li class="xui-pickitem xui-pickitem-small" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Yesterday</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-small xui-pickitem-is-selected" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Today</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-small" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Tomorrow</button>
-//         </li>
-//       </ul>
-//     </div>
-//   </div>
 // </div>
 // <div class="xui-select-layout">
 //   <button class="xui-button xui-button-standard xui-button-xsmall xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
@@ -210,22 +177,6 @@
 //       <use xlink:href="#xui-icon-caret" role="presentation" />
 //     </svg>
 //   </button>
-//   <div class="xui-dropdown-layout xui-margin-top-2xsmall xui-u-fullwidth xui-dropdown-is-open">
-//     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body">
-//       <ul class="xui-picklist xui-picklist-xsmall xui-picklist-layout">
-//         <li class="xui-pickitem xui-pickitem-xsmall" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Yesterday</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-xsmall xui-pickitem-is-selected" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Today</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-xsmall" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Tomorrow</button>
-//         </li>
-//       </ul>
-//     </div>
-//   </div>
 // </div>
 //
 // Styleguide: Building Blocks.Controls.Select.4
@@ -237,7 +188,7 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-margin-bottom xui-u-flex">
+// <div class="xui-margin-bottom  xui-u-flex">
 //   <button class="xui-button xui-button-main xui-button-medium xui-select--button xui-margin-right" aria-label="Select format">
 //     <span class="xui-select--content">All</span>
 //     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
@@ -314,10 +265,9 @@
 //
 // Tips:
 // Do: Use multi-selects when choosing from an array of options in one category
-// Dont: Multi-select is not an option for xsmall size variant selects
 //
 // Markup:
-// <div class="xui-select-layout xui-margin-bottom">
+// <div class="xui-select-layout">
 //   <button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
 //     <span class="xui-select--content">This week, Next week</span>
 //     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
@@ -362,54 +312,6 @@
 //                 <div class="xui-touchtarget"></div>
 //               </div>
 //               <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
-//                 <span class="">Next week</span>
-//               </span>
-//             </label>
-//           </div>
-//         </li>
-//       </ul>
-//     </div>
-//   </div>
-// </div>
-// <div class="xui-select-layout">
-//   <button class="xui-button xui-button-standard xui-button-small xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//     <span class="xui-select--content">This week, Next week</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-//   <div class="xui-dropdown-layout xui-margin-top-2xsmall xui-u-fullwidth xui-dropdown-is-open">
-//     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body">
-//       <ul class="xui-picklist xui-picklist-small xui-picklist-layout">
-//         <li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-small" aria-selected="false" role="option" id="0-1">
-//           <div class="xui-pickitem--body" role="presentation">
-//             <label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
-//               <input type="checkbox" tabindex="-1" aria-labelledby="aaa" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall">
-//               <div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"></div>
-//               <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
-//                 <span class="">Last week</span>
-//               </span>
-//             </label>
-//           </div>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-small" aria-selected="false" role="option" id="0-1">
-//           <div class="xui-pickitem--body" role="presentation">
-//             <label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
-//               <input type="checkbox" checked tabindex="-1" aria-labelledby="aab" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall">
-//               <div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"></div>
-//               <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
-//                 <span class="">This week</span>
-//               </span>
-//             </label>
-//           </div>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-small" aria-selected="false" role="option" id="0-1">
-//           <div class="xui-pickitem--body" role="presentation">
-//             <label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
-//               <input type="checkbox" checked tabindex="-1" aria-labelledby="aac" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall">
-//               <div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"></div>
-//               <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
 //                 <span class="">Next week</span>
 //               </span>
 //             </label>

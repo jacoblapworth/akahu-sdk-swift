@@ -152,8 +152,6 @@ class MiniApp extends Component {
 
 The `size` prop allows you to change the default `SelectBox` size.
 
-If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
-
 ```jsx harmony
 import { Component } from 'react';
 import SelectBox, { SelectBoxOption } from './select-box';

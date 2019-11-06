@@ -32,7 +32,6 @@ describe('< Picklist />', () => {
       className: 'custom-picklist-class',
       id: 'picklistId',
       isHorizontal: true,
-      size: 'small',
       defaultLayout: false,
       shouldTruncate: true,
       secondaryProps: { role: 'presentation' },
@@ -44,12 +43,10 @@ describe('< Picklist />', () => {
 
   it('example of list settings overriding item-level settings', () => {
     const settings = {
-      size: 'small',
       isMultiselect: false,
       shouldTruncate: true,
     };
     const itemProps = {
-      size: 'medium',
       isMultiselect: true,
     };
     const overrides = setup(settings, itemProps);
@@ -59,7 +56,7 @@ describe('< Picklist />', () => {
   it('example taking settings from first child and giving to all', () => {
     const fromItems = renderer.create(
       <Picklist>
-        <Pickitem primaryElement="Item content" id="pi1" size="small" isMultiselect={true} />
+        <Pickitem primaryElement="Item content" id="pi1" isMultiselect={true} />
         <Pickitem primaryElement="Item two" id="pi2" />
       </Picklist>,
     );

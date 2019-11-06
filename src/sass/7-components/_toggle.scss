@@ -3,8 +3,8 @@
 
 // Full-width layout
 .#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle--label,
-.#{$ns}-toggle-fullwidth-layout > .#{$ns}-toggle-optionwrapper,
-.#{$ns}-toggle-fullwidth-layout > .#{$ns}-toggle-option {
+.#{$ns}-toggle-fullwidth-layout > .#{$ns}-toggle--optionwrapper,
+.#{$ns}-toggle-fullwidth-layout > .#{$ns}-toggle--option {
   flex-basis: 100%;
   flex-grow: 1;
 }
@@ -26,7 +26,7 @@
 }
 
 .#{$ns}-toggle-small .#{$ns}-toggle--label,
-.#{$ns}-toggle-small .#{$ns}-toggle-option {
+.#{$ns}-toggle-small .#{$ns}-toggle--option {
   min-height: $xui-control-size-small;
 }
 
@@ -191,12 +191,12 @@
 }
 
 // Option styles
-.#{$ns}-toggle-option {
+.#{$ns}-toggle--option {
   display: flex;
 }
 
-.#{$ns}-toggle > .#{$ns}-toggle-optionwrapper,
-.#{$ns}-toggle > .#{$ns}-toggle-option {
+.#{$ns}-toggle > .#{$ns}-toggle--optionwrapper,
+.#{$ns}-toggle > .#{$ns}-toggle--option {
   &:nth-of-type(n + 2) .#{$ns}-toggle--label {
     border-left: none;
   }

@@ -30,7 +30,7 @@
 //
 // Classes:
 // xui-toggle: Toggle container
-// xui-toggle-option: Toggle option
+// xui-toggle--option: Toggle option
 // xui-toggle--label: Toggle text content
 // xui-toggle--input: Apply to native input to hide it
 //
@@ -39,15 +39,15 @@
 // Markup:
 // <span class="xui-text-label xui-fieldlabel-layout" id="test-label">Toggle</span>
 // <div class="xui-toggle xui-toggle-medium" role="radiogroup" aria-labelledby="test-label">
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //     <input type="radio" name="aa" class="xui-toggle--input" checked/>
 //     <span class="xui-toggle--label xui-padding-horizontal">Including tax</span>
 //   </label>
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //     <input type="radio" name="aa" class="xui-toggle--input"/>
 //     <span class="xui-toggle--label xui-padding-horizontal">Excluding tax</span>
 //   </label>
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //     <input type="radio" name="aa" class="xui-toggle--input"/>
 //     <span class="xui-toggle--label xui-padding-horizontal">No tax</span>
 //   </label>
@@ -68,15 +68,15 @@
 //
 // Markup:
 // <div class="xui-toggle xui-toggle-fullwidth-layout xui-toggle-medium" role="radiogroup" aria-label="bb">
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //     <input type="radio" name="bb" class="xui-toggle--input" checked/>
 //     <span class="xui-toggle--label xui-padding-horizontal">As they happen</span>
 //   </label>
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //     <input type="radio" name="bb" class="xui-toggle--input"/>
 //     <span class="xui-toggle--label xui-padding-horizontal">Weekly summary</span>
 //   </label>
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //     <input type="radio" name="bb" class="xui-toggle--input"/>
 //     <span class="xui-toggle--label xui-padding-horizontal">Never</span>
 //   </label>
@@ -97,29 +97,29 @@
 //
 // Markup:
 // <div class="xui-margin-bottom xui-toggle xui-toggle-medium" role="radiogroup" aria-label="dd">
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //     <input type="radio" name="dd" class="xui-toggle--input" checked/>
 //     <span class="xui-toggle--label xui-padding-horizontal-small">Submitter</span>
 //   </label>
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //     <input type="radio" name="dd" class="xui-toggle--input"/>
 //     <span class="xui-toggle--label xui-padding-horizontal-small">Approver</span>
 //   </label>
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //     <input type="radio" name="dd" class="xui-toggle--input"/>
 //     <span class="xui-toggle--label xui-padding-horizontal-small">Admin</span>
 //   </label>
 // </div>
 // <div class="xui-toggle xui-toggle-small" role="radiogroup" aria-label="dd">
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //     <input type="radio" name="dd" class="xui-toggle--input" checked/>
 //     <span class="xui-toggle--label xui-padding-horizontal-small">Submitter</span>
 //   </label>
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //     <input type="radio" name="dd" class="xui-toggle--input"/>
 //     <span class="xui-toggle--label xui-padding-horizontal-small">Approver</span>
 //   </label>
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //     <input type="radio" name="dd" class="xui-toggle--input"/>
 //     <span class="xui-toggle--label xui-padding-horizontal-small">Admin</span>
 //   </label>
@@ -140,15 +140,15 @@
 // Markup:
 // <div class="xui-padding-xsmall">
 //   <div class="xui-toggle xui-toggle-medium" role="radiogroup" aria-label="ee">
-//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//     <label class="xui-toggle--option xui-toggle-is-disabled">
 //     <input type="radio" name="ee" class="xui-toggle--input" disabled checked/>
 //       <span class="xui-toggle--label xui-padding-horizontal">Limited</span>
 //     </label>
-//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//     <label class="xui-toggle--option xui-toggle-is-disabled">
 //       <input type="radio" name="ee" class="xui-toggle--input" disabled/>
 //       <span class="xui-toggle--label xui-padding-horizontal">Standard</span>
 //     </label>
-//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//     <label class="xui-toggle--option xui-toggle-is-disabled">
 //       <input type="radio" name="ee" class="xui-toggle--input" disabled/>
 //       <span class="xui-toggle--label xui-padding-horizontal">Admin</span>
 //     </label>
@@ -156,15 +156,15 @@
 // </div>
 // <div class="ds-example-dark">
 //   <div class="xui-toggle xui-toggle-inverted xui-toggle-medium" role="radiogroup" aria-label="kk">
-//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//     <label class="xui-toggle--option xui-toggle-is-disabled">
 //     <input type="radio" name="kk" class="xui-toggle--input" disabled checked/>
 //       <span class="xui-toggle--label xui-padding-horizontal">Limited</span>
 //     </label>
-//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//     <label class="xui-toggle--option xui-toggle-is-disabled">
 //       <input type="radio" name="kk" class="xui-toggle--input" disabled/>
 //       <span class="xui-toggle--label xui-padding-horizontal">Standard</span>
 //     </label>
-//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//     <label class="xui-toggle--option xui-toggle-is-disabled">
 //       <input type="radio" name="kk" class="xui-toggle--input" disabled/>
 //       <span class="xui-toggle--label xui-padding-horizontal">Admin</span>
 //     </label>
@@ -184,7 +184,7 @@
 //
 // Markup:
 // <div class="xui-toggle xui-toggle-inverted xui-toggle-medium" role="radiogroup" aria-label="ff">
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //   <input type="radio" name="ff" class="xui-toggle--input" checked/>
 //     <span class="xui-toggle--label xui-padding-horizontal-small">
 //       <svg focusable="false" class="xui-icon">
@@ -192,7 +192,7 @@
 //       </svg>
 //     </span>
 //   </label>
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //     <input type="radio" name="ff" class="xui-toggle--input"/>
 //     <span class="xui-toggle--label xui-padding-horizontal-small">
 //       <svg focusable="false" class="xui-icon">
@@ -200,7 +200,7 @@
 //       </svg>
 //     </span>
 //   </label>
-//   <label class="xui-toggle-option">
+//   <label class="xui-toggle--option">
 //     <input type="radio" name="ff" class="xui-toggle--input"/>
 //     <span class="xui-toggle--label xui-padding-horizontal-small">
 //       <svg focusable="false" class="xui-icon">

@@ -182,15 +182,15 @@
 // <div class="xui-u-fullwidth xui-field-layout">
 //   <span class="xui-text-label xui-fieldlabel-layout" id="toggle1">Choose a day</span>
 //   <div role="group" class="xui-toggle xui-toggle-is-invalid xui-toggle-fullwidth-layout xui-toggle-medium" aria-invalid="true" aria-labelledby="toggle1" aria-describedby="toggle1-message">
-//     <label class="xui-toggle-option" role="presentation">
+//     <label class="xui-toggle--option" role="presentation">
 //       <input class="xui-toggle--input" name="tg10" type="checkbox" aria-labelledby="toggle-label-1" value="toggle1" />
 //       <span class="xui-toggle--label" id="toggle-label-1">M</span>
 //     </label>
-//     <label class="xui-toggle-option" role="presentation">
+//     <label class="xui-toggle--option" role="presentation">
 //       <input class="xui-toggle--input" name="tg10" type="checkbox" aria-labelledby="toggle-label-2" value="toggle2" />
 //       <span class="xui-toggle--label" id="toggle-label-2">Tu</span>
 //     </label>
-//     <label class="xui-toggle-option xui-toggle-is-disabled" role="presentation">
+//     <label class="xui-toggle--option xui-toggle-is-disabled" role="presentation">
 //       <input class="xui-toggle--input" disabled="" name="tg10" type="checkbox" aria-labelledby="toggle-label-3" value="toggle3">
 //       <span class="xui-toggle--label" id="toggle-label-3">W</span>
 //     </label>

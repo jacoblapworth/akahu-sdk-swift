@@ -23,14 +23,18 @@
   },
   "scripts": {
     "build": "node scripts/build",
+    "build:cssmin": "node scripts/build/cssmin",
     "lint": "eslint ./ && node scripts/lint/sass",
     "lint:fix": "eslint ./ --fix",
     "prettier": "prettier --check '**/*.{ts,tsx,js,jsx,css,scss,html,md,json}'",
     "prettier:fix": "prettier --write '**/*.{ts,tsx,js,jsx,css,scss,html,md,json}'",
     "prepack": "node scripts/prepack",
     "prepare": "check-engines",
+    "review": "npm-run-all lint test test:visual",
     "start": "node scripts/start",
     "test": "node scripts/test",
+    "test:ci": "node scripts/test/ci",
+    "test:visual": "node scripts/test/visual",
     "release": "node scripts/release"
   },
   "dependencies": {
@@ -122,6 +126,7 @@
     "ncp": "2.0.0",
     "node-sass": "4.12.0",
     "nopt": "4.0.1",
+    "npm-run-all": "4.1.5",
     "ora": "3.3.1",
     "postcss": "7.0.18",
     "postcss-discard-comments": "4.0.2",

@@ -1015,6 +1015,7 @@
   border-top: $xui-border-standard;
   min-height: inherit; // IE11 bug fix TODO: Link to docs on what the bugfix is
   position: relative;
+  text-decoration: none;
 
   &:first-of-type {
     border-top: 0;
@@ -1065,7 +1066,6 @@
   .#{$ns}-contentblockitem--maincontent {
     flex: 1;
     padding: $xui-s-small $xui-s-standard;
-    text-decoration: none;
   }
 
   .#{$ns}-contentblockitem--rightcontent {
@@ -1106,15 +1106,19 @@
 
 .#{$ns}-contentblockitem--primaryheading {
   @include xui-text-medium;
-  color: $xui-color-grey-1;
+  color: $xui-text-primary-color;
   font-weight: $xui-font-weight-emphasis;
   margin-right: $xui-s-small;
 }
 
 .#{$ns}-contentblockitem--secondaryheading {
   @include xui-text-medium;
-  color: $xui-color-grey-1;
+  color: $xui-text-primary-color;
   margin-right: $xui-s-small;
+}
+
+.#{$ns}-contentblockitem--rightcontent {
+  color: $xui-text-primary-color;
 }
 
 .#{$ns}-contentblockitem--pinnedvalue {

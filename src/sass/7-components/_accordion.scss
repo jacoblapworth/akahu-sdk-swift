@@ -34,32 +34,56 @@
 // Classes:
 // xui-accordion: Base class
 // xui-accordionwrapper: Accordion wrapper
-// xui-accordiontrigger: Trigger wrapper
-// xui-accordiontrigger--arrow: Icon-button trigger wrapper
-// xui-accordiontrigger--rightcontent: Trigger right content wrapper
-// xui-accordiontrigger--pinnedvalue: Wrapper for pinned value
-// xui-accordiontrigger--overflowcontent: Wrapper for overflow icon
 // xui-accordionwrapper--content: Accordion item content wrapper
 //
 // Markup:
 // <div class="xui-accordion">
 //   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div
+//       tabindex="0"
+//       role="button"
+//       aria-label="Toggle"
+//       class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
+//     >
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button
+//             title="Toggle accordion"
+//             class="xui-button xui-button-icon xui-button-icon-medium"
+//             tabindex="-1"
+//             type="button"
+//           >
+//             <svg
+//               focusable="false"
+//               class="xui-icon"
+//               title="Expand and collapse accordion"
+//               aria-label="Expand and collapse accordion"
+//             >
+//               <use xlink:href="#xui-icon-arrow" role="presentation" />
+//             </svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
+//         <abbr
+//           class="xui-margin-right xui-avatar xui-avatar-color-2"
+//           role="presentation"
+//           >JS</abbr
+//         >
 //       </div>
-//       <abbr class="xui-margin-right xui-avatar xui-avatar-color-2" role="presentation">JS</abbr>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">John Smith</div>
-//           <div class="xui-accordiontrigger--secondaryheading">2 projects</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">John Smith</div>
+//           <div class="xui-contentblockitem--secondaryheading">2 projects</div>
 //         </div>
-//         <div class="xui-accordiontrigger--rightcontent">
-//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit details</button>
-//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button
+//           class="xui-button xui-button-standard xui-button-small"
+//           tabindex="0"
+//           type="button"
+//         >
+//           Edit details
+//         </button>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content"></div>
@@ -81,22 +105,24 @@
 // Markup:
 // <div class="xui-accordion">
 //   <div class="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-pop">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger xui-accordiontrigger-is-open">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
+//         <abbr class="xui-margin-right xui-avatar xui-avatar-color-2" role="presentation">JS</abbr>
 //       </div>
-//       <abbr class="xui-margin-right xui-avatar xui-avatar-color-2" role="presentation">JS</abbr>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">John Smith</div>
-//           <div class="xui-accordiontrigger--secondaryheading">2 projects</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">John Smith</div>
+//           <div class="xui-contentblockitem--secondaryheading">2 projects</div>
 //         </div>
-//         <div class="xui-accordiontrigger--rightcontent">
-//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit details</button>
-//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit details</button>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content xui-accordionwrapper--content-is-open">
@@ -157,35 +183,39 @@
 // Left content
 //
 // Markup:
-// <div class="xui-accordion xui-margin-bottom-large">
+// <div class="xui-<div class="xui-accordion xui-margin-bottom-large">
 //   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
 //       </div>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">Barry's Bees</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">Barry's Bees</div>
 //         </div>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content"></div>
 //   </div>
 //   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
 //       </div>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">Barry's Bees</div>
-//           <div class="xui-accordiontrigger--secondaryheading">2 projects</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">Barry's Bees</div>
+//           <div class="xui-contentblockitem--secondaryheading">2 projects</div>
 //         </div>
 //       </div>
 //     </div>
@@ -194,35 +224,39 @@
 // </div>
 // <div class="xui-accordion">
 //   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
+//         <abbr class="xui-margin-right xui-avatar xui-avatar-color-7" role="presentation">BB</abbr>
 //       </div>
-//       <abbr class="xui-margin-right xui-avatar xui-avatar-color-7" role="presentation">BB</abbr>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">Barry's Bees</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">Barry's Bees</div>
 //         </div>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content"></div>
 //   </div>
 //   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
+//         <abbr class="xui-margin-right xui-avatar xui-avatar-color-7" role="presentation">BB</abbr>
 //       </div>
-//       <abbr class="xui-margin-right xui-avatar xui-avatar-color-7" role="presentation">BB</abbr>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">Barry's Bees</div>
-//           <div class="xui-accordiontrigger--secondaryheading">2 projects</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">Barry's Bees</div>
+//           <div class="xui-contentblockitem--secondaryheading">2 projects</div>
 //         </div>
 //       </div>
 //     </div>
@@ -237,64 +271,61 @@
 // Markup:
 // <div class="xui-accordion">
 //   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
-//       </div>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">INV 00397</div>
-//         </div>
-//         <div class="xui-accordiontrigger--rightcontent">
-//           <div class="xui-accordiontrigger--pinnedvalue">3,000.00</div>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
 //         </div>
 //       </div>
-//     </div>
-//     <div class="xui-accordionwrapper--content"></div>
-//   </div>
-//   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
-//       </div>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">INV 00398</div>
-//         </div>
-//         <div class="xui-accordiontrigger--rightcontent">
-//           <div class="xui-accordiontrigger--pinnedvalue xui-margin-right-large">200.00</div>
-//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">View</button>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">A Tale of Two Cities</div>
+//           <div class="xui-contentblockitem--secondaryheading">Charles Dickens</div>
 //         </div>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content"></div>
 //   </div>
-//   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//         </button>
-//       </div>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">INV 00398</div>
+//   <div class="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-pop">
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
 //         </div>
-//         <div class="xui-accordiontrigger--rightcontent">
-//           <div class="xui-accordiontrigger--pinnedvalue xui-margin-right-large">9,700.00</div>
-//           <button class="xui-button xui-button-standard xui-button-small xui-margin-right-small" tabindex="0" type="button">View</button>
-//           <div class="xui-accordiontrigger--overflowcontent">
-//             <button title="More options" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//               <svg focusable="false" class="xui-icon" title="Display more options" aria-label="Display more options"><use xlink:href="#xui-icon-overflow" role="presentation" /></svg>
-//               <div class="xui-touchtarget"></div>
-//             </button>
-//           </div>
+//       </div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">The Lord of the Rings</div>
+//           <div class="xui-contentblockitem--secondaryheading">J. R. R. Tolkien</div>
+//         </div>
+//       </div>
+//     </div>
+//     <div class="xui-accordionwrapper--content xui-accordionwrapper--content-is-open">
+//       <div class="xui-padding-2xlarge">
+//         The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is one of the best-selling novels ever written, with over 150 million copies sold.
+//       </div>
+//     </div>
+//   </div>
+//   <div class="xui-accordionwrapper">
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">The Hobbit</div>
+//           <div class="xui-contentblockitem--secondaryheading">J. R. R. Tolkien</div>
 //         </div>
 //       </div>
 //     </div>
@@ -320,34 +351,38 @@
 // Markup:
 // <div class="xui-accordion">
 //   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
 //       </div>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">A Tale of Two Cities</div>
-//           <div class="xui-accordiontrigger--secondaryheading">Charles Dickens</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">A Tale of Two Cities</div>
+//           <div class="xui-contentblockitem--secondaryheading">Charles Dickens</div>
 //         </div>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content"></div>
 //   </div>
 //   <div class="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-pop">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger xui-accordiontrigger-is-open">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
 //       </div>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">The Lord of the Rings</div>
-//           <div class="xui-accordiontrigger--secondaryheading">J. R. R. Tolkien</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">The Lord of the Rings</div>
+//           <div class="xui-contentblockitem--secondaryheading">J. R. R. Tolkien</div>
 //         </div>
 //       </div>
 //     </div>
@@ -358,17 +393,19 @@
 //     </div>
 //   </div>
 //   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
 //       </div>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">The Hobbit</div>
-//           <div class="xui-accordiontrigger--secondaryheading">J. R. R. Tolkien</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">The Hobbit</div>
+//           <div class="xui-contentblockitem--secondaryheading">J. R. R. Tolkien</div>
 //         </div>
 //       </div>
 //     </div>
@@ -383,48 +420,52 @@
 // Markup:
 // <div class="xui-accordion">
 //   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem--rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
+//         <abbr class="xui-margin-right xui-avatar xui-avatar-color-8" role="presentation">AF</abbr>
 //       </div>
-//       <abbr class="xui-margin-right xui-avatar xui-avatar-color-8" role="presentation">AF</abbr>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">Angel Fisherton</div>
-//           <div class="xui-accordiontrigger--secondaryheading">1 project</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">Angel Fisherton</div>
+//           <div class="xui-contentblockitem--secondaryheading">1 project</div>
 //         </div>
-//         <div class="xui-accordiontrigger--rightcontent">
-//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
-//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content"></div>
 //   </div>
 //   <div class="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-pop">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger xui-accordiontrigger-is-open">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem--rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
+//         <abbr class="xui-margin-right xui-avatar xui-avatar-color-2" role="presentation">CH</abbr>
 //       </div>
-//       <abbr class="xui-margin-right xui-avatar xui-avatar-color-2" role="presentation">CH</abbr>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">Cathy Hewitt</div>
-//           <div class="xui-accordiontrigger--secondaryheading">2 projects</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">Cathy Hewitt</div>
+//           <div class="xui-contentblockitem--secondaryheading">2 projects</div>
 //         </div>
-//         <div class="xui-accordiontrigger--rightcontent">
-//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
-//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content xui-accordionwrapper--content-is-open">
 //       <ol class="xui-contentblock">
-//         <li class="xui-contentblockitem xui-contentblockitem-layout">
+//         <li class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem--rowlink">
 //           <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
 //             <abbr class="xui-avatar xui-avatar-business xui-avatar-color-1" role="presentation">OMC</abbr>
 //           </div>
@@ -441,7 +482,7 @@
 //             <div class="xui-contentblockitem--pinnedvalue">00:30</div>
 //           </div>
 //         </li>
-//         <li class="xui-contentblockitem xui-contentblockitem-layout">
+//         <li class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem--rowlink">
 //           <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
 //             <abbr class="xui-avatar xui-avatar-business xui-avatar-color-2" role="presentation">SS</abbr>
 //           </div>
@@ -462,22 +503,24 @@
 //     </div>
 //   </div>
 //   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem--rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
+//         <abbr class="xui-margin-right xui-avatar xui-avatar-color-1" role="presentation">EC</abbr>
 //       </div>
-//       <abbr class="xui-margin-right xui-avatar xui-avatar-color-1" role="presentation">EC</abbr>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">Emilia Clarke</div>
-//           <div class="xui-accordiontrigger--secondaryheading">0 projects</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">Emilia Clarke</div>
+//           <div class="xui-contentblockitem--secondaryheading">0 projects</div>
 //         </div>
-//         <div class="xui-accordiontrigger--rightcontent">
-//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
-//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content"></div>
@@ -494,65 +537,71 @@
 // Markup:
 // <div class="xui-accordion">
 //   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem--rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
+//         <abbr class="xui-margin-right xui-avatar xui-avatar-color-8" role="presentation">AF</abbr>
 //       </div>
-//       <abbr class="xui-margin-right xui-avatar xui-avatar-color-8" role="presentation">AF</abbr>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">Angel Fisherton</div>
-//           <div class="xui-accordiontrigger--secondaryheading">1 project</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">Angel Fisherton</div>
+//           <div class="xui-contentblockitem--secondaryheading">1 project</div>
 //         </div>
-//         <div class="xui-accordiontrigger--rightcontent">
-//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
-//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content"></div>
 //   </div>
 //   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem--rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
+//         <abbr class="xui-margin-right xui-avatar xui-avatar-color-2" role="presentation">CH</abbr>
 //       </div>
-//       <abbr class="xui-margin-right xui-avatar xui-avatar-color-2" role="presentation">CH</abbr>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">Cathy Hewitt</div>
-//           <div class="xui-accordiontrigger--secondaryheading">2 projects</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">Cathy Hewitt</div>
+//           <div class="xui-contentblockitem--secondaryheading">2 projects</div>
 //         </div>
-//         <div class="xui-accordiontrigger--rightcontent">
-//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
-//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content">
 //     </div>
 //   </div>
 //   <div class="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-pop">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger xui-accordiontrigger-is-open">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem--rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
+//         <abbr class="xui-margin-right xui-avatar xui-avatar-color-1" role="presentation">EC</abbr>
 //       </div>
-//       <abbr class="xui-margin-right xui-avatar xui-avatar-color-1" role="presentation">EC</abbr>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">Emilia Clarke</div>
-//           <div class="xui-accordiontrigger--secondaryheading">0 projects</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">Emilia Clarke</div>
+//           <div class="xui-contentblockitem--secondaryheading">0 projects</div>
 //         </div>
-//         <div class="xui-accordiontrigger--rightcontent">
-//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
-//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content xui-accordionwrapper--content-is-open">
@@ -575,65 +624,71 @@
 // Markup:
 // <div class="xui-accordion">
 //   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem--rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
+//         <abbr class="xui-margin-right xui-avatar xui-avatar-color-8" role="presentation">AF</abbr>
 //       </div>
-//       <abbr class="xui-margin-right xui-avatar xui-avatar-color-8" role="presentation">AF</abbr>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">Angel Fisherton</div>
-//           <div class="xui-accordiontrigger--secondaryheading">1 project</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">Angel Fisherton</div>
+//           <div class="xui-contentblockitem--secondaryheading">1 project</div>
 //         </div>
-//         <div class="xui-accordiontrigger--rightcontent">
-//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
-//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content"></div>
 //   </div>
 //   <div class="xui-accordionwrapper">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem--rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
+//         <abbr class="xui-margin-right xui-avatar xui-avatar-color-2" role="presentation">CH</abbr>
 //       </div>
-//       <abbr class="xui-margin-right xui-avatar xui-avatar-color-2" role="presentation">CH</abbr>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">Cathy Hewitt</div>
-//           <div class="xui-accordiontrigger--secondaryheading">2 projects</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">Cathy Hewitt</div>
+//           <div class="xui-contentblockitem--secondaryheading">2 projects</div>
 //         </div>
-//         <div class="xui-accordiontrigger--rightcontent">
-//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
-//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content">
 //     </div>
 //   </div>
 //   <div class="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-pop">
-//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-accordiontrigger xui-accordiontrigger-is-open">
-//       <div class="xui-accordiontrigger--arrow">
-//         <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
-//           <svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
-//           <div class="xui-touchtarget"></div>
-//         </button>
+//     <div tabindex="0" role="button" aria-label="Toggle" class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem--rowlink">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <div class="xui-accordiontrigger--arrow">
+//           <button title="Toggle accordion" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="-1" type="button">
+//             <svg focusable="false" class="xui-icon xui-icon-rotate-180" title="Expand and collapse accordion" aria-label="Expand and collapse accordion"><use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <div class="xui-touchtarget"></div>
+//           </button>
+//         </div>
+//         <abbr class="xui-margin-right xui-avatar xui-avatar-color-1" role="presentation">EC</abbr>
 //       </div>
-//       <abbr class="xui-margin-right xui-avatar xui-avatar-color-1" role="presentation">EC</abbr>
-//       <div class="xui-accordiontrigger--content">
-//         <div class="xui-accordiontrigger--headings">
-//           <div class="xui-accordiontrigger--primaryheading">Emilia Clarke</div>
-//           <div class="xui-accordiontrigger--secondaryheading">0 projects</div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <div class="xui-contentblockitem--headings">
+//           <div class="xui-contentblockitem--primaryheading">Emilia Clarke</div>
+//           <div class="xui-contentblockitem--secondaryheading">0 projects</div>
 //         </div>
-//         <div class="xui-accordiontrigger--rightcontent">
-//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
-//         </div>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
 //       </div>
 //     </div>
 //     <div class="xui-accordionwrapper--content xui-accordionwrapper--content-is-open">
@@ -653,10 +708,6 @@
 @import '../mixins';
 
 $xui-accordion-pop-width: $xui-s-xsmall;
-
-.#{$ns}-accordion {
-  width: 100%;
-}
 
 .#{$ns}-accordion--emptystate {
   @include xui-text-muted;
@@ -722,35 +773,6 @@ $xui-accordion-pop-width: $xui-s-xsmall;
   border-radius: $xui-radius;
   margin-left: -$xui-accordion-pop-width;
   width: calc(100% + #{2 * $xui-accordion-pop-width});
-
-  .#{$ns}-accordiontrigger-is-open {
-    padding-left: $xui-accordion-pop-width;
-    padding-right: $xui-accordion-pop-width;
-  }
-}
-
-.#{$ns}-accordiontrigger {
-  align-items: center;
-  border-top: $xui-border-muted;
-  cursor: pointer;
-  display: flex;
-  margin: 0;
-  transition-duration: $xui-motion-speed-fast;
-  transition-property: width, margin, padding;
-  // stylelint-disable-next-line order/properties-alphabetical-order
-  -ms-transition: none;
-
-  &:first-child {
-    border-top: 0;
-  }
-
-  &:hover {
-    background: $xui-color-grey-alpha-8;
-  }
-
-  &:active {
-    background: $xui-color-grey-alpha-7;
-  }
 }
 
 .#{$ns}-accordiontrigger--arrow {
@@ -770,50 +792,4 @@ $xui-accordion-pop-width: $xui-s-xsmall;
 .#{$ns}-accordiontrigger--arrow .#{$ns}-icon {
   transition-duration: $xui-motion-speed-fast;
   transition-property: all;
-}
-
-.#{$ns}-accordiontrigger--rightcontent {
-  align-items: center;
-  align-self: stretch;
-  display: flex;
-  flex-shrink: 0;
-  padding: $xui-s-standard $xui-s-large $xui-s-standard $xui-s-xsmall;
-
-  @include xui-breakpoint-small-down {
-    align-self: flex-start;
-  }
-}
-
-.#{$ns}-accordiontrigger--content {
-  align-items: center;
-  display: flex;
-  flex-basis: auto;
-  flex-grow: 1;
-}
-
-.#{$ns}-accordiontrigger--headings {
-  flex-basis: auto;
-  flex-grow: 1;
-  padding: $xui-s-standard 0;
-}
-
-.#{$ns}-accordiontrigger--primaryheading {
-  @include xui-text-medium;
-  @include xui-text-emphasis;
-  @include xui-text-wordbreak;
-}
-
-.#{$ns}-accordiontrigger--secondaryheading {
-  @include xui-heading-small;
-  @include xui-text-deemphasis;
-  @include xui-text-muted;
-  @include xui-text-wordbreak;
-}
-
-.#{$ns}-accordiontrigger--pinnedvalue {
-  @include xui-text-medium;
-}
-
-.#{$ns}-accordiontrigger--overflowcontent .xui-button-icon {
-  margin-right: -#{$xui-s-small};
 }

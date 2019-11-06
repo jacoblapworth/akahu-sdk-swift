@@ -2,54 +2,57 @@
 
 exports[`<XUIAccordion /> | Accordion Trigger should render an automation id when passed in the qaHook prop 1`] = `
 <div
-  aria-label="Toggle"
-  className="xui-accordiontrigger"
+  className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
   data-automationid="test-id"
   onClick={[Function]}
-  onKeyPress={[Function]}
+  onKeyDown={[Function]}
   role="button"
   tabIndex={0}
 >
   <div
-    className="xui-accordiontrigger--arrow"
-  >
-    <button
-      aria-label="Toggle"
-      className="xui-button xui-button-icon-medium xui-button-icon"
-      disabled={false}
-      onClick={[Function]}
-      tabIndex={-1}
-      title="Toggle"
-      type="button"
-    >
-      <svg
-        className="xui-icon"
-        focusable="false"
-        height={7}
-        viewBox="0 0 11 7"
-        width={11}
-      >
-        <path
-          d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
-          role="presentation"
-        />
-      </svg>
-      <div
-        className="xui-touchtarget"
-      />
-    </button>
-  </div>
-  <div
-    className="xui-accordiontrigger--content"
+    className="xui-contentblockitem--leftcontent"
   >
     <div
-      className="xui-accordiontrigger--headings"
+      className="xui-accordiontrigger--arrow"
     >
-      <div
-        className="xui-accordiontrigger--primaryheading"
+      <button
+        aria-label="Toggle"
+        className="xui-button xui-button-icon-medium xui-button-icon"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={-1}
+        title="Toggle"
+        type="button"
+      >
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={7}
+          viewBox="0 0 11 7"
+          width={11}
+        >
+          <path
+            d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+            role="presentation"
+          />
+        </svg>
+        <div
+          className="xui-touchtarget"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="xui-contentblockitem--maincontent"
+  >
+    <div
+      className="xui-contentblockitem--headings"
+    >
+      <span
+        className="xui-contentblockitem--primaryheading"
       >
         John Smith
-      </div>
+      </span>
     </div>
   </div>
 </div>
@@ -57,53 +60,56 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
 
 exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
 <div
-  aria-label="Toggle"
-  className="xui-accordiontrigger"
+  className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
   onClick={[Function]}
-  onKeyPress={[Function]}
+  onKeyDown={[Function]}
   role="button"
   tabIndex={0}
 >
   <div
-    className="xui-accordiontrigger--arrow"
-  >
-    <button
-      aria-label="Toggle"
-      className="xui-button xui-button-icon-medium xui-button-icon"
-      disabled={false}
-      onClick={[Function]}
-      tabIndex={-1}
-      title="Toggle"
-      type="button"
-    >
-      <svg
-        className="xui-icon"
-        focusable="false"
-        height={7}
-        viewBox="0 0 11 7"
-        width={11}
-      >
-        <path
-          d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
-          role="presentation"
-        />
-      </svg>
-      <div
-        className="xui-touchtarget"
-      />
-    </button>
-  </div>
-  <div
-    className="xui-accordiontrigger--content"
+    className="xui-contentblockitem--leftcontent"
   >
     <div
-      className="xui-accordiontrigger--headings"
+      className="xui-accordiontrigger--arrow"
     >
-      <div
-        className="xui-accordiontrigger--primaryheading"
+      <button
+        aria-label="Toggle"
+        className="xui-button xui-button-icon-medium xui-button-icon"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={-1}
+        title="Toggle"
+        type="button"
+      >
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={7}
+          viewBox="0 0 11 7"
+          width={11}
+        >
+          <path
+            d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+            role="presentation"
+          />
+        </svg>
+        <div
+          className="xui-touchtarget"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="xui-contentblockitem--maincontent"
+  >
+    <div
+      className="xui-contentblockitem--headings"
+    >
+      <span
+        className="xui-contentblockitem--primaryheading"
       >
         John Smith
-      </div>
+      </span>
     </div>
   </div>
 </div>
@@ -111,53 +117,56 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
 
 exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
 <div
-  aria-label="Toggle"
-  className="xui-accordiontrigger xui-accordiontrigger-is-open"
+  className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
   onClick={[Function]}
-  onKeyPress={[Function]}
+  onKeyDown={[Function]}
   role="button"
   tabIndex={0}
 >
   <div
-    className="xui-accordiontrigger--arrow"
-  >
-    <button
-      aria-label="Toggle"
-      className="xui-button xui-button-icon-medium xui-button-icon"
-      disabled={false}
-      onClick={[Function]}
-      tabIndex={-1}
-      title="Toggle"
-      type="button"
-    >
-      <svg
-        className="xui-icon xui-icon-rotate-180"
-        focusable="false"
-        height={7}
-        viewBox="0 0 11 7"
-        width={11}
-      >
-        <path
-          d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
-          role="presentation"
-        />
-      </svg>
-      <div
-        className="xui-touchtarget"
-      />
-    </button>
-  </div>
-  <div
-    className="xui-accordiontrigger--content"
+    className="xui-contentblockitem--leftcontent"
   >
     <div
-      className="xui-accordiontrigger--headings"
+      className="xui-accordiontrigger--arrow"
     >
-      <div
-        className="xui-accordiontrigger--primaryheading"
+      <button
+        aria-label="Toggle"
+        className="xui-button xui-button-icon-medium xui-button-icon"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={-1}
+        title="Toggle"
+        type="button"
+      >
+        <svg
+          className="xui-icon xui-icon-rotate-180"
+          focusable="false"
+          height={7}
+          viewBox="0 0 11 7"
+          width={11}
+        >
+          <path
+            d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+            role="presentation"
+          />
+        </svg>
+        <div
+          className="xui-touchtarget"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="xui-contentblockitem--maincontent"
+  >
+    <div
+      className="xui-contentblockitem--headings"
+    >
+      <span
+        className="xui-contentblockitem--primaryheading"
       >
         John Smith
-      </div>
+      </span>
     </div>
   </div>
 </div>
@@ -165,60 +174,63 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
 
 exports[`<XUIAccordion /> | Accordion Trigger should render with available props 1`] = `
 <div
-  aria-label="Toggle"
-  className="xui-accordiontrigger"
+  className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
   onClick={[Function]}
-  onKeyPress={[Function]}
+  onKeyDown={[Function]}
   role="button"
   tabIndex={0}
 >
   <div
-    className="xui-accordiontrigger--arrow"
-  >
-    <button
-      aria-label="Toggle"
-      className="xui-button xui-button-icon-medium xui-button-icon"
-      disabled={false}
-      onClick={[Function]}
-      tabIndex={-1}
-      title="Toggle"
-      type="button"
-    >
-      <svg
-        className="xui-icon"
-        focusable="false"
-        height={7}
-        viewBox="0 0 11 7"
-        width={11}
-      >
-        <path
-          d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
-          role="presentation"
-        />
-      </svg>
-      <div
-        className="xui-touchtarget"
-      />
-    </button>
-  </div>
-  <abbr
-    role="presentation"
-  >
-    GB
-  </abbr>
-  <div
-    className="xui-accordiontrigger--content"
+    className="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout"
   >
     <div
-      className="xui-accordiontrigger--headings"
+      className="xui-accordiontrigger--arrow"
     >
-      <div
-        className="xui-accordiontrigger--primaryheading"
+      <button
+        aria-label="Toggle"
+        className="xui-button xui-button-icon-medium xui-button-icon"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={-1}
+        title="Toggle"
+        type="button"
+      >
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={7}
+          viewBox="0 0 11 7"
+          width={11}
+        >
+          <path
+            d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+            role="presentation"
+          />
+        </svg>
+        <div
+          className="xui-touchtarget"
+        />
+      </button>
+    </div>
+    <abbr
+      role="presentation"
+    >
+      GB
+    </abbr>
+  </div>
+  <div
+    className="xui-contentblockitem--maincontent"
+  >
+    <div
+      className="xui-contentblockitem--headings"
+    >
+      <span
+        className="xui-contentblockitem--primaryheading"
       >
         John Smith
-      </div>
-      <div
-        className="xui-accordiontrigger--secondaryheading"
+      </span>
+      <span
+        className="xui-contentblockitem--secondaryheading"
       >
         <div>
           <span>
@@ -227,33 +239,37 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
           <br />
           Plain text
         </div>
-      </div>
-    </div>
-    <div>
-      Custom content
+      </span>
     </div>
     <div
-      className="xui-accordiontrigger--rightcontent"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      role="presentation"
+      className="xui-contentblockitem--description"
     >
-      <div
-        className="xui-accordiontrigger--pinnedvalue"
+      <span
+        className="xui-contentblockitem--description--text"
       >
-        00:00
-      </div>
-      <button>
-        Action
-      </button>
-      <div
-        className="xui-accordiontrigger--overflowcontent"
-      >
-        <button>
-          ...
-        </button>
-      </div>
+        description
+      </span>
     </div>
+  </div>
+  <div
+    className="xui-contentblockitem--rightcontent"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="presentation"
+  >
+    <div
+      className="xui-contentblockitem--pinnedvalue"
+    >
+      00:00
+    </div>
+    <button
+      className="xui-contentblockitem--actions"
+    >
+      Action
+    </button>
+    <button>
+      ...
+    </button>
   </div>
 </div>
 `;

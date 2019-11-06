@@ -225,7 +225,7 @@ describe('<XUI ContentBlock and ContentBlockItem/>', () => {
     const wrapper = shallow(
       <XUIContentBlockItem primaryHeading={testPrimaryHeading} onClick={testCallback} />,
     );
-    wrapper.find('a').simulate('click');
+    wrapper.find('[role="button"]').simulate('click');
     expect(testCallback).toHaveBeenCalledTimes(1);
   });
   it('renders content block and content block item with automation id when qaHook prop is passed in', () => {

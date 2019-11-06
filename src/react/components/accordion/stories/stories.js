@@ -27,89 +27,88 @@ storiesWithKnobs.add('Playground', () => {
   const hasPinnedValue = boolean('Show pinned value', false);
   const hasAction = boolean('Show action', false);
   const hasOverflow = boolean('Show overflow', false);
-  const hasCustom = boolean('Show custom content', false);
+  const hasDescription = boolean('Show description', false);
   const hasOnItemClick = boolean('Has item click callback', false);
   const hasEmptyState = boolean('Show empty state', false);
   const onItemClick = ({ id, isOpen }) =>
     alert(`${isOpen ? 'Open' : 'Close'} accordion item #${id}`);
-  const names = [
-    'Earnest Borer',
-    'Brandy Lindgren',
-    'Armando Erdman',
-    'Maverick Hoeger',
-    'Kailey Hodkiewicz',
+  const items = [
+    {
+      name: 'Earnest Borer',
+      address: '410 Lorine Garden',
+    },
+    {
+      name: 'Brandy Lindgren',
+      address: '9973 Runolfsson Circles',
+    },
+    {
+      name: 'Armando Erdman',
+      address: '331 Kihn Plaza',
+    },
+    {
+      name: 'Maverick Hoeger',
+      address: '805 Tommie Canyon',
+    },
+    {
+      name: 'Kailey Hodkiewicz',
+      address: '7368 Kovacek Pines',
+    },
   ];
-  const addresses = [
-    '410 Lorine Garden',
-    '9973 Runolfsson Circles',
-    '331 Kihn Plaza',
-    '805 Tommie Canyon',
-    '7368 Kovacek Pines',
-  ];
-  const items = createArray(itemsTotal).map((_, index) => ({
-    id: index + 1,
-    primaryHeading: hasPrimaryHeading && names[index],
-    secondaryHeading: hasSecondaryHeading && addresses[index],
-    leftContent: hasLeftContent && <XUIAvatar className="xui-margin-right" value={names[index]} />,
-    pinnedValue: hasPinnedValue && (
-      <span className="xui-margin-horizontal-small">{`${3 * index}:00`}</span>
-    ),
-    action: hasAction && (
-      <XUIButton className="xui-margin-left-small" size="small">
-        Update
-      </XUIButton>
-    ),
-    onItemClick: hasOnItemClick ? onItemClick : undefined,
-    overflow: hasOverflow && (
-      <XUIIconButton
-        ariaLabel="Overflow menu"
-        className="xui-margin-left-small"
-        icon={overflowPathData}
-        title="Overflow menu"
-      />
-    ),
-    custom: hasCustom && [
-      <XUIIconButton
-        ariaLabel="Overflow menu"
-        className="xui-margin-left-small"
-        icon={notificationPathData}
-        key="0"
-        title="Overflow menu"
-      />,
-      <XUIIconButton ariaLabel="Overflow menu" icon={copyPathData} key="1" title="Overflow menu" />,
-    ],
-  }));
+  const children = items.map(({ name, address }, index) => (
+    <XUIAccordionItem
+      action={
+        hasAction && (
+          <XUIButton className="xui-margin-left-small" size="small">
+            Update
+          </XUIButton>
+        )
+      }
+      description={hasDescription && 'Descriptions are good'}
+      leftContent={hasLeftContent && <XUIAvatar className="xui-margin-right" value={name} />}
+      onClick={hasOnItemClick ? onItemClick : undefined}
+      overflow={
+        hasOverflow && (
+          <XUIIconButton
+            ariaLabel="Overflow menu"
+            className="xui-margin-left-small"
+            icon={overflowPathData}
+            title="Overflow menu"
+          />
+        )
+      }
+      pinnedValue={
+        hasPinnedValue && <span className="xui-margin-horizontal-small">{`${3 * index}:00`}</span>
+      }
+      primaryHeading={hasPrimaryHeading && name}
+      secondaryHeading={hasSecondaryHeading && address}
+    >
+      {!hasEmptyState && (
+        <XUIContentBlock>
+          {createArray(index + 1).map((_, index) => (
+            <XUIContentBlockItem
+              href="#"
+              key={index}
+              overflow={
+                <XUIIconButton
+                  ariaLabel="Overflow menu"
+                  icon={overflowPathData}
+                  title="Overflow menu"
+                />
+              }
+              pinnedValue={`${3 * index + 1}:00`}
+              primaryHeading={items[index].name}
+            />
+          ))}
+        </XUIContentBlock>
+      )}
+    </XUIAccordionItem>
+  ));
 
   return (
     <div style={{ maxWidth: '930px' }}>
-      <XUIAccordion
-        createItem={item => (
-          <XUIAccordionItem {...item}>
-            {!hasEmptyState && (
-              <XUIContentBlock>
-                {createArray(item.id).map((_, index) => (
-                  <XUIContentBlockItem
-                    href="#"
-                    key={index}
-                    overflow={
-                      <XUIIconButton
-                        ariaLabel="Overflow menu"
-                        icon={overflowPathData}
-                        title="Overflow menu"
-                      />
-                    }
-                    pinnedValue={`${3 * item.id}:00`}
-                    primaryHeading={names[index]}
-                  />
-                ))}
-              </XUIContentBlock>
-            )}
-          </XUIAccordionItem>
-        )}
-        emptyMessage="Nothing available to show"
-        items={items}
-        toggleLabel="Toggle"
-      />
+      <XUIAccordion emptyMessage="Nothing available to show" toggleLabel="Toggle">
+        {children}
+      </XUIAccordion>
     </div>
   );
 });
@@ -117,18 +116,12 @@ storiesWithKnobs.add('Playground', () => {
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
-  const { storyTitle, createItem, ...props } = variation;
+  const { storyTitle, children, ...props } = variation;
   const Comparison = (
     <div style={{ maxWidth: '930px' }}>
-      <XUIAccordion
-        emptyMessage="Nothing available to show"
-        toggleLabel="Toggle"
-        {...props}
-        createItem={props => {
-          const { children, ...item } = createItem(props);
-          return <XUIAccordionItem {...item}>{children}</XUIAccordionItem>;
-        }}
-      />
+      <XUIAccordion emptyMessage="Nothing available to show" toggleLabel="Toggle" {...props}>
+        {children}
+      </XUIAccordion>
     </div>
   );
 

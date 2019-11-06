@@ -16,6 +16,8 @@ const renderTrigger = overrideProps => (
     onItemClick={noop}
     updateOpenId={noop}
     getItemData={noop}
+    onItemClick={noop}
+    onKeyDown={noop}
     {...overrideProps}
   />
 );
@@ -49,12 +51,12 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
       </div>
     );
 
+    const description = 'description';
     const action = <button>Action</button>;
     const overflow = <button>...</button>;
-    const custom = <div>Custom content</div>;
     const pinnedValue = '00:00';
     const component = renderer.create(
-      renderTrigger({ leftContent, secondaryHeading, action, overflow, custom, pinnedValue }),
+      renderTrigger({ leftContent, secondaryHeading, action, overflow, pinnedValue, description }),
     );
 
     expect(component).toMatchSnapshot();
@@ -71,10 +73,10 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
   it('should call onClick handler on keydown for space and enter', () => {
     const onItemClick = jest.fn();
     const component = mount(renderTrigger({ qaHook, onItemClick }));
-    const keyPressNode = component.find(`[data-automationid="${qaHook}"]`);
+    const keyDownNode = component.find(`[role="button"]`);
     const keys = [' ', 'Enter'];
 
-    keys.forEach(key => keyPressNode.simulate('keyPress', { key }));
+    keys.forEach(key => keyDownNode.simulate('keyDown', { key }));
     expect(onItemClick).toHaveBeenCalledTimes(2);
   });
 

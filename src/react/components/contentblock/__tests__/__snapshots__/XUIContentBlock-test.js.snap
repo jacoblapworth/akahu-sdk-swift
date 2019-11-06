@@ -15,6 +15,9 @@ exports[`<XUI ContentBlock and ContentBlockItem/> renders content block and cont
 exports[`<XUI ContentBlock and ContentBlockItem/> renders content block item main content as anchor when onKeyDown prop is passed 1`] = `
 <div
   className="xui-contentblockitem xui-contentblockitem-layout"
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex={0}
 />
 `;
 
@@ -64,6 +67,9 @@ exports[`<XUI ContentBlock and ContentBlockItem/> renders content block item tag
     </div>
     <div
       className="xui-contentblockitem--rightcontent"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="presentation"
     >
       <div
         className="xui-contentblockitem--pinnedvalue"
@@ -141,6 +147,9 @@ exports[`<XUI ContentBlock and ContentBlockItem/> renders content block item tag
     </div>
     <div
       className="xui-contentblockitem--rightcontent"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="presentation"
     >
       <div
         className="xui-contentblockitem--pinnedvalue"
@@ -180,8 +189,10 @@ exports[`<XUI ContentBlock and ContentBlockItem/> renders content block item tag
 <div
   className="xui-contentblock"
 >
-  <div
+  <a
     className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius xui-contentblockitem-has-bottom-radius"
+    href="#"
+    tabIndex={0}
   >
     <div
       className="xui-contentblockitem--leftcontent"
@@ -193,9 +204,8 @@ exports[`<XUI ContentBlock and ContentBlockItem/> renders content block item tag
         P
       </abbr>
     </div>
-    <a
+    <div
       className="xui-contentblockitem--maincontent"
-      href="#"
     >
       <div
         className="xui-contentblockitem--headings"
@@ -211,9 +221,12 @@ exports[`<XUI ContentBlock and ContentBlockItem/> renders content block item tag
           test secondary heading
         </span>
       </div>
-    </a>
+    </div>
     <div
       className="xui-contentblockitem--rightcontent"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="presentation"
     >
       <span
         className="xui-tag xui-tag-positive xui-margin-left-small"
@@ -250,7 +263,7 @@ exports[`<XUI ContentBlock and ContentBlockItem/> renders content block item tag
         />
       </button>
     </div>
-  </div>
+  </a>
 </div>
 `;
 
@@ -300,6 +313,9 @@ exports[`<XUI ContentBlock and ContentBlockItem/> renders content block item wit
     </div>
     <div
       className="xui-contentblockitem--rightcontent"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="presentation"
     >
       <div
         className="xui-contentblockitem--pinnedvalue"

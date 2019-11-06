@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
+import preventDefault from '../helpers/preventDefault';
 
 const baseClass = `${ns}-contentblockitem`;
 
@@ -71,18 +72,11 @@ export default class XUIContentBlockItem extends PureComponent {
 
     const builtLeftContent = leftContent && <div className={leftContentClasses}>{leftContent}</div>;
 
-    const Tag = href || onClick || onKeyDown ? 'a' : 'div';
-
     const builtMainContent = (builtHeadings || builtDescriptionArea) && (
-      <Tag
-        className={`${baseClass}--maincontent`}
-        href={href}
-        onClick={onClick}
-        onKeyDown={onKeyDown}
-      >
+      <div className={`${baseClass}--maincontent`}>
         {builtHeadings}
         {builtDescriptionArea}
-      </Tag>
+      </div>
     );
 
     const tagPositionRight = tagPosition === 'right';
@@ -91,7 +85,12 @@ export default class XUIContentBlockItem extends PureComponent {
       action ||
       overflow ||
       (tags && tagPositionRight)) && (
-      <div className={`${baseClass}--rightcontent`}>
+      <div
+        className={`${baseClass}--rightcontent`}
+        onClick={preventDefault}
+        onKeyDown={preventDefault}
+        role="presentation"
+      >
         {tagPositionRight && tags}
         {builtPinnedValue}
         {clonedAction}
@@ -108,13 +107,24 @@ export default class XUIContentBlockItem extends PureComponent {
       className,
     );
 
+    const Tag = href ? 'a' : 'div';
+    const role = (onClick || onKeyDown) && !href ? 'button' : undefined;
+
     return (
-      <div className={divClasses} data-automationid={qaHook}>
+      <Tag
+        className={divClasses}
+        data-automationid={qaHook}
+        href={href}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+        role={role}
+        tabIndex={onClick || onKeyDown || href ? 0 : undefined}
+      >
         {builtLeftContent}
         {children}
         {builtMainContent}
         {builtRightContent}
-      </div>
+      </Tag>
     );
   }
 }

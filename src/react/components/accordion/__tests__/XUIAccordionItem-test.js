@@ -1,31 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import XUIAccordionItem from '../XUIAccordionItem';
 import XUIAccordionContext from '../XUIAccordionContext';
 
-const emptyStateComponentId = 'empty-state-component';
 const qaHook = 'test-hook';
 Enzyme.configure({ adapter: new Adapter() });
 
-const emptyStateComponent = <div id={emptyStateComponentId}>Empty!</div>;
-
-const getAccordionItem = children =>
-  mount(
+const Test = ({ children }) => {
+  const [openItemId, setOpenItemId] = useState(null);
+  return (
     <div>
       <XUIAccordionContext.Provider
         value={{
-          emptyStateComponent,
+          emptyStateComponent: null,
+          openAccordionItemId: openItemId,
+          setOpenAccordionItem: setOpenItemId,
           toggleLabel: 'Toggle',
-          updateOpenAccordionItem: () => {},
           qaHook,
         }}
       >
         <XUIAccordionItem>{children}</XUIAccordionItem>
       </XUIAccordionContext.Provider>
-    </div>,
+    </div>
   );
+};
+
+const getAccordionItem = children => mount(<Test>{children}</Test>);
 
 describe('<XUIAccordionItem />', () => {
   it('should render the base component with only required props passed', () => {

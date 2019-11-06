@@ -1,57 +1,38 @@
-import React, { PureComponent } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { shouldAccordionPop } from '../private/helpers';
 import { ns } from '../../helpers/xuiClassNamespace';
 
-export default class AccordionWrapper extends PureComponent {
-  state = {
-    shouldPop: false,
-  };
+const AccordionWrapper = ({ children, isOpen, qaHook, trigger }) => {
+  const [shouldPop, setShouldPop] = useState(false);
+  const accordionItem = useRef();
 
-  setRef = ref => {
-    this.accordionItem = ref;
-  };
+  useEffect(() => {
+    setShouldPop(shouldAccordionPop(accordionItem.current));
+  }, [accordionItem]);
 
-  componentDidMount() {
-    this.setState({
-      shouldPop: shouldAccordionPop(this.accordionItem),
-    });
-  }
-
-  componentDidUpdate() {
-    // eslint-disable-next-line react/no-did-update-set-state
-    this.setState({
-      shouldPop: shouldAccordionPop(this.accordionItem),
-    });
-  }
-
-  render() {
-    const { children, isOpen, qaHook, trigger } = this.props;
-    const { shouldPop } = this.state;
-
-    return (
+  return (
+    <div
+      className={cn(`${ns}-accordionwrapper`, {
+        [`${ns}-accordionwrapper-is-open`]: isOpen,
+        [`${ns}-accordionwrapper-pop`]: isOpen && shouldPop,
+        [`${ns}-accordionwrapper-no-pop`]: isOpen && !shouldPop,
+      })}
+      data-automationid={qaHook}
+      ref={accordionItem}
+    >
+      {trigger}
       <div
-        className={cn(`${ns}-accordionwrapper`, {
-          [`${ns}-accordionwrapper-is-open`]: isOpen,
-          [`${ns}-accordionwrapper-pop`]: isOpen && shouldPop,
-          [`${ns}-accordionwrapper-no-pop`]: isOpen && !shouldPop,
+        className={cn(`${ns}-accordionwrapper--content`, {
+          [`${ns}-accordionwrapper--content-is-open`]: isOpen,
         })}
-        data-automationid={qaHook}
-        ref={this.setRef}
       >
-        {trigger}
-        <div
-          className={cn(`${ns}-accordionwrapper--content`, {
-            [`${ns}-accordionwrapper--content-is-open`]: isOpen,
-          })}
-        >
-          {children}
-        </div>
+        {children}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 AccordionWrapper.propTypes = {
   qaHook: PropTypes.string,
@@ -59,3 +40,5 @@ AccordionWrapper.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   trigger: PropTypes.node.isRequired,
 };
+
+export default React.memo(AccordionWrapper);

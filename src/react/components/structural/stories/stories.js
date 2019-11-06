@@ -49,7 +49,7 @@ const buildColumns = widths =>
     </XUIColumn>
   ));
 
-const exampleTabs = (
+const exampleTabs = includeAnchor => (
   <XUIPicklist secondaryProps={{ role: 'menu' }}>
     <XUIPickitem ariaRole="menuitem" id="1">
       Tab 1
@@ -60,6 +60,11 @@ const exampleTabs = (
     <XUIPickitem ariaRole="menuitem" id="3">
       This is tab 3
     </XUIPickitem>
+    {includeAnchor && (
+      <XUIPickitem ariaRole="menuitem" href="#" id="4">
+        Anchor tab
+      </XUIPickitem>
+    )}
   </XUIPicklist>
 );
 const buildActions = props => (
@@ -217,7 +222,13 @@ const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
-  const { storyTitle, columnWidths, type, ...variationMinusStoryDetails } = variation;
+  const {
+    storyTitle,
+    columnWidths,
+    type,
+    includeAnchor,
+    ...variationMinusStoryDetails
+  } = variation;
   delete variationMinusStoryDetails.storyKind;
   storiesWithVariations.add(storyTitle, () => {
     if (type === 'row') {
@@ -233,7 +244,7 @@ variations.forEach(variation => {
     }
     if (type === 'pageheader') {
       if (variationMinusStoryDetails.tabs) {
-        variationMinusStoryDetails.tabs = exampleTabs;
+        variationMinusStoryDetails.tabs = exampleTabs(includeAnchor);
       }
       if (variationMinusStoryDetails.actions) {
         variationMinusStoryDetails.actions = buildActions();
@@ -278,7 +289,7 @@ variations.forEach(variation => {
       );
       return (
         <div style={{ minWidth: '700px' }}>
-          <XUIPanel footer={footer} heading={heading} sidebar={exampleTabs}>
+          <XUIPanel footer={footer} heading={heading} sidebar={exampleTabs(includeAnchor)}>
             <XUIPanelSection className="xui-padding-large" headerText="I'm a section header">
               <p>Some important text might go here.</p>
             </XUIPanelSection>

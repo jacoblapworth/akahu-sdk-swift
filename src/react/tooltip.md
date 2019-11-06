@@ -42,11 +42,7 @@ Do not use `triggerOnClick` if your trigger has it's own explicit `onClick` or `
 import XUIButton from './button';
 import XUITooltip from './tooltip';
 
-const triggerLink = (
-  <XUIButton isLink variant="unstyled" href="#" style={{ textDecoration: 'underline' }}>
-    look at what we have
-  </XUIButton>
-);
+const inlineTrigger = <span style={{ textDecoration: 'underline' }}>look at what we have</span>;
 const logOpen = () => {
   console.log('opening');
 };
@@ -61,7 +57,7 @@ const props = {
 <p>
   So often we avoid running water, and running water is a lot of fun. Isn&apos;t that fantastic? You
   can just push a little tree out of your brush like that. Look around,{' '}
-  <XUITooltip trigger={triggerLink} {...props}>
+  <XUITooltip trigger={inlineTrigger} {...props}>
     Here is a tip on an inline trigger
   </XUITooltip>
   . Beauty is everywhere, you only have to look to see it.

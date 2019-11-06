@@ -104,7 +104,11 @@ SelectBoxOption.propTypes = {
   ariaRole: PropTypes.string,
   /** The automation-id to add to the item */
   qaHook: PropTypes.string,
-  /** Size variant. One of "medium", "small", "xsmall" */
+  /**
+   * Size variant. One of "medium", "small", "xsmall"<br>
+   * **Note:**
+   * *`small` and `xsmall` variants now are `sunsetting` because they don’t meet [XUI minimum touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommended to use.*
+   */
   size: PropTypes.oneOf(sizes),
 };
 

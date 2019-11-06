@@ -152,6 +152,8 @@ The `size` prop allows you to change the default `SelectBox` size.
 
 If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
 
+**Note:** _The `small` and `xsmall` variants of `SelectBoxOption` now are `sunsetting` because they don't meet [XUI touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommend to use._
+
 ```jsx harmony
 import { Component } from 'react';
 import SelectBox, { SelectBoxOption } from './select-box';

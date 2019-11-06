@@ -311,9 +311,9 @@ export default class XUIModal extends Component {
     const MainElement = isForm ? 'form' : 'section';
     let modalTabIndex = -1;
     if (isOpen && isTopModal) {
-      // Setting the tabIndex to a positive integer allows the focus to return to the browser when shift+tabbing out of the modal. We use the highest possible tab index (32767) just incase the modal has a child with a positive tab index.
+      // Setting the tabIndex to a positive integer allows the focus to return to the browser when shift+tabbing out of the modal. We use a tab index of 1 to ensure that the modal is the first thing on the page.
       const useTabIndexHack = restrictFocus && isUsingPortal;
-      modalTabIndex = useTabIndexHack ? 32767 : 0;
+      modalTabIndex = useTabIndexHack ? 1 : 0;
     }
     const childNodes = (
       <div

@@ -122,15 +122,7 @@ export default class SelectBox extends Component {
         qaHook={setQaHook(qaHook, qaHooks.dropdown)}
         restrictFocus={restrictFocus}
       >
-        <Picklist>
-          {React.Children.map(children, child => {
-            if (child && child.type !== SelectBoxOption) {
-              return child;
-            }
-
-            return React.cloneElement(child, { size: child.props.size || size });
-          })}
-        </Picklist>
+        <Picklist>{children}</Picklist>
       </DropDown>
     );
 

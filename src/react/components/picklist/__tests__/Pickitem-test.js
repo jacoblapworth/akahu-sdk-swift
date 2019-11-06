@@ -19,29 +19,10 @@ describe('<Pickitem />', () => {
     expect(basic).toMatchSnapshot();
   });
 
-  it('renders a small pickitem with highlighting', () => {
-    const small = renderer.create(
-      <Pickitem isHighlighted={true} size="small" id="item1">
-        Item 1
-      </Pickitem>,
-    );
-    expect(small).toMatchSnapshot();
-  });
-
-  it('renders an xsmall pickitem with selected & invalid state', () => {
-    const xsmall = renderer.create(
-      <Pickitem isSelected isInvalid size="xsmall" id="item1">
-        Item 1
-      </Pickitem>,
-    );
-    expect(xsmall).toMatchSnapshot();
-  });
-
   it('renders a pickitem with most compatible options', () => {
     const allOptions = renderer.create(
       <Pickitem
         className="custom-classname"
-        size="xsmall"
         id="item1"
         leftElement={<XUIAvatar value="Tim Redmond" size="2xsmall" />}
         rightElement={<XUIIcon icon={arrow} />}

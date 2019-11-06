@@ -354,37 +354,6 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as Nested small (open)',
-    isOpen: true,
-    lists: [
-      {
-        items: [{}, { isSelected: true }],
-      },
-      {
-        isMultiselect: true,
-        items: [{ isSelected: true }, {}, { isDisabled: true }],
-      },
-    ],
-    componentType: 'NestedPicklist',
-    size: 'small',
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as Nested xsmall (open)',
-    isOpen: true,
-    lists: [
-      {
-        items: [{}, { isSelected: true }],
-      },
-      {
-        items: [{ isSelected: true }, {}, { isDisabled: true }],
-      },
-    ],
-    componentType: 'NestedPicklist',
-    size: 'xsmall',
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with wrapping in narrow list',
     viewports: desktopPlus320,
     isOpen: true,
@@ -505,21 +474,20 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'small with all the things',
+    storyTitle: 'with all the things',
     lists: [
       {
-        size: 'small',
         items: [
           {
             value: 'James Magness',
-            leftElement: <XUIAvatar size="xsmall" value="James Magness" />,
+            leftElement: <XUIAvatar size="small" value="James Magness" />,
             rightElement: <XUIIcon icon={iconsList[0]} />,
             secondaryElement: 'Team lead',
             pinnedElement: '18',
           },
           {
             value: 'Tim Redmond',
-            leftElement: <XUIAvatar size="xsmall" value="Tim Redmond" />,
+            leftElement: <XUIAvatar size="small" value="Tim Redmond" />,
             rightElement: <XUIIcon icon={iconsList[1]} />,
             secondaryElement: 'Developer',
             pinnedElement: '3',
@@ -528,200 +496,10 @@ const variations = [
           { isHeader: true, children: 'Recent' },
           {
             value: 'Grzegorz Pawłowski-Chudziński',
-            leftElement: <XUIAvatar size="xsmall" value="Grzegorz Pawłowski-Chudziński" />,
+            leftElement: <XUIAvatar size="small" value="Grzegorz Pawłowski-Chudziński" />,
             rightElement: <XUIIcon icon={iconsList[2]} />,
             secondaryElement: 'Developer',
             pinnedElement: '42',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'small multiselect',
-    lists: [
-      {
-        size: 'small',
-        isMultiselect: true,
-        items: [
-          {
-            value: 'James Magness',
-            secondaryElement: 'Team lead',
-            pinnedElement: '18',
-          },
-          {
-            value: 'Tim Redmond',
-            pinnedElement: '3',
-            secondaryElement:
-              'The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
-          },
-          {
-            value:
-              'Alex Lapwood The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
-            secondaryElement: 'Developer',
-            pinnedElement: '42',
-            isSelected: true,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'xsmall wrapping with all the things',
-    panelSize: '300px',
-    lists: [
-      {
-        size: 'xsmall',
-        items: [
-          {
-            value: 'James Magness',
-            leftElement: <XUIAvatar size="2xsmall" value="James Magness" />,
-            rightElement: <XUIIcon icon={iconsList[0]} />,
-            secondaryElement:
-              'The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
-            pinnedElement: '18',
-          },
-          { isDivider: true },
-          { isHeader: true, children: 'Recent' },
-          {
-            value:
-              'Tim Redmond The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
-            leftElement: <XUIAvatar size="2xsmall" value="Tim Redmond" />,
-            rightElement: <XUIIcon icon={iconsList[1]} />,
-            secondaryElement: 'Developer',
-            pinnedElement: '3',
-          },
-          {
-            value: 'Nick Piesco',
-            leftElement: <XUIAvatar size="2xsmall" value="Nick Piesco" />,
-            rightElement: <XUIIcon icon={iconsList[2]} />,
-            secondaryElement: 'Developer',
-            pinnedElement: '42',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'xsmall truncating with all the things',
-    panelSize: '300px',
-    lists: [
-      {
-        shouldTruncate: true,
-        size: 'xsmall',
-        items: [
-          {
-            value: 'James Magness',
-            leftElement: <XUIAvatar size="2xsmall" value="James Magness" />,
-            rightElement: <XUIIcon icon={iconsList[0]} />,
-            secondaryElement:
-              'The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
-            pinnedElement: '18',
-          },
-          { isDivider: true },
-          { isHeader: true, children: 'Recent' },
-          {
-            value:
-              'Tim Redmond The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
-            leftElement: <XUIAvatar size="2xsmall" value="Tim Redmond" />,
-            rightElement: <XUIIcon icon={iconsList[1]} />,
-            secondaryElement: 'Developer',
-            pinnedElement: '3',
-          },
-          {
-            value: 'Vicky Min',
-            leftElement: <XUIAvatar size="2xsmall" value="Vicky Min" />,
-            rightElement: <XUIIcon icon={iconsList[2]} />,
-            secondaryElement: 'Developer',
-            pinnedElement: '42',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'small horizontal with right media',
-    viewports: desktopPlus320,
-    lists: [
-      {
-        isHorizontal: true,
-        size: 'small',
-        items: [
-          {
-            value: 'Status',
-            rightElement: <XUIIcon icon={iconsList[3]} />,
-            isSelected: true,
-          },
-          {
-            value: 'Date range',
-            rightElement: <XUIIcon icon={iconsList[1]} />,
-            isInvalid: true,
-          },
-          {
-            value: 'Created by',
-            rightElement: <XUIIcon icon={iconsList[2]} />,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'xsmall horizontal with wrapping et al',
-    viewports: desktopPlus320,
-    panelSize: '275px',
-    lists: [
-      {
-        isHorizontal: true,
-        size: 'xsmall',
-        items: [
-          {
-            value: 'James Magness',
-            pinnedElement: '18',
-            leftElement: <XUIIcon icon={iconsList[0]} />,
-            isSelected: true,
-          },
-          {
-            value: 'Tim Redmond',
-            pinnedElement: '3',
-            leftElement: <XUIIcon icon={iconsList[2]} />,
-          },
-          {
-            value: 'Alex Lapwood',
-            pinnedElement: '42',
-            leftElement: <XUIIcon icon={iconsList[3]} />,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'small horizontal with truncation',
-    viewports: desktopPlus320,
-    panelSize: '275px',
-    lists: [
-      {
-        shouldTruncate: true,
-        isHorizontal: true,
-        size: 'small',
-        items: [
-          {
-            value: 'James Magness',
-            leftElement: <XUIIcon icon={iconsList[0]} />,
-            isSelected: true,
-          },
-          {
-            value: 'Tim Redmond',
-            leftElement: <XUIIcon icon={iconsList[2]} />,
-          },
-          {
-            value: 'Finn Clark',
-            leftElement: <XUIIcon icon={iconsList[3]} />,
           },
         ],
       },
@@ -734,7 +512,6 @@ const variations = [
     panelSize: '400px',
     lists: [
       {
-        size: 'small',
         isMultiselect: true,
         shouldTruncate: true,
         items: [

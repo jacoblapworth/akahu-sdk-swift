@@ -21,6 +21,18 @@ XUI had previously provided a set of z-index variables to indicate where element
 - Z-index variables `$xui-z-index-tooltip` and `$xui-z-index-mask` have been removed without replacement. `
 - `$xui-z-index-overlay` has been renamed to the more-apt `$xui-z-index-sheetmask`
 
+Following classes have been **removed** because they don't meet [XUI touch target standards](https://xui.xero.com/16.0.0/section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4):
+
+- Pill: `xui-pill-single` and `xui-pill-xsmall`
+  - The look of `xui-pill-single` can be achieved using a textInput with side elements
+  - `xui-pill-xsmall` should be replaced with a larger size variant (eg.`xui-pill-small`)
+- Datepicker: `xui-datepicker-compact`
+  - `xui-datepicker-compact` should be deleted and use `xui-datepicker` alone
+- Page Layout: All classes with a prefix of `xui-page-layout`
+  - Those classes should be reimplemented with Compositions
+- Picklist / Pickitem: `xui-picklist-small`, `xui-picklist-xsmall`, `xui-pickitem-small` and `xui-pickitem-xsmall`
+  - `small` and `xsmall` variants should be replaced with `medium` variant
+
 ### Typography changes
 
 - Headings: large, xlarge, 2xlarge, 3xlarge
@@ -68,6 +80,15 @@ Several CSS components require a new child element with the `.xui-touchtarget` c
 - `XUIBreadcrumb` has been renamed to `XUIBreadcrumbTrail`
 - `XUIIsolationHeaderNavigation`, `XUIIsolationHeaderTitle`, `XUIIsolationHeaderSecondaryTitle`, and `XUIIsolationHeaderActions` have been **removed**. `XUIIsolationHeader` now accepts `navigationButton`, `title`, `secondary`, and `actions` as props instead.
 - Correspondingly, the Sass variables `$xui-isolationheader-bg-color`, `$xui-isolationheader-color`, and `$xui-isolationheader-inverted-bg-color` have been **removed**. Please use `$xui-pageheading-bg-color`, `$xui-text-primary-color`, and `$xui-color-grey-2`, respectively, instead.
+
+Following props have been **removed** because they don't meet [XUI touch target standards](https://xui.xero.com/16.0.0/section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4):
+
+- `XUIPill`: `xsmall` size variant
+- `XUIAutocompleter`: prop `inputSize`
+- `XUIDatePicker`: prop `isCompact`
+- `Picklist` / `Pickitem`: prop `size`
+- `NestedPicklist` / `NestedPicklistContainer`: prop `size`
+- `SelectBoxOption`: prop `size`
 
 ### Component props
 

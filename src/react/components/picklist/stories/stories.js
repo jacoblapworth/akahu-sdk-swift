@@ -95,8 +95,7 @@ const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
-  const picklistSize = select('List size', ['medium', 'small', 'xsmall'], 'medium');
-  const avatarSize = sizeShift(picklistSize, -1);
+  const avatarSize = sizeShift('medium', -1);
   const isMultiselect = boolean('isMultiselect', false);
   const showLeftElement = boolean('showLeftElement', false);
   const showRightElement = boolean('showRightElement', false);
@@ -126,7 +125,6 @@ storiesWithKnobs.add('Playground', () => {
         isMultiselect={isMultiselect}
         secondaryProps={{ role: 'listbox' }}
         shouldTruncate={shouldTruncate}
-        size={picklistSize}
         swapAtBreakpoint={select('swapAtBreakpoint', [null, ...Object.keys(userBreakpoints)])}
       >
         <XUIPickitem

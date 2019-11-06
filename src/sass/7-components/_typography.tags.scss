@@ -85,21 +85,29 @@
 //
 // Markup:
 // <header class="xui-isolationheader xui-margin-bottom-2xlarge" role="banner">
-//   <div class="xui-isolationheader--navigation">
-//     <button aria-label="navigate" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//       </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//     <h2 class="xui-isolationheader--title xui-margin-left-small">Diana Pebbles</h2>
-//     <h2 class="xui-isolationheader--secondary-title">INV 1028</h2>
-//     <span class="xui-tag xui-tag-medium xui-tag-negative">
-//       <span class="xui-tagcontent">
-//         Overdue
-//       </span>
-//     </span>
-//   </div>
+//  <div class="xui-isolationheader--content xui-isolationheader--content-layout">
+//    <div class="xui-isolationheader--leftcontent">
+//      <div class="xui-isolationheader--controlcontent">
+//        <button aria-label="navigate" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
+//          <svg focusable="false" class="xui-icon">
+//            <use xlink:href="#xui-icon-cross" role="presentation" />
+//          </svg>
+//          <div class="xui-touchtarget"></div>
+//        </button>
+//      </div>
+//      <div class="xui-isolationheader--titlewrapper">
+//        <h1 class="xui-isolationheader--title">Diana Pebbles</h1>
+//        <div class="xui-isolationheader--secondarytitle">INV 1028</div>
+//        <div class="xui-isolationheader--tags">
+//          <span class="xui-tag xui-tag-medium xui-tag-negative">
+//            <span class="xui-tagcontent">
+//              Overdue
+//            </span>
+//          </span>
+//        </div>
+//      </div>
+//    </div>
+//  </div>
 // </header>
 // <div class="xui-panel xui-margin-bottom-2xlarge">
 //   <ul class="xui-contentblock">
@@ -134,7 +142,7 @@
 //     </li>
 //   </ul>
 // </div>
-// <div class='xui-dropdown-layout xui-dropdown-is-open xui-margin-bottom-large'>
+// <div class='xui-dropdown-layout xui-dropdown-is-open'>
 //   <div class='xui-dropdown--mask'></div>
 //   <div class='xui-dropdown--body'>
 //     <ul class="xui-picklist xui-picklist-medium xui-picklist-layout" role="tree">

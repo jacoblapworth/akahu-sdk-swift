@@ -107,111 +107,6 @@
 //
 // Styleguide: Compounds.DisplayingData.Picklist.2
 
-// Size variants
-//
-// Picklist offers a range of size variants. All but `-medium` are being “sunset” because they don’t meet [XUI minimum touch target standards](./section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4).
-//
-// Tips:
-// Do: Medium size should be used for all picklists
-// Dont: Don't use small and xsmall size variants.
-//
-// Styleguide: Compounds.DisplayingData.Picklist.3
-
-// Medium
-//
-// Definitions:
-// Size variant: **Height**: **Class**
-// medium: 40px: `xui-picklist-medium`<br>`xui-pickitem-medium`
-//
-// Markup:
-// <div class="xui-panel">
-//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
-//     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium" role="treeitem" tabindex="-1" >
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Today</span>
-//       </button>
-//     </li>
-//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Tomorrow</span>
-//       </button>
-//     </li>
-//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Next week</span>
-//       </button>
-//     </li>
-//     <li class="xui-pickitem xui-pickitem-medium" role="treeitem" tabindex="-1" >
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Next month</span>
-//       </button>
-//     </li>
-//   </ul>
-// </div>
-//
-// Styleguide: Compounds.DisplayingData.Picklist.3.1
-
-// Small, xsmall
-//
-// flags: sunsetting
-//
-// Definitions:
-// Size variant: **Height**: **Class**
-// small: 32px: `xui-picklist-small`<br>`xui-pickitem-small`
-// xsmall: 24px: `xui-picklist-xsmall`<br>`xui-pickitem-xsmall`
-//
-// Markup:
-// <div class="xui-panel xui-margin-bottom">
-//   <ul class="xui-picklist xui-picklist-layout xui-picklist-small" role="tree">
-//     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-small" role="treeitem" tabindex="-1" >
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Today</span>
-//       </button>
-//     </li>
-//     <li class="xui-pickitem xui-pickitem-small" role="treeitem" tabindex="-1" >
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Tomorrow</span>
-//       </button>
-//     </li>
-//     <li class="xui-pickitem xui-pickitem-small" role="treeitem" tabindex="-1" >
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Next week</span>
-//       </button>
-//     </li>
-//     <li class="xui-pickitem xui-pickitem-small" role="treeitem" tabindex="-1" >
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Next month</span>
-//       </button>
-//     </li>
-//   </ul>
-// </div>
-// <div class="xui-panel">
-//   <ul class="xui-picklist xui-picklist-layout xui-picklist-xsmall" role="tree">
-//     <li class="xui-pickitem xui-pickitem-is-selected xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Today</span>
-//       </button>
-//     </li>
-//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Tomorrow</span>
-//       </button>
-//     </li>
-//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Next week</span>
-//       </button>
-//     </li>
-//     <li class="xui-pickitem xui-pickitem-xsmall" role="treeitem" tabindex="-1" >
-//       <button type="button" class="xui-pickitem--body">
-//         <span class="xui-pickitem--text">Next month</span>
-//       </button>
-//     </li>
-//   </ul>
-// </div>
-//
-// Styleguide: Compounds.DisplayingData.Picklist.3.2
-
 // Text styling
 //
 // Classes:
@@ -866,7 +761,6 @@
 
 // General picklist and pickitem styles
 
-$pickitem-small-padding: $xui-s-xsmall - 2; // Standard 6px padding for small variant.
 // Total amount is made up of combined width and padding values inside pickitem variants
 $pickitem-min-width: $xui-minimum-touch-target + ($xui-s-large * 2);
 $pickitem-has-secondarytext-min-width: $pickitem-min-width + $xui-s-standard +
@@ -1250,56 +1144,9 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
     min-width: $xui-s-3xlarge;
   }
 }
-.#{$ns}-pickitem-small {
-  .#{$ns}-pickitem--body {
-    @include xui-text-small;
-    min-height: $xui-s-2xlarge;
-  }
-  .#{$ns}-pickitem--body .#{$ns}-pickitem--input {
-    margin: $xui-s-xsmall;
-  }
-  .#{$ns}-submenu & .#{$ns}-pickitem--body {
-    padding-left: $xui-s-standard;
-  }
-  &:not(.#{$ns}-pickitem-is-horizontal) .#{$ns}-pickitem--text,
-  &:not(.#{$ns}-pickitem-multiselect) .#{$ns}-pickitem--pinned {
-    @include xui-padding-vertical($pickitem-small-padding);
-  }
-  &.#{$ns}-pickitem-split + .#{$ns}-submenu-uicontrol {
-    margin-right: $xui-s-xsmall;
-  }
-  &.#{$ns}-pickitem-is-horizontal .#{$ns}-pickitem--sideelement {
-    min-width: $xui-s-2xlarge;
-  }
-}
-.#{$ns}-pickitem-xsmall {
-  .#{$ns}-pickitem--body {
-    @include xui-text-xsmall;
-    min-height: $xui-s-xlarge;
-  }
-  .#{$ns}-submenu & .#{$ns}-pickitem--body {
-    padding-left: $xui-s-small;
-  }
-  &:not(.#{$ns}-pickitem-is-horizontal) .#{$ns}-pickitem--text,
-  .#{$ns}-pickitem--pinned {
-    @include xui-padding-vertical($xui-s-2xsmall);
-  }
-  &.#{$ns}-pickitem-split + .#{$ns}-submenu-uicontrol {
-    margin-right: $xui-s-2xsmall;
-  }
-  &.#{$ns}-pickitem-is-horizontal .#{$ns}-pickitem--sideelement {
-    min-width: $xui-s-xlarge;
-  }
-}
 
 .#{$ns}-picklist-medium .#{$ns}-submenu-uicontrol:nth-child(2) {
   @include xui-padding-horizontal($xui-s-small);
-}
-.#{$ns}-picklist-small .#{$ns}-submenu-uicontrol:nth-child(2) {
-  @include xui-padding-horizontal($xui-s-xsmall);
-}
-.#{$ns}-picklist-xsmall .#{$ns}-submenu-uicontrol:nth-child(2) {
-  @include xui-padding-horizontal($xui-s-2xsmall);
 }
 
 // Size-specific vertical
@@ -1320,40 +1167,6 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
     margin-left: $xui-s-standard;
   }
 }
-.#{$ns}-pickitem-small:not(.#{$ns}-pickitem-is-horizontal) {
-  .#{$ns}-pickitem--body {
-    @include xui-padding-horizontal($xui-s-xsmall);
-  }
-  .#{$ns}-pickitem--sideelement {
-    height: $xui-s-2xlarge;
-    min-width: $xui-s-2xlarge;
-  }
-  &.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body::before {
-    border-left-width: 2px;
-    width: 2px;
-  }
-  .#{$ns}-pickitem--secondary,
-  .#{$ns}-pickitem--pinned {
-    margin-left: $xui-s-small;
-  }
-}
-.#{$ns}-pickitem-xsmall:not(.#{$ns}-pickitem-is-horizontal) {
-  .#{$ns}-pickitem--body {
-    @include xui-padding-horizontal($xui-s-2xsmall);
-  }
-  .#{$ns}-pickitem--sideelement {
-    height: $xui-s-xlarge;
-    min-width: $xui-s-xlarge;
-  }
-  &.#{$ns}-pickitem-is-selected > .#{$ns}-pickitem--body::before {
-    border-left-width: 1px;
-    width: 1px;
-  }
-  .#{$ns}-pickitem--secondary,
-  .#{$ns}-pickitem--pinned {
-    margin-left: $xui-s-xsmall;
-  }
-}
 
 // Size-specific horizontal
 .#{$ns}-pickitem-medium.#{$ns}-pickitem-is-horizontal {
@@ -1372,42 +1185,6 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
   }
   .#{$ns}-pickitem--text:nth-last-child(n + 2) {
     padding-right: $xui-s-xsmall;
-  }
-}
-.#{$ns}-pickitem-small.#{$ns}-pickitem-is-horizontal {
-  .#{$ns}-pickitem--body {
-    @include xui-padding-horizontal($xui-s-standard);
-  }
-  &:not(.#{$ns}-pickitem-text-truncated) > .#{$ns}-pickitem--body {
-    @include xui-padding-vertical($pickitem-small-padding);
-  }
-  &.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body:before {
-    border-bottom-width: 2px;
-  }
-  .#{$ns}-pickitem--text:nth-child(n + 2),
-  .#{$ns}-pickitem--secondary {
-    padding-left: $pickitem-small-padding;
-  }
-  .#{$ns}-pickitem--text:nth-last-child(n + 2) {
-    padding-right: $pickitem-small-padding;
-  }
-}
-.#{$ns}-pickitem-xsmall.#{$ns}-pickitem-is-horizontal {
-  .#{$ns}-pickitem--body {
-    @include xui-padding-horizontal($xui-s-small);
-  }
-  &:not(.#{$ns}-pickitem-text-truncated) > .#{$ns}-pickitem--body {
-    @include xui-padding-vertical($xui-s-2xsmall);
-  }
-  &.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body:before {
-    border-bottom-width: 1px;
-  }
-  .#{$ns}-pickitem--text:nth-child(n + 2),
-  .#{$ns}-pickitem--secondary {
-    padding-left: $xui-s-2xsmall;
-  }
-  .#{$ns}-pickitem--text:nth-last-child(n + 2) {
-    padding-right: $xui-s-2xsmall;
   }
 }
 
@@ -1490,62 +1267,6 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
   }
   .#{$ns}-submenu .#{$ns}-pickitem--body {
     padding-left: $xui-s-small + $xui-s-large; // Double indent for sub menus.
-  }
-}
-.#{$ns}-picklist-small {
-  // List-level
-  &.#{$ns}-picklist-layout {
-    @include xui-padding-vertical($xui-s-xsmall);
-  }
-  > .#{$ns}-picklist--header {
-    @include xui-padding-horizontal($xui-s-xsmall);
-  }
-  > .#{$ns}-picklist--divider {
-    @include xui-margin-vertical($xui-s-xsmall);
-  }
-
-  // Item-level by list size
-  .#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
-    @include xui-text-small;
-    min-height: $xui-s-2xlarge;
-  }
-  .#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
-    height: $xui-s-2xlarge;
-    width: $xui-s-2xlarge;
-  }
-  .#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
-    @include xui-padding-vertical($xui-s-xsmall);
-  }
-  .#{$ns}-submenu .#{$ns}-pickitem--body {
-    padding-left: $xui-s-xsmall + $xui-s-standard; // Double indent for sub menus.
-  }
-}
-.#{$ns}-picklist-xsmall {
-  // List-level
-  &.#{$ns}-picklist-layout {
-    @include xui-padding-vertical($xui-s-2xsmall);
-  }
-  > .#{$ns}-picklist--header {
-    @include xui-padding-horizontal($xui-s-2xsmall);
-  }
-  > .#{$ns}-picklist--divider {
-    @include xui-margin-vertical($xui-s-2xsmall);
-  }
-
-  // Item-level by list size
-  .#{$ns}-picklist--nestedcontainer > .#{$ns}-pickitem--body {
-    @include xui-text-xsmall;
-    min-height: $xui-s-xlarge;
-  }
-  .#{$ns}-submenu-uicontrol--icon.#{$ns}-iconwrapper {
-    height: $xui-s-xlarge;
-    width: $xui-s-xlarge;
-  }
-  .#{$ns}-pickitem--submenucontrol:checked ~ .#{$ns}-submenu-layout {
-    @include xui-padding-vertical($xui-s-2xsmall);
-  }
-  .#{$ns}-submenu .#{$ns}-pickitem--body {
-    padding-left: $xui-s-2xsmall + $xui-s-small; // Double indent for sub menus.
   }
 }
 

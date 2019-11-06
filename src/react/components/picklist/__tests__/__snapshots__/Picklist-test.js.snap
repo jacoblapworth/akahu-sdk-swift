@@ -2,12 +2,12 @@
 
 exports[`< Picklist /> example of list settings overriding item-level settings 1`] = `
 <ul
-  className="xui-picklist xui-picklist-layout xui-picklist-small"
+  className="xui-picklist xui-picklist-layout xui-picklist-medium"
   role="group"
 >
   <li
     aria-selected={null}
-    className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-small"
+    className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium"
     id="pi1"
     role="option"
   >
@@ -32,12 +32,12 @@ exports[`< Picklist /> example of list settings overriding item-level settings 1
 
 exports[`< Picklist /> example taking settings from first child and giving to all 1`] = `
 <ul
-  className="xui-picklist xui-picklist-layout xui-picklist-small"
+  className="xui-picklist xui-picklist-layout xui-picklist-medium"
   role="group"
 >
   <li
     aria-selected={false}
-    className="xui-pickitem xui-pickitem-multiselect xui-pickitem-small"
+    className="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium"
     id="pi1"
     role="option"
   >
@@ -46,7 +46,7 @@ exports[`< Picklist /> example taking settings from first child and giving to al
       role="presentation"
     >
       <div
-        className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-xsmall"
+        className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
       >
         <label
           className="xui-styledcheckboxradio"
@@ -56,7 +56,7 @@ exports[`< Picklist /> example taking settings from first child and giving to al
           <input
             aria-labelledby="testPickitemCheckboxId"
             checked={false}
-            className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall"
+            className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
             disabled={false}
             onChange={[Function]}
             onClick={[Function]}
@@ -65,14 +65,14 @@ exports[`< Picklist /> example taking settings from first child and giving to al
             type="checkbox"
           />
           <div
-            className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"
+            className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
           >
             <div
               className="xui-touchtarget"
             />
           </div>
           <span
-            className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label"
+            className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
             id="testPickitemCheckboxId"
           >
             <span
@@ -87,7 +87,7 @@ exports[`< Picklist /> example taking settings from first child and giving to al
   </li>
   <li
     aria-selected={false}
-    className="xui-pickitem xui-pickitem-multiselect xui-pickitem-small"
+    className="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium"
     id="pi2"
     role="option"
   >
@@ -96,7 +96,7 @@ exports[`< Picklist /> example taking settings from first child and giving to al
       role="presentation"
     >
       <div
-        className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-xsmall"
+        className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
       >
         <label
           className="xui-styledcheckboxradio"
@@ -106,7 +106,7 @@ exports[`< Picklist /> example taking settings from first child and giving to al
           <input
             aria-labelledby="testPickitemCheckboxId"
             checked={false}
-            className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall"
+            className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
             disabled={false}
             onChange={[Function]}
             onClick={[Function]}
@@ -115,14 +115,14 @@ exports[`< Picklist /> example taking settings from first child and giving to al
             type="checkbox"
           />
           <div
-            className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-xsmall"
+            className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
           >
             <div
               className="xui-touchtarget"
             />
           </div>
           <span
-            className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall xui-pickitem--text xui-pickitem-multiselect--label"
+            className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
             id="testPickitemCheckboxId"
           >
             <span
@@ -140,14 +140,14 @@ exports[`< Picklist /> example taking settings from first child and giving to al
 
 exports[`< Picklist /> example with most compatible options 1`] = `
 <ul
-  className="xui-picklist xui-picklist-small custom-picklist-class xui-picklist-horizontal"
+  className="xui-picklist xui-picklist-medium custom-picklist-class xui-picklist-horizontal"
   data-automationid="picklist-example"
   id="picklistId"
   role="presentation"
 >
   <li
     aria-selected={null}
-    className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-is-horizontal xui-pickitem-small"
+    className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-is-horizontal xui-pickitem-medium"
     id="pi1"
     role="option"
   >

@@ -144,7 +144,6 @@
 //
 // Tips:
 // Do: Use 'medium' size by default
-// Do: Match the size variant of dropdown and picklist to the select size variant
 // Warning: Use 'small' and 'xsmall' variants cautiosly, as they have reduced legibility and touch targets
 // Don't: Don't use a combination of size variants within a single form
 //
@@ -180,62 +179,6 @@
 //   </button>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Select.4
-
-// Small, Xsmall Select Options
-//
-// flags: sunsetting
-//
-// Markup:
-// <div class="xui-select-layout xui-margin-bottom">
-//   <button class="xui-button xui-button-standard xui-button-small xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//     <span class="xui-select--content">Today</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-//   <div class="xui-dropdown-layout xui-margin-top-2xsmall xui-u-fullwidth xui-dropdown-is-open">
-//     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body">
-//       <ul class="xui-picklist xui-picklist-small xui-picklist-layout">
-//         <li class="xui-pickitem xui-pickitem-small" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Yesterday</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-small xui-pickitem-is-selected" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Today</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-small" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Tomorrow</button>
-//         </li>
-//       </ul>
-//     </div>
-//   </div>
-// </div>
-// <div class="xui-select-layout">
-//   <button class="xui-button xui-button-standard xui-button-xsmall xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//     <span class="xui-select--content">Today</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-//   <div class="xui-dropdown-layout xui-margin-top-2xsmall xui-u-fullwidth xui-dropdown-is-open">
-//     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body">
-//       <ul class="xui-picklist xui-picklist-xsmall xui-picklist-layout">
-//         <li class="xui-pickitem xui-pickitem-xsmall" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Yesterday</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-xsmall xui-pickitem-is-selected" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Today</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-xsmall" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Tomorrow</button>
-//         </li>
-//       </ul>
-//     </div>
-//   </div>
-// </div>
-//
 // Styleguide: Building Blocks.Controls.Select.4.1
 
 // Style variants
@@ -245,7 +188,7 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-margin-bottom xui-u-flex">
+// <div class="xui-margin-bottom  xui-u-flex">
 //   <button class="xui-button xui-button-main xui-button-medium xui-select--button xui-margin-right" aria-label="Select format">
 //     <span class="xui-select--content">All</span>
 //     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">

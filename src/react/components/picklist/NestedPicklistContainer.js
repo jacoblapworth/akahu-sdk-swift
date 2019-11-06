@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getId, getPropsFromFirstChildOrList } from './private/helpers';
-import { picklistClassName, pickitemClassName, sizeVariants } from './private/constants';
+import { picklistClassName, pickitemClassName } from './private/constants';
 import Pickitem from './Pickitem';
 import NestedPicklist from './NestedPicklist';
 import NestedPicklistTrigger from './NestedPicklistTrigger';
@@ -78,7 +78,6 @@ export default class NestedPicklistContainer extends PureComponent {
       child.type === NestedPicklistTrigger ||
       child.type === Pickitem
         ? React.cloneElement(child, {
-            size: listLevelProps.listSize,
             isMultiselect: listLevelProps.listMultiselect,
             // This is ok to be set at either the item level or the list level.
             shouldTruncate:
@@ -120,8 +119,6 @@ NestedPicklistContainer.propTypes = {
   onOpen: PropTypes.func,
   onClose: PropTypes.func,
   secondaryProps: PropTypes.object,
-  /** Size variant */
-  size: PropTypes.oneOf(sizeVariants),
   /** When true checkboxes will be added to the layout of the child components. */
   isMultiselect: PropTypes.bool,
   /** Whether to truncate text instead of wrapping. */

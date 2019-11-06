@@ -8,7 +8,7 @@ exports[`<SelectBoxOption /> should render an a tag if an href prop is provided 
   role="option"
 >
   <a
-    className="xui-pickitem--body xui-pickitem-link--body"
+    className="xui-pickitem--body"
     href="http://xero.com"
     rel={null}
   >

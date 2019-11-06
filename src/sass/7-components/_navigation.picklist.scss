@@ -1222,14 +1222,6 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
   .#{$ns}-pickitem--text {
     justify-content: center;
   }
-  &:not(.#{$ns}-pickitem-text-truncated) .#{$ns}-pickitem-link--body {
-    display: flex;
-  }
-  .#{$ns}-pickitem-link--body {
-    .#{$ns}-pickitem--text {
-      padding: 0;
-    }
-  }
   .#{$ns}-pickitem--text,
   .#{$ns}-pickitem--pinned {
     vertical-align: middle;

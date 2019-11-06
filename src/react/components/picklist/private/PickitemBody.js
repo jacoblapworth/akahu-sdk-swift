@@ -34,7 +34,6 @@ const PickitemBody = ({
 }) => {
   const rel = target ? 'noopener noreferrer' : null;
   const childProps = {
-    className: itemBodyClassName,
     onClick,
     onKeyDown,
     onMouseOver,
@@ -48,6 +47,8 @@ const PickitemBody = ({
     itemTextClassName,
     shouldTruncate && `${pickitemClassName}-text-truncated`,
   );
+
+  const bodyClassName = cn(itemBodyClassName, href && `${pickitemClassName}-link--body`);
 
   const Tag = href ? 'a' : 'button';
   const elementSettings = href ? { ...{ href, target } } : { type: 'button' };
@@ -66,7 +67,7 @@ const PickitemBody = ({
     );
 
   return (
-    <Tag {...elementSettings} data-automationid={qaHook} {...childProps}>
+    <Tag {...elementSettings} data-automationid={qaHook} {...childProps} className={bodyClassName}>
       {leftElement}
       <span className={textClassName}>
         {headingElement}

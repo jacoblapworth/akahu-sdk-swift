@@ -17,6 +17,14 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: `pageheader with title and tabs of mixed type`,
+    type: 'pageheader',
+    title: 'Testing mixed type tabs',
+    tabs: true,
+    includeAnchor: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: `with title and tabs (swap to tabDropDown in small breakpoint)`,
     viewports: desktopPlus320,
     title: 'Testing tabDropDown Swap',

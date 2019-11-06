@@ -357,6 +357,11 @@
   }
 }
 
+.#{$ns}-pill-parentmaxwidth {
+  max-width: 100%;
+  flex: 0 0 auto; // Otherwise IE11 doesn't truncate long text.
+}
+
 .#{$ns}-pill-interactive {
   &:hover {
     background-color: $xui-pill-hover-bg-color;
@@ -412,13 +417,10 @@
 }
 
 .#{$ns}-pill--secondary {
+  @include xui-text-truncated;
   color: $xui-pill-secondary-color;
   font-weight: bold;
   margin-right: $xui-s-xsmall;
-  max-width: 70%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .#{$ns}-pill--avatar {

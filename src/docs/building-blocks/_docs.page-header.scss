@@ -425,3 +425,44 @@
 // </header>
 //
 // Styleguide: Compounds.Navigation.Tabs
+
+// Tabs as anchor tags
+//
+// Components: Page-header
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.rn5ood4vqaag
+//
+// For tabs that are composed of anchor `a` HTML tags, add the `xui-pickitem-link--body` alongside the `xui-pickitem--body` class. The application is illustrated in the following example.
+//
+// Classes:
+// xui-pickitem-link--body: Additional class to properly align anchor tags with other elements and the title.
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <header class="xui-pageheading">
+// 	<div class="xui-pageheading--content xui-pageheading--content-layout">
+// 		<div class="xui-pageheading--tabs">
+// 			<h1 class="xui-pageheading--title">Contacts</h1>
+// 			<ul role="menu" class="xui-picklist xui-picklist-horizontal xui-picklist-medium">
+// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium xui-pickitem-is-selected" role="menuitem" id="one">
+// 					<a href="#" class="xui-pickitem--body xui-pickitem-link--body">
+// 						<span class="xui-pickitem--text">All</span>
+// 					</a>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium" role="menuitem" id="two">
+// 					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--text">Suppliers</span>
+// 					</button>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium" role="menuitem" id="three">
+// 					<a href="#" class="xui-pickitem--body xui-pickitem-link--body">
+// 						<span class="xui-pickitem--text">Customers</span>
+// 					</a>
+// 				</li>
+// 			</ul>
+// 		</div>
+// 	</div>
+// </header>
+//
+// Styleguide: Compounds.Navigation.Tabs.1

@@ -18,7 +18,7 @@ import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCe
 
 import { variations, storiesWithVariationsKindName } from './variations';
 
-const exampleTabs = breakpoint => (
+const exampleTabs = (breakpoint, includeAnchor) => (
   <XUIPicklist isHorizontal secondaryProps={{ role: 'menu' }} swapAtBreakpoint={breakpoint}>
     <XUIPickitem ariaRole="menuitem" id="1">
       Tab 1
@@ -29,6 +29,11 @@ const exampleTabs = breakpoint => (
     <XUIPickitem ariaRole="menuitem" id="3">
       This is tab 3
     </XUIPickitem>
+    {includeAnchor && (
+      <XUIPickitem ariaRole="menuitem" href="#" id="4">
+        Anchor tab
+      </XUIPickitem>
+    )}
   </XUIPicklist>
 );
 const longExampleTabs = breakpoint => (
@@ -133,6 +138,7 @@ variations.forEach(baseVariation => {
       tabsSwapPoint,
       clickSelector,
       hoverSelector,
+      includeAnchor,
       ...variation
     } = variationMinusStoryDetails;
 
@@ -171,7 +177,9 @@ variations.forEach(baseVariation => {
       ];
     }
     if (variation.tabs) {
-      variation.tabs = longContent ? longExampleTabs(tabsSwapPoint) : exampleTabs(tabsSwapPoint);
+      variation.tabs = longContent
+        ? longExampleTabs(tabsSwapPoint)
+        : exampleTabs(tabsSwapPoint, includeAnchor);
     }
     if (variation.actions) {
       variation.actions = buildActions({

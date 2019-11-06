@@ -183,8 +183,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                onClick={[Function]}
-                onKeyPress={[Function]}
                 tabIndex={-1}
               >
                  
@@ -254,12 +252,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -319,12 +311,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -384,12 +370,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -482,8 +462,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                onClick={[Function]}
-                onKeyPress={[Function]}
                 tabIndex={-1}
               >
                  
@@ -553,12 +531,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -618,12 +590,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -683,12 +649,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -781,8 +741,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                onClick={[Function]}
-                onKeyPress={[Function]}
                 tabIndex={-1}
               >
                  
@@ -852,12 +810,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -917,12 +869,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -982,12 +928,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -1933,8 +1873,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                onClick={[Function]}
-                onKeyPress={[Function]}
                 tabIndex={-1}
               >
                  
@@ -3339,8 +3277,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                onClick={[Function]}
-                onKeyPress={[Function]}
                 tabIndex={-1}
               >
                  
@@ -3473,12 +3409,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -3587,12 +3517,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -3701,12 +3625,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -4350,8 +4268,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                onClick={[Function]}
-                onKeyPress={[Function]}
                 tabIndex={-1}
               >
                  
@@ -4492,12 +4408,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -4653,12 +4563,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -4814,12 +4718,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -6170,8 +6068,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                onClick={[Function]}
-                onKeyPress={[Function]}
                 tabIndex={-1}
               >
                  
@@ -6249,12 +6145,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -6361,12 +6251,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -6473,12 +6357,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -7936,8 +7814,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                onClick={[Function]}
-                onKeyPress={[Function]}
                 tabIndex={-1}
               >
                  
@@ -8078,12 +7954,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -8239,12 +8109,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  
@@ -8400,12 +8264,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onKeyPress={[Function]}
-                onPointerOut={[Function]}
-                onPointerOver={[Function]}
-                role="button"
                 tabIndex={-1}
               >
                  

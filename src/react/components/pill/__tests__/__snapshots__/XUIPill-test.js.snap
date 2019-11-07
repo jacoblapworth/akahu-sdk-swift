@@ -290,6 +290,7 @@ exports[`<XUIPill /> should render inside a tooltip when using the debug flag 1`
 >
   <div
     aria-describedby="tooltipDebugId"
+    className="xui-pill-parentmaxwidth"
     onBlur={[Function]}
     onFocus={[Function]}
     onMouseOut={[Function]}

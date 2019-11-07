@@ -782,18 +782,8 @@ $xui-table-z-alert: 4;
   position: relative;
 }
 
-.#{$ns}-table-wrapper {
-  .#{$ns}-table-responsive & {
-    overflow-x: auto;
-  }
-
-  .#{$ns}-table-pinleft & {
-    margin-left: $xui-table-action-offset;
-  }
-
-  .#{$ns}-table-pinright & {
-    margin-right: $xui-table-action-offset;
-  }
+.#{$ns}-table-responsive .#{$ns}-table-wrapper {
+  overflow-x: auto;
 }
 
 .#{$ns}-table-element {
@@ -958,6 +948,14 @@ $xui-table-z-alert: 4;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.#{$ns}-table-pinleft .#{$ns}-table--cell-second {
+  border-left: $xui-table-action-offset solid transparent;
+}
+
+.#{$ns}-table-pinright .#{$ns}-table--cell-secondtolast {
+  border-right: $xui-table-action-offset solid transparent;
 }
 
 .#{$ns}-table-pinleft .#{$ns}-table--cell-first,

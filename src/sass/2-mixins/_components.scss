@@ -9,7 +9,6 @@
   border-radius: $xui-radius;
   color: inherit;
   font: inherit;
-  margin: 0; // For removing default input styling in Safari
   outline: none;
   &::-ms-clear {
     display: none;

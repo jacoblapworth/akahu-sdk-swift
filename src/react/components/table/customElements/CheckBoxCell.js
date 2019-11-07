@@ -28,7 +28,12 @@ export default class CheckBoxCell extends PureComponent {
     );
 
     return (
-      <TableData className={className} tabIndex={-1}>
+      <TableData
+        className={className}
+        onClick={preventDefault}
+        onKeyPress={preventDefault}
+        tabIndex={-1}
+      >
         {NBSP}
         <XUICheckbox
           className={`${NAME_SPACE}--checkbox-body`}

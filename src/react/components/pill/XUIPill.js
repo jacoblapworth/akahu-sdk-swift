@@ -10,11 +10,7 @@ import { baseClass, sizeClasses } from './private/constants';
 import SizeContext from '../../contexts/SizeContext';
 
 function shouldShowTooltip(domElement) {
-  return (
-    domElement &&
-    (domElement.clientWidth < domElement.scrollWidth &&
-      domElement.clientWidth + 1 !== domElement.scrollWidth) // IE11 differs by 1px in some cases when it shouldn't display tooltips.
-  );
+  return domElement && domElement.clientWidth < domElement.scrollWidth;
 }
 
 export default class XUIPill extends PureComponent {
@@ -154,7 +150,7 @@ export default class XUIPill extends PureComponent {
                 isHidden={!debugShowToolTip}
                 ref={this._tooltip}
                 // Extra wrapping div required because tooltip has CSS that stomps on first child
-                trigger={<div className={`${baseClass}-parentmaxwidth`}>{content}</div>}
+                trigger={<div>{content}</div>}
                 useInlineFlex
               >
                 {secondaryText}

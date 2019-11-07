@@ -20,6 +20,7 @@ XUI had previously provided a set of z-index variables to indicate where element
 - The `xui-heading-medium` mixin no longer has an `emphasis` parameter.
 - Z-index variables `$xui-z-index-tooltip` and `$xui-z-index-mask` have been removed without replacement. `
 - `$xui-z-index-overlay` has been renamed to the more-apt `$xui-z-index-sheetmask`
+- The class `xui-pickitem-link--body` has been removed from `a` tags in `XUIPickItem`s. From now on flexbox handles the correct alignment of tabs in `XUIPageHeader`.
 - Toggle
   - `xui-toggle-option` and `xui-toggle-optionwrapper` have been replaced with `xui-toggle--option` and `xui-toggle--optionwrapper`, respectively.
 

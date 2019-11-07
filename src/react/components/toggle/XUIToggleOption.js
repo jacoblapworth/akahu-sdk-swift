@@ -29,7 +29,7 @@ export default function XUIToggleOption(props) {
     value,
     id,
   } = props;
-  const classes = cn(className, `${baseClass}-option`, isDisabled && `${baseClass}-is-disabled`);
+  const classes = cn(className, `${baseClass}--option`, isDisabled && `${baseClass}-is-disabled`);
 
   return (
     <XUIControlWrapperInline
@@ -37,7 +37,7 @@ export default function XUIToggleOption(props) {
       label={children}
       labelClassName={`${baseClass}--label`}
       qaHook={qaHook}
-      rootClassName={`${baseClass}-optionwrapper`}
+      rootClassName={`${baseClass}--optionwrapper`}
       wrapperIds={wrapperIds}
     >
       <input

@@ -20,6 +20,8 @@ XUI had previously provided a set of z-index variables to indicate where element
 - The `xui-heading-medium` mixin no longer has an `emphasis` parameter.
 - Z-index variables `$xui-z-index-tooltip` and `$xui-z-index-mask` have been removed without replacement. `
 - `$xui-z-index-overlay` has been renamed to the more-apt `$xui-z-index-sheetmask`
+- Toggle
+  - `xui-toggle-option` and `xui-toggle-optionwrapper` have been replaced with `xui-toggle--option` and `xui-toggle--optionwrapper`, respectively.
 
 Following classes have been **removed** because they don't meet [XUI touch target standards](https://xui.xero.com/16.0.0/section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4):
 

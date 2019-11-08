@@ -28,6 +28,12 @@
         order: 1;
       }
     }
+
+    @include xui-breakpoint-small-up {
+      .#{$ns}-actions--primary {
+        @include xui-margin-left($xui-s-small);
+      }
+    }
   }
 
   // Subs
@@ -37,9 +43,5 @@
 
   &--secondary {
     order: 0;
-  }
-
-  &--button-spacing {
-    margin-left: $xui-s-xsmall;
   }
 }

@@ -36,7 +36,7 @@
       margin: 0;
     }
     > .#{$classname}--title {
-      @include xui-margin-left($xui-s-xsmall);
+      @include xui-margin-left($xui-s-standard);
       @include xui-margin-right($xui-s-xlarge);
     }
     &.#{$classname}--content-no-tabs {
@@ -129,11 +129,10 @@
     display: flex;
     flex: 1 1 auto;
     justify-content: flex-end;
-    > .#{$ns}-button {
-      @include xui-margin-left($xui-s-xsmall);
-    }
-    > .#{$ns}-buttongroup {
-      @include xui-margin-left($xui-s-xsmall);
+    > .#{$ns}-button,
+    > .#{$ns}-buttongroup,
+    .#{$ns}-actions .#{$ns}-actions--primary {
+      @include xui-margin-left($xui-s-small);
     }
   }
 }

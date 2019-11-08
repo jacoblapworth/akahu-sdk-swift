@@ -73,6 +73,7 @@
 // Classes:
 // xui-isolationheader--titlewrapper: All left-side content other than the close button and avatar should be in this container
 // including title, secondary text, and/or tags
+// xui-isolationheader--titlewrapper-has-avatar: Additional class to provide correct spacing when an avatar is present
 // xui-isolationheader--title: Page heading title
 // xui-isolationheader--secondarytitle: Page heading subtitle
 // xui-isolationheader--tags: A container for tags to appear after the title and any secondary text
@@ -109,7 +110,7 @@
 //         </button>
 //         <abbr class="xui-avatar xui-avatar-small xui-avatar-color-3 xui-avatar-business" role="presentation">HE</abbr>
 //       </div>
-//       <div class="xui-isolationheader--titlewrapper">
+//       <div class="xui-isolationheader--titlewrapper xui-isolationheader--titlewrapper-has-avatar">
 //         <h1 class="xui-isolationheader--title">Title</h1>
 //         <div class="xui-isolationheader--secondarytitle">Subtitle</div>
 //       </div>
@@ -127,9 +128,9 @@
 //           </svg>
 //           <div class="xui-touchtarget"></div>
 //         </button>
-//         <abbr class="xui-avatar xui-avatar-small xui-avatar-color-3 xui-avatar-business xui-margin-left-small" role="presentation">HE</abbr>
+//         <abbr class="xui-avatar xui-avatar-small xui-avatar-color-3 xui-avatar-business" role="presentation">HE</abbr>
 //       </div>
-//       <div class="xui-isolationheader--titlewrapper">
+//       <div class="xui-isolationheader--titlewrapper xui-isolationheader--titlewrapper-has-avatar">
 //         <h1 class="xui-isolationheader--title">Title</h1>
 //         <div class="xui-isolationheader--secondarytitle">Subtitle</div>
 //         <div class="xui-isolationheader--tags">

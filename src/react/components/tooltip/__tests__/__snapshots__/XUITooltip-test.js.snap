@@ -3,13 +3,13 @@
 exports[`XUITooltip allows for different trigger components to be passed 1`] = `
 <span
   className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <span
     aria-describedby="test"
     onBlur={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
     style={
       Object {
         "textDecoration": "underline",
@@ -51,14 +51,14 @@ exports[`XUITooltip allows for different trigger components to be passed 1`] = `
 exports[`XUITooltip include an automation-id 1`] = `
 <span
   className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <a
     aria-describedby="test"
     href="#"
     onBlur={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
   >
     A link
   </a>
@@ -97,14 +97,14 @@ exports[`XUITooltip include an automation-id 1`] = `
 exports[`XUITooltip include an id, if provided 1`] = `
 <span
   className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <a
     aria-describedby="test-tooltip-id"
     href="#"
     onBlur={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
   >
     A link
   </a>
@@ -141,14 +141,14 @@ exports[`XUITooltip include an id, if provided 1`] = `
 exports[`XUITooltip include provided classNames 1`] = `
 <span
   className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <a
     aria-describedby="test"
     href="#"
     onBlur={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
   >
     A link
   </a>
@@ -185,14 +185,14 @@ exports[`XUITooltip include provided classNames 1`] = `
 exports[`XUITooltip include provided wrapperClassNames 1`] = `
 <span
   className="test-tooltip-wrapperClass xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <a
     aria-describedby="test"
     href="#"
     onBlur={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
   >
     A link
   </a>
@@ -229,14 +229,14 @@ exports[`XUITooltip include provided wrapperClassNames 1`] = `
 exports[`XUITooltip renders correctly 1`] = `
 <span
   className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <a
     aria-describedby="test"
     href="#"
     onBlur={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
   >
     A link
   </a>
@@ -273,14 +273,14 @@ exports[`XUITooltip renders correctly 1`] = `
 exports[`XUITooltip sets maxHeight 1`] = `
 <span
   className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <a
     aria-describedby="test"
     href="#"
     onBlur={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
   >
     A link
   </a>
@@ -317,14 +317,14 @@ exports[`XUITooltip sets maxHeight 1`] = `
 exports[`XUITooltip sets maxWidth 1`] = `
 <span
   className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <a
     aria-describedby="test"
     href="#"
     onBlur={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
   >
     A link
   </a>
@@ -361,14 +361,14 @@ exports[`XUITooltip sets maxWidth 1`] = `
 exports[`XUITooltip sets visibility classes, if set to be visible 1`] = `
 <span
   className="xui-tooltip xui-tooltip-tipopen"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <a
     aria-describedby="test"
     href="#"
     onBlur={[Function]}
     onFocus={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
   >
     A link
   </a>

@@ -19,7 +19,12 @@ import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCe
 import { variations, storiesWithVariationsKindName } from './variations';
 
 const exampleTabs = (breakpoint, includeAnchor) => (
-  <XUIPicklist isHorizontal secondaryProps={{ role: 'menu' }} swapAtBreakpoint={breakpoint}>
+  <XUIPicklist
+    className="TESTME"
+    isHorizontal
+    secondaryProps={{ role: 'menu' }}
+    swapAtBreakpoint={breakpoint}
+  >
     <XUIPickitem ariaRole="menuitem" id="1">
       Tab 1
     </XUIPickitem>
@@ -37,7 +42,12 @@ const exampleTabs = (breakpoint, includeAnchor) => (
   </XUIPicklist>
 );
 const longExampleTabs = breakpoint => (
-  <XUIPicklist isHorizontal secondaryProps={{ role: 'menu' }} swapAtBreakpoint={breakpoint}>
+  <XUIPicklist
+    className="TESTME"
+    isHorizontal
+    secondaryProps={{ role: 'menu' }}
+    swapAtBreakpoint={breakpoint}
+  >
     <XUIPickitem ariaRole="menuitem" id="1">
       Organisation Settings
     </XUIPickitem>

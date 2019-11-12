@@ -17,7 +17,7 @@ describe('<XUI PageHeader and BreadcrumbTrail/>', () => {
   const primary = <XUIButton>Primary</XUIButton>;
   const secondary = <XUIButton>Secondary</XUIButton>;
   const tabs = (
-    <XUIPicklist>
+    <XUIPicklist className="custom-class-name">
       <XUIPickitem id="1">Tab 1</XUIPickitem>
       <XUIPickitem id="2" isSelected={true}>
         Tab 2
@@ -105,6 +105,7 @@ describe('<XUI PageHeader and BreadcrumbTrail/>', () => {
   it('renders pageHeader containing tabs', () => {
     const wrapper = mount(<XUIPageHeader tabs={tabs} />);
     expect(wrapper.find('ul.xui-pageheading--tabs').length).toBe(1);
+    expect(wrapper.find('ul.custom-class-name').length).toBe(1);
     expect(wrapper.find('.xui-pageheading--title').length).toBe(0);
   });
   it('renders pageHeader containing title and tabs', () => {

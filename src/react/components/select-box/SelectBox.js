@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import uuidv4 from 'uuid/v4';
 
-import SelectBoxOption from './SelectBoxOption';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import XUIButton from '../button/XUIButton';

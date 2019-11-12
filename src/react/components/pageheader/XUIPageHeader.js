@@ -59,7 +59,7 @@ export default class XUIPageHeader extends PureComponent {
       React.cloneElement(tabs, {
         // Make sure this is horizontal in the pagehead
         isHorizontal: true,
-        className: cn(tabs.className, `${baseClass}--tabs`),
+        className: cn(tabs.props.className, `${baseClass}--tabs`),
       });
 
     const titleWrapper = (title || secondary || tags) && (

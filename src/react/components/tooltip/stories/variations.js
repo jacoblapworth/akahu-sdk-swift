@@ -101,6 +101,24 @@ const variations = [
     triggerType: 'icon',
     preferredPosition: 'right',
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'on an icon left',
+    triggerType: 'icon',
+    preferredPosition: 'left',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'on an icon top',
+    triggerType: 'icon',
+    preferredPosition: 'top',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'on an icon bottom',
+    triggerType: 'icon',
+    preferredPosition: 'bottom',
+  },
 ];
 
 positionOptions.forEach(position => {

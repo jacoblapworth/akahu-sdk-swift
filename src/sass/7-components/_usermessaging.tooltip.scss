@@ -178,7 +178,6 @@
   color: $xui-tooltip-color;
   cursor: auto;
   display: block;
-  line-height: $xui-line-height;
   opacity: 0;
   overflow-wrap: break-word;
   padding: $xui-s-2xsmall $xui-s-xsmall;
@@ -240,7 +239,7 @@
   left: 0;
   right: auto;
   &:after {
-    left: 15px;
+    left: 20px;
   }
 }
 .#{$ns}-positioningInline--content-topcenter,
@@ -256,7 +255,7 @@
 .#{$ns}-positioningInline--content-bottomright {
   right: 0px;
   &:after {
-    right: 5px;
+    right: 10px;
   }
 }
 

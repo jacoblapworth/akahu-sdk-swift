@@ -4,7 +4,6 @@ import cn from 'classnames';
 
 import TableData from './TableData';
 import XUICheckbox from '../../checkbox/XUICheckbox';
-import preventDefault from '../../helpers/preventDefault';
 
 import { createCellLocationClasses, cellClassNames } from '../helpers/utilities';
 import { NAME_SPACE, NBSP } from '../helpers/constants';

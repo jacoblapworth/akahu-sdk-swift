@@ -247,6 +247,12 @@ npm i -g jscodeshift@~0.5.0
 jscodeshift -t node_modules/@xero/xui/codemod src/
 ```
 
+1. If your imported components are not from @xero/xui/react/, you can pass an alternate base path.
+
+```bash
+jscodeshift --importBasePath=@xero/xui/react-es6/ -t node_modules/@xero/xui/codemod src/
+```
+
 1. If you've already upgraded to the current major version and wish to run a supplemental codemod from a minor/patch
 
 ```bash

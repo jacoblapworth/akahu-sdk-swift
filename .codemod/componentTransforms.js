@@ -1,5 +1,5 @@
 module.exports = {
-  '@xero/xui/react/accordion': [
+  'accordion': [
     {
       isDefault: true,
       props: [
@@ -26,7 +26,7 @@ module.exports = {
       ],
     },
   ],
-  '@xero/xui/react/autocompleter': [
+  'autocompleter': [
     {
       isDefault: true,
       props: [
@@ -62,7 +62,7 @@ module.exports = {
       ],
     },
   ],
-  '@xero/xui/react/barchart': [
+  'barchart': [
     {
       isDefault: true,
       props: getBarChartProps(),
@@ -72,7 +72,7 @@ module.exports = {
       props: getBarChartProps(),
     },
   ],
-  '@xero/xui/react/button': [
+  'button': [
     {
       isDefault: true,
       props: [
@@ -89,7 +89,7 @@ module.exports = {
       ],
     },
   ],
-  '@xero/xui/react/dropdown': [
+  'dropdown': [
     {
       name: 'DropDownHeader',
       props: [
@@ -126,29 +126,25 @@ module.exports = {
       ],
     },
   ],
-  '@xero/xui/react/isolationheader': [
+  'isolationheader': [
     {
       name: 'XUIIsolationHeaderActions',
       newName: 'IsolationHeaderActions_MOVE_TO_PROP_ON_ISOLATION_HEADER',
-      props: [],
     },
     {
       name: 'XUIIsolationHeaderNavigation',
       newName: 'IsolationHeaderNavigation_MOVE_TO_PROP_ON_ISOLATION_HEADER',
-      props: [],
     },
     {
       name: 'XUIIsolationHeaderSecondaryTitle',
       newName: 'IsolationHeaderSecondaryTitle_MOVE_TO_PROP_ON_ISOLATION_HEADER',
-      props: [],
     },
     {
       name: 'XUIIsolationHeaderTitle',
       newName: 'IsolationHeaderTitle_MOVE_TO_PROP_ON_ISOLATION_HEADER',
-      props: [],
     },
   ],
-  '@xero/xui/react/modal': [
+  'modal': [
     {
       isDefault: true,
       props: [
@@ -165,7 +161,7 @@ module.exports = {
       ],
     },
   ],
-  '@xero/xui/react/picklist': [
+  'picklist': [
     {
       name: 'NestedPicklistTrigger',
       props: [
@@ -182,7 +178,7 @@ module.exports = {
       ],
     },
   ],
-  '@xero/xui/react/loader': [
+  'loader': [
     {
       isDefault: true,
       props: [
@@ -199,7 +195,7 @@ module.exports = {
       ],
     },
   ],
-  '@xero/xui/react/pill': [
+  'pill': [
     {
       isDefault: true,
       props: [
@@ -216,7 +212,7 @@ module.exports = {
       ],
     },
   ],
-  '@xero/xui/react/select-box': [
+  'select-box': [
     {
       isDefault: true,
       props: [
@@ -233,7 +229,7 @@ module.exports = {
       ],
     },
   ],
-  '@xero/xui/react/table': [
+  'table': [
     {
       isDefault: true,
       props: [
@@ -290,62 +286,51 @@ module.exports = {
       ],
     },
   ],
-  '@xero/xui/react/structural': [
+  'structural': [
     {
       name: 'XUIBreadcrumb',
       newName: 'XUIBreadcrumbTrail',
-      newImportPath: '@xero/xui/react/pageheader',
-      props: [],
+      newImportPath: 'pageheader',
     },
     {
       name: 'XUIPageHeader',
-      newImportPath: '@xero/xui/react/pageheader',
-      props: [],
+      newImportPath: 'pageheader',
     },
     {
       name: 'XUIActions',
-      newImportPath: '@xero/xui/react/actions',
-      props: [],
+      newImportPath: 'actions',
     },
     {
       name: 'XUIContentBlock',
-      newImportPath: '@xero/xui/react/contentblock',
-      props: [],
+      newImportPath: 'contentblock',
     },
     {
       name: 'XUIContentBlockItem',
-      newImportPath: '@xero/xui/react/contentblock',
-      props: [],
+      newImportPath: 'contentblock',
     },
     {
       name: 'XUIOverviewBlock',
-      newImportPath: '@xero/xui/react/overviewblock',
-      props: [],
+      newImportPath: 'overviewblock',
     },
     {
       name: 'XUIOverviewSection',
-      newImportPath: '@xero/xui/react/overviewblock',
-      props: [],
+      newImportPath: 'overviewblock',
     },
     {
       name: 'XUIPanel',
-      newImportPath: '@xero/xui/react/panel',
-      props: [],
+      newImportPath: 'panel',
     },
     {
       name: 'XUIPanelHeading',
-      newImportPath: '@xero/xui/react/panel',
-      props: [],
+      newImportPath: 'panel',
     },
     {
       name: 'XUIPanelFooter',
-      newImportPath: '@xero/xui/react/panel',
-      props: [],
+      newImportPath: 'panel',
     },
     {
       name: 'XUIPanelSection',
-      newImportPath: '@xero/xui/react/panel',
-      props: [],
+      newImportPath: 'panel',
     },
   ],
 };

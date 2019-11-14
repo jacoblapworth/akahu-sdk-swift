@@ -288,4 +288,34 @@ describe('XUIModal', () => {
 
     expect(modalMounted.find('.xui-mask').hasClass('xui-mask-is-active')).toBeTruthy();
   });
+
+  it('should close the modal when escape is pressed', () => {
+    const onClose = jest.fn();
+
+    const modalMounted = mount(
+      <XUIModal isUsingPortal={false} onClose={onClose} isOpen={true}>
+        <div>test</div>
+      </XUIModal>,
+    );
+
+    expect(onClose).not.toHaveBeenCalled();
+    modalMounted
+      .instance()
+      ._keyUpHandler(new KeyboardEvent('keyup', { key: 'Escape', keyCode: 27 }));
+    expect(onClose).toHaveBeenCalled();
+  });
+
+  it('should close the modal when esc is pressed', () => {
+    const onClose = jest.fn();
+
+    const modalMounted = mount(
+      <XUIModal isUsingPortal={false} onClose={onClose} isOpen={true}>
+        <div>test</div>
+      </XUIModal>,
+    );
+
+    expect(onClose).not.toHaveBeenCalled();
+    modalMounted.instance()._keyUpHandler(new KeyboardEvent('keyup', { key: 'Esc', keyCode: 27 }));
+    expect(onClose).toHaveBeenCalled();
+  });
 });

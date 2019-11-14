@@ -11,7 +11,6 @@ import { registerModal, deRegisterTopModal } from '../helpers/modalManager';
 import portalContainer, { portalClass } from '../helpers/portalContainer';
 import { baseClass, modalSizes } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
-import { eventKeyValues } from '../helpers/reactKeyHandler';
 import getFocusableDescendants from '../helpers/getFocusableDescendants';
 
 const maskClass = `${ns}-mask`;
@@ -166,7 +165,7 @@ export default class XUIModal extends Component {
   _keyUpHandler = event => {
     const { isOpen, onClose } = this.props;
     const { isTopModal } = this.state;
-    if (event.key === eventKeyValues.escape && isOpen && onClose && isTopModal) {
+    if ((event.key === 'Escape' || event.key === 'Esc') && isOpen && onClose && isTopModal) {
       event.stopImmediatePropagation(); // Necessary for nested inline modals event bubbling.
       onClose();
     }

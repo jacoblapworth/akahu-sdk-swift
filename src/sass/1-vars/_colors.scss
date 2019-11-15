@@ -535,7 +535,7 @@ $xui-banner-message-color: $xui-color-grey-alpha-2;
 
 // Toast
 
-$xui-toast-bg-color: transparentize($xui-color-white, 0.1);
+$xui-toast-bg-color: $xui-color-white;
 $xui-toast-color: $xui-color-grey-1;
 
 // Tooltip

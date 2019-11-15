@@ -2200,6 +2200,8 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
       >
         <span
           className="xui-progress--tooltip xui-tooltip"
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
         >
           <div
             aria-describedby="myCustomProgressId-progress--tooltip"
@@ -2208,8 +2210,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
           >
             <CircularGrowth
               id="myCustomProgressId"
@@ -3541,6 +3541,8 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
       >
         <span
           className="xui-progress--tooltip xui-tooltip"
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
         >
           <div
             aria-describedby="myCustomProgressId-progress--tooltip"
@@ -3549,8 +3551,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
           >
             <LinearGrowth
               progress={3}

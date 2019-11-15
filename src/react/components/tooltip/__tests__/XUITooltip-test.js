@@ -124,6 +124,21 @@ describe('XUITooltip', () => {
       expect(onEventSpy).toHaveBeenCalledTimes(1);
     });
 
+    it('remains open on mouseOver of either trigger or tip', () => {
+      const onEventSpy = jest.fn();
+      const { expected } = setup({ onClose: onEventSpy }, mount);
+
+      expected.find('.xui-tooltip a').simulate('mouseOver');
+      jest.runTimersToTime(1000);
+      expected.find('.xui-tooltip a').simulate('mouseOut');
+      expected.find('.xui-tooltip--tip').simulate('mouseOver');
+      jest.runTimersToTime(1000);
+      expected.find('.xui-tooltip--tip').simulate('mouseOut');
+      jest.runTimersToTime(1000);
+
+      expect(onEventSpy).toHaveBeenCalledTimes(1);
+    });
+
     it('shows the tooltip on click of the trigger, if triggerOnClick is true', () => {
       const onEventSpy = jest.fn();
       const { expected } = setup(

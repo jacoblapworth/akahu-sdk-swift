@@ -15,14 +15,21 @@
   .#{$ns}-styledcheckboxradio {
     display: flex;
     padding: $xui-s-xsmall - 1px; // 1px to make up for border width
+
+    &:not(.#{$ns}-styledcheckboxradio-reversed) .#{$ns}-styledcheckboxradio--checkbox,
+    &:not(.#{$ns}-styledcheckboxradio-reversed) .#{$ns}-styledcheckboxradio--radio {
+      @include xui-margin-left(2px);
+    }
+
+    &.#{$ns}-styledcheckboxradio-reversed .#{$ns}-styledcheckboxradio--checkbox,
+    &.#{$ns}-styledcheckboxradio-reversed .#{$ns}-styledcheckboxradio--radio {
+      @include xui-margin-right(2px);
+    }
   }
 
-  .#{$ns}-styledcheckboxradio--radio-small,
-  .#{$ns}-styledcheckboxradio--checkbox-small,
-  .#{$ns}-styledcheckboxradio--radio-xsmall,
-  .#{$ns}-styledcheckboxradio--checkbox-xsmall {
+  .#{$ns}-styledcheckboxradio--checkbox,
+  .#{$ns}-styledcheckboxradio--radio {
     @include xui-margin-vertical(2px);
-    @include xui-margin-left(2px);
   }
 
   .#{$ns}-styledcheckboxradiowrapper:nth-last-of-type(n + 2),

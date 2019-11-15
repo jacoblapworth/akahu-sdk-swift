@@ -341,7 +341,7 @@ describe('XUIModal', () => {
     const onClose = jest.fn();
 
     const modalMounted = mount(
-      <XUIModal isUsingPortal={false} onClose={onClose} isOpen={true}>
+      <XUIModal isUsingPortal={false} onClose={onClose} isOpen={true} closeButtonLabel="Close">
         <div>test</div>
       </XUIModal>,
     );
@@ -357,7 +357,7 @@ describe('XUIModal', () => {
     const onClose = jest.fn();
 
     const modalMounted = mount(
-      <XUIModal isUsingPortal={false} onClose={onClose} isOpen={true}>
+      <XUIModal isUsingPortal={false} onClose={onClose} isOpen={true} closeButtonLabel="Close">
         <div>test</div>
       </XUIModal>,
     );

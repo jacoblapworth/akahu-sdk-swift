@@ -10,7 +10,7 @@ import DropDownToggled from '../dropdown/DropDownToggled';
 import XUITextInput from '../textInput/XUITextInput';
 import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
-import { eventKeyValues } from '../helpers/reactKeyHandler';
+import { eventKeyValues, isKeyClick } from '../helpers/reactKeyHandler';
 
 /**
  * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and
@@ -81,6 +81,7 @@ export default class XUIAutocompleter extends PureComponent {
         });
         debounced(event.target.value);
       };
+      this.flushDebounced = debounced.flush;
     } else {
       this.debouncedOnChange = undefined;
     }
@@ -147,7 +148,18 @@ export default class XUIAutocompleter extends PureComponent {
   onInputKeyDown = event => {
     const { onBackspacePill, pills } = this.props;
     if (this.ddt.current.isDropDownOpen()) {
-      this.dropdown.onKeyDown(event);
+      if (isKeyClick(event)) {
+        this.flushDebounced && this.flushDebounced();
+      }
+      event.persist();
+
+      /**
+       * Why use setTimeout():
+       * The default setTimeout of 0ms will place the running of the callback function to the end of the callstack.
+       * This will ensure that dropdown onKeyDown event occurs after the re-rendering of the picklist selection is complete.
+       * This implementation has been chosen as it allows us to ensure the correct behaviour without invasive changes to Autocompletion/dropdown/statefulPicklist components.
+       */
+      setTimeout(() => this.dropdown.onKeyDown(event));
     }
 
     if (

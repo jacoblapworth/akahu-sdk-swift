@@ -148,6 +148,15 @@ $isolationheader-text-spacing: ($xui-navigation-height - $xui-line-height-standa
 .#{$ns}-isolationheader {
   @include header('#{$ns}-isolationheader');
   box-shadow: $xui-shadow-depth-overlap-top;
+
+  &.#{$ns}-isolationheader-fixed {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: $xui-z-index-header;
+  }
+
   &--content-layout {
     @include xui-breakpoint-small-up {
       flex-flow: unset;

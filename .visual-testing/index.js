@@ -234,8 +234,8 @@ function buildScenarios() {
         const scenarioProp = {
           label: `${component.testsPrefix} ${story.storyTitle}`,
           url: buildUrl(story.storyKind, story.storyTitle),
-          selectors: [component.selectors || '#root > div > div'],
-          misMatchThreshold: component.misMatchThreshold || 0.6,
+          selectors: [story.selectors || component.selectors || '#root > div > div'],
+          misMatchThreshold: story.misMatchThreshold || component.misMatchThreshold || 0.6,
           selectorExpansion: component.captureAllSelectors,
           delay,
           readyEvent,

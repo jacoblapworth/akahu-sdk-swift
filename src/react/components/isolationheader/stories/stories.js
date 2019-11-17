@@ -30,6 +30,7 @@ function getComponent({
   navigationIcon,
   secondaryTitle,
   title,
+  ...spreadProps
 }) {
   const navigationButton = navigationIcon && (
     <XUIIconButton ariaLabel="navigate" icon={flattenedIconMap[navigationIcon]} />
@@ -75,6 +76,7 @@ function getComponent({
         secondary={secondaryTitle}
         tags={tags}
         title={title}
+        {...spreadProps}
       />
     </div>
   );

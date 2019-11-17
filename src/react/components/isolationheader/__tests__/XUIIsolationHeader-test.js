@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 
@@ -47,7 +47,6 @@ describe('<XUIIsolationHeader>', () => {
         navigationButton={navigationButton}
         qaHook="qaHook"
         secondary="My secondary title"
-        title="My title"
         tags={tags}
         title="Main title"
       >
@@ -56,5 +55,19 @@ describe('<XUIIsolationHeader>', () => {
     );
 
     expect(isolationHeader).toMatchSnapshot();
+  });
+
+  it('renders fixed position class', () => {
+    const isolationHeader = shallow(
+      <XUIIsolationHeader
+        hasLayout
+        title="Main title"
+        navigationButton={navigationButton}
+        isPositionFixed
+      >
+        <div>All my children</div>
+      </XUIIsolationHeader>
+    );
+    expect(isolationHeader.hasClass('xui-isolationheader-fixed')).toBeTruthy();
   });
 });

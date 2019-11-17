@@ -35,6 +35,16 @@ const variations = [
     hasActionsPrimaryButton: true,
     hasActionsSecondaryButton: true,
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'Fixed position',
+    title: 'Main title',
+    secondaryTitle: 'Secondary Title',
+    navigationIcon: 'cross',
+    isPositionFixed: true,
+    selectors: '.xui-container',
+    misMatchThreshold: 0.4,
+  },
 ];
 
 module.exports = {

@@ -177,15 +177,19 @@ export default class XUITooltip extends PureComponent {
             () => this.setState({ isFocused: false }),
           )
         : undefined,
-      onMouseOver: triggerOnHover ? this.openTooltip : undefined,
-      onMouseOut: triggerOnHover && ignoreFocus ? this.closeTooltip : undefined,
       'aria-describedby': this.tooltipId,
     });
 
     const WrappingElement = isBlock ? 'div' : 'span';
 
     return (
-      <WrappingElement className={wrapperClasses} ref={c => this.setState({ wrapper: c })}>
+      // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
+      <WrappingElement
+        className={wrapperClasses}
+        onMouseOut={triggerOnHover && ignoreFocus ? this.closeTooltip : undefined}
+        onMouseOver={triggerOnHover ? this.openTooltip : undefined}
+        ref={c => this.setState({ wrapper: c })}
+      >
         {clonedTrigger}
         <PositioningInline
           {...this.props}

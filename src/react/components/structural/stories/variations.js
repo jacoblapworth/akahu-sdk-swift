@@ -49,6 +49,14 @@ variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: `pageheader with title and tabs of mixed type`,
+    type: 'pageheader',
+    title: 'Testing mixed type tabs',
+    tabs: true,
+    includeAnchor: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: `pageheader with title and tabs hover`,
     viewports: desktopPlus320,
     type: 'pageheader',

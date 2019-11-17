@@ -10,6 +10,7 @@ export default function XUIIsolationHeader({
   className,
   contentClassName,
   hasLayout,
+  isPositionFixed,
   navigationButton,
   qaHook,
   secondary,
@@ -19,7 +20,7 @@ export default function XUIIsolationHeader({
 }) {
   const baseClass = `${ns}-isolationheader`;
 
-  const classes = cn(className, baseClass);
+  const classes = cn(className, baseClass, isPositionFixed && `${baseClass}-fixed`);
   const layoutClass = hasLayout ? `${baseClass}--content-layout` : '';
   const divClasses = cn(`${baseClass}--content`, layoutClass, contentClassName);
   const titleWrapperClasses = cn(
@@ -100,6 +101,10 @@ XUIIsolationHeader.propTypes = {
    * Avatar
    */
   avatar: PropTypes.node,
+  /**
+   * Applies fixed positioning so the isolation mode header scrolls with the page
+   */
+  isPositionFixed: PropTypes.bool,
 };
 
 XUIIsolationHeader.defaultProps = {

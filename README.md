@@ -204,11 +204,11 @@ You can now add breakpoints that will be triggered by the Chrome window that ope
 6. Tag the release in Github matching the updated version in package.json
 7. [Log into AWS](https://ap-southeast-2.console.aws.amazon.com/codepipeline/home?region=ap-southeast-2#/view/xui-code-pipeline) and approve the release. Note: You'll need `Developer @ xero-platformdevelopment-test` as minimum permissions to approve the release.
 8. Once the release is finalised, you will need to verify everything has been released correctly.
-   - XUI CSS : hit https://edge.xero.com/style/xui/%3Cyour-new-version%3E/xui.css, expect 200
+   - XUI CSS : hit https://edge.xero.com/style/xui/[your-new-version]/xui.css, expect 200
    - Sherlock JSON: hit https://edge.xero.com/style/xui/sherlock.json, expect 200 and version exists in JSON
    - Check you can install expected XUI version into test app, or your own app.
    - Check docs branch has been updated in github
-   - Check docs have been released on the website https://xui.xero.com/%3Cyour-new-version%3E/
+   - Check docs have been released on the website https://xui.xero.com/[your-new-version]/
 
 ### Alpha/beta releases
 

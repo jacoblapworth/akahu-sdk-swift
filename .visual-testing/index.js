@@ -123,6 +123,10 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/isolationheader/stories/variations.js`,
   },
   {
+    testsPrefix: 'XUI Popover',
+    variationsPath: `${variationsPath}/popover/stories/variations.js`,
+  },
+  {
     testsPrefix: 'XUI Progress Indicator',
     variationsPath: `${variationsPath}/progressindicator/stories/variations.js`,
     readyEvent: 'xui-progress-ready-event',

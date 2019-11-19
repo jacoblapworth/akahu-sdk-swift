@@ -38,7 +38,7 @@ function getComponent({
   const avatar = hasAvatar && <XUIAvatar size="small" value="ABC" />;
   const tags = hasTag
     ? [
-        <XUITag key="tag-1" size="medium" variant="positive">
+        <XUITag key="tag-1" size="small" variant="positive">
           Tag
         </XUITag>,
       ]

@@ -18,7 +18,7 @@ const navigationButton = <XUIIconButton icon={cross} ariaLabel="close" />;
 const title = 'Main Title';
 const secondary = 'Secondary Title';
 const actions = (
-  <XUIButton ariaLabel="Primary action" variant="primary">
+  <XUIButton ariaLabel="Primary action" variant="primary" size="small">
     Primary
   </XUIButton>
 );

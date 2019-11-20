@@ -142,7 +142,7 @@ Picklist.propTypes = {
   shouldTruncate: PropTypes.bool,
   /**
    * Defines the swap breakpoint (container width) between tab-styled dropdown and horizontal picklist.
-   * Supported breakpoints are `small` (400px), `medium` (800px), `large` (1000px), and `xlarge` (1200px).<br>
+   * Supported breakpoints are `small` (600px), `medium` (800px), `large` (1000px), and `xlarge` (1200px).<br>
    * ⚠️ *Horizontal picklists only*
    */
   swapAtBreakpoint(...parameters) {

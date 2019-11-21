@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-compounds-displayingdata-contentblock.html" isDocLink>Content blocks in the XUI Documentation</a>
+	<a href="../section-components-displayingdata-contentblock.html" isDocLink>Content blocks in the XUI Documentation</a>
 </div>
 
 `XUIContentBlock` components are typically used inside a Panel to display a simplified top-level view for a detailed sub page, often containing quick access to actions. If you are not using them inside a `XUIPanel` component, we recommend applying the `xui-panel` class to the `XUIContentBlock`, as per the examples below. Any content should be placed inside a `XUIContentBlockItem` component.

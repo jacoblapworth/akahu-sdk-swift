@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-building-blocks-controls-toggle.html" isDocLink>Toggle in the XUI Documentation</a>
+	<a href="../section-components-controls-toggle.html" isDocLink>Toggle in the XUI Documentation</a>
 </div>
 
 `XUIToggle` is a control that can behave like a radio, or like a checkbox. It supports different layout patterns for a variety of use cases.

@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-compounds-navigation-stepper.html" isDocLink>Stepper in the XUI Documentation</a>
+	<a href="../section-components-navigation-stepper.html" isDocLink>Stepper in the XUI Documentation</a>
 </div>
 
 The stepper renders a set of _tabs_ and a _content_ area corresponding to the currently _active_ step/tab.<br />`import XUIStepper from '@xero/xui/react/stepper';`.

@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-compounds-collectinginput-dropdowns.html" isDocLink>Dropdown in the XUI Documentation</a>
+	<a href="../section-components-collectinginput-dropdowns.html" isDocLink>Dropdown in the XUI Documentation</a>
 </div>
 
 A set of components used to associate a trigger (button, text input etc) with a popup containing content. It can handle any content such as [DatePickers](#datepicker) or forms. They provide the user similar behaviour to a native `<select />` element.

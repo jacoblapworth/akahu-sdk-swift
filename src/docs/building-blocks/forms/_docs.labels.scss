@@ -6,7 +6,7 @@
 // The words used with form elements can make or break an interface. Labels are almost always needed
 // and need writing well - get some [tips in the Language Guide](/product-language-guide/components/examples/#form-labels).
 //
-// Styleguide: Compounds.CollectingInput.Forms.6
+// Styleguide: Components.CollectingInput.Forms.6
 
 // Labels
 //
@@ -59,7 +59,7 @@
 // xui-text-label: Adds text styling only
 // xui-fieldlabel-layout: Adds correct spacing
 //
-// Styleguide: Compounds.CollectingInput.Forms.6.1
+// Styleguide: Components.CollectingInput.Forms.6.1
 
 // Hiding labels
 //
@@ -72,7 +72,7 @@
 // Do: Include an icon and placeholder
 // Warning: Ensure accessibility is maintained with hidden or aria-labels
 //
-// Styleguide: Compounds.CollectingInput.Forms.6.1.1
+// Styleguide: Components.CollectingInput.Forms.6.1.1
 
 // Label language
 //
@@ -83,7 +83,7 @@
 //
 // Get more good [tips in the Language Guide](/product-language-guide/components/examples/#form-labels).
 //
-// Styleguide: Compounds.CollectingInput.Forms.6.1.2
+// Styleguide: Components.CollectingInput.Forms.6.1.2
 
 // Placeholders
 //
@@ -101,11 +101,11 @@
 // </label>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Forms.6.2
+// Styleguide: Components.CollectingInput.Forms.6.2
 
 // Notes and errors
 //
-// Notes and [validation](./section-compounds-collectinginput-forms.html#compounds-collectinginput-forms-7) messages are added under fields in a `xui-validation-layout` wrapper.
+// Notes and [validation](./section-components-collectinginput-forms.html#components-collectinginput-forms-7) messages are added under fields in a `xui-validation-layout` wrapper.
 // This has negative margin so only affects the form layout if it breaks to multiple lines -
 // avoiding layout thrashing if messages appear when fields are focused or blurred.
 //
@@ -120,4 +120,4 @@
 // 	<div class="xui-validation xui-validation-layout">Found on the top of your IR3 statement</div>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Forms.6.3
+// Styleguide: Components.CollectingInput.Forms.6.3

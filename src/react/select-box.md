@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-building-blocks-controls-select.html" isDocLink>Select Box in the XUI Documentation</a>
+	<a href="../section-components-controls-select.html" isDocLink>Select Box in the XUI Documentation</a>
 </div>
 
 `SelectBox` is an opinionated component which wraps [`DropDown`](#dropdown) and [`DropDownToggled`](#dropdowntoggled). It's designed as a simple alternative to using an HTML `<select />`. If you need more fine-grained control or other behaviour you should use the suite of [`DropDown`](#dropdown) components directly.

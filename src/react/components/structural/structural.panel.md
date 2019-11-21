@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-compounds-displayingdata-panel.html" isDocLink>Panels in the XUI Documentation</a>
+	<a href="../section-components-displayingdata-panel.html" isDocLink>Panels in the XUI Documentation</a>
 </div>
 
 Panels are top-level containers for grouping page content. XUIPanel can optionally contain XUIPanelHeading, XUIPanelFooter, and/or XUIPanelSection (which can have its own header). XUIPanel will also accept content designated as a sidebar.

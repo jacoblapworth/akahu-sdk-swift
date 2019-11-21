@@ -8,22 +8,22 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.kou6b67d5zkb
 //
-// Styleguide: Compounds.CollectingInput.Search
+// Styleguide: Components.CollectingInput.Search
 
 // Best practice
 //
 // Tips:
-// Do: Show a clear button when a value has been entered to enable quick reseting
+// Do: Show a clear button when a value has been entered to enable quick resetting
 // Warning: Make sure to allow space for the software keyboard at narrow viewports
 // Warning: Always include a header at narrow viewports to enable dismissing the dropdown
 //
-// Styleguide: Compounds.CollectingInput.Search.1
+// Styleguide: Components.CollectingInput.Search.1
 
 // Anatomy
 //
 // At times, dropdown options are too numerous to show all at once, or the space available for the trigger is not suitable for it to be an input.
 // In these cases, nest a search field inside the dropdown.
-// To do this, use the following classes in combination with a [borderless input](section-building-blocks-controls-textinput.html#building-blocks-controls-textinput-7-8) and [picklist](section-compounds-displayingdata-picklist.html).
+// To do this, use the following classes in combination with a [borderless input](section-components-controls-textinput.html#components-controls-textinput-7-8) and [picklist](section-components-displayingdata-picklist.html).
 //
 // Classes:
 // xui-dropdown--header: Header container
@@ -32,7 +32,7 @@
 // xui-dropdown-fullheight: Apply to dropdown to make room for the software keyboard
 // xui-dropdown-hide-small-up: Apply to a dropdown sub-element such as the header or actions to hide above 600px
 //
-// Styleguide: Compounds.CollectingInput.Search.2
+// Styleguide: Components.CollectingInput.Search.2
 
 // Standard
 //
@@ -97,7 +97,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Search.2.1
+// Styleguide: Components.CollectingInput.Search.2.1
 
 // Create new
 //
@@ -172,7 +172,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Search.2.2
+// Styleguide: Components.CollectingInput.Search.2.2
 
 // Empty state
 //
@@ -222,4 +222,4 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Search.2.3
+// Styleguide: Components.CollectingInput.Search.2.3

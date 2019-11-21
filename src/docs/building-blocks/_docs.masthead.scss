@@ -8,20 +8,20 @@
 //
 // By default, Xero’s global navigation bar works well within viewports at least `$xui-page-width-small` wide. Fully responsive behaviour can be enabled, which supports the navigation to work well at any viewport width. A user’s experience on a device narrower than `$xui-page-width-small` can differ substantially depending on a page’s navigational and responsive behaviour. To avoid a jarring experience, consider the other pages within a flow when determining whether to enable responsive behaviour.  For more information on why responsive behaviour is optional as opposed to default, see [this blogpost](https://github.dev.xero.com/Xero/Navigation.UI/wiki/Why-is-the-header-not-responsive-in-Xero-Business%3F).
 //
-// Styleguide: Compounds.Navigation.Global navigation
+// Styleguide: Components.Navigation.Global navigation
 
 // Default behaviour
 //
 // When the viewport is wider than `$xui-page-width-small`, the navigation will span 100% of the viewport's width. When the viewport is less than `$xui-page-width-small`, the navigation will horizontally overflow the viewport, causing content to be partially cropped. On mobile devices, web pages will be zoomed out to fit the entire navigation and page content.
 //
-// Styleguide: Compounds.Navigation.Global navigation.1
+// Styleguide: Components.Navigation.Global navigation.1
 
 // Example
 //
 // <iframe style="width: 100%; height: 650px; border: 0; background: #F2F3F3;" src='https://github.dev.xero.com/pages/Xero/Navigation.UI/business.html#'>
 // </iframe>
 //
-// Styleguide: Compounds.Navigation.Global navigation.1.1
+// Styleguide: Components.Navigation.Global navigation.1.1
 
 // Responsive behaviour
 //
@@ -29,7 +29,7 @@
 //
 // Implementation notes can be found [here](https://github.dev.xero.com/Xero/Navigation.UI).
 //
-// Styleguide: Compounds.Navigation.Global navigation.2
+// Styleguide: Components.Navigation.Global navigation.2
 
 // Best practice
 //
@@ -39,11 +39,11 @@
 // Do: Test page behaviour and layout on mobile devices
 // Warning: Avoid switching between default and responsive behaviour across pages within common flows and user journeys
 //
-// Styleguide: Compounds.Navigation.Global navigation.2.1
+// Styleguide: Components.Navigation.Global navigation.2.1
 
 // Example
 //
 // <iframe style="width: 100%; height: 650px; border: 0; background: #F2F3F3;" src='https://s.codepen.io/team/xero/debug/8c24ff66671e6222f68495d5bd806bcc'>
 // </iframe>
 //
-// Styleguide: Compounds.Navigation.Global navigation.2.2
+// Styleguide: Components.Navigation.Global navigation.2.2

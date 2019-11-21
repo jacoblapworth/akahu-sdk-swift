@@ -72,6 +72,20 @@
     padding-bottom: 0;
   }
 }
+
+.ds-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include xui-breakpoint-small-to-medium {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include xui-breakpoint-medium-up {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 //--------------------------
 // Headings
 //--------------------------

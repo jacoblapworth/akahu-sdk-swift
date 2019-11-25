@@ -47,6 +47,7 @@ const AccordionTrigger = ({
 
   return (
     <XUIContentBlockItem
+      _isAccordionTrigger
       isRowLink
       leftContent={
         <Fragment>

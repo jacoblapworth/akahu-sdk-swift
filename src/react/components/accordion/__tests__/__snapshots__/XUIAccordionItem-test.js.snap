@@ -9,14 +9,14 @@ exports[`<XUIAccordionItem /> should render the base component with only require
   className="xui-accordionwrapper"
 >
   <div
-    className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
+    className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
     onClick={[Function]}
     onKeyDown={[Function]}
     role="button"
     tabIndex={0}
   >
     <div
-      className="xui-contentblockitem--leftcontent"
+      className="xui-accordiontrigger--leftcontent"
     >
       <div
         className="xui-accordiontrigger--arrow"

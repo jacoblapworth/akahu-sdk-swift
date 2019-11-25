@@ -2,7 +2,7 @@
 
 exports[`<XUIAccordion /> | Accordion Trigger should render an automation id when passed in the qaHook prop 1`] = `
 <div
-  className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
+  className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
   data-automationid="test-id"
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -10,7 +10,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
   tabIndex={0}
 >
   <div
-    className="xui-contentblockitem--leftcontent"
+    className="xui-accordiontrigger--leftcontent"
   >
     <div
       className="xui-accordiontrigger--arrow"
@@ -43,13 +43,13 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
     </div>
   </div>
   <div
-    className="xui-contentblockitem--maincontent"
+    className="xui-accordiontrigger--maincontent"
   >
     <div
-      className="xui-contentblockitem--headings"
+      className="xui-accordiontrigger--headings"
     >
       <span
-        className="xui-contentblockitem--primaryheading"
+        className="xui-accordiontrigger--primaryheading"
       >
         John Smith
       </span>
@@ -60,14 +60,14 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
 
 exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
 <div
-  className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
+  className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
   onClick={[Function]}
   onKeyDown={[Function]}
   role="button"
   tabIndex={0}
 >
   <div
-    className="xui-contentblockitem--leftcontent"
+    className="xui-accordiontrigger--leftcontent"
   >
     <div
       className="xui-accordiontrigger--arrow"
@@ -100,13 +100,13 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
     </div>
   </div>
   <div
-    className="xui-contentblockitem--maincontent"
+    className="xui-accordiontrigger--maincontent"
   >
     <div
-      className="xui-contentblockitem--headings"
+      className="xui-accordiontrigger--headings"
     >
       <span
-        className="xui-contentblockitem--primaryheading"
+        className="xui-accordiontrigger--primaryheading"
       >
         John Smith
       </span>
@@ -117,14 +117,14 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
 
 exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
 <div
-  className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
+  className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
   onClick={[Function]}
   onKeyDown={[Function]}
   role="button"
   tabIndex={0}
 >
   <div
-    className="xui-contentblockitem--leftcontent"
+    className="xui-accordiontrigger--leftcontent"
   >
     <div
       className="xui-accordiontrigger--arrow"
@@ -157,13 +157,13 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
     </div>
   </div>
   <div
-    className="xui-contentblockitem--maincontent"
+    className="xui-accordiontrigger--maincontent"
   >
     <div
-      className="xui-contentblockitem--headings"
+      className="xui-accordiontrigger--headings"
     >
       <span
-        className="xui-contentblockitem--primaryheading"
+        className="xui-accordiontrigger--primaryheading"
       >
         John Smith
       </span>
@@ -174,14 +174,14 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
 
 exports[`<XUIAccordion /> | Accordion Trigger should render with available props 1`] = `
 <div
-  className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
+  className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
   onClick={[Function]}
   onKeyDown={[Function]}
   role="button"
   tabIndex={0}
 >
   <div
-    className="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout"
+    className="xui-accordiontrigger--leftcontent xui-accordiontrigger--leftcontent-layout"
   >
     <div
       className="xui-accordiontrigger--arrow"
@@ -219,18 +219,18 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
     </abbr>
   </div>
   <div
-    className="xui-contentblockitem--maincontent"
+    className="xui-accordiontrigger--maincontent"
   >
     <div
-      className="xui-contentblockitem--headings"
+      className="xui-accordiontrigger--headings"
     >
       <span
-        className="xui-contentblockitem--primaryheading"
+        className="xui-accordiontrigger--primaryheading"
       >
         John Smith
       </span>
       <span
-        className="xui-contentblockitem--secondaryheading"
+        className="xui-accordiontrigger--secondaryheading"
       >
         <div>
           <span>
@@ -242,28 +242,28 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
       </span>
     </div>
     <div
-      className="xui-contentblockitem--description"
+      className="xui-accordiontrigger--description"
     >
       <span
-        className="xui-contentblockitem--description--text"
+        className="xui-accordiontrigger--description--text"
       >
         description
       </span>
     </div>
   </div>
   <div
-    className="xui-contentblockitem--rightcontent"
+    className="xui-accordiontrigger--rightcontent"
     onClick={[Function]}
     onKeyDown={[Function]}
     role="presentation"
   >
     <div
-      className="xui-contentblockitem--pinnedvalue"
+      className="xui-accordiontrigger--pinnedvalue"
     >
       00:00
     </div>
     <button
-      className="xui-contentblockitem--actions"
+      className="xui-accordiontrigger--actions"
     >
       Action
     </button>

@@ -51,13 +51,13 @@ const buildExampleContentblockItem = children =>
     if (child.leftContent === 'checkbox') {
       child.leftContent = <XUICheckbox isLabelHidden>Row checkbox</XUICheckbox>;
     } else if (child.leftContent === 'avatar') {
-      child.leftContent = <XUIAvatar value="Pixar" />;
+      child.leftContent = <XUIAvatar size="small" value="Pixar" />;
     } else if (child.leftContent === 'rollover') {
       child.leftContent = (
         <XUIRolloverCheckbox
           isCheckboxHidden
           label="contentBlockItem rollover"
-          rolloverComponent={<XUIAvatar value="Tim Redmond" />}
+          rolloverComponent={<XUIAvatar size="small" value="Tim Redmond" />}
         />
       );
     }

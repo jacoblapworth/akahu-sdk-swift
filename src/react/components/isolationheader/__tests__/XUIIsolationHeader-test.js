@@ -66,7 +66,7 @@ describe('<XUIIsolationHeader>', () => {
         isPositionFixed
       >
         <div>All my children</div>
-      </XUIIsolationHeader>
+      </XUIIsolationHeader>,
     );
     expect(isolationHeader.hasClass('xui-isolationheader-fixed')).toBeTruthy();
   });

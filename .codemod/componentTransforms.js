@@ -1,5 +1,5 @@
 module.exports = {
-  'accordion': [
+  accordion: [
     {
       isDefault: true,
       props: [
@@ -26,7 +26,7 @@ module.exports = {
       ],
     },
   ],
-  'autocompleter': [
+  autocompleter: [
     {
       isDefault: true,
       props: [
@@ -62,7 +62,7 @@ module.exports = {
       ],
     },
   ],
-  'barchart': [
+  barchart: [
     {
       isDefault: true,
       props: getBarChartProps(),
@@ -72,7 +72,7 @@ module.exports = {
       props: getBarChartProps(),
     },
   ],
-  'button': [
+  button: [
     {
       isDefault: true,
       props: [
@@ -86,10 +86,19 @@ module.exports = {
             return node && node.value;
           },
         },
+        {
+          name: 'variant',
+          valueTransform: node => {
+            if (node.value.value.includes('icon')) {
+              return j.literal('MAKE_ME_AN_ICONBUTTON');
+            }
+            return node && node.value;
+          },
+        },
       ],
     },
   ],
-  'dropdown': [
+  dropdown: [
     {
       name: 'DropDownHeader',
       props: [
@@ -126,7 +135,7 @@ module.exports = {
       ],
     },
   ],
-  'isolationheader': [
+  isolationheader: [
     {
       name: 'XUIIsolationHeaderActions',
       newName: 'IsolationHeaderActions_MOVE_TO_PROP_ON_ISOLATION_HEADER',
@@ -144,7 +153,7 @@ module.exports = {
       newName: 'IsolationHeaderTitle_MOVE_TO_PROP_ON_ISOLATION_HEADER',
     },
   ],
-  'modal': [
+  modal: [
     {
       isDefault: true,
       props: [
@@ -161,7 +170,7 @@ module.exports = {
       ],
     },
   ],
-  'picklist': [
+  picklist: [
     {
       name: 'NestedPicklistTrigger',
       props: [
@@ -178,7 +187,7 @@ module.exports = {
       ],
     },
   ],
-  'loader': [
+  loader: [
     {
       isDefault: true,
       props: [
@@ -195,7 +204,7 @@ module.exports = {
       ],
     },
   ],
-  'pill': [
+  pill: [
     {
       isDefault: true,
       props: [
@@ -229,7 +238,7 @@ module.exports = {
       ],
     },
   ],
-  'table': [
+  table: [
     {
       isDefault: true,
       props: [
@@ -286,7 +295,7 @@ module.exports = {
       ],
     },
   ],
-  'structural': [
+  structural: [
     {
       name: 'XUIBreadcrumb',
       newName: 'XUIBreadcrumbTrail',

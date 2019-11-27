@@ -25,6 +25,7 @@
 // xui-rollovercheckbox: A flexed wrapper
 // xui-rollovercheckbox--target: The component hit target
 // xui-rollovercheckbox--target-disabled: disabled styling for the target
+// xui-styledcheckboxradio-is-rollover: Signifies that the underlying checkbox is part of a rollover
 //
 //
 //
@@ -34,7 +35,7 @@
 //		<div>
 //      <abbr class="xui-avatar xui-avatar-color-9" title="Darryl King" role="presentation">DK</abbr>
 //		</div>
-//    <label class="xui-rollovercheckbox-hidden xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio">
+//    <label class="xui-rollovercheckbox-hidden xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover">
 //      <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium" type="checkbox">
 //      <div class="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium"></div>
 //     </label>

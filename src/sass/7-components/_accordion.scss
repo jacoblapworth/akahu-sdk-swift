@@ -11,7 +11,7 @@
 //
 // Introduction: Accordions are used to display a vertically expandable & collapsible list that reveals and hides additional content.
 //
-// Styleguide: Compounds.DisplayingData.Accordion
+// Styleguide: Components.DisplayingData.Accordion
 
 // Best practice
 //
@@ -23,11 +23,11 @@
 // Warning: Avoid displaying dense information in accordion content
 // Don't: Don’t nest accordions inside each other.
 //
-// Styleguide: Compounds.DisplayingData.Accordion.1
+// Styleguide: Components.DisplayingData.Accordion.1
 
 // Anatomy
 //
-// Styleguide: Compounds.DisplayingData.Accordion.2
+// Styleguide: Components.DisplayingData.Accordion.2
 
 // Closed
 //
@@ -65,7 +65,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Accordion.2.1
+// Styleguide: Components.DisplayingData.Accordion.2.1
 
 // Open
 //
@@ -138,7 +138,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Accordion.2.2
+// Styleguide: Components.DisplayingData.Accordion.2.2
 
 // Accordion trigger layout
 //
@@ -150,7 +150,7 @@
 // Do: Treat accordion trigger layout similarly to Content block
 // Don't: Don’t override focus styling
 //
-// Styleguide: Compounds.DisplayingData.Accordion.3
+// Styleguide: Components.DisplayingData.Accordion.3
 
 // Left content
 //
@@ -224,7 +224,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Accordion.3.1
+// Styleguide: Components.DisplayingData.Accordion.3.1
 
 // Right content
 //
@@ -293,7 +293,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Accordion.3.2
+// Styleguide: Components.DisplayingData.Accordion.3.2
 
 // Accordion content layout
 //
@@ -304,7 +304,7 @@
 // Do: Display small pieces of additional information
 // Warning: Avoid displaying dense information in accordion content
 //
-// Styleguide: Compounds.DisplayingData.Accordion.4
+// Styleguide: Components.DisplayingData.Accordion.4
 
 // Plain text
 //
@@ -364,7 +364,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Accordion.4.1
+// Styleguide: Components.DisplayingData.Accordion.4.1
 
 // Content block items
 //
@@ -469,7 +469,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Accordion.4.2
+// Styleguide: Components.DisplayingData.Accordion.4.2
 
 // Loading
 //
@@ -547,7 +547,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Accordion.4.3
+// Styleguide: Components.DisplayingData.Accordion.4.3
 
 // Empty
 //
@@ -626,7 +626,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Accordion.4.4
+// Styleguide: Components.DisplayingData.Accordion.4.4
 
 @import '../vars';
 @import '../mixins';

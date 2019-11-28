@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-		<a href="../section-compounds-displayingdata-table.html" isDocLink>Table component in the XUI Documentation</a>
+		<a href="../section-components-displayingdata-table.html" isDocLink>Table component in the XUI Documentation</a>
 </div>
 
 The Table scaffold is a convent way to layout data sets with an _accessible_ and _responsive design_ mindset.

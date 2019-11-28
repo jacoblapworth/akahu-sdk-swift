@@ -13,15 +13,9 @@
     </a>
   </div>
   <div class="ds-tile--home-small ds-tile--home-elements">
-    <a href="section-building-blocks.html">
-      <h3 class="xui-heading-large">Elements</h3>
-      <p>Small pieces of UI that can be used in isolation or combination with each other. This includes form controls, identifiers and alerts.</p>
-    </a>
-  </div>
-  <div class="ds-tile--home-small ds-tile--home-compounds">
-    <a href="section-compounds.html">
-      <h3 class="xui-heading-large">Compounds</h3>
-      <p>Compounds combine a number of elements together, such as Content blocks, modals and accordions, to name a few.</p>
+    <a href="section-components.html">
+      <h3 class="xui-heading-large">Components</h3>
+      <p>Components are reusable pieces of UI that can stand alone or be combined with other components.</p>
     </a>
   </div>
   <div class="ds-tile--home ds-tile--home-react">
@@ -82,8 +76,8 @@ void 0!==c?e&&"set"in e&&void 0!==(d=e.set(a,c,b))?d:a[b]=c:e&&"get"in e&&null!=
   const requestAFeature = {
     triggerFunction: function(showCollectorDialog) {
       jQuery("#jira-feature-button").click(function(e) {
-    	  e.preventDefault();
-      	showCollectorDialog();
+        e.preventDefault();
+        showCollectorDialog();
       });
     },
     fieldValues: {

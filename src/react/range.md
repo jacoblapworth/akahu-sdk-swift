@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-building-blocks-controls-range.html" isDocLink>XUIRange in the XUI Documentation</a>
+	<a href="../section-components-controls-range.html" isDocLink>XUIRange in the XUI Documentation</a>
 </div>
 
 XUI provides a custom range slider for consistency across platforms and visual alignment with other form elements.

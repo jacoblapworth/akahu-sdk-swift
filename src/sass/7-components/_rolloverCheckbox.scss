@@ -61,3 +61,10 @@ $xui-checkbox-focus: 6px;
 .#{$ns}-rollovercheckbox--checkbox {
   align-self: center;
 }
+
+// This affects the visibility of the focused area, particularly on touch devices.
+.#{$ns}-styledcheckboxradio-is-rollover {
+  align-self: center;
+  height: min-content;
+  padding: 3px; // The width of the focus shadow.
+}

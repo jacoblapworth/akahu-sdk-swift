@@ -1,9 +1,9 @@
 <div class="xui-margin-vertical">
-	<a href="../section-compounds-navigation-isolation-header.html" isDocLink>Isolation Header in the XUI Documentation</a>
+	<a href="../section-components-navigation-isolation-header.html" isDocLink>Isolation Header in the XUI Documentation</a>
 </div>
 
 `XUIIsolationHeader` replaces the standard global header for tasks that are part of a focused workflow.
-See the [implementation details section in the XUI docs](../section-compounds-navigation-isolation-header.html#compounds-navigation-isolation-header-4-1)
+See the [implementation details section in the XUI docs](../section-components-navigation-isolation-header.html#components-navigation-isolation-header-4-1)
 for behavioural aspects.
 
 ## Examples

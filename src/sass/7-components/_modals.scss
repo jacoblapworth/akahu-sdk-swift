@@ -7,11 +7,11 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.dmxa22se8ql4
 //
-// Teaser: Add layers of infromation or interaction
+// Teaser: Add layers of information or interaction
 //
 // Introduction: Modals are used to provide additional functionality not available on the base page, and provide intermediary steps between larger flows.
 //
-// Styleguide: Compounds.CollectingInput.Modals
+// Styleguide: Components.CollectingInput.Modals
 
 // Best practice
 //
@@ -20,7 +20,7 @@
 // Warning: Where possible, avoid using modals to confirm user actions. Instead, action them immediately, and provide an undo option via a toast.
 // Warning: Avoid ambiguous words like `OK` or `Yes` for footer actions. Be specific.
 //
-// Styleguide: Compounds.CollectingInput.Modals.1
+// Styleguide: Components.CollectingInput.Modals.1
 
 // Masks
 //
@@ -31,7 +31,7 @@
 // xui-mask: Mask for a modal, hidden by default
 // xui-mask-is-active:  Add to show the mask
 //
-// Styleguide: Compounds.CollectingInput.Modals.2
+// Styleguide: Components.CollectingInput.Modals.2
 
 // Layout
 //
@@ -42,7 +42,7 @@
 // xui-modal: Container for a modal
 // xui-modal-layout: Recommended layout for a modal
 //
-// Styleguide: Compounds.CollectingInput.Modals.3
+// Styleguide: Components.CollectingInput.Modals.3
 
 // Anatomy
 //
@@ -98,7 +98,7 @@
 //		</section>
 //	</div>
 //
-// Styleguide: Compounds.CollectingInput.Modals.4
+// Styleguide: Components.CollectingInput.Modals.4
 
 // Header
 //
@@ -107,14 +107,14 @@
 // xui-modal--heading: Title within the header
 // xui-modal--close: Close button within the header
 //
-// Styleguide: Compounds.CollectingInput.Modals.4.1
+// Styleguide: Components.CollectingInput.Modals.4.1
 
 // Body
 //
 // Classes:
 // xui-modal--body: Container for body content
 //
-// Styleguide: Compounds.CollectingInput.Modals.4.2
+// Styleguide: Components.CollectingInput.Modals.4.2
 
 // Footer
 //
@@ -127,7 +127,7 @@
 // xui-actions--primary: Apply to primary button to set the correct order
 // xui-actions--secondary: Apply to primary button to set the correct order
 //
-// Styleguide: Compounds.CollectingInput.Modals.4.3
+// Styleguide: Components.CollectingInput.Modals.4.3
 
 // Size variants
 //
@@ -217,26 +217,26 @@
 // 	</section>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Modals.5
+// Styleguide: Components.CollectingInput.Modals.5
 
 // Closing a modal
 //
 // Modals can be closed by either selecting the close button, selecting a button in the modal footer, or pressing ESC while the modal is open.
 // Selecting the mask should not close the modal, as accidental clicks may lose any changes made within the modal.
 //
-// Styleguide: Compounds.CollectingInput.Modals.6
+// Styleguide: Components.CollectingInput.Modals.6
 
 // Handling overflow
 //
 // When dealing with modal content taller than the viewport height, the default behavior is to scroll the entire mask.
-// However, if neccessary, we also support applying a max-height on `xui-modal--body`, to provide inner scroll.
+// However, if necessary, we also support applying a max-height on `xui-modal--body`, to provide inner scroll.
 // In both cases, always disable scroll on the background `body` when the mask is active, to prevent double scroll bars.
 //
 // Classes:
 // xui-u-overflow-hidden: Apply to body to temporarily disable scroll
 // xui-modal--body-layout: Apply to modal body to set a max height of 45vh
 //
-// Styleguide: Compounds.CollectingInput.Modals.7
+// Styleguide: Components.CollectingInput.Modals.7
 
 // Keyboard focus
 //
@@ -244,7 +244,7 @@
 // For example, this could the first form element or a button in the footer.
 // The concealed page content must also be temporarily disabled and should not be accessible via the keyboard while the modal is open.
 //
-// Styleguide: Compounds.CollectingInput.Modals.8
+// Styleguide: Components.CollectingInput.Modals.8
 
 // Accessibility
 //
@@ -256,7 +256,7 @@
 // This attribute indicates to assistive technology that background content is not for interaction, at that time.
 // Take care not to apply the attribute to any ancestors of the modal, and be sure to remove them, when the modal closes.
 //
-// Styleguide: Compounds.CollectingInput.Modals.9
+// Styleguide: Components.CollectingInput.Modals.9
 
 .#{$ns}-mask {
   align-items: center;

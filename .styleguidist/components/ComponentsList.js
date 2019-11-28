@@ -40,7 +40,7 @@ const styles = ({ color, fontFamily, fontSize, space }) => ({
       paddingTop: 'calc(0.75em + 0.5vh)',
       paddingBottom: 'calc(0.75em + 0.5vh)',
       paddingLeft: 'calc(0.7rem + .7vw)',
-      color: color.link,
+      color: color.light,
       textDecoration: 'none',
     },
   },

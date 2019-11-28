@@ -11,7 +11,7 @@
 //
 // Introduction: Pills are used to build up a collection of filters, or indicate a single selection has been made within an input.
 //
-// Styleguide: Building Blocks.Identifiers.Pill
+// Styleguide: Components.Identifiers.Pill
 
 // Best practice
 //
@@ -20,7 +20,7 @@
 // Do: Use a single pill if explicit removal or replace functionality is desired within an input
 // Warning: Take care to provide the recommended focus state when using keyboard interaction
 //
-// Styleguide: Building Blocks.Identifiers.Pill.1
+// Styleguide: Components.Identifiers.Pill.1
 
 // Anatomy
 //
@@ -41,7 +41,7 @@
 //   </span>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.2
+// Styleguide: Components.Identifiers.Pill.2
 
 // Size variants
 //
@@ -77,7 +77,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.3
+// Styleguide: Components.Identifiers.Pill.3
 
 // Xsmall
 //
@@ -98,11 +98,11 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.3.1
+// Styleguide: Components.Identifiers.Pill.3.1
 
 // Clearing selection
 //
-// To offer quick access to clearing individual pills, include a clear button. To add one, insert an [icon button](section-building-blocks-controls-button.html#building-blocks-controls-button-5), and apply the following classes.
+// To offer quick access to clearing individual pills, include a clear button. To add one, insert an [icon button](section-components-controls-button.html#components-controls-button-5), and apply the following classes.
 //
 // Classes:
 // xui-pill-is-deletable: Apply to pill
@@ -136,7 +136,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.4
+// Styleguide: Components.Identifiers.Pill.4
 
 // Secondary label
 //
@@ -172,12 +172,12 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.5
+// Styleguide: Components.Identifiers.Pill.5
 
 // Avatar
 //
 // If a selection is associated with a person or business, make sure to include an avatar.
-// To do this, insert an [avatar](section-building-blocks-identifiers-avatar.html) one size variant smaller than the pill size variant and apply the following classes.
+// To do this, insert an [avatar](section-components-identifiers-avatar.html) one size variant smaller than the pill size variant and apply the following classes.
 //
 // Classes:
 // xui-pill-has-avatar: Apply to pill
@@ -209,11 +209,11 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.6
+// Styleguide: Components.Identifiers.Pill.6
 
 // Interactive pills
 //
-// In some cases, triggering an action from a pill is required. To indicate that a pill is click-able, make sure to wrap the content in an [unstyled button](section-building-blocks-controls-button.html#building-blocks-controls-button-2) and apply the following classes.
+// In some cases, triggering an action from a pill is required. To indicate that a pill is click-able, make sure to wrap the content in an [unstyled button](section-components-controls-button.html#components-controls-button-2) and apply the following classes.
 //
 // Classes:
 // xui-pill-interactive: Adds pseudo state styling
@@ -238,7 +238,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.7
+// Styleguide: Components.Identifiers.Pill.7
 
 // Including a link
 //
@@ -271,7 +271,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.7.1
+// Styleguide: Components.Identifiers.Pill.7.1
 
 // Invalid pills
 //
@@ -317,7 +317,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.8
+// Styleguide: Components.Identifiers.Pill.8
 
 // 2xsmall Error Icon
 //
@@ -347,7 +347,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.8.1
+// Styleguide: Components.Identifiers.Pill.8.1
 
 // Indicating focus
 //
@@ -375,7 +375,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.9
+// Styleguide: Components.Identifiers.Pill.9
 
 // Single select pills
 //
@@ -416,7 +416,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.10
+// Styleguide: Components.Identifiers.Pill.10
 
 // Deprecated usage
 //
@@ -465,7 +465,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Pill.10.1
+// Styleguide: Components.Identifiers.Pill.10.1
 
 .#{$ns}-pill {
   align-items: center;

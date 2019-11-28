@@ -1,6 +1,11 @@
-const { execSync } = require('child_process');
+const backstop = require('backstopjs');
+const { EventEmitter } = require('events');
 const path = require('path');
+const { argv } = require('yargs');
+
 const { standardDesktopViewport } = require('../src/react/stories/helpers/viewports');
+
+EventEmitter.defaultMaxListeners = 15;
 
 const storyBookLocation = path.resolve(__dirname, '..', 'dist', 'docs', 'storybook');
 const testingDomain = path.resolve(storyBookLocation, 'iframe.html?');
@@ -42,7 +47,6 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Avatar',
     variationsPath: `${variationsPath}/avatar/stories/variations.js`,
-    delay: 500,
   },
   {
     testsPrefix: 'XUI Banner',
@@ -64,7 +68,6 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Checkbox',
     variationsPath: `${variationsPath}/checkbox/stories/variations.js`,
-    delay: 500,
   },
   {
     testsPrefix: 'XUI ContentBlock',
@@ -134,12 +137,10 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Radio',
     variationsPath: `${variationsPath}/radio/stories/variations.js`,
-    delay: 500,
   },
   {
     testsPrefix: 'XUI Range',
     variationsPath: `${variationsPath}/range/stories/variations.js`,
-    delay: 500,
   },
   {
     testsPrefix: 'Rollover Checkbox',
@@ -157,7 +158,6 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Stepper',
     variationsPath: `${variationsPath}/stepper/stories/variations.js`,
-    delay: 500,
   },
   {
     testsPrefix: 'XUI Table',
@@ -171,7 +171,6 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI TextInput',
     variationsPath: `${variationsPath}/textInput/stories/variations.js`,
-    delay: 1500,
   },
   {
     testsPrefix: 'XUI Toast',
@@ -185,7 +184,6 @@ const componentsToTest = [
     testsPrefix: 'XUI Tooltip',
     variationsPath: `${variationsPath}/tooltip/stories/variations.js`,
     selectors: '#root > div > div > div',
-    delay: 1000,
   },
   {
     testsPrefix: 'Structural',
@@ -194,29 +192,19 @@ const componentsToTest = [
   {
     testsPrefix: 'Components in Components',
     variationsPath: '../.tmp/react-visualregression/stories/components-in-components/tests.js',
-    delay: 1500,
     ...fullPageSettings,
   },
-  /* Uncomment the following vis-reg test if you are working on Compositions.
+  /* Run `npm run test:visual Compositions` if you are working on Compositions.
    * There are 408 visual regression tests for Compositions. Compositions are
    * also incredibly isolated from the rest of the codebase, so you shouldn't
    * need to run them unless you are working on Compositions.
    */
-  // {
-  // 	testsPrefix: 'Compositions',
-  // 	variationsPath: `${variationsPath}/compositions/stories/variations.js`,
-  // 	selectors: '#root',
-  // },
+  {
+    testsPrefix: 'Compositions',
+    variationsPath: `${variationsPath}/compositions/stories/variations.js`,
+    selectors: '#root',
+  },
 ];
-
-// TODO: Investigate if it's possible to run storybook as a module
-execSync('node scripts/build/storybook', (err, stdout, stderr) => {
-  if (err) {
-    console.error(`Exec error: ${err}`);
-  } //eslint-disable-line no-console
-  console.log(`stdout: ${stdout}`); //eslint-disable-line no-console
-  console.log(`stderr: ${stderr}`); //eslint-disable-line no-console
-});
 
 function buildUrl(kind, story) {
   const urlSearch = `selectedKind=${kind}&selectedStory=${story}`;
@@ -225,64 +213,96 @@ function buildUrl(kind, story) {
 
 function buildScenarios() {
   let scenarios = [];
-  componentsToTest.forEach(component => {
-    const { delay, readyEvent } = component;
-    const variationsFile = require(component.variationsPath);
-    const variations = variationsFile && variationsFile[component.variationsProp || 'variations'];
-    scenarios = scenarios.concat(
-      variations.map(story => {
-        const viewports = (story.viewports || component.viewports || [])
-          // Create a shallow clone of viewports because Backstop mutates them
-          .map(viewport => ({ ...viewport }));
-
-        const scenarioProp = {
-          label: `${component.testsPrefix} ${story.storyTitle}`,
-          url: buildUrl(story.storyKind, story.storyTitle),
-          selectors: [story.selectors || component.selectors || '#root > div > div'],
-          misMatchThreshold: story.misMatchThreshold || component.misMatchThreshold || 0.6,
-          selectorExpansion: component.captureAllSelectors,
-          delay,
-          readyEvent,
-          viewports,
-        };
-
-        const { clickSelector, hoverSelector } = story;
-        // Ship with an onReady script that enables the click/hover selector
-        if (clickSelector || hoverSelector) {
-          if (clickSelector) {
-            scenarioProp.clickSelector = clickSelector;
-          } else {
-            scenarioProp.hoverSelector = hoverSelector;
-          }
-          scenarioProp.onReadyScript = 'onReady.js';
+  componentsToTest
+    .filter(({ testsPrefix }) => {
+      if (testsPrefix === 'Compositions') {
+        return argv._.includes('Compositions');
+      }
+      if (argv._.length === 0) {
+        return true;
+      }
+      for (const expression of argv._) {
+        if (testsPrefix.match(new RegExp(expression, 'gi'))) {
+          return true;
         }
+      }
+      return false;
+    })
+    .forEach(component => {
+      const { delay, readyEvent } = component;
+      const variationsFile = require(component.variationsPath);
+      const variations = variationsFile && variationsFile[component.variationsProp || 'variations'];
+      scenarios = scenarios.concat(
+        variations.map(story => {
+          const viewports = (story.viewports || component.viewports || [])
+            // Create a shallow clone of viewports because Backstop mutates them
+            .map(viewport => ({ ...viewport }));
 
-        return scenarioProp;
-      }),
-    );
-  });
+          const scenarioProp = {
+            label: `${component.testsPrefix} ${story.storyTitle}`,
+            url: buildUrl(story.storyKind, story.storyTitle),
+            selectors: [story.selectors || component.selectors || '#root > div > div'],
+            misMatchThreshold: story.misMatchThreshold || component.misMatchThreshold || 0.6,
+            selectorExpansion: component.captureAllSelectors,
+            delay,
+            readyEvent,
+            viewports,
+          };
+
+          scenarioProp.onBeforeScript = 'onBefore.js';
+
+          const { clickSelector, hoverSelector } = story;
+          // Ship with an onReady script that enables the click/hover selector
+          if (clickSelector || hoverSelector) {
+            if (clickSelector) {
+              scenarioProp.clickSelector = clickSelector;
+            } else {
+              scenarioProp.hoverSelector = hoverSelector;
+            }
+            scenarioProp.onReadyScript = 'onReady.js';
+          }
+
+          return scenarioProp;
+        }),
+      );
+    });
 
   return scenarios;
 }
 
 const scenarios = buildScenarios();
+const totalTests = scenarios.reduce((acc, scenario) => acc + (scenario.viewports.length || 1), 0);
 
-module.exports = {
-  id: 'backstop_default',
-  viewports: [standardDesktopViewport],
-  scenarios,
-  paths: {
-    bitmaps_reference: './.visual-testing/reference',
-    bitmaps_test: './.visual-testing/tests',
-    html_report: './.visual-testing/web-report',
-    ci_report: './.visual-testing/ci-report',
-    engine_scripts: './.visual-testing',
-  },
-  report: ['browser', 'CI'],
-  engine: 'chrome',
-  engineFlags: [],
-  asyncCaptureLimit: 4,
-  asyncCompareLimit: 50,
-  debug: false,
-  debugWindow: false,
+global.backstopProgress = {
+  completed: 0,
+  total: totalTests,
 };
+
+backstop('test', {
+  config: {
+    debug: false,
+    debugWindow: false,
+    docker: true,
+    engine: 'puppeteer',
+    engineOptions: {
+      defaultViewport: null,
+      ignoreHTTPSErrors: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    },
+    id: 'backstop_default',
+    paths: {
+      bitmaps_reference: './.visual-testing/reference',
+      bitmaps_test: './.visual-testing/tests',
+      html_report: './.visual-testing/web-report',
+      ci_report: './.visual-testing/ci-report',
+      engine_scripts: './.visual-testing',
+    },
+    report: ['CI'],
+    scenarios,
+    viewports: [standardDesktopViewport],
+  },
+}).catch(error => {
+  if (error.message !== 'Mismatch errors found.') {
+    throw error;
+  }
+});

@@ -1,13 +1,19 @@
-module.exports = (page, scenario) => {
+async function wait(ms) {
+  await new Promise(resolve => setTimeout(resolve, ms));
+}
+
+module.exports = async (page, scenario) => {
   const { clickSelector, hoverSelector } = scenario;
+
+  const xuiMotionDelayLong = 500;
 
   if (clickSelector) {
     page.click(clickSelector);
   }
 
   if (hoverSelector) {
-    page.rect(hoverSelector).result(rect => {
-      page.mouseMoved(rect.left, rect.top);
-    });
+    page.hover(hoverSelector);
   }
+
+  await wait(xuiMotionDelayLong);
 };

@@ -1,6 +1,6 @@
 const storiesWithVariationsKindName = 'Instances/XUIDatePicker';
 
-const currentMonth0 = new Date('Oct 02 2017 00:00:00 GMT+1300');
+const currentMonth0 = new Date('Oct 02 2017 00:00:00 GMT');
 const currentMonth1 = new Date(currentMonth0);
 currentMonth1.setDate(currentMonth0.getDate() + 4);
 const currentMonth2 = new Date(currentMonth0);

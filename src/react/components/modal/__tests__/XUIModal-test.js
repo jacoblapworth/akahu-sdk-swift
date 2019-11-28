@@ -366,4 +366,61 @@ describe('XUIModal', () => {
     modalMounted.instance()._keyUpHandler(new KeyboardEvent('keyup', { key: 'Esc', keyCode: 27 }));
     expect(onClose).toHaveBeenCalled();
   });
+
+  it('removes the existing listener when the keyListenerTarget prop changes', () => {
+    // Arrange
+    const mockRemoveKeyListener = jest.fn();
+
+    const modalMounted = mount(
+      <XUIModal
+        keyListenerTarget={{
+          removeEventListener: mockRemoveKeyListener,
+          addEventListener: NOOP,
+        }}
+        isUsingPortal={false}
+        closeButtonLabel="Close"
+      >
+        <div>test</div>
+      </XUIModal>,
+    );
+
+    // Act
+    modalMounted.setProps({
+      keyListenerTarget: {
+        removeEventListener: NOOP,
+        addEventListener: NOOP,
+      },
+    });
+
+    // Assert
+    expect(mockRemoveKeyListener).toHaveBeenCalled();
+  });
+
+  it('adds a new listener when the keyListenerTarget prop changes', () => {
+    const mockNewAddKeyListener = jest.fn();
+
+    const modalMounted = mount(
+      <XUIModal
+        keyListenerTarget={{
+          removeEventListener: NOOP,
+          addEventListener: NOOP,
+        }}
+        isUsingPortal={false}
+        closeButtonLabel="Close"
+      >
+        <div>test</div>
+      </XUIModal>,
+    );
+
+    // Act
+    modalMounted.setProps({
+      keyListenerTarget: {
+        removeEventListener: NOOP,
+        addEventListener: mockNewAddKeyListener,
+      },
+    });
+
+    // Assert
+    expect(mockNewAddKeyListener).toHaveBeenCalled();
+  });
 });

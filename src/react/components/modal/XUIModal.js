@@ -61,7 +61,7 @@ export default class XUIModal extends Component {
   }
 
   componentWillUnmount() {
-    this.removeListeners();
+    this.removeListeners(this.props.keyListenerTarget);
     const { isTopModal } = this.state;
     if (this.props.isOpen && this._isScrollLocked && isTopModal) {
       this._isScrollLocked = false;
@@ -69,19 +69,13 @@ export default class XUIModal extends Component {
     }
   }
 
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    if (shouldUpdateListeners(this.props, nextProps)) {
-      this.removeListeners();
-    }
-  }
-
   componentDidUpdate(prevProps) {
     const { isOpen, restrictFocus } = this.props;
     const { isTopModal } = this.state;
     const { activeElement } = document;
-
     if (shouldUpdateListeners(this.props, prevProps)) {
+      this.removeListeners(prevProps.keyListenerTarget);
+
       this.addListeners();
     }
 
@@ -132,8 +126,7 @@ export default class XUIModal extends Component {
   /**
    * Remove any global event listeners associated with a given modal.
    */
-  removeListeners = () => {
-    const { keyListenerTarget } = this.props;
+  removeListeners = keyListenerTarget => {
     const listenerTarget = keyListenerTarget == null ? window : keyListenerTarget;
 
     // Be paranoid.  Some test environments won't have a window object.

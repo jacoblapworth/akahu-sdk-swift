@@ -29,6 +29,7 @@ src/sass/tmp
 /coverage
 
 # Visual Regression / backstop
+.docker/
 .visual-testing/tests/*
 .visual-testing/ci-report/*
 .visual-testing/web-report/*

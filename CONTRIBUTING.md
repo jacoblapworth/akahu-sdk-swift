@@ -214,7 +214,15 @@ to aid the review process.
 
 Do not bump the version in package.json as part of your PR. If you would like a release to be made
 once your change has been merged, please highlight that in your PR's description. The UXE team will
-coordinate releases.
+coordinate releases, which adhere to the following guidelines.
+
+| Version                  | Release content                                       | Release cadence     |
+| ------------------------ | ----------------------------------------------------- | ------------------- |
+| Patch                    | Bugs, other low-risk changes                          | As needed - 2 wks\* |
+| Minor                    | New features/components that are backwards-compatible | 30 - 60 days\*      |
+| Major (Breaking changes) | Updates that will cause regressions to older versions | 3 - 6 months\*      |
+
+\*Longest times depend on relevant changes having been merged to the working branch. If there are no changes awaiting release, time between releases could be longer. [Read more on this release strategy.](https://confluence.teamxero.com/display/PLAT/2019/11/28/The+evolution+of+release+strategy+for+XUI)
 
 ## Breaking changes
 

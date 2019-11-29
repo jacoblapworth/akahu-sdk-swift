@@ -326,7 +326,7 @@
 
 // XUI Release information
 //
-// We announce releases as they happen via Slack on [#platform-fed-releases](https://xero.slack.com/messages/C57H6G0RM)
+// We announce releases as they happen via Slack on [#xui-development](https://xero.slack.com/messages/C565NP1A5)
 //
 // You can also talk to us on our respective slack channels #xui-development & #xui-design
 //
@@ -334,22 +334,16 @@
 
 // Release schedule
 //
-// In order to provide predictability to teams, we’ve made the the following commitments to the XUI release schedule. You can read more about these in [Confluence](https://confluence.inside.xero.com/display/FED/The+UX+Engineering+Team+and+XUI#TheUXEngineeringTeamandXUI-SoftwareLovabilityObjectives).
+// In order to provide predictability to teams, we’ve made the the following commitments to the XUI release schedule. You can read more about XUI's customer commitments in [Confluence](https://confluence.teamxero.com/pages/viewpage.action?spaceKey=FED&title=XUI#XUI-SoftwareLovabilityObjectivess).
 //
-// **Major**
-// <span class='xui-margin-left-large'>
-//  Once every 90 days maximum
-// <span>
+// Definitions:
+// Version:	<strong>Release content</strong>:													<strong>Release cadence</strong>
+// Patch:		Bugs, other low-risk changes:															As needed - 2 wks*
+// Minor:		New features/components that are backwards-compatible:		30 - 60 days*
+// Major:		Updates that will cause regressions to older versions**:	3 - 6 months*
 //
-// **Minor**
-// <span class='xui-margin-left-large'>
-//   Once a month maximum
-// <span>
-//
-// **Patch**
-// <span class='xui-margin-left-large'>
-//  Once a week maximum, unless the fix is critical or a security concern
-// <span>
+// Note:
+// *Longest times depend on relevant changes having been merged to the working branch. If there are no changes awaiting release, the time between releases could be longer. <a href="https://confluence.teamxero.com/display/PLAT/2019/11/28/The+evolution+of+release+strategy+for+XUI">Read more on this release strategy.</a><br />**<a href="https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md#breaking-changes">More about breaking changes</a>
 //
 // Styleguide: Updates.100.1
 

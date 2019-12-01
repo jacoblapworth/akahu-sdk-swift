@@ -3,13 +3,22 @@ const { EventEmitter } = require('events');
 const path = require('path');
 const { argv } = require('yargs');
 
+const projectDirectory = argv.docker ? '../' : './';
+function relativeToProjectDirectory(path) {
+  return `${projectDirectory}${path}`;
+}
+
+const originalRequire = require;
+
+require = id => originalRequire(relativeToProjectDirectory(id));
+
 const { standardDesktopViewport } = require('../src/react/stories/helpers/viewports');
 
 EventEmitter.defaultMaxListeners = 15;
 
-const storyBookLocation = path.resolve(__dirname, '..', 'dist', 'docs', 'storybook');
+const storyBookLocation = path.resolve(projectDirectory, 'dist', 'docs', 'storybook');
 const testingDomain = path.resolve(storyBookLocation, 'iframe.html?');
-const variationsPath = '../.tmp/react-visualregression/components';
+const variationsPath = relativeToProjectDirectory('.tmp/react-visualregression/components');
 
 // For components or compositions with absolutely-positioned elements, use fullPageSettings.
 const fullPageSettings = {
@@ -56,6 +65,7 @@ const componentsToTest = [
     testsPrefix: 'XUI Bar Chart',
     variationsPath: `${variationsPath}/chart/stories/variations.js`,
     readyEvent: 'xui-bar-chart-ready-event',
+    delay: 500,
   },
   {
     testsPrefix: 'XUI Button',
@@ -191,7 +201,9 @@ const componentsToTest = [
   },
   {
     testsPrefix: 'Components in Components',
-    variationsPath: '../.tmp/react-visualregression/stories/components-in-components/tests.js',
+    variationsPath: relativeToProjectDirectory(
+      '.tmp/react-visualregression/stories/components-in-components/tests.js',
+    ),
     ...fullPageSettings,
   },
   /* Run `npm run test:visual Compositions` if you are working on Compositions.

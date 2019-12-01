@@ -77,7 +77,7 @@ async function test() {
 
   // Run visual regression tests and copy results to /.visual-testing
   console.log(chalk.blue('[Docker]'), 'Running visual regression tests');
-  await docker.exec(['node', '../.visual-testing/index.js', ...argv._]);
+  await docker.exec(['node', './.visual-testing/index.js', ...argv._, '--docker']);
   await docker.exec(['cp', '-r', './.visual-testing/ci-report', '../.visual-testing/']);
   await docker.exec(['cp', '-r', './.visual-testing/tests', '../.visual-testing/']);
   await docker.exec(['cp', '-r', './.visual-testing/web-report', '../.visual-testing/']);
@@ -87,9 +87,9 @@ async function test() {
 
   open('./.visual-testing/web-report/index.html');
 
-  console.log(logScriptRunOutput(twoDecimals(perf.delta), 'Visual regression tests'));
+  await docker.stopContainer();
 
-  docker.stopContainer();
+  return logScriptRunOutput(twoDecimals(perf.delta), 'Visual regression tests');
 }
 
 module.exports = test;

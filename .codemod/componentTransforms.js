@@ -1,3 +1,5 @@
+const remove = () => () => undefined;
+
 module.exports = {
   accordion: [
     {
@@ -39,6 +41,10 @@ module.exports = {
 
             return node && node.value;
           },
+        },
+        {
+          name: 'inputSize',
+          valueTransform: remove(),
         },
       ],
     },
@@ -94,6 +100,17 @@ module.exports = {
             }
             return node && node.value;
           },
+        },
+      ],
+    },
+  ],
+  datepicker: [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'isCompact',
+          valueTransform: remove(),
         },
       ],
     },
@@ -172,6 +189,42 @@ module.exports = {
   ],
   picklist: [
     {
+      isDefault: true,
+      props: [
+        {
+          name: 'size',
+          valueTransform: remove(),
+        },
+      ],
+    },
+    {
+      name: 'Pickitem',
+      props: [
+        {
+          name: 'size',
+          valueTransform: remove(),
+        },
+      ],
+    },
+    {
+      name: 'NestedPicklist',
+      props: [
+        {
+          name: 'size',
+          valueTransform: remove(),
+        },
+      ],
+    },
+    {
+      name: 'NestedPicklistContainer',
+      props: [
+        {
+          name: 'size',
+          valueTransform: remove(),
+        },
+      ],
+    },
+    {
       name: 'NestedPicklistTrigger',
       props: [
         {
@@ -218,6 +271,15 @@ module.exports = {
             return node && node.value;
           },
         },
+        {
+          name: 'size',
+          valueTransform: (node, j) => {
+            if (node.value.value === 'xsmall') {
+              return j.literal('small');
+            }
+            return node && node.value;
+          },
+        },
       ],
     },
   ],
@@ -234,6 +296,15 @@ module.exports = {
 
             return node && node.value;
           },
+        },
+      ],
+    },
+    {
+      name: 'SelectBoxOption',
+      props: [
+        {
+          name: 'size',
+          valueTransform: remove(),
         },
       ],
     },

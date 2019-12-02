@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-		<a href="../section-compounds-displayingdata-table.html" isDocLink>Table component in the XUI Documentation</a>
+		<a href="../section-components-displayingdata-table.html" isDocLink>Table component in the XUI Documentation</a>
 </div>
 
 The Table scaffold is a convenient way to lay out data sets with an _accessible_ and _responsive_ design mindset.
@@ -329,7 +329,11 @@ const data = {
 
 Prepend the table rows with a check box action with the `hasCheckbox` prop.
 
-Each rows _Checked_ state is derived from checking for _"truthy"_ row key / value pairs in the `checkedIds` prop.
+Each row's _Checked_ state is derived from checking for _"truthy"_ row key / value pairs in the `checkedIds` prop.
+
+Each row's _Disabled_ state is derived from checking for _"truthy"_ row key / value pairs in the `disabledIds` prop.
+
+**Note: Make sure the state of the _disbled_ checkbox will not be changed via the bulk-select. For reference, There's an example `onCheckAllToggle` callback function below.**
 
 Interactions for the _"master"_ and _"single"_ checkbox toggles can be handled using the `onCheckAllToggle` and `onCheckOneToggle` props. If you provide these, you must also provide the corresponding `checkAllRowsLabel` or `checkOneRowLabel` for accessibility purposes.
 
@@ -338,29 +342,45 @@ import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
 
 const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
-  def456: { fruit: 'Apple', color: 'Red', price: 3.49, paid: false }
+  def456: { fruit: 'Apple', color: 'Red', price: 3.49, paid: false },
+  ghi789: { fruit: 'Cherry', color: 'Black', price: 4.21 }
 };
 
 class Demo extends React.Component {
   constructor(...args) {
     super(...args);
-    this.state = { checkedIds: { abc123: true, def456: false } };
+    this.state = {
+      checkedIds: { abc123: true, def456: false, ghi789: true },
+      disabledIds: { ghi789: true }
+    };
     this.handleCheckAllToggle = this.handleCheckAllToggle.bind(this);
     this.handleCheckOneToggle = this.handleCheckOneToggle.bind(this);
   }
 
   handleCheckAllToggle() {
-    const { checkedIds } = this.state;
+    const { checkedIds, disabledIds } = this.state;
     const dataKeys = Object.keys(data);
-    const totalData = dataKeys.length;
-    const totalChecked = Object.keys(checkedIds).reduce(
+    let totalData = dataKeys.length;
+    const keepCheckedIds = {};
+    const keepUncheckedIds = {};
+    let totalChecked = Object.keys(checkedIds).reduce(
       (acc, key) => (checkedIds[key] ? acc + 1 : acc),
       0
     );
+    Object.keys(disabledIds).forEach(key => {
+      if (checkedIds[key]) {
+        keepCheckedIds[key] = true;
+      } else {
+        keepUncheckedIds[key] = true;
+        totalChecked++;
+      }
+    });
     if (totalData === totalChecked) {
-      this.setState({ checkedIds: {} });
+      this.setState({ checkedIds: { ...keepCheckedIds } });
     } else {
-      this.setState({ checkedIds: dataKeys.reduce((acc, key) => ({ ...acc, [key]: true }), {}) });
+      this.setState({
+        checkedIds: dataKeys.reduce((acc, key) => ({ ...acc, [key]: !keepUncheckedIds[key] }), {})
+      });
     }
   }
 
@@ -376,6 +396,7 @@ class Demo extends React.Component {
         data={data}
         hasCheckbox
         checkedIds={this.state.checkedIds}
+        disabledIds={this.state.disabledIds}
         onCheckAllToggle={this.handleCheckAllToggle}
         onCheckOneToggle={this.handleCheckOneToggle}
         loaderLabel="Loading more data"

@@ -11,7 +11,7 @@
 //
 // Introduction: A content block is a simplified top-level view for a detailed sub page, often containing quick access to key actions.
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock
+// Styleguide: Components.DisplayingData.ContentBlock
 
 // Anatomy
 //
@@ -30,7 +30,7 @@
 // xui-contentblockitem-has-top-radius: Applies top left and top right border radius
 // xui-contentblockitem-has-bottom-radius: Applies bottom left and bottom right border radius
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.1
+// Styleguide: Components.DisplayingData.ContentBlock.1
 
 // Text content
 //
@@ -110,7 +110,7 @@
 //     </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.2
+// Styleguide: Components.DisplayingData.ContentBlock.2
 
 // Left content
 //
@@ -118,7 +118,7 @@
 // xui-contentblockitem--leftcontent: Wrapper for left content elements
 // xui-contentblockitem--leftcontent-layout: Vertically aligns left content elements when a description is present
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.3
+// Styleguide: Components.DisplayingData.ContentBlock.3
 
 // Checkboxes
 //
@@ -167,7 +167,7 @@
 //     </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.3.1
+// Styleguide: Components.DisplayingData.ContentBlock.3.1
 
 // Avatars
 //
@@ -206,14 +206,14 @@
 //     </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.3.2
+// Styleguide: Components.DisplayingData.ContentBlock.3.2
 
 // Right content
 //
 // Classes:
 // xui-contentblockitem--rightcontent: Wrapper for right content elements
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.4
+// Styleguide: Components.DisplayingData.ContentBlock.4
 
 // Overflow menu
 //
@@ -261,7 +261,7 @@
 //     </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.4.1
+// Styleguide: Components.DisplayingData.ContentBlock.4.1
 
 // Pinned values
 //
@@ -303,7 +303,7 @@
 //     </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.4.2
+// Styleguide: Components.DisplayingData.ContentBlock.4.2
 
 // Actions
 //
@@ -446,7 +446,7 @@
 //     </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.4.3
+// Styleguide: Components.DisplayingData.ContentBlock.4.3
 
 // Tags
 //
@@ -594,7 +594,7 @@
 //     </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.5
+// Styleguide: Components.DisplayingData.ContentBlock.5
 
 // Content block headers
 //
@@ -605,7 +605,7 @@
 // Classes:
 // xui-textcolor-muted: Apply to text elements for variance in style to regular content block items
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.6
+// Styleguide: Components.DisplayingData.ContentBlock.6
 
 // Standard headers
 //
@@ -658,7 +658,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.6.1
+// Styleguide: Components.DisplayingData.ContentBlock.6.1
 
 // Numerical values
 //
@@ -738,7 +738,7 @@
 //     </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.6.2
+// Styleguide: Components.DisplayingData.ContentBlock.6.2
 
 // Pinned values
 //
@@ -828,7 +828,7 @@
 //     </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.6.3
+// Styleguide: Components.DisplayingData.ContentBlock.6.3
 
 // With bulk select
 //
@@ -925,7 +925,7 @@
 //     </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.6.4
+// Styleguide: Components.DisplayingData.ContentBlock.6.4
 
 // With avatar
 //
@@ -1002,7 +1002,7 @@
 //     </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.ContentBlock.6.5
+// Styleguide: Components.DisplayingData.ContentBlock.6.5
 
 .#{$ns}-contentblock {
   border-collapse: collapse;

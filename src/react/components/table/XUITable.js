@@ -136,6 +136,7 @@ class XUITable extends Component {
       onSortChange,
       hasCheckbox,
       checkedIds,
+      disabledIds,
       onCheckAllToggle,
       onCheckOneToggle,
       checkOneRowLabel,
@@ -164,7 +165,7 @@ class XUITable extends Component {
       [`${NAME_SPACE}-hasheader`]: hasHeader,
       [`${NAME_SPACE}-nopointerevents`]: !hasPointerEvents,
     });
-    const checkIsChecked = _id => checkedIds.indexOf(_id) >= 0;
+    const checkboxState = (_id, checkboxStateIds) => checkboxStateIds.indexOf(_id) >= 0;
     const handleScroll = hasPinnedFirstColumn || hasPinnedLastColumn ? this.scrollThrottled : noop;
 
     return (
@@ -198,6 +199,7 @@ class XUITable extends Component {
                   onSortChange,
                   hasCheckbox,
                   checkedIds,
+                  disabledIds,
                   onCheckAllToggle,
                   checkAllRowsLabel,
                   hasOverflowMenu,
@@ -216,7 +218,8 @@ class XUITable extends Component {
                       rowIndex,
                       columns,
                       hasCheckbox,
-                      isChecked: checkIsChecked(rowData._id),
+                      isChecked: checkboxState(rowData._id, checkedIds),
+                      isDisabled: checkboxState(rowData._id, disabledIds),
                       onCheckOneToggle,
                       checkOneRowLabel,
                       onRowClick,
@@ -317,6 +320,9 @@ XUITable.propTypes = {
   /** Defines the unique row keys that are currently in a checked state. */
   checkedIds: PropTypes.object,
 
+  /** Defines the unique row keys that are currently in a disabled state. */
+  disabledIds: PropTypes.object,
+
   /** Callback for when the mast "toggle all" checkbox is clicked. */
   onCheckAllToggle: PropTypes.func,
 
@@ -412,6 +418,7 @@ XUITable.propTypes = {
 
 XUITable.defaultProps = {
   checkedIds: {},
+  disabledIds: {},
 };
 
 export default XUITable;

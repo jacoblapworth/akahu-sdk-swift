@@ -11,7 +11,7 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.yhnmgwweghhm
 //
-// Styleguide: Building Blocks.Alerts.Banner
+// Styleguide: Components.Alerts.Banner
 
 // Best practice
 //
@@ -24,7 +24,7 @@
 // Warning: Avoid hiding banners automatically – use a toast instead
 // Warning: Avoid more than two actions, excluding the close button
 //
-// Styleguide: Building Blocks.Alerts.Banner.1
+// Styleguide: Components.Alerts.Banner.1
 
 // Anatomy
 //
@@ -74,7 +74,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: Building Blocks.Alerts.Banner.2
+// Styleguide: Components.Alerts.Banner.2
 
 // Sentiment
 //
@@ -106,7 +106,7 @@
 //   <p class="xui-banner--message">Banner message</p>
 // </div>
 //
-// Styleguide: Building Blocks.Alerts.Banner.3
+// Styleguide: Components.Alerts.Banner.3
 
 // Animation
 //
@@ -116,7 +116,7 @@
 // Classes:
 // -animated: Animates vertical position
 //
-// Styleguide: Building Blocks.Alerts.Banner.3
+// Styleguide: Components.Alerts.Banner.3
 
 // Accessibility
 //
@@ -127,7 +127,7 @@
 // Use the `status` role when presenting any other information that doesn't justify using the alert role.
 // For further information about this role, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_status_role).
 //
-// Styleguide: Building Blocks.Alerts.Banner.4
+// Styleguide: Components.Alerts.Banner.4
 
 .#{$ns}-banner {
   background-color: $xui-banner-bg-color;

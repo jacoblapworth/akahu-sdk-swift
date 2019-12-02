@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a isDocLink href="../section-compounds-collectinginput-autocompleter.html">Autocompleter in the XUI Documentation</a>
+	<a isDocLink href="../section-components-collectinginput-autocompleter.html">Autocompleter in the XUI Documentation</a>
 </div>
 `XUIAutocompleter` is a component that composes many other components together. It's an input where users can type to filter a list of items to select.
 

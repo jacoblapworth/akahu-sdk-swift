@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-building-blocks-alerts-banner.html" isDocLink>Banners in the XUI Documentation</a>
+	<a href="../section-components-alerts-banner.html" isDocLink>Banners in the XUI Documentation</a>
 </div>
 
 ## Examples

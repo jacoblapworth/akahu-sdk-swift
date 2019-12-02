@@ -8,7 +8,7 @@
 //
 // Components: Rollovercheckbox
 //
-// Styleguide: Building Blocks.Controls.Checkbox.11
+// Styleguide: Components.Controls.Checkbox.11
 
 // Best practice
 //
@@ -17,7 +17,7 @@
 // Warning: Take care to use the entire row to trigger visibility of the checkbox, not the element in isolation
 // Warning: Avoid using in tables which are optimised for bulk actions, use an always-visible variant instead
 //
-// Styleguide: Building Blocks.Controls.Checkbox.11.1
+// Styleguide: Components.Controls.Checkbox.11.1
 
 // Anatomy
 //
@@ -27,6 +27,7 @@
 // xui-rollovercheckbox: A flexed wrapper
 // xui-rollovercheckbox--target: The component hit target
 // xui-rollovercheckbox--target-disabled: disabled styling for the target
+// xui-styledcheckboxradio-is-rollover: Signifies that the underlying checkbox is part of a rollover
 //
 //
 //
@@ -36,7 +37,7 @@
 //     <div>
 //       <abbr class="xui-avatar xui-avatar-color-9" title="Darryl King" role="presentation">DK</abbr>
 //     </div>
-//     <label class="xui-rollovercheckbox-hidden xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio">
+//     <label class="xui-rollovercheckbox-hidden xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover">
 //       <input class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium" type="checkbox">
 //       <div class="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox xui-styledcheckboxradio--checkbox-medium">
 //         <div class="xui-touchtarget"></div>
@@ -45,4 +46,4 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Checkbox.11.2
+// Styleguide: Components.Controls.Checkbox.11.2

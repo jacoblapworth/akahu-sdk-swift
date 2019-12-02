@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-building-blocks-identifiers-tag.html" isDocLink>Tags in the XUI documentation</a>
+	<a href="../section-components-identifiers-tag.html" isDocLink>Tags in the XUI documentation</a>
 </div>
 
 Tags are used to categorise content or indicate sentiment.

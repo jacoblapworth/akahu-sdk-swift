@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-building-blocks-identifiers-capsule.html" isDocLink>Capsule in the XUI documentation</a>
+	<a href="../section-components-identifiers-capsule.html" isDocLink>Capsule in the XUI documentation</a>
 </div>
 
 Capsules are used to draw attention to placeholders that will be replaced with data.

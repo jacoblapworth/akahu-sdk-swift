@@ -115,6 +115,7 @@ export default class XUIRolloverCheckbox extends PureComponent {
             {rolloverComponent}
           </div>
           <XUICheckbox
+            _isRollOver
             className={cn(
               showRollover && `${baseClass}-hidden`,
               `${baseClass}--styledcheckboxradio`,

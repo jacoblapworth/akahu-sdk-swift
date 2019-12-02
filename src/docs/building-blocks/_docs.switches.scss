@@ -10,7 +10,7 @@
 //
 // Introduction: Switches are used to make significant binary decisions.
 //
-// Styleguide: Building Blocks.Controls.Switch
+// Styleguide: Components.Controls.Switch
 
 // Best practice
 //
@@ -18,7 +18,7 @@
 // Do: Toggling a switch should have immediate effect
 // Warning: In forms that require a submit action, use a toggle or a checkbox instead
 //
-// Styleguide: Building Blocks.Controls.Switch.1
+// Styleguide: Components.Controls.Switch.1
 
 // Anatomy
 //
@@ -56,7 +56,7 @@
 //   <span id="switch1" class="xui-switch--label xui-switch--label-medium">Checked</span>
 // </label>
 //
-// Styleguide: Building Blocks.Controls.Switch.2
+// Styleguide: Components.Controls.Switch.2
 
 // Disabling
 //
@@ -81,7 +81,7 @@
 //   <span id="switch4" class="xui-switch--label xui-switch--label-medium">Checked</span>
 // </label>
 //
-// Styleguide: Building Blocks.Controls.Switch.3
+// Styleguide: Components.Controls.Switch.3
 
 // Grouped switches
 //
@@ -109,7 +109,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Switch.4
+// Styleguide: Components.Controls.Switch.4
 
 // Single switch
 //
@@ -127,7 +127,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Switch.4.1
+// Styleguide: Components.Controls.Switch.4.1
 
 // Multiline switch
 //
@@ -145,14 +145,14 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Switch.4.2
+// Styleguide: Components.Controls.Switch.4.2
 
 // Accessibility
 //
 // Make sure to add the `switch` role to the hidden input element. For simplicity, this has not been done in the examples above.
 // Additionally, this will require toggling several other [aria properties](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_switch_role) via Javascript.
 //
-// Styleguide: Building Blocks.Controls.Switch.5
+// Styleguide: Components.Controls.Switch.5
 
 // Validation and hint messages
 //
@@ -228,4 +228,4 @@
 //   Validation message
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Switch.6
+// Styleguide: Components.Controls.Switch.6

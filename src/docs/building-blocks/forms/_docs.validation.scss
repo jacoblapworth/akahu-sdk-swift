@@ -7,7 +7,7 @@
 // Teaser: Prevent and deal with errors
 //
 //
-// Styleguide: Compounds.CollectingInput.Forms.7
+// Styleguide: Components.CollectingInput.Forms.7
 
 // Feedback on fields
 //
@@ -205,7 +205,7 @@
 //   <div class="xui-validation xui-validation-layout xui-validation-is-invalid" role="status" id="range1-message">Rating is invalid, given the circumstances</div>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Forms.7.1
+// Styleguide: Components.CollectingInput.Forms.7.1
 
 // When to validate
 //
@@ -215,7 +215,7 @@
 // Warning: Carefully consider whether it's helpful to warn the user that a field is required before submitting (they may decide to complete harder fields later)
 // Dont: Don't validate fields on key press
 //
-// Styleguide: Compounds.CollectingInput.Forms.7.4
+// Styleguide: Components.CollectingInput.Forms.7.4
 
 // Feedback in modals
 //
@@ -248,7 +248,7 @@
 // </div>
 //
 //
-// Styleguide: Compounds.CollectingInput.Forms.7.2
+// Styleguide: Components.CollectingInput.Forms.7.2
 
 // Other feedback options
 //
@@ -257,7 +257,7 @@
 // Dont: Avoid using banners with lists of errors that users must then hunt down
 // Warning: Only prevent submission if fields are few and requirements very clear
 //
-// Styleguide: Compounds.CollectingInput.Forms.7.3
+// Styleguide: Components.CollectingInput.Forms.7.3
 
 // Classes:
 // xui-validation: Used to style text below inputs (to clarify format or provide supporting info)

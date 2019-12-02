@@ -180,6 +180,7 @@ export default class XUICheckbox extends PureComponent {
       validationMessage,
       hintMessage,
       size,
+      _isRollOver,
     } = this.props;
 
     // Grouped inputs default to 'small'.
@@ -187,7 +188,8 @@ export default class XUICheckbox extends PureComponent {
 
     const classes = cn(
       baseClass,
-      isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
+      _isRollOver && `${baseClass}-is-rollover`,
+      isDisabled && `${baseClass}-is-disabled`,
       isReversed && `${baseClass}-reversed`,
     );
 
@@ -345,6 +347,8 @@ XUICheckbox.propTypes = {
   hintMessage: PropTypes.node,
   /** Size variant. Defaults to medium */
   size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
+  /** Whether this checkbox was generated as part of a rollover checkbox */
+  _isRollOver: PropTypes.bool,
 };
 
 XUICheckbox.defaultProps = {

@@ -11,7 +11,7 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.enb2yzwzbg4
 //
-// Styleguide: Building Blocks.Alerts.Tooltip
+// Styleguide: Components.Alerts.Tooltip
 
 // Best practice
 //
@@ -22,7 +22,7 @@
 // Dont: Don't use content other than text inside a tooltip
 // Warning: Styles directly affecting the trigger or its classes may need to be duplicated on the wrapping `.xui-tooltip` DOM element. For example, fixed/absolute positioning or some flexbox styling.
 //
-// Styleguide: Building Blocks.Alerts.Tooltip.1
+// Styleguide: Components.Alerts.Tooltip.1
 
 // Anatomy
 //
@@ -51,7 +51,7 @@
 //   </span>
 // </span>
 //
-// Styleguide: Building Blocks.Alerts.Tooltip.2
+// Styleguide: Components.Alerts.Tooltip.2
 
 // Positioning
 //
@@ -115,7 +115,7 @@
 //   </span>
 // </span>
 //
-// Styleguide: Building Blocks.Alerts.Tooltip.3
+// Styleguide: Components.Alerts.Tooltip.3
 
 .#{$ns}-tooltip {
   cursor: pointer;

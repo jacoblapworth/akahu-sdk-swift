@@ -64,6 +64,17 @@
 //
 // * Prefer XUI React components over custom components. XUI components are tested to work as a suite and will work across upgrades automatically or have a tested migration path.
 //
+// Releases adhere to the following guidelines:
+//
+// Definitions:
+// Version:	<strong>Release content</strong>:													<strong>Release cadence</strong>
+// Patch:		Bugs, other low-risk changes:															As needed - 2 wks*
+// Minor:		New features/components that are backwards-compatible:		30 - 60 days*
+// Major:		Updates that will cause regressions to older versions**:	3 - 6 months*
+//
+// Note:
+// *Longest times depend on relevant changes having been merged to the working branch. If there are no changes awaiting release, the time between releases could be longer. <a href="https://confluence.teamxero.com/display/PLAT/2019/11/28/The+evolution+of+release+strategy+for+XUI">Read more on this release strategy.</a><br />**<a href="https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md#breaking-changes">More about breaking changes</a>
+//
 // Styleguide: Getting Started.Developing with XUI.1.3
 
 // Installing React components

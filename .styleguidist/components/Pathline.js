@@ -8,6 +8,7 @@ export const styles = ({ space, fontFamily, fontSize, color }) => ({
     fontFamily: fontFamily.monospace,
     fontSize: fontSize.small,
     color: color.light,
+    marginBottom: space[2],
   },
   launchButton: {
     marginLeft: space[0],

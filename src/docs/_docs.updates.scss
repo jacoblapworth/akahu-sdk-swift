@@ -58,7 +58,7 @@
 //
 // **Other enhancements**
 // <ul>
-//  <li>Form / control inputs now accept `isInvalid`, `validationMessage`, and `hintMessage` props, across the board. Additionally, labels may contain HTML, if not hidden as aria-labels. Read more about [labels and validation here](section-compounds-collectinginput-forms.html).</li>
+//  <li>Form / control inputs now accept `isInvalid`, `validationMessage`, and `hintMessage` props, across the board. Additionally, labels may contain HTML, if not hidden as aria-labels. Read more about [labels and validation here](section-components-collectinginput-forms.html).</li>
 //  <li>Pills now support tooltips out of the box</li>
 //  <li>Removed all uses of `standard` sizes in favor of `medium`</li>
 // </ul>
@@ -95,7 +95,7 @@
 // Updated:		Typography:       	    [Fundamentals > Typography](./section-fundamentals-typography.html)
 // Updated:		Layout:              	[Fundamentals > Layout](./section-fundamentals-layout.html)
 // Updated:		Spacing:              	[Fundamentals > Spacing](./section-fundamentals-spacing.html)
-// Updated:		Global navigation:      [Compounds > Global navigation](./section-compounds-navigation-global-navigation.html)
+// Updated:		Global navigation:      [Compounds > Global navigation](./section-components-navigation-global-navigation.html)
 //
 // Styleguide: Updates.95.5
 
@@ -176,7 +176,7 @@
 // </ul>
 //
 // Definitions:
-// New:			  Range input:         	[Elements > Controls > Range](./section-building-blocks-controls-range.html)
+// New:			  Range input:         	[Elements > Controls > Range](./section-components-controls-range.html)
 // Updated:		Accessibility:       	[Getting started > Accessibility](./section-getting-started-accessibility.html)
 // Updated:		Developing with XUI: 	[Getting started > Developing with XUI](./section-getting-started-developing-with-xui.html)
 // Updated:		Designing with XUI:  	[Getting started > Designing with XUI](./section-getting-started-designing-with-xui.html)
@@ -228,8 +228,8 @@
 // </ul>
 //
 // Definitions:
-// New:			  Bar chart:      	[Compounds > Displaying data > Bar chart](./section-compounds-displayingdata-barchart.html)
-// Updated:		Accordion:      	[Compounds > Displaying data > Accordion](./section-compounds-displayingdata-accordion.html)
+// New:			  Bar chart:      	[Compounds > Displaying data > Bar chart](./section-components-displayingdata-barchart.html)
+// Updated:		Accordion:      	[Compounds > Displaying data > Accordion](./section-components-displayingdata-accordion.html)
 //
 // Styleguide: Updates.97.4
 
@@ -317,16 +317,16 @@
 // <li>Expandable navigation structure</span></li>
 //
 // Definitions:
-// New:			Isolation header:	[Compounds > Navigation > Isolation header](./section-compounds-navigation-isolation-header.html)
-// New:			Stepper:					[Compounds > Navigation > Stepper](./section-compounds-navigation-stepper.html)
+// New:			Isolation header:	[Compounds > Navigation > Isolation header](./section-components-navigation-isolation-header.html)
+// New:			Stepper:					[Compounds > Navigation > Stepper](./section-components-navigation-stepper.html)
 // New:			Accessibility:		[Getting started > Accessibility](./section-getting-started-accessibility.html)
-// Updated:	Table: 						[Compounds > Displaying data > Table](./section-compounds-displayingdata-table.html)
+// Updated:	Table: 						[Compounds > Displaying data > Table](./section-components-displayingdata-table.html)
 //
 // Styleguide: Updates.99.4
 
 // XUI Release information
 //
-// We announce releases as they happen via Slack on [#platform-fed-releases](https://xero.slack.com/messages/C57H6G0RM)
+// We announce releases as they happen via Slack on [#xui-development](https://xero.slack.com/messages/C565NP1A5)
 //
 // You can also talk to us on our respective slack channels #xui-development & #xui-design
 //
@@ -334,22 +334,16 @@
 
 // Release schedule
 //
-// In order to provide predictability to teams, we’ve made the the following commitments to the XUI release schedule. You can read more about these in [Confluence](https://confluence.inside.xero.com/display/FED/The+UX+Engineering+Team+and+XUI#TheUXEngineeringTeamandXUI-SoftwareLovabilityObjectives).
+// In order to provide predictability to teams, we’ve made the the following commitments to the XUI release schedule. You can read more about XUI's customer commitments in [Confluence](https://confluence.teamxero.com/pages/viewpage.action?spaceKey=FED&title=XUI#XUI-SoftwareLovabilityObjectivess).
 //
-// **Major**
-// <span class='xui-margin-left-large'>
-//  Once every 90 days maximum
-// <span>
+// Definitions:
+// Version:	<strong>Release content</strong>:													<strong>Release cadence</strong>
+// Patch:		Bugs, other low-risk changes:															As needed - 2 wks*
+// Minor:		New features/components that are backwards-compatible:		30 - 60 days*
+// Major:		Updates that will cause regressions to older versions**:	3 - 6 months*
 //
-// **Minor**
-// <span class='xui-margin-left-large'>
-//   Once a month maximum
-// <span>
-//
-// **Patch**
-// <span class='xui-margin-left-large'>
-//  Once a week maximum, unless the fix is critical or a security concern
-// <span>
+// Note:
+// *Longest times depend on relevant changes having been merged to the working branch. If there are no changes awaiting release, the time between releases could be longer. <a href="https://confluence.teamxero.com/display/PLAT/2019/11/28/The+evolution+of+release+strategy+for+XUI">Read more on this release strategy.</a><br />**<a href="https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md#breaking-changes">More about breaking changes</a>
 //
 // Styleguide: Updates.100.1
 

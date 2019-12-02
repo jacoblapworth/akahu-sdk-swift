@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-building-blocks-controls-button.html" isDocLink>Button in the XUI Documentation</a>
+	<a href="../section-components-controls-button.html" isDocLink>Button in the XUI Documentation</a>
 </div>
 
 ## Examples

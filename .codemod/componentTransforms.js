@@ -94,8 +94,8 @@ module.exports = {
         },
         {
           name: 'variant',
-          valueTransform: node => {
-            if (node.value.value.includes('icon')) {
+          valueTransform: (node, j) => {
+            if (node && node.value && node.value.value.includes('icon')) {
               return j.literal('MAKE_ME_AN_ICONBUTTON');
             }
             return node && node.value;
@@ -274,7 +274,7 @@ module.exports = {
         {
           name: 'size',
           valueTransform: (node, j) => {
-            if (node.value.value === 'xsmall') {
+            if (node && node.value && node.value.value === 'xsmall') {
               return j.literal('small');
             }
             return node && node.value;

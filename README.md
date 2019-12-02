@@ -245,19 +245,19 @@ How to run the codemod:
 npm i -g jscodeshift@~0.5.0
 ```
 
-1. Run the codemod
+2. Run the codemod
 
 ```bash
 jscodeshift -t node_modules/@xero/xui/codemod src/
 ```
 
-1. If your imported components are not from @xero/xui/react/, you can pass an alternate base path.
+3. If your imported components are not from @xero/xui/react/, you can pass an alternate base path.
 
 ```bash
 jscodeshift --importBasePath=@xero/xui/react-es6/ -t node_modules/@xero/xui/codemod src/
 ```
 
-1. If you've already upgraded to the current major version and wish to run a supplemental codemod from a minor/patch
+4. If you've already upgraded to the current major version and wish to run a supplemental codemod from a minor/patch
 
 ```bash
 jscodeshift -t node_modules/@xero/xui/codemod/<version> src/

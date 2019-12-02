@@ -111,6 +111,7 @@ export default class XUIDatePicker extends PureComponent {
     this.state = {
       hoverDate: null,
       currentMonth: normalizeDisplayedMonth(props.displayedMonth, props.minDate, props.maxDate),
+      prevProps: props,
     };
 
     this.dateRefs = {};
@@ -129,25 +130,24 @@ export default class XUIDatePicker extends PureComponent {
     }
   }
 
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    const { displayedMonth } = nextProps;
-    if (
-      displayedMonth instanceof Date &&
-      !DateUtils.isSameDay(displayedMonth, this.props.displayedMonth)
-    ) {
-      const nextDisplayedMonth = normalizeDisplayedMonth(
-        displayedMonth,
-        nextProps.minDate,
-        nextProps.maxDate,
-      );
-      if (
-        nextDisplayedMonth.getFullYear() !== this.state.currentMonth.getFullYear() ||
-        nextDisplayedMonth.getMonth() !== this.state.currentMonth.getMonth()
-      ) {
-        this.setState({ currentMonth: nextDisplayedMonth });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.displayedMonth && prevState.prevProps !== nextProps) {
+      const { displayedMonth } = nextProps;
+      if (displayedMonth instanceof Date) {
+        const nextDisplayedMonth = normalizeDisplayedMonth(
+          displayedMonth,
+          nextProps.minDate,
+          nextProps.maxDate,
+        );
+        if (
+          nextDisplayedMonth.getFullYear() !== prevState.currentMonth.getFullYear() ||
+          nextDisplayedMonth.getMonth() !== prevState.currentMonth.getMonth()
+        ) {
+          return { currentMonth: nextDisplayedMonth, prevProps: nextProps };
+        }
       }
     }
+    return null;
   }
 
   /**
@@ -211,6 +211,12 @@ export default class XUIDatePicker extends PureComponent {
   };
 
   onMonthChange = month => {
+    const hasMonthChanged = !DateUtils.isSameMonth(this.props.displayedMonth, month);
+
+    if (hasMonthChanged) {
+      this.props.onMonthChange && this.props.onMonthChange();
+    }
+
     this.dateRefs = {};
     this.setState({
       currentMonth: normalizeDisplayedMonth(month, this.props.minDate, this.props.maxDate),

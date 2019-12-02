@@ -11,7 +11,7 @@
 //
 // Teaser: Show in place of the global header when you want to encourage focus and have more control of the workflow
 //
-// Styleguide: Compounds.Navigation.Isolation header
+// Styleguide: Components.Navigation.Isolation header
 
 // Best practice
 //
@@ -25,7 +25,7 @@
 // Dont: Don’t use isolation headers in combination with the global navigation
 // Dont: Don’t nest pages within isolation modes
 //
-// Styleguide: Compounds.Navigation.Isolation header.1
+// Styleguide: Components.Navigation.Isolation header.1
 
 // Anatomy
 //
@@ -57,11 +57,11 @@
 //   </div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Isolation header.2
+// Styleguide: Components.Navigation.Isolation header.2
 
 // Layout
 //
-// Styleguide: Compounds.Navigation.Isolation header.3
+// Styleguide: Components.Navigation.Isolation header.3
 
 // Title content
 //
@@ -145,7 +145,7 @@
 //   </div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Isolation header.3.1
+// Styleguide: Components.Navigation.Isolation header.3.1
 
 // Actions
 //
@@ -245,7 +245,7 @@
 //   </div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Isolation header.3.2
+// Styleguide: Components.Navigation.Isolation header.3.2
 
 // Fixing position
 //
@@ -256,11 +256,11 @@
 // Classes:
 // xui-isolationheader-fixed: Fixes position of the isolation header to the top of the page
 //
-// Styleguide: Compounds.Navigation.Isolation header.3.3
+// Styleguide: Components.Navigation.Isolation header.3.3
 
 // Navigation
 //
-// Styleguide: Compounds.Navigation.Isolation header.4
+// Styleguide: Components.Navigation.Isolation header.4
 
 // Implementation Details
 //
@@ -294,7 +294,7 @@
 // These query parameters will allow a page to link to another page in isolation mode and specify the intended behaviour.
 // However, it is up to the page using isolation mode to read these query parameters and implement the behaviours.
 //
-// Styleguide: Compounds.Navigation.Isolation header.4.1
+// Styleguide: Components.Navigation.Isolation header.4.1
 
 // Tooltip
 //
@@ -332,7 +332,7 @@
 //   </div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Isolation header.4.2
+// Styleguide: Components.Navigation.Isolation header.4.2
 
 // Stepper
 //
@@ -405,11 +405,11 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.Navigation.Isolation header.4.3
+// Styleguide: Components.Navigation.Isolation header.4.3
 
 // Accessibility
 //
 // The isolation header should use a `<header>` element with `role="banner"` applied.
 // See [ARIA guidelines for the banner role](https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/landmarks/banner.html).
 //
-// Styleguide: Compounds.Navigation.Isolation header.5
+// Styleguide: Components.Navigation.Isolation header.5

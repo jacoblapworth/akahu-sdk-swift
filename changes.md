@@ -53,18 +53,18 @@ Following classes have been **removed** because they don't meet [XUI touch targe
     - `xui-pickitem-has-leftelement`
   - For Pickitems with secondaryText and no leftElement.
     - `xui-pickitem-has-secondarytext`
-- Significant changes have been made to the markup and CSS for Page Headers to support an improved responsive experience. Please see the [documentation](https://xui.xero.com/16.0.0/section-compounds-navigation-page-header.html) for details on the new structure for page headers that have content more complex than a title alone.
-- Isolation Headers have been overhauled to largely match the new structure of Page Headers. Please see the [documentation](https://xui.xero.com/16.0.0/section-compounds-navigation-isolation-header.html) for details.
+- Significant changes have been made to the markup and CSS for Page Headers to support an improved responsive experience. Please see the [documentation](https://xui.xero.com/16.0.0/section-components-navigation-page-header.html) for details on the new structure for page headers that have content more complex than a title alone.
+- Isolation Headers have been overhauled to largely match the new structure of Page Headers. Please see the [documentation](https://xui.xero.com/16.0.0/section-components-navigation-isolation-header.html) for details.
 - Updated HTML structure for `Tag` component. Tags will be truncated instead of wrapping its content can't fit available space. When truncated, a tooltip will be added to display full text. Tags also now require a `xui-tagcontent` element to wrap the inner text.
 
 ### Invisible touch targets
 
 Several CSS components require a new child element with the `.xui-touchtarget` class. This class will add an invisible touch target with a minimum width and height of 40px. The following CSS components will need to be updated manually (If you are using the React components you do not need to do this).
 
-- [Icon button](https://xui.xero.com/16.0.0/section-building-blocks-controls-button.html#building-blocks-controls-button-6)
-- [Checkbox](https://xui.xero.com/16.0.0/section-building-blocks-controls-checkbox.html) and [Rollover Checkbox](https://xui.xero.com/16.0.0/section-building-blocks-controls-checkbox.html#building-blocks-controls-checkbox-11)
-- [Radio](https://xui.xero.com/16.0.0/section-building-blocks-controls-radio.html)
-- [Switch](https://xui.xero.com/16.0.0/section-building-blocks-controls-switch.html)
+- [Icon button](https://xui.xero.com/16.0.0/section-components-controls-button.html#components-controls-button-6)
+- [Checkbox](https://xui.xero.com/16.0.0/section-components-controls-checkbox.html) and [Rollover Checkbox](https://xui.xero.com/16.0.0/section-components-controls-checkbox.html#components-controls-checkbox-11)
+- [Radio](https://xui.xero.com/16.0.0/section-components-controls-radio.html)
+- [Switch](https://xui.xero.com/16.0.0/section-components-controls-switch.html)
 
 ## XUI React components
 

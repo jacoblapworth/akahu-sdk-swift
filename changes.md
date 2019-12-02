@@ -92,6 +92,7 @@ We recommend running a bundle analyzer after upgrading (and regularly in general
 - `XUIColumn` props `gridColumnsMedium` and `gridColumnsWide` have been renamed to `gridColumnsSmallUp` and `gridColumnsLargeUp`, respectively.
 - `XUITable`
   - Pass the `rowClassName` key in a row object of the `data` prop to apply a custom class.
+  - A new prop `disabledIds` can be used to define the unique row keys that are in a disabled state.
 
 ### Utility classes
 

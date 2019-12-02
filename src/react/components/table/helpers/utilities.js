@@ -100,16 +100,17 @@ const sortDataByKey = (data, isAsc, key) => {
   return isAsc ? sortedData : sortedData.reverse();
 };
 
-const flattenSuppliedData = (data, checkedIds) => {
-  const scaffold = { data: [], checkedIds: [] };
-
+const flattenSuppliedData = (data, checkedIds, disabledIds) => {
+  const scaffold = { data: [], checkedIds: [], disabledIds: [] };
   return Object.keys(data).reduce((acc, key) => {
     const row = data[key];
     const isChecked = checkedIds[key];
+    const isDisabled = disabledIds[key];
 
     return {
       data: [...acc.data, { ...row, _id: key }],
       checkedIds: isChecked ? [...acc.checkedIds, key] : acc.checkedIds,
+      disabledIds: isDisabled ? [...acc.disabledIds, key] : acc.disabledIds,
     };
   }, scaffold);
 };
@@ -125,7 +126,11 @@ const createDividerClassesThunk = hasHeader => rowIndex => {
 export const enrichProps = (state, props, { tableNode }) => {
   const { rootWidth } = state;
   const { children, activeSortKey, isSortAsc, customSort, isLoading } = props;
-  const { data: flattenedData, checkedIds } = flattenSuppliedData(props.data, props.checkedIds);
+  const { data: flattenedData, checkedIds, disabledIds } = flattenSuppliedData(
+    props.data,
+    props.checkedIds,
+    props.disabledIds,
+  );
 
   // If there is an "active sort key" in play then the data needs sorting. In
   // addition if there is a "custom sort" function supplied then we sort use that
@@ -176,5 +181,6 @@ export const enrichProps = (state, props, { tableNode }) => {
     hasPinnedLastColumn,
     createDividerClasses,
     hasPointerEvents,
+    disabledIds,
   };
 };

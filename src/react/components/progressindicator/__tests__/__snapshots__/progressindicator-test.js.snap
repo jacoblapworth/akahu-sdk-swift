@@ -2285,7 +2285,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             isHidden={true}
             isNotResponsive={false}
             isTriggerWidthMatched={false}
-            isVisible={false}
+            isVisible={true}
             maxWidth={220}
             openDelay={500}
             parentRef={
@@ -2357,7 +2357,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                     class="xui-tooltip--tip"
                     id="myCustomProgressId-progress--tooltip"
                     role="tooltip"
-                    style=""
+                    style="margin-right: -220px;"
                   >
                     3 of 5
                   </span>
@@ -2402,7 +2402,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                 style={
                   Object {
                     "marginLeft": null,
-                    "marginRight": null,
+                    "marginRight": -220,
                     "maxHeight": null,
                     "maxWidth": null,
                     "width": null,
@@ -3659,7 +3659,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
             isHidden={true}
             isNotResponsive={false}
             isTriggerWidthMatched={false}
-            isVisible={false}
+            isVisible={true}
             maxWidth={220}
             openDelay={500}
             parentRef={
@@ -3693,7 +3693,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                     class="xui-tooltip--tip"
                     id="myCustomProgressId-progress--tooltip"
                     role="tooltip"
-                    style=""
+                    style="margin-right: -220px;"
                   >
                     3 of 5
                   </span>
@@ -3737,7 +3737,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                 style={
                   Object {
                     "marginLeft": null,
-                    "marginRight": null,
+                    "marginRight": -220,
                     "maxHeight": null,
                     "maxWidth": null,
                     "width": null,

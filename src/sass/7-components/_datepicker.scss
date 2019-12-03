@@ -11,7 +11,7 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.t1j258a1knyn
 //
-// Styleguide: Compounds.CollectingInput.Datepicker
+// Styleguide: Components.CollectingInput.Datepicker
 
 // Anatomy
 //
@@ -199,7 +199,7 @@
 // </div>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Datepicker.1
+// Styleguide: Components.CollectingInput.Datepicker.1
 
 // Months and years
 //
@@ -218,7 +218,7 @@
 // Year select modifier: `xui-datepicker--yearselect-layout`
 // Labels: `xui-datepicker--heading-label`
 //
-// Styleguide: Compounds.CollectingInput.Datepicker.2
+// Styleguide: Components.CollectingInput.Datepicker.2
 
 // Icon buttons
 //
@@ -230,14 +230,14 @@
 // Next: `xui-datepicker--nextbutton`
 // Disabled: `xui-datepicker--button-is-disabled`
 //
-// Styleguide: Compounds.CollectingInput.Datepicker.3
+// Styleguide: Components.CollectingInput.Datepicker.3
 
 // Sizes
 //
 // By default, datepickers span the full width of their containing element.
-// To set your own width, nest the datepicker within another component, such as a <a href="section-compounds-collectinginput-dropdowns.html">dropdown</a>, or apply your own value.
+// To set your own width, nest the datepicker within another component, such as a <a href="section-components-collectinginput-dropdowns.html">dropdown</a>, or apply your own value.
 //
-// Styleguide: Compounds.CollectingInput.Datepicker.4
+// Styleguide: Components.CollectingInput.Datepicker.4
 
 // Single dates
 //
@@ -249,7 +249,7 @@
 // -is-today: Indicator for the current day
 // -is-othermonth: A date outside the visible month
 //
-// Styleguide: Compounds.CollectingInput.Datepicker.5
+// Styleguide: Components.CollectingInput.Datepicker.5
 
 // Date ranges
 //
@@ -265,7 +265,7 @@
 // -is-selected-hovered-start: Selected and hovered date at the start of a range during selection
 // -is-selected-hovered-end: Selected and hovered date at the end of a range during selection
 //
-// Styleguide: Compounds.CollectingInput.Datepicker.6
+// Styleguide: Components.CollectingInput.Datepicker.6
 
 // Accessibility
 //
@@ -273,7 +273,7 @@
 // This may involve the use of the `tabindex` and `aria-activedescendant` attributes, which also require each active cell to have an `id`.
 // An accessible example of a datepicker can be found on the [Open Ajax Alliance](http://www.oaa-accessibility.org/examplep/datepicker1/).
 //
-// Styleguide: Compounds.CollectingInput.Datepicker.8
+// Styleguide: Components.CollectingInput.Datepicker.8
 
 $xui-datepicker-day-size: $xui-control-size-standard;
 

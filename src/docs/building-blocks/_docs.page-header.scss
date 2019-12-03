@@ -10,7 +10,7 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.kk4oijzi48fo
 //
-// Styleguide: Compounds.Navigation.Page header
+// Styleguide: Components.Navigation.Page header
 
 // Best practice
 //
@@ -21,11 +21,11 @@
 // Warning: When content is long, provide an alternative layout for narrow viewports
 // Dont: Don't use page headers for full screen interfaces, use an isolation mode instead
 //
-// Styleguide: Compounds.Navigation.Page header.1
+// Styleguide: Components.Navigation.Page header.1
 
 // Anatomy
 //
-// Styleguide: Compounds.Navigation.Page header.2
+// Styleguide: Components.Navigation.Page header.2
 
 // Basic
 //
@@ -46,9 +46,9 @@
 //   </div>
 // </header>
 //
-// For anything more complex, you'll need [additional structure](#compounds-navigation-page-header-2-2).
+// For anything more complex, you'll need [additional structure](#components-navigation-page-header-2-2).
 //
-// Styleguide: Compounds.Navigation.Page header.2.1
+// Styleguide: Components.Navigation.Page header.2.1
 
 // Extended
 //
@@ -118,7 +118,7 @@
 //   </div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Page header.2.2
+// Styleguide: Components.Navigation.Page header.2.2
 
 // Layout
 //
@@ -131,11 +131,11 @@
 // xui-page-width-standard: Sets a max width of 1000px and centers horizontally
 // xui-page-width-large: Sets a max width of 1200px and centers horizontally
 //
-// Styleguide: Compounds.Navigation.Page header.3
+// Styleguide: Components.Navigation.Page header.3
 
 // Breadcrumb Trail
 //
-// Breadcrumb Trails should not be used alone, but rather in combination with a title and any additional content. See [the complete breadcrumb trail documentation](./section-compounds-navigation-breadcrumb-trail.html) for more details.
+// Breadcrumb Trails should not be used alone, but rather in combination with a title and any additional content. See [the complete breadcrumb trail documentation](./section-components-navigation-breadcrumb-trail.html) for more details.
 //
 // ExampleClass: ds-example-wide
 //
@@ -163,7 +163,7 @@
 // 	</div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Page header.4
+// Styleguide: Components.Navigation.Page header.4
 
 // Titles
 //
@@ -194,11 +194,11 @@
 //  </div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Page header.5
+// Styleguide: Components.Navigation.Page header.5
 
 // Tabs
 //
-// See [the complete tabs documentation](./section-compounds-navigation-tabs.html) for more details.
+// See [the complete tabs documentation](./section-components-navigation-tabs.html) for more details.
 //
 // ExampleClass: ds-example-wide
 //
@@ -232,7 +232,7 @@
 // 	</div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Page header.6
+// Styleguide: Components.Navigation.Page header.6
 
 // Actions
 //
@@ -270,7 +270,7 @@
 // 	</div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Page header.7
+// Styleguide: Components.Navigation.Page header.7
 
 // Breadcrumb Trail
 //
@@ -282,7 +282,7 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.kqgl1qf20sek
 //
-// Styleguide: Compounds.Navigation.Breadcrumb Trail
+// Styleguide: Components.Navigation.Breadcrumb Trail
 
 // Best practice
 //
@@ -294,7 +294,7 @@
 // Warning: Long strings may be truncated in narrow containers
 // Don't: Don't include the current page title in the breadcrumbs, use a title instead
 //
-// Styleguide: Compounds.Navigation.Breadcrumb Trail.1
+// Styleguide: Components.Navigation.Breadcrumb Trail.1
 
 // Anatomy
 //
@@ -343,7 +343,7 @@
 // 	</div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Breadcrumb Trail.2
+// Styleguide: Components.Navigation.Breadcrumb Trail.2
 
 // Compact Breadcrumb Trail
 //
@@ -379,7 +379,7 @@
 // 	</div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Breadcrumb Trail.2.1
+// Styleguide: Components.Navigation.Breadcrumb Trail.2.1
 
 // Tabs
 //
@@ -387,7 +387,7 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.rn5ood4vqaag
 //
-// For pages that include sub-sections, include a horizontal [picklist](section-compounds-displayingdata-picklist.html#compounds-displayingdata-picklist-3) and apply the following class inside the `xui-pageheading--rightcontent`.
+// For pages that include sub-sections, wrap the `xui-pageheading--title` alongside a horizontal [picklist](section-components-displayingdata-picklist.html#components-displayingdata-picklist-3) and apply the following class.
 //
 // Classes:
 // xui-pageheading--tabs: Container for title and tabs
@@ -424,4 +424,4 @@
 // 	</div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Tabs
+// Styleguide: Components.Navigation.Tabs

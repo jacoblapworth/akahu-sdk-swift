@@ -9,11 +9,14 @@ import bookmark from '@xero/xui-icon/icons/bookmark';
 export const styles = ({ color }) => ({
   link: {
     '&, &:link, &:visited': {
-      display: 'block',
-      fontSize: '15px',
-      lineHeight: 1.5,
       color: color.link,
-      textDecoration: 'none',
+      cursor: 'pointer',
+      lineHeight: 1.5,
+      textDecoration: 'underline',
+    },
+    '&:hover': {
+      color: color.linkHover,
+      isolate: false,
     },
   },
 });

@@ -8,7 +8,7 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.qcuf9cvxorda
 //
-// Styleguide: Compounds.DisplayingData.Panel
+// Styleguide: Components.DisplayingData.Panel
 
 // Best practice
 //
@@ -18,7 +18,7 @@
 // Warning: Avoid nesting panels inside other panels, use your own class instead
 // Warning: To frame any other content other than the top-most container, use your own class instead
 //
-// Styleguide: Compounds.DisplayingData.Panel.1
+// Styleguide: Components.DisplayingData.Panel.1
 
 // Framing content
 //
@@ -36,7 +36,7 @@
 // 	border-radius: $xui-radius;
 // }
 //
-// Styleguide: Compounds.DisplayingData.Panel.2
+// Styleguide: Components.DisplayingData.Panel.2
 
 // Anatomy
 //
@@ -45,7 +45,7 @@
 // Classes:
 // xui-panel: Container for a panel
 //
-// Styleguide: Compounds.DisplayingData.Panel.3
+// Styleguide: Components.DisplayingData.Panel.3
 
 // Spacing
 //
@@ -53,7 +53,7 @@
 // To add your own, use the `xui-padding-*` and `xui-margin-*` [utility classes](section-fundamentals-spacing.html).
 // We do however, recommend using `xui-padding-large` as a sensible default.
 //
-// Styleguide: Compounds.DisplayingData.Panel.4
+// Styleguide: Components.DisplayingData.Panel.4
 
 // Heading
 //
@@ -77,7 +77,7 @@
 //   </header>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Panel.5
+// Styleguide: Components.DisplayingData.Panel.5
 
 // Section
 //
@@ -120,14 +120,14 @@
 // </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Panel.6
+// Styleguide: Components.DisplayingData.Panel.6
 
 // Footer
 //
 // ExampleClass: ds-example-wide
 //
 // To create a footer within a panel, use the following class.
-// In the case of a form, we recommend you use the `xui-actions` method outlined in the [button documentation](section-building-blocks-controls-button.html#building-blocks-controls-button-12).
+// In the case of a form, we recommend you use the `xui-actions` method outlined in the [button documentation](section-components-controls-button.html#components-controls-button-12).
 //
 // Classes:
 // xui-panel--footer: Sets a min height of 60px and adds a top border
@@ -140,7 +140,7 @@
 //  </footer>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Panel.7
+// Styleguide: Components.DisplayingData.Panel.7
 
 // Form
 //
@@ -180,7 +180,7 @@
 // </footer>
 // </form>
 //
-// Styleguide: Compounds.DisplayingData.Panel.8
+// Styleguide: Components.DisplayingData.Panel.8
 
 // Content blocks
 //
@@ -275,7 +275,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Panel.9
+// Styleguide: Components.DisplayingData.Panel.9
 
 // Sidebar
 //
@@ -283,7 +283,7 @@
 //
 // To create a sidebar that triggers different panel content, use the following layout.
 // Note that [utility classes](section-fundamentals-utilities.html) are also required to achieve the following layout.
-// In order to create the sidebar list itself, a [picklist](section-compounds-displayingdata-picklist.html) is also required.
+// In order to create the sidebar list itself, a [picklist](section-components-displayingdata-picklist.html) is also required.
 //
 // Classes:
 // xui-panel--sidebar: Adds a right border and sets a width of 220px on the sidebar
@@ -328,4 +328,4 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Panel.10
+// Styleguide: Components.DisplayingData.Panel.10

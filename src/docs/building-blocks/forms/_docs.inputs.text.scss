@@ -7,14 +7,14 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.pcgu22htm7cm
 //
-// Styleguide: Building Blocks.Controls.TextInput
+// Styleguide: Components.Controls.TextInput
 
 // Usage
 //
 // Currently the `xui-textinput` CSS classes are highly optimised for usage with the `XUITextInput` React component. At this stage we're evaluating whether to create
 // a more simplified CSS class solution for direct usage by consumers.
 //
-// Styleguide: Building Blocks.Controls.TextInput.1
+// Styleguide: Components.Controls.TextInput.1
 
 // Standard inputs
 //
@@ -39,7 +39,7 @@
 // Markup:
 // <input class="xui-textinput xui-textinput--input" type="text" placeholder="Standard Input" aria-label="Standard input"/>
 //
-// Styleguide: Building Blocks.Controls.TextInput.2
+// Styleguide: Components.Controls.TextInput.2
 
 // Textarea
 //
@@ -59,7 +59,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.TextInput.3
+// Styleguide: Components.Controls.TextInput.3
 
 // Size variants
 //
@@ -99,7 +99,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.TextInput.4
+// Styleguide: Components.Controls.TextInput.4
 
 // Nesting
 //
@@ -174,7 +174,7 @@
 //   <div class="xui-validation xui-validation-layout" role="status" id="f">2xsmall Avatar. Xsmall Icon button (This is the exception to the nesting rule).</div>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.TextInput.5
+// Styleguide: Components.Controls.TextInput.5
 
 // Right-aligned content
 //
@@ -236,7 +236,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.TextInput.7
+// Styleguide: Components.Controls.TextInput.7
 
 // Transparent text inputs
 //
@@ -270,7 +270,7 @@
 //  <div class="xui-panel" style="height: 5rem; margin: 1px -20px -20px 1px"></div>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.TextInput.8
+// Styleguide: Components.Controls.TextInput.8
 
 // Inverted inputs
 //
@@ -295,12 +295,12 @@
 //   <input class="xui-textinput--input xui-padding-left-none" type="search" placeholder="Search sales & purchases" aria-label="Search sales & purchases" />
 // </div>
 //
-// Styleguide: Building Blocks.Controls.TextInput.9
+// Styleguide: Components.Controls.TextInput.9
 
 // Adding icons
 //
 //
-// Styleguide: Building Blocks.Controls.TextInput.10
+// Styleguide: Components.Controls.TextInput.10
 
 // Content prompts
 //
@@ -355,7 +355,7 @@
 //   <input class="xui-textinput--input xui-padding-left-none" type="text" placeholder="@username" aria-label="Twitter username"/>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.TextInput.10.1
+// Styleguide: Components.Controls.TextInput.10.1
 
 // Indicating actions
 //
@@ -406,7 +406,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.TextInput.10.2
+// Styleguide: Components.Controls.TextInput.10.2
 
 // Class list
 //
@@ -435,4 +435,4 @@
 // xui-textinput--input-small: Sets textinput size to small
 // xui-textinput--input-xsmall: Sets textinput size to xsmall
 //
-// Styleguide: Building Blocks.Controls.TextInput.10.8
+// Styleguide: Components.Controls.TextInput.10.8

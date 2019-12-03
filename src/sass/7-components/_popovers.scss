@@ -8,7 +8,7 @@
 //
 // Introduction: Popovers are used to highlight pertinent new features or provide additional helper text without affecting the underlying page layout.
 //
-// Styleguide: Building Blocks.Alerts.Popover
+// Styleguide: Components.Alerts.Popover
 
 // Best practice
 //
@@ -17,7 +17,7 @@
 // Warning: Avoid relying on popovers as a crutch for a bad experience
 // Dont: Don't use popovers to provide primary functionality
 //
-// Styleguide: Building Blocks.Alerts.Popover.1
+// Styleguide: Components.Alerts.Popover.1
 
 // Anatomy
 //
@@ -35,7 +35,7 @@
 //		<div id="popover-message">Content</div>
 //	</div>
 //
-// Styleguide: Building Blocks.Alerts.Popover.2
+// Styleguide: Components.Alerts.Popover.2
 
 // Arrow position
 //
@@ -55,7 +55,7 @@
 // -leftcenter: Modifier for a left-center arrow
 // -leftbottom: Modifier for a left-bottom arrow
 //
-// Styleguide: Building Blocks.Alerts.Popover.2.1
+// Styleguide: Components.Alerts.Popover.2.1
 
 // Dismissing popovers
 //
@@ -85,7 +85,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Alerts.Popover.3
+// Styleguide: Components.Alerts.Popover.3
 
 // Accessibility
 //
@@ -95,7 +95,7 @@
 // The `tooltip` [role](https://www.w3.org/TR/wai-aria-1.1/#tooltip) is used for popovers that provide helper text and become visible in response to a mouse or keyboard event.
 // The `dialog` [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role) is used when it is still possible to interact with content outside of the popover while it is being displayed.
 //
-// Styleguide: Building Blocks.Alerts.Popover.4
+// Styleguide: Components.Alerts.Popover.4
 
 .#{$ns}-popover {
   background-color: $xui-popover-bg-color;

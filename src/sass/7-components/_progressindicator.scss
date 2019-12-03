@@ -11,7 +11,7 @@
 //
 // Introduction: Progress indicators are used to visually communicate progress.
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator
+// Styleguide: Components.Identifiers.ProgressIndicator
 
 // Best practice
 //
@@ -20,7 +20,7 @@
 // Do: Use to indicate current position within a series of steps
 // Warning: Use progress indicators sparingly, as they are relatively dominant interface elements.
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.1
+// Styleguide: Components.Identifiers.ProgressIndicator.1
 
 // Anatomy
 //
@@ -30,7 +30,7 @@
 // Classes:
 // xui-progress: Apply to wrapper
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.2
+// Styleguide: Components.Identifiers.ProgressIndicator.2
 
 // Linear
 //
@@ -55,7 +55,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.2.1
+// Styleguide: Components.Identifiers.ProgressIndicator.2.1
 
 // Circular
 //
@@ -90,7 +90,7 @@
 // 		<div class="xui-progress-icon"></div>
 // 	</div>
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.2.2
+// Styleguide: Components.Identifiers.ProgressIndicator.2.2
 
 // Size
 //
@@ -101,7 +101,7 @@
 // Do: Use a scaling progress indicator for precise control over width and height
 // Warning: Avoid using too many different sized indicators on a single page
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.3
+// Styleguide: Components.Identifiers.ProgressIndicator.3
 
 // Standard
 //
@@ -136,7 +136,7 @@
 // 	<div class="xui-progress-icon"></div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.3.1
+// Styleguide: Components.Identifiers.ProgressIndicator.3.1
 
 // Grow
 //
@@ -176,7 +176,7 @@
 // 	<div class="xui-progress-icon"></div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.3.2
+// Styleguide: Components.Identifiers.ProgressIndicator.3.2
 
 // Color
 //
@@ -235,7 +235,7 @@
 //  <div class="xui-progress-icon"></div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.4
+// Styleguide: Components.Identifiers.ProgressIndicator.4
 
 // Segments
 //
@@ -278,7 +278,7 @@
 // 	<div class="xui-progress-icon"></div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.5
+// Styleguide: Components.Identifiers.ProgressIndicator.5
 
 // Indicating completion
 //
@@ -317,7 +317,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.6
+// Styleguide: Components.Identifiers.ProgressIndicator.6
 
 // Handling overflow
 //
@@ -356,14 +356,14 @@
 // 	<div class="xui-progress-icon"></div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.7
+// Styleguide: Components.Identifiers.ProgressIndicator.7
 
 // Handling errors
 //
 // In addition to overflow, there are two generic error states that can also be applied.
 // Note that these styles take precedent over any custom color.
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.8
+// Styleguide: Components.Identifiers.ProgressIndicator.8
 
 // Soft errors
 //
@@ -400,7 +400,7 @@
 // Classes:
 // xui-progress-error-soft: Modifier for a soft error state
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.8.1
+// Styleguide: Components.Identifiers.ProgressIndicator.8.1
 
 // Hard errors
 //
@@ -437,7 +437,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.8.2
+// Styleguide: Components.Identifiers.ProgressIndicator.8.2
 
 // Accessibility
 //
@@ -455,7 +455,7 @@
 //
 // Use descriptive text alongside Progress indicators to convey information so it’s still meaningful to people who can’t discern colour
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.9
+// Styleguide: Components.Identifiers.ProgressIndicator.9
 
 $xui-progress-circular-min-width: $xui-s-large;
 $xui-progress-linear-min-height: $xui-s-2xsmall;

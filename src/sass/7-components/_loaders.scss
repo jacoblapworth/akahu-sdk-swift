@@ -10,7 +10,7 @@
 //
 // Introduction: Loaders are used to communicate progress and alleviate slow load times.
 //
-// Styleguide: Building Blocks.Identifiers.Loader
+// Styleguide: Components.Identifiers.Loader
 
 // Best practice
 //
@@ -19,7 +19,7 @@
 // Warning: Avoid loaders on pages that initiated action, include on destination pages instead
 // Dont: Don't show multiple loaders at once
 //
-// Styleguide: Building Blocks.Identifiers.Loader.1
+// Styleguide: Components.Identifiers.Loader.1
 
 // Anatomy
 //
@@ -38,7 +38,7 @@
 //   <div class="xui-loader--dot"></div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Loader.2
+// Styleguide: Components.Identifiers.Loader.2
 
 // Size variants
 //
@@ -71,7 +71,7 @@
 //   <div class="xui-loader--dot"></div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Loader.4
+// Styleguide: Components.Identifiers.Loader.4
 
 // Retain layout
 //
@@ -82,7 +82,7 @@
 // xui-loader-retain-layout: Apply to loader
 // xui-u-hidden-content: Apply to content to be hidden
 //
-// Styleguide: Building Blocks.Identifiers.Loader.7
+// Styleguide: Components.Identifiers.Loader.7
 
 // Buttons
 //
@@ -123,7 +123,7 @@
 //   </div>
 // </button>
 //
-// Styleguide: Building Blocks.Identifiers.Loader.8
+// Styleguide: Components.Identifiers.Loader.8
 
 // Retain layout
 //
@@ -138,7 +138,7 @@
 //   </div>
 // </button>
 //
-// Styleguide: Building Blocks.Identifiers.Loader.8.1
+// Styleguide: Components.Identifiers.Loader.8.1
 
 // Dropdowns
 //
@@ -159,7 +159,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Loader.9
+// Styleguide: Components.Identifiers.Loader.9
 
 // Retain layout
 //
@@ -198,7 +198,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Loader.9.1
+// Styleguide: Components.Identifiers.Loader.9.1
 
 // Modals
 //
@@ -219,7 +219,7 @@
 //		</section>
 //	</div>
 //
-// Styleguide: Building Blocks.Identifiers.Loader.10
+// Styleguide: Components.Identifiers.Loader.10
 
 // Retain layout
 //
@@ -275,7 +275,7 @@
 //   </section>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Loader.10.1
+// Styleguide: Components.Identifiers.Loader.10.1
 
 // Panels
 //
@@ -292,7 +292,7 @@
 //		</div>
 //	</div>
 //
-// Styleguide: Building Blocks.Identifiers.Loader.11
+// Styleguide: Components.Identifiers.Loader.11
 
 // Retain layout
 //
@@ -325,7 +325,7 @@
 //	</div>
 //	</div>
 //
-// Styleguide: Building Blocks.Identifiers.Loader.11.1
+// Styleguide: Components.Identifiers.Loader.11.1
 
 // Pages
 //
@@ -334,7 +334,7 @@
 // Do: Conceal all content under the header until all data has been fetched
 // Warning: Avoid page loaders when asynchronously updating a single element, use a panel loader instead
 //
-// Styleguide: Building Blocks.Identifiers.Loader.12
+// Styleguide: Components.Identifiers.Loader.12
 
 // Inverted
 //
@@ -368,14 +368,14 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Loader.13
+// Styleguide: Components.Identifiers.Loader.13
 
 // Accessibility
 //
 // When loading, set the aria-busy attribute to `true` on the element that is loading, not on the loader itself.
 // Additionally, make sure to apply the `xui-button-is-disabled` class and `disabled` attribute on buttons that are loading to prevent keyboard interactivity.
 //
-// Styleguide: Building Blocks.Identifiers.Loader.14
+// Styleguide: Components.Identifiers.Loader.14
 
 .#{$ns}-loader {
   align-items: center;

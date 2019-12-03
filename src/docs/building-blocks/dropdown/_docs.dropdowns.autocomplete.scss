@@ -8,7 +8,7 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.wjv7xhbchcoz
 //
-// Styleguide: Compounds.CollectingInput.Autocompleter
+// Styleguide: Components.CollectingInput.Autocompleter
 
 // Best practice
 //
@@ -17,7 +17,7 @@
 // Do: Match dropdown width to the width of their associated autocompleter trigger
 // Warning: Avoid automatically showing dropdowns on focus, unless promoting recent or suggested items
 //
-// Styleguide: Compounds.CollectingInput.Autocompleter.1
+// Styleguide: Components.CollectingInput.Autocompleter.1
 
 // Anatomy
 //
@@ -26,7 +26,7 @@
 // Consequently, the examples shown below are static, and don't illustrate the recommended interactive behaviour.
 // For more information, visit the [React Documentation](./react/#autocompleter).
 //
-// Styleguide: Compounds.CollectingInput.Autocompleter.2
+// Styleguide: Components.CollectingInput.Autocompleter.2
 
 // Trigger
 //
@@ -38,7 +38,7 @@
 // xui-autocompleter--trigger: Apply to autocompleter container for recommended layout
 // xui-autocompleter--trigger-focus: Apply to trigger programatically when child input is in focus
 //
-// Styleguide: Compounds.CollectingInput.Autocompleter.2.1
+// Styleguide: Components.CollectingInput.Autocompleter.2.1
 
 // Input
 //
@@ -49,7 +49,7 @@
 // xui-textinput--input: Apply to the actual input
 // xui-autocompleter--textinput: Apply to actual input for recommended layout
 //
-// Styleguide: Compounds.CollectingInput.Autocompleter.2.2
+// Styleguide: Components.CollectingInput.Autocompleter.2.2
 
 // Standard layout
 //
@@ -100,11 +100,11 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Autocompleter.2.3
+// Styleguide: Components.CollectingInput.Autocompleter.2.3
 
 // Single-select
 //
-// To indicate a single selection has been made in an autocompleter, use [text input side elements](section-building-blocks-controls-textinput.html#building-blocks-controls-textinput-5) to display a left element, such as an avatar (if applicable), and a right icon button element to enable clearing the selection.
+// To indicate a single selection has been made in an autocompleter, use [text input side elements](section-components-controls-textinput.html#components-controls-textinput-5) to display a left element, such as an avatar (if applicable), and a right icon button element to enable clearing the selection.
 //
 // Tips:
 // Do: Use text input side elements to indicate a single selection
@@ -126,11 +126,11 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Autocompleter.3
+// Styleguide: Components.CollectingInput.Autocompleter.3
 
 // Multi-select
 //
-// To indicate an option has been added to the autocompleter, simply insert a [pill](section-building-blocks-identifiers-pill.html).
+// To indicate an option has been added to the autocompleter, simply insert a [pill](section-components-identifiers-pill.html).
 // Then, add the following modifier to provide the correct layout within the autocompleter.
 //
 // Tips:
@@ -169,7 +169,7 @@
 //   <input class="xui-autocompleter--textinput xui-textinput--input" placeholder="Add recipients" type="search" value="">
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Autocompleter.4
+// Styleguide: Components.CollectingInput.Autocompleter.4
 
 // Wrapping
 //
@@ -249,7 +249,7 @@
 //   <input class="xui-autocompleter--textinput xui-textinput--input" placeholder="Add recipients" type="search">
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Autocompleter.4.1
+// Styleguide: Components.CollectingInput.Autocompleter.4.1
 
 // Contained
 //
@@ -329,7 +329,7 @@
 //   <input class="xui-textinput--input" placeholder="Add recipients" type="search" value="">
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Autocompleter.4.2
+// Styleguide: Components.CollectingInput.Autocompleter.4.2
 
 // Secondary search autocompleter
 //
@@ -397,7 +397,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Autocompleter.5
+// Styleguide: Components.CollectingInput.Autocompleter.5
 
 // Disabling
 //
@@ -412,4 +412,4 @@
 //   <input class="xui-textinput--input xui-textinput--input-medium" placeholder="Add recipients" type="search" value="" disabled>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Autocompleter.6
+// Styleguide: Components.CollectingInput.Autocompleter.6

@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-compounds-navigation-breadcrumb-trail.html" isDocLink>Breadcrumb in the XUI Documentation</a>
+	<a href="../section-components-navigation-breadcrumb-trail.html" isDocLink>Breadcrumb in the XUI Documentation</a>
 </div>
 
 `XUIBreadcrumbTrail` creates a list of sequenced nav items from a provided array. It is most commonly found in addition to a title in a `XUIPageHeader`. The array can contain objects used to generate anchor links, or it can contain HTML nodes which will have the `xui-breadcrumb--link` class added to them. As always, be mindful of accessibility concerns if using non-semantic elements for interactivity.

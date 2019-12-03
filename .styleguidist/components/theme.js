@@ -10,18 +10,22 @@ export const space = [
 ];
 
 export const color = {
-  base: '#333',
-  light: '#999',
-  lightest: '#ccc',
-  link: '#657483',
-  linkHover: '#657483',
+  base: '#000a1e',
+  light: '#404756',
+  lightest: '#59606d',
+  link: '#0078c8',
+  linkActive: '#002a46',
+  linkHover: '#003c64',
+  button: '#0078c8',
+  buttonHover: '#006db7',
+  buttonActive: '#0062a6',
   border: '#e8e8e8',
   name: '#7f9a44',
   type: '#b77daa',
   error: '#fff',
   baseBackground: '#fff',
   errorBackground: '#c00',
-  codeBackground: '#ebedef',
+  codeBackground: '#e6e7e9',
   sidebarBackground: 'rgb(255, 255, 255)',
 };
 
@@ -31,15 +35,15 @@ export const fontFamily = {
 };
 
 export const fontSize = {
-  base: 15,
-  text: 16,
+  base: 16,
+  text: 15,
   small: 13,
-  h1: 36,
-  h2: 24,
-  h3: 18,
-  h4: 18,
-  h5: 16,
-  h6: 16,
+  h1: 28,
+  h2: 21,
+  h3: 21,
+  h4: 17,
+  h5: 15,
+  h6: 15,
 };
 
 export const mq = {
@@ -47,5 +51,7 @@ export const mq = {
 };
 
 export const borderRadius = 3;
+export const buttonPadding = '5px 12px';
+export const buttonFocusDropShadow = '0 0 0 3px rgba(0, 10, 30, 0.2)';
 export const maxWidth = 1000;
 export const sidebarWidth = 'calc(16% - 1px);';

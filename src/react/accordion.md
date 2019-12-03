@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-    <a href="../section-compounds-displayingdata-accordion.html" isDocLink>Accordion in the XUI Documentation</a>
+    <a href="../section-components-displayingdata-accordion.html" isDocLink>Accordion in the XUI Documentation</a>
 </div>
 
 Accordions are used to display a vertically expandable & collapsible list that reveals and hides additional content

@@ -33,7 +33,7 @@ module.exports = function (handlebars) {
 	handlebars.registerPartial('cardContents', cardContentsPartial);
 
 	const columnListPartial = `
-	<div class="xui-u-flex ds-column-wrapper">
+	<div class="xui-u-flex ds-grid">
 		{{#each @root.menu as |menuItem|}}
 			{{#if isActive}}
 				{{#each menuItem.menu}}
@@ -61,14 +61,10 @@ module.exports = function (handlebars) {
 	handlebars.registerPartial('columns', columnListPartial);
 
 	const landingpagePartial = `
-		{{#ifStyleguide "Building Blocks"}}
+		{{#ifStyleguide "Components"}}
 			{{> columns }}
 		{{else}}
-			{{#ifStyleguide "Compounds"}}
-				{{> columns }}
-			{{else}}
-				{{> card }}
-			{{/ifStyleguide}}
+			{{> card }}
 		{{/ifStyleguide}}
 
 		`

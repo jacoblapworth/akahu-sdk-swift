@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-building-blocks-controls-checkbox.html" isDocLink>Checkbox in the XUI Documentation</a>
+	<a href="../section-components-controls-checkbox.html" isDocLink>Checkbox in the XUI Documentation</a>
 </div>
 
 Enhanced version of HTML checkbox. Use in place of `<input type="checkbox" />`.

@@ -656,7 +656,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
                 >
                   <label
-                    className="xui-styledcheckboxradio"
+                    className="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
                     onClick={[Function]}
                     role="presentation"
                   >
@@ -664,7 +664,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       aria-label="Select row"
                       checked={false}
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                      disabled={false}
+                      disabled={true}
                       onChange={[Function]}
                       onClick={[Function]}
                       required={false}

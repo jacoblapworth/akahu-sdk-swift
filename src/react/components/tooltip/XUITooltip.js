@@ -195,7 +195,10 @@ export default class XUITooltip extends PureComponent {
         {clonedTrigger}
         <PositioningInline
           {...this.props}
-          isVisible={!this.state.isHidden}
+          // When isVisible is true, there will be a negative margin (influence the width of the tooltip) set in .xui-tooltip--tip
+          // Without the negative margin, the width will change once isVisible changes, and caused a bug (XUI-854) in Safari
+          // And setting isVisible to true will not actually determine the tooltip's render/display
+          isVisible
           parentRef={this.state.wrapper}
         >
           <span

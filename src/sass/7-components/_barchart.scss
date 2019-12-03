@@ -9,13 +9,13 @@
 //
 // Introduction: A bar chart presents categorical data with rectangular bars and heights proportional to the values that they represent - These bars can be plotted vertically, showing comparisons among discrete categories. The X-axis of the chart shows the specific categories being compared, and the Y-axis represents a measured value.
 //
-// Styleguide: Compounds.DisplayingData.BarChart
+// Styleguide: Components.DisplayingData.BarChart
 
 // React & Victory
 //
 // The XUI bar chart is primarily built off of the Victory set of modular charting components for React. This means that to consume the `XUIBarChart`, you will need to be using React in your application. Most of the styling is applied to a single SVG element, so we have enabled a lot of modification properties to help utilise this component in a number of ways.
 //
-// Styleguide: Compounds.DisplayingData.BarChart.1
+// Styleguide: Components.DisplayingData.BarChart.1
 
 // Best practice
 //
@@ -27,7 +27,7 @@
 // Do: Use a chart as a supporting visualisation of data on a page
 // Warning: Avoid relying on a chart to be the primary representation of the data on that page
 //
-// Styleguide: Compounds.DisplayingData.BarChart.2
+// Styleguide: Components.DisplayingData.BarChart.2
 
 // Anatomy
 //
@@ -43,7 +43,7 @@
 // xui-chart--yaxis: Chart y-axis wrapper
 // xui-chart--bars: Chart bar wrapper
 //
-// Styleguide: Compounds.DisplayingData.BarChart.3
+// Styleguide: Components.DisplayingData.BarChart.3
 
 // Chart header
 //
@@ -80,11 +80,11 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.BarChart.3.1
+// Styleguide: Components.DisplayingData.BarChart.3.1
 
 // Layout
 //
-// Styleguide: Compounds.DisplayingData.BarChart.4
+// Styleguide: Components.DisplayingData.BarChart.4
 
 // Chart size
 //
@@ -92,13 +92,13 @@
 // Do: Use default width (100%) and default height (400px) wherever possible to create a consistent experience across pages and products
 // Warning: Adjust height and width sparingly to fit with particular page layouts, eg. Widget-style containers
 //
-// Styleguide: Compounds.DisplayingData.BarChart.4.1
+// Styleguide: Components.DisplayingData.BarChart.4.1
 
 // Bar width
 //
 // Bars have a min-width of 12px and a max-width of 200px. The bar width adjusts based on the size of the surrounding container and/or the number of items displayed inside the chart. When the chart can no longer fit all bars in the container, the items will overflow by default.
 //
-// Styleguide: Compounds.DisplayingData.BarChart.4.2
+// Styleguide: Components.DisplayingData.BarChart.4.2
 
 // X-axis
 //
@@ -1198,7 +1198,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.BarChart.4.3
+// Styleguide: Components.DisplayingData.BarChart.4.3
 
 // Y-axis
 //
@@ -1208,7 +1208,7 @@
 // Label frequency: Y-axis labels are evenly distributed with a minimum gap of 100px between each label. Frequency of labels will depend on height of chart.
 // Label format: Custom units and math functions can be applied to the output of the Y-axis labels using `createYAxisLabelFormat`.
 //
-// Styleguide: Compounds.DisplayingData.BarChart.4.4
+// Styleguide: Components.DisplayingData.BarChart.4.4
 
 // Chart key
 //
@@ -1252,7 +1252,7 @@
 //   </span>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.BarChart.4.5
+// Styleguide: Components.DisplayingData.BarChart.4.5
 
 // Loading
 //
@@ -1273,7 +1273,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.BarChart.4.6
+// Styleguide: Components.DisplayingData.BarChart.4.6
 
 // Empty (no data)
 //
@@ -1293,7 +1293,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.BarChart.4.7
+// Styleguide: Components.DisplayingData.BarChart.4.7
 
 // Empty (data with no value)
 //
@@ -1499,13 +1499,13 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.BarChart.4.8
+// Styleguide: Components.DisplayingData.BarChart.4.8
 
 // Modifiers
 //
 // Modifiers can be applied to the `XUIBarChart` component to enable an advanced set of features that cater for specific use-cases outside of the default layout.
 //
-// Styleguide: Compounds.DisplayingData.BarChart.5
+// Styleguide: Components.DisplayingData.BarChart.5
 
 // Bar color
 //
@@ -1515,7 +1515,7 @@
 // Do: Make sure primary bar color is accessible (WCAG 2.0 AA pass against a white background)
 // Do: Use color to fit chart to your product theme
 //
-// Styleguide: Compounds.DisplayingData.BarChart.5.1
+// Styleguide: Components.DisplayingData.BarChart.5.1
 
 // Clickable bars & layers
 //
@@ -1525,7 +1525,7 @@
 // Do: Use an active color that easily distinguishes selected bar or layer from other items
 // Don't: Don’t enable clickable bars or layers without an accompanying function
 //
-// Styleguide: Compounds.DisplayingData.BarChart.5.2
+// Styleguide: Components.DisplayingData.BarChart.5.2
 
 // Stacked layers
 //
@@ -1777,7 +1777,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.BarChart.5.3
+// Styleguide: Components.DisplayingData.BarChart.5.3
 
 // Tooltips
 //
@@ -2126,7 +2126,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.BarChart.5.4
+// Styleguide: Components.DisplayingData.BarChart.5.4
 
 // Overflow scroll
 //
@@ -2973,7 +2973,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.BarChart.5.5
+// Styleguide: Components.DisplayingData.BarChart.5.5
 
 // Pagination
 //
@@ -3370,7 +3370,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.BarChart.5.6
+// Styleguide: Components.DisplayingData.BarChart.5.6
 
 // Maximum visible items
 //
@@ -3769,4 +3769,4 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.BarChart.5.7
+// Styleguide: Components.DisplayingData.BarChart.5.7

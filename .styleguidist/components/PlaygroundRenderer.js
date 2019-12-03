@@ -5,7 +5,7 @@ import Styled from 'rsg-components/Styled';
 
 const styles = ({ space, color, borderRadius }) => ({
   root: {
-    marginBottom: space[4],
+    marginBottom: space[2],
   },
   preview: {
     padding: space[2],
@@ -15,6 +15,7 @@ const styles = ({ space, color, borderRadius }) => ({
   controls: {
     display: 'flex',
     alignItems: 'center',
+    marginTop: space[1],
   },
 });
 

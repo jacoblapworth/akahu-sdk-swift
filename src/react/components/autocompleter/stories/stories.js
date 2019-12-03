@@ -64,6 +64,7 @@ export class DetailedListExample extends Component {
     value: '',
     people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
     selectedPeople: [peopleDataSet[0]],
+    prevProps: null,
   };
   completer = React.createRef();
 
@@ -165,25 +166,35 @@ export class DetailedListExample extends Component {
     }
   }
 
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    const { openDrawer, selectedPeople } = nextProps;
+  componentDidUpdate(prevProps, prevState) {
+    const { openDrawer } = this.props;
 
-    if (openDrawer) {
-      this.completer.current.openDropDown();
-    } else {
-      this.completer.current.closeDropDown();
+    if (this.props.openDrawer !== prevProps.openDrawer) {
+      if (openDrawer) {
+        this.completer.current.openDropDown();
+      } else {
+        this.completer.current.closeDropDown();
+      }
     }
+  }
 
-    if (selectedPeople != null && typeof selectedPeople === 'number') {
-      this.setState({
-        selectedPeople: peopleDataSet.slice(0, selectedPeople),
-      });
-    } else {
-      this.setState({
-        selectedPeople: [],
-      });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const { selectedPeople } = nextProps;
+
+    if (nextProps !== prevState.prevProps) {
+      if (typeof selectedPeople === 'number') {
+        return {
+          selectedPeople: peopleDataSet.slice(0, selectedPeople),
+          prevProps: nextProps,
+        };
+      } else {
+        return {
+          selectedPeople: [],
+          prevProps: nextProps,
+        };
+      }
     }
+    return null;
   }
 
   renderPills(selectedPeople) {

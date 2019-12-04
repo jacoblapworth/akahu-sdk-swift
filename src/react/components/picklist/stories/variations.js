@@ -324,7 +324,7 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as Nested (closed)',
+    storyTitle: 'as Nested and uncontrolled (closed)',
     lists: [
       {
         items: [{}, { isSelected: true }],
@@ -335,12 +335,11 @@ const variations = [
       },
     ],
     componentType: 'NestedPicklist',
-    // size: 'small',
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as Nested (open)',
-    isOpen: true,
+    storyTitle: 'as Nested and uncontrolled (open)',
+    isDefaultOpen: true,
     lists: [
       {
         items: [{}, { isSelected: true }],
@@ -348,6 +347,28 @@ const variations = [
       {
         isMultiselect: true,
         items: [{ isSelected: true }, {}, { isDisabled: true }],
+      },
+    ],
+    componentType: 'NestedPicklist',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Nested and controlled (closed)',
+    isOpen: false,
+    lists: [
+      {
+        items: [{}, { isSelected: true }],
+      },
+    ],
+    componentType: 'NestedPicklist',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Nested and controlled (open)',
+    isOpen: true,
+    lists: [
+      {
+        items: [{}, { isSelected: true }],
       },
     ],
     componentType: 'NestedPicklist',
@@ -356,7 +377,7 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with wrapping in narrow list',
     viewports: desktopPlus320,
-    isOpen: true,
+    isDefaultOpen: true,
     componentType: 'StatefulPicklist',
     panelSize: '200px',
     lists: [
@@ -370,7 +391,7 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with truncation in narrow list',
     viewports: desktopPlus320,
-    isOpen: true,
+    isDefaultOpen: true,
     componentType: 'StatefulPicklist',
     panelSize: '200px',
     lists: [

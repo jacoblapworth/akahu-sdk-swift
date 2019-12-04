@@ -14,7 +14,7 @@
 //
 // <!--?prettify lang=html?-->
 // ```html
-// <link rel="stylesheet" href="https://edge.xero.com/style/xui/15.2.7/xui.min.css"/>
+// <link rel="stylesheet" href="https://edge.xero.com/style/xui/15.3.0/xui.min.css"/>
 // ```
 //
 // If you are building an application that may live alongside other versions of XUI on the same page, see the [Advanced usage](#getting-started-developing-with-xui-5) section below.
@@ -63,6 +63,17 @@
 // * Avoid writing your own CSS as much as possible, particularly if your CSS overrides XUI's styling. The less custom CSS you have, the easier it will be to upgrade to future versions of XUI.
 //
 // * Prefer XUI React components over custom components. XUI components are tested to work as a suite and will work across upgrades automatically or have a tested migration path.
+//
+// Releases adhere to the following guidelines:
+//
+// Definitions:
+// Version:	<strong>Release content</strong>:													<strong>Release cadence</strong>
+// Patch:		Bugs, other low-risk changes:															As needed - 2 wks*
+// Minor:		New features/components that are backwards-compatible:		30 - 60 days*
+// Major:		Updates that will cause regressions to older versions**:	3 - 6 months*
+//
+// Note:
+// *Longest times depend on relevant changes having been merged to the working branch. If there are no changes awaiting release, the time between releases could be longer. <a href="https://confluence.teamxero.com/display/PLAT/2019/11/28/The+evolution+of+release+strategy+for+XUI">Read more on this release strategy.</a><br />**<a href="https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md#breaking-changes">More about breaking changes</a>
 //
 // Styleguide: Getting Started.Developing with XUI.1.3
 

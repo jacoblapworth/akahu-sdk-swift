@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-building-blocks-controls-radio.html" isDocLink>Radio in the XUI Documentation</a>
+	<a href="../section-components-controls-radio.html" isDocLink>Radio in the XUI Documentation</a>
 </div>
 
 Enhanced version of the native radio element. Use in place of `<input type="radio" />`.

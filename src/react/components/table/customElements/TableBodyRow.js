@@ -56,6 +56,7 @@ class TableBodyRow extends PureComponent {
       columns,
       hasCheckbox,
       isChecked,
+      isDisabled,
       onCheckOneToggle,
       checkOneRowLabel,
       onRowClick,
@@ -99,6 +100,7 @@ class TableBodyRow extends PureComponent {
             {...{
               rowId: rowData._id,
               isChecked,
+              isDisabled,
               onCheckOneToggle,
               checkOneRowLabel,
               dividerClasses,
@@ -162,6 +164,7 @@ TableBodyRow.propTypes = {
   // Checkbox.
   hasCheckbox: PropTypes.bool,
   isChecked: PropTypes.bool,
+  isDisabled: PropTypes.bool,
   onCheckOneToggle: PropTypes.func,
   checkOneRowLabel: PropTypes.node,
 

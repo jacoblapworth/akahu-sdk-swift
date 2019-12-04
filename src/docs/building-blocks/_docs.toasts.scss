@@ -8,7 +8,7 @@
 //
 // Introduction: Toasts are used for visual confirmation of user actions or system events.
 //
-// Styleguide: Building Blocks.Alerts.Toast
+// Styleguide: Components.Alerts.Toast
 
 // Best Practice
 //
@@ -17,7 +17,7 @@
 // Do: Use a toast to surface timely actions related to the current context
 // Dont: Don't use toasts for highlighting form errors, use inline validation instead
 //
-// Styleguide: Building Blocks.Alerts.Toast.1
+// Styleguide: Components.Alerts.Toast.1
 
 // Anatomy
 //
@@ -45,7 +45,7 @@
 // 	<p class="xui-toast--message">Bill created</p>
 // </div>
 //
-// Styleguide: Building Blocks.Alerts.Toast.2
+// Styleguide: Components.Alerts.Toast.2
 
 // Layout
 //
@@ -55,7 +55,7 @@
 // Classes:
 // xui-toastwrapper: Apply to toast parent
 //
-// Styleguide: Building Blocks.Alerts.Toast.3
+// Styleguide: Components.Alerts.Toast.3
 
 // Actions
 //
@@ -79,7 +79,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Building Blocks.Alerts.Toast.4
+// Styleguide: Components.Alerts.Toast.4
 
 // Wrapping
 //
@@ -100,7 +100,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Building Blocks.Alerts.Toast.5
+// Styleguide: Components.Alerts.Toast.5
 
 // Sentiment
 //
@@ -125,7 +125,7 @@
 // 	<p class="xui-toast--message">Connected</p>
 // </div>
 //
-// Styleguide: Building Blocks.Alerts.Toast.6
+// Styleguide: Components.Alerts.Toast.6
 
 // Hiding and showing
 //
@@ -146,7 +146,7 @@
 //
 // For more guidance on how to use toasts, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role).
 //
-// Styleguide: Building Blocks.Alerts.Toast.7
+// Styleguide: Components.Alerts.Toast.7
 
 // Accessibility
 //
@@ -155,4 +155,4 @@
 // In all other contexts use the `status` role.
 // For further information on roles, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role).
 //
-// Styleguide: Building Blocks.Alerts.Toast.9
+// Styleguide: Components.Alerts.Toast.9

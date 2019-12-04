@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-building-blocks-alerts-toast.html" isDocLink>Toasts in the XUI Documentation</a>
+	<a href="../section-components-alerts-toast.html" isDocLink>Toasts in the XUI Documentation</a>
 </div>
 
 ## Examples

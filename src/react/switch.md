@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-building-blocks-controls-switch.html" isDocLink>Switch in the XUI Documentation</a>
+	<a href="../section-components-controls-switch.html" isDocLink>Switch in the XUI Documentation</a>
 </div>
 
 `XUISwitch` uses an HTML checkbox under the hood and can be styled just as other control components.

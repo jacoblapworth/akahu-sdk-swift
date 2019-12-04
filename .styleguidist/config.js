@@ -63,26 +63,47 @@ const config = {
     resolve: {
       alias: {
         './theme': path.resolve(styleguidePath, 'components/theme'),
+        'rsg-components/slots/CodeTabButton': path.resolve(
+          styleguidePath,
+          'components/CodeTabButton',
+        ),
         'rsg-components/ComponentsList': path.resolve(styleguidePath, 'components/ComponentsList'),
         'rsg-components/ExamplePlaceholder': path.resolve(
           styleguidePath,
           'components/ExamplePlaceholder',
         ),
+        'rsg-components/Heading/HeadingRenderer': path.resolve(
+          styleguidePath,
+          'components/HeadingRenderer',
+        ),
         'rsg-components/Link': path.resolve(styleguidePath, 'components/Link'),
-        'rsg-components/StyleGuide/StyleGuideRenderer': path.resolve(
-          styleguidePath,
-          'components/StyleGuide',
-        ),
-        'rsg-components/TableOfContents/TableOfContentsRenderer': path.resolve(
-          styleguidePath,
-          'components/TableOfContents',
-        ),
-        'rsg-components/Wrapper/Wrapper': path.resolve(styleguidePath, 'components/Wrapper'),
+        'rsg-components/Logo/LogoRenderer': path.resolve(styleguidePath, 'components/LogoRenderer'),
         'rsg-components/Pathline': path.resolve(styleguidePath, 'components/Pathline'),
         'rsg-components/Playground/PlaygroundRenderer': path.resolve(
           styleguidePath,
           'components/PlaygroundRenderer',
         ),
+        'rsg-components/ReactComponent/ReactComponentRenderer': path.resolve(
+          styleguidePath,
+          'components/ReactComponentRenderer',
+        ),
+        'rsg-components/StyleGuide/StyleGuideRenderer': path.resolve(
+          styleguidePath,
+          'components/StyleGuide',
+        ),
+        'rsg-components/TabButton/TabButtonRenderer': path.resolve(
+          styleguidePath,
+          'components/TabButtonRenderer',
+        ),
+        'rsg-components/TableOfContents/TableOfContentsRenderer': path.resolve(
+          styleguidePath,
+          'components/TableOfContents',
+        ),
+        'rsg-components/slots/UsageTabButton': path.resolve(
+          styleguidePath,
+          'components/UsageTabButton',
+        ),
+        'rsg-components/Wrapper/Wrapper': path.resolve(styleguidePath, 'components/Wrapper'),
       },
       extensions: ['.js', '.jsx', '.json'],
     },

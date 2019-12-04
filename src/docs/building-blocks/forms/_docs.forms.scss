@@ -4,7 +4,7 @@
 //
 // Teaser: A container for interactive controls to submit information. This section uses different layouts based on the information type and content.
 //
-// Styleguide: Compounds.CollectingInput.Forms
+// Styleguide: Components.CollectingInput.Forms
 
 // Accessibility
 //
@@ -13,7 +13,7 @@
 //
 // If there are instructions or context information associated with the form element, `aria-describedby` should be used to ensure it is not missed by the assistive technology.
 //
-// Styleguide: Compounds.CollectingInput.Forms.20
+// Styleguide: Components.CollectingInput.Forms.20
 
 // Stacked Forms
 //
@@ -49,7 +49,7 @@
 // </form>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Forms.2
+// Styleguide: Components.CollectingInput.Forms.2
 
 // Inline Forms
 //
@@ -71,7 +71,7 @@
 //   </div>
 // </form>
 //
-// Styleguide: Compounds.CollectingInput.Forms.3
+// Styleguide: Components.CollectingInput.Forms.3
 
 // Grouping
 //
@@ -79,7 +79,7 @@
 // These are likely to be where one field (probably a select) modifies another or
 // the combination of both is closely tied and a common convention.
 //
-// Styleguide: Compounds.CollectingInput.Forms.5
+// Styleguide: Components.CollectingInput.Forms.5
 
 // Horizontal
 //
@@ -115,7 +115,7 @@
 //   <div class="xui-validation xui-validation-layout xui-validation-is-invalid">We need your middle name for a full identity check</div>
 // </div>
 //
-// Styleguide: Compounds.CollectingInput.Forms.5.1
+// Styleguide: Components.CollectingInput.Forms.5.1
 
 // Classes:
 // xui-textinputgroup: Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
@@ -231,4 +231,4 @@
 // xui-styledcheckboxradio-group: Container for multiple checkbox or radio controls.  Sibling of `xui-text-label` and `xui-validation`.
 // xui-styledcheckboxradio-group-is-invalid: Apply to a checkbox or radio group to set validity styles.
 //
-// Styleguide: Compounds.CollectingInput.Forms.50
+// Styleguide: Components.CollectingInput.Forms.50

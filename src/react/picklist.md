@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-compounds-displayingdata-picklist.html" isDocLink>Picklist in the XUI Documentation</a>
+	<a href="../section-components-displayingdata-picklist.html" isDocLink>Picklist in the XUI Documentation</a>
 </div>
 
 ## What is a Picklist?

@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-compounds-collectinginput-modals.html" isDocLink>Modals in the XUI Documentation</a>
+	<a href="../section-components-collectinginput-modals.html" isDocLink>Modals in the XUI Documentation</a>
 </div>
 
 `XUIModal` provides a container for custom content, along with a background mask. They should primarily be used for prompting user actions, such as confirming a change, providing additional information, or copying some text.
@@ -81,7 +81,7 @@ class Example extends PureComponent {
 
 ### Confirmation modal
 
-Modals are often used for user confirmation. A footer for adding actions can be added using `XUIModalFooter`. It's also recommended to use the [actions layout](../section-building-blocks-controls-button.html#building-blocks-controls-button-12) to display buttons as this provides standard padding and responsive behaviour.
+Modals are often used for user confirmation. A footer for adding actions can be added using `XUIModalFooter`. It's also recommended to use the [actions layout](../section-components-controls-button.html#components-controls-button-12) to display buttons as this provides standard padding and responsive behaviour.
 
 ```jsx harmony
 import { PureComponent } from 'react';

@@ -89,6 +89,7 @@ const variations = [
           ...tableProps,
           hasCheckbox: true,
           checkedIds: { 1: true },
+          disabledIds: { 2: true },
           onCheckAllToggle: noop,
           onCheckOneToggle: noop,
         },

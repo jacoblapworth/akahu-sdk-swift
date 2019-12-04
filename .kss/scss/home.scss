@@ -39,7 +39,7 @@
   transform: perspective(1px) translateZ(0);
   transition: all $xui-motion-speed-medium $ds-motion-curve-bouncy;
   vertical-align: middle;
-  width: calc(33.3% - 1vw);
+  width: calc(50% - 1vw);
   &:hover {
     box-shadow: $xui-shadow-depth-pop;
     transform: translateY(-4px);

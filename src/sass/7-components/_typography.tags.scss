@@ -11,7 +11,7 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.un9oianvfodl
 //
-// Styleguide: Building Blocks.Identifiers.Tag
+// Styleguide: Components.Identifiers.Tag
 
 // Style variants
 //
@@ -33,7 +33,7 @@
 // Warning: <span class="xui-tag xui-tag-medium xui-tag-warning">Warning</span>: `-warning`
 // Negative: <span class="xui-tag xui-tag-medium xui-tag-negative">Negative</span>: `-negative`
 //
-// Styleguide: Building Blocks.Identifiers.Tag.1
+// Styleguide: Components.Identifiers.Tag.1
 
 // Size variants
 //
@@ -62,7 +62,7 @@
 //   <span class="xui-tag xui-tag-xsmall">Invoiced</span>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Tag.2
+// Styleguide: Components.Identifiers.Tag.2
 
 // Implementation
 //
@@ -133,7 +133,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Identifiers.Tag.3
+// Styleguide: Components.Identifiers.Tag.3
 
 .#{$ns}-tag {
   background-color: $xui-tag-bg-color;

@@ -9,7 +9,7 @@
 //
 // Introduction: A stepper is used to indicate a workflow of sequential pages or steps. The main purpose is to display progression and completion of steps in a format that is easy to decipher and integrate into multiple page layouts.
 //
-// Styleguide: Compounds.Navigation.Stepper
+// Styleguide: Components.Navigation.Stepper
 
 // Best practice
 //
@@ -21,7 +21,7 @@
 // Warning: Keep the number of steps appropriate. Not too little or too many (3 to 6 is a good range)
 // Dont: Don’t nest steppers inside of each other
 //
-// Styleguide: Compounds.Navigation.Stepper.1
+// Styleguide: Components.Navigation.Stepper.1
 
 // Anatomy
 //
@@ -82,7 +82,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.Navigation.Stepper.2
+// Styleguide: Components.Navigation.Stepper.2
 
 // Link modifiers
 //
@@ -152,7 +152,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.Navigation.Stepper.2.1
+// Styleguide: Components.Navigation.Stepper.2.1
 
 // Link text
 //
@@ -195,13 +195,13 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.Navigation.Stepper.2.2
+// Styleguide: Components.Navigation.Stepper.2.2
 
 // Layout
 //
 // Modifiers are applied to `xui-stepper-wrapper` element to alter the format of how steps are displayed. On the React stepper component, these modifying classes are applied based on browser viewport width by default.
 //
-// Styleguide: Compounds.Navigation.Stepper.3
+// Styleguide: Components.Navigation.Stepper.3
 
 // Inline
 //
@@ -259,7 +259,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.Navigation.Stepper.3.1
+// Styleguide: Components.Navigation.Stepper.3.1
 
 // Inline (Stacked links)
 //
@@ -318,7 +318,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.Navigation.Stepper.3.2
+// Styleguide: Components.Navigation.Stepper.3.2
 
 // Sidebar
 //
@@ -411,7 +411,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.Navigation.Stepper.3.3
+// Styleguide: Components.Navigation.Stepper.3.3
 
 // Stacked
 //
@@ -469,7 +469,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.Navigation.Stepper.3.4
+// Styleguide: Components.Navigation.Stepper.3.4
 
 $stepper-tab-max-width: 300px;
 

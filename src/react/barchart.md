@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-compounds-displayingdata-barchart.html" isDocLink>Bar charts in the XUI Documentation</a>
+	<a href="../section-components-displayingdata-barchart.html" isDocLink>Bar charts in the XUI Documentation</a>
 </div>
 
 ## Bar Charts

@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-		<a href="../section-building-blocks-identifiers-avatar.html" isDocLink>Avatar in the XUI Documentation</a>
+		<a href="../section-components-identifiers-avatar.html" isDocLink>Avatar in the XUI Documentation</a>
 </div>
 
 Avatars come in two variants: Circular, used to represent people, and Rectangular, used to represent businesses. Both variants support the use of images.

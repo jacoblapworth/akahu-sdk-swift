@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-building-blocks-alerts-tooltip.html" isDocLink>Tooltip in the XUI Documentation</a>
+	<a href="../section-components-alerts-tooltip.html" isDocLink>Tooltip in the XUI Documentation</a>
 </div>
 
 `XUITooltip` provides additional information in-line with page elements.

@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-compounds-displayingdata-overviewblock.html" isDocLink>Overview blocks in the XUI Documentation</a>
+	<a href="../section-components-displayingdata-overviewblock.html" isDocLink>Overview blocks in the XUI Documentation</a>
 </div>
 
 `XUIOverviewBlock` components are used to show a top-level summary of stats and figures. They should contain at least one and no more than six `XUIOverviewSection` components.

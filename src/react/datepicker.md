@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-compounds-collectinginput-datepicker.html" isDocLink>Datepicker in the XUI Documentation</a>
+	<a href="../section-components-collectinginput-datepicker.html" isDocLink>Datepicker in the XUI Documentation</a>
 </div>
 
 For information about what to consider when using a `XUIDatePicker` within a `DropDown` component, check the [DropDown documentation](#dropdown).

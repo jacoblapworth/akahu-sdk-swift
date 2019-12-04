@@ -21,7 +21,7 @@ exports[`XUIRolloverCheckbox allows for a user defined rollover component to be 
       className="xui-rollovercheckbox-hidden xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
     >
       <label
-        className="xui-styledcheckboxradio"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover"
         onClick={[Function]}
         role="presentation"
       >
@@ -65,7 +65,7 @@ exports[`XUIRolloverCheckbox displays the checkbox when it's set to be shown 1`]
       className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
     >
       <label
-        className="xui-styledcheckboxradio"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover"
         onClick={[Function]}
         role="presentation"
       >
@@ -107,7 +107,7 @@ exports[`XUIRolloverCheckbox doesn't display the checkbox when it's set to hidde
       className="xui-rollovercheckbox-hidden xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
     >
       <label
-        className="xui-styledcheckboxradio"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover"
         onClick={[Function]}
         role="presentation"
       >
@@ -150,7 +150,7 @@ exports[`XUIRolloverCheckbox include an automation-id 1`] = `
       className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
     >
       <label
-        className="xui-styledcheckboxradio"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover"
         data-automationid="test-rollovercheckbox--checkbox"
         onClick={[Function]}
         role="presentation"
@@ -197,7 +197,7 @@ exports[`XUIRolloverCheckbox includes an aria-label, when provided 1`] = `
       className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
     >
       <label
-        className="xui-styledcheckboxradio"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover"
         onClick={[Function]}
         role="presentation"
       >
@@ -242,7 +242,7 @@ exports[`XUIRolloverCheckbox renders a variety of size checkboxes will be a medi
       className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
     >
       <label
-        className="xui-styledcheckboxradio"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover"
         onClick={[Function]}
         role="presentation"
       >
@@ -286,7 +286,7 @@ exports[`XUIRolloverCheckbox renders a variety of size checkboxes will be a smal
       className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
     >
       <label
-        className="xui-styledcheckboxradio"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover"
         onClick={[Function]}
         role="presentation"
       >
@@ -330,7 +330,7 @@ exports[`XUIRolloverCheckbox renders a variety of size checkboxes will be a xsma
       className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-xsmall"
     >
       <label
-        className="xui-styledcheckboxradio"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover"
         onClick={[Function]}
         role="presentation"
       >
@@ -375,7 +375,7 @@ exports[`XUIRolloverCheckbox renders an id on the root node when passed 1`] = `
       className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
     >
       <label
-        className="xui-styledcheckboxradio"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover"
         onClick={[Function]}
         role="presentation"
       >
@@ -419,7 +419,7 @@ exports[`XUIRolloverCheckbox renders checked when specified 1`] = `
       className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
     >
       <label
-        className="xui-styledcheckboxradio"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover"
         onClick={[Function]}
         role="presentation"
       >
@@ -461,7 +461,7 @@ exports[`XUIRolloverCheckbox renders correctly 1`] = `
       className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
     >
       <label
-        className="xui-styledcheckboxradio"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover"
         onClick={[Function]}
         role="presentation"
       >
@@ -505,7 +505,7 @@ exports[`XUIRolloverCheckbox renders unchecked when specified 1`] = `
       className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
     >
       <label
-        className="xui-styledcheckboxradio"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover"
         onClick={[Function]}
         role="presentation"
       >
@@ -549,7 +549,7 @@ exports[`XUIRolloverCheckbox should render the disabled classes and a disabled c
       className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
     >
       <label
-        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover xui-styledcheckboxradio-is-disabled"
         onClick={[Function]}
         role="presentation"
       >
@@ -593,7 +593,7 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes and a disable
       className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
     >
       <label
-        className="xui-styledcheckboxradio"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover"
         onClick={[Function]}
         role="presentation"
       >
@@ -637,7 +637,7 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes or a disabled
       className="xui-rollovercheckbox--styledcheckboxradio xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
     >
       <label
-        className="xui-styledcheckboxradio"
+        className="xui-styledcheckboxradio xui-styledcheckboxradio-is-rollover"
         onClick={[Function]}
         role="presentation"
       >

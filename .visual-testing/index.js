@@ -271,8 +271,8 @@ function buildScenarios() {
             } else {
               scenarioProp.hoverSelector = hoverSelector;
             }
-            scenarioProp.onReadyScript = 'onReady.js';
           }
+          scenarioProp.onReadyScript = 'onReady.js';
 
           return scenarioProp;
         }),

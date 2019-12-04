@@ -1,5 +1,7 @@
 # XUI 16 Changes
 
+For a step-by-step guide to upgrading, refer to the [Upgrade Guide](https://docs.google.com/document/d/1A2kCB_etKBJhO7oGMPCzKFkKE56p9-tpGoZJl5qsZmI/edit?usp=sharing).
+
 ## Dependency updates
 
 Please take some time to check that your projects' package.json dependencies match those of XUI's package.json

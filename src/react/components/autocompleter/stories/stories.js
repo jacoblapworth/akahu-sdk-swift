@@ -64,7 +64,7 @@ export class DetailedListExample extends Component {
     value: '',
     people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
     selectedPeople: [peopleDataSet[0]],
-    prevProps: null,
+    prevProps: this.props,
   };
   completer = React.createRef();
 

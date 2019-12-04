@@ -12,26 +12,25 @@ import XUIIconButton from '../../button/XUIIconButton';
 import XUIContentBlock from '../../contentblock/XUIContentBlock';
 import XUIContentBlockItem from '../../contentblock/XUIContentBlockItem';
 import overflowPathData from '@xero/xui-icon/icons/overflow';
-import notificationPathData from '@xero/xui-icon/icons/notification';
-import copyPathData from '@xero/xui-icon/icons/copy';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
-  const itemsTotal = number('Total items', 3, { max: 5 }) || 0;
+  const action = boolean('Show action', false) ? <XUIButton size="small">Update</XUIButton> : null;
   const hasPrimaryHeading = boolean('Show primary heading', true);
   const hasSecondaryHeading = boolean('Show secondary heading', false);
   const hasLeftContent = boolean('Show left content', false);
   const hasPinnedValue = boolean('Show pinned value', false);
-  const hasAction = boolean('Show action', false);
-  const hasOverflow = boolean('Show overflow', false);
   const hasDescription = boolean('Show description', false);
   const hasOnItemClick = boolean('Has item click callback', false);
   const hasEmptyState = boolean('Show empty state', false);
   const onItemClick = ({ id, isOpen }) =>
     alert(`${isOpen ? 'Open' : 'Close'} accordion item #${id}`);
+  const overflow = boolean('Show overflow', false) ? (
+    <XUIIconButton ariaLabel="Overflow menu" icon={overflowPathData} title="Overflow menu" />
+  ) : null;
   const items = [
     {
       name: 'Earnest Borer',
@@ -56,29 +55,15 @@ storiesWithKnobs.add('Playground', () => {
   ];
   const children = items.map(({ name, address }, index) => (
     <XUIAccordionItem
-      action={
-        hasAction && (
-          <XUIButton className="xui-margin-left-small" size="small">
-            Update
-          </XUIButton>
-        )
-      }
+      action={action}
       description={hasDescription && 'Descriptions are good'}
-      leftContent={hasLeftContent && <XUIAvatar className="xui-margin-right" value={name} />}
+      key={index}
+      leftContent={
+        hasLeftContent && <XUIAvatar className="xui-margin-right" size="small" value={name} />
+      }
       onClick={hasOnItemClick ? onItemClick : undefined}
-      overflow={
-        hasOverflow && (
-          <XUIIconButton
-            ariaLabel="Overflow menu"
-            className="xui-margin-left-small"
-            icon={overflowPathData}
-            title="Overflow menu"
-          />
-        )
-      }
-      pinnedValue={
-        hasPinnedValue && <span className="xui-margin-horizontal-small">{`${3 * index}:00`}</span>
-      }
+      overflow={overflow}
+      pinnedValue={hasPinnedValue && <span>{`${3 * index}:00`}</span>}
       primaryHeading={hasPrimaryHeading && name}
       secondaryHeading={hasSecondaryHeading && address}
     >

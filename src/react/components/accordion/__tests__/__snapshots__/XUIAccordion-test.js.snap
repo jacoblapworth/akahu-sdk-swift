@@ -8,14 +8,14 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
     className="xui-accordionwrapper"
   >
     <div
-      className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
+      className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
       tabIndex={0}
     >
       <div
-        className="xui-contentblockitem--leftcontent"
+        className="xui-accordiontrigger--leftcontent"
       >
         <div
           className="xui-accordiontrigger--arrow"
@@ -48,13 +48,13 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
         </div>
       </div>
       <div
-        className="xui-contentblockitem--maincontent"
+        className="xui-accordiontrigger--maincontent"
       >
         <div
-          className="xui-contentblockitem--headings"
+          className="xui-accordiontrigger--headings"
         >
           <span
-            className="xui-contentblockitem--primaryheading"
+            className="xui-accordiontrigger--primaryheading"
           >
             John smith
           </span>
@@ -76,14 +76,14 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
     className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
   >
     <div
-      className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
+      className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
       tabIndex={0}
     >
       <div
-        className="xui-contentblockitem--leftcontent"
+        className="xui-accordiontrigger--leftcontent"
       >
         <div
           className="xui-accordiontrigger--arrow"
@@ -135,14 +135,14 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
     className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
   >
     <div
-      className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
+      className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
       tabIndex={0}
     >
       <div
-        className="xui-contentblockitem--leftcontent"
+        className="xui-accordiontrigger--leftcontent"
       >
         <div
           className="xui-accordiontrigger--arrow"
@@ -214,14 +214,14 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
     className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
   >
     <div
-      className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
+      className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
       tabIndex={0}
     >
       <div
-        className="xui-contentblockitem--leftcontent"
+        className="xui-accordiontrigger--leftcontent"
       >
         <div
           className="xui-accordiontrigger--arrow"
@@ -254,13 +254,13 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
         </div>
       </div>
       <div
-        className="xui-contentblockitem--maincontent"
+        className="xui-accordiontrigger--maincontent"
       >
         <div
-          className="xui-contentblockitem--headings"
+          className="xui-accordiontrigger--headings"
         >
           <span
-            className="xui-contentblockitem--primaryheading"
+            className="xui-accordiontrigger--primaryheading"
           >
             John Smith
           </span>
@@ -303,14 +303,14 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
     className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
   >
     <div
-      className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink"
+      className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
       tabIndex={0}
     >
       <div
-        className="xui-contentblockitem--leftcontent"
+        className="xui-accordiontrigger--leftcontent"
       >
         <div
           className="xui-accordiontrigger--arrow"

@@ -5,7 +5,7 @@ import XUIActions from '../../actions/XUIActions';
 import XUIContentBlock from '../XUIContentBlock';
 import XUIContentBlockItem from '../XUIContentBlockItem';
 import overflow from '@xero/xui-icon/icons/overflow';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 
@@ -227,6 +227,19 @@ describe('<XUI ContentBlock and ContentBlockItem/>', () => {
     );
     wrapper.find('[role="button"]').simulate('click');
     expect(testCallback).toHaveBeenCalledTimes(1);
+  });
+  it('fires event passed to overflow button', () => {
+    const testAction = jest.fn();
+    const testOverflowButton = (
+      <XUIIconButton ariaLabel="Overflow Menu" icon={overflow} onClick={testAction} />
+    );
+    const wrapper = mount(
+      <XUIContentBlock qaHook={qaHook}>
+        <XUIContentBlockItem overflow={testOverflowButton} qaHook={qaHook} />
+      </XUIContentBlock>,
+    );
+    wrapper.find(XUIIconButton).simulate('click');
+    expect(testAction).toHaveBeenCalledTimes(1);
   });
   it('renders content block and content block item with automation id when qaHook prop is passed in', () => {
     const wrapper = renderer.create(

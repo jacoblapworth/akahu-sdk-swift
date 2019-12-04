@@ -113,3 +113,110 @@ $justify - Property to use for justify-content
   display: flex;
   justify-content: $justify;
 }
+
+// Unified styling for content blocks and accordion triggers
+@mixin xui-content-block-item($classname) {
+  border-top: $xui-border-standard;
+  min-height: inherit; // IE11 bug fix TODO: Link to docs on what the bugfix is
+  position: relative;
+  text-decoration: none;
+  &:first-of-type {
+    border-top: 0;
+  }
+  &-rowlink {
+    color: inherit; // Remove default link color
+    text-decoration: none; // Remove default link underline
+    .#{$classname}-rowlink:hover,
+    .#{$classname}-rowlink:focus {
+      background-color: $xui-color-grey-8;
+    }
+    .#{$classname}-rowlink:active {
+      background-color: $xui-color-grey-7;
+    }
+  }
+  &-has-top-radius {
+    border-top-left-radius: $xui-radius;
+    border-top-right-radius: $xui-radius;
+  }
+  &-has-bottom-radius {
+    border-bottom-left-radius: $xui-radius;
+    border-bottom-right-radius: $xui-radius;
+  }
+  &-layout {
+    align-items: center;
+    display: flex;
+    .#{$classname}--actions {
+      margin-left: $xui-s-xsmall;
+      margin-right: $xui-s-xsmall;
+
+      // This is to fix a bug where in actions, we assume that the buttons stack at smaller
+      // Viewport sizes, meaning that in the case of contentblocks, it gets weird top margin
+      // Applied and therefore causes a bug.
+      // TODO: work out a way to get another class on the element, instead of targeting this specific child
+      .#{$ns}-actions--secondary {
+        margin-top: 0;
+      }
+    }
+    .#{$classname}--maincontent {
+      flex: 1;
+      padding: $xui-s-small $xui-s-standard;
+    }
+
+    .#{$classname}--rightcontent,
+    .#{$classname}--leftcontent {
+      height: 1px; // Haxx to make flexbox vertical alignment behave in IE11
+      min-height: $xui-control-size-standard + ($xui-s-xsmall * 2);
+    }
+    .#{$classname}--rightcontent {
+      align-items: center;
+      align-self: flex-start;
+      display: flex;
+      margin-left: $xui-s-xsmall;
+      margin-right: $xui-s-xsmall;
+    }
+    .#{$classname}--leftcontent {
+      align-self: flex-start;
+      @include xui-flex-children;
+    }
+    .#{$classname}--leftcontent + .#{$classname}--maincontent {
+      padding: $xui-s-small $xui-s-standard $xui-s-small 0;
+    }
+    .#{$classname}--headings {
+      align-items: baseline;
+      display: flex;
+      flex-flow: wrap;
+    }
+    .#{$classname}--pinnedvalue {
+      margin-right: $xui-s-small;
+      text-align: right;
+    }
+  }
+  &--primaryheading {
+    @include xui-text-medium;
+    color: $xui-text-primary-color;
+    font-weight: $xui-font-weight-emphasis;
+    margin-right: $xui-s-small;
+  }
+  &--secondaryheading {
+    @include xui-text-medium;
+    color: $xui-text-primary-color;
+    margin-right: $xui-s-small;
+  }
+  &--rightcontent {
+    color: $xui-text-primary-color;
+  }
+  &--pinnedvalue {
+    font-size: $xui-font-size-medium;
+    font-weight: $xui-font-weight-deemphasis;
+    line-height: $xui-line-height-compact;
+  }
+  &--description {
+    display: block;
+    line-height: 1;
+  }
+  &--description--text {
+    color: $xui-color-grey-2;
+    @include xui-text-small;
+    margin-right: $xui-s-small;
+  }
+}

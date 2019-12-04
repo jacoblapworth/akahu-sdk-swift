@@ -2,9 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
-import preventDefault from '../helpers/preventDefault';
-
-const baseClass = `${ns}-contentblockitem`;
+import { isKeyClick } from '../helpers/reactKeyHandler';
 
 export default class XUIContentBlockItem extends PureComponent {
   render() {
@@ -20,6 +18,7 @@ export default class XUIContentBlockItem extends PureComponent {
       hasTopRadius,
       hasBottomRadius,
       isRowLink,
+      _isAccordionTrigger,
       href,
       overflow,
       pinnedValue,
@@ -29,6 +28,8 @@ export default class XUIContentBlockItem extends PureComponent {
       tags,
       tagPosition,
     } = this.props;
+
+    const baseClass = _isAccordionTrigger ? `${ns}-accordiontrigger` : `${ns}-contentblockitem`;
 
     const clonedAction =
       action &&
@@ -87,8 +88,14 @@ export default class XUIContentBlockItem extends PureComponent {
       (tags && tagPositionRight)) && (
       <div
         className={`${baseClass}--rightcontent`}
-        onClick={preventDefault}
-        onKeyDown={preventDefault}
+        onClick={event => {
+          event.preventDefault();
+        }}
+        onKeyDown={event => {
+          if (isKeyClick(event)) {
+            event.preventDefault();
+          }
+        }}
         role="presentation"
       >
         {tagPositionRight && tags}
@@ -155,6 +162,10 @@ XUIContentBlockItem.propTypes = {
    */
   isRowLink: PropTypes.bool,
   /**
+   * Gives accordion items the proper name for styling and semantics
+   */
+  _isAccordionTrigger: PropTypes.bool,
+  /**
    * Determines whether to apply top left and top right border radius on the content block item
    */
   hasTopRadius: PropTypes.bool,
@@ -202,5 +213,6 @@ XUIContentBlockItem.propTypes = {
 
 XUIContentBlockItem.defaultProps = {
   hasLayout: true,
+  _isAccordionTrigger: false,
   tagPosition: 'description',
 };

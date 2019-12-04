@@ -22,16 +22,14 @@ import XUIAccordion, { XUIAccordionItem } from './accordion';
 const items = [
   { id: 1, name: 'John Smith', content: 'Accountant' },
   { id: 2, name: 'Barry Allen', content: 'Bookkeeper' },
-  { id: 3, name: 'Ernest Hemmingway' }
+  { id: 3, name: 'Ernest Hemingway' }
 ];
 
 const BasicAccordionDemo = () => (
   <XUIAccordion toggleLabel="Toggle" emptyMessage="Nothing available to show">
     {items.map(({ id, name, content }) => (
       <XUIAccordionItem key={id} primaryHeading={name} toggleLabel="Toggle">
-        {content && (
-          <div className="xui-padding-horizontal-large xui-padding-vertical-4xlarge">{content}</div>
-        )}
+        {content && <div className="xui-padding-large">{content}</div>}
       </XUIAccordionItem>
     ))}
   </XUIAccordion>

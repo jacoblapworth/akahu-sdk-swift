@@ -8,6 +8,7 @@ import XUIControlWrapperInline, {
   getAriaAttributes,
 } from '../controlwrapper/XUIControlWrapperInline';
 import generateIds from '../controlwrapper/helpers';
+import XUITouchTarget from '../touchtarget/XUITouchTarget';
 
 const baseClass = `${ns}-switch`;
 
@@ -133,7 +134,9 @@ export default class XUISwitch extends PureComponent {
         }}
       >
         <input {...inputProps} />
-        <div className={controlClasses} data-automationid={qaHook && `${qaHook}--switch`} />
+        <div className={controlClasses} data-automationid={qaHook && `${qaHook}--switch`}>
+          <XUITouchTarget />
+        </div>
       </XUIControlWrapperInline>
     );
   }

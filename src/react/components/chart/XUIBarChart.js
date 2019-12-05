@@ -53,8 +53,12 @@ XUIBarChart.propTypes = {
     PropTypes.arrayOf(PropTypes.string),
   ]),
 
-  /** Key title inside the dropdown container. */
-  keyTitle: PropTypes.string,
+  /**
+   * Key title inside the dropdown container.
+   * <br />
+   * Recommended English value: *Graph key*
+   */
+  keyTitle: PropTypes.string.isRequired,
 
   /** Bar data consisting of an x-axis label and y-axis value(s). */
   barsData: PropTypes.arrayOf(
@@ -125,34 +129,62 @@ XUIBarChart.propTypes = {
    * pagination "panels". */
   createPaginationMessage: PropTypes.func,
 
-  /** Accessibility title for pagination button. */
-  paginationNextTitle: PropTypes.string,
+  /**
+   * Accessibility title for pagination button.
+   * This is required if `hasPagination` is true.
+   * <br />
+   * Recommended English value: *Next page*
+   */
+  paginationNextTitle(props, propName) {
+    if (props.hasPagination && typeof props[propName] !== 'string') {
+      return new Error(
+        'XUIBarChart: `paginationNextTitle` is required when `hasPagination` is true.',
+      );
+    }
+    return null;
+  },
 
-  /** Accessibility title for pagination button. */
-  paginationPreviousTitle: PropTypes.string,
+  /**
+   * Accessibility title for pagination button.
+   * This is required if `hasPagination` is true.
+   * <br />
+   * Recommended English value: *Previous page*
+   */
+  paginationPreviousTitle(props, propName) {
+    if (props.hasPagination && typeof props[propName] !== 'string') {
+      return new Error(
+        'XUIBarChart: `paginationPreviousTitle` is required when `hasPagination` is true.',
+      );
+    }
+    return null;
+  },
 
-  /** Customise the default empty message. */
+  /**
+   * The message to show if the chart is empty.
+   * <br />
+   * Recommended English value: *There is no data to display*
+   */
   emptyMessage: PropTypes.node,
 
-  /** Override the default empty component. */
+  /** Override the default empty state component. */
   emptyStateComponent: PropTypes.element,
 
   /** Show the charts "loading" state. */
   isLoading: PropTypes.bool,
 
-  /** Accessibility label for the `<XUILoader>`. */
+  /**
+   * Accessibility label for the `<XUILoader>`. This is required if the
+   * `isLoading` prop is set to `true`.
+   * <br />
+   * Recommended English value: *Loading*
+   */
   loadingLabel: PropTypes.string,
 };
 
 XUIBarChart.defaultProps = {
   chartHeight: CHART_HEIGHT,
   barsData: [],
-  keyTitle: 'Graph key',
   barColorActive: BAR_ACTIVE_COLOR,
-  emptyMessage: 'There is no data to display',
   xAxisType: 'standard',
   yAxisDefaultTopValue: 0,
-  paginationNextTitle: 'Next Page',
-  paginationPreviousTitle: 'Previous page',
-  loadingLabel: 'Loading',
 };

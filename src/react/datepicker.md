@@ -149,46 +149,6 @@ class DisabledDatePicker extends React.Component {
 </div>;
 ```
 
-### Compact
-
-This view slims down some of the padding to allow for a smaller view when needed.
-
-**Note:** _The compact variant now is `sunsetting` because it doesn’t meet [XUI touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommend to use._
-
-```jsx harmony
-import XUIDatePicker from './datepicker';
-
-class CompactPicker extends React.Component {
-  constructor(...args) {
-    super(...args);
-
-    this.state = {
-      selectedDate: null
-    };
-
-    this.onSelectDate = newDate => {
-      this.setState({
-        selectedDate: newDate
-      });
-    };
-  }
-
-  render() {
-    return (
-      <XUIDatePicker
-        onSelectDate={this.onSelectDate}
-        selectedDate={this.state.selectedDate}
-        isCompact
-      />
-    );
-  }
-}
-
-<div className="xui-panel xui-dropdown-medium">
-  <CompactPicker />
-</div>;
-```
-
 ### Fixed Number of Weeks
 
 To keep `XUIDatePicker`'s height consistent, you can set `showFixedNumberOfWeeks` to true. This will display 6 week rows no matter how many are in the displayed month.
@@ -228,8 +188,6 @@ class CompactPicker extends React.Component {
 ```
 
 ### Inside a dropdown
-
-Don't use compact datepicker variant in dropdown sheet, as this results in small touch targets
 
 ```jsx harmony
 import XUIDatePicker from './datepicker';

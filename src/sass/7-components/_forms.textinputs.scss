@@ -24,7 +24,9 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
   @include xui-padding-vertical($input-text-vertical-padding-standard);
   border: none;
   flex: 1 1 auto;
-  min-width: 0; // Required for inputs to be able to shrink in IE 11
+  // Fix the following problem in IE 11:
+  // If min-width set in xui-textinput takes effect, the value (when over 40px) will overflow the input.
+  min-width: $xui-minimum-touch-target;
   overflow: hidden;
 
   &:first-child,
@@ -43,12 +45,13 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
   align-items: center;
   cursor: text;
   display: flex;
+  min-width: $xui-minimum-touch-target;
   padding: 0;
 }
 
 .#{$ns}-textinput-is-invalid {
   border-color: $xui-textinput-invalid-border-color;
-  z-index: 1;
+  z-index: $xui-z-index-body;
 
   &:focus,
   &:hover {
@@ -60,7 +63,7 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
   box-shadow: $xui-shadow-focus;
   outline: none;
   transition: box-shadow 0.1s;
-  z-index: 2;
+  z-index: $xui-z-index-focus;
 }
 
 .#{$ns}-textinput-is-disabled {

@@ -1,6 +1,6 @@
 // Calculate and return height based on regular 16:9 viewport sizes
 // Given an arbitrary width value
-const sixteenByNine = num => (num / 16) * 9;
+const sixteenByNine = num => Math.round((num / 16) * 9);
 
 /**
  * Common viewport sizes are determined based off XUI's current viewport breakpoints

@@ -8,6 +8,7 @@ const storyNames = {
   multiDropDowns: 'Multiple dropdowns in a modal',
   formOnAPage: 'Form on a page',
   formLayout: 'Form layout',
+  touchTargets: 'Invisible touch targets',
 };
 
 const nonBackstopStoryNames = {
@@ -15,6 +16,7 @@ const nonBackstopStoryNames = {
   modalInModal: 'Modal in a modal with dropdown',
   fiveNestedModals: 'Multiple nested modals',
   touchInteractions: 'Touch interaction tests',
+  layeringElements: 'Layering elements',
 };
 
 const variations = [];

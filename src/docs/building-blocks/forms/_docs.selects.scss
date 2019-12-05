@@ -140,11 +140,12 @@
 
 // Size variants
 //
-// Selects have a range of size options that allow for greater control over visual hierarchy.
-// The small and xsmall variants of picklist now have a “Sunsetting” flag because it doesn't meet [XUI touch target standards](./section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so the small and xsmall variants of select options are being sunset, accordingly.
+// Selects have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
 //
 // Tips:
-// Dont: Don't use small and xsmall size variants of select options
+// Do: Use 'medium' size by default
+// Warning: Use 'small' and 'xsmall' variants cautiosly, as they have reduced legibility and touch targets
+// Don't: Don't use a combination of size variants within a single form
 //
 // Definitions:
 // Size variant: **Height**: **Class**
@@ -180,62 +181,6 @@
 //
 // Styleguide: Components.Controls.Select.4
 
-// Small, Xsmall Select Options
-//
-// flags: sunsetting
-//
-// Markup:
-// <div class="xui-select-layout xui-margin-bottom">
-//   <button class="xui-button xui-button-standard xui-button-small xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//     <span class="xui-select--content">Today</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-//   <div class="xui-dropdown-layout xui-margin-top-2xsmall xui-u-fullwidth xui-dropdown-is-open">
-//     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body">
-//       <ul class="xui-picklist xui-picklist-small xui-picklist-layout">
-//         <li class="xui-pickitem xui-pickitem-small" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Yesterday</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-small xui-pickitem-is-selected" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Today</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-small" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Tomorrow</button>
-//         </li>
-//       </ul>
-//     </div>
-//   </div>
-// </div>
-// <div class="xui-select-layout">
-//   <button class="xui-button xui-button-standard xui-button-xsmall xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//     <span class="xui-select--content">Today</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-//   <div class="xui-dropdown-layout xui-margin-top-2xsmall xui-u-fullwidth xui-dropdown-is-open">
-//     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body">
-//       <ul class="xui-picklist xui-picklist-xsmall xui-picklist-layout">
-//         <li class="xui-pickitem xui-pickitem-xsmall" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Yesterday</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-xsmall xui-pickitem-is-selected" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Today</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-xsmall" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">Tomorrow</button>
-//         </li>
-//       </ul>
-//     </div>
-//   </div>
-// </div>
-//
-// Styleguide: Components.Controls.Select.4.1
-
 // Style variants
 //
 // Selects consume button styles to enable desired trigger visual treatment. Alternatively, style a select like an input to visually fit within a form structure.
@@ -243,7 +188,7 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-margin-bottom xui-u-flex">
+// <div class="xui-margin-bottom  xui-u-flex">
 //   <button class="xui-button xui-button-main xui-button-medium xui-select--button xui-margin-right" aria-label="Select format">
 //     <span class="xui-select--content">All</span>
 //     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
@@ -337,7 +282,9 @@
 //           <div class="xui-pickitem--body" role="presentation">
 //             <label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
 //               <input type="checkbox" tabindex="-1" aria-labelledby="aaa" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small">
-//               <div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"></div>
+//               <div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small">
+//                 <div class="xui-touchtarget"></div>
+//               </div>
 //               <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
 //                 <span class="">Last week</span>
 //               </span>
@@ -348,7 +295,9 @@
 //           <div class="xui-pickitem--body" role="presentation">
 //             <label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
 //               <input type="checkbox" checked tabindex="-1" aria-labelledby="aab" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small">
-//               <div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"></div>
+//               <div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small">
+//                 <div class="xui-touchtarget"></div>
+//               </div>
 //               <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
 //                 <span class="">This week</span>
 //               </span>
@@ -359,7 +308,9 @@
 //           <div class="xui-pickitem--body" role="presentation">
 //             <label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
 //               <input type="checkbox" checked tabindex="-1" aria-labelledby="aac" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small">
-//               <div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"></div>
+//               <div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small">
+//                 <div class="xui-touchtarget"></div>
+//               </div>
 //               <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
 //                 <span class="">Next week</span>
 //               </span>

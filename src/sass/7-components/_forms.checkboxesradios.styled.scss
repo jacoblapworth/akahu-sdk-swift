@@ -121,7 +121,7 @@
     align-self: center;
     flex-shrink: 0; // Prevent SVG from shrinking when label text is long
     height: $xui-s-xlarge;
-    pointer-events: none;
+    position: relative;
     width: $xui-s-xlarge;
   }
 
@@ -465,7 +465,7 @@
 }
 
 .#{$ns}-styledcheckboxradio--radio {
-  border-radius: 50%;
+  border-radius: $xui-radius-circle;
   display: flex;
   justify-content: center;
   transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
@@ -474,7 +474,7 @@
     align-self: center;
     background-color: $xui-checkboxradio-check-checked-fill;
     border-color: $xui-checkboxradio-checked-fill;
-    border-radius: 50%;
+    border-radius: $xui-radius-circle;
     border-style: solid;
     border-width: 0px;
     box-sizing: border-box;

@@ -59,6 +59,10 @@ class Demo extends React.Component {
         keyLabel="Healthy food"
         barColor="#FF6496"
         barColorActive="rgba(0,0,0,0.5)"
+        keyTitle="Graph key"
+        emptyMessage="There is no data to display"
+        paginationNextTitle="Next page"
+        paginationPreviousTitle="Previous page"
       />
     );
   }
@@ -116,6 +120,10 @@ class Demo extends React.Component {
         keyLabel={keyLabel}
         barColor={['#5A5AE6', '#50DCAA']}
         barColorActive="rgba(0,0,0,0.5)"
+        keyTitle="Graph key"
+        emptyMessage="There is no data to display"
+        paginationNextTitle="Next page"
+        paginationPreviousTitle="Previous page"
       />
     );
   }
@@ -145,7 +153,7 @@ Specify the type of x-axis label using the prop `xAxisType`. Label content is de
 
 `xAxisType="abbreviation"` Takes a pipe `|` delimited string of up to four labels of ascending detail (_less detail_ --> _more detail_). As the label `width` changes an appropriate option is selected.
 
-#### Label Maximim
+#### Label Maximum
 
 The amount of labels per panel can be controlled via the prop `xAxisVisibleItems`.
 
@@ -178,6 +186,10 @@ class Demo extends React.Component {
               { id: 1, x: 'Heloise Stanton', y: 2 },
               { id: 2, x: 'Rollin McCullough', y: 3 }
             ]}
+            keyTitle="Graph key"
+            emptyMessage="There is no data to display"
+            paginationNextTitle="Next page"
+            paginationPreviousTitle="Previous page"
           />
         </div>
         <div style={wrapperStyles}>
@@ -197,6 +209,10 @@ class Demo extends React.Component {
               { id: 1, x: 'Heloise Stanton', y: 2, avatarUrl: 'https://placekitten.com/100/100' },
               { id: 2, x: 'Rollin McCullough', y: 3, avatarUrl: 'https://placekitten.com/200/200' }
             ]}
+            keyTitle="Graph key"
+            emptyMessage="There is no data to display"
+            paginationNextTitle="Next page"
+            paginationPreviousTitle="Previous page"
           />
         </div>
         <div style={wrapperStyles}>
@@ -211,6 +227,10 @@ class Demo extends React.Component {
               { id: 1, x: 'T | Tue | Tuesday | Tuesday 22 May', y: 2 },
               { id: 2, x: 'W | Wed | Wednesday | Wednesday 23 May', y: 3 }
             ]}
+            keyTitle="Graph key"
+            emptyMessage="There is no data to display"
+            paginationNextTitle="Next page"
+            paginationPreviousTitle="Previous page"
           />
         </div>
       </div>
@@ -253,6 +273,10 @@ class Demo extends React.Component {
         yAxisDefaultTopValue={20}
         createYAxisLabelFormat={value => `${Math.round(value * 100)}k`}
         barsData={data}
+        keyTitle="Graph key"
+        emptyMessage="There is no data to display"
+        paginationNextTitle="Next page"
+        paginationPreviousTitle="Previous page"
       />
     );
   }
@@ -272,14 +296,13 @@ The chart can change its state to reflect its supplied props.
 
 #### Loading
 
-Display the **loading** state using the prop `isLoading`.
+Display the **loading** state using the prop `isLoading`. You must also provide a `loadingLabel` for accessibility purposes.
 
 #### Empty
 
-If there is no `barsData` an **empty** state is shown. The state customisation options are:
+If there is no `barsData`, an **empty** state is shown. You must choose one of the following options:
 
-- `emptyMessage`: Override the default empty message.
-
+- `emptyMessage`: Set the message to be used with the bar chart icon.
 - `emptyStateComponent`: Override the entire empty state component with your own.
 
 ```jsx harmony
@@ -310,6 +333,11 @@ class Demo extends React.Component {
             chartHeight={200}
             barsData={data}
             isLoading
+            keyTitle="Graph key"
+            emptyMessage="There is no data to display"
+            paginationNextTitle="Next page"
+            paginationPreviousTitle="Previous page"
+            loadingLabel="Loading"
           />
         </div>
         <div style={wrapperStyles}>
@@ -318,7 +346,10 @@ class Demo extends React.Component {
             chartTitle="Empty State"
             chartDescription="A depiction of the chart empty state"
             chartHeight={200}
-            // emptyMessage="Sorry 🙁, there is no data to display!"
+            keyTitle="Graph key"
+            emptyMessage="There is no data to display"
+            paginationNextTitle="Next page"
+            paginationPreviousTitle="Previous page"
             // emptyStateComponent={(
             //   <div className="xui-text-align-center">
             //     <h3 className="xui-heading-xlarge">Sorry 🙁</h3>
@@ -338,7 +369,7 @@ class Demo extends React.Component {
 
 Add a chart **title** (`<title />`) and **description** (`<desc />`) with the `chartTitle` and `chartDescription` props.
 
-The chart **title** is shown visually be default but you can choose to hide it _(and have it persist on the `<svg />` `title` tag **only**)_ with the `isChartTitleHidden` prop .
+The chart **title** is shown visually by default but you can choose to hide it _(and have it persist on the `<svg />` `title` tag **only**)_ with the `isChartTitleHidden` prop .
 
 #### Overflow
 
@@ -352,16 +383,14 @@ The default which uses a horizontal scrolling panel to reveal hidden content.
 
 #### Pagination
 
-Activated via the prop `hasPagination`. The hidden content is revealed via the **next** and **previous** buttons. This overflow option can be customised further.
+Activated via the prop `hasPagination`. The hidden content is revealed via the **next** and **previous** buttons.
 
+- `paginationNextLabel` / `paginationPreviousLabel`: The **next** and **previous** button `title`s _(required for accessibility)_.
 - `createPaginationMessage`: Create a custom message based on the charts _current_ and _total_ panels.
-- `paginationNextLabel` / `paginationPreviousLabel`: Customise the **next** and **previous** button `title`.
 
 ### Key
 
-Render the chart **key** providing a `keyLabel` prop referencing the **bar** or **bar stack** label(s). The key customisation options are:
-
-- `keyTitle`: Customise the title of the _dropdown panel_.
+Render the chart **key** providing a `keyLabel` prop referencing the **bar** or **bar stack** label(s). You must provide a `keyTitle` to set the title of the dropdown panel.
 
 ```jsx harmony
 import 'array.prototype.find';
@@ -396,6 +425,7 @@ class Demo extends React.Component {
         paginationLabel="Chart Pagination"
         paginationNextTitle="Next set of data"
         paginationPreviousTitle="Previous set of data"
+        emptyMessage="There is no data to display"
       />
     );
   }

@@ -49,7 +49,11 @@ class Example extends Component {
     return (
       <div>
         <XUIButton onClick={() => this.setState({ showModal: true })}>First modal</XUIButton>
-        <XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
+        <XUIModal
+          closeButtonLabel="Close"
+          isOpen={this.state.showModal}
+          onClose={() => this.setState({ showModal: false })}
+        >
           <XUIModalHeader>First modal</XUIModalHeader>
           <XUIModalBody className="xui-padding">
             <div className="xui-padding-bottom">
@@ -77,7 +81,11 @@ class Example2 extends Component {
     return (
       <div>
         <XUIButton onClick={() => this.setState({ showModal: true })}>Second modal</XUIButton>
-        <XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
+        <XUIModal
+          closeButtonLabel="Close"
+          isOpen={this.state.showModal}
+          onClose={() => this.setState({ showModal: false })}
+        >
           <XUIModalHeader>Second modal</XUIModalHeader>
           <XUIModalBody className="xui-padding">
             <div className="xui-padding-bottom" style={{ height: '1000px' }}>

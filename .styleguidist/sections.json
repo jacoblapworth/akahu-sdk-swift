@@ -64,8 +64,8 @@
               },
               {
                 "name": "Actions",
-                "components": "../src/react/components/structural/XUIActions.js",
-                "content": "../src/react/components/structural/structural.actions.md"
+                "components": "../src/react/components/actions/XUIActions.js",
+                "content": "../src/react/actions.md"
               }
             ]
           },
@@ -265,9 +265,9 @@
         "name": "Navigation",
         "sections": [
           {
-            "name": "Breadcrumb",
-            "components": "../src/react/components/structural/XUIBreadcrumb.js",
-            "content": "../src/react/components/structural/structural.breadcrumb.md"
+            "name": "Breadcrumb Trail",
+            "components": "../src/react/components/pageheader/XUIBreadcrumbTrail.js",
+            "content": "../src/react/components/pageheader/pageheader.breadcrumbtrail.md"
           },
           {
             "name": "Isolation Header",
@@ -276,8 +276,8 @@
           },
           {
             "name": "Page Header",
-            "components": "../src/react/components/structural/XUIPageHeader.js",
-            "content": "../src/react/components/structural/structural.pageheader.md"
+            "components": "../src/react/components/pageheader/XUIPageHeader.js",
+            "content": "../src/react/pageheader.md"
           },
           {
             "name": "Stepper",
@@ -378,18 +378,18 @@
           },
           {
             "name": "Content Block",
-            "content": "../src/react/components/structural/structural.contentblock.md",
-            "components": "../src/react/components/structural/XUIContentBlock*.js"
+            "content": "../src/react/contentblock.md",
+            "components": "../src/react/components/contentblock/XUIContentBlock*.js"
           },
           {
             "name": "Overview Block",
-            "content": "../src/react/components/structural/structural.overviewblock.md",
-            "components": "../src/react/components/structural/XUIOverview*.js"
+            "content": "../src/react/overviewblock.md",
+            "components": "../src/react/components/overviewblock/XUIOverview*.js"
           },
           {
             "name": "Panel",
-            "content": "../src/react/components/structural/structural.panel.md",
-            "components": "../src/react/components/structural/XUIPanel*.js"
+            "content": "../src/react/panel.md",
+            "components": "../src/react/components/panel/XUIPanel*.js"
           },
           {
             "name": "Picklist",

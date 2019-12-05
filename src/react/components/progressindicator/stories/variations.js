@@ -17,6 +17,12 @@ const variations = [
   {
     ...baseProps,
     storyKind,
+    storyTitle: 'linear standard - very short',
+    progress: 4,
+  },
+  {
+    ...baseProps,
+    storyKind,
     storyTitle: 'linear segments',
     isSegmented: true,
   },

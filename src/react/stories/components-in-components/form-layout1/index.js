@@ -308,6 +308,7 @@ test.add(storyNames.formLayout, () => {
                 pills={selectedPeople.map(person => (
                   <XUIPill
                     className="xui-autocompleter--pill"
+                    deleteButtonLabel="Delete"
                     key={person.id}
                     onDeleteClick={() => this.deletePerson(person.id)}
                     value={person.name}
@@ -377,7 +378,7 @@ test.add(storyNames.formLayout, () => {
                     id={`${inputMap.whatColour2}-${label}`} // Had to add this to the component, it didn't exist before
                     key={label}
                     name={`${inputMap.whatColour2}-${label}`}
-                    onChange={NOOP}
+                    onChange={() => {}}
                     type="checkbox"
                     value={label}
                   >

@@ -48,7 +48,6 @@ export default class NestedPicklistTrigger extends PureComponent {
         onKeyDown={onClick}
         onMouseOver={onMouseOver}
         ref={n => (this.rootNode = n)}
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
         role="button"
         tabIndex={0}
       >
@@ -69,15 +68,19 @@ NestedPicklistTrigger.propTypes = {
   isSelected: PropTypes.bool,
   onClick: PropTypes.func,
   onMouseOver: PropTypes.func,
-  ariaLabel: PropTypes.string,
+  /**
+   * Specify an ARIA label for the trigger
+   * <br />
+   * Recommended English value: *Toggle submenu*
+   */
+  ariaLabel: PropTypes.string.isRequired,
   secondaryProps: PropTypes.object,
-  /** Content to be added to the left of the pickitem. */
+  /** Content to be added to the left of the pickitem */
   leftElement: PropTypes.node,
 };
 
 NestedPicklistTrigger.defaultProps = {
   isHighlighted: false,
-  ariaLabel: 'Toggle submenu',
   secondaryProps: {
     role: 'button',
   },

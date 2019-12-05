@@ -57,6 +57,7 @@ class SelectBoxExample extends Component {
           </span>
         }
         isTextTruncated={false}
+        caretTitle="Toggle list"
       >
         {banks.map((opt, idx) => {
           return (
@@ -124,6 +125,7 @@ class MiniApp extends Component {
         ref={this.isMultiselect}
         isInvalid={!MiniApp.state.selectedBoats.length}
         validationMessage="Please select at least one boat"
+        caretTitle="Toggle list"
       >
         {boats.map((opt, idx) => {
           return (
@@ -149,10 +151,6 @@ class MiniApp extends Component {
 ### Sizes
 
 The `size` prop allows you to change the default `SelectBox` size.
-
-If `SelectBoxOption` is not given a `size` property, it will inherit the `size` of the `SelectBox`.
-
-**Note:** _The `small` and `xsmall` variants of `SelectBoxOption` now are `sunsetting` because they don't meet [XUI touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommend to use._
 
 ```jsx harmony
 import { Component } from 'react';
@@ -198,6 +196,7 @@ class MiniApp extends Component {
         name="selectOne"
         ref={this.selectOne}
         size="small"
+        caretTitle="Toggle list"
       >
         {banks.map((opt, idx) => {
           return (
@@ -269,6 +268,7 @@ class MiniApp extends Component {
         ref={this.selectOne}
         fullWidth="never"
         hintMessage="Selecting your bank helps us set up your bank feed"
+        caretTitle="Toggle list"
       >
         {banks.map((opt, idx) => {
           return (

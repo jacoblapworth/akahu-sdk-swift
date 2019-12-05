@@ -1,5 +1,7 @@
 // Switch
 //
+// flags: updated
+//
 // Teaser: Used for significant binary decisions.
 //
 // Components: Switch
@@ -21,7 +23,11 @@
 // Anatomy
 //
 // To create a switch, use the following classes in combination with a native checkbox input.
-// To turn the switch on, simply add the `checked` attribute to the input.
+// To turn the switch on, add the `checked` attribute to the input.
+// Visit our [touch target documentation](section-getting-started-responsive.html#getting-started-responsive-3) for more information about the invisble `xui-touchtarget` element.
+//
+// Tips:
+// Warning: If displaying multiple switches, ensure there is adequate space between so that touch targets don't overlap
 //
 // Classes:
 // xui-switch: Apply to label containing the switch
@@ -32,17 +38,22 @@
 // xui-switch--label: Apply to label
 // xui-switch--label-medium: Apply to label for standard sizing
 // xui-switch-reversed: Modifier to reverse order of label
+// xui-touchtarget: Apply to an empty element inside the switch control
 //
 // Markup:
 // <label class="xui-switch xui-switch-medium xui-margin-right-small" role="presentation">
-//  <input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch1">
-//  <div class="xui-switch--control xui-switch--control-medium"></div>
-//  <span id="switch1" class="xui-switch--label xui-switch--label-medium">Unchecked</span>
+//   <input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch1">
+//   <div class="xui-switch--control xui-switch--control-medium">
+//     <div class="xui-touchtarget"></div>
+//   </div>
+//   <span id="switch1" class="xui-switch--label xui-switch--label-medium">Unchecked</span>
 // </label>
 // <label class="xui-switch xui-switch-medium" role="presentation">
-//  <input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch1" checked>
-//  <div class="xui-switch--control xui-switch--control-medium"></div>
-//  <span id="switch1" class="xui-switch--label xui-switch--label-medium">Checked</span>
+//   <input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch1" checked>
+//   <div class="xui-switch--control xui-switch--control-medium">
+//     <div class="xui-touchtarget"></div>
+//   </div>
+//   <span id="switch1" class="xui-switch--label xui-switch--label-medium">Checked</span>
 // </label>
 //
 // Styleguide: Components.Controls.Switch.2
@@ -56,14 +67,18 @@
 //
 // Markup:
 // <label class="xui-switch xui-switch-medium xui-margin-right-small xui-switch-is-disabled" role="presentation">
-//  <input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch3" disabled>
-//  <div class="xui-switch--control xui-switch--control-medium"></div>
-//  <span id="switch3" class="xui-switch--label xui-switch--label-medium">Unchecked</span>
+//   <input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch3" disabled>
+//   <div class="xui-switch--control xui-switch--control-medium">
+//     <div class="xui-touchtarget"></div>
+//   </div>
+//   <span id="switch3" class="xui-switch--label xui-switch--label-medium">Unchecked</span>
 // </label>
 // <label class="xui-switch xui-switch-medium xui-switch-is-disabled" role="presentation">
-//  <input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch4" checked disabled>
-//  <div class="xui-switch--control xui-switch--control-medium"></div>
-//  <span id="switch4" class="xui-switch--label xui-switch--label-medium">Checked</span>
+//   <input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch4" checked disabled>
+//   <div class="xui-switch--control xui-switch--control-medium">
+//     <div class="xui-touchtarget"></div>
+//   </div>
+//   <span id="switch4" class="xui-switch--label xui-switch--label-medium">Checked</span>
 // </label>
 //
 // Styleguide: Components.Controls.Switch.3
@@ -80,12 +95,16 @@
 // <div class="xui-switch-group">
 //   <label class="xui-switch xui-switch-medium xui-switch-reversed" role="presentation">
 //     <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch5">
-//     <div class="xui-switch--control xui-switch--control-medium"></div>
+//     <div class="xui-switch--control xui-switch--control-medium">
+//       <div class="xui-touchtarget"></div>
+//     </div>
 //     <span id="switch5" class="xui-switch--label xui-switch--label-medium">Invoicing</span>
 //   </label>
 //   <label class="xui-switch xui-switch-medium xui-switch-reversed" role="presentation">
 //     <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch6">
-//     <div class="xui-switch--control xui-switch--control-medium"></div>
+//     <div class="xui-switch--control xui-switch--control-medium">
+//       <div class="xui-touchtarget"></div>
+//     </div>
 //     <span id="switch6" class="xui-switch--label xui-switch--label-medium">Projects</span>
 //   </label>
 // </div>
@@ -101,7 +120,9 @@
 // <div class="xui-switch-group">
 //   <label class="xui-switch xui-switch-medium xui-switch-reversed" role="presentation">
 //     <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch7">
-//     <div class="xui-switch--control xui-switch--control-medium"></div>
+//     <div class="xui-switch--control xui-switch--control-medium">
+//       <div class="xui-touchtarget"></div>
+//     </div>
 //     <span id="switch7" class="xui-switch--label xui-switch--label-medium">Single switch</span>
 //   </label>
 // </div>
@@ -117,7 +138,9 @@
 // <div class="xui-switch-group">
 //   <label class="xui-switch xui-switch-medium xui-switch-reversed" role="presentation">
 //     <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch8">
-//     <div class="xui-switch--control xui-switch--control-medium"></div>
+//     <div class="xui-switch--control xui-switch--control-medium">
+//       <div class="xui-touchtarget"></div>
+//     </div>
 //     <span id="switch8" class="xui-switch--label xui-switch--label-medium">Mutliline switch that spans</br>mutliple lines</span>
 //   </label>
 // </div>
@@ -158,7 +181,9 @@
 //     <div class="xui-switchwrapper xui-switch-medium">
 //       <label class="xui-switch">
 //         <input class="xui-switch--checkbox" type="checkbox">
-//         <div class="xui-switch--control xui-switch--control-medium"></div>
+//         <div class="xui-switch--control xui-switch--control-medium">
+//           <div class="xui-touchtarget"></div>
+//         </div>
 //       </label>
 //       <div class="xui-validation xui-validation-layout xui-switch--message" role="status">
 //         Hint message
@@ -170,7 +195,9 @@
 //     <div class="xui-switchwrapper xui-switch-medium">
 //       <label class="xui-switch">
 //         <input class="xui-switch--checkbox" type="checkbox">
-//         <div class="xui-switch--control xui-switch--control-medium"></div>
+//         <div class="xui-switch--control xui-switch--control-medium">
+//           <div class="xui-touchtarget"></div>
+//         </div>
 //         <span class="xui-switch--label xui-switch--label-medium">Switch label</span>
 //       </label>
 //       <div class="xui-validation xui-validation-layout xui-switch--message xui-switch--message-with-label" role="status">
@@ -184,12 +211,16 @@
 // <div class="xui-switch-group xui-switch-group-is-invalid">
 //   <label class="xui-switch xui-switch-medium xui-switch-reversed" role="presentation">
 //     <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch5" aria-invalid="true">
-//     <div class="xui-switch--control xui-switch--control-medium"></div>
+//     <div class="xui-switch--control xui-switch--control-medium">
+//       <div class="xui-touchtarget"></div>
+//     </div>
 //     <span id="switch5" class="xui-switch--label xui-switch--label-medium">Invoicing</span>
 //   </label>
 //   <label class="xui-switch xui-switch-medium xui-switch-reversed" role="presentation">
 //     <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch6" aria-invalid="true">
-//     <div class="xui-switch--control xui-switch--control-medium"></div>
+//     <div class="xui-switch--control xui-switch--control-medium">
+//       <div class="xui-touchtarget"></div>
+//     </div>
 //     <span id="switch6" class="xui-switch--label xui-switch--label-medium">Projects</span>
 //   </label>
 // </div>

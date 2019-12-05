@@ -40,6 +40,7 @@ export default class LayoutSelect extends React.Component {
               {displayText}
             </span>
           }
+          caretTitle="Toggle list"
           htmlFor={htmlFor}
           isFieldLayout
           isTextTruncated={false}

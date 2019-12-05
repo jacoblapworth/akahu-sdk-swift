@@ -27,6 +27,7 @@ describe('SelectBox', function() {
         buttonContent={options[0]}
         buttonClasses="blah"
         forceDesktop
+        caretTitle="Toggle list"
       >
         {options.map((opt, idx) => {
           return (
@@ -55,7 +56,7 @@ describe('SelectBox', function() {
       .find('button')
       .first()
       .text()
-      .replace('Toggle List', '');
+      .replace('Toggle list', '');
     expect(buttonValue).toEqual(options[0]);
   });
 
@@ -77,6 +78,7 @@ describe('SelectBox', function() {
         buttonClasses="blah"
         isOpen={false}
         forceDesktop
+        caretTitle="Toggle list"
       />,
     );
 
@@ -96,6 +98,7 @@ describe('SelectBox', function() {
         isOpen={false}
         forceDesktop
         isDisabled
+        caretTitle="Toggle list"
       >
         <SelectBoxOption id="1" value="A sample option" label="test">
           A sample option
@@ -142,6 +145,7 @@ describe('SelectBox', function() {
         buttonContent="test"
         id="testThisSelect"
         forceDesktop
+        caretTitle="Toggle list"
       >
         <SelectBoxOption id="1" value="A sample option" label="test" qaHook="test-selectboxoption">
           A sample option
@@ -154,7 +158,7 @@ describe('SelectBox', function() {
 
   it('should render the trigger in a disabled state if `isDisabled` is set', () => {
     const select = renderer.create(
-      <SelectBox label="test" buttonContent="test" forceDesktop isDisabled>
+      <SelectBox label="test" buttonContent="test" forceDesktop isDisabled caretTitle="Toggle list">
         <SelectBoxOption id="1" value="A sample option" label="test">
           A sample option
         </SelectBoxOption>

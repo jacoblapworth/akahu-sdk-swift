@@ -1,53 +1,25 @@
-const invert = require('@xero/xuishift/transforms/invert');
-const stringReplace = require('@xero/xuishift/transforms/stringReplace');
-
-const labelTextToLabel = {
-  name: 'labelText',
-  newName: 'label',
-};
+const remove = () => () => undefined;
 
 module.exports = {
-  '@xero/xui/react/pill': [
+  accordion: [
     {
       isDefault: true,
       props: [
         {
-          name: 'isMaxContentWidth',
-          newName: 'isLimitedWidth',
-          valueTransform: invert(true),
-        },
-      ],
-    },
-  ],
-  '@xero/xui/react/tag': [
-    {
-      isDefault: true,
-      props: [
-        {
-          name: 'size',
-          valueTransform: stringReplace({}, 'small'),
-        },
-      ],
-    },
-  ],
-  '@xero/xui/react/select-box': [
-    {
-      isDefault: true,
-      props: [
-        {
-          name: 'islabelHidden',
-          newName: 'isLabelHidden',
-        },
-        labelTextToLabel,
-        {
-          name: 'fullWidth',
-          valueTransform: (node, j, path) => {
-            const buttonVariantIsSet = path.value.openingElement.attributes.some(
-              attribute => attribute.name !== null && attribute.name.name === 'buttonVariant',
-            );
+          name: 'toggleLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Toggle');
+            }
 
-            if (buttonVariantIsSet) {
-              return j.literal('never');
+            return node && node.value;
+          },
+        },
+        {
+          name: 'emptyMessage',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Nothing available to show');
             }
 
             return node && node.value;
@@ -56,243 +28,444 @@ module.exports = {
       ],
     },
   ],
-  '@xero/xui/react/autocompleter': [
+  autocompleter: [
     {
       isDefault: true,
       props: [
         {
-          name: 'inputLabelText',
-          newName: 'inputLabel',
+          name: 'loadingLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Loading');
+            }
+
+            return node && node.value;
+          },
         },
         {
-          name: 'searchThrottleInterval',
-          newName: 'searchDebounceTimeout',
-        },
-        {
-          name: 'dropdownSize',
-          valueTransform: stringReplace({
-            small: 'xsmall',
-            medium: 'small',
-            large: 'medium',
-            xlarge: 'large',
-          }),
+          name: 'inputSize',
+          valueTransform: remove(),
         },
       ],
     },
     {
-      name: 'XUIAutocompleterSecondarySearch',
+      name: 'XUIAutocompleterEmptyState',
       props: [
         {
-          name: 'inputLabelText',
-          newName: 'inputLabel',
-        },
-        {
-          name: 'dropdownSize',
-          valueTransform: stringReplace({
-            small: 'xsmall',
-            medium: 'small',
-            large: 'medium',
-            xlarge: 'large',
-          }),
-        },
-      ],
-    },
-  ],
-  '@xero/xui/react/checkbox': [
-    {
-      name: 'XUICheckboxGroup',
-      props: [labelTextToLabel],
-    },
-  ],
-  '@xero/xui/react/radio': [
-    {
-      name: 'XUIRadioGroup',
-      props: [labelTextToLabel],
-    },
-  ],
-  '@xero/xui/react/rollovercheckbox': [
-    {
-      isDefault: true,
-      props: [labelTextToLabel],
-    },
-  ],
-  '@xero/xui/react/textinput': [
-    {
-      isDefault: true,
-      props: [
-        labelTextToLabel,
-        {
-          name: 'size',
-          valueTransform: stringReplace({
-            standard: 'medium',
-          }),
+          name: 'children',
+          valueTransform: (node, j, path) => {
+            if (node !== undefined) {
+              return node.value;
+            }
+
+            if (path.value.children.length === 0) {
+              return j.literal('No results found');
+            }
+
+            return;
+          },
         },
       ],
     },
   ],
-  '@xero/xui/react/toggle': [
+  barchart: [
+    {
+      isDefault: true,
+      props: getBarChartProps(),
+    },
+    {
+      name: 'XUIBarChart',
+      props: getBarChartProps(),
+    },
+  ],
+  button: [
     {
       isDefault: true,
       props: [
-        labelTextToLabel,
+        {
+          name: 'loadingLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Loading');
+            }
+
+            return node && node.value;
+          },
+        },
         {
           name: 'variant',
-          newName: 'size',
-        },
-      ],
-    },
-  ],
-  '@xero/xui/react/structural': [
-    {
-      name: 'XUIContentBlockItem',
-      props: [
-        {
-          name: 'tag',
-          newName: 'tags',
-        },
-        {
-          name: 'secondaryHeading',
-          newName: 'description',
-        },
-      ],
-    },
-  ],
-  '@xero/xui/react/loader': [
-    {
-      isDefault: true,
-      props: [
-        {
-          name: 'size',
-          valueTransform: stringReplace(
-            {
-              small: 'xsmall',
-              standard: 'small',
-              large: 'medium',
-            },
-            'small',
-          ),
-        },
-      ],
-    },
-  ],
-  '@xero/xui/react/button': [
-    {
-      isDefault: true,
-      props: [
-        {
-          name: 'fullWidth',
-          valueTransform: (node, j, path) => {
-            const sizeAttribute = path.value.openingElement.attributes.find(
-              attribute => attribute.name && attribute.name.name === 'size',
-            );
-
-            const size = sizeAttribute && sizeAttribute.value && sizeAttribute.value.value;
-
-            if (size === 'full-width') {
-              return j.literal('always');
+          valueTransform: (node, j) => {
+            if (node && node.value && node.value.value.includes('icon')) {
+              return j.literal('MAKE_ME_AN_ICONBUTTON');
             }
-
-            if (size === 'full-width-mobile') {
-              return j.literal('small-down');
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
+  datepicker: [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'isCompact',
+          valueTransform: remove(),
+        },
+      ],
+    },
+  ],
+  dropdown: [
+    {
+      name: 'DropDownHeader',
+      props: [
+        {
+          name: 'primaryButtonContent',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Apply');
             }
 
             return node && node.value;
           },
         },
         {
-          name: 'size', // If `icon` or `icon-inverted` variant, set size='small'
-          valueTransform: (node, j, path) => {
-            const sizeAttribute = path.value.openingElement.attributes.find(
-              attribute => attribute.name && attribute.name.name === 'size',
-            );
-            const variantAttribute = path.value.openingElement.attributes.find(
-              attribute => attribute.name && attribute.name.name === 'variant',
-            );
-
-            const variant =
-              variantAttribute && variantAttribute.value && variantAttribute.value.value;
-            const size = sizeAttribute && sizeAttribute.value && sizeAttribute.value.value;
-
-            if (size === 'full-width' || size === 'full-width-mobile') {
-              return;
+          name: 'secondaryButtonContent',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Cancel');
             }
 
-            if (variant === 'icon' || variant === 'icon-inverted') {
+            return node && node.value;
+          },
+        },
+        {
+          name: 'backButtonLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Back');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
+  isolationheader: [
+    {
+      name: 'XUIIsolationHeaderActions',
+      newName: 'IsolationHeaderActions_MOVE_TO_PROP_ON_ISOLATION_HEADER',
+    },
+    {
+      name: 'XUIIsolationHeaderNavigation',
+      newName: 'IsolationHeaderNavigation_MOVE_TO_PROP_ON_ISOLATION_HEADER',
+    },
+    {
+      name: 'XUIIsolationHeaderSecondaryTitle',
+      newName: 'IsolationHeaderSecondaryTitle_MOVE_TO_PROP_ON_ISOLATION_HEADER',
+    },
+    {
+      name: 'XUIIsolationHeaderTitle',
+      newName: 'IsolationHeaderTitle_MOVE_TO_PROP_ON_ISOLATION_HEADER',
+    },
+  ],
+  modal: [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'closeButtonLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Close');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
+  picklist: [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'size',
+          valueTransform: remove(),
+        },
+      ],
+    },
+    {
+      name: 'Pickitem',
+      props: [
+        {
+          name: 'size',
+          valueTransform: remove(),
+        },
+      ],
+    },
+    {
+      name: 'NestedPicklist',
+      props: [
+        {
+          name: 'size',
+          valueTransform: remove(),
+        },
+      ],
+    },
+    {
+      name: 'NestedPicklistContainer',
+      props: [
+        {
+          name: 'size',
+          valueTransform: remove(),
+        },
+      ],
+    },
+    {
+      name: 'NestedPicklistTrigger',
+      props: [
+        {
+          name: 'ariaLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Toggle submenu');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
+  loader: [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'ariaLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Loading');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
+  pill: [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'deleteButtonLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Delete');
+            }
+
+            return node && node.value;
+          },
+        },
+        {
+          name: 'size',
+          valueTransform: (node, j) => {
+            if (node && node.value && node.value.value === 'xsmall') {
               return j.literal('small');
             }
-            if (variant === 'icon-large' || variant === 'icon-inverted-large') {
-              return j.literal('medium');
-            }
-
-            return node && node.value;
-          },
-        },
-        {
-          name: 'variant', // If `icon-large` or `icon-inverted-large` variant, set to non-sized variant
-          valueTransform: (node, j, path) => {
-            const variantAttribute = path.value.openingElement.attributes.find(
-              attribute => attribute.name && attribute.name.name === 'variant',
-            );
-
-            const variant =
-              variantAttribute && variantAttribute.value && variantAttribute.value.value;
-
-            if (variant === 'icon-large') {
-              return j.literal('icon');
-            }
-            if (variant === 'icon-inverted-large') {
-              return j.literal('icon-inverted');
-            }
-
             return node && node.value;
           },
         },
       ],
     },
   ],
-  '@xero/xui/react/structural': [
-    {
-      name: 'XUIColumn',
-      props: [
-        {
-          name: 'gridColumnsMedium',
-          newName: 'gridColumnsSmallUp',
-        },
-        {
-          name: 'gridColumnsWide',
-          newName: 'gridColumnsLargeUp',
-        },
-      ],
-    },
-  ],
-  '@xero/xui/react/dropdown': [
+  'select-box': [
     {
       isDefault: true,
       props: [
         {
-          name: 'size',
-          valueTransform: stringReplace({
-            small: 'xsmall',
-            medium: 'small',
-            large: 'medium',
-            xlarge: 'large',
-          }),
+          name: 'caretTitle',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Toggle list');
+            }
+
+            return node && node.value;
+          },
         },
       ],
     },
     {
-      name: 'NestedDropDown',
+      name: 'SelectBoxOption',
       props: [
         {
           name: 'size',
-          valueTransform: stringReplace({
-            small: 'xsmall',
-            medium: 'small',
-            large: 'medium',
-            xlarge: 'large',
-          }),
+          valueTransform: remove(),
         },
       ],
+    },
+  ],
+  table: [
+    {
+      isDefault: true,
+      props: [
+        {
+          name: 'loaderLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Loading more data');
+            }
+
+            return node && node.value;
+          },
+        },
+        {
+          name: 'emptyMessage',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Nothing to show here');
+            }
+
+            return node && node.value;
+          },
+        },
+        {
+          name: 'checkOneRowLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Select row');
+            }
+
+            return node && node.value;
+          },
+        },
+        {
+          name: 'checkAllRowsLabel',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('Select all rows');
+            }
+
+            return node && node.value;
+          },
+        },
+        {
+          name: 'overflowMenuTitle',
+          valueTransform: (node, j) => {
+            if (node === undefined) {
+              return j.literal('More row options');
+            }
+
+            return node && node.value;
+          },
+        },
+      ],
+    },
+  ],
+  structural: [
+    {
+      name: 'XUIBreadcrumb',
+      newName: 'XUIBreadcrumbTrail',
+      newImportPath: 'pageheader',
+    },
+    {
+      name: 'XUIPageHeader',
+      newImportPath: 'pageheader',
+    },
+    {
+      name: 'XUIActions',
+      newImportPath: 'actions',
+    },
+    {
+      name: 'XUIContentBlock',
+      newImportPath: 'contentblock',
+    },
+    {
+      name: 'XUIContentBlockItem',
+      newImportPath: 'contentblock',
+    },
+    {
+      name: 'XUIOverviewBlock',
+      newImportPath: 'overviewblock',
+    },
+    {
+      name: 'XUIOverviewSection',
+      newImportPath: 'overviewblock',
+    },
+    {
+      name: 'XUIPanel',
+      newImportPath: 'panel',
+    },
+    {
+      name: 'XUIPanelHeading',
+      newImportPath: 'panel',
+    },
+    {
+      name: 'XUIPanelFooter',
+      newImportPath: 'panel',
+    },
+    {
+      name: 'XUIPanelSection',
+      newImportPath: 'panel',
     },
   ],
 };
+
+function getBarChartProps() {
+  return [
+    {
+      name: 'keyTitle',
+      valueTransform: (node, j) => {
+        if (node === undefined) {
+          return j.literal('Graph key');
+        }
+
+        return node && node.value;
+      },
+    },
+    {
+      name: 'emptyMessage',
+      valueTransform: (node, j) => {
+        if (node === undefined) {
+          return j.literal('There is no data to display');
+        }
+
+        return node && node.value;
+      },
+    },
+    {
+      name: 'paginationNextTitle',
+      valueTransform: (node, j) => {
+        if (node === undefined) {
+          return j.literal('Next page');
+        }
+
+        return node && node.value;
+      },
+    },
+    {
+      name: 'paginationPreviousTitle',
+      valueTransform: (node, j) => {
+        if (node === undefined) {
+          return j.literal('Previous page');
+        }
+
+        return node && node.value;
+      },
+    },
+    {
+      name: 'loadingLabel',
+      valueTransform: (node, j) => {
+        if (node === undefined) {
+          return j.literal('Loading');
+        }
+
+        return node && node.value;
+      },
+    },
+  ];
+}

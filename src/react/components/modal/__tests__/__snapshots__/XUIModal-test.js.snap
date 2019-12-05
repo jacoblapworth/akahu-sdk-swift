@@ -45,6 +45,9 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
             role="presentation"
           />
         </svg>
+        <div
+          className="xui-touchtarget"
+        />
       </button>
     </header>
     <div>
@@ -96,6 +99,9 @@ exports[`XUIModal should render an automation id when a qaHook is passed in 1`] 
             role="presentation"
           />
         </svg>
+        <div
+          className="xui-touchtarget"
+        />
       </button>
     </header>
     <div>

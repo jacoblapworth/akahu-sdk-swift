@@ -203,7 +203,7 @@ const multilineStories = [
     size: 'small',
     rightElementType: 'button',
     rightElementAlignment: 'bottom',
-    leftElementType: 'pill',
+    leftElementType: 'avatar',
   },
   {
     storyKind: storiesWithVariationsKindName,

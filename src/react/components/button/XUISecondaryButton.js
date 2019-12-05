@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIButton from './XUIButton';
 import XUIButtonCaret from './XUIButtonCaret';
-import { variantClassNames, sizeClassNames, buttonTypes } from './private/constants';
+import { textButtonVariants, sizeClassNames, buttonTypes } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 
 export default class XUISplitButton extends PureComponent {
@@ -33,6 +33,12 @@ XUISplitButton.propTypes = {
    * clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */
   isLoading: PropTypes.bool,
 
+  /**
+   * Accessibility label for the `<XUILoader>`. This is required if the
+   * `isLoading` prop is set to `true`.
+   */
+  loadingLabel: PropTypes.string,
+
   /** If this button is part of a parent button group */
   isGrouped: PropTypes.bool,
 
@@ -44,9 +50,9 @@ XUISplitButton.propTypes = {
 
   /** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`, `link`,
    * 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative',
-   * 'borderless-inverted', 'borderless-muted', 'icon', 'icon-inverted' or
-   * `unstyled`. */
-  variant: PropTypes.oneOf(Object.keys(variantClassNames)),
+   * 'borderless-inverted', 'borderless-muted' or `unstyled`.
+   */
+  variant: PropTypes.oneOf(textButtonVariants),
 
   /** Modifier for the size of the button. `xsmall`, `small`, or `medium`. */
   size: PropTypes.oneOf(Object.keys(sizeClassNames)),

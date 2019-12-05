@@ -235,6 +235,27 @@ const variations = [
       },
     ],
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with short content',
+    label: 'Toggle with short options content',
+    options: [
+      {
+        isDefaultChecked: true,
+        name: 'tg12',
+        value: 'A',
+      },
+      {
+        name: 'tg12',
+        value: 'B',
+      },
+      {
+        isDisabled: true,
+        name: 'tg12',
+        value: 'C',
+      },
+    ],
+  },
 ];
 
 module.exports = {

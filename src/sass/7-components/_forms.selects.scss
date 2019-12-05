@@ -15,7 +15,7 @@
     text-shadow: 0 0 0 $xui-color-black;
   }
   &:focus ~ .#{$ns}-select--caret {
-    z-index: 3;
+    z-index: ($xui-z-index-focus + 1);
   }
   ~ .#{$ns}-select--caret {
     position: absolute;

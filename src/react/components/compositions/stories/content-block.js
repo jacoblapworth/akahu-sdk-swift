@@ -1,10 +1,6 @@
 import React, { PureComponent } from 'react';
-import {
-  XUIContentBlock,
-  XUIContentBlockItem,
-  XUIPanel,
-  XUIPanelSection,
-} from '../../../structural';
+import { XUIContentBlock, XUIContentBlockItem } from '../../../contentblock';
+import { XUIPanel, XUIPanelSection } from '../../../panel';
 import XUIButton, { XUIButtonCaret, XUIIconButton } from '../../../button';
 import Dropdown, { DropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';

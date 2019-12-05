@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import { observe, unobserve } from '../helpers/resizeObserver';
 import '../helpers/xuiGlobalChecks';
-import { picklistClassName, sizeVariants } from './private/constants';
+import { picklistClassName } from './private/constants';
 import Pickitem from './Pickitem';
-import { getPropsFromFirstChildOrList } from './private/helpers';
+import { getPropsFromFirstChildOrList, horizontalOnlyProp } from './private/helpers';
+import { userBreakpoints } from '../helpers/breakpoints';
 import NestedPicklistContainer from './NestedPicklistContainer';
 import SelectBoxOption from '../select-box/SelectBoxOption';
+import TabDropDown from './private/TabDropDown';
 
 /**
  * Presentational component used to display a selectable list of Pickitems.
@@ -16,6 +19,31 @@ import SelectBoxOption from '../select-box/SelectBoxOption';
  * @extends {Component}
  */
 export default class Picklist extends Component {
+  // All those logic in Lifecycle could be removed when we split the prop `isHorizontal` out (XUI-683)
+  state = {};
+  _area = React.createRef();
+
+  componentDidMount() {
+    this.setBreakpoint();
+    this._area.current && observe(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.swapAtBreakpoint !== prevProps.swapAtBreakpoint) {
+      this.setBreakpoint();
+    }
+  }
+
+  componentWillUnmount() {
+    this._area.current && unobserve(this);
+  }
+
+  setBreakpoint = () => {
+    this._breakpoints = {
+      normalPickitems: userBreakpoints[this.props.swapAtBreakpoint],
+    };
+  };
+
   render() {
     const {
       children,
@@ -28,10 +56,10 @@ export default class Picklist extends Component {
       isHorizontal,
       qaHook,
       shouldTruncate,
+      swapAtBreakpoint,
     } = this.props;
 
     const listLevelProps = getPropsFromFirstChildOrList(children, this.props);
-
     const newChildren = React.Children.map(children, child =>
       child &&
       (child.type === Pickitem ||
@@ -50,27 +78,39 @@ export default class Picklist extends Component {
         : child,
     );
 
-    const classes = cn(
+    const listClasses = cn(
       `${picklistClassName}`,
-      className,
       defaultLayout && !isHorizontal && `${picklistClassName}-layout`,
-      isHorizontal && `${picklistClassName}-horizontal`,
       `${picklistClassName}-${listLevelProps.listSize}`,
     );
+
+    const ulProps = {
+      ...secondaryProps,
+      id,
+      onKeyDown,
+      onMouseDown,
+      'data-automationid': qaHook,
+    };
 
     /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
     // Deferring the fix for this until we determine how to change the surface
     // of pickitems & picklists
     return (
       <ul
-        {...secondaryProps}
-        className={classes}
-        data-automationid={qaHook}
-        id={id}
-        onKeyDown={onKeyDown}
-        onMouseDown={onMouseDown}
+        {...ulProps}
+        className={cn(listClasses, className, isHorizontal && `${picklistClassName}-horizontal`)}
+        ref={this._area}
       >
-        {newChildren}
+        {!isHorizontal || !swapAtBreakpoint || this.state.normalPickitems ? (
+          newChildren
+        ) : (
+          <TabDropDown
+            className={className}
+            dropdownList={newChildren}
+            size={listLevelProps.listSize}
+            ulProps={{ ...ulProps, className: listClasses }}
+          />
+        )}
       </ul>
     );
     /* eslint-enable jsx-a11y/no-noninteractive-element-interactions */
@@ -94,18 +134,20 @@ Picklist.propTypes = {
   /** Whether to render as horizontal pickitems */
   isHorizontal: PropTypes.bool,
   /**
-   * Size variant<br>
-   * **Note:**
-   * *`small` and `xsmall` variants now are `sunsetting` because they don’t meet [XUI minimum touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommended to use.*
-   */
-  size: PropTypes.oneOf(sizeVariants),
-  /**
    * When true checkboxes will be added to the layout of the child components.<br>
    * ⚠️ *Vertical picklists only*
    */
   isMultiselect: PropTypes.bool,
   /** Whether to truncate text instead of wrapping. */
   shouldTruncate: PropTypes.bool,
+  /**
+   * Defines the swap breakpoint (container width) between tab-styled dropdown and horizontal picklist.
+   * Supported breakpoints are `small` (600px), `medium` (800px), `large` (1000px), and `xlarge` (1200px).<br>
+   * ⚠️ *Horizontal picklists only*
+   */
+  swapAtBreakpoint(...parameters) {
+    return horizontalOnlyProp(PropTypes.oneOf(Object.keys(userBreakpoints)), ...parameters);
+  },
 };
 
 Picklist.defaultProps = {

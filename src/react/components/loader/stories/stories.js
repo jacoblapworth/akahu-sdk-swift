@@ -39,6 +39,7 @@ storiesWithKnobs.add('Playground', () => {
   return (
     <ExampleContainer {...attrs}>
       <XUILoader
+        ariaLabel="Loading"
         className={isStatic}
         defaultLayout={defaultLayout}
         isInverted={attrs.isInverted}
@@ -78,13 +79,20 @@ variations.forEach(variation => {
               key={size}
               size={size}
               {...variationMinusStoryDetails}
+              ariaLabel="Loading"
               className="xui-loader-static"
             />
           ))}
         </div>
       );
     } else {
-      example = <XUILoader {...variationMinusStoryDetails} className="xui-loader-static" />;
+      example = (
+        <XUILoader
+          {...variationMinusStoryDetails}
+          ariaLabel="Loading"
+          className="xui-loader-static"
+        />
+      );
     }
     return <ExampleContainer {...attrs}>{example}</ExampleContainer>;
   });

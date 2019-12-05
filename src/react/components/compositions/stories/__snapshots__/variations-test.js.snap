@@ -23,17 +23,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -51,7 +51,7 @@ Array [
     "storyTitle": "detail isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -78,17 +78,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -106,7 +106,7 @@ Array [
     "storyTitle": "detail hasAutoSpaceAround isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -133,17 +133,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -161,7 +161,7 @@ Array [
     "storyTitle": "detailHeader isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -188,17 +188,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -216,7 +216,7 @@ Array [
     "storyTitle": "detailHeader hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -243,17 +243,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -271,7 +271,7 @@ Array [
     "storyTitle": "detailHeader hasAutoSpaceAround isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -298,17 +298,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -326,7 +326,7 @@ Array [
     "storyTitle": "detailHeader hasAutoSpaceAround hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -353,17 +353,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -381,7 +381,7 @@ Array [
     "storyTitle": "split isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -408,17 +408,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -436,7 +436,7 @@ Array [
     "storyTitle": "split hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -463,17 +463,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -491,7 +491,7 @@ Array [
     "storyTitle": "split hasAutoSpaceAround isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -518,17 +518,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -546,7 +546,7 @@ Array [
     "storyTitle": "split hasAutoSpaceAround hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -573,17 +573,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -601,7 +601,7 @@ Array [
     "storyTitle": "splitHeader isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -628,17 +628,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -656,7 +656,7 @@ Array [
     "storyTitle": "splitHeader hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -683,17 +683,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -711,7 +711,7 @@ Array [
     "storyTitle": "splitHeader hasAutoSpaceAround isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -738,17 +738,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -766,7 +766,7 @@ Array [
     "storyTitle": "splitHeader hasAutoSpaceAround hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -793,17 +793,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -821,7 +821,7 @@ Array [
     "storyTitle": "masterDetail isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -848,17 +848,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -876,7 +876,7 @@ Array [
     "storyTitle": "masterDetail hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -903,17 +903,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -931,7 +931,7 @@ Array [
     "storyTitle": "masterDetail hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -958,17 +958,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -986,7 +986,7 @@ Array [
     "storyTitle": "masterDetail hasGridGap hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1013,17 +1013,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1041,7 +1041,7 @@ Array [
     "storyTitle": "masterDetail hasAutoSpaceAround isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1068,17 +1068,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1096,7 +1096,7 @@ Array [
     "storyTitle": "masterDetail hasAutoSpaceAround hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1123,17 +1123,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1151,7 +1151,7 @@ Array [
     "storyTitle": "masterDetail hasAutoSpaceAround hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1178,17 +1178,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1206,7 +1206,7 @@ Array [
     "storyTitle": "masterDetail hasAutoSpaceAround hasGridGap hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1233,17 +1233,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1261,7 +1261,7 @@ Array [
     "storyTitle": "masterDetailHeader isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1288,17 +1288,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1316,7 +1316,7 @@ Array [
     "storyTitle": "masterDetailHeader hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1343,17 +1343,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1371,7 +1371,7 @@ Array [
     "storyTitle": "masterDetailHeader hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1398,17 +1398,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1426,7 +1426,7 @@ Array [
     "storyTitle": "masterDetailHeader hasGridGap hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1453,17 +1453,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1481,7 +1481,7 @@ Array [
     "storyTitle": "masterDetailHeader hasAutoSpaceAround isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1508,17 +1508,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1536,7 +1536,7 @@ Array [
     "storyTitle": "masterDetailHeader hasAutoSpaceAround hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1563,17 +1563,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1591,7 +1591,7 @@ Array [
     "storyTitle": "masterDetailHeader hasAutoSpaceAround hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1618,17 +1618,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1646,7 +1646,7 @@ Array [
     "storyTitle": "masterDetailHeader hasAutoSpaceAround hasGridGap hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1673,17 +1673,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1701,7 +1701,7 @@ Array [
     "storyTitle": "masterDetailSummary isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1728,17 +1728,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1756,7 +1756,7 @@ Array [
     "storyTitle": "masterDetailSummary hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1783,17 +1783,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1811,7 +1811,7 @@ Array [
     "storyTitle": "masterDetailSummary hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1838,17 +1838,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1866,7 +1866,7 @@ Array [
     "storyTitle": "masterDetailSummary hasGridGap hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1893,17 +1893,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1921,7 +1921,7 @@ Array [
     "storyTitle": "masterDetailSummary hasAutoSpaceAround isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -1948,17 +1948,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -1976,7 +1976,7 @@ Array [
     "storyTitle": "masterDetailSummary hasAutoSpaceAround hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2003,17 +2003,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2031,7 +2031,7 @@ Array [
     "storyTitle": "masterDetailSummary hasAutoSpaceAround hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2058,17 +2058,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2086,7 +2086,7 @@ Array [
     "storyTitle": "masterDetailSummary hasAutoSpaceAround hasGridGap hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2113,17 +2113,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2141,7 +2141,7 @@ Array [
     "storyTitle": "masterDetailSummaryHeader isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2168,17 +2168,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2196,7 +2196,7 @@ Array [
     "storyTitle": "masterDetailSummaryHeader hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2223,17 +2223,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2251,7 +2251,7 @@ Array [
     "storyTitle": "masterDetailSummaryHeader hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2278,17 +2278,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2306,7 +2306,7 @@ Array [
     "storyTitle": "masterDetailSummaryHeader hasGridGap hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2333,17 +2333,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2361,7 +2361,7 @@ Array [
     "storyTitle": "masterDetailSummaryHeader hasAutoSpaceAround isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2388,17 +2388,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2416,7 +2416,7 @@ Array [
     "storyTitle": "masterDetailSummaryHeader hasAutoSpaceAround hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2443,17 +2443,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2471,7 +2471,7 @@ Array [
     "storyTitle": "masterDetailSummaryHeader hasAutoSpaceAround hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2498,17 +2498,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2526,7 +2526,7 @@ Array [
     "storyTitle": "masterDetailSummaryHeader hasAutoSpaceAround hasGridGap hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2553,17 +2553,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2581,7 +2581,7 @@ Array [
     "storyTitle": "detailSummary isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2608,17 +2608,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2636,7 +2636,7 @@ Array [
     "storyTitle": "detailSummary hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2663,17 +2663,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2691,7 +2691,7 @@ Array [
     "storyTitle": "detailSummary hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2718,17 +2718,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2746,7 +2746,7 @@ Array [
     "storyTitle": "detailSummary hasGridGap hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2773,17 +2773,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2801,7 +2801,7 @@ Array [
     "storyTitle": "detailSummary hasAutoSpaceAround isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2828,17 +2828,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2856,7 +2856,7 @@ Array [
     "storyTitle": "detailSummary hasAutoSpaceAround hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2883,17 +2883,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2911,7 +2911,7 @@ Array [
     "storyTitle": "detailSummary hasAutoSpaceAround hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2938,17 +2938,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -2966,7 +2966,7 @@ Array [
     "storyTitle": "detailSummary hasAutoSpaceAround hasGridGap hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -2993,17 +2993,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3021,7 +3021,7 @@ Array [
     "storyTitle": "detailSummaryHeader isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -3048,17 +3048,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3076,7 +3076,7 @@ Array [
     "storyTitle": "detailSummaryHeader hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -3103,17 +3103,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3131,7 +3131,7 @@ Array [
     "storyTitle": "detailSummaryHeader hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -3158,17 +3158,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3186,7 +3186,7 @@ Array [
     "storyTitle": "detailSummaryHeader hasGridGap hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -3213,17 +3213,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3241,7 +3241,7 @@ Array [
     "storyTitle": "detailSummaryHeader hasAutoSpaceAround isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -3268,17 +3268,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3296,7 +3296,7 @@ Array [
     "storyTitle": "detailSummaryHeader hasAutoSpaceAround hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -3323,17 +3323,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3351,7 +3351,7 @@ Array [
     "storyTitle": "detailSummaryHeader hasAutoSpaceAround hasGridGap isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -3378,17 +3378,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3406,7 +3406,7 @@ Array [
     "storyTitle": "detailSummaryHeader hasAutoSpaceAround hasGridGap hasAutoColumnWidths isInfinite",
     "viewports": Array [
       Object {
-        "height": 911.25,
+        "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
       },
@@ -3422,17 +3422,17 @@ Array [
     "storyTitle": "split locked small",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3448,17 +3448,17 @@ Array [
     "storyTitle": "split locked small hasGridGap",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3474,17 +3474,17 @@ Array [
     "storyTitle": "splitHeader locked small",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3500,17 +3500,17 @@ Array [
     "storyTitle": "splitHeader locked small hasGridGap",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3526,17 +3526,17 @@ Array [
     "storyTitle": "masterDetail locked small",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3552,17 +3552,17 @@ Array [
     "storyTitle": "masterDetail locked small hasGridGap",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3578,17 +3578,17 @@ Array [
     "storyTitle": "masterDetailHeader locked small",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3604,17 +3604,17 @@ Array [
     "storyTitle": "masterDetailHeader locked small hasGridGap",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3630,17 +3630,17 @@ Array [
     "storyTitle": "masterDetailSummary locked small",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3656,17 +3656,17 @@ Array [
     "storyTitle": "masterDetailSummary locked medium",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3682,17 +3682,17 @@ Array [
     "storyTitle": "masterDetailSummary locked small hasGridGap",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3708,17 +3708,17 @@ Array [
     "storyTitle": "masterDetailSummary locked medium hasGridGap",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3734,17 +3734,17 @@ Array [
     "storyTitle": "masterDetailSummaryHeader locked small",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3760,17 +3760,17 @@ Array [
     "storyTitle": "masterDetailSummaryHeader locked medium",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3786,17 +3786,17 @@ Array [
     "storyTitle": "masterDetailSummaryHeader locked small hasGridGap",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3812,17 +3812,17 @@ Array [
     "storyTitle": "masterDetailSummaryHeader locked medium hasGridGap",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3838,17 +3838,17 @@ Array [
     "storyTitle": "detailSummary locked small",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3864,17 +3864,17 @@ Array [
     "storyTitle": "detailSummary locked small hasGridGap",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3890,17 +3890,17 @@ Array [
     "storyTitle": "detailSummaryHeader locked small",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3916,17 +3916,17 @@ Array [
     "storyTitle": "detailSummaryHeader locked small hasGridGap",
     "viewports": Array [
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3949,17 +3949,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -3982,17 +3982,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -4015,17 +4015,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -4048,17 +4048,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -4081,17 +4081,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -4114,17 +4114,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -4147,17 +4147,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -4180,17 +4180,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -4213,17 +4213,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },
@@ -4246,17 +4246,17 @@ Array [
         "width": 700,
       },
       Object {
-        "height": 506.25,
+        "height": 506,
         "label": "between medium and large breakpoints",
         "width": 900,
       },
       Object {
-        "height": 618.75,
+        "height": 619,
         "label": "between large and xlarge breakpoints",
         "width": 1100,
       },
       Object {
-        "height": 787.5,
+        "height": 788,
         "label": "between xlarge and 2xlarge breakpoints",
         "width": 1400,
       },

@@ -147,14 +147,19 @@ storiesWithKnobs.add('Playground', () => {
     <div style={tableStyles}>
       <Table
         {...tableProps}
+        checkAllRowsLabel="Select all rows"
+        checkOneRowLabel="Select row"
         className={text('className', '')}
         data={data}
+        emptyMessage="Nothing to show here"
         footer={appendFooter && <Appendage>Footer</Appendage>}
         header={prependHeader && <Appendage>Header</Appendage>}
         isBorderless={boolean('isBorderless', false)}
         isLoading={boolean('isLoading', false)}
         isResponsive={boolean('isResponsive', false)}
         isTruncated={boolean('isTruncated', false)}
+        loaderLabel="Loading more data"
+        overflowMenuTitle="More row options"
       >
         <Column
           body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
@@ -221,6 +226,11 @@ const TestScaffold = (
 ) => (
   <ScrollResetWrapper key={tableIndex} style={{ ...tableStyles, ...styleOverrides }}>
     <Table
+      checkAllRowsLabel="Select all rows"
+      checkOneRowLabel="Select row"
+      emptyMessage="Nothing to show here"
+      loaderLabel="Loading more data"
+      overflowMenuTitle="More row options"
       {...tableProps}
       createOverflowMenu={tableProps.hasOverflowMenu && createOverflowMenu}
       emptyStateComponent={

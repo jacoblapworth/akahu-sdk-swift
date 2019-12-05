@@ -99,12 +99,12 @@
 
 // Size variants
 //
-// Buttons have a range of size options that allow for greater control over visual hierarchy.
+// Buttons have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
 //
 // Tips:
-// Do: Use standard variant by default
-// Do: Use small and xsmall variants nested inside other elements
-// Warning: Use xsmall variant cautiously, as this is more difficult to read
+// Do: Use 'medium' variant by default
+// Do: Use 'small' and 'xsmall' variants when nested inside other elements (except for icon-button which should use the same size variant as its parent)
+// Warning: Be cautious when using 'xsmall' variant, as it has reduced legibility and touch target
 // Dont: Don’t mix and match size variants inline with each other
 //
 // Definitions:
@@ -177,37 +177,36 @@
 
 // Icon buttons
 //
+// flags: updated
+//
 // At times, icon-only buttons are desired for optimal space utilisation, or quick actions that are common and performed frequently.
-// To create one, apply the following class to the button, and insert the desired [icon](section-fundamentals-icons.html) inside.
+// To create one, apply the following class to the button, and insert the desired [icon](section-fundamentals-icons.html) and the [touch target element](section-getting-started-responsive.html#getting-started-responsive-3) inside.
 //
 // Tips:
 // Do: Use icons from XUI icon set
+// Do: When nesting icon-buttons, use the same size variant as the parent
 // Do: Use icon buttons to optimise screen real-estate on small screen sizes
 // Do: Always include descriptive Title and ARIA labels on buttons
 // Warning: Ensure that users understand an icon and its purpose before solely relying on one to convey meaning
+// Warning: If displaying multiple icon buttons, ensure there is adequate space between so that touch targets don't overlap
 //
 // Classes:
 // xui-button-icon: Apply to button
-//
-// ExampleClass: ds-example-flush ds-example-transparent
+// xui-touchtarget: Apply to an empty element inside the icon button
 //
 // Markup:
 // <button type="button" class="xui-button xui-button-icon xui-button-icon-small" title="Close the window" aria-label="Close the window">
 //   <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-overflow" role="presentation" /></svg>
+//   <div class="xui-touchtarget"></div>
 // </button>
 //
 // Styleguide: Components.Controls.Button.6
 
-// Size variants
+// Icon button size variants
 //
-// Buttons have a range of size options that allow for greater control over visual hierarchy.
+// Icon buttons require their own classes to be applied to use size variants. Follow the same [size variants as regular buttons](./section-components-controls-button.html#components-controls-button-4).
 //
-// Tips:
-// Do: Use standard variant by default
-// Do: Use standard variant for Isolation header, Modal and Toast
-// Do: Use small and xsmall variants nested inside other elements
-// Warning: Use xsmall for minor interactions, as this has a smaller touch target
-// Dont: Don’t mix and match size variants inline with each other
+//**Note:** Icon buttons nested inside controls should use the same size variant as the control.
 //
 // Definitions:
 // Size variant: **Height**: **Class**
@@ -215,24 +214,19 @@
 // small: 32px: `xui-button-icon-small`
 // xsmall: 24px: `xui-button-icon-xsmall`
 //
-// exampleClass: ds-example-transparent ds-example-flush
-//
 // Markup:
-// <div class="xui-margin-vertical">
 //   <button type="button" class="xui-button xui-button-icon-medium xui-button-icon" title="Close the window" aria-label="Close the window">
 //     <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <div class="xui-touchtarget"></div>
 //   </button>
-// </div>
-// <div class="xui-margin-vertical">
 //   <button type="button" class="xui-button xui-button-icon-small xui-button-icon" title="Close the window" aria-label="Close the window">
 //     <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <div class="xui-touchtarget"></div>
 //   </button>
-// </div>
-// <div class="xui-margin-vertical">
 //   <button type="button" class="xui-button xui-button-icon-xsmall xui-button-icon" title="Close the window" aria-label="Close the window">
 //     <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <div class="xui-touchtarget"></div>
 //   </button>
-// </div>
 //
 // Styleguide: Components.Controls.Button.6.1
 
@@ -254,8 +248,9 @@
 //   <button type="button" class="xui-button xui-button-medium xui-button-negative xui-button-inverted xui-margin-right-small">Negative</button>
 //   <button type="button" class="xui-button xui-button-medium xui-button-standard xui-button-inverted xui-margin-right-small">Standard</button>
 //   <button type="button" class="xui-button xui-button-medium xui-button-borderless-inverted xui-margin-right-small">Borderless inverted</button>
-//   <button type="button" class="xui-button xui-button-medium xui-button-icon xui-button-icon-inverted" title="Go back to the previous page" aria-label="Go back to the previous page">
-//    <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-back"></use></svg>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-medium xui-button-icon-inverted" title="Go back to the previous page" aria-label="Go back to the previous page">
+//     <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-back"></use></svg>
+//     <div class="xui-touchtarget"></div>
 //   </button>
 // </div>
 //
@@ -275,8 +270,9 @@
 // <button type="button" disabled class="xui-button xui-button-medium xui-button-main xui-button-is-disabled xui-margin-right-small">Main</button>
 // <button type="button" disabled class="xui-button xui-button-medium xui-button-standard xui-button-is-disabled xui-margin-right-small">Standard</button>
 // <button type="button" disabled class="xui-button xui-button-medium xui-button-borderless-standard xui-button-is-disabled xui-margin-right-small">Borderless</button>
-// <button type="button" disabled class="xui-button xui-button-medium xui-button-icon xui-button-is-disabled" title="Go back to the previous page" aria-label="Go back to the previous page">
-//  <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-back"></use></svg>
+// <button type="button" disabled class="xui-button xui-button-icon xui-button-icon-medium xui-button-is-disabled" title="Go back to the previous page" aria-label="Go back to the previous page">
+//   <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-back"></use></svg>
+//   <div class="xui-touchtarget"></div>
 // </button>
 //
 // Styleguide: Components.Controls.Button.8
@@ -481,11 +477,18 @@
 // xui-button-xsmall: Modifier for a xsmall button
 // xui-button-icon-small: Modifier for a small icon button
 // xui-button-icon-xsmall: Modifier for a xsmall icon button
+// xui-touchtarget: Invisible touch target element inside an icon button
 //
 // Styleguide: Components.Controls.Button.50
 
 .#{$ns}-button {
   @include xui-button-reset;
+  // Touch target fix for buttons, except iconButtons
+  &:not(.#{$ns}-button-icon) {
+    min-width: $xui-minimum-touch-target;
+  }
+  // To make sure content in link is centered
+  text-align: center;
 }
 
 @import 'buttons.variants';

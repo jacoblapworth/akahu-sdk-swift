@@ -21,6 +21,7 @@ class Example extends Component {
           {this.props.textLabel} modal
         </XUIButton>
         <XUIModal
+          closeButtonLabel="Close"
           {...this.props.settings}
           isOpen={this.state.showModal}
           onClose={() => this.setState({ showModal: false })}

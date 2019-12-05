@@ -86,7 +86,6 @@ storiesWithKnobs.add('Playground', () => (
     dir={select('direction', ['ltr', 'rtl'])}
     displayedMonth={date('displayedMonth', '') ? new Date(date('displayedMonth', '')) : undefined}
     firstDayOfWeek={parseInt(select('firstDayOfWeek', weekStarts, '0'))}
-    isCompact={boolean('isCompact', false)}
     maxDate={date('maxDate', '') ? new Date(date('maxDate', '')) : undefined}
     minDate={date('minDate', '') ? new Date(date('minDate', '')) : undefined}
     months={

@@ -30,6 +30,7 @@ storiesWithKnobs.add('Playground', () => {
           <XUIAvatar
             className="xui-margin-small"
             imageUrl="https://xui.xero.com/static/xpert-avatar.png"
+            value="left"
           />
         )
       }
@@ -40,6 +41,7 @@ storiesWithKnobs.add('Playground', () => {
           <XUIAvatar
             className="xui-margin-small"
             imageUrl="https://xui.xero.com/static/xpert-avatar.png"
+            value="right"
           />
         )
       }

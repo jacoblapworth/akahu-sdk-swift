@@ -20,7 +20,11 @@ exports[`XUISwitch should accept an isChecked prop that determines the value of 
     />
     <div
       className="xui-switch--control xui-switch--control-medium"
-    />
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
     <span
       className="xui-switch--label xui-switch--label-medium"
       id="testLabelId"
@@ -51,7 +55,11 @@ exports[`XUISwitch should include a reversed class when a text label is present 
     />
     <div
       className="xui-switch--control xui-switch--control-medium"
-    />
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
     <span
       className="xui-switch--label xui-switch--label-medium"
       id="testLabelId"
@@ -82,7 +90,11 @@ exports[`XUISwitch should include a text label when label is passed 1`] = `
     />
     <div
       className="xui-switch--control xui-switch--control-medium"
-    />
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
     <span
       className="xui-switch--label xui-switch--label-medium"
       id="testLabelId"
@@ -113,7 +125,11 @@ exports[`XUISwitch should include an aria-label when label is passed and hidden 
     />
     <div
       className="xui-switch--control xui-switch--control-medium"
-    />
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
   </label>
 </div>
 `;
@@ -141,7 +157,11 @@ exports[`XUISwitch should render an automationid for most elements when a qaHook
     <div
       className="xui-switch--control xui-switch--control-medium"
       data-automationid="switch-test--switch"
-    />
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
     <span
       className="xui-switch--label xui-switch--label-medium"
       data-automationid="switch-test--label"
@@ -172,7 +192,11 @@ exports[`XUISwitch should render checked 1`] = `
     />
     <div
       className="xui-switch--control xui-switch--control-medium"
-    />
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
   </label>
 </div>
 `;
@@ -196,7 +220,11 @@ exports[`XUISwitch should render not checked and not disabled 1`] = `
     />
     <div
       className="xui-switch--control xui-switch--control-medium"
-    />
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
   </label>
 </div>
 `;

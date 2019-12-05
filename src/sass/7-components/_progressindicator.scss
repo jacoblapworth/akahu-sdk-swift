@@ -94,7 +94,7 @@
 
 // Size
 //
-// There are two main sizes progress indicators can be rendered at.
+// Progress indicator offers two main size options to allow for greater control over visual heirarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
 //
 // Tips:
 // Do: Use a standard sized progress indicator for navigational and interactive elements
@@ -246,7 +246,7 @@
 //
 // Tips:
 // Do: Use segments when there are distinct steps within a larger goal, such as days in the week
-// Warning: Currently only constand step widths are possible.
+// Warning: Currently only constant step widths are possible.
 // Don't: Avoid using too many segments in the circular variant as they become visually indecipherable, use a linear instead
 //
 // ExampleClass: ds-example-flush ds-example-transparent
@@ -550,7 +550,7 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
 }
 
 .#{$ns}-progress-circular-content {
-  border-radius: 50%;
+  border-radius: $xui-radius-circle;
   bottom: 0;
   left: 0;
   overflow: hidden;
@@ -560,13 +560,14 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
 }
 
 .#{$ns}-progress-linear {
+  min-width: $xui-minimum-touch-target;
   width: 100%;
 }
 
 .#{$ns}-progress-linear-wrapper,
 .#{$ns}-progress-linear-track,
 .#{$ns}-progress-linear-current {
-  border-radius: 9999px;
+  border-radius: $xui-radius-max;
   width: 100%;
 }
 
@@ -663,7 +664,7 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
 
 .#{$ns}-progress-icon {
   align-items: center;
-  border-radius: 50%;
+  border-radius: $xui-radius-circle;
   color: $xui-progress-icon-color;
   display: flex;
   height: 100%;

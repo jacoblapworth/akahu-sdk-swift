@@ -1,6 +1,6 @@
 const storiesWithVariationsKindName = 'Instances/XUIDatePicker';
 
-const currentMonth0 = new Date('Oct 02 2017 00:00:00 GMT+1300');
+const currentMonth0 = new Date('Oct 02 2017 00:00:00 GMT');
 const currentMonth1 = new Date(currentMonth0);
 currentMonth1.setDate(currentMonth0.getDate() + 4);
 const currentMonth2 = new Date(currentMonth0);
@@ -35,14 +35,6 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'as Single Selected Date',
     selectedDate: currentMonth1,
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as Compact, Selected Date with min/max',
-    selectedDate: currentMonth2,
-    minDate: currentMonth0,
-    maxDate: currentMonth3,
-    isCompact: true,
   },
   {
     storyKind: storiesWithVariationsKindName,

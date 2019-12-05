@@ -12,8 +12,9 @@ import NestedPicklistTrigger from '../NestedPicklistTrigger';
 import NestedPicklist from '../NestedPicklist';
 import { sizeShift } from '../../helpers/sizes';
 import XUIAvatar from '../../avatar/XUIAvatar';
+import XUIButton from '../../../button';
 import XUIIcon from '../../icon/XUIIcon';
-import XUIPanel from '../../structural/XUIPanel';
+import XUIPanel from '../../panel/XUIPanel';
 import arrow from '@xero/xui-icon/icons/arrow';
 import search from '@xero/xui-icon/icons/search';
 import contact from '@xero/xui-icon/icons/contact';
@@ -21,9 +22,10 @@ import contact from '@xero/xui-icon/icons/contact';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
-import centered from '../../../../../.storybook/xuiResponsiveCenter';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';
+import { userBreakpoints } from '../../helpers/breakpoints';
 
 const itemLabels = [
   'Hello, I am an item',
@@ -94,8 +96,7 @@ const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
-  const picklistSize = select('List size', ['medium', 'small', 'xsmall'], 'medium');
-  const avatarSize = sizeShift(picklistSize, -1);
+  const avatarSize = sizeShift('medium', -1);
   const isMultiselect = boolean('isMultiselect', false);
   const showLeftElement = boolean('showLeftElement', false);
   const showRightElement = boolean('showRightElement', false);
@@ -125,7 +126,7 @@ storiesWithKnobs.add('Playground', () => {
         isMultiselect={isMultiselect}
         secondaryProps={{ role: 'listbox' }}
         shouldTruncate={shouldTruncate}
-        size={picklistSize}
+        swapAtBreakpoint={select('swapAtBreakpoint', [null, ...Object.keys(userBreakpoints)])}
       >
         <XUIPickitem
           id="1"
@@ -172,10 +173,56 @@ variations.forEach(variation => {
     storyTitle,
     lists,
     componentType,
+    isDefaultOpen,
     isOpen,
     panelSize,
     ...variationMinusStoryDetails
   } = variation;
+
+  function ControlledNestedPicklist(props) {
+    const [picklistOpen, setPicklistOpen] = React.useState(isOpen);
+    return (
+      <div>
+        <XUIButton
+          onClick={() => {
+            setPicklistOpen(!picklistOpen);
+          }}
+        >
+          Toggle picklist
+        </XUIButton>
+        <XUIPicklist {...variationMinusStoryDetails}>
+          <NestedPicklistContainer id="nested" isOpen={picklistOpen}>
+            <NestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedTrigger">
+              Nested list
+            </NestedPicklistTrigger>
+            {props.listComponents[0]}
+          </NestedPicklistContainer>
+        </XUIPicklist>
+      </div>
+    );
+  }
+
+  const UncontrolledNestedPicklist = props => (
+    <XUIPicklist {...variationMinusStoryDetails}>
+      <NestedPicklistContainer id="nested" isDefaultOpen={isDefaultOpen}>
+        <NestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedTrigger">
+          Nested list
+        </NestedPicklistTrigger>
+        {props.listComponents[0]}
+      </NestedPicklistContainer>
+      <NestedPicklistContainer id="split" isDefaultOpen={isDefaultOpen}>
+        <XUIPickitem
+          id="splitTrigger"
+          isMultiselect={props.listComponents[1].props.isMultiselect}
+          isSplit
+        >
+          Split nested list
+        </XUIPickitem>
+        <NestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedSplit" />
+        {props.listComponents[1]}
+      </NestedPicklistContainer>
+    </XUIPicklist>
+  );
 
   storiesWithVariations.add(storyTitle, () => {
     let listComponents = buildLists(lists, componentType);
@@ -185,26 +232,14 @@ variations.forEach(variation => {
         <StatefulPicklist {...variationMinusStoryDetails}>{listComponents}</StatefulPicklist>
       );
     } else if (componentType === 'NestedPicklist') {
-      listComponents = (
-        <XUIPicklist {...variationMinusStoryDetails}>
-          <NestedPicklistContainer id="nested" isOpen={isOpen}>
-            <NestedPicklistTrigger id="nestedTrigger">Nested list</NestedPicklistTrigger>
-            {listComponents[0]}
-          </NestedPicklistContainer>
-          <NestedPicklistContainer id="split" isOpen={isOpen}>
-            <XUIPickitem
-              id="splitTrigger"
-              isMultiselect={listComponents[1].props.isMultiselect}
-              isSplit
-            >
-              Split nested list
-            </XUIPickitem>
-            <NestedPicklistTrigger id="nestedSplit" />
-            {listComponents[1]}
-          </NestedPicklistContainer>
-        </XUIPicklist>
-      );
+      listComponents =
+        isOpen !== undefined ? (
+          <ControlledNestedPicklist listComponents={listComponents} />
+        ) : (
+          <UncontrolledNestedPicklist listComponents={listComponents} />
+        );
     }
+
     const horizontalPanelStyles = { maxWidth: 'max-content', width: 'auto' };
     return (
       <div

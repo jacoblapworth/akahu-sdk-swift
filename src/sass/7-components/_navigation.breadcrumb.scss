@@ -1,46 +1,105 @@
 @import '../vars';
 @import '../mixins';
 
-.#{$ns}-breadcrumbs {
+.#{$ns}-breadcrumbtrail {
   align-items: center;
   display: flex;
   flex: 1 1 auto;
   list-style-type: none;
   margin: 0;
+  max-width: 100%;
   padding: 0;
 }
 
 .#{$ns}-breadcrumb {
-  font-size: $xui-font-size-large;
-  font-weight: bold;
+  @include xui-text-small;
+  @include xui-text-truncated;
+  min-width: $xui-minimum-touch-target;
+
+  &:last-of-type {
+    flex-shrink: 0;
+    max-width: 100%;
+  }
 }
 
 .#{$ns}-breadcrumb-arrow {
-  align-items: flex-end;
+  align-items: center;
   display: flex;
-}
-
-.#{$ns}-breadcrumb--link {
-  @include xui-button-borderless(
-    $xui-breadcrumb-link-color,
-    $xui-breadcrumb-link-hover-color,
-    $xui-breadcrumb-link-active-color
-  );
-  display: block;
-  line-height: inherit; // Overrides the line-height from the xui-button-borderless mixin, which is mostly good.
-  min-height: $xui-control-size-small;
-  outline: none;
-  padding: 6px $xui-s-small;
-  text-decoration: none;
-  .#{$ns}-breadcrumb:first-of-type & {
-    @include xui-margin-right(-$xui-s-xsmall);
-  }
-  .#{$ns}-breadcrumb:nth-of-type(n + 2) & {
-    @include xui-margin-horizontal(-$xui-s-xsmall);
-  }
+  height: $xui-s-large;
+  width: $xui-s-xsmall;
 }
 
 .#{$ns}-breadcrumb--icon {
   color: $xui-breadcrumb-icon-color;
-  margin-top: 3px;
+}
+
+.#{$ns}-breadcrumb-no-link {
+  padding-left: $xui-s-xsmall;
+}
+
+.#{$ns}-breadcrumb--link {
+  @include xui-padding-horizontal($xui-s-xsmall);
+  @include xui-text-truncated;
+  border-radius: $xui-radius;
+  color: $xui-link-color;
+  display: block;
+  outline: none;
+  text-decoration: none;
+  width: 100%;
+  &:hover {
+    color: $xui-link-color; // overriding the a:hover color
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  &:focus {
+    @include xui-state-focus-shadow($xui-shadow-focus-inset);
+    color: $xui-link-color; // overriding the a:focus color
+  }
+  &.#{$ns}-breadcrumb--dropdowntrigger {
+    line-height: inherit;
+    text-align: left;
+  }
+}
+
+.#{$ns}-pageheading--content,
+.#{$ns}-pageheading--leftcontent {
+  .#{$ns}-breadcrumbtrail {
+    // Offset padding of first breadcrumb link
+    @include xui-margin-left(-$xui-s-xsmall);
+    // Match right-side spacing to title, secondary title, and tags
+    @include xui-margin-right($xui-s-2xsmall);
+    flex-grow: 0;
+    max-width: calc(100% + #{$xui-s-2xsmall}); // Offset right margin
+  }
+  .#{$ns}-breadcrumb {
+    @include xui-text-small;
+    @include xui-text-truncated;
+    min-width: $xui-minimum-touch-target;
+  }
+  .#{$ns}-breadcrumb:last-of-type {
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+  .#{$ns}-breadcrumb--link {
+    @include xui-padding-horizontal($xui-s-xsmall);
+    @include xui-text-truncated;
+    border-radius: $xui-radius;
+    color: $xui-color-blue;
+    &:hover {
+      color: $xui-color-blue;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    &:focus {
+      @include xui-state-focus-shadow($xui-shadow-focus-inset);
+    }
+  }
+  .#{$ns}-breadcrumb-arrow {
+    align-items: center;
+    height: $xui-s-large;
+    width: $xui-s-xsmall;
+  }
+  .#{$ns}-breadcrumb--icon {
+    color: $xui-breadcrumb-icon-color;
+  }
 }

@@ -10,20 +10,20 @@ import education from '@xero/xui-icon/icons/education';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
-import centered from '../../../../../.storybook/xuiResponsiveCenter';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variantClassNames } from '../../button/private/constants';
 import { storiesWithVariationsKindName, variations } from './variations';
 import { LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';
 
 function createItems(settings) {
-  const { items, size, suffix } = settings;
+  const { items, suffix } = settings;
   if (Array.isArray(items)) {
-    return items.map(i => createItems({ items: i, size }));
+    return items.map(i => createItems({ items: i }));
   }
   items.props.id += suffix || '';
   return (
-    <SelectBoxOption {...items.props} key={items.props.id} size={size} value={items.props.id}>
+    <SelectBoxOption {...items.props} key={items.props.id} value={items.props.id}>
       {items.text}
     </SelectBoxOption>
   );
@@ -43,7 +43,6 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const size = select('size', ['medium', 'small', 'xsmall']);
-  const listItemSize = select('list item size', [null, 'medium', 'small', 'xsmall']);
   const fullWidth = select('fullWidth', ['always', 'small-down', 'never']);
   return (
     <SelectBox
@@ -59,6 +58,7 @@ storiesWithKnobs.add('Playground', () => {
           ? undefined
           : select('buttonVariant', ['none', ...Object.keys(variantClassNames)], 'none')
       }
+      caretTitle={text('caretTitle', 'Toggle list')}
       containerClasses={text('containerClasses', '')}
       defaultLayout={boolean('defaultLayout', true)}
       dropDownClasses={text('dropDownClasses', '')}
@@ -75,7 +75,7 @@ storiesWithKnobs.add('Playground', () => {
       size={size}
       validationMessage={text('validationMessage', '')}
     >
-      {createItems({ items: toggledItems, size: listItemSize })}
+      {createItems({ items: toggledItems })}
     </SelectBox>
   );
 });
@@ -94,8 +94,6 @@ variations.forEach(variation => {
     if (variationMinusStoryDetails.isTextTruncated) {
       items.forEach(i => (i.props.truncatedText = true));
     }
-    const listItemSize = variationMinusStoryDetails.listItemSize;
-    delete variationMinusStoryDetails.listItemSize;
     delete variationMinusStoryDetails.items;
     delete variationMinusStoryDetails.storyKind;
     delete variationMinusStoryDetails.storyTitle;
@@ -105,10 +103,11 @@ variations.forEach(variation => {
       <div style={{ maxWidth: '600px', display }}>
         <SelectBox
           {...variationMinusStoryDetails}
+          caretTitle="Toggle list"
           containerClasses={`xui-margin-horizontal-auto ${variation.containerClasses}`}
           label={variation.storyTitle}
         >
-          {createItems({ items, size: listItemSize })}
+          {createItems({ items })}
         </SelectBox>
       </div>
     );

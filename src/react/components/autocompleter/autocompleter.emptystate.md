@@ -5,6 +5,6 @@ import contact from '@xero/xui-icon/icons/contact';
 import { XUIAutocompleterEmptyState } from '../../autocompleter';
 
 <XUIAutocompleterEmptyState id="no_people" icon={contact}>
-  No People Found
+  No people found
 </XUIAutocompleterEmptyState>;
 ```

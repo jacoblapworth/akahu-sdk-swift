@@ -49,7 +49,7 @@ const buildTrigger = text => (
 test.add(storyNames.multiDropDowns, () => (
   <div className="xui-u-flex">
     <XUITextInput fieldClassName="xui-margin-small" isLabelHidden label="Input label" />
-    <XUIModal isOpen>
+    <XUIModal closeButtonLabel="Close" isOpen>
       <XUIModalBody>
         This is some Modal content.
         <XUITextInput isLabelHidden label="Input label" />

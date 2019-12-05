@@ -1,44 +1,112 @@
+import React from 'react';
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
-export default class XUIIsolationHeader extends PureComponent {
-  render() {
-    const { qaHook, className, isPositionFixed, role, tagName, children } = this.props;
+export default function XUIIsolationHeader({
+  actions,
+  avatar,
+  children,
+  className,
+  contentClassName,
+  hasLayout,
+  isPositionFixed,
+  navigationButton,
+  qaHook,
+  secondary,
+  tags,
+  title,
+  ...spreadProps
+}) {
+  const baseClass = `${ns}-isolationheader`;
 
-    const classNames = cn(
-      className,
-      `${ns}-isolationheader`,
-      isPositionFixed && `${ns}-isolationheader-fixed`,
-    );
+  const classes = cn(className, baseClass, isPositionFixed && `${baseClass}-fixed`);
+  const layoutClass = hasLayout ? `${baseClass}--content-layout` : '';
+  const divClasses = cn(`${baseClass}--content`, layoutClass, contentClassName);
+  const titleWrapperClasses = cn(
+    `${baseClass}--titlewrapper`,
+    avatar && `${baseClass}--titlewrapper-has-avatar`,
+  );
 
-    const Tag = tagName;
+  const controlContent = (
+    <div className={`${baseClass}--controlcontent`}>
+      {navigationButton}
+      {avatar}
+    </div>
+  );
+  const titleWrapper = (title || secondary || tags) && (
+    <div className={titleWrapperClasses}>
+      {title && <h1 className={`${baseClass}--title`}>{title}</h1>}
+      {secondary && <div className={`${baseClass}--secondarytitle`}>{secondary}</div>}
+      {tags && <div className={`${baseClass}--tags`}>{tags}</div>}
+    </div>
+  );
+  const leftContent = (
+    <div className={`${baseClass}--leftcontent`}>
+      {controlContent}
+      {titleWrapper}
+    </div>
+  );
+  const rightContent = actions && (
+    <div className={`${baseClass}--rightcontent`}>
+      {actions && <div className={`${baseClass}--actions`}>{actions}</div>}
+    </div>
+  );
 
-    return (
-      <Tag className={classNames} data-automationid={qaHook} role={role}>
+  return (
+    <header {...spreadProps} className={classes} data-automationid={qaHook}>
+      <div className={divClasses}>
+        {leftContent}
         {children}
-      </Tag>
-    );
-  }
+        {rightContent}
+      </div>
+    </header>
+  );
 }
 
 XUIIsolationHeader.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   qaHook: PropTypes.string,
-
-  /** The role attribute that should be applied. Defaults to 'banner' */
-  role: PropTypes.string,
-
-  /** The element tag to use. Defaults to 'header' */
-  tagName: PropTypes.string,
-
-  /** Applies fixed positioning so the isolation mode header scrolls with the page */
+  /**
+   * CSS class(es) to add to the the pageheading--content element. xui-page-width-standard
+   * would go here
+   */
+  contentClassName: PropTypes.string,
+  /**
+   * Applies default layout styling.
+   */
+  hasLayout: PropTypes.bool,
+  /**
+   * Title text or node
+   */
+  title: PropTypes.node,
+  /**
+   * Components or html to be right-aligned in the pageheading
+   */
+  actions: PropTypes.node,
+  /**
+   * Array of XUITags
+   */
+  tags: PropTypes.arrayOf(PropTypes.element),
+  /**
+   * Secondary title
+   */
+  secondary: PropTypes.node,
+  /**
+   * Navigation button
+   */
+  navigationButton: PropTypes.node.isRequired,
+  /**
+   * Avatar
+   */
+  avatar: PropTypes.node,
+  /**
+   * Applies fixed positioning so the isolation mode header scrolls with the page
+   */
   isPositionFixed: PropTypes.bool,
 };
 
 XUIIsolationHeader.defaultProps = {
-  role: 'banner',
-  tagName: 'header',
+  hasLayout: true,
 };

@@ -80,7 +80,7 @@ describe('<XUIButton/>', () => {
 
   it('should render a loader and in a disabled style if the `isLoading` prop is true', () => {
     const button = renderIntoDocument(
-      <XUIButton onClick={noop} isLoading={true}>
+      <XUIButton onClick={noop} isLoading={true} loadingLabel="Loading">
         Hai
       </XUIButton>,
     );
@@ -95,7 +95,7 @@ describe('<XUIButton/>', () => {
     const onClick = sinon.spy();
 
     const button = renderIntoDocument(
-      <XUIButton isLoading={true} onClick={onClick}>
+      <XUIButton isLoading={true} loadingLabel="Loading" onClick={onClick}>
         test
       </XUIButton>,
     );
@@ -125,27 +125,6 @@ describe('<XUIButton/>', () => {
     );
     Simulate.click(button.rootNode);
     assert.isTrue(onClick.calledOnce);
-  });
-
-  it('renders icon buttons with the correct inverted class', () => {
-    const iconButton = renderer.create(
-      <div>
-        <XUIButton variant="icon" onClick={noop} />
-        <XUIButton variant="icon-inverted" onClick={noop} />
-      </div>,
-    );
-    expect(iconButton).toMatchSnapshot();
-  });
-
-  it('renders icon buttons with the correct icon size classes', () => {
-    const iconButtonSizeVariants = renderer.create(
-      <div>
-        <XUIButton variant="icon" onClick={noop} />
-        <XUIButton variant="icon" size="small" onClick={noop} />
-        <XUIButton variant="icon" size="xsmall" onClick={noop} />
-      </div>,
-    );
-    expect(iconButtonSizeVariants).toMatchSnapshot();
   });
 
   it('renders borderless buttons with the correct classes', () => {
@@ -237,26 +216,6 @@ describe('<XUIButton/>', () => {
       borderlessInvertedbutton.rootNode.classList.contains('xui-button-inverted'),
       'Borderless primary button does not have regular inverted class',
     );
-
-    const iconInvertedbutton = renderIntoDocument(
-      <XUIButton variant="icon-inverted">test</XUIButton>,
-    );
-    assert.isTrue(
-      iconInvertedbutton.rootNode.classList.contains('xui-button-icon'),
-      'Icon button has borderless primary class',
-    );
-    assert.isTrue(
-      iconInvertedbutton.rootNode.classList.contains('xui-button-icon-inverted'),
-      'Icon button has borderless inverted class',
-    );
-    assert.isFalse(
-      iconInvertedbutton.rootNode.classList.contains('xui-button-borderless-inverted'),
-      'Icon button does not have borderless inverted class',
-    );
-    assert.isFalse(
-      iconInvertedbutton.rootNode.classList.contains('xui-button-inverted'),
-      'Icon button does not have regular inverted class',
-    );
   });
 
   it('does retain layout checks with a myriad of combinations', () => {
@@ -267,7 +226,7 @@ describe('<XUIButton/>', () => {
     expect(defaultRetainLayout).toMatchSnapshot();
 
     const defaultRetainLayoutWhileLoading = renderer.create(
-      <XUIButton variant="primary" isLoading>
+      <XUIButton variant="primary" isLoading loadingLabel="Loading">
         Hello, I am a long bit of text
       </XUIButton>,
     );
@@ -275,7 +234,7 @@ describe('<XUIButton/>', () => {
     expect(defaultRetainLayoutWhileLoading).toMatchSnapshot();
 
     const loadingButtonNoRetain = renderer.create(
-      <XUIButton variant="primary" isLoading retainLayout={false}>
+      <XUIButton variant="primary" isLoading loadingLabel="Loading" retainLayout={false}>
         Hello, I am a long bit of text
       </XUIButton>,
     );

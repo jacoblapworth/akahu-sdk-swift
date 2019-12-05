@@ -21,14 +21,4 @@
   flex-shrink: 0;
   padding: 0;
   vertical-align: top;
-
-  &.#{$ns}-button-medium {
-    min-width: $xui-control-size-standard;
-  }
-  &.#{$ns}-button-small {
-    min-width: $xui-control-size-small;
-  }
-  &.#{$ns}-button-xsmall {
-    min-width: $xui-control-size-xsmall;
-  }
 }

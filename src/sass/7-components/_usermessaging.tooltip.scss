@@ -40,14 +40,15 @@
 //
 // Markup:
 // <span class="xui-tooltip xui-tooltip-tipopen">
-// 	<button aria-label="Info" class="xui-button xui-button-icon xui-button-icon-small xui-button-fullwidth" tabindex="0" type="button">
-// 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
-// 	</button>
-// 	<span class="xui-positioningInline" style="flex-direction: column; top: -30px;">
-// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-righttop">
-// 			Tooltip content goes here
-// 		</span>
-// 	</span>
+//   <button aria-label="Info" class="xui-button xui-button-icon xui-button-icon-small xui-button-fullwidth" tabindex="0" type="button">
+//     <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
+//     <div class="xui-touchtarget"></div>
+//   </button>
+//   <span class="xui-positioningInline" style="flex-direction: column; top: -30px;">
+//     <span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-righttop">
+//       Tooltip content goes here
+//     </span>
+//   </span>
 // </span>
 //
 // Styleguide: Components.Alerts.Tooltip.2
@@ -71,6 +72,7 @@
 // <span class="xui-tooltip xui-tooltip-tipopen">
 // 	<button aria-haspopup="true" class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button">
 // 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
+//     <div class="xui-touchtarget"></div>
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: row; top: -50px;">
 // 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-topleft">
@@ -81,6 +83,7 @@
 // <span class="xui-tooltip xui-tooltip-tipopen">
 // 	<button aria-haspopup="true" class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button">
 // 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
+//    <div class="xui-touchtarget"></div>
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: column; top: -20px;">
 // 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-rightcenter">
@@ -92,6 +95,7 @@
 // <span class="xui-tooltip xui-tooltip-tipopen">
 // 	<button aria-haspopup="true" class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button">
 // 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
+//    <div class="xui-touchtarget"></div>
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: column; top: auto;">
 // 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-leftbottom">
@@ -100,14 +104,15 @@
 // 	</span>
 // </span>
 // <span class="xui-tooltip xui-tooltip-tipopen">
-// 	<button aria-haspopup="true" class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button">
-// 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
-// 	</button>
-// 	<span class="xui-positioningInline" style="flex-direction: row; top: 10px;">
-// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-bottomcenter">
-// 			bottomCenter
-// 		</span>
-// 	</span>
+//   <button aria-haspopup="true" class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button">
+//     <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
+//     <div class="xui-touchtarget"></div>
+//   </button>
+//   <span class="xui-positioningInline" style="flex-direction: row; top: 10px;">
+//     <span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-bottomcenter">
+//       bottomCenter
+//     </span>
+//   </span>
 // </span>
 //
 // Styleguide: Components.Alerts.Tooltip.3
@@ -148,6 +153,11 @@
   &-is-block {
     display: block;
   }
+
+  &.#{$ns}-tooltip-limitwidth {
+    max-width: 100%;
+    min-width: $xui-minimum-touch-target;
+  }
 }
 
 .#{$ns}-positioningInline {
@@ -168,7 +178,6 @@
   color: $xui-tooltip-color;
   cursor: auto;
   display: block;
-  line-height: $xui-line-height;
   opacity: 0;
   overflow-wrap: break-word;
   padding: $xui-s-2xsmall $xui-s-xsmall;
@@ -179,7 +188,8 @@
   transition: opacity $xui-motion-speed-fast linear;
   width: max-content;
   width: intrinsic; // Safari's non-standard implementation of max-content.
-  z-index: 3;
+  // Tooltip should be above surrounding content, but below any other overlays.
+  z-index: $xui-z-index-contextualtop;
   > * {
     box-sizing: border-box;
   }
@@ -201,7 +211,7 @@
     transform: translateX(-50%) translateY(-50%) rotate(45deg);
     transform-origin: center;
     width: 10px;
-    z-index: -1;
+    z-index: $xui-z-index-hidden;
   }
 }
 
@@ -229,7 +239,7 @@
   left: 0;
   right: auto;
   &:after {
-    left: 15px;
+    left: 20px;
   }
 }
 .#{$ns}-positioningInline--content-topcenter,
@@ -245,7 +255,7 @@
 .#{$ns}-positioningInline--content-bottomright {
   right: 0px;
   &:after {
-    right: 5px;
+    right: 10px;
   }
 }
 

@@ -179,8 +179,9 @@ class NestedExample extends Component {
             <DropDownHeader
               title="Example Title"
               onBackButtonClick={this.showConvenienceDates}
-              secondaryButtonContent="Cancel"
               onSecondaryButtonClick={this.closeDropDown}
+              secondaryButtonContent="Cancel"
+              backButtonLabel="Back"
             />
           }
         >

@@ -2,17 +2,17 @@
 		<a href="../section-components-displayingdata-table.html" isDocLink>Table component in the XUI Documentation</a>
 </div>
 
-The Table scaffold is a convent way to layout data sets with an _accessible_ and _responsive design_ mindset.
+The Table scaffold is a convenient way to lay out data sets with an _accessible_ and _responsive_ design mindset.
 
 The scaffold is broken up into three key components.<br />`import XUITable, { XUITableColumn, XUITableCell } from '@xero/xui/react/table';`
 
 ## Basic
 
-The bare minimum _Table_ component requires a data schema and a basic _Column_ / _Cell_ combination.
+The bare minimum _Table_ component requires a data schema and a basic _Column / Cell_ combination.
 
 The `data` prop requires an object with **unique** keys that differentiate each row.
 
-Each _Cell_ inside the _Column_ `body` prop is a function that passes through each rows `data` independently so you can cherry pick the relevant content for a particular _Cell_.
+Each _Cell_ inside the _Column_ `body` prop is a function that passes through each row’s `data` independently so you can cherry pick the relevant content for a particular _Cell_.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
@@ -21,7 +21,14 @@ const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
 };
 
-<Table data={data}>
+<Table
+  data={data}
+  loaderLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowLabel="Select row"
+  checkAllRowsLabel="Select all rows"
+  overflowMenuTitle="More row options"
+>
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
   <Column head={<Cell>Color</Cell>} body={({ color }) => <Cell>{color}</Cell>} />
@@ -39,7 +46,14 @@ const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
 };
 
-<Table data={data}>
+<Table
+  data={data}
+  loaderLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowLabel="Select row"
+  checkAllRowsLabel="Select all rows"
+  overflowMenuTitle="More row options"
+>
   <Column body={({ fruit }) => <Cell>{fruit}</Cell>} />
   <Column body={({ color }) => <Cell>{color}</Cell>} />
   <Column body={({ price }) => <Cell>{`$${price}`}</Cell>} />
@@ -67,7 +81,15 @@ const data = {
   }
 };
 
-<Table data={data} isResponsive>
+<Table
+  data={data}
+  isResponsive
+  loaderLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowLabel="Select row"
+  checkAllRowsLabel="Select all rows"
+  overflowMenuTitle="More row options"
+>
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
   <Column head={<Cell>Color</Cell>} body={({ color }) => <Cell>{color}</Cell>} />
@@ -123,7 +145,16 @@ const data = {
   }
 };
 
-<Table data={data} isResponsive isTruncated>
+<Table
+  data={data}
+  isResponsive
+  isTruncated
+  loaderLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowLabel="Select row"
+  checkAllRowsLabel="Select all rows"
+  overflowMenuTitle="More row options"
+>
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
   <Column head={<Cell>Color</Cell>} body={({ color }) => <Cell>{color}</Cell>} />
@@ -177,7 +208,14 @@ const data = {
   }
 };
 
-<Table data={data}>
+<Table
+  data={data}
+  loaderLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowLabel="Select row"
+  checkAllRowsLabel="Select all rows"
+  overflowMenuTitle="More row options"
+>
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
   <Column head={<Cell>Color</Cell>} body={({ color }) => <Cell>{color}</Cell>} />
@@ -210,7 +248,15 @@ node.innerHTML = `
 `;
 document.head.appendChild(node);
 
-<Table data={data} className="xui-table-reactdocs-shadow">
+<Table
+  data={data}
+  className="xui-table-reactdocs-shadow"
+  loaderLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowLabel="Select row"
+  checkAllRowsLabel="Select all rows"
+  overflowMenuTitle="More row options"
+>
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
   <Column head={<Cell>Color</Cell>} body={({ color }) => <Cell>{color}</Cell>} />
@@ -256,7 +302,14 @@ const data = {
   def456: { fruit: 'Apple', color: 'Red', price: 3.49, paid: false }
 };
 
-<Table data={data}>
+<Table
+  data={data}
+  loaderLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowLabel="Select row"
+  checkAllRowsLabel="Select all rows"
+  overflowMenuTitle="More row options"
+>
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
   <Column head={<Cell>Color</Cell>} body={({ color }) => <Cell>{color}</Cell>} />
@@ -282,7 +335,7 @@ Each row's _Disabled_ state is derived from checking for _"truthy"_ row key / va
 
 **Note: Make sure the state of the _disbled_ checkbox will not be changed via the bulk-select. For reference, There's an example `onCheckAllToggle` callback function below.**
 
-Interactions for the _"master"_ and _"single"_ checkbox toggles can be handled using the `onCheckAllToggle` and `onCheckOneToggle` props.
+Interactions for the _"master"_ and _"single"_ checkbox toggles can be handled using the `onCheckAllToggle` and `onCheckOneToggle` props. If you provide these, you must also provide the corresponding `checkAllRowsLabel` or `checkOneRowLabel` for accessibility purposes.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
@@ -346,6 +399,11 @@ class Demo extends React.Component {
         disabledIds={this.state.disabledIds}
         onCheckAllToggle={this.handleCheckAllToggle}
         onCheckOneToggle={this.handleCheckOneToggle}
+        loaderLabel="Loading more data"
+        emptyMessage="Nothing to show here"
+        checkOneRowLabel="Select row"
+        checkAllRowsLabel="Select all rows"
+        overflowMenuTitle="More row options"
       >
         <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -362,11 +420,7 @@ class Demo extends React.Component {
 
 ## Overflow Menu
 
-Append the table rows with a XUI _Overflow Menu_ action with the `hasOverflowMenu` prop.
-
-Each row can generate a unique set of menu items by supplying the `createOverflowMenu` prop.
-
-**Note:** If there are no menu items are generated the _Overflow Menu_ will not be rendered for that row.
+You can append a menu to a table row by adding `hasOverflowMenu` and providing a `createOverflowMenu` function. The menu will not be rendered if you don’t provide these; however, if you do, you must also provide an `overflowMenuTitle` for accessibility purposes.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
@@ -383,10 +437,15 @@ const data = {
   createOverflowMenu={({ fruit, paid }) =>
     !paid && [
       <Pickitem key="0" id="0" onClick={() => alert(`Pay for ${fruit}s`)}>
-        Pay for {fruit}'s
+        Pay for {fruit}s
       </Pickitem>
     ]
   }
+  loaderLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowLabel="Select row"
+  checkAllRowsLabel="Select all rows"
+  overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -466,6 +525,11 @@ class Demo extends React.Component {
             Edit
           </Pickitem>
         ]}
+        loaderLabel="Loading more data"
+        emptyMessage="Nothing to show here"
+        checkOneRowLabel="Select row"
+        checkAllRowsLabel="Select all rows"
+        overflowMenuTitle="More row options"
       >
         <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -581,6 +645,11 @@ class Demo extends React.Component {
         isSortAsc={isSortAsc}
         onSortChange={this.handleSortChange}
         customSort={activeSortKey === 'tags' ? this.handleTagSort : null}
+        loaderLabel="Loading more data"
+        emptyMessage="Nothing to show here"
+        checkOneRowLabel="Select row"
+        checkAllRowsLabel="Select all rows"
+        overflowMenuTitle="More row options"
       >
         <Column
           head={<Cell sortKey="fruit">Fruit</Cell>}
@@ -636,7 +705,16 @@ const Appendage = ({ children }) => (
   </div>
 );
 
-<Table data={data} header={<Appendage>Header</Appendage>} footer={<Appendage>Footer</Appendage>}>
+<Table
+  data={data}
+  header={<Appendage>Header</Appendage>}
+  footer={<Appendage>Footer</Appendage>}
+  loaderLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowLabel="Select row"
+  checkAllRowsLabel="Select all rows"
+  overflowMenuTitle="More row options"
+>
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
   <Column head={<Cell>Color</Cell>} body={({ color }) => <Cell>{color}</Cell>} />
@@ -647,7 +725,7 @@ const Appendage = ({ children }) => (
 
 ## Loader
 
-Appends a `<XUILoader />` after the last _Row_ in the _Table_ with the `isLoading` prop.
+Appends a `<XUILoader />` after the last _Row_ in the _Table_ with the `isLoading` prop. If you provide this prop, you must also provide a `loaderLabel` for accessibility purposes.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
@@ -656,7 +734,15 @@ const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
 };
 
-<Table data={data} isLoading>
+<Table
+  data={data}
+  isLoading
+  loaderLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowLabel="Select row"
+  checkAllRowsLabel="Select all rows"
+  overflowMenuTitle="More row options"
+>
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
   <Column head={<Cell>Color</Cell>} body={({ color }) => <Cell>{color}</Cell>} />
@@ -692,6 +778,11 @@ const data = {
   data={data}
   shouldRowClick={({ fruit }) => fruit === 'Banana'}
   onRowClick={(event, { fruit }) => alert(`You clicked the ${fruit} row`)}
+  loaderLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowLabel="Select row"
+  checkAllRowsLabel="Select all rows"
+  overflowMenuTitle="More row options"
 >
   <Column
     head={<Cell>Fruit</Cell>}
@@ -739,16 +830,22 @@ const data = {
 
 ## Empty State
 
-When there is no data in which to generate _Rows_ as part of the table `<tbody />` a **default** _"Empty State"_ is shown.
-
-You can customise the default message with the `emptyMessage` prop.
+If no data is supplied to `<XUITable />` then the _empty state_ component will be rendered instead. In that case, you must provide an `emptyMessage` or replace the entire empty state component by providing your own `emptyStateComponent`.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
 
 const data = {};
 
-<Table data={data} emptyMessage="There are no fruit results">
+<Table
+  data={data}
+  emptyMessage="There are no fruit results"
+  loaderLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowLabel="Select row"
+  checkAllRowsLabel="Select all rows"
+  overflowMenuTitle="More row options"
+>
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
   <Column head={<Cell>Color</Cell>} body={({ color }) => <Cell>{color}</Cell>} />
@@ -756,8 +853,6 @@ const data = {};
   <Column head={<Cell>Price / kg</Cell>} body={({ price }) => <Cell>{`$${price}`}</Cell>} />
 </Table>;
 ```
-
-Alternatively you can supply a completely new empty state node to replace the default aesthetic with the `emptyStateComponent` prop.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
@@ -772,7 +867,15 @@ const emptyStateComponent = (
   </div>
 );
 
-<Table data={data} emptyStateComponent={emptyStateComponent}>
+<Table
+  data={data}
+  emptyStateComponent={emptyStateComponent}
+  loaderLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowLabel="Select row"
+  checkAllRowsLabel="Select all rows"
+  overflowMenuTitle="More row options"
+>
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
   <Column head={<Cell>Color</Cell>} body={({ color }) => <Cell>{color}</Cell>} />

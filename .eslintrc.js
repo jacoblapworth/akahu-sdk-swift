@@ -7,7 +7,7 @@ module.exports = {
     node: true,
   },
   parser: 'babel-eslint',
-  plugins: ['jest', 'prettier'],
+  plugins: ['jest', 'prettier', 'react-hooks'],
   extends: [
     '@xero/eslint-config-xero-react',
     'plugin:jest/recommended',
@@ -64,6 +64,8 @@ module.exports = {
     'react/no-access-state-in-setstate': 'off', // 3 instances
     'react/state-in-constructor': 'off', // 29 instances
     'react/static-property-placement': 'off', // 3 instances
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
   overrides: [
     {

@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Pickitem from '../picklist/Pickitem';
 import { ns } from '../helpers/xuiClassNamespace';
-import { sizes } from './private/constants';
 
 export default class SelectBoxOption extends PureComponent {
   render() {
@@ -25,7 +24,6 @@ export default class SelectBoxOption extends PureComponent {
       ariaRole,
       onMouseOver,
       qaHook,
-      size,
     } = this.props;
     const isText = typeof children[0] === 'string';
     const shouldTruncateChildren = isText && truncatedText;
@@ -51,7 +49,6 @@ export default class SelectBoxOption extends PureComponent {
           ariaRole,
           onMouseOver,
           qaHook,
-          size,
         }}
         className={optionClasses}
         isMultiselect={showCheckboxes}
@@ -104,12 +101,6 @@ SelectBoxOption.propTypes = {
   ariaRole: PropTypes.string,
   /** The automation-id to add to the item */
   qaHook: PropTypes.string,
-  /**
-   * Size variant. One of "medium", "small", "xsmall"<br>
-   * **Note:**
-   * *`small` and `xsmall` variants now are `sunsetting` because they don’t meet [XUI minimum touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommended to use.*
-   */
-  size: PropTypes.oneOf(sizes),
 };
 
 SelectBoxOption.defaultProps = {

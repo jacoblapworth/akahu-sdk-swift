@@ -1,88 +1,84 @@
-import React, { PureComponent } from 'react';
+import React, { useState, useCallback, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid/v4';
 import AccordionWrapper from './customElements/AccordionWrapper';
-import AccordionTrigger from './customElements/AccordionTrigger';
 import XUIAccordionContext from './XUIAccordionContext';
+import AccordionTrigger from './customElements/AccordionTrigger';
+import usePrevious from '../helpers/usePrevious';
 
-export default class XUIAccordionItem extends PureComponent {
-  static contextType = XUIAccordionContext;
-  state = {
-    isOpen: false,
-  };
+const XUIAccordionItem = ({
+  action,
+  leftContent,
+  overflow,
+  pinnedValue,
+  primaryHeading,
+  secondaryHeading,
+  description,
+  children,
+  onClick,
+  isOpen: propsIsOpen,
+}) => {
+  const [id] = useState(uuid());
+  const {
+    setOpenAccordionItem,
+    openAccordionItemId,
+    qaHook,
+    emptyStateComponent,
+    toggleLabel,
+  } = useContext(XUIAccordionContext);
+  const prevPropsIsOpen = usePrevious(propsIsOpen);
 
-  onItemClick = () => {
-    this.setState(
-      prevState => ({
-        isOpen: !prevState.isOpen,
-      }),
-      () => this.context.updateOpenAccordionItem(this, this.state.isOpen),
-    );
-  };
+  const isItemOpen = propsIsOpen || openAccordionItemId === id;
 
-  closeItem = () => {
-    this.setState({
-      isOpen: false,
-    });
-  };
+  useEffect(() => {
+    if (propsIsOpen && !prevPropsIsOpen) {
+      setOpenAccordionItem(id);
+    }
+  }, [propsIsOpen, prevPropsIsOpen, setOpenAccordionItem, id]);
 
-  openItem = () => {
-    this.setState({
-      isOpen: true,
-    });
-  };
+  const onItemClick = useCallback(
+    event => {
+      if (event.defaultPrevented) {
+        return;
+      }
+      setOpenAccordionItem(id);
 
-  render() {
-    const {
-      action,
-      custom,
-      leftContent,
-      overflow,
-      pinnedValue,
-      primaryHeading,
-      secondaryHeading,
-      onItemClickArgs,
-      children,
-      onItemClick,
-    } = this.props;
-    const { isOpen } = this.state;
-    const { qaHook, emptyStateComponent, toggleLabel } = this.context;
+      if (onClick) {
+        onClick();
+      }
+    },
+    [setOpenAccordionItem, onClick, id],
+  );
 
-    return (
-      <AccordionWrapper
-        isOpen={this.state.isOpen}
-        qaHook={qaHook && `${qaHook}-wrapper`}
-        trigger={
-          <AccordionTrigger
-            {...{
-              isOpen,
-              action,
-              custom,
-              leftContent,
-              overflow,
-              pinnedValue,
-              primaryHeading,
-              secondaryHeading,
-              toggleLabel,
-              onItemClick,
-              onItemClickArgs,
-            }}
-            qaHook={qaHook && `${qaHook}-trigger`}
-            updateOpenAccordionItem={this.onItemClick}
-          />
-        }
-      >
-        {isOpen && (children || emptyStateComponent)}
-      </AccordionWrapper>
-    );
-  }
-}
+  return (
+    <AccordionWrapper
+      isOpen={isItemOpen}
+      qaHook={qaHook && `${qaHook}-wrapper`}
+      trigger={
+        <AccordionTrigger
+          isOpen={isItemOpen}
+          qaHook={qaHook && `${qaHook}-trigger`}
+          {...{
+            action,
+            leftContent,
+            overflow,
+            pinnedValue,
+            primaryHeading,
+            secondaryHeading,
+            description,
+            toggleLabel,
+            onItemClick,
+          }}
+        />
+      }
+    >
+      {isItemOpen && (children || emptyStateComponent)}
+    </AccordionWrapper>
+  );
+};
 
 /* eslint-disable react/no-unused-prop-types */
 XUIAccordionItem.propTypes = {
-  /** A space to accommodate additional content that is not addressed by the
-   * various _"official"_ trigger props. */
-  custom: PropTypes.node,
-
   /** Left most consumer specified component option, sits to the right of the arrow.
    * Typically an `<XUIAvatar />`, `<XUICheckbox />` or `<XUIRolloverCheckbox />` component. */
   leftContent: PropTypes.node,
@@ -93,6 +89,9 @@ XUIAccordionItem.propTypes = {
   /** Secondary heading content. */
   secondaryHeading: PropTypes.node,
 
+  /** Description content. */
+  description: PropTypes.node,
+
   /** Pinned to right side of the accordion item trigger. */
   pinnedValue: PropTypes.node,
 
@@ -102,12 +101,13 @@ XUIAccordionItem.propTypes = {
   /** Any component passed as right most content, typically a `<DropDownToggled />` component. */
   overflow: PropTypes.node,
 
-  /** Callback for a accordion item toggle. Returns the entire `item` from the `items` array in
-   * addition to an `isOpen` boolean representing the items toggled state. */
-  onItemClick: PropTypes.func,
+  /** Callback for a accordion item toggle */
+  onClick: PropTypes.func,
 
-  /** An object with props to be passed to the `onItemClick` callback function. */
-  onItemClickArgs: PropTypes.object,
+  /** Whether this accordion item should open, this should only be true for one item */
+  isOpen: PropTypes.bool,
 
   children: PropTypes.node,
 };
+
+export default XUIAccordionItem;

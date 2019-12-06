@@ -437,7 +437,7 @@ export function getPropsFromFirstChildOrList(children, listProps) {
 }
 
 /**
- * Custom propType validator for checking props that should not be used when `_isHorizontal` is `true`.
+ * Custom propType validator for checking PickItem props that should only be used when `_isHorizontal` is `false`.
  *
  * @param {PropTypes.Validator} propTypeValidator A PropType validator. e.g. `PropTypes.string`
  * @param  {...any} parameters All parameters supplied by propTypes.
@@ -447,6 +447,22 @@ export function verticalOnlyProp(propTypeValidator, ...parameters) {
 
   if (props[propName] && props._isHorizontal) {
     return new Error(`\`${propName}\` is not supported by horizontal \`${componentName}\`.`);
+  }
+
+  return propTypeValidator(...parameters, ReactPropTypesSecret);
+}
+
+/**
+ * Custom propType validator for checking PickList props that should only be used when `isHorizontal` is `true`.
+ *
+ * @param {PropTypes.Validator} propTypeValidator A PropType validator. e.g. `PropTypes.string`
+ * @param  {...any} parameters All parameters supplied by propTypes.
+ */
+export function horizontalOnlyProp(propTypeValidator, ...parameters) {
+  const [props, propName, componentName] = parameters;
+
+  if (props[propName] && !props.isHorizontal) {
+    return new Error(`\`${propName}\` is only supported by horizontal \`${componentName}\`.`);
   }
 
   return propTypeValidator(...parameters, ReactPropTypesSecret);

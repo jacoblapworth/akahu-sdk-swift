@@ -22,6 +22,9 @@ exports[`<XUIIconButton/> renders iconButtons with the correct icon size classes
         role="presentation"
       />
     </svg>
+    <div
+      className="xui-touchtarget"
+    />
   </button>
   <button
     aria-label="Test Icon Button"
@@ -43,6 +46,9 @@ exports[`<XUIIconButton/> renders iconButtons with the correct icon size classes
         role="presentation"
       />
     </svg>
+    <div
+      className="xui-touchtarget"
+    />
   </button>
   <button
     aria-label="Test Icon Button"
@@ -64,6 +70,9 @@ exports[`<XUIIconButton/> renders iconButtons with the correct icon size classes
         role="presentation"
       />
     </svg>
+    <div
+      className="xui-touchtarget"
+    />
   </button>
 </div>
 `;
@@ -89,5 +98,8 @@ exports[`<XUIIconButton/> should render an inverted iconButton with an \`isInver
       role="presentation"
     />
   </svg>
+  <div
+    className="xui-touchtarget"
+  />
 </button>
 `;

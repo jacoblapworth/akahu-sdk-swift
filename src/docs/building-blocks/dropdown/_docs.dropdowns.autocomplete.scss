@@ -102,146 +102,9 @@
 //
 // Styleguide: Components.CollectingInput.Autocompleter.2.3
 
-// Size variants
-//
-// Autocompleters have a range of size options that allow for greater control over visual hierarchy. Use the [Text input](section-components-controls-textinput.html) and [Picklist](section-components-displayingdata-picklist.html) size variants to dictate the your size preference for Autocompleter. If using the react component, use the dedicated properties to adjust size variant.
-// Small and xsmall variants now have a “Sunsetting” flag because they don’t meet [XUI touch target standards](./section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4).
-//
-// Tips:
-// Do: Use medium size variant by default, especially when using inside a form
-// Dont: Don't use small and xsmall size variants.
-//
-// exampleclass: ds-example-narrow
-//
-// Markup:
-// <div>
-//   <div class="xui-textinput xui-textinput-medium">
-//     <input class="xui-textinput--input xui-textinput--input-medium xui-autocompleter--textinput" placeholder="Add client" type="search" value="">
-//   </div>
-//   <div class="xui-dropdown-layout xui-dropdown-is-open xui-margin-top-2xsmall">
-//     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body">
-//       <div class="xui-dropdown--scrollable-content">
-//         <ul role="group" class="xui-picklist xui-picklist-layout xui-picklist-medium">
-//           <li class="xui-pickitem xui-pickitem-medium" role="option" id="1">
-//             <button type="button" class="xui-pickitem--body">
-//               <span class="xui-pickitem--sideelement">
-//                 <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-7" role="presentation">C</abbr>
-//               </span>
-//               <span class="xui-pickitem--text xui-pickitem-text-truncated">Crumb</span>
-//             </button>
-//           </li>
-//           <li class="xui-pickitem xui-pickitem-medium" role="option" id="2">
-//             <button type="button" class="xui-pickitem--body">
-//               <span class="xui-pickitem--sideelement">
-//                 <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-3" role="presentation">HB</abbr>
-//               </span>
-//               <span class="xui-pickitem--text xui-pickitem-text-truncated">Honey Bones</span>
-//             </button>
-//           </li>
-//           <li class="xui-pickitem xui-pickitem-medium" role="option" id="3">
-//             <button type="button" class="xui-pickitem--body">
-//               <span class="xui-pickitem--sideelement">
-//                 <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-1" role="presentation">RR</abbr>
-//               </span>
-//               <span class="xui-pickitem--text xui-pickitem-text-truncated">Red Rabbit</span>
-//             </button>
-//           </li>
-//         </ul>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-//
-// Styleguide: Components.CollectingInput.Autocompleter.3
-
-// Small, Xsmall
-//
-// flags: sunsetting
-//
-// Markup:
-// <div class="xui-margin-bottom-2xlarge">
-//   <div class="xui-textinput xui-textinput-small">
-//     <input class="xui-textinput--input xui-textinput--input-small xui-autocompleter--textinput" placeholder="Add client" type="search" value="">
-//   </div>
-//   <div class="xui-dropdown-layout xui-dropdown-is-open xui-margin-top-2xsmall">
-//     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body">
-//       <div class="xui-dropdown--scrollable-content">
-//         <ul role="group" class="xui-picklist xui-picklist-layout xui-picklist-small">
-//           <li class="xui-pickitem xui-pickitem-small" role="option" id="1">
-//             <button type="button" class="xui-pickitem--body">
-//               <span class="xui-pickitem--sideelement">
-//                 <abbr class="xui-avatar xui-avatar-business xui-avatar-xsmall xui-avatar-color-7" role="presentation">C</abbr>
-//               </span>
-//               <span class="xui-pickitem--text xui-pickitem-text-truncated">Crumb</span>
-//             </button>
-//           </li>
-//           <li class="xui-pickitem xui-pickitem-small" role="option" id="2">
-//             <button type="button" class="xui-pickitem--body">
-//               <span class="xui-pickitem--sideelement">
-//                 <abbr class="xui-avatar xui-avatar-business xui-avatar-xsmall xui-avatar-color-3" role="presentation">HB</abbr>
-//               </span>
-//               <span class="xui-pickitem--text xui-pickitem-text-truncated">Honey Bones</span>
-//             </button>
-//           </li>
-//           <li class="xui-pickitem xui-pickitem-small" role="option" id="3">
-//             <button type="button" class="xui-pickitem--body">
-//               <span class="xui-pickitem--sideelement">
-//                 <abbr class="xui-avatar xui-avatar-business xui-avatar-xsmall xui-avatar-color-1" role="presentation">RR</abbr>
-//               </span>
-//               <span class="xui-pickitem--text xui-pickitem-text-truncated">Red Rabbit</span>
-//             </button>
-//           </li>
-//         </ul>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-textinput xui-textinput-xsmall">
-//     <input class="xui-textinput--input xui-textinput--input-xsmall xui-autocompleter--textinput" placeholder="Add client" type="search" value="">
-//   </div>
-//   <div class="xui-dropdown-layout xui-dropdown-is-open xui-margin-top-2xsmall">
-//     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body">
-//       <div class="xui-dropdown--scrollable-content">
-//         <ul role="group" class="xui-picklist xui-picklist-layout xui-picklist-xsmall">
-//           <li class="xui-pickitem xui-pickitem-xsmall" role="option" id="1">
-//             <button type="button" class="xui-pickitem--body">
-//               <span class="xui-pickitem--sideelement">
-//                 <abbr class="xui-avatar xui-avatar-business xui-avatar-2xsmall xui-avatar-color-7" role="presentation">C</abbr>
-//               </span>
-//               <span class="xui-pickitem--text xui-pickitem-text-truncated">Crumb</span>
-//             </button>
-//           </li>
-//           <li class="xui-pickitem xui-pickitem-xsmall" role="option" id="2">
-//             <button type="button" class="xui-pickitem--body">
-//               <span class="xui-pickitem--sideelement">
-//                 <abbr class="xui-avatar xui-avatar-business xui-avatar-2xsmall xui-avatar-color-3" role="presentation">HB</abbr>
-//               </span>
-//               <span class="xui-pickitem--text xui-pickitem-text-truncated">Honey Bones</span>
-//             </button>
-//           </li>
-//           <li class="xui-pickitem xui-pickitem-xsmall" role="option" id="3">
-//             <button type="button" class="xui-pickitem--body">
-//               <span class="xui-pickitem--sideelement">
-//                 <abbr class="xui-avatar xui-avatar-business xui-avatar-2xsmall xui-avatar-color-1" role="presentation">RR</abbr>
-//               </span>
-//               <span class="xui-pickitem--text xui-pickitem-text-truncated">Red Rabbit</span>
-//             </button>
-//           </li>
-//         </ul>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-//
-// Styleguide: Components.CollectingInput.Autocompleter.3.1
-
 // Single-select
 //
-// To indicate a single selection has been made in an autocompleter, use [text input side elements](section-components-controls-textinput.html#components-controls-textinput-5) to display a left element, such as an avatar (if applicapble), and a right icon button element to enable clearing the selection.
+// To indicate a single selection has been made in an autocompleter, use [text input side elements](section-components-controls-textinput.html#components-controls-textinput-5) to display a left element, such as an avatar (if applicable), and a right icon button element to enable clearing the selection.
 //
 // Tips:
 // Do: Use text input side elements to indicate a single selection
@@ -258,11 +121,12 @@
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
 //       </svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //   </div>
 // </div>
 //
-// Styleguide: Components.CollectingInput.Autocompleter.4
+// Styleguide: Components.CollectingInput.Autocompleter.3
 
 // Multi-select
 //
@@ -287,6 +151,7 @@
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
 //       </svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //   </div>
 //   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
@@ -298,12 +163,13 @@
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
 //       </svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //   </div>
 //   <input class="xui-autocompleter--textinput xui-textinput--input" placeholder="Add recipients" type="search" value="">
 // </div>
 //
-// Styleguide: Components.CollectingInput.Autocompleter.5
+// Styleguide: Components.CollectingInput.Autocompleter.4
 
 // Wrapping
 //
@@ -329,6 +195,7 @@
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
 //       </svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //   </div>
 //   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
@@ -340,6 +207,7 @@
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
 //       </svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //	 </div>
 //   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
@@ -351,6 +219,7 @@
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
 //       </svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //	 </div>
 //   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
@@ -362,6 +231,7 @@
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
 //       </svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //	 </div>
 //   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
@@ -373,12 +243,13 @@
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
 //       </svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //	 </div>
 //   <input class="xui-autocompleter--textinput xui-textinput--input" placeholder="Add recipients" type="search">
 // </div>
 //
-// Styleguide: Components.CollectingInput.Autocompleter.5.1
+// Styleguide: Components.CollectingInput.Autocompleter.4.1
 
 // Contained
 //
@@ -403,6 +274,7 @@
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
 //       </svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //	 </div>
 //   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
@@ -414,6 +286,7 @@
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
 //       </svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //	 </div>
 //   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
@@ -425,6 +298,7 @@
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
 //       </svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //	 </div>
 //   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
@@ -436,6 +310,7 @@
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
 //       </svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //	 </div>
 //   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
@@ -447,13 +322,14 @@
 //       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
 //       </svg>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //	 	</div>
 // 	</div>
 //   <input class="xui-textinput--input" placeholder="Add recipients" type="search" value="">
 // </div>
 //
-// Styleguide: Components.CollectingInput.Autocompleter.5.2
+// Styleguide: Components.CollectingInput.Autocompleter.4.2
 
 // Secondary search autocompleter
 //
@@ -521,7 +397,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Components.CollectingInput.Autocompleter.6
+// Styleguide: Components.CollectingInput.Autocompleter.5
 
 // Disabling
 //
@@ -536,4 +412,4 @@
 //   <input class="xui-textinput--input xui-textinput--input-medium" placeholder="Add recipients" type="search" value="" disabled>
 // </div>
 //
-// Styleguide: Components.CollectingInput.Autocompleter.7
+// Styleguide: Components.CollectingInput.Autocompleter.6

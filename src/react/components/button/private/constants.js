@@ -55,6 +55,14 @@ export const variantClassNames = {
 
 /**
  * @public
+ * Array of button variants excluding icon variants.
+ */
+export const textButtonVariants = Object.keys(variantClassNames).filter(
+  name => name.indexOf('icon') !== 0,
+);
+
+/**
+ * @public
  * Map of button types to class names
  */
 export const buttonTypes = {

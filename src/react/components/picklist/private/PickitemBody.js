@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { pickitemClassName, itemBodyClassName, itemTextClassName } from '../private/constants';
+import { XUIButtonCaret } from '../../../button';
 
 /**
  * INTERNAL USE ONLY
@@ -29,9 +30,11 @@ const PickitemBody = ({
   leftElement,
   rightElement,
   headingElement,
+  showButtonCaret,
 }) => {
   const rel = target ? 'noopener noreferrer' : null;
   const childProps = {
+    className: itemBodyClassName,
     onClick,
     onKeyDown,
     onMouseOver,
@@ -45,8 +48,6 @@ const PickitemBody = ({
     itemTextClassName,
     shouldTruncate && `${pickitemClassName}-text-truncated`,
   );
-
-  const bodyClassName = cn(itemBodyClassName, href && `${pickitemClassName}-link--body`);
 
   const Tag = href ? 'a' : 'button';
   const elementSettings = href ? { ...{ href, target } } : { type: 'button' };
@@ -65,7 +66,7 @@ const PickitemBody = ({
     );
 
   return (
-    <Tag {...elementSettings} data-automationid={qaHook} {...childProps} className={bodyClassName}>
+    <Tag {...elementSettings} data-automationid={qaHook} {...childProps}>
       {leftElement}
       <span className={textClassName}>
         {headingElement}
@@ -74,6 +75,7 @@ const PickitemBody = ({
       </span>
       {pinnedElement}
       {rightElement}
+      {showButtonCaret && <XUIButtonCaret />}
     </Tag>
   );
 };
@@ -102,6 +104,8 @@ PickitemBody.propTypes = {
   /** Content to be added to the right of the pickitem. */
   rightElement: PropTypes.node,
   headingElement: PropTypes.node,
+  /** Show button caret. Used in TabDropDown */
+  showButtonCaret: PropTypes.bool,
 };
 
 export default PickitemBody;

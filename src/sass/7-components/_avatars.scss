@@ -5,7 +5,7 @@
 .#{$ns}-avatar {
   @include xui-text-medium;
   align-items: center;
-  border-radius: 50%;
+  border-radius: $xui-radius-circle;
   color: $xui-color-white;
   cursor: default;
   display: inline-flex;
@@ -60,7 +60,7 @@ img.#{$ns}-avatar {
 }
 
 .#{$ns}-avatar-business {
-  border-radius: 9.375%;
+  border-radius: $xui-radius-scaled;
 }
 
 // The map below creates the various color variations for the Avatar "generic"

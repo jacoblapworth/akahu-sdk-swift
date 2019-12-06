@@ -72,6 +72,238 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Wrapping horizontal',
+    panelSize: '350px',
+    lists: [
+      {
+        items: [
+          { value: 'Automatic payments' },
+          { value: 'Unpaid invoices' },
+          { value: 'Draft invoices' },
+        ],
+        isHorizontal: true,
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Truncating horizontal',
+    panelSize: '450px',
+    lists: [
+      {
+        shouldTruncate: true,
+        isHorizontal: true,
+        items: [
+          { value: 'Rosemary' },
+          { value: 'Ji' },
+          { value: 'Benjamin' },
+          { value: 'Rob' },
+          { value: 'Joanne' },
+        ],
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Wrapping horizontal with secondary element',
+    panelSize: '500px',
+    lists: [
+      {
+        isHorizontal: true,
+        items: [
+          { value: 'Status', secondaryElement: 'Draft, Sent' },
+          { value: 'Task & expenses', secondaryElement: '3772' },
+          { value: 'Created by', secondaryElement: 'Tim Redmond +2 others' },
+        ],
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Truncating horizontal with secondary element',
+    panelSize: '600px',
+    lists: [
+      {
+        shouldTruncate: true,
+        isHorizontal: true,
+        items: [
+          {
+            value: 'Status',
+            secondaryElement: 'Draft, Sent',
+          },
+          {
+            value: 'Task & expenses',
+            secondaryElement: '3772',
+          },
+          {
+            value: 'Created by',
+            secondaryElement: 'Tim Redmond +2 others',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'horizontal with avatars',
+    viewports: desktopPlus320,
+    lists: [
+      {
+        isHorizontal: true,
+        items: [
+          {
+            value: 'James Magness',
+            leftElement: <XUIAvatar size="small" value="James Magness" />,
+            isSelected: true,
+          },
+          { value: 'Tim Redmond', leftElement: <XUIAvatar size="small" value="Tim Redmond" /> },
+          {
+            value: 'Grzegorz Pawłowski-Chudziński',
+            leftElement: <XUIAvatar size="small" value="Grzegorz Pawłowski-Chudziński" />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Truncating horizontal with avatars',
+    panelSize: '600px',
+    lists: [
+      {
+        isHorizontal: true,
+        shouldTruncate: true,
+        items: [
+          {
+            value: 'James Magness',
+            leftElement: <XUIAvatar size="small" value="James Magness" />,
+            isSelected: true,
+          },
+          { value: 'Tim Redmond', leftElement: <XUIAvatar size="small" value="Tim Redmond" /> },
+          {
+            value: 'Grzegorz Pawłowski-Chudziński',
+            leftElement: <XUIAvatar size="small" value="Grzegorz Pawłowski-Chudziński" />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Wrapping horizontal with leftelement and secondarytext',
+    panelSize: '600px',
+    lists: [
+      {
+        isHorizontal: true,
+        items: [
+          {
+            value: 'Status',
+            secondaryElement: 'Draft, Sent',
+            leftElement: <XUIIcon icon={iconsList[3]} />,
+          },
+          {
+            value: 'Task & expenses',
+            secondaryElement: '3772',
+            leftElement: <XUIIcon icon={iconsList[3]} />,
+          },
+          {
+            value: 'Created by',
+            secondaryElement: 'Tim Redmond +2 others',
+            leftElement: <XUIAvatar size="small" value="Tim Redmond" />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Truncating horizontal with leftelement and secondarytext',
+    panelSize: '650px',
+    lists: [
+      {
+        shouldTruncate: true,
+        isHorizontal: true,
+        items: [
+          {
+            value: 'Status',
+            secondaryElement: 'Draft, Sent',
+            leftElement: <XUIIcon icon={iconsList[3]} />,
+          },
+          {
+            value: 'Task & expenses',
+            secondaryElement: '3772',
+            leftElement: <XUIIcon icon={iconsList[3]} />,
+          },
+          {
+            value: 'Created by',
+            secondaryElement: 'Tim Redmond +2 others',
+            leftElement: <XUIAvatar size="small" value="Tim Redmond" />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Truncating horizontal with leftelement and secondarytext (no panel width)',
+    panelSize: '100vw',
+    lists: [
+      {
+        shouldTruncate: true,
+        isHorizontal: true,
+        items: [
+          {
+            value: 'Status',
+            secondaryElement: 'Draft, Sent',
+            leftElement: <XUIIcon icon={iconsList[3]} />,
+          },
+          {
+            value: 'Task & expenses',
+            secondaryElement: '3772',
+            leftElement: <XUIIcon icon={iconsList[3]} />,
+          },
+          {
+            value: 'Created by',
+            secondaryElement: 'Tim Redmond +2 others',
+            leftElement: <XUIAvatar size="small" value="Tim Redmond" />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Tab Dropdown with leftelement and secondarytext',
+    panelSize: '100vw',
+    viewports: desktopPlus320,
+    lists: [
+      {
+        isHorizontal: true,
+        swapAtBreakpoint: 'small',
+        shouldTruncate: true,
+        items: [
+          {
+            value: 'Status',
+            secondaryElement: 'Draft, Sent',
+            isSelected: true,
+            leftElement: <XUIIcon icon={iconsList[3]} />,
+          },
+          {
+            value: 'Task & expenses',
+            secondaryElement: '3772',
+            leftElement: <XUIIcon icon={iconsList[3]} />,
+          },
+          {
+            value: 'Created by',
+            secondaryElement: 'Tim Redmond +2 others',
+            leftElement: <XUIAvatar size="small" value="Tim Redmond" />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with Multiselect',
     lists: [
       {
@@ -92,23 +324,7 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as Nested (closed)',
-    lists: [
-      {
-        items: [{}, { isSelected: true }],
-      },
-      {
-        isMultiselect: true,
-        items: [{ isSelected: true }, {}, { isDisabled: true }],
-      },
-    ],
-    componentType: 'NestedPicklist',
-    // size: 'small',
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as Nested (open)',
-    isOpen: true,
+    storyTitle: 'as Nested and uncontrolled (closed)',
     lists: [
       {
         items: [{}, { isSelected: true }],
@@ -122,8 +338,8 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as Nested small (open)',
-    isOpen: true,
+    storyTitle: 'as Nested and uncontrolled (open)',
+    isDefaultOpen: true,
     lists: [
       {
         items: [{}, { isSelected: true }],
@@ -134,28 +350,34 @@ const variations = [
       },
     ],
     componentType: 'NestedPicklist',
-    size: 'small',
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as Nested xsmall (open)',
+    storyTitle: 'as Nested and controlled (closed)',
+    isOpen: false,
+    lists: [
+      {
+        items: [{}, { isSelected: true }],
+      },
+    ],
+    componentType: 'NestedPicklist',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Nested and controlled (open)',
     isOpen: true,
     lists: [
       {
         items: [{}, { isSelected: true }],
       },
-      {
-        items: [{ isSelected: true }, {}, { isDisabled: true }],
-      },
     ],
     componentType: 'NestedPicklist',
-    size: 'xsmall',
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with wrapping in narrow list',
     viewports: desktopPlus320,
-    isOpen: true,
+    isDefaultOpen: true,
     componentType: 'StatefulPicklist',
     panelSize: '200px',
     lists: [
@@ -169,7 +391,7 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with truncation in narrow list',
     viewports: desktopPlus320,
-    isOpen: true,
+    isDefaultOpen: true,
     componentType: 'StatefulPicklist',
     panelSize: '200px',
     lists: [
@@ -273,245 +495,32 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'small with all the things',
+    storyTitle: 'with all the things',
     lists: [
       {
-        size: 'small',
-        items: [
-          {
-            value: 'James Magness',
-            leftElement: <XUIAvatar size="xsmall" value="James Magness" />,
-            rightElement: <XUIIcon icon={iconsList[0]} />,
-            secondaryElement: 'Team lead',
-            pinnedElement: '18',
-          },
-          {
-            value: 'Tim Redmond',
-            leftElement: <XUIAvatar size="xsmall" value="Tim Redmond" />,
-            rightElement: <XUIIcon icon={iconsList[1]} />,
-            secondaryElement: 'Developer',
-            pinnedElement: '3',
-          },
-          { isDivider: true },
-          { isHeader: true, children: 'Recent' },
-          {
-            value: 'Grzegorz Pawłowski-Chudziński',
-            leftElement: <XUIAvatar size="xsmall" value="Grzegorz Pawłowski-Chudziński" />,
-            rightElement: <XUIIcon icon={iconsList[2]} />,
-            secondaryElement: 'Developer',
-            pinnedElement: '42',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'small multiselect',
-    lists: [
-      {
-        size: 'small',
-        isMultiselect: true,
-        items: [
-          {
-            value: 'James Magness',
-            secondaryElement: 'Team lead',
-            pinnedElement: '18',
-          },
-          {
-            value: 'Tim Redmond',
-            pinnedElement: '3',
-            secondaryElement:
-              'The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
-          },
-          {
-            value:
-              'Alex Lapwood The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
-            secondaryElement: 'Developer',
-            pinnedElement: '42',
-            isSelected: true,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'xsmall wrapping with all the things',
-    panelSize: '300px',
-    lists: [
-      {
-        size: 'xsmall',
-        items: [
-          {
-            value: 'James Magness',
-            leftElement: <XUIAvatar size="2xsmall" value="James Magness" />,
-            rightElement: <XUIIcon icon={iconsList[0]} />,
-            secondaryElement:
-              'The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
-            pinnedElement: '18',
-          },
-          { isDivider: true },
-          { isHeader: true, children: 'Recent' },
-          {
-            value:
-              'Tim Redmond The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
-            leftElement: <XUIAvatar size="2xsmall" value="Tim Redmond" />,
-            rightElement: <XUIIcon icon={iconsList[1]} />,
-            secondaryElement: 'Developer',
-            pinnedElement: '3',
-          },
-          {
-            value: 'Nick Piesco',
-            leftElement: <XUIAvatar size="2xsmall" value="Nick Piesco" />,
-            rightElement: <XUIIcon icon={iconsList[2]} />,
-            secondaryElement: 'Developer',
-            pinnedElement: '42',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'xsmall truncating with all the things',
-    panelSize: '300px',
-    lists: [
-      {
-        shouldTruncate: true,
-        size: 'xsmall',
-        items: [
-          {
-            value: 'James Magness',
-            leftElement: <XUIAvatar size="2xsmall" value="James Magness" />,
-            rightElement: <XUIIcon icon={iconsList[0]} />,
-            secondaryElement:
-              'The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
-            pinnedElement: '18',
-          },
-          { isDivider: true },
-          { isHeader: true, children: 'Recent' },
-          {
-            value:
-              'Tim Redmond The default behaviour of pickitem text is to wrap. To prevent wrapping, apply the following utility class.',
-            leftElement: <XUIAvatar size="2xsmall" value="Tim Redmond" />,
-            rightElement: <XUIIcon icon={iconsList[1]} />,
-            secondaryElement: 'Developer',
-            pinnedElement: '3',
-          },
-          {
-            value: 'Vicky Min',
-            leftElement: <XUIAvatar size="2xsmall" value="Vicky Min" />,
-            rightElement: <XUIIcon icon={iconsList[2]} />,
-            secondaryElement: 'Developer',
-            pinnedElement: '42',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'horizontal with avatars',
-    viewports: desktopPlus320,
-    lists: [
-      {
-        isHorizontal: true,
         items: [
           {
             value: 'James Magness',
             leftElement: <XUIAvatar size="small" value="James Magness" />,
-            isSelected: true,
+            rightElement: <XUIIcon icon={iconsList[0]} />,
+            secondaryElement: 'Team lead',
+            pinnedElement: '18',
           },
-          { value: 'Tim Redmond', leftElement: <XUIAvatar size="small" value="Tim Redmond" /> },
+          {
+            value: 'Tim Redmond',
+            leftElement: <XUIAvatar size="small" value="Tim Redmond" />,
+            rightElement: <XUIIcon icon={iconsList[1]} />,
+            secondaryElement: 'Developer',
+            pinnedElement: '3',
+          },
+          { isDivider: true },
+          { isHeader: true, children: 'Recent' },
           {
             value: 'Grzegorz Pawłowski-Chudziński',
             leftElement: <XUIAvatar size="small" value="Grzegorz Pawłowski-Chudziński" />,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'small horizontal with right media',
-    viewports: desktopPlus320,
-    lists: [
-      {
-        isHorizontal: true,
-        size: 'small',
-        items: [
-          {
-            value: 'Status',
-            rightElement: <XUIIcon icon={iconsList[3]} />,
-            isSelected: true,
-          },
-          {
-            value: 'Date range',
-            rightElement: <XUIIcon icon={iconsList[1]} />,
-            isInvalid: true,
-          },
-          {
-            value: 'Created by',
             rightElement: <XUIIcon icon={iconsList[2]} />,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'xsmall horizontal with wrapping et al',
-    viewports: desktopPlus320,
-    panelSize: '275px',
-    lists: [
-      {
-        isHorizontal: true,
-        size: 'xsmall',
-        items: [
-          {
-            value: 'James Magness',
-            pinnedElement: '18',
-            leftElement: <XUIIcon icon={iconsList[0]} />,
-            isSelected: true,
-          },
-          {
-            value: 'Tim Redmond',
-            pinnedElement: '3',
-            leftElement: <XUIIcon icon={iconsList[2]} />,
-          },
-          {
-            value: 'Alex Lapwood',
+            secondaryElement: 'Developer',
             pinnedElement: '42',
-            leftElement: <XUIIcon icon={iconsList[3]} />,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'small horizontal with truncation',
-    viewports: desktopPlus320,
-    panelSize: '275px',
-    lists: [
-      {
-        shouldTruncate: true,
-        isHorizontal: true,
-        size: 'small',
-        items: [
-          {
-            value: 'James Magness',
-            leftElement: <XUIIcon icon={iconsList[0]} />,
-            isSelected: true,
-          },
-          {
-            value: 'Tim Redmond',
-            leftElement: <XUIIcon icon={iconsList[2]} />,
-          },
-          {
-            value: 'Finn Clark',
-            leftElement: <XUIIcon icon={iconsList[3]} />,
           },
         ],
       },
@@ -524,7 +533,6 @@ const variations = [
     panelSize: '400px',
     lists: [
       {
-        size: 'small',
         isMultiselect: true,
         shouldTruncate: true,
         items: [

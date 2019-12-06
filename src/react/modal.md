@@ -6,6 +6,8 @@
 
 The modal manages its own open/closed state as well as scroll-locking, handling focus, and ARIA attributes for assistive technology. As such, it's best to show and hide the modal using its `isOpen` prop, rather than conditionally generating the component, particularly if you have multiple layers of modals.
 
+A `closeButtonLabel` is required for accessibility purposes.
+
 ## Examples
 
 ### Read-only modal
@@ -49,7 +51,7 @@ class Example extends PureComponent {
     return (
       <div>
         <XUIButton onClick={this.showModal}>Read-only modal</XUIButton>
-        <XUIModal isOpen={this.state.showModal} onClose={this.hideModal}>
+        <XUIModal isOpen={this.state.showModal} onClose={this.hideModal} closeButtonLabel="Close">
           <XUIModalHeader qaHook="example-modal--header">Get link</XUIModalHeader>
           <XUIModalBody qaHook="example-modal--body" className="xui-padding">
             <div className="xui-padding-bottom">Anyone with this link can view this invoice.</div>
@@ -113,7 +115,7 @@ class Example extends PureComponent {
     return (
       <div>
         <XUIButton onClick={this.toggleModal}>Confirmation modal</XUIButton>
-        <XUIModal isOpen={this.state.showModal} onClose={this.hideModal}>
+        <XUIModal isOpen={this.state.showModal} onClose={this.hideModal} closeButtonLabel="Close">
           <XUIModalHeader qaHook="example-modal--header">Delete John Smith</XUIModalHeader>
           <XUIModalBody qaHook="example-modal--body">This cannot be undone</XUIModalBody>
           <XUIModalFooter
@@ -175,7 +177,7 @@ class Example extends PureComponent {
     return (
       <div>
         <XUIButton onClick={this.toggleModal}>Modal with a form</XUIButton>
-        <XUIModal isOpen={this.state.showModal} onClose={this.hideModal}>
+        <XUIModal isOpen={this.state.showModal} onClose={this.hideModal} closeButtonLabel="Close">
           <XUIModalHeader>New project</XUIModalHeader>
           <XUIModalBody>
             <XUITextInput placeholder="Give it a title" />
@@ -232,7 +234,12 @@ class Example extends PureComponent {
     return (
       <div>
         <XUIButton onClick={this.toggleModal}>Modal without a header</XUIButton>
-        <XUIModal isOpen={this.state.showModal} onClose={this.hideModal} size="large">
+        <XUIModal
+          isOpen={this.state.showModal}
+          onClose={this.hideModal}
+          size="large"
+          closeButtonLabel="Close"
+        >
           <XUIModalBody>
             <div className="xui-u-flex xui-u-flex-column xui-u-flex-align-center">
               <img
@@ -242,6 +249,7 @@ class Example extends PureComponent {
               <h2>Welcome to Projects</h2>
               <div className="xui-padding-2xlarge">
                 <p className="xui-padding-bottom">
+                  {' '}
                   At the moment, only you can use Projects for this Xero organisation.
                 </p>
                 <p>

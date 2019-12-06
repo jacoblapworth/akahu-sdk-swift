@@ -71,7 +71,7 @@ test.add(storyNames.dropDownInModal, () => {
   );
 
   return (
-    <XUIModal isOpen>
+    <XUIModal closeButtonLabel="Close" isOpen>
       <XUIModalBody>
         This is some Modal content.
         <DropDownToggled dropdown={dropdown} trigger={trigger} />

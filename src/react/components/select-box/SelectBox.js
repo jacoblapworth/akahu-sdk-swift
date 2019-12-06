@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import uuidv4 from 'uuid/v4';
 
-import SelectBoxOption from './SelectBoxOption';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import XUIButton from '../button/XUIButton';
@@ -122,15 +121,7 @@ export default class SelectBox extends Component {
         qaHook={setQaHook(qaHook, qaHooks.dropdown)}
         restrictFocus={restrictFocus}
       >
-        <Picklist>
-          {React.Children.map(children, child => {
-            if (child && child.type !== SelectBoxOption) {
-              return child;
-            }
-
-            return React.cloneElement(child, { size: child.props.size || size });
-          })}
-        </Picklist>
+        <Picklist>{children}</Picklist>
       </DropDown>
     );
 
@@ -202,8 +193,12 @@ SelectBox.propTypes = {
   /** Additional classes to be applied to the inputGroup */
   inputGroupClasses: PropTypes.string,
 
-  /** Optional title for button caret */
-  caretTitle: PropTypes.string,
+  /**
+   * Title for the button caret
+   * <br />
+   * Recommended English value: *Toggle list*
+   */
+  caretTitle: PropTypes.string.isRequired,
 
   /** Optional callback to be executed when dropdown closes */
   onDropdownHide: PropTypes.func,
@@ -271,7 +266,6 @@ SelectBox.propTypes = {
 };
 
 SelectBox.defaultProps = {
-  caretTitle: 'Toggle List',
   closeAfterSelection: true,
   defaultLayout: true,
   forceDesktop: false,

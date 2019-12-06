@@ -8,6 +8,7 @@ const leftElement = {
     <XUIAvatar
       className="xui-margin-small"
       imageUrl="https://xui.xero.com/static/xpert-avatar.png"
+      value="left"
     />
   ),
 };

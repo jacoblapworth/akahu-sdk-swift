@@ -1,7 +1,7 @@
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import XUIButtonGroup from './XUIButtonGroup';
-import { sizeClassNames, variantClassNames } from './private/constants';
+import { sizeClassNames, textButtonVariants } from './private/constants';
 
 export default function XUISplitButtonGroup({
   children,
@@ -34,7 +34,7 @@ XUISplitButtonGroup.propTypes = {
 
   /** Determines what the purpose of this button is. `standard`, `primary`, `create`,
    * `negative`, `link` or `unstyled`. */
-  variant: PropTypes.oneOf(Object.keys(variantClassNames)),
+  variant: PropTypes.oneOf(textButtonVariants),
 };
 
 XUISplitButtonGroup.defaultProps = {

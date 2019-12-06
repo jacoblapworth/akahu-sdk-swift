@@ -19,4 +19,11 @@ export const widthClasses = {
   '2xlarge': `${widthBaseClass}-2xlarge-up`,
 };
 
+export const userBreakpoints = {
+  small: breakpoints.small,
+  medium: breakpoints.medium,
+  large: breakpoints.large,
+  xlarge: breakpoints.xlarge,
+};
+
 export default breakpoints;

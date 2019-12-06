@@ -37,8 +37,12 @@ XUILoader.propTypes = {
   /** Adds data-automationid attribute with qaHook contents to the loader wrapping div */
   qaHook: PropTypes.string,
 
-  /** adds aria-label to the loader wrapping div */
-  ariaLabel: PropTypes.string,
+  /**
+   * Adds aria-label to the loader wrapping div
+   * <br />
+   * Recommended English value: *Loading*
+   */
+  ariaLabel: PropTypes.string.isRequired,
 
   /** Defaults to `true`. Sets the default layout class on the loader wrapping div */
   defaultLayout: PropTypes.bool,
@@ -57,7 +61,6 @@ XUILoader.propTypes = {
 XUILoader.defaultProps = {
   defaultLayout: true,
   size: 'medium',
-  ariaLabel: 'Loading',
 };
 
 export default XUILoader;

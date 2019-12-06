@@ -277,12 +277,11 @@ describe('<XUITextInput>', () => {
   });
 
   describe('Size of child elements', () => {
-    ['medium', 'small'].forEach(size => {
-      it(`when size is set to ${size}, pills have a size of ${sizeShift(size, -1)}`, () => {
-        const wrapper = mount(<XUITextInput leftElement={<XUIPill value="ABC" />} size={size} />);
+    const size = 'medium';
+    it(`when size is set to ${size}, pills have a size of ${sizeShift(size, -1)}`, () => {
+      const wrapper = mount(<XUITextInput leftElement={<XUIPill value="ABC" />} size={size} />);
 
-        expect(wrapper.find(XUIInnerPill).props().size).toBe(sizeShift(size, -1));
-      });
+      expect(wrapper.find(XUIInnerPill).props().size).toBe(sizeShift(size, -1));
     });
   });
 

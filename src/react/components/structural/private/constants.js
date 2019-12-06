@@ -11,15 +11,7 @@ const columnShortNames = {
   quarter: 3,
 };
 
-const overviewSentiments = {
-  standard: '',
-  positive: 'positive',
-  negative: 'negative',
-  muted: 'muted',
-};
-
 module.exports = {
   rowVariants,
   columnShortNames,
-  overviewSentiments,
 };

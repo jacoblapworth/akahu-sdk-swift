@@ -1,0 +1,201 @@
+@import '../vars';
+@import '../mixins';
+
+@mixin header($classname) {
+  align-items: stretch;
+  background-color: $xui-pageheading-bg-color;
+  box-shadow: $xui-shadow-border-bottom;
+  display: flex;
+  flex-wrap: nowrap;
+  min-height: $xui-navigation-height;
+  overflow: hidden;
+  z-index: $xui-z-index-header;
+  &--content {
+    align-items: stretch;
+    display: flex;
+    justify-content: space-between;
+    min-height: inherit; // IE11 bug fix
+  }
+  &--content-layout {
+    flex-flow: row wrap;
+    width: 100%;
+    &.#{$ns}-page-width-standard {
+      @media (min-width: #{$xui-page-width-small + 2 * $xui-s-xsmall}) {
+        @include xui-margin-horizontal(auto);
+      }
+    }
+    &.#{$ns}-page-width-large {
+      @media (min-width: #{$xui-page-width-large + 2 * $xui-s-xsmall}) {
+        @include xui-margin-horizontal(auto);
+      }
+    }
+    .#{$classname}--title {
+      align-items: center;
+      display: flex;
+      flex: 1 1 auto;
+      margin: 0;
+    }
+    > .#{$classname}--title {
+      @include xui-margin-left($xui-s-standard);
+      @include xui-margin-right($xui-s-xlarge);
+    }
+    &.#{$classname}--content-no-tabs {
+      @include xui-breakpoint-small-up {
+        flex-flow: unset;
+      }
+    }
+  }
+  &--leftcontent {
+    @include xui-margin-left($xui-s-standard);
+    @include xui-margin-right($xui-s-2xsmall);
+    @include xui-padding-vertical($xui-s-standard);
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    // Removing the margins from the parent in the width calculation
+    max-width: calc(100% - #{$xui-s-standard + $xui-s-2xsmall});
+  }
+  &--titlewrapper {
+    @include xui-margin-right($xui-s-xsmall);
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .#{$classname}--title,
+    .#{$classname}--secondarytitle {
+      word-break: break-word;
+    }
+    .#{$classname}--title {
+      flex-grow: 0;
+    }
+  }
+  &--title {
+    @include xui-padding-right($xui-s-small);
+    font-size: $xui-font-size-large;
+    font-weight: bold;
+    line-height: $xui-line-height-standard;
+  }
+  &--secondarytitle {
+    @include xui-padding-right($xui-s-small);
+    font-size: $xui-font-size-large;
+  }
+  &--tags {
+    @include xui-padding-right($xui-s-small);
+    max-width: 100%;
+    .#{$ns}-tag {
+      vertical-align: middle;
+      &:not(:last-of-type) {
+        margin-right: $xui-s-xsmall;
+      }
+    }
+  }
+  &--rightcontent {
+    align-content: flex-start;
+    display: flex;
+    flex: 1 1 auto;
+    flex-flow: row wrap-reverse;
+    justify-content: space-between;
+    max-width: 100%;
+    .#{$classname}--actions {
+      @include xui-margin-horizontal($xui-s-standard);
+      align-self: center;
+      flex-grow: 0;
+    }
+    .#{$classname}--tabs {
+      flex-grow: 1;
+      min-height: $xui-navigation-height;
+    }
+    .#{$ns}-pickitem {
+      flex-grow: 0;
+    }
+  }
+  &--rightcontent-no-tabs {
+    align-self: flex-end;
+    justify-content: flex-end;
+    // Height of the nav minus height of the button, over two.
+    padding-bottom: 0.5 * ($xui-navigation-height - $xui-s-2xlarge);
+  }
+  &--tabs {
+    align-items: stretch;
+    display: flex;
+    .#{$ns}-picklist-horizontal {
+      @include xui-margin-left($xui-s-2xlarge);
+    }
+  }
+  &--actions {
+    @include xui-margin-right($xui-s-xsmall);
+    align-items: center; /* Required for button height not to stretch */
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    > .#{$ns}-button,
+    > .#{$ns}-buttongroup,
+    .#{$ns}-actions .#{$ns}-actions--primary {
+      @include xui-margin-left($xui-s-small);
+    }
+  }
+}
+
+.#{$ns}-pageheading {
+  @include header('#{$ns}-pageheading');
+}
+
+// Calculating these values here to avoid ‘random’ magic numbers
+$isolationheader-control-spacing: ($xui-navigation-height - $xui-control-size-standard) / 2;
+$isolationheader-text-spacing: ($xui-navigation-height - $xui-line-height-standard) / 2;
+
+.#{$ns}-isolationheader {
+  @include header('#{$ns}-isolationheader');
+  box-shadow: $xui-shadow-depth-overlap-top;
+
+  &.#{$ns}-isolationheader-fixed {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: $xui-z-index-header;
+  }
+
+  &--content-layout {
+    @include xui-breakpoint-small-up {
+      flex-flow: unset;
+      flex-wrap: nowrap;
+    }
+  }
+  &--leftcontent {
+    @include xui-padding-vertical(0);
+    flex-direction: row;
+  }
+  &--controlcontent {
+    @include xui-padding-vertical($isolationheader-control-spacing);
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 auto; // For IE11
+    .#{$ns}-button {
+      @include xui-margin-right($xui-s-small);
+    }
+    .#{$ns}-avatar {
+      @include xui-margin-top($xui-s-2xsmall);
+    }
+  }
+  &--titlewrapper {
+    @include xui-padding-vertical($isolationheader-text-spacing);
+  }
+  &--titlewrapper-has-avatar {
+    @include xui-margin-left($xui-s-standard);
+  }
+  &--tags {
+    align-self: center;
+  }
+  &--rightcontent {
+    @include xui-padding-bottom($isolationheader-control-spacing);
+    align-self: flex-end;
+    flex-shrink: 0;
+    justify-content: flex-end;
+  }
+  &--actions {
+    // Line up medium icon buttons with small button buttons without magic numbers
+    min-height: $xui-control-size-standard;
+  }
+}

@@ -17,7 +17,12 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const trigger = <button>trigger</button>;
 const createComponent = props => (
-  <XUIAutocompleterSecondarySearch trigger={trigger} {...props}>
+  <XUIAutocompleterSecondarySearch
+    trigger={trigger}
+    onSearch={() => {}}
+    restrictFocus={false}
+    {...props}
+  >
     <Picklist>
       <Pickitem id="1">item 1</Pickitem>
       <Pickitem id="2">item 2</Pickitem>
@@ -27,11 +32,6 @@ const createComponent = props => (
 
 describe('<XUIAutoCompleterSecondarySearch />', () => {
   let wrapper;
-  afterEach(() => {
-    if (wrapper) {
-      wrapper.unmount();
-    }
-  });
 
   it('should render an automation id when a qahook is passed', () => {
     const automationid = renderer.create(createComponent({ qaHook: 'secondary-search' }));
@@ -135,7 +135,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
   });
 
   it('should open the dropdown when space is pressed', () => {
-    wrapper = mount(createComponent({ onSearch: () => {} }));
+    wrapper = mount(createComponent());
     const trigger = wrapper.find('button');
     trigger.simulate('keyDown', { key: eventKeyValues.space, keyCode: 32, which: 32 });
 

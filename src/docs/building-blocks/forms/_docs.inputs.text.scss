@@ -63,12 +63,13 @@
 
 // Size variants
 //
-// Inputs have a variation in scale to enable greater hierarchy control in user interfaces
+// Inputs offer a range of size variants to enable greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
 //
 // Tips:
-// Do: Nest small Text inputs inside medium sized elements and xsmall Text inputs inside small elements
+// Do: Default to 'medium' size variant
+// Do: Nest 'small' text-inputs inside 'medium' sized elements and 'xsmall' text-inputs inside 'small' elements
 // Do: Use the same label and description font-size with all size variants
-// Warning: Use small and xsmall variants cautiously, as these are more difficult to read than default size
+// Warning: Use 'small' and 'xsmall' variants cautiously, as they have reduced legibility and touch targets
 // Dont: Don’t use a combination of size variants within a single form
 // Dont: Don't vertically stack small and xsmall Text inputs. Small and xsmall variants now have a sunsetting flag due to poor touch interaction potential.
 //
@@ -77,8 +78,6 @@
 // medium: 40px: `xui-textinput--input-medium`
 // small: 32px: `xui-textinput--input-small`
 // xsmall: 24px: `xui-textinput--input-xsmall`
-//
-// exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
 // <div class="xui-textinputwrapper xui-field-layout">
@@ -117,8 +116,6 @@
 // small: Avatar, Button, Icon, Pill, Text
 // xsmall: Avatar, Icon, Text
 //
-// exampleClass: ds-example-transparent ds-example-flush
-//
 // Markup:
 // <div class="xui-textinputwrapper xui-field-layout">
 //   <label class="xui-text-label xui-fieldlabel-layout" for="d">Medium</label>
@@ -132,8 +129,8 @@
 //       </div>
 //       <div class="xui-pill xui-pill-maxwidth xui-pill-small xui-pill-has-avatar xui-margin-right-2xsmall">
 //         <span class="xui-pill--content">
-//           <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-8" role="presentation">ZS</abbr>
-//           <span class="xui-pill--text">Zac Sanderson-Harris</span>
+//           <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-8" role="presentation">MF</abbr>
+//           <span class="xui-pill--text">MF Doom</span>
 //         </span>
 //       </div>
 //     </div>
@@ -179,6 +176,33 @@
 //
 // Styleguide: Components.Controls.TextInput.5
 
+// Right-aligned content
+//
+// Adding the `xui-text-align-right` class to an ``<input>`` will align the text within the input to the right. This is particularly useful for aiding scannability of currency and figures.
+//
+// Tips:
+// Do: Right align text within stacked inputs that hold numerical content
+// Do: Leave the field label left aligned
+// Do: Right align text-inputs if they are stacked, have right-aligned text and are different widths from one another
+// Warning: Avoid using wide text-inputs with right aligned content, because the field's label and any left content (e.g icon) will be far away from right aligned text
+// Warning: Avoid mixing and matching inputs with left and right aligned text, especially if they are stacked
+// Dont: Don't use some inputs with actions to the right and some without, when they are stacked and each have right aligned text
+//
+// exampleClass: ds-example-narrow
+//
+// Markup:
+// <div class="xui-textinputwrapper">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="a">Amount</label>
+//   <div class="xui-textinput xui-textinput-medium">
+//     <div class="xui-textinput--sideelement xui-textinput--sideelement-text">
+//     $
+//     </div>
+//     <input type="text" class="xui-textinput--input xui-textinput--input-medium  xui-text-align-right" placeholder="00.00" aria-invalid="false" id="a">
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Controls.TextInput.6
+
 // Borderless text inputs
 //
 // Add `xui-input-borderless` to remove border from input and `xui-textinput-borderless-solid` to add grey tint.
@@ -207,11 +231,12 @@
 //           <use xlink:href="#xui-icon-clear" role="presentation"/>
 //         </svg>
 //       </div>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //   </div>
 // </div>
 //
-// Styleguide: Components.Controls.TextInput.6
+// Styleguide: Components.Controls.TextInput.7
 
 // Transparent text inputs
 //
@@ -245,7 +270,7 @@
 //  <div class="xui-panel" style="height: 5rem; margin: 1px -20px -20px 1px"></div>
 // </div>
 //
-// Styleguide: Components.Controls.TextInput.7
+// Styleguide: Components.Controls.TextInput.8
 
 // Inverted inputs
 //
@@ -270,12 +295,12 @@
 //   <input class="xui-textinput--input xui-padding-left-none" type="search" placeholder="Search sales & purchases" aria-label="Search sales & purchases" />
 // </div>
 //
-// Styleguide: Components.Controls.TextInput.8
+// Styleguide: Components.Controls.TextInput.9
 
 // Adding icons
 //
 //
-// Styleguide: Components.Controls.TextInput.9
+// Styleguide: Components.Controls.TextInput.10
 
 // Content prompts
 //
@@ -330,7 +355,7 @@
 //   <input class="xui-textinput--input xui-padding-left-none" type="text" placeholder="@username" aria-label="Twitter username"/>
 // </div>
 //
-// Styleguide: Components.Controls.TextInput.9.1
+// Styleguide: Components.Controls.TextInput.10.1
 
 // Indicating actions
 //
@@ -355,6 +380,7 @@
 //           <use xlink:href="#xui-icon-clear" role="presentation"/>
 //         </svg>
 //       </div>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //   </div>
 // </div>
@@ -367,6 +393,7 @@
 //           <use xlink:href="#xui-icon-date-start" role="presentation"/>
 //         </svg>
 //       </div>
+//       <div class="xui-touchtarget"></div>
 //     </button>
 //   </div>
 // </div>
@@ -379,7 +406,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Components.Controls.TextInput.9.2
+// Styleguide: Components.Controls.TextInput.10.2
 
 // Class list
 //
@@ -408,4 +435,4 @@
 // xui-textinput--input-small: Sets textinput size to small
 // xui-textinput--input-xsmall: Sets textinput size to xsmall
 //
-// Styleguide: Components.Controls.TextInput.9.8
+// Styleguide: Components.Controls.TextInput.10.8

@@ -136,6 +136,7 @@ class XUITable extends Component {
       onSortChange,
       hasCheckbox,
       checkedIds,
+      disabledIds,
       onCheckAllToggle,
       onCheckOneToggle,
       checkOneRowLabel,
@@ -164,7 +165,7 @@ class XUITable extends Component {
       [`${NAME_SPACE}-hasheader`]: hasHeader,
       [`${NAME_SPACE}-nopointerevents`]: !hasPointerEvents,
     });
-    const checkIsChecked = _id => checkedIds.indexOf(_id) >= 0;
+    const checkboxState = (_id, checkboxStateIds) => checkboxStateIds.indexOf(_id) >= 0;
     const handleScroll = hasPinnedFirstColumn || hasPinnedLastColumn ? this.scrollThrottled : noop;
 
     return (
@@ -198,6 +199,7 @@ class XUITable extends Component {
                   onSortChange,
                   hasCheckbox,
                   checkedIds,
+                  disabledIds,
                   onCheckAllToggle,
                   checkAllRowsLabel,
                   hasOverflowMenu,
@@ -216,7 +218,8 @@ class XUITable extends Component {
                       rowIndex,
                       columns,
                       hasCheckbox,
-                      isChecked: checkIsChecked(rowData._id),
+                      isChecked: checkboxState(rowData._id, checkedIds),
+                      isDisabled: checkboxState(rowData._id, disabledIds),
                       onCheckOneToggle,
                       checkOneRowLabel,
                       onRowClick,
@@ -289,7 +292,12 @@ XUITable.propTypes = {
   /** Appends a XUILoader after the last row. */
   isLoading: PropTypes.bool,
 
-  /** Adds a label attribute to the XUILoader for accessibility purposes. */
+  /**
+   * Accessibility label for the `<XUILoader>`. This is required if the
+   * `isLoading` prop is set to `true`.
+   * <br />
+   * Recommended English value: *Loading more data*
+   */
   loaderLabel: PropTypes.string,
 
   // - - - - - //
@@ -312,16 +320,29 @@ XUITable.propTypes = {
   /** Defines the unique row keys that are currently in a checked state. */
   checkedIds: PropTypes.object,
 
+  /** Defines the unique row keys that are currently in a disabled state. */
+  disabledIds: PropTypes.object,
+
   /** Callback for when the mast "toggle all" checkbox is clicked. */
   onCheckAllToggle: PropTypes.func,
 
   /** Callback to handle a single checkbox interaction inside of a row. */
   onCheckOneToggle: PropTypes.func,
 
-  /** Describes the "single row" checkbox functionality for accessibility purposes. */
+  /**
+   * Describes "single row" checkbox functionality for accessibility.
+   * Required when `hasCheckbox` is set to true.
+   * <br />
+   * Recommended English value: *Select row*
+   */
   checkOneRowLabel: PropTypes.node,
 
-  /** Describes the "all rows" checkbox functionality for accessibility purposes. */
+  /**
+   * Describes the "all rows" checkbox functionality for accessibility.
+   * Required when `showHeader` and `hasCheckbox` are set to true.
+   * <br />
+   * Recommended English value: *Select all rows*
+   */
   checkAllRowsLabel: PropTypes.node,
 
   // - - - - - - - //
@@ -335,7 +356,12 @@ XUITable.propTypes = {
    * Pickitem components. */
   createOverflowMenu: PropTypes.func,
 
-  /** Describes the overflow menu functionality for accessibility purposes. */
+  /**
+   * Describes overflow menu functionality for accessibility.
+   * Required when `hasOverflowMenu` is set to true.
+   * <br />
+   * Recommended English value: *More row options*
+   */
   overflowMenuTitle: PropTypes.string,
 
   // - - - - //
@@ -382,17 +408,17 @@ XUITable.propTypes = {
   /** Inject a custom "Empty State" design to override the default version. */
   emptyStateComponent: PropTypes.node,
 
-  /** Change the default "Empty State" message with a custom version. */
+  /**
+   * The message to show if the chart is empty.
+   * <br />
+   * Recommended English value: *Nothing to show here*
+   */
   emptyMessage: PropTypes.node,
 };
 
 XUITable.defaultProps = {
   checkedIds: {},
-  loaderLabel: 'Loading more data',
-  emptyMessage: 'Nothing to show here',
-  checkOneRowLabel: 'Select row',
-  checkAllRowsLabel: 'Select all rows',
-  overflowMenuTitle: 'More row options',
+  disabledIds: {},
 };
 
 export default XUITable;

@@ -38,7 +38,7 @@
   overflow: hidden;
   pointer-events: none;
   position: absolute;
-  z-index: 1;
+  z-index: $xui-z-index-body;
 
   &:before,
   &:after {
@@ -173,7 +173,7 @@
 
 .#{$ns}-chart--key-icon {
   background: $xui-color-grey-5;
-  border-radius: 50%;
+  border-radius: $xui-radius-circle;
   height: $xui-s-small;
   left: $xui-s-small;
   position: absolute;

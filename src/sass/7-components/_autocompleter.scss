@@ -18,12 +18,19 @@
   }
 }
 
+/**
+ * Right padding adds space for XUITouchTarget on pills; right negative margin fixes the space
+ * between the pill wrapper and the input.
+ */
 .#{$ns}-autocompleter--pills-nopillwrap {
   display: flex;
   flex-flow: row nowrap;
   flex-shrink: 1;
+  margin-right: -$xui-s-2xsmall;
   overflow-x: auto;
+  overflow-y: hidden;
   padding-left: $xui-s-2xsmall;
+  padding-right: $xui-s-2xsmall;
 
   & ~ .#{$ns}-textinput--input {
     padding-left: $xui-s-small;

@@ -38,7 +38,7 @@ $shadow - `box-shadow` to apply on hover
   &:focus {
     box-shadow: $shadow;
     text-decoration: none;
-    z-index: 2;
+    z-index: $xui-z-index-focus;
   }
 }
 

@@ -1,7 +1,7 @@
 const generateXUIShiftTemplate = require('@xero/xuishift');
 const { rootDirectory } = require('../helpers');
 const path = require('path');
-const modSources = ['codemod', 'codemod/15.1.2'];
+const modSources = ['codemod'];
 
 process.env.NODE_ENV = 'production';
 

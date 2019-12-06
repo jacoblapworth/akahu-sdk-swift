@@ -58,45 +58,46 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-//	<div class="xui-mask xui-mask-is-active" aria-hidden="false">
-//		<section class="xui-modal xui-modal-width-medium xui-modal-layout" tabindex="0" role="dialog">
-//			<header class="xui-modal--header">
-//				<div class='xui-modal--heading'>New project</div>
-//				<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
-//					<svg focusable="false" class="xui-icon">
-//						<use xlink:href="#xui-icon-cross" role="presentation"/>
-//					</svg>
-//				</button>
-//			</header>
-//			<div class="xui-modal--body">
-// 				<div class="xui-textinputwrapper xui-field-layout">
-// 					<label class="xui-text-label xui-fieldlabel-layout" for="a">Contact</label>
-// 					<div class="xui-textinput xui-textinput-medium">
-// 						<input type="text" class="xui-textinput--input xui-textinput--input-medium" placeholder="Find or create a contact" aria-invalid="false" id="a">
-// 					</div>
-//				</div>
-//				<div class="xui-textinputwrapper xui-field-layout">
-// 					<label class="xui-text-label xui-fieldlabel-layout" for="b">Project name</label>
-// 					<div class="xui-textinput xui-textinput-medium">
-// 						<input type="text" class="xui-textinput--input xui-textinput--input-medium" aria-invalid="false" id="b">
-// 					</div>
-//				</div>
-//				<div class="xui-textinputwrapper xui-field-layout">
-// 					<label class="xui-text-label xui-fieldlabel-layout" for="c">Deadline</label>
-// 					<button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//						<span class="xui-select--content">Select date</span>
-//						<svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//							<use xlink:href="#xui-icon-date-end" role="presentation" />
-//						</svg>
-//					</button>
-//				</div>
-//			</div>
-//			<footer class="xui-modal--footer xui-actions xui-actions-layout">
-//				<button class="xui-button xui-button-medium xui-actions--primary xui-button-create" tabindex="0" type="button">Create project</button>
-//				<button class="xui-button xui-button-medium xui-actions--secondary xui-button-standard" tabindex="0" type="button">Cancel</button>
-//			</footer>
-//		</section>
-//	</div>
+//  <div class="xui-mask xui-mask-is-active" aria-hidden="false">
+//    <section class="xui-modal xui-modal-width-medium xui-modal-layout" tabindex="0" role="dialog">
+//      <header class="xui-modal--header">
+//        <div class='xui-modal--heading'>New project</div>
+//        <button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
+//          <svg focusable="false" class="xui-icon">
+//            <use xlink:href="#xui-icon-cross" role="presentation"/>
+//          </svg>
+//          <div class="xui-touchtarget"></div>
+//        </button>
+//      </header>
+//      <div class="xui-modal--body">
+//         <div class="xui-textinputwrapper xui-field-layout">
+//           <label class="xui-text-label xui-fieldlabel-layout" for="a">Contact</label>
+//           <div class="xui-textinput xui-textinput-medium">
+//             <input type="text" class="xui-textinput--input xui-textinput--input-medium" placeholder="Find or create a contact" aria-invalid="false" id="a">
+//           </div>
+//        </div>
+//        <div class="xui-textinputwrapper xui-field-layout">
+//           <label class="xui-text-label xui-fieldlabel-layout" for="b">Project name</label>
+//           <div class="xui-textinput xui-textinput-medium">
+//             <input type="text" class="xui-textinput--input xui-textinput--input-medium" aria-invalid="false" id="b">
+//           </div>
+//        </div>
+//        <div class="xui-textinputwrapper xui-field-layout">
+//           <label class="xui-text-label xui-fieldlabel-layout" for="c">Deadline</label>
+//           <button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
+//            <span class="xui-select--content">Select date</span>
+//            <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
+//              <use xlink:href="#xui-icon-date-end" role="presentation" />
+//            </svg>
+//          </button>
+//        </div>
+//      </div>
+//      <footer class="xui-modal--footer xui-actions xui-actions-layout">
+//        <button class="xui-button xui-button-medium xui-actions--primary xui-button-create" tabindex="0" type="button">Create project</button>
+//        <button class="xui-button xui-button-medium xui-actions--secondary xui-button-standard" tabindex="0" type="button">Cancel</button>
+//      </footer>
+//    </section>
+//  </div>
 //
 // Styleguide: Components.CollectingInput.Modals.4
 
@@ -145,76 +146,80 @@
 //
 // Markup:
 // <div class="xui-mask xui-mask-is-active" aria-hidden="false">
-// 	<section class="xui-modal xui-modal-layout xui-modal-width-small" tabindex="0" role="dialog">
-// 		<header class="xui-modal--header">
-//			<div class='xui-modal--heading'>Delete contact</div>
-//			<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
-//				<svg focusable="false" class="xui-icon">
-//					<use xlink:href="#xui-icon-cross" role="presentation"/>
-//				</svg>
-//			</button>
-// 		</header>
-//		<div class="xui-modal--body">
-//			<div>Deleting this contact means you will no longer have access to their data</div>
-// 		</div>
-//		<footer class="xui-modal--footer xui-actions xui-actions-layout">
-//			<button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
-//		</footer>
-// 	</section>
+//   <section class="xui-modal xui-modal-layout xui-modal-width-small" tabindex="0" role="dialog">
+//     <header class="xui-modal--header">
+//       <div class='xui-modal--heading'>Delete contact</div>
+//       <button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-cross" role="presentation"/>
+//         </svg>
+//         <div class="xui-touchtarget"></div>
+//       </button>
+//     </header>
+//     <div class="xui-modal--body">
+//       <div>Deleting this contact means you will no longer have access to their data</div>
+//     </div>
+//     <footer class="xui-modal--footer xui-actions xui-actions-layout">
+//       <button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
+//     </footer>
+//   </section>
 // </div>
 // <div class="xui-mask xui-mask-is-active" aria-hidden="false">
-// 	<section class="xui-modal xui-modal-layout xui-modal-width-medium" tabindex="0" role="dialog">
-// 		<header class="xui-modal--header">
-//			<div class='xui-modal--heading'>Delete contact</div>
-//			<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
-//				<svg focusable="false" class="xui-icon">
-//					<use xlink:href="#xui-icon-cross" role="presentation"/>
-//				</svg>
-//			</button>
-// 		</header>
-//		<div class="xui-modal--body">
-//			<div>Deleting this contact means you will no longer have access to their data</div>
-// 		</div>
-//		<footer class="xui-modal--footer xui-actions xui-actions-layout">
-//			<button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
-//		</footer>
-// 	</section>
+//   <section class="xui-modal xui-modal-layout xui-modal-width-medium" tabindex="0" role="dialog">
+//     <header class="xui-modal--header">
+//       <div class='xui-modal--heading'>Delete contact</div>
+//       <button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-cross" role="presentation"/>
+//         </svg>
+//         <div class="xui-touchtarget"></div>
+//       </button>
+//     </header>
+//     <div class="xui-modal--body">
+//       <div>Deleting this contact means you will no longer have access to their data</div>
+//     </div>
+//     <footer class="xui-modal--footer xui-actions xui-actions-layout">
+//       <button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
+//     </footer>
+//   </section>
 // </div>
 // <div class="xui-mask xui-mask-is-active" aria-hidden="false">
-// 	<section class="xui-modal xui-modal-layout xui-modal-width-large" tabindex="0" role="dialog">
-// 		<header class="xui-modal--header">
-//			<div class='xui-modal--heading'>Delete contact</div>
-//			<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
-//				<svg focusable="false" class="xui-icon">
-//					<use xlink:href="#xui-icon-cross" role="presentation"/>
-//				</svg>
-//			</button>
-// 		</header>
-//		<div class="xui-modal--body">
-//			<div>Deleting this contact means you will no longer have access to their data</div>
-// 		</div>
-//		<footer class="xui-modal--footer xui-actions xui-actions-layout">
-//			<button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
-//		</footer>
-// 	</section>
+//   <section class="xui-modal xui-modal-layout xui-modal-width-large" tabindex="0" role="dialog">
+//     <header class="xui-modal--header">
+//       <div class='xui-modal--heading'>Delete contact</div>
+//       <button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-cross" role="presentation"/>
+//         </svg>
+//         <div class="xui-touchtarget"></div>
+//       </button>
+//     </header>
+//     <div class="xui-modal--body">
+//       <div>Deleting this contact means you will no longer have access to their data</div>
+//     </div>
+//     <footer class="xui-modal--footer xui-actions xui-actions-layout">
+//       <button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
+//     </footer>
+//   </section>
 // </div>
 // <div class="xui-mask xui-mask-is-active" aria-hidden="false">
-// 	<section class="xui-modal xui-modal-layout xui-modal-width-xlarge" tabindex="0" role="dialog">
-// 		<header class="xui-modal--header">
-//			<div class='xui-modal--heading'>Delete contact</div>
-//			<button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
-//				<svg focusable="false" class="xui-icon">
-//					<use xlink:href="#xui-icon-cross" role="presentation"/>
-//				</svg>
-//			</button>
-// 		</header>
-//		<div class="xui-modal--body">
-//			<div>Deleting this contact means you will no longer have access to their data</div>
-// 		</div>
-//		<footer class="xui-modal--footer xui-actions xui-actions-layout">
-//			<button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
-//		</footer>
-// 	</section>
+//   <section class="xui-modal xui-modal-layout xui-modal-width-xlarge" tabindex="0" role="dialog">
+//     <header class="xui-modal--header">
+//       <div class='xui-modal--heading'>Delete contact</div>
+//       <button title="Close" class="xui-button xui-button-icon xui-button-icon-medium xui-modal--close" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-cross" role="presentation"/>
+//         </svg>
+//         <div class="xui-touchtarget"></div>
+//       </button>
+//     </header>
+//     <div class="xui-modal--body">
+//       <div>Deleting this contact means you will no longer have access to their data</div>
+//     </div>
+//     <footer class="xui-modal--footer xui-actions xui-actions-layout">
+//       <button class="xui-button xui-button-medium xui-actions--primary xui-button-negative" tabindex="0" type="button">Delete forever</button>
+//     </footer>
+//   </section>
 // </div>
 //
 // Styleguide: Components.CollectingInput.Modals.5
@@ -274,7 +279,8 @@
   top: 0;
   transition: opacity $xui-motion-speed-medium $xui-motion-curve-standard;
   visibility: hidden;
-  z-index: 10;
+  // Modal mask needs to fall above main content but below a dropdown, sheet, or overlay.
+  z-index: $xui-z-index-contextualtop;
 }
 
 .#{$ns}-mask-is-active {
@@ -295,6 +301,7 @@
   margin-bottom: $xui-s-standard;
   outline: none;
   position: relative;
+  z-index: $xui-z-index-modal;
 }
 
 .#{$ns}-modal-layout {

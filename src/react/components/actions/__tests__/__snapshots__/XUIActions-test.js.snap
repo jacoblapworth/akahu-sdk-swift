@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUI Actions/> renders actions with automation id when qaHook prop is passed in 1`] = `
+<div
+  className="xui-actions xui-actions-layout"
+  data-automationid="qaHook"
+  primary={
+    <XUIButton
+      fullWidth="never"
+      isDisabled={false}
+      isExternalLink={false}
+      isGrouped={false}
+      isLink={false}
+      isLoading={false}
+      retainLayout={true}
+      tabIndex={0}
+      type="button"
+      variant="standard"
+    >
+      Primary
+    </XUIButton>
+  }
+/>
+`;
+
+exports[`<XUI Actions/> renders the simplest actions with no extra settings passed 1`] = `
+<div
+  className="xui-actions xui-actions-layout"
+  primary={
+    <XUIButton
+      fullWidth="never"
+      isDisabled={false}
+      isExternalLink={false}
+      isGrouped={false}
+      isLink={false}
+      isLoading={false}
+      retainLayout={true}
+      tabIndex={0}
+      type="button"
+      variant="standard"
+    >
+      Primary
+    </XUIButton>
+  }
+  secondary={
+    <XUIButton
+      fullWidth="never"
+      isDisabled={false}
+      isExternalLink={false}
+      isGrouped={false}
+      isLink={false}
+      isLoading={false}
+      retainLayout={true}
+      tabIndex={0}
+      type="button"
+      variant="standard"
+    >
+      Secondary
+    </XUIButton>
+  }
+>
+  Testing 💩
+</div>
+`;

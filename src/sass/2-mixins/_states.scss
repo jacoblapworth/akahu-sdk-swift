@@ -1,8 +1,8 @@
 @import '../vars';
 
 // Focus ring along, for reuse, as needed
-@mixin xui-state-focus-shadow {
-  box-shadow: $xui-shadow-focus;
+@mixin xui-state-focus-shadow($shadow: $xui-shadow-focus) {
+  box-shadow: $shadow;
   outline: none;
   transition: box-shadow $xui-motion-speed-fast;
 }

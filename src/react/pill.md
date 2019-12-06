@@ -8,7 +8,11 @@ Pills are used for signifying a selection has been made, either single or multip
 
 ### Click actions
 
-Pills can trigger actions passed in through the `onDeleteClick`, `onClick`, and `href` props. If `onDeleteClick` is added, a delete button will be rendered inside the pill. `onClick`, and `href` will be triggered if the user clicks anywhere on the pill other than the delete button.
+Pills can trigger actions passed in through the `onDeleteClick`, `onClick`, and `href` props.
+
+If `onDeleteClick` is added, a delete button will be rendered inside the pill, and a `deleteButtonLabel` will be required for accessibility.
+
+`onClick` and `href` will be triggered if the user clicks anywhere on the pill other than the delete button.
 
 ```jsx harmony
 import XUIPill from './pill';
@@ -27,10 +31,16 @@ const linkWasDeleted = () => {
   <XUIPill
     value="Deletable selection"
     onDeleteClick={wasDeleted}
+    deleteButtonLabel="Delete"
     className="xui-margin-right-xsmall"
   />
   <XUIPill value="Undeletable" onClick={wasClicked} className="xui-margin-right-xsmall" />
-  <XUIPill href="https://xero.com" value="Link Pill" onDeleteClick={linkWasDeleted} />
+  <XUIPill
+    href="https://xero.com"
+    value="Link Pill"
+    onDeleteClick={linkWasDeleted}
+    deleteButtonLabel="Delete"
+  />
 </div>;
 ```
 
@@ -58,9 +68,7 @@ import XUIPill from './pill';
 
 ### Pill sizes
 
-Pills can be `medium`, `small`, or `xsmall` size, by passing one of these values to the `size` prop.
-
-**Note:** _The `xsmall` variant now is `sunsetting` because it doesn't meet [XUI touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommend to use._
+Pills can be `medium` or `small` size, by passing one of these values to the `size` prop.
 
 ```jsx harmony
 import XUIPill from './pill';
@@ -73,6 +81,7 @@ const NOOP = () => {};
       value: 'M'
     }}
     onDeleteClick={NOOP}
+    deleteButtonLabel="Delete"
   />
   <XUIPill
     value="Small"
@@ -81,14 +90,7 @@ const NOOP = () => {};
       value: 'Small'
     }}
     onDeleteClick={NOOP}
-  />
-  <XUIPill
-    value="Extra small"
-    size="xsmall"
-    avatarProps={{
-      value: 'Xtra Small'
-    }}
-    onDeleteClick={NOOP}
+    deleteButtonLabel="Delete"
   />
 </div>;
 ```

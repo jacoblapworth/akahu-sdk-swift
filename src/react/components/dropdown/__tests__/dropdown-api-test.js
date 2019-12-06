@@ -23,7 +23,6 @@ describe('<DropDown /> API Methods', () => {
           </Pickitem>
         </Picklist>
       </DropDown>,
-      { attachTo: div },
     );
   });
 
@@ -51,6 +50,7 @@ describe('<DropDown /> API Methods', () => {
     );
 
     expect(wrapper).toBeDefined();
+    wrapper.detach();
   });
 
   it('fires the callback when you click on a pick item', () => {

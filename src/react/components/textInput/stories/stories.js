@@ -13,7 +13,7 @@ import XUIIconButton from '../../button/XUIIconButton';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, object, text, select, number } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
-import customCentered from '../../../../../.storybook/xuiResponsiveCenter';
+import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';
 import clearPath from '@xero/xui-icon/icons/clear';

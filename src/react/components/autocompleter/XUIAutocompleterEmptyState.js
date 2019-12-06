@@ -20,12 +20,16 @@ XUIAutocompleterEmptyState.propTypes = {
   qaHook: PropTypes.string,
   id: PropTypes.string,
   icon: PropTypes.object,
-  children: PropTypes.node,
+  /**
+   * Content to be displayed with the icon
+   * <br />
+   * Recommended English value: *No results found*
+   */
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
 };
 
 XUIAutocompleterEmptyState.defaultProps = {
-  children: 'No results found',
   icon: search,
 };
 

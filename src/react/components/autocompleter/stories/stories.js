@@ -22,7 +22,7 @@ import { sizeShift } from '../../helpers/sizes';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select, number } from '@storybook/addon-knobs';
-import centered from '../../../../../.storybook/xuiResponsiveCenter';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName, fixedWidthDropdownSizes } from './variations';
 
@@ -36,6 +36,7 @@ export class PillWrapper extends PureComponent {
     return (
       <XUIPill
         className="xui-autocompleter--pill"
+        deleteButtonLabel="Delete"
         key={id}
         onDeleteClick={this.deleteSelf}
         value={peopleDataSet[id].name}
@@ -63,6 +64,7 @@ export class DetailedListExample extends Component {
     value: '',
     people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
     selectedPeople: [peopleDataSet[0]],
+    prevProps: this.props,
   };
   completer = React.createRef();
 
@@ -110,7 +112,6 @@ export class DetailedListExample extends Component {
   getItems() {
     const example = this;
     const { value, people } = example.state;
-    const listSize = example.props.picklistSize || 'medium';
 
     if (!Array.isArray(people) || people.length <= 0) {
       return (
@@ -135,7 +136,7 @@ export class DetailedListExample extends Component {
           isMultiline
           key={item.id}
           leftElement={
-            <XUIAvatar imageUrl={item.avatar} size={sizeShift(listSize, -1)} value={item.name} />
+            <XUIAvatar imageUrl={item.avatar} size={sizeShift('medium', -1)} value={item.name} />
           }
           onSelect={() => this.selectPerson(item)}
           secondaryElement={secondaryContent}
@@ -144,7 +145,7 @@ export class DetailedListExample extends Component {
       );
     });
 
-    return <Picklist size={listSize}>{items}</Picklist>;
+    return <Picklist>{items}</Picklist>;
   }
 
   componentDidMount() {
@@ -165,25 +166,35 @@ export class DetailedListExample extends Component {
     }
   }
 
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    const { openDrawer, selectedPeople } = nextProps;
+  componentDidUpdate(prevProps, prevState) {
+    const { openDrawer } = this.props;
 
-    if (openDrawer) {
-      this.completer.current.openDropDown();
-    } else {
-      this.completer.current.closeDropDown();
+    if (this.props.openDrawer !== prevProps.openDrawer) {
+      if (openDrawer) {
+        this.completer.current.openDropDown();
+      } else {
+        this.completer.current.closeDropDown();
+      }
     }
+  }
 
-    if (selectedPeople != null && typeof selectedPeople === 'number') {
-      this.setState({
-        selectedPeople: peopleDataSet.slice(0, selectedPeople),
-      });
-    } else {
-      this.setState({
-        selectedPeople: [],
-      });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const { selectedPeople } = nextProps;
+
+    if (nextProps !== prevState.prevProps) {
+      if (typeof selectedPeople === 'number') {
+        return {
+          selectedPeople: peopleDataSet.slice(0, selectedPeople),
+          prevProps: nextProps,
+        };
+      } else {
+        return {
+          selectedPeople: [],
+          prevProps: nextProps,
+        };
+      }
     }
+    return null;
   }
 
   renderPills(selectedPeople) {
@@ -206,8 +217,6 @@ export class DetailedListExample extends Component {
       validationMessage,
       hintMessage,
       isInputLabelHidden,
-      inputSize,
-      picklistSize,
       inputId,
       inputProps,
     } = example.props;
@@ -215,7 +224,7 @@ export class DetailedListExample extends Component {
     const footer = (
       <DropDownFooter
         pickItems={
-          <Pickitem id="footerAction" size={picklistSize}>
+          <Pickitem id="footerAction">
             <XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />
             Add New Person
           </Pickitem>
@@ -236,11 +245,11 @@ export class DetailedListExample extends Component {
         inputId={inputId}
         inputLabel={this.props.inputLabel || 'Sample Autocompleter'}
         inputProps={inputProps}
-        inputSize={inputSize}
         isDisabled={isDisabled}
         isInputLabelHidden={isInputLabelHidden === undefined ? true : isInputLabelHidden}
         isInvalid={isInvalid}
         loading={isLoading}
+        loadingLabel="Loading"
         onBackspacePill={this.deleteLastPerson}
         onClose={() => this.onClose()}
         onSearch={example.onSearchChangeHandler}
@@ -259,8 +268,6 @@ export class DetailedListExample extends Component {
 DetailedListExample.propTypes = {
   openDrawer: PropTypes.bool,
   selectedPeople: PropTypes.number,
-  inputSize: PropTypes.oneOf(['small', 'medium']),
-  picklistSize: PropTypes.oneOf(['small', 'xsmall', 'medium']),
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
@@ -287,12 +294,10 @@ storiesWithKnobs.add('Playground', () => {
       <DetailedListExample
         dropdownSize={userSelectedSize || undefined}
         hintMessage={text('hint msg', '')}
-        inputSize={select('input size', ['medium', 'small'], 'medium')}
         isDisabled={boolean('Disabled', false)}
         isInputLabelHidden={boolean('Hide label', false)}
         isInvalid={boolean('Invalid', false)}
         openDrawer={boolean('Drawer open', false)}
-        picklistSize={select('picklist size', ['small', 'xsmall', 'medium'], 'medium')}
         placeholder={text('Placeholder', '')}
         selectedPeople={selectedPerson}
         validationMessage={text('validation msg', '')}
@@ -372,12 +377,16 @@ export class SecondarySearchExample extends React.Component {
     );
 
     const items =
-      data.length > 0 ? createItems(data, this.state.selectedItem) : <XUIAutocompleterEmptyState />;
+      data.length > 0 ? (
+        createItems(data, this.state.selectedItem)
+      ) : (
+        <XUIAutocompleterEmptyState>No results found</XUIAutocompleterEmptyState>
+      );
 
     const footer = (
       <DropDownFooter
         pickItems={
-          <Pickitem id="footerAction" size={this.props.listSize}>
+          <Pickitem id="footerAction">
             <span>
               <XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />
               Add New Person
@@ -403,7 +412,7 @@ export class SecondarySearchExample extends React.Component {
           ref={this.autocompleterRef}
           trigger={trigger}
         >
-          <Picklist size={this.props.listSize}>{items}</Picklist>
+          <Picklist>{items}</Picklist>
         </XUIAutocompleterSecondarySearch>
       </div>
     );

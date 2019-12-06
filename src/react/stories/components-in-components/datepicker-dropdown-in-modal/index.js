@@ -41,7 +41,7 @@ test.add(storyNames.dateDDInModal, () => {
   );
 
   return (
-    <XUIModal isOpen>
+    <XUIModal closeButtonLabel="Close" isOpen>
       <XUIModalBody>
         This is some Datepicker Modal content.
         <DropDownToggled

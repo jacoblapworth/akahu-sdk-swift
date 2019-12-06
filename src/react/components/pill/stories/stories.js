@@ -20,7 +20,7 @@ storiesWithKnobs.add('Playground', () => (
   <XUIPill
     avatarProps={object('avatarProps', avatarProps)}
     className={text('className', '')}
-    deleteButtonLabel={text('deleteButtonLabel', undefined)}
+    deleteButtonLabel={text('deleteButtonLabel', 'Delete')}
     href={text('href', '')}
     isInvalid={boolean('isInvalid', false)}
     isLimitedWidth={boolean('isLimitedWidth', false)}
@@ -53,15 +53,6 @@ variations.forEach(variation => {
         variationMinusStoryDetails.deleteButtonLabel || 'Delete Button Label';
     } else {
       delete variationMinusStoryDetails.omitDeleteBtn;
-    }
-
-    if (variationMinusStoryDetails.isSingle) {
-      delete variationMinusStoryDetails.isSingle;
-      return (
-        <div className="xui-textinput" style={{ width: '200px' }}>
-          <XUIPill {...variationMinusStoryDetails} />
-        </div>
-      );
     }
 
     return <XUIPill {...variationMinusStoryDetails} />;

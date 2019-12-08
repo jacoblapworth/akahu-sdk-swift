@@ -123,7 +123,7 @@ storiesWithKnobs.add('Playground', () => {
 
   const onRowClick = boolean('onRowClick', false);
   const rowClickProps = onRowClick && {
-    onRowClick: ({ _id }) => alert(`Click row ${_id}`),
+    onRowClick: (event, { _id }) => alert(`Click row ${_id}`),
     shouldRowClick: () => true,
   };
 

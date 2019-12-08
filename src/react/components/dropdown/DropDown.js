@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import DropDownLayout from './DropDownLayout';
+// eslint-disable-next-line import/no-cycle
 import DropDownPanel from './DropDownPanel';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
 import { ns } from '../helpers/xuiClassNamespace';

@@ -1,6 +1,6 @@
 {
   "name": "@xero/xui",
-  "version": "16.0.0",
+  "version": "16.0.1",
   "description": "Shared styles for Xero applications",
   "private": true,
   "repository": {

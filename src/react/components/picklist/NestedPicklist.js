@@ -4,7 +4,6 @@ import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 import Pickitem from './Pickitem';
 import { getPropsFromFirstChildOrList } from './private/helpers';
-import { sizeVariants } from './private/constants';
 
 export default class NestedPicklist extends PureComponent {
   render() {
@@ -14,7 +13,6 @@ export default class NestedPicklist extends PureComponent {
     const newChildren = React.Children.map(children, child =>
       child.type === Pickitem
         ? React.cloneElement(child, {
-            size: listLevelProps.listSize,
             isMultiselect: listLevelProps.listMultiselect,
             // This is ok to be set at either the item level or the list level.
             shouldTruncate:
@@ -42,8 +40,6 @@ NestedPicklist.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   secondaryProps: PropTypes.object,
-  /** Size variant */
-  size: PropTypes.oneOf(sizeVariants),
   /** When true checkboxes will be added to the layout of the child components. */
   isMultiselect: PropTypes.bool,
   /** Whether to truncate text instead of wrapping. */

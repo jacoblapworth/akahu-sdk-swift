@@ -8,7 +8,6 @@ import XUIButtonGroup from '../XUIButtonGroup';
 import XUISplitButton from '../XUISecondaryButton';
 import XUISplitButtonGroup from '../XUISplitButtonGroup';
 import XUIIconButton from '../XUIIconButton';
-import XUIIcon from '../../icon/XUIIcon';
 import DropDown from '../../dropdown/DropDown';
 import DropDownToggled from '../../dropdown/DropDownToggled';
 import view from '@xero/xui-icon/icons/view';
@@ -16,11 +15,11 @@ import view from '@xero/xui-icon/icons/view';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, number, select } from '@storybook/addon-knobs';
-import centered from '../../../../../.storybook/xuiResponsiveCenter';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';
 import {
-  variantClassNames,
+  textButtonVariants,
   sizeClassNames,
   buttonTypes,
   widthClassNames,
@@ -55,39 +54,45 @@ const buttonContents = {
     <XUISplitButton aria-label="Other actions" key="split" />,
   ],
   asSplitGroupDropdown: [<XUIButton key="main">Main</XUIButton>, dropdownWithTrigger],
-  icon: <XUIIcon icon={view} title="Preview" />,
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
-storiesWithKnobs.add('Playground', () => (
-  <div style={{ maxWidth: '600px' }}>
-    <XUIButton
-      className={text('className', '')}
-      fullWidth={select('fullWidth', Object.keys(widthClassNames), 'never')}
-      href={text('href', '')}
-      isDisabled={boolean('isDisabled', false)}
-      isExternalLink={boolean('isExternalLink', false)}
-      isGrouped={boolean('isGrouped', false)}
-      isInverted={boolean('isInverted', false)}
-      isLink={boolean('isLink', false)}
-      isLoading={boolean('isLoading', false)}
-      minLoaderWidth={boolean('minLoaderWidth', false)}
-      qaHook={text('qaHook', '')}
-      rel={text('rel', '')}
-      retainLayout={boolean('retainLayout', true)}
-      size={select('size', Object.keys(sizeClassNames))}
-      tabIndex={number('tabIndex', 0)}
-      target={text('target', '')}
-      title={text('title', '')}
-      type={select('type', Object.keys(buttonTypes).map(type => buttonTypes[type]), 'button')}
-      variant={select('variant', Object.keys(variantClassNames), 'standard')}
-    >
-      Test button
-    </XUIButton>
-  </div>
-));
+storiesWithKnobs.add('Playground', () => {
+  const isIcon = boolean('is icon button', false);
+  const Tag = isIcon ? XUIIconButton : XUIButton;
+  return (
+    <div style={{ maxWidth: '600px' }}>
+      <Tag
+        ariaLabel={isIcon ? 'View' : undefined}
+        className={text('className', '')}
+        fullWidth={select('fullWidth', Object.keys(widthClassNames), 'never')}
+        href={text('href', '')}
+        icon={isIcon ? view : undefined}
+        isDisabled={boolean('isDisabled', false)}
+        isExternalLink={boolean('isExternalLink', false)}
+        isGrouped={boolean('isGrouped', false)}
+        isInverted={boolean('isInverted', false)}
+        isLink={boolean('isLink', false)}
+        isLoading={boolean('isLoading', false)}
+        loadingLabel={text('loadingLabel', 'Loading')}
+        minLoaderWidth={boolean('minLoaderWidth', false)}
+        qaHook={text('qaHook', '')}
+        rel={text('rel', '')}
+        retainLayout={boolean('retainLayout', true)}
+        size={select('size', Object.keys(sizeClassNames))}
+        tabIndex={number('tabIndex', 0)}
+        target={text('target', '')}
+        title={text('title', '')}
+        type={select('type', Object.keys(buttonTypes).map(type => buttonTypes[type]), 'button')}
+        variant={!isIcon && select('variant', textButtonVariants, 'standard')}
+      >
+        {isIcon ? null : 'Test button'}
+      </Tag>
+    </div>
+  );
+});
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
@@ -127,7 +132,7 @@ variations.forEach(variation => {
         break;
       case 'XUIIconButton':
         buttonContent = (
-          <XUIIconButton icon={view} {...variationMinusStoryDetails} ariaLabel="Dot Menu" />
+          <XUIIconButton icon={view} {...variationMinusStoryDetails} ariaLabel="View" />
         );
         break;
       default:

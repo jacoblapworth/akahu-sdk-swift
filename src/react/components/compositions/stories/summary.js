@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { XUIOverviewBlock, XUIOverviewSection } from '../../../structural';
+import { XUIOverviewBlock, XUIOverviewSection } from '../../../overviewblock';
 
 export default class Summary extends PureComponent {
   render() {

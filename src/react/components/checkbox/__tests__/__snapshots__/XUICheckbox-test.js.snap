@@ -21,7 +21,11 @@ exports[`XUICheckbox should be a small variant, if specified 1`] = `
     />
     <div
       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-    />
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
     <span
       className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small"
       id="testCheckboxId"
@@ -53,7 +57,11 @@ exports[`XUICheckbox should be a xsmall variant, if specified 1`] = `
     />
     <div
       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-xsmall"
-    />
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
     <span
       className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall"
       id="testCheckboxId"
@@ -85,7 +93,11 @@ exports[`XUICheckbox should have a hidden label, if specified 1`] = `
     />
     <div
       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium"
-    />
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
   </label>
 </div>
 `;
@@ -113,7 +125,11 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
     <div
       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium"
       data-automationid="test-checkbox--checkbox"
-    />
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
   </label>
 </div>
 `;
@@ -139,7 +155,11 @@ exports[`XUICheckbox should have a visible label, if specified 1`] = `
     />
     <div
       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium"
-    />
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
     <span
       className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-medium"
       id="testCheckboxId"
@@ -188,6 +208,9 @@ exports[`XUICheckbox should render with an icon when one is provided 1`] = `
           role="presentation"
         />
       </svg>
+      <div
+        className="xui-touchtarget"
+      />
     </div>
   </label>
 </div>

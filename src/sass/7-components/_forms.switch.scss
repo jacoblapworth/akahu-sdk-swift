@@ -38,7 +38,7 @@ $xui-switch-label-padding: $xui-s-xsmall;
 
   &::before {
     background-color: $xui-switch-check-bg-color;
-    border-radius: 50%;
+    border-radius: $xui-radius-circle;
     content: ' ';
     display: inline-block;
     position: absolute;
@@ -51,7 +51,7 @@ $xui-switch-label-padding: $xui-s-xsmall;
 }
 
 .#{$ns}-switch--control-medium {
-  border-radius: $xui-control-size-standard;
+  border-radius: $xui-radius-max;
   height: 22px;
   width: $xui-control-size-standard;
 

@@ -47,6 +47,11 @@ const defaultChartProps = {
   chartId: '123',
   chartTitle: 'Chart Test',
   chartDescription: 'Chart Jest test',
+  keyTitle: 'Graph key',
+  emptyMessage: 'There is no data to display',
+  paginationNextTitle: 'Next page',
+  paginationPreviousTitle: 'Previous page',
+  loadingLabel: 'Loading',
 };
 
 const defaultChartPadding = createChartPadding({

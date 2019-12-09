@@ -26,5 +26,6 @@ export default ChartLoader;
 ChartLoader.propTypes = {
   qaHook: PropTypes.string,
   chartHeight: PropTypes.number,
-  loadingLabel: PropTypes.string,
+  /** Accessibility label for the `<XUILoader>` */
+  loadingLabel: PropTypes.string.isRequired,
 };

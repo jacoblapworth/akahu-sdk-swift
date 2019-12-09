@@ -14,12 +14,6 @@ const avatarVariations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'with identifier',
-    value: ' ',
-    identifier: 'random id',
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with value and identifier',
     identifier: 'random id',
     value: 'value',

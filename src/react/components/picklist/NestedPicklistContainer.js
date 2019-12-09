@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getId, getPropsFromFirstChildOrList } from './private/helpers';
-import { picklistClassName, pickitemClassName, sizeVariants } from './private/constants';
+import { picklistClassName, pickitemClassName } from './private/constants';
 import Pickitem from './Pickitem';
 import NestedPicklist from './NestedPicklist';
 import NestedPicklistTrigger from './NestedPicklistTrigger';
@@ -12,8 +12,9 @@ export default class NestedPicklistContainer extends PureComponent {
     super(props);
 
     const container = this;
+
     container.state = {
-      open: props.isOpen,
+      open: props.isDefaultOpen || false,
     };
     container.toggle = container.toggle.bind(container);
     container.open = container.open.bind(container);
@@ -27,13 +28,13 @@ export default class NestedPicklistContainer extends PureComponent {
     };
   }
 
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    if (this.props.isOpen !== nextProps.isOpen) {
-      this.setState({
+  static getDerivedStateFromProps(nextProps) {
+    if (nextProps.isOpen !== undefined) {
+      return {
         open: nextProps.isOpen,
-      });
+      };
     }
+    return null;
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -50,13 +51,23 @@ export default class NestedPicklistContainer extends PureComponent {
     return !!(this.state && this.state.open);
   }
 
+  isControlledComponent() {
+    return this.props.isOpen !== undefined;
+  }
+
   open() {
+    if (this.isControlledComponent() && !this.props.isOpen) {
+      this.props.onOpen && this.props.onOpen();
+    }
     this.setState({
       open: true,
     });
   }
 
   close() {
+    if (this.isControlledComponent() && this.props.isOpen) {
+      this.props.onClose && this.props.onClose();
+    }
     this.setState({
       open: false,
     });
@@ -78,7 +89,6 @@ export default class NestedPicklistContainer extends PureComponent {
       child.type === NestedPicklistTrigger ||
       child.type === Pickitem
         ? React.cloneElement(child, {
-            size: listLevelProps.listSize,
             isMultiselect: listLevelProps.listMultiselect,
             // This is ok to be set at either the item level or the list level.
             shouldTruncate:
@@ -116,12 +126,15 @@ NestedPicklistContainer.propTypes = {
   qaHook: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   className: PropTypes.string,
+  /** _Uncontrolled only_: Whether the container is open or closed by default.  */
+  isDefaultOpen: PropTypes.bool,
+  /** _Controlled only_: Whether the container is open or closed.  */
   isOpen: PropTypes.bool,
+  /** Callback when the container is opened.  */
   onOpen: PropTypes.func,
+  /** Callback when the container is closed.  */
   onClose: PropTypes.func,
   secondaryProps: PropTypes.object,
-  /** Size variant */
-  size: PropTypes.oneOf(sizeVariants),
   /** When true checkboxes will be added to the layout of the child components. */
   isMultiselect: PropTypes.bool,
   /** Whether to truncate text instead of wrapping. */
@@ -129,7 +142,6 @@ NestedPicklistContainer.propTypes = {
 };
 
 NestedPicklistContainer.defaultProps = {
-  isOpen: false,
   secondaryProps: {
     role: 'treeitem',
   },

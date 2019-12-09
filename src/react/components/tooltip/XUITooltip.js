@@ -130,6 +130,7 @@ export default class XUITooltip extends PureComponent {
       triggerOnHover,
       isBlock,
       useInlineFlex,
+      limitWidth,
     } = this.props;
     const { isHidden, isAnimating } = this.state;
     const ignoreFocus = !this.state.isFocused || !triggerOnFocus;
@@ -144,6 +145,7 @@ export default class XUITooltip extends PureComponent {
       isAnimating && `${baseClass}-tipanimating`,
       isBlock && `${baseClass}-is-block`,
       useInlineFlex && `${baseClass}-inline-flex`,
+      limitWidth && `${baseClass}-limitwidth`,
     );
 
     const tipClasses = cn(
@@ -280,6 +282,11 @@ XUITooltip.propTypes = {
    * Providing only the side (top, right, bottom, left) will default to a center-aligned tip.
    */
   preferredPosition: PropTypes.oneOf(positionOptions),
+
+  /**
+   * Limit width of tooltip's trigger to 100%.
+   */
+  limitWidth: PropTypes.bool,
 };
 
 XUITooltip.defaultProps = {

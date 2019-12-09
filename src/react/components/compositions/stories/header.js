@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import { XUIActions, XUIPageHeader } from '../../../structural';
+import XUIActions from '../../../actions';
+import { XUIPageHeader } from '../../../pageheader';
 import Picklist, { Pickitem } from '../../../picklist';
 import XUIButton, { XUISplitButtonGroup, XUISecondaryButton } from '../../../button';
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import XUICheckbox from '../checkbox/XUICheckbox';
+
 import { baseClass } from './private/constants';
 
 export default class XUIRolloverCheckbox extends PureComponent {

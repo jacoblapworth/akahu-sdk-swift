@@ -67,7 +67,6 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'without matching trigger width',
     matchTriggerWidth: false,
-    listItemSize: 'xsmall',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -90,7 +89,6 @@ const variations = [
     buttonContent: 'Books',
     closeAfterSelection: false,
     items: buildCheckboxItems(),
-    listItemSize: 'small',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -142,12 +140,6 @@ const variations = [
     storyTitle: 'as small size with variant',
     buttonVariant: 'primary',
     size: 'small',
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as medium size with xsmall size list items',
-    listItemSize: 'xsmall',
-    size: 'medium',
   },
 ];
 

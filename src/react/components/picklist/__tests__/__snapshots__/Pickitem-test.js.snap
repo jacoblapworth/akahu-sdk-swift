@@ -53,7 +53,11 @@ exports[`<Pickitem /> renders a multiselect pickitem with truncation 1`] = `
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label xui-pickitem-text-truncated"
           id="testPickitemCheckboxId"
@@ -87,7 +91,7 @@ exports[`<Pickitem /> renders a multiselect pickitem with truncation 1`] = `
 exports[`<Pickitem /> renders a pickitem with most compatible options 1`] = `
 <li
   aria-selected={null}
-  className="xui-pickitem custom-classname xui-pickitem-multiline xui-pickitem-is-selected xui-pickitem-is-disabled xui-pickitem-xsmall xui-pickitem-is-invalid"
+  className="xui-pickitem custom-classname xui-pickitem-multiline xui-pickitem-is-selected xui-pickitem-is-disabled xui-pickitem-medium xui-pickitem-is-invalid"
   id="item1"
   role="option"
 >
@@ -213,7 +217,11 @@ exports[`<Pickitem /> renders a selected multiselect pickitem (overriding leftEl
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
           id="testPickitemCheckboxId"
@@ -262,7 +270,11 @@ exports[`<Pickitem /> renders a selected multiselect pickitem without selected s
         />
         <div
           className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
-        />
+        >
+          <div
+            className="xui-touchtarget"
+          />
+        </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
           id="testPickitemCheckboxId"
@@ -279,10 +291,10 @@ exports[`<Pickitem /> renders a selected multiselect pickitem without selected s
 </li>
 `;
 
-exports[`<Pickitem /> renders a small pickitem with highlighting 1`] = `
+exports[`<Pickitem /> renders a truncating pickitem with leftelement 1`] = `
 <li
   aria-selected={null}
-  className="xui-pickitem xui-pickitem-is-hovered xui-pickitem-small"
+  className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium xui-pickitem-has-leftelement"
   id="item1"
   role="option"
 >
@@ -292,18 +304,32 @@ exports[`<Pickitem /> renders a small pickitem with highlighting 1`] = `
     type="button"
   >
     <span
-      className="xui-pickitem--text"
+      className="xui-pickitem--sideelement"
     >
-      Item 1
+      <abbr
+        className="xui-avatar xui-avatar-2xsmall xui-avatar-color-3"
+        role="presentation"
+      >
+        TR
+      </abbr>
+    </span>
+    <span
+      className="xui-pickitem--text xui-pickitem-text-truncated"
+    >
+      <span
+        className="xui-pickitem-text-truncated"
+      >
+        Item 1
+      </span>
     </span>
   </button>
 </li>
 `;
 
-exports[`<Pickitem /> renders an xsmall pickitem with selected & invalid state 1`] = `
+exports[`<Pickitem /> renders a truncating pickitem with secondary text 1`] = `
 <li
   aria-selected={null}
-  className="xui-pickitem xui-pickitem-is-selected xui-pickitem-xsmall xui-pickitem-is-invalid"
+  className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium xui-pickitem-has-secondarytext"
   id="item1"
   role="option"
 >
@@ -313,9 +339,58 @@ exports[`<Pickitem /> renders an xsmall pickitem with selected & invalid state 1
     type="button"
   >
     <span
-      className="xui-pickitem--text"
+      className="xui-pickitem--text xui-pickitem-text-truncated"
     >
-      Item 1
+      <span
+        className="xui-pickitem-text-truncated"
+      >
+        Item 1
+      </span>
+      <span
+        className="xui-pickitem--secondary xui-pickitem-text-truncated"
+      >
+        Here is a bunch of secondary text
+      </span>
+    </span>
+  </button>
+</li>
+`;
+
+exports[`<Pickitem /> renders a truncating pickitem with secondary text and leftelement 1`] = `
+<li
+  aria-selected={null}
+  className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium xui-pickitem-has-leftelement-secondarytext"
+  id="item1"
+  role="option"
+>
+  <button
+    className="xui-pickitem--body"
+    rel={null}
+    type="button"
+  >
+    <span
+      className="xui-pickitem--sideelement"
+    >
+      <abbr
+        className="xui-avatar xui-avatar-2xsmall xui-avatar-color-3"
+        role="presentation"
+      >
+        TR
+      </abbr>
+    </span>
+    <span
+      className="xui-pickitem--text xui-pickitem-text-truncated"
+    >
+      <span
+        className="xui-pickitem-text-truncated"
+      >
+        Item 1
+      </span>
+      <span
+        className="xui-pickitem--secondary xui-pickitem-text-truncated"
+      >
+        Here is a bunch of secondary text
+      </span>
     </span>
   </button>
 </li>

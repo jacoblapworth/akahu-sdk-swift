@@ -140,17 +140,11 @@ class TooltipWrapper extends React.Component {
     const sizeSuffix = size === 'medium' ? '' : `-${size}`;
     return (
       <XUITooltip
-        trigger={
-          <XUIButton
-            className={`xui-margin-right${sizeSuffix} xui-margin-bottom${sizeSuffix}`}
-            size={size}
-          >
-            {buttonContent}
-          </XUIButton>
-        }
+        trigger={<XUIButton size={size}>{buttonContent}</XUIButton>}
         triggerOnClick={triggers.indexOf('click') > -1}
         triggerOnFocus={triggers.indexOf('focus') > -1}
         triggerOnHover={triggers.indexOf('hover') > -1}
+        wrapperClassName={`xui-margin-right${sizeSuffix} xui-margin-bottom${sizeSuffix}`}
       >
         {tipContent}
       </XUITooltip>

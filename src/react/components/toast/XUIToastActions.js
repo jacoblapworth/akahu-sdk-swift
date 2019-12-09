@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { baseClass } from './private/constants';
-import XUIActions from '../structural/XUIActions';
+import XUIActions from '../actions/XUIActions';
 
 export default function XUIToastActions({
   className,

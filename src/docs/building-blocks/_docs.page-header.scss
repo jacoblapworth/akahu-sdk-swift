@@ -1,6 +1,6 @@
 // Page header
 //
-// flags: updatesComing
+// flags: updated
 //
 // Teaser: Guidance on how to use page-specific page navigation.
 //
@@ -25,6 +25,10 @@
 
 // Anatomy
 //
+// Styleguide: Components.Navigation.Page header.2
+
+// Basic
+//
 // At its most basic form, a page header contains a title. To create one, use the following classes.
 //
 // Classes:
@@ -37,12 +41,84 @@
 //
 // Markup:
 // <header class="xui-pageheading">
-//  <div class="xui-pageheading--content xui-pageheading--content-layout">
-//    <h1 class="xui-pageheading--title">Settings</h1>
-//  </div>
+//   <div class="xui-pageheading--content xui-pageheading--content-layout">
+//     <h1 class="xui-pageheading--title">Settings</h1>
+//   </div>
 // </header>
 //
-// Styleguide: Components.Navigation.Page header.2
+// For anything more complex, you'll need [additional structure](#components-navigation-page-header-2-2).
+//
+// Styleguide: Components.Navigation.Page header.2.1
+
+// Extended
+//
+// Page headings are optimised to perform well with many types and combinations of content and in the narrowest viewports. They are designed to contain breadcrumb trails, secondary text, tags, tab navigation, and actions in addition to titles.
+//
+// Classes:
+// xui-pageheading--leftcontent: Elements that appear at the left side of the page heading when at full width, including breadcrumb trails and the title wrapper
+// xui-pageheading--titlewrapper: All left-side content other than breadcrumbs should be in this container, including title, secondary text, and/or tags
+// xui-pageheading--rightcontent: Elements that appear to the right of any title content when at full width. This should include any tabs and/or actions
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <header class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-pageheading--content-layout">
+//     <div class="xui-pageheading--leftcontent">
+//       <ol class="xui-pageheading--breadcrumbtrail xui-breadcrumbtrail">
+//         <li class="xui-breadcrumb">
+//           <a href="#1" class="xui-breadcrumb--link">Expenses</a>
+//         </li>
+//         <li class="xui-breadcrumb-arrow">
+//           <div class="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium">
+//             <svg class="xui-icon xui-icon-rotate-270" focusable="false" height="4" viewBox="0 0 7 4" width="7">
+//               <use xlink:href="#xui-icon-arrow-small" role="presentation"/>
+//             </svg>
+//           </div>
+//         </li>
+//         <li class="xui-breadcrumb">
+//           <a href="#2" class="xui-breadcrumb--link">Awaiting approval</a>
+//         </li>
+//       </ol>
+//       <div class="xui-pageheading--titlewrapper">
+//         <h1 class="xui-pageheading--title">Employees</h1>
+//         <div class="xui-pageheading--secondarytitle">With outstanding expenses</div>
+//         <div class="xui-pageheading--tags">
+//           <span class="xui-tag xui-tag-small">
+//             <span class="xui-tagcontent" role="status">Pending</span>
+//           </span>
+//         </div>
+//       </div>
+//     </div>
+//     <div class="xui-pageheading--rightcontent">
+//       <ul role="menu" class="xui-picklist xui-picklist-medium xui-pageheading--tabs xui-picklist-horizontal">
+//         <li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium" id="one" role="menuitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text">Apr</span>
+//           </button>
+//         </li>
+//         <li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-is-selected xui-pickitem-medium" id="two" role="menuitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text">May</span>
+//           </button>
+//         </li>
+//         <li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium" id="three" role="menuitem">
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text">Jun</span>
+//           </button>
+//         </li>
+//       </ul>
+//       <div class="xui-pageheading--actions">
+//         <div class="xui-actions">
+//           <button class="xui-button xui-actions--primary xui-button-main xui-button-small" tabindex="0" type="button">Edit</button>
+//           <button class="xui-button xui-actions--secondary xui-button-standard xui-button-small" tabindex="0" type="button">Submit</button>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </header>
+//
+// Styleguide: Components.Navigation.Page header.2.2
 
 // Layout
 //
@@ -57,82 +133,253 @@
 //
 // Styleguide: Components.Navigation.Page header.3
 
-// Actions
+// Breadcrumb Trail
 //
-// To include page-specific actions, simply wrap them in the following class.
-//
-// Classes:
-// xui-pageheading--actions: Sets default button layout and internal spacing
+// Breadcrumb Trails should not be used alone, but rather in combination with a title and any additional content. See [the complete breadcrumb trail documentation](./section-components-navigation-breadcrumb-trail.html) for more details.
 //
 // ExampleClass: ds-example-wide
 //
 // Markup:
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-pageheading--content-layout">
-//     <h1 class="xui-pageheading--title">Employees</h1>
-//     <div class="xui-pageheading--actions">
-//      <div class="xui-buttongroup">
-//        <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-small">New employee</button>
-//        <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-split xui-button-small" title="Other actions">
-//          <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation"/></svg>
-//        </button>
-//      </div>
-//      <button type="button" class="xui-button xui-button-icon xui-button-icon-medium" title="More options">
-//        <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-overflow" role="presentation"/></svg>
-//      </button>
-//     </div>
-//   </div>
+// 	<div class="xui-pageheading--content pageheading--content-no-tabs xui-pageheading--content-layout">
+// 		<div class="xui-pageheading--leftcontent">
+// 			<ol class="xui-pageheading--breadcrumbtrail xui-breadcrumbtrail">
+// 				<li class="xui-breadcrumb">
+// 					<a href="#1" class="xui-breadcrumb--link">Expenses</a>
+// 				</li>
+// 				<li class="xui-breadcrumb-arrow">
+// 					<div class="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium">
+// 						<svg focusable="false" class="xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
+// 					</div>
+// 				</li>
+// 				<li class="xui-breadcrumb">
+// 					<a href="#2" class="xui-breadcrumb--link">Awaiting approval</a>
+// 				</li>
+// 			</ol>
+// 			<div class="xui-pageheading--titlewrapper">
+// 				<h1 class="xui-pageheading--title">Employees</h1>
+// 			</div>
+// 		</div>
+// 	</div>
 // </header>
 //
 // Styleguide: Components.Navigation.Page header.4
 
-// Breadcrumbs
+// Titles
 //
-// flags: updatesComing
-//
-// Components: Breadcrumb
-//
-// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.kqgl1qf20sek
-//
-// To provide links to parent pages, use the following breadcrumb classes.
+// The title area of a page heading will contain the title, as well as any secondary text and tags that apply to the title.
 //
 // Classes:
-// xui-breadcrumbs: Breadcrumb container
-// xui-breadcrumb: Breadcrumb item
-// xui-breadcrumb-arrow: Breadcrumb item that only contains an arrow icon
-// xui-breadcrumb--link: Breadcrumb link
-// xui-breadcrumb--icon: Icons between breadcrumbs
+// xui-pageheading--titlewrapper: Wraps all title-related content, and excludes breadcrumbs
+// xui-pageheading--title: Page heading title
+// xui-pageheading--secondarytitle: Secondary descriptive content to appear after the title
+// xui-pageheading--tags: A container for tags to appear after the title and any secondary text
 //
 // ExampleClass: ds-example-wide
 //
 // Markup:
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-pageheading--content-layout" role="navigation" aria-label="Title">
-//     <ol class="xui-breadcrumbs">
-//       <li class="xui-breadcrumb">
-//         <a href="#" class="xui-breadcrumb--link">Settings</a>
-//       </li>
-//       <li class="xui-breadcrumb-arrow">
-//				 <div class="xui-breadcrumb--icon xui-icon-rotate-270 xui-iconwrapper xui-iconwrapper-medium">
-//       	   <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
-//				 <div/>
-//       </li>
-//       <li class="xui-breadcrumb">
-//         <a href="#" class="xui-breadcrumb--link">Permissions</a>
-//       </li>
-//       <li class="xui-breadcrumb-arrow">
-//				 <div class="xui-breadcrumb--icon xui-icon-rotate-270 xui-iconwrapper xui-iconwrapper-medium">
-//       	   <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
-//				 <div/>
-//       </li>
-//       <li class="xui-breadcrumb">
-//         Edit permissions
-//       </li>
-//     </ol>
-//   </div>
+//  <div class="xui-pageheading--content xui-pageheading--content-layout">
+//    <div class="xui-pageheading--leftcontent">
+//      <div class="xui-pageheading--titlewrapper">
+//        <h1 class="xui-pageheading--title">Employees</h1>
+//        <div class="xui-pageheading--secondarytitle">With outstanding expenses</div>
+//        <div class="xui-pageheading--tags">
+//          <span class="xui-tag xui-tag-small">
+//            <span class="xui-tagcontent" role="status">Pending</span>
+//          </span>
+//        </div>
+//      </div>
+//    </div>
+//  </div>
 // </header>
 //
-// Styleguide: Components.Navigation.Breadcrumbs
+// Styleguide: Components.Navigation.Page header.5
+
+// Tabs
+//
+// See [the complete tabs documentation](./section-components-navigation-tabs.html) for more details.
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <header class="xui-pageheading">
+// 	<div class="xui-pageheading--content xui-pageheading--content-layout">
+// 		<div class="xui-pageheading--leftcontent">
+// 			<div class="xui-pageheading--titlewrapper">
+// 				<h1 class="xui-pageheading--title">Expenses</h1>
+// 			</div>
+// 		</div>
+// 		<div class="xui-pageheading--rightcontent">
+// 			<ul role="menu" class="xui-picklist xui-pageheading--tabs xui-picklist-horizontal xui-picklist-medium">
+// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium" role="menuitem" id="1">
+// 					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--text">Apr</span>
+// 					</button>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-is-selected xui-pickitem-medium" role="menuitem" id="2">
+// 					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--text">May</span>
+// 					</button>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium" role="menuitem" id="3">
+// 					<button type="button" class="xui-pickitem--body">
+// 						<span class="xui-pickitem--text">Jun</span>
+// 					</button>
+// 				</li>
+// 			</ul>
+// 		</div>
+// 	</div>
+// </header>
+//
+// Styleguide: Components.Navigation.Page header.6
+
+// Actions
+//
+// To include page-specific actions, wrap them in the following class. If your pageheader has actions but no tabs, you'll want to add the `-no-tabs` modifier classes to the `content` and `rightcontent` containers, as well.
+//
+// Classes:
+// xui-pageheading--actions: Sets default button layout and internal spacing
+// xui-pageheading--content-no-tabs: Adjusts the layout for a header without tabs
+// xui-pageheading--rightcontent-no-tabs: Adjusts the layout for a header without tabs
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <header class="xui-pageheading">
+// 	<div class="xui-pageheading--content xui-pageheading--content-layout xui-pageheading--content-no-tabs">
+// 		<div class="xui-pageheading--leftcontent">
+// 			<div class="xui-pageheading--titlewrapper">
+// 				<h1 class="xui-pageheading--title">Employees</h1>
+// 			</div>
+// 		</div>
+// 		<div class="xui-pageheading--rightcontent xui-pageheading--rightcontent-no-tabs">
+// 			<div class="xui-pageheading--actions">
+// 				<div class="xui-buttongroup">
+// 					<button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-small">New employee</button>
+// 					<button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-split xui-button-small" title="Other actions">
+// 						<svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation"/></svg>
+// 					</button>
+// 				</div>
+// 				<button type="button" class="xui-button xui-button-icon xui-button-icon-small" title="More options">
+// 					<svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-overflow" role="presentation"/></svg>
+// 					<div class="xui-touchtarget"></div>
+// 				</button>
+// 			</div>
+// 		</div>
+// 	</div>
+// </header>
+//
+// Styleguide: Components.Navigation.Page header.7
+
+// Breadcrumb Trail
+//
+// Combine breadcrumbs with a title in a page header to give the user a sense of their location and an easy way to navigate to parent pages.
+//
+// flags: updated
+//
+// Components: Breadcrumb-trail
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.kqgl1qf20sek
+//
+// Styleguide: Components.Navigation.Breadcrumb Trail
+
+// Best practice
+//
+// Tips:
+// Do: Make every breadcrumb a useful navigation link
+// Do: Use a page title to indicate the current page
+// Do: Use breadcrumbs to illustrate the structure of the sitemap or information architecture – not the users' journey
+// Warning: Avoid nesting pages more than three levels deep
+// Warning: Long strings may be truncated in narrow containers
+// Don't: Don't include the current page title in the breadcrumbs, use a title instead
+//
+// Styleguide: Components.Navigation.Breadcrumb Trail.1
+
+// Anatomy
+//
+// To provide links to parent pages, use the following breadcrumb classes.
+//
+// Classes:
+// xui-breadcrumbtrail: Breadcrumb trail container, typically used with xui-pageheading--breadcrumbtrail
+// xui-breadcrumb: Breadcrumb item
+// xui-breadcrumb-arrow: Breadcrumb item that only contains an arrow icon
+// xui-breadcrumb-no-link: Breadcrumb item containing only text that is not a link. This is only applicable in some custom settings, outside of the page header
+// xui-breadcrumb--link: Breadcrumb link
+// xui-breadcrumb--icon: Icons between breadcrumbs
+// xui-breadcrumb--dropdowntrigger: For the compact variant of breadcrumbs, this class is applied to the dropdown trigger
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <header class="xui-pageheading">
+// 	<div class="xui-pageheading--content xui-pageheading--content-layout">
+// 		<div class="xui-pageheading--leftcontent">
+// 			<ol class="xui-pageheading--breadcrumbtrail xui-breadcrumbtrail">
+// 				<li class="xui-breadcrumb">
+// 					<a href="#1" class="xui-breadcrumb--link">Organisations</a>
+// 				</li>
+// 				<li class="xui-breadcrumb-arrow">
+// 					<div class="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium">
+// 						<svg focusable="false" class="xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
+// 					</div>
+// 				</li>
+// 				<li class="xui-breadcrumb">
+// 					<a href="#2" class="xui-breadcrumb--link">Settings</a>
+// 				</li>
+// 				<li class="xui-breadcrumb-arrow">
+// 					<div class="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium">
+// 						<svg focusable="false" class="xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
+// 					</div>
+// 				</li>
+// 				<li class="xui-breadcrumb">
+// 					<a href="#3" class="xui-breadcrumb--link">Permissions</a>
+// 				</li>
+// 			</ol>
+// 			<div class="xui-pageheading--titlewrapper">
+// 				<h1 class="xui-pageheading--title">Edit permissions</h1>
+// 			</div>
+// 		</div>
+// 	</div>
+// </header>
+//
+// Styleguide: Components.Navigation.Breadcrumb Trail.2
+
+// Compact Breadcrumb Trail
+//
+// It's also possible to provide higher-level breadcrumb items in a dropdown behind an ellipsis link, when shown in narrower containers. This pattern is used to condense all breadcrumb items except for the page's direct parent. Compact breadcrumbs should only be used for three or more breadcrumb items and if all items can't reasonably be shown at full length.
+//
+// ExampleClass: ds-example-narrow
+//
+// Markup:
+// <header class="xui-pageheading">
+// 	<div class="xui-pageheading--content xui-pageheading--content-layout">
+// 		<div class="xui-pageheading--leftcontent">
+// 			<ol class="xui-pageheading--breadcrumbtrail xui-breadcrumbtrail">
+// 				<li class="xui-breadcrumb">
+//          <div>
+//            <button class="xui-button xui-breadcrumb--link xui-breadcrumb--dropdowntrigger" tabindex="0" type="button">
+//              ...
+//            </button>
+//          </div>
+//        </li>
+// 				<li class="xui-breadcrumb-arrow">
+// 					<div class="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium">
+// 						<svg focusable="false" class="xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
+// 					</div>
+// 				</li>
+// 				<li class="xui-breadcrumb">
+// 					<a href="#2" class="xui-breadcrumb--link">Permissions</a>
+// 				</li>
+// 			</ol>
+// 			<div class="xui-pageheading--titlewrapper">
+// 				<h1 class="xui-pageheading--title">Edit permissions</h1>
+// 			</div>
+// 		</div>
+// 	</div>
+// </header>
+//
+// Styleguide: Components.Navigation.Breadcrumb Trail.2.1
 
 // Tabs
 //
@@ -150,20 +397,24 @@
 // Markup:
 // <header class="xui-pageheading">
 // 	<div class="xui-pageheading--content xui-pageheading--content-layout">
-// 		<div class="xui-pageheading--tabs">
-// 			<h1 class="xui-pageheading--title">Contacts</h1>
-// 			<ul role="menu" class="xui-picklist xui-picklist-horizontal xui-picklist-medium">
-// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium xui-pickitem-is-selected" role="menuitem" id="one">
+// 		<div class="xui-pageheading--leftcontent">
+// 			<div class="xui-pageheading--titlewrapper">
+// 				<h1 class="xui-pageheading--title">Contacts</h1>
+// 			</div>
+// 		</div>
+// 		<div class="xui-pageheading--rightcontent">
+// 			<ul role="menu" class="xui-picklist xui-pageheading--tabs xui-picklist-horizontal xui-picklist-medium">
+// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium" role="menuitem" id="1">
 // 					<button type="button" class="xui-pickitem--body">
 // 						<span class="xui-pickitem--text">All</span>
 // 					</button>
 // 				</li>
-// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium" role="menuitem" id="two">
+// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-is-selected xui-pickitem-medium" role="menuitem" id="2">
 // 					<button type="button" class="xui-pickitem--body">
 // 						<span class="xui-pickitem--text">Suppliers</span>
 // 					</button>
 // 				</li>
-// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium" role="menuitem" id="three">
+// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium" role="menuitem" id="3">
 // 					<button type="button" class="xui-pickitem--body">
 // 						<span class="xui-pickitem--text">Customers</span>
 // 					</button>
@@ -174,44 +425,3 @@
 // </header>
 //
 // Styleguide: Components.Navigation.Tabs
-
-// Tabs as anchor tags
-//
-// Components: Page-header
-//
-// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.rn5ood4vqaag
-//
-// For tabs that are composed of anchor `a` HTML tags, add the `xui-pickitem-link--body` alongside the `xui-pickitem--body` class. The application is illustrated in the following example.
-//
-// Classes:
-// xui-pickitem-link--body: Additional class to properly align anchor tags with other elements and the title.
-//
-// ExampleClass: ds-example-wide
-//
-// Markup:
-// <header class="xui-pageheading">
-// 	<div class="xui-pageheading--content xui-pageheading--content-layout">
-// 		<div class="xui-pageheading--tabs">
-// 			<h1 class="xui-pageheading--title">Contacts</h1>
-// 			<ul role="menu" class="xui-picklist xui-picklist-horizontal xui-picklist-medium">
-// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium xui-pickitem-is-selected" role="menuitem" id="one">
-// 					<a href="#" class="xui-pickitem--body xui-pickitem-link--body">
-// 						<span class="xui-pickitem--text">All</span>
-// 					</a>
-// 				</li>
-// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium" role="menuitem" id="two">
-// 					<button type="button" class="xui-pickitem--body">
-// 						<span class="xui-pickitem--text">Suppliers</span>
-// 					</button>
-// 				</li>
-// 				<li class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium" role="menuitem" id="three">
-// 					<a href="#" class="xui-pickitem--body xui-pickitem-link--body">
-// 						<span class="xui-pickitem--text">Customers</span>
-// 					</a>
-// 				</li>
-// 			</ul>
-// 		</div>
-// 	</div>
-// </header>
-//
-// Styleguide: Components.Navigation.Tabs.1

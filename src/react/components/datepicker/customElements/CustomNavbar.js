@@ -89,14 +89,13 @@ export default class CustomNavbar extends PureComponent {
       months,
       maxDate,
       minDate,
-      isCompact,
       locale,
       qaHook,
     } = this.props;
     const currentMonthDate = DateUtils.addMonths(previousMonth, 1);
     const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
     const nextClickHandler = dir === 'rtl' ? onPreviousClick : onNextClick;
-    const controlSize = isCompact ? 'xsmall' : 'small';
+    const controlSize = 'small';
     const monthSelector = (
       <MonthSelector
         currentMonthDate={currentMonthDate}
@@ -179,12 +178,10 @@ CustomNavbar.propTypes = {
   onMonthSelect: PropTypes.func,
   minDate: PropTypes.instanceOf(Date),
   maxDate: PropTypes.instanceOf(Date),
-  isCompact: PropTypes.bool,
   locale: PropTypes.string,
   qaHook: PropTypes.string,
 };
 
 CustomNavbar.defaultProps = {
-  isCompact: false,
   dir: 'ltr',
 };

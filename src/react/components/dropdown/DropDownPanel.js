@@ -1,6 +1,7 @@
 import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+// eslint-disable-next-line import/no-cycle
 import Picklist from '../picklist/Picklist';
 import StatefulPicklist from '../picklist/StatefulPicklist';
 import { baseClass, maxWidthDropdownSizes } from './private/constants';

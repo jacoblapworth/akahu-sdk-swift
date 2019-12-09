@@ -171,10 +171,6 @@ export default class XUIPill extends PureComponent {
   }
 }
 
-XUIPill.defaultProps = {
-  deleteButtonLabel: 'Delete',
-};
-
 XUIPill.propTypes = {
   /** Props for the avatar to be displayed, must adhere to the XUIAvatar component API described at https://github.dev.xero.com/UXE/xui-avatar. Version 6.0.0+. Not providing props will omit the avatar entirely. */
   avatarProps: PropTypes.object,
@@ -187,8 +183,20 @@ XUIPill.propTypes = {
   },
   /** Apply classes to the outer Pill `div` element. */
   className: PropTypes.string,
-  /** Specify an alternate label attribute for the delete button, defaults to 'Delete'. */
-  deleteButtonLabel: PropTypes.string,
+  /**
+   * Specify a label attribute for the delete button.
+   * <br />
+   * Recommended English value: *Delete*
+   */
+  deleteButtonLabel(props, propName) {
+    if (props.onDeleteClick && typeof props[propName] !== 'string') {
+      return new Error(
+        'XUIPill: The prop `deleteButtonLabel` is required when using `onDeleteClick`.',
+      );
+    }
+
+    return null;
+  },
   /** This will make the value an `anchor` element instead of a `span` element and adds the
    * href as the link. */
   href: PropTypes.string,
@@ -196,8 +204,7 @@ XUIPill.propTypes = {
   isInvalid: PropTypes.bool,
   /** Callback to fire when the main pill content is clicked. */
   onClick: PropTypes.func,
-  /** Callback to fire when the delete pill button is clicked. When omitted, the delete button
-   * is also ommitted from the view. */
+  /** Callback to fire when the delete pill button is clicked. When omitted, the delete button is also omitted from the view. If this is provided, you must also provide a `deleteButtonLabel` for accessibility. */
   onDeleteClick: PropTypes.func,
   /** add a qahook to the component */
   qaHook: PropTypes.string,
@@ -211,11 +218,7 @@ XUIPill.propTypes = {
   value: PropTypes.node,
   /** Whether the pill should have a max-width of 200px */
   isLimitedWidth: PropTypes.bool,
-  /**
-   * The size of the pill to render.<br>
-   * **Note:**
-   * *The `xsmall` variant now is `sunsetting` because it doesn't meet [XUI touch target standards](../section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4), so it's not recommend to use.*
-   */
+  /** The size of the pill to render. Can be `medium` or `small`. */
   size: PropTypes.oneOf(Object.keys(sizeClasses)),
   /**
    * @ignore

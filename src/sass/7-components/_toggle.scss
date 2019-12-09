@@ -3,8 +3,8 @@
 
 // Full-width layout
 .#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle--label,
-.#{$ns}-toggle-fullwidth-layout > .#{$ns}-toggle-optionwrapper,
-.#{$ns}-toggle-fullwidth-layout > .#{$ns}-toggle-option {
+.#{$ns}-toggle-fullwidth-layout > .#{$ns}-toggle--optionwrapper,
+.#{$ns}-toggle-fullwidth-layout > .#{$ns}-toggle--option {
   flex-basis: 100%;
   flex-grow: 1;
 }
@@ -26,7 +26,7 @@
 }
 
 .#{$ns}-toggle-small .#{$ns}-toggle--label,
-.#{$ns}-toggle-small .#{$ns}-toggle-option {
+.#{$ns}-toggle-small .#{$ns}-toggle--option {
   min-height: $xui-control-size-small;
 }
 
@@ -57,7 +57,7 @@
   background-color: $xui-toggle-label-checked-bg-color;
   border-color: $xui-toggle-label-checked-border-color;
   color: $xui-toggle-label-checked-color;
-  z-index: 1;
+  z-index: $xui-z-index-body;
 }
 
 // Checked, hover
@@ -145,7 +145,6 @@
     background-color: $xui-toggle-label-inverted-checked-bg-color;
     border-color: $xui-toggle-label-inverted-checked-border-color;
     color: $xui-toggle-label-inverted-checked-color;
-    z-index: 1;
   }
 
   // Checked, hover
@@ -192,12 +191,12 @@
 }
 
 // Option styles
-.#{$ns}-toggle-option {
+.#{$ns}-toggle--option {
   display: flex;
 }
 
-.#{$ns}-toggle > .#{$ns}-toggle-optionwrapper,
-.#{$ns}-toggle > .#{$ns}-toggle-option {
+.#{$ns}-toggle > .#{$ns}-toggle--optionwrapper,
+.#{$ns}-toggle > .#{$ns}-toggle--option {
   &:nth-of-type(n + 2) .#{$ns}-toggle--label {
     border-left: none;
   }

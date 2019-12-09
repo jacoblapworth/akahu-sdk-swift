@@ -93,7 +93,11 @@ class SecondarySearchExample extends React.Component {
     );
 
     const items =
-      data.length > 0 ? createItems(data, sse.state.selectedItem) : <XUIAutocompleterEmptyState />;
+      data.length > 0 ? (
+        createItems(data, sse.state.selectedItem)
+      ) : (
+        <XUIAutocompleterEmptyState>No results found</XUIAutocompleterEmptyState>
+      );
 
     const footer = (
       <DropDownFooter

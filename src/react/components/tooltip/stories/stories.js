@@ -70,7 +70,7 @@ storiesWithKnobs.add('Playground', () => {
     triggerOnClick: boolean('triggerOnClick', false),
     triggerOnFocus: boolean('triggerOnFocus', false),
     triggerOnHover: boolean('triggerOnHover', true),
-    preferredPosition: select('preferredPosition', positionOptions, 'right-top'),
+    preferredPosition: select('preferredPosition', positionOptions, 'right-center'),
     isDisabled: boolean('isDisabled', false),
     openDelay: number('openDelay', 500),
     closeDelay: number('closeDelay', 100),
@@ -145,24 +145,24 @@ storiesWithKnobs.add('Playground', () => {
         }}
       >
         <XUITooltip trigger={createTriggerInput()} {...props}>
-          <p>
+          <span>
             Here there was once a paragraph of content that had some kind of explanation to go with
             it.
-          </p>
+          </span>
         </XUITooltip>
         <XUITooltip trigger={createTriggerInput()} {...props}>
           <div style={{ height: '200px' }}>
-            <p>
+            <span>
               Here there was once a paragraph of content that had some kind of explanation to go
               with it.
-            </p>
+            </span>
           </div>
         </XUITooltip>
         <XUITooltip trigger={createTriggerInput()} {...props}>
-          <p>
+          <span>
             Here there was once a paragraph of content that had some kind of explanation to go with
             it.
-          </p>
+          </span>
         </XUITooltip>
       </div>
       <div
@@ -176,19 +176,19 @@ storiesWithKnobs.add('Playground', () => {
         }}
       >
         <XUITooltip trigger={createTriggerLink()} {...props}>
-          <p>
+          <span>
             Here there was once a paragraph of content that had some kind of explanation to go with
             it.
-          </p>
+          </span>
         </XUITooltip>
         <XUITooltip trigger={createTriggerInput()} {...props}>
           {props.preferredPosition}
         </XUITooltip>
         <XUITooltip trigger={createTriggerInput()} {...props}>
-          <p>
+          <span>
             Here there was once a paragraph of content that had some kind of explanation to go with
             it.
-          </p>
+          </span>
         </XUITooltip>
       </div>
       <div style={{ position: 'fixed', left: '40px', top: '300px' }}>

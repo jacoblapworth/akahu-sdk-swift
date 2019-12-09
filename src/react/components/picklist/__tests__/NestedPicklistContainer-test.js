@@ -10,73 +10,180 @@ import Pickitem from '../Pickitem';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+const MockNestedPicklistContainer = props => (
+  <NestedPicklistContainer id="nested" {...props}>
+    <NestedPicklistTrigger id="nestedTrigger" ariaLabel="Toggle submenu">
+      Nested List
+    </NestedPicklistTrigger>
+    <NestedPicklist>
+      <Pickitem ariaRole="treeitem" id="a">
+        A
+      </Pickitem>
+    </NestedPicklist>
+  </NestedPicklistContainer>
+);
+
+const MockStatefulPicklist = props => (
+  <StatefulPicklist>
+    <Picklist>
+      <MockNestedPicklistContainer {...props} />
+    </Picklist>
+  </StatefulPicklist>
+);
+
 const setup = (props = {}) => {
-  return mount(
-    <StatefulPicklist>
-      <Picklist>
-        <NestedPicklistContainer id="nested" {...props}>
-          <NestedPicklistTrigger id="nestedTrigger">Nested List</NestedPicklistTrigger>
-          <NestedPicklist>
-            <Pickitem ariaRole="treeitem" id="a">
-              A
-            </Pickitem>
-          </NestedPicklist>
-        </NestedPicklistContainer>
-      </Picklist>
-    </StatefulPicklist>,
-  );
+  return mount(MockStatefulPicklist(props));
 };
 
 describe('<PicklistContainer />', () => {
-  it('calls onOpen when the picklist is opened programatically', () => {
-    const onOpenMock = jest.fn();
+  describe('Uncontrolled component', () => {
+    it('updates open state to isDefaultOpen prop value', () => {
+      // Arrange
+      const setup = (props = {}) => {
+        return mount(MockNestedPicklistContainer(props));
+      };
+      const wrapper = setup({ isDefaultOpen: true });
 
-    const wrapper = setup({ onOpen: onOpenMock });
+      // Act
+      const openState = wrapper.state().open;
 
-    wrapper
-      .find('NestedPicklistContainer')
-      .instance()
-      .open();
+      // Assert
+      expect(openState).toBe(true);
+    });
 
-    expect(onOpenMock).toBeCalledTimes(1);
+    it('calls onOpen when the picklist is opened programatically', () => {
+      // Arrange
+      const onOpenMock = jest.fn();
+      const wrapper = setup({ onOpen: onOpenMock });
+
+      // Act
+      wrapper
+        .find('NestedPicklistContainer')
+        .instance()
+        .open();
+
+      // Assert
+      expect(onOpenMock).toBeCalledTimes(1);
+    });
+
+    it('calls onClose when the picklist is closed programatically', () => {
+      const onCloseMock = jest.fn();
+
+      const wrapper = setup({ isDefaultOpen: true, onClose: onCloseMock });
+
+      wrapper
+        .find('NestedPicklistContainer')
+        .instance()
+        .close();
+
+      expect(onCloseMock).toBeCalledTimes(1);
+    });
+
+    it('does not call onOpen if the picklist is already open', () => {
+      // Arrange
+      const onOpenMock = jest.fn();
+      const wrapper = setup({ isDefaultOpen: true, onOpen: onOpenMock });
+
+      // Act
+      wrapper
+        .find('NestedPicklistContainer')
+        .instance()
+        .open();
+
+      // Assert
+      expect(onOpenMock).not.toBeCalled();
+    });
+
+    it('does not call onClose if the picklist is already closed', () => {
+      // Arrange
+      const onCloseMock = jest.fn();
+      const wrapper = setup({ isDefaultOpen: false, onClose: onCloseMock });
+
+      // Act
+      wrapper
+        .find('NestedPicklistContainer')
+        .instance()
+        .close();
+
+      // Assert
+      expect(onCloseMock).not.toBeCalled();
+    });
   });
 
-  it('calls onClose when the picklist is closed programatically', () => {
-    const onCloseMock = jest.fn();
+  describe('Controlled component', () => {
+    it('opens with open state being set to isOpen value', () => {
+      // Arrange
+      const setup = (props = {}) => {
+        return mount(MockNestedPicklistContainer(props));
+      };
+      const wrapper = setup({ isOpen: true });
 
-    const wrapper = setup({ isOpen: true, onClose: onCloseMock });
+      // Act
+      const openState = wrapper.state().open;
 
-    wrapper
-      .find('NestedPicklistContainer')
-      .instance()
-      .close();
+      // Assert
+      expect(openState).toBe(true);
+    });
 
-    expect(onCloseMock).toBeCalledTimes(1);
-  });
+    it('calls the onOpen method when the toggle is opened', () => {
+      // Arrange
+      const onOpenMock = jest.fn();
 
-  it('does not call onOpen if the picklist is already open', () => {
-    const onOpenMock = jest.fn();
+      const wrapper = setup({ isOpen: false, onOpen: onOpenMock });
 
-    const wrapper = setup({ isOpen: true, onOpen: onOpenMock });
+      // Act
+      wrapper
+        .find('NestedPicklistContainer')
+        .instance()
+        .open();
 
-    wrapper
-      .find('NestedPicklistContainer')
-      .instance()
-      .close();
+      // Assert
+      expect(onOpenMock).toBeCalled();
+    });
 
-    expect(onOpenMock).not.toBeCalled();
-  });
+    it('calls the onClose method when the toggle is closed', () => {
+      // Arrange
+      const onCloseMock = jest.fn();
+      const wrapper = setup({ isOpen: true, onClose: onCloseMock });
 
-  it('does not call onClose if the picklist is already closed', () => {
-    const onCloseMock = jest.fn();
+      // Act
+      wrapper
+        .find('NestedPicklistContainer')
+        .instance()
+        .close();
 
-    const wrapper = setup({ onClose: onCloseMock });
+      // Assert
+      expect(onCloseMock).toBeCalled();
+    });
 
-    wrapper
-      .find('NestedPicklistContainer')
-      .instance()
-      .close();
+    it('does not call onOpen if the picklist is already open', () => {
+      // Arrange
+      const onOpenMock = jest.fn();
+      const wrapper = setup({ isOpen: true, onOpen: onOpenMock });
 
-    expect(onCloseMock).not.toBeCalled();
+      // Act
+      wrapper
+        .find('NestedPicklistContainer')
+        .instance()
+        .open();
+
+      // Assert
+      expect(onOpenMock).not.toBeCalled();
+    });
+
+    it('does not call onClose if the picklist is already closed', () => {
+      // Arrange
+      const onCloseMock = jest.fn();
+      const wrapper = setup({ isOpen: false, onClose: onCloseMock });
+
+      // Act
+      wrapper
+        .find('NestedPicklistContainer')
+        .instance()
+        .close();
+
+      // Assert
+      expect(onCloseMock).not.toBeCalled();
+    });
   });
 });

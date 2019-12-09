@@ -315,6 +315,7 @@ $xui-toggle-label-inverted-disabled-border-color: $xui-color-white-alpha-6;
 $xui-toggle-label-inverted-disabled-color: $xui-color-white-alpha-2;
 
 $xui-shadow-focus: 0 0 0 3px $xui-color-grey-alpha-6;
+$xui-shadow-focus-inset: inset 0 0 0 3px $xui-color-grey-alpha-6;
 $xui-shadow-focus-inverted: 0 0 0 3px $xui-color-white-alpha-5;
 
 $xui-color-white-muted: $xui-color-white-alpha-2;
@@ -414,12 +415,6 @@ $xui-switch-checked-bg-color: $xui-color-blue;
 $xui-switch-disabled-bg-color: $xui-color-grey-alpha-6;
 $xui-switch-checked-disabled-bg-color: $xui-color-blue-xlight;
 
-// Isolation Header
-
-$xui-isolationheader-bg-color: $xui-color-white;
-$xui-isolationheader-color: $xui-color-black;
-$xui-isolationheader-inverted-bg-color: $xui-color-grey-2;
-
 // Loader
 
 $xui-loader-color: $xui-color-grey-alpha-3;
@@ -446,7 +441,7 @@ $xui-pageheading-bg-color: $xui-color-white;
 $xui-breadcrumb-link-color: $xui-color-blue;
 $xui-breadcrumb-link-hover-color: mix($xui-color-grey-1, $xui-color-blue, 5%);
 $xui-breadcrumb-link-active-color: mix($xui-color-grey-1, $xui-color-blue, 10%);
-$xui-breadcrumb-icon-color: $xui-color-grey-alpha-2;
+$xui-breadcrumb-icon-color: $xui-color-grey-alpha-4;
 
 // Overview
 
@@ -475,7 +470,7 @@ $xui-pill-single-invalid-focused-bg-color: $xui-color-white;
 // Pop over
 
 $xui-popover-bg-color: $xui-color-white;
-$xui-popover-arrow-border-color: $xui-color-grey-alpha-5;
+$xui-popover-arrow-border-color: $xui-color-grey-alpha-6;
 
 // Tables
 

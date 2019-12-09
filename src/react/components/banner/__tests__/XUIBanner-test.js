@@ -30,7 +30,7 @@ describe('XUIBanner', () => {
 
   it('should render without a close button if no close click function is provided', () => {
     const banner = shallow(<XUIBanner />);
-    expect(banner.childAt(0).hasClass('xui-banner--close')).toBeFalsy();
+    expect(banner.find('.xui-banner--close')).toHaveLength(0);
   });
 
   it('should render with a close button if close click function is provided', () => {

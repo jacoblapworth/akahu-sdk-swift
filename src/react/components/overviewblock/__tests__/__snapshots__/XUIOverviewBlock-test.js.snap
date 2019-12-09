@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUI OverviewBlock and OverviewSection/> renders overview block and overview section with automation id when qaHook prop is passed in 1`] = `
+<div
+  className="xui-overview xui-overview-has-border xui-overview-solid xui-overview-text-align-center xui-overview-layout"
+  data-automationid="qaHook"
+>
+  <section
+    className="xui-overview--section"
+    data-automationid="qaHook"
+  >
+    <div
+      className="xui-overview--label"
+    />
+    <div
+      className="xui-overview--value"
+    />
+  </section>
+</div>
+`;
+
+exports[`<XUI OverviewBlock and OverviewSection/> renders the base overview block with no extra settings passed 1`] = `
+<div
+  className="xui-overview xui-overview-has-border xui-overview-solid xui-overview-text-align-center xui-overview-layout"
+/>
+`;
+
+exports[`<XUI OverviewBlock and OverviewSection/> renders the base overview block with sections, children, sentiments, and options 1`] = `
+<div
+  className="xui-overview xui-overview-text-align-left xui-overview-layout"
+>
+  <section
+    className="xui-overview--section"
+  >
+    <div
+      className="xui-overview--label"
+    >
+      standard
+    </div>
+    <div
+      className="xui-overview--value"
+    >
+      100.23
+    </div>
+    test child content
+  </section>
+  <section
+    className="xui-overview--section"
+  >
+    <div
+      className="xui-overview--label"
+    >
+      positive
+    </div>
+    <div
+      className="xui-overview--value xui-textcolor-positive"
+    >
+      100.23
+    </div>
+    test child content
+  </section>
+  <section
+    className="xui-overview--section"
+  >
+    <div
+      className="xui-overview--label"
+    >
+      negative
+    </div>
+    <div
+      className="xui-overview--value xui-textcolor-negative"
+    >
+      100.23
+    </div>
+    test child content
+  </section>
+  <section
+    className="xui-overview--section"
+  >
+    <div
+      className="xui-overview--label"
+    >
+      muted
+    </div>
+    <div
+      className="xui-overview--value xui-textcolor-muted"
+    >
+      100.23
+    </div>
+    test child content
+  </section>
+</div>
+`;

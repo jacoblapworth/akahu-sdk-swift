@@ -11,19 +11,22 @@ import { XUIIconButton } from '../../button';
 import ExampleContainer from '../../docs/ExampleContainer';
 import overflowIcon from '@xero/xui-icon/icons/overflow';
 
-const requiredProps = {
+const props = {
   icon: overflowIcon,
-  ariaLabel: 'Dots menu'
+  ariaLabel: 'Dots menu',
+  className: 'xui-margin-right'
 };
 
 <div>
-  <XUIIconButton {...requiredProps} />
-  <XUIIconButton {...requiredProps} size="small" />
-  <XUIIconButton {...requiredProps} size="xsmall" />
+  <ExampleContainer className="xui-padding-xsmall">
+    <XUIIconButton {...props} />
+    <XUIIconButton {...props} size="small" />
+    <XUIIconButton {...props} size="xsmall" />
+  </ExampleContainer>
   <ExampleContainer className="xui-padding-xsmall" isInverted>
-    <XUIIconButton {...requiredProps} isInverted />
-    <XUIIconButton {...requiredProps} size="small" isInverted />
-    <XUIIconButton {...requiredProps} size="xsmall" isInverted />
+    <XUIIconButton {...props} isInverted />
+    <XUIIconButton {...props} size="small" isInverted />
+    <XUIIconButton {...props} size="xsmall" isInverted />
   </ExampleContainer>
 </div>;
 ```

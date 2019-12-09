@@ -8,7 +8,7 @@ import { sizeClasses } from '../private/constants';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
-import centered from '../../../../../.storybook/xuiResponsiveCenter';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 

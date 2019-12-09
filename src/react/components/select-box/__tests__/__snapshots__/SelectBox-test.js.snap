@@ -49,7 +49,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
             width={10}
           >
             <title>
-              Toggle List
+              Toggle list
             </title>
             <path
               d="M0 0l5 5 5-5z"
@@ -110,7 +110,7 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
             width={10}
           >
             <title>
-              Toggle List
+              Toggle list
             </title>
             <path
               d="M0 0l5 5 5-5z"

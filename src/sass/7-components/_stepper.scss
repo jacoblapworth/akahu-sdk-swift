@@ -683,7 +683,7 @@ $stepper-tab-max-width: 300px;
 }
 
 .#{$ns}-stepper-inline .#{$ns}-stepper-link {
-  border-radius: 9999px;
+  border-radius: $xui-radius;
   padding: 0;
 }
 
@@ -770,7 +770,7 @@ $stepper-tab-max-width: 300px;
 
   .#{$ns}-stepper-link-icon,
   .#{$ns}-stepper-link-progress {
-    border-radius: 50%;
+    border-radius: $xui-radius-circle;
   }
 
   .#{$ns}-stepper-link-active {
@@ -793,7 +793,7 @@ $stepper-tab-max-width: 300px;
 
   &:before {
     $offset: 10px;
-    border-radius: 50%;
+    border-radius: $xui-radius-circle;
     bottom: $offset;
     content: '';
     display: block;

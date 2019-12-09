@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TabDropDown /> renders correctly 1`] = `
+<div
+  className="custom-class"
+  data-ref="toggled-wrapper"
+  role="presentation"
+>
+  <li
+    aria-selected={null}
+    className="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium"
+    id="tabDropDownTrigger-pi1"
+    role="option"
+  >
+    <button
+      className="xui-pickitem--body"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      rel={null}
+      type="button"
+    >
+      <span
+        className="xui-pickitem--text"
+      >
+        Item 1
+      </span>
+      <svg
+        className="xui-icon xui-button--caret"
+        focusable="false"
+        height={5}
+        viewBox="0 0 10 5"
+        width={10}
+      >
+        <path
+          d="M0 0l5 5 5-5z"
+          role="presentation"
+        />
+      </svg>
+    </button>
+  </li>
+</div>
+`;

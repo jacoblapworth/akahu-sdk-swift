@@ -26,7 +26,6 @@ const PickitemMultiselect = ({
   children,
   checkboxClassName,
   qaHook,
-  size,
   primaryElement,
   secondaryElement,
   pinnedElement,
@@ -76,7 +75,7 @@ const PickitemMultiselect = ({
         labelClassName={labelClasses}
         onChange={NOOP}
         qaHook={qaHook && `${qaHook}--checkbox`}
-        size={sizeShift(size, -1)}
+        size={sizeShift('medium', -1)}
         tabIndex={-1}
       >
         {pinnedElement}
@@ -104,7 +103,6 @@ PickitemMultiselect.propTypes = {
   onFocus: PropTypes.func,
   shouldTruncate: PropTypes.bool,
   qaHook: PropTypes.string,
-  size: PropTypes.oneOf(['medium', 'small']),
   /** Standard text */
   primaryElement: PropTypes.node,
   /** Less important text to appear beside primary. */

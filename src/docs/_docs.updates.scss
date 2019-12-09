@@ -1,3 +1,116 @@
+// 16.0.0 Release update (December 2019)
+//
+// XUI 16.0.0 includes a number of enhancements to better support responsive interaction and display, including more flexible page header content reflow, navigational tabs and breadcrumb trails that can change UI based on their container widths, and increasing the touch targets of small interactive elements to meet minimum standards.
+//
+// Additionally, we have removed default English-language strings, encouraging product teams to supply all strings via their localisation libraries.
+//
+// <a href="https://github.dev.xero.com/UXE/xui/releases/tag/16.0.0">Full release notes on Github</a>
+//
+// Styleguide: Updates.94
+
+// Enhancements
+//
+// **Responsive improvements**
+// <ul>
+//   <li>Improved experience for breadcrumbs, horizontal picklists (tabs), page header, and isolation header on smaller screens</li>
+//   <li>Compact horizontal picklists (tabs) and breadcrumbs can now swap to dropdowns</li>
+//   <li>Tags get tooltips and truncation</li>
+// </ul>
+//
+// **Other enhancements**
+// <ul>
+//   <li>Unified the structure of accordion and content block items</li>
+// </ul>
+//
+// Styleguide: Updates.94.1
+
+// Removals and renaming
+//
+// View our [changes.md](https://github.dev.xero.com/UXE/xui/blob/16.0.0/changes.md#removals) file for the full list of deprecations and removals.
+//
+// Styleguide: Updates.94.2
+
+// Prop changes
+//
+// **Internationalisation**
+// <ul>
+//   <li>Removed hard-coded English-language default strings for a better localised user experience</li>
+// </ul>
+//
+// **Required props**
+// <ul>
+//   <li>Avatar now requires a `value` prop</li>
+//   <li>`onSearch` prop is now required for autocompleter secondary search</li>
+// </ul>
+//
+// **Other prop changes**
+// <ul>
+//   <li>Icon variants have been removed from `XUIButton` in favour of `XUIIconButton`</li>
+// </ul>
+//
+// Styleguide: Updates.94.3
+
+// Style changes
+//
+// **Responsive improvements**
+// <ul>
+//   <li>Buttons, capsules, checkboxes, icon buttons, linear progress indicators, links, pills, radio buttons, ranges, rollover checkboxes, split buttons, switches, tables, tags, text inputs, and toggles now have invisible touch targets that comply with our <a href="./section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4">touch target guidance</a> for an improved experience on smaller screens</li>
+// </ul>
+//
+// **Other style changes**
+// <ul>
+//   <li>Border radius consistency fixes</li>
+//   <li>Improved layering variables</li>
+//   <li>Updated heading line heights</li>
+//   <li>Unified content block and accordion styles</li>
+// </ul>
+//
+// Styleguide: Updates.94.4
+
+// Tooling
+//
+// **Dependencies and developer tooling**
+//
+// <ul>
+//   <li>Upgraded React, ReactDOM, and React Test Renderer</li>
+//   <li>Added test utility scripts and a CSS build watcher</li>
+//   <li>Generated the codemod script</li>
+//   <li>Aligned EditorConfig with Prettier config</li>
+// </ul>
+//
+// **Testing tooling**
+//
+// <ul>
+//   <li>Visual regression tests now run in a Docker container to better handle cross-environment issues</li>
+//   <li>Updated visual regression test script to work for continuous integration</li>
+//   <li>Updated Enzyme adapter</li>
+//   <li>Updated Storybook and added new stories to cover refactored “structural” components</li>
+//   <li>Tweaked a touch interaction story</li>
+// </ul>
+//
+// Styleguide: Updates.94.5
+
+// Documentation
+//
+// **Improved guidance**
+// <ul>
+//   <li>Added documentation for <a href="./section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-3">hover interactions</a> and <a href="./section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4">touch targets</a></li>
+//   <li>Added guidance for input alignment</li>
+//   <li>Updated size variant guidance</li>
+//   <li>Updated XUI Guide examples</li>
+//   <li>Flags added and/or updated to reflect updated components</li>
+// </ul>
+//
+// **Updates and fixes**
+//
+// <ul>
+//   <li>Picklist example updates</li>
+//   <li>Documentation fixes for isolation header and popover</li>
+//   <li>Documentation bug fixes: fixed picklist docs, silenced console warnings, and added a link to the <a href="https://docs.google.com/document/d/1A2kCB_etKBJhO7oGMPCzKFkKE56p9-tpGoZJl5qsZmI/edit">upgrade guide</a></li>
+// </ul>
+//
+// Styleguide: Updates.94.6
+
 // 15.0.0 Release update (March 2019)
 //
 // XUI 15.0.0 is themed around enabling and supporting responsive Xero applications. Responsive, much like accessibility, is a fundamental priority of building a progressive web application.
@@ -357,7 +470,7 @@
 
 // Design assets
 //
-// XUI design assets live in the [Design Systems project in Figma](https://www.figma.com/files/713083859032680705/team/713195599671588940/%5BDesign%5D-Systems). Updates to a XUI Library will be announced within any Figma file referencing one, or by the XUI team in the #xui-design Slack channel. New files will be announced in Slack.
+// XUI design assets live in the [Design Systems project in Figma](https://www.figma.com/file/S3jyPime1nzQjS6YS24uCm/XUI-16-Design-systems). Updates to a XUI Library will be announced within any Figma file referencing one, or by the XUI team in the #xui-design Slack channel. New files will be announced in Slack.
 //
 // Styleguide: Updates.100.3
 

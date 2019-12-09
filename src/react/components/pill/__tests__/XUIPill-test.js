@@ -70,7 +70,9 @@ describe('<XUIPill />', () => {
 
   it('invokes the callback passed into the onDeleteClick prop with itself passed in as an argument', () => {
     const callback = jest.fn();
-    const pill = mount(<XUIPill value="Pill" onDeleteClick={callback} />);
+    const pill = mount(
+      <XUIPill value="Pill" onDeleteClick={callback} deleteButtonLabel="Delete" />,
+    );
 
     pill
       .find('.xui-pill--button-icon')
@@ -151,7 +153,7 @@ describe('<XUIPill />', () => {
   });
 
   it("should render a delete button label of 'Delete' by default", () => {
-    const pill = mount(<XUIPill onDeleteClick={NOOP} />);
+    const pill = mount(<XUIPill onDeleteClick={NOOP} deleteButtonLabel="Delete" />);
 
     expect(
       pill
@@ -172,7 +174,7 @@ describe('<XUIPill />', () => {
   });
 
   it('should render a pills with correct size modifiers', () => {
-    const sizes = ['medium', 'small', 'xsmall'];
+    const sizes = ['medium', 'small'];
     sizes.forEach(size => {
       const pill = renderer.create(
         <XUIPill
@@ -182,6 +184,7 @@ describe('<XUIPill />', () => {
             value: 'Test Render',
           }}
           onDeleteClick={NOOP}
+          deleteButtonLabel="Delete"
         />,
       );
       expect(pill).toMatchSnapshot();

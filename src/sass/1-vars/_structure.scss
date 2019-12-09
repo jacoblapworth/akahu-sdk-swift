@@ -2,7 +2,11 @@
  * Settings for the structure/layout of the Xero design.
  */
 
+// Border radius
 $xui-radius: 3px;
+$xui-radius-circle: 50%;
+$xui-radius-max: 9999px;
+$xui-radius-scaled: 8%; // 24 / 3
 
 // TODO: Update these to match new breakpoints??
 $xui-page-width-small: 1000px;

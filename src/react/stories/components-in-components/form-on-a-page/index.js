@@ -184,6 +184,7 @@ test.add(storyNames.formOnAPage, () => {
             <XUIColumn gridColumns="half">
               <SelectBox
                 buttonContent="Hello world"
+                caretTitle="Toggle list"
                 isFieldLayout
                 isTextTruncated={false}
                 label="A simple select box"

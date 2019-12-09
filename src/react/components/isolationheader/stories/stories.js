@@ -3,10 +3,6 @@ import React from 'react';
 
 // Components we need to test with
 import XUIIsolationHeader from '../XUIIsolationHeader';
-import XUIIsolationHeaderNavigation from '../XUIIsolationHeaderNavigation';
-import XUIIsolationHeaderActions from '../XUIIsolationHeaderActions';
-import XUIIsolationHeaderTitle from '../XUIIsolationHeaderTitle';
-import XUIIsolationHeaderSecondaryTitle from '../XUIIsolationHeaderSecondaryTitle';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 import XUIAvatar from '../../avatar/XUIAvatar';
@@ -15,7 +11,7 @@ import XUITag from '../../tag/XUITag';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
-import centered from '../../../../../.storybook/xuiResponsiveCenter';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 import { flattenedIconList, flattenedIconMap } from '../../helpers/icons';
@@ -26,48 +22,62 @@ storiesWithKnobs.addDecorator(withKnobs);
 
 /* eslint-disable react/prop-types */
 function getComponent({
-  isPositionFixed,
-  title,
-  secondaryTitle,
-  navigationIcon,
   actionIcon,
-  hasTag,
-  hasAvatar,
   hasActionsPrimaryButton,
   hasActionsSecondaryButton,
+  hasAvatar,
+  hasTag,
+  navigationIcon,
+  secondaryTitle,
+  title,
+  ...spreadProps
 }) {
+  const navigationButton = navigationIcon && (
+    <XUIIconButton ariaLabel="navigate" icon={flattenedIconMap[navigationIcon]} />
+  );
+  const avatar = hasAvatar && <XUIAvatar size="small" value="ABC" />;
+  const tags = hasTag
+    ? [
+        <XUITag key="tag-1" size="small" variant="positive">
+          Tag
+        </XUITag>,
+      ]
+    : undefined;
+
+  const primaryAction = hasActionsPrimaryButton && (
+    <XUIButton size="small" variant="primary">
+      Primary
+    </XUIButton>
+  );
+  const secondaryAction = hasActionsSecondaryButton && (
+    <XUIButton size="small" variant="standard">
+      Secondary
+    </XUIButton>
+  );
+  const iconAction = actionIcon && (
+    <XUIIconButton ariaLabel="action" icon={flattenedIconMap[actionIcon]} />
+  );
+
+  const actions = (
+    <React.Fragment>
+      {secondaryAction}
+      {primaryAction}
+      {iconAction}
+    </React.Fragment>
+  );
+
   return (
     <div style={{ maxWidth: '600px' }}>
-      <XUIIsolationHeader isPositionFixed={isPositionFixed}>
-        <XUIIsolationHeaderNavigation>
-          {navigationIcon && (
-            <XUIIconButton ariaLabel="navigate" icon={flattenedIconMap[navigationIcon]} />
-          )}
-          {hasAvatar && <XUIAvatar className="xui-margin-right-small" size="small" value="ABC" />}
-          {title && <XUIIsolationHeaderTitle>{title}</XUIIsolationHeaderTitle>}
-          {secondaryTitle && (
-            <XUIIsolationHeaderSecondaryTitle>{secondaryTitle}</XUIIsolationHeaderSecondaryTitle>
-          )}
-          {hasTag && (
-            <XUITag size="small" variant="positive">
-              Tag
-            </XUITag>
-          )}
-        </XUIIsolationHeaderNavigation>
-        <XUIIsolationHeaderActions>
-          {hasActionsSecondaryButton && (
-            <XUIButton className="xui-isolationheader--button" size="small" variant="standard">
-              Secondary
-            </XUIButton>
-          )}
-          {hasActionsPrimaryButton && (
-            <XUIButton className="xui-isolationheader--button" size="small" variant="primary">
-              Primary
-            </XUIButton>
-          )}
-          {actionIcon && <XUIIconButton ariaLabel="action" icon={flattenedIconMap[actionIcon]} />}
-        </XUIIsolationHeaderActions>
-      </XUIIsolationHeader>
+      <XUIIsolationHeader
+        actions={actions}
+        avatar={avatar}
+        navigationButton={navigationButton}
+        qaHook="isolationheader"
+        secondary={secondaryTitle}
+        tags={tags}
+        title={title}
+        {...spreadProps}
+      />
     </div>
   );
 }

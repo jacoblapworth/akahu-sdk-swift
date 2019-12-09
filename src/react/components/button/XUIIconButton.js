@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIButton from './XUIButton';
 import XUIIcon from '../icon/XUIIcon';
+import XUITouchTarget from '../touchtarget/XUITouchTarget';
 import {
   sizeClassNames,
   iconSizeClassNames,
@@ -14,16 +15,16 @@ import { colorClasses, wrapperSizeClasses, rotationClasses } from '../icon/priva
 export default class XUIIconButton extends PureComponent {
   render() {
     const {
-      className,
-      icon,
       ariaLabel,
-      size,
-      isInverted,
-      iconSize,
+      className,
       desc,
+      icon,
+      iconColor,
+      iconSize,
+      isInverted,
       role,
       rotation,
-      iconColor,
+      size,
       ...otherProps
     } = this.props;
 
@@ -31,6 +32,7 @@ export default class XUIIconButton extends PureComponent {
 
     return (
       <XUIButton
+        {...otherProps}
         aria-label={ariaLabel}
         className={cn(
           className,
@@ -39,7 +41,6 @@ export default class XUIIconButton extends PureComponent {
         )}
         ref={n => (this.rootNode = n && n.rootNode)}
         variant="unstyled"
-        {...otherProps}
       >
         <XUIIcon
           color={iconColor}
@@ -49,6 +50,7 @@ export default class XUIIconButton extends PureComponent {
           rotation={rotation}
           size={iconSize}
         />
+        <XUITouchTarget />
       </XUIButton>
     );
   }

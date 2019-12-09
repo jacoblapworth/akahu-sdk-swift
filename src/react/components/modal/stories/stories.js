@@ -31,6 +31,7 @@ isolatedInstance.add('XUIModal', () => {
       <XUITextInput />
       <XUIButton>Test button</XUIButton>
       <XUIModal
+        closeButtonLabel="Close"
         isForm={boolean('Main content is a form', false)}
         isOpen={boolean('Is open', true)}
         isUsingPortal={boolean('Uses portal', true)}
@@ -65,7 +66,7 @@ variations.forEach(variation => {
     ) : null;
 
     return (
-      <XUIModal isOpen {...variationMinusStoryDetails}>
+      <XUIModal closeButtonLabel="Close" isOpen {...variationMinusStoryDetails}>
         {header}
         <XUIModalBody>This is some Modal content.</XUIModalBody>
         {footer}

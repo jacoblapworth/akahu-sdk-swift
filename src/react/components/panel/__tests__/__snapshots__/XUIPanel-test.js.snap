@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUI Panel and related components/> renders a panel with all the bells and whistles 1`] = `
+<div
+  className="xui-panel xui-panel-has-sidebar"
+>
+  <div
+    className="xui-panel--sidebar"
+  >
+    <ul
+      className="xui-picklist xui-picklist-layout xui-picklist-medium"
+      role="group"
+    >
+      <li
+        aria-selected={null}
+        className="xui-pickitem xui-pickitem-medium"
+        id="1"
+        role="option"
+      >
+        <button
+          className="xui-pickitem--body"
+          rel={null}
+          type="button"
+        >
+          <span
+            className="xui-pickitem--text"
+          >
+            Tab 1
+          </span>
+        </button>
+      </li>
+      <li
+        aria-selected={null}
+        className="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium"
+        id="2"
+        role="option"
+      >
+        <button
+          className="xui-pickitem--body"
+          rel={null}
+          type="button"
+        >
+          <span
+            className="xui-pickitem--text"
+          >
+            Tab 2
+          </span>
+        </button>
+      </li>
+      <li
+        aria-selected={null}
+        className="xui-pickitem xui-pickitem-medium"
+        id="3"
+        role="option"
+      >
+        <button
+          className="xui-pickitem--body"
+          rel={null}
+          type="button"
+        >
+          <span
+            className="xui-pickitem--text"
+          >
+            This is tab 3
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="xui-panel--main"
+  >
+    <header
+      className="xui-panel--heading xui-panel--header xui-panel--heading-layout"
+    >
+      Hello there
+    </header>
+    <div
+      className="xui-panel--section xui-padding-large"
+    >
+      <div
+        className="xui-panel--section--header test-header-class"
+      >
+        I'm a section header
+      </div>
+      <p>
+        Some important text might go here.
+      </p>
+    </div>
+    <div
+      className="xui-panel--section xui-padding-large"
+    >
+      <p>
+        Other critical info would go here.
+      </p>
+    </div>
+    <footer
+      className="xui-padding-small xui-panel--footer"
+    >
+      <div
+        className="xui-actions xui-actions-layout"
+        primary={
+          <XUIButton
+            fullWidth="never"
+            isDisabled={false}
+            isExternalLink={false}
+            isGrouped={false}
+            isLink={false}
+            isLoading={false}
+            retainLayout={true}
+            tabIndex={0}
+            type="button"
+            variant="standard"
+          >
+            Primary
+          </XUIButton>
+        }
+        secondary={
+          <XUIButton
+            fullWidth="never"
+            isDisabled={false}
+            isExternalLink={false}
+            isGrouped={false}
+            isLink={false}
+            isLoading={false}
+            retainLayout={true}
+            tabIndex={0}
+            type="button"
+            variant="standard"
+          >
+            Secondary
+          </XUIButton>
+        }
+      />
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`<XUI Panel and related components/> renders panel and panel section with automation id when qaHook prop is passed in 1`] = `
+<div
+  className="xui-panel"
+  data-automationid="qaHook"
+>
+  <div
+    className="xui-panel--section"
+    data-automationid="qaHook"
+  />
+  <footer
+    className="xui-panel--footer"
+    data-automationid="qaHook"
+  />
+</div>
+`;
+
+exports[`<XUI Panel and related components/> renders panel in a different tag, if supplied 1`] = `
+<caption
+  className="xui-panel"
+>
+  Content here
+</caption>
+`;
+
+exports[`<XUI Panel and related components/> renders the base panel with no extra settings passed 1`] = `
+<div
+  className="xui-panel"
+>
+  Content here
+</div>
+`;
+
+exports[`<XUI Panel and related components/> renders the panel section with no extra settings passed 1`] = `
+<div
+  className="xui-panel--section"
+>
+  Content here
+</div>
+`;

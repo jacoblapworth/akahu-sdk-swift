@@ -80,7 +80,9 @@ XUI has a number of top level folders. When contributing all the interesting fil
 src/
 ├─ docs/
 │  ├─ building-blocks/
+│  ├─ compositions/
 │  ├─ fundamentals/
+│  ├─ patterns/
 │  ├─ react/
 │  └─ working-with-xui/
 ├─ react/

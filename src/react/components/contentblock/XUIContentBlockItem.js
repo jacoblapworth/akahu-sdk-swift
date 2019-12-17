@@ -7,6 +7,8 @@ import { isKeyClick } from '../helpers/reactKeyHandler';
 export default class XUIContentBlockItem extends PureComponent {
   render() {
     const {
+      _ariaControls,
+      _ariaExpanded,
       qaHook,
       onClick,
       onKeyDown,
@@ -119,6 +121,8 @@ export default class XUIContentBlockItem extends PureComponent {
 
     return (
       <Tag
+        aria-controls={_ariaControls}
+        aria-expanded={_ariaExpanded}
         className={divClasses}
         data-automationid={qaHook}
         href={href}
@@ -141,6 +145,14 @@ XUIContentBlockItem.propTypes = {
   className: PropTypes.string,
   qaHook: PropTypes.string,
 
+  /**
+   * For accordion: identifies content associated with the trigger
+   */
+  _ariaControls: PropTypes.string,
+  /**
+   * For accordion: denotes whether content associated with the trigger is expanded
+   */
+  _ariaExpanded: PropTypes.bool,
   /**
    * Optional actions to be right aligned. Use the XUIActions component.
    */

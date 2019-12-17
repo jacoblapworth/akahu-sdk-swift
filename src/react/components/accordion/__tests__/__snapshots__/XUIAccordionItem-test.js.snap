@@ -9,6 +9,8 @@ exports[`<XUIAccordionItem /> should render the base component with only require
   className="xui-accordionwrapper"
 >
   <div
+    aria-controls="xui-accordionwrapper--content-123"
+    aria-expanded={false}
     className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -51,6 +53,7 @@ exports[`<XUIAccordionItem /> should render the base component with only require
   </div>
   <div
     className="xui-accordionwrapper--content"
+    id="xui-accordionwrapper--content-123"
   />
 </div>
 `;

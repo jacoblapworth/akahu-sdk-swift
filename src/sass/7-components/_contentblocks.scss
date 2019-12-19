@@ -309,6 +309,7 @@
 //
 // Tips:
 // Do: Promote encouraged actions to bypass the need to visit each content block
+// Dont: Don't use anchor tags or link buttons as actions when content block is already a link. It will render anchor in anchor which is not a valid syntax.
 //
 // Classes:
 // xui-actions: Justifies action to the right

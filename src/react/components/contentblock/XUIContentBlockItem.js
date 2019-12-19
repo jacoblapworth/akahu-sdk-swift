@@ -89,11 +89,13 @@ export default class XUIContentBlockItem extends PureComponent {
       <div
         className={`${baseClass}--rightcontent`}
         onClick={event => {
-          event.preventDefault();
+          href && event.preventDefault();
+          event.stopPropagation();
         }}
         onKeyDown={event => {
           if (isKeyClick(event)) {
-            event.preventDefault();
+            href && event.preventDefault();
+            event.stopPropagation();
           }
         }}
         role="presentation"

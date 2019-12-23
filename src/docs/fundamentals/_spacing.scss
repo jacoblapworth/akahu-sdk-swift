@@ -1,0 +1,138 @@
+// Spacing
+//
+// Teaser: Declaring spacing in and around elements.
+//
+// Introduction: XUI has a set of standardised spacing values. The size and spacing of components included in XUI are defined by these values, and a set of spacing classes using these values are provided for arranging interfaces.
+//
+// Styleguide: Fundamentals.Spacing
+
+// Base unit
+//
+// All spacing variables in XUI are based on multiples of 4px. A system based on even units allows easy alignment and centering of elements, especially at smaller dimensions, where the difference of a single pixel is quite significant.
+//
+// Styleguide: Fundamentals.Spacing.1
+
+// Interface density
+//
+// XUI provides size variants for a range of spacing utilities, components and typographic elements. These variants help when nesting components, or tweaking density and hierarchy within interfaces.
+//
+// Use higher density interfaces to ease with scanning and readability of large or complex data-sets.
+//
+// Component specific guidelines are available on pages alongside the components that provide size variants, and general guidelines are below.
+//
+// Styleguide: Fundamentals.Spacing.2
+
+// Best practice
+//
+// Tips:
+// Do: Use 'medium' size variants by default.
+// Do: Use smaller size variants and higher density, for long, complex, or comparative data sets.
+// Do: Provide enough space between high-density sections, to ensure they appear distinctly seperate.
+// Do: When nesting a component, use a size variant that is one smaller than its parent.
+// Do: Refer to individual components' best practice notes for sizing and nesting guidelines.
+// Do: Consider other ways to simplify data sets. For example, can you combine first-name and last-name fields into a single field, or split a long form into a few smaller steps?
+// Warning: Don't always default to high-density interfaces. They can impact accessibility by reducing touch targets and readability.
+// Don't: Don't use varying sizes of controls without very considered reasons.
+//
+// Styleguide: Fundamentals.Spacing.2.1
+
+// Defining spacing
+//
+// Many components in XUI already have a layout class that incorporates the suggested spacing in and around that component. We recommend using this if available. However, to define your own spacing, use the `.xui-margin` and `.xui-padding` classes. To define spacing in a stylesheet, use the set of SASS variables with the namespace `$xui-s`.
+//
+// Styleguide: Fundamentals.Spacing.3
+
+// Size
+//
+// Definitions:
+// 2xsmall: 		4px:      `-2xsmall`
+// xsmall: 			8px:      `-xsmall`
+// Small:       12px:     `-small`
+// Standard:    16px:     	none
+// Large:       20px:     `-large`
+// xlarge:      24px:     `-xlarge`
+// 2xlarge:     32px:     `-2xlarge`
+// 3xlarge:     40px:     `-3xlarge`
+// 4xlarge:     48px:     `-4xlarge`
+// 5xlarge:     64px:     `-5xlarge`
+// None:        0:        `-none`
+// Auto:        Flexible: `-auto` (margin only)
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="ds-space-example">
+//  <div class="xui-margin-5xlarge"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-4xlarge"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-3xlarge"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-2xlarge"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-xlarge"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-large"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-small"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-xsmall"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-2xsmall"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-none"></div>
+// </div>
+//
+// Styleguide: Fundamentals.Spacing.3.1
+
+// Position
+//
+// To define the size of the spacing, in addition to the position, use `.xui-margin-<position>-<size>` or `.xui-padding-<position>-<size>`.
+//
+// Definitions:
+// All:         All sides:      none
+// Vertical:    Top and bottom: `-vertical`
+// Horizontal:  Left and right: `-horizontal`
+// Top:         Top:            `-top`
+// Right:       Right:          `-right`
+// Bottom:      Bottom:         `-bottom`
+// Left:        Left:           `-left`
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="ds-space-example">
+//  <div class="xui-margin"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-vertical"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-horizontal"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-top"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-right"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-bottom"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-left"></div>
+// </div>
+//
+// Styleguide: Fundamentals.Spacing.3.2

@@ -1,0 +1,489 @@
+// Button
+//
+// Components: Button
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.n0x4g065o3eg
+//
+// Teaser: How to use the different variations of buttons and links within XUI
+//
+// Introduction: How to use the different variations of buttons and links within XUI
+//
+// Styleguide: Components.Controls.Button
+
+// Best practice
+//
+// Tips:
+// Do: In most circumstances, the standard and main button variants will suffice
+// Do: Use the small button variant in toolbars
+// Do: Use anchor tags when an href is present
+// Do: Use button tags in all other circumstances
+// Warning: Avoid using non-standard controls like divs for buttons
+// Warning: Use the create and negative colour variants sparingly
+// Dont: Never rely on the unstyled button class in isolation
+//
+// Styleguide: Components.Controls.Button.1
+
+// User agent reset
+//
+// First, apply the base button class to clear buttons of their default user agent styling.
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Classes:
+// xui-button: Base button class
+//
+// Markup: ./button-unstyled.html
+//
+// Styleguide: Components.Controls.Button.2
+
+// Style variants
+//
+// Add a `xui-button-*` modifier to specify which kind of button you require.
+//
+// Use descriptive button text as well as colour to convey information so it’s still meaningful to people who can’t discern colour.
+//
+// For example, using a ‘negative’ button:
+//
+// Tips:
+// Do: When using colour variation, use descriptive text like "Delete user records"
+// Dont: When using colour variation, avoid vague text like "Complete"
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Classes:
+// -main: Primary actions
+// -create: Creating new objects
+// -negative: Destructive actions
+// -standard: Secondary actions
+//
+// Markup:
+// <button class='xui-button xui-button-medium xui-button-main xui-margin-right-small'>Main</button>
+// <button class='xui-button xui-button-medium xui-button-create xui-margin-right-small'>Create</button>
+// <button class='xui-button xui-button-medium xui-button-negative xui-margin-right-small'>Negative</button>
+// <button class='xui-button xui-button-medium xui-button-standard'>Standard</button>
+//
+// Styleguide: Components.Controls.Button.3
+
+// Borderless
+//
+// Borderless `xui-button-*` modifiers are also available for actions that require less visual emphasis.
+//
+// Use descriptive button text as well as colour to convey information so it’s still meaningful to people who can’t discern colour.
+//
+// For example, using a ‘negative’ button:
+//
+// Tips:
+// Do: When using colour variation, use descriptive text like "Delete user records"
+// Dont: When using colour variation, avoid vague text like "Complete"
+//
+// Classes:
+// -borderless-main: Primary actions
+// -borderless-create: Creating new objects
+// -borderless-negative: Desctructive actions
+// -borderless-muted: Secondary text colour
+// -borderless-standard: Standard text colour
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <button class='xui-button xui-button-medium xui-button-borderless-main xui-margin-right-small'>Main</button>
+// <button class='xui-button xui-button-medium xui-button-borderless-create xui-margin-right-small'>Create</button>
+// <button class='xui-button xui-button-medium xui-button-borderless-negative xui-margin-right-small'>Negative</button>
+// <button class='xui-button xui-button-medium xui-button-borderless-muted xui-margin-right-small'>Muted</button>
+// <button class='xui-button xui-button-medium xui-button-borderless-standard'>Standard</button>
+//
+// Styleguide: Components.Controls.Button.3.1
+
+// Size variants
+//
+// Buttons have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
+//
+// Tips:
+// Do: Use 'medium' variant by default
+// Do: Use 'small' and 'xsmall' variants when nested inside other elements (except for icon-button which should use the same size variant as its parent)
+// Warning: Be cautious when using 'xsmall' variant, as it has reduced legibility and touch target
+// Dont: Don’t mix and match size variants inline with each other
+//
+// Definitions:
+// Size variant: **Height**: **Class**
+// medium: 40px: `xui-button-medium`
+// small: 32px: `xui-button-small`
+// xsmall: 24px: `xui-button-xsmall`
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
+// <div class="xui-margin-vertical">
+//   <button class='xui-button xui-button-main xui-button-medium xui-margin-right-small'>Main</button>
+//   <button class='xui-button xui-button-create xui-button-medium xui-margin-right-small'>Create</button>
+//   <button class='xui-button xui-button-negative xui-button-medium xui-margin-right-small'>Negative</button>
+//   <button class='xui-button xui-button-standard xui-button-medium xui-margin-right-small'>Standard</button>
+// </div>
+// <div class="xui-margin-vertical">
+//   <button class='xui-button xui-button-main xui-button-small xui-margin-right-small'>Main</button>
+//   <button class='xui-button xui-button-create xui-button-small xui-margin-right-small'>Create</button>
+//   <button class='xui-button xui-button-negative xui-button-small xui-margin-right-small'>Negative</button>
+//   <button class='xui-button xui-button-standard xui-button-small xui-margin-right-small'>Standard</button>
+// </div>
+// <div class="xui-margin-vertical">
+//   <button class='xui-button xui-button-main xui-button-xsmall xui-margin-right-small'>Main</button>
+//   <button class='xui-button xui-button-create xui-button-xsmall xui-margin-right-small'>Create</button>
+//   <button class='xui-button xui-button-negative xui-button-xsmall xui-margin-right-small'>Negative</button>
+//   <button class='xui-button xui-button-standard xui-button-xsmall xui-margin-right-small'>Standard</button>
+// </div>
+//
+// Styleguide: Components.Controls.Button.4
+
+// Full width
+//
+// To force a button to occupy the entire width of its parent at all times, apply the following utility class.
+//
+// Classes:
+// xui-button-fullwidth: 100% width
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <button class="xui-button xui-button-medium xui-button-main xui-button-fullwidth xui-margin-vertical">Full width</button>
+// <button class="xui-button xui-button-small xui-button-main xui-button-fullwidth xui-margin-vertical">Full width</button>
+// <button class="xui-button xui-button-xsmall xui-button-main xui-button-fullwidth xui-margin-vertical">Full width</button>
+//
+// Styleguide: Components.Controls.Button.5
+
+// Full width at mobile
+//
+// To force a button to occupy the entire width of its parent at narrow viewports, apply the following modifier.
+//
+// Classes:
+// xui-button-fullwidth-layout: 100% width below 600px ($xui-breakpoint-small-down)
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-margin-vertical">
+//   <button class="xui-button xui-button-main xui-button-medium xui-button-fullwidth-layout">Full width at mobile</button>
+// </div>
+// <div class="xui-margin-vertical">
+//   <button class="xui-button xui-button-main xui-button-small xui-button-fullwidth-layout">Full width at mobile</button>
+// </div>
+// <div class="xui-margin-vertical">
+//   <button class="xui-button xui-button-main xui-button-xsmall xui-button-fullwidth-layout">Full width at mobile</button>
+// </div>
+//
+// Styleguide: Components.Controls.Button.5.1
+
+// Icon buttons
+//
+// flags: updated
+//
+// At times, icon-only buttons are desired for optimal space utilisation, or quick actions that are common and performed frequently.
+// To create one, apply the following class to the button, and insert the desired [icon](section-fundamentals-icons.html) and the [touch target element](section-getting-started-responsive.html#getting-started-responsive-3) inside.
+//
+// Tips:
+// Do: Use icons from XUI icon set
+// Do: When nesting icon-buttons, use the same size variant as the parent
+// Do: Use icon buttons to optimise screen real-estate on small screen sizes
+// Do: Always include descriptive Title and ARIA labels on buttons
+// Warning: Ensure that users understand an icon and its purpose before solely relying on one to convey meaning
+// Warning: If displaying multiple icon buttons, ensure there is adequate space between so that touch targets don't overlap
+//
+// Classes:
+// xui-button-icon: Apply to button
+// xui-touchtarget: Apply to an empty element inside the icon button
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-icon xui-button-icon-small" title="Close the window" aria-label="Close the window">
+//   <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-overflow" role="presentation" /></svg>
+//   <div class="xui-touchtarget"></div>
+// </button>
+//
+// Styleguide: Components.Controls.Button.6
+
+// Icon button size variants
+//
+// Icon buttons require their own classes to be applied to use size variants. Follow the same [size variants as regular buttons](./section-components-controls-button.html#components-controls-button-4).
+//
+//**Note:** Icon buttons nested inside controls should use the same size variant as the control.
+//
+// Definitions:
+// Size variant: **Height**: **Class**
+// medium: 40px: `xui-button-icon-medium`
+// small: 32px: `xui-button-icon-small`
+// xsmall: 24px: `xui-button-icon-xsmall`
+//
+// Markup:
+//   <button type="button" class="xui-button xui-button-icon-medium xui-button-icon" title="Close the window" aria-label="Close the window">
+//     <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <div class="xui-touchtarget"></div>
+//   </button>
+//   <button type="button" class="xui-button xui-button-icon-small xui-button-icon" title="Close the window" aria-label="Close the window">
+//     <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <div class="xui-touchtarget"></div>
+//   </button>
+//   <button type="button" class="xui-button xui-button-icon-xsmall xui-button-icon" title="Close the window" aria-label="Close the window">
+//     <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <div class="xui-touchtarget"></div>
+//   </button>
+//
+// Styleguide: Components.Controls.Button.6.1
+
+// Inverted
+//
+// To provide adequate contrast for use on darker backgrounds, inverted styles are also available for all button variants.
+//
+// Classes:
+// xui-button-inverted: Apply to buttons to invert focus ring
+// xui-button-borderless-inverted: Apply to buttons to create an inverted borderless variant
+// xui-button-icon-inverted: Apply to icon buttons to create an inverted variant
+//
+// ExampleClass: ds-example-dark ds-example-verticallycentered
+//
+// Markup:
+// <div>
+//   <button type="button" class="xui-button xui-button-medium xui-button-main xui-button-inverted xui-margin-right-small">Main</button>
+//   <button type="button" class="xui-button xui-button-medium xui-button-create xui-button-inverted xui-margin-right-small">Create</button>
+//   <button type="button" class="xui-button xui-button-medium xui-button-negative xui-button-inverted xui-margin-right-small">Negative</button>
+//   <button type="button" class="xui-button xui-button-medium xui-button-standard xui-button-inverted xui-margin-right-small">Standard</button>
+//   <button type="button" class="xui-button xui-button-medium xui-button-borderless-inverted xui-margin-right-small">Borderless inverted</button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-medium xui-button-icon-inverted" title="Go back to the previous page" aria-label="Go back to the previous page">
+//     <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-back"></use></svg>
+//     <div class="xui-touchtarget"></div>
+//   </button>
+// </div>
+//
+// Styleguide: Components.Controls.Button.7
+
+// Disabled
+//
+// To disable a button, apply the following modifier.
+// Make sure you also add the `disabled` attribute to prevent keyboard focus.
+//
+// ExampleClass: ds-example-verticallycentered
+//
+// Classes:
+// xui-button-is-disabled: Apply to any disabled button
+//
+// Markup:
+// <button type="button" disabled class="xui-button xui-button-medium xui-button-main xui-button-is-disabled xui-margin-right-small">Main</button>
+// <button type="button" disabled class="xui-button xui-button-medium xui-button-standard xui-button-is-disabled xui-margin-right-small">Standard</button>
+// <button type="button" disabled class="xui-button xui-button-medium xui-button-borderless-standard xui-button-is-disabled xui-margin-right-small">Borderless</button>
+// <button type="button" disabled class="xui-button xui-button-icon xui-button-icon-medium xui-button-is-disabled" title="Go back to the previous page" aria-label="Go back to the previous page">
+//   <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-back"></use></svg>
+//   <div class="xui-touchtarget"></div>
+// </button>
+//
+// Styleguide: Components.Controls.Button.8
+
+// Dropdowns
+//
+// To create a button that triggers a dropdown, include a caret icon to indicate additional options are available behind the button.
+// To do this, include the SVG alongside the button and apply the following modifier to provide the correct layout.
+//
+// Classes:
+// xui-button--caret: Apply to icon
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-margin-vertical">
+//   <button type="button" class="xui-button xui-button-standard xui-button-medium">
+//     Dropdown
+//     <svg focusable="false" class="xui-icon xui-button--caret"><use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//   </button>
+// </div>
+// <div class="xui-margin-vertical">
+//   <button type="button" class="xui-button xui-button-small xui-button-standard">
+//     Dropdown
+//     <svg focusable="false" class="xui-icon xui-button--caret"><use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//   </button>
+// </div>
+// <div class="xui-margin-vertical">
+//   <button type="button" class="xui-button xui-button-xsmall xui-button-standard">
+//     Dropdown
+//     <svg focusable="false" class="xui-icon xui-button--caret"><use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//   </button>
+// </div>
+//
+// Styleguide: Components.Controls.Button.9
+
+// Grouped
+//
+// To group a series of similar actions in a more compact space, apply the following classes.
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Classes:
+// xui-buttongroup: Container for a button group
+// xui-button-grouped: Modifier for a grouped button
+//
+// Markup:
+// <div class="xui-margin-top">
+//   <div class="xui-buttongroup">
+//     <button type="button" class="xui-button xui-button-grouped xui-button-standard xui-button-medium">Delete</button>
+//     <button type="button" class="xui-button xui-button-grouped xui-button-standard xui-button-medium">Copy</button>
+//     <button type="button" class="xui-button xui-button-grouped xui-button-standard xui-button-medium">Edit</button>
+//   </div>
+// </div>
+// <div class="xui-margin-top">
+//   <div class="xui-buttongroup">
+//     <button type="button" class="xui-button xui-button-small xui-button-grouped xui-button-standard">Delete</button>
+//     <button type="button" class="xui-button xui-button-small xui-button-grouped xui-button-standard">Copy</button>
+//     <button type="button" class="xui-button xui-button-small xui-button-grouped xui-button-standard">Edit</button>
+//   </div>
+// </div>
+// <div class="xui-margin-top">
+//   <div class="xui-buttongroup">
+//     <button type="button" class="xui-button xui-button-xsmall xui-button-grouped xui-button-standard">Delete</button>
+//     <button type="button" class="xui-button xui-button-xsmall xui-button-grouped xui-button-standard">Copy</button>
+//     <button type="button" class="xui-button xui-button-xsmall xui-button-grouped xui-button-standard">Edit</button>
+//   </div>
+// </div>
+//
+// Styleguide: Components.Controls.Button.10
+
+// Split
+//
+// To seperate an action from similar, but secondary actions that appear behind a dropdown, use a split button.
+// Use a button group, but for the last child, insert an icon instead of text. As with any icon-only button, add an aria-label for accessibility.
+// The following modifiers must also be applied to provide the correct layout.
+//
+// Classes:
+// xui-button-split: Apply to dropdown trigger button
+// xui-button--caret: Apply to icon
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-margin-vertical">
+//   <div class="xui-buttongroup">
+//     <button type="button" class="xui-button xui-button-grouped xui-button-standard xui-button-medium">Dropdown</button>
+//     <button type="button" class="xui-button xui-button-grouped xui-button-standard xui-button-split xui-button-medium" aria-label="More actions">
+//       <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//    </button>
+//   </div>
+// </div>
+// <div class="xui-margin-vertical">
+//   <div class="xui-buttongroup">
+//     <button type="button" class="xui-button xui-button-small xui-button-grouped xui-button-standard">Dropdown</button>
+//     <button type="button" class="xui-button xui-button-small xui-button-grouped xui-button-standard xui-button-split" aria-label="More actions">
+//       <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//    </button>
+//   </div>
+// </div>
+// <div class="xui-margin-vertical">
+//   <div class="xui-buttongroup">
+//     <button type="button" class="xui-button xui-button-xsmall xui-button-grouped xui-button-standard">Dropdown</button>
+//     <button type="button" class="xui-button xui-button-xsmall xui-button-grouped xui-button-standard xui-button-split" aria-label="More actions">
+//       <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//    </button>
+//   </div>
+// </div>
+//
+// Styleguide: Components.Controls.Button.11
+
+// Layout
+//
+// To position buttons correctly inside a form, modal or page, apply the following classes.
+//
+// Classes:
+// xui-actions: Apply to button container to set the correct layout
+// xui-actions-layout: Apply to button container to add internal spacing and stack buttons below 600px ($xui-breakpoint-small-down)
+// xui-actions--primary: Apply to primary button to set the correct order
+// xui-actions--secondary: Apply to secondary button to set the correct order
+//
+// Markup:
+// <div class="xui-panel xui-padding xui-button-fullwidth">
+//  <div class="xui-actions xui-actions-layout">
+//    <button type="button" class="xui-button xui-button-standard xui-button-medium xui-actions--secondary">Secondary</button>
+//    <button type="button" class="xui-button xui-button-main xui-button-medium xui-actions--primary">Primary</button>
+//  </div>
+// </div>
+//
+// Styleguide: Components.Controls.Button.12
+
+// Linear flow
+//
+// In the case of a linear flow, apply the following modifier to push buttons to opposite sides of the container.
+//
+// Classes:
+// xui-actions-linear: Apply to button container to push buttons apart and stack below 600px ($xui-breakpoint-small-down)
+//
+// Markup:
+// <div class="xui-panel xui-padding xui-button-fullwidth">
+//  <div class="xui-actions xui-actions-layout xui-actions-linear">
+//    <button type="button" class="xui-button xui-button-standard xui-button-medium xui-actions--secondary">Secondary</button>
+//    <button type="button" class="xui-button xui-button-main xui-button-medium xui-actions--primary">Primary</button>
+//  </div>
+// </div>
+//
+// Styleguide: Components.Controls.Button.12.1
+
+// Accessibility
+//
+// Buttons can be rendered using either the `<button>` or `<a>` element.
+// However, we recommend using the `<button>` element wherever possible, with the exception of links that need to appear like buttons.
+// If you have no `href` attribute on your `<a>` element, or are using `href="javascript:void(0)"` or `href="#"`, then you really should be using a `<button>` instead.
+//
+// If you must create a button using the `<a>` element, take care to add the appropriate aria attributes and keyboard controls.
+// For example, buttons can be activated by either the spacebar or the enter key.
+// In the case of the `<a>` tag, the spacebar does not activate the link and you must implement this behaviour yourself.
+//
+// Styleguide: Components.Controls.Button.13
+
+// Icon buttons
+//
+// As icon-only buttons do not contain text labels, take care to provide an alternative in the markup.
+// The `title` attribute can be used to offer additional information to users via a tooltip.
+// However, you must also apply an `aria-label` attribute that matches this value, in order for screen readers to access the information as well.
+// For more information, read this [Silktide article](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/).
+//
+// Styleguide: Components.Controls.Button.13.1
+
+// Class list
+//
+// Classes:
+// xui-button: Style for a button
+// xui-button-icon: Modifier for an icon button
+// xui-button-standard: Modifier for a standard button
+// xui-button-main: Modifier for a main button
+// xui-button-create: Modifier for a button that creates new objects
+// xui-button-negative: Modifier for a button with negative consequences
+// xui-button-borderless-standard: Modifier for a standard borderless button
+// xui-button-borderless-main: Modifier for a main borderless button
+// xui-button-borderless-muted: Modifier for a more subtle borderless button
+// xui-button-borderless-create: Modifier for a borderless button that creates new objects
+// xui-button-borderless-negative: Modifier for a borderless button with negative consequences
+// xui-button-inverted: Apply to buttons to invert focus ring
+// xui-button-borderless-inverted: Apply to buttons to create an inverted borderless variant
+// xui-button-icon-inverted: Apply to icon buttons to create an inverted variant
+// xui-button-is-disabled: Modifier for a disabled button
+// xui-button-split: Modifier for a split button (eg button and dropdown)
+// xui-button--caret: Subcomponent for a caret button
+// xui-button-fullwidth-layout: Modifier for a full-width button using $xui-breakpoint-small-down
+// xui-buttongroup: Container for a group of buttons
+// xui-button-grouped: Modifier for a grouped button
+// xui-actions: Container to be used when creating layouts with a primary and secondary button
+// xui-actions-layout: Provides spacing between primary and secondary buttons as well as a mobile responsive layout
+// xui-actions-linear: Places primary and secondary buttons at opposite sides of the container
+// xui-actions--primary: Subcomponent to be applied directly to the primary button
+// xui-actions--secondary: Subcomponent to be applied directly to the secondary button
+// xui-button--loader: Modifier for a loader inside a button. Use with "xui-button-is-disabled".
+// xui-button-loaderminwidth: Modifier to add a button specific min-width of 75px. Useful for small buttons that you expect to be loaders as well
+// xui-button-medium: Modifier for a medium button
+// xui-button-small: Modifier for a small button
+// xui-button-xsmall: Modifier for a xsmall button
+// xui-button-icon-small: Modifier for a small icon button
+// xui-button-icon-xsmall: Modifier for a xsmall icon button
+// xui-touchtarget: Invisible touch target element inside an icon button
+//
+// Styleguide: Components.Controls.Button.50
+
+.#{$ns}-button {
+  @include xui-button-reset;
+  // Touch target fix for buttons, except iconButtons
+  &:not(.#{$ns}-button-icon) {
+    min-width: $xui-minimum-touch-target;
+  }
+  // To make sure content in link is centered
+  text-align: center;
+}

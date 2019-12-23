@@ -1,0 +1,455 @@
+// Progress indicator
+//
+// Components: progress-indicator
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.3l5wf5ao6h5q
+//
+// Teaser: To communicate progress and indicate context.
+//
+// Introduction: Progress indicators are used to visually communicate progress.
+//
+// Styleguide: Components.Identifiers.ProgressIndicator
+
+// Best practice
+//
+// Tips:
+// Do: Use to indicate progress towards a goal
+// Do: Use to indicate current position within a series of steps
+// Warning: Use progress indicators sparingly, as they are relatively dominant interface elements.
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.1
+
+// Anatomy
+//
+// There are two progress indicator layouts for displaying a progress indicator, depending on context.
+// Each contains a track and a current value.
+//
+// Classes:
+// xui-progress: Apply to wrapper
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.2
+
+// Linear
+//
+// Classes:
+// xui-progress-linear: Modifier for a linear progress indicator
+// xui-progress-linear-wrapper: Container for a linear progress indicator
+// xui-progress-linear-track: Track element
+// xui-progress-linear-current: Current value element
+//
+// Tips:
+// Do: Use as a read-only visualization of progress
+// Do: Use when vertical space is limited
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div aria-valuemax="8" aria-valuemin="0" aria-valuenow="2" aria-valuetext="2 of 8" class="xui-progress xui-progress-linear" role="progressbar">
+// 	<div class="xui-progress-linear-wrapper">
+// 		<div class="xui-progress-linear-track">
+// 			<div class="xui-progress-linear-current" style="width: 25%;"></div>
+// 		</div>
+// 	</div>
+// </div>
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.2.1
+
+// Circular
+//
+// Classes:
+// xui-progress-circular: Modifier for a circular progress indicator
+// xui-progress-circular-wrapper: Container for a circular progress indicator
+// xui-progress-circular-track: Track element
+// xui-progress-circular-current: Current value element
+//
+// Tips:
+// Do: Use in navigational or interactive elements
+// Do: Use when horizontal space is limited
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div aria-valuemax="8" aria-valuemin="0" aria-valuenow="2" aria-valuetext="2 of 8" class="xui-progress xui-progress-circular" role="progressbar">
+// 		<div>
+// 			<div>
+// 				<canvas class="xui-progress-circular-scaler" height="100" width="100"></canvas><svg class="xui-progress-circular-wrapper" viewbox="0 0 100 100">
+// 				<defs>
+// 					<mask height="100" id="myCustomProgressId-progress-mask" maskunits="userSpaceOnUse" width="100" x="0" y="0">
+// 						<circle class="xui-progress-circular-mask xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="initial" stroke-width="11.476068685097855"></circle>
+// 					</mask>
+// 				</defs>
+// 				<g mask="url(#myCustomProgressId-progress-mask)">
+// 					<circle class="xui-progress-circular-track" cx="50" cy="50" r="44.26196565745107" stroke-width="11.476068685097855"></circle>
+// 					<circle class="xui-progress-circular-current xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="278.106132285784" stroke-dashoffset="208.57959921433797" stroke-width="11.476068685097855"></circle>
+// 				</g></svg>
+// 			</div>
+// 		</div>
+// 		<div class="xui-progress-icon"></div>
+// 	</div>
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.2.2
+
+// Size
+//
+// Progress indicator offers two main size options to allow for greater control over visual heirarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
+//
+// Tips:
+// Do: Use a standard sized progress indicator for navigational and interactive elements
+// Do: Use a scaling progress indicator for precise control over width and height
+// Warning: Avoid using too many different sized indicators on a single page
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.3
+
+// Standard
+//
+// For the circular variant, the standard progress indicator has a fixed width and height.
+// For the linear variant, the standard progress indicator has a flexible width and a fixed height.
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div aria-valuemax="8" aria-valuemin="0" aria-valuenow="4" aria-valuetext="4 of 8" class="xui-progress xui-progress-linear xui-margin-bottom-large" role="progressbar">
+// 	<div class="xui-progress-linear-wrapper">
+// 		<div class="xui-progress-linear-track">
+// 			<div class="xui-progress-linear-current" style="width: 50%;"></div>
+// 		</div>
+// 	</div>
+// </div>
+// <div aria-valuemax="8" aria-valuemin="0" aria-valuenow="4" aria-valuetext="4 of 8" class="xui-progress xui-progress-circular" role="progressbar">
+// 	<div>
+// 		<div>
+// 			<canvas class="xui-progress-circular-scaler" height="100" width="100"></canvas><svg class="xui-progress-circular-wrapper" viewbox="0 0 100 100">
+// 			<defs>
+// 				<mask height="100" id="myCustomProgressId-progress-mask" maskunits="userSpaceOnUse" width="100" x="0" y="0">
+// 					<circle class="xui-progress-circular-mask xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="initial" stroke-width="11.476068685097855"></circle>
+// 				</mask>
+// 			</defs>
+// 			<g mask="url(#myCustomProgressId-progress-mask)">
+// 				<circle class="xui-progress-circular-track" cx="50" cy="50" r="44.26196565745107" stroke-width="11.476068685097855"></circle>
+// 				<circle class="xui-progress-circular-current xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="278.106132285784" stroke-dashoffset="139.053066142892" stroke-width="11.476068685097855"></circle>
+// 			</g></svg>
+// 		</div>
+// 	</div>
+// 	<div class="xui-progress-icon"></div>
+// </div>
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.3.1
+
+// Grow
+//
+// Both growing indicators inherit width and height from their parent, so they can be used in combination with other elements that have specifically defined dimensions.
+// The stroke width of the circular variant also scales tangentially to it's containing element at all times.
+// To create a growing progress indicator, apply the following modifier.
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Classes:
+// xui-progress-grow: Modifier for a growing progress indicator
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div aria-valuemax="8" aria-valuemin="0" aria-valuenow="4" aria-valuetext="4 of 8" class="xui-progress xui-progress-linear xui-progress-grow xui-margin-bottom-large" role="progressbar" style="height: 10px">
+// 	<div class="xui-progress-linear-wrapper">
+// 		<div class="xui-progress-linear-track">
+// 			<div class="xui-progress-linear-current" style="width: 50%;"></div>
+// 		</div>
+// 	</div>
+// </div>
+// <div aria-valuemax="8" aria-valuemin="0" aria-valuenow="4" aria-valuetext="4 of 8" class="xui-progress xui-progress-circular xui-progress-grow" role="progressbar" style="width: 100px">
+// 	<div>
+// 		<div>
+// 			<canvas class="xui-progress-circular-scaler" height="100" width="100"></canvas><svg class="xui-progress-circular-wrapper" viewbox="0 0 100 100">
+// 			<defs>
+// 				<mask height="100" id="myCustomProgressId-progress-mask" maskunits="userSpaceOnUse" width="100" x="0" y="0">
+// 					<circle class="xui-progress-circular-mask xui-progress-roundcap" cx="50" cy="50" r="45.33016797585764" stroke-dasharray="initial" stroke-width="9.339664048284721"></circle>
+// 				</mask>
+// 			</defs>
+// 			<g mask="url(#myCustomProgressId-progress-mask)">
+// 				<circle class="xui-progress-circular-track" cx="50" cy="50" r="45.33016797585764" stroke-width="9.339664048284721"></circle>
+// 				<circle class="xui-progress-circular-current xui-progress-roundcap" cx="50" cy="50" r="45.33016797585764" stroke-dasharray="284.81784539789135" stroke-dashoffset="142.40892269894567" stroke-width="9.339664048284721"></circle>
+// 			</g></svg>
+// 		</div>
+// 	</div>
+// 	<div class="xui-progress-icon"></div>
+// </div>
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.3.2
+
+// Color
+//
+// The default color for progress indicators is blue.
+// However, you can set the track or current progress to any standard color you like.
+// To do this, simply set the `data-xui-progress-current-color` and `data-xui-progress-total-color` attributes to any of the following colors.
+// Note that `xui-color-red` is reserved for the error state.
+//
+// Use descriptive text alongside Progress indicators to convey information so it’s still meaningful to people who can’t discern colour
+//
+// Definitions:
+// Orange: `xui-color-orange`: `orange`
+// Yellow: `xui-color-yellow`: `yellow`
+// Green: `xui-color-green`: `green`
+// Mint: `xui-color-mint`: `mint`
+// Turquoise: `xui-color-turquoise`:`turquoise`
+// Blue: `xui-color-blue`: `blue`
+// Violet: `xui-color-violet`: `violet`
+// Grape: `xui-color-grape`: `grape`
+// Pink: `xui-color-pink`: `pink`
+// Grey: `xui-color-grey-1`: `grey`
+//
+// Tips:
+// Do: Use custom colors to align progress indicators to the theme of the application
+// Do: Use custom colors when indicating sentiment other than a simple error
+// Do: When using custom colors, use descriptive text like "65%"
+// Warning: Avoid using multiple coloured progress-indictaors on a single screen unless they indicate sentiment
+// Don't: Don't use custom colors to indicate a simple error, use the pre-defined error classes instead
+// Dont: When using custom colors, avoid vague text like "In progress"
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div data-xui-progress-current-color='green' data-xui-progress-total-color='yellow' aria-valuemax="8" aria-valuemin="0" aria-valuenow="4" aria-valuetext="4 of 8" class="xui-progress xui-progress-linear xui-margin-bottom-large" role="progressbar">
+//  <div class="xui-progress-linear-wrapper">
+//    <div class="xui-progress-linear-track">
+//      <div class="xui-progress-linear-current" style="width: 50%;"></div>
+//    </div>
+//  </div>
+// </div>
+// <div data-xui-progress-current-color='green' data-xui-progress-total-color='yellow' aria-valuemax="8" aria-valuemin="0" aria-valuenow="4" aria-valuetext="4 of 8" class="xui-progress xui-progress-circular" role="progressbar">
+//  <div>
+//    <div>
+//      <canvas class="xui-progress-circular-scaler" height="100" width="100"></canvas><svg class="xui-progress-circular-wrapper" viewbox="0 0 100 100">
+//      <defs>
+//        <mask height="100" id="myCustomProgressId-progress-mask3" maskunits="userSpaceOnUse" width="100" x="0" y="0">
+//          <circle class="xui-progress-circular-mask xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="initial" stroke-width="11.476068685097855"></circle>
+//        </mask>
+//      </defs>
+//      <g mask="url(#myCustomProgressId-progress-mask3)">
+//        <circle class="xui-progress-circular-track" cx="50" cy="50" r="44.26196565745107" stroke-width="11.476068685097855"></circle>
+//        <circle class="xui-progress-circular-current xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="278.106132285784" stroke-dashoffset="139.053066142892" stroke-width="11.476068685097855"></circle>
+//      </g></svg>
+//    </div>
+//  </div>
+//  <div class="xui-progress-icon"></div>
+// </div>
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.4
+
+// Segments
+//
+// In some cases, it is desirable to create visually distinct steps, within a single progress indicator.
+// For both variants, this is handled in React.
+// For the circular variant, this is achieved via a mask.
+// For the linear variant, several `xui-progress-linear-segment` elements are created within `xui-progress-indicator-wrapper`.
+//
+// Tips:
+// Do: Use segments when there are distinct steps within a larger goal, such as days in the week
+// Warning: Currently only constant step widths are possible.
+// Don't: Avoid using too many segments in the circular variant as they become visually indecipherable, use a linear instead
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="2" aria-valuetext="2 of 4" class="xui-progress xui-progress-linear xui-margin-bottom-large" role="progressbar">
+// 	<div class="xui-progress-linear-wrapper">
+// 		<div class="xui-progress-linear-segment xui-progress-linear-current"></div>
+// 		<div class="xui-progress-linear-segment xui-progress-linear-current"></div>
+// 		<div class="xui-progress-linear-segment xui-progress-linear-track"></div>
+// 		<div class="xui-progress-linear-segment xui-progress-linear-track"></div>
+// 	</div>
+// </div>
+// <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="2" aria-valuetext="2 of 4" class="xui-progress xui-progress-circular" role="progressbar">
+// 	<div>
+// 		<div>
+// 			<canvas class="xui-progress-circular-scaler" height="100" width="100"></canvas><svg class="xui-progress-circular-wrapper" viewbox="0 0 100 100">
+// 			<defs>
+// 				<mask height="100" id="myCustomProgressId-progress-mask2" maskunits="userSpaceOnUse" width="100" x="0" y="0">
+// 					<circle class="xui-progress-circular-mask xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="51.16482317528943, 18.36170989615657" stroke-dashoffset="-9.180854948078284" stroke-width="11.476068685097855"></circle>
+// 				</mask>
+// 			</defs>
+// 			<g mask="url(#myCustomProgressId-progress-mask2)">
+// 				<circle class="xui-progress-circular-track" cx="50" cy="50" r="44.26196565745107" stroke-width="11.476068685097855"></circle>
+// 				<circle class="xui-progress-circular-current" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="278.106132285784" stroke-dashoffset="139.053066142892" stroke-width="11.476068685097855"></circle>
+// 			</g></svg>
+// 		</div>
+// 	</div>
+// 	<div class="xui-progress-icon"></div>
+// </div>
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.5
+
+// Indicating completion
+//
+// To indicate progress, the length of `xui-progress-*-current` is incremented via React.
+// However, once it reaches the end or exceeds the total value there are no automatic visual changes.
+// To trigger the completed state, apply the following modifier.
+// Note that this is only applicable to the circular variant.
+//
+// Classes:
+// xui-progress-complete: Modifier for a complete progress indicator
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-progress xui-progress-circular xui-progress-complete" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" aria-valuetext="5 of 5">
+// 	<div class="xui-progress--fragment">
+// 		<div>
+// 			<svg height="20" width="20" class="xui-progress-circular-wrapper" viewBox="0 0 20 20">
+// 				<defs>
+// 					<mask id="complete-circular-progress-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+// 						<circle stroke-dasharray="initial" class="xui-progress-circular-mask xui-progress-roundcap" stroke-width="3" r="8.5" cx="10" cy="10"></circle>
+// 					</mask>
+// 				</defs>
+// 				<g mask="url(#complete-circular-progress-mask)">
+// 					<circle class="xui-progress-circular-track" stroke-width="3" r="8.5" cx="10" cy="10"></circle>
+// 					<circle class="xui-progress-circular-current xui-progress-roundcap" stroke-dasharray="53.40707511102649" stroke-dashoffset="0" stroke-width="3" r="8.5" cx="10" cy="10"></circle>
+// 				</g>
+// 			</svg>
+// 		</div>
+// 		<div class="xui-progress-icon">
+// 			<svg focusable="false" class="xui-icon" width="13" height="10" viewBox="0 0 13 10">
+// 				<path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z" role="presentation"></path>
+// 			</svg>
+// 		</div>
+// 	</div>
+// </div>
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.6
+
+// Handling overflow
+//
+// Progress indicators accept current values that exceed the total value.
+// If desired, any overflow can be highlighted in an error state and scaled proportionally to the total value.
+// To do this, apply the following modifier.
+//
+// Classes:
+// xui-progress-overflow: Modifier for a progress indicator with overflow
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="5" aria-valuetext="5 of 4" class="xui-progress xui-progress-linear xui-progress-overflow xui-margin-bottom-large" role="progressbar">
+// 	<div class="xui-progress-linear-wrapper">
+// 		<div class="xui-progress-linear-track">
+// 			<div class="xui-progress-linear-current" style="width: 80%;"></div>
+// 		</div>
+// 	</div>
+// </div>
+// <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="5" aria-valuetext="5 of 4" class="xui-progress xui-progress-circular xui-progress-overflow" role="progressbar">
+// 	<div>
+// 		<div>
+// 			<canvas class="xui-progress-circular-scaler" height="100" width="100"></canvas><svg class="xui-progress-circular-wrapper" viewbox="0 0 100 100">
+// 			<defs>
+// 				<mask height="100" id="myCustomProgressId-progress-mask" maskunits="userSpaceOnUse" width="100" x="0" y="0">
+// 					<circle class="xui-progress-circular-mask xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="initial" stroke-width="11.476068685097855"></circle>
+// 				</mask>
+// 			</defs>
+// 			<g mask="url(#myCustomProgressId-progress-mask)">
+// 				<circle class="xui-progress-circular-track" cx="50" cy="50" r="44.26196565745107" stroke-width="11.476068685097855"></circle>
+// 				<circle class="xui-progress-circular-current xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="278.106132285784" stroke-dashoffset="55.62122645715679" stroke-width="11.476068685097855"></circle>
+// 			</g></svg>
+// 		</div>
+// 	</div>
+// 	<div class="xui-progress-icon"></div>
+// </div>
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.7
+
+// Handling errors
+//
+// In addition to overflow, there are two generic error states that can also be applied.
+// Note that these styles take precedent over any custom color.
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.8
+
+// Soft errors
+//
+// To indicate an error state, but still visibly show progress, apply the following modifier.
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="2" aria-valuetext="2 of 4" class="xui-progress xui-progress-linear xui-progress-error-soft xui-margin-bottom-large" role="progressbar">
+// 	<div class="xui-progress-linear-wrapper">
+// 		<div class="xui-progress-linear-track">
+// 			<div class="xui-progress-linear-current" style="width: 50%;"></div>
+// 		</div>
+// 	</div>
+// </div>
+// <div aria-valuemax="4" aria-valuemin="0" aria-valuenow="2" aria-valuetext="2 of 4" class="xui-progress xui-progress-circular xui-progress-error-soft" role="progressbar">
+// 	<div>
+// 		<div>
+// 			<canvas class="xui-progress-circular-scaler" height="100" width="100"></canvas><svg class="xui-progress-circular-wrapper" viewbox="0 0 100 100">
+// 			<defs>
+// 				<mask height="100" id="myCustomProgressId-progress-mask" maskunits="userSpaceOnUse" width="100" x="0" y="0">
+// 					<circle class="xui-progress-circular-mask xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="initial" stroke-width="11.476068685097855"></circle>
+// 				</mask>
+// 			</defs>
+// 			<g mask="url(#myCustomProgressId-progress-mask)">
+// 				<circle class="xui-progress-circular-track" cx="50" cy="50" r="44.26196565745107" stroke-width="11.476068685097855"></circle>
+// 				<circle class="xui-progress-circular-current xui-progress-roundcap" cx="50" cy="50" r="44.26196565745107" stroke-dasharray="278.106132285784" stroke-dashoffset="139.053066142892" stroke-width="11.476068685097855"></circle>
+// 			</g></svg>
+// 		</div>
+// 	</div>
+// 	<div class="xui-progress-icon"></div>
+// </div>
+//
+// Classes:
+// xui-progress-error-soft: Modifier for a soft error state
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.8.1
+
+// Hard errors
+//
+// To indicate an important error state that conceals progress, apply the following modifier.
+// The default content is an icon, however, you can add your own text or even a custom icon.
+// Note that this is only applicable to the circular variant.
+//
+// Classes:
+// xui-progress-error-hard:  Modifier for a hard error state
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-progress xui-progress-circular xui-progress-error-hard" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" aria-valuetext="3 of 5">
+// 	<div class="xui-progress--fragment">
+// 		<div>
+// 			<svg height="20" width="20" class="xui-progress-circular-wrapper" viewBox="0 0 20 20">
+// 				<defs>
+// 					<mask id="hard-circular-progress-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+// 						<circle stroke-dasharray="initial" class="xui-progress-circular-mask xui-progress-roundcap" stroke-width="3" r="8.5" cx="10" cy="10"></circle>
+// 					</mask>
+// 				</defs>
+// 				<g mask="url(#hard-circular-progress-mask)">
+// 					<circle class="xui-progress-circular-track" stroke-width="3" r="8.5" cx="10" cy="10"></circle>
+// 					<circle class="xui-progress-circular-current xui-progress-roundcap" stroke-dasharray="53.40707511102649" stroke-dashoffset="21.362830044410597" stroke-width="3" r="8.5" cx="10" cy="10"></circle>
+// 				</g>
+// 			</svg>
+// 		</div>
+// 		<div class="xui-progress-icon">
+// 			<svg focusable="false" class="xui-icon xui-progress-icon-error" width="2" height="8" viewBox="0 0 2 8">
+// 				<path d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z" role="presentation"></path>
+// 			</svg>
+// 		</div>
+// 	</div>
+// </div>
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.8.2
+
+// Accessibility
+//
+// Make sure to apply the `progressbar` role to the progress indicator.
+//
+// Additionally, if the actual value of progress can be determined, make sure to indicate this using `aria-valuenow`, `aria-valuemin`, and `aria-valuemax` attributes.
+//
+// If the progress value is indeterminate, omit the `aria-valuenow` attribute.
+//
+// Screenreaders will generally render the value of `aria-valuenow` as a percent of the range between the value of `aria-valuemin` and `aria-valuemax`, unless `aria-valuetext` is specified.
+//
+// Additionally, a tooltip is also available out of the box on hover.
+//
+// The default message is the `aria-valuetext` value, but you can specify a custom message too.
+//
+// Use descriptive text alongside Progress indicators to convey information so it’s still meaningful to people who can’t discern colour
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.9

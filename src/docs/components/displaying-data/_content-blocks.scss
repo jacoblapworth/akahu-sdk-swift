@@ -1,0 +1,1003 @@
+// Content block
+//
+// Components: Content-block
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.p6ltk0ca70og
+//
+// Teaser: Top-level views of detailed sub pages.
+//
+// Introduction: A content block is a simplified top-level view for a detailed sub page, often containing quick access to key actions.
+//
+// Styleguide: Components.DisplayingData.ContentBlock
+
+// Anatomy
+//
+// There are several component specific classes to build content blocks. These help define groups of content blocks and provide a default layout to content block items,
+// as well as add further styling to individual content block items.
+//
+// Classes:
+// xui-contentblock: A group of content block items
+// xui-contentblockitem: An individual content block item
+// xui-contentblockitem-rowlink: Applies visual feedback on row interaction for when entire row is clickable
+// xui-contentblockitem-layout: Utilities to set the desired layout
+// xui-contentblockitem--leftcontent: Wrapper to set the desired layout on left aligned items such as avatar, checkbox or rollover checkbox
+// xui-contentblockitem--leftcontent-layout: Vertically centres left content for when there is a desciption
+// xui-contentblockitem--maincontent: Wrapper to define layout of elements between the left and right content
+// xui-contentblockitem--rightcontent: Wrapper to set the desired layout on right aligned items
+// xui-contentblockitem-has-top-radius: Applies top left and top right border radius
+// xui-contentblockitem-has-bottom-radius: Applies bottom left and bottom right border radius
+//
+// Styleguide: Components.DisplayingData.ContentBlock.1
+
+// Text content
+//
+// Classes:
+// xui-contentblockitem--headings: Wrapper for primary and secondary headings
+// xui-contentblockitem--primaryheading: Text styling for primary content
+// xui-contentblockitem--secondaryheading: Text styling for secondary content
+// xui-contentblockitem--description: Wrapper for description content
+// xui-contentblockitem--description--text: Text styling for description
+//
+// Tips:
+// Do: Tint the entire row on hover to clarify that it is a link
+// Do: Indicate the destination by including it as the primary piece of data in the content block hierarchy
+// Do: Keep text content concise to keep content block item heights from growing too much
+// Warning: Only show the most pertinent information, reserve all else for a detailed child page
+// Dont: Don't display text links inside of content blocks, use an overflow menu to surface links instead
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <div class="xui-contentblock xui-panel xui-margin-bottom-large">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius">
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//             </span>
+//         </a>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//             </span>
+//         </a>
+//     </div>
+// </div>
+// <div class="xui-contentblock xui-panel xui-margin-bottom-large">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius">
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design</span>
+//             </span>
+//         </a>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design & development</span>
+//             </span>
+//         </a>
+//     </div>
+// </div>
+// <div class="xui-contentblock xui-panel">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius">
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design</span>
+//             </span>
+//             <div class="xui-contentblockitem--description">
+//               <span class="xui-contentblockitem--description--text">Deadline 1 Feb 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 10,000.00</span>
+//             </div>
+//         </a>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design & development</span>
+//             </span>
+//             <div class="xui-contentblockitem--description">
+//               <span class="xui-contentblockitem--description--text">Deadline 16 Apr 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 14,350.00</span>
+//             </div>
+//         </a>
+//     </div>
+// </div>
+//
+// Styleguide: Components.DisplayingData.ContentBlock.2
+
+// Left content
+//
+// Classes:
+// xui-contentblockitem--leftcontent: Wrapper for left content elements
+// xui-contentblockitem--leftcontent-layout: Vertically aligns left content elements when a description is present
+//
+// Styleguide: Components.DisplayingData.ContentBlock.3
+
+// Checkboxes
+//
+// Tips:
+// Warning: Avoid showing bulk select controls on content blocks by default, unless it is a primary use case
+// Warning: Only show resulting bulk actions on select
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <div class="xui-contentblock xui-panel">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <label class="xui-styledcheckboxradio">
+//                 <input type="checkbox" readonly="" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium" value="">
+//                 <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium">
+//                     <div class="xui-touchtarget"></div>
+//                 </div>
+//             </label>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design</span>
+//             </span>
+//         </a>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//         <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//             <label class="xui-styledcheckboxradio">
+//                 <input type="checkbox" readonly="" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium" value="">
+//                 <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium">
+//                     <div class="xui-touchtarget"></div>
+//                 </div>
+//             </label>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design & development</span>
+//             </span>
+//             <div class="xui-contentblockitem--description">
+//                 <span class="xui-contentblockitem--description--text">Deadline 16 Apr 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 14,350.00</span>
+//             </div>
+//         </a>
+//     </div>
+// </div>
+//
+// Styleguide: Components.DisplayingData.ContentBlock.3.1
+
+// Avatars
+//
+// Tips:
+// Do: When users or businesses are the primary data involved, include avatars to add personality
+// Warning: When bulk select actions are required but avatars are present, make sure to surface them on hover and long press of the entire row
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <div class="xui-contentblock xui-panel ">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <abbr class="xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">BB</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design</span>
+//             </span>
+//         </a>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//         <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//             <abbr class="xui-avatar xui-avatar-small xui-avatar-color-2" role="presentation">CC</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design & development</span>
+//             </span>
+//             <div class="xui-contentblockitem--description">
+//                 <span class="xui-contentblockitem--description--text">Deadline 16 Apr 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 14,350.00</span>
+//             </div>
+//         </a>
+//     </div>
+// </div>
+//
+// Styleguide: Components.DisplayingData.ContentBlock.3.2
+
+// Right content
+//
+// Classes:
+// xui-contentblockitem--rightcontent: Wrapper for right content elements
+//
+// Styleguide: Components.DisplayingData.ContentBlock.4
+
+// Overflow menu
+//
+// Tips:
+// Do: Include an overflow menu to surface any related actions that can be performed on the row
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <div class="xui-contentblock xui-panel">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius">
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design</span>
+//             </span>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//                 <div class="xui-touchtarget"></div>
+//             </button>
+//         </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design & development</span>
+//             </span>
+//             <div class="xui-contentblockitem--description">
+//                 <span class="xui-contentblockitem--description--text">Deadline 16 Apr 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 14,350.00</span>
+//             </div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//                 <div class="xui-touchtarget"></div>
+//             </button>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide: Components.DisplayingData.ContentBlock.4.1
+
+// Pinned values
+//
+// Tips:
+// Do: When a single crucial figure or piece of data is present, give it special attention by pinning it to the right
+// Warning: Avoid truncating pinned values
+//
+// Classes:
+// xui-contentblockitem--pinnedvalue: Styles text to pin to the top-right of the content block item
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <div class="xui-contentblock xui-panel">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius">
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design</span>
+//             </span>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-contentblockitem--pinnedvalue">10,000.00</div>
+//         </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design & development</span>
+//             </span>
+//             <div class="xui-contentblockitem--description">
+//                 <span class="xui-contentblockitem--description--text">Deadline 16 Apr 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 14,350.00</span>
+//             </div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-contentblockitem--pinnedvalue">18,700.00</div>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide: Components.DisplayingData.ContentBlock.4.2
+
+// Actions
+//
+// Tips:
+// Do: Promote encouraged actions to bypass the need to visit each content block
+// Dont: Don't use anchor tags or link buttons as actions when content block is already a link. It will render anchor in anchor which is not a valid syntax.
+//
+// Classes:
+// xui-actions: Justifies action to the right
+// xui-actions-layout: Styles margins for action
+// xui-contentblockitem--actions: Styles content block action specifically
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <div class="xui-contentblock xui-panel xui-margin-bottom-large">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-1" role="presentation">BB</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design</span>
+//             </span>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//         <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//             <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-2" role="presentation">CC</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design & development</span>
+//             </span>
+//             <div class="xui-contentblockitem--description">
+//                 <span class="xui-contentblockitem--description--text">Deadline 16 Apr 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 14,350.00</span>
+//             </div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
+//             </div>
+//         </div>
+//     </div>
+// </div>
+// <div class="xui-contentblock xui-panel xui-margin-bottom-large">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-1" role="presentation">BB</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design</span>
+//             </span>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-contentblockitem--pinnedvalue">0.00</div>
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-button-standard xui-button-small xui-margin-left-small" tabindex="0" type="button">Edit</button>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//         <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//             <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-2" role="presentation">CC</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design & development</span>
+//             </span>
+//             <div class="xui-contentblockitem--description">
+//                 <span class="xui-contentblockitem--description--text">Deadline 16 Apr 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 14,350.00</span>
+//             </div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-contentblockitem--pinnedvalue">0.00</div>
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-button-standard xui-button-small xui-margin-left-small" tabindex="0" type="button">Edit</button>
+//             </div>
+//         </div>
+//     </div>
+// </div>
+// <div class="xui-contentblock xui-panel">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-1" role="presentation">BB</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design</span>
+//             </span>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-contentblockitem--pinnedvalue">0.00</div>
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
+//             </div>
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//                 <div class="xui-touchtarget"></div>
+//             </button>
+//         </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//         <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//             <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-2" role="presentation">CC</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design & development</span>
+//             </span>
+//             <div class="xui-contentblockitem--description">
+//                 <span class="xui-contentblockitem--description--text">Deadline 16 Apr 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 14,350.00</span>
+//             </div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-contentblockitem--pinnedvalue">0.00</div>
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
+//             </div>
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//                 <div class="xui-touchtarget"></div>
+//             </button>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide: Components.DisplayingData.ContentBlock.4.3
+
+// Tags
+//
+// Tags can be used inside of content blocks to indicate a categorisation or status of an item. Placement of tags should be apended to the end of the headings or description, or as the first element in the right content wrapper.
+//
+// Tips:
+// Do: Apend tags to the end of headings or description
+// Do: Apend tags to the start of your right content
+// Dont: Don't place tags before or in-between headings or descriptions
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <div class="xui-contentblock xui-panel">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius">
+//         <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//             <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-1" role="presentation">BB</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design</span>
+//                 <span class="xui-tag xui-tag-small xui-tag-neutral">
+//                   <span class="xui-tagcontent">Archived</span>
+//                 </span>
+//             </span>
+//             <div class="xui-contentblockitem--description">
+//                 <span class="xui-contentblockitem--description--text">Deadline 1 Feb 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 10,000.00</span>
+//             </div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-contentblockitem--pinnedvalue">0.00</div>
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
+//             </div>
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//                 <div class="xui-touchtarget"></div>
+//             </button>
+//         </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//         <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//             <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-2" role="presentation">CC</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Website design & development</span>
+//             </span>
+//             <div class="xui-contentblockitem--description">
+//                 <span class="xui-contentblockitem--description--text">Deadline 16 Apr 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 14,350.00</span>
+//                 <span class="xui-tag xui-tag-small">
+//                   <span class="xui-tagcontent">INV0325</span>
+//                 </span>
+//             </div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-contentblockitem--pinnedvalue">0.00</div>
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
+//             </div>
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//                 <div class="xui-touchtarget"></div>
+//             </button>
+//         </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//         <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//             <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-3" role="presentation">DD</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Dusty Deals</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Book design</span>
+//             </span>
+//             <div class="xui-contentblockitem--description">
+//                 <span class="xui-contentblockitem--description--text">Deadline 30 Jun 2024<span class="xui-margin-horizontal-xsmall">•</span>Estimate 900.00</span>
+//             </div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <span class="xui-tag xui-tag-small xui-tag-neutral xui-margin-right-large">
+//               <span class="xui-tagcontent">Draft</span>
+//             </span>
+//             <div class="xui-contentblockitem--pinnedvalue">0.00</div>
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
+//             </div>
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//                 <div class="xui-touchtarget"></div>
+//             </button>
+//         </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//         <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//             <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-4" role="presentation">EE</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Emerican Eagle</span>
+//                 <span class="xui-contentblockitem--secondaryheading">Brochure copywriting</span>
+//             </span>
+//             <div class="xui-contentblockitem--description">
+//                 <span class="xui-contentblockitem--description--text">Deadline 2 Jan 2028<span class="xui-margin-horizontal-xsmall">•</span>Estimate 540.00</span>
+//             </div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <span class="xui-tag xui-tag-small xui-tag-neutral xui-margin-right-large">
+//               <span class="xui-tagcontent">Draft</span>
+//             </span>
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
+//             </div>
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//                 <div class="xui-touchtarget"></div>
+//             </button>
+//         </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-5" role="presentation">FF</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Fantastic Food</span>
+//                 <span class="xui-contentblockitem--secondaryheading">INV0034</span>
+//             </span>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <span class="xui-tag xui-tag-small xui-tag-negative xui-margin-right-small">
+//               <span class="xui-tagcontent">Overdue</span>
+//             </span>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide: Components.DisplayingData.ContentBlock.5
+
+// Content block headers
+//
+// Flags: wip
+//
+// To style content block headers, the following typography preset is required.
+//
+// Classes:
+// xui-textcolor-muted: Apply to text elements for variance in style to regular content block items
+//
+// Styleguide: Components.DisplayingData.ContentBlock.6
+
+// Standard headers
+//
+// Tips:
+// Do: Use section headers to avoid duplicating row content
+// Do: Display an overflow menu for the ability to perform group actions
+//
+// ExampleClass: ds-example-flush ds-example-wide ds-example-transparent
+//
+// Markup:
+// <div class="xui-panel">
+//   <div class="xui-contentblock">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-has-top-radius">
+//       <div class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading xui-textcolor-muted">Projects</span>
+//         </span>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-overflow"></use>
+//           </svg>
+//           <div class="xui-touchtarget"></div>
+//         </button>
+//       </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <a class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//           <span class="xui-contentblockitem--secondaryheading">Website design</span>
+//         </span>
+//         <div class="xui-contentblockitem--description">
+//           <span class="xui-contentblockitem--description--text">Deadline 1 Feb 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 10,000.00</span>
+//         </div>
+//       </a>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//       <a class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//           <span class="xui-contentblockitem--secondaryheading">Website design & development</span>
+//         </span>
+//         <div class="xui-contentblockitem--description">
+//             <span class="xui-contentblockitem--description--text">Deadline 16 Apr 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 14,350.00</span>
+//         </div>
+//       </a>
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide: Components.DisplayingData.ContentBlock.6.1
+
+// Numerical values
+//
+// Tips:
+// Do: Use numerical values to indicate how many items are within a group
+// Warning: Avoid displaying a number for when there is only one item in a group
+//
+// ExampleClass: ds-example-flush ds-example-wide ds-example-transparent
+//
+// Markup:
+// <div class="xui-panel">
+//   <div class="xui-contentblock">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-has-top-radius">
+//       <div class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading xui-textcolor-muted">Hospitality</span>
+//           <span class="xui-contentblockitem--secondaryheading xui-textcolor-muted">2</span>
+//         </span>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-overflow"></use>
+//           </svg>
+//           <div class="xui-touchtarget"></div>
+//         </button>
+//       </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <a class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//           <span class="xui-contentblockitem--secondaryheading">Website design</span>
+//         </span>
+//         <div class="xui-contentblockitem--description">
+//           <span class="xui-contentblockitem--description--text">Deadline 1 Feb 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 10,000.00</span>
+//         </div>
+//       </a>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <a class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//           <span class="xui-contentblockitem--secondaryheading">Website design & development</span>
+//         </span>
+//         <div class="xui-contentblockitem--description">
+//           <span class="xui-contentblockitem--description--text">Deadline 16 Apr 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 14,350.00</span>
+//         </div>
+//       </a>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout">
+//       <div class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading xui-textcolor-muted">Retail</span>
+//         </span>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-overflow"></use>
+//           </svg>
+//           <div class="xui-touchtarget"></div>
+//         </button>
+//       </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//       <a class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Sneaky Shoes</span>
+//           <span class="xui-contentblockitem--secondaryheading">Landing page design</span>
+//         </span>
+//         <div class="xui-contentblockitem--description">
+//           <span class="xui-contentblockitem--description--text">Deadline 8 Jun 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 8,000.00</span>
+//         </div>
+//       </a>
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide: Components.DisplayingData.ContentBlock.6.2
+
+// Pinned values
+//
+// Tips:
+// Do: Use pinned values to calculate total numerical amounts contained within that group
+//
+// ExampleClass: ds-example-flush ds-example-wide ds-example-transparent
+//
+// Markup:
+// <div class="xui-panel">
+//   <div class="xui-contentblock">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-has-top-radius">
+//       <div class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading xui-textcolor-muted">Hospitality</span>
+//           <span class="xui-contentblockitem--secondaryheading xui-textcolor-muted">2</span>
+//         </span>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <div class="xui-contentblockitem--pinnedvalue">9,000.00</div>
+//         <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-overflow"></use>
+//           </svg>
+//           <div class="xui-touchtarget"></div>
+//         </button>
+//       </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <a class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//           <span class="xui-contentblockitem--secondaryheading">Website design</span>
+//         </span>
+//         <div class="xui-contentblockitem--description">
+//           <span class="xui-contentblockitem--description--text">Deadline 1 Feb 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 10,000.00</span>
+//         </div>
+//       </a>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <div class="xui-contentblockitem--pinnedvalue">7,500.00</div>
+//       </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <a class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//           <span class="xui-contentblockitem--secondaryheading">Website design & development</span>
+//         </span>
+//         <div class="xui-contentblockitem--description">
+//           <span class="xui-contentblockitem--description--text">Deadline 16 Apr 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 14,350.00</span>
+//         </div>
+//       </a>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <div class="xui-contentblockitem--pinnedvalue">1,500.00</div>
+//       </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <div class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading xui-textcolor-muted">Retail</span>
+//         </span>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <div class="xui-contentblockitem--pinnedvalue">100.00</div>
+//         <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-overflow"></use>
+//           </svg>
+//           <div class="xui-touchtarget"></div>
+//         </button>
+//       </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//       <a class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Sneaky Shoes</span>
+//           <span class="xui-contentblockitem--secondaryheading">Landing page design</span>
+//         </span>
+//         <div class="xui-contentblockitem--description">
+//           <span class="xui-contentblockitem--description--text">Deadline 8 Jun 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 8,000.00</span>
+//         </div>
+//       </a>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <div class="xui-contentblockitem--pinnedvalue">100.00</div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide: Components.DisplayingData.ContentBlock.6.3
+
+// With bulk select
+//
+// Tips:
+// Do: If bulk select is enabled on content block items, always show the checkbox in the header
+// Do: The checkbox in the header selects and unselects an entire group with each subsequent selection
+//
+// ExampleClass: ds-example-flush ds-example-wide ds-example-transparent
+//
+// Markup:
+// <div class="xui-panel">
+//   <div class="xui-contentblock">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-has-top-radius">
+//       <div class="xui-contentblockitem--leftcontent">
+//         <label class="xui-styledcheckboxradio">
+//           <input type="checkbox" readonly="" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium" value="">
+//           <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium">
+//             <div class="xui-touchtarget"></div>
+//           </div>
+//         </label>
+//       </div>
+//       <div class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading xui-textcolor-muted">Hospitality</span>
+//           <span class="xui-contentblockitem--secondaryheading xui-textcolor-muted">3</span>
+//         </span>
+//       </div>
+//       <div class="xui-contentblockitem--rightcontent">
+//         <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-overflow"></use>
+//           </svg>
+//           <div class="xui-touchtarget"></div>
+//         </button>
+//       </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//       <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//         <label class="xui-styledcheckboxradio">
+//           <input type="checkbox" readonly="" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium" value="">
+//           <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium">
+//             <div class="xui-touchtarget"></div>
+//           </div>
+//         </label>
+//       </div>
+//       <a class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Bob's Burgers</span>
+//           <span class="xui-contentblockitem--secondaryheading">Website design</span>
+//         </span>
+//         <div class="xui-contentblockitem--description">
+//           <span class="xui-contentblockitem--description--text">Deadline 1 Feb 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 10,000.00</span>
+//         </div>
+//       </a>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//       <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//         <label class="xui-styledcheckboxradio">
+//           <input type="checkbox" readonly="" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium" value="">
+//           <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium">
+//             <div class="xui-touchtarget"></div>
+//           </div>
+//         </label>
+//       </div>
+//       <a class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Crusty Crab</span>
+//           <span class="xui-contentblockitem--secondaryheading">Website design & development</span>
+//         </span>
+//         <div class="xui-contentblockitem--description">
+//           <span class="xui-contentblockitem--description--text">Deadline 16 Apr 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 14,350.00</span>
+//         </div>
+//       </a>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//       <div class="xui-contentblockitem--leftcontent xui-contentblockitem--leftcontent-layout">
+//         <label class="xui-styledcheckboxradio">
+//           <input type="checkbox" readonly="" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium" value="">
+//           <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium">
+//             <div class="xui-touchtarget"></div>
+//           </div>
+//         </label>
+//       </div>
+//       <a class="xui-contentblockitem--maincontent">
+//         <span class="xui-contentblockitem--headings">
+//           <span class="xui-contentblockitem--primaryheading">Sneaky Shoes</span>
+//           <span class="xui-contentblockitem--secondaryheading">Landing page design</span>
+//         </span>
+//         <div class="xui-contentblockitem--description">
+//           <span class="xui-contentblockitem--description--text">Deadline 8 Jun 2023<span class="xui-margin-horizontal-xsmall">•</span>Estimate 8,000.00</span>
+//         </div>
+//       </a>
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide: Components.DisplayingData.ContentBlock.6.4
+
+// With avatar
+//
+// Tips:
+// Do: Display an avatar when all items in a group relate to a single user or business
+//
+// ExampleClass: ds-example-flush ds-example-wide ds-example-transparent
+//
+// Markup:
+// <div class="xui-contentblock xui-panel">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-has-top-radius">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-1" role="presentation">BB</abbr>
+//         </div>
+//         <div class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading xui-textcolor-muted">Bob's Burgers</span>
+//                 <span class="xui-contentblockitem--secondaryheading xui-textcolor-muted">3</span>
+//             </span>
+//         </div>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <button class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//                 <div class="xui-touchtarget"></div>
+//             </button>
+//         </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <abbr class="xui-avatar xui-avatar-small xui-avatar-color-9" role="presentation">JS</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Julie Snowden</span>
+//             </span>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <abbr class="xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">MH</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Matt Hurley</span>
+//             </span>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <abbr class="xui-avatar xui-avatar-small xui-avatar-color-7" role="presentation">IJ</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--maincontent">
+//             <span class="xui-contentblockitem--headings">
+//                 <span class="xui-contentblockitem--primaryheading">Isla Jordan</span>
+//             </span>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Edit</button>
+//             </div>
+//         </div>
+//     </div>
+// </div>
+//
+// Styleguide: Components.DisplayingData.ContentBlock.6.5

@@ -30,6 +30,8 @@
 //
 // Our goal is to create the least amount of additional work for development teams, and instead do what we can to anticipate your needs. In this way, every component has a baseline acceptance for responsive support. This refers to small things like making sure all our CSS is using flexible units, and our JS is performant. For some high use components however, we go the extra mile to make sure the experience is better than just baseline. Components like dropdowns, steppers and tooltips render conditional markup based on screen width, position, and user-defined content. Similarly to accessibility however, if this is not a priority for your team, it will stop there. Extra effort must be added on your part to make sure this standard is maintained across your product.
 //
+// For React components, XUI provides [Container Queries](./react/#container-queries) for monitoring and taking action depending on the size of individual elements. Rather than using CSS media queries to detect the size of the whole viewport, container queries are attached to a DOM node.
+//
 // Tips:
 // Do: Use provided XUI composition components for handling responsive reflowing logic
 // Do: Use provided media query mixins to create additional conditional logic based on screen width

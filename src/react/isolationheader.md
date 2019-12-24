@@ -6,6 +6,8 @@
 See the [implementation details section in the XUI docs](../section-components-navigation-isolation-header.html#components-navigation-isolation-header-4-1)
 for behavioural aspects.
 
+[Container Queries](#container-queries) could be used to detect the container size and adjust the layout of IsolationHeader responsively.
+
 ## Examples
 
 ```jsx harmony

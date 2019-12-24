@@ -477,13 +477,3 @@
 // xui-touchtarget: Invisible touch target element inside an icon button
 //
 // Styleguide: Components.Controls.Button.50
-
-.#{$ns}-button {
-  @include xui-button-reset;
-  // Touch target fix for buttons, except iconButtons
-  &:not(.#{$ns}-button-icon) {
-    min-width: $xui-minimum-touch-target;
-  }
-  // To make sure content in link is centered
-  text-align: center;
-}

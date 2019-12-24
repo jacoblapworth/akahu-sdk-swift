@@ -1,6 +1,16 @@
 @import '../vars';
 @import '../mixins';
 
+.#{$ns}-button {
+  @include xui-button-reset;
+  // Touch target fix for buttons, except iconButtons
+  &:not(.#{$ns}-button-icon) {
+    min-width: $xui-minimum-touch-target;
+  }
+  // To make sure content in link is centered
+  text-align: center;
+}
+
 @import 'buttons.variants';
 @import 'buttons.borderless';
 @import 'buttons.sizes';

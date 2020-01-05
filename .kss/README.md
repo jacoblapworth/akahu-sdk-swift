@@ -49,10 +49,12 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 - `card`
 - `introduction`
 - `tips`
-- `flag`
+- `flags`
+- `related`
 - `storybook`
 - `image`
 - `image-caption`
+- `language`
 
 #### Adding new properties
 
@@ -173,6 +175,18 @@ For representing a status of that section, there are several currently supported
 
 ```
 // Flags: new wip
+```
+
+### Related
+
+To suggest other components, patterns, or content that might be helpful to users, you can supply a block of markdown, typically a bulleted list of links. Related content may be suggested to provide additional context, to clarify the difference between similar components/patterns, or possibly other reasons.
+
+```
+// Related:
+// * [Navigation components](./section-components-navigation.html)
+// * [ContentBlock](./section-components-displayingdata-contentblock.html)
+// * [OverviewBlock](./section-components-displayingdata-overviewblock.html)
+
 ```
 
 ### Storybook

@@ -297,6 +297,14 @@
 				{{xuiIconDocs}}
 			{{/ifStyleguide}}
 
+			{{#if related}}
+			<div class="kss-style ds-section-part ds-list-related">
+				{{#renderRelated related}}
+					{{{related}}}
+				{{/renderRelated}}
+			</div>
+			{{/if}}
+
 		{{/wrapSection}}
 		{{/each}}
 

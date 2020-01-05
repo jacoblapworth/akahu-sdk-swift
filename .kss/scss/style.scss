@@ -1150,6 +1150,14 @@ $kss-color-padding: #eeebff;
   background: $xui-color-grape;
 }
 
+// -----------------------------------------------------------------------------
+// Related links (passed in as markup, so we're targeting the elements)
+// -----------------------------------------------------------------------------
+.ds-list-related ul,
+.ds-list-related l {
+  @include xui-listreset;
+}
+
 @import './cards';
 @import './markup';
 @import './hover-tooltip';

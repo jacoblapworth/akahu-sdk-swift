@@ -37,39 +37,7 @@
 // xui-banner--action: Banner actions
 // xui-banner--close: Close button
 //
-// Markup:
-// <div class="xui-banner xui-banner-layout" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
-//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//     <div class="xui-touchtarget"></div>
-//   </button>
-//   <p class="xui-banner--message">Standard banner</p>
-// </div>
-// <div class="xui-banner xui-banner-layout" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
-//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//     <div class="xui-touchtarget"></div>
-//   </button>
-//   <p class="xui-banner--message">Banner with actions</p>
-//   <ul class="xui-banner--actions">
-//     <li class="xui-banner--action"><button class="xui-button xui-button-borderless-main xui-button-small" type="button">Action</button></li>
-//     <li class="xui-banner--action"><button class="xui-button xui-button-borderless-main xui-button-small" type="button">Action</button></li>
-//   </ul>
-// </div>
-// <div class="xui-banner xui-banner-layout" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
-//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//     <div class="xui-touchtarget"></div>
-//   </button>
-//   <p class="xui-banner--message">Banner with secondary message</p>
-//   <ul class="xui-banner--messagedetail">
-//     <li>Secondary message</li>
-//   </ul>
-//   <ul class="xui-banner--actions">
-//     <li class="xui-banner--action"><button class="xui-button xui-button-borderless-main xui-button-small" type="button">Action</button></li>
-//     <li class="xui-banner--action"><button class="xui-button xui-button-borderless-main xui-button-small" type="button">Action</button></li>
-//   </ul>
-// </div>
+// Markup: ./examples/banner/_banner.html
 //
 // Styleguide: Components.Alerts.Banner.2
 
@@ -87,21 +55,7 @@
 // Positive: Adds green border: `-positive`
 // Negative: Adds red border: `-negative`
 //
-// Markup:
-// <div class="xui-banner xui-banner-layout xui-banner-positive" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
-//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//     <div class="xui-touchtarget"></div>
-//   </button>
-//   <p class="xui-banner--message">Banner message</p>
-// </div>
-// <div class="xui-banner xui-banner-layout xui-banner-negative" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-small xui-banner--close" title="Close" aria-label="Close">
-//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//     <div class="xui-touchtarget"></div>
-//   </button>
-//   <p class="xui-banner--message">Banner message</p>
-// </div>
+// Markup: ./examples/banner/_banner-sentiment.html
 //
 // Styleguide: Components.Alerts.Banner.3
 

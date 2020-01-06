@@ -27,8 +27,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <input aria-label="Slider" class="xui-rangeslider xui-rangeslider-thumb-medium" type="range" value="0"/>
+// Markup: ./examples/range/_range.html
 //
 // Styleguide: Components.Controls.Range.2
 
@@ -49,16 +48,7 @@
 //
 // ExampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <label class='xui-u-flex xui-u-flex-align-center' for="range1" aria-label="medium sized range">
-//    <input id="range1" class="xui-rangeslider xui-rangeslider xui-rangeslider-thumb-medium xui-margin-small" type="range" value="50%"/>
-// </label>
-// <label class='xui-u-flex xui-u-flex-align-center' for="range2" aria-label="small sized range">
-//    <input id="range2" class="xui-rangeslider xui-rangeslider-thumb-small xui-margin-small" type="range" value="50%"/>
-// </label>
-// <label class='xui-u-flex xui-u-flex-align-center' for="range3" aria-label="xsmall sized range">
-//    <input id="range3" class="xui-rangeslider xui-rangeslider-thumb-xsmall xui-margin-small" type="range" value="50%"/>
-// </label>
+// Markup: ./examples/range/_range-sizes.html
 //
 // Styleguide: Components.Controls.Range.3
 
@@ -69,8 +59,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <input aria-label="Slider" class="xui-rangeslider xui-rangeslider-thumb-medium" type="range" value="50%"/>
+// Markup: ./examples/range/_range-value.html
 //
 // Styleguide: Components.Controls.Range.4
 
@@ -80,8 +69,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <input aria-label="Slider" class="xui-rangeslider xui-rangeslider-thumb-medium" type="range" step="25" value="50"/>
+// Markup: ./examples/range/_range-steps.html
 //
 // Styleguide: Components.Controls.Range.5
 
@@ -91,8 +79,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <input aria-label="Slider" class="xui-rangeslider xui-rangeslider-thumb-medium" type="range" min="0" max="4" value="2"/>
+// Markup: ./examples/range/_range-limits.html
 //
 // Styleguide: Components.Controls.Range.6
 
@@ -102,8 +89,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <input aria-label="Slider" class="xui-rangeslider xui-rangeslider-thumb-medium" type="range" value="50%" disabled/>
+// Markup: ./examples/range/_range-disabling.html
 //
 // Styleguide: Components.Controls.Range.7
 
@@ -120,12 +106,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div class="xui-field-layout">
-//   <label class="xui-text-label xui-fieldlabel-layout" for="range4">Label</label>
-//   <input id="range4" class="xui-rangeslider xui-rangeslider-thumb-medium" type="range" value="50%"/>
-//   <div class="xui-validation xui-validation-layout">Validation text</div>
-// </div>
+// Markup: ./examples/range/_range-labeling.html
 //
 // Styleguide: Components.Controls.Range.8
 
@@ -139,12 +120,7 @@
 // xui-rangeslider-is-invalid: Apply to native input
 // xui-validation-is-invalid: Apply to validation
 //
-// Markup:
-// <div class="xui-field-layout">
-//   <label class="xui-text-label xui-fieldlabel-layout" for="range5">Label</label>
-//   <input id="range5" class="xui-rangeslider xui-rangeslider-thumb-medium xui-rangeslider-is-invalid" type="range" value="50%"/>
-//   <div class="xui-validation xui-validation-layout xui-validation-is-invalid">Invalid text</div>
-// </div>
+// Markup: ./examples/range/_range-validation.html
 //
 // Styleguide: Components.Controls.Range.9
 
@@ -155,15 +131,6 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <label class='xui-u-flex xui-u-flex-align-center' for="range6" aria-label="Image size">
-//    <svg class="xui-icon xui-icon-color-standard">
-//      <use role="presentation" xlink:href="#xui-icon-image"/>
-//    </svg>
-//    <input id="range6" class="xui-rangeslider xui-rangeslider-thumb-medium xui-margin-horizontal-small" type="range" value="50%"/>
-//    <svg class="xui-icon xui-icon-large xui-icon-color-standard">
-//      <use role="presentation" xlink:href="#xui-icon-image"/>
-//    </svg>
-// </label>
+// Markup: ./examples/range/_range-layout.html
 //
 // Styleguide: Components.Controls.Range.10

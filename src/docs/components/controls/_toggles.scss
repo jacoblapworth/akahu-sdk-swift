@@ -36,22 +36,7 @@
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
-// Markup:
-// <span class="xui-text-label xui-fieldlabel-layout" id="test-label">Toggle</span>
-// <div class="xui-toggle xui-toggle-medium" role="radiogroup" aria-labelledby="test-label">
-//   <label class="xui-toggle--option">
-//     <input type="radio" name="aa" class="xui-toggle--input" checked/>
-//     <span class="xui-toggle--label xui-padding-horizontal">Including tax</span>
-//   </label>
-//   <label class="xui-toggle--option">
-//     <input type="radio" name="aa" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-horizontal">Excluding tax</span>
-//   </label>
-//   <label class="xui-toggle--option">
-//     <input type="radio" name="aa" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-horizontal">No tax</span>
-//   </label>
-// </div>
+// Markup: ./examples/toggle/_toggle.html
 //
 // Styleguide: Components.Controls.Toggle.2
 
@@ -66,21 +51,7 @@
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
-// Markup:
-// <div class="xui-toggle xui-toggle-fullwidth-layout xui-toggle-medium" role="radiogroup" aria-label="bb">
-//   <label class="xui-toggle--option">
-//     <input type="radio" name="bb" class="xui-toggle--input" checked/>
-//     <span class="xui-toggle--label xui-padding-horizontal">As they happen</span>
-//   </label>
-//   <label class="xui-toggle--option">
-//     <input type="radio" name="bb" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-horizontal">Weekly summary</span>
-//   </label>
-//   <label class="xui-toggle--option">
-//     <input type="radio" name="bb" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-horizontal">Never</span>
-//   </label>
-// </div>
+// Markup: ./examples/toggle/_toggle-full-width.html
 //
 // Styleguide: Components.Controls.Toggle.3
 
@@ -95,35 +66,7 @@
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
-// Markup:
-// <div class="xui-margin-bottom xui-toggle xui-toggle-medium" role="radiogroup" aria-label="dd">
-//   <label class="xui-toggle--option">
-//     <input type="radio" name="dd" class="xui-toggle--input" checked/>
-//     <span class="xui-toggle--label xui-padding-horizontal-small">Submitter</span>
-//   </label>
-//   <label class="xui-toggle--option">
-//     <input type="radio" name="dd" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-horizontal-small">Approver</span>
-//   </label>
-//   <label class="xui-toggle--option">
-//     <input type="radio" name="dd" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-horizontal-small">Admin</span>
-//   </label>
-// </div>
-// <div class="xui-toggle xui-toggle-small" role="radiogroup" aria-label="dd">
-//   <label class="xui-toggle--option">
-//     <input type="radio" name="dd" class="xui-toggle--input" checked/>
-//     <span class="xui-toggle--label xui-padding-horizontal-small">Submitter</span>
-//   </label>
-//   <label class="xui-toggle--option">
-//     <input type="radio" name="dd" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-horizontal-small">Approver</span>
-//   </label>
-//   <label class="xui-toggle--option">
-//     <input type="radio" name="dd" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-horizontal-small">Admin</span>
-//   </label>
-// </div>
+// Markup: ./examples/toggle/_toggle-sizes.html
 //
 // Styleguide: Components.Controls.Toggle.4
 
@@ -137,39 +80,7 @@
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
-// Markup:
-// <div class="xui-padding-xsmall">
-//   <div class="xui-toggle xui-toggle-medium" role="radiogroup" aria-label="ee">
-//     <label class="xui-toggle--option xui-toggle-is-disabled">
-//     <input type="radio" name="ee" class="xui-toggle--input" disabled checked/>
-//       <span class="xui-toggle--label xui-padding-horizontal">Limited</span>
-//     </label>
-//     <label class="xui-toggle--option xui-toggle-is-disabled">
-//       <input type="radio" name="ee" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label xui-padding-horizontal">Standard</span>
-//     </label>
-//     <label class="xui-toggle--option xui-toggle-is-disabled">
-//       <input type="radio" name="ee" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label xui-padding-horizontal">Admin</span>
-//     </label>
-//   </div>
-// </div>
-// <div class="ds-example-dark">
-//   <div class="xui-toggle xui-toggle-inverted xui-toggle-medium" role="radiogroup" aria-label="kk">
-//     <label class="xui-toggle--option xui-toggle-is-disabled">
-//     <input type="radio" name="kk" class="xui-toggle--input" disabled checked/>
-//       <span class="xui-toggle--label xui-padding-horizontal">Limited</span>
-//     </label>
-//     <label class="xui-toggle--option xui-toggle-is-disabled">
-//       <input type="radio" name="kk" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label xui-padding-horizontal">Standard</span>
-//     </label>
-//     <label class="xui-toggle--option xui-toggle-is-disabled">
-//       <input type="radio" name="kk" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label xui-padding-horizontal">Admin</span>
-//     </label>
-//   </div>
-// </div>
+// Markup: ./examples/toggle/_toggle-disabling.html
 //
 // Styleguide: Components.Controls.Toggle.5
 
@@ -182,32 +93,6 @@
 //
 // ExampleClass: ds-example-dark
 //
-// Markup:
-// <div class="xui-toggle xui-toggle-inverted xui-toggle-medium" role="radiogroup" aria-label="ff">
-//   <label class="xui-toggle--option">
-//   <input type="radio" name="ff" class="xui-toggle--input" checked/>
-//     <span class="xui-toggle--label xui-padding-horizontal-small">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-desktop" role="presentation"/>
-//       </svg>
-//     </span>
-//   </label>
-//   <label class="xui-toggle--option">
-//     <input type="radio" name="ff" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-horizontal-small">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-mobile" role="presentation"/>
-//       </svg>
-//     </span>
-//   </label>
-//   <label class="xui-toggle--option">
-//     <input type="radio" name="ff" class="xui-toggle--input"/>
-//     <span class="xui-toggle--label xui-padding-horizontal-small">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-print" role="presentation"/>
-//       </svg>
-//     </span>
-//   </label>
-// </div>
+// Markup: ./examples/toggle/_toggle-inverted.html
 //
 // Styleguide: Components.Controls.Toggle.6

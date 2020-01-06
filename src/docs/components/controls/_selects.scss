@@ -40,19 +40,7 @@
 // xui-select--caret: Icon styling
 // xui-button--caret: Icon styling
 //
-// Markup:
-// <button class="xui-button xui-button-standard xui-button-medium xui-select--button xui-select--button-no-variant xui-margin-bottom" aria-label="Select format">
-//   <span class="xui-select--content">Status</span>
-//   <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//     <use xlink:href="#xui-icon-caret" role="presentation" />
-//   </svg>
-// </button>
-// <button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//   <span class="xui-select--content">Status</span>
-//   <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//     <use xlink:href="#xui-icon-caret" role="presentation" />
-//   </svg>
-// </button>
+// Markup: ./examples/select/_select.html
 //
 // Styleguide: Components.Controls.Select.2
 
@@ -64,31 +52,7 @@
 // Classes:
 // xui-select-layout: Wrapping class for select trigger and dropdown
 //
-// Markup:
-// <div class="xui-select-layout">
-//   <button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//     <span class="xui-select--content">CSV</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-//   <div class="xui-dropdown-layout xui-margin-top-2xsmall xui-u-fullwidth xui-dropdown-is-open">
-//     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body">
-//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout">
-//         <li class="xui-pickitem xui-pickitem-medium" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">PDF</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-medium xui-pickitem-is-selected" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">CSV</button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-medium" tabindex="0">
-//           <button class="xui-pickitem--body" tabindex="-1">ZIP</button>
-//         </li>
-//       </ul>
-//     </div>
-//   </div>
-// </div>
+// Markup: ./examples/select/_select-content.html
 //
 // Styleguide: Components.Controls.Select.2.1
 
@@ -104,37 +68,7 @@
 // xui-validation-layout: Message spacing styling
 // xui-validation-is-invalid: Invalid message color styling
 //
-// Markup:
-// <label class="xui-text-label xui-fieldlabel-layout">Due date</label>
-// <div class="xui-select-layout">
-//   <button class="xui-button xui-button-standard xui-button-medium xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//     <span class="xui-select--content">Select a date</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-// </div>
-// <div class="xui-validation xui-validation-layout xui-validation-is-invalid" role="status">Validation message</div>
-// <label class="xui-text-label xui-fieldlabel-layout">Due date</label>
-// <div class="xui-select-layout">
-//   <button class="xui-button xui-button-standard xui-button-small xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//     <span class="xui-select--content">Select a date</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-// </div>
-// <div class="xui-validation xui-validation-layout xui-validation-is-invalid" role="status">Validation message</div>
-// <label class="xui-text-label xui-fieldlabel-layout">Due date</label>
-// <div class="xui-select-layout">
-//   <button class="xui-button xui-button-standard xui-button-xsmall xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//     <span class="xui-select--content">Select a date</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-// </div>
-// <div class="xui-validation xui-validation-layout xui-validation-is-invalid" role="status">Validation message</div>
+// Markup: ./examples/select/_select-labels-and-validation.html
 //
 // Styleguide: Components.Controls.Select.2.2
 
@@ -153,31 +87,7 @@
 // small: 32px: `xui-button-small`
 // xsmall: 24px: `xui-button-xsmall`
 //
-// Markup:
-// <div class="xui-select-layout xui-margin-bottom">
-//   <button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//     <span class="xui-select--content">Today</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-// </div>
-// <div class="xui-select-layout xui-margin-bottom">
-//   <button class="xui-button xui-button-standard xui-button-small xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//     <span class="xui-select--content">Today</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-// </div>
-// <div class="xui-select-layout">
-//   <button class="xui-button xui-button-standard xui-button-xsmall xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//     <span class="xui-select--content">Today</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-// </div>
+// Markup: ./examples/select/_select-sizes.html
 //
 // Styleguide: Components.Controls.Select.4
 
@@ -187,75 +97,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div class="xui-margin-bottom  xui-u-flex">
-//   <button class="xui-button xui-button-main xui-button-medium xui-select--button xui-margin-right" aria-label="Select format">
-//     <span class="xui-select--content">All</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-//   <button class="xui-button xui-button-create xui-button-medium xui-select--button xui-margin-right" aria-label="Select format">
-//     <span class="xui-select--content">All</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-//   <button class="xui-button xui-button-negative xui-button-medium xui-select--button xui-margin-right" aria-label="Select format">
-//     <span class="xui-select--content">All</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-// </div>
-// <div class="xui-margin-bottom xui-u-flex">
-//   <button class="xui-button xui-button-standard xui-button-medium xui-select--button xui-margin-right" aria-label="Select format">
-//     <span class="xui-select--content">All</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-//   <button class="xui-button xui-button-borderless-main xui-button-medium xui-select--button xui-margin-right" aria-label="Select format">
-//     <span class="xui-select--content">All</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-//   <button class="xui-button xui-button-borderless-create xui-button-medium xui-select--button xui-margin-right" aria-label="Select format">
-//     <span class="xui-select--content">All</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-// </div>
-// <div class="xui-margin-bottom xui-u-flex">
-//   <button class="xui-button xui-button-borderless-negative xui-button-medium xui-select--button xui-margin-right" aria-label="Select format">
-//     <span class="xui-select--content">All</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-//   <button class="xui-button xui-button-borderless-standard xui-button-medium xui-select--button xui-margin-right" aria-label="Select format">
-//     <span class="xui-select--content">All</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-//   <button class="xui-button xui-button-borderless-muted xui-button-medium xui-select--button xui-margin-right" aria-label="Select format">
-//     <span class="xui-select--content">All</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-// </div>
-// <div class="xui-u-flex">
-//   <button class="xui-button xui-button-standard xui-button-medium xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//     <span class="xui-select--content">All</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-// </div>
+// Markup: ./examples/select/_select-variants.html
 //
 // Styleguide: Components.Controls.Select.5
 
@@ -266,61 +108,7 @@
 // Tips:
 // Do: Use multi-selects when choosing from an array of options in one category
 //
-// Markup:
-// <div class="xui-select-layout">
-//   <button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format">
-//     <span class="xui-select--content">This week, Next week</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-//   <div class="xui-dropdown-layout xui-margin-top-2xsmall xui-u-fullwidth xui-dropdown-is-open">
-//     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body">
-//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout">
-//         <li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" aria-selected="false" role="option" id="0-1">
-//           <div class="xui-pickitem--body" role="presentation">
-//             <label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
-//               <input type="checkbox" tabindex="-1" aria-labelledby="aaa" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small">
-//               <div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small">
-//                 <div class="xui-touchtarget"></div>
-//               </div>
-//               <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
-//                 <span class="">Last week</span>
-//               </span>
-//             </label>
-//           </div>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" aria-selected="false" role="option" id="0-1">
-//           <div class="xui-pickitem--body" role="presentation">
-//             <label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
-//               <input type="checkbox" checked tabindex="-1" aria-labelledby="aab" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small">
-//               <div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small">
-//                 <div class="xui-touchtarget"></div>
-//               </div>
-//               <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
-//                 <span class="">This week</span>
-//               </span>
-//             </label>
-//           </div>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium" aria-selected="false" role="option" id="0-1">
-//           <div class="xui-pickitem--body" role="presentation">
-//             <label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" role="presentation">
-//               <input type="checkbox" checked tabindex="-1" aria-labelledby="aac" class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small">
-//               <div class="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small">
-//                 <div class="xui-touchtarget"></div>
-//               </div>
-//               <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label" id="aaa">
-//                 <span class="">Next week</span>
-//               </span>
-//             </label>
-//           </div>
-//         </li>
-//       </ul>
-//     </div>
-//   </div>
-// </div>
+// Markup: ./examples/select/_select-multiselect.html
 //
 // Styleguide: Components.Controls.Select.6
 
@@ -329,25 +117,7 @@
 // To disable a select control, apply the `disabled` attribute.
 // This applies styles and prevents it from accepting focus.
 //
-// Markup:
-// <button class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth xui-select--button xui-select--button-no-variant xui-margin-bottom" aria-label="Select format" disabled>
-//   <span class="xui-select--content">PDF</span>
-//   <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//     <use xlink:href="#xui-icon-caret" role="presentation" />
-//   </svg>
-// </button>
-// <button class="xui-button xui-button-standard xui-button-small xui-button-fullwidth xui-select--button xui-select--button-no-variant xui-margin-bottom" aria-label="Select format" disabled>
-//   <span class="xui-select--content">PDF</span>
-//   <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//     <use xlink:href="#xui-icon-caret" role="presentation" />
-//   </svg>
-// </button>
-// <button class="xui-button xui-button-standard xui-button-xsmall xui-button-fullwidth xui-select--button xui-select--button-no-variant" aria-label="Select format" disabled>
-//   <span class="xui-select--content">PDF</span>
-//   <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//     <use xlink:href="#xui-icon-caret" role="presentation" />
-//   </svg>
-// </button>
+// Markup: ./examples/select/_select-disabling.html
 //
 // Styleguide: Components.Controls.Select.7
 
@@ -363,16 +133,6 @@
 // xui-select--control: Select styles
 // xui-select--caret: Icon styling
 //
-// Markup:
-//  <div class="xui-select">
-//    <select class="xui-select--control" aria-label="Select format">
-//      <option>PDF</option>
-//      <option>CSV</option>
-//      <option selected>ZIP</option>
-//    </select>
-//    <svg focusable="false" class="xui-icon xui-select--caret">
-//      <use xlink:href="#xui-icon-caret" role="presentation" />
-//    </svg>
-//  </div>
+// Markup: ./examples/select/_select-native.html
 //
 // Styleguide: Components.Controls.Select.8

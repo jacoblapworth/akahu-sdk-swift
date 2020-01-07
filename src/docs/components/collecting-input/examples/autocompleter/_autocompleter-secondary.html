@@ -1,0 +1,78 @@
+<div class="xui-select-layout">
+  <button
+    class="xui-button xui-button-standard xui-button-medium xui-select--button"
+    aria-label="Select format"
+  >
+    <span class="xui-select--content">Project</span>
+    <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
+      <use xlink:href="#xui-icon-caret" role="presentation" />
+    </svg>
+  </button>
+  <div class="xui-dropdown-layout xui-margin-top-2xsmall xui-u-fullwidth xui-dropdown-is-open">
+    <div class="xui-dropdown--mask"></div>
+    <div class="xui-dropdown--body xui-dropdown-fixed-large">
+      <div class="xui-dropdown--header-container">
+        <div
+          class="xui-textinput xui-textinput-medium xui-textinput-borderless xui-textinput-borderless-solid"
+        >
+          <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+            <div class="xui-iconwrapper">
+              <svg focusable="false" class="xui-icon">
+                <use xlink:href="#xui-icon-search" role="presentation" />
+              </svg>
+            </div>
+          </div>
+          <input
+            class="xui-textinput--input xui-textinput--input-medium xui-autocompleter--textinput"
+            placeholder="Search projects"
+            type="search"
+            value=""
+          />
+        </div>
+      </div>
+      <div class="xui-dropdown--scrollable-container">
+        <ul role="group" class="xui-picklist xui-picklist-medium xui-picklist-layout">
+          <li class="xui-picklist--header">
+            <span class="xui-picklist--header--text">Suggested</span>
+          </li>
+          <li class="xui-pickitem xui-pickitem-medium" role="option" id="1">
+            <button type="button" class="xui-pickitem--body">
+              <span class="xui-pickitem--sideelement">
+                <abbr
+                  class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-8"
+                  role="presentation"
+                  >HK</abbr
+                >
+              </span>
+              <span class="xui-pickitem--text xui-pickitem-text-truncated">Website redesign</span>
+            </button>
+          </li>
+          <li class="xui-pickitem xui-pickitem-medium" role="option" id="2">
+            <button type="button" class="xui-pickitem--body">
+              <span class="xui-pickitem--sideelement">
+                <abbr
+                  class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-3"
+                  role="presentation"
+                  >CV</abbr
+                >
+              </span>
+              <span class="xui-pickitem--text xui-pickitem-text-truncated">Website IA</span>
+            </button>
+          </li>
+          <li class="xui-pickitem xui-pickitem-medium" role="option" id="3">
+            <button type="button" class="xui-pickitem--body">
+              <span class="xui-pickitem--sideelement">
+                <abbr
+                  class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-4"
+                  role="presentation"
+                  >B</abbr
+                >
+              </span>
+              <span class="xui-pickitem--text xui-pickitem-text-truncated">Brochure design</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -19,41 +19,7 @@
 // Warning: Only consider adding a label within the input if space above is not available
 // Dont: Don't use a symbol to indicate fields as required without explaining what it means
 //
-// Markup:
-// <div class="xui-row-grid">
-//   <div class="xui-field-layout xui-column-6-of-12">
-//     <label>
-//			 <span class="xui-text-label xui-fieldlabel-layout">Wrapping label</span>
-//			 <input class="xui-textinput xui-textinput--input" type="text" placeholder=""/>
-//		 </label>
-//   </div>
-//   <div class="xui-field-layout xui-column-6-of-12">
-//     <label class="xui-text-label xui-fieldlabel-layout" for="sibling-example">Sibling label</label>
-//     <input class="xui-textinput xui-textinput--input" id="sibling-example" type="text" placeholder=""/>
-//   </div>
-//   <div class="xui-field-layout xui-column-6-of-12">
-//     <div class="xui-verticaltextinputgroup">
-//       <label class="xui-textinput">
-//         <div class="xui-textinput--sideelement xui-textinput--sideelement-align-center xui-textinput--sideelement-text">
-//           First name:
-//         </div>
-//         <input class="xui-textinput--input xui-padding-left-none"/>
-//       </label>
-//       <label class="xui-textinput">
-//         <div class="xui-textinput--sideelement xui-textinput--sideelement-align-center xui-textinput--sideelement-text">
-//           Surname:
-//         </div>
-//         <input class="xui-textinput--input xui-padding-left-none"/>
-//       </label>
-//       <label class="xui-textinput">
-//         <div class="xui-textinput--sideelement xui-textinput--sideelement-align-center xui-textinput--sideelement-text">
-//           Preferred Name:
-//         </div>
-//         <input class="xui-textinput--input xui-padding-left-none"/>
-//       </label>
-//     </div>
-//   </div>
-// </div>
+// Markup: ./examples/form/_form-labels.html
 //
 // Classes:
 // xui-text-label: Adds text styling only
@@ -93,13 +59,7 @@
 // Dont: Avoid using for the sake of it
 // Dont: Don’t repeat the label
 //
-// Markup:
-// <div class="xui-row-grid">
-// <label class="xui-column-3-of-12">
-//   <span class="xui-text-label xui-fieldlabel-layout">Time taken</span>
-//   <input class="xui-textinput xui-textinput--input" aria-label="Time taken" type="text" placeholder="2.5 or 2:30"/>
-// </label>
-// </div>
+// Markup: ./examples/form/_form-labels-placeholders.html
 //
 // Styleguide: Components.CollectingInput.Forms.6.2
 
@@ -113,11 +73,6 @@
 // Do: Show on focus - especially if there is a few in one interface
 // Do: Provide advice on how to correctly format input if it has been filled incorrectly
 //
-// Markup:
-// <div>
-// 	<label class="xui-text-label xui-fieldlabel-layout" for="field2">IRD number</label>
-// 	<input class="xui-textinput xui-textinput--input" type="text" id="field2" placeholder="" />
-// 	<div class="xui-validation xui-validation-layout">Found on the top of your IR3 statement</div>
-// </div>
+// Markup: ./examples/form/_form-labels-notes-and-errors.html
 //
 // Styleguide: Components.CollectingInput.Forms.6.3

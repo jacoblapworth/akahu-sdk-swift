@@ -29,31 +29,7 @@
 // xui-dropdown--mask: Empty element to mask background page at narrow viewports
 // xui-dropdown--body: Dropdown content
 //
-// Markup:
-// <div class="xui-u-flex xui-u-flex-column xui-u-fullwidth">
-//   <div class='xui-dropdown-layout xui-dropdown-is-open'>
-//     <div class='xui-dropdown--mask'></div>
-//     <div class='xui-dropdown--body'>
-//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout" role="tree">
-//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//           <button type="button" class="xui-pickitem--body">
-//             <span class="xui-pickitem--text">Edit</span>
-//           </button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//           <button type="button" class="xui-pickitem--body">
-//             <span class="xui-pickitem--text">Delete</span>
-//           </button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//           <button type="button" class="xui-pickitem--body">
-//             <span class="xui-pickitem--text">Copy</span>
-//           </button>
-//         </li>
-//       </ul>
-//     </div>
-//   </div>
-// </div>
+// Markup: ./examples/dropdown/_dropdown.html
 //
 // Styleguide: Components.CollectingInput.Dropdowns.10
 
@@ -204,87 +180,7 @@
 // xui-dropdown--scrollable-content: Picklist container
 // xui-dropdown--footer: Footer container
 //
-// Markup:
-// <div class='xui-dropdown-layout xui-dropdown-fullheight xui-dropdown-fixed-large xui-dropdown-is-open'>
-//   <div class='xui-dropdown--mask'></div>
-//   <div class='xui-dropdown--body'>
-//     <div class="xui-dropdown--header-container">
-//       <div class="xui-dropdown--header-leftcontent">
-//         <div class="xui-heading-small xui-margin-left-small xui-text-truncated">
-//           Add to group
-//         </div>
-//       </div>
-//       <div class="xui-dropdown--header-rightcontent">
-//         <div class="xui-margin-right-xsmall xui-dropdown--header-rightcontent">
-//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Cancel</button><button class="xui-button xui-margin-left-small xui-button-main xui-button-small" tabindex="0" type="button">Apply</button>
-//         </div>
-//       </div>
-//     </div>
-//     <div class='xui-dropdown--scrollable-content'>
-//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout" role="tree">
-//         <li class="xui-pickitem xui-pickitem-medium xui-pickitem-multiselect" role="option">
-//           <div class="xui-pickitem--body">
-//             <label class="xui-styledcheckboxradio" for="customers">
-//               <input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="customers">
-//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input">
-//                 <div class="xui-touchtarget"></div>
-//               </div>
-//               <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-medium xui-pickitem--text xui-pickitem-multiselect--label">
-//                 <span>
-//                   Customers
-//                 </span>
-//               </span>
-//             </label>
-//           </div>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-medium xui-pickitem-multiselect" role="option">
-//           <div class="xui-pickitem--body">
-//             <label class="xui-styledcheckboxradio" for="suppliers">
-//               <input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="suppliers">
-//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input">
-//                 <div class="xui-touchtarget"></div>
-//               </div>
-//               <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-medium xui-pickitem--text xui-pickitem-multiselect--label">
-//                 <span>
-//                   Suppliers
-//                 </span>
-//               </span>
-//             </label>
-//           </div>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-medium xui-pickitem-multiselect" role="option">
-//           <div class="xui-pickitem--body">
-//             <label class="xui-styledcheckboxradio" for="overseas">
-//               <input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="overseas">
-//               <div class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small xui-pickitem--input">
-//                 <div class="xui-touchtarget"></div>
-//               </div>
-//               <span class="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-medium xui-pickitem--text xui-pickitem-multiselect--label">
-//                 <span>
-//                   Overseas clients
-//                 </span>
-//               </span>
-//             </label>
-//           </div>
-//         </li>
-//       </ul>
-//     </div>
-//     <div class="xui-dropdown--footer">
-//       <ul class="xui-picklist xui-picklist-medium xui-picklist-layout">
-//         <li class="xui-pickitem xui-pickitem-medium" role="treeitem">
-//           <button type="button" class="xui-pickitem--body">
-//             <span class="xui-pickitem--sideelement">
-//               <svg focusable="false" class="xui-icon xui-icon-color-black-muted">
-//                 <use xlink:href="#xui-icon-plus" role="presentation"></use>
-//               </svg>
-//             </span>
-//             <span class="xui-pickitem--text">New group</span>
-//           </button>
-//         </li>
-//       </ul>
-//     </div>
-//   </div>
-// </div>
+// Markup: ./examples/dropdown/_dropdown-header-and-footer.html
 //
 // Styleguide: Components.CollectingInput.Dropdowns.16
 

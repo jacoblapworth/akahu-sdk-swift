@@ -53,52 +53,7 @@
 
 // Standard layout
 //
-// Markup:
-// <div class="xui-textinput">
-//   <input class="xui-textinput--input xui-autocompleter--textinput" placeholder="Add recipients" type="search" value="">
-// </div>
-// <div class="xui-dropdown-layout xui-dropdown-is-open xui-margin-top-2xsmall">
-//   <div class="xui-dropdown--mask"></div>
-//   <div class="xui-dropdown--body">
-//     <div class="xui-dropdown--scrollable-content">
-//       <ul role="group" class="xui-picklist xui-picklist-layout xui-picklist-medium">
-//         <li class="xui-pickitem xui-pickitem-text-truncated xui-pickitem-multiline xui-pickitem-medium" role="option" id="1">
-//           <button type="button" class="xui-pickitem--body" tabindex="-1">
-//             <span class="xui-pickitem--sideelement">
-//               <abbr class="xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">IM</abbr>
-//             </span>
-//             <span class="xui-pickitem--text xui-pickitem-text-truncated">
-//               <span class="xui-pickitem--heading xui-pickitem-text-truncated">Isaac Minogue</span>
-//               <span class="xui-pickitem--secondary xui-pickitem-text-truncated">isaac.minogue@xero.com</span>
-//             </span>
-//           </button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-text-truncated xui-pickitem-multiline xui-pickitem-medium" role="option" id="2">
-//           <button type="button" class="xui-pickitem--body" tabindex="-1">
-//             <span class="xui-pickitem--sideelement">
-//               <abbr class="xui-avatar xui-avatar-small xui-avatar-color-5" role="presentation">GP</abbr>
-//             </span>
-//             <span class="xui-pickitem--text xui-pickitem-text-truncated">
-//               <span class="xui-pickitem--heading xui-pickitem-text-truncated">Gareth Price</span>
-//               <span class="xui-pickitem--secondary xui-pickitem-text-truncated">gareth.price@xero.com</span>
-//             </span>
-//           </button>
-//         </li>
-//         <li class="xui-pickitem xui-pickitem-text-truncated xui-pickitem-multiline xui-pickitem-medium" role="option" id="1">
-//           <button type="button" class="xui-pickitem--body" tabindex="-1">
-//             <span class="xui-pickitem--sideelement">
-//               <abbr class="xui-avatar xui-avatar-small xui-avatar-color-2" role="presentation">IM</abbr>
-//             </span>
-//             <span class="xui-pickitem--text xui-pickitem-text-truncated">
-//               <span class="xui-pickitem--heading xui-pickitem-text-truncated">Ivan Miskovic</span>
-//               <span class="xui-pickitem--secondary xui-pickitem-text-truncated">ivan.miskovic@xero.com</span>
-//             </span>
-//           </button>
-//         </li>
-//       </ul>
-//     </div>
-//   </div>
-// </div>
+// Markup: ./examples/autocompleter/_autocompleter.html
 //
 // Styleguide: Components.CollectingInput.Autocompleter.2.3
 
@@ -110,21 +65,7 @@
 // Do: Use text input side elements to indicate a single selection
 // Do: Include an avatar if the selected option has an associated person or business
 //
-// Markup:
-// <div class="xui-textinput xui-textinput-medium">
-//   <div class="xui-textinput--sideelement xui-textinput--sideelement-align-center xui-textinput--sideelement-avatar">
-//     <abbr class="xui-avatar xui-avatar-small xui-avatar-color-5" role="presentation">CH</abbr>
-//   </div>
-//   <input class="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium" placeholder="Select recipient" type="search" value="Chris Hemsworth">
-//   <div class="xui-textinput--sideelement xui-textinput--sideelement-align-center xui-textinput--sideelement-icon">
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-button-icon xui-button-icon-medium" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
+// Markup: ./examples/autocompleter/_autocompleter-single-select.html
 //
 // Styleguide: Components.CollectingInput.Autocompleter.3
 
@@ -140,34 +81,7 @@
 // Classes:
 // xui-autocompleter--pill: An individual pill inside the autocmpleter
 //
-// Markup:
-// <div class="xui-textinput xui-textinput-medium xui-autocompleter--trigger-pillwrap">
-//   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-1" role="presentation">CS</abbr>
-//       <span class="xui-pill--text">Claire Symons</span>
-//     </span>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-//   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-2" role="presentation">RK</abbr>
-//       <span class="xui-pill--text">Ray Koh</span>
-//     </span>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-//   <input class="xui-autocompleter--textinput xui-textinput--input" placeholder="Add recipients" type="search" value="">
-// </div>
+// Markup: ./examples/autocompleter/_autocompleter-multi-select.html
 //
 // Styleguide: Components.CollectingInput.Autocompleter.4
 
@@ -184,70 +98,7 @@
 // Classes:
 // xui-autocompleter--trigger-pillwrap: Apply to autocompleter container to wrap pills
 //
-// Markup:
-// <div class="xui-textinput xui-textinput-medium xui-autocompleter--trigger-pillwrap">
-//   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-7" role="presentation">FC</abbr>
-//       <span class="xui-pill--text">Finn Clark</span>
-//     </span>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-//   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-8" role="presentation">GC</abbr>
-//       <span class="xui-pill--text">Georgia Cottrell</span>
-//     </span>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//	 </div>
-//   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-9" role="presentation">ST</abbr>
-//       <span class="xui-pill--text">Sophie Taylor</span>
-//     </span>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//	 </div>
-//   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-10" role="presentation">SL</abbr>
-//       <span class="xui-pill--text">Sylvain Lafitte</span>
-//     </span>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//	 </div>
-//   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-1" role="presentation">RS</abbr>
-//       <span class="xui-pill--text">Robb Schiller</span>
-//     </span>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//	 </div>
-//   <input class="xui-autocompleter--textinput xui-textinput--input" placeholder="Add recipients" type="search">
-// </div>
+// Markup: ./examples/autocompleter/_autocompleter-wrapping.html
 //
 // Styleguide: Components.CollectingInput.Autocompleter.4.1
 
@@ -262,72 +113,7 @@
 // Classes:
 // xui-autocompleter--pills-nopillwrap: Apply to a div containing the pills to give correct overflow behaviour
 //
-// Markup:
-// <div class="xui-textinput">
-//   <div class="xui-autocompleter--pills-nopillwrap">
-//     <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-2" role="presentation">SJ</abbr>
-//       <span class="xui-pill--text">Sam Judson</span>
-//     </span>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//	 </div>
-//   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-3" role="presentation">CM</abbr>
-//       <span class="xui-pill--text">Caleb Mercer</span>
-//     </span>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//	 </div>
-//   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-4" role="presentation">JJ</abbr>
-//       <span class="xui-pill--text">Julie Jeon</span>
-//     </span>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//	 </div>
-//   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-5" role="presentation">BA</abbr>
-//       <span class="xui-pill--text">Brock Abernathy</span>
-//     </span>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//	 </div>
-//   <div class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-6" role="presentation">SB</abbr>
-//       <span class="xui-pill--text">Steph Bain</span>
-//     </span>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon xui-button-icon-small" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
-//       </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//	 	</div>
-// 	</div>
-//   <input class="xui-textinput--input" placeholder="Add recipients" type="search" value="">
-// </div>
+// Markup: ./examples/autocompleter/_autocompleter-contained.html
 //
 // Styleguide: Components.CollectingInput.Autocompleter.4.2
 
@@ -339,63 +125,7 @@
 // xui-dropdown--header-container: Applies styling for dropdown header
 // xui-dropdown--scrollable-container: Applies overflow styling to wrapping container
 //
-// Markup:
-// <div class="xui-select-layout">
-//   <button class="xui-button xui-button-standard xui-button-medium xui-select--button" aria-label="Select format">
-//     <span class="xui-select--content">Project</span>
-//     <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret">
-//       <use xlink:href="#xui-icon-caret" role="presentation" />
-//     </svg>
-//   </button>
-//   <div class="xui-dropdown-layout xui-margin-top-2xsmall xui-u-fullwidth xui-dropdown-is-open">
-//     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body xui-dropdown-fixed-large">
-//       <div class="xui-dropdown--header-container">
-//         <div class="xui-textinput xui-textinput-medium xui-textinput-borderless xui-textinput-borderless-solid">
-//           <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//             <div class="xui-iconwrapper">
-//               <svg focusable="false" class="xui-icon">
-//                 <use xlink:href="#xui-icon-search" role="presentation" />
-//               </svg>
-//             </div>
-//           </div>
-//           <input class="xui-textinput--input xui-textinput--input-medium xui-autocompleter--textinput" placeholder="Search projects" type="search" value="">
-//         </div>
-//       </div>
-//       <div class="xui-dropdown--scrollable-container">
-//         <ul role="group" class="xui-picklist xui-picklist-medium xui-picklist-layout">
-//           <li class="xui-picklist--header">
-//             <span class="xui-picklist--header--text">Suggested</span>
-//           </li>
-//           <li class="xui-pickitem xui-pickitem-medium" role="option" id="1">
-//             <button type="button" class="xui-pickitem--body">
-//               <span class="xui-pickitem--sideelement">
-//                 <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-8" role="presentation">HK</abbr>
-//               </span>
-//               <span class="xui-pickitem--text xui-pickitem-text-truncated">Website redesign</span>
-//             </button>
-//           </li>
-//           <li class="xui-pickitem xui-pickitem-medium" role="option" id="2">
-//             <button type="button" class="xui-pickitem--body">
-//               <span class="xui-pickitem--sideelement">
-//                 <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-3" role="presentation">CV</abbr>
-//               </span>
-//               <span class="xui-pickitem--text xui-pickitem-text-truncated">Website IA</span>
-//             </button>
-//           </li>
-//           <li class="xui-pickitem xui-pickitem-medium" role="option" id="3">
-//             <button type="button" class="xui-pickitem--body">
-//               <span class="xui-pickitem--sideelement">
-//                 <abbr class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-4" role="presentation">B</abbr>
-//               </span>
-//               <span class="xui-pickitem--text xui-pickitem-text-truncated">Brochure design</span>
-//             </button>
-//           </li>
-//         </ul>
-//       </div>
-//     </div>
-//   </div>
-// </div>
+// Markup: ./examples/autocompleter/_autocompleter-secondary.html
 //
 // Styleguide: Components.CollectingInput.Autocompleter.5
 
@@ -407,9 +137,6 @@
 // Classes:
 // xui-textinput-is-disabled: Apply to autocompleter container
 //
-// Markup:
-// <div class="xui-textinput xui-textinput-medium xui-textinput-is-disabled">
-//   <input class="xui-textinput--input xui-textinput--input-medium" placeholder="Add recipients" type="search" value="" disabled>
-// </div>
+// Markup: ./examples/autocompleter/_autocompleter-disabling.html
 //
 // Styleguide: Components.CollectingInput.Autocompleter.6

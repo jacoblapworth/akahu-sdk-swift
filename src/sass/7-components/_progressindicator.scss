@@ -251,11 +251,11 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
   $key: nth($color, 1);
   $value: nth($color, 2);
 
-  [data-#{$ns}-progress-total-color='#{$key}'] {
+  [data-#{$ns}-progress-total-color='#{"" + $key}'] {
     @include xui-stepper-add-total-track-color($value);
   }
 
-  [data-#{$ns}-progress-current-color='#{$key}'] {
+  [data-#{$ns}-progress-current-color='#{"" + $key}'] {
     @include xui-stepper-add-current-track-color($value);
   }
 }

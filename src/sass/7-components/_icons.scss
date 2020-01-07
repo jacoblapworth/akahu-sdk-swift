@@ -49,7 +49,7 @@
 }
 
 @each $colourName, $colorHex in $icon-colours {
-  .#{$ns}-icon-color-#{$colourName} {
+  .#{$ns}-icon-color-#{'' + $colourName} {
     fill: $colorHex;
   }
 }

@@ -43,19 +43,7 @@
 // Do: Use size variant appropriate for the illustration
 // Do: Consider responsively swapping size variants to optimise space
 //
-// Markup:
-// <img
-//   class="xui-illustration xui-illustration-small"
-//   src="https://edge.xero.com/illustration/scene/concierges-envelope-01/concierges-envelope-01.svg"
-// />
-// <img
-//   class="xui-illustration xui-illustration-medium"
-//   src="https://edge.xero.com/illustration/scene/concierges-envelope-01/concierges-envelope-01.svg"
-// />
-// <img
-//   class="xui-illustration xui-illustration-large"
-//   src="https://edge.xero.com/illustration/scene/concierges-envelope-01/concierges-envelope-01.svg"
-// />
+// Markup: ./examples/illustration/_illustration-sizes.html
 //
 // Styleguide: Fundamentals.Illustrations.2
 
@@ -68,16 +56,6 @@
 // Tips:
 // Warning: Only use a custom size if you're confident the supplied size variants will not work for your design
 //
-// Markup:
-// <style>
-//   .custom-illustration {
-//     height: 200px;
-//     padding: 20px;
-//   }
-// </style>
-// <img
-//   class="xui-illustration custom-illustration"
-//   src="https://edge.xero.com/illustration/scene/concierges-envelope-01/concierges-envelope-01.svg"
-// />
+// Markup: ./examples/illustration/_illustration-custom-size.html
 //
 // Styleguide: Fundamentals.Illustrations.2.1

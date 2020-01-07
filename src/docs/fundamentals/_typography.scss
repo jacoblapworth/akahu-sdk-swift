@@ -106,19 +106,7 @@
 //
 // ExampleClass: ds-example-flush ds-example-dark
 //
-// Markup:
-// <div class="xui-row xui-textcolor-inverted xui-padding">
-//  <div class="xui-column-4-of-12 xui-heading">
-//    Preview Invoice <span class="xui-text-deemphasis">INV0001</span>
-//  </div>
-//  <div class="xui-column-4-of-12 xui-textcolor-inverted-faint xui-text-align-center">
-//    Saving...
-//  </div>
-//  <div class="xui-column-4-of-12 xui-text-align-right xui-textcolor-inverted-muted">
-//  <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-edit" role="presentation"/></svg>
-//  Edit
-//  </div>
-// </div>
+// Markup: ./examples/typography/_typography-dark-background.html
 //
 // Styleguide: Fundamentals.Typography.30.3
 
@@ -132,28 +120,7 @@
 // Minor link: `xui-text-minorlink`: Use only for very secondary inconsequential elements to inherit parent text colour but retain standard link hover and focus highlighting.
 // Remove underline: `xui-text-decoration-none`: Can be used to remove the default underline from links that are already clearly interactive inside buttons or dropdowns. This shouldn't be necessary if using React components, only when custom-building.
 //
-// Markup:
-// <div class="xui-panel xui-padding" style="display:inline-block">
-// <table><tbody>
-// <tr>
-// <th class="xui-text-align-left">Account</th><th class="xui-text-align-right xui-padding-left-large">This month</th><th class="xui-text-align-right xui-padding-left-large">Year to date</th></tr>
-// <tr>
-//  <td class="xui-text-align-left"><a href="#">Advertising (600)</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">0.00</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">10,453.75</a></td>
-// </tr>
-// <tr>
-//  <td class="xui-text-align-left"><a href="#">Entertainment (620)</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">0.00</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">53.60</a></td>
-// </tr>
-// <tr>
-//  <td class="xui-text-align-left"><a href="#">Inventory (140)</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">0.00</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">0.00</a></td>
-// </tr>
-// </tbody></table>
-// </div>
+// Markup: ./examples/typography/_typography-links.html
 //
 // Styleguide: Fundamentals.Typography.40
 
@@ -238,27 +205,6 @@
 // Tips:
 // Warning: These styles are fairly basic and you may need to fine-tune - let us know how it goes!
 //
-// Markup:
-// <div class="xui-textcontent">
-//   <h1>Getting started with Xero Payroll</h1>
-//   <p>Here's what you'll need to sign up to Xero, how to set up your organisation, and links to pages that'll help you get started using Xero.</p>
-//   <hr>
-//   <h2>What you'll need</h2>
-//   <p>You'll need a browser and a Xero account to get started with Xero.</p>
-//   <ul>
-//     <li><a href="#system-requirements">System requirements</a></li>
-//     <li><a href="#sign-up">Sign up for a free Xero account</a></li>
-//   </ul>
-//   <h3>Converting from another system</h3>
-//   <h4>MYOB</h4>
-//   <h5>Initial steps</h5>
-//   <ul>
-//     <li><a href="#import">Import MYOB Practice chart of accounts</a></li>
-//   </ul>
-//   <h5>Final steps</h5>
-//   <ul>
-//     <li><a href="http://giphy.com/search/happy">Be happy</a></li>
-//   </ul>
-// </div>
+// Markup: ./examples/typography/_typography-long-form.html
 //
 // Styleguide: Fundamentals.Typography.80

@@ -34,16 +34,7 @@
 // Large: : 1.33 scale: `.xui-icon-large`
 // xLarge: 1.5 scale: `.xui-icon-xlarge`
 //
-// Markup:
-//  <svg focusable="false" class="xui-icon">
-//		<use xlink:href="#xui-icon-search" role="presentation"/>
-//	</svg>
-//  <svg focusable="false" class="xui-icon xui-icon-large">
-//		<use xlink:href="#xui-icon-search" role="presentation"/>
-//	</svg>
-//  <svg focusable="false" class="xui-icon xui-icon-xlarge">
-//		<use xlink:href="#xui-icon-search" role="presentation"/>
-//	</svg>
+// Markup: ./examples/icon/_icon-sizes.html
 //
 // Styleguide: Fundamentals.Icons.2
 
@@ -57,16 +48,7 @@
 // Large: `.xui-iconwrapper-large`: Sets the size to large
 // XLarge: `.xui-iconwrapper-xlarge`: Sets the size to xlarge
 //
-// Markup:
-// <div class="xui-iconwrapper xui-iconwrapper-medium xui-textcolor-inverted ds-example-dark">
-//   <svg class="xui-icon"><use xlink:href="#xui-icon-filter" role="presentation"/></svg>
-// </div>
-// <div class="xui-iconwrapper xui-iconwrapper-large xui-textcolor-inverted ds-example-dark">
-//   <svg class="xui-icon xui-icon-large"><use xlink:href="#xui-icon-filter" role="presentation"/></svg>
-// </div>
-// <div class="xui-iconwrapper xui-iconwrapper-xlarge xui-textcolor-inverted ds-example-dark">
-//   <svg class="xui-icon xui-icon-xlarge"><use xlink:href="#xui-icon-filter" role="presentation"/></svg>
-// </div>
+// Markup: ./examples/icon/_icon-placement.html
 //
 // Styleguide: Fundamentals.Icons.3
 
@@ -97,59 +79,7 @@
 // Black muted: `.xui-icon-color-black-muted`
 // Black faint: `.xui-icon-color-black-faint`
 //
-// Markup:
-// <div class="xui-row-flex">
-//	<div class="xui-iconwrapper xui-iconwrapper-medium">
-// 		<svg focusable="false" class="xui-icon">
-// 			<use xlink:href="#xui-icon-filter" role="presentation"/>
-// 		</svg>
-//  </div>
-//	<div class="xui-iconwrapper xui-iconwrapper-medium">
-// 		<svg focusable="false" class="xui-icon xui-icon-color-black-muted">
-// 			<use xlink:href="#xui-icon-contact" role="presentation"/>
-// 		</svg>
-//  </div>
-//	<div class="xui-iconwrapper xui-iconwrapper-medium">
-// 		<svg focusable="false" class="xui-icon xui-icon-color-blue">
-// 			<use xlink:href="#xui-icon-xero" role="presentation"/>
-// 		</svg>
-//  </div>
-//	<div class="xui-iconwrapper xui-iconwrapper-medium">
-// 		<svg focusable="false" class="xui-icon xui-icon-color-red">
-// 			<use xlink:href="#xui-icon-stop" role="presentation"/>
-// 		</svg>
-//  </div>
-//	<div class="xui-iconwrapper xui-iconwrapper-medium">
-// 		<svg focusable="false" class="xui-icon xui-icon-color-green">
-// 			<use xlink:href="#xui-icon-checkbox-check" role="presentation"/>
-// 		</svg>
-//  </div>
-//	<div class="xui-iconwrapper xui-iconwrapper-medium">
-// 		<svg focusable="false" class="xui-icon xui-icon-color-file-pdf">
-// 			<use xlink:href="#xui-icon-file-pdf" role="presentation"/>
-// 		</svg>
-//  </div>
-//	<div class="xui-iconwrapper xui-iconwrapper-medium">
-// 		<svg focusable="false" class="xui-icon xui-icon-color-file-spreadsheet">
-// 			<use xlink:href="#xui-icon-file-spreadsheet" role="presentation"/>
-// 		</svg>
-//  </div>
-//	<div class="xui-iconwrapper xui-iconwrapper-medium ds-example-dark">
-// 		<svg focusable="false" class="xui-icon xui-icon-color-white">
-// 			<use xlink:href="#xui-icon-notification" role="presentation"/>
-// 		</svg>
-//  </div>
-//	<div class="xui-iconwrapper xui-iconwrapper-medium ds-example-dark">
-// 		<svg focusable="false" class="xui-icon xui-icon-color-white-muted">
-// 			<use xlink:href="#xui-icon-link" role="presentation"/>
-// 		</svg>
-//  </div>
-//	<div class="xui-iconwrapper xui-iconwrapper-medium ds-example-dark">
-// 		<svg focusable="false" class="xui-icon xui-icon-color-white-faint">
-// 			<use xlink:href="#xui-icon-print" role="presentation"/>
-// 		</svg>
-//  </div>
-// </div>
+// Markup: ./examples/icon/_icon-color.html
 //
 // Styleguide: Fundamentals.Icons.4
 
@@ -163,27 +93,7 @@
 // 180deg: 		`.xui-icon-rotate-180`
 // 270deg: 		`.xui-icon-rotate-270`
 //
-// Markup:
-// <div class="xui-iconwrapper xui-iconwrapper-medium">
-//   <svg focusable="false" class="xui-icon">
-//     <use xlink:href="#xui-icon-arrow" role="presentation"/>
-//   </svg>
-// </div>
-// <div class="xui-iconwrapper xui-iconwrapper-medium">
-//   <svg focusable="false" class="xui-icon xui-icon-rotate-90">
-//     <use xlink:href="#xui-icon-arrow" role="presentation"/>
-//   </svg>
-// </div>
-// <div class="xui-iconwrapper xui-iconwrapper-medium">
-//   <svg focusable="false" class="xui-icon xui-icon-rotate-180">
-//     <use xlink:href="#xui-icon-arrow" role="presentation"/>
-//   </svg>
-// </div>
-// <div class="xui-iconwrapper xui-iconwrapper-medium">
-//   <svg focusable="false" class="xui-icon xui-icon-rotate-270">
-//     <use xlink:href="#xui-icon-arrow" role="presentation"/>
-//   </svg>
-// </div>
+// Markup: ./examples/icon/_icon-rotation.html
 //
 // Styleguide: Fundamentals.Icons.5
 

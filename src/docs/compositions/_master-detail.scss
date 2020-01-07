@@ -30,15 +30,7 @@
 
 // Example
 //
-// Markup:
-// <div class="xui-composition xui-composition-masterdetail xui-composition-auto-template xui-composition-is-finite">
-//   <div class="xui-gridarea-master">
-//     <div style="background: #5A5AE6; color: white; height: 380px; min-width: 200px; padding: 20px; width: 100%;"> Master </div>
-//   </div>
-//   <div class="xui-gridarea-detail">
-//     <div style="background: #C5C5F6; height: 380px; padding: 20px;"> Detail </div>
-//   </div>
-// </div>
+// Markup: ./examples/master-detail/_master-detail.html
 //
 // Storybook: storybook/?selectedKind=Compositions&selectedStory=Master%20detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=&knob-Retain%20a%20width=
 //
@@ -52,18 +44,7 @@
 
 // Example
 //
-// Markup:
-// <div class="xui-composition xui-composition-masterdetailheader xui-composition-auto-template xui-composition-is-finite">
-//   <div class="xui-gridarea-header">
-//     <div style="background: #2D2D73; color: white; height: 120px; padding: 20px;"> content header </div>
-//   </div>
-//   <div class="xui-gridarea-master">
-//   	<div style="background: #5A5AE6; color: white; height: 380px; min-width: 200px; padding: 20px; width: 100%;"> Master </div>
-//   </div>
-//   <div class="xui-gridarea-detail">
-//     <div style="background: #C5C5F6; height: 380px; padding: 20px;"> Detail </div>
-// </div>
-// </div>
+// Markup: ./examples/master-detail/_master-detail-header.html
 //
 // Storybook: storybook/?selectedKind=Compositions&selectedStory=Master%20detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=true&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=&knob-Retain%20a%20width=
 //

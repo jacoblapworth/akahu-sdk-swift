@@ -28,12 +28,7 @@
 
 // Example
 //
-// Markup:
-// <div class="xui-composition xui-composition-detail xui-composition-is-finite">
-//   <div class="xui-gridarea-detail">
-//     <div style="background: #C5C5F6; width: 100%; height: 380px; padding: 20px;"> Detail </div>
-//   </div>
-// </div>
+// Markup: ./examples/detail/_detail.html
 //
 // Storybook: storybook/?selectedKind=Compositions&selectedStory=Detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=
 //
@@ -47,15 +42,7 @@
 
 // Example
 //
-// Markup:
-// <div class="xui-composition xui-composition-detailheader xui-composition-is-finite">
-//   <div class="xui-gridarea-header">
-//     <div style="background: #2D2D73; color: white; height: 120px; padding: 20px;"> content header </div>
-//   </div>
-//   <div class="xui-gridarea-detail">
-//     <div style="background: #C5C5F6; height: 380px; padding: 20px;"> Detail </div>
-//   </div>
-// </div>
+// Markup: ./examples/detail/_detail-header.html
 //
 // Storybook: storybook/?selectedKind=Compositions&selectedStory=Detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=true&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=
 //

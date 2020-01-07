@@ -1,0 +1,360 @@
+// Drag and drop
+//
+// flags: wip
+//
+// Teaser: Naturally move or rearrange objects on a page.
+//
+// Styleguide: Patterns.Drag-and-drop
+
+// Definition
+//
+// Drag and drop is an interactive pattern for moving or rearranging items on a page. It is also used as a connective pattern for uploading files from a user’s local machine into the browser. Drag and drop is often seen as a delightful and intuitive way for users to complete these tasks. However, be aware that users with motor or physical disabilities may have difficulty interacting with this pattern.
+//
+// Tips:
+// Do: Ensure any workflow can be achieved without relying solely on drag and drop functionality
+// Don't: Don’t unnecessarily use a drag and drop pattern for visual flair
+//
+// Styleguide: Patterns.Drag-and-drop.1
+
+// Usage
+//
+// Drag and drop is currently a pattern that is a work in progress. XUI does not have drag and drop functionality baked into any components, nor have an official opinion on the best 3rd party software to use for your drag and drop experience. We would recommend using either [React Beautiful Dnd](https://github.com/atlassian/react-beautiful-dnd) or [React-Dnd](https://github.com/react-dnd/react-dnd) as there is currently a precedent of these being used in Xero.
+//
+// Styleguide: Patterns.Drag-and-drop.2
+
+// Drag indicator
+//
+// A drag indicator is a visual cue for users to anticipate the function of drag and drop before interacting with anything.
+//
+// In XUI, a dedicated 'drag' icon button should be used for any item that can be dragged. This icon button functions as an indicator as well as a dedicated area for a user to click and drag an item. This icon button is to use the move/drag cursors defined by the operating system.
+//
+// Tips:
+// Do: Include a drag indicator on all items that can be dragged
+//
+// Image: drag-and-drop-images/Drag-Indicator.png
+//
+// Image-caption: Pickitems with drag indicator
+//
+// Styleguide: Patterns.Drag-and-drop.3
+
+// Drag item
+//
+// A drag item is used to show a visual indication that an item is being dragged. We recommend using a small, visually simplified object to represent and summarise the dragged item. This is to create visual consistency across multiple drag and drop applications, as well as optimising on the available screen real estate.
+//
+// Tips:
+// Do: Use the outlined visual styling for representing an item being dragged
+// Do: Ensure number of items is expressed if more than one item is being dragged
+// Don't: Don’t use styling of the original component for the drag item
+//
+// Classes:
+// xui-dragitem: Wrapping container for a drag item
+// xui-dragitem--icon: Styling for drag item icon
+// xui-dragitem--textcontent: Styling for internal text content
+//
+// exampleClass: ds-example-narrow ds-example-transparent
+//
+// Markup:
+// <div class="xui-dragitem xui-margin-bottom-large">
+//   <div class="xui-dragitem--icon xui-iconwrapper xui-iconwrapper-large">
+//     <svg class="xui-icon"><use xlink:href="#xui-icon-drag" role="presentation"/></svg>
+//   </div>
+//   <span class="xui-dragitem--textcontent">1 item</span>
+// </div>
+// <div class="xui-dragitem xui-margin-bottom-large">
+//   <div class="xui-dragitem--icon xui-iconwrapper xui-iconwrapper-large">
+//     <svg class="xui-icon"><use xlink:href="#xui-icon-drag" role="presentation"/></svg>
+//   </div>
+//   <span class="xui-dragitem--textcontent" title="Jacinda Kate Laurell Ardern">Jacinda Kate Laurell Ardern</span>
+// </div>
+// <div class="xui-dragitem">
+//   <div class="xui-dragitem--icon xui-iconwrapper xui-iconwrapper-large">
+//     <svg class="xui-icon"><use xlink:href="#xui-icon-drag" role="presentation"/></svg>
+//   </div>
+//   <span class="xui-dragitem--textcontent">369 contacts</span>
+// </div>
+//
+// Styleguide: Patterns.Drag-and-drop.4
+
+// Origin state
+//
+// While an item or items are being dragged, styling should be applied to the origin component. This is to give the user confidence in what is currently being dragged, as well as give an indication of where the item(s) were initially situated.
+//
+// The origin states of dragged items should be represented as disabled. This is for visual difference against other items.
+//
+// Tips:
+// Do: Disable origin item(s) while dragging
+//
+// Image: drag-and-drop-images/Origin-State.png
+//
+// Styleguide: Patterns.Drag-and-drop.5
+
+// Dropzone
+//
+// A dropzone is the visual representation of where an item or items that are currently being dragged can be successfully dropped. Yellow is used as a unique colour to give a distinct visual style and help users quickly identify dropzones.  Additionally, other visual styles are utilised to ensure people with colour vision disabilities can identify dropzones.
+//
+// Styleguide: Patterns.Drag-and-drop.6
+
+// Dropzone - Area
+//
+// If an item can be dropped into a designated area (eg. Drop to upload a file), a visual style is applied to indicate the successful dropzone to the user. A dropzone area is represented by a mask with a dashed border style.
+//
+// An additional message can be surfaced in a dropzone area to provide clarity of the action, either as a replacement, or on top of the dropzone content.
+//
+// Classes:
+// xui-dropzone: Apply to dropzone container for default dropzone styling
+// xui-dropzone-active: Apply to dropzone container for active dropzone styling
+// xui-dropzone--panel: Apply to style container of overlay message
+// xui-dropzone--hiddencontent: Apply to visibly hide content in container
+// xui-dropzone--overlay: Apply to wrapper of overlay message
+//
+// exampleClass: ds-example-narrow ds-example-transparent
+//
+// Markup:
+// <div class="xui-panel xui-dropzone xui-dropzone-active xui-margin-bottom-large">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Invoice 202</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Invoice 203</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Invoice 204</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Invoice 205</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Invoice 206</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Invoice 207</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+// <div class="xui-panel xui-margin-bottom-large xui-dropzone xui-dropzone-active">
+//   <div class="xui-dropzone--hiddencontent">
+//     <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//       <li class="xui-pickitem xui-pickitem-medium">
+//         <button class="xui-pickitem--body">
+//           <span class="xui-pickitem--sideelement">
+//             <svg focusable="false" class="xui-icon">
+//               <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//             </svg>
+//           </span>
+//           <span class="xui-pickitem--text">Invoice 202</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-medium">
+//         <button class="xui-pickitem--body">
+//           <span class="xui-pickitem--sideelement">
+//             <svg focusable="false" class="xui-icon">
+//               <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//             </svg>
+//           </span>
+//           <span class="xui-pickitem--text">Invoice 203</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-medium">
+//         <button class="xui-pickitem--body">
+//           <span class="xui-pickitem--sideelement">
+//             <svg focusable="false" class="xui-icon">
+//               <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//             </svg>
+//           </span>
+//           <span class="xui-pickitem--text">Invoice 204</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-medium">
+//         <button class="xui-pickitem--body">
+//           <span class="xui-pickitem--sideelement">
+//             <svg focusable="false" class="xui-icon">
+//               <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//             </svg>
+//           </span>
+//           <span class="xui-pickitem--text">Invoice 205</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-medium">
+//         <button class="xui-pickitem--body">
+//           <span class="xui-pickitem--sideelement">
+//             <svg focusable="false" class="xui-icon">
+//               <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//             </svg>
+//           </span>
+//           <span class="xui-pickitem--text">Invoice 206</span>
+//         </button>
+//       </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Invoice 207</span>
+//       </button>
+//     </li>
+//     </ul>
+//   </div>
+//   <div class="xui-dropzone--overlay xui-u-flex-align-center xui-u-flex-justify-center">
+//     <div class="xui-padding-horizontal-xlarge xui-padding-vertical-large xui-u-flex xui-u-flex-column xui-u-flex-align-center">
+//       <div class="xui-iconwrapper xui-iconwrapper-large">
+//         <svg class="xui-icon"><use xlink:href="#xui-icon-import" role="presentation"/></svg>
+//       </div>
+//       <div class="xui-text-align-center">Drop a file here to upload</div>
+//     </div>
+//   </div>
+// </div>
+// <div class="xui-panel xui-dropzone xui-dropzone-active">
+//   <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Invoice 202</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Invoice 203</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Invoice 204</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Invoice 205</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Invoice 206</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-medium">
+//       <button class="xui-pickitem--body">
+//         <span class="xui-pickitem--sideelement">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-invoice" role="presentation"></use>
+//           </svg>
+//         </span>
+//         <span class="xui-pickitem--text">Invoice 207</span>
+//       </button>
+//     </li>
+//   </ul>
+//   <div class="xui-dropzone--overlay xui-u-flex-align-center xui-u-flex-justify-center">
+//     <div class="xui-dropzone--panel xui-u-flex-column xui-u-flex-align-center">
+//       <div class="xui-iconwrapper xui-iconwrapper-large">
+//         <svg class="xui-icon"><use xlink:href="#xui-icon-import" role="presentation"/></svg>
+//       </div>
+//       <div class="xui-text-align-center">Drop a file here to upload</div>
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide: Patterns.Drag-and-drop.6.1
+
+// Dropzone - Area (Grouping items)
+//
+// Dropzone area styling can also be used to show when an item can be dropped into another item (eg. Adding to a group).
+//
+// Image: drag-and-drop-images/Dropzone-Area_Group.png
+//
+// Styleguide: Patterns.Drag-and-drop.6.2
+
+// Dropzone - Line
+//
+// If an item can be dropped in-between other items (eg. rearranging order), a visual style is applied to indicate the successful dropzone to the user. A dropzone line is represented by a line with circular end caps.
+//
+// Classes:
+// xui-dropzone--insertionline: Apply to element between items
+//
+// exampleClass: ds-example-narrow ds-example-transparent
+//
+// Markup:
+// <div class="xui-dropzone--insertionline"></div>
+//
+// Image: drag-and-drop-images/Dropzone-Line_Group.png
+//
+// Styleguide: Patterns.Drag-and-drop.6.3
+
+// Accessibility
+//
+// Drag and drop is a complex interaction pattern that relies on certain input methods and motor skills that not all people have. It’s important to consider all users when implementing patterns such as this.
+//
+// For more information on accessibility considerations for drag and drop, read this article from Salesforce on the [4 Major Patterns for Accessible Drag and Drop](https://medium.com/salesforce-ux/4-major-patterns-for-accessible-drag-and-drop-1d43f64ebf09).
+//
+// Tips:
+// Do: Ensure adequate ARIA labels are used with drag and drop
+// Don't: Don’t rely on drag and drop as the only way to complete a task
+//
+// Styleguide: Patterns.Drag-and-drop.7

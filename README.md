@@ -79,12 +79,12 @@ XUI has a number of top level folders. When contributing all the interesting fil
 ```
 src/
 ├─ docs/
-│  ├─ building-blocks/
+│  ├─ components/
 │  ├─ compositions/
 │  ├─ fundamentals/
+│  ├─ getting-started/
 │  ├─ patterns/
-│  ├─ react/
-│  └─ working-with-xui/
+│  └─ react/
 ├─ react/
 │  └─ components/
 │     ├─ component1/

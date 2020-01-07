@@ -1,0 +1,68 @@
+<div
+  aria-valuemax="8"
+  aria-valuemin="0"
+  aria-valuenow="4"
+  aria-valuetext="4 of 8"
+  class="xui-progress xui-progress-linear xui-margin-bottom-large"
+  role="progressbar"
+>
+  <div class="xui-progress-linear-wrapper">
+    <div class="xui-progress-linear-track">
+      <div class="xui-progress-linear-current" style="width: 50%;"></div>
+    </div>
+  </div>
+</div>
+<div
+  aria-valuemax="8"
+  aria-valuemin="0"
+  aria-valuenow="4"
+  aria-valuetext="4 of 8"
+  class="xui-progress xui-progress-circular"
+  role="progressbar"
+>
+  <div>
+    <div>
+      <canvas class="xui-progress-circular-scaler" height="100" width="100"></canvas
+      ><svg class="xui-progress-circular-wrapper" viewbox="0 0 100 100">
+        <defs>
+          <mask
+            height="100"
+            id="myCustomProgressId-progress-mask"
+            maskunits="userSpaceOnUse"
+            width="100"
+            x="0"
+            y="0"
+          >
+            <circle
+              class="xui-progress-circular-mask xui-progress-roundcap"
+              cx="50"
+              cy="50"
+              r="44.26196565745107"
+              stroke-dasharray="initial"
+              stroke-width="11.476068685097855"
+            ></circle>
+          </mask>
+        </defs>
+        <g mask="url(#myCustomProgressId-progress-mask)">
+          <circle
+            class="xui-progress-circular-track"
+            cx="50"
+            cy="50"
+            r="44.26196565745107"
+            stroke-width="11.476068685097855"
+          ></circle>
+          <circle
+            class="xui-progress-circular-current xui-progress-roundcap"
+            cx="50"
+            cy="50"
+            r="44.26196565745107"
+            stroke-dasharray="278.106132285784"
+            stroke-dashoffset="139.053066142892"
+            stroke-width="11.476068685097855"
+          ></circle>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="xui-progress-icon"></div>
+</div>

@@ -29,12 +29,7 @@
 // xui-loader--dot: Apply to the three nested elements within the loader
 // xui-loader-layout: Optionally add to the loader to apply xui defined, outer spacing
 //
-// Markup:
-// <div class="xui-loader xui-loader-medium" role="progressbar" aria-valuetext="Content loading">
-//   <div class="xui-loader--dot"></div>
-//   <div class="xui-loader--dot"></div>
-//   <div class="xui-loader--dot"></div>
-// </div>
+// Markup: ./examples/loader/_loader.html
 //
 // Styleguide: Components.Identifiers.Loader.2
 
@@ -52,22 +47,7 @@
 // small: 12px: <code>.xui-loader-small</code>
 // xsmall: 10px: <code>.xui-loader-xsmall</code>
 //
-// Markup:
-// <div class="xui-loader xui-loader-medium xui-margin-bottom" role="progressbar" aria-valuetext="Content loading">
-//   <div class="xui-loader--dot"></div>
-//   <div class="xui-loader--dot"></div>
-//   <div class="xui-loader--dot"></div>
-// </div>
-// <div class="xui-loader xui-loader-small xui-margin-bottom" role="progressbar" aria-valuetext="Content loading">
-//   <div class="xui-loader--dot"></div>
-//   <div class="xui-loader--dot"></div>
-//   <div class="xui-loader--dot"></div>
-// </div>
-// <div class="xui-loader xui-loader-xsmall" role="progressbar" aria-valuetext="Content loading">
-//   <div class="xui-loader--dot"></div>
-//   <div class="xui-loader--dot"></div>
-//   <div class="xui-loader--dot"></div>
-// </div>
+// Markup: ./examples/loader/_loader-sizes.html
 //
 // Styleguide: Components.Identifiers.Loader.4
 
@@ -98,43 +78,13 @@
 // small: <code>.xui-loader-small</code>
 // xsmall: <code>.xui-loader-xsmall</code>
 //
-// Markup:
-// <button type="button" disabled class="xui-button xui-button-main xui-button-is-disabled xui-button-medium">
-//	 <div class="xui-button--loader xui-loader xui-loader-medium" role="progressbar" aria-valuetext="Button loading">
-//     <div class="xui-loader--dot"></div>
-//     <div class="xui-loader--dot"></div>
-//     <div class="xui-loader--dot"></div>
-//   </div>
-// </button>
-// <button type="button" disabled class="xui-button xui-button-main xui-button-small xui-button-is-disabled">
-//	 <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-valuetext="Button loading">
-//     <div class="xui-loader--dot"></div>
-//     <div class="xui-loader--dot"></div>
-//     <div class="xui-loader--dot"></div>
-//   </div>
-// </button>
-// <button type="button" disabled class="xui-button xui-button-main xui-button-xsmall xui-button-is-disabled">
-//	 <div class="xui-button--loader xui-loader xui-loader-xsmall" role="progressbar" aria-valuetext="Button loading">
-//     <div class="xui-loader--dot"></div>
-//     <div class="xui-loader--dot"></div>
-//     <div class="xui-loader--dot"></div>
-//   </div>
-// </button>
+// Markup: ./examples/loader/_loader-buttons.html
 //
 // Styleguide: Components.Identifiers.Loader.8
 
 // Retain layout
 //
-// Markup:
-// <button type="button" class="xui-button xui-button-medium xui-button-standard">Save & add another</button>
-// <button type="button" disabled class="xui-button xui-button-medium xui-button-standard xui-button-is-disabled">
-//   <div class="xui-button-hidden-content">Save & add another</div>
-//	 <div class="xui-button--loader xui-loader xui-loader-medium xui-loader-retain-layout" role="progressbar" aria-valuetext="Button loading">
-//     <div class="xui-loader--dot"></div>
-//     <div class="xui-loader--dot"></div>
-//     <div class="xui-loader--dot"></div>
-//   </div>
-// </button>
+// Markup: ./examples/loader/_loader-buttons-retain-layout.html
 //
 // Styleguide: Components.Identifiers.Loader.8.1
 
@@ -145,56 +95,13 @@
 // DO: Retain dropdown height until new results are received
 // DO: Toggle the loader on keydown to avoid the appearance of lag even if results are debounced
 //
-// Markup:
-// <div class="xui-dropdown-layout xui-dropdown-is-open xui-dropdown-is-opening">
-// 	<div class="xui-dropdown--mask"></div>
-// 	<div class="xui-dropdown--body">
-//	 	<div class="xui-loader xui-loader-medium xui-loader-layout" role="progressbar" aria-valuetext="Loading content">
-//			<div class="xui-loader--dot"></div>
-//			<div class="xui-loader--dot"></div>
-//			<div class="xui-loader--dot"></div>
-//		</div>
-// 	</div>
-// </div>
+// Markup: ./examples/loader/_loader-dropdowns.html
 //
 // Styleguide: Components.Identifiers.Loader.9
 
 // Retain layout
 //
-// Markup:
-// <div class="xui-dropdown-layout xui-dropdown-is-open xui-dropdown-is-opening">
-// 	<div class="xui-dropdown--mask"></div>
-// 	<div class="xui-dropdown--body">
-// 	<ul class="xui-picklist xui-picklist-medium xui-picklist-layout xui-u-hidden-content">
-// 		<li class="xui-pickitem xui-pickitem-medium" tabindex="0">
-// 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
-// 		</li>
-// 		<li class="xui-pickitem xui-pickitem-medium" tabindex="0">
-// 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
-// 		</li>
-// 		<li class="xui-pickitem xui-pickitem-medium xui-pickitem-is-selected" tabindex="0">
-// 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
-// 		</li>
-// 		<li class="xui-pickitem xui-pickitem-medium" tabindex="0">
-// 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
-// 		</li>
-// 		<li class="xui-pickitem xui-pickitem-medium" tabindex="0">
-// 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
-// 		</li>
-// 		<li class="xui-pickitem xui-pickitem-medium" tabindex="0">
-// 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
-// 		</li>
-// 		<li class="xui-pickitem xui-pickitem-medium" tabindex="0">
-// 			<button class="xui-pickitem--body" tabindex="-1">Option</button>
-// 		</li>
-// 	</ul>
-//	 	<div class="xui-loader xui-loader-medium xui-loader-retain-layout" role="progressbar" aria-valuetext="Loading content">
-//			<div class="xui-loader--dot"></div>
-//			<div class="xui-loader--dot"></div>
-//			<div class="xui-loader--dot"></div>
-//		</div>
-// 	</div>
-// </div>
+// Markup: ./examples/loader/_loader-dropdowns-retain-layout.html
 //
 // Styleguide: Components.Identifiers.Loader.9.1
 
@@ -206,16 +113,7 @@
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
-// Markup:
-//	<div class="xui-mask xui-mask-is-active" aria-hidden="false">
-//		<section class="xui-modal xui-modal-layout" tabindex="0" role="dialog">
-//	 		<div class="xui-loader xui-loader-medium xui-loader-layout" role="progressbar" aria-valuetext="Loading content">
-//				<div class="xui-loader--dot"></div>
-//				<div class="xui-loader--dot"></div>
-//				<div class="xui-loader--dot"></div>
-//			</div>
-//		</section>
-//	</div>
+// Markup: ./examples/loader/_loader-modals.html
 //
 // Styleguide: Components.Identifiers.Loader.10
 
@@ -223,55 +121,7 @@
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
-// Markup:
-//	<div class="xui-mask xui-mask-is-active" aria-hidden="false">
-// 	<section class="xui-modal xui-modal-layout" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
-//     <button type="button" class="xui-button xui-button-icon-medium xui-button-icon xui-modal--close xui-button-hidden-content" title="Close" aria-label="Close">
-//       <svg focusable="false" class="xui-icon"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-cross" role="presentation"></use></svg>
-//     </button>
-//     <header class="xui-modal--header xui-padding-left-large xui-u-hidden-content">
-//       <h3 id="modal-heading" class="xui-modal--heading">Modal title</h3>
-//     </header>
-//     <div class="xui-modal--body xui-padding-horizontal-large xui-u-hidden-content">
-//       <form class="xui-padding-top">
-//         <div class="xui-field-layout">
-// 					<label class="xui-text-label xui-fieldlabel-layout" for="first-name">Name</label>
-// 						<div class="xui-inputgroup">
-// 						<input id="first-name" class="xui-input xui-column-6-of-12" placeholder="First">
-// 						<input class="xui-input xui-column-6-of-12" placeholder="Last">
-// 					</div>
-//         </div>
-//         <div class="xui-field-layout">
-//           <label class="xui-text-label xui-fieldlabel-layout" for="email">Email address</label>
-//           <input id="first-name" class="xui-textinput xui-textinput--input">
-//         </div>
-//         <div class="xui-field-layout">
-//           <label class="xui-text-label xui-fieldlabel-layout" for="permissions">Permissions</label>
-// 						<div class="xui-select">
-// 							<select id="permissions" class="xui-select--control">
-// 								<option>View only</option>
-// 								<option>View and edit</option>
-// 							</select>
-// 							<div class="xui-select--caret xui-iconwrapper">
-// 								<svg focusable="false" class="xui-icon xui-icon-color-black-muted">
-// 									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-caret" role="presentation"></use>
-// 								</svg>
-// 							</div>
-// 						</div>
-//         </div>
-//       </form>
-//     </div>
-//     <footer class="xui-modal--footer xui-actions xui-actions-layout xui-padding-top-small xui-padding-large xui-u-hidden-content">
-//       <button type="button" class="xui-actions--secondary xui-button xui-button-medium xui-button-standard">Cancel</button>
-//       <button type="button" class="xui-actions--primary xui-button xui-button-medium xui-button-main">Save</button>
-//     </footer>
-//	 	<div class="xui-loader xui-loader-medium xui-loader-retain-layout" role="progressbar" aria-valuetext="Loading content">
-//			<div class="xui-loader--dot"></div>
-//			<div class="xui-loader--dot"></div>
-//			<div class="xui-loader--dot"></div>
-//		</div>
-//   </section>
-// </div>
+// Markup: ./examples/loader/_loader-modals-retain-layout.html
 //
 // Styleguide: Components.Identifiers.Loader.10.1
 
@@ -281,47 +131,13 @@
 // Do: Use a panel loader if it is the only element fetching data on the page
 // Dont: Don't apply loaders to multiple panels at once, use a page loader instead
 //
-// Markup:
-//	<div class="xui-panel">
-//	 	<div class="xui-loader xui-loader-medium xui-loader-layout" role="progressbar" aria-valuetext="Loading content">
-//			<div class="xui-loader--dot"></div>
-//			<div class="xui-loader--dot"></div>
-//			<div class="xui-loader--dot"></div>
-//		</div>
-//	</div>
+// Markup: ./examples/loader/_loader-panels.html
 //
 // Styleguide: Components.Identifiers.Loader.11
 
 // Retain layout
 //
-// Markup:
-// <div class="xui-panel">
-// 	<div class="xui-contentblockitem xui-u-flex xui-u-flex-align-center xui-padding-vertical-xsmall xui-u-hidden-content">
-// 		<div class="xui-margin-horizontal">
-// 			<abbr class="xui-avatar xui-avatar-color-8" role="presentation">HE</abbr>
-// 		</div>
-// 		<div class="xui-u-overflow-hidden xui-u-flex-grow xui-padding-vertical-small">
-// 			<span class="xui-text-truncated xui-u-flex xui-u-flex-align-center"><span class="xui-heading-small">Hornblower Enterprises</span> <span class="xui-tag xui-tag-positive xui-margin-left-xsmall"><span class="xui-tagcontent">Paid</span></span></span>
-// 			<div class="xui-textcolor-muted">
-// 				<span>INV0021</span> <span class="xui-margin-horizontal-xsmall">•</span> <span>Due 13 Dec 17</span>
-// 			</div>
-// 		</div>
-// 		<div class="xui-margin-left xui-heading-small xui-text-deemphasis">
-// 			346.50
-// 		</div>
-// 		<div class="xui-margin-horizontal-small">
-// 			<div class="xui-u-flex" data-ref="toggled-wrapper">
-// 				<button aria-haspopup="true" class="xui-button xui-button-icon-medium xui-button-icon" tabindex="0" type="button" title="More options"><svg class="xui-icon" viewbox="0 0 30 30">
-// 				<use xlink:href="#xui-icon-overflow" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg></button>
-// 			</div>
-// 		</div>
-// 	</div>
-//	<div class="xui-loader xui-loader-medium xui-loader-retain-layout" role="progressbar" aria-valuetext="Loading content">
-//		<div class="xui-loader--dot"></div>
-//		<div class="xui-loader--dot"></div>
-//		<div class="xui-loader--dot"></div>
-//	</div>
-//	</div>
+// Markup: ./examples/loader/_loader-panels-retain-layout.html
 //
 // Styleguide: Components.Identifiers.Loader.11.1
 
@@ -343,28 +159,7 @@
 // Classes:
 // xui-loader-inverted: Inverts loader style
 //
-// Markup:
-// <div class="xui-margin-bottom">
-//   <div class="xui-loader xui-loader-medium xui-loader-inverted" role="progressbar" aria-valuetext="Content loading">
-//     <div class="xui-loader--dot"></div>
-//     <div class="xui-loader--dot"></div>
-//     <div class="xui-loader--dot"></div>
-//   </div>
-// </div>
-// <div class="xui-margin-bottom">
-//   <div class="xui-loader xui-loader-small xui-loader-inverted" role="progressbar" aria-valuetext="Content loading">
-//     <div class="xui-loader--dot"></div>
-//     <div class="xui-loader--dot"></div>
-//     <div class="xui-loader--dot"></div>
-//   </div>
-// </div>
-// <div class="">
-//   <div class="xui-loader xui-loader-xsmall xui-loader-inverted" role="progressbar" aria-valuetext="Content loading">
-//     <div class="xui-loader--dot"></div>
-//     <div class="xui-loader--dot"></div>
-//     <div class="xui-loader--dot"></div>
-//   </div>
-// </div>
+// Markup: ./examples/loader/_loader-inverted.html
 //
 // Styleguide: Components.Identifiers.Loader.13
 

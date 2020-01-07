@@ -31,11 +31,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div>
-//   <abbr class="xui-avatar xui-avatar-color-7 xui-avatar-large xui-margin-right" role="presentation" title="Rosie Cox">RC</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-8 xui-avatar-large xui-avatar-business xui-margin-right" role="presentation" title="Rosie's Rulers">RR</abbr>
-// </div>
+// Markup: ./examples/avatar/_avatar.html
 //
 // Styleguide: Components.Identifiers.Avatar.2
 
@@ -60,15 +56,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div class="xui-u-flex" style="align-items: flex-end">
-//   <abbr class="xui-avatar xui-avatar-color-1 xui-avatar-2xsmall xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">AB</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-2 xui-avatar-xsmall xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">ABC</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-3 xui-avatar-small xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">ABC</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-4 xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">ABC</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-5 xui-avatar-large xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">ABC</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-6 xui-avatar-xlarge xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">ABC</abbr>
-// </div>
+// Markup: ./examples/avatar/_avatar-sizes.html
 //
 // Styleguide: Components.Identifiers.Avatar.3
 
@@ -81,16 +69,9 @@
 // Ideally the image will be pre-processed to square and appropriately resized. If the image is not square
 // it will be displayed in it’s entirety with the experimental `object-contain` property. However support in IE/Edge is limited.
 //
-// exampleClass: ds-example-transparent ds-example-flush
+// exampleClass: ds-example-transparent ds-example-flush ds-example-inline
 //
-// <div class="xui-u-flex" style="align-items: flex-end">
-//   <img class="xui-avatar xui-avatar-2xsmall xui-avatar-business xui-margin-right" role="presentation"  alt="Elmo" src="./kss-assets/elmo.png" title="Elmo">
-//   <img class="xui-avatar xui-avatar-xsmall xui-avatar-business xui-margin-right" role="presentation"  alt="Elmo" src="./kss-assets/elmo.png" title="Elmo">
-//   <img class="xui-avatar xui-avatar-small xui-avatar-business xui-margin-right" role="presentation"  alt="Elmo" src="./kss-assets/elmo.png" title="Elmo">
-//   <img class="xui-avatar xui-avatar-business xui-margin-right" role="presentation"  alt="Elmo" src="./kss-assets/elmo.png" title="Elmo">
-//   <img class="xui-avatar xui-avatar-large xui-avatar-business xui-margin-right" role="presentation"  alt="Elmo" src="./kss-assets/elmo.png" title="Elmo">
-//   <img class="xui-avatar xui-avatar-xlarge xui-avatar-business xui-margin-right" role="presentation"  alt="Elmo" src="./kss-assets/elmo.png" title="Elmo">
-// </div>
+// Markup: ./examples/avatar/_avatar-images.html
 //
 // Styleguide: Components.Identifiers.Avatar.4
 
@@ -109,19 +90,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div class="xui-u-flex" style="align-items: flex-end">
-//   <abbr class="xui-avatar xui-avatar-color-1 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-2 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-3 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-4 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-5 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-6 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-7 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-8 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-9 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-10 xui-margin-right" role="presentation" title="Jam Sudson">JS</abbr>
-// </div>
+// Markup: ./examples/avatar/_avatar-colors.html
 //
 // Styleguide: Components.Identifiers.Avatar.5
 
@@ -134,21 +103,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div class="xui-avatargroup">
-//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-1">AA</abbr>
-//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-2">BB</abbr>
-//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-3">Cc</abbr>
-//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-4">Dd</abbr>
-//   <span class="xui-avatar xui-avatar-large xui-avatar-counter">+1</span>
-// </div>
-// <div class="xui-avatargroup xui-margin-top">
-//   <abbr class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-5">W</abbr>
-//   <abbr class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-6">X</abbr>
-//   <abbr class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-7">Y</abbr>
-//   <abbr class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-8">Z</abbr>
-//   <span class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-counter">+2</span>
-// </div>
+// Markup: ./examples/avatar/_avatar-grouping.html
 //
 // Classes:
 // xui-avatargroup: Class to be used as a wrapper div around an avatar group

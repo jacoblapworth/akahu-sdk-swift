@@ -31,12 +31,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div class="xui-pill xui-pill-medium">
-//   <span class="xui-pill--content">
-//     <span class="xui-pill--text">Example pill</span>
-//   </span>
-// </div>
+// Markup: ./examples/pill/_pill.html
 //
 // Styleguide: Components.Identifiers.Pill.2
 
@@ -56,21 +51,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div class="xui-margin-bottom">
-//   <div class="xui-pill xui-pill-medium">
-//     <span class="xui-pill--content">
-//       <span class="xui-pill--text">Medium pill</span>
-//     </span>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-pill xui-pill-small">
-//     <span class="xui-pill--content">
-//       <span class="xui-pill--text">Small pill</span>
-//     </span>
-//   </div>
-// </div>
+// Markup: ./examples/pill/_pill-sizes.html
 //
 // Styleguide: Components.Identifiers.Pill.3
 
@@ -84,33 +65,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div class="xui-margin-bottom">
-//   <div class="xui-pill xui-pill-medium xui-pill-is-deletable">
-//     <span class="xui-pill--content">
-//       <span class="xui-pill--text">Construction</span>
-//     </span>
-//     <button class="xui-button xui-button-icon xui-button-icon-medium xui-pill--button-icon">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"/>
-// 	     </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-pill xui-pill-small xui-pill-is-deletable">
-//     <span class="xui-pill--content">
-//       <span class="xui-pill--text">Construction</span>
-//     </span>
-//     <button class="xui-button xui-button-icon xui-button-icon-small xui-pill--button-icon">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-cross-small" role="presentation"/>
-// 	     </svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
+// Markup: ./examples/pill/_pill-clearing.html
 //
 // Styleguide: Components.Identifiers.Pill.4
 
@@ -124,31 +79,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div class="xui-margin-bottom">
-//   <div class="xui-pill xui-pill-medium xui-pill-is-deletable">
-//     <span class="xui-pill--content">
-//       <span class="xui-pill--secondary">Status</span>
-//       <span class="xui-pill--text">Under review</span>
-//     </span>
-//     <button class="xui-button xui-button-icon xui-button-icon-medium xui-pill--button-icon">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-pill xui-pill-small xui-pill-is-deletable">
-//     <span class="xui-pill--content">
-//       <span class="xui-pill--secondary">Status</span>
-//       <span class="xui-pill--text">Under review</span>
-//     </span>
-//     <button class="xui-button xui-button-icon xui-button-icon-small xui-pill--button-icon">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
+// Markup: ./examples/pill/_pill-secondary.html
 //
 // Styleguide: Components.Identifiers.Pill.5
 
@@ -163,31 +94,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div class="xui-margin-bottom">
-//   <div class="xui-pill xui-pill-medium xui-pill-is-deletable xui-pill-interactive xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">BA</abbr>
-//       <span class="xui-pill--text">Bert Aldridge</span>
-//     </span>
-//     <button class="xui-button xui-button-icon xui-button-icon-medium xui-pill--button-icon">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-pill xui-pill-small xui-pill-is-deletable xui-pill-interactive xui-pill-has-avatar">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-xsmall xui-avatar-color-8" role="presentation">BA</abbr>
-//       <span class="xui-pill--text">Bert Aldridge</span>
-//     </span>
-//     <button class="xui-button xui-button-icon xui-button-icon-small xui-pill--button-icon">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
+// Markup: ./examples/pill/_pill-avatar.html
 //
 // Styleguide: Components.Identifiers.Pill.6
 
@@ -202,21 +109,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div class="xui-margin-bottom">
-//   <div class="xui-pill xui-pill-medium xui-pill-interactive">
-//     <button type='button' class="xui-button xui-pill--button xui-pill--content">
-//       <span class="xui-pill--text">example.email@medium.com</span>
-//     </button>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-pill xui-pill-small xui-pill-interactive">
-//     <button type='button' class="xui-button xui-pill--button xui-pill--content">
-//       <span class="xui-pill--text">example.email@small.com</span>
-//     </button>
-//   </div>
-// </div>
+// Markup: ./examples/pill/_pill-interactive.html
 //
 // Styleguide: Components.Identifiers.Pill.7
 
@@ -229,29 +122,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div class="xui-margin-bottom">
-//   <div class="xui-pill xui-pill-medium xui-pill-is-deletable xui-pill-interactive">
-//     <a href="#" class="xui-button xui-button-medium xui-pill--button xui-pill--content">
-//       <span class="xui-pill--text">Facebook profile</span>
-//     </a>
-//     <button class="xui-button xui-button-icon xui-button-icon-medium xui-pill--button-icon">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-pill xui-pill-small xui-pill-is-deletable xui-pill-interactive">
-//     <a href="#" class="xui-button xui-button-small xui-pill--button xui-pill--content">
-//       <span class="xui-pill--text">Facebook profile</span>
-//     </a>
-//     <button class="xui-button xui-button-icon xui-button-icon-small xui-pill--button-icon">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
+// Markup: ./examples/pill/_pill-link.html
 //
 // Styleguide: Components.Identifiers.Pill.7.1
 
@@ -267,39 +138,7 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div class="xui-margin-bottom">
-//   <div class="xui-pill xui-pill-medium xui-pill-is-invalid xui-pill-is-deletable xui-pill-interactive">
-//     <button class="xui-button xui-button-medium xui-pill--content xui-pill--button" tabindex="0" type="button">
-//       <div class="xui-pill--avatar xui-pill--erroricon xui-pill--erroricon-small">
-//         <svg focusable="false" class="xui-icon xui-icon-color-red">
-//           <use xlink:href="#xui-icon-exclamation" role="presentation"/>
-//         </svg>
-//       </div>
-//       <span class="xui-pill--text">example.email@xero.com</span>
-//     </button>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon-inverted xui-button-icon xui-button-icon-medium" type="button">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-pill xui-pill-small xui-pill-is-invalid xui-pill-is-deletable xui-pill-interactive">
-//     <button class="xui-button xui-button-small xui-pill--content xui-pill--button" tabindex="0" type="button">
-//       <div class="xui-pill--avatar xui-pill--erroricon xui-pill--erroricon-xsmall">
-//         <svg focusable="false" class="xui-icon xui-icon-color-red">
-//           <use xlink:href="#xui-icon-exclamation" role="presentation"/>
-//         </svg>
-//       </div>
-//       <span class="xui-pill--text">example.email@xero.com</span>
-//     </button>
-//     <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon-inverted xui-button-icon xui-button-icon-small" type="button">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
-//       <div class="xui-touchtarget"></div>
-//     </button>
-//   </div>
-// </div>
+// Markup: ./examples/pill/_pill-invalid.html
 //
 // Styleguide: Components.Identifiers.Pill.8
 
@@ -313,20 +152,6 @@
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
-// Markup:
-// <div class="xui-margin-bottom">
-//   <div class="xui-pill xui-pill-medium xui-pill-is-focused xui-pill-interactive">
-//     <button type='button' class="xui-button xui-button-medium xui-pill--button xui-pill--content">
-//       <span class="xui-pill--text">Focused pill</span>
-//     </button>
-//   </div>
-// </div>
-// <div>
-//   <div class="xui-pill xui-pill-small xui-pill-is-focused xui-pill-interactive">
-//     <button type='button' class="xui-button xui-button-small xui-pill--button xui-pill--content">
-//       <span class="xui-pill--text">Focused pill</span>
-//     </button>
-//   </div>
-// </div>
+// Markup: ./examples/pill/_pill-focus.html
 //
 // Styleguide: Components.Identifiers.Pill.9

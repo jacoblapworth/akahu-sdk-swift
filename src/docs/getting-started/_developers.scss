@@ -114,7 +114,27 @@
 // import DropDown, { DropDownToggled } from '@xero/xui/react-es6/dropdown';
 // ```
 //
-// Importing ES6 source can provide better tree-shaking and debugging, but you become responsible for transpilation and ensuring the appropriate polyfills are included. If you choose this option, we recommend implementing a rewrite of `@xero/xui/react` to `@xero/xui/react-6` at the build tool level [using `resolve.alias if you use Webpack`](https://webpack.js.org/configuration/resolve/#resolvealias) because any other dependencies that depend on XUI, such as `xui-layout`, will likely import code from the non-ES6 folder as this has been the default in the past. This leads to undesirable code duplication and increases artifact bundle sizes.
+// Importing ES6 source can provide better tree-shaking and debugging, but you become responsible for transpilation and ensuring the appropriate polyfills are included. If you choose this option, we recommend implementing a rewrite of `@xero/xui/react` to `@xero/xui/react-es6` at the build tool level [using `resolve.alias if you use Webpack`](https://webpack.js.org/configuration/resolve/#resolvealias) because any other dependencies that depend on XUI, such as `xui-layout`, will likely import code from the non-ES6 folder as this has been the default in the past. This leads to undesirable code duplication and increases artifact bundle sizes.
+//
+// Webpack config addressing the duplication issue might look like this:
+//
+// <!--?prettify lang=js?-->
+// ```
+// resolve: {
+//   alias: {
+//     '@xero/xui/react': '@xero/xui/react-es6',
+//   },
+// },
+// module: {
+//   rules: [
+//     {
+//       test: /\.(t|j)sx?$/,
+//       loader: 'babel-loader',
+//       exclude: /node_modules\/(?!@xero\/xui)/,
+//     },
+//   ]
+// }
+// ```
 //
 // Regardless of which option you choose, we highly recommend the use of a bundle analyzer such as [webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer). If you use the preprocessed code, please check that you don't end up including multiple versions of `core-js` polyfills. If you use the ES6 source code, then please check that you don't end up including multiple versions of XUI components from other dependencies that don't use the ES6 source code in their imports.
 //

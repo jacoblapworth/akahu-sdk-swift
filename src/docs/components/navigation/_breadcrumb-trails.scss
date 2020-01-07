@@ -37,37 +37,7 @@
 //
 // ExampleClass: ds-example-wide
 //
-// Markup:
-// <header class="xui-pageheading">
-// 	<div class="xui-pageheading--content xui-pageheading--content-layout">
-// 		<div class="xui-pageheading--leftcontent">
-// 			<ol class="xui-pageheading--breadcrumbtrail xui-breadcrumbtrail">
-// 				<li class="xui-breadcrumb">
-// 					<a href="#1" class="xui-breadcrumb--link">Organisations</a>
-// 				</li>
-// 				<li class="xui-breadcrumb-arrow">
-// 					<div class="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium">
-// 						<svg focusable="false" class="xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
-// 					</div>
-// 				</li>
-// 				<li class="xui-breadcrumb">
-// 					<a href="#2" class="xui-breadcrumb--link">Settings</a>
-// 				</li>
-// 				<li class="xui-breadcrumb-arrow">
-// 					<div class="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium">
-// 						<svg focusable="false" class="xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
-// 					</div>
-// 				</li>
-// 				<li class="xui-breadcrumb">
-// 					<a href="#3" class="xui-breadcrumb--link">Permissions</a>
-// 				</li>
-// 			</ol>
-// 			<div class="xui-pageheading--titlewrapper">
-// 				<h1 class="xui-pageheading--title">Edit permissions</h1>
-// 			</div>
-// 		</div>
-// 	</div>
-// </header>
+// Markup: ./examples/breadcrumb-trail/_breadcrumb-trail.html
 //
 // Styleguide: Components.Navigation.Breadcrumb Trail.2
 
@@ -77,32 +47,6 @@
 //
 // ExampleClass: ds-example-narrow
 //
-// Markup:
-// <header class="xui-pageheading">
-// 	<div class="xui-pageheading--content xui-pageheading--content-layout">
-// 		<div class="xui-pageheading--leftcontent">
-// 			<ol class="xui-pageheading--breadcrumbtrail xui-breadcrumbtrail">
-// 				<li class="xui-breadcrumb">
-//          <div>
-//            <button class="xui-button xui-breadcrumb--link xui-breadcrumb--dropdowntrigger" tabindex="0" type="button">
-//              ...
-//            </button>
-//          </div>
-//        </li>
-// 				<li class="xui-breadcrumb-arrow">
-// 					<div class="xui-breadcrumb--icon xui-iconwrapper xui-iconwrapper-medium">
-// 						<svg focusable="false" class="xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
-// 					</div>
-// 				</li>
-// 				<li class="xui-breadcrumb">
-// 					<a href="#2" class="xui-breadcrumb--link">Permissions</a>
-// 				</li>
-// 			</ol>
-// 			<div class="xui-pageheading--titlewrapper">
-// 				<h1 class="xui-pageheading--title">Edit permissions</h1>
-// 			</div>
-// 		</div>
-// 	</div>
-// </header>
+// Markup: ./examples/breadcrumb-trail/_breadcrumb-trail-compact.html
 //
 // Styleguide: Components.Navigation.Breadcrumb Trail.2.1

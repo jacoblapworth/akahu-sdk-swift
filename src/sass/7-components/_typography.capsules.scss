@@ -1,65 +1,6 @@
 @import '../vars';
 @import '../mixins';
 
-// Capsule
-//
-// Teaser: Used to highlight placeholders that will be replaced with data.
-//
-// Introduction: Capsules are used to draw attention to placeholders that will be replaced with data.
-//
-// Components: Capsule
-//
-// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.ql8d9ad57v0o
-//
-// Styleguide: Components.Identifiers.Capsule
-
-// Best practice
-//
-// Tips:
-// Do: Use capsules to indicate that an element will be replaced with data.
-// Do: Ensure capsules have an adequate width to meet touch target requirements.
-//
-// Styleguide: Components.Identifiers.Capsule.1
-
-// Anatomy
-//
-// At the very minimum, a capsule contains a text value.
-// To create one, use the following classes.
-//
-// Classes:
-// xui-capsule: Base class
-//
-// Markup:
-// A standard <span class="xui-button xui-capsule">capsule</span>
-//
-// Styleguide: Components.Identifiers.Capsule.2
-
-// Interactive capsules
-//
-// In some cases, clicking a capsule triggers an action, such as opening a link or calling a callback function.
-// To indicate that a capsule is interactive, apply the following class:
-//
-// Classes:
-// xui-capsule-interactive: Indicates that a capsule is interactive
-//
-// Markup:
-// An interactive <a class="xui-button xui-capsule xui-capsule-interactive" tabindex="0" role="button" href="https://www.xero.com">capsule</a>
-//
-// Styleguide: Components.Identifiers.Capsule.3
-
-// Invalid capsules
-//
-// In some cases, a capsule may contain a formula or similar element that is invalid for some reason.
-// To indicate that a capsule is invalid, apply the following class:
-//
-// Classes:
-// xui-capsule-invalid: Indicates that a capsule is invalid
-//
-// Markup:
-// An invalid <a class="xui-button xui-capsule xui-capsule-interactive xui-capsule-invalid" tabindex="0" role="button" href="https://www.xero.com">capsule</a>
-//
-// Styleguide: Components.Identifiers.Capsule.4
-
 .#{$ns}-capsule {
   border-radius: $xui-radius;
   box-shadow: 0 0 0 1px $xui-capsule-border-color;

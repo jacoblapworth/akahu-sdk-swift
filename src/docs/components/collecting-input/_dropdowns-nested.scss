@@ -1,0 +1,45 @@
+// Nested dropdowns
+//
+// Teaser: Separating complex options into digestible sections.
+//
+// Introduction: Nested dropdowns are used to group complex options into separate sections.
+//
+// Components: Nested-dropdowns
+//
+// Styleguide: Components.CollectingInput.Dropdowns.20
+
+// Best practice
+//
+// Tips:
+// Do: Dismiss dropdown and apply actions on selection of item in dropdown
+// Do: If user can select multiple items at once, display an "Apply" button in a dropdown header to apply selection and dismiss dropdown
+// Do: Use nested dropdowns to segment catergories and options shown at one time
+// Do: Include a back button on children to enable selections to be applied across multiple categories at once
+// Do: Nest datepicker in a dropdown for displaying a custom date or date-range option
+// Warning: Always include a header at narrow viewports to enable dismissing the dropdown
+//
+// Styleguide: Components.CollectingInput.Dropdowns.20.1
+
+// Anatomy
+//
+// To create a nested dropdown, use the following classes.
+//
+// Classes:
+// xui-dropdown--panel: Container for each section
+// xui-dropdown-nested-is-hidden: Add to toggle section visibility
+// xui-dropdown-fullheight: Apply to dropdown to enable consistent header position
+// xui-dropdown-hide-small-up: Apply to a dropdown sub-element such as the header or actions to hide above 600px
+//
+// Styleguide: Components.CollectingInput.Dropdowns.20.2
+
+// Parent
+//
+// Markup: ./examples/dropdown/_dropdown-nested-parent.html
+//
+// Styleguide: Components.CollectingInput.Dropdowns.20.3
+
+// Child
+//
+// Markup: ./examples/dropdown/_dropdown-nested-child.html
+//
+// Styleguide: Components.CollectingInput.Dropdowns.20.4

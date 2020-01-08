@@ -1,0 +1,204 @@
+// Picklist
+//
+// Teaser: A list of actions, filters or tabs.
+//
+// Introduction: Picklists are used to group a list of pickitem actions, filters or tabs. Picklists are usually contained inside a panel or a dropdown.
+//
+// Components: Picklist
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.41heitrj0iir
+//
+// Styleguide: Components.DisplayingData.Picklist
+
+// Anatomy
+//
+// To create a group of pickitems, apply the following `picklist` and `pickitem` classes to `<ul>` and `<li>` elements, respectively.
+//
+// Classes:
+// xui-picklist: Container for a group of pickitems
+// xui-picklist-layout: Recommended layout for a group of pickitems
+// xui-picklist-medium: Sets appropriate padding
+// xui-pickitem: Container for an individual pickitem
+// xui-pickitem-medium: Sets appropriate padding and font-size
+// xui-pickitem--body: A selectable pickitem
+// xui-pickitem--text: Text content within a pickitem
+//
+// Tips:
+// Warning: Avoid using picklists on anything but a white background, as colour contrast is not accessible
+//
+// Markup: ./examples/picklist/_picklist.html
+//
+// Styleguide: Components.DisplayingData.Picklist.1
+
+// Pick item states
+//
+// To adjust the state of a pickitem, apply the following modifiers.
+//
+// Classes:
+// xui-pickitem-is-selected: Selected pickitem
+// xui-pickitem-is-disabled: Disabled pickitem
+// xui-pickitem-is-invalid: Invalid pickitem
+//
+// Markup: ./examples/picklist/_picklist-item-states.html
+//
+// Styleguide: Components.DisplayingData.Picklist.2
+
+// Text styling
+//
+// Classes:
+// xui-pickitem--secondary: Apply to style inline secondary text
+// xui-pickitem--pinned: Apply to style right pinned text
+//
+// Markup: ./examples/picklist/_picklist-text-styling.html
+//
+// Styleguide: Components.DisplayingData.Picklist.3
+
+// Side elements
+//
+// A side element is a generalised term for visual and interactive content that is pinned to the left- or right-hand side of a container. Below are prescribed elements that you can use inside the `xui-pickitem--sideelement` wrapper class. Side elements can be aligned left or right, depending on whether they are placed before or after the `xui-pickitem--text` container.
+//
+// Classes:
+// xui-pickitem--sideelement: Side element wrapper class
+//
+// Styleguide: Components.DisplayingData.Picklist.4
+
+// Icons
+//
+// Classes:
+// xui-icon: Apply to SVG icon within side element wrapper
+//
+// Markup: ./examples/picklist/_picklist-icons.html
+//
+// Styleguide: Components.DisplayingData.Picklist.4.1
+
+// Avatars
+//
+// Classes:
+// xui-avatar-small: Apply to avatar within side element wrapper
+//
+// Markup: ./examples/picklist/_picklist-avatars.html
+//
+// Styleguide: Components.DisplayingData.Picklist.4.2
+
+// Truncating
+//
+// The default behaviour of pickitem text is to wrap.
+// Depending on the content of the pickitem, you will need to apply 1 or more of the following classes to truncate instead of wrap.
+//
+// Classes:
+// xui-pickitem-text-truncated: Truncates child text strings
+// xui-pickitem-has-secondarytext: Apply to truncated pickitems with secondaryText to add appropriate min-width
+// xui-pickitem-has-leftelement: Apply to truncated pickitems with leftElement to add appropriate min-width
+// xui-pickitem-has-leftelement-secondarytext: Apply to truncated pickitems with leftElement and secondaryText to add appropriate min-width
+//
+// Exampleclass: ds-example-narrow
+//
+// Markup: ./examples/picklist/_picklist-truncating.html
+//
+// Styleguide: Components.DisplayingData.Picklist.5
+
+// Headers and dividers
+//
+// Classes:
+// xui-picklist--header: Apply to heading list item wrapper
+// xui-picklist--header--text: Apply to heading text wrapper
+// xui-picklist--divider: Adds dividing line break between items
+//
+// Markup: ./examples/picklist/_picklist-headers-and-dividers.html
+//
+// Styleguide: Components.DisplayingData.Picklist.6
+
+// Multiselect picklist
+//
+// Tips:
+// Do: Replace any left side elements with checkbox when using a multiselect picklist
+// Dont: Don't display a left side element alongside a checkbox inside a pickitem
+//
+// Classes:
+// xui-pickitem-multiselect: Apply to pickitems
+// xui-pickitem-multiselect--checkbox: Apply to pickitem label
+// xui-pickitem--input: Apply to style checkbox
+// xui-pickitem-multiselect--label: Apply to pickitem text wrapper
+//
+// Markup: ./examples/picklist/_picklist-multi-select.html
+//
+// Styleguide: Components.DisplayingData.Picklist.7
+
+// Multiline pickitems
+//
+// Classes:
+// xui-pickitem-multiline: Apply to pickitem to wrap content
+// xui-pickitem--heading: Apply to primary content to style text
+// xui-pickitem--secondary: Apply to secondary content to style text
+// xui-pickitem-text-truncated: Apply to primary and secondary content for layout
+//
+// Markup: ./examples/picklist/_picklist-multiline-items.html
+//
+// Styleguide: Components.DisplayingData.Picklist.8
+
+// Expanding picklists
+//
+// To hide and show a list of sub-menu pickitems, apply the following classes.
+//
+// Classes:
+// xui-picklist--nestedcontainer: Apply to expanding pickitem
+// xui-pickitem--submenucontrol: Apply to checkbox that opens and closes nested list
+// xui-submenu-uicontrol--icon: Apply to icon nested within label
+// xui-submenu: Container for a group of nested pickitems
+// xui-submenu-layout: Recommended layout modifier for a group of pickitems
+//
+// Styleguide: Components.DisplayingData.Picklist.9
+
+// Standard
+//
+// If the parent pickitem does not have a destination or function, use the standard (non-split) variant.
+//
+// Markup: ./examples/picklist/_picklist-expanding.html
+//
+// Styleguide: Components.DisplayingData.Picklist.9.1
+
+// Split
+//
+// If the parent pickitem can be selected separately from it's children, the split variant is the appropriate functionality to use. This creates distinct controls for selecting the parent, as well as opening the sub-menu of pickitems.
+//
+// Classes:
+// xui-pickitem-split: Add to pickitem
+//
+// Markup: ./examples/picklist/_picklist-split.html
+//
+// Styleguide: Components.DisplayingData.Picklist.9.2
+
+// Horizontal picklists
+//
+// flags: updated
+//
+// To create a horizontal picklist, commonly referred to as tabs, apply the following modifiers.
+// We also recommend removing `xui-picklist-layout` to allow pickitems to stretch the full height of their containing element.
+// Horizontal picklists don't support the full suite of customisations that are available for the vertical variant. Below are examples of the variations that are supported.
+//
+// Classes:
+// xui-picklist-horizontal: Apply to picklist
+// xui-pickitem-is-horizontal: Apply to pickitem
+//
+// Markup: ./examples/picklist/_picklist-horizontal.html
+//
+// Styleguide: Components.DisplayingData.Picklist.10
+
+// Accessibility
+//
+// These demos do not illustrate the recommended keyboard interaction, as it is not possible with static HTML.
+// If you are using React, the component handles keyboard interaction and `tabindex` values for you.
+// The resulting behaviour is that each picklist is a single tab stop with arrow keys being used to navigate to each pickitem.
+// For more information on keyboard accessibility, view the [W3 documentation](https://www.w3.org/WAI/GL/wiki/Using_ARIA_trees#Keyboard_Support).
+//
+// A picklist is an implementation of a tree control.
+// To be accessible, each picklist must have the `tree` role applied as well as an `aria-label` or `aria-labelledby` attribute directing to the desired label.
+// Individual pickitems must have the `treeitem` role applied.
+// For more information on tree controls, view the [W3 documentation](https://www.w3.org/WAI/GL/wiki/Using_ARIA_trees).
+//
+// In the case of an expanding pickitem, the parent must have the `group` role applied, and children must have the `option` role applied instead.
+// Use the `aria-hidden` and `aria-expended` attributes when expanding or collapsing a pickitem with children.
+//
+// For selected pickitems, make sure to apply the `aria-selected` attribute.
+//
+// Styleguide: Components.DisplayingData.Picklist.11

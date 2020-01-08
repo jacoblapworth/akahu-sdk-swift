@@ -1,0 +1,242 @@
+// Progress indicator
+//
+// Components: progress-indicator
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.3l5wf5ao6h5q
+//
+// Teaser: To communicate progress and indicate context.
+//
+// Introduction: Progress indicators are used to visually communicate progress.
+//
+// Styleguide: Components.Identifiers.ProgressIndicator
+
+// Best practice
+//
+// Tips:
+// Do: Use to indicate progress towards a goal
+// Do: Use to indicate current position within a series of steps
+// Warning: Use progress indicators sparingly, as they are relatively dominant interface elements.
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.1
+
+// Anatomy
+//
+// There are two progress indicator layouts for displaying a progress indicator, depending on context.
+// Each contains a track and a current value.
+//
+// Classes:
+// xui-progress: Apply to wrapper
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.2
+
+// Linear
+//
+// Classes:
+// xui-progress-linear: Modifier for a linear progress indicator
+// xui-progress-linear-wrapper: Container for a linear progress indicator
+// xui-progress-linear-track: Track element
+// xui-progress-linear-current: Current value element
+//
+// Tips:
+// Do: Use as a read-only visualization of progress
+// Do: Use when vertical space is limited
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/progress-indicator/_progress-indicator-linear.html
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.2.1
+
+// Circular
+//
+// Classes:
+// xui-progress-circular: Modifier for a circular progress indicator
+// xui-progress-circular-wrapper: Container for a circular progress indicator
+// xui-progress-circular-track: Track element
+// xui-progress-circular-current: Current value element
+//
+// Tips:
+// Do: Use in navigational or interactive elements
+// Do: Use when horizontal space is limited
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/progress-indicator/_progress-indicator-circular.html
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.2.2
+
+// Size
+//
+// Progress indicator offers two main size options to allow for greater control over visual heirarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
+//
+// Tips:
+// Do: Use a standard sized progress indicator for navigational and interactive elements
+// Do: Use a scaling progress indicator for precise control over width and height
+// Warning: Avoid using too many different sized indicators on a single page
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.3
+
+// Standard
+//
+// For the circular variant, the standard progress indicator has a fixed width and height.
+// For the linear variant, the standard progress indicator has a flexible width and a fixed height.
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/progress-indicator/_progress-indicator-standard-size.html
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.3.1
+
+// Grow
+//
+// Both growing indicators inherit width and height from their parent, so they can be used in combination with other elements that have specifically defined dimensions.
+// The stroke width of the circular variant also scales tangentially to it's containing element at all times.
+// To create a growing progress indicator, apply the following modifier.
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Classes:
+// xui-progress-grow: Modifier for a growing progress indicator
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/progress-indicator/_progress-indicator-grow.html
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.3.2
+
+// Color
+//
+// The default color for progress indicators is blue.
+// However, you can set the track or current progress to any standard color you like.
+// To do this, simply set the `data-xui-progress-current-color` and `data-xui-progress-total-color` attributes to any of the following colors.
+// Note that `xui-color-red` is reserved for the error state.
+//
+// Use descriptive text alongside Progress indicators to convey information so it’s still meaningful to people who can’t discern colour
+//
+// Definitions:
+// Orange: `xui-color-orange`: `orange`
+// Yellow: `xui-color-yellow`: `yellow`
+// Green: `xui-color-green`: `green`
+// Mint: `xui-color-mint`: `mint`
+// Turquoise: `xui-color-turquoise`:`turquoise`
+// Blue: `xui-color-blue`: `blue`
+// Violet: `xui-color-violet`: `violet`
+// Grape: `xui-color-grape`: `grape`
+// Pink: `xui-color-pink`: `pink`
+// Grey: `xui-color-grey-1`: `grey`
+//
+// Tips:
+// Do: Use custom colors to align progress indicators to the theme of the application
+// Do: Use custom colors when indicating sentiment other than a simple error
+// Do: When using custom colors, use descriptive text like "65%"
+// Warning: Avoid using multiple coloured progress-indictaors on a single screen unless they indicate sentiment
+// Don't: Don't use custom colors to indicate a simple error, use the pre-defined error classes instead
+// Dont: When using custom colors, avoid vague text like "In progress"
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/progress-indicator/_progress-indicator-color.html
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.4
+
+// Segments
+//
+// In some cases, it is desirable to create visually distinct steps, within a single progress indicator.
+// For both variants, this is handled in React.
+// For the circular variant, this is achieved via a mask.
+// For the linear variant, several `xui-progress-linear-segment` elements are created within `xui-progress-indicator-wrapper`.
+//
+// Tips:
+// Do: Use segments when there are distinct steps within a larger goal, such as days in the week
+// Warning: Currently only constant step widths are possible.
+// Don't: Avoid using too many segments in the circular variant as they become visually indecipherable, use a linear instead
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/progress-indicator/_progress-indicator-segments.html
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.5
+
+// Indicating completion
+//
+// To indicate progress, the length of `xui-progress-*-current` is incremented via React.
+// However, once it reaches the end or exceeds the total value there are no automatic visual changes.
+// To trigger the completed state, apply the following modifier.
+// Note that this is only applicable to the circular variant.
+//
+// Classes:
+// xui-progress-complete: Modifier for a complete progress indicator
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/progress-indicator/_progress-indicator-completion.html
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.6
+
+// Handling overflow
+//
+// Progress indicators accept current values that exceed the total value.
+// If desired, any overflow can be highlighted in an error state and scaled proportionally to the total value.
+// To do this, apply the following modifier.
+//
+// Classes:
+// xui-progress-overflow: Modifier for a progress indicator with overflow
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/progress-indicator/_progress-indicator-overflow.html
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.7
+
+// Handling errors
+//
+// In addition to overflow, there are two generic error states that can also be applied.
+// Note that these styles take precedent over any custom color.
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.8
+
+// Soft errors
+//
+// To indicate an error state, but still visibly show progress, apply the following modifier.
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/progress-indicator/_progress-indicator-soft-errors.html
+//
+// Classes:
+// xui-progress-error-soft: Modifier for a soft error state
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.8.1
+
+// Hard errors
+//
+// To indicate an important error state that conceals progress, apply the following modifier.
+// The default content is an icon, however, you can add your own text or even a custom icon.
+// Note that this is only applicable to the circular variant.
+//
+// Classes:
+// xui-progress-error-hard:  Modifier for a hard error state
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/progress-indicator/_progress-indicator-hard-errors.html
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.8.2
+
+// Accessibility
+//
+// Make sure to apply the `progressbar` role to the progress indicator.
+//
+// Additionally, if the actual value of progress can be determined, make sure to indicate this using `aria-valuenow`, `aria-valuemin`, and `aria-valuemax` attributes.
+//
+// If the progress value is indeterminate, omit the `aria-valuenow` attribute.
+//
+// Screenreaders will generally render the value of `aria-valuenow` as a percent of the range between the value of `aria-valuemin` and `aria-valuemax`, unless `aria-valuetext` is specified.
+//
+// Additionally, a tooltip is also available out of the box on hover.
+//
+// The default message is the `aria-valuetext` value, but you can specify a custom message too.
+//
+// Use descriptive text alongside Progress indicators to convey information so it’s still meaningful to people who can’t discern colour
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.9

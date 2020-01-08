@@ -1,0 +1,106 @@
+// Datepicker
+//
+// Introduction: A responsive calendar to handle date selection.
+//
+// Teaser: A responsive calendar to handle date selection.
+//
+// Components: Datepicker
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.t1j258a1knyn
+//
+// Styleguide: Components.CollectingInput.Datepicker
+
+// Anatomy
+//
+// Apply the following classes to the datepicker to achieve the desired layout.
+//
+// Definitions:
+// Base: `xui-datepicker`
+// Header: `xui-datepicker--header`
+// Body: `xui-datepicker--body`
+// Weekday row: `xui-datepicker--weekdays`
+// Weekday: `xui-datepicker--weekdaywrapper`
+// Weekday content: `xui-datepicker--weekday`
+// Date row: `xui-datepicker--week`
+// Date: `xui-datepicker--day`
+// Date content: `xui-datepicker--day--time`
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/datepicker/_datepicker.html
+//
+// Styleguide: Components.CollectingInput.Datepicker.1
+
+// Months and years
+//
+// Navigating between months is performed primarily via the two arrow buttons.
+// However, when using React, two native `<select>` elements are also available in the header to enable jumping forward a significant number of months or years.
+// Text content is injected into neighbouring `<label>` elements on select. These assist in setting the desired layout, as well as helping to manage focus.
+// The following classes are available for reference.
+//
+// Definitions:
+// Heading wrapper: `xui-datepicker--heading-dates`
+// Headings: `xui-datepicker--heading`
+// Month heading modifier: `xui-datepicker--heading-month`
+// Year heading modifier: `xui-datepicker--heading-year`
+// Selects: `xui-datepicker--heading-select`
+// Month select modifier: `xui-datepicker--monthselect-layout`
+// Year select modifier: `xui-datepicker--yearselect-layout`
+// Labels: `xui-datepicker--heading-label`
+//
+// Styleguide: Components.CollectingInput.Datepicker.2
+
+// Icon buttons
+//
+// Standard `xui-button-icon` buttons are used to trigger months on either side of the current month.
+// It is recommended to use the `#xui-icon-arrow` SVG for these. The following modifiers are also required.
+//
+// Definitions:
+// Previous: `xui-datepicker--prevbutton`
+// Next: `xui-datepicker--nextbutton`
+// Disabled: `xui-datepicker--button-is-disabled`
+//
+// Styleguide: Components.CollectingInput.Datepicker.3
+
+// Sizes
+//
+// By default, datepickers span the full width of their containing element.
+// To set your own width, nest the datepicker within another component, such as a <a href="section-components-collectinginput-dropdowns.html">dropdown</a>, or apply your own value.
+//
+// Styleguide: Components.CollectingInput.Datepicker.4
+
+// Single dates
+//
+// Add the following modifiers to `xui-datepicker--day` to style them as required.
+//
+// Classes:
+// -is-selected: Selected date
+// -is-disabled: Disabled date
+// -is-today: Indicator for the current day
+// -is-othermonth: A date outside the visible month
+//
+// Styleguide: Components.CollectingInput.Datepicker.5
+
+// Date ranges
+//
+// Add the following modifiers to `xui-datepicker--day` when selecting a date range.
+//
+// Classes:
+// -is-selected-start: Selected date at the start of a range
+// -is-selected-middle: Selected date in the middle of a range
+// -is-selected-end: Selected date at the end of a range
+// -is-hovered-start: Hovered date at the start of a range during selection
+// -is-hovered-middle: Hovered date in the middle of a range during selection
+// -is-hovered-end: Hovered date at the end of a range during selection
+// -is-selected-hovered-start: Selected and hovered date at the start of a range during selection
+// -is-selected-hovered-end: Selected and hovered date at the end of a range during selection
+//
+// Styleguide: Components.CollectingInput.Datepicker.6
+
+// Accessibility
+//
+// Datepickers must have keyboard support as described in the [W3C documentation](https://www.w3.org/TR/wai-aria-practices/#kbd_focus_discernable_predictable).
+// This may involve the use of the `tabindex` and `aria-activedescendant` attributes, which also require each active cell to have an `id`.
+// An accessible example of a datepicker can be found on the [Open Ajax Alliance](http://www.oaa-accessibility.org/examplep/datepicker1/).
+//
+// Styleguide: Components.CollectingInput.Datepicker.8

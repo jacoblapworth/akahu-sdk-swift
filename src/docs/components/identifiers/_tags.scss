@@ -1,0 +1,74 @@
+// Tag
+//
+// flags: updated
+//
+// Teaser: Used to categorise content and indicate sentiment.
+//
+// Introduction: Tags are used to categorise content or indicate sentiment.
+//
+// Components: Tag
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.un9oianvfodl
+//
+// Styleguide: Components.Identifiers.Tag
+
+// Style variants
+//
+// Tips:
+// Do: Use default or neutral tags for basic categorisation
+// Do: Use colored tags to indicate sentiment
+// Do: Use descriptive text like "Invoiced"
+// Do: Ensure tag copy is short and succinct
+// Warning: Always provide descriptive copy, as the meaning of colors is not universally understood.
+// Dont: Avoid using vague copy inside of tags
+//
+// First, add `xui-tag` to provide the correct layout, then add an optional modifier of `xui-tag-*` to specify sentiment and/or size. Don't forget to add another span inside with `xui-tagcontent`.
+//
+// Use descriptive text inside Tags to convey information so it’s still meaningful to people who can’t discern colour.
+//
+// Definitions:
+// Default: <span class="xui-tag xui-tag-medium"><span class="xui-tagcontent">Default</span></span>: No class
+// Neutral: <span class="xui-tag xui-tag-medium xui-tag-neutral"><span class="xui-tagcontent">Neutral</span></span>: `-neutral`
+// Positive: <span class="xui-tag xui-tag-medium xui-tag-positive"><span class="xui-tagcontent">Positive</span></span>: `-positive`
+// Warning: <span class="xui-tag xui-tag-medium xui-tag-warning"><span class="xui-tagcontent">Warning</span></span>: `-warning`
+// Negative: <span class="xui-tag xui-tag-medium xui-tag-negative"><span class="xui-tagcontent">Negative</span></span>: `-negative`
+//
+// Styleguide: Components.Identifiers.Tag.1
+
+// Size variants
+//
+// Tags have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
+//
+// Tips:
+// Do: Use 'medium' as a standard size variant
+// Do: Use 'medium' size variant in page headers
+// Do: Use 'small' and 'xsmall' variants when nesting inside of other elements, such as content blocks and pickitems
+// Warning: Be cautious when using 'xsmall' variants as they have reduced legibility
+//
+// Definitions:
+// Size variant: **Height**: **Class**
+// medium: 24px: `xui-tag-medium`
+// small: 20px: `xui-tag-small`
+// xsmall: 16px: `xui-tag-xsmall`
+//
+// Markup: ./examples/tag/_tag-sizes.html
+//
+// Styleguide: Components.Identifiers.Tag.2
+
+// Implementation
+//
+// Always use a `<span>` element to create a tag, in order to retain the correct display properties when placed alongside text.
+//
+// Markup: ./examples/tag/_tag-implementation.html
+//
+// Styleguide: Components.Identifiers.Tag.3
+
+// Truncated Tags
+//
+// flags: new
+//
+// Tags that don't fit their containers are truncated and should have tooltips to describe the full content when a tag is hovered.
+//
+// Markup: ./examples/tag/_tag-truncation.html
+//
+// Styleguide: Components.Identifiers.Tag.4

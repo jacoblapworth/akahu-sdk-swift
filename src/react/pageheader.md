@@ -4,6 +4,8 @@
 
 The `XUIPageHeader` appears beneath the global header on a page. In a basic example, it is a white bar with a title. In more complex cases it could contain a [`XUIBreadcrumbTrail`](#xuibreadcrumbtrail), a [`Picklist`](#picklist) to present tabbed navigation, or a [`XUIActions`](#actions) component (and some combinations).
 
+[Container Queries](#container-queries) could be used to detect the container size and adjust the layout of PageHeader responsively.
+
 #### Examples
 
 ```jsx harmony

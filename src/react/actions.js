@@ -1,3 +1,3 @@
 import XUIActions from './components/actions/XUIActions';
 
-export default XUIActions;
+export { XUIActions as default, XUIActions };

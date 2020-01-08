@@ -1,0 +1,98 @@
+// Toggle
+//
+// Teaser: Horizontally arranged radio controls.
+//
+// Introduction: Toggles are styled radio controls, arranged horizontally.
+//
+// Components: Toggle
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.htiwzf5jb856
+//
+// Styleguide: Components.Controls.Toggle
+
+// Best practice
+//
+// Tips:
+// Do: Use toggles when there are 3 or more options. Otherwise, use a checkbox or radio.
+// Do: When disabling toggles within groups, disable the entire group
+// Do: Use toggles to provide quick access to options without the need for a dropdown
+// Do: Associate the toggle control with a label, using the appropriate ARIA attributes
+// Do: An alternative to partially disabled groups is to simply hide or omit the disabled options
+// Warning: Avoid partially disabled groups in which one of the disabled options is pre-selected. This combination has been known to cause unexpected results for keyboard navigation.
+// Dont: Don't use toggles when content is dynamic or long; use a vertical radio group instead
+//
+// Styleguide: Components.Controls.Toggle.1
+
+// Anatomy
+//
+// To create a standard toggle, use the following classes.
+// Note that spacing must be provided by the consumer.
+//
+// Classes:
+// xui-toggle: Toggle container
+// xui-toggle--option: Toggle option
+// xui-toggle--label: Toggle text content
+// xui-toggle--input: Apply to native input to hide it
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/toggle/_toggle.html
+//
+// Styleguide: Components.Controls.Toggle.2
+
+// Full width
+//
+// To fill the width of the containing element, apply the following modifier.
+// The resulting options also occupy the same amount of horizontal space, regardless of their content.
+// To enable text to wrap in IE11, make sure to also add the `xui-toggle--text` class to content.
+//
+// Classes:
+// xui-toggle-fullwidth-layout: Apply to toggle
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/toggle/_toggle-full-width.html
+//
+// Styleguide: Components.Controls.Toggle.3
+
+// Size variants
+//
+// The `medium` size variant should be used by default. A `small` variant can be used to tweak visual heirarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
+//
+// Definitions:
+// Size variant: **Height**: **Class**
+// medium: 40px: `xui-toggle-medium`
+// small: 32px: `xui-toggle-small`
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/toggle/_toggle-sizes.html
+//
+// Styleguide: Components.Controls.Toggle.4
+
+// Disabling
+//
+// To disable a toggle option, apply the following global modifier.
+// Additionally, make sure the `disabled` attribute is added to the input as well.
+//
+// Classes:
+// xui-toggle-is-disabled: Apply to toggle option
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/toggle/_toggle-disabling.html
+//
+// Styleguide: Components.Controls.Toggle.5
+
+// Inverted
+//
+// For toggles placed on darker backgrounds, an inverted modifier is also available.
+//
+// Classes:
+// xui-toggle-inverted: Apply to toggle
+//
+// ExampleClass: ds-example-dark
+//
+// Markup: ./examples/toggle/_toggle-inverted.html
+//
+// Styleguide: Components.Controls.Toggle.6

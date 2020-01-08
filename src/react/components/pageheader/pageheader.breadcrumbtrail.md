@@ -30,6 +30,8 @@ const wrapperStyles = {
 
 `XUIBreadcrumbTrail` accepts a `swapAtBreakpoint`. If the PageHeader is narrower than the specified breakpoint and there are three or more breadcrumb items, breadcrumb items other than the last will appear in a dropdown. If the PageHeader is wider than the specified breakpoint or has fewer than three items, all items will appear fully expanded.
 
+[Container Queries](#container-queries) are used here to detect the PageHeader size.
+
 Try to resize: Click and drag the bottom right corner of the following container.
 
 ```jsx harmony

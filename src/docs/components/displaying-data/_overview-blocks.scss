@@ -1,0 +1,113 @@
+// Overview block
+//
+// Teaser: A top level summary to display stats and figures.
+//
+// Introduction: A top level summary to display stats and figures.
+//
+// Components: Overview-block
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.hvxti05kqtgb
+//
+// Styleguide: Components.DisplayingData.OverviewBlock
+
+// Best practice
+//
+// Tips:
+// Do: Place overview blocks at the top of the page
+// Warning: Take care to only include data relevant to the current view
+// Dont: Don't include more than six sections per overview block
+//
+// Styleguide: Components.DisplayingData.OverviewBlock.1
+
+// Anatomy
+//
+// Tips:
+// Do: Use overview blocks to display a summary of content displayed a page
+// Dont: Don't display fewer than 2 items in an overview block
+// Dont: Don't display more than 6 items in an overview block
+//
+// Classes:
+// xui-overview: Overview block
+// xui-overview-layout: Default overview block layout
+// xui-overview--section: Overview block section
+// xui-overview--label: Section label
+// xui-overview--value: Section value
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/overview-block/_overview-block.html
+//
+// Styleguide: Components.DisplayingData.OverviewBlock.2
+
+// Style variants
+//
+// Overview blocks can be styled in a number of ways, to best fit the purpose of your content.
+//
+// Styleguide: Components.DisplayingData.OverviewBlock.3
+
+// Text alignment
+//
+// Depending on the content inside of an overview section, different text alignment may be desired. Apply one of these classes on either the overview or overview section wrapper to define text alignment.
+//
+// Tips:
+// Do: Use text alignment that's appropriate for the data in each the overview section
+// Do: Primarily use left or centre alignment for content
+// Warning: Avoid using right alignment for anything other than monetary values
+//
+// Classes:
+// xui-overview-text-align-left: Left text alignment
+// xui-overview-text-align-center: Centre text alignment
+// xui-overview-text-align-right: Right text alignment
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/overview-block/_overview-block-alignment.html
+//
+// Styleguide: Components.DisplayingData.OverviewBlock.3.1
+
+// Sentiment
+//
+// To indicate sentiment, apply one of our standard text color utilities.
+//
+// Tips:
+// Do: Use descriptive text as well as colour to convey information so it’s still meaningful to people who can’t discern colour
+// Warning: Avoid using red and green sentiment on a grey background, as this does not pass WCAG 2.0 AA standards for accessibility
+//
+// Classes:
+// xui-textcolor-positive: Positive sentiment
+// xui-textcolor-negative: Negative sentiment
+// xui-textcolor-muted: Neutral sentiment
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/overview-block/_overview-block-sentiment.html
+//
+// Styleguide: Components.DisplayingData.OverviewBlock.3.2
+
+// Border and background
+//
+// Depending on the page background, a border or background may be desired for displaying data inside an overview block. To do this, use the overview block classes provided.
+//
+// Classes:
+// xui-overview-has-border: Applies border
+// xui-overview-solid: Applies grey background colour
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/overview-block/_overview-block-border-background.html
+//
+// Styleguide: Components.DisplayingData.OverviewBlock.3.3
+
+// Progress indicators
+//
+// To provide additional data visualisation, a progress indicator can be utilised inside an overview section.
+//
+// Tips:
+// Do: Place progress indicators below text content
+// Do: Use colours that indicate the perceived sentiment of the data
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/overview-block/_overview-block-progress-indicators.html
+//
+// Styleguide: Components.DisplayingData.OverviewBlock.4

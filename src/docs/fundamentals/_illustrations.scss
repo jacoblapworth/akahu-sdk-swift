@@ -1,0 +1,61 @@
+// Illustrations
+//
+// Xero’s Xpert illustration system helps teams create beautiful illustrations and implement them consistently.
+//
+// XUI provides a [centralised illustrations repository](https://github.dev.xero.com/UXE/illustrations/) to host these illustrations, and a component to help teams implement illustrations consistently into products.
+//
+// To find out more about creating or requesting illustrations [visit the Confluence page](https://confluence.teamxero.com/pages/viewpage.action?spaceKey=PLAT&title=Creating+and+implementing+Xpert+illustrations).
+//
+// For teams not using XUI to implement illustrations, try to mirror the functionality of the XUI component classes to ensure consistency if the illustrations are ever updated.
+//
+// Tips:
+// warning: The illustration creation and implementation process is currently in an experimentation phase, please touch base with the team if you have any questions or feedback.
+//
+// Teaser: Recommended implementation for illustrations.
+//
+// Components: Illustration
+//
+// Styleguide: Fundamentals.Illustrations
+
+// Usage
+//
+// Illustrations should be loaded into an `<img>` tag remotely. The `<img>` tag needs to have the `.xui-illustration` class applied to display illustration correctly.
+//
+// For more information and links to the individual illustration URLs, [visit the Illustration repository](https://github.dev.xero.com/UXE/illustrations/).
+//
+// Definitions:
+// Class: Apply to `<img>` tag: `.xui-illustration`
+//
+// Styleguide: Fundamentals.Illustrations.1
+
+// Size variants
+//
+// The illustration component supports a number of sizes. The default size is `medium`, but you should use the size that makes the most sense for your illustration.
+//
+// Definitions:
+// Size variant: **Height / Padding**: **Class**
+// Small: 160px / 24px: `.xui-illustration-small`
+// Medium: 280px / 40px: `.xui-illustration-medium`
+// Large: 400px / 56px: `.xui-illustration-large`
+//
+// Tips:
+// Do: Use size variant appropriate for the available space in your product
+// Do: Use size variant appropriate for the illustration
+// Do: Consider responsively swapping size variants to optimise space
+//
+// Markup: ./examples/illustration/_illustration-sizes.html
+//
+// Styleguide: Fundamentals.Illustrations.2
+
+// Custom size
+//
+// If the size variants provided don't meet your requirements, apply a custom height to the `<img>` tag. We recommend using a height between `160px` and `400px`. You may also need to apply custom padding to add space around the illustration.
+//
+// e.g. `height: 200px` and `padding: 20px`.
+//
+// Tips:
+// Warning: Only use a custom size if you're confident the supplied size variants will not work for your design
+//
+// Markup: ./examples/illustration/_illustration-custom-size.html
+//
+// Styleguide: Fundamentals.Illustrations.2.1

@@ -2,6 +2,7 @@ const path = require('path');
 const pkg = require('../package.json');
 const autoprefixer = require('autoprefixer');
 const browserlist = require('@xero/browserslist-autoprefixer');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const serveStatic = require('serve-static');
 
@@ -9,6 +10,7 @@ const basePath = path.resolve(__dirname, '..');
 const styleguidePath = path.resolve(basePath, '.styleguidist');
 const outputPath = path.resolve(basePath, 'dist/docs/react');
 const componentSections = require('./sections.json');
+const babelConfig = require('../babel.config');
 
 const config = {
   webpackConfig: {
@@ -48,10 +50,11 @@ const config = {
         },
         {
           exclude: [/node_modules/],
-          use: [
-            'babel-loader?{"cacheDirectory":true,"presets":["@babel/preset-env", "@babel/preset-react"],"plugins":[["@babel/plugin-proposal-class-properties",{"loose":true}]]}',
-          ],
-          test: /\.jsx?$/,
+          use: {
+            loader: 'babel-loader',
+            options: { ...babelConfig, cacheDirectory: true },
+          },
+          test: /\.(j|t)sx?$/,
         },
       ],
     },
@@ -59,6 +62,7 @@ const config = {
       new MiniCssExtractPlugin({
         filename: 'build/[name].css',
       }),
+      new ForkTsCheckerWebpackPlugin(),
     ],
     resolve: {
       alias: {
@@ -105,7 +109,7 @@ const config = {
         ),
         'rsg-components/Wrapper/Wrapper': path.resolve(styleguidePath, 'components/Wrapper'),
       },
-      extensions: ['.js', '.jsx', '.json'],
+      extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
     },
   },
   title: 'XUI React Docs',

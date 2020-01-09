@@ -5,12 +5,12 @@ const config = {
     window: true,
   },
   roots: ['<rootDir>/src/react/components'],
-  testRegex: '-test\\.(js|jsx)$',
+  testRegex: '-test\\.((j|t)sx?)$',
   testResultsProcessor: 'jest-teamcity-reporter',
   testEnvironment: 'jsdom',
   moduleDirectories: ['node_modules'],
   collectCoverageFrom: [
-    '**/src/react/components/**/*.{js,jsx}',
+    '**/src/react/components/**/*.{js,jsx,ts,tsx}',
     '!**/src/react/components/**/__tests__/*',
     '!**/src/react/components/**/stories/*',
     '!**/node_modules/**',
@@ -21,7 +21,7 @@ const config = {
     '\\.(png)$': '<rootDir>/src/__mocks__/fileMock.js',
   },
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
+    '^.+\\.(j|t)sx?$': 'babel-jest',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 };

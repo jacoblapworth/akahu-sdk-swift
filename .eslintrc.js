@@ -1,17 +1,25 @@
 const restrictedGlobals = require('eslint-restricted-globals');
 
 module.exports = {
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.ts', '.tsx', '.d.ts', '.js', '.jsx'],
+      },
+    },
+  },
   root: true,
   env: {
     'jest/globals': true,
     node: true,
   },
-  parser: 'babel-eslint',
-  plugins: ['jest', 'prettier', 'react-hooks'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['jest', 'prettier', 'react-hooks', '@typescript-eslint', 'typescript-sort-keys'],
   extends: [
     '@xero/eslint-config-xero-react',
     'plugin:jest/recommended',
     'plugin:jsx-a11y/recommended',
+    'plugin:@typescript-eslint/recommended',
     'prettier',
   ],
   rules: {
@@ -66,6 +74,8 @@ module.exports = {
     'react/static-property-placement': 'off', // 3 instances
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'typescript-sort-keys/interface': 2,
+    'typescript-sort-keys/string-enum': 2,
   },
   overrides: [
     {
@@ -104,6 +114,35 @@ module.exports = {
         'react/no-unused-prop-types': 'off',
         'react/no-unused-state': 'off',
         'react/prop-types': 'off',
+      },
+    },
+    {
+      files: '**/*.js',
+      rules: {
+        '@typescript-eslint/adjacent-overload-signatures': 'off',
+        '@typescript-eslint/ban-ts-ignore': 'off',
+        '@typescript-eslint/ban-types': 'off',
+        '@typescript-eslint/camelcase': 'off',
+        '@typescript-eslint/class-name-casing': 'off',
+        '@typescript-eslint/consistent-type-assertions': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/interface-name-prefix': 'off',
+        '@typescript-eslint/member-delimiter-style': 'off',
+        '@typescript-eslint/no-array-constructor': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/no-empty-interface': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-inferrable-types': 'off',
+        '@typescript-eslint/no-misused-new': 'off',
+        '@typescript-eslint/no-namespace': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-this-alias': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/no-use-before-define': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/prefer-namespace-keyword': 'off',
+        '@typescript-eslint/triple-slash-reference': 'off',
+        '@typescript-eslint/type-annotation-spacing': 'off',
       },
     },
   ],

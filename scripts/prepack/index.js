@@ -2,6 +2,7 @@ const path = require('path');
 const ncp = require('ncp');
 const { taskRunner, rootDirectory } = require('../helpers');
 const babelBuild = require('../build/babel');
+const typescriptBuild = require('../build/typescript');
 const codemodBuild = require('../codemod');
 
 process.env.NODE_ENV = 'production';
@@ -16,16 +17,21 @@ const reactES6SourceLocation = path.join(rootDirectory, 'dist', 'react-es6');
 const reactES6OutputLocation = path.join(rootDirectory, 'react-es6');
 
 function prepack() {
-  taskRunner(taskSpinner => {
+  taskRunner(async taskSpinner => {
     taskSpinner.info('Done with basic build promises');
-    return Promise.all([babelBuild(), babelBuild({ shouldOutputES6: true }), codemodBuild()])
-      .then(({ stdout }) => console.log(stdout)) //eslint-disable-line no-console
-      .then(() => {
-        ncp(reactBuildOutputPath, reactMoveToLocation);
-        ncp(sassSourceLocation, sassMoveToLocation);
-        ncp(codemodBuildOutputLocation, codemodMoveToLocation);
-        ncp(reactES6SourceLocation, reactES6OutputLocation);
-      });
+    const { stdout } = await Promise.all([
+      babelBuild(),
+      babelBuild({ shouldOutputES6: true }),
+      typescriptBuild(),
+      codemodBuild(),
+    ]);
+
+    console.log(stdout); // eslint-disable-line no-console
+
+    ncp(reactBuildOutputPath, reactMoveToLocation);
+    ncp(sassSourceLocation, sassMoveToLocation);
+    ncp(codemodBuildOutputLocation, codemodMoveToLocation);
+    ncp(reactES6SourceLocation, reactES6OutputLocation);
   }, __filename);
 }
 

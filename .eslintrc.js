@@ -14,7 +14,14 @@ module.exports = {
     node: true,
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['jest', 'prettier', 'react-hooks', '@typescript-eslint', 'typescript-sort-keys'],
+  plugins: [
+    'jest',
+    'prettier',
+    'react-hooks',
+    'simple-import-sort',
+    '@typescript-eslint',
+    'typescript-sort-keys',
+  ],
   extends: [
     '@xero/eslint-config-xero-react',
     'plugin:jest/recommended',
@@ -57,7 +64,6 @@ module.exports = {
     'react/sort-comp': 0, // TODO: Either remove class fields or implement this rule once they're supported
     'react/no-did-mount-set-state': 0,
     // TODO: Decide whether or not we want to turn any of the below options on. They came in during an ESLint update so I turned them all off for now. Each of these could still be turned off for special use-cases if needed.
-    'import/no-useless-path-segments': 'off', // 10 instances
     'import/order': 'off', // 104 instances
     'jsx-a11y/label-has-associated-control': 'off', // 1 instance
     'jsx-a11y/no-interactive-element-to-noninteractive-role': 'off', // 1 instance
@@ -74,8 +80,15 @@ module.exports = {
     'react/static-property-placement': 'off', // 3 instances
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'simple-import-sort/sort': 'error',
     'typescript-sort-keys/interface': 2,
     'typescript-sort-keys/string-enum': 2,
+    '@typescript-eslint/interface-name-prefix': [
+      'error',
+      {
+        prefixWithI: 'never',
+      },
+    ],
   },
   overrides: [
     {
@@ -94,8 +107,6 @@ module.exports = {
        */
       rules: {
         'consistent-return': 'off',
-        'import/first': 'off',
-        'import/named': 'off',
         'import/no-extraneous-dependencies': 'off',
         'jsx-a11y/anchor-is-valid': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
@@ -143,6 +154,10 @@ module.exports = {
         '@typescript-eslint/prefer-namespace-keyword': 'off',
         '@typescript-eslint/triple-slash-reference': 'off',
         '@typescript-eslint/type-annotation-spacing': 'off',
+        'import/named': 'off',
+        // TODO: Decide whether or not we want to turn any of the below options on. They came in during an ESLint update so I turned them all off for now. Each of these could still be turned off for special use-cases if needed.
+        'import/no-useless-path-segments': 'off', // 10 instances
+        'simple-import-sort/sort': 'off',
       },
     },
   ],

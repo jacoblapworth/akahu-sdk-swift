@@ -1,5 +1,5 @@
-import XUIProgressLinear from './components/progressindicator/XUIProgressLinear';
 import XUIProgressCircular from './components/progressindicator/XUIProgressCircular';
+import XUIProgressLinear from './components/progressindicator/XUIProgressLinear';
 
 const progressTypes = { XUIProgressLinear, XUIProgressCircular };
 

@@ -1,0 +1,148 @@
+// Table
+//
+// Teaser: Used to compare, contrast and sort large amounts of data.
+//
+// Introduction: Tables are used to compare, contrast, and sort large amounts of data. They are often used as an advanced alternative view to a content block.
+//
+// Components: Tables
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.ae5828owwqro
+//
+// Styleguide: Components.DisplayingData.Table
+
+// Anatomy
+//
+// Tables can be broken into various semantic chunks *(Head, Body, Row and Cell)* each with their own set of class permutations that can compose a broad set of layout compositions.
+// We recommend using the **XUI React** Table component to easily create layout compositions and more advanced table functionality.
+//
+// Classes:
+// xui-table: Apply to table
+// xui-table--row: Apply to each row, including headers
+// xui-table--cell: Apply to each individual cell, including headers
+//
+// Styleguide: Components.DisplayingData.Table.1
+
+// Headers
+//
+// Table headers inherit a standard typographic preset with the last column is always right aligned.
+// In the case of a sortable table, make sure to include an inline sort icon also.
+//
+// Classes:
+// xui-table--head: Apply to the table head section
+// xui-heading-separator: Sets correct text style for table headers
+//
+// Styleguide: Components.DisplayingData.Table.2
+
+// Standard
+//
+// Tips:
+// Do: Prioritise column order left to right
+// Warning: Avoid using too many columns to improve cognitive load
+//
+// Markup: ./examples/table/_table.html
+//
+// Styleguide: Components.DisplayingData.Table.2.1
+
+// Sortable ascending
+//
+// Tips:
+// Do: Include a sort icon to indicate which column is currently selected
+// Do: Reverse the sort direction with each subsequent selection
+//
+// Markup: ./examples/table/_table-sortable.html
+//
+// Styleguide: Components.DisplayingData.Table.2.2
+
+// Body
+//
+// Body content inherits a standard typographic preset with the option to provide visual overrides *(**Boldening** the first column for example)*.
+//
+// Classes:
+// xui-table--body: Apply to the table body section
+// xui-table--cell-divider: Apply a horizontal divider to seperate content from the cell above
+// xui-table--cell-layout: Apply the recommended cell padding
+//
+// Styleguide: Components.DisplayingData.Table.3
+
+// Standard
+//
+// Tips:
+// Warning: Avoid including too many columns
+//
+// Markup: ./examples/table/_table-body.html
+//
+// Styleguide: Components.DisplayingData.Table.3.1
+
+// With actions
+//
+// Tips:
+// Do: Include an overflow menu to surface any actions that can be performed on the individual row
+// Do: Always include bulk select controls if any action can be performed, as this is an advanced view mode
+// Warning: Only show resulting bulk actions on select
+//
+// Markup: ./examples/table/_table-actions.html
+//
+// Styleguide: Components.DisplayingData.Table.3.2
+
+// With avatar
+//
+// Tips:
+// Do: When users or contacts are the primary data involved, include avatars for additional context
+// Do: Keep avatar and checkbox inline
+// Warning: Avoid use of avatar with a rollover checkbox
+//
+// Markup: ./examples/table/_table-avatars.html
+//
+// Styleguide: Components.DisplayingData.Table.3.3
+
+// Handling overflow
+//
+// When the available space in a table cannot fit the information desired, it is appropriate to overflow the table on the X-axis.
+//
+// Classes:
+// xui-table-responsive: Applies overflow
+// xui-table-pinleft: Fixes action to left
+// xui-table-pinright: Fixes action to right
+// xui-table-overflowleft: Applies border to fixed action
+// xui-table-overflowright: Applies border to fixed action
+//
+// Tips:
+// Do: Overflow content when there is not enough room to display all tablular information
+// Do: Pin commonly used actions to enable easy access
+//
+// Exampleclass: ds-example-narrow
+//
+// Markup: ./examples/table/_table-overflow.html
+//
+// Styleguide: Components.DisplayingData.Table.4
+
+// Links
+//
+// Target individual table rows or cells *(but not both)*.
+//
+// Classes:
+// xui-table--row-link: Applies visual feedback on row interaction
+//
+// Styleguide: Components.DisplayingData.Table.5
+
+// Single destination
+//
+// Tips:
+// Do: Tint the entire row on hover to clarify that it is a link
+//
+// Markup: ./examples/table/_table-link-single.html
+//
+// Styleguide: Components.DisplayingData.Table.5.1
+
+// Multiple destinations
+//
+// Tips:
+// Do: Highlight each separate link on hover
+// Dont: Don't nest buttons or anchor tags inside each other
+//
+// Classes:
+// xui-table--cell-link: Applies visual feedback on cell interaction
+//
+// Markup: ./examples/table/_table-link-multiple.html
+//
+// Styleguide: Components.DisplayingData.Table.5.2

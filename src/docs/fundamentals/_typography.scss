@@ -1,0 +1,210 @@
+// Typography
+//
+// Teaser: Heading types and when to use them. Details on text colouring, emphasis and spacing.
+//
+// Introduction: Text is 99% of our interfaces – it’s important to get it right. The levers of size, weight, space and colour are some of the best ways to bring hierarchy and clarity to an interface.
+//
+// Weight: -2
+//
+// Styleguide: Fundamentals.Typography
+
+// Type family
+//
+// XUI uses system fonts with a Helvetica/Arial font-stack.
+//
+// Definitions:
+// Font stack: "Helvetica Neue", Helvetica, Arial, sans-serif
+//
+// Styleguide: Fundamentals.Typography.10
+
+// Sizes
+//
+// Medium is the standard, most comfortable reading size to be used for body copy. Sometimes though, it makes sense to use a different type size to tweak information [denisity](./section-fundamentals-spacing.html#fundamentals-spacing-2) or heirarchy.
+//
+// See our [Typography Variables](./section-fundamentals-variables-mixins.html#fundamentals-variables-mixins-typography) to use these different sizes.
+//
+// **Note:** As XUI does not provide a css margin reset, heading and paragraph elements will pickup user agent margins if not otherwise specified using [XUI spacing classes](./section-fundamentals-spacing.html).
+//
+// Definitions:
+// 3xLarge: 72px: <span class="ds-fontsize-3xlarge">3xLarge</span>
+// 2xLarge: 48px: <span class="ds-fontsize-2xlarge">2xLarge</span>
+// xLarge: 21px: <span class="ds-fontsize-xlarge">xLarge</span>
+// Large: 17px: <span class="ds-fontsize-large">Large</span>
+// Medium: 15px: <span class="ds-fontsize-medium">Medium</span>
+// Small: 13px: <span class="ds-fontsize-small">Small</span>
+// xSmall: 11px: <span class="ds-fontsize-xsmall">xSmall</span>
+// 2xSmall: 9px: <span class="ds-fontsize-2xsmall">2xSmall</span>
+//
+// Styleguide: Fundamentals.Typography.20
+
+// Heading classes
+//
+// Heading are similar to sizes, but also include additional font-weight and spacing rules.
+//
+// **Important:** If you're using headings in a modal or dropdown please use one of our [presets](#fundamentals-typography-23) instead.
+//
+// Definitions:
+// Type: **CSS class**: **font size/line height**
+// 3XLarge: `xui-heading-3xlarge`: <span class="xui-heading-3xlarge">72px/96px</span>
+// 2XLarge: `xui-heading-2xlarge`: <span class="xui-heading-2xlarge">48px/72px</span>
+// XLarge: `xui-heading-xlarge`: <span class="xui-heading-xlarge">21px/32px</span>
+// Large: `xui-heading-large`: <span class="xui-heading-large">17px/28px</span>
+// Standard: `xui-heading-medium`: <span class="xui-heading-medium">15px/24px</span>
+// Small: `xui-heading-small`: <span class="xui-heading-small">13px/20px</span>
+// XSmall: `xui-heading-xsmall`: <span class="xui-heading-xsmall">11px/16px</span>
+//
+// Styleguide: Fundamentals.Typography.21
+
+// Text presets
+//
+// Preset combinations of size and color for specific elements enables future application-wide change with CSS only.
+//
+// Definitions:
+// Separator: `xui-heading-separator`: Small subheads in dropdowns
+// Secondary: `xui-text-secondary`: Applies -muted colour, use for things like metadata
+// Minor: `xui-text-minor`: 11px and -muted, use sparingly for minor things like field notes
+//
+// Styleguide: Fundamentals.Typography.23
+
+//  Color
+//
+// Styleguide: Fundamentals.Typography.30
+
+// Common colours
+//
+// Definitions:
+// Standard: `xui-textcolor-standard`: Default primary text color in XUI.
+// Muted: `xui-textcolor-muted`: Reduced hierarchy. It can be used independently or via `.xui-text-secondary`
+// Faint: `xui-textcolor-faint`: Use very sparingly for inconsequential things due to its poor accessibility.
+//
+// Styleguide: Fundamentals.Typography.30.1
+
+// Sentiment colours
+//
+// Tips:
+// Do: When using sentiment, use descriptive text like "% increase"
+// Dont: When using sentiment, avoid vague text like "%"
+//
+// Use descriptive text as well as colour to convey information so it’s still meaningful to people who can’t discern colour.
+//
+// For example, using text with a ‘positive’ sentiment:<br />
+//
+// Definitions:
+// Positive: `xui-textcolor-positive`:	<div class="xui-container"><span class="xui-textcolor-positive">21.3% decrease</span></div>
+// Negative: `xui-textcolor-negative`:	<div class="xui-container"><span class="xui-textcolor-negative">Yes, delete this invoice</span></div>
+//
+// Styleguide: Fundamentals.Typography.30.2
+
+// Text on dark backgrounds
+//
+// Text colors for use with a dark background. Inverted [buttons](./section-components-controls-button.html#components-controls-button-10) and [toggles](./section-components-controls-toggle.html#components-controls-toggle-6) are handled differently.
+//
+// Definitions:
+// White: `xui-textcolor-inverted`: white color for text
+// Muted white: `xui-textcolor-inverted-muted`: white at 75%
+// Faint white: `xui-textcolor-inverted-faint`: white at 65%
+//
+// ExampleClass: ds-example-flush ds-example-dark
+//
+// Markup: ./examples/typography/_typography-dark-background.html
+//
+// Styleguide: Fundamentals.Typography.30.3
+
+// Links
+//
+// With a few exceptions, interactive elements in XUI should be **clearly different** from static ones.
+// Links in XUI should only be used for elements that have an `href` – otherwise use a [button](section-components-controls-button.html).
+//
+//
+// Definitions:
+// Minor link: `xui-text-minorlink`: Use only for very secondary inconsequential elements to inherit parent text colour but retain standard link hover and focus highlighting.
+// Remove underline: `xui-text-decoration-none`: Can be used to remove the default underline from links that are already clearly interactive inside buttons or dropdowns. This shouldn't be necessary if using React components, only when custom-building.
+//
+// Markup: ./examples/typography/_typography-links.html
+//
+// Styleguide: Fundamentals.Typography.40
+
+// Emphasis
+//
+// Tips:
+// Do: Add bold tactically to highlight important information.
+// Warning: Adding an underline to text may cause it to be confused for a link.
+// Dont: Avoid bolding long stretches of text or using where a standard heading makes more sense.
+//
+// Definitions:
+// Bold: `xui-text-emphasis`: To emphasise a particular piece of text when the default parent is set to normal (via a span element)
+// Normal: `xui-text-deemphasis`: To de-emphasise a particular piece of text when the default parent is set to bold (via a span element)
+// Underline: `xui-text-underline`: Adds an underline to the specified text (via a span element).
+//
+// Styleguide: Fundamentals.Typography.51
+
+// Letter Spacing
+//
+// Common components, like headings, declare their own letter spacing where required – these classes should not be used very often.
+//
+// Definitions:
+// Tight: -0.005em: `xui-text-spacing-tight` <br/>Makes display type better - already on appropriate XUI headings.
+// Loose: 0.01em: `xui-text-spacing-loose` <br/>Can improve legibility of very small text, especially uppercase.
+//
+// Styleguide: Fundamentals.Typography.52
+
+// Line Height
+//
+// Common components should declare their own line height and these classes
+// should not be used very often.
+//
+// Definitions:
+// Default: 1.5: &nbsp;
+// Compact: 1.3: `xui-text-compact` group UI text when it wraps
+// Tight: 1.15: `xui-text-tight` use to retain impact of large copy
+// Reset: 1: `xui-text-reset`
+//
+// Styleguide: Fundamentals.Typography.53
+
+// Alignment
+//
+// Classes that can be added to change the alignment of text.
+//
+// Classes:
+// xui-text-align-left: The default alignment for most other UI elements and body copy
+// xui-text-align-center: Helpful for centering headings and other short paragraphs (i.e. empty states, no results)
+// xui-text-align-right: Mostly for numeric data, to assist with scanning via the decimal place
+//
+// Styleguide: Fundamentals.Typography.54
+
+// Truncation
+//
+// Truncate a single line of text and add an ellipsis to suggest overflow. To truncate after more than one line, you will need a JavaScript component such as [line-clamping](https://github.dev.xero.com/reactlabs/line-clamping).
+//
+// Tips:
+// Dont: Avoid truncating text important to identifying an element - allow multiple lines or larger widths instead.
+//
+// Classes:
+// xui-text-truncated: Modifier for truncated text with an ellipsis
+//
+// Styleguide: Fundamentals.Typography.55
+
+// Word-break
+//
+// Long words without hyphens won't automatically break when they reach the edge of their container.
+// They either enlarge the container, overflow or a scrollbar is created.
+// Sometimes we want these words to break mid-way and flow to the next line instead of truncating them
+// and losing some information.
+//
+// Classes:
+// xui-text-wordbreak: Helps long words like URLs not break out of their parent container
+//
+// Styleguide: Fundamentals.Typography.56
+
+// Long-form text
+//
+// XUI’s type styling is designed primarily for application interfaces and does not target HTML elements like `h1` or `p`.
+// Use the `xui-textcontent` wrapper class to enclose any long-form text which needs basic margins and typographic scale.
+// Elements added to `xui-textcontent` will receive a top margin by default. Users should avoid adding elements like icons as direct children.
+//
+// Tips:
+// Warning: These styles are fairly basic and you may need to fine-tune - let us know how it goes!
+//
+// Markup: ./examples/typography/_typography-long-form.html
+//
+// Styleguide: Fundamentals.Typography.80

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const sass = require('node-sass');
+const sass = require('sass');
 const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');

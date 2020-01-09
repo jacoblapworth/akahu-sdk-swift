@@ -21,6 +21,7 @@ Used along side a composition variant (no-header, with-header)
 
 .#{$ns}-composition-is-finite {
   max-width: $xui-breakpoint-xlarge;
+  width: 100%;
   @include xui-breakpoint-xlarge-up {
     margin-left: auto;
     margin-right: auto;

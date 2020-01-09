@@ -1,14 +1,5 @@
 @import '../vars';
 
-// Disabling
-//
-// Many components already have styles defined for their disabled state, so please refer to those guidelines first. However, this class is available as a fallback if none are available.
-//
-// Classes:
-// xui-is-disabled: Reduce opacity and disable pointer events
-//
-// Styleguide: Fundamentals.Utilities.8
-
 // TODO: Revisit whether this is a component or not
 
 .#{$ns}-is-disabled {

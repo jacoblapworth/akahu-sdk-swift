@@ -1,0 +1,59 @@
+// Search
+//
+// Teaser: Refine a long list of options.
+//
+// Introduction: Refining a long list of options within within a dropdown.
+//
+// Components: Dropdown
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.kou6b67d5zkb
+//
+// Styleguide: Components.CollectingInput.Search
+
+// Best practice
+//
+// Tips:
+// Do: Show a clear button when a value has been entered to enable quick resetting
+// Warning: Make sure to allow space for the software keyboard at narrow viewports
+// Warning: Always include a header at narrow viewports to enable dismissing the dropdown
+//
+// Styleguide: Components.CollectingInput.Search.1
+
+// Anatomy
+//
+// At times, dropdown options are too numerous to show all at once, or the space available for the trigger is not suitable for it to be an input.
+// In these cases, nest a search field inside the dropdown.
+// To do this, use the following classes in combination with a [borderless input](section-components-controls-textinput.html#components-controls-textinput-7-8) and [picklist](section-components-displayingdata-picklist.html).
+//
+// Classes:
+// xui-dropdown--header: Header container
+// xui-dropdown--header-container: Header content
+// xui-dropdown--scrollable-content: Picklist container
+// xui-dropdown-fullheight: Apply to dropdown to make room for the software keyboard
+// xui-dropdown-hide-small-up: Apply to a dropdown sub-element such as the header or actions to hide above 600px
+//
+// Styleguide: Components.CollectingInput.Search.2
+
+// Standard
+//
+// Markup: ./examples/search/_search.html
+//
+// Styleguide: Components.CollectingInput.Search.2.1
+
+// Create new
+//
+// Tips:
+// Do: Consider creating new items on the fly by including the search value as the last item in the list
+//
+// Markup: ./examples/search/_search-create-new.html
+//
+// Styleguide: Components.CollectingInput.Search.2.2
+
+// Empty state
+//
+// Tips:
+// Do: Include a suitable empty state if no results are found
+//
+// Markup: ./examples/search/_search-empty.html
+//
+// Styleguide: Components.CollectingInput.Search.2.3

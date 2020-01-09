@@ -1,0 +1,176 @@
+// Checkbox
+//
+// flags: updated
+//
+// Teaser: Select multiple items from a range of options
+//
+// Introduction:
+// XUI provides a custom checkbox control for consistency across platforms and visual alignment with other form elements.
+//
+// Components: Checkbox
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.dks626qxkzat
+//
+// Styleguide: Components.Controls.Checkbox
+
+// Anatomy
+//
+// Checkboxes benefit from the built-in functionality of native inputs, but extend their style to match our visual language.
+// To create one, use the following classes and insert the [touch target element](section-getting-started-responsive.html#getting-started-responsive-3) inside the checkbox.
+//
+// Tips:
+// Warning: If displaying multiple checkboxes, ensure there is adequate space between so that touch targets don't overlap
+//
+// Classes:
+// xui-styledcheckboxradio: Wrapper for the checkbox
+// xui-styledcheckboxradio--input: Native input, visually hidden
+// xui-styledcheckboxradio--checkbox: Styled control
+// xui-styledcheckboxradio--label: Text label
+// xui-touchtarget: Apply to an empty element inside the checkbox
+//
+// Markup: ./examples/checkbox/_checkbox.html
+//
+// Styleguide: Components.Controls.Checkbox.1
+
+// Size variants
+//
+// Checkboxes have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2). Add a class with the size variant modifier to the the `--input`, `--checkbox` and `--label` subcomponents.
+//
+// Tips:
+// Do: Use the 'medium' size variant when not nesting Checkbox
+// Do: Use the 'small' size variant inside Checkbox groups
+// Warning: Be cautious when using 'small' or 'xsmall' variants, as they have reduced legibility
+// Don't: Don’t use a combination of size variants within a single form
+//
+// Definitions:
+// Size variant:	**Height**: **Modifier**
+// medium: 24px: <code>-medium</code>
+// small: 20px: <code>-small</code>
+// xsmall: 16px: <code>-xsmall</code>
+//
+// Markup: ./examples/checkbox/_checkbox-sizes.html
+//
+// Styleguide: Components.Controls.Checkbox.2
+
+// Disabling
+//
+// To disable a checkbox, add the following class and add the `disabled` attribute.
+//
+// Classes:
+// xui-styledcheckboxradio-is-disabled: Adds disabled style
+//
+// ExampleClass: ds-example-transparent
+//
+// Markup: ./examples/checkbox/_checkbox-disabling.html
+//
+// Styleguide: Components.Controls.Checkbox.3
+
+// Grouped checkboxes
+//
+// To increase hit states and create visual similarity with other form elements, consider using a checkbox group.
+//
+// Tips:
+// Do: Use the small size variant inside Checkbox groups
+//
+// Markup: ./examples/checkbox/_checkbox-grouped.html
+//
+// Styleguide: Components.Controls.Checkbox.4
+
+// Single checkbox
+//
+// To retain the grouped format if only one option is present, simply include one instead of many.
+//
+// Markup: ./examples/checkbox/_checkbox-single.html
+//
+// Styleguide: Components.Controls.Checkbox.4.1
+
+// Multiline checkbox
+//
+// Checkbox groups can handle long strings very easily, as they wrap by default.
+//
+// Markup: ./examples/checkbox/_checkbox-multiline.html
+//
+// Styleguide: Components.Controls.Checkbox.4.2
+
+// Order
+//
+// By default, checkboxes precede the text of the label. This can be reversed by adding `xui-styledcheckboxradio-reversed` to the wrapping element.
+//
+// Markup: ./examples/checkbox/_checkbox-order.html
+//
+// Styleguide: Components.Controls.Checkbox.5
+
+// Indeterminate
+//
+// To indicate only a subset of children are selected, use the `:indeterminate` attribute.
+// However, this state is not exposed via HTML, and needs to be set via Javascript.
+//
+// Styleguide: Components.Controls.Checkbox.6
+
+// Custom icons
+//
+// The standard checkbox can be replaced with any SVG icon from the [xui-icon collection](./section-fundamentals-icons.html#fundamentals-icons-7).
+// A common use case is a star for favouriting, however, use custom icons sparingly and with design guidance.
+// A minimum of two SVG elements are required to produce the desired outcome, a main layer and a focus layer.
+//
+// Classes:
+// xui-styledcheckboxradio--main: Custom icon
+// xui-styledcheckboxradio--focus: Custom icon focus styles
+//
+// Markup: ./examples/checkbox/_checkbox-custom-icon.html
+//
+// Styleguide: Components.Controls.Checkbox.7
+
+// Validation and hint messages
+//
+// Validation and hint messages can be shown for checkboxes with and without a label.
+//
+// Add `aria-invalid="true"` to inputs to indicate that they are invalid.
+//
+// Add `xui-validation-is-invalid` to a validation message to display its error state.
+//
+// If a group of radio buttons is invalid, add `xui-styledcheckboxradio-group-is-invalid` to the group.
+//
+// Classes:
+// xui-styledcheckboxradiowrapper: Wrapper for the field and validation message
+// xui-styledcheckboxradio: Wrapper for the checkbox and label
+// xui-styledcheckboxradio--message: Positions the message under the checkbox
+// xui-styledcheckboxradio--message-with-label: Positions the message under the label
+// xui-styledcheckboxradio-group-is-invalid: Changes the colour of the group to indicate it is invalid
+// xui-validation-is-invalid: Changes the colour of the text to indicate it is invalid
+//
+// ExampleClass: ds-example-transparent
+//
+// Markup: ./examples/checkbox/_checkbox-validation.html
+//
+// Styleguide: Components.Controls.Checkbox.8
+
+// Class list
+//
+// Classes:
+// xui-styledcheckboxradio-group: Container for a group of styled checkboxes or radio
+// xui-styledcheckboxradio: Container for a styled checkbox or radio
+// xui-styledcheckboxradiowrapper: Wrapper for the field and validation message
+// xui-styledcheckboxradio-reversed: Modifier for a right-aligned styled checkbox or radio
+// xui-styledcheckboxradio--checkbox: The html element that displays the checkmark, if not a custom icon.
+// xui-styledcheckboxradio--focus: Subcomponent for focus layer of an icon checkbox or radio
+// xui-styledcheckboxradio--main: Subcomponent for main layer of an icon checkbox or radio
+// xui-styledcheckboxradio--check: Subcomponent for checkmark layer of an icon checkbox or radio
+// xui-styledcheckboxradio--indeterminate: Subcomponent for indeterminate layer of an icon checkbox (not applicable to radios)
+// xui-styledcheckboxradio--label: Subcomponent for label text of a styled checkbox or radio
+// xui-styledcheckboxradio--message: Positions the message under the checkbox
+// xui-styledcheckboxradio--message-with-label: Positions the message under the label
+// xui-styledcheckboxradio-group-is-invalid: Changes the colour of the group to indicate it is invalid
+// xui-validation-is-invalid: Changes the colour of the text to indicate it is invalid
+// xui-styledcheckboxradio--input-medium: Sets the input size to medium
+// xui-styledcheckboxradio--checkbox-medium: Sets the checkbox size to medium
+// xui-styledcheckboxradio--label-medium: Sets the label size to medium
+// xui-styledcheckboxradio--input-small: Sets the input size to small
+// xui-styledcheckboxradio--checkbox-small: Sets the checkbox size to small
+// xui-styledcheckboxradio--label-small: Sets the label size to small
+// xui-styledcheckboxradio--input-xsmall: Sets the input size to xsmall
+// xui-styledcheckboxradio--checkbox-xsmall: Sets the checkbox size to xsmall
+// xui-styledcheckboxradio--label-xsmall: Sets the label size to xsmall
+// xui-touchtarget: Invisible touch target element inside a checkbox
+//
+// Styleguide: Components.Controls.Checkbox.50

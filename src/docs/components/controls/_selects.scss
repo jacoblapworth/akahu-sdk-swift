@@ -1,0 +1,138 @@
+// Select
+//
+// Introduction:
+// Selects let users pick a single item from a list of options.
+// XUI provides both native and custom implementations of this control.
+//
+// Teaser: Choose an item from a list of options
+//
+// Components: Select-box
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.1lq2d2lxmrnk
+//
+// Styleguide: Components.Controls.Select
+
+// Best practice
+//
+// Tips:
+// Do: Use a select when choosing from a basic list of options in a form
+// Do: Update the parent control after every change
+// Do: Visually highlight the current selection in the dropdown
+// Do: Start tab order from the currently selected item in the dropdown
+// Warning: Take care not to make assumptions of your user when pre-selecting options
+//
+// Styleguide: Components.Controls.Select.1
+
+// Anatomy
+//
+// Custom selects rely heavily on React for rendering children and defining interaction.
+// However, to style the static control itself, a few classes are required.
+// They extend the basic `button` and `xui-icon` combination.
+//
+// Classes:
+// xui-button: Style for a button
+// xui-button-standard: Modifier for a standard-style button
+// xui-button-medium: Modifier for a medium-size button
+// xui-button-fullwidth: 100% width
+// xui-select--button: Aligns the text like an input
+// xui-select--button-no-variant: Styles the button like an input
+// xui-select--content: Text styles
+// xui-select--caret: Icon styling
+// xui-button--caret: Icon styling
+//
+// Markup: ./examples/select/_select.html
+//
+// Styleguide: Components.Controls.Select.2
+
+// Content
+//
+// Selectable options are rendered as a picklist within a dropdown.
+// Wrap these in a common parent with the following class.
+//
+// Classes:
+// xui-select-layout: Wrapping class for select trigger and dropdown
+//
+// Markup: ./examples/select/_select-content.html
+//
+// Styleguide: Components.Controls.Select.2.1
+
+// Labels and validation
+//
+// Selects, like other controls, can have labels and form validation added to them.
+//
+// Classes:
+// xui-text-label: Label styling
+// xui-fieldlabel-layout: Label spacing styling
+// xui-select-is-invalid: Select invalid styling
+// xui-validation: Message styling
+// xui-validation-layout: Message spacing styling
+// xui-validation-is-invalid: Invalid message color styling
+//
+// Markup: ./examples/select/_select-labels-and-validation.html
+//
+// Styleguide: Components.Controls.Select.2.2
+
+// Size variants
+//
+// Selects have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
+//
+// Tips:
+// Do: Use 'medium' size by default
+// Warning: Use 'small' and 'xsmall' variants cautiosly, as they have reduced legibility and touch targets
+// Don't: Don't use a combination of size variants within a single form
+//
+// Definitions:
+// Size variant: **Height**: **Class**
+// medium: 40px: `xui-button-medium`
+// small: 32px: `xui-button-small`
+// xsmall: 24px: `xui-button-xsmall`
+//
+// Markup: ./examples/select/_select-sizes.html
+//
+// Styleguide: Components.Controls.Select.4
+
+// Style variants
+//
+// Selects consume button styles to enable desired trigger visual treatment. Alternatively, style a select like an input to visually fit within a form structure.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/select/_select-variants.html
+//
+// Styleguide: Components.Controls.Select.5
+
+// Multi-select
+//
+// Select multiple options by using a multiselect picklist inside the dropdown. Display selected options in trigger, separated by commas.
+//
+// Tips:
+// Do: Use multi-selects when choosing from an array of options in one category
+//
+// Markup: ./examples/select/_select-multiselect.html
+//
+// Styleguide: Components.Controls.Select.6
+
+// Disabled
+//
+// To disable a select control, apply the `disabled` attribute.
+// This applies styles and prevents it from accepting focus.
+//
+// Markup: ./examples/select/_select-disabling.html
+//
+// Styleguide: Components.Controls.Select.7
+
+// Native selects
+//
+// Options inside native select controls cannot be styled at all.
+// For this reason, the custom variant is the preferred implementation.
+// However, native controls are often useful when prototyping.
+// To style a native `select`, use the following classes and include a `xui-icon`.
+//
+// Classes:
+// xui-select: Wrapper for a native select
+// xui-select--control: Select styles
+// xui-select--caret: Icon styling
+//
+// Markup: ./examples/select/_select-native.html
+//
+// Styleguide: Components.Controls.Select.8

@@ -63,6 +63,9 @@
                 "content": "../src/react/components/button/button.icon.md"
               },
               {
+                "content": "../src/react/components/button/button.container.queries.md"
+              },
+              {
                 "name": "Actions",
                 "components": "../src/react/components/actions/XUIActions.js",
                 "content": "../src/react/actions.md"

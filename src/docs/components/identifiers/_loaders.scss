@@ -1,0 +1,171 @@
+// Loader
+//
+// Components: Loader
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.ktlfyshnwqa2
+//
+// Teaser: Communicate progress and alleviate slow load times
+//
+// Introduction: Loaders are used to communicate progress and alleviate slow load times.
+//
+// Styleguide: Components.Identifiers.Loader
+
+// Best practice
+//
+// Tips:
+// Do: Position loaders centrally within their containing element
+// Warning: Avoid loaders on pages that initiated action, include on destination pages instead
+// Dont: Don't show multiple loaders at once
+//
+// Styleguide: Components.Identifiers.Loader.1
+
+// Anatomy
+//
+// To create a loader, use the following classes.
+//
+// Classes:
+// xui-loader: Apply to loader
+// xui-loader-medium: Apply to loader. -medium can be replaced with other size modifiers which are documented in the "Size variant" section below
+// xui-loader--dot: Apply to the three nested elements within the loader
+// xui-loader-layout: Optionally add to the loader to apply xui defined, outer spacing
+//
+// Markup: ./examples/loader/_loader.html
+//
+// Styleguide: Components.Identifiers.Loader.2
+
+// Size variants
+//
+// Loader offers three size options that allow for greater control over visual hierarchy, [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2), and nesting.
+//
+// Tips:
+// Do: Use a smaller variant to reduce visual dominance of a loader
+// Do: Use an appropriate size variant for a loader based on the size of it's container
+//
+// Definitions:
+// Size variant:	**Height**: **Class**
+// medium: 14px: <code>.xui-loader-medium</code>
+// small: 12px: <code>.xui-loader-small</code>
+// xsmall: 10px: <code>.xui-loader-xsmall</code>
+//
+// Markup: ./examples/loader/_loader-sizes.html
+//
+// Styleguide: Components.Identifiers.Loader.4
+
+// Retain layout
+//
+// You may find that replacing an element's content with a loader alters the width and height of the element, even when applying the `xui-loader-layout` class.
+// If this is undesirable, apply the following utility classes instead of removing the content.
+//
+// Classes:
+// xui-loader-retain-layout: Apply to loader
+// xui-u-hidden-content: Apply to content to be hidden
+//
+// Styleguide: Components.Identifiers.Loader.7
+
+// Buttons
+//
+// When nesting a loader within a button, apply `xui-button--loader` class to the loader and `xui-button-is-disabled` to the containing button.
+// The loader will inherit button text color, and appear disabled.
+//
+// Tips:
+// Do: Use the correct size variant of the loader when nesting in a button
+// Warning: Use loaders inside buttons sparingly, instead place them on the destination page
+// Warning: The class 'xui-button-standard' refers to the style of button not the size variant. Use xui-button to apply default sizing.
+//
+// Definitions:
+// Button size:	**Loader size variant**:
+// medium: <code>.xui-loader-medium</code>
+// small: <code>.xui-loader-small</code>
+// xsmall: <code>.xui-loader-xsmall</code>
+//
+// Markup: ./examples/loader/_loader-buttons.html
+//
+// Styleguide: Components.Identifiers.Loader.8
+
+// Retain layout
+//
+// Markup: ./examples/loader/_loader-buttons-retain-layout.html
+//
+// Styleguide: Components.Identifiers.Loader.8.1
+
+// Dropdowns
+//
+// Tips:
+// Do: Use a dropdown loader when performing a search
+// DO: Retain dropdown height until new results are received
+// DO: Toggle the loader on keydown to avoid the appearance of lag even if results are debounced
+//
+// Markup: ./examples/loader/_loader-dropdowns.html
+//
+// Styleguide: Components.Identifiers.Loader.9
+
+// Retain layout
+//
+// Markup: ./examples/loader/_loader-dropdowns-retain-layout.html
+//
+// Styleguide: Components.Identifiers.Loader.9.1
+
+// Modals
+//
+// Tips:
+// Do: Use a modal loader when fetching data
+// Warning: Avoid modal loaders when posting data, use a page loader on the destination page instead
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/loader/_loader-modals.html
+//
+// Styleguide: Components.Identifiers.Loader.10
+
+// Retain layout
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/loader/_loader-modals-retain-layout.html
+//
+// Styleguide: Components.Identifiers.Loader.10.1
+
+// Panels
+//
+// Tips:
+// Do: Use a panel loader if it is the only element fetching data on the page
+// Dont: Don't apply loaders to multiple panels at once, use a page loader instead
+//
+// Markup: ./examples/loader/_loader-panels.html
+//
+// Styleguide: Components.Identifiers.Loader.11
+
+// Retain layout
+//
+// Markup: ./examples/loader/_loader-panels-retain-layout.html
+//
+// Styleguide: Components.Identifiers.Loader.11.1
+
+// Pages
+//
+// Tips:
+// Do: Use a page loader on first page load
+// Do: Conceal all content under the header until all data has been fetched
+// Warning: Avoid page loaders when asynchronously updating a single element, use a panel loader instead
+//
+// Styleguide: Components.Identifiers.Loader.12
+
+// Inverted
+//
+// To provide adequate contrast for use on darker backgrounds, an inverted loader modifier is also available.
+//
+// ExampleClass: ds-example-dark
+//
+// Classes:
+// xui-loader-inverted: Inverts loader style
+//
+// Markup: ./examples/loader/_loader-inverted.html
+//
+// Styleguide: Components.Identifiers.Loader.13
+
+// Accessibility
+//
+// When loading, set the aria-busy attribute to `true` on the element that is loading, not on the loader itself.
+// Additionally, make sure to apply the `xui-button-is-disabled` class and `disabled` attribute on buttons that are loading to prevent keyboard interactivity.
+//
+// Styleguide: Components.Identifiers.Loader.14

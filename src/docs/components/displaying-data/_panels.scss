@@ -1,0 +1,128 @@
+// Panel
+//
+// Teaser: Top-level container for grouping page content, that gives definition against the standard grey page.
+//
+// Introduction: A panel is the top-level container for grouping page content. Panels give groups of content definition against the standard grey page.
+//
+// Components: Panel
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.qcuf9cvxorda
+//
+// Styleguide: Components.DisplayingData.Panel
+
+// Best practice
+//
+// Tips:
+// Do: Use to group top-level content at the base page level
+// Warning: Avoid nesting panels inside modals, use your own class instead
+// Warning: Avoid nesting panels inside other panels, use your own class instead
+// Warning: To frame any other content other than the top-most container, use your own class instead
+//
+// Styleguide: Components.DisplayingData.Panel.1
+
+// Framing content
+//
+// For any nested elements within a page that aren't semantically panels, but you wish to create a bordered frame around, create your own classes instead.
+// To do this, use XUI's variables and mixins, without explicitly using the panel class.
+//
+// ExampleClass: ds-example-markuponly
+//
+// Markup: ./examples/panel/_panel-framing.html
+//
+// Styleguide: Components.DisplayingData.Panel.2
+
+// Anatomy
+//
+// At it's most basic form, a panel consists of the following class.
+//
+// Classes:
+// xui-panel: Container for a panel
+//
+// Styleguide: Components.DisplayingData.Panel.3
+
+// Spacing
+//
+// To provide flexibility for different types of content, panels do not provide any margin and padding by design.
+// To add your own, use the `xui-padding-*` and `xui-margin-*` [utility classes](section-fundamentals-spacing.html).
+// We do however, recommend using `xui-padding-large` as a sensible default.
+//
+// Styleguide: Components.DisplayingData.Panel.4
+
+// Heading
+//
+// ExampleClass: ds-example-wide
+//
+// To create the default header within a panel, use the following classes.
+// Note that [utility classes](section-fundamentals-utilities.html) are required to set horizontal and vertical alignment.
+//
+// Classes:
+// xui-panel--header: Sets a min height of 60px
+// xui-panel--heading: Sets a default font size and weight to heading text
+//
+// Markup: ./examples/panel/_panel-heading.html
+//
+// Styleguide: Components.DisplayingData.Panel.5
+
+// Section
+//
+// ExampleClass: ds-example-wide
+//
+// To create distinct sections within a panel, use the following class, and add an optional centered header.
+//
+// Classes:
+// xui-panel--section: Adds borders to seperate sections within a panel
+// xui-panel--section--header: Sets a default font size and weight and centers heading text
+//
+// Markup: ./examples/panel/_panel-section.html
+//
+// Styleguide: Components.DisplayingData.Panel.6
+
+// Footer
+//
+// ExampleClass: ds-example-wide
+//
+// To create a footer within a panel, use the following class.
+// In the case of a form, we recommend you use the `xui-actions` method outlined in the [button documentation](section-components-controls-button.html#components-controls-button-12).
+//
+// Classes:
+// xui-panel--footer: Sets a min height of 60px and adds a top border
+//
+// Markup: ./examples/panel/_panel-footer.html
+//
+// Styleguide: Components.DisplayingData.Panel.7
+
+// Form
+//
+// A common use case for a panel is a form.
+// The following shows an example of how the three basic panel sections outlined above can be used to create one.
+//
+// ExampleClass: ds-example-wide
+//
+// Markup: ./examples/panel/_panel-form.html
+//
+// Styleguide: Components.DisplayingData.Panel.8
+
+// Content blocks
+//
+// ExampleClass: ds-example-wide
+//
+// Another common use case for panels is to contain a list of content blocks. Wrapping a list of content blocks with a panel ensures the container to have a consistent border and rounded corners.
+//
+// Markup: ./examples/panel/_panel-content-blocks.html
+//
+// Styleguide: Components.DisplayingData.Panel.9
+
+// Sidebar
+//
+// ExampleClass: ds-example-wide
+//
+// To create a sidebar that triggers different panel content, use the following layout.
+// Note that [utility classes](section-fundamentals-utilities.html) are also required to achieve the following layout.
+// In order to create the sidebar list itself, a [picklist](section-components-displayingdata-picklist.html) is also required.
+//
+// Classes:
+// xui-panel--sidebar: Adds a right border and sets a width of 220px on the sidebar
+//
+// Markup: ./examples/panel/_panel-sidebar.html
+//
+// Styleguide: Components.DisplayingData.Panel.10

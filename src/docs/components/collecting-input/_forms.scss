@@ -1,0 +1,76 @@
+// Form
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.wooqzaf4mdwo
+//
+// Teaser: A container for interactive controls to submit information. This section uses different layouts based on the information type and content.
+//
+// Styleguide: Components.CollectingInput.Forms
+
+// Accessibility
+//
+// All form elements should have labels to ensure the purpose of each element is clear.
+// This can be done by using the `<label>` tag or by adding `aria-label` or `aria-labelledby` attributes to each element.
+//
+// If there are instructions or context information associated with the form element, `aria-describedby` should be used to ensure it is not missed by the assistive technology.
+//
+// Styleguide: Components.CollectingInput.Forms.20
+
+// Stacked Forms
+//
+// Standard linear forms in XUI are `max-width: 400px` and centre within their container.
+// Add `xui-form-layout` to the `<form>` wrapping all headings and fields.
+//
+// Each label-field pair, plus notes and validation, are wrapped in `xui-field-layout` to provide consistent spacing.
+//
+// Notes and validation messages are added under fields in a `xui-validation-layout` wrapper.
+// This will only affect the form layout if it is multiple lines.
+//
+// exampleclass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/form/_form-stacked.html
+//
+// Styleguide: Components.CollectingInput.Forms.2
+
+// Inline Forms
+//
+// Small interactions can be delivered with inline forms. Inline forms will stack at the smallest breakpoint with `max-width: 400px;` by default.
+//
+// Markup: ./examples/form/_form-inline.html
+//
+// Styleguide: Components.CollectingInput.Forms.3
+
+// Grouping
+//
+// In a few situations multiple fields can be grouped under a single label.
+// These are likely to be where one field (probably a select) modifies another or
+// the combination of both is closely tied and a common convention.
+//
+// Styleguide: Components.CollectingInput.Forms.5
+
+// Horizontal
+//
+// exampleClass: ds-example-narrow
+//
+// Markup: ./examples/form/_form-horizontal.html
+//
+// Styleguide: Components.CollectingInput.Forms.5.1
+
+// Class list
+//
+// Classes:
+// xui-field-layout: Recommended layout for a form field (eg label and input)
+// xui-fieldlabel-layout: Recommended layout for a form label
+// xui-form-inline: Recommended layout for an inline form
+// xui-form-layout: Recommended layout for a stacked form
+// xui-validation: Used to style text below inputs (to clarify format or provide supporting info)
+// xui-validation-layout: Recommended layout for text below inputs
+// xui-validation-is-invalid: Modifier for text below inputs that are in an error state
+// xui-textinputgroup: Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
+// xui-verticaltextinputgroup: Wrapper class to go around a set of vertically grouped inputs
+// xui-text-label: A label describing grouped controls, usually checkboxes, radios, or switches.
+// xui-switch-group: Container for multiple switch controls. Sibling of `xui-text-label` and `xui-validation`.
+// xui-switch-group-is-invalid: Apply to a switch group to set validity styles.
+// xui-styledcheckboxradio-group: Container for multiple checkbox or radio controls.  Sibling of `xui-text-label` and `xui-validation`.
+// xui-styledcheckboxradio-group-is-invalid: Apply to a checkbox or radio group to set validity styles.
+//
+// Styleguide: Components.CollectingInput.Forms.50

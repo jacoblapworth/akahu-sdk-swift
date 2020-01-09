@@ -1,0 +1,27 @@
+<div class="xui-panel xui-padding">
+  <form class="xui-form-layout">
+    <p class="xui-heading-panel">Stacked Form</p>
+    <div class="xui-field-layout">
+      <label class="xui-text-label xui-fieldlabel-layout" for="field1">Account holder</label>
+      <input class="xui-textinput xui-textinput--input" type="text" id="field1" placeholder="" />
+    </div>
+    <div class="xui-field-layout">
+      <label class="xui-text-label xui-fieldlabel-layout" for="ird2">IRD number</label>
+      <input class="xui-textinput xui-textinput--input" type="text" id="ird2" placeholder="" />
+      <div class="xui-validation xui-validation-layout">Found on the top of your IR3 statement</div>
+    </div>
+    <div class="xui-field-layout">
+      <label class="xui-text-label xui-fieldlabel-layout" for="field3">Bank account number</label>
+      <input
+        class="xui-textinput xui-textinput--input xui-textinput-is-invalid"
+        type="text"
+        id="field3"
+        placeholder=""
+      />
+      <div class="xui-validation xui-validation-layout xui-validation-is-invalid">
+        Must be at least 9 digits
+      </div>
+    </div>
+    <input class="xui-button xui-button-medium xui-button-main" type="submit" value="Submit" />
+  </form>
+</div>

@@ -1,0 +1,142 @@
+// Autocompleter
+//
+// Teaser: Apply multiple options via a single text input.
+//
+// Introduction: To search and apply options via a single text input, use an autompleter.
+//
+// Components: Autocompleter
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.wjv7xhbchcoz
+//
+// Styleguide: Components.CollectingInput.Autocompleter
+
+// Best practice
+//
+// Tips:
+// Do: Options are refined as the user types
+// Do: Match dropdown width to the width of their associated autocompleter trigger
+// Warning: Avoid automatically showing dropdowns on focus, unless promoting recent or suggested items
+//
+// Styleguide: Components.CollectingInput.Autocompleter.1
+
+// Anatomy
+//
+// To create an autocompleter, several classes are required.
+// However, if you are using React, this is all managed for you.
+// Consequently, the examples shown below are static, and don't illustrate the recommended interactive behaviour.
+// For more information, visit the [React Documentation](./react/#autocompleter).
+//
+// Styleguide: Components.CollectingInput.Autocompleter.2
+
+// Trigger
+//
+// To create an autocompleter, an element is required to contain the pills and trigger dropdown visibility.
+// To do this, use the following classes.
+//
+// Classes:
+// xui-textinput: Apply to autocompleter container to mimic input style
+// xui-autocompleter--trigger: Apply to autocompleter container for recommended layout
+// xui-autocompleter--trigger-focus: Apply to trigger programatically when child input is in focus
+//
+// Styleguide: Components.CollectingInput.Autocompleter.2.1
+
+// Input
+//
+// To create the focusable field inside an autocompleter, use the following classes.
+//
+// Classes:
+// xui-textinput: Apply to the element wrapping the pills and input
+// xui-textinput--input: Apply to the actual input
+// xui-autocompleter--textinput: Apply to actual input for recommended layout
+//
+// Styleguide: Components.CollectingInput.Autocompleter.2.2
+
+// Standard layout
+//
+// Markup: ./examples/autocompleter/_autocompleter.html
+//
+// Styleguide: Components.CollectingInput.Autocompleter.2.3
+
+// Single-select
+//
+// To indicate a single selection has been made in an autocompleter, use [text input side elements](section-components-controls-textinput.html#components-controls-textinput-5) to display a left element, such as an avatar (if applicable), and a right icon button element to enable clearing the selection.
+//
+// Tips:
+// Do: Use text input side elements to indicate a single selection
+// Do: Include an avatar if the selected option has an associated person or business
+//
+// Markup: ./examples/autocompleter/_autocompleter-single-select.html
+//
+// Styleguide: Components.CollectingInput.Autocompleter.3
+
+// Multi-select
+//
+// To indicate an option has been added to the autocompleter, simply insert a [pill](section-components-identifiers-pill.html).
+// Then, add the following modifier to provide the correct layout within the autocompleter.
+//
+// Tips:
+// Do: Use pills to display multiple selections inside of an input from an autocompleter
+// Do: Include an avatar if the selected option has an associated person or business
+//
+// Classes:
+// xui-autocompleter--pill: An individual pill inside the autocmpleter
+//
+// Markup: ./examples/autocompleter/_autocompleter-multi-select.html
+//
+// Styleguide: Components.CollectingInput.Autocompleter.4
+
+// Wrapping
+//
+// The default behaviour of the autocompleter class is to scroll pills horizontally when they exceed its width.
+// However, a class is available to enable pills to wrap instead.
+// If using React, wrapping is enabled by default and clicking anywhere on the trigger focuses the input.
+//
+// Tips:
+// Do: Provide a selectable area for typing by including a placeholder
+// Do: Always enable wrapping unless reducing vertical space is crucial
+//
+// Classes:
+// xui-autocompleter--trigger-pillwrap: Apply to autocompleter container to wrap pills
+//
+// Markup: ./examples/autocompleter/_autocompleter-wrapping.html
+//
+// Styleguide: Components.CollectingInput.Autocompleter.4.1
+
+// Contained
+//
+// If retaining vertical space is essential, use class below to contain pill selections inside a wrapper that handles overflow scrolling. If using React, the pills are automatically scrolled on change.
+//
+// Tips:
+// Do: Provide a selectable area for typing with by including a placeholder
+// Do: Contain pills if vertical space is crucial, for example in a fixed header
+//
+// Classes:
+// xui-autocompleter--pills-nopillwrap: Apply to a div containing the pills to give correct overflow behaviour
+//
+// Markup: ./examples/autocompleter/_autocompleter-contained.html
+//
+// Styleguide: Components.CollectingInput.Autocompleter.4.2
+
+// Secondary search autocompleter
+//
+// Occasionally, an autocompleter is more appropriate to be placed inside of a dropdown. To do this, display the autocompleter text input inside of a dropdown header and the resulting picklist inside a scrollable container below.
+//
+// Classes:
+// xui-dropdown--header-container: Applies styling for dropdown header
+// xui-dropdown--scrollable-container: Applies overflow styling to wrapping container
+//
+// Markup: ./examples/autocompleter/_autocompleter-secondary.html
+//
+// Styleguide: Components.CollectingInput.Autocompleter.5
+
+// Disabling
+//
+// To indicate an autocompleter is disabled, add the following modifier.
+// Additionally, make sure to apply the `disabled` attribute to the input to prevent keyboard interaction.
+//
+// Classes:
+// xui-textinput-is-disabled: Apply to autocompleter container
+//
+// Markup: ./examples/autocompleter/_autocompleter-disabling.html
+//
+// Styleguide: Components.CollectingInput.Autocompleter.6

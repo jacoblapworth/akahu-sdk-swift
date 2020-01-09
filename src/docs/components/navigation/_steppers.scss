@@ -1,0 +1,138 @@
+// Stepper
+//
+// Components: Stepper
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.t3uv5j760k08
+//
+// Introduction: A stepper is used to indicate a workflow of sequential pages or steps. The main purpose is to display progression and completion of steps in a format that is easy to decipher and integrate into multiple page layouts.
+//
+// Styleguide: Components.Navigation.Stepper
+
+// Best practice
+//
+// Tips:
+// Do: Use for stepped flows such as a setup
+// Do: Use in combination with `xui-isolationheader` for flows that are only ever completed once
+// Do: Use progress indicator variant of stepper for steps which include nested progression
+// Do: Allow the React component to determine the optimal responsive layout internally
+// Warning: Keep the number of steps appropriate. Not too little or too many (3 to 6 is a good range)
+// Dont: Don’t nest steppers inside of each other
+//
+// Styleguide: Components.Navigation.Stepper.1
+
+// Anatomy
+//
+// To create an isolation header, use the following classes
+//
+// Classes:
+// xui-stepper: Base class
+// xui-stepper-wrapper: Container for stepper tab elements
+// xui-stepper-tab: Container for stepper link element
+// xui-stepper-tab-first: Removes :before line connector from tab
+// xui-stepper-tab-last: Removes :after line connector from tab
+// xui-stepper-link: Default button style used alongside link modifiers
+// xui-stepper-link-wrapper: Container for stepper link content
+// xui-stepper-link-icon: Container for link icon
+// xui-stepper-link-text: Container for link text
+//
+// exampleClass: ds-example-transparent
+//
+// Markup: ./examples/stepper/_stepper.html
+//
+// Styleguide: Components.Navigation.Stepper.2
+
+// Link modifiers
+//
+// Class modifiers are given to `xui-stepper-link` for additional styling. These classes also apply appropriate styling for pseudo classes.
+//
+// Classes:
+// xui-stepper-link-standard: Standard step style
+// xui-stepper-link-active: Active step style
+// xui-stepper-link-disabled: Disabled step style
+// xui-stepper-link-error: Error step style
+//
+// exampleClass: ds-example-transparent
+//
+// Markup: ./examples/stepper/_stepper-link-modifier.html
+//
+// Styleguide: Components.Navigation.Stepper.2.1
+
+// Link text
+//
+// Classes:
+// xui-stepper-link-text-truncated: Apply to the text wrapping element to truncate text
+// xui-stepper-link-heading: Used for title of step
+// xui-stepper-link-description: Used for short concise description of step
+//
+// exampleClass: ds-example-transparent
+//
+// Markup: ./examples/stepper/_stepper-link-text.html
+//
+// Styleguide: Components.Navigation.Stepper.2.2
+
+// Layout
+//
+// Modifiers are applied to `xui-stepper-wrapper` element to alter the format of how steps are displayed. On the React stepper component, these modifying classes are applied based on browser viewport width by default.
+//
+// Styleguide: Components.Navigation.Stepper.3
+
+// Inline
+//
+// Tips:
+// Do: Use for full-width page layouts
+// Do: Always display inline stepper above stepped content
+//
+// Classes:
+// xui-stepper-inline: Inline modifier
+//
+// exampleClass: ds-example-transparent
+//
+// Markup: ./examples/stepper/_stepper-inline.html
+//
+// Styleguide: Components.Navigation.Stepper.3.1
+
+// Inline (Stacked links)
+//
+// Tips:
+// Do: Use for full-width page layouts
+// Do: Always display inline stepper above stepped content
+//
+// Classes:
+// xui-stepper-inline: Inline modifier
+// xui-stepper-stacked-links: Link stacking modifier
+//
+// exampleClass: ds-example-transparent
+//
+// Markup: ./examples/stepper/_stepper-inline-stacked.html
+//
+// Styleguide: Components.Navigation.Stepper.3.2
+
+// Sidebar
+//
+// Tips:
+// Do: Use for when you want to display step content next to sidebar
+// Do: Use when there is a large number of steps
+//
+// Classes:
+// xui-stepper-sidebar: Sidebar modifier
+//
+// exampleClass: ds-example-transparent
+//
+// Markup: ./examples/stepper/_stepper-sidebar.html
+//
+// Styleguide: Components.Navigation.Stepper.3.3
+
+// Stacked
+//
+// Tips:
+// Do: Responsively apply for small browser viewport widths
+// Don't: Don’t use in larger browser viewport widths
+//
+// Classes:
+// xui-stepper-stacked: Stacked modifier
+//
+// exampleClass: ds-example-transparent
+//
+// Markup: ./examples/stepper/_stepper-stacked.html
+//
+// Styleguide: Components.Navigation.Stepper.3.4

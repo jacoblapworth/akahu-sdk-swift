@@ -96,6 +96,21 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: `with hover`,
+    items: [
+      {
+        primaryHeading: 'Item 2 Primary',
+        secondaryHeading: 'Item 2 Secondary',
+        overflow: true,
+        pinnedValue: true,
+        isRowLink: true,
+        href: '#',
+      },
+    ],
+    hoverSelector: '.xui-contentblockitem-rowlink',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: `with two children`,
     items: [
       {

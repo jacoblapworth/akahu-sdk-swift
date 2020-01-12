@@ -269,6 +269,12 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
   resize: vertical;
 }
 
+// Reverse aligned inputs
+
+.#{$ns}-textinput--input-reverse-align {
+  text-align: right;
+}
+
 // Borderless inputs
 
 .#{$ns}-textinput-borderless {

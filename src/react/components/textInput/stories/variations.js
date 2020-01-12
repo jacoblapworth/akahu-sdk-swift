@@ -261,6 +261,13 @@ const responsiveStories = [
     customDecorator: true,
   },
 ];
+const inputAlignmentStories = [
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'input is reverse-aligned',
+    isValueReverseAligned: true,
+  },
+];
 
 module.exports = {
   storiesWithVariationsKindName,
@@ -271,5 +278,6 @@ module.exports = {
     ...bothSideElementsWithSizes,
     ...multilineStories,
     ...responsiveStories,
+    ...inputAlignmentStories,
   ],
 };

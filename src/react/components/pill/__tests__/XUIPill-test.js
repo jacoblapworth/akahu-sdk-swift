@@ -54,6 +54,27 @@ describe('<XUIPill />', () => {
     expect(pill).toMatchSnapshot();
   });
 
+  it('renders the pill with the business avatar prop', () => {
+    const imageUrl = 'https://xui.xero.com/static/xpert-avatar.png';
+    const avatarProps = {
+      imageUrl,
+      size: 'small',
+      role: 'presentation',
+      value: 'A',
+      variant: 'business',
+    };
+    const pill = renderer.create(<XUIPill avatarProps={avatarProps} />);
+
+    expect(pill).toMatchSnapshot();
+  });
+
+  it('renders the pill with the provided business avatar component', () => {
+    const avatar = <XUIAvatar value="value pill" size="small" variant="business" />;
+    const pill = renderer.create(<XUIPill value="Value Pill" avatar={avatar} />);
+
+    expect(pill).toMatchSnapshot();
+  });
+
   it('expect an error if both avatar and avatarProps are provided', () => {
     const imageUrl = 'https://xui.xero.com/static/xpert-avatar.png';
     const avatar = <XUIAvatar value="value pill" size="small" />;

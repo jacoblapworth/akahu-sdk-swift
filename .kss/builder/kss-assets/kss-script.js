@@ -15,7 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		navSectionSelect.addEventListener('change', e => {
 			document.location.hash = navSectionSelect.value;
 		});
-	}
+  }
+
+  buildSearch();
+
 });
 
 /**

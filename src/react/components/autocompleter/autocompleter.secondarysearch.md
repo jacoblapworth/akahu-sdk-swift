@@ -102,8 +102,10 @@ class SecondarySearchExample extends React.Component {
     const footer = (
       <DropDownFooter
         pickItems={
-          <Pickitem id="footerAction">
-            <XUIIcon icon={plusIcon} isBoxed className="xui-margin-right-xsmall" />
+          <Pickitem
+            id="footerAction"
+            leftElement={<XUIIcon icon={plusIcon} className="xui-margin-right-xsmall" />}
+          >
             Add New Person
           </Pickitem>
         }

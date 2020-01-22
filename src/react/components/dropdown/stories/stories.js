@@ -61,12 +61,20 @@ const header = (
 const footer = (
   <DropDownFooter
     pickItems={[
-      <Pickitem id="aa" key="aa" value="aa">
-        <XUIIcon className="xui-margin-right-xsmall" icon={plusIcon} isBoxed />
+      <Pickitem
+        id="aa"
+        key="aa"
+        leftElement={<XUIIcon className="xui-margin-right-xsmall" icon={plusIcon} />}
+        value="aa"
+      >
         Item 1
       </Pickitem>,
-      <Pickitem id="bb" key="bb" value="bb">
-        <XUIIcon className="xui-margin-right-xsmall" icon={plusIcon} isBoxed />
+      <Pickitem
+        id="bb"
+        key="bb"
+        leftElement={<XUIIcon className="xui-margin-right-xsmall" icon={plusIcon} />}
+        value="bb"
+      >
         Item 2
       </Pickitem>,
     ]}

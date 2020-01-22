@@ -224,8 +224,10 @@ export class DetailedListExample extends Component {
     const footer = (
       <DropDownFooter
         pickItems={
-          <Pickitem id="footerAction">
-            <XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />
+          <Pickitem
+            id="footerAction"
+            leftElement={<XUIIcon className="xui-margin-right-small" icon={plusIcon} />}
+          >
             Add New Person
           </Pickitem>
         }
@@ -386,11 +388,11 @@ export class SecondarySearchExample extends React.Component {
     const footer = (
       <DropDownFooter
         pickItems={
-          <Pickitem id="footerAction">
-            <span>
-              <XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />
-              Add New Person
-            </span>
+          <Pickitem
+            id="footerAction"
+            leftElement={<XUIIcon className="xui-margin-right-small" icon={plusIcon} />}
+          >
+            Add New Person
           </Pickitem>
         }
       />

@@ -1,4 +1,4 @@
-import React, { PureComponent, Children } from 'react';
+import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import back from '@xero/xui-icon/icons/back';
 import cn from 'classnames';
@@ -21,133 +21,128 @@ import { ns } from '../helpers/xuiClassNamespace';
  * Child nodes are also allowed for extra customisation.
  *
  * @export
- * @class DropDownHeader
- * @extends {PureComponent}
+ * @function DropDownHeader
  */
-export default class DropDownHeader extends PureComponent {
-  rootNode = React.createRef();
+const DropDownHeader = ({
+  children,
+  className,
+  qaHook,
+  title,
+  onPrimaryButtonClick,
+  onSecondaryButtonClick,
+  primaryButtonContent,
+  secondaryButtonContent,
+  isPrimaryButtonDisabled,
+  isSecondaryButtonDisabled,
+  onBackButtonClick,
+  backButtonLabel,
+  onlyShowForMobile = false,
+  leftContent,
+  rightContent,
+}) => {
+  const rootNode = React.createRef();
 
-  render() {
-    const {
-      children,
-      className,
-      qaHook,
-      title,
-      onPrimaryButtonClick,
-      onSecondaryButtonClick,
-      primaryButtonContent,
-      secondaryButtonContent,
-      isPrimaryButtonDisabled,
-      isSecondaryButtonDisabled,
-      onBackButtonClick,
-      backButtonLabel,
-      onlyShowForMobile,
-      leftContent,
-      rightContent,
-    } = this.props;
+  const classes = cn(`${baseClass}--header`, className);
+  const headerClasses = cn(
+    `${baseClass}--header-container`,
+    onlyShowForMobile && `${baseClass}-hide-small-up`,
+  );
 
-    const classes = cn(`${baseClass}--header`, className);
-    const headerClasses = cn(
-      `${baseClass}--header-container`,
-      onlyShowForMobile && `${baseClass}-hide-small-up`,
-    );
+  const backButton = onBackButtonClick ? (
+    <XUIIconButton
+      ariaLabel={backButtonLabel}
+      className={`${ns}-dropdown--headerbackbutton`}
+      icon={back}
+      onClick={onBackButtonClick}
+      qaHook={qaHook != null ? `${qaHook}--button-back` : null}
+      size="small"
+    />
+  ) : null;
 
-    const backButton = onBackButtonClick ? (
-      <XUIIconButton
-        ariaLabel={backButtonLabel}
-        className={`${ns}-dropdown--headerbackbutton`}
-        icon={back}
-        onClick={onBackButtonClick}
-        qaHook={qaHook != null ? `${qaHook}--button-back` : null}
-        size="small"
-      />
-    ) : null;
+  const secondaryButton = onSecondaryButtonClick ? (
+    <XUIButton
+      isDisabled={isSecondaryButtonDisabled}
+      onClick={onSecondaryButtonClick}
+      qaHook={qaHook != null ? `${qaHook}--button-secondary` : null}
+      size="small"
+    >
+      {secondaryButtonContent}
+    </XUIButton>
+  ) : null;
 
-    const secondaryButton = onSecondaryButtonClick ? (
-      <XUIButton
-        isDisabled={isSecondaryButtonDisabled}
-        onClick={onSecondaryButtonClick}
-        qaHook={qaHook != null ? `${qaHook}--button-secondary` : null}
-        size="small"
-      >
-        {secondaryButtonContent}
-      </XUIButton>
-    ) : null;
+  const primaryButton = onPrimaryButtonClick ? (
+    <XUIButton
+      className={secondaryButtonContent ? `${ns}-margin-left-small` : ''}
+      isDisabled={isPrimaryButtonDisabled}
+      onClick={onPrimaryButtonClick}
+      qaHook={qaHook != null ? `${qaHook}--button-primary` : null}
+      size="small"
+      variant="primary"
+    >
+      {primaryButtonContent}
+    </XUIButton>
+  ) : null;
 
-    const primaryButton = onPrimaryButtonClick ? (
-      <XUIButton
-        className={secondaryButtonContent ? `${ns}-margin-left-small` : ''}
-        isDisabled={isPrimaryButtonDisabled}
-        onClick={onPrimaryButtonClick}
-        qaHook={qaHook != null ? `${qaHook}--button-primary` : null}
-        size="small"
-        variant="primary"
-      >
-        {primaryButtonContent}
-      </XUIButton>
-    ) : null;
+  const titleSection = title ? (
+    <div
+      className={`${ns}-heading-medium ${ns}-margin-left-2xsmall ${ns}-text-truncated`}
+      data-automationid={qaHook && `${qaHook}--header-title`}
+    >
+      {title}
+    </div>
+  ) : null;
 
-    const titleSection = title ? (
+  const leftHeader =
+    title || leftContent ? (
       <div
-        className={`${ns}-heading-medium ${ns}-margin-left-2xsmall ${ns}-text-truncated`}
-        data-automationid={qaHook && `${qaHook}--header-title`}
+        className={`${baseClass}--header-leftcontent`}
+        data-automationid={qaHook && `${qaHook}--header-left`}
       >
-        {title}
+        {leftContent}
+        {titleSection}
       </div>
     ) : null;
 
-    const leftHeader =
-      title || leftContent ? (
-        <div
-          className={`${baseClass}--header-leftcontent`}
-          data-automationid={qaHook && `${qaHook}--header-left`}
-        >
-          {leftContent}
-          {titleSection}
-        </div>
-      ) : null;
-
-    const rightHeader =
-      secondaryButton || primaryButton || rightContent ? (
+  const rightHeader =
+    secondaryButton || primaryButton || rightContent ? (
+      <div
+        className={`${baseClass}--header-rightcontent`}
+        data-automationid={qaHook && `${qaHook}--header-right`}
+      >
         <div
           className={`${baseClass}--header-rightcontent`}
-          data-automationid={qaHook && `${qaHook}--header-right`}
+          data-automationid={qaHook && `${qaHook}--header-rightcontent`}
         >
-          <div
-            className={`${baseClass}--header-rightcontent`}
-            data-automationid={qaHook && `${qaHook}--header-rightcontent`}
-          >
-            {rightContent}
-            {secondaryButton}
-            {primaryButton}
-          </div>
+          {rightContent}
+          {secondaryButton}
+          {primaryButton}
         </div>
-      ) : null;
-
-    const header =
-      backButton || leftHeader || rightHeader ? (
-        <div className={headerClasses}>
-          {backButton}
-          {leftHeader}
-          {rightHeader}
-        </div>
-      ) : null;
-
-    return (
-      <div className={classes} data-automationid={qaHook} ref={this.rootNode}>
-        {header}
-        {Children.map(children, child => (
-          <div
-            className={`${baseClass}--header-container`}
-            data-automationid={qaHook && `${qaHook}--header-container`}
-          >
-            {child}
-          </div>
-        ))}
       </div>
-    );
-  }
-}
+    ) : null;
+
+  const header =
+    backButton || leftHeader || rightHeader ? (
+      <div className={headerClasses}>
+        {backButton}
+        {leftHeader}
+        {rightHeader}
+      </div>
+    ) : null;
+
+  return (
+    <div className={classes} data-automationid={qaHook} ref={rootNode}>
+      {header}
+      {Children.map(children, child => (
+        <div
+          className={`${baseClass}--header-container`}
+          data-automationid={qaHook && `${qaHook}--header-container`}
+        >
+          {child}
+        </div>
+      ))}
+    </div>
+  );
+};
 
 DropDownHeader.propTypes = {
   qaHook: PropTypes.string,
@@ -200,6 +195,4 @@ DropDownHeader.propTypes = {
   rightContent: PropTypes.node,
 };
 
-DropDownHeader.defaultProps = {
-  onlyShowForMobile: false,
-};
+export default React.memo(DropDownHeader);

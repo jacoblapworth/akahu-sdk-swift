@@ -45,6 +45,7 @@
     "core-js": "^3.2.1",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
+    "memoize-one": "5.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-day-picker": "7.3.2",

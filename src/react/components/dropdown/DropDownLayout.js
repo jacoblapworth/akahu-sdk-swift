@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -9,77 +9,66 @@ import { baseClass, maxWidthDropdownSizes, fixedWidthDropdownSizes } from './pri
  * correct CSS classes.  This component is also what adds the mask to the DOM when going into
  * narrow viewport.
  *
- * @class DropDownLayout
- * @extends {PureComponent}
+ * @function DropDownLayout
  */
-export default class DropDownLayout extends PureComponent {
-  onAnimationEnd = event => {
+const DropDownLayout = ({
+  animateClosed = false,
+  animateOpen = false,
+  onOpenAnimationEnd,
+  onCloseAnimationEnd,
+  children,
+  className,
+  fixedWidth = false,
+  forceDesktop = false,
+  id,
+  isHidden = false,
+  style,
+  size,
+  qaHook,
+  ariaRole,
+}) => {
+  const onAnimationEnd = event => {
     if (
-      this.props.animateOpen &&
-      this.props.onOpenAnimationEnd != null &&
+      animateOpen &&
+      onOpenAnimationEnd != null &&
       event.animationName === `${baseClass}-mobile-show`
     ) {
-      this.props.onOpenAnimationEnd(event);
+      onOpenAnimationEnd(event);
     }
     if (
-      this.props.animateClosed &&
-      this.props.onCloseAnimationEnd != null &&
+      animateClosed &&
+      onCloseAnimationEnd != null &&
       event.animationName === `${baseClass}-mobile-hide`
     ) {
-      this.props.onCloseAnimationEnd(event);
+      onCloseAnimationEnd(event);
     }
   };
 
-  render() {
-    const {
-      animateClosed,
-      animateOpen,
-      children,
-      className,
-      fixedWidth,
-      forceDesktop,
-      id,
-      isHidden,
-      style,
-      size,
-      qaHook,
-      ariaRole,
-    } = this.props;
+  const dropdownSizes = fixedWidth ? fixedWidthDropdownSizes : maxWidthDropdownSizes;
+  const sizeClass = size ? dropdownSizes[size] : null;
+  const classNames = cn(
+    `${baseClass}-layout`,
+    sizeClass,
+    className,
+    !isHidden && `${baseClass}-is-open`,
+    animateClosed && `${baseClass}-is-closing`,
+    animateOpen && `${baseClass}-is-opening`,
+    forceDesktop && `${baseClass}-force-desktop`,
+  );
 
-    const dropdownSizes = fixedWidth ? fixedWidthDropdownSizes : maxWidthDropdownSizes;
-    const sizeClass = size ? dropdownSizes[size] : null;
-    const classNames = cn(
-      `${baseClass}-layout`,
-      sizeClass,
-      className,
-      !isHidden && `${baseClass}-is-open`,
-      animateClosed && `${baseClass}-is-closing`,
-      animateOpen && `${baseClass}-is-opening`,
-      forceDesktop && `${baseClass}-force-desktop`,
-    );
-
-    return (
-      <div
-        className={classNames}
-        data-automationid={qaHook}
-        id={id}
-        onAnimationEnd={this.onAnimationEnd}
-        role={ariaRole}
-        style={style}
-      >
-        <div className={`${baseClass}--mask`} data-automationid={qaHook && `${qaHook}--mask`} />
-        {children}
-      </div>
-    );
-  }
-}
-
-DropDownLayout.defaultProps = {
-  animateOpen: false,
-  animateClosed: false,
-  isHidden: false,
-  fixedWidth: false,
-  forceDesktop: false,
+  return (
+    <div
+      className={classNames}
+      data-automationid={qaHook}
+      id={id}
+      onAnimationEnd={onAnimationEnd}
+      role={ariaRole}
+      style={style}
+    >
+      <div className={`${baseClass}--mask`} data-automationid={qaHook && `${qaHook}--mask`} />
+      {children}
+    </div>
+  );
 };
 
 DropDownLayout.propTypes = {
@@ -122,3 +111,5 @@ DropDownLayout.propTypes = {
    */
   ariaRole: PropTypes.string,
 };
+
+export default React.memo(DropDownLayout);

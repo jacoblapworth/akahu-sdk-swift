@@ -116,6 +116,12 @@ export default class XUITooltip extends PureComponent {
       }
     }
   }
+
+  componentWillUnmount() {
+    clearTimeout(this.animationStartTimer);
+    clearTimeout(this.animationFinishTimer);
+  }
+
   render() {
     const {
       children,

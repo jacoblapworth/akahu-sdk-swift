@@ -22,6 +22,19 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with business Avatar',
+    value: 'with business Avatar',
+    avatarProps: { ...avatarProps, variant: 'business' },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with business Avatar small',
+    value: 'with business Avatar small',
+    size: 'small',
+    avatar: <XUIAvatar size="xsmall" value="Hello" variant="business" />,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with no Delete Button',
     value: 'No Delete Button here',
     omitDeleteBtn: true,

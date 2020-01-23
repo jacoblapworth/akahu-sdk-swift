@@ -1,5 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<XUIPill /> renders the pill with the business avatar prop 1`] = `
+<div
+  className="xui-pill xui-pill-medium xui-pill-has-avatar"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <span
+    className="xui-pill--content"
+  >
+    <img
+      alt=""
+      className="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-business xui-avatar-hidden"
+      onError={[Function]}
+      onLoad={[Function]}
+      src="https://xui.xero.com/static/xpert-avatar.png"
+    />
+    <abbr
+      className="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-7"
+      role="presentation"
+    >
+      A
+    </abbr>
+  </span>
+</div>
+`;
+
 exports[`<XUIPill /> renders the pill with the provided avatar component 1`] = `
 <div
   className="xui-pill xui-pill-medium xui-pill-has-avatar"
@@ -13,6 +41,32 @@ exports[`<XUIPill /> renders the pill with the provided avatar component 1`] = `
   >
     <abbr
       className="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8"
+      role="presentation"
+    >
+      VP
+    </abbr>
+    <span
+      className="xui-pill--text"
+    >
+      Value Pill
+    </span>
+  </span>
+</div>
+`;
+
+exports[`<XUIPill /> renders the pill with the provided business avatar component 1`] = `
+<div
+  className="xui-pill xui-pill-medium xui-pill-has-avatar"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <span
+    className="xui-pill--content"
+  >
+    <abbr
+      className="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-8"
       role="presentation"
     >
       VP

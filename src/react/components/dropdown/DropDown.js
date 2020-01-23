@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import memoizeOne from 'memoize-one';
 import cn from 'classnames';
 import DropDownLayout from './DropDownLayout';
 // eslint-disable-next-line import/no-cycle
@@ -29,28 +30,42 @@ export default class DropDown extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    const currentPanel = this.panel.current;
     const { isHidden, hasKeyboardEvents, restrictFocus } = this.props;
-    if (!isHidden) {
-      if (hasKeyboardEvents && currentPanel && !currentPanel.hasFocus()) {
-        currentPanel.focus();
-      }
-      const id = currentPanel && currentPanel.getHighlightedId();
-      if (id) {
-        currentPanel.scrollIdIntoView(id);
-      }
-    }
-    if (isHidden !== prevProps.isHidden || restrictFocus !== prevProps.restrictFocus) {
-      window.removeEventListener('focus', this._restrictFocus, true);
-      if (!isHidden && restrictFocus) {
-        window.addEventListener('focus', this._restrictFocus, true);
-      }
-    }
+
+    this.memoizedComponentDidUpdate(
+      isHidden,
+      hasKeyboardEvents,
+      restrictFocus,
+      prevProps.isHidden,
+      prevProps.restrictFocus,
+    );
   }
 
   componentWillUnmount() {
     window.removeEventListener('focus', this._restrictFocus, true);
   }
+
+  memoizedComponentDidUpdate = memoizeOne(
+    (isHidden, hasKeyboardEvents, restrictFocus, prevIsHidden, prevRestrictFocus) => {
+      const currentPanel = this.panel.current;
+
+      if (!isHidden) {
+        if (hasKeyboardEvents && currentPanel && !currentPanel.hasFocus()) {
+          currentPanel.focus();
+        }
+        const id = currentPanel && currentPanel.getHighlightedId();
+        if (id) {
+          currentPanel.scrollIdIntoView(id);
+        }
+      }
+      if (isHidden !== prevIsHidden || restrictFocus !== prevRestrictFocus) {
+        window.removeEventListener('focus', this._restrictFocus, true);
+        if (!isHidden && restrictFocus) {
+          window.addEventListener('focus', this._restrictFocus, true);
+        }
+      }
+    },
+  );
 
   /**
    * Keydown handler for the DropDown.  If `hasKeyboardEvents` is true, then this component will

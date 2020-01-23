@@ -6,6 +6,9 @@ import XUIAccordion from '../XUIAccordion';
 import XUIAccordionItem from '../XUIAccordionItem';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+jest.mock('uuid/v4', () => jest.fn(() => '123'));
+
 const qaHook = 'test-id';
 
 describe('<XUIAccordion />', () => {

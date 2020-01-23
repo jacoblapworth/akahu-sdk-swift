@@ -29,6 +29,7 @@ const productionConfig = {
           },
     ],
     '@babel/preset-react',
+    '@babel/preset-typescript',
   ],
   plugins: [classPropertiesPlugin],
 };
@@ -36,7 +37,7 @@ const productionConfig = {
 const babelConfig = {
   env: {
     development: {
-      presets: ['@babel/preset-env', '@babel/preset-react'],
+      presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
       plugins: [classPropertiesPlugin],
     },
     production: productionConfig,
@@ -53,6 +54,7 @@ const babelConfig = {
           },
         ],
         '@babel/preset-react',
+        '@babel/preset-typescript',
       ],
       plugins: [
         [

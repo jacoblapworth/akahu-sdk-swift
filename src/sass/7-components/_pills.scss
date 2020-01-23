@@ -122,6 +122,14 @@
 
 .#{$ns}-pill-has-avatar {
   padding-left: 0;
+  .#{$ns}-avatar-business {
+    &.#{$ns}-avatar-small {
+      margin-left: $xui-s-standard;
+    }
+    &.#{$ns}-avatar-xsmall {
+      margin-left: $xui-s-small;
+    }
+  }
 }
 
 .#{$ns}-pill-is-invalid {

@@ -1,36 +1,33 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { sizeClassNames, classNames, variantClassNames } from './constants';
 
-export default class XUIAvatarCounter extends PureComponent {
-  render() {
-    const { count, size, variant, qaHook, className } = this.props;
-    const counterClassNames = cn(
-      classNames.base,
-      classNames.counter,
-      sizeClassNames[size],
-      variantClassNames[variant],
-      className,
-    );
+const XUIAvatarCounter = ({ count, size = 'medium', variant = 'standard', qaHook, className }) => {
+  const counterClassNames = cn(
+    classNames.base,
+    classNames.counter,
+    sizeClassNames[size],
+    variantClassNames[variant],
+    className,
+  );
 
-    let value;
+  let value;
 
-    if (typeof count === 'string') {
-      value = count;
-    } else if (count > 0) {
-      value = `+${count}`;
-    } else {
-      value = `${count}`;
-    }
-
-    return value ? (
-      <span className={counterClassNames} data-automationid={qaHook}>
-        {value}
-      </span>
-    ) : null;
+  if (typeof count === 'string') {
+    value = count;
+  } else if (count > 0) {
+    value = `+${count}`;
+  } else {
+    value = `${count}`;
   }
-}
+
+  return value ? (
+    <span className={counterClassNames} data-automationid={qaHook}>
+      {value}
+    </span>
+  ) : null;
+};
 
 XUIAvatarCounter.propTypes = {
   qaHook: PropTypes.string,
@@ -47,7 +44,4 @@ XUIAvatarCounter.propTypes = {
   variant: PropTypes.oneOf(['standard', 'business']),
 };
 
-XUIAvatarCounter.defaultProps = {
-  size: 'medium',
-  variant: 'standard',
-};
+export default React.memo(XUIAvatarCounter);

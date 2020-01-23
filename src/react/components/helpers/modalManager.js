@@ -54,5 +54,12 @@ export const deRegisterTopModal = () => {
   // There are multiple possible layers of scroll locking, so let the existing helper keep track.
   unlockScroll();
   // Closing the modal always returns the user to the prior focus context.
-  removedModal.priorFocusedEl && removedModal.priorFocusedEl.focus();
+  if (
+    // Many guards, particularly because IE is a little weird about activeElement.
+    removedModal.priorFocusedEl &&
+    removedModal.priorFocusedEl.focus &&
+    typeof removedModal.priorFocusedEl.focus === 'function'
+  ) {
+    removedModal.priorFocusedEl.focus();
+  }
 };

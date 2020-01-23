@@ -63,6 +63,7 @@
                 "content": "../src/react/components/button/button.icon.md"
               },
               {
+                "name": "Container Queries with Buttons",
                 "content": "../src/react/components/button/button.container.queries.md"
               },
               {

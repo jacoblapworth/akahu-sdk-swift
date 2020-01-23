@@ -2,6 +2,7 @@
 
 exports[`<XUIAccordion /> | Accordion Trigger should render an automation id when passed in the qaHook prop 1`] = `
 <div
+  aria-controls="xui-accordionwrapper--content-xyz"
   className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
   data-automationid="test-id"
   onClick={[Function]}
@@ -60,6 +61,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
 
 exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
 <div
+  aria-controls="xui-accordionwrapper--content-xyz"
   className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -117,6 +119,8 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
 
 exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
 <div
+  aria-controls="xui-accordionwrapper--content-xyz"
+  aria-expanded={true}
   className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -174,6 +178,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
 
 exports[`<XUIAccordion /> | Accordion Trigger should render with available props 1`] = `
 <div
+  aria-controls="xui-accordionwrapper--content-xyz"
   className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
   onClick={[Function]}
   onKeyDown={[Function]}

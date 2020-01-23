@@ -193,7 +193,7 @@ const data = {
 
 Wrapping can be defined on a per _Cell_ basis using the `hasWrapping` prop. By default a _Cell_ is **not** multiline.
 
-**Note:** Wrapping will revert to a single line format when `isTruncated` or a row has an interaction created from `onRowClick`.
+**Note:** If `isTruncated` is set, `hasWrapping` cannot be applied to a cell within the table. This is because with `isTruncated` enabled, cells within that table will always be displayed as a single line.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';

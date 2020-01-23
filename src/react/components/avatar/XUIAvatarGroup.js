@@ -1,49 +1,45 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import uuidv4 from 'uuid/v4';
 import XUIAvatarCounter from './XUIAvatarCounter';
 import { sizeClassNames, classNames } from './constants';
 
-export default class XUIAvatarGroup extends PureComponent {
-  render() {
-    const { children, className, qaHook, maxAvatars, avatarSize } = this.props;
-
-    if (maxAvatars === 0) {
-      return null;
-    }
-
-    const childCount = React.Children.count(children);
-    const extraChildCount = maxAvatars && childCount > maxAvatars ? childCount - maxAvatars + 1 : 0;
-    const lastChildIndex = extraChildCount ? maxAvatars - 1 : childCount;
-    let variant = 'standard';
-
-    const childrenToRender =
-      avatarSize || extraChildCount
-        ? React.Children.map(children, (child, idx) => {
-            ({ variant } = child.props);
-            return idx < lastChildIndex
-              ? React.cloneElement(child, {
-                  key: uuidv4(),
-                  ...child.props,
-                  size: avatarSize,
-                })
-              : null;
-          })
-        : children;
-
-    const counter = extraChildCount ? (
-      <XUIAvatarCounter count={extraChildCount} size={avatarSize} variant={variant} />
-    ) : null;
-
-    return (
-      <div className={cn(classNames.group, className)} data-automationid={qaHook}>
-        {childrenToRender}
-        {counter}
-      </div>
-    );
+const XUIAvatarGroup = ({ children, className, qaHook, maxAvatars, avatarSize }) => {
+  if (maxAvatars === 0) {
+    return null;
   }
-}
+
+  const childCount = React.Children.count(children);
+  const extraChildCount = maxAvatars && childCount > maxAvatars ? childCount - maxAvatars + 1 : 0;
+  const lastChildIndex = extraChildCount ? maxAvatars - 1 : childCount;
+  let variant = 'standard';
+
+  const childrenToRender =
+    avatarSize || extraChildCount
+      ? React.Children.map(children, (child, idx) => {
+          ({ variant } = child.props);
+          return idx < lastChildIndex
+            ? React.cloneElement(child, {
+                key: uuidv4(),
+                ...child.props,
+                size: avatarSize,
+              })
+            : null;
+        })
+      : children;
+
+  const counter = extraChildCount ? (
+    <XUIAvatarCounter count={extraChildCount} size={avatarSize} variant={variant} />
+  ) : null;
+
+  return (
+    <div className={cn(classNames.group, className)} data-automationid={qaHook}>
+      {childrenToRender}
+      {counter}
+    </div>
+  );
+};
 
 XUIAvatarGroup.propTypes = {
   className: PropTypes.string,
@@ -68,3 +64,5 @@ XUIAvatarGroup.propTypes = {
     return null;
   },
 };
+
+export default React.memo(XUIAvatarGroup);

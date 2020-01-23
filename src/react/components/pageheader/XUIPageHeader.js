@@ -109,7 +109,7 @@ XUIPageHeader.propTypes = {
    */
   hasLayout: PropTypes.bool,
   /**
-   * Title text or node. Not to be combined with breadcrumbs
+   * Title text or node. Should almost certainly be present.
    */
   title: PropTypes.node,
   /**

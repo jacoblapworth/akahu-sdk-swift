@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface BaseProps {
+interface Props {
   children?: React.ReactNode;
   /**
    * Class names to be added to the field wrapper element.
@@ -14,6 +14,14 @@ interface BaseProps {
    * Whether the current input value is invalid.
    */
   isInvalid?: boolean;
+  /**
+   * Should label be applied as an `aria-label`, rather than being visibly displayed.
+   */
+  isLabelHidden?: boolean;
+  /**
+   * Label to show beside the input.
+   */
+  label?: React.ReactNode;
   /**
    * Class names to add to the label.
    */
@@ -48,28 +56,5 @@ interface BaseProps {
     message?: string;
   };
 }
-interface VisibleLabelProps {
-  /**
-   * Should label be applied as an `aria-label`, rather than being visibly displayed.
-   */
-  isLabelHidden?: false;
-  /**
-   * Label to show beside the input.
-   */
-  label?: React.ReactNode;
-}
-interface HiddenLabelProps {
-  /**
-   * Should label be applied as an `aria-label`, rather than being visibly displayed.
-   */
-  isLabelHidden: true;
-  /**
-   * Label to be used for the `aria-label`.
-   */
-  label: string;
-}
-
-type LabelProps = VisibleLabelProps | HiddenLabelProps;
-type Props = BaseProps & LabelProps;
 
 export default class XUIControlWrapperInline extends React.PureComponent<Props> {}

@@ -21,6 +21,10 @@ interface BaseProps {
    */
   isBorderless?: boolean;
   /**
+   * Appends a `XUILoader` after the last row.
+   */
+  isLoading?: boolean;
+  /**
    * Allows the table to scroll horizontally when there is overflowing columns.
    */
   isResponsive?: boolean;
@@ -29,6 +33,13 @@ interface BaseProps {
    * maintained.
    */
   isTruncated?: boolean;
+  /**
+   * Accessibility label for the `XUILoader`. This is required if the `isLoading` prop is set to
+   * `true`.
+   *
+   * Recommended English value: *Loading more data*
+   */
+  loaderLabel?: string;
   qaHook?: string;
 }
 
@@ -129,33 +140,6 @@ interface OverflowProps {
   overflowMenuTitle?: string;
 }
 
-interface NotLoadingProps {
-  /**
-   * Appends a `XUILoader` after the last row.
-   */
-  isLoading?: false;
-  /**
-   * Accessibility label for the `XUILoader`. This is required if the `isLoading` prop is set to
-   * `true`.
-   *
-   * Recommended English value: *Loading more data*
-   */
-  loaderLabel?: string;
-}
-interface LoadingProps {
-  /**
-   * Appends a `XUILoader` after the last row.
-   */
-  isLoading: true;
-  /**
-   * Accessibility label for the `XUILoader`. This is required if the `isLoading` prop is set to
-   * `true`.
-   *
-   * Recommended English value: *Loading more data*
-   */
-  loaderLabel: string;
-}
-
 interface PinningProps {
   /**
    * If the first column is an action (Checkbox) visibly pin it to the left when scrolling.
@@ -207,13 +191,11 @@ export type CreateInteractionHandler = (
 
 export type EnrichedTableItemObject = TableItemObject & { _id: string };
 
-type LoaderProps = NotLoadingProps | LoadingProps;
 type Props = BaseProps &
   AppendageProps &
   CheckboxProps &
   EmptyStateProps &
   InteractionProps &
-  LoaderProps &
   OverflowProps &
   PinningProps &
   SortingProps;

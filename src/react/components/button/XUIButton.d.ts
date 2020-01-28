@@ -7,7 +7,7 @@ import {
   widthClassNames,
 } from './private/constants';
 
-interface BaseProps {
+interface Props {
   children?: React.ReactNode;
   className?: string;
   /**
@@ -15,9 +15,22 @@ interface BaseProps {
    */
   fullWidth?: keyof typeof widthClassNames;
   /**
+   * The `href` attribute to use on the anchor element.
+   *
+   * Ignored unless `isLink` is `true`.
+   */
+  href?: string;
+  /**
    * Determines if the button is disabled or not.
    */
   isDisabled?: boolean;
+  /**
+   * If true, sets appropriate `rel` values to prevent new page from having access to
+   * `window.opener`. Should be used for links pointing at external sites.
+   *
+   * Ignored unless `isLink` is `true`.
+   */
+  isExternalLink?: boolean;
   /**
    * If this button is part of a parent button group.
    */
@@ -26,6 +39,20 @@ interface BaseProps {
    * Applies inverted styling.
    */
   isInverted?: boolean;
+  /**
+   * Whether or not to render this button using an anchor tag.
+   */
+  isLink?: boolean;
+  /**
+   * If true, shows a loader inside the button and also disables the button to prevent clicking. Can
+   * be used in conjunction with `isDisabled` (which also provides a disabled class).
+   */
+  isLoading?: boolean;
+  /**
+   * Accessibility label for the `XUILoader`. This is required if the `isLoading` prop is set to
+   * `true`.
+   */
+  loadingLabel?: string;
   /**
    * Use this to specify a min width on the button, when you want to swap to loading states.
    */
@@ -40,6 +67,12 @@ interface BaseProps {
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>;
   qaHook?: string;
   /**
+   * The `rel` attribute to use on the anchor element.
+   *
+   * Ignored unless `isLink` is `true`.
+   */
+  rel?: string;
+  /**
    * When used with `isLoading` this allows the button to retain children width.
    */
   retainLayout?: boolean;
@@ -53,75 +86,26 @@ interface BaseProps {
    */
   tabIndex?: number;
   /**
+   * The `target` attribute to use on the anchor element.
+   *
+   * Ignored unless `isLink` is `true`.
+   */
+  target?: string;
+  /**
    * The `title` attribute.
    */
   title?: string;
+  /**
+   * The type attribute of this button.
+   *
+   * Ignored unless `isLink` is `false`.
+   */
+  type?: keyof typeof buttonTypes;
   /**
    * Determines the styling variation to apply.
    */
   variant?: typeof textButtonVariants;
 }
-interface NotLoadingProps {
-  /**
-   * If true, shows a loader inside the button and also disables the button to prevent clicking. Can
-   * be used in conjunction with `isDisabled` (which also provides a disabled class).
-   */
-  isLoading?: false;
-  /**
-   * Accessibility label for the `XUILoader`. This is required if the `isLoading` prop is set to
-   * `true`.
-   */
-  loadingLabel?: string;
-}
-interface LoadingProps {
-  /**
-   * If true, shows a loader inside the button and also disables the button to prevent clicking. Can
-   * be used in conjunction with `isDisabled` (which also provides a disabled class).
-   */
-  isLoading: true;
-  /**
-   * Accessibility label for the `XUILoader`. This is required if the `isLoading` prop is set to
-   * `true`.
-   */
-  loadingLabel: string;
-}
-interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  /**
-   * The `href` attribute to use on the anchor element.
-   */
-  href?: string;
-  /**
-   * If true, sets appropriate `rel` values to prevent new page from having access to
-   * `window.opener`. Should be used for links pointing at external sites.
-   */
-  isExternalLink?: boolean;
-  /**
-   * Whether or not to render this button using an anchor tag.
-   */
-  isLink: true;
-  /**
-   * The `rel` attribute to use on the anchor element.
-   */
-  rel?: string;
-  /**
-   * The `target` attribute to use on the anchor element.
-   */
-  target?: string;
-}
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  /**
-   * Whether or not to render this button using an anchor tag.
-   */
-  isLink?: false;
-  /**
-   * The type attribute of this button.
-   */
-  type?: keyof typeof buttonTypes;
-}
-
-type LoaderProps = NotLoadingProps | LoadingProps;
-type LinkButtonProps = LinkProps | ButtonProps;
-type Props = BaseProps & LoaderProps & LinkButtonProps;
 
 export default class XUIButton extends React.PureComponent<Props> {
   /**

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { userBreakpoints } from '../helpers/breakpoints';
 
-interface BaseProps {
+interface Props {
   children?: React.ReactNode;
   className?: string;
   /**
@@ -13,6 +13,16 @@ interface BaseProps {
    * Id to be applied to the root HTML element.
    */
   id?: string;
+  /**
+   * Whether to render as horizontal pickitems.
+   */
+  isHorizontal?: boolean;
+  /**
+   * When true checkboxes will be added to the layout of the child components.
+   *
+   * ⚠️ *Vertical picklists only*
+   */
+  isMultiselect?: boolean;
   /**
    * Keydown handler function added to the root HTML element.
    */
@@ -30,27 +40,13 @@ interface BaseProps {
    * Whether to truncate text instead of wrapping.
    */
   shouldTruncate?: boolean;
-}
-interface VerticalProps {
-  /**
-   * Whether to render as horizontal pickitems.
-   */
-  isHorizontal?: false;
-  /**
-   * When true checkboxes will be added to the layout of the child components.
-   */
-  isMultiselect?: boolean;
-}
-interface HorizontalProps {
-  isHorizontal: true;
   /**
    * Defines the swap breakpoint (container width) between tab-styled dropdown and horizontal
    * picklist.
+   *
+   * ⚠️ *Horizontal picklists only*
    */
   swapAtBreakpoint?: keyof typeof userBreakpoints;
 }
-
-type DirectionalProps = VerticalProps | HorizontalProps;
-type Props = BaseProps & DirectionalProps;
 
 export default class Picklist extends React.Component<Props> {}

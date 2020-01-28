@@ -1,8 +1,18 @@
 import React from 'react';
 
-interface BaseProps {
+interface Props {
   children?: React.ReactNode;
   className?: string;
+  /**
+   * The `href` attribute to use on the anchor element.
+   *
+   * Ignored unless `isLink` is `true`.
+   */
+  href?: string;
+  /**
+   * Whether or not to render this button using an anchor tag.
+   */
+  isLink?: boolean;
   /**
    * Whether the element is valid (does not contain invalid formula, etc).
    */
@@ -19,30 +29,13 @@ interface BaseProps {
    * Bind a function to fire when the focus moves off the element.
    */
   onFocus?: React.FocusEventHandler<HTMLButtonElement>;
-}
-interface LinkProps {
-  /**
-   * The `href` attribute to use on the anchor element.
-   */
-  href?: string;
-  /**
-   * Whether or not to render this button using an anchor tag.
-   */
-  isLink: true;
   /**
    * The target attribute specifies where to open the linked document.
+   *
+   * Ignored unless `isLink` is `true`.
    */
   target?: string;
 }
-interface NotLinkProps {
-  /**
-   * Whether or not to render this button using an anchor tag.
-   */
-  isLink?: false;
-}
-
-type LinkCapsuleProps = LinkProps | NotLinkProps;
-type Props = BaseProps & LinkCapsuleProps;
 
 declare const XUICapsule: React.FunctionComponent<Props>;
 export default XUICapsule;

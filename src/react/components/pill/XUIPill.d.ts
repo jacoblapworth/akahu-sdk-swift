@@ -9,6 +9,12 @@ interface BaseProps {
    */
   className?: string;
   /**
+   * Specify a label attribute for the delete button.
+   *
+   * Recommended English value: *Delete*
+   */
+  deleteButtonLabel?: string;
+  /**
    * This will make the value an anchor element instead of a span element and adds the `href` as
    * the link.
    */
@@ -25,6 +31,11 @@ interface BaseProps {
    * Callback to fire when the main pill content is clicked.
    */
   onClick?: React.MouseEventHandler<HTMLElement>;
+  /**
+   * Callback to fire when the delete pill button is clicked. When omitted, the delete button is
+   * also ommitted from the view.
+   */
+  onDeleteClick?: React.MouseEventHandler<HTMLElement>;
   /**
    * Add a qahook to the component.
    */
@@ -72,22 +83,6 @@ type AvatarProp =
       avatarProps?: XUIAvatarProps;
     };
 
-type DeleteButtonProps =
-  | {
-      /**
-       * Specify a label attribute for the delete button.
-       *
-       * Recommended English value: *Delete*
-       */
-      deleteButtonLabel: string;
-      /**
-       * Callback to fire when the delete pill button is clicked. When omitted, the delete button is
-       * also ommitted from the view.
-       */
-      onDeleteClick: React.MouseEventHandler<HTMLElement>;
-    }
-  | {};
-
-type Props = BaseProps & AvatarProp & DeleteButtonProps;
+type Props = BaseProps & AvatarProp;
 
 export default class XUIPill extends React.Component<Props> {}

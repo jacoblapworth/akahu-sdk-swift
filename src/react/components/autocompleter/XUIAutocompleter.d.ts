@@ -3,7 +3,7 @@ import React from 'react';
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 import Pickitem from '../picklist/Pickitem';
 
-interface BaseProps {
+interface Props {
   children?: React.ReactNode;
   /**
    * CSS class(es) to go on the wrapping DOM node.
@@ -97,6 +97,20 @@ interface BaseProps {
    */
   leftElement?: React.ReactNode;
   /**
+   * When set to true a loader will be displayed instead of the picklist items. State for this
+   * should be managed externally.
+   *
+   * Defaults to `false`.
+   */
+  loading?: boolean;
+  /**
+   * Accessibility label for the `XUILoader`. This is required if the `loading` prop is set to
+   * `true`.
+   *
+   * Recommended English value: *Loading*
+   */
+  loadingLabel?: string;
+  /**
    * Setting to `false` will allow the dropdown's width to be set independent of the trigger width.
    *
    * **Note:** *Setting this to `true` will override any size prop on `DropDown`.*
@@ -173,41 +187,6 @@ interface BaseProps {
    */
   validationMessage?: React.ReactNode;
 }
-interface NotLoadingProps {
-  /**
-   * When set to true a loader will be displayed instead of the picklist items. State for this
-   * should be managed externally.
-   *
-   * Defaults to `false`.
-   */
-  loading?: false;
-  /**
-   * Accessibility label for the `XUILoader`. This is required if the `loading` prop is set to
-   * `true`.
-   *
-   * Recommended English value: *Loading*
-   */
-  loadingLabel?: string;
-}
-interface LoadingProps {
-  /**
-   * When set to true a loader will be displayed instead of the picklist items. State for this
-   * should be managed externally.
-   *
-   * Defaults to `false`.
-   */
-  loading: true;
-  /**
-   * Accessibility label for the `XUILoader`. This is required if the `loading` prop is set to
-   * `true`.
-   *
-   * Recommended English value: *Loading*
-   */
-  loadingLabel: string;
-}
-
-type LoaderProps = NotLoadingProps | LoadingProps;
-type Props = BaseProps & LoaderProps;
 
 export default class XUIAutocompleter extends React.PureComponent<Props> {
   /**

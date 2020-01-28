@@ -2,7 +2,7 @@ import React from 'react';
 
 import { dropdownPositionOptions } from './private/constants';
 
-interface BaseProps {
+interface Props {
   /**
    * The "aria-haspopup" value.
    *
@@ -39,9 +39,24 @@ interface BaseProps {
    */
   forceDesktop?: boolean;
   /**
+   * Whether to allow the dropdown to take the full width of the wrapper (as `SelectBox`) or wrap
+   * with an inline block.
+   *
+   * Defaults to `false`.
+   *
+   * **Note:** *This setting is only for non-legacy display.*
+   */
+  isBlock?: boolean;
+  /**
    * Whether the dropdown is hidden on initial render.
    */
   isHidden?: boolean;
+  /**
+   * Use the "legacy" (portaled) display.
+   *
+   * Currently defaults to `true`.
+   */
+  isLegacyDisplay?: boolean;
   /**
    * Setting to `true` makes the dropdown as wide as the trigger.
    *
@@ -73,6 +88,14 @@ interface BaseProps {
    * Callback for when animation has ended on open.
    */
   onOpenAnimationEnd?: () => void;
+  /**
+   * Preferred position to display the dropdown, relative to the trigger.
+   *
+   * Defaults to `bottom-left`.
+   *
+   * **Note:** *This setting is only for non-legacy display.*
+   */
+  preferredPosition?: typeof dropdownPositionOptions[number];
   qaHook?: string;
   /**
    * Repositioning on scroll is usually just annoying. However, if you have a fixed position
@@ -92,39 +115,6 @@ interface BaseProps {
    * open/close. Can just open ('open') or do nothing ('none').
    */
   triggerClickAction?: 'none' | 'open' | 'toggle';
-}
-interface NonLegacyDisplayProps {
-  /**
-   * Use the "legacy" (portaled) display.
-   *
-   * Currently defaults to `true`.
-   */
-  isLegacyDisplay?: true;
-}
-interface LegacyDisplayProps {
-  /**
-   * Whether to allow the dropdown to take the full width of the wrapper (as `SelectBox`) or wrap
-   * with an inline block.
-   *
-   * Defaults to `false`.
-   *
-   * **Note:** *This setting is only for non-legacy display.*
-   */
-  isBlock?: boolean;
-  /**
-   * Use the "legacy" (portaled) display.
-   *
-   * Currently defaults to `true`.
-   */
-  isLegacyDisplay: false;
-  /**
-   * Preferred position to display the dropdown, relative to the trigger.
-   *
-   * Defaults to `bottom-left`.
-   *
-   * **Note:** *This setting is only for non-legacy display.*
-   */
-  preferredPosition?: typeof dropdownPositionOptions[number];
   /**
    * Space between trigger and dropdown, in pixels.
    *
@@ -134,9 +124,6 @@ interface LegacyDisplayProps {
    */
   triggerDropdownGap?: number;
 }
-
-type DisplayTypeProps = NonLegacyDisplayProps | LegacyDisplayProps;
-type Props = BaseProps & DisplayTypeProps;
 
 export default class DropDownToggled extends React.PureComponent<Props> {
   /**

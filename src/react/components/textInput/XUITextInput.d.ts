@@ -2,7 +2,7 @@ import React from 'react';
 
 import { baseSizeClasses } from './private/constants';
 
-interface BaseProps {
+interface Props {
   /**
    * Class names to add to the div wrapping the input and icons.
    */
@@ -23,6 +23,16 @@ interface BaseProps {
    * Class names to add to the input element.
    */
   inputClassName?: string;
+  /**
+   * Props to be spread onto the input element itself.
+   */
+  inputProps?:
+    | React.InputHTMLAttributes<HTMLInputElement>
+    | React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+  /**
+   * Sets a ref for the input element.
+   */
+  inputRef?: React.Ref<HTMLInputElement | HTMLTextAreaElement>;
   /**
    * Whether to render as a solid borderless input.
    */
@@ -48,9 +58,26 @@ interface BaseProps {
    */
   isInverted?: boolean;
   /**
+   * Should label be applied as an `aria-label`, rather than being visibly displayed.
+   */
+  isLabelHidden?: boolean;
+  /**
+   * Whether the textarea should be manually resizable (should only be used with `isMultiline=true`
+   * and `rightElement=undefined`).
+   */
+  isManuallyResizable?: boolean;
+  /**
+   * Whether this should be rendered as a multiline textarea.
+   */
+  isMultiline?: boolean;
+  /**
    * Whether the input value is reverse-aligned.
    */
   isValueReverseAligned?: boolean;
+  /**
+   * Label to show above the input.
+   */
+  label?: React.ReactNode;
   /**
    * Class names to add to the label.
    */
@@ -65,6 +92,30 @@ interface BaseProps {
    */
   leftElement?: React.ReactNode;
   /**
+   * Maximum number of rows to render in the textarea (should only be used with `isMultiline=true`).
+   */
+  maxRows?: number;
+  /**
+   * Minimum number of rows to render in the textarea (should only be used with `isMultiline=true`).
+   */
+  minRows?: number;
+  /**
+   * Function to call when focus leaves the input.
+   */
+  onBlur?: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  /**
+   * Function to call when the input value is changed.
+   */
+  onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  /**
+   * Function to call when the input is focused (does not include side elements).
+   */
+  onFocus?: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  /**
+   * Function to call on keydown inside the textinput.
+   */
+  onKeyDown?: React.KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  /**
    * Placeholder text for the input.
    */
   placeholder?: string;
@@ -75,24 +126,14 @@ interface BaseProps {
    */
   rightElement?: React.ReactNode;
   /**
+   * Set number of rows to use as a size for the textarea (should only be used with
+   * `isMultiline=true`).
+   */
+  rows?: number;
+  /**
    * Size of the input.
    */
   size?: keyof typeof baseSizeClasses;
-  /**
-   * Validation message to show under the input if `isInvalid` is `true`.
-   */
-  validationMessage?: React.ReactNode;
-  /**
-   * Value of the text input.
-   */
-  value?: string;
-}
-interface InputProps
-  extends ElementProps<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>> {
-  /**
-   * Whether this should be rendered as a multiline textarea.
-   */
-  isMultiline?: false;
   /**
    * Type of the input - should not be used together with `isMultiline`.
    */
@@ -108,82 +149,14 @@ interface InputProps
     | 'tel'
     | 'url'
     | 'color';
+  /**
+   * Validation message to show under the input if `isInvalid` is `true`.
+   */
+  validationMessage?: React.ReactNode;
+  /**
+   * Value of the text input.
+   */
+  value?: string;
 }
-interface TextareaProps
-  extends ElementProps<HTMLTextAreaElement, React.TextareaHTMLAttributes<HTMLTextAreaElement>> {
-  /**
-   * Whether the textarea should be manually resizable (should only be used with `isMultiline=true`
-   * and `rightElement=undefined`).
-   */
-  isManuallyResizable?: boolean;
-  /**
-   * Whether this should be rendered as a multiline textarea.
-   */
-  isMultiline: true;
-  /**
-   * Maximum number of rows to render in the textarea (should only be used with `isMultiline=true`).
-   */
-  maxRows?: number;
-  /**
-   * Minimum number of rows to render in the textarea (should only be used with `isMultiline=true`).
-   */
-  minRows?: number;
-  /**
-   * Set number of rows to use as a size for the textarea (should only be used with
-   * `isMultiline=true`).
-   */
-  rows?: number;
-}
-interface VisibleLabelProps {
-  /**
-   * Should label be applied as an `aria-label`, rather than being visibly displayed.
-   */
-  isLabelHidden?: false;
-  /**
-   * Label to show above the input.
-   */
-  label?: React.ReactNode;
-}
-interface HiddenLabelProps {
-  /**
-   * Should label be applied as an `aria-label`, rather than being visibly displayed.
-   */
-  isLabelHidden: true;
-  /**
-   * Label to show above the input.
-   */
-  label?: string;
-}
-
-type MultilineProps = InputProps | TextareaProps;
-type LabelProps = VisibleLabelProps | HiddenLabelProps;
-type Props = BaseProps & MultilineProps & LabelProps;
 
 export default class XUITextInput extends React.PureComponent<Props> {}
-
-interface ElementProps<ElementType, AttributesType> {
-  /**
-   * Props to be spread onto the input element itself.
-   */
-  inputProps?: AttributesType;
-  /**
-   * Sets a ref for the input element.
-   */
-  inputRef?: React.Ref<ElementType>;
-  /**
-   * Function to call when focus leaves the input.
-   */
-  onBlur?: React.FocusEventHandler<ElementType>;
-  /**
-   * Function to call when the input value is changed.
-   */
-  onChange?: React.ChangeEventHandler<ElementType>;
-  /**
-   * Function to call when the input is focused (does not include side elements).
-   */
-  onFocus?: React.FocusEventHandler<ElementType>;
-  /**
-   * Function to call on keydown inside the textinput.
-   */
-  onKeyDown?: React.KeyboardEventHandler<ElementType>;
-}

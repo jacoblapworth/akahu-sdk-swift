@@ -84,6 +84,10 @@ interface BaseProps {
    */
   createYAxisLabelFormat?: (y: number) => number | string;
   /**
+   * Override the native responsive scrolling behaviour for clickable pagination buttons.
+   */
+  hasPagination?: boolean;
+  /**
    * Identify if the bar made out of multiple smaller stacked bars.
    */
   isBarStacked?: boolean;
@@ -95,6 +99,10 @@ interface BaseProps {
    * Hide title visually (still represented in HTML for accessibility).
    */
   isChartTitleHidden?: boolean;
+  /**
+   * Show the chart's "loading" state.
+   */
+  isLoading?: boolean;
   /**
    * Hide tooltip when referencing components that reside in the x-axis.
    */
@@ -113,9 +121,28 @@ interface BaseProps {
    */
   keyTitle: string;
   /**
+   * Accessibility label for the `XUILoader`. This is required if the `isLoading` prop is set to
+   * `true`.
+   *
+   * Recommended English value: *Loading*
+   */
+  loadingLabel?: string;
+  /**
    * Handler for when a bar "click" interaction occurs.
    */
   onBarClick?: (event: InteractionEvent, item: InteractionParams) => void;
+  /**
+   * Accessibility title for pagination button. This is required if `hasPagination` is `true`.
+   *
+   * Recommended English value: *Next page*
+   */
+  paginationNextTitle?: string;
+  /**
+   * Accessibility title for pagination button This is required if `hasPagination` is `true`.
+   *
+   * Recommended English value: *Previous page*
+   */
+  paginationPreviousTitle?: string;
   qaHook?: string;
   /**
    * Specify the charys x-axis label format.
@@ -144,72 +171,8 @@ interface EmptyStateComponentProps {
    */
   emptyStateComponent: React.ReactNode;
 }
-interface NotLoadingProps {
-  /**
-   * Show the chart's "loading" state.
-   */
-  isLoading?: false;
-  /**
-   * Accessibility label for the `XUILoader`. This is required if the `isLoading` prop is set to
-   * `true`.
-   *
-   * Recommended English value: *Loading*
-   */
-  loadingLabel?: string;
-}
-interface LoadingProps {
-  /**
-   * Show the chart's "loading" state.
-   */
-  isLoading: true;
-  /**
-   * Accessibility label for the `XUILoader`. This is required if the `isLoading` prop is set to
-   * `true`.
-   *
-   * Recommended English value: *Loading*
-   */
-  loadingLabel: string;
-}
-interface NotPaginatedProps {
-  /**
-   * Override the native responsive scrolling behaviour for clickable pagination buttons.
-   */
-  hasPagination?: false;
-  /**
-   * Accessibility title for pagination button. This is required if `hasPagination` is `true`.
-   *
-   * Recommended English value: *Next page*
-   */
-  paginationNextTitle?: string;
-  /**
-   * Accessibility title for pagination button This is required if `hasPagination` is `true`.
-   *
-   * Recommended English value: *Previous page*
-   */
-  paginationPreviousTitle?: string;
-}
-interface PaginatedProps {
-  /**
-   * Override the native responsive scrolling behaviour for clickable pagination buttons.
-   */
-  hasPagination: true;
-  /**
-   * Accessibility title for pagination button. This is required if `hasPagination` is `true`.
-   *
-   * Recommended English value: *Next page*
-   */
-  paginationNextTitle: string;
-  /**
-   * Accessibility title for pagination button. This is required if `hasPagination` is `true`.
-   *
-   * Recommended English value: *Previous page*
-   */
-  paginationPreviousTitle: string;
-}
 
 type EmptyStateProps = EmptyStateMessageProps | EmptyStateComponentProps;
-type LoaderProps = NotLoadingProps | LoadingProps;
-type PaginationProps = NotPaginatedProps | PaginatedProps;
-type Props = BaseProps & EmptyStateProps & LoaderProps & PaginationProps;
+type Props = BaseProps & EmptyStateProps;
 
 export default class XUIBarChart extends React.PureComponent<Props> {}

@@ -7,9 +7,11 @@ function requireAll(requireContext) {
 
 function loadStories() {
   require('./welcome.js');
-  requireAll(require.context('../src/react/components', true, /stories.js$/));
+  requireAll(require.context('../src/react/components', true, /stories.(j|t)sx?$/));
   // Components in Components
-  requireAll(require.context('../src/react/stories/components-in-components', true, /index.js$/));
+  requireAll(
+    require.context('../src/react/stories/components-in-components', true, /index.(j|t)sx?$/),
+  );
 }
 
 addDecorator(withA11y);

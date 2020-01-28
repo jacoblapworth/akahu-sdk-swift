@@ -5,8 +5,11 @@ import Adapter from 'enzyme-adapter-react-16';
 import XUIAccordionItem from '../XUIAccordionItem';
 import XUIAccordionContext from '../XUIAccordionContext';
 
-const qaHook = 'test-hook';
 Enzyme.configure({ adapter: new Adapter() });
+
+jest.mock('uuid/v4', () => jest.fn(() => '123'));
+
+const qaHook = 'test-hook';
 
 const Test = ({ children }) => {
   const [openItemId, setOpenItemId] = useState(null);

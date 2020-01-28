@@ -37,7 +37,7 @@ export default class GenericCell extends PureComponent {
       suppliedClasses,
       {
         [`${NAME_SPACE}--cell-link`]: isCellLink,
-        [`${NAME_SPACE}--cell-singleline`]: !hasWrapping || isRowLink,
+        [`${NAME_SPACE}--cell-singleline`]: !hasWrapping,
       },
     );
 

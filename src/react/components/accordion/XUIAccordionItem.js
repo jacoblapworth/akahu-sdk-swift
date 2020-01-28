@@ -52,6 +52,7 @@ const XUIAccordionItem = ({
 
   return (
     <AccordionWrapper
+      _wrapperId={id}
       isOpen={isItemOpen}
       qaHook={qaHook && `${qaHook}-wrapper`}
       trigger={
@@ -61,6 +62,7 @@ const XUIAccordionItem = ({
           {...{
             action,
             leftContent,
+            id,
             overflow,
             pinnedValue,
             primaryHeading,

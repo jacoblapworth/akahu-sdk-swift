@@ -1,11 +1,11 @@
-const React = require('react');
-const XUIAvatar = require('../../avatar/XUIAvatar').default;
-const XUIButton = require('../../button/XUIButton').default;
-const XUIContentBlock = require('../../contentblock/XUIContentBlock').default;
-const XUIContentBlockItem = require('../../contentblock/XUIContentBlockItem').default;
+import React from 'react';
 
-import { desktopPlus320 } from '../../../stories/helpers/viewports';
 import XUIAccordionItem from '../XUIAccordionItem';
+import XUIAvatar from '../../avatar/XUIAvatar';
+import XUIButton from '../../button/XUIButton';
+import XUIContentBlock from '../../contentblock/XUIContentBlock';
+import XUIContentBlockItem from '../../contentblock/XUIContentBlockItem';
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const storyKind = 'Instances/XUIAccordion';
 const items = [

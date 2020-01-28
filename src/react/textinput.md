@@ -36,6 +36,13 @@ import XUITextInput from './textinput';
     isLabelHidden
   />
   <XUITextInput
+    fieldClassName="xui-margin-bottom"
+    placeholder="A reverse-aligned input"
+    isValueReverseAligned
+    label="input"
+    isLabelHidden
+  />
+  <XUITextInput
     qaHook="test-ui"
     inputProps={{ readOnly: true }}
     defaultValue="A read-only value"

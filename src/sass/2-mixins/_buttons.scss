@@ -104,6 +104,9 @@ $border-color - Border color to use
     background-color: $bg-active-color;
     color: $active-color;
   }
+  &:focus {
+    color: $color;
+  }
 }
 
 /*

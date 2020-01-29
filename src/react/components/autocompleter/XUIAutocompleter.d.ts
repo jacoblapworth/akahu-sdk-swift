@@ -146,7 +146,7 @@ interface Props {
   /**
    * Callback to handle when an option has been selected from the dropdown.
    */
-  onOptionSelect?: (value: string, element?: Pickitem) => void;
+  onOptionSelect?: (value: any, element?: Pickitem) => void;
   /**
    * Callback for when the user types into the search box. The argument passed in is the search term
    * value.

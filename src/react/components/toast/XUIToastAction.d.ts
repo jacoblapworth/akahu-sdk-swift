@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Props as XUIButtonProps } from '../button/XUIButton';
 
-interface Props extends XUIButtonProps {
+interface BaseProps {
   /**
    * Facility to pass in custom children.
    */
@@ -25,6 +25,8 @@ interface Props extends XUIButtonProps {
    */
   usesActions?: boolean;
 }
+
+type Props = BaseProps & Partial<XUIButtonProps>;
 
 declare const XUIToastAction: React.FunctionComponent<Props>;
 export default XUIToastAction;

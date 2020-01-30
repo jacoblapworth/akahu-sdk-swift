@@ -7,7 +7,7 @@ import {
   widthClassNames,
 } from './private/constants';
 
-interface Props {
+interface BaseProps {
   children?: React.ReactNode;
   className?: string;
   /**
@@ -106,6 +106,12 @@ interface Props {
    */
   variant?: typeof textButtonVariants;
 }
+
+type SpreadProps =
+  | React.AnchorHTMLAttributes<HTMLAnchorElement>
+  | React.ButtonHTMLAttributes<HTMLButtonElement>;
+
+type Props = BaseProps & SpreadProps;
 
 export default class XUIButton extends React.PureComponent<Props> {
   /**

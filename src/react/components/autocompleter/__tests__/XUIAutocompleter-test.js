@@ -321,7 +321,7 @@ describe('XUIAutocompleter', () => {
     expect(onSearchInvocationOrder).toBeLessThan(onOptionSelectInvocationOrder);
   });
 
-  it('should trigger the user provided custom onKeyDown callback prop if this is provided', () => {
+  it('should call the user provided custom onKeyDown callback prop if this is provided', () => {
     // Arrange
     const onKeyDownMock = jest.fn();
     const wrapper = mount(createComponent({ onSearch: jest.fn(), onKeyDown: onKeyDownMock }));

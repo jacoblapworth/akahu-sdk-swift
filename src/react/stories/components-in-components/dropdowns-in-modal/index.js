@@ -14,7 +14,7 @@ import { storiesOf } from '@storybook/react';
 // import { addReadme } from 'storybook-readme';
 // import readme from './README.md';
 
-import lists from '../../../components/helpers/list';
+import * as lists from '../../../components/helpers/list';
 import { storyNames, compositionKind } from '../tests';
 
 const test = storiesOf(compositionKind, module);

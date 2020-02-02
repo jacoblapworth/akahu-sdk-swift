@@ -86,9 +86,4 @@ Object.keys(fixedWidthDropdownSizes).map(dropdownSize =>
   }),
 );
 
-module.exports = {
-  variations,
-  NOOP,
-  storiesWithVariationsKindName,
-  fixedWidthDropdownSizes,
-};
+export { variations, NOOP, storiesWithVariationsKindName, fixedWidthDropdownSizes };

@@ -152,7 +152,7 @@ class TooltipWrapper extends React.Component {
   }
 }
 
-module.exports = {
+export {
   TooltipWrapper,
   RangeWrapper,
   createRadios,

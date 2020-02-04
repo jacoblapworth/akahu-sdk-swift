@@ -14,6 +14,9 @@
 
 ## XUI React components
 
+- `XUIStepper`
+  - updated spacing to match other components and 4px grid
+
 ### Removals
 
 ### Component props

@@ -146,10 +146,10 @@ export default class XUIAutocompleter extends PureComponent {
   };
 
   onInputKeyDown = event => {
+    /**
+     * Where a custom onKeyDown callback is provided, both the custom callback and default behaviour will be triggered.
+     */
     if (this.props.onKeyDown) {
-      /**
-       * If a custom onKeyDown callback is provided by the user, this will be actioned instead of default behaviour.
-       */
       this.props.onKeyDown(event);
     }
 

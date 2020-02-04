@@ -325,11 +325,16 @@ describe('XUIAutocompleter', () => {
     // Arrange
     const onKeyDownMock = jest.fn();
     const wrapper = mount(createComponent({ onSearch: jest.fn(), onKeyDown: onKeyDownMock }));
+    const flushDebouncedSpy = jest.spyOn(wrapper.instance(), 'flushDebounced');
+    wrapper.instance().openDropDown();
 
     // Act
-    wrapper.find('input').simulate('keydown', { key: eventKeyValues.enter });
+    wrapper
+      .find('input')
+      .simulate('keydown', { key: eventKeyValues.enter, keyCode: 13, which: 13 });
 
     // Assert
     expect(onKeyDownMock).toHaveBeenCalled();
+    expect(flushDebouncedSpy).toHaveBeenCalled();
   });
 });

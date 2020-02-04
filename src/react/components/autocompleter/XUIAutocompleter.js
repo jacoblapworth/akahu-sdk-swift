@@ -151,7 +151,6 @@ export default class XUIAutocompleter extends PureComponent {
        * If a custom onKeyDown callback is provided by the user, this will be actioned instead of default behaviour.
        */
       this.props.onKeyDown(event);
-      return;
     }
 
     const { onBackspacePill, pills } = this.props;

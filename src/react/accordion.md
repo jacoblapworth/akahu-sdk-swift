@@ -8,13 +8,7 @@ The _Accordion_ is broken up into two key components `import XUIAccordion, { XUI
 
 ## Basic
 
-The bare minimum _Accordion_ composition can be achieved with a `XUIAccordion` component with `XUIAccordionItem`s as children and `toggleLabel` props.
-
-We also still allow the previous API which the `items` and `createItem` props.
-
-- `items` is an array of objects to pass to `createItem` as props.
-- `createItem` takes a single item from `items` and returns a `<XUIAccordionItem>`
-- `toggleLabel` is an accessibility label for the accordion trigger.
+The bare minimum _Accordion_ composition can be achieved with a `XUIAccordion` component with `XUIAccordionItem`s as children and `toggleLabel` prop (an accessibility label for the accordion trigger).
 
 ```jsx harmony
 import XUIAccordion, { XUIAccordionItem } from './accordion';

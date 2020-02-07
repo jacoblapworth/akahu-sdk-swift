@@ -3,7 +3,7 @@ Checkboxes can be grouped together, making it easier to include them alongside i
 The touch target for Checkboxes in a group is the entire "row" of the Checkbox Group.
 
 ```jsx harmony
-import XUICheckbox, { XUICheckboxGroup } from '../../checkbox';
+import XUICheckbox, { XUICheckboxGroup } from '@xero/xui/react/checkbox';
 
 <XUICheckboxGroup hintMessage="Grouped checkboxes can have hints">
   <XUICheckbox>Check me out!</XUICheckbox>
@@ -11,7 +11,7 @@ import XUICheckbox, { XUICheckboxGroup } from '../../checkbox';
 ```
 
 ```jsx harmony
-import XUICheckbox, { XUICheckboxGroup } from '../../checkbox';
+import XUICheckbox, { XUICheckboxGroup } from '@xero/xui/react/checkbox';
 
 <XUICheckboxGroup isInvalid validationMessage="Grouped checkboxes can have validation">
   <XUICheckbox>Tūī</XUICheckbox>
@@ -25,7 +25,7 @@ The Checkbox Group doesn't impact the checkboxes in any way, so you have the sam
 
 ```jsx harmony
 import star from '@xero/xui-icon/icons/star';
-import XUICheckbox, { XUICheckboxGroup } from '../../checkbox';
+import XUICheckbox, { XUICheckboxGroup } from '@xero/xui/react/checkbox';
 
 <XUICheckboxGroup>
   <XUICheckbox isReversed iconMain={star}>

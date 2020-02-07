@@ -9,9 +9,9 @@
 #### Simple Content block
 
 ```jsx harmony
-import { XUIContentBlock, XUIContentBlockItem } from './contentblock';
-import { XUIIconButton } from './button';
-import XUIIcon from './icon';
+import { XUIContentBlock, XUIContentBlockItem } from '@xero/xui/react/contentblock';
+import { XUIIconButton } from '@xero/xui/react/button';
+import XUIIcon from '@xero/xui/react/icon';
 import overflow from '@xero/xui-icon/icons/overflow';
 
 const overflowButton = <XUIIconButton icon={overflow} ariaLabel="More options" />;
@@ -39,12 +39,12 @@ Generally, the content inside a content block is split into left or right conten
 #### Complex Content block
 
 ```jsx harmony
-import { XUIContentBlock, XUIContentBlockItem } from './contentblock';
-import XUIActions from './actions';
-import XUIButton, { XUIIconButton } from './button';
-import XUIAvatar from './avatar';
-import XUITag from './tag';
-import XUIIcon from './icon';
+import { XUIContentBlock, XUIContentBlockItem } from '@xero/xui/react/contentblock';
+import XUIActions from '@xero/xui/react/actions';
+import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
+import XUIAvatar from '@xero/xui/react/avatar';
+import XUITag from '@xero/xui/react/tag';
+import XUIIcon from '@xero/xui/react/icon';
 import overflow from '@xero/xui-icon/icons/overflow';
 
 const description =

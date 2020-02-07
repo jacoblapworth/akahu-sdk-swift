@@ -13,8 +13,8 @@ for behavioural aspects.
 ```jsx harmony
 import cross from '@xero/xui-icon/icons/cross';
 
-import XUIIsolationHeader from './isolationheader';
-import XUIButton, { XUIIconButton } from './button';
+import XUIIsolationHeader from '@xero/xui/react/isolationheader';
+import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
 
 const navigationButton = <XUIIconButton icon={cross} ariaLabel="close" />;
 const title = 'Main Title';

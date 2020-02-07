@@ -44,10 +44,10 @@ import XUIAutocompleter, {
   XUIAutocompleterEmptyState,
   boldMatch,
   decorateSubStr
-} from './autocompleter';
-import XUIAvatar from './avatar';
-import XUIPill from './pill';
-import Picklist, { Pickitem } from './picklist';
+} from '@xero/xui/react/autocompleter';
+import XUIAvatar from '@xero/xui/react/avatar';
+import XUIPill from '@xero/xui/react/pill';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
 
 import people from './components/autocompleter/private/people';
 
@@ -218,14 +218,14 @@ By default the pills and search bar will wrap inside the `XUIAutocompleter` inpu
 ```jsx harmony
 import { Component, PureComponent, Fragment } from 'react';
 
-import XUIAvatar from './avatar';
+import XUIAvatar from '@xero/xui/react/avatar';
 import XUIAutocompleter, {
   XUIAutocompleterEmptyState,
   boldMatch,
   decorateSubStr
-} from './autocompleter';
-import Picklist, { Pickitem } from './picklist';
-import XUIPill from './pill';
+} from '@xero/xui/react/autocompleter';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPill from '@xero/xui/react/pill';
 
 import people from './components/autocompleter/private/people';
 
@@ -381,11 +381,11 @@ When using `XUIAutocompleter` for selecting a single option, use the `leftElemen
 import { Component, Fragment } from 'react';
 import crossIcon from '@xero/xui-icon/icons/cross-small';
 
-import { XUIIconButton } from './button';
-import XUIAvatar from './avatar';
-import XUIAutocompleter, { boldMatch, decorateSubStr } from './autocompleter';
-import Picklist, { Pickitem } from './picklist';
-import XUITextInputSideElement from './components/textInput/XUITextInputSideElement';
+import { XUIIconButton } from '@xero/xui/react/button';
+import XUIAvatar from '@xero/xui/react/avatar';
+import XUIAutocompleter, { boldMatch, decorateSubStr } from '@xero/xui/react/autocompleter';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import { XUITextInputSideElement } from '@xero/xui/react/textinput';
 
 import people from './components/autocompleter/private/people';
 

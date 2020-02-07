@@ -15,7 +15,7 @@ If `onDeleteClick` is added, a delete button will be rendered inside the pill, a
 `onClick` and `href` will be triggered if the user clicks anywhere on the pill other than the delete button.
 
 ```jsx harmony
-import XUIPill from './pill';
+import XUIPill from '@xero/xui/react/pill';
 
 const wasDeleted = () => {
   window.alert('deleted');
@@ -51,7 +51,7 @@ Avatars can be added to `XUIPill` by passing an object to `avatarProps` matching
 **Note:** Avatars will inherit a size modifier that is one step smaller than the size of pill you choose. E.g Medium pill gets a Small avatar
 
 ```jsx harmony
-import XUIPill from './pill';
+import XUIPill from '@xero/xui/react/pill';
 
 <div>
   <XUIPill
@@ -71,7 +71,7 @@ import XUIPill from './pill';
 Pills can be `medium` or `small` size, by passing one of these values to the `size` prop.
 
 ```jsx harmony
-import XUIPill from './pill';
+import XUIPill from '@xero/xui/react/pill';
 
 const NOOP = () => {};
 <div>
@@ -100,7 +100,7 @@ const NOOP = () => {};
 Pills can be rendered as invalid by passing the `isInvalid` prop.
 
 ```jsx harmony
-import XUIPill from './pill';
+import XUIPill from '@xero/xui/react/pill';
 
 <XUIPill value="Invalid" isInvalid />;
 ```
@@ -110,7 +110,7 @@ import XUIPill from './pill';
 Content passed to `secondaryText` will be rendered using a secondary text modifier.
 
 ```jsx harmony
-import XUIPill from './pill';
+import XUIPill from '@xero/xui/react/pill';
 
 <XUIPill secondaryText="Secondary" value="Primary" />;
 ```

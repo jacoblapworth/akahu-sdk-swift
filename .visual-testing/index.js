@@ -120,6 +120,10 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/pageheader/stories/variations.js`,
   },
   {
+    testsPrefix: 'XUI Pagination',
+    variationsPath: `${variationsPath}/pagination/stories/variations.js`,
+  },
+  {
     testsPrefix: 'XUI Panel',
     variationsPath: `${variationsPath}/panel/stories/variations.js`,
   },

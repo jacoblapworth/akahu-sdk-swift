@@ -198,7 +198,7 @@ SelectBox.propTypes = {
    * <br />
    * Recommended English value: *Toggle list*
    */
-  caretTitle: PropTypes.string.isRequired,
+  caretTitle: PropTypes.string,
 
   /** Optional callback to be executed when dropdown closes */
   onDropdownHide: PropTypes.func,

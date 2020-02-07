@@ -149,7 +149,7 @@
 // * We use vanilla React (and don't provide any redux/application state management)
 // * We prefer stateless and pure components for performance reasons
 // * All components should be accessible (have correct roles, tabindexes and other attributes) and internationalisable (default values are ok, but must be overridable via props)
-// * We use PropTypes but not Flow or TS
+// * We use PropTypes and TypeScript for prop validation
 //
 // Styleguide: Getting Started.Developing with XUI.2.1
 

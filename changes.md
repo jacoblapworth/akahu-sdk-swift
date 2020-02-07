@@ -148,6 +148,32 @@ Below is a list of components that have been affected by this change. The codemo
 
 ## Other changes
 
+### TypeScript support
+
+With XUI 16.2.0 we are shipping TypeScript definitions for our components with XUI.
+
+`xui-types` will no longer be actively maintained as of XUI 16.2.0, so while your current implementation will likely continue to work for a while, we recommend upgrading to embedded XUI types at your earliest convenience.
+
+The type definitions we provide are slightly different from those of `xui-types`, below are things you might need to change.
+
+1. The shape of our component's props are not exported. You can still access these types by using React's ComponentProps helper.
+
+```diff
+interface Props {
+- spreadProps?: XUIComponentProps;
++ spreadProps?: React.ComponentProps<typeof XUIComponent>`.
+}
+```
+
+2. We do not export types for our private helpers. You can still access these types by using `keyof` and `typeof`.
+
+```diff
+interface Props {
+- size?: SizeClassNamesKeys;
++ size?: keyof typeof sizeClassNames;
+}
+```
+
 ### Invisible touch targets
 
 Components with a fixed with and height now have an invisible touch target around them that has a minimum width and height of 40px. Visit [our documentation for touch targets](https://xui.xero.com/16.0.0/section-getting-started-responsive.html#getting-started-responsive-3) for more information. If you use our CSS components please refer to [this list of components that will need updating](#invisible-touch-targets). If you use our React components then touch targets have been added already.

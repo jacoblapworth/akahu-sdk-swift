@@ -146,13 +146,6 @@ export default class XUIAutocompleter extends PureComponent {
   };
 
   onInputKeyDown = event => {
-    /**
-     * Where a custom onKeyDown callback is provided, both the custom callback and default behaviour will be triggered.
-     */
-    if (this.props.onKeyDown) {
-      this.props.onKeyDown(event);
-    }
-
     const { onBackspacePill, pills } = this.props;
     if (this.ddt.current.isDropDownOpen()) {
       if (isKeyClick(event)) {
@@ -177,6 +170,13 @@ export default class XUIAutocompleter extends PureComponent {
       (pills.length > 0 || React.isValidElement(pills))
     ) {
       onBackspacePill();
+    }
+
+    /**
+     * Where a custom onKeyDown callback is provided, both the custom callback and default behaviour will be triggered.
+     */
+    if (this.props.onKeyDown) {
+      this.props.onKeyDown(event);
     }
   };
 

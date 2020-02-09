@@ -19,7 +19,7 @@ You can opt out of the stepper's responsive functionality, however we **strongly
 Lock by supplying the string `inline` to the prop `lockLayout`.
 
 ```jsx harmony
-import XUIStepper from './stepper';
+import XUIStepper from '@xero/xui/react/stepper';
 
 const tabs = [{ name: 'Tab 1' }, { name: 'Tab 2' }, { name: 'Tab 3' }];
 
@@ -60,7 +60,7 @@ The `inline` layout also has the ability to stack its button content using the p
 - You can use this prop in both a _locked_ or _default_ layout state.
 
 ```jsx harmony
-import XUIStepper from './stepper';
+import XUIStepper from '@xero/xui/react/stepper';
 
 const tabs = [{ name: 'Tab 1' }, { name: 'Tab 2' }, { name: 'Tab 3' }];
 
@@ -99,7 +99,7 @@ class Demo extends React.Component {
 Lock by supplying the string `sidebar` to the prop `lockLayout`.
 
 ```jsx harmony
-import XUIStepper from './stepper';
+import XUIStepper from '@xero/xui/react/stepper';
 
 const tabs = [{ name: 'Tab 1' }, { name: 'Tab 2' }, { name: 'Tab 3' }];
 
@@ -138,7 +138,7 @@ class Demo extends React.Component {
 Lock by supplying the string `stacked` to the prop `lockLayout`.
 
 ```jsx harmony
-import XUIStepper from './stepper';
+import XUIStepper from '@xero/xui/react/stepper';
 
 const tabs = [{ name: 'Tab 1' }, { name: 'Tab 2' }, { name: 'Tab 3' }];
 
@@ -184,7 +184,7 @@ You as a developer control the tab configuration via the `tabs` prop. This gives
 - Change a tab to a _complete_ state via the `isComplete` prop.
 
 ```jsx harmony
-import XUIStepper from './stepper';
+import XUIStepper from '@xero/xui/react/stepper';
 
 const tabs = [
   { name: 'Active' },
@@ -234,7 +234,7 @@ In addition to the generic tab format a **Progress Indicator** can be included w
   will be applied automatically.
 
 ```jsx harmony
-import XUIStepper from './stepper';
+import XUIStepper from '@xero/xui/react/stepper';
 
 const tabs = [
   { name: 'Active', isProgress: true, totalProgress: 5, currentProgress: 3 },

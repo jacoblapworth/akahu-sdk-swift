@@ -5,7 +5,7 @@
 `XUIRow` components are used to wrap `XUIColumn` components. The row variant determines how columns are spaced.
 
 ```jsx harmony
-import { XUIRow, XUIColumn } from '../../structural';
+import { XUIRow, XUIColumn } from '@xero/xui/react/structural';
 
 const rowStyle = { backgroundColor: '#028DDE' };
 const colStyle = { backgroundColor: 'RGBA(255,255,255,0.5)' };

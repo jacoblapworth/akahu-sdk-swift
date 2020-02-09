@@ -13,7 +13,7 @@ Enhanced version of HTML checkbox. Use in place of `<input type="checkbox" />`.
 `XUICheckbox` can be used as an uncontrolled component by omitting `isChecked` and (optionally) providing a `isDefaultChecked` property.
 
 ```jsx harmony
-import XUICheckbox from './checkbox';
+import XUICheckbox from '@xero/xui/react/checkbox';
 
 <div>
   <XUICheckbox isDefaultChecked hintMessage="Hint text">
@@ -31,7 +31,7 @@ Controlled `XUICheckbox`s' presentation are driven by the two props, `isChecked`
 ```jsx harmony
 import { PureComponent } from 'react';
 
-import XUICheckbox from './checkbox';
+import XUICheckbox from '@xero/xui/react/checkbox';
 
 const options = ['Cat', 'Dog', 'Bird', 'Fish'];
 const selectedStates = {
@@ -130,7 +130,7 @@ class Example extends PureComponent {
 ### Disabled
 
 ```jsx harmony
-import XUICheckbox from './checkbox';
+import XUICheckbox from '@xero/xui/react/checkbox';
 
 <div>
   <XUICheckbox isDisabled>Unchecked</XUICheckbox>
@@ -149,7 +149,7 @@ Use the `isReversed` prop to have the label appear to the left of the checkbox e
 
 ```jsx harmony
 import { PureComponent } from 'react';
-import XUICheckbox from './checkbox';
+import XUICheckbox from '@xero/xui/react/checkbox';
 
 class Example extends PureComponent {
   constructor() {
@@ -199,7 +199,7 @@ It is also possible to use the `isLabelHidden` prop to visually hide the label, 
 
 ```jsx harmony
 import starIcon from '@xero/xui-icon/icons/star';
-import XUICheckbox from './checkbox';
+import XUICheckbox from '@xero/xui/react/checkbox';
 
 <div>
   <XUICheckbox isChecked iconMain={starIcon}>

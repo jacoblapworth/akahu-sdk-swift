@@ -1,11 +1,14 @@
 This component behaves similarly to an autocompleter, except that it is triggered by a button instead of an input. The input is a secondary interaction, focused by default when the DropDown opens. The `SecondarySearch` component is a separate component to the `Autocompleter` but share similar APIs.
 
 ```jsx harmony
-import Picklist, { Pickitem } from '../../picklist';
-import { XUIAutocompleterSecondarySearch, XUIAutocompleterEmptyState } from '../../autocompleter';
-import { DropDownFooter } from '../../dropdown';
-import XUIButton, { XUIButtonCaret } from '../../button';
-import XUIIcon from '../../icon';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import {
+  XUIAutocompleterSecondarySearch,
+  XUIAutocompleterEmptyState
+} from '@xero/xui/react/autocompleter';
+import { DropDownFooter } from '@xero/xui/react/dropdown';
+import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
+import XUIIcon from '@xero/xui/react/icon';
 import plusIcon from '@xero/xui-icon/icons/plus';
 
 const SecondarySearchData = [

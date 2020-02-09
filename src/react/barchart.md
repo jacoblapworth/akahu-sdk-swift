@@ -22,7 +22,7 @@ A **bar** or **bar stack** can be targeted with an **active** state using the `a
 
 ```jsx harmony
 import 'array.prototype.find';
-import { XUIBarChart } from './barchart';
+import { XUIBarChart } from '@xero/xui/react/barchart';
 
 const data = [
   { id: 0, x: 'Apple', y: 1 },
@@ -72,7 +72,7 @@ class Demo extends React.Component {
 
 ```jsx harmony
 import 'array.prototype.find';
-import { XUIBarChart } from './barchart';
+import { XUIBarChart } from '@xero/xui/react/barchart';
 
 const keyLabel = ['Organic', 'GMO'];
 const data = [
@@ -161,7 +161,7 @@ The amount of labels per panel can be controlled via the prop `xAxisVisibleItems
 
 ```jsx harmony
 import 'array.prototype.find';
-import { XUIBarChart } from './barchart';
+import { XUIBarChart } from '@xero/xui/react/barchart';
 
 const wrapperStyles = {
   display: 'inline-block',
@@ -255,7 +255,7 @@ The y-axis customisation options are:
 
 ```jsx harmony
 import 'array.prototype.find';
-import { XUIBarChart } from './barchart';
+import { XUIBarChart } from '@xero/xui/react/barchart';
 
 const data = [
   { id: 0, x: 'Apple', y: 1 },
@@ -307,7 +307,7 @@ If there is no `barsData`, an **empty** state is shown. You must choose one of t
 
 ```jsx harmony
 import 'array.prototype.find';
-import { XUIBarChart } from './barchart';
+import { XUIBarChart } from '@xero/xui/react/barchart';
 
 const data = [
   { id: 0, x: 'Apple', y: 1 },
@@ -394,7 +394,7 @@ Render the chart **key** providing a `keyLabel` prop referencing the **bar** or 
 
 ```jsx harmony
 import 'array.prototype.find';
-import { XUIBarChart } from './barchart';
+import { XUIBarChart } from '@xero/xui/react/barchart';
 
 const data = [
   { id: 0, x: 'Apple', y: 1 },

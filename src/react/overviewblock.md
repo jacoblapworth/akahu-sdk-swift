@@ -7,7 +7,7 @@
 `XUIOverviewSection` takes `label`, `value`, and optional `sentiment` props. Sentiments consist of `positive`, `negative`, and `muted`, with a default of none.
 
 ```jsx harmony
-import { XUIOverviewBlock, XUIOverviewSection } from './overviewblock';
+import { XUIOverviewBlock, XUIOverviewSection } from '@xero/xui/react/overviewblock';
 
 <XUIOverviewBlock>
   <XUIOverviewSection label="Draft" value="$872.93" />

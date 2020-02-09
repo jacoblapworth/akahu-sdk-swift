@@ -5,7 +5,7 @@
 `XUIBreadcrumbTrail` creates a list of sequenced nav items from a provided array. It is most commonly found in addition to a title in a `XUIPageHeader`. The array can contain objects used to generate anchor links, or it can contain HTML nodes which will have the `xui-breadcrumb--link` class added to them. As always, be mindful of accessibility concerns if using non-semantic elements for interactivity.
 
 ```jsx harmony
-import { XUIPageHeader, XUIBreadcrumbTrail } from '../../pageheader';
+import { XUIPageHeader, XUIBreadcrumbTrail } from '@xero/xui/react/pageheader';
 
 const logHi = () => console.log('hello');
 
@@ -35,7 +35,7 @@ const wrapperStyles = {
 Try to resize: Click and drag the bottom right corner of the following container.
 
 ```jsx harmony
-import { XUIPageHeader, XUIBreadcrumbTrail } from '../../pageheader';
+import { XUIPageHeader, XUIBreadcrumbTrail } from '@xero/xui/react/pageheader';
 
 const logHi = () => console.log('hello');
 

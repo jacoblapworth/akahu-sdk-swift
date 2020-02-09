@@ -20,7 +20,7 @@ For teams not using XUI to implement illustrations, try to mirror the functional
 The `size` prop can be used to specify the size of your illustration. There are 3 presets available, `small`, `medium`, and `large`.
 
 ```jsx harmony
-import XUIIllustration from './illustration';
+import XUIIllustration from '@xero/xui/react/illustration';
 
 <XUIIllustration
   size="medium"
@@ -35,7 +35,7 @@ We recommend using one of the provided sizes, but you can use the `height` prop 
 If you need to adjust the padding on the illustration you can use the padding prop. This is usually used to remove the padding that comes with the default sizes or to add padding when using a custom height.
 
 ```jsx harmony
-import XUIIllustration from './illustration';
+import XUIIllustration from '@xero/xui/react/illustration';
 
 <XUIIllustration
   height={200}

@@ -8,9 +8,9 @@ If you want standard `Picklist` behaviour (close on select, keyboard handlers, e
 
 ```jsx harmony
 import { Component } from 'react';
-import XUIButton, { XUIButtonCaret } from '../../button';
-import Picklist, { Pickitem } from '../../picklist';
-import DropDown, { DropDownToggled } from '../../dropdown';
+import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 
 const isSelected = (item, selectedIds) =>
   item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
@@ -113,9 +113,9 @@ class ToggledDropDown extends Component {
 
 ```jsx harmony
 import { Component } from 'react';
-import XUIButton, { XUIButtonCaret } from '../../button';
-import Picklist, { Pickitem } from '../../picklist';
-import DropDown, { DropDownToggled } from '../../dropdown';
+import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 
 const items = [
   { id: 'a', text: 'First' },
@@ -194,9 +194,9 @@ Although using `DropDown` with `Picklist` provides the default behaviour, the AP
 
 ```jsx harmony
 import { Component } from 'react';
-import XUIButton from '../../button';
-import DropDown, { DropDownToggled } from '../../dropdown';
-import XUIDatePicker from '../../datepicker';
+import XUIButton from '@xero/xui/react/button';
+import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
+import XUIDatePicker from '@xero/xui/react/datepicker';
 
 const today = new Date();
 const months = [
@@ -289,10 +289,14 @@ It is highly recommended that you use [`Autocompleter`](#autocompleter) to imple
 ```jsx harmony
 import 'array.prototype.find';
 import { Component } from 'react';
-import DropDown, { DropDownToggled } from '../../dropdown';
-import XUITextInput from '../../textinput';
-import { boldMatch, decorateSubStr, XUIAutocompleterEmptyState } from '../../autocompleter';
-import Picklist, { Pickitem } from '../../picklist';
+import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
+import XUITextInput from '@xero/xui/react/textinput';
+import {
+  boldMatch,
+  decorateSubStr,
+  XUIAutocompleterEmptyState
+} from '@xero/xui/react/autocompleter';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
 
 const items = [
   'Apricot',

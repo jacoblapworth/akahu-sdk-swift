@@ -8,7 +8,7 @@
 
 ```jsx harmony
 import { PureComponent } from 'react';
-import XUISwitch from './switch';
+import XUISwitch from '@xero/xui/react/switch';
 
 class Example extends PureComponent {
   constructor(...args) {

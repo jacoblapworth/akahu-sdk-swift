@@ -18,9 +18,8 @@ In the following example, the `buttonContent` of `SelectBox` is being set to val
 ```jsx harmony
 import { Component } from 'react';
 import bank from '@xero/xui-icon/icons/bank';
-import XUIIcon from './icon';
-import SelectBox, { SelectBoxOption } from './select-box';
-import TextHelpers from './components/select-box/TextHelpers';
+import XUIIcon from '@xero/xui/react/icon';
+import SelectBox, { SelectBoxOption, TextHelpers } from '@xero/xui/react/select-box';
 
 const banks = ['ANZ', 'ASB', 'Kiwi Bank', 'Westpac'];
 
@@ -86,8 +85,7 @@ You can select multiple values by keeping track of an array, rather than a singl
 
 ```jsx harmony
 import { Component } from 'react';
-import SelectBox, { SelectBoxOption } from './select-box';
-import TextHelpers from './components/select-box/TextHelpers';
+import SelectBox, { SelectBoxOption, TextHelpers } from '@xero/xui/react/select-box';
 
 const boats = ['Waka', 'Pontoon', 'Sailboat', 'Schooner', 'Dingy'];
 
@@ -154,9 +152,8 @@ The `size` prop allows you to change the default `SelectBox` size.
 
 ```jsx harmony
 import { Component } from 'react';
-import SelectBox, { SelectBoxOption } from './select-box';
-import XUIIcon from './icon';
-import TextHelpers from './components/select-box/TextHelpers';
+import SelectBox, { SelectBoxOption, TextHelpers } from '@xero/xui/react/select-box';
+import XUIIcon from '@xero/xui/react/icon';
 import bank from '@xero/xui-icon/icons/bank';
 
 const banks = ['ANZ', 'ASB', 'Kiwi Bank', 'Westpac'];
@@ -225,9 +222,8 @@ The standard button variants available in [`XUIButton`](#button) can be applied 
 
 ```jsx harmony
 import { Component } from 'react';
-import SelectBox, { SelectBoxOption } from './select-box';
-import XUIIcon from './icon';
-import TextHelpers from './components/select-box/TextHelpers';
+import SelectBox, { SelectBoxOption, TextHelpers } from '@xero/xui/react/select-box';
+import XUIIcon from '@xero/xui/react/icon';
 import bank from '@xero/xui-icon/icons/bank';
 
 const banks = ['ANZ', 'ASB', 'Kiwi Bank', 'Westpac'];

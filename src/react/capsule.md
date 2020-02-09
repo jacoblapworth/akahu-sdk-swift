@@ -11,7 +11,7 @@ Capsules are used to draw attention to placeholders that will be replaced with d
 A default capsule is inline text with a border that can receive focus.
 
 ```jsx harmony
-import XUICapsule from './capsule';
+import XUICapsule from '@xero/xui/react/capsule';
 
 <div>
   <div className="xui-heading-large">
@@ -40,7 +40,7 @@ import XUICapsule from './capsule';
 Capsules can trigger actions passed in through the `onClick` and `href` props. These props will be triggered if the user clicks anywhere on the capsule.
 
 ```jsx harmony
-import XUICapsule from './capsule';
+import XUICapsule from '@xero/xui/react/capsule';
 
 <div>
   This
@@ -55,7 +55,7 @@ import XUICapsule from './capsule';
 Invalid capsules, such as those containing incomplete formulas, are produced by setting the `isValid` property to `false`
 
 ```jsx harmony
-import XUICapsule from './capsule';
+import XUICapsule from '@xero/xui/react/capsule';
 
 <div>
   This capsule is <XUICapsule isValid={false}>invalid</XUICapsule>

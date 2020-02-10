@@ -13,7 +13,7 @@ export default function XUIToastAction({ className, href, qaHook, children, ...p
       isLink={!!href}
       qaHook={qaHook}
       size="small"
-      variant="link"
+      variant="borderless-primary"
     >
       {children}
     </XUIButton>

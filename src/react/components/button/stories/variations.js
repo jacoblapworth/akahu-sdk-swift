@@ -98,7 +98,7 @@ const variations = [
   },
 ];
 
-privateConsts.textButtonVariants.forEach((buttonVariant, index) => {
+Object.keys(privateConsts.textButtonVariants).forEach((buttonVariant, index) => {
   const sizesToIterate = [sizes[index % sizes.length]];
 
   sizesToIterate.forEach(size =>

@@ -502,7 +502,4 @@ const variations = [
   },
 ];
 
-module.exports = {
-  storiesWithVariationsKindName: storyKind,
-  variations,
-};
+export { storyKind as storiesWithVariationsKindName, variations };

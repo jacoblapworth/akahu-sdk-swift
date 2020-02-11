@@ -20,13 +20,13 @@ const createBuildStep = () =>
       runtimeCaching: [
         {
           urlPattern: new RegExp('.(png|jpg|jpeg|svg)$'),
-          handler: 'cacheFirst',
+          handler: 'CacheFirst',
         },
         {
           urlPattern: new RegExp(
             '^https://(edge.xero.com|cdnjs.cloudflare.com|cdn.polyfill.io|cdn.rawgit.com)/',
           ),
-          handler: 'networkFirst',
+          handler: 'NetworkFirst',
         },
       ],
     });

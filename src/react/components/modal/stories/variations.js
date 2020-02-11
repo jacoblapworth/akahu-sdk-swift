@@ -33,7 +33,4 @@ const variations = [
   ...sizes,
 ];
 
-module.exports = {
-  storiesWithVariationsKindName,
-  variations,
-};
+export { storiesWithVariationsKindName, variations };

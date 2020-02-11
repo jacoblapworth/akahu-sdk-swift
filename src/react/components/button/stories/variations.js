@@ -147,7 +147,4 @@ iconSizes.forEach(iconSize => {
   });
 });
 
-module.exports = {
-  storiesWithVariationsKindName,
-  variations,
-};
+export { storiesWithVariationsKindName, variations };

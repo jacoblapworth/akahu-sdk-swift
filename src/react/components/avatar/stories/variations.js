@@ -109,7 +109,4 @@ const avatarVariations = [
   },
 ];
 
-module.exports = {
-  variations: avatarVariations,
-  storiesWithVariationsKindName,
-};
+export { avatarVariations as variations, storiesWithVariationsKindName };

@@ -29,9 +29,4 @@ Object.keys(storyNames).forEach(name => {
   });
 });
 
-module.exports = {
-  variations,
-  storyNames,
-  compositionKind,
-  nonBackstopStoryNames,
-};
+export { variations, storyNames, compositionKind, nonBackstopStoryNames };

@@ -5,8 +5,7 @@ const path = require('path');
 const doPostCss = require('./doPostCss');
 const browsers = require('@xero/browserslist-autoprefixer');
 const autoprefixer = require('autoprefixer');
-const { promisify } = require('util');
-const mkdirp = promisify(require('mkdirp'));
+const mkdirp = require('mkdirp');
 const { succeed, fail } = taskRunnerReturns;
 
 const folders = [

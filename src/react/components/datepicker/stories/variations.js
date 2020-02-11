@@ -79,10 +79,4 @@ const variations = [
   },
 ];
 
-module.exports = {
-  storiesWithVariationsKindName,
-  variations,
-  wkdShort,
-  customMonths,
-  currentMonth0,
-};
+export { storiesWithVariationsKindName, variations, wkdShort, customMonths, currentMonth0 };

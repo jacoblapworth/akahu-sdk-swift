@@ -336,7 +336,6 @@ export default class XUIAutocompleter extends PureComponent {
         id={dropdownId}
         ignoreKeyboardEvents={ignoreKeyboardEvents}
         onHighlightChange={completer.onHighlightChange}
-        onKeyDown={onKeyDown}
         onSelect={onOptionSelect}
         qaHook={listQaHook}
         ref={c => (completer.dropdown = c)}

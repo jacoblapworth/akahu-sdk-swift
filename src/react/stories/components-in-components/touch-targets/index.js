@@ -6,7 +6,7 @@ import { XUICompositionDetail } from '../../../compositions';
 import { XUIIconButton } from '../../../button';
 import XUICheckbox, { XUICheckboxGroup } from '../../../checkbox';
 import XUIDatePicker from '../../../datepicker';
-import { XUIPickItem } from '../../../picklist';
+import { Pickitem as XUIPickItem } from '../../../picklist';
 import XUIPill from '../../../pill';
 import XUIRadio, { XUIRadioGroup } from '../../../radio';
 import { XUIPanel, XUIPanelSection } from '../../../panel';
@@ -213,8 +213,8 @@ test.add(storyNames.touchTargets, () => {
               <XUIPanelSection className="xui-padding-xlarge">
                 <XUITable
                   checkAllRowsLabel="Select all rows"
-                  checkOneRowLabel="Select row"
                   checkedIds={{ abc123: true, def456: false }}
+                  checkOneRowLabel="Select row"
                   createOverflowMenu={() => [<XUIPickItem>Edit</XUIPickItem>]}
                   data={{
                     abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 },

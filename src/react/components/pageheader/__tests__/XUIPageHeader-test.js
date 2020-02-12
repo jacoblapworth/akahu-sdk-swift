@@ -40,7 +40,10 @@ describe('<XUI PageHeader and BreadcrumbTrail/>', () => {
     { label: 'hiya', href: '#2' },
     { label: 'yo' },
   ];
-  const bcObj2 = [{ label: 'Settings', href: '#1' }, { label: 'Edit', href: '#2' }];
+  const bcObj2 = [
+    { label: 'Settings', href: '#1' },
+    { label: 'Edit', href: '#2' },
+  ];
   const bcObj3 = [
     { label: 'Settings', href: '#1' },
     { label: 'Edit', href: '#2' },

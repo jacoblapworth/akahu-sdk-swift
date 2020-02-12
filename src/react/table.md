@@ -605,7 +605,10 @@ const data = {
   def456: {
     fruit: 'Apple',
     color: 'Red',
-    tags: [{ name: 'Foo', variant: 'positive' }, { name: 'Bar', variant: 'warning' }],
+    tags: [
+      { name: 'Foo', variant: 'positive' },
+      { name: 'Bar', variant: 'warning' }
+    ],
     price: 3.49
   },
   ghi789: {

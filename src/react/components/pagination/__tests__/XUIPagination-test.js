@@ -3,14 +3,22 @@ import renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import XUIPagination from '../XUIPagination';
+import {
+  defaultPerPageContent,
+  defaultCreateCountContent,
+  defaultCreatePagingContent,
+} from '../private/helpers';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 const defaultProps = {
   ariaLabel: 'Pagination',
   count: 97,
+  createCountContent: defaultCreateCountContent,
+  createPagingContent: defaultCreatePagingContent,
   nextPageLabel: 'Next Page',
   pageSelectLabel: 'Select a page',
+  perPageContent: defaultPerPageContent,
   perPageCountSelectLabel: 'Select a per page count',
   previousPageLabel: 'Previous Page',
 };

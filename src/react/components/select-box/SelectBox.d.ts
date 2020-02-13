@@ -21,7 +21,7 @@ interface Props {
    *
    * Recommended English value: *Toggle list*
    */
-  caretTitle: string;
+  caretTitle?: string;
   children?: React.ReactNode;
   /**
    * When a selection is made, close the dropdown.

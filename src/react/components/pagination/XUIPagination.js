@@ -6,21 +6,14 @@ import Paging from './private/Paging';
 import ItemsElement from './private/ItemsElement';
 import useResizeObserver from '../helpers/useResizeObserver';
 
-import {
-  baseClass,
-  checkRequiredProps,
-  defaultCreateCountContent,
-  defaultCreatePagingContent,
-  defaultPerPageContent,
-  defaultPerPageCountOptions,
-} from './private/helpers';
+import { baseClass, checkRequiredProps, defaultPerPageCountOptions } from './private/helpers';
 
 const XUIPagination = ({
   ariaLabel,
   className,
   count,
-  createCountContent = defaultCreateCountContent,
-  createPagingContent = defaultCreatePagingContent,
+  createCountContent,
+  createPagingContent,
   defaultPage = 1,
   defaultPerPageCount = defaultPerPageCountOptions[0],
   isResponsive = true,
@@ -28,13 +21,13 @@ const XUIPagination = ({
   onPageChange,
   onPerPageCountChange,
   page,
+  pageSelectLabel,
+  perPageContent,
   perPageCount,
   perPageCountOptions = defaultPerPageCountOptions,
-  pageSelectLabel,
-  perPageContent = defaultPerPageContent,
+  perPageCountSelectLabel,
   previousPageLabel,
   qaHook,
-  perPageCountSelectLabel,
   showCount = true,
   showPerPageCountSelect = true,
 }) => {
@@ -129,17 +122,24 @@ XUIPagination.propTypes = {
   /**
    * Function to create both the simple and enhanced version of count content
    * Simple is used when container width < 800px, enhanced used when container with >= 800px.
+   * This is required if the `showCount` prop is set to `true`.
    * <br />
-   * `(from, to, count) => ({ simple: string, enhanced: string })`
+   * Sample function with recommended English value:
+   * <br />
+   * ``(from, to, count) => ({  enhanced: `Showing items ${from}-${to} of ${count}`, simple: `Total items: ${count}`, })``
    */
-  createCountContent: PropTypes.func,
+  createCountContent(...parameters) {
+    return checkRequiredProps('showCount', ...parameters);
+  },
   /**
    * Function to create both the simple and enhanced version of paging content.
    * Simple is used when container width < 600px, enhanced used when container with >= 600px.
    * <br />
-   * `(page, pageCount) => ({ simple: string, enhanced: string })`
+   * Sample function with recommended English value:
+   * <br />
+   * ``(page, pageCount) => ({ enhanced: `Page ${page} of ${pageCount}`, simple: `${page} of ${pageCount}`, })``
    */
-  createPagingContent: PropTypes.func,
+  createPagingContent: PropTypes.func.isRequired,
   /**
    *  _Uncontrolled only_: The default one-based index of the current page
    */
@@ -172,32 +172,30 @@ XUIPagination.propTypes = {
    */
   page: PropTypes.number,
   /**
-   * _Controlled only_: Per page count
-   */
-  perPageCount: PropTypes.number,
-  /**
-   * The per page count options
-   */
-  perPageCountOptions: PropTypes.array,
-  /**
    * Adds label to the page select.
    * <br />
    * Recommended English value: *Select a page*
    */
   pageSelectLabel: PropTypes.string.isRequired,
   /**
-   * The content at the left of the page select
+   * The content at the left of the page select. This is required if the
+   * `showPerPageCountSelect` prop is set to `true`.
    * <br />
-   * Default is *Items per page*
+   * Recommended English value: *Items per page*
    */
-  perPageContent: PropTypes.string,
+  perPageContent(...parameters) {
+    return checkRequiredProps('showPerPageCountSelect', ...parameters);
+  },
   /**
-   * Adds aria-label to previous page icon.
-   * <br />
-   * Recommended English value: *Previous Page*
+   * _Controlled only_: Per page count
    */
-  previousPageLabel: PropTypes.string.isRequired,
-  qaHook: PropTypes.string,
+  perPageCount: PropTypes.number,
+  /**
+   * The per page count options
+   * <br />
+   * Default: [10, 25, 50, 100, 200]
+   */
+  perPageCountOptions: PropTypes.array,
   /**
    * Adds label to the perPageCount select. This is required if the
    * `showPerPageCountSelect` prop is set to `true`.
@@ -207,6 +205,13 @@ XUIPagination.propTypes = {
   perPageCountSelectLabel(...parameters) {
     return checkRequiredProps('showPerPageCountSelect', ...parameters);
   },
+  /**
+   * Adds aria-label to previous page icon.
+   * <br />
+   * Recommended English value: *Previous Page*
+   */
+  previousPageLabel: PropTypes.string.isRequired,
+  qaHook: PropTypes.string,
   /**
    * Whether to show the count
    */

@@ -11,12 +11,20 @@ import { withKnobs, text, boolean, number, array } from '@storybook/addon-knobs'
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
-import { defaultPerPageCountOptions } from '../private/helpers';
+import {
+  defaultPerPageCountOptions,
+  defaultPerPageContent,
+  defaultCreateCountContent,
+  defaultCreatePagingContent,
+} from '../private/helpers';
 
-const accessibilityProps = {
+const defaultProps = {
   ariaLabel: 'Pagination',
+  createCountContent: defaultCreateCountContent,
+  createPagingContent: defaultCreatePagingContent,
   nextPageLabel: 'Next Page',
   pageSelectLabel: 'Select a page',
+  perPageContent: defaultPerPageContent,
   perPageCountSelectLabel: 'Select a per page count',
   previousPageLabel: 'Previous Page',
 };
@@ -36,7 +44,7 @@ const Example = ({ count = 500, ...props }) => {
         count={count}
         onPageChange={onPageChange}
         onPerPageCountChange={onPerPageCountChange}
-        {...accessibilityProps}
+        {...defaultProps}
         {...props}
       />
     </XUIPanel>
@@ -57,12 +65,11 @@ const ControlledExample = ({ count = 200, ...props }) => {
     <XUIPanel>
       <XUIPagination
         count={count}
-        currentPage={page}
         onPageChange={setPage}
         onPerPageCountChange={onPerPageCountChange}
         page={page}
         perPageCount={perPageCount}
-        {...accessibilityProps}
+        {...defaultProps}
         {...props}
       />
     </XUIPanel>

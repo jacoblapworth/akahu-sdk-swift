@@ -284,6 +284,11 @@
             "content": "../src/react/pageheader.md"
           },
           {
+            "name": "Pagination",
+            "content": "../src/react/pagination.md",
+            "components": "../src/react/components/pagination/XUIPagination.js"
+          },
+          {
             "name": "Stepper",
             "content": "../src/react/stepper.md",
             "components": "../src/react/components/stepper/XUIStepper.js"

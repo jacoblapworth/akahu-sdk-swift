@@ -9,14 +9,14 @@ The `XUIPageHeader` appears beneath the global header on a page. In a basic exam
 #### Examples
 
 ```jsx harmony
-import { XUIPageHeader } from './pageheader';
+import { XUIPageHeader } from '@xero/xui/react/pageheader';
 
 <XUIPageHeader title="Account Settings" />;
 ```
 
 ```jsx harmony
-import { XUIPageHeader } from './pageheader';
-import Picklist, { Pickitem } from './picklist';
+import { XUIPageHeader } from '@xero/xui/react/pageheader';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
 
 const builtTabs = (
   <Picklist secondaryProps={{ role: 'menu' }}>
@@ -36,9 +36,9 @@ const builtTabs = (
 ```
 
 ```jsx harmony
-import { XUIPageHeader } from './pageheader';
-import XUIActions from './actions';
-import XUIButton from './button';
+import { XUIPageHeader } from '@xero/xui/react/pageheader';
+import XUIActions from '@xero/xui/react/actions';
+import XUIButton from '@xero/xui/react/button';
 
 const builtActions = (
   <XUIActions
@@ -59,11 +59,11 @@ const builtActions = (
 ```
 
 ```jsx harmony
-import { XUIPageHeader, XUIBreadcrumbTrail } from './pageheader';
-import XUIActions from './actions';
-import XUIButton from './button';
-import XUITag from './tag';
-import Picklist, { Pickitem } from './picklist';
+import { XUIPageHeader, XUIBreadcrumbTrail } from '@xero/xui/react/pageheader';
+import XUIActions from '@xero/xui/react/actions';
+import XUIButton from '@xero/xui/react/button';
+import XUITag from '@xero/xui/react/tag';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
 
 const builtActions = (
   <XUIActions

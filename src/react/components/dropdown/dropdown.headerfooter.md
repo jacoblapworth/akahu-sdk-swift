@@ -4,12 +4,16 @@ If you've included any actions in the header or footer, set the `closeOnTab` pro
 
 ```jsx harmony
 import { Component } from 'react';
-import DropDown, { DropDownToggled, DropDownHeader, DropDownFooter } from '../../dropdown';
-import XUITextInput, { XUITextInputSideElement } from '../../textinput';
-import Picklist, { Pickitem } from '../../picklist';
-import XUIButton, { XUIButtonCaret } from '../../button';
-import XUIIcon from '../../icon';
-import { isKeySpacebar } from '../../helpers/reactKeyHandler';
+import DropDown, {
+  DropDownToggled,
+  DropDownHeader,
+  DropDownFooter
+} from '@xero/xui/react/dropdown';
+import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
+import XUIIcon from '@xero/xui/react/icon';
+import { isKeySpacebar } from '@xero/xui/react/helpers/reactKeyHandler';
 import searchPath from '@xero/xui-icon/icons/search';
 import plusIcon from '@xero/xui-icon/icons/plus';
 

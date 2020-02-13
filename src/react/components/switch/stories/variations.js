@@ -86,7 +86,4 @@ const variations = [
   });
 });
 
-module.exports = {
-  storiesWithVariationsKindName,
-  variations,
-};
+export { storiesWithVariationsKindName, variations };

@@ -1,7 +1,7 @@
 // Sample lists for use in testing, both unit and visual.
 // Also a utility for converting lists into objects to use for PickItem generation.
 
-const LongListLongItems = [
+export const LongListLongItems = [
   "The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy, #1)",
   'Dune (Dune Chronicles #1)',
   'Twenty Thousand Leagues Under the Sea',
@@ -19,7 +19,7 @@ const LongListLongItems = [
   'The Metamorphosis, In the Penal Colony, and Other Stories: The Great Short Works of Franz Kafka',
 ];
 
-const MedListMedItems = [
+export const MedListMedItems = [
   'The Picture of Dorian Gray',
   'Wuthering Heights',
   'Hamlet',
@@ -32,14 +32,15 @@ const MedListMedItems = [
   'Romeo and Juliet',
 ];
 
-const ShortListShortItems = ['The Iliad', '1984', 'The Hobbit', 'Dracula', 'Emma', 'Macbeth'];
+export const ShortListShortItems = [
+  'The Iliad',
+  '1984',
+  'The Hobbit',
+  'Dracula',
+  'Emma',
+  'Macbeth',
+];
 
 // Commonly used for building PickItems.
-const AddIdPropsToTextList = stringList => stringList.map((text, id) => ({ props: { id }, text }));
-
-module.exports = {
-  LongListLongItems,
-  MedListMedItems,
-  ShortListShortItems,
-  AddIdPropsToTextList,
-};
+export const AddIdPropsToTextList = stringList =>
+  stringList.map((text, id) => ({ props: { id }, text }));

@@ -3,9 +3,9 @@ Although not a required child of `Picklist`s, `Pickitem`s are the standard wrapp
 `Pickitem`s support many kinds of content. `PicklistHeader` and `PicklistDivider` can be used as siblings of `Pickitem`s.
 
 ```jsx harmony
-import Picklist, { Pickitem, PicklistHeader, PicklistDivider } from '../../picklist';
-import XUIIcon from '../../icon';
-import XUIAvatar from '../../avatar';
+import Picklist, { Pickitem, PicklistHeader, PicklistDivider } from '@xero/xui/react/picklist';
+import XUIIcon from '@xero/xui/react/icon';
+import XUIAvatar from '@xero/xui/react/avatar';
 import search from '@xero/xui-icon/icons/search';
 
 <div>

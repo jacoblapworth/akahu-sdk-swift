@@ -124,7 +124,6 @@ describe('<StatefulPicklist /> Interactions', () => {
           </Pickitem>
         </Picklist>
       </StatefulPicklist>,
-      { attachTo: div },
     );
   });
 
@@ -137,26 +136,25 @@ describe('<StatefulPicklist /> Interactions', () => {
     [].forEach.call(items, item => expect(item.id).toBeDefined());
   });
 
-  /*
-	So, I've tried to get these working.  It seems the that React test utils doesn't like working with cloned element,
-	which is what we do inside the StatefulPicklist's render method.  I also tried manually dispatching events in the
-	DOM, but that didn't work.  Therefore, skipping....
+  it('highlights an option on mouseover', () => {
+    // Arrange
+    const item1 = wrapper.instance().findItemById('item1');
 
-	@dev-johnsanders 29 Nov 2016
-	 */
-  it.skip('highlights an option on mouseover', () => {
-    let item = wrapper.find('Pickitem').last();
-    item.simulate('mouseOver');
+    // Act
+    item1.props.onMouseOver();
 
-    expect(item.hasClass('xui-pickitem-is-hovered')).toBeTruthy();
-    expect(wrapper.state('highlightedElement').type).toEqual(Pickitem);
+    // Assert
+    expect(wrapper.state('highlightedElement')).toBe(item1);
   });
 
-  it.skip('calls the on click handler when an item is clicked on', () => {
-    const item = wrapper.find('Pickitem').last();
+  it('calls the on click handler when an item is clicked on', () => {
+    // Arrange
+    const item1 = wrapper.instance().findItemById('item1');
 
-    item.simulate('click');
+    // Act
+    item1.props.onClick();
 
-    expect(onClickHandlerMock.calls.length).toBeGreaterThan(0);
+    // Assert
+    expect(onClickHandlerMock).toBeCalled();
   });
 });

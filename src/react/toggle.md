@@ -13,7 +13,7 @@ Avoid partially disabled groups in which one of the disabled options is pre-sele
 Use the `type` prop on `XUIToggleOption`s to specify whether they should behave like checkboxes or like radios.
 
 ```jsx harmony
-import XUIToggle, { XUIToggleOption } from './toggle';
+import XUIToggle, { XUIToggleOption } from '@xero/xui/react/toggle';
 
 const noop = () => {};
 const checkboxToggle = {
@@ -64,7 +64,7 @@ const radioToggle = {
 To use a `XUIToggle` within an dark section, pass `"inverted"` to `XUIToggle`'s `color` prop.
 
 ```jsx harmony
-import XUIToggle, { XUIToggleOption } from './toggle';
+import XUIToggle, { XUIToggleOption } from '@xero/xui/react/toggle';
 import ExampleContainer from './docs/ExampleContainer';
 
 const noop = () => {};
@@ -93,7 +93,7 @@ const checkboxToggle = {
 To make your toggles smaller (same size as small buttons), pass `"small"` to `XUIToggle`'s `size` prop.
 
 ```jsx harmony
-import XUIToggle, { XUIToggleOption } from './toggle';
+import XUIToggle, { XUIToggleOption } from '@xero/xui/react/toggle';
 
 const noop = () => {};
 const radioToggle = {
@@ -125,8 +125,8 @@ When using `XUIToggle` with text content, it's recommended to use the `fullwidth
 You can also choose not to specify a layout, if the markup of your toggle content has more complicated requirements.
 
 ```jsx harmony
-import XUIToggle, { XUIToggleOption } from './toggle';
-import XUITextInput from './textinput';
+import XUIToggle, { XUIToggleOption } from '@xero/xui/react/toggle';
+import XUITextInput from '@xero/xui/react/textinput';
 
 const noop = () => {};
 const checkboxToggle = {

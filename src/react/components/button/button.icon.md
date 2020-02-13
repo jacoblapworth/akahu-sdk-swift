@@ -7,7 +7,7 @@ Inverted style will be applied when `isInverted` prop is passed.
 The `size` prop is used for the size classes of the iconButton, and the `iconSize` prop is used for the size classes of the icon.
 
 ```jsx harmony
-import { XUIIconButton } from '../../button';
+import { XUIIconButton } from '@xero/xui/react/button';
 import ExampleContainer from '../../docs/ExampleContainer';
 import overflowIcon from '@xero/xui-icon/icons/overflow';
 

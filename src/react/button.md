@@ -9,7 +9,7 @@ Whatever you put between the start and end tags of `XUIButton` will appear as th
 You can give `XUIButton` a click handler to perform actions when the button is triggered, either by clicking on it, or by pressing `space` or `enter` when it has focus.
 
 ```jsx harmony
-import XUIButton from './button';
+import XUIButton from '@xero/xui/react/button';
 
 function handleClick() {
   alert('You clicked the button!');
@@ -23,7 +23,7 @@ function handleClick() {
 Different styles of button are available by passing different values to the `variant` prop.
 
 ```jsx harmony
-import XUIButton from './button';
+import XUIButton from '@xero/xui/react/button';
 
 import ExampleContainer from './docs/ExampleContainer';
 
@@ -76,7 +76,7 @@ The `size` prop allows you to modify the default button size.
 **Note:** _Don’t vertically stack all variants of `small` and `xsmall` buttons due to poor touch interaction potential._
 
 ```jsx harmony
-import XUIButton from './button';
+import XUIButton from '@xero/xui/react/button';
 
 <div>
   <XUIButton>Medium</XUIButton>
@@ -94,7 +94,7 @@ You can make buttons span the width of their container by setting the `fullWidth
 `never` will never be a full-width button (this is the default).
 
 ```jsx harmony
-import XUIButton from './button';
+import XUIButton from '@xero/xui/react/button';
 
 <div>
   <div className="xui-margin-bottom">
@@ -115,7 +115,7 @@ import XUIButton from './button';
 You can programatically disable a button by setting the `isDisabled` prop to `true`. This will prevent interaction, including preventing it gaining focus.
 
 ```jsx harmony
-import XUIButton from './button';
+import XUIButton from '@xero/xui/react/button';
 
 <div>
   <XUIButton className="xui-margin-right" isDisabled>
@@ -139,7 +139,7 @@ The `minLoaderWidth` prop modifies the button by applying a 75px min width on it
 The supplied loader inherits the text color of the button component.
 
 ```jsx harmony
-import XUIButton from './button';
+import XUIButton from '@xero/xui/react/button';
 
 <div>
   <span className="xui-margin-right">

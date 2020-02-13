@@ -11,7 +11,7 @@ A set of components that brings in the XUI styles to render a list of items. `Pi
 ### Standard Picklist
 
 ```jsx harmony
-import Picklist, { Pickitem } from './picklist';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
 
 <Picklist secondaryProps={{ role: 'menu' }}>
   <Pickitem ariaRole="menuitem" id="plainpi1" isSelected>
@@ -39,7 +39,7 @@ In horizontal variant, you can use prop `swapAtBreakpoint` to define the swap br
 Try to resize: Click and drag the bottom right corner of the following container.
 
 ```jsx harmony
-import Picklist, { Pickitem } from './picklist';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
 
 const wrapperStyles = {
   resize: 'horizontal',

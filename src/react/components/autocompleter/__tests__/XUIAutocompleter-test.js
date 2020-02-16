@@ -11,7 +11,6 @@ import DropDownToggled from '../../dropdown/DropDownToggled';
 import DropDownLayout from '../../dropdown/DropDownLayout';
 import uuidv4 from 'uuid/v4';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
-import { timeout } from 'q';
 
 jest.mock('uuid/v4');
 uuidv4.mockImplementation(() => 'testAutocompleterId');

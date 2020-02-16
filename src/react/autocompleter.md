@@ -509,9 +509,7 @@ class SingleSelectExample extends Component {
 
 Custom key down behaviours can be applied by providing a callback function to the `onKeyDown` prop.
 
-To add behaviours to control the underlying `Dropdown` selection mechanism, you can do this by accessing the `Dropdown` and calling it's `selectHighlighted()` function.
-
-The example below demonstrates how this prop can be used to allow users to select a dropdown option by pressing the Tab key.
+Please note. If used, your callback function will be called after the pre-existing default onKeyDown behaviour.
 
 ```jsx harmony
 import { Component, PureComponent, Fragment } from 'react';
@@ -581,11 +579,10 @@ class CustomKeyDownExample extends Component {
     this.completer = React.createRef();
   }
 
-  // Custom onKeyDownHandler example where a dropdown selection can be done by pressing TAB.
+  // Custom onKeyDownHandler example where pressing e will fire a console log "You pressed e".
   onKeyDownHandler(event) {
-    if (event.keyCode === 9) {
-      event.preventDefault();
-      this.completer.current.dropdown.selectHighlighted();
+    if (event.keyCode === 69) {
+      console.log('You pressed e');
     }
   }
 
@@ -677,7 +674,7 @@ class CustomKeyDownExample extends Component {
         isInputLabelHidden
         ref={this.completer}
         onSearch={this.onSearchChangeHandler}
-        placeholder="This custom implementation allows you to select by pressing TAB"
+        placeholder="This custom implementation logs a special message when you press e"
         searchValue={value}
         onBackspacePill={this.deleteLastPerson}
         pills={this.renderPills(selectedPeopleIds)}

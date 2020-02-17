@@ -509,7 +509,7 @@ class SingleSelectExample extends Component {
 
 Custom key down behaviours can be applied by providing a callback function to the `onKeyDown` prop.
 
-Please note. If used, your callback function will be called after the pre-existing default onKeyDown behaviour.
+Please note. This prop is not intended to give users the ability to disable or amend the default onKeyDown behaviours. If a custom function is provided, this will be called after the relevant default onKeyDown behaviour.
 
 ```jsx harmony
 import { Component, PureComponent, Fragment } from 'react';

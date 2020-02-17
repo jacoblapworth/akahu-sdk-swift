@@ -1,0 +1,8 @@
+@import '../vars';
+
+.#{$ns}-editabletable {
+  background-color: $xui-panel-bg-color;
+  border: $xui-border-standard;
+  border-radius: $xui-radius;
+  padding: $xui-s-small;
+}

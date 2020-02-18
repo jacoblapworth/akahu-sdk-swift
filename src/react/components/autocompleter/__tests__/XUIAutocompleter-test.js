@@ -334,46 +334,108 @@ describe('XUIAutocompleter', () => {
     expect(onKeyDownMock).toHaveBeenCalled();
   });
 
-  it('should call provided custom onKeyDown callback, onSearch and flushDebounced method if enter is pressed', () => {
-    // Arrange
-    const onKeyDownMock = jest.fn();
-    const onSearchMock = jest.fn();
-    const wrapper = mount(createComponent({ onSearch: onSearchMock, onKeyDown: onKeyDownMock }));
-    const input = wrapper.find('input');
-    const flushDebouncedSpy = jest.spyOn(wrapper.instance(), 'flushDebounced');
-    wrapper.instance().openDropDown();
+  describe('when custom onKeyDown callback is provided', () => {
+    describe('when the enter key is pressed', () => {
+      it('should call the custom onKeyDown callback', () => {
+        // Arrange
+        const onKeyDownMock = jest.fn();
+        const onSearchMock = jest.fn();
+        const wrapper = mount(
+          createComponent({ onSearch: onSearchMock, onKeyDown: onKeyDownMock }),
+        );
+        const input = wrapper.find('input');
+        wrapper.instance().openDropDown();
 
-    // Act
-    input.simulate('change', { target: { value: 'item2' } });
-    input.simulate('keydown', { key: eventKeyValues.enter, keyCode: 13, which: 13 });
+        // Act
+        input.simulate('change', { target: { value: 'item2' } });
+        input.simulate('keydown', { key: eventKeyValues.enter, keyCode: 13, which: 13 });
 
-    // Assert
-    expect(onKeyDownMock).toHaveBeenCalled();
-    expect(onSearchMock).toHaveBeenCalled();
-    expect(flushDebouncedSpy).toHaveBeenCalled();
-  });
+        // Assert
+        expect(onKeyDownMock).toHaveBeenCalled();
+      });
 
-  it('should call provided custom onKeyDown callback and onBackspacePill method if backspace is pressed and pills are present in the autocompleter', () => {
-    // Arrange
-    const onKeyDownMock = jest.fn();
-    const onBackspacePillMock = jest.fn();
-    const wrapper = mount(
-      createComponent({
-        onSearch: jest.fn(),
-        onKeyDown: onKeyDownMock,
-        pills: <XUIPill value="ABC" />,
-        onBackspacePill: onBackspacePillMock,
-      }),
-    );
-    wrapper.instance().openDropDown();
+      it('should call the onSearch method', () => {
+        // Arrange
+        const onKeyDownMock = jest.fn();
+        const onSearchMock = jest.fn();
+        const wrapper = mount(
+          createComponent({ onSearch: onSearchMock, onKeyDown: onKeyDownMock }),
+        );
+        const input = wrapper.find('input');
+        wrapper.instance().openDropDown();
 
-    // Act
-    wrapper
-      .find('input')
-      .simulate('keydown', { key: eventKeyValues.backspace, keyCode: 8, which: 8 });
+        // Act
+        input.simulate('change', { target: { value: 'item2' } });
+        input.simulate('keydown', { key: eventKeyValues.enter, keyCode: 13, which: 13 });
 
-    // Assert
-    expect(onKeyDownMock).toHaveBeenCalled();
-    expect(onBackspacePillMock).toHaveBeenCalled();
+        // Assert
+        expect(onSearchMock).toHaveBeenCalled();
+      });
+
+      it('should call the flushDebounced method', () => {
+        // Arrange
+        const onKeyDownMock = jest.fn();
+        const onSearchMock = jest.fn();
+        const wrapper = mount(
+          createComponent({ onSearch: onSearchMock, onKeyDown: onKeyDownMock }),
+        );
+        const input = wrapper.find('input');
+        const flushDebouncedSpy = jest.spyOn(wrapper.instance(), 'flushDebounced');
+        wrapper.instance().openDropDown();
+
+        // Act
+        input.simulate('change', { target: { value: 'item2' } });
+        input.simulate('keydown', { key: eventKeyValues.enter, keyCode: 13, which: 13 });
+
+        // Assert
+        expect(flushDebouncedSpy).toHaveBeenCalled();
+      });
+    });
+
+    describe('when backspace is pressed', () => {
+      it('should call provided custom onKeyDown callback', () => {
+        // Arrange
+        const onKeyDownMock = jest.fn();
+        const onBackspacePillMock = jest.fn();
+        const wrapper = mount(
+          createComponent({
+            onSearch: jest.fn(),
+            onKeyDown: onKeyDownMock,
+            pills: <XUIPill value="ABC" />,
+            onBackspacePill: onBackspacePillMock,
+          }),
+        );
+
+        // Act
+        wrapper
+          .find('input')
+          .simulate('keydown', { key: eventKeyValues.backspace, keyCode: 8, which: 8 });
+
+        // Assert
+        expect(onKeyDownMock).toHaveBeenCalled();
+      });
+
+      it('should call onBackspacePill method if backspace is pressed and pills are present', () => {
+        // Arrange
+        const onKeyDownMock = jest.fn();
+        const onBackspacePillMock = jest.fn();
+        const wrapper = mount(
+          createComponent({
+            onSearch: jest.fn(),
+            onKeyDown: onKeyDownMock,
+            pills: <XUIPill value="ABC" />,
+            onBackspacePill: onBackspacePillMock,
+          }),
+        );
+
+        // Act
+        wrapper
+          .find('input')
+          .simulate('keydown', { key: eventKeyValues.backspace, keyCode: 8, which: 8 });
+
+        // Assert
+        expect(onKeyDownMock).toHaveBeenCalled();
+      });
+    });
   });
 });

@@ -391,6 +391,11 @@
             "components": "../src/react/components/contentblock/XUIContentBlock*.js"
           },
           {
+            "name": "Editable Table",
+            "content": "../src/react/editabletable.md",
+            "components": "../src/react/components/editabletable/XUIEditableTable.js"
+          },
+          {
             "name": "Overview Block",
             "content": "../src/react/overviewblock.md",
             "components": "../src/react/components/overviewblock/XUIOverview*.js"

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import XUIButton from '../../button.ts';
+import XUIButton from '../../button';
 import { ns } from '../helpers/xuiClassNamespace';
 
 export default function XUIBannerAction({ className, qaHook, onClick, href, isLink, children }) {

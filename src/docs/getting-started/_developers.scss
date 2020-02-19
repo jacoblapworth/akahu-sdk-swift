@@ -77,6 +77,25 @@
 //
 // Styleguide: Getting Started.Developing with XUI.1.3
 
+// Staying up-to-date with React
+//
+// Users upgrading to XUI 16 and React 16.9 and over will notice the console warnings similar to the following:
+//
+// ```Warning: componentWillReceiveProps has been renamed, and is not recommended for use. See https://fb.me/react-async-component-lifecycle-hooks for details.```
+//
+// This is part of the [React team's preparations to phase out certain lifecycle methods after React 17.x](https://reactjs.org/blog/2019/08/08/react-v16.9.0.html).
+//
+// The affected lifecycles include:
+// * `componentWillMount`
+//
+// * `componentWillReceiveProps`
+//
+// * `componentWillUpdate`
+//
+// If you come across this warning we strongly recommend that you address this as soon as possible and follow the [official React guidelines](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles) to migrate away from the unsafe lifecycles.
+//
+// Styleguide: Getting Started.Developing with XUI.1.4
+
 // Installing React components
 //
 // We use an internal artifactory server to host XUI Components. Make them available to NPM by adding the following to .npmrc in your project's root folder. More info on Confluence: [Consuming Xero NPM Modules](https://confluence.inside.xero.com/display/FED/Using+Artifactory).

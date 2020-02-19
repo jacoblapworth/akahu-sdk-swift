@@ -4,8 +4,8 @@ import cn from 'classnames';
 import XUILoader from '../loader/XUILoader';
 import {
   buttonTypes,
+  buttonVariants,
   sizeClassNames,
-  variantClassNames,
   textButtonVariants,
   widthClassNames,
 } from './private/constants';
@@ -32,7 +32,7 @@ const isBorderlessVariant = variant => variant.indexOf('borderless') > -1;
  * @return {string} The variant specific class name
  */
 const getVariantClass = variant =>
-  variantClassNames[variant] !== undefined ? variantClassNames[variant] : `${ns}-button-standard`;
+  buttonVariants[variant] !== undefined ? buttonVariants[variant] : `${ns}-button-standard`;
 
 /**
  * Replaces any href of `#` or undefined with an empty string. Else returns the passed href.
@@ -287,11 +287,11 @@ XUIButton.propTypes = {
   /** Bind a function to fire when the button is clicked */
   onClick: PropTypes.func,
 
-  /** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`, `link`,
-   * 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative',
-   * 'borderless-negative' or `unstyled`.
+  /** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`,
+   * `borderless-standard`, `borderless-primary`, `borderless-create`, `borderless-negative`,
+   * or `unstyled`.
    */
-  variant: PropTypes.oneOf(textButtonVariants),
+  variant: PropTypes.oneOf(Object.keys(textButtonVariants)),
 
   /**
    * Modifier for the size of the button. `medium`, `small`, or `xsmall`.

@@ -34,32 +34,55 @@ export const iconSizeClassNames = {
 
 /**
  * @public
- * Map of variants to class names
+ * Map of ‘solid’, non-icon button class names
  */
-export const variantClassNames = {
+export const standardVariantClassNames = {
   standard: `${baseClassName}-standard`,
   primary: `${baseClassName}-main`,
   create: `${baseClassName}-create`,
-  link: `${baseClassName}-borderless-main`,
   negative: `${baseClassName}-negative`,
+};
+
+/**
+ * @public
+ * Map of icon button class names
+ */
+export const iconVariantClassNames = {
+  icon: `${baseClassName}-icon`,
+  'icon-inverted': `${baseClassName}-icon ${baseClassName}-icon-inverted`,
+};
+
+/**
+ * @public
+ * Map of borderless button class names
+ */
+export const borderlessVariantClassNames = {
   'borderless-standard': `${baseClassName}-borderless-standard`,
   'borderless-primary': `${baseClassName}-borderless-main`,
   'borderless-create': `${baseClassName}-borderless-create`,
   'borderless-negative': `${baseClassName}-borderless-negative`,
   'borderless-inverted': `${baseClassName}-borderless-inverted`,
   'borderless-muted': `${baseClassName}-borderless-muted`,
-  icon: `${baseClassName}-icon`,
-  'icon-inverted': `${baseClassName}-icon ${baseClassName}-icon-inverted`,
+};
+
+/**
+ * @public
+ * Map of button variants excluding icon variants
+ */
+export const textButtonVariants = {
+  ...standardVariantClassNames,
+  ...borderlessVariantClassNames,
   unstyled: '',
 };
 
 /**
  * @public
- * Array of button variants excluding icon variants.
+ * Map of all button variants
  */
-export const textButtonVariants = Object.keys(variantClassNames).filter(
-  name => name.indexOf('icon') !== 0,
-);
+export const buttonVariants = {
+  ...textButtonVariants,
+  ...iconVariantClassNames,
+};
 
 /**
  * @public

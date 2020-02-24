@@ -103,6 +103,7 @@ Following props have been **removed** because they don't meet [XUI touch target 
 - `Picklist` added a prop `swapAtBreakpoint`, which defines the swap breakpoint (container width) between tab-styled dropdown and horizontal picklist.
 - `XUIBreadcrumbTrail` has a new prop `swapAtBreakpoint`, which defines the pageHeader width at which the component will condense early breadcrumb items into a dropdown. This behaviour is optional, and will not occur if no `swapAtBreakpoint` is supplied, or if the set of breadcrumbs is only one or two items.
 - `XUIAutocompleterSecondarySearch` requires previously optional `onSearch` function for every single use
+- `XUIRadio` and `XUICheckbox` now accepts `inputProps` object with attributes that will be set on the HTML input node.
 
 ### Internationalisation
 

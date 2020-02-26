@@ -190,17 +190,4 @@ describe('XUICheckbox', function() {
 
     expect(icon).toMatchSnapshot();
   });
-
-  it('should pass props to input node', function() {
-    const component = mount(
-      <XUICheckbox onChange={NOOP} value="2501" inputProps={{ autoComplete: 'on' }} />,
-    );
-
-    expect(
-      component
-        .find('input')
-        .getDOMNode()
-        .attributes.getNamedItem('autocomplete').value,
-    ).toEqual('on');
-  });
 });

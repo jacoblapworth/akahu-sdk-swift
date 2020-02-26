@@ -116,7 +116,6 @@ export default class XUIRadio extends PureComponent {
       validationMessage,
       hintMessage,
       size,
-      inputProps: radioInputProps,
     } = this.props;
 
     // Grouped inputs default to 'small'.
@@ -146,7 +145,6 @@ export default class XUIRadio extends PureComponent {
     );
 
     const inputProps = {
-      ...radioInputProps,
       type: 'radio',
       disabled: isDisabled,
       required: isRequired,
@@ -277,8 +275,6 @@ XUIRadio.propTypes = {
   hintMessage: PropTypes.node,
   /** Size variant. Defaults to medium */
   size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
-  /** Props to be spread onto the radio type of the input element itself */
-  inputProps: PropTypes.object,
 };
 
 XUIRadio.defaultProps = {

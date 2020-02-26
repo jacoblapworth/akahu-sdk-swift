@@ -64,18 +64,37 @@ module.exports = function(handlebars) {
 		return `ds-status--${stripped}`;
 	});
 
+  /**
+	* Checks an item is included inside the list (array).
+	*
+	* e.g
+	* {{#isInList item array}}
+	*	  EXECUTE IF IT APPEARS IN ARRAY
+	*	{{else}} [optional]
+	* 	EXECUTE IF IT DOES
+	* {{/isInList}}
+	*
+	*/
+  handlebars.registerHelper("isInList", function(list, elem, options) {
+    if (!list) return options.inverse(this);
+
+    const found = list.split(" ").includes(elem);
+
+    return found ? options.fn(this) : options.inverse(this);
+  });
+
  /**
 	* Checks an item isn't included inside the list (array).
 	*
 	* e.g
-	* {{#isNotIn item array}}
+	* {{#isNotInList item array}}
 	*	EXECUTE IF DOESN'T APPEAR IN ARRAY
 	*	{{else}} [optional]
 	* 	EXECUTE IF IT DOES
-	* {{/ifNotIn}}
+	* {{/isNotInList}}
 	*
 	*/
-	handlebars.registerHelper('ifNotInMenu', function(elem, menu, options) {
+	handlebars.registerHelper('isNotInList', function(elem, menu, options) {
 		var found = menu.find(function(menuItem){
 			return menuItem.header === elem;
 		});

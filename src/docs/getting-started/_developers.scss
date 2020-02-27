@@ -2,7 +2,7 @@
 //
 // Introduction: XUI provides CSS and React components. The best way to get started with XUI is to include the CSS via CDN and install the components via NPM.
 //
-// Weight: 1.1
+// Weight: 1.2
 //
 // Styleguide: Getting Started.Developing with XUI
 
@@ -172,29 +172,13 @@
 //
 // Styleguide: Getting Started.Developing with XUI.2.1
 
-// Extending XUI
+// Extending and contributing to XUI
 //
 // We would really like you to use XUI provided CSS and React components but if what you need isn't in the library we provide a couple of ways of extending XUI.
 //
-// 1. XUI exposes its variables and mixins and these can be brought into an application or component to gain access to values for colours, spacing and other properties.
-// 2. XUI React components can be used to compose new and interesting components that can be used inside an app and shared with your friends
-//
-// If you're planning on writing a component using our CSS, we recommend the following two files as your keys to building using our conventions and standards.
-//
-// |File|Description|
-// |:--|:--|
-// |/src/sass/_vars.scss|You'll be able to access all of XUI's variables we use throughout the XUI css system including colours, spacing, borders and typography|
-// |/src/sass/_mixins.scss|Mixins are used reasonably heavily to template features of the components we build, from buttons to our responsive breakpoint system, you'll find what you need here|
+// Get more understanding of our process of [extending XUI](./section-contributing-to-xui.html) and how to contribute.
 //
 // Styleguide: Getting Started.Developing with XUI.3
-
-// Contributing
-//
-// We would love your help. XUI is structured to work like an inner source project with the core team providing ongoing ownership and support. We have a quarterly release cycle and the core team progress a themed project each quarter and manage the backlog of ad hoc requests.
-//
-// We encourage you to join the discussions on issues and pull requests. As the core of XUI evolves we are putting in support structures to make it easier to contribute. [CONTRIBUTING.md](https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md) will always contain the detailed information around the process to contribute to the project.
-//
-// Styleguide: Getting Started.Developing with XUI.4
 
 // Advanced usage
 //
@@ -241,4 +225,4 @@
 //
 // Now, instead of `xui-button`, you'll have `zooey-button`, and that same class name will be used by the `<XUIButton />` component.
 //
-// Styleguide: Getting Started.Developing with XUI.5
+// Styleguide: Getting Started.Developing with XUI.4

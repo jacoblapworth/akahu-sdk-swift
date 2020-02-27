@@ -17,7 +17,7 @@
 // Warning: Avoid using Summary container to house actions, instead consider using Master Detail
 // Warning: Avoid having actions above the Summary area that affect what is viewed in the Detail area
 // Dont: Don’t use the Summary container to house dense, long form content
-// Dont: Don’t use Compositions in conjuction with $xui-max-page-width
+// Dont: Don’t use Compositions in conjunction with $xui-max-page-width
 //
 // Weight: 4.3
 //
@@ -103,8 +103,8 @@
 // Tips:
 // Do: Use to set XUI defined, standard spacing between containers
 // Do: Use when each container's content spans the containers full width
-// Do: Consider using in conjuction with the xui-composition-has-auto-space-around class which adds $xui-s-large spacing around the outside of the composition
-// Dont: Don't use in conjuction with custom spacing around content within containers
+// Do: Consider using in conjunction with the xui-composition-has-auto-space-around class which adds $xui-s-large spacing around the outside of the composition
+// Dont: Don't use in conjunction with custom spacing around content within containers
 //
 // Classes:
 // xui-composition-grid-gap: Applies standard spacing between composition containers

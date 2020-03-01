@@ -22,6 +22,10 @@ interface Props {
    */
   iconMain?: XUIIconData;
   /**
+   * Props to be spread onto the checkbox type of the input element itself
+   */
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
+  /**
    * The input is selected.
    */
   isChecked?: boolean;

@@ -22,7 +22,7 @@ const items = [
 const BasicAccordionDemo = () => (
   <XUIAccordion toggleLabel="Toggle" emptyMessage="Nothing available to show">
     {items.map(({ id, name, content }) => (
-      <XUIAccordionItem key={id} primaryHeading={name} toggleLabel="Toggle">
+      <XUIAccordionItem key={id} primaryHeading={name}>
         {content && <div className="xui-padding-large">{content}</div>}
       </XUIAccordionItem>
     ))}

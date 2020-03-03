@@ -638,12 +638,10 @@ $icon-colours: (
   file-spreadsheet: $xui-color-file-spreadsheet,
   file-pdf: $xui-color-file-pdf,
 );
-// @tokenparserendignore
 
 // Drag and drop
 $xui-dropzone-border-color: $xui-color-grey-5;
-
 $xui-dropzone-active-background-color: mix($xui-color-yellow, transparent, 10%);
 $xui-dropzone-active-border-color: $xui-color-yellow;
-
 $xui-dropzone-panel-background-color: $xui-color-yellow-light;
+// @tokenparserendignore

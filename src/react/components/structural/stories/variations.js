@@ -13,7 +13,4 @@ const variations = Object.keys(rowVariants).map(variant => ({
   type: 'row',
 }));
 
-module.exports = {
-  storiesWithVariationsKindName,
-  variations,
-};
+export { storiesWithVariationsKindName, variations };

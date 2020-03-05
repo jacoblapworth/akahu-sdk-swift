@@ -123,7 +123,6 @@ function pushBlockVariation(settings) {
   });
 }
 
-module.exports = {
-  storiesWithVariationsKindName,
-  variations: [...blockVariations, ...realVariations],
-};
+const variations = [...blockVariations, ...realVariations];
+
+export { storiesWithVariationsKindName, variations };

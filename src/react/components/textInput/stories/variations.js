@@ -269,15 +269,14 @@ const inputAlignmentStories = [
   },
 ];
 
-module.exports = {
-  storiesWithVariationsKindName,
-  variations: [
-    ...styleVariantStories,
-    ...labelAndValidationStories,
-    ...sideElementVariantStories,
-    ...bothSideElementsWithSizes,
-    ...multilineStories,
-    ...responsiveStories,
-    ...inputAlignmentStories,
-  ],
-};
+const variations = [
+  ...styleVariantStories,
+  ...labelAndValidationStories,
+  ...sideElementVariantStories,
+  ...bothSideElementsWithSizes,
+  ...multilineStories,
+  ...responsiveStories,
+  ...inputAlignmentStories,
+];
+
+export { storiesWithVariationsKindName, variations };

@@ -57,11 +57,11 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: `without layout`,
     hasLayout: false,
-    sections: [{ label: 'hello', value: 'there' }, { label: 'there', value: 'you go' }],
+    sections: [
+      { label: 'hello', value: 'there' },
+      { label: 'there', value: 'you go' },
+    ],
   },
 ];
 
-module.exports = {
-  storiesWithVariationsKindName,
-  variations,
-};
+export { storiesWithVariationsKindName, variations };

@@ -376,10 +376,10 @@ export default class DropDownToggled extends PureComponent {
 		*/
     if (
       !isHidden &&
-      ((dropdown == null ||
+      (dropdown == null ||
         !dropdown.contains(event.target) ||
         event.target.classList.contains(`${baseClass}--mask`)) &&
-        (trigger == null || !trigger.contains(event.target)))
+      (trigger == null || !trigger.contains(event.target))
     ) {
       this.closeDropDown();
     }
@@ -481,10 +481,7 @@ export default class DropDownToggled extends PureComponent {
   handleOnClick = event => {
     const { props, triggerClickHandler } = this;
     const { onClick } = props.trigger.props;
-    const handler = compose(
-      onClick,
-      triggerClickHandler,
-    );
+    const handler = compose(onClick, triggerClickHandler);
 
     handler(event);
   };
@@ -492,11 +489,7 @@ export default class DropDownToggled extends PureComponent {
   handleOnKeyDown = event => {
     const { props, onTriggerKeyDown, spacebarKeyHandler } = this;
     const { onKeyDown } = props.trigger.props;
-    const handler = compose(
-      onKeyDown,
-      onTriggerKeyDown,
-      spacebarKeyHandler,
-    );
+    const handler = compose(onKeyDown, onTriggerKeyDown, spacebarKeyHandler);
 
     handler(event);
   };
@@ -504,10 +497,7 @@ export default class DropDownToggled extends PureComponent {
   handleOnKeyUp = event => {
     const { props, onTriggerKeyUp } = this;
     const { onKeyUp } = props.trigger.props;
-    const handler = compose(
-      onKeyUp,
-      onTriggerKeyUp,
-    );
+    const handler = compose(onKeyUp, onTriggerKeyUp);
 
     handler(event);
   };
@@ -531,10 +521,7 @@ export default class DropDownToggled extends PureComponent {
     const { isOpening, isClosing, isHidden, activeDescendant } = this.state;
 
     const clonedTrigger = React.cloneElement(trigger, {
-      ref: compose(
-        trigger.ref,
-        c => (this.trigger = c),
-      ),
+      ref: compose(trigger.ref, c => (this.trigger = c)),
       onClick: this.handleOnClick,
       onKeyDown: this.handleOnKeyDown,
       onKeyUp: this.handleOnKeyUp,
@@ -550,30 +537,12 @@ export default class DropDownToggled extends PureComponent {
       animateOpen: isOpening,
       animateClosed: isClosing,
       // TODO: Memoize these props to avoid recreating functions
-      ref: compose(
-        dropdown.ref,
-        c => (this.dropdown = c),
-      ),
-      onSelect: compose(
-        dropdown.props.onSelect,
-        this.onSelect,
-      ),
-      onHighlightChange: compose(
-        dropdown.props.onHighlightChange,
-        this.onHighlightChange,
-      ),
-      onCloseAnimationEnd: compose(
-        dropdown.onCloseAnimationEnd,
-        this.onCloseAnimationEnd,
-      ),
-      onOpenAnimationEnd: compose(
-        dropdown.onOpenAnimationEnd,
-        this.onOpenAnimationEnd,
-      ),
-      onKeyDown: compose(
-        dropdown.props.onKeyDown,
-        this.onDropDownKeyDown,
-      ),
+      ref: compose(dropdown.ref, c => (this.dropdown = c)),
+      onSelect: compose(dropdown.props.onSelect, this.onSelect),
+      onHighlightChange: compose(dropdown.props.onHighlightChange, this.onHighlightChange),
+      onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, this.onCloseAnimationEnd),
+      onOpenAnimationEnd: compose(dropdown.onOpenAnimationEnd, this.onOpenAnimationEnd),
+      onKeyDown: compose(dropdown.props.onKeyDown, this.onDropDownKeyDown),
       className: dropdown.props.className,
     });
 

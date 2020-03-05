@@ -3,7 +3,7 @@ Switches can be grouped together, making it easier to include them alongside inp
 The touch target for Switches in a group is the entire "row" of the Switch Group.
 
 ```jsx harmony
-import XUISwitch, { XUISwitchGroup } from '../../switch';
+import XUISwitch, { XUISwitchGroup } from '@xero/xui/react/switch';
 
 <XUISwitchGroup hintMessage="Grouped switches can have hints">
   <XUISwitch>Switch it up</XUISwitch>
@@ -11,7 +11,7 @@ import XUISwitch, { XUISwitchGroup } from '../../switch';
 ```
 
 ```jsx harmony
-import XUISwitch, { XUISwitchGroup } from '../../switch';
+import XUISwitch, { XUISwitchGroup } from '@xero/xui/react/switch';
 
 <XUISwitchGroup
   label="Birds of New Zealand"

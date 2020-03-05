@@ -144,8 +144,4 @@ const variations = [
   },
 ];
 
-module.exports = {
-  storiesWithVariationsKindName,
-  variations,
-  NOOP,
-};
+export { storiesWithVariationsKindName, variations, NOOP };

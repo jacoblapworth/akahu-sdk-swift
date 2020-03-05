@@ -9,9 +9,9 @@ The master detail summary composition is useful for a layout that requires a lis
 import { PureComponent } from 'react';
 import overflowIcon from '@xero/xui-icon/icons/overflow';
 
-import { XUICompositionMasterDetailSummary } from '../../compositions';
-import { XUIIconButton } from '../../button';
-import DropDown, { DropDownToggled } from '../../dropdown';
+import { XUICompositionMasterDetailSummary } from '@xero/xui/react/compositions';
+import { XUIIconButton } from '@xero/xui/react/button';
+import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 
 const masterContent = <div style={{ background: '#5A5AE6', height: '100px', width: '100%' }}></div>;
 const summaryContent = (
@@ -45,9 +45,9 @@ class DetailContent extends PureComponent {
 import { PureComponent } from 'react';
 import overflowIcon from '@xero/xui-icon/icons/overflow';
 
-import { XUICompositionMasterDetailSummaryHeader } from '../../compositions';
-import { XUIIconButton } from '../../button';
-import DropDown, { DropDownToggled } from '../../dropdown';
+import { XUICompositionMasterDetailSummaryHeader } from '@xero/xui/react/compositions';
+import { XUIIconButton } from '@xero/xui/react/button';
+import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 
 const headerContent = <div style={{ background: '#B446C8', height: '60px' }}></div>;
 const masterContent = <div style={{ background: '#5A5AE6', height: '100px', width: '100%' }}></div>;

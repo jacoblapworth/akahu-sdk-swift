@@ -238,10 +238,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
           forceDesktop={forceDesktop}
           isBlock={isBlock}
           matchTriggerWidth={matchTriggerWidth}
-          onClose={compose(
-            onClose,
-            this.clearValue,
-          )}
+          onClose={compose(onClose, this.clearValue)}
           onOpen={this.onOpen}
           ref={c => (this.ddt = c)}
           trigger={trigger}

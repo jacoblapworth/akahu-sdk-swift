@@ -1,9 +1,10 @@
 import React from 'react';
-import Enzyme from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIAccordion from '../XUIAccordion';
 import XUIAccordionItem from '../XUIAccordionItem';
+import uuid from 'uuid/v4';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -93,5 +94,26 @@ describe('<XUIAccordion />', () => {
     );
 
     expect(component).toMatchSnapshot();
+  });
+
+  it('should render only one item open by default', () => {
+    // Multiple XUIAccordionItems can't have the same id because it will render all of them as open.
+    uuid
+      .mockReturnValue('abc')
+      .mockReturnValueOnce('001')
+      .mockReturnValueOnce('002');
+
+    const component = mount(
+      <XUIAccordion
+        emptyStateComponent={<div>Custom empty state component</div>}
+        toggleLabel="Toggle"
+      >
+        <XUIAccordionItem isOpen primaryHeading="One" />
+        <XUIAccordionItem isOpen primaryHeading="Two" />
+        <XUIAccordionItem primaryHeading="Three" />
+      </XUIAccordion>,
+    );
+
+    expect(component.find('.xui-accordionwrapper--content-is-open').length).toBe(1);
   });
 });

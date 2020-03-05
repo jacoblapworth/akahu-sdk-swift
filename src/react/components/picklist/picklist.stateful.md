@@ -28,7 +28,7 @@ In most cases you would be able to use a wrapper around the `StatefulPicklist`, 
 A thin wrapper around the `StatefulPicklist` to demonstrate the bare minimum to build a working component.
 
 ```jsx harmony
-import Picklist, { StatefulPicklist, Pickitem } from '../../picklist';
+import Picklist, { StatefulPicklist, Pickitem } from '@xero/xui/react/picklist';
 
 class BasicStatefulPicklist extends React.Component {
   constructor(...args) {
@@ -82,7 +82,7 @@ class BasicStatefulPicklist extends React.Component {
 ```
 
 ```jsx harmony
-import Picklist, { StatefulPicklist, Pickitem } from '../../picklist';
+import Picklist, { StatefulPicklist, Pickitem } from '@xero/xui/react/picklist';
 
 class BasicHorizontalStatefulPicklist extends React.Component {
   constructor(...args) {

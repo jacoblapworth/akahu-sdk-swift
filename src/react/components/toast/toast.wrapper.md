@@ -8,8 +8,8 @@ Make sure to give users enough time to trigger toast actions via keyboard naviga
 
 ```js
 import { PureComponent } from 'react';
-import XUIToast, { XUIToastWrapper, XUIToastMessage } from '../../toast';
-import XUIButton from '../../button';
+import XUIToast, { XUIToastWrapper, XUIToastMessage } from '@xero/xui/react/toast';
+import XUIButton from '@xero/xui/react/button';
 
 const TOAST_TIMEOUT = 10000;
 const MAX_TOASTS = 2;

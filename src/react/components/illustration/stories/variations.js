@@ -4,7 +4,7 @@ const { sizeClasses } = require('../private/constants');
 
 const storiesWithVariationsKindName = 'Instances/XUIIllustration';
 
-const variations = [
+const storyVariations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'custom height',
@@ -31,7 +31,6 @@ const sizeVariations = Object.keys(sizeClasses).map(size => ({
   size,
 }));
 
-module.exports = {
-  storiesWithVariationsKindName,
-  variations: [...sizeVariations, ...variations],
-};
+const variations = [...sizeVariations, ...storyVariations];
+
+export { storiesWithVariationsKindName, variations };

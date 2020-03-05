@@ -22,7 +22,7 @@ function createEntryPoint() {
         .filter(
           file =>
             fs.statSync(file).isFile() &&
-            path.extname(file) === '.js' &&
+            path.extname(file).match(/.(j|t)s/g) &&
             path.basename(file) !== 'umd.js',
         )
         .forEach(file => {

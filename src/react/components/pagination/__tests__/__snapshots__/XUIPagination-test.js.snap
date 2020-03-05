@@ -1,0 +1,1139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIPagination/> renders basic example 1`] = `
+<nav
+  aria-label="Pagination"
+  className="xui-pagination"
+>
+  <div
+    className="xui-pagination--items"
+  >
+    <div
+      className="xui-pagination--items--select"
+    >
+      Items per page
+      <div>
+        <div
+          className=""
+        >
+          <div
+            className="xui-select-layout"
+            data-automationid={null}
+          >
+            <div
+              data-automationid={null}
+              data-ref="toggled-wrapper"
+              role="presentation"
+            >
+              <button
+                aria-activedescendant={null}
+                aria-haspopup="listbox"
+                className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+                data-automationid={null}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                tabIndex={0}
+                type="button"
+              >
+                <span
+                  className="xui-select--content"
+                >
+                  10
+                </span>
+                <svg
+                  className="xui-icon xui-select--caret xui-button--caret"
+                  data-automationid={null}
+                  focusable="false"
+                  height={5}
+                  viewBox="0 0 10 5"
+                  width={10}
+                >
+                  <path
+                    d="M0 0l5 5 5-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="xui-pagination--items--count"
+    >
+      Showing items 1-10 of 97
+    </div>
+  </div>
+  <div
+    className="xui-pagination--paging"
+  >
+    <button
+      aria-label="Previous Page"
+      className="xui-button xui-button-icon-small xui-button-icon xui-button-is-disabled"
+      disabled={true}
+      onClick={[Function]}
+      onKeyDown={null}
+      tabIndex={-1}
+      type="button"
+    >
+      <svg
+        className="xui-icon"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
+    <div>
+      <div
+        className=""
+      >
+        <div
+          className="xui-select-layout"
+          data-automationid={null}
+        >
+          <div
+            data-automationid={null}
+            data-ref="toggled-wrapper"
+            role="presentation"
+          >
+            <button
+              aria-activedescendant={null}
+              aria-haspopup="listbox"
+              className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+              data-automationid={null}
+              disabled={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="xui-select--content"
+              >
+                Page 1 of 10
+              </span>
+              <svg
+                className="xui-icon xui-select--caret xui-button--caret"
+                data-automationid={null}
+                focusable="false"
+                height={5}
+                viewBox="0 0 10 5"
+                width={10}
+              >
+                <path
+                  d="M0 0l5 5 5-5z"
+                  role="presentation"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      aria-label="Next Page"
+      className="xui-button xui-button-icon-small xui-button-icon"
+      disabled={false}
+      onClick={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-icon-rotate-180"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
+  </div>
+</nav>
+`;
+
+exports[`<XUIPagination/> should only render Paging 1`] = `
+<nav
+  aria-label="Pagination"
+  className="xui-pagination"
+>
+  <div
+    className="xui-pagination--paging"
+  >
+    <button
+      aria-label="Previous Page"
+      className="xui-button xui-button-icon-small xui-button-icon xui-button-is-disabled"
+      disabled={true}
+      onClick={[Function]}
+      onKeyDown={null}
+      tabIndex={-1}
+      type="button"
+    >
+      <svg
+        className="xui-icon"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
+    <div>
+      <div
+        className=""
+      >
+        <div
+          className="xui-select-layout"
+          data-automationid={null}
+        >
+          <div
+            data-automationid={null}
+            data-ref="toggled-wrapper"
+            role="presentation"
+          >
+            <button
+              aria-activedescendant={null}
+              aria-haspopup="listbox"
+              className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+              data-automationid={null}
+              disabled={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="xui-select--content"
+              >
+                Page 1 of 10
+              </span>
+              <svg
+                className="xui-icon xui-select--caret xui-button--caret"
+                data-automationid={null}
+                focusable="false"
+                height={5}
+                viewBox="0 0 10 5"
+                width={10}
+              >
+                <path
+                  d="M0 0l5 5 5-5z"
+                  role="presentation"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      aria-label="Next Page"
+      className="xui-button xui-button-icon-small xui-button-icon"
+      disabled={false}
+      onClick={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-icon-rotate-180"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
+  </div>
+</nav>
+`;
+
+exports[`<XUIPagination/> should render a custom class 1`] = `
+<nav
+  aria-label="Pagination"
+  className="custom-class xui-pagination"
+>
+  <div
+    className="xui-pagination--items"
+  >
+    <div
+      className="xui-pagination--items--select"
+    >
+      Items per page
+      <div>
+        <div
+          className=""
+        >
+          <div
+            className="xui-select-layout"
+            data-automationid={null}
+          >
+            <div
+              data-automationid={null}
+              data-ref="toggled-wrapper"
+              role="presentation"
+            >
+              <button
+                aria-activedescendant={null}
+                aria-haspopup="listbox"
+                className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+                data-automationid={null}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                tabIndex={0}
+                type="button"
+              >
+                <span
+                  className="xui-select--content"
+                >
+                  10
+                </span>
+                <svg
+                  className="xui-icon xui-select--caret xui-button--caret"
+                  data-automationid={null}
+                  focusable="false"
+                  height={5}
+                  viewBox="0 0 10 5"
+                  width={10}
+                >
+                  <path
+                    d="M0 0l5 5 5-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="xui-pagination--items--count"
+    >
+      Showing items 1-10 of 97
+    </div>
+  </div>
+  <div
+    className="xui-pagination--paging"
+  >
+    <button
+      aria-label="Previous Page"
+      className="xui-button xui-button-icon-small xui-button-icon xui-button-is-disabled"
+      disabled={true}
+      onClick={[Function]}
+      onKeyDown={null}
+      tabIndex={-1}
+      type="button"
+    >
+      <svg
+        className="xui-icon"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
+    <div>
+      <div
+        className=""
+      >
+        <div
+          className="xui-select-layout"
+          data-automationid={null}
+        >
+          <div
+            data-automationid={null}
+            data-ref="toggled-wrapper"
+            role="presentation"
+          >
+            <button
+              aria-activedescendant={null}
+              aria-haspopup="listbox"
+              className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+              data-automationid={null}
+              disabled={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="xui-select--content"
+              >
+                Page 1 of 10
+              </span>
+              <svg
+                className="xui-icon xui-select--caret xui-button--caret"
+                data-automationid={null}
+                focusable="false"
+                height={5}
+                viewBox="0 0 10 5"
+                width={10}
+              >
+                <path
+                  d="M0 0l5 5 5-5z"
+                  role="presentation"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      aria-label="Next Page"
+      className="xui-button xui-button-icon-small xui-button-icon"
+      disabled={false}
+      onClick={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-icon-rotate-180"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
+  </div>
+</nav>
+`;
+
+exports[`<XUIPagination/> should render an automation id when a qahook is passed 1`] = `
+<nav
+  aria-label="Pagination"
+  className="xui-pagination"
+  data-automationid="pagination-test"
+>
+  <div
+    className="xui-pagination--items"
+  >
+    <div
+      className="xui-pagination--items--select"
+      data-automationid="pagination-test-select"
+    >
+      Items per page
+      <div>
+        <div
+          className=""
+        >
+          <div
+            className="xui-select-layout"
+            data-automationid={null}
+          >
+            <div
+              data-automationid={null}
+              data-ref="toggled-wrapper"
+              role="presentation"
+            >
+              <button
+                aria-activedescendant={null}
+                aria-haspopup="listbox"
+                className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+                data-automationid={null}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                tabIndex={0}
+                type="button"
+              >
+                <span
+                  className="xui-select--content"
+                >
+                  10
+                </span>
+                <svg
+                  className="xui-icon xui-select--caret xui-button--caret"
+                  data-automationid={null}
+                  focusable="false"
+                  height={5}
+                  viewBox="0 0 10 5"
+                  width={10}
+                >
+                  <path
+                    d="M0 0l5 5 5-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="xui-pagination--items--count"
+      data-automationid="pagination-test-count"
+    >
+      Showing items 1-10 of 97
+    </div>
+  </div>
+  <div
+    className="xui-pagination--paging"
+    data-automationid="pagination-test-paging"
+  >
+    <button
+      aria-label="Previous Page"
+      className="xui-button xui-button-icon-small xui-button-icon xui-button-is-disabled"
+      disabled={true}
+      onClick={[Function]}
+      onKeyDown={null}
+      tabIndex={-1}
+      type="button"
+    >
+      <svg
+        className="xui-icon"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
+    <div>
+      <div
+        className=""
+      >
+        <div
+          className="xui-select-layout"
+          data-automationid={null}
+        >
+          <div
+            data-automationid={null}
+            data-ref="toggled-wrapper"
+            role="presentation"
+          >
+            <button
+              aria-activedescendant={null}
+              aria-haspopup="listbox"
+              className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+              data-automationid={null}
+              disabled={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="xui-select--content"
+              >
+                Page 1 of 10
+              </span>
+              <svg
+                className="xui-icon xui-select--caret xui-button--caret"
+                data-automationid={null}
+                focusable="false"
+                height={5}
+                viewBox="0 0 10 5"
+                width={10}
+              >
+                <path
+                  d="M0 0l5 5 5-5z"
+                  role="presentation"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      aria-label="Next Page"
+      className="xui-button xui-button-icon-small xui-button-icon"
+      disabled={false}
+      onClick={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-icon-rotate-180"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
+  </div>
+</nav>
+`;
+
+exports[`<XUIPagination/> should render customized contents 1`] = `
+<nav
+  aria-label="Pagination"
+  className="xui-pagination"
+>
+  <div
+    className="xui-pagination--items"
+  >
+    <div
+      className="xui-pagination--items--select"
+    >
+      Test per page
+      <div>
+        <div
+          className=""
+        >
+          <div
+            className="xui-select-layout"
+            data-automationid={null}
+          >
+            <div
+              data-automationid={null}
+              data-ref="toggled-wrapper"
+              role="presentation"
+            >
+              <button
+                aria-activedescendant={null}
+                aria-haspopup="listbox"
+                className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+                data-automationid={null}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                tabIndex={0}
+                type="button"
+              >
+                <span
+                  className="xui-select--content"
+                >
+                  10
+                </span>
+                <svg
+                  className="xui-icon xui-select--caret xui-button--caret"
+                  data-automationid={null}
+                  focusable="false"
+                  height={5}
+                  viewBox="0 0 10 5"
+                  width={10}
+                >
+                  <path
+                    d="M0 0l5 5 5-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="xui-pagination--items--count"
+    >
+      Count 1 test 10 enhanced 97
+    </div>
+  </div>
+  <div
+    className="xui-pagination--paging"
+  >
+    <button
+      aria-label="Previous Page"
+      className="xui-button xui-button-icon-small xui-button-icon xui-button-is-disabled"
+      disabled={true}
+      onClick={[Function]}
+      onKeyDown={null}
+      tabIndex={-1}
+      type="button"
+    >
+      <svg
+        className="xui-icon"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
+    <div>
+      <div
+        className=""
+      >
+        <div
+          className="xui-select-layout"
+          data-automationid={null}
+        >
+          <div
+            data-automationid={null}
+            data-ref="toggled-wrapper"
+            role="presentation"
+          >
+            <button
+              aria-activedescendant={null}
+              aria-haspopup="listbox"
+              className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+              data-automationid={null}
+              disabled={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="xui-select--content"
+              >
+                Paging 1 test 10 enhanced
+              </span>
+              <svg
+                className="xui-icon xui-select--caret xui-button--caret"
+                data-automationid={null}
+                focusable="false"
+                height={5}
+                viewBox="0 0 10 5"
+                width={10}
+              >
+                <path
+                  d="M0 0l5 5 5-5z"
+                  role="presentation"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      aria-label="Next Page"
+      className="xui-button xui-button-icon-small xui-button-icon"
+      disabled={false}
+      onClick={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-icon-rotate-180"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
+  </div>
+</nav>
+`;
+
+exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
+<nav
+  aria-label="Pagination"
+  className="xui-pagination"
+>
+  <div
+    className="xui-pagination--items"
+  >
+    <div
+      className="xui-pagination--items--select"
+    >
+      Items per page
+      <div>
+        <div
+          className=""
+        >
+          <div
+            className="xui-select-layout"
+            data-automationid={null}
+          >
+            <div
+              data-automationid={null}
+              data-ref="toggled-wrapper"
+              role="presentation"
+            >
+              <button
+                aria-activedescendant={null}
+                aria-haspopup="listbox"
+                className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+                data-automationid={null}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                tabIndex={0}
+                type="button"
+              >
+                <span
+                  className="xui-select--content"
+                >
+                  10
+                </span>
+                <svg
+                  className="xui-icon xui-select--caret xui-button--caret"
+                  data-automationid={null}
+                  focusable="false"
+                  height={5}
+                  viewBox="0 0 10 5"
+                  width={10}
+                >
+                  <path
+                    d="M0 0l5 5 5-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="xui-pagination--items--count"
+    >
+      Showing items 41-50 of 97
+    </div>
+  </div>
+  <div
+    className="xui-pagination--paging"
+  >
+    <button
+      aria-label="Previous Page"
+      className="xui-button xui-button-icon-small xui-button-icon"
+      disabled={false}
+      onClick={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <svg
+        className="xui-icon"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
+    <div>
+      <div
+        className=""
+      >
+        <div
+          className="xui-select-layout"
+          data-automationid={null}
+        >
+          <div
+            data-automationid={null}
+            data-ref="toggled-wrapper"
+            role="presentation"
+          >
+            <button
+              aria-activedescendant={null}
+              aria-haspopup="listbox"
+              className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+              data-automationid={null}
+              disabled={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="xui-select--content"
+              >
+                Page 5 of 10
+              </span>
+              <svg
+                className="xui-icon xui-select--caret xui-button--caret"
+                data-automationid={null}
+                focusable="false"
+                height={5}
+                viewBox="0 0 10 5"
+                width={10}
+              >
+                <path
+                  d="M0 0l5 5 5-5z"
+                  role="presentation"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      aria-label="Next Page"
+      className="xui-button xui-button-icon-small xui-button-icon"
+      disabled={false}
+      onClick={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-icon-rotate-180"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
+  </div>
+</nav>
+`;
+
+exports[`<XUIPagination/> should render with customized defaultPage 2`] = `
+<nav
+  aria-label="Pagination"
+  className="xui-pagination"
+>
+  <div
+    className="xui-pagination--items"
+  >
+    <div
+      className="xui-pagination--items--select"
+    >
+      Items per page
+      <div>
+        <div
+          className=""
+        >
+          <div
+            className="xui-select-layout"
+            data-automationid={null}
+          >
+            <div
+              data-automationid={null}
+              data-ref="toggled-wrapper"
+              role="presentation"
+            >
+              <button
+                aria-activedescendant={null}
+                aria-haspopup="listbox"
+                className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+                data-automationid={null}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                tabIndex={0}
+                type="button"
+              >
+                <span
+                  className="xui-select--content"
+                >
+                  25
+                </span>
+                <svg
+                  className="xui-icon xui-select--caret xui-button--caret"
+                  data-automationid={null}
+                  focusable="false"
+                  height={5}
+                  viewBox="0 0 10 5"
+                  width={10}
+                >
+                  <path
+                    d="M0 0l5 5 5-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="xui-pagination--items--count"
+    >
+      Showing items 1-25 of 97
+    </div>
+  </div>
+  <div
+    className="xui-pagination--paging"
+  >
+    <button
+      aria-label="Previous Page"
+      className="xui-button xui-button-icon-small xui-button-icon xui-button-is-disabled"
+      disabled={true}
+      onClick={[Function]}
+      onKeyDown={null}
+      tabIndex={-1}
+      type="button"
+    >
+      <svg
+        className="xui-icon"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
+    <div>
+      <div
+        className=""
+      >
+        <div
+          className="xui-select-layout"
+          data-automationid={null}
+        >
+          <div
+            data-automationid={null}
+            data-ref="toggled-wrapper"
+            role="presentation"
+          >
+            <button
+              aria-activedescendant={null}
+              aria-haspopup="listbox"
+              className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+              data-automationid={null}
+              disabled={false}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="xui-select--content"
+              >
+                Page 1 of 4
+              </span>
+              <svg
+                className="xui-icon xui-select--caret xui-button--caret"
+                data-automationid={null}
+                focusable="false"
+                height={5}
+                viewBox="0 0 10 5"
+                width={10}
+              >
+                <path
+                  d="M0 0l5 5 5-5z"
+                  role="presentation"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      aria-label="Next Page"
+      className="xui-button xui-button-icon-small xui-button-icon"
+      disabled={false}
+      onClick={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-icon-rotate-180"
+        focusable="false"
+        height={13}
+        viewBox="0 0 14 13"
+        width={14}
+      >
+        <path
+          d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z"
+          role="presentation"
+        />
+      </svg>
+      <div
+        className="xui-touchtarget"
+      />
+    </button>
+  </div>
+</nav>
+`;

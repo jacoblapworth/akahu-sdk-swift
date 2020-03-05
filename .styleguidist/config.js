@@ -94,6 +94,7 @@ const config = {
           styleguidePath,
           'components/ReactComponentRenderer',
         ),
+        'rsg-components/Section/Section': path.resolve(styleguidePath, 'components/Section'),
         'rsg-components/StyleGuide/StyleGuideRenderer': path.resolve(
           styleguidePath,
           'components/StyleGuide',

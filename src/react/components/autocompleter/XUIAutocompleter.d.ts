@@ -1,0 +1,213 @@
+import React from 'react';
+
+import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
+import Pickitem from '../picklist/Pickitem';
+
+interface Props {
+  children?: React.ReactNode;
+  /**
+   * CSS class(es) to go on the wrapping DOM node.
+   */
+  className?: string;
+  /**
+   * Maps to the `closeOnSelect` property of the `DropDownToggled` component.
+   */
+  closeOnSelect?: boolean;
+  /**
+   * Maps to the `closeOnTab` property of the `DropDownToggled` component.
+   */
+  closeOnTab?: boolean;
+  /**
+   * Whether the pills should wrap instead of scroll on overflow.
+   */
+  disableWrapPills?: boolean;
+  /**
+   * CSS class(es) to go on the dropdown list.
+   */
+  dropdownClassName?: string;
+  /**
+   * If a size is set, this will force the dropdown to that size instead of setting it as a max
+   * width.
+   */
+  dropdownFixedWidth?: boolean;
+  /**
+   * ID to be added to the dropdown element of the completer.
+   */
+  dropdownId?: string;
+  /**
+   * Maps to the 'size' property of the dropdown component.
+   */
+  dropdownSize?: keyof typeof fixedWidthDropdownSizes;
+  /**
+   * A footer element can be added.
+   */
+  footer?: React.ReactElement;
+  /**
+   * Force the desktop user experience, even if the viewport is narrow enough for mobile.
+   */
+  forceDesktop?: boolean;
+  /**
+   * Hint message to show under the input.
+   */
+  hintMessage?: React.ReactNode;
+  /**
+   * ID to be added to the root node of the completer.
+   */
+  id?: string;
+  /**
+   * CSS class(es) to go on the input.
+   */
+  inputClassName?: string;
+  /**
+   * CSS class(es) to go on the input container component.
+   */
+  inputContainerClassName?: string;
+  /**
+   * ID to apply to the input element. Useful for labels.
+   */
+  inputId?: string;
+  /**
+   * Label to show above the input.
+   */
+  inputLabel?: React.ReactNode;
+  /**
+   * Attributes to set on the native input element.
+   *
+   * **Note:** *It's not recommended to pass `autoFocus` to `inputProps` as it hijacks the focus on
+   * load to focus that specific element.*
+   */
+  inputProps?:
+    | React.TextareaHTMLAttributes<HTMLTextAreaElement>
+    | React.InputHTMLAttributes<HTMLInputElement>;
+  /**
+   * Whether to render as disabled.
+   */
+  isDisabled?: boolean;
+  /**
+   * Should label be applied as an aria-label, rather than being visibly displayed.
+   */
+  isInputLabelHidden?: boolean;
+  /**
+   * Whether the current input value is invalid.
+   */
+  isInvalid?: boolean;
+  /**
+   * Left element to render within the `XUITextInput` component. Should not be used together with
+   * the `pills` prop.
+   */
+  leftElement?: React.ReactNode;
+  /**
+   * When set to true a loader will be displayed instead of the picklist items. State for this
+   * should be managed externally.
+   *
+   * Defaults to `false`.
+   */
+  loading?: boolean;
+  /**
+   * Accessibility label for the `XUILoader`. This is required if the `loading` prop is set to
+   * `true`.
+   *
+   * Recommended English value: *Loading*
+   */
+  loadingLabel?: string;
+  /**
+   * Setting to `false` will allow the dropdown's width to be set independent of the trigger width.
+   *
+   * **Note:** *Setting this to `true` will override any size prop on `DropDown`.*
+   *
+   * XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match
+   * the width of narrow triggers.
+   */
+  matchTriggerWidth?: boolean;
+  /**
+   * Max length of the input.
+   */
+  maxLength?: number;
+  /**
+   * Callback to handle when a pill has been backspaced.
+   */
+  onBackspacePill?: () => void;
+  /**
+   * Callback for when the list closes.
+   */
+  onClose?: () => void;
+  /**
+   * Callback for when the highlighted item changes.
+   */
+  onHighlightChange?: (item: Pickitem) => void;
+  /**
+   * Callback for adding additional `onKeyPress` funcitonality.
+   */
+  onKeyDown?: React.KeyboardEventHandler<HTMLElement>;
+  /**
+   * Callback for when the list opens.
+   */
+  onOpen?: () => void;
+  /**
+   * Callback to handle when an option has been selected from the dropdown.
+   */
+  onOptionSelect?: (value: any, element?: Pickitem) => void;
+  /**
+   * Callback for when the user types into the search box. The argument passed in is the search term
+   * value.
+   */
+  onSearch?: (newValue: string) => void;
+  /**
+   * When set to true the dropdown will automatically open when the input is given focus.
+   */
+  openOnFocus?: boolean;
+  /**
+   * A set of pills to show next to input. Useful for showing what was selected in a multi-select.
+   * Can also be used similarly to `XUITextInput`'s `leftElement`.
+   */
+  pills?: React.ReactNode;
+  /**
+   * Placeholder for the input.
+   */
+  placeholder?: string;
+  qaHook?: string;
+  /**
+   * Right element to render within the `XUITextInput` component.
+   */
+  rightElement?: React.ReactNode;
+  /**
+   * The debounce timeout before `onSearch` is called. Set to `0` to disable debouncing.
+   */
+  searchDebounceTimeout?: number;
+  /**
+   * Value that should be inside the input.
+   */
+  searchValue?: string;
+  /**
+   * CSS class(es) to go on the trigger element which contains the input and pills.
+   */
+  triggerClassName?: string;
+  /**
+   * Validation message to show under the input if `isInvalid` is true.
+   */
+  validationMessage?: React.ReactNode;
+}
+
+export default class XUIAutocompleter extends React.PureComponent<Props> {
+  /**
+   * Set the state as hidden in order to toggle the list closed.
+   */
+  closeDropDown(): void;
+  /**
+   * Focuses the text input.
+   */
+  focusInput(): void;
+  /**
+   * Manually highlight an item in the list for selection.
+   */
+  highlightItem(item: Pickitem): void;
+  /**
+   * Set the state as not hidden in order to toggle the list open.
+   */
+  openDropDown(): void;
+  /**
+   * If an onHighlightChange prop is passed to the completer, it's called passing in the highlighted
+   * item.
+   */
+  onHighlightChange(item: Pickitem): void;
+}

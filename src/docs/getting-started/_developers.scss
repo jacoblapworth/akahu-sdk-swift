@@ -2,7 +2,7 @@
 //
 // Introduction: XUI provides CSS and React components. The best way to get started with XUI is to include the CSS via CDN and install the components via NPM.
 //
-// Weight: 1.1
+// Weight: 1.2
 //
 // Styleguide: Getting Started.Developing with XUI
 
@@ -14,7 +14,7 @@
 //
 // <!--?prettify lang=html?-->
 // ```html
-// <link rel="stylesheet" href="https://edge.xero.com/style/xui/16.1.1/xui.min.css"/>
+// <link rel="stylesheet" href="https://edge.xero.com/style/xui/16.2.0-beta.2/xui.min.css"/>
 // ```
 //
 // If you are building an application that may live alongside other versions of XUI on the same page, see the [Advanced usage](#getting-started-developing-with-xui-5) section below.
@@ -76,6 +76,25 @@
 // *Longest times depend on relevant changes having been merged to the working branch. If there are no changes awaiting release, the time between releases could be longer. <a href="https://confluence.teamxero.com/display/PLAT/2019/11/28/The+evolution+of+release+strategy+for+XUI">Read more on this release strategy.</a><br />**<a href="https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md#breaking-changes">More about breaking changes</a>
 //
 // Styleguide: Getting Started.Developing with XUI.1.3
+
+// Staying up-to-date with React
+//
+// Users upgrading to XUI 16 and React 16.9 and over will notice the console warnings similar to the following:
+//
+// ```Warning: componentWillReceiveProps has been renamed, and is not recommended for use. See https://fb.me/react-async-component-lifecycle-hooks for details.```
+//
+// This is part of the [React team's preparations to phase out certain lifecycle methods after React 17.x](https://reactjs.org/blog/2019/08/08/react-v16.9.0.html).
+//
+// The affected lifecycles include:
+// * `componentWillMount`
+//
+// * `componentWillReceiveProps`
+//
+// * `componentWillUpdate`
+//
+// If you come across this warning we strongly recommend that you address this as soon as possible and follow the [official React guidelines](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles) to migrate away from the unsafe lifecycles.
+//
+// Styleguide: Getting Started.Developing with XUI.1.4
 
 // Installing React components
 //
@@ -149,33 +168,17 @@
 // * We use vanilla React (and don't provide any redux/application state management)
 // * We prefer stateless and pure components for performance reasons
 // * All components should be accessible (have correct roles, tabindexes and other attributes) and internationalisable (default values are ok, but must be overridable via props)
-// * We use PropTypes but not Flow or TS
+// * We use PropTypes and TypeScript for prop validation
 //
 // Styleguide: Getting Started.Developing with XUI.2.1
 
-// Extending XUI
+// Extending and contributing to XUI
 //
 // We would really like you to use XUI provided CSS and React components but if what you need isn't in the library we provide a couple of ways of extending XUI.
 //
-// 1. XUI exposes its variables and mixins and these can be brought into an application or component to gain access to values for colours, spacing and other properties.
-// 2. XUI React components can be used to compose new and interesting components that can be used inside an app and shared with your friends
-//
-// If you're planning on writing a component using our CSS, we recommend the following two files as your keys to building using our conventions and standards.
-//
-// |File|Description|
-// |:--|:--|
-// |/src/sass/_vars.scss|You'll be able to access all of XUI's variables we use throughout the XUI css system including colours, spacing, borders and typography|
-// |/src/sass/_mixins.scss|Mixins are used reasonably heavily to template features of the components we build, from buttons to our responsive breakpoint system, you'll find what you need here|
+// Get more understanding of our process of [extending XUI](./section-contributing-to-xui.html) and how to contribute.
 //
 // Styleguide: Getting Started.Developing with XUI.3
-
-// Contributing
-//
-// We would love your help. XUI is structured to work like an inner source project with the core team providing ongoing ownership and support. We have a quarterly release cycle and the core team progress a themed project each quarter and manage the backlog of ad hoc requests.
-//
-// We encourage you to join the discussions on issues and pull requests. As the core of XUI evolves we are putting in support structures to make it easier to contribute. [CONTRIBUTING.md](https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md) will always contain the detailed information around the process to contribute to the project.
-//
-// Styleguide: Getting Started.Developing with XUI.4
 
 // Advanced usage
 //
@@ -222,4 +225,4 @@
 //
 // Now, instead of `xui-button`, you'll have `zooey-button`, and that same class name will be used by the `<XUIButton />` component.
 //
-// Styleguide: Getting Started.Developing with XUI.5
+// Styleguide: Getting Started.Developing with XUI.4

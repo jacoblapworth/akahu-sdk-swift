@@ -113,6 +113,10 @@ export default function MyComponent({children}) {
 }
 ```
 
+## TypeScript
+
+We have a [styleguide for writting TypeScript](TypeScript-style-guide.md).
+
 ## Unit Tests
 
 ### Conventions

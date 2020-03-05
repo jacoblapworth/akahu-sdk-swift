@@ -20,6 +20,6 @@ import XUITag from '@xero/xui/react/tag';
   <XUITag className="xui-margin-right-xsmall" variant="neutral">
     Neutral tag
   </XUITag>
-  <XUITag className="xui-margin-right-xsmall">Default tag</XUITag>
+  <XUITag className="xui-margin-right-xsmall">Standard tag</XUITag>
 </div>;
 ```

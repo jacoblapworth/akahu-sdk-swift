@@ -67,7 +67,7 @@
 
 // Size
 //
-// Progress indicator offers two main size options to allow for greater control over visual heirarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
+// Progress indicator offers two main size options to allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
 //
 // Tips:
 // Do: Use a standard sized progress indicator for navigational and interactive elements
@@ -128,7 +128,7 @@
 // Do: Use custom colors to align progress indicators to the theme of the application
 // Do: Use custom colors when indicating sentiment other than a simple error
 // Do: When using custom colors, use descriptive text like "65%"
-// Warning: Avoid using multiple coloured progress-indictaors on a single screen unless they indicate sentiment
+// Warning: Avoid using multiple coloured progress-indicators on a single screen unless they indicate sentiment
 // Don't: Don't use custom colors to indicate a simple error, use the pre-defined error classes instead
 // Dont: When using custom colors, avoid vague text like "In progress"
 //
@@ -240,3 +240,11 @@
 // Use descriptive text alongside Progress indicators to convey information so it’s still meaningful to people who can’t discern colour
 //
 // Styleguide: Components.Identifiers.ProgressIndicator.9
+
+// Related links
+//
+// Related:
+// * [Loader](./section-components-identifiers-loader.html)
+// * [Stepper](./section-components-navigation-stepper.html)
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.99

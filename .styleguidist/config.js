@@ -13,6 +13,9 @@ const componentSections = require('./sections.json');
 const babelConfig = require('../babel.config');
 
 const config = {
+  moduleAliases: {
+    '@xero/xui/react': path.resolve(basePath, 'src/react'),
+  },
   webpackConfig: {
     devServer: {
       disableHostCheck: true,
@@ -91,6 +94,7 @@ const config = {
           styleguidePath,
           'components/ReactComponentRenderer',
         ),
+        'rsg-components/Section/Section': path.resolve(styleguidePath, 'components/Section'),
         'rsg-components/StyleGuide/StyleGuideRenderer': path.resolve(
           styleguidePath,
           'components/StyleGuide',

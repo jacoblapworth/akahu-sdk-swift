@@ -163,10 +163,7 @@ export default class XUITooltip extends PureComponent {
     const triggerHasOwnHandlers = trigger.props.onClick || trigger.props.onKeyDown;
 
     const clonedTrigger = React.cloneElement(trigger, {
-      ref: compose(
-        trigger.ref,
-        c => (this.trigger = c),
-      ),
+      ref: compose(trigger.ref, c => (this.trigger = c)),
       // NB: We'll defer to any handlers attached to the trigger, cancelling tooltip behavior.
       // TODO: Properly handle click and keydown behavior that isn't from a prop (eg. anchors).
       onClick: triggerHasOwnHandlers
@@ -175,15 +172,9 @@ export default class XUITooltip extends PureComponent {
       onKeyDown: triggerHasOwnHandlers
         ? trigger.props.onKeyDown
         : (triggerOnClick && this.onTriggerKeyDown) || undefined,
-      onFocus: compose(
-        trigger.props.onFocus,
-        () => this.setState({ isFocused: true }),
-      ),
+      onFocus: compose(trigger.props.onFocus, () => this.setState({ isFocused: true })),
       onBlur: triggerOnBlur
-        ? compose(
-            trigger.props.onBlur,
-            () => this.setState({ isFocused: false }),
-          )
+        ? compose(trigger.props.onBlur, () => this.setState({ isFocused: false }))
         : undefined,
       'aria-describedby': this.tooltipId,
     });

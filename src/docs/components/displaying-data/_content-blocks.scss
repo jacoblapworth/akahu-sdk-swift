@@ -21,7 +21,7 @@
 // xui-contentblockitem-rowlink: Applies visual feedback on row interaction for when entire row is clickable
 // xui-contentblockitem-layout: Utilities to set the desired layout
 // xui-contentblockitem--leftcontent: Wrapper to set the desired layout on left aligned items such as avatar, checkbox or rollover checkbox
-// xui-contentblockitem--leftcontent-layout: Vertically centres left content for when there is a desciption
+// xui-contentblockitem--leftcontent-layout: Vertically centres left content for when there is a description
 // xui-contentblockitem--maincontent: Wrapper to define layout of elements between the left and right content
 // xui-contentblockitem--rightcontent: Wrapper to set the desired layout on right aligned items
 // xui-contentblockitem-has-top-radius: Applies top left and top right border radius
@@ -135,11 +135,11 @@
 
 // Tags
 //
-// Tags can be used inside of content blocks to indicate a categorisation or status of an item. Placement of tags should be apended to the end of the headings or description, or as the first element in the right content wrapper.
+// Tags can be used inside of content blocks to indicate a categorisation or status of an item. Placement of tags should be appended to the end of the headings or description, or as the first element in the right content wrapper.
 //
 // Tips:
-// Do: Apend tags to the end of headings or description
-// Do: Apend tags to the start of your right content
+// Do: Append tags to the end of headings or description
+// Do: Append tags to the start of your right content
 // Dont: Don't place tags before or in-between headings or descriptions
 //
 // ExampleClass: ds-example-wide
@@ -216,3 +216,13 @@
 // Markup: ./examples/content-block/_content-block-header-avatar.html
 //
 // Styleguide: Components.DisplayingData.ContentBlock.6.5
+
+// Related links
+//
+// Related:
+// * [Accordion](./section-components-displayingdata-accordion.html)
+// * [Avatar](./section-components-identifiers-avatar.html)
+// * [Checkbox](./section-components-controls-checkbox.html)
+// * [Overview block](./section-components-displayingdata-overviewblock.html)
+//
+// Styleguide: Components.DisplayingData.ContentBlock.99

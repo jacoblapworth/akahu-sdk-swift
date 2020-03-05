@@ -11,7 +11,7 @@ import Picklist, {
   NestedPicklist,
   NestedPicklistContainer,
   NestedPicklistTrigger
-} from '../../picklist';
+} from '@xero/xui/react/picklist';
 
 class StatefulMultiselectPicklist extends React.Component {
   constructor(...args) {
@@ -106,8 +106,8 @@ import Picklist, {
   NestedPicklist,
   NestedPicklistContainer,
   NestedPicklistTrigger
-} from '../../picklist';
-import XUIButton from '../../button';
+} from '@xero/xui/react/picklist';
+import XUIButton from '@xero/xui/react/button';
 
 class StatefulMultiselectPicklist extends React.Component {
   constructor(...args) {

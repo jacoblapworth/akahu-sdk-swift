@@ -5,7 +5,7 @@
 Tags are used to categorise content or indicate sentiment.
 
 ```jsx harmony
-import XUITag from './tag';
+import XUITag from '@xero/xui/react/tag';
 
 <div>
   <XUITag className="xui-margin-right-xsmall" variant="positive">
@@ -20,6 +20,6 @@ import XUITag from './tag';
   <XUITag className="xui-margin-right-xsmall" variant="neutral">
     Neutral tag
   </XUITag>
-  <XUITag className="xui-margin-right-xsmall">Default tag</XUITag>
+  <XUITag className="xui-margin-right-xsmall">Standard tag</XUITag>
 </div>;
 ```

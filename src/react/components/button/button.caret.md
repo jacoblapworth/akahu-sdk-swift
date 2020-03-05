@@ -3,7 +3,7 @@ The trigger to open a [`<DropDownToggled>`](#dropdown) is often a Button. We pro
 Check out the [Dropdown](#dropdown) examples to see Buttons being used as triggers.
 
 ```jsx harmony
-import XUIButton, { XUIButtonCaret } from '../../button';
+import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
 
 <XUIButton>
   Dropdown <XUIButtonCaret />
@@ -14,8 +14,8 @@ But you can just as easily drop in other icons too.
 
 ```jsx harmony
 import icon from '@xero/xui-icon/icons/checkbox-check';
-import XUIButton from '../../button';
-import XUIIcon from '../../icon';
+import XUIButton from '@xero/xui/react/button';
+import XUIIcon from '@xero/xui/react/icon';
 
 <XUIButton>
   Checkbox <XUIIcon icon={icon} />

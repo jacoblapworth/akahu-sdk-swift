@@ -280,7 +280,7 @@ Bash:
 ```bash
 npm i -g jscodeshift@0.6.3
 files="$(find src/ -type f -name "*.tsx")"
-jscodeshift -t .\node_modules\@xero\xui\codemod\index.js --parser=tsx $files
+jscodeshift -t ./node_modules/@xero/xui/codemod/index.js --parser=tsx $files
 ```
 
 ## Contributing to XUI

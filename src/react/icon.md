@@ -16,7 +16,7 @@ import fileWord from '@xero/xui-icon/icons/file-word';
 import fileExcel from '@xero/xui-icon/icons/file-excel';
 import filePdf from '@xero/xui-icon/icons/file-pdf';
 
-import XUIIcon from './icon';
+import XUIIcon from '@xero/xui/react/icon';
 
 <section>
   <h3>Standard Icon</h3>

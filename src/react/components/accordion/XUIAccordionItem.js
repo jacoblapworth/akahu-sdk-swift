@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useContext, useEffect } from 'react';
+import React, { useState, useCallback, useContext, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v4';
 import AccordionWrapper from './customElements/AccordionWrapper';
@@ -28,9 +28,12 @@ const XUIAccordionItem = ({
   } = useContext(XUIAccordionContext);
   const prevPropsIsOpen = usePrevious(propsIsOpen);
 
-  const isItemOpen = propsIsOpen || openAccordionItemId === id;
+  // An `openAccordionItemId` needs to be provided when `propsIsOpen` is `true` so that the item can be closed.
+  const isItemOpen =
+    (propsIsOpen && openAccordionItemId !== null && openAccordionItemId === id) ||
+    openAccordionItemId === id;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (propsIsOpen && !prevPropsIsOpen) {
       setOpenAccordionItem(id);
     }

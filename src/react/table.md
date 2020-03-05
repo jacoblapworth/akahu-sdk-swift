@@ -15,7 +15,7 @@ The `data` prop requires an object with **unique** keys that differentiate each 
 Each _Cell_ inside the _Column_ `body` prop is a function that passes through each row’s `data` independently so you can cherry pick the relevant content for a particular _Cell_.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
 
 const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
@@ -40,7 +40,7 @@ const data = {
 If there is no _JSX_ supplied to **any** _Column_ `head` prop the _Table_ `<th />` _Cells_ will **not** be rendered.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
 
 const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
@@ -65,7 +65,7 @@ const data = {
 The `isResponsive` tag allows the _Table_ to become horizontally scrollable when the amount of _Column_ content causes an overflow.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
 
 const data = {
   abc123: {
@@ -129,7 +129,7 @@ const data = {
 Changes overflowing _Column_ content into a truncated _Column_ view if a reasonable amount of legibility can still be maintained.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
 
 const data = {
   abc123: {
@@ -196,7 +196,7 @@ Wrapping can be defined on a per _Cell_ basis using the `hasWrapping` prop. By d
 **Note:** If `isTruncated` is set, `hasWrapping` cannot be applied to a cell within the table. This is because with `isTruncated` enabled, cells within that table will always be displayed as a single line.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
 
 const data = {
   abc123: {
@@ -234,7 +234,7 @@ const data = {
 Pass the `className` prop to the `<XUITable>` to add CSS classes to the outer most element of the the _Table_ scaffold.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
 
 const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
@@ -268,7 +268,7 @@ document.head.appendChild(node);
 Pass the `rowClassName` key in a row object of the `data` prop of `<XUITable>` to apply a custom class.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
 
 const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, rowClassName: 'xui-table-reactdocs-row' }
@@ -295,7 +295,7 @@ document.head.appendChild(node);
 Pass the `className` prop to the `<XUITableCell>` to add CSS classes to each _Cell_ on an individual basis.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
 
 const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, paid: true },
@@ -338,7 +338,7 @@ Each row's _Disabled_ state is derived from checking for _"truthy"_ row key / va
 Interactions for the _"master"_ and _"single"_ checkbox toggles can be handled using the `onCheckAllToggle` and `onCheckOneToggle` props. If you provide these, you must also provide the corresponding `checkAllRowsLabel` or `checkOneRowLabel` for accessibility purposes.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
 
 const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
@@ -423,8 +423,8 @@ class Demo extends React.Component {
 You can append a menu to a table row by adding `hasOverflowMenu` and providing a `createOverflowMenu` function. The menu will not be rendered if you don’t provide these; however, if you do, you must also provide an `overflowMenuTitle` for accessibility purposes.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
-import { Pickitem } from './picklist';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
+import { Pickitem } from '@xero/xui/react/picklist';
 
 const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, paid: true },
@@ -463,8 +463,8 @@ If an **action** column is **active** in the _Table_ it can be pinned to the rel
 - **Overflow Menu** are pinned to the right of the scaffold by using the `hasPinnedLastColumn` prop.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
-import { Pickitem } from './picklist';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
+import { Pickitem } from '@xero/xui/react/picklist';
 const data = {
   abc123: {
     fruit: 'Banana',
@@ -588,8 +588,8 @@ By default sorting is determined by a generic [sort](https://developer.mozilla.o
 By supplying the `customSort` prop you can create your own custom sort system. In this example we are sorting the `tags` column based on the length of the supplied array in each row.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
-import XUITag from './tag';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
+import XUITag from '@xero/xui/react/tag';
 
 const data = {
   abc123: {
@@ -605,7 +605,10 @@ const data = {
   def456: {
     fruit: 'Apple',
     color: 'Red',
-    tags: [{ name: 'Foo', variant: 'positive' }, { name: 'Bar', variant: 'warning' }],
+    tags: [
+      { name: 'Foo', variant: 'positive' },
+      { name: 'Bar', variant: 'warning' }
+    ],
     price: 3.49
   },
   ghi789: {
@@ -691,7 +694,7 @@ class Demo extends React.Component {
 Inject custom _JSX_ into the header and footer area of the _Table_ with the `header` and `footer` props.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
 
 const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
@@ -728,7 +731,7 @@ const Appendage = ({ children }) => (
 Appends a `<XUILoader />` after the last _Row_ in the _Table_ with the `isLoading` prop. If you provide this prop, you must also provide a `loaderLabel` for accessibility purposes.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
 
 const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
@@ -763,9 +766,9 @@ The `onRowClick` prop works in conjunction with the `shouldRowClick` prop to det
 - You can nest interaction items (`<button />`, `<a />`) inside of a cell and ignore the generic cell states (e.g `:hover`). Just make sure you `stopPropagation` on the nested interaction elements _(see example below)_.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
-import XUIButton from './button';
-import XUIIcon from './icon';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
+import XUIButton from '@xero/xui/react/button';
+import XUIIcon from '@xero/xui/react/icon';
 import tickIcon from '@xero/xui-icon/icons/checkbox-check';
 
 const handleCellClick = ({ price }) => alert(`You clicked $${price}`);
@@ -833,7 +836,7 @@ const data = {
 If no data is supplied to `<XUITable />` then the _empty state_ component will be rendered instead. In that case, you must provide an `emptyMessage` or replace the entire empty state component by providing your own `emptyStateComponent`.
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
 
 const data = {};
 
@@ -855,7 +858,7 @@ const data = {};
 ```
 
 ```jsx harmony
-import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
 
 const data = {};
 const emptyStateComponent = (

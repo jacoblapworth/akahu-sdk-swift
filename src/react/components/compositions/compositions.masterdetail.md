@@ -9,9 +9,9 @@ The master detail composition is useful for layouts that consist of a set of opt
 import { PureComponent } from 'react';
 import overflowIcon from '@xero/xui-icon/icons/overflow';
 
-import { XUICompositionMasterDetail } from '../../compositions';
-import { XUIIconButton } from '../../button';
-import DropDown, { DropDownToggled } from '../../dropdown';
+import { XUICompositionMasterDetail } from '@xero/xui/react/compositions';
+import { XUIIconButton } from '@xero/xui/react/button';
+import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 
 class DetailContent extends PureComponent {
   render() {
@@ -41,9 +41,9 @@ const masterContent = <div style={{ background: '#5A5AE6', height: '100px', widt
 import { PureComponent } from 'react';
 import overflowIcon from '@xero/xui-icon/icons/overflow';
 
-import { XUICompositionMasterDetailHeader } from '../../compositions';
-import { XUIIconButton } from '../../button';
-import DropDown, { DropDownToggled } from '../../dropdown';
+import { XUICompositionMasterDetailHeader } from '@xero/xui/react/compositions';
+import { XUIIconButton } from '@xero/xui/react/button';
+import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 
 const headerContent = <div style={{ background: '#B446C8', height: '60px' }}></div>;
 const masterContent = <div style={{ background: '#5A5AE6', height: '100px', width: '100%' }}></div>;

@@ -16,9 +16,9 @@ A `closeButtonLabel` is required for accessibility purposes.
 
 ```jsx harmony
 import { PureComponent } from 'react';
-import XUIModal, { XUIModalHeader, XUIModalBody } from './modal';
-import XUIButton from './button';
-import XUITextInput, { XUITextInputSideElement } from './textinput';
+import XUIModal, { XUIModalHeader, XUIModalBody } from '@xero/xui/react/modal';
+import XUIButton from '@xero/xui/react/button';
+import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
 
 const exampleURL = 'https://go.xero.com/blahblahblahexamplelinkhere';
 
@@ -87,8 +87,8 @@ Modals are often used for user confirmation. A footer for adding actions can be 
 
 ```jsx harmony
 import { PureComponent } from 'react';
-import XUIModal, { XUIModalHeader, XUIModalBody, XUIModalFooter } from './modal';
-import XUIButton from './button';
+import XUIModal, { XUIModalHeader, XUIModalBody, XUIModalFooter } from '@xero/xui/react/modal';
+import XUIButton from '@xero/xui/react/button';
 
 class Example extends PureComponent {
   constructor(...args) {
@@ -148,9 +148,9 @@ Modals can be used as a step for users to fill in required fields before opening
 
 ```jsx harmony
 import { PureComponent } from 'react';
-import XUITextInput from './textinput';
-import XUIModal, { XUIModalHeader, XUIModalBody, XUIModalFooter } from './modal';
-import XUIButton from './button';
+import XUITextInput from '@xero/xui/react/textinput';
+import XUIModal, { XUIModalHeader, XUIModalBody, XUIModalFooter } from '@xero/xui/react/modal';
+import XUIButton from '@xero/xui/react/button';
 
 class Example extends PureComponent {
   constructor(...args) {
@@ -206,8 +206,8 @@ Modals can also be used without a header element to head the page with other con
 
 ```jsx harmony
 import { PureComponent } from 'react';
-import XUIModal, { XUIModalBody, XUIModalFooter } from './modal';
-import XUIButton from './button';
+import XUIModal, { XUIModalBody, XUIModalFooter } from '@xero/xui/react/modal';
+import XUIButton from '@xero/xui/react/button';
 
 class Example extends PureComponent {
   constructor(...args) {

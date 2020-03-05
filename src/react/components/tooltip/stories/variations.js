@@ -131,7 +131,4 @@ positionOptions.forEach(position => {
   });
 });
 
-module.exports = {
-  storiesWithVariationsKindName,
-  variations,
-};
+export { storiesWithVariationsKindName, variations };

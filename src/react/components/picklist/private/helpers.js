@@ -350,24 +350,15 @@ function cloneMenuItem(node, spl) {
   const id = node.props.id;
   const injectedProps = {
     isHighlighted: matches(node, spl.state.highlightedElement),
-    onMouseOver: compose(
-      node.props.onMouseOver,
-      event => spl.onMouseOver(event, id),
-    ),
-    ref: compose(
-      node.ref,
-      c => (spl.idCache[getId(node)] = c),
-    ),
+    onMouseOver: compose(node.props.onMouseOver, event => spl.onMouseOver(event, id)),
+    ref: compose(node.ref, c => (spl.idCache[getId(node)] = c)),
     pickitemBodyProps: {
       tabIndex: '-1',
     },
   };
 
   if (!isNestedListTrigger(node)) {
-    injectedProps.onClick = compose(
-      node.props.onClick,
-      event => spl.onClick(event, id),
-    );
+    injectedProps.onClick = compose(node.props.onClick, event => spl.onClick(event, id));
   }
 
   const children = isNestedListTrigger(node)
@@ -393,10 +384,7 @@ function cloneChildElement(node, spl) {
     if (node.props.children) {
       const injectedProps = {};
       if (isNestedListContainer(node)) {
-        injectedProps.ref = compose(
-          node.ref,
-          c => (spl.idCache[getId(node)] = c),
-        );
+        injectedProps.ref = compose(node.ref, c => (spl.idCache[getId(node)] = c));
       }
       return React.cloneElement(node, injectedProps, cloneChildren(node.props.children, spl));
     }

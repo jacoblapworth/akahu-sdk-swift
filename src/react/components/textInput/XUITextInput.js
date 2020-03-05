@@ -178,10 +178,7 @@ class XUITextInput extends PureComponent {
               onChange={onChange}
               onFocusCapture={input.onFocus}
               placeholder={placeholder}
-              ref={compose(
-                inputRef,
-                i => (this.input = i),
-              )}
+              ref={compose(inputRef, i => (this.input = i))}
               type={type}
               value={value}
               {...getAriaAttributes(this.wrapperIds, this.props)}

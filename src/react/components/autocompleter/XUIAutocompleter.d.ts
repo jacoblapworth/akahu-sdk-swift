@@ -136,7 +136,7 @@ interface Props {
    */
   onHighlightChange?: (item: Pickitem) => void;
   /**
-   * Callback for adding additional `onKeyPress` funcitonality.
+   * Callback for adding additional `onKeyDown` functionality.
    */
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>;
   /**

@@ -1,15 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { sideElementBaseClass } from './private/constants';
-
-const typeClasses = {
-  text: `${sideElementBaseClass}-text`,
-  icon: `${sideElementBaseClass}-icon`,
-  button: `${sideElementBaseClass}-button`,
-  avatar: `${sideElementBaseClass}-avatar`,
-  pill: `${sideElementBaseClass}-pill`,
-};
+import { sideElementBaseClass, typeClasses } from './private/constants';
 
 export default class XUITextInputSideElement extends PureComponent {
   render() {

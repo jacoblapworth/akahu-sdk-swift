@@ -1,17 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { baseClass } from './private/constants';
+import { baseClass, typeMap } from './private/constants';
 import XUIControlWrapperInline, {
   getAriaAttributes,
 } from '../controlwrapper/XUIControlWrapperInline';
 import generateIds from '../controlwrapper/helpers';
-
-/** @private typeMap - Map types to attributes */
-const typeMap = {
-  radio: 'radio',
-  checkbox: 'checkbox',
-};
 
 export default function XUIToggleOption(props) {
   const wrapperIds = generateIds(props.id);

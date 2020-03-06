@@ -103,6 +103,7 @@ Following props have been **removed** because they don't meet [XUI touch target 
 - `Picklist` added a prop `swapAtBreakpoint`, which defines the swap breakpoint (container width) between tab-styled dropdown and horizontal picklist.
 - `XUIBreadcrumbTrail` has a new prop `swapAtBreakpoint`, which defines the pageHeader width at which the component will condense early breadcrumb items into a dropdown. This behaviour is optional, and will not occur if no `swapAtBreakpoint` is supplied, or if the set of breadcrumbs is only one or two items.
 - `XUIAutocompleterSecondarySearch` requires previously optional `onSearch` function for every single use
+- `XUIRadio` and `XUICheckbox` now accepts `inputProps` object with attributes that will be set on the HTML input node.
 
 ### Internationalisation
 
@@ -147,6 +148,32 @@ Below is a list of components that have been affected by this change. The codemo
   - `overflowMenuTitle`: "More row options"
 
 ## Other changes
+
+### TypeScript support
+
+With XUI 16.2.0 we are shipping TypeScript definitions for our components with XUI.
+
+`xui-types` will no longer be actively maintained as of XUI 16.2.0, so while your current implementation will likely continue to work for a while, we recommend upgrading to embedded XUI types at your earliest convenience.
+
+The type definitions we provide are slightly different from those of `xui-types`, below are things you might need to change.
+
+1. The shape of our component's props are not exported. You can still access these types by using React's ComponentProps helper.
+
+```diff
+interface Props {
+- spreadProps?: XUIComponentProps;
++ spreadProps?: React.ComponentProps<typeof XUIComponent>`.
+}
+```
+
+2. We do not export types for our private helpers. You can still access these types by using `keyof` and `typeof`.
+
+```diff
+interface Props {
+- size?: SizeClassNamesKeys;
++ size?: keyof typeof sizeClassNames;
+}
+```
 
 ### Invisible touch targets
 

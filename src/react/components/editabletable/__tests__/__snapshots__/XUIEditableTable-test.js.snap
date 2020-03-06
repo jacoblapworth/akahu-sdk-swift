@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIEditableTable /> renders correctly 1`] = `
+<div
+  className="xui-editabletable"
+>
+  XUIEditableTable
+</div>
+`;

@@ -5,17 +5,19 @@ import cn from 'classnames';
 
 import { tableName } from './private/constants';
 
-const XUIEditableTable = ({ children, className, ...spreadProps }) => {
+const baseName = `${tableName}row`;
+
+const XUIEditableTableRow = ({ children, className, ...spreadProps }) => {
   return (
-    <div className={cn(tableName, className)} {...spreadProps}>
+    <div className={cn(baseName, className)} {...spreadProps}>
       {children}
     </div>
   );
 };
 
-XUIEditableTable.propTypes = {
+XUIEditableTableRow.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 };
 
-export default XUIEditableTable;
+export default XUIEditableTableRow;

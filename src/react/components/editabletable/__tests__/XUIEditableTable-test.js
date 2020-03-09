@@ -10,7 +10,11 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<XUIEditableTable />', () => {
   it('renders correctly', () => {
-    const wrapper = renderer.create(<XUIEditableTable>XUIEditableTable</XUIEditableTable>);
+    const wrapper = renderer.create(
+      <XUIEditableTable>
+        <div>XUIEditableTable</div>
+      </XUIEditableTable>,
+    );
     expect(wrapper).toMatchSnapshot();
   });
 

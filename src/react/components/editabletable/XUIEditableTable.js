@@ -7,14 +7,14 @@ import { tableName } from './private/constants';
 
 const XUIEditableTable = ({ children, className, ...spreadProps }) => {
   return (
-    <div className={cn(tableName, className)} {...spreadProps}>
+    <table className={cn(tableName, className)} {...spreadProps}>
       {children}
-    </div>
+    </table>
   );
 };
 
 XUIEditableTable.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
   className: PropTypes.string,
 };
 

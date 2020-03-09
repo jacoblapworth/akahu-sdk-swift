@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, number, boolean } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName } from './variations';
@@ -12,16 +12,31 @@ import {
   XUIEditableTableCell,
   XUIEditableTableRow,
 } from '../../../editabletable';
+import XUIEditableTableBody from '../XUIEditableTableBody';
 
 class EditableTablePlayground extends React.Component {
   render() {
+    const { columns, hasHeader, rows } = this.props;
     return (
       <XUIEditableTable>
-        <XUIEditableTableHead>
-          <XUIEditableTableRow>
-            <XUIEditableTableCell>I'm a cell</XUIEditableTableCell>
-          </XUIEditableTableRow>
-        </XUIEditableTableHead>
+        {hasHeader && (
+          <XUIEditableTableHead>
+            <XUIEditableTableRow>
+              {Array.from(Array(columns).keys()).map(() => (
+                <XUIEditableTableCell>I'm a cell</XUIEditableTableCell>
+              ))}
+            </XUIEditableTableRow>
+          </XUIEditableTableHead>
+        )}
+        <XUIEditableTableBody>
+          {Array.from(Array(rows).keys()).map(() => (
+            <XUIEditableTableRow>
+              {Array.from(Array(columns).keys()).map(() => (
+                <XUIEditableTableCell>I'm a cell</XUIEditableTableCell>
+              ))}
+            </XUIEditableTableRow>
+          ))}
+        </XUIEditableTableBody>
       </XUIEditableTable>
     );
   }
@@ -30,7 +45,13 @@ class EditableTablePlayground extends React.Component {
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
-storiesWithKnobs.add('Playground', () => <EditableTablePlayground />);
+storiesWithKnobs.add('Playground', () => (
+  <EditableTablePlayground
+    columns={number('Columns', 4)}
+    hasHeader={boolean('Has header', true)}
+    rows={number('Rows', 2)}
+  />
+));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);

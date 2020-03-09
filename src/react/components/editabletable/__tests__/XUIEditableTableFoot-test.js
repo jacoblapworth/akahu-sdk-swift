@@ -11,7 +11,9 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('<XUIEditableTableFoot />', () => {
   it('renders correctly', () => {
     const wrapper = renderer.create(
-      <XUIEditableTableFoot>XUIEditableTableFoot</XUIEditableTableFoot>,
+      <XUIEditableTableFoot>
+        <div>XUIEditableTableFoot</div>
+      </XUIEditableTableFoot>,
     );
     expect(wrapper).toMatchSnapshot();
   });

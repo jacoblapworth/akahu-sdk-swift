@@ -9,14 +9,14 @@ const baseName = `${tableName}foot`;
 
 const XUIEditableTableFoot = ({ children, className, ...spreadProps }) => {
   return (
-    <div className={cn(baseName, className)} {...spreadProps}>
+    <tfoot className={cn(baseName, className)} {...spreadProps}>
       {children}
-    </div>
+    </tfoot>
   );
 };
 
 XUIEditableTableFoot.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
   className: PropTypes.string,
 };
 

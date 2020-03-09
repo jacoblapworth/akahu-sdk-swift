@@ -9,9 +9,9 @@ const baseName = `${tableName}cell`;
 
 const XUIEditableTableCell = ({ children, className, ...spreadProps }) => {
   return (
-    <div className={cn(baseName, className)} {...spreadProps}>
+    <td className={cn(baseName, className)} {...spreadProps}>
       {children}
-    </div>
+    </td>
   );
 };
 

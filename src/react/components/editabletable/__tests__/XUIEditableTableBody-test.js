@@ -4,18 +4,20 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 
-import XUIEditableTable from '../XUIEditableTable';
+import XUIEditableTableBody from '../XUIEditableTableBody';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<XUIEditableTable />', () => {
+describe('<XUIEditableTableBody />', () => {
   it('renders correctly', () => {
-    const wrapper = renderer.create(<XUIEditableTable>XUIEditableTable</XUIEditableTable>);
+    const wrapper = renderer.create(
+      <XUIEditableTableBody>XUIEditableTableBody</XUIEditableTableBody>,
+    );
     expect(wrapper).toMatchSnapshot();
   });
 
   it('composes the className correctly', () => {
-    const wrapper = renderer.create(<XUIEditableTable className="test-classname" />);
+    const wrapper = renderer.create(<XUIEditableTableBody className="test-classname" />);
     expect(wrapper).toMatchSnapshot();
   });
 });

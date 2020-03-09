@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIEditableTableHead /> composes the className correctly 1`] = `
+<div
+  className="xui-editabletablehead test-classname"
+/>
+`;
+
+exports[`<XUIEditableTableHead /> renders correctly 1`] = `
+<div
+  className="xui-editabletablehead"
+>
+  XUIEditableTableHead
+</div>
+`;

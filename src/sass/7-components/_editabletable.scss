@@ -1,4 +1,10 @@
 @import '../vars';
+@import '../mixins';
+
+@mixin xui-editabletablecell {
+  border: $xui-border-standard;
+  height: $xui-minimum-touch-target;
+}
 
 .#{$ns}-editabletable {
   background-color: $xui-panel-bg-color;
@@ -6,3 +12,25 @@
   border-radius: $xui-radius;
   padding: $xui-s-small;
 }
+
+.#{$ns}-editabletablehead {
+  @include xui-heading-small;
+}
+
+.#{$ns}-editabletableheadingcell {
+  height: $xui-minimum-touch-target;
+  padding-left: $xui-s-standard;
+  padding-right: $xui-s-standard;
+}
+
+.#{$ns}-editabletablecell {
+  @include xui-editabletablecell;
+}
+
+.#{$ns}-editabletablecellreadonly {
+  @include xui-editabletablecell;
+  padding-left: $xui-s-standard;
+  padding-right: $xui-s-standard;
+}
+
+

@@ -9,7 +9,8 @@ import { variations, storiesWithVariationsKindName } from './variations';
 import {
   XUIEditableTable,
   XUIEditableTableHead,
-  XUIEditableTableCell,
+  XUIEditableTableHeadingCell,
+  XUIEditableTableCellReadOnly,
   XUIEditableTableRow,
 } from '../../../editabletable';
 import XUIEditableTableBody from '../XUIEditableTableBody';
@@ -23,7 +24,7 @@ class EditableTablePlayground extends React.Component {
           <XUIEditableTableHead>
             <XUIEditableTableRow>
               {Array.from(Array(columns).keys()).map(() => (
-                <XUIEditableTableCell>I'm a cell</XUIEditableTableCell>
+                <XUIEditableTableHeadingCell>I’m a cell</XUIEditableTableHeadingCell>
               ))}
             </XUIEditableTableRow>
           </XUIEditableTableHead>
@@ -32,7 +33,7 @@ class EditableTablePlayground extends React.Component {
           {Array.from(Array(rows).keys()).map(() => (
             <XUIEditableTableRow>
               {Array.from(Array(columns).keys()).map(() => (
-                <XUIEditableTableCell>I'm a cell</XUIEditableTableCell>
+                <XUIEditableTableCellReadOnly>I’m a cell</XUIEditableTableCellReadOnly>
               ))}
             </XUIEditableTableRow>
           ))}

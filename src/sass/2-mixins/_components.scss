@@ -220,3 +220,23 @@ $justify - Property to use for justify-content
     margin-right: $xui-s-small;
   }
 }
+
+@mixin xui-dropzone {
+  border: 1px dashed $xui-dropzone-border-color;
+  position: relative;
+}
+
+@mixin xui-dropzone-active {
+  border: 1px dashed $xui-dropzone-active-border-color;
+  &:after {
+    background: $xui-dropzone-active-background-color;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: $xui-z-index-contextualtop;
+  }
+}

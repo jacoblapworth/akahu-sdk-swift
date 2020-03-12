@@ -241,9 +241,11 @@ export default class XUIDatePicker extends PureComponent {
    */
   renderDay = day => {
     const dateTime = formatDateISO(day);
+    const { qaHook } = this.props;
     return (
       <time
         className={`${ns}-datepicker--day--time`}
+        data-automationid={`${qaHook}--dayoption-${dateTime}`}
         dateTime={dateTime}
         ref={n => (this.dateRefs[dateTime] = n)}
       >

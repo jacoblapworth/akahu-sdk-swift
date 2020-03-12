@@ -239,7 +239,7 @@ export default class XUIAutocompleter extends PureComponent {
       dropdownFixedWidth,
       footer,
       loading,
-      loadingLabel,
+      loadingAriaLabel,
       children,
       className,
       id,
@@ -338,7 +338,7 @@ export default class XUIAutocompleter extends PureComponent {
       >
         {loading ? (
           <Picklist>
-            <XUILoader ariaLabel={loadingLabel} />
+            <XUILoader ariaLabel={loadingAriaLabel} />
           </Picklist>
         ) : (
           children
@@ -395,7 +395,7 @@ XUIAutocompleter.propTypes = {
    * <br />
    * Recommended English value: *Loading*
    */
-  loadingLabel: PropTypes.string,
+  loadingAriaLabel: PropTypes.string,
 
   /** ID to be added to the root node of the completer */
   id: PropTypes.string,

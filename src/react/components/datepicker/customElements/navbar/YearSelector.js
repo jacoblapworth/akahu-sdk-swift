@@ -29,6 +29,7 @@ export default class YearSelector extends PureComponent {
       selectRef,
       onChange,
       onKeyDown,
+      qaHook,
       size,
     } = this.props;
 
@@ -61,6 +62,7 @@ export default class YearSelector extends PureComponent {
       visibleYears.length === 1 ? null : (
         <select
           className={`${baseClassName}--heading-select ${baseClassName}--yearselect-layout`}
+          data-automationid={`${qaHook}--yearselector`}
           id={id}
           name="year"
           onBlur={this.setBlur}
@@ -71,7 +73,7 @@ export default class YearSelector extends PureComponent {
           value={currentYear}
         >
           {visibleYears.map(year => (
-            <option key={year} value={year}>
+            <option data-automationid={`${qaHook}--yearoption-${year}`} key={year} value={year}>
               {year}
             </option>
           ))}
@@ -98,6 +100,7 @@ YearSelector.propTypes = {
   selectRef: PropTypes.func,
   onChange: PropTypes.func,
   onKeyDown: PropTypes.func,
+  qaHook: PropTypes.string,
   // TODO: Implement locale
   // eslint-disable-next-line react/no-unused-prop-types
   locale: PropTypes.string,

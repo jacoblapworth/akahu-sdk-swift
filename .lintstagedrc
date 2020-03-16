@@ -1,5 +1,5 @@
 {
-  "*.js": "eslint",
+  "*.{js,jsx,ts,tsx}": "eslint",
   "src/**/*.scss": "stylelint",
-   "*.{html,hbs,json,css,scss,md}": "prettier --check",
+   "*.{html,hbs,json,css,scss,md,ts,tsx,js,jsx}": "prettier --check",
 }

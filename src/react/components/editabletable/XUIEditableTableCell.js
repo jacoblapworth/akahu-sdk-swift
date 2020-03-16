@@ -7,9 +7,9 @@ import { tableName } from './private/constants';
 
 const baseName = `${tableName}cell`;
 
-const XUIEditableTableCell = ({ children, className, ...spreadProps }) => {
+const XUIEditableTableCell = ({ children, className, width, ...spreadProps }) => {
   return (
-    <td className={cn(baseName, className)} {...spreadProps}>
+    <td className={cn(baseName, className)} style={{ width }} {...spreadProps}>
       {children}
     </td>
   );
@@ -18,6 +18,7 @@ const XUIEditableTableCell = ({ children, className, ...spreadProps }) => {
 XUIEditableTableCell.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  width: PropTypes.string,
 };
 
 export default XUIEditableTableCell;

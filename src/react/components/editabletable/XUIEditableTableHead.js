@@ -11,7 +11,10 @@ const baseName = `${tableName}head`;
 const XUIEditableTableHead = ({ children, className, ...spreadProps }) => {
   return (
     <thead className={cn(baseName, className)} {...spreadProps}>
-      <XUIEditableTableHeadContext.Provider value>{children}</XUIEditableTableHeadContext.Provider>
+      {/* eslint-disable-next-line react/jsx-boolean-value */}
+      <XUIEditableTableHeadContext.Provider value={true}>
+        {children}
+      </XUIEditableTableHeadContext.Provider>
     </thead>
   );
 };

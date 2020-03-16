@@ -16,11 +16,13 @@ import {
 import XUIEditableTableBody from '../XUIEditableTableBody';
 import { object } from 'prop-types';
 
+const widths = ['20%', '200px', 'auto', 'minmax(10%, 100px)'];
+
 class EditableTablePlayground extends React.Component {
   render() {
-    const { columns, hasHeader, rows, rowOptions } = this.props;
+    const { columns, columnWidths, hasHeader, rows, rowOptions } = this.props;
     return (
-      <XUIEditableTable rowOptions={rowOptions}>
+      <XUIEditableTable columnWidths={columnWidths} rowOptions={rowOptions}>
         {hasHeader && (
           <XUIEditableTableHead>
             <XUIEditableTableRow>
@@ -32,9 +34,11 @@ class EditableTablePlayground extends React.Component {
         )}
         <XUIEditableTableBody>
           {Array.from(Array(rows).keys()).map(() => (
-            <XUIEditableTableRow>
-              {Array.from(Array(columns).keys()).map(() => (
-                <XUIEditableTableCellReadOnly>I’m a cell</XUIEditableTableCellReadOnly>
+            <XUIEditableTableRow onRemove={() => console.log('remove me')}>
+              {Array.from(Array(columns).keys()).map((item, index) => (
+                <XUIEditableTableCellReadOnly width={widths[index]}>
+                  I’m a cell
+                </XUIEditableTableCellReadOnly>
               ))}
             </XUIEditableTableRow>
           ))}

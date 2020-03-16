@@ -12,7 +12,9 @@ import XUIEditableTableContext from './contexts/XUIEditableTableContext';
 const baseName = `${tableName}row`;
 
 const XUIEditableTableRow = ({ children, className, ...spreadProps }) => {
-  const { isRemovable } = useContext(XUIEditableTableContext);
+  const {
+    rowOptions: { isRemovable },
+  } = useContext(XUIEditableTableContext);
   return (
     <tr className={cn(baseName, className)} {...spreadProps}>
       {children}

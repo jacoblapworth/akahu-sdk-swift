@@ -1,5 +1,7 @@
 import React from 'react';
 
 export default React.createContext({
-  isRemovable: false,
+  rowOptions: {
+    isRemovable: false,
+  },
 });

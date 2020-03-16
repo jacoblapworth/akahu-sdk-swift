@@ -14,12 +14,13 @@ import {
   XUIEditableTableRow,
 } from '../../../editabletable';
 import XUIEditableTableBody from '../XUIEditableTableBody';
+import { object } from 'prop-types';
 
 class EditableTablePlayground extends React.Component {
   render() {
-    const { columns, hasHeader, rows } = this.props;
+    const { columns, hasHeader, rows, rowOptions } = this.props;
     return (
-      <XUIEditableTable isRemovable>
+      <XUIEditableTable rowOptions={rowOptions}>
         {hasHeader && (
           <XUIEditableTableHead>
             <XUIEditableTableRow>
@@ -50,7 +51,7 @@ storiesWithKnobs.add('Playground', () => (
   <EditableTablePlayground
     columns={number('Columns', 4)}
     hasHeader={boolean('Has header', true)}
-    isRemovable={boolean('Are rows removable', true)}
+    rowOptions={{ isRemovable: boolean('Are rows removable', true) }}
     rows={number('Rows', 2)}
   />
 ));

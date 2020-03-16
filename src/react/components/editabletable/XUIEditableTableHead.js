@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import cn from 'classnames';
 
+import XUIEditableTableHeadContext from './contexts/XUIEditableTableHeadContext';
 import { tableName } from './private/constants';
 
 const baseName = `${tableName}head`;
@@ -10,7 +11,7 @@ const baseName = `${tableName}head`;
 const XUIEditableTableHead = ({ children, className, ...spreadProps }) => {
   return (
     <thead className={cn(baseName, className)} {...spreadProps}>
-      {children}
+      <XUIEditableTableHeadContext.Provider value>{children}</XUIEditableTableHeadContext.Provider>
     </thead>
   );
 };

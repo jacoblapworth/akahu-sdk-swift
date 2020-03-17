@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Props as XUIAvatarProps } from '../avatar/XUIAvatar';
 import { sizeClasses } from './private/constants';

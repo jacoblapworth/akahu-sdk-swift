@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 import Pickitem from '../picklist/Pickitem';

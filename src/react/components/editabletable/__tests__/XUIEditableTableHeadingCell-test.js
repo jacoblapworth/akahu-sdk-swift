@@ -1,8 +1,7 @@
 import React from 'react';
-
-import Enzyme from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import renderer from 'react-test-renderer';
+import toJson from 'enzyme-to-json';
 
 import XUIEditableTableHeadingCell from '../XUIEditableTableHeadingCell';
 
@@ -10,14 +9,14 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<XUIEditableTableCell />', () => {
   it('renders correctly', () => {
-    const wrapper = renderer.create(
+    const wrapper = shallow(
       <XUIEditableTableHeadingCell>XUIEditableTableHeadingCell</XUIEditableTableHeadingCell>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('composes the className correctly', () => {
-    const wrapper = renderer.create(<XUIEditableTableHeadingCell className="test-classname" />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = shallow(<XUIEditableTableHeadingCell className="test-classname" />);
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 });

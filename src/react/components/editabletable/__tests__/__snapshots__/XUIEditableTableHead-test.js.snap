@@ -3,15 +3,23 @@
 exports[`<XUIEditableTableHead /> composes the className correctly 1`] = `
 <thead
   className="xui-editabletablehead test-classname"
-/>
+>
+  <ContextProvider
+    value={true}
+  />
+</thead>
 `;
 
 exports[`<XUIEditableTableHead /> renders correctly 1`] = `
 <thead
   className="xui-editabletablehead"
 >
-  <div>
-    XUIEditableTableHead
-  </div>
+  <ContextProvider
+    value={true}
+  >
+    <div>
+      XUIEditableTableHead
+    </div>
+  </ContextProvider>
 </thead>
 `;

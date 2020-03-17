@@ -3,15 +3,31 @@
 exports[`<XUIEditableTable /> composes the className correctly 1`] = `
 <table
   className="xui-editabletable test-classname"
-/>
+>
+  <ContextProvider
+    value={
+      Object {
+        "rowOptions": Object {},
+      }
+    }
+  />
+</table>
 `;
 
 exports[`<XUIEditableTable /> renders correctly 1`] = `
 <table
   className="xui-editabletable"
 >
-  <div>
-    XUIEditableTable
-  </div>
+  <ContextProvider
+    value={
+      Object {
+        "rowOptions": Object {},
+      }
+    }
+  >
+    <div>
+      XUIEditableTable
+    </div>
+  </ContextProvider>
 </table>
 `;

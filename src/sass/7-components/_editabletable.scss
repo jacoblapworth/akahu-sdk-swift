@@ -4,6 +4,7 @@
 @mixin xui-editabletablecell {
   border: $xui-border-standard;
   height: $xui-minimum-touch-target;
+  padding: 0px;
 }
 
 .#{$ns}-editabletable {
@@ -31,4 +32,9 @@
   @include xui-editabletablecell;
   padding-left: $xui-s-standard;
   padding-right: $xui-s-standard;
+}
+
+.#{$ns}-textinput.#{$ns}-editabletablecelltextinput--textinput {
+  border-color: transparent;
+  border-radius: 0;
 }

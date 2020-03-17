@@ -11,7 +11,7 @@ const baseName = `${tableName}celltextinput`;
 const XUIEditableTableCellTextInput = ({ children, className, ...spreadProps }) => {
   return (
     <XUIEditableTableCell className={cn(baseName, className)} {...spreadProps}>
-      <XUITextInput />
+      <XUITextInput containerClassName={`${baseName}--textinput`} />
     </XUIEditableTableCell>
   );
 };

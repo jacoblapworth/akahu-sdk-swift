@@ -8,7 +8,7 @@ module.exports = {
         {
           name: 'variant',
           valueTransform: stringReplace({
-            'link': 'borderless-primary',
+            link: 'borderless-primary',
           }),
         },
       ],
@@ -25,7 +25,7 @@ module.exports = {
             'borderless-negative': 'negative',
             'borderless-primary': 'primary',
             'borderless-standard': 'standard',
-            'link': 'standard',
+            link: 'standard',
           }),
         },
       ],
@@ -42,7 +42,7 @@ module.exports = {
             'borderless-negative': 'negative',
             'borderless-primary': 'primary',
             'borderless-standard': 'standard',
-            'link': 'standard',
+            link: 'standard',
           }),
         },
       ],

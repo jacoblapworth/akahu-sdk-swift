@@ -59,4 +59,15 @@ module.exports = {
       ],
     },
   ],
+  autocompleter: [
+    {
+      name: 'XUIAutocompleter',
+      props: [
+        {
+          name: 'loadingLabel',
+          newName: 'loadingAriaLabel',
+        },
+      ],
+    },
+  ],
 };

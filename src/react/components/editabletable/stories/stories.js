@@ -10,12 +10,10 @@ import {
   XUIEditableTable,
   XUIEditableTableHead,
   XUIEditableTableHeadingCell,
-  XUIEditableTableCellReadOnly,
+  XUIEditableTableCellTextInput,
   XUIEditableTableRow,
 } from '../../../editabletable';
 import XUIEditableTableBody from '../XUIEditableTableBody';
-
-const widths = ['20%', '200px', 'auto', 'minmax(10%, 100px)'];
 
 class EditableTablePlayground extends React.Component {
   render() {
@@ -34,10 +32,8 @@ class EditableTablePlayground extends React.Component {
         <XUIEditableTableBody>
           {Array.from(Array(rows).keys()).map(() => (
             <XUIEditableTableRow onRemove={() => console.log('remove me')}>
-              {Array.from(Array(columns).keys()).map((item, index) => (
-                <XUIEditableTableCellReadOnly width={widths[index]}>
-                  I’m a cell
-                </XUIEditableTableCellReadOnly>
+              {Array.from(Array(columns).keys()).map(() => (
+                <XUIEditableTableCellTextInput />
               ))}
             </XUIEditableTableRow>
           ))}

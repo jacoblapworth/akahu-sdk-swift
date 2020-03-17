@@ -6,14 +6,9 @@ import { tableName } from './private/constants';
 
 const baseName = `${tableName}cell`;
 
-const XUIEditableTableCell = ({ children, className, qaHook, width, ...spreadProps }) => {
+const XUIEditableTableCell = ({ children, className, qaHook, ...spreadProps }) => {
   return (
-    <td
-      className={cn(baseName, className)}
-      data-automationid={qaHook}
-      style={{ width }}
-      {...spreadProps}
-    >
+    <td className={cn(baseName, className)} data-automationid={qaHook} {...spreadProps}>
       {children}
     </td>
   );

@@ -10,24 +10,6 @@ exports[`<XUIEditableTableRow /> composes the className correctly 1`] = `
 </tr>
 `;
 
-exports[`<XUIEditableTableRow /> renders a delete button when XUITable's rowOptions.isRemovable property is set to true 1`] = `
-<table
-  className="xui-editabletable"
->
-  <ContextProvider
-    value={
-      Object {
-        "rowOptions": Object {
-          "isRemovable": true,
-        },
-      }
-    }
-  >
-    <XUIEditableTableRow />
-  </ContextProvider>
-</table>
-`;
-
 exports[`<XUIEditableTableRow /> renders correctly 1`] = `
 <tr
   className="xui-editabletablerow"

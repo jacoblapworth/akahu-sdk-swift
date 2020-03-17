@@ -14,7 +14,6 @@ import {
   XUIEditableTableRow,
 } from '../../../editabletable';
 import XUIEditableTableBody from '../XUIEditableTableBody';
-import { object } from 'prop-types';
 
 const widths = ['20%', '200px', 'auto', 'minmax(10%, 100px)'];
 
@@ -25,7 +24,7 @@ class EditableTablePlayground extends React.Component {
       <XUIEditableTable columnWidths={columnWidths} rowOptions={rowOptions}>
         {hasHeader && (
           <XUIEditableTableHead>
-            <XUIEditableTableRow>
+            <XUIEditableTableRow removeButtonAriaLabel="Remove row">
               {Array.from(Array(columns).keys()).map(() => (
                 <XUIEditableTableHeadingCell>I’m a cell</XUIEditableTableHeadingCell>
               ))}

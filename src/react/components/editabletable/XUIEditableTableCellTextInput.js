@@ -8,10 +8,19 @@ import { tableName } from './private/constants';
 
 const baseName = `${tableName}celltextinput`;
 
-const XUIEditableTableCellTextInput = ({ cellProps, className, ...spreadProps }) => {
+const XUIEditableTableCellTextInput = ({
+  cellProps = {},
+  className,
+  containerClassName,
+  ...spreadProps
+}) => {
   return (
-    <XUIEditableTableCell className={cn(baseName, className)} {...cellProps}>
-      <XUITextInput {...spreadProps} containerClassName={`${baseName}--textinput`} isLabelHidden />
+    <XUIEditableTableCell {...cellProps} className={cn(baseName, cellProps.className)}>
+      <XUITextInput
+        {...spreadProps}
+        containerClassName={cn(`${baseName}--control`, containerClassName)}
+        isLabelHidden
+      />
     </XUIEditableTableCell>
   );
 };

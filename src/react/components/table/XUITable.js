@@ -140,7 +140,7 @@ class XUITable extends Component {
       onCheckAllToggle,
       onCheckOneToggle,
       checkOneRowAriaLabel,
-      checkAllRowsLabel,
+      checkAllRowsAriaLabel,
       hasOverflowMenu,
       createOverflowMenu,
       overflowMenuTitle,
@@ -201,7 +201,7 @@ class XUITable extends Component {
                   checkedIds,
                   disabledIds,
                   onCheckAllToggle,
-                  checkAllRowsLabel,
+                  checkAllRowsAriaLabel,
                   hasOverflowMenu,
                   ensureCellVisibility,
                 }}
@@ -343,7 +343,7 @@ XUITable.propTypes = {
    * <br />
    * Recommended English value: *Select all rows*
    */
-  checkAllRowsLabel: PropTypes.node,
+  checkAllRowsAriaLabel: PropTypes.node,
 
   // - - - - - - - //
   // Overflow Menu. //

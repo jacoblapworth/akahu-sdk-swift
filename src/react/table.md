@@ -26,7 +26,7 @@ const data = {
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowAriaLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -51,7 +51,7 @@ const data = {
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowAriaLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -87,7 +87,7 @@ const data = {
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowAriaLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -152,7 +152,7 @@ const data = {
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowAriaLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -213,7 +213,7 @@ const data = {
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowAriaLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -254,7 +254,7 @@ document.head.appendChild(node);
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowAriaLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -307,7 +307,7 @@ const data = {
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowAriaLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -335,7 +335,7 @@ Each row's _Disabled_ state is derived from checking for _"truthy"_ row key / va
 
 **Note: Make sure the state of the _disbled_ checkbox will not be changed via the bulk-select. For reference, There's an example `onCheckAllToggle` callback function below.**
 
-Interactions for the _"master"_ and _"single"_ checkbox toggles can be handled using the `onCheckAllToggle` and `onCheckOneToggle` props. If you provide these, you must also provide the corresponding `checkAllRowsLabel` or `checkOneRowAriaLabel` for accessibility purposes.
+Interactions for the _"master"_ and _"single"_ checkbox toggles can be handled using the `onCheckAllToggle` and `onCheckOneToggle` props. If you provide these, you must also provide the corresponding `checkAllRowsAriaLabel` or `checkOneRowAriaLabel` for accessibility purposes.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
@@ -402,7 +402,7 @@ class Demo extends React.Component {
         loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
         checkOneRowAriaLabel="Select row"
-        checkAllRowsLabel="Select all rows"
+        checkAllRowsAriaLabel="Select all rows"
         overflowMenuTitle="More row options"
       >
         <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -444,7 +444,7 @@ const data = {
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowAriaLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -528,7 +528,7 @@ class Demo extends React.Component {
         loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
         checkOneRowAriaLabel="Select row"
-        checkAllRowsLabel="Select all rows"
+        checkAllRowsAriaLabel="Select all rows"
         overflowMenuTitle="More row options"
       >
         <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -648,7 +648,7 @@ class Demo extends React.Component {
         loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
         checkOneRowAriaLabel="Select row"
-        checkAllRowsLabel="Select all rows"
+        checkAllRowsAriaLabel="Select all rows"
         overflowMenuTitle="More row options"
       >
         <Column
@@ -712,7 +712,7 @@ const Appendage = ({ children }) => (
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowAriaLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -740,7 +740,7 @@ const data = {
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowAriaLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -781,7 +781,7 @@ const data = {
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowAriaLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column
@@ -843,7 +843,7 @@ const data = {};
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowAriaLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -873,7 +873,7 @@ const emptyStateComponent = (
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowAriaLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />

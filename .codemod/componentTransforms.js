@@ -125,6 +125,10 @@ module.exports = {
           name: 'checkOneRowLabel',
           newName: 'checkOneRowAriaLabel',
         },
+        {
+          name: 'checkAllRowsLabel',
+          newName: 'checkAllRowsAriaLabel',
+        },
       ],
     },
   ],

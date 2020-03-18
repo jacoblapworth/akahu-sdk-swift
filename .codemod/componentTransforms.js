@@ -113,4 +113,15 @@ module.exports = {
       ],
     },
   ],
+  table: [
+    {
+      name: 'Table',
+      props: [
+        {
+          name: 'loaderLabel',
+          newName: 'loaderAriaLabel',
+        },
+      ],
+    },
+  ],
 };

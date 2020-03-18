@@ -23,7 +23,7 @@ const data = {
 
 <Table
   data={data}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
@@ -48,7 +48,7 @@ const data = {
 
 <Table
   data={data}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
@@ -84,7 +84,7 @@ const data = {
 <Table
   data={data}
   isResponsive
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
@@ -149,7 +149,7 @@ const data = {
   data={data}
   isResponsive
   isTruncated
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
@@ -210,7 +210,7 @@ const data = {
 
 <Table
   data={data}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
@@ -251,7 +251,7 @@ document.head.appendChild(node);
 <Table
   data={data}
   className="xui-table-reactdocs-shadow"
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
@@ -304,7 +304,7 @@ const data = {
 
 <Table
   data={data}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
@@ -399,7 +399,7 @@ class Demo extends React.Component {
         disabledIds={this.state.disabledIds}
         onCheckAllToggle={this.handleCheckAllToggle}
         onCheckOneToggle={this.handleCheckOneToggle}
-        loaderLabel="Loading more data"
+        loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
         checkOneRowLabel="Select row"
         checkAllRowsLabel="Select all rows"
@@ -441,7 +441,7 @@ const data = {
       </Pickitem>
     ]
   }
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
@@ -525,7 +525,7 @@ class Demo extends React.Component {
             Edit
           </Pickitem>
         ]}
-        loaderLabel="Loading more data"
+        loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
         checkOneRowLabel="Select row"
         checkAllRowsLabel="Select all rows"
@@ -645,7 +645,7 @@ class Demo extends React.Component {
         isSortAsc={isSortAsc}
         onSortChange={this.handleSortChange}
         customSort={activeSortKey === 'tags' ? this.handleTagSort : null}
-        loaderLabel="Loading more data"
+        loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
         checkOneRowLabel="Select row"
         checkAllRowsLabel="Select all rows"
@@ -709,7 +709,7 @@ const Appendage = ({ children }) => (
   data={data}
   header={<Appendage>Header</Appendage>}
   footer={<Appendage>Footer</Appendage>}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
@@ -725,7 +725,7 @@ const Appendage = ({ children }) => (
 
 ## Loader
 
-Appends a `<XUILoader />` after the last _Row_ in the _Table_ with the `isLoading` prop. If you provide this prop, you must also provide a `loaderLabel` for accessibility purposes.
+Appends a `<XUILoader />` after the last _Row_ in the _Table_ with the `isLoading` prop. If you provide this prop, you must also provide a `loaderAriaLabel` for accessibility purposes.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
@@ -737,7 +737,7 @@ const data = {
 <Table
   data={data}
   isLoading
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
@@ -778,7 +778,7 @@ const data = {
   data={data}
   shouldRowClick={({ fruit }) => fruit === 'Banana'}
   onRowClick={(event, { fruit }) => alert(`You clicked the ${fruit} row`)}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
@@ -840,7 +840,7 @@ const data = {};
 <Table
   data={data}
   emptyMessage="There are no fruit results"
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
@@ -870,7 +870,7 @@ const emptyStateComponent = (
 <Table
   data={data}
   emptyStateComponent={emptyStateComponent}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"

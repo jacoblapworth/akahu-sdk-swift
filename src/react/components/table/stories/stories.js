@@ -158,7 +158,7 @@ storiesWithKnobs.add('Playground', () => {
         isLoading={boolean('isLoading', false)}
         isResponsive={boolean('isResponsive', false)}
         isTruncated={boolean('isTruncated', false)}
-        loaderLabel="Loading more data"
+        loaderAriaLabel="Loading more data"
         overflowMenuTitle="More row options"
       >
         <Column
@@ -229,7 +229,7 @@ const TestScaffold = (
       checkAllRowsLabel="Select all rows"
       checkOneRowLabel="Select row"
       emptyMessage="Nothing to show here"
-      loaderLabel="Loading more data"
+      loaderAriaLabel="Loading more data"
       overflowMenuTitle="More row options"
       {...tableProps}
       createOverflowMenu={tableProps.hasOverflowMenu && createOverflowMenu}

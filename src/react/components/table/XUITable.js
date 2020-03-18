@@ -127,7 +127,7 @@ class XUITable extends Component {
       isTruncated,
       isBorderless,
       isLoading,
-      loaderLabel,
+      loaderAriaLabel,
       isEmpty,
       emptyStateComponent,
       emptyMessage,
@@ -238,7 +238,7 @@ class XUITable extends Component {
 
         {isLoading && (
           <TableAlert qaHook={qaHook && `${qaHook}-loader`}>
-            <XUILoader ariaLabel={loaderLabel} />
+            <XUILoader ariaLabel={loaderAriaLabel} />
           </TableAlert>
         )}
 
@@ -298,7 +298,7 @@ XUITable.propTypes = {
    * <br />
    * Recommended English value: *Loading more data*
    */
-  loaderLabel: PropTypes.string,
+  loaderAriaLabel: PropTypes.string,
 
   // - - - - - //
   // Pinning.  //

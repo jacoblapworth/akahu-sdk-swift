@@ -25,7 +25,7 @@ const data = {
   data={data}
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
+  checkOneRowAriaLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
@@ -50,7 +50,7 @@ const data = {
   data={data}
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
+  checkOneRowAriaLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
@@ -86,7 +86,7 @@ const data = {
   isResponsive
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
+  checkOneRowAriaLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
@@ -151,7 +151,7 @@ const data = {
   isTruncated
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
+  checkOneRowAriaLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
@@ -212,7 +212,7 @@ const data = {
   data={data}
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
+  checkOneRowAriaLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
@@ -253,7 +253,7 @@ document.head.appendChild(node);
   className="xui-table-reactdocs-shadow"
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
+  checkOneRowAriaLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
@@ -306,7 +306,7 @@ const data = {
   data={data}
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
+  checkOneRowAriaLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
@@ -335,7 +335,7 @@ Each row's _Disabled_ state is derived from checking for _"truthy"_ row key / va
 
 **Note: Make sure the state of the _disbled_ checkbox will not be changed via the bulk-select. For reference, There's an example `onCheckAllToggle` callback function below.**
 
-Interactions for the _"master"_ and _"single"_ checkbox toggles can be handled using the `onCheckAllToggle` and `onCheckOneToggle` props. If you provide these, you must also provide the corresponding `checkAllRowsLabel` or `checkOneRowLabel` for accessibility purposes.
+Interactions for the _"master"_ and _"single"_ checkbox toggles can be handled using the `onCheckAllToggle` and `onCheckOneToggle` props. If you provide these, you must also provide the corresponding `checkAllRowsLabel` or `checkOneRowAriaLabel` for accessibility purposes.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
@@ -401,7 +401,7 @@ class Demo extends React.Component {
         onCheckOneToggle={this.handleCheckOneToggle}
         loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
-        checkOneRowLabel="Select row"
+        checkOneRowAriaLabel="Select row"
         checkAllRowsLabel="Select all rows"
         overflowMenuTitle="More row options"
       >
@@ -443,7 +443,7 @@ const data = {
   }
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
+  checkOneRowAriaLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
@@ -527,7 +527,7 @@ class Demo extends React.Component {
         ]}
         loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
-        checkOneRowLabel="Select row"
+        checkOneRowAriaLabel="Select row"
         checkAllRowsLabel="Select all rows"
         overflowMenuTitle="More row options"
       >
@@ -647,7 +647,7 @@ class Demo extends React.Component {
         customSort={activeSortKey === 'tags' ? this.handleTagSort : null}
         loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
-        checkOneRowLabel="Select row"
+        checkOneRowAriaLabel="Select row"
         checkAllRowsLabel="Select all rows"
         overflowMenuTitle="More row options"
       >
@@ -711,7 +711,7 @@ const Appendage = ({ children }) => (
   footer={<Appendage>Footer</Appendage>}
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
+  checkOneRowAriaLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
@@ -739,7 +739,7 @@ const data = {
   isLoading
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
+  checkOneRowAriaLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
@@ -780,7 +780,7 @@ const data = {
   onRowClick={(event, { fruit }) => alert(`You clicked the ${fruit} row`)}
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
+  checkOneRowAriaLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
@@ -842,7 +842,7 @@ const data = {};
   emptyMessage="There are no fruit results"
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
+  checkOneRowAriaLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
@@ -872,7 +872,7 @@ const emptyStateComponent = (
   emptyStateComponent={emptyStateComponent}
   loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
+  checkOneRowAriaLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
 >

@@ -139,7 +139,7 @@ class XUITable extends Component {
       disabledIds,
       onCheckAllToggle,
       onCheckOneToggle,
-      checkOneRowLabel,
+      checkOneRowAriaLabel,
       checkAllRowsLabel,
       hasOverflowMenu,
       createOverflowMenu,
@@ -221,7 +221,7 @@ class XUITable extends Component {
                       isChecked: checkboxState(rowData._id, checkedIds),
                       isDisabled: checkboxState(rowData._id, disabledIds),
                       onCheckOneToggle,
-                      checkOneRowLabel,
+                      checkOneRowAriaLabel,
                       onRowClick,
                       shouldRowClick,
                       hasOverflowMenu,
@@ -335,7 +335,7 @@ XUITable.propTypes = {
    * <br />
    * Recommended English value: *Select row*
    */
-  checkOneRowLabel: PropTypes.node,
+  checkOneRowAriaLabel: PropTypes.node,
 
   /**
    * Describes the "all rows" checkbox functionality for accessibility.

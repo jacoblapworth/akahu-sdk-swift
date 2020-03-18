@@ -121,6 +121,10 @@ module.exports = {
           name: 'loaderLabel',
           newName: 'loaderAriaLabel',
         },
+        {
+          name: 'checkOneRowLabel',
+          newName: 'checkOneRowAriaLabel',
+        },
       ],
     },
   ],

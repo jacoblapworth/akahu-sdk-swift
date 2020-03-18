@@ -148,7 +148,7 @@ storiesWithKnobs.add('Playground', () => {
       <Table
         {...tableProps}
         checkAllRowsLabel="Select all rows"
-        checkOneRowLabel="Select row"
+        checkOneRowAriaLabel="Select row"
         className={text('className', '')}
         data={data}
         emptyMessage="Nothing to show here"
@@ -227,7 +227,7 @@ const TestScaffold = (
   <ScrollResetWrapper key={tableIndex} style={{ ...tableStyles, ...styleOverrides }}>
     <Table
       checkAllRowsLabel="Select all rows"
-      checkOneRowLabel="Select row"
+      checkOneRowAriaLabel="Select row"
       emptyMessage="Nothing to show here"
       loaderAriaLabel="Loading more data"
       overflowMenuTitle="More row options"

@@ -181,7 +181,7 @@ class NestedExample extends Component {
               onBackButtonClick={this.showConvenienceDates}
               onSecondaryButtonClick={this.closeDropDown}
               secondaryButtonContent="Cancel"
-              backButtonLabel="Back"
+              backButtonAriaLabel="Back"
             />
           }
         >

@@ -66,6 +66,15 @@ module.exports = {
         },
       ],
     },
+    {
+      name: 'DropDownHeader',
+      props: [
+        {
+          name: 'backButtonLabel',
+          newName: 'backButtonAriaLabel',
+        },
+      ],
+    },
   ],
   autocompleter: [
     {

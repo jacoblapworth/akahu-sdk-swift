@@ -92,7 +92,7 @@ const nested = (
     <DropDownPanel
       header={
         <DropDownHeader
-          backButtonLabel="Back"
+          backButtonAriaLabel="Back"
           onBackButtonClick={NOOP}
           onSecondaryButtonClick={NOOP}
           secondaryButtonContent="Cancel"

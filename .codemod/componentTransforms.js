@@ -78,4 +78,15 @@ module.exports = {
       ],
     },
   ],
+  barchart: [
+    {
+      name: 'XUIBarChart',
+      props: [
+        {
+          name: 'loadingLabel',
+          newName: 'loadingAriaLabel',
+        },
+      ],
+    },
+  ],
 };

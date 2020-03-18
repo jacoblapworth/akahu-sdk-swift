@@ -33,7 +33,12 @@ class EditableTablePlayground extends React.Component {
           {Array.from(Array(rows).keys()).map(() => (
             <XUIEditableTableRow onRemove={() => console.log('remove me')}>
               {Array.from(Array(columns).keys()).map(() => (
-                <XUIEditableTableCellTextInput />
+                <XUIEditableTableCellTextInput
+                  cellProps={{
+                    width: '50px',
+                  }}
+                  id="abc"
+                />
               ))}
             </XUIEditableTableRow>
           ))}

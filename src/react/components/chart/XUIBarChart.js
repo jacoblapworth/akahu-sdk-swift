@@ -178,7 +178,7 @@ XUIBarChart.propTypes = {
    * <br />
    * Recommended English value: *Loading*
    */
-  loadingLabel: PropTypes.string,
+  loadingAriaLabel: PropTypes.string,
 };
 
 XUIBarChart.defaultProps = {

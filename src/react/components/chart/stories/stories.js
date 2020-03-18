@@ -35,7 +35,7 @@ storiesWithKnobs.add('Playground', () => {
   const paginationNextTitle = text('Pagination next title', '') || undefined;
   const paginationPreviousTitle = text('Pagination next title', '') || undefined;
   const emptyMessage = text('Empty state message', '') || undefined;
-  const loadingLabel = text('Loading label', '') || undefined;
+  const loadingAriaLabel = text('Loading Aria label', '') || undefined;
 
   const isChartTitleHidden = boolean('Hide chart title', false);
   const isBarStacked = boolean('Stack bars', false);
@@ -139,7 +139,7 @@ storiesWithKnobs.add('Playground', () => {
           emptyMessage,
           emptyStateComponent,
           isLoading,
-          loadingLabel,
+          loadingAriaLabel,
         }}
         // Make sure functions are are delayed correctly (not booleans from knobs).
         createBarToolTipMessage={createBarToolTipMessage || undefined}

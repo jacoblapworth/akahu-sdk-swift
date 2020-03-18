@@ -3,22 +3,12 @@
 exports[`<XUIEditableTableCell /> composes the className correctly 1`] = `
 <td
   className="xui-editabletablecell test-classname"
-  style={
-    Object {
-      "width": undefined,
-    }
-  }
 />
 `;
 
 exports[`<XUIEditableTableCell /> renders correctly 1`] = `
 <td
   className="xui-editabletablecell"
-  style={
-    Object {
-      "width": undefined,
-    }
-  }
 >
   XUIEditableTableCell
 </td>

@@ -130,7 +130,7 @@ import XUIButton from './button';
 </div>;
 ```
 
-The `isLoading` prop replaces the contents of the button with a loader, as well as disabling the button. You must also provide a `loadingLabel`, which adds an `aria-label` to the loader for accessibility purposes.
+The `isLoading` prop replaces the contents of the button with a loader, as well as disabling the button. You must also provide a `loadingAriaLabel`, which adds an `aria-label` to the loader for accessibility purposes.
 
 The `retainLayout` prop modifies the internals to keep the original button size, but shows a loader instead of the content
 
@@ -143,21 +143,21 @@ import XUIButton from './button';
 
 <div>
   <span className="xui-margin-right">
-    <XUIButton variant="primary" isLoading loadingLabel="Loading">
+    <XUIButton variant="primary" isLoading loadingAriaLabel="Loading">
       This text won't be displayed, because of the loader.
     </XUIButton>
   </span>
   <span className="xui-margin-right">
-    <XUIButton variant="primary" isLoading loadingLabel="Loading" minLoaderWidth>
+    <XUIButton variant="primary" isLoading loadingAriaLabel="Loading" minLoaderWidth>
       No
     </XUIButton>
   </span>
   <span className="xui-margin-right">
-    <XUIButton variant="primary" loadingLabel="Loading" minLoaderWidth>
+    <XUIButton variant="primary" loadingAriaLabel="Loading" minLoaderWidth>
       No
     </XUIButton>
   </span>
-  <XUIButton variant="primary" isLoading loadingLabel="Loading" retainLayout={false}>
+  <XUIButton variant="primary" isLoading loadingAriaLabel="Loading" retainLayout={false}>
     This text won't be displayed, because of the loader.
   </XUIButton>
 </div>;

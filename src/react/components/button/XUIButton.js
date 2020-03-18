@@ -144,7 +144,7 @@ export default class XUIButton extends React.PureComponent {
             isInverted,
             isLink,
             isLoading,
-            loadingLabel,
+            loadingAriaLabel,
             minLoaderWidth,
             onClick,
             onKeyDown,
@@ -168,7 +168,7 @@ export default class XUIButton extends React.PureComponent {
 
           const loader = isLoading && (
             <XUILoader
-              ariaLabel={loadingLabel}
+              ariaLabel={loadingAriaLabel}
               className={`${ns}-button--loader`}
               defaultLayout={false}
               key={retainLayout && isLoading ? 'button-loader' : null}
@@ -276,7 +276,7 @@ XUIButton.propTypes = {
    * Accessibility label for the `<XUILoader>`. This is required if the
    * `isLoading` prop is set to `true`.
    */
-  loadingLabel: PropTypes.string,
+  loadingAriaLabel: PropTypes.string,
 
   /** If this button is part of a parent button group */
   isGrouped: PropTypes.bool,

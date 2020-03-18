@@ -11,6 +11,10 @@ module.exports = {
             link: 'borderless-primary',
           }),
         },
+        {
+          name: 'loadingLabel',
+          newName: 'loadingAriaLabel',
+        },
       ],
     },
     {
@@ -27,6 +31,10 @@ module.exports = {
             'borderless-standard': 'standard',
             link: 'standard',
           }),
+        },
+        {
+          name: 'loadingLabel',
+          newName: 'loadingAriaLabel',
         },
       ],
     },

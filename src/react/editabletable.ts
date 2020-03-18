@@ -2,6 +2,7 @@ import XUIEditableTable from './components/editabletable/XUIEditableTable';
 import XUIEditableTableBody from './components/editabletable/XUIEditableTableBody';
 import XUIEditableTableCell from './components/editabletable/XUIEditableTableCell';
 import XUIEditableTableCellReadOnly from './components/editabletable/XUIEditableTableCellReadOnly';
+import XUIEditableTableCellSecondarySearch from './components/editabletable/XUIEditableTableCellSecondarySearch';
 import XUIEditableTableCellTextInput from './components/editabletable/XUIEditableTableCellTextInput';
 import XUIEditableTableFoot from './components/editabletable/XUIEditableTableFoot';
 import XUIEditableTableHead from './components/editabletable/XUIEditableTableHead';
@@ -14,6 +15,7 @@ export {
   XUIEditableTableBody,
   XUIEditableTableCell,
   XUIEditableTableCellReadOnly,
+  XUIEditableTableCellSecondarySearch,
   XUIEditableTableCellTextInput,
   XUIEditableTableFoot,
   XUIEditableTableHead,

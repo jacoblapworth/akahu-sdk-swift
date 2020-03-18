@@ -10,10 +10,12 @@ import {
   XUIEditableTable,
   XUIEditableTableHead,
   XUIEditableTableHeadingCell,
+  XUIEditableTableCellSecondarySearch,
   XUIEditableTableCellTextInput,
   XUIEditableTableRow,
 } from '../../../editabletable';
 import XUIEditableTableBody from '../XUIEditableTableBody';
+import XUIButton from '../../button/XUIButton';
 
 class EditableTablePlayground extends React.Component {
   render() {

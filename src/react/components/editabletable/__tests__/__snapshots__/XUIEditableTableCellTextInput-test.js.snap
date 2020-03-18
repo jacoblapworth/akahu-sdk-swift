@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIEditableTableCellTextInput /> renders correctly 1`] = `
+<XUIEditableTableCell
+  className="xui-editabletablecelltextinput"
+>
+  <XUITextInput
+    containerClassName="xui-editabletablecelltextinput--textinput"
+    inputProps={Object {}}
+    minRows={3}
+    size="medium"
+  />
+</XUIEditableTableCell>
+`;

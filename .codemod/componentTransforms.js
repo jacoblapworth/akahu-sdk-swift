@@ -89,4 +89,19 @@ module.exports = {
       ],
     },
   ],
+  datepicker: [
+    {
+      name: 'XUIDatePicker',
+      props: [
+        {
+          name: 'nextButtonLabel',
+          newName: 'nextButtonAriaLabel',
+        },
+        {
+          name: 'prevButtonLabel',
+          newName: 'prevButtonAriaLabel',
+        },
+      ],
+    },
+  ],
 };

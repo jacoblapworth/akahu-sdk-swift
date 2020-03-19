@@ -34,7 +34,25 @@
   padding-right: $xui-s-standard;
 }
 
-.#{$ns}-textinput.#{$ns}-editabletablecelltextinput--control {
+.#{$ns}-textinput.#{$ns}-editabletablecelltextinput--control,
+.#{$ns}-editabletablecellselectbox--control .#{$ns}-select--button-no-variant {
   border-color: transparent;
   border-radius: 0;
+  &:not(.#{$ns}-textinput-focus):hover,
+  &:not(.#{$ns}-textinput-focus):active {
+    background-color: inherit;
+    border-color: transparent;
+    box-shadow: $xui-shadow-border-all;
+  }
+  &.#{$ns}-textinput-focus {
+    border-color: transparent;
+  }
+}
+
+.#{$ns}-editabletablecelltextinput .#{$ns}-textinputwrapper,
+.#{$ns}-editabletablecellselectbox--control {
+  height: 100%;
+  & :not(svg) {
+    height: inherit;
+  }
 }

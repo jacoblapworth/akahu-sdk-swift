@@ -11,11 +11,13 @@ import {
   XUIEditableTableHead,
   XUIEditableTableHeadingCell,
   XUIEditableTableCellSecondarySearch,
+  XUIEditableTableCellSelectBox,
   XUIEditableTableCellTextInput,
   XUIEditableTableRow,
 } from '../../../editabletable';
 import XUIEditableTableBody from '../XUIEditableTableBody';
 import XUIButton from '../../button/XUIButton';
+import SelectBoxOption from '../../select-box/SelectBoxOption';
 
 class EditableTablePlayground extends React.Component {
   render() {

@@ -50,11 +50,9 @@
   color: $xui-select-color;
   font-weight: normal;
 
-  &:hover {
-    color: $xui-select-color;
-  }
-
-  &:active {
+  &:hover,
+  &:active,
+  &:focus {
     color: $xui-select-color;
   }
 

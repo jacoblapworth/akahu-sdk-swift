@@ -19,27 +19,32 @@ import XUIButton from '../../button/XUIButton';
 
 class EditableTablePlayground extends React.Component {
   render() {
-    const { columns, columnWidths, hasHeader, rows, rowOptions } = this.props;
+    const { columns, hasHeader, rows, rowOptions } = this.props;
     return (
-      <XUIEditableTable columnWidths={columnWidths} rowOptions={rowOptions}>
+      <XUIEditableTable rowOptions={rowOptions}>
         {hasHeader && (
           <XUIEditableTableHead>
             <XUIEditableTableRow removeButtonAriaLabel="Remove row">
-              {Array.from(Array(columns).keys()).map(() => (
-                <XUIEditableTableHeadingCell>I’m a cell</XUIEditableTableHeadingCell>
+              {Array.from(Array(columns).keys()).map((item, index) => (
+                <XUIEditableTableHeadingCell key={index}>I’m a cell</XUIEditableTableHeadingCell>
               ))}
             </XUIEditableTableRow>
           </XUIEditableTableHead>
         )}
         <XUIEditableTableBody>
-          {Array.from(Array(rows).keys()).map(() => (
-            <XUIEditableTableRow onRemove={() => console.log('remove me')}>
-              {Array.from(Array(columns).keys()).map(() => (
+          {Array.from(Array(rows).keys()).map((item, index) => (
+            <XUIEditableTableRow
+              key={index}
+              onRemove={() => console.log('remove me')}
+              removeButtonAriaLabel="Remove row"
+            >
+              {Array.from(Array(columns).keys()).map((item, index) => (
                 <XUIEditableTableCellTextInput
                   cellProps={{
                     width: '50px',
                   }}
                   id="abc"
+                  key={index}
                 />
               ))}
             </XUIEditableTableRow>

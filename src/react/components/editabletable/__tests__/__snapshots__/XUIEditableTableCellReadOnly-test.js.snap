@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIEditableTableCell /> composes the className correctly 1`] = `
+exports[`<XUIEditableTableCellReadOnly /> composes the className correctly 1`] = `
 <XUIEditableTableCell
   className="xui-editabletablecellreadonly test-classname"
 />
 `;
 
-exports[`<XUIEditableTableCell /> renders correctly 1`] = `
+exports[`<XUIEditableTableCellReadOnly /> renders correctly 1`] = `
 <XUIEditableTableCell
   className="xui-editabletablecellreadonly"
 >

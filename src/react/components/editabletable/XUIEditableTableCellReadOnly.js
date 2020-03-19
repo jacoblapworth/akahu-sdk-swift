@@ -7,17 +7,21 @@ import { tableName } from './private/constants';
 
 const baseName = `${tableName}cellreadonly`;
 
-const XUIEditableTableCellReadOnly = ({ children, className, ...spreadProps }) => {
+const XUIEditableTableCellReadOnly = ({ cellProps = {}, children, ...spreadProps }) => {
   return (
-    <XUIEditableTableCell className={cn(baseName, className)} {...spreadProps}>
+    <XUIEditableTableCell
+      {...cellProps}
+      {...spreadProps}
+      className={cn(baseName, cellProps.className)}
+    >
       {children}
     </XUIEditableTableCell>
   );
 };
 
 XUIEditableTableCellReadOnly.propTypes = {
+  cellProps: PropTypes.object,
   children: PropTypes.node,
-  className: PropTypes.string,
   qaHook: PropTypes.string,
 };
 

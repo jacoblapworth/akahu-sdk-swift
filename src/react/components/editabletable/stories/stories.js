@@ -10,18 +10,15 @@ import {
   XUIEditableTable,
   XUIEditableTableHead,
   XUIEditableTableHeadingCell,
-  XUIEditableTableCellSecondarySearch,
-  XUIEditableTableCellSelectBox,
-  XUIEditableTableCellTextInput,
   XUIEditableTableRow,
 } from '../../../editabletable';
 import XUIEditableTableBody from '../XUIEditableTableBody';
-import XUIButton from '../../button/XUIButton';
-import SelectBoxOption from '../../select-box/SelectBoxOption';
+import { samples, texts, widths } from './helpers';
 
 class EditableTablePlayground extends React.Component {
   render() {
     const { columns, hasHeader, rows, rowOptions } = this.props;
+    let cellsCount = 0;
     return (
       <XUIEditableTable rowOptions={rowOptions}>
         {hasHeader && (
@@ -40,15 +37,17 @@ class EditableTablePlayground extends React.Component {
               onRemove={() => console.log('remove me')}
               removeButtonAriaLabel="Remove row"
             >
-              {Array.from(Array(columns).keys()).map((item, index) => (
-                <XUIEditableTableCellTextInput
-                  cellProps={{
-                    width: '50px',
-                  }}
-                  id="abc"
-                  key={index}
-                />
-              ))}
+              {Array.from(Array(columns).keys()).map(() => {
+                const widthIndex = cellsCount % widths.length;
+                const sampleIndex = cellsCount % samples.length;
+                const textIndex = cellsCount % texts.length;
+                cellsCount += 1;
+                return samples[sampleIndex](
+                  cellsCount.toString(),
+                  widths[widthIndex],
+                  texts[textIndex],
+                );
+              })}
             </XUIEditableTableRow>
           ))}
         </XUIEditableTableBody>

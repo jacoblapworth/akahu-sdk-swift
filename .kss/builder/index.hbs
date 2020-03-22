@@ -251,7 +251,7 @@
 						</div>
 					{{/if}}
 					<div class="ds-example-links">
-						<label for="markup-{{referenceNumber}}" class="xui-button xui-button-borderless-main xui-button-small ds-example-markuplink xui-margin-top-large{{#isEqual exampleclass "ds-example-inline"}} xui-u-hidden{{/isEqual}}{{#isEqual exampleclass "ds-example-markuponly"}} xui-u-hidden{{/isEqual}}">Show markup</label>
+						<label for="markup-{{referenceNumber}}" class="xui-button xui-button-borderless-main xui-button-small ds-example-markuplink xui-margin-top-large{{#isInList exampleclass "ds-example-inline"}} xui-u-hidden{{/isInList}}{{#isInList exampleclass "ds-example-markuponly"}} xui-u-hidden{{/isInList}}">Show markup</label>
 						{{#if storybook}}
 							<a href="{{storybook}}" target="_blank" class="xui-button xui-button-borderless-main xui-button-small xui-margin-top-large ds-example-storybooklink">Open Storybook example
 								<svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-external" role="presentation"/></svg>
@@ -263,7 +263,7 @@
 
 				<!--ds-markup-->
 
-				<div class="ds-markup{{#isEqual exampleclass "ds-example-inline"}} ds-example-inline{{/isEqual}}{{#isEqual exampleclass "ds-example-markuponly"}} ds-example-inline{{/isEqual}}">
+				<div class="ds-markup{{#isInList exampleclass "ds-example-inline"}} ds-example-inline{{/isInList}}{{#isInList exampleclass "ds-example-markuponly"}} ds-example-inline{{/isInList}}">
 					<header class="ds-markup--actions">
 						<label for="example-{{referenceNumber}}" class="xui-button xui-button-icon-medium xui-button-icon xui-button-icon-inverted ds-button-closemarkup" title="Close markup pane"
 						 aria-label="Close markup pane">

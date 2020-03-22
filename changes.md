@@ -166,7 +166,17 @@ interface Props {
 }
 ```
 
-2. We do not export types for our private helpers. You can still access these types by using `keyof` and `typeof`.
+2. We do not export types for our private helpers. These types are usually used to copy the type of
+   a prop for a component. To do this, we recommend the following approach instead.
+
+```diff
+interface Props {
+- size?: SizeClassNamesKeys;
++ size?: React.ComponentProps<typeof XUIComponent>['size'];
+}
+```
+
+If this doesn't meet your needs you can also access these types by using `keyof` and `typeof`.
 
 ```diff
 interface Props {

@@ -281,7 +281,7 @@ e.g.
 
 ## Documentation style guide
 
-Our documentation writing style is based on [the Financial Times Origami documentation style guide](https://github.com/Financial-Times/ft-origami/blob/gh-pages/README.md#origami). It exists as guidance to help keep our documentation consistent.
+Our documentation writing style is based on [the Financial Times Origami documentation style guide](https://origami.ft.com/docs/principles/tone-and-language/). It exists as guidance to help keep our documentation consistent.
 
 1. Be conversational
    - Use contractions: "we're" over "we are"

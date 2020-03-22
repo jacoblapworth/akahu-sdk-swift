@@ -73,7 +73,7 @@ XUISwitchGroup.propTypes = {
   /** Class names to be added to bordered grouping element */
   className: PropTypes.string,
   qaHook: PropTypes.string,
-  /** Label to either show above radio group or for accessibility, depending on `isLabelHidden`. Highly recommended */
+  /** Label to show above the switch group, or for accessibility when the switch group label is hidden. Highly recommended */
   label: PropTypes.node,
   /** Whether the label should be visible or be applied as an aria-label. Defaults to visible */
   isLabelHidden: PropTypes.bool,

@@ -61,6 +61,7 @@ export type TextButtonVariants = Exclude<keyof typeof variantClassNames, 'icon' 
  */
 export const textButtonVariants: TextButtonVariants = Object.keys(variantClassNames).filter(
   name => name.indexOf('icon') !== 0,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ) as any;
 
 /**

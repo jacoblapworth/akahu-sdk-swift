@@ -11,7 +11,7 @@ const baseName = `${tableName}cellsecondarysearch`;
 
 const XUIEditableTableCellSecondarySearch = ({ cellProps = {}, className, ...spreadProps }) => {
   return (
-    <XUIEditableTableCell className={cn(baseName, cellProps.className)} {...cellProps}>
+    <XUIEditableTableCell {...cellProps} className={cn(baseName, cellProps.className)}>
       <XUIAutocompleterSecondarySearch
         {...spreadProps}
         className={cn(`${baseName}--control`, className)}

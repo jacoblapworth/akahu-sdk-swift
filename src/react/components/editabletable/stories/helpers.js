@@ -8,6 +8,7 @@ import {
 } from '../../../editabletable';
 import XUIButton from '../../button/XUIButton';
 import SelectBoxOption from '../../select-box/SelectBoxOption';
+import Picklist, { Pickitem } from '../../../picklist';
 
 const sampleReadOnly = (id, width, text) => (
   <XUIEditableTableCellReadOnly cellProps={{ width }} id={id} key={id}>
@@ -26,7 +27,12 @@ const sampleSecondary = (id, width, text) => (
     key={id}
     onSearch={() => console.log('heya')}
     trigger={<XUIButton>{text}</XUIButton>}
-  />
+  >
+    <Picklist>
+      <Pickitem id="pi1" primaryElement="Item content" />
+      <Pickitem id="pi2" primaryElement="Item two" />
+    </Picklist>
+  </XUIEditableTableCellSecondarySearch>
 );
 
 const sampleSelect = (id, width, text) => (

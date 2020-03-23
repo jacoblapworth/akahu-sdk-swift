@@ -664,6 +664,111 @@ exports[`<XUIFileUploader/> <FileList/> should render basic example 1`] = `
 </div>
 `;
 
+exports[`<XUIFileUploader/> <FileList/> should render custom rightContent 1`] = `
+<div
+  className="xui-fileuploader"
+>
+  <div
+    className=""
+  >
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
+      htmlFor="testLabel-control"
+    >
+      Label
+    </label>
+    <div
+      className=""
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        className="xui-fileuploader--input"
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="xui-button xui-button-standard xui-button-small"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+  </div>
+  <ul
+    className="xui-fileuploader--filelist"
+  >
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <div
+        className="xui-fileuploader--fileitem--icon xui-iconwrapper xui-iconwrapper-medium"
+      >
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={15}
+          viewBox="0 0 15 15"
+          width={15}
+        >
+          <path
+            d="M1.25 0h12.5C14.375 0 15 .625 15 1.25v12.5c0 .625-.625 1.25-1.25 1.25H1.25C.625 15 0 14.375 0 13.75V1.25C0 .625.625 0 1.25 0zM2 5v5h1V8h2V5H2zm8 0v5h1V8h1V7h-1V6h2V5h-3zM6 5v5h2V9H7V6h1V5H6zm2 1v3h1V6H8zM3 6h1v1H3V6z"
+            role="presentation"
+          />
+        </svg>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test2.pdf
+        <span
+          className="xui-fileuploader--fileitem--description"
+        >
+          2.17 KB
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button>
+          test rightContent
+        </button>
+        <button
+          aria-label="Delete file"
+          className="xui-button xui-button-icon-medium xui-button-icon"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <svg
+            className="xui-icon"
+            focusable="false"
+            height={14}
+            viewBox="0 0 11 14"
+            width={11}
+          >
+            <path
+              d="M0 1h3l1-1h3l1 1h3v2H0V1zm1 3h9v9.455c0 .272-.346.545-.692.545H1.692C1.346 14 1 13.727 1 13.455V4zm2 2v6h1V6H3zm2 0v6h1V6H5zm2 0v6h1V6H7z"
+              role="presentation"
+            />
+          </svg>
+          <div
+            className="xui-touchtarget"
+          />
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
 exports[`<XUIFileUploader/> <FileList/> should render with single line 1`] = `
 <div
   className="xui-fileuploader"

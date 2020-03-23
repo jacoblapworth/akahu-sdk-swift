@@ -15,8 +15,8 @@ import checkRequiredProps from '../../helpers/checkRequiredProps';
 const XUIFileUploader = ({
   acceptedFileExtensions,
   acceptsMultipleFiles = true,
-  buttonContent,
-  cancelButtonContent,
+  buttonText,
+  cancelButtonText,
   className,
   defaultErrorMessage,
   deleteLabel,
@@ -39,7 +39,7 @@ const XUIFileUploader = ({
   onDelete,
   onRetry,
   qaHook,
-  retryButtonContent,
+  retryButtonText,
   showFilesAsMultiline = true,
   showIcon = true,
   uploadingMessage,
@@ -125,12 +125,12 @@ const XUIFileUploader = ({
           <input className={`${baseClass}--input`} {...inputProps} onChange={onInputChange} />
           {hasDragAndDrop && <span>{dropZoneMessage}</span>}
           <XUIButton isDisabled={isDisabled} onClick={onClick} size="small">
-            {buttonContent}
+            {buttonText}
           </XUIButton>
         </div>
       </XUIControlWrapper>
       <FileList
-        cancelButtonContent={cancelButtonContent}
+        cancelButtonText={cancelButtonText}
         defaultErrorMessage={defaultErrorMessage}
         deleteLabel={deleteLabel}
         fileList={fileList}
@@ -140,7 +140,7 @@ const XUIFileUploader = ({
         onDelete={onDelete}
         onRetry={onRetry}
         qaHook={qaHook}
-        retryButtonContent={retryButtonContent}
+        retryButtonText={retryButtonText}
         showFilesAsMultiline={showFilesAsMultiline}
         showIcon={showIcon}
         uploadingMessage={uploadingMessage}
@@ -153,47 +153,47 @@ export default XUIFileUploader;
 
 XUIFileUploader.propTypes = {
   /**
-   * File extensions accepted by the file input.
+   * File extensions accepted by the file input
    */
   acceptedFileExtensions: PropTypes.string,
   /**
-   * Whether to support select multiple files
+   * Whether to support selecting multiple files
    */
   acceptsMultipleFiles: PropTypes.bool,
   /**
-   * The content shows in the button
+   * Button text
    * <br />
    * Recommended English value: *Select file*
    */
-  buttonContent: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired,
   /**
-   * The content shows in the cancel button
+   * Cancel button text
    * <br />
    * Recommended English value: *Cancel*
    */
-  cancelButtonContent: PropTypes.string.isRequired,
+  cancelButtonText: PropTypes.string.isRequired,
   /**
    * Class names to be added to the div wrapping the select button/drop zone and file list
    */
   className: PropTypes.string,
   /**
-   * Adds aria-label to delete icon.
+   * Default error message
+   * <br />
+   * Recommended English value: *Failed to upload file*
+   */
+  defaultErrorMessage: PropTypes.string.isRequired,
+  /**
+   * Label for “delete” icon for accessibility
    * <br />
    * Recommended English value: *Delete File*
    */
   deleteLabel: PropTypes.string.isRequired,
   /**
-   * The message shows in the drop zone
+   * The message that shows in the drop zone
    * <br />
    * Recommended English value: *Drag and drop file(s) or select manually*
    */
   dropZoneMessage: PropTypes.string.isRequired,
-  /**
-   * The message shows in the drop zone
-   * <br />
-   * Recommended English value: *Failed to upload file*
-   */
-  defaultErrorMessage: PropTypes.string.isRequired,
   /**
    * Class names to be added to the div wrapping the select button/drop zone
    */
@@ -202,10 +202,11 @@ XUIFileUploader.propTypes = {
    * Array of the following format Object:
    * <br />
    * {
-   *   uid: String, //A unique identifier used as the key of file items
-   *   status: String, // user could change it to: uploading / done / error
-   *   originalFile: file, // original File object
-   *   errorMessage: String, // custom error message, will overwrite prop `defaultErrorMessage`
+   *   uid: String, // Unique identifier used as a file key. This value is generated when the file input changed, and should not be modified
+   *   status: String, // User could change it to: uploading / done / error
+   *   originalFile: File, // Original File object
+   *   errorMessage: String, // Optional, custom error message, will overwrite prop `defaultErrorMessage`
+   *   rightContent: ReactNode, // Optional, custom rightContent for files with `done` status, shows in the left of delete icon
    * }
    */
   fileList: PropTypes.array.isRequired,
@@ -214,7 +215,7 @@ XUIFileUploader.propTypes = {
    */
   fileListClassName: PropTypes.string,
   /**
-   * The file size units array. Required if the `showFilesAsMultiline` prop is set to `true`.
+   * The file size units array. Required if the `showFilesAsMultiline` prop is set to `true`
    * <br />
    * Recommended English value: *['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']*
    */
@@ -242,7 +243,7 @@ XUIFileUploader.propTypes = {
    */
   isInvalid: PropTypes.bool,
   /**
-   * Should label be applied as an aria-label, rather than being visibly displayed
+   * Prevents the label element from being displayed on the page. Label is still accessible to screen readers
    */
   isLabelHidden: PropTypes.bool,
   /**
@@ -250,42 +251,44 @@ XUIFileUploader.propTypes = {
    */
   label: PropTypes.string,
   /**
-   * Class names to added to the label
+   * Class names to add to the label
    */
   labelClassName: PropTypes.string,
   /**
-   * Provide a specific label ID which will be used as the "labelleby" aria property
+   * Provide a specific label ID which will be used as the aria-labelledby property
    */
   labelId: PropTypes.string,
   /**
-   * Called when the Cancel button is clicked.
+   * Called when the cancel button is clicked
    * <br />
    * `(file, fileList, event) => {}`
    */
   onCancel: PropTypes.func,
   /**
-   * Called when the delete icon is clicked
+   * Called when the delete button is clicked
    * <br />
    * `(file, fileList, event) => {}`
    */
   onDelete: PropTypes.func.isRequired,
   /**
-   * Called when the file input is change (open or drop files)
+   * Called when a file is opened or dropped
    * <br />
-   * (fileList, event) => {}
+   * `(fileList, event) => {}`
    */
-  onFilesChange: PropTypes.func,
+  onFilesChange: PropTypes.func.isRequired,
   /**
-   * Called when the Retry button is clicked
+   * Called when retry button is clicked
+   * <br />
+   * `(file, fileList, event) => {}`
    */
   onRetry: PropTypes.func.isRequired,
   qaHook: PropTypes.string,
   /**
-   * The content shows in the retry button
+   * Retry button text
    * <br />
    * Recommended English value: *Retry*
    */
-  retryButtonContent: PropTypes.string.isRequired,
+  retryButtonText: PropTypes.string.isRequired,
   /**
    * Show multi line in the file list item
    */
@@ -295,7 +298,7 @@ XUIFileUploader.propTypes = {
    */
   showIcon: PropTypes.bool,
   /**
-   * The content shows in the button. Required if the `showFilesAsMultiline` prop is set to `true`.
+   * Message to display while the file is uploading. Required if the `showFilesAsMultiline` prop is set to `true`
    * <br />
    * Recommended English value: *Uploading...*
    */

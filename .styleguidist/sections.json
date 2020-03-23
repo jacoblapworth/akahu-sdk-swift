@@ -93,6 +93,11 @@
             ]
           },
           {
+            "name": "File Uploader",
+            "content": "../src/react/fileUploader.md",
+            "components": "../src/react/components/fileUploader/XUIFileUploader.js"
+          },
+          {
             "name": "Radio",
             "content": "../src/react/radio.md",
             "sections": [

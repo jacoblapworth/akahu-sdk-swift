@@ -18,7 +18,7 @@ const progressProps = {
 };
 
 const FileList = ({
-  cancelButtonContent,
+  cancelButtonText,
   defaultErrorMessage,
   deleteLabel,
   fileList,
@@ -29,7 +29,7 @@ const FileList = ({
   onDelete,
   onRetry,
   qaHook,
-  retryButtonContent,
+  retryButtonText,
   uploadingMessage,
   showIcon,
 }) => {
@@ -47,7 +47,8 @@ const FileList = ({
         data-automationid={qaHook && `${qaHook}-filelist`}
       >
         {fileList.map(file => {
-          const { uid, status, originalFile = {}, errorMessage } = file;
+          const { uid, status, originalFile = {}, errorMessage, rightContent } = file;
+
           const { name, size, type } = originalFile;
           return (
             <li className={cn(fileItemBaseClass)} key={uid}>
@@ -86,13 +87,14 @@ const FileList = ({
                 )}
               </div>
               <div className={`${fileItemBaseClass}--rightcontent`}>
+                {status === 'done' && rightContent}
                 {status === 'error' && (
                   <XUIButton
                     onClick={event => onRetry(file, fileList, event)}
                     size="small"
                     variant="borderless-primary"
                   >
-                    {retryButtonContent}
+                    {retryButtonText}
                   </XUIButton>
                 )}
                 {status === 'uploading' ? (
@@ -101,7 +103,7 @@ const FileList = ({
                     size="small"
                     variant="borderless-primary"
                   >
-                    {cancelButtonContent}
+                    {cancelButtonText}
                   </XUIButton>
                 ) : (
                   <XUIIconButton
@@ -122,7 +124,7 @@ const FileList = ({
 export default FileList;
 
 FileList.propTypes = {
-  cancelButtonContent: PropTypes.string.isRequired,
+  cancelButtonText: PropTypes.string.isRequired,
   defaultErrorMessage: PropTypes.string.isRequired,
   deleteLabel: PropTypes.string.isRequired,
   fileList: PropTypes.array.isRequired,
@@ -132,7 +134,7 @@ FileList.propTypes = {
   onDelete: PropTypes.func.isRequired,
   onRetry: PropTypes.func.isRequired,
   qaHook: PropTypes.string,
-  retryButtonContent: PropTypes.string.isRequired,
+  retryButtonText: PropTypes.string.isRequired,
   showFilesAsMultiline: PropTypes.bool,
   showIcon: PropTypes.bool,
   uploadingMessage: PropTypes.string,

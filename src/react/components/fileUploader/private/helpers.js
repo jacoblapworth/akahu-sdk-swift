@@ -75,8 +75,8 @@ export const defaultFileList = [
 
 // This is just for tests/docs use
 export const defaultProps = {
-  buttonContent: 'Select file',
-  cancelButtonContent: 'Cancel',
+  buttonText: 'Select file',
+  cancelButtonText: 'Cancel',
   defaultErrorMessage: 'Failed to upload file',
   deleteLabel: 'Delete file',
   dropZoneMessage: 'Drag and drop file(s) or select manually',
@@ -84,8 +84,21 @@ export const defaultProps = {
   // Usually the file won't be that large, but it's better to include all units
   fileSizeUnits: ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
   label: 'Label',
-  retryButtonContent: 'Retry',
+  retryButtonText: 'Retry',
   uploadingMessage: 'Uploading...',
   onDelete: () => {},
+  onFilesChange: () => {},
   onRetry: () => {},
+};
+
+export const fakeUpload = () => {
+  const fakeStatus = ['done', 'error'][Math.floor(Math.random() * 2)];
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (fakeStatus === 'error') {
+        reject(new Error('Upload failed'));
+      }
+      resolve();
+    }, 1000);
+  });
 };

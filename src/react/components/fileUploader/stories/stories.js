@@ -10,19 +10,7 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
-import { defaultFileList, defaultProps } from '../private/helpers';
-
-const fakeUpload = () => {
-  const fakeStatus = ['done', 'error'][Math.floor(Math.random() * 2)];
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (fakeStatus === 'error') {
-        reject(new Error('Upload failed'));
-      }
-      resolve();
-    }, 1000);
-  });
-};
+import { defaultFileList, defaultProps, fakeUpload } from '../private/helpers';
 
 const Example = props => {
   const [fileList, setFileList] = useState(props.fileList || defaultProps.fileList);
@@ -95,8 +83,8 @@ storiesWithKnobs.add('Playground', () => {
   const props = {
     acceptedFileExtensions: text('acceptedFileExtensions', undefined),
     acceptsMultipleFiles: boolean('acceptsMultipleFiles', true),
-    buttonContent: text('buttonContent', 'Select file'),
-    cancelButtonContent: text('cancelButtonContent', 'Cancel'),
+    buttonText: text('buttonText', 'Select file'),
+    cancelButtonText: text('cancelButtonText', 'Cancel'),
     className: text('className', undefined),
     dropZoneMessage: text('dropZoneMessage', 'Drag and drop file(s) or select manually'),
     defaultErrorMessage: text('defaultErrorMessage', 'File failed to upload'),
@@ -109,7 +97,7 @@ storiesWithKnobs.add('Playground', () => {
     isInvalid: boolean('isInvalid', false),
     label: text('label', 'Label'),
     labelClassName: text('labelClassName', undefined),
-    retryButtonContent: text('retryButtonContent', 'Retry'),
+    retryButtonText: text('retryButtonText', 'Retry'),
     showFilesAsMultiline: boolean('showFilesAsMultiline', true),
     showIcon: boolean('showIcon', true),
     uploadingMessage: text('uploadingMessage', 'Uploading'),

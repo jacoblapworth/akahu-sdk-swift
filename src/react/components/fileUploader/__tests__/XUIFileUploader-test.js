@@ -105,6 +105,15 @@ describe('<XUIFileUploader/>', () => {
       expect(component).toMatchSnapshot();
     });
 
+    it('should render custom rightContent', () => {
+      const component = renderer.create(
+        <WithFileListWrapper
+          fileList={[{ ...testFileList[1], rightContent: <button>test rightContent</button> }]}
+        />,
+      );
+      expect(component).toMatchSnapshot();
+    });
+
     it('should call the passed onCancel when the cancel button is clicked', () => {
       const onCancel = jest.fn();
       const wrapper = mount(<WithFileListWrapper onCancel={onCancel} />);

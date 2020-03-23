@@ -1,5 +1,7 @@
+import React from 'react';
 import uuid from 'uuid/v4';
 
+import XUIButton from '../../button/XUIButton';
 import { defaultFileList } from '../private/helpers';
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
@@ -19,6 +21,26 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with fileList',
     fileList: defaultFileList,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with custom rightContent for uploaded file',
+    fileList: [
+      {
+        uid: uuid(),
+        status: 'done',
+        originalFile: {
+          name: 'hello.pdf',
+          type: 'application/pdf',
+          size: 12345678,
+        },
+        rightContent: (
+          <XUIButton size="small" variant="borderless-primary">
+            Action
+          </XUIButton>
+        ),
+      },
+    ],
   },
   {
     storyKind: storiesWithVariationsKindName,

@@ -421,7 +421,7 @@ XUIAutocompleter.propTypes = {
   /** Label to show above the input, or for accessibility when the input label is hidden */
   inputLabel: PropTypes.node,
 
-  /** Whether the label should be visible or be applied as an aria-label. */
+  /** Whether to hide the label and apply it as an ARIA label instead. */
   isInputLabelHidden: PropTypes.bool,
 
   /**

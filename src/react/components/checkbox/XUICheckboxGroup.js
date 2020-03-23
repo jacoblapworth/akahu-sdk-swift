@@ -82,7 +82,7 @@ XUICheckboxGroup.propTypes = {
   qaHook: PropTypes.string,
   /** Label to show above the checkbox group, or for accessibility when the checkbox group label is hidden. Highly recommended */
   label: PropTypes.node,
-  /** Whether the label should be visible or be applied as an aria-label. Defaults to visible. */
+  /** Whether to hide the label and apply it as an ARIA label instead. Defaults to visible. */
   isLabelHidden: PropTypes.bool,
   /** Whether to use the field layout classes. Defaults to true. */
   isFieldLayout: PropTypes.bool,

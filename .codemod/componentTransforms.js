@@ -8,7 +8,8 @@ module.exports = {
         {
           name: 'variant',
           valueTransform: stringReplace({
-            'link': 'borderless-primary',
+            // prettier-ignore
+            'link': 'borderless-primary'
           }),
         },
         {
@@ -29,7 +30,8 @@ module.exports = {
             'borderless-negative': 'negative',
             'borderless-primary': 'primary',
             'borderless-standard': 'standard',
-            'link': 'standard',
+            // prettier-ignore
+            'link': 'standard'
           }),
         },
         {
@@ -50,7 +52,8 @@ module.exports = {
             'borderless-negative': 'negative',
             'borderless-primary': 'primary',
             'borderless-standard': 'standard',
-            'link': 'standard',
+            // prettier-ignore
+            'link': 'standard'
           }),
         },
       ],

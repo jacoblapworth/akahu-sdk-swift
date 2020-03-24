@@ -111,7 +111,7 @@ class WrapPillsExample extends Component {
 
     this.state = {
       value: '',
-      selectedPeopleIds: [],
+      selectedPeopleIds: [this.props.index || null],
     };
 
     this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
@@ -206,6 +206,7 @@ class WrapPillsExample extends Component {
         isInvalid={this.state.isInvalid}
         onBackspacePill={this.deleteLastPerson}
         onSearch={this.onSearchChangeHandler}
+        openOnFocus
         pills={this.renderPills(selectedPeopleIds)}
         placeholder={this.props.placeholder}
         ref={this.completer}
@@ -218,7 +219,7 @@ class WrapPillsExample extends Component {
 }
 
 const sampleAutocompleter = (id, width, text) => (
-  <WrapPillsExample placeholder={text} width={width} />
+  <WrapPillsExample index={id} placeholder={text} width={width} />
 );
 
 const samples = [
@@ -235,9 +236,8 @@ const texts = [
   'User organisation settings',
   // 'https://docs.google.com/document/d/1IrcerSo_0gmzzlcugsH4tBqsrlDaNXUuub_YubQ9M3Y/edit',
   'Your name here',
-  'Antidisestablishmentarianism',
   'X e r o',
 ];
-const widths = ['auto', '10px', '50px', '100px', '250px'];
+const widths = ['auto', '10px', '50px', '100px', '250px', '20%'];
 
 export { samples, texts, widths };

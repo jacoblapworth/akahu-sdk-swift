@@ -37,7 +37,7 @@ XUISplitButton.propTypes = {
    * Accessibility label for the `<XUILoader>`. This is required if the
    * `isLoading` prop is set to `true`.
    */
-  loadingLabel: PropTypes.string,
+  loadingAriaLabel: PropTypes.string,
 
   /** If this button is part of a parent button group */
   isGrouped: PropTypes.bool,

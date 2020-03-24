@@ -212,8 +212,8 @@ test.add(storyNames.touchTargets, () => {
               </XUIPanelSection>
               <XUIPanelSection className="xui-padding-xlarge">
                 <XUITable
-                  checkAllRowsLabel="Select all rows"
-                  checkOneRowLabel="Select row"
+                  checkAllRowsAriaLabel="Select all rows"
+                  checkOneRowAriaLabel="Select row"
                   checkedIds={{ abc123: true, def456: false }}
                   createOverflowMenu={() => [<XUIPickItem>Edit</XUIPickItem>]}
                   data={{

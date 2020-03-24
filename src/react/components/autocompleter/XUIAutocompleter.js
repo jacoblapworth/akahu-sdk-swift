@@ -239,7 +239,7 @@ export default class XUIAutocompleter extends PureComponent {
       dropdownFixedWidth,
       footer,
       loading,
-      loadingLabel,
+      loadingAriaLabel,
       children,
       className,
       id,
@@ -338,7 +338,7 @@ export default class XUIAutocompleter extends PureComponent {
       >
         {loading ? (
           <Picklist>
-            <XUILoader ariaLabel={loadingLabel} />
+            <XUILoader ariaLabel={loadingAriaLabel} />
           </Picklist>
         ) : (
           children
@@ -395,7 +395,7 @@ XUIAutocompleter.propTypes = {
    * <br />
    * Recommended English value: *Loading*
    */
-  loadingLabel: PropTypes.string,
+  loadingAriaLabel: PropTypes.string,
 
   /** ID to be added to the root node of the completer */
   id: PropTypes.string,
@@ -418,10 +418,10 @@ XUIAutocompleter.propTypes = {
   /** CSS class(es) to go on the input container component */
   inputContainerClassName: PropTypes.string,
 
-  /** Label to show above the input */
+  /** Label to show above the input, or for accessibility when the input label is hidden */
   inputLabel: PropTypes.node,
 
-  /** Should label be applied as an aria-label, rather than being visibly displayed. */
+  /** Whether to hide the label and apply it as an ARIA label instead. */
   isInputLabelHidden: PropTypes.bool,
 
   /**

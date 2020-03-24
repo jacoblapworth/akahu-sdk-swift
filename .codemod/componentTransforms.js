@@ -8,8 +8,13 @@ module.exports = {
         {
           name: 'variant',
           valueTransform: stringReplace({
-            'link': 'borderless-primary',
+            // prettier-ignore
+            'link': 'borderless-primary'
           }),
+        },
+        {
+          name: 'loadingLabel',
+          newName: 'loadingAriaLabel',
         },
       ],
     },
@@ -25,8 +30,13 @@ module.exports = {
             'borderless-negative': 'negative',
             'borderless-primary': 'primary',
             'borderless-standard': 'standard',
-            'link': 'standard',
+            // prettier-ignore
+            'link': 'standard'
           }),
+        },
+        {
+          name: 'loadingLabel',
+          newName: 'loadingAriaLabel',
         },
       ],
     },
@@ -42,7 +52,8 @@ module.exports = {
             'borderless-negative': 'negative',
             'borderless-primary': 'primary',
             'borderless-standard': 'standard',
-            'link': 'standard',
+            // prettier-ignore
+            'link': 'standard'
           }),
         },
       ],
@@ -55,6 +66,71 @@ module.exports = {
         {
           name: 'currentPanel',
           newName: 'currentPanelId',
+        },
+      ],
+    },
+    {
+      name: 'DropDownHeader',
+      props: [
+        {
+          name: 'backButtonLabel',
+          newName: 'backButtonAriaLabel',
+        },
+      ],
+    },
+  ],
+  autocompleter: [
+    {
+      name: 'XUIAutocompleter',
+      props: [
+        {
+          name: 'loadingLabel',
+          newName: 'loadingAriaLabel',
+        },
+      ],
+    },
+  ],
+  barchart: [
+    {
+      name: 'XUIBarChart',
+      props: [
+        {
+          name: 'loadingLabel',
+          newName: 'loadingAriaLabel',
+        },
+      ],
+    },
+  ],
+  datepicker: [
+    {
+      name: 'XUIDatePicker',
+      props: [
+        {
+          name: 'nextButtonLabel',
+          newName: 'nextButtonAriaLabel',
+        },
+        {
+          name: 'prevButtonLabel',
+          newName: 'prevButtonAriaLabel',
+        },
+      ],
+    },
+  ],
+  table: [
+    {
+      name: 'Table',
+      props: [
+        {
+          name: 'loaderLabel',
+          newName: 'loaderAriaLabel',
+        },
+        {
+          name: 'checkOneRowLabel',
+          newName: 'checkOneRowAriaLabel',
+        },
+        {
+          name: 'checkAllRowsLabel',
+          newName: 'checkAllRowsAriaLabel',
         },
       ],
     },

@@ -80,7 +80,7 @@ describe('<XUIButton/>', () => {
 
   it('should render a loader and in a disabled style if the `isLoading` prop is true', () => {
     const button = renderIntoDocument(
-      <XUIButton onClick={noop} isLoading={true} loadingLabel="Loading">
+      <XUIButton onClick={noop} isLoading={true} loadingAriaLabel="Loading">
         Hai
       </XUIButton>,
     );
@@ -95,7 +95,7 @@ describe('<XUIButton/>', () => {
     const onClick = sinon.spy();
 
     const button = renderIntoDocument(
-      <XUIButton isLoading={true} loadingLabel="Loading" onClick={onClick}>
+      <XUIButton isLoading={true} loadingAriaLabel="Loading" onClick={onClick}>
         test
       </XUIButton>,
     );
@@ -226,7 +226,7 @@ describe('<XUIButton/>', () => {
     expect(defaultRetainLayout).toMatchSnapshot();
 
     const defaultRetainLayoutWhileLoading = renderer.create(
-      <XUIButton variant="primary" isLoading loadingLabel="Loading">
+      <XUIButton variant="primary" isLoading loadingAriaLabel="Loading">
         Hello, I am a long bit of text
       </XUIButton>,
     );
@@ -234,7 +234,7 @@ describe('<XUIButton/>', () => {
     expect(defaultRetainLayoutWhileLoading).toMatchSnapshot();
 
     const loadingButtonNoRetain = renderer.create(
-      <XUIButton variant="primary" isLoading loadingLabel="Loading" retainLayout={false}>
+      <XUIButton variant="primary" isLoading loadingAriaLabel="Loading" retainLayout={false}>
         Hello, I am a long bit of text
       </XUIButton>,
     );

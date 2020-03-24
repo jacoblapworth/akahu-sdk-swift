@@ -23,10 +23,10 @@ const data = {
 
 <Table
   data={data}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -48,10 +48,10 @@ const data = {
 
 <Table
   data={data}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -84,10 +84,10 @@ const data = {
 <Table
   data={data}
   isResponsive
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -149,10 +149,10 @@ const data = {
   data={data}
   isResponsive
   isTruncated
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -210,10 +210,10 @@ const data = {
 
 <Table
   data={data}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -251,10 +251,10 @@ document.head.appendChild(node);
 <Table
   data={data}
   className="xui-table-reactdocs-shadow"
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -304,10 +304,10 @@ const data = {
 
 <Table
   data={data}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -335,7 +335,7 @@ Each row's _Disabled_ state is derived from checking for _"truthy"_ row key / va
 
 **Note: Make sure the state of the _disbled_ checkbox will not be changed via the bulk-select. For reference, There's an example `onCheckAllToggle` callback function below.**
 
-Interactions for the _"master"_ and _"single"_ checkbox toggles can be handled using the `onCheckAllToggle` and `onCheckOneToggle` props. If you provide these, you must also provide the corresponding `checkAllRowsLabel` or `checkOneRowLabel` for accessibility purposes.
+Interactions for the _"master"_ and _"single"_ checkbox toggles can be handled using the `onCheckAllToggle` and `onCheckOneToggle` props. If you provide these, you must also provide the corresponding `checkAllRowsAriaLabel` or `checkOneRowAriaLabel` for accessibility purposes.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
@@ -399,10 +399,10 @@ class Demo extends React.Component {
         disabledIds={this.state.disabledIds}
         onCheckAllToggle={this.handleCheckAllToggle}
         onCheckOneToggle={this.handleCheckOneToggle}
-        loaderLabel="Loading more data"
+        loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
-        checkOneRowLabel="Select row"
-        checkAllRowsLabel="Select all rows"
+        checkOneRowAriaLabel="Select row"
+        checkAllRowsAriaLabel="Select all rows"
         overflowMenuTitle="More row options"
       >
         <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -441,10 +441,10 @@ const data = {
       </Pickitem>
     ]
   }
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -525,10 +525,10 @@ class Demo extends React.Component {
             Edit
           </Pickitem>
         ]}
-        loaderLabel="Loading more data"
+        loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
-        checkOneRowLabel="Select row"
-        checkAllRowsLabel="Select all rows"
+        checkOneRowAriaLabel="Select row"
+        checkAllRowsAriaLabel="Select all rows"
         overflowMenuTitle="More row options"
       >
         <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -645,10 +645,10 @@ class Demo extends React.Component {
         isSortAsc={isSortAsc}
         onSortChange={this.handleSortChange}
         customSort={activeSortKey === 'tags' ? this.handleTagSort : null}
-        loaderLabel="Loading more data"
+        loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
-        checkOneRowLabel="Select row"
-        checkAllRowsLabel="Select all rows"
+        checkOneRowAriaLabel="Select row"
+        checkAllRowsAriaLabel="Select all rows"
         overflowMenuTitle="More row options"
       >
         <Column
@@ -709,10 +709,10 @@ const Appendage = ({ children }) => (
   data={data}
   header={<Appendage>Header</Appendage>}
   footer={<Appendage>Footer</Appendage>}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -725,7 +725,7 @@ const Appendage = ({ children }) => (
 
 ## Loader
 
-Appends a `<XUILoader />` after the last _Row_ in the _Table_ with the `isLoading` prop. If you provide this prop, you must also provide a `loaderLabel` for accessibility purposes.
+Appends a `<XUILoader />` after the last _Row_ in the _Table_ with the `isLoading` prop. If you provide this prop, you must also provide a `loaderAriaLabel` for accessibility purposes.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from './table';
@@ -737,10 +737,10 @@ const data = {
 <Table
   data={data}
   isLoading
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -778,10 +778,10 @@ const data = {
   data={data}
   shouldRowClick={({ fruit }) => fruit === 'Banana'}
   onRowClick={(event, { fruit }) => alert(`You clicked the ${fruit} row`)}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column
@@ -840,10 +840,10 @@ const data = {};
 <Table
   data={data}
   emptyMessage="There are no fruit results"
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
@@ -870,10 +870,10 @@ const emptyStateComponent = (
 <Table
   data={data}
   emptyStateComponent={emptyStateComponent}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />

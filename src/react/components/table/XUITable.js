@@ -127,7 +127,7 @@ class XUITable extends Component {
       isTruncated,
       isBorderless,
       isLoading,
-      loaderLabel,
+      loaderAriaLabel,
       isEmpty,
       emptyStateComponent,
       emptyMessage,
@@ -139,8 +139,8 @@ class XUITable extends Component {
       disabledIds,
       onCheckAllToggle,
       onCheckOneToggle,
-      checkOneRowLabel,
-      checkAllRowsLabel,
+      checkOneRowAriaLabel,
+      checkAllRowsAriaLabel,
       hasOverflowMenu,
       createOverflowMenu,
       overflowMenuTitle,
@@ -201,7 +201,7 @@ class XUITable extends Component {
                   checkedIds,
                   disabledIds,
                   onCheckAllToggle,
-                  checkAllRowsLabel,
+                  checkAllRowsAriaLabel,
                   hasOverflowMenu,
                   ensureCellVisibility,
                 }}
@@ -221,7 +221,7 @@ class XUITable extends Component {
                       isChecked: checkboxState(rowData._id, checkedIds),
                       isDisabled: checkboxState(rowData._id, disabledIds),
                       onCheckOneToggle,
-                      checkOneRowLabel,
+                      checkOneRowAriaLabel,
                       onRowClick,
                       shouldRowClick,
                       hasOverflowMenu,
@@ -238,7 +238,7 @@ class XUITable extends Component {
 
         {isLoading && (
           <TableAlert qaHook={qaHook && `${qaHook}-loader`}>
-            <XUILoader ariaLabel={loaderLabel} />
+            <XUILoader ariaLabel={loaderAriaLabel} />
           </TableAlert>
         )}
 
@@ -298,7 +298,7 @@ XUITable.propTypes = {
    * <br />
    * Recommended English value: *Loading more data*
    */
-  loaderLabel: PropTypes.string,
+  loaderAriaLabel: PropTypes.string,
 
   // - - - - - //
   // Pinning.  //
@@ -335,7 +335,7 @@ XUITable.propTypes = {
    * <br />
    * Recommended English value: *Select row*
    */
-  checkOneRowLabel: PropTypes.node,
+  checkOneRowAriaLabel: PropTypes.node,
 
   /**
    * Describes the "all rows" checkbox functionality for accessibility.
@@ -343,7 +343,7 @@ XUITable.propTypes = {
    * <br />
    * Recommended English value: *Select all rows*
    */
-  checkAllRowsLabel: PropTypes.node,
+  checkAllRowsAriaLabel: PropTypes.node,
 
   // - - - - - - - //
   // Overflow Menu. //

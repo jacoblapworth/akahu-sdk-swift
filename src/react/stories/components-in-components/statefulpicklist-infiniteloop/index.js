@@ -67,7 +67,7 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
             inputLabel="label here"
             isInputLabelHidden
             loading={this.state.loading}
-            loadingLabel="Loading"
+            loadingAriaLabel="Loading"
             onSearch={this.onSearch}
             openOnFocus
             value={this.state.value}

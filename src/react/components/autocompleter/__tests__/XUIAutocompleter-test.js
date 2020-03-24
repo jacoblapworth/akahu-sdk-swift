@@ -23,7 +23,7 @@ const defaultProps = {
   onSearch: onSearch,
   searchValue: 'z',
   searchDebounceTimeout: 500,
-  loadingLabel: 'Loading',
+  loadingAriaLabel: 'Loading',
 };
 
 describe('XUIAutocompleter', () => {
@@ -130,7 +130,7 @@ describe('XUIAutocompleter', () => {
 
   it('displays a XUILoader when loading is true', () => {
     const wrapper = mount(
-      createComponent(Object.assign(defaultProps, { loading: true, loadingLabel: '' })),
+      createComponent(Object.assign(defaultProps, { loading: true, loadingAriaLabel: '' })),
     );
 
     expect(wrapper.find(XUILoader)).toBeDefined();

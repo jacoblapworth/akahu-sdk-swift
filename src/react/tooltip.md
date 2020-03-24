@@ -73,3 +73,45 @@ If the tip won't fit in the preferred position, the following steps will be trie
 - its alignment will be adjusted to take advantage of the available space in the viewport
 - it will be rotated to the perpendicular side (left/right to top/bottom or vice-versa)
 - it will be placed below, as this is the best direction to expand the document, if no other option works
+
+### Custom trigger components
+
+XUITooltip is intended to work out of the box with XUI components and DOM elements. If you would like to use your own React component it's important to set the refs up correctly. Doing so will allow the tooltip to position itself correctly around the trigger.
+
+#### Function components
+
+Custom function components must [forward the ref to a DOM element](https://reactjs.org/docs/forwarding-refs.html#forwarding-refs-to-dom-components).
+
+```jsx harmony
+import React from 'react';
+import XUITooltip from './tooltip';
+
+const CustomFunctionalComponentExample = React.forwardRef((props, ref) => {
+  return <span ref={ref}>custom functional component</span>;
+});
+
+<div>
+  An example of
+  <XUITooltip trigger={<CustomFunctionalComponentExample />}>Here is a tip</XUITooltip>.
+</div>;
+```
+
+#### Class components
+
+Custom class components must have a ref to a DOM element that is exposed via a public `rootNode` property.
+
+```jsx harmony
+import React from 'react';
+import XUITooltip from './tooltip';
+
+class ClassComponentExample extends React.PureComponent {
+  render() {
+    return <span ref={el => (this.rootNode = el)}>class component example</span>;
+  }
+}
+
+<div>
+  An example of
+  <XUITooltip trigger={<ClassComponentExample />}>Here is a tip</XUITooltip>.
+</div>;
+```

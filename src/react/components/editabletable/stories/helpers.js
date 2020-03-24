@@ -24,7 +24,14 @@ const sampleReadOnly = (id, width, text) => (
 );
 
 const sampleTextInput = (id, width, text) => (
-  <XUIEditableTableCellTextInput cellProps={{ width }} defaultValue={text} id={id} key={id} />
+  <XUIEditableTableCellTextInput
+    cellProps={{ width }}
+    defaultValue={text}
+    id={id}
+    isMultiline={!!(id % 2)}
+    key={id}
+    minRows={1}
+  />
 );
 
 const sampleSecondary = (id, width, text) => (
@@ -216,6 +223,7 @@ const sampleAutocompleter = (id, width, text) => (
 
 const samples = [
   sampleReadOnly,
+  sampleTextInput,
   sampleTextInput,
   sampleSecondary,
   sampleSelect,

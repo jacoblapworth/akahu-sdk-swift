@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIEditableTableCellAutocompleter /> renders correctly 1`] = `
+<XUIEditableTableCell
+  className="xui-editabletablecellautocompleter"
+>
+  <XUIAutocompleter
+    className="xui-editabletablecellautocompleter--control"
+    closeOnTab={true}
+    disableWrapPills={false}
+    dropdownFixedWidth={false}
+    forceDesktop={true}
+    isInputLabelHidden={true}
+    loading={false}
+    matchTriggerWidth={true}
+    onSearch={[Function]}
+    openOnFocus={false}
+    searchDebounceTimeout={200}
+    triggerClassName="xui-editabletablecellautocompleter--trigger"
+  />
+</XUIEditableTableCell>
+`;

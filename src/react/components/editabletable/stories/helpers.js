@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component, PureComponent, Fragment } from 'react';
 
 import {
+  XUIEditableTableCellAutocompleter,
   XUIEditableTableCellReadOnly,
   XUIEditableTableCellSecondarySearch,
   XUIEditableTableCellSelectBox,
@@ -9,6 +10,12 @@ import {
 import XUIButton from '../../button/XUIButton';
 import SelectBoxOption from '../../select-box/SelectBoxOption';
 import Picklist, { Pickitem } from '../../../picklist';
+import XUIPill from '../../../pill';
+import XUIAvatar from '../../../avatar';
+import { XUIAutocompleterEmptyState } from '../../../autocompleter';
+import { decorateSubStr, boldMatch } from '../../autocompleter/helpers/highlighting';
+
+import people from '../../autocompleter/private/people';
 
 const sampleReadOnly = (id, width, text) => (
   <XUIEditableTableCellReadOnly cellProps={{ width }} id={id} key={id}>
@@ -55,7 +62,165 @@ const sampleSelect = (id, width, text) => (
   </XUIEditableTableCellSelectBox>
 );
 
-const samples = [sampleReadOnly, sampleTextInput, sampleSecondary, sampleSelect];
+const filterPeople = (peopleToSearch, value, idsToExclude) => {
+  const val = value.toLowerCase();
+  return peopleToSearch.filter(
+    (person, index) =>
+      idsToExclude.indexOf(index) === -1 &&
+      (person.name.toLowerCase().indexOf(val) > -1 ||
+        person.email.toLowerCase().indexOf(val) > -1 ||
+        person.subtext.toLowerCase().indexOf(val) > -1),
+  );
+};
+
+class PillWrapper extends PureComponent {
+  constructor(...args) {
+    super(...args);
+    this.deleteSelf = this.deleteSelf.bind(this);
+  }
+
+  deleteSelf() {
+    this.props.onDeleteClick(this.props.id);
+  }
+
+  render() {
+    const { id } = this.props;
+    return (
+      <XUIPill
+        className="xui-autocompleter--pill"
+        deleteButtonLabel="Delete"
+        key={id}
+        onDeleteClick={this.deleteSelf}
+        size="small"
+        value={people[id].name}
+      />
+    );
+  }
+}
+
+class WrapPillsExample extends Component {
+  constructor(...args) {
+    super(...args);
+
+    this.state = {
+      value: '',
+      selectedPeopleIds: [],
+    };
+
+    this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
+    this.deletePerson = this.deletePerson.bind(this);
+    this.deleteLastPerson = this.deleteLastPerson.bind(this);
+    this.selectPerson = this.selectPerson.bind(this);
+    this.completer = React.createRef();
+  }
+
+  onSearchChangeHandler(value) {
+    const invalidInput = !!value.match(/[!.^%&#]/);
+    if (invalidInput) {
+      this.completer.current.closeDropDown();
+    } else {
+      this.completer.current.openDropDown();
+    }
+    this.setState({
+      value,
+      isInvalid: invalidInput,
+    });
+  }
+
+  deletePerson(idToRemove) {
+    this.setState(prevState => ({
+      selectedPeopleIds: [...prevState.selectedPeopleIds.filter(id => id !== idToRemove)],
+    }));
+  }
+
+  deleteLastPerson() {
+    this.setState(prevState => ({
+      selectedPeopleIds: [...prevState.selectedPeopleIds.slice(0, -1)],
+    }));
+  }
+
+  selectPerson(person) {
+    this.setState(prevState => ({
+      selectedPeopleIds: [...prevState.selectedPeopleIds, person],
+      value: '',
+    }));
+  }
+
+  renderPills(selectedPeopleIds) {
+    return selectedPeopleIds.map(id => (
+      <PillWrapper id={id} key={id} onDeleteClick={this.deletePerson} />
+    ));
+  }
+
+  render() {
+    const { value, selectedPeopleIds } = this.state;
+    const unselectedPeopleIds = filterPeople(people, value, selectedPeopleIds);
+
+    const dropdownContents =
+      unselectedPeopleIds.length === 0 ? (
+        <Picklist>
+          <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>
+        </Picklist>
+      ) : (
+        <Picklist>
+          {unselectedPeopleIds.map(person => {
+            const secondaryContent = (
+              <Fragment>
+                {decorateSubStr(person.email, value || '', boldMatch)},{' '}
+                {decorateSubStr(person.subtext, value || '', boldMatch)}
+              </Fragment>
+            );
+            const headingContent = (
+              <Fragment>{decorateSubStr(person.name, value || '', boldMatch)}</Fragment>
+            );
+            return (
+              <Pickitem
+                headingElement={headingContent}
+                id={person.id}
+                isMultiline
+                key={person.id}
+                leftElement={
+                  <XUIAvatar imageUrl={person.avatar} size="small" value={person.name} />
+                }
+                onSelect={this.selectPerson}
+                secondaryElement={secondaryContent}
+                shouldTruncate
+                value={person.id}
+              />
+            );
+          })}
+        </Picklist>
+      );
+    return (
+      <XUIEditableTableCellAutocompleter
+        cellProps={{ width: this.props.width }}
+        inputLabel="autocompleter"
+        isInputLabelHidden
+        isInvalid={this.state.isInvalid}
+        onBackspacePill={this.deleteLastPerson}
+        onSearch={this.onSearchChangeHandler}
+        pills={this.renderPills(selectedPeopleIds)}
+        placeholder={this.props.placeholder}
+        ref={this.completer}
+        searchValue={value}
+      >
+        {dropdownContents}
+      </XUIEditableTableCellAutocompleter>
+    );
+  }
+}
+
+const sampleAutocompleter = (id, width, text) => (
+  <WrapPillsExample placeholder={text} width={width} />
+);
+
+const samples = [
+  sampleReadOnly,
+  sampleTextInput,
+  sampleSecondary,
+  sampleSelect,
+  sampleAutocompleter,
+];
 const texts = [
   'Sample text',
   '.',

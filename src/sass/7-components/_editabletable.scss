@@ -35,6 +35,7 @@
 }
 
 .#{$ns}-textinput.#{$ns}-editabletablecelltextinput--control,
+.#{$ns}-editabletablecellautocompleter--control .#{$ns}-textinput,
 .#{$ns}-editabletablecellselectbox--control .#{$ns}-select--button-no-variant {
   border-color: transparent;
   border-radius: 0;
@@ -53,6 +54,16 @@
 .#{$ns}-editabletablecellselectbox--control {
   height: 100%;
   & :not(svg) {
+    height: inherit;
+  }
+}
+
+.#{$ns}-editabletablecellautocompleter--control {
+  height: 100%;
+  > *,
+  .#{$ns}-editabletablecellautocompleter--trigger,
+  .#{$ns}-textinputwrapper,
+  .#{$ns}-textinput {
     height: inherit;
   }
 }

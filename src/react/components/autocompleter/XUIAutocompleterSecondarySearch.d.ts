@@ -136,4 +136,29 @@ interface Props {
   trigger: React.ReactElement;
 }
 
-export default class XUIAutocompleterSecondarySearch extends React.PureComponent<Props> {}
+export default class XUIAutocompleterSecondarySearch extends React.PureComponent<Props> {
+  /**
+   * Clears the value in the search box
+   */
+  clearValue(): void;
+  /**
+   * Set the state as not hidden in order to open the list
+   */
+  openDropDown(): void;
+  /**
+   * Set the state as hidden in order to close the list
+   */
+  closeDropDown(): void;
+  /**
+   * Highlights a specified item in the list
+   */
+  highlightItem(item: Pickitem): void;
+  /**
+   * Highlights the first item in the list
+   */
+  highlightFirstItem(): void;
+  /**
+   * Focus the input element, if visible
+   */
+  focusInput(): void;
+}

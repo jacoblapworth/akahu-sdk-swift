@@ -43,4 +43,9 @@ interface Props {
   rolloverComponent?: React.ReactNode;
 }
 
-export default class XUIRolloverCheckbox extends React.PureComponent<Props> {}
+export default class XUIRolloverCheckbox extends React.PureComponent<Props> {
+  /**
+   * Method to allow for programmatic triggering of the click event on the checkbox
+   */
+  triggerCheckboxClick(): void;
+}

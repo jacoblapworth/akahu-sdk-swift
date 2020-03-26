@@ -32,4 +32,9 @@ export interface Props {
   variant?: keyof typeof variantClassNames;
 }
 
-export default class XUIAvatar extends React.PureComponent<Props> {}
+export default class XUIAvatar extends React.PureComponent<Props> {
+  /**
+   * onError handler for the image element
+   */
+  onError(e: Error): void;
+}

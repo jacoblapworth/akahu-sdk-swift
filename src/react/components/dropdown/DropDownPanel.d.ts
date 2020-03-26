@@ -56,4 +56,48 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-export default class DropDownPanel extends React.PureComponent<Props> {}
+export default class DropDownPanel extends React.PureComponent<Props> {
+  /**
+   * Attempts to focus this element. If the element either doesn't exist yet or is set to
+   * "visibility: isHidden", the component will try to focus the element again several times
+   * over five seconds. If it still can't after that component will try to focus the element
+   * again several times over a half second. If it still can't after that amount of time,
+   * then it'll stop trying. This is to ensure that the DropDown can set focus on this Panel
+   * while the DropDown is going from isHidden to visible. An intermediate stage where the
+   * Panel's parent is set to "visibility: isHidden" is necessary to ensure that accurate
+   * measurements of the DOM nodes can take place and the DropDown can be properly positioned.
+   * This will basically attempt to wait that process out and set focus after everything is done.
+   */
+  focus(): void;
+  /**
+   * Public API that can be used to simulate a keydown event on the panel. Useful
+   * if you want to allow keyboard navigation of a child picklist while keeping
+   * the focus elsewhere in the DOM.
+   */
+  onKeyDown(event: React.KeyboardEvent): void;
+  /**
+   * Get the ID of the currently highlighted item in the child StatefulPicklist (if applicable).
+   */
+  getHighlightedId(): null | string;
+  /**
+   * Selects the highlighted list item, in the child StatefulPicklist (if applicable).
+   */
+  selectHighlighted(): void;
+  /**
+   * Highlight a specific item in the child StatefulPicklist (if applicable).
+   */
+  highlightItem(item: Pickitem, event: React.MouseEvent): void;
+  /**
+   * Highlights the first item in the list.
+   */
+  highlightFirstItem(): void;
+  /**
+   * Find the child DOM node with given ID and adjust the list box's scroll position to
+   * ensure that it's in view.
+   */
+  scrollIdIntoView(id: string): void;
+  /**
+   * Determine if the currently focused DOM node is a child of this component.
+   */
+  hasFocus(): boolean;
+}

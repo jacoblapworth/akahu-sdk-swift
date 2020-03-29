@@ -68,7 +68,7 @@ describe('XUIRadio', () => {
   });
 
   // qaHook property
-  it.skip('should have a qaHook on the root node if provided', () => {
+  it('should have a qaHook on the root node if provided', () => {
     const component = renderer.create(<XUIRadio onChange={NOOP} qaHook="cheese-and-crackers" />);
 
     expect(component).toMatchSnapshot();

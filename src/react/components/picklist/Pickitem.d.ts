@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Props as PickitemBodyProps } from './private/PickitemBody';
 import { Props as PickitemMultiselectProps } from './private/PickitemMultiselect';

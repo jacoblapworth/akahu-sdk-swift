@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { colorMap, layoutMap, sizeMap } from './private/constants';
 

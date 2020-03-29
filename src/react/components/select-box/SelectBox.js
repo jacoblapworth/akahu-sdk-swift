@@ -36,10 +36,6 @@ export default class SelectBox extends Component {
 
   isDropDownOpen = () => !!this.ddt && this.ddt.isDropDownOpen();
 
-  onLabelClick = () => {
-    this.trigger.focus();
-  };
-
   render() {
     const selectBox = this;
     const {

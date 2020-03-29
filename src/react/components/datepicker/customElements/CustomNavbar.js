@@ -105,6 +105,7 @@ export default class CustomNavbar extends PureComponent {
         months={months}
         onChange={this.onMonthChange}
         onKeyDown={this.onMonthSelectKeyDown}
+        qaHook={qaHook}
         selectRef={n => (this.monthSelect = n)}
         size={controlSize}
       />
@@ -118,6 +119,7 @@ export default class CustomNavbar extends PureComponent {
         minDate={minDate}
         onChange={this.onYearChange}
         onKeyDown={this.onYearSelectKeyDown}
+        qaHook={qaHook}
         selectRef={n => (this.yearSelect = n)}
         size={controlSize}
       />

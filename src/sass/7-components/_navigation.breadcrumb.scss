@@ -16,9 +16,14 @@
   @include xui-text-truncated;
   min-width: $xui-minimum-touch-target;
 
-  &:last-of-type {
-    flex-shrink: 0;
-    max-width: 100%;
+  &:not(:last-of-type),
+  &:only-child {
+    flex-shrink: 10;
+  }
+
+  &:last-of-type:nth-of-type(2n + 3) {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
   }
 }
 
@@ -70,36 +75,5 @@
     @include xui-margin-right($xui-s-2xsmall);
     flex-grow: 0;
     max-width: calc(100% + #{$xui-s-2xsmall}); // Offset right margin
-  }
-  .#{$ns}-breadcrumb {
-    @include xui-text-small;
-    @include xui-text-truncated;
-    min-width: $xui-minimum-touch-target;
-  }
-  .#{$ns}-breadcrumb:last-of-type {
-    flex-shrink: 0;
-    max-width: 100%;
-  }
-  .#{$ns}-breadcrumb--link {
-    @include xui-padding-horizontal($xui-s-xsmall);
-    @include xui-text-truncated;
-    border-radius: $xui-radius;
-    color: $xui-color-blue;
-    &:hover {
-      color: $xui-color-blue;
-      cursor: pointer;
-      text-decoration: underline;
-    }
-    &:focus {
-      @include xui-state-focus-shadow($xui-shadow-focus-inset);
-    }
-  }
-  .#{$ns}-breadcrumb-arrow {
-    align-items: center;
-    height: $xui-s-large;
-    width: $xui-s-xsmall;
-  }
-  .#{$ns}-breadcrumb--icon {
-    color: $xui-breadcrumb-icon-color;
   }
 }

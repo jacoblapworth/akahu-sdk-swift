@@ -185,6 +185,11 @@ $justify - Property to use for justify-content
       align-items: baseline;
       display: flex;
       flex-flow: wrap;
+
+      // FF fix for tags.
+      > * {
+        align-items: baseline;
+      }
     }
     .#{$classname}--pinnedvalue {
       margin-right: $xui-s-small;

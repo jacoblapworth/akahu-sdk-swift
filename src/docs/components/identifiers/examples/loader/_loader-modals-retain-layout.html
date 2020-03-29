@@ -1,0 +1,84 @@
+<div class="xui-mask xui-mask-is-active" aria-hidden="false">
+  <section
+    class="xui-modal xui-modal-layout"
+    role="dialog"
+    aria-labelledby="modal-heading"
+    aria-describedby="modal-text"
+  >
+    <button
+      type="button"
+      class="xui-button xui-button-icon-medium xui-button-icon xui-modal--close xui-button-hidden-content"
+      title="Close"
+      aria-label="Close"
+    >
+      <svg focusable="false" class="xui-icon">
+        <use
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xlink:href="#xui-icon-cross"
+          role="presentation"
+        ></use>
+      </svg>
+    </button>
+    <header class="xui-modal--header xui-padding-left-large xui-u-hidden-content">
+      <h3 id="modal-heading" class="xui-modal--heading">Modal title</h3>
+    </header>
+    <div class="xui-modal--body xui-padding-horizontal-large xui-u-hidden-content">
+      <form class="xui-padding-top">
+        <div class="xui-field-layout">
+          <label class="xui-text-label xui-fieldlabel-layout" for="first-name">Name</label>
+          <div class="xui-inputgroup">
+            <input id="first-name" class="xui-input xui-column-6-of-12" placeholder="First" />
+            <input class="xui-input xui-column-6-of-12" placeholder="Last" />
+          </div>
+        </div>
+        <div class="xui-field-layout">
+          <label class="xui-text-label xui-fieldlabel-layout" for="email">Email address</label>
+          <input id="first-name" class="xui-textinput xui-textinput--input" />
+        </div>
+        <div class="xui-field-layout">
+          <label class="xui-text-label xui-fieldlabel-layout" for="permissions">Permissions</label>
+          <div class="xui-select">
+            <select id="permissions" class="xui-select--control">
+              <option>View only</option>
+              <option>View and edit</option>
+            </select>
+            <div class="xui-select--caret xui-iconwrapper">
+              <svg focusable="false" class="xui-icon xui-icon-color-black-muted">
+                <use
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xlink:href="#xui-icon-caret"
+                  role="presentation"
+                ></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <footer
+      class="xui-modal--footer xui-actions xui-actions-layout xui-padding-top-small xui-padding-large xui-u-hidden-content"
+    >
+      <button
+        type="button"
+        class="xui-actions--secondary xui-button xui-button-medium xui-button-standard"
+      >
+        Cancel
+      </button>
+      <button
+        type="button"
+        class="xui-actions--primary xui-button xui-button-medium xui-button-main"
+      >
+        Save
+      </button>
+    </footer>
+    <div
+      class="xui-loader xui-loader-medium xui-loader-retain-layout"
+      role="progressbar"
+      aria-valuetext="Loading content"
+    >
+      <div class="xui-loader--dot"></div>
+      <div class="xui-loader--dot"></div>
+      <div class="xui-loader--dot"></div>
+    </div>
+  </section>
+</div>

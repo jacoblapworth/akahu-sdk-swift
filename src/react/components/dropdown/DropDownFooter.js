@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Picklist from '../picklist/Picklist';
@@ -10,28 +10,23 @@ import { baseClass } from './private/constants';
  * build the content.
  *
  * @export
- * @class DropDownFooter
- * @extends {PureComponent}
+ * @function DropDownFooter
  */
-export default class DropDownFooter extends PureComponent {
-  rootNode = React.createRef();
+const DropDownFooter = ({ children, className, qaHook, pickItems }) => {
+  const rootNode = React.createRef();
+  const footerClass = `${baseClass}--footer`;
+  const classes = cn(footerClass, className);
+  const pickList = pickItems && (
+    <Picklist className={`${footerClass}--picklist`}>{pickItems}</Picklist>
+  );
 
-  render() {
-    const { children, className, qaHook, pickItems } = this.props;
-
-    const footerClass = `${baseClass}--footer`;
-    const classes = cn(footerClass, className);
-    const pickList = pickItems && (
-      <Picklist className={`${footerClass}--picklist`}>{pickItems}</Picklist>
-    );
-    return (
-      <div className={classes} data-automationid={qaHook} ref={this.rootNode}>
-        {pickList}
-        {children}
-      </div>
-    );
-  }
-}
+  return (
+    <div className={classes} data-automationid={qaHook} ref={rootNode}>
+      {pickList}
+      {children}
+    </div>
+  );
+};
 
 DropDownFooter.propTypes = {
   className: PropTypes.string,
@@ -42,3 +37,5 @@ DropDownFooter.propTypes = {
    */
   pickItems: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 };
+
+export default React.memo(DropDownFooter);

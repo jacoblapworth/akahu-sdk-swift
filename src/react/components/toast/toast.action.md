@@ -3,7 +3,7 @@
 `XUIToastAction` should be used in place of regular buttons, and can be passed to `XUIToast` using the `primaryAction` and `secondaryAction` props.
 
 ```jsx harmony
-import XUIToast, { XUIToastAction } from '../../toast';
+import XUIToast, { XUIToastAction } from '@xero/xui/react/toast';
 
 const onToastClose = () => {
   alert('Single action toast closed');

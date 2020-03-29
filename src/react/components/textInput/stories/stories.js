@@ -58,6 +58,7 @@ const TextInputWrapper = props => {
     defaultValue,
     value,
     isMultiline,
+    isValueReverseAligned,
     isLabelHidden,
     minRows,
     maxRows,
@@ -161,6 +162,7 @@ const TextInputWrapper = props => {
         isDisabled,
         value,
         isMultiline,
+        isValueReverseAligned,
         isLabelHidden,
         minRows,
         maxRows,
@@ -171,6 +173,7 @@ const TextInputWrapper = props => {
       isDisabled={isDisabled}
       isLabelHidden={isLabelHidden}
       isMultiline={isMultiline}
+      isValueReverseAligned={isValueReverseAligned}
       leftElement={makeSideElement(leftElementType, leftElementAlignment)}
       maxRows={maxRows}
       minRows={minRows}
@@ -225,6 +228,7 @@ TextInputWrapper.propTypes = {
   defaultValue: PropTypes.string,
   value: PropTypes.string,
   isMultiline: PropTypes.bool,
+  isValueReverseAligned: PropTypes.bool,
   isLabelHidden: PropTypes.bool,
   minRows: PropTypes.number,
   maxRows: PropTypes.number,
@@ -249,6 +253,7 @@ storiesWithKnobs.add('Playground', () => (
     isInvalid={boolean('is invalid', false)}
     isLabelHidden={boolean('is label hidden', false)}
     isMultiline={boolean('is multiline', false)}
+    isValueReverseAligned={boolean('is input reverse aligned', false)}
     label={text('label text', 'Test label')}
     leftElementAlignment={select(
       'left side element vertical alignment',

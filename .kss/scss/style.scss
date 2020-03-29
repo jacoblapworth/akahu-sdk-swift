@@ -273,6 +273,8 @@ code {
 .ds-tips--detail {
   display: flex;
   align-items: center;
+  // To keep the space between the normal and markdown words
+  white-space: pre-wrap;
 }
 
 .ds-tips:last-child {
@@ -1148,6 +1150,33 @@ $kss-color-padding: #eeebff;
 
 .ds-status--updated {
   background: $xui-color-grape;
+}
+
+// -----------------------------------------------------------------------------
+// Related links (passed in as markup, so we're targeting the elements)
+// -----------------------------------------------------------------------------
+.ds-list-related ul,
+.ds-list-related li {
+  @include xui-listreset;
+}
+
+// -----------------------------------------------------------------------------
+// Styles for the left nav search input and dropdown
+// -----------------------------------------------------------------------------
+.ds-nav--search {
+  border-bottom: 1px solid $ds-nav-border-color;
+  padding: $xui-s-standard;
+  position: relative;
+}
+.ds-nav--searchDropdown {
+  display: block;
+  position: absolute;
+  top: $xui-s-standard + $xui-control-size-standard + 10px; // 10px = triggerdropdowngap;
+  width: calc(100% - 34px); // 2*$xui-s-standard padding + 2px border
+  z-index: $xui-z-index-dropdown;
+  .xui-dropdown--body {
+    overflow-y: auto;
+  }
 }
 
 @import './cards';

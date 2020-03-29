@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "outDir": "./dist/react",
+    "strict": false
+  },
+  "include": ["./src/react/**/*"],
+  "exclude": ["**/__tests__", "**/stories", "**/docs"]
+}

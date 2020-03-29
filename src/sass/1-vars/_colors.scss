@@ -2,6 +2,12 @@
  * This source is pre-parsed and looks similar to KSS but is not the same.
  */
 
+// Colors
+//
+// Teaser: Standard colors to be used throughout Xero.
+//
+// Styleguide: Fundamentals.Colors
+
 // @tokenparserstartignore
 $xui-color-black: #000a1e;
 $xui-color-white: #fff;
@@ -470,7 +476,7 @@ $xui-pill-single-invalid-focused-bg-color: $xui-color-white;
 // Pop over
 
 $xui-popover-bg-color: $xui-color-white;
-$xui-popover-arrow-border-color: $xui-color-grey-alpha-5;
+$xui-popover-arrow-border-color: $xui-color-grey-alpha-6;
 
 // Tables
 
@@ -632,4 +638,10 @@ $icon-colours: (
   file-spreadsheet: $xui-color-file-spreadsheet,
   file-pdf: $xui-color-file-pdf,
 );
+
+// Drag and drop
+$xui-dropzone-border-color: $xui-color-grey-5;
+$xui-dropzone-active-background-color: mix($xui-color-yellow, transparent, 10%);
+$xui-dropzone-active-border-color: $xui-color-yellow;
+$xui-dropzone-panel-background-color: $xui-color-yellow-light;
 // @tokenparserendignore

@@ -63,6 +63,10 @@
                 "content": "../src/react/components/button/button.icon.md"
               },
               {
+                "name": "Container Queries with Buttons",
+                "content": "../src/react/components/button/button.container.queries.md"
+              },
+              {
                 "name": "Actions",
                 "components": "../src/react/components/actions/XUIActions.js",
                 "content": "../src/react/actions.md"
@@ -87,6 +91,11 @@
                 "components": "../src/react/components/rolloverCheckbox/rolloverCheckbox.js"
               }
             ]
+          },
+          {
+            "name": "File Uploader",
+            "content": "../src/react/fileUploader.md",
+            "components": "../src/react/components/fileUploader/XUIFileUploader.js"
           },
           {
             "name": "Radio",
@@ -278,6 +287,11 @@
             "name": "Page Header",
             "components": "../src/react/components/pageheader/XUIPageHeader.js",
             "content": "../src/react/pageheader.md"
+          },
+          {
+            "name": "Pagination",
+            "content": "../src/react/pagination.md",
+            "components": "../src/react/components/pagination/XUIPagination.js"
           },
           {
             "name": "Stepper",

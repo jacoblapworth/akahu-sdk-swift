@@ -147,11 +147,13 @@ describe('<XUIBarChart />', () => {
     const handleClick = jest.fn();
     const createMessage = jest.fn();
     const component = mount(
-      <StackedBar
-        {...defaultBarProps}
-        onBarClick={handleClick}
-        createToolTipMessage={createMessage}
-      />,
+      <svg>
+        <StackedBar
+          {...defaultBarProps}
+          onBarClick={handleClick}
+          createToolTipMessage={createMessage}
+        />
+      </svg>,
     );
     const rect = component.find('g > rect').at(0);
     const barObject = {
@@ -180,12 +182,14 @@ describe('<XUIBarChart />', () => {
     const handleClick = jest.fn();
     const createMessage = jest.fn();
     const component = mount(
-      <StackedBar
-        {...defaultBarProps}
-        isBarStacked
-        onBarClick={handleClick}
-        createToolTipMessage={createMessage}
-      />,
+      <svg>
+        <StackedBar
+          {...defaultBarProps}
+          isBarStacked
+          onBarClick={handleClick}
+          createToolTipMessage={createMessage}
+        />
+      </svg>,
     );
     const rect = component.find('g > rect').at(0);
     const barObject = {

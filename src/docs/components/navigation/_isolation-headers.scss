@@ -1,0 +1,162 @@
+// Isolation header
+//
+// flags: updated
+//
+// Components: Isolation-header
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.xjlje033gg4k
+//
+// Introduction: An isolation header serves as an alternate header for a page or series of sub-pages that exclude
+// the global navigation in order to create a more focused experience.
+//
+// Teaser: Show in place of the global header when you want to encourage focus and have more control of the workflow
+//
+// Styleguide: Components.Navigation.Isolation header
+
+// Best practice
+//
+// Tips:
+// Do: Use for setup flows
+// Do: Use in combination with stepper for flows that are only ever completed once
+// Do: Use for pages the information architecture doesn’t support
+// Do: Use instead of a modal when content is complex or multi-stepped
+// Warning: Avoid using when features from other areas of Xero are also required
+// Warning: Avoid using the back arrow icon to close an isolation mode
+// Dont: Don’t use isolation headers in combination with the global navigation
+// Dont: Don’t nest pages within isolation modes
+//
+// Styleguide: Components.Navigation.Isolation header.1
+
+// Anatomy
+//
+// To create an isolation header, use the following classes
+//
+// Classes:
+// xui-isolationheader: Base class
+// xui-isolationheader--content: Page heading content container
+// xui-isolationheader--content-layout: Content modifier to set recommended horizontal spacing
+// xui-isolationheader--leftcontent: Elements that appear at the left side of the header, including close button, avatar, and title wrapper
+// xui-isolationheader--controlcontent: Container for close button and avatar, if present
+//
+// Markup: ./examples/isolation-header/_isolation-header.html
+//
+// Styleguide: Components.Navigation.Isolation header.2
+
+// Layout
+//
+// Styleguide: Components.Navigation.Isolation header.3
+
+// Title content
+//
+// Tips:
+// Do: Always include a title
+// Do: Use additional left aligned content to describe or label your page content
+// Warning: Avoid using a back icon as an indicator to close isolation mode
+//
+// Classes:
+// xui-isolationheader--titlewrapper: All left-side content other than the close button and avatar should be in this container
+// including title, secondary text, and/or tags
+// xui-isolationheader--titlewrapper-has-avatar: Additional class to provide correct spacing when an avatar is present
+// xui-isolationheader--title: Page heading title
+// xui-isolationheader--secondarytitle: Page heading subtitle
+// xui-isolationheader--tags: A container for tags to appear after the title and any secondary text
+//
+// Markup: ./examples/isolation-header/_isolation-header-layout.html
+//
+// Styleguide: Components.Navigation.Isolation header.3.1
+
+// Actions
+//
+// Tips:
+// Do: Functions connected to the primary flow of the page should be displayed in the isolation header
+// Warning: Avoid using an overflow menu without a primary action surfaced
+//
+// Classes:
+// xui-isolationheader--rightcontent: Elements that appear to the right of any title content when at full width, including actions
+// xui-isolationheader--actions: Sets default button layout and internal spacing
+//
+// Markup: ./examples/isolation-header/_isolation-header-actions.html
+//
+// Styleguide: Components.Navigation.Isolation header.3.2
+
+// Fixing position
+//
+// Tips:
+// Do: Use when page content extends past the viewport height
+// Do: Responsively apply on smaller screen sizes to guarantee primary actions are always visible
+//
+// Classes:
+// xui-isolationheader-fixed: Fixes position of the isolation header to the top of the page
+//
+// Styleguide: Components.Navigation.Isolation header.3.3
+
+// Navigation
+//
+// Styleguide: Components.Navigation.Isolation header.4
+
+// Implementation Details
+//
+// While XUI provides the UI for the isolation header, its specific functionality must be implemented by the
+// page that uses it. This is because the desired behaviour is not limited to the isolation header component,
+// but may affect other parts of the page.
+//
+// Implementing isolation mode may be more complex if a page can be accessed both with isolation mode
+// and without isolation mode depending on the context.
+// The new User Roles page provides one example: if the user accesses the page through our standard navigation,
+// then it should not be rendered in isolation mode. But if it is linked to from another part of Xero (e.g.
+// Projects or Expenses), then we might want to use isolation mode to take the user to the User Roles
+// page and ensure the user returns to Projects or Expenses upon completion of a task (e.g. updating a user's
+// roles or permissions).
+//
+// There are 3 implementation details of the behaviour of isolation modes that should be considered:
+//
+// * Taking the user back to where they came from. This is usually done via the cross button in the isolation header,
+//   but may also be accomplished by some action on the page (e.g. clicking a Cancel button if one exists).
+//   Use the `sourceUrl` query parameter to specify this intent.
+// * Taking the user to a page upon completion of the task(s) on the page. Use the `destinationUrl` query parameter
+//   to specify this intent.
+// * Hiding the global header if it is present on the page. Use the `isolationMode` query parameter to specify this
+//   intent.
+//   If you are using Header ^4.6.0, it will automatically not render itself if this query parameter is present.
+//
+// *If you use query parameters, be security conscious*. When parsing query parameters, use `decodeURIComponent`.
+// Consider what would happen if a malicious user sent out a link with the sourceUrl and destinationUrl set to a
+// lookalike / phishing website.
+//
+// These query parameters will allow a page to link to another page in isolation mode and specify the intended behaviour.
+// However, it is up to the page using isolation mode to read these query parameters and implement the behaviours.
+//
+// Styleguide: Components.Navigation.Isolation header.4.1
+
+// Tooltip
+//
+// The `xui-tooltip` can be utilised to give clarity and context of the isolation source.
+// This is especially useful when users navigate to a page in isolation from a direct URL link.
+//
+// Markup: ./examples/isolation-header/_isolation-header-tooltip.html
+//
+// Styleguide: Components.Navigation.Isolation header.4.2
+
+// Stepper
+//
+// Isolation mode can be used in conjunction with the stepper component to create an experience that includes
+// internal navigation. This is ideal for stepped flows that happen once.
+//
+// Markup: ./examples/isolation-header/_isolation-header-stepper.html
+//
+// Styleguide: Components.Navigation.Isolation header.4.3
+
+// Accessibility
+//
+// The isolation header should use a `<header>` element with `role="banner"` applied.
+// See [ARIA guidelines for the banner role](https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/landmarks/banner.html).
+//
+// Styleguide: Components.Navigation.Isolation header.5
+
+// Related links
+//
+// Related:
+// * [Page header](./section-components-navigation-page-header.html)
+// * [Stepper](./section-components-navigation-stepper.html)
+//
+// Styleguide: Components.Navigation.Isolation header.99

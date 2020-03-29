@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import memoizeOne from 'memoize-one';
 import cn from 'classnames';
 import '../helpers/xuiGlobalChecks';
 import { sizeClassNames, classNames, variantClassNames } from './constants';
@@ -24,6 +25,8 @@ export default class XUIAvatar extends PureComponent {
       imageLoaded: true,
     });
   };
+
+  memoizedAbbreviateAvatar = memoizeOne(abbreviateAvatar);
 
   render() {
     const { imageLoaded } = this.state;
@@ -57,7 +60,7 @@ export default class XUIAvatar extends PureComponent {
           data-automationid={qaHook}
           role="presentation"
         >
-          {abbreviateAvatar(value, avatarCharacterCount)}
+          {this.memoizedAbbreviateAvatar(value, avatarCharacterCount)}
         </abbr>
       </React.Fragment>
     );

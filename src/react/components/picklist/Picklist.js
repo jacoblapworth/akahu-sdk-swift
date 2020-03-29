@@ -9,6 +9,7 @@ import { getPropsFromFirstChildOrList, horizontalOnlyProp } from './private/help
 import { userBreakpoints } from '../helpers/breakpoints';
 import NestedPicklistContainer from './NestedPicklistContainer';
 import SelectBoxOption from '../select-box/SelectBoxOption';
+// eslint-disable-next-line import/no-cycle
 import TabDropDown from './private/TabDropDown';
 
 /**

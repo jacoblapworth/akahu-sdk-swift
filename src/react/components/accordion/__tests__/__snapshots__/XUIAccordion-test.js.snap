@@ -8,6 +8,8 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
     className="xui-accordionwrapper"
   >
     <div
+      aria-controls="xui-accordionwrapper--content-123"
+      aria-expanded={false}
       className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -63,6 +65,7 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
     </div>
     <div
       className="xui-accordionwrapper--content"
+      id="xui-accordionwrapper--content-123"
     />
   </div>
 </div>
@@ -76,6 +79,8 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
     className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
   >
     <div
+      aria-controls="xui-accordionwrapper--content-123"
+      aria-expanded={true}
       className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -118,6 +123,7 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
     </div>
     <div
       className="xui-accordionwrapper--content xui-accordionwrapper--content-is-open"
+      id="xui-accordionwrapper--content-123"
     >
       <div>
         Custom empty state component
@@ -135,6 +141,8 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
     className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
   >
     <div
+      aria-controls="xui-accordionwrapper--content-123"
+      aria-expanded={true}
       className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -177,6 +185,7 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
     </div>
     <div
       className="xui-accordionwrapper--content xui-accordionwrapper--content-is-open"
+      id="xui-accordionwrapper--content-123"
     >
       <div
         className="xui-accordion--emptystate"
@@ -214,6 +223,8 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
     className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
   >
     <div
+      aria-controls="xui-accordionwrapper--content-123"
+      aria-expanded={true}
       className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -269,6 +280,7 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
     </div>
     <div
       className="xui-accordionwrapper--content xui-accordionwrapper--content-is-open"
+      id="xui-accordionwrapper--content-123"
     >
       Accountant
     </div>
@@ -303,6 +315,8 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
     className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
   >
     <div
+      aria-controls="xui-accordionwrapper--content-123"
+      aria-expanded={true}
       className="xui-accordiontrigger xui-accordiontrigger-layout xui-accordiontrigger-rowlink"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -345,6 +359,7 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
     </div>
     <div
       className="xui-accordionwrapper--content xui-accordionwrapper--content-is-open"
+      id="xui-accordionwrapper--content-123"
     >
       <div
         className="xui-accordion--emptystate"

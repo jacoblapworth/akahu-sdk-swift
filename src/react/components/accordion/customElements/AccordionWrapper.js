@@ -4,13 +4,15 @@ import cn from 'classnames';
 import { shouldAccordionPop } from '../private/helpers';
 import { ns } from '../../helpers/xuiClassNamespace';
 
-const AccordionWrapper = ({ children, isOpen, qaHook, trigger }) => {
+const AccordionWrapper = ({ children, isOpen, qaHook, trigger, _wrapperId }) => {
   const [shouldPop, setShouldPop] = useState(false);
   const accordionItem = useRef();
 
   useEffect(() => {
     setShouldPop(shouldAccordionPop(accordionItem.current));
   }, [accordionItem]);
+
+  const contentClassName = `${ns}-accordionwrapper--content`;
 
   return (
     <div
@@ -24,9 +26,10 @@ const AccordionWrapper = ({ children, isOpen, qaHook, trigger }) => {
     >
       {trigger}
       <div
-        className={cn(`${ns}-accordionwrapper--content`, {
-          [`${ns}-accordionwrapper--content-is-open`]: isOpen,
+        className={cn(contentClassName, {
+          [`${contentClassName}-is-open`]: isOpen,
         })}
+        id={`${contentClassName}-${_wrapperId}`}
       >
         {children}
       </div>
@@ -39,6 +42,7 @@ AccordionWrapper.propTypes = {
   children: PropTypes.node,
   isOpen: PropTypes.bool.isRequired,
   trigger: PropTypes.node.isRequired,
+  _wrapperId: PropTypes.string.isRequired,
 };
 
 export default React.memo(AccordionWrapper);

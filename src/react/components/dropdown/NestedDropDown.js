@@ -54,11 +54,8 @@ export default class NestedDropDown extends DropDown {
         <div className={isCurrentPanel ? '' : `${baseClass}-nested-is-hidden`}>
           {isCurrentPanel
             ? React.cloneElement(child, {
-                ref: oc => (dropdown.panel = oc),
-                onSelect: compose(
-                  child.props.onSelect,
-                  onSelect,
-                ),
+                ref: oc => (dropdown.panel.current = oc),
+                onSelect: compose(child.props.onSelect, onSelect),
                 onHighlightChange: compose(
                   child.props.onHighlightChange,
                   dropdown.onHighlightChange,

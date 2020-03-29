@@ -1,0 +1,51 @@
+@import '../vars';
+@import '../mixins';
+
+@mixin xui-pagination-common-flex-setup {
+  align-items: center;
+  display: flex;
+}
+
+.#{$ns}-pagination {
+  @include xui-text-small;
+  @include xui-flex-children(center, space-between);
+  // IE11 doesn’t respect `min-height` if an element doesn’t have an explicit height
+  // https://github.com/philipwalton/flexbugs/issues/231
+  height: 0;
+  min-height: $xui-s-4xlarge;
+  padding: $xui-s-xsmall $xui-s-standard;
+}
+
+.#{$ns}-pagination--items {
+  @include xui-pagination-common-flex-setup;
+}
+
+.#{$ns}-pagination--items--select {
+  @include xui-pagination-common-flex-setup;
+  color: $xui-text-muted-color;
+  margin-right: $xui-s-standard;
+  .#{$ns}-select-layout {
+    margin-left: $xui-s-2xsmall / 2;
+  }
+}
+
+.#{$ns}-pagination--items--count {
+  color: $xui-text-faint-color;
+}
+
+.#{$ns}-pagination--paging {
+  @include xui-pagination-common-flex-setup;
+  // Make sure paging sticks right
+  margin-left: auto;
+  .#{$ns}-button-icon {
+    &:not(.#{$ns}-button-is-disabled) {
+      color: $xui-color-blue;
+    }
+    &:first-child {
+      margin-right: $xui-s-xsmall;
+    }
+    &:last-child {
+      margin-left: $xui-s-xsmall;
+    }
+  }
+}

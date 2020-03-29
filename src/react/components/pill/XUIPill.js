@@ -12,8 +12,8 @@ import SizeContext from '../../contexts/SizeContext';
 function shouldShowTooltip(domElement) {
   return (
     domElement &&
-    (domElement.clientWidth < domElement.scrollWidth &&
-      domElement.clientWidth + 1 !== domElement.scrollWidth) // IE11 differs by 1px in some cases when it shouldn't display tooltips.
+    domElement.clientWidth < domElement.scrollWidth &&
+    domElement.clientWidth + 1 !== domElement.scrollWidth // IE11 differs by 1px in some cases when it shouldn't display tooltips.
   );
 }
 
@@ -91,6 +91,7 @@ export default class XUIPill extends PureComponent {
 
           const defaultSize = 'medium';
           const size = this.props.size || inheritedSize || defaultSize;
+          const hasAvatar = avatar || avatarProps || isInvalid;
 
           const pillClasses = cn(
             className,
@@ -100,8 +101,7 @@ export default class XUIPill extends PureComponent {
             isInvalid && `${baseClass}-is-invalid`,
             isFocused && `${baseClass}-is-focused`,
             onDeleteClick && `${baseClass}-is-deletable`,
-            (avatarProps != null || isInvalid) && `${baseClass}-has-avatar`,
-            avatar && `${baseClass}-has-avatar`,
+            hasAvatar && `${baseClass}-has-avatar`,
             (href || onClick) && `${baseClass}-interactive`,
           );
 

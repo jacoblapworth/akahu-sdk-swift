@@ -1,0 +1,317 @@
+// Contributing to XUI
+//
+// Introduction:
+// Successful long-term maintenance and growth of a mature product requires collaboration on a design system from an active and engaged community. This page explains how teams can contribute towards the continued growth and improvement of XUI.
+//
+// Weight: 7.0
+//
+// Styleguide: Contributing to XUI
+
+// This page covers the following:
+//
+// * [The XUI community](#contributing-to-xui-2)
+// * [Identifying an opportunity](#contributing-to-xui-3)
+// * [Proposing an improvement](#contributing-to-xui-4)
+// * [Making a change to XUI](#contributing-to-xui-5)
+// * [Building a new component](#contributing-to-xui-6)
+// * [Extending XUI or making a contextual override](#contributing-to-xui-7)
+//
+// Styleguide: Contributing to XUI.1
+
+// The XUI community
+//
+// XUI has an active community of advocates, contributors and users who are supported by a core team responsible for managing the system. Together, the community maintain standards, identify and explore opportunities, nurture and grow the library and support the system's users.
+//
+// [View XUI communication channels](./section-getting-started-directory.html#getting-started-directory-8)
+//
+// Styleguide: Contributing to XUI.2
+
+// Identifying an opportunity
+//
+// If you have a question or an idea please reach out to the community or the XUI folks – we’re always happy to hear from you, and we’re here to help.
+//
+// What you can do:
+//
+// Tips:
+// Do: <span>Reach out to us in <a href="//xero.slack.com/messages/C565NP1A5" target="_blank">#xui-development</a> or <a href="//xero.slack.com/messages/C56RA62Q5" target="_blank">#xui-design</a> Slack channels</span>
+// Do: <span>Attend one of <a href="section-getting-started-directory.html#getting-started-directory-11">XUI’s drop-in sessions</a></span>
+// Do: Invite someone from the XUI team to chat in person about what you’ve found
+//
+// Styleguide: Contributing to XUI.3
+
+// Proposing an improvement to XUI
+//
+// Once you have a solution in mind, collaborate with the XUI team to determine if it should live in the system, in a single product, or if there is an existing alternative that can be used. Once a decision is made, we’ll choose the most sensible way forward together based on impact, urgency and capacity.
+//
+// Styleguide: Contributing to XUI.4
+
+// When:
+//
+// Ideally these conversations happen in the design phase, before development begins. Discussing improvements early in your process can save time in the long run and help to avoid creating design or technical debt. We understand this isn’t always possible, so please don’t hesitate to reach out at any stage.
+//
+// Styleguide: Contributing to XUI.4.1
+
+// What to do:
+//
+// Catch up with someone from the XUI team, or come along to one of [XUI’s drop-in sessions](./section-getting-started-directory.html#getting-started-directory-11). Together we will work to understand the requirements, the range and effect of the change, then decide which of the following is most accurate:
+//
+// 1. The improvement is valuable and should be contributed to XUI and:<br/>
+// a. XUI will own the work and prioritise against other work, or<br/>
+// b. External contributor will own the work (with support) and follow [XUI’s technical contribution process
+// <span class="xui-iconwrapper xui-iconwrapper-medium">
+//   <svg focusable="false" class="xui-icon xui-icon-color-blue">
+//     <use xlink:href="#xui-icon-external" role="presentation" />
+//   </svg>
+// </span>](https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md)
+// 2. The improvement is valuable and should live within a Xero product. The product team will own this work.
+// 3. Improvement needn’t be built and an alternative is provided
+//
+// <!--The decision tree above illustrates how we arrive at each option.-->
+//
+// Styleguide: Contributing to XUI.4.2
+
+// Making a change to XUI
+//
+// The XUI team appreciates when contributors improve a component, fix a bug, or introduce other enhancements to the system, and we encourage you to do so. Reach out to the team to discuss an idea, to attend one of our [regular drop-in sessions](./section-getting-started-directory.html#getting-started-directory-11), or to request a review once you've opened a pull request.
+//
+// Styleguide: Contributing to XUI.5
+
+// Useful links:
+//
+// * [XUI GitHub repository](https://github.dev.xero.com/UXE/xui)
+// * [#xui-design Slack channel](https://xero.slack.com/messages/C56RA62Q5)
+// * [#xui-development Slack channel](https://xero.slack.com/messages/C565NP1A5)
+//
+// Styleguide: Contributing to XUI.5.1
+
+// Workflow for adding improvements for to XUI
+//
+// This is the process for building a component to be added to XUI. This helps us build things in a high-quality and consistent way. As a contributor, you will get the help and support of the XUI team throughout this process.
+//
+// Styleguide: Contributing to XUI.6
+
+// When:
+//
+// Once a working group has identified a valuable [addition/improvement to XUI](#contributing-to-xui-4-2), or demand has increased for a component that currently lives inside a single product.
+//
+// Styleguide: Contributing to XUI.6.1
+
+// Process for building a new component
+//
+// <div class="xui-table xui-panel xui-table-hasheader xui-table-responsive">
+//   <div class="xui-table-wrapper">
+//     <table class="xui-table-element">
+//       <thead class="xui-table--head">
+//         <tr class="xui-table--row xui-text-align-left">
+//           <th
+//             class="xui-table--cell xui-heading-separator xui-table--cell-first"
+//             tabindex="0"
+//           >
+//             <div>
+//               Stage
+//             </div>
+//           </th>
+//           <th
+//             class="xui-table--cell xui-heading-separator xui-table--cell-second"
+//             tabindex="0"
+//           >
+//             <div>
+//               Owner
+//             </div>
+//           </th>
+//           <th
+//             class="xui-table--cell xui-heading-separator xui-table--cell-secondtolast"
+//             tabindex="0"
+//           >
+//             <div>
+//               Definition of done
+//             </div>
+//           </th>
+//           <th
+//             class="xui-table--cell xui-heading-separator xui-table--cell-last xui-text-align-left"
+//             tabindex="0"
+//           >
+//             <div class="xui-text-align-left">
+//               Reviewer
+//             </div>
+//           </th>
+//         </tr>
+//       </thead>
+//       <tbody class="xui-table--body">
+//         <tr class="xui-table--row">
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+//           >
+//             <span class="xui-text-emphasis">Discovery</span>
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
+//           >
+//             Designer
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
+//           >
+//             Discovery section of the <a href="https://www.figma.com/file/SdTC3smsNHjEQaGr8jj9b7/Project-Template-XUI" target="_blank">XUI Figma Project Template<span class="xui-iconwrapper xui-iconwrapper-medium"><svg focusable="false" class="xui-icon xui-icon-color-blue"><use xlink:href="#xui-icon-external" role="presentation" /></svg></span></a> completed
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-text-align-left"
+//           >
+//             Designer, Developer
+//           </td>
+//         </tr>
+//         <tr class="xui-table--row">
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+//           >
+//             <span class="xui-text-emphasis">Design</span>
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
+//           >
+//             Designer
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
+//           >
+//             Design meets discovery requirements<br/>Design specification completed<br/>Appropriate testing done<br/>Documentation drafted<br/>Design is accessible, responsive and internationalised
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-text-align-left"
+//           >
+//             Designer, Developer
+//           </td>
+//         </tr>
+//         <tr class="xui-table--row">
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+//           >
+//             <span class="xui-text-emphasis">Build</span>
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
+//           >
+//             Developer
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
+//           >
+//             See <a href="section-getting-started-developing-with-xui.html">Developing with XUI</a> to get started <br/>
+//             Follows <a href="section-getting-started-developing-with-xui.html#getting-started-developing-with-xui-1-2">XUI conventions</a> <br/>
+//             Meets <a href="https://confluence.teamxero.com/pages/viewpage.action?spaceKey=PLAT&title=Definitions+of+done" target="_blank">‘New Feature’ Definition of Done<span class="xui-iconwrapper xui-iconwrapper-medium"><svg focusable="false" class="xui-icon xui-icon-color-blue"><use xlink:href="#xui-icon-external" role="presentation" /></svg></span></a> and PR checklist<br/>
+//             PR opened and reviewed
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-text-align-left"
+//           >
+//             Designer, Developer
+//           </td>
+//         </tr>
+//         <tr class="xui-table--row">
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+//           >
+//             <span class="xui-text-emphasis">Document</span>
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second"
+//           >
+//             Designer, Developer
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
+//           >
+//             Documentation is in XUI Guide and React docs <br/> Figma component is created in relevant version of library
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-text-align-left"
+//           >
+//             Designer, Developer
+//           </td>
+//         </tr>
+//         <tr class="xui-table--row">
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+//           >
+//             <span class="xui-text-emphasis">Deploy</span>
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
+//           >
+//             Developer
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
+//           >
+//             Component is available to the community
+//           </td>
+//           <td
+//             tabindex="0"
+//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-text-align-left"
+//           >
+//             Developer
+//           </td>
+//         </tr>
+//       </tbody>
+//     </table>
+//   </div>
+// </div>
+//
+// Styleguide: Contributing to XUI.6.2
+
+// Related resources:
+//
+// * [Designing with XUI](./section-getting-started-designing-with-xui.html)
+// * [Developing with XUI](./section-getting-started-developing-with-xui.html)
+// * [Project Figma Template](https://www.figma.com/file/SdTC3smsNHjEQaGr8jj9b7/Project-Template-XUI)
+//
+// Styleguide: Contributing to XUI.6.3
+
+// Extending XUI or making a contextual override
+//
+// The XUI team only recommend making contextual overrides as a last resort. Contextual overrides can create inconsistencies for users and makes upgrading XUI versions more complicated. If your product requires something to be overridden, consider [suggesting an improvement to XUI](./index.html#XUIFeedback) as the chances are high that other products can benefit from the same change.
+//
+// Styleguide: Contributing to XUI.7
+
+// Options for extending XUI
+//
+// 1. XUI variables and mixins can be brought into an application or component to gain access to values for colours, spacing and other properties.
+// 2. XUI React components can be used to compose new and interesting components that can be used inside an app and shared with your friends
+//
+// If you're planning on writing a component using our CSS, we recommend importing the following two files as your keys to building using our conventions and standards.
+//
+// |File|Description|
+// |:--|:--|
+// |/src/sass/_vars.scss|You'll be able to access the common variables we use throughout the XUI CSS system including colours, spacing, borders and typography|
+// |/src/sass/_mixins.scss|Mixins are frequently used to template features of the components we build. From buttons to our responsive breakpoint system, you'll find many useful style combinations here|
+//
+// Styleguide: Contributing to XUI.7.1
+
+// Related links:
+//
+// * [Getting Started](./section-getting-started.html)
+// * [The XUI Ecosystem](./section-getting-started-directory.html)
+// * [Designing with XUI](./section-getting-started-designing-with-xui.html)
+// * [Developing with XUI](./section-getting-started-developing-with-xui.html)
+// * [Contributing.md](./section-feedback.html#feedback-4)
+//
+// Styleguide: Contributing to XUI.7.2

@@ -11,7 +11,7 @@ const { edgeRegex, githubRegex, umdRegex } = require('./constants');
 const { version } = require(path.resolve(rootDirectory, 'package.json'));
 
 const files = [
-  path.resolve(rootDirectory, 'src', 'docs', 'working-with-xui', '_docs.developers.scss'),
+  path.resolve(rootDirectory, 'src', 'docs', 'getting-started', '_developers.scss'),
   path.resolve(rootDirectory, '.umd', 'index.html'),
 ];
 

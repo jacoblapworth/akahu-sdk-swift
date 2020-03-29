@@ -1,0 +1,135 @@
+// Page header
+//
+// flags: updated
+//
+// Teaser: Guidance on how to use page-specific page navigation.
+//
+// Introduction: How to use page-specific navigation.
+//
+// Components: Page-header
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.kk4oijzi48fo
+//
+// Styleguide: Components.Navigation.Page header
+
+// Best practice
+//
+// Tips:
+// Do: Use page headers on pages that sit beneath the global header
+// Warning: Avoid more than three tabs per page
+// Warning: Avoid nesting pages more than three levels deep
+// Warning: When content is long, provide an alternative layout for narrow viewports
+// Dont: Don't use page headers for full screen interfaces, use an isolation mode instead
+//
+// Styleguide: Components.Navigation.Page header.1
+
+// Anatomy
+//
+// Styleguide: Components.Navigation.Page header.2
+
+// Basic
+//
+// At its most basic form, a page header contains a title. To create one, use the following classes.
+//
+// Classes:
+// xui-pageheading: Page heading container
+// xui-pageheading--content: Page heading content container
+// xui-pageheading--content-layout: Content modifier to set recommended horizontal spacing
+// xui-pageheading--title: Page heading title
+//
+// ExampleClass: ds-example-wide
+//
+// Markup: ./examples/page-header/_page-header.html
+//
+// For anything more complex, you'll need [additional structure](#components-navigation-page-header-2-2).
+//
+// Styleguide: Components.Navigation.Page header.2.1
+
+// Extended
+//
+// Page headings are optimised to perform well with many types and combinations of content and in the narrowest viewports. They are designed to contain breadcrumb trails, secondary text, tags, tab navigation, and actions in addition to titles.
+//
+// Classes:
+// xui-pageheading--leftcontent: Elements that appear at the left side of the page heading when at full width, including breadcrumb trails and the title wrapper
+// xui-pageheading--titlewrapper: All left-side content other than breadcrumbs should be in this container, including title, secondary text, and/or tags
+// xui-pageheading--rightcontent: Elements that appear to the right of any title content when at full width. This should include any tabs and/or actions
+//
+// ExampleClass: ds-example-wide
+//
+// Markup: ./examples/page-header/_page-header-extended.html
+//
+// Styleguide: Components.Navigation.Page header.2.2
+
+// Layout
+//
+// flags: wip
+//
+// At times it is desired to prevent the page header from extending wider than the width of the global header, or to match content that sits below it.
+// To do this, apply the following utility classes in addition to `xui-pageheading--content-layout`.
+//
+// Classes:
+// xui-page-width-standard: Sets a max width of 1000px and centers horizontally
+// xui-page-width-large: Sets a max width of 1200px and centers horizontally
+//
+// Styleguide: Components.Navigation.Page header.3
+
+// Breadcrumb Trail
+//
+// Breadcrumb Trails should not be used alone, but rather in combination with a title and any additional content. See [the complete breadcrumb trail documentation](./section-components-navigation-breadcrumb-trail.html) for more details.
+//
+// ExampleClass: ds-example-wide
+//
+// Markup: ./examples/page-header/_page-header-layout.html
+//
+// Styleguide: Components.Navigation.Page header.4
+
+// Titles
+//
+// The title area of a page heading will contain the title, as well as any secondary text and tags that apply to the title.
+//
+// Classes:
+// xui-pageheading--titlewrapper: Wraps all title-related content, and excludes breadcrumbs
+// xui-pageheading--title: Page heading title
+// xui-pageheading--secondarytitle: Secondary descriptive content to appear after the title
+// xui-pageheading--tags: A container for tags to appear after the title and any secondary text
+//
+// ExampleClass: ds-example-wide
+//
+// Markup: ./examples/page-header/_page-header-titles.html
+//
+// Styleguide: Components.Navigation.Page header.5
+
+// Tabs
+//
+// See [the complete tabs documentation](./section-components-navigation-tabs.html) for more details.
+//
+// ExampleClass: ds-example-wide
+//
+// Markup: ./examples/page-header/_page-header-tabs.html
+//
+// Styleguide: Components.Navigation.Page header.6
+
+// Actions
+//
+// To include page-specific actions, wrap them in the following class. If your pageheader has actions but no tabs, you'll want to add the `-no-tabs` modifier classes to the `content` and `rightcontent` containers, as well.
+//
+// Classes:
+// xui-pageheading--actions: Sets default button layout and internal spacing
+// xui-pageheading--content-no-tabs: Adjusts the layout for a header without tabs
+// xui-pageheading--rightcontent-no-tabs: Adjusts the layout for a header without tabs
+//
+// ExampleClass: ds-example-wide
+//
+// Markup: ./examples/page-header/_page-header-actions.html
+//
+// Styleguide: Components.Navigation.Page header.7
+
+// Related links
+//
+// Related:
+// * [Breadcrumb trail](./section-components-navigation-breadcrumb-trail.html)
+// * [Global navigation](./section-components-navigation-global-navigation.html)
+// * [Isolation header](./section-components-navigation-isolation-header.html)
+// * [Tabs](./section-components-navigation-tabs.html)
+//
+// Styleguide: Components.Navigation.Page header.99

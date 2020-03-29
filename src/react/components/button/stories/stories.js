@@ -85,7 +85,11 @@ storiesWithKnobs.add('Playground', () => {
         tabIndex={number('tabIndex', 0)}
         target={text('target', '')}
         title={text('title', '')}
-        type={select('type', Object.keys(buttonTypes).map(type => buttonTypes[type]), 'button')}
+        type={select(
+          'type',
+          Object.keys(buttonTypes).map(type => buttonTypes[type]),
+          'button',
+        )}
         variant={!isIcon && select('variant', textButtonVariants, 'standard')}
       >
         {isIcon ? null : 'Test button'}

@@ -171,6 +171,10 @@ export default class XUIAutocompleter extends PureComponent {
     ) {
       onBackspacePill();
     }
+
+    if (this.props.onKeyDown) {
+      this.props.onKeyDown(event);
+    }
   };
 
   onInputFocus = () => {
@@ -329,7 +333,6 @@ export default class XUIAutocompleter extends PureComponent {
         id={dropdownId}
         ignoreKeyboardEvents={ignoreKeyboardEvents}
         onHighlightChange={completer.onHighlightChange}
-        onKeyDown={onKeyDown}
         onSelect={onOptionSelect}
         qaHook={listQaHook}
         ref={c => (completer.dropdown = c)}
@@ -474,7 +477,7 @@ XUIAutocompleter.propTypes = {
    * supplied a footer element with any links or interaction. */
   closeOnTab: PropTypes.bool,
 
-  /** Callback for adding additional onKeyPress funcitonality */
+  /** Callback for adding additional onKeyDown functionality */
   onKeyDown: PropTypes.func,
 
   /** When set to true the dropdown will automatically open when the input is given focus. */

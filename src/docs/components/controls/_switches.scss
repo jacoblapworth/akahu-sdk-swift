@@ -1,0 +1,132 @@
+// Switch
+//
+// flags: updated
+//
+// Teaser: Used for significant binary decisions.
+//
+// Components: Switch
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.d4cwl9kwnijq
+//
+// Introduction: Switches are used to make significant binary decisions.
+//
+// Styleguide: Components.Controls.Switch
+
+// Best practice
+//
+// Tips:
+// Do: Toggling a switch should have immediate effect
+// Warning: In forms that require a submit action, use a toggle or a checkbox instead
+//
+// Styleguide: Components.Controls.Switch.1
+
+// Anatomy
+//
+// To create a switch, use the following classes in combination with a native checkbox input.
+// To turn the switch on, add the `checked` attribute to the input.
+// Visit our [touch target documentation](section-getting-started-responsive.html#getting-started-responsive-3) for more information about the invisible `xui-touchtarget` element.
+//
+// Tips:
+// Warning: If displaying multiple switches, ensure there is adequate space between so that touch targets don't overlap
+//
+// Classes:
+// xui-switch: Apply to label containing the switch
+// xui-switch-medium: Apply to the label containing the switch for standard sizing
+// xui-switch--checkbox: Apply to native input to hide it
+// xui-switch--control: Apply to input sibling element to animate it
+// xui-switch--control-medium: Apply to input sibling element for standard sizing
+// xui-switch--label: Apply to label
+// xui-switch--label-medium: Apply to label for standard sizing
+// xui-switch-reversed: Modifier to reverse order of label
+// xui-touchtarget: Apply to an empty element inside the switch control
+//
+// Markup: ./examples/switch/_switch.html
+//
+// Styleguide: Components.Controls.Switch.2
+
+// Disabling
+//
+// To disable a switch, add the `disabled` attribute and add the following modifier.
+//
+// Classes:
+// xui-switch-is-disabled: Apply to switch
+//
+// Markup: ./examples/switch/_switch-disabling.html
+//
+// Styleguide: Components.Controls.Switch.3
+
+// Grouped switches
+//
+// To increase hit areas further and create visual similarity with other form elements, consider using a switch group.
+//
+// Classes:
+// xui-switch-group: Add to wrapper
+//
+// Markup: ./examples/switch/_switch-grouped.html
+//
+// Styleguide: Components.Controls.Switch.4
+
+// Single switch
+//
+// To retain the grouped format if only one option is present, simply include one instead of many.
+//
+// Markup: ./examples/switch/_switch-single.html
+//
+// Styleguide: Components.Controls.Switch.4.1
+
+// Multiline switch
+//
+// Switch groups can handle long strings very easily, as they wrap by default.
+//
+// Markup: ./examples/switch/_switch-multiline.html
+//
+// Styleguide: Components.Controls.Switch.4.2
+
+// Order
+//
+// By default, switches precede the text of the label. This can be reversed by adding `xui-switch-reversed` to the label.
+//
+// Markup: ./examples/switch/_switch-order.html
+//
+// Styleguide: Components.Controls.Switch.5
+
+// Accessibility
+//
+// Make sure to add the `switch` role to the hidden input element. For simplicity, this has not been done in the examples above.
+// Additionally, this will require toggling several other [aria properties](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_switch_role) via Javascript.
+//
+// Styleguide: Components.Controls.Switch.6
+
+// Validation and hint messages
+//
+// Validation and hint messages can be shown for switches with and without a label.
+//
+// Add `aria-invalid="true"` to inputs to indicate that they are invalid.
+//
+// Add `xui-validation-is-invalid` to a validation message to display its error state.
+//
+// If a group of switches is invalid, add `xui-switch-group-is-invalid` to the group.
+//
+// Classes:
+// xui-switchwrapper: Wrapper for the field and validation message
+// xui-switch: Wrapper for the switch and label
+// xui-switch--message: Positions the message under the switch
+// xui-switch--message-with-label: Positions the message under the label
+// xui-switch-group-is-invalid: Changes the colour of the group to indicate it is invalid
+// xui-validation-is-invalid: Changes the colour of the text to indicate it is invalid
+//
+// ExampleClass: ds-example-transparent
+//
+// Markup: ./examples/switch/_switch-validation.html
+//
+// Styleguide: Components.Controls.Switch.7
+
+// Related links
+//
+// Related:
+// * [Checkbox](./section-components-controls-checkbox.html)
+// * [Form](./section-components-collectinginput-forms.html)
+// * [Radio](./section-components-controls-radio.html)
+// * [Toggle](./section-components-controls-toggle.html)
+//
+// Styleguide: Components.Controls.Switch.99

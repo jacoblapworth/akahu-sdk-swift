@@ -264,6 +264,28 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
 </div>
 `;
 
+exports[`<XUITextInput> Text-only input is input value reverse-aligned 1`] = `
+<div
+  className="xui-textinputwrapper"
+>
+  <div
+    className="xui-textinput xui-textinput-medium"
+  >
+    <input
+      className="xui-textinput--input xui-textinput--input-medium xui-textinput--input-reverse-align"
+      id="testGeneratedId-control"
+      onBlurCapture={[Function]}
+      onFocusCapture={[Function]}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
 exports[`<XUITextInput> Text-only input renders with a hidden label when one is provided 1`] = `
 <div
   className="xui-textinputwrapper"

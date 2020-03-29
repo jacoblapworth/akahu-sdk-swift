@@ -68,7 +68,7 @@ describe('XUIRadio', () => {
   });
 
   // qaHook property
-  it.skip('should have a qaHook on the root node if provided', () => {
+  it('should have a qaHook on the root node if provided', () => {
     const component = renderer.create(<XUIRadio onChange={NOOP} qaHook="cheese-and-crackers" />);
 
     expect(component).toMatchSnapshot();
@@ -154,5 +154,19 @@ describe('XUIRadio', () => {
     const component = shallow(<XUIRadio onChange={NOOP} value="64" />);
 
     expect(component.childAt(0).prop('value')).toEqual('64');
+  });
+
+  // inputProps property
+  it('should pass props to input node', function() {
+    const component = mount(
+      <XUIRadio onChange={NOOP} value="2501" inputProps={{ autoComplete: 'off' }} />,
+    );
+
+    expect(
+      component
+        .find('input')
+        .getDOMNode()
+        .attributes.getNamedItem('autocomplete').value,
+    ).toEqual('off');
   });
 });

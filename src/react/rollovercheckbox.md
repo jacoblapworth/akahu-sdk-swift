@@ -7,8 +7,8 @@ The underlying checkbox can be any of the available checkbox sizes. You can also
 ### Standard with Avatar
 
 ```jsx harmony
-import XUIRolloverCheckbox from './rollovercheckbox';
-import XUIAvatar from './avatar';
+import XUIRolloverCheckbox from '@xero/xui/react/rollovercheckbox';
+import XUIAvatar from '@xero/xui/react/avatar';
 
 <XUIRolloverCheckbox
   label="Rollover checkbox"
@@ -20,7 +20,7 @@ import XUIAvatar from './avatar';
 ### Image with xsmall checkbox and extra margins
 
 ```jsx harmony
-import XUIRolloverCheckbox from './rollovercheckbox';
+import XUIRolloverCheckbox from '@xero/xui/react/rollovercheckbox';
 
 <XUIRolloverCheckbox
   label="Rollover checkbox"
@@ -40,7 +40,7 @@ import XUIRolloverCheckbox from './rollovercheckbox';
 ### Disabled
 
 ```jsx harmony
-import XUIRolloverCheckbox from './rollovercheckbox';
+import XUIRolloverCheckbox from '@xero/xui/react/rollovercheckbox';
 
 <XUIRolloverCheckbox
   label="Rollover checkbox"

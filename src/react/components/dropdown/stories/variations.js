@@ -119,8 +119,4 @@ Object.keys(privateConsts.fixedWidthDropdownSizes).forEach(size => {
   });
 });
 
-module.exports = {
-  storiesWithVariationsKindName,
-  variations,
-  NOOP,
-};
+export { storiesWithVariationsKindName, variations, NOOP };

@@ -13,7 +13,7 @@ import XUITooltip from '../../../tooltip';
 import XUIToast, { XUIToastWrapper, XUIToastMessage } from '../../../toast';
 import info from '@xero/xui-icon/icons/info';
 
-import lists from '../../../components/helpers/list';
+import * as lists from '../../../components/helpers/list';
 import { nonBackstopStoryNames, compositionKind } from '../tests';
 
 // Story book things

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-cycle
 import DropDown from '../../dropdown/DropDown';
 import DropDownToggled from '../../dropdown/DropDownToggled';
 

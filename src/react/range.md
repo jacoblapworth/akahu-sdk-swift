@@ -11,7 +11,7 @@ XUI provides a custom range slider for consistency across platforms and visual a
 XUIRange components can be passed functions for the `onInput`.
 
 ```jsx harmony
-import XUIRange from './range';
+import XUIRange from '@xero/xui/react/range';
 
 const logValue = event => {
   console.log('value:', event.target.value);
@@ -26,9 +26,9 @@ Left and right elements can be given any object however it is recommended to use
 
 ```jsx harmony
 import plus from '@xero/xui-icon/icons/plus';
-import XUIAvatar from './avatar';
-import XUIIcon from './icon';
-import XUIRange from './range';
+import XUIAvatar from '@xero/xui/react/avatar';
+import XUIIcon from '@xero/xui/react/icon';
+import XUIRange from '@xero/xui/react/range';
 
 <XUIRange
   leftElement={
@@ -48,7 +48,7 @@ import XUIRange from './range';
 Invalid and/or disabled states are useful for conveying how the Range component can be used.
 
 ```jsx harmony
-import XUIRange from './range';
+import XUIRange from '@xero/xui/react/range';
 
 <XUIRange
   isInvalid

@@ -44,10 +44,10 @@ import XUIAutocompleter, {
   XUIAutocompleterEmptyState,
   boldMatch,
   decorateSubStr
-} from './autocompleter';
-import XUIAvatar from './avatar';
-import XUIPill from './pill';
-import Picklist, { Pickitem } from './picklist';
+} from '@xero/xui/react/autocompleter';
+import XUIAvatar from '@xero/xui/react/avatar';
+import XUIPill from '@xero/xui/react/pill';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
 
 import people from './components/autocompleter/private/people';
 
@@ -218,14 +218,14 @@ By default the pills and search bar will wrap inside the `XUIAutocompleter` inpu
 ```jsx harmony
 import { Component, PureComponent, Fragment } from 'react';
 
-import XUIAvatar from './avatar';
+import XUIAvatar from '@xero/xui/react/avatar';
 import XUIAutocompleter, {
   XUIAutocompleterEmptyState,
   boldMatch,
   decorateSubStr
-} from './autocompleter';
-import Picklist, { Pickitem } from './picklist';
-import XUIPill from './pill';
+} from '@xero/xui/react/autocompleter';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPill from '@xero/xui/react/pill';
 
 import people from './components/autocompleter/private/people';
 
@@ -381,11 +381,11 @@ When using `XUIAutocompleter` for selecting a single option, use the `leftElemen
 import { Component, Fragment } from 'react';
 import crossIcon from '@xero/xui-icon/icons/cross-small';
 
-import { XUIIconButton } from './button';
-import XUIAvatar from './avatar';
-import XUIAutocompleter, { boldMatch, decorateSubStr } from './autocompleter';
-import Picklist, { Pickitem } from './picklist';
-import XUITextInputSideElement from './components/textInput/XUITextInputSideElement';
+import { XUIIconButton } from '@xero/xui/react/button';
+import XUIAvatar from '@xero/xui/react/avatar';
+import XUIAutocompleter, { boldMatch, decorateSubStr } from '@xero/xui/react/autocompleter';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import { XUITextInputSideElement } from '@xero/xui/react/textinput';
 
 import people from './components/autocompleter/private/people';
 
@@ -503,4 +503,188 @@ class SingleSelectExample extends Component {
 }
 
 <SingleSelectExample />;
+```
+
+### Adding custom key down behaviour
+
+Custom key down behaviours can be applied by providing a callback function to the `onKeyDown` prop.
+
+Please note. This prop is not intended to give users the ability to disable or amend the default onKeyDown behaviours. If a custom function is provided, this will be called after the relevant default onKeyDown behaviour.
+
+```jsx harmony
+import { Component, PureComponent, Fragment } from 'react';
+
+import XUIAutocompleter, {
+  XUIAutocompleterEmptyState,
+  boldMatch,
+  decorateSubStr
+} from '@xero/xui/react/autocompleter';
+import XUIAvatar from '@xero/xui/react/avatar';
+import XUIPill from '@xero/xui/react/pill';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+
+import people from './components/autocompleter/private/people';
+
+const filterPeople = (peopleToSearch, value, idsToExclude) => {
+  const val = value.toLowerCase();
+  return peopleToSearch.filter(
+    (person, index) =>
+      idsToExclude.indexOf(index) === -1 &&
+      (person.name.toLowerCase().indexOf(val) > -1 ||
+        person.email.toLowerCase().indexOf(val) > -1 ||
+        person.subtext.toLowerCase().indexOf(val) > -1)
+  );
+};
+
+class PillWrapper extends PureComponent {
+  constructor(...args) {
+    super(...args);
+    this.deleteSelf = this.deleteSelf.bind(this);
+  }
+
+  deleteSelf() {
+    this.props.onDeleteClick(this.props.id);
+  }
+
+  render() {
+    const { id } = this.props;
+    return (
+      <XUIPill
+        value={people[id].name}
+        className="xui-autocompleter--pill"
+        onDeleteClick={this.deleteSelf}
+        deleteButtonLabel="Delete"
+        key={id}
+        size="small"
+      />
+    );
+  }
+}
+
+// Example to show how a custom onKeyDown function can be added.
+class CustomKeyDownExample extends Component {
+  constructor(...args) {
+    super(...args);
+
+    this.state = {
+      value: '',
+      selectedPeopleIds: [0]
+    };
+
+    this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
+    this.onKeyDownHandler = this.onKeyDownHandler.bind(this);
+    this.deletePerson = this.deletePerson.bind(this);
+    this.deleteLastPerson = this.deleteLastPerson.bind(this);
+    this.selectPerson = this.selectPerson.bind(this);
+    this.completer = React.createRef();
+  }
+
+  // Custom onKeyDownHandler example where pressing e will fire a console log "You pressed e".
+  onKeyDownHandler(event) {
+    if (event.keyCode === 69) {
+      console.log('You pressed e');
+    }
+  }
+
+  onSearchChangeHandler(value) {
+    const invalidInput = !!value.match(/[\!\.\^%&#]/);
+    if (invalidInput) {
+      this.completer.current.closeDropDown();
+    } else {
+      this.completer.current.openDropDown();
+    }
+    this.setState({
+      value,
+      isInvalid: invalidInput
+    });
+  }
+
+  deletePerson(idToRemove) {
+    this.setState(prevState => ({
+      selectedPeopleIds: [...prevState.selectedPeopleIds.filter(id => id !== idToRemove)]
+    }));
+  }
+
+  deleteLastPerson() {
+    this.setState(prevState => ({
+      selectedPeopleIds: [...prevState.selectedPeopleIds.slice(0, -1)]
+    }));
+  }
+
+  selectPerson(person) {
+    this.setState(prevState => ({
+      selectedPeopleIds: [...prevState.selectedPeopleIds, person],
+      value: ''
+    }));
+  }
+
+  renderPills(selectedPeopleIds) {
+    return selectedPeopleIds.map(id => (
+      <PillWrapper id={id} key={id} onDeleteClick={this.deletePerson} />
+    ));
+  }
+
+  render() {
+    const { value, selectedPeopleIds } = this.state;
+    const unselectedPeopleIds = filterPeople(people, value, selectedPeopleIds);
+
+    const dropdownContents =
+      unselectedPeopleIds.length === 0 ? (
+        <Picklist>
+          <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>
+        </Picklist>
+      ) : (
+        <Picklist>
+          {unselectedPeopleIds.map(person => {
+            const secondaryContent = (
+              <Fragment>
+                {decorateSubStr(person.email, value || '', boldMatch)},{' '}
+                {decorateSubStr(person.subtext, value || '', boldMatch)}
+              </Fragment>
+            );
+            const headingContent = (
+              <Fragment>{decorateSubStr(person.name, value || '', boldMatch)}</Fragment>
+            );
+            return (
+              <Pickitem
+                shouldTruncate
+                key={person.id}
+                id={person.id}
+                value={person.id}
+                secondaryElement={secondaryContent}
+                headingElement={headingContent}
+                leftElement={
+                  <XUIAvatar value={person.name} imageUrl={person.avatar} size="small" />
+                }
+                onSelect={this.selectPerson}
+                isMultiline
+              />
+            );
+          })}
+        </Picklist>
+      );
+    const validityMsg = this.state.isInvalid
+      ? 'Special characters are not allowed'
+      : 'Please enter a search term';
+    return (
+      <XUIAutocompleter
+        inputLabel="autocompleter"
+        closeOnTab={true}
+        closeOnSelect={false}
+        isInputLabelHidden
+        ref={this.completer}
+        onSearch={this.onSearchChangeHandler}
+        placeholder="This custom implementation logs a special message when you press e"
+        searchValue={value}
+        onBackspacePill={this.deleteLastPerson}
+        pills={this.renderPills(selectedPeopleIds)}
+        isInvalid={(!value && !selectedPeopleIds.length) || this.state.isInvalid}
+        onKeyDown={this.onKeyDownHandler}
+      >
+        {dropdownContents}
+      </XUIAutocompleter>
+    );
+  }
+}
+<CustomKeyDownExample />;
 ```

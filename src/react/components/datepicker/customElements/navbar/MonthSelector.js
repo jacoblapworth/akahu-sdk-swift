@@ -30,6 +30,7 @@ export default class MonthSelector extends PureComponent {
       selectRef,
       onChange,
       onKeyDown,
+      qaHook,
       size,
     } = this.props;
 
@@ -65,6 +66,7 @@ export default class MonthSelector extends PureComponent {
       visibleMonths.length === 1 ? null : (
         <select
           className={`${baseClassName}--heading-select ${baseClassName}--monthselect-layout`}
+          data-automationid={`${qaHook}--monthselector`}
           id={id}
           name="month"
           onBlur={this.setBlur}
@@ -75,7 +77,11 @@ export default class MonthSelector extends PureComponent {
           value={currentMonth}
         >
           {visibleMonths.map(opt => (
-            <option key={opt.value} value={opt.value}>
+            <option
+              data-automationid={`${qaHook}--monthoption-${opt.name}`}
+              key={opt.value}
+              value={opt.value}
+            >
               {opt.name}
             </option>
           ))}
@@ -103,5 +109,6 @@ MonthSelector.propTypes = {
   selectRef: PropTypes.func,
   onChange: PropTypes.func,
   onKeyDown: PropTypes.func,
+  qaHook: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(buttonSizeClasses)),
 };

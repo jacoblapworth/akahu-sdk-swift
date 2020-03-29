@@ -117,7 +117,11 @@ const variations = [
     longContent: true,
     secondary: true,
     tags: true,
-    breadcrumb: true,
+    breadcrumb: [
+      { label: 'Organisation settings', href: '#1' },
+      { label: 'Edit organisation', href: '#2' },
+      { label: 'Invite new member with a nice long string that will overflow', href: '#3' },
+    ],
     tabs: true,
     actions: true,
   },
@@ -128,7 +132,11 @@ const variations = [
     longContent: true,
     secondary: true,
     tags: true,
-    breadcrumb: true,
+    breadcrumb: [
+      { label: 'Organisation settings', href: '#1' },
+      { label: 'Edit organisation', href: '#2' },
+      { label: 'Invite new member with a nice long string that will overflow', href: '#3' },
+    ],
     breadcrumbSwapPoint: 'small',
     tabs: true,
     tabsSwapPoint: 'small',
@@ -160,7 +168,4 @@ const variations = [
   },
 ];
 
-module.exports = {
-  storiesWithVariationsKindName,
-  variations,
-};
+export { storiesWithVariationsKindName, variations };

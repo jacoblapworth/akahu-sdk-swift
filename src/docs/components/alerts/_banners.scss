@@ -1,0 +1,92 @@
+// Banner
+//
+// Teaser: To provide in-page feedback or introduce additional actions.
+//
+// Introduction: Banners are used to provide in-page feedback or introduce additional actions.
+//
+// Components: Banner
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.yhnmgwweghhm
+//
+// Styleguide: Components.Alerts.Banner
+
+// Best practice
+//
+// Tips:
+// Do: Use banners when inline validation is not possible
+// Do: Use banners at the top of page content
+// Do: Actions that relate to the task at hand may be included
+// Dont: Don't use banners for client-side validation
+// Warning: Avoid banners for non-blocking actions – use a toast instead
+// Warning: Avoid hiding banners automatically – use a toast instead
+// Warning: Avoid more than two actions, excluding the close button
+//
+// Styleguide: Components.Alerts.Banner.1
+
+// Anatomy
+//
+// To create a banner, use the following classes.
+// Note that close buttons must come first in the DOM order to provide the correct conditional formatting.
+//
+// Classes:
+// xui-banner: Base class
+// xui-banner-layout: Default layout for banners
+// xui-banner--message: Primary message
+// xui-banner--messagedetail: Optional secondary message
+// xui-banner--actions: Container for actions
+// xui-banner--action: Banner actions
+// xui-banner--close: Close button
+//
+// Markup: ./examples/banner/_banner.html
+//
+// Styleguide: Components.Alerts.Banner.2
+
+// Sentiment
+//
+// Tips:
+// Do: When using sentiment, use descriptive text like "We are unable to load your data due to a problem with your internet connection"
+// Dont: When using sentiment, avoid vague text like "Internet connection"
+//
+// Positive and negative sentiment can be applied to banners by adding the following modifiers to `xui-banner`.
+//
+// Use descriptive text alongside colour sentiment to convey information so it’s still meaningful to people who can’t discern colour.
+//
+// Definitions:
+// Positive: Adds green border: `-positive`
+// Negative: Adds red border: `-negative`
+//
+// Markup: ./examples/banner/_banner-sentiment.html
+//
+// Styleguide: Components.Alerts.Banner.3
+
+// Animation
+//
+//
+// To draw attention to banners on entry, animate them by adding the following modifier to `xui-banner`.
+//
+// Classes:
+// -animated: Animates vertical position
+//
+// Styleguide: Components.Alerts.Banner.4
+
+// Accessibility
+//
+// It is recommended to use the `alert` role when using the error banner variant.
+// Only use this role when you require the user's immediate attention.
+// For further information about this role, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role).
+//
+// Use the `status` role when presenting any other information that doesn't justify using the alert role.
+// For further information about this role, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_status_role).
+//
+// Styleguide: Components.Alerts.Banner.5
+
+// Related links
+//
+// Related:
+// * [Content block](./section-components-displayingdata-contentblock.html)
+// * [Isolation header](./section-components-navigation-isolation-header.html)
+// * [Overview block](./section-components-displayingdata-overviewblock.html)
+// * [Page header](./section-components-navigation-page-header.html)
+// * [Toast](./section-components-alerts-toast.html)
+//
+// Styleguide: Components.Alerts.Banner.99

@@ -1,4 +1,3 @@
-const storiesWithVariationsKindName = 'Instances/XUIPicklist';
 import React from 'react';
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 import XUIAvatar from '../../avatar/XUIAvatar';
@@ -7,6 +6,8 @@ import view from '@xero/xui-icon/icons/view';
 import arrow from '@xero/xui-icon/icons/arrow';
 import search from '@xero/xui-icon/icons/search';
 import contact from '@xero/xui-icon/icons/contact';
+
+const storiesWithVariationsKindName = 'Instances/XUIPicklist';
 
 const iconsList = [view, arrow, search, contact];
 
@@ -564,7 +565,4 @@ const variations = [
   },
 ];
 
-module.exports = {
-  storiesWithVariationsKindName,
-  variations,
-};
+export { storiesWithVariationsKindName, variations };

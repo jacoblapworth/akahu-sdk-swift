@@ -7,7 +7,7 @@ Panels are top-level containers for grouping page content. XUIPanel can optional
 #### Default Panel
 
 ```jsx harmony
-import { XUIPanel } from './panel';
+import { XUIPanel } from '@xero/xui/react/panel';
 
 <XUIPanel className="xui-padding-small">
   <p className="xui-padding-horizontal-small">
@@ -20,7 +20,7 @@ import { XUIPanel } from './panel';
 #### Panel with Sections
 
 ```jsx harmony
-import { XUIPanel, XUIPanelSection } from './panel';
+import { XUIPanel, XUIPanelSection } from '@xero/xui/react/panel';
 
 <XUIPanel>
   <XUIPanelSection headerText="Organisation Settings" className="xui-padding-large">
@@ -40,10 +40,10 @@ import { XUIPanel, XUIPanelSection } from './panel';
 #### Panel with Sidebar, Heading, and Footer
 
 ```jsx harmony
-import { XUIPanel, XUIPanelSection, XUIPanelHeading, XUIPanelFooter } from './panel';
-import XUIActions from './actions';
-import Picklist, { Pickitem } from './picklist';
-import XUIButton from './button';
+import { XUIPanel, XUIPanelSection, XUIPanelHeading, XUIPanelFooter } from '@xero/xui/react/panel';
+import XUIActions from '@xero/xui/react/actions';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIButton from '@xero/xui/react/button';
 
 const heading = <XUIPanelHeading>Invoices</XUIPanelHeading>;
 const footerActions = (

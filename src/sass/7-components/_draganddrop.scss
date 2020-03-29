@@ -1,0 +1,78 @@
+@import '../vars';
+@import '../mixins';
+
+.#{$ns}-dragitem {
+  background-color: $xui-color-white;
+  border-radius: $xui-radius;
+  box-shadow: $xui-shadow-depth-lift;
+  display: flex;
+  max-width: 200px;
+  min-width: 140px;
+  padding-right: $xui-s-large;
+  width: fit-content;
+}
+
+.#{$ns}-dragitem--icon {
+  margin-right: $xui-s-2xsmall;
+  min-width: $xui-s-3xlarge;
+}
+
+.#{$ns}-dragitem--textcontent {
+  align-self: center;
+  @include xui-heading-medium;
+  @include xui-text-truncated;
+}
+
+// Dropzones
+.#{$ns}-dropzone {
+  @include xui-dropzone;
+}
+
+.#{$ns}-dropzone-active {
+  @include xui-dropzone-active;
+}
+
+.#{$ns}-dropzone--panel {
+  background: $xui-dropzone-panel-background-color;
+  border-radius: $xui-radius;
+  display: flex;
+  padding: $xui-s-standard $xui-s-2xlarge $xui-s-large;
+}
+
+.#{$ns}-dropzone--hiddencontent {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.#{$ns}-dropzone--overlay {
+  display: flex;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.#{$ns}-dropzone--insertionline {
+  background: $xui-dropzone-active-border-color;
+  height: 2px;
+  position: absolute;
+  width: 100%;
+  &:after,
+  &:before {
+    background: $xui-dropzone-active-border-color;
+    border-radius: $xui-radius-circle;
+    bottom: -2px;
+    content: '';
+    height: 6px;
+    position: absolute;
+    width: 6px;
+  }
+  &:after {
+    right: 0;
+  }
+  &:before {
+    left: 0;
+  }
+}

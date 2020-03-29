@@ -1,0 +1,207 @@
+//------------------------------------------------------------------------------
+// Dropdowns landing page
+//------------------------------------------------------------------------------
+
+// Dropdown
+//
+// Components: Dropdown
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.dszy23b5puhq
+//
+// Teaser:
+// Used to reveal additional actions not present on the parent page.
+//
+// Introduction:
+// Dropdowns are used to reveal additional actions not present on the parent page.
+// XUI provides the CSS as well as several React components for implementing each dropdown variant.
+//
+// Styleguide: Components.CollectingInput.Dropdowns
+
+// Anatomy
+//
+// ExampleClass: ds-example-verticallycentered
+//
+// Dropdowns are the most common use case for the [picklist](section-components-displayingdata-picklist.html) component.
+// To create a dropdown, use the following classes, with a picklist inside. Dropdowns can contain other elements but may require additional spacing adjustments.
+//
+// Classes:
+// xui-dropdown-layout: Dropdown container
+// xui-dropdown--mask: Empty element to mask background page at narrow viewports
+// xui-dropdown--body: Dropdown content
+//
+// Markup: ./examples/dropdown/_dropdown.html
+//
+// Styleguide: Components.CollectingInput.Dropdowns.10
+
+// Showing and hiding
+//
+// Dropdowns are hidden by default.
+// To toggle visiblity, add the following modifiers to `xui-dropdown-layout`.
+//
+// Classes:
+// xui-dropdown-is-open: Makes dropdown visible
+// xui-dropdown-is-opening: Animates dropdown into view at narrow viewports
+// xui-dropdown-is-closing: Animates dropdown out of view at narrow viewports
+//
+// Styleguide: Components.CollectingInput.Dropdowns.11
+
+// Width
+//
+// By default, dropdowns have a min width and grow to match the width of their content.
+// At narrow viewports, they fill the viewport width.
+//
+// Definitions:
+// Default: 140px min-width: No class needed
+//
+// Styleguide: Components.CollectingInput.Dropdowns.12
+
+// Max width
+//
+// Tips:
+// Do: Use max width classes if truncating or wrapping is desired
+// Warning: Avoid applying max-width classes to search results as this causes variable widths between queries
+//
+// To set a max width, apply the following modifiers to `xui-dropdown-layout`.
+//
+// Definitions:
+// xsmall: 100px max-width: `xui-dropdown-xsmall`
+// small: 200px max-width: `xui-dropdown-small`
+// medium: 300px max-width: `xui-dropdown-medium`
+// large: 400px max-width: `xui-dropdown-large`
+//
+// Styleguide: Components.CollectingInput.Dropdowns.12.1
+
+// Fixed width
+//
+// Tips:
+// Do: Apply fixed width classes to search results as this provides constant widths between queries
+//
+// To set a fixed width, apply the following modifiers to `xui-dropdown-layout`.
+//
+// Definitions:
+// Fixed xsmall: 100px width: `xui-dropdown-fixed-xsmall`
+// Fixed small: 200px width: `xui-dropdown-fixed-small`
+// Fixed medium: 300px width: `xui-dropdown-fixed-medium`
+// Fixed large: 400px width: `xui-dropdown-fixed-large`
+//
+// Styleguide: Components.CollectingInput.Dropdowns.12.2
+
+// Auto width
+//
+// ExampleClass: ds-example-verticallycentered
+//
+// Flags: reactOnly
+//
+// If using React, an additional property is available that detects the width of the trigger and applies this to the dropdown programatically.
+//
+// Styleguide: Components.CollectingInput.Dropdowns.12.3
+
+// Positioning
+//
+// By default, dropdowns are positioned to the left and just below their trigger.
+//
+// Styleguide: Components.CollectingInput.Dropdowns.14
+
+// Custom positioning
+//
+// Tips:
+// Do: Position dropdowns so that as much content is visible as possible
+// Warning: Avoid changing positions once dropdowns are open
+//
+// To force a dropdown into a specific position relative to its trigger, add one the following modifiers to `xui-dropdown-layout`.
+//
+// Classes:
+// xui-dropdown-positionright: Force right
+// xui-dropdown-positionleft: Force left
+// xui-dropdown-positionabove: Force up
+// xui-dropdown-positionunder: Force below
+//
+// Styleguide: Components.CollectingInput.Dropdowns.14.1
+
+// Auto positioning
+//
+// Flags: reactOnly
+//
+// If using React, positioning is handled automatically, and dropdowns are placed depending on where the most space is available when triggered.
+//
+// Styleguide: Components.CollectingInput.Dropdowns.14.2
+
+// Height
+//
+// By default, dropdown height matches that of its content.
+// However, at narrow vieports, a max-height is applied so that a section of the mask is always visible.
+// Content scrolls internally if it exceeds this height.
+//
+// Definitions:
+// Default: 80vh max-height: No class needed
+//
+// Styleguide: Components.CollectingInput.Dropdowns.15
+
+// Full height
+//
+// Tips:
+// Do: Use full height dropdowns when a search field is present, to allow room for the software keyboard
+// Warning: Always add a header to full height dropdowns so they are dismissable without selecting an option
+//
+// To force dropdowns to occupy the entire screen height at narrow viewports, apply the following modifier.
+//
+// Classes:
+// xui-dropdown-fullheight: Apply to dropdown
+//
+// Styleguide: Components.CollectingInput.Dropdowns.15.1
+
+// Max height
+//
+// Flags: reactOnly
+//
+// If using the [XUIDropdown](./react/#dropdown) React component, a `maxHeight` property can be added to define a custom max-height on the dropdown. Content scrolls internally if it exceeds this height.
+//
+// Styleguide: Components.CollectingInput.Dropdowns.15.2
+
+// Auto height
+//
+// Flags: reactOnly
+//
+// If using the [XUIDropdown](./react/#dropdown) React component, dropdown height is calculated automatically based on the remaining space above or below the trigger.
+// Content scrolls internally if it exceeds this height.
+//
+// Styleguide: Components.CollectingInput.Dropdowns.15.3
+
+// Headers and footers
+//
+// In some cases, a header or footer is required to provide context, or as a way to surface supplementary actions.
+// To do this, use the following classes.
+//
+// Classes:
+// xui-dropdown--header: Header container
+// xui-dropdown--header-container: Header content
+// xui-dropdown--header-leftcontent: Header left content
+// xui-dropdown--header-rightcontent: Header right content
+// xui-dropdown--scrollable-content: Picklist container
+// xui-dropdown--footer: Footer container
+//
+// Markup: ./examples/dropdown/_dropdown-header-and-footer.html
+//
+// Styleguide: Components.CollectingInput.Dropdowns.16
+
+// Accessibility
+//
+// Unless the trigger itself is an input, a dropdown should not open when its trigger is in focus.
+// Rather, the enter and arrow keys should trigger visibility and shift focus to the dropdown itself.
+// Similarly, the escape key closes it.
+// Tapping anywhere on the screen (or the mask at narrow viewports) also dismisses the dropdown.
+// Depending on the type of dropdown, selecting an item may or may not dismiss it, as in some cases multiple options may be selected.
+// Refer to the [React implementation](./react/#dropdown) when in doubt.
+//
+// Styleguide: Components.CollectingInput.Dropdowns.30
+
+// Related links
+//
+// Related:
+// * [Autocompleter](./section-components-collectinginput-autocompleter.html)
+// * [Datepicker](./section-components-collectinginput-datepicker.html)
+// * [Picklist](./section-components-displayingdata-picklist.html)
+// * [Select](./section-components-controls-select.html)
+// * [Text input](./section-components-controls-textinput.html)
+//
+// Styleguide: Components.CollectingInput.Dropdowns.99

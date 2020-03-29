@@ -1,0 +1,66 @@
+<div class="xui-panel">
+  <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="group">
+    <li class="xui-picklist--nestedcontainer" aria-expanded="true">
+      <input
+        role="treeitem"
+        type="checkbox"
+        class="xui-pickitem--submenucontrol"
+        id="nested-checkbox"
+        tabindex="-1"
+        aria-owns="nested"
+      />
+      <label
+        role="button"
+        for="nested-checkbox"
+        class="xui-submenu-uicontrol xui-pickitem--body"
+        tabindex="0"
+        aria-label="Toggle submenu"
+      >
+        <span class="xui-pickitem--text">Clients</span>
+        <div class="xui-submenu-uicontrol--icon xui-iconwrapper">
+          <svg focusable="false" class="xui-icon">
+            <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+          </svg>
+        </div>
+      </label>
+      <ul role="listbox" class="xui-submenu xui-submenu-layout" id="nested">
+        <li class="xui-pickitem xui-pickitem-medium" role="option" id="0-1">
+          <button type="button" class="xui-pickitem--body">
+            <span class="xui-pickitem--sideelement">
+              <abbr
+                class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-7"
+                role="presentation"
+                >AC</abbr
+              >
+            </span>
+            <span class="xui-pickitem--text">Andy Carrell</span>
+          </button>
+        </li>
+        <li class="xui-pickitem xui-pickitem-medium" role="option" id="0-2">
+          <button type="button" class="xui-pickitem--body">
+            <span class="xui-pickitem--sideelement">
+              <abbr
+                class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-8"
+                role="presentation"
+                >JK</abbr
+              >
+            </span>
+            <span class="xui-pickitem--text">Jishaal Kalyan</span>
+          </button>
+        </li>
+        <li class="xui-pickitem xui-pickitem-medium" role="option" id="0-3">
+          <button type="button" class="xui-pickitem--body">
+            <span class="xui-pickitem--sideelement">
+              <abbr
+                class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-9"
+                role="presentation"
+                >SK</abbr
+              >
+            </span>
+            <span class="xui-pickitem--text">Simar Kalra</span>
+          </button>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

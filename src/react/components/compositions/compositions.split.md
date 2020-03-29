@@ -4,7 +4,7 @@
 </div>
 
 ```jsx harmony
-import { XUICompositionSplit } from '../../compositions';
+import { XUICompositionSplit } from '@xero/xui/react/compositions';
 
 const primaryContent = <div style={{ background: '#ADADF3', height: '100px' }}></div>;
 const secondaryContent = <div style={{ background: '#C5C5F6', height: '100px' }}></div>;
@@ -15,7 +15,7 @@ const secondaryContent = <div style={{ background: '#C5C5F6', height: '100px' }}
 #### Split with header
 
 ```jsx harmony
-import { XUICompositionSplitHeader } from '../../compositions';
+import { XUICompositionSplitHeader } from '@xero/xui/react/compositions';
 
 const headerContent = <div style={{ background: '#B446C8', height: '60px' }}></div>;
 const primaryContent = <div style={{ background: '#ADADF3', height: '100px' }}></div>;

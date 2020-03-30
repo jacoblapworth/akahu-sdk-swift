@@ -10,6 +10,7 @@ const qaHook = 'test-id';
 
 const renderTrigger = overrideProps => (
   <AccordionTrigger
+    id="xyz"
     toggleLabel="Toggle"
     primaryHeading="John Smith"
     updateOpenAccordionItem={noop}

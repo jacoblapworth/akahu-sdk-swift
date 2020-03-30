@@ -1,0 +1,1791 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIFileUploader/> <FileList/> should render a custom filelist class 1`] = `
+<div
+  className="xui-fileuploader"
+>
+  <div
+    className=""
+  >
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
+      htmlFor="testLabel-control"
+    >
+      Label
+    </label>
+    <div
+      className=""
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        className="xui-fileuploader--input"
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="xui-button xui-button-standard xui-button-small"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+  </div>
+  <ul
+    className="custom-filelist-class xui-fileuploader--filelist"
+  >
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <span
+        className="xui-fileuploader--fileitem--loading"
+      >
+        <div
+          aria-valuemax={4}
+          aria-valuemin={0}
+          aria-valuenow={1}
+          aria-valuetext="1 of 4"
+          className="xui-progress xui-progress-circular"
+          role="progressbar"
+        >
+          <div
+            className="xui-progress--fragment"
+          >
+            <div>
+              <svg
+                className="xui-progress-circular-wrapper"
+                height={20}
+                viewBox="0 0 20 20"
+                width={20}
+              >
+                <defs>
+                  <mask
+                    height={20}
+                    id="fileuploader-icon-spin-0-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={20}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={10}
+                      cy={10}
+                      r={8.5}
+                      strokeDasharray="initial"
+                      strokeWidth={3}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#fileuploader-icon-spin-0-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeWidth={3}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeDasharray={53.40707511102649}
+                    strokeDashoffset={40.05530633326987}
+                    strokeWidth={3}
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </span>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test1.jpg
+        <span
+          className="xui-fileuploader--fileitem--description"
+        >
+          Uploading...
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          className="xui-button xui-button-borderless-main xui-button-small"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          Cancel
+        </button>
+      </div>
+    </li>
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <div
+        className="xui-fileuploader--fileitem--icon xui-iconwrapper xui-iconwrapper-medium"
+      >
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={15}
+          viewBox="0 0 15 15"
+          width={15}
+        >
+          <path
+            d="M1.25 0h12.5C14.375 0 15 .625 15 1.25v12.5c0 .625-.625 1.25-1.25 1.25H1.25C.625 15 0 14.375 0 13.75V1.25C0 .625.625 0 1.25 0zM2 5v5h1V8h2V5H2zm8 0v5h1V8h1V7h-1V6h2V5h-3zM6 5v5h2V9H7V6h1V5H6zm2 1v3h1V6H8zM3 6h1v1H3V6z"
+            role="presentation"
+          />
+        </svg>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test2.pdf
+        <span
+          className="xui-fileuploader--fileitem--description"
+        >
+          2.17 KB
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          aria-label="Delete file"
+          className="xui-button xui-button-icon-medium xui-button-icon"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <svg
+            className="xui-icon"
+            focusable="false"
+            height={14}
+            viewBox="0 0 11 14"
+            width={11}
+          >
+            <path
+              d="M0 1h3l1-1h3l1 1h3v2H0V1zm1 3h9v9.455c0 .272-.346.545-.692.545H1.692C1.346 14 1 13.727 1 13.455V4zm2 2v6h1V6H3zm2 0v6h1V6H5zm2 0v6h1V6H7z"
+              role="presentation"
+            />
+          </svg>
+          <div
+            className="xui-touchtarget"
+          />
+        </button>
+      </div>
+    </li>
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <span
+        className="xui-fileuploader--fileitem--icon"
+      >
+        <div
+          aria-valuemax={4}
+          aria-valuemin={0}
+          aria-valuenow={1}
+          aria-valuetext="1 of 4"
+          className="xui-progress xui-progress-circular xui-progress-error-hard"
+          role="progressbar"
+        >
+          <div
+            className="xui-progress--fragment"
+          >
+            <div>
+              <svg
+                className="xui-progress-circular-wrapper"
+                height={20}
+                viewBox="0 0 20 20"
+                width={20}
+              >
+                <defs>
+                  <mask
+                    height={20}
+                    id="fileuploader-icon-error-2-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={20}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={10}
+                      cy={10}
+                      r={8.5}
+                      strokeDasharray="initial"
+                      strokeWidth={3}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#fileuploader-icon-error-2-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeWidth={3}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeDasharray={53.40707511102649}
+                    strokeDashoffset={40.05530633326987}
+                    strokeWidth={3}
+                  />
+                </g>
+              </svg>
+            </div>
+            <div
+              className="xui-progress-icon"
+            >
+              <svg
+                className="xui-icon xui-progress-icon-error"
+                focusable="false"
+                height={8}
+                viewBox="0 0 2 8"
+                width={2}
+              >
+                <path
+                  d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </span>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test3.zip
+        <span
+          className="xui-fileuploader--fileitem--error"
+        >
+          Failed to upload file
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          className="xui-button xui-button-borderless-main xui-button-small"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          Retry
+        </button>
+        <button
+          aria-label="Delete file"
+          className="xui-button xui-button-icon-medium xui-button-icon"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <svg
+            className="xui-icon"
+            focusable="false"
+            height={14}
+            viewBox="0 0 11 14"
+            width={11}
+          >
+            <path
+              d="M0 1h3l1-1h3l1 1h3v2H0V1zm1 3h9v9.455c0 .272-.346.545-.692.545H1.692C1.346 14 1 13.727 1 13.455V4zm2 2v6h1V6H3zm2 0v6h1V6H5zm2 0v6h1V6H7z"
+              role="presentation"
+            />
+          </svg>
+          <div
+            className="xui-touchtarget"
+          />
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<XUIFileUploader/> <FileList/> should render basic example 1`] = `
+<div
+  className="xui-fileuploader"
+>
+  <div
+    className=""
+  >
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
+      htmlFor="testLabel-control"
+    >
+      Label
+    </label>
+    <div
+      className=""
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        className="xui-fileuploader--input"
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="xui-button xui-button-standard xui-button-small"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+  </div>
+  <ul
+    className="xui-fileuploader--filelist"
+  >
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <span
+        className="xui-fileuploader--fileitem--loading"
+      >
+        <div
+          aria-valuemax={4}
+          aria-valuemin={0}
+          aria-valuenow={1}
+          aria-valuetext="1 of 4"
+          className="xui-progress xui-progress-circular"
+          role="progressbar"
+        >
+          <div
+            className="xui-progress--fragment"
+          >
+            <div>
+              <svg
+                className="xui-progress-circular-wrapper"
+                height={20}
+                viewBox="0 0 20 20"
+                width={20}
+              >
+                <defs>
+                  <mask
+                    height={20}
+                    id="fileuploader-icon-spin-0-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={20}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={10}
+                      cy={10}
+                      r={8.5}
+                      strokeDasharray="initial"
+                      strokeWidth={3}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#fileuploader-icon-spin-0-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeWidth={3}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeDasharray={53.40707511102649}
+                    strokeDashoffset={40.05530633326987}
+                    strokeWidth={3}
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </span>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test1.jpg
+        <span
+          className="xui-fileuploader--fileitem--description"
+        >
+          Uploading...
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          className="xui-button xui-button-borderless-main xui-button-small"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          Cancel
+        </button>
+      </div>
+    </li>
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <div
+        className="xui-fileuploader--fileitem--icon xui-iconwrapper xui-iconwrapper-medium"
+      >
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={15}
+          viewBox="0 0 15 15"
+          width={15}
+        >
+          <path
+            d="M1.25 0h12.5C14.375 0 15 .625 15 1.25v12.5c0 .625-.625 1.25-1.25 1.25H1.25C.625 15 0 14.375 0 13.75V1.25C0 .625.625 0 1.25 0zM2 5v5h1V8h2V5H2zm8 0v5h1V8h1V7h-1V6h2V5h-3zM6 5v5h2V9H7V6h1V5H6zm2 1v3h1V6H8zM3 6h1v1H3V6z"
+            role="presentation"
+          />
+        </svg>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test2.pdf
+        <span
+          className="xui-fileuploader--fileitem--description"
+        >
+          2.17 KB
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          aria-label="Delete file"
+          className="xui-button xui-button-icon-medium xui-button-icon"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <svg
+            className="xui-icon"
+            focusable="false"
+            height={14}
+            viewBox="0 0 11 14"
+            width={11}
+          >
+            <path
+              d="M0 1h3l1-1h3l1 1h3v2H0V1zm1 3h9v9.455c0 .272-.346.545-.692.545H1.692C1.346 14 1 13.727 1 13.455V4zm2 2v6h1V6H3zm2 0v6h1V6H5zm2 0v6h1V6H7z"
+              role="presentation"
+            />
+          </svg>
+          <div
+            className="xui-touchtarget"
+          />
+        </button>
+      </div>
+    </li>
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <span
+        className="xui-fileuploader--fileitem--icon"
+      >
+        <div
+          aria-valuemax={4}
+          aria-valuemin={0}
+          aria-valuenow={1}
+          aria-valuetext="1 of 4"
+          className="xui-progress xui-progress-circular xui-progress-error-hard"
+          role="progressbar"
+        >
+          <div
+            className="xui-progress--fragment"
+          >
+            <div>
+              <svg
+                className="xui-progress-circular-wrapper"
+                height={20}
+                viewBox="0 0 20 20"
+                width={20}
+              >
+                <defs>
+                  <mask
+                    height={20}
+                    id="fileuploader-icon-error-2-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={20}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={10}
+                      cy={10}
+                      r={8.5}
+                      strokeDasharray="initial"
+                      strokeWidth={3}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#fileuploader-icon-error-2-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeWidth={3}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeDasharray={53.40707511102649}
+                    strokeDashoffset={40.05530633326987}
+                    strokeWidth={3}
+                  />
+                </g>
+              </svg>
+            </div>
+            <div
+              className="xui-progress-icon"
+            >
+              <svg
+                className="xui-icon xui-progress-icon-error"
+                focusable="false"
+                height={8}
+                viewBox="0 0 2 8"
+                width={2}
+              >
+                <path
+                  d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </span>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test3.zip
+        <span
+          className="xui-fileuploader--fileitem--error"
+        >
+          Failed to upload file
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          className="xui-button xui-button-borderless-main xui-button-small"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          Retry
+        </button>
+        <button
+          aria-label="Delete file"
+          className="xui-button xui-button-icon-medium xui-button-icon"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <svg
+            className="xui-icon"
+            focusable="false"
+            height={14}
+            viewBox="0 0 11 14"
+            width={11}
+          >
+            <path
+              d="M0 1h3l1-1h3l1 1h3v2H0V1zm1 3h9v9.455c0 .272-.346.545-.692.545H1.692C1.346 14 1 13.727 1 13.455V4zm2 2v6h1V6H3zm2 0v6h1V6H5zm2 0v6h1V6H7z"
+              role="presentation"
+            />
+          </svg>
+          <div
+            className="xui-touchtarget"
+          />
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<XUIFileUploader/> <FileList/> should render custom rightContent 1`] = `
+<div
+  className="xui-fileuploader"
+>
+  <div
+    className=""
+  >
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
+      htmlFor="testLabel-control"
+    >
+      Label
+    </label>
+    <div
+      className=""
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        className="xui-fileuploader--input"
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="xui-button xui-button-standard xui-button-small"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+  </div>
+  <ul
+    className="xui-fileuploader--filelist"
+  >
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <div
+        className="xui-fileuploader--fileitem--icon xui-iconwrapper xui-iconwrapper-medium"
+      >
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={15}
+          viewBox="0 0 15 15"
+          width={15}
+        >
+          <path
+            d="M1.25 0h12.5C14.375 0 15 .625 15 1.25v12.5c0 .625-.625 1.25-1.25 1.25H1.25C.625 15 0 14.375 0 13.75V1.25C0 .625.625 0 1.25 0zM2 5v5h1V8h2V5H2zm8 0v5h1V8h1V7h-1V6h2V5h-3zM6 5v5h2V9H7V6h1V5H6zm2 1v3h1V6H8zM3 6h1v1H3V6z"
+            role="presentation"
+          />
+        </svg>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test2.pdf
+        <span
+          className="xui-fileuploader--fileitem--description"
+        >
+          2.17 KB
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button>
+          test rightContent
+        </button>
+        <button
+          aria-label="Delete file"
+          className="xui-button xui-button-icon-medium xui-button-icon"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <svg
+            className="xui-icon"
+            focusable="false"
+            height={14}
+            viewBox="0 0 11 14"
+            width={11}
+          >
+            <path
+              d="M0 1h3l1-1h3l1 1h3v2H0V1zm1 3h9v9.455c0 .272-.346.545-.692.545H1.692C1.346 14 1 13.727 1 13.455V4zm2 2v6h1V6H3zm2 0v6h1V6H5zm2 0v6h1V6H7z"
+              role="presentation"
+            />
+          </svg>
+          <div
+            className="xui-touchtarget"
+          />
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<XUIFileUploader/> <FileList/> should render with single line 1`] = `
+<div
+  className="xui-fileuploader"
+>
+  <div
+    className=""
+  >
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
+      htmlFor="testLabel-control"
+    >
+      Label
+    </label>
+    <div
+      className=""
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        className="xui-fileuploader--input"
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="xui-button xui-button-standard xui-button-small"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+  </div>
+  <ul
+    className="xui-fileuploader--filelist"
+  >
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <span
+        className="xui-fileuploader--fileitem--loading"
+      >
+        <div
+          aria-valuemax={4}
+          aria-valuemin={0}
+          aria-valuenow={1}
+          aria-valuetext="1 of 4"
+          className="xui-progress xui-progress-circular"
+          role="progressbar"
+        >
+          <div
+            className="xui-progress--fragment"
+          >
+            <div>
+              <svg
+                className="xui-progress-circular-wrapper"
+                height={20}
+                viewBox="0 0 20 20"
+                width={20}
+              >
+                <defs>
+                  <mask
+                    height={20}
+                    id="fileuploader-icon-spin-0-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={20}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={10}
+                      cy={10}
+                      r={8.5}
+                      strokeDasharray="initial"
+                      strokeWidth={3}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#fileuploader-icon-spin-0-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeWidth={3}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeDasharray={53.40707511102649}
+                    strokeDashoffset={40.05530633326987}
+                    strokeWidth={3}
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </span>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test1.jpg
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          className="xui-button xui-button-borderless-main xui-button-small"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          Cancel
+        </button>
+      </div>
+    </li>
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <div
+        className="xui-fileuploader--fileitem--icon xui-iconwrapper xui-iconwrapper-medium"
+      >
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={15}
+          viewBox="0 0 15 15"
+          width={15}
+        >
+          <path
+            d="M1.25 0h12.5C14.375 0 15 .625 15 1.25v12.5c0 .625-.625 1.25-1.25 1.25H1.25C.625 15 0 14.375 0 13.75V1.25C0 .625.625 0 1.25 0zM2 5v5h1V8h2V5H2zm8 0v5h1V8h1V7h-1V6h2V5h-3zM6 5v5h2V9H7V6h1V5H6zm2 1v3h1V6H8zM3 6h1v1H3V6z"
+            role="presentation"
+          />
+        </svg>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test2.pdf
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          aria-label="Delete file"
+          className="xui-button xui-button-icon-medium xui-button-icon"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <svg
+            className="xui-icon"
+            focusable="false"
+            height={14}
+            viewBox="0 0 11 14"
+            width={11}
+          >
+            <path
+              d="M0 1h3l1-1h3l1 1h3v2H0V1zm1 3h9v9.455c0 .272-.346.545-.692.545H1.692C1.346 14 1 13.727 1 13.455V4zm2 2v6h1V6H3zm2 0v6h1V6H5zm2 0v6h1V6H7z"
+              role="presentation"
+            />
+          </svg>
+          <div
+            className="xui-touchtarget"
+          />
+        </button>
+      </div>
+    </li>
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <span
+        className="xui-fileuploader--fileitem--icon"
+      >
+        <div
+          aria-valuemax={4}
+          aria-valuemin={0}
+          aria-valuenow={1}
+          aria-valuetext="1 of 4"
+          className="xui-progress xui-progress-circular xui-progress-error-hard"
+          role="progressbar"
+        >
+          <div
+            className="xui-progress--fragment"
+          >
+            <div>
+              <svg
+                className="xui-progress-circular-wrapper"
+                height={20}
+                viewBox="0 0 20 20"
+                width={20}
+              >
+                <defs>
+                  <mask
+                    height={20}
+                    id="fileuploader-icon-error-2-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={20}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={10}
+                      cy={10}
+                      r={8.5}
+                      strokeDasharray="initial"
+                      strokeWidth={3}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#fileuploader-icon-error-2-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeWidth={3}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeDasharray={53.40707511102649}
+                    strokeDashoffset={40.05530633326987}
+                    strokeWidth={3}
+                  />
+                </g>
+              </svg>
+            </div>
+            <div
+              className="xui-progress-icon"
+            >
+              <svg
+                className="xui-icon xui-progress-icon-error"
+                focusable="false"
+                height={8}
+                viewBox="0 0 2 8"
+                width={2}
+              >
+                <path
+                  d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </span>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test3.zip
+        <span
+          className="xui-fileuploader--fileitem--error"
+        >
+          Failed to upload file
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          className="xui-button xui-button-borderless-main xui-button-small"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          Retry
+        </button>
+        <button
+          aria-label="Delete file"
+          className="xui-button xui-button-icon-medium xui-button-icon"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <svg
+            className="xui-icon"
+            focusable="false"
+            height={14}
+            viewBox="0 0 11 14"
+            width={11}
+          >
+            <path
+              d="M0 1h3l1-1h3l1 1h3v2H0V1zm1 3h9v9.455c0 .272-.346.545-.692.545H1.692C1.346 14 1 13.727 1 13.455V4zm2 2v6h1V6H3zm2 0v6h1V6H5zm2 0v6h1V6H7z"
+              role="presentation"
+            />
+          </svg>
+          <div
+            className="xui-touchtarget"
+          />
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<XUIFileUploader/> <FileList/> should render without icons 1`] = `
+<div
+  className="xui-fileuploader"
+>
+  <div
+    className=""
+  >
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
+      htmlFor="testLabel-control"
+    >
+      Label
+    </label>
+    <div
+      className=""
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        className="xui-fileuploader--input"
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="xui-button xui-button-standard xui-button-small"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+  </div>
+  <ul
+    className="xui-fileuploader--filelist"
+  >
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <span
+        className="xui-fileuploader--fileitem--loading"
+      >
+        <div
+          aria-valuemax={4}
+          aria-valuemin={0}
+          aria-valuenow={1}
+          aria-valuetext="1 of 4"
+          className="xui-progress xui-progress-circular"
+          role="progressbar"
+        >
+          <div
+            className="xui-progress--fragment"
+          >
+            <div>
+              <svg
+                className="xui-progress-circular-wrapper"
+                height={20}
+                viewBox="0 0 20 20"
+                width={20}
+              >
+                <defs>
+                  <mask
+                    height={20}
+                    id="fileuploader-icon-spin-0-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={20}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={10}
+                      cy={10}
+                      r={8.5}
+                      strokeDasharray="initial"
+                      strokeWidth={3}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#fileuploader-icon-spin-0-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeWidth={3}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeDasharray={53.40707511102649}
+                    strokeDashoffset={40.05530633326987}
+                    strokeWidth={3}
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </span>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test1.jpg
+        <span
+          className="xui-fileuploader--fileitem--description"
+        >
+          Uploading...
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          className="xui-button xui-button-borderless-main xui-button-small"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          Cancel
+        </button>
+      </div>
+    </li>
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test2.pdf
+        <span
+          className="xui-fileuploader--fileitem--description"
+        >
+          2.17 KB
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          aria-label="Delete file"
+          className="xui-button xui-button-icon-medium xui-button-icon"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <svg
+            className="xui-icon"
+            focusable="false"
+            height={14}
+            viewBox="0 0 11 14"
+            width={11}
+          >
+            <path
+              d="M0 1h3l1-1h3l1 1h3v2H0V1zm1 3h9v9.455c0 .272-.346.545-.692.545H1.692C1.346 14 1 13.727 1 13.455V4zm2 2v6h1V6H3zm2 0v6h1V6H5zm2 0v6h1V6H7z"
+              role="presentation"
+            />
+          </svg>
+          <div
+            className="xui-touchtarget"
+          />
+        </button>
+      </div>
+    </li>
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <span
+        className="xui-fileuploader--fileitem--icon"
+      >
+        <div
+          aria-valuemax={4}
+          aria-valuemin={0}
+          aria-valuenow={1}
+          aria-valuetext="1 of 4"
+          className="xui-progress xui-progress-circular xui-progress-error-hard"
+          role="progressbar"
+        >
+          <div
+            className="xui-progress--fragment"
+          >
+            <div>
+              <svg
+                className="xui-progress-circular-wrapper"
+                height={20}
+                viewBox="0 0 20 20"
+                width={20}
+              >
+                <defs>
+                  <mask
+                    height={20}
+                    id="fileuploader-icon-error-2-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={20}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={10}
+                      cy={10}
+                      r={8.5}
+                      strokeDasharray="initial"
+                      strokeWidth={3}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#fileuploader-icon-error-2-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeWidth={3}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeDasharray={53.40707511102649}
+                    strokeDashoffset={40.05530633326987}
+                    strokeWidth={3}
+                  />
+                </g>
+              </svg>
+            </div>
+            <div
+              className="xui-progress-icon"
+            >
+              <svg
+                className="xui-icon xui-progress-icon-error"
+                focusable="false"
+                height={8}
+                viewBox="0 0 2 8"
+                width={2}
+              >
+                <path
+                  d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </span>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test3.zip
+        <span
+          className="xui-fileuploader--fileitem--error"
+        >
+          Failed to upload file
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          className="xui-button xui-button-borderless-main xui-button-small"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          Retry
+        </button>
+        <button
+          aria-label="Delete file"
+          className="xui-button xui-button-icon-medium xui-button-icon"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <svg
+            className="xui-icon"
+            focusable="false"
+            height={14}
+            viewBox="0 0 11 14"
+            width={11}
+          >
+            <path
+              d="M0 1h3l1-1h3l1 1h3v2H0V1zm1 3h9v9.455c0 .272-.346.545-.692.545H1.692C1.346 14 1 13.727 1 13.455V4zm2 2v6h1V6H3zm2 0v6h1V6H5zm2 0v6h1V6H7z"
+              role="presentation"
+            />
+          </svg>
+          <div
+            className="xui-touchtarget"
+          />
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<XUIFileUploader/> as drag should render as disabled 1`] = `
+<div
+  className="xui-fileuploader"
+>
+  <div
+    className=""
+  >
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
+      htmlFor="testLabel-control"
+    >
+      Label
+    </label>
+    <div
+      className="xui-fileuploader--dropzone xui-fileuploader--dropzone-disabled"
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        className="xui-fileuploader--input"
+        disabled={true}
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <span>
+        Drag and drop file(s) or select manually
+      </span>
+      <button
+        className="xui-button xui-button-standard xui-button-small xui-button-is-disabled"
+        disabled={true}
+        onClick={[Function]}
+        onKeyDown={null}
+        tabIndex={-1}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIFileUploader/> as drag should render basic example 1`] = `
+<div
+  className="xui-fileuploader"
+>
+  <div
+    className=""
+  >
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
+      htmlFor="testLabel-control"
+    >
+      Label
+    </label>
+    <div
+      className="xui-fileuploader--dropzone"
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        className="xui-fileuploader--input"
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <span>
+        Drag and drop file(s) or select manually
+      </span>
+      <button
+        className="xui-button xui-button-standard xui-button-small"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIFileUploader/> should not show validationMessage when is disabled 1`] = `
+<div
+  className="xui-fileuploader"
+>
+  <div
+    className=""
+  >
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
+      htmlFor="testLabel-control"
+    >
+      Label
+    </label>
+    <div
+      className=""
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        className="xui-fileuploader--input"
+        disabled={true}
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="xui-button xui-button-standard xui-button-small xui-button-is-disabled"
+        disabled={true}
+        onClick={[Function]}
+        onKeyDown={null}
+        tabIndex={-1}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+    <div
+      className="xui-validation xui-validation-layout"
+      id="testLabel-message"
+      role="status"
+    />
+  </div>
+</div>
+`;
+
+exports[`<XUIFileUploader/> should render an automation id when a qahook is passed 1`] = `
+<div
+  className="xui-fileuploader"
+  data-automationid="fileUploader-test"
+>
+  <div
+    className=""
+  >
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
+      htmlFor="testLabel-control"
+    >
+      Label
+    </label>
+    <div
+      className=""
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        className="xui-fileuploader--input"
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="xui-button xui-button-standard xui-button-small"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIFileUploader/> should render as disabled 1`] = `
+<div
+  className="xui-fileuploader"
+>
+  <div
+    className=""
+  >
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
+      htmlFor="testLabel-control"
+    >
+      Label
+    </label>
+    <div
+      className=""
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        className="xui-fileuploader--input"
+        disabled={true}
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="xui-button xui-button-standard xui-button-small xui-button-is-disabled"
+        disabled={true}
+        onClick={[Function]}
+        onKeyDown={null}
+        tabIndex={-1}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIFileUploader/> should render basic example 1`] = `
+<div
+  className="xui-fileuploader"
+>
+  <div
+    className=""
+  >
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
+      htmlFor="testLabel-control"
+    >
+      Label
+    </label>
+    <div
+      className=""
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        className="xui-fileuploader--input"
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="xui-button xui-button-standard xui-button-small"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIFileUploader/> should render with XUIControlWrapper props 1`] = `
+<div
+  className="xui-fileuploader"
+>
+  <div
+    className=""
+  >
+    <div
+      className=""
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        aria-describedby="testLabel-message"
+        aria-invalid={true}
+        aria-label="Label"
+        className="xui-fileuploader--input"
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="xui-button xui-button-standard xui-button-small"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+    <div
+      className="xui-validation xui-validation-layout xui-validation-is-invalid"
+      id="testLabel-message"
+      role="status"
+    >
+      Test validation text
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIFileUploader/> should render with accept attr of input when acceptedFileExtensions is provided 1`] = `
+<div
+  className="xui-fileuploader"
+>
+  <div
+    className=""
+  >
+    <label
+      className="xui-text-label xui-fieldlabel-layout"
+      htmlFor="testLabel-control"
+    >
+      Label
+    </label>
+    <div
+      className=""
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        accept="image/*"
+        className="xui-fileuploader--input"
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="xui-button xui-button-standard xui-button-small"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIFileUploader/> should render with custom classes 1`] = `
+<div
+  className="custom-root-class xui-fileuploader"
+>
+  <div
+    className="custom-filed-class"
+  >
+    <label
+      className="custom-label-class xui-text-label xui-fieldlabel-layout"
+      htmlFor="testLabel-control"
+    >
+      Label
+    </label>
+    <div
+      className=""
+      onDragLeave={[Function]}
+      onDragOver={[Function]}
+      onDrop={[Function]}
+    >
+      <input
+        className="xui-fileuploader--input"
+        id="testLabel-control"
+        multiple={true}
+        onChange={[Function]}
+        type="file"
+      />
+      <button
+        className="xui-button xui-button-standard xui-button-small"
+        disabled={false}
+        onClick={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        Select file
+      </button>
+    </div>
+  </div>
+</div>
+`;

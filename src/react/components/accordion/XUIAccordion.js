@@ -29,6 +29,21 @@ const XUIAccordion = ({
     </EmptyState>
   );
 
+  if (children && children.length) {
+    let multipleOpenWarning = false;
+
+    children.forEach(child => {
+      if (child.props.isOpen) {
+        if (multipleOpenWarning) {
+          // eslint-disable-next-line no-console
+          console.log('You should be using isOpen property maximum on one XUIAccordionItem.');
+        }
+
+        multipleOpenWarning = true;
+      }
+    });
+  }
+
   return (
     <div className={cn(`${ns}-accordion`, className)} data-automationid={qaHook}>
       <XUIAccordionContext.Provider

@@ -1,0 +1,228 @@
+// Developing with XUI
+//
+// Introduction: XUI provides CSS and React components. The best way to get started with XUI is to include the CSS via CDN and install the components via NPM.
+//
+// Weight: 1.2
+//
+// Styleguide: Getting Started.Developing with XUI
+
+// Getting Started
+//
+// #### Load CSS via CDN (Recommended)
+//
+// Include the following `link` in your page:
+//
+// <!--?prettify lang=html?-->
+// ```html
+// <link rel="stylesheet" href="https://edge.xero.com/style/xui/16.2.2/xui.min.css"/>
+// ```
+//
+// If you are building an application that may live alongside other versions of XUI on the same page, see the [Advanced usage](#getting-started-developing-with-xui-5) section below.
+//
+// #### Add base classes to HTML template
+//
+// XUI CSS is designed to work as well with legacy projects as with greenfield projects. It is almost exclusively class based with only the bare minimum element selectors to initialise pages.
+//
+// For new projects add the `xui-body` class to your `<body>` element and `xui-html` class to your `<html>` element.
+//
+// For legacy pages where `xui-body` can not be used globally `xui-container` should wrap any XUI sections to provide XUI base styling to a specific part of a page.
+//
+// Styleguide: Getting Started.Developing with XUI.1
+
+// Structure of CSS
+//
+// XUI CSS can be generally thought of as six parts:
+//
+// 1. **Reset** is the reset of browser CSS, this sets an even experience for all browsers for the core HTML elements including `html`, `body`, and `main` as examples.
+// 2. **Base** is the the basic CSS classes you need to start writing a XUI-based application.
+// 3. **Structure** is where you will find your page layouts.
+// 4. **Containers** is the home for the components we make that generally _contain_ other components such as panels.
+// 5. **Components** is where the bulk of the CSS library lives, the bread and butter which is the core UI components themselves such as `button` and `accordion`
+// 6. **Utils** is where the features of the library that aren't specific to a component live, such as the margin and padding classes as well as layout helpers. They're generally very specific and perform one task.
+//
+// Styleguide: Getting Started.Developing with XUI.1.1
+
+// Conventions and standards
+//
+// * XUI uses a [convention](https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md#scss) inspired by SMACSS and BEM to name things.
+// * We strongly favour a flat class-based approach to CSS.
+// * We don't support CSS in JavaScript.
+// * We author in SCSS and ship a single CSS artifact.
+// * XUI styling should be additive and avoid overwriting styled properties.
+// * XUI CSS works without React components but components are preferred.
+// * Margin, padding and positioning styles should be provided in optional `-layout` classes.
+// * By default we use the `xui-` namespace. Please use your own namespace for any custom code.
+// * XUI does not provide a comprehensive reset style as to not make assumptions about resetting elements that may have already been styled.
+//
+// Styleguide: Getting Started.Developing with XUI.1.2
+
+// Staying up-to-date
+//
+// An important goal of XUI is to allow our applications to remain consistent as technology and our UI evolves. The best way to ease the upgrade process is to:
+//
+// * Avoid writing your own CSS as much as possible, particularly if your CSS overrides XUI's styling. The less custom CSS you have, the easier it will be to upgrade to future versions of XUI.
+//
+// * Prefer XUI React components over custom components. XUI components are tested to work as a suite and will work across upgrades automatically or have a tested migration path.
+//
+// Releases adhere to the following guidelines:
+//
+// Definitions:
+// Version:	<strong>Release content</strong>:													<strong>Release cadence</strong>
+// Patch:		Bugs, other low-risk changes:															As needed - 2 wks*
+// Minor:		New features/components that are backwards-compatible:		30 - 60 days*
+// Major:		Updates that will cause regressions to older versions**:	3 - 6 months*
+//
+// Note:
+// *Longest times depend on relevant changes having been merged to the working branch. If there are no changes awaiting release, the time between releases could be longer. <a href="https://confluence.teamxero.com/display/PLAT/2019/11/28/The+evolution+of+release+strategy+for+XUI">Read more on this release strategy.</a><br />**<a href="https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md#breaking-changes">More about breaking changes</a>
+//
+// Styleguide: Getting Started.Developing with XUI.1.3
+
+// Staying up-to-date with React
+//
+// Users upgrading to XUI 16 and React 16.9 and over will notice the console warnings similar to the following:
+//
+// ```Warning: componentWillReceiveProps has been renamed, and is not recommended for use. See https://fb.me/react-async-component-lifecycle-hooks for details.```
+//
+// This is part of the [React team's preparations to phase out certain lifecycle methods after React 17.x](https://reactjs.org/blog/2019/08/08/react-v16.9.0.html).
+//
+// The affected lifecycles include:
+// * `componentWillMount`
+//
+// * `componentWillReceiveProps`
+//
+// * `componentWillUpdate`
+//
+// If you come across this warning we strongly recommend that you address this as soon as possible and follow the [official React guidelines](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles) to migrate away from the unsafe lifecycles.
+//
+// Styleguide: Getting Started.Developing with XUI.1.4
+
+// Installing React components
+//
+// We use an internal artifactory server to host XUI Components. Make them available to NPM by adding the following to .npmrc in your project's root folder. More info on Confluence: [Consuming Xero NPM Modules](https://confluence.inside.xero.com/display/FED/Using+Artifactory).
+//
+// <!--?prettify?-->
+// ```js
+// @xero:registry=https://artifactory.xero-support.com/api/npm/npm
+// registry=https://artifactory.xero-support.com/api/npm/npm
+// ```
+//
+// Install XUI with npm
+//
+// <!--?prettify?-->
+// ```bash
+// npm install --save @xero/xui
+// ```
+//
+// This will install all the XUI components into `node_modules/@xero/xui` and should be correctly pathed for using with Webpack or Rollup.
+//
+// Related components are grouped together in a single entry point to make importing related components easier. Components will always export a default and may have additional named exports.
+//
+// There are two main ways of importing XUI components. The first involves importing code that has been pre-processed by Babel. This includes dependencies on `core-js` to bring in the polyfills required for XUI's components to work in the browsers Xero supports.
+//
+// <!--?prettify lang=js?-->
+// ```
+// import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
+// import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
+// ```
+//
+// You can also opt to import the ES6 source by changing the `@xero/xui/react` directory to `@xui/react/react-es6` in your imports.
+//
+// <!--?prettify lang=js?-->
+// ```
+// import XUIButton, { XUIButtonCaret } from '@xero/xui/react-es6/button';
+// import DropDown, { DropDownToggled } from '@xero/xui/react-es6/dropdown';
+// ```
+//
+// Importing ES6 source can provide better tree-shaking and debugging, but you become responsible for transpilation and ensuring the appropriate polyfills are included. If you choose this option, we recommend implementing a rewrite of `@xero/xui/react` to `@xero/xui/react-es6` at the build tool level [using `resolve.alias if you use Webpack`](https://webpack.js.org/configuration/resolve/#resolvealias) because any other dependencies that depend on XUI, such as `xui-layout`, will likely import code from the non-ES6 folder as this has been the default in the past. This leads to undesirable code duplication and increases artifact bundle sizes.
+//
+// Webpack config addressing the duplication issue might look like this:
+//
+// <!--?prettify lang=js?-->
+// ```
+// resolve: {
+//   alias: {
+//     '@xero/xui/react': '@xero/xui/react-es6',
+//   },
+// },
+// module: {
+//   rules: [
+//     {
+//       test: /\.(t|j)sx?$/,
+//       loader: 'babel-loader',
+//       exclude: /node_modules\/(?!@xero\/xui)/,
+//     },
+//   ]
+// }
+// ```
+//
+// Regardless of which option you choose, we highly recommend the use of a bundle analyzer such as [webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer). If you use the preprocessed code, please check that you don't end up including multiple versions of `core-js` polyfills. If you use the ES6 source code, then please check that you don't end up including multiple versions of XUI components from other dependencies that don't use the ES6 source code in their imports.
+//
+// Full component documentation can be found in the [XUI React Docs](./react/).
+//
+// By default, XUI provides code that has been processed by Babel. This includes a dependency on `core-js` polyfills as added by `@babel/preset-env` and `@babel/polyfill` via `useBuiltIns: 'usage'`.
+//
+// Styleguide: Getting Started.Developing with XUI.2
+
+// Conventions and standards
+//
+// * We use vanilla React (and don't provide any redux/application state management)
+// * We prefer stateless and pure components for performance reasons
+// * All components should be accessible (have correct roles, tabindexes and other attributes) and internationalisable (default values are ok, but must be overridable via props)
+// * We use PropTypes and TypeScript for prop validation
+//
+// Styleguide: Getting Started.Developing with XUI.2.1
+
+// Extending and contributing to XUI
+//
+// We would really like you to use XUI provided CSS and React components but if what you need isn't in the library we provide a couple of ways of extending XUI.
+//
+// Get more understanding of our process of [extending XUI](./section-contributing-to-xui.html) and how to contribute.
+//
+// Styleguide: Getting Started.Developing with XUI.3
+
+// Advanced usage
+//
+// XUI's CSS classes are namespaced with a `xui-` prefix. This can be a problem if you are building an application that needs to run on pages that may already contain some version of XUI.
+// Examples include the new header, the lifelong learning platform, and any addon that wants to use XUI without resorting to iframes.
+// To support these use-cases, XUI's CSS namespace is implemented as a variable (`$ns`) that can be changed if you bundle XUI yourself rather than using the main XUI CDN file.
+//
+// In your main SCSS file, set the `$ns` variable *before* you import XUI. And import XUI before you write any custom CSS.
+//
+// <!--?prettify lang=scss?-->
+// ```scss
+// $ns: "zooey"; // Replace zooey with your custom namespace
+// @import "@xero/xui/sass/xui"
+// // your custom CSS goes here
+// ```
+//
+// That takes care of the SCSS. If you use XUI's React components, you will also need to configure the new namespace in your JS.
+//
+// Create a new file in your project with the following code:
+//
+// <!--?prettify lang=js?-->
+// ```js
+// import {setXUIClassNamespace} from "@xero/xui/react/components/helpers/xuiClassNamespace";
+// setXUIClassNamespace('zooey'); // Replace zooey with your custom namespace
+// ```
+//
+// Then, import the file you created *before* you import any XUI file, or any custom component that imports XUI.
+// Your entry point file would be a great place for this.
+//
+// This is important because many of XUI's components cache class names, and those class names are determined when the
+// component is first imported. So if you call `setXUIClassNamespace` after XUI's components have been imported, then
+// only a few components will reflect the new namespace and you'll see unsupported and undefined behaviour.
+//
+// <!--?prettify lang=js?-->
+// ```js
+// import './setupXUIClassNamespace'; // Replace this with the name of the file you created
+// import MyComponent from './MyComponent';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+//
+// const appEl = document.getElementById('app');
+// ReactDOM.render(<MyComponent />, appEl);
+// ```
+//
+// Now, instead of `xui-button`, you'll have `zooey-button`, and that same class name will be used by the `<XUIButton />` component.
+//
+// Styleguide: Getting Started.Developing with XUI.4

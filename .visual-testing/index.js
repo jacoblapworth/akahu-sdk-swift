@@ -93,6 +93,10 @@ const componentsToTest = [
     ...fullPageSettings,
   },
   {
+    testsPrefix: 'XUI FileUploader',
+    variationsPath: `${variationsPath}/fileUploader/stories/variations.js`,
+  },
+  {
     testsPrefix: 'XUI Icon',
     variationsPath: `${variationsPath}/icon/stories/variations.js`,
     selectors: '.capture',
@@ -118,6 +122,10 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI PageHeader',
     variationsPath: `${variationsPath}/pageheader/stories/variations.js`,
+  },
+  {
+    testsPrefix: 'XUI Pagination',
+    variationsPath: `${variationsPath}/pagination/stories/variations.js`,
   },
   {
     testsPrefix: 'XUI Panel',

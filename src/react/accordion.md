@@ -8,16 +8,10 @@ The _Accordion_ is broken up into two key components `import XUIAccordion, { XUI
 
 ## Basic
 
-The bare minimum _Accordion_ composition can be achieved with a `XUIAccordion` component with `XUIAccordionItem`s as children and `toggleLabel` props.
-
-We also still allow the previous API which the `items` and `createItem` props.
-
-- `items` is an array of objects to pass to `createItem` as props.
-- `createItem` takes a single item from `items` and returns a `<XUIAccordionItem>`
-- `toggleLabel` is an accessibility label for the accordion trigger.
+The bare minimum _Accordion_ composition can be achieved with a `XUIAccordion` component with `XUIAccordionItem`s as children and `toggleLabel` prop (an accessibility label for the accordion trigger).
 
 ```jsx harmony
-import XUIAccordion, { XUIAccordionItem } from './accordion';
+import XUIAccordion, { XUIAccordionItem } from '@xero/xui/react/accordion';
 
 const items = [
   { id: 1, name: 'John Smith', content: 'Accountant' },
@@ -28,7 +22,7 @@ const items = [
 const BasicAccordionDemo = () => (
   <XUIAccordion toggleLabel="Toggle" emptyMessage="Nothing available to show">
     {items.map(({ id, name, content }) => (
-      <XUIAccordionItem key={id} primaryHeading={name} toggleLabel="Toggle">
+      <XUIAccordionItem key={id} primaryHeading={name}>
         {content && <div className="xui-padding-large">{content}</div>}
       </XUIAccordionItem>
     ))}
@@ -47,7 +41,7 @@ You can also supply an `onItemClick` prop that returns the entire item from the 
 **Note:** if you are adding a `<button />` type element as content remember to [`stopPropagation`](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation) so the event does not bubble up and trigger the _Accordion_ _expand_ / _collapse_ toggle accidentally.
 
 ```jsx harmony
-import XUIAccordion, { XUIAccordionItem } from './accordion';
+import XUIAccordion, { XUIAccordionItem } from '@xero/xui/react/accordion';
 
 const itemStyle = {
   background: 'lightgray',
@@ -83,7 +77,7 @@ You can also replace the entire empty state component by providing your own `emp
 ```jsx harmony
 import starIcon from '@xero/xui-icon/icons/star';
 
-import XUIAccordion, { XUIAccordionItem } from './accordion';
+import XUIAccordion, { XUIAccordionItem } from '@xero/xui/react/accordion';
 
 <div>
   <XUIAccordion
@@ -124,11 +118,11 @@ You can nest other XUI components inside the `<XUIAccordionItem />` _(such as `<
 ```jsx harmony
 import overflowIcon from '@xero/xui-icon/icons/overflow';
 
-import { XUIContentBlock, XUIContentBlockItem } from './contentblock';
-import XUIAccordion, { XUIAccordionItem } from './accordion';
-import XUIAvatar from './avatar';
-import XUIButton, { XUIIconButton } from './button';
-import { isKeyClick } from './helpers/reactKeyHandler';
+import { XUIContentBlock, XUIContentBlockItem } from '@xero/xui/react/contentblock';
+import XUIAccordion, { XUIAccordionItem } from '@xero/xui/react/accordion';
+import XUIAvatar from '@xero/xui/react/avatar';
+import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
+import { isKeyClick } from '@xero/xui/react/helpers/reactKeyHandler';
 
 const items = [
   {

@@ -82,6 +82,12 @@ describe('<XUITextInput>', () => {
       expect(disabled).toMatchSnapshot();
     });
 
+    it('is input value reverse-aligned', () => {
+      const reverseAligned = renderer.create(<XUITextInput isValueReverseAligned />);
+
+      expect(reverseAligned).toMatchSnapshot();
+    });
+
     it('is multiline', () => {
       const multiline = mount(<XUITextInput isMultiline maxRows={10} />);
 

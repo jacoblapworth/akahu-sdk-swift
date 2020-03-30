@@ -102,6 +102,7 @@ class XUITextInput extends PureComponent {
       isInverted,
       isDisabled,
       isMultiline,
+      isValueReverseAligned,
       isManuallyResizable,
       isLabelHidden,
       minRows,
@@ -123,6 +124,7 @@ class XUITextInput extends PureComponent {
       inputSizeClasses[size],
       isMultiline && !isManuallyResizable && `${inputBaseClass}--input-resize-none`,
       isMultiline && isManuallyResizable && `${inputBaseClass}--input-resize-vertical`,
+      isValueReverseAligned && `${inputBaseClass}--input-reverse-align`,
     );
 
     const rootClasses = cn(fieldClassName, `${inputBaseClass}wrapper`);
@@ -176,10 +178,7 @@ class XUITextInput extends PureComponent {
               onChange={onChange}
               onFocusCapture={input.onFocus}
               placeholder={placeholder}
-              ref={compose(
-                inputRef,
-                i => (this.input = i),
-              )}
+              ref={compose(inputRef, i => (this.input = i))}
               type={type}
               value={value}
               {...getAriaAttributes(this.wrapperIds, this.props)}
@@ -264,6 +263,8 @@ XUITextInput.propTypes = {
   isDisabled: PropTypes.bool,
   /** Whether this should be rendered as a multiline textarea */
   isMultiline: PropTypes.bool,
+  /** Whether the input value is reverse-aligned */
+  isValueReverseAligned: PropTypes.bool,
   /** Minimum number of rows to render in the textarea (should only be used with
    * `isMutliline=true`) */
   minRows: PropTypes.number,

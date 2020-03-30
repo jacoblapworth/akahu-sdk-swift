@@ -1,0 +1,201 @@
+// File uploader
+//
+// Components: File uploader
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.dmxa22se8ql4
+//
+// Teaser: Intuitively upload files into an application
+//
+// Introduction: The file uploader component leverages the native operating system file input to upload files into a product. Additionally, files uploaded are displayed in a list below the input.
+//
+// Styleguide: Components.Controls.FileUploader
+
+// Best practice
+//
+// Tips:
+// Do: Use to provide a way for users to upload file(s) into an application
+// Do: Use in combination with a [toast](./section-components-alerts-toast.html) to give additional indication that a file has or has not been uploaded
+//
+// Styleguide: Components.Controls.FileUploader.1
+
+// Anatomy
+//
+// File uploader is composed of two main parts. The *file input*, and the *file list*. The file input is used to action the upload process and the file list is used to represent the files as they are uploaded into the application. The file input also accepts a drag and drop variant to allow for files to be dragged in from outside the browser window into a dedicated dropzone.
+//
+// Styleguide: Components.Controls.FileUploader.2
+
+// File input
+//
+// The file input is used to action the upload process of files into a product.
+//
+// Classes:
+// xui-fileuploader: Base class
+// xui-validation-layout: Adds validation spacing
+// xui-validation: Validation text
+//
+// Styleguide: Components.Controls.FileUploader.3
+
+// File input (basic)
+//
+// The basic file input variant is used for simple file uploading experiences. It’s useful for situations where drag and drop isn’t required.
+//
+// Tips:
+// Do: Use basic file uploader variant when dragging and dropping files isn’t a desired experience
+// Do: Use `-small` button size variant to provide appropriate form hierarchy
+//
+// Classes:
+// xui-button: Base class for button action
+// xui-button-small: Button size variant
+// xui-button-standard: Secondary button style
+//
+// ExampleClass: ds-example-transparent
+//
+// Markup: ./examples/file-uploader/_file-uploader-input-basic.html
+//
+// Styleguide: Components.Controls.FileUploader.3.1
+
+// File input (drag and drop)
+//
+// The drag and drop file input variant is used to enable users to upload files by dragging them into an allocated dropzone area in your application. The [drag and drop pattern](./section-patterns-drag-and-drop.html) is used to speed up workflows and create a more delightful experience. The active dropzone style is applied when a file is being dragged over the dropzone area.
+//
+// Tips:
+// Do: Use the drag and drop variant to create more of a delightful file uploading experience
+// Do: Use the drag and drop variant to speed up workflows where users are likely to drag files into the application from outside the browser
+// Do: Use the drag and drop variant to give the file uploader input more visual weighting on the page
+// Do: Always supply a manual way to upload files as users may not always be able to use drag and drop
+//
+// Classes:
+// xui-fileuploader--dropzone: Applies dropzone style
+// xui-fileuploader--dropzone-active: Applies active dropzone style
+//
+// ExampleClass: ds-example-transparent
+//
+// Markup: ./examples/file-uploader/_file-uploader-input-dropzone.html
+//
+// Styleguide: Components.Controls.FileUploader.3.2
+
+// Disabled
+//
+// Used to indicate a disabled state and stop users from interacting with the file input.
+//
+// Tips:
+// Do: Disable input when there is a limit of the number of files that can be uploaded and it has been reached
+//
+// Classes:
+// xui-fileuploader--dropzone-disabled: Applies disabled dropzone style
+//
+// ExampleClass: ds-example-transparent
+//
+// Markup: ./examples/file-uploader/_file-uploader-input-disabled.html
+//
+// Styleguide: Components.Controls.FileUploader.3.3
+
+// Error validation
+//
+// Used to display an error related to the file uploader.
+//
+// Tips:
+// Do: Use to present errors with the upload input.
+// Do: Always provide a useful message to tell the user what has gone wrong and what they can do to fix it.
+// Don't: Don’t use to indicate an error with uploading an individual file, such as an invalid file type. Instead display this kind of error on the item in the file list.
+//
+// Classes:
+// xui-validation-is-invalid: Applies error validation style to text element
+// xui-fileuploader--dropzone-invalid: Applies error validation style to dropzone
+//
+// ExampleClass: ds-example-transparent
+//
+// Markup: ./examples/file-uploader/_file-uploader-input-invalid.html
+//
+// Styleguide: Components.Controls.FileUploader.3.4
+
+// File list
+//
+// The file list is a designated space to display to the user the files that have been uploaded.
+// An icon variant can be used to help indicate the file-type. With the React component, the icon is automatically chosen based on the kind of file uploaded.
+//
+// Tips:
+// Do: Display most recent file uploaded at the top of the list to provide users some context of the file upload times against each other
+// Do: Optionally remove icon when space is limited in order to optimise screen real estate for text elements
+// Warning:  If not using the React component, select an icon that appropriately indicates the file-type being uploaded
+//
+// Classes:
+// xui-fileuploader--filelist: File list container
+// xui-fileuploader--fileitem: File item container
+// xui-fileuploader--fileitem--icon: Displays icon left
+// xui-fileuploader--fileitem--maincontent: Container for file main content
+// xui-fileuploader--fileitem--description: File description
+// xui-fileuploader--fileitem--rightcontent: Container for file right content
+// xui-fileuploader--fileitem--loading: Displays progress loader
+// xui-fileuploader--fileitem--error: Styles error message
+//
+// ExampleClass: ds-example-transparent ds-example-narrow
+//
+// Markup: ./examples/file-uploader/_file-uploader-list-with-icon.html
+//
+// Styleguide: Components.Controls.FileUploader.4
+
+// Multi-line
+//
+// A multi-line variant can be used to display additional file information.
+//
+// Tips:
+// Do: Use to display helpful additional information such as file size
+// Warning: Avoid creating visual noise by displaying additional file information if it’s unhelpful to the user
+//
+// ExampleClass: ds-example-transparent ds-example-narrow
+//
+// Markup: ./examples/file-uploader/_file-uploader-list-multi-line.html
+//
+// Styleguide: Components.Controls.FileUploader.4.1
+
+// Uploading
+//
+// Used to indicate to the user that their file is currently uploading to the application.
+//
+// Tips:
+// Do: Provide a cancel action for users to optionally stop the upload process
+//
+// ExampleClass: ds-example-transparent
+//
+// Markup: ./examples/file-uploader/_file-uploader-list-uploading.html
+//
+// Styleguide: Components.Controls.FileUploader.4.2
+
+// Error
+//
+// Used to tell the user that something has gone wrong in the process of attempting to upload their file.
+//
+// Tips:
+// Do: Use in combination with a [toast component](./section-components-alerts-toast.html) to tell the user a file has failed to upload
+// Do: If possible, provide an action to retry the upload process
+//
+// ExampleClass: ds-example-transparent
+//
+// Markup: ./examples/file-uploader/_file-uploader-list-invalid.html
+//
+// Styleguide: Components.Controls.FileUploader.4.3
+
+// Uploaded
+//
+// This state is displayed when a file has successfully been uploaded to the application.
+//
+// Tips:
+// Do: Use in combination with a [toast component](./section-components-alerts-toast.html) to tell the user a file has successfully uploaded
+// Do: Always provide an action to remove the file that has been uploaded
+//
+// ExampleClass: ds-example-transparent
+//
+// Markup: ./examples/file-uploader/_file-uploader-list-uploaded.html
+//
+// Styleguide: Components.Controls.FileUploader.4.4
+
+// Related links
+//
+// Related:
+// * [Button](./section-components-controls-button.html)
+// * [Panel](./section-components-controls-textinput.html)
+// * [Toast](./section-components-alerts-toast.html)
+// * [Drag and drop](./section-patterns-drag-and-drop.html)
+//
+// Styleguide: Components.Controls.FileUploader.99

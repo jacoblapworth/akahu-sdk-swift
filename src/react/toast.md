@@ -9,7 +9,7 @@
 `XUIToast` is given a layout class by default with no actionable buttons. The close button is only added when a `onCloseClick` callback prop is added.
 
 ```jsx harmony
-import XUIToast from './toast';
+import XUIToast from '@xero/xui/react/toast';
 
 const onToastClose = () => {
   alert('Standard toast closed');

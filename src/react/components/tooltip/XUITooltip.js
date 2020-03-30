@@ -51,9 +51,8 @@ export default class XUITooltip extends PureComponent {
   };
 
   /**
-   * Hide the tooltip
+   * Handle the animating delay on open/close
    *
-   * @public
    * @param {Number} delay
    * @param {Boolean} isOpening // false for a close action
    * @param {Function} callBack // If provided by the consumer, a function to call on open/close.
@@ -116,6 +115,12 @@ export default class XUITooltip extends PureComponent {
       }
     }
   }
+
+  componentWillUnmount() {
+    clearTimeout(this.animationStartTimer);
+    clearTimeout(this.animationFinishTimer);
+  }
+
   render() {
     const {
       children,
@@ -157,10 +162,7 @@ export default class XUITooltip extends PureComponent {
     const triggerHasOwnHandlers = trigger.props.onClick || trigger.props.onKeyDown;
 
     const clonedTrigger = React.cloneElement(trigger, {
-      ref: compose(
-        trigger.ref,
-        c => (this.trigger = c),
-      ),
+      ref: compose(trigger.ref, c => (this.trigger = c)),
       // NB: We'll defer to any handlers attached to the trigger, cancelling tooltip behavior.
       // TODO: Properly handle click and keydown behavior that isn't from a prop (eg. anchors).
       onClick: triggerHasOwnHandlers
@@ -169,15 +171,9 @@ export default class XUITooltip extends PureComponent {
       onKeyDown: triggerHasOwnHandlers
         ? trigger.props.onKeyDown
         : (triggerOnClick && this.onTriggerKeyDown) || undefined,
-      onFocus: compose(
-        trigger.props.onFocus,
-        () => this.setState({ isFocused: true }),
-      ),
+      onFocus: compose(trigger.props.onFocus, () => this.setState({ isFocused: true })),
       onBlur: triggerOnBlur
-        ? compose(
-            trigger.props.onBlur,
-            () => this.setState({ isFocused: false }),
-          )
+        ? compose(trigger.props.onBlur, () => this.setState({ isFocused: false }))
         : undefined,
       'aria-describedby': this.tooltipId,
     });

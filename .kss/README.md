@@ -49,10 +49,12 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 - `card`
 - `introduction`
 - `tips`
-- `flag`
+- `flags`
+- `related`
 - `storybook`
 - `image`
 - `image-caption`
+- `language`
 
 #### Adding new properties
 
@@ -154,7 +156,7 @@ Classes to add to the example wrapper. Common cases are adding a background colo
 
 ### Cards
 
-Used in some landing pages to display their children. They are automatically detected with exceptions of the "Working with XUI" and "Building Blocks" pages. These are manually whitelisted in the `index.hbs` page.
+Used in some landing pages to display their children. They are automatically detected with exceptions of the "Working with XUI" page. These are manually whitelisted in the `index.hbs` page.
 
 ### Tips
 
@@ -173,6 +175,18 @@ For representing a status of that section, there are several currently supported
 
 ```
 // Flags: new wip
+```
+
+### Related
+
+To suggest other components, patterns, or content that might be helpful to users, you can supply a block of markdown, typically a bulleted list of links. Related content may be suggested to provide additional context, to clarify the difference between similar components/patterns, or possibly other reasons.
+
+```
+// Related:
+// * [Navigation components](./section-components-navigation.html)
+// * [ContentBlock](./section-components-displayingdata-contentblock.html)
+// * [OverviewBlock](./section-components-displayingdata-overviewblock.html)
+
 ```
 
 ### Storybook
@@ -203,7 +217,7 @@ Small text used to describe what is shown in an image. This should be the very n
 
 The main `index.hbs` file holds the root handlebars template. It pulls in a number of partials from the `kss/builder/extends` folder to build up our documentation. A few key points to understanding this file are below.
 
-- Cards are automatically populated on all pages with children unless whitelisted by the `{{ifStyleguide pageName}}` helper. This currently filters out the 'Building Blocks' and 'Working With XUI' pages.
+- Cards are automatically populated on all pages with children unless whitelisted by the `{{ifStyleguide pageName}}` helper. This currently filters out the 'Working With XUI' page.
 - The 'Jump to' menu is automatically created on every page with sections and no children.
 - A helper `{{renderSectionInMarkdown sectionName}}` can be used to parse any test through `marked` to format as markdown. Currently only used with introductions but flexible enough to be used elsewhere.
 - If a section is marked to have a React component associated with it, this is rendered with a generated URL to link to the React documentation.

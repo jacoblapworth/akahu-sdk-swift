@@ -126,11 +126,11 @@ $justify - Property to use for justify-content
   &-rowlink {
     color: inherit; // Remove default link color
     text-decoration: none; // Remove default link underline
-    .#{$classname}-rowlink:hover,
-    .#{$classname}-rowlink:focus {
+    &.#{$classname}-rowlink:hover,
+    &.#{$classname}-rowlink:focus {
       background-color: $xui-color-grey-8;
     }
-    .#{$classname}-rowlink:active {
+    &.#{$classname}-rowlink:active {
       background-color: $xui-color-grey-7;
     }
   }
@@ -185,6 +185,11 @@ $justify - Property to use for justify-content
       align-items: baseline;
       display: flex;
       flex-flow: wrap;
+
+      // FF fix for tags.
+      > * {
+        align-items: baseline;
+      }
     }
     .#{$classname}--pinnedvalue {
       margin-right: $xui-s-small;
@@ -218,5 +223,25 @@ $justify - Property to use for justify-content
     color: $xui-color-grey-2;
     @include xui-text-small;
     margin-right: $xui-s-small;
+  }
+}
+
+@mixin xui-dropzone {
+  border: 1px dashed $xui-dropzone-border-color;
+  position: relative;
+}
+
+@mixin xui-dropzone-active {
+  border: 1px dashed $xui-dropzone-active-border-color;
+  &:after {
+    background: $xui-dropzone-active-background-color;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: $xui-z-index-contextualtop;
   }
 }

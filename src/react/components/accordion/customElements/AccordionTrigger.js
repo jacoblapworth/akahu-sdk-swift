@@ -12,6 +12,7 @@ const AccordionTrigger = ({
   leftContent,
   onItemClick,
   toggleLabel,
+  id,
   isOpen,
   primaryHeading,
   secondaryHeading,
@@ -47,6 +48,8 @@ const AccordionTrigger = ({
 
   return (
     <XUIContentBlockItem
+      _ariaControls={`${ns}-accordionwrapper--content-${id}`}
+      _ariaExpanded={isOpen}
       _isAccordionTrigger
       isRowLink
       leftContent={
@@ -72,6 +75,7 @@ const AccordionTrigger = ({
 };
 
 AccordionTrigger.propTypes = {
+  id: PropTypes.string.isRequired,
   leftContent: PropTypes.node,
   qaHook: PropTypes.string,
   primaryHeading: PropTypes.node,

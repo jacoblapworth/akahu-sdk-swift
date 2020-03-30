@@ -4,7 +4,7 @@
 </div>
 
 ```jsx harmony
-import { XUICompositionDetail } from '../../compositions';
+import { XUICompositionDetail } from '@xero/xui/react/compositions';
 
 const detailContent = <div style={{ background: '#C5C5F6', height: '100px' }}></div>;
 
@@ -14,7 +14,7 @@ const detailContent = <div style={{ background: '#C5C5F6', height: '100px' }}></
 #### Detail with header
 
 ```jsx harmony
-import { XUICompositionDetailHeader } from '../../compositions';
+import { XUICompositionDetailHeader } from '@xero/xui/react/compositions';
 
 const headerContent = <div style={{ background: '#B446C8', height: '60px' }}></div>;
 const detailContent = <div style={{ background: '#C5C5F6', height: '100px' }}></div>;

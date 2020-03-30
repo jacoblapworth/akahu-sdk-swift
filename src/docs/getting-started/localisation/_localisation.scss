@@ -1,0 +1,224 @@
+// Localisation
+//
+// Weight: 1.7
+//
+// Styleguide: Getting Started.Localisation
+
+// Designing for Localisation
+//
+// flags: new wip
+//
+// Weight: 1.71
+//
+// Styleguide: Getting Started.Localisation.Designing for localisation
+
+// Text length affordance
+//
+// The most common internationalisation problem is not having enough space in the UI for translated text. When text gets translated into another language, the text length often changes. For example, English is a very compact language, leading to longer translated text in most cases.
+//
+// The general rule for text expansion is: “the shorter the English text, the longer the translated text is likely to be”. The following table shows the average text expansion rate for different English text lengths:
+//
+// | English text length (characters) | Text length expansion (%) |
+// | :-- | :-- |
+// | 1-10 | 200 - 300% |
+// | 11-20 | 180 - 200% |
+// | 21-30 | 160 - 180% |
+// | 31-50 | 140 - 160% |
+// | 51-70 | 150 - 170% |
+// | 71+ | 130% |
+//
+// The target language also has an impact upon the amount of text expansion. In general, Asian languages are more character-dense than European languages. Chinese, Japanese and Korean languages have more complicated characters than Latin characters and their characters tend to be more square, thus taking more horizontal space.
+//
+// Japanese is especially interesting due to its use of Katakana for transliteration of foreign words. For example, “follow” in English and Japanese both have 6 characters, but Japanese is 20% longer than English due to wider characters.
+//
+// The following table shows the expansion factor for the English text “views” into various languages:
+//
+// | Language | Translation | Expansion factor |
+// | :-- | :-- | :-- |
+// | English | views | 1
+// | Korean | 조회 | 0.8
+// | Chinese | 次檢視 | 1.2
+// | Portuguese | visualizações | 2.6
+// | French | consultations | 2.6
+// | German | -mal angesehen | 2.8
+// | Italian | visualizzazioni | 3
+//
+// ### Tips
+// * Keep text simple, direct and concise, as this is easier to translate. It is also easier for people to read if the text they are reading is not in their first language.
+// * Consider text length expansion of translation when designing and building pages. Ensuring there is enough space to fit text strings in different languages allows us to make more inclusive products.
+// * Test UI with translations into languages like German or Italian to visualise the impact on text strings.
+// * Be aware of words that have multiple meanings. Translating tools will have to determine which meaning to take from each word and find the appropriate translation.
+// * Avoid using abbreviations as they are difficult to translate into many languages.
+//
+// ### Resources
+// [https://www.w3.org/International/articles/article-text-size](https://www.w3.org/International/articles/article-text-size)
+//
+// Weight: 1.72
+//
+// Styleguide: Getting Started.Localisation.Designing for localisation.Text length affordance
+
+// Labels and descriptions
+//
+// Labeling and describing aspects of the UI can be very difficult to do in English. This difficulty is compounded when attempting to translate into other languages. Here are a few aspects of translating text that are important to consider:
+//
+// * **Word order:** Languages have different ways of ordering words in a sentence. If you translate “Buy 3 shirts” into Japanese, the word “Buy” will move to the end of the sentence. If your design depends on words to be in a certain order, it won’t work in every language.
+// * **Pluralisation:** In English, we have one singular and one plural form for each noun: “1 picture” and “_ pictures.” But in Russian, there are 3 possible forms. So if a user needs to enter a number in the middle of a sentence, that sentence might end up with a grammatical error depending on the number they enter.
+// * **Gender:** Some languages have gender-specific forms for nouns and adjectives. In French, the word “large” could be translated as “grand,” “grande,” “grands,” or “grandes” depending on the thing it describes. If you place a dropdown in a sentence, that sentence might end up with a grammatical error depending on the words around it.
+//
+// ### Tips
+// * Avoid using variables as part of a sentence. Often it is helpful to break a sentence into parts to allow for a more literal translation.<br>
+// <span class="xui-margin-right-small"><svg width="12" height="12" focusable="false" class="xui-icon ds-tips--icon ds-tips-negative" role="undefined" viewbox="0 0 12 12" style="vertical-align: bottom;"><title>Don’t</title><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z" class="undefined"></path></svg></span> 2 tasks and 3 expenses will be included in this invoice, for a total of NZD 200.00<br>
+// <span class="xui-margin-right-small"><svg width="14" height="10" focusable="false" class="xui-icon ds-tips--icon ds-tips-positive" role="undefined" viewbox="0 0 14 10" style="vertical-align: bottom;"><title>Do</title><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z" class="undefined"></path></svg></span> 2 tasks 3 expenses Total - NZD 200.00
+//
+// * Don’t use elements such as buttons, inputs or other controls as a part of a sentence.<br>
+// <span class="xui-margin-right-small"><svg width="12" height="12" focusable="false" class="xui-icon ds-tips--icon ds-tips-negative" role="undefined" viewbox="0 0 12 12" style="vertical-align: bottom;"><title>Don’t</title><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z" class="undefined"></path></svg></span> This invoice will be due on the [Date input] and sent to [Contact input]<br>
+// <span class="xui-margin-right-small"><svg width="14" height="10" focusable="false" class="xui-icon ds-tips--icon ds-tips-positive" role="undefined" viewbox="0 0 14 10" style="vertical-align: bottom;"><title>Do</title><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z" class="undefined"></path></svg></span> Due date [Date input] Contact [Contact input]
+//
+// * Keep labels literal, short and succinct to allow for a clear translation.<br>
+// <span class="xui-margin-right-small"><svg width="12" height="12" focusable="false" class="xui-icon ds-tips--icon ds-tips-negative" role="undefined" viewbox="0 0 12 12" style="vertical-align: bottom;"><title>Don’t</title><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z" class="undefined"></path></svg></span> Enter the person this project is allocated to<br>
+// <span class="xui-margin-right-small"><svg width="14" height="10" focusable="false" class="xui-icon ds-tips--icon ds-tips-positive" role="undefined" viewbox="0 0 14 10" style="vertical-align: bottom;"><title>Do</title><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z" class="undefined"></path></svg></span> Contact
+//
+// Weight: 1.73
+//
+// Styleguide: Getting Started.Localisation.Designing for localisation.Labels and descriptions
+
+// Currency
+//
+// flags: wip
+//
+// Currency can have variation in display properties (how numbers are separated), number of decimal places, as well as the fluctuation in exchange rate. It’s important to understand these differences when designing UI that displays monetary values.
+//
+// ### Tips
+//
+// * To indicate currency type, use the three letter currency code without the currency symbol.<br>
+// <span class="xui-margin-right-small"><svg width="12" height="12" focusable="false" class="xui-icon ds-tips--icon ds-tips-negative" role="undefined" viewbox="0 0 12 12" style="vertical-align: bottom;"><title>Don’t</title><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z" class="undefined"></path></svg></span> $30.45<br>
+// <span class="xui-margin-right-small"><svg width="14" height="10" focusable="false" class="xui-icon ds-tips--icon ds-tips-positive" role="undefined" viewbox="0 0 14 10" style="vertical-align: bottom;"><title>Do</title><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z" class="undefined"></path></svg></span> AUD 30.45
+//
+// * Always display the currency code to the left of the number.<br>
+// <span class="xui-margin-right-small"><svg width="12" height="12" focusable="false" class="xui-icon ds-tips--icon ds-tips-negative" role="undefined" viewbox="0 0 12 12" style="vertical-align: bottom;"><title>Don’t</title><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z" class="undefined"></path></svg></span> 125,000.00 NZD<br>
+// <span class="xui-margin-right-small"><svg width="14" height="10" focusable="false" class="xui-icon ds-tips--icon ds-tips-positive" role="undefined" viewbox="0 0 14 10" style="vertical-align: bottom;"><title>Do</title><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z" class="undefined"></path></svg></span> NZD 125,000.00
+//
+// * Lists of currency must always be displayed right-aligned so that the decimal points and commas align.
+//
+// * Consider exchange rates when designing with monetary values. The number of characters to represent a value will be different depending on local currency, e.g. a standard invoice amount in New Zealand dollars will be different to Indian rupees and therefore more or fewer characters will display.
+//
+// Weight: 1.74
+//
+// Styleguide: Getting Started.Localisation.Designing for localisation.Currency
+
+// Time and date
+//
+// The whole world is inconsistent about date and time formats. Some cultures display the month first (6/21/2012), others display the day first (21/6/2012). Some use 24-hour (14:00) time, and others use 12 (2:00 PM). Taiwan uses specially translated strings instead of AM and PM, and those come first (上午 2:00).
+//
+// Date shortcuts can be used to enable people to quickly enter dates short string entries. These are supplied via Xero’s [date-shortcuts](https://github.dev.xero.com/XeroJS/date-shortcuts) library.
+//
+// ### Tips
+//
+// * Ensure time and date formatting matches user’s locale
+//
+// * Reference dates using words<br>
+// <span class="xui-margin-right-small"><svg width="12" height="12" focusable="false" class="xui-icon ds-tips--icon ds-tips-negative" role="undefined" viewbox="0 0 12 12" style="vertical-align: bottom;"><title>Don’t</title><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z" class="undefined"></path></svg></span> 03/03/03<br>
+// <span class="xui-margin-right-small"><svg width="14" height="10" focusable="false" class="xui-icon ds-tips--icon ds-tips-positive" role="undefined" viewbox="0 0 14 10" style="vertical-align: bottom;"><title>Do</title><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z" class="undefined"></path></svg></span> 3 Mar 2003
+//
+// * Use locale specific shortcuts from the Xero [date-shortcuts](https://github.dev.xero.com/XeroJS/date-shortcuts) library to enable appropriate shortcuts in different cultures
+//
+// Weight: 1.75
+//
+// Styleguide: Getting Started.Localisation.Designing for localisation.Time and date
+
+// Addresses
+//
+// Addresses are formatted and displayed differently in many cultures. In some cultures there are no street names, in others the house number follows the street name, some people need more than one line for the part of the address that precedes the town or city name, etc. In fact in some places an address runs top down from the general to the specific, which implies a very different layout strategy.
+//
+// ### Tips
+// * Avoid making assumptions that aspects such as the user’s name and address will follow the same formatting rules as your own
+// * Use address lookup component to search for addresses and automatically format output
+// * Ensure address formatting matches user’s locale
+// * Avoid unnecessarily breaking out address details into separate fields
+//
+// Weight: 1.76
+//
+// Styleguide: Getting Started.Localisation.Designing for localisation.Addresses
+
+// Collation
+//
+// Collation is the general term for the process and function of determining the sorting order of strings of characters, for example for lists of strings presented to users, or in databases for sorting and selecting records. Collation varies by language, by application (some languages use special phone book sorting), and other criteria (for example, phonetic vs. visual).
+//
+// Here is a preliminary set of charts for Common Locale Data Repository (CLDR) collation tailorings. Collation tailorings provide language or locale-specific modifications of the standard Unicode CLDR collation order, which is based on [Unicode default collation charts](http://www.unicode.org/cldr/charts/30/collation/index.html).
+//
+// For more information on collation specifics, read [Unicode’s collation documentation](http://www.unicode.org/reports/tr35/tr35-collation.html#Contents).
+//
+// Weight: 1.77
+//
+// Styleguide: Getting Started.Localisation.Designing for localisation.Collation
+
+// Colour
+//
+// Color is a powerful vehicle to convey meaning, but if you make a poorly informed choice in colors, you can say something different than you intend it to. At best, it will miss its mark; at worst, it can offend. Many cultures differ a great deal in the perception of colour, so it’s important to not rely on it as presentation of meaning.
+//
+// ### Tips
+//
+// * Consider the meaning of colour in your design and how this may be interpreted in different cultures.
+// * Never rely on colour to convey meaning. Instead, use text or an icon to support the presentation of colour.
+// * Use colour consistently. Using the same colour to display multiple meanings confuses the intent and purpose of the UI.
+//
+// Weight: 1.78
+//
+// Styleguide: Getting Started.Localisation.Designing for localisation.Colour
+
+// Icons
+//
+// Icons can be a useful tool to describe or support an interaction, state, or piece of information in a very compact space. All graphical symbols in one way or another reflect the culture in which they were designed, and so we need to think about the audience and how they will perceive them.
+//
+// ### Tips
+// * Avoid using an icon without supporting text, unless you’re confident the meaning is going to be interpreted consistently across different cultures.
+// * Make sure that the usage of an icon in your UI is consistent with the wider product landscape to ensure a consistent experience for people.
+// * If there is a lack of confidence in the conveyed meaning of an icon, user testing or research should be conducted to understand the interpreted meaning across cultures.
+// * When using an icon button without supporting text, provide additional clarity by displaying a tooltip on hover to describe the action.
+//
+// Weight: 1.79
+//
+// Styleguide: Getting Started.Localisation.Designing for localisation.Icons
+
+// Illustrations
+//
+// Illustrations can be used to effectively to aid in comprehension, support parts of the UI as well as bring a sense of delight to a product. However, illustrations should be treated similarly to icons, as they are another form of graphical symbol that can be interpreted differently depending on culture.
+//
+// ### Tips
+//
+// * Only use illustrations to support text.
+// * Don’t embed text inside an image. Instead use shapes such as lines to indicate text placement.
+// * If text has to be included with an illustration, make sure to do this with code so that the string can easily be translated without breaking the illustration asset.
+// * Avoid using objects or metaphors inside illustrations that rely on a specific cultural interpretation.
+//
+// Weight: 1.791
+//
+// Styleguide: Getting Started.Localisation.Designing for localisation.Illustrations
+
+// Metaphors and idioms
+//
+// Product design is all about metaphors. Every icon, every button, and every interaction is a metaphor for something in the physical world. some metaphors mean different things in different cultures. In the United States, an owl represents wisdom. In Finland and India, an owl can represent foolishness. It’s important to be aware of this when considering people using a product from various cultures.
+//
+// ### Tips
+//
+// * Avoid relying on culturally specific metaphors and idioms.<br>
+// <span class="xui-margin-right-small"><svg width="12" height="12" focusable="false" class="xui-icon ds-tips--icon ds-tips-negative" role="undefined" viewbox="0 0 12 12" style="vertical-align: bottom;"><title>Don’t</title><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z" class="undefined"></path></svg></span> Get stuck in and it’ll be sorted in a jiffy<br>
+// <span class="xui-margin-right-small"><svg width="14" height="10" focusable="false" class="xui-icon ds-tips--icon ds-tips-positive" role="undefined" viewbox="0 0 14 10" style="vertical-align: bottom;"><title>Do</title><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z" class="undefined"></path></svg></span> Continue working and it’ll be fixed soon
+//
+// * Avoid referring to animals in any context. Animals in particular have strong metaphorical meanings in different cultures.
+//
+// Weight: 1.792
+//
+// Styleguide: Getting Started.Localisation.Designing for localisation.Metaphors and idioms
+
+// Directionality
+//
+// XUI currently doesn’t support enabling right-to-left or top-to-bottom transformation.
+//
+// Text in languages such as Arabic, Hebrew, Persian and Urdu is read from right to left. This reading order typically leads to right-aligned text and mirror-imaging of things like page and table layout, as well as a reversed icon set.
+//
+// If you are working with right to left languages, you should become familiar with the basics of the [Unicode bidirectional algorithm](https://www.w3.org/International/articles/inline-bidi-markup/uba-basics). This algorithm takes care of much of this bidirectional text without the need for intervention from the author. There are some circumstances, however, where markup or Unicode control characters are needed to ensure the correct effect.
+//
+// Weight: 1.793
+//
+// Styleguide: Getting Started.Localisation.Designing for localisation.Directionality

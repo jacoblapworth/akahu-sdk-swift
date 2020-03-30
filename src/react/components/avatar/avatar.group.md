@@ -1,7 +1,7 @@
 Avatars can be collected into groups.
 
 ```jsx harmony
-import XUIAvatar, { XUIAvatarGroup } from '../../avatar';
+import XUIAvatar, { XUIAvatarGroup } from '@xero/xui/react/avatar';
 
 <XUIAvatarGroup>
   <XUIAvatar value="Bettong" />
@@ -18,7 +18,7 @@ Providing a `maxAvatars` prop will only show a maximum of that many avatar space
 Providing an `avatarSize` prop will override the sizing of any Avatar in the group.
 
 ```jsx harmony
-import XUIAvatar, { XUIAvatarGroup } from '../../avatar';
+import XUIAvatar, { XUIAvatarGroup } from '@xero/xui/react/avatar';
 
 <XUIAvatarGroup maxAvatars={4} avatarSize="large">
   <XUIAvatar value="Bandicoot" />

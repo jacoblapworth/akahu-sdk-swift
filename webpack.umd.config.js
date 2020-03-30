@@ -1,5 +1,6 @@
 /* eslint-disable global-require */
 const path = require('path');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const { version } = require('./package.json');
@@ -18,6 +19,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: `xui.umd.${version}.css`,
     }),
+    new ForkTsCheckerWebpackPlugin(),
   ],
   externals: {
     react: 'React',
@@ -26,7 +28,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(j|t)sx?$/,
         use: ['babel-loader'],
         exclude: /node_modules/,
       },
@@ -49,5 +51,8 @@ module.exports = {
         ],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
 };

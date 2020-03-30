@@ -11,10 +11,10 @@ import {
   DropDownFooter,
   NestedDropDown,
   DropDownPanel
-} from '../../dropdown';
-import XUIButton, { XUIButtonCaret } from '../../button';
-import XUIDatePicker from '../../datepicker';
-import Picklist, { Pickitem } from '../../picklist';
+} from '@xero/xui/react/dropdown';
+import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
+import XUIDatePicker from '@xero/xui/react/datepicker';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
 
 const months = [
   'Jan',

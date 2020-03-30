@@ -8,7 +8,7 @@ The `gridColumns` prop may be a number 1 through 12 or `full`, `half`, `third`, 
 `XUIColumn` also accepts media-query-based widths to set different grid column counts at different viewport widths. `gridColumnsSmallUp` sets a number of columns for viewports greater than 600px wide, while `gridColumnsLargeUp` is for viewports > 1000px.
 
 ```jsx harmony
-import { XUIRow, XUIColumn } from '../../structural';
+import { XUIRow, XUIColumn } from '@xero/xui/react/structural';
 
 const rowStyle = { backgroundColor: '#028DDE' };
 const colStyle = { backgroundColor: 'RGBA(255,255,255,0.5)' };

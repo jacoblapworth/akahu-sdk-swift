@@ -79,10 +79,12 @@ XUI has a number of top level folders. When contributing all the interesting fil
 ```
 src/
 ├─ docs/
-│  ├─ building-blocks/
+│  ├─ components/
+│  ├─ compositions/
 │  ├─ fundamentals/
-│  ├─ react/
-│  └─ working-with-xui/
+│  ├─ getting-started/
+│  ├─ patterns/
+│  └─ react/
 ├─ react/
 │  └─ components/
 │     ├─ component1/
@@ -278,7 +280,7 @@ Bash:
 ```bash
 npm i -g jscodeshift@0.6.3
 files="$(find src/ -type f -name "*.tsx")"
-jscodeshift -t .\node_modules\@xero\xui\codemod\index.js --parser=tsx $files
+jscodeshift -t ./node_modules/@xero/xui/codemod/index.js --parser=tsx $files
 ```
 
 ## Contributing to XUI

@@ -1,11 +1,11 @@
-const React = require('react');
-const XUIAvatar = require('../../avatar/XUIAvatar').default;
-const XUIButton = require('../../button/XUIButton').default;
-const XUIContentBlock = require('../../contentblock/XUIContentBlock').default;
-const XUIContentBlockItem = require('../../contentblock/XUIContentBlockItem').default;
+import React from 'react';
 
-import { desktopPlus320 } from '../../../stories/helpers/viewports';
 import XUIAccordionItem from '../XUIAccordionItem';
+import XUIAvatar from '../../avatar/XUIAvatar';
+import XUIButton from '../../button/XUIButton';
+import XUIContentBlock from '../../contentblock/XUIContentBlock';
+import XUIContentBlockItem from '../../contentblock/XUIContentBlockItem';
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const storyKind = 'Instances/XUIAccordion';
 const items = [
@@ -89,6 +89,15 @@ const variations = [
   },
   {
     storyKind,
+    storyTitle: 'basic accordion with item open',
+    children: [
+      { id: 1, name: 'John Smith' },
+      { id: 2, name: 'Barry Allen' },
+      { id: 3, name: 'Ernest Hemingway' },
+    ].map(({ id, name }) => <XUIAccordionItem isOpen={id === 2} key={id} primaryHeading={name} />),
+  },
+  {
+    storyKind,
     storyTitle: 'accordion tab composition',
     children: [
       { id: 1, name: 'John Smith', projects: '0 projects', minutes: '0:00' },
@@ -113,7 +122,4 @@ const variations = [
   },
 ];
 
-module.exports = {
-  storiesWithVariationsKindName: storyKind,
-  variations,
-};
+export { storyKind as storiesWithVariationsKindName, variations };

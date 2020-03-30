@@ -15,9 +15,9 @@ The default tooltip is triggered on mouseover or as part of a touch-press event 
 ```jsx harmony
 import infoIcon from '@xero/xui-icon/icons/info';
 
-import XUIButton, { XUIIconButton } from './button';
-import XUIIcon from './icon';
-import XUITooltip from './tooltip';
+import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
+import XUIIcon from '@xero/xui/react/icon';
+import XUITooltip from '@xero/xui/react/tooltip';
 
 const triggerIcon = (
   <span>
@@ -39,8 +39,8 @@ Min and max width of the tip, on-open and on-close hooks, the mix of triggering 
 Do not use `triggerOnClick` if your trigger has it's own explicit `onClick` or `onKeyDown` props, as those handlers will take precedent, and `XUITooltip` will not open on click or keydown. The default `triggerOnHover` behaviour is ideal for these cases, but the `onOpen` and `onClose` hooks are also available to handle events in a more custom way.
 
 ```jsx harmony
-import XUIButton from './button';
-import XUITooltip from './tooltip';
+import XUIButton from '@xero/xui/react/button';
+import XUITooltip from '@xero/xui/react/tooltip';
 
 const inlineTrigger = <span style={{ textDecoration: 'underline' }}>look at what we have</span>;
 const logOpen = () => {

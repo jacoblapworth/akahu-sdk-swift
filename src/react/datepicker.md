@@ -13,7 +13,7 @@ For information about what to consider when using a `XUIDatePicker` within a `Dr
 To use a standard `XUIDatePicker`, you should use the `onSelectDate` callback to update state in your application. This callback will receive the new selected date as a parameter.
 
 ```jsx harmony
-import XUIDatePicker from './datepicker';
+import XUIDatePicker from '@xero/xui/react/datepicker';
 
 class ExamplePicker extends React.Component {
   constructor(...args) {
@@ -47,7 +47,7 @@ class ExamplePicker extends React.Component {
 To enable date range selection, handle the date selection events in `onSelectDate`, and pass the selected range to `XUIDatePicker` using the `selectedRange` prop.
 
 ```jsx harmony
-import XUIDatePicker from './datepicker';
+import XUIDatePicker from '@xero/xui/react/datepicker';
 
 function minDate(d1, d2) {
   return d1 < d2 ? d1 : d2;
@@ -105,7 +105,7 @@ class RangePicker extends React.Component {
 To disable selection of certain dates, pass a callback to `isDateDisabled`. It should take a date as an argument and return true if it's disabled. Below is an example that only allows the selection of dates within a week of today's date.
 
 ```jsx harmony
-import XUIDatePicker from './datepicker';
+import XUIDatePicker from '@xero/xui/react/datepicker';
 
 const startDisabledDate = new Date();
 startDisabledDate.setDate(startDisabledDate.getDate() - 7);
@@ -154,7 +154,7 @@ class DisabledDatePicker extends React.Component {
 To keep `XUIDatePicker`'s height consistent, you can set `showFixedNumberOfWeeks` to true. This will display 6 week rows no matter how many are in the displayed month.
 
 ```jsx harmony
-import XUIDatePicker from './datepicker';
+import XUIDatePicker from '@xero/xui/react/datepicker';
 
 class CompactPicker extends React.Component {
   constructor(...args) {
@@ -190,9 +190,9 @@ class CompactPicker extends React.Component {
 ### Inside a dropdown
 
 ```jsx harmony
-import XUIDatePicker from './datepicker';
-import XUIButton from './button';
-import Dropdown, { DropDownToggled } from './dropdown';
+import XUIDatePicker from '@xero/xui/react/datepicker';
+import XUIButton from '@xero/xui/react/button';
+import Dropdown, { DropDownToggled } from '@xero/xui/react/dropdown';
 
 class DatepickerDropdown extends React.Component {
   constructor(...args) {

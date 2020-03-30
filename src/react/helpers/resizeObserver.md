@@ -21,7 +21,7 @@ Once set up, there are a few ways to use the observers.
 ```jsx harmony
 import { Component } from 'react';
 import cn from 'classnames';
-import { observe, unobserve, getWidthClasses } from '../helpers/resizeObserver';
+import { observe, unobserve, getWidthClasses } from '@xero/xui/react/helpers/resizeObserver';
 
 const wrapperStyles = {
   resize: 'horizontal',
@@ -66,8 +66,8 @@ class SizeClassTest extends Component {
 
 ```jsx harmony
 import { Component } from 'react';
-import { XUIIconButton } from '../button';
-import { observe, unobserve } from '../helpers/resizeObserver';
+import { XUIIconButton } from '@xero/xui/react/button';
+import { observe, unobserve } from '@xero/xui/react/helpers/resizeObserver';
 import info from '@xero/xui-icon/icons/info';
 import cross from '@xero/xui-icon/icons/cross';
 import search from '@xero/xui-icon/icons/search';
@@ -122,14 +122,14 @@ class BreakpointsTest extends Component {
 ```jsx harmony
 import { Component } from 'react';
 import overflow from '@xero/xui-icon/icons/overflow';
-import XUIIcon from '../icon';
+import XUIIcon from '@xero/xui/react/icon';
 import XUIButton, {
   XUIButtonGroup,
   XUISecondaryButton,
   XUISplitButtonGroup,
   XUIIconButton
-} from '../button';
-import { observe, unobserve } from '../helpers/resizeObserver';
+} from '@xero/xui/react/button';
+import { observe, unobserve } from '@xero/xui/react/helpers/resizeObserver';
 
 const buttonGroup = (
   <XUIButtonGroup>

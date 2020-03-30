@@ -1,0 +1,129 @@
+// Accordion
+//
+// Components: Accordion
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.juew5n8tm7em
+//
+// Teaser: A vertically expandable list that hides and reveals additional content.
+//
+// Introduction: Accordions are used to display a vertically expandable & collapsible list that reveals and hides additional content.
+//
+// Styleguide: Components.DisplayingData.Accordion
+
+// Best practice
+//
+// Tips:
+// Do: Use for nesting child-items inside of parent-level content
+// Do: Use to display small pieces of additional information
+// Do: Always display arrow icon inside accordion trigger
+// Do: Display either one or multiple accordions in a vertical list
+// Warning: Avoid displaying dense information in accordion content
+// Don't: Don’t nest accordions inside each other.
+//
+// Styleguide: Components.DisplayingData.Accordion.1
+
+// Anatomy
+//
+// Styleguide: Components.DisplayingData.Accordion.2
+
+// Closed
+//
+// Classes:
+// xui-accordion: Base class
+// xui-accordionwrapper: Accordion wrapper
+//
+// Markup: ./examples/accordion/_accordion-closed.html
+//
+// Styleguide: Components.DisplayingData.Accordion.2.1
+
+// Open
+//
+// Classes:
+// xui-accordionwrapper-is-open: Adds box-shadow & z-index attributes
+// xui-accordionwrapper-pop: Adds outdent to accordion trigger
+// xui-accordion--emptystate: Empty state wrapper
+// xui-icon-rotate-180: Class applied to rotate arrow icon
+//
+// Markup: ./examples/accordion/_accordion-open.html
+//
+// Styleguide: Components.DisplayingData.Accordion.2.2
+
+// Accordion trigger layout
+//
+// The accordion trigger has a similar layout to a Content block, however, there is an arrow icon on the left side of the trigger which indicates to the user that the container can expanded and collapsed.
+//
+// Tips:
+// Do: Always display an arrow to indicate content expands
+// Do: Provide primary text label to describe accordion item
+// Do: Treat accordion trigger layout similarly to Content block
+// Don't: Don’t override focus styling
+//
+// Classes:
+// xui-accordiontrigger-layout: Utilities to set the desired layout
+// xui-accordiontrigger-rowlink: Applies visual feedback on row interaction for when entire row is clickable
+// xui-accordiontrigger--leftcontent: Wrapper to set the desired layout on left aligned items such as avatar, checkbox or rollover checkbox
+// xui-accordiontrigger--leftcontent-layout: Vertically centres left content for when there is a description
+// xui-accordiontrigger--maincontent: Wrapper to define layout of elements between the left and right content
+// xui-accordiontrigger--rightcontent: Wrapper to set the desired layout on right aligned items
+//
+// Styleguide: Components.DisplayingData.Accordion.3
+
+// Left content
+//
+// Markup: ./examples/accordion/_accordion-left-content.html
+//
+// Styleguide: Components.DisplayingData.Accordion.3.1
+
+// Right content
+//
+// Markup: ./examples/accordion/_accordion-right-content.html
+//
+// Styleguide: Components.DisplayingData.Accordion.3.2
+
+// Accordion content layout
+//
+// The accordion content container is designed specifically to house Content blocks, however, anything can be injected inside the empty container.
+//
+// Tips:
+// Do: Use content blocks to list data inside a content block
+// Do: Display small pieces of additional information
+// Warning: Avoid displaying dense information in accordion content
+//
+// Styleguide: Components.DisplayingData.Accordion.4
+
+// Plain text
+//
+// Markup: ./examples/accordion/_accordion-plain-text.html
+//
+// Styleguide: Components.DisplayingData.Accordion.4.1
+
+// Content block items
+//
+// Markup: ./examples/accordion/_accordion-contentblock.html
+//
+// Styleguide: Components.DisplayingData.Accordion.4.2
+
+// Loading
+//
+// Classes:
+// xui-loader-layout: Applies appropriate loading dimensions
+//
+// Markup: ./examples/accordion/_accordion-loading.html
+//
+// Styleguide: Components.DisplayingData.Accordion.4.3
+
+// Empty
+//
+// Classes:
+// xui-accordion--emptystate: Empty state wrapper
+//
+// Markup: ./examples/accordion/_accordion-empty.html
+//
+// Styleguide: Components.DisplayingData.Accordion.4.4
+
+// Related links
+//
+// Related:
+// * [Content block](./section-components-displayingdata-contentblock.html)
+//
+// Styleguide: Components.DisplayingData.Accordion.99

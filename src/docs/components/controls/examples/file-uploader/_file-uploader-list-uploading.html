@@ -1,0 +1,95 @@
+<div class="xui-fileuploader">
+  <div>
+    <label
+      class="xui-text-label xui-fieldlabel-layout"
+      for="22ec7c91-e3f8-4de1-8815-ee78fdbd3708-control"
+      >Upload document(s)</label
+    >
+    <div class="xui-fileuploader--dropzone">
+      <input
+        class="xui-fileuploader--input"
+        multiple=""
+        type="file"
+        id="22ec7c91-e3f8-4de1-8815-ee78fdbd3708-control"
+      />
+      <span>Drag and drop file(s) or select manually</span>
+      <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">
+        Select file
+      </button>
+    </div>
+    <div class="xui-validation xui-validation-layout" role="status">25MB total file size limit</div>
+  </div>
+  <ul class="xui-fileuploader--filelist">
+    <li class="xui-fileuploader--fileitem">
+      <span class="xui-fileuploader--fileitem--loading">
+        <div
+          aria-valuemax="4"
+          aria-valuemin="0"
+          aria-valuenow="1"
+          aria-valuetext="1 of 4"
+          class="xui-progress xui-progress-circular"
+          role="progressbar"
+        >
+          <div class="xui-progress--fragment">
+            <div>
+              <svg class="xui-progress-circular-wrapper" height="20" viewBox="0 0 20 20" width="20">
+                <defs>
+                  <mask
+                    height="20"
+                    id="fileuploader-icon-spin-a05a8a7c-d93c-430e-8f18-9f5fba2b5ace-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width="20"
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      stroke-dasharray="initial"
+                      class="xui-progress-circular-mask xui-progress-roundcap"
+                      cx="10"
+                      cy="10"
+                      r="8.5"
+                      stroke-width="3"
+                    ></circle>
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#fileuploader-icon-spin-a05a8a7c-d93c-430e-8f18-9f5fba2b5ace-progress-mask)"
+                >
+                  <circle
+                    class="xui-progress-circular-track"
+                    cx="10"
+                    cy="10"
+                    r="8.5"
+                    stroke-width="3"
+                  ></circle>
+                  <circle
+                    class="xui-progress-circular-current xui-progress-roundcap"
+                    cx="10"
+                    cy="10"
+                    r="8.5"
+                    stroke-dasharray="53.40707511102649"
+                    stroke-dashoffset="40.05530633326987"
+                    stroke-width="3"
+                  ></circle>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </span>
+      <div class="xui-fileuploader--fileitem--maincontent">
+        Document_01.pdf
+        <span class="xui-fileuploader--fileitem--description">Uploading...</span>
+      </div>
+      <div class="xui-fileuploader--fileitem--rightcontent">
+        <button
+          class="xui-button xui-button-borderless-main xui-button-small"
+          tabindex="0"
+          type="button"
+        >
+          Cancel
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>

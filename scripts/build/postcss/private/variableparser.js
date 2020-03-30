@@ -1,5 +1,5 @@
 /* eslint no-console: 0*/
-const sass = require('node-sass');
+const sass = require('sass');
 
 module.exports = (template, root, source, types) => {
   const nodes = root.nodes;

@@ -58,8 +58,4 @@ const standardDesktopViewport = {
 
 const desktopPlus320 = [standardDesktopViewport, commonViewports[0]];
 
-module.exports = {
-  commonViewports,
-  standardDesktopViewport,
-  desktopPlus320,
-};
+module.exports = { commonViewports, standardDesktopViewport, desktopPlus320 };

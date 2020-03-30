@@ -11,7 +11,7 @@ Most input use cases can be solved using `XUITextInput`'s base props. Additional
 We recommend being cautious when passing down a `type` to your input using `inputProps`. Currently some types don't work well for accessibility or internationalisation. For example, setting `type="number"` will not allow users to use `,` as a decimal separator, which is the correct decimal seporator in many regions.
 
 ```js
-import XUITextInput from './textinput';
+import XUITextInput from '@xero/xui/react/textinput';
 
 <div>
   <XUITextInput
@@ -36,6 +36,13 @@ import XUITextInput from './textinput';
     isLabelHidden
   />
   <XUITextInput
+    fieldClassName="xui-margin-bottom"
+    placeholder="A reverse-aligned input"
+    isValueReverseAligned
+    label="input"
+    isLabelHidden
+  />
+  <XUITextInput
     qaHook="test-ui"
     inputProps={{ readOnly: true }}
     defaultValue="A read-only value"
@@ -50,7 +57,7 @@ import XUITextInput from './textinput';
 Labels can be set on `XUITextInput` by passing a value to the `label` prop.
 
 ```jsx harmony
-import XUITextInput from './textinput';
+import XUITextInput from '@xero/xui/react/textinput';
 
 <XUITextInput label="Label" />;
 ```
@@ -61,7 +68,7 @@ Validation messages and styling should be added to inputs using the `validationM
 
 ```jsx harmony
 import { PureComponent } from 'react';
-import XUITextInput from './textinput';
+import XUITextInput from '@xero/xui/react/textinput';
 
 class Example extends PureComponent {
   constructor(...args) {
@@ -122,7 +129,7 @@ class Example extends PureComponent {
 `XUITextInput` can be made into a multiline textarea by setting `isMultiline` to `true`. Additionally, `minRows`, `maxRows`, and `rows` may be set to set the vertical height of the input.
 
 ```jsx harmony
-import XUITextInput from './textinput';
+import XUITextInput from '@xero/xui/react/textinput';
 
 <div>
   <XUITextInput
@@ -163,11 +170,11 @@ import facebook from '@xero/xui-icon/icons/social-facebook';
 import search from '@xero/xui-icon/icons/search';
 import attach from '@xero/xui-icon/icons/attach';
 
-import XUIPill from './pill';
-import XUIAvatar from './avatar';
-import XUITextInput, { XUITextInputSideElement } from './textinput';
-import XUIIcon from './icon';
-import XUIButton, { XUIIconButton } from './button';
+import XUIPill from '@xero/xui/react/pill';
+import XUIAvatar from '@xero/xui/react/avatar';
+import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
+import XUIIcon from '@xero/xui/react/icon';
+import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
 <div>
   <XUITextInput
     isFieldLayout
@@ -371,10 +378,10 @@ Note that only avatars and text side elements have `2xsmall` size variants, so a
 ```jsx harmony
 import crossSmall from '@xero/xui-icon/icons/cross-small';
 
-import XUIAvatar from './avatar';
-import XUIPill from './pill';
-import XUIButton, { XUIIconButton } from './button';
-import XUITextInput, { XUITextInputSideElement } from './textinput';
+import XUIAvatar from '@xero/xui/react/avatar';
+import XUIPill from '@xero/xui/react/pill';
+import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
+import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
 
 <div>
   <XUITextInput
@@ -449,8 +456,8 @@ import XUITextInput, { XUITextInputSideElement } from './textinput';
 **Note:** _Don’t vertically stack `small` and `xsmall` text inputs due to poor touch interaction potential._
 
 ```jsx harmony
-import XUIIcon from './icon';
-import XUITextInput, { XUITextInputSideElement } from './textinput';
+import XUIIcon from '@xero/xui/react/icon';
+import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
 import facebook from '@xero/xui-icon/icons/social-facebook';
 
 <div>
@@ -519,7 +526,7 @@ import facebook from '@xero/xui-icon/icons/social-facebook';
 #### Borderless Variants
 
 ```jsx harmony
-import XUITextInput, { XUITextInputSideElement } from './textinput';
+import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
 
 <div
   style={{
@@ -551,8 +558,8 @@ import XUITextInput, { XUITextInputSideElement } from './textinput';
 
 ```jsx harmony
 import search from '@xero/xui-icon/icons/search';
-import XUITextInput, { XUITextInputSideElement } from './textinput';
-import XUIIcon from './icon';
+import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
+import XUIIcon from '@xero/xui/react/icon';
 import ExampleContainer from './docs/ExampleContainer';
 
 <ExampleContainer className="xui-padding-xsmall" isInverted>
@@ -589,9 +596,9 @@ import { PureComponent } from 'react';
 import clear from '@xero/xui-icon/icons/clear';
 import search from '@xero/xui-icon/icons/search';
 
-import XUITextInput, { XUITextInputSideElement } from './textinput';
-import XUIIcon from './icon';
-import { XUIIconButton } from './button';
+import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
+import XUIIcon from '@xero/xui/react/icon';
+import { XUIIconButton } from '@xero/xui/react/button';
 
 class Example extends PureComponent {
   constructor(...args) {

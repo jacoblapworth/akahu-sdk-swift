@@ -1,6 +1,8 @@
 import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+// eslint-disable-next-line import/no-cycle
+import Picklist from '../picklist/Picklist';
 import StatefulPicklist from '../picklist/StatefulPicklist';
 import { baseClass, maxWidthDropdownSizes } from './private/constants';
 import {
@@ -202,7 +204,7 @@ class DropDownPanel extends PureComponent {
   }
 
   /**
-   * Determine if the currently focused DOM node a child of this component.
+   * Determine if the currently focused DOM node is a child of this component.
    *
    * @public
    * @returns {Boolean}
@@ -214,8 +216,8 @@ class DropDownPanel extends PureComponent {
 
   containsPicklist() {
     const { children } = this.props;
-    const checkName = child => child && child.type && child.type.name === 'Picklist';
-    return children != null && React.Children.map(children, checkName).some(Boolean);
+    const checkType = child => child && child.type === Picklist;
+    return children != null && React.Children.map(children, checkType).some(Boolean);
   }
 
   render() {

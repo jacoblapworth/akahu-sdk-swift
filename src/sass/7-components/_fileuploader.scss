@@ -1,0 +1,107 @@
+@import '../vars';
+@import '../mixins';
+
+@keyframes #{$ns}-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.#{$ns}-fileuploader {
+  word-break: break-word;
+}
+
+.#{$ns}-fileuploader--input {
+  @include xui-utility-hidden-visually;
+}
+
+.#{$ns}-fileuploader--dropzone {
+  @include xui-dropzone;
+  @include xui-flex-children;
+  background-color: $xui-control-bg-color;
+  border-radius: $xui-radius;
+  color: $xui-color-grey-2;
+  flex-direction: column;
+  padding: $xui-s-large;
+  text-align: center;
+  .#{$ns}-button {
+    margin-top: $xui-s-small;
+  }
+}
+
+.#{$ns}-fileuploader--dropzone-active {
+  @include xui-dropzone-active;
+}
+
+.#{$ns}-fileuploader--dropzone-disabled {
+  @include xui-disabled-form-control;
+}
+
+.#{$ns}-fileuploader--dropzone-invalid {
+  border-color: $xui-invalid-color;
+}
+
+.#{$ns}-fileuploader--filelist {
+  @include xui-listreset;
+  background-color: $xui-color-white;
+  border-collapse: collapse;
+  border-radius: $xui-radius;
+  box-shadow: $xui-shadow-border-all;
+  margin-top: $xui-s-small;
+}
+
+.#{$ns}-fileuploader--fileitem {
+  @include xui-content-block-item('#{$ns}-fileuploader--fileitem');
+  align-items: center;
+  display: flex;
+
+  .#{$ns}-fileuploader--fileitem--icon,
+  .#{$ns}-fileuploader--fileitem--loading {
+    @include xui-flex-children;
+    height: $xui-s-3xlarge;
+    margin-left: $xui-s-2xsmall;
+    // The maincontent always has a margin-left (16px), it works great when the left icon doesn't show
+    // Using negative margin-right here, so no more class needed when icon shows
+    margin-right: -$xui-s-small;
+    width: $xui-s-3xlarge;
+  }
+}
+
+.#{$ns}-fileuploader--fileitem--loading {
+  // This should be moved to progress circular when adding the prop for loading spin.
+  .#{$ns}-progress-circular-wrapper {
+    animation-duration: $xui-motion-speed-xslow;
+    animation-iteration-count: infinite;
+    animation-name: #{$ns}-loading-animation;
+    animation-timing-function: linear;
+  }
+}
+
+.#{$ns}-fileuploader--fileitem--maincontent {
+  @include xui-margin-vertical($xui-s-xsmall);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-left: $xui-s-standard;
+}
+
+.#{$ns}-fileuploader--fileitem--description {
+  color: $xui-color-black-faint;
+  line-height: $xui-s-xlarge;
+}
+
+.#{$ns}-fileuploader--fileitem--rightcontent {
+  @include xui-flex-children;
+  margin-right: $xui-s-2xsmall;
+  .#{$ns}-button-icon {
+    margin-left: $xui-s-2xsmall;
+  }
+}
+
+.#{$ns}-fileuploader--fileitem--error {
+  color: $xui-invalid-color;
+}

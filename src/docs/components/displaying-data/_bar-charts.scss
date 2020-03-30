@@ -1,0 +1,257 @@
+@import '../vars';
+@import '../mixins';
+
+// Bar chart
+//
+// Components: Bar-chart
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.snrpjucksju0
+//
+// Introduction: A bar chart presents categorical data with rectangular bars and heights proportional to the values that they represent - These bars can be plotted vertically, showing comparisons among discrete categories. The X-axis of the chart shows the specific categories being compared, and the Y-axis represents a measured value.
+//
+// Styleguide: Components.DisplayingData.BarChart
+
+// React & Victory
+//
+// The XUI bar chart is primarily built off of the Victory set of modular charting components for React. This means that to consume the `XUIBarChart`, you will need to be using React in your application. Most of the styling is applied to a single SVG element, so we have enabled a lot of modification properties to help utilise this component in a number of ways.
+//
+// Styleguide: Components.DisplayingData.BarChart.1
+
+// Best practice
+//
+// Tips:
+// Do: Bars on the chart should represent discrete groups of data, such as days, people, or businesses
+// Do: Bars on the chart may be arranged in any order
+// Do: Always wrap in a surrounding container, such as a `xui-panel`
+// Do: Use a stacked variant to represent different values combining to a total value
+// Do: Use a chart as a supporting visualisation of data on a page
+// Warning: Avoid relying on a chart to be the primary representation of the data on that page
+//
+// Styleguide: Components.DisplayingData.BarChart.2
+
+// Anatomy
+//
+// Although the Bar chart is reliant on React, the following classes are applied to the wrappers of the component. However, the Bar chart is primarily composed of SVG elements.
+//
+// Classes:
+// xui-panel: Panel
+// xui-chart: Base class
+// xui-chart--header: Header wrapper wrapper
+// xui-chart--base: Chart base
+// xui-chart--content: Chart content wrapper
+// xui-chart--xaxis: Chart x-axis wrapper
+// xui-chart--yaxis: Chart y-axis wrapper
+// xui-chart--bars: Chart bar wrapper
+//
+// Styleguide: Components.DisplayingData.BarChart.3
+
+// Chart header
+//
+// Classes:
+// xui-chart--title: Chart title
+// xui-chart--pagination: Chart pagination wrapper
+// xui-chart--key: Chart key wrapper
+//
+// Markup: ./examples/bar-chart/_bar-chart-header.html
+//
+// Styleguide: Components.DisplayingData.BarChart.3.1
+
+// Layout
+//
+// Styleguide: Components.DisplayingData.BarChart.4
+
+// Chart size
+//
+// Tips:
+// Do: Use default width (100%) and default height (400px) wherever possible to create a consistent experience across pages and products
+// Warning: Adjust height and width sparingly to fit with particular page layouts, eg. Widget-style containers
+//
+// Styleguide: Components.DisplayingData.BarChart.4.1
+
+// Bar width
+//
+// Bars have a min-width of 12px and a max-width of 200px. The bar width adjusts based on the size of the surrounding container and/or the number of items displayed inside the chart. When the chart can no longer fit all bars in the container, the items will overflow by default.
+//
+// Styleguide: Components.DisplayingData.BarChart.4.2
+
+// X-axis
+//
+// Definitions:
+// Standard (default): Simple text string is truncated based on bar-width. Font-size reduces at bar-width breakpoints.
+// Abbreviated text: Text is truncated based on bar width. Text reduces font size and abbreviates to custom defined strings at bar-width breakpoints.
+// Avatar + text: Similar to the plain text variant, text is truncated based on bar-width and font-size reduces at bar-width breakpoints. At smallest bar-width breakpoint, only the avatar displays.
+//
+// Markup: ./examples/bar-chart/_bar-chart-x-axis.html
+//
+// Styleguide: Components.DisplayingData.BarChart.4.3
+
+// Y-axis
+//
+// Definitions:
+// Scaling: Y-axis labels round up by default to the nearest number divisible by the label frequency. This is to ensure rounded numbers on each Y-axis label.
+// Max Y-axis label: Adding a `yAxisDefaultTopValue` sets a default scale that is greater than 0. This is useful for creating consistency when moving across multiple datasets.
+// Label frequency: Y-axis labels are evenly distributed with a minimum gap of 100px between each label. Frequency of labels will depend on height of chart.
+// Label format: Custom units and math functions can be applied to the output of the Y-axis labels using `createYAxisLabelFormat`.
+//
+// Styleguide: Components.DisplayingData.BarChart.4.4
+
+// Chart key
+//
+// A chart key is added to `XUIBarChart` to outline the category of bar colors. This key can be opened by clicking the info icon. Use `keyTitle` and `keyLabel` to populate the Title and label content.
+//
+// Tips:
+// Do: Always display a title for chart key
+// Do: Create short, descriptive labels for all colors
+//
+// Markup: ./examples/bar-chart/_bar-chart-key.html
+//
+// Styleguide: Components.DisplayingData.BarChart.4.5
+
+// Loading
+//
+// Use `isLoading` to display chart as loading in content.
+//
+// Tips:
+// Do: Display a loader when waiting for data to populate
+// Do: Retain height of chart container while loading to provide expectation of scale
+//
+// Markup: ./examples/bar-chart/_bar-chart-loading.html
+//
+// Styleguide: Components.DisplayingData.BarChart.4.6
+
+// Empty (no data)
+//
+// Use `emptyStateComponent` to override the default component state
+//
+// Tips:
+// Do: Display an empty state when there is no dataset available for the chart
+// Do: If possible, provide an action to populate the chart
+//
+// Markup: ./examples/bar-chart/_bar-chart-no-data.html
+//
+// Styleguide: Components.DisplayingData.BarChart.4.7
+
+// Empty (data with no value)
+//
+// When the chart has a dataset loaded but an item has a value of 0, the X-axis label will appear, but no bar will display.
+//
+// Tips:
+// Do: Always display an item in the chart, even if a value equals 0
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/bar-chart/_bar-chart-zero-value.html
+//
+// Styleguide: Components.DisplayingData.BarChart.4.8
+
+// Modifiers
+//
+// Modifiers can be applied to the `XUIBarChart` component to enable an advanced set of features that cater for specific use-cases outside of the default layout.
+//
+// Styleguide: Components.DisplayingData.BarChart.5
+
+// Bar color
+//
+// Bar colors can be customised to fit the particular requirements of data visualisation in particular products.
+//
+// Tips:
+// Do: Make sure primary bar color is accessible (WCAG 2.0 AA pass against a white background)
+// Do: Use color to fit chart to your product theme
+//
+// Styleguide: Components.DisplayingData.BarChart.5.1
+
+// Clickable bars & layers
+//
+// The active color when a bar or stacked layer is selected is `rgba(255,255,255,0.5)` (50% white). Consumers can also define their own functions that connect to the click action using the `onBarClick` handler.
+//
+// Tips:
+// Do: Use an active color that easily distinguishes selected bar or layer from other items
+// Don't: Don’t enable clickable bars or layers without an accompanying function
+//
+// Styleguide: Components.DisplayingData.BarChart.5.2
+
+// Stacked layers
+//
+// The stacked layer variant displays groups data on top of each other in discrete categories. The height of the resulting bar shows the combined result of the groups. Identify if the bar made out of multiple smaller stacked layers using `isStacked`.
+//
+// Tips:
+// Do: Use when groups of data values add up to a total value for an item
+// Do: Use a unique color for layers in stack
+// Do: Use complementary and contrasting colors for each layer
+// Warning: Ensure colors for the layers are accessible
+// Don't: Avoid stacking more than 3 layers in a bar
+// Don't: Stacked bar charts are not suited to datasets where some groups have negative values
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/bar-chart/_bar-chart-stacked.html
+//
+// Styleguide: Components.DisplayingData.BarChart.5.3
+
+// Tooltips
+//
+// Tooltips can be applied to both bar totals and bar layers, as well as to the x-axis labels. These are on by default, automatically populated by the appropriate data for each tooltip. Custom messages on tooltips can be added with the `createBarToolTipMessage` function.
+//
+// Tips:
+// Do: Enable at all times to enhance chart legibility
+// Do: Use to provide additional clarity to specific bar values
+// Do: Create custom messages to give context to your data
+// Don't: Don't rely on tooltips as primary communication device
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/bar-chart/_bar-chart-tooltips.html
+//
+// Styleguide: Components.DisplayingData.BarChart.5.4
+
+// Overflow scroll
+//
+// When the number of items in your chart exceeds the available display area, by default, your content will scroll the overflow on the x-axis.
+//
+// Tips:
+// Do: Use when items in your dataset exceed the width of the container
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/bar-chart/_bar-chart-overflow.html
+//
+// Styleguide: Components.DisplayingData.BarChart.5.5
+
+// Pagination
+//
+// Paginating content can be used as an alternative to the default overflow scroll method using `hasPagination`. Enabling pagination displays back and forward arrows which allow user to scroll to previous and next “pages” of content. By default, pagination will only occur when number of items don’t fit inside the chart container. `createPaginationMessage` and `emptyMessage` can be used to add a custom label inbetween pagination buttons.
+//
+// Tips:
+// Do: Use in conjunction with `xAxisVisibleItems` to set fixed number of items per “page”
+// Do: Customise pagination message to give clarity of visible content. Eg. "Page 1 of 3"
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/bar-chart/_bar-chart-pagination.html
+//
+// Styleguide: Components.DisplayingData.BarChart.5.6
+
+// Maximum visible items
+//
+// Setting a maximum visible number of bars, using `xAxisVisibleItems`, allows for the bars to not reduce in width too much when displaying a large dataset or reducing container size.
+//
+// Tips:
+// Do: Set logical frequency of items Eg. 7 items for a week
+// Do: Use in conjunction with pagination to set fixed number of items per “page”
+// Warning: Avoid setting frequency to less than 3 items
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/bar-chart/_bar-chart-max-visible.html
+//
+// Styleguide: Components.DisplayingData.BarChart.5.7
+
+// Related links
+//
+// Related:
+// * [Avatar](./section-components-identifiers-avatar.html)
+// * [Panel](./section-components-displayingdata-panel.html)
+// * [Table](./section-components-displayingdata-table.html)
+// * [Tooltip](./section-components-alerts-tooltip.html)
+//
+// Styleguide: Components.DisplayingData.BarChart.99

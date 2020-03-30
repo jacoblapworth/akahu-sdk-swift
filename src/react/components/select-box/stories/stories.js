@@ -12,7 +12,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
-import { variantClassNames } from '../../button/private/constants';
+import { textButtonVariants } from '../../button/private/constants';
 import { storiesWithVariationsKindName, variations } from './variations';
 import { LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';
 
@@ -54,9 +54,9 @@ storiesWithKnobs.add('Playground', () => {
         </span>
       }
       buttonVariant={
-        select('buttonVariant', ['none', ...Object.keys(variantClassNames)], 'none') === 'none'
+        select('buttonVariant', ['none', ...Object.keys(textButtonVariants)], 'none') === 'none'
           ? undefined
-          : select('buttonVariant', ['none', ...Object.keys(variantClassNames)], 'none')
+          : select('buttonVariant', ['none', ...Object.keys(textButtonVariants)], 'none')
       }
       caretTitle={text('caretTitle', 'Toggle list')}
       containerClasses={text('containerClasses', '')}

@@ -1,0 +1,223 @@
+// Text Input
+//
+//
+// Teaser: Standard and special purpose inputs for text and search
+//
+// Components: Text-Input
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.pcgu22htm7cm
+//
+// Styleguide: Components.Controls.TextInput
+
+// Usage
+//
+// Currently the `xui-textinput` CSS classes are highly optimised for usage with the `XUITextInput` React component. At this stage we're evaluating whether to create
+// a more simplified CSS class solution for direct usage by consumers.
+//
+// Styleguide: Components.Controls.TextInput.1
+
+// Standard inputs
+//
+// Use the correct type attribute on inputs so soft-keyboards display the best options for the content. XUI normalises the display of input types so browser specific up/down arrows will not display.
+//
+// Tips:
+// Warning: Inputs in XUI do not currently adjust font-size for small screens – this can trigger page zooming on focus in some mobile browsers
+//
+// Definitions:
+// Default: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="text" placeholder="Standard Input" aria-label="Standard input"/></div>
+// Read-only: <div class="xui-container"><div class="xui-container"><input class="xui-textinput xui-textinput--input" type="text" value="Read-only" aria-label="Standard input" readonly/></div></div>
+// Disabled: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="text" placeholder="Disabled input" aria-label="Disabled input" disabled /></div>
+// Password: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="password" placeholder="Password Input" aria-label="Password"/></div>
+// Number: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="number" placeholder="0.00" aria-label="Number input"/></div>
+// Email: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="email" placeholder="example@xero.com" aria-label="Email"/></div>
+// Tel: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="tel" placeholder="Telephone number" aria-label="Telephone"/></div>
+//
+// Note: Avoid using type="date" due to severe browser inconsistency. Use type="text" with an accessible label indicating the data type instead.
+//
+// exampleclass: ds-example-markuponly
+//
+// Markup: ./examples/text-input/_text-input.html
+//
+// Styleguide: Components.Controls.TextInput.2
+
+// Textarea
+//
+// The [text input component](./react/#text-input) can be set to **autogrow** within limits or a fixed height. It includes an
+// optional character count — but be seriously sceptical about the need for one!
+//
+// Non-React implementations need `xui-u-resize-none` added if you want to prevent users resizing.
+//
+// Components: Textinput
+//
+// exampleClass: ds-example-inline
+//
+// Markup: ./examples/text-input/_text-input-textarea.html
+//
+// Styleguide: Components.Controls.TextInput.3
+
+// Size variants
+//
+// Inputs offer a range of size variants to enable greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
+//
+// Tips:
+// Do: Default to 'medium' size variant
+// Do: Nest 'small' text-inputs inside 'medium' sized elements and 'xsmall' text-inputs inside 'small' elements
+// Do: Use the same label and description font-size with all size variants
+// Warning: Use 'small' and 'xsmall' variants cautiously, as they have reduced legibility and touch targets
+// Dont: Don’t use a combination of size variants within a single form
+// Dont: Don't vertically stack small and xsmall Text inputs. Small and xsmall variants now have a sunsetting flag due to poor touch interaction potential.
+//
+// Definitions:
+// Size variant: **Height**: **Class**
+// medium: 40px: `xui-textinput--input-medium`
+// small: 32px: `xui-textinput--input-small`
+// xsmall: 24px: `xui-textinput--input-xsmall`
+//
+// Markup: ./examples/text-input/_text-input-sizes.html
+//
+// Styleguide: Components.Controls.TextInput.4
+
+// Nesting
+//
+// Text inputs can have elements nested inside of them using side elements. It is important that the appropriate size variants of these elements are used within each Text input size variant.
+//
+// Tips:
+// Do: Nest small elements inside medium sized Text inputs and xsmall elements inside small Text inputs
+// Do: Nest icon buttons using the same size variant as the parent Text input
+// Dont: Don't nest an element using the same size variant as its parent (with the exception of icon-buttons)
+//
+// Definitions:
+// Size variant: **Elements available to nest**
+// medium: Avatar, Button, Icon, Pill, Text
+// small: Avatar, Button, Icon, Pill, Text
+// xsmall: Avatar, Icon, Text
+//
+// Markup: ./examples/text-input/_text-input-nesting.html
+//
+// Styleguide: Components.Controls.TextInput.5
+
+// Right-aligned content
+//
+// Adding the `xui-text-align-right` class to an ``<input>`` will align the text within the input to the right. This is particularly useful for aiding scannability of currency and figures.
+//
+// Tips:
+// Do: Right align text within stacked inputs that hold numerical content
+// Do: Leave the field label left aligned
+// Do: Right align text-inputs if they are stacked, have right-aligned text and are different widths from one another
+// Warning: Avoid using wide text-inputs with right aligned content, because the field's label and any left content (e.g icon) will be far away from right aligned text
+// Warning: Avoid mixing and matching inputs with left and right aligned text, especially if they are stacked
+// Dont: Don't use some inputs with actions to the right and some without, when they are stacked and each have right aligned text
+//
+// exampleClass: ds-example-narrow
+//
+// Markup: ./examples/text-input/_text-input-right-aligned.html
+//
+// Styleguide: Components.Controls.TextInput.6
+
+// Borderless text inputs
+//
+// Add `xui-input-borderless` to remove border from input and `xui-textinput-borderless-solid` to add grey tint.
+//
+// Tips:
+// Do: Use for isolated secondary elements where a standard inputs are too prominent
+// Warning: Full range of elements like selects are not yet supported
+// Dont: Avoid using for linear forms or where validation is required
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/text-input/_text-input-borderless.html
+//
+// Styleguide: Components.Controls.TextInput.7
+
+// Transparent text inputs
+//
+// Add `xui-input-borderless` and `xui-input-borderless-transparent` for inputs which only have a background on focus.
+//
+// Tips:
+// Warning: Only use where it’s clear that it’s still a field and what it’s for
+// Do: Include an icon and placeholder
+// Do: Ensure the input has an aria-label
+// Dont: Avoid using if validation is required
+//
+// exampleClass: ds-example-flush
+//
+// Markup: ./examples/text-input/_text-input-transparent.html
+//
+// Styleguide: Components.Controls.TextInput.8
+
+// Inverted inputs
+//
+// Both transparent and solid inputs can be used on dark backgrounds by adding `xui-inputwrapper-borderless-inverted`. Make sure your background color is dark enough!
+//
+// exampleClass: ds-example-dark
+//
+// Markup: ./examples/text-input/_text-input-inverted.html
+//
+// Styleguide: Components.Controls.TextInput.9
+
+// Adding icons
+//
+//
+// Styleguide: Components.Controls.TextInput.10
+
+// Content prompts
+//
+// Tips:
+// Do: Add to the left only
+// Do: Use either XUI icon or text
+// Do: Can be used instead of a label if content easily understood
+// Warning: Ensure the input has an aria-label if not including a label
+//
+// exampleclass: ds-example-narrow
+//
+// Markup: ./examples/text-input/_text-input-content-prompts.html
+//
+// Styleguide: Components.Controls.TextInput.10.1
+
+// Indicating actions
+//
+// Icons on the **right** are used to indicate actions. These can be either the main input behaviour (eg. a caret for a dropdown) or supplementary actions like clearing or picking a date.
+//
+// exampleclass: ds-example-narrow
+//
+// Markup: ./examples/text-input/_text-input-actions.html
+//
+// Styleguide: Components.Controls.TextInput.10.2
+
+// Class list
+//
+// Classes:
+// xui-textinput: Should be applied to the top-level element, whether that is the input or the wrapping div
+// xui-textinput-focus: Should be applied to the top-level element when the input is focused
+// xui-textinput-is-disabled: Adds disabled styling
+// xui-textinput--input: Applies input styling
+// xui-textinput--sideelement: Adds side element wrapper styling
+// xui-textinput--sideelement-icon: Adds padding for icon side elements
+// xui-textinput--sideelement-text: Adds padding for text side elements
+// xui-textinput--sideelement-avatar: Adds padding for avatar side elements
+// xui-textinput--sideelement-button: Adds padding for button side elements
+// xui-textinput--sideelement-has-background: Adds margins for icons with a background
+// xui-textinput--sideelement-align-top: Vertically aligns content of the side element to the top
+// xui-textinput--sideelement-align-center: Vertically aligns content of the side element to the center
+// xui-textinput--sideelement-align-bottom: Vertically aligns content of the side element to the bottom
+// xui-textinput-borderless: Makes the input borderless
+// xui-textinput-borderless-transparent: Makes the input borderless and transparent when unfocused
+// xui-textinput-borderless-solid: Makes the input borderless with a light background
+// xui-textinput-borderless-inverted: Adds borderless styling for using on an inverted background
+// xui-textinput-medium: Sets textinput wrapper size to medium
+// xui-textinput-small: Sets textinput wrapper size to small
+// xui-textinput-xsmall: Sets textinput wrapper size to xsmall
+// xui-textinput--input-medium: Sets textinput size to medium
+// xui-textinput--input-small: Sets textinput size to small
+// xui-textinput--input-xsmall: Sets textinput size to xsmall
+//
+// Styleguide: Components.Controls.TextInput.10.8
+
+// Related links
+//
+// Related:
+// * [Autocompleter](./section-components-collectinginput-autocompleter.html)
+// * [Form](./section-components-collectinginput-forms.html)
+// * [Select](./section-components-controls-select.html)
+//
+// Styleguide: Components.Controls.TextInput.99

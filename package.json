@@ -147,7 +147,7 @@
     "postcss-scss": "2.0.0",
     "prettier": "1.19.1",
     "raw-loader": "4.0.0",
-    "react-styleguidist": "11.0.4",
+    "react-styleguidist": "9.0.4",
     "react-test-renderer": "^16.10.2",
     "recast": "0.18.5",
     "regenerator-runtime": "0.13.3",

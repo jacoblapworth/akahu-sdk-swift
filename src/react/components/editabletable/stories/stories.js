@@ -64,7 +64,7 @@ storiesWithKnobs.add('Playground', () => (
     columns={number('Columns', 4)}
     hasHeader={boolean('Has header', true)}
     rowOptions={{ isRemovable: boolean('Are rows removable', true) }}
-    rows={number('Rows', 2)}
+    rows={number('Rows', 3)}
   />
 ));
 

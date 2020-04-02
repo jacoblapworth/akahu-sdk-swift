@@ -39,12 +39,13 @@ describe('<XUIEditableTableCellTextInput />', () => {
         <table>
           <tbody>
             <tr>
-              <XUIEditableTableCellTextInput id="testId" />
+              <XUIEditableTableCellTextInput id="testId" isDisabled />
             </tr>
           </tbody>
         </table>,
       );
       expect(wrapper.find(XUITextInput).props().id).toBe('testId');
+      expect(wrapper.find(XUITextInput).props().isDisabled).toBe(true);
     });
   });
 });

@@ -11,10 +11,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<XUIEditableTableCellAutocompleter />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(
-      <XUIEditableTableCellAutocompleter
-        onSearch={() => {}}
-      />);
+    const wrapper = shallow(<XUIEditableTableCellAutocompleter onSearch={() => {}} />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
@@ -23,10 +20,7 @@ describe('<XUIEditableTableCellAutocompleter />', () => {
       <table>
         <tbody>
           <tr>
-            <XUIEditableTableCellAutocompleter
-              cellProps={{ width:'100px' }}
-              onSearch={() => {}}
-            />
+            <XUIEditableTableCellAutocompleter cellProps={{ width: '100px' }} onSearch={() => {}} />
           </tr>
         </tbody>
       </table>,
@@ -44,14 +38,12 @@ describe('<XUIEditableTableCellAutocompleter />', () => {
       <table>
         <tbody>
           <tr>
-            <XUIEditableTableCellAutocompleter
-              id="testId"
-              onSearch={() => {}}
-            />
+            <XUIEditableTableCellAutocompleter id="testId" onSearch={() => {}} isDisabled />
           </tr>
         </tbody>
       </table>,
     );
     expect(wrapper.find(XUIAutocompleter).props().id).toBe('testId');
+    expect(wrapper.find(XUIAutocompleter).props().isDisabled).toBe(true);
   });
 });

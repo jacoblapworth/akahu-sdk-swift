@@ -7,8 +7,11 @@ import { tableName } from './private/constants';
 const baseName = `${tableName}headingcell`;
 
 const XUIEditableTableHeadingCell = ({ children, className, qaHook, ...spreadProps }) => {
+  // TODO: sort out how we’re going to handle text alignment and add some logic here
+  const cellClassName = cn(baseName, className, `${baseName}-leftaligned`);
+
   return (
-    <th className={cn(baseName, className)} data-automationid={qaHook} {...spreadProps}>
+    <th className={cellClassName} data-automationid={qaHook} {...spreadProps}>
       {children}
     </th>
   );

@@ -8,7 +8,7 @@
 }
 
 .#{$ns}-editabletable {
-  background-color: $xui-panel-bg-color;
+  background-color: $xui-editabletable-bg-color;
   border: $xui-border-standard;
   border-radius: $xui-radius;
   padding: $xui-s-small;
@@ -16,12 +16,17 @@
 
 .#{$ns}-editabletablehead {
   @include xui-heading-small;
+  background-color: $xui-editabletablehead-bg-color;
 }
 
 .#{$ns}-editabletableheadingcell {
   height: $xui-minimum-touch-target;
   padding-left: $xui-s-standard;
   padding-right: $xui-s-standard;
+}
+
+.#{$ns}-editabletableheadingcell-leftaligned {
+  text-align: left;
 }
 
 .#{$ns}-editabletablecell {

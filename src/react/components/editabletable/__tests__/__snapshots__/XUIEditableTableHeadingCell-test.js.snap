@@ -2,13 +2,13 @@
 
 exports[`<XUIEditableTableCell /> composes the className correctly 1`] = `
 <th
-  className="xui-editabletableheadingcell test-classname"
+  className="xui-editabletableheadingcell test-classname xui-editabletableheadingcell-leftaligned"
 />
 `;
 
 exports[`<XUIEditableTableCell /> renders correctly 1`] = `
 <th
-  className="xui-editabletableheadingcell"
+  className="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned"
 >
   XUIEditableTableHeadingCell
 </th>

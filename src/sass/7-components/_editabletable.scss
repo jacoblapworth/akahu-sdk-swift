@@ -59,9 +59,12 @@
   @include textinput-hover-styles('textinput');
 }
 
-.#{$ns}-editabletablecellselectbox--control .#{$ns}-select--button-no-variant {
-  @include control-default-styles();
-  @include textinput-hover-styles('button');
+.#{$ns}-editabletablecellselectbox--control {
+  .#{$ns}-select--button-no-variant,
+  .#{$ns}-select--button:disabled {
+    @include control-default-styles();
+    @include textinput-hover-styles('button');
+  }
 }
 
 .#{$ns}-editabletablecelltextinput .#{$ns}-textinputwrapper,

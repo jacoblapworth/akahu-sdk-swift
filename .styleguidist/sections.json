@@ -398,7 +398,38 @@
           {
             "name": "Editable Table",
             "content": "../src/react/editabletable.md",
-            "components": "../src/react/components/editabletable/XUIEditableTable.js"
+            "sections": [
+              {
+                "components": "../src/react/components/editabletable/XUIEditableTable.js"
+              },
+              {
+                "components": "../src/react/components/editabletable/XUIEditableTableHead.js"
+              },
+              {
+                "components": "../src/react/components/editabletable/XUIEditableTableHeadingCell.js"
+              },
+              {
+                "components": "../src/react/components/editabletable/XUIEditableTableFoot.js"
+              },
+              {
+                "components": "../src/react/components/editabletable/XUIEditableTableBody.js"
+              },
+              {
+                "components": "../src/react/components/editabletable/XUIEditableTableRow.js"
+              },
+              {
+                "components": "../src/react/components/editabletable/XUIEditableTableCellReadOnly.js"
+              },
+              {
+                "components": "../src/react/components/editabletable/XUIEditableTableCellTextInput.js"
+              },
+              {
+                "components": "../src/react/components/editabletable/XUIEditableTableCellSelectBox.js"
+              },
+              {
+                "components": "../src/react/components/editabletable/XUIEditableTableCellSecondarySearch.js"
+              }
+            ]
           },
           {
             "name": "Overview Block",

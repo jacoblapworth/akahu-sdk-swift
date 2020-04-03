@@ -63,16 +63,18 @@ describe('<XUIEditableTableCellSelectBox />', () => {
   });
 
   it('spreads the rest of the props onto SelectBox', () => {
+    const spreadProps = {
+      buttonContent: 'EditableTable select box',
+      label: 'EditableTable select box',
+      id: 'testId',
+      isDisabled: true,
+    };
+
     const wrapper = mount(
       <table>
         <tbody>
           <tr>
-            <XUIEditableTableCellSelectBox
-              buttonContent="EditableTable select box"
-              label="EditableTable select box"
-              id="testId"
-              isDisabled
-            >
+            <XUIEditableTableCellSelectBox {...spreadProps}>
               <SelectBoxOption id="a" key="a" value="Apple">
                 Apple
               </SelectBoxOption>
@@ -87,7 +89,6 @@ describe('<XUIEditableTableCellSelectBox />', () => {
         </tbody>
       </table>,
     );
-    expect(wrapper.find(SelectBox).props().id).toBe('testId');
-    expect(wrapper.find(SelectBox).props().isDisabled).toBe(true);
+    expect(wrapper.find(SelectBox).props()).toMatchObject(spreadProps);
   });
 });

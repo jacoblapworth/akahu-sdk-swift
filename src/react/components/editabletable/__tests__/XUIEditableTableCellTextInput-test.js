@@ -35,17 +35,21 @@ describe('<XUIEditableTableCellTextInput />', () => {
     });
 
     it('spreads the rest of the props onto XUITextInput', () => {
+      const spreadProps = {
+        id: 'testId',
+        isDisabled: true,
+      };
+
       const wrapper = mount(
         <table>
           <tbody>
             <tr>
-              <XUIEditableTableCellTextInput id="testId" isDisabled />
+              <XUIEditableTableCellTextInput {...spreadProps} />
             </tr>
           </tbody>
         </table>,
       );
-      expect(wrapper.find(XUITextInput).props().id).toBe('testId');
-      expect(wrapper.find(XUITextInput).props().isDisabled).toBe(true);
+      expect(wrapper.find(XUITextInput).props()).toMatchObject(spreadProps);
     });
   });
 });

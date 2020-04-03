@@ -34,16 +34,21 @@ describe('<XUIEditableTableCellAutocompleter />', () => {
   });
 
   it('spreads the rest of the props onto XUIEditableTableCellAutocompleter', () => {
+    const spreadProps = {
+      id: 'testId',
+      onSearch: () => {},
+      isDisabled: true,
+    };
+
     const wrapper = mount(
       <table>
         <tbody>
           <tr>
-            <XUIEditableTableCellAutocompleter id="testId" onSearch={() => {}} isDisabled />
+            <XUIEditableTableCellAutocompleter {...spreadProps} />
           </tr>
         </tbody>
       </table>,
     );
-    expect(wrapper.find(XUIAutocompleter).props().id).toBe('testId');
-    expect(wrapper.find(XUIAutocompleter).props().isDisabled).toBe(true);
+    expect(wrapper.find(XUIAutocompleter).props()).toMatchObject(spreadProps);
   });
 });

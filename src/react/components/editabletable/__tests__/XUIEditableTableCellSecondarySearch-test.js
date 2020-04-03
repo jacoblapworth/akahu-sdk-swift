@@ -16,7 +16,8 @@ describe('<XUIEditableTableCellSecondarySearch />', () => {
       <XUIEditableTableCellSecondarySearch
         onSearch={() => {}}
         trigger={<XUIButton>Click me</XUIButton>}
-      />);
+      />,
+    );
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
@@ -26,7 +27,7 @@ describe('<XUIEditableTableCellSecondarySearch />', () => {
         <tbody>
           <tr>
             <XUIEditableTableCellSecondarySearch
-              cellProps={{ width:'100px' }}
+              cellProps={{ width: '100px' }}
               onSearch={() => {}}
               trigger={<XUIButton>Click me</XUIButton>}
             />
@@ -43,19 +44,21 @@ describe('<XUIEditableTableCellSecondarySearch />', () => {
   });
 
   it('spreads the rest of the props onto XUIAutocompleterSecondarySearch', () => {
+    const spreadProps = {
+      id: 'testId',
+      onSearch: () => {},
+      trigger: <XUIButton>Click me</XUIButton>,
+    };
+
     const wrapper = mount(
       <table>
         <tbody>
           <tr>
-            <XUIEditableTableCellSecondarySearch
-              id="testId"
-              onSearch={() => {}}
-              trigger={<XUIButton>Click me</XUIButton>}
-            />
+            <XUIEditableTableCellSecondarySearch {...spreadProps} />
           </tr>
         </tbody>
       </table>,
     );
-    expect(wrapper.find(XUIAutocompleterSecondarySearch).props().id).toBe('testId');
+    expect(wrapper.find(XUIAutocompleterSecondarySearch).props()).toMatchObject(spreadProps);
   });
 });

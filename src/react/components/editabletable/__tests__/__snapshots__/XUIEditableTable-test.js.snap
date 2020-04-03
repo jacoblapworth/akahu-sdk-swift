@@ -14,6 +14,25 @@ exports[`<XUIEditableTable /> composes the className correctly 1`] = `
 </table>
 `;
 
+exports[`<XUIEditableTable /> render with the caption 1`] = `
+<table
+  className="xui-editabletable"
+>
+  <caption
+    className="xui-editabletable--caption"
+  >
+    An editable table
+  </caption>
+  <ContextProvider
+    value={
+      Object {
+        "rowOptions": Object {},
+      }
+    }
+  />
+</table>
+`;
+
 exports[`<XUIEditableTable /> renders correctly 1`] = `
 <table
   className="xui-editabletable"

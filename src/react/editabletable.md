@@ -38,7 +38,7 @@ const data = [
   { fruit: 'Orange', color: 'Orange', price: 3.99 }
 ];
 
-<XUIEditableTable>
+<XUIEditableTable caption="List of fruits with color and price per kg">
   <XUIEditableTableHead>
     <XUIEditableTableRow>
       <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
@@ -73,7 +73,7 @@ const data = [
   { fruit: 'Orange', color: 'Orange', price: 3.99 }
 ];
 
-<XUIEditableTable>
+<XUIEditableTable caption="List of fruits with color and price per kg">
   <XUIEditableTableBody>
     {data.map((row, index) => (
       <XUIEditableTableRow key={index}>
@@ -116,7 +116,10 @@ node.innerHTML = `
 `;
 document.head.appendChild(node);
 
-<XUIEditableTable className="xui-table-reactdocs-shadow">
+<XUIEditableTable
+  caption="List of fruits with color and price per kg"
+  className="xui-table-reactdocs-shadow"
+>
   <XUIEditableTableBody>
     {data.map((row, index) => (
       <XUIEditableTableRow key={index}>
@@ -152,7 +155,7 @@ const data = [
   { fruit: 'Orange', color: 'Orange', price: 3.99 }
 ];
 
-<XUIEditableTable>
+<XUIEditableTable caption="List of fruits with color and price per kg">
   <XUIEditableTableHead>
     <XUIEditableTableRow>
       <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
@@ -200,7 +203,10 @@ const data = [
   { fruit: 'Orange', color: 'Orange', price: 3.99 }
 ];
 
-<XUIEditableTable rowOptions={{ isRemovable: true }}>
+<XUIEditableTable
+  caption="List of fruits with color and price per kg"
+  rowOptions={{ isRemovable: true }}
+>
   <XUIEditableTableHead>
     <XUIEditableTableRow>
       <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
@@ -244,7 +250,7 @@ const data = [
   { fruit: 'Orange', color: 'Orange', price: 3.99 }
 ];
 
-<XUIEditableTable>
+<XUIEditableTable caption="List of fruits with color and price per kg">
   <XUIEditableTableHead>
     <XUIEditableTableRow>
       <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
@@ -282,7 +288,7 @@ import { SelectBoxOption } from '@xero/xui/react/select-box';
 
 const data = [{ fruit: 'Orange', color: 'Orange', price: 3.99 }];
 
-<XUIEditableTable>
+<XUIEditableTable caption="List of fruits with color and price per kg">
   <XUIEditableTableHead>
     <XUIEditableTableRow>
       <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
@@ -331,7 +337,7 @@ import Picklist, { Pickitem } from '@xero/xui/react/picklist';
 
 const data = [{ fruit: 'Orange', color: 'Orange', price: 3.99 }];
 
-<XUIEditableTable>
+<XUIEditableTable caption="List of fruits with color and price per kg">
   <XUIEditableTableHead>
     <XUIEditableTableRow>
       <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
@@ -376,7 +382,7 @@ import {
 
 const data = [{ fruit: 'Orange', color: 'Orange', price: 3.99 }];
 
-<XUIEditableTable>
+<XUIEditableTable caption="List of fruits with color and price per kg">
   <XUIEditableTableHead>
     <XUIEditableTableRow>
       <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>

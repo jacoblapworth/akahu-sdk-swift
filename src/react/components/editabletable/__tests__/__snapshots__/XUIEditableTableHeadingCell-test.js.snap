@@ -3,12 +3,21 @@
 exports[`<XUIEditableTableCell /> composes the className correctly 1`] = `
 <th
   className="xui-editabletableheadingcell test-classname xui-editabletableheadingcell-leftaligned"
+  scope="col"
+/>
+`;
+
+exports[`<XUIEditableTableCell /> render with customized scope 1`] = `
+<th
+  className="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned"
+  scope="rowGroup"
 />
 `;
 
 exports[`<XUIEditableTableCell /> renders correctly 1`] = `
 <th
   className="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned"
+  scope="col"
 >
   XUIEditableTableHeadingCell
 </th>

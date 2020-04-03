@@ -21,4 +21,9 @@ describe('<XUIEditableTable />', () => {
     const wrapper = shallow(<XUIEditableTable className="test-classname" />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
+
+  it('render with the caption', () => {
+    const wrapper = shallow(<XUIEditableTable caption="An editable table" />);
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
 });

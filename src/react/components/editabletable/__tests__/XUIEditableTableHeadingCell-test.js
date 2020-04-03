@@ -19,4 +19,9 @@ describe('<XUIEditableTableCell />', () => {
     const wrapper = shallow(<XUIEditableTableHeadingCell className="test-classname" />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
+
+  it('render with customized scope', () => {
+    const wrapper = shallow(<XUIEditableTableHeadingCell scope="rowGroup" />);
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
 });

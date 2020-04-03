@@ -5,9 +5,10 @@ import cn from 'classnames';
 import { tableName } from './private/constants';
 import XUIEditableTableContext from './contexts/XUIEditableTableContext';
 
-const XUIEditableTable = ({ children, className, qaHook, rowOptions, ...spreadProps }) => {
+const XUIEditableTable = ({ caption, children, className, qaHook, rowOptions, ...spreadProps }) => {
   return (
     <table className={cn(tableName, className)} data-automationid={qaHook} {...spreadProps}>
+      {caption && <caption className={`${tableName}--caption`}>{caption}</caption>}
       <XUIEditableTableContext.Provider value={{ rowOptions: { ...rowOptions } }}>
         {children}
       </XUIEditableTableContext.Provider>
@@ -16,6 +17,11 @@ const XUIEditableTable = ({ children, className, qaHook, rowOptions, ...spreadPr
 };
 
 XUIEditableTable.propTypes = {
+  /**
+   * A non-visible description of the table for accessibility purposes. Particularly useful
+   * for scrollable tables, to help screenreaders understand the scrollable element.
+   */
+  caption: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
   className: PropTypes.string,
   qaHook: PropTypes.string,

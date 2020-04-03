@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, number, boolean } from '@storybook/addon-knobs';
+import { withKnobs, number, boolean, text } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName } from './variations';
@@ -17,10 +17,10 @@ import { samples, texts, widths } from './helpers';
 
 class EditableTablePlayground extends React.Component {
   render() {
-    const { columns, hasHeader, rows, rowOptions } = this.props;
+    const { caption, columns, hasHeader, rows, rowOptions } = this.props;
     let cellsCount = 0;
     return (
-      <XUIEditableTable rowOptions={rowOptions}>
+      <XUIEditableTable caption={caption} rowOptions={rowOptions}>
         {hasHeader && (
           <XUIEditableTableHead>
             <XUIEditableTableRow removeButtonAriaLabel="Remove row">
@@ -61,6 +61,7 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <EditableTablePlayground
+    caption={text('caption', '')}
     columns={number('Columns', 4)}
     hasHeader={boolean('Has header', true)}
     rowOptions={{ isRemovable: boolean('Are rows removable', true) }}

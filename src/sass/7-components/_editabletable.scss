@@ -14,6 +14,10 @@
   padding: $xui-s-small;
 }
 
+.#{$ns}-editabletable--caption {
+  @include xui-utility-hidden-visually;
+}
+
 .#{$ns}-editabletablehead {
   @include xui-heading-small;
   background-color: $xui-editabletablehead-bg-color;

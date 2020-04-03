@@ -51,7 +51,7 @@ const sampleSecondary = (id, width, text) => (
     cellProps={{ width }}
     id={id}
     key={id}
-    onSearch={() => console.log('heya')}
+    onSearch={() => console.log('onSearch fired!')}
     trigger={<XUIButton>{text}</XUIButton>}
   >
     <Picklist>
@@ -66,7 +66,7 @@ const sampleSecondaryDisabled = (id, width, text) => (
     cellProps={{ width }}
     id={id}
     key={id}
-    onSearch={() => console.log('heya')}
+    onSearch={() => console.log('onSearch fired!')}
     trigger={<XUIButton isDisabled>{text}</XUIButton>}
   >
     <Picklist>

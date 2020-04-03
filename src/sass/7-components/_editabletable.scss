@@ -47,9 +47,9 @@
   &:not(.#{$ns}-textinput-focus):active {
     &:not(.#{$ns}-#{$disable-cell-type}-is-disabled) {
       background-color: inherit;
+      box-shadow: $xui-shadow-border-all;
     }
     border-color: transparent;
-    box-shadow: $xui-shadow-border-all;
   }
 }
 

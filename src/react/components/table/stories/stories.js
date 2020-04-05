@@ -147,6 +147,7 @@ storiesWithKnobs.add('Playground', () => {
     <div style={tableStyles}>
       <Table
         {...tableProps}
+        caption={text('caption', '')}
         checkAllRowsLabel="Select all rows"
         checkOneRowLabel="Select row"
         className={text('className', '')}

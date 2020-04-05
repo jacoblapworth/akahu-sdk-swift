@@ -117,6 +117,8 @@ class SortButton extends PureComponent {
           onClick: this.handleInteraction,
           onKeyDown: this.handleInteraction,
           isHead: true,
+          tabIndex: 0,
+          scope: 'col',
         }}
       >
         <div>
@@ -180,6 +182,7 @@ class GenericCell extends PureComponent {
           isHead,
           className,
           onFocus,
+          scope: 'col',
         }}
       >
         <span>{children}</span>

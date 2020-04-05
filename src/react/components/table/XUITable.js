@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
+import uuid from 'uuid/v4';
 import XUILoader from '../loader/XUILoader';
 import noop from '../helpers/noop';
 import { enrichProps } from './helpers/utilities';
@@ -18,6 +19,7 @@ class XUITable extends Component {
   rootNode;
   wrapperNode;
   tableNode;
+  instanceId = uuid();
 
   componentDidUpdate = () => {
     this.setCurrentWidth();
@@ -121,6 +123,7 @@ class XUITable extends Component {
     const { state, props, rootNode, tableNode, wrapperNode, ensureCellVisibility } = this;
     const {
       qaHook,
+      caption,
       className: suppliedClasses,
       hasHeader,
       isResponsive,
@@ -180,15 +183,23 @@ class XUITable extends Component {
         )}
 
         <div
+          aria-labelledby={caption && `${this.instanceId}-caption`}
           className={`${NAME_SPACE}-wrapper`}
           onScroll={handleScroll}
           ref={node => (this.wrapperNode = node)}
+          role={isResponsive && 'group'}
+          tabIndex={isResponsive ? 0 : undefined}
         >
           <table
             className={`${NAME_SPACE}-element`}
             data-automationid={qaHook && `${qaHook}-table`}
             ref={node => (this.tableNode = node)}
           >
+            {caption && (
+              <caption className={`${NAME_SPACE}--caption`} id={`${this.instanceId}-caption`}>
+                {caption}
+              </caption>
+            )}
             {hasHeader && (
               <TableHead
                 {...{
@@ -414,6 +425,12 @@ XUITable.propTypes = {
    * Recommended English value: *Nothing to show here*
    */
   emptyMessage: PropTypes.node,
+
+  /**
+   * A non-visible description of the table for accessibility purposes. Particularly useful
+   * for scrollable tables, to help screenreaders understand the scrollable element.
+   */
+  caption: PropTypes.string,
 };
 
 XUITable.defaultProps = {

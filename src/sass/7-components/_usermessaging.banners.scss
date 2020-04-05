@@ -22,7 +22,6 @@
 .#{$ns}-banner-layout {
   @include xui-padding($xui-s-2xsmall);
   @include xui-margin-bottom($xui-s-large);
-  @include xui-margin-horizontal(auto);
 
   display: inline-block;
   width: 100%;

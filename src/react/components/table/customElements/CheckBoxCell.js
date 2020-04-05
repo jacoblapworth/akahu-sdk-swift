@@ -36,7 +36,6 @@ export default class CheckBoxCell extends PureComponent {
           isGrouped
           isLabelHidden
           onChange={this.handleChange}
-          tabIndex={0}
         >
           {checkOneRowAriaLabel}
         </XUICheckbox>

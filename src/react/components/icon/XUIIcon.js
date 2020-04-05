@@ -11,7 +11,7 @@ import {
   iconSizeMultipliers,
 } from './private/constants';
 
-export default function XUIIcon(props) {
+const XUIIcon = React.forwardRef((props, ref) => {
   const { className, qaHook, size, title, desc, role, rotation, color, icon, isBoxed } = props;
 
   const svgClasses = cn(
@@ -31,6 +31,7 @@ export default function XUIIcon(props) {
       data-automationid={qaHook}
       focusable="false"
       height={icon.height * sizeMultiplier}
+      ref={ref}
       viewBox={`0 0 ${icon.width} ${icon.height}`}
       width={icon.width * sizeMultiplier}
     >
@@ -50,7 +51,7 @@ export default function XUIIcon(props) {
       {svgElement}
     </div>
   );
-}
+});
 
 XUIIcon.propTypes = {
   /** An object describing the path, width and height. */
@@ -84,3 +85,5 @@ XUIIcon.defaultProps = {
   size: 'medium',
   role: 'presentation',
 };
+
+export default XUIIcon;

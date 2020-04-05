@@ -148,8 +148,8 @@ storiesWithKnobs.add('Playground', () => {
       <Table
         {...tableProps}
         caption={text('caption', '')}
-        checkAllRowsLabel="Select all rows"
-        checkOneRowLabel="Select row"
+        checkAllRowsAriaLabel="Select all rows"
+        checkOneRowAriaLabel="Select row"
         className={text('className', '')}
         data={data}
         emptyMessage="Nothing to show here"
@@ -159,7 +159,7 @@ storiesWithKnobs.add('Playground', () => {
         isLoading={boolean('isLoading', false)}
         isResponsive={boolean('isResponsive', false)}
         isTruncated={boolean('isTruncated', false)}
-        loaderLabel="Loading more data"
+        loaderAriaLabel="Loading more data"
         overflowMenuTitle="More row options"
       >
         <Column
@@ -227,10 +227,10 @@ const TestScaffold = (
 ) => (
   <ScrollResetWrapper key={tableIndex} style={{ ...tableStyles, ...styleOverrides }}>
     <Table
-      checkAllRowsLabel="Select all rows"
-      checkOneRowLabel="Select row"
+      checkAllRowsAriaLabel="Select all rows"
+      checkOneRowAriaLabel="Select row"
       emptyMessage="Nothing to show here"
-      loaderLabel="Loading more data"
+      loaderAriaLabel="Loading more data"
       overflowMenuTitle="More row options"
       {...tableProps}
       createOverflowMenu={tableProps.hasOverflowMenu && createOverflowMenu}

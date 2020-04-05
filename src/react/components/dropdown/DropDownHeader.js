@@ -16,7 +16,7 @@ import { ns } from '../helpers/xuiClassNamespace';
  * |-|-|-|
  * | Primary button | `onPrimaryButtonClick` | `primaryButtonContent` |
  * | Secondary button | `onSecondaryButtonClick` | `secondaryButtonContent` |
- * | Back button | `onBackButtonClick` | `backButtonLabel` |
+ * | Back button | `onBackButtonClick` | `backButtonAriaLabel` |
  *
  * Child nodes are also allowed for extra customisation.
  *
@@ -35,7 +35,7 @@ const DropDownHeader = ({
   isPrimaryButtonDisabled,
   isSecondaryButtonDisabled,
   onBackButtonClick,
-  backButtonLabel,
+  backButtonAriaLabel,
   onlyShowForMobile = false,
   leftContent,
   rightContent,
@@ -50,7 +50,7 @@ const DropDownHeader = ({
 
   const backButton = onBackButtonClick ? (
     <XUIIconButton
-      ariaLabel={backButtonLabel}
+      ariaLabel={backButtonAriaLabel}
       className={`${ns}-dropdown--headerbackbutton`}
       icon={back}
       onClick={onBackButtonClick}
@@ -181,7 +181,7 @@ DropDownHeader.propTypes = {
    * <br />
    * Recommended English value: *Back*
    */
-  backButtonLabel: PropTypes.string,
+  backButtonAriaLabel: PropTypes.string,
 
   /** Whether the header should only be shown at mobile sizes. */
   onlyShowForMobile: PropTypes.bool,

@@ -6,7 +6,7 @@ import { NAME_SPACE } from '../helpers/constants';
 
 class ChartLoader extends PureComponent {
   render = () => {
-    const { qaHook, chartHeight, loadingLabel } = this.props;
+    const { qaHook, chartHeight, loadingAriaLabel } = this.props;
     const chartClassName = cn(`${NAME_SPACE}-chart`, `${NAME_SPACE}-chart-is-loading`);
 
     return (
@@ -15,7 +15,7 @@ class ChartLoader extends PureComponent {
         data-automationid={qaHook && `${qaHook}--loader`}
         style={{ height: `${chartHeight}px` }}
       >
-        <XUILoader ariaLabel={loadingLabel} />
+        <XUILoader ariaLabel={loadingAriaLabel} />
       </div>
     );
   };
@@ -27,5 +27,5 @@ ChartLoader.propTypes = {
   qaHook: PropTypes.string,
   chartHeight: PropTypes.number,
   /** Accessibility label for the `<XUILoader>` */
-  loadingLabel: PropTypes.string.isRequired,
+  loadingAriaLabel: PropTypes.string.isRequired,
 };

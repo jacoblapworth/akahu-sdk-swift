@@ -98,7 +98,7 @@ const variations = [
   },
 ];
 
-privateConsts.textButtonVariants.forEach((buttonVariant, index) => {
+Object.keys(privateConsts.textButtonVariants).forEach((buttonVariant, index) => {
   const sizesToIterate = [sizes[index % sizes.length]];
 
   sizesToIterate.forEach(size =>
@@ -120,7 +120,7 @@ sizes.forEach(sizeVariant => {
     storyTitle: `${sizeVariant} with a Loader`,
     size: sizeVariant,
     isLoading: true,
-    loadingLabel: 'Loading',
+    loadingAriaLabel: 'Loading',
     className: 'xui-loader-static', // Prevent dots from animating and causing diffs due to timing issues
     value: 'This is a button',
   });

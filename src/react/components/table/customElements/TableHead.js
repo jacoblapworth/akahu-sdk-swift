@@ -22,7 +22,7 @@ const HEAD_CELL_CLASSES = `${NAME_SPACE}--cell ${ns}-heading-separator`;
 
 class CheckBoxCell extends PureComponent {
   render() {
-    const { totalData, checkedIds, onCheckAllToggle, checkAllRowsLabel } = this.props;
+    const { totalData, checkedIds, onCheckAllToggle, checkAllRowsAriaLabel } = this.props;
     const className = cn(
       `${NAME_SPACE}--cell-action`,
       HEAD_CELL_CLASSES,
@@ -47,7 +47,7 @@ class CheckBoxCell extends PureComponent {
             onChange={onCheckAllToggle}
             tabIndex={0}
           >
-            {checkAllRowsLabel}
+            {checkAllRowsAriaLabel}
           </XUICheckbox>
         )}
       </TableData>
@@ -59,7 +59,7 @@ CheckBoxCell.propTypes = {
   totalData: PropTypes.number,
   checkedIds: PropTypes.array,
   onCheckAllToggle: PropTypes.func,
-  checkAllRowsLabel: PropTypes.string,
+  checkAllRowsAriaLabel: PropTypes.string,
 };
 
 class OverflowMenuCell extends PureComponent {
@@ -213,7 +213,7 @@ class TableHead extends PureComponent {
       hasCheckbox,
       checkedIds,
       onCheckAllToggle,
-      checkAllRowsLabel,
+      checkAllRowsAriaLabel,
       hasOverflowMenu,
       ensureCellVisibility,
     } = this.props;
@@ -227,7 +227,7 @@ class TableHead extends PureComponent {
                 totalData: data.length,
                 checkedIds,
                 onCheckAllToggle,
-                checkAllRowsLabel,
+                checkAllRowsAriaLabel,
               }}
             />
           )}
@@ -280,7 +280,7 @@ TableHead.propTypes = {
   hasCheckbox: PropTypes.bool,
   checkedIds: PropTypes.array,
   onCheckAllToggle: PropTypes.func,
-  checkAllRowsLabel: PropTypes.node,
+  checkAllRowsAriaLabel: PropTypes.node,
 
   // Overflow Menu.
   hasOverflowMenu: PropTypes.bool,

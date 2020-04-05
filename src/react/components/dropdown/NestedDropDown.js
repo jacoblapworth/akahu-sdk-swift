@@ -20,9 +20,9 @@ import { baseClass, fixedWidthDropdownSizes } from './private/constants';
 export default class NestedDropDown extends DropDown {
   componentDidUpdate(prevProps, prevState) {
     super.componentDidUpdate(prevProps, prevState);
-    const { currentPanel, onPanelChange } = this.props;
-    if (onPanelChange && prevProps.currentPanel !== currentPanel) {
-      onPanelChange(currentPanel, prevProps.currentPanel);
+    const { currentPanelId, onPanelChange } = this.props;
+    if (onPanelChange && prevProps.currentPanelId !== currentPanelId) {
+      onPanelChange(currentPanelId, prevProps.currentPanelId);
     }
   }
 
@@ -36,7 +36,7 @@ export default class NestedDropDown extends DropDown {
       qaHook,
       style,
       onSelect,
-      currentPanel,
+      currentPanelId,
       fixedWidth,
       onCloseAnimationEnd,
       onOpenAnimationEnd,
@@ -48,7 +48,7 @@ export default class NestedDropDown extends DropDown {
     const dropdownClasses = cn(`${baseClass}-fullheight`, className);
 
     const childrenToRender = React.Children.map(children, child => {
-      const isCurrentPanel = child.props && child.props.panelId === currentPanel;
+      const isCurrentPanel = child.props && child.props.panelId === currentPanelId;
 
       return (
         <div className={isCurrentPanel ? '' : `${baseClass}-nested-is-hidden`}>
@@ -125,7 +125,7 @@ NestedDropDown.propTypes = {
   onHighlightChange: PropTypes.func,
 
   /** The `panelId` property of the panel which should currently be open */
-  currentPanel: PropTypes.string,
+  currentPanelId: PropTypes.string,
 
   /** Callback for when the open DropDownPanel changes. Receives the name of the selected panel,
    * and the previously selected panel. */

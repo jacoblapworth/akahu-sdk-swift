@@ -11,7 +11,7 @@ const noop = () => {};
 const defaultProps = {
   primaryButtonContent: 'Apply',
   secondaryButtonContent: 'Cancel',
-  backButtonLabel: 'Back',
+  backButtonAriaLabel: 'Back',
 };
 
 describe('<DropDownHeader/>', () => {

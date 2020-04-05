@@ -34,13 +34,40 @@ const sampleTextInput = (id, width, text) => (
   />
 );
 
+const sampleTextInputDisabled = (id, width, text) => (
+  <XUIEditableTableCellTextInput
+    cellProps={{ width }}
+    defaultValue={text}
+    id={id}
+    isDisabled
+    isMultiline={!!(id % 2)}
+    key={id}
+    minRows={1}
+  />
+);
+
 const sampleSecondary = (id, width, text) => (
   <XUIEditableTableCellSecondarySearch
     cellProps={{ width }}
     id={id}
     key={id}
-    onSearch={() => console.log('heya')}
+    onSearch={() => console.log('onSearch fired!')}
     trigger={<XUIButton>{text}</XUIButton>}
+  >
+    <Picklist>
+      <Pickitem id="pi1" primaryElement="Item content" />
+      <Pickitem id="pi2" primaryElement="Item two" />
+    </Picklist>
+  </XUIEditableTableCellSecondarySearch>
+);
+
+const sampleSecondaryDisabled = (id, width, text) => (
+  <XUIEditableTableCellSecondarySearch
+    cellProps={{ width }}
+    id={id}
+    key={id}
+    onSearch={() => console.log('onSearch fired!')}
+    trigger={<XUIButton isDisabled>{text}</XUIButton>}
   >
     <Picklist>
       <Pickitem id="pi1" primaryElement="Item content" />
@@ -54,6 +81,27 @@ const sampleSelect = (id, width, text) => (
     buttonContent={text}
     cellProps={{ width }}
     id={id}
+    key={id}
+    label={text}
+  >
+    <SelectBoxOption id={`${id}_a`} key="a" value="Apple">
+      Apple
+    </SelectBoxOption>
+    <SelectBoxOption id={`${id}_b`} key="b" value="Banana">
+      Banana
+    </SelectBoxOption>
+    <SelectBoxOption id={`${id}_c`} key="c" value="Cucumber">
+      Cucumber
+    </SelectBoxOption>
+  </XUIEditableTableCellSelectBox>
+);
+
+const sampleSelectDisabled = (id, width, text) => (
+  <XUIEditableTableCellSelectBox
+    buttonContent={text}
+    cellProps={{ width }}
+    id={id}
+    isDisabled
     key={id}
     label={text}
   >
@@ -202,6 +250,7 @@ class WrapPillsExample extends Component {
       <XUIEditableTableCellAutocompleter
         cellProps={{ width: this.props.width }}
         inputLabel="autocompleter"
+        isDisabled={this.props.isDisabled}
         isInputLabelHidden
         isInvalid={this.state.isInvalid}
         onBackspacePill={this.deleteLastPerson}
@@ -222,6 +271,10 @@ const sampleAutocompleter = (id, width, text) => (
   <WrapPillsExample index={id} placeholder={text} width={width} />
 );
 
+const sampleAutocompleterDisabled = (id, width, text) => (
+  <WrapPillsExample index={id} isDisabled placeholder={text} width={width} />
+);
+
 const samples = [
   sampleReadOnly,
   sampleTextInput,
@@ -229,6 +282,10 @@ const samples = [
   sampleSecondary,
   sampleSelect,
   sampleAutocompleter,
+  sampleTextInputDisabled,
+  sampleSecondaryDisabled,
+  sampleSelectDisabled,
+  sampleAutocompleterDisabled,
 ];
 const texts = [
   'Sample text',

@@ -43,19 +43,36 @@
   padding-right: $xui-s-standard;
 }
 
-.#{$ns}-textinput.#{$ns}-editabletablecelltextinput--control,
-.#{$ns}-editabletablecellautocompleter--control .#{$ns}-textinput,
-.#{$ns}-editabletablecellselectbox--control .#{$ns}-select--button-no-variant {
+@mixin xui-editabletable--control-default {
   border-color: transparent;
   border-radius: 0;
-  &:not(.#{$ns}-textinput-focus):hover,
-  &:not(.#{$ns}-textinput-focus):active {
-    background-color: inherit;
-    border-color: transparent;
-    box-shadow: $xui-shadow-border-all;
-  }
   &.#{$ns}-textinput-focus {
     border-color: transparent;
+  }
+}
+
+@mixin xui-editabletable--input-hover($disable-cell-type) {
+  &:not(.#{$ns}-textinput-focus):hover,
+  &:not(.#{$ns}-textinput-focus):active {
+    &:not(.#{$ns}-#{$disable-cell-type}-is-disabled) {
+      background-color: inherit;
+      box-shadow: $xui-shadow-border-all;
+    }
+    border-color: transparent;
+  }
+}
+
+.#{$ns}-textinput.#{$ns}-editabletablecelltextinput--control,
+.#{$ns}-editabletablecellautocompleter--control .#{$ns}-textinput {
+  @include xui-editabletable--control-default();
+  @include xui-editabletable--input-hover('textinput');
+}
+
+.#{$ns}-editabletablecellselectbox--control {
+  .#{$ns}-select--button-no-variant,
+  .#{$ns}-select--button:disabled {
+    @include xui-editabletable--control-default();
+    @include xui-editabletable--input-hover('button');
   }
 }
 

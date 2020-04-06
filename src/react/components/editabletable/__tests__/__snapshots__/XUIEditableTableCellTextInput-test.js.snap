@@ -9,6 +9,7 @@ exports[`<XUIEditableTableCellTextInput /> renders correctly 1`] = `
     inputProps={Object {}}
     isLabelHidden={true}
     minRows={3}
+    onFocus={[Function]}
     size="medium"
   />
 </XUIEditableTableCell>

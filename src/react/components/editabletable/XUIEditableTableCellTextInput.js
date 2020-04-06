@@ -8,13 +8,29 @@ import { tableName } from './private/constants';
 
 const baseName = `${tableName}celltextinput`;
 
-const XUIEditableTableCellTextInput = ({ cellProps = {}, containerClassName, ...spreadProps }) => {
+const XUIEditableTableCellTextInput = ({
+  cellProps = {},
+  containerClassName,
+  onFocus,
+  ...spreadProps
+}) => {
+  // NB: This is not testable via jest. We may benefit from a vis-reg of the selection.
+  /**
+   * Selects all content onFocus, before calling any user-supplied handlers.
+   * @param {event} event
+   */
+  const composedOnFocus = event => {
+    const input = event.target;
+    input && input.setSelectionRange && input.setSelectionRange(0, input.value.length);
+    onFocus && onFocus(event);
+  };
   return (
     <XUIEditableTableCell {...cellProps} className={cn(baseName, cellProps.className)}>
       <XUITextInput
         {...spreadProps}
         containerClassName={cn(`${baseName}--control`, containerClassName)}
         isLabelHidden
+        onFocus={composedOnFocus}
       />
     </XUIEditableTableCell>
   );

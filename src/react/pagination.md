@@ -11,7 +11,7 @@ By default the pagination will automatically change the layout based on the cont
 Try to resize: Click and drag the bottom right corner of the following container.
 
 ```jsx harmony
-import XUIPagination from './pagination';
+import XUIPagination from '@xero/xui/react/pagination';
 import {
   defaultPerPageCountOptions,
   defaultPerPageContent,
@@ -44,7 +44,7 @@ const wrapperStyles = {
 `XUIPagination` is an uncontrolled component by default. You can set default values by using the `defaultPage` and `defaultPerPageCount` prop.
 
 ```jsx harmony
-import XUIPagination from './pagination';
+import XUIPagination from '@xero/xui/react/pagination';
 import {
   defaultPerPageCountOptions,
   defaultPerPageContent,
@@ -94,7 +94,7 @@ Following is an example changing the default behavior (jump to the fist page) wh
 
 ```jsx harmony
 import { useState } from 'react';
-import XUIPagination from './pagination';
+import XUIPagination from '@xero/xui/react/pagination';
 import {
   defaultPerPageCountOptions,
   defaultPerPageContent,
@@ -142,7 +142,7 @@ const ControlledExample = ({ count }) => {
 To use paging widget only, set prop `showCount` and `showPerPageCountSelect` to `false`.
 
 ```jsx harmony
-import XUIPagination from './pagination';
+import XUIPagination from '@xero/xui/react/pagination';
 import {
   defaultPerPageCountOptions,
   defaultPerPageContent,
@@ -174,7 +174,7 @@ const Example = () => {
 There are three props: `createPagingContent`, `createPagingContent` and `perPageContent` that can be used to custom content in `XUIPagination`. These props can also be used for localization purposes.
 
 ```jsx harmony
-import XUIPagination from './pagination';
+import XUIPagination from '@xero/xui/react/pagination';
 import {
   defaultPerPageCountOptions,
   defaultCreatePagingContent

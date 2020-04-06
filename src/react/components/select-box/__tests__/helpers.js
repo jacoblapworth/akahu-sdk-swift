@@ -16,6 +16,7 @@ export const waitFor = (test, message, done, timeLeft = 100) => {
         // eslint-disable-next-line no-console
         console.warn(message);
         done();
+        // eslint-disable-next-line jest/expect-expect
       } else if (test()) {
         done();
       } else {

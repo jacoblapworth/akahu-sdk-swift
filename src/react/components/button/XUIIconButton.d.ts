@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { colorClasses, rotationClasses, wrapperSizeClasses } from '../icon/private/constants';
 import { XUIIconData } from '../icon/XUIIcon';

@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import * as React from 'react';
 
 import { Props as PickitemProps } from '../picklist/Pickitem';
 

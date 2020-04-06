@@ -5,7 +5,7 @@ import cn from 'classnames';
 import DropDownLayout from './DropDownLayout';
 // eslint-disable-next-line import/no-cycle
 import DropDownPanel from './DropDownPanel';
-import { lockScroll, unlockScroll } from '../helpers/lockScroll';
+import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from './private/constants';
 
@@ -43,6 +43,7 @@ export default class DropDown extends PureComponent {
 
   componentWillUnmount() {
     window.removeEventListener('focus', this._restrictFocus, true);
+    isScrollLocked && this.unlockScroll();
   }
 
   memoizedComponentDidUpdate = memoizeOne(

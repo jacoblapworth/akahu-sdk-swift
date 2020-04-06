@@ -7,6 +7,12 @@ const handleEntries = entries => {
   entries.forEach(entry => {
     // Match the DOM node with its component.
     const entryComponent = entryComponentMap.get(entry.target);
+    if (!entryComponent) {
+      // It may be possible for an application to delete the relevant components/elements
+      // without un-mounting and un-observing them. This is an edge case we can't reproduce,
+      // but we can guard against. [XUI-1074]
+      return;
+    }
     // If breakpoints are defined on the observed element's component,
     // use them. Otherwise use the defaults.
     const customBreakpoints =

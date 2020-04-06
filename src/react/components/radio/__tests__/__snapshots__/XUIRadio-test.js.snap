@@ -102,6 +102,38 @@ exports[`XUIRadio should have a hidden label, if specified 1`] = `
 </div>
 `;
 
+exports[`XUIRadio should have a qaHook on the root node if provided 1`] = `
+<div
+  className="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
+>
+  <label
+    className="xui-styledcheckboxradio"
+    data-automationid="cheese-and-crackers"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <input
+      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
+      data-automationid="cheese-and-crackers--input"
+      defaultChecked={false}
+      disabled={false}
+      onChange={[Function]}
+      required={false}
+      role="radio"
+      type="radio"
+    />
+    <div
+      className="xui-styledcheckboxradio--radio xui-styledcheckboxradio--radio-medium"
+      data-automationid="cheese-and-crackers--radio"
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
+  </label>
+</div>
+`;
+
 exports[`XUIRadio should have label text if provided 1`] = `
 <div
   className="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"

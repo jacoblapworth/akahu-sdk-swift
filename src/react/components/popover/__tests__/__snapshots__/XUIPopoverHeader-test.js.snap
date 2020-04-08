@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIPopoverHeader /> renders without crashing 1`] = `
+<XUIPopoverHeader
+  closeButtonProps={
+    Object {
+      "ariaLabel": "Close",
+    }
+  }
+  subtitle="Subtitle"
+  title="Test title"
+>
+  <div
+    className="xui-popover--header"
+  >
+    <div
+      className="xui-popover--title-wrapper"
+    >
+      <div
+        className="xui-popover--title"
+      >
+        Test title
+      </div>
+      <div
+        className="xui-popover--subtitle"
+      >
+        Subtitle
+      </div>
+    </div>
+    <XUIIconButton
+      ariaLabel="Close"
+      className="xui-popover--close"
+      icon={
+        Object {
+          "height": 12,
+          "path": "M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z",
+          "width": 12,
+        }
+      }
+      isDisabled={false}
+      isExternalLink={false}
+      isLink={false}
+      onClick={[Function]}
+      size="small"
+      tabIndex={0}
+      type="button"
+    >
+      <XUIButton
+        aria-label="Close"
+        className="xui-popover--close xui-button-icon-small xui-button-icon"
+        fullWidth="never"
+        isDisabled={false}
+        isExternalLink={false}
+        isGrouped={false}
+        isLink={false}
+        isLoading={false}
+        onClick={[Function]}
+        retainLayout={true}
+        tabIndex={0}
+        type="button"
+        variant="unstyled"
+      >
+        <button
+          aria-label="Close"
+          className="xui-button xui-popover--close xui-button-icon-small xui-button-icon"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <XUIIcon
+            icon={
+              Object {
+                "height": 12,
+                "path": "M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z",
+                "width": 12,
+              }
+            }
+            role="presentation"
+            size="medium"
+          >
+            <svg
+              className="xui-icon"
+              focusable="false"
+              height={12}
+              viewBox="0 0 12 12"
+              width={12}
+            >
+              <path
+                d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"
+                role="presentation"
+              />
+            </svg>
+          </XUIIcon>
+          <XUITouchTarget>
+            <div
+              className="xui-touchtarget"
+            />
+          </XUITouchTarget>
+        </button>
+      </XUIButton>
+    </XUIIconButton>
+  </div>
+</XUIPopoverHeader>
+`;

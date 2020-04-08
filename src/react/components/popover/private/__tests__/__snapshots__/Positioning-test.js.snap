@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Positioning /> renders without crashing 1`] = `
+<Portal>
+  <div
+    className="xui-container"
+  >
+    <div
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    >
+      <div />
+    </div>
+  </div>
+</Portal>
+`;

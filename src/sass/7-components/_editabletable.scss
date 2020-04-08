@@ -74,13 +74,17 @@
     @include xui-editabletable--control-default();
     @include xui-editabletable--input-hover('button');
   }
-}
-
-.#{$ns}-editabletablecelltextinput .#{$ns}-textinputwrapper,
-.#{$ns}-editabletablecellselectbox--control {
   height: 100%;
   & :not(svg) {
     height: inherit;
+  }
+}
+
+.#{$ns}-editabletablecelltextinput {
+  .#{$ns}-textinputwrapper,
+  .#{$ns}-textinput,
+  .#{$ns}-textinput--input {
+    height: 100%;
   }
 }
 

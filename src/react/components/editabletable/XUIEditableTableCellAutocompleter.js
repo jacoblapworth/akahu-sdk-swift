@@ -10,6 +10,24 @@ import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 const baseName = `${tableName}cellautocompleter`;
 
 class XUIEditableTableCellAutocompleter extends Component {
+  completer = React.createRef();
+
+  /**
+   * @public
+   * Set the state as not hidden in order to toggle the list open.
+   */
+  openDropDown = () => {
+    this.completer.current.openDropDown();
+  };
+
+  /**
+   * @public
+   * Set the state as hidden in order to toggle the list closed.
+   */
+  closeDropDown = () => {
+    this.completer.current.closeDropDown();
+  };
+
   render() {
     const { cellProps = {}, className, triggerClassName, ...spreadProps } = this.props;
     return (
@@ -18,6 +36,7 @@ class XUIEditableTableCellAutocompleter extends Component {
           {...spreadProps}
           className={cn(`${baseName}--control`, className)}
           isInputLabelHidden
+          ref={this.completer}
           triggerClassName={cn(`${baseName}--trigger`, triggerClassName)}
         />
       </XUIEditableTableCell>

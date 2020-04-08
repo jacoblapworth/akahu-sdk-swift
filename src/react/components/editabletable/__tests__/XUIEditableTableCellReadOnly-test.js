@@ -17,7 +17,9 @@ describe('<XUIEditableTableCellReadOnly />', () => {
   });
 
   it('composes the className correctly', () => {
-    const wrapper = shallow(<XUIEditableTableCellReadOnly cellProps={{ className: "test-classname" }} />);
+    const wrapper = shallow(
+      <XUIEditableTableCellReadOnly cellProps={{ className: 'test-classname' }} />,
+    );
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 

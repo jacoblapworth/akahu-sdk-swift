@@ -7,13 +7,15 @@ import {
   XUIEditableTableCellSelectBox,
   XUIEditableTableCellTextInput,
 } from '../../../editabletable';
-import XUIButton from '../../button/XUIButton';
-import SelectBoxOption from '../../select-box/SelectBoxOption';
+import XUIButton, { XUIIconButton } from '../../../button';
+import { SelectBoxOption } from '../../../select-box';
 import Picklist, { Pickitem } from '../../../picklist';
-import XUIPill from '../../../pill';
 import XUIAvatar from '../../../avatar';
 import { XUIAutocompleterEmptyState } from '../../../autocompleter';
 import { decorateSubStr, boldMatch } from '../../autocompleter/helpers/highlighting';
+import { XUITextInputSideElement } from '../../../textinput';
+import XUIPill from '../../../pill';
+import crossIcon from '@xero/xui-icon/icons/cross-small';
 
 import people from '../../autocompleter/private/people';
 
@@ -153,7 +155,7 @@ class PillWrapper extends PureComponent {
   }
 }
 
-class WrapPillsExample extends Component {
+class AutoExample extends Component {
   constructor(...args) {
     super(...args);
 
@@ -162,6 +164,7 @@ class WrapPillsExample extends Component {
       selectedPeopleIds: [this.props.index || null],
     };
 
+    this.clearSelection = this.clearSelection.bind(this);
     this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
     this.deletePerson = this.deletePerson.bind(this);
     this.deleteLastPerson = this.deleteLastPerson.bind(this);
@@ -180,6 +183,12 @@ class WrapPillsExample extends Component {
       value,
       isInvalid: invalidInput,
     });
+  }
+
+  clearSelection() {
+    this.setState(prevState => ({
+      selectedPeopleIds: [],
+    }));
   }
 
   deletePerson(idToRemove) {
@@ -210,6 +219,27 @@ class WrapPillsExample extends Component {
   render() {
     const { value, selectedPeopleIds } = this.state;
     const unselectedPeopleIds = filterPeople(people, value, selectedPeopleIds);
+    const isSingle = !!(this.props.index % 2);
+
+    const leftElement = isSingle
+      ? selectedPeopleIds[0] != null && (
+          <XUITextInputSideElement type="avatar">
+            <XUIAvatar
+              imageUrl={people[selectedPeopleIds[0]].avatar}
+              size="small"
+              value={people[selectedPeopleIds[0]].name}
+            />
+          </XUITextInputSideElement>
+        )
+      : undefined;
+    const rightElement =
+      isSingle && !this.props.isDisabled
+        ? selectedPeopleIds[0] != null && (
+            <XUITextInputSideElement type="icon">
+              <XUIIconButton ariaLabel="Clear" icon={crossIcon} onClick={this.clearSelection} />
+            </XUITextInputSideElement>
+          )
+        : undefined;
 
     const dropdownContents =
       unselectedPeopleIds.length === 0 ? (
@@ -253,13 +283,15 @@ class WrapPillsExample extends Component {
         isDisabled={this.props.isDisabled}
         isInputLabelHidden
         isInvalid={this.state.isInvalid}
+        leftElement={leftElement}
         onBackspacePill={this.deleteLastPerson}
         onSearch={this.onSearchChangeHandler}
         openOnFocus
-        pills={this.renderPills(selectedPeopleIds)}
+        pills={(!isSingle && this.renderPills(selectedPeopleIds)) || undefined}
         placeholder={this.props.placeholder}
         ref={this.completer}
-        searchValue={value}
+        rightElement={rightElement}
+        searchValue={isSingle ? selectedPeopleIds[0] && people[selectedPeopleIds[0]].name : value}
       >
         {dropdownContents}
       </XUIEditableTableCellAutocompleter>
@@ -268,11 +300,11 @@ class WrapPillsExample extends Component {
 }
 
 const sampleAutocompleter = (id, width, text) => (
-  <WrapPillsExample index={id} placeholder={text} width={width} />
+  <AutoExample index={id} key={id} placeholder={text} width={width} />
 );
 
 const sampleAutocompleterDisabled = (id, width, text) => (
-  <WrapPillsExample index={id} isDisabled placeholder={text} width={width} />
+  <AutoExample index={id} isDisabled key={id} placeholder={text} width={width} />
 );
 
 const samples = [
@@ -281,6 +313,7 @@ const samples = [
   sampleTextInput,
   sampleSecondary,
   sampleSelect,
+  sampleAutocompleter,
   sampleAutocompleter,
   sampleTextInputDisabled,
   sampleSecondaryDisabled,

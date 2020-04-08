@@ -51,4 +51,25 @@ describe('<XUIEditableTableCellAutocompleter />', () => {
     );
     expect(wrapper.find(XUIAutocompleter).props()).toMatchObject(spreadProps);
   });
+
+  it('fires the onOpen and onClose handlers when the top-level methods are fired', () => {
+    const onOpenMock = jest.fn();
+    const onCloseMock = jest.fn();
+    const wrapper = mount(
+      <table>
+        <tbody>
+          <tr>
+            <XUIEditableTableCellAutocompleter onClose={onCloseMock} onOpen={onOpenMock} onSearch={() => {}} />
+          </tr>
+        </tbody>
+      </table>,
+    );
+
+    const cellAuto = wrapper.find(XUIEditableTableCellAutocompleter);
+    cellAuto.instance().openDropDown();
+    expect(onOpenMock).toHaveBeenCalledTimes(1);
+
+    cellAuto.instance().closeDropDown();
+    expect(onCloseMock).toHaveBeenCalledTimes(1);
+  });
 });

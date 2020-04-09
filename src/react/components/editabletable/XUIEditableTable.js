@@ -7,12 +7,14 @@ import XUIEditableTableContext from './contexts/XUIEditableTableContext';
 
 const XUIEditableTable = ({ caption, children, className, qaHook, rowOptions, ...spreadProps }) => {
   return (
-    <table className={cn(tableName, className)} data-automationid={qaHook} {...spreadProps}>
-      {caption && <caption className={`${tableName}--caption`}>{caption}</caption>}
-      <XUIEditableTableContext.Provider value={{ rowOptions: { ...rowOptions } }}>
-        {children}
-      </XUIEditableTableContext.Provider>
-    </table>
+    <div className={cn(tableName, `${tableName}-responsive`, className)}>
+      <table className={`${tableName}--table`} data-automationid={qaHook} {...spreadProps}>
+        {caption && <caption className={`${tableName}--caption`}>{caption}</caption>}
+        <XUIEditableTableContext.Provider value={{ rowOptions: { ...rowOptions } }}>
+          {children}
+        </XUIEditableTableContext.Provider>
+      </table>
+    </div>
   );
 };
 

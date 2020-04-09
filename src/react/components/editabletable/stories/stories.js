@@ -11,6 +11,7 @@ import {
   XUIEditableTableHead,
   XUIEditableTableHeadingCell,
   XUIEditableTableRow,
+  XUIEditableTableCellReadOnly,
 } from '../../../editabletable';
 import XUIEditableTableBody from '../XUIEditableTableBody';
 import { samples, texts, widths } from './helpers';
@@ -73,9 +74,52 @@ const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
-  const variationMinusStoryDetails = { ...variation };
-
   storiesWithVariations.add(variation.storyTitle, () => {
-    return <XUIEditableTable {...variationMinusStoryDetails} />;
+    const variationMinusStoryDetails = { ...variation };
+    const { columns, hasHeader, rows, renderSmallerWrapper } = variationMinusStoryDetails;
+
+    delete variationMinusStoryDetails.storyKind;
+    delete variationMinusStoryDetails.storyTitle;
+    delete variationMinusStoryDetails.hasHeader;
+    delete variationMinusStoryDetails.renderSmallerWrapper;
+
+    const editableTableComponent = (
+      <XUIEditableTable {...variationMinusStoryDetails}>
+        {hasHeader && (
+          <XUIEditableTableHead>
+            <XUIEditableTableRow removeButtonAriaLabel="Remove row">
+              {Array.from(Array(columns).keys()).map((item, index) => (
+                <XUIEditableTableHeadingCell key={index}>I’m a cell</XUIEditableTableHeadingCell>
+              ))}
+            </XUIEditableTableRow>
+          </XUIEditableTableHead>
+        )}
+        <XUIEditableTableBody>
+          {Array.from(Array(rows).keys()).map((item, index) => (
+            <XUIEditableTableRow
+              key={index}
+              onRemove={() => console.log('remove me')}
+              removeButtonAriaLabel="Remove row"
+            >
+              {Array.from(Array(columns).keys()).map((item, index) => {
+                return (
+                  <XUIEditableTableCellReadOnly id={index} key={index}>
+                    Cell text
+                  </XUIEditableTableCellReadOnly>
+                );
+              })}
+            </XUIEditableTableRow>
+          ))}
+        </XUIEditableTableBody>
+      </XUIEditableTable>
+    );
+
+    const displayComponent = renderSmallerWrapper ? (
+      <div style={{ width: '400px', overflow: 'hidden' }}>{editableTableComponent}</div>
+    ) : (
+      editableTableComponent
+    );
+
+    return displayComponent;
   });
 });

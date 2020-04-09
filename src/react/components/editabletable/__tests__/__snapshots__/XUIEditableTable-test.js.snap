@@ -1,52 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUIEditableTable /> composes the className correctly 1`] = `
-<table
-  className="xui-editabletable test-classname"
+<div
+  className="xui-editabletable xui-editabletable-responsive test-classname"
 >
-  <ContextProvider
-    value={
-      Object {
-        "rowOptions": Object {},
+  <table
+    className="xui-editabletable--table"
+  >
+    <ContextProvider
+      value={
+        Object {
+          "rowOptions": Object {},
+        }
       }
-    }
-  />
-</table>
+    />
+  </table>
+</div>
 `;
 
 exports[`<XUIEditableTable /> render with the caption 1`] = `
-<table
-  className="xui-editabletable"
+<div
+  className="xui-editabletable xui-editabletable-responsive"
 >
-  <caption
-    className="xui-editabletable--caption"
+  <table
+    className="xui-editabletable--table"
   >
-    An editable table
-  </caption>
-  <ContextProvider
-    value={
-      Object {
-        "rowOptions": Object {},
+    <caption
+      className="xui-editabletable--caption"
+    >
+      An editable table
+    </caption>
+    <ContextProvider
+      value={
+        Object {
+          "rowOptions": Object {},
+        }
       }
-    }
-  />
-</table>
+    />
+  </table>
+</div>
 `;
 
 exports[`<XUIEditableTable /> renders correctly 1`] = `
-<table
-  className="xui-editabletable"
+<div
+  className="xui-editabletable xui-editabletable-responsive"
 >
-  <ContextProvider
-    value={
-      Object {
-        "rowOptions": Object {},
-      }
-    }
+  <table
+    className="xui-editabletable--table"
   >
-    <div>
-      XUIEditableTable
-    </div>
-  </ContextProvider>
-</table>
+    <ContextProvider
+      value={
+        Object {
+          "rowOptions": Object {},
+        }
+      }
+    >
+      <div>
+        XUIEditableTable
+      </div>
+    </ContextProvider>
+  </table>
+</div>
 `;

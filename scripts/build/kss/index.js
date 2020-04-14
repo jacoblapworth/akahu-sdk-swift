@@ -7,21 +7,26 @@ const kssConfig = require('./config.json');
 const { succeed, fail } = taskRunnerReturns;
 
 module.exports = ({ skipPostCss = false } = {}) => {
-  return taskRunner(taskSpinner => {
-    return kssTmp().then(() => {
-      const tasks = [kssSass];
+  return taskRunner(async taskSpinner => {
+    await kssTmp();
 
-      if (!skipPostCss) {
-        tasks.push(postcssXui);
-      }
+    const tasks = [kssSass];
 
-      return Promise.all(tasks).then(() => {
-        taskSpinner.info('Built pre-requisites');
-        return kss(kssConfig)
-          .then(succeed)
-          .catch(fail);
-      });
-    });
+    if (!skipPostCss) {
+      tasks.push(postcssXui);
+    }
+
+    await Promise.all(tasks);
+
+    taskSpinner.info('Built pre-requisites');
+
+    try {
+      await kss(kssConfig);
+
+      return succeed();
+    } catch (error) {
+      return fail(error);
+    }
   }, __filename);
 };
 require('make-runnable/custom')({

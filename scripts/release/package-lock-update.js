@@ -11,15 +11,18 @@ const asyncExec = promisify(exec);
 const { succeed, fail } = taskRunnerReturns;
 
 function build() {
-  return taskRunner(taskSpinner => {
+  return taskRunner(async taskSpinner => {
     let execTask = 'npm i';
     if (isWindowsPlatform) {
       execTask = convertExecTaskToWindows(execTask);
     }
     taskSpinner.info(`Executing task: Update package-lock.json`);
-    return Promise.all([asyncExec(execTask, { stdio: [0, 1, 2] })])
-      .then(succeed)
-      .catch(fail);
+    try {
+      await Promise.all([asyncExec(execTask, { stdio: [0, 1, 2] })]);
+      return succeed();
+    } catch (error) {
+      return fail(error);
+    }
   }, __filename);
 }
 

@@ -5,22 +5,21 @@ const path = require('path');
 const { promisify } = require('util');
 const { rootDirectory, createFolderIfNotExists, taskRunnerReturns } = require('../../helpers');
 const writeFileAsync = promisify(fs.writeFile);
+const sassRenderAsync = promisify(sass.render);
 const { succeed, fail } = taskRunnerReturns;
 
-function performCompile(file, taskSpinner) {
-  return new Promise((resolve, reject) =>
-    sass.render(file, (err, result) => {
-      if (err) {
-        console.error(err);
-        taskSpinner.fail('Failed to render sass');
-        reject();
-      }
+async function performCompile(file, taskSpinner) {
+  try {
+    const result = await sassRenderAsync(file);
 
-      writeCompiledSass({ file, result, taskSpinner }).then(() => {
-        resolve({ file, result });
-      });
-    }),
-  );
+    await writeCompiledSass({ file, result, taskSpinner });
+
+    return { file, result };
+  } catch (error) {
+    console.error(error);
+    taskSpinner.fail('Failed to render sass');
+    throw error;
+  }
 }
 
 function writeCompiledSass({ file, result, taskSpinner }) {
@@ -38,12 +37,13 @@ function writeCompiledSass({ file, result, taskSpinner }) {
     });
   }
 
-  filesToWrite = filesToWrite.map(convertedFile => {
-    return writeFileAsync(convertedFile.fileLocation, convertedFile.result)
-      .then(() => {
-        taskSpinner.info(`Created : ${convertedFile.fileLocation}`);
-      })
-      .catch(fail);
+  filesToWrite = filesToWrite.map(async convertedFile => {
+    try {
+      await writeFileAsync(convertedFile.fileLocation, convertedFile.result);
+      taskSpinner.info(`Created : ${convertedFile.fileLocation}`);
+    } catch (error) {
+      return fail(error);
+    }
   });
 
   return Promise.all(filesToWrite);
@@ -54,15 +54,17 @@ function writeCompiledSass({ file, result, taskSpinner }) {
  * @param {Array} files An Array of files to process via the SASS compiler
  * @param {Object} taskSpinner the Task spinner is used to display messages to the user / cli
  */
-function compileSass({ files, taskSpinner, createFolders }) {
+async function compileSass({ files, taskSpinner, createFolders }) {
   const folderPromises = createFolders.map(folder => createFolderIfNotExists(folder));
   const filePromises = files.map(file => performCompile(file, taskSpinner));
 
-  return Promise.all(folderPromises).then(() => {
-    return Promise.all(filePromises)
-      .then(succeed)
-      .catch(fail);
-  });
+  try {
+    await Promise.all(folderPromises);
+    await Promise.all(filePromises);
+    return succeed();
+  } catch (error) {
+    return fail(error);
+  }
 }
 
 module.exports = compileSass;

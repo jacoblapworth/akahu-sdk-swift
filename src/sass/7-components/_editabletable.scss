@@ -5,9 +5,9 @@ $xui-editabletable-shadow-size: $xui-s-standard;
 $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
 
 @mixin xui-editabletablecell {
+  border-top: $xui-border-standard;
   height: $xui-minimum-touch-target;
   padding: 0px;
-  border-top: $xui-border-standard;
 
   &:not(:first-child) {
     border-left: $xui-border-standard;
@@ -24,9 +24,6 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
 
 // Container shadow overlay based on https://codepen.io/evank/pen/wWbRNO
 .#{$ns}-editabletable {
-  border: $xui-border-standard;
-  border-radius: $xui-radius;
-  overflow-x: auto;
   background: /* Shadow covers */ linear-gradient(
       90deg,
       $xui-color-white 30%,
@@ -36,12 +33,15 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
     /* Shadows */
       linear-gradient(90deg, rgba($xui-color-black, 0.2) 0%, rgba($xui-color-black, 0) 100%),
     linear-gradient(270deg, rgba($xui-color-black, 0.2) 0%, rgba($xui-color-black, 0) 100%) 100% 0;
-  background-repeat: no-repeat;
+  background-attachment: local, local, scroll, scroll;
   background-color: $xui-editabletable-bg-color;
+  background-repeat: no-repeat;
   background-size: $xui-editabletable-shadowcover-size 100%,
     $xui-editabletable-shadowcover-size 100%, $xui-editabletable-shadow-size 100%,
     $xui-editabletable-shadow-size 100%;
-  background-attachment: local, local, scroll, scroll;
+  border: $xui-border-standard;
+  border-radius: $xui-radius;
+  overflow-x: auto;
 }
 
 .#{$ns}-editabletable--table {
@@ -52,9 +52,10 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   @include xui-utility-hidden-visually;
 }
 
-.#{$ns}-editabletablehead {
+.#{$ns}-editabletablehead,
+.#{$ns}-editabletablefoot {
   @include xui-heading-small;
-  background-color: rgba(darken($xui-editabletablehead-bg-color, 5%), 0.5);
+  background-color: $xui-editabletablehead-bg-color;
 }
 
 .#{$ns}-editabletableheadingcell {

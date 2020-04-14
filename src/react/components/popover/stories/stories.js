@@ -109,7 +109,7 @@ const Playground = props => {
       }}
     >
       {Array.from(Array(9).keys()).map(i => (
-        <PopoverWithTrigger key={`trigger-with-popover${i}`} {...props} />
+        <PopoverWithTrigger id={i.toString()} key={`trigger-with-popover${i}`} {...props} />
       ))}
     </div>
   );

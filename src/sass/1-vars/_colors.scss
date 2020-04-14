@@ -362,7 +362,7 @@ $xui-dropdown-divider-shadow-color: $xui-color-grey-alpha-6;
 // Editable tables
 
 $xui-editabletable-bg-color: $xui-color-white;
-$xui-editabletablehead-bg-color: $xui-color-grey-8;
+$xui-editabletablehead-bg-color: rgba(darken($xui-color-grey-8, 5%), 0.5);
 
 // Forms
 

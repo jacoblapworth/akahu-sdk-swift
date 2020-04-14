@@ -52,9 +52,10 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   @include xui-utility-hidden-visually;
 }
 
-.#{$ns}-editabletablehead {
+.#{$ns}-editabletablehead,
+.#{$ns}-editabletablefoot {
   @include xui-heading-small;
-  background-color: rgba(darken($xui-editabletablehead-bg-color, 5%), 0.5);
+  background-color: $xui-editabletablehead-bg-color;
 }
 
 .#{$ns}-editabletableheadingcell {

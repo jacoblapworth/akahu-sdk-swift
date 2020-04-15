@@ -29,6 +29,7 @@ function getComponent({
   hasTag,
   navigationIcon,
   secondaryTitle,
+  supplementaryText,
   title,
   ...spreadProps
 }) {
@@ -74,6 +75,7 @@ function getComponent({
         navigationButton={navigationButton}
         qaHook="isolationheader"
         secondary={secondaryTitle}
+        supplementary={supplementaryText}
         tags={tags}
         title={title}
         {...spreadProps}
@@ -87,6 +89,7 @@ storiesWithKnobs.add('Playground', () =>
   getComponent({
     title: text('Title', ''),
     secondaryTitle: text('Secondary title', ''),
+    supplementaryText: text('Supplementary text', ''),
     isPositionFixed: boolean('Is position fixed', false),
     navigationIcon: select('Navigation icon', flattenedIconList, 'cross'),
     actionIcon: select('Action icon', flattenedIconList, 'overflow'),

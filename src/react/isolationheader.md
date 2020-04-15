@@ -17,8 +17,9 @@ import XUIIsolationHeader from '@xero/xui/react/isolationheader';
 import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
 
 const navigationButton = <XUIIconButton icon={cross} ariaLabel="close" />;
-const title = 'Main Title';
-const secondary = 'Secondary Title';
+const title = 'Main title';
+const secondary = 'Secondary title';
+const supplementary = 'Supplementary text';
 const actions = (
   <XUIButton variant="primary" size="small">
     Primary
@@ -29,6 +30,7 @@ const actions = (
   actions={actions}
   navigationButton={navigationButton}
   secondary={secondary}
+  supplementary={supplementary}
   title={title}
 />;
 ```

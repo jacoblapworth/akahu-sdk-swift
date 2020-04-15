@@ -405,6 +405,40 @@ exports[`<XUI PageHeader and BreadcrumbTrail/> renders pageHeader containing XUI
 </header>
 `;
 
+exports[`<XUI PageHeader and BreadcrumbTrail/> renders pageHeader with main title, secondary title, and supplementary text 1`] = `
+<header
+  className="xui-pageheading"
+>
+  <div
+    className="xui-pageheading--content xui-pageheading--content-no-tabs xui-pageheading--content-layout"
+  >
+    <div
+      className="xui-pageheading--leftcontent"
+    >
+      <div
+        className="xui-pageheading--titlewrapper"
+      >
+        <h1
+          className="xui-pageheading--title"
+        >
+          Testing 💩
+        </h1>
+        <div
+          className="xui-pageheading--secondarytitle"
+        >
+          Testing 💩
+        </div>
+        <div
+          className="xui-pageheading--supplementarytext"
+        >
+          And more testing 💩
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+`;
+
 exports[`<XUI PageHeader and BreadcrumbTrail/> renders the simplest pageHeader with no extra settings passed 1`] = `
 <header
   className="xui-pageheading"

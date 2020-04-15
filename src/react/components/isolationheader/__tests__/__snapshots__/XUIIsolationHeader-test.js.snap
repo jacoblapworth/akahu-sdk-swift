@@ -46,7 +46,7 @@ exports[`<XUIIsolationHeader> renders correctly 1`] = `
         </abbr>
       </div>
       <div
-        className="xui-isolationheader--titlewrapper xui-isolationheader--titlewrapper-has-avatar"
+        className="xui-isolationheader--titlewrapper xui-isolationheader--titlewrapper-has-avatar xui-isolationheader--titlewrapper-has-tags"
       >
         <h1
           className="xui-isolationheader--title"
@@ -81,6 +81,11 @@ exports[`<XUIIsolationHeader> renders correctly 1`] = `
               Second tag
             </span>
           </span>
+        </div>
+        <div
+          className="xui-isolationheader--supplementarytext"
+        >
+          My supplementary text
         </div>
       </div>
     </div>

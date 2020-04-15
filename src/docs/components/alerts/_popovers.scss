@@ -1,42 +1,52 @@
 // Popover
 //
-// Teaser: To highlight pertinent features or provide additional helper text.
-//
 // Components: Popover
+//
+// Teaser: To highlight features or provide supportive information without affecting the underlying page layout
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.i0mg8rwa59ob
 //
-// Introduction: Popovers are used to highlight pertinent new features or provide additional helper text without affecting the underlying page layout.
+// Introduction: Popovers are used to highlight features or provide supportive information without affecting the underlying page layout
 //
 // Styleguide: Components.Alerts.Popover
 
 // Best practice
 //
 // Tips:
-// Do: Use an arrow to ensure popovers are pointing to the correct element
-// Warning: Avoid relying on popovers as a crutch for a bad experience
-// Dont: Don't use popovers to provide primary functionality
+// Do: Use popovers for supplemental content
+// Do: Ensure content inside a popover relates to its parent trigger
+// Dont: Don’t use popovers for information that is crucial to a workflow
 //
 // Styleguide: Components.Alerts.Popover.1
 
 // Anatomy
 //
-// ExampleClass: ds-example-narrow ds-example-flush ds-example-transparent
-//
-// To create a popover element, use the following classes.
-// Note that content and layout is dictated entirely by the consumer.
+// The popover consists of 3 parts, the header, body and footer. The popover’s header is used to display a title, subtitle, and close button. The popover body contains the main content of the popover. The popover footer is used to house additional actions.
 //
 // Classes:
 // xui-popover: Base popover class
+// xui-popover-wrapper: Base popover class to provide padding
 // xui-popover-arrow: Modifier to add default top left arrow
+// xui-popover--header: Container for header content
+// xui-popover--title-wrapper: Wrapping container for title element(s)
+// xui-popover--title: Applies styling to title text
+// xui-popover--subtitle: Applies styling to subtitle text
+// xui-popover--body: Container for body content
+// xui-popover--footer: Container for footer content
 //
-// Markup: ./examples/popover/_popover.html
+// Markup: ./examples/popover/_popover-anatomy.html
 //
 // Styleguide: Components.Alerts.Popover.2
 
-// Arrow position
+// Positioning
 //
-// To specify a different position for the arrow element, add an additional `xui-popover-arrow*` modifier.
+// The position of a popover is important to complement the surrounding UI elements. If the popover’s preferred position causes it to go off-screen, then the popover should use the next available position.
+//
+// The React popover component automatically positions the arrow to be centred on its trigger as well as makes sure the popover never renders outside of the viewport. To specify a position for the arrow element in HTML/CSS, you can provide a `xui-popover-arrow*` modifier.
+//
+// Tips:
+// Do: Position the popover in a way that complements other elements on the page
+// Don't: Don’t position the popover such that it covers related content
 //
 // Classes:
 // -topleft: Modifier for a top-left arrow
@@ -52,31 +62,104 @@
 // -leftcenter: Modifier for a left-center arrow
 // -leftbottom: Modifier for a left-bottom arrow
 //
-// Styleguide: Components.Alerts.Popover.2.1
+// Styleguide: Components.Alerts.Popover.3
 
-// Dismissing popovers
+// Size variants
 //
-// ExampleClass: ds-example-narrow ds-example-flush ds-example-transparent
+// Popovers have 3 predefined size variants to cater for different amounts of content displayed inside the component.
 //
-// To dismiss a popover, make sure to either attach an event handler on its trigger, or include internal buttons that toggle visiblity.
-// We recommended using the following [utility class](section-fundamentals-utilities.html#fundamentals-utilities-3) to do this.
+// Tips:
+// Do: Use size variant that is appropriate for the content inside the popover
+//
+// Definitions:
+// Small: 200px wide: `xui-popover-small`
+// Medium: 300px wide: `xui-popover-medium`
+// Large: 400px wide: `xui-popover-large`
+//
+// Markup: ./examples/popover/_popover-size-variants.html
+//
+// Styleguide: Components.Alerts.Popover.4
+
+// Onboarding popover
+//
+// A common use case for popovers is to be surfaced as a part of an onboarding process for introducing users to features on a page. Popovers can also be used to walk users through multiple steps. Eg. A setup flow.
+//
+// Tips:
+// Do: Use an onboarding popover to introduce a user to features or workflows
+// Do: Display the number of steps as a subtitle in the header when using multiple popovers as part of a stepped process
+//
+// Styleguide: Components.Alerts.Popover.5
+
+// Summoning and dismissing
+//
+// Onboarding popovers can be summoned either via an action or automatically when the page loads.
+//
+// Onboarding popovers should not be dismissed while interacting with other elements on the page. This is because content inside the popover may be relevant to completing a task. To dismiss an onboarding popover, a user must directly action this from inside the component.
+//
+// Tips:
+// Do: Summon by clicking on the popover’s trigger
+// Do: Summon on page load
+// Do: Dismiss by clicking an action inside the popover
+// Do: Always provide an action inside an onboarding popover to dismiss it
+// Don't: Onboarding popovers shouldn’t be dismissable by clicking outside the popover or by moving keyboard focus to another element on the page
+// Don't: Users who have previously dismissed a popover that was summoned on page load should not see the same popover when they visit the page again
 //
 // Classes:
 // xui-u-hidden: Modifier to toggle popover visibility
 //
-// Markup: ./examples/popover/_popover-dismissable.html
+// Markup: ./examples/popover/_popover-onboarding.html
 //
-// Styleguide: Components.Alerts.Popover.3
+// Styleguide: Components.Alerts.Popover.5.1
+
+// Supporting information popover
+//
+// Another use case for popovers is to provide supportive information to elements on the page without having an impact on the underlying visual layout. Different to a [tooltip](./section-components-alerts-tooltip.html), popovers can contain more rich content such as links and actions. Tooltips are to be used to display title/meta information.
+//
+// Tips:
+// Do: Use a supporting information popover to provide contextual details without impacting the page layout
+//
+// Styleguide: Components.Alerts.Popover.6
+
+// Summoning and dismissing
+//
+// Unlike onboarding popovers, supportive information popovers should not stay open while the user interacts with other elements on the page.
+//
+// Tips:
+// Do: Summon by clicking on the popover’s trigger
+// Do: Dismiss by clicking on the popover’s trigger again
+// Do: Dismiss by moving keyboard focus to another element on the page
+// Do: Dismiss by clicking anywhere outside the popover
+// Do: Dismiss by clicking an action inside the popover
+//
+// Classes:
+// xui-u-hidden: Modifier to toggle popover visibility
+//
+// Markup: ./examples/popover/_popover-supporting-information.html
+//
+// Styleguide: Components.Alerts.Popover.6.1
+
+// Responsive behaviour
+//
+// When the viewport is narrower than the width of the popover, the class `xui-popover-fullwidth` should be applied and the popover position should move (if not already) to above or below the trigger. This functionality is provided automatically with the React popover component.
+//
+// Classes:
+// xui-popover-fullwidth: Sets the popover `border-radius` value to 0
+//
+// ExampleClass: ds-example-narrow ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/popover/_popover-responsive.html
+//
+// Styleguide: Components.Alerts.Popover.7
 
 // Accessibility
 //
-// At a very minimum, the purpose of a popover should be clearly stated using the `aria-labelledby` and 	`aria-describedby` attributes.
+// Popovers must have an aria-describedby attribute that references the id of the popover body. Popovers with a header must also have an aria-labelledby attribute that references the id of the title. These attributes help assistive technologies to communicate the details of the popover.
 //
-// Additionally, an appropriate role must be defined, and differs for each use case.
-// The `tooltip` [role](https://www.w3.org/TR/wai-aria-1.1/#tooltip) is used for popovers that provide helper text and become visible in response to a mouse or keyboard event.
-// The `dialog` [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role) is used when it is still possible to interact with content outside of the popover while it is being displayed.
+// Popover triggers require an aria-owns attribute that references the id of the popover. This helps assistive technologies understand where the popover is on the page.
 //
-// Styleguide: Components.Alerts.Popover.4
+// Additionally, a dialog role must be applied to poopovers. This helps assistive technologies provide context that the content is displayed in a sub-window on the page.
+//
+// Styleguide: Components.Alerts.Popover.8
 
 // Related links
 //

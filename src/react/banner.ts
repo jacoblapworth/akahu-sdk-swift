@@ -6,6 +6,7 @@ import XUIBannerMessageDetail from './components/banner/XUIBannerMessageDetail';
 
 export {
   XUIBanner as default,
+  XUIBanner,
   XUIBannerAction,
   XUIBannerActions,
   XUIBannerMessage,

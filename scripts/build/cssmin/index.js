@@ -7,30 +7,31 @@ const { succeed, fail } = taskRunnerReturns;
 const files = ['xui', 'xui-base'];
 
 function cssmin() {
-  return taskRunner(
-    taskSpinner =>
-      postcssXui()
-        .then(() => {
-          Promise.all(
-            files.map(file => {
-              return minify(
-                {
-                  input: path.resolve(rootDirectory, '.tmp', `${file}.css`),
-                  output: path.resolve(rootDirectory, 'dist', 'css', `${file}.min.css`),
-                  shorthandCompacting: false,
-                  roundingPrecision: -1,
-                  sourceMap: false,
-                  rebaseTo: path.resolve(rootDirectory, 'dist'),
-                },
-                taskSpinner,
-              );
-            }),
+  return taskRunner(async taskSpinner => {
+    try {
+      await postcssXui();
+
+      await Promise.all(
+        files.map(file => {
+          return minify(
+            {
+              input: path.resolve(rootDirectory, '.tmp', `${file}.css`),
+              output: path.resolve(rootDirectory, 'dist', 'css', `${file}.min.css`),
+              shorthandCompacting: false,
+              roundingPrecision: -1,
+              sourceMap: false,
+              rebaseTo: path.resolve(rootDirectory, 'dist'),
+            },
+            taskSpinner,
           );
-        })
-        .then(succeed)
-        .catch(fail),
-    __filename,
-  );
+        }),
+      );
+
+      return succeed();
+    } catch (error) {
+      return fail(error);
+    }
+  }, __filename);
 }
 
 module.exports = cssmin;

@@ -10,7 +10,7 @@ const asyncExec = promisify(exec);
 const { succeed, fail } = taskRunnerReturns;
 
 function build() {
-  return taskRunner(taskSpinner => {
+  return taskRunner(async taskSpinner => {
     let execTask = './node_modules/.bin/styleguidist build --config=.styleguidist/config.js';
 
     if (isWindowsPlatform) {
@@ -19,9 +19,12 @@ function build() {
 
     taskSpinner.info(`Executing task: ${execTask}`);
     taskSpinner.warn('This task has been known to take a while to complete');
-    return asyncExec(execTask, { stdio: [0, 1, 2] })
-      .then(succeed)
-      .catch(fail);
+    try {
+      await asyncExec(execTask, { stdio: [0, 1, 2] });
+      return succeed();
+    } catch (error) {
+      return fail(error);
+    }
   }, __filename);
 }
 

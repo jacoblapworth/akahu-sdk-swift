@@ -15,31 +15,31 @@ function allFiles() {
     path.resolve(rootDirectory, 'src', 'sass', '_mixins.scss'),
   ];
 
-  return taskRunner(() => {
-    return createFolderIfNotExists(path.resolve(rootDirectory, 'dist', 'tokens'))
-      .then(
-        () =>
-          new Promise(resolve => {
-            resolve(
-              files.forEach(file => {
-                doPostCss({
-                  inputFile: file,
-                  processors: [
-                    require('postcss-easy-import')({
-                      prefix: '_',
-                      extensions: '.scss',
-                    }),
-                    require('postcss-discard-comments'),
-                  ],
-                  syntax: require('postcss-scss'),
-                  dest: path.resolve(rootDirectory, 'dist', 'tokens', 'tokens.scss'),
-                });
+  return taskRunner(async () => {
+    try {
+      await createFolderIfNotExists(path.resolve(rootDirectory, 'dist', 'tokens'));
+
+      await Promise.all(
+        files.map(file =>
+          doPostCss({
+            inputFile: file,
+            processors: [
+              require('postcss-easy-import')({
+                prefix: '_',
+                extensions: '.scss',
               }),
-            );
+              require('postcss-discard-comments'),
+            ],
+            syntax: require('postcss-scss'),
+            dest: path.resolve(rootDirectory, 'dist', 'tokens', 'tokens.scss'),
           }),
-      )
-      .then(succeed)
-      .catch(fail);
+        ),
+      );
+
+      return succeed();
+    } catch (error) {
+      return fail(error);
+    }
   }, __filename);
 }
 

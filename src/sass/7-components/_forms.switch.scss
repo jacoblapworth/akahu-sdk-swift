@@ -80,15 +80,6 @@ $xui-switch-label-padding: $xui-s-xsmall;
   }
 }
 
-// Message positioning
-// =============
-.#{$ns}-switch--message-with-label {
-  .#{$ns}-switch:not(.#{$ns}-switch-reversed) + & {
-    margin-left: $xui-control-size-standard;
-    padding-left: $xui-switch-label-padding;
-  }
-}
-
 // Label spacing
 // =============
 .#{$ns}-switch--label {

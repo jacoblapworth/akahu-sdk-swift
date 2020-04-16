@@ -87,6 +87,14 @@ describe('XUICheckbox', function() {
     expect(visibleLabel).toMatchSnapshot();
   });
 
+  it('should render with validation message', function() {
+    const component = renderer.create(
+      <XUICheckbox isInvalid validationMessage="Test validation" />,
+    );
+
+    expect(component).toMatchSnapshot();
+  });
+
   it('should be unchecked by default', () => {
     const wrapper = mount(<XUICheckbox onChange={NOOP} />);
 

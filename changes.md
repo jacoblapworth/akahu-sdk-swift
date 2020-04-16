@@ -5,8 +5,15 @@
 ## XUI CSS
 
 - `xui-iconwrapper-medium` width and height updated to 32px (from 30px)
+- `xui-styledcheckboxradio-reversed` left padding updated to 15px (from 7px) when it's under `xui-styledcheckboxradio-group`
+- `xui-styledcheckboxradio--label` remove the left margin when reversed
 
 ### Removals
+
+Following classes have been **removed** because left space isn't needed for alignment after the "invalid" icon added:
+
+- `xui-styledcheckboxradio--message-with-label`
+- `xui-switch--message-with-label`
 
 ### Typography changes
 
@@ -27,3 +34,5 @@
 - `NestedDropDown` prop `currentPanel` has been renamed to `currentPanelId`.
 
 ## Other changes
+
+- For accessibility purposes, components with prop `validationMessage` now have an "invalid" icon in the left of the message.

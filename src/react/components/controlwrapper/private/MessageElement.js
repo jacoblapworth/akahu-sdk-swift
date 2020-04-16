@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import XUIIcon from '../../icon/XUIIcon';
+import invalid from '@xero/xui-icon/icons/invalid';
 
 import { ns } from '../../helpers/xuiClassNamespace';
 
@@ -21,7 +23,14 @@ export default class MessageElement extends PureComponent {
         id={wrapperIds.message}
         role="status"
       >
-        {showingErrorMessage ? validationMessage : hintMessage}
+        {showingErrorMessage ? (
+          <>
+            <XUIIcon icon={invalid} />
+            {validationMessage}
+          </>
+        ) : (
+          hintMessage
+        )}
       </div>
     );
     return messageElement || null;

@@ -97,11 +97,6 @@ export default class XUISwitch extends PureComponent {
       calculatedSize && `${baseClass}--control-${calculatedSize}`,
     );
 
-    const messageClasses = cn(
-      `${baseClass}--message`,
-      !isLabelHidden && `${baseClass}--message-with-label`,
-    );
-
     const inputProps = {
       type: 'checkbox',
       role: 'switch',
@@ -121,7 +116,7 @@ export default class XUISwitch extends PureComponent {
         fieldClassName={classes}
         label={children}
         labelClassName={labelClasses}
-        messageClassName={messageClasses}
+        messageClassName={`${baseClass}--message`}
         onClick={onLabelClick}
         rootClassName={wrapperClasses}
         wrapperIds={this.wrapperIds}

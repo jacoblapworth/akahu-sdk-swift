@@ -16,6 +16,10 @@
     display: flex;
     padding: $xui-s-xsmall - 1px; // 1px to make up for border width
 
+    &.#{$ns}-styledcheckboxradio-reversed {
+      padding-left: $xui-s-standard - 1px;
+    }
+
     &:not(.#{$ns}-styledcheckboxradio-reversed) .#{$ns}-styledcheckboxradio--checkbox,
     &:not(.#{$ns}-styledcheckboxradio-reversed) .#{$ns}-styledcheckboxradio--radio {
       @include xui-margin-left(2px);
@@ -41,24 +45,6 @@
   &.#{$ns}-styledcheckboxradio-group-is-invalid .#{$ns}-styledcheckboxradiowrapper,
   &.#{$ns}-styledcheckboxradio-group-is-invalid .#{$ns}-styledcheckboxradio {
     border-color: $xui-validation-invalid-color;
-  }
-}
-
-// Message positioning
-// =============
-.#{$ns}-styledcheckboxradio--message-with-label {
-  @include xui-padding-horizontal($xui-s-xsmall);
-
-  .#{$ns}-styledcheckboxradio-medium & {
-    margin-left: $xui-s-xlarge;
-  }
-
-  .#{$ns}-styledcheckboxradio-small & {
-    margin-left: $xui-s-large;
-  }
-
-  .#{$ns}-styledcheckboxradio-xsmall & {
-    margin-left: $xui-s-standard;
   }
 }
 
@@ -92,8 +78,7 @@
 .#{$ns}-styledcheckboxradio-reversed {
   flex-direction: row-reverse;
   justify-content: space-between;
-
-  + .#{$ns}-styledcheckboxradio--message-with-label {
+  .#{$ns}-styledcheckboxradio--label {
     margin-left: 0;
   }
 }

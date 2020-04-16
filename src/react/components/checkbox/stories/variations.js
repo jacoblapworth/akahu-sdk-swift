@@ -122,6 +122,15 @@ const variations = [
 ];
 
 [false, true].forEach(isInvalid => {
+  isInvalid &&
+    variations.push({
+      storyKind: storiesWithVariationsKindName,
+      storyTitle: `with long validation message`,
+      isInvalid,
+      viewports: desktopPlus320,
+      validationMessage:
+        isInvalid && 'Validation message is longer longer longer here and could wrap wrap wrap',
+    });
   [false, true].forEach(isLabelHidden => {
     [false, true].forEach(isReversed => {
       const isInvalidTitle = isInvalid ? 'with validation error' : 'with hint text';

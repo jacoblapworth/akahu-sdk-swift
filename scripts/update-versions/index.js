@@ -8,7 +8,7 @@ const writeFileAsync = promisify(fs.writeFile);
 const { succeed, fail } = taskRunnerReturns;
 
 const { edgeRegex, githubRegex, umdRegex } = require('./constants');
-const { version } = require(path.resolve(rootDirectory, 'package.json'));
+const { version } = require('../../package.json');
 
 const files = [
   path.resolve(rootDirectory, 'src', 'docs', 'getting-started', '_developers.scss'),
@@ -36,36 +36,32 @@ function writeFile(fileName, processedFile) {
   return writeFileAsync(fileName, processedFile);
 }
 
-function processFiles(files, version, taskSpinner) {
-  return new Promise((resolve, reject) => {
-    let filesProcessed = 0;
-    const filesToProcess = files.length;
-    files.forEach(file => {
-      getFile(file)
-        .then(fileToProcess => processFile(fileToProcess, version))
-        .then(processedFile => writeFile(file, processedFile))
-        .then(() => taskSpinner.info(`File written: ${file}`))
-        .then(() => (filesProcessed += 1))
-        .then(() => {
-          if (filesProcessed === filesToProcess) {
-            resolve(true);
-          }
-        })
-        .catch(err => {
-          reject('Failed to update versions', err);
-        });
+async function processFiles(files, version, taskSpinner) {
+  try {
+    const filePromises = files.map(async file => {
+      const fileToProcess = await getFile(file);
+      const processedFile = await processFile(fileToProcess, version);
+      await writeFile(file, processedFile);
+      await taskSpinner.info(`File written: ${file}`);
     });
-  });
+
+    await Promise.all(filePromises);
+  } catch (error) {
+    throw new Error('Failed to update versions', error);
+  }
+
+  return true;
 }
 
 function updateFiles(newVersion = version) {
-  return taskRunner(taskSpinner => {
+  return taskRunner(async taskSpinner => {
     taskSpinner.info(`Updating to version: ${newVersion}`);
-    return new Promise(resolve => {
-      return resolve(processFiles(files, newVersion, taskSpinner))
-        .then(succeed)
-        .catch(fail);
-    });
+    try {
+      await processFiles(files, newVersion, taskSpinner);
+      return succeed();
+    } catch (error) {
+      fail(error);
+    }
   }, __filename);
 }
 

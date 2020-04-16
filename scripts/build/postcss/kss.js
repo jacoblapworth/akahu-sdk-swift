@@ -8,19 +8,23 @@ const autoprefixer = require('autoprefixer');
 const { succeed, fail } = taskRunnerReturns;
 
 const postcssKss = () => {
-  return taskRunner(taskSpinner => {
-    return sassKss().then(() =>
-      doPostCss(
+  return taskRunner(async taskSpinner => {
+    await sassKss();
+
+    try {
+      await doPostCss(
         {
           inputFile: path.resolve(rootDirectory, 'dist', 'docs', 'style.css'),
           mapFile: path.resolve(rootDirectory, 'dist', 'docs', 'style.css.map'),
           processors: [autoprefixer({ overrideBrowserslist: browsers })],
         },
         taskSpinner,
-      )
-        .then(succeed)
-        .catch(fail),
-    );
+      );
+
+      return succeed();
+    } catch (error) {
+      return fail(error);
+    }
   }, __filename);
 };
 

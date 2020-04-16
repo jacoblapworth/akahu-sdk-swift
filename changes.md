@@ -77,6 +77,37 @@ Several CSS components require a new child element with the `.xui-touchtarget` c
   - XUIOverviewBlock and XUIOverviewSection are now exported from `overviewblock.js`
   - XUIPanel, XUIPanelHeading, XUIPanelFooter, and XUIPanelSection are now exported from `panel.js`
   - XUIColumn and XUIRow **have not** been moved and are still exported from `structural.js`
+- Components exported as default export can now be imported using named import as well as default one. Affected:
+  - XUIAccordion
+  - XUIAutocompleter
+  - XUIAvatar
+  - XUIBanner
+  - XUIButton
+  - XUICapsule
+  - XUICheckbox
+  - XUIDatePicker
+  - XUIDropDown
+  - XUIIcon
+  - XUIIllustration
+  - XUIIsolationHeader
+  - XUILoader
+  - XUIModal
+  - Pisklist
+  - XUIPill
+  - XUIProgressIndicator (progressTypes)
+  - XUIRadio
+  - XUIRange
+  - XUIRolloverCheckbox
+  - SelectBox
+  - XUIStepper
+  - XUISwitch
+  - XUITable
+  - XUITag
+  - XUITextInput
+  - XUIToast
+  - XUIToggle
+  - XUITooltip
+- `XUIPanel` and `XUIPageHeader` received additional default export.
 
 ### Removals
 

@@ -9,6 +9,7 @@ import StatefulPicklist from './components/picklist/StatefulPicklist';
 
 export {
   Picklist as default,
+  Picklist,
   Pickitem,
   StatefulPicklist,
   PicklistHeader,

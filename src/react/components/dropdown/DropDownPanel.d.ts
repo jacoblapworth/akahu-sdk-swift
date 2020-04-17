@@ -88,6 +88,10 @@ export default class DropDownPanel extends React.PureComponent<Props> {
    */
   highlightItem(item: Pickitem, event: React.MouseEvent): void;
   /**
+   * Used to highlight an item immediately after a dropdown opens.
+   */
+  highlightInitial(): void;
+  /**
    * Highlights the first item in the list.
    */
   highlightFirstItem(): void;

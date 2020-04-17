@@ -7,6 +7,110 @@
   position: relative;
 }
 
+.#{$ns}-popover-fullwidth {
+  border-radius: 0;
+}
+
+// xui-popover-wrapper could be combined with xui-popover, however that would cause a breaking change
+.#{$ns}-popover-wrapper {
+  padding: $xui-s-standard $xui-s-large $xui-s-large;
+  z-index: $xui-z-index-contextualtop;
+}
+
+@each $size, $width in $xui-popover-widths {
+  .#{$ns}-popover-#{$size} {
+    max-width: $width;
+  }
+}
+
+.#{$ns}-popover--title-wrapper {
+  flex: 1;
+}
+
+.#{$ns}-popover--title {
+  @include xui-heading-large;
+}
+
+.#{$ns}-popover--subtitle {
+  @include xui-text-muted;
+}
+
+.#{$ns}-popover--header {
+  align-items: flex-start;
+  display: flex;
+  padding-bottom: $xui-s-standard;
+}
+
+.#{$ns}-popover--close {
+  margin-left: $xui-s-standard;
+  margin-right: -$xui-s-xsmall;
+}
+
+.#{$ns}-popover--footer {
+  padding-top: $xui-s-large;
+}
+
+.#{$ns}-popover--arrow-bottom,
+.#{$ns}-popover--arrow-top {
+  height: $xui-s-xsmall;
+  width: $xui-s-xsmall * 2;
+}
+
+.#{$ns}-popover--arrow-left,
+.#{$ns}-popover--arrow-right {
+  height: $xui-s-xsmall * 2;
+  width: $xui-s-xsmall;
+}
+
+.#{$ns}-popover--arrow-bottom,
+.#{$ns}-popover--arrow-left,
+.#{$ns}-popover--arrow-right,
+.#{$ns}-popover--arrow-top {
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: $xui-z-index-contextualtop;
+  }
+}
+
+$horizontal-sides: left, right;
+$vertical-sides: bottom, top;
+
+$adjacent-sides: (
+  top: $horizontal-sides,
+  left: $vertical-sides,
+  bottom: $horizontal-sides,
+  right: $vertical-sides,
+);
+
+$side-transforms: (
+  top: translateY(-1px),
+  left: translateX(-1px),
+  bottom: translateY(1px),
+  right: translateX(1px),
+);
+
+@each $side in join($horizontal-sides, $vertical-sides) {
+  .#{$ns}-popover--arrow-#{$side}:before {
+    border-#{$side}: $xui-s-xsmall solid $xui-popover-arrow-border-color;
+
+    @each $adjacent-side in map-get($adjacent-sides, $side) {
+      border-#{$adjacent-side}: $xui-s-xsmall solid transparent;
+    }
+  }
+
+  .#{$ns}-popover--arrow-#{$side}:after {
+    border-#{$side}: $xui-s-xsmall solid $xui-popover-bg-color;
+
+    @each $adjacent-side in map-get($adjacent-sides, $side) {
+      border-#{$adjacent-side}: $xui-s-xsmall solid transparent;
+    }
+
+    transform: map-get($side-transforms, $side);
+  }
+}
+
 .#{$ns}-popover-arrow:before {
   border-bottom: $xui-s-xsmall solid $xui-popover-arrow-border-color;
   border-left: $xui-s-xsmall solid transparent;

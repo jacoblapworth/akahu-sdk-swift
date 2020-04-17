@@ -28,6 +28,7 @@ const data = {
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
+  caption="List of fruits with color and price per kg"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -53,6 +54,7 @@ const data = {
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
+  caption="List of fruits with color and price per kg"
 >
   <Column body={({ fruit }) => <Cell>{fruit}</Cell>} />
   <Column body={({ color }) => <Cell>{color}</Cell>} />
@@ -89,6 +91,7 @@ const data = {
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
+  caption="List of fruits with color and purchase information"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -154,6 +157,7 @@ const data = {
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
+  caption="List of fruits with color and purchase information"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -215,6 +219,7 @@ const data = {
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
+  caption="List of fruits with color, price per kg and additional notes"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -256,6 +261,7 @@ document.head.appendChild(node);
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
+  caption="List of fruits with color and price per kg"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -283,7 +289,11 @@ node.innerHTML = `
 `;
 document.head.appendChild(node);
 
-<Table data={data} className="xui-table-reactdocs-shadow">
+<Table
+  data={data}
+  className="xui-table-reactdocs-shadow"
+  caption="List of fruits with color and price per kg"
+>
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
   <Column head={<Cell>Color</Cell>} body={({ color }) => <Cell>{color}</Cell>} />
@@ -309,6 +319,7 @@ const data = {
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
+  caption="List of fruits with color and price per kg"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -404,6 +415,7 @@ class Demo extends React.Component {
         checkOneRowLabel="Select row"
         checkAllRowsLabel="Select all rows"
         overflowMenuTitle="More row options"
+        caption="List of fruits with color, price per kg and checkboxes"
       >
         <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -446,6 +458,7 @@ const data = {
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
+  caption="List of fruits with color, price per kg and additional options"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -530,6 +543,7 @@ class Demo extends React.Component {
         checkOneRowLabel="Select row"
         checkAllRowsLabel="Select all rows"
         overflowMenuTitle="More row options"
+        caption="List of fruits with color and purchase information"
       >
         <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -653,6 +667,7 @@ class Demo extends React.Component {
         checkOneRowLabel="Select row"
         checkAllRowsLabel="Select all rows"
         overflowMenuTitle="More row options"
+        caption="List of fruits with tags and sorting"
       >
         <Column
           head={<Cell sortKey="fruit">Fruit</Cell>}
@@ -717,6 +732,7 @@ const Appendage = ({ children }) => (
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
+  caption="List of fruits with color and price per kg"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -745,6 +761,7 @@ const data = {
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
+  caption="List of fruits with color and price per kg"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -786,6 +803,7 @@ const data = {
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
+  caption="List of fruits with color and price per kg"
 >
   <Column
     head={<Cell>Fruit</Cell>}
@@ -848,6 +866,7 @@ const data = {};
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
+  caption="List of fruits with color and price per kg"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 
@@ -878,6 +897,7 @@ const emptyStateComponent = (
   checkOneRowLabel="Select row"
   checkAllRowsLabel="Select all rows"
   overflowMenuTitle="More row options"
+  caption="List of fruits with color and price per kg"
 >
   <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
 

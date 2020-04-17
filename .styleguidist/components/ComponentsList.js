@@ -100,7 +100,7 @@ export function ComponentsListRenderer({ classes, items }) {
               className={cx(heading && classes.heading, {
                 [classes.firstChildItem]: contains(allSections[1].sections, name),
               })}
-              href={`#${slug.split('section-')[1]}`}
+              href={`#${slug}`}
             >
               {name}
             </Link>

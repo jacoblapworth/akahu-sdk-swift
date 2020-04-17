@@ -76,7 +76,6 @@ BodyData.propTypes = {
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
-  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 const TableData = ({ isHead, ...props }) =>
@@ -87,11 +86,5 @@ TableData.propTypes = {
   tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   // Ignore remaining props - we address them in <HeadData /> and <BodyData />.
 };
-
-/* eslint-disable react/default-props-match-prop-types */
-TableData.defaultProps = {
-  tabIndex: 0,
-};
-/* eslint-enable react/default-props-match-prop-types */
 
 export default TableData;

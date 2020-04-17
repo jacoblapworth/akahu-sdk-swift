@@ -93,6 +93,11 @@
             ]
           },
           {
+            "name": "File Uploader",
+            "content": "../src/react/fileUploader.md",
+            "components": "../src/react/components/fileUploader/XUIFileUploader.js"
+          },
+          {
             "name": "Radio",
             "content": "../src/react/radio.md",
             "sections": [
@@ -231,6 +236,30 @@
                 "name": "Banner Message Detail",
                 "components": "../src/react/components/banner/XUIBannerMessageDetail.js",
                 "content": "../src/react/components/banner/banner.messageDetail.md"
+              }
+            ]
+          },
+          {
+            "name": "Popover",
+            "content": "../src/react/popover.md",
+            "sections": [
+              {
+                "components": "../src/react/components/popover/XUIPopover.js"
+              },
+              {
+                "name": "Popover header",
+                "components": "../src/react/components/popover/XUIPopoverHeader.js",
+                "content": "../src/react/popover.header.md"
+              },
+              {
+                "name": "Popover body",
+                "components": "../src/react/components/popover/XUIPopoverBody.js",
+                "content": "../src/react/popover.body.md"
+              },
+              {
+                "name": "Popover footer",
+                "components": "../src/react/components/popover/XUIPopoverFooter.js",
+                "content": "../src/react/popover.footer.md"
               }
             ]
           },

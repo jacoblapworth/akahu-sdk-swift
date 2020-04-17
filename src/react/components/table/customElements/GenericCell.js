@@ -49,8 +49,7 @@ export default class GenericCell extends PureComponent {
           role,
           onClick,
           onKeyDown,
-          // Unlike "rows", generic "cells" are always tab-able.
-          tabIndex: 0,
+          tabIndex: isCellLink ? 0 : undefined,
         }}
       >
         {children}

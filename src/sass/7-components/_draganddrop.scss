@@ -25,25 +25,11 @@
 
 // Dropzones
 .#{$ns}-dropzone {
-  position: relative;
-  &:after {
-    border: 1px dashed $xui-dropzone-border-color;
-    content: '';
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: $xui-z-index-contextualtop;
-  }
+  @include xui-dropzone;
 }
 
 .#{$ns}-dropzone-active {
-  &:after {
-    background: $xui-dropzone-active-background-color;
-    border: 1px dashed $xui-dropzone-active-border-color;
-  }
+  @include xui-dropzone-active;
 }
 
 .#{$ns}-dropzone--panel {

@@ -78,11 +78,14 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   padding-right: $xui-s-standard;
 }
 
-@mixin xui-editabletable--control-default {
+@mixin xui-editabletable--control-default($cell-type) {
   border-color: transparent;
   border-radius: 0;
   &.#{$ns}-textinput-focus {
     border-color: transparent;
+  }
+  &:not(.#{$ns}-#{$cell-type}-is-disabled) {
+    background-color: transparent;
   }
 }
 
@@ -90,7 +93,6 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   &:not(.#{$ns}-textinput-focus):hover,
   &:not(.#{$ns}-textinput-focus):active {
     &:not(.#{$ns}-#{$disable-cell-type}-is-disabled) {
-      background-color: inherit;
       box-shadow: $xui-shadow-border-all;
     }
     border-color: transparent;
@@ -99,14 +101,14 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
 
 .#{$ns}-textinput.#{$ns}-editabletablecelltextinput--control,
 .#{$ns}-editabletablecellautocompleter--control .#{$ns}-textinput {
-  @include xui-editabletable--control-default();
+  @include xui-editabletable--control-default('textinput');
   @include xui-editabletable--input-hover('textinput');
 }
 
 .#{$ns}-editabletablecellselectbox--control {
   .#{$ns}-select--button-no-variant,
   .#{$ns}-select--button:disabled {
-    @include xui-editabletable--control-default();
+    @include xui-editabletable--control-default('button');
     @include xui-editabletable--input-hover('button');
   }
   height: 100%;

@@ -19,37 +19,26 @@ import crossIcon from '@xero/xui-icon/icons/cross-small';
 
 import people from '../../autocompleter/private/people';
 
-const sampleReadOnly = (id, width, text) => (
-  <XUIEditableTableCellReadOnly cellProps={{ width }} id={id} key={id}>
+const sampleReadOnly = (id, width, text, settings) => (
+  <XUIEditableTableCellReadOnly {...settings} cellProps={{ width }} id={id} key={id}>
     {text}
   </XUIEditableTableCellReadOnly>
 );
 
-const sampleTextInput = (id, width, text) => (
+const sampleTextInput = (id, width, text, settings) => (
   <XUIEditableTableCellTextInput
+    {...settings}
     cellProps={{ width }}
     defaultValue={text}
     id={id}
-    isMultiline={!!(id % 2)}
     key={id}
     minRows={1}
   />
 );
 
-const sampleTextInputDisabled = (id, width, text) => (
-  <XUIEditableTableCellTextInput
-    cellProps={{ width }}
-    defaultValue={text}
-    id={id}
-    isDisabled
-    isMultiline={!!(id % 2)}
-    key={id}
-    minRows={1}
-  />
-);
-
-const sampleSecondary = (id, width, text) => (
+const sampleSecondary = (id, width, text, settings) => (
   <XUIEditableTableCellSecondarySearch
+    {...settings}
     cellProps={{ width }}
     id={id}
     key={id}
@@ -63,47 +52,12 @@ const sampleSecondary = (id, width, text) => (
   </XUIEditableTableCellSecondarySearch>
 );
 
-const sampleSecondaryDisabled = (id, width, text) => (
-  <XUIEditableTableCellSecondarySearch
-    cellProps={{ width }}
-    id={id}
-    key={id}
-    onSearch={() => console.log('onSearch fired!')}
-    trigger={<XUIButton isDisabled>{text}</XUIButton>}
-  >
-    <Picklist>
-      <Pickitem id="pi1" primaryElement="Item content" />
-      <Pickitem id="pi2" primaryElement="Item two" />
-    </Picklist>
-  </XUIEditableTableCellSecondarySearch>
-);
-
-const sampleSelect = (id, width, text) => (
+const sampleSelect = (id, width, text, settings) => (
   <XUIEditableTableCellSelectBox
+    {...settings}
     buttonContent={text}
     cellProps={{ width }}
     id={id}
-    key={id}
-    label={text}
-  >
-    <SelectBoxOption id={`${id}_a`} key="a" value="Apple">
-      Apple
-    </SelectBoxOption>
-    <SelectBoxOption id={`${id}_b`} key="b" value="Banana">
-      Banana
-    </SelectBoxOption>
-    <SelectBoxOption id={`${id}_c`} key="c" value="Cucumber">
-      Cucumber
-    </SelectBoxOption>
-  </XUIEditableTableCellSelectBox>
-);
-
-const sampleSelectDisabled = (id, width, text) => (
-  <XUIEditableTableCellSelectBox
-    buttonContent={text}
-    cellProps={{ width }}
-    id={id}
-    isDisabled
     key={id}
     label={text}
   >
@@ -161,7 +115,7 @@ class AutoExample extends Component {
 
     this.state = {
       value: '',
-      selectedPeopleIds: [this.props.index || null],
+      selectedPeopleIds: people[this.props.index] ? [this.props.index] : [],
     };
 
     this.clearSelection = this.clearSelection.bind(this);
@@ -219,7 +173,7 @@ class AutoExample extends Component {
   render() {
     const { value, selectedPeopleIds } = this.state;
     const unselectedPeopleIds = filterPeople(people, value, selectedPeopleIds);
-    const isSingle = !!(this.props.index % 2);
+    const isSingle = this.props.isSingle;
 
     const leftElement = isSingle
       ? selectedPeopleIds[0] != null && (
@@ -299,27 +253,37 @@ class AutoExample extends Component {
   }
 }
 
-const sampleAutocompleter = (id, width, text) => (
-  <AutoExample index={id} key={id} placeholder={text} width={width} />
+const sampleAutocompleter = (id, width, text, settings) => (
+  <AutoExample {...settings} index={id} key={id} placeholder={text} />
 );
 
-const sampleAutocompleterDisabled = (id, width, text) => (
-  <AutoExample index={id} isDisabled key={id} placeholder={text} width={width} />
-);
+const generateCell = ({ cellsCount, cellType, columnIndex, randomiseContent, isDisabled }) => {
+  const cellIndex = cellsCount.toString();
+  const widthIndex = cellsCount % widths.length;
+  const derivedCellType =
+    cellType === 'assorted' ? samples[columnIndex % samples.length] : cellType;
+  const settings = {
+    isDisabled,
+    isMultiline: derivedCellType === 'textInputMultiline',
+    isSingle: derivedCellType === 'autoCompleterSingle',
+  };
+  const text = (randomiseContent && texts[cellsCount % texts.length]) || derivedCellType;
+  const cellGenerator = sampleTypes[derivedCellType];
+  if (cellGenerator) {
+    return cellGenerator(cellIndex, widths[widthIndex], text, settings);
+  }
+};
 
-const samples = [
-  sampleReadOnly,
-  sampleTextInput,
-  sampleTextInput,
-  sampleSecondary,
-  sampleSelect,
-  sampleAutocompleter,
-  sampleAutocompleter,
-  sampleTextInputDisabled,
-  sampleSecondaryDisabled,
-  sampleSelectDisabled,
-  sampleAutocompleterDisabled,
-];
+const sampleTypes = {
+  readOnly: sampleReadOnly,
+  textInput: sampleTextInput,
+  textInputMultiline: sampleTextInput,
+  selectBox: sampleSelect,
+  autoCompleterSingle: sampleAutocompleter,
+  autoCompleterMulti: sampleAutocompleter,
+};
+const samples = Object.keys(sampleTypes);
+
 const texts = [
   'Sample text',
   '.',
@@ -330,4 +294,4 @@ const texts = [
 ];
 const widths = ['auto', '10px', '50px', '100px', '250px', '20%'];
 
-export { samples, texts, widths };
+export default generateCell;

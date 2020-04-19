@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIPopoverBody /> renders without crashing 1`] = `
+<XUIPopoverBody>
+  <div
+    className="xui-popover--body"
+  >
+    XUIPopoverBody
+  </div>
+</XUIPopoverBody>
+`;

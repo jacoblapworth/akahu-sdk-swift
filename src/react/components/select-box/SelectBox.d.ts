@@ -130,4 +130,9 @@ interface Props {
   validationMessage?: React.ReactNode;
 }
 
-export default class SelectBox extends React.Component<Props> {}
+export default class SelectBox extends React.Component<Props> {
+  /**
+   * Check if the DropDown is open
+   */
+  isDropDownOpen(): boolean;
+}

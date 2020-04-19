@@ -58,6 +58,9 @@ Following classes have been **removed** because they don't meet [XUI touch targe
 - Significant changes have been made to the markup and CSS for Page Headers to support an improved responsive experience. Please see the [documentation](https://xui.xero.com/16.0.0/section-components-navigation-page-header.html) for details on the new structure for page headers that have content more complex than a title alone.
 - Isolation Headers have been overhauled to largely match the new structure of Page Headers. Please see the [documentation](https://xui.xero.com/16.0.0/section-components-navigation-isolation-header.html) for details.
 - Updated HTML structure for `Tag` component. Tags will be truncated instead of wrapping its content can't fit available space. When truncated, a tooltip will be added to display full text. Tags also now require a `xui-tagcontent` element to wrap the inner text.
+- Updated HTML structure for `Popover` component.
+  - Added new header, body, and footer sections.
+  - This is not a breaking change so existing popovers will continue to work.
 
 ### Invisible touch targets
 
@@ -108,6 +111,10 @@ Several CSS components require a new child element with the `.xui-touchtarget` c
   - XUIToggle
   - XUITooltip
 - `XUIPanel` and `XUIPageHeader` received additional default export.
+
+### Additions
+
+- `XUIPopover` provides additional information in line with page elements.
 
 ### Removals
 

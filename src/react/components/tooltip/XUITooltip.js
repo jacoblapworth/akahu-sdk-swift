@@ -51,9 +51,8 @@ export default class XUITooltip extends PureComponent {
   };
 
   /**
-   * Hide the tooltip
+   * Handle the animating delay on open/close
    *
-   * @public
    * @param {Number} delay
    * @param {Boolean} isOpening // false for a close action
    * @param {Function} callBack // If provided by the consumer, a function to call on open/close.

@@ -73,7 +73,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
   };
 
   /**
-   * Set the state as not hidden in order to toggle the list open.
+   * Set the state as not hidden in order to open the list
    *
    * @public
    */
@@ -82,7 +82,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
   };
 
   /**
-   * Set the state as hidden in order to toggle the list closed.
+   * Set the state as hidden in order to close the list.
    *
    * @public
    */
@@ -91,7 +91,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
   };
 
   /**
-   * Manually highlight an item in the list for selection.
+   * Highlights a specified item in the list
    *
    * @public
    */
@@ -102,7 +102,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
   };
 
   /**
-   * Manually highlights the first item in the list for selection.
+   * Highlights the first item in the list
    *
    * @public
    */

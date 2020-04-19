@@ -17,17 +17,3 @@ export const defaultCreatePagingContent = (page, pageCount) => ({
   enhanced: `Page ${page} of ${pageCount}`, // $xui-breakpoint-small-down
   simple: `${page} of ${pageCount}`, // $xui-breakpoint-small-up
 });
-
-/**
- * Custom propType validator for checking if a prop is offered when the corresponding `basedProp` is `true`.
- *
- * @param {String} value The name of the corresponding basedProp for checking.
- * @param  {...any} parameters All parameters supplied by propTypes.
- */
-export const checkRequiredProps = (basedProp, ...parameters) => {
-  const [props, propName] = parameters;
-  if (props[basedProp] && typeof props[propName] !== 'string') {
-    return new Error(`${propName} is required when ${basedProp} is true.`);
-  }
-  return null;
-};

@@ -6,7 +6,8 @@ import Paging from './private/Paging';
 import ItemsElement from './private/ItemsElement';
 import useResizeObserver from '../helpers/useResizeObserver';
 
-import { baseClass, checkRequiredProps, defaultPerPageCountOptions } from './private/helpers';
+import { baseClass, defaultPerPageCountOptions } from './private/helpers';
+import checkRequiredProps from '../../helpers/checkRequiredProps';
 
 const XUIPagination = ({
   ariaLabel,
@@ -129,7 +130,7 @@ XUIPagination.propTypes = {
    * ``(from, to, count) => ({  enhanced: `Showing items ${from}-${to} of ${count}`, simple: `Total items: ${count}`, })``
    */
   createCountContent(...parameters) {
-    return checkRequiredProps('showCount', ...parameters);
+    return checkRequiredProps('showCount', 'string', ...parameters);
   },
   /**
    * Function to create both the simple and enhanced version of paging content.
@@ -184,7 +185,7 @@ XUIPagination.propTypes = {
    * Recommended English value: *Items per page*
    */
   perPageContent(...parameters) {
-    return checkRequiredProps('showPerPageCountSelect', ...parameters);
+    return checkRequiredProps('showPerPageCountSelect', 'string', ...parameters);
   },
   /**
    * _Controlled only_: Per page count
@@ -203,7 +204,7 @@ XUIPagination.propTypes = {
    * Recommended English value: *Select a per page count*
    */
   perPageCountSelectLabel(...parameters) {
-    return checkRequiredProps('showPerPageCountSelect', ...parameters);
+    return checkRequiredProps('showPerPageCountSelect', 'string', ...parameters);
   },
   /**
    * Adds aria-label to previous page icon.

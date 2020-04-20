@@ -2,7 +2,7 @@
 
 exports[`<XUIEditableTable /> composes the className correctly 1`] = `
 <div
-  className="xui-editabletable xui-editabletable-responsive test-classname"
+  className="xui-editabletable test-classname xui-editabletable-responsive"
 >
   <table
     className="xui-editabletable--table"

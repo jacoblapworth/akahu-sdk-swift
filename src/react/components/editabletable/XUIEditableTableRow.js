@@ -4,9 +4,8 @@ import cn from 'classnames';
 import trashIcon from '@xero/xui-icon/icons/trash';
 
 import { tableName } from './private/constants';
-import XUIEditableTableCell from './XUIEditableTableCell';
 import XUIEditableTableHeadingCell from './XUIEditableTableHeadingCell';
-import XUIIconButton from './../button/XUIIconButton';
+import XUIEditableTableCellIconButton from './XUIEditableTableCellIconButton';
 import XUIEditableTableContext from './contexts/XUIEditableTableContext';
 import XUIEditableTableHeadContext from './contexts/XUIEditableTableHeadContext';
 
@@ -31,14 +30,12 @@ const XUIEditableTableRow = ({
               (isHeaderRow ? (
                 <XUIEditableTableHeadingCell />
               ) : (
-                <XUIEditableTableCell>
-                  <XUIIconButton
-                    ariaLabel={removeButtonAriaLabel}
-                    icon={trashIcon}
-                    onClick={onRemove}
-                    qaHook={`${qaHook}--button-remove`}
-                  />
-                </XUIEditableTableCell>
+                <XUIEditableTableCellIconButton
+                  ariaLabel={removeButtonAriaLabel}
+                  iconReference={trashIcon}
+                  onClick={onRemove}
+                  qaHook={`${qaHook}--button-remove`}
+                />
               ))
             }
           </XUIEditableTableHeadContext.Consumer>

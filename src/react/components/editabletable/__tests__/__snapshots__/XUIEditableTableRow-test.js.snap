@@ -10,6 +10,133 @@ exports[`<XUIEditableTableRow /> composes the className correctly 1`] = `
 </tr>
 `;
 
+exports[`<XUIEditableTableRow /> removable row renders a remove button for rows in the body 1`] = `
+<XUIEditableTable
+  rowOptions={
+    Object {
+      "isRemovable": true,
+    }
+  }
+>
+  <div
+    className="xui-editabletable xui-editabletable-responsive"
+  >
+    <table
+      className="xui-editabletable--table"
+    >
+      <XUIEditableTableBody>
+        <tbody
+          className="xui-editabletablebody"
+        >
+          <XUIEditableTableRow
+            qaHook="test-row"
+            removeButtonAriaLabel="Remove row"
+          >
+            <tr
+              className="xui-editabletablerow"
+              data-automationid="test-row"
+            >
+              <XUIEditableTableCellIconButton
+                ariaLabel="Remove row"
+                iconReference={
+                  Object {
+                    "height": 14,
+                    "path": "M0 1h3l1-1h3l1 1h3v2H0V1zm1 3h9v9.455c0 .272-.346.545-.692.545H1.692C1.346 14 1 13.727 1 13.455V4zm2 2v6h1V6H3zm2 0v6h1V6H5zm2 0v6h1V6H7z",
+                    "width": 11,
+                  }
+                }
+                qaHook="test-row--button-remove"
+              >
+                <XUIEditableTableCell
+                  className="xui-editabletablecelliconbutton"
+                >
+                  <td
+                    className="xui-editabletablecell xui-editabletablecelliconbutton"
+                  >
+                    <XUIIconButton
+                      ariaLabel="Remove row"
+                      icon={
+                        Object {
+                          "height": 14,
+                          "path": "M0 1h3l1-1h3l1 1h3v2H0V1zm1 3h9v9.455c0 .272-.346.545-.692.545H1.692C1.346 14 1 13.727 1 13.455V4zm2 2v6h1V6H3zm2 0v6h1V6H5zm2 0v6h1V6H7z",
+                          "width": 11,
+                        }
+                      }
+                      isDisabled={false}
+                      isExternalLink={false}
+                      isLink={false}
+                      qaHook="test-row--button-remove"
+                      tabIndex={0}
+                      type="button"
+                    >
+                      <XUIButton
+                        aria-label="Remove row"
+                        className="xui-button-icon-medium xui-button-icon"
+                        fullWidth="never"
+                        isDisabled={false}
+                        isExternalLink={false}
+                        isGrouped={false}
+                        isLink={false}
+                        isLoading={false}
+                        qaHook="test-row--button-remove"
+                        retainLayout={true}
+                        tabIndex={0}
+                        type="button"
+                        variant="unstyled"
+                      >
+                        <button
+                          aria-label="Remove row"
+                          className="xui-button xui-button-icon-medium xui-button-icon"
+                          data-automationid="test-row--button-remove"
+                          disabled={false}
+                          onClick={[Function]}
+                          tabIndex={0}
+                          type="button"
+                        >
+                          <XUIIcon
+                            icon={
+                              Object {
+                                "height": 14,
+                                "path": "M0 1h3l1-1h3l1 1h3v2H0V1zm1 3h9v9.455c0 .272-.346.545-.692.545H1.692C1.346 14 1 13.727 1 13.455V4zm2 2v6h1V6H3zm2 0v6h1V6H5zm2 0v6h1V6H7z",
+                                "width": 11,
+                              }
+                            }
+                            role="presentation"
+                            size="medium"
+                          >
+                            <svg
+                              className="xui-icon"
+                              focusable="false"
+                              height={14}
+                              viewBox="0 0 11 14"
+                              width={11}
+                            >
+                              <path
+                                d="M0 1h3l1-1h3l1 1h3v2H0V1zm1 3h9v9.455c0 .272-.346.545-.692.545H1.692C1.346 14 1 13.727 1 13.455V4zm2 2v6h1V6H3zm2 0v6h1V6H5zm2 0v6h1V6H7z"
+                                role="presentation"
+                              />
+                            </svg>
+                          </XUIIcon>
+                          <XUITouchTarget>
+                            <div
+                              className="xui-touchtarget"
+                            />
+                          </XUITouchTarget>
+                        </button>
+                      </XUIButton>
+                    </XUIIconButton>
+                  </td>
+                </XUIEditableTableCell>
+              </XUIEditableTableCellIconButton>
+            </tr>
+          </XUIEditableTableRow>
+        </tbody>
+      </XUIEditableTableBody>
+    </table>
+  </div>
+</XUIEditableTable>
+`;
+
 exports[`<XUIEditableTableRow /> renders correctly 1`] = `
 <tr
   className="xui-editabletablerow"

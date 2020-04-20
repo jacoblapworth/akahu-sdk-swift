@@ -5,7 +5,6 @@ $xui-editabletable-shadow-size: $xui-s-standard;
 $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
 
 @mixin xui-editabletablecell {
-  border-top: $xui-border-standard;
   height: $xui-minimum-touch-target;
   padding: 0px;
 
@@ -42,6 +41,14 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   border: $xui-border-standard;
   border-radius: $xui-radius;
   overflow-x: auto;
+
+  &:not(.#{$ns}-editabletable-responsive) {
+    display: table;
+  }
+}
+
+.#{$ns}-editabletable-responsive {
+  display: grid;
 }
 
 .#{$ns}-editabletable--table {
@@ -64,12 +71,28 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   padding-right: $xui-s-standard;
 }
 
+.#{$ns}-editabletablehead {
+  .#{$ns}-editabletableheadingcell {
+    border-bottom: $xui-border-standard;
+  }
+}
+
+.#{$ns}-editabletablefoot {
+  .#{$ns}-editabletableheadingcell {
+    border-top: $xui-border-standard;
+  }
+}
+
 .#{$ns}-editabletableheadingcell-leftaligned {
   text-align: left;
 }
 
 .#{$ns}-editabletablecell {
   @include xui-editabletablecell;
+}
+
+.#{$ns}-editabletablecelliconbutton {
+  width: $xui-icon-large;
 }
 
 .#{$ns}-editabletablecellreadonly {

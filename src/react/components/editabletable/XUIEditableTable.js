@@ -5,9 +5,17 @@ import cn from 'classnames';
 import { tableName } from './private/constants';
 import XUIEditableTableContext from './contexts/XUIEditableTableContext';
 
-const XUIEditableTable = ({ caption, children, className, qaHook, rowOptions, ...spreadProps }) => {
+const XUIEditableTable = ({
+  caption,
+  children,
+  className,
+  qaHook,
+  rowOptions,
+  isContentWidth,
+  ...spreadProps
+}) => {
   return (
-    <div className={cn(tableName, `${tableName}-responsive`, className)}>
+    <div className={cn(tableName, className, !isContentWidth && `${tableName}-responsive`)}>
       <table className={`${tableName}--table`} data-automationid={qaHook} {...spreadProps}>
         {caption && <caption className={`${tableName}--caption`}>{caption}</caption>}
         <XUIEditableTableContext.Provider value={{ rowOptions: { ...rowOptions } }}>
@@ -28,6 +36,7 @@ XUIEditableTable.propTypes = {
   className: PropTypes.string,
   qaHook: PropTypes.string,
   rowOptions: PropTypes.shape({ isRemovable: PropTypes.bool }),
+  isContentWidth: PropTypes.bool,
 };
 
 export default XUIEditableTable;

@@ -37,8 +37,8 @@ describe('<XUIEditableTableRow />', () => {
         </XUIEditableTable>,
       );
 
-      // Assert
-      expect(wrapper.find('[data-automationid="test-row--button-remove"]').length).toBe(1);
+      // Compare
+      expect(toJson(wrapper)).toMatchSnapshot();
     });
 
     it('renders a blank table cell for rows in the head', () => {

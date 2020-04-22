@@ -297,6 +297,7 @@ exports[`<XUI PageHeader and BreadcrumbTrail/> renders pageHeader and breadcrumb
       >
         <h1
           className="xui-pageheading--title"
+          data-automationid="qaHook--title"
         >
           Test
         </h1>

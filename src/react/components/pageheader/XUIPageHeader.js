@@ -67,10 +67,28 @@ export default class XUIPageHeader extends PureComponent {
       <div
         className={cn(`${baseClass}--titlewrapper`, tags && `${baseClass}--titlewrapper-has-tags`)}
       >
-        {title && <h1 className={`${baseClass}--title`}>{title}</h1>}
-        {secondary && <div className={`${baseClass}--secondarytitle`}>{secondary}</div>}
+        {title && (
+          <h1 className={`${baseClass}--title`} data-automationid={qaHook && `${qaHook}--title`}>
+            {title}
+          </h1>
+        )}
+        {secondary && (
+          <div
+            className={`${baseClass}--secondarytitle`}
+            data-automationid={qaHook && `${qaHook}--secondarytitle`}
+          >
+            {secondary}
+          </div>
+        )}
         {tags && <div className={`${baseClass}--tags`}>{tags}</div>}
-        {supplementary && <div className={`${baseClass}--supplementarytext`}>{supplementary}</div>}
+        {supplementary && (
+          <div
+            className={`${baseClass}--supplementarytext`}
+            data-automationid={qaHook && `${qaHook}--supplementarytext`}
+          >
+            {supplementary}
+          </div>
+        )}
       </div>
     );
     const leftContent = (titleTags || clonedBreadcrumb) && (

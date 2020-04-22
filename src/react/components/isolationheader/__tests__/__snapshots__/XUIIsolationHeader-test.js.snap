@@ -50,11 +50,13 @@ exports[`<XUIIsolationHeader> renders correctly 1`] = `
       >
         <h1
           className="xui-isolationheader--title"
+          data-automationid="qaHook--title"
         >
           Main title
         </h1>
         <div
           className="xui-isolationheader--secondarytitle"
+          data-automationid="qaHook--secondarytitle"
         >
           My secondary title
         </div>
@@ -84,6 +86,7 @@ exports[`<XUIIsolationHeader> renders correctly 1`] = `
         </div>
         <div
           className="xui-isolationheader--supplementarytext"
+          data-automationid="qaHook--supplementarytext"
         >
           My supplementary text
         </div>

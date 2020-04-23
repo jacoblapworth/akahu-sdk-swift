@@ -8,8 +8,19 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'is Unchecked hover state',
+    hoverSelector: '.xui-styledcheckboxradio--input',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'is Checked',
     isDefaultChecked: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'is Checked hover state',
+    isDefaultChecked: true,
+    hoverSelector: '.xui-styledcheckboxradio--input',
   },
   {
     storyKind: storiesWithVariationsKindName,

@@ -155,12 +155,11 @@
 
   &:hover + .#{$ns}-iconwrapper {
     .#{$ns}-styledcheckboxradio--main {
-      fill: $xui-checkboxradio-hover-bg-color;
       stroke: $xui-control-hover-border-color;
     }
   }
 
-  &:focus:not(:hover) + .#{$ns}-iconwrapper {
+  &:focus + .#{$ns}-iconwrapper {
     // Focus layer to match box-shadow on standard HTML inputs ($xui-shadow-focus)
     // TODO: Remove focus layer and use CSS filters on main layer instead
     // 			 At time of commit (27 May 2016) CSS filters lack sufficient browser support
@@ -169,7 +168,9 @@
       opacity: 1; // Show focus
       stroke: $xui-checkboxradio-focus-stroke;
     }
+  }
 
+  &:focus:not(:checked) + .#{$ns}-iconwrapper {
     .#{$ns}-styledcheckboxradio--main {
       stroke: $xui-control-hover-border-color;
     }
@@ -182,7 +183,6 @@
     }
 
     .#{$ns}-styledcheckboxradio--main {
-      fill: $xui-checkboxradio-active-bg-color;
       stroke: $xui-checkboxradio-active-border-color;
     }
   }
@@ -278,11 +278,6 @@
   &:hover + .#{$ns}-styledcheckboxradio--radio {
     border-color: $xui-checkboxradio-hover-border-color;
   }
-  &:hover + .#{$ns}-styledcheckboxradio--radio {
-    &:after {
-      background-color: $xui-checkboxradio-hover-bg-color;
-    }
-  }
   &:focus + .#{$ns}-styledcheckboxradio--checkbox,
   &:focus + .#{$ns}-styledcheckboxradio--radio {
     box-shadow: $xui-shadow-focus;
@@ -290,11 +285,6 @@
   &:active + .#{$ns}-styledcheckboxradio--checkbox,
   &:active + .#{$ns}-styledcheckboxradio--radio {
     border-color: $xui-checkboxradio-active-border-color;
-  }
-  &:active + .#{$ns}-styledcheckboxradio--radio {
-    &:after {
-      background-color: $xui-checkboxradio-active-bg-color;
-    }
   }
   &:checked,
   &:indeterminate {
@@ -327,17 +317,13 @@
     &.#{$ns}-styledcheckboxradio--radio-xsmall:after {
       border-width: $xui-s-2xsmall;
     }
-    &:hover {
-      & + .#{$ns}-styledcheckboxradio--radio {
-        background-color: $xui-checkboxradio-active-bg-color;
-        border-color: $xui-checkboxradio-checked-hover-bg-color;
-      }
+    &:hover,
+    &:hover:after {
+      border-color: $xui-checkboxradio-checked-hover-bg-color;
     }
-    &:active {
-      & + .#{$ns}-styledcheckboxradio--radio {
-        background-color: $xui-checkboxradio-active-bg-color;
-        border-color: $xui-checkboxradio-checked-active-bg-color;
-      }
+    &:active,
+    &:active:after {
+      border-color: $xui-checkboxradio-checked-active-bg-color;
     }
   }
   &:checked:not(:disabled) + .#{$ns}-styledcheckboxradio--checkbox:after {

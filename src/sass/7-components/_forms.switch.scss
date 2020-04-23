@@ -36,6 +36,12 @@ $xui-switch-label-padding: $xui-s-xsmall;
   user-select: none;
   vertical-align: middle;
 
+  &:hover {
+    background-color: $xui-switch-hover-bg-color;
+  }
+  &:active {
+    background-color: $xui-switch-active-bg-color;
+  }
   &::before {
     background-color: $xui-switch-check-bg-color;
     border-radius: $xui-radius-circle;
@@ -72,6 +78,12 @@ $xui-switch-label-padding: $xui-s-xsmall;
     background: $xui-switch-checked-bg-color;
     .#{$ns}-switch-is-disabled & {
       background: $xui-switch-checked-disabled-bg-color;
+    }
+    &:hover {
+      background-color: $xui-switch-checked-hover-bg-color;
+    }
+    &:active {
+      background-color: $xui-switch-checked-active-bg-color;
     }
     &::before {
       left: auto;

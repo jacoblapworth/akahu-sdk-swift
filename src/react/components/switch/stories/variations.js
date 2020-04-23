@@ -10,10 +10,23 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'is Unchecked hover state',
+    isLabelHidden: true,
+    hoverSelector: '.xui-switch--control',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'is Checked and reversed',
     isChecked: true,
     isDisabled: false,
     isReversed: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'is Checked hover state',
+    isChecked: true,
+    isLabelHidden: true,
+    hoverSelector: '.xui-switch--control',
   },
   {
     storyKind: storiesWithVariationsKindName,

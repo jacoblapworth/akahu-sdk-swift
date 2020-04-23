@@ -421,6 +421,12 @@ $xui-switch-checked-bg-color: $xui-color-blue;
 $xui-switch-disabled-bg-color: $xui-color-grey-alpha-6;
 $xui-switch-checked-disabled-bg-color: $xui-color-blue-xlight;
 
+$xui-switch-hover-bg-color: mix($xui-color-grey-1, $xui-color-grey-alpha-4, 10%);
+$xui-switch-active-bg-color: mix($xui-color-grey-1, $xui-color-grey-alpha-4, 20%);
+
+$xui-switch-checked-hover-bg-color: mix($xui-color-grey-1, $xui-color-blue, 10%);
+$xui-switch-checked-active-bg-color: mix($xui-color-grey-1, $xui-color-blue, 20%);
+
 // Loader
 
 $xui-loader-color: $xui-color-grey-alpha-3;

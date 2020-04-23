@@ -18,9 +18,22 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'unchecked hover state',
+    isLabelHidden: true,
+    hoverSelector: '.xui-styledcheckboxradio--input',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'checked',
     labelText: 'Checked Example',
     isDefaultChecked: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'checked hover state',
+    isDefaultChecked: true,
+    isLabelHidden: true,
+    hoverSelector: '.xui-styledcheckboxradio--input',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -73,6 +86,29 @@ const variations = [
     storyTitle: 'with an icon',
     labelText: 'Icon Example',
     iconMain: starIcon,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with an icon hover state',
+    labelText: 'Icon Example',
+    iconMain: starIcon,
+    hoverSelector: '.xui-styledcheckboxradio--input',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with an checked icon',
+    labelText: 'Icon Example',
+    isDefaultChecked: true,
+    iconMain: starIcon,
+    hoverSelector: '.xui-styledcheckboxradio--input',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with an checked icon hover state',
+    labelText: 'Icon Example',
+    isDefaultChecked: true,
+    iconMain: starIcon,
+    hoverSelector: '.xui-styledcheckboxradio--input',
   },
   {
     storyKind: storiesWithVariationsKindName,

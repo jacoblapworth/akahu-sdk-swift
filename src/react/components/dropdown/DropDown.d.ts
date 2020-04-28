@@ -147,5 +147,5 @@ export default class DropDown extends React.PureComponent<Props> {
    * Fired when either the enter key or space bar is pressed and calls onclick of the menu item
    * before closing the list.
    */
-  selectHighlighted(item: Pickitem): void;
+  selectHighlighted(): void;
 }

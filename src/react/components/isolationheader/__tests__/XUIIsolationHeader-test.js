@@ -47,6 +47,7 @@ describe('<XUIIsolationHeader>', () => {
         navigationButton={navigationButton}
         qaHook="qaHook"
         secondary="My secondary title"
+        supplementary="My supplementary text"
         tags={tags}
         title="Main title"
       >

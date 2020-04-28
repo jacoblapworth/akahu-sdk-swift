@@ -100,6 +100,7 @@ storiesWithKnobs.add('Playground', () => {
   const showActions = boolean('include actions?', false);
   const showBreadcrumb = boolean('include breadcrumb?', false);
   const showSecondary = boolean('include secondary?', false);
+  const showSupplementary = boolean('include supplementary?', false);
   const showTags = boolean('include tags?', false);
   const bcSwapPoint = select(
     'breadcrumb swap point',
@@ -128,6 +129,7 @@ storiesWithKnobs.add('Playground', () => {
       }
       hasLayout={boolean('hasLayout?', true)}
       secondary={showSecondary ? 'Secondary content here' : ''}
+      supplementary={showSupplementary ? 'Supplementary content here' : ''}
       tabs={showTabs ? exampleTabs(tabsSwapPoint) : undefined}
       tags={showTags ? sampleTags : undefined}
       title={text('Title text (if any)', 'Title goes here')}
@@ -158,6 +160,9 @@ variations.forEach(baseVariation => {
     const sampleSecondary = longContent
       ? 'Longer secondary title would go Longer secondary title would go Longer secondary title would go here'
       : 'Secondary text for testing';
+    const sampleSupplementary = longContent
+      ? 'Longer supplementary text would go Longer supplementary text would go Longer supplementary text would go here'
+      : 'Supplementary text for testing';
 
     variation.breadcrumb = variation.breadcrumb && (
       <XUIBreadcrumbTrail
@@ -172,6 +177,9 @@ variations.forEach(baseVariation => {
     variation.secondary =
       variation.secondary &&
       (typeof variation.secondary === 'string' ? variation.secondary : sampleSecondary);
+    variation.supplementary =
+      variation.supplementary &&
+      (typeof variation.supplementary === 'string' ? variation.supplementary : sampleSupplementary);
 
     if (variation.tags) {
       variation.tags = [

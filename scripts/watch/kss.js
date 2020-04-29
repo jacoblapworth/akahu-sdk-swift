@@ -18,11 +18,12 @@ gaze(watchPaths, (err, watcher) => {
   logTaskTitle(__filename);
 
   // On changed/added/deleted
-  watcher.on('all', (event, filepath) => {
+  watcher.on('all', async (event, filepath) => {
     if (filepath === '') {
       return;
     }
 
-    buildKss().then(() => lrserver.changed({ body: { files: [filepath] } }));
+    await buildKss();
+    lrserver.changed({ body: { files: [filepath] } });
   });
 });

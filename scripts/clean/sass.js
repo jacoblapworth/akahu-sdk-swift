@@ -12,13 +12,14 @@ const rimrafAsync = promisify(rimraf);
 const sassDirectory = path.resolve(rootDirectory, 'sass');
 
 function cleanCss() {
-  return taskRunner(
-    () =>
-      rimrafAsync(sassDirectory)
-        .then(() => ({ stdout: true }))
-        .catch(err => ({ stderr: err })),
-    __filename,
-  );
+  return taskRunner(async () => {
+    try {
+      await rimrafAsync(sassDirectory);
+      return { stdout: true };
+    } catch (err) {
+      return { stderr: err };
+    }
+  }, __filename);
 }
 
 module.exports = cleanCss;

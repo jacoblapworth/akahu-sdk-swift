@@ -4,11 +4,17 @@ const { taskRunner, taskRunnerReturns } = require('../helpers');
 const { succeed, fail } = taskRunnerReturns;
 
 function build({ skipPostCss = false } = {}) {
-  return taskRunner(() => {
-    return buildKss()
-      .then(() => (!skipPostCss && postcssKss()) || true)
-      .then(succeed)
-      .catch(fail);
+  return taskRunner(async () => {
+    try {
+      await buildKss();
+      if (!skipPostCss) {
+        await postcssKss();
+      }
+
+      return succeed();
+    } catch (error) {
+      return fail(error);
+    }
   }, __filename);
 }
 

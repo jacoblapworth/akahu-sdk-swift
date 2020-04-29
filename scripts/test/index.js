@@ -17,7 +17,7 @@ const tests = {
 
 const isRunningFromNPM = process.env.npm_config_argv != null;
 
-function testTask(...args) {
+async function testTask(...args) {
   if (args.length < 1) {
     if (isRunningFromNPM) {
       console.log(
@@ -29,54 +29,53 @@ function testTask(...args) {
     jest();
   } else {
     const { i, u } = args[0];
-    if (i) {
-      console.log(`\n\n${chalk.bold('Interactive mode enabled')}\n\n`);
-
-      inquirer
-        .prompt([
-          {
-            type: 'list',
-            message: 'Pick a test to run',
-            name: 'which-test',
-            choices: [
-              {
-                name: 'Visual Regression',
-                value: 'visual',
-              },
-              {
-                name: 'Code Coverage',
-                value: 'coverage',
-              },
-              {
-                name: 'Jest',
-                value: 'jest',
-              },
-              {
-                name: 'Jest for CI',
-                value: 'ci',
-              },
-              {
-                name: 'Update snapshots',
-                value: 'updateSnaps',
-              },
-              {
-                name: 'Approve Visual Changes',
-                value: 'visualApprove',
-              },
-              {
-                name: 'Watch files for changes',
-                value: 'watchTest',
-              },
-            ],
-          },
-        ])
-        .then(answers => {
-          tests[answers['which-test']] && tests[answers['which-test']]();
-        });
-    }
 
     if (u) {
       tests.updateSnaps();
+    }
+
+    if (i) {
+      console.log(`\n\n${chalk.bold('Interactive mode enabled')}\n\n`);
+
+      const answers = await inquirer.prompt([
+        {
+          type: 'list',
+          message: 'Pick a test to run',
+          name: 'which-test',
+          choices: [
+            {
+              name: 'Visual Regression',
+              value: 'visual',
+            },
+            {
+              name: 'Code Coverage',
+              value: 'coverage',
+            },
+            {
+              name: 'Jest',
+              value: 'jest',
+            },
+            {
+              name: 'Jest for CI',
+              value: 'ci',
+            },
+            {
+              name: 'Update snapshots',
+              value: 'updateSnaps',
+            },
+            {
+              name: 'Approve Visual Changes',
+              value: 'visualApprove',
+            },
+            {
+              name: 'Watch files for changes',
+              value: 'watchTest',
+            },
+          ],
+        },
+      ]);
+
+      tests[answers['which-test']] && tests[answers['which-test']]();
     }
   }
 }

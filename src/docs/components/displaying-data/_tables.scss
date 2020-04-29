@@ -12,11 +12,12 @@
 
 // Anatomy
 //
-// Tables can be broken into various semantic chunks *(Head, Body, Row and Cell)* each with their own set of class permutations that can compose a broad set of layout compositions.
+// Tables can be broken into various semantic chunks *(Caption, Head, Body, Row and Cell)* each with their own set of class permutations that can compose a broad set of layout compositions.
 // We recommend using the **XUI React** Table component to easily create layout compositions and more advanced table functionality.
 //
 // Classes:
 // xui-table: Apply to table
+// xui-table--caption: Apply to an optional caption element, which will be visually hidden but accessible for screen readers
 // xui-table--row: Apply to each row, including headers
 // xui-table--cell: Apply to each individual cell, including headers
 //

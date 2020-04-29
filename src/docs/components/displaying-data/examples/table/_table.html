@@ -1,21 +1,24 @@
 <div class="xui-table xui-panel xui-table-hasheader">
-  <div class="xui-table-wrapper">
+  <div class="xui-table-wrapper" aria-labelledby="abc">
     <table class="xui-table-element">
+      <caption class="xui-table--caption" id="abc">
+        List of fruits with color and price per kg
+      </caption>
       <thead class="xui-table--head">
         <tr class="xui-table--row xui-text-align-left">
-          <th class="xui-table--cell xui-heading-separator xui-table--cell-first" tabindex="0">
+          <th class="xui-table--cell xui-heading-separator xui-table--cell-first" scope="col">
             <span>Fruit</span>
           </th>
-          <th class="xui-table--cell xui-heading-separator xui-table--cell-second" tabindex="0">
+          <th class="xui-table--cell xui-heading-separator xui-table--cell-second" scope="col">
             <span>Color</span>
           </th>
           <th
             class="xui-table--cell xui-heading-separator xui-table--cell-secondtolast"
-            tabindex="0"
+            scope="col"
           >
             <span>Inventory</span>
           </th>
-          <th class="xui-table--cell xui-heading-separator xui-table--cell-last" tabindex="0">
+          <th class="xui-table--cell xui-heading-separator xui-table--cell-last" scope="col">
             <span>Price</span>
           </th>
         </tr>

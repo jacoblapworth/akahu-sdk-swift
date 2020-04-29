@@ -204,7 +204,7 @@ class DropDownPanel extends PureComponent {
   }
 
   /**
-   * Determine if the currently focused DOM node a child of this component.
+   * Determine if the currently focused DOM node is a child of this component.
    *
    * @public
    * @returns {Boolean}

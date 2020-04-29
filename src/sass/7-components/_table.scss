@@ -94,6 +94,10 @@ $xui-table-z-alert: 4;
   table-layout: fixed;
 }
 
+.#{$ns}-table--caption {
+  @include xui-utility-hidden-visually;
+}
+
 .#{$ns}-table--row {
   background: $xui-table-bg-color;
   transition: {

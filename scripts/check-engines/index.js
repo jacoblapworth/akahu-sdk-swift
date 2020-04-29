@@ -5,10 +5,13 @@ const checkEnginesAsync = promisify(checkEngines);
 const { succeed, fail } = taskRunnerReturns;
 
 function runCheckEngines() {
-  return taskRunner(() => {
-    return checkEnginesAsync()
-      .then(succeed)
-      .catch(fail);
+  return taskRunner(async () => {
+    try {
+      await checkEnginesAsync();
+      return succeed();
+    } catch (error) {
+      return fail(error);
+    }
   }, __filename);
 }
 

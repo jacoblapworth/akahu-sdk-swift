@@ -73,4 +73,9 @@ interface Props {
   size?: keyof typeof modalSizes;
 }
 
-export default class XUIModal extends React.Component<Props> {}
+export default class XUIModal extends React.Component<Props> {
+  /**
+   * Calculate and set the distance of the modal relative to the top.
+   */
+  calcOffsetTop(): void;
+}

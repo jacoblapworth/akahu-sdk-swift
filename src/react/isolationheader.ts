@@ -1,3 +1,3 @@
 import XUIIsolationHeader from './components/isolationheader/XUIIsolationHeader';
 
-export default XUIIsolationHeader;
+export { XUIIsolationHeader as default, XUIIsolationHeader };

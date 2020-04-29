@@ -5,6 +5,11 @@ import { Props as PickitemProps } from '../picklist/Pickitem';
 
 interface BaseProps {
   /**
+   * A non-visible description of the table for accessibility purposes. Particularly useful
+   * for scrollable tables, to help screenreaders understand the scrollable element.
+   */
+  caption?: string;
+  /**
    * The Column component(s) that will appear in the table layout.
    */
   children: React.ReactNode;

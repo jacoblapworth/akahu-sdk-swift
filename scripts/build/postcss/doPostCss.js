@@ -7,27 +7,28 @@ const readFileAsync = promisify(fs.readFile);
 const writeFileAsync = promisify(fs.writeFile);
 const { succeed, fail } = taskRunnerReturns;
 
-function doPostCss({ inputFile, mapFile, processors, syntax, dest }, taskSpinner) {
-  return readFileAsync(inputFile).then(css => {
-    return postcss(processors)
-      .process(css, {
-        from: inputFile,
-        to: inputFile,
-        syntax,
-      })
-      .then(result => {
-        taskSpinner && taskSpinner.info(`Writing File: ${dest || inputFile}`);
-        return writeFileAsync(dest || inputFile, result.css)
-          .then(() => {
-            if (result.map) {
-              taskSpinner && taskSpinner.info(`Writing File: ${mapFile}`);
-              return writeFileAsync(mapFile, result.map);
-            }
-          })
-          .then(succeed)
-          .catch(fail);
-      });
+async function doPostCss({ inputFile, mapFile, processors, syntax, dest }, taskSpinner) {
+  const css = await readFileAsync(inputFile);
+
+  const result = await postcss(processors).process(css, {
+    from: inputFile,
+    to: inputFile,
+    syntax,
   });
+
+  try {
+    taskSpinner && taskSpinner.info(`Writing File: ${dest || inputFile}`);
+    await writeFileAsync(dest || inputFile, result.css);
+
+    if (result.map) {
+      taskSpinner && taskSpinner.info(`Writing File: ${mapFile}`);
+      await writeFileAsync(mapFile, result.map);
+    }
+
+    return succeed();
+  } catch (error) {
+    return fail(error);
+  }
 }
 
 module.exports = doPostCss;

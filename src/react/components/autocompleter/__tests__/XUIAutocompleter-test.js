@@ -11,15 +11,11 @@ import DropDownToggled from '../../dropdown/DropDownToggled';
 import DropDownLayout from '../../dropdown/DropDownLayout';
 import uuidv4 from 'uuid/v4';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
+import wait from '../../../helpers/wait';
 
 jest.mock('uuid/v4');
 uuidv4.mockImplementation(() => 'testAutocompleterId');
 Enzyme.configure({ adapter: new Adapter() });
-
-// Helper function to await completion of a setTimeout. If used frequently consider extracting to a helper file.
-async function wait(ms) {
-  await new Promise(resolve => setTimeout(resolve, ms));
-}
 
 describe('XUIAutocompleter', () => {
   const createComponent = props => (

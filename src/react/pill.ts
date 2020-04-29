@@ -1,3 +1,3 @@
 import XUIPill from './components/pill/XUIPill';
 
-export default XUIPill;
+export { XUIPill as default, XUIPill };

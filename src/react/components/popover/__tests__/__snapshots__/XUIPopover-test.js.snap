@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIPopover /> renders without crashing 1`] = `
+<XUIPopover
+  id="test-popover"
+  triggerRef={
+    Object {
+      "current": null,
+    }
+  }
+  width="medium"
+>
+  <Positioning
+    pageGutter={9}
+    triggerGap={9}
+    triggerRef={
+      Object {
+        "_triggerRef": Object {
+          "current": null,
+        },
+        "current": null,
+      }
+    }
+  >
+    <Portal>
+      <Portal
+        containerInfo={
+          <div>
+            <div
+              class="xui-container"
+            >
+              <div
+                style="position: absolute;"
+              >
+                <div
+                  aria-describedby="test-popover-body"
+                  class="xui-popover xui-popover-wrapper xui-popover-medium"
+                  id="test-popover"
+                  role="dialog"
+                >
+                  <div
+                    tabindex="0"
+                  />
+                  <div
+                    tabindex="0"
+                  />
+                  <div />
+                  <div
+                    tabindex="0"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      >
+        <div
+          className="xui-container"
+        >
+          <div
+            style={
+              Object {
+                "position": "absolute",
+              }
+            }
+          >
+            <div
+              aria-describedby="test-popover-body"
+              className="xui-popover xui-popover-wrapper xui-popover-medium"
+              id="test-popover"
+              role="dialog"
+              style={
+                Object {
+                  "maxWidth": undefined,
+                }
+              }
+            >
+              <PortalFocusHelper
+                focusPortalRef={
+                  Object {
+                    "_triggerRef": Object {
+                      "current": null,
+                    },
+                    "current": null,
+                  }
+                }
+              >
+                <div
+                  onFocus={[Function]}
+                  tabIndex={0}
+                />
+                <div
+                  onFocus={[Function]}
+                  tabIndex={0}
+                />
+                <div />
+                <div
+                  onFocus={[Function]}
+                  tabIndex={0}
+                />
+              </PortalFocusHelper>
+            </div>
+            <Positioning
+              triggerRef={
+                Object {
+                  "_triggerRef": Object {
+                    "current": null,
+                  },
+                  "current": null,
+                }
+              }
+            >
+              <Portal>
+                <Portal
+                  containerInfo={
+                    <div>
+                      <div
+                        class="xui-container"
+                      >
+                        <div
+                          style="position: absolute;"
+                        >
+                          <div
+                            class="xui-popover--arrow-undefined"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  }
+                >
+                  <div
+                    className="xui-container"
+                  >
+                    <div
+                      style={
+                        Object {
+                          "position": "absolute",
+                        }
+                      }
+                    >
+                      <div
+                        className="xui-popover--arrow-undefined"
+                      />
+                    </div>
+                  </div>
+                </Portal>
+              </Portal>
+            </Positioning>
+          </div>
+        </div>
+      </Portal>
+    </Portal>
+  </Positioning>
+</XUIPopover>
+`;

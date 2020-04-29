@@ -1,3 +1,3 @@
 import XUIIcon from './components/icon/XUIIcon';
 
-export default XUIIcon;
+export { XUIIcon as default, XUIIcon };

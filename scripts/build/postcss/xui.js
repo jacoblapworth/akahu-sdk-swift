@@ -29,35 +29,34 @@ const copyToFolders = taskSpinner => {
 };
 
 const postcssXui = ({ skipSassXui = false } = {}) =>
-  taskRunner(taskSpinner => {
-    return Promise.all(createFolders)
-      .then(() => {
-        if (!skipSassXui) {
-          return sassXui();
-        } else {
-          return;
-        }
-      })
-      .then(() => {
-        return Promise.all(
-          files.map(file => {
-            return doPostCss(
-              {
-                title: __filename,
-                inputFile: path.resolve(rootDirectory, './.tmp', `${file}.css`),
-                mapFile: path.resolve(rootDirectory, './.tmp', `${file}.css.map`),
-                processors: [autoprefixer({ grid: true, overrideBrowserslist: browsers })],
-              },
-              taskSpinner,
-            );
-          }),
+  taskRunner(async taskSpinner => {
+    try {
+      await Promise.all(createFolders);
+
+      if (!skipSassXui) {
+        await sassXui();
+      }
+    } catch (error) {
+      return fail(error);
+    }
+
+    await Promise.all(
+      files.map(file => {
+        return doPostCss(
+          {
+            title: __filename,
+            inputFile: path.resolve(rootDirectory, './.tmp', `${file}.css`),
+            mapFile: path.resolve(rootDirectory, './.tmp', `${file}.css.map`),
+            processors: [autoprefixer({ grid: true, overrideBrowserslist: browsers })],
+          },
+          taskSpinner,
         );
-      })
-      .then(() => {
-        copyToFolders(taskSpinner);
-      })
-      .then(succeed)
-      .catch(fail);
+      }),
+    );
+
+    copyToFolders(taskSpinner);
+
+    return succeed();
   }, __filename);
 
 module.exports = postcssXui;

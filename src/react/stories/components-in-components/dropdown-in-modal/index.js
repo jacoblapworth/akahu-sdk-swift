@@ -5,7 +5,7 @@ import React from 'react';
 import XUIModal, { XUIModalBody } from '../../../modal';
 import DropDown, { DropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
-import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUIButton from '../../../button';
 
 import { storyNames, compositionKind } from '../tests';
 
@@ -58,12 +58,7 @@ const toggledItems = [
 ));
 
 test.add(storyNames.dropDownInModal, () => {
-  const trigger = (
-    <XUIButton>
-      Trigger Button
-      <XUIButtonCaret />
-    </XUIButton>
-  );
+  const trigger = <XUIButton hasCaret>Trigger Button</XUIButton>;
   const dropdown = (
     <DropDown>
       <Picklist>{toggledItems}</Picklist>

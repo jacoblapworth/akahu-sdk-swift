@@ -132,7 +132,7 @@ exports[`<XUI PageHeader and BreadcrumbTrail/> renders compact XUIBreadcrumbTrai
     className="xui-breadcrumb"
   >
     <div
-      className=""
+      className="xui-dropdown--toggledwrapper"
       data-ref="toggled-wrapper"
       role="presentation"
     >

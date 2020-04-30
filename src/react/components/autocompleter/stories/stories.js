@@ -7,7 +7,6 @@ import XUIAutocompleter from '../XUIAutocompleter';
 import XUIAutocompleterEmptyState from '../XUIAutocompleterEmptyState';
 import XUIAutocompleterSecondarySearch from '../XUIAutocompleterSecondarySearch';
 import XUIButton from '../../button/XUIButton';
-import XUIButtonCaret from '../../button/XUIButtonCaret';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import peopleDataSet from '../private/people';
@@ -373,8 +372,14 @@ export class SecondarySearchExample extends React.Component {
     const { data } = this.state;
 
     const trigger = this.props.trigger || (
-      <XUIButton data-ref="toggled_trigger" fullWidth="small-down" onClick={() => {}} type="button">
-        Toggle Me <XUIButtonCaret />
+      <XUIButton
+        data-ref="toggled_trigger"
+        fullWidth="small-down"
+        hasCaret
+        onClick={() => {}}
+        type="button"
+      >
+        Toggle Me
       </XUIButton>
     );
 

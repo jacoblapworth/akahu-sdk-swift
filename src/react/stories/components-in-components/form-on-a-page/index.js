@@ -4,7 +4,7 @@ import React from 'react';
 // Components we need to test with
 import DropDown, { DropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
-import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUIButton from '../../../button';
 import XUICheckbox, { XUICheckboxGroup } from '../../../checkbox';
 import XUIRadio, { XUIRadioGroup } from '../../../radio';
 import XUISwitch from '../../../switch';
@@ -69,12 +69,7 @@ const toggledItems = [
 ));
 
 test.add(storyNames.formOnAPage, () => {
-  const trigger = (
-    <XUIButton>
-      Trigger Button
-      <XUIButtonCaret />
-    </XUIButton>
-  );
+  const trigger = <XUIButton hasCaret>Trigger Button</XUIButton>;
   const dropdown = (
     <DropDown>
       <Picklist>{toggledItems}</Picklist>

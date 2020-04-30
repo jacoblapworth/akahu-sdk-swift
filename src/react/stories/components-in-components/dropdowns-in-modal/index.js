@@ -5,7 +5,7 @@ import React from 'react';
 import XUIModal, { XUIModalBody } from '../../../modal';
 import DropDown, { DropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
-import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUIButton from '../../../button';
 import XUITextInput from '../../../textinput';
 
 // Story book things
@@ -39,12 +39,7 @@ const buildDropdownPicklist = items => {
   );
 };
 
-const buildTrigger = text => (
-  <XUIButton>
-    {text}
-    <XUIButtonCaret />
-  </XUIButton>
-);
+const buildTrigger = text => <XUIButton hasCaret>{text}</XUIButton>;
 
 test.add(storyNames.multiDropDowns, () => (
   <div className="xui-u-flex">

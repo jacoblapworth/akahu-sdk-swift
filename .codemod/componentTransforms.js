@@ -19,6 +19,10 @@ module.exports = {
       ],
     },
     {
+      name: 'XUIButtonCaret',
+      newName: 'ButtonCaret_MOVE_TO_PROP_ON_BUTTON',
+    },
+    {
       name: 'XUISecondaryButton',
       props: [
         {

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { XUIContentBlock, XUIContentBlockItem } from '../../../contentblock';
 import { XUIPanel, XUIPanelSection } from '../../../panel';
-import XUIButton, { XUIButtonCaret, XUIIconButton } from '../../../button';
+import XUIButton, { XUIIconButton } from '../../../button';
 import Dropdown, { DropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from '../../../table';
@@ -26,8 +26,13 @@ export default class ContentBlock extends PureComponent {
     const { showMediumDownButton, dropdownOptions = [], onSelectItem } = this.props;
 
     const MediumDownButton = (
-      <XUIButton className="xui-u-hidden-medium-up" size="small" variant="borderless-standard">
-        Filter <XUIButtonCaret />
+      <XUIButton
+        className="xui-u-hidden-medium-up"
+        hasCaret
+        size="small"
+        variant="borderless-standard"
+      >
+        Filter
       </XUIButton>
     );
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import XUIIcon from '../icon/XUIIcon';
+import caret from '@xero/xui-icon/icons/caret';
 import XUILoader from '../loader/XUILoader';
 import {
   buttonTypes,
@@ -74,6 +76,7 @@ export default class XUIButton extends React.PureComponent {
             children,
             className,
             fullWidth,
+            hasCaret,
             href,
             isDisabled,
             isExternalLink,
@@ -81,6 +84,7 @@ export default class XUIButton extends React.PureComponent {
             isInverted,
             isLink,
             isLoading,
+            leftIcon,
             loadingAriaLabel,
             minLoaderWidth,
             onClick,
@@ -88,6 +92,7 @@ export default class XUIButton extends React.PureComponent {
             qaHook,
             rel,
             retainLayout,
+            rightIcon,
             tabIndex,
             target,
             type,
@@ -103,6 +108,33 @@ export default class XUIButton extends React.PureComponent {
           const buttonDisabled = isDisabled || isLoading;
           let buttonChildren = children;
 
+          if (leftIcon && rightIcon) {
+            // eslint-disable-next-line no-console
+            console.warn(
+              '`XUIButton` does not support both `leftIcon` and `rightIcon`. Only `leftIcon` will be displayed.',
+            );
+          }
+
+          const buttonContent = (
+            <React.Fragment>
+              {leftIcon && (
+                <XUIIcon className={`${ns}-button--lefticon`} icon={leftIcon} isBoxed size={size} />
+              )}
+              {buttonChildren}
+              {rightIcon && !leftIcon && !hasCaret && (
+                <XUIIcon
+                  className={`${ns}-button--righticon`}
+                  icon={rightIcon}
+                  isBoxed
+                  size={size}
+                />
+              )}
+              {hasCaret && (
+                <XUIIcon className={`${ns}-button--caret`} icon={caret} isBoxed size={size} />
+              )}
+            </React.Fragment>
+          );
+
           const loader = isLoading && (
             <XUILoader
               ariaLabel={loadingAriaLabel}
@@ -117,12 +149,14 @@ export default class XUIButton extends React.PureComponent {
           if (retainLayout && isLoading) {
             buttonChildren = [
               <div className={`${ns}-button-hidden-content`} key="button-children">
-                {children}
+                {buttonContent}
               </div>,
               loader,
             ];
           } else if (isLoading) {
             buttonChildren = loader;
+          } else {
+            buttonChildren = buttonContent;
           }
 
           const combinedPropClassNames = cn(
@@ -134,6 +168,7 @@ export default class XUIButton extends React.PureComponent {
                 : `${ns}-button-inverted`),
             isGrouped && `${ns}-button-grouped`,
             minLoaderWidth && `${ns}-button-min-loader-width`,
+            (leftIcon || rightIcon || hasCaret) && `${ns}-button-has-icon`,
           );
 
           const buttonClassNames = cn(
@@ -267,6 +302,41 @@ XUIButton.propTypes = {
 
   /** Use this to specify a min width on the button, when you want to swap to loading states */
   minLoaderWidth: PropTypes.bool,
+
+  /** Has dropdown caret */
+  hasCaret: PropTypes.bool,
+
+  /** Icon to appear to the left of the button content */
+  leftIcon: PropTypes.shape({
+    path: PropTypes.string.isRequired,
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+  }),
+
+  /** Icon to appear to the right of the button content */
+  rightIcon: (props, propName, componentName) => {
+    if (props[propName]) {
+      if (props.leftIcon) {
+        return new Error(
+          '`XUIButton` does not support both `leftIcon` and `rightIcon`. Only `leftIcon` will be displayed.',
+        );
+      }
+    } else {
+      PropTypes.checkPropTypes(
+        {
+          [propName]: PropTypes.shape({
+            path: PropTypes.string.isRequired,
+            width: PropTypes.number.isRequired,
+            height: PropTypes.number.isRequired,
+          }),
+        },
+        props,
+        propName,
+        componentName,
+      );
+    }
+    return null;
+  },
 };
 
 XUIButton.defaultProps = {

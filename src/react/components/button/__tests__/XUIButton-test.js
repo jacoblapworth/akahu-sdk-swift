@@ -1,8 +1,12 @@
 import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import XUIButton from '../XUIButton';
 import renderer from 'react-test-renderer';
+
+import XUIButton from '../XUIButton';
+import external from '@xero/xui-icon/icons/external';
+import plus from '@xero/xui-icon/icons/plus';
+import settings from '@xero/xui-icon/icons/settings';
 
 const { renderIntoDocument } = require('react-dom/test-utils');
 Enzyme.configure({ adapter: new Adapter() });
@@ -189,5 +193,17 @@ describe('<XUIButton/>', () => {
     const primary = render(<XUIButton variant="unstyled" />);
 
     expect(primary.hasClass('xui-button-medium')).toBe(false);
+  });
+
+  it('renders an icon or caret when the appropriate prop is received', () => {
+    const hasLeftIcon = renderer.create(<XUIButton leftIcon={settings}>Settings</XUIButton>);
+    const hasRightIcon = renderer.create(
+      <XUIButton rightIcon={external}>Link to elsewhere</XUIButton>,
+    );
+    const hasCaret = renderer.create(<XUIButton hasCaret>I’m a dropdown trigger</XUIButton>);
+
+    expect(hasLeftIcon).toMatchSnapshot();
+    expect(hasRightIcon).toMatchSnapshot();
+    expect(hasCaret).toMatchSnapshot();
   });
 });

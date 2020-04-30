@@ -5,12 +5,18 @@ export const wrapperClass = `${baseClass}wrapper`;
 
 // Wrappers for legacy compatibility
 export const wrapperSizeClasses = {
+  xsmall: `${wrapperClass}-xsmall`,
+  small: `${wrapperClass}-small`,
   medium: `${wrapperClass}-medium`,
   large: `${wrapperClass}-large`,
   xlarge: `${wrapperClass}-xlarge`,
 };
 
+// We don’t want an icon scaling any smaller than its ‘natural’ size
+// due to legibility concerns
 export const iconSizeMultipliers = {
+  xsmall: 1,
+  small: 1,
   medium: 1,
   large: 4 / 3,
   xlarge: 2,

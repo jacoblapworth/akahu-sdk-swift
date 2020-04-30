@@ -8,7 +8,7 @@ If you want standard `Picklist` behaviour (close on select, keyboard handlers, e
 
 ```jsx harmony
 import { Component } from 'react';
-import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
+import XUIButton from '@xero/xui/react/button';
 import Picklist, { Pickitem } from '@xero/xui/react/picklist';
 import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 
@@ -85,9 +85,8 @@ class ToggledDropDown extends Component {
 
   render() {
     const trigger = (
-      <XUIButton>
+      <XUIButton hasCaret>
         {this.state.selectedId ? toggledItems[this.state.selectedId].text : 'Trigger Button'}
-        <XUIButtonCaret />
       </XUIButton>
     );
     const dropdown = (
@@ -113,7 +112,7 @@ class ToggledDropDown extends Component {
 
 ```jsx harmony
 import { Component } from 'react';
-import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
+import XUIButton from '@xero/xui/react/button';
 import Picklist, { Pickitem } from '@xero/xui/react/picklist';
 import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 
@@ -153,9 +152,8 @@ class MultiselectExample extends Component {
     const { selected } = this.state;
     const selectedItems = items.filter(item => selected[item.id]).map(item => item.text);
     const trigger = (
-      <XUIButton>
+      <XUIButton hasCaret>
         {selectedItems.length == 0 ? 'Select Items' : selectedItems.join(', ')}
-        <XUIButtonCaret />
       </XUIButton>
     );
     const dropdown = (

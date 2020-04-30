@@ -43,11 +43,6 @@
                 "components": "../src/react/components/button/XUIButton.js"
               },
               {
-                "name": "Button Caret",
-                "components": "../src/react/components/button/XUIButtonCaret.js",
-                "content": "../src/react/components/button/button.caret.md"
-              },
-              {
                 "name": "Button Groups",
                 "components": "../src/react/components/button/XUIButtonGroup.js",
                 "content": "../src/react/components/button/button.group.md"

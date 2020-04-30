@@ -59,7 +59,11 @@ describe('<XUIEditableTableCellAutocompleter />', () => {
       <table>
         <tbody>
           <tr>
-            <XUIEditableTableCellAutocompleter onClose={onCloseMock} onOpen={onOpenMock} onSearch={() => {}} />
+            <XUIEditableTableCellAutocompleter
+              onClose={onCloseMock}
+              onOpen={onOpenMock}
+              onSearch={() => {}}
+            />
           </tr>
         </tbody>
       </table>,

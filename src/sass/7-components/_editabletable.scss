@@ -7,6 +7,7 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
 @mixin xui-editabletablecell {
   height: $xui-minimum-touch-target;
   padding: 0px;
+  vertical-align: top;
 
   &:not(:first-child) {
     border-left: $xui-border-standard;
@@ -53,6 +54,7 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
 
 .#{$ns}-editabletable--table {
   padding: $xui-s-small;
+  table-layout: fixed;
 }
 
 .#{$ns}-editabletable--caption {
@@ -96,9 +98,8 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
 }
 
 .#{$ns}-editabletablecellreadonly {
-  @include xui-editabletablecell;
-  padding-left: $xui-s-standard;
-  padding-right: $xui-s-standard;
+  @include xui-padding-vertical($xui-s-xsmall - 1px); // xsmall, minus a 1px border
+  @include xui-padding-horizontal($xui-s-standard);
 }
 
 @mixin xui-editabletable--control-default($cell-type) {
@@ -128,6 +129,10 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   @include xui-editabletable--input-hover('textinput');
 }
 
+.#{$ns}-editabletablecelltextinput--control .#{$ns}-textinput--input {
+  width: inherit;
+}
+
 .#{$ns}-editabletablecellselectbox--control {
   .#{$ns}-select--button-no-variant,
   .#{$ns}-select--button:disabled {
@@ -135,15 +140,32 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
     @include xui-editabletable--input-hover('button');
   }
   height: 100%;
-  & :not(svg) {
+  & :not(.#{$ns}-select--caret) {
     height: inherit;
+  }
+}
+.#{$ns}-editabletablecellselectbox {
+  .#{$ns}-select--button {
+    @include xui-padding-vertical($xui-s-xsmall - 1px); // xsmall, minus a 1px border
+    display: block;
+    position: relative;
+  }
+  .#{$ns}-select--content {
+    display: block;
+    line-height: $xui-line-height-standard;
+    padding-right: $xui-s-standard;
+  }
+  .#{$ns}-select--caret {
+    position: absolute;
+    right: $xui-s-standard;
+    top: $xui-s-standard;
   }
 }
 
 .#{$ns}-editabletablecelltextinput {
   .#{$ns}-textinputwrapper,
-  .#{$ns}-textinput,
-  .#{$ns}-textinput--input {
+  .#{$ns}-textinput {
+    align-items: flex-start;
     height: 100%;
   }
 }

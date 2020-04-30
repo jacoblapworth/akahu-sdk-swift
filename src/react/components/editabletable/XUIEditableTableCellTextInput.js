@@ -14,6 +14,7 @@ const XUIEditableTableCellTextInput = ({
   onFocus,
   ...spreadProps
 }) => {
+  const inputRef = React.useRef();
   // NB: This is not testable via jest. We may benefit from a vis-reg of the selection.
   /**
    * Selects all content onFocus, before calling any user-supplied handlers.
@@ -24,13 +25,28 @@ const XUIEditableTableCellTextInput = ({
     input && input.setSelectionRange && input.setSelectionRange(0, input.value.length);
     onFocus && onFocus(event);
   };
+  /**
+   * @public
+   * Focus the input inside the cell.
+   */
+  const focusInput = () => {
+    inputRef.current &&
+      inputRef.current.input &&
+      inputRef.current.input.focus &&
+      inputRef.current.input.focus();
+  };
   return (
-    <XUIEditableTableCell {...cellProps} className={cn(baseName, cellProps.className)}>
+    <XUIEditableTableCell
+      {...cellProps}
+      className={cn(baseName, cellProps.className)}
+      onClick={focusInput}
+    >
       <XUITextInput
         {...spreadProps}
         containerClassName={cn(`${baseName}--control`, containerClassName)}
         isLabelHidden
         onFocus={composedOnFocus}
+        ref={inputRef}
       />
     </XUIEditableTableCell>
   );

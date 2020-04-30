@@ -3,6 +3,7 @@
 exports[`<XUIEditableTableCellTextInput /> renders correctly 1`] = `
 <XUIEditableTableCell
   className="xui-editabletablecelltextinput"
+  onClick={[Function]}
 >
   <XUITextInput
     containerClassName="xui-editabletablecelltextinput--control"

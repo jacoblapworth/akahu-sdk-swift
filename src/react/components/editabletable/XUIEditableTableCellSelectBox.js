@@ -20,6 +20,7 @@ const XUIEditableTableCellSelectBox = ({
       <SelectBox
         {...spreadProps}
         containerClasses={cn(`${baseName}--control`, containerClasses)}
+        defaultLayout={false}
         isLabelHidden
       >
         {children}

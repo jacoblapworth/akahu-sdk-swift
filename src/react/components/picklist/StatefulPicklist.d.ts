@@ -89,7 +89,7 @@ export default class StatefulPicklist extends React.Component<Props> {
   /**
    * Allows simulation of keydown events if the DOM focus is elsewhere.
    */
-  onKeyDown: React.KeyboardEventHandler<React.KeyboardEvent<HTMLDivElement>>;
+  onKeyDown: React.KeyboardEventHandler;
   /**
    * Fired when either the enter key or space bar is pressed and calls onclick of the menu item
    * before closing the list.

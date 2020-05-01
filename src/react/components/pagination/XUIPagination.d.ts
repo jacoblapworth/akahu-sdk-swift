@@ -16,6 +16,7 @@ interface Props {
    * This is required if the `showCount` prop is set to `true`.
    *
    * Sample function with recommended English value:
+   * (`from`, `to` and `count` should be formatted for internationalization in the returned strings)
    *
    * ``(from, to, count) => ({ enhanced: `Showing items ${from}-${to} of ${count}`, simple: `Total items: ${count}`, })``
    */
@@ -29,6 +30,7 @@ interface Props {
    * Simple is used when container width < 600px, enhanced used when container with >= 600px.
    *
    * Sample function with recommended English value:
+   * (`page` and `pageCount` should be formatted for internationalization in the returned strings)
    *
    * ``(page, pageCount) => ({ enhanced: `Page ${page} of ${pageCount}`, simple: `${page} of ${pageCount}`, })``
    */

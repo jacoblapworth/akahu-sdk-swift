@@ -15,6 +15,7 @@ import {
 } from '../../../editabletable';
 import XUIEditableTableBody from '../XUIEditableTableBody';
 import generateCell from './helpers';
+import { EditableTableUserTest, sandwichData } from './user-tests';
 
 class EditableTablePlayground extends React.Component {
   render() {
@@ -150,4 +151,17 @@ variations.forEach(variation => {
 
     return displayComponent;
   });
+});
+
+storiesWithVariations.add('User test 1', () => {
+  return <EditableTableUserTest />;
+});
+storiesWithVariations.add('User test 2', () => {
+  return <EditableTableUserTest disableMainFilling />;
+});
+storiesWithVariations.add('User test 3', () => {
+  return <EditableTableUserTest items={sandwichData} />;
+});
+storiesWithVariations.add('User test 4', () => {
+  return <EditableTableUserTest items={sandwichData} maxWidth="800px" />;
 });

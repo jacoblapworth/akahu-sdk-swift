@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIPopoverFooter /> renders without crashing 1`] = `
+<div
+  className="xui-popover--footer"
+>
+  <ContextProvider
+    value="small"
+  >
+    <XUIActions
+      hasLayout={true}
+      isLinear={true}
+      primaryAction={
+        <XUIButton
+          fullWidth="never"
+          isDisabled={false}
+          isExternalLink={false}
+          isGrouped={false}
+          isLink={false}
+          isLoading={false}
+          retainLayout={true}
+          tabIndex={0}
+          type="button"
+          variant="primary"
+        >
+          Primary action
+        </XUIButton>
+      }
+      secondaryAction={
+        <XUIButton
+          fullWidth="never"
+          isDisabled={false}
+          isExternalLink={false}
+          isGrouped={false}
+          isLink={false}
+          isLoading={false}
+          retainLayout={true}
+          tabIndex={0}
+          type="button"
+          variant="standard"
+        >
+          Secondary action
+        </XUIButton>
+      }
+      tagName="div"
+    />
+  </ContextProvider>
+</div>
+`;

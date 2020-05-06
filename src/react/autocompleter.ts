@@ -5,6 +5,7 @@ import XUIAutocompleterSecondarySearch from './components/autocompleter/XUIAutoc
 
 export {
   XUIAutocompleter as default,
+  XUIAutocompleter,
   XUIAutocompleterEmptyState,
   XUIAutocompleterSecondarySearch,
   boldMatch,

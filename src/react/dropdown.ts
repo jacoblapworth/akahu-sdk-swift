@@ -7,6 +7,7 @@ import NestedDropDown from './components/dropdown/NestedDropDown';
 
 export {
   DropDown as default,
+  DropDown,
   DropDownToggled,
   DropDownHeader,
   DropDownFooter,

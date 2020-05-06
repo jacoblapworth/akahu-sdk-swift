@@ -11,18 +11,8 @@ const checkSecurity = () => Promise.resolve();
 // 	'scripts',
 // 	'security'
 // ));
-const updateVersion = require(path.resolve(
-  rootDirectory,
-  'scripts',
-  'update-versions',
-  'index.js',
-));
-const updateVersionForCheckXUIVersionJsFile = require(path.resolve(
-  rootDirectory,
-  'scripts',
-  'versions',
-  'versions.js',
-));
+const updateVersion = require('../update-versions/index');
+const updateVersionForCheckXUIVersionJsFile = require('../versions/versions');
 const packageLockUpdate = require('./package-lock-update');
 
 const packageJsonLocation = path.resolve(rootDirectory, 'package.json');
@@ -140,7 +130,7 @@ function writePackageJson(cb) {
     packageJsonLocation,
     `${JSON.stringify(newPackageJson, null, 2)}\n`,
     'utf8',
-    err => {
+    async err => {
       if (err) {
         console.log(chalk.red.bold('Error writing package.json file'), err);
         return;
@@ -148,9 +138,8 @@ function writePackageJson(cb) {
 
       console.log('Package JSON version updated');
 
-      updateVersion(newPackageJson.version).then(() =>
-        updateVersionForCheckXUIVersionJsFile(newPackageJson.version),
-      );
+      await updateVersion(newPackageJson.version);
+      updateVersionForCheckXUIVersionJsFile(newPackageJson.version);
 
       cb && cb();
 
@@ -334,15 +323,11 @@ inquirer.prompt([initialQuestion]).then(answers => {
   }
 
   console.log(startingReleaseMessage(`Starting Release for Version ${newPackageJson.version}`));
-  writePackageJson(() => {
-    checkSecurity()
-      .then(() =>
-        console.log(
-          chalk.green.bold(
-            `Release for version ${newPackageJson.version} finished. Have a nice day!`,
-          ),
-        ),
-      )
-      .then(() => packageLockUpdate());
+  writePackageJson(async () => {
+    await checkSecurity();
+    await packageLockUpdate();
+    console.log(
+      chalk.green.bold(`Release for version ${newPackageJson.version} finished. Have a nice day!`),
+    );
   });
 });

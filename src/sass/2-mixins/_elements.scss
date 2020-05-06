@@ -19,4 +19,9 @@
   color: $xui-control-disabled-color;
   cursor: not-allowed;
   -webkit-text-fill-color: $xui-control-disabled-color;
+
+  &:focus,
+  &:hover {
+    border-color: $xui-control-disabled-border-color;
+  }
 }

@@ -83,12 +83,16 @@ $xui-class-suffix-6xlarge: '-6xlarge';
 
 $xui-s-actionlink: $xui-s-xsmall $xui-s-small;
 
-$xui-width-variants-dropdown: (
+$xui-common-widths: (
   xsmall: 100px,
   small: 200px,
   medium: 300px,
   large: 400px,
 );
+
+$xui-width-variants-dropdown: $xui-common-widths;
+
+$xui-popover-widths: map-remove($xui-common-widths, 'xsmall');
 
 $xui-modal-widths: (
   small: 300px,

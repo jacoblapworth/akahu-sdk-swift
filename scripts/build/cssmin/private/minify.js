@@ -6,26 +6,27 @@ const CleanCSS = require('clean-css');
 const writeFileAsync = promisify(fs.writeFile);
 const readFileAsync = promisify(fs.readFile);
 
-function doMinifyTask({ inputFile, taskSpinner, input, output }) {
-  return new CleanCSS({ returnPromise: true })
-    .minify(inputFile)
-    .then(async ({ styles }) => await writeFileAsync(output, styles))
-    .then(() => taskSpinner.info(`${input} ${chalk.green('=>')} ${output}`));
+async function doMinifyTask({ inputFile, taskSpinner, input, output }) {
+  const { styles } = await new CleanCSS({ returnPromise: true }).minify(inputFile);
+
+  await writeFileAsync(output, styles);
+
+  return taskSpinner.info(`${input} ${chalk.green('=>')} ${output}`);
 }
 
 const getInputFile = input => readFileAsync(input);
 
-function minify(options, taskSpinner) {
+async function minify(options, taskSpinner) {
   const { input, output } = options;
 
-  return getInputFile(input).then(inputFile =>
-    doMinifyTask({
-      inputFile,
-      input,
-      output,
-      taskSpinner,
-    }),
-  );
+  const inputFile = await getInputFile(input);
+
+  return doMinifyTask({
+    inputFile,
+    input,
+    output,
+    taskSpinner,
+  });
 }
 
 module.exports = minify;

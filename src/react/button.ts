@@ -7,6 +7,7 @@ import XUISplitButtonGroup from './components/button/XUISplitButtonGroup';
 
 export {
   XUIButton as default,
+  XUIButton,
   XUIButtonCaret,
   XUIButtonGroup,
   XUISecondaryButton,

@@ -20,7 +20,7 @@
 
 // Anatomy
 //
-// File uploader is composed of two main parts. The *file input*, and the *file list*. The file input is used to action the upload process and the file list is used to represent the files as they are uploaded into the application. The file input also accepts a drag and drop variant to allow for files to be dragged in from outside the browser window into a dedicated dropzone.
+// File uploader is composed of two main parts. The *file input*, and the *file list*. The file input is used to action the upload process and the file list is used to represent the files as they are uploaded into the application. The file input also accepts a drag and drop variant to allow for files to be dragged from outside the browser window into a dedicated dropzone.
 //
 // Styleguide: Components.Controls.FileUploader.2
 
@@ -115,7 +115,7 @@
 // An icon variant can be used to help indicate the file-type. With the React component, the icon is automatically chosen based on the kind of file uploaded.
 //
 // Tips:
-// Do: Display most recent file uploaded at the top of the list to provide users some context of the file upload times against each other
+// Do: Files should be listed from most recent at the top to least recent at the bottom, providing the most relevant and contextual feedback from the input
 // Do: Optionally remove icon when space is limited in order to optimise screen real estate for text elements
 // Warning:  If not using the React component, select an icon that appropriately indicates the file-type being uploaded
 //

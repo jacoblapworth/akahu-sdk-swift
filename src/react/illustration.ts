@@ -1,3 +1,3 @@
 import XUIIllustration from './components/illustration/XUIIllustration';
 
-export default XUIIllustration;
+export { XUIIllustration as default, XUIIllustration };

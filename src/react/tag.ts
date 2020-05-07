@@ -1,3 +1,3 @@
 import XUITag from './components/tag/XUITag';
 
-export default XUITag;
+export { XUITag as default, XUITag };

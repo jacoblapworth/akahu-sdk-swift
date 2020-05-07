@@ -10,12 +10,7 @@ const { argv } = require('yargs');
 const Docker = require('./helpers/Docker');
 
 const { rootDirectory } = require('../helpers');
-const babelVisualRegression = require(path.resolve(
-  rootDirectory,
-  'scripts',
-  'build',
-  'babel_visualregression.js',
-));
+const babelVisualRegression = require('../build/babel_visualregression');
 const { Performance, logTaskTitle, logScriptRunOutput, twoDecimals } = require('../helpers');
 const perf = new Performance();
 
@@ -51,11 +46,14 @@ async function test() {
 
   // Install project dependencies inside `/.docker`
   const newDependencyHash = await md5File('package.json').catch();
-  const currentDependencyHash = await new Promise(resolve =>
-    md5File('.docker/package.json')
-      .then(resolve)
-      .catch(() => resolve()),
-  );
+  const currentDependencyHash = await new Promise(async resolve => {
+    try {
+      const packageHash = await md5File('.docker/package.json');
+      return resolve(packageHash);
+    } catch (e) {
+      return resolve();
+    }
+  });
   if (newDependencyHash !== currentDependencyHash) {
     console.log(chalk.blue('[Docker]'), 'Installing dependencies');
     await docker.exec(['cp', '../.npmrc', './']);

@@ -10,7 +10,7 @@
 //
 // Introduction: This refers to text-based controls like buttons that most often contain business-defined strings.
 //
-// The most important thing here is to be succinct, and follow our product language guidelines. This will help mitigate most wrapping and truncation situations. However, be aware that many foreign languages may use significantly more characters and words to express the same sentiment. Because of this, take care not to declare any explicit widths based around a single language, or dictate the position of other elements based on the expected width of another.
+// The most important thing here is to be succinct and to follow our [writing guide for XUI components](https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/). This will help mitigate most wrapping and truncation situations. However, be aware that many foreign languages may use significantly more characters and words to express the same sentiment. Because of this, take care not to declare any explicit widths based around a single language, or dictate the position of other elements based on the expected width of another.
 //
 // Tips:
 // Do: Actions should be descriptive and succinct

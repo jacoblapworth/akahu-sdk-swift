@@ -24,6 +24,7 @@ import { storiesOf } from '@storybook/react';
 // import readme from './README.md';
 
 const NOOP = () => {};
+const displayMonth = new Date('Nov 01 2019 00:00:00');
 
 const test = storiesOf(compositionKind, module);
 
@@ -207,7 +208,7 @@ test.add(storyNames.touchTargets, () => {
               </XUIPanelSection>
               <XUIPanelSection className="xui-padding-xlarge">
                 <div className="xui-panel xui-dropdown-medium">
-                  <XUIDatePicker onSelectDate={NOOP} />
+                  <XUIDatePicker displayedMonth={displayMonth} onSelectDate={NOOP} />
                 </div>
               </XUIPanelSection>
               <XUIPanelSection className="xui-padding-xlarge">

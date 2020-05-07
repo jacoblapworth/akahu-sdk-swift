@@ -20,7 +20,7 @@ interface BaseProps {
   /**
    * Secondary title.
    */
-  secondary?: string;
+  secondary?: React.ReactNode;
   /**
    * Horizontal picklist to act as tabs. `XUIPicklist`
    */

@@ -58,7 +58,7 @@
   }
   &--titlewrapper {
     @include xui-margin-right($xui-s-xsmall);
-    align-items: center;
+    align-items: baseline;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -70,6 +70,9 @@
       flex-grow: 0;
     }
   }
+  &--titlewrapper-has-tags {
+    align-items: center;
+  }
   &--title {
     @include xui-padding-right($xui-s-small);
     font-size: $xui-font-size-large;
@@ -79,6 +82,12 @@
   &--secondarytitle {
     @include xui-padding-right($xui-s-small);
     font-size: $xui-font-size-large;
+  }
+  &--supplementarytext {
+    @include xui-padding-right($xui-s-small);
+    @include xui-text-muted;
+    font-size: $xui-font-size-small;
+    line-height: $xui-line-height;
   }
   &--tags {
     @include xui-padding-right($xui-s-small);
@@ -148,7 +157,6 @@ $isolationheader-text-spacing: ($xui-navigation-height - $xui-line-height-standa
 .#{$ns}-isolationheader {
   @include header('#{$ns}-isolationheader');
   box-shadow: $xui-shadow-depth-overlap-top;
-
   &.#{$ns}-isolationheader-fixed {
     left: 0;
     position: fixed;
@@ -156,7 +164,6 @@ $isolationheader-text-spacing: ($xui-navigation-height - $xui-line-height-standa
     top: 0;
     z-index: $xui-z-index-header;
   }
-
   &--content-layout {
     @include xui-breakpoint-small-up {
       flex-flow: unset;
@@ -184,9 +191,6 @@ $isolationheader-text-spacing: ($xui-navigation-height - $xui-line-height-standa
   }
   &--titlewrapper-has-avatar {
     @include xui-margin-left($xui-s-standard);
-  }
-  &--tags {
-    align-self: center;
   }
   &--rightcontent {
     @include xui-padding-bottom($isolationheader-control-spacing);

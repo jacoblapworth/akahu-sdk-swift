@@ -133,6 +133,7 @@ class XUITable extends Component {
       loaderAriaLabel,
       isEmpty,
       emptyStateComponent,
+      emptyStateIcon,
       emptyMessage,
       activeSortKey,
       isSortAsc,
@@ -157,6 +158,7 @@ class XUITable extends Component {
       columns,
       data,
       hasPointerEvents,
+      headerSortbuttonIcon,
     } = enrichProps(state, props, { rootNode, tableNode, wrapperNode });
 
     const className = cn(NAME_SPACE, suppliedClasses, {
@@ -215,6 +217,7 @@ class XUITable extends Component {
                   checkAllRowsAriaLabel,
                   hasOverflowMenu,
                   ensureCellVisibility,
+                  headerSortbuttonIcon,
                 }}
               />
             )}
@@ -255,7 +258,7 @@ class XUITable extends Component {
 
         {isEmpty && (
           <TableAlert qaHook={qaHook && `${qaHook}-empty`}>
-            {emptyStateComponent || <EmptyState>{emptyMessage}</EmptyState>}
+            {emptyStateComponent || <EmptyState icon={emptyStateIcon}>{emptyMessage}</EmptyState>}
           </TableAlert>
         )}
 
@@ -431,6 +434,26 @@ XUITable.propTypes = {
    * for scrollable tables, to help screenreaders understand the scrollable element.
    */
   caption: PropTypes.string,
+
+  /**
+   * Optional prop for users to modify the empty state icon, if required for localisation.
+   * Defaults to the table icon, if no value is provided.
+   */
+  emptyStateIcon: PropTypes.shape({
+    height: PropTypes.number,
+    path: PropTypes.string,
+    width: PropTypes.number,
+  }),
+
+  /**
+   * Optional prop for users to modify the header sort button icon, if required for localisation.
+   * Defaults to the sortSingle icon, if no value is provided.
+   */
+  headerSortbuttonIcon: PropTypes.shape({
+    height: PropTypes.number,
+    path: PropTypes.string,
+    width: PropTypes.number,
+  }),
 };
 
 XUITable.defaultProps = {

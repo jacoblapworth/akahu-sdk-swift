@@ -16,12 +16,13 @@ export default function XUIBanner({
   children,
   defaultLayout,
   role,
+  closeIcon = crossIcon,
 }) {
   const closeButton = onCloseClick && (
     <XUIIconButton
       ariaLabel="Close"
       className={`${ns}-banner--close`}
-      icon={crossIcon}
+      icon={closeIcon}
       onClick={onCloseClick}
       qaHook={qaHook && `${qaHook}-close--button`}
       size="small"
@@ -68,6 +69,16 @@ XUIBanner.propTypes = {
   /** Applies a role attribute to the toast element. This will override any
    * component-determined value. */
   role: PropTypes.string,
+
+  /**
+   * Optional prop for users to modify the close icon, if required for localisation.
+   * Defaults to the cross icon, if no value is provided.
+   */
+  closeIcon: PropTypes.shape({
+    height: PropTypes.number,
+    path: PropTypes.string,
+    width: PropTypes.number,
+  }),
 };
 
 XUIBanner.defaultProps = {

@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { XUIIconData } from '../icon/XUIIcon';
+
 interface BarData {
   /**
    * Optional URL for a custom avatar image when the chart‘s `xAxisType` is `avatar`.
@@ -84,6 +86,12 @@ interface BaseProps {
    */
   createYAxisLabelFormat?: (y: number) => number | string;
   /**
+   * Optional prop for users to modify the empty chart state icon, if required for localisation.
+   *
+   * Defaults to the chart icon, if no value is provided.
+   */
+  emptyStateIcon?: XUIIconData;
+  /**
    * Override the native responsive scrolling behaviour for clickable pagination buttons.
    */
   hasPagination?: boolean;
@@ -108,6 +116,12 @@ interface BaseProps {
    */
   isXAxisToolTipHidden?: boolean;
   /**
+   * Optional prop for users to modify the info key button icon, if required for localisation.
+   *
+   * Defaults to the info icon, if no value is provided.
+   */
+  keyIcon?: XUIIconData;
+  /**
    * A text of representation of the bar or each bar stack.
    *
    * Provide a single value for standard bar, or an array of values for a stacked
@@ -131,6 +145,12 @@ interface BaseProps {
    * Handler for when a bar "click" interaction occurs.
    */
   onBarClick?: (event: InteractionEvent, item: InteractionParams) => void;
+  /**
+   * Optional prop for users to modify the pagination navigation icon, if required for localisation.
+   *
+   * Defaults to the arrow icon, if no value is provided.
+   */
+  paginationIcon?: XUIIconData;
   /**
    * Accessibility title for pagination button. This is required if `hasPagination` is `true`.
    *

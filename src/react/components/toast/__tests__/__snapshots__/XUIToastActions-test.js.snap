@@ -36,7 +36,6 @@ exports[`<XUIToastActions /> should render actions passed in as children 1`] = `
     disabled={false}
     href=""
     onClick={[Function]}
-    onKeyPress={[Function]}
     tabIndex={0}
   >
     Action 1
@@ -46,7 +45,6 @@ exports[`<XUIToastActions /> should render actions passed in as children 1`] = `
     disabled={false}
     href=""
     onClick={[Function]}
-    onKeyPress={[Function]}
     tabIndex={0}
   >
     Action 2
@@ -64,7 +62,6 @@ exports[`<XUIToastActions /> should render actions passed in using the primaryAc
     disabled={false}
     href=""
     onClick={[Function]}
-    onKeyPress={[Function]}
     tabIndex={0}
   >
     Action 1
@@ -74,7 +71,6 @@ exports[`<XUIToastActions /> should render actions passed in using the primaryAc
     disabled={false}
     href=""
     onClick={[Function]}
-    onKeyPress={[Function]}
     tabIndex={0}
   >
     Action 2

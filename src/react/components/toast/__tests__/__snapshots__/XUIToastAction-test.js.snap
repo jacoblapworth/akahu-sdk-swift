@@ -18,7 +18,6 @@ exports[`<XUIToastAction /> should render a custom href because it's a link 1`] 
   disabled={false}
   href="https://www.xero.com"
   onClick={[Function]}
-  onKeyPress={[Function]}
   tabIndex={0}
 >
   Action 1

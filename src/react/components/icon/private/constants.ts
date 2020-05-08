@@ -17,6 +17,7 @@ export const iconSizeMultipliers = {
 };
 
 export const rotationClasses = {
+  0: ``,
   90: `${baseClass}-rotate-90`,
   180: `${baseClass}-rotate-180`,
   270: `${baseClass}-rotate-270`,

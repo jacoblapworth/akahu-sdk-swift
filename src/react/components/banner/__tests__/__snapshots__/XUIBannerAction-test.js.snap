@@ -43,7 +43,6 @@ exports[`<XUIBannerAction /> should render as a link if an href value is passed 
     disabled={false}
     href="http://xero.com"
     onClick={[Function]}
-    onKeyPress={[Function]}
     tabIndex={0}
   >
     Action

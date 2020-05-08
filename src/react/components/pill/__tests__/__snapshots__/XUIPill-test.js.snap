@@ -229,7 +229,6 @@ exports[`<XUIPill /> should render a target when passed in 1`] = `
     disabled={false}
     href="http://xero.com"
     onClick={[Function]}
-    onKeyPress={[Function]}
     tabIndex={0}
     target="_blank"
   />

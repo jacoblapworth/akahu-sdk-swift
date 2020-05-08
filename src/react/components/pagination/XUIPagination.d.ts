@@ -20,8 +20,8 @@ interface Props {
    * ``(from, to, count) => ({ enhanced: `Showing items ${from}-${to} of ${count}`, simple: `Total items: ${count}`, })``
    */
   createCountContent?: (
-    from: number,
-    to: number,
+    from: string,
+    to: string,
     count: number,
   ) => { enhanced: string; simple: string };
   /**
@@ -32,7 +32,7 @@ interface Props {
    *
    * ``(page, pageCount) => ({ enhanced: `Page ${page} of ${pageCount}`, simple: `${page} of ${pageCount}`, })``
    */
-  createPagingContent: (page: number, pageCount: number) => { enhanced: string; simple: string };
+  createPagingContent: (page: string, pageCount: string) => { enhanced: string; simple: string };
   /**
    *  _Uncontrolled only_: The default one-based index of the current page
    */

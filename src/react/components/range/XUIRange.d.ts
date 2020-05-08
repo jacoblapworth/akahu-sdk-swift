@@ -56,11 +56,11 @@ interface Props {
   /**
    * Define a function for the `onClick` event of the slider being clicked.
    */
-  onClick?: React.MouseEventHandler<React.MouseEvent<HTMLInputElement>>;
+  onClick?: React.MouseEventHandler<HTMLInputElement>;
   /**
    * Define a function for the `onInput` event of when the value of the slider is set/changed.
    */
-  onInput?: React.FormEventHandler<React.FormEvent<HTMLInputElement>>;
+  onInput?: React.FormEventHandler<HTMLInputElement>;
   qaHook?: string;
   /**
    * Element on the right of the `XUIRange` component.

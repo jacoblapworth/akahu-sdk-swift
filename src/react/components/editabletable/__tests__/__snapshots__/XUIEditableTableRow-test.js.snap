@@ -19,7 +19,7 @@ exports[`<XUIEditableTableRow /> removable row renders a remove button for rows 
   }
 >
   <div
-    className="xui-editabletable xui-editabletable-responsive"
+    className="xui-editabletable"
   >
     <table
       className="xui-editabletable--table"

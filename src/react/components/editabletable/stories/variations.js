@@ -9,6 +9,7 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'responsive',
     columns: 10,
+    columnWidths: ['59px', '59px', '59px', '59px', '59px', '59px', '59px', '59px', '59px', '59px'],
     hasHeader: true,
     rowOptions: { isRemovable: true },
     rows: 5,
@@ -18,11 +19,12 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'narrow table with narrow display in wide container',
     columns: 2,
+    columnWidths: ['88px', '88px'],
     hasHeader: true,
+    maxWidth: '217px',
     rowOptions: { isRemovable: true },
     rows: 2,
     renderSmallerWrapper: true,
-    isContentWidth: true,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -32,7 +34,6 @@ const variations = [
     rowOptions: { isRemovable: true },
     rows: 2,
     renderSmallerWrapper: true,
-    isContentWidth: false,
   },
 ];
 

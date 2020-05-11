@@ -9,15 +9,37 @@ const XUIEditableTable = ({
   caption,
   children,
   className,
+  columnWidths = [],
+  maxWidth,
+  minWidth,
   qaHook,
   rowOptions,
-  isContentWidth,
+  style,
   ...spreadProps
 }) => {
+  const wrapperStyle =
+    // If we omit this check, wrapperStyle is always a non-empty object, and passes extraneous (but harmless) props.
+    // This is for tidiness purposes only.
+    maxWidth || minWidth
+      ? {
+          maxWidth,
+          minWidth,
+          ...style,
+        }
+      : style;
   return (
-    <div className={cn(tableName, className, !isContentWidth && `${tableName}-responsive`)}>
-      <table className={`${tableName}--table`} data-automationid={qaHook} {...spreadProps}>
+    <div className={cn(tableName, className)} style={wrapperStyle}>
+      <table {...spreadProps} className={`${tableName}--table`} data-automationid={qaHook}>
         {caption && <caption className={`${tableName}--caption`}>{caption}</caption>}
+        {!!columnWidths.length && (
+          <colgroup>
+            {columnWidths.map(item => (
+              <col style={{ width: item }} />
+            ))}
+            {rowOptions.isRemovable && <col style={{ width: '40px' }} />}
+            {/* 40px is $xui-control-size-standard */}
+          </colgroup>
+        )}
         <XUIEditableTableContext.Provider value={{ rowOptions: { ...rowOptions } }}>
           {children}
         </XUIEditableTableContext.Provider>
@@ -36,7 +58,10 @@ XUIEditableTable.propTypes = {
   className: PropTypes.string,
   qaHook: PropTypes.string,
   rowOptions: PropTypes.shape({ isRemovable: PropTypes.bool }),
-  isContentWidth: PropTypes.bool,
+  columnWidths: PropTypes.arrayOf(PropTypes.string),
+  maxWidth: PropTypes.string,
+  minWidth: PropTypes.string,
+  style: PropTypes.object,
 };
 
 export default XUIEditableTable;

@@ -23,49 +23,56 @@ class EditableTablePlayground extends React.Component {
       caption,
       cellType,
       columns,
+      columnWidths,
       disableSecondRow,
       hasHeader,
       randomiseContent,
       rows,
       rowOptions,
-      tableMaxWidth,
+      maxWidth,
+      minWidth,
     } = this.props;
     let cellsCount = 0;
+    const colWidths = columnWidths && columnWidths.split(/[\s,]/g);
     return (
-      <div style={{ maxWidth: tableMaxWidth && `${tableMaxWidth}px` }}>
-        <XUIEditableTable caption={caption} rowOptions={rowOptions}>
-          {hasHeader && (
-            <XUIEditableTableHead>
-              <XUIEditableTableRow removeButtonAriaLabel="Remove row">
-                {Array.from(Array(columns).keys()).map((item, index) => (
-                  <XUIEditableTableHeadingCell key={index}>I’m a cell</XUIEditableTableHeadingCell>
-                ))}
-              </XUIEditableTableRow>
-            </XUIEditableTableHead>
-          )}
-          <XUIEditableTableBody>
-            {Array.from(Array(rows).keys()).map((item, rowIndex) => (
-              <XUIEditableTableRow
-                key={rowIndex}
-                onRemove={() => console.log('remove me')}
-                removeButtonAriaLabel="Remove row"
-              >
-                {Array.from(Array(columns).keys()).map((item, columnIndex) => {
-                  const isDisabled = disableSecondRow && rowIndex === 1;
-                  cellsCount += 1;
-                  return generateCell({
-                    cellsCount,
-                    cellType,
-                    columnIndex,
-                    randomiseContent,
-                    isDisabled,
-                  });
-                })}
-              </XUIEditableTableRow>
-            ))}
-          </XUIEditableTableBody>
-        </XUIEditableTable>
-      </div>
+      <XUIEditableTable
+        caption={caption}
+        columnWidths={colWidths}
+        maxWidth={maxWidth}
+        minWidth={minWidth}
+        rowOptions={rowOptions}
+      >
+        {hasHeader && (
+          <XUIEditableTableHead>
+            <XUIEditableTableRow removeButtonAriaLabel="Remove row">
+              {Array.from(Array(columns).keys()).map((item, index) => (
+                <XUIEditableTableHeadingCell key={index}>I’m a cell</XUIEditableTableHeadingCell>
+              ))}
+            </XUIEditableTableRow>
+          </XUIEditableTableHead>
+        )}
+        <XUIEditableTableBody>
+          {Array.from(Array(rows).keys()).map((item, rowIndex) => (
+            <XUIEditableTableRow
+              key={rowIndex}
+              onRemove={() => console.log('remove me')}
+              removeButtonAriaLabel="Remove row"
+            >
+              {Array.from(Array(columns).keys()).map((item, columnIndex) => {
+                const isDisabled = disableSecondRow && rowIndex === 1;
+                cellsCount += 1;
+                return generateCell({
+                  cellsCount,
+                  cellType,
+                  columnIndex,
+                  randomiseContent,
+                  isDisabled,
+                });
+              })}
+            </XUIEditableTableRow>
+          ))}
+        </XUIEditableTableBody>
+      </XUIEditableTable>
     );
   }
 }
@@ -90,12 +97,14 @@ storiesWithKnobs.add('Playground', () => (
       'assorted',
     )}
     columns={number('Columns', 4)}
+    columnWidths={text('Column widths (space-separated)')}
     disableSecondRow={boolean('Disable cells in the second row?', false)}
     hasHeader={boolean('Has header?', true)}
+    maxWidth={text('Max width', '1100px')}
+    minWidth={text('Min width', '300px')}
     randomiseContent={boolean('Various assorted strings as content?', false)}
     rowOptions={{ isRemovable: boolean('Show remove button?', true) }}
     rows={number('Rows', 3)}
-    tableMaxWidth={number('Container max-width?', undefined)}
   />
 ));
 
@@ -163,5 +172,11 @@ storiesWithVariations.add('User test 3', () => {
   return <EditableTableUserTest items={sandwichData} />;
 });
 storiesWithVariations.add('User test 4', () => {
-  return <EditableTableUserTest items={sandwichData} maxWidth="800px" />;
+  return (
+    <EditableTableUserTest
+      columnWidths={['190px', '190px', '160px', '160px', '160px', '250px']}
+      items={sandwichData}
+      maxWidth="800px"
+    />
+  );
 });

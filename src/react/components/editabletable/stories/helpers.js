@@ -19,27 +19,19 @@ import crossIcon from '@xero/xui-icon/icons/cross-small';
 
 import people from '../../autocompleter/private/people';
 
-const sampleReadOnly = (id, width, text, settings) => (
-  <XUIEditableTableCellReadOnly {...settings} cellProps={{ width }} id={id} key={id}>
+const sampleReadOnly = (id, text, settings) => (
+  <XUIEditableTableCellReadOnly {...settings} id={id} key={id}>
     {text}
   </XUIEditableTableCellReadOnly>
 );
 
-const sampleTextInput = (id, width, text, settings) => (
-  <XUIEditableTableCellTextInput
-    {...settings}
-    cellProps={{ width }}
-    defaultValue={text}
-    id={id}
-    key={id}
-    minRows={1}
-  />
+const sampleTextInput = (id, text, settings) => (
+  <XUIEditableTableCellTextInput {...settings} defaultValue={text} id={id} key={id} minRows={1} />
 );
 
-const sampleSecondary = (id, width, text, settings) => (
+const sampleSecondary = (id, text, settings) => (
   <XUIEditableTableCellSecondarySearch
     {...settings}
-    cellProps={{ width }}
     id={id}
     key={id}
     onSearch={() => console.log('onSearch fired!')}
@@ -52,15 +44,8 @@ const sampleSecondary = (id, width, text, settings) => (
   </XUIEditableTableCellSecondarySearch>
 );
 
-const sampleSelect = (id, width, text, settings) => (
-  <XUIEditableTableCellSelectBox
-    {...settings}
-    buttonContent={text}
-    cellProps={{ width }}
-    id={id}
-    key={id}
-    label={text}
-  >
+const sampleSelect = (id, text, settings) => (
+  <XUIEditableTableCellSelectBox {...settings} buttonContent={text} id={id} key={id} label={text}>
     <SelectBoxOption id={`${id}_a`} key="a" value="Apple">
       Apple
     </SelectBoxOption>
@@ -232,7 +217,6 @@ class AutoExample extends Component {
       );
     return (
       <XUIEditableTableCellAutocompleter
-        cellProps={{ width: this.props.width }}
         inputLabel="autocompleter"
         isDisabled={this.props.isDisabled}
         isInputLabelHidden
@@ -253,13 +237,12 @@ class AutoExample extends Component {
   }
 }
 
-const sampleAutocompleter = (id, width, text, settings) => (
+const sampleAutocompleter = (id, text, settings) => (
   <AutoExample {...settings} index={id} key={id} placeholder={text} />
 );
 
 const generateCell = ({ cellsCount, cellType, columnIndex, randomiseContent, isDisabled }) => {
   const cellIndex = cellsCount.toString();
-  const widthIndex = cellsCount % widths.length;
   const derivedCellType =
     cellType === 'assorted' ? samples[columnIndex % samples.length] : cellType;
   const settings = {
@@ -270,7 +253,7 @@ const generateCell = ({ cellsCount, cellType, columnIndex, randomiseContent, isD
   const text = (randomiseContent && texts[cellsCount % texts.length]) || derivedCellType;
   const cellGenerator = sampleTypes[derivedCellType];
   if (cellGenerator) {
-    return cellGenerator(cellIndex, widths[widthIndex], text, settings);
+    return cellGenerator(cellIndex, text, settings);
   }
 };
 
@@ -292,6 +275,5 @@ const texts = [
   'Your name here',
   'X e r o',
 ];
-const widths = ['auto', '10px', '50px', '100px', '250px', '20%'];
 
 export default generateCell;

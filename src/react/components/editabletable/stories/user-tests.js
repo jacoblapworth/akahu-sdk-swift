@@ -76,7 +76,6 @@ class SBCell extends React.Component {
 }
 
 class EditableTableUserTest extends React.Component {
-  columnWidths = ['190px', '190px', '190px', '190px', '190px', '190px'];
   blankItem = {
     Name: undefined,
     Bun: undefined,
@@ -134,7 +133,11 @@ class EditableTableUserTest extends React.Component {
     }, 1500);
   };
   render() {
-    const { disableMainFilling, maxWidth } = this.props;
+    const {
+      disableMainFilling,
+      maxWidth,
+      columnWidths = ['190px', '190px', '190px', '190px', '190px', 'auto'],
+    } = this.props;
     return (
       <div
         style={{
@@ -142,24 +145,21 @@ class EditableTableUserTest extends React.Component {
           width: '95vw',
           position: 'absolute',
           top: '20px',
-          left: '20px',
+          left: '50%',
+          transform: 'translateX(-50%)',
         }}
       >
-        <XUIEditableTable className="xui-margin-bottom" rowOptions={{ isRemovable: true }}>
+        <XUIEditableTable
+          className="xui-margin-bottom"
+          columnWidths={columnWidths}
+          rowOptions={{ isRemovable: true }}
+        >
           <XUIEditableTableHead>
             <XUIEditableTableRow removeButtonAriaLabel="Remove row">
               {Object.keys(this.state.items[0]).map(
                 (item, index) =>
-                  index < 6 && (
-                    <XUIEditableTableHeadingCell
-                      key={index}
-                      style={{
-                        width: this.columnWidths[index],
-                        minWidth: this.columnWidths[index],
-                      }}
-                    >
-                      {item}
-                    </XUIEditableTableHeadingCell>
+                  item !== 'uid' && (
+                    <XUIEditableTableHeadingCell key={index}>{item}</XUIEditableTableHeadingCell>
                   ),
               )}
             </XUIEditableTableRow>

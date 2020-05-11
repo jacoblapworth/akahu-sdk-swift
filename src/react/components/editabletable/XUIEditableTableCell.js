@@ -18,7 +18,6 @@ XUIEditableTableCell.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   qaHook: PropTypes.string,
-  width: PropTypes.string,
 };
 
 export default XUIEditableTableCell;

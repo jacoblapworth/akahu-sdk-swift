@@ -41,20 +41,16 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
     $xui-editabletable-shadow-size 100%;
   border: $xui-border-standard;
   border-radius: $xui-radius;
+  display: block;
   overflow-x: auto;
-
-  &:not(.#{$ns}-editabletable-responsive) {
-    display: table;
-  }
-}
-
-.#{$ns}-editabletable-responsive {
-  display: grid;
 }
 
 .#{$ns}-editabletable--table {
   padding: $xui-s-small;
+  // These properties are key to give implementers explicit control over column widths.
+  // If no widths are specified, columns will default to being equal width.
   table-layout: fixed;
+  width: 100%;
 }
 
 .#{$ns}-editabletable--caption {

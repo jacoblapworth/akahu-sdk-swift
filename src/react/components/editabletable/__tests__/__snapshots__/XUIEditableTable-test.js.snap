@@ -2,7 +2,7 @@
 
 exports[`<XUIEditableTable /> composes the className correctly 1`] = `
 <div
-  className="xui-editabletable test-classname xui-editabletable-responsive"
+  className="xui-editabletable test-classname"
 >
   <table
     className="xui-editabletable--table"
@@ -20,7 +20,7 @@ exports[`<XUIEditableTable /> composes the className correctly 1`] = `
 
 exports[`<XUIEditableTable /> render with the caption 1`] = `
 <div
-  className="xui-editabletable xui-editabletable-responsive"
+  className="xui-editabletable"
 >
   <table
     className="xui-editabletable--table"
@@ -43,7 +43,7 @@ exports[`<XUIEditableTable /> render with the caption 1`] = `
 
 exports[`<XUIEditableTable /> renders correctly 1`] = `
 <div
-  className="xui-editabletable xui-editabletable-responsive"
+  className="xui-editabletable"
 >
   <table
     className="xui-editabletable--table"

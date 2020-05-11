@@ -28,7 +28,7 @@ const XUIEditableTableRow = ({
             {isHeaderRow =>
               isRemovable &&
               (isHeaderRow ? (
-                <XUIEditableTableHeadingCell />
+                <XUIEditableTableHeadingCell style={{ width: '40px' }} /> // $xui-control-size-standard
               ) : (
                 <XUIEditableTableCellIconButton
                   ariaLabel={removeButtonAriaLabel}

@@ -30,9 +30,9 @@ describe('<XUIEditableTableRow />', () => {
     it('renders a remove button for rows in the body', () => {
       // Arrange
       const wrapper = mount(
-        <XUIEditableTable rowOptions={{ isRemovable: true }}>
+        <XUIEditableTable rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}>
           <XUIEditableTableBody>
-            <XUIEditableTableRow removeButtonAriaLabel="Remove row" qaHook="test-row" />
+            <XUIEditableTableRow qaHook="test-row" />
           </XUIEditableTableBody>
         </XUIEditableTable>,
       );
@@ -44,7 +44,7 @@ describe('<XUIEditableTableRow />', () => {
     it('renders a blank table cell for rows in the head', () => {
       // Arrange
       const wrapper = mount(
-        <XUIEditableTable rowOptions={{ isRemovable: true }}>
+        <XUIEditableTable rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}>
           <XUIEditableTableHead>
             <XUIEditableTableRow qaHook="test-row" />
           </XUIEditableTableHead>
@@ -59,13 +59,9 @@ describe('<XUIEditableTableRow />', () => {
       // Arrange
       const onRemoveMock = jest.fn();
       const wrapper = mount(
-        <XUIEditableTable rowOptions={{ isRemovable: true }}>
+        <XUIEditableTable rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}>
           <XUIEditableTableBody>
-            <XUIEditableTableRow
-              removeButtonAriaLabel="Remove row"
-              onRemove={onRemoveMock}
-              qaHook="test-row"
-            />
+            <XUIEditableTableRow onRemove={onRemoveMock} qaHook="test-row" />
           </XUIEditableTableBody>
         </XUIEditableTable>,
       );
@@ -84,7 +80,7 @@ describe('<XUIEditableTableRow />', () => {
       const wrapper = mount(
         <XUIEditableTable rowOptions={{ isRemovable: false }}>
           <XUIEditableTableBody>
-            <XUIEditableTableRow removeButtonAriaLabel="Remove row" qaHook="test-row" />
+            <XUIEditableTableRow qaHook="test-row" />
           </XUIEditableTableBody>
         </XUIEditableTable>,
       );

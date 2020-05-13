@@ -205,7 +205,7 @@ const data = [
 
 <XUIEditableTable
   caption="List of fruits with color and price per kg"
-  rowOptions={{ isRemovable: true }}
+  rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}
 >
   <XUIEditableTableHead>
     <XUIEditableTableRow>

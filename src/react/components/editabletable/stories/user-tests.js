@@ -152,10 +152,10 @@ class EditableTableUserTest extends React.Component {
         <XUIEditableTable
           className="xui-margin-bottom"
           columnWidths={columnWidths}
-          rowOptions={{ isRemovable: true }}
+          rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}
         >
           <XUIEditableTableHead>
-            <XUIEditableTableRow removeButtonAriaLabel="Remove row">
+            <XUIEditableTableRow>
               {Object.keys(this.state.items[0]).map(
                 (item, index) =>
                   item !== 'uid' && (
@@ -166,11 +166,7 @@ class EditableTableUserTest extends React.Component {
           </XUIEditableTableHead>
           <XUIEditableTableBody>
             {this.state.items.map((item, index) => (
-              <XUIEditableTableRow
-                key={item.uid}
-                onRemove={event => this.removeItem(item.uid)}
-                removeButtonAriaLabel="Remove row"
-              >
+              <XUIEditableTableRow key={item.uid} onRemove={event => this.removeItem(item.uid)}>
                 <XUIEditableTableCellTextInput
                   defaultValue={item.Name}
                   key={`${item.uid}_name`}

@@ -44,7 +44,7 @@ class EditableTablePlayground extends React.Component {
       >
         {hasHeader && (
           <XUIEditableTableHead>
-            <XUIEditableTableRow removeButtonAriaLabel="Remove row">
+            <XUIEditableTableRow>
               {Array.from(Array(columns).keys()).map((item, index) => (
                 <XUIEditableTableHeadingCell key={index}>I’m a cell</XUIEditableTableHeadingCell>
               ))}
@@ -53,11 +53,7 @@ class EditableTablePlayground extends React.Component {
         )}
         <XUIEditableTableBody>
           {Array.from(Array(rows).keys()).map((item, rowIndex) => (
-            <XUIEditableTableRow
-              key={rowIndex}
-              onRemove={() => console.log('remove me')}
-              removeButtonAriaLabel="Remove row"
-            >
+            <XUIEditableTableRow key={rowIndex} onRemove={() => console.log('remove me')}>
               {Array.from(Array(columns).keys()).map((item, columnIndex) => {
                 const isDisabled = disableSecondRow && rowIndex === 1;
                 cellsCount += 1;
@@ -103,7 +99,10 @@ storiesWithKnobs.add('Playground', () => (
     maxWidth={text('Max width', '1100px')}
     minWidth={text('Min width', '300px')}
     randomiseContent={boolean('Various assorted strings as content?', false)}
-    rowOptions={{ isRemovable: boolean('Show remove button?', true) }}
+    rowOptions={{
+      isRemovable: boolean('Show remove button?', true),
+      removeButtonAriaLabel: 'Remove row',
+    }}
     rows={number('Rows', 3)}
   />
 ));
@@ -125,7 +124,7 @@ variations.forEach(variation => {
       <XUIEditableTable {...variationMinusStoryDetails}>
         {hasHeader && (
           <XUIEditableTableHead>
-            <XUIEditableTableRow removeButtonAriaLabel="Remove row">
+            <XUIEditableTableRow>
               {Array.from(Array(columns).keys()).map((item, index) => (
                 <XUIEditableTableHeadingCell key={index}>I’m a cell</XUIEditableTableHeadingCell>
               ))}
@@ -134,11 +133,7 @@ variations.forEach(variation => {
         )}
         <XUIEditableTableBody>
           {Array.from(Array(rows).keys()).map((item, index) => (
-            <XUIEditableTableRow
-              key={index}
-              onRemove={() => console.log('remove me')}
-              removeButtonAriaLabel="Remove row"
-            >
+            <XUIEditableTableRow key={index} onRemove={() => console.log('remove me')}>
               {Array.from(Array(columns).keys()).map((item, index) => {
                 return (
                   <XUIEditableTableCellReadOnly id={index} key={index}>

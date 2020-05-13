@@ -15,6 +15,7 @@ exports[`<XUIEditableTableRow /> removable row renders a remove button for rows 
   rowOptions={
     Object {
       "isRemovable": true,
+      "removeButtonAriaLabel": "Remove row",
     }
   }
 >
@@ -30,7 +31,6 @@ exports[`<XUIEditableTableRow /> removable row renders a remove button for rows 
         >
           <XUIEditableTableRow
             qaHook="test-row"
-            removeButtonAriaLabel="Remove row"
           >
             <tr
               className="xui-editabletablerow"

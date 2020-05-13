@@ -57,7 +57,30 @@ XUIEditableTable.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
   className: PropTypes.string,
   qaHook: PropTypes.string,
-  rowOptions: PropTypes.shape({ isRemovable: PropTypes.bool }),
+  rowOptions: PropTypes.shape({
+    isRemovable: PropTypes.bool,
+    removeButtonAriaLabel(props, propName, componentName) {
+      if (!props.isRemovable) {
+        return null;
+      }
+
+      if (!props[propName]) {
+        return new Error(
+          `The prop \`rowOptions.${propName}\` is required by \`${componentName}\` when using \`rowOptions.isRemovable\`, but its value is \`undefined\`.`,
+        );
+      }
+
+      if (typeof props[propName] !== 'string') {
+        return new Error(
+          `Invalid prop \`${propName}\` of type \`${typeof props[
+            propName
+          ]}\` supplied to \`${componentName}\`, expected \`string\`.`,
+        );
+      }
+
+      return null;
+    },
+  }),
   columnWidths: PropTypes.arrayOf(PropTypes.string),
   maxWidth: PropTypes.string,
   minWidth: PropTypes.string,

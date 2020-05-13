@@ -11,19 +11,12 @@ import XUIEditableTableHeadContext from './contexts/XUIEditableTableHeadContext'
 
 const baseName = `${tableName}row`;
 
-const XUIEditableTableRow = ({
-  children,
-  className,
-  onRemove,
-  qaHook,
-  removeButtonAriaLabel,
-  ...spreadProps
-}) => {
+const XUIEditableTableRow = ({ children, className, onRemove, qaHook, ...spreadProps }) => {
   return (
     <tr className={cn(baseName, className)} data-automationid={qaHook} {...spreadProps}>
       {children}
       <XUIEditableTableContext.Consumer>
-        {({ rowOptions: { isRemovable } }) => (
+        {({ rowOptions: { isRemovable, removeButtonAriaLabel } }) => (
           <XUIEditableTableHeadContext.Consumer>
             {isHeaderRow =>
               isRemovable &&
@@ -50,7 +43,6 @@ XUIEditableTableRow.propTypes = {
   className: PropTypes.string,
   onRemove: PropTypes.func,
   qaHook: PropTypes.string,
-  removeButtonAriaLabel: PropTypes.string,
 };
 
 export default XUIEditableTableRow;

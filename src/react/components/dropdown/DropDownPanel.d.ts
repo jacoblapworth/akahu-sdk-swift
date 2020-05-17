@@ -58,6 +58,14 @@ interface Props {
 
 export default class DropDownPanel extends React.PureComponent<Props> {
   /**
+   * Used to programmatically clear the highlighted item.
+   *
+   * If shouldManageInitialHighlight is set to false, the highlighted item will be cleared.
+   *
+   * If shouldManageInitialHighlight is set to true (default), the first item will be highlighted.
+   */
+  clearHighlightedItem(): void;
+  /**
    * Attempts to focus this element. If the element either doesn't exist yet or is set to
    * "visibility: isHidden", the component will try to focus the element again several times
    * over five seconds. If it still can't after that component will try to focus the element

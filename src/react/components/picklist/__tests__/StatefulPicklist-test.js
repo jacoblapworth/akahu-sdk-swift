@@ -98,6 +98,34 @@ describe('<StatefulPicklist /> API Methods', () => {
       expect(wrapper.state().highlightedElement.props.id).toEqual('item1');
     });
   });
+
+  describe('Multiple Items', () => {
+    it('clears the highlighted item from state when clearHighlightedItem method is called', () => {
+      const splWrapper = mount(
+        <StatefulPicklist shouldManageInitialHighlight={false}>
+          <Picklist>
+            <Pickitem id="item1">Item 1</Pickitem>
+            <Pickitem id="item2">Item 2</Pickitem>
+            <Pickitem id="item3">Item 3</Pickitem>
+            <Pickitem id="item4">Item 4</Pickitem>
+          </Picklist>
+          <Picklist>
+            <Pickitem id="anotheritem1">Another Item 1</Pickitem>
+            <Pickitem id="anotheritem2">Another Item 2</Pickitem>
+            <Pickitem id="anotheritem3">Another Item 3</Pickitem>
+            <Pickitem id="anotheritem4">Another Item 4</Pickitem>
+          </Picklist>
+        </StatefulPicklist>,
+      );
+
+      const item3 = splWrapper.instance().findItemById('item3');
+
+      splWrapper.instance().highlightItem(item3);
+      splWrapper.instance().clearHighlightedItem();
+
+      expect(splWrapper.state().highlightedElement).toEqual(null);
+    });
+  });
 });
 
 describe('<StatefulPicklist /> Interactions', () => {

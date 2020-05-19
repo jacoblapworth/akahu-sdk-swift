@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUIEditableTableCellReadOnly /> composes the className correctly 1`] = `
-<XUIEditableTableCell
+<ForwardRef
   className="xui-editabletablecellreadonly test-classname"
 />
 `;
 
 exports[`<XUIEditableTableCellReadOnly /> renders correctly 1`] = `
-<XUIEditableTableCell
+<ForwardRef
   className="xui-editabletablecellreadonly"
 >
   XUIEditableTableCellReadOnly
-</XUIEditableTableCell>
+</ForwardRef>
 `;

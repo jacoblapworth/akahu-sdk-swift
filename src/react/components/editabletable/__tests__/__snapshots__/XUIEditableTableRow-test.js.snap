@@ -43,7 +43,7 @@ exports[`<XUIEditableTableRow /> removable row renders a remove button for rows 
                 }
                 qaHook="test-row--button-remove"
               >
-                <XUIEditableTableCell
+                <ForwardRef
                   className="xui-editabletablecelliconbutton"
                 >
                   <td
@@ -122,7 +122,7 @@ exports[`<XUIEditableTableRow /> removable row renders a remove button for rows 
                       </XUIButton>
                     </XUIIconButton>
                   </td>
-                </XUIEditableTableCell>
+                </ForwardRef>
               </XUIEditableTableCellIconButton>
             </tr>
           </XUIEditableTableRow>

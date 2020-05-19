@@ -158,7 +158,7 @@ class AutoExample extends Component {
   render() {
     const { value, selectedPeopleIds } = this.state;
     const unselectedPeopleIds = filterPeople(people, value, selectedPeopleIds);
-    const isSingle = this.props.isSingle;
+    const { isSingle, ...spreadProps } = this.props;
 
     const leftElement = isSingle
       ? selectedPeopleIds[0] != null && (
@@ -218,7 +218,6 @@ class AutoExample extends Component {
     return (
       <XUIEditableTableCellAutocompleter
         inputLabel="autocompleter"
-        isDisabled={this.props.isDisabled}
         isInputLabelHidden
         isInvalid={this.state.isInvalid}
         leftElement={leftElement}
@@ -226,10 +225,10 @@ class AutoExample extends Component {
         onSearch={this.onSearchChangeHandler}
         openOnFocus
         pills={(!isSingle && this.renderPills(selectedPeopleIds)) || undefined}
-        placeholder={this.props.placeholder}
         ref={this.completer}
         rightElement={rightElement}
         searchValue={isSingle ? selectedPeopleIds[0] && people[selectedPeopleIds[0]].name : value}
+        {...spreadProps}
       >
         {dropdownContents}
       </XUIEditableTableCellAutocompleter>
@@ -241,14 +240,24 @@ const sampleAutocompleter = (id, text, settings) => (
   <AutoExample {...settings} index={id} key={id} placeholder={text} />
 );
 
-const generateCell = ({ cellsCount, cellType, columnIndex, randomiseContent, isDisabled }) => {
+const generateCell = ({
+  cellsCount,
+  cellType,
+  columnIndex,
+  randomiseContent,
+  isDisabled,
+  isInvalid,
+  validationMessage,
+}) => {
   const cellIndex = cellsCount.toString();
   const derivedCellType =
     cellType === 'assorted' ? samples[columnIndex % samples.length] : cellType;
   const settings = {
     isDisabled,
+    isInvalid,
     isMultiline: derivedCellType === 'textInputMultiline',
     isSingle: derivedCellType === 'autoCompleterSingle',
+    validationMessage,
   };
   const text = (randomiseContent && texts[cellsCount % texts.length]) || derivedCellType;
   const cellGenerator = sampleTypes[derivedCellType];

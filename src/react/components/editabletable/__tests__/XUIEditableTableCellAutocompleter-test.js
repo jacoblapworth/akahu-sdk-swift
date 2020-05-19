@@ -5,6 +5,7 @@ import toJson from 'enzyme-to-json';
 
 import XUIAutocompleter from '../../autocompleter/XUIAutocompleter';
 import XUIEditableTableCell from '../XUIEditableTableCell';
+import XUIEditableTableCellControl from '../XUIEditableTableCellControl';
 import XUIEditableTableCellAutocompleter from '../XUIEditableTableCellAutocompleter';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -13,6 +14,101 @@ describe('<XUIEditableTableCellAutocompleter />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(<XUIEditableTableCellAutocompleter onSearch={() => {}} />);
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  describe('focusing', () => {
+    it('lets XUIEditableTableCellControl know when the input is focused', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellAutocompleter onSearch={() => {}} />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Act
+      wrapper.find('input').simulate('focus');
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('isFocused')).toBeTruthy();
+    });
+
+    it('lets XUIEditableTableCellControl know when the input is blurred', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellAutocompleter onSearch={() => {}} />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Act
+      wrapper.find('input').simulate('focus');
+      wrapper.find('input').simulate('blur');
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('isFocused')).toBeFalsy();
+    });
+
+    it('lets XUIEditableTableCellControl know when the input is disabled', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellAutocompleter onSearch={() => {}} isDisabled />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('isDisabled')).toBeTruthy();
+    });
+
+    it('lets XUIEditableTableCellControl know when the input is invalid', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellAutocompleter onSearch={() => {}} isInvalid />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('isInvalid')).toBeTruthy();
+    });
+
+    it('lets XUIEditableTableCellControl know when the input has a validation message', () => {
+      // Arrange
+      const expectedMessage = 'Test validation message';
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellAutocompleter
+                onSearch={() => {}}
+                validationMessage={expectedMessage}
+              />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('validationMessage')).toBe(
+        expectedMessage,
+      );
+    });
   });
 
   it('spreads cellProps onto the table cell', () => {

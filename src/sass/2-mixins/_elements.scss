@@ -18,5 +18,7 @@
   border-color: $xui-control-disabled-border-color;
   color: $xui-control-disabled-color;
   cursor: not-allowed;
-  -webkit-text-fill-color: $xui-control-disabled-color;
+
+  // Fix for Safari's disabled inputs having a blue text colour
+  -webkit-text-fill-color: currentcolor;
 }

@@ -26,6 +26,7 @@ class EditableTablePlayground extends React.Component {
       columnWidths,
       disableSecondRow,
       hasHeader,
+      invalidSecondColumn,
       randomiseContent,
       rows,
       rowOptions,
@@ -56,6 +57,7 @@ class EditableTablePlayground extends React.Component {
             <XUIEditableTableRow key={rowIndex} onRemove={() => console.log('remove me')}>
               {Array.from(Array(columns).keys()).map((item, columnIndex) => {
                 const isDisabled = disableSecondRow && rowIndex === 1;
+                const isInvalid = invalidSecondColumn && columnIndex === 1;
                 cellsCount += 1;
                 return generateCell({
                   cellsCount,
@@ -63,6 +65,8 @@ class EditableTablePlayground extends React.Component {
                   columnIndex,
                   randomiseContent,
                   isDisabled,
+                  isInvalid,
+                  validationMessage: 'Example validation message',
                 });
               })}
             </XUIEditableTableRow>
@@ -96,6 +100,7 @@ storiesWithKnobs.add('Playground', () => (
     columnWidths={text('Column widths (space-separated)')}
     disableSecondRow={boolean('Disable cells in the second row?', false)}
     hasHeader={boolean('Has header?', true)}
+    invalidSecondColumn={boolean('Invalid cells in the second column?', false)}
     maxWidth={text('Max width', '1100px')}
     minWidth={text('Min width', '300px')}
     randomiseContent={boolean('Various assorted strings as content?', false)}

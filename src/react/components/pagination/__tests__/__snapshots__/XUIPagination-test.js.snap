@@ -12,7 +12,9 @@ exports[`<XUIPagination/> renders basic example 1`] = `
       className="xui-pagination--items--select"
     >
       Items per page
-      <div>
+      <div
+        className="xui-select"
+      >
         <div
           className=""
         >
@@ -95,7 +97,9 @@ exports[`<XUIPagination/> renders basic example 1`] = `
         className="xui-touchtarget"
       />
     </button>
-    <div>
+    <div
+      className="xui-select"
+    >
       <div
         className=""
       >
@@ -204,7 +208,9 @@ exports[`<XUIPagination/> should only render Paging 1`] = `
         className="xui-touchtarget"
       />
     </button>
-    <div>
+    <div
+      className="xui-select"
+    >
       <div
         className=""
       >
@@ -292,7 +298,9 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
       className="xui-pagination--items--select"
     >
       Items per page
-      <div>
+      <div
+        className="xui-select"
+      >
         <div
           className=""
         >
@@ -375,7 +383,9 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
         className="xui-touchtarget"
       />
     </button>
-    <div>
+    <div
+      className="xui-select"
+    >
       <div
         className=""
       >
@@ -465,7 +475,9 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
       data-automationid="pagination-test-select"
     >
       Items per page
-      <div>
+      <div
+        className="xui-select"
+      >
         <div
           className=""
         >
@@ -550,7 +562,9 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
         className="xui-touchtarget"
       />
     </button>
-    <div>
+    <div
+      className="xui-select"
+    >
       <div
         className=""
       >
@@ -638,7 +652,9 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
       className="xui-pagination--items--select"
     >
       Test per page
-      <div>
+      <div
+        className="xui-select"
+      >
         <div
           className=""
         >
@@ -721,7 +737,9 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
         className="xui-touchtarget"
       />
     </button>
-    <div>
+    <div
+      className="xui-select"
+    >
       <div
         className=""
       >
@@ -809,7 +827,9 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
       className="xui-pagination--items--select"
     >
       Items per page
-      <div>
+      <div
+        className="xui-select"
+      >
         <div
           className=""
         >
@@ -891,7 +911,9 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
         className="xui-touchtarget"
       />
     </button>
-    <div>
+    <div
+      className="xui-select"
+    >
       <div
         className=""
       >
@@ -979,7 +1001,9 @@ exports[`<XUIPagination/> should render with customized defaultPage 2`] = `
       className="xui-pagination--items--select"
     >
       Items per page
-      <div>
+      <div
+        className="xui-select"
+      >
         <div
           className=""
         >
@@ -1062,7 +1086,9 @@ exports[`<XUIPagination/> should render with customized defaultPage 2`] = `
         className="xui-touchtarget"
       />
     </button>
-    <div>
+    <div
+      className="xui-select"
+    >
       <div
         className=""
       >

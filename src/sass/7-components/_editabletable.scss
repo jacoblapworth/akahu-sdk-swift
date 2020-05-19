@@ -98,48 +98,6 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   @include xui-padding-horizontal($xui-s-standard);
 }
 
-@mixin xui-editabletable--control-default($cell-type) {
-  border-color: transparent;
-  border-radius: 0;
-  &.#{$ns}-textinput-focus {
-    border-color: transparent;
-  }
-  &:not(.#{$ns}-#{$cell-type}-is-disabled) {
-    background-color: transparent;
-  }
-}
-
-@mixin xui-editabletable--input-hover($disable-cell-type) {
-  &:not(.#{$ns}-textinput-focus):hover,
-  &:not(.#{$ns}-textinput-focus):active {
-    &:not(.#{$ns}-#{$disable-cell-type}-is-disabled) {
-      box-shadow: $xui-shadow-border-all;
-    }
-    border-color: transparent;
-  }
-}
-
-.#{$ns}-textinput.#{$ns}-editabletablecelltextinput--control,
-.#{$ns}-editabletablecellautocompleter--control .#{$ns}-textinput {
-  @include xui-editabletable--control-default('textinput');
-  @include xui-editabletable--input-hover('textinput');
-}
-
-.#{$ns}-editabletablecelltextinput--control .#{$ns}-textinput--input {
-  width: inherit;
-}
-
-.#{$ns}-editabletablecellselectbox--control {
-  .#{$ns}-select--button-no-variant,
-  .#{$ns}-select--button:disabled {
-    @include xui-editabletable--control-default('button');
-    @include xui-editabletable--input-hover('button');
-  }
-  height: 100%;
-  & :not(.#{$ns}-select--caret) {
-    height: inherit;
-  }
-}
 .#{$ns}-editabletablecellselectbox {
   .#{$ns}-select--button {
     @include xui-padding-vertical($xui-s-xsmall - 1px); // xsmall, minus a 1px border
@@ -158,20 +116,74 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   }
 }
 
-.#{$ns}-editabletablecelltextinput {
-  .#{$ns}-textinputwrapper,
-  .#{$ns}-textinput {
-    align-items: flex-start;
+@mixin xui-editabletablecell-control {
+  .#{$ns}-editabletablecell--focus-shadow,
+  .#{$ns}-editabletablecell--border {
     height: 100%;
+    position: relative;
+  }
+
+  // Hover
+  &:hover {
+    &:not(.#{$ns}-editabletablecell-control-is-invalid):not(.#{$ns}-editabletablecell-control-is-disabled) {
+      .#{$ns}-editabletablecell--border {
+        box-shadow: $xui-shadow-border-all;
+      }
+    }
+  }
+
+  // Invalid
+  &-is-invalid {
+    .#{$ns}-editabletablecell--border {
+      box-shadow: 0 0 0 1px $xui-textinput-invalid-border-color;
+      z-index: $xui-z-index-focus + 1;
+    }
+  }
+
+  // Focus
+  &-is-focused {
+    .#{$ns}-editabletablecell--focus-shadow {
+      @include xui-state-focus-shadow;
+    }
+
+    &:not(.#{$ns}-editabletablecell-control-is-invalid) {
+      .#{$ns}-editabletablecell--border {
+        box-shadow: $xui-shadow-border-all;
+        z-index: $xui-z-index-focus;
+      }
+    }
+  }
+
+  // Disabled
+  &-is-disabled {
+    @include xui-disabled-form-control;
   }
 }
 
-.#{$ns}-editabletablecellautocompleter--control {
-  height: 100%;
-  > *,
-  .#{$ns}-editabletablecellautocompleter--trigger,
-  .#{$ns}-textinputwrapper,
-  .#{$ns}-textinput {
-    height: inherit;
+.#{$ns}-editabletablecell-control {
+  @include xui-editabletablecell-control;
+
+  // Cursors
+  &:not(.#{$ns}-editabletablecell-control-is-disabled) {
+    &.#{$ns}-editabletablecellautocompleter,
+    &.#{$ns}-editabletablecelltextinput {
+      cursor: text;
+    }
+
+    &.#{$ns}-editabletablecellselectbox {
+      cursor: pointer;
+    }
   }
+}
+
+.#{$ns}-editabletablecell--validation {
+  @include xui-text-xsmall;
+  color: $xui-validation-color;
+  padding: 0 $xui-s-standard $xui-s-xsmall;
+  // Fix for Safari's disabled inputs overriding `color`.
+  -webkit-text-fill-color: currentColor;
+}
+
+.#{$ns}-editabletablecell--validation-is-invalid {
+  color: $xui-validation-invalid-color;
 }

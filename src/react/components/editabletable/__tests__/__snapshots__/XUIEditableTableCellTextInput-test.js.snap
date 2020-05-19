@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUIEditableTableCellTextInput /> renders correctly 1`] = `
-<XUIEditableTableCell
+<XUIEditableTableCellControl
   className="xui-editabletablecelltextinput"
   onClick={[Function]}
 >
@@ -10,8 +10,9 @@ exports[`<XUIEditableTableCellTextInput /> renders correctly 1`] = `
     inputProps={Object {}}
     isLabelHidden={true}
     minRows={3}
+    onBlur={[Function]}
     onFocus={[Function]}
     size="medium"
   />
-</XUIEditableTableCell>
+</XUIEditableTableCellControl>
 `;

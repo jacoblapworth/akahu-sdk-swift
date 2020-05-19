@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import XUIEditableTableCell from './XUIEditableTableCell';
+import XUIEditableTableCellControl from './XUIEditableTableCellControl';
 import XUITextInput from '../textInput/XUITextInput';
 import { tableName } from './private/constants';
 
@@ -11,44 +11,72 @@ const baseName = `${tableName}celltextinput`;
 const XUIEditableTableCellTextInput = ({
   cellProps = {},
   containerClassName,
+  onBlur,
   onFocus,
+  isDisabled,
+  isInvalid,
+  validationMessage,
   ...spreadProps
 }) => {
   const inputRef = React.useRef();
-  // NB: This is not testable via jest. We may benefit from a vis-reg of the selection.
+  const [isFocused, setIsFocused] = React.useState();
+
   /**
-   * Selects all content onFocus, before calling any user-supplied handlers.
+   * Records the focus state onBlur, before calling any user-supplied handlers.
+   * @param {event} event
+   */
+  const composedOnBlur = event => {
+    setIsFocused(false);
+
+    onBlur && onBlur(event);
+  };
+
+  /**
+   * Records the focus state and selects all content onFocus, before calling any user-supplied
+   * handlers.
    * @param {event} event
    */
   const composedOnFocus = event => {
+    setIsFocused(true);
+
     const input = event.target;
     input && input.setSelectionRange && input.setSelectionRange(0, input.value.length);
+
     onFocus && onFocus(event);
   };
+
   /**
    * @public
    * Focus the input inside the cell.
    */
   const focusInput = () => {
-    inputRef.current &&
+    getSelection().toString().length === 0 &&
+      inputRef.current &&
       inputRef.current.input &&
       inputRef.current.input.focus &&
       inputRef.current.input.focus();
   };
+
   return (
-    <XUIEditableTableCell
+    <XUIEditableTableCellControl
       {...cellProps}
       className={cn(baseName, cellProps.className)}
+      isDisabled={isDisabled}
+      isFocused={isFocused}
+      isInvalid={isInvalid}
       onClick={focusInput}
+      validationMessage={validationMessage}
     >
       <XUITextInput
         {...spreadProps}
         containerClassName={cn(`${baseName}--control`, containerClassName)}
+        isDisabled={isDisabled}
         isLabelHidden
+        onBlur={composedOnBlur}
         onFocus={composedOnFocus}
         ref={inputRef}
       />
-    </XUIEditableTableCell>
+    </XUIEditableTableCellControl>
   );
 };
 
@@ -86,6 +114,8 @@ XUIEditableTableCellTextInput.propTypes = {
   label: PropTypes.node,
   /** Whether the current input value is invalid */
   isInvalid: PropTypes.bool,
+  /** Validation message to show under the input if `isInvalid` is true */
+  validationMessage: PropTypes.node,
   /** Props to be spread onto the input element itself */
   inputProps: PropTypes.object,
   /** Sets a ref for the input element */

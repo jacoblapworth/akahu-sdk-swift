@@ -3,6 +3,7 @@
 
 .#{$ns}-select--control {
   @include xui-commoninput;
+  @include xui-commoninput-borders-and-bgs;
   cursor: pointer;
   padding-right: $xui-s-3xlarge;
 
@@ -29,12 +30,18 @@
   position: relative; // Required for the native select to position its caret correctly
 }
 
+.#{$ns}-select-cell {
+  .#{$ns}-select--button:disabled {
+    color: $xui-control-disabled-color;
+  }
+}
+
 .#{$ns}-select--button {
   display: flex;
   max-width: 100%;
   text-align: left;
 
-  &:disabled {
+  .#{$ns}-select:not(.#{$ns}-select-cell) &:disabled {
     @include xui-disabled-form-control;
   }
 
@@ -44,9 +51,11 @@
 }
 
 .#{$ns}-select--button-no-variant {
-  background-color: $xui-color-white;
-  border: $xui-border-control;
-  border-radius: $xui-radius;
+  .#{$ns}-select:not(.#{$ns}-select-cell) & {
+    background-color: $xui-color-white;
+    border: $xui-border-control;
+    border-radius: $xui-radius;
+  }
   color: $xui-select-color;
   font-weight: normal;
 

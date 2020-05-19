@@ -5,6 +5,7 @@ import toJson from 'enzyme-to-json';
 
 import XUITextInput from '../../textInput/XUITextInput';
 import XUIEditableTableCell from '../XUIEditableTableCell';
+import XUIEditableTableCellControl from '../XUIEditableTableCellControl';
 import XUIEditableTableCellTextInput from '../XUIEditableTableCellTextInput';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -13,6 +14,129 @@ describe('<XUIEditableTableCellTextInput />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(<XUIEditableTableCellTextInput />);
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  describe('focusing', () => {
+    it('lets XUIEditableTableCellControl know when the input is focused', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellTextInput />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Act
+      wrapper.find('input').simulate('focus');
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('isFocused')).toBeTruthy();
+    });
+
+    it('lets XUIEditableTableCellControl know when the input is blurred', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellTextInput />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Act
+      wrapper.find('input').simulate('focus');
+      wrapper.find('input').simulate('blur');
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('isFocused')).toBeFalsy();
+    });
+
+    it('lets XUIEditableTableCellControl know when the input is disabled', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellTextInput isDisabled />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('isDisabled')).toBeTruthy();
+    });
+
+    it('lets XUIEditableTableCellControl know when the input is invalid', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellTextInput isInvalid />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('isInvalid')).toBeTruthy();
+    });
+
+    it('lets XUIEditableTableCellControl know when the input has a validation message', () => {
+      // Arrange
+      const expectedMessage = 'Test validation message';
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellTextInput validationMessage={expectedMessage} />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('validationMessage')).toBe(
+        expectedMessage,
+      );
+    });
+
+    it('input text is selected before the onFocus prop is called', () => {
+      // Arrange
+      const onFocusMock = jest.fn();
+      const inputValue = 'Highlight Highlight Highlight';
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellTextInput
+                onChange={() => {}}
+                onFocus={onFocusMock}
+                value={inputValue}
+              />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Act
+      wrapper.find('input').simulate('focus');
+      const onFocusArguments = onFocusMock.mock.calls[0];
+      const focusTarget = onFocusArguments[0].target;
+      const selectedText = focusTarget.value.substring(
+        focusTarget.selectionStart,
+        focusTarget.selectionEnd,
+      );
+
+      // Assert
+      expect(selectedText).toBe(inputValue);
+    });
   });
 
   describe('spreading props', () => {

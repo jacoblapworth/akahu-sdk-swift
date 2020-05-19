@@ -15,6 +15,8 @@ import compose from '../helpers/compose';
 import { isKeySpacebar, eventKeyValues } from '../helpers/reactKeyHandler';
 import { baseClass, dropdownPositionOptions } from './private/constants';
 
+import EditableTableCellContext from '../../contexts/EditableTableCellContext';
+
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 
 /**
@@ -503,95 +505,101 @@ export default class DropDownToggled extends PureComponent {
   };
 
   render() {
-    const {
-      className,
-      trigger,
-      dropdown,
-      restrictToViewPort,
-      forceDesktop,
-      qaHook,
-      maxHeight,
-      preferredPosition,
-      ariaPopupType,
-      ariaRole,
-      isLegacyDisplay,
-      matchTriggerWidth,
-      ...otherProps
-    } = this.props;
-    const { isOpening, isClosing, isHidden, activeDescendant } = this.state;
-
-    const clonedTrigger = React.cloneElement(trigger, {
-      ref: compose(trigger.ref, c => (this.trigger = c)),
-      onClick: this.handleOnClick,
-      onKeyDown: this.handleOnKeyDown,
-      onKeyUp: this.handleOnKeyUp,
-      'aria-activedescendant': activeDescendant,
-      'aria-haspopup': ariaPopupType,
-      'aria-controls': (!isHidden && this.dropdownId) || undefined,
-    });
-
-    const clonedDropdown = React.cloneElement(dropdown, {
-      isHidden,
-      id: this.dropdownId,
-      forceDesktop,
-      animateOpen: isOpening,
-      animateClosed: isClosing,
-      // TODO: Memoize these props to avoid recreating functions
-      ref: compose(dropdown.ref, c => (this.dropdown = c)),
-      onSelect: compose(dropdown.props.onSelect, this.onSelect),
-      onHighlightChange: compose(dropdown.props.onHighlightChange, this.onHighlightChange),
-      onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, this.onCloseAnimationEnd),
-      onOpenAnimationEnd: compose(dropdown.onOpenAnimationEnd, this.onOpenAnimationEnd),
-      onKeyDown: compose(dropdown.props.onKeyDown, this.onDropDownKeyDown),
-      className: dropdown.props.className,
-    });
-
-    const commonPositioningProps = {
-      maxHeight,
-      isVisible: !isHidden,
-      shouldRestrictMaxHeight: restrictToViewPort,
-      isNotResponsive: forceDesktop,
-      onVisible: shouldAnimate(this) ? null : this.onOpenAnimationEnd,
-      ref: this.positioning,
-      parentRef: this.wrapper.current,
-      isTriggerWidthMatched: matchTriggerWidth,
-    };
-
-    const positionedDropdown =
-      isLegacyDisplay || this.state.isNarrowViewport ? (
-        <Positioning {...commonPositioningProps} qaHook={qaHook && `${qaHook}--positioning`}>
-          {clonedDropdown}
-        </Positioning>
-      ) : (
-        <PositioningInline
-          {...otherProps}
-          {...commonPositioningProps}
-          maxWidth={-1}
-          preferredPosition={preferredPosition}
-          qaHook={qaHook && `${qaHook}--positioning-inline`}
-          useDropdownPositioning
-        >
-          {clonedDropdown}
-        </PositioningInline>
-      );
-
-    const wrapperAria = {
-      role: ariaRole || 'presentation',
-      'aria-expanded': (ariaRole && !isHidden) || undefined,
-      'aria-owns': (!isHidden && this.dropdownId) || undefined,
-    };
-
     return (
-      <div
-        {...wrapperAria}
-        className={className}
-        data-automationid={qaHook}
-        data-ref="toggled-wrapper"
-        ref={this.wrapper}
-      >
-        {clonedTrigger}
-        {positionedDropdown}
-      </div>
+      <EditableTableCellContext.Consumer>
+        {({ cellRef }) => {
+          const {
+            className,
+            trigger,
+            dropdown,
+            restrictToViewPort,
+            forceDesktop,
+            qaHook,
+            maxHeight,
+            preferredPosition,
+            ariaPopupType,
+            ariaRole,
+            isLegacyDisplay,
+            matchTriggerWidth,
+            ...otherProps
+          } = this.props;
+          const { isOpening, isClosing, isHidden, activeDescendant } = this.state;
+
+          const clonedTrigger = React.cloneElement(trigger, {
+            ref: compose(trigger.ref, c => (this.trigger = c)),
+            onClick: this.handleOnClick,
+            onKeyDown: this.handleOnKeyDown,
+            onKeyUp: this.handleOnKeyUp,
+            'aria-activedescendant': activeDescendant,
+            'aria-haspopup': ariaPopupType,
+            'aria-controls': (!isHidden && this.dropdownId) || undefined,
+          });
+
+          const clonedDropdown = React.cloneElement(dropdown, {
+            isHidden,
+            id: this.dropdownId,
+            forceDesktop,
+            animateOpen: isOpening,
+            animateClosed: isClosing,
+            // TODO: Memoize these props to avoid recreating functions
+            ref: compose(dropdown.ref, c => (this.dropdown = c)),
+            onSelect: compose(dropdown.props.onSelect, this.onSelect),
+            onHighlightChange: compose(dropdown.props.onHighlightChange, this.onHighlightChange),
+            onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, this.onCloseAnimationEnd),
+            onOpenAnimationEnd: compose(dropdown.onOpenAnimationEnd, this.onOpenAnimationEnd),
+            onKeyDown: compose(dropdown.props.onKeyDown, this.onDropDownKeyDown),
+            className: dropdown.props.className,
+          });
+
+          const commonPositioningProps = {
+            maxHeight,
+            isVisible: !isHidden,
+            shouldRestrictMaxHeight: restrictToViewPort,
+            isNotResponsive: forceDesktop,
+            onVisible: shouldAnimate(this) ? null : this.onOpenAnimationEnd,
+            ref: this.positioning,
+            parentRef: cellRef.current || this.wrapper.current,
+            isTriggerWidthMatched: matchTriggerWidth,
+          };
+
+          const positionedDropdown =
+            isLegacyDisplay || this.state.isNarrowViewport ? (
+              <Positioning {...commonPositioningProps} qaHook={qaHook && `${qaHook}--positioning`}>
+                {clonedDropdown}
+              </Positioning>
+            ) : (
+              <PositioningInline
+                {...otherProps}
+                {...commonPositioningProps}
+                maxWidth={-1}
+                preferredPosition={preferredPosition}
+                qaHook={qaHook && `${qaHook}--positioning-inline`}
+                useDropdownPositioning
+              >
+                {clonedDropdown}
+              </PositioningInline>
+            );
+
+          const wrapperAria = {
+            role: ariaRole || 'presentation',
+            'aria-expanded': (ariaRole && !isHidden) || undefined,
+            'aria-owns': (!isHidden && this.dropdownId) || undefined,
+          };
+
+          return (
+            <div
+              {...wrapperAria}
+              className={className}
+              data-automationid={qaHook}
+              data-ref="toggled-wrapper"
+              ref={this.wrapper}
+            >
+              {clonedTrigger}
+              {positionedDropdown}
+            </div>
+          );
+        }}
+      </EditableTableCellContext.Consumer>
     );
   }
 }

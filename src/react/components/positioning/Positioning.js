@@ -241,7 +241,12 @@ class Positioning extends PureComponent {
       maxHeight,
       isNotResponsive,
     } = this.props;
-    const triggerDOM = parentRef.firstChild;
+
+    if (!parentRef) {
+      return;
+    }
+
+    const triggerDOM = getTriggerNodeFromParentRef(parentRef);
 
     if (verge.inViewport(triggerDOM)) {
       if (!isNotResponsive && isNarrowViewport()) {
@@ -276,7 +281,7 @@ class Positioning extends PureComponent {
     const { isTriggerWidthMatched, parentRef, isNotResponsive } = this.props;
 
     const isMobile = isNarrowViewport() && !isNotResponsive;
-    const triggerElement = parentRef != null && parentRef.firstChild;
+    const triggerElement = parentRef && getTriggerNodeFromParentRef(parentRef);
 
     const shouldMatchTriggerWidth = isTriggerWidthMatched && !isMobile && triggerElement != null;
     const width = shouldMatchTriggerWidth ? triggerElement.getBoundingClientRect().width : null;

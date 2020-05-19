@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import XUIEditableTableCell from './XUIEditableTableCell';
+import XUIEditableTableCellControl from './XUIEditableTableCellControl';
 import XUIAutocompleter from '../autocompleter/XUIAutocompleter';
 import { tableName } from './private/constants';
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
@@ -10,14 +10,35 @@ import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 const baseName = `${tableName}cellautocompleter`;
 
 class XUIEditableTableCellAutocompleter extends Component {
-  completer = React.createRef();
+  completerRef = React.createRef();
+  state = {
+    isFocused: false,
+  };
+
+  /**
+   * Records the focus state onBlur, before calling any user-supplied handlers.
+   * @param {event} event
+   */
+  composedOnBlur = event => {
+    this.setState({ isFocused: false });
+    this.props.inputProps && this.props.inputProps.onBlur && this.props.inputProps.onBlur(event);
+  };
+
+  /**
+   * Records the focus state onFocus, before calling any user-supplied handlers.
+   * @param {event} event
+   */
+  composedOnFocus = event => {
+    this.setState({ isFocused: true });
+    this.props.inputProps && this.props.inputProps.onFocus && this.props.inputProps.onFocus(event);
+  };
 
   /**
    * @public
    * Set the state as not hidden in order to toggle the list open.
    */
   openDropDown = () => {
-    this.completer.current.openDropDown();
+    this.completerRef.current.openDropDown();
   };
 
   /**
@@ -25,21 +46,55 @@ class XUIEditableTableCellAutocompleter extends Component {
    * Set the state as hidden in order to toggle the list closed.
    */
   closeDropDown = () => {
-    this.completer.current.closeDropDown();
+    this.completerRef.current.closeDropDown();
+  };
+
+  /**
+   * @public
+   * Focus the input inside the cell.
+   */
+  focusInput = () => {
+    getSelection().toString().length === 0 &&
+      this.completerRef.current &&
+      this.completerRef.current.focusInput();
   };
 
   render() {
-    const { cellProps = {}, className, triggerClassName, ...spreadProps } = this.props;
+    const {
+      cellProps = {},
+      className,
+      inputProps,
+      isDisabled,
+      isInvalid,
+      triggerClassName,
+      validationMessage,
+      ...spreadProps
+    } = this.props;
+
     return (
-      <XUIEditableTableCell {...cellProps} className={cn(baseName, cellProps.className)}>
+      <XUIEditableTableCellControl
+        {...cellProps}
+        className={cn(baseName, cellProps.className)}
+        isDisabled={isDisabled}
+        isFocused={this.state.isFocused}
+        isInvalid={isInvalid}
+        onClick={this.focusInput}
+        validationMessage={validationMessage}
+      >
         <XUIAutocompleter
           {...spreadProps}
           className={cn(`${baseName}--control`, className)}
+          inputProps={{
+            ...inputProps,
+            onBlur: this.composedOnBlur,
+            onFocus: this.composedOnFocus,
+          }}
+          isDisabled={isDisabled}
           isInputLabelHidden
-          ref={this.completer}
+          ref={this.completerRef}
           triggerClassName={cn(`${baseName}--trigger`, triggerClassName)}
         />
-      </XUIEditableTableCell>
+      </XUIEditableTableCellControl>
     );
   }
 }
@@ -168,6 +223,12 @@ XUIEditableTableCellAutocompleter.propTypes = {
   /** Whether to render as disabled */
   isDisabled: PropTypes.bool,
 
+  /** Whether the current input value is invalid */
+  isInvalid: PropTypes.bool,
+
+  /** Validation message to show under the input if `isInvalid` is true */
+  validationMessage: PropTypes.node,
+
   /** ID to apply to the input element. Useful for labels. */
   inputId: PropTypes.string,
 
@@ -176,9 +237,6 @@ XUIEditableTableCellAutocompleter.propTypes = {
 
   /** Callback for when the highlighted item changes. */
   onHighlightChange: PropTypes.func,
-
-  /** Whether the current input value is invalid */
-  isInvalid: PropTypes.bool,
 };
 
 export default XUIEditableTableCellAutocompleter;

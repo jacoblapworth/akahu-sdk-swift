@@ -9,6 +9,7 @@ import { calculateMaxHeight } from './private/helpers';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds, { generateIdsFromControlId } from '../controlwrapper/helpers';
 import { sizeShift } from '../helpers/sizes';
+import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 import SizeContext from '../../contexts/SizeContext';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
@@ -74,121 +75,128 @@ class XUITextInput extends PureComponent {
   };
 
   render() {
-    const input = this;
-    const {
-      value,
-      type,
-      size,
-      isInvalid,
-      isBorderlessTransparent,
-      isBorderlessSolid,
-      label,
-      validationMessage,
-      hintMessage,
-      onChange,
-      onKeyDown,
-      leftElement,
-      rightElement,
-      qaHook,
-      inputProps,
-      inputRef,
-      isFieldLayout,
-      fieldClassName,
-      containerClassName,
-      labelClassName,
-      inputClassName,
-      defaultValue,
-      placeholder,
-      isInverted,
-      isDisabled,
-      isMultiline,
-      isValueReverseAligned,
-      isManuallyResizable,
-      isLabelHidden,
-      minRows,
-      rows,
-      // We want to remove these from the spread props, but they're not used in the render.
-      /* eslint-disable no-unused-vars */
-      maxRows,
-      labelId,
-      onFocus,
-      onBlur,
-      /* eslint-enable no-unused-vars */
-      ...otherProps
-    } = input.props;
-    const { maxHeight, hasFocus } = this.state;
-
-    const classes = cn(
-      inputClassName,
-      `${inputBaseClass}--input`,
-      inputSizeClasses[size],
-      isMultiline && !isManuallyResizable && `${inputBaseClass}--input-resize-none`,
-      isMultiline && isManuallyResizable && `${inputBaseClass}--input-resize-vertical`,
-      isValueReverseAligned && `${inputBaseClass}--input-reverse-align`,
-    );
-
-    const rootClasses = cn(fieldClassName, `${inputBaseClass}wrapper`);
-
-    const baseClasses = cn(
-      containerClassName,
-      inputBaseClass,
-      baseSizeClasses[size],
-      isInvalid && `${inputBaseClass}-is-invalid`,
-      (isBorderlessTransparent || isBorderlessSolid) && `${inputBaseClass}-borderless`,
-      isBorderlessTransparent && `${inputBaseClass}-borderless-transparent`,
-      isBorderlessSolid && `${inputBaseClass}-borderless-solid`,
-      isInverted && `${inputBaseClass}-borderless-inverted`,
-      hasFocus && `${inputBaseClass}-focus`,
-      isDisabled && `${inputBaseClass}-is-disabled`,
-    );
-
-    const InputEl = isMultiline ? 'textarea' : 'input';
-
-    inputProps.style = {
-      ...inputProps.style,
-      maxHeight, // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
-    };
-
     return (
-      <SizeContext.Provider value={sizeShift(size, -1)}>
-        <XUIControlWrapper
-          fieldClassName={rootClasses}
-          wrapperIds={this.wrapperIds}
-          {...{
-            qaHook,
-            onKeyDown,
-            label,
+      <EditableTableCellContext.Consumer>
+        {({ useCellStyling }) => {
+          const input = this;
+          const {
+            value,
+            type,
+            size,
             isInvalid,
+            isBorderlessTransparent,
+            isBorderlessSolid,
+            label,
             validationMessage,
             hintMessage,
+            onChange,
+            onKeyDown,
+            leftElement,
+            rightElement,
+            qaHook,
+            inputProps,
+            inputRef,
             isFieldLayout,
+            fieldClassName,
+            containerClassName,
             labelClassName,
+            inputClassName,
+            defaultValue,
+            placeholder,
+            isInverted,
+            isDisabled,
+            isMultiline,
+            isValueReverseAligned,
+            isManuallyResizable,
             isLabelHidden,
-          }}
-        >
-          <div className={baseClasses} data-automationid={qaHook} {...otherProps}>
-            {leftElement}
-            <InputEl
-              {...inputProps}
-              className={classes}
-              data-automationid={qaHook && `${qaHook}--input`}
-              defaultValue={defaultValue}
-              disabled={isDisabled}
-              onBlurCapture={input.onBlur}
-              onChange={onChange}
-              onFocusCapture={input.onFocus}
-              placeholder={placeholder}
-              ref={compose(inputRef, i => (this.input = i))}
-              type={type}
-              value={value}
-              {...getAriaAttributes(this.wrapperIds, this.props)}
-              // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
-              rows={isMultiline ? rows || minRows : undefined}
-            />
-            {rightElement}
-          </div>
-        </XUIControlWrapper>
-      </SizeContext.Provider>
+            minRows,
+            rows,
+            // We want to remove these from the spread props, but they're not used in the render.
+            /* eslint-disable no-unused-vars */
+            maxRows,
+            labelId,
+            onFocus,
+            onBlur,
+            /* eslint-enable no-unused-vars */
+            ...otherProps
+          } = input.props;
+          const { maxHeight, hasFocus } = this.state;
+
+          const classes = cn(
+            inputClassName,
+            `${inputBaseClass}--input`,
+            inputSizeClasses[size],
+            isMultiline && !isManuallyResizable && `${inputBaseClass}--input-resize-none`,
+            isMultiline && isManuallyResizable && `${inputBaseClass}--input-resize-vertical`,
+            isValueReverseAligned && `${inputBaseClass}--input-reverse-align`,
+          );
+
+          const rootClasses = cn(fieldClassName, `${inputBaseClass}wrapper`);
+
+          const baseClasses = cn(
+            containerClassName,
+            inputBaseClass,
+            baseSizeClasses[size],
+            isInvalid && `${inputBaseClass}-is-invalid`,
+            (isBorderlessTransparent || isBorderlessSolid) && `${inputBaseClass}-borderless`,
+            isBorderlessTransparent && `${inputBaseClass}-borderless-transparent`,
+            isBorderlessSolid && `${inputBaseClass}-borderless-solid`,
+            isInverted && `${inputBaseClass}-borderless-inverted`,
+            hasFocus && `${inputBaseClass}-focus`,
+            isDisabled && `${inputBaseClass}-is-disabled`,
+            useCellStyling && `${inputBaseClass}-cell`,
+          );
+
+          const InputEl = isMultiline ? 'textarea' : 'input';
+
+          inputProps.style = {
+            ...inputProps.style,
+            maxHeight, // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
+          };
+
+          return (
+            <SizeContext.Provider value={sizeShift(size, -1)}>
+              <XUIControlWrapper
+                fieldClassName={rootClasses}
+                wrapperIds={this.wrapperIds}
+                {...{
+                  qaHook,
+                  onKeyDown,
+                  label,
+                  isInvalid,
+                  validationMessage,
+                  hintMessage,
+                  isFieldLayout,
+                  labelClassName,
+                  isLabelHidden,
+                }}
+              >
+                <div className={baseClasses} data-automationid={qaHook} {...otherProps}>
+                  {leftElement}
+                  <InputEl
+                    {...inputProps}
+                    className={classes}
+                    data-automationid={qaHook && `${qaHook}--input`}
+                    defaultValue={defaultValue}
+                    disabled={isDisabled}
+                    onBlurCapture={input.onBlur}
+                    onChange={onChange}
+                    onFocusCapture={input.onFocus}
+                    placeholder={placeholder}
+                    ref={compose(inputRef, i => (this.input = i))}
+                    type={type}
+                    value={value}
+                    {...getAriaAttributes(this.wrapperIds, this.props)}
+                    // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
+                    rows={isMultiline ? rows || minRows : undefined}
+                  />
+                  {rightElement}
+                </div>
+              </XUIControlWrapper>
+            </SizeContext.Provider>
+          );
+        }}
+      </EditableTableCellContext.Consumer>
     );
   }
 }

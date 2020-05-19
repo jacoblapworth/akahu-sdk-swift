@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIEditableTableCellControl /> composes the className correctly 1`] = `
+<ForwardRef
+  className="test-classname xui-editabletablecell-control"
+>
+  <ContextProvider
+    value={
+      Object {
+        "cellRef": Object {
+          "current": undefined,
+        },
+        "useCellStyling": true,
+      }
+    }
+  >
+    <div
+      className="xui-editabletablecell--focus-shadow"
+    >
+      <div
+        className="xui-editabletablecell--border"
+      />
+    </div>
+  </ContextProvider>
+</ForwardRef>
+`;
+
+exports[`<XUIEditableTableCellControl /> renders correctly 1`] = `
+<ForwardRef
+  className="xui-editabletablecell-control"
+>
+  <ContextProvider
+    value={
+      Object {
+        "cellRef": Object {
+          "current": undefined,
+        },
+        "useCellStyling": true,
+      }
+    }
+  >
+    <div
+      className="xui-editabletablecell--focus-shadow"
+    >
+      <div
+        className="xui-editabletablecell--border"
+      >
+        XUIEditableTableCellControl
+      </div>
+    </div>
+  </ContextProvider>
+</ForwardRef>
+`;

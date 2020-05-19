@@ -14,6 +14,19 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
   display: block;
 }
 
+.#{$ns}-textinput-cell {
+  &.#{$ns}-textinput-is-disabled {
+    // We excluded cells from the general disabled styles.
+    // This is the only bit we need to add back.
+    cursor: not-allowed;
+  }
+
+  .#{$ns}-textinput--input {
+    // Allow text inputs to fit the size of the cell
+    width: inherit;
+  }
+}
+
 // The xui-textinput--input class needs to be defined before xui-textinput so that if a component has
 // both xui-textinput and xui-textinput--input applied (e.g. on a single <input /> with no wrapper),
 // the border styles and background colors from xui-textinput override those specified here.
@@ -47,9 +60,12 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
   display: flex;
   min-width: $xui-minimum-touch-target;
   padding: 0;
+  &:not(.#{$ns}-textinput-cell) {
+    @include xui-commoninput-borders-and-bgs;
+  }
 }
 
-.#{$ns}-textinput-is-invalid {
+.#{$ns}-textinput-is-invalid:not(.#{$ns}-textinput-cell) {
   border-color: $xui-textinput-invalid-border-color;
   z-index: $xui-z-index-body;
 
@@ -60,14 +76,18 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 }
 
 .#{$ns}-textinput-focus {
-  box-shadow: $xui-shadow-focus;
+  &:not(.#{$ns}-textinput-cell) {
+    box-shadow: $xui-shadow-focus;
+  }
   outline: none;
   transition: box-shadow 0.1s;
   z-index: $xui-z-index-focus;
 }
 
 .#{$ns}-textinput-is-disabled {
-  @include xui-disabled-form-control;
+  &:not(.#{$ns}-textinput-cell) {
+    @include xui-disabled-form-control;
+  }
 
   .#{$ns}-textinput--input {
     cursor: not-allowed;
@@ -277,7 +297,7 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 
 // Borderless inputs
 
-.#{$ns}-textinput-borderless {
+.#{$ns}-textinput-borderless:not(.#{$ns}-textinput-cell) {
   border: 0;
 
   &:focus {
@@ -285,7 +305,7 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
   }
 }
 
-.#{$ns}-textinput-borderless-transparent {
+.#{$ns}-textinput-borderless-transparent:not(.#{$ns}-textinput-cell) {
   background-color: transparent;
 
   &.#{$ns}-textinput-focus {
@@ -298,7 +318,7 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
   }
 }
 
-.#{$ns}-textinput-borderless-solid {
+.#{$ns}-textinput-borderless-solid:not(.#{$ns}-textinput-cell) {
   background-color: $xui-textinput-borderless-solid-bg-color;
 
   &.#{$ns}-textinput-focus {
@@ -315,7 +335,7 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
   }
 }
 
-.#{$ns}-textinput-borderless.#{$ns}-textinput-is-invalid {
+.#{$ns}-textinput-borderless.#{$ns}-textinput-is-invalid:not(.#{$ns}-textinput-cell) {
   background-color: $xui-textinput-borderless-invalid-bg-color;
 
   &.#{$ns}-textinput-focus {
@@ -323,7 +343,7 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
   }
 }
 
-.#{$ns}-textinput-borderless-inverted {
+.#{$ns}-textinput-borderless-inverted:not(.#{$ns}-textinput-cell) {
   color: $xui-textinput-borderless-inverted-color;
 
   &.#{$ns}-textinput--input,

@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
-<XUIEditableTableCell
+<XUIEditableTableCellControl
   className="xui-editabletablecellselectbox"
+  onClick={[Function]}
+  onMouseDown={[Function]}
 >
   <SelectBox
     buttonContent="EditableTable select box"
@@ -16,6 +18,8 @@ exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
     isTextTruncated={true}
     label="EditableTable select box"
     matchTriggerWidth={true}
+    onBlur={[Function]}
+    onFocus={[Function]}
     restrictFocus={true}
   >
     <SelectBoxOption
@@ -61,5 +65,5 @@ exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
       Cucumber
     </SelectBoxOption>
   </SelectBox>
-</XUIEditableTableCell>
+</XUIEditableTableCellControl>
 `;

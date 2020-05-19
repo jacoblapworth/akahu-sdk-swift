@@ -5,6 +5,7 @@ import toJson from 'enzyme-to-json';
 
 import SelectBox, { SelectBoxOption } from '../../../select-box';
 import XUIEditableTableCell from '../XUIEditableTableCell';
+import XUIEditableTableCellControl from '../XUIEditableTableCellControl';
 import XUIEditableTableCellSelectBox from '../XUIEditableTableCellSelectBox';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -28,6 +29,110 @@ describe('<XUIEditableTableCellSelectBox />', () => {
       </XUIEditableTableCellSelectBox>,
     );
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  describe('focusing', () => {
+    it('lets XUIEditableTableCellControl know when the select box is focused', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellSelectBox buttonContent="Test button" label="Test select box" />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Act
+      wrapper.find('button').simulate('focus');
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('isFocused')).toBeTruthy();
+    });
+
+    it('lets XUIEditableTableCellControl know when the select box is blurred', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellSelectBox buttonContent="Test button" label="Test select box" />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Act
+      wrapper.find('button').simulate('focus');
+      wrapper.find('button').simulate('blur');
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('isFocused')).toBeFalsy();
+    });
+
+    it('lets XUIEditableTableCellControl know when the select box is disabled', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellSelectBox
+                buttonContent="Test button"
+                label="Test select box"
+                isDisabled
+              />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('isDisabled')).toBeTruthy();
+    });
+
+    it('lets XUIEditableTableCellControl know when the select box is invalid', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellSelectBox
+                buttonContent="Test button"
+                label="Test select box"
+                isInvalid
+              />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('isInvalid')).toBeTruthy();
+    });
+
+    it('lets XUIEditableTableCellControl know when the select box has a validation message', () => {
+      // Arrange
+      const expectedMessage = 'Test validation message';
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellSelectBox
+                buttonContent="Test button"
+                label="Test select box"
+                validationMessage={expectedMessage}
+              />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      // Assert
+      expect(wrapper.find(XUIEditableTableCellControl).prop('validationMessage')).toBe(
+        expectedMessage,
+      );
+    });
   });
 
   it('spreads cellProps onto the table cell', () => {

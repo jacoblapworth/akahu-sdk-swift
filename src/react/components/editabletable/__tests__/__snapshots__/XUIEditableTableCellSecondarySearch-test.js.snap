@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUIEditableTableCellSecondarySearch /> renders correctly 1`] = `
-<XUIEditableTableCell
+<ForwardRef
   className="xui-editabletablecellsecondarysearch"
 >
   <XUIAutocompleterSecondarySearch
@@ -28,5 +28,5 @@ exports[`<XUIEditableTableCellSecondarySearch /> renders correctly 1`] = `
       </XUIButton>
     }
   />
-</XUIEditableTableCell>
+</ForwardRef>
 `;

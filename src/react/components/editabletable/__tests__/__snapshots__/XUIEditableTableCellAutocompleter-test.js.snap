@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUIEditableTableCellAutocompleter /> renders correctly 1`] = `
-<XUIEditableTableCell
+<XUIEditableTableCellControl
   className="xui-editabletablecellautocompleter"
+  isFocused={false}
+  onClick={[Function]}
 >
   <XUIAutocompleter
     className="xui-editabletablecellautocompleter--control"
@@ -10,6 +12,12 @@ exports[`<XUIEditableTableCellAutocompleter /> renders correctly 1`] = `
     disableWrapPills={false}
     dropdownFixedWidth={false}
     forceDesktop={true}
+    inputProps={
+      Object {
+        "onBlur": [Function],
+        "onFocus": [Function],
+      }
+    }
     isInputLabelHidden={true}
     loading={false}
     matchTriggerWidth={true}
@@ -18,5 +26,5 @@ exports[`<XUIEditableTableCellAutocompleter /> renders correctly 1`] = `
     searchDebounceTimeout={200}
     triggerClassName="xui-editabletablecellautocompleter--trigger"
   />
-</XUIEditableTableCell>
+</XUIEditableTableCellControl>
 `;

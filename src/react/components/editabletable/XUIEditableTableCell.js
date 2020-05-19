@@ -6,13 +6,15 @@ import { tableName } from './private/constants';
 
 const baseName = `${tableName}cell`;
 
-const XUIEditableTableCell = ({ children, className, qaHook, ...spreadProps }) => {
-  return (
-    <td className={cn(baseName, className)} data-automationid={qaHook} {...spreadProps}>
-      {children}
-    </td>
-  );
-};
+const XUIEditableTableCell = React.forwardRef(
+  ({ children, className, qaHook, ...spreadProps }, ref) => {
+    return (
+      <td className={cn(baseName, className)} data-automationid={qaHook} ref={ref} {...spreadProps}>
+        {children}
+      </td>
+    );
+  },
+);
 
 XUIEditableTableCell.propTypes = {
   children: PropTypes.node,

@@ -11,29 +11,29 @@ import XUIEditableTableHeadContext from './contexts/XUIEditableTableHeadContext'
 
 const baseName = `${tableName}row`;
 
+// TODO: Replace this with $xui-control-size-standard when SASS tokens can be shared with React
+const xuiControlSizeStandard = '40px';
+
 const XUIEditableTableRow = ({ children, className, onRemove, qaHook, ...spreadProps }) => {
+  const isHeaderRow = React.useContext(XUIEditableTableHeadContext);
+  const {
+    rowOptions: { isRemovable, removeButtonAriaLabel },
+  } = React.useContext(XUIEditableTableContext);
+
   return (
     <tr className={cn(baseName, className)} data-automationid={qaHook} {...spreadProps}>
       {children}
-      <XUIEditableTableContext.Consumer>
-        {({ rowOptions: { isRemovable, removeButtonAriaLabel } }) => (
-          <XUIEditableTableHeadContext.Consumer>
-            {isHeaderRow =>
-              isRemovable &&
-              (isHeaderRow ? (
-                <XUIEditableTableHeadingCell style={{ width: '40px' }} /> // $xui-control-size-standard
-              ) : (
-                <XUIEditableTableCellIconButton
-                  ariaLabel={removeButtonAriaLabel}
-                  iconReference={trashIcon}
-                  onClick={onRemove}
-                  qaHook={`${qaHook}--button-remove`}
-                />
-              ))
-            }
-          </XUIEditableTableHeadContext.Consumer>
-        )}
-      </XUIEditableTableContext.Consumer>
+      {isRemovable && isHeaderRow && (
+        <XUIEditableTableHeadingCell style={{ width: xuiControlSizeStandard }} />
+      )}
+      {isRemovable && !isHeaderRow && (
+        <XUIEditableTableCellIconButton
+          ariaLabel={removeButtonAriaLabel}
+          iconReference={trashIcon}
+          onClick={onRemove}
+          qaHook={`${qaHook}--button-remove`}
+        />
+      )}
     </tr>
   );
 };

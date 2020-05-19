@@ -3,11 +3,7 @@
 exports[`<XUIEditableTableRow /> composes the className correctly 1`] = `
 <tr
   className="xui-editabletablerow test-classname"
->
-  <ContextConsumer>
-    <Component />
-  </ContextConsumer>
-</tr>
+/>
 `;
 
 exports[`<XUIEditableTableRow /> removable row renders a remove button for rows in the body 1`] = `
@@ -144,8 +140,5 @@ exports[`<XUIEditableTableRow /> renders correctly 1`] = `
   <div>
     XUIEditableTableRow
   </div>
-  <ContextConsumer>
-    <Component />
-  </ContextConsumer>
 </tr>
 `;

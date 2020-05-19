@@ -159,7 +159,7 @@ export default class XUIAutocompleter extends PureComponent {
        * This will ensure that dropdown onKeyDown event occurs after the re-rendering of the picklist selection is complete.
        * This implementation has been chosen as it allows us to ensure the correct behaviour without invasive changes to Autocompletion/dropdown/statefulPicklist components.
        */
-      setTimeout(() => this.dropdown.onKeyDown(event));
+      setTimeout(() => this.dropdown && this.dropdown.onKeyDown && this.dropdown.onKeyDown(event));
     }
 
     if (

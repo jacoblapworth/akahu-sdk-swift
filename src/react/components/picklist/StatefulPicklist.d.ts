@@ -47,6 +47,18 @@ interface Props {
 
 export default class StatefulPicklist extends React.Component<Props> {
   /**
+   * Clears the highlighted element and fires the onHighlightChange callback.
+   *
+   * If shouldManageInitialHighlight is set to false, the highlighted item will be cleared.
+   *
+   * If shouldManageInitialHighlight is set to true (default), the first item will be highlighted.
+   */
+  clearHighlightedItem(): void;
+  /**
+   * Find a child element by its ID.
+   */
+  findItemById(id: string): void;
+  /**
    * Get the React virtual DOM representation of the currently highlighted element.
    */
   getHighlighted(): null | Pickitem;
@@ -82,10 +94,6 @@ export default class StatefulPicklist extends React.Component<Props> {
    * `shouldManageInitialHighlight` prop to `false`.
    */
   highlightInitial(): void;
-  /**
-   * Find a child element by its ID.
-   */
-  findItemById(id: string): void;
   /**
    * Allows simulation of keydown events if the DOM focus is elsewhere.
    */

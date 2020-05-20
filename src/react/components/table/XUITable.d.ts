@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'react';
 
+import { XUIIconData } from '../icon/XUIIcon';
 import { Props as PickitemProps } from '../picklist/Pickitem';
 
 interface BaseProps {
@@ -112,6 +113,11 @@ interface EmptyStateProps {
    * Inject a custom "Empty State" design to override the default version.
    */
   emptyStateComponent?: React.ReactNode;
+  /**
+   * Optional prop for users to modify the empty state icon, if required for localisation.
+   * Defaults to the table icon, if no value is provided.
+   */
+  emptyStateIcon?: XUIIconData;
 }
 
 interface InteractionProps {
@@ -170,10 +176,18 @@ interface SortingProps {
     isSortAsc?: boolean,
     activeSortKey?: string,
   ) => EnrichedTableItemObject[];
+
+  /**
+   * Optional prop for users to modify the Header sort button icon, if required for localisation.
+   *
+   * Defaults to the sortSingle icon, if no value is provided.
+   */
+  headerSortbuttonIcon?: XUIIconData;
   /**
    * Determines if the rows are arranged in an ascending or descending order.
    */
   isSortAsc?: boolean;
+
   /**
    * Callback to handle a sort interaction.
    */

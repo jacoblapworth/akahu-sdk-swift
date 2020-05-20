@@ -146,7 +146,7 @@ export default class DropDown extends PureComponent {
    * Used to highlight an item immediately after a dropdown opens.
    *
    * @public
-   * @memberof DropDownPanel
+   * @memberof DropDown
    */
   highlightInitial = () => {
     const currentPanel = this.panel.current;
@@ -159,9 +159,31 @@ export default class DropDown extends PureComponent {
     }
   };
 
+  /**
+   * Used to programmatically highlight the first item.
+   *
+   * @public
+   * @memberof DropDown
+   */
   highlightFirstItem = () => {
     if (this.panel.current != null) {
       this.panel.current.highlightFirstItem();
+    }
+  };
+
+  /**
+   * Used to programmatically clear the highlighted item.
+   *
+   * If shouldManageInitialHighlight is set to false, the highlighted item will be cleared.
+   *
+   * If shouldManageInitialHighlight is set to true (default), the first item will be highlighted.
+   *
+   * @public
+   * @memberof DropDown
+   */
+  clearHighlightedItem = () => {
+    if (this.panel.current != null) {
+      this.panel.current.clearHighlightedItem();
     }
   };
 

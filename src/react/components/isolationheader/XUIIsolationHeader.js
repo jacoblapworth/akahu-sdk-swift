@@ -14,6 +14,7 @@ export default function XUIIsolationHeader({
   navigationButton,
   qaHook,
   secondary,
+  supplementary,
   tags,
   title,
   ...spreadProps
@@ -26,6 +27,7 @@ export default function XUIIsolationHeader({
   const titleWrapperClasses = cn(
     `${baseClass}--titlewrapper`,
     avatar && `${baseClass}--titlewrapper-has-avatar`,
+    tags && `${baseClass}--titlewrapper-has-tags`,
   );
 
   const controlContent = (
@@ -34,11 +36,30 @@ export default function XUIIsolationHeader({
       {avatar}
     </div>
   );
-  const titleWrapper = (title || secondary || tags) && (
+  const titleWrapper = (title || secondary || supplementary || tags) && (
     <div className={titleWrapperClasses}>
-      {title && <h1 className={`${baseClass}--title`}>{title}</h1>}
-      {secondary && <div className={`${baseClass}--secondarytitle`}>{secondary}</div>}
+      {title && (
+        <h1 className={`${baseClass}--title`} data-automationid={qaHook && `${qaHook}--title`}>
+          {title}
+        </h1>
+      )}
+      {secondary && (
+        <div
+          className={`${baseClass}--secondarytitle`}
+          data-automationid={qaHook && `${qaHook}--secondarytitle`}
+        >
+          {secondary}
+        </div>
+      )}
       {tags && <div className={`${baseClass}--tags`}>{tags}</div>}
+      {supplementary && (
+        <div
+          className={`${baseClass}--supplementarytext`}
+          data-automationid={qaHook && `${qaHook}--supplementarytext`}
+        >
+          {supplementary}
+        </div>
+      )}
     </div>
   );
   const leftContent = (
@@ -93,6 +114,10 @@ XUIIsolationHeader.propTypes = {
    * Secondary title
    */
   secondary: PropTypes.node,
+  /**
+   * Supplementary text to appear after the headings and tags
+   */
+  supplementary: PropTypes.string,
   /**
    * Navigation button
    */

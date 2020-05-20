@@ -138,6 +138,7 @@ const builtTabs = (
 <XUIPageHeader
   title="New member"
   secondary="Create a read-only member"
+  supplementary="Saved"
   tags={[
     <XUITag key="pending" size="small">
       Pending

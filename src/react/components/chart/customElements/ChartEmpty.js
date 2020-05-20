@@ -14,20 +14,31 @@ import { NAME_SPACE } from '../helpers/constants';
  *
  * TODO: Move this component out so we can use this pattern globally.
  */
-const ChartEmptyState = ({ emptyMessage }) => (
+const ChartEmptyState = ({ emptyMessage, icon }) => (
   <div className={`${NAME_SPACE}-chart--empty`}>
-    <XUIIcon icon={chart} isBoxed size="large" />
+    <XUIIcon icon={icon} isBoxed size="large" />
     <div>{emptyMessage}</div>
   </div>
 );
 
 ChartEmptyState.propTypes = {
   emptyMessage: PropTypes.node.isRequired,
+  icon: PropTypes.shape({
+    height: PropTypes.number,
+    path: PropTypes.string,
+    width: PropTypes.number,
+  }).isRequired,
 };
 
 class ChartEmpty extends PureComponent {
   render = () => {
-    const { qaHook, emptyStateComponent, emptyMessage, chartHeight } = this.props;
+    const {
+      qaHook,
+      emptyStateComponent,
+      emptyMessage,
+      chartHeight,
+      emptyStateIcon = chart,
+    } = this.props;
     const emptyHeight = chartHeight * 0.75;
     const chartClassName = cn(`${NAME_SPACE}-chart`, `${NAME_SPACE}-chart-is-empty`);
 
@@ -37,7 +48,9 @@ class ChartEmpty extends PureComponent {
         data-automationid={qaHook && `${qaHook}--empty`}
         style={{ minHeight: `${emptyHeight}px` }}
       >
-        {emptyStateComponent || <ChartEmptyState emptyMessage={emptyMessage} />}
+        {emptyStateComponent || (
+          <ChartEmptyState emptyMessage={emptyMessage} icon={emptyStateIcon} />
+        )}
       </div>
     );
   };
@@ -50,4 +63,13 @@ ChartEmpty.propTypes = {
   emptyStateComponent: PropTypes.element,
   emptyMessage: PropTypes.node,
   chartHeight: PropTypes.number,
+  /**
+   * Optional prop for users to modify the empty chart state icon, if required for localisation.
+   * Defaults to the chart icon, if no value is provided.
+   */
+  emptyStateIcon: PropTypes.shape({
+    height: PropTypes.number,
+    path: PropTypes.string,
+    width: PropTypes.number,
+  }),
 };

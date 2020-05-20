@@ -51,7 +51,7 @@
 //
 // Classes:
 // xui-pageheading--leftcontent: Elements that appear at the left side of the page heading when at full width, including breadcrumb trails and the title wrapper
-// xui-pageheading--titlewrapper: All left-side content other than breadcrumbs should be in this container, including title, secondary text, and/or tags
+// xui-pageheading--titlewrapper: All left-side content other than breadcrumbs should be in this container, including title, secondary text, supplementary text, and/or tags
 // xui-pageheading--rightcontent: Elements that appear to the right of any title content when at full width. This should include any tabs and/or actions
 //
 // ExampleClass: ds-example-wide
@@ -88,10 +88,11 @@
 // The title area of a page heading will contain the title, as well as any secondary text and tags that apply to the title.
 //
 // Classes:
-// xui-pageheading--titlewrapper: Wraps all title-related content, and excludes breadcrumbs
+// xui-pageheading--titlewrapper: Wraps all title-related content (including tags and supplementary text) and excludes breadcrumbs
 // xui-pageheading--title: Page heading title
 // xui-pageheading--secondarytitle: Secondary descriptive content to appear after the title
-// xui-pageheading--tags: A container for tags to appear after the title and any secondary text
+// xui-pageheading--tags: A container for tags to appear after the title and subtitle
+// xui-pageheading--supplementarytext: Additional text to provide very simple messaging about the page, e.g. a unsaved/editing/saved status
 //
 // ExampleClass: ds-example-wide
 //

@@ -139,9 +139,17 @@ export default class XUIDatePicker extends PureComponent {
           nextProps.minDate,
           nextProps.maxDate,
         );
+        /**
+         * Ensure any new updates to 'currentMonth' state from outside of getDerivedStateFromProps() is not reverted prematurely.
+         * This is essential as other methods resulting in the triggering of the 'componentDidUpdate' lifecycle will change the 'currentMonth' state.
+         */
+        const ensureCurrentMonthStateNotPreviouslyUpdated =
+          prevState.currentMonth === prevState.prevProps.displayedMonth;
+
         if (
-          nextDisplayedMonth.getFullYear() !== prevState.currentMonth.getFullYear() ||
-          nextDisplayedMonth.getMonth() !== prevState.currentMonth.getMonth()
+          ensureCurrentMonthStateNotPreviouslyUpdated &&
+          (nextDisplayedMonth.getFullYear() !== prevState.currentMonth.getFullYear() ||
+            nextDisplayedMonth.getMonth() !== prevState.currentMonth.getMonth())
         ) {
           return { currentMonth: nextDisplayedMonth, prevProps: nextProps };
         }

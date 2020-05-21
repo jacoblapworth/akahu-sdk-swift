@@ -123,7 +123,7 @@ $justify - Property to use for justify-content
   min-height: inherit; // IE11 bug fix TODO: Link to docs on what the bugfix is
   position: relative;
   text-decoration: none;
-  &:first-of-type {
+  &:first-child {
     border-top: 0;
   }
   &-rowlink {
@@ -132,6 +132,7 @@ $justify - Property to use for justify-content
     &.#{$classname}-rowlink:hover,
     &.#{$classname}-rowlink:focus {
       background-color: $xui-color-grey-8;
+      cursor: pointer;
     }
     &.#{$classname}-rowlink:active {
       background-color: $xui-color-grey-7;

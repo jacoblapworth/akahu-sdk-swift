@@ -48,6 +48,10 @@
   .#{$ns}-select-is-invalid & {
     border-color: $xui-validation-invalid-color;
   }
+
+  &:disabled {
+    @include xui-disabled-form-control;
+  }
 }
 
 .#{$ns}-select--button-no-variant {

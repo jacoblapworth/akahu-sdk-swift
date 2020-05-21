@@ -100,6 +100,15 @@ interface Props {
 
 export default class DropDown extends React.PureComponent<Props> {
   /**
+   * Used to programmatically clear the highlighted item.
+   *
+   * If shouldManageInitialHighlight is set to false, the highlighted item will be cleared.
+   *
+   * If shouldManageInitialHighlight is set to true (default), the first item will be highlighted.
+   *
+   */
+  clearHighlightedItem(): void;
+  /**
    * Get the React virtual DOM representation of the currently highlighted element.
    */
   getHighlighted(): null | Pickitem;
@@ -142,10 +151,10 @@ export default class DropDown extends React.PureComponent<Props> {
   /**
    * Allows simulation of keydown events if the DOM focus is elsewhere.
    */
-  onKeyDown: React.KeyboardEventHandler<React.KeyboardEvent<HTMLDivElement>>;
+  onKeyDown: React.KeyboardEventHandler;
   /**
    * Fired when either the enter key or space bar is pressed and calls onclick of the menu item
    * before closing the list.
    */
-  selectHighlighted(item: Pickitem): void;
+  selectHighlighted(): void;
 }

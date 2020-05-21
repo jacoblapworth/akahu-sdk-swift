@@ -15,6 +15,7 @@ class ContentPagination extends PureComponent {
       paginationLabel,
       paginationNextTitle,
       paginationPreviousTitle,
+      icon = arrowPathData,
     } = this.props;
     const message = createMessage && createMessage(current, total);
 
@@ -26,7 +27,7 @@ class ContentPagination extends PureComponent {
       >
         <XUIIconButton
           ariaLabel={paginationPreviousTitle}
-          icon={arrowPathData}
+          icon={icon}
           isDisabled={current === 1}
           onClick={() => updatePanel(current - 1)}
           rotation="90"
@@ -37,7 +38,7 @@ class ContentPagination extends PureComponent {
 
         <XUIIconButton
           ariaLabel={paginationNextTitle}
-          icon={arrowPathData}
+          icon={icon}
           isDisabled={current === total}
           onClick={() => updatePanel(current + 1)}
           rotation="270"
@@ -59,4 +60,9 @@ ContentPagination.propTypes = {
   paginationLabel: PropTypes.string,
   paginationNextTitle: PropTypes.string,
   paginationPreviousTitle: PropTypes.string,
+  icon: PropTypes.shape({
+    height: PropTypes.number,
+    path: PropTypes.string,
+    width: PropTypes.number,
+  }),
 };

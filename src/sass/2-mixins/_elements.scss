@@ -21,4 +21,9 @@
 
   // Fix for Safari's disabled inputs having a blue text colour
   -webkit-text-fill-color: currentcolor;
+
+  &:focus,
+  &:hover {
+    border-color: $xui-control-disabled-border-color;
+  }
 }

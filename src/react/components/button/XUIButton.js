@@ -11,7 +11,6 @@ import {
 } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 import noop from '../helpers/noop';
-import { isKeySpacebar } from '../helpers/reactKeyHandler';
 import SizeContext from '../../contexts/SizeContext';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 
@@ -43,68 +42,6 @@ const getVariantClass = variant =>
  * @return {string} The href that will be assigned to a link
  */
 const getHref = href => (!href || href === '#' ? '' : href);
-
-/**
- * KeyPress handler which will dispatch a click event when the space bar is pressed.
- *
- * @private
- * @param {KeyboardEvent} event
- * @param {Object} props
- */
-function handleSpacebarAsClick(event, { isDisabled, isLoading }) {
-  if (isDisabled || isLoading) {
-    if (isKeySpacebar(event)) {
-      // Clicking the space bar causes scrolling by default.  No bueno for a button.
-      event.preventDefault();
-
-      // A native event needs to be dispatched to ensure that all
-      // browsers will follow the link.
-      // Generate a click event with the latest API, if possible.
-      // Use document.createEvent for IE 11.
-      let clickEvent;
-      if (typeof window.Event === 'function') {
-        clickEvent = new MouseEvent('click', {
-          bubbles: true,
-          cancelable: true,
-          view: window,
-          detail: 0,
-          screenX: 0,
-          screenY: 0,
-          clientX: 0,
-          clientY: 0,
-          ctrlKey: false,
-          altKey: false,
-          shiftKey: false,
-          metaKey: false,
-          button: 0,
-          relatedTarget: null,
-        });
-      } else {
-        clickEvent = document.createEvent('MouseEvents');
-        // If you're seeing a line through initMouseEvent because WebStorm, read the comment
-        // above the if statement
-        clickEvent.initMouseEvent(
-          'click',
-          true,
-          true,
-          window,
-          0,
-          0,
-          0,
-          0,
-          0,
-          false,
-          false,
-          false,
-          false,
-          0,
-          null,
-        );
-      }
-      event.target.dispatchEvent(clickEvent);
-    }
-  }
-}
 
 /**
  * Attempt to focus the root DOM node of the given component, if the DOM node exists
@@ -214,9 +151,6 @@ export default class XUIButton extends React.PureComponent {
 
           const elementSpecificTypeProps = isLink
             ? {
-                onKeyPress: e => {
-                  handleSpacebarAsClick(e, { isDisabled, isLoading });
-                },
                 href: getHref(href),
                 target,
                 rel: cn(rel, isExternalLink && 'external noopener noreferrer') || undefined,

@@ -76,7 +76,11 @@ XUIAccordion.propTypes = {
   toggleLabel: PropTypes.string.isRequired,
 
   /** Customise the default "empty" icon path data. */
-  emptyIcon: PropTypes.object,
+  emptyIcon: PropTypes.shape({
+    height: PropTypes.number,
+    path: PropTypes.string,
+    width: PropTypes.number,
+  }),
 
   /**
    * The message to show if the accordion is empty.

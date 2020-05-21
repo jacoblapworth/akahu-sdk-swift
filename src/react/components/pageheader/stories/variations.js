@@ -93,6 +93,7 @@ const variations = [
     storyTitle: `with all the things`,
     viewports: desktopPlus320,
     secondary: true,
+    supplementary: true,
     tags: true,
     breadcrumb: true,
     tabs: true,
@@ -103,6 +104,7 @@ const variations = [
     storyTitle: `with all the things (compact)`,
     viewports: desktopPlus320,
     secondary: true,
+    supplementary: true,
     tags: true,
     breadcrumb: true,
     breadcrumbSwapPoint: 'small',
@@ -116,6 +118,7 @@ const variations = [
     viewports: desktopPlus320,
     longContent: true,
     secondary: true,
+    supplementary: true,
     tags: true,
     breadcrumb: [
       { label: 'Organisation settings', href: '#1' },
@@ -131,6 +134,7 @@ const variations = [
     viewports: desktopPlus320,
     longContent: true,
     secondary: true,
+    supplementary: true,
     tags: true,
     breadcrumb: [
       { label: 'Organisation settings', href: '#1' },

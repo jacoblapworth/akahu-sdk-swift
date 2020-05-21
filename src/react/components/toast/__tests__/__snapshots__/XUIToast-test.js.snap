@@ -56,7 +56,6 @@ exports[`XUIToast should render one message as a prop, one action as a prop 1`] 
       disabled={false}
       href=""
       onClick={[Function]}
-      onKeyPress={[Function]}
       tabIndex={0}
     >
       Action ONE
@@ -84,7 +83,6 @@ exports[`XUIToast should render two actions as a prop, but not more than two 1`]
       disabled={false}
       href=""
       onClick={[Function]}
-      onKeyPress={[Function]}
       tabIndex={0}
     >
       Action ONE
@@ -94,7 +92,6 @@ exports[`XUIToast should render two actions as a prop, but not more than two 1`]
       disabled={false}
       href=""
       onClick={[Function]}
-      onKeyPress={[Function]}
       tabIndex={0}
     >
       Action TWO
@@ -122,7 +119,6 @@ exports[`XUIToast should render using the XUIActions component under the hood wh
       disabled={false}
       href=""
       onClick={[Function]}
-      onKeyPress={[Function]}
       tabIndex={0}
     >
       Action ONE
@@ -132,7 +128,6 @@ exports[`XUIToast should render using the XUIActions component under the hood wh
       disabled={false}
       href=""
       onClick={[Function]}
-      onKeyPress={[Function]}
       tabIndex={0}
     >
       Action TWO
@@ -160,7 +155,6 @@ exports[`XUIToast should still be able to render actions as children, along with
       disabled={false}
       href=""
       onClick={[Function]}
-      onKeyPress={[Function]}
       tabIndex={0}
     >
       Action ONE
@@ -170,7 +164,6 @@ exports[`XUIToast should still be able to render actions as children, along with
       disabled={false}
       href=""
       onClick={[Function]}
-      onKeyPress={[Function]}
       tabIndex={0}
     >
       Action TWO
@@ -198,7 +191,6 @@ exports[`XUIToast should still be able to render messages as children, along wit
       disabled={false}
       href=""
       onClick={[Function]}
-      onKeyPress={[Function]}
       tabIndex={0}
     >
       Action ONE
@@ -208,7 +200,6 @@ exports[`XUIToast should still be able to render messages as children, along wit
       disabled={false}
       href=""
       onClick={[Function]}
-      onKeyPress={[Function]}
       tabIndex={0}
     >
       Action TWO

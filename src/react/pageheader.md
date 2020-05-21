@@ -35,6 +35,39 @@ const builtTabs = (
 <XUIPageHeader title="Contacts" tabs={builtTabs} />;
 ```
 
+For responsive support, there's a compact version for horizontal picklist which could be used in `tabs` of `XUIPageHeader`.
+
+(Refer to the document for prop `swapAtBreakpoint` in the `Horizontal variant` section of [Picklist](#picklist).)
+
+Try to resize: Click and drag the bottom right corner of the following container.
+
+```jsx harmony
+import { XUIPageHeader } from '@xero/xui/react/pageheader';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+
+const builtTabs = (
+  <Picklist secondaryProps={{ role: 'menu' }} swapAtBreakpoint="small">
+    <Pickitem ariaRole="menuitem" id="one">
+      See all
+    </Pickitem>
+    <Pickitem ariaRole="menuitem" id="two" isSelected>
+      Edit
+    </Pickitem>
+    <Pickitem ariaRole="menuitem" id="three">
+      Add
+    </Pickitem>
+  </Picklist>
+);
+const wrapperStyles = {
+  resize: 'horizontal',
+  overflow: 'hidden'
+};
+
+<div className="xui-panel xui-padding-xsmall" style={wrapperStyles}>
+  <XUIPageHeader title="Contacts" tabs={builtTabs} />
+</div>;
+```
+
 ```jsx harmony
 import { XUIPageHeader } from '@xero/xui/react/pageheader';
 import XUIActions from '@xero/xui/react/actions';
@@ -105,6 +138,7 @@ const builtTabs = (
 <XUIPageHeader
   title="New member"
   secondary="Create a read-only member"
+  supplementary="Saved"
   tags={[
     <XUITag key="pending" size="small">
       Pending

@@ -24,6 +24,7 @@ export default class NestedPicklistTrigger extends PureComponent {
       ariaLabel,
       secondaryProps,
       leftElement,
+      icon,
     } = this.props;
     const { id } = this.context;
     const hasChildren = children && (typeof children !== 'string' || children.trim().length > 0);
@@ -48,12 +49,13 @@ export default class NestedPicklistTrigger extends PureComponent {
         onKeyDown={onClick}
         onMouseOver={onMouseOver}
         ref={n => (this.rootNode = n)}
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
         role="button"
         tabIndex={0}
       >
         {wrappedLeft}
         {hasChildren ? <span className={itemTextClassName}>{children}</span> : null}
-        <XUIIcon className={`${ns}-submenu-uicontrol--icon`} icon={arrow} isBoxed />
+        <XUIIcon className={`${ns}-submenu-uicontrol--icon`} icon={icon} isBoxed />
       </label>
     );
   }
@@ -77,6 +79,15 @@ NestedPicklistTrigger.propTypes = {
   secondaryProps: PropTypes.object,
   /** Content to be added to the left of the pickitem */
   leftElement: PropTypes.node,
+  /**
+   * Optional prop for users to modify the Nested Picklist Trigger icon, if required for localisation.
+   * Defaults to the arrow icon, if no value is provided.
+   */
+  icon: PropTypes.shape({
+    height: PropTypes.number,
+    path: PropTypes.string,
+    width: PropTypes.number,
+  }),
 };
 
 NestedPicklistTrigger.defaultProps = {
@@ -96,6 +107,7 @@ NestedPicklistTrigger.defaultProps = {
 	 this component a thing that opens and closes nested picklists
 	 */
   _isGroupTrigger: true, // eslint-disable-line
+  icon: arrow,
 };
 
 NestedPicklistTrigger.contextTypes = {

@@ -100,6 +100,15 @@ interface Props {
 
 export default class DropDown extends React.PureComponent<Props> {
   /**
+   * Used to programmatically clear the highlighted item.
+   *
+   * If shouldManageInitialHighlight is set to false, the highlighted item will be cleared.
+   *
+   * If shouldManageInitialHighlight is set to true (default), the first item will be highlighted.
+   *
+   */
+  clearHighlightedItem(): void;
+  /**
    * Get the React virtual DOM representation of the currently highlighted element.
    */
   getHighlighted(): null | Pickitem;

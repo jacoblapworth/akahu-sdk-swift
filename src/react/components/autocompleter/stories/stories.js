@@ -224,8 +224,10 @@ export class DetailedListExample extends Component {
     const footer = (
       <DropDownFooter
         pickItems={
-          <Pickitem id="footerAction">
-            <XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />
+          <Pickitem
+            id="footerAction"
+            leftElement={<XUIIcon className="xui-margin-right-small" icon={plusIcon} />}
+          >
             Add New Person
           </Pickitem>
         }
@@ -249,7 +251,7 @@ export class DetailedListExample extends Component {
         isInputLabelHidden={isInputLabelHidden === undefined ? true : isInputLabelHidden}
         isInvalid={isInvalid}
         loading={isLoading}
-        loadingLabel="Loading"
+        loadingAriaLabel="Loading"
         onBackspacePill={this.deleteLastPerson}
         onClose={() => this.onClose()}
         onSearch={example.onSearchChangeHandler}
@@ -386,11 +388,11 @@ export class SecondarySearchExample extends React.Component {
     const footer = (
       <DropDownFooter
         pickItems={
-          <Pickitem id="footerAction">
-            <span>
-              <XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />
-              Add New Person
-            </span>
+          <Pickitem
+            id="footerAction"
+            leftElement={<XUIIcon className="xui-margin-right-small" icon={plusIcon} />}
+          >
+            Add New Person
           </Pickitem>
         }
       />

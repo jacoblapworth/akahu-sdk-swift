@@ -101,6 +101,15 @@ const variations = [
 
 [false, true].forEach(hasDragAndDrop => {
   [false, true].forEach(isInvalid => {
+    isInvalid &&
+      variations.push({
+        storyKind: storiesWithVariationsKindName,
+        storyTitle: `with long validation message`,
+        isInvalid,
+        viewports: desktopPlus320,
+        validationMessage:
+          isInvalid && 'Validation message is longer longer longer here and could wrap wrap wrap',
+      });
     [false, true].forEach(isLabelHidden => {
       const hasDragAndDropTitle = hasDragAndDrop ? 'drag and drop ' : '';
       const isInvalidTitle = isInvalid ? 'with validation error' : 'with hint text';

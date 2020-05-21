@@ -157,7 +157,7 @@ class NestedExample extends Component {
     );
 
     const dropdown = (
-      <NestedDropDown currentPanel={activePanel} onPanelChange={this.focusDatePicker}>
+      <NestedDropDown currentPanelId={activePanel} onPanelChange={this.focusDatePicker}>
         <DropDownPanel panelId="convenienceDates" footer={dropdownFooter}>
           <Picklist>
             {convenienceDates.map(cd => (
@@ -181,7 +181,7 @@ class NestedExample extends Component {
               onBackButtonClick={this.showConvenienceDates}
               onSecondaryButtonClick={this.closeDropDown}
               secondaryButtonContent="Cancel"
-              backButtonLabel="Back"
+              backButtonAriaLabel="Back"
             />
           }
         >
@@ -211,7 +211,7 @@ class NestedExample extends Component {
 <NestedExample />;
 ```
 
-- Each panel must be wrapped in a `DropDownPanel` and passed as children to `NestedDropDown`. Each panel should be given a `panelId` and the id of the currently selected panel should be passed to `NestedDropDown` via the `currentPanel` prop.
+- Each panel must be wrapped in a `DropDownPanel` and passed as children to `NestedDropDown`. Each panel should be given a `panelId` and the id of the currently selected panel should be passed to `NestedDropDown` via the `currentPanelId` prop.
 - Navigation to previous steps should be handled in the `onBackButtonClick` callback in `DropDownHeader`. `DropDownHeader` should be passed into `DropDownPanel` for panels that require one.
 - `closeOnSelect={false}` should be set on `DropDownToggled` to prevent closing on `Pickitem` selection. `DropDownToggled.closeDropDown` should then be called in the `onSelect` callback when appropriate.
 - `XUIDatePicker` should be given focus explicitly. `XUIDatePicker.focusDatePicker` should be called in `NestedDropDown.onPanelChange` when the datepicker panel becomes active.

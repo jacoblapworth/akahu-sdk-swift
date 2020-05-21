@@ -1703,6 +1703,18 @@ exports[`<XUIFileUploader/> should render with XUIControlWrapper props 1`] = `
       id="testLabel-message"
       role="status"
     >
+      <svg
+        className="xui-icon"
+        focusable="false"
+        height={16}
+        viewBox="0 0 16 16"
+        width={16}
+      >
+        <path
+          d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
+          role="presentation"
+        />
+      </svg>
       Test validation text
     </div>
   </div>

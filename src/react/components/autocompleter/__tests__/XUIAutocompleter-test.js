@@ -117,7 +117,7 @@ describe('XUIAutocompleter', () => {
 
   it('displays a XUILoader when loading is true', () => {
     const wrapper = mount(
-      createComponent({ onSearch: jest.fn(), loading: true, loadingLabel: '' }),
+      createComponent({ onSearch: jest.fn(), loading: true, loadingAriaLabel: '' }),
     );
 
     expect(wrapper.find(XUILoader)).toBeDefined();

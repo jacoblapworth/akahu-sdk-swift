@@ -168,11 +168,11 @@ class XDD extends Component {
     const dropdownFooter = (
       <DropDownFooter
         pickItems={
-          <Pickitem id="footerAction">
-            <span>
-              <XUIIcon isInline isBoxed icon={plusIcon} className="xui-margin-right-xsmall" />
-              Add New Fruit
-            </span>
+          <Pickitem
+            id="footerAction"
+            leftElement={<XUIIcon isInline icon={plusIcon} className="xui-margin-right-xsmall" />}
+          >
+            Add New Fruit
           </Pickitem>
         }
       />

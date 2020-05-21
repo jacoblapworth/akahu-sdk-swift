@@ -36,6 +36,12 @@ $xui-switch-label-padding: $xui-s-xsmall;
   user-select: none;
   vertical-align: middle;
 
+  &:hover {
+    background-color: $xui-switch-hover-bg-color;
+  }
+  &:active {
+    background-color: $xui-switch-active-bg-color;
+  }
   &::before {
     background-color: $xui-switch-check-bg-color;
     border-radius: $xui-radius-circle;
@@ -73,19 +79,16 @@ $xui-switch-label-padding: $xui-s-xsmall;
     .#{$ns}-switch-is-disabled & {
       background: $xui-switch-checked-disabled-bg-color;
     }
+    &:hover {
+      background-color: $xui-switch-checked-hover-bg-color;
+    }
+    &:active {
+      background-color: $xui-switch-checked-active-bg-color;
+    }
     &::before {
       left: auto;
       transform: translate(18px);
     }
-  }
-}
-
-// Message positioning
-// =============
-.#{$ns}-switch--message-with-label {
-  .#{$ns}-switch:not(.#{$ns}-switch-reversed) + & {
-    margin-left: $xui-control-size-standard;
-    padding-left: $xui-switch-label-padding;
   }
 }
 

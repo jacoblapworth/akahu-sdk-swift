@@ -61,12 +61,20 @@ const header = (
 const footer = (
   <DropDownFooter
     pickItems={[
-      <Pickitem id="aa" key="aa" value="aa">
-        <XUIIcon className="xui-margin-right-xsmall" icon={plusIcon} isBoxed />
+      <Pickitem
+        id="aa"
+        key="aa"
+        leftElement={<XUIIcon className="xui-margin-right-xsmall" icon={plusIcon} />}
+        value="aa"
+      >
         Item 1
       </Pickitem>,
-      <Pickitem id="bb" key="bb" value="bb">
-        <XUIIcon className="xui-margin-right-xsmall" icon={plusIcon} isBoxed />
+      <Pickitem
+        id="bb"
+        key="bb"
+        leftElement={<XUIIcon className="xui-margin-right-xsmall" icon={plusIcon} />}
+        value="bb"
+      >
         Item 2
       </Pickitem>,
     ]}
@@ -79,12 +87,12 @@ const datePickerDate = new Date('Dec 02 2017 00:00:00 GMT+1300');
 const datepicker = <XUIDatePicker displayedMonth={datePickerDate} onSelectDate={NOOP} />;
 const plaintext = <p>Some content that appears in a dropdown panel would go here.</p>;
 const nested = (
-  <NestedDropDown currentPanel="customDate" isHidden={false}>
+  <NestedDropDown currentPanelId="customDate" isHidden={false}>
     <DropDownPanel panelId="samplePicklist">{picklist}</DropDownPanel>
     <DropDownPanel
       header={
         <DropDownHeader
-          backButtonLabel="Back"
+          backButtonAriaLabel="Back"
           onBackButtonClick={NOOP}
           onSecondaryButtonClick={NOOP}
           secondaryButtonContent="Cancel"

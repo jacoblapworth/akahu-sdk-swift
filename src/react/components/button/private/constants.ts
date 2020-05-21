@@ -34,35 +34,55 @@ export const iconSizeClassNames = {
 
 /**
  * @public
- * Map of variants to class names
+ * Map of ‘solid’, non-icon button class names
  */
-export const variantClassNames = {
+export const standardVariantClassNames = {
   standard: `${baseClassName}-standard`,
   primary: `${baseClassName}-main`,
   create: `${baseClassName}-create`,
-  link: `${baseClassName}-borderless-main`,
   negative: `${baseClassName}-negative`,
+};
+
+/**
+ * @public
+ * Map of icon button class names
+ */
+export const iconVariantClassNames = {
+  icon: `${baseClassName}-icon`,
+  'icon-inverted': `${baseClassName}-icon ${baseClassName}-icon-inverted`,
+};
+
+/**
+ * @public
+ * Map of borderless button class names
+ */
+export const borderlessVariantClassNames = {
   'borderless-standard': `${baseClassName}-borderless-standard`,
   'borderless-primary': `${baseClassName}-borderless-main`,
   'borderless-create': `${baseClassName}-borderless-create`,
   'borderless-negative': `${baseClassName}-borderless-negative`,
   'borderless-inverted': `${baseClassName}-borderless-inverted`,
   'borderless-muted': `${baseClassName}-borderless-muted`,
-  icon: `${baseClassName}-icon`,
-  'icon-inverted': `${baseClassName}-icon ${baseClassName}-icon-inverted`,
-  unstyled: '',
 };
-
-export type TextButtonVariants = Exclude<keyof typeof variantClassNames, 'icon' | 'icon-inverted'>;
 
 /**
  * @public
- * Array of button variants excluding icon variants.
+ * Map of button variants excluding icon variants
  */
-export const textButtonVariants: TextButtonVariants = Object.keys(variantClassNames).filter(
-  name => name.indexOf('icon') !== 0,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-) as any;
+export const textButtonVariants = {
+  ...standardVariantClassNames,
+  ...borderlessVariantClassNames,
+  unstyled: '',
+};
+
+/**
+ * @public
+ * Map of all button variants
+ */
+export const buttonVariants = {
+  ...textButtonVariants,
+  ...iconVariantClassNames,
+};
 
 /**
  * @public

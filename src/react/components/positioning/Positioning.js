@@ -281,7 +281,7 @@ class Positioning extends PureComponent {
     const { isTriggerWidthMatched, parentRef, isNotResponsive } = this.props;
 
     const isMobile = isNarrowViewport() && !isNotResponsive;
-    const triggerElement = parentRef != null && getTriggerNodeFromParentRef(parentRef);
+    const triggerElement = parentRef && getTriggerNodeFromParentRef(parentRef);
 
     const shouldMatchTriggerWidth = isTriggerWidthMatched && !isMobile && triggerElement != null;
     const width = shouldMatchTriggerWidth ? triggerElement.getBoundingClientRect().width : null;

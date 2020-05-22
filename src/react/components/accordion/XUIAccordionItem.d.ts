@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { XUIIconData } from '../icon/XUIIcon';
+
 interface Props {
   /**
    * Optional actions to be right aligned. Use the `XUIActions` component.
@@ -39,6 +41,11 @@ interface Props {
    * Secondary heading content.
    */
   secondaryHeading?: React.ReactNode;
+  /**
+   * Optional prop for users to modify the Accordion Trigger icon, if required for localisation.
+   * Defaults to the arrow icon, if no value is provided.
+   */
+  triggerStateIcon?: XUIIconData;
 }
 
 declare const XUIAccordionItem: React.FunctionComponent<Props>;

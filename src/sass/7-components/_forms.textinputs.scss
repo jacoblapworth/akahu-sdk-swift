@@ -87,6 +87,7 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 .#{$ns}-textinput-is-disabled {
   &:not(.#{$ns}-textinput-cell) {
     @include xui-disabled-form-control;
+    @include xui-disabled-form-control-state-borders;
   }
 
   .#{$ns}-textinput--input {

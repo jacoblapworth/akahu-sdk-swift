@@ -54,6 +54,16 @@ describe('<XUI PageHeader and BreadcrumbTrail/>', () => {
     const testPageHeader = renderer.create(<XUIPageHeader title="Testing 💩" />);
     expect(testPageHeader).toMatchSnapshot();
   });
+  it('renders pageHeader with main title, secondary title, and supplementary text', () => {
+    const testPageHeader = renderer.create(
+      <XUIPageHeader
+        title="Testing 💩"
+        secondary="Testing 💩"
+        supplementary="And more testing 💩"
+      />,
+    );
+    expect(testPageHeader).toMatchSnapshot();
+  });
   it('renders pageHeader without default layout', () => {
     const wrapper = mount(<XUIPageHeader title="Testing 💩" hasLayout={false} />);
     expect(wrapper.find('.xui-pageheading--content-layout').length).toBe(0);

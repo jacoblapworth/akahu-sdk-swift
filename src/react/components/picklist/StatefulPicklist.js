@@ -214,6 +214,24 @@ class StatefulPicklist extends Component {
   }
 
   /**
+   * Clears the highlighted element and fires the onHighlightChange callback.
+   *
+   * If shouldManageInitialHighlight is set to false, the highlighted item will be cleared.
+   *
+   * If shouldManageInitialHighlight is set to true (default), the first item will be highlighted.
+   *
+   * @public
+   */
+  clearHighlightedItem() {
+    const spl = this;
+    spl.setState({
+      highlightedElement: null,
+    });
+
+    spl.props.onHighlightChange && spl.props.onHighlightChange(null);
+  }
+
+  /**
    * This API is used to ensure that something appropriate is highlighted. Here's
    * the logical ordering of operations:
    *

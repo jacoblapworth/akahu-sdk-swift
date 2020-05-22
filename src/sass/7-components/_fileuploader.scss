@@ -39,6 +39,7 @@
 
 .#{$ns}-fileuploader--dropzone-disabled {
   @include xui-disabled-form-control;
+  @include xui-disabled-form-control-state-borders;
 }
 
 .#{$ns}-fileuploader--dropzone-invalid {

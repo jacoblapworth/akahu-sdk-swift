@@ -171,9 +171,31 @@ class DropDownPanel extends PureComponent {
     }
   }
 
+  /**
+   * Used to programmatically highlight the first item.
+   *
+   * @public
+   * @memberof DropDownPanel
+   */
   highlightFirstItem = () => {
     if (this.list.current != null) {
       this.list.current.highlightFirst();
+    }
+  };
+
+  /**
+   * Used to programmatically clear the highlighted item.
+   *
+   * If shouldManageInitialHighlight is set to false, the highlighted item will be cleared.
+   *
+   * If shouldManageInitialHighlight is set to true (default), the first item will be highlighted.
+   *
+   * @public
+   * @memberof DropDownPanel
+   */
+  clearHighlightedItem = () => {
+    if (this.list.current != null) {
+      this.list.current.clearHighlightedItem();
     }
   };
 

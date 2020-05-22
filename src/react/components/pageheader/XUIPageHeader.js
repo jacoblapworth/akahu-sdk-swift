@@ -32,6 +32,7 @@ export default class XUIPageHeader extends PureComponent {
       contentClassName,
       tags,
       secondary,
+      supplementary,
       ...spreadProps
     } = this.props;
 
@@ -62,17 +63,38 @@ export default class XUIPageHeader extends PureComponent {
         className: cn(tabs.props.className, `${baseClass}--tabs`),
       });
 
-    const titleWrapper = (title || secondary || tags) && (
-      <div className={`${baseClass}--titlewrapper`}>
-        {title && <h1 className={`${baseClass}--title`}>{title}</h1>}
-        {secondary && <div className={`${baseClass}--secondarytitle`}>{secondary}</div>}
+    const titleTags = (title || secondary || supplementary || tags) && (
+      <div
+        className={cn(`${baseClass}--titlewrapper`, tags && `${baseClass}--titlewrapper-has-tags`)}
+      >
+        {title && (
+          <h1 className={`${baseClass}--title`} data-automationid={qaHook && `${qaHook}--title`}>
+            {title}
+          </h1>
+        )}
+        {secondary && (
+          <div
+            className={`${baseClass}--secondarytitle`}
+            data-automationid={qaHook && `${qaHook}--secondarytitle`}
+          >
+            {secondary}
+          </div>
+        )}
         {tags && <div className={`${baseClass}--tags`}>{tags}</div>}
+        {supplementary && (
+          <div
+            className={`${baseClass}--supplementarytext`}
+            data-automationid={qaHook && `${qaHook}--supplementarytext`}
+          >
+            {supplementary}
+          </div>
+        )}
       </div>
     );
-    const leftContent = (titleWrapper || clonedBreadcrumb) && (
+    const leftContent = (titleTags || clonedBreadcrumb) && (
       <div className={`${baseClass}--leftcontent`}>
         {clonedBreadcrumb}
-        {titleWrapper}
+        {titleTags}
       </div>
     );
     const rightContent = (clonedTabs || actions) && (
@@ -137,6 +159,10 @@ XUIPageHeader.propTypes = {
    * Secondary title
    */
   secondary: PropTypes.string,
+  /**
+   * Supplementary text to appear after the headings and tags
+   */
+  supplementary: PropTypes.string,
 };
 
 XUIPageHeader.defaultProps = {

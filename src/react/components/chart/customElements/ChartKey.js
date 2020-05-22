@@ -18,9 +18,9 @@ class ChartKey extends PureComponent {
   );
 
   render = () => {
-    const { qaHook, title, labels } = this.props;
+    const { qaHook, title, labels, icon = infoPathData } = this.props;
 
-    const trigger = <XUIIconButton ariaLabel={title} icon={infoPathData} title={title} />;
+    const trigger = <XUIIconButton ariaLabel={title} icon={icon} title={title} />;
 
     const dropdown = (
       <DropDown fixedWidth hasKeyboardEvents={false} restrictFocus={false} size="small">
@@ -44,4 +44,13 @@ ChartKey.propTypes = {
   title: PropTypes.string,
   labels: PropTypes.arrayOf(PropTypes.string),
   colors: PropTypes.arrayOf(PropTypes.string),
+  /**
+   * Optional prop for users to modify the info key button icon, if required for localisation.
+   * Defaults to the info icon, if no value is provided.
+   */
+  icon: PropTypes.shape({
+    height: PropTypes.number,
+    path: PropTypes.string,
+    width: PropTypes.number,
+  }),
 };

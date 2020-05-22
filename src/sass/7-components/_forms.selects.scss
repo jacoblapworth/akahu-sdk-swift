@@ -46,7 +46,8 @@
     @include xui-disabled-form-control-state-borders;
   }
 
-  .#{$ns}-select-is-invalid & {
+  .#{$ns}-select:not(.#{$ns}-select-cell) .#{$ns}-select-is-invalid &,
+  .#{$ns}-select:not(.#{$ns}-select-cell) .#{$ns}-select-is-invalid &:hover {
     border-color: $xui-validation-invalid-color;
   }
 }

@@ -9,7 +9,6 @@ import DropDownPanel from '../DropDownPanel';
 import DropDownHeader from '../DropDownHeader';
 import DropDownFooter from '../DropDownFooter';
 import XUIButton from '../../button/XUIButton';
-import XUIButtonCaret from '../../button/XUIButtonCaret';
 import XUIIconButton from '../../button/XUIIconButton';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
@@ -43,12 +42,7 @@ function createItems(items, suffix) {
 const toggledItems = AddIdPropsToTextList(LongListLongItems);
 const toggledShort = AddIdPropsToTextList(ShortListShortItems);
 
-const trigger = (
-  <XUIButton>
-    Open for goodies
-    <XUIButtonCaret />
-  </XUIButton>
-);
+const trigger = <XUIButton hasCaret>Open for goodies</XUIButton>;
 const header = (
   <DropDownHeader
     onPrimaryButtonClick={NOOP}
@@ -127,12 +121,7 @@ const sideBySide = (
         </DropDown>
       }
       isHidden={false}
-      trigger={
-        <XUIButton>
-          Open for even more goodies
-          <XUIButtonCaret />
-        </XUIButton>
-      }
+      trigger={<XUIButton hasCaret>Open for even more goodies</XUIButton>}
     />
   </div>
 );

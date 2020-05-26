@@ -11,7 +11,7 @@ import DropDown, {
 } from '@xero/xui/react/dropdown';
 import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
 import Picklist, { Pickitem } from '@xero/xui/react/picklist';
-import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
+import XUIButton from '@xero/xui/react/button';
 import XUIIcon from '@xero/xui/react/icon';
 import { isKeySpacebar } from '@xero/xui/react/helpers/reactKeyHandler';
 import searchPath from '@xero/xui-icon/icons/search';
@@ -179,11 +179,10 @@ class XDD extends Component {
     );
 
     const trigger = (
-      <XUIButton>
+      <XUIButton hasCaret>
         {this.state.selectedCount > 0
           ? `${this.state.selectedCount} items selected`
           : 'Toggle Button'}
-        <XUIButtonCaret />
       </XUIButton>
     );
     const dropdown = (

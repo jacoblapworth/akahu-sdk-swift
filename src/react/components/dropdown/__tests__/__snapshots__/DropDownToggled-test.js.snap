@@ -2,6 +2,7 @@
 
 exports[`<DropDownToggled /> should render a passed qaHook as an auotmation id 1`] = `
 <div
+  className="xui-dropdown--toggledwrapper"
   data-automationid="ddt-example"
   data-ref="toggled-wrapper"
   role="presentation"

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 // Components we need to test with
 import XUIModal, { XUIModalBody, XUIModalHeader } from '../../../modal';
-import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUIButton from '../../../button';
 import DropDown, { DropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
 import * as lists from '../../../components/helpers/list';
@@ -29,12 +29,7 @@ const buildDropdownPicklist = items => {
   );
 };
 
-const buildTrigger = text => (
-  <XUIButton>
-    {text}
-    <XUIButtonCaret />
-  </XUIButton>
-);
+const buildTrigger = text => <XUIButton hasCaret>{text}</XUIButton>;
 
 class Example extends Component {
   constructor(props) {

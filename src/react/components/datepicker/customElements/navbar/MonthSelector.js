@@ -57,7 +57,7 @@ export default class MonthSelector extends PureComponent {
         htmlFor={id}
       >
         {allMonths[currentMonth]}
-        <XUIIcon className={`${ns}-button--caret`} icon={caret} />
+        <XUIIcon className={`${ns}-datepicker--heading-label-icon`} icon={caret} />
       </label>
     );
 

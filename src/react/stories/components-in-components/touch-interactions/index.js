@@ -3,7 +3,7 @@ import React from 'react';
 import { XUICompositionDetail } from '../../../compositions';
 import { XUIColumn, XUIRow } from '../../../structural';
 import { XUIPanel, XUIPanelHeading, XUIPanelSection } from '../../../panel';
-import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUIButton from '../../../button';
 import XUIRolloverCheckbox from '../../../rollovercheckbox';
 import XUIAvatar from '../../../avatar';
 import XUIToggle, { XUIToggleOption } from '../../../toggle';
@@ -119,9 +119,8 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                   isClosed
                   listSize={overallSize}
                   trigger={
-                    <XUIButton fullWidth="small-down" size={overallSize}>
+                    <XUIButton fullWidth="small-down" hasCaret size={overallSize}>
                       Secondary Search
-                      <XUIButtonCaret />
                     </XUIButton>
                   }
                 />

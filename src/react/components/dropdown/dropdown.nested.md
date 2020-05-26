@@ -12,7 +12,7 @@ import {
   NestedDropDown,
   DropDownPanel
 } from '@xero/xui/react/dropdown';
-import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
+import XUIButton from '@xero/xui/react/button';
 import XUIDatePicker from '@xero/xui/react/datepicker';
 import Picklist, { Pickitem } from '@xero/xui/react/picklist';
 
@@ -140,11 +140,7 @@ class NestedExample extends Component {
       triggerText = formatDate(selectedDate);
     }
 
-    const trigger = (
-      <XUIButton>
-        {triggerText} <XUIButtonCaret />
-      </XUIButton>
-    );
+    const trigger = <XUIButton hasCaret>{triggerText}</XUIButton>;
 
     const dropdownFooter = (
       <DropDownFooter

@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIButton from './XUIButton';
-import XUIButtonCaret from './XUIButtonCaret';
 import { buttonTypes, sizeClassNames, standardVariantClassNames } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 
@@ -11,9 +10,12 @@ export default class XUISplitButton extends PureComponent {
     const { className, ...spreadProps } = this.props;
     spreadProps.children = null;
     return (
-      <XUIButton {...spreadProps} className={cn(`${ns}-button-split`, className)} isGrouped>
-        <XUIButtonCaret />
-      </XUIButton>
+      <XUIButton
+        {...spreadProps}
+        className={cn(`${ns}-button-split`, className)}
+        hasCaret
+        isGrouped
+      />
     );
   }
 }

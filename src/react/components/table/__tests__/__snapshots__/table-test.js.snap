@@ -2965,7 +2965,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -3034,7 +3034,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -3103,7 +3103,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -3817,7 +3817,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -3928,7 +3928,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -4039,7 +4039,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -4357,7 +4357,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -4501,7 +4501,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -4645,7 +4645,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -5967,7 +5967,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -6069,7 +6069,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -6171,7 +6171,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -7720,7 +7720,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -7864,7 +7864,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -8008,7 +8008,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >

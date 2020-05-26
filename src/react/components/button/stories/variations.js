@@ -1,4 +1,5 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
+import settings from '@xero/xui-icon/icons/settings';
 
 const privateConsts = require('../private/constants');
 
@@ -21,15 +22,43 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'with Caret',
+    storyTitle: 'with caret',
     contentsKey: 'withCaret',
+    hasCaret: true,
     variant: 'create',
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'small with Caret',
+    storyTitle: 'small with caret',
     contentsKey: 'withCaret',
+    hasCaret: true,
     size: 'small',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with left icon',
+    contentsKey: 'withIcon',
+    leftIcon: settings,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'xsmall with left icon',
+    contentsKey: 'withIcon',
+    leftIcon: settings,
+    size: 'xsmall',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with right icon',
+    contentsKey: 'withIcon',
+    rightIcon: settings,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'xsmall with right icon',
+    contentsKey: 'withIcon',
+    rightIcon: settings,
+    size: 'xsmall',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -88,6 +117,15 @@ const variations = [
     value: 'fullWidth always',
     fullWidth: 'always',
     size: 'small',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as large fullWidth with an icon',
+    contentsKey: 'withIcon',
+    leftIcon: settings,
+    viewports: desktopPlus320,
+    value: 'fullWidth with icon',
+    fullWidth: 'always',
   },
   {
     storyKind: storiesWithVariationsKindName,

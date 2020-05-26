@@ -5,7 +5,7 @@ import React, { Component, PureComponent, Fragment } from 'react';
 import XUIModal, { XUIModalBody, XUIModalHeader } from '../../../modal';
 import DropDown, { DropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
-import XUIButton, { XUIButtonCaret, XUIIconButton } from '../../../button';
+import XUIButton, { XUIIconButton } from '../../../button';
 import XUITextInput from '../../../textinput';
 import { XUICompositionDetail } from '../../../compositions';
 import { XUIPageHeader } from '../../../pageheader';
@@ -36,12 +36,7 @@ const buildDropdownPicklist = items => {
   );
 };
 
-const buildTrigger = text => (
-  <XUIButton>
-    {text}
-    <XUIButtonCaret />
-  </XUIButton>
-);
+const buildTrigger = text => <XUIButton hasCaret>{text}</XUIButton>;
 
 class ExampleToast extends PureComponent {
   constructor(...args) {

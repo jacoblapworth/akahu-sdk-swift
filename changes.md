@@ -4,7 +4,9 @@
 
 ## XUI CSS
 
-- `xui-iconwrapper-medium` width and height updated to 32px (from 30px)
+- `xui-button--lefticon` and `xui-button--righticon` are now provided to help with icon placement inside buttons. These should be used with `xui-button-has-icon` and an icon wrapper – see the button documentation for full details.
+- `xui-iconwrapper-medium`’s width and height have been updated to 32px (from 30px)
+- `xui-iconwrapper-small` and `xui-iconwrapper-xsmall` have been added
 - `xui-styledcheckboxradio-reversed` left padding updated to 15px (from 7px) when it's under `xui-styledcheckboxradio-group`
 - `xui-styledcheckboxradio--label` remove the left margin when reversed
 - `xui-styledcheckboxradio--input + xui-iconwrapper`
@@ -36,8 +38,12 @@ Following classes have been **removed** because left space isn't needed for alig
   - Borderless variants of `XUISecondaryButton` and `XUISplitButtonGroup` have been removed due to possible confusion with non-split buttons containing carets. Use `standard`, `primary`, `create`, or `negative` instead.
 - `XUIPagination`
   - Numbers in `createPagingContent` and `createCountContent` won't be formatted for internationalization, product teams need to implement it themselves.
+- `XUIIcon`
+  - `small` and `xsmall` size variants have been added. These change the size of the wrapper _only_ – the icon itself is the same size as the `medium` variant for legibility purposes.
 
 ### Removals
+
+- `XUIButtonCaret` has been removed in favour of the prop `hasCaret` on `XUIButton`.
 
 ### Component props
 

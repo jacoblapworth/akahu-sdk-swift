@@ -1,8 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+
+import XUIIcon from '../../icon/XUIIcon';
+import caret from '@xero/xui-icon/icons/caret';
+
+import { ns } from '../../helpers/xuiClassNamespace';
 import { pickitemClassName, itemBodyClassName, itemTextClassName } from '../private/constants';
-import { XUIButtonCaret } from '../../../button';
 
 /**
  * INTERNAL USE ONLY
@@ -34,7 +38,7 @@ const PickitemBody = ({
 }) => {
   const rel = target ? 'noopener noreferrer' : null;
   const childProps = {
-    className: itemBodyClassName,
+    className: cn(itemBodyClassName, showButtonCaret && `${itemBodyClassName}-has-icon`),
     onClick,
     onKeyDown,
     onMouseOver,
@@ -75,7 +79,9 @@ const PickitemBody = ({
       </span>
       {pinnedElement}
       {rightElement}
-      {showButtonCaret && <XUIButtonCaret />}
+      {showButtonCaret && (
+        <XUIIcon className={`${pickitemClassName}--caret`} icon={caret} isBoxed />
+      )}
     </Tag>
   );
 };

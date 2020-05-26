@@ -67,7 +67,7 @@ import ExampleContainer from './docs/ExampleContainer';
 </div>;
 ```
 
-**Note:** For a button that contains only an icon, use [IconButton](#icon-button)
+**Note:** For a button that contains only an icon, use [`XUIIconButton`](#icon-button)
 
 ### Size
 
@@ -108,6 +108,57 @@ import XUIButton from '@xero/xui/react/button';
     </XUIButton>
   </div>
 </div>;
+```
+
+### Icons in buttons
+
+Icons can add context to the text content of the button. If you want a button to only contain an icon, use [`XUIIconButton`](#icon-button).
+
+Buttons only accept icons on one side of the text content. If you try to add icons on both sides, only the icon on the left will show. The exception is buttons using the `hasCaret` setting, which may also show an icon on the left.
+
+```jsx harmony
+import XUIButton from '@xero/xui/react/button';
+import settings from '@xero/xui-icon/icons/settings';
+import external from '@xero/xui-icon/icons/external';
+
+<div>
+  <div className="xui-margin-bottom">
+    <XUIButton className="xui-margin-right" leftIcon={settings}>
+      Left icon
+    </XUIButton>
+    <XUIButton className="xui-margin-right" rightIcon={external}>
+      Right icon
+    </XUIButton>
+  </div>
+  <div className="xui-margin-bottom">
+    <XUIButton className="xui-margin-right" leftIcon={settings} size="small">
+      Left icon
+    </XUIButton>
+    <XUIButton className="xui-margin-right" rightIcon={external} size="small">
+      Right icon
+    </XUIButton>
+  </div>
+  <div>
+    <XUIButton className="xui-margin-right" leftIcon={settings} size="xsmall">
+      Left icon
+    </XUIButton>
+    <XUIButton className="xui-margin-right" rightIcon={external} size="xsmall">
+      Right icon
+    </XUIButton>
+  </div>
+</div>;
+```
+
+### Dropdowns
+
+The trigger to open a [`<DropDownToggled>`](#dropdown) is often a button. To add a caret icon to a button, add the property `hasCaret`.
+
+Check out the [Dropdown](#dropdown) examples to see buttons being used as triggers.
+
+```jsx harmony
+import XUIButton from '@xero/xui/react/button';
+
+<XUIButton hasCaret>Dropdown</XUIButton>;
 ```
 
 ### Disabled / Loading States

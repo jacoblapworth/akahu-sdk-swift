@@ -85,6 +85,7 @@ const XUIEditableTableCellSelectBox = ({
         defaultLayout={false}
         isDisabled={isDisabled}
         isLabelHidden
+        isTextTruncated={false}
         onBlur={composedOnBlur}
         onFocus={composedOnFocus}
         ref={selectBoxRef}
@@ -153,9 +154,6 @@ XUIEditableTableCellSelectBox.propTypes = {
 
   /** Whether or not the list should be forced open */
   isOpen: PropTypes.bool,
-
-  /** Optionally toggles the text truncation */
-  isTextTruncated: PropTypes.bool,
 
   /** Force the desktop experience, even if the viewport is narrow enough for mobile */
   forceDesktop: PropTypes.bool,

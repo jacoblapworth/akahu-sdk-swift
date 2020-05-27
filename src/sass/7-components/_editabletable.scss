@@ -27,9 +27,9 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   background: /* Shadow covers */ linear-gradient(
       90deg,
       $xui-color-white 30%,
-      rgba($xui-color-black, 0)
+      rgba($xui-color-white, 0)
     ),
-    linear-gradient(90deg, rgba($xui-color-black, 0), $xui-color-white 70%) 100% 0,
+    linear-gradient(90deg, rgba($xui-color-white, 0), $xui-color-white 70%) 100% 0,
     /* Shadows */
       linear-gradient(90deg, rgba($xui-color-black, 0.2) 0%, rgba($xui-color-black, 0) 100%),
     linear-gradient(270deg, rgba($xui-color-black, 0.2) 0%, rgba($xui-color-black, 0) 100%) 100% 0;

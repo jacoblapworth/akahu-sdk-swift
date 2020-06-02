@@ -5,21 +5,10 @@ $xui-editabletable-shadow-size: $xui-s-standard;
 $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
 
 @mixin xui-editabletablecell {
+  @include xui-shadow-border-all($xui-standard-border-color);
   height: $xui-minimum-touch-target;
   padding: 0px;
   vertical-align: top;
-
-  &:not(:first-child) {
-    border-left: $xui-border-standard;
-  }
-
-  &:not(:last-child) {
-    border-right: $xui-border-standard;
-  }
-
-  .#{$ns}-editabletablerow:not(:last-child) & {
-    border-bottom: $xui-border-standard;
-  }
 }
 
 // Container shadow overlay based on https://codepen.io/evank/pen/wWbRNO
@@ -39,14 +28,15 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   background-size: $xui-editabletable-shadowcover-size 100%,
     $xui-editabletable-shadowcover-size 100%, $xui-editabletable-shadow-size 100%,
     $xui-editabletable-shadow-size 100%;
-  border: $xui-border-standard;
   border-radius: $xui-radius;
+  box-shadow: 0 0 0 1px $xui-standard-border-color inset;
   display: block;
   overflow-x: auto;
 }
 
 .#{$ns}-editabletable--table {
-  padding: $xui-s-small;
+  border-collapse: separate;
+  border-spacing: 1px;
   // These properties are key to give implementers explicit control over column widths.
   // If no widths are specified, columns will default to being equal width.
   table-layout: fixed;
@@ -61,24 +51,36 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
 .#{$ns}-editabletablefoot {
   @include xui-heading-small;
   background-color: $xui-editabletablehead-bg-color;
+
+  .#{$ns}-editabletablecell:not(:last-child),
+  .#{$ns}-editabletableheadingcell:not(:last-child) {
+    @include xui-shadow-border-right($xui-editabletablehead-bg-color);
+  }
+}
+
+/**
+ * Required for drag and drop.
+ *
+ * Without this there will be a missing border between the head and the body when the first row is
+ * dragged, and the foot and the body when the last row is dragged.
+ *
+ * We set the spread-radius to -1px so the box shadow does not overlap with the borders on the side
+ * of the table.
+ *
+ * The offset-y of 2px/-2px does 2 things. 1px is to move the box shadow so it only shows on one
+ * edge of the row. The other 1px is to compensate for the negative spread-radius.
+ */
+.#{$ns}-editabletablehead .#{$ns}-editabletablerow {
+  box-shadow: 0 2px 0 -1px $xui-standard-shadow-color;
+}
+.#{$ns}-editabletablefoot .#{$ns}-editabletablerow {
+  box-shadow: 0 -2px 0 -1px $xui-standard-shadow-color;
 }
 
 .#{$ns}-editabletableheadingcell {
   height: $xui-minimum-touch-target;
   padding-left: $xui-s-standard;
   padding-right: $xui-s-standard;
-}
-
-.#{$ns}-editabletablehead {
-  .#{$ns}-editabletableheadingcell {
-    border-bottom: $xui-border-standard;
-  }
-}
-
-.#{$ns}-editabletablefoot {
-  .#{$ns}-editabletableheadingcell {
-    border-top: $xui-border-standard;
-  }
 }
 
 .#{$ns}-editabletableheadingcell-leftaligned {
@@ -135,7 +137,7 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   // Invalid
   &-is-invalid {
     .#{$ns}-editabletablecell--border {
-      box-shadow: 0 0 0 1px $xui-textinput-invalid-border-color;
+      @include xui-shadow-border-all($xui-textinput-invalid-border-color);
       z-index: $xui-z-index-focus + 1;
     }
   }

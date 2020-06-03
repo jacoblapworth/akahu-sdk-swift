@@ -40,6 +40,8 @@ Following classes have been **removed** because left space isn't needed for alig
   - Numbers in `createPagingContent` and `createCountContent` won't be formatted for internationalization, product teams need to implement it themselves.
 - `XUIIcon`
   - `small` and `xsmall` size variants have been added. These change the size of the wrapper _only_ – the icon itself is the same size as the `medium` variant for legibility purposes.
+- `XUITable`
+  - The arrow icon for sorting from the header row has been corrected to point up when the values are sorted in ascending order (A -> Z, low -> high), and down when descending. This has never been correct.
 
 ### Removals
 

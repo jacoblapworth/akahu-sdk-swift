@@ -127,7 +127,7 @@ class SortButton extends PureComponent {
           <XUIIcon
             className={`${NAME_SPACE}--sortbutton-icon`}
             icon={icon}
-            rotation={isSortAsc ? null : 180}
+            rotation={isSortAsc ? 180 : null}
           />
         </div>
       </TableData>

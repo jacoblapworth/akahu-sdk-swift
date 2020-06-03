@@ -5068,6 +5068,160 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     Header 1
                   </span>
                   <svg
+                    className="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
+                    focusable="false"
+                    height={11}
+                    viewBox="0 0 8 11"
+                    width={8}
+                  >
+                    <path
+                      d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
+                      role="presentation"
+                    />
+                  </svg>
+                </div>
+              </th>
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--cell-secondtolast"
+                onFocus={[Function]}
+                scope="col"
+              >
+                <span>
+                  Header 2
+                </span>
+              </th>
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-last"
+                onFocus={[Function]}
+                scope="col"
+              >
+                <span>
+                  Header 3
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            className="xui-table--body"
+          >
+            <tr
+              className="xui-table--row"
+            >
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Apple
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Apple
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Apple
+              </td>
+            </tr>
+            <tr
+              className="xui-table--row"
+            >
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Banana
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Banana
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Banana
+              </td>
+            </tr>
+            <tr
+              className="xui-table--row"
+            >
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Carrot
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Carrot
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Carrot
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div
+    className="xui-loader-static"
+    style={
+      Object {
+        "background": "white",
+        "display": "inline-block",
+        "marginBottom": "20px",
+        "maxWidth": "500px",
+        "minWidth": "300px",
+        "padding": "20px",
+        "verticalAlign": "top",
+        "width": "50%",
+      }
+    }
+  >
+    <div
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+    >
+      <div
+        className="xui-table-wrapper"
+        onScroll={[Function]}
+        role="group"
+        tabIndex={0}
+      >
+        <table
+          className="xui-table-element"
+        >
+          <thead
+            className="xui-table--head"
+          >
+            <tr
+              className="xui-table--row xui-text-align-left"
+            >
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-first xui-table--sortbutton xui-table--sortbutton-active"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                scope="col"
+                tabIndex={0}
+              >
+                <div>
+                  <span>
+                    Header 1
+                  </span>
+                  <svg
                     className="xui-icon xui-table--sortbutton-icon"
                     focusable="false"
                     height={11}
@@ -5111,160 +5265,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
               >
-                Apple
-              </td>
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Apple
-              </td>
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Apple
-              </td>
-            </tr>
-            <tr
-              className="xui-table--row"
-            >
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Banana
-              </td>
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Banana
-              </td>
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Banana
-              </td>
-            </tr>
-            <tr
-              className="xui-table--row"
-            >
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Carrot
-              </td>
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Carrot
-              </td>
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Carrot
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <div
-    className="xui-loader-static"
-    style={
-      Object {
-        "background": "white",
-        "display": "inline-block",
-        "marginBottom": "20px",
-        "maxWidth": "500px",
-        "minWidth": "300px",
-        "padding": "20px",
-        "verticalAlign": "top",
-        "width": "50%",
-      }
-    }
-  >
-    <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
-    >
-      <div
-        className="xui-table-wrapper"
-        onScroll={[Function]}
-        role="group"
-        tabIndex={0}
-      >
-        <table
-          className="xui-table-element"
-        >
-          <thead
-            className="xui-table--head"
-          >
-            <tr
-              className="xui-table--row xui-text-align-left"
-            >
-              <th
-                className="xui-table--cell xui-heading-separator xui-table--cell-first xui-table--sortbutton xui-table--sortbutton-active"
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                role="button"
-                scope="col"
-                tabIndex={0}
-              >
-                <div>
-                  <span>
-                    Header 1
-                  </span>
-                  <svg
-                    className="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
-                    focusable="false"
-                    height={11}
-                    viewBox="0 0 8 11"
-                    width={8}
-                  >
-                    <path
-                      d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
-                      role="presentation"
-                    />
-                  </svg>
-                </div>
-              </th>
-              <th
-                className="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--cell-secondtolast"
-                onFocus={[Function]}
-                scope="col"
-              >
-                <span>
-                  Header 2
-                </span>
-              </th>
-              <th
-                className="xui-table--cell xui-heading-separator xui-table--cell-last"
-                onFocus={[Function]}
-                scope="col"
-              >
-                <span>
-                  Header 3
-                </span>
-              </th>
-            </tr>
-          </thead>
-          <tbody
-            className="xui-table--body"
-          >
-            <tr
-              className="xui-table--row"
-            >
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
                 Carrot
               </td>
               <td
@@ -5376,7 +5376,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     Header 1
                   </span>
                   <svg
-                    className="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
+                    className="xui-icon xui-table--sortbutton-icon"
                     focusable="false"
                     height={11}
                     viewBox="0 0 8 11"

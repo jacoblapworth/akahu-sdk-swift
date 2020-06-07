@@ -11,7 +11,7 @@ module.exports = function (handlebars) {
 					</a>
 					{{#if menu}}
 						<label for="ds-input-{{referenceURI}}" class="ds-nav--item--icon">
-							<svg class="xui-icon xui-icon-rotate-270 ds-nav--item--icon-fill"> <use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
+							<svg class="xui-icon xui-icon-rotate-270 ds-nav--item--icon-fill" role="presentation"> <use xlink:href="#xui-icon-arrow"/></svg>
 						</label>
 					{{/if}}
 				</div>
@@ -54,8 +54,8 @@ module.exports = function (handlebars) {
 				</option>
 			{{/ifDepth}} {{/each}}
 			</select>
-			<svg focusable="false" class="xui-icon xui-select--caret">
-				<use xlink:href="#xui-icon-caret" role="presentation" />
+			<svg focusable="false" class="xui-icon xui-select--caret" role="presentation">
+				<use xlink:href="#xui-icon-caret" />
 			</svg>
 		</nav>
 	{{/ifSections}}
@@ -66,8 +66,8 @@ module.exports = function (handlebars) {
       <div class="xui-textinput xui-textinput-medium xui-textinput-borderless xui-textinput-borderless-solid">
         <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
           <div class="xui-iconwrapper xui-iconwrapper-large">
-            <svg focusable="false" class="xui-icon">
-              <use xlink:href="#xui-icon-search" role="presentation" />
+            <svg focusable="false" class="xui-icon" role="presentation">
+              <use xlink:href="#xui-icon-search" />
             </svg>
           </div>
         </div>

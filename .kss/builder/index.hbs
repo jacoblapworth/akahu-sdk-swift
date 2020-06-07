@@ -37,8 +37,8 @@
 		<a class='ds-header--link' href="#search-select-input" >
 			<span class="ds-header--link-menu">Menu</span>
 			<span class="ds-header--link-accessible">
-				<svg focusable="false" class="xui-icon">
-					<use xlink:href="#xui-icon-accessibility" role="presentation"/>
+				<svg focusable="false" class="xui-icon" role="presentation">
+					<use xlink:href="#xui-icon-accessibility" />
 				</svg>
 				Jump to Navigation
 			</span>
@@ -81,7 +81,7 @@
 				<div class="kss-style ds-section-part">
 					<h{{depth}} class="ds-title ds-title--level-{{depth}}" data-search-section-title {{#ifDepth 1}}data-search-page-title{{/ifDepth}}>
 						<a class="kss-title__permalink ds-anchor" href="#{{referenceURI}}" data-search-section-link>
-							<svg class="xui-icon ds-anchor-hash"> <use xlink:href="#xui-icon-hash" role="presentation"/></svg>
+							<svg class="xui-icon ds-anchor-hash" role="presentation"> <use xlink:href="#xui-icon-hash" /></svg>
 						</a>
 						<span>{{header}}</span>
 						{{#if flags}}
@@ -138,8 +138,8 @@
 					{{#if tips}}
 						{{#renderTips tips}}
 							<div class="ds-tips">
-								<svg focusable="false" class="xui-icon ds-tips--icon {{tip.iconClass}}">
-									<use xlink:href={{tip.iconName}} role="presentation"/>
+								<svg focusable="false" class="xui-icon ds-tips--icon {{tip.iconClass}}" role="presentation">
+									<use xlink:href={{tip.iconName}} />
 								</svg>
 								<span class="ds-tips--detail xui-padding-left-small">{{{renderSectionInMarkdown tip.details}}}</span>
 							</div>
@@ -154,8 +154,8 @@
 						<div class="ds-language-link">
 							<span class="xui-tooltip">
 								<a href="{{language}}" target="_blank" class="xui-button-icon xui-button-icon-medium" aria-label="View writing guide">
-									<svg focusable="false" class="xui-icon xui-icon-color-blue">
-										<use xlink:href="#xui-icon-file-document" role="presentation"/>
+									<svg focusable="false" class="xui-icon xui-icon-color-blue" role="presentation">
+										<use xlink:href="#xui-icon-file-document" />
 									</svg>
 								</a>
 								<span class="xui-tooltip--tip xui-positioningInline--content-bottomcenter">Writing guide</span>
@@ -254,7 +254,7 @@
 						<label for="markup-{{referenceNumber}}" class="xui-button xui-button-borderless-main xui-button-small ds-example-markuplink xui-margin-top-large{{#isInList exampleclass "ds-example-inline"}} xui-u-hidden{{/isInList}}{{#isInList exampleclass "ds-example-markuponly"}} xui-u-hidden{{/isInList}}">Show markup</label>
 						{{#if storybook}}
 							<a href="{{storybook}}" target="_blank" class="xui-button xui-button-borderless-main xui-button-small xui-margin-top-large ds-example-storybooklink">Open Storybook example
-								<svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-external" role="presentation"/></svg>
+								<svg focusable="false" class="xui-icon" role="presentation"> <use xlink:href="#xui-icon-external" /></svg>
 							</a>
 						{{/if}}
 					</div>

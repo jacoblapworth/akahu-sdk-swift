@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-fundamentals-layout.html#fundamentals-layout-2-1" isDocLink>Rows in the XUI Documentation</a>
+	<a href="../section-fundamentals-layout.html#fundamentals-layout-3-1" isDocLink>Rows in the XUI Documentation</a>
 </div>
 
 `XUIRow` components are used to wrap `XUIColumn` components. The row variant determines how columns are spaced.

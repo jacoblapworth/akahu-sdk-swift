@@ -127,7 +127,7 @@ export default class DropDown extends React.PureComponent<Props> {
   /**
    * Highlights the first item in the list.
    */
-  highlightFirst(): void;
+  highlightFirstItem(): void;
   /**
    * Highlights the item passed in and fires the onHighlightChange callback.
    */

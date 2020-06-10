@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import chart from '@xero/xui-icon/icons/chart';
@@ -30,31 +30,26 @@ ChartEmptyState.propTypes = {
   }).isRequired,
 };
 
-class ChartEmpty extends PureComponent {
-  render = () => {
-    const {
-      qaHook,
-      emptyStateComponent,
-      emptyMessage,
-      chartHeight,
-      emptyStateIcon = chart,
-    } = this.props;
-    const emptyHeight = chartHeight * 0.75;
-    const chartClassName = cn(`${NAME_SPACE}-chart`, `${NAME_SPACE}-chart-is-empty`);
+const ChartEmpty = ({
+  chartHeight,
+  emptyMessage,
+  emptyStateComponent,
+  emptyStateIcon = chart,
+  qaHook,
+}) => {
+  const emptyHeight = chartHeight * 0.75;
+  const chartClassName = cn(`${NAME_SPACE}-chart`, `${NAME_SPACE}-chart-is-empty`);
 
-    return (
-      <div
-        className={chartClassName}
-        data-automationid={qaHook && `${qaHook}--empty`}
-        style={{ minHeight: `${emptyHeight}px` }}
-      >
-        {emptyStateComponent || (
-          <ChartEmptyState emptyMessage={emptyMessage} icon={emptyStateIcon} />
-        )}
-      </div>
-    );
-  };
-}
+  return (
+    <div
+      className={chartClassName}
+      data-automationid={qaHook && `${qaHook}--empty`}
+      style={{ minHeight: `${emptyHeight}px` }}
+    >
+      {emptyStateComponent || <ChartEmptyState emptyMessage={emptyMessage} icon={emptyStateIcon} />}
+    </div>
+  );
+};
 
 export default ChartEmpty;
 

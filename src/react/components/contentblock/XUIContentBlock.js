@@ -1,27 +1,24 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-contentblock`;
 
-export default class XUIContentBlock extends PureComponent {
-  render() {
-    const { qaHook, className, children } = this.props;
-    const listClasses = cn(className, baseClass);
+const XUIContentBlock = ({ children, className, qaHook }) => {
+  const listClasses = cn(className, baseClass);
 
-    return (
-      <div className={listClasses} data-automationid={qaHook}>
-        {children}
-      </div>
-    );
-  }
-}
+  return (
+    <div className={listClasses} data-automationid={qaHook}>
+      {children}
+    </div>
+  );
+};
+
+export default XUIContentBlock;
 
 XUIContentBlock.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   qaHook: PropTypes.string,
 };
-
-XUIContentBlock.defaultProps = {};

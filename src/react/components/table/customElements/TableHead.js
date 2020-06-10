@@ -1,5 +1,5 @@
 /* eslint-disable react/no-multi-comp */
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import sortPathData from '@xero/xui-icon/icons/sort-single';
@@ -20,40 +20,37 @@ const HEAD_CELL_CLASSES = `${NAME_SPACE}--cell ${ns}-heading-separator`;
 // TODO: Refactor the various "cell" types (generic, overflow and checkbox) into
 // individual files for clarity.
 
-class CheckBoxCell extends PureComponent {
-  render() {
-    const { totalData, checkedIds, onCheckAllToggle, checkAllRowsAriaLabel } = this.props;
-    const className = cn(
-      `${NAME_SPACE}--cell-action`,
-      HEAD_CELL_CLASSES,
-      createCellLocationClasses('first'),
-    );
-    const totalCheckIds = checkedIds.length;
-    const isDisabled = !totalData;
-    const isChecked = Boolean(totalData && totalCheckIds === totalData);
-    const isIndeterminate = Boolean(totalCheckIds && !isChecked);
+const CheckBoxCell = ({ checkAllRowsAriaLabel, checkedIds, onCheckAllToggle, totalData }) => {
+  const className = cn(
+    `${NAME_SPACE}--cell-action`,
+    HEAD_CELL_CLASSES,
+    createCellLocationClasses('first'),
+  );
+  const totalCheckIds = checkedIds.length;
+  const isDisabled = !totalData;
+  const isChecked = Boolean(totalData && totalCheckIds === totalData);
+  const isIndeterminate = Boolean(totalCheckIds && !isChecked);
 
-    return (
-      <TableData className={className} isHead tabIndex={-1}>
-        {NBSP}
-        {onCheckAllToggle && (
-          <XUICheckbox
-            className={`${NAME_SPACE}--checkbox-head`}
-            isChecked={isChecked}
-            isDisabled={isDisabled}
-            isGrouped
-            isIndeterminate={isIndeterminate}
-            isLabelHidden
-            onChange={onCheckAllToggle}
-            tabIndex={0}
-          >
-            {checkAllRowsAriaLabel}
-          </XUICheckbox>
-        )}
-      </TableData>
-    );
-  }
-}
+  return (
+    <TableData className={className} isHead tabIndex={-1}>
+      {NBSP}
+      {onCheckAllToggle && (
+        <XUICheckbox
+          className={`${NAME_SPACE}--checkbox-head`}
+          isChecked={isChecked}
+          isDisabled={isDisabled}
+          isGrouped
+          isIndeterminate={isIndeterminate}
+          isLabelHidden
+          onChange={onCheckAllToggle}
+          tabIndex={0}
+        >
+          {checkAllRowsAriaLabel}
+        </XUICheckbox>
+      )}
+    </TableData>
+  );
+};
 
 CheckBoxCell.propTypes = {
   totalData: PropTypes.number,
@@ -62,25 +59,30 @@ CheckBoxCell.propTypes = {
   checkAllRowsAriaLabel: PropTypes.string,
 };
 
-class OverflowMenuCell extends PureComponent {
-  render() {
-    const className = cn(
-      `${NAME_SPACE}--cell-action`,
-      HEAD_CELL_CLASSES,
-      createCellLocationClasses('last'),
-    );
+const OverflowMenuCell = () => {
+  const className = cn(
+    `${NAME_SPACE}--cell-action`,
+    HEAD_CELL_CLASSES,
+    createCellLocationClasses('last'),
+  );
 
-    return (
-      <TableData className={className} isHead onClick={preventDefault} onKeyPress={preventDefault}>
-        {NBSP}
-      </TableData>
-    );
-  }
-}
+  return (
+    <TableData className={className} isHead onClick={preventDefault} onKeyPress={preventDefault}>
+      {NBSP}
+    </TableData>
+  );
+};
 
-class SortButton extends PureComponent {
-  handleInteraction = event => {
-    const { onSortChange, sortKey } = this.props;
+const SortButton = ({
+  activeSortKey,
+  children,
+  className: suppliedClasses,
+  isSortAsc,
+  onSortChange,
+  sortKey,
+  ...props
+}) => {
+  const handleInteraction = event => {
     const isValidInteraction = queryIsValidInteraction(event);
 
     if (isValidInteraction) {
@@ -89,50 +91,37 @@ class SortButton extends PureComponent {
     }
   };
 
-  render() {
-    const {
-      className: suppliedClasses,
-      children,
-      sortKey,
-      activeSortKey,
-      isSortAsc,
-      // Do not pass "onSortChange" into a DOM node or React gets sad.
-      // eslint-disable-next-line no-unused-vars
-      onSortChange,
-      ...props
-    } = this.props;
-    const isSortActive = activeSortKey && activeSortKey === sortKey;
-    const className = cn(
-      suppliedClasses,
-      `${NAME_SPACE}--sortbutton`,
-      isSortActive && `${NAME_SPACE}--sortbutton-active`,
-    );
+  const isSortActive = activeSortKey && activeSortKey === sortKey;
+  const className = cn(
+    suppliedClasses,
+    `${NAME_SPACE}--sortbutton`,
+    isSortActive && `${NAME_SPACE}--sortbutton-active`,
+  );
 
-    return (
-      <TableData
-        {...{
-          ...props,
-          className,
-          role: 'button',
-          onClick: this.handleInteraction,
-          onKeyDown: this.handleInteraction,
-          isHead: true,
-          tabIndex: 0,
-          scope: 'col',
-        }}
-      >
-        <div>
-          <span>{children}</span>
-          <XUIIcon
-            className={`${NAME_SPACE}--sortbutton-icon`}
-            icon={sortPathData}
-            rotation={isSortAsc ? 180 : null}
-          />
-        </div>
-      </TableData>
-    );
-  }
-}
+  return (
+    <TableData
+      {...{
+        ...props,
+        className,
+        role: 'button',
+        onClick: handleInteraction,
+        onKeyDown: handleInteraction,
+        isHead: true,
+        tabIndex: 0,
+        scope: 'col',
+      }}
+    >
+      <div>
+        <span>{children}</span>
+        <XUIIcon
+          className={`${NAME_SPACE}--sortbutton-icon`}
+          icon={sortPathData}
+          rotation={isSortAsc ? 180 : null}
+        />
+      </div>
+    </TableData>
+  );
+};
 
 SortButton.propTypes = {
   children: PropTypes.node,
@@ -144,52 +133,45 @@ SortButton.propTypes = {
   onFocus: PropTypes.func,
 };
 
-class GenericCell extends PureComponent {
-  render() {
-    const {
-      className: suppliedClasses,
-      children,
-      sortKey,
-      activeSortKey,
-      isSortAsc,
-      onSortChange,
-      cellLocation,
-      ensureCellVisibility,
-    } = this.props;
-    const isHead = true;
-    const onFocus = ensureCellVisibility;
-    const className = cn(
-      HEAD_CELL_CLASSES,
-      createCellLocationClasses(cellLocation),
-      suppliedClasses,
-    );
+const GenericCell = ({
+  activeSortKey,
+  cellLocation,
+  children,
+  className: suppliedClasses,
+  ensureCellVisibility,
+  isSortAsc,
+  onSortChange,
+  sortKey,
+}) => {
+  const isHead = true;
+  const onFocus = ensureCellVisibility;
+  const className = cn(HEAD_CELL_CLASSES, createCellLocationClasses(cellLocation), suppliedClasses);
 
-    return sortKey ? (
-      <SortButton
-        {...{
-          children,
-          className,
-          sortKey,
-          activeSortKey,
-          isSortAsc,
-          onSortChange,
-          onFocus,
-        }}
-      />
-    ) : (
-      <TableData
-        {...{
-          isHead,
-          className,
-          onFocus,
-          scope: 'col',
-        }}
-      >
-        <span>{children}</span>
-      </TableData>
-    );
-  }
-}
+  return sortKey ? (
+    <SortButton
+      {...{
+        children,
+        className,
+        sortKey,
+        activeSortKey,
+        isSortAsc,
+        onSortChange,
+        onFocus,
+      }}
+    />
+  ) : (
+    <TableData
+      {...{
+        isHead,
+        className,
+        onFocus,
+        scope: 'col',
+      }}
+    >
+      <span>{children}</span>
+    </TableData>
+  );
+};
 
 GenericCell.propTypes = {
   className: PropTypes.node,
@@ -202,74 +184,70 @@ GenericCell.propTypes = {
   ensureCellVisibility: PropTypes.func,
 };
 
-class TableHead extends PureComponent {
-  render = () => {
-    const {
-      data,
-      columns,
-      activeSortKey,
-      isSortAsc,
-      onSortChange,
-      hasCheckbox,
-      checkedIds,
-      onCheckAllToggle,
-      checkAllRowsAriaLabel,
-      hasOverflowMenu,
-      ensureCellVisibility,
-    } = this.props;
+const TableHead = ({
+  activeSortKey,
+  checkAllRowsAriaLabel,
+  checkedIds,
+  columns,
+  data,
+  ensureCellVisibility,
+  hasCheckbox,
+  hasOverflowMenu,
+  isSortAsc,
+  onCheckAllToggle,
+  onSortChange,
+}) => (
+  <thead className={`${NAME_SPACE}--head`}>
+    <tr className={`${NAME_SPACE}--row ${ns}-text-align-left`}>
+      {hasCheckbox && (
+        <CheckBoxCell
+          {...{
+            totalData: data.length,
+            checkedIds,
+            onCheckAllToggle,
+            checkAllRowsAriaLabel,
+          }}
+        />
+      )}
 
-    return (
-      <thead className={`${NAME_SPACE}--head`}>
-        <tr className={`${NAME_SPACE}--row ${ns}-text-align-left`}>
-          {hasCheckbox && (
-            <CheckBoxCell
-              {...{
-                totalData: data.length,
-                checkedIds,
-                onCheckAllToggle,
-                checkAllRowsAriaLabel,
-              }}
-            />
-          )}
-
-          {columns.map(
-            (
-              {
-                props: {
-                  head: {
-                    props: { children, sortKey, className },
-                  },
-                },
+      {columns.map(
+        (
+          {
+            props: {
+              head: {
+                props: { children, sortKey, className },
               },
-              columnIndex,
-            ) => (
-              <GenericCell
-                {...{
-                  key: `column-cell-${columnIndex}`,
-                  activeSortKey,
-                  isSortAsc,
-                  onSortChange,
-                  ensureCellVisibility,
-                  sortKey,
-                  className,
-                  children,
-                  cellLocation: getCellLocation({
-                    columns,
-                    columnIndex,
-                    hasCheckbox,
-                    hasOverflowMenu,
-                  }),
-                }}
-              />
-            ),
-          )}
+            },
+          },
+          columnIndex,
+        ) => (
+          <GenericCell
+            {...{
+              key: `column-cell-${columnIndex}`,
+              activeSortKey,
+              isSortAsc,
+              onSortChange,
+              ensureCellVisibility,
+              sortKey,
+              className,
+              children,
+              cellLocation: getCellLocation({
+                columns,
+                columnIndex,
+                hasCheckbox,
+                hasOverflowMenu,
+              }),
+            }}
+          />
+        ),
+      )}
 
-          {hasOverflowMenu && <OverflowMenuCell />}
-        </tr>
-      </thead>
-    );
-  };
-}
+      {hasOverflowMenu && <OverflowMenuCell />}
+    </tr>
+  </thead>
+);
+
+export default TableHead;
 
 TableHead.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
@@ -290,5 +268,3 @@ TableHead.propTypes = {
   isSortAsc: PropTypes.bool,
   onSortChange: PropTypes.func,
 };
-
-export default TableHead;

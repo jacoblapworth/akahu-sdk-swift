@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -10,28 +10,27 @@ import OverflowMenu from './OverflowMenu';
 
 const BODY_CELL_CLASSES = `${cellClassNames.cell} ${cellClassNames.defaultLayout}`;
 
-export default class OverflowMenuCell extends PureComponent {
-  render() {
-    const { createOverflowMenu, overflowMenuTitle, dividerClasses } = this.props;
-    const overflowMenuItems = createOverflowMenu();
-    const hasItems = Boolean(overflowMenuItems && overflowMenuItems.length);
-    const className = cn(
-      `${NAME_SPACE}--cell-action`,
-      BODY_CELL_CLASSES,
-      createCellLocationClasses('last'),
-      dividerClasses,
-    );
+const OverflowMenuCell = ({ createOverflowMenu, dividerClasses, overflowMenuTitle }) => {
+  const overflowMenuItems = createOverflowMenu();
+  const hasItems = Boolean(overflowMenuItems && overflowMenuItems.length);
+  const className = cn(
+    `${NAME_SPACE}--cell-action`,
+    BODY_CELL_CLASSES,
+    createCellLocationClasses('last'),
+    dividerClasses,
+  );
 
-    return (
-      <TableData className={className} tabIndex={-1}>
-        {NBSP}
-        {hasItems && (
-          <OverflowMenu overflowMenuTitle={overflowMenuTitle}>{overflowMenuItems}</OverflowMenu>
-        )}
-      </TableData>
-    );
-  }
-}
+  return (
+    <TableData className={className} tabIndex={-1}>
+      {NBSP}
+      {hasItems && (
+        <OverflowMenu overflowMenuTitle={overflowMenuTitle}>{overflowMenuItems}</OverflowMenu>
+      )}
+    </TableData>
+  );
+};
+
+export default OverflowMenuCell;
 
 OverflowMenuCell.propTypes = {
   createOverflowMenu: PropTypes.func,

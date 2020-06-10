@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -7,73 +7,74 @@ import '../helpers/xuiGlobalChecks';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds from '../controlwrapper/helpers';
 
-export default class XUIToggle extends PureComponent {
-  wrapperIds = generateIds(this.props.labelId);
+const XUIToggle = props => {
+  const wrapperIds = generateIds(props.labelId);
 
-  toggleIsCheckbox() {
-    const { children } = this.props;
+  const toggleIsCheckbox = () => {
+    const { children } = props;
     const isCheckbox = child => child && child.props.type === 'checkbox';
     return children != null && React.Children.map(children, isCheckbox).some(Boolean);
-  }
-  render() {
-    const {
-      children,
-      className,
-      qaHook,
-      color,
-      layout,
-      size,
-      secondaryProps,
-      label,
-      isLabelHidden,
-      fieldClassName,
-      isFieldLayout,
-      labelClassName,
-      isInvalid,
-      validationMessage,
-      hintMessage,
-    } = this.props;
-    const classes = cn(
-      className,
-      baseClass,
-      isInvalid && `${baseClass}-is-invalid`,
-      colorMap[color],
-      layoutMap[layout],
-      sizeMap[size],
-    );
+  };
 
-    const ariaRole =
-      (secondaryProps && secondaryProps.role) || this.toggleIsCheckbox() ? 'group' : 'radiogroup';
+  const {
+    children,
+    className,
+    color,
+    fieldClassName,
+    hintMessage,
+    isFieldLayout,
+    isInvalid,
+    isLabelHidden,
+    label,
+    labelClassName,
+    layout,
+    qaHook,
+    secondaryProps,
+    size,
+    validationMessage,
+  } = props;
+  const classes = cn(
+    className,
+    baseClass,
+    isInvalid && `${baseClass}-is-invalid`,
+    colorMap[color],
+    layoutMap[layout],
+    sizeMap[size],
+  );
 
-    return (
-      <XUIControlWrapper
-        fieldClassName={fieldClassName}
-        isGroup
-        wrapperIds={this.wrapperIds}
-        {...{
-          qaHook,
-          label,
-          isInvalid,
-          validationMessage,
-          hintMessage,
-          isFieldLayout,
-          labelClassName,
-          isLabelHidden,
-        }}
+  const ariaRole =
+    (secondaryProps && secondaryProps.role) || toggleIsCheckbox() ? 'group' : 'radiogroup';
+
+  return (
+    <XUIControlWrapper
+      fieldClassName={fieldClassName}
+      isGroup
+      wrapperIds={wrapperIds}
+      {...{
+        qaHook,
+        label,
+        isInvalid,
+        validationMessage,
+        hintMessage,
+        isFieldLayout,
+        labelClassName,
+        isLabelHidden,
+      }}
+    >
+      <div
+        {...secondaryProps}
+        className={classes}
+        data-automationid={qaHook}
+        role={ariaRole}
+        {...getAriaAttributes(wrapperIds, props, { isGroup: true })}
       >
-        <div
-          {...secondaryProps}
-          className={classes}
-          data-automationid={qaHook}
-          role={ariaRole}
-          {...getAriaAttributes(this.wrapperIds, this.props, { isGroup: true })}
-        >
-          {children}
-        </div>
-      </XUIControlWrapper>
-    );
-  }
-}
+        {children}
+      </div>
+    </XUIControlWrapper>
+  );
+};
+
+export default XUIToggle;
 
 XUIToggle.propTypes = {
   children: PropTypes.node,

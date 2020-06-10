@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
@@ -7,42 +7,40 @@ import { overviewSentiments } from './private/constants';
 
 const baseClass = `${ns}-overview`;
 
-export default class XUIOverviewSection extends PureComponent {
-  render() {
-    const {
-      qaHook,
-      className,
-      sentiment,
-      label,
-      value,
-      textAlignment,
-      children,
-      ...spreadProps
-    } = this.props;
+const XUIOverviewSection = ({
+  children,
+  className,
+  label,
+  qaHook,
+  sentiment,
+  textAlignment,
+  value,
+  ...spreadProps
+}) => {
+  const classes = cn(
+    className,
+    // Only set the alignment here, if explicitly provided. Otherwise, just inherit.
+    textAlignment && `${baseClass}-text-align-${textAlignment}`,
+    `${baseClass}--section`,
+  );
 
-    const classes = cn(
-      className,
-      // Only set the alignment here, if explicitly provided. Otherwise, just inherit.
-      textAlignment && `${baseClass}-text-align-${textAlignment}`,
-      `${baseClass}--section`,
-    );
+  const valueClass = cn(
+    `${baseClass}--value`,
+    sentiment &&
+      overviewSentiments[sentiment] &&
+      `${ns}-textcolor-${overviewSentiments[sentiment]}`,
+  );
 
-    const valueClass = cn(
-      `${baseClass}--value`,
-      sentiment &&
-        overviewSentiments[sentiment] &&
-        `${ns}-textcolor-${overviewSentiments[sentiment]}`,
-    );
+  return (
+    <section {...spreadProps} className={classes} data-automationid={qaHook}>
+      <div className={`${baseClass}--label`}>{label}</div>
+      <div className={valueClass}>{value}</div>
+      {children}
+    </section>
+  );
+};
 
-    return (
-      <section {...spreadProps} className={classes} data-automationid={qaHook}>
-        <div className={`${baseClass}--label`}>{label}</div>
-        <div className={valueClass}>{value}</div>
-        {children}
-      </section>
-    );
-  }
-}
+export default XUIOverviewSection;
 
 XUIOverviewSection.propTypes = {
   children: PropTypes.node,

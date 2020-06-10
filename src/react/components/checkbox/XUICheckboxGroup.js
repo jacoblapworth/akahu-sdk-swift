@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -15,65 +15,66 @@ import generateIds from '../controlwrapper/helpers';
  * @param {Object} [props]
  * @returns
  */
-export default class XUICheckboxGroup extends PureComponent {
-  wrapperIds = generateIds(this.props.labelId);
+const XUICheckboxGroup = props => {
+  const {
+    children,
+    className,
+    fieldClassName,
+    hintMessage,
+    isFieldLayout,
+    isInvalid,
+    isLabelHidden,
+    label,
+    labelClassName,
+    labelId,
+    qaHook,
+    validationMessage,
+  } = props;
 
-  render() {
-    const {
-      children,
-      className,
-      qaHook,
-      label,
-      isLabelHidden,
-      isFieldLayout,
-      labelClassName,
-      fieldClassName,
-      isInvalid,
-      validationMessage,
-      hintMessage,
-    } = this.props;
+  const wrapperIds = generateIds(labelId);
 
-    const groupClasses = cn(
-      className,
-      `${baseClass}-group`,
-      isInvalid && `${baseClass}-group-is-invalid`,
-    );
+  const groupClasses = cn(
+    className,
+    `${baseClass}-group`,
+    isInvalid && `${baseClass}-group-is-invalid`,
+  );
 
-    const childrenToRender = React.Children.map(children, child =>
-      child.type === XUICheckbox
-        ? React.cloneElement(child, {
-            isGrouped: true,
-          })
-        : child,
-    );
+  const childrenToRender = React.Children.map(children, child =>
+    child.type === XUICheckbox
+      ? React.cloneElement(child, {
+          isGrouped: true,
+        })
+      : child,
+  );
 
-    return (
-      <XUIControlWrapper
-        fieldClassName={fieldClassName}
-        isGroup
-        wrapperIds={this.wrapperIds}
-        {...{
-          qaHook,
-          label,
-          isInvalid,
-          validationMessage,
-          hintMessage,
-          isFieldLayout,
-          labelClassName,
-          isLabelHidden,
-        }}
+  return (
+    <XUIControlWrapper
+      fieldClassName={fieldClassName}
+      isGroup
+      wrapperIds={wrapperIds}
+      {...{
+        qaHook,
+        label,
+        isInvalid,
+        validationMessage,
+        hintMessage,
+        isFieldLayout,
+        labelClassName,
+        isLabelHidden,
+      }}
+    >
+      <div
+        className={groupClasses}
+        data-automationid={qaHook}
+        {...getAriaAttributes(wrapperIds, props, { isGroup: true })}
       >
-        <div
-          className={groupClasses}
-          data-automationid={qaHook}
-          {...getAriaAttributes(this.wrapperIds, this.props, { isGroup: true })}
-        >
-          {childrenToRender}
-        </div>
-      </XUIControlWrapper>
-    );
-  }
-}
+        {childrenToRender}
+      </div>
+    </XUIControlWrapper>
+  );
+};
+
+export default XUICheckboxGroup;
 
 XUICheckboxGroup.propTypes = {
   children: PropTypes.node,

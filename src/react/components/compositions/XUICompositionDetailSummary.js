@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -9,25 +9,29 @@ import baseCompositionClass, { buildGlobalCompositionClasses, buildLayoutClass }
 
 const compositionName = 'detailsummary';
 
-export default class XUICompositionDetailSummary extends PureComponent {
-  render() {
-    const { summary, detail, className, retainWidth, ...spreadProps } = this.props;
+const XUICompositionDetailSummary = ({
+  className,
+  detail,
+  retainWidth,
+  summary,
+  ...spreadProps
+}) => {
+  const compositionClasses = cn(
+    buildGlobalCompositionClasses(spreadProps),
+    buildLayoutClass({ retainWidth, compositionName }),
+    `${baseCompositionClass}-${compositionName}`,
+    className,
+  );
 
-    const compositionClasses = cn(
-      buildGlobalCompositionClasses(spreadProps),
-      buildLayoutClass({ retainWidth, compositionName }),
-      `${baseCompositionClass}-${compositionName}`,
-      className,
-    );
+  return (
+    <div className={compositionClasses}>
+      <XUIGridAreaDetail>{detail}</XUIGridAreaDetail>
+      <XUIGridAreaSummary>{summary}</XUIGridAreaSummary>
+    </div>
+  );
+};
 
-    return (
-      <div className={compositionClasses}>
-        <XUIGridAreaDetail>{detail}</XUIGridAreaDetail>
-        <XUIGridAreaSummary>{summary}</XUIGridAreaSummary>
-      </div>
-    );
-  }
-}
+export default XUICompositionDetailSummary;
 
 XUICompositionDetailSummary.propTypes = {
   className: PropTypes.string,

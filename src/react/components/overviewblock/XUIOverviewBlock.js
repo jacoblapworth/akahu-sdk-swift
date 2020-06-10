@@ -1,39 +1,37 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-overview`;
 
-export default class XUIOverviewBlock extends PureComponent {
-  render() {
-    const {
-      qaHook,
-      children,
-      className,
-      hasLayout,
-      textAlignment,
-      hasBorder,
-      hasBackground,
-      ...spreadProps
-    } = this.props;
+const XUIOverviewBlock = ({
+  children,
+  className,
+  hasBackground,
+  hasBorder,
+  hasLayout,
+  qaHook,
+  textAlignment,
+  ...spreadProps
+}) => {
+  const classes = cn(
+    baseClass,
+    className,
+    hasBorder && `${baseClass}-has-border`,
+    hasBackground && `${baseClass}-solid`,
+    `${baseClass}-text-align-${textAlignment}`,
+    hasLayout && `${baseClass}-layout`,
+  );
 
-    const classes = cn(
-      baseClass,
-      className,
-      hasBorder && `${baseClass}-has-border`,
-      hasBackground && `${baseClass}-solid`,
-      `${baseClass}-text-align-${textAlignment}`,
-      hasLayout && `${baseClass}-layout`,
-    );
+  return (
+    <div {...spreadProps} className={classes} data-automationid={qaHook}>
+      {children}
+    </div>
+  );
+};
 
-    return (
-      <div {...spreadProps} className={classes} data-automationid={qaHook}>
-        {children}
-      </div>
-    );
-  }
-}
+export default XUIOverviewBlock;
 
 XUIOverviewBlock.propTypes = {
   children: PropTypes.node,

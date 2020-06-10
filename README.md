@@ -265,22 +265,12 @@ jscodeshift --importBasePath=@xero/xui/react-es6/ -t node_modules/@xero/xui/code
 jscodeshift -t node_modules/@xero/xui/codemod/<version> src/
 ```
 
-**NB** with Typescript, passing the root directory name won't work, so you'll need to manually create a list of files to transform.
+**NB** There are several other configuration settings you may need to set for your project, including --extensions and --parser. By default, codeshift examines .js files with babel.
 
-Powershell:
-
-```ps1
-npm i -g jscodeshift@0.6.3
-$files = Get-ChildItem -Path .\ -Filter *.tsx -Recurse -File -Name
-jscodeshift -t .\node_modules\@xero\xui\codemod\index.js --parser=tsx $files
-```
-
-Bash:
+For example:
 
 ```bash
-npm i -g jscodeshift@0.6.3
-files="$(find src/ -type f -name "*.tsx")"
-jscodeshift -t ./node_modules/@xero/xui/codemod/index.js --parser=tsx $files
+jscodeshift -t ./node_modules/@xero/xui/codemod/index.js --parser=tsx --extensions=ts,tsx
 ```
 
 ## Contributing to XUI

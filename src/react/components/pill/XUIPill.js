@@ -8,6 +8,7 @@ import XUIInnerPill from './XUIInnerPill';
 import XUITooltip from '../tooltip/XUITooltip';
 import { baseClass, sizeClasses } from './private/constants';
 import SizeContext from '../../contexts/SizeContext';
+import DisabledStateContext from '../../contexts/DisabledStateContext';
 
 function shouldShowTooltip(domElement) {
   return (
@@ -67,106 +68,111 @@ export default class XUIPill extends PureComponent {
 
   render() {
     return (
-      <SizeContext.Consumer>
-        {inheritedSize => {
-          const {
-            avatarProps,
-            className,
-            deleteButtonLabel,
-            href,
-            isInvalid,
-            onClick,
-            onDeleteClick,
-            qaHook,
-            secondaryText,
-            target,
-            title,
-            value,
-            isLimitedWidth,
-            debugShowToolTip,
-            avatar,
-          } = this.props;
+      <DisabledStateContext.Consumer>
+        {disabledStateProp => (
+          <SizeContext.Consumer>
+            {inheritedSize => {
+              const {
+                avatarProps,
+                className,
+                deleteButtonLabel,
+                href,
+                isInvalid,
+                onClick,
+                onDeleteClick,
+                qaHook,
+                secondaryText,
+                target,
+                title,
+                value,
+                isLimitedWidth,
+                debugShowToolTip,
+                avatar,
+              } = this.props;
 
-          const { isFocused, hasTooltip } = this.state;
+              const { isFocused, hasTooltip } = this.state;
 
-          const defaultSize = 'medium';
-          const size = this.props.size || inheritedSize || defaultSize;
-          const hasAvatar = avatar || avatarProps || isInvalid;
+              const defaultSize = 'medium';
+              const size = this.props.size || inheritedSize || defaultSize;
+              const hasAvatar = avatar || avatarProps || isInvalid;
 
-          const pillClasses = cn(
-            className,
-            baseClass,
-            isLimitedWidth && `${baseClass}-maxwidth`,
-            size && sizeClasses[size],
-            isInvalid && `${baseClass}-is-invalid`,
-            isFocused && `${baseClass}-is-focused`,
-            onDeleteClick && `${baseClass}-is-deletable`,
-            hasAvatar && `${baseClass}-has-avatar`,
-            (href || onClick) && `${baseClass}-interactive`,
-          );
+              const pillClasses = cn(
+                className,
+                baseClass,
+                isLimitedWidth && `${baseClass}-maxwidth`,
+                size && sizeClasses[size],
+                isInvalid && `${baseClass}-is-invalid`,
+                isFocused && `${baseClass}-is-focused`,
+                onDeleteClick && `${baseClass}-is-deletable`,
+                hasAvatar && `${baseClass}-has-avatar`,
+                (href || onClick) && `${baseClass}-interactive`,
+              );
 
-          const deleteButton = onDeleteClick && (
-            <XUIIconButton
-              ariaLabel={deleteButtonLabel}
-              className={`${baseClass}--button-icon`}
-              icon={crossSmall}
-              isInverted={isInvalid}
-              onClick={onDeleteClick}
-              qaHook={qaHook && `${qaHook}--delete`}
-              size={size}
-              title={deleteButtonLabel}
-            />
-          );
+              const deleteButton = onDeleteClick && (
+                <XUIIconButton
+                  ariaLabel={deleteButtonLabel}
+                  className={`${baseClass}--button-icon`}
+                  icon={crossSmall}
+                  isDisabled={disabledStateProp?.isDisabled}
+                  isInverted={isInvalid}
+                  onClick={onDeleteClick}
+                  qaHook={qaHook && `${qaHook}--delete`}
+                  size={size}
+                  title={deleteButtonLabel}
+                />
+              );
 
-          const content = (
-            <div
-              className={pillClasses}
-              data-automationid={qaHook}
-              onBlur={this.toggleFocus}
-              onFocus={this.toggleFocus}
-              onMouseEnter={this.hoverHandler}
-              onMouseLeave={this.blurHandler}
-            >
-              <XUIInnerPill
-                innerPillRef={this._innerPill}
-                {...{
-                  avatarProps,
-                  avatar,
-                  href,
-                  isInvalid,
-                  onClick,
-                  qaHook,
-                  secondaryText,
-                  target,
-                  title,
-                  value,
-                  size,
-                }}
-              />
-              {deleteButton}
-            </div>
-          );
+              const content = (
+                <div
+                  className={pillClasses}
+                  data-automationid={qaHook}
+                  onBlur={this.toggleFocus}
+                  onFocus={this.toggleFocus}
+                  onMouseEnter={this.hoverHandler}
+                  onMouseLeave={this.blurHandler}
+                >
+                  <XUIInnerPill
+                    innerPillRef={this._innerPill}
+                    {...{
+                      avatarProps,
+                      avatar,
+                      href,
+                      isInvalid,
+                      onClick,
+                      qaHook,
+                      secondaryText,
+                      target,
+                      title,
+                      value,
+                      size,
+                    }}
+                  />
+                  {deleteButton}
+                </div>
+              );
 
-          if (hasTooltip || debugShowToolTip) {
-            return (
-              <XUITooltip
-                id={debugShowToolTip && 'tooltipDebugId'}
-                isHidden={!debugShowToolTip}
-                ref={this._tooltip}
-                // Extra wrapping div required because tooltip has CSS that stomps on first child
-                trigger={<div className={`${baseClass}-parentmaxwidth`}>{content}</div>}
-                useInlineFlex
-              >
-                {secondaryText}
-                {secondaryText && value ? <br /> : null}
-                {value}
-              </XUITooltip>
-            );
-          }
+              if (hasTooltip || debugShowToolTip) {
+                return (
+                  <XUITooltip
+                    id={debugShowToolTip && 'tooltipDebugId'}
+                    isHidden={!debugShowToolTip}
+                    ref={this._tooltip}
+                    // Extra wrapping div required because tooltip has CSS that stomps on first child
+                    trigger={<div className={`${baseClass}-parentmaxwidth`}>{content}</div>}
+                    useInlineFlex
+                  >
+                    {secondaryText}
+                    {secondaryText && value ? <br /> : null}
+                    {value}
+                  </XUITooltip>
+                );
+              }
 
-          return content;
-        }}
-      </SizeContext.Consumer>
+              return content;
+            }}
+          </SizeContext.Consumer>
+        )}
+      </DisabledStateContext.Consumer>
     );
   }
 }

@@ -9,22 +9,22 @@ import XUIToastMessage from './XUIToastMessage';
 
 const sentiments = Object.keys(sentimentMap);
 
-export default function XUIToast({
-  className,
-  qaHook,
-  isHidden,
-  sentiment,
-  onCloseClick,
-  onMouseOver,
-  onMouseLeave,
-  children,
-  defaultLayout,
+const XUIToast = ({
   actions,
+  children,
+  className,
+  defaultLayout,
+  isHidden,
   message,
-  role,
+  onCloseClick,
+  onMouseLeave,
+  onMouseOver,
   primaryAction,
+  qaHook,
+  role,
   secondaryAction,
-}) {
+  sentiment,
+}) => {
   const sentimentData = sentimentMap[sentiment];
   const sentimentClass = sentimentData && sentimentData.class;
   const a11yRole = role || (sentimentData && sentimentData.role) || 'status';
@@ -78,7 +78,9 @@ export default function XUIToast({
       {actionsNewAPI}
     </div>
   );
-}
+};
+
+export default XUIToast;
 
 XUIToast.propTypes = {
   /** Adds optional class to wrapping component */

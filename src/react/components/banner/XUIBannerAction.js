@@ -4,7 +4,7 @@ import cn from 'classnames';
 import XUIButton from '../../button';
 import { ns } from '../helpers/xuiClassNamespace';
 
-export default function XUIBannerAction({ className, qaHook, onClick, href, isLink, children }) {
+const XUIBannerAction = ({ className, qaHook, onClick, href, isLink, children }) => {
   const buttonClassName = cn(className, `${ns}-button-small`);
   const buttonQaHook = qaHook && `${qaHook}--button`;
 
@@ -23,7 +23,9 @@ export default function XUIBannerAction({ className, qaHook, onClick, href, isLi
       </XUIButton>
     </li>
   );
-}
+};
+
+export default XUIBannerAction;
 
 XUIBannerAction.propTypes = {
   className: PropTypes.string,

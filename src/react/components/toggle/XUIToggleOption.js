@@ -7,7 +7,7 @@ import XUIControlWrapperInline, {
 } from '../controlwrapper/XUIControlWrapperInline';
 import generateIds from '../controlwrapper/helpers';
 
-export default function XUIToggleOption(props) {
+const XUIToggleOption = props => {
   const wrapperIds = generateIds(props.id);
   const {
     children,
@@ -50,7 +50,9 @@ export default function XUIToggleOption(props) {
       />
     </XUIControlWrapperInline>
   );
-}
+};
+
+export default XUIToggleOption;
 
 XUIToggleOption.propTypes = {
   children: PropTypes.node,

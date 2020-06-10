@@ -8,15 +8,15 @@ import { ns } from '../helpers/xuiClassNamespace';
 
 const sentiments = Object.keys(sentimentMap);
 
-export default function XUIBanner({
-  className,
-  qaHook,
-  sentiment,
-  onCloseClick,
+const XUIBanner = ({
   children,
+  className,
   defaultLayout,
+  onCloseClick,
+  qaHook,
   role,
-}) {
+  sentiment,
+}) => {
   const closeButton = onCloseClick && (
     <XUIIconButton
       ariaLabel="Close"
@@ -30,7 +30,6 @@ export default function XUIBanner({
   );
 
   const sentimentData = sentimentMap[sentiment];
-
   const sentimentClass = sentimentData && sentimentData.class;
   const bannerRole = role || (sentimentData && sentimentData.role) || 'status';
 
@@ -49,7 +48,9 @@ export default function XUIBanner({
       {children}
     </div>
   );
-}
+};
+
+export default XUIBanner;
 
 XUIBanner.propTypes = {
   className: PropTypes.string,

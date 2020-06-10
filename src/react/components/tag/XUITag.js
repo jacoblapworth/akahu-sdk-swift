@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -11,66 +11,49 @@ function tagTextOverflows(domElement) {
   return domElement && domElement.clientWidth < domElement.scrollWidth;
 }
 
-class XUITag extends PureComponent {
-  state = {
-    tooltipIsAttached: false,
-  };
+const XUITag = ({ children, className, debugShowToolTip, id, qaHook, size, variant }) => {
+  const [tooltipIsAttached, setTooltipIsAttached] = useState(false);
 
-  _tooltip = React.createRef();
-  _tag = React.createRef();
+  const _tooltip = useRef();
+  const _tag = useRef();
 
-  componentDidMount() {
-    const tagElement = this._tag && this._tag.current;
-
-    if (this.state.tooltipIsAttached === false && tagTextOverflows(tagElement)) {
-      this.setState({
-        tooltipIsAttached: true,
-      });
+  useEffect(() => {
+    if (tooltipIsAttached === false && tagTextOverflows(_tag.current)) {
+      setTooltipIsAttached(true);
     }
-  }
+  }, [tooltipIsAttached]);
 
-  render() {
-    const { className, variant, qaHook, children, size, debugShowToolTip, id } = this.props;
+  const tagNode = (
+    <span
+      className={cn(`${baseClass}content`, tooltipIsAttached && `${baseClass}-is-block`)}
+      data-automationid={qaHook}
+      ref={_tag}
+      role="status"
+    >
+      {children}
+    </span>
+  );
 
-    const tagNode = (
-      <span
-        className={cn(
-          `${baseClass}content`,
-          this.state.tooltipIsAttached && `${baseClass}-is-block`,
-        )}
-        data-automationid={qaHook}
-        ref={this._tag}
-        role="status"
-      >
+  let componentNode;
+
+  if (tooltipIsAttached || debugShowToolTip) {
+    componentNode = (
+      <XUITooltip id={id} isHidden={!debugShowToolTip} limitWidth ref={_tooltip} trigger={tagNode}>
         {children}
-      </span>
+      </XUITooltip>
     );
-
-    let componentNode;
-
-    if (this.state.tooltipIsAttached || debugShowToolTip) {
-      componentNode = (
-        <XUITooltip
-          id={id}
-          isHidden={!debugShowToolTip}
-          limitWidth
-          ref={this._tooltip}
-          trigger={tagNode}
-        >
-          {children}
-        </XUITooltip>
-      );
-    } else {
-      componentNode = tagNode;
-    }
-
-    return (
-      <span className={cn(baseClass, className, variants[variant], sizes[size])}>
-        {componentNode}
-      </span>
-    );
+  } else {
+    componentNode = tagNode;
   }
-}
+
+  return (
+    <span className={cn(baseClass, className, variants[variant], sizes[size])}>
+      {componentNode}
+    </span>
+  );
+};
+
+export { XUITag as default, variants, sizes };
 
 XUITag.propTypes = {
   children: PropTypes.node,
@@ -92,5 +75,3 @@ XUITag.defaultProps = {
   variant: 'standard',
   size: 'medium',
 };
-
-export { XUITag as default, variants, sizes };

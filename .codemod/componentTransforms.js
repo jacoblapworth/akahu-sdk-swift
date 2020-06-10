@@ -122,7 +122,7 @@ module.exports = {
   ],
   table: [
     {
-      name: 'Table',
+      name: 'XUITable',
       props: [
         {
           name: 'loaderLabel',

@@ -4,14 +4,14 @@ module.exports = function (handlebars) {
 	handlebars.registerPartial('menu', `
 		{{#each menu as |menuItem|}} {{! Each item is an "li" }}
 			<li>
-				<input id="ds-input-{{referenceURI}}" type="checkbox" aria-label="expand {{header}}" class="ds-nav--item-state" {{#if isActive}}{{#isNotEqual header @root.sections.0.header}}checked{{/isNotEqual}} {{/if}}/>
+				<input id="ds-input-{{referenceURI}}" type="checkbox" aria-label="expand {{header}}" class="ds-nav--item-state" {{#if isActive}}{{#if menu}}checked{{/if}} {{/if}}/>
 				<div class="ds-nav--item">
 					<a class="ds-nav--item--index {{#if isActive}} ds-is-active {{/if}}{{#isEqual header @root.sections.0.header}} ds-nav--item-is-selected{{/isEqual}}" href="section-{{referenceURI}}.html">
 						<span>{{header}}</span>
 					</a>
 					{{#if menu}}
 						<label for="ds-input-{{referenceURI}}" class="ds-nav--item--icon">
-							<svg class="xui-icon xui-icon-rotate-270 ds-nav--item--icon-fill"> <use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
+							<svg class="xui-icon xui-icon-rotate-270 ds-nav--item--icon-fill" role="presentation"> <use xlink:href="#xui-icon-arrow"/></svg>
 						</label>
 					{{/if}}
 				</div>
@@ -54,8 +54,8 @@ module.exports = function (handlebars) {
 				</option>
 			{{/ifDepth}} {{/each}}
 			</select>
-			<svg focusable="false" class="xui-icon xui-select--caret">
-				<use xlink:href="#xui-icon-caret" role="presentation" />
+			<svg focusable="false" class="xui-icon xui-select--caret" role="presentation">
+				<use xlink:href="#xui-icon-caret" />
 			</svg>
 		</nav>
 	{{/ifSections}}
@@ -66,8 +66,8 @@ module.exports = function (handlebars) {
       <div class="xui-textinput xui-textinput-medium xui-textinput-borderless xui-textinput-borderless-solid">
         <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
           <div class="xui-iconwrapper xui-iconwrapper-large">
-            <svg focusable="false" class="xui-icon">
-              <use xlink:href="#xui-icon-search" role="presentation" />
+            <svg focusable="false" class="xui-icon" role="presentation">
+              <use xlink:href="#xui-icon-search" />
             </svg>
           </div>
         </div>

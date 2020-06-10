@@ -111,6 +111,10 @@ Several CSS components require a new child element with the `.xui-touchtarget` c
   - XUIToggle
   - XUITooltip
 - `XUIPanel` and `XUIPageHeader` received additional default export.
+- Significant changes have been made to `XUIAccordion` and its API, including:
+  - Rather than accepting a `createItem` function and an `items` array, it now takes `XUIAccordionItem`s as children.
+  - `XUIAccordion` is now a function component, rather than a class. You may need to make updates accordingly.
+  - See the [full API documentation](https://xui.xero.com/16.4.0/react/#accordion) for `XUIAccordion`.
 
 ### Additions
 

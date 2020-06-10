@@ -181,7 +181,7 @@ class GenericCell extends PureComponent {
           isSortAsc,
           onSortChange,
           onFocus,
-          sortbuttonIcon,
+          icon: sortbuttonIcon,
         }}
       />
     ) : (

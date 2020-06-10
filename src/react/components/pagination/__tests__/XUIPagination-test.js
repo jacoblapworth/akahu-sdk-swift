@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import uuidv4 from 'uuid/v4';
 import XUIPagination from '../XUIPagination';
 import {
   defaultPerPageContent,
@@ -9,6 +10,8 @@ import {
   defaultCreatePagingContent,
 } from '../private/helpers';
 
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => 'testPaginationId');
 Enzyme.configure({ adapter: new Adapter() });
 
 const defaultProps = {

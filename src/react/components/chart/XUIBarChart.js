@@ -178,7 +178,7 @@ XUIBarChart.propTypes = {
    * <br />
    * Recommended English value: *Loading*
    */
-  loadingLabel: PropTypes.string,
+  loadingAriaLabel: PropTypes.string,
 
   /**
    * Optional prop for users to modify the empty chart state icon, if required for localisation.

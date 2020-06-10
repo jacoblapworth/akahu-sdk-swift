@@ -25,6 +25,12 @@ describe('XUISwitch', function() {
     expect(component).toMatchSnapshot();
   });
 
+  it('should render with validation message', function() {
+    const component = renderer.create(<XUISwitch isInvalid validationMessage="Test validation" />);
+
+    expect(component).toMatchSnapshot();
+  });
+
   it('should pass a value to the input', function() {
     const component = shallow(<XUISwitch value="someValue" onChange={NOOP} />);
 

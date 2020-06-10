@@ -5,7 +5,7 @@ import backIcon from '@xero/xui-icon/icons/back';
 import XUIIconButton from '../../button/XUIIconButton';
 import PaginationSelect from './PaginationSelect';
 
-import { baseClass, numberFormat } from './helpers';
+import { baseClass } from './helpers';
 
 const commonIconProps = {
   icon: backIcon,
@@ -23,8 +23,7 @@ const Paging = ({
   selectLabel,
   previousPageLabel,
 }) => {
-  const { simple, enhanced } =
-    createPagingContent && createPagingContent(numberFormat(currentPage), numberFormat(pageCount));
+  const { simple, enhanced } = createPagingContent && createPagingContent(currentPage, pageCount);
   const pagingContent = isSimple ? simple : enhanced;
 
   return (

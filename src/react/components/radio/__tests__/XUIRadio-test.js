@@ -90,6 +90,12 @@ describe('XUIRadio', () => {
     expect(icon).toMatchSnapshot();
   });
 
+  it('should render with validation message', function() {
+    const component = renderer.create(<XUIRadio isInvalid validationMessage="Test validation" />);
+
+    expect(component).toMatchSnapshot();
+  });
+
   // Unchecked
   it('should be unchecked by default', function() {
     const component = shallow(<XUIRadio onChange={NOOP} />);

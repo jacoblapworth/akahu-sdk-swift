@@ -228,3 +228,52 @@ exports[`XUISwitch should render not checked and not disabled 1`] = `
   </label>
 </div>
 `;
+
+exports[`XUISwitch should render with validation message 1`] = `
+<div
+  className="xui-switchwrapper xui-switch-medium"
+>
+  <label
+    className="xui-switch"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <input
+      aria-checked={false}
+      aria-describedby="testSwitchId-message"
+      aria-invalid={true}
+      checked={false}
+      className="xui-switch--checkbox"
+      onChange={[Function]}
+      role="switch"
+      type="checkbox"
+    />
+    <div
+      className="xui-switch--control xui-switch--control-medium"
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
+  </label>
+  <div
+    className="xui-validation xui-validation-layout xui-validation-is-invalid xui-switch--message"
+    id="testSwitchId-message"
+    role="status"
+  >
+    <svg
+      className="xui-icon"
+      focusable="false"
+      height={16}
+      viewBox="0 0 16 16"
+      width={16}
+    >
+      <path
+        d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
+        role="presentation"
+      />
+    </svg>
+    Test validation
+  </div>
+</div>
+`;

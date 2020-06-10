@@ -53,7 +53,7 @@ export default class YearSelector extends PureComponent {
         htmlFor={id}
       >
         {currentYear}
-        <XUIIcon className={`${ns}-button--caret`} icon={caret} />
+        <XUIIcon className={`${ns}-datepicker--heading-label-icon`} icon={caret} />
       </label>
     );
 

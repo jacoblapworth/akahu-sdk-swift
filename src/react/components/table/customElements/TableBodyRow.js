@@ -58,7 +58,7 @@ class TableBodyRow extends PureComponent {
       isChecked,
       isDisabled,
       onCheckOneToggle,
-      checkOneRowLabel,
+      checkOneRowAriaLabel,
       onRowClick,
       shouldRowClick,
       hasOverflowMenu,
@@ -102,7 +102,7 @@ class TableBodyRow extends PureComponent {
               isChecked,
               isDisabled,
               onCheckOneToggle,
-              checkOneRowLabel,
+              checkOneRowAriaLabel,
               dividerClasses,
             }}
           />
@@ -166,7 +166,7 @@ TableBodyRow.propTypes = {
   isChecked: PropTypes.bool,
   isDisabled: PropTypes.bool,
   onCheckOneToggle: PropTypes.func,
-  checkOneRowLabel: PropTypes.node,
+  checkOneRowAriaLabel: PropTypes.node,
 
   // Overflow Menu.
   hasOverflowMenu: PropTypes.bool,

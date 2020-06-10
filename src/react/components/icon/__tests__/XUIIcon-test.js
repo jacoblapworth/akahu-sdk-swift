@@ -15,9 +15,11 @@ describe('XUIIcon', () => {
     );
   });
 
-  it('Should render with the correct classes and dimensions for medium, large and xlarge sizes', function() {
+  it('Should render with the correct classes and dimensions', function() {
     const wrapper = renderer.create(
       <div>
+        <XUIIcon icon={accessibility} isBoxed size="xsmall" />
+        <XUIIcon icon={accessibility} isBoxed size="small" />
         <XUIIcon icon={accessibility} isBoxed />
         <XUIIcon icon={accessibility} isBoxed size="large" />
         <XUIIcon icon={accessibility} isBoxed size="xlarge" />

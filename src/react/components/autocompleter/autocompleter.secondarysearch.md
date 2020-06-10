@@ -7,7 +7,7 @@ import {
   XUIAutocompleterEmptyState
 } from '@xero/xui/react/autocompleter';
 import { DropDownFooter } from '@xero/xui/react/dropdown';
-import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
+import XUIButton from '@xero/xui/react/button';
 import XUIIcon from '@xero/xui/react/icon';
 import plusIcon from '@xero/xui-icon/icons/plus';
 
@@ -90,8 +90,8 @@ class SecondarySearchExample extends React.Component {
     const { value, data } = sse.state;
 
     const trigger = (
-      <XUIButton type="button" onClick={noop} data-ref="toggled_trigger">
-        Toggle Me <XUIButtonCaret />
+      <XUIButton type="button" hasCaret onClick={noop} data-ref="toggled_trigger">
+        Toggle Me
       </XUIButton>
     );
 
@@ -105,8 +105,10 @@ class SecondarySearchExample extends React.Component {
     const footer = (
       <DropDownFooter
         pickItems={
-          <Pickitem id="footerAction">
-            <XUIIcon icon={plusIcon} isBoxed className="xui-margin-right-xsmall" />
+          <Pickitem
+            id="footerAction"
+            leftElement={<XUIIcon icon={plusIcon} className="xui-margin-right-xsmall" />}
+          >
             Add New Person
           </Pickitem>
         }

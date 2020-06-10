@@ -359,7 +359,7 @@ XUIModal.propTypes = {
   onClose: PropTypes.func,
 
   /**
-   * Label to be applied to the modal close "X" button, for accessibility.
+   * Title and accessibility label to be applied to the modal close "X" button.
    * <br />
    * Recommended English value: *Close*
    */

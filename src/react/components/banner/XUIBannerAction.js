@@ -17,7 +17,7 @@ export default function XUIBannerAction({ className, qaHook, onClick, href, isLi
         onClick={onClick}
         qaHook={buttonQaHook}
         size="small"
-        variant="link"
+        variant="borderless-primary"
       >
         {children}
       </XUIButton>

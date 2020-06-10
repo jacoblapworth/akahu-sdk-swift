@@ -7,7 +7,6 @@ import XUIAutocompleter from '../XUIAutocompleter';
 import XUIAutocompleterEmptyState from '../XUIAutocompleterEmptyState';
 import XUIAutocompleterSecondarySearch from '../XUIAutocompleterSecondarySearch';
 import XUIButton from '../../button/XUIButton';
-import XUIButtonCaret from '../../button/XUIButtonCaret';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import peopleDataSet from '../private/people';
@@ -224,8 +223,10 @@ export class DetailedListExample extends Component {
     const footer = (
       <DropDownFooter
         pickItems={
-          <Pickitem id="footerAction">
-            <XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />
+          <Pickitem
+            id="footerAction"
+            leftElement={<XUIIcon className="xui-margin-right-small" icon={plusIcon} />}
+          >
             Add New Person
           </Pickitem>
         }
@@ -249,7 +250,7 @@ export class DetailedListExample extends Component {
         isInputLabelHidden={isInputLabelHidden === undefined ? true : isInputLabelHidden}
         isInvalid={isInvalid}
         loading={isLoading}
-        loadingLabel="Loading"
+        loadingAriaLabel="Loading"
         onBackspacePill={this.deleteLastPerson}
         onClose={() => this.onClose()}
         onSearch={example.onSearchChangeHandler}
@@ -371,8 +372,14 @@ export class SecondarySearchExample extends React.Component {
     const { data } = this.state;
 
     const trigger = this.props.trigger || (
-      <XUIButton data-ref="toggled_trigger" fullWidth="small-down" onClick={() => {}} type="button">
-        Toggle Me <XUIButtonCaret />
+      <XUIButton
+        data-ref="toggled_trigger"
+        fullWidth="small-down"
+        hasCaret
+        onClick={() => {}}
+        type="button"
+      >
+        Toggle Me
       </XUIButton>
     );
 
@@ -386,11 +393,11 @@ export class SecondarySearchExample extends React.Component {
     const footer = (
       <DropDownFooter
         pickItems={
-          <Pickitem id="footerAction">
-            <span>
-              <XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />
-              Add New Person
-            </span>
+          <Pickitem
+            id="footerAction"
+            leftElement={<XUIIcon className="xui-margin-right-small" icon={plusIcon} />}
+          >
+            Add New Person
           </Pickitem>
         }
       />

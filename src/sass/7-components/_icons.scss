@@ -12,6 +12,16 @@
   display: inline-flex;
   justify-content: center;
 
+  &-xsmall {
+    height: $xui-icon-xsmall;
+    width: $xui-icon-xsmall;
+  }
+
+  &-small {
+    height: $xui-icon-small;
+    width: $xui-icon-small;
+  }
+
   &-medium {
     height: $xui-icon-medium;
     width: $xui-icon-medium;

@@ -21,6 +21,7 @@ exports[`<XUIPagination/> renders basic example 1`] = `
             data-automationid={null}
           >
             <div
+              className="xui-dropdown--toggledwrapper"
               data-automationid={null}
               data-ref="toggled-wrapper"
               role="presentation"
@@ -28,7 +29,7 @@ exports[`<XUIPagination/> renders basic example 1`] = `
               <button
                 aria-activedescendant={null}
                 aria-haspopup="listbox"
-                className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+                className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
                 data-automationid={null}
                 disabled={false}
                 id="testPaginationId-control"
@@ -43,19 +44,22 @@ exports[`<XUIPagination/> renders basic example 1`] = `
                 >
                   10
                 </span>
-                <svg
-                  className="xui-icon xui-select--caret xui-button--caret"
-                  data-automationid={null}
-                  focusable="false"
-                  height={5}
-                  viewBox="0 0 10 5"
-                  width={10}
+                <div
+                  className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
                 >
-                  <path
-                    d="M0 0l5 5 5-5z"
-                    role="presentation"
-                  />
-                </svg>
+                  <svg
+                    className="xui-icon"
+                    focusable="false"
+                    height={5}
+                    viewBox="0 0 10 5"
+                    width={10}
+                  >
+                    <path
+                      d="M0 0l5 5 5-5z"
+                      role="presentation"
+                    />
+                  </svg>
+                </div>
               </button>
             </div>
           </div>
@@ -105,6 +109,7 @@ exports[`<XUIPagination/> renders basic example 1`] = `
           data-automationid={null}
         >
           <div
+            className="xui-dropdown--toggledwrapper"
             data-automationid={null}
             data-ref="toggled-wrapper"
             role="presentation"
@@ -112,7 +117,7 @@ exports[`<XUIPagination/> renders basic example 1`] = `
             <button
               aria-activedescendant={null}
               aria-haspopup="listbox"
-              className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+              className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
               data-automationid={null}
               disabled={false}
               id="testPaginationId-control"
@@ -127,19 +132,22 @@ exports[`<XUIPagination/> renders basic example 1`] = `
               >
                 Page 1 of 10
               </span>
-              <svg
-                className="xui-icon xui-select--caret xui-button--caret"
-                data-automationid={null}
-                focusable="false"
-                height={5}
-                viewBox="0 0 10 5"
-                width={10}
+              <div
+                className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
               >
-                <path
-                  d="M0 0l5 5 5-5z"
-                  role="presentation"
-                />
-              </svg>
+                <svg
+                  className="xui-icon"
+                  focusable="false"
+                  height={5}
+                  viewBox="0 0 10 5"
+                  width={10}
+                >
+                  <path
+                    d="M0 0l5 5 5-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </div>
             </button>
           </div>
         </div>
@@ -215,6 +223,7 @@ exports[`<XUIPagination/> should only render Paging 1`] = `
           data-automationid={null}
         >
           <div
+            className="xui-dropdown--toggledwrapper"
             data-automationid={null}
             data-ref="toggled-wrapper"
             role="presentation"
@@ -222,7 +231,7 @@ exports[`<XUIPagination/> should only render Paging 1`] = `
             <button
               aria-activedescendant={null}
               aria-haspopup="listbox"
-              className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+              className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
               data-automationid={null}
               disabled={false}
               id="testPaginationId-control"
@@ -237,19 +246,22 @@ exports[`<XUIPagination/> should only render Paging 1`] = `
               >
                 Page 1 of 10
               </span>
-              <svg
-                className="xui-icon xui-select--caret xui-button--caret"
-                data-automationid={null}
-                focusable="false"
-                height={5}
-                viewBox="0 0 10 5"
-                width={10}
+              <div
+                className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
               >
-                <path
-                  d="M0 0l5 5 5-5z"
-                  role="presentation"
-                />
-              </svg>
+                <svg
+                  className="xui-icon"
+                  focusable="false"
+                  height={5}
+                  viewBox="0 0 10 5"
+                  width={10}
+                >
+                  <path
+                    d="M0 0l5 5 5-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </div>
             </button>
           </div>
         </div>
@@ -304,6 +316,7 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
             data-automationid={null}
           >
             <div
+              className="xui-dropdown--toggledwrapper"
               data-automationid={null}
               data-ref="toggled-wrapper"
               role="presentation"
@@ -311,7 +324,7 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
               <button
                 aria-activedescendant={null}
                 aria-haspopup="listbox"
-                className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+                className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
                 data-automationid={null}
                 disabled={false}
                 id="testPaginationId-control"
@@ -326,19 +339,22 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
                 >
                   10
                 </span>
-                <svg
-                  className="xui-icon xui-select--caret xui-button--caret"
-                  data-automationid={null}
-                  focusable="false"
-                  height={5}
-                  viewBox="0 0 10 5"
-                  width={10}
+                <div
+                  className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
                 >
-                  <path
-                    d="M0 0l5 5 5-5z"
-                    role="presentation"
-                  />
-                </svg>
+                  <svg
+                    className="xui-icon"
+                    focusable="false"
+                    height={5}
+                    viewBox="0 0 10 5"
+                    width={10}
+                  >
+                    <path
+                      d="M0 0l5 5 5-5z"
+                      role="presentation"
+                    />
+                  </svg>
+                </div>
               </button>
             </div>
           </div>
@@ -388,6 +404,7 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
           data-automationid={null}
         >
           <div
+            className="xui-dropdown--toggledwrapper"
             data-automationid={null}
             data-ref="toggled-wrapper"
             role="presentation"
@@ -395,7 +412,7 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
             <button
               aria-activedescendant={null}
               aria-haspopup="listbox"
-              className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+              className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
               data-automationid={null}
               disabled={false}
               id="testPaginationId-control"
@@ -410,19 +427,22 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
               >
                 Page 1 of 10
               </span>
-              <svg
-                className="xui-icon xui-select--caret xui-button--caret"
-                data-automationid={null}
-                focusable="false"
-                height={5}
-                viewBox="0 0 10 5"
-                width={10}
+              <div
+                className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
               >
-                <path
-                  d="M0 0l5 5 5-5z"
-                  role="presentation"
-                />
-              </svg>
+                <svg
+                  className="xui-icon"
+                  focusable="false"
+                  height={5}
+                  viewBox="0 0 10 5"
+                  width={10}
+                >
+                  <path
+                    d="M0 0l5 5 5-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </div>
             </button>
           </div>
         </div>
@@ -479,6 +499,7 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
             data-automationid={null}
           >
             <div
+              className="xui-dropdown--toggledwrapper"
               data-automationid={null}
               data-ref="toggled-wrapper"
               role="presentation"
@@ -486,7 +507,7 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
               <button
                 aria-activedescendant={null}
                 aria-haspopup="listbox"
-                className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+                className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
                 data-automationid={null}
                 disabled={false}
                 id="testPaginationId-control"
@@ -501,19 +522,22 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
                 >
                   10
                 </span>
-                <svg
-                  className="xui-icon xui-select--caret xui-button--caret"
-                  data-automationid={null}
-                  focusable="false"
-                  height={5}
-                  viewBox="0 0 10 5"
-                  width={10}
+                <div
+                  className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
                 >
-                  <path
-                    d="M0 0l5 5 5-5z"
-                    role="presentation"
-                  />
-                </svg>
+                  <svg
+                    className="xui-icon"
+                    focusable="false"
+                    height={5}
+                    viewBox="0 0 10 5"
+                    width={10}
+                  >
+                    <path
+                      d="M0 0l5 5 5-5z"
+                      role="presentation"
+                    />
+                  </svg>
+                </div>
               </button>
             </div>
           </div>
@@ -565,6 +589,7 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
           data-automationid={null}
         >
           <div
+            className="xui-dropdown--toggledwrapper"
             data-automationid={null}
             data-ref="toggled-wrapper"
             role="presentation"
@@ -572,7 +597,7 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
             <button
               aria-activedescendant={null}
               aria-haspopup="listbox"
-              className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+              className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
               data-automationid={null}
               disabled={false}
               id="testPaginationId-control"
@@ -587,19 +612,22 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
               >
                 Page 1 of 10
               </span>
-              <svg
-                className="xui-icon xui-select--caret xui-button--caret"
-                data-automationid={null}
-                focusable="false"
-                height={5}
-                viewBox="0 0 10 5"
-                width={10}
+              <div
+                className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
               >
-                <path
-                  d="M0 0l5 5 5-5z"
-                  role="presentation"
-                />
-              </svg>
+                <svg
+                  className="xui-icon"
+                  focusable="false"
+                  height={5}
+                  viewBox="0 0 10 5"
+                  width={10}
+                >
+                  <path
+                    d="M0 0l5 5 5-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </div>
             </button>
           </div>
         </div>
@@ -654,6 +682,7 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
             data-automationid={null}
           >
             <div
+              className="xui-dropdown--toggledwrapper"
               data-automationid={null}
               data-ref="toggled-wrapper"
               role="presentation"
@@ -661,7 +690,7 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
               <button
                 aria-activedescendant={null}
                 aria-haspopup="listbox"
-                className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+                className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
                 data-automationid={null}
                 disabled={false}
                 id="testPaginationId-control"
@@ -676,19 +705,22 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
                 >
                   10
                 </span>
-                <svg
-                  className="xui-icon xui-select--caret xui-button--caret"
-                  data-automationid={null}
-                  focusable="false"
-                  height={5}
-                  viewBox="0 0 10 5"
-                  width={10}
+                <div
+                  className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
                 >
-                  <path
-                    d="M0 0l5 5 5-5z"
-                    role="presentation"
-                  />
-                </svg>
+                  <svg
+                    className="xui-icon"
+                    focusable="false"
+                    height={5}
+                    viewBox="0 0 10 5"
+                    width={10}
+                  >
+                    <path
+                      d="M0 0l5 5 5-5z"
+                      role="presentation"
+                    />
+                  </svg>
+                </div>
               </button>
             </div>
           </div>
@@ -738,6 +770,7 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
           data-automationid={null}
         >
           <div
+            className="xui-dropdown--toggledwrapper"
             data-automationid={null}
             data-ref="toggled-wrapper"
             role="presentation"
@@ -745,7 +778,7 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
             <button
               aria-activedescendant={null}
               aria-haspopup="listbox"
-              className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+              className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
               data-automationid={null}
               disabled={false}
               id="testPaginationId-control"
@@ -760,19 +793,22 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
               >
                 Paging 1 test 10 enhanced
               </span>
-              <svg
-                className="xui-icon xui-select--caret xui-button--caret"
-                data-automationid={null}
-                focusable="false"
-                height={5}
-                viewBox="0 0 10 5"
-                width={10}
+              <div
+                className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
               >
-                <path
-                  d="M0 0l5 5 5-5z"
-                  role="presentation"
-                />
-              </svg>
+                <svg
+                  className="xui-icon"
+                  focusable="false"
+                  height={5}
+                  viewBox="0 0 10 5"
+                  width={10}
+                >
+                  <path
+                    d="M0 0l5 5 5-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </div>
             </button>
           </div>
         </div>
@@ -827,6 +863,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
             data-automationid={null}
           >
             <div
+              className="xui-dropdown--toggledwrapper"
               data-automationid={null}
               data-ref="toggled-wrapper"
               role="presentation"
@@ -834,7 +871,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
               <button
                 aria-activedescendant={null}
                 aria-haspopup="listbox"
-                className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+                className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
                 data-automationid={null}
                 disabled={false}
                 id="testPaginationId-control"
@@ -849,19 +886,22 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
                 >
                   10
                 </span>
-                <svg
-                  className="xui-icon xui-select--caret xui-button--caret"
-                  data-automationid={null}
-                  focusable="false"
-                  height={5}
-                  viewBox="0 0 10 5"
-                  width={10}
+                <div
+                  className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
                 >
-                  <path
-                    d="M0 0l5 5 5-5z"
-                    role="presentation"
-                  />
-                </svg>
+                  <svg
+                    className="xui-icon"
+                    focusable="false"
+                    height={5}
+                    viewBox="0 0 10 5"
+                    width={10}
+                  >
+                    <path
+                      d="M0 0l5 5 5-5z"
+                      role="presentation"
+                    />
+                  </svg>
+                </div>
               </button>
             </div>
           </div>
@@ -910,6 +950,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
           data-automationid={null}
         >
           <div
+            className="xui-dropdown--toggledwrapper"
             data-automationid={null}
             data-ref="toggled-wrapper"
             role="presentation"
@@ -917,7 +958,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
             <button
               aria-activedescendant={null}
               aria-haspopup="listbox"
-              className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+              className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
               data-automationid={null}
               disabled={false}
               id="testPaginationId-control"
@@ -932,19 +973,22 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
               >
                 Page 5 of 10
               </span>
-              <svg
-                className="xui-icon xui-select--caret xui-button--caret"
-                data-automationid={null}
-                focusable="false"
-                height={5}
-                viewBox="0 0 10 5"
-                width={10}
+              <div
+                className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
               >
-                <path
-                  d="M0 0l5 5 5-5z"
-                  role="presentation"
-                />
-              </svg>
+                <svg
+                  className="xui-icon"
+                  focusable="false"
+                  height={5}
+                  viewBox="0 0 10 5"
+                  width={10}
+                >
+                  <path
+                    d="M0 0l5 5 5-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </div>
             </button>
           </div>
         </div>
@@ -999,6 +1043,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 2`] = `
             data-automationid={null}
           >
             <div
+              className="xui-dropdown--toggledwrapper"
               data-automationid={null}
               data-ref="toggled-wrapper"
               role="presentation"
@@ -1006,7 +1051,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 2`] = `
               <button
                 aria-activedescendant={null}
                 aria-haspopup="listbox"
-                className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+                className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
                 data-automationid={null}
                 disabled={false}
                 id="testPaginationId-control"
@@ -1021,19 +1066,22 @@ exports[`<XUIPagination/> should render with customized defaultPage 2`] = `
                 >
                   25
                 </span>
-                <svg
-                  className="xui-icon xui-select--caret xui-button--caret"
-                  data-automationid={null}
-                  focusable="false"
-                  height={5}
-                  viewBox="0 0 10 5"
-                  width={10}
+                <div
+                  className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
                 >
-                  <path
-                    d="M0 0l5 5 5-5z"
-                    role="presentation"
-                  />
-                </svg>
+                  <svg
+                    className="xui-icon"
+                    focusable="false"
+                    height={5}
+                    viewBox="0 0 10 5"
+                    width={10}
+                  >
+                    <path
+                      d="M0 0l5 5 5-5z"
+                      role="presentation"
+                    />
+                  </svg>
+                </div>
               </button>
             </div>
           </div>
@@ -1083,6 +1131,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 2`] = `
           data-automationid={null}
         >
           <div
+            className="xui-dropdown--toggledwrapper"
             data-automationid={null}
             data-ref="toggled-wrapper"
             role="presentation"
@@ -1090,7 +1139,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 2`] = `
             <button
               aria-activedescendant={null}
               aria-haspopup="listbox"
-              className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
+              className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
               data-automationid={null}
               disabled={false}
               id="testPaginationId-control"
@@ -1105,19 +1154,22 @@ exports[`<XUIPagination/> should render with customized defaultPage 2`] = `
               >
                 Page 1 of 4
               </span>
-              <svg
-                className="xui-icon xui-select--caret xui-button--caret"
-                data-automationid={null}
-                focusable="false"
-                height={5}
-                viewBox="0 0 10 5"
-                width={10}
+              <div
+                className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
               >
-                <path
-                  d="M0 0l5 5 5-5z"
-                  role="presentation"
-                />
-              </svg>
+                <svg
+                  className="xui-icon"
+                  focusable="false"
+                  height={5}
+                  viewBox="0 0 10 5"
+                  width={10}
+                >
+                  <path
+                    d="M0 0l5 5 5-5z"
+                    role="presentation"
+                  />
+                </svg>
+              </div>
             </button>
           </div>
         </div>

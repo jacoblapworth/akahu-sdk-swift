@@ -19,6 +19,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
       data-automationid="test-selectbox---inputgroup"
     >
       <div
+        className="xui-dropdown--toggledwrapper"
         data-automationid="test-selectbox---dropdowntoggled"
         data-ref="toggled-wrapper"
         role="presentation"
@@ -26,7 +27,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
         <button
           aria-activedescendant={null}
           aria-haspopup="listbox"
-          className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth"
+          className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-has-icon"
           data-automationid="test-selectbox---button"
           disabled={false}
           id="testThisSelect-control"
@@ -41,22 +42,22 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
           >
             test
           </span>
-          <svg
-            className="xui-icon xui-select--caret xui-button--caret"
-            data-automationid="test-selectbox---button-icon"
-            focusable="false"
-            height={5}
-            viewBox="0 0 10 5"
-            width={10}
+          <div
+            className="xui-button--caret xui-iconwrapper xui-iconwrapper-medium"
           >
-            <title>
-              Toggle list
-            </title>
-            <path
-              d="M0 0l5 5 5-5z"
-              role="presentation"
-            />
-          </svg>
+            <svg
+              className="xui-icon"
+              focusable="false"
+              height={5}
+              viewBox="0 0 10 5"
+              width={10}
+            >
+              <path
+                d="M0 0l5 5 5-5z"
+                role="presentation"
+              />
+            </svg>
+          </div>
         </button>
       </div>
     </div>
@@ -81,6 +82,7 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
       data-automationid={null}
     >
       <div
+        className="xui-dropdown--toggledwrapper"
         data-automationid={null}
         data-ref="toggled-wrapper"
         role="presentation"
@@ -88,7 +90,7 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
         <button
           aria-activedescendant={null}
           aria-haspopup="listbox"
-          className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-is-disabled"
+          className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-has-icon xui-button-is-disabled"
           data-automationid={null}
           disabled={true}
           id="testSelectBoxId-control"
@@ -103,22 +105,22 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
           >
             test
           </span>
-          <svg
-            className="xui-icon xui-select--caret xui-button--caret"
-            data-automationid={null}
-            focusable="false"
-            height={5}
-            viewBox="0 0 10 5"
-            width={10}
+          <div
+            className="xui-button--caret xui-iconwrapper xui-iconwrapper-medium"
           >
-            <title>
-              Toggle list
-            </title>
-            <path
-              d="M0 0l5 5 5-5z"
-              role="presentation"
-            />
-          </svg>
+            <svg
+              className="xui-icon"
+              focusable="false"
+              height={5}
+              viewBox="0 0 10 5"
+              width={10}
+            >
+              <path
+                d="M0 0l5 5 5-5z"
+                role="presentation"
+              />
+            </svg>
+          </div>
         </button>
       </div>
     </div>

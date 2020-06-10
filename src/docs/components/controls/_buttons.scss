@@ -203,19 +203,45 @@
 //
 // Styleguide: Components.Controls.Button.8
 
+// Icons in buttons
+//
+// Icons are a powerful tool to help users identify meaning quickly, and they can be used inside buttons
+// to help provide context or support to the internal text content. We provide classes to make this
+// more convenient for you. Icons must be placed in an [icon wrapper](/section-fundamentals-icons.html#fundamentals-icons-3)
+// to ensure the correct layout.
+//
+// Tips:
+// Do: Use icons to support button text with the intention to make the action more clear or faster to understand
+// Do: Icons on the left are graphical labels to support the text content
+// Do: Icons on the right represent an action described by the text content
+// Dont: In a single button, don’t display an icon on both the left and right side of the text content
+//
+// Classes:
+// xui-button-has-icon: Apply to button to ensure the content has the correct layout
+// xui-button--lefticon: Apply to icon wrapper to place the icon to the left of the button text content
+// xui-button--righticon: Apply to icon wrapper to place the icon to the right of the button text content
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/button/_button-content-icons.html
+//
+// Styleguide: Components.Controls.Button.9
+
 // Dropdowns
 //
 // To create a button that triggers a dropdown, include a caret icon to indicate additional options are available behind the button.
-// To do this, include the SVG alongside the button and apply the following modifier to provide the correct layout.
+// To do this, include the SVG in an [icon wrapper](/section-fundamentals-icons.html#fundamentals-icons-3) alongside the button
+// and apply the following modifier to provide the correct layout.
 //
 // Classes:
-// xui-button--caret: Apply to icon
+// xui-button-has-icon: Apply to button to ensure the content has the correct layout
+// xui-button--caret: Apply to icon wrapper
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup: ./examples/button/_button-dropdown-trigger.html
 //
-// Styleguide: Components.Controls.Button.9
+// Styleguide: Components.Controls.Button.10
 
 // Grouped
 //
@@ -229,7 +255,7 @@
 //
 // Markup: ./examples/button/_button-grouped.html
 //
-// Styleguide: Components.Controls.Button.10
+// Styleguide: Components.Controls.Button.11
 
 // Split
 //
@@ -245,7 +271,7 @@
 //
 // Markup: ./examples/button/_button-split.html
 //
-// Styleguide: Components.Controls.Button.11
+// Styleguide: Components.Controls.Button.12
 
 // Layout
 //
@@ -259,7 +285,7 @@
 //
 // Markup: ./examples/button/_button-layout.html
 //
-// Styleguide: Components.Controls.Button.12
+// Styleguide: Components.Controls.Button.13
 
 // Linear flow
 //
@@ -270,7 +296,7 @@
 //
 // Markup: ./examples/button/_button-linear.html
 //
-// Styleguide: Components.Controls.Button.12.1
+// Styleguide: Components.Controls.Button.13.1
 
 // Accessibility
 //
@@ -282,7 +308,7 @@
 // For example, buttons can be activated by either the spacebar or the enter key.
 // In the case of the `<a>` tag, the spacebar does not activate the link and you must implement this behaviour yourself.
 //
-// Styleguide: Components.Controls.Button.13
+// Styleguide: Components.Controls.Button.14
 
 // Icon buttons
 //
@@ -291,7 +317,7 @@
 // However, you must also apply an `aria-label` attribute that matches this value, in order for screen readers to access the information as well.
 // For more information, read this [Silktide article](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/).
 //
-// Styleguide: Components.Controls.Button.13.1
+// Styleguide: Components.Controls.Button.14.1
 
 // Class list
 //
@@ -311,7 +337,10 @@
 // xui-button-borderless-inverted: Apply to buttons to create an inverted borderless variant
 // xui-button-icon-inverted: Apply to icon buttons to create an inverted variant
 // xui-button-is-disabled: Modifier for a disabled button
+// xui-button-has-icon: Modifier for a button that contains an icon
 // xui-button-split: Modifier for a split button (eg button and dropdown)
+// xui-button--lefticon: Subcomponent for an icon to be placed to the left of the button content
+// xui-button--righticon: Subcomponent for an icon to be placed to the right of the button content
 // xui-button--caret: Subcomponent for a caret button
 // xui-button-fullwidth-layout: Modifier for a full-width button using $xui-breakpoint-small-down
 // xui-buttongroup: Container for a group of buttons

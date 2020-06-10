@@ -6,7 +6,6 @@ import uuidv4 from 'uuid/v4';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import XUIButton from '../button/XUIButton';
-import XUIButtonCaret from '../button/XUIButtonCaret';
 import { sizes, widths } from './private/constants';
 import Picklist from '../picklist/Picklist';
 import qaHooks from './qaHooks';
@@ -84,6 +83,7 @@ export default class SelectBox extends Component {
       <XUIButton
         className={buttonClassNames}
         fullWidth={fullWidth}
+        hasCaret
         id={this.wrapperIds.control}
         isDisabled={isDisabled}
         qaHook={setQaHook(qaHook, qaHooks.button)}
@@ -100,11 +100,6 @@ export default class SelectBox extends Component {
         >
           {buttonContent}
         </span>
-        <XUIButtonCaret
-          className={`${selectBaseClass}--caret`}
-          qaHook={setQaHook(qaHook, qaHooks.buttonIcon)}
-          title={caretTitle}
-        />
       </XUIButton>
     );
 

@@ -36,6 +36,7 @@ Following classes have been **removed** because left space isn't needed for alig
 
 ## XUI React components
 
+- A number of React components have been converted from class-based to functional. You may need to make changes accordingly. Here’s [the list of affected components and more information about the change](https://docs.google.com/document/d/1x2vwW-cYZaX2hVmDk4rQBtoP-pp6Q2PNJbFY5-n7t78/edit).
 - `XUIStepper`
   - Updated spacing to match other components and 4px grid
 - `XUIButton`, `XUISecondaryButton`, `XUISplitButtonGroup`

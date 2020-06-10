@@ -45,8 +45,8 @@ const XUIFileUploader = ({
   uploadingMessage,
   validationMessage,
 }) => {
-  const inputEl = useRef(null);
-  const [dragState, setDragState] = useState(null);
+  const inputEl = useRef();
+  const [dragState, setDragState] = useState();
   const invalidState = isInvalid && !isDisabled;
 
   const onClick = () => {

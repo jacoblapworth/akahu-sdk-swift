@@ -55,6 +55,11 @@ const focusRootNode = button => button.rootNode != null && button.rootNode.focus
 const defaultSize = 'medium';
 
 export default class XUIButton extends React.PureComponent {
+  /**
+   * Focus the button.
+   *
+   * @public
+   */
   focus() {
     focusRootNode(this);
     // Apparently there are times when calling focus won't actually do it.  I think
@@ -64,6 +69,12 @@ export default class XUIButton extends React.PureComponent {
     }
   }
 
+  /**
+   * Check if the button has focus.
+   *
+   * @public
+   * @return {boolean}
+   */
   hasFocus() {
     return this.rootNode == null ? false : this.rootNode.contains(document.activeElement);
   }

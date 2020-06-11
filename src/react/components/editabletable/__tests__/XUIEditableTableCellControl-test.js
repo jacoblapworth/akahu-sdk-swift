@@ -4,6 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
 
 import XUIEditableTableCellControl from '../XUIEditableTableCellControl';
+import PortalFocus from '../private/PortalFocus';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -64,6 +65,22 @@ describe('<XUIEditableTableCellControl />', () => {
       );
 
       expect(wrapper.text()).not.toContain('Error message');
+    });
+  });
+
+  describe('is focused', () => {
+    it('renders with the portal focus ring', () => {
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellControl isFocused />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      expect(wrapper.find(PortalFocus).length).toBe(1);
     });
   });
 });

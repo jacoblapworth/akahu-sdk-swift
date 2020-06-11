@@ -34,6 +34,11 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   overflow-x: auto;
 }
 
+// The portal focus ring is put under this div and need a position: relative for portal to locate
+.#{$ns}-editabletable--wrapper {
+  position: relative;
+}
+
 .#{$ns}-editabletable--table {
   border-collapse: separate;
   border-spacing: 1px;
@@ -119,7 +124,6 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
 }
 
 @mixin xui-editabletablecell-control {
-  .#{$ns}-editabletablecell--focus-shadow,
   .#{$ns}-editabletablecell--border {
     height: 100%;
     position: relative;
@@ -139,20 +143,6 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
     .#{$ns}-editabletablecell--border {
       @include xui-shadow-border-all($xui-textinput-invalid-border-color);
       z-index: $xui-z-index-focus + 1;
-    }
-  }
-
-  // Focus
-  &-is-focused {
-    .#{$ns}-editabletablecell--focus-shadow {
-      @include xui-state-focus-shadow;
-    }
-
-    &:not(.#{$ns}-editabletablecell-control-is-invalid) {
-      .#{$ns}-editabletablecell--border {
-        box-shadow: $xui-shadow-border-all;
-        z-index: $xui-z-index-focus;
-      }
     }
   }
 
@@ -188,4 +178,36 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
 
 .#{$ns}-editabletablecell--validation-is-invalid {
   color: $xui-validation-invalid-color;
+}
+
+// These styles are for the portal focus ring
+.#{$ns}-editabletable--portalfocus {
+  pointer-events: none;
+  position: absolute;
+  @include xui-state-focus-shadow;
+  .#{$ns}-editabletable--portalfocus--border {
+    box-shadow: $xui-shadow-border-all;
+    height: 100%;
+  }
+  // When the horizontal sides of the focused cell are covered, clip the right-side shadow
+  &.#{$ns}-editabletable--portalfocus-horizontalCovered {
+    clip-path: inset(-3px 0px -3px 0);
+    .#{$ns}-editabletable--portalfocus--border {
+      clip-path: inset(-1px 0px -1px 0);
+    }
+  }
+  // When the right side of the focused cell is covered, clip the right-side shadow
+  &.#{$ns}-editabletable--portalfocus-rightCovered {
+    clip-path: inset(-3px 0px -3px -3px);
+    .#{$ns}-editabletable--portalfocus--border {
+      clip-path: inset(-1px 0px -1px -1px);
+    }
+  }
+  // When the left side of the focused cell is covered, clip the left-side shadow
+  &.#{$ns}-editabletable--portalfocus-leftCovered {
+    clip-path: inset(-3px -3px -3px 0px);
+    .#{$ns}-editabletable--portalfocus--border {
+      clip-path: inset(-1px -1px -1px 0px);
+    }
+  }
 }

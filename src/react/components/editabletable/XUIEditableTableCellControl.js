@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import { tableName } from './private/constants';
+import PortalFocus from './private/PortalFocus';
+import XUIEditableTableContext from './contexts/XUIEditableTableContext';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 import XUIEditableTableCell from './XUIEditableTableCell';
 
@@ -19,6 +21,8 @@ const XUIEditableTableCellControl = ({
 }) => {
   const cellRef = React.useRef();
   const controlBaseName = `${baseName}-control`;
+  const { tableRef } = React.useContext(XUIEditableTableContext);
+
   return (
     <XUIEditableTableCell
       className={cn(
@@ -32,20 +36,19 @@ const XUIEditableTableCellControl = ({
       {...spreadProps}
     >
       <EditableTableCellContext.Provider value={{ cellRef, useCellStyling: true }}>
-        <div className={`${baseName}--focus-shadow`}>
-          <div className={`${baseName}--border`}>
-            {children}
-            {isInvalid && validationMessage && (
-              <div
-                className={cn(
-                  `${baseName}--validation`,
-                  isInvalid && `${baseName}--validation-is-invalid`,
-                )}
-              >
-                {validationMessage}
-              </div>
-            )}
-          </div>
+        <div className={`${baseName}--border`}>
+          {children}
+          {isInvalid && validationMessage && (
+            <div
+              className={cn(
+                `${baseName}--validation`,
+                isInvalid && `${baseName}--validation-is-invalid`,
+              )}
+            >
+              {validationMessage}
+            </div>
+          )}
+          {isFocused && <PortalFocus cellRef={cellRef} isFocused={isFocused} tableRef={tableRef} />}
         </div>
       </EditableTableCellContext.Provider>
     </XUIEditableTableCell>

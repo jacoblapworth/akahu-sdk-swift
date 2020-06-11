@@ -1,11 +1,13 @@
 import { useRef, useLayoutEffect, useState, useCallback } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
 import defaultBreakpoints from './breakpoints';
+import usePrevious from './usePrevious';
 
-export default function useResizeObserver() {
+export default function useResizeObserver(defaultNode) {
   const [entry, setEntry] = useState({});
-  const [node, setNode] = useState(null);
+  const [node, setNode] = useState(defaultNode);
   const observer = useRef(null);
+  const preRect = usePrevious(null);
 
   const observe = useCallback(() => {
     // Only observe one element here
@@ -25,10 +27,24 @@ export default function useResizeObserver() {
     [entry],
   );
 
+  const handleSizeChange = useCallback(
+    onSizeChange => {
+      const { contentRect } = entry;
+      if (contentRect && preRect) {
+        const { width, height } = contentRect;
+        const { width: preWidth, height: preHeight } = preRect;
+        if (width !== preWidth || height !== preHeight) {
+          onSizeChange();
+        }
+      }
+    },
+    [entry, preRect],
+  );
+
   useLayoutEffect(() => {
     observe();
     return () => unobserve();
   }, [observe, unobserve]);
 
-  return [setNode, handleBreakpoint, entry];
+  return { ref: setNode, handleBreakpoint, entry, handleSizeChange };
 }

@@ -15,12 +15,8 @@ exports[`<XUIEditableTableCellControl /> composes the className correctly 1`] = 
     }
   >
     <div
-      className="xui-editabletablecell--focus-shadow"
-    >
-      <div
-        className="xui-editabletablecell--border"
-      />
-    </div>
+      className="xui-editabletablecell--border"
+    />
   </ContextProvider>
 </ForwardRef>
 `;
@@ -40,13 +36,9 @@ exports[`<XUIEditableTableCellControl /> renders correctly 1`] = `
     }
   >
     <div
-      className="xui-editabletablecell--focus-shadow"
+      className="xui-editabletablecell--border"
     >
-      <div
-        className="xui-editabletablecell--border"
-      >
-        XUIEditableTableCellControl
-      </div>
+      XUIEditableTableCellControl
     </div>
   </ContextProvider>
 </ForwardRef>

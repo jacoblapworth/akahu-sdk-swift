@@ -17,6 +17,7 @@ const XUIEditableTable = ({
   style,
   ...spreadProps
 }) => {
+  const tableRef = React.useRef();
   const wrapperStyle =
     // If we omit this check, wrapperStyle is always a non-empty object, and passes extraneous (but harmless) props.
     // This is for tidiness purposes only.
@@ -28,22 +29,24 @@ const XUIEditableTable = ({
         }
       : style;
   return (
-    <div className={cn(tableName, className)} style={wrapperStyle}>
-      <table {...spreadProps} className={`${tableName}--table`} data-automationid={qaHook}>
-        {caption && <caption className={`${tableName}--caption`}>{caption}</caption>}
-        {!!columnWidths.length && (
-          <colgroup>
-            {columnWidths.map(item => (
-              <col style={{ width: item }} />
-            ))}
-            {rowOptions.isRemovable && <col style={{ width: '40px' }} />}
-            {/* 40px is $xui-control-size-standard */}
-          </colgroup>
-        )}
-        <XUIEditableTableContext.Provider value={{ rowOptions: { ...rowOptions } }}>
-          {children}
-        </XUIEditableTableContext.Provider>
-      </table>
+    <div className={`${tableName}--wrapper`}>
+      <div className={cn(tableName, className)} ref={tableRef} style={wrapperStyle}>
+        <table {...spreadProps} className={`${tableName}--table`} data-automationid={qaHook}>
+          {caption && <caption className={`${tableName}--caption`}>{caption}</caption>}
+          {!!columnWidths.length && (
+            <colgroup>
+              {columnWidths.map(item => (
+                <col style={{ width: item }} />
+              ))}
+              {rowOptions.isRemovable && <col style={{ width: '40px' }} />}
+              {/* 40px is $xui-control-size-standard */}
+            </colgroup>
+          )}
+          <XUIEditableTableContext.Provider value={{ rowOptions: { ...rowOptions }, tableRef }}>
+            {children}
+          </XUIEditableTableContext.Provider>
+        </table>
+      </div>
     </div>
   );
 };

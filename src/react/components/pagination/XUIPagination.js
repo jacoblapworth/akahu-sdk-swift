@@ -32,7 +32,7 @@ const XUIPagination = ({
   showCount = true,
   showPerPageCountSelect = true,
 }) => {
-  const [ref, handleBreakpoint] = useResizeObserver();
+  const { ref, handleBreakpoint } = useResizeObserver();
   const [currentPage, setCurrentPage] = useState(defaultPage);
   const [currentPerPageCount, setCurrentPerPageCount] = useState(defaultPerPageCount);
 

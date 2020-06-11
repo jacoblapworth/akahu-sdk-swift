@@ -2,63 +2,84 @@
 
 exports[`<XUIEditableTable /> composes the className correctly 1`] = `
 <div
-  className="xui-editabletable test-classname"
+  className="xui-editabletable--wrapper"
 >
-  <table
-    className="xui-editabletable--table"
+  <div
+    className="xui-editabletable test-classname"
   >
-    <ContextProvider
-      value={
-        Object {
-          "rowOptions": Object {},
+    <table
+      className="xui-editabletable--table"
+    >
+      <ContextProvider
+        value={
+          Object {
+            "rowOptions": Object {},
+            "tableRef": Object {
+              "current": undefined,
+            },
+          }
         }
-      }
-    />
-  </table>
+      />
+    </table>
+  </div>
 </div>
 `;
 
 exports[`<XUIEditableTable /> render with the caption 1`] = `
 <div
-  className="xui-editabletable"
+  className="xui-editabletable--wrapper"
 >
-  <table
-    className="xui-editabletable--table"
+  <div
+    className="xui-editabletable"
   >
-    <caption
-      className="xui-editabletable--caption"
+    <table
+      className="xui-editabletable--table"
     >
-      An editable table
-    </caption>
-    <ContextProvider
-      value={
-        Object {
-          "rowOptions": Object {},
+      <caption
+        className="xui-editabletable--caption"
+      >
+        An editable table
+      </caption>
+      <ContextProvider
+        value={
+          Object {
+            "rowOptions": Object {},
+            "tableRef": Object {
+              "current": undefined,
+            },
+          }
         }
-      }
-    />
-  </table>
+      />
+    </table>
+  </div>
 </div>
 `;
 
 exports[`<XUIEditableTable /> renders correctly 1`] = `
 <div
-  className="xui-editabletable"
+  className="xui-editabletable--wrapper"
 >
-  <table
-    className="xui-editabletable--table"
+  <div
+    className="xui-editabletable"
   >
-    <ContextProvider
-      value={
-        Object {
-          "rowOptions": Object {},
-        }
-      }
+    <table
+      className="xui-editabletable--table"
     >
-      <div>
-        XUIEditableTable
-      </div>
-    </ContextProvider>
-  </table>
+      <ContextProvider
+        value={
+          Object {
+            "rowOptions": Object {},
+            "tableRef": Object {
+              "current": undefined,
+            },
+          }
+        }
+      >
+        <div>
+          XUIEditableTable
+        </div>
+      </ContextProvider>
+    </table>
+  </div>
 </div>
 `;

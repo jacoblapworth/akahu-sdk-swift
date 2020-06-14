@@ -2,21 +2,30 @@
 
 ## Dependency updates
 
+Please take some time to check that your projects' package.json dependencies match those of XUI's package.json dependencies to avoid multiple versions of a dependency being bundled in your projects.
+
+We recommend running a bundles analyzer after upgrading (and regularly in general).
+
 ## XUI CSS
 
-- `xui-button--lefticon` and `xui-button--righticon` are now provided to help with icon placement inside buttons. These should be used with `xui-button-has-icon` and an icon wrapper – see the button documentation for full details.
-- `xui-iconwrapper-medium`’s width and height have been updated to 32px (from 30px)
-- `xui-iconwrapper-small` and `xui-iconwrapper-xsmall` have been added
-- `xui-styledcheckboxradio-reversed` left padding updated to 15px (from 7px) when it's under `xui-styledcheckboxradio-group`
-- `xui-styledcheckboxradio--label` remove the left margin when reversed
-- `xui-styledcheckboxradio--input + xui-iconwrapper`
-  - For uncheked icon checkbox, remove the background color when hover or active
-  - For checked icon checkbox, modify the svg stroke color when it's focused and keep the box-shadow when it's hovered
-- `xui-styledcheckboxradio--radio`
-  - For unchecked and checked radio, remove the background color when it's hovered and active
-  - For checked radio, the background color now will change when it's hovered and active
-- `xui-switch--control`
-  - For unchecked and checked switch, the background color now will change when it's hovered and active
+### Button icon placement
+
+- `xui-button--lefticon` and `xui-button--righticon` are now provided to help with icon placement inside buttons. These should be used with `xui-button-has-icon` and an icon wrapper – see the [button documentation](https://xui.xero.com/17.0.0/section-components-controls-button.html#components-controls-button-9) for full details.
+
+### Icon wrapper updates
+
+- `xui-iconwrapper-medium`’s width and height have been updated from 30px to 32px.
+- `xui-iconwrapper-small` and `xui-iconwrapper-xsmall` have been added.
+
+### Consistent styling for Switch, Radio and Checkbox
+
+Switch, Radio and Checkbox now has consistent styling when checked and unchecked. Specifically when checked, all three components have the same focus, hover and active styles. When unchecked, radio and checkbox has the same styling, while switch has further hover and active styles added. Padding for a reversed Radio and Checkbox has been updated from 7px to 15px when when it is under a `xui-styledcheckboxradio-group` and the left margin is removed. Affected classes are:
+
+- `xui-styledcheckboxradio-reversed`.
+- `xui-styledcheckboxradio--label`.
+- `xui-styledcheckboxradio--input + xui-iconwrapper`.
+- `xui-styledcheckboxradio--radio`.
+- `xui-switch--control`.
 
 ### Removals
 
@@ -24,10 +33,6 @@ Following classes have been **removed** because left space isn't needed for alig
 
 - `xui-styledcheckboxradio--message-with-label`
 - `xui-switch--message-with-label`
-
-### Typography changes
-
-## XUI CSS components
 
 ## XUI React components
 
@@ -40,8 +45,7 @@ Following classes have been **removed** because left space isn't needed for alig
   - Numbers in `createPagingContent` and `createCountContent` won't be formatted for internationalization, product teams need to implement it themselves.
 - `XUIIcon`
   - `small` and `xsmall` size variants have been added. These change the size of the wrapper _only_ – the icon itself is the same size as the `medium` variant for legibility purposes.
-- `XUITable`
-  - The arrow icon for sorting from the header row has been corrected to point up when the values are sorted in ascending order (A -> Z, low -> high), and down when descending. This has never been correct.
+- `XUIButton` can now include an icon attached to the left or right of the button text, for more details see the ['Component props'](#Component-props) section below.
 
 ### Removals
 
@@ -49,8 +53,65 @@ Following classes have been **removed** because left space isn't needed for alig
 
 ### Component props
 
+_Note. The codemod will resolve the prop differences automatically when run._
+
 - `NestedDropDown` prop `currentPanel` has been renamed to `currentPanelId`.
+
+- `XUIButton` now has `leftIcon` and `rightIcon` props that users can add Icons to display on a button. Only one of these props can be used at a time, and if both are provided only the `leftIcon` will be shown, along with an error fired.
+
+- `XUIButton` now has a `hasCaret` prop to toggle whether the button will have a caret.
+
+- All props that are setting an aria-label has been refactored to have the prefix `aria`.
+  - XUIAutocompleter and XUIAutocompleterSecondarySearch `loadingLabel` has been renamed to `loadingAriaLabel`
+  - XUIButton and XUISecondaryButton `loadingLabel` has been renamed to `loadingAriaLabel`
+  - XUIBarChart `loadingLabel` has been renamed to `loadingAriaLabel`
+  - DropDownHeader `backButtonLabel` has been renamed to `backButtonAriaLabel`
+  - XUITable
+    - `loaderLabel` has been renamed to `loaderAriaLabel`
+    - `checkOneRowLabel` has been renamed to`checkOneRowAriaLabel`
+    - `checkAllRowsLabel` has been renamed to `checkAllRowsAriaLabel`
+  - XUIDatePicker
+    - `nextButtonLabel` has been renamed to `nextButtonAriaLabel`
+    - `prevButtonLabel` has been renamed to `prevButtonAriaLabel`
+
+### Notable minor and patch changes since 16.0.0
+
+- `DropDown`, `DropDownPanel`, `StatefulPicklist`
+  - A new `clearHighlightedItem` method has been added to allow clearing of highlighted items in a DropDown.
+- Components exported as default export can now be imported using named import as well as default one. Affected components are:
+  - XUIAccordion
+  - XUIAutocompleter
+  - XUIAvatar
+  - XUIBanner
+  - XUIButton
+  - XUICapsule
+  - XUICheckbox
+  - XUIDatePicker
+  - XUIDropDown
+  - XUIIcon
+  - XUIIllustration
+  - XUIIsolationHeader
+  - XUILoader
+  - XUIModal
+  - Picklist
+  - XUIPill
+  - XUIProgressIndicator (progressTypes)
+  - XUIRadio
+  - XUIRange
+  - XUIRolloverCheckbox
+  - SelectBox
+  - XUIStepper
+  - XUISwitch
+  - XUITable
+  - XUITag
+  - XUITextInput
+  - XUIToast
+  - XUIToggle
+  - XUITooltip
+- `XUIPanel` and `XUIPageHeader` received additional default export.
 
 ## Other changes
 
 - For accessibility purposes, components with prop `validationMessage` now have an "invalid" icon in the left of the message.
+- `XUITable`
+  - The arrow icon for sorting from the header row has been corrected to point up when the values are sorted in ascending order (A -> Z, low -> high), and down when descending. This has never been correct.

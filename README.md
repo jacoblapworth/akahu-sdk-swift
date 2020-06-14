@@ -270,7 +270,7 @@ jscodeshift -t node_modules/@xero/xui/codemod/<version> src/
 For example:
 
 ```bash
-jscodeshift -t ./node_modules/@xero/xui/codemod/index.js --parser=tsx --extensions=ts,tsx
+jscodeshift -t ./node_modules/@xero/xui/codemod/index.js src/ --parser=flow --extensions=ts,tsx
 ```
 
 ## Contributing to XUI

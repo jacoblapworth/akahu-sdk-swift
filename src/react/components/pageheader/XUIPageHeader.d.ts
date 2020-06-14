@@ -22,6 +22,10 @@ interface BaseProps {
    */
   secondary?: React.ReactNode;
   /**
+   * Supplementary text to appear after the headings and tags
+   */
+  supplementary?: React.ReactNode;
+  /**
    * Horizontal picklist to act as tabs. `XUIPicklist`
    */
   tabs?: React.ReactElement;
@@ -49,6 +53,6 @@ type BreadcrumbProps =
       title?: React.ReactNode;
     };
 
-type Props = BaseProps & BreadcrumbProps & React.HTMLAttributes<HTMLElement>;
+type Props = BaseProps & BreadcrumbProps & Omit<React.HTMLAttributes<HTMLElement>, 'title'>;
 
 export default class XUIPageHeader extends React.PureComponent<Props> {}

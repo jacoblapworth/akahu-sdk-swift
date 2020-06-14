@@ -5,7 +5,7 @@ import { observe, unobserve } from '../helpers/resizeObserver';
 import '../helpers/xuiGlobalChecks';
 import { picklistClassName } from './private/constants';
 import Pickitem from './Pickitem';
-import { getPropsFromFirstChildOrList, horizontalOnlyProp } from './private/helpers';
+import { getPropsFromFirstChildOrList } from './private/helpers';
 import { userBreakpoints } from '../helpers/breakpoints';
 import NestedPicklistContainer from './NestedPicklistContainer';
 import SelectBoxOption from '../select-box/SelectBoxOption';
@@ -146,9 +146,7 @@ Picklist.propTypes = {
    * Supported breakpoints are `small` (600px), `medium` (800px), `large` (1000px), and `xlarge` (1200px).<br>
    * ⚠️ *Horizontal picklists only*
    */
-  swapAtBreakpoint(...parameters) {
-    return horizontalOnlyProp(PropTypes.oneOf(Object.keys(userBreakpoints)), ...parameters);
-  },
+  swapAtBreakpoint: PropTypes.oneOf(Object.keys(userBreakpoints)),
 };
 
 Picklist.defaultProps = {

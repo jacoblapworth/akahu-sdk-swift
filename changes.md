@@ -50,6 +50,14 @@ Following classes have been **removed** because left space isn't needed for alig
 ### Removals
 
 - `XUIButtonCaret` has been removed in favour of the prop `hasCaret` on `XUIButton`.
+- The following icon props have been removed as they were previously incorrectly added to support internationalisation when they were already internationally recognised symbols:
+  - `triggerStateIcon` in XUIAccordionItem.
+  - `closeIcon` in XUIBanner.
+  - `keyIcon` and `paginationIcon` in XUIBarChart.
+  - `icon` in ContentPagination.
+  - `icon` in NestedPicklistTrigger.
+  - `completedIcon` and `errorIcon` in XUIProgressCircular.
+  - `headerSortbuttonIcon` in XUITable.
 
 ### Component props
 
@@ -115,3 +123,7 @@ _Note. The codemod will resolve the prop differences automatically when run._
 - For accessibility purposes, components with prop `validationMessage` now have an "invalid" icon in the left of the message.
 - `XUITable`
   - The arrow icon for sorting from the header row has been corrected to point up when the values are sorted in ascending order (A -> Z, low -> high), and down when descending. This has never been correct.
+- In a previous minor release 16.4.0, we added internationalisation support for various icons. We subsequently identified that the changes were not required for many of these icons as they are internationally recognised symbols. We have corrected this here by reverting all of the unneeded changes. This leaves the following icons still available for internationalisation:
+  - `emptyIcon` in XUIAccordion
+  - `emptyStateIcon` in XUIBarChart
+  - `emptyStateIcon` in Table

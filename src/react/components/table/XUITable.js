@@ -158,7 +158,6 @@ class XUITable extends Component {
       columns,
       data,
       hasPointerEvents,
-      headerSortbuttonIcon,
     } = enrichProps(state, props, { rootNode, tableNode, wrapperNode });
 
     const className = cn(NAME_SPACE, suppliedClasses, {
@@ -217,7 +216,6 @@ class XUITable extends Component {
                   checkAllRowsAriaLabel,
                   hasOverflowMenu,
                   ensureCellVisibility,
-                  headerSortbuttonIcon,
                 }}
               />
             )}
@@ -440,16 +438,6 @@ XUITable.propTypes = {
    * Defaults to the table icon, if no value is provided.
    */
   emptyStateIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
-
-  /**
-   * Optional prop for users to modify the header sort button icon, if required for localisation.
-   * Defaults to the sortSingle icon, if no value is provided.
-   */
-  headerSortbuttonIcon: PropTypes.shape({
     height: PropTypes.number,
     path: PropTypes.string,
     width: PropTypes.number,

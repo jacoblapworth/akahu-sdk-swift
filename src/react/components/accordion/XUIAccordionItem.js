@@ -17,7 +17,6 @@ const XUIAccordionItem = ({
   children,
   onClick,
   isOpen: propsIsOpen,
-  triggerStateIcon,
 }) => {
   const [id] = useState(uuid());
   const {
@@ -74,7 +73,6 @@ const XUIAccordionItem = ({
             description,
             toggleLabel,
             onItemClick,
-            icon: triggerStateIcon,
           }}
         />
       }
@@ -113,14 +111,6 @@ XUIAccordionItem.propTypes = {
 
   /** Whether this accordion item should open, this should only be true for one item */
   isOpen: PropTypes.bool,
-
-  /** Optional prop for users to modify the accordion trigger icon, if required for localisation.
-   * Defaults to the arrow icon, if no value is provided. */
-  triggerStateIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
 
   children: PropTypes.node,
 };

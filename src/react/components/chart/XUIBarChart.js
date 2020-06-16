@@ -189,26 +189,6 @@ XUIBarChart.propTypes = {
     path: PropTypes.string,
     width: PropTypes.number,
   }),
-
-  /**
-   * Optional prop for users to modify the info key button icon, if required for localisation.
-   * Defaults to the info icon, if no value is provided.
-   */
-  keyIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
-
-  /**
-   * Optional prop for users to modify the pagination navigation icon, if required for localisation.
-   * Defaults to the arrow icon, if no value is provided.
-   */
-  paginationIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
 };
 
 XUIBarChart.defaultProps = {

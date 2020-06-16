@@ -99,7 +99,6 @@ class SortButton extends PureComponent {
       // Do not pass "onSortChange" into a DOM node or React gets sad.
       // eslint-disable-next-line no-unused-vars
       onSortChange,
-      icon = sortPathData,
       ...props
     } = this.props;
     const isSortActive = activeSortKey && activeSortKey === sortKey;
@@ -126,7 +125,7 @@ class SortButton extends PureComponent {
           <span>{children}</span>
           <XUIIcon
             className={`${NAME_SPACE}--sortbutton-icon`}
-            icon={icon}
+            icon={sortPathData}
             rotation={isSortAsc ? 180 : null}
           />
         </div>
@@ -143,11 +142,6 @@ SortButton.propTypes = {
   isSortAsc: PropTypes.bool,
   onSortChange: PropTypes.func,
   onFocus: PropTypes.func,
-  icon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
 };
 
 class GenericCell extends PureComponent {
@@ -161,7 +155,6 @@ class GenericCell extends PureComponent {
       onSortChange,
       cellLocation,
       ensureCellVisibility,
-      sortbuttonIcon,
     } = this.props;
     const isHead = true;
     const onFocus = ensureCellVisibility;
@@ -181,7 +174,6 @@ class GenericCell extends PureComponent {
           isSortAsc,
           onSortChange,
           onFocus,
-          icon: sortbuttonIcon,
         }}
       />
     ) : (
@@ -208,11 +200,6 @@ GenericCell.propTypes = {
   onSortChange: PropTypes.func,
   cellLocation: PropTypes.string,
   ensureCellVisibility: PropTypes.func,
-  sortbuttonIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
 };
 
 class TableHead extends PureComponent {
@@ -229,7 +216,6 @@ class TableHead extends PureComponent {
       checkAllRowsAriaLabel,
       hasOverflowMenu,
       ensureCellVisibility,
-      sortbuttonIcon,
     } = this.props;
 
     return (
@@ -273,7 +259,6 @@ class TableHead extends PureComponent {
                     hasCheckbox,
                     hasOverflowMenu,
                   }),
-                  sortbuttonIcon,
                 }}
               />
             ),
@@ -304,11 +289,6 @@ TableHead.propTypes = {
   activeSortKey: PropTypes.string,
   isSortAsc: PropTypes.bool,
   onSortChange: PropTypes.func,
-  sortbuttonIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
 };
 
 export default TableHead;

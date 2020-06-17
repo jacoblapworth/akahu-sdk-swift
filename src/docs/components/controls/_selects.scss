@@ -28,6 +28,7 @@
 // Custom selects rely heavily on React for rendering children and defining interaction.
 // However, to style the static control itself, a few classes are required.
 // They extend the basic `button` and `xui-icon` combination.
+// Also, the caret icon SVG should be put in an [icon wrapper](/section-fundamentals-icons.html#fundamentals-icons-3) alongside the button.
 //
 // Classes:
 // xui-button: Style for a button
@@ -37,8 +38,8 @@
 // xui-select--button: Aligns the text like an input
 // xui-select--button-no-variant: Styles the button like an input
 // xui-select--content: Text styles
-// xui-select--caret: Icon styling
-// xui-button--caret: Icon styling
+// xui-button-has-icon: Apply to button to ensure the content has the correct layout
+// xui-button--caret: Apply to icon wrapper
 //
 // Markup: ./examples/select/_select.html
 //

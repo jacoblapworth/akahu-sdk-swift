@@ -140,7 +140,7 @@
     <div role="presentation" data-ref="toggled-wrapper">
       <button
         aria-haspopup="listbox"
-        class="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth"
+        class="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-has-icon"
         tabindex="0"
         type="button"
       >
@@ -161,17 +161,19 @@
             Choose a classic book
           </span>
         </span>
-        <svg
-          focusable="false"
-          class="xui-icon xui-select--caret xui-button--caret"
-          width="10"
-          height="5"
-          viewBox="0 0 10 5"
-          role="presentation"
-        >
-          <title>Toggle list</title>
-          <path d="M0 0l5 5 5-5z"></path>
-        </svg>
+        <div class="xui-button--caret xui-iconwrapper xui-iconwrapper-medium">
+          <svg
+            focusable="false"
+            class="xui-icon"
+            width="10"
+            height="5"
+            viewBox="0 0 10 5"
+            role="presentation"
+          >
+            <title>Toggle list</title>
+            <path d="M0 0l5 5 5-5z"></path>
+          </svg>
+        </div>
       </button>
     </div>
   </div>

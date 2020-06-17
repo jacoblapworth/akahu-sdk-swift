@@ -46,6 +46,11 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   // If no widths are specified, columns will default to being equal width.
   table-layout: fixed;
   width: 100%;
+
+  .#{$ns}-editabletablerow,
+  .#{$ns}-editabletablecell {
+    height: 100%;
+  }
 }
 
 .#{$ns}-editabletable--caption {
@@ -132,18 +137,16 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   // Hover
   &:hover {
     &:not(.#{$ns}-editabletablecell-control-is-invalid):not(.#{$ns}-editabletablecell-control-is-disabled) {
-      .#{$ns}-editabletablecell--border {
-        box-shadow: $xui-shadow-border-all;
-      }
+      outline: 1px solid $xui-standard-shadow-color;
     }
   }
 
   // Invalid
   &-is-invalid {
-    .#{$ns}-editabletablecell--border {
-      @include xui-shadow-border-all($xui-textinput-invalid-border-color);
-      z-index: $xui-z-index-focus + 1;
-    }
+    outline: 1px solid $xui-textinput-invalid-border-color;
+    z-index: $xui-z-index-focus + 1;
+    // transform fixes issue with next cell's hover outline overwriting previous cell's invalid outline
+    transform: translate(0, 0);
   }
 
   // Disabled

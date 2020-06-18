@@ -4,8 +4,8 @@ import defaultBreakpoints from './breakpoints';
 
 export default function useResizeObserver() {
   const [entry, setEntry] = useState({});
-  const [node, setNode] = useState(null);
-  const observer = useRef(null);
+  const [node, setNode] = useState();
+  const observer = useRef();
 
   const observe = useCallback(() => {
     // Only observe one element here

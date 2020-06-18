@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -16,57 +16,58 @@ const baseClass = `${ns}-switch`;
  * @param {Object} [props]
  * @returns
  */
-export default class XUISwitchGroup extends PureComponent {
-  wrapperIds = generateIds(this.props.labelId);
+const XUISwitchGroup = props => {
+  const {
+    className,
+    children,
+    fieldClassName,
+    hintMessage,
+    isFieldLayout,
+    isInvalid,
+    isLabelHidden,
+    label,
+    labelClassName,
+    labelId,
+    qaHook,
+    validationMessage,
+  } = props;
 
-  render() {
-    const {
-      children,
-      className,
-      qaHook,
-      label,
-      isLabelHidden,
-      isFieldLayout,
-      labelClassName,
-      fieldClassName,
-      isInvalid,
-      validationMessage,
-      hintMessage,
-    } = this.props;
+  const wrapperIds = generateIds(labelId);
 
-    const groupClasses = cn(
-      className,
-      `${baseClass}-group`,
-      isInvalid && `${baseClass}-group-is-invalid`,
-    );
+  const groupClasses = cn(
+    className,
+    `${baseClass}-group`,
+    isInvalid && `${baseClass}-group-is-invalid`,
+  );
 
-    return (
-      <XUIControlWrapper
-        fieldClassName={fieldClassName}
-        isGroup
-        wrapperIds={this.wrapperIds}
-        {...{
-          qaHook,
-          label,
-          isInvalid,
-          validationMessage,
-          hintMessage,
-          isFieldLayout,
-          labelClassName,
-          isLabelHidden,
-        }}
+  return (
+    <XUIControlWrapper
+      fieldClassName={fieldClassName}
+      isGroup
+      wrapperIds={wrapperIds}
+      {...{
+        qaHook,
+        label,
+        isInvalid,
+        validationMessage,
+        hintMessage,
+        isFieldLayout,
+        labelClassName,
+        isLabelHidden,
+      }}
+    >
+      <div
+        className={groupClasses}
+        data-automationid={qaHook}
+        {...getAriaAttributes(wrapperIds, props, { isGroup: true })}
       >
-        <div
-          className={groupClasses}
-          data-automationid={qaHook}
-          {...getAriaAttributes(this.wrapperIds, this.props, { isGroup: true })}
-        >
-          {children}
-        </div>
-      </XUIControlWrapper>
-    );
-  }
-}
+        {children}
+      </div>
+    </XUIControlWrapper>
+  );
+};
+
+export default XUISwitchGroup;
 
 XUISwitchGroup.propTypes = {
   children: PropTypes.node,

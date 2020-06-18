@@ -1,39 +1,37 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 import Pickitem from './Pickitem';
 import { getPropsFromFirstChildOrList } from './private/helpers';
 
-export default class NestedPicklist extends PureComponent {
-  render() {
-    const { children, className, qaHook, secondaryProps, shouldTruncate } = this.props;
-    const listLevelProps = getPropsFromFirstChildOrList(children, this.props);
+const NestedPicklist = (props, context) => {
+  const { children, className, qaHook, secondaryProps, shouldTruncate } = props;
+  const listLevelProps = getPropsFromFirstChildOrList(children, props);
 
-    const newChildren = React.Children.map(children, child =>
-      child.type === Pickitem
-        ? React.cloneElement(child, {
-            isMultiselect: listLevelProps.listMultiselect,
-            // This is ok to be set at either the item level or the list level.
-            shouldTruncate:
-              child.props.shouldTruncate === undefined
-                ? shouldTruncate
-                : child.props.shouldTruncate,
-          })
-        : child,
-    );
-    return (
-      <ul
-        {...secondaryProps}
-        className={cn(className, `${ns}-submenu ${ns}-submenu-layout`)}
-        data-automationid={qaHook}
-        id={this.context.id}
-      >
-        {newChildren}
-      </ul>
-    );
-  }
-}
+  const newChildren = React.Children.map(children, child =>
+    child.type === Pickitem
+      ? React.cloneElement(child, {
+          isMultiselect: listLevelProps.listMultiselect,
+          // This is ok to be set at either the item level or the list level.
+          shouldTruncate:
+            child.props.shouldTruncate === undefined ? shouldTruncate : child.props.shouldTruncate,
+        })
+      : child,
+  );
+  return (
+    <ul
+      {...secondaryProps}
+      className={cn(className, `${ns}-submenu ${ns}-submenu-layout`)}
+      data-automationid={qaHook}
+      id={context.id}
+    >
+      {newChildren}
+    </ul>
+  );
+};
+
+export default NestedPicklist;
 
 NestedPicklist.propTypes = {
   qaHook: PropTypes.string,

@@ -96,7 +96,7 @@ const buildCrumbsWithCarets = crumbItemsToUse => {
   return crumbsWithCarets;
 };
 
-export default function XUIBreadcrumbTrail({ qaHook, breadcrumbs, className, swapAtBreakpoint }) {
+const XUIBreadcrumbTrail = ({ breadcrumbs, className, qaHook, swapAtBreakpoint }) => {
   return (
     <WidthContext.Consumer>
       {headerSizeState => {
@@ -124,7 +124,9 @@ export default function XUIBreadcrumbTrail({ qaHook, breadcrumbs, className, swa
       }}
     </WidthContext.Consumer>
   );
-}
+};
+
+export default XUIBreadcrumbTrail;
 
 XUIBreadcrumbTrail.propTypes = {
   className: PropTypes.string,

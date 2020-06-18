@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
-export default function XUIBannerMessage(props) {
-  const className = cn(props.className, `${ns}-banner--message`);
+const XUIBannerMessage = ({ className, children, qaHook }) => {
+  const messageClassName = cn(className, `${ns}-banner--message`);
 
   return (
-    <p className={className} data-automationid={props.qaHook}>
-      {props.children}
+    <p className={messageClassName} data-automationid={qaHook}>
+      {children}
     </p>
   );
-}
+};
+
+export default XUIBannerMessage;
 
 XUIBannerMessage.propTypes = {
   className: PropTypes.string,

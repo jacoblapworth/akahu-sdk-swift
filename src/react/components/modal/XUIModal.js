@@ -136,6 +136,11 @@ export default class XUIModal extends Component {
     }
   };
 
+  /**
+   * Calculate and set the distance of the modal relative to the top.
+   *
+   * @public
+   */
   calcOffsetTop = () => {
     const viewportH = verge.viewportH();
     const modalHeight = this._modalNode.getBoundingClientRect().height;

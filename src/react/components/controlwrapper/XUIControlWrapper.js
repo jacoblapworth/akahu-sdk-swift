@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -15,7 +15,7 @@ import MessageElement from './private/MessageElement';
  * @param {Boolean} isGroup - Whether or not this label is for a group of controls
  * @returns {{aria-invalid: boolean, aria-label: string, aria-labelledby: string, aria-describedby: string}}
  */
-export function getAriaAttributes(ids, props, groupedSetting = {}) {
+export const getAriaAttributes = (ids, props, groupedSetting = {}) => {
   const { isGroup } = groupedSetting;
   const { label, isLabelHidden, validationMessage, hintMessage, labelId, isInvalid } = props;
 
@@ -49,62 +49,60 @@ export function getAriaAttributes(ids, props, groupedSetting = {}) {
     'aria-describedby': ariaDescribedBy,
     id: controlId,
   };
-}
+};
 
-export default class XUIControlWrapper extends PureComponent {
-  render() {
-    const {
-      children,
-      fieldClassName,
-      onKeyDown,
-      isFieldLayout,
-      onClick,
-      labelClassName,
-      label,
-      isLabelHidden,
-      qaHook,
-      wrapperIds,
-      isInvalid,
-      validationMessage,
-      hintMessage,
-      isGroup,
-    } = this.props;
+const XUIControlWrapper = ({
+  children,
+  fieldClassName,
+  hintMessage,
+  isFieldLayout,
+  isGroup,
+  isInvalid,
+  isLabelHidden,
+  label,
+  labelClassName,
+  onClick,
+  onKeyDown,
+  qaHook,
+  validationMessage,
+  wrapperIds,
+}) => {
+  const rootClasses = cn(fieldClassName, isFieldLayout && `${ns}-field-layout`);
 
-    const rootClasses = cn(fieldClassName, isFieldLayout && `${ns}-field-layout`);
+  return (
+    /* eslint-disable jsx-a11y/no-static-element-interactions */
+    <div
+      className={rootClasses}
+      onClick={onClick}
+      onKeyDown={onKeyDown}
+      role={(onClick || onKeyDown) && 'presentation'}
+    >
+      <LabelElement
+        {...{
+          label,
+          labelClassName,
+          isLabelHidden,
+          qaHook,
+          wrapperIds,
+          isGroup,
+        }}
+      />
+      {children}
+      <MessageElement
+        {...{
+          isInvalid,
+          validationMessage,
+          hintMessage,
+          qaHook,
+          wrapperIds,
+        }}
+      />
+    </div>
+    /* eslint-enable */
+  );
+};
 
-    return (
-      /* eslint-disable jsx-a11y/no-static-element-interactions */
-      <div
-        className={rootClasses}
-        onClick={onClick}
-        onKeyDown={onKeyDown}
-        role={(onClick || onKeyDown) && 'presentation'}
-      >
-        <LabelElement
-          {...{
-            label,
-            labelClassName,
-            isLabelHidden,
-            qaHook,
-            wrapperIds,
-            isGroup,
-          }}
-        />
-        {children}
-        <MessageElement
-          {...{
-            isInvalid,
-            validationMessage,
-            hintMessage,
-            qaHook,
-            wrapperIds,
-          }}
-        />
-      </div>
-      /* eslint-enable */
-    );
-  }
-}
+export default XUIControlWrapper;
 
 XUIControlWrapper.propTypes = {
   qaHook: PropTypes.string,

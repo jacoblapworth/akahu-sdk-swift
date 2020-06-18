@@ -184,16 +184,6 @@ describe('<XUIPill />', () => {
     ).toContain('title="Delete"');
   });
 
-  it('should switch the focus state when toggleFocus is called', () => {
-    const pill = shallow(<XUIPill />);
-
-    expect(pill.state('isFocused')).toBeFalsy();
-
-    pill.instance().toggleFocus();
-
-    expect(pill.state('isFocused')).toBeTruthy();
-  });
-
   it('should render a pills with correct size modifiers', () => {
     const sizes = ['medium', 'small'];
     sizes.forEach(size => {

@@ -41,7 +41,6 @@ export default class SelectBox extends Component {
       buttonClasses,
       buttonContent,
       buttonVariant,
-      caretTitle,
       children,
       closeAfterSelection,
       containerClasses,

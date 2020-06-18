@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { picklistClassName } from './private/constants';
@@ -8,18 +8,14 @@ import { picklistClassName } from './private/constants';
  * list of items.
  *
  * @export
- * @class PicklistDivider
- * @extends {PureComponent}
  */
-export default class PicklistDivider extends PureComponent {
-  render() {
-    const { className } = this.props;
+const PicklistDivider = ({ className }) => {
+  const classes = cn(`${picklistClassName}--divider`, className);
 
-    const classes = cn(`${picklistClassName}--divider`, className);
+  return <li className={classes} />;
+};
 
-    return <li className={classes} />;
-  }
-}
+export default PicklistDivider;
 
 PicklistDivider.propTypes = {
   className: PropTypes.string,

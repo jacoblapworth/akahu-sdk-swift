@@ -1,26 +1,23 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { CHART_HEIGHT, BAR_ACTIVE_COLOR } from './helpers/constants';
 import ChartScaffold from './customElements/ChartScaffold';
 import ChartLoader from './customElements/ChartLoader';
 import ChartEmpty from './customElements/ChartEmpty';
 
-class XUIBarChart extends PureComponent {
-  render = () => {
-    const { props } = this;
-    const { barsData, isLoading } = props;
-    const isEmpty = !barsData.length;
+const XUIBarChart = props => {
+  const { barsData, isLoading } = props;
+  const isEmpty = !barsData.length;
 
-    switch (true) {
-      case isLoading:
-        return <ChartLoader {...props} />;
-      case isEmpty:
-        return <ChartEmpty {...props} />;
-      default:
-        return <ChartScaffold {...props} />;
-    }
-  };
-}
+  switch (true) {
+    case isLoading:
+      return <ChartLoader {...props} />;
+    case isEmpty:
+      return <ChartEmpty {...props} />;
+    default:
+      return <ChartScaffold {...props} />;
+  }
+};
 
 export default XUIBarChart;
 

@@ -1,25 +1,22 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUILoader from '../../loader/XUILoader';
 import { NAME_SPACE } from '../helpers/constants';
 
-class ChartLoader extends PureComponent {
-  render = () => {
-    const { qaHook, chartHeight, loadingAriaLabel } = this.props;
-    const chartClassName = cn(`${NAME_SPACE}-chart`, `${NAME_SPACE}-chart-is-loading`);
+const ChartLoader = ({ chartHeight, loadingAriaLabel, qaHook }) => {
+  const chartClassName = cn(`${NAME_SPACE}-chart`, `${NAME_SPACE}-chart-is-loading`);
 
-    return (
-      <div
-        className={chartClassName}
-        data-automationid={qaHook && `${qaHook}--loader`}
-        style={{ height: `${chartHeight}px` }}
-      >
-        <XUILoader ariaLabel={loadingAriaLabel} />
-      </div>
-    );
-  };
-}
+  return (
+    <div
+      className={chartClassName}
+      data-automationid={qaHook && `${qaHook}--loader`}
+      style={{ height: `${chartHeight}px` }}
+    >
+      <XUILoader ariaLabel={loadingAriaLabel} />
+    </div>
+  );
+};
 
 export default ChartLoader;
 

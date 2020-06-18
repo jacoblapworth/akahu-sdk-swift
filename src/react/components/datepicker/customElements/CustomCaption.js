@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { PropTypes as DayPickerPropTypes } from 'react-day-picker';
 
-export default function CustomCaption() {
-  return null;
-}
+const CustomCaption = () => null;
+
+export default CustomCaption;
 
 CustomCaption.propTypes = {
   date: PropTypes.instanceOf(Date),

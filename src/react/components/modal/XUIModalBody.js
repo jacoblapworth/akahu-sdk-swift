@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { baseClass } from './constants';
 
-export default function XUIModalBody({ className, children, qaHook }) {
+const XUIModalBody = ({ className, children, qaHook }) => {
   const classNames = cn(`${baseClass}--body`, className);
 
   return (
@@ -11,7 +11,9 @@ export default function XUIModalBody({ className, children, qaHook }) {
       {children}
     </div>
   );
-}
+};
+
+export default XUIModalBody;
 
 XUIModalBody.propTypes = {
   children: PropTypes.node,

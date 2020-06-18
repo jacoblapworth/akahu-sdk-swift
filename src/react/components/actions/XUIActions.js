@@ -1,52 +1,51 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-actions`;
 
-export default class XUIActions extends PureComponent {
-  render() {
-    const {
-      qaHook,
-      className,
-      children,
-      hasLayout,
-      isLinear,
-      primaryAction,
-      secondaryAction,
-      tagName,
-      ...spreadProps
-    } = this.props;
-    const classes = cn(
-      baseClass,
-      className,
-      hasLayout && `${baseClass}-layout`,
-      isLinear && `${baseClass}-linear`,
-    );
-    const Tag = tagName;
+const XUIActions = ({
+  children,
+  className,
+  hasLayout,
+  isLinear,
+  primaryAction,
+  qaHook,
+  secondaryAction,
+  tagName,
+  ...spreadProps
+}) => {
+  const classes = cn(
+    baseClass,
+    className,
+    hasLayout && `${baseClass}-layout`,
+    isLinear && `${baseClass}-linear`,
+  );
+  const Tag = tagName;
 
-    const clonedPrimary =
-      primaryAction &&
-      React.cloneElement(primaryAction, {
-        className: cn(`${baseClass}--primary`, primaryAction.props.className),
-      });
+  const clonedPrimary =
+    primaryAction &&
+    React.cloneElement(primaryAction, {
+      className: cn(`${baseClass}--primary`, primaryAction.props.className),
+    });
 
-    const clonedSecondary =
-      secondaryAction &&
-      React.cloneElement(secondaryAction, {
-        className: cn(`${baseClass}--secondary`, secondaryAction.props.className),
-      });
+  const clonedSecondary =
+    secondaryAction &&
+    React.cloneElement(secondaryAction, {
+      className: cn(`${baseClass}--secondary`, secondaryAction.props.className),
+    });
 
-    return (
-      <Tag {...spreadProps} className={classes} data-automationid={qaHook}>
-        {children}
-        {clonedPrimary}
-        {clonedSecondary}
-      </Tag>
-    );
-  }
-}
+  return (
+    <Tag {...spreadProps} className={classes} data-automationid={qaHook}>
+      {children}
+      {clonedPrimary}
+      {clonedSecondary}
+    </Tag>
+  );
+};
+
+export default XUIActions;
 
 XUIActions.propTypes = {
   children: PropTypes.node,

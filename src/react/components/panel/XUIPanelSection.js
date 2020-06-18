@@ -1,25 +1,31 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-panel--section`;
 
-export default class XUIPanelSection extends PureComponent {
-  render() {
-    const { qaHook, className, children, headerText, headerClassName, ...spreadProps } = this.props;
-    const classes = cn(baseClass, className);
-    const headerClasses = cn(`${baseClass}--header`, headerClassName);
-    const header = headerText && <div className={headerClasses}>{headerText}</div>;
+const XUIPanelSection = ({
+  children,
+  className,
+  headerClassName,
+  headerText,
+  qaHook,
+  ...spreadProps
+}) => {
+  const classes = cn(baseClass, className);
+  const headerClasses = cn(`${baseClass}--header`, headerClassName);
+  const header = headerText && <div className={headerClasses}>{headerText}</div>;
 
-    return (
-      <div {...spreadProps} className={classes} data-automationid={qaHook}>
-        {header}
-        {children}
-      </div>
-    );
-  }
-}
+  return (
+    <div {...spreadProps} className={classes} data-automationid={qaHook}>
+      {header}
+      {children}
+    </div>
+  );
+};
+
+export default XUIPanelSection;
 
 XUIPanelSection.propTypes = {
   children: PropTypes.node,
@@ -34,5 +40,3 @@ XUIPanelSection.propTypes = {
    */
   headerClassName: PropTypes.string,
 };
-
-XUIPanelSection.defaultProps = {};

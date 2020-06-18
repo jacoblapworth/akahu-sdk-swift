@@ -4,13 +4,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { NAME_SPACE, NBSP } from '../helpers/constants';
 
-class HeadData extends PureComponent {
-  render = () => {
-    const { children, ...props } = this.props;
-
-    return <th {...props}>{children || NBSP}</th>;
-  };
-}
+const HeadData = ({ children, ...props }) => <th {...props}>{children || NBSP}</th>;
 
 HeadData.propTypes = {
   children: PropTypes.node,

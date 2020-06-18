@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
-export default function XUIIsolationHeader({
+const XUIIsolationHeader = ({
   actions,
   avatar,
   children,
@@ -18,7 +18,7 @@ export default function XUIIsolationHeader({
   tags,
   title,
   ...spreadProps
-}) {
+}) => {
   const baseClass = `${ns}-isolationheader`;
 
   const classes = cn(className, baseClass, isPositionFixed && `${baseClass}-fixed`);
@@ -83,7 +83,9 @@ export default function XUIIsolationHeader({
       </div>
     </header>
   );
-}
+};
+
+export default XUIIsolationHeader;
 
 XUIIsolationHeader.propTypes = {
   children: PropTypes.node,

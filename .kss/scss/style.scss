@@ -270,11 +270,8 @@ code {
   margin: 5px 4px;
 }
 
-.ds-tips--detail {
-  display: flex;
-  align-items: center;
-  // To keep the space between the normal and markdown words
-  white-space: pre-wrap;
+.ds-tips--detail code {
+  margin-bottom: -1px;
 }
 
 .ds-tips:last-child {

@@ -1,5 +1,5 @@
 function setInitialButtonStyling(button) {
-  button.setAttribute('class', 'clipboard-button hover-tooltip xui-button code-copy');
+  button.setAttribute('class', 'clipboard-button hover-tooltip hover-tooltip-above xui-button code-copy');
   button.setAttribute('title', 'Copy code');
   setStandardButtonStyling(button);
 }

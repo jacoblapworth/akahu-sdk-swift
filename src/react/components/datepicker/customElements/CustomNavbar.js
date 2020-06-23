@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { DateUtils } from 'react-day-picker';
 import PropTypes from 'prop-types';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import arrow from '@xero/xui-icon/icons/arrow';
 import XUIIconButton from '../../button/XUIIconButton';
 import MonthSelector from './navbar/MonthSelector';

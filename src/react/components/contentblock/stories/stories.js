@@ -103,14 +103,10 @@ storiesWithKnobs.add('Playground', () => {
     secondaryHeading: text('secondaryHeading', '') || undefined,
     overflow: boolean('Has overflow menu?', false) ? (
       <XUIIconButton ariaLabel="Overflow menu" icon={overflow} />
-    ) : (
-      undefined
-    ),
+    ) : undefined,
     action: boolean('Has action?', false) ? (
       <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>} />
-    ) : (
-      undefined
-    ),
+    ) : undefined,
     description: text('description', '') || undefined,
     leftContent: leftContent === 'none' ? undefined : leftContent,
     tag: hasTag,

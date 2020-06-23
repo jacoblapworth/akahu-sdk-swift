@@ -1,5 +1,5 @@
 import React from 'react';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 /**
  * Find all case-insensitive matches of a sub-string in a string and replace them with the

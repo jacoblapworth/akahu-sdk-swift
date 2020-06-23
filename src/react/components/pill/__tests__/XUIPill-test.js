@@ -95,10 +95,7 @@ describe('<XUIPill />', () => {
       <XUIPill value="Pill" onDeleteClick={callback} deleteButtonLabel="Delete" />,
     );
 
-    pill
-      .find('.xui-pill--button-icon')
-      .first()
-      .simulate('click');
+    pill.find('.xui-pill--button-icon').first().simulate('click');
     expect(callback.mock.calls.length).toEqual(1);
   });
 
@@ -165,23 +162,15 @@ describe('<XUIPill />', () => {
   it('should render a label for the delete button when passed in', () => {
     const pill = mount(<XUIPill deleteButtonLabel="alternate delete label" onDeleteClick={NOOP} />);
 
-    expect(
-      pill
-        .find('.xui-pill--button-icon')
-        .first()
-        .html(),
-    ).toContain('title="alternate delete label"');
+    expect(pill.find('.xui-pill--button-icon').first().html()).toContain(
+      'title="alternate delete label"',
+    );
   });
 
   it("should render a delete button label of 'Delete' by default", () => {
     const pill = mount(<XUIPill onDeleteClick={NOOP} deleteButtonLabel="Delete" />);
 
-    expect(
-      pill
-        .find('.xui-pill--button-icon')
-        .first()
-        .html(),
-    ).toContain('title="Delete"');
+    expect(pill.find('.xui-pill--button-icon').first().html()).toContain('title="Delete"');
   });
 
   it('should render a pills with correct size modifiers', () => {

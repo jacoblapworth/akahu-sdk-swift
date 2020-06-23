@@ -1,5 +1,5 @@
 import React from 'react';
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 import XUIButton from '../../button/XUIButton';
 import { defaultFileList } from '../private/helpers';
@@ -27,7 +27,7 @@ const variations = [
     storyTitle: 'with custom rightContent for uploaded file',
     fileList: [
       {
-        uid: uuid(),
+        uid: uuidv4(),
         status: 'done',
         originalFile: {
           name: 'hello.pdf',
@@ -85,7 +85,7 @@ const variations = [
     hasDragAndDrop: true,
     fileList: [
       {
-        uid: uuid(),
+        uid: uuidv4(),
         status: 'error',
         originalFile: {
           name: 'I am test333333333333333333333333tset ma I.zip',

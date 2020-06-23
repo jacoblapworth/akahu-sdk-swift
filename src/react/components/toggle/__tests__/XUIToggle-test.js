@@ -4,9 +4,9 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIToggleOption from '../XUIToggleOption';
 import XUIToggle from '../XUIToggle';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testCheckboxId');
 
 Enzyme.configure({ adapter: new Adapter() });

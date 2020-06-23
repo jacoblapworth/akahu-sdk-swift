@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useContext, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import AccordionWrapper from './customElements/AccordionWrapper';
 import XUIAccordionContext from './XUIAccordionContext';
 import AccordionTrigger from './customElements/AccordionTrigger';
@@ -18,7 +18,7 @@ const XUIAccordionItem = ({
   onClick,
   isOpen: propsIsOpen,
 }) => {
-  const [id] = useState(uuid());
+  const [id] = useState(uuidv4());
   const {
     setOpenAccordionItem,
     openAccordionItemId,

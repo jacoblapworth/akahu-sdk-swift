@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import XUILoader from '../loader/XUILoader';
 import noop from '../helpers/noop';
 import { enrichProps } from './helpers/utilities';
@@ -19,7 +19,7 @@ class XUITable extends Component {
   rootNode;
   wrapperNode;
   tableNode;
-  instanceId = uuid();
+  instanceId = uuidv4();
 
   componentDidUpdate = () => {
     this.setCurrentWidth();

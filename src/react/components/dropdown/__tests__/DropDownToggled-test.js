@@ -8,10 +8,10 @@ import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import div from './helpers/container';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 const testId = 'testDropdownId';
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => testId);
 
 Enzyme.configure({ adapter: new Adapter() });

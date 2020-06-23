@@ -4,9 +4,9 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import TestScaffold from '../stories/stories';
 import { variations } from '../stories/variations';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testDropdownId');
 
 Enzyme.configure({ adapter: new Adapter() });

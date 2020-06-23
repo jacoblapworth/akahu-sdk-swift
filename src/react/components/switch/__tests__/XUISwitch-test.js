@@ -3,13 +3,13 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUISwitch from '../XUISwitch';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 const NOOP = () => {};
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testSwitchId');
 
 describe('XUISwitch', function() {

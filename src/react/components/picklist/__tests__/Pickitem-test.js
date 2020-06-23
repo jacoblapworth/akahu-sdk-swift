@@ -6,11 +6,11 @@ import Pickitem from '../Pickitem';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIIcon from '../../icon/XUIIcon';
 import arrow from '@xero/xui-icon/icons/arrow';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testPickitemCheckboxId');
 
 describe('<Pickitem />', () => {

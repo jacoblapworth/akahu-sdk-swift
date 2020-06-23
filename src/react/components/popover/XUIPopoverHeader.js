@@ -1,7 +1,7 @@
 import crossIcon from '@xero/xui-icon/icons/cross';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { XUIIconButton } from '../../button';
 import IdContext from './contexts/IdContext';
@@ -9,8 +9,11 @@ import { baseClassName } from './private/constants';
 
 const XUIPopoverHeader = ({ className, closeButtonProps, onClose, qaHook, subtitle, title }) => {
   const { getTitleId } = React.useContext(IdContext);
+  const [titleId, setTitleId] = React.useState();
 
-  const titleId = getTitleId();
+  useEffect(() => {
+    setTitleId(getTitleId());
+  }, [getTitleId]);
 
   return (
     <div className={cn(`${baseClassName}--header`, className)} data-automationid={qaHook}>

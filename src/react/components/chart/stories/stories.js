@@ -57,9 +57,7 @@ storiesWithKnobs.add('Playground', () => {
       </h3>
       <p className="xui-heading-small">There is no data to display!</p>
     </div>
-  ) : (
-    undefined
-  );
+  ) : undefined;
   const isLoading = boolean('Show loading state', false);
   const hasNegativeValues = boolean('Include bars with negative values', false);
 

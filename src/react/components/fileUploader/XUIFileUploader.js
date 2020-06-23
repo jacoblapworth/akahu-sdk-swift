@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 import XUIButton from '../button/XUIButton';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
@@ -55,7 +55,7 @@ const XUIFileUploader = ({
 
   const handleOnChange = (files, event) => {
     const enhancedFileList = [...files].map(file => ({
-      uid: uuid(), // A unique identifier used as the key of file items
+      uid: uuidv4(), // A unique identifier used as the key of file items
       status: '', // user could change it to: uploading / error / done
       originalFile: file, // original File object
     }));

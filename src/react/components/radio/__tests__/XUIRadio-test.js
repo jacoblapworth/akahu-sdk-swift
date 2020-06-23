@@ -4,13 +4,13 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIRadio from '../XUIRadio';
 import star from '@xero/xui-icon/icons/star';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 const NOOP = () => {};
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testRadioId');
 
 describe('XUIRadio', () => {

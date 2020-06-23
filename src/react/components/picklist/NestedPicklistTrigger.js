@@ -48,6 +48,7 @@ export default class NestedPicklistTrigger extends PureComponent {
         onKeyDown={onClick}
         onMouseOver={onMouseOver}
         ref={n => (this.rootNode = n)}
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
         role="button"
         tabIndex={0}
       >

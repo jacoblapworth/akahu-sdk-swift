@@ -6,9 +6,9 @@ import XUIModal from '../XUIModal';
 import XUIModalBody from '../XUIModalBody';
 import XUIModalFooter from '../XUIModalFooter';
 import XUIModalHeader from '../XUIModalHeader';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'generatedHeaderId');
 
 Enzyme.configure({ adapter: new Adapter() });

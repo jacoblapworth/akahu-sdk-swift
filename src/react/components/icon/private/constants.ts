@@ -29,7 +29,6 @@ export const rotationClasses = {
   270: `${baseClass}-rotate-270`,
 };
 
-/* eslint-disable @typescript-eslint/camelcase */
 export const colorClasses = {
   black: `${baseClass}-color-black`,
   'black-muted': `${baseClass}-color-black-muted`,
@@ -51,4 +50,3 @@ export const colorClasses = {
   file_spreadsheet: `${baseClass}-color-file-spreadsheet`,
   file_pdf: `${baseClass}-color-file-pdf`,
 };
-/* eslint-enabled @typescript-eslint/camelcase */

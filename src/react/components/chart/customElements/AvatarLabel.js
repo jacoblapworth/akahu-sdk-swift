@@ -169,8 +169,9 @@ const AvatarLabel = ({
             clipPath="circle()"
             height={AVATAR_RADIUS * 2}
             href={avatarUrl}
-            transform={`translate(${avatarCircleLeft - AVATAR_RADIUS},${avatarCircleTop -
-              AVATAR_RADIUS})`}
+            transform={`translate(${avatarCircleLeft - AVATAR_RADIUS},${
+              avatarCircleTop - AVATAR_RADIUS
+            })`}
             width={AVATAR_RADIUS * 2}
             x={0}
             y={0}

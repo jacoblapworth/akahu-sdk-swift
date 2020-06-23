@@ -10,9 +10,9 @@ import XUIInnerPill from '../../pill/XUIInnerPill';
 import accessibility from '@xero/xui-icon/icons/accessibility';
 import NOOP from '../../helpers/noop';
 import { sizeShift } from '../../helpers/sizes';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });

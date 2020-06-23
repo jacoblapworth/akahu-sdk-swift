@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import verge from 'verge';
 import { Portal } from 'react-portal';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import cross from '@xero/xui-icon/icons/cross';
 import XUIIconButton from '../button/XUIIconButton';
 import XUIModalHeader from './XUIModalHeader';

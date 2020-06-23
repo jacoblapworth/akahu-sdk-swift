@@ -4,11 +4,11 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Picklist from '../Picklist';
 import Pickitem from '../Pickitem';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testPickitemCheckboxId');
 
 const setup = (props = {}, itemProps = {}) => {

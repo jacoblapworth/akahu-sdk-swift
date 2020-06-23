@@ -7,10 +7,10 @@ import XUILoader from '../../loader/XUILoader';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import Pill from '../../pill/XUIPill';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testDropdownId');
 
 Enzyme.configure({ adapter: new Adapter() });

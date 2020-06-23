@@ -19,6 +19,7 @@ for (var i = 0; i < pre.length; i++) {
   var button = document.createElement('button');
   setInitialButtonStyling(button);
   pre[i].appendChild(button);
+  pre[i].classList += ' ds-pre';
 }
 
 var clipboard = new Clipboard('.code-copy', {

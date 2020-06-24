@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import memoizeOne from 'memoize-one';
 import cn from 'classnames';
-import DropDownLayout from './DropDownLayout';
+import XUIDropDownLayout from './XUIDropDownLayout';
 // eslint-disable-next-line import/no-cycle
-import DropDownPanel from './DropDownPanel';
+import XUIDropDownPanel from './XUIDropDownPanel';
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from './private/constants';
@@ -13,13 +13,13 @@ import { fixedWidthDropdownSizes } from './private/constants';
  * Wrapper for all content which will go inside of a dropdown.  It ensures the correct
  * presentational components are used to output content, scrolling is managed properly,
  * and keyboard events are handled properly for the Picklist use case.  An instance of
- * this should be passed to the DropDownToggled's dropdown prop.
+ * this should be passed to the `XUIDropDownToggled`'s dropdown prop.
  *
  * @export
- * @class DropDown
+ * @class XUIDropDown
  * @extends {PureComponent}
  */
-export default class DropDown extends PureComponent {
+export default class XUIDropDown extends PureComponent {
   panel = React.createRef();
 
   componentDidMount() {
@@ -69,7 +69,7 @@ export default class DropDown extends PureComponent {
   );
 
   /**
-   * Keydown handler for the DropDown.  If `hasKeyboardEvents` is true, then this component will
+   * Keydown handler for the dropdown.  If `hasKeyboardEvents` is true, then this component will
    * automatically handle list navigation keyboard events because the root node will have
    * focus.  However, if you want to keep the focus on the trigger by setting `hasKeyboardEvents`
    * to false, you need to manually call this method if you want arrow key handlers to actually
@@ -80,7 +80,7 @@ export default class DropDown extends PureComponent {
    *
    * @public
    * @param {KeyboardEvent} event
-   * @memberof DropDown
+   * @memberof XUIDropDown
    */
   onKeyDown = event => {
     if (this.panel.current != null) {
@@ -121,12 +121,12 @@ export default class DropDown extends PureComponent {
   };
 
   /**
-   * Highlight a specific React element in the DropDown list.
+   * Highlight a specific React element in the dropdown list.
    *
    * @public
    * @param {Component} item
    * @param {UIEvent} event
-   * @memberof DropDown
+   * @memberof XUIDropDown
    */
   highlightItem = (item, event) => {
     this.panel.current.highlightItem(item, event);
@@ -136,7 +136,7 @@ export default class DropDown extends PureComponent {
    * Select the currently-highlighted list item.
    *
    * @public
-   * @memberof DropDown
+   * @memberof XUIDropDown
    */
   selectHighlighted = () => {
     this.panel.current.selectHighlighted();
@@ -146,7 +146,7 @@ export default class DropDown extends PureComponent {
    * Used to highlight an item immediately after a dropdown opens.
    *
    * @public
-   * @memberof DropDown
+   * @memberof XUIDropDown
    */
   highlightInitial = () => {
     const currentPanel = this.panel.current;
@@ -163,7 +163,7 @@ export default class DropDown extends PureComponent {
    * Used to programmatically highlight the first item.
    *
    * @public
-   * @memberof DropDown
+   * @memberof XUIDropDown
    */
   highlightFirstItem = () => {
     if (this.panel.current != null) {
@@ -179,7 +179,7 @@ export default class DropDown extends PureComponent {
    * If shouldManageInitialHighlight is set to true (default), the first item will be highlighted.
    *
    * @public
-   * @memberof DropDown
+   * @memberof XUIDropDown
    */
   clearHighlightedItem = () => {
     if (this.panel.current != null) {
@@ -222,7 +222,7 @@ export default class DropDown extends PureComponent {
     const dropdownClasses = cn(className, header && `${ns}-dropdown-fullheight`);
 
     return (
-      <DropDownLayout
+      <XUIDropDownLayout
         animateClosed={animateClosed}
         animateOpen={animateOpen}
         ariaRole={ariaRole}
@@ -237,7 +237,7 @@ export default class DropDown extends PureComponent {
         size={size}
         style={style}
       >
-        <DropDownPanel
+        <XUIDropDownPanel
           bodyClassName={bodyClassName}
           footer={footer}
           forceStatefulPicklist={forceStatefulPicklist}
@@ -254,13 +254,13 @@ export default class DropDown extends PureComponent {
           }}
         >
           {children}
-        </DropDownPanel>
-      </DropDownLayout>
+        </XUIDropDownPanel>
+      </XUIDropDownLayout>
     );
   }
 }
 
-DropDown.propTypes = {
+XUIDropDown.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   qaHook: PropTypes.string,
@@ -335,7 +335,7 @@ DropDown.propTypes = {
   ariaRole: PropTypes.string,
 };
 
-DropDown.defaultProps = {
+XUIDropDown.defaultProps = {
   fixedWidth: false,
   forceDesktop: false,
   forceStatefulPicklist: false,

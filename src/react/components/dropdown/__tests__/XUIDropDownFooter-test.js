@@ -1,19 +1,19 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import DropDownFooter from '../DropDownFooter.js';
+import XUIDropDownFooter from '../XUIDropDownFooter.js';
 import Pickitem from '../../picklist/Pickitem';
 
-describe('<DropDownFooter />', () => {
+describe('<XUIDropDownFooter />', () => {
   it('should render an automation id when a qaHook is passed', () => {
     const automationId = renderer.create(
-      <DropDownFooter qaHook="dropdownfooter-example">content</DropDownFooter>,
+      <XUIDropDownFooter qaHook="dropdownfooter-example">content</XUIDropDownFooter>,
     );
 
     expect(automationId).toMatchSnapshot();
   });
   it('should render a picklist with context class when pickItems are passed', () => {
     const automationId = renderer.create(
-      <DropDownFooter pickItems={<Pickitem id="footerAction">Add New Person</Pickitem>} />,
+      <XUIDropDownFooter pickItems={<Pickitem id="footerAction">Add New Person</Pickitem>} />,
     );
 
     expect(automationId).toMatchSnapshot();

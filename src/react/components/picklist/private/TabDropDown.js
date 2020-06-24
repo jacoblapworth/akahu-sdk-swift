@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/no-cycle
-import DropDown from '../../dropdown/DropDown';
-import DropDownToggled from '../../dropdown/DropDownToggled';
+import XUIDropDown from '../../dropdown/XUIDropDown';
+import XUIDropDownToggled from '../../dropdown/XUIDropDownToggled';
 
 /**
  * INTERNAL USE ONLY
@@ -15,7 +15,7 @@ import DropDownToggled from '../../dropdown/DropDownToggled';
 const TabDropDown = ({ ulProps, dropdownList, className }) => {
   let tabItem = dropdownList[0];
   const dropdown = (
-    <DropDown>
+    <XUIDropDown>
       <ul {...ulProps}>
         {React.Children.map(dropdownList, child => {
           if (child.props.isSelected) {
@@ -29,7 +29,7 @@ const TabDropDown = ({ ulProps, dropdownList, className }) => {
           );
         })}
       </ul>
-    </DropDown>
+    </XUIDropDown>
   );
 
   const tabSelectTrigger = React.cloneElement(tabItem, {
@@ -37,7 +37,9 @@ const TabDropDown = ({ ulProps, dropdownList, className }) => {
     pickitemBodyProps: { showButtonCaret: true },
   });
 
-  return <DropDownToggled className={className} dropdown={dropdown} trigger={tabSelectTrigger} />;
+  return (
+    <XUIDropDownToggled className={className} dropdown={dropdown} trigger={tabSelectTrigger} />
+  );
 };
 
 TabDropDown.propTypes = {

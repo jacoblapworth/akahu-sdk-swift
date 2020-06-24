@@ -1,13 +1,13 @@
-`DropDownHeader` and `DropDownFooter` are used to add a fixed header and/or footer element to dropdowns. These elements don't scroll with the rest of the list, and are ignored by the default arrow key handlers. Add these components via the `header` and `footer` props in `DropDown`.
+`XUIDropDownHeader` and `XUIDropDownFooter` are used to add a fixed header and/or footer element to dropdowns. These elements don't scroll with the rest of the list, and are ignored by the default arrow key handlers. Add these components via the `header` and `footer` props in `XUIDropDown`.
 
-If you've included any actions in the header or footer, set the `closeOnTab` property of `DropDownToggled` to `false`, so users navigating by keyboard are able to access them.
+If you've included any actions in the header or footer, set the `closeOnTab` property of `XUIDropDownToggled` to `false`, so users navigating by keyboard are able to access them.
 
 ```jsx harmony
 import { Component } from 'react';
-import DropDown, {
-  DropDownToggled,
-  DropDownHeader,
-  DropDownFooter
+import XUIDropDown, {
+  XUIDropDownToggled,
+  XUIDropDownHeader,
+  XUIDropDownFooter
 } from '@xero/xui/react/dropdown';
 import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
 import Picklist, { Pickitem } from '@xero/xui/react/picklist';
@@ -140,7 +140,7 @@ class XDD extends Component {
   render() {
     const { items, search } = this.state;
     const dropdownHeader = (
-      <DropDownHeader
+      <XUIDropDownHeader
         title="Select Fruit"
         onSecondaryButtonClick={this.closeDropDown}
         onPrimaryButtonClick={this.onApplyClick}
@@ -162,11 +162,11 @@ class XDD extends Component {
             </XUITextInputSideElement>
           }
         />
-      </DropDownHeader>
+      </XUIDropDownHeader>
     );
 
     const dropdownFooter = (
-      <DropDownFooter
+      <XUIDropDownFooter
         pickItems={
           <Pickitem
             id="footerAction"
@@ -186,7 +186,7 @@ class XDD extends Component {
       </XUIButton>
     );
     const dropdown = (
-      <DropDown
+      <XUIDropDown
         ref={this.dropdown}
         onSelect={this.onSelect}
         header={dropdownHeader}
@@ -208,10 +208,10 @@ class XDD extends Component {
             </Pickitem>
           ))}
         </Picklist>
-      </DropDown>
+      </XUIDropDown>
     );
     return (
-      <DropDownToggled
+      <XUIDropDownToggled
         ref={this.ddt}
         onOpenAnimationEnd={this.focusInput}
         trigger={trigger}

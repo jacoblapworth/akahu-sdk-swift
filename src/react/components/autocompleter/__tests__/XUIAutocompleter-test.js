@@ -7,8 +7,8 @@ import XUIPill from '../../pill/XUIPill';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import XUILoader from '../../loader/XUILoader';
-import DropDownToggled from '../../dropdown/DropDownToggled';
-import DropDownLayout from '../../dropdown/DropDownLayout';
+import XUIDropDownToggled from '../../dropdown/XUIDropDownToggled';
+import XUIDropDownLayout from '../../dropdown/XUIDropDownLayout';
 import { v4 as uuidv4 } from 'uuid';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 import wait from '../../../helpers/wait';
@@ -156,7 +156,7 @@ describe('XUIAutocompleter', () => {
 
   it('sets the dropdown to match trigger width if no dropdownSize is provided in the component props', () => {
     const wrapper = mount(createComponent({ onSearch: jest.fn(), dropdownSize: null }));
-    expect(wrapper.find(DropDownToggled).props().matchTriggerWidth).toBeTruthy();
+    expect(wrapper.find(XUIDropDownToggled).props().matchTriggerWidth).toBeTruthy();
   });
 
   it('when disableWrapPills prop is applied disable pillwrap class is applied', () => {
@@ -254,8 +254,8 @@ describe('XUIAutocompleter', () => {
   describe.skip('Dropdown + Portal skipped tests', () => {
     it("uses the correct size variant if one is defined and doesn't try match trigger width", () => {
       const wrapper = mount(createComponent({ onSearch: jest.fn() }));
-      expect(wrapper.find(DropDownLayout).props().size).toBe('medium');
-      expect(wrapper.find(DropDownToggled).props().matchTriggerWidth).toBeFalsy();
+      expect(wrapper.find(XUIDropDownLayout).props().size).toBe('medium');
+      expect(wrapper.find(XUIDropDownToggled).props().matchTriggerWidth).toBeFalsy();
     });
   });
 

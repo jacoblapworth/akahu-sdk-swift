@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { XUIContentBlock, XUIContentBlockItem } from '../../../contentblock';
 import { XUIPanel, XUIPanelSection } from '../../../panel';
 import XUIButton, { XUIIconButton } from '../../../button';
-import Dropdown, { DropDownToggled } from '../../../dropdown';
+import XUIDropDown, { XUIDropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from '../../../table';
 import overflow from '@xero/xui-icon/icons/overflow';
@@ -37,7 +37,7 @@ export default class ContentBlock extends PureComponent {
     );
 
     const dropdown = (
-      <Dropdown>
+      <XUIDropDown>
         <Picklist>
           {dropdownOptions.map(item => (
             <Pickitem id={item} key={item} onSelect={onSelectItem.bind(this, item)}>
@@ -45,11 +45,11 @@ export default class ContentBlock extends PureComponent {
             </Pickitem>
           ))}
         </Picklist>
-      </Dropdown>
+      </XUIDropDown>
     );
 
     const toggledDropdown = showMediumDownButton ? (
-      <DropDownToggled dropdown={dropdown} trigger={MediumDownButton} />
+      <XUIDropDownToggled dropdown={dropdown} trigger={MediumDownButton} />
     ) : null;
 
     return (

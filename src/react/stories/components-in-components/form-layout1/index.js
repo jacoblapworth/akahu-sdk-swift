@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components we need to test with
-import DropDown, { DropDownToggled } from '../../../dropdown';
+import XUIDropDown, { XUIDropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
 import XUIButton from '../../../button';
 import XUITextInput from '../../../textinput';
@@ -233,10 +233,12 @@ test.add(storyNames.formLayout, () => {
 
               <InputLabel>Choose a Food</InputLabel>
               <div className="xui-textinputgroup xui-field-layout xui-u-flex">
-                <DropDownToggled
+                <XUIDropDownToggled
                   className="xui-textinputwrapper"
                   dropdown={
-                    <DropDown onSelect={value => this.setState({ ...this.state, foodType: value })}>
+                    <XUIDropDown
+                      onSelect={value => this.setState({ ...this.state, foodType: value })}
+                    >
                       <Picklist>
                         {['Vegetable', 'Fruit', 'Meat'].map((title, key) => (
                           <Pickitem
@@ -249,7 +251,7 @@ test.add(storyNames.formLayout, () => {
                           </Pickitem>
                         ))}
                       </Picklist>
-                    </DropDown>
+                    </XUIDropDown>
                   }
                   onOpen={() => {}}
                   trigger={<XUIButton hasCaret>{foodType || 'Food Type'}</XUIButton>}

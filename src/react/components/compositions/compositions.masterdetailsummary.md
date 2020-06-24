@@ -11,7 +11,7 @@ import overflowIcon from '@xero/xui-icon/icons/overflow';
 
 import { XUICompositionMasterDetailSummary } from '@xero/xui/react/compositions';
 import { XUIIconButton } from '@xero/xui/react/button';
-import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
+import XUIDropDown, { XUIDropDownToggled } from '@xero/xui/react/dropdown';
 
 const masterContent = <div style={{ background: '#5A5AE6', height: '100px', width: '100%' }}></div>;
 const summaryContent = (
@@ -22,10 +22,10 @@ class DetailContent extends PureComponent {
   render() {
     return (
       <div style={{ background: '#C5C5F6', height: '100px' }} className="xui-padding">
-        <DropDownToggled
+        <XUIDropDownToggled
           className="xui-u-hidden-medium-up"
           trigger={<XUIIconButton ariaLabel="Show master" icon={overflowIcon} />}
-          dropdown={<DropDown>{this.props.masterContent}</DropDown>}
+          dropdown={<XUIDropDown>{this.props.masterContent}</XUIDropDown>}
         />
       </div>
     );
@@ -47,7 +47,7 @@ import overflowIcon from '@xero/xui-icon/icons/overflow';
 
 import { XUICompositionMasterDetailSummaryHeader } from '@xero/xui/react/compositions';
 import { XUIIconButton } from '@xero/xui/react/button';
-import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
+import XUIDropDown, { XUIDropDownToggled } from '@xero/xui/react/dropdown';
 
 const headerContent = <div style={{ background: '#B446C8', height: '60px' }}></div>;
 const masterContent = <div style={{ background: '#5A5AE6', height: '100px', width: '100%' }}></div>;
@@ -59,10 +59,10 @@ class DetailContent extends PureComponent {
   render() {
     return (
       <div style={{ background: '#C5C5F6', height: '100px' }} className="xui-padding">
-        <DropDownToggled
+        <XUIDropDownToggled
           className="xui-u-hidden-medium-up"
           trigger={<XUIIconButton ariaLabel="Show master" icon={overflowIcon} />}
-          dropdown={<DropDown>{this.props.masterContent}</DropDown>}
+          dropdown={<XUIDropDown>{this.props.masterContent}</XUIDropDown>}
         />
       </div>
     );

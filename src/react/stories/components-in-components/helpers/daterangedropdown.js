@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import DropDown, { DropDownToggled } from '../../../dropdown';
+import XUIDropDown, { XUIDropDownToggled } from '../../../dropdown';
 import XUIButton from '../../../button';
 import XUIDatePicker from '../../../datepicker';
 
@@ -66,14 +66,14 @@ export default class DropDownDateRange extends React.Component {
   render() {
     const { currentMonth, selectedRange } = this.state;
     const dropdown = (
-      <DropDown>
+      <XUIDropDown>
         <XUIDatePicker
           displayedMonth={currentMonth}
           onSelectDate={this.onSelectDate}
           ref={this.datepicker}
           selectedRange={selectedRange}
         />
-      </DropDown>
+      </XUIDropDown>
     );
     const trigger = (
       <XUIButton fullWidth="small-down" size={this.props.size}>
@@ -83,7 +83,7 @@ export default class DropDownDateRange extends React.Component {
       </XUIButton>
     );
     return (
-      <DropDownToggled
+      <XUIDropDownToggled
         closeOnTab={false}
         dropdown={dropdown}
         onOpenAnimationEnd={this.focusDatePicker}

@@ -47,7 +47,7 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'with NestedDropDown',
+    storyTitle: 'with Nested Dropdown',
     ddSettings: {
       children: 'nested',
     },

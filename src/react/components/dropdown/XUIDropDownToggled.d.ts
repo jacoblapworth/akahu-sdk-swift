@@ -60,7 +60,7 @@ interface Props {
   /**
    * Setting to `true` makes the dropdown as wide as the trigger.
    *
-   * **Note:** *Setting this to `true` will override any `size` prop on `DropDown`.*
+   * **Note:** *Setting this to `true` will override any `size` prop on `XUIDropDown`.*
    *
    * **Note:** *XUI design has also decided to keep a minimum width on the dropdown, so the dropdown
    * may not match the width of narrow triggers.*
@@ -125,7 +125,7 @@ interface Props {
   triggerDropdownGap?: number;
 }
 
-export default class DropDownToggled extends React.PureComponent<Props> {
+export default class XUIDropDownToggled extends React.PureComponent<Props> {
   /**
    * Hide the dropdown.
    */

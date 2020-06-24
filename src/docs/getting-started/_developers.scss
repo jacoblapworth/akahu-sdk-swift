@@ -122,7 +122,7 @@
 // <!--?prettify lang=js?-->
 // ```
 // import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
-// import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
+// import XUIDropDown, { XUIDropDownToggled } from '@xero/xui/react/dropdown';
 // ```
 //
 // You can also opt to import the ES6 source by changing the `@xero/xui/react` directory to `@xui/react/react-es6` in your imports.
@@ -130,7 +130,7 @@
 // <!--?prettify lang=js?-->
 // ```
 // import XUIButton, { XUIIconButton } from '@xero/xui/react-es6/button';
-// import DropDown, { DropDownToggled } from '@xero/xui/react-es6/dropdown';
+// import XUIDropDown, { XUIDropDownToggled } from '@xero/xui/react-es6/dropdown';
 // ```
 //
 // Importing ES6 source can provide better tree-shaking and debugging, but you become responsible for transpilation and ensuring the appropriate polyfills are included. If you choose this option, we recommend implementing a rewrite of `@xero/xui/react` to `@xero/xui/react-es6` at the build tool level [using `resolve.alias if you use Webpack`](https://webpack.js.org/configuration/resolve/#resolvealias) because any other dependencies that depend on XUI, such as `xui-layout`, will likely import code from the non-ES6 folder as this has been the default in the past. This leads to undesirable code duplication and increases artifact bundle sizes.

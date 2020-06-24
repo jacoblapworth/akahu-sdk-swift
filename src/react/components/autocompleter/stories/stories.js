@@ -10,7 +10,7 @@ import XUIButton from '../../button/XUIButton';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import peopleDataSet from '../private/people';
-import DropDownFooter from '../../dropdown/DropDownFooter';
+import XUIDropDownFooter from '../../dropdown/XUIDropDownFooter';
 import XUIIcon from '../../icon/XUIIcon';
 import plusIcon from '@xero/xui-icon/icons/plus';
 import XUIPill from '../../pill/XUIPill';
@@ -221,7 +221,7 @@ export class DetailedListExample extends Component {
     } = example.props;
 
     const footer = (
-      <DropDownFooter
+      <XUIDropDownFooter
         pickItems={
           <Pickitem
             id="footerAction"
@@ -391,7 +391,7 @@ export class SecondarySearchExample extends React.Component {
       );
 
     const footer = (
-      <DropDownFooter
+      <XUIDropDownFooter
         pickItems={
           <Pickitem
             id="footerAction"

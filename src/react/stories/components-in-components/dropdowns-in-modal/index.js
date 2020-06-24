@@ -3,7 +3,7 @@ import React from 'react';
 
 // Components we need to test with
 import XUIModal, { XUIModalBody } from '../../../modal';
-import DropDown, { DropDownToggled } from '../../../dropdown';
+import XUIDropDown, { XUIDropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
 import XUIButton from '../../../button';
 import XUITextInput from '../../../textinput';
@@ -33,9 +33,9 @@ const buildDropdownPicklist = items => {
     </Pickitem>
   ));
   return (
-    <DropDown>
+    <XUIDropDown>
       <Picklist>{pickItems}</Picklist>
-    </DropDown>
+    </XUIDropDown>
   );
 };
 
@@ -48,14 +48,14 @@ test.add(storyNames.multiDropDowns, () => (
       <XUIModalBody>
         This is some Modal content.
         <XUITextInput isLabelHidden label="Input label" />
-        <DropDownToggled
+        <XUIDropDownToggled
           dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
           isHidden={false}
           trigger={buildTrigger('Short Trigger')}
         />
         This is some Modal content.
         <XUITextInput isLabelHidden label="Input label" />
-        <DropDownToggled
+        <XUIDropDownToggled
           dropdown={buildDropdownPicklist(lists.MedListMedItems)}
           trigger={buildTrigger('Medium Dropdown Trigger')}
         />

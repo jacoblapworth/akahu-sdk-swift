@@ -2,12 +2,12 @@
 import React from 'react';
 
 // Components we need to test with
-import DropDownToggled from '../DropDownToggled';
-import DropDown from '../DropDown';
-import NestedDropDown from '../NestedDropDown';
-import DropDownPanel from '../DropDownPanel';
-import DropDownHeader from '../DropDownHeader';
-import DropDownFooter from '../DropDownFooter';
+import XUIDropDown from '../XUIDropDown';
+import XUIDropDownFooter from '../XUIDropDownFooter';
+import XUIDropDownHeader from '../XUIDropDownHeader';
+import XUIDropDownPanel from '../XUIDropDownPanel';
+import XUIDropDownToggled from '../XUIDropDownToggled';
+import XUINestedDropDown from '../XUINestedDropDown';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 import Picklist from '../../picklist/Picklist';
@@ -44,7 +44,7 @@ const toggledShort = AddIdPropsToTextList(ShortListShortItems);
 
 const trigger = <XUIButton hasCaret>Open for goodies</XUIButton>;
 const header = (
-  <DropDownHeader
+  <XUIDropDownHeader
     onPrimaryButtonClick={NOOP}
     onSecondaryButtonClick={NOOP}
     primaryButtonContent="Apply"
@@ -53,7 +53,7 @@ const header = (
   />
 );
 const footer = (
-  <DropDownFooter
+  <XUIDropDownFooter
     pickItems={[
       <Pickitem
         id="aa"
@@ -81,11 +81,11 @@ const datePickerDate = new Date('Dec 02 2017 00:00:00 GMT+1300');
 const datepicker = <XUIDatePicker displayedMonth={datePickerDate} onSelectDate={NOOP} />;
 const plaintext = <p>Some content that appears in a dropdown panel would go here.</p>;
 const nested = (
-  <NestedDropDown currentPanelId="customDate" isHidden={false}>
-    <DropDownPanel panelId="samplePicklist">{picklist}</DropDownPanel>
-    <DropDownPanel
+  <XUINestedDropDown currentPanelId="customDate" isHidden={false}>
+    <XUIDropDownPanel panelId="samplePicklist">{picklist}</XUIDropDownPanel>
+    <XUIDropDownPanel
       header={
-        <DropDownHeader
+        <XUIDropDownHeader
           backButtonAriaLabel="Back"
           onBackButtonClick={NOOP}
           onSecondaryButtonClick={NOOP}
@@ -96,15 +96,15 @@ const nested = (
       panelId="customDate"
     >
       {datepicker}
-    </DropDownPanel>
-  </NestedDropDown>
+    </XUIDropDownPanel>
+  </XUINestedDropDown>
 );
 
 const nestedScrollable = (
-  <NestedDropDown currentPanel="samplePicklist" isHidden={false}>
-    <DropDownPanel
+  <XUINestedDropDown currentPanelId="samplePicklist" isHidden={false}>
+    <XUIDropDownPanel
       header={
-        <DropDownHeader
+        <XUIDropDownHeader
           backButtonLabel="Back"
           onBackButtonClick={NOOP}
           onSecondaryButtonClick={NOOP}
@@ -115,29 +115,29 @@ const nestedScrollable = (
       panelId="samplePicklist"
     >
       {picklist}
-    </DropDownPanel>
-  </NestedDropDown>
+    </XUIDropDownPanel>
+  </XUINestedDropDown>
 );
 
 const sideBySide = (
   <div className="xui-panel xui-row-flex xui-padding-large">
-    <DropDownToggled
+    <XUIDropDownToggled
       className="xui-margin-right-large"
       dropdown={
-        <DropDown fixedWidth restrictFocus={false} size="medium">
+        <XUIDropDown fixedWidth restrictFocus={false} size="medium">
           <Picklist>{createItems(toggledItems, 'one')}</Picklist>
-        </DropDown>
+        </XUIDropDown>
       }
       isHidden={false}
       isLegacyDisplay={false}
       preferredPosition="bottom-right"
       trigger={trigger}
     />
-    <DropDownToggled
+    <XUIDropDownToggled
       dropdown={
-        <DropDown restrictFocus={false} size="medium">
+        <XUIDropDown restrictFocus={false} size="medium">
           <Picklist>{createItems(toggledItems, 'two')}</Picklist>
-        </DropDown>
+        </XUIDropDown>
       }
       isHidden={false}
       trigger={<XUIButton hasCaret>Open for even more goodies</XUIButton>}
@@ -154,12 +154,12 @@ storiesWithKnobs.add('Playground', () => {
   const showFooter = boolean('show footer?', false);
 
   return (
-    <DropDownToggled
+    <XUIDropDownToggled
       closeOnSelect={boolean('closeOnSelect', true)}
       closeOnTab={boolean('closeOnTab', true)}
       disableScrollLocking={boolean('disableScrollLocking', false)}
       dropdown={
-        <DropDown
+        <XUIDropDown
           animateClosed={boolean('animateClosed', false)}
           animateOpen={boolean('animateOpen', false)}
           fixedWidth={boolean('fixedWidth', false)}
@@ -170,7 +170,7 @@ storiesWithKnobs.add('Playground', () => {
           size={select('dropdown size', Object.keys(maxWidthDropdownSizes), 'large')}
         >
           {picklist}
-        </DropDown>
+        </XUIDropDown>
       }
       forceDesktop={forceDesktop}
       isHidden={boolean('is dropdown initially hidden', true)}
@@ -192,7 +192,7 @@ function buildDropDown(ddSettings) {
   } else if (ddSettings.children === 'plaintext') {
     children = plaintext;
   } else if (ddSettings.children === 'nested') {
-    // Nested DropDowns do not get wrapped in a DropDown component.
+    // Nested dropdowns do not get wrapped in a `XUIDropDown` component.
     return nested;
   } else if (ddSettings.children === 'nestedScrollable') {
     return nestedScrollable;
@@ -204,7 +204,7 @@ function buildDropDown(ddSettings) {
     delete ddSettings.headerAndFooter;
   }
 
-  return <DropDown {...ddSettings}>{children}</DropDown>;
+  return <XUIDropDown {...ddSettings}>{children}</XUIDropDown>;
 }
 
 const createTriggerInput = props => (
@@ -246,29 +246,29 @@ const getPositioningTest = () => {
           width: '100%',
         }}
       >
-        <DropDownToggled
+        <XUIDropDownToggled
           dropdown={
-            <DropDown {...ddProps}>
+            <XUIDropDown {...ddProps}>
               <Picklist>{createItems(toggledShort, 'a')}</Picklist>
-            </DropDown>
+            </XUIDropDown>
           }
           trigger={createTriggerInput()}
           {...props}
         />
-        <DropDownToggled
+        <XUIDropDownToggled
           dropdown={
-            <DropDown {...ddProps}>
+            <XUIDropDown {...ddProps}>
               <Picklist>{createItems(toggledShort, 'b')}</Picklist>
-            </DropDown>
+            </XUIDropDown>
           }
           trigger={createTriggerButton()}
           {...props}
         />
-        <DropDownToggled
+        <XUIDropDownToggled
           dropdown={
-            <DropDown {...ddProps}>
+            <XUIDropDown {...ddProps}>
               <Picklist>{createItems(toggledShort, 'c')}</Picklist>
-            </DropDown>
+            </XUIDropDown>
           }
           trigger={createTriggerInput()}
           {...props}
@@ -284,30 +284,30 @@ const getPositioningTest = () => {
           width: '100%',
         }}
       >
-        <DropDownToggled
+        <XUIDropDownToggled
           dropdown={
-            <DropDown {...ddProps}>
+            <XUIDropDown {...ddProps}>
               <Picklist>{createItems(toggledShort, 'g')}</Picklist>
-            </DropDown>
+            </XUIDropDown>
           }
           trigger={createTriggerButton()}
           {...props}
         />
-        <DropDownToggled
+        <XUIDropDownToggled
           dropdown={
-            <DropDown {...ddProps}>
+            <XUIDropDown {...ddProps}>
               <Picklist>{createItems(toggledShort, 'h')}</Picklist>
-            </DropDown>
+            </XUIDropDown>
           }
           isBlock
           trigger={createTriggerIcon()}
           {...props}
         />
-        <DropDownToggled
+        <XUIDropDownToggled
           dropdown={
-            <DropDown {...ddProps}>
+            <XUIDropDown {...ddProps}>
               <Picklist>{createItems(toggledShort, 'i')}</Picklist>
-            </DropDown>
+            </XUIDropDown>
           }
           trigger={createTriggerLink()}
           {...props}
@@ -318,15 +318,15 @@ const getPositioningTest = () => {
 };
 
 const hintLabel = props => (
-  <DropDownToggled
+  <XUIDropDownToggled
     className="xui-margin-right-large"
     isHidden={false}
     trigger={createTriggerInput(props.triggerSettings)}
     {...props}
     dropdown={
-      <DropDown fixedWidth restrictFocus={false} size="medium">
+      <XUIDropDown fixedWidth restrictFocus={false} size="medium">
         <Picklist>{createItems(toggledItems, 'seven')}</Picklist>
-      </DropDown>
+      </XUIDropDown>
     }
   />
 );
@@ -351,7 +351,7 @@ variations.forEach(variation => {
       return hintLabel(ddSettings);
     }
     return (
-      <DropDownToggled
+      <XUIDropDownToggled
         {...variationMinusStoryDetails}
         dropdown={buildDropDown(ddSettings)}
         isHidden={false}

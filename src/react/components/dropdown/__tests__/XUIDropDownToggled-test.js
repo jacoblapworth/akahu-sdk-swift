@@ -2,11 +2,10 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import DropDown from '../DropDown';
-import DropDownToggled from '../DropDownToggled';
+import XUIDropDown from '../XUIDropDown';
+import XUIDropDownToggled from '../XUIDropDownToggled';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
-import div from './helpers/container';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -27,7 +26,7 @@ const getTrigger = props => (
 
 const getDropDown = props => {
   return (
-    <DropDown restrictFocus={false}>
+    <XUIDropDown restrictFocus={false}>
       <Picklist>
         <Pickitem id="1">Im the whole shabang!</Pickitem>
         <Pickitem id="2">Earnings from Busking</Pickitem>
@@ -35,13 +34,13 @@ const getDropDown = props => {
         <Pickitem id="4">Unnecessary Costs</Pickitem>
         <Pickitem id="5">Absolutely Necessary Costs</Pickitem>
       </Picklist>
-    </DropDown>
+    </XUIDropDown>
   );
 };
 
 const testDropDown = (props = {}) => {
   return (
-    <DropDownToggled
+    <XUIDropDownToggled
       className="testClass"
       forceDesktop={true}
       onOpen={() => (openCalled = true)}
@@ -53,7 +52,7 @@ const testDropDown = (props = {}) => {
   );
 };
 
-describe('<DropDownToggled />', () => {
+describe('<XUIDropDownToggled />', () => {
   beforeEach(() => {
     openCalled = false;
     closeCalled = false;
@@ -141,7 +140,7 @@ describe('<DropDownToggled />', () => {
 
   it('should render a passed qaHook as an auotmation id', () => {
     const automationId = renderer.create(
-      <DropDownToggled
+      <XUIDropDownToggled
         qaHook="ddt-example"
         trigger={getTrigger({ qaHook: 'ddt-example--trigger' })}
         dropdown={getDropDown()}

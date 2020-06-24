@@ -10,11 +10,11 @@ interface Props {
    */
   className?: string;
   /**
-   * Maps to the `closeOnSelect` property of the `DropDownToggled` component.
+   * Maps to the `closeOnSelect` property of the `XUIDropDownToggled` component.
    */
   closeOnSelect?: boolean;
   /**
-   * Maps to the `closeOnTab` property of the `DropDownToggled` component.
+   * Maps to the `closeOnTab` property of the `XUIDropDownToggled` component.
    */
   closeOnTab?: boolean;
   /**
@@ -113,7 +113,7 @@ interface Props {
   /**
    * Setting to `false` will allow the dropdown's width to be set independent of the trigger width.
    *
-   * **Note:** *Setting this to `true` will override any size prop on `DropDown`.*
+   * **Note:** *Setting this to `true` will override any size prop on `XUIDropDown`.*
    *
    * XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match
    * the width of narrow triggers.

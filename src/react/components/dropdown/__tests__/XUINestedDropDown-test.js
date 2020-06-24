@@ -1,8 +1,8 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import NestedDropDown from '../NestedDropDown';
-import DropDownPanel from '../DropDownPanel';
+import XUINestedDropDown from '../XUINestedDropDown';
+import XUIDropDownPanel from '../XUIDropDownPanel';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import renderer from 'react-test-renderer';
@@ -13,21 +13,21 @@ import { fixedWidthDropdownSizes, maxWidthDropdownSizes } from '../private/const
 Enzyme.configure({ adapter: new Adapter() });
 
 const createComponent = props => (
-  <NestedDropDown id="1" {...props}>
-    <DropDownPanel qaHook="nestedDropdown-panelone">
+  <XUINestedDropDown id="1" {...props}>
+    <XUIDropDownPanel qaHook="nestedDropdown-panelone">
       <Picklist>
         <Pickitem id="option1">Option 1</Pickitem>
       </Picklist>
-    </DropDownPanel>
-    <DropDownPanel qaHook="nestedDropdown-paneltwo">
+    </XUIDropDownPanel>
+    <XUIDropDownPanel qaHook="nestedDropdown-paneltwo">
       <Picklist>
         <Pickitem id="option2">Option 2</Pickitem>
       </Picklist>
-    </DropDownPanel>
-  </NestedDropDown>
+    </XUIDropDownPanel>
+  </XUINestedDropDown>
 );
 
-describe('<NestedDropdown />', () => {
+describe('<XUINestedDropDown />', () => {
   it('should render a passed id instead of automatically generating one', () => {
     const automationid = renderer.create(createComponent());
 
@@ -126,18 +126,18 @@ describe('<NestedDropdown />', () => {
     const onHighlightChange = jest.fn();
     const comp = mount(
       createComponent(
-        <NestedDropDown id="1" onHighlightChange={onHighlightChange}>
-          <DropDownPanel qaHook="nestedDropdown-panelone" ignoreKeyboardEvents={[40]}>
+        <XUINestedDropDown id="1" onHighlightChange={onHighlightChange}>
+          <XUIDropDownPanel qaHook="nestedDropdown-panelone" ignoreKeyboardEvents={[40]}>
             <Picklist>
               <Pickitem id="option1">Option 1</Pickitem>
             </Picklist>
-          </DropDownPanel>
-          <DropDownPanel qaHook="nestedDropdown-paneltwo">
+          </XUIDropDownPanel>
+          <XUIDropDownPanel qaHook="nestedDropdown-paneltwo">
             <Picklist>
               <Pickitem id="option2">Option 2</Pickitem>
             </Picklist>
-          </DropDownPanel>
-        </NestedDropDown>,
+          </XUIDropDownPanel>
+        </XUINestedDropDown>,
       ),
     );
 
@@ -203,18 +203,18 @@ describe('<NestedDropdown />', () => {
 
   it('should render the correct open panel when an id is passed to the currentPanel prop', () => {
     const currentPanel = mount(
-      <NestedDropDown id="1" currentPanelId="two">
-        <DropDownPanel panelId="one" id="panel-one" qaHook="nestedDropdown-panelone">
+      <XUINestedDropDown id="1" currentPanelId="two">
+        <XUIDropDownPanel panelId="one" id="panel-one" qaHook="nestedDropdown-panelone">
           <Picklist>
             <Pickitem id="option1">Option 1</Pickitem>
           </Picklist>
-        </DropDownPanel>
-        <DropDownPanel panelId="two" id="panel-two" qaHook="nestedDropdown-paneltwo">
+        </XUIDropDownPanel>
+        <XUIDropDownPanel panelId="two" id="panel-two" qaHook="nestedDropdown-paneltwo">
           <Picklist>
             <Pickitem id="option2">Option 2</Pickitem>
           </Picklist>
-        </DropDownPanel>
-      </NestedDropDown>,
+        </XUIDropDownPanel>
+      </XUINestedDropDown>,
     );
 
     expect(

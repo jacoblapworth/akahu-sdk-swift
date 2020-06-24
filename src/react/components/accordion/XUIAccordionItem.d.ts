@@ -24,7 +24,7 @@ interface Props {
    */
   onClick?: React.MouseEventHandler<HTMLElement>;
   /**
-   * Any component passed as right most content, typically a `DropDownToggled` component.
+   * Any component passed as right most content, typically a `XUIDropDownToggled` component.
    */
   overflow?: React.ReactNode;
   /**

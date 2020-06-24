@@ -537,7 +537,6 @@ $kss-color-padding: #eeebff;
 .ds-nav--menu {
   min-width: 200px;
   overflow: auto;
-  padding-bottom: 3.5rem;
   & li {
     list-style: none;
   }
@@ -548,6 +547,12 @@ $kss-color-padding: #eeebff;
     position: fixed;
     top: 0;
     width: $ds-nav-width;
+  }
+  // Firefox ignores padding on overflowing elements. https://bugzilla.mozilla.org/show_bug.cgi?id=748518
+  &::after {
+    content: '';
+    display: block;
+    padding-bottom: 3.5rem;
   }
 }
 

@@ -1,3 +1,5 @@
+@use 'sass:meta';
+
 @import 'utilities';
 @import '../vars';
 @import 'functions.decimals';
@@ -21,7 +23,7 @@
 
   $calculated-width: $single-column-width * $columnpercentage;
   $truncated-width: xui-truncate-number($calculated-width);
-  @if (type-of($gutter) == number and $gutter > 0) {
+  @if (meta.type-of($gutter) == number and $gutter > 0) {
     width: calc(#{xui-convert-to-percentage($truncated-width)} - #{$gutter});
   } @else {
     width: xui-convert-to-percentage($truncated-width);

@@ -60,7 +60,7 @@ interface Props {
    */
   onOpenAnimationEnd?: React.EventHandler<React.AnimationEvent<HTMLDivElement>>;
   /**
-   * Callback for when the open `XUIDropDownPanel` changes. Receives the name of the selected panel,
+   * Callback for when the open `XUIDropdownPanel` changes. Receives the name of the selected panel,
    * and the previously selected panel.
    */
   onPanelChange?: (currentPanel: string, previousPanel: string) => void;
@@ -80,4 +80,4 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-export default class XUINestedDropDown extends React.PureComponent<Props> {}
+export default class XUINestedDropdown extends React.PureComponent<Props> {}

@@ -10,11 +10,11 @@ interface Props {
    */
   className?: string;
   /**
-   * Maps to the `closeOnSelect` property of the `XUIDropDownToggled` component.
+   * Maps to the `closeOnSelect` property of the `XUIDropdownToggled` component.
    */
   closeOnSelect?: boolean;
   /**
-   * Maps to the `closeOnTab` property of the `XUIDropDownToggled` component. Set to `false`, if you've
+   * Maps to the `closeOnTab` property of the `XUIDropdownToggled` component. Set to `false`, if you've
    * supplied a footer element with any links or interaction.
    */
   closeOnTab?: boolean;
@@ -87,7 +87,7 @@ interface Props {
   /**
    * Setting to `true` will allow the dropdown's width to be set dependent of the trigger width.
    *
-   * **Note:** *Setting this to `true` will override any `size` prop on `XUIDropDown`.*
+   * **Note:** *Setting this to `true` will override any `size` prop on `XUIDropdown`.*
    *
    * XUI design has also decided to keep a minimum width on the dropdown, so the dropdown may not
    * match the width of narrow triggers.
@@ -131,7 +131,7 @@ interface Props {
    */
   searchValue?: string;
   /**
-   * Will be passed directly down to the `XUIDropDownToggled` component as the main trigger.
+   * Will be passed directly down to the `XUIDropdownToggled` component as the main trigger.
    */
   trigger: React.ReactElement;
 }
@@ -144,11 +144,11 @@ export default class XUIAutocompleterSecondarySearch extends React.PureComponent
   /**
    * Set the state as not hidden in order to open the list
    */
-  openDropDown(): void;
+  openDropdown(): void;
   /**
    * Set the state as hidden in order to close the list
    */
-  closeDropDown(): void;
+  closeDropdown(): void;
   /**
    * Highlights a specified item in the list
    */

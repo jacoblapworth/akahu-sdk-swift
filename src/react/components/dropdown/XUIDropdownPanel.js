@@ -18,7 +18,7 @@ import { ns } from '../helpers/xuiClassNamespace';
  * become visible to the user.
  *
  * @private
- * @param {XUIDropDownPanel} panel
+ * @param {XUIDropdownPanel} panel
  * @param {Function} callback
  */
 function whenVisible(panel, callback) {
@@ -30,10 +30,10 @@ function whenVisible(panel, callback) {
  * correct CSS classes.  This component is also what adds the mask to the DOM when going into
  * narrow viewport.
  *
- * @class XUIDropDownPanel
+ * @class XUIDropdownPanel
  * @extends {PureComponent}
  */
-class XUIDropDownPanel extends PureComponent {
+class XUIDropdownPanel extends PureComponent {
   rootNode = React.createRef();
   list = React.createRef();
   _scrollableContent = React.createRef();
@@ -74,9 +74,9 @@ class XUIDropDownPanel extends PureComponent {
    * "visibility: isHidden", the component will try to focus the element again several times
    * over five seconds. If it still can't after that component will try to focus the element
    * again several times over a half second. If it still can't after that amount of time,
-   * then it'll stop trying. This is to ensure that the dropdown can set focus on this Panel
+   * then it'll stop trying. This is to ensure that the dropdown can set focus on this panel
    * while the dropdown is going from isHidden to visible. An intermediate stage where the
-   * Panel's parent is set to "visibility: isHidden" is necessary to ensure that accurate
+   * panel's parent is set to "visibility: isHidden" is necessary to ensure that accurate
    * measurements of the DOM nodes can take place and the dropdown can be properly positioned.
    * This will basically attempt to wait that process out and set focus after everything is done.
    *
@@ -101,7 +101,7 @@ class XUIDropDownPanel extends PureComponent {
    *
    * @public
    * @param {KeyboardEvent} event
-   * @memberof XUIDropDownPanel
+   * @memberof XUIDropdownPanel
    */
   onKeyDown(event) {
     if (this.list.current != null) {
@@ -130,7 +130,7 @@ class XUIDropDownPanel extends PureComponent {
    *
    * @public
    * @returns {String} null if nothing is highlighted or no child StatefulPicklist exists
-   * @memberof XUIDropDownPanel
+   * @memberof XUIDropdownPanel
    */
   getHighlightedId() {
     return this.list.current != null ? this.list.current.getHighlightedId() : null;
@@ -140,7 +140,7 @@ class XUIDropDownPanel extends PureComponent {
    * Selects the highlighted list item, in the child StatefulPicklist (if applicable).
    *
    * @public
-   * @memberof XUIDropDownPanel
+   * @memberof XUIDropdownPanel
    */
   selectHighlighted() {
     this.list.current != null &&
@@ -153,7 +153,7 @@ class XUIDropDownPanel extends PureComponent {
    * @public
    * @param {React.element} item
    * @param {UIEvent} event
-   * @memberof XUIDropDownPanel
+   * @memberof XUIDropdownPanel
    */
   highlightItem(item, event) {
     this.list.current != null && this.list.current.highlightItem(item, event);
@@ -163,7 +163,7 @@ class XUIDropDownPanel extends PureComponent {
    * Used to highlight an item immediately after a dropdown opens.
    *
    * @public
-   * @memberof XUIDropDownPanel
+   * @memberof XUIDropdownPanel
    */
   highlightInitial() {
     if (this.list.current != null) {
@@ -175,7 +175,7 @@ class XUIDropDownPanel extends PureComponent {
    * Used to programmatically highlight the first item.
    *
    * @public
-   * @memberof XUIDropDownPanel
+   * @memberof XUIDropdownPanel
    */
   highlightFirstItem = () => {
     if (this.list.current != null) {
@@ -191,7 +191,7 @@ class XUIDropDownPanel extends PureComponent {
    * If shouldManageInitialHighlight is set to true (default), the first item will be highlighted.
    *
    * @public
-   * @memberof XUIDropDownPanel
+   * @memberof XUIDropdownPanel
    */
   clearHighlightedItem = () => {
     if (this.list.current != null) {
@@ -230,7 +230,7 @@ class XUIDropDownPanel extends PureComponent {
    *
    * @public
    * @returns {Boolean}
-   * @memberof XUIDropDownPanel
+   * @memberof XUIDropdownPanel
    */
   hasFocus() {
     return this.rootNode && this.rootNode.current.contains(document.activeElement);
@@ -333,7 +333,7 @@ class XUIDropDownPanel extends PureComponent {
   }
 }
 
-XUIDropDownPanel.propTypes = {
+XUIDropdownPanel.propTypes = {
   children: PropTypes.node,
   qaHook: PropTypes.string,
 
@@ -361,7 +361,7 @@ XUIDropDownPanel.propTypes = {
   /** A generalised callback when an item has been selected. */
   onSelect: PropTypes.func,
 
-  /** Used by `XUINestedDropDown` to identify each panel. */
+  /** Used by `XUINestedDropdown` to identify each panel. */
   panelId: PropTypes.string,
 
   /** Force wrapping Panel children in a StatefulPicklist  */
@@ -374,11 +374,11 @@ XUIDropDownPanel.propTypes = {
   shouldManageInitialHighlight: PropTypes.bool,
 };
 
-XUIDropDownPanel.defaultProps = {
+XUIDropdownPanel.defaultProps = {
   forceStatefulPicklist: false,
   ignoreKeyboardEvents: [],
   isHidden: false,
   shouldManageInitialHighlight: true,
 };
 
-export { XUIDropDownPanel as default, maxWidthDropdownSizes as dropdownSizes };
+export { XUIDropdownPanel as default, maxWidthDropdownSizes as dropdownSizes };

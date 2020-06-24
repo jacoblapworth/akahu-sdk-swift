@@ -58,7 +58,7 @@ describe('SelectBox', function () {
 
   it('should open the dropdown on click of the button when it has children', function () {
     select.find('button.blah').first().simulate('click');
-    expect(select.instance().isDropDownOpen()).toBeTruthy();
+    expect(select.instance().isDropdownOpen()).toBeTruthy();
   });
 
   it('should not open the dropdown on click of the button when it does not have children', function () {
@@ -76,7 +76,7 @@ describe('SelectBox', function () {
     );
 
     select.find('button.blah').first().simulate('click');
-    expect(select.instance().isDropDownOpen()).toBeFalsy();
+    expect(select.instance().isDropdownOpen()).toBeFalsy();
   });
 
   it('should not open the dropdown on click if the control is disabled', function () {
@@ -97,7 +97,7 @@ describe('SelectBox', function () {
     );
 
     select.find('button.blah').first().simulate('click');
-    expect(select.instance().isDropDownOpen()).toBeFalsy();
+    expect(select.instance().isDropdownOpen()).toBeFalsy();
   });
 
   it('should call onSelect on click of option', function () {
@@ -113,7 +113,7 @@ describe('SelectBox', function () {
       which: 40,
     });
 
-    expect(select.instance().isDropDownOpen()).toBeTruthy();
+    expect(select.instance().isDropdownOpen()).toBeTruthy();
   });
 
   it("should render the appropriate automation id's when a qaHook is provided", () => {

@@ -7,8 +7,8 @@ import XUIButtonGroup from '../XUIButtonGroup';
 import XUISplitButton from '../XUISecondaryButton';
 import XUISplitButtonGroup from '../XUISplitButtonGroup';
 import XUIIconButton from '../XUIIconButton';
-import XUIDropDown from '../../dropdown/XUIDropDown';
-import XUIDropDownToggled from '../../dropdown/XUIDropDownToggled';
+import XUIDropdown from '../../dropdown/XUIDropdown';
+import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
 import view from '@xero/xui-icon/icons/view';
 
 // Story book things
@@ -25,11 +25,11 @@ import {
 } from '../private/constants';
 
 const dropdownWithTrigger = (
-  <XUIDropDownToggled
+  <XUIDropdownToggled
     dropdown={
-      <XUIDropDown>
+      <XUIDropdown>
         <p className="xui-padding-small">hello</p>
-      </XUIDropDown>
+      </XUIDropdown>
     }
     trigger={<XUISplitButton aria-label="Other actions" key="split" variant="primary" />}
   />

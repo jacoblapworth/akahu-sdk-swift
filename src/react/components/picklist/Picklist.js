@@ -10,7 +10,7 @@ import { userBreakpoints } from '../helpers/breakpoints';
 import NestedPicklistContainer from './NestedPicklistContainer';
 import SelectBoxOption from '../select-box/SelectBoxOption';
 // eslint-disable-next-line import/no-cycle
-import TabDropDown from './private/TabDropDown';
+import TabDropdown from './private/TabDropdown';
 
 /**
  * Presentational component used to display a selectable list of Pickitems.
@@ -106,7 +106,7 @@ export default class Picklist extends Component {
         {!isHorizontal || !swapAtBreakpoint || this.state.normalPickitems ? (
           newChildren
         ) : (
-          <TabDropDown
+          <TabDropdown
             className={className}
             dropdownList={newChildren}
             size={listLevelProps.listSize}

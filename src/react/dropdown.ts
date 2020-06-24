@@ -1,16 +1,16 @@
-import XUIDropDown from './components/dropdown/XUIDropDown';
-import XUIDropDownFooter from './components/dropdown/XUIDropDownFooter';
-import XUIDropDownHeader from './components/dropdown/XUIDropDownHeader';
-import XUIDropDownPanel from './components/dropdown/XUIDropDownPanel';
-import XUIDropDownToggled from './components/dropdown/XUIDropDownToggled';
-import XUINestedDropDown from './components/dropdown/XUINestedDropDown';
+import XUIDropdown from './components/dropdown/XUIDropdown';
+import XUIDropdownFooter from './components/dropdown/XUIDropdownFooter';
+import XUIDropdownHeader from './components/dropdown/XUIDropdownHeader';
+import XUIDropdownPanel from './components/dropdown/XUIDropdownPanel';
+import XUIDropdownToggled from './components/dropdown/XUIDropdownToggled';
+import XUINestedDropdown from './components/dropdown/XUINestedDropdown';
 
 export {
-  XUIDropDown as default,
-  XUIDropDown,
-  XUIDropDownFooter,
-  XUIDropDownHeader,
-  XUIDropDownPanel,
-  XUIDropDownToggled,
-  XUINestedDropDown,
+  XUIDropdown as default,
+  XUIDropdown,
+  XUIDropdownToggled,
+  XUIDropdownHeader,
+  XUIDropdownFooter,
+  XUIDropdownPanel,
+  XUINestedDropdown,
 };

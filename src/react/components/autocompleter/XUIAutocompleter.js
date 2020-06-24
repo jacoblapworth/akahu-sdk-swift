@@ -5,8 +5,8 @@ import debounce from 'lodash.debounce';
 import { v4 as uuidv4 } from 'uuid';
 import Picklist from '../picklist/Picklist';
 import XUILoader from '../loader/XUILoader';
-import XUIDropDown from '../dropdown/XUIDropDown';
-import XUIDropDownToggled from '../dropdown/XUIDropDownToggled';
+import XUIDropdown from '../dropdown/XUIDropdown';
+import XUIDropdownToggled from '../dropdown/XUIDropdownToggled';
 import XUITextInput from '../textInput/XUITextInput';
 import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
@@ -60,7 +60,7 @@ export default class XUIAutocompleter extends PureComponent {
       this.noWrapPillContainer.current.scrollLeft = this.noWrapPillContainer.current.scrollWidth;
     }
     if (React.Children.count(pills) < React.Children.count(prevProps.pills)) {
-      this.ddt.current.repositionDropDown();
+      this.ddt.current.repositionDropdown();
     }
   }
 
@@ -108,16 +108,16 @@ export default class XUIAutocompleter extends PureComponent {
    * @public
    * Set the state as not hidden in order to toggle the list open.
    */
-  openDropDown = () => {
-    this.ddt.current.openDropDown();
+  openDropdown = () => {
+    this.ddt.current.openDropdown();
   };
 
   /**
    * @public
    * Set the state as hidden in order to toggle the list closed.
    */
-  closeDropDown = () => {
-    this.ddt.current.closeDropDown();
+  closeDropdown = () => {
+    this.ddt.current.closeDropdown();
   };
 
   /**
@@ -149,7 +149,7 @@ export default class XUIAutocompleter extends PureComponent {
 
   onInputKeyDown = event => {
     const { onBackspacePill, pills } = this.props;
-    if (this.ddt.current.isDropDownOpen()) {
+    if (this.ddt.current.isDropdownOpen()) {
       if (isKeyClick(event)) {
         this.flushDebounced && this.flushDebounced();
       }
@@ -181,7 +181,7 @@ export default class XUIAutocompleter extends PureComponent {
 
   onInputFocus = () => {
     if (!this.state.focused) {
-      this.openDropDown();
+      this.openDropdown();
     }
   };
 
@@ -327,7 +327,7 @@ export default class XUIAutocompleter extends PureComponent {
     );
 
     const dropdown = (
-      <XUIDropDown
+      <XUIDropdown
         className={dropdownClassName}
         fixedWidth={dropdownFixedWidth}
         footer={footer}
@@ -348,7 +348,7 @@ export default class XUIAutocompleter extends PureComponent {
         ) : (
           children
         )}
-      </XUIDropDown>
+      </XUIDropdown>
     );
 
     const classNames = cn(className, focused && `${ns}-autocompleter--trigger-focus`);
@@ -362,7 +362,7 @@ export default class XUIAutocompleter extends PureComponent {
         onFocus={this.onFocus}
         ref={this.rootNode}
       >
-        <XUIDropDownToggled
+        <XUIDropdownToggled
           ariaRole="combobox"
           closeOnSelect={closeOnSelect}
           closeOnTab={closeOnTab}
@@ -472,10 +472,10 @@ XUIAutocompleter.propTypes = {
   /** Maps to the `size` property of the dropdown component. */
   dropdownSize: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
-  /** Maps to the `closeOnSelect` property of the XUIDropDownToggled component. */
+  /** Maps to the `closeOnSelect` property of the `XUIDropdownToggled` component. */
   closeOnSelect: PropTypes.bool,
 
-  /** Maps to the `closeOnTab` property of the XUIDropDownToggled component. Set to false, if you've
+  /** Maps to the `closeOnTab` property of the `XUIDropdownToggled` component. Set to false, if you've
    * supplied a footer element with any links or interaction. */
   closeOnTab: PropTypes.bool,
 
@@ -494,7 +494,7 @@ XUIAutocompleter.propTypes = {
 
   /**
    * Setting to false will allow the dropdown's width to be set independent of the trigger width. <br>
-   * **Note:** *Setting this to true will override any size prop on XUIDropDown.* <br>
+   * **Note:** *Setting this to true will override any size prop on `XUIDropdown`.* <br>
    * XUI design has also decided to keep a minimum width on the dropdown,
    * so dropdown may not match the width of narrow triggers.
    */

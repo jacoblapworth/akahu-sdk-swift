@@ -10,11 +10,11 @@ interface Props {
    */
   className?: string;
   /**
-   * Maps to the `closeOnSelect` property of the `XUIDropDownToggled` component.
+   * Maps to the `closeOnSelect` property of the `XUIDropdownToggled` component.
    */
   closeOnSelect?: boolean;
   /**
-   * Maps to the `closeOnTab` property of the `XUIDropDownToggled` component.
+   * Maps to the `closeOnTab` property of the `XUIDropdownToggled` component.
    */
   closeOnTab?: boolean;
   /**
@@ -113,7 +113,7 @@ interface Props {
   /**
    * Setting to `false` will allow the dropdown's width to be set independent of the trigger width.
    *
-   * **Note:** *Setting this to `true` will override any size prop on `XUIDropDown`.*
+   * **Note:** *Setting this to `true` will override any size prop on `XUIDropdown`.*
    *
    * XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match
    * the width of narrow triggers.
@@ -193,7 +193,7 @@ export default class XUIAutocompleter extends React.PureComponent<Props> {
   /**
    * Set the state as hidden in order to toggle the list closed.
    */
-  closeDropDown(): void;
+  closeDropdown(): void;
   /**
    * Focuses the text input.
    */
@@ -205,7 +205,7 @@ export default class XUIAutocompleter extends React.PureComponent<Props> {
   /**
    * Set the state as not hidden in order to toggle the list open.
    */
-  openDropDown(): void;
+  openDropdown(): void;
   /**
    * If an onHighlightChange prop is passed to the completer, it's called passing in the highlighted
    * item.

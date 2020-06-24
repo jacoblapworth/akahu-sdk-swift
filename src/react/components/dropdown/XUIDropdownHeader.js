@@ -21,9 +21,9 @@ import { ns } from '../helpers/xuiClassNamespace';
  * Child nodes are also allowed for extra customisation.
  *
  * @export
- * @function XUIDropDownHeader
+ * @function XUIDropdownHeader
  */
-const XUIDropDownHeader = ({
+const XUIDropdownHeader = ({
   children,
   className,
   qaHook,
@@ -144,7 +144,7 @@ const XUIDropDownHeader = ({
   );
 };
 
-XUIDropDownHeader.propTypes = {
+XUIDropdownHeader.propTypes = {
   qaHook: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
@@ -195,4 +195,4 @@ XUIDropDownHeader.propTypes = {
   rightContent: PropTypes.node,
 };
 
-export default React.memo(XUIDropDownHeader);
+export default React.memo(XUIDropdownHeader);

@@ -98,7 +98,7 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-export default class XUIDropDown extends React.PureComponent<Props> {
+export default class XUIDropdown extends React.PureComponent<Props> {
   /**
    * Used to programmatically clear the highlighted item.
    *

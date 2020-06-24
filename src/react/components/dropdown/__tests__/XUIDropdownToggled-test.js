@@ -2,8 +2,8 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import XUIDropDown from '../XUIDropDown';
-import XUIDropDownToggled from '../XUIDropDownToggled';
+import XUIDropdown from '../XUIDropdown';
+import XUIDropdownToggled from '../XUIDropdownToggled';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
@@ -24,9 +24,9 @@ const getTrigger = props => (
   </button>
 );
 
-const getDropDown = props => {
+const getDropdown = props => {
   return (
-    <XUIDropDown restrictFocus={false}>
+    <XUIDropdown restrictFocus={false}>
       <Picklist>
         <Pickitem id="1">Im the whole shabang!</Pickitem>
         <Pickitem id="2">Earnings from Busking</Pickitem>
@@ -34,25 +34,25 @@ const getDropDown = props => {
         <Pickitem id="4">Unnecessary Costs</Pickitem>
         <Pickitem id="5">Absolutely Necessary Costs</Pickitem>
       </Picklist>
-    </XUIDropDown>
+    </XUIDropdown>
   );
 };
 
-const testDropDown = (props = {}) => {
+const testDropdown = (props = {}) => {
   return (
-    <XUIDropDownToggled
+    <XUIDropdownToggled
       className="testClass"
       forceDesktop={true}
       onOpen={() => (openCalled = true)}
       onClose={() => (closeCalled = true)}
       trigger={getTrigger()}
-      dropdown={getDropDown()}
+      dropdown={getDropdown()}
       {...props}
     />
   );
 };
 
-describe('<XUIDropDownToggled />', () => {
+describe('<XUIDropdownToggled />', () => {
   beforeEach(() => {
     openCalled = false;
     closeCalled = false;
@@ -61,13 +61,13 @@ describe('<XUIDropDownToggled />', () => {
   describe('dropdown rendered closed', function () {
     let wrapper;
     beforeEach(function () {
-      wrapper = mount(testDropDown(), {
+      wrapper = mount(testDropdown(), {
         wrappingComponent: ({ children }) => <div className="test-container">{children}</div>,
       });
     });
 
     it('renders the list closed', () => {
-      expect(wrapper.instance().isDropDownOpen()).toBeFalsy();
+      expect(wrapper.instance().isDropdownOpen()).toBeFalsy();
     });
 
     it('renders the list open on click of the trigger', () => {
@@ -84,7 +84,7 @@ describe('<XUIDropDownToggled />', () => {
       wrapper.find('.xui-button').simulate('click');
 
       expect(openCalled).toBeTruthy();
-      expect(wrapper.instance().isDropDownOpen()).toBeTruthy();
+      expect(wrapper.instance().isDropdownOpen()).toBeTruthy();
     });
 
     it('calls the onClose prop after the list is closed', () => {
@@ -99,7 +99,7 @@ describe('<XUIDropDownToggled />', () => {
       const trigger = wrapper.find('.xui-button');
       trigger.simulate('keyDown', { key: eventKeyValues.down, keyCode: 40, which: 40 });
 
-      expect(wrapper.instance().isDropDownOpen()).toBeTruthy();
+      expect(wrapper.instance().isDropdownOpen()).toBeTruthy();
     });
 
     it('opens the list when space is pressed from the trigger', () => {
@@ -113,21 +113,21 @@ describe('<XUIDropDownToggled />', () => {
   describe('dropdown rendered open', () => {
     let wrapper;
     beforeEach(() => {
-      wrapper = mount(testDropDown({ isHidden: false }));
+      wrapper = mount(testDropdown({ isHidden: false }));
     });
 
     it('closes the list when the esc key is pressed', () => {
-      expect(wrapper.instance().isDropDownOpen()).toBeTruthy();
+      expect(wrapper.instance().isDropdownOpen()).toBeTruthy();
       wrapper.find('.xui-button').simulate('keyDown', { key: eventKeyValues.tab, keyCode: 9 });
 
-      expect(wrapper.instance().isDropDownOpen()).toBeFalsy();
+      expect(wrapper.instance().isDropdownOpen()).toBeFalsy();
     });
 
     it('closes the list when the tab key is pressed', () => {
-      expect(wrapper.instance().isDropDownOpen()).toBeTruthy();
+      expect(wrapper.instance().isDropdownOpen()).toBeTruthy();
       wrapper.find('.xui-button').simulate('keyDown', { key: eventKeyValues.escape, keyCode: 27 });
 
-      expect(wrapper.instance().isDropDownOpen()).toBeFalsy();
+      expect(wrapper.instance().isDropdownOpen()).toBeFalsy();
     });
 
     it('expects a matching id on the dropdown and referenced by aria attributes', () => {
@@ -140,10 +140,10 @@ describe('<XUIDropDownToggled />', () => {
 
   it('should render a passed qaHook as an auotmation id', () => {
     const automationId = renderer.create(
-      <XUIDropDownToggled
+      <XUIDropdownToggled
         qaHook="ddt-example"
         trigger={getTrigger({ qaHook: 'ddt-example--trigger' })}
-        dropdown={getDropDown()}
+        dropdown={getDropdown()}
       />,
     );
 
@@ -157,7 +157,7 @@ describe('<XUIDropDownToggled />', () => {
 
       wrapper.closest('body').find('.xui-pickitem').first().simulate('click');
 
-      expect(wrapper.node.isDropDownOpen()).toBeFalsy();
+      expect(wrapper.node.isDropdownOpen()).toBeFalsy();
     });
 
     it('does not close the dropdown on select if closeOnSelect is set to false', function () {
@@ -165,7 +165,7 @@ describe('<XUIDropDownToggled />', () => {
 
       wrapper.find('.xui-pickitem').first().simulate('click');
 
-      expect(wrapper.node.isDropDownOpen()).toBeTruthy();
+      expect(wrapper.node.isDropdownOpen()).toBeTruthy();
     });
   });
 });

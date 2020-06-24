@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TabDropDown /> renders correctly 1`] = `
+exports[`<TabDropdown /> renders correctly 1`] = `
 <div
   className="custom-class xui-dropdown--toggledwrapper"
   data-ref="toggled-wrapper"
@@ -9,7 +9,7 @@ exports[`<TabDropDown /> renders correctly 1`] = `
   <li
     aria-selected={null}
     className="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium"
-    id="tabDropDownTrigger-pi1"
+    id="tabDropdownTrigger-pi1"
     role="option"
   >
     <button

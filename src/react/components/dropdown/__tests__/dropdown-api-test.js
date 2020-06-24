@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import XUIDropDown from '../XUIDropDown';
+import XUIDropdown from '../XUIDropdown';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import div from './helpers/container';
@@ -12,17 +12,17 @@ let wrapper;
 let click = false;
 const setClick = () => (click = true);
 
-describe('<XUIDropDown /> API Methods', () => {
+describe('<XUIDropdown /> API Methods', () => {
   beforeEach(() => {
     click = false;
     wrapper = mount(
-      <XUIDropDown className="test">
+      <XUIDropdown className="test">
         <Picklist>
           <Pickitem onClick={setClick} id="item1">
             Item 1
           </Pickitem>
         </Picklist>
-      </XUIDropDown>,
+      </XUIDropdown>,
     );
   });
 
@@ -32,7 +32,7 @@ describe('<XUIDropDown /> API Methods', () => {
 
   it('handles an undefined or null menu item', () => {
     wrapper = mount(
-      <XUIDropDown>
+      <XUIDropdown>
         <Picklist>
           <Pickitem onClick={setClick} id="item1">
             Item 1
@@ -45,7 +45,7 @@ describe('<XUIDropDown /> API Methods', () => {
           </Pickitem>
           {null}
         </Picklist>
-      </XUIDropDown>,
+      </XUIDropdown>,
       { attachTo: div },
     );
 

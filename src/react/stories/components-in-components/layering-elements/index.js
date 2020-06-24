@@ -3,7 +3,7 @@ import React, { Component, PureComponent, Fragment } from 'react';
 
 // Components we need to test with
 import XUIModal, { XUIModalBody, XUIModalHeader } from '../../../modal';
-import XUIDropDown, { XUIDropDownToggled } from '../../../dropdown';
+import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
 import XUIButton, { XUIIconButton } from '../../../button';
 import XUITextInput from '../../../textinput';
@@ -30,9 +30,9 @@ const buildDropdownPicklist = items => {
     </Pickitem>
   ));
   return (
-    <XUIDropDown>
+    <XUIDropdown>
       <Picklist>{pickItems}</Picklist>
-    </XUIDropDown>
+    </XUIDropdown>
   );
 };
 
@@ -164,7 +164,7 @@ test.add(nonBackstopStoryNames.layeringElements, () => {
             >
               Hello. I am a clue.
             </XUITooltip>
-            <XUIDropDownToggled
+            <XUIDropdownToggled
               closeOnSelect={false}
               dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
               trigger={buildTrigger('Short Trigger')}
@@ -180,14 +180,14 @@ test.add(nonBackstopStoryNames.layeringElements, () => {
               >
                 Hello. I am a clue.
               </XUITooltip>
-              <XUIDropDownToggled
+              <XUIDropdownToggled
                 closeOnSelect={false}
                 dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
                 trigger={buildTrigger('Short Trigger')}
               />
               This is some Modal content.
               <XUITextInput isLabelHidden label="Input label" />
-              <XUIDropDownToggled
+              <XUIDropdownToggled
                 dropdown={buildDropdownPicklist(lists.MedListMedItems)}
                 trigger={buildTrigger('Medium Dropdown Trigger')}
               />

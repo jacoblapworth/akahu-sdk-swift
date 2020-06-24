@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import XUIDropDownHeader from '../XUIDropDownHeader';
+import XUIDropdownHeader from '../XUIDropdownHeader';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -14,28 +14,28 @@ const defaultProps = {
   backButtonAriaLabel: 'Back',
 };
 
-describe('<XUIDropDownHeader/>', () => {
+describe('<XUIDropdownHeader/>', () => {
   it('should render with an automation id when passed in the qaHook prop', () => {
-    const qaHook = renderer.create(<XUIDropDownHeader {...defaultProps} qaHook="test-qahook" />);
+    const qaHook = renderer.create(<XUIDropdownHeader {...defaultProps} qaHook="test-qahook" />);
 
     expect(qaHook).toMatchSnapshot();
   });
 
   it('should render with a title if one is present', () => {
-    const title = renderer.create(<XUIDropDownHeader {...defaultProps} title="Title" />);
+    const title = renderer.create(<XUIDropdownHeader {...defaultProps} title="Title" />);
 
     expect(title).toMatchSnapshot();
   });
 
   it('should render with additional classes on the main element if className is provided', () => {
-    const title = renderer.create(<XUIDropDownHeader {...defaultProps} className="classy" />);
+    const title = renderer.create(<XUIDropdownHeader {...defaultProps} className="classy" />);
 
     expect(title).toMatchSnapshot();
   });
 
   it('should render a back button if back button click handler is provided', () => {
     const backButton = renderer.create(
-      <XUIDropDownHeader {...defaultProps} onBackButtonClick={() => {}} />,
+      <XUIDropdownHeader {...defaultProps} onBackButtonClick={() => {}} />,
     );
 
     expect(backButton).toMatchSnapshot();
@@ -43,7 +43,7 @@ describe('<XUIDropDownHeader/>', () => {
 
   it('should render leftContent when provided', () => {
     const leftContent = renderer.create(
-      <XUIDropDownHeader {...defaultProps} leftContent={<div className="test">content</div>} />,
+      <XUIDropdownHeader {...defaultProps} leftContent={<div className="test">content</div>} />,
     );
 
     expect(leftContent).toMatchSnapshot();
@@ -51,7 +51,7 @@ describe('<XUIDropDownHeader/>', () => {
 
   it('should render rightContent when provided', () => {
     const rightContent = renderer.create(
-      <XUIDropDownHeader {...defaultProps} rightContent={<div className="test">content</div>} />,
+      <XUIDropdownHeader {...defaultProps} rightContent={<div className="test">content</div>} />,
     );
 
     expect(rightContent).toMatchSnapshot();
@@ -59,7 +59,7 @@ describe('<XUIDropDownHeader/>', () => {
 
   it('should render primary button with default text when onPrimaryButtonClick is provided', () => {
     const primaryClick = renderer.create(
-      <XUIDropDownHeader {...defaultProps} onPrimaryButtonClick={noop} />,
+      <XUIDropdownHeader {...defaultProps} onPrimaryButtonClick={noop} />,
     );
 
     expect(primaryClick).toMatchSnapshot();
@@ -67,7 +67,7 @@ describe('<XUIDropDownHeader/>', () => {
 
   it('should render secondary button with default text when onSecondaryButtonClick is provided', () => {
     const secondaryClick = renderer.create(
-      <XUIDropDownHeader {...defaultProps} onSecondaryButtonClick={noop} />,
+      <XUIDropdownHeader {...defaultProps} onSecondaryButtonClick={noop} />,
     );
 
     expect(secondaryClick).toMatchSnapshot();
@@ -75,7 +75,7 @@ describe('<XUIDropDownHeader/>', () => {
 
   it('should render primary button with custom content when onPrimaryButtonClick and primaryButtonContent are provided', () => {
     const primaryContent = renderer.create(
-      <XUIDropDownHeader
+      <XUIDropdownHeader
         {...defaultProps}
         onPrimaryButtonClick={noop}
         primaryButtonContent={'Test'}
@@ -87,7 +87,7 @@ describe('<XUIDropDownHeader/>', () => {
 
   it('should render secondary button with custom content when onSecondaryButtonClick and secondaryButtonContent are provided', () => {
     const secondaryContent = renderer.create(
-      <XUIDropDownHeader
+      <XUIDropdownHeader
         {...defaultProps}
         onSecondaryButtonClick={noop}
         secondaryButtonContent={'Test'}
@@ -99,7 +99,7 @@ describe('<XUIDropDownHeader/>', () => {
 
   it('should render all header contents in the correct order', () => {
     const allContents = renderer.create(
-      <XUIDropDownHeader
+      <XUIDropdownHeader
         {...defaultProps}
         onBackButtonClick={noop}
         leftContent={<div>left content</div>}

@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components we need to test with
-import XUIDropDown, { XUIDropDownToggled } from '../../../dropdown';
+import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
 import XUIButton from '../../../button';
 import XUITextInput from '../../../textinput';
@@ -107,7 +107,7 @@ test.add(storyNames.formLayout, () => {
     }
 
     onSearchChangeHandler(value) {
-      this._autocompleter.openDropDown();
+      this._autocompleter.openDropdown();
       this.setState(prevState => ({
         value,
         people: filterPeople(people, value, prevState.selectedPeople),
@@ -233,10 +233,10 @@ test.add(storyNames.formLayout, () => {
 
               <InputLabel>Choose a Food</InputLabel>
               <div className="xui-textinputgroup xui-field-layout xui-u-flex">
-                <XUIDropDownToggled
+                <XUIDropdownToggled
                   className="xui-textinputwrapper"
                   dropdown={
-                    <XUIDropDown
+                    <XUIDropdown
                       onSelect={value => this.setState({ ...this.state, foodType: value })}
                     >
                       <Picklist>
@@ -251,7 +251,7 @@ test.add(storyNames.formLayout, () => {
                           </Pickitem>
                         ))}
                       </Picklist>
-                    </XUIDropDown>
+                    </XUIDropdown>
                   }
                   onOpen={() => {}}
                   trigger={<XUIButton hasCaret>{foodType || 'Food Type'}</XUIButton>}

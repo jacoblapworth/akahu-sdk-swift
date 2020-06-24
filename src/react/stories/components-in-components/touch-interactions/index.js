@@ -18,7 +18,7 @@ import Picklist, { Pickitem, PicklistHeader } from '../../../picklist';
 import XUIIcon from '../../../icon';
 import XUIPill from '../../../pill';
 import XUITextInput, { XUITextInputSideElement } from '../../../textinput';
-import DropDownDateRange from '../helpers/daterangedropdown';
+import DropdownDateRange from '../helpers/daterangedropdown';
 import view from '@xero/xui-icon/icons/view';
 import { nonBackstopStoryNames, compositionKind } from '../tests';
 import {
@@ -124,7 +124,7 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                     </XUIButton>
                   }
                 />
-                <DropDownDateRange size={overallSize} />
+                <DropdownDateRange size={overallSize} />
               </XUIPanelSection>
               {/* Hover interaction */}
               <XUIPanelSection className="xui-padding-xlarge" id="hover">

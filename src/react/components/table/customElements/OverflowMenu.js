@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import overflowPathData from '@xero/xui-icon/icons/overflow';
-import XUIDropDown from '../../dropdown/XUIDropDown';
-import XUIDropDownToggled from '../../dropdown/XUIDropDownToggled';
+import XUIDropdown from '../../dropdown/XUIDropdown';
+import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
 import Picklist from '../../picklist/Picklist';
 import XUIIconButton from '../../button/XUIIconButton';
 import { NAME_SPACE } from '../helpers/constants';
@@ -12,17 +12,17 @@ const OverflowMenu = ({ children, overflowMenuTitle }) => {
     <XUIIconButton ariaLabel={title} icon={overflowPathData} title={title} />
   );
 
-  const createDropDown = items => (
-    <XUIDropDown>
+  const createDropdown = items => (
+    <XUIDropdown>
       <Picklist>{items}</Picklist>
-    </XUIDropDown>
+    </XUIDropdown>
   );
 
   const trigger = createTrigger(overflowMenuTitle);
-  const dropdown = createDropDown(children);
+  const dropdown = createDropdown(children);
 
   return (
-    <XUIDropDownToggled
+    <XUIDropdownToggled
       className={`${NAME_SPACE}--overflowmenu-body`}
       dropdown={dropdown}
       isLegacyDisplay

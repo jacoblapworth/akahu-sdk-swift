@@ -37,14 +37,25 @@ Following classes have been **removed** because left space isn't needed for alig
 ## XUI React components
 
 - A number of React components have been converted from class-based to functional. You may need to make changes accordingly. Here’s [the list of affected components and more information about the change](https://docs.google.com/document/d/1x2vwW-cYZaX2hVmDk4rQBtoP-pp6Q2PNJbFY5-n7t78/edit).
-- We’ve renamed some XUI components to standardise the naming convention.
+- We’ve renamed some XUI components and associated props and public methods to standardise the naming convention.
   - Renamed components:
-    - `DropDown` → `XUIDropDown`
-    - `DropDownToggled` → `XUIDropDownToggled`
-    - `DropDownHeader` → `XUIDropDownHeader`
-    - `DropDownFooter` → `XUIDropDownFooter`
-    - `DropDownPanel` → `XUIDropDownPanel`
-    - `NestedDropDown` → `XUINestedDropDown`
+    - `DropDown` → `XUIDropdown`
+    - `DropDownToggled` → `XUIDropdownToggled`
+    - `DropDownHeader` → `XUIDropdownHeader`
+    - `DropDownFooter` → `XUIDropdownFooter`
+    - `DropDownPanel` → `XUIDropdownPanel`
+    - `NestedDropDown` → `XUINestedDropdown`
+  - Renamed public methods:
+    - `XUIAutocompleter` and `XUIAutocompleterSecondarySearch`:
+      - `closeDropDown` → `closeDropdown`
+      - `openDropDown` → `openDropdown`
+    - `XUIDropdownToggled`
+      - `closeDropDown` → `closeDropdown`
+      - `isDropDownOpen` → `isDropdownOpen`
+      - `openDropDown` → `openDropdown`
+      - `repositionDropDown` → `repositionDropdown`
+    - `SelectBox`
+      - `isDropDownOpen` → `isDropdownOpen`
 - `XUIStepper`
   - Updated spacing to match other components and 4px grid
 - `XUIButton`, `XUISecondaryButton`, `XUISplitButtonGroup`
@@ -72,7 +83,7 @@ Following classes have been **removed** because left space isn't needed for alig
 
 _Note. The codemod will resolve the prop differences automatically when run._
 
-- `NestedDropDown` prop `currentPanel` has been renamed to `currentPanelId`.
+- `XUINestedDropdown` prop `currentPanel` has been renamed to `currentPanelId`.
 
 - `XUIButton` now has `leftIcon` and `rightIcon` props that users can add Icons to display on a button. Only one of these props can be used at a time, and if both are provided only the `leftIcon` will be shown, along with an error fired.
 
@@ -82,7 +93,7 @@ _Note. The codemod will resolve the prop differences automatically when run._
   - XUIAutocompleter and XUIAutocompleterSecondarySearch `loadingLabel` has been renamed to `loadingAriaLabel`
   - XUIButton and XUISecondaryButton `loadingLabel` has been renamed to `loadingAriaLabel`
   - XUIBarChart `loadingLabel` has been renamed to `loadingAriaLabel`
-  - DropDownHeader `backButtonLabel` has been renamed to `backButtonAriaLabel`
+  - XUIDropdownHeader `backButtonLabel` has been renamed to `backButtonAriaLabel`
   - XUITable
     - `loaderLabel` has been renamed to `loaderAriaLabel`
     - `checkOneRowLabel` has been renamed to`checkOneRowAriaLabel`
@@ -93,8 +104,8 @@ _Note. The codemod will resolve the prop differences automatically when run._
 
 ### Notable minor and patch changes since 16.0.0
 
-- `DropDown`, `DropDownPanel`, `StatefulPicklist`
-  - A new `clearHighlightedItem` method has been added to allow clearing of highlighted items in a DropDown.
+- `XUIDropdown`, `XUIDropdownPanel`, `StatefulPicklist`
+  - A new `clearHighlightedItem` method has been added to allow clearing of highlighted items in a dropdown.
 - Components exported as default export can now be imported using named import as well as default one. Affected components are:
   - XUIAccordion
   - XUIAutocompleter
@@ -104,7 +115,7 @@ _Note. The codemod will resolve the prop differences automatically when run._
   - XUICapsule
   - XUICheckbox
   - XUIDatePicker
-  - XUIDropDown
+  - XUIDropdown
   - XUIIcon
   - XUIIllustration
   - XUIIsolationHeader

@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import XUIDropDown from './XUIDropDown';
-import XUIDropDownLayout from './XUIDropDownLayout';
+import XUIDropdown from './XUIDropdown';
+import XUIDropdownLayout from './XUIDropdownLayout';
 import compose from '../helpers/compose';
 import { baseClass, fixedWidthDropdownSizes } from './private/constants';
 
 /**
  * <strong>BETA</strong> This component is still under active development and its API may change.
  *
- * `XUINestedDropDown` is a `XUIDropDown` replacement used when a user workflow will take place inside of the
+ * `XUINestedDropdown` is a `XUIDropdown` replacement used when a user workflow will take place inside of the
  * dropdown.  Multiple panels are added as children and the active panel's ID is a prop on this
  * component.
  *
  * @export
- * @class XUINestedDropDown
- * @extends {XUIDropDown}
+ * @class XUINestedDropdown
+ * @extends {XUIDropdown}
  */
-export default class XUINestedDropDown extends XUIDropDown {
+export default class XUINestedDropdown extends XUIDropdown {
   componentDidUpdate(prevProps, prevState) {
     super.componentDidUpdate(prevProps, prevState);
     const { currentPanelId, onPanelChange } = this.props;
@@ -75,7 +75,7 @@ export default class XUINestedDropDown extends XUIDropDown {
     });
 
     return (
-      <XUIDropDownLayout
+      <XUIDropdownLayout
         animateClosed={animateClosed}
         animateOpen={animateOpen}
         className={dropdownClasses}
@@ -90,12 +90,12 @@ export default class XUINestedDropDown extends XUIDropDown {
         style={style}
       >
         {childrenToRender}
-      </XUIDropDownLayout>
+      </XUIDropdownLayout>
     );
   }
 }
 
-XUINestedDropDown.propTypes = {
+XUINestedDropdown.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   qaHook: PropTypes.string,
@@ -130,7 +130,7 @@ XUINestedDropDown.propTypes = {
   /** The `panelId` property of the panel which should currently be open */
   currentPanelId: PropTypes.string,
 
-  /** Callback for when the open `XUIDropDownPanel` changes. Receives the name of the selected panel,
+  /** Callback for when the open `XUIDropdownPanel` changes. Receives the name of the selected panel,
    * and the previously selected panel. */
   onPanelChange: PropTypes.func,
 
@@ -154,7 +154,7 @@ XUINestedDropDown.propTypes = {
   onOpenAnimationEnd: PropTypes.func,
 };
 
-XUINestedDropDown.defaultProps = {
+XUINestedDropdown.defaultProps = {
   ignoreKeyboardEvents: [],
   isHidden: false,
   hasKeyboardEvents: true,

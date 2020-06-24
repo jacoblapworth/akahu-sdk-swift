@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIDropDownToggled /> should render a passed qaHook as an auotmation id 1`] = `
+exports[`<XUIDropdownToggled /> should render a passed qaHook as an auotmation id 1`] = `
 <div
   className="xui-dropdown--toggledwrapper"
   data-automationid="ddt-example"

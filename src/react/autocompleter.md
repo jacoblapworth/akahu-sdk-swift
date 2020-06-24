@@ -107,9 +107,9 @@ class WrapPillsExample extends Component {
   onSearchChangeHandler(value) {
     const invalidInput = !!value.match(/[\!\.\^%&#]/);
     if (invalidInput) {
-      this.completer.current.closeDropDown();
+      this.completer.current.closeDropdown();
     } else {
-      this.completer.current.openDropDown();
+      this.completer.current.openDropdown();
     }
     this.setState({
       value,
@@ -283,7 +283,7 @@ class DisableWrapPills extends Component {
   }
 
   onSearchChangeHandler(value) {
-    this.completer.current.openDropDown();
+    this.completer.current.openDropdown();
     this.setState(prevState => ({ value }));
   }
 
@@ -416,7 +416,7 @@ class SingleSelectExample extends Component {
   }
 
   onSearchChangeHandler(value) {
-    this.completer.current.openDropDown();
+    this.completer.current.openDropdown();
     this.setState(prevState => {
       const { selectedPersonId } = prevState;
       const textIsCurrentName = selectedPersonId != null && value === people[selectedPersonId].name;
@@ -589,9 +589,9 @@ class CustomKeyDownExample extends Component {
   onSearchChangeHandler(value) {
     const invalidInput = !!value.match(/[\!\.\^%&#]/);
     if (invalidInput) {
-      this.completer.current.closeDropDown();
+      this.completer.current.closeDropdown();
     } else {
-      this.completer.current.openDropDown();
+      this.completer.current.openDropdown();
     }
     this.setState({
       value,

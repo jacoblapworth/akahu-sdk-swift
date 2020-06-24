@@ -23,7 +23,7 @@ export const createYAxisLabelFormatThunk = ({ yAxisMaxValue }) => {
 export const createYAxisTickValues = ({ yAxisHeight, maxValue, minValue }) => {
   const minPlusMax = forceValuePositive(minValue) + (maxValue > 0 ? maxValue : 0);
 
-  // NOTE: Does not include the "zero" based label which is handles by Victory as
+  // NOTE: Does not include the "zero" based label which is handled by Victory as
   // a "special" include.
   const totalLabels = Math.floor(yAxisHeight / Y_AXIS_MIN_PADDING);
 
@@ -36,10 +36,27 @@ export const createYAxisTickValues = ({ yAxisHeight, maxValue, minValue }) => {
   // When there are no y-axis values the domain is [0, 0, 0] by default. This
   // blows up Victory so as a fallback (when there is no data and no custom y-axis
   // value) we simply count up by "1".
-  const increment = hasAnyYValue ? forceValuePositive(minValue) + yAxisMaxValue / totalLabels : -1;
-  const yAxisTickValues = createArray(totalLabels + 1).map(
-    (_, index) => yAxisMaxValue - increment * index,
-  );
+  const increment = hasAnyYValue ? yAxisMaxValue / totalLabels : -1;
 
-  return yAxisTickValues;
+  // If there are negative numbers, we should count from 0 upwards and 0 downwards,
+  // not go from max value -> 0. Otherwise it may potentially skip the 0 axis.
+  if (minValue < 0) {
+    const positiveNumbers = [0];
+    let positiveIndex = 0;
+    while (positiveIndex * increment < maxValue) {
+      positiveNumbers.push((positiveIndex + 1) * increment);
+      positiveIndex += 1;
+    }
+    const negativeNumbers = [];
+    let negativeIndex = 0;
+    while (negativeIndex * increment > minValue) {
+      negativeNumbers.push((negativeIndex - 1) * increment);
+      negativeIndex -= 1;
+    }
+    // Order it from top to bottom
+    const yAxisTickValues = positiveNumbers.reverse().concat(negativeNumbers);
+    return yAxisTickValues;
+  } else {
+    return createArray(totalLabels + 1).map((_, index) => yAxisMaxValue - increment * index);
+  }
 };

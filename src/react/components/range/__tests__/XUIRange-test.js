@@ -66,10 +66,7 @@ describe('Range', () => {
     const onClick = jest.fn();
     const comp = mount(<XUIRange id="rangeComponent" onClick={onClick} />);
 
-    comp
-      .find('#rangeComponent')
-      .first()
-      .simulate('click');
+    comp.find('#rangeComponent').first().simulate('click');
     setTimeout(() => {
       expect(onSelect.mock.calls.length).toEqual(1);
     }, 0);

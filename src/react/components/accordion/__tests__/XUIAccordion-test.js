@@ -100,10 +100,7 @@ describe('<XUIAccordion />', () => {
 
   it('should render only one item open by default', () => {
     // Multiple XUIAccordionItems can't have the same id because it will render all of them as open.
-    uuidv4
-      .mockReturnValue('abc')
-      .mockReturnValueOnce('001')
-      .mockReturnValueOnce('002');
+    uuidv4.mockReturnValue('abc').mockReturnValueOnce('001').mockReturnValueOnce('002');
 
     const component = mount(
       <XUIAccordion

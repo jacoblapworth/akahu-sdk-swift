@@ -83,10 +83,7 @@ describe('<NestedDropdown />', () => {
     const onSelect = jest.fn();
     const comp = mount(createComponent({ onSelect: onSelect }));
 
-    comp
-      .find('#option1')
-      .hostNodes()
-      .simulate('click');
+    comp.find('#option1').hostNodes().simulate('click');
     setTimeout(() => {
       expect(onSelect.mock.calls.length).toEqual(1);
     }, 0);
@@ -221,16 +218,10 @@ describe('<NestedDropdown />', () => {
     );
 
     expect(
-      currentPanel
-        .find('#panel-one')
-        .parent()
-        .hasClass('xui-dropdown-nested-is-hidden'),
+      currentPanel.find('#panel-one').parent().hasClass('xui-dropdown-nested-is-hidden'),
     ).toBeTruthy();
     expect(
-      currentPanel
-        .find('#panel-two')
-        .parent()
-        .hasClass('xui-dropdown-nested-is-hidden'),
+      currentPanel.find('#panel-two').parent().hasClass('xui-dropdown-nested-is-hidden'),
     ).toBeFalsy();
   });
 });

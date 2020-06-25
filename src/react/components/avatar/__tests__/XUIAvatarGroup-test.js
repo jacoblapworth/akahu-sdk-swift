@@ -9,7 +9,7 @@ import { classNames, sizeClassNames } from '../constants';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('XUIAvatarGroup', function() {
+describe('XUIAvatarGroup', function () {
   it('should have the correct class', () => {
     const wrapper = mount(
       <XUIAvatarGroup>
@@ -22,7 +22,7 @@ describe('XUIAvatarGroup', function() {
     expect(node.classList).toContain(classNames.group);
   });
 
-  it('should render child avatars', function() {
+  it('should render child avatars', function () {
     const wrapper = mount(
       <XUIAvatarGroup>
         <XUIAvatar size="small" value="HAI" />
@@ -67,7 +67,7 @@ describe('XUIAvatarGroup', function() {
     expect(node2.classList).toContain(sizeClassNames.small);
   });
 
-  it('should render a counter if the maxAvatars property is provided', function() {
+  it('should render a counter if the maxAvatars property is provided', function () {
     const wrapper = mount(
       <div>
         <XUIAvatarGroup maxAvatars={1}>

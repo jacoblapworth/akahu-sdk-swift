@@ -57,10 +57,7 @@ describe('<PicklistContainer />', () => {
       const wrapper = setup({ onOpen: onOpenMock });
 
       // Act
-      wrapper
-        .find('NestedPicklistContainer')
-        .instance()
-        .open();
+      wrapper.find('NestedPicklistContainer').instance().open();
 
       // Assert
       expect(onOpenMock).toBeCalledTimes(1);
@@ -71,10 +68,7 @@ describe('<PicklistContainer />', () => {
 
       const wrapper = setup({ isDefaultOpen: true, onClose: onCloseMock });
 
-      wrapper
-        .find('NestedPicklistContainer')
-        .instance()
-        .close();
+      wrapper.find('NestedPicklistContainer').instance().close();
 
       expect(onCloseMock).toBeCalledTimes(1);
     });
@@ -85,10 +79,7 @@ describe('<PicklistContainer />', () => {
       const wrapper = setup({ isDefaultOpen: true, onOpen: onOpenMock });
 
       // Act
-      wrapper
-        .find('NestedPicklistContainer')
-        .instance()
-        .open();
+      wrapper.find('NestedPicklistContainer').instance().open();
 
       // Assert
       expect(onOpenMock).not.toBeCalled();
@@ -100,10 +91,7 @@ describe('<PicklistContainer />', () => {
       const wrapper = setup({ isDefaultOpen: false, onClose: onCloseMock });
 
       // Act
-      wrapper
-        .find('NestedPicklistContainer')
-        .instance()
-        .close();
+      wrapper.find('NestedPicklistContainer').instance().close();
 
       // Assert
       expect(onCloseMock).not.toBeCalled();
@@ -132,10 +120,7 @@ describe('<PicklistContainer />', () => {
       const wrapper = setup({ isOpen: false, onOpen: onOpenMock });
 
       // Act
-      wrapper
-        .find('NestedPicklistContainer')
-        .instance()
-        .open();
+      wrapper.find('NestedPicklistContainer').instance().open();
 
       // Assert
       expect(onOpenMock).toBeCalled();
@@ -147,10 +132,7 @@ describe('<PicklistContainer />', () => {
       const wrapper = setup({ isOpen: true, onClose: onCloseMock });
 
       // Act
-      wrapper
-        .find('NestedPicklistContainer')
-        .instance()
-        .close();
+      wrapper.find('NestedPicklistContainer').instance().close();
 
       // Assert
       expect(onCloseMock).toBeCalled();
@@ -162,10 +144,7 @@ describe('<PicklistContainer />', () => {
       const wrapper = setup({ isOpen: true, onOpen: onOpenMock });
 
       // Act
-      wrapper
-        .find('NestedPicklistContainer')
-        .instance()
-        .open();
+      wrapper.find('NestedPicklistContainer').instance().open();
 
       // Assert
       expect(onOpenMock).not.toBeCalled();
@@ -177,10 +156,7 @@ describe('<PicklistContainer />', () => {
       const wrapper = setup({ isOpen: false, onClose: onCloseMock });
 
       // Act
-      wrapper
-        .find('NestedPicklistContainer')
-        .instance()
-        .close();
+      wrapper.find('NestedPicklistContainer').instance().close();
 
       // Assert
       expect(onCloseMock).not.toBeCalled();

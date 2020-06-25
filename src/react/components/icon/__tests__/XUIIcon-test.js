@@ -8,14 +8,14 @@ import renderer from 'react-test-renderer';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('XUIIcon', () => {
-  it('Should render with any additional classes provided through the className prop', function() {
+  it('Should render with any additional classes provided through the className prop', function () {
     const wrapper = mount(<XUIIcon icon={accessibility} className={'classyMcClassFace'} />);
     expect(wrapper.getDOMNode().getAttribute('class')).toEqual(
       expect.stringContaining('classyMcClassFace'),
     );
   });
 
-  it('Should render with the correct classes and dimensions', function() {
+  it('Should render with the correct classes and dimensions', function () {
     const wrapper = renderer.create(
       <div>
         <XUIIcon icon={accessibility} isBoxed size="xsmall" />
@@ -29,7 +29,7 @@ describe('XUIIcon', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('Should render with the correct rotation classes when rotations are provided', function() {
+  it('Should render with the correct rotation classes when rotations are provided', function () {
     const wrapper = mount(
       <div>
         <XUIIcon icon={accessibility} />
@@ -51,7 +51,7 @@ describe('XUIIcon', () => {
     expect(icons.at(3).hasClass('xui-icon-rotate-270')).toBeTruthy();
   });
 
-  it('Should render with the correct color class when color is provided', function() {
+  it('Should render with the correct color class when color is provided', function () {
     const wrapper = mount(
       <div>
         <XUIIcon icon={accessibility} />
@@ -97,7 +97,7 @@ describe('XUIIcon', () => {
     expect(icons.at(9).hasClass('xui-icon-color-white-muted')).toBeTruthy();
   });
 
-  it('Should render title and desc elements within the SVG element based on the props provided', function() {
+  it('Should render title and desc elements within the SVG element based on the props provided', function () {
     const wrapper = render(
       <XUIIcon icon={accessibility} title="Happy poop title 💩" desc="Happy poop desc 💩" />,
     );
@@ -110,12 +110,12 @@ describe('XUIIcon', () => {
     expect(desc.text()).toEqual('Happy poop desc 💩');
   });
 
-  it('Should render with role="presentation" on the path element by default', function() {
+  it('Should render with role="presentation" on the path element by default', function () {
     const wrapper = mount(<XUIIcon icon={accessibility} />);
     expect(wrapper.find('path').prop('role')).toEqual('presentation');
   });
 
-  it('Should render with the given role applied to the path element', function() {
+  it('Should render with the given role applied to the path element', function () {
     const wrapper = mount(<XUIIcon icon={accessibility} role="img" />);
     expect(wrapper.find('path').prop('role')).toEqual('img');
   });

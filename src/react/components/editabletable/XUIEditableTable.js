@@ -4,17 +4,21 @@ import cn from 'classnames';
 
 import { tableName } from './private/constants';
 import XUIEditableTableContext from './contexts/XUIEditableTableContext';
+import XUIIcon from '../icon/XUIIcon';
+import invalid from '@xero/xui-icon/icons/invalid';
 
 const XUIEditableTable = ({
   caption,
   children,
   className,
   columnWidths = [],
+  isInvalid,
   maxWidth,
   minWidth,
   qaHook,
   rowOptions,
   style,
+  validationMessage,
   ...spreadProps
 }) => {
   const tableRef = React.useRef();
@@ -29,8 +33,12 @@ const XUIEditableTable = ({
         }
       : style;
   return (
-    <div className={`${tableName}--wrapper`}>
-      <div className={cn(tableName, className)} ref={tableRef} style={wrapperStyle}>
+    <div className={cn(`${tableName}--wrapper`, className)}>
+      <div
+        className={cn(tableName, isInvalid && `${tableName}-is-invalid`)}
+        ref={tableRef}
+        style={wrapperStyle}
+      >
         <table {...spreadProps} className={`${tableName}--table`} data-automationid={qaHook}>
           {caption && <caption className={`${tableName}--caption`}>{caption}</caption>}
           {!!columnWidths.length && (
@@ -47,6 +55,12 @@ const XUIEditableTable = ({
           </XUIEditableTableContext.Provider>
         </table>
       </div>
+      {isInvalid && validationMessage && (
+        <div className={`${tableName}--validation`}>
+          <XUIIcon icon={invalid} />
+          {validationMessage}
+        </div>
+      )}
     </div>
   );
 };
@@ -85,9 +99,17 @@ XUIEditableTable.propTypes = {
     },
   }),
   columnWidths: PropTypes.arrayOf(PropTypes.string),
+  /**
+   * Used to style the table as invalid.
+   */
+  isInvalid: PropTypes.bool,
   maxWidth: PropTypes.string,
   minWidth: PropTypes.string,
   style: PropTypes.object,
+  /**
+   * Validation message to show under the table if `isInvalid` is true.
+   */
+  validationMessage: PropTypes.string,
 };
 
 export default XUIEditableTable;

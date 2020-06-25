@@ -3,6 +3,7 @@
 
 $xui-editabletable-shadow-size: $xui-s-standard;
 $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
+$xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to remove unwanted surrounding space
 
 @mixin xui-editabletablecell {
   @include xui-shadow-border-all($xui-standard-border-color);
@@ -32,6 +33,10 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   box-shadow: 0 0 0 1px $xui-standard-border-color inset;
   display: block;
   overflow-x: auto;
+
+  &-is-invalid {
+    @include xui-shadow-border-all($border-color: $xui-validation-invalid-color);
+  }
 }
 
 // The portal focus ring is put under this div and need a position: relative for portal to locate
@@ -55,6 +60,19 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
 
 .#{$ns}-editabletable--caption {
   @include xui-utility-hidden-visually;
+}
+
+.#{$ns}-editabletable--validation {
+  color: $xui-validation-invalid-color;
+  display: flex;
+  font-size: $xui-font-size-xsmall;
+  line-height: $xui-editabletable-invalid-icon-size;
+  padding-top: $xui-s-small / 2;
+  .#{$ns}-icon {
+    height: $xui-editabletable-invalid-icon-size;
+    margin-right: $xui-s-xsmall;
+    width: $xui-editabletable-invalid-icon-size;
+  }
 }
 
 .#{$ns}-editabletablehead,
@@ -144,9 +162,9 @@ $xui-editabletable-shadowcover-size: $xui-s-3xlarge;
   // Invalid
   &-is-invalid {
     outline: 1px solid $xui-textinput-invalid-border-color;
-    z-index: $xui-z-index-focus + 1;
     // transform fixes issue with next cell's hover outline overwriting previous cell's invalid outline
     transform: translate(0, 0);
+    z-index: $xui-z-index-focus + 1;
   }
 
   // Disabled

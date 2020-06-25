@@ -32,6 +32,8 @@ class EditableTablePlayground extends React.Component {
       rowOptions,
       maxWidth,
       minWidth,
+      cellsValidationMessage,
+      tableValidationMessage,
     } = this.props;
     let cellsCount = 0;
     const colWidths = columnWidths && columnWidths.split(/[\s,]/g);
@@ -39,9 +41,11 @@ class EditableTablePlayground extends React.Component {
       <XUIEditableTable
         caption={caption}
         columnWidths={colWidths}
+        isInvalid={invalidSecondColumn}
         maxWidth={maxWidth}
         minWidth={minWidth}
         rowOptions={rowOptions}
+        validationMessage={tableValidationMessage}
       >
         {hasHeader && (
           <XUIEditableTableHead>
@@ -66,7 +70,7 @@ class EditableTablePlayground extends React.Component {
                   randomiseContent,
                   isDisabled,
                   isInvalid,
-                  validationMessage: 'Example validation message',
+                  validationMessage: cellsValidationMessage,
                 });
               })}
             </XUIEditableTableRow>
@@ -83,6 +87,7 @@ storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <EditableTablePlayground
     caption={text('caption', '')}
+    cellsValidationMessage={text('Cells validationMessage', 'Example validation message')}
     cellType={select(
       'Cell type',
       [
@@ -109,6 +114,10 @@ storiesWithKnobs.add('Playground', () => (
       removeButtonAriaLabel: 'Remove row',
     }}
     rows={number('Rows', 3)}
+    tableValidationMessage={text(
+      'Table validationMessage',
+      '3 of the table cells have invalid data entered',
+    )}
   />
 ));
 

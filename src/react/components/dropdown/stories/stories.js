@@ -98,6 +98,25 @@ const nested = (
   </NestedDropDown>
 );
 
+const nestedScrollable = (
+  <NestedDropDown currentPanel="samplePicklist" isHidden={false}>
+    <DropDownPanel
+      header={
+        <DropDownHeader
+          backButtonLabel="Back"
+          onBackButtonClick={NOOP}
+          onSecondaryButtonClick={NOOP}
+          secondaryButtonContent="Cancel"
+          title="Example Title"
+        />
+      }
+      panelId="samplePicklist"
+    >
+      {picklist}
+    </DropDownPanel>
+  </NestedDropDown>
+);
+
 const sideBySide = (
   <div className="xui-panel xui-row-flex xui-padding-large">
     <DropDownToggled
@@ -178,6 +197,8 @@ function buildDropDown(ddSettings) {
   } else if (ddSettings.children === 'nested') {
     // Nested DropDowns do not get wrapped in a DropDown component.
     return nested;
+  } else if (ddSettings.children === 'nestedScrollable') {
+    return nestedScrollable;
   }
 
   if (ddSettings.headerAndFooter) {

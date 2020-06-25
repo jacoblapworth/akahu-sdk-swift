@@ -53,6 +53,16 @@ const variations = [
     },
     closeOnTab: false,
     closeOnSelect: false,
+    restrictToViewPort: false,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with scrollable NestedDropDown',
+    ddSettings: {
+      children: 'nestedScrollable',
+    },
+    closeOnTab: false,
+    closeOnSelect: false,
   },
   {
     storyKind: storiesWithVariationsKindName,

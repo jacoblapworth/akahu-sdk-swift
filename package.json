@@ -55,7 +55,7 @@
     "scrollbar-width": "3.1.1",
     "uuid": "8.1.0",
     "verge": "1.10.2",
-    "victory": "34.3.11"
+    "victory": "34.2.2"
   },
   "devDependencies": {
     "@babel/cli": "7.10.1",

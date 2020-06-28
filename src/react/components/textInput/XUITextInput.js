@@ -237,7 +237,7 @@ XUITextInput.propTypes = {
   /** Props to be spread onto the input element itself */
   inputProps: PropTypes.object,
   /** Sets a ref for the input element */
-  inputRef: PropTypes.func,
+  inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   /** Content to be added to the left of the input element. It is recommended that you use
    * `XUITextInputSideElement` for correct padding */
   leftElement: PropTypes.node,

@@ -1,3 +1,6 @@
+@use 'sass:list';
+@use 'sass:map';
+
 @import '../vars';
 
 .#{$ns}-popover {
@@ -91,11 +94,11 @@ $side-transforms: (
   right: translateX(1px),
 );
 
-@each $side in join($horizontal-sides, $vertical-sides) {
+@each $side in list.join($horizontal-sides, $vertical-sides) {
   .#{$ns}-popover--arrow-#{$side}:before {
     border-#{$side}: $xui-s-xsmall solid $xui-popover-arrow-border-color;
 
-    @each $adjacent-side in map-get($adjacent-sides, $side) {
+    @each $adjacent-side in map.get($adjacent-sides, $side) {
       border-#{$adjacent-side}: $xui-s-xsmall solid transparent;
     }
   }
@@ -103,11 +106,11 @@ $side-transforms: (
   .#{$ns}-popover--arrow-#{$side}:after {
     border-#{$side}: $xui-s-xsmall solid $xui-popover-bg-color;
 
-    @each $adjacent-side in map-get($adjacent-sides, $side) {
+    @each $adjacent-side in map.get($adjacent-sides, $side) {
       border-#{$adjacent-side}: $xui-s-xsmall solid transparent;
     }
 
-    transform: map-get($side-transforms, $side);
+    transform: map.get($side-transforms, $side);
   }
 }
 

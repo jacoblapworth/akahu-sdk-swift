@@ -49,4 +49,9 @@ type DerivedProps = Omit<
 >;
 type Props = BaseProps & DerivedProps;
 
-export default class XUIIconButton extends React.PureComponent<Props> {}
+export default class XUIIconButton extends React.PureComponent<Props> {
+  /**
+   * Root node to enable users to access as a ref.
+   */
+  rootNode: HTMLElement | null;
+}

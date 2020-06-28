@@ -161,4 +161,8 @@ export default class XUIAutocompleterSecondarySearch extends React.PureComponent
    * Focus the input element, if visible
    */
   focusInput(): void;
+  /**
+   * Root node to enable users to access as a ref.
+   */
+  rootNode: HTMLElement | null;
 }

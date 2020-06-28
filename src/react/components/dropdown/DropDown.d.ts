@@ -153,6 +153,10 @@ export default class DropDown extends React.PureComponent<Props> {
    */
   onKeyDown: React.KeyboardEventHandler;
   /**
+   * Root node to enable users to access as a ref.
+   */
+  rootNode: HTMLElement | null;
+  /**
    * Fired when either the enter key or space bar is pressed and calls onclick of the menu item
    * before closing the list.
    */

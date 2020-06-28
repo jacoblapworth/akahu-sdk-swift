@@ -120,12 +120,9 @@ describe('<XUIPagination/>', () => {
 
     const previousButton = wrapper.find('XUIIconButton').at(0);
     previousButton.simulate('click');
-    expect(
-      wrapper
-        .find('.xui-pagination--paging .xui-select--content')
-        .at(0)
-        .text(),
-    ).toContain('Page 2');
+    expect(wrapper.find('.xui-pagination--paging .xui-select--content').at(0).text()).toContain(
+      'Page 2',
+    );
   });
 
   it('should handle next button properly', () => {
@@ -133,12 +130,9 @@ describe('<XUIPagination/>', () => {
 
     const nextButton = wrapper.find('XUIIconButton').at(1);
     nextButton.simulate('click');
-    expect(
-      wrapper
-        .find('.xui-pagination--paging .xui-select--content')
-        .at(0)
-        .text(),
-    ).toContain('Page 3');
+    expect(wrapper.find('.xui-pagination--paging .xui-select--content').at(0).text()).toContain(
+      'Page 3',
+    );
   });
 
   it('should handle page select properly', () => {
@@ -147,18 +141,10 @@ describe('<XUIPagination/>', () => {
     pagingSelect.simulate('click');
     const firstPickitem = document.querySelector('.xui-pickitem button');
     firstPickitem.click();
-    expect(
-      wrapper
-        .find('.xui-pagination--paging .xui-select--content')
-        .at(0)
-        .text(),
-    ).toContain('Page 1');
-    expect(
-      wrapper
-        .find('.xui-pagination--items--count')
-        .at(0)
-        .text(),
-    ).toContain('1-10');
+    expect(wrapper.find('.xui-pagination--paging .xui-select--content').at(0).text()).toContain(
+      'Page 1',
+    );
+    expect(wrapper.find('.xui-pagination--items--count').at(0).text()).toContain('1-10');
   });
 
   it('should handle perPageCount select properly', () => {
@@ -170,17 +156,9 @@ describe('<XUIPagination/>', () => {
     const firstPickitem = document.querySelector('.xui-pickitem button');
     firstPickitem.click();
     expect(
-      wrapper
-        .find('.xui-pagination--items--select .xui-select--content')
-        .at(0)
-        .text(),
+      wrapper.find('.xui-pagination--items--select .xui-select--content').at(0).text(),
     ).toContain('10');
-    expect(
-      wrapper
-        .find('.xui-pagination--items--count')
-        .at(0)
-        .text(),
-    ).toContain('1-10');
+    expect(wrapper.find('.xui-pagination--items--count').at(0).text()).toContain('1-10');
   });
 
   it('should call onPageChange when page is selected', () => {
@@ -208,21 +186,15 @@ describe('<XUIPagination/>', () => {
   describe('as controlled', () => {
     it('should have an initial page 5', () => {
       wrapper = mount(<DefaultPagination page={5} />);
-      expect(
-        wrapper
-          .find('.xui-pagination--paging .xui-select--content')
-          .at(0)
-          .text(),
-      ).toContain('Page 5');
+      expect(wrapper.find('.xui-pagination--paging .xui-select--content').at(0).text()).toContain(
+        'Page 5',
+      );
     });
 
     it('should have an initial perPageCount 25', () => {
       wrapper = mount(<DefaultPagination perPageCount={25} />);
       expect(
-        wrapper
-          .find('.xui-pagination--items--select .xui-select--content')
-          .at(0)
-          .text(),
+        wrapper.find('.xui-pagination--items--select .xui-select--content').at(0).text(),
       ).toContain('25');
     });
   });

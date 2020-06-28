@@ -54,10 +54,7 @@ describe('<DropDown /> API Methods', () => {
   });
 
   it('fires the callback when you click on a pick item', () => {
-    wrapper
-      .find(Pickitem)
-      .find('button')
-      .simulate('click');
+    wrapper.find(Pickitem).find('button').simulate('click');
     expect(click).toBeTruthy();
   });
 });

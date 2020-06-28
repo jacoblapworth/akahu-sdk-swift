@@ -13,12 +13,12 @@ uuidv4.mockImplementation(() => 'testSelectBoxId');
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('SelectBox', function() {
+describe('SelectBox', function () {
   const options = ['Santa Cruz', 'Transition', 'Lapierre', 'Surly', 'Kona'];
   let select;
   let wasSelected = false;
 
-  beforeEach(function() {
+  beforeEach(function () {
     select = mount(
       <SelectBox
         label="Test Select Box"
@@ -50,25 +50,18 @@ describe('SelectBox', function() {
     );
   });
 
-  it('should place the defaultValue as the initial input value', function() {
+  it('should place the defaultValue as the initial input value', function () {
     // Have to remove the title of the SVG used to show the down arrow icon
-    const buttonValue = select
-      .find('button')
-      .first()
-      .text()
-      .replace('Toggle list', '');
+    const buttonValue = select.find('button').first().text().replace('Toggle list', '');
     expect(buttonValue).toEqual(options[0]);
   });
 
-  it('should open the dropdown on click of the button when it has children', function() {
-    select
-      .find('button.blah')
-      .first()
-      .simulate('click');
+  it('should open the dropdown on click of the button when it has children', function () {
+    select.find('button.blah').first().simulate('click');
     expect(select.instance().isDropDownOpen()).toBeTruthy();
   });
 
-  it('should not open the dropdown on click of the button when it does not have children', function() {
+  it('should not open the dropdown on click of the button when it does not have children', function () {
     select = mount(
       <SelectBox
         value="Test"
@@ -82,14 +75,11 @@ describe('SelectBox', function() {
       />,
     );
 
-    select
-      .find('button.blah')
-      .first()
-      .simulate('click');
+    select.find('button.blah').first().simulate('click');
     expect(select.instance().isDropDownOpen()).toBeFalsy();
   });
 
-  it('should not open the dropdown on click if the control is disabled', function() {
+  it('should not open the dropdown on click if the control is disabled', function () {
     select = mount(
       <SelectBox
         label="test"
@@ -106,33 +96,22 @@ describe('SelectBox', function() {
       </SelectBox>,
     );
 
-    select
-      .find('button.blah')
-      .first()
-      .simulate('click');
+    select.find('button.blah').first().simulate('click');
     expect(select.instance().isDropDownOpen()).toBeFalsy();
   });
 
-  it('should call onSelect on click of option', function() {
-    then(() =>
-      select
-        .find('.xui-pickitem')
-        .first()
-        .simulate('click'),
-    ).then(() => {
+  it('should call onSelect on click of option', function () {
+    then(() => select.find('.xui-pickitem').first().simulate('click')).then(() => {
       expect(wasSelected).toBeTruthy();
     });
   });
 
-  it('should open the dropdown on arrowDown', function() {
-    select
-      .find('button.blah')
-      .first()
-      .simulate('keydown', {
-        key: eventKeyValues.down,
-        keyCode: 40,
-        which: 40,
-      });
+  it('should open the dropdown on arrowDown', function () {
+    select.find('button.blah').first().simulate('keydown', {
+      key: eventKeyValues.down,
+      keyCode: 40,
+      which: 40,
+    });
 
     expect(select.instance().isDropDownOpen()).toBeTruthy();
   });

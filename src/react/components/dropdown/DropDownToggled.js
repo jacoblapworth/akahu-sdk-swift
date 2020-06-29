@@ -558,7 +558,7 @@ export default class DropDownToggled extends PureComponent {
     };
 
     const positionedDropdown =
-      isLegacyDisplay || this.state.isNarrowViewport ? (
+      isLegacyDisplay || (this.state.isNarrowViewport && !forceDesktop) ? (
         <Positioning {...commonPositioningProps} qaHook={qaHook && `${qaHook}--positioning`}>
           {clonedDropdown}
         </Positioning>

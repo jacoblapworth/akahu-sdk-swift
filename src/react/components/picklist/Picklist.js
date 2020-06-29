@@ -5,7 +5,7 @@ import { observe, unobserve } from '../helpers/resizeObserver';
 import '../helpers/xuiGlobalChecks';
 import { picklistClassName } from './private/constants';
 import Pickitem from './Pickitem';
-import { getPropsFromFirstChildOrList, horizontalOnlyProp } from './private/helpers';
+import { getPropsFromFirstChildOrList } from './private/helpers';
 import { userBreakpoints } from '../helpers/breakpoints';
 import NestedPicklistContainer from './NestedPicklistContainer';
 import SelectBoxOption from '../select-box/SelectBoxOption';
@@ -40,8 +40,9 @@ export default class Picklist extends Component {
   }
 
   setBreakpoint = () => {
+    const { swapAtBreakpoint } = this.props;
     this._breakpoints = {
-      normalPickitems: userBreakpoints[this.props.swapAtBreakpoint],
+      normalPickitems: userBreakpoints[swapAtBreakpoint] || swapAtBreakpoint,
     };
   };
 
@@ -143,12 +144,13 @@ Picklist.propTypes = {
   shouldTruncate: PropTypes.bool,
   /**
    * Defines the swap breakpoint (container width) between tab-styled dropdown and horizontal picklist.
-   * Supported breakpoints are `small` (600px), `medium` (800px), `large` (1000px), and `xlarge` (1200px).<br>
+   * Supported breakpoints are `small` (600px), `medium` (800px), `large` (1000px), and `xlarge` (1200px) or a custom `number` that represents the size of the swap breakpoint in pixels.<br>
    * ⚠️ *Horizontal picklists only*
    */
-  swapAtBreakpoint(...parameters) {
-    return horizontalOnlyProp(PropTypes.oneOf(Object.keys(userBreakpoints)), ...parameters);
-  },
+  swapAtBreakpoint: PropTypes.oneOfType([
+    PropTypes.oneOf(Object.keys(userBreakpoints)),
+    PropTypes.number,
+  ]),
 };
 
 Picklist.defaultProps = {

@@ -30,4 +30,9 @@ interface Props {
   secondaryProps?: React.LabelHTMLAttributes<HTMLLabelElement>;
 }
 
-export default class NestedPicklistTrigger extends React.PureComponent<Props> {}
+export default class NestedPicklistTrigger extends React.PureComponent<Props> {
+  /**
+   * Root node to enable users to access as a ref.
+   */
+  rootNode: HTMLElement | null;
+}

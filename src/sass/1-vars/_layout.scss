@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // @section Spacing
 // @description Spacing units used within XUI components
 // @type spacing
@@ -92,7 +94,7 @@ $xui-common-widths: (
 
 $xui-width-variants-dropdown: $xui-common-widths;
 
-$xui-popover-widths: map-remove($xui-common-widths, 'xsmall');
+$xui-popover-widths: map.remove($xui-common-widths, 'xsmall');
 
 $xui-modal-widths: (
   small: 300px,

@@ -47,4 +47,9 @@ interface Props {
   updateCurrentStep?: (index: number) => void;
 }
 
-export default class XUIStepper extends React.Component<Props> {}
+export default class XUIStepper extends React.Component<Props> {
+  /**
+   * Root node to enable users to access as a ref.
+   */
+  rootNode: HTMLElement | null;
+}

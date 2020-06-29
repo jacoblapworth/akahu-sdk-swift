@@ -112,4 +112,8 @@ export default class DropDownPanel extends React.PureComponent<Props> {
    * Determine if the currently focused DOM node is a child of this component.
    */
   hasFocus(): boolean;
+  /**
+   * Root node to enable users to access as a ref.
+   */
+  rootNode: HTMLElement | null;
 }

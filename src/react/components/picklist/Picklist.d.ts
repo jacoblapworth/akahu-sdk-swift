@@ -41,12 +41,12 @@ interface Props {
    */
   shouldTruncate?: boolean;
   /**
-   * Defines the swap breakpoint (container width) between tab-styled dropdown and horizontal
-   * picklist.
+   * Defines the swap breakpoint (container width) between tab-styled dropdown and horizontal picklist.
+   * Supported breakpoints are `small` (600px), `medium` (800px), `large` (1000px), and `xlarge` (1200px) or a custom `number` that represents the size of the swap breakpoint in pixels.
    *
    * ⚠️ *Horizontal picklists only*
    */
-  swapAtBreakpoint?: keyof typeof userBreakpoints;
+  swapAtBreakpoint?: keyof typeof userBreakpoints | number;
 }
 
 export default class Picklist extends React.Component<Props> {}

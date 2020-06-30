@@ -43,3 +43,5 @@ src/sass/tmp
 
 # NPM debug logs
 npm-debug.log.*
+
+.eslintrc.js

@@ -6,42 +6,35 @@ import '../helpers/xuiGlobalChecks';
 import XUIButton from '../button/XUIButton';
 import { ns } from '../helpers/xuiClassNamespace';
 
-export default function XUICapsule({
-  className,
-  href,
-  target,
-  children,
-  isLink,
-  onClick,
-  isValid,
-  onFocus,
-  onBlur,
-}) {
-  const isInteractive = href != null || typeof onClick === 'function';
-  const classNames = cn(
-    className,
-    `${ns}-capsule`,
-    isInteractive && `${ns}-capsule-interactive`,
-    !isValid && `${ns}-capsule-invalid`,
-  );
+const XUICapsule = React.forwardRef(
+  ({ className, href, target, children, isLink, onClick, isValid, onFocus, onBlur }, ref) => {
+    const isInteractive = href != null || typeof onClick === 'function';
+    const classNames = cn(
+      className,
+      `${ns}-capsule`,
+      isInteractive && `${ns}-capsule-interactive`,
+      !isValid && `${ns}-capsule-invalid`,
+    );
 
-  return isInteractive ? (
-    <XUIButton
-      className={classNames}
-      href={href}
-      isLink={isLink}
-      onBlur={onBlur}
-      onClick={onClick}
-      onFocus={onFocus}
-      target={target}
-      variant="unstyled"
-    >
-      {children}
-    </XUIButton>
-  ) : (
-    <span className={classNames}>{children}</span>
-  );
-}
+    return isInteractive ? (
+      <XUIButton
+        className={classNames}
+        href={href}
+        isLink={isLink}
+        onBlur={onBlur}
+        onClick={onClick}
+        onFocus={onFocus}
+        ref={ref}
+        target={target}
+        variant="unstyled"
+      >
+        {children}
+      </XUIButton>
+    ) : (
+      <span className={classNames}>{children}</span>
+    );
+  },
+);
 
 XUICapsule.propTypes = {
   children: PropTypes.node,
@@ -66,3 +59,5 @@ XUICapsule.defaultProps = {
   isValid: true,
   isLink: true,
 };
+
+export default XUICapsule;

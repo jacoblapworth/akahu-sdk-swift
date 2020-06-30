@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import star from '@xero/xui-icon/icons/star';
 import XUICheckbox from '../XUICheckbox';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 import div from './helpers/container';
 
@@ -12,10 +12,10 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const NOOP = () => {};
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testCheckboxId');
 
-describe('XUICheckbox', function() {
+describe('XUICheckbox', function () {
   let wrapper;
   let input;
   //<use /> tags
@@ -38,12 +38,7 @@ describe('XUICheckbox', function() {
   });
 
   it('should use additional classes on the root node if provided', () => {
-    expect(
-      wrapper
-        .find('div')
-        .first()
-        .hasClass('dogs-are-totes-patotes'),
-    ).toBeTruthy();
+    expect(wrapper.find('div').first().hasClass('dogs-are-totes-patotes')).toBeTruthy();
   });
 
   it('should be a small variant, if specified', () => {
@@ -85,6 +80,14 @@ describe('XUICheckbox', function() {
     const visibleLabel = renderer.create(<XUICheckbox onChange={NOOP}>Visible label</XUICheckbox>);
 
     expect(visibleLabel).toMatchSnapshot();
+  });
+
+  it('should render with validation message', function () {
+    const component = renderer.create(
+      <XUICheckbox isInvalid validationMessage="Test validation" />,
+    );
+
+    expect(component).toMatchSnapshot();
   });
 
   it('should be unchecked by default', () => {
@@ -143,7 +146,7 @@ describe('XUICheckbox', function() {
     expect(wrapper.find('label').hasClass('xui-styledcheckboxradio-reversed')).toBeTruthy();
   });
 
-  it('should have the correct name if one is provided', function() {
+  it('should have the correct name if one is provided', function () {
     const wrapper = mount(<XUICheckbox onChange={NOOP} name="Patrick" />);
 
     const node = wrapper.find('input');
@@ -191,16 +194,13 @@ describe('XUICheckbox', function() {
     expect(icon).toMatchSnapshot();
   });
 
-  it('should pass props to input node', function() {
+  it('should pass props to input node', function () {
     const component = mount(
       <XUICheckbox onChange={NOOP} value="2501" inputProps={{ autoComplete: 'on' }} />,
     );
 
     expect(
-      component
-        .find('input')
-        .getDOMNode()
-        .attributes.getNamedItem('autocomplete').value,
+      component.find('input').getDOMNode().attributes.getNamedItem('autocomplete').value,
     ).toEqual('on');
   });
 });

@@ -9,11 +9,11 @@ import Pickitem from '../../picklist/Pickitem';
 import XUILoader from '../../loader/XUILoader';
 import DropDownToggled from '../../dropdown/DropDownToggled';
 import DropDownLayout from '../../dropdown/DropDownLayout';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 import wait from '../../../helpers/wait';
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testAutocompleterId');
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -117,7 +117,7 @@ describe('XUIAutocompleter', () => {
 
   it('displays a XUILoader when loading is true', () => {
     const wrapper = mount(
-      createComponent({ onSearch: jest.fn(), loading: true, loadingLabel: '' }),
+      createComponent({ onSearch: jest.fn(), loading: true, loadingAriaLabel: '' }),
     );
 
     expect(wrapper.find(XUILoader)).toBeDefined();

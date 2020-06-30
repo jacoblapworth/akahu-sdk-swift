@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getAvatarColorClass, abbreviateAvatar } from '../../avatar/utils';
@@ -104,97 +104,95 @@ const responsiveOptions = {
   },
 };
 
-class AvatarLabel extends PureComponent {
-  render = () => {
-    const {
-      isToolTipHidden,
-      updateToolTip,
-      labelWidth,
-      labelTop,
-      labelHeight,
-      barsData,
-      // Victory...
-      index: labelIndex,
-      text: textRaw,
-      // Unused Victory references...
-      // scale, style, fontFamily, fontSize, letterSpacing, padding, fill, stroke, x,
-      // y, verticalAnchor, textAnchor, datum
-    } = this.props;
-    const {
-      // Avatar...
-      avatarCircleLeft,
-      avatarCircleTop,
-      avatarTextLeft,
-      avatarTextTop,
-      avatarText,
-      avatarClassName,
-      avatarStyle,
-      // Tag...
-      shouldCalculateCenter,
-      tagLeft,
-      tagTop,
-      tagText,
-      tagStyle,
-      tagAnchor,
-      tagTextWidth,
-      // ToolTip...
-      toolTipOffset,
-    } = getResponsiveOptions(responsiveOptions, { labelWidth, labelIndex, textRaw });
+const AvatarLabel = ({
+  barsData,
+  isToolTipHidden,
+  labelHeight,
+  labelTop,
+  labelWidth,
+  updateToolTip,
+  // Victory...
+  index: labelIndex,
+  text: textRaw,
+  // Unused Victory references...
+  // scale, style, fontFamily, fontSize, letterSpacing, padding, fill, stroke, x,
+  // y, verticalAnchor, textAnchor, datum
+}) => {
+  const {
+    // Avatar...
+    avatarCircleLeft,
+    avatarCircleTop,
+    avatarTextLeft,
+    avatarTextTop,
+    avatarText,
+    avatarClassName,
+    avatarStyle,
+    // Tag...
+    shouldCalculateCenter,
+    tagLeft,
+    tagTop,
+    tagText,
+    tagStyle,
+    tagAnchor,
+    tagTextWidth,
+    // ToolTip...
+    toolTipOffset,
+  } = getResponsiveOptions(responsiveOptions, { labelWidth, labelIndex, textRaw });
 
-    // Use avatar image if it was passed in the dataset.
-    const { avatarUrl } = barsData[labelIndex];
+  // Use avatar image if it was passed in the dataset.
+  const { avatarUrl } = barsData[labelIndex];
 
-    return (
-      <XAxisLabelWrapper
-        isToolTipHidden={isToolTipHidden}
-        labelHeight={labelHeight}
-        labelLeft={labelWidth * labelIndex}
-        labelTop={labelTop}
-        labelWidth={labelWidth}
-        shouldCalculateCenter={shouldCalculateCenter}
-        toolTipMessage={textRaw}
-        toolTipOffset={toolTipOffset}
-        updateToolTip={updateToolTip}
-      >
-        <g>
-          <circle
-            className={avatarClassName}
-            cx={avatarCircleLeft}
-            cy={avatarCircleTop}
-            r={AVATAR_RADIUS}
+  return (
+    <XAxisLabelWrapper
+      isToolTipHidden={isToolTipHidden}
+      labelHeight={labelHeight}
+      labelLeft={labelWidth * labelIndex}
+      labelTop={labelTop}
+      labelWidth={labelWidth}
+      shouldCalculateCenter={shouldCalculateCenter}
+      toolTipMessage={textRaw}
+      toolTipOffset={toolTipOffset}
+      updateToolTip={updateToolTip}
+    >
+      <g>
+        <circle
+          className={avatarClassName}
+          cx={avatarCircleLeft}
+          cy={avatarCircleTop}
+          r={AVATAR_RADIUS}
+        />
+        <text textAnchor="middle" x={avatarTextLeft} y={avatarTextTop}>
+          <tspan style={avatarStyle}>{avatarText}</tspan>
+        </text>
+        {avatarUrl && (
+          <image
+            clipPath="circle()"
+            height={AVATAR_RADIUS * 2}
+            href={avatarUrl}
+            transform={`translate(${avatarCircleLeft - AVATAR_RADIUS},${
+              avatarCircleTop - AVATAR_RADIUS
+            })`}
+            width={AVATAR_RADIUS * 2}
+            x={0}
+            y={0}
           />
-          <text textAnchor="middle" x={avatarTextLeft} y={avatarTextTop}>
-            <tspan style={avatarStyle}>{avatarText}</tspan>
-          </text>
-          {avatarUrl && (
-            <image
-              clipPath="circle()"
-              height={AVATAR_RADIUS * 2}
-              href={avatarUrl}
-              transform={`translate(${avatarCircleLeft - AVATAR_RADIUS},${avatarCircleTop -
-                AVATAR_RADIUS})`}
-              width={AVATAR_RADIUS * 2}
-              x={0}
-              y={0}
-            />
-          )}
-          {tagText && (
-            <TruncatedText
-              className={`${NAME_SPACE}-chart--measure`}
-              maxWidth={tagTextWidth}
-              style={tagStyle}
-              textAnchor={tagAnchor}
-              x={tagLeft}
-              y={tagTop}
-            >
-              {tagText}
-            </TruncatedText>
-          )}
-        </g>
-      </XAxisLabelWrapper>
-    );
-  };
-}
+        )}
+        {tagText && (
+          <TruncatedText
+            className={`${NAME_SPACE}-chart--measure`}
+            maxWidth={tagTextWidth}
+            style={tagStyle}
+            textAnchor={tagAnchor}
+            x={tagLeft}
+            y={tagTop}
+          >
+            {tagText}
+          </TruncatedText>
+        )}
+      </g>
+    </XAxisLabelWrapper>
+  );
+};
 
 export default AvatarLabel;
 

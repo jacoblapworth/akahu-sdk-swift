@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import verge from 'verge';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
+import cn from 'classnames';
 import PositioningInline from '../positioning/PositioningInline';
 import Positioning from '../positioning/Positioning';
 import {
@@ -584,7 +585,7 @@ export default class DropDownToggled extends PureComponent {
     return (
       <div
         {...wrapperAria}
-        className={className}
+        className={cn(className, `${baseClass}--toggledwrapper`)}
         data-automationid={qaHook}
         data-ref="toggled-wrapper"
         ref={this.wrapper}

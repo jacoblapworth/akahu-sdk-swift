@@ -1,4 +1,5 @@
 import { commonViewports, desktopPlus320 } from '../../../stories/helpers/viewports';
+import { numberFormat } from '../private/helpers';
 
 const storiesWithVariationsKindName = 'Instances/XUIPagination';
 
@@ -51,8 +52,10 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'change count content',
     createCountContent: (from, to, count) => ({
-      simple: `Total contacts: ${count}`,
-      enhanced: `Showing contacts ${from}-${to} of ${count}`,
+      simple: `Total contacts: ${numberFormat(count)}`,
+      enhanced: `Showing contacts ${numberFormat(from)}-${numberFormat(to)} of ${numberFormat(
+        count,
+      )}`,
     }),
     perPageContent: 'Contacts per page',
   },

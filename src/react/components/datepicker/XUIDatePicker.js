@@ -270,8 +270,8 @@ export default class XUIDatePicker extends PureComponent {
       maxDate,
       minDate,
       months,
-      nextButtonLabel,
-      prevButtonLabel,
+      nextButtonAriaLabel,
+      prevButtonAriaLabel,
       qaHook,
       selectedDate,
       selectedRange,
@@ -320,8 +320,8 @@ export default class XUIDatePicker extends PureComponent {
         fixedWeeks={showFixedNumberOfWeeks}
         fromMonth={minDate}
         labels={{
-          nextMonth: nextButtonLabel,
-          previousMonth: prevButtonLabel,
+          nextMonth: nextButtonAriaLabel,
+          previousMonth: prevButtonAriaLabel,
         }}
         locale={locale}
         modifiers={modifiers}
@@ -373,11 +373,11 @@ XUIDatePicker.propTypes = {
 
   /** An accessibility label for the next month button that will be read to users with
    * a screen reader.  */
-  nextButtonLabel: PropTypes.string,
+  nextButtonAriaLabel: PropTypes.string,
 
   /** An accessibility label for the previous month button that will be read to users
    * with a screen reader. */
-  prevButtonLabel: PropTypes.string,
+  prevButtonAriaLabel: PropTypes.string,
 
   /**
    * If the user is selecting a date range, this will contain the dates the user has
@@ -420,8 +420,8 @@ XUIDatePicker.propTypes = {
 XUIDatePicker.defaultProps = {
   dir: 'ltr',
   locale: 'en',
-  nextButtonLabel: 'Next Month',
-  prevButtonLabel: 'Previous Month',
+  nextButtonAriaLabel: 'Next Month',
+  prevButtonAriaLabel: 'Previous Month',
   qaHook: undefined,
   showDaysInOtherMonths: true,
   showFixedNumberOfWeeks: false,

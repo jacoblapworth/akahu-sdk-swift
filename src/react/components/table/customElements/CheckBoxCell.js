@@ -18,7 +18,7 @@ export default class CheckBoxCell extends PureComponent {
   };
 
   render() {
-    const { isChecked, isDisabled, checkOneRowLabel, dividerClasses } = this.props;
+    const { isChecked, isDisabled, checkOneRowAriaLabel, dividerClasses } = this.props;
     const className = cn(
       `${NAME_SPACE}--cell-action`,
       BODY_CELL_CLASSES,
@@ -37,7 +37,7 @@ export default class CheckBoxCell extends PureComponent {
           isLabelHidden
           onChange={this.handleChange}
         >
-          {checkOneRowLabel}
+          {checkOneRowAriaLabel}
         </XUICheckbox>
       </TableData>
     );
@@ -49,6 +49,6 @@ CheckBoxCell.propTypes = {
   isChecked: PropTypes.bool,
   isDisabled: PropTypes.bool,
   onCheckOneToggle: PropTypes.func,
-  checkOneRowLabel: PropTypes.node,
+  checkOneRowAriaLabel: PropTypes.node,
   dividerClasses: PropTypes.string,
 };

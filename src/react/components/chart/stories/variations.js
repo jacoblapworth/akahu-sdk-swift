@@ -175,6 +175,7 @@ const variations = [
         chartDescription: 'The charts loading state that removes the generic charting scaffold',
         barsData: standardBarsData,
         isLoading: true,
+        loadingAriaLabel: 'Loading Aria Label',
       },
     ],
   },

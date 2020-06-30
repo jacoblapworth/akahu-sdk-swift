@@ -2,7 +2,7 @@
 
 exports[`<TabDropDown /> renders correctly 1`] = `
 <div
-  className="custom-class"
+  className="custom-class xui-dropdown--toggledwrapper"
   data-ref="toggled-wrapper"
   role="presentation"
 >
@@ -13,7 +13,7 @@ exports[`<TabDropDown /> renders correctly 1`] = `
     role="option"
   >
     <button
-      className="xui-pickitem--body"
+      className="xui-pickitem--body xui-pickitem--body-has-icon"
       onClick={[Function]}
       onKeyDown={[Function]}
       rel={null}
@@ -24,18 +24,22 @@ exports[`<TabDropDown /> renders correctly 1`] = `
       >
         Item 1
       </span>
-      <svg
-        className="xui-icon xui-button--caret"
-        focusable="false"
-        height={5}
-        viewBox="0 0 10 5"
-        width={10}
+      <div
+        className="xui-pickitem--caret xui-iconwrapper xui-iconwrapper-medium"
       >
-        <path
-          d="M0 0l5 5 5-5z"
-          role="presentation"
-        />
-      </svg>
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={5}
+          viewBox="0 0 10 5"
+          width={10}
+        >
+          <path
+            d="M0 0l5 5 5-5z"
+            role="presentation"
+          />
+        </svg>
+      </div>
     </button>
   </li>
 </div>

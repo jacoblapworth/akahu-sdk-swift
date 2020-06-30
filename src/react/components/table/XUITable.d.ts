@@ -176,18 +176,10 @@ interface SortingProps {
     isSortAsc?: boolean,
     activeSortKey?: string,
   ) => EnrichedTableItemObject[];
-
-  /**
-   * Optional prop for users to modify the Header sort button icon, if required for localisation.
-   *
-   * Defaults to the sortSingle icon, if no value is provided.
-   */
-  headerSortbuttonIcon?: XUIIconData;
   /**
    * Determines if the rows are arranged in an ascending or descending order.
    */
   isSortAsc?: boolean;
-
   /**
    * Callback to handle a sort interaction.
    */

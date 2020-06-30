@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // Components we need to test with
 import DropDown, { DropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
-import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUIButton from '../../../button';
 import XUITextInput from '../../../textinput';
 import XUICheckbox, { XUICheckboxGroup } from '../../../checkbox';
 import XUIRadio, { XUIRadioGroup } from '../../../radio';
@@ -252,12 +252,7 @@ test.add(storyNames.formLayout, () => {
                     </DropDown>
                   }
                   onOpen={() => {}}
-                  trigger={
-                    <XUIButton>
-                      {foodType || 'Food Type'}
-                      <XUIButtonCaret />
-                    </XUIButton>
-                  }
+                  trigger={<XUIButton hasCaret>{foodType || 'Food Type'}</XUIButton>}
                 />
                 <XUITextInput
                   fieldClassName="xui-u-flex-1"

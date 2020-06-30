@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { XUIIconData } from '../icon/XUIIcon';
 import {
   buttonTypes,
   sizeClassNames,
@@ -8,6 +9,11 @@ import {
 } from './private/constants';
 
 interface BaseProps {
+  /**
+   * Optional prop for users to modify the Button caret icon, if required for localisation.
+   * Defaults to the caret icon, if no value is provided.
+   */
+  caretIcon?: XUIIconData;
   children?: React.ReactNode;
   className?: string;
   /**
@@ -49,6 +55,10 @@ interface BaseProps {
    */
   isLoading?: boolean;
   /**
+   * Icon to appear to the left of the button content.
+   */
+  leftIcon?: React.ReactNode;
+  /**
    * Accessibility label for the `XUILoader`. This is required if the `isLoading` prop is set to
    * `true`.
    */
@@ -76,6 +86,10 @@ interface BaseProps {
    * When used with `isLoading` this allows the button to retain children width.
    */
   retainLayout?: boolean;
+  /**
+   * Icon to appear to the right of the button content.
+   */
+  rightIcon?: React.ReactNode;
   /**
    * Modifier for the size of the button. Buttons with `variant` set to `unstyled` will ignore the
    * `size` property.

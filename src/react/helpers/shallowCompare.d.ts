@@ -9,6 +9,6 @@
  * shallow compare.
  */
 export default function shallowCompare(
-  object1?: { [index: string]: any },
-  object2?: { [index: string]: any },
+  object1?: { [index: string]: unknown },
+  object2?: { [index: string]: unknown },
 ): boolean;

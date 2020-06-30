@@ -135,18 +135,19 @@ const config = {
   sections: componentSections,
   getComponentPathLine(componentPath) {
     let name = path.basename(componentPath, '.js');
-    let dir = '';
-    if (/components/.test(componentPath)) {
-      dir = path
-        .dirname(componentPath)
-        .split('components/')
-        .pop();
-    } else {
-      // This is in preparation for importing components from outside the "components" directory.
-      dir = path
-        .dirname(componentPath)
-        .split('react/')
-        .pop();
+    const dir = path.dirname(componentPath).split('/').pop();
+    const dirToLower = dir.toLowerCase(); // TODO: Normalise casing strategy between files and component directory names. Currently mismatched.
+
+    /**
+     * General rule of thumb for import component statements, if the name of the
+     * component (minus the xui portion) matches the name of the directory it
+     * lives in it's the default export for that component. Default exports do
+     * not need the braces in their import statements so we should only add
+     * these for individual ones.
+     */
+    if (name.toLowerCase().split('xui').pop() !== dirToLower.replace('-', '')) {
+      // TODO: Remove hyphen removal and rename select-box/ -> selectBox/
+      name = `{ ${name} }`;
     }
     const dirNormalised = dir.toLowerCase();
     // TODO: Normalise casing strategy between files and component directory names. Currently mismatched.

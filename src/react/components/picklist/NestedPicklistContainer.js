@@ -103,6 +103,7 @@ export default class NestedPicklistContainer extends PureComponent {
         aria-expanded={isExpanded}
         className={cn(className, `${picklistClassName}--nestedcontainer`)}
         data-automationid={qaHook}
+        role="treeitem"
       >
         <input
           {...secondaryProps}

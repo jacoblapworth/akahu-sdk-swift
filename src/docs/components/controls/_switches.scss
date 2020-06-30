@@ -1,7 +1,5 @@
 // Switch
 //
-// flags: updated
-//
 // Teaser: Used for significant binary decisions.
 //
 // Components: Switch
@@ -105,15 +103,16 @@
 //
 // Add `xui-validation-is-invalid` to a validation message to display its error state.
 //
+// For accessibility purposes, add an "invalid" icon at the left of the validation message.
+//
 // If a group of switches is invalid, add `xui-switch-group-is-invalid` to the group.
 //
 // Classes:
 // xui-switchwrapper: Wrapper for the field and validation message
 // xui-switch: Wrapper for the switch and label
 // xui-switch--message: Positions the message under the switch
-// xui-switch--message-with-label: Positions the message under the label
 // xui-switch-group-is-invalid: Changes the colour of the group to indicate it is invalid
-// xui-validation-is-invalid: Changes the colour of the text to indicate it is invalid
+// xui-validation-is-invalid: Applies error validation style and "invalid" icon to text element
 //
 // ExampleClass: ds-example-transparent
 //

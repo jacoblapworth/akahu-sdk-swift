@@ -1,26 +1,23 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { CHART_HEIGHT, BAR_ACTIVE_COLOR } from './helpers/constants';
 import ChartScaffold from './customElements/ChartScaffold';
 import ChartLoader from './customElements/ChartLoader';
 import ChartEmpty from './customElements/ChartEmpty';
 
-class XUIBarChart extends PureComponent {
-  render = () => {
-    const { props } = this;
-    const { barsData, isLoading } = props;
-    const isEmpty = !barsData.length;
+const XUIBarChart = props => {
+  const { barsData, isLoading } = props;
+  const isEmpty = !barsData.length;
 
-    switch (true) {
-      case isLoading:
-        return <ChartLoader {...props} />;
-      case isEmpty:
-        return <ChartEmpty {...props} />;
-      default:
-        return <ChartScaffold {...props} />;
-    }
-  };
-}
+  switch (true) {
+    case isLoading:
+      return <ChartLoader {...props} />;
+    case isEmpty:
+      return <ChartEmpty {...props} />;
+    default:
+      return <ChartScaffold {...props} />;
+  }
+};
 
 export default XUIBarChart;
 
@@ -178,33 +175,13 @@ XUIBarChart.propTypes = {
    * <br />
    * Recommended English value: *Loading*
    */
-  loadingLabel: PropTypes.string,
+  loadingAriaLabel: PropTypes.string,
 
   /**
    * Optional prop for users to modify the empty chart state icon, if required for localisation.
    * Defaults to the chart icon, if no value is provided.
    */
   emptyStateIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
-
-  /**
-   * Optional prop for users to modify the info key button icon, if required for localisation.
-   * Defaults to the info icon, if no value is provided.
-   */
-  keyIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
-
-  /**
-   * Optional prop for users to modify the pagination navigation icon, if required for localisation.
-   * Defaults to the arrow icon, if no value is provided.
-   */
-  paginationIcon: PropTypes.shape({
     height: PropTypes.number,
     path: PropTypes.string,
     width: PropTypes.number,

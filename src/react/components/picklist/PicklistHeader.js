@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { picklistClassName } from './private/constants';
@@ -8,22 +8,18 @@ import { picklistClassName } from './private/constants';
  * list of items.
  *
  * @export
- * @class PicklistHeader
- * @extends {PureComponent}
  */
-export default class PicklistHeader extends PureComponent {
-  render() {
-    const { id, className, ariaRole, children } = this.props;
+const PicklistHeader = ({ ariaRole, children, className, id }) => {
+  const classes = cn(`${picklistClassName}--header`, className);
 
-    const classes = cn(`${picklistClassName}--header`, className);
+  return (
+    <li className={classes} id={id} role={ariaRole}>
+      <span className={`${picklistClassName}--header--text`}>{children}</span>
+    </li>
+  );
+};
 
-    return (
-      <li className={classes} id={id} role={ariaRole}>
-        <span className={`${picklistClassName}--header--text`}>{children}</span>
-      </li>
-    );
-  }
-}
+export default PicklistHeader;
 
 PicklistHeader.propTypes = {
   children: PropTypes.node,

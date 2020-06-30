@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import { XUIIconData } from '../icon/XUIIcon';
-
 interface Props {
   /**
    * Specify an ARIA label for the trigger.
@@ -11,12 +9,6 @@ interface Props {
   ariaLabel: string;
   children?: React.ReactNode;
   className?: string;
-  /**
-   * Optional prop for users to modify the Nested Picklist Trigger icon, if required for localisation.
-   *
-   * Defaults to the arrow icon, if no value is provided.
-   */
-  icon?: XUIIconData;
   id: string;
   isHighlighted?: boolean;
   isSelected?: boolean;

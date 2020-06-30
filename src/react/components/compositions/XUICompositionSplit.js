@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -9,25 +9,23 @@ import baseCompositionClass, { buildLayoutClass, buildGlobalCompositionClasses }
 
 const compositionName = 'split';
 
-export default class XUICompositionSplit extends PureComponent {
-  render() {
-    const { primary, secondary, className, retainWidth, ...spreadProps } = this.props;
+const XUICompositionSplit = ({ className, primary, retainWidth, secondary, ...spreadProps }) => {
+  const compositionClasses = cn(
+    buildGlobalCompositionClasses(spreadProps),
+    buildLayoutClass({ retainWidth, compositionName }),
+    `${baseCompositionClass}-${compositionName}`,
+    className,
+  );
 
-    const compositionClasses = cn(
-      buildGlobalCompositionClasses(spreadProps),
-      buildLayoutClass({ retainWidth, compositionName }),
-      `${baseCompositionClass}-${compositionName}`,
-      className,
-    );
+  return (
+    <div className={compositionClasses}>
+      <XUIGridAreaPrimary>{primary}</XUIGridAreaPrimary>
+      <XUIGridAreaDetail>{secondary}</XUIGridAreaDetail>
+    </div>
+  );
+};
 
-    return (
-      <div className={compositionClasses}>
-        <XUIGridAreaPrimary>{primary}</XUIGridAreaPrimary>
-        <XUIGridAreaDetail>{secondary}</XUIGridAreaDetail>
-      </div>
-    );
-  }
-}
+export default XUICompositionSplit;
 
 XUICompositionSplit.propTypes = {
   className: PropTypes.string,

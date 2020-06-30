@@ -5,12 +5,18 @@ export const wrapperClass = `${baseClass}wrapper`;
 
 // Wrappers for legacy compatibility
 export const wrapperSizeClasses = {
+  xsmall: `${wrapperClass}-xsmall`,
+  small: `${wrapperClass}-small`,
   medium: `${wrapperClass}-medium`,
   large: `${wrapperClass}-large`,
   xlarge: `${wrapperClass}-xlarge`,
 };
 
+// We don’t want an icon scaling any smaller than its ‘natural’ size
+// due to legibility concerns
 export const iconSizeMultipliers = {
+  xsmall: 1,
+  small: 1,
   medium: 1,
   large: 4 / 3,
   xlarge: 2,
@@ -23,7 +29,6 @@ export const rotationClasses = {
   270: `${baseClass}-rotate-270`,
 };
 
-/* eslint-disable @typescript-eslint/camelcase */
 export const colorClasses = {
   black: `${baseClass}-color-black`,
   'black-muted': `${baseClass}-color-black-muted`,
@@ -45,4 +50,3 @@ export const colorClasses = {
   file_spreadsheet: `${baseClass}-color-file-spreadsheet`,
   file_pdf: `${baseClass}-color-file-pdf`,
 };
-/* eslint-enabled @typescript-eslint/camelcase */

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -86,125 +86,119 @@ const buildRadio = (qaHook, htmlClassName, svgSettings, calculatedSize) => {
   return buildHtmlRadio(qaHook, htmlClassName, calculatedSize);
 };
 
-export default class XUIRadio extends PureComponent {
+const XUIRadio = props => {
   // User can manually provide an id, or we will generate one.
-  wrapperIds = generateIds(this.props.labelId);
+  const wrapperIds = generateIds(props.labelId);
+  const {
+    children,
+    className,
+    hintMessage,
+    htmlClassName,
+    iconMain,
+    id,
+    inputProps: radioInputProps,
+    isChecked,
+    isDefaultChecked,
+    isDisabled,
+    isGrouped,
+    isInvalid,
+    isLabelHidden,
+    isRequired,
+    isReversed,
+    labelClassName,
+    name,
+    onChange,
+    qaHook,
+    role,
+    size,
+    svgClassName,
+    tabIndex,
+    validationMessage,
+    value,
+  } = props;
 
-  render() {
-    const {
-      tabIndex,
-      children,
-      className,
-      qaHook,
-      iconMain,
-      isDefaultChecked,
-      isChecked,
-      isDisabled,
-      isRequired,
-      isReversed,
-      name,
-      onChange,
-      value,
-      svgClassName,
-      htmlClassName,
-      labelClassName,
-      isLabelHidden,
-      role,
-      id,
-      isGrouped,
-      isInvalid,
-      validationMessage,
-      hintMessage,
-      size,
-      inputProps: radioInputProps,
-    } = this.props;
+  // Grouped inputs default to 'small'.
+  const calculatedSize = (isGrouped && 'small') || size;
 
-    // Grouped inputs default to 'small'.
-    const calculatedSize = (isGrouped && 'small') || size;
+  const classes = cn(
+    baseClass,
+    isReversed && `${baseClass}-reversed`,
+    isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
+  );
 
-    const classes = cn(
-      baseClass,
-      isReversed && `${baseClass}-reversed`,
-      isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
-    );
+  const wrapperClasses = cn(
+    className,
+    `${baseClass}wrapper`,
+    calculatedSize && `${baseClass}-${calculatedSize}`,
+  );
 
-    const wrapperClasses = cn(
-      className,
-      `${baseClass}wrapper`,
-      calculatedSize && `${baseClass}-${calculatedSize}`,
-    );
+  const labelClasses = cn(
+    `${baseClass}--label`,
+    calculatedSize && `${baseClass}--label-${calculatedSize}`,
+    labelClassName,
+  );
 
-    const labelClasses = cn(
-      `${baseClass}--label`,
-      calculatedSize && `${baseClass}--label-${calculatedSize}`,
-      labelClassName,
-    );
+  const inputProps = {
+    ...radioInputProps,
+    type: 'radio',
+    disabled: isDisabled,
+    required: isRequired,
+    tabIndex,
+    name,
+    onChange,
+    value,
+    id,
+    ...getAriaAttributes(wrapperIds, props),
+  };
+  const svgSettings = {
+    svgClassName,
+    iconMain,
+  };
 
-    const messageClasses = cn(
-      `${baseClass}--message`,
-      !isLabelHidden && `${baseClass}--message-with-label`,
-    );
-
-    const inputProps = {
-      ...radioInputProps,
-      type: 'radio',
-      disabled: isDisabled,
-      required: isRequired,
-      tabIndex,
-      name,
-      onChange,
-      value,
-      id,
-      ...getAriaAttributes(this.wrapperIds, this.props),
-    };
-    const svgSettings = {
-      svgClassName,
-      iconMain,
-    };
-
-    if (typeof isChecked !== 'boolean') {
-      inputProps.defaultChecked = !!isDefaultChecked;
-    } else {
-      inputProps.checked = isChecked;
-      // checked prop without an onChange handler means this is readonly, so set that to prevent
-      // warnings in the console.
-      if (onChange == null) {
-        inputProps.readOnly = true;
-      }
+  if (typeof isChecked !== 'boolean') {
+    inputProps.defaultChecked = !!isDefaultChecked;
+  } else {
+    inputProps.checked = isChecked;
+    // checked prop without an onChange handler means this is readonly, so set that to prevent
+    // warnings in the console.
+    if (onChange == null) {
+      inputProps.readOnly = true;
     }
-
-    return (
-      <XUIControlWrapperInline
-        fieldClassName={classes}
-        label={children}
-        labelClassName={labelClasses}
-        messageClassName={messageClasses}
-        onClick={onLabelClick}
-        rootClassName={wrapperClasses}
-        wrapperIds={this.wrapperIds}
-        {...{
-          qaHook,
-          isInvalid,
-          validationMessage,
-          hintMessage,
-          isLabelHidden,
-        }}
-      >
-        <input
-          className={cn(
-            `${baseClass}--input`,
-            inputProps.className,
-            calculatedSize && `${baseClass}--input-${calculatedSize}`,
-          )}
-          data-automationid={qaHook && `${qaHook}--input`}
-          role={role}
-          {...inputProps}
-        />
-        {buildRadio(qaHook, htmlClassName, svgSettings, calculatedSize)}
-      </XUIControlWrapperInline>
-    );
   }
-}
+
+  return (
+    <XUIControlWrapperInline
+      fieldClassName={classes}
+      label={children}
+      labelClassName={labelClasses}
+      messageClassName={`${baseClass}--message`}
+      onClick={onLabelClick}
+      rootClassName={wrapperClasses}
+      wrapperIds={wrapperIds}
+      {...{
+        qaHook,
+        isInvalid,
+        validationMessage,
+        hintMessage,
+        isLabelHidden,
+      }}
+    >
+      <input
+        className={cn(
+          `${baseClass}--input`,
+          inputProps.className,
+          calculatedSize && `${baseClass}--input-${calculatedSize}`,
+        )}
+        data-automationid={qaHook && `${qaHook}--input`}
+        role={role}
+        {...inputProps}
+      />
+      {buildRadio(qaHook, htmlClassName, svgSettings, calculatedSize)}
+    </XUIControlWrapperInline>
+  );
+};
+
+export default XUIRadio;
 
 XUIRadio.propTypes = {
   children: PropTypes.node,

@@ -103,6 +103,10 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
   }
 }
 
+.#{$ns}-pickitem--body-has-icon {
+  @include xui-button-has-icon;
+}
+
 .#{$ns}-pickitem--text {
   .#{$ns}-pickitem-multiselect--checkbox &.#{$ns}-styledcheckboxradio--label {
     // Use existing pickitem sizing for the checkbox labels.
@@ -161,6 +165,10 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
   .#{$ns}-icon {
     pointer-events: none;
   }
+}
+
+.#{$ns}-pickitem--caret {
+  @include xui-button--caret;
 }
 
 .#{$ns}-pickitem-multiselect--checkbox {

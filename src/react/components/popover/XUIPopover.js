@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import uuid from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 
 import IdContext from './contexts/IdContext';
 import { baseClassName, sizeClassNames } from './private/constants';

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import XUIButton from '../button/XUIButton';
-import XUIButtonCaret from '../button/XUIButtonCaret';
 import { sizes, widths } from './private/constants';
 import Picklist from '../picklist/Picklist';
 import qaHooks from './qaHooks';
@@ -42,7 +41,6 @@ export default class SelectBox extends Component {
       buttonClasses,
       buttonContent,
       buttonVariant,
-      caretTitle,
       children,
       closeAfterSelection,
       containerClasses,
@@ -84,6 +82,7 @@ export default class SelectBox extends Component {
       <XUIButton
         className={buttonClassNames}
         fullWidth={fullWidth}
+        hasCaret
         id={this.wrapperIds.control}
         isDisabled={isDisabled}
         qaHook={setQaHook(qaHook, qaHooks.button)}
@@ -100,11 +99,6 @@ export default class SelectBox extends Component {
         >
           {buttonContent}
         </span>
-        <XUIButtonCaret
-          className={`${selectBaseClass}--caret`}
-          qaHook={setQaHook(qaHook, qaHooks.buttonIcon)}
-          title={caretTitle}
-        />
       </XUIButton>
     );
 

@@ -3,12 +3,12 @@ import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIRange from '../XUIRange';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import XUIIcon from '../../../icon';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testRangeId');
 
 describe('Range', () => {
@@ -66,10 +66,7 @@ describe('Range', () => {
     const onClick = jest.fn();
     const comp = mount(<XUIRange id="rangeComponent" onClick={onClick} />);
 
-    comp
-      .find('#rangeComponent')
-      .first()
-      .simulate('click');
+    comp.find('#rangeComponent').first().simulate('click');
     setTimeout(() => {
       expect(onSelect.mock.calls.length).toEqual(1);
     }, 0);

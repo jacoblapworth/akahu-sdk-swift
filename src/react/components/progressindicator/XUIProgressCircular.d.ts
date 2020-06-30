@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { XUIIconData } from '../icon/XUIIcon';
 import { COLORS } from './helpers/constants';
 
 interface Props {
@@ -16,16 +15,6 @@ interface Props {
    * Content to place inside the "track" circle.
    */
   children?: React.ReactNode;
-  /**
-   * Optional prop for users to modify the completion icon, if required for localisation.
-   * A default icon is applied if not provided.
-   * */
-  completedIcon?: XUIIconData;
-  /**
-   * Optional prop for users to modify the error icon, if required for localisation.
-   * A default icon is applied if not provided.
-   * */
-  errorIcon?: XUIIconData;
   /**
    * Customise the "error" content.
    */

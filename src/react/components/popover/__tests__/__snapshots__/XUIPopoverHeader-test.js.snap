@@ -68,7 +68,7 @@ exports[`<XUIPopoverHeader /> renders without crashing 1`] = `
           tabIndex={0}
           type="button"
         >
-          <XUIIcon
+          <ForwardRef
             icon={
               Object {
                 "height": 12,
@@ -91,7 +91,7 @@ exports[`<XUIPopoverHeader /> renders without crashing 1`] = `
                 role="presentation"
               />
             </svg>
-          </XUIIcon>
+          </ForwardRef>
           <XUITouchTarget>
             <div
               className="xui-touchtarget"

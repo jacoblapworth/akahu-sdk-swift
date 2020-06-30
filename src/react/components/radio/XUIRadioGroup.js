@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -7,74 +7,74 @@ import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIContr
 import generateIds from '../controlwrapper/helpers';
 import { baseClass } from './constants';
 
-export default class XUIRadioGroup extends PureComponent {
-  wrapperIds = generateIds(this.props.labelId);
-  render() {
-    const {
-      children,
-      className,
-      qaHook,
-      label,
-      isLabelHidden,
-      isFieldLayout,
-      labelClassName,
-      fieldClassName,
-      isInvalid,
-      validationMessage,
-      hintMessage,
-    } = this.props;
+const XUIRadioGroup = props => {
+  const wrapperIds = generateIds(props.labelId);
+  const {
+    children,
+    className,
+    fieldClassName,
+    hintMessage,
+    isFieldLayout,
+    isInvalid,
+    isLabelHidden,
+    label,
+    labelClassName,
+    qaHook,
+    validationMessage,
+  } = props;
 
-    const groupClasses = cn(
-      className,
-      `${baseClass}-group`,
-      isInvalid && `${baseClass}-group-is-invalid`,
-    );
+  const groupClasses = cn(
+    className,
+    `${baseClass}-group`,
+    isInvalid && `${baseClass}-group-is-invalid`,
+  );
 
-    const childrenToRender = React.Children.map(children, child =>
-      child.type === XUIRadio
-        ? React.cloneElement(child, {
-            isGrouped: true,
-          })
-        : child,
-    );
+  const childrenToRender = React.Children.map(children, child =>
+    child.type === XUIRadio
+      ? React.cloneElement(child, {
+          isGrouped: true,
+        })
+      : child,
+  );
 
-    return (
-      <XUIControlWrapper
-        fieldClassName={fieldClassName}
-        isGroup
-        wrapperIds={this.wrapperIds}
-        {...{
-          qaHook,
-          label,
-          isInvalid,
-          validationMessage,
-          hintMessage,
-          isFieldLayout,
-          labelClassName,
-          isLabelHidden,
-        }}
+  return (
+    <XUIControlWrapper
+      fieldClassName={fieldClassName}
+      isGroup
+      wrapperIds={wrapperIds}
+      {...{
+        qaHook,
+        label,
+        isInvalid,
+        validationMessage,
+        hintMessage,
+        isFieldLayout,
+        labelClassName,
+        isLabelHidden,
+      }}
+    >
+      <div
+        className={groupClasses}
+        data-automationid={qaHook}
+        role="radiogroup"
+        {...getAriaAttributes(wrapperIds, props, { isGroup: true })}
       >
-        <div
-          className={groupClasses}
-          data-automationid={qaHook}
-          role="radiogroup"
-          {...getAriaAttributes(this.wrapperIds, this.props, { isGroup: true })}
-        >
-          {childrenToRender}
-        </div>
-      </XUIControlWrapper>
-    );
-  }
-}
+        {childrenToRender}
+      </div>
+    </XUIControlWrapper>
+  );
+};
+
+export default XUIRadioGroup;
 
 XUIRadioGroup.propTypes = {
   children: PropTypes.node,
   /** Class names to be added to bordered grouping element */
   className: PropTypes.string,
   qaHook: PropTypes.string,
-  /** Label the radio group for accessibility. Highly recommended */
+  /** Label to show above the radio group, or for accessibility when the radio group label is hidden. Highly recommended */
   label: PropTypes.node,
-  /** Whether the label should be visible or hidden. Defaults to visible */
+  /** Whether to hide the label and apply it as an ARIA label instead. Defaults to visible */
   isLabelHidden: PropTypes.bool,
   /** Whether to use the field layout classes. Defaults to true. */
   isFieldLayout: PropTypes.bool,

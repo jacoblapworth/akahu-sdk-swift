@@ -8,10 +8,10 @@ import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import div from './helpers/container';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 const testId = 'testDropdownId';
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => testId);
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -59,9 +59,9 @@ describe('<DropDownToggled />', () => {
     closeCalled = false;
   });
 
-  describe('dropdown rendered closed', function() {
+  describe('dropdown rendered closed', function () {
     let wrapper;
-    beforeEach(function() {
+    beforeEach(function () {
       wrapper = mount(testDropDown(), {
         wrappingComponent: ({ children }) => <div className="test-container">{children}</div>,
       });
@@ -134,11 +134,7 @@ describe('<DropDownToggled />', () => {
     it('expects a matching id on the dropdown and referenced by aria attributes', () => {
       expect(wrapper.html().includes(`aria-owns="${testId}"`)).toBeTruthy();
       expect(
-        wrapper
-          .find('button')
-          .first()
-          .html()
-          .includes(`aria-controls="${testId}"`),
+        wrapper.find('button').first().html().includes(`aria-controls="${testId}"`),
       ).toBeTruthy();
     });
   });
@@ -156,26 +152,19 @@ describe('<DropDownToggled />', () => {
   });
 
   // These are skipped as enzyme cannot test shit rendered in portal.
-  describe.skip('closeOnSelect', function() {
-    it('closes the dropdown when the user selects something by default', function() {
+  describe.skip('closeOnSelect', function () {
+    it('closes the dropdown when the user selects something by default', function () {
       const wrapper = getWrapper({ isHidden: false });
 
-      wrapper
-        .closest('body')
-        .find('.xui-pickitem')
-        .first()
-        .simulate('click');
+      wrapper.closest('body').find('.xui-pickitem').first().simulate('click');
 
       expect(wrapper.node.isDropDownOpen()).toBeFalsy();
     });
 
-    it('does not close the dropdown on select if closeOnSelect is set to false', function() {
+    it('does not close the dropdown on select if closeOnSelect is set to false', function () {
       const wrapper = getWrapper({ isHidden: false, closeOnSelect: false });
 
-      wrapper
-        .find('.xui-pickitem')
-        .first()
-        .simulate('click');
+      wrapper.find('.xui-pickitem').first().simulate('click');
 
       expect(wrapper.node.isDropDownOpen()).toBeTruthy();
     });

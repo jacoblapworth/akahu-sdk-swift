@@ -36,10 +36,7 @@ describe('<PortalFocusHelper />', () => {
       );
 
       // Act
-      wrapper
-        .find('div')
-        .first()
-        .simulate('focus');
+      wrapper.find('div').first().simulate('focus');
 
       // Assert
       expect(document.activeElement).toBe(firstElementRef.current);
@@ -65,10 +62,7 @@ describe('<PortalFocusHelper />', () => {
       );
 
       // Act
-      wrapper
-        .find('div')
-        .at(1)
-        .simulate('focus');
+      wrapper.find('div').at(1).simulate('focus');
 
       // Assert
       expect(document.activeElement).toBe(focusPortalRef.current);
@@ -95,10 +89,7 @@ describe('<PortalFocusHelper />', () => {
       );
 
       // Act
-      wrapper
-        .find('div')
-        .last()
-        .simulate('focus');
+      wrapper.find('div').last().simulate('focus');
 
       // Assert
       expect(document.activeElement).toBe(expectedFocusRef.current);

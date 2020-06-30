@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import LabelElement from './private/LabelElement';
@@ -12,7 +12,7 @@ import MessageElement from './private/MessageElement';
  * @param {Object} props - props of the parent control component
  * @returns {{aria-invalid: boolean, aria-label: string, aria-labelledby: string, aria-describedby: string}}
  */
-export function getAriaAttributes(ids, props) {
+export const getAriaAttributes = (ids, props) => {
   const {
     children, // This refers to children of the parent control component. Often plain text.
     isLabelHidden,
@@ -40,62 +40,58 @@ export function getAriaAttributes(ids, props) {
     'aria-labelledby': ariaLabelledBy,
     'aria-describedby': ariaDescribedBy,
   };
-}
+};
 
-export default class XUIControlWrapperInline extends PureComponent {
-  render() {
-    const {
-      children, // This refers to children of XUIControlWrapperInline. Usually the <input>
-      rootClassName,
-      onKeyDown,
-      onClick,
-      qaHook,
-      isInvalid,
-      validationMessage,
-      hintMessage,
-      wrapperIds,
-      labelClassName,
-      messageClassName,
-      fieldClassName,
-      label,
-      isLabelHidden,
-    } = this.props;
+const XUIControlWrapperInline = ({
+  children, // This refers to children of XUIControlWrapperInline. Usually the <input>
+  fieldClassName,
+  hintMessage,
+  isInvalid,
+  isLabelHidden,
+  label,
+  labelClassName,
+  messageClassName,
+  onClick,
+  onKeyDown,
+  qaHook,
+  rootClassName,
+  validationMessage,
+  wrapperIds,
+}) => (
+  <div className={rootClassName}>
+    <label
+      className={fieldClassName}
+      data-automationid={qaHook}
+      onClick={onClick}
+      onKeyDown={onKeyDown}
+      role="presentation"
+    >
+      {children}
+      <LabelElement
+        isInline
+        {...{
+          labelClassName,
+          label,
+          isLabelHidden,
+          qaHook,
+          wrapperIds,
+        }}
+      />
+    </label>
+    <MessageElement
+      className={messageClassName}
+      {...{
+        isInvalid,
+        validationMessage,
+        hintMessage,
+        qaHook,
+        wrapperIds,
+      }}
+    />
+  </div>
+);
 
-    return (
-      <div className={rootClassName}>
-        <label
-          className={fieldClassName}
-          data-automationid={qaHook}
-          onClick={onClick}
-          onKeyDown={onKeyDown}
-          role="presentation"
-        >
-          {children}
-          <LabelElement
-            isInline
-            {...{
-              labelClassName,
-              label,
-              isLabelHidden,
-              qaHook,
-              wrapperIds,
-            }}
-          />
-        </label>
-        <MessageElement
-          className={messageClassName}
-          {...{
-            isInvalid,
-            validationMessage,
-            hintMessage,
-            qaHook,
-            wrapperIds,
-          }}
-        />
-      </div>
-    );
-  }
-}
+export default XUIControlWrapperInline;
 
 XUIControlWrapperInline.propTypes = {
   qaHook: PropTypes.string,

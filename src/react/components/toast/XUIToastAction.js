@@ -4,21 +4,21 @@ import cn from 'classnames';
 import XUIButton from '../button/XUIButton';
 import { baseClass } from './private/constants';
 
-export default function XUIToastAction({ className, href, qaHook, children, ...props }) {
-  return (
-    <XUIButton
-      {...props}
-      className={cn(className, `${baseClass}--action`)}
-      href={href}
-      isLink={!!href}
-      qaHook={qaHook}
-      size="small"
-      variant="link"
-    >
-      {children}
-    </XUIButton>
-  );
-}
+const XUIToastAction = ({ children, className, href, qaHook, ...props }) => (
+  <XUIButton
+    {...props}
+    className={cn(className, `${baseClass}--action`)}
+    href={href}
+    isLink={!!href}
+    qaHook={qaHook}
+    size="small"
+    variant="borderless-primary"
+  >
+    {children}
+  </XUIButton>
+);
+
+export default XUIToastAction;
 
 XUIToastAction.propTypes = {
   /** Adds optional class to wrapping component */

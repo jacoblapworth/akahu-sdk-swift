@@ -10,7 +10,7 @@ import XUIToastMessage from '../XUIToastMessage';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('XUIToast', () => {
-  it('should render without a sentiment modifier if no sentiment is provided', function() {
+  it('should render without a sentiment modifier if no sentiment is provided', function () {
     const wrapper = mount(<XUIToast />);
     const toast = wrapper.find('.xui-toast');
     expect(toast.hasClass('xui-toast')).toBeTruthy();
@@ -18,7 +18,7 @@ describe('XUIToast', () => {
     expect(toast.hasClass('xui-toast-positive')).toBeFalsy();
   });
 
-  it('should render with the negative sentiment modifier when sentiment is set to negative', function() {
+  it('should render with the negative sentiment modifier when sentiment is set to negative', function () {
     const wrapper = mount(<XUIToast sentiment="negative" />);
     const toast = wrapper.find('.xui-toast');
 
@@ -26,7 +26,7 @@ describe('XUIToast', () => {
     expect(toast.hasClass('xui-toast-positive')).toBeFalsy();
   });
 
-  it('should render with the positive sentiment modifier when sentiment is set to positive', function() {
+  it('should render with the positive sentiment modifier when sentiment is set to positive', function () {
     const wrapper = mount(<XUIToast sentiment="positive" />);
     const toast = wrapper.find('.xui-toast');
 
@@ -34,25 +34,25 @@ describe('XUIToast', () => {
     expect(toast.hasClass('xui-toast-positive')).toBeTruthy();
   });
 
-  it('should render the provided XUIToastMessage element', function() {
+  it('should render the provided XUIToastMessage element', function () {
     const message = '💩 Pile of Poo';
     const wrapper = mount(<XUIToastMessage>{message}</XUIToastMessage>);
     expect(wrapper.text()).toEqual(message);
   });
 
-  it('should render without a close button if no close click function is provided', function() {
+  it('should render without a close button if no close click function is provided', function () {
     const wrapper = mount(<XUIToast />);
 
     expect(wrapper.html().includes('xui-toast--close')).toBeFalsy();
   });
 
-  it('should render with a close button if close click function is provided', function() {
-    const wrapper = mount(<XUIToast onCloseClick={function() {}} />);
+  it('should render with a close button if close click function is provided', function () {
+    const wrapper = mount(<XUIToast onCloseClick={function () {}} />);
 
     expect(wrapper.html().includes('xui-toast--close')).toBeTruthy();
   });
 
-  it('should add the appropriate `role` attribute depending on the sentiment (`alert` for positive/negative; else `status`)', function() {
+  it('should add the appropriate `role` attribute depending on the sentiment (`alert` for positive/negative; else `status`)', function () {
     const wrapper = render(
       <div>
         <XUIToast sentiment="positive" />
@@ -67,7 +67,7 @@ describe('XUIToast', () => {
     expect(toasts[2].attribs.role).toEqual('status');
   });
 
-  it('should allow a custom `role` to be set', function() {
+  it('should allow a custom `role` to be set', function () {
     const wrapper = render(
       <div>
         <XUIToast />
@@ -84,7 +84,7 @@ describe('XUIToast', () => {
     expect(toasts[3].attribs.role).toEqual('forced');
   });
 
-  it('should render toast actions as buttons and/or links with the appropriate classes', function() {
+  it('should render toast actions as buttons and/or links with the appropriate classes', function () {
     const wrapper = render(
       <XUIToast>
         <XUIToastActions>

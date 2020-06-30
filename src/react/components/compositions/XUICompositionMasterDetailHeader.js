@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -10,26 +10,31 @@ import baseCompositionClass, { buildLayoutClass, buildGlobalCompositionClasses }
 
 const compositionName = 'masterdetailheader';
 
-export default class XUICompositionMasterDetailHeader extends PureComponent {
-  render() {
-    const { className, header, master, detail, retainWidth, ...spreadProps } = this.props;
+const XUICompositionMasterDetailHeader = ({
+  className,
+  detail,
+  header,
+  master,
+  retainWidth,
+  ...spreadProps
+}) => {
+  const compositionClasses = cn(
+    buildGlobalCompositionClasses(spreadProps),
+    buildLayoutClass({ retainWidth, compositionName }),
+    `${baseCompositionClass}-${compositionName}`,
+    className,
+  );
 
-    const compositionClasses = cn(
-      buildGlobalCompositionClasses(spreadProps),
-      buildLayoutClass({ retainWidth, compositionName }),
-      `${baseCompositionClass}-${compositionName}`,
-      className,
-    );
+  return (
+    <div className={compositionClasses}>
+      <XUIGridAreaHeader>{header}</XUIGridAreaHeader>
+      <XUIGridAreaMaster>{master}</XUIGridAreaMaster>
+      <XUIGridAreaDetail>{detail}</XUIGridAreaDetail>
+    </div>
+  );
+};
 
-    return (
-      <div className={compositionClasses}>
-        <XUIGridAreaHeader>{header}</XUIGridAreaHeader>
-        <XUIGridAreaMaster>{master}</XUIGridAreaMaster>
-        <XUIGridAreaDetail>{detail}</XUIGridAreaDetail>
-      </div>
-    );
-  }
-}
+export default XUICompositionMasterDetailHeader;
 
 XUICompositionMasterDetailHeader.propTypes = {
   className: PropTypes.string,

@@ -211,4 +211,8 @@ export default class XUIAutocompleter extends React.PureComponent<Props> {
    * item.
    */
   onHighlightChange(item: Pickitem): void;
+  /**
+   * Root node to enable users to access as a ref.
+   */
+  rootNode: HTMLElement | null;
 }

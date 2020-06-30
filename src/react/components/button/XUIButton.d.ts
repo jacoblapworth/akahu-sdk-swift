@@ -136,4 +136,8 @@ export default class XUIButton extends React.PureComponent<Props> {
    * Check if the button has focus.
    */
   hasFocus(): boolean;
+  /**
+   * Root node of XUICompleter to enable users to access as a ref.
+   */
+  rootNode: HTMLElement | null;
 }

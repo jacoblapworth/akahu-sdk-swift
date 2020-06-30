@@ -1,5 +1,5 @@
 function setInitialButtonStyling(button) {
-  button.setAttribute('class', 'clipboard-button hover-tooltip xui-button code-copy');
+  button.setAttribute('class', 'clipboard-button hover-tooltip hover-tooltip-above xui-button code-copy');
   button.setAttribute('title', 'Copy code');
   setStandardButtonStyling(button);
 }
@@ -19,6 +19,7 @@ for (var i = 0; i < pre.length; i++) {
   var button = document.createElement('button');
   setInitialButtonStyling(button);
   pre[i].appendChild(button);
+  pre[i].classList += ' ds-pre';
 }
 
 var clipboard = new Clipboard('.code-copy', {

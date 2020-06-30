@@ -1,3 +1,5 @@
+@use 'sass:color' as *;
+
 /**
  * This source is pre-parsed and looks similar to KSS but is not the same.
  */
@@ -356,7 +358,7 @@ $xui-datepicker-hover-bg-color: $xui-color-grey-alpha-7;
 
 // Dropdowns
 
-$xui-dropdown-mask-bg-color: transparentize($xui-color-grey-1, 0.5);
+$xui-dropdown-mask-bg-color: adjust($xui-color-grey-1, $alpha: -0.5);
 $xui-dropdown-divider-shadow-color: $xui-color-grey-alpha-6;
 
 // Forms
@@ -434,7 +436,7 @@ $xui-loader-inverted-color: $xui-color-white-alpha-3;
 
 // Modals
 
-$xui-mask-bg-color: transparentize($xui-color-grey-1, 0.3);
+$xui-mask-bg-color: adjust($xui-color-grey-1, $alpha: -0.3);
 $xui-modal-bg-color: $xui-color-white;
 
 // Picklists

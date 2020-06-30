@@ -149,8 +149,11 @@ const config = {
       // TODO: Remove hyphen removal and rename select-box/ -> selectBox/
       name = `{ ${name} }`;
     }
+    const dirNormalised = dir.toLowerCase();
+    // TODO: Normalise casing strategy between files and component directory names. Currently mismatched.
+    // TODO: Remove hyphen removal and rename select-box/ -> selectBox/
 
-    return `import ${name} from '${pkg.name}/react/${dirToLower}';`;
+    return `import { ${name} } from '${pkg.name}/react/${dirNormalised}';`;
   },
 };
 

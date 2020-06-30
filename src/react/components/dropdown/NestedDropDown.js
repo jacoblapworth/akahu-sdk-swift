@@ -65,6 +65,9 @@ export default class NestedDropDown extends DropDown {
                   ...dropdown.props.ignoreKeyboardEvents,
                   ...child.props.ignoreKeyboardEvents,
                 ],
+                style: {
+                  maxHeight: style && style.maxHeight,
+                },
               })
             : child}
         </div>

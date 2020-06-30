@@ -12,7 +12,7 @@ const XUIPopoverHeader = ({ className, closeButtonProps, onClose, qaHook, subtit
   const [titleId, setTitleId] = React.useState();
 
   useEffect(() => {
-    setTitleId(getTitleId());
+    getTitleId && setTitleId(getTitleId());
   }, [getTitleId]);
 
   return (

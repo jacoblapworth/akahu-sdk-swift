@@ -13,4 +13,9 @@ interface Props {
   qaHook?: string;
 }
 
-export default class DropDownFooter extends React.PureComponent<Props> {}
+export default class DropDownFooter extends React.PureComponent<Props> {
+  /**
+   * Root node to enable users to access as a ref.
+   */
+  rootNode: HTMLElement | null;
+}

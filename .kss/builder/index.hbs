@@ -89,7 +89,7 @@
 								<a href="./section-getting-started.html#getting-started-5" class="ds-flag {{#if flag.shortName}}{{getStatusClass flag.shortName}}{{/if}}">
 										{{flag.label}}
 										{{#if flag.desc}}
-											<button class="hover-tooltip xui-button">{{flag.desc}}</button>
+											<button class="hover-tooltip hover-tooltip-below xui-button">{{flag.desc}}</button>
 										{{/if}}
 								</a>
 							{{/renderFlags}}
@@ -232,7 +232,7 @@
 				<input checked type="radio" id="example-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-example" />
 
 				<!--ds-example-->
-				<div class="ds-example{{#isEqual exampleclass "ds-example-markuponly"}} xui-u-hidden{{/isEqual}}">
+				<div class="ds-example{{#isInList exampleclass "ds-example-markuponly"}} xui-u-hidden{{/isInList}}">
 					<div class="ds-section-part ds-example-default {{exampleclass}}">
 						<div class="ds-example--inner xui-container">
 						{{{example}}}

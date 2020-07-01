@@ -126,10 +126,10 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
     expect(onSearch.mock.calls.length).toEqual(1);
   });
 
-  it('should pass the isBlock prop to the DropdownToggled element', () => {
+  it('should pass the isBlock prop to the XUIDropDownToggled element', () => {
     const searchComp = mount(createComponent({ isBlock: true }));
 
-    const dropdownToggledComp = searchComp.find('DropDownToggled');
+    const dropdownToggledComp = searchComp.find('XUIDropDownToggled');
 
     expect(dropdownToggledComp.prop('isBlock')).toBeTruthy();
   });

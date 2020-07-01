@@ -2,7 +2,7 @@
 	<a href="../section-components-collectinginput-datepicker.html" isDocLink>Datepicker in the XUI Documentation</a>
 </div>
 
-For information about what to consider when using a `XUIDatePicker` within a `DropDown` component, check the [DropDown documentation](#dropdown).
+For information about what to consider when using a `XUIDatePicker` within a `XUIDropDown` component, check the [dropdown documentation](#dropdown).
 
 **Note:** This component is a wrapper around the [OSS component, `react-day-picker`](http://react-day-picker.js.org/)
 
@@ -192,7 +192,7 @@ class CompactPicker extends React.Component {
 ```jsx harmony
 import XUIDatePicker from '@xero/xui/react/datepicker';
 import XUIButton from '@xero/xui/react/button';
-import Dropdown, { DropDownToggled } from '@xero/xui/react/dropdown';
+import XUIDropDown, { XUIDropDownToggled } from '@xero/xui/react/dropdown';
 
 class DatepickerDropdown extends React.Component {
   constructor(...args) {
@@ -209,12 +209,12 @@ class DatepickerDropdown extends React.Component {
     const trigger = <XUIButton>Select a date</XUIButton>;
 
     const dropdown = (
-      <Dropdown>
+      <XUIDropDown>
         <XUIDatePicker onSelectDate={() => {}} />
-      </Dropdown>
+      </XUIDropDown>
     );
 
-    return <DropDownToggled ref={c => (this.ddt = c)} dropdown={dropdown} trigger={trigger} />;
+    return <XUIDropDownToggled ref={c => (this.ddt = c)} dropdown={dropdown} trigger={trigger} />;
   }
 }
 <DatepickerDropdown />;

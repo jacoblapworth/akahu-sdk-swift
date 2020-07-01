@@ -6,14 +6,14 @@ interface Props {
   children?: React.ReactNode;
   className?: string;
   /**
-   * An optional array of one or more PickItem components to be added to the `DropDownFooter` in a
+   * An optional array of one or more PickItem components to be added to the `XUIDropDownFooter` in a
    * `PickList` with standardised styling.
    */
   pickItems?: React.ReactElement<PickitemProps> | Array<React.ReactElement<PickitemProps>>;
   qaHook?: string;
 }
 
-export default class DropDownFooter extends React.PureComponent<Props> {
+export default class XUIDropDownFooter extends React.PureComponent<Props> {
   /**
    * Root node to enable users to access as a ref.
    */

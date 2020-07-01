@@ -65,20 +65,38 @@ module.exports = {
   ],
   dropdown: [
     {
-      name: 'NestedDropDown',
-      props: [
-        {
-          name: 'currentPanel',
-          newName: 'currentPanelId',
-        },
-      ],
+      name: 'DropDown',
+      newName: 'XUIDropDown',
     },
     {
       name: 'DropDownHeader',
+      newName: 'XUIDropDownHeader',
       props: [
         {
           name: 'backButtonLabel',
           newName: 'backButtonAriaLabel',
+        },
+      ],
+    },
+    {
+      name: 'DropDownFooter',
+      newName: 'XUIDropDownFooter',
+    },
+    {
+      name: 'DropDownPanel',
+      newName: 'XUIDropDownPanel',
+    },
+    {
+      name: 'DropDownToggled',
+      newName: 'XUIDropDownToggled',
+    },
+    {
+      name: 'NestedDropDown',
+      newName: 'XUINestedDropDown',
+      props: [
+        {
+          name: 'currentPanel',
+          newName: 'currentPanelId',
         },
       ],
     },

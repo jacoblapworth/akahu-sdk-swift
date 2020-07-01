@@ -52,7 +52,7 @@ function focusTrigger(virtualTrigger, triggerDOM) {
  * and closed based on state/props.
  *
  * @private
- * @param {DropDownToggled} ddt
+ * @param {XUIDropDownToggled} ddt
  * @returns {Boolean}
  */
 function shouldAnimate(ddt) {
@@ -64,7 +64,7 @@ function shouldAnimate(ddt) {
  * do that right now.
  *
  * @private
- * @param {DropDownToggled} ddt
+ * @param {XUIDropDownToggled} ddt
  * @returns {Boolean}
  */
 function shouldLockScroll(ddt) {
@@ -81,10 +81,10 @@ function shouldLockScroll(ddt) {
  * to toggle the list open/closed based on click of the TriggerComponent.
  *
  * @export
- * @class DropDownToggled
+ * @class XUIDropDownToggled
  * @extends {PureComponent}
  */
-export default class DropDownToggled extends PureComponent {
+export default class XUIDropDownToggled extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -266,7 +266,7 @@ export default class DropDownToggled extends PureComponent {
    * If user clicks on the trigger, we may want to open and/or toggle the dropdown.
    *
    * @private
-   * @memberof DropDownToggled
+   * @memberof XUIDropDownToggled
    */
   triggerClickHandler = () => {
     switch (this.props.triggerClickAction) {
@@ -430,7 +430,7 @@ export default class DropDownToggled extends PureComponent {
    * When the opening animation finishes, we need to remove the class that causes it
    * to prevent a change in the child DOM nodes from causing another animation.
    *
-   * @memberof DropDownToggled
+   * @memberof XUIDropDownToggled
    */
   onOpenAnimationEnd = () => {
     this.setState(() => ({
@@ -451,7 +451,7 @@ export default class DropDownToggled extends PureComponent {
    * 2. Check to see if we're in a mobile context.
    * 3. Reposition the dropdown.  Could be fullscreen if resized to mobile.
    *
-   * @memberof DropDownToggled
+   * @memberof XUIDropDownToggled
    */
   onResize = () => {
     this.setState(prevState => {
@@ -468,7 +468,7 @@ export default class DropDownToggled extends PureComponent {
    * Force the dropdown to reposition itself relative to the current position of the trigger.
    *
    * @public
-   * @memberof DropDownToggled
+   * @memberof XUIDropDownToggled
    */
   repositionDropDown = () => {
     if (this.positioning.current != null) {
@@ -597,7 +597,7 @@ export default class DropDownToggled extends PureComponent {
   }
 }
 
-DropDownToggled.propTypes = {
+XUIDropDownToggled.propTypes = {
   className: PropTypes.string,
   qaHook: PropTypes.string,
 
@@ -652,7 +652,7 @@ DropDownToggled.propTypes = {
 
   /**
    * Setting to true will for the dropdown to be as wide as the trigger. <br>
-   * **Note:** *Setting this to true will override any size prop on DropDown.* <br>
+   * **Note:** *Setting this to true will override any size prop on `XUIDropDown`.* <br>
    * XUI design has also to keep a minimum width on the dropdown,
    * so dropdown may not match the width of narrow triggers.
    */
@@ -690,7 +690,7 @@ DropDownToggled.propTypes = {
   ariaRole: PropTypes.string,
 };
 
-DropDownToggled.defaultProps = {
+XUIDropDownToggled.defaultProps = {
   isHidden: true,
   closeOnSelect: true,
   closeOnTab: true,

@@ -1,16 +1,16 @@
 **Note:** This component is still considered beta, and it's API may change before it is officially released.
 
-`NestedDropDown` is designed as a `DropDown` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown. A quick example would be allowing the user to choose between some convenience dates and a fixed custom date like below.
+`XUINestedDropDown` is designed as a `XUIDropDown` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown. A quick example would be allowing the user to choose between some convenience dates and a fixed custom date like below.
 
 ```jsx harmony
 import 'array.prototype.find';
 import { Component } from 'react';
 import {
-  DropDownToggled,
-  DropDownHeader,
-  DropDownFooter,
-  NestedDropDown,
-  DropDownPanel
+  XUIDropDownFooter,
+  XUIDropDownHeader,
+  XUIDropDownPanel,
+  XUIDropDownToggled,
+  XUINestedDropDown
 } from '@xero/xui/react/dropdown';
 import XUIButton from '@xero/xui/react/button';
 import XUIDatePicker from '@xero/xui/react/datepicker';
@@ -143,7 +143,7 @@ class NestedExample extends Component {
     const trigger = <XUIButton hasCaret>{triggerText}</XUIButton>;
 
     const dropdownFooter = (
-      <DropDownFooter
+      <XUIDropDownFooter
         pickItems={
           <Pickitem id="custom" key="custom" onClick={this.selectCustomConvenience}>
             Custom Date
@@ -153,8 +153,8 @@ class NestedExample extends Component {
     );
 
     const dropdown = (
-      <NestedDropDown currentPanelId={activePanel} onPanelChange={this.focusDatePicker}>
-        <DropDownPanel panelId="convenienceDates" footer={dropdownFooter}>
+      <XUINestedDropDown currentPanelId={activePanel} onPanelChange={this.focusDatePicker}>
+        <XUIDropDownPanel panelId="convenienceDates" footer={dropdownFooter}>
           <Picklist>
             {convenienceDates.map(cd => (
               <Pickitem
@@ -168,11 +168,11 @@ class NestedExample extends Component {
               </Pickitem>
             ))}
           </Picklist>
-        </DropDownPanel>
-        <DropDownPanel
+        </XUIDropDownPanel>
+        <XUIDropDownPanel
           panelId="customDate"
           header={
-            <DropDownHeader
+            <XUIDropDownHeader
               title="Example Title"
               onBackButtonClick={this.showConvenienceDates}
               onSecondaryButtonClick={this.closeDropDown}
@@ -187,12 +187,12 @@ class NestedExample extends Component {
             selectedDate={this.state.selectedDate}
             onSelectDate={this.selectDate}
           />
-        </DropDownPanel>
-      </NestedDropDown>
+        </XUIDropDownPanel>
+      </XUINestedDropDown>
     );
     const isPicklist = activePanel !== 'customDate';
     return (
-      <DropDownToggled
+      <XUIDropDownToggled
         ref={this.ddt}
         trigger={trigger}
         dropdown={dropdown}
@@ -207,7 +207,7 @@ class NestedExample extends Component {
 <NestedExample />;
 ```
 
-- Each panel must be wrapped in a `DropDownPanel` and passed as children to `NestedDropDown`. Each panel should be given a `panelId` and the id of the currently selected panel should be passed to `NestedDropDown` via the `currentPanelId` prop.
-- Navigation to previous steps should be handled in the `onBackButtonClick` callback in `DropDownHeader`. `DropDownHeader` should be passed into `DropDownPanel` for panels that require one.
-- `closeOnSelect={false}` should be set on `DropDownToggled` to prevent closing on `Pickitem` selection. `DropDownToggled.closeDropDown` should then be called in the `onSelect` callback when appropriate.
-- `XUIDatePicker` should be given focus explicitly. `XUIDatePicker.focusDatePicker` should be called in `NestedDropDown.onPanelChange` when the datepicker panel becomes active.
+- Each panel must be wrapped in a `XUIDropDownPanel` and passed as children to `XUINestedDropDown`. Each panel should be given a `panelId` and the id of the currently selected panel should be passed to `XUINestedDropDown` via the `currentPanelId` prop.
+- Navigation to previous steps should be handled in the `onBackButtonClick` callback in `XUIDropDownHeader`. `XUIDropDownHeader` should be passed into `XUIDropDownPanel` for panels that require one.
+- `closeOnSelect={false}` should be set on `XUIDropDownToggled` to prevent closing on `Pickitem` selection. `XUIDropDownToggled.closeDropDown` should then be called in the `onSelect` callback when appropriate.
+- `XUIDatePicker` should be given focus explicitly. `XUIDatePicker.focusDatePicker` should be called in `XUINestedDropDown.onPanelChange` when the datepicker panel becomes active.

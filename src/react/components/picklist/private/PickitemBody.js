@@ -110,7 +110,7 @@ PickitemBody.propTypes = {
   /** Content to be added to the right of the pickitem. */
   rightElement: PropTypes.node,
   headingElement: PropTypes.node,
-  /** Show button caret. Used in TabDropDown */
+  /** Show button caret. Used in `TabDropDown` */
   showButtonCaret: PropTypes.bool,
 };
 

@@ -8,7 +8,7 @@ import { ns } from '../helpers/xuiClassNamespace';
 import { userBreakpoints } from '../helpers/breakpoints';
 import WidthContext from '../../contexts/WidthContext';
 import Picklist, { Pickitem } from '../../picklist';
-import DropDown, { DropDownToggled } from '../../dropdown';
+import XUIDropDown, { XUIDropDownToggled } from '../../dropdown';
 
 const baseClass = `${ns}-breadcrumb`;
 
@@ -40,11 +40,11 @@ const buildCompactBreadcrumbs = breadcrumbs => {
   // Build the list of new breadcrumb objects, including the dropdown with trigger.
   const compactItems = [];
   compactItems.push(
-    <DropDownToggled
+    <XUIDropDownToggled
       dropdown={
-        <DropDown>
+        <XUIDropDown>
           <Picklist>{bcPickitems}</Picklist>
-        </DropDown>
+        </XUIDropDown>
       }
       trigger={compactTrigger}
     />,
@@ -60,7 +60,10 @@ const getCrumbLabel = crumb => {
     // HTML nodes and React components have a type property. Objects do not.
     return React.cloneElement(crumb, {
       // Don't tack the link class onto a ddt.
-      className: cn(crumb.props.className, crumb.type !== DropDownToggled && `${baseClass}--link`),
+      className: cn(
+        crumb.props.className,
+        crumb.type !== XUIDropDownToggled && `${baseClass}--link`,
+      ),
     });
   } else if (!crumb.href) {
     return crumb.label;

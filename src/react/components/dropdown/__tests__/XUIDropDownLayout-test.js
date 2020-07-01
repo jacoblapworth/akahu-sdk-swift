@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import DropDownLayout from '../DropDownLayout';
+import XUIDropDownLayout from '../XUIDropDownLayout';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 
@@ -9,7 +9,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 function getWrapper(props = {}) {
   return mount(
-    <DropDownLayout {...props}>
+    <XUIDropDownLayout {...props}>
       <Picklist>
         <Pickitem id="1">Im the whole shabang!</Pickitem>
         <Pickitem id="2">Earnings from Busking</Pickitem>
@@ -17,7 +17,7 @@ function getWrapper(props = {}) {
         <Pickitem id="4">Unnecessary Costs</Pickitem>
         <Pickitem id="5">Absolutely Necessary Costs</Pickitem>
       </Picklist>
-    </DropDownLayout>,
+    </XUIDropDownLayout>,
   );
 }
 describe('onOpenAnimationEnd', () => {

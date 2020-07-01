@@ -5,14 +5,14 @@ import Picklist from '../picklist/Picklist';
 import { baseClass } from './private/constants';
 
 /**
- * Wrapper component for contents of a dropdown footer.  DropDown does expect this to be the
- * wrapper, so it's use is mandatory. It can accept pickItems directly, or you can custom
+ * Wrapper component for contents of a dropdown footer.  `XUIDropDown` does expect this to be the
+ * wrapper, so its use is mandatory. It can accept pickitems directly, or you can custom
  * build the content.
  *
  * @export
- * @function DropDownFooter
+ * @function XUIDropDownFooter
  */
-const DropDownFooter = ({ children, className, qaHook, pickItems }) => {
+const XUIDropDownFooter = ({ children, className, qaHook, pickItems }) => {
   const rootNode = React.createRef();
   const footerClass = `${baseClass}--footer`;
   const classes = cn(footerClass, className);
@@ -28,14 +28,14 @@ const DropDownFooter = ({ children, className, qaHook, pickItems }) => {
   );
 };
 
-DropDownFooter.propTypes = {
+XUIDropDownFooter.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   qaHook: PropTypes.string,
-  /** An optional array of one or more PickItem components to be added to the DropDownFooter
+  /** An optional array of one or more PickItem components to be added to the `XUIDropDownFooter`
    * in a PickList with standardised styling.
    */
   pickItems: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 };
 
-export default React.memo(DropDownFooter);
+export default React.memo(XUIDropDownFooter);

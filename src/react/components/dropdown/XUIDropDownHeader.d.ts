@@ -59,7 +59,7 @@ interface Props {
   title?: React.ReactNode;
 }
 
-export default class DropDownHeader extends React.PureComponent<Props> {
+export default class XUIDropDownHeader extends React.PureComponent<Props> {
   /**
    * Root node to enable users to access as a ref.
    */

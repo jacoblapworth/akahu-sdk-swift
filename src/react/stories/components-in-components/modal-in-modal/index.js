@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // Components we need to test with
 import XUIModal, { XUIModalBody, XUIModalHeader } from '../../../modal';
 import XUIButton from '../../../button';
-import DropDown, { DropDownToggled } from '../../../dropdown';
+import XUIDropDown, { XUIDropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
 import * as lists from '../../../components/helpers/list';
 
@@ -23,9 +23,9 @@ const buildDropdownPicklist = items => {
     </Pickitem>
   ));
   return (
-    <DropDown>
+    <XUIDropDown>
       <Picklist>{pickItems}</Picklist>
-    </DropDown>
+    </XUIDropDown>
   );
 };
 
@@ -85,7 +85,7 @@ class Example2 extends Component {
           <XUIModalBody className="xui-padding">
             <div className="xui-padding-bottom" style={{ height: '1000px' }}>
               This is the second layer modal
-              <DropDownToggled
+              <XUIDropDownToggled
                 dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
                 isHidden={false}
                 isLegacyDisplay={false}

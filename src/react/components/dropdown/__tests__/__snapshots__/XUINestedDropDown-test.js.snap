@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<NestedDropdown /> should add the animation close class when the animateClose prop is set to true 1`] = `
+exports[`<XUINestedDropDown /> should add the animation close class when the animateClose prop is set to true 1`] = `
 <div
   className="xui-dropdown-layout xui-dropdown-fixed-medium xui-dropdown-fullheight xui-dropdown-is-open xui-dropdown-is-closing"
   id="1"
@@ -154,7 +154,7 @@ exports[`<NestedDropdown /> should add the animation close class when the animat
 </div>
 `;
 
-exports[`<NestedDropdown /> should add the animation open class when the animateOpen prop is set to true 1`] = `
+exports[`<XUINestedDropDown /> should add the animation open class when the animateOpen prop is set to true 1`] = `
 <div
   className="xui-dropdown-layout xui-dropdown-fixed-medium xui-dropdown-fullheight xui-dropdown-is-open xui-dropdown-is-opening"
   id="1"
@@ -308,7 +308,7 @@ exports[`<NestedDropdown /> should add the animation open class when the animate
 </div>
 `;
 
-exports[`<NestedDropdown /> should allow for a footer to be rendered to the correct panel when passed 1`] = `
+exports[`<XUINestedDropDown /> should allow for a footer to be rendered to the correct panel when passed 1`] = `
 <div
   className="xui-dropdown-layout xui-dropdown-fixed-medium xui-dropdown-fullheight xui-dropdown-is-open"
   id="1"
@@ -462,7 +462,7 @@ exports[`<NestedDropdown /> should allow for a footer to be rendered to the corr
 </div>
 `;
 
-exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
+exports[`<XUINestedDropDown /> should allow the consumer to change the size 1`] = `
 <div
   className="xui-dropdown-layout xui-dropdown-fixed-small xui-dropdown-fullheight xui-dropdown-is-open"
   id="1"
@@ -616,7 +616,7 @@ exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
 </div>
 `;
 
-exports[`<NestedDropdown /> should be a size large by default 1`] = `
+exports[`<XUINestedDropDown /> should be a size large by default 1`] = `
 <div
   className="xui-dropdown-layout xui-dropdown-fixed-medium xui-dropdown-fullheight xui-dropdown-is-open"
   id="1"
@@ -770,7 +770,7 @@ exports[`<NestedDropdown /> should be a size large by default 1`] = `
 </div>
 `;
 
-exports[`<NestedDropdown /> should render a passed id instead of automatically generating one 1`] = `
+exports[`<XUINestedDropDown /> should render a passed id instead of automatically generating one 1`] = `
 <div
   className="xui-dropdown-layout xui-dropdown-fixed-medium xui-dropdown-fullheight xui-dropdown-is-open"
   id="1"
@@ -924,7 +924,7 @@ exports[`<NestedDropdown /> should render a passed id instead of automatically g
 </div>
 `;
 
-exports[`<NestedDropdown /> should render additional classes when passed in the classNames prop 1`] = `
+exports[`<XUINestedDropDown /> should render additional classes when passed in the classNames prop 1`] = `
 <div
   className="xui-dropdown-layout xui-dropdown-fixed-medium xui-dropdown-fullheight nestedDropdown-class xui-dropdown-is-open"
   id="1"
@@ -1078,7 +1078,7 @@ exports[`<NestedDropdown /> should render additional classes when passed in the 
 </div>
 `;
 
-exports[`<NestedDropdown /> should render an automationid when a qaHook is passed 1`] = `
+exports[`<XUINestedDropDown /> should render an automationid when a qaHook is passed 1`] = `
 <div
   className="xui-dropdown-layout xui-dropdown-fixed-medium xui-dropdown-fullheight xui-dropdown-is-open"
   data-automationid="nestedDropdown-test"
@@ -1234,7 +1234,7 @@ exports[`<NestedDropdown /> should render an automationid when a qaHook is passe
 </div>
 `;
 
-exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to true 1`] = `
+exports[`<XUINestedDropDown /> should render hidden if the isHidden prop is set to true 1`] = `
 <div
   className="xui-dropdown-layout xui-dropdown-fixed-medium xui-dropdown-fullheight"
   id="1"
@@ -1388,7 +1388,7 @@ exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to 
 </div>
 `;
 
-exports[`<NestedDropdown /> should render visible if the isHidden prop is set to false 1`] = `
+exports[`<XUINestedDropDown /> should render visible if the isHidden prop is set to false 1`] = `
 <div
   className="xui-dropdown-layout xui-dropdown-fixed-medium xui-dropdown-fullheight xui-dropdown-is-open"
   id="1"
@@ -1542,7 +1542,7 @@ exports[`<NestedDropdown /> should render visible if the isHidden prop is set to
 </div>
 `;
 
-exports[`<NestedDropdown /> shouldn't add the animation close class when animateClosed is false 1`] = `
+exports[`<XUINestedDropDown /> shouldn't add the animation close class when animateClosed is false 1`] = `
 <div
   className="xui-dropdown-layout xui-dropdown-fixed-medium xui-dropdown-fullheight xui-dropdown-is-open"
   id="1"
@@ -1696,7 +1696,7 @@ exports[`<NestedDropdown /> shouldn't add the animation close class when animate
 </div>
 `;
 
-exports[`<NestedDropdown /> shouldn't add the animation open class when animateOpen is false 1`] = `
+exports[`<XUINestedDropDown /> shouldn't add the animation open class when animateOpen is false 1`] = `
 <div
   className="xui-dropdown-layout xui-dropdown-fixed-medium xui-dropdown-fullheight xui-dropdown-is-open"
   id="1"

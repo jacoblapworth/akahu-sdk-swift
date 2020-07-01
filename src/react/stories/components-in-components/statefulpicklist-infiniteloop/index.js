@@ -3,7 +3,7 @@ import React from 'react';
 
 // Components we need to test with
 import Picklist, { Pickitem } from '../../../picklist';
-import { DropDownFooter } from '../../../dropdown';
+import { XUIDropDownFooter } from '../../../dropdown';
 import XUIAutoCompleter from '../../../autocompleter';
 
 import { nonBackstopStoryNames, compositionKind } from '../tests';
@@ -48,7 +48,7 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
 
     renderFooter = shouldRender => (
       <ConditionalRender shouldRender={shouldRender}>
-        <DropDownFooter
+        <XUIDropDownFooter
           pickItems={
             <Pickitem id="footerAction" onSelect={this.onSelect}>
               <span>Add New Fruit</span>

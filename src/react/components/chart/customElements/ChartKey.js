@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import infoPathData from '@xero/xui-icon/icons/info';
 import XUIIconButton from '../../button/XUIIconButton';
-import DropDownToggled from '../../dropdown/DropDownToggled';
-import DropDown from '../../dropdown/DropDown';
+import XUIDropDown from '../../dropdown/XUIDropDown';
+import XUIDropDownToggled from '../../dropdown/XUIDropDownToggled';
 import { NAME_SPACE } from '../helpers/constants';
 
 class ChartKey extends PureComponent {
@@ -23,16 +23,20 @@ class ChartKey extends PureComponent {
     const trigger = <XUIIconButton ariaLabel={title} icon={infoPathData} title={title} />;
 
     const dropdown = (
-      <DropDown fixedWidth hasKeyboardEvents={false} restrictFocus={false} size="small">
+      <XUIDropDown fixedWidth hasKeyboardEvents={false} restrictFocus={false} size="small">
         <div className={`${NAME_SPACE}-chart--key`}>
           <div className={`${NAME_SPACE}-chart--key-title`}>{title}</div>
           <ul className={`${NAME_SPACE}-chart--key-list`}>{labels.map(this.createLabel)}</ul>
         </div>
-      </DropDown>
+      </XUIDropDown>
     );
 
     return (
-      <DropDownToggled dropdown={dropdown} qaHook={qaHook && `${qaHook}--key`} trigger={trigger} />
+      <XUIDropDownToggled
+        dropdown={dropdown}
+        qaHook={qaHook && `${qaHook}--key`}
+        trigger={trigger}
+      />
     );
   };
 }

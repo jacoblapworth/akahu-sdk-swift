@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DropDownFooter /> should render a picklist with context class when pickItems are passed 1`] = `
+exports[`<XUIDropDownFooter /> should render a picklist with context class when pickItems are passed 1`] = `
 <div
   className="xui-dropdown--footer"
 >
@@ -30,7 +30,7 @@ exports[`<DropDownFooter /> should render a picklist with context class when pic
 </div>
 `;
 
-exports[`<DropDownFooter /> should render an automation id when a qaHook is passed 1`] = `
+exports[`<XUIDropDownFooter /> should render an automation id when a qaHook is passed 1`] = `
 <div
   className="xui-dropdown--footer"
   data-automationid="dropdownfooter-example"

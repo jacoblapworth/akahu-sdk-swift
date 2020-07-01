@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Components we need to test with
-import DropDown, { DropDownToggled } from '../../../dropdown';
+import XUIDropDown, { XUIDropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
 import XUIButton from '../../../button';
 import XUICheckbox, { XUICheckboxGroup } from '../../../checkbox';
@@ -71,9 +71,9 @@ const toggledItems = [
 test.add(storyNames.formOnAPage, () => {
   const trigger = <XUIButton hasCaret>Trigger Button</XUIButton>;
   const dropdown = (
-    <DropDown>
+    <XUIDropDown>
       <Picklist>{toggledItems}</Picklist>
-    </DropDown>
+    </XUIDropDown>
   );
 
   return (
@@ -174,7 +174,7 @@ test.add(storyNames.formOnAPage, () => {
           <XUIColumn className="xui-padding-vertical" gridColumns="full">
             <XUIColumn gridColumns="half">
               <InputLabel>A dropdown button</InputLabel>
-              <DropDownToggled dropdown={dropdown} trigger={trigger} />
+              <XUIDropDownToggled dropdown={dropdown} trigger={trigger} />
             </XUIColumn>
             <XUIColumn gridColumns="half">
               <SelectBox

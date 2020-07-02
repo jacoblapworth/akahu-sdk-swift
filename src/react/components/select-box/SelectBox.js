@@ -34,7 +34,7 @@ const selectBaseClass = `${ns}-select`;
 
 export default class SelectBox extends Component {
   selectId = this.props.id || uuidv4();
-  wrapperIds = generateIds();
+  wrapperIds = generateIds(this.selectId);
 
   isDropDownOpen = () => !!this.ddt && this.ddt.isDropDownOpen();
 
@@ -98,6 +98,7 @@ export default class SelectBox extends Component {
               _useCellStyling={useCellStyling}
               className={buttonClassNames}
               fullWidth={fullWidth}
+              id={this.wrapperIds.control}
               isDisabled={isDisabled}
               onBlur={onBlur}
               onFocus={onFocus}

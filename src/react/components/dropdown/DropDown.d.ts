@@ -127,7 +127,7 @@ export default class DropDown extends React.PureComponent<Props> {
   /**
    * Highlights the first item in the list.
    */
-  highlightFirst(): void;
+  highlightFirstItem(): void;
   /**
    * Highlights the item passed in and fires the onHighlightChange callback.
    */
@@ -152,6 +152,10 @@ export default class DropDown extends React.PureComponent<Props> {
    * Allows simulation of keydown events if the DOM focus is elsewhere.
    */
   onKeyDown: React.KeyboardEventHandler;
+  /**
+   * Root node to enable users to access as a ref.
+   */
+  rootNode: HTMLElement | null;
   /**
    * Fired when either the enter key or space bar is pressed and calls onclick of the menu item
    * before closing the list.

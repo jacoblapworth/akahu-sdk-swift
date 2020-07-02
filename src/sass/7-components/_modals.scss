@@ -1,3 +1,6 @@
+@use 'sass:color';
+@use 'sass:map';
+
 @import '../vars';
 @import '../mixins';
 
@@ -28,7 +31,7 @@
 }
 
 .#{$ns}-unmask {
-  background-color: transparentize($xui-color-grey-1, 1);
+  background-color: color.adjust($xui-color-grey-1, $alpha: 1);
 }
 
 .#{$ns}-modal {
@@ -44,7 +47,7 @@
 
 .#{$ns}-modal-layout {
   max-width: calc(100vw - 2.5rem); // Allows for minimum margin at the left/right of modal
-  width: map-get($xui-modal-widths, medium);
+  width: map.get($xui-modal-widths, medium);
   // Modal header
   // -----------------------------------------------------------------------------
   .#{$ns}-modal--header {

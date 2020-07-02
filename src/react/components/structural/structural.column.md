@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-fundamentals-layout.html#fundamentals-layout-2-2" isDocLink>Columns in the XUI Documentation</a>
+	<a href="../section-fundamentals-layout.html#fundamentals-layout-3-2" isDocLink>Columns in the XUI Documentation</a>
 </div>
 
 `XUIColumn` components are placed inside rows and accept props to determine their width within a 12-column grid.

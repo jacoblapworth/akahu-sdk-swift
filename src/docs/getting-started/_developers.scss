@@ -14,7 +14,7 @@
 //
 // <!--?prettify lang=html?-->
 // ```html
-// <link rel="stylesheet" href="https://edge.xero.com/style/xui/16.4.0-editable.2/xui.min.css"/>
+// <link rel="stylesheet" href="https://edge.xero.com/style/xui/16.5.0-editable.3/xui.min.css"/>
 // ```
 //
 // If you are building an application that may live alongside other versions of XUI on the same page, see the [Advanced usage](#getting-started-developing-with-xui-5) section below.
@@ -115,13 +115,13 @@
 //
 // This will install all the XUI components into `node_modules/@xero/xui` and should be correctly pathed for using with Webpack or Rollup.
 //
-// Related components are grouped together in a single entry point to make importing related components easier. Components will always export a default and may have additional named exports.
+// Related components are grouped together in a single entry point to make importing related components easier. Components will usually export a default but always provide named exports for both the main component and any subcomponents.
 //
 // There are two main ways of importing XUI components. The first involves importing code that has been pre-processed by Babel. This includes dependencies on `core-js` to bring in the polyfills required for XUI's components to work in the browsers Xero supports.
 //
 // <!--?prettify lang=js?-->
 // ```
-// import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
+// import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
 // import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 // ```
 //
@@ -129,7 +129,7 @@
 //
 // <!--?prettify lang=js?-->
 // ```
-// import XUIButton, { XUIButtonCaret } from '@xero/xui/react-es6/button';
+// import XUIButton, { XUIIconButton } from '@xero/xui/react-es6/button';
 // import DropDown, { DropDownToggled } from '@xero/xui/react-es6/dropdown';
 // ```
 //
@@ -167,14 +167,14 @@
 //
 // * We use vanilla React (and don't provide any redux/application state management)
 // * We prefer stateless and pure components for performance reasons
-// * All components should be accessible (have correct roles, tabindexes and other attributes) and internationalisable (default values are ok, but must be overridable via props)
+// * All components should be accessible (have correct roles, tabindexes and other attributes) and internationalisable (default values are discouraged, and must be overridable via props)
 // * We use PropTypes and TypeScript for prop validation
 //
 // Styleguide: Getting Started.Developing with XUI.2.1
 
 // Extending and contributing to XUI
 //
-// We would really like you to use XUI provided CSS and React components but if what you need isn't in the library we provide a couple of ways of extending XUI.
+// We know that XUI can't cover all use cases, and you need to provide an excellent experience for users of yor product. If what you need isn't in the library, yet, we provide a couple of ways of extending XUI.
 //
 // Get more understanding of our process of [extending XUI](./section-contributing-to-xui.html) and how to contribute.
 //

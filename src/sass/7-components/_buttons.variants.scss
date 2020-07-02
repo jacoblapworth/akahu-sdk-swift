@@ -1,11 +1,13 @@
+@use 'sass:color';
+
 @import '../vars';
 @import '../mixins';
 
 @each $variant, $color in $xui-button-variants-bg {
   .#{$ns}-button-#{$variant} {
     $bg-color: $color;
-    $bg-hover: mix($xui-color-grey-1, $color, 10%);
-    $bg-active: mix($xui-color-grey-1, $color, 20%);
+    $bg-hover: color.mix($xui-color-grey-1, $color, 10%);
+    $bg-active: color.mix($xui-color-grey-1, $color, 20%);
     $text: $xui-color-white;
     $text-hover: $xui-color-white;
     $text-active: $xui-color-white;

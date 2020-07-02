@@ -158,11 +158,11 @@ XUIPageHeader.propTypes = {
   /**
    * Secondary title
    */
-  secondary: PropTypes.string,
+  secondary: PropTypes.node,
   /**
    * Supplementary text to appear after the headings and tags
    */
-  supplementary: PropTypes.string,
+  supplementary: PropTypes.node,
 };
 
 XUIPageHeader.defaultProps = {

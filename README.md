@@ -197,6 +197,8 @@ You can now add breakpoints that will be triggered by the Chrome window that ope
 
 ## Releasing XUI
 
+[Please use the checklist form](https://forms.gle/DhuTT6yrz6EMfBdH9) which will walk you through the process and create a record of the release. The general process will be:
+
 1. [Draft up the Release notes in GitHub](https://github.dev.xero.com/UXE/xui/releases/new).
    - The release description should provide clear documentation describing what has changed since the last release. Best practice is to include PR numbers per change.
      - The release notes can be organised under the following sections:
@@ -231,9 +233,9 @@ The UXE team manage releases of XUI via AWS Codepipeline. Following are the comm
 
 ### Upgrading between versions of XUI
 
-When you upgrade XUI, please check [changes.md](./changes.md) to see what shared dependencies have changed in XUI and check
-which dependencies you need to update in your projects - otherwise you may end up bundling multiple versions of xui-icon or
-other dependencies and bloating your application artifacts.
+When you upgrade XUI, please check [changes.md](./changes.md) to see what shared dependencies have changed in XUI and check which dependencies you need to update in your projects - otherwise you may end up bundling multiple versions of xui-icon or other dependencies and bloating your application artifacts.
+
+As of XUI 15, we also offer [upgrade guides](https://drive.google.com/drive/search?q=upgrade%20guide:%20xui) to provide a step-by-step walkthrough of upgrading your project across a major version.
 
 To make the upgrade process between versions of XUI easier, we maintain a codemod to automate some of the API changes in your code. The codemod runs using [jscodeshift](https://github.com/facebook/jscodeshift) (which currently does not support TypeScript).
 
@@ -265,22 +267,12 @@ jscodeshift --importBasePath=@xero/xui/react-es6/ -t node_modules/@xero/xui/code
 jscodeshift -t node_modules/@xero/xui/codemod/<version> src/
 ```
 
-**NB** with Typescript, passing the root directory name won't work, so you'll need to manually create a list of files to transform.
+**NB** There are several other configuration settings you may need to set for your project, including --extensions and --parser. By default, codeshift examines .js files with babel.
 
-Powershell:
-
-```ps1
-npm i -g jscodeshift@0.6.3
-$files = Get-ChildItem -Path .\ -Filter *.tsx -Recurse -File -Name
-jscodeshift -t .\node_modules\@xero\xui\codemod\index.js --parser=tsx $files
-```
-
-Bash:
+For example:
 
 ```bash
-npm i -g jscodeshift@0.6.3
-files="$(find src/ -type f -name "*.tsx")"
-jscodeshift -t ./node_modules/@xero/xui/codemod/index.js --parser=tsx $files
+jscodeshift -t ./node_modules/@xero/xui/codemod/index.js src/ --parser=flow --extensions=ts,tsx
 ```
 
 ## Contributing to XUI

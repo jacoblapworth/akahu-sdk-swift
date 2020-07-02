@@ -95,7 +95,7 @@ module.exports = {
         {
           name: 'variant',
           valueTransform: (node, j) => {
-            if (node && node.value && node.value.value.includes('icon')) {
+            if (node && node.value && node.value.value && node.value.value.includes('icon')) {
               return j.literal('MAKE_ME_AN_ICONBUTTON');
             }
             return node && node.value;

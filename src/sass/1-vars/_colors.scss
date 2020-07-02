@@ -364,7 +364,7 @@ $xui-dropdown-divider-shadow-color: $xui-color-grey-alpha-6;
 // Editable tables
 
 $xui-editabletable-bg-color: $xui-color-white;
-$xui-editabletablehead-bg-color: adjust(rgba($xui-color-grey-8, 5%), $lightness: -0.5);
+$xui-editabletablehead-bg-color: adjust($xui-color-grey-8, $lightness: -5%, $alpha: -0.5);
 
 // Forms
 

@@ -8,6 +8,12 @@ const standardBarsData = [
   { id: 2, x: 'Carrot', y: 3 },
 ];
 
+const negativeBarsData = [
+  { id: 0, x: 'Profit', y: 15975 },
+  { id: 1, x: 'Invoiced', y: 20000 },
+  { id: 2, x: 'Costs', y: -4025 },
+];
+
 const stackedBarsData = [
   { id: 0, x: 'Apple', y: [1] },
   { id: 1, x: 'Potato', y: [1, 2] },
@@ -108,16 +114,22 @@ const variations = [
         createYAxisLabelFormat: y => `${Math.round(y * 100)}k`,
       },
       {
-        chartId: 'customYaxisMaximimAcceptedValue',
-        chartTitle: 'Custom Y-Axis Maximim "Accepted" Value',
+        chartId: 'customYaxisNegative',
+        chartTitle: 'Negative Y-Axis Values',
+        chartDescription: 'Dealing with negative numbers in the y-axis',
+        barsData: negativeBarsData,
+      },
+      {
+        chartId: 'customYaxisMaximumAcceptedValue',
+        chartTitle: 'Custom Y-Axis Maximum "Accepted" Value',
         chartDescription:
           'Increase the maximum y-axis value to a custom value that exceeds the largest bar total',
         barsData: standardBarsData,
         yAxisDefaultTopValue: 20,
       },
       {
-        chartId: 'customYaxisMaximimDeclinedValue',
-        chartTitle: 'Custom Y-Axis Maximim "Declined" Value',
+        chartId: 'customYaxisMaximumDeclinedValue',
+        chartTitle: 'Custom Y-Axis Maximum "Declined" Value',
         chartDescription:
           'Propose a maximum y-axis value that is declined due to being lower than the largest bar total',
         barsData: standardBarsData,

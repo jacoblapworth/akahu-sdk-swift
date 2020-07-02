@@ -1,3 +1,5 @@
+@use "sass:list";
+
 @import '../vars';
 @import '../mixins';
 
@@ -246,10 +248,10 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
   width: auto;
 }
 
-@for $i from 1 through length($xui-progress-colors) {
-  $color: nth($xui-progress-colors, $i);
-  $key: nth($color, 1);
-  $value: nth($color, 2);
+@for $i from 1 through list.length($xui-progress-colors) {
+  $color: list.nth($xui-progress-colors, $i);
+  $key: list.nth($color, 1);
+  $value: list.nth($color, 2);
 
   [data-#{$ns}-progress-total-color='#{"" + $key}'] {
     @include xui-stepper-add-total-track-color($value);

@@ -563,6 +563,19 @@ const variations = [
       },
     ],
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with custom swapAtBreakpoint value',
+    panelSize: '100vw',
+    viewports: desktopPlus320,
+    lists: [
+      {
+        isHorizontal: true,
+        swapAtBreakpoint: 400,
+        items: [{ value: 'James Magness' }, { value: 'Tim Redmond' }, { value: 'Vicky Min' }],
+      },
+    ],
+  },
 ];
 
 export { storiesWithVariationsKindName, variations };

@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // scss-lint:disable Prefix
 @import '../../src/sass/mixins';
 @import '../../src/sass/vars';
@@ -25,7 +27,7 @@
   position: relative;
   overflow: hidden;
   text-decoration: none;
-  width: map-get($xui-width-variants-dropdown, medium);
+  width: map.get($xui-width-variants-dropdown, medium);
 
   &:hover {
     background: $ds-card-hover-bg-color;

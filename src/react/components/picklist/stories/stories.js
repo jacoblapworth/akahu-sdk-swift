@@ -21,7 +21,7 @@ import contact from '@xero/xui-icon/icons/contact';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import { withKnobs, boolean, select, number } from '@storybook/addon-knobs';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';
@@ -118,6 +118,10 @@ storiesWithKnobs.add('Playground', () => {
     pinnedElement: showPinned && '42',
   };
 
+  const useCustomBreakpoint = boolean('use custom breakpoint?', false);
+  const customSwapAtBreakpoint = number('custom swapAtBreakpoint', 0);
+  const swapAtBreakpoint = select('swapAtBreakpoint', [null, ...Object.keys(userBreakpoints)]);
+
   return (
     <XUIPanel style={{ width: limitWidth && '400px' }}>
       <XUIPicklist
@@ -126,7 +130,7 @@ storiesWithKnobs.add('Playground', () => {
         isMultiselect={isMultiselect}
         secondaryProps={{ role: 'listbox' }}
         shouldTruncate={shouldTruncate}
-        swapAtBreakpoint={select('swapAtBreakpoint', [null, ...Object.keys(userBreakpoints)])}
+        swapAtBreakpoint={useCustomBreakpoint ? customSwapAtBreakpoint : swapAtBreakpoint}
       >
         <XUIPickitem
           id="1"

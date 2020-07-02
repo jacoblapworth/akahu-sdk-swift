@@ -9,7 +9,7 @@ import uuidv4 from 'uuid/v4';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 
 jest.mock('uuid/v4');
-uuidv4.mockImplementation(() => 'testDropdownId');
+uuidv4.mockImplementation(() => 'testSelectBoxId');
 
 Enzyme.configure({ adapter: new Adapter() });
 

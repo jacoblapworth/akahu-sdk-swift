@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 @import '../vars';
 @import '../mixins';
 
@@ -25,7 +27,7 @@
   border-width: 0px 1px;
   display: none;
   flex-direction: column;
-  min-width: map-get($xui-width-variants-dropdown, xsmall);
+  min-width: map.get($xui-width-variants-dropdown, xsmall);
   outline: none;
   position: absolute;
 

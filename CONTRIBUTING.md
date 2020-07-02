@@ -4,33 +4,31 @@
 
 XUI is built using [Node.js](https://nodejs.org/). Checkout [README.md](README.md) for info on setting up your local development environment.
 
-We use an "up-for-grabs" label to indicate issues that are suitable for first timers and new contributers these shoud be relatively straight forward. You can [filter issues to show just up-for-grabs](https://github.dev.xero.com/UXE/xui/issues?q=is%3Aopen+is%3Aissue+label%3Aup-for-grabs) and look out for ones you might like to try.
-
-We always want help improving documentation, examples and test coverage. Even if we don't have specific issues for these if you see something you want to improve, [raise an issue](https://github.dev.xero.com/UXE/xui/issues/new), assign yourself and give it a go.
+We use [JIRA](https://jira.teamxero.com/secure/RapidBoard.jspa?rapidView=2028) to keep a backlog and track our issues, and we try to tag items as being "[Beginner Friendly](https://jira.teamxero.com/secure/RapidBoard.jspa?rapidView=2028&view=planning&quickFilter=12144)," where applicable. These should be accessible for those learning their way around the codebase.
 
 **Some useful info**
 
-- If you are working on an issue, assign it to yourself in Github so we know you're having a look at it.
+- If you are working on an issue, assign it to yourself in JIRA so we know you're having a look at it.
 - Ensure you're working on a forked copy of XUI and preferably a sensibly named branch.
-- Include relevant documentation updates and tests in along with any code changes.
+- Adhere to our Github PR template, which guides you to include the necessary info and meet our definition of done.
 - Write meaningful commit and PR messages ([Anatomy Of a Good Commit Message](https://adamcod.es/2012/07/03/anatomy-of-a-good-commit-message.html) has some good info).
-- Always add a "rel|ref|fixes:" issue reference and always ensure an issue exists before opening a PR.
-- cc @UXE/uxe-team or @UXE/developers or use the Reviewers github functionality for code reviews.
 - Ask questions on issues, PRs or in [Slack](https://xero.slack.com/messages/C565NP1A5).
 
 ## Bugs
 
 ### Finding Issues
 
-We use [GitHub Issues](https://github.dev.xero.com/UXE/xui/issues) to track our bugs. We keep a close eye on the issues and try to make it clear when we'll have a fix. Before filing a new issue, please check that it hasn't already been reported.
+We use [JIRA](https://jira.teamxero.com/secure/RapidBoard.jspa?rapidView=2028) to track our bugs. We keep a close eye on the issues and try to make it clear when we'll have a fix. Before filing a new issue, you can check JIRA or chat with us on [Slack](https://xero.slack.com/messages/C565NP1A5) to determine whether it has already been reported.
 
 ### Reporting New Issues
 
-The best way to get your bug fixed is to provide a reduced test case. If possible please provide this test case along side a [new issue](https://github.dev.xero.com/UXE/xui/issues/new).
+The best way to get your bug fixed is to provide a reduced test case. If possible, please provide this test case along side a [new issue](https://jira.teamxero.com/secure/RapidBoard.jspa?rapidView=2028). A bug-type issue in JIRA includes a template that will guide you to provide the team with everything we need in order to assist.
 
-### Proposing a Change
+If you're fixing a bug, it's also fine to submit a pull request right away.
 
-If you intend to introduce something new, or something old doesn't quite fit your needs, feel free to [raise an issue](https://github.dev.xero.com/UXE/xui/issues/new) and we will be more than happy to look at it. Alternatively feel free to talk to us on #platform-fed-xui on slack.
+## Proposing a Change
+
+If something existing doesn't quite fit your needs, feel free to [create a new issue](https://jira.teamxero.com/secure/RapidBoard.jspa?rapidView=2028) of the "feature" or "improvement" types and we will be more than happy to look at it. Alternatively feel free to talk to us on [Slack](https://xero.slack.com/messages/C565NP1A5).
 
 If you're only fixing a bug, it's fine to submit a pull request right away.
 

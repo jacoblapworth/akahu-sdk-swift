@@ -7,11 +7,11 @@
   justify-content: center;
   opacity: 0;
   padding: $xui-s-xsmall;
+  pointer-events: none;
   position: absolute;
-  bottom: 90%;
   left: 50%;
   transform: translateX(-50%);
-  transition-property: opacity, bottom;
+  transition-property: opacity, bottom, top;
   transition-duration: $xui-motion-speed-fast;
   transition-timing-function: $xui-motion-curve-exit;
   transition-delay: $xui-motion-delay-long;
@@ -20,6 +20,27 @@
   line-height: 1.5;
   font-size: $xui-font-size-small;
   text-transform: none;
+
+  &-below {
+    top: 90%;
+    &:after {
+      top: 0;
+      transform: rotate(-90deg) translateX(7px);
+    }
+  }
+  &-above {
+    bottom: 90%;
+    &:after {
+      bottom: 0;
+      transform: rotate(90deg) translateX(7px);
+    }
+  }
+  :hover > &-above {
+    bottom: 110%;
+  }
+  :hover > &-below {
+    top: 110%;
+  }
 
   &:after {
     display: block;
@@ -30,8 +51,6 @@
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     border-left: 5px solid $ds-markup-bg-color;
-    transform: rotate(90deg) translateX(7px);
-    bottom: 0;
     left: 50%;
   }
 
@@ -41,7 +60,7 @@
 
   :hover > & {
     opacity: 1;
-    bottom: 110%;
+    pointer-events: unset;
   }
 
   .ds-flag & {

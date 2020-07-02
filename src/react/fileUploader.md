@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-  <a href="" isDocLink>File Uploader in the XUI Documentation</a>
+  <a href="../section-components-controls-fileuploader.html" isDocLink>File Uploader in the XUI Documentation</a>
 </div>
 
 ## Examples

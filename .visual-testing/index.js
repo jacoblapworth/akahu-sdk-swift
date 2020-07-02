@@ -88,7 +88,7 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/datepicker/stories/variations.js`,
   },
   {
-    testsPrefix: 'DropDown',
+    testsPrefix: 'XUI Dropdown',
     variationsPath: `${variationsPath}/dropdown/stories/variations.js`,
     ...fullPageSettings,
   },

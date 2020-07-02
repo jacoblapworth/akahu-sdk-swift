@@ -3,18 +3,18 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import Pickitem from '../Pickitem';
-import TabDropDown from '../private/TabDropDown';
+import TabDropdown from '../private/TabDropdown';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<TabDropDown />', () => {
+describe('<TabDropdown />', () => {
   it('renders correctly', () => {
-    const tabDropDown = renderer.create(
-      <TabDropDown
+    const tabDropdown = renderer.create(
+      <TabDropdown
         className="custom-class"
         dropdownList={[<Pickitem primaryElement="Item 1" id="pi1" isSelected />]}
       />,
     );
-    expect(tabDropDown).toMatchSnapshot();
+    expect(tabDropdown).toMatchSnapshot();
   });
 });

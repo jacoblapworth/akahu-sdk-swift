@@ -52,7 +52,7 @@ function focusTrigger(virtualTrigger, triggerDOM) {
  * and closed based on state/props.
  *
  * @private
- * @param {XUIDropDownToggled} ddt
+ * @param {XUIDropdownToggled} ddt
  * @returns {Boolean}
  */
 function shouldAnimate(ddt) {
@@ -64,7 +64,7 @@ function shouldAnimate(ddt) {
  * do that right now.
  *
  * @private
- * @param {XUIDropDownToggled} ddt
+ * @param {XUIDropdownToggled} ddt
  * @returns {Boolean}
  */
 function shouldLockScroll(ddt) {
@@ -81,10 +81,10 @@ function shouldLockScroll(ddt) {
  * to toggle the list open/closed based on click of the TriggerComponent.
  *
  * @export
- * @class XUIDropDownToggled
+ * @class XUIDropdownToggled
  * @extends {PureComponent}
  */
-export default class XUIDropDownToggled extends PureComponent {
+export default class XUIDropdownToggled extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -114,7 +114,7 @@ export default class XUIDropDownToggled extends PureComponent {
     }
 
     this.onResize = debounce(this.onResize, 250);
-    this.onScroll = throttleToFrame(this.repositionDropDown);
+    this.onScroll = throttleToFrame(this.repositionDropdown);
   }
 
   /**
@@ -225,7 +225,7 @@ export default class XUIDropDownToggled extends PureComponent {
    *
    * @public
    */
-  openDropDown = () => {
+  openDropdown = () => {
     this.setState(() => ({
       isHidden: false,
       isOpening: false,
@@ -238,7 +238,7 @@ export default class XUIDropDownToggled extends PureComponent {
    *
    * @public
    */
-  closeDropDown = () => {
+  closeDropdown = () => {
     this.setState(({ isHidden }) => ({
       isHidden: isHidden || !shouldAnimate(this),
       isClosing: !isHidden && shouldAnimate(this),
@@ -251,7 +251,7 @@ export default class XUIDropDownToggled extends PureComponent {
    * @public
    * @returns {Boolean}
    */
-  isDropDownOpen = () => !this.state.isHidden;
+  isDropdownOpen = () => !this.state.isHidden;
 
   /**
    * A convenience method to toggle the visibility of the dropdown.
@@ -259,14 +259,14 @@ export default class XUIDropDownToggled extends PureComponent {
    * @public
    */
   toggle = () => {
-    this.state.isHidden ? this.openDropDown() : this.closeDropDown();
+    this.state.isHidden ? this.openDropdown() : this.closeDropdown();
   };
 
   /**
    * If user clicks on the trigger, we may want to open and/or toggle the dropdown.
    *
    * @private
-   * @memberof XUIDropDownToggled
+   * @memberof XUIDropdownToggled
    */
   triggerClickHandler = () => {
     switch (this.props.triggerClickAction) {
@@ -274,7 +274,7 @@ export default class XUIDropDownToggled extends PureComponent {
         this.toggle();
         break;
       case 'open':
-        this.openDropDown();
+        this.openDropdown();
         break;
       default:
         break;
@@ -286,13 +286,13 @@ export default class XUIDropDownToggled extends PureComponent {
    *
    * @param {KeyboardEvent} event key down event object
    */
-  onDropDownKeyDown = event => {
+  onDropdownKeyDown = event => {
     if (
       !this.state.isHidden &&
       (event.key === eventKeyValues.escape || event.key === eventKeyValues.tab)
     ) {
       if (event.key !== 'Tab' || this.props.closeOnTab) {
-        this.closeDropDown();
+        this.closeDropdown();
       }
     }
   };
@@ -305,14 +305,14 @@ export default class XUIDropDownToggled extends PureComponent {
   onTriggerKeyDown = event => {
     if (event.key === eventKeyValues.down && this.state.isHidden) {
       this.preventDefaultIEHandler(event);
-      this.openDropDown();
+      this.openDropdown();
     } else if (
       !this.state.isHidden &&
       (event.key === eventKeyValues.escape || event.key === eventKeyValues.tab)
     ) {
       // If the user doesn't want to close when the tab key is hit, don't
       if (!event.key === eventKeyValues.tab || this.props.closeOnTab) {
-        this.closeDropDown();
+        this.closeDropdown();
       }
     }
   };
@@ -336,10 +336,10 @@ export default class XUIDropDownToggled extends PureComponent {
     ) {
       this.preventDefaultIEHandler(event);
       if (this.state.isHidden) {
-        this.openDropDown();
+        this.openDropdown();
         return;
       }
-      this.closeDropDown();
+      this.closeDropdown();
     }
   };
 
@@ -382,7 +382,7 @@ export default class XUIDropDownToggled extends PureComponent {
         event.target.classList.contains(`${baseClass}--mask`)) &&
       (trigger == null || !trigger.contains(event.target))
     ) {
-      this.closeDropDown();
+      this.closeDropdown();
     }
   };
 
@@ -399,7 +399,7 @@ export default class XUIDropDownToggled extends PureComponent {
     });
 
     if (this.props.closeOnSelect) {
-      this.closeDropDown();
+      this.closeDropdown();
     }
   };
 
@@ -430,7 +430,7 @@ export default class XUIDropDownToggled extends PureComponent {
    * When the opening animation finishes, we need to remove the class that causes it
    * to prevent a change in the child DOM nodes from causing another animation.
    *
-   * @memberof XUIDropDownToggled
+   * @memberof XUIDropdownToggled
    */
   onOpenAnimationEnd = () => {
     this.setState(() => ({
@@ -451,14 +451,14 @@ export default class XUIDropDownToggled extends PureComponent {
    * 2. Check to see if we're in a mobile context.
    * 3. Reposition the dropdown.  Could be fullscreen if resized to mobile.
    *
-   * @memberof XUIDropDownToggled
+   * @memberof XUIDropdownToggled
    */
   onResize = () => {
     this.setState(prevState => {
       const isNarrow = checkIsNarrowViewport();
       if (!isNarrow || (isNarrow && !prevState.isNarrowViewport)) {
         scrollIntoViewIfNecessary(this.wrapper.current.firstChild);
-        this.repositionDropDown();
+        this.repositionDropdown();
       }
       return { isNarrowViewport: isNarrow };
     });
@@ -468,9 +468,9 @@ export default class XUIDropDownToggled extends PureComponent {
    * Force the dropdown to reposition itself relative to the current position of the trigger.
    *
    * @public
-   * @memberof XUIDropDownToggled
+   * @memberof XUIDropdownToggled
    */
-  repositionDropDown = () => {
+  repositionDropdown = () => {
     if (this.positioning.current != null) {
       if (this.props.restrictToViewPort) {
         this.positioning.current.calculateMaxHeight();
@@ -543,7 +543,7 @@ export default class XUIDropDownToggled extends PureComponent {
       onHighlightChange: compose(dropdown.props.onHighlightChange, this.onHighlightChange),
       onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, this.onCloseAnimationEnd),
       onOpenAnimationEnd: compose(dropdown.onOpenAnimationEnd, this.onOpenAnimationEnd),
-      onKeyDown: compose(dropdown.props.onKeyDown, this.onDropDownKeyDown),
+      onKeyDown: compose(dropdown.props.onKeyDown, this.onDropdownKeyDown),
       className: dropdown.props.className,
     });
 
@@ -597,7 +597,7 @@ export default class XUIDropDownToggled extends PureComponent {
   }
 }
 
-XUIDropDownToggled.propTypes = {
+XUIDropdownToggled.propTypes = {
   className: PropTypes.string,
   qaHook: PropTypes.string,
 
@@ -652,7 +652,7 @@ XUIDropDownToggled.propTypes = {
 
   /**
    * Setting to true will for the dropdown to be as wide as the trigger. <br>
-   * **Note:** *Setting this to true will override any size prop on `XUIDropDown`.* <br>
+   * **Note:** *Setting this to true will override any size prop on `XUIDropdown`.* <br>
    * XUI design has also to keep a minimum width on the dropdown,
    * so dropdown may not match the width of narrow triggers.
    */
@@ -690,7 +690,7 @@ XUIDropDownToggled.propTypes = {
   ariaRole: PropTypes.string,
 };
 
-XUIDropDownToggled.defaultProps = {
+XUIDropdownToggled.defaultProps = {
   isHidden: true,
   closeOnSelect: true,
   closeOnTab: true,

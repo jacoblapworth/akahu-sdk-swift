@@ -151,7 +151,7 @@ import external from '@xero/xui-icon/icons/external';
 
 ### Dropdowns
 
-The trigger to open a [`<XUIDropDownToggled>`](#dropdown) is often a button. To add a caret icon to a button, add the property `hasCaret`.
+The trigger to open a [`<XUIDropdownToggled>`](#dropdown) is often a button. To add a caret icon to a button, add the property `hasCaret`.
 
 Check out the [Dropdown](#dropdown) examples to see buttons being used as triggers.
 

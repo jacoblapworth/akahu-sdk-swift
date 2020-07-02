@@ -2,7 +2,7 @@
 	<a href="../section-components-controls-select.html" isDocLink>Select Box in the XUI Documentation</a>
 </div>
 
-`SelectBox` is an opinionated component which wraps [`XUIDropDown`](#dropdown) and [`XUIDropDownToggled`](#dropdowntoggled). It's designed as a simple alternative to using an HTML `<select />`. If you need more fine-grained control or other behaviour you should use the suite of [`XUIDropDown`](#dropdown) components directly.
+`SelectBox` is an opinionated component which wraps [`XUIDropdown`](#dropdown) and [`XUIDropdownToggled`](#dropdowntoggled). It's designed as a simple alternative to using an HTML `<select />`. If you need more fine-grained control or other behaviour you should use the suite of [`XUIDropdown`](#dropdown) components directly.
 
 ### Related Components
 

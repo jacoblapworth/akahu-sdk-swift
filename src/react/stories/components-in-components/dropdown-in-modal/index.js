@@ -3,7 +3,7 @@ import React from 'react';
 
 // Components we need to test with
 import XUIModal, { XUIModalBody } from '../../../modal';
-import XUIDropDown, { XUIDropDownToggled } from '../../../dropdown';
+import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
 import XUIButton from '../../../button';
 
@@ -60,16 +60,16 @@ const toggledItems = [
 test.add(storyNames.dropDownInModal, () => {
   const trigger = <XUIButton hasCaret>Trigger Button</XUIButton>;
   const dropdown = (
-    <XUIDropDown>
+    <XUIDropdown>
       <Picklist>{toggledItems}</Picklist>
-    </XUIDropDown>
+    </XUIDropdown>
   );
 
   return (
     <XUIModal closeButtonLabel="Close" isOpen>
       <XUIModalBody>
         This is some Modal content.
-        <XUIDropDownToggled dropdown={dropdown} trigger={trigger} />
+        <XUIDropdownToggled dropdown={dropdown} trigger={trigger} />
       </XUIModalBody>
     </XUIModal>
   );

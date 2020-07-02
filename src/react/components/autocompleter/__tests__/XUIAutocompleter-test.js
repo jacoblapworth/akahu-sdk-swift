@@ -7,8 +7,8 @@ import XUIPill from '../../pill/XUIPill';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import XUILoader from '../../loader/XUILoader';
-import XUIDropDownToggled from '../../dropdown/XUIDropDownToggled';
-import XUIDropDownLayout from '../../dropdown/XUIDropDownLayout';
+import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
+import XUIDropdownLayout from '../../dropdown/XUIDropdownLayout';
 import { v4 as uuidv4 } from 'uuid';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 import wait from '../../../helpers/wait';
@@ -137,7 +137,7 @@ describe('XUIAutocompleter', () => {
     expect(wrapper.find(XUIPill)).toBeDefined();
   });
 
-  it('opens the dropdown when we trigger `openDropDown` and closes the dropdown when we trigger `closeDropDown`', () => {
+  it('opens the dropdown when we trigger `openDropdown` and closes the dropdown when we trigger `closeDropdown`', () => {
     const wrapper = mount(
       createComponent({
         onSearch: jest.fn(),
@@ -147,16 +147,16 @@ describe('XUIAutocompleter', () => {
     );
     expect(wrapper.instance().ddt.current.state.isHidden).toBeTruthy();
 
-    wrapper.instance().openDropDown();
+    wrapper.instance().openDropdown();
     expect(wrapper.instance().ddt.current.state.isHidden).toBeFalsy();
 
-    wrapper.instance().closeDropDown();
+    wrapper.instance().closeDropdown();
     expect(wrapper.instance().ddt.current.state.isHidden).toBeTruthy();
   });
 
   it('sets the dropdown to match trigger width if no dropdownSize is provided in the component props', () => {
     const wrapper = mount(createComponent({ onSearch: jest.fn(), dropdownSize: null }));
-    expect(wrapper.find(XUIDropDownToggled).props().matchTriggerWidth).toBeTruthy();
+    expect(wrapper.find(XUIDropdownToggled).props().matchTriggerWidth).toBeTruthy();
   });
 
   it('when disableWrapPills prop is applied disable pillwrap class is applied', () => {
@@ -254,15 +254,15 @@ describe('XUIAutocompleter', () => {
   describe.skip('Dropdown + Portal skipped tests', () => {
     it("uses the correct size variant if one is defined and doesn't try match trigger width", () => {
       const wrapper = mount(createComponent({ onSearch: jest.fn() }));
-      expect(wrapper.find(XUIDropDownLayout).props().size).toBe('medium');
-      expect(wrapper.find(XUIDropDownToggled).props().matchTriggerWidth).toBeFalsy();
+      expect(wrapper.find(XUIDropdownLayout).props().size).toBe('medium');
+      expect(wrapper.find(XUIDropdownToggled).props().matchTriggerWidth).toBeFalsy();
     });
   });
 
   it('flushes the debounce when enter or space is pressed', () => {
     // Arrange
     const wrapper = mount(createComponent({ onSearch: jest.fn() }));
-    wrapper.instance().openDropDown();
+    wrapper.instance().openDropdown();
     const spy = jest.spyOn(wrapper.instance(), 'flushDebounced');
 
     // Act
@@ -293,7 +293,7 @@ describe('XUIAutocompleter', () => {
     const input = wrapper.find('input');
 
     // Act
-    wrapper.instance().openDropDown();
+    wrapper.instance().openDropdown();
 
     input.simulate('change', {
       target: {
@@ -321,7 +321,7 @@ describe('XUIAutocompleter', () => {
     // Arrange
     const onKeyDownMock = jest.fn();
     const wrapper = mount(createComponent({ onSearch: jest.fn(), onKeyDown: onKeyDownMock }));
-    wrapper.instance().openDropDown();
+    wrapper.instance().openDropdown();
 
     // Act
     wrapper.find('input').simulate('keydown', { keyCode: 69, which: 69 });
@@ -337,7 +337,7 @@ describe('XUIAutocompleter', () => {
       const onSearchMock = jest.fn();
       const wrapper = mount(createComponent({ onSearch: onSearchMock, onKeyDown: onKeyDownMock }));
       const input = wrapper.find('input');
-      wrapper.instance().openDropDown();
+      wrapper.instance().openDropdown();
 
       // Act
       input.simulate('change', { target: { value: 'item2' } });
@@ -353,7 +353,7 @@ describe('XUIAutocompleter', () => {
       const onSearchMock = jest.fn();
       const wrapper = mount(createComponent({ onSearch: onSearchMock, onKeyDown: onKeyDownMock }));
       const input = wrapper.find('input');
-      wrapper.instance().openDropDown();
+      wrapper.instance().openDropdown();
 
       // Act
       input.simulate('change', { target: { value: 'item2' } });
@@ -370,7 +370,7 @@ describe('XUIAutocompleter', () => {
       const wrapper = mount(createComponent({ onSearch: onSearchMock, onKeyDown: onKeyDownMock }));
       const input = wrapper.find('input');
       const flushDebouncedSpy = jest.spyOn(wrapper.instance(), 'flushDebounced');
-      wrapper.instance().openDropDown();
+      wrapper.instance().openDropdown();
 
       // Act
       input.simulate('change', { target: { value: 'item2' } });

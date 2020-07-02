@@ -1,4 +1,4 @@
-The `StatefulPicklist` wraps the `Picklist` to keep track of which element is highlighted and can take care of highlighting behaviour within itself. It also Exposes these methods to control highlighting behavior from a wrapping component. A good example is `XUIDropDown` which manages the users navigation on the menu and selecting an item. They're also available if a custom wrapper for `StatefulPicklist` is needed. Detailed information on the API can be found in the [dropdown section](#dropdown).
+The `StatefulPicklist` wraps the `Picklist` to keep track of which element is highlighted and can take care of highlighting behaviour within itself. It also Exposes these methods to control highlighting behavior from a wrapping component. A good example is `XUIDropdown` which manages the users navigation on the menu and selecting an item. They're also available if a custom wrapper for `StatefulPicklist` is needed. Detailed information on the API can be found in the [dropdown section](#dropdown).
 
 ### Components Using StatefulPicklist
 

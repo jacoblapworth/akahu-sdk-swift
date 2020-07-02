@@ -348,22 +348,22 @@
           },
           {
             "name": "Dropdown",
-            "components": "../src/react/components/dropdown/DropDown.js",
+            "components": "../src/react/components/dropdown/XUIDropdown.js",
             "content": "../src/react/dropdown.md",
             "sections": [
               {
                 "name": "Dropdown Toggled",
-                "components": "../src/react/components/dropdown/DropDownToggled.js",
+                "components": "../src/react/components/dropdown/XUIDropdownToggled.js",
                 "content": "../src/react/components/dropdown/dropdown.toggled.md"
               },
               {
                 "name": "Dropdown Header & Footer",
-                "components": "../src/react/components/dropdown/*(DropDownHeader|DropDownFooter).js",
+                "components": "../src/react/components/dropdown/*(XUIDropdownHeader|XUIDropdownFooter).js",
                 "content": "../src/react/components/dropdown/dropdown.headerfooter.md"
               },
               {
                 "name": "Nested Dropdowns",
-                "components": "../src/react/components/dropdown/*(DropDownPanel|NestedDropDown).js",
+                "components": "../src/react/components/dropdown/*(XUIDropdownPanel|XUINestedDropdown).js",
                 "content": "../src/react/components/dropdown/dropdown.nested.md"
               }
             ]

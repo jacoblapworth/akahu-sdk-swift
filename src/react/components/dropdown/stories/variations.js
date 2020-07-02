@@ -3,7 +3,7 @@ import NOOP from '../../helpers/noop';
 
 const privateConsts = require('../private/constants');
 
-const storiesWithVariationsKindName = 'Instances/Dropdown';
+const storiesWithVariationsKindName = 'Instances/XUIDropdown';
 
 const variations = [
   {
@@ -57,7 +57,7 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'with scrollable NestedDropDown',
+    storyTitle: 'with scrollable Nested Dropdown',
     ddSettings: {
       children: 'nestedScrollable',
     },

@@ -9,9 +9,9 @@ import { baseClass, maxWidthDropdownSizes, fixedWidthDropdownSizes } from './pri
  * correct CSS classes.  This component is also what adds the mask to the DOM when going into
  * narrow viewport.
  *
- * @function XUIDropDownLayout
+ * @function XUIDropdownLayout
  */
-const XUIDropDownLayout = ({
+const XUIDropdownLayout = ({
   animateClosed = false,
   animateOpen = false,
   onOpenAnimationEnd,
@@ -71,7 +71,7 @@ const XUIDropDownLayout = ({
   );
 };
 
-XUIDropDownLayout.propTypes = {
+XUIDropdownLayout.propTypes = {
   id: PropTypes.string,
 
   /** Whether or not the list box is hidden. */
@@ -112,4 +112,4 @@ XUIDropDownLayout.propTypes = {
   ariaRole: PropTypes.string,
 };
 
-export default React.memo(XUIDropDownLayout);
+export default React.memo(XUIDropdownLayout);

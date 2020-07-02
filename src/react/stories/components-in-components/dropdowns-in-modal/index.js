@@ -3,7 +3,7 @@ import React from 'react';
 
 // Components we need to test with
 import XUIModal, { XUIModalBody } from '../../../modal';
-import XUIDropDown, { XUIDropDownToggled } from '../../../dropdown';
+import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
 import XUIButton from '../../../button';
 import XUITextInput from '../../../textinput';
@@ -33,29 +33,29 @@ const buildDropdownPicklist = items => {
     </Pickitem>
   ));
   return (
-    <XUIDropDown>
+    <XUIDropdown>
       <Picklist>{pickItems}</Picklist>
-    </XUIDropDown>
+    </XUIDropdown>
   );
 };
 
 const buildTrigger = text => <XUIButton hasCaret>{text}</XUIButton>;
 
-test.add(storyNames.multiDropDowns, () => (
+test.add(storyNames.multiDropdowns, () => (
   <div className="xui-u-flex">
     <XUITextInput fieldClassName="xui-margin-small" isLabelHidden label="Input label" />
     <XUIModal closeButtonLabel="Close" isOpen>
       <XUIModalBody>
         This is some Modal content.
         <XUITextInput isLabelHidden label="Input label" />
-        <XUIDropDownToggled
+        <XUIDropdownToggled
           dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
           isHidden={false}
           trigger={buildTrigger('Short Trigger')}
         />
         This is some Modal content.
         <XUITextInput isLabelHidden label="Input label" />
-        <XUIDropDownToggled
+        <XUIDropdownToggled
           dropdown={buildDropdownPicklist(lists.MedListMedItems)}
           trigger={buildTrigger('Medium Dropdown Trigger')}
         />

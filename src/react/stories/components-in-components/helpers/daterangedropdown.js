@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import XUIDropDown, { XUIDropDownToggled } from '../../../dropdown';
+import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
 import XUIButton from '../../../button';
 import XUIDatePicker from '../../../datepicker';
 
@@ -30,7 +30,7 @@ function maxDate(d1, d2) {
   return d1 > d2 ? d1 : d2;
 }
 
-export default class DropDownDateRange extends React.Component {
+export default class DropdownDateRange extends React.Component {
   state = {
     selectedRange: null,
     currentMonth: new Date(),
@@ -46,7 +46,7 @@ export default class DropDownDateRange extends React.Component {
     this.setState(prevState => {
       const { selectedRange } = prevState;
       if (selectedRange && selectedRange.from && !selectedRange.to) {
-        this.ddt.current.closeDropDown();
+        this.ddt.current.closeDropdown();
         return {
           selectedRange: {
             from: minDate(selectedRange.from, newDate),
@@ -66,14 +66,14 @@ export default class DropDownDateRange extends React.Component {
   render() {
     const { currentMonth, selectedRange } = this.state;
     const dropdown = (
-      <XUIDropDown>
+      <XUIDropdown>
         <XUIDatePicker
           displayedMonth={currentMonth}
           onSelectDate={this.onSelectDate}
           ref={this.datepicker}
           selectedRange={selectedRange}
         />
-      </XUIDropDown>
+      </XUIDropdown>
     );
     const trigger = (
       <XUIButton fullWidth="small-down" size={this.props.size}>
@@ -83,7 +83,7 @@ export default class DropDownDateRange extends React.Component {
       </XUIButton>
     );
     return (
-      <XUIDropDownToggled
+      <XUIDropdownToggled
         closeOnTab={false}
         dropdown={dropdown}
         onOpenAnimationEnd={this.focusDatePicker}
@@ -95,7 +95,7 @@ export default class DropDownDateRange extends React.Component {
   }
 }
 
-DropDownDateRange.propTypes = {
+DropdownDateRange.propTypes = {
   /**
    * Modifier for the size of the button. `medium`, `small`, or `xsmall`.
    * Buttons with `variant` set to `unstyled` will ignore the `size` property.

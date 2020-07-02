@@ -8,7 +8,7 @@ import { ns } from '../helpers/xuiClassNamespace';
 import { userBreakpoints } from '../helpers/breakpoints';
 import WidthContext from '../../contexts/WidthContext';
 import Picklist, { Pickitem } from '../../picklist';
-import XUIDropDown, { XUIDropDownToggled } from '../../dropdown';
+import XUIDropdown, { XUIDropdownToggled } from '../../dropdown';
 
 const baseClass = `${ns}-breadcrumb`;
 
@@ -40,11 +40,11 @@ const buildCompactBreadcrumbs = breadcrumbs => {
   // Build the list of new breadcrumb objects, including the dropdown with trigger.
   const compactItems = [];
   compactItems.push(
-    <XUIDropDownToggled
+    <XUIDropdownToggled
       dropdown={
-        <XUIDropDown>
+        <XUIDropdown>
           <Picklist>{bcPickitems}</Picklist>
-        </XUIDropDown>
+        </XUIDropdown>
       }
       trigger={compactTrigger}
     />,
@@ -62,7 +62,7 @@ const getCrumbLabel = crumb => {
       // Don't tack the link class onto a ddt.
       className: cn(
         crumb.props.className,
-        crumb.type !== XUIDropDownToggled && `${baseClass}--link`,
+        crumb.type !== XUIDropdownToggled && `${baseClass}--link`,
       ),
     });
   } else if (!crumb.href) {

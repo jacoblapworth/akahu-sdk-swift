@@ -42,7 +42,7 @@ interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onSelect?: (value: any, item: Pickitem) => void;
   /**
-   * Used by `XUINestedDropDown` to identify each panel.
+   * Used by `XUINestedDropdown` to identify each panel.
    */
   panelId?: string;
   qaHook?: string;
@@ -56,7 +56,7 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-export default class XUIDropDownPanel extends React.PureComponent<Props> {
+export default class XUIDropdownPanel extends React.PureComponent<Props> {
   /**
    * Used to programmatically clear the highlighted item.
    *
@@ -70,9 +70,9 @@ export default class XUIDropDownPanel extends React.PureComponent<Props> {
    * "visibility: isHidden", the component will try to focus the element again several times
    * over five seconds. If it still can't after that component will try to focus the element
    * again several times over a half second. If it still can't after that amount of time,
-   * then it'll stop trying. This is to ensure that the dropdown can set focus on this Panel
+   * then it'll stop trying. This is to ensure that the dropdown can set focus on this panel
    * while the dropdown is going from isHidden to visible. An intermediate stage where the
-   * Panel's parent is set to "visibility: isHidden" is necessary to ensure that accurate
+   * panel's parent is set to "visibility: isHidden" is necessary to ensure that accurate
    * measurements of the DOM nodes can take place and the dropdown can be properly positioned.
    * This will basically attempt to wait that process out and set focus after everything is done.
    */

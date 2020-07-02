@@ -1,16 +1,16 @@
 **Note:** This component is still considered beta, and it's API may change before it is officially released.
 
-`XUINestedDropDown` is designed as a `XUIDropDown` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown. A quick example would be allowing the user to choose between some convenience dates and a fixed custom date like below.
+`XUINestedDropdown` is designed as a `XUIDropdown` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown. A quick example would be allowing the user to choose between some convenience dates and a fixed custom date like below.
 
 ```jsx harmony
 import 'array.prototype.find';
 import { Component } from 'react';
 import {
-  XUIDropDownFooter,
-  XUIDropDownHeader,
-  XUIDropDownPanel,
-  XUIDropDownToggled,
-  XUINestedDropDown
+  XUIDropdownFooter,
+  XUIDropdownHeader,
+  XUIDropdownPanel,
+  XUIDropdownToggled,
+  XUINestedDropdown
 } from '@xero/xui/react/dropdown';
 import XUIButton from '@xero/xui/react/button';
 import XUIDatePicker from '@xero/xui/react/datepicker';
@@ -75,7 +75,7 @@ class NestedExample extends Component {
     this.datepicker = React.createRef();
     this.ddt = React.createRef();
 
-    this.closeDropDown = this.closeDropDown.bind(this);
+    this.closeDropdown = this.closeDropdown.bind(this);
     this.focusDatePicker = this.focusDatePicker.bind(this);
     this.showConvenienceDates = this.showConvenienceDates.bind(this);
     this.showMonth = this.showMonth.bind(this);
@@ -84,8 +84,8 @@ class NestedExample extends Component {
     this.selectCustomConvenience = this.selectCustomConvenience.bind(this);
   }
 
-  closeDropDown() {
-    this.ddt.current.closeDropDown();
+  closeDropdown() {
+    this.ddt.current.closeDropdown();
   }
 
   focusDatePicker() {
@@ -117,7 +117,7 @@ class NestedExample extends Component {
         selectedConvenienceDate: cd.id,
         selectedDate: cd.getDate()
       });
-      this.closeDropDown();
+      this.closeDropdown();
     }
   }
 
@@ -126,7 +126,7 @@ class NestedExample extends Component {
       selectedConvenienceDate: 'custom',
       selectedDate: date
     });
-    this.closeDropDown();
+    this.closeDropdown();
   }
 
   selectCustomConvenience() {
@@ -143,7 +143,7 @@ class NestedExample extends Component {
     const trigger = <XUIButton hasCaret>{triggerText}</XUIButton>;
 
     const dropdownFooter = (
-      <XUIDropDownFooter
+      <XUIDropdownFooter
         pickItems={
           <Pickitem id="custom" key="custom" onClick={this.selectCustomConvenience}>
             Custom Date
@@ -153,8 +153,8 @@ class NestedExample extends Component {
     );
 
     const dropdown = (
-      <XUINestedDropDown currentPanelId={activePanel} onPanelChange={this.focusDatePicker}>
-        <XUIDropDownPanel panelId="convenienceDates" footer={dropdownFooter}>
+      <XUINestedDropdown currentPanelId={activePanel} onPanelChange={this.focusDatePicker}>
+        <XUIDropdownPanel panelId="convenienceDates" footer={dropdownFooter}>
           <Picklist>
             {convenienceDates.map(cd => (
               <Pickitem
@@ -168,14 +168,14 @@ class NestedExample extends Component {
               </Pickitem>
             ))}
           </Picklist>
-        </XUIDropDownPanel>
-        <XUIDropDownPanel
+        </XUIDropdownPanel>
+        <XUIDropdownPanel
           panelId="customDate"
           header={
-            <XUIDropDownHeader
+            <XUIDropdownHeader
               title="Example Title"
               onBackButtonClick={this.showConvenienceDates}
-              onSecondaryButtonClick={this.closeDropDown}
+              onSecondaryButtonClick={this.closeDropdown}
               secondaryButtonContent="Cancel"
               backButtonAriaLabel="Back"
             />
@@ -187,12 +187,12 @@ class NestedExample extends Component {
             selectedDate={this.state.selectedDate}
             onSelectDate={this.selectDate}
           />
-        </XUIDropDownPanel>
-      </XUINestedDropDown>
+        </XUIDropdownPanel>
+      </XUINestedDropdown>
     );
     const isPicklist = activePanel !== 'customDate';
     return (
-      <XUIDropDownToggled
+      <XUIDropdownToggled
         ref={this.ddt}
         trigger={trigger}
         dropdown={dropdown}
@@ -207,7 +207,7 @@ class NestedExample extends Component {
 <NestedExample />;
 ```
 
-- Each panel must be wrapped in a `XUIDropDownPanel` and passed as children to `XUINestedDropDown`. Each panel should be given a `panelId` and the id of the currently selected panel should be passed to `XUINestedDropDown` via the `currentPanelId` prop.
-- Navigation to previous steps should be handled in the `onBackButtonClick` callback in `XUIDropDownHeader`. `XUIDropDownHeader` should be passed into `XUIDropDownPanel` for panels that require one.
-- `closeOnSelect={false}` should be set on `XUIDropDownToggled` to prevent closing on `Pickitem` selection. `XUIDropDownToggled.closeDropDown` should then be called in the `onSelect` callback when appropriate.
-- `XUIDatePicker` should be given focus explicitly. `XUIDatePicker.focusDatePicker` should be called in `XUINestedDropDown.onPanelChange` when the datepicker panel becomes active.
+- Each panel must be wrapped in a `XUIDropdownPanel` and passed as children to `XUINestedDropdown`. Each panel should be given a `panelId` and the id of the currently selected panel should be passed to `XUINestedDropdown` via the `currentPanelId` prop.
+- Navigation to previous steps should be handled in the `onBackButtonClick` callback in `XUIDropdownHeader`. `XUIDropdownHeader` should be passed into `XUIDropdownPanel` for panels that require one.
+- `closeOnSelect={false}` should be set on `XUIDropdownToggled` to prevent closing on `Pickitem` selection. `XUIDropdownToggled.closeDropdown` should then be called in the `onSelect` callback when appropriate.
+- `XUIDatePicker` should be given focus explicitly. `XUIDatePicker.focusDatePicker` should be called in `XUINestedDropdown.onPanelChange` when the datepicker panel becomes active.

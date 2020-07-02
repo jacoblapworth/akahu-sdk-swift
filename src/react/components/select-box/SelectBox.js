@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 
-import XUIDropDown from '../dropdown/XUIDropDown';
-import XUIDropDownToggled from '../dropdown/XUIDropDownToggled';
+import XUIDropdown from '../dropdown/XUIDropdown';
+import XUIDropdownToggled from '../dropdown/XUIDropdownToggled';
 import XUIButton from '../button/XUIButton';
 import { sizes, widths } from './private/constants';
 import Picklist from '../picklist/Picklist';
@@ -33,7 +33,7 @@ export default class SelectBox extends Component {
   selectId = this.props.id || uuidv4();
   wrapperIds = generateIds(this.selectId);
 
-  isDropDownOpen = () => !!this.ddt && this.ddt.isDropDownOpen();
+  isDropdownOpen = () => !!this.ddt && this.ddt.isDropdownOpen();
 
   render() {
     const selectBox = this;
@@ -103,7 +103,7 @@ export default class SelectBox extends Component {
     );
 
     const dropdown = (
-      <XUIDropDown
+      <XUIDropdown
         // These aria attributes currently go nowhere
         ariaAttributes={getAriaAttributes(this.wrapperIds.control, this.props)}
         className={dropDownClasses}
@@ -113,7 +113,7 @@ export default class SelectBox extends Component {
         restrictFocus={restrictFocus}
       >
         <Picklist>{children}</Picklist>
-      </XUIDropDown>
+      </XUIDropdown>
     );
 
     return (
@@ -138,7 +138,7 @@ export default class SelectBox extends Component {
             {React.Children.count(children) === 0 ? (
               trigger
             ) : (
-              <XUIDropDownToggled
+              <XUIDropdownToggled
                 closeOnSelect={closeAfterSelection}
                 dropdown={dropdown}
                 forceDesktop={forceDesktop}
@@ -223,7 +223,7 @@ SelectBox.propTypes = {
 
   /**
    * Setting to false will allow the dropdown's width to be set independent of the trigger width. <br>
-   * **Note:** *Setting this to true will override any size prop on `XUIDropDown`.* <br>
+   * **Note:** *Setting this to true will override any size prop on `XUIDropdown`.* <br>
    * XUI design has also decided to keep a minimum width on the dropdown,
    * so dropdown may not match the width of narrow triggers.
    */

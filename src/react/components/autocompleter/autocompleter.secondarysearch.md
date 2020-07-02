@@ -6,7 +6,7 @@ import {
   XUIAutocompleterSecondarySearch,
   XUIAutocompleterEmptyState
 } from '@xero/xui/react/autocompleter';
-import { XUIDropDownFooter } from '@xero/xui/react/dropdown';
+import { XUIDropdownFooter } from '@xero/xui/react/dropdown';
 import XUIButton from '@xero/xui/react/button';
 import XUIIcon from '@xero/xui/react/icon';
 import plusIcon from '@xero/xui-icon/icons/plus';
@@ -103,7 +103,7 @@ class SecondarySearchExample extends React.Component {
       );
 
     const footer = (
-      <XUIDropDownFooter
+      <XUIDropdownFooter
         pickItems={
           <Pickitem
             id="footerAction"

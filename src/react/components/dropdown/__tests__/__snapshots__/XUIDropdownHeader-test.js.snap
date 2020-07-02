@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIDropDownHeader/> should render a back button if back button click handler is provided 1`] = `
+exports[`<XUIDropdownHeader/> should render a back button if back button click handler is provided 1`] = `
 <div
   className="xui-dropdown--header"
 >
@@ -36,7 +36,7 @@ exports[`<XUIDropDownHeader/> should render a back button if back button click h
 </div>
 `;
 
-exports[`<XUIDropDownHeader/> should render all header contents in the correct order 1`] = `
+exports[`<XUIDropdownHeader/> should render all header contents in the correct order 1`] = `
 <div
   className="xui-dropdown--header"
 >
@@ -115,7 +115,7 @@ exports[`<XUIDropDownHeader/> should render all header contents in the correct o
 </div>
 `;
 
-exports[`<XUIDropDownHeader/> should render leftContent when provided 1`] = `
+exports[`<XUIDropdownHeader/> should render leftContent when provided 1`] = `
 <div
   className="xui-dropdown--header"
 >
@@ -135,7 +135,7 @@ exports[`<XUIDropDownHeader/> should render leftContent when provided 1`] = `
 </div>
 `;
 
-exports[`<XUIDropDownHeader/> should render primary button with custom content when onPrimaryButtonClick and primaryButtonContent are provided 1`] = `
+exports[`<XUIDropdownHeader/> should render primary button with custom content when onPrimaryButtonClick and primaryButtonContent are provided 1`] = `
 <div
   className="xui-dropdown--header"
 >
@@ -164,7 +164,7 @@ exports[`<XUIDropDownHeader/> should render primary button with custom content w
 </div>
 `;
 
-exports[`<XUIDropDownHeader/> should render primary button with default text when onPrimaryButtonClick is provided 1`] = `
+exports[`<XUIDropdownHeader/> should render primary button with default text when onPrimaryButtonClick is provided 1`] = `
 <div
   className="xui-dropdown--header"
 >
@@ -193,7 +193,7 @@ exports[`<XUIDropDownHeader/> should render primary button with default text whe
 </div>
 `;
 
-exports[`<XUIDropDownHeader/> should render rightContent when provided 1`] = `
+exports[`<XUIDropdownHeader/> should render rightContent when provided 1`] = `
 <div
   className="xui-dropdown--header"
 >
@@ -217,7 +217,7 @@ exports[`<XUIDropDownHeader/> should render rightContent when provided 1`] = `
 </div>
 `;
 
-exports[`<XUIDropDownHeader/> should render secondary button with custom content when onSecondaryButtonClick and secondaryButtonContent are provided 1`] = `
+exports[`<XUIDropdownHeader/> should render secondary button with custom content when onSecondaryButtonClick and secondaryButtonContent are provided 1`] = `
 <div
   className="xui-dropdown--header"
 >
@@ -246,7 +246,7 @@ exports[`<XUIDropDownHeader/> should render secondary button with custom content
 </div>
 `;
 
-exports[`<XUIDropDownHeader/> should render secondary button with default text when onSecondaryButtonClick is provided 1`] = `
+exports[`<XUIDropdownHeader/> should render secondary button with default text when onSecondaryButtonClick is provided 1`] = `
 <div
   className="xui-dropdown--header"
 >
@@ -275,7 +275,7 @@ exports[`<XUIDropDownHeader/> should render secondary button with default text w
 </div>
 `;
 
-exports[`<XUIDropDownHeader/> should render with a title if one is present 1`] = `
+exports[`<XUIDropdownHeader/> should render with a title if one is present 1`] = `
 <div
   className="xui-dropdown--header"
 >
@@ -295,13 +295,13 @@ exports[`<XUIDropDownHeader/> should render with a title if one is present 1`] =
 </div>
 `;
 
-exports[`<XUIDropDownHeader/> should render with additional classes on the main element if className is provided 1`] = `
+exports[`<XUIDropdownHeader/> should render with additional classes on the main element if className is provided 1`] = `
 <div
   className="xui-dropdown--header classy"
 />
 `;
 
-exports[`<XUIDropDownHeader/> should render with an automation id when passed in the qaHook prop 1`] = `
+exports[`<XUIDropdownHeader/> should render with an automation id when passed in the qaHook prop 1`] = `
 <div
   className="xui-dropdown--header"
   data-automationid="test-qahook"

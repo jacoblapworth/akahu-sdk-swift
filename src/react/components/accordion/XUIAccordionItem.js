@@ -103,7 +103,7 @@ XUIAccordionItem.propTypes = {
   /** Optional actions to be right aligned. Use the `<XUIActions />` component. */
   action: PropTypes.node,
 
-  /** Any component passed as right most content, typically a `<XUIDropDownToggled />` component. */
+  /** Any component passed as right most content, typically a `<XUIDropdownToggled />` component. */
   overflow: PropTypes.node,
 
   /** Callback for a accordion item toggle */

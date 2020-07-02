@@ -103,7 +103,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
     const onOpen = jest.fn();
     wrapper = mount(createComponent({ onOpen: onOpen, searchValue: 'on open', onSearch: onOpen }));
 
-    wrapper.instance().openDropDown();
+    wrapper.instance().openDropdown();
 
     expect(onOpen.mock.calls.length).toEqual(1);
   });
@@ -126,10 +126,10 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
     expect(onSearch.mock.calls.length).toEqual(1);
   });
 
-  it('should pass the isBlock prop to the XUIDropDownToggled element', () => {
+  it('should pass the isBlock prop to the XUIDropdownToggled element', () => {
     const searchComp = mount(createComponent({ isBlock: true }));
 
-    const dropdownToggledComp = searchComp.find('XUIDropDownToggled');
+    const dropdownToggledComp = searchComp.find('XUIDropdownToggled');
 
     expect(dropdownToggledComp.prop('isBlock')).toBeTruthy();
   });

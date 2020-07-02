@@ -1,13 +1,13 @@
-`XUIDropDownHeader` and `XUIDropDownFooter` are used to add a fixed header and/or footer element to dropdowns. These elements don't scroll with the rest of the list, and are ignored by the default arrow key handlers. Add these components via the `header` and `footer` props in `XUIDropDown`.
+`XUIDropdownHeader` and `XUIDropdownFooter` are used to add a fixed header and/or footer element to dropdowns. These elements don't scroll with the rest of the list, and are ignored by the default arrow key handlers. Add these components via the `header` and `footer` props in `XUIDropdown`.
 
-If you've included any actions in the header or footer, set the `closeOnTab` property of `XUIDropDownToggled` to `false`, so users navigating by keyboard are able to access them.
+If you've included any actions in the header or footer, set the `closeOnTab` property of `XUIDropdownToggled` to `false`, so users navigating by keyboard are able to access them.
 
 ```jsx harmony
 import { Component } from 'react';
-import XUIDropDown, {
-  XUIDropDownToggled,
-  XUIDropDownHeader,
-  XUIDropDownFooter
+import XUIDropdown, {
+  XUIDropdownToggled,
+  XUIDropdownHeader,
+  XUIDropdownFooter
 } from '@xero/xui/react/dropdown';
 import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
 import Picklist, { Pickitem } from '@xero/xui/react/picklist';
@@ -67,7 +67,7 @@ class XDD extends Component {
 
     this.onApplyClick = this.onApplyClick.bind(this);
     this.onSelect = this.onSelect.bind(this);
-    this.closeDropDown = this.closeDropDown.bind(this);
+    this.closeDropdown = this.closeDropdown.bind(this);
     this.onClose = this.onClose.bind(this);
     this.onOpen = this.onOpen.bind(this);
     this.onSearch = this.onSearch.bind(this);
@@ -102,8 +102,8 @@ class XDD extends Component {
     }));
   }
 
-  closeDropDown() {
-    this.ddt.current.closeDropDown();
+  closeDropdown() {
+    this.ddt.current.closeDropdown();
   }
 
   onApplyClick() {
@@ -111,7 +111,7 @@ class XDD extends Component {
       selectedCount: getNumberOfTrueValues(state.selected),
       previousSelected: null
     }));
-    this.closeDropDown();
+    this.closeDropdown();
   }
 
   onClose() {
@@ -140,9 +140,9 @@ class XDD extends Component {
   render() {
     const { items, search } = this.state;
     const dropdownHeader = (
-      <XUIDropDownHeader
+      <XUIDropdownHeader
         title="Select Fruit"
-        onSecondaryButtonClick={this.closeDropDown}
+        onSecondaryButtonClick={this.closeDropdown}
         onPrimaryButtonClick={this.onApplyClick}
         primaryButtonContent="Apply"
         secondaryButtonContent="Cancel"
@@ -162,11 +162,11 @@ class XDD extends Component {
             </XUITextInputSideElement>
           }
         />
-      </XUIDropDownHeader>
+      </XUIDropdownHeader>
     );
 
     const dropdownFooter = (
-      <XUIDropDownFooter
+      <XUIDropdownFooter
         pickItems={
           <Pickitem
             id="footerAction"
@@ -186,7 +186,7 @@ class XDD extends Component {
       </XUIButton>
     );
     const dropdown = (
-      <XUIDropDown
+      <XUIDropdown
         ref={this.dropdown}
         onSelect={this.onSelect}
         header={dropdownHeader}
@@ -208,10 +208,10 @@ class XDD extends Component {
             </Pickitem>
           ))}
         </Picklist>
-      </XUIDropDown>
+      </XUIDropdown>
     );
     return (
-      <XUIDropDownToggled
+      <XUIDropdownToggled
         ref={this.ddt}
         onOpenAnimationEnd={this.focusInput}
         trigger={trigger}

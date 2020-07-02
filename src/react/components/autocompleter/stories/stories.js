@@ -10,7 +10,7 @@ import XUIButton from '../../button/XUIButton';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import peopleDataSet from '../private/people';
-import XUIDropDownFooter from '../../dropdown/XUIDropDownFooter';
+import XUIDropdownFooter from '../../dropdown/XUIDropdownFooter';
 import XUIIcon from '../../icon/XUIIcon';
 import plusIcon from '@xero/xui-icon/icons/plus';
 import XUIPill from '../../pill/XUIPill';
@@ -69,7 +69,7 @@ export class DetailedListExample extends Component {
 
   onSearchChangeHandler = value => {
     const example = this;
-    example.completer.current.openDropDown();
+    example.completer.current.openDropdown();
     example.setState(prevState => ({
       value,
       people: filterPeople(peopleDataSet, value, prevState.selectedPeople),
@@ -151,7 +151,7 @@ export class DetailedListExample extends Component {
     const { openDrawer, selectedPeople } = this.props;
 
     if (openDrawer) {
-      this.completer.current.openDropDown();
+      this.completer.current.openDropdown();
     }
 
     if (selectedPeople != null && typeof selectedPeople === 'number') {
@@ -170,9 +170,9 @@ export class DetailedListExample extends Component {
 
     if (this.props.openDrawer !== prevProps.openDrawer) {
       if (openDrawer) {
-        this.completer.current.openDropDown();
+        this.completer.current.openDropdown();
       } else {
-        this.completer.current.closeDropDown();
+        this.completer.current.closeDropdown();
       }
     }
   }
@@ -221,7 +221,7 @@ export class DetailedListExample extends Component {
     } = example.props;
 
     const footer = (
-      <XUIDropDownFooter
+      <XUIDropdownFooter
         pickItems={
           <Pickitem
             id="footerAction"
@@ -364,7 +364,7 @@ export class SecondarySearchExample extends React.Component {
 
   componentDidMount() {
     if (!this.props.isClosed) {
-      this.autocompleterRef.current.openDropDown();
+      this.autocompleterRef.current.openDropdown();
     }
   }
 
@@ -391,7 +391,7 @@ export class SecondarySearchExample extends React.Component {
       );
 
     const footer = (
-      <XUIDropDownFooter
+      <XUIDropdownFooter
         pickItems={
           <Pickitem
             id="footerAction"

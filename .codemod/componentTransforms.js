@@ -66,11 +66,11 @@ module.exports = {
   dropdown: [
     {
       name: 'DropDown',
-      newName: 'XUIDropDown',
+      newName: 'XUIDropdown',
     },
     {
       name: 'DropDownHeader',
-      newName: 'XUIDropDownHeader',
+      newName: 'XUIDropdownHeader',
       props: [
         {
           name: 'backButtonLabel',
@@ -80,19 +80,19 @@ module.exports = {
     },
     {
       name: 'DropDownFooter',
-      newName: 'XUIDropDownFooter',
+      newName: 'XUIDropdownFooter',
     },
     {
       name: 'DropDownPanel',
-      newName: 'XUIDropDownPanel',
+      newName: 'XUIDropdownPanel',
     },
     {
       name: 'DropDownToggled',
-      newName: 'XUIDropDownToggled',
+      newName: 'XUIDropdownToggled',
     },
     {
       name: 'NestedDropDown',
-      newName: 'XUINestedDropDown',
+      newName: 'XUINestedDropdown',
       props: [
         {
           name: 'currentPanel',

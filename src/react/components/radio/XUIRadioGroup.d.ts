@@ -25,13 +25,13 @@ interface Props {
    */
   isInvalid?: boolean;
   /**
-   * Whether the label should be visible or hidden.
+   * Whether to hide the label and apply it as an ARIA label instead.
    *
    * Defaults to `false` (visible).
    */
   isLabelHidden?: boolean;
   /**
-   * Label the radio group for accessibility. Highly recommended.
+   * Label to show above the radio group, or for accessibility when the radio group label is hidden. Highly recommended.
    */
   label?: React.ReactNode;
   /**

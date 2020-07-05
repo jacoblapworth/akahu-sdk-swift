@@ -46,7 +46,7 @@ interface BaseProps {
    *
    * Recommended English value: *Loading more data*
    */
-  loaderLabel?: string;
+  loaderAriaLabel?: string;
   qaHook?: string;
 }
 
@@ -68,14 +68,14 @@ interface CheckboxProps {
    *
    * Recommended English value: *Select all rows*
    */
-  checkAllRowsLabel?: React.ReactNode;
+  checkAllRowsAriaLabel?: React.ReactNode;
   /**
    * Describes "single row" checkbox functionality for accessibility. Required when `hasCheckbox` is
    * set to `true`.
    *
    * Recommended English value: *Select row*
    */
-  checkOneRowLabel?: React.ReactNode;
+  checkOneRowAriaLabel?: React.ReactNode;
   /**
    * Defines the unique row keys that are currently in a checked state.
    */

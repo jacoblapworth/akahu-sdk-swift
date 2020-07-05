@@ -6,7 +6,7 @@ interface Props {
    *
    * Recommended English value: *Back*
    */
-  backButtonLabel?: string;
+  backButtonAriaLabel?: string;
   children?: React.ReactNode;
   className?: string;
   /**

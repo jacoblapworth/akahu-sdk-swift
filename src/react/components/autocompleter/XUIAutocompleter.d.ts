@@ -67,7 +67,7 @@ interface Props {
    */
   inputId?: string;
   /**
-   * Label to show above the input.
+   * Label to show above the input, or for accessibility when the input label is hidden
    */
   inputLabel?: React.ReactNode;
   /**
@@ -84,7 +84,9 @@ interface Props {
    */
   isDisabled?: boolean;
   /**
-   * Should label be applied as an aria-label, rather than being visibly displayed.
+   * Whether to hide the label and apply it as an ARIA label instead.
+   *
+   * Defaults to visible.
    */
   isInputLabelHidden?: boolean;
   /**
@@ -109,7 +111,7 @@ interface Props {
    *
    * Recommended English value: *Loading*
    */
-  loadingLabel?: string;
+  loadingAriaLabel?: string;
   /**
    * Setting to `false` will allow the dropdown's width to be set independent of the trigger width.
    *

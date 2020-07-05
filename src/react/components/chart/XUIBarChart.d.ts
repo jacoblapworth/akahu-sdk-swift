@@ -134,7 +134,7 @@ interface BaseProps {
    *
    * Recommended English value: *Loading*
    */
-  loadingLabel?: string;
+  loadingAriaLabel?: string;
   /**
    * Handler for when a bar "click" interaction occurs.
    */

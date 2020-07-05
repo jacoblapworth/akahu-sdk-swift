@@ -21,6 +21,10 @@ interface BaseProps {
    */
   fullWidth?: keyof typeof widthClassNames;
   /**
+   * Use this to specify whether this button will have a dropdown caret.
+   */
+  hasCaret?: boolean;
+  /**
    * The `href` attribute to use on the anchor element.
    *
    * Ignored unless `isLink` is `true`.
@@ -62,7 +66,7 @@ interface BaseProps {
    * Accessibility label for the `XUILoader`. This is required if the `isLoading` prop is set to
    * `true`.
    */
-  loadingLabel?: string;
+  loadingAriaLabel?: string;
   /**
    * Use this to specify a min width on the button, when you want to swap to loading states.
    */

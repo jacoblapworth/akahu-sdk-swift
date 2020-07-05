@@ -74,6 +74,10 @@ class XUIEditableTableCellAutocompleter extends Component {
     return (
       <XUIEditableTableCellControl
         {...cellProps}
+        cellIds={{
+          wrapper: spreadProps.id,
+          control: inputProps?.id,
+        }}
         className={cn(baseName, cellProps.className)}
         isDisabled={isDisabled}
         isFocused={this.state.isFocused}
@@ -91,6 +95,7 @@ class XUIEditableTableCellAutocompleter extends Component {
           }}
           isDisabled={isDisabled}
           isInputLabelHidden
+          isInvalid={isInvalid}
           ref={this.completerRef}
           triggerClassName={cn(`${baseName}--trigger`, triggerClassName)}
         />

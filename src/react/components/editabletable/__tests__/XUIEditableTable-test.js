@@ -2,8 +2,12 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
+import uuidv4 from 'uuid/v4';
 
 import XUIEditableTable from '../XUIEditableTable';
+
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -28,6 +32,11 @@ describe('<XUIEditableTable />', () => {
   });
 
   describe('validation message', () => {
+    it('renders correctly when the table is invalid and there is a validation message', () => {
+      const wrapper = shallow(<XUIEditableTable isInvalid validationMessage="Error message" />);
+      expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
     it('renders when the table is invalid and there is a validation message', () => {
       const wrapper = mount(<XUIEditableTable isInvalid validationMessage="Error message" />);
 

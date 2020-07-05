@@ -2,6 +2,12 @@
 
 exports[`<XUIEditableTableCellAutocompleter /> renders correctly 1`] = `
 <XUIEditableTableCellControl
+  cellIds={
+    Object {
+      "control": undefined,
+      "wrapper": undefined,
+    }
+  }
   className="xui-editabletablecellautocompleter"
   isFocused={false}
   onClick={[Function]}

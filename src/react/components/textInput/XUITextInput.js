@@ -78,7 +78,7 @@ class XUITextInput extends PureComponent {
   render() {
     return (
       <EditableTableCellContext.Consumer>
-        {({ useCellStyling }) => {
+        {({ useCellStyling, cellAttributes }) => {
           const input = this;
           const {
             value,
@@ -155,6 +155,8 @@ class XUITextInput extends PureComponent {
             maxHeight, // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
           };
 
+          const ariaAttributes = cellAttributes || getAriaAttributes(this.wrapperIds, this.props);
+
           return (
             <SizeContext.Provider value={sizeShift(size, -1)}>
               <DisabledStateContext.Provider value={{ isDisabled }}>
@@ -186,11 +188,11 @@ class XUITextInput extends PureComponent {
                       onFocusCapture={input.onFocus}
                       placeholder={placeholder}
                       ref={compose(inputRef, i => (this.input = i))}
-                      type={type}
-                      value={value}
-                      {...getAriaAttributes(this.wrapperIds, this.props)}
                       // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
                       rows={isMultiline ? rows || minRows : undefined}
+                      type={type}
+                      {...ariaAttributes}
+                      value={value}
                     />
                     {rightElement}
                   </div>

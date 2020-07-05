@@ -16,6 +16,7 @@ const XUIEditableTableCellTextInput = ({
   isDisabled,
   isInvalid,
   validationMessage,
+  inputProps,
   ...spreadProps
 }) => {
   const inputRef = React.useRef();
@@ -60,6 +61,10 @@ const XUIEditableTableCellTextInput = ({
   return (
     <XUIEditableTableCellControl
       {...cellProps}
+      cellIds={{
+        wrapper: spreadProps.id,
+        control: inputProps?.id,
+      }}
       className={cn(baseName, cellProps.className)}
       isDisabled={isDisabled}
       isFocused={isFocused}
@@ -70,7 +75,9 @@ const XUIEditableTableCellTextInput = ({
       <XUITextInput
         {...spreadProps}
         containerClassName={cn(`${baseName}--control`, containerClassName)}
+        inputProps={inputProps}
         isDisabled={isDisabled}
+        isInvalid={isInvalid}
         isLabelHidden
         onBlur={composedOnBlur}
         onFocus={composedOnFocus}

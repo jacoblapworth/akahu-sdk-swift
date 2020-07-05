@@ -83,3 +83,47 @@ exports[`<XUIEditableTable /> renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`<XUIEditableTable /> validation message renders correctly when the table is invalid and there is a validation message 1`] = `
+<div
+  className="xui-editabletable--wrapper"
+>
+  <div
+    className="xui-editabletable xui-editabletable-is-invalid"
+  >
+    <table
+      aria-describedby="testGeneratedId-message"
+      aria-invalid={true}
+      className="xui-editabletable--table"
+    >
+      <ContextProvider
+        value={
+          Object {
+            "rowOptions": Object {},
+            "tableRef": Object {
+              "current": undefined,
+            },
+          }
+        }
+      />
+    </table>
+  </div>
+  <div
+    className="xui-editabletable--validation"
+    id="testGeneratedId-message"
+  >
+    <XUIIcon
+      icon={
+        Object {
+          "height": 16,
+          "path": "M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z",
+          "width": 16,
+        }
+      }
+      role="presentation"
+      size="medium"
+    />
+    Error message
+  </div>
+</div>
+`;

@@ -30,6 +30,7 @@ exports[`<XUIPagination/> renders basic example 1`] = `
               <button
                 aria-activedescendant={null}
                 aria-haspopup="listbox"
+                aria-label="Select a per page count"
                 className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
                 data-automationid={null}
                 disabled={false}
@@ -116,6 +117,7 @@ exports[`<XUIPagination/> renders basic example 1`] = `
             <button
               aria-activedescendant={null}
               aria-haspopup="listbox"
+              aria-label="Select a page"
               className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
               data-automationid={null}
               disabled={false}
@@ -228,6 +230,7 @@ exports[`<XUIPagination/> should only render Paging 1`] = `
             <button
               aria-activedescendant={null}
               aria-haspopup="listbox"
+              aria-label="Select a page"
               className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
               data-automationid={null}
               disabled={false}
@@ -319,6 +322,7 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
               <button
                 aria-activedescendant={null}
                 aria-haspopup="listbox"
+                aria-label="Select a per page count"
                 className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
                 data-automationid={null}
                 disabled={false}
@@ -405,6 +409,7 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
             <button
               aria-activedescendant={null}
               aria-haspopup="listbox"
+              aria-label="Select a page"
               className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
               data-automationid={null}
               disabled={false}
@@ -498,6 +503,7 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
               <button
                 aria-activedescendant={null}
                 aria-haspopup="listbox"
+                aria-label="Select a per page count"
                 className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
                 data-automationid={null}
                 disabled={false}
@@ -586,6 +592,7 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
             <button
               aria-activedescendant={null}
               aria-haspopup="listbox"
+              aria-label="Select a page"
               className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
               data-automationid={null}
               disabled={false}
@@ -677,6 +684,7 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
               <button
                 aria-activedescendant={null}
                 aria-haspopup="listbox"
+                aria-label="Select a per page count"
                 className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
                 data-automationid={null}
                 disabled={false}
@@ -763,6 +771,7 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
             <button
               aria-activedescendant={null}
               aria-haspopup="listbox"
+              aria-label="Select a page"
               className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
               data-automationid={null}
               disabled={false}
@@ -854,6 +863,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
               <button
                 aria-activedescendant={null}
                 aria-haspopup="listbox"
+                aria-label="Select a per page count"
                 className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
                 data-automationid={null}
                 disabled={false}
@@ -939,6 +949,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
             <button
               aria-activedescendant={null}
               aria-haspopup="listbox"
+              aria-label="Select a page"
               className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
               data-automationid={null}
               disabled={false}
@@ -1030,6 +1041,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 2`] = `
               <button
                 aria-activedescendant={null}
                 aria-haspopup="listbox"
+                aria-label="Select a per page count"
                 className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
                 data-automationid={null}
                 disabled={false}
@@ -1116,6 +1128,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 2`] = `
             <button
               aria-activedescendant={null}
               aria-haspopup="listbox"
+              aria-label="Select a page"
               className="xui-button xui-select--button xui-button-borderless-main xui-button-small"
               data-automationid={null}
               disabled={false}

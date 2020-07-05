@@ -2,11 +2,15 @@ import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
+import uuidv4 from 'uuid/v4';
 
 import XUIAutocompleter from '../../autocompleter/XUIAutocompleter';
 import XUIEditableTableCell from '../XUIEditableTableCell';
 import XUIEditableTableCellControl from '../XUIEditableTableCellControl';
 import XUIEditableTableCellAutocompleter from '../XUIEditableTableCellAutocompleter';
+
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
 

@@ -6,6 +6,7 @@ import { tableName } from './private/constants';
 import XUIEditableTableContext from './contexts/XUIEditableTableContext';
 import XUIIcon from '../icon/XUIIcon';
 import invalid from '@xero/xui-icon/icons/invalid';
+import generateIds from '../controlwrapper/helpers';
 
 const XUIEditableTable = ({
   caption,
@@ -32,6 +33,8 @@ const XUIEditableTable = ({
           ...style,
         }
       : style;
+  const wrapperIds = generateIds(spreadProps.id);
+
   return (
     <div className={cn(`${tableName}--wrapper`, className)}>
       <div
@@ -39,7 +42,13 @@ const XUIEditableTable = ({
         ref={tableRef}
         style={wrapperStyle}
       >
-        <table {...spreadProps} className={`${tableName}--table`} data-automationid={qaHook}>
+        <table
+          {...spreadProps}
+          aria-describedby={isInvalid && validationMessage ? wrapperIds.message : undefined}
+          aria-invalid={isInvalid}
+          className={`${tableName}--table`}
+          data-automationid={qaHook}
+        >
           {caption && <caption className={`${tableName}--caption`}>{caption}</caption>}
           {!!columnWidths.length && (
             <colgroup>
@@ -56,7 +65,7 @@ const XUIEditableTable = ({
         </table>
       </div>
       {isInvalid && validationMessage && (
-        <div className={`${tableName}--validation`}>
+        <div className={`${tableName}--validation`} id={wrapperIds.message}>
           <XUIIcon icon={invalid} />
           {validationMessage}
         </div>

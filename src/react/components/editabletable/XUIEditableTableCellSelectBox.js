@@ -71,6 +71,9 @@ const XUIEditableTableCellSelectBox = ({
   return (
     <XUIEditableTableCellControl
       {...cellProps}
+      cellIds={{
+        wrapper: spreadProps.id,
+      }}
       className={cn(baseName, cellProps.className)}
       isDisabled={isDisabled}
       isFocused={isFocused}
@@ -84,6 +87,7 @@ const XUIEditableTableCellSelectBox = ({
         containerClasses={cn(`${baseName}--control`, containerClasses)}
         defaultLayout={false}
         isDisabled={isDisabled}
+        isInvalid={isInvalid}
         isLabelHidden
         isTextTruncated={false}
         onBlur={composedOnBlur}

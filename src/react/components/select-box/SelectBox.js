@@ -41,7 +41,7 @@ export default class SelectBox extends Component {
   render() {
     return (
       <EditableTableCellContext.Consumer>
-        {({ useCellStyling }) => {
+        {({ useCellStyling, cellAttributes }) => {
           const selectBox = this;
           const {
             buttonClasses,
@@ -93,9 +93,12 @@ export default class SelectBox extends Component {
             containerClasses,
           );
 
+          const ariaAttributes = cellAttributes || getAriaAttributes(this.wrapperIds, this.props);
+
           const trigger = (
             <XUIButton
               _useCellStyling={useCellStyling}
+              {...ariaAttributes}
               className={buttonClassNames}
               fullWidth={fullWidth}
               id={this.wrapperIds.control}

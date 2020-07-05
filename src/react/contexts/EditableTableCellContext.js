@@ -5,4 +5,6 @@ export default React.createContext({
     current: null,
   },
   useCellStyling: false,
+  validationMessageId: null,
+  cellAttributes: null,
 });

@@ -2,6 +2,12 @@
 
 exports[`<XUIEditableTableCellTextInput /> renders correctly 1`] = `
 <XUIEditableTableCellControl
+  cellIds={
+    Object {
+      "control": undefined,
+      "wrapper": undefined,
+    }
+  }
   className="xui-editabletablecelltextinput"
   onClick={[Function]}
 >

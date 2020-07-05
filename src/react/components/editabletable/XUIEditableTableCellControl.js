@@ -7,12 +7,15 @@ import PortalFocus from './private/PortalFocus';
 import XUIEditableTableContext from './contexts/XUIEditableTableContext';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 import XUIEditableTableCell from './XUIEditableTableCell';
+import { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
+import generateIds, { generateIdsFromControlId } from '../controlwrapper/helpers';
 
 const baseName = `${tableName}cell`;
 
 const XUIEditableTableCellControl = ({
   children,
   className,
+  cellIds,
   isDisabled,
   isFocused,
   isInvalid,
@@ -22,6 +25,13 @@ const XUIEditableTableCellControl = ({
   const cellRef = React.useRef();
   const controlBaseName = `${baseName}-control`;
   const { tableRef } = React.useContext(XUIEditableTableContext);
+
+  const showValidationMessage = isInvalid && validationMessage;
+  const wrapperIds = cellIds?.control
+    ? generateIdsFromControlId(cellIds?.control)
+    : generateIds(cellIds?.wrapper);
+  const cellAttributes =
+    showValidationMessage && getAriaAttributes(wrapperIds, { isInvalid, validationMessage });
 
   return (
     <XUIEditableTableCell
@@ -35,15 +45,22 @@ const XUIEditableTableCellControl = ({
       ref={cellRef}
       {...spreadProps}
     >
-      <EditableTableCellContext.Provider value={{ cellRef, useCellStyling: true }}>
+      <EditableTableCellContext.Provider
+        value={{
+          cellAttributes,
+          cellRef,
+          useCellStyling: true,
+        }}
+      >
         <div className={`${baseName}--border`}>
           {children}
-          {isInvalid && validationMessage && (
+          {showValidationMessage && (
             <div
               className={cn(
                 `${baseName}--validation`,
                 isInvalid && `${baseName}--validation-is-invalid`,
               )}
+              id={wrapperIds.message}
             >
               {validationMessage}
             </div>
@@ -74,6 +91,11 @@ XUIEditableTableCellControl.propTypes = {
    * Validation message to show under the input if `isInvalid` is true.
    */
   validationMessage: PropTypes.string,
+  /** Id of the control cell */
+  cellIds: PropTypes.shape({
+    wrapper: PropTypes.string,
+    control: PropTypes.string,
+  }),
 };
 
 export default XUIEditableTableCellControl;

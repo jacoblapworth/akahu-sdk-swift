@@ -2,6 +2,11 @@
 
 exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
 <XUIEditableTableCellControl
+  cellIds={
+    Object {
+      "wrapper": undefined,
+    }
+  }
   className="xui-editabletablecellselectbox"
   onClick={[Function]}
   onMouseDown={[Function]}

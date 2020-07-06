@@ -436,7 +436,7 @@ You can append a menu to a table row by adding `hasOverflowMenu` and providing a
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
-import { Pickitem } from '@xero/xui/react/picklist';
+import { XUIPickitem } from '@xero/xui/react/picklist';
 
 const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, paid: true },
@@ -448,9 +448,9 @@ const data = {
   hasOverflowMenu
   createOverflowMenu={({ fruit, paid }) =>
     !paid && [
-      <Pickitem key="0" id="0" onClick={() => alert(`Pay for ${fruit}s`)}>
+      <XUIPickitem key="0" id="0" onClick={() => alert(`Pay for ${fruit}s`)}>
         Pay for {fruit}s
-      </Pickitem>
+      </XUIPickitem>
     ]
   }
   loaderAriaLabel="Loading more data"
@@ -477,7 +477,7 @@ If an **action** column is **active** in the _Table_ it can be pinned to the rel
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
-import { Pickitem } from '@xero/xui/react/picklist';
+import { XUIPickitem } from '@xero/xui/react/picklist';
 const data = {
   abc123: {
     fruit: 'Banana',
@@ -534,9 +534,9 @@ class Demo extends React.Component {
         onCheckOneToggle={this.handleCheckOneToggle}
         hasOverflowMenu
         createOverflowMenu={() => [
-          <Pickitem key="0" id="0" onClick={() => {}}>
+          <XUIPickitem key="0" id="0" onClick={() => {}}>
             Edit
-          </Pickitem>
+          </XUIPickitem>
         ]}
         loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"

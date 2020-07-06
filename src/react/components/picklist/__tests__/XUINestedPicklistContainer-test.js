@@ -1,41 +1,41 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import StatefulPicklist from '../StatefulPicklist';
-import Picklist from '../Picklist';
-import NestedPicklistContainer from '../NestedPicklistContainer';
-import NestedPicklistTrigger from '../NestedPicklistTrigger';
-import NestedPicklist from '../NestedPicklist';
-import Pickitem from '../Pickitem';
+import XUIStatefulPicklist from '../XUIStatefulPicklist';
+import XUIPicklist from '../XUIPicklist';
+import XUINestedPicklistContainer from '../XUINestedPicklistContainer';
+import XUINestedPicklistTrigger from '../XUINestedPicklistTrigger';
+import XUINestedPicklist from '../XUINestedPicklist';
+import XUIPickitem from '../XUIPickitem';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 const MockNestedPicklistContainer = props => (
-  <NestedPicklistContainer id="nested" {...props}>
-    <NestedPicklistTrigger id="nestedTrigger" ariaLabel="Toggle submenu">
+  <XUINestedPicklistContainer id="nested" {...props}>
+    <XUINestedPicklistTrigger id="nestedTrigger" ariaLabel="Toggle submenu">
       Nested List
-    </NestedPicklistTrigger>
-    <NestedPicklist>
-      <Pickitem ariaRole="treeitem" id="a">
+    </XUINestedPicklistTrigger>
+    <XUINestedPicklist>
+      <XUIPickitem ariaRole="treeitem" id="a">
         A
-      </Pickitem>
-    </NestedPicklist>
-  </NestedPicklistContainer>
+      </XUIPickitem>
+    </XUINestedPicklist>
+  </XUINestedPicklistContainer>
 );
 
 const MockStatefulPicklist = props => (
-  <StatefulPicklist>
-    <Picklist>
+  <XUIStatefulPicklist>
+    <XUIPicklist>
       <MockNestedPicklistContainer {...props} />
-    </Picklist>
-  </StatefulPicklist>
+    </XUIPicklist>
+  </XUIStatefulPicklist>
 );
 
 const setup = (props = {}) => {
   return mount(MockStatefulPicklist(props));
 };
 
-describe('<PicklistContainer />', () => {
+describe('<XUIPicklistContainer />', () => {
   describe('Uncontrolled component', () => {
     it('updates open state to isDefaultOpen prop value', () => {
       // Arrange
@@ -57,7 +57,7 @@ describe('<PicklistContainer />', () => {
       const wrapper = setup({ onOpen: onOpenMock });
 
       // Act
-      wrapper.find('NestedPicklistContainer').instance().open();
+      wrapper.find('XUINestedPicklistContainer').instance().open();
 
       // Assert
       expect(onOpenMock).toBeCalledTimes(1);
@@ -68,7 +68,7 @@ describe('<PicklistContainer />', () => {
 
       const wrapper = setup({ isDefaultOpen: true, onClose: onCloseMock });
 
-      wrapper.find('NestedPicklistContainer').instance().close();
+      wrapper.find('XUINestedPicklistContainer').instance().close();
 
       expect(onCloseMock).toBeCalledTimes(1);
     });
@@ -79,7 +79,7 @@ describe('<PicklistContainer />', () => {
       const wrapper = setup({ isDefaultOpen: true, onOpen: onOpenMock });
 
       // Act
-      wrapper.find('NestedPicklistContainer').instance().open();
+      wrapper.find('XUINestedPicklistContainer').instance().open();
 
       // Assert
       expect(onOpenMock).not.toBeCalled();
@@ -91,7 +91,7 @@ describe('<PicklistContainer />', () => {
       const wrapper = setup({ isDefaultOpen: false, onClose: onCloseMock });
 
       // Act
-      wrapper.find('NestedPicklistContainer').instance().close();
+      wrapper.find('XUINestedPicklistContainer').instance().close();
 
       // Assert
       expect(onCloseMock).not.toBeCalled();
@@ -120,7 +120,7 @@ describe('<PicklistContainer />', () => {
       const wrapper = setup({ isOpen: false, onOpen: onOpenMock });
 
       // Act
-      wrapper.find('NestedPicklistContainer').instance().open();
+      wrapper.find('XUINestedPicklistContainer').instance().open();
 
       // Assert
       expect(onOpenMock).toBeCalled();
@@ -132,7 +132,7 @@ describe('<PicklistContainer />', () => {
       const wrapper = setup({ isOpen: true, onClose: onCloseMock });
 
       // Act
-      wrapper.find('NestedPicklistContainer').instance().close();
+      wrapper.find('XUINestedPicklistContainer').instance().close();
 
       // Assert
       expect(onCloseMock).toBeCalled();
@@ -144,7 +144,7 @@ describe('<PicklistContainer />', () => {
       const wrapper = setup({ isOpen: true, onOpen: onOpenMock });
 
       // Act
-      wrapper.find('NestedPicklistContainer').instance().open();
+      wrapper.find('XUINestedPicklistContainer').instance().open();
 
       // Assert
       expect(onOpenMock).not.toBeCalled();
@@ -156,7 +156,7 @@ describe('<PicklistContainer />', () => {
       const wrapper = setup({ isOpen: false, onClose: onCloseMock });
 
       // Act
-      wrapper.find('NestedPicklistContainer').instance().close();
+      wrapper.find('XUINestedPicklistContainer').instance().close();
 
       // Assert
       expect(onCloseMock).not.toBeCalled();

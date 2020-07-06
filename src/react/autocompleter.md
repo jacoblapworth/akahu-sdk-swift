@@ -33,7 +33,7 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 You should add a callback to `onBackspacePill` which removes the last selected element. This will be called if the backspace key is pressed while the input is empty.
 
-Also note that the `<XUIAutocompleterEmptyState>` component needs to be wrapped in a `<Picklist>` component if you want to be able to access a header or footer with the keyboard.
+Also note that the `<XUIAutocompleterEmptyState>` component needs to be wrapped in a `<XUIPicklist>` component if you want to be able to access a header or footer with the keyboard.
 
 Currently it's recommended that you do not pass in a `rightElement` prop while using wrapping pills. At certain widths, the right element may wrap down to the next row without the input, which doesn't display nicely.
 
@@ -47,7 +47,7 @@ import XUIAutocompleter, {
 } from '@xero/xui/react/autocompleter';
 import XUIAvatar from '@xero/xui/react/avatar';
 import XUIPill from '@xero/xui/react/pill';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 import people from './components/autocompleter/private/people';
 
@@ -148,11 +148,11 @@ class WrapPillsExample extends Component {
 
     const dropdownContents =
       unselectedPeopleIds.length === 0 ? (
-        <Picklist>
+        <XUIPicklist>
           <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>
-        </Picklist>
+        </XUIPicklist>
       ) : (
-        <Picklist>
+        <XUIPicklist>
           {unselectedPeopleIds.map(person => {
             const secondaryContent = (
               <Fragment>
@@ -164,7 +164,7 @@ class WrapPillsExample extends Component {
               <Fragment>{decorateSubStr(person.name, value || '', boldMatch)}</Fragment>
             );
             return (
-              <Pickitem
+              <XUIPickitem
                 shouldTruncate
                 key={person.id}
                 id={person.id}
@@ -179,7 +179,7 @@ class WrapPillsExample extends Component {
               />
             );
           })}
-        </Picklist>
+        </XUIPicklist>
       );
     const validityMsg = this.state.isInvalid
       ? 'Special characters are not allowed'
@@ -224,7 +224,7 @@ import XUIAutocompleter, {
   boldMatch,
   decorateSubStr
 } from '@xero/xui/react/autocompleter';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import XUIPill from '@xero/xui/react/pill';
 
 import people from './components/autocompleter/private/people';
@@ -318,11 +318,11 @@ class DisableWrapPills extends Component {
 
     const dropdownContents =
       unselectedPeopleIds.length === 0 ? (
-        <Picklist>
+        <XUIPicklist>
           <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>
-        </Picklist>
+        </XUIPicklist>
       ) : (
-        <Picklist>
+        <XUIPicklist>
           {unselectedPeopleIds.map(person => {
             const secondaryContent = (
               <Fragment>
@@ -334,7 +334,7 @@ class DisableWrapPills extends Component {
               <Fragment>{decorateSubStr(person.name, value || '', boldMatch)}</Fragment>
             );
             return (
-              <Pickitem
+              <XUIPickitem
                 shouldTruncate
                 key={person.id}
                 id={person.id}
@@ -349,7 +349,7 @@ class DisableWrapPills extends Component {
               />
             );
           })}
-        </Picklist>
+        </XUIPicklist>
       );
 
     return (
@@ -384,7 +384,7 @@ import crossIcon from '@xero/xui-icon/icons/cross-small';
 import { XUIIconButton } from '@xero/xui/react/button';
 import XUIAvatar from '@xero/xui/react/avatar';
 import XUIAutocompleter, { boldMatch, decorateSubStr } from '@xero/xui/react/autocompleter';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import { XUITextInputSideElement } from '@xero/xui/react/textinput';
 
 import people from './components/autocompleter/private/people';
@@ -443,7 +443,7 @@ class SingleSelectExample extends Component {
     const searchResults = filterPeople(people, value);
 
     const dropdownContents = (
-      <Picklist>
+      <XUIPicklist>
         {searchResults.map(person => {
           const secondaryContent = (
             <Fragment>
@@ -455,7 +455,7 @@ class SingleSelectExample extends Component {
             <Fragment>{decorateSubStr(person.name, value || '', boldMatch)}</Fragment>
           );
           return (
-            <Pickitem
+            <XUIPickitem
               shouldTruncate
               key={person.id}
               id={person.id}
@@ -468,7 +468,7 @@ class SingleSelectExample extends Component {
             />
           );
         })}
-      </Picklist>
+      </XUIPicklist>
     );
     const leftElement = selectedPersonId != null && (
       <XUITextInputSideElement type="avatar">
@@ -521,7 +521,7 @@ import XUIAutocompleter, {
 } from '@xero/xui/react/autocompleter';
 import XUIAvatar from '@xero/xui/react/avatar';
 import XUIPill from '@xero/xui/react/pill';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 import people from './components/autocompleter/private/people';
 
@@ -630,11 +630,11 @@ class CustomKeyDownExample extends Component {
 
     const dropdownContents =
       unselectedPeopleIds.length === 0 ? (
-        <Picklist>
+        <XUIPicklist>
           <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>
-        </Picklist>
+        </XUIPicklist>
       ) : (
-        <Picklist>
+        <XUIPicklist>
           {unselectedPeopleIds.map(person => {
             const secondaryContent = (
               <Fragment>
@@ -646,7 +646,7 @@ class CustomKeyDownExample extends Component {
               <Fragment>{decorateSubStr(person.name, value || '', boldMatch)}</Fragment>
             );
             return (
-              <Pickitem
+              <XUIPickitem
                 shouldTruncate
                 key={person.id}
                 id={person.id}
@@ -661,7 +661,7 @@ class CustomKeyDownExample extends Component {
               />
             );
           })}
-        </Picklist>
+        </XUIPicklist>
       );
     const validityMsg = this.state.isInvalid
       ? 'Special characters are not allowed'

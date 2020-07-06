@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PicklistHeader /> basic example 1`] = `
+exports[`<XUIPicklistHeader /> basic example 1`] = `
 <li
   className="xui-picklist--header"
 >
@@ -12,7 +12,7 @@ exports[`<PicklistHeader /> basic example 1`] = `
 </li>
 `;
 
-exports[`<PicklistHeader /> with all options 1`] = `
+exports[`<XUIPicklistHeader /> with all options 1`] = `
 <li
   className="xui-picklist--header custom-header-class"
   id="headerId"

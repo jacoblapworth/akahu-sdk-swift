@@ -17,7 +17,7 @@ interface Props {
    */
   ariaRole?: string;
   /**
-   * Classes can be passed to the `XUICheckbox` component in `PickItemBody`.
+   * Classes can be passed to the `XUICheckbox` component in `PickitemBody`.
    *
    * ⚠️ *Vertical picklists only*
    */
@@ -71,7 +71,7 @@ interface Props {
    */
   isSelected?: boolean;
   /**
-   * Whether or not this pickitem sits next to a `NestedPicklistToggle`.
+   * Whether or not this pickitem sits next to a `XUINestedPicklistToggle`.
    *
    * ⚠️ *Vertical picklists only*
    */
@@ -81,26 +81,26 @@ interface Props {
    */
   leftElement?: React.ReactNode;
   /**
-   * Callback on blur of the pick item.
+   * Callback on blur of the pickitem.
    */
   onBlur?: React.FocusEventHandler<HTMLElement>;
   /**
-   * Callback when the pick item is clicked.
+   * Callback when the pickitem is clicked.
    */
   onClick?: React.MouseEventHandler<HTMLElement>;
   /**
-   * Callback on focus of the pick item.
+   * Callback on focus of the pickitem.
    */
   onFocus?: React.FocusEventHandler<HTMLElement>;
   /**
-   * Callback on keydown of the pick item.
+   * Callback on keydown of the pickitem.
    */
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>;
   /**
    * Callback when this item is selected by a parent component.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onSelect?: (value: any, item: Pickitem) => void;
+  onSelect?: (value: any, item: XUIPickitem) => void;
   /**
    * Props to pass to the pickitem body.
    */
@@ -146,10 +146,10 @@ interface Props {
   target?: string;
   /**
    * The value associated with this `PickItem` which will be passed to the `onSelect` callbacks here
-   * and in the StatefulPicklist
+   * and in the stateful picklist
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value?: any;
 }
 
-export default class Pickitem extends React.PureComponent<Props> {}
+export default class XUIPickitem extends React.PureComponent<Props> {}

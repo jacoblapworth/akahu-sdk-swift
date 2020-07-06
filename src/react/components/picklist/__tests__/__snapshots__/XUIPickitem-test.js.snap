@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Pickitem /> renders a basic example with no options 1`] = `
+exports[`<XUIPickitem /> renders a basic example with no options 1`] = `
 <li
   aria-selected={null}
   className="xui-pickitem xui-pickitem-medium"
@@ -21,7 +21,7 @@ exports[`<Pickitem /> renders a basic example with no options 1`] = `
 </li>
 `;
 
-exports[`<Pickitem /> renders a multiselect pickitem with truncation 1`] = `
+exports[`<XUIPickitem /> renders a multiselect pickitem with truncation 1`] = `
 <li
   aria-selected={false}
   className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-multiselect xui-pickitem-medium"
@@ -88,7 +88,7 @@ exports[`<Pickitem /> renders a multiselect pickitem with truncation 1`] = `
 </li>
 `;
 
-exports[`<Pickitem /> renders a pickitem with most compatible options 1`] = `
+exports[`<XUIPickitem /> renders a pickitem with most compatible options 1`] = `
 <li
   aria-selected={null}
   className="xui-pickitem custom-classname xui-pickitem-multiline xui-pickitem-is-selected xui-pickitem-is-disabled xui-pickitem-medium xui-pickitem-is-invalid"
@@ -150,7 +150,7 @@ exports[`<Pickitem /> renders a pickitem with most compatible options 1`] = `
 </li>
 `;
 
-exports[`<Pickitem /> renders a regular pickitem with truncation 1`] = `
+exports[`<XUIPickitem /> renders a regular pickitem with truncation 1`] = `
 <li
   aria-selected={null}
   className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium"
@@ -185,7 +185,7 @@ exports[`<Pickitem /> renders a regular pickitem with truncation 1`] = `
 </li>
 `;
 
-exports[`<Pickitem /> renders a selected multiselect pickitem (overriding leftElement) 1`] = `
+exports[`<XUIPickitem /> renders a selected multiselect pickitem (overriding leftElement) 1`] = `
 <li
   aria-selected={true}
   className="xui-pickitem custom-classname xui-pickitem-is-selected xui-pickitem-multiselect xui-pickitem-medium"
@@ -238,7 +238,7 @@ exports[`<Pickitem /> renders a selected multiselect pickitem (overriding leftEl
 </li>
 `;
 
-exports[`<Pickitem /> renders a selected multiselect pickitem without selected styles 1`] = `
+exports[`<XUIPickitem /> renders a selected multiselect pickitem without selected styles 1`] = `
 <li
   aria-selected={true}
   className="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium"
@@ -291,7 +291,7 @@ exports[`<Pickitem /> renders a selected multiselect pickitem without selected s
 </li>
 `;
 
-exports[`<Pickitem /> renders a truncating pickitem with leftelement 1`] = `
+exports[`<XUIPickitem /> renders a truncating pickitem with leftelement 1`] = `
 <li
   aria-selected={null}
   className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium xui-pickitem-has-leftelement"
@@ -326,7 +326,7 @@ exports[`<Pickitem /> renders a truncating pickitem with leftelement 1`] = `
 </li>
 `;
 
-exports[`<Pickitem /> renders a truncating pickitem with secondary text 1`] = `
+exports[`<XUIPickitem /> renders a truncating pickitem with secondary text 1`] = `
 <li
   aria-selected={null}
   className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium xui-pickitem-has-secondarytext"
@@ -356,7 +356,7 @@ exports[`<Pickitem /> renders a truncating pickitem with secondary text 1`] = `
 </li>
 `;
 
-exports[`<Pickitem /> renders a truncating pickitem with secondary text and leftelement 1`] = `
+exports[`<XUIPickitem /> renders a truncating pickitem with secondary text and leftelement 1`] = `
 <li
   aria-selected={null}
   className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium xui-pickitem-has-leftelement-secondarytext"
@@ -396,7 +396,7 @@ exports[`<Pickitem /> renders a truncating pickitem with secondary text and left
 </li>
 `;
 
-exports[`<Pickitem /> should set an automation id when a qaHook is provided 1`] = `
+exports[`<XUIPickitem /> should set an automation id when a qaHook is provided 1`] = `
 <li
   aria-selected={null}
   className="xui-pickitem xui-pickitem-medium"

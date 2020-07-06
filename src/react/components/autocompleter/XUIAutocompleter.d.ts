@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
-import Pickitem from '../picklist/Pickitem';
+import XUIPickitem from '../picklist/XUIPickitem';
 
 interface Props {
   children?: React.ReactNode;
@@ -136,7 +136,7 @@ interface Props {
   /**
    * Callback for when the highlighted item changes.
    */
-  onHighlightChange?: (item: Pickitem) => void;
+  onHighlightChange?: (item: XUIPickitem) => void;
   /**
    * Callback for adding additional `onKeyDown` functionality.
    */
@@ -149,7 +149,7 @@ interface Props {
    * Callback to handle when an option has been selected from the dropdown.
    */
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  onOptionSelect?: (value: any, element?: Pickitem) => void;
+  onOptionSelect?: (value: any, element?: XUIPickitem) => void;
   /**
    * Callback for when the user types into the search box. The argument passed in is the search term
    * value.
@@ -203,7 +203,7 @@ export default class XUIAutocompleter extends React.PureComponent<Props> {
   /**
    * Manually highlight an item in the list for selection.
    */
-  highlightItem(item: Pickitem): void;
+  highlightItem(item: XUIPickitem): void;
   /**
    * Set the state as not hidden in order to toggle the list open.
    */
@@ -212,7 +212,7 @@ export default class XUIAutocompleter extends React.PureComponent<Props> {
    * If an onHighlightChange prop is passed to the completer, it's called passing in the highlighted
    * item.
    */
-  onHighlightChange(item: Pickitem): void;
+  onHighlightChange(item: XUIPickitem): void;
   /**
    * Root node to enable users to access as a ref.
    */

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Pickitem from '../picklist/Pickitem';
+import XUIPickitem from '../picklist/XUIPickitem';
 import { sizes, widths } from './private/constants';
 
 interface Props {
@@ -109,7 +109,7 @@ interface Props {
    * Selection callback.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onSelect?: (value: any, item: Pickitem) => void;
+  onSelect?: (value: any, item: XUIPickitem) => void;
   /**
    * For adding automation ID to component as well as input and button sub-components.
    */

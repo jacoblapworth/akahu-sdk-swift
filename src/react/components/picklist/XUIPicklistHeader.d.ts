@@ -10,4 +10,4 @@ interface Props {
   id?: string;
 }
 
-export default class PicklistHeader extends React.PureComponent<Props> {}
+export default class XUIPicklistHeader extends React.PureComponent<Props> {}

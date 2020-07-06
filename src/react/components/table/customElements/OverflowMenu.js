@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import overflowPathData from '@xero/xui-icon/icons/overflow';
 import XUIDropdown from '../../dropdown/XUIDropdown';
 import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
-import Picklist from '../../picklist/Picklist';
+import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIIconButton from '../../button/XUIIconButton';
 import { NAME_SPACE } from '../helpers/constants';
 
@@ -14,7 +14,7 @@ const OverflowMenu = ({ children, overflowMenuTitle }) => {
 
   const createDropdown = items => (
     <XUIDropdown>
-      <Picklist>{items}</Picklist>
+      <XUIPicklist>{items}</XUIPicklist>
     </XUIDropdown>
   );
 

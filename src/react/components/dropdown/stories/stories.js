@@ -10,8 +10,8 @@ import XUIDropdownToggled from '../XUIDropdownToggled';
 import XUINestedDropdown from '../XUINestedDropdown';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
-import Picklist from '../../picklist/Picklist';
-import Pickitem from '../../picklist/Pickitem';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIPickitem from '../../picklist/XUIPickitem';
 import XUIDatePicker from '../../datepicker/XUIDatePicker';
 import XUIIcon from '../../icon/XUIIcon';
 import XUITextInput from '../../textInput/XUITextInput';
@@ -33,9 +33,9 @@ function createItems(items, suffix) {
   }
   items.props.id += suffix || '';
   return (
-    <Pickitem {...items.props} key={items.props.id} value={items.props.id}>
+    <XUIPickitem {...items.props} key={items.props.id} value={items.props.id}>
       {items.text}
-    </Pickitem>
+    </XUIPickitem>
   );
 }
 
@@ -55,27 +55,27 @@ const header = (
 const footer = (
   <XUIDropdownFooter
     pickItems={[
-      <Pickitem
+      <XUIPickitem
         id="aa"
         key="aa"
         leftElement={<XUIIcon className="xui-margin-right-xsmall" icon={plusIcon} />}
         value="aa"
       >
         Item 1
-      </Pickitem>,
-      <Pickitem
+      </XUIPickitem>,
+      <XUIPickitem
         id="bb"
         key="bb"
         leftElement={<XUIIcon className="xui-margin-right-xsmall" icon={plusIcon} />}
         value="bb"
       >
         Item 2
-      </Pickitem>,
+      </XUIPickitem>,
     ]}
     title="Dropdown footer"
   />
 );
-const picklist = <Picklist>{createItems(toggledItems)}</Picklist>;
+const picklist = <XUIPicklist>{createItems(toggledItems)}</XUIPicklist>;
 
 const datePickerDate = new Date('Dec 02 2017 00:00:00 GMT+1300');
 const datepicker = <XUIDatePicker displayedMonth={datePickerDate} onSelectDate={NOOP} />;
@@ -125,7 +125,7 @@ const sideBySide = (
       className="xui-margin-right-large"
       dropdown={
         <XUIDropdown fixedWidth restrictFocus={false} size="medium">
-          <Picklist>{createItems(toggledItems, 'one')}</Picklist>
+          <XUIPicklist>{createItems(toggledItems, 'one')}</XUIPicklist>
         </XUIDropdown>
       }
       isHidden={false}
@@ -136,7 +136,7 @@ const sideBySide = (
     <XUIDropdownToggled
       dropdown={
         <XUIDropdown restrictFocus={false} size="medium">
-          <Picklist>{createItems(toggledItems, 'two')}</Picklist>
+          <XUIPicklist>{createItems(toggledItems, 'two')}</XUIPicklist>
         </XUIDropdown>
       }
       isHidden={false}
@@ -249,7 +249,7 @@ const getPositioningTest = () => {
         <XUIDropdownToggled
           dropdown={
             <XUIDropdown {...ddProps}>
-              <Picklist>{createItems(toggledShort, 'a')}</Picklist>
+              <XUIPicklist>{createItems(toggledShort, 'a')}</XUIPicklist>
             </XUIDropdown>
           }
           trigger={createTriggerInput()}
@@ -258,7 +258,7 @@ const getPositioningTest = () => {
         <XUIDropdownToggled
           dropdown={
             <XUIDropdown {...ddProps}>
-              <Picklist>{createItems(toggledShort, 'b')}</Picklist>
+              <XUIPicklist>{createItems(toggledShort, 'b')}</XUIPicklist>
             </XUIDropdown>
           }
           trigger={createTriggerButton()}
@@ -267,7 +267,7 @@ const getPositioningTest = () => {
         <XUIDropdownToggled
           dropdown={
             <XUIDropdown {...ddProps}>
-              <Picklist>{createItems(toggledShort, 'c')}</Picklist>
+              <XUIPicklist>{createItems(toggledShort, 'c')}</XUIPicklist>
             </XUIDropdown>
           }
           trigger={createTriggerInput()}
@@ -287,7 +287,7 @@ const getPositioningTest = () => {
         <XUIDropdownToggled
           dropdown={
             <XUIDropdown {...ddProps}>
-              <Picklist>{createItems(toggledShort, 'g')}</Picklist>
+              <XUIPicklist>{createItems(toggledShort, 'g')}</XUIPicklist>
             </XUIDropdown>
           }
           trigger={createTriggerButton()}
@@ -296,7 +296,7 @@ const getPositioningTest = () => {
         <XUIDropdownToggled
           dropdown={
             <XUIDropdown {...ddProps}>
-              <Picklist>{createItems(toggledShort, 'h')}</Picklist>
+              <XUIPicklist>{createItems(toggledShort, 'h')}</XUIPicklist>
             </XUIDropdown>
           }
           isBlock
@@ -306,7 +306,7 @@ const getPositioningTest = () => {
         <XUIDropdownToggled
           dropdown={
             <XUIDropdown {...ddProps}>
-              <Picklist>{createItems(toggledShort, 'i')}</Picklist>
+              <XUIPicklist>{createItems(toggledShort, 'i')}</XUIPicklist>
             </XUIDropdown>
           }
           trigger={createTriggerLink()}
@@ -325,7 +325,7 @@ const hintLabel = props => (
     {...props}
     dropdown={
       <XUIDropdown fixedWidth restrictFocus={false} size="medium">
-        <Picklist>{createItems(toggledItems, 'seven')}</Picklist>
+        <XUIPicklist>{createItems(toggledItems, 'seven')}</XUIPicklist>
       </XUIDropdown>
     }
   />

@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import Pickitem from './Pickitem';
+import XUIPickitem from './XUIPickitem';
 
-type StatefulPicklistWrapperProps = {
+type XUIStatefulPicklistWrapperProps = {
   children?: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;
 
@@ -28,24 +28,24 @@ interface Props {
   /**
    * Callback when the highlighted element has changed.
    */
-  onHighlightChange?: (item: Pickitem, event?: React.MouseEvent) => void;
+  onHighlightChange?: (item: XUIPickitem, event?: React.MouseEvent) => void;
   /**
    * Enables a generalised callback when an item has been selected.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onSelect?: (value: any, item: Pickitem) => void;
+  onSelect?: (value: any, item: XUIPickitem) => void;
   qaHook?: string;
   /**
    * An object of props that can be spread on the stateful picklist, useful for aria attributes.
    */
-  secondaryProps?: StatefulPicklistWrapperProps;
+  secondaryProps?: XUIStatefulPicklistWrapperProps;
   /**
-   * Whether the `StatefulPicklist` manages highlighting of list elements.
+   * Whether the `XUIStatefulPicklist` manages highlighting of list elements.
    */
   shouldManageInitialHighlight?: boolean;
 }
 
-export default class StatefulPicklist extends React.Component<Props> {
+export default class XUIStatefulPicklist extends React.Component<Props> {
   /**
    * Clears the highlighted element and fires the onHighlightChange callback.
    *
@@ -61,7 +61,7 @@ export default class StatefulPicklist extends React.Component<Props> {
   /**
    * Get the React virtual DOM representation of the currently highlighted element.
    */
-  getHighlighted(): null | Pickitem;
+  getHighlighted(): null | XUIPickitem;
   /**
    * Get the ID of the currently highlighted element.
    */
@@ -69,11 +69,11 @@ export default class StatefulPicklist extends React.Component<Props> {
   /**
    * Highlights the previous item in the list.
    */
-  highlightPrevious(currentItem: Pickitem): void;
+  highlightPrevious(currentItem: XUIPickitem): void;
   /**
    * Highlights the next item in the list.
    */
-  highlightNext(currentItem: Pickitem): void;
+  highlightNext(currentItem: XUIPickitem): void;
   /**
    * Highlights the first item in the list.
    */
@@ -81,7 +81,7 @@ export default class StatefulPicklist extends React.Component<Props> {
   /**
    * Highlights the item passed in and fires the `onHighlightChange` callback.
    */
-  highlightItem(item: Pickitem, event: React.MouseEvent): void;
+  highlightItem(item: XUIPickitem, event: React.MouseEvent): void;
   /**
    * This API is used to ensure that something appropriate is highlighted. Here's the logical
    * ordering of operations:
@@ -102,5 +102,5 @@ export default class StatefulPicklist extends React.Component<Props> {
    * Fired when either the enter key or space bar is pressed and calls onclick of the menu item
    * before closing the list.
    */
-  selectHighlighted(item: Pickitem): void;
+  selectHighlighted(item: XUIPickitem): void;
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import debounce from 'lodash.debounce';
 import { v4 as uuidv4 } from 'uuid';
-import Picklist from '../picklist/Picklist';
+import XUIPicklist from '../picklist/XUIPicklist';
 import XUILoader from '../loader/XUILoader';
 import XUIDropdown from '../dropdown/XUIDropdown';
 import XUIDropdownToggled from '../dropdown/XUIDropdownToggled';
@@ -342,9 +342,9 @@ export default class XUIAutocompleter extends PureComponent {
         size={dropdownSize}
       >
         {loading ? (
-          <Picklist>
+          <XUIPicklist>
             <XUILoader ariaLabel={loadingAriaLabel} />
-          </Picklist>
+          </XUIPicklist>
         ) : (
           children
         )}

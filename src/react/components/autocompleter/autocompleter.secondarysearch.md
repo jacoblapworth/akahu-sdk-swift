@@ -1,7 +1,7 @@
 This component behaves similarly to an autocompleter, except that it is triggered by a button instead of an input. The input is a secondary interaction, focused by default when the dropdown opens. The secondary search component is a separate component to the autocompleter but share similar APIs.
 
 ```jsx harmony
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import {
   XUIAutocompleterSecondarySearch,
   XUIAutocompleterEmptyState
@@ -33,14 +33,14 @@ function createItems(item, selectedId) {
   }
 
   return (
-    <Pickitem
+    <XUIPickitem
       {...item.props}
       value={item.props.id}
       key={item.props.id}
       isSelected={isSelected(item, selectedId)}
     >
       {item.text}
-    </Pickitem>
+    </XUIPickitem>
   );
 }
 
@@ -105,12 +105,12 @@ class SecondarySearchExample extends React.Component {
     const footer = (
       <XUIDropdownFooter
         pickItems={
-          <Pickitem
+          <XUIPickitem
             id="footerAction"
             leftElement={<XUIIcon icon={plusIcon} className="xui-margin-right-xsmall" />}
           >
             Add New Person
-          </Pickitem>
+          </XUIPickitem>
         }
       />
     );
@@ -130,7 +130,7 @@ class SecondarySearchExample extends React.Component {
           closeOnTab={false}
           onClose={this.onClose}
         >
-          <Picklist>{items}</Picklist>
+          <XUIPicklist>{items}</XUIPicklist>
         </XUIAutocompleterSecondarySearch>
       </div>
     );

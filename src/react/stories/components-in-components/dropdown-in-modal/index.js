@@ -4,7 +4,7 @@ import React from 'react';
 // Components we need to test with
 import XUIModal, { XUIModalBody } from '../../../modal';
 import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
-import Picklist, { Pickitem } from '../../../picklist';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import XUIButton from '../../../button';
 
 import { storyNames, compositionKind } from '../tests';
@@ -52,16 +52,16 @@ const toggledItems = [
   'Yellow quash',
   'Zucchini',
 ].map((text, id) => (
-  <Pickitem id={text} isSelected={false} key={id}>
+  <XUIPickitem id={text} isSelected={false} key={id}>
     {text}
-  </Pickitem>
+  </XUIPickitem>
 ));
 
 test.add(storyNames.dropDownInModal, () => {
   const trigger = <XUIButton hasCaret>Trigger Button</XUIButton>;
   const dropdown = (
     <XUIDropdown>
-      <Picklist>{toggledItems}</Picklist>
+      <XUIPicklist>{toggledItems}</XUIPicklist>
     </XUIDropdown>
   );
 

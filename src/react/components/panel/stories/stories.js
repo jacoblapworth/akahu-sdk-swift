@@ -4,8 +4,8 @@ import React from 'react';
 // Components we need to test with
 import XUIIcon from '../../icon/XUIIcon';
 import XUIBreadcrumbTrail from '../../pageheader/XUIBreadcrumbTrail';
-import XUIPicklist from '../../picklist/Picklist';
-import XUIPickitem from '../../picklist/Pickitem';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIPickitem from '../../picklist/XUIPickitem';
 import XUIButton from '../../button/XUIButton';
 import overflow from '@xero/xui-icon/icons/overflow';
 import XUIActions from '../../actions/XUIActions';

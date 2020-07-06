@@ -2,8 +2,8 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import XUIDropdown from '../XUIDropdown';
-import Picklist from '../../picklist/Picklist';
-import Pickitem from '../../picklist/Pickitem';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIPickitem from '../../picklist/XUIPickitem';
 import div from './helpers/container';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -17,11 +17,11 @@ describe('<XUIDropdown /> API Methods', () => {
     click = false;
     wrapper = mount(
       <XUIDropdown className="test">
-        <Picklist>
-          <Pickitem onClick={setClick} id="item1">
+        <XUIPicklist>
+          <XUIPickitem onClick={setClick} id="item1">
             Item 1
-          </Pickitem>
-        </Picklist>
+          </XUIPickitem>
+        </XUIPicklist>
       </XUIDropdown>,
     );
   });
@@ -33,18 +33,18 @@ describe('<XUIDropdown /> API Methods', () => {
   it('handles an undefined or null menu item', () => {
     wrapper = mount(
       <XUIDropdown>
-        <Picklist>
-          <Pickitem onClick={setClick} id="item1">
+        <XUIPicklist>
+          <XUIPickitem onClick={setClick} id="item1">
             Item 1
-          </Pickitem>
+          </XUIPickitem>
           {undefined}
-        </Picklist>
-        <Picklist>
-          <Pickitem onClick={setClick} id="item2">
+        </XUIPicklist>
+        <XUIPicklist>
+          <XUIPickitem onClick={setClick} id="item2">
             Item 2
-          </Pickitem>
+          </XUIPickitem>
           {null}
-        </Picklist>
+        </XUIPicklist>
       </XUIDropdown>,
       { attachTo: div },
     );
@@ -53,8 +53,8 @@ describe('<XUIDropdown /> API Methods', () => {
     wrapper.detach();
   });
 
-  it('fires the callback when you click on a pick item', () => {
-    wrapper.find(Pickitem).find('button').simulate('click');
+  it('fires the callback when you click on a pickitem', () => {
+    wrapper.find(XUIPickitem).find('button').simulate('click');
     expect(click).toBeTruthy();
   });
 });

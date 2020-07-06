@@ -7,7 +7,7 @@ import XUIButton from '../button/XUIButton';
 import { ns } from '../helpers/xuiClassNamespace';
 import { userBreakpoints } from '../helpers/breakpoints';
 import WidthContext from '../../contexts/WidthContext';
-import Picklist, { Pickitem } from '../../picklist';
+import XUIPicklist, { XUIPickitem } from '../../picklist';
 import XUIDropdown, { XUIDropdownToggled } from '../../dropdown';
 
 const baseClass = `${ns}-breadcrumb`;
@@ -31,9 +31,9 @@ const buildCompactBreadcrumbs = breadcrumbs => {
   const bcPickitems = breadcrumbs.slice(0, -1).map((crumb, index) => {
     const unique = `breadcrumb-${index}`;
     return (
-      <Pickitem href={crumb.href} id={unique} key={unique}>
+      <XUIPickitem href={crumb.href} id={unique} key={unique}>
         {crumb.label || crumb}
-      </Pickitem>
+      </XUIPickitem>
     );
   });
 
@@ -43,7 +43,7 @@ const buildCompactBreadcrumbs = breadcrumbs => {
     <XUIDropdownToggled
       dropdown={
         <XUIDropdown>
-          <Picklist>{bcPickitems}</Picklist>
+          <XUIPicklist>{bcPickitems}</XUIPicklist>
         </XUIDropdown>
       }
       trigger={compactTrigger}

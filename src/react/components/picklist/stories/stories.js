@@ -2,14 +2,14 @@
 import React from 'react';
 
 // Components we need to test with
-import XUIPicklist from '../Picklist';
-import XUIPickitem from '../Pickitem';
-import XUIPicklistHeader from '../PicklistHeader';
-import XUIPicklistDivider from '../PicklistDivider';
-import StatefulPicklist from '../StatefulPicklist';
-import NestedPicklistContainer from '../NestedPicklistContainer';
-import NestedPicklistTrigger from '../NestedPicklistTrigger';
-import NestedPicklist from '../NestedPicklist';
+import XUIPicklist from '../XUIPicklist';
+import XUIPickitem from '../XUIPickitem';
+import XUIPicklistHeader from '../XUIPicklistHeader';
+import XUIPicklistDivider from '../XUIPicklistDivider';
+import XUIStatefulPicklist from '../XUIStatefulPicklist';
+import XUINestedPicklistContainer from '../XUINestedPicklistContainer';
+import XUINestedPicklistTrigger from '../XUINestedPicklistTrigger';
+import XUINestedPicklist from '../XUINestedPicklist';
 import { sizeShift } from '../../helpers/sizes';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIButton from '../../../button';
@@ -77,9 +77,9 @@ const buildLists = (lists, componentType) => {
     };
     if (componentType === 'NestedPicklist') {
       builtLists.push(
-        <NestedPicklist key={index} secondaryProps={secProps} {...listObj}>
+        <XUINestedPicklist key={index} secondaryProps={secProps} {...listObj}>
           {listItems}
-        </NestedPicklist>,
+        </XUINestedPicklist>,
       );
     } else {
       builtLists.push(
@@ -195,12 +195,12 @@ variations.forEach(variation => {
           Toggle picklist
         </XUIButton>
         <XUIPicklist {...variationMinusStoryDetails}>
-          <NestedPicklistContainer id="nested" isOpen={picklistOpen}>
-            <NestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedTrigger">
+          <XUINestedPicklistContainer id="nested" isOpen={picklistOpen}>
+            <XUINestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedTrigger">
               Nested list
-            </NestedPicklistTrigger>
+            </XUINestedPicklistTrigger>
             {props.listComponents[0]}
-          </NestedPicklistContainer>
+          </XUINestedPicklistContainer>
         </XUIPicklist>
       </div>
     );
@@ -208,13 +208,13 @@ variations.forEach(variation => {
 
   const UncontrolledNestedPicklist = props => (
     <XUIPicklist {...variationMinusStoryDetails}>
-      <NestedPicklistContainer id="nested" isDefaultOpen={isDefaultOpen}>
-        <NestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedTrigger">
+      <XUINestedPicklistContainer id="nested" isDefaultOpen={isDefaultOpen}>
+        <XUINestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedTrigger">
           Nested list
-        </NestedPicklistTrigger>
+        </XUINestedPicklistTrigger>
         {props.listComponents[0]}
-      </NestedPicklistContainer>
-      <NestedPicklistContainer id="split" isDefaultOpen={isDefaultOpen}>
+      </XUINestedPicklistContainer>
+      <XUINestedPicklistContainer id="split" isDefaultOpen={isDefaultOpen}>
         <XUIPickitem
           id="splitTrigger"
           isMultiselect={props.listComponents[1].props.isMultiselect}
@@ -222,9 +222,9 @@ variations.forEach(variation => {
         >
           Split nested list
         </XUIPickitem>
-        <NestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedSplit" />
+        <XUINestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedSplit" />
         {props.listComponents[1]}
-      </NestedPicklistContainer>
+      </XUINestedPicklistContainer>
     </XUIPicklist>
   );
 
@@ -233,7 +233,7 @@ variations.forEach(variation => {
 
     if (componentType === 'StatefulPicklist') {
       listComponents = (
-        <StatefulPicklist {...variationMinusStoryDetails}>{listComponents}</StatefulPicklist>
+        <XUIStatefulPicklist {...variationMinusStoryDetails}>{listComponents}</XUIStatefulPicklist>
       );
     } else if (componentType === 'NestedPicklist') {
       listComponents =

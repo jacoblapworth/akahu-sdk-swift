@@ -3,7 +3,7 @@ import { XUIContentBlock, XUIContentBlockItem } from '../../../contentblock';
 import { XUIPanel, XUIPanelSection } from '../../../panel';
 import XUIButton, { XUIIconButton } from '../../../button';
 import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
-import Picklist, { Pickitem } from '../../../picklist';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from '../../../table';
 import overflow from '@xero/xui-icon/icons/overflow';
 
@@ -38,13 +38,13 @@ export default class ContentBlock extends PureComponent {
 
     const dropdown = (
       <XUIDropdown>
-        <Picklist>
+        <XUIPicklist>
           {dropdownOptions.map(item => (
-            <Pickitem id={item} key={item} onSelect={onSelectItem.bind(this, item)}>
+            <XUIPickitem id={item} key={item} onSelect={onSelectItem.bind(this, item)}>
               Navigation item {item}
-            </Pickitem>
+            </XUIPickitem>
           ))}
-        </Picklist>
+        </XUIPicklist>
       </XUIDropdown>
     );
 

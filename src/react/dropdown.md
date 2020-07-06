@@ -6,7 +6,7 @@ A set of components used to associate a trigger (button, text input etc) with a 
 
 This is a set of components that can be used to associate a trigger (button, text input,etc) with a popup containing content.
 
-Using a [`Picklist`](#picklist) in `XUIDropdown` gives behaviour similar to a `select` HTML element. But `XUIDropdown` can accommodate any content from [`DatePicker`](#datepicker) to forms. To use dropdowns, you should create a trigger element and a dropdown element, then pass both as props to `XUIDropdownToggled`.
+Using a [`XUIPicklist`](#picklist) in `XUIDropdown` gives behaviour similar to a `select` HTML element. But `XUIDropdown` can accommodate any content from [`XUIDatepicker`](#datepicker) to forms. To use dropdowns, you should create a trigger element and a dropdown element, then pass both as props to `XUIDropdownToggled`.
 
 You may find one of these simpler components meets your requirements:
 
@@ -23,4 +23,4 @@ This is the container for the elements that are conditionally shown on the page.
 
 #### Trigger
 
-The trigger is the element that the user interacts with to open or close the dropdown. Examples include the button that opens the selectable list in a `SelectBox` or the text input that users type into in order to search for items in `Autocompleter`.
+The trigger is the element that the user interacts with to open or close the dropdown. Examples include the button that opens the selectable list in a `SelectBox` or the text input that users type into in order to search for items in `XUIAutocompleter`.

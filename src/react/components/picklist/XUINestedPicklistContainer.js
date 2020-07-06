@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getId, getPropsFromFirstChildOrList } from './private/helpers';
 import { picklistClassName, pickitemClassName } from './private/constants';
-import Pickitem from './Pickitem';
-import NestedPicklist from './NestedPicklist';
-import NestedPicklistTrigger from './NestedPicklistTrigger';
+import XUIPickitem from './XUIPickitem';
+import XUINestedPicklist from './XUINestedPicklist';
+import XUINestedPicklistTrigger from './XUINestedPicklistTrigger';
 
-export default class NestedPicklistContainer extends PureComponent {
+export default class XUINestedPicklistContainer extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -85,9 +85,9 @@ export default class NestedPicklistContainer extends PureComponent {
     const listLevelProps = getPropsFromFirstChildOrList(children, this.props);
 
     const newChildren = React.Children.map(children, child =>
-      child.type === NestedPicklist ||
-      child.type === NestedPicklistTrigger ||
-      child.type === Pickitem
+      child.type === XUINestedPicklist ||
+      child.type === XUINestedPicklistTrigger ||
+      child.type === XUIPickitem
         ? React.cloneElement(child, {
             isMultiselect: listLevelProps.listMultiselect,
             // This is ok to be set at either the item level or the list level.
@@ -122,7 +122,7 @@ export default class NestedPicklistContainer extends PureComponent {
   }
 }
 
-NestedPicklistContainer.propTypes = {
+XUINestedPicklistContainer.propTypes = {
   children: PropTypes.node,
   qaHook: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
@@ -142,7 +142,7 @@ NestedPicklistContainer.propTypes = {
   shouldTruncate: PropTypes.bool,
 };
 
-NestedPicklistContainer.defaultProps = {
+XUINestedPicklistContainer.defaultProps = {
   secondaryProps: {
     role: 'treeitem',
   },
@@ -154,6 +154,6 @@ NestedPicklistContainer.defaultProps = {
   _isGroupContainer: true, // eslint-disable-line
 };
 
-NestedPicklistContainer.childContextTypes = {
+XUINestedPicklistContainer.childContextTypes = {
   id: PropTypes.string,
 };

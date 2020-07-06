@@ -7,7 +7,7 @@ import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
 /**
  * INTERNAL USE ONLY
  *
- * This component is used internally in <Picklist> to display the
+ * This component is used internally in `XUIPicklist` to display the
  * Tab-styled dropdown (swap from horizontal picklist).
  *
  * @param {Object} props

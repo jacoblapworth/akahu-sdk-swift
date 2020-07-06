@@ -14,7 +14,7 @@ import {
   getInstanceForChild,
   isSplitMenuItem,
 } from './private/helpers';
-import StatefulPicklistWrapper from './StatefulPicklistWrapper';
+import XUIStatefulPicklistWrapper from './XUIStatefulPicklistWrapper';
 import { isKeyClick, isKeyArrow, eventKeyValues } from '../helpers/reactKeyHandler';
 
 /**
@@ -23,7 +23,7 @@ import { isKeyClick, isKeyArrow, eventKeyValues } from '../helpers/reactKeyHandl
  *
  * @private
  * @param {Event} event
- * @param {StatefulPicklist} spl
+ * @param {XUIStatefulPicklist} spl
  */
 function handleArrowKeyEvents(event, spl) {
   const highlighted = spl.getHighlighted();
@@ -77,10 +77,10 @@ function handleArrowKeyEvents(event, spl) {
  * simulate that if the focus is elsewhere.
  *
  * @export
- * @class StatefulPicklist
+ * @class XUIStatefulPicklist
  * @extends {React.element}
  */
-class StatefulPicklist extends Component {
+class XUIStatefulPicklist extends Component {
   constructor(props) {
     super(props);
 
@@ -119,7 +119,7 @@ class StatefulPicklist extends Component {
    *
    * @public
    * @returns {React.element}
-   * @memberof StatefulPicklist
+   * @memberof XUIStatefulPicklist
    */
   getHighlighted() {
     return this.state.highlightedElement;
@@ -130,7 +130,7 @@ class StatefulPicklist extends Component {
    *
    * @public
    * @returns {String} null if nothing is highlighted
-   * @memberof StatefulPicklist
+   * @memberof XUIStatefulPicklist
    */
   getHighlightedId() {
     return getId(this.getHighlighted());
@@ -243,7 +243,7 @@ class StatefulPicklist extends Component {
    * can get the shouldManageInitialHighlight prop to false
    *
    * @public
-   * @memberof StatefulPicklist
+   * @memberof XUIStatefulPicklist
    */
   highlightInitial() {
     if (this.props.shouldManageInitialHighlight === false) {
@@ -339,7 +339,7 @@ class StatefulPicklist extends Component {
     const { children, qaHook, className, canFocus, id, secondaryProps } = spl.props;
 
     return (
-      <StatefulPicklistWrapper
+      <XUIStatefulPicklistWrapper
         {...secondaryProps}
         aria-activedescendant={spl.getHighlightedId()}
         className={className}
@@ -351,12 +351,12 @@ class StatefulPicklist extends Component {
         tabIndex={canFocus ? 0 : null}
       >
         {cloneChildren(children, spl)}
-      </StatefulPicklistWrapper>
+      </XUIStatefulPicklistWrapper>
     );
   }
 }
 
-StatefulPicklist.propTypes = {
+XUIStatefulPicklist.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   qaHook: PropTypes.string,
@@ -386,7 +386,7 @@ StatefulPicklist.propTypes = {
   isHorizontal: PropTypes.bool,
 };
 
-StatefulPicklist.defaultProps = {
+XUIStatefulPicklist.defaultProps = {
   ignoreKeyboardEvents: [],
   canFocus: false,
   secondaryProps: {
@@ -395,4 +395,4 @@ StatefulPicklist.defaultProps = {
   shouldManageInitialHighlight: true,
 };
 
-export { StatefulPicklist as default, findPreviousItem, findNextItem };
+export { XUIStatefulPicklist as default, findPreviousItem, findNextItem };

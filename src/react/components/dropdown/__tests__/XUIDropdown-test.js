@@ -3,8 +3,8 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIDropdown from '../XUIDropdown';
-import Picklist from '../../picklist/Picklist';
-import Pickitem from '../../picklist/Pickitem';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIPickitem from '../../picklist/XUIPickitem';
 import { maxWidthDropdownSizes, fixedWidthDropdownSizes } from '../private/constants';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -32,22 +32,22 @@ describe('<XUIDropdown /> size classes', () => {
 });
 
 describe('forceStatefulPicklist prop', () => {
-  it('do not wrap children in StatefulPicklist if is not a Picklist children', () => {
+  it('does not wrap children in stateful picklist if it is not a picklist child', () => {
     const wrapper = mount(
       <XUIDropdown>
         <p>Panel Content</p>
       </XUIDropdown>,
     );
-    expect(wrapper.find('StatefulPicklist').length).toBe(0);
+    expect(wrapper.find('XUIStatefulPicklist').length).toBe(0);
   });
 
-  it('force wrap children in StatefulPicklist even if is not a Picklist children', () => {
+  it('force wraps children in stateful picklist even if it is not a picklist child', () => {
     const wrapper = mount(
       <XUIDropdown forceStatefulPicklist>
         <p>Panel Content</p>
       </XUIDropdown>,
     );
-    expect(wrapper.find('StatefulPicklist').length).toBe(1);
+    expect(wrapper.find('XUIStatefulPicklist').length).toBe(1);
   });
 
   it('handles null elements without throwing', () => {
@@ -55,31 +55,31 @@ describe('forceStatefulPicklist prop', () => {
     const wrapper = mount(
       <XUIDropdown>
         {check}
-        <Picklist>
-          <Pickitem id="required-id">List Item</Pickitem>
-        </Picklist>
+        <XUIPicklist>
+          <XUIPickitem id="required-id">List Item</XUIPickitem>
+        </XUIPicklist>
       </XUIDropdown>,
     );
-    expect(wrapper.find('StatefulPicklist').length).toBe(1);
+    expect(wrapper.find('XUIStatefulPicklist').length).toBe(1);
   });
 
-  it('wrap children in StatefulPicklist when Picklist is children', () => {
+  it('wraps children in stateful picklist when picklist is a child', () => {
     const wrapper = mount(
       <XUIDropdown>
-        <Picklist>
-          <Pickitem id="required-id">List Item</Pickitem>
-        </Picklist>
+        <XUIPicklist>
+          <XUIPickitem id="required-id">List Item</XUIPickitem>
+        </XUIPicklist>
       </XUIDropdown>,
     );
-    expect(wrapper.find('StatefulPicklist').length).toBe(1);
+    expect(wrapper.find('XUIStatefulPicklist').length).toBe(1);
   });
 
   it('renders a automation id when a qaHook is passed', () => {
     const automationid = renderer.create(
       <XUIDropdown qaHook="dropdown-test" id="1">
-        <Picklist>
-          <Pickitem id="required-id">List Item</Pickitem>
-        </Picklist>
+        <XUIPicklist>
+          <XUIPickitem id="required-id">List Item</XUIPickitem>
+        </XUIPicklist>
       </XUIDropdown>,
     );
 

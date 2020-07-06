@@ -4,8 +4,8 @@ import React from 'react';
 // Components we need to test with
 import XUIPageHeader from '../XUIPageHeader';
 import XUIBreadcrumbTrail from '../XUIBreadcrumbTrail';
-import XUIPicklist from '../../picklist/Picklist';
-import XUIPickitem from '../../picklist/Pickitem';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIPickitem from '../../picklist/XUIPickitem';
 import XUIButton from '../../button/XUIButton';
 import XUIActions from '../../actions/XUIActions';
 import XUITag from '../../tag/XUITag';

@@ -49,4 +49,4 @@ interface Props {
   swapAtBreakpoint?: keyof typeof userBreakpoints | number;
 }
 
-export default class Picklist extends React.Component<Props> {}
+export default class XUIPicklist extends React.Component<Props> {}

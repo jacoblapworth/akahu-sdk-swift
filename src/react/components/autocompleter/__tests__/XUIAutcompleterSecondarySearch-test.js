@@ -4,8 +4,8 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIAutocompleterSecondarySearch from '../XUIAutocompleterSecondarySearch';
 import XUILoader from '../../loader/XUILoader';
-import Picklist from '../../picklist/Picklist';
-import Pickitem from '../../picklist/Pickitem';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIPickitem from '../../picklist/XUIPickitem';
 import Pill from '../../pill/XUIPill';
 import { v4 as uuidv4 } from 'uuid';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
@@ -23,10 +23,10 @@ const createComponent = props => (
     restrictFocus={false}
     {...props}
   >
-    <Picklist>
-      <Pickitem id="1">item 1</Pickitem>
-      <Pickitem id="2">item 2</Pickitem>
-    </Picklist>
+    <XUIPicklist>
+      <XUIPickitem id="1">item 1</XUIPickitem>
+      <XUIPickitem id="2">item 2</XUIPickitem>
+    </XUIPicklist>
   </XUIAutocompleterSecondarySearch>
 );
 

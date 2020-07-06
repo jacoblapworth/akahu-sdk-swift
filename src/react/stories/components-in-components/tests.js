@@ -12,7 +12,7 @@ const storyNames = {
 };
 
 const nonBackstopStoryNames = {
-  inifiniteStatefulPicklist: 'Infinite JS errors in StatefulPicklist render',
+  inifiniteStatefulPicklist: 'Infinite JS errors in stateful picklist render',
   modalInModal: 'Modal in a modal with dropdown',
   fiveNestedModals: 'Multiple nested modals',
   touchInteractions: 'Touch interaction tests',

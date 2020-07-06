@@ -7,7 +7,7 @@ import XUIDropdown from '../dropdown/XUIDropdown';
 import XUIDropdownToggled from '../dropdown/XUIDropdownToggled';
 import XUIButton from '../button/XUIButton';
 import { sizes, widths } from './private/constants';
-import Picklist from '../picklist/Picklist';
+import XUIPicklist from '../picklist/XUIPicklist';
 import qaHooks from './qaHooks';
 import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
@@ -112,7 +112,7 @@ export default class SelectBox extends Component {
         qaHook={setQaHook(qaHook, qaHooks.dropdown)}
         restrictFocus={restrictFocus}
       >
-        <Picklist>{children}</Picklist>
+        <XUIPicklist>{children}</XUIPicklist>
       </XUIDropdown>
     );
 

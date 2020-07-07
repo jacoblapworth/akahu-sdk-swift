@@ -4,6 +4,7 @@ import { Portal } from 'react-portal';
 
 import shallowCompare from '../../../helpers/shallowCompare';
 import PositioningHelper from './helpers/positioning';
+import doAsync from '../../helpers/doAsync';
 
 export default class Positioning extends React.Component {
   ref = React.createRef();
@@ -13,7 +14,7 @@ export default class Positioning extends React.Component {
   state = {};
 
   componentDidMount() {
-    this.updatePosition();
+    this.updatePosition(true);
 
     if (window) {
       window.addEventListener('resize', this.updatePosition);
@@ -26,7 +27,7 @@ export default class Positioning extends React.Component {
   }
 
   componentDidUpdate() {
-    this.updatePosition();
+    this.updatePosition(true);
     if (!this.windowHasResizeListener && window) {
       window.addEventListener('resize', this.updatePosition);
       this.windowHasResizeListener = true;
@@ -66,38 +67,31 @@ export default class Positioning extends React.Component {
   };
   /* eslint-enable no-param-reassign */
 
-  updatePosition = () => {
+  updatePosition = async updateSynchronously => {
+    const doSync = callback => new Promise(resolve => resolve(callback()));
+    const execute = updateSynchronously ? doSync : doAsync;
+
     const { pageGutter, preferredLocation, triggerGap } = this.props;
 
-    /**
-     * Running `updatePosition` regularly accommodates the following situations:
-     * - The content resizes (could be handled with a ResizeObserver)
-     * - The trigger resizes (could be handled with a ResizeObserver)
-     * - The trigger changes position (currently we have no way of observing this reliably)
-     */
     if (this.updatePositionTimeoutId) {
       clearTimeout(this.updatePositionTimeoutId);
     }
-    setTimeout(this.updatePosition, 100);
 
     if (!this.ref.current || !this.props.triggerRef.current) {
       return;
     }
 
-    const contentRect = this.getContentRect(this.ref.current);
-    const triggerRect = this.props.triggerRef.current.getBoundingClientRect();
+    const contentRect = await execute(() => this.getContentRect(this.ref.current));
+    const triggerRect = await execute(() => this.props.triggerRef.current.getBoundingClientRect());
 
-    const positionHelper = new PositioningHelper(
-      preferredLocation,
-      contentRect,
-      triggerRect,
-      triggerGap,
-      pageGutter,
+    const positionHelper = await execute(
+      () =>
+        new PositioningHelper(preferredLocation, contentRect, triggerRect, triggerGap, pageGutter),
     );
 
-    const location = positionHelper.getLocation();
-    const style = positionHelper.getPositionStyle();
-    const isFullWidth = positionHelper.isFullWidth();
+    const location = await execute(() => positionHelper.getLocation());
+    const style = await execute(() => positionHelper.getPositionStyle());
+    const isFullWidth = await execute(() => positionHelper.isFullWidth());
 
     // This function is called often so we only call `setState` if something has changed.
     if (location !== this.state.location || !shallowCompare(style, this.state.style)) {
@@ -107,6 +101,14 @@ export default class Positioning extends React.Component {
         style,
       });
     }
+
+    /**
+     * Running `updatePosition` regularly accommodates the following situations:
+     * - The content resizes (could be handled with a ResizeObserver)
+     * - The trigger resizes (could be handled with a ResizeObserver)
+     * - The trigger changes position (currently we have no way of observing this reliably)
+     */
+    this.updatePositionTimeoutId = setTimeout(this.updatePosition, 100);
   };
 }
 

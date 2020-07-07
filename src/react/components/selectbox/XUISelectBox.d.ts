@@ -9,7 +9,7 @@ interface Props {
    */
   buttonClasses?: string;
   /**
-   * Display text to be rendered on `SelectBox` button.
+   * Display text to be rendered on the `XUISelectBox` button.
    */
   buttonContent: React.ReactNode;
   /**
@@ -44,7 +44,7 @@ interface Props {
    */
   forceDesktop?: boolean;
   /**
-   * Modifier for the width of the `SelectBox`.
+   * Modifier for the width of the `XUISelectBox`.
    */
   fullWidth?: typeof widths[number];
   /**
@@ -119,9 +119,9 @@ interface Props {
    */
   restrictFocus?: boolean;
   /**
-   * Modifier for the size of the SelectBox.
+   * Modifier for the size of the select box.
    *
-   * If `SelectBoxOption` does not have a size set, it will inherit the size from `SelectBox`.
+   * If `XUISelectBoxOption` does not have a size set, it will inherit the size from `XUISelectBox`.
    */
   size?: typeof sizes[number];
   /**
@@ -130,7 +130,7 @@ interface Props {
   validationMessage?: React.ReactNode;
 }
 
-export default class SelectBox extends React.Component<Props> {
+export default class XUISelectBox extends React.Component<Props> {
   /**
    * Check if the dropdown is open
    */

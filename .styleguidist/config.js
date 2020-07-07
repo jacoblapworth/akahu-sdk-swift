@@ -136,7 +136,6 @@ const config = {
   getComponentPathLine(componentPath) {
     let name = path.basename(componentPath, '.js');
     const dir = path.dirname(componentPath).split('/').pop();
-    const dirToLower = dir.toLowerCase(); // TODO: Normalise casing strategy between files and component directory names. Currently mismatched.
 
     /**
      * General rule of thumb for import component statements, if the name of the
@@ -145,15 +144,12 @@ const config = {
      * not need the braces in their import statements so we should only add
      * these for individual ones.
      */
-    if (name.toLowerCase().split('xui').pop() !== dirToLower.replace('-', '')) {
-      // TODO: Remove hyphen removal and rename select-box/ -> selectBox/
+    if (name.toLowerCase().split('xui').pop() !== dir.toLowerCase()) {
       name = `{ ${name} }`;
     }
-    const dirNormalised = dir.toLowerCase();
-    // TODO: Normalise casing strategy between files and component directory names. Currently mismatched.
-    // TODO: Remove hyphen removal and rename select-box/ -> selectBox/
 
-    return `import { ${name} } from '${pkg.name}/react/${dirNormalised}';`;
+    // TODO: Normalise casing strategy between files and component directory names. Currently mismatched.
+    return `import { ${name} } from '${pkg.name}/react/${dir.toLowerCase()}';`;
   },
 };
 

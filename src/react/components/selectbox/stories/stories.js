@@ -2,8 +2,8 @@
 import React from 'react';
 
 // Components we need to test with
-import SelectBox from '../SelectBox';
-import SelectBoxOption from '../SelectBoxOption';
+import XUISelectBox from '../XUISelectBox';
+import XUISelectBoxOption from '../XUISelectBoxOption';
 import XUIIcon from '../../icon/XUIIcon';
 import education from '@xero/xui-icon/icons/education';
 
@@ -23,9 +23,9 @@ function createItems(settings) {
   }
   items.props.id += suffix || '';
   return (
-    <SelectBoxOption {...items.props} key={items.props.id} value={items.props.id}>
+    <XUISelectBoxOption {...items.props} key={items.props.id} value={items.props.id}>
       {items.text}
-    </SelectBoxOption>
+    </XUISelectBoxOption>
   );
 }
 
@@ -45,7 +45,7 @@ storiesWithKnobs.add('Playground', () => {
   const size = select('size', ['medium', 'small', 'xsmall']);
   const fullWidth = select('fullWidth', ['always', 'small-down', 'never']);
   return (
-    <SelectBox
+    <XUISelectBox
       buttonClasses={text('buttonClasses', '')}
       buttonContent={
         <span className="xui-u-flex">
@@ -76,7 +76,7 @@ storiesWithKnobs.add('Playground', () => {
       validationMessage={text('validationMessage', '')}
     >
       {createItems({ items: toggledItems })}
-    </SelectBox>
+    </XUISelectBox>
   );
 });
 
@@ -101,14 +101,14 @@ variations.forEach(variation => {
 
     return (
       <div style={{ maxWidth: '600px', display }}>
-        <SelectBox
+        <XUISelectBox
           {...variationMinusStoryDetails}
           caretTitle="Toggle list"
           containerClasses={`xui-margin-horizontal-auto ${variation.containerClasses}`}
           label={variation.storyTitle}
         >
           {createItems({ items })}
-        </SelectBox>
+        </XUISelectBox>
       </div>
     );
   });

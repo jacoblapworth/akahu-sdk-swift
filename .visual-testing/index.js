@@ -165,8 +165,8 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/rolloverCheckbox/stories/variations.js`,
   },
   {
-    testsPrefix: 'SelectBox',
-    variationsPath: `${variationsPath}/select-box/stories/variations.js`,
+    testsPrefix: 'XUI Select Box',
+    variationsPath: `${variationsPath}/selectbox/stories/variations.js`,
     ...fullPageSettings,
   },
   {

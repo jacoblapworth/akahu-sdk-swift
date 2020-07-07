@@ -63,7 +63,7 @@ interface Props {
    */
   showCheckboxes?: boolean;
   /**
-   * Restrict `SelectBoxOption` children which are strings to one line.
+   * Restrict `XUISelectBoxOption` children which are strings to one line.
    */
   truncatedText?: boolean;
   /**
@@ -73,4 +73,4 @@ interface Props {
   value: any;
 }
 
-export default class SelectBoxOption extends React.PureComponent<Props> {}
+export default class XUISelectBoxOption extends React.PureComponent<Props> {}

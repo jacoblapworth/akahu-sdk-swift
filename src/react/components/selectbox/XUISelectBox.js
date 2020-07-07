@@ -29,7 +29,7 @@ function setQaHook(propsQaHook, suffix) {
 
 const selectBaseClass = `${ns}-select`;
 
-export default class SelectBox extends Component {
+export default class XUISelectBox extends Component {
   selectId = this.props.id || uuidv4();
   wrapperIds = generateIds(this.selectId);
 
@@ -158,7 +158,7 @@ export default class SelectBox extends Component {
   }
 }
 
-SelectBox.propTypes = {
+XUISelectBox.propTypes = {
   children: PropTypes.node,
   /** Input Label */
   label: PropTypes.node.isRequired,
@@ -200,7 +200,7 @@ SelectBox.propTypes = {
   /** Use XUI provided layout classes */
   defaultLayout: PropTypes.bool,
 
-  /** Display text to be rendered on SelectBox button. */
+  /** Display text to be rendered on the `XUISelectBox` button. */
   buttonContent: PropTypes.node.isRequired,
 
   /** Selection callback */
@@ -245,18 +245,18 @@ SelectBox.propTypes = {
   /** Whether to use the field layout classes  */
   isFieldLayout: PropTypes.bool,
   /**
-   * Modifier for the size of the SelectBox. `medium`, `small`, or `xsmall`.
+   * Modifier for the size of the select box: `medium`, `small`, or `xsmall`.
    *
-   * If `SelectBoxOption` does not have a size set, it will inherit the size from `SelectBox`.
+   * If `XUISelectBoxOption` does not have a size set, it will inherit the size from `XUISelectBox`.
    */
   size: PropTypes.oneOf(sizes),
   /**
-   * Modifier for the width of the SelectBox. `always`, `small-down`, or `never`.
+   * Modifier for the width of the XUISelectBox: `always`, `small-down`, or `never`.
    */
   fullWidth: PropTypes.oneOf(widths),
 };
 
-SelectBox.defaultProps = {
+XUISelectBox.defaultProps = {
   closeAfterSelection: true,
   defaultLayout: true,
   forceDesktop: false,

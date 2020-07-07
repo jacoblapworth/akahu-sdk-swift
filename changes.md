@@ -52,6 +52,8 @@ Following classes have been **removed** because left space isn't needed for alig
     - `Picklist` → `XUIPicklist`
     - `PicklistDivider` → `XUIPicklistDivider`
     - `PicklistHeader` → `XUIPicklistHeader`
+    - `SelectBox` → `XUISelectBox`
+    - `SelectBoxOption` → `XUISelectBoxOption`
     - `StatefulPicklist` → `XUIStatefulPicklist`
   - Renamed public methods:
     - `XUIAutocompleter` and `XUIAutocompleterSecondarySearch`:
@@ -62,7 +64,7 @@ Following classes have been **removed** because left space isn't needed for alig
       - `isDropDownOpen` → `isDropdownOpen`
       - `openDropDown` → `openDropdown`
       - `repositionDropDown` → `repositionDropdown`
-    - `SelectBox`
+    - `XUISelectBox`
       - `isDropDownOpen` → `isDropdownOpen`
 - `XUIStepper`
   - Updated spacing to match other components and 4px grid
@@ -135,7 +137,7 @@ _Note. The codemod will resolve the prop differences automatically when run._
   - XUIRadio
   - XUIRange
   - XUIRolloverCheckbox
-  - SelectBox
+  - XUISelectBox
   - XUIStepper
   - XUISwitch
   - XUITable

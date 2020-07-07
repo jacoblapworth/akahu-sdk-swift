@@ -1,6 +1,6 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storiesWithVariationsKindName = 'Instances/SelectBox';
+const storiesWithVariationsKindName = 'Instances/XUISelectBox';
 const listHelpers = require('../../helpers/list');
 
 const buildCustomItems = () => {

@@ -667,7 +667,7 @@ XUIDropdownToggled.propTypes = {
 
   /**
    * This setting is only for non-legacy display. Whether to allow the dropdown to take the
-   * full width of the wrapper (as SelectBox) or wrap with an inline block. Defaults to false.
+   * full width of the wrapper (as `XUISelectBox`) or wrap with an inline block. Defaults to false.
    */
   isBlock: PropTypes.bool,
   /**

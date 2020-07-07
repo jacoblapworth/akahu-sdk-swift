@@ -10,8 +10,8 @@ Using a [`XUIPicklist`](#picklist) in `XUIDropdown` gives behaviour similar to a
 
 You may find one of these simpler components meets your requirements:
 
-- [`SelectBox`](#select-box) A simplified wrapper for `XUIDropdown` and `XUIDropdownToggled`, acts like a `<select/>` element
-- [`Autocompleter`](#autocompleter) Has a text input for a trigger and allows the user to search through and select from a list of items.
+- [Select box](#selectbox): A simplified wrapper for `XUIDropdown` and `XUIDropdownToggled`, acts like a `<select/>` element
+- [Autocompleter](#autocompleter): Has a text input for a trigger and allows the user to search through and select from a list of items.
 
 ### Terminology
 
@@ -19,8 +19,8 @@ Dropdowns are deceptively complex, so it's important to understand the terms use
 
 #### Dropdown
 
-This is the container for the elements that are conditionally shown on the page. It's a positioned element that floats on top of most other content. Examples of content include the selectable items in a `SelectBox` or the `XUIDatePicker` calendar paired up with a text input.
+This is the container for the elements that are conditionally shown on the page. It's a positioned element that floats on top of most other content. Examples of content include the selectable items in a `XUISelectBox` or the `XUIDatePicker` calendar paired up with a text input.
 
 #### Trigger
 
-The trigger is the element that the user interacts with to open or close the dropdown. Examples include the button that opens the selectable list in a `SelectBox` or the text input that users type into in order to search for items in `XUIAutocompleter`.
+The trigger is the element that the user interacts with to open or close the dropdown. Examples include the button that opens the selectable list in a `XUISelectBox` or the text input that users type into in order to search for items in `XUIAutocompleter`.

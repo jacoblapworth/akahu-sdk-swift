@@ -1,0 +1,1 @@
+A wrapper of `XUIPickitem` that assumes your children are only text. This means it can truncate the text when the prop `truncateText` is set to true. It also assumes you require the default layout of a Pickitem. The API for `XUISelectBoxOption` is otherwise very similar to `XUIPickitem`s. See below for further details.

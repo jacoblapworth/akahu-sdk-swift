@@ -2,24 +2,24 @@
 	<a href="../section-components-controls-select.html" isDocLink>Select Box in the XUI Documentation</a>
 </div>
 
-`SelectBox` is an opinionated component which wraps [`XUIDropdown`](#dropdown) and [`XUIDropdownToggled`](#dropdowntoggled). It's designed as a simple alternative to using an HTML `<select />`. If you need more fine-grained control or other behaviour you should use the suite of [`XUIDropdown`](#dropdown) components directly.
+`XUISelectBox` is an opinionated component which wraps [`XUIDropdown`](#dropdown) and [`XUIDropdownToggled`](#dropdowntoggled). It's designed as a simple alternative to using an HTML `<select />`. If you need more fine-grained control or other behaviour you should use the suite of [`XUIDropdown`](#dropdown) components directly.
 
 ### Related Components
 
-- [`Dropdown`](#dropdown)
-- [`Autocompleter`](#autocompleter)
+- [Dropdown](#dropdown)
+- [Autocompleter](#autocompleter)
 
 ## Examples
 
 ### Single Select
 
-In the following example, the `buttonContent` of `SelectBox` is being set to value of the selected item in the example's state.
+In the following example, the `buttonContent` of `XUISelectBox` is being set to value of the selected item in the example's state.
 
 ```jsx harmony
 import { Component } from 'react';
 import bank from '@xero/xui-icon/icons/bank';
 import XUIIcon from '@xero/xui/react/icon';
-import SelectBox, { SelectBoxOption, TextHelpers } from '@xero/xui/react/select-box';
+import XUISelectBox, { XUISelectBoxOption, TextHelpers } from '@xero/xui/react/selectbox';
 
 const banks = ['ANZ', 'ASB', 'Kiwi Bank', 'Westpac'];
 
@@ -45,7 +45,7 @@ class SelectBoxExample extends Component {
     const MiniApp = this;
 
     return (
-      <SelectBox
+      <XUISelectBox
         ref={this.selectOne}
         name="selectOne"
         label="Select a Bank"
@@ -60,7 +60,7 @@ class SelectBoxExample extends Component {
       >
         {banks.map((opt, idx) => {
           return (
-            <SelectBoxOption
+            <XUISelectBoxOption
               id={opt}
               isSelected={opt === MiniApp.state.selectedBank}
               key={idx + opt + 'userDefined Key'}
@@ -68,10 +68,10 @@ class SelectBoxExample extends Component {
               value={opt}
             >
               {opt}
-            </SelectBoxOption>
+            </XUISelectBoxOption>
           );
         })}
-      </SelectBox>
+      </XUISelectBox>
     );
   }
 }
@@ -85,7 +85,7 @@ You can select multiple values by keeping track of an array, rather than a singl
 
 ```jsx harmony
 import { Component } from 'react';
-import SelectBox, { SelectBoxOption, TextHelpers } from '@xero/xui/react/select-box';
+import XUISelectBox, { XUISelectBoxOption, TextHelpers } from '@xero/xui/react/selectbox';
 
 const boats = ['Waka', 'Pontoon', 'Sailboat', 'Schooner', 'Dingy'];
 
@@ -114,7 +114,7 @@ class MiniApp extends Component {
   render() {
     const MiniApp = this;
     return (
-      <SelectBox
+      <XUISelectBox
         buttonContent={TextHelpers.getText(MiniApp.state.selectedBoats, 'Choose a few boats')}
         closeAfterSelection={false}
         label="Select Several Boats"
@@ -127,7 +127,7 @@ class MiniApp extends Component {
       >
         {boats.map((opt, idx) => {
           return (
-            <SelectBoxOption
+            <XUISelectBoxOption
               id={opt}
               isSelected={MiniApp.state.selectedBoats.indexOf(opt) >= 0}
               key={idx + opt + 'userDefined Key'}
@@ -135,10 +135,10 @@ class MiniApp extends Component {
               value={opt}
             >
               {opt}
-            </SelectBoxOption>
+            </XUISelectBoxOption>
           );
         })}
-      </SelectBox>
+      </XUISelectBox>
     );
   }
 }
@@ -148,11 +148,11 @@ class MiniApp extends Component {
 
 ### Sizes
 
-The `size` prop allows you to change the default `SelectBox` size.
+The `size` prop allows you to change the default `XUISelectBox` size.
 
 ```jsx harmony
 import { Component } from 'react';
-import SelectBox, { SelectBoxOption, TextHelpers } from '@xero/xui/react/select-box';
+import XUISelectBox, { XUISelectBoxOption, TextHelpers } from '@xero/xui/react/selectbox';
 import XUIIcon from '@xero/xui/react/icon';
 import bank from '@xero/xui-icon/icons/bank';
 
@@ -181,7 +181,7 @@ class MiniApp extends Component {
     const MiniApp = this;
 
     return (
-      <SelectBox
+      <XUISelectBox
         buttonContent={
           <span className="xui-u-flex">
             <XUIIcon icon={bank} className="xui-margin-right-xsmall" />
@@ -197,7 +197,7 @@ class MiniApp extends Component {
       >
         {banks.map((opt, idx) => {
           return (
-            <SelectBoxOption
+            <XUISelectBoxOption
               id={opt}
               isSelected={opt === MiniApp.state.selectedBank}
               key={idx + opt + 'userDefined Key'}
@@ -205,10 +205,10 @@ class MiniApp extends Component {
               value={opt}
             >
               {opt}
-            </SelectBoxOption>
+            </XUISelectBoxOption>
           );
         })}
-      </SelectBox>
+      </XUISelectBox>
     );
   }
 }
@@ -218,11 +218,11 @@ class MiniApp extends Component {
 
 ### Button variants
 
-The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop. We recommend setting the `fullWidth` prop to `never` to prevent the SelectBox being full width with button variants.
+The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop. We recommend setting the `fullWidth` prop to `never` to prevent the select box being full width with button variants.
 
 ```jsx harmony
 import { Component } from 'react';
-import SelectBox, { SelectBoxOption, TextHelpers } from '@xero/xui/react/select-box';
+import XUISelectBox, { XUISelectBoxOption, TextHelpers } from '@xero/xui/react/selectbox';
 import XUIIcon from '@xero/xui/react/icon';
 import bank from '@xero/xui-icon/icons/bank';
 
@@ -250,7 +250,7 @@ class MiniApp extends Component {
     const MiniApp = this;
 
     return (
-      <SelectBox
+      <XUISelectBox
         buttonContent={
           <span className="xui-u-flex">
             <XUIIcon icon={bank} className="xui-margin-right-xsmall" />
@@ -268,7 +268,7 @@ class MiniApp extends Component {
       >
         {banks.map((opt, idx) => {
           return (
-            <SelectBoxOption
+            <XUISelectBoxOption
               id={opt}
               isSelected={opt === MiniApp.state.selectedBank}
               key={idx + opt + 'userDefined Key'}
@@ -276,10 +276,10 @@ class MiniApp extends Component {
               value={opt}
             >
               {opt}
-            </SelectBoxOption>
+            </XUISelectBoxOption>
           );
         })}
-      </SelectBox>
+      </XUISelectBox>
     );
   }
 }

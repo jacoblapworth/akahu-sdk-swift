@@ -343,7 +343,7 @@ export function findParentGroupContainer(list, target) {
  *
  * @private
  * @param {React.element} node
- * @param {StatefulPicklist} spl
+ * @param {XUIStatefulPicklist} spl
  * @returns {React.element}
  */
 function cloneMenuItem(node, spl) {
@@ -373,7 +373,7 @@ function cloneMenuItem(node, spl) {
  *
  * @private
  * @param {React.element} node
- * @param {StatefulPicklist} spl
+ * @param {XUIStatefulPicklist} spl
  * @returns {React.element}
  */
 function cloneChildElement(node, spl) {
@@ -397,7 +397,7 @@ function cloneChildElement(node, spl) {
  *
  * @public
  * @param {Component|Component[]} children
- * @param {StatefulPicklist} spl
+ * @param {XUIStatefulPicklist} spl
  * @returns {Component|Component[]}
  */
 export function cloneChildren(children, spl) {

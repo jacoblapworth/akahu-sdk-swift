@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
-import Pickitem from './Pickitem';
+import XUIPickitem from './XUIPickitem';
 import { getPropsFromFirstChildOrList } from './private/helpers';
 
-const NestedPicklist = (props, context) => {
+const XUINestedPicklist = (props, context) => {
   const { children, className, qaHook, secondaryProps, shouldTruncate } = props;
   const listLevelProps = getPropsFromFirstChildOrList(children, props);
 
   const newChildren = React.Children.map(children, child =>
-    child.type === Pickitem
+    child.type === XUIPickitem
       ? React.cloneElement(child, {
           isMultiselect: listLevelProps.listMultiselect,
           // This is ok to be set at either the item level or the list level.
@@ -31,9 +31,9 @@ const NestedPicklist = (props, context) => {
   );
 };
 
-export default NestedPicklist;
+export default XUINestedPicklist;
 
-NestedPicklist.propTypes = {
+XUINestedPicklist.propTypes = {
   qaHook: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
@@ -44,7 +44,7 @@ NestedPicklist.propTypes = {
   shouldTruncate: PropTypes.bool,
 };
 
-NestedPicklist.defaultProps = {
+XUINestedPicklist.defaultProps = {
   /*
 	 DO NOT REMOVE
 	 This property is needed so that the StatefulPicklist will properly recognize this
@@ -56,6 +56,6 @@ NestedPicklist.defaultProps = {
   },
 };
 
-NestedPicklist.contextTypes = {
+XUINestedPicklist.contextTypes = {
   id: PropTypes.string,
 };

@@ -11,7 +11,7 @@ import XUIRadio from '../../../radio';
 import XUICheckbox from '../../../checkbox';
 import XUISwitch from '../../../switch';
 import XUIRange from '../../../range';
-import Picklist, { Pickitem, PicklistHeader } from '../../../picklist';
+import XUIPicklist, { XUIPickitem, XUIPicklistHeader } from '../../../picklist';
 import XUIIcon from '../../../icon';
 import XUITooltip from '../../../tooltip';
 
@@ -21,10 +21,10 @@ const multiSelectItems = ['Banking', 'Reporting', 'Payroll'];
 const icons = { view, numberList, dateRange, comment, highlight, card };
 
 const createPicklist = ({ prefix, customProps, size }) => (
-  <Picklist size={size} {...customProps}>
-    {customProps.sizeHeader ? <PicklistHeader>{size}</PicklistHeader> : undefined}
+  <XUIPicklist size={size} {...customProps}>
+    {customProps.sizeHeader ? <XUIPicklistHeader>{size}</XUIPicklistHeader> : undefined}
     {multiSelectItems.map(id => (
-      <Pickitem
+      <XUIPickitem
         id={`${prefix}_${id}`}
         key={`${prefix}_${id}`}
         onClick={() => {
@@ -32,9 +32,9 @@ const createPicklist = ({ prefix, customProps, size }) => (
         }}
       >
         {id}
-      </Pickitem>
+      </XUIPickitem>
     ))}
-  </Picklist>
+  </XUIPicklist>
 );
 
 const createSizedLoggingButtons = ({ stringArray, customProps, size }) => {

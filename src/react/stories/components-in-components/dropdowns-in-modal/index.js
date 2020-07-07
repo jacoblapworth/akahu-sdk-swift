@@ -4,7 +4,7 @@ import React from 'react';
 // Components we need to test with
 import XUIModal, { XUIModalBody } from '../../../modal';
 import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
-import Picklist, { Pickitem } from '../../../picklist';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import XUIButton from '../../../button';
 import XUITextInput from '../../../textinput';
 
@@ -28,13 +28,13 @@ const test = storiesOf(compositionKind, module);
 
 const buildDropdownPicklist = items => {
   const pickItems = items.map((text, id) => (
-    <Pickitem id={text} isSelected={false} key={id}>
+    <XUIPickitem id={text} isSelected={false} key={id}>
       {text}
-    </Pickitem>
+    </XUIPickitem>
   ));
   return (
     <XUIDropdown>
-      <Picklist>{pickItems}</Picklist>
+      <XUIPicklist>{pickItems}</XUIPicklist>
     </XUIDropdown>
   );
 };

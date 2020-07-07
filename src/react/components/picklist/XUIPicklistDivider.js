@@ -9,14 +9,14 @@ import { picklistClassName } from './private/constants';
  *
  * @export
  */
-const PicklistDivider = ({ className }) => {
+const XUIPicklistDivider = ({ className }) => {
   const classes = cn(`${picklistClassName}--divider`, className);
 
   return <li className={classes} />;
 };
 
-export default PicklistDivider;
+export default XUIPicklistDivider;
 
-PicklistDivider.propTypes = {
+XUIPicklistDivider.propTypes = {
   className: PropTypes.string,
 };

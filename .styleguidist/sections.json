@@ -429,27 +429,27 @@
             "content": "../src/react/picklist.md",
             "sections": [
               {
-                "components": "../src/react/components/picklist/Picklist.js"
+                "components": "../src/react/components/picklist/XUIPicklist.js"
               },
               {
-                "name": "Pick Item",
-                "components": "../src/react/components/picklist/Pickitem.js",
+                "name": "Pickitem",
+                "components": "../src/react/components/picklist/XUIPickitem.js",
                 "content": "../src/react/components/picklist/picklist.pickitem.md"
               },
               {
-                "components": "../src/react/components/picklist/PicklistHeader.js"
+                "components": "../src/react/components/picklist/XUIPicklistHeader.js"
               },
               {
-                "components": "../src/react/components/picklist/PicklistDivider.js"
+                "components": "../src/react/components/picklist/XUIPicklistDivider.js"
               },
               {
                 "name": "Stateful Picklist",
-                "components": "../src/react/components/picklist/StatefulPicklist.js",
+                "components": "../src/react/components/picklist/XUIStatefulPicklist.js",
                 "content": "../src/react/components/picklist/picklist.stateful.md"
               },
               {
                 "name": "Nested Picklist",
-                "components": "../src/react/components/picklist/NestedPicklist*.js",
+                "components": "../src/react/components/picklist/XUINestedPicklist*.js",
                 "content": "../src/react/components/picklist/picklist.nested.md"
               }
             ]

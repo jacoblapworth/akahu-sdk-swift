@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Pickitem from '../picklist/Pickitem';
+import XUIPickitem from '../picklist/XUIPickitem';
 import { fixedWidthDropdownSizes } from './private/constants';
 
 interface Props {
@@ -35,7 +35,7 @@ interface Props {
    */
   forceDesktop?: boolean;
   /**
-   * Force wrapping `Panel` children in a `StatefulPicklist`.
+   * Force wrapping `XUIDropdownPanel` children in a `XUIStatefulPicklist`.
    */
   forceStatefulPicklist?: boolean;
   /**
@@ -65,7 +65,7 @@ interface Props {
   /**
    * Callback for when the highlighted item in the dropdown changes.
    */
-  onHighlightChange?: (item: Pickitem, event?: React.MouseEvent) => void;
+  onHighlightChange?: (item: XUIPickitem, event?: React.MouseEvent) => void;
   /**
    * Callback for adding additional `onKeyPress` functionality.
    */
@@ -78,14 +78,14 @@ interface Props {
    * A generalised callback when an item has been selected.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onSelect?: (value: any, item: Pickitem) => void;
+  onSelect?: (value: any, item: XUIPickitem) => void;
   qaHook?: string;
   /**
    * Whether focus should be restricted to the dropdown while it's open.
    */
   restrictFocus?: boolean;
   /**
-   * Whether the `StatefulPicklist` manages highlighting of list elements.
+   * Whether the `XUIStatefulPicklist` manages highlighting of list elements.
    */
   shouldManageInitialHighlight?: boolean;
   /**
@@ -111,7 +111,7 @@ export default class XUIDropdown extends React.PureComponent<Props> {
   /**
    * Get the React virtual DOM representation of the currently highlighted element.
    */
-  getHighlighted(): null | Pickitem;
+  getHighlighted(): null | XUIPickitem;
   /**
    * Get the ID of the currently highlighted element.
    */
@@ -119,11 +119,11 @@ export default class XUIDropdown extends React.PureComponent<Props> {
   /**
    * Highlights the previous item in the list.
    */
-  highlightPrevious(currentItem: Pickitem): void;
+  highlightPrevious(currentItem: XUIPickitem): void;
   /**
    * Highlights the next item in the list.
    */
-  highlightNext(currentItem: Pickitem): void;
+  highlightNext(currentItem: XUIPickitem): void;
   /**
    * Highlights the first item in the list.
    */
@@ -131,7 +131,7 @@ export default class XUIDropdown extends React.PureComponent<Props> {
   /**
    * Highlights the item passed in and fires the onHighlightChange callback.
    */
-  highlightItem(item: Pickitem, event: React.MouseEvent): void;
+  highlightItem(item: XUIPickitem, event: React.MouseEvent): void;
   /**
    * This API is used to ensure that something appropriate is highlighted. Here's the logical
    * ordering of operations:

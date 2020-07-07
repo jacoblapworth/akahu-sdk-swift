@@ -14,7 +14,7 @@ import {
 } from '@xero/xui/react/dropdown';
 import XUIButton from '@xero/xui/react/button';
 import XUIDatePicker from '@xero/xui/react/datepicker';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 const months = [
   'Jan',
@@ -145,9 +145,9 @@ class NestedExample extends Component {
     const dropdownFooter = (
       <XUIDropdownFooter
         pickItems={
-          <Pickitem id="custom" key="custom" onClick={this.selectCustomConvenience}>
+          <XUIPickitem id="custom" key="custom" onClick={this.selectCustomConvenience}>
             Custom Date
-          </Pickitem>
+          </XUIPickitem>
         }
       />
     );
@@ -155,9 +155,9 @@ class NestedExample extends Component {
     const dropdown = (
       <XUINestedDropdown currentPanelId={activePanel} onPanelChange={this.focusDatePicker}>
         <XUIDropdownPanel panelId="convenienceDates" footer={dropdownFooter}>
-          <Picklist>
+          <XUIPicklist>
             {convenienceDates.map(cd => (
-              <Pickitem
+              <XUIPickitem
                 key={cd.id}
                 id={cd.id}
                 value={cd.id}
@@ -165,9 +165,9 @@ class NestedExample extends Component {
                 onSelect={this.selectConvenienceDate}
               >
                 {cd.text}
-              </Pickitem>
+              </XUIPickitem>
             ))}
-          </Picklist>
+          </XUIPicklist>
         </XUIDropdownPanel>
         <XUIDropdownPanel
           panelId="customDate"

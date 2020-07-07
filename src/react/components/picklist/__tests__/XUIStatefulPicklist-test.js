@@ -1,38 +1,38 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import StatefulPicklist, { findNextItem, findPreviousItem } from '../StatefulPicklist';
-import Pickitem from '../Pickitem';
-import Picklist from '../Picklist';
+import XUIStatefulPicklist, { findNextItem, findPreviousItem } from '../XUIStatefulPicklist';
+import XUIPickitem from '../XUIPickitem';
+import XUIPicklist from '../XUIPicklist';
 import div from './helpers/container';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 let wrapper;
 
-describe('<StatefulPicklist /> API Methods', () => {
+describe('</XUIStatefulPicklist /> API Methods', () => {
   describe('Multiple Items', () => {
     beforeEach(() => {
       wrapper = mount(
-        <StatefulPicklist>
-          <Picklist>
-            <Pickitem id="item1">Item 1</Pickitem>
-            <Pickitem id="item2">Item 2</Pickitem>
-            <Pickitem id="item3">Item 3</Pickitem>
-            <Pickitem id="item4">Item 4</Pickitem>
-          </Picklist>
-          <Picklist>
-            <Pickitem id="anotheritem1">Another Item 1</Pickitem>
-            <Pickitem id="anotheritem2">Another Item 2</Pickitem>
-            <Pickitem id="anotheritem3">Another Item 3</Pickitem>
-            <Pickitem id="anotheritem4">Another Item 4</Pickitem>
-          </Picklist>
-        </StatefulPicklist>,
+        <XUIStatefulPicklist>
+          <XUIPicklist>
+            <XUIPickitem id="item1">Item 1</XUIPickitem>
+            <XUIPickitem id="item2">Item 2</XUIPickitem>
+            <XUIPickitem id="item3">Item 3</XUIPickitem>
+            <XUIPickitem id="item4">Item 4</XUIPickitem>
+          </XUIPicklist>
+          <XUIPicklist>
+            <XUIPickitem id="anotheritem1">Another Item 1</XUIPickitem>
+            <XUIPickitem id="anotheritem2">Another Item 2</XUIPickitem>
+            <XUIPickitem id="anotheritem3">Another Item 3</XUIPickitem>
+            <XUIPickitem id="anotheritem4">Another Item 4</XUIPickitem>
+          </XUIPicklist>
+        </XUIStatefulPicklist>,
       );
     });
 
     it('finds an item by id', () => {
-      const item3 = wrapper.find(Pickitem).at(2);
+      const item3 = wrapper.find(XUIPickitem).at(2);
 
       expect(item3.props().id).toEqual('item3');
     });
@@ -102,20 +102,20 @@ describe('<StatefulPicklist /> API Methods', () => {
   describe('Multiple Items', () => {
     it('clears the highlighted item from state when clearHighlightedItem method is called', () => {
       const splWrapper = mount(
-        <StatefulPicklist shouldManageInitialHighlight={false}>
-          <Picklist>
-            <Pickitem id="item1">Item 1</Pickitem>
-            <Pickitem id="item2">Item 2</Pickitem>
-            <Pickitem id="item3">Item 3</Pickitem>
-            <Pickitem id="item4">Item 4</Pickitem>
-          </Picklist>
-          <Picklist>
-            <Pickitem id="anotheritem1">Another Item 1</Pickitem>
-            <Pickitem id="anotheritem2">Another Item 2</Pickitem>
-            <Pickitem id="anotheritem3">Another Item 3</Pickitem>
-            <Pickitem id="anotheritem4">Another Item 4</Pickitem>
-          </Picklist>
-        </StatefulPicklist>,
+        <XUIStatefulPicklist shouldManageInitialHighlight={false}>
+          <XUIPicklist>
+            <XUIPickitem id="item1">Item 1</XUIPickitem>
+            <XUIPickitem id="item2">Item 2</XUIPickitem>
+            <XUIPickitem id="item3">Item 3</XUIPickitem>
+            <XUIPickitem id="item4">Item 4</XUIPickitem>
+          </XUIPicklist>
+          <XUIPicklist>
+            <XUIPickitem id="anotheritem1">Another Item 1</XUIPickitem>
+            <XUIPickitem id="anotheritem2">Another Item 2</XUIPickitem>
+            <XUIPickitem id="anotheritem3">Another Item 3</XUIPickitem>
+            <XUIPickitem id="anotheritem4">Another Item 4</XUIPickitem>
+          </XUIPicklist>
+        </XUIStatefulPicklist>,
       );
 
       const item3 = splWrapper.instance().findItemById('item3');
@@ -128,30 +128,30 @@ describe('<StatefulPicklist /> API Methods', () => {
   });
 });
 
-describe('<StatefulPicklist /> Interactions', () => {
+describe('</XUIStatefulPicklist /> Interactions', () => {
   let wrapper;
   let onClickHandlerMock;
 
   beforeEach(() => {
     onClickHandlerMock = jest.fn();
-    StatefulPicklist.prototype.onClick = onClickHandlerMock;
+    XUIStatefulPicklist.prototype.onClick = onClickHandlerMock;
     wrapper = mount(
-      <StatefulPicklist className="SPL">
-        <Picklist>
-          <Pickitem id="item1" className="item">
+      <XUIStatefulPicklist className="SPL">
+        <XUIPicklist>
+          <XUIPickitem id="item1" className="item">
             Example Item
-          </Pickitem>
-          <Pickitem id="item2" className="item2">
+          </XUIPickitem>
+          <XUIPickitem id="item2" className="item2">
             Example Item 2
-          </Pickitem>
-          <Pickitem id="item3" className="item3">
+          </XUIPickitem>
+          <XUIPickitem id="item3" className="item3">
             Example Item 3
-          </Pickitem>
-          <Pickitem id="item4" className="item4">
+          </XUIPickitem>
+          <XUIPickitem id="item4" className="item4">
             Example Item 4
-          </Pickitem>
-        </Picklist>
-      </StatefulPicklist>,
+          </XUIPickitem>
+        </XUIPicklist>
+      </XUIStatefulPicklist>,
     );
   });
 

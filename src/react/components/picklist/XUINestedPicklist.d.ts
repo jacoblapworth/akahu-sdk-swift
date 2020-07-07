@@ -15,4 +15,4 @@ interface Props {
   shouldTruncate?: boolean;
 }
 
-export default class NestedPicklist extends React.PureComponent<Props> {}
+export default class XUINestedPicklist extends React.PureComponent<Props> {}

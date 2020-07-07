@@ -10,9 +10,9 @@ import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from './private/constants';
 
 /**
- * Wrapper for all content which will go inside of a dropdown.  It ensures the correct
+ * Wrapper for all content which will go inside of a dropdown. It ensures the correct
  * presentational components are used to output content, scrolling is managed properly,
- * and keyboard events are handled properly for the Picklist use case.  An instance of
+ * and keyboard events are handled properly for the picklist use case. An instance of
  * this should be passed to the `XUIDropdownToggled`'s dropdown prop.
  *
  * @export
@@ -320,13 +320,13 @@ XUIDropdown.propTypes = {
   /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
   forceDesktop: PropTypes.bool,
 
-  /** Force wrapping Panel children in a StatefulPicklist  */
+  /** Force wrapping `XUIDropdownPanel` children in a `XUIStatefulPicklist` */
   forceStatefulPicklist: PropTypes.bool,
 
   /** Class to apply to the body element of the dropdown */
   bodyClassName: PropTypes.string,
 
-  /** Whether the StatefulPicklist manages highlighting of list elements */
+  /** Whether the stateful picklist manages highlighting of list elements */
   shouldManageInitialHighlight: PropTypes.bool,
 
   /**

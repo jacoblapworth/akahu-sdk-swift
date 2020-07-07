@@ -3,8 +3,8 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import XUINestedDropdown from '../XUINestedDropdown';
 import XUIDropdownPanel from '../XUIDropdownPanel';
-import Picklist from '../../picklist/Picklist';
-import Pickitem from '../../picklist/Pickitem';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIPickitem from '../../picklist/XUIPickitem';
 import renderer from 'react-test-renderer';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 
@@ -15,14 +15,14 @@ Enzyme.configure({ adapter: new Adapter() });
 const createComponent = props => (
   <XUINestedDropdown id="1" {...props}>
     <XUIDropdownPanel qaHook="nestedDropdown-panelone">
-      <Picklist>
-        <Pickitem id="option1">Option 1</Pickitem>
-      </Picklist>
+      <XUIPicklist>
+        <XUIPickitem id="option1">Option 1</XUIPickitem>
+      </XUIPicklist>
     </XUIDropdownPanel>
     <XUIDropdownPanel qaHook="nestedDropdown-paneltwo">
-      <Picklist>
-        <Pickitem id="option2">Option 2</Pickitem>
-      </Picklist>
+      <XUIPicklist>
+        <XUIPickitem id="option2">Option 2</XUIPickitem>
+      </XUIPicklist>
     </XUIDropdownPanel>
   </XUINestedDropdown>
 );
@@ -128,14 +128,14 @@ describe('<XUINestedDropdown />', () => {
       createComponent(
         <XUINestedDropdown id="1" onHighlightChange={onHighlightChange}>
           <XUIDropdownPanel qaHook="nestedDropdown-panelone" ignoreKeyboardEvents={[40]}>
-            <Picklist>
-              <Pickitem id="option1">Option 1</Pickitem>
-            </Picklist>
+            <XUIPicklist>
+              <XUIPickitem id="option1">Option 1</XUIPickitem>
+            </XUIPicklist>
           </XUIDropdownPanel>
           <XUIDropdownPanel qaHook="nestedDropdown-paneltwo">
-            <Picklist>
-              <Pickitem id="option2">Option 2</Pickitem>
-            </Picklist>
+            <XUIPicklist>
+              <XUIPickitem id="option2">Option 2</XUIPickitem>
+            </XUIPicklist>
           </XUIDropdownPanel>
         </XUINestedDropdown>,
       ),
@@ -205,14 +205,14 @@ describe('<XUINestedDropdown />', () => {
     const currentPanel = mount(
       <XUINestedDropdown id="1" currentPanelId="two">
         <XUIDropdownPanel panelId="one" id="panel-one" qaHook="nestedDropdown-panelone">
-          <Picklist>
-            <Pickitem id="option1">Option 1</Pickitem>
-          </Picklist>
+          <XUIPicklist>
+            <XUIPickitem id="option1">Option 1</XUIPickitem>
+          </XUIPicklist>
         </XUIDropdownPanel>
         <XUIDropdownPanel panelId="two" id="panel-two" qaHook="nestedDropdown-paneltwo">
-          <Picklist>
-            <Pickitem id="option2">Option 2</Pickitem>
-          </Picklist>
+          <XUIPicklist>
+            <XUIPickitem id="option2">Option 2</XUIPickitem>
+          </XUIPicklist>
         </XUIDropdownPanel>
       </XUINestedDropdown>,
     );

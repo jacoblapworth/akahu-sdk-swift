@@ -138,6 +138,40 @@ module.exports = {
       ],
     },
   ],
+  picklist: [
+    {
+      name: 'NestedPicklist',
+      newName: 'XUINestedPicklist',
+    },
+    {
+      name: 'NestedPicklistContainer',
+      newName: 'XUINestedPicklistContainer',
+    },
+    {
+      name: 'NestedPicklistTrigger',
+      newName: 'XUINestedPicklistTrigger',
+    },
+    {
+      name: 'Pickitem',
+      newName: 'XUIPickitem',
+    },
+    {
+      name: 'Picklist',
+      newName: 'XUIPicklist',
+    },
+    {
+      name: 'PicklistDivider',
+      newName: 'XUIPicklistDivider',
+    },
+    {
+      name: 'PicklistHeader',
+      newName: 'XUIPicklistHeader',
+    },
+    {
+      name: 'StatefulPicklist',
+      newName: 'XUIStatefulPicklist',
+    },
+  ],
   table: [
     {
       name: 'XUITable',

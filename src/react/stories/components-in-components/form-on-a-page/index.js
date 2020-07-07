@@ -3,7 +3,7 @@ import React from 'react';
 
 // Components we need to test with
 import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
-import Picklist, { Pickitem } from '../../../picklist';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import XUIButton from '../../../button';
 import XUICheckbox, { XUICheckboxGroup } from '../../../checkbox';
 import XUIRadio, { XUIRadioGroup } from '../../../radio';
@@ -63,16 +63,16 @@ const toggledItems = [
   'Yellow quash',
   'Zucchini',
 ].map((text, id) => (
-  <Pickitem id={text} isSelected={false} key={id}>
+  <XUIPickitem id={text} isSelected={false} key={id}>
     {text}
-  </Pickitem>
+  </XUIPickitem>
 ));
 
 test.add(storyNames.formOnAPage, () => {
   const trigger = <XUIButton hasCaret>Trigger Button</XUIButton>;
   const dropdown = (
     <XUIDropdown>
-      <Picklist>{toggledItems}</Picklist>
+      <XUIPicklist>{toggledItems}</XUIPicklist>
     </XUIDropdown>
   );
 

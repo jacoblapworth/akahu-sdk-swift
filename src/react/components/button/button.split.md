@@ -18,7 +18,7 @@ When using a secondary button as the trigger of a dropdown, variants are not inh
 
 ```jsx harmony
 import XUIButton, { XUISplitButtonGroup, XUISecondaryButton } from '@xero/xui/react/button';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
 
 <XUISplitButtonGroup variant="primary" isDisabled={false}>
@@ -27,14 +27,14 @@ import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
     trigger={<XUISecondaryButton key="split" variant="primary" aria-label="Other actions" />}
     dropdown={
       <XUIDropdown>
-        <Picklist>
-          <Pickitem id="aa" value="aa" key="aa">
+        <XUIPicklist>
+          <XUIPickitem id="aa" value="aa" key="aa">
             Option 1
-          </Pickitem>
-          <Pickitem id="bb" value="bb" key="bb">
+          </XUIPickitem>
+          <XUIPickitem id="bb" value="bb" key="bb">
             Option 2
-          </Pickitem>
-        </Picklist>
+          </XUIPickitem>
+        </XUIPicklist>
       </XUIDropdown>
     }
   />

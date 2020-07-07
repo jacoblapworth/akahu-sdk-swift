@@ -45,6 +45,14 @@ Following classes have been **removed** because left space isn't needed for alig
     - `DropDownFooter` → `XUIDropdownFooter`
     - `DropDownPanel` → `XUIDropdownPanel`
     - `NestedDropDown` → `XUINestedDropdown`
+    - `NestedPicklist` → `XUINestedPicklist`
+    - `NestedPicklistContainer` → `XUINestedPicklistContainer`
+    - `NestedPicklistTrigger` → `XUINestedPicklistTrigger`
+    - `Pickitem` → `XUIPickitem`
+    - `Picklist` → `XUIPicklist`
+    - `PicklistDivider` → `XUIPicklistDivider`
+    - `PicklistHeader` → `XUIPicklistHeader`
+    - `StatefulPicklist` → `XUIStatefulPicklist`
   - Renamed public methods:
     - `XUIAutocompleter` and `XUIAutocompleterSecondarySearch`:
       - `closeDropDown` → `closeDropdown`
@@ -121,7 +129,7 @@ _Note. The codemod will resolve the prop differences automatically when run._
   - XUIIsolationHeader
   - XUILoader
   - XUIModal
-  - Picklist
+  - XUIPicklist
   - XUIPill
   - XUIProgressIndicator (progressTypes)
   - XUIRadio

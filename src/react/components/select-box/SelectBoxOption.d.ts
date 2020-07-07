@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Pickitem from '../picklist/Pickitem';
+import XUIPickitem from '../picklist/XUIPickitem';
 
 interface Props {
   /**
@@ -26,19 +26,19 @@ interface Props {
    */
   isSelected?: boolean;
   /**
-   * Callback on blur of the pick item.
+   * Callback on blur of the pickitem.
    */
   onBlur?: React.FocusEventHandler<HTMLElement>;
   /**
-   * Callback when the pick item is clicked.
+   * Callback when the pickitem is clicked.
    */
   onClick?: React.MouseEventHandler<HTMLElement>;
   /**
-   * Callback on focus of the pick item.
+   * Callback on focus of the pickitem.
    */
   onFocus?: React.FocusEventHandler<HTMLElement>;
   /**
-   * Callback on keydown of the pick item.
+   * Callback on keydown of the pickitem.
    */
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>;
   /**
@@ -49,7 +49,7 @@ interface Props {
    * Callback to be executed after a selection is made.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onSelect?: (selectedValue: any, item: Pickitem) => void;
+  onSelect?: (selectedValue: any, item: XUIPickitem) => void;
   /**
    * Additional classes to be applied to the  option insides.
    */

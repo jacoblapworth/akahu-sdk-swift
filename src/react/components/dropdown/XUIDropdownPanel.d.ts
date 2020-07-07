@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Pickitem from '../picklist/Pickitem';
+import XUIPickitem from '../picklist/XUIPickitem';
 
 interface Props {
   /**
@@ -13,7 +13,7 @@ interface Props {
    */
   footer?: React.ReactElement;
   /**
-   * Force wrapping `Panel` children in a `StatefulPicklist`.
+   * Force wrapping `XUIDropdownPanel` children in a `XUIStatefulPicklist`.
    */
   forceStatefulPicklist?: boolean;
   /**
@@ -31,7 +31,7 @@ interface Props {
   /**
    * Callback for when the highlighted item in the dropdown changes.
    */
-  onHighlightChange?: (item: Pickitem, event?: React.MouseEvent) => void;
+  onHighlightChange?: (item: XUIPickitem, event?: React.MouseEvent) => void;
   /**
    * Keydown event handler.
    */
@@ -40,14 +40,14 @@ interface Props {
    * A generalised callback when an item has been selected.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onSelect?: (value: any, item: Pickitem) => void;
+  onSelect?: (value: any, item: XUIPickitem) => void;
   /**
    * Used by `XUINestedDropdown` to identify each panel.
    */
   panelId?: string;
   qaHook?: string;
   /**
-   * Whether the `StatefulPicklist` manages highlighting of list elements.
+   * Whether the `XUIStatefulPicklist` manages highlighting of list elements.
    */
   shouldManageInitialHighlight?: boolean;
   /**
@@ -84,17 +84,17 @@ export default class XUIDropdownPanel extends React.PureComponent<Props> {
    */
   onKeyDown(event: React.KeyboardEvent): void;
   /**
-   * Get the ID of the currently highlighted item in the child StatefulPicklist (if applicable).
+   * Get the ID of the currently highlighted item in the child `XUIStatefulPicklist` (if applicable).
    */
   getHighlightedId(): null | string;
   /**
-   * Selects the highlighted list item, in the child StatefulPicklist (if applicable).
+   * Selects the highlighted list item, in the child `XUIStatefulPicklist` (if applicable).
    */
   selectHighlighted(): void;
   /**
-   * Highlight a specific item in the child StatefulPicklist (if applicable).
+   * Highlight a specific item in the child `XUIStatefulPicklist` (if applicable).
    */
-  highlightItem(item: Pickitem, event: React.MouseEvent): void;
+  highlightItem(item: XUIPickitem, event: React.MouseEvent): void;
   /**
    * Used to highlight an item immediately after a dropdown opens.
    */

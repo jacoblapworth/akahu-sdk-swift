@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import XUIModal, { XUIModalBody, XUIModalHeader } from '../../../modal';
 import XUIButton from '../../../button';
 import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
-import Picklist, { Pickitem } from '../../../picklist';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import * as lists from '../../../components/helpers/list';
 
 import { nonBackstopStoryNames, compositionKind } from '../tests';
@@ -18,13 +18,13 @@ import { storiesOf } from '@storybook/react';
 
 const buildDropdownPicklist = items => {
   const pickItems = items.map((text, id) => (
-    <Pickitem id={text} isSelected={false} key={id}>
+    <XUIPickitem id={text} isSelected={false} key={id}>
       {text}
-    </Pickitem>
+    </XUIPickitem>
   ));
   return (
     <XUIDropdown>
-      <Picklist>{pickItems}</Picklist>
+      <XUIPicklist>{pickItems}</XUIPicklist>
     </XUIDropdown>
   );
 };

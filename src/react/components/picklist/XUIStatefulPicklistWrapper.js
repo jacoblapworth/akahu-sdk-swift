@@ -7,13 +7,13 @@ import PropTypes from 'prop-types';
  * virtual DOM. As the StatefulPicklist relies on this virtual DOM to navigate through
  * it's children we need to create a wrapper.
  */
-export default class StatefulPicklistWrapper extends Component {
+export default class XUIStatefulPicklistWrapper extends Component {
   render() {
     const { children, ...spreadProps } = this.props;
     return <div {...spreadProps}>{children}</div>;
   }
 }
 
-StatefulPicklistWrapper.propTypes = {
+XUIStatefulPicklistWrapper.propTypes = {
   children: PropTypes.node,
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import Pickitem from '../Pickitem';
+import XUIPickitem from '../XUIPickitem';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIIcon from '../../icon/XUIIcon';
 import arrow from '@xero/xui-icon/icons/arrow';
@@ -13,15 +13,15 @@ Enzyme.configure({ adapter: new Adapter() });
 jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testPickitemCheckboxId');
 
-describe('<Pickitem />', () => {
+describe('<XUIPickitem />', () => {
   it('renders a basic example with no options', () => {
-    const basic = renderer.create(<Pickitem id="item1">Item 1</Pickitem>);
+    const basic = renderer.create(<XUIPickitem id="item1">Item 1</XUIPickitem>);
     expect(basic).toMatchSnapshot();
   });
 
   it('renders a pickitem with most compatible options', () => {
     const allOptions = renderer.create(
-      <Pickitem
+      <XUIPickitem
         className="custom-classname"
         id="item1"
         leftElement={<XUIAvatar value="Tim Redmond" size="2xsmall" />}
@@ -41,16 +41,16 @@ describe('<Pickitem />', () => {
 
   it('should set an automation id when a qaHook is provided', () => {
     const automationid = renderer.create(
-      <Pickitem qaHook="test-pickitem" id="item1">
+      <XUIPickitem qaHook="test-pickitem" id="item1">
         Item 1
-      </Pickitem>,
+      </XUIPickitem>,
     );
     expect(automationid).toMatchSnapshot();
   });
 
   it('renders a selected multiselect pickitem (overriding leftElement)', () => {
     const multiselect = renderer.create(
-      <Pickitem
+      <XUIPickitem
         className="custom-classname"
         id="item1"
         isMultiselect
@@ -64,7 +64,7 @@ describe('<Pickitem />', () => {
 
   it('renders a selected multiselect pickitem without selected styles', () => {
     const multiselect = renderer.create(
-      <Pickitem
+      <XUIPickitem
         id="item1"
         isMultiselect
         isSelected
@@ -77,7 +77,7 @@ describe('<Pickitem />', () => {
 
   it('renders a regular pickitem with truncation', () => {
     const truncation = renderer.create(
-      <Pickitem
+      <XUIPickitem
         id="item1"
         primaryElement="Item 1"
         secondaryElement="Here is a bunch of secondary text"
@@ -90,7 +90,7 @@ describe('<Pickitem />', () => {
 
   it('renders a multiselect pickitem with truncation', () => {
     const truncation = renderer.create(
-      <Pickitem
+      <XUIPickitem
         id="item1"
         primaryElement="Item 1"
         secondaryElement="Here is a bunch of secondary text"
@@ -104,7 +104,7 @@ describe('<Pickitem />', () => {
 
   it('renders a truncating pickitem with secondary text', () => {
     const secondaryText = renderer.create(
-      <Pickitem
+      <XUIPickitem
         id="item1"
         primaryElement="Item 1"
         secondaryElement="Here is a bunch of secondary text"
@@ -116,7 +116,7 @@ describe('<Pickitem />', () => {
 
   it('renders a truncating pickitem with leftelement', () => {
     const leftelement = renderer.create(
-      <Pickitem
+      <XUIPickitem
         id="item1"
         primaryElement="Item 1"
         leftElement={<XUIAvatar value="Tim Redmond" size="2xsmall" />}
@@ -128,7 +128,7 @@ describe('<Pickitem />', () => {
 
   it('renders a truncating pickitem with secondary text and leftelement', () => {
     const secondaryAndLeft = renderer.create(
-      <Pickitem
+      <XUIPickitem
         id="item1"
         primaryElement="Item 1"
         secondaryElement="Here is a bunch of secondary text"
@@ -146,7 +146,7 @@ describe('<Pickitem />', () => {
     const onMouseOverMock = jest.fn();
     const onKeyDownMock = jest.fn();
     const wrapper = mount(
-      <Pickitem
+      <XUIPickitem
         onClick={onClickMock}
         onFocus={onFocusMock}
         onBlur={onBlurMock}
@@ -155,7 +155,7 @@ describe('<Pickitem />', () => {
         id="item1"
       >
         Item 1
-      </Pickitem>,
+      </XUIPickitem>,
     );
 
     const button = wrapper.find('button').first();
@@ -178,7 +178,7 @@ describe('<Pickitem />', () => {
     const onMouseOverMock = jest.fn();
     const onKeyDownMock = jest.fn();
     const wrapper = mount(
-      <Pickitem
+      <XUIPickitem
         href="http://xui.xero.com"
         onClick={onClickMock}
         onFocus={onFocusMock}
@@ -188,7 +188,7 @@ describe('<Pickitem />', () => {
         id="item1"
       >
         Item 1
-      </Pickitem>,
+      </XUIPickitem>,
     );
 
     const anchor = wrapper.find('a').first();
@@ -211,7 +211,7 @@ describe('<Pickitem />', () => {
     const onMouseOverMock = jest.fn();
     const onKeyDownMock = jest.fn();
     const wrapper = mount(
-      <Pickitem
+      <XUIPickitem
         isMultiselect
         onClick={onClickMock}
         onFocus={onFocusMock}
@@ -221,7 +221,7 @@ describe('<Pickitem />', () => {
         id="item1"
       >
         Item 1
-      </Pickitem>,
+      </XUIPickitem>,
     );
 
     const label = wrapper.find('.xui-pickitem--body').first();
@@ -252,16 +252,16 @@ describe('<Pickitem />', () => {
       it(`throws an error when trying to use ${incompatibleProp}`, () => {
         expect(() => {
           mount(
-            <Pickitem
+            <XUIPickitem
               _isHorizontal
               id="test"
               {...{ [incompatibleProp]: incompatibleProps[incompatibleProp] }}
             >
               Test
-            </Pickitem>,
+            </XUIPickitem>,
           );
         }).toThrowError(
-          `Warning: Failed prop type: \`${incompatibleProp}\` is not supported by horizontal \`Pickitem\`.`,
+          `Warning: Failed prop type: \`${incompatibleProp}\` is not supported by horizontal \`XUIPickitem\`.`,
         );
       });
     });

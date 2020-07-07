@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
-import Pickitem from '../picklist/Pickitem';
+import XUIPickitem from '../picklist/XUIPickitem';
 
 interface Props {
   children?: React.ReactNode;
@@ -108,7 +108,7 @@ interface Props {
   /**
    * Callback to handle when an option has been selected from the dropdown.
    */
-  onOptionSelect?: (value: string, element?: React.ReactElement<Pickitem>) => void;
+  onOptionSelect?: (value: string, element?: React.ReactElement<XUIPickitem>) => void;
   /**
    * Callback for when the user types into the search box.
    */
@@ -152,7 +152,7 @@ export default class XUIAutocompleterSecondarySearch extends React.PureComponent
   /**
    * Highlights a specified item in the list
    */
-  highlightItem(item: Pickitem): void;
+  highlightItem(item: XUIPickitem): void;
   /**
    * Highlights the first item in the list
    */

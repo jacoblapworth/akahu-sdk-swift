@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Picklist from '../picklist/Picklist';
+import XUIPicklist from '../picklist/XUIPicklist';
 import { baseClass } from './private/constants';
 
 /**
@@ -17,7 +17,7 @@ const XUIDropdownFooter = ({ children, className, qaHook, pickItems }) => {
   const footerClass = `${baseClass}--footer`;
   const classes = cn(footerClass, className);
   const pickList = pickItems && (
-    <Picklist className={`${footerClass}--picklist`}>{pickItems}</Picklist>
+    <XUIPicklist className={`${footerClass}--picklist`}>{pickItems}</XUIPicklist>
   );
 
   return (

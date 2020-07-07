@@ -9,7 +9,7 @@ import { picklistClassName } from './private/constants';
  *
  * @export
  */
-const PicklistHeader = ({ ariaRole, children, className, id }) => {
+const XUIPicklistHeader = ({ ariaRole, children, className, id }) => {
   const classes = cn(`${picklistClassName}--header`, className);
 
   return (
@@ -19,9 +19,9 @@ const PicklistHeader = ({ ariaRole, children, className, id }) => {
   );
 };
 
-export default PicklistHeader;
+export default XUIPicklistHeader;
 
-PicklistHeader.propTypes = {
+XUIPicklistHeader.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

@@ -4,10 +4,10 @@ import cn from 'classnames';
 import { observe, unobserve } from '../helpers/resizeObserver';
 import '../helpers/xuiGlobalChecks';
 import { picklistClassName } from './private/constants';
-import Pickitem from './Pickitem';
+import XUIPickitem from './XUIPickitem';
 import { getPropsFromFirstChildOrList } from './private/helpers';
 import { userBreakpoints } from '../helpers/breakpoints';
-import NestedPicklistContainer from './NestedPicklistContainer';
+import XUINestedPicklistContainer from './XUINestedPicklistContainer';
 import SelectBoxOption from '../select-box/SelectBoxOption';
 // eslint-disable-next-line import/no-cycle
 import TabDropdown from './private/TabDropdown';
@@ -16,10 +16,10 @@ import TabDropdown from './private/TabDropdown';
  * Presentational component used to display a selectable list of Pickitems.
  *
  * @export
- * @class Picklist
+ * @class XUIPicklist
  * @extends {Component}
  */
-export default class Picklist extends Component {
+export default class XUIPicklist extends Component {
   // All those logic in Lifecycle could be removed when we split the prop `isHorizontal` out (XUI-683)
   state = {};
   _area = React.createRef();
@@ -64,9 +64,9 @@ export default class Picklist extends Component {
     const listLevelProps = getPropsFromFirstChildOrList(children, this.props);
     const newChildren = React.Children.map(children, child =>
       child &&
-      (child.type === Pickitem ||
+      (child.type === XUIPickitem ||
         child.type === SelectBoxOption ||
-        child.type === NestedPicklistContainer)
+        child.type === XUINestedPicklistContainer)
         ? React.cloneElement(child, {
             size: listLevelProps.listSize,
             isMultiselect: listLevelProps.listMultiselect,
@@ -119,7 +119,7 @@ export default class Picklist extends Component {
   }
 }
 
-Picklist.propTypes = {
+XUIPicklist.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   qaHook: PropTypes.string,
@@ -153,7 +153,7 @@ Picklist.propTypes = {
   ]),
 };
 
-Picklist.defaultProps = {
+XUIPicklist.defaultProps = {
   defaultLayout: true,
   secondaryProps: {
     role: 'group',

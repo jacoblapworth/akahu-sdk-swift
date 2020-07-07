@@ -10,7 +10,7 @@ import XUIDropdown, {
   XUIDropdownFooter
 } from '@xero/xui/react/dropdown';
 import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import XUIButton from '@xero/xui/react/button';
 import XUIIcon from '@xero/xui/react/icon';
 import { isKeySpacebar } from '@xero/xui/react/helpers/reactKeyHandler';
@@ -168,12 +168,12 @@ class XDD extends Component {
     const dropdownFooter = (
       <XUIDropdownFooter
         pickItems={
-          <Pickitem
+          <XUIPickitem
             id="footerAction"
             leftElement={<XUIIcon isInline icon={plusIcon} className="xui-margin-right-xsmall" />}
           >
             Add New Fruit
-          </Pickitem>
+          </XUIPickitem>
         }
       />
     );
@@ -195,9 +195,9 @@ class XDD extends Component {
         hasKeyboardEvents={false}
         fixedWidth
       >
-        <Picklist>
+        <XUIPicklist>
           {items.map(item => (
-            <Pickitem
+            <XUIPickitem
               key={item.id}
               id={item.id}
               value={item.id}
@@ -205,9 +205,9 @@ class XDD extends Component {
               isMultiselect
             >
               {item.text}
-            </Pickitem>
+            </XUIPickitem>
           ))}
-        </Picklist>
+        </XUIPicklist>
       </XUIDropdown>
     );
     return (

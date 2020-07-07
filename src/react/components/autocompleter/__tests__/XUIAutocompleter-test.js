@@ -4,8 +4,8 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIAutocompleter from '../XUIAutocompleter';
 import XUIPill from '../../pill/XUIPill';
-import Picklist from '../../picklist/Picklist';
-import Pickitem from '../../picklist/Pickitem';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIPickitem from '../../picklist/XUIPickitem';
 import XUILoader from '../../loader/XUILoader';
 import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
 import XUIDropdownLayout from '../../dropdown/XUIDropdownLayout';
@@ -20,10 +20,10 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('XUIAutocompleter', () => {
   const createComponent = props => (
     <XUIAutocompleter dropdownSize="medium" forceDesktop {...props}>
-      <Picklist>
-        <Pickitem id="item1">Item 1</Pickitem>
-        <Pickitem id="item2">Item 2</Pickitem>
-      </Picklist>
+      <XUIPicklist>
+        <XUIPickitem id="item1">Item 1</XUIPickitem>
+        <XUIPickitem id="item2">Item 2</XUIPickitem>
+      </XUIPicklist>
     </XUIAutocompleter>
   );
 

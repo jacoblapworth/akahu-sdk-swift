@@ -14,7 +14,7 @@ import {
   DetailedListExample,
   SecondarySearchExample,
 } from '../../../components/autocompleter/stories/stories';
-import Picklist, { Pickitem, PicklistHeader } from '../../../picklist';
+import XUIPicklist, { XUIPickitem, XUIPicklistHeader } from '../../../picklist';
 import XUIIcon from '../../../icon';
 import XUIPill from '../../../pill';
 import XUITextInput, { XUITextInputSideElement } from '../../../textinput';
@@ -312,19 +312,19 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                     })}
                   </XUIColumn>
                   <XUIColumn className="xui-panel" gridColumns="full" gridColumnsSmallUp="half">
-                    <Picklist isMultiselect size={noXsmallSize}>
-                      <PicklistHeader>{noXsmallSize}</PicklistHeader>
+                    <XUIPicklist isMultiselect size={noXsmallSize}>
+                      <XUIPicklistHeader>{noXsmallSize}</XUIPicklistHeader>
                       {multiSelectItems.map(id => (
-                        <Pickitem
+                        <XUIPickitem
                           id={`2_${id}`}
                           isSelected={this.state.isSelectedById[`2_${id}`]}
                           key={`2_${id}`}
                           onClick={this.toggleSelection.bind(this, `2_${id}`)}
                         >
                           {id}
-                        </Pickitem>
+                        </XUIPickitem>
                       ))}
-                    </Picklist>
+                    </XUIPicklist>
                   </XUIColumn>
                 </XUIRow>
               </XUIPanelSection>

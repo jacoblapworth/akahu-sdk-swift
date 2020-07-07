@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Pickitem from '../picklist/Pickitem';
+import XUIPickitem from '../picklist/XUIPickitem';
 import { fixedWidthDropdownSizes } from './private/constants';
 
 interface Props {
@@ -54,7 +54,7 @@ interface Props {
   /**
    * Callback for when the highlighted item in the dropdown changes.
    */
-  onHighlightChange?: (item: Pickitem, event?: React.MouseEvent) => void;
+  onHighlightChange?: (item: XUIPickitem, event?: React.MouseEvent) => void;
   /**
    * Callback for when animation has ended on open.
    */
@@ -68,7 +68,7 @@ interface Props {
    * Enable a generalised callback when an item has been selected.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onSelect?: (value: any, item: Pickitem) => void;
+  onSelect?: (value: any, item: XUIPickitem) => void;
   qaHook?: string;
   /**
    * Applies correct XUI class based on prop value. Default will fit to children's width.

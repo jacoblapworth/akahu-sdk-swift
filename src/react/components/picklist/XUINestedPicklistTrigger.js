@@ -11,7 +11,7 @@ import {
   itemBodyClassName,
 } from './private/constants';
 
-export default class NestedPicklistTrigger extends PureComponent {
+export default class XUINestedPicklistTrigger extends PureComponent {
   render() {
     const {
       className,
@@ -60,7 +60,7 @@ export default class NestedPicklistTrigger extends PureComponent {
   }
 }
 
-NestedPicklistTrigger.propTypes = {
+XUINestedPicklistTrigger.propTypes = {
   children: PropTypes.node,
   qaHook: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
@@ -80,7 +80,7 @@ NestedPicklistTrigger.propTypes = {
   leftElement: PropTypes.node,
 };
 
-NestedPicklistTrigger.defaultProps = {
+XUINestedPicklistTrigger.defaultProps = {
   isHighlighted: false,
   secondaryProps: {
     role: 'button',
@@ -99,6 +99,6 @@ NestedPicklistTrigger.defaultProps = {
   _isGroupTrigger: true, // eslint-disable-line
 };
 
-NestedPicklistTrigger.contextTypes = {
+XUINestedPicklistTrigger.contextTypes = {
   id: PropTypes.string,
 };

@@ -32,7 +32,7 @@ interface Props {
   shouldTruncate?: boolean;
 }
 
-export default class NestedPicklistContainer extends React.PureComponent<Props> {
+export default class XUINestedPicklistContainer extends React.PureComponent<Props> {
   /**
    * Check if the the container is open.
    */

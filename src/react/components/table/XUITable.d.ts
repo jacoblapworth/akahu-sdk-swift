@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { XUIIconData } from '../icon/XUIIcon';
-import { Props as PickitemProps } from '../picklist/Pickitem';
+import { Props as PickitemProps } from '../picklist/XUIPickitem';
 
 interface BaseProps {
   /**

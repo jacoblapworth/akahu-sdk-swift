@@ -2,14 +2,14 @@
 
 ## Basic Use Cases
 
-### Using with `Picklist`
+### Using with `XUIPicklist`
 
-If you want standard `Picklist` behaviour (close on select, keyboard handlers, etc) then you **must** have `Picklist` as an immediate child of the `XUIDropdown`. If you are missing these features, make sure that you are correctly using the `Picklist` component.
+If you want standard `XUIPicklist` behaviour (close on select, keyboard handlers, etc) then you **must** have `XUIPicklist` as an immediate child of the `XUIDropdown`. If you are missing these features, make sure that you are correctly using the `XUIPicklist` component.
 
 ```jsx harmony
 import { Component } from 'react';
 import XUIButton from '@xero/xui/react/button';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
 
 const isSelected = (item, selectedIds) =>
@@ -21,14 +21,14 @@ function createItems(item, selectedId) {
   }
 
   return (
-    <Pickitem
+    <XUIPickitem
       {...item.props}
       value={item.props.id}
       key={item.props.id}
       isSelected={isSelected(item, selectedId)}
     >
       {item.text}
-    </Pickitem>
+    </XUIPickitem>
   );
 }
 
@@ -91,7 +91,7 @@ class ToggledDropdown extends Component {
     );
     const dropdown = (
       <XUIDropdown onSelect={this.onSelect}>
-        <Picklist>{createItems(toggledItems, this.state.selectedId)}</Picklist>
+        <XUIPicklist>{createItems(toggledItems, this.state.selectedId)}</XUIPicklist>
       </XUIDropdown>
     );
     return (
@@ -108,12 +108,12 @@ class ToggledDropdown extends Component {
 <ToggledDropdown />;
 ```
 
-### Multiselect `Picklist`
+### Multiselect picklist
 
 ```jsx harmony
 import { Component } from 'react';
 import XUIButton from '@xero/xui/react/button';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
 
 const items = [
@@ -158,9 +158,9 @@ class MultiselectExample extends Component {
     );
     const dropdown = (
       <XUIDropdown onSelect={this.onSelect}>
-        <Picklist>
+        <XUIPicklist>
           {items.map(item => (
-            <Pickitem
+            <XUIPickitem
               key={item.id}
               id={item.id}
               value={item.id}
@@ -168,9 +168,9 @@ class MultiselectExample extends Component {
               isMultiselect
             >
               {item.text} Option
-            </Pickitem>
+            </XUIPickitem>
           ))}
-        </Picklist>
+        </XUIPicklist>
       </XUIDropdown>
     );
     return <XUIDropdownToggled trigger={trigger} dropdown={dropdown} closeOnSelect={false} />;
@@ -186,7 +186,7 @@ class MultiselectExample extends Component {
 
 ## Complex examples
 
-Although using `XUIDropdown` with `Picklist` provides the default behaviour, the API is configurable enough to handle almost any content.
+Although using `XUIDropdown` with `XUIPicklist` provides the default behaviour, the API is configurable enough to handle almost any content.
 
 ### Dropdown with a date picker
 
@@ -294,7 +294,7 @@ import {
   decorateSubStr,
   XUIAutocompleterEmptyState
 } from '@xero/xui/react/autocompleter';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 const items = [
   'Apricot',
@@ -397,9 +397,9 @@ class InputTriggerExample extends Component {
       );
     } else {
       pickItems = visibleItems.map(item => (
-        <Pickitem key={item.id} id={item.id} value={item.id} isSelected={selectedId === item.id}>
+        <XUIPickitem key={item.id} id={item.id} value={item.id} isSelected={selectedId === item.id}>
           <span>{decorateSubStr(item.text, inputValue, boldMatch)}</span>
-        </Pickitem>
+        </XUIPickitem>
       ));
     }
 
@@ -410,7 +410,7 @@ class InputTriggerExample extends Component {
         restrictFocus={false}
         onSelect={this.onSelect}
       >
-        <Picklist>{pickItems}</Picklist>
+        <XUIPicklist>{pickItems}</XUIPicklist>
       </XUIDropdown>
     );
 
@@ -435,7 +435,7 @@ class InputTriggerExample extends Component {
 - `restrictFocus=false` -> `XUIDropdown`: Required to keep focus on the input while typing.
 - `onKeyDown=function` -> `XUITextInput`:
   - If `triggerClickAction="none"`, you should open the dropdown here by calling `XUIDropdownToggled.openDropdown`.
-  - `keydown` events should be passed down to `XUIDropdown.onKeyDown` to default `XUIDropdown` keyboard navigation such as closing on `esc`, `Picklist` navigation etc.
+  - `keydown` events should be passed down to `XUIDropdown.onKeyDown` to default `XUIDropdown` keyboard navigation such as closing on `esc`, `XUIPicklist` navigation etc.
 
 #### Validation with dropdown triggers
 

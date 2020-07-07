@@ -11,10 +11,10 @@ import { verticalOnlyProp } from './private/helpers';
  * list of items.
  *
  * @export
- * @class Pickitem
+ * @class XUIPickitem
  * @extends {PureComponent}
  */
-export default class Pickitem extends PureComponent {
+export default class XUIPickitem extends PureComponent {
   render() {
     const pickItem = this;
     const {
@@ -143,7 +143,7 @@ export default class Pickitem extends PureComponent {
   }
 }
 
-Pickitem.propTypes = {
+XUIPickitem.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   /** id must be unique and unchangeable  */
@@ -154,13 +154,13 @@ Pickitem.propTypes = {
   isHighlighted: PropTypes.bool,
   /** Is the item invalid? */
   isInvalid: PropTypes.bool,
-  /** Callback when the pick item is clicked. */
+  /** Callback when the pickitem is clicked. */
   onClick: PropTypes.func,
-  /** Callback on blur of the pick item */
+  /** Callback on blur of the pickitem */
   onBlur: PropTypes.func,
-  /** Callback on focus of the pick item */
+  /** Callback on focus of the pickitem */
   onFocus: PropTypes.func,
-  /** Callback on keydown of the pick item */
+  /** Callback on keydown of the pickitem */
   onKeyDown: PropTypes.func,
   /** Callback when this item is selected by a parent component */
   onSelect: PropTypes.func,
@@ -169,7 +169,7 @@ Pickitem.propTypes = {
   /** ARIA attribute defining what purpose this item serves. */
   ariaRole: PropTypes.string,
   /** The value associated with this PickItem which will be passed to the onSelect callbacks
-   * here and in the StatefulPicklist */
+   * here and in the stateful picklist */
   value: PropTypes.any,
   /** For nested children such as checkboxes, icons or groups selected styles should be disabled. */
   disableSelectedStyles: PropTypes.bool,
@@ -181,7 +181,7 @@ Pickitem.propTypes = {
     return verticalOnlyProp(PropTypes.bool, ...parameters);
   },
   /**
-   * Classes can be passed to the XUICheckbox component in PickItemBody.<br>
+   * Classes can be passed to the `XUICheckbox` component in `XUIPickitemBody`.<br>
    * ⚠️ *Vertical picklists only*
    */
   checkboxClassName(...parameters) {
@@ -192,7 +192,7 @@ Pickitem.propTypes = {
   /** The disabled behaviour and styles are applied when this is true. */
   isDisabled: PropTypes.bool,
   /**
-   * Whether or not this pickitem sits next to a NestedPicklistToggle.<br>
+   * Whether or not this pickitem sits next to a `XUINestedPicklistToggle`.<br>
    * ⚠️ *Vertical picklists only*
    */
   isSplit(...parameters) {
@@ -245,7 +245,7 @@ Pickitem.propTypes = {
   _isHorizontal: PropTypes.bool,
 };
 
-Pickitem.defaultProps = {
+XUIPickitem.defaultProps = {
   ariaRole: 'option',
   isSelected: false,
   disableSelectedStyles: false,
@@ -253,7 +253,7 @@ Pickitem.defaultProps = {
   isDisabled: false,
   /*
 	 DO NOT REMOVE
-	 This property is needed so that the StatefulPicklist will properly recognize this
+	 This property is needed so that the stateful picklist will properly recognize this
 	 component as a menu item.
 	 */
   _isMenuItem: true, // eslint-disable-line

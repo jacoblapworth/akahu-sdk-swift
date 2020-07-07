@@ -2,8 +2,8 @@ import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 // eslint-disable-next-line import/no-cycle
-import Picklist from '../picklist/Picklist';
-import StatefulPicklist from '../picklist/StatefulPicklist';
+import XUIPicklist from '../picklist/XUIPicklist';
+import XUIStatefulPicklist from '../picklist/XUIStatefulPicklist';
 import { baseClass, maxWidthDropdownSizes } from './private/constants';
 import {
   isVisible,
@@ -126,10 +126,10 @@ class XUIDropdownPanel extends PureComponent {
   };
 
   /**
-   * Get the ID of the currently highlighted item in the child StatefulPicklist (if applicable).
+   * Get the ID of the currently highlighted item in the child `XUIStatefulPicklist` (if applicable).
    *
    * @public
-   * @returns {String} null if nothing is highlighted or no child StatefulPicklist exists
+   * @returns {String} null if nothing is highlighted or no child `XUIStatefulPicklist` exists
    * @memberof XUIDropdownPanel
    */
   getHighlightedId() {
@@ -137,7 +137,7 @@ class XUIDropdownPanel extends PureComponent {
   }
 
   /**
-   * Selects the highlighted list item, in the child StatefulPicklist (if applicable).
+   * Selects the highlighted list item, in the child `XUIStatefulPicklist` (if applicable).
    *
    * @public
    * @memberof XUIDropdownPanel
@@ -148,7 +148,7 @@ class XUIDropdownPanel extends PureComponent {
   }
 
   /**
-   * Highlight a specific item in the child StatefulPicklist (if applicable).
+   * Highlight a specific item in the child `XUIStatefulPicklist` (if applicable).
    *
    * @public
    * @param {React.element} item
@@ -238,7 +238,7 @@ class XUIDropdownPanel extends PureComponent {
 
   containsPicklist() {
     const { children } = this.props;
-    const checkType = child => child && child.type === Picklist;
+    const checkType = child => child && child.type === XUIPicklist;
     return children != null && React.Children.map(children, checkType).some(Boolean);
   }
 
@@ -291,7 +291,7 @@ class XUIDropdownPanel extends PureComponent {
           {header}
           {shouldAddStatefulPicklist ? (
             <Fragment>
-              <StatefulPicklist
+              <XUIStatefulPicklist
                 className={scrollableContainerClasses}
                 ignoreKeyboardEvents={ignoreKeyboardEvents}
                 onHighlightChange={onHighlightChange}
@@ -309,7 +309,7 @@ class XUIDropdownPanel extends PureComponent {
                 >
                   {children}
                 </div>
-              </StatefulPicklist>
+              </XUIStatefulPicklist>
               {footer}
             </Fragment>
           ) : (
@@ -364,13 +364,13 @@ XUIDropdownPanel.propTypes = {
   /** Used by `XUINestedDropdown` to identify each panel. */
   panelId: PropTypes.string,
 
-  /** Force wrapping Panel children in a StatefulPicklist  */
+  /** Force wrapping Panel children in a `XUIStatefulPicklist` */
   forceStatefulPicklist: PropTypes.bool,
 
   /** Class name to apply to the body element */
   bodyClassName: PropTypes.string,
 
-  /** Whether the StatefulPicklist manages highlighting of list elements */
+  /** Whether the `XUIStatefulPicklist` manages highlighting of list elements */
   shouldManageInitialHighlight: PropTypes.bool,
 };
 

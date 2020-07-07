@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 // Components we need to test with
 import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
-import Picklist, { Pickitem } from '../../../picklist';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import XUIButton from '../../../button';
 import XUITextInput from '../../../textinput';
 import XUICheckbox, { XUICheckboxGroup } from '../../../checkbox';
@@ -149,7 +149,7 @@ test.add(storyNames.formLayout, () => {
       }
 
       const items = people.map(item => (
-        <Pickitem id={item.id} key={item.id} onSelect={() => this.selectPerson(item)}>
+        <XUIPickitem id={item.id} key={item.id} onSelect={() => this.selectPerson(item)}>
           <div className="xui-u-flex">
             <XUIAvatar imageUrl={item.avatar} value={item.name} />
             <div className="xui-u-grow xui-padding-left">
@@ -162,10 +162,10 @@ test.add(storyNames.formLayout, () => {
               </div>
             </div>
           </div>
-        </Pickitem>
+        </XUIPickitem>
       ));
 
-      return <Picklist>{items}</Picklist>;
+      return <XUIPicklist>{items}</XUIPicklist>;
     }
 
     render() {
@@ -239,18 +239,18 @@ test.add(storyNames.formLayout, () => {
                     <XUIDropdown
                       onSelect={value => this.setState({ ...this.state, foodType: value })}
                     >
-                      <Picklist>
+                      <XUIPicklist>
                         {['Vegetable', 'Fruit', 'Meat'].map((title, key) => (
-                          <Pickitem
+                          <XUIPickitem
                             id={`${inputMap.foodType}-${title}`}
                             isSelected={title === foodType}
                             key={key}
                             value={title}
                           >
                             {title}
-                          </Pickitem>
+                          </XUIPickitem>
                         ))}
-                      </Picklist>
+                      </XUIPicklist>
                     </XUIDropdown>
                   }
                   onOpen={() => {}}

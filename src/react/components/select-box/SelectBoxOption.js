@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Pickitem from '../picklist/Pickitem';
+import XUIPickitem from '../picklist/XUIPickitem';
 import { ns } from '../helpers/xuiClassNamespace';
 
 export default class SelectBoxOption extends PureComponent {
@@ -33,7 +33,7 @@ export default class SelectBoxOption extends PureComponent {
       children
     );
     return (
-      <Pickitem
+      <XUIPickitem
         {...{
           onClick,
           onSelect,
@@ -54,7 +54,7 @@ export default class SelectBoxOption extends PureComponent {
         isMultiselect={showCheckboxes}
       >
         {contents}
-      </Pickitem>
+      </XUIPickitem>
     );
   }
 }
@@ -85,13 +85,13 @@ SelectBoxOption.propTypes = {
   isSelected: PropTypes.bool,
   /** true if the item is highlighted */
   isHighlighted: PropTypes.bool,
-  /** callback when the pick item is clicked. */
+  /** callback when the pickitem is clicked. */
   onClick: PropTypes.func,
-  /** callback on blur of the pick item */
+  /** callback on blur of the pickitem */
   onBlur: PropTypes.func,
-  /** callback on focus of the pick item */
+  /** callback on focus of the pickitem */
   onFocus: PropTypes.func,
-  /** callback on keydown of the pick item */
+  /** callback on keydown of the pickitem */
   onKeyDown: PropTypes.func,
   /** callback for mouseover event */
   onMouseOver: PropTypes.func,
@@ -112,7 +112,7 @@ SelectBoxOption.defaultProps = {
   ariaRole: 'option',
   /*
 	 DO NOT REMOVE
-	 This property is needed so that the StatefulPicklist will properly recognize this
+	 This property is needed so that the stateful picklist will properly recognize this
 	 component as a menu item.
 	 */
   _isMenuItem: true, // eslint-disable-line

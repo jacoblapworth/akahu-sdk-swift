@@ -2,8 +2,8 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Picklist from '../Picklist';
-import Pickitem from '../Pickitem';
+import XUIPicklist from '../XUIPicklist';
+import XUIPickitem from '../XUIPickitem';
 import { v4 as uuidv4 } from 'uuid';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -13,9 +13,9 @@ uuidv4.mockImplementation(() => 'testPickitemCheckboxId');
 
 const setup = (props = {}, itemProps = {}) => {
   const expected = renderer.create(
-    <Picklist {...props}>
-      <Pickitem primaryElement="Item content" id="pi1" {...itemProps} />
-    </Picklist>,
+    <XUIPicklist {...props}>
+      <XUIPickitem primaryElement="Item content" id="pi1" {...itemProps} />
+    </XUIPicklist>,
   );
 
   return expected;
@@ -55,10 +55,10 @@ describe('< Picklist />', () => {
 
   it('example taking settings from first child and giving to all', () => {
     const fromItems = renderer.create(
-      <Picklist>
-        <Pickitem primaryElement="Item content" id="pi1" isMultiselect={true} />
-        <Pickitem primaryElement="Item two" id="pi2" />
-      </Picklist>,
+      <XUIPicklist>
+        <XUIPickitem primaryElement="Item content" id="pi1" isMultiselect={true} />
+        <XUIPickitem primaryElement="Item two" id="pi2" />
+      </XUIPicklist>,
     );
     expect(fromItems).toMatchSnapshot();
   });

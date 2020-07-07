@@ -14,7 +14,7 @@ import centered from '@storybook/addon-centered/react';
 
 import logReadyState from '../../../stories/helpers/log-ready-state';
 import { variations, storiesWithVariationsKindName } from './variations';
-import Pickitem from '../../picklist/Pickitem';
+import XUIPickitem from '../../picklist/XUIPickitem';
 import XUITag from '../../tag/XUITag';
 import noop from '../../helpers/noop';
 
@@ -57,9 +57,9 @@ const customStyles = `
 `;
 
 const createOverflowMenu = () => [
-  <Pickitem id="0" key="0" onClick={noop}>
+  <XUIPickitem id="0" key="0" onClick={noop}>
     Menu Option
-  </Pickitem>,
+  </XUIPickitem>,
 ];
 
 const Appendage = ({ children }) => <div style={appendageStyles}>{children}</div>;

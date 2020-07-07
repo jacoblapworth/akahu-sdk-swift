@@ -246,7 +246,7 @@ How to run the codemod:
 1. Install jscodeshift
 
 ```bash
-npm i -g jscodeshift@~0.5.0
+npm i -g jscodeshift@~0.10.0
 ```
 
 2. Run the codemod
@@ -272,7 +272,7 @@ jscodeshift -t node_modules/@xero/xui/codemod/<version> src/
 For example:
 
 ```bash
-jscodeshift -t ./node_modules/@xero/xui/codemod/index.js src/ --parser=flow --extensions=ts,tsx
+jscodeshift -t ./node_modules/@xero/xui/codemod/index.js src/ --parser=tsx --extensions=ts,tsx
 ```
 
 ## Contributing to XUI

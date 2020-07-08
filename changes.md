@@ -66,6 +66,8 @@ Following classes have been **removed** because left space isn't needed for alig
       - `repositionDropDown` → `repositionDropdown`
     - `XUISelectBox`
       - `isDropDownOpen` → `isDropdownOpen`
+- `XUIRolloverCheckbox`
+  - Changed the component’s filename and associated import paths to match the exported component name. The main XUI export file remains unchanged; so if you import from `@xero/xui/react/rollovercheckbox`, this will not affect you.
 - `XUIStepper`
   - Updated spacing to match other components and 4px grid
 - `XUIButton`, `XUISecondaryButton`, `XUISplitButtonGroup`

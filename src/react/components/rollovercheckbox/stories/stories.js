@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Components we need to test with
-import XUIRolloverCheckbox from '../rolloverCheckbox';
+import XUIRolloverCheckbox from '../XUIRolloverCheckbox';
 import XUIAvatar from '../../avatar/XUIAvatar';
 // Story book things
 import { storiesOf } from '@storybook/react';

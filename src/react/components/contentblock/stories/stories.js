@@ -10,7 +10,7 @@ import XUIPanel from '../../panel/XUIPanel';
 import XUIContentBlock from '../XUIContentBlock';
 import XUIContentBlockItem from '../XUIContentBlockItem';
 import XUICheckbox from '../../checkbox/XUICheckbox';
-import XUIRolloverCheckbox from '../../rolloverCheckbox/rolloverCheckbox';
+import XUIRolloverCheckbox from '../../rollovercheckbox/XUIRolloverCheckbox';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUITag from '../../tag/XUITag';
 

@@ -8,7 +8,7 @@ import XUIPickitem from './XUIPickitem';
 import { getPropsFromFirstChildOrList } from './private/helpers';
 import { userBreakpoints } from '../helpers/breakpoints';
 import XUINestedPicklistContainer from './XUINestedPicklistContainer';
-import SelectBoxOption from '../select-box/SelectBoxOption';
+import XUISelectBoxOption from '../selectbox/XUISelectBoxOption';
 // eslint-disable-next-line import/no-cycle
 import TabDropdown from './private/TabDropdown';
 
@@ -65,7 +65,7 @@ export default class XUIPicklist extends Component {
     const newChildren = React.Children.map(children, child =>
       child &&
       (child.type === XUIPickitem ||
-        child.type === SelectBoxOption ||
+        child.type === XUISelectBoxOption ||
         child.type === XUINestedPicklistContainer)
         ? React.cloneElement(child, {
             size: listLevelProps.listSize,

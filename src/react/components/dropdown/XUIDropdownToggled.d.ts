@@ -39,7 +39,7 @@ interface Props {
    */
   forceDesktop?: boolean;
   /**
-   * Whether to allow the dropdown to take the full width of the wrapper (as `SelectBox`) or wrap
+   * Whether to allow the dropdown to take the full width of the wrapper (as `XUISelectBox`) or wrap
    * with an inline block.
    *
    * Defaults to `false`.

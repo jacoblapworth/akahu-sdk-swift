@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import XUIPickitem from '../picklist/XUIPickitem';
 import { ns } from '../helpers/xuiClassNamespace';
 
-export default class SelectBoxOption extends PureComponent {
+export default class XUISelectBoxOption extends PureComponent {
   render() {
     const {
       children,
@@ -59,11 +59,11 @@ export default class SelectBoxOption extends PureComponent {
   }
 }
 
-SelectBoxOption.propTypes = {
+XUISelectBoxOption.propTypes = {
   children: PropTypes.node,
   id: PropTypes.string.isRequired,
 
-  /** Restrict SelectBoxOption children which are strings to one line */
+  /** Restrict `XUISelectBoxOption` children which are strings to one line */
   truncatedText: PropTypes.bool,
 
   /** Callback to be executed after a selection is made */
@@ -103,7 +103,7 @@ SelectBoxOption.propTypes = {
   qaHook: PropTypes.string,
 };
 
-SelectBoxOption.defaultProps = {
+XUISelectBoxOption.defaultProps = {
   isSelected: false,
   isHighlighted: false,
   showCheckboxes: false,

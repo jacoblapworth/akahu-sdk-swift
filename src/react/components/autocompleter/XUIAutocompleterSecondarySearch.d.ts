@@ -66,7 +66,7 @@ interface Props {
     | React.TextareaHTMLAttributes<HTMLTextAreaElement>
     | React.InputHTMLAttributes<HTMLInputElement>;
   /**
-   * Whether to allow the dropdown to take the full width of the wrapper (as SelectBox) or wrap with
+   * Whether to allow the dropdown to take the full width of the wrapper (as `XUISelectBox`) or wrap with
    * an inline block.
    */
   isBlock?: boolean;

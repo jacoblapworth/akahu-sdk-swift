@@ -8,7 +8,7 @@ import XUIButton from '../../../button';
 import XUICheckbox, { XUICheckboxGroup } from '../../../checkbox';
 import XUIRadio, { XUIRadioGroup } from '../../../radio';
 import XUISwitch from '../../../switch';
-import SelectBox, { SelectBoxOption } from '../../../select-box';
+import XUISelectBox, { XUISelectBoxOption } from '../../../selectbox';
 import { XUIRow, XUIColumn } from '../../../structural';
 
 // Private modules
@@ -177,7 +177,7 @@ test.add(storyNames.formOnAPage, () => {
               <XUIDropdownToggled dropdown={dropdown} trigger={trigger} />
             </XUIColumn>
             <XUIColumn gridColumns="half">
-              <SelectBox
+              <XUISelectBox
                 buttonContent="Hello world"
                 caretTitle="Toggle list"
                 isFieldLayout
@@ -185,13 +185,13 @@ test.add(storyNames.formOnAPage, () => {
                 label="A simple select box"
                 name="selectOne"
               >
-                <SelectBoxOption id="1" key={1} value="1">
+                <XUISelectBoxOption id="1" key={1} value="1">
                   It&apos;s a wonderful day
-                </SelectBoxOption>
-                <SelectBoxOption id="2" key={2} value="2">
+                </XUISelectBoxOption>
+                <XUISelectBoxOption id="2" key={2} value="2">
                   Today Yo!
-                </SelectBoxOption>
-              </SelectBox>
+                </XUISelectBoxOption>
+              </XUISelectBox>
             </XUIColumn>
           </XUIColumn>
         </XUIRow>

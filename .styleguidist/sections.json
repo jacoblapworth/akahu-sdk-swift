@@ -112,16 +112,16 @@
             "content": "../src/react/range.md"
           },
           {
-            "name": "Select-box",
-            "content": "../src/react/select-box.md",
+            "name": "Select Box",
+            "content": "../src/react/selectbox.md",
             "sections": [
               {
-                "components": "../src/react/components/select-box/SelectBox.js"
+                "components": "../src/react/components/selectbox/XUISelectBox.js"
               },
               {
                 "name": "Select Box Option",
-                "components": "../src/react/components/select-box/SelectBoxOption.js",
-                "content": "../src/react/components/select-box/selectbox.option.md"
+                "components": "../src/react/components/selectbox/XUISelectBoxOption.js",
+                "content": "../src/react/components/selectbox/selectbox.option.md"
               }
             ]
           },

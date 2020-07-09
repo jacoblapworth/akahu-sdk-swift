@@ -172,6 +172,16 @@ module.exports = {
       newName: 'XUIStatefulPicklist',
     },
   ],
+  selectbox: [
+    {
+      name: 'SelectBox',
+      newName: 'XUISelectBox',
+    },
+    {
+      name: 'SelectBoxOption',
+      newName: 'XUISelectBoxOption',
+    },
+  ],
   table: [
     {
       name: 'XUITable',

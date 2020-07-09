@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SelectBoxOption from '../SelectBoxOption';
+import XUISelectBoxOption from '../XUISelectBoxOption';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
@@ -9,9 +9,9 @@ import { v4 as uuidv4 } from 'uuid';
 Enzyme.configure({ adapter: new Adapter() });
 
 const createComponent = props => (
-  <SelectBoxOption id="1" value="A sample option" label="test" {...props}>
+  <XUISelectBoxOption id="1" value="A sample option" label="test" {...props}>
     {(props && props.children) || '.'}
-  </SelectBoxOption>
+  </XUISelectBoxOption>
 );
 createComponent.propTypes = {
   children: PropTypes.node,
@@ -20,7 +20,7 @@ createComponent.propTypes = {
 jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testCheckboxId');
 
-describe('<SelectBoxOption />', () => {
+describe('<XUISelectBoxOption />', () => {
   it('should render an automaion id when provided with a qaHook', () => {
     const automationid = renderer.create(
       createComponent({ qaHook: 'test-sbo', children: 'Child' }),

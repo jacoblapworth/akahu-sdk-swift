@@ -35,7 +35,7 @@ function compareValuesByLength(a: string, b: string): number {
 }
 
 /**
- * If the SelectBox has multiple selections, determine the appropriate string to display
+ * If the select box has multiple selections, determine the appropriate string to display
  *
  * @private
  * @param  {String[]} values

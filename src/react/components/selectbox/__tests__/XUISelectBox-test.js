@@ -1,6 +1,6 @@
 import React from 'react';
-import SelectBox from '../SelectBox';
-import SelectBoxOption from '../SelectBoxOption';
+import XUISelectBox from '../XUISelectBox';
+import XUISelectBoxOption from '../XUISelectBoxOption';
 import { then } from './helpers';
 import Enzyme, { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
@@ -13,14 +13,14 @@ uuidv4.mockImplementation(() => 'testSelectBoxId');
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('SelectBox', function () {
+describe('<XUISelectBox />', function () {
   const options = ['Santa Cruz', 'Transition', 'Lapierre', 'Surly', 'Kona'];
   let select;
   let wasSelected = false;
 
   beforeEach(function () {
     select = mount(
-      <SelectBox
+      <XUISelectBox
         label="Test Select Box"
         value={options[0]}
         name="Test"
@@ -31,7 +31,7 @@ describe('SelectBox', function () {
       >
         {options.map((opt, idx) => {
           return (
-            <SelectBoxOption
+            <XUISelectBoxOption
               id={opt}
               key={opt + idx}
               selected={opt === options[0]}
@@ -43,10 +43,10 @@ describe('SelectBox', function () {
               truncatedText={true}
             >
               {opt}
-            </SelectBoxOption>
+            </XUISelectBoxOption>
           );
         })}
-      </SelectBox>,
+      </XUISelectBox>,
     );
   });
 
@@ -63,7 +63,7 @@ describe('SelectBox', function () {
 
   it('should not open the dropdown on click of the button when it does not have children', function () {
     select = mount(
-      <SelectBox
+      <XUISelectBox
         value="Test"
         label="Does not have children"
         name="Test"
@@ -81,7 +81,7 @@ describe('SelectBox', function () {
 
   it('should not open the dropdown on click if the control is disabled', function () {
     select = mount(
-      <SelectBox
+      <XUISelectBox
         label="test"
         buttonContent="test"
         buttonClasses="blah"
@@ -90,10 +90,10 @@ describe('SelectBox', function () {
         isDisabled
         caretTitle="Toggle list"
       >
-        <SelectBoxOption id="1" value="A sample option" label="test">
+        <XUISelectBoxOption id="1" value="A sample option" label="test">
           A sample option
-        </SelectBoxOption>
-      </SelectBox>,
+        </XUISelectBoxOption>
+      </XUISelectBox>,
     );
 
     select.find('button.blah').first().simulate('click');
@@ -118,7 +118,7 @@ describe('SelectBox', function () {
 
   it("should render the appropriate automation id's when a qaHook is provided", () => {
     const select = renderer.create(
-      <SelectBox
+      <XUISelectBox
         qaHook="test-selectbox"
         label="test"
         buttonContent="test"
@@ -126,10 +126,15 @@ describe('SelectBox', function () {
         forceDesktop
         caretTitle="Toggle list"
       >
-        <SelectBoxOption id="1" value="A sample option" label="test" qaHook="test-selectboxoption">
+        <XUISelectBoxOption
+          id="1"
+          value="A sample option"
+          label="test"
+          qaHook="test-selectboxoption"
+        >
           A sample option
-        </SelectBoxOption>
-      </SelectBox>,
+        </XUISelectBoxOption>
+      </XUISelectBox>,
     );
 
     expect(select).toMatchSnapshot();
@@ -137,11 +142,17 @@ describe('SelectBox', function () {
 
   it('should render the trigger in a disabled state if `isDisabled` is set', () => {
     const select = renderer.create(
-      <SelectBox label="test" buttonContent="test" forceDesktop isDisabled caretTitle="Toggle list">
-        <SelectBoxOption id="1" value="A sample option" label="test">
+      <XUISelectBox
+        label="test"
+        buttonContent="test"
+        forceDesktop
+        isDisabled
+        caretTitle="Toggle list"
+      >
+        <XUISelectBoxOption id="1" value="A sample option" label="test">
           A sample option
-        </SelectBoxOption>
-      </SelectBox>,
+        </XUISelectBoxOption>
+      </XUISelectBox>,
     );
 
     expect(select).toMatchSnapshot();

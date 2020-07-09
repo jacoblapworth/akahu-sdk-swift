@@ -119,7 +119,7 @@ We have a [styleguide for writting TypeScript](TypeScript-style-guide.md).
 
 ### Conventions
 
-We have some naming/file structure conventions around test files. All test files should have a name that ends with `-test.js`. Second, they should be included in a `__tests__` folder inside the component's folder. e.g. unit tests for the SelectBox component live at `src/react/components/select-box/__tests__/SelectBox-test.js`.
+We have some naming/file structure conventions around test files. All test files should have a name that ends with `-test.js`. Second, they should be included in a `__tests__` folder inside the component's folder. e.g. unit tests for the select box component live at `src/react/components/selectbox/__tests__/XUISelectBox-test.js`.
 
 When adding new unit test files, you should follow this convention to prevent side effects e.g. tests might end up being deployed to Artifactory or just not run.
 

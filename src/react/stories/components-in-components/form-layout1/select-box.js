@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components we need to test with
-import SelectBox, { SelectBoxOption } from '../../../select-box';
+import XUISelectBox, { XUISelectBoxOption } from '../../../selectbox';
 import XUIIcon from '../../../icon';
 
 const bank = require('@xero/xui-icon/icons/bank').default;
@@ -33,7 +33,7 @@ export default class LayoutSelect extends React.Component {
 
     return (
       <div className={className}>
-        <SelectBox
+        <XUISelectBox
           buttonContent={
             <span className="xui-u-flex">
               <XUIIcon className="xui-margin-right-xsmall" icon={bank} />
@@ -50,7 +50,7 @@ export default class LayoutSelect extends React.Component {
         >
           {children &&
             children.map((opt, idx) => (
-              <SelectBoxOption
+              <XUISelectBoxOption
                 id={opt}
                 isSelected={opt === selectedItem && selectedItem !== ''}
                 // eslint-disable-next-line prefer-template
@@ -59,9 +59,9 @@ export default class LayoutSelect extends React.Component {
                 value={opt}
               >
                 {opt}
-              </SelectBoxOption>
+              </XUISelectBoxOption>
             ))}
-        </SelectBox>
+        </XUISelectBox>
         <input
           hidden
           id={selectedItem}

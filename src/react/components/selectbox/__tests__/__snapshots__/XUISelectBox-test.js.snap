@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SelectBox should render the appropriate automation id's when a qaHook is provided 1`] = `
+exports[`<XUISelectBox /> should render the appropriate automation id's when a qaHook is provided 1`] = `
 <div
   data-automationid="test-selectbox"
 >
@@ -65,7 +65,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
 </div>
 `;
 
-exports[`SelectBox should render the trigger in a disabled state if \`isDisabled\` is set 1`] = `
+exports[`<XUISelectBox /> should render the trigger in a disabled state if \`isDisabled\` is set 1`] = `
 <div>
   <div
     className=""

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { XUIPanel } from '../../../panel';
 import { XUIIconButton } from '../../../button';
 import XUITextInput, { XUITextInputSideElement } from '../../../textinput';
-import XUISelect from '../../../select-box';
+import XUISelect from '../../../selectbox';
 import XUIIcon from '../../../icon';
 import calendar from '@xero/xui-icon/icons/date-start';
 import caret from '@xero/xui-icon/icons/caret';

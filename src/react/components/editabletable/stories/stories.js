@@ -20,7 +20,7 @@ import { EditableTableUserTest, sandwichData } from './user-tests';
 class EditableTablePlayground extends React.Component {
   render() {
     const {
-      caption,
+      ariaLabel,
       cellType,
       columns,
       columnWidths,
@@ -39,11 +39,31 @@ class EditableTablePlayground extends React.Component {
     const colWidths = columnWidths && columnWidths.split(/[\s,]/g);
     return (
       <XUIEditableTable
-        caption={caption}
+        ariaLabel={ariaLabel}
         columnWidths={colWidths}
+        dndDragCancelledMessage={startPosition =>
+          `Movement cancelled. The item has returned to its starting position of ${startPosition}.`
+        }
+        dndDragOutsideMessage={() => 'You are currently not dragging over a droppable area.'}
+        dndDragStartMessage={startPosition =>
+          `You have lifted an item in position ${startPosition}.`
+        }
+        dndDragUpdateMessage={(startPosition, endPosition) =>
+          `You have moved the item from position ${startPosition} to position ${endPosition}.`
+        }
+        dndDropFailedMessage={startPosition =>
+          `The item has been dropped while not over a droppable area. The item has returned to its starting position of ${startPosition}.`
+        }
+        dndDropMessage={(startPosition, endPosition) =>
+          `You have dropped the item. It has moved from position ${startPosition} to ${endPosition}.`
+        }
+        dndInstructions="Press space bar to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or forms mode."
         isInvalid={invalidSecondColumn}
         maxWidth={maxWidth}
         minWidth={minWidth}
+        onReorderRow={(startIndex, destinationIndex) =>
+          console.log(`Row dragged from index ${startIndex} to ${destinationIndex}`)
+        }
         rowOptions={rowOptions}
         validationMessage={tableValidationMessage}
       >
@@ -58,7 +78,11 @@ class EditableTablePlayground extends React.Component {
         )}
         <XUIEditableTableBody>
           {Array.from(Array(rows).keys()).map((item, rowIndex) => (
-            <XUIEditableTableRow key={rowIndex} onRemove={() => console.log('remove me')}>
+            <XUIEditableTableRow
+              index={rowIndex}
+              key={rowIndex}
+              onRemove={() => console.log('remove me')}
+            >
               {Array.from(Array(columns).keys()).map((item, columnIndex) => {
                 const isDisabled = disableSecondRow && rowIndex === 1;
                 const isInvalid = invalidSecondColumn && columnIndex === 1;
@@ -86,7 +110,7 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <EditableTablePlayground
-    caption={text('caption', '')}
+    ariaLabel={text('Aria label', '')}
     cellsValidationMessage={text('Cells validationMessage', 'Example validation message')}
     cellType={select(
       'Cell type',
@@ -110,8 +134,10 @@ storiesWithKnobs.add('Playground', () => (
     minWidth={text('Min width', '300px')}
     randomiseContent={boolean('Various assorted strings as content?', false)}
     rowOptions={{
+      isDraggable: boolean('Show drag handle?', true),
       isRemovable: boolean('Show remove button?', true),
       removeButtonAriaLabel: 'Remove row',
+      dragButtonAriaLabel: 'Reorder row',
     }}
     rows={number('Rows', 3)}
     tableValidationMessage={text(
@@ -147,7 +173,11 @@ variations.forEach(variation => {
         )}
         <XUIEditableTableBody>
           {Array.from(Array(rows).keys()).map((item, index) => (
-            <XUIEditableTableRow key={index} onRemove={() => console.log('remove me')}>
+            <XUIEditableTableRow
+              index={index}
+              key={index}
+              onRemove={() => console.log('remove me')}
+            >
               {Array.from(Array(columns).keys()).map((item, index) => {
                 return (
                   <XUIEditableTableCellReadOnly id={index} key={index}>

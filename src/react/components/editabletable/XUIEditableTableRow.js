@@ -1,48 +1,108 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import dragIcon from '@xero/xui-icon/icons/drag';
 import trashIcon from '@xero/xui-icon/icons/trash';
 
 import { tableName } from './private/constants';
-import XUIEditableTableHeadingCell from './XUIEditableTableHeadingCell';
+import Draggable from './private/DragAndDrop/Draggable';
 import XUIEditableTableCellIconButton from './XUIEditableTableCellIconButton';
 import XUIEditableTableContext from './contexts/XUIEditableTableContext';
 import XUIEditableTableHeadContext from './contexts/XUIEditableTableHeadContext';
+import EditableTableHeadRow from './private/EditableTableHeadRow';
 
-const baseName = `${tableName}row`;
+export const baseName = `${tableName}row`;
 
-// TODO: Replace this with $xui-control-size-standard when SASS tokens can be shared with React
-const xuiControlSizeStandard = '40px';
-
-const XUIEditableTableRow = ({ children, className, onRemove, qaHook, ...spreadProps }) => {
-  const isHeaderRow = React.useContext(XUIEditableTableHeadContext);
+const XUIEditableTableRow = ({
+  children,
+  className,
+  index,
+  onRemove,
+  qaHook,
+  style,
+  ...spreadProps
+}) => {
   const {
-    rowOptions: { isRemovable, removeButtonAriaLabel },
+    dragAndDrop: { dragHandleDescribedBy },
+    rowOptions: { dragButtonAriaLabel, isDraggable, isRemovable, removeButtonAriaLabel },
   } = React.useContext(XUIEditableTableContext);
 
+  const isHeaderRow = React.useContext(XUIEditableTableHeadContext);
+
+  if (isHeaderRow) {
+    return (
+      <EditableTableHeadRow
+        className={cn(baseName, className)}
+        qaHook={qaHook}
+        style={style}
+        {...spreadProps}
+      >
+        {children}
+      </EditableTableHeadRow>
+    );
+  }
+
   return (
-    <tr className={cn(baseName, className)} data-automationid={qaHook} {...spreadProps}>
-      {children}
-      {isRemovable && isHeaderRow && (
-        <XUIEditableTableHeadingCell style={{ width: xuiControlSizeStandard }} />
+    <Draggable disableInteractiveElementBlocking index={index} useDraggable={isDraggable}>
+      {(provided, snapshot) => (
+        <tr
+          className={cn(
+            baseName,
+            className,
+            snapshot?.isDragging && !snapshot?.isDropAnimating && `${baseName}-dragging`,
+          )}
+          data-automationid={qaHook}
+          ref={provided?.innerRef}
+          {...spreadProps}
+          {...provided?.draggableProps}
+          style={{
+            ...style,
+            ...provided?.draggableProps?.style,
+          }}
+        >
+          {isDraggable && (
+            <XUIEditableTableCellIconButton
+              aria-describedby={dragHandleDescribedBy}
+              ariaLabel={dragButtonAriaLabel}
+              cellProps={{
+                ...provided?.dragHandleProps,
+                tabIndex: -1,
+                qaHook: qaHook && `${qaHook}--cell-drag`,
+              }}
+              className={`${baseName}--draghandle`}
+              iconReference={dragIcon}
+              onMouseDown={event => event.currentTarget.focus()}
+              qaHook={qaHook && `${qaHook}--button-drag`}
+            />
+          )}
+          {children}
+          {isRemovable && (
+            <XUIEditableTableCellIconButton
+              ariaLabel={removeButtonAriaLabel}
+              iconReference={trashIcon}
+              onClick={onRemove}
+              qaHook={qaHook && `${qaHook}--button-remove`}
+            />
+          )}
+        </tr>
       )}
-      {isRemovable && !isHeaderRow && (
-        <XUIEditableTableCellIconButton
-          ariaLabel={removeButtonAriaLabel}
-          iconReference={trashIcon}
-          onClick={onRemove}
-          qaHook={`${qaHook}--button-remove`}
-        />
-      )}
-    </tr>
+    </Draggable>
   );
 };
 
 XUIEditableTableRow.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
   className: PropTypes.string,
+  /**
+   * The index of the row in the list. This will typically be the `index`
+   * provided by `Array.prototype.map`.
+   *
+   * ⚠️ *Required for draggable rows*
+   */
+  index: PropTypes.number,
   onRemove: PropTypes.func,
   qaHook: PropTypes.string,
+  style: PropTypes.object,
 };
 
 export default XUIEditableTableRow;

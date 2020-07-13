@@ -10,7 +10,7 @@ import { Portal } from 'react-portal';
 import { v4 as uuid } from 'uuid';
 
 import XUIEditableTableContext from '../../contexts/XUIEditableTableContext';
-import { xuiControlSizeStandard } from '../constants';
+import EditableTableColGroup from '../EditableTableColGroup';
 import DragDropDraggingContext from './contexts/DragDropDraggingContext';
 import DroppableContext from './contexts/DroppableContext';
 import addOffsetToTransform from './helpers/addOffsetToTransform';
@@ -60,7 +60,9 @@ const Draggable: React.FunctionComponent<Props> = ({
 
   const { draggedRowHeight, draggedRowIndex } = React.useContext(DragDropDraggingContext);
   const { isDraggingOver } = React.useContext(DroppableContext);
-  const { columnWidths, rowOptions, tableRef } = React.useContext(XUIEditableTableContext);
+  const { columnWidths, rowOptions, tableRef, tableWrapperRef } = React.useContext(
+    XUIEditableTableContext,
+  );
 
   if (!useDraggable || typeof index !== 'number') {
     return children();
@@ -91,6 +93,9 @@ const Draggable: React.FunctionComponent<Props> = ({
         const transform = addOffsetToTransform(providedTransform, snapshot.isDragging);
 
         if (!snapshot.isDragging) {
+          const supportsTransform =
+            window && 'CSS' in window && CSS.supports('transform', 'translate(0px, 0px)');
+
           return children(
             {
               ...provided,
@@ -98,8 +103,18 @@ const Draggable: React.FunctionComponent<Props> = ({
                 ...provided.draggableProps,
                 style: {
                   ...provided.draggableProps.style,
-                  pointerEvents: isDraggingOver ? 'none' : undefined,
+                  pointerEvents: draggedRowIndex === undefined ? undefined : 'none',
                   transform,
+                  /**
+                   * IE 11 does not transform table rows. The properties below can be removed once
+                   * we stop supporting IE 11.
+                   */
+                  display:
+                    !supportsTransform && transform && transform !== 'none' ? 'table' : undefined,
+                  width:
+                    !supportsTransform && transform && transform !== 'none'
+                      ? `${tableRef?.current?.querySelector('tr')?.offsetWidth - 2}px`
+                      : undefined,
                 },
               },
             },
@@ -120,7 +135,7 @@ const Draggable: React.FunctionComponent<Props> = ({
           .filter(
             (_, columnIndex) =>
               !(
-                (rowOptions.isSortable && columnIndex === 0) ||
+                (rowOptions.isDraggable && columnIndex === 0) ||
                 (rowOptions.isRemovable && columnIndex === columns.length - 1)
               ),
           )
@@ -131,11 +146,13 @@ const Draggable: React.FunctionComponent<Props> = ({
           : columnWidths;
 
         return (
-          <Portal>
+          <Portal node={tableWrapperRef.current}>
             <table
               {...provided.draggableProps}
               style={{
                 ...provided.draggableProps.style,
+                cursor: 'grabbing',
+                pointerEvents: undefined,
                 transform,
                 // Copy the styling of XUIEditableTable
                 background: 'white',
@@ -144,21 +161,14 @@ const Draggable: React.FunctionComponent<Props> = ({
                 tableLayout: 'fixed',
               }}
             >
-              {!!columnWidthsToUse?.length && (
-                <colgroup>
-                  {rowOptions.isSortable && <col style={{ width: xuiControlSizeStandard }} />}
-                  {columnWidthsToUse.map((width, i) => (
-                    <col key={String(i)} style={{ width }} />
-                  ))}
-                  {rowOptions.isRemovable && <col style={{ width: xuiControlSizeStandard }} />}
-                </colgroup>
-              )}
+              <EditableTableColGroup columnWidths={columnWidthsToUse} />
               <tbody>
                 {children(
                   {
                     ...provided,
                     draggableProps: {
                       style: {
+                        pointerEvents: 'none',
                         transition: provided.draggableProps.style?.transition,
                       },
                     },

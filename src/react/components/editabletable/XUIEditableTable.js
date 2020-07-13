@@ -1,21 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
+import invalid from '@xero/xui-icon/icons/invalid';
 
 import { tableName } from './private/constants';
-import XUIEditableTableContext from './contexts/XUIEditableTableContext';
+import EditableTableColGroup from './private/EditableTableColGroup';
+import EditableTableWrapper from './private/EditableTableWrapper';
+import conditionallyRequiredValidator from '../helpers/conditionallyRequiredValidator';
 import XUIIcon from '../icon/XUIIcon';
-import invalid from '@xero/xui-icon/icons/invalid';
 import generateIds from '../controlwrapper/helpers';
 
 const XUIEditableTable = ({
-  caption,
+  ariaLabel,
   children,
   className,
   columnWidths = [],
+  dndDragCancelledMessage,
+  dndDragOutsideMessage,
+  dndDragStartMessage,
+  dndDragUpdateMessage,
+  dndDropFailedMessage,
+  dndDropMessage,
+  dndInstructions = '',
   isInvalid,
   maxWidth,
   minWidth,
+  onReorderRow,
   qaHook,
   rowOptions,
   style,
@@ -23,54 +32,49 @@ const XUIEditableTable = ({
   ...spreadProps
 }) => {
   const tableRef = React.useRef();
-  const wrapperStyle =
-    // If we omit this check, wrapperStyle is always a non-empty object, and passes extraneous (but harmless) props.
-    // This is for tidiness purposes only.
-    maxWidth || minWidth
-      ? {
-          maxWidth,
-          minWidth,
-          ...style,
-        }
-      : style;
+
   const wrapperIds = generateIds(spreadProps.id);
 
   return (
-    <div className={cn(`${tableName}--wrapper`, className)}>
-      <div
-        className={cn(tableName, isInvalid && `${tableName}-is-invalid`)}
-        ref={tableRef}
-        style={wrapperStyle}
+    <React.Fragment>
+      <EditableTableWrapper
+        className={className}
+        columnWidths={columnWidths}
+        dndDragCancelledMessage={dndDragCancelledMessage}
+        dndDragOutsideMessage={dndDragOutsideMessage}
+        dndDragStartMessage={dndDragStartMessage}
+        dndDragUpdateMessage={dndDragUpdateMessage}
+        dndDropFailedMessage={dndDropFailedMessage}
+        dndDropMessage={dndDropMessage}
+        dndInstructions={dndInstructions}
+        isInvalid={isInvalid}
+        maxWidth={maxWidth}
+        minWidth={minWidth}
+        onReorderRow={onReorderRow}
+        rowOptions={rowOptions}
+        tableRef={tableRef}
+        validationMessage={validationMessage}
       >
         <table
           {...spreadProps}
           aria-describedby={isInvalid && validationMessage ? wrapperIds.message : undefined}
           aria-invalid={isInvalid}
-          className={`${tableName}--table`}
+          aria-label={ariaLabel}
+          className={tableName}
           data-automationid={qaHook}
+          ref={tableRef}
         >
-          {caption && <caption className={`${tableName}--caption`}>{caption}</caption>}
-          {!!columnWidths.length && (
-            <colgroup>
-              {columnWidths.map(item => (
-                <col style={{ width: item }} />
-              ))}
-              {rowOptions.isRemovable && <col style={{ width: '40px' }} />}
-              {/* 40px is $xui-control-size-standard */}
-            </colgroup>
-          )}
-          <XUIEditableTableContext.Provider value={{ rowOptions: { ...rowOptions }, tableRef }}>
-            {children}
-          </XUIEditableTableContext.Provider>
+          <EditableTableColGroup columnWidths={columnWidths} />
+          {children}
         </table>
-      </div>
+      </EditableTableWrapper>
       {isInvalid && validationMessage && (
         <div className={`${tableName}--validation`} id={wrapperIds.message}>
           <XUIIcon icon={invalid} />
           {validationMessage}
         </div>
       )}
-    </div>
+    </React.Fragment>
   );
 };
 
@@ -79,32 +83,37 @@ XUIEditableTable.propTypes = {
    * A non-visible description of the table for accessibility purposes. Particularly useful
    * for scrollable tables, to help screenreaders understand the scrollable element.
    */
-  caption: PropTypes.string,
+  ariaLabel: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
   className: PropTypes.string,
   qaHook: PropTypes.string,
   rowOptions: PropTypes.shape({
+    isDraggable: PropTypes.bool,
     isRemovable: PropTypes.bool,
+    /**
+     * Adds an aria-label to the drag button.
+     * <br />
+     * Recommended English value: *Drag handle*
+     */
+    dragButtonAriaLabel(props, propName, componentName) {
+      return conditionallyRequiredValidator(
+        props,
+        propName,
+        componentName,
+        props.isDraggable,
+        'rowOptions.isDraggable',
+        'string',
+      );
+    },
     removeButtonAriaLabel(props, propName, componentName) {
-      if (!props.isRemovable) {
-        return null;
-      }
-
-      if (!props[propName]) {
-        return new Error(
-          `The prop \`rowOptions.${propName}\` is required by \`${componentName}\` when using \`rowOptions.isRemovable\`, but its value is \`undefined\`.`,
-        );
-      }
-
-      if (typeof props[propName] !== 'string') {
-        return new Error(
-          `Invalid prop \`${propName}\` of type \`${typeof props[
-            propName
-          ]}\` supplied to \`${componentName}\`, expected \`string\`.`,
-        );
-      }
-
-      return null;
+      return conditionallyRequiredValidator(
+        props,
+        propName,
+        componentName,
+        props.isRemovable,
+        'rowOptions.isRemovable',
+        'string',
+      );
     },
   }),
   columnWidths: PropTypes.arrayOf(PropTypes.string),
@@ -114,6 +123,152 @@ XUIEditableTable.propTypes = {
   isInvalid: PropTypes.bool,
   maxWidth: PropTypes.string,
   minWidth: PropTypes.string,
+  /**
+   * The `onReorderRow` callback must result in the synchronous reordering of rows in the source
+   * data, such as through `setState()`.
+   *
+   * To enable this, `onReorderRow` gets called with 2 parameters: `startIndex` and
+   * `destinationIndex`.
+   *
+   * @param {number} startIndex The index the row was picked up from.
+   * @param {number} destinationIndex The index the row was dropped into.
+   */
+  onReorderRow(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'function',
+    );
+  },
+  /**
+   * A function used to determine the message read by screen readers when the user cancels dragging.
+   *
+   * Recommended English return value:
+   * <br />
+   * *Movement cancelled. The item has returned to its starting position of ${startPosition}.*
+   */
+  dndDragCancelledMessage(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'function',
+    );
+  },
+  /**
+   * A function used to determine the message read by screen readers when the user drags a row
+   * outside of the table.
+   *
+   * Recommended English return value:
+   * <br />
+   * *You are currently not dragging over a droppable area.*
+   */
+  dndDragOutsideMessage(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'function',
+    );
+  },
+  /**
+   * A function used to determine the message read by screen readers when the user starts dragging a
+   * row.
+   *
+   * Recommended English return value:
+   * <br />
+   * *You have lifted an item in position ${startPosition}.*
+   */
+  dndDragStartMessage(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'function',
+    );
+  },
+  /**
+   * A function used to determine the message read by screen readers when the user drags a row to a
+   * new position.
+   *
+   * Recommended English return value:
+   * <br />
+   * *You have moved the item from position ${startPosition} to position ${endPosition}.*
+   */
+  dndDragUpdateMessage(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'function',
+    );
+  },
+  /**
+   * A function used to determine the message read by screen readers when the user drops a row
+   * outside of the table.
+   *
+   * Recommended English return value:
+   * <br />
+   * *The item has been dropped while not over a droppable area. The item has returned to its
+   * position of ${startPosition}.*
+   */
+  dndDropFailedMessage(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'function',
+    );
+  },
+  /**
+   * A function used to determine the message read by screen readers when the user drops a row in a
+   * new position.
+   *
+   * Recommended English return value:
+   * <br />
+   * *You have dropped the item. It has moved from position ${startPosition} to ${endPosition}.*
+   */
+  dndDropMessage(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'function',
+    );
+  },
+  /**
+   * The message to be read by screen readers when the user focuses on the drag handle.
+   *
+   * Recommended English value:
+   * <br />
+   * *Press space bar to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or forms mode.*
+   */
+  dndInstructions(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'string',
+    );
+  },
+
   style: PropTypes.object,
   /**
    * Validation message to show under the table if `isInvalid` is true.

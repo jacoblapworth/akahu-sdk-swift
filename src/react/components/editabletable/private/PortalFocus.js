@@ -7,7 +7,7 @@ import useResizeObserver from '../../helpers/useResizeObserver';
 
 const baseName = `${tableName}--portalfocus`;
 
-const PortalFocus = ({ cellRef, isFocused, tableRef }) => {
+const PortalFocus = ({ cellRef, isFocused, scrollContainerRef }) => {
   const [showPortal, setShowPortal] = useState(undefined);
   const [portalStyle, setPortalStyle] = useState({});
   const [cellCovered, setCellCovered] = useState(undefined);
@@ -15,26 +15,26 @@ const PortalFocus = ({ cellRef, isFocused, tableRef }) => {
 
   useLayoutEffect(() => {
     const getPortalPosition = () => {
-      const tableRect = tableRef?.current?.getBoundingClientRect();
+      const scrollContainerRect = scrollContainerRef?.current?.getBoundingClientRect();
       const cellRect = cellRef?.current?.getBoundingClientRect();
-      if (!tableRect || !cellRect) {
+      if (!scrollContainerRect || !cellRect) {
         return;
       }
       let portalWidth = cellRect.width;
-      let leftPosition = cellRect.left - tableRect.left;
-      const rightCovered = cellRect.right >= tableRect.right;
-      const leftCovered = cellRect.left <= tableRect.left;
+      let leftPosition = cellRect.left - scrollContainerRect.left;
+      const rightCovered = cellRect.right >= scrollContainerRect.right;
+      const leftCovered = cellRect.left <= scrollContainerRect.left;
 
       if (rightCovered && leftCovered) {
         setCellCovered('horizontal');
-        portalWidth = tableRect.width - 2;
+        portalWidth = scrollContainerRect.width - 2;
         leftPosition = 1;
       } else if (rightCovered) {
         setCellCovered('right');
-        portalWidth = tableRect.width + tableRect.left - cellRect.left - 1;
+        portalWidth = scrollContainerRect.width + scrollContainerRect.left - cellRect.left - 1;
       } else if (leftCovered) {
         setCellCovered('left');
-        portalWidth = tableRect.width + cellRect.right - tableRect.right - 1;
+        portalWidth = scrollContainerRect.width + cellRect.right - scrollContainerRect.right - 1;
         leftPosition = 1;
       } else {
         setCellCovered(false);
@@ -43,7 +43,7 @@ const PortalFocus = ({ cellRef, isFocused, tableRef }) => {
       setShowPortal(portalWidth > 0);
       setPortalStyle({
         left: leftPosition,
-        top: cellRect.top - tableRect.top,
+        top: cellRect.top - scrollContainerRect.top,
         width: portalWidth,
         height: cellRect.height,
       });
@@ -51,13 +51,13 @@ const PortalFocus = ({ cellRef, isFocused, tableRef }) => {
     if (isFocused) {
       getPortalPosition();
       handleSizeChange(getPortalPosition);
-      tableRef?.current?.addEventListener('scroll', getPortalPosition);
+      scrollContainerRef?.current?.addEventListener('scroll', getPortalPosition);
     }
-    return () => tableRef?.current?.removeEventListener('scroll', getPortalPosition);
-  }, [cellRef, handleSizeChange, isFocused, tableRef]);
+    return () => scrollContainerRef?.current?.removeEventListener('scroll', getPortalPosition);
+  }, [cellRef, handleSizeChange, isFocused, scrollContainerRef]);
 
   return showPortal ? (
-    <Portal node={tableRef?.current}>
+    <Portal node={scrollContainerRef?.current}>
       <div
         className={cn(
           baseName,
@@ -76,7 +76,7 @@ const PortalFocus = ({ cellRef, isFocused, tableRef }) => {
 PortalFocus.propTypes = {
   cellRef: PropTypes.object,
   isFocused: PropTypes.bool,
-  tableRef: PropTypes.object,
+  scrollContainerRef: PropTypes.object,
 };
 
 export default PortalFocus;

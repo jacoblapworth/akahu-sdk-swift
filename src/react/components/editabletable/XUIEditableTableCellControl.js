@@ -6,6 +6,7 @@ import { tableName } from './private/constants';
 import PortalFocus from './private/PortalFocus';
 import XUIEditableTableContext from './contexts/XUIEditableTableContext';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
+import DragDropDraggingContext from './private/DragAndDrop/contexts/DragDropDraggingContext';
 import XUIEditableTableCell from './XUIEditableTableCell';
 import { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds, { generateIdsFromControlId } from '../controlwrapper/helpers';
@@ -24,7 +25,8 @@ const XUIEditableTableCellControl = ({
 }) => {
   const cellRef = React.useRef();
   const controlBaseName = `${baseName}-control`;
-  const { tableRef } = React.useContext(XUIEditableTableContext);
+  const { scrollContainerRef } = React.useContext(XUIEditableTableContext);
+  const { draggedRowIndex } = React.useContext(DragDropDraggingContext);
 
   const showValidationMessage = isInvalid && validationMessage;
   const wrapperIds = cellIds?.control
@@ -65,7 +67,13 @@ const XUIEditableTableCellControl = ({
               {validationMessage}
             </div>
           )}
-          {isFocused && <PortalFocus cellRef={cellRef} isFocused={isFocused} tableRef={tableRef} />}
+          {isFocused && typeof draggedRowIndex !== 'number' && (
+            <PortalFocus
+              cellRef={cellRef}
+              isFocused={isFocused}
+              scrollContainerRef={scrollContainerRef}
+            />
+          )}
         </div>
       </EditableTableCellContext.Provider>
     </XUIEditableTableCell>

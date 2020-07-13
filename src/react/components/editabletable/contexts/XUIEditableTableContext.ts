@@ -8,12 +8,13 @@ interface XUIEditableTableContext {
   };
   rowOptions: {
     dragButtonAriaLabel?: string;
+    isDraggable?: boolean;
     isRemovable?: boolean;
-    isSortable?: boolean;
     removeButtonAriaLabel?: string;
   };
-  scrollContainerRef?: React.MutableRefObject<HTMLTableElement>;
+  scrollContainerRef?: React.MutableRefObject<HTMLElement>;
   tableRef?: React.MutableRefObject<HTMLTableElement>;
+  tableWrapperRef?: React.MutableRefObject<HTMLElement>;
 }
 
 export default React.createContext<XUIEditableTableContext>({

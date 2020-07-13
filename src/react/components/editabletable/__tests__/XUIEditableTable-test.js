@@ -2,14 +2,14 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
-import uuidv4 from 'uuid/v4';
+import uuid from 'uuid/v4';
 
 import XUIEditableTable from '../XUIEditableTable';
 
-jest.mock('uuid/v4');
-uuidv4.mockImplementation(() => 'testGeneratedId');
-
 Enzyme.configure({ adapter: new Adapter() });
+
+jest.mock('uuid/v4');
+uuid.mockImplementation(() => 'testGeneratedId');
 
 describe('<XUIEditableTable />', () => {
   it('renders correctly', () => {
@@ -26,8 +26,8 @@ describe('<XUIEditableTable />', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('render with the caption', () => {
-    const wrapper = shallow(<XUIEditableTable caption="An editable table" />);
+  it('renders the ariaLabel correctly', () => {
+    const wrapper = shallow(<XUIEditableTable ariaLabel="An editable table" />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 

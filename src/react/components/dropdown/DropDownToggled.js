@@ -558,6 +558,7 @@ export default class DropDownToggled extends PureComponent {
             isNotResponsive: forceDesktop,
             onVisible: shouldAnimate(this) ? null : this.onOpenAnimationEnd,
             ref: this.positioning,
+            leaveRoomForValidationMessage: Boolean(cellRef.current),
             parentRef: cellRef.current || this.wrapper.current,
             isTriggerWidthMatched: matchTriggerWidth,
           };

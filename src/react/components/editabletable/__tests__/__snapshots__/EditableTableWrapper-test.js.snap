@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditableTableWrapper renders correctly 1`] = `
+<EditableTableWrapper
+  onDragEnd={[Function]}
+  tableRef={Object {}}
+>
+  <DragDropProvider
+    onDragEnd={[Function]}
+  >
+    <DragDropContext
+      onDragEnd={[Function]}
+      onDragStart={[Function]}
+      onDragUpdate={[Function]}
+    >
+      <ErrorBoundary>
+        <App
+          contextId="0"
+          dragHandleUsageInstructions="
+  Press space bar to start a drag.
+  When dragging you can use the arrow keys to move the item around and escape to cancel.
+  Some screen readers may require you to be in focus mode or to use your pass through key
+"
+          onDragEnd={[Function]}
+          onDragStart={[Function]}
+          onDragUpdate={[Function]}
+          setCallbacks={[Function]}
+        >
+          <Provider
+            context={
+              Object {
+                "$$typeof": Symbol(react.context),
+                "Consumer": Object {
+                  "$$typeof": Symbol(react.context),
+                  "_calculateChangedBits": null,
+                  "_context": [Circular],
+                },
+                "Provider": Object {
+                  "$$typeof": Symbol(react.provider),
+                  "_context": [Circular],
+                },
+                "_calculateChangedBits": null,
+                "_currentRenderer": Object {},
+                "_currentRenderer2": null,
+                "_currentValue": null,
+                "_currentValue2": null,
+                "_threadCount": 0,
+              }
+            }
+            store={
+              Object {
+                "dispatch": [Function],
+                "getState": [Function],
+                "replaceReducer": [Function],
+                "subscribe": [Function],
+                Symbol(observable): [Function],
+              }
+            }
+          >
+            <Droppable>
+              <ConnectFunction
+                direction="vertical"
+                droppableId="123"
+                getContainerForClone={[Function]}
+                ignoreContainerClipping={false}
+                isCombineEnabled={false}
+                isDropDisabled={false}
+                mode="standard"
+                renderClone={null}
+                type="DEFAULT"
+              >
+                <Droppable
+                  direction="vertical"
+                  droppableId="123"
+                  getContainerForClone={[Function]}
+                  ignoreContainerClipping={false}
+                  isCombineEnabled={false}
+                  isDropDisabled={false}
+                  mode="standard"
+                  placeholder={null}
+                  renderClone={null}
+                  shouldAnimatePlaceholder={false}
+                  snapshot={
+                    Object {
+                      "draggingFromThisWith": null,
+                      "draggingOverWith": null,
+                      "isDraggingOver": false,
+                      "isUsingPlaceholder": false,
+                    }
+                  }
+                  type="DEFAULT"
+                  updateViewportMaxScroll={[Function]}
+                  useClone={null}
+                >
+                  <ForwardRef
+                    className="xui-editabletablewrapper"
+                    data-rbd-droppable-context-id="0"
+                    data-rbd-droppable-id="123"
+                  >
+                    <div
+                      className="xui-editabletablewrapper xui-editabletableoverflow"
+                      data-rbd-droppable-context-id="0"
+                      data-rbd-droppable-id="123"
+                    >
+                      <div
+                        className="xui-editabletablewrapper--scrollcontainer"
+                      >
+                        <div
+                          className="xui-editabletablewrapper--dndinstructions"
+                          id="123"
+                        />
+                      </div>
+                      <div
+                        className="xui-editabletablewrapper--border"
+                      />
+                    </div>
+                  </ForwardRef>
+                </Droppable>
+              </ConnectFunction>
+            </Droppable>
+          </Provider>
+        </App>
+      </ErrorBoundary>
+    </DragDropContext>
+  </DragDropProvider>
+</EditableTableWrapper>
+`;

@@ -38,7 +38,7 @@ const data = [
   { fruit: 'Orange', color: 'Orange', price: 3.99 }
 ];
 
-<XUIEditableTable caption="List of fruits with color and price per kg">
+<XUIEditableTable ariaLabel="List of fruits with color and price per kg">
   <XUIEditableTableHead>
     <XUIEditableTableRow>
       <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
@@ -73,7 +73,7 @@ const data = [
   { fruit: 'Orange', color: 'Orange', price: 3.99 }
 ];
 
-<XUIEditableTable caption="List of fruits with color and price per kg">
+<XUIEditableTable ariaLabel="List of fruits with color and price per kg">
   <XUIEditableTableBody>
     {data.map((row, index) => (
       <XUIEditableTableRow key={index}>
@@ -117,7 +117,7 @@ node.innerHTML = `
 document.head.appendChild(node);
 
 <XUIEditableTable
-  caption="List of fruits with color and price per kg"
+  ariaLabel="List of fruits with color and price per kg"
   className="xui-table-reactdocs-shadow"
 >
   <XUIEditableTableBody>
@@ -155,7 +155,7 @@ const data = [
   { fruit: 'Orange', color: 'Orange', price: 3.99 }
 ];
 
-<XUIEditableTable caption="List of fruits with color and price per kg">
+<XUIEditableTable ariaLabel="List of fruits with color and price per kg">
   <XUIEditableTableHead>
     <XUIEditableTableRow>
       <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
@@ -204,7 +204,7 @@ const data = [
 ];
 
 <XUIEditableTable
-  caption="List of fruits with color and price per kg"
+  ariaLabel="List of fruits with color and price per kg"
   rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}
 >
   <XUIEditableTableHead>
@@ -224,6 +224,81 @@ const data = [
     ))}
   </XUIEditableTableBody>
 </XUIEditableTable>;
+```
+
+### Dragging rows
+
+To enable reordering table rows with drag and drop, follow these steps:
+
+1. Add `isDraggable` and `dragHandleAriaLabel` to `XUIEditableTable`'s row options.
+1. Add the `onReorderRow` prop to `XUIEditableTable`.
+1. Add the `index` prop to `XUIEditableTableRow`.
+
+```jsx harmony
+import {
+  XUIEditableTable,
+  XUIEditableTableBody,
+  XUIEditableTableCellReadOnly,
+  XUIEditableTableHead,
+  XUIEditableTableHeadingCell,
+  XUIEditableTableRow
+} from '@xero/xui/react/editabletable';
+
+const DragAndDropExample = () => {
+  const [rows, setRows] = React.useState([
+    { fruit: 'Apple', color: 'Red', price: 2.99 },
+    { fruit: 'Banana', color: 'Yellow', price: 2.99 },
+    { fruit: 'Cucumber', color: 'Green', price: 4.99 }
+  ]);
+
+  return (
+    <XUIEditableTable
+      ariaLabel="List of fruits with color and price per kg"
+      dndDragCancelledMessage={startPosition =>
+        `Movement cancelled. The item has returned to its starting position of ${startPosition}.`
+      }
+      dndDragOutsideMessage={() => 'You are currently not dragging over a droppable area.'}
+      dndDragStartMessage={startPosition => `You have lifted an item in position ${startPosition}.`}
+      dndDragUpdateMessage={(startPosition, endPosition) =>
+        `You have moved the item from position ${startPosition} to position ${endPosition}.`
+      }
+      dndDropFailedMessage={startPosition =>
+        `The item has been dropped while not over a droppable area. The item has returned to its starting position of ${startPosition}.`
+      }
+      dndDropMessage={(startPosition, endPosition) =>
+        `You have dropped the item. It has moved from position ${startPosition} to ${endPosition}.`
+      }
+      dndInstructions="Press space bar to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or forms mode."
+      onReorderRow={(startIndex, destinationIndex) => {
+        const newRows = [...rows];
+        const rowToReorder = newRows.splice(startIndex, 1)[0];
+        newRows.splice(destinationIndex, 0, rowToReorder);
+
+        setRows(newRows);
+      }}
+      rowOptions={{ dragHandleAriaLabel: 'Remove row', isDraggable: true }}
+    >
+      <XUIEditableTableHead>
+        <XUIEditableTableRow>
+          <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
+          <XUIEditableTableHeadingCell>Color</XUIEditableTableHeadingCell>
+          <XUIEditableTableHeadingCell>Price / kg</XUIEditableTableHeadingCell>
+        </XUIEditableTableRow>
+      </XUIEditableTableHead>
+      <XUIEditableTableBody>
+        {rows.map((row, index) => (
+          <XUIEditableTableRow index={index} key={index} onRemove={() => console.log('remove me')}>
+            <XUIEditableTableCellReadOnly>{row.fruit}</XUIEditableTableCellReadOnly>
+            <XUIEditableTableCellReadOnly>{row.color}</XUIEditableTableCellReadOnly>
+            <XUIEditableTableCellReadOnly>{row.price}</XUIEditableTableCellReadOnly>
+          </XUIEditableTableRow>
+        ))}
+      </XUIEditableTableBody>
+    </XUIEditableTable>
+  );
+};
+
+<DragAndDropExample />;
 ```
 
 ## Cell types
@@ -250,7 +325,7 @@ const data = [
   { fruit: 'Orange', color: 'Orange', price: 3.99 }
 ];
 
-<XUIEditableTable caption="List of fruits with color and price per kg">
+<XUIEditableTable ariaLabel="List of fruits with color and price per kg">
   <XUIEditableTableHead>
     <XUIEditableTableRow>
       <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
@@ -288,7 +363,7 @@ import { SelectBoxOption } from '@xero/xui/react/select-box';
 
 const data = [{ fruit: 'Orange', color: 'Orange', price: 3.99 }];
 
-<XUIEditableTable caption="List of fruits with color and price per kg">
+<XUIEditableTable ariaLabel="List of fruits with color and price per kg">
   <XUIEditableTableHead>
     <XUIEditableTableRow>
       <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
@@ -337,7 +412,7 @@ import Picklist, { Pickitem } from '@xero/xui/react/picklist';
 
 const data = [{ fruit: 'Orange', color: 'Orange', price: 3.99 }];
 
-<XUIEditableTable caption="List of fruits with color and price per kg">
+<XUIEditableTable ariaLabel="List of fruits with color and price per kg">
   <XUIEditableTableHead>
     <XUIEditableTableRow>
       <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
@@ -382,7 +457,7 @@ import {
 
 const data = [{ fruit: 'Orange', color: 'Orange', price: 3.99 }];
 
-<XUIEditableTable caption="List of fruits with color and price per kg">
+<XUIEditableTable ariaLabel="List of fruits with color and price per kg">
   <XUIEditableTableHead>
     <XUIEditableTableRow>
       <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>

@@ -1,9 +1,17 @@
 @import '../vars';
 @import '../mixins';
 
-$xui-editabletable-shadow-size: $xui-s-standard;
-$xui-editabletable-shadowcover-size: $xui-s-3xlarge;
 $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to remove unwanted surrounding space
+
+@keyframes #{$ns}-drag-shadow-animation {
+  from {
+    box-shadow: 0 0 0 0 $xui-standard-shadow-color;
+  }
+
+  to {
+    box-shadow: 0 3px 6px 0 $xui-standard-shadow-color;
+  }
+}
 
 @mixin xui-editabletablecell {
   @include xui-shadow-border-all($xui-standard-border-color);
@@ -12,39 +20,54 @@ $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to
   vertical-align: top;
 }
 
-// Container shadow overlay based on https://codepen.io/evank/pen/wWbRNO
-.#{$ns}-editabletable {
-  background: /* Shadow covers */ linear-gradient(
-      90deg,
-      $xui-color-white 30%,
-      rgba($xui-color-white, 0)
-    ),
-    linear-gradient(90deg, rgba($xui-color-white, 0), $xui-color-white 70%) 100% 0,
-    /* Shadows */
-      linear-gradient(90deg, rgba($xui-color-black, 0.2) 0%, rgba($xui-color-black, 0) 100%),
-    linear-gradient(270deg, rgba($xui-color-black, 0.2) 0%, rgba($xui-color-black, 0) 100%) 100% 0;
-  background-attachment: local, local, scroll, scroll;
+@mixin xui-editabletable-overflow {
+  content: '';
+  display: block;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: $xui-s-large;
+  z-index: $xui-z-index-responsiveoverlay;
+}
+
+.#{$ns}-editabletablewrapper {
   background-color: $xui-editabletable-bg-color;
-  background-repeat: no-repeat;
-  background-size: $xui-editabletable-shadowcover-size 100%,
-    $xui-editabletable-shadowcover-size 100%, $xui-editabletable-shadow-size 100%,
-    $xui-editabletable-shadow-size 100%;
+  border-radius: $xui-radius;
+  /**
+   * `position: relative` allows the portalled focus ring and overflow shadow to position itself
+   * correctly.
+   */
+  position: relative;
+}
+.#{$ns}-editabletablewrapper--dndinstructions {
+  display: none;
+}
+
+.#{$ns}-editabletablewrapper--border {
+  border-radius: $xui-radius;
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  &-is-invalid {
+    // box-shadow: 0 0 0 1px $xui-validation-invalid-color inset;
+    @include xui-shadow-border-all($border-color: $xui-validation-invalid-color, $is-inset: true);
+  }
+}
+
+.#{$ns}-editabletablewrapper--scrollcontainer {
+  background: $xui-dropzone-active-background-color;
   border-radius: $xui-radius;
   box-shadow: 0 0 0 1px $xui-standard-border-color inset;
   display: block;
   overflow-x: auto;
-
-  &-is-invalid {
-    @include xui-shadow-border-all($border-color: $xui-validation-invalid-color);
-  }
 }
 
-// The portal focus ring is put under this div and need a position: relative for portal to locate
-.#{$ns}-editabletable--wrapper {
-  position: relative;
-}
-
-.#{$ns}-editabletable--table {
+.#{$ns}-editabletable {
   border-collapse: separate;
   border-spacing: 1px;
   // These properties are key to give implementers explicit control over column widths.
@@ -58,8 +81,24 @@ $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to
   }
 }
 
-.#{$ns}-editabletable--caption {
-  @include xui-utility-hidden-visually;
+.#{$ns}-editabletableoverflow-overflowleft:before {
+  @include xui-editabletable-overflow;
+  background: linear-gradient(
+    90deg,
+    rgba($xui-color-black, 0.2) 0%,
+    rgba($xui-color-black, 0) 100%
+  );
+  left: 0;
+}
+
+.#{$ns}-editabletableoverflow-overflowright:after {
+  @include xui-editabletable-overflow;
+  background: linear-gradient(
+    270deg,
+    rgba($xui-color-black, 0.2) 0%,
+    rgba($xui-color-black, 0) 100%
+  );
+  right: 0;
 }
 
 .#{$ns}-editabletable--validation {
@@ -78,11 +117,15 @@ $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to
 .#{$ns}-editabletablehead,
 .#{$ns}-editabletablefoot {
   @include xui-heading-small;
-  background-color: $xui-editabletablehead-bg-color;
+  background-color: $xui-editabletable-bg-color;
+
+  .#{$ns}-editabletablerow {
+    background-color: $xui-editabletablehead-bg-color;
+  }
 
   .#{$ns}-editabletablecell:not(:last-child),
   .#{$ns}-editabletableheadingcell:not(:last-child) {
-    @include xui-shadow-border-right($xui-editabletablehead-bg-color);
+    box-shadow: 1px 0 0 0 $xui-editabletablehead-bg-color, 1px 0 0 0 $xui-editabletable-bg-color;
   }
 }
 
@@ -91,18 +134,26 @@ $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to
  *
  * Without this there will be a missing border between the head and the body when the first row is
  * dragged, and the foot and the body when the last row is dragged.
- *
- * We set the spread-radius to -1px so the box shadow does not overlap with the borders on the side
- * of the table.
- *
- * The offset-y of 2px/-2px does 2 things. 1px is to move the box shadow so it only shows on one
- * edge of the row. The other 1px is to compensate for the negative spread-radius.
  */
 .#{$ns}-editabletablehead .#{$ns}-editabletablerow {
-  box-shadow: 0 2px 0 -1px $xui-standard-shadow-color;
+  box-shadow: 0 1px 0 0 $xui-standard-shadow-color, 0 1px 0 0 $xui-editabletable-bg-color;
 }
 .#{$ns}-editabletablefoot .#{$ns}-editabletablerow {
-  box-shadow: 0 -2px 0 -1px $xui-standard-shadow-color;
+  box-shadow: 0 -1px 0 0 $xui-standard-shadow-color, 0 -1px 0 0 $xui-editabletable-bg-color;
+}
+
+.#{$ns}-editabletablebody .#{$ns}-editabletablerow {
+  background-color: $xui-editabletable-bg-color;
+}
+
+.#{$ns}-editabletablerow-dragging {
+  animation: #{$ns}-drag-shadow-animation $xui-motion-speed-fast $xui-motion-curve-exit;
+  // $xui-shadow-depth-lift, but without the border shadow it applies.
+  box-shadow: 0 3px 6px 0 $xui-standard-shadow-color;
+}
+
+.#{$ns}-editabletablerow--draghandle {
+  cursor: grab;
 }
 
 .#{$ns}-editabletableheadingcell {

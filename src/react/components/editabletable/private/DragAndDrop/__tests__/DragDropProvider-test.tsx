@@ -317,7 +317,7 @@ describe('DragDropProvider', () => {
       expect(announce).toBeCalledWith(expectedDropMessage);
     });
 
-    it('reads out the failedDropMessage correctly', () => {
+    it('reads out the dropFailedMessage correctly', () => {
       // Arrange
       const draggableIndex = 1;
       const expectedStartPosition = draggableIndex + 1;
@@ -325,7 +325,7 @@ describe('DragDropProvider', () => {
       const announce = jest.fn();
       const wrapper = mount<React.ComponentProps<typeof DragDropProvider>>(
         <DragDropProvider
-          failedDropMessage={startPosition =>
+          dropFailedMessage={startPosition =>
             `Test failed drop message. Start position: ${startPosition}`
           }
           onDragEnd={NOOP}

@@ -126,7 +126,11 @@ export function detachListeners(popup) {
  *
  * @param {Object} parentRef Component containing the trigger, but maybe also containing other things.
  */
-export function getTriggerNodeFromParentRef(parentRef) {
+export function getTriggerNodeFromParentRef(parentRef, leaveRoomForValidationMessage) {
+  if (leaveRoomForValidationMessage) {
+    return parentRef;
+  }
+
   const label = parentRef.querySelector(`.${ns}-text-label`);
   const message = parentRef.querySelector(`.${ns}-validation`);
 

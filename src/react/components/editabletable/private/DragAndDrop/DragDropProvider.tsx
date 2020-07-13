@@ -10,8 +10,8 @@ interface BaseProps {
   dragOutsideMessage?: (startPosition: number) => string;
   dragStartMessage?: (startPosition: number) => string;
   dragUpdateMessage?: (startPosition: number, endPosition: number) => string;
+  dropFailedMessage?: (startPosition: number) => string;
   dropMessage?: (startPosition: number, endPosition: number) => string;
-  failedDropMessage?: (startPosition: number) => string;
 }
 
 type Props = BaseProps & React.ComponentProps<typeof RBDDragDropContext>;
@@ -31,8 +31,8 @@ const DragDropProvider: React.FunctionComponent<Props> = ({
   dragOutsideMessage,
   dragStartMessage,
   dragUpdateMessage,
+  dropFailedMessage,
   dropMessage,
-  failedDropMessage,
   onDragEnd,
   onDragStart,
   onDragUpdate,
@@ -63,8 +63,8 @@ const DragDropProvider: React.FunctionComponent<Props> = ({
           return;
         }
 
-        if (failedDropMessage) {
-          provided.announce(failedDropMessage(startPosition));
+        if (dropFailedMessage) {
+          provided.announce(dropFailedMessage(startPosition));
         }
       }}
       onDragStart={(start, provided) => {
@@ -115,8 +115,8 @@ DragDropProvider.propTypes = {
   dragOutsideMessage: PropTypes.func,
   dragStartMessage: PropTypes.func,
   dragUpdateMessage: PropTypes.func,
+  dropFailedMessage: PropTypes.func,
   dropMessage: PropTypes.func,
-  failedDropMessage: PropTypes.func,
   onDragEnd: PropTypes.func.isRequired,
   onDragStart: PropTypes.func,
   onDragUpdate: PropTypes.func,

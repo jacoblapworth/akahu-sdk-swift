@@ -30,46 +30,56 @@ const baseName = `.${tableName}--portalfocus`;
 
 describe('Portal focus', () => {
   it('renders with the entire focus ring', () => {
-    const tableRef = mockRef(10, 10, 200, 100);
+    const scrollContainerRef = mockRef(10, 10, 200, 100);
     const cellRef = mockRef(20, 20, 20, 5);
 
-    const wrapper = mount(<PortalFocus cellRef={cellRef} isFocused tableRef={tableRef} />);
+    const wrapper = mount(
+      <PortalFocus cellRef={cellRef} isFocused scrollContainerRef={scrollContainerRef} />,
+    );
 
     expect(wrapper.find(baseName).length).toBe(1);
   });
 
   it('renders with the right side covered', () => {
-    const tableRef = mockRef(10, 10, 200, 100);
+    const scrollContainerRef = mockRef(10, 10, 200, 100);
     const cellRef = mockRef(190, 20, 20, 5);
 
-    const wrapper = mount(<PortalFocus cellRef={cellRef} isFocused tableRef={tableRef} />);
+    const wrapper = mount(
+      <PortalFocus cellRef={cellRef} isFocused scrollContainerRef={scrollContainerRef} />,
+    );
 
     expect(wrapper.find(`${baseName}-rightCovered`).length).toBe(1);
   });
 
   it('renders with the left side covered', () => {
-    const tableRef = mockRef(10, 10, 200, 100);
+    const scrollContainerRef = mockRef(10, 10, 200, 100);
     const cellRef = mockRef(5, 20, 20, 5);
 
-    const wrapper = mount(<PortalFocus cellRef={cellRef} isFocused tableRef={tableRef} />);
+    const wrapper = mount(
+      <PortalFocus cellRef={cellRef} isFocused scrollContainerRef={scrollContainerRef} />,
+    );
 
     expect(wrapper.find(`${baseName}-leftCovered`).length).toBe(1);
   });
 
   it('renders with the horizontal side covered', () => {
-    const tableRef = mockRef(10, 10, 10, 100);
+    const scrollContainerRef = mockRef(10, 10, 10, 100);
     const cellRef = mockRef(5, 20, 20, 5);
 
-    const wrapper = mount(<PortalFocus cellRef={cellRef} isFocused tableRef={tableRef} />);
+    const wrapper = mount(
+      <PortalFocus cellRef={cellRef} isFocused scrollContainerRef={scrollContainerRef} />,
+    );
 
     expect(wrapper.find(`${baseName}-horizontalCovered`).length).toBe(1);
   });
 
   it('will not render when not in view', () => {
-    const tableRef = mockRef(10, 10, 100, 100);
+    const scrollContainerRef = mockRef(10, 10, 100, 100);
     const cellRef = mockRef(130, 20, 20, 5);
 
-    const wrapper = mount(<PortalFocus cellRef={cellRef} isFocused tableRef={tableRef} />);
+    const wrapper = mount(
+      <PortalFocus cellRef={cellRef} isFocused scrollContainerRef={scrollContainerRef} />,
+    );
 
     expect(wrapper.find(baseName).length).toBe(0);
   });

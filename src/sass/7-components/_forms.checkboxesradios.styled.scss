@@ -36,6 +36,10 @@
     @include xui-margin-vertical(2px);
   }
 
+  .#{$ns}-styledcheckboxradio-reversed .#{$ns}-styledcheckboxradio--label {
+    @include xui-margin-left(0);
+  }
+
   .#{$ns}-styledcheckboxradiowrapper:nth-last-of-type(n + 2),
   .#{$ns}-styledcheckboxradio:nth-last-of-type(n + 2) {
     border-bottom: $xui-border-control;
@@ -75,11 +79,21 @@
 
 // Right-aligned input
 // ===================
+// This conditional reset of L40 (which itself is a conditional reset of L95)
+// is gross, but it’s a temporary fix for a group of inline reversed controls
+// that is not technically a `xui-checkboxradio-group`. This will be tidied up
+// in XUI-1426.
+.#{$ns}-styledcheckboxradiowrapper:first-child {
+  .#{$ns}-styledcheckboxradio-reversed .#{$ns}-styledcheckboxradio--label {
+    @include xui-margin-left(0);
+  }
+}
+
 .#{$ns}-styledcheckboxradio-reversed {
   flex-direction: row-reverse;
   justify-content: space-between;
   .#{$ns}-styledcheckboxradio--label {
-    margin-left: 0;
+    @include xui-margin-left($xui-s-xsmall);
   }
 }
 
@@ -89,7 +103,6 @@
   display: inline-block; // Inline inputs
   user-select: none;
   vertical-align: top;
-
   .#{$ns}-styledcheckboxradio {
     display: flex;
     max-width: 100%;

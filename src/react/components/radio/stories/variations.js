@@ -65,6 +65,12 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'is Inline Group Reversed',
+    isReversed: true,
+    isSeries: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'is Radio Group',
     viewports: desktopPlus320,
     isGroup: true,

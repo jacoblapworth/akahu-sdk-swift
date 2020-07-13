@@ -112,6 +112,17 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'inline group',
+    isSeries: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'inline group reversed',
+    isReversed: true,
+    isSeries: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'grouped',
     isGroup: true,
     groupProps: {

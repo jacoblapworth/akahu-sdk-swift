@@ -239,6 +239,8 @@ export class DetailedListExample extends Component {
       <XUIAutocompleter
         closeOnTab={noDrawerFooter}
         disableWrapPills={disableWrapPills}
+        // Prevent dots from animating and causing visual diffs due to timing issues
+        dropdownClassName={isLoading && 'xui-loader-static'}
         dropdownFixedWidth={dropdownFixedWidth}
         dropdownSize={dropdownSize}
         footer={noDrawerFooter ? null : footer}

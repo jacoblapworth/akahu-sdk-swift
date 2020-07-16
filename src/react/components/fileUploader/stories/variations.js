@@ -6,6 +6,7 @@ import { defaultFileList } from '../private/helpers';
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const storiesWithVariationsKindName = 'Instances/XUIFileUploader';
+const fileList = defaultFileList.slice(1);
 
 const variations = [
   {
@@ -20,7 +21,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with fileList',
-    fileList: defaultFileList,
+    fileList,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -46,20 +47,20 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with single line fileList',
     showFilesAsMultiline: false,
-    fileList: defaultFileList,
+    fileList,
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with no icon fileList',
     showIcon: false,
-    fileList: defaultFileList,
+    fileList,
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with no icon single line fileList',
     showIcon: false,
     showFilesAsMultiline: false,
-    fileList: defaultFileList,
+    fileList,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -76,7 +77,7 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'drag and drop with fileList',
     hasDragAndDrop: true,
-    fileList: defaultFileList,
+    fileList,
   },
   {
     storyKind: storiesWithVariationsKindName,

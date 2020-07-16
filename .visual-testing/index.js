@@ -23,7 +23,6 @@ const variationsPath = relativeToProjectDirectory('.tmp/react-visualregression/c
 // For components or compositions with absolutely-positioned elements, use fullPageSettings.
 const fullPageSettings = {
   selectors: '.xui-container',
-  misMatchThreshold: 0.4,
 };
 
 /**
@@ -108,7 +107,6 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Loader',
     variationsPath: `${variationsPath}/loader/stories/variations.js`,
-    misMatchThreshold: 5,
   },
   {
     testsPrefix: 'XUI Modal',
@@ -262,7 +260,7 @@ function buildScenarios() {
             label: `${component.testsPrefix} ${story.storyTitle}`,
             url: buildUrl(story.storyKind, story.storyTitle),
             selectors: [story.selectors || component.selectors || '#root > div > div'],
-            misMatchThreshold: story.misMatchThreshold || component.misMatchThreshold || 0.6,
+            misMatchThreshold: story.misMatchThreshold || component.misMatchThreshold || 0,
             selectorExpansion: component.captureAllSelectors,
             delay,
             readyEvent,

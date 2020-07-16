@@ -56,10 +56,10 @@ const XUIPill = ({
 
     if (isFocused && hasTooltip) {
       tooltip && tooltip.openTooltip();
-    } else if (hasTooltip) {
+    } else if (hasTooltip && !debugShowToolTip) {
       tooltip && tooltip.closeTooltip();
     }
-  }, [hasTooltip, isFocused]);
+  }, [hasTooltip, isFocused, debugShowToolTip]);
 
   const toggleFocus = () => {
     setIsFocused(prevState => !prevState.isFocused);

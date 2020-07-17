@@ -1,6 +1,28 @@
 const stringReplace = require('@xero/xuishift/transforms/stringReplace');
 
 module.exports = {
+  accordion: [
+    {
+      name: 'XUIAccordionItem',
+      props: [
+        {
+          name: 'triggerStateIcon',
+          newName: 'triggerStateIcon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+        },
+      ],
+    },
+  ],
+  banner: [
+    {
+      name: 'XUIBanner',
+      props: [
+        {
+          name: 'closeIcon',
+          newName: 'closeIcon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+        },
+      ],
+    },
+  ],
   button: [
     {
       name: 'XUIButton',
@@ -120,6 +142,14 @@ module.exports = {
           name: 'loadingLabel',
           newName: 'loadingAriaLabel',
         },
+        {
+          name: 'keyIcon',
+          newName: 'keyIcon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+        },
+        {
+          name: 'paginationIcon',
+          newName: 'paginationIcon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+        },
       ],
     },
   ],
@@ -150,6 +180,12 @@ module.exports = {
     {
       name: 'NestedPicklistTrigger',
       newName: 'XUINestedPicklistTrigger',
+      props: [
+        {
+          name: 'icon',
+          newName: 'icon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+        },
+      ],
     },
     {
       name: 'Pickitem',
@@ -170,6 +206,21 @@ module.exports = {
     {
       name: 'StatefulPicklist',
       newName: 'XUIStatefulPicklist',
+    },
+  ],
+  progressindicator: [
+    {
+      name: 'XUIProgressCircular',
+      props: [
+        {
+          name: 'completedIcon',
+          newName: 'completedIcon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+        },
+        {
+          name: 'errorIcon',
+          newName: 'errorIcon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+        },
+      ],
     },
   ],
   selectbox: [
@@ -197,6 +248,10 @@ module.exports = {
         {
           name: 'checkAllRowsLabel',
           newName: 'checkAllRowsAriaLabel',
+        },
+        {
+          name: 'headerSortbuttonIcon',
+          newName: 'headerSortbuttonIcon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
         },
       ],
     },

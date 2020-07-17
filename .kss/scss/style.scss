@@ -1110,14 +1110,14 @@ $kss-color-padding: #eeebff;
 
 .ds-flag {
   background: $ds-flag-bg-color;
+  border-radius: $xui-radius;
   display: inline-block;
   color: $xui-color-white;
-  font-size: 11px;
+  font-size: $xui-font-size-xsmall;
   font-weight: bold;
   letter-spacing: $xui-letter-spacing-loose;
   text-transform: uppercase;
-  padding-left: 0.3em;
-  padding-right: 0.3em;
+  padding: $xui-s-2xsmall $xui-s-xsmall;
   margin-right: 0.2em;
   position: relative;
   text-decoration: none;
@@ -1126,7 +1126,7 @@ $kss-color-padding: #eeebff;
     margin-left: 0.8em;
   }
   .ds-title--level-1 & {
-    line-height: 2.25;
+    line-height: $xui-line-height-compact;
   }
   &:hover {
     color: $xui-color-white;

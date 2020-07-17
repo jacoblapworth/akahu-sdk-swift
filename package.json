@@ -35,6 +35,7 @@
     "test": "node scripts/test",
     "test:ci": "node scripts/test/ci",
     "test:visual": "node scripts/test/visual",
+    "test:visual:approve": "node scripts/backstop/approve",
     "release": "node scripts/release"
   },
   "dependencies": {

@@ -5,12 +5,28 @@ A `<XUISplitButtonGroup>` can only be completely disabled - you cannot disable o
 
 ```jsx harmony
 import XUIButton, { XUISplitButtonGroup, XUISecondaryButton } from '@xero/xui/react/button';
+import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 
 // try setting `isDisabled={true}`, or change the variant, and see how both buttons are disabled
 
-<XUISplitButtonGroup variant="primary" isDisabled={false}>
-  <XUIButton>Split Button</XUIButton>
-  <XUISecondaryButton aria-label="More options" />
+<XUISplitButtonGroup variant="primary">
+  <XUIButton>Split action</XUIButton>
+  <DropDownToggled
+    trigger={<XUISecondaryButton variant="primary" key="split" aria-label="Other actions" />}
+    dropdown={
+      <DropDown fixedWidth size="small">
+        <Picklist>
+          <Pickitem id="aa" value="aa" key="aa">
+            Option 1
+          </Pickitem>
+          <Pickitem id="bb" value="bb" key="bb">
+            Option 2
+          </Pickitem>
+        </Picklist>
+      </DropDown>
+    }
+  />
 </XUISplitButtonGroup>;
 ```
 
@@ -21,12 +37,12 @@ import XUIButton, { XUISplitButtonGroup, XUISecondaryButton } from '@xero/xui/re
 import Picklist, { Pickitem } from '@xero/xui/react/picklist';
 import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 
-<XUISplitButtonGroup variant="primary" isDisabled={false}>
-  <XUIButton>Dropdown Split Button</XUIButton>
+<XUISplitButtonGroup variant="standard">
+  <XUIButton>Split action</XUIButton>
   <DropDownToggled
-    trigger={<XUISecondaryButton key="split" variant="primary" aria-label="Other actions" />}
+    trigger={<XUISecondaryButton variant="standard" key="split" aria-label="Other actions" />}
     dropdown={
-      <DropDown>
+      <DropDown fixedWidth size="small">
         <Picklist>
           <Pickitem id="aa" value="aa" key="aa">
             Option 1

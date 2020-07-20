@@ -17,10 +17,10 @@ import XUICheckbox from '@xero/xui/react/checkbox';
 
 <div>
   <XUICheckbox isDefaultChecked hintMessage="Hint text">
-    Default checked
+    Item 1
   </XUICheckbox>
-  <XUICheckbox>Unchecked by default</XUICheckbox>
-  <XUICheckbox>Also unchecked</XUICheckbox>
+  <XUICheckbox>Item 2</XUICheckbox>
+  <XUICheckbox>Item 3</XUICheckbox>
 </div>;
 ```
 
@@ -33,7 +33,7 @@ import { PureComponent } from 'react';
 
 import XUICheckbox from '@xero/xui/react/checkbox';
 
-const options = ['Cat', 'Dog', 'Bird', 'Fish'];
+const options = ['Cats', 'Dogs', 'Birds', 'Fish'];
 const selectedStates = {
   ALL: 'ALL',
   INDETERMINATE: 'INDETERMINATE',
@@ -202,7 +202,7 @@ import starIcon from '@xero/xui-icon/icons/star';
 import XUICheckbox from '@xero/xui/react/checkbox';
 
 <div>
-  <XUICheckbox isChecked iconMain={starIcon}>
+  <XUICheckbox isDefaultChecked iconMain={starIcon}>
     Favourite
   </XUICheckbox>
 </div>;

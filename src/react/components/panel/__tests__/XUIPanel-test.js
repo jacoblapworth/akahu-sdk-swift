@@ -66,14 +66,12 @@ describe('<XUI Panel and related components/>', () => {
     expect(tag.hasClass('testClass')).toEqual(true);
   });
   it('renders the panel section with a header', () => {
-    const wrapper = mount(
-      <XUIPanelSection headerText="I am a header">Content here</XUIPanelSection>,
-    );
+    const wrapper = mount(<XUIPanelSection heading="I am a header">Content here</XUIPanelSection>);
     expect(wrapper.find('.xui-panel--section--header').length).toBe(1);
   });
   it('renders the panel section with a header and special class', () => {
     const wrapper = mount(
-      <XUIPanelSection headerText="I am a header" headerClassName="testClass">
+      <XUIPanelSection heading="I am a header" headerClassName="testClass">
         Content here
       </XUIPanelSection>,
     );
@@ -83,7 +81,7 @@ describe('<XUI Panel and related components/>', () => {
     const testPanel = renderer.create(
       <XUIPanel heading={panelHeader} footer={panelFooter} sidebar={tabs}>
         <XUIPanelSection
-          headerText="I'm a section header"
+          heading="I'm a section header"
           headerClassName="test-header-class"
           className="xui-padding-large"
         >

@@ -9,13 +9,13 @@ const XUIPanelSection = ({
   children,
   className,
   headerClassName,
-  headerText,
+  heading,
   qaHook,
   ...spreadProps
 }) => {
   const classes = cn(baseClass, className);
   const headerClasses = cn(`${baseClass}--header`, headerClassName);
-  const header = headerText && <div className={headerClasses}>{headerText}</div>;
+  const header = heading && <div className={headerClasses}>{heading}</div>;
 
   return (
     <div {...spreadProps} className={classes} data-automationid={qaHook}>
@@ -32,9 +32,9 @@ XUIPanelSection.propTypes = {
   className: PropTypes.string,
   qaHook: PropTypes.string,
   /**
-   * Text to be placed in a "xui-panel--section-header" node
+   * Text or node to be placed in a "xui-panel--section-header" node
    */
-  headerText: PropTypes.string,
+  heading: PropTypes.node,
   /**
    * Classes to add to the "xui-panel--section-header" node
    */

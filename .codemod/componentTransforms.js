@@ -257,4 +257,15 @@ module.exports = {
       ],
     },
   ],
+  panelsection: [
+    {
+      name: 'XUIPanelSection',
+      props: [
+        {
+          name: 'headerText',
+          newName: 'heading',
+        },
+      ],
+    },
+  ],
 };

@@ -23,7 +23,7 @@ import { XUIPanel } from '@xero/xui/react/panel';
 import { XUIPanel, XUIPanelSection } from '@xero/xui/react/panel';
 
 <XUIPanel>
-  <XUIPanelSection headerText="Organisation Settings" className="xui-padding-large">
+  <XUIPanelSection heading="Organisation Settings" className="xui-padding-large">
     <p>
       Settings allow you fine control over which members of your organisation can use different
       parts of Xero.

@@ -8,9 +8,9 @@ interface BaseProps {
    */
   headerClassName?: string;
   /**
-   * Text to be placed in a `xui-panel--section-header` node.
+   * Text or node to be placed in a `xui-panel--section-header` node.
    */
-  headerText?: string;
+  heading?: React.ReactNode;
   qaHook?: string;
 }
 

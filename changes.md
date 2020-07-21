@@ -113,6 +113,8 @@ _Note. The codemod will resolve the prop differences automatically when run._
   - XUIDatePicker
     - `nextButtonLabel` has been renamed to `nextButtonAriaLabel`
     - `prevButtonLabel` has been renamed to `prevButtonAriaLabel`
+  - XUIPanelSection
+    - `headerText` has been renamed to `heading` and now can accept a node for better internationalisation support.
 
 ### Notable minor and patch changes since 16.0.0
 

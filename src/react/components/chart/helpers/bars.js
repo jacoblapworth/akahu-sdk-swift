@@ -8,7 +8,7 @@ import StandardLabel from '../customElements/StandardLabel';
 import AbbreviationLabel from '../customElements/AbbreviationLabel';
 
 const testIsCurrentStackNegative = stack => stack < 0;
-const testIsCurrentStackPositive = stack => !testIsCurrentStackNegative(stack);
+const testIsCurrentStackPositive = stack => stack > 0;
 const testStackData = (stacks, query) => Boolean(stacks.filter(query).length);
 const testIsAnyStackNegative = stacks => testStackData(stacks, testIsCurrentStackNegative);
 const testIsAnyStackPositive = stacks => testStackData(stacks, testIsCurrentStackPositive);

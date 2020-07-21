@@ -195,7 +195,7 @@ Below is a list of components that have been affected by this change. The codemo
 
 With XUI 16.2.0 we are shipping TypeScript definitions for our components with XUI.
 
-`xui-types` will no longer be actively maintained as of XUI 16.2.0, so while your current implementation will likely continue to work for a while, we recommend upgrading to embedded XUI types at your earliest convenience.
+`xui-types` will no longer be actively maintained as of XUI 16.2.0, so while your current implementation will likely continue to work for a while, we recommend upgrading to embedded XUI types at your earliest convenience. You can do this by deleting any pre-existing reference to `xui-types` in the `paths` attribute in the `CompilerOptions` of your `tsconfig.json` file.
 
 The type definitions we provide are slightly different from those of `xui-types`, below are things you might need to change.
 

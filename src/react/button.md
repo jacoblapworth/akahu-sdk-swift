@@ -12,10 +12,10 @@ You can give `XUIButton` a click handler to perform actions when the button is t
 import XUIButton from '@xero/xui/react/button';
 
 function handleClick() {
-  alert('You clicked the button!');
+  alert('You have clicked a button');
 }
 
-<XUIButton onClick={handleClick}>Click this button</XUIButton>;
+<XUIButton onClick={handleClick}>Action</XUIButton>;
 ```
 
 ### Variants
@@ -28,40 +28,55 @@ import XUIButton from '@xero/xui/react/button';
 import ExampleContainer from './docs/ExampleContainer';
 
 <div>
-  <div>
-    <XUIButton className="xui-margin-right" variant="standard">
-      Standard
-    </XUIButton>
-    <XUIButton className="xui-margin-right" variant="primary">
+  <h3>Regular buttons</h3>
+  <div className="xui-padding-small">
+    <XUIButton className="xui-margin-right-small" variant="primary">
       Primary
     </XUIButton>
-    <XUIButton className="xui-margin-right" variant="create">
+    <XUIButton className="xui-margin-right-small" variant="create">
       Create
     </XUIButton>
-    <XUIButton className="xui-margin-right" variant="negative">
+    <XUIButton className="xui-margin-right-small" variant="negative">
       Negative
     </XUIButton>
-  </div>
-  <div className="xui-padding-xsmall">
-    <XUIButton className="xui-margin-right" variant="borderless-standard">
-      Borderless Standard
-    </XUIButton>
-    <XUIButton className="xui-margin-right" variant="borderless-primary">
-      Borderless Primary
-    </XUIButton>
-    <XUIButton className="xui-margin-right" variant="borderless-create">
-      Borderless Create
-    </XUIButton>
-    <XUIButton className="xui-margin-right" variant="borderless-negative">
-      Borderless Negative
-    </XUIButton>
-    <XUIButton className="xui-margin-right" variant="borderless-muted">
-      Borderless Muted
+    <XUIButton className="xui-margin-right-small" variant="standard">
+      Standard
     </XUIButton>
   </div>
+  <h3>Regular buttons</h3>
+  <div className="xui-padding-small">
+    <XUIButton className="xui-margin-right-small" variant="borderless-standard">
+      Borderless standard
+    </XUIButton>
+    <XUIButton className="xui-margin-right-small" variant="borderless-primary">
+      Borderless primary
+    </XUIButton>
+    <XUIButton className="xui-margin-right-small" variant="borderless-create">
+      Borderless create
+    </XUIButton>
+    <XUIButton className="xui-margin-right-small" variant="borderless-negative">
+      Borderless negative
+    </XUIButton>
+    <XUIButton className="xui-margin-right-small" variant="borderless-muted">
+      Borderless muted
+    </XUIButton>
+  </div>
+  <h3>Inverted buttons</h3>
   <ExampleContainer className="xui-padding-xsmall" isInverted>
-    <XUIButton className="xui-margin-right" variant="borderless-inverted">
-      Borderless Inverted
+    <XUIButton className="xui-margin-right-small" isInverted variant="primary">
+      Primary inverted
+    </XUIButton>
+    <XUIButton className="xui-margin-right-small" isInverted variant="create">
+      Create inverted
+    </XUIButton>
+    <XUIButton className="xui-margin-right-small" isInverted variant="negative">
+      Negative inverted
+    </XUIButton>
+    <XUIButton className="xui-margin-right-small" isInverted variant="standard">
+      Standard inverted
+    </XUIButton>
+    <XUIButton className="xui-margin-right-small" variant="borderless-inverted">
+      Borderless inverted
     </XUIButton>
   </ExampleContainer>
 </div>;
@@ -79,9 +94,11 @@ The `size` prop allows you to modify the default button size.
 import XUIButton from '@xero/xui/react/button';
 
 <div>
-  <XUIButton>Medium</XUIButton>
-  <XUIButton size="small">Small</XUIButton>
-  <XUIButton size="xsmall">Extra small</XUIButton>
+  <XUIButton className="xui-margin-right-small">Medium</XUIButton>
+  <XUIButton className="xui-margin-right-small" size="small">
+    Small
+  </XUIButton>
+  <XUIButton size="xsmall">Xsmall</XUIButton>
 </div>;
 ```
 
@@ -99,12 +116,12 @@ import XUIButton from '@xero/xui/react/button';
 <div>
   <div className="xui-margin-bottom">
     <XUIButton variant="primary" fullWidth="always">
-      Full-width Button
+      Full-width
     </XUIButton>
   </div>
   <div>
-    <XUIButton variant="create" fullWidth="small-down">
-      Mobile Full-width Button
+    <XUIButton variant="primary" fullWidth="small-down">
+      Full-width at small breakpoint
     </XUIButton>
   </div>
 </div>;
@@ -118,14 +135,14 @@ You can programatically disable a button by setting the `isDisabled` prop to `tr
 import XUIButton from '@xero/xui/react/button';
 
 <div>
-  <XUIButton className="xui-margin-right" isDisabled>
-    Standard Button
+  <XUIButton className="xui-margin-right-small" variant="create" isDisabled>
+    Disabled button
   </XUIButton>
-  <XUIButton className="xui-margin-right" variant="create" isDisabled>
-    Variant Button
+  <XUIButton className="xui-margin-right-small" isDisabled>
+    Disabled button
   </XUIButton>
   <XUIButton variant="borderless-standard" isDisabled>
-    Borderless Button
+    Disabled button
   </XUIButton>
 </div>;
 ```
@@ -142,23 +159,37 @@ The supplied loader inherits the text color of the button component.
 import XUIButton from '@xero/xui/react/button';
 
 <div>
-  <span className="xui-margin-right">
-    <XUIButton variant="primary" isLoading loadingLabel="Loading">
-      This text won't be displayed, because of the loader.
-    </XUIButton>
-  </span>
-  <span className="xui-margin-right">
-    <XUIButton variant="primary" isLoading loadingLabel="Loading" minLoaderWidth>
-      No
-    </XUIButton>
-  </span>
-  <span className="xui-margin-right">
-    <XUIButton variant="primary" loadingLabel="Loading" minLoaderWidth>
-      No
-    </XUIButton>
-  </span>
-  <XUIButton variant="primary" isLoading loadingLabel="Loading" retainLayout={false}>
-    This text won't be displayed, because of the loader.
+  <XUIButton className="xui-margin-right-small" variant="primary" loadingLabel="Loading">
+    Button with lots of text
+  </XUIButton>
+  <XUIButton className="xui-margin-right-small" variant="primary" isLoading loadingLabel="Loading">
+    Button with lots of text
+  </XUIButton>
+  <XUIButton
+    className="xui-margin-right-small"
+    variant="primary"
+    isLoading
+    loadingLabel="Loading"
+    retainLayout={false}
+  >
+    Button with lots of text
+  </XUIButton>
+  <XUIButton className="xui-margin-right-small" variant="primary" loadingLabel="Loading">
+    OK
+  </XUIButton>
+  <XUIButton className="xui-margin-right-small" variant="primary" isLoading loadingLabel="Loading">
+    OK
+  </XUIButton>
+  <XUIButton
+    className="xui-margin-right-small"
+    variant="primary"
+    loadingLabel="Loading"
+    minLoaderWidth
+  >
+    OK
+  </XUIButton>
+  <XUIButton variant="primary" isLoading loadingLabel="Loading" minLoaderWidth>
+    OK
   </XUIButton>
 </div>;
 ```

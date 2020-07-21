@@ -5,19 +5,21 @@ The touch target for Checkboxes in a group is the entire "row" of the Checkbox G
 ```jsx harmony
 import XUICheckbox, { XUICheckboxGroup } from '@xero/xui/react/checkbox';
 
-<XUICheckboxGroup hintMessage="Grouped checkboxes can have hints">
-  <XUICheckbox>Check me out!</XUICheckbox>
+<XUICheckboxGroup hintMessage="Hint message">
+  <XUICheckbox>Item 1</XUICheckbox>
+  <XUICheckbox>Item 2</XUICheckbox>
+  <XUICheckbox isDisabled>Item 3</XUICheckbox>
 </XUICheckboxGroup>;
 ```
 
 ```jsx harmony
 import XUICheckbox, { XUICheckboxGroup } from '@xero/xui/react/checkbox';
 
-<XUICheckboxGroup isInvalid validationMessage="Grouped checkboxes can have validation">
+<XUICheckboxGroup isInvalid validationMessage="Validation message">
   <XUICheckbox>Tūī</XUICheckbox>
   <XUICheckbox>Pīwakawaka</XUICheckbox>
   <XUICheckbox>Ruru</XUICheckbox>
-  <XUICheckbox isDisabled>Moa</XUICheckbox>
+  <XUICheckbox>Moa</XUICheckbox>
 </XUICheckboxGroup>;
 ```
 

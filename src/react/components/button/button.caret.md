@@ -6,7 +6,8 @@ Check out the [Dropdown](#dropdown) examples to see Buttons being used as trigge
 import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
 
 <XUIButton>
-  Dropdown <XUIButtonCaret />
+  Action
+  <XUIButtonCaret />
 </XUIButton>;
 ```
 
@@ -18,6 +19,7 @@ import XUIButton from '@xero/xui/react/button';
 import XUIIcon from '@xero/xui/react/icon';
 
 <XUIButton>
-  Checkbox <XUIIcon icon={icon} />
+  Action
+  <XUIIcon className="xui-margin-left-xsmall" icon={icon} />
 </XUIButton>;
 ```

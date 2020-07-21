@@ -6,9 +6,9 @@ To disable an entire button group, you must add the `isDisabled` prop to each bu
 import XUIButton, { XUIButtonGroup } from '@xero/xui/react/button';
 
 <XUIButtonGroup qaHook="numbered-buttongroup">
-  <XUIButton>One</XUIButton>
-  <XUIButton>Two</XUIButton>
-  <XUIButton>Three</XUIButton>
+  <XUIButton>Action 1</XUIButton>
+  <XUIButton>Action 2</XUIButton>
+  <XUIButton>Action 3</XUIButton>
 </XUIButtonGroup>;
 ```
 
@@ -18,8 +18,8 @@ To set the size of an entire button group, you can set the `size` prop on `<XUIB
 import XUIButton, { XUIButtonGroup } from '@xero/xui/react/button';
 
 <XUIButtonGroup qaHook="numbered-buttongroup" size="small">
-  <XUIButton>One</XUIButton>
-  <XUIButton>Two</XUIButton>
-  <XUIButton>Three</XUIButton>
+  <XUIButton>Action 1</XUIButton>
+  <XUIButton>Action 2</XUIButton>
+  <XUIButton>Action 3</XUIButton>
 </XUIButtonGroup>;
 ```

@@ -21,7 +21,7 @@ const colStyle = { backgroundColor: 'RGBA(255,255,255,0.5)' };
       className="xui-padding-small"
       style={colStyle}
     >
-      This column will change at narrower viewports.
+      This column will change at narrow viewports
     </XUIColumn>
     <XUIColumn
       gridColumns={'quarter'}
@@ -29,7 +29,7 @@ const colStyle = { backgroundColor: 'RGBA(255,255,255,0.5)' };
       className="xui-padding-small"
       style={colStyle}
     >
-      Responsive column width.
+      Responsive column width
     </XUIColumn>
     <XUIColumn
       gridColumns={'half'}
@@ -37,25 +37,21 @@ const colStyle = { backgroundColor: 'RGBA(255,255,255,0.5)' };
       className="xui-padding-small"
       style={colStyle}
     >
-      This column will change at narrower viewports.
+      This column will change at narrow viewports
     </XUIColumn>
   </XUIRow>
   <XUIRow variant={'flex'} style={rowStyle} className="xui-padding-small">
     <XUIColumn gridColumns={2} className="xui-padding-small" style={colStyle}>
-      2 out of 12 columns wide.
-      <br />
-      More text.
+      2 / 12 columns
     </XUIColumn>
     <XUIColumn gridColumns={3} className="xui-padding-small" style={colStyle}>
-      3 out of 12 columns wide.
+      3 / 12 columns
     </XUIColumn>
     <XUIColumn gridColumns={2} className="xui-padding-small" style={colStyle}>
-      2 out of 12 columns wide.
-      <br />
-      More text.
+      2 / 12 columns
     </XUIColumn>
     <XUIColumn gridColumns={5} className="xui-padding-small" style={colStyle}>
-      5 out of 12 columns wide.
+      5 / 12 columns
     </XUIColumn>
   </XUIRow>
 </div>;

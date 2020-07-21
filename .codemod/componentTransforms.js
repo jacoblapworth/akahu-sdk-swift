@@ -1,4 +1,5 @@
 const stringReplace = require('@xero/xuishift/transforms/stringReplace');
+const remove = () => () => undefined;
 
 module.exports = {
   accordion: [
@@ -7,7 +8,7 @@ module.exports = {
       props: [
         {
           name: 'triggerStateIcon',
-          newName: 'triggerStateIcon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+          valueTransform: remove(),
         },
       ],
     },
@@ -18,7 +19,7 @@ module.exports = {
       props: [
         {
           name: 'closeIcon',
-          newName: 'closeIcon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+          valueTransform: remove(),
         },
       ],
     },
@@ -144,11 +145,11 @@ module.exports = {
         },
         {
           name: 'keyIcon',
-          newName: 'keyIcon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+          valueTransform: remove(),
         },
         {
           name: 'paginationIcon',
-          newName: 'paginationIcon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+          valueTransform: remove(),
         },
       ],
     },
@@ -183,7 +184,7 @@ module.exports = {
       props: [
         {
           name: 'icon',
-          newName: 'icon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+          valueTransform: remove(),
         },
       ],
     },
@@ -214,11 +215,11 @@ module.exports = {
       props: [
         {
           name: 'completedIcon',
-          newName: 'completedIcon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+          valueTransform: remove(),
         },
         {
           name: 'errorIcon',
-          newName: 'errorIcon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+          valueTransform: remove(),
         },
       ],
     },
@@ -251,7 +252,7 @@ module.exports = {
         },
         {
           name: 'headerSortbuttonIcon',
-          newName: 'headerSortbuttonIcon_REMOVE_THIS_PROP_AS_EXISTING_ICON_SHOULD_BE_USED',
+          valueTransform: remove(),
         },
       ],
     },

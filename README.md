@@ -120,6 +120,7 @@ XUI has a few npm scripts. `npm start` should be enough for all development task
 | `npm run test:visual`            | Runs visual regression tests to flag visual changes in components.                                                                                                                                                                               |
 | `npm run test:visual button`     | Only runs the visual regression tests for the specified component (e.g. replace `button` with the name of the component you want to test). This uses regex to match partial names.                                                               |
 | `npm run test:visual -- --clean` | Rebuilds the Docker image and container before running the visual regression tests. Try running this if you have any problems.                                                                                                                   |
+| `npm run test:visual:approve`    | Accepts the changes flagged by the visual regression tests.                                                                                                                                                                                      |
 | `npm run test -- -i`             | Runs the interactive variant of the test script which gives you additional test options including visual regression, code coverage and more.                                                                                                     |
 | `npm run review`                 | Runs React unit tests and visual regression tests and lints the React components, intended to be run before opening a pull request. This double-checks for visual regressions and ensures the TeamCity build will be successful.                 |
 | `npm run build`                  | Compiles the stylesheet, Builds the KSS docs, Styleguide and Storybook apps. Compiles tokens and creates the UMD bundle. Used for creating a release.                                                                                            |
@@ -246,7 +247,7 @@ How to run the codemod:
 1. Install jscodeshift
 
 ```bash
-npm i -g jscodeshift@~0.5.0
+npm i -g jscodeshift@~0.10.0
 ```
 
 2. Run the codemod
@@ -272,7 +273,7 @@ jscodeshift -t node_modules/@xero/xui/codemod/<version> src/
 For example:
 
 ```bash
-jscodeshift -t ./node_modules/@xero/xui/codemod/index.js src/ --parser=flow --extensions=ts,tsx
+jscodeshift -t ./node_modules/@xero/xui/codemod/index.js src/ --parser=tsx --extensions=ts,tsx
 ```
 
 ## Contributing to XUI

@@ -102,7 +102,7 @@ const Example = () => {
   return (
     <XUIFileUploader
       {...defaultProps}
-      isLabelHidden
+      label="Upload file(s)"
       fileList={fileList}
       onDelete={onDelete}
       onFilesChange={onFilesChange}
@@ -177,7 +177,7 @@ const Example = props => {
     <XUIFileUploader
       {...defaultProps}
       {...props}
-      isLabelHidden
+      label="Upload file(s)"
       hasDragAndDrop
       fileList={fileList}
       onDelete={onDelete}
@@ -201,8 +201,8 @@ import {
 } from './components/fileUploader/private/helpers';
 
 <div>
-  <XUIFileUploader {...defaultProps} isDisabled isFieldLayout isLabelHidden />
-  <XUIFileUploader {...defaultProps} hasDragAndDrop isDisabled isLabelHidden />
+  <XUIFileUploader {...defaultProps} isDisabled isFieldLayout label="Upload file(s)" />
+  <XUIFileUploader {...defaultProps} hasDragAndDrop isDisabled label="Upload file(s)" />
 </div>;
 ```
 
@@ -372,7 +372,7 @@ const Example = () => {
   return (
     <XUIFileUploader
       {...defaultProps}
-      isLabelHidden
+      label="Upload file(s)"
       fileList={fileList}
       onDelete={onDelete}
       onFilesChange={onFilesChange}

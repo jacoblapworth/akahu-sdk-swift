@@ -18,13 +18,13 @@ You can use as an uncontrolled component by not setting `isChecked` on any of th
 import XUIRadio from '@xero/xui/react/radio';
 
 <div role="radiogroup" aria-label="test group">
-  <XUIRadio name="test" isDefaultChecked hintMessage="Hint text">
-    Default option
+  <XUIRadio name="test" isDefaultChecked hintMessage="Hint message">
+    Option 1
   </XUIRadio>
-  <XUIRadio name="test">Another option</XUIRadio>
-  <XUIRadio name="test">And another</XUIRadio>
+  <XUIRadio name="test">Option 2</XUIRadio>
+  <XUIRadio name="test">Option 3</XUIRadio>
   <XUIRadio name="test" isDisabled>
-    Disabled option
+    Option 4
   </XUIRadio>
 </div>;
 ```
@@ -37,7 +37,7 @@ You can create controlled inputs by setting `isChecked` on radio items and using
 import XUIRadio from '@xero/xui/react/radio';
 import { PureComponent } from 'react';
 
-const options = ['Cat', 'Dog', 'Bird', 'Fish'];
+const options = ['Cats', 'Dogs', 'Birds', 'Fish'];
 
 class Example extends PureComponent {
   constructor(...args) {
@@ -60,7 +60,7 @@ class Example extends PureComponent {
     const { selectedItem } = this.state;
     return (
       <div role="radiogroup" aria-label="pets group">
-        {selectedItem == null ? "What's your favourite pet?" : `Your favourite: ${selectedItem}`}
+        {selectedItem == null ? "What're your favourite pets?" : `Your favourite: ${selectedItem}`}
         <div>
           {options.map(option => (
             <XUIRadio
@@ -90,16 +90,16 @@ import XUIRadio from '@xero/xui/react/radio';
 
 <div role="radiogroup" aria-label="reversed group">
   <XUIRadio isReversed name="reversedRadios">
-    An option
+    Option 1
   </XUIRadio>
   <XUIRadio isReversed name="reversedRadios">
-    Another option
+    Option 2
   </XUIRadio>
   <XUIRadio isReversed name="reversedRadios" isDisabled>
-    Disabled option
+    Option 3
   </XUIRadio>
   <XUIRadio isReversed name="reversedRadios" isDisabled isDefaultChecked>
-    Default and disabled
+    Option 4
   </XUIRadio>
 </div>;
 ```
@@ -118,7 +118,13 @@ import star from '@xero/xui-icon/icons/star';
 
 <div>
   <XUIRadio name="customRadio" iconMain={star}>
-    Favourite
+    Option 1
+  </XUIRadio>
+  <XUIRadio name="customRadio" iconMain={star}>
+    Option 2
+  </XUIRadio>
+  <XUIRadio name="customRadio" iconMain={star}>
+    Option 3
   </XUIRadio>
 </div>;
 ```

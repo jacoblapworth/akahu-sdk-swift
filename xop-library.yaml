@@ -1,0 +1,174 @@
+xop: 1.9.0
+schema: https://kotahi.xero.dev/xop/schema/v1.0.0/library-descriptor-schema#
+
+# ---------------------------------------------------------------------
+#
+#    The XOP library file (xop-library.yaml) describes many aspects of the library.
+#
+#    The files created for a new library include:
+#        README.md  -  Markdown based documentation for users of this component
+#        xop-library.yaml  -  Metadata describing the library and configuration
+#
+# ---------------------------------------------------------------------
+#
+# ########################################
+#        Getting Started with XOP
+# ########################################
+#
+#    For help to complete this file, find the documentation here:
+#
+#        https://kotahi.xero.dev/xop/reference
+#
+#    Complete documentation for XOP commands can be found at:
+#
+#        https://kotahi.xero.dev/xop/commands
+#
+#    - Be wary of YAML indentation. For more information on YAML see: https://yaml.org/
+#
+# ---------------------------------------------------------------------
+
+library:
+  # ------- DO NOT CHANGE OR REUSE --------
+  id: isy7E6ztp42dwGSig23qBP
+  # ------- DO NOT CHANGE OR REUSE --------
+
+  #  _____    ___
+  # |_   _|__|   \ ___
+  #   | |/ _ \ |) / _ \
+  #   |_|\___/___/\___/
+  #
+  # --- Check these values ---
+
+  name: XUI
+
+  abbr: XUI
+
+  mnemonic: xui-design-system
+
+  description: >-
+    Xero's design system
+
+  # concept | stub | mock | prototype --> alpha | beta | limited --> GA --> deprecated | deleted
+  status: GA
+
+  # For automated build number versioning use the following format.
+  # version: '16.5.0+{env.BUILD_NUMBER}'
+  # More details at: https://kotahi.xero.dev/learn/hY7hDl2g9kSGMaIXZn9geA#version
+  version: '16.5.0'
+
+  #########################################
+  #       Ownership
+  #########################################
+
+  owner:
+    product:
+      name: XUI
+      refId: cKd1Uh8nQrqRUJfHMOSbtw
+
+    team:
+      name: UXE
+      refId: 1BaTGIweTsGZj87b3yPp5A
+  #########################################
+  #       library Definition
+  #########################################
+
+  interface:
+    #  _____    ___
+    # |_   _|__|   \ ___
+    #   | |/ _ \ |) / _ \
+    #   |_|\___/___/\___/
+    #
+    # --- Check these values ---
+
+    # public | internal | protected
+    scope: internal
+
+    # Xero Data Classification of the library content (X1-X7 | C1-C7)
+    dataClassification: X3
+
+    definition: ./README.md
+
+    # SDK | Module | Utility | UI Component | Machine Learning Model | Database Tier Application | Other
+    subType: Module
+
+    technology:
+      language: javascript
+      framework:
+        name: React
+        version: 16.10.2
+
+  #########################################
+  #       Labels
+  #########################################
+
+  # use this section to add any custom tags needed for tagging your aws resources
+  labels:
+    - key: owner
+      value: uxengineering@xero.com
+      category: owner
+    - key: product-group
+      value: Platform_Engineering
+      category: product-group
+    - key: product
+      value: xui
+      category: product
+  #########################################
+  #       References
+  #########################################
+
+  references:
+    #  _____    ___
+    # |_   _|__|   \ ___
+    #   | |/ _ \ |) / _ \
+    #   |_|\___/___/\___/
+    #
+    # --- Fill in the following references where applicable ---
+
+    readme:
+      path: ./README.md
+
+    contributing:
+      # TODO: The following path should be swapped with the url below once this bug is resolved: https://xero.slack.com/archives/CGXTM4QMS/p1594096154254200
+      path: ./CONTRIBUTING.md
+      # url: 'https://xui.xero.com/latest/section-contributing-to-xui.html'
+      # ref: Uuid of a published book here
+
+    runbooks:
+      - name: XUI Runbook
+        path: ./Runbook.md
+        # url: https://confluence.teamxero.com/x/SHORT_CODE_GOES_HERE
+        # ref: Uuid of a published book here
+
+    homepage:
+      url: https://confluence.teamxero.com/display/PLAT/UX+Engineering
+
+    source:
+      url: https://github.dev.xero.com/uxe/xui
+    issues:
+      url: https://jira.teamxero.com/secure/RapidBoard.jspa?rapidView=2028
+    builds:
+      url: https://teamcity1.inside.xero-support.com/project.html?projectId=Xui_Style
+    deployment:
+      url: https://xui.xero.com/latest
+    channel:
+      name: xui-development
+    documentation:
+      - name: XUI homepage
+        url: https://xui.xero.com/latest
+      - name: XUI's confluence page
+        url: https://confluence.teamxero.com/display/PLAT/UX+Engineering
+    # dashboards:
+    # - name: MyService Dashboard
+    #   url: https://insights.newrelic.com/accounts/MY_DASHBOARD
+    #   description: >-
+    #     Service Level Objectives for XUI
+    # logs:
+    # - name: XUI Logs
+    #   url: https://service.us2.sumologic.com/MY_LOGS
+    #   description: >-
+    #     The logs for XUI
+    # links:
+    # - name: XUI Blog
+    #   url: https://xero.com/MY_LINK
+    #   description: >-
+    #     Another link for XUI

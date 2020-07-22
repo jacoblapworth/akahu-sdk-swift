@@ -41,6 +41,9 @@
 // **Internationalisation Icons**
 // * Icon props in a number of components have been removed to ensure that internationally recognised symbols cannot be customised. For a full list please refer to the <a href="https://github.dev.xero.com/UXE/xui/blob/17.0.0/changes.md#removals-1"> removal section in `changes.md`.</a>
 //
+// **Header prop in `XUIPanelSection` renamed**
+// * `headerText` has been renamed to `heading`
+//
 // Styleguide: Updates.93.3
 
 // Style changes

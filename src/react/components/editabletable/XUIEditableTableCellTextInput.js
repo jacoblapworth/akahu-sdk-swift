@@ -41,7 +41,10 @@ const XUIEditableTableCellTextInput = ({
     setIsFocused(true);
 
     const input = event.target;
-    input && input.setSelectionRange && input.setSelectionRange(0, input.value.length);
+    // Only highlight the value when the type supports setSelectionRange
+    if (input && ['text', 'search', 'url', 'tel', 'password'].indexOf(input.type) > -1) {
+      input.setSelectionRange && input.setSelectionRange(0, input.value.length);
+    }
 
     onFocus && onFocus(event);
   };

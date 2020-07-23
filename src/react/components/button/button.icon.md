@@ -20,12 +20,16 @@ const props = {
 <div>
   <ExampleContainer className="xui-padding-xsmall">
     <XUIIconButton {...props} />
+    <br />
     <XUIIconButton {...props} size="small" />
+    <br />
     <XUIIconButton {...props} size="xsmall" />
   </ExampleContainer>
   <ExampleContainer className="xui-padding-xsmall" isInverted>
     <XUIIconButton {...props} isInverted />
+    <br />
     <XUIIconButton {...props} size="small" isInverted />
+    <br />
     <XUIIconButton {...props} size="xsmall" isInverted />
   </ExampleContainer>
 </div>;

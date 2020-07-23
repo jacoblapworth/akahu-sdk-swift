@@ -6,7 +6,7 @@ The touch target for Radios in a group is the entire "row" of the Radio Group.
 ```jsx harmony
 import XUIRadio, { XUIRadioGroup } from '@xero/xui/react/radio';
 
-<XUIRadioGroup label="cities" hintMessage="Grouped radios can have hints and validation messages">
+<XUIRadioGroup label="City" hintMessage="Hint message">
   <XUIRadio name="radioGroup">Wellington</XUIRadio>
   <XUIRadio name="radioGroup">Canberra</XUIRadio>
   <XUIRadio name="radioGroup">Washington D.C</XUIRadio>

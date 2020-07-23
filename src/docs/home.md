@@ -19,26 +19,38 @@
     </a>
   </div>
   <div class="ds-tile--home ds-tile--home-react">
-    <a href="react/">
-      <h3 class="xui-heading">React docs</h3>
+    <a href="react/" target="_blank">
+      <h3 class="xui-heading">
+        React docs
+        <svg class="xui-icon xui-margin-left-xsmall" role="presentation"><use xlink:href="#xui-icon-external" /></svg>
+      </h3>
       <p>Outlines specific XUI component build information for the React JS framework.</p>
     </a>
   </div>
   <div class="ds-tile--home ds-tile--home-storybook">
-    <a href="storybook/">
-      <h3 class="xui-heading">Storybook</h3>
+    <a href="storybook/" target="_blank">
+      <h3 class="xui-heading">
+        Storybook
+        <svg class="xui-icon xui-margin-left-xsmall" role="presentation"><use xlink:href="#xui-icon-external" /></svg>
+      </h3>
       <p>Testing playground environment for XUI's React components.</p>
     </a>
   </div>
   <div class="ds-tile--home ds-tile--home-language ds-tile--home-language">
-    <a href="/product-language-guide/">
-      <h3 class="xui-heading">Language guide</h3>
+    <a href="/product-language-guide/" target="_blank">
+      <h3 class="xui-heading">
+        Language guide
+        <svg class="xui-icon xui-margin-left-xsmall" role="presentation"><use xlink:href="#xui-icon-external" /></svg>
+      </h3>
       <p>Guide for understanding how we speak to people through our products.</p>
     </a>
   </div>
   <div class="ds-tile--home ds-tile--home-research ds-tile--home-research">
-    <a href="https://research.xero.com/">
-      <h3 class="xui-heading">Research library</h3>
+    <a href="https://research.xero.com/" target="_blank">
+      <h3 class="xui-heading">
+        Research library
+        <svg class="xui-icon xui-margin-left-xsmall" role="presentation"><use xlink:href="#xui-icon-external" /></svg>
+      </h3>
       <p>Collection of research studies, where you can search through nuggets and reports.</p>
     </a>
   </div>

@@ -158,6 +158,54 @@ _Note. The codemod will resolve the prop differences automatically when run._
 - `XUITable`
   - The arrow icon for sorting from the header row has been corrected to point up when the values are sorted in ascending order (A -> Z, low -> high), and down when descending. This has never been correct.
 - In a previous minor release 16.4.0, we added internationalisation support for various icons. We subsequently identified that the changes were not required for many of these icons as they are internationally recognised symbols. We have corrected this here by reverting all of the unneeded changes. This leaves the following icons still available for internationalisation:
+
   - `emptyIcon` in XUIAccordion
   - `emptyStateIcon` in XUIBarChart
   - `emptyStateIcon` in Table
+
+### TypeScript support
+
+With XUI 16.2.0 we are shipping TypeScript definitions for our components with XUI.
+
+`xui-types` will no longer be actively maintained as of XUI 16.2.0, so while your current implementation will likely continue to work for a while, we recommend upgrading to embedded XUI types at your earliest convenience. You can do this by deleting any pre-existing reference to `xui-types` in the `paths` attribute in the `CompilerOptions` of your `tsconfig.json` file.
+
+The type definitions we provide are slightly different from those of `xui-types`, below are things you might need to change.
+
+1. The shape of our component's props are not exported. You can still access these types by using React's ComponentProps helper.
+
+```diff
+interface Props {
+- spreadProps?: XUIComponentProps;
++ spreadProps?: React.ComponentProps<typeof XUIComponent>`.
+}
+```
+
+2. We do not export types for our private helpers. These types are usually used to copy the type of
+   a prop for a component. To do this, we recommend the following approach instead.
+
+```diff
+interface Props {
+- size?: SizeClassNamesKeys;
++ size?: React.ComponentProps<typeof XUIComponent>['size'];
+}
+```
+
+If this doesn't meet your needs you can also access these types by using `keyof` and `typeof`.
+
+```diff
+interface Props {
+- size?: SizeClassNamesKeys;
++ size?: keyof typeof sizeClassNames;
+}
+```
+
+### Invisible touch targets
+
+Components with a fixed with and height now have an invisible touch target around them that has a minimum width and height of 40px. Visit [our documentation for touch targets](https://xui.xero.com/16.0.0/section-getting-started-responsive.html#getting-started-responsive-3) for more information. If you use our CSS components please refer to [this list of components that will need updating](#invisible-touch-targets). If you use our React components then touch targets have been added already.
+
+Components with invisible touch targets:
+
+- [XUIIconButton](https://xui.xero.com/16.0.0/react/#icon-button)
+- [XUICheckbox](https://xui.xero.com/16.0.0/react/#checkbox) and [XUIRolloverCheckbox](https://xui.xero.com/16.0.0/react/#rollover-checkbox)
+- [XUIRadio](https://xui.xero.com/16.0.0/react/#radio)
+- [XUISwitch](https://xui.xero.com/16.0.0/react/#switch)

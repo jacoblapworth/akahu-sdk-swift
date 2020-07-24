@@ -12,20 +12,23 @@ We recommend supplying values to the `title` and/or `desc` props to include text
 ```jsx harmony
 import star from '@xero/xui-icon/icons/star';
 import arrow from '@xero/xui-icon/icons/arrow';
-import fileWord from '@xero/xui-icon/icons/file-word';
 import fileExcel from '@xero/xui-icon/icons/file-excel';
 import filePdf from '@xero/xui-icon/icons/file-pdf';
+import invalid from '@xero/xui-icon/icons/invalid';
 
 import XUIIcon from '@xero/xui/react/icon';
 
 <section>
   <h3>Standard Icon</h3>
-  <XUIIcon icon={star} />
+  <XUIIcon icon={arrow} />
   <h3>Rotated</h3>
-  <XUIIcon icon={arrow} rotation="90" />
+  <XUIIcon icon={arrow} rotation="90" className="xui-margin-right" />
+  <XUIIcon icon={arrow} rotation="180" className="xui-margin-right" />
+  <XUIIcon icon={arrow} rotation="270" />
   <h3>Coloured</h3>
-  <XUIIcon icon={fileWord} color="blue" />
-  <XUIIcon icon={fileExcel} color="file_spreadsheet" />
-  <XUIIcon icon={filePdf} color="file_pdf" />
+  <XUIIcon icon={star} color="yellow" className="xui-margin-right" />
+  <XUIIcon icon={fileExcel} color="file_spreadsheet" className="xui-margin-right" />
+  <XUIIcon icon={filePdf} color="file_pdf" className="xui-margin-right" />
+  <XUIIcon icon={invalid} color="red" />
 </section>;
 ```

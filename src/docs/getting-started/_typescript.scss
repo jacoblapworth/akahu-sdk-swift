@@ -1,0 +1,31 @@
+// TypeScript with XUI
+//
+// Introduction: XUI includes TypeScript type definitions. This means you can use XUI with TypeScript out of the box.
+//
+// Weight: 1.21
+//
+// Styleguide: Getting Started.TypeScript with XUI
+
+// Introduction
+//
+// Starting with XUI 16.2.0, TypeScript is supported out of the box.
+//
+// Projects using older versions of XUI must rely on [xui-types](https://github.dev.xero.com/UXE/xui-types) to provide type definitions.
+//
+// Styleguide: Getting Started.TypeScript with XUI.1
+
+// Important resources
+//
+// * If you are transitioning away from [xui-types](https://github.dev.xero.com/UXE/xui-types), please make sure to follow the TypeScript section in the [upgrade guide for XUI 17](https://docs.google.com/document/d/1O6QwZY6gFHyEbj4qvBhR9nZzghnPfQTEiB4v03NITiQ/edit#heading=h.3emh58ir3it9)
+//
+// * For information about using TypeScript with ReactJS, checkout the [official ReactJS docs](https://reactjs.org/docs/static-type-checking.html#typescript) and the [official TypeScript docs](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html)
+//
+// Styleguide: Getting Started.TypeScript with XUI.2
+
+// Codemod
+//
+// To use codemod with TypeScript components use the following command:
+//
+// `jscodeshift -t ./node_modules/@xero/xui/codemod/index.js src/ --parser=tsx --extensions=ts,tsx`
+//
+// Styleguide: Getting Started.TypeScript with XUI.3

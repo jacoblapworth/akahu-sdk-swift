@@ -17,7 +17,7 @@ const logValue = event => {
   console.log('value:', event.target.value);
 };
 
-<XUIRange label="Range Label" max="80" defaultValue="30" onInput={logValue} />;
+<XUIRange label="Range" max="80" defaultValue="30" onInput={logValue} />;
 ```
 
 ### Using Avatars & SVGs
@@ -25,12 +25,24 @@ const logValue = event => {
 Left and right elements can be given any object however it is recommended to use `XUIAvatar` or `XUIIcon`.
 
 ```jsx harmony
-import plus from '@xero/xui-icon/icons/plus';
-import XUIAvatar from '@xero/xui/react/avatar';
+import addition from '@xero/xui-icon/icons/addition';
+import subtraction from '@xero/xui-icon/icons/subtraction';
 import XUIIcon from '@xero/xui/react/icon';
 import XUIRange from '@xero/xui/react/range';
 
 <XUIRange
+  label="Range"
+  leftElement={<XUIIcon className="xui-margin-small" icon={subtraction} />}
+  rightElement={<XUIIcon className="xui-margin-small" icon={addition} />}
+/>;
+```
+
+```jsx harmony
+import XUIAvatar from '@xero/xui/react/avatar';
+import XUIRange from '@xero/xui/react/range';
+
+<XUIRange
+  label="Range"
   leftElement={
     <XUIAvatar
       value="left"
@@ -38,8 +50,13 @@ import XUIRange from '@xero/xui/react/range';
       imageUrl={'https://xui.xero.com/static/xpert-avatar.png'}
     />
   }
-  rightElement={<XUIIcon className="xui-margin-small" icon={plus} />}
-  label="Avatars & SVGs Range Label"
+  rightElement={
+    <XUIAvatar
+      value="left"
+      className="xui-margin-small"
+      imageUrl={'https://xui.xero.com/static/xpert-avatar.png'}
+    />
+  }
 />;
 ```
 
@@ -52,8 +69,8 @@ import XUIRange from '@xero/xui/react/range';
 
 <XUIRange
   isInvalid
-  validationMessage="invalid"
+  validationMessage="Validation message"
   isDisabled
-  label="Invalid & Disabled Range Label"
+  label="Invalid and disabled range"
 />;
 ```

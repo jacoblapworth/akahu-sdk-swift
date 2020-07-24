@@ -406,6 +406,18 @@ const variations = [
         ],
         barColor: stackedBarColor,
       },
+      {
+        chartId: 'stackedOnlyNegativeBars',
+        chartTitle: 'Stacked Only Negative Bars',
+        chartDescription: 'Negative states on a stacked layout',
+        isBarStacked: true,
+        barsData: [
+          { ...standardBarsData[0], y: [-1, 0, 0] },
+          { ...standardBarsData[1], y: [0, 0, -2] },
+          { ...standardBarsData[2], y: [0, 2, 0] },
+        ],
+        barColor: stackedBarColor,
+      },
     ],
   },
   {

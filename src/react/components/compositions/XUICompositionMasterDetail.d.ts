@@ -41,4 +41,5 @@ interface Props {
   retainWidth?: '' | 'small';
 }
 
-export default class XUICompositionMasterDetail extends React.PureComponent<Props> {}
+declare const XUICompositionMasterDetail: React.FunctionComponent<Props>;
+export default XUICompositionMasterDetail;

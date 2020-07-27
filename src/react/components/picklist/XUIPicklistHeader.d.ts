@@ -10,4 +10,5 @@ interface Props {
   id?: string;
 }
 
-export default class XUIPicklistHeader extends React.PureComponent<Props> {}
+declare const XUIPicklistHeader: React.FunctionComponent<Props>;
+export default XUIPicklistHeader;

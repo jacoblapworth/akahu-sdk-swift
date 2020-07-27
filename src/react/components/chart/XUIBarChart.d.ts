@@ -183,4 +183,5 @@ interface EmptyStateComponentProps {
 type EmptyStateProps = EmptyStateMessageProps | EmptyStateComponentProps;
 type Props = BaseProps & EmptyStateProps;
 
-export default class XUIBarChart extends React.PureComponent<Props> {}
+declare const XUIBarChart: React.FunctionComponent<Props>;
+export default XUIBarChart;

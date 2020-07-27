@@ -41,4 +41,5 @@ interface Props {
   summary: React.ReactNode;
 }
 
-export default class XUICompositionDetailSummary extends React.PureComponent<Props> {}
+declare const XUICompositionDetailSummary: React.FunctionComponent<Props>;
+export default XUICompositionDetailSummary;

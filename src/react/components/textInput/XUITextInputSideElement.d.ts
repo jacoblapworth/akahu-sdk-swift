@@ -23,4 +23,5 @@ interface Props {
   type?: keyof typeof typeClasses;
 }
 
-export default class XUITextInputSideElement extends React.PureComponent<Props> {}
+declare const XUITextInputSideElement: React.FunctionComponent<Props>;
+export default XUITextInputSideElement;

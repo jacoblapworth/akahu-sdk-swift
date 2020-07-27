@@ -57,4 +57,5 @@ interface Props {
   };
 }
 
-export default class XUIControlWrapper extends React.PureComponent<Props> {}
+declare const XUIControlWrapper: React.FunctionComponent<Props>;
+export default XUIControlWrapper;

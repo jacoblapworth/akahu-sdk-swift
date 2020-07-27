@@ -80,4 +80,5 @@ interface Props {
   validationMessage?: React.ReactNode;
 }
 
-export default class XUIRange extends React.PureComponent<Props> {}
+declare const XUIRange: React.FunctionComponent<Props>;
+export default XUIRange;

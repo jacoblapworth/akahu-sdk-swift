@@ -49,4 +49,5 @@ interface Props {
   summary: React.ReactNode;
 }
 
-export default class XUICompositionMasterDetailSummaryHeader extends React.PureComponent<Props> {}
+declare const XUICompositionMasterDetailSummaryHeader: React.FunctionComponent<Props>;
+export default XUICompositionMasterDetailSummaryHeader;

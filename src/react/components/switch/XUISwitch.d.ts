@@ -61,4 +61,5 @@ interface Props {
   value?: string;
 }
 
-export default class XUISwitch extends React.PureComponent<Props> {}
+declare const XUISwitch: React.FunctionComponent<Props>;
+export default XUISwitch;

@@ -39,4 +39,5 @@ interface Props {
   secondary: React.ReactNode;
 }
 
-export default class XUICompositionSplitHeader extends React.PureComponent<Props> {}
+declare const XUICompositionSplitHeader: React.FunctionComponent<Props>;
+export default XUICompositionSplitHeader;

@@ -26,4 +26,5 @@ interface BaseProps {
 
 type Props = BaseProps & React.HTMLAttributes<HTMLElement>;
 
-export default class XUIPanel extends React.PureComponent<Props> {}
+declare const XUIPanel: React.FunctionComponent<Props>;
+export default XUIPanel;

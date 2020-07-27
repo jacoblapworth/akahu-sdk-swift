@@ -49,4 +49,5 @@ interface Props {
   validationMessage?: React.ReactNode;
 }
 
-export default class XUICheckboxGroup extends React.PureComponent<Props> {}
+declare const XUICheckboxGroup: React.FunctionComponent<Props>;
+export default XUICheckboxGroup;

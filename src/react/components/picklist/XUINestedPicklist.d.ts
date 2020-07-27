@@ -15,4 +15,5 @@ interface Props {
   shouldTruncate?: boolean;
 }
 
-export default class XUINestedPicklist extends React.PureComponent<Props> {}
+declare const XUINestedPicklist: React.FunctionComponent<Props>;
+export default XUINestedPicklist;

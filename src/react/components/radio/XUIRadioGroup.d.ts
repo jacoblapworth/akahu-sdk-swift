@@ -49,4 +49,5 @@ interface Props {
   validationMessage?: string;
 }
 
-export default class XUIRadioGroup extends React.PureComponent<Props> {}
+declare const XUIRadioGroup: React.FunctionComponent<Props>;
+export default XUIRadioGroup;

@@ -4,4 +4,5 @@ interface Props {
   className?: string;
 }
 
-export default class XUIPicklistDivider extends React.PureComponent<Props> {}
+declare const XUIPicklistDivider: React.FunctionComponent<Props>;
+export default XUIPicklistDivider;

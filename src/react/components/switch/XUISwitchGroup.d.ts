@@ -45,4 +45,5 @@ interface Props {
   validationMessage?: React.ReactNode;
 }
 
-export default class XUISwitchGroup extends React.PureComponent<Props> {}
+declare const XUISwitchGroup: React.FunctionComponent<Props>;
+export default XUISwitchGroup;

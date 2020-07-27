@@ -421,40 +421,43 @@
           },
           {
             "name": "Editable Table",
-            "content": "../src/react/editabletable.md",
             "sections": [
               {
-                "components": "../src/react/components/editabletable/XUIEditableTable.js"
+                "components": [
+                  "../src/react/components/editabletable/XUIEditableTable.js",
+                  "../src/react/components/editabletable/XUIEditableTableBody.js",
+                  "../src/react/components/editabletable/XUIEditableTableRow.js"
+                ],
+                "content": "../src/react/editabletable.md"
               },
               {
-                "components": "../src/react/components/editabletable/XUIEditableTableHead.js"
+                "components": [
+                  "../src/react/components/editabletable/XUIEditableTableHead.js",
+                  "../src/react/components/editabletable/XUIEditableTableHeadingCell.js"
+                ],
+                "content": "../src/react/components/editabletable/editabletable.head.md"
               },
               {
-                "components": "../src/react/components/editabletable/XUIEditableTableHeadingCell.js"
+                "content": "../src/react/components/editabletable/editabletable.responsive.md"
               },
               {
-                "components": "../src/react/components/editabletable/XUIEditableTableFoot.js"
+                "content": "../src/react/components/editabletable/editabletable.custom.md"
               },
               {
-                "components": "../src/react/components/editabletable/XUIEditableTableFootAction.tsx"
+                "content": "../src/react/components/editabletable/editabletable.validation.md"
               },
               {
-                "components": "../src/react/components/editabletable/XUIEditableTableBody.js"
+                "content": "../src/react/components/editabletable/editabletable.interactions.md"
               },
               {
-                "components": "../src/react/components/editabletable/XUIEditableTableRow.js"
-              },
-              {
-                "components": "../src/react/components/editabletable/XUIEditableTableCellReadOnly.js"
-              },
-              {
-                "components": "../src/react/components/editabletable/XUIEditableTableCellTextInput.js"
-              },
-              {
-                "components": "../src/react/components/editabletable/XUIEditableTableCellSelectBox.js"
-              },
-              {
-                "components": "../src/react/components/editabletable/XUIEditableTableCellSecondarySearch.js"
+                "components": [
+                  "../src/react/components/editabletable/XUIEditableTableCellReadOnly.js",
+                  "../src/react/components/editabletable/XUIEditableTableCellTextInput.js",
+                  "../src/react/components/editabletable/XUIEditableTableCellSelectBox.js",
+                  "../src/react/components/editabletable/XUIEditableTableCellAutocompleter.js",
+                  "../src/react/components/editabletable/XUIEditableTableCellIconButton.js"
+                ],
+                "content": "../src/react/components/editabletable/editabletable.celltypes.md"
               }
             ]
           },

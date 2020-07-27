@@ -15,7 +15,7 @@ exports[`EditableTableWrapper renders correctly 1`] = `
     >
       <ErrorBoundary>
         <App
-          contextId="0"
+          contextId="1"
           dragHandleUsageInstructions="
   Press space bar to start a drag.
   When dragging you can use the arrow keys to move the item around and escape to cancel.
@@ -94,12 +94,12 @@ exports[`EditableTableWrapper renders correctly 1`] = `
                 >
                   <ForwardRef
                     className="xui-editabletablewrapper"
-                    data-rbd-droppable-context-id="0"
+                    data-rbd-droppable-context-id="1"
                     data-rbd-droppable-id="123"
                   >
                     <div
                       className="xui-editabletablewrapper xui-editabletableoverflow"
-                      data-rbd-droppable-context-id="0"
+                      data-rbd-droppable-context-id="1"
                       data-rbd-droppable-id="123"
                     >
                       <div

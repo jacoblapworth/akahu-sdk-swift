@@ -5,11 +5,13 @@ import toJson from 'enzyme-to-json';
 import uuid from 'uuid/v4';
 
 import XUIEditableTable from '../XUIEditableTable';
+import { tableName } from '../private/constants';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 jest.mock('uuid/v4');
-uuid.mockImplementation(() => 'testGeneratedId');
+const mockedUuid = 'testGeneratedId';
+uuid.mockImplementation(() => mockedUuid);
 
 describe('<XUIEditableTable />', () => {
   it('renders correctly', () => {
@@ -21,14 +23,25 @@ describe('<XUIEditableTable />', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('composes the className correctly', () => {
-    const wrapper = shallow(<XUIEditableTable className="test-classname" />);
+  it('composes the className and passed an id correctly', () => {
+    const wrapper = shallow(<XUIEditableTable className="test-classname" id="test-id" />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('renders the ariaLabel correctly', () => {
     const wrapper = shallow(<XUIEditableTable ariaLabel="An editable table" />);
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('renders a style element, when hiddenColumns are passed', () => {
+    const wrapper = mount(<XUIEditableTable hiddenColumns={[1]} />);
+    expect(wrapper.find('style')).toHaveLength(1);
+  });
+
+  it('renders rules to hide the proper columns, when hiddenColumns are passed', () => {
+    const wrapper = mount(<XUIEditableTable hiddenColumns={[1, 2]} />);
+    expect(wrapper.text()).toContain(`#${tableName}-${mockedUuid} .xui-editabletablerow > *:nth-child(2) { display: none; }`);
+    expect(wrapper.text()).toContain(`#${tableName}-${mockedUuid} .xui-editabletablerow > *:nth-child(3) { display: none; }`);
   });
 
   describe('validation message', () => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import invalid from '@xero/xui-icon/icons/invalid';
 
@@ -7,7 +7,8 @@ import EditableTableColGroup from './private/EditableTableColGroup';
 import EditableTableWrapper from './private/EditableTableWrapper';
 import conditionallyRequiredValidator from '../helpers/conditionallyRequiredValidator';
 import XUIIcon from '../icon/XUIIcon';
-import generateIds from '../controlwrapper/helpers';
+import { generateIdsFromControlId } from '../controlwrapper/helpers';
+import uuid from 'uuid/v4';
 
 const XUIEditableTable = ({
   ariaLabel,
@@ -21,6 +22,8 @@ const XUIEditableTable = ({
   dndDropFailedMessage,
   dndDropMessage,
   dndInstructions = '',
+  hiddenColumns,
+  id,
   isInvalid,
   maxWidth,
   minWidth,
@@ -32,11 +35,22 @@ const XUIEditableTable = ({
   ...spreadProps
 }) => {
   const tableRef = React.useRef();
+  // Ensures the table id is only generated once, but changes if the prop changes.
+  const [calculatedId, setId] = useState(id || `${tableName}-${uuid()}`);
 
-  const wrapperIds = generateIds(spreadProps.id);
+  const wrapperIds = generateIdsFromControlId(calculatedId);
 
   return (
     <React.Fragment>
+      {hiddenColumns && hiddenColumns.length > 0 && (
+        <style>
+          {hiddenColumns.map(
+            hiddenColumn =>
+              `#${calculatedId} .xui-editabletablerow > *:nth-child(${parseInt(hiddenColumn) +
+                1}) { display: none; }`,
+          )}
+        </style>
+      )}
       <EditableTableWrapper
         className={className}
         columnWidths={columnWidths}
@@ -62,6 +76,7 @@ const XUIEditableTable = ({
           aria-label={ariaLabel}
           className={tableName}
           data-automationid={qaHook}
+          id={wrapperIds.control}
           ref={tableRef}
         >
           <EditableTableColGroup columnWidths={columnWidths} />
@@ -116,7 +131,20 @@ XUIEditableTable.propTypes = {
       );
     },
   }),
+  /**
+   * Array of columns widths to be applied in order. Can be explicit widths, percentages, "auto", or empty strings to skip styling a column and fall back to default behaviour. If values are not supplied, columns will default to equal widths, filling the available space.
+   */
   columnWidths: PropTypes.arrayOf(PropTypes.string),
+  /**
+   * Array of column _indexes_ to be hidden. Zero-based. Hidden elements remain in the DOM.
+   * Convenient and performant for when the available columns and their order will not be changing.
+   * For more dynamic tables, consider an alternate approach.
+   */
+  hiddenColumns: PropTypes.arrayOf(PropTypes.oneOfType(PropTypes.string, PropTypes.number)),
+  /**
+   * Optional id to be applied to the table. If one is not provided, a unique one will be generated.
+   */
+  id: PropTypes.string,
   /**
    * Used to style the table as invalid.
    */

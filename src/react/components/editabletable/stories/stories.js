@@ -14,10 +14,20 @@ import {
   XUIEditableTableCellReadOnly,
 } from '../../../editabletable';
 import XUIEditableTableBody from '../XUIEditableTableBody';
+import XUIActions from '../../../actions';
 import generateCell from './helpers';
+import ColumnHideSelect from './column-hide-select';
 import { EditableTableUserTest, sandwichData } from './user-tests';
 
 class EditableTablePlayground extends React.Component {
+  state = {
+    hiddenColumns: [],
+  };
+
+  handleColumnVisibility = selectedColumns => {
+    this.setState({ hiddenColumns: selectedColumns });
+  };
+
   render() {
     const {
       ariaLabel,
@@ -26,6 +36,7 @@ class EditableTablePlayground extends React.Component {
       columnWidths,
       disableSecondRow,
       hasHeader,
+      hideShowColumns,
       invalidSecondColumn,
       randomiseContent,
       rows,
@@ -38,69 +49,81 @@ class EditableTablePlayground extends React.Component {
     let cellsCount = 0;
     const colWidths = columnWidths && columnWidths.split(/[\s,]/g);
     return (
-      <XUIEditableTable
-        ariaLabel={ariaLabel}
-        columnWidths={colWidths}
-        dndDragCancelledMessage={startPosition =>
-          `Movement cancelled. The item has returned to its starting position of ${startPosition}.`
-        }
-        dndDragOutsideMessage={() => 'You are currently not dragging over a droppable area.'}
-        dndDragStartMessage={startPosition =>
-          `You have lifted an item in position ${startPosition}.`
-        }
-        dndDragUpdateMessage={(startPosition, endPosition) =>
-          `You have moved the item from position ${startPosition} to position ${endPosition}.`
-        }
-        dndDropFailedMessage={startPosition =>
-          `The item has been dropped while not over a droppable area. The item has returned to its starting position of ${startPosition}.`
-        }
-        dndDropMessage={(startPosition, endPosition) =>
-          `You have dropped the item. It has moved from position ${startPosition} to ${endPosition}.`
-        }
-        dndInstructions="Press space bar to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or forms mode."
-        isInvalid={invalidSecondColumn}
-        maxWidth={maxWidth}
-        minWidth={minWidth}
-        onReorderRow={(startIndex, destinationIndex) =>
-          console.log(`Row dragged from index ${startIndex} to ${destinationIndex}`)
-        }
-        rowOptions={rowOptions}
-        validationMessage={tableValidationMessage}
-      >
-        {hasHeader && (
-          <XUIEditableTableHead>
-            <XUIEditableTableRow>
-              {Array.from(Array(columns).keys()).map((item, index) => (
-                <XUIEditableTableHeadingCell key={index}>I’m a cell</XUIEditableTableHeadingCell>
-              ))}
-            </XUIEditableTableRow>
-          </XUIEditableTableHead>
+      <>
+        {hideShowColumns && (
+          <XUIActions className="xui-margin-bottom">
+            <ColumnHideSelect
+              columns={columns}
+              passedOnItemSelect={this.handleColumnVisibility}
+              rowOptions={rowOptions}
+            />
+          </XUIActions>
         )}
-        <XUIEditableTableBody>
-          {Array.from(Array(rows).keys()).map((item, rowIndex) => (
-            <XUIEditableTableRow
-              index={rowIndex}
-              key={rowIndex}
-              onRemove={() => console.log('remove me')}
-            >
-              {Array.from(Array(columns).keys()).map((item, columnIndex) => {
-                const isDisabled = disableSecondRow && rowIndex === 1;
-                const isInvalid = invalidSecondColumn && columnIndex === 1;
-                cellsCount += 1;
-                return generateCell({
-                  cellsCount,
-                  cellType,
-                  columnIndex,
-                  randomiseContent,
-                  isDisabled,
-                  isInvalid,
-                  validationMessage: cellsValidationMessage,
-                });
-              })}
-            </XUIEditableTableRow>
-          ))}
-        </XUIEditableTableBody>
-      </XUIEditableTable>
+        <XUIEditableTable
+          ariaLabel={ariaLabel}
+          columnWidths={colWidths}
+          dndDragCancelledMessage={startPosition =>
+            `Movement cancelled. The item has returned to its starting position of ${startPosition}.`
+          }
+          dndDragOutsideMessage={() => 'You are currently not dragging over a droppable area.'}
+          dndDragStartMessage={startPosition =>
+            `You have lifted an item in position ${startPosition}.`
+          }
+          dndDragUpdateMessage={(startPosition, endPosition) =>
+            `You have moved the item from position ${startPosition} to position ${endPosition}.`
+          }
+          dndDropFailedMessage={startPosition =>
+            `The item has been dropped while not over a droppable area. The item has returned to its starting position of ${startPosition}.`
+          }
+          dndDropMessage={(startPosition, endPosition) =>
+            `You have dropped the item. It has moved from position ${startPosition} to ${endPosition}.`
+          }
+          dndInstructions="Press space bar to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or forms mode."
+          hiddenColumns={this.state.hiddenColumns}
+          isInvalid={invalidSecondColumn}
+          maxWidth={maxWidth}
+          minWidth={minWidth}
+          onReorderRow={(startIndex, destinationIndex) =>
+            console.log(`Row dragged from index ${startIndex} to ${destinationIndex}`)
+          }
+          rowOptions={rowOptions}
+          validationMessage={tableValidationMessage}
+        >
+          {hasHeader && (
+            <XUIEditableTableHead>
+              <XUIEditableTableRow>
+                {Array.from(Array(columns).keys()).map((item, index) => (
+                  <XUIEditableTableHeadingCell key={index}>I’m a cell</XUIEditableTableHeadingCell>
+                ))}
+              </XUIEditableTableRow>
+            </XUIEditableTableHead>
+          )}
+          <XUIEditableTableBody>
+            {Array.from(Array(rows).keys()).map((item, rowIndex) => (
+              <XUIEditableTableRow
+                index={rowIndex}
+                key={rowIndex}
+                onRemove={() => console.log('remove me')}
+              >
+                {Array.from(Array(columns).keys()).map((item, columnIndex) => {
+                  const isDisabled = disableSecondRow && rowIndex === 1;
+                  const isInvalid = invalidSecondColumn && columnIndex === 1;
+                  cellsCount += 1;
+                  return generateCell({
+                    cellsCount,
+                    cellType,
+                    columnIndex,
+                    randomiseContent,
+                    isDisabled,
+                    isInvalid,
+                    validationMessage: cellsValidationMessage,
+                  });
+                })}
+              </XUIEditableTableRow>
+            ))}
+          </XUIEditableTableBody>
+        </XUIEditableTable>
+      </>
     );
   }
 }
@@ -129,6 +152,7 @@ storiesWithKnobs.add('Playground', () => (
     columnWidths={text('Column widths (space-separated)')}
     disableSecondRow={boolean('Disable cells in the second row?', false)}
     hasHeader={boolean('Has header?', true)}
+    hideShowColumns={boolean('Show column-hiding filter?', false)}
     invalidSecondColumn={boolean('Invalid cells in the second column?', false)}
     maxWidth={text('Max width', '1100px')}
     minWidth={text('Min width', '300px')}

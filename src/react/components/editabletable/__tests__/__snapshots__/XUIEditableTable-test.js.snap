@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIEditableTable /> composes the className correctly 1`] = `
+exports[`<XUIEditableTable /> composes the className and passed an id correctly 1`] = `
 <Fragment>
   <EditableTableWrapper
     className="test-classname"
@@ -14,6 +14,7 @@ exports[`<XUIEditableTable /> composes the className correctly 1`] = `
   >
     <table
       className="xui-editabletable"
+      id="test-id"
     >
       <EditableTableColGroup
         columnWidths={Array []}
@@ -36,6 +37,7 @@ exports[`<XUIEditableTable /> renders correctly 1`] = `
   >
     <table
       className="xui-editabletable"
+      id="xui-editabletable-testGeneratedId"
     >
       <EditableTableColGroup
         columnWidths={Array []}
@@ -62,6 +64,7 @@ exports[`<XUIEditableTable /> renders the ariaLabel correctly 1`] = `
     <table
       aria-label="An editable table"
       className="xui-editabletable"
+      id="xui-editabletable-testGeneratedId"
     >
       <EditableTableColGroup
         columnWidths={Array []}
@@ -85,9 +88,10 @@ exports[`<XUIEditableTable /> validation message renders correctly when the tabl
     validationMessage="Error message"
   >
     <table
-      aria-describedby="testGeneratedId-message"
+      aria-describedby="xui-editabletable-testGeneratedId-message"
       aria-invalid={true}
       className="xui-editabletable"
+      id="xui-editabletable-testGeneratedId"
     >
       <EditableTableColGroup
         columnWidths={Array []}
@@ -96,7 +100,7 @@ exports[`<XUIEditableTable /> validation message renders correctly when the tabl
   </EditableTableWrapper>
   <div
     className="xui-editabletable--validation"
-    id="testGeneratedId-message"
+    id="xui-editabletable-testGeneratedId-message"
   >
     <XUIIcon
       icon={

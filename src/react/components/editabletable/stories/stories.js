@@ -34,6 +34,7 @@ class EditableTablePlayground extends React.Component {
       cellType,
       columns,
       columnWidths,
+      disableRowControls,
       disableSecondRow,
       hasHeader,
       hideShowColumns,
@@ -99,8 +100,9 @@ class EditableTablePlayground extends React.Component {
             </XUIEditableTableHead>
           )}
           <XUIEditableTableBody>
-            {Array.from(Array(rows).keys()).map((item, rowIndex) => (
+            {Array.from(Array(rows).keys()).map((item, rowIndex, arr) => (
               <XUIEditableTableRow
+                disableRowControls={rowIndex === arr.length - 1 && disableRowControls}
                 index={rowIndex}
                 key={rowIndex}
                 onRemove={() => console.log('remove me')}
@@ -150,6 +152,7 @@ storiesWithKnobs.add('Playground', () => (
     )}
     columns={number('Columns', 4)}
     columnWidths={text('Column widths (space-separated)')}
+    disableRowControls={boolean('Disable controls in the last row?', false)}
     disableSecondRow={boolean('Disable cells in the second row?', false)}
     hasHeader={boolean('Has header?', true)}
     hideShowColumns={boolean('Show column-hiding filter?', false)}

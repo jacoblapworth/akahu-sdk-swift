@@ -93,6 +93,22 @@ describe('<XUIEditableTableRow />', () => {
       // Assert
       expect(onRemoveMock).toBeCalled();
     });
+
+    it('should disable the remove icon when `disableRowControls` prop is true', () => {
+      const wrapper = mount(
+        <XUIEditableTable rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}>
+          <XUIEditableTableBody>
+            <XUIEditableTableRow qaHook="test-row" disableRowControls />
+          </XUIEditableTableBody>
+        </XUIEditableTable>,
+      );
+
+      expect(
+        wrapper
+          .find('[data-automationid="test-row--button-remove"]')
+          .hasClass('xui-button-is-disabled'),
+      ).toBeTruthy();
+    });
   });
 
   describe('non-removable row', () => {
@@ -249,6 +265,32 @@ describe('<XUIEditableTableRow />', () => {
       expect(wrapper.find('[data-automationid="test-row"]').prop('style')).toStrictEqual(
         expectedStyle,
       );
+    });
+
+    it('should disable the drag icon when `disableRowControls` prop is true', () => {
+      const wrapper = mount(
+        <XUIEditableTable
+          dndDragCancelledMessage={NOOP}
+          dndDragOutsideMessage={NOOP}
+          dndDragStartMessage={NOOP}
+          dndDragUpdateMessage={NOOP}
+          dndDropFailedMessage={NOOP}
+          dndDropMessage={NOOP}
+          dndInstructions=""
+          onReorderRow={NOOP}
+          rowOptions={{ isDraggable: true, dragButtonAriaLabel: 'Drag row' }}
+        >
+          <XUIEditableTableBody>
+            <XUIEditableTableRow disableRowControls qaHook="test-row" />
+          </XUIEditableTableBody>
+        </XUIEditableTable>,
+      );
+
+      expect(
+        wrapper
+          .find('[data-automationid="test-row--button-drag"]')
+          .hasClass('xui-button-is-disabled'),
+      ).toBeTruthy();
     });
   });
 

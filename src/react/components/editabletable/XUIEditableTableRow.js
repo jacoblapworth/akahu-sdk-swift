@@ -16,6 +16,7 @@ export const baseName = `${tableName}row`;
 const XUIEditableTableRow = ({
   children,
   className,
+  disableRowControls,
   index,
   onRemove,
   qaHook,
@@ -71,6 +72,7 @@ const XUIEditableTableRow = ({
               }}
               className={`${baseName}--draghandle`}
               iconReference={dragIcon}
+              isDisabled={disableRowControls}
               onMouseDown={event => event.currentTarget.focus()}
               qaHook={qaHook && `${qaHook}--button-drag`}
             />
@@ -80,6 +82,7 @@ const XUIEditableTableRow = ({
             <XUIEditableTableCellIconButton
               ariaLabel={removeButtonAriaLabel}
               iconReference={trashIcon}
+              isDisabled={disableRowControls}
               onClick={onRemove}
               qaHook={qaHook && `${qaHook}--button-remove`}
             />
@@ -93,6 +96,10 @@ const XUIEditableTableRow = ({
 XUIEditableTableRow.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
   className: PropTypes.string,
+  /**
+   * Whether to disable controls in the row, including drag and remove icons
+   */
+  disableRowControls: PropTypes.bool,
   /**
    * The index of the row in the list. This will typically be the `index`
    * provided by `Array.prototype.map`.

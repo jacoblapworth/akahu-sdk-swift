@@ -133,6 +133,25 @@ export default class DropDown extends PureComponent {
   };
 
   /**
+   * Get the React virtual DOM representation of the currently highlighted element.
+   *
+   * @public
+   * @returns {React.element} null if nothing is highlighted
+   * @memberof DropDown
+   */
+  getHighlighted = () => (this.panel.current !== null ? this.panel.current.getHighlighted() : null);
+
+  /**
+   * Get the ID of the currently highlighted item.
+   *
+   * @public
+   * @returns {String} null if nothing is highlighted
+   * @memberof DropDown
+   */
+  getHighlightedId = () =>
+    this.panel.current !== null ? this.panel.current.getHighlightedId() : null;
+
+  /**
    * Select the currently-highlighted list item.
    *
    * @public

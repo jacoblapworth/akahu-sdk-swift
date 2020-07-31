@@ -101,6 +101,14 @@ $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to
   right: 0;
 }
 
+// The scroll shadow should not affect the foot action
+.#{$ns}-editabletableoverflow-has-footaction {
+  &:after,
+  &:before {
+    height: calc(100% - #{$xui-minimum-touch-target} - 1px); // 1px is the border
+  }
+}
+
 .#{$ns}-editabletable--validation {
   color: $xui-validation-invalid-color;
   display: flex;
@@ -281,5 +289,15 @@ $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to
     .#{$ns}-editabletable--portalfocus--border {
       clip-path: inset(-1px -1px -1px 0px);
     }
+  }
+}
+
+.#{$ns}-editabletableutilitybar--cell {
+  padding: 0;
+  &--wrapper {
+    box-shadow: 0 0 0 1px $xui-standard-border-color;
+    left: 1px; // 1px is the border
+    padding: $xui-s-2xsmall;
+    position: sticky;
   }
 }

@@ -38,6 +38,7 @@ describe('EditableTableOverflow', () => {
         addEventListener: NOOP,
         removeEventListener: NOOP,
         clientWidth: 600,
+        querySelector: NOOP,
       },
     } as unknown) as React.RefObject<HTMLTableElement>;
 
@@ -68,6 +69,7 @@ describe('EditableTableOverflow', () => {
         addEventListener: NOOP,
         removeEventListener: NOOP,
         clientWidth: 600,
+        querySelector: NOOP,
       },
     } as unknown) as React.RefObject<HTMLTableElement>;
 
@@ -81,5 +83,23 @@ describe('EditableTableOverflow', () => {
 
     // Assert
     expect(wrapper.html()).toContain('overflowleft');
+  });
+
+  it('applies the footaction class', () => {
+    // Arrange
+    const tableRef = ({
+      current: {
+        querySelector: className => className.includes('editabletablefoot--action'),
+      },
+    } as unknown) as React.RefObject<HTMLTableElement>;
+
+    const wrapper = mount(
+      <XUIEditableTableContext.Provider value={{ dragAndDrop: {}, rowOptions: {}, tableRef }}>
+        <EditableTableOverflow />
+      </XUIEditableTableContext.Provider>,
+    );
+
+    // Assert
+    expect(wrapper.html()).toContain('has-footaction');
   });
 });

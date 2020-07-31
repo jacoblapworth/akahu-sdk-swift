@@ -35,6 +35,17 @@ const variations = [
     rows: 2,
     renderSmallerWrapper: true,
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'add new row (button)',
+    columns: 10,
+    columnWidths: ['59px', '59px', '59px', '59px', '59px', '59px', '59px', '59px', '59px', '59px'],
+    hasHeader: true,
+    rows: 3,
+    rowOptions: { isRemovable: true, removeButtonAriaLabel: 'Remove row' },
+    renderSmallerWrapper: true,
+    showAddRowButton: true,
+  },
 ];
 
 export { storiesWithVariationsKindName, variations };

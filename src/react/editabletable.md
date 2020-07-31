@@ -134,10 +134,9 @@ document.head.appendChild(node);
 </XUIEditableTable>;
 ```
 
-## Header / Footer
+## Header
 
 You can assemble the header area of a table by using `XUIEditableTableHead` and `XUIEditableTableRow` with `XUIEditableTableHeadingCell`.
-The same applies to the footer and `XUIEditableTableFoot` with `XUIEditableTableRow` and `XUIEditableTableHeadingCell`.
 
 ```jsx harmony
 import {
@@ -146,8 +145,7 @@ import {
   XUIEditableTableCellReadOnly,
   XUIEditableTableHead,
   XUIEditableTableHeadingCell,
-  XUIEditableTableBody,
-  XUIEditableTableFoot
+  XUIEditableTableBody
 } from '@xero/xui/react/editabletable';
 
 const data = [
@@ -172,13 +170,6 @@ const data = [
       </XUIEditableTableRow>
     ))}
   </XUIEditableTableBody>
-  <XUIEditableTableFoot>
-    <XUIEditableTableRow>
-      <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
-      <XUIEditableTableHeadingCell>Color</XUIEditableTableHeadingCell>
-      <XUIEditableTableHeadingCell>Price / kg</XUIEditableTableHeadingCell>
-    </XUIEditableTableRow>
-  </XUIEditableTableFoot>
 </XUIEditableTable>;
 ```
 
@@ -224,6 +215,65 @@ const data = [
     ))}
   </XUIEditableTableBody>
 </XUIEditableTable>;
+```
+
+### Adding rows
+
+For a table-affecting action like adding a row, use `XUIEditableTableFootAction` nested within `XUIEditableTableFoot`.
+
+```jsx harmony
+import uuid from 'uuid/v4';
+import { useState } from 'react';
+import {
+  XUIEditableTable,
+  XUIEditableTableRow,
+  XUIEditableTableCellTextInput,
+  XUIEditableTableHead,
+  XUIEditableTableHeadingCell,
+  XUIEditableTableBody,
+  XUIEditableTableFoot,
+  XUIEditableTableFootAction
+} from '@xero/xui/react/editabletable';
+
+const data = [
+  { fruit: 'Banana', color: 'Yellow', price: 2.99, uid: uuid() },
+  { fruit: 'Orange', color: 'Orange', price: 3.99, uid: uuid() }
+];
+
+const blankItem = { fruit: undefined, color: undefined, price: undefined, isDisabled: true };
+
+const Example = () => {
+  const [tableData, setTableData] = useState(data);
+
+  const addNewRow = () => {
+    setTableData([...tableData, { ...blankItem, uid: uuid() }]);
+  };
+
+  return (
+    <XUIEditableTable ariaLabel="List of fruits with color and price per kg">
+      <XUIEditableTableHead>
+        <XUIEditableTableRow>
+          <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
+          <XUIEditableTableHeadingCell>Color</XUIEditableTableHeadingCell>
+          <XUIEditableTableHeadingCell>Price / kg</XUIEditableTableHeadingCell>
+        </XUIEditableTableRow>
+      </XUIEditableTableHead>
+      <XUIEditableTableBody>
+        {tableData.map((row, index) => (
+          <XUIEditableTableRow key={row.uid}>
+            <XUIEditableTableCellTextInput defaultValue={row.fruit} key={`${row.uid}_fruit`} />
+            <XUIEditableTableCellTextInput defaultValue={row.color} key={`${row.uid}_color`} />
+            <XUIEditableTableCellTextInput defaultValue={row.price} key={`${row.uid}_price`} />
+          </XUIEditableTableRow>
+        ))}
+      </XUIEditableTableBody>
+      <XUIEditableTableFoot>
+        <XUIEditableTableFootAction addButtonContent="Add new row" onAdd={addNewRow} />
+      </XUIEditableTableFoot>
+    </XUIEditableTable>
+  );
+};
+<Example />;
 ```
 
 ### Dragging rows

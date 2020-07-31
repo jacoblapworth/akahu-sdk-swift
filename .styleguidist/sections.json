@@ -436,6 +436,9 @@
                 "components": "../src/react/components/editabletable/XUIEditableTableFoot.js"
               },
               {
+                "components": "../src/react/components/editabletable/XUIEditableTableFootAction.tsx"
+              },
+              {
                 "components": "../src/react/components/editabletable/XUIEditableTableBody.js"
               },
               {

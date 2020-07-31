@@ -59,11 +59,14 @@ const EditableTableOverflow: React.FunctionComponent<Props> = React.forwardRef<H
       return () => scrollContainerRef?.current?.removeEventListener('scroll', setScrollOverflow);
     });
 
+    const hasFootAction = tableRef?.current?.querySelector(`.${ns}-editabletablefoot--action`);
+
     return (
       <div
         className={cn(
           className,
           baseName,
+          hasFootAction && `${baseName}-has-footaction`,
           hasLeftOverflow && `${baseName}-overflowleft`,
           hasRightOverflow && `${baseName}-overflowright`,
         )}

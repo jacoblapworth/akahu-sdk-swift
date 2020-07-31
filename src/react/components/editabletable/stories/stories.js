@@ -12,6 +12,8 @@ import {
   XUIEditableTableHeadingCell,
   XUIEditableTableRow,
   XUIEditableTableCellReadOnly,
+  XUIEditableTableFoot,
+  XUIEditableTableFootAction,
 } from '../../../editabletable';
 import XUIEditableTableBody from '../XUIEditableTableBody';
 import XUIActions from '../../../actions';
@@ -45,6 +47,7 @@ class EditableTablePlayground extends React.Component {
       maxWidth,
       minWidth,
       cellsValidationMessage,
+      showAddRowButton,
       tableValidationMessage,
     } = this.props;
     let cellsCount = 0;
@@ -124,6 +127,14 @@ class EditableTablePlayground extends React.Component {
               </XUIEditableTableRow>
             ))}
           </XUIEditableTableBody>
+          {showAddRowButton && (
+            <XUIEditableTableFoot>
+              <XUIEditableTableFootAction
+                addButtonContent="Add new row"
+                onAdd={() => console.log('Add a row')}
+              />
+            </XUIEditableTableFoot>
+          )}
         </XUIEditableTable>
       </>
     );
@@ -167,6 +178,7 @@ storiesWithKnobs.add('Playground', () => (
       dragButtonAriaLabel: 'Reorder row',
     }}
     rows={number('Rows', 3)}
+    showAddRowButton={boolean('Show add row button?', false)}
     tableValidationMessage={text(
       'Table validationMessage',
       '3 of the table cells have invalid data entered',
@@ -180,12 +192,19 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
     const variationMinusStoryDetails = { ...variation };
-    const { columns, hasHeader, rows, renderSmallerWrapper } = variationMinusStoryDetails;
+    const {
+      columns,
+      hasHeader,
+      rows,
+      renderSmallerWrapper,
+      showAddRowButton,
+    } = variationMinusStoryDetails;
 
     delete variationMinusStoryDetails.storyKind;
     delete variationMinusStoryDetails.storyTitle;
     delete variationMinusStoryDetails.hasHeader;
     delete variationMinusStoryDetails.renderSmallerWrapper;
+    delete variationMinusStoryDetails.showAddRowButton;
 
     const editableTableComponent = (
       <XUIEditableTable {...variationMinusStoryDetails}>
@@ -215,6 +234,14 @@ variations.forEach(variation => {
             </XUIEditableTableRow>
           ))}
         </XUIEditableTableBody>
+        {showAddRowButton && (
+          <XUIEditableTableFoot>
+            <XUIEditableTableFootAction
+              addButtonContent="Add new row"
+              onAdd={() => console.log('Add new row')}
+            />
+          </XUIEditableTableFoot>
+        )}
       </XUIEditableTable>
     );
 

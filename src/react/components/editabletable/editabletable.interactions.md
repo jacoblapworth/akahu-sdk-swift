@@ -43,6 +43,60 @@ const onRemove = () => alert('Row deleted!');
 </XUIEditableTable>;
 ```
 
+### Adding rows
+
+For a table-affecting action like adding a row, use `XUIEditableTableFootAction` nested within `XUIEditableTableFoot`.
+
+```jsx harmony
+import uuid from 'uuid/v4';
+import { useState } from 'react';
+import {
+  XUIEditableTable,
+  XUIEditableTableRow,
+  XUIEditableTableCellTextInput,
+  XUIEditableTableHead,
+  XUIEditableTableHeadingCell,
+  XUIEditableTableBody,
+  XUIEditableTableFoot,
+  XUIEditableTableFootAction
+} from '@xero/xui/react/editabletable';
+const data = [
+  { fruit: 'Banana', colour: 'Yellow', price: 2.99, uid: uuid() },
+  { fruit: 'Orange', colour: 'Orange', price: 3.99, uid: uuid() }
+];
+const blankItem = { fruit: undefined, colour: undefined, price: undefined, isDisabled: true };
+const Example = () => {
+  const [tableData, setTableData] = useState(data);
+  const addNewRow = () => {
+    setTableData([...tableData, { ...blankItem, uid: uuid() }]);
+  };
+  return (
+    <XUIEditableTable ariaLabel="List of fruits with colour and price per kg">
+      <XUIEditableTableHead>
+        <XUIEditableTableRow>
+          <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
+          <XUIEditableTableHeadingCell>Colour</XUIEditableTableHeadingCell>
+          <XUIEditableTableHeadingCell>Price / kg</XUIEditableTableHeadingCell>
+        </XUIEditableTableRow>
+      </XUIEditableTableHead>
+      <XUIEditableTableBody>
+        {tableData.map((row, index) => (
+          <XUIEditableTableRow key={row.uid}>
+            <XUIEditableTableCellTextInput defaultValue={row.fruit} key={`${row.uid}_fruit`} />
+            <XUIEditableTableCellTextInput defaultValue={row.colour} key={`${row.uid}_colour`} />
+            <XUIEditableTableCellTextInput defaultValue={row.price} key={`${row.uid}_price`} />
+          </XUIEditableTableRow>
+        ))}
+      </XUIEditableTableBody>
+      <XUIEditableTableFoot>
+        <XUIEditableTableFootAction addButtonContent="Add new row" onAdd={addNewRow} />
+      </XUIEditableTableFoot>
+    </XUIEditableTable>
+  );
+};
+<Example />;
+```
+
 ### Dragging rows
 
 To enable reordering table rows with drag and drop, follow these steps:

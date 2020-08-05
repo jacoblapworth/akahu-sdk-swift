@@ -98,7 +98,7 @@ XUIEditableTableCellControl.propTypes = {
   /**
    * Validation message to show under the input if `isInvalid` is true.
    */
-  validationMessage: PropTypes.string,
+  validationMessage: PropTypes.node,
   /** Id of the control cell */
   cellIds: PropTypes.shape({
     wrapper: PropTypes.string,

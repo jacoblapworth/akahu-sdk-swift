@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface XUIEditableTableContext {
+export interface XUIEditableTableContextShape {
   columnWidths?: string[];
   dragAndDrop: {
     dragHandleDescribedBy?: string;
@@ -17,7 +17,7 @@ interface XUIEditableTableContext {
   tableWrapperRef?: React.MutableRefObject<HTMLElement>;
 }
 
-export default React.createContext<XUIEditableTableContext>({
+export default React.createContext<XUIEditableTableContextShape>({
   dragAndDrop: {},
   rowOptions: {},
 });

@@ -301,7 +301,7 @@ XUIEditableTable.propTypes = {
   /**
    * Validation message to show under the table if `isInvalid` is true.
    */
-  validationMessage: PropTypes.string,
+  validationMessage: PropTypes.node,
 };
 
 export default XUIEditableTable;

@@ -2,6 +2,24 @@ import * as React from 'react';
 
 import { baseSizeClasses } from './private/constants';
 
+declare enum InputType {
+  'text',
+  'number',
+  'password',
+  'hidden',
+  'email',
+  'range',
+  'search',
+  'time',
+  'tel',
+  'url',
+  'color',
+}
+
+export type XUITextInputHTMLAttributes =
+  | React.InputHTMLAttributes<HTMLInputElement>
+  | React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+
 interface Props {
   /**
    * Class names to add to the div wrapping the input and icons.
@@ -28,9 +46,7 @@ interface Props {
   /**
    * Props to be spread onto the input element itself.
    */
-  inputProps?:
-    | React.InputHTMLAttributes<HTMLInputElement>
-    | React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+  inputProps?: XUITextInputHTMLAttributes;
   /**
    * Sets a ref for the input element.
    */
@@ -139,18 +155,7 @@ interface Props {
   /**
    * Type of the input - should not be used together with `isMultiline`.
    */
-  type?:
-    | 'text'
-    | 'number'
-    | 'password'
-    | 'hidden'
-    | 'email'
-    | 'range'
-    | 'search'
-    | 'time'
-    | 'tel'
-    | 'url'
-    | 'color';
+  type?: InputType;
   /**
    * Validation message to show under the input if `isInvalid` is `true`.
    */

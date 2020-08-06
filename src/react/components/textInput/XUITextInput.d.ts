@@ -15,6 +15,8 @@ interface Props {
    * Class names to be added to the field wrapper element.
    */
   fieldClassName?: string;
+  /** After rendering set focus at the end of the input */
+  focusByDefault?: boolean;
   /**
    * Hint message to show under the input.
    */

@@ -32,7 +32,7 @@ class XUITextInput extends PureComponent {
   }
 
   componentDidMount() {
-    const { maxRows } = this.props;
+    const { maxRows, focusByDefault } = this.props;
 
     if (shouldAutomaticallyResize(this.props) && this.input) {
       if (maxRows != null) {
@@ -46,6 +46,18 @@ class XUITextInput extends PureComponent {
       }
 
       autosize(this.input);
+    }
+
+    if (focusByDefault) {
+      this.input && this.input.focus();
+
+      // Only highlight the value when the type supports setSelectionRange
+      if (
+        this.input &&
+        ['text', 'search', 'url', 'tel', 'password'].indexOf(this.input.type) > -1
+      ) {
+        this.input.setSelectionRange(this.input.value.length, this.input.value.length);
+      }
     }
   }
 
@@ -212,6 +224,8 @@ XUITextInput.propTypes = {
   value: PropTypes.string,
   /** Default value of the text input */
   defaultValue: PropTypes.string,
+  /** After rendering set focus at the end of the input */
+  focusByDefault: PropTypes.bool,
   /** Type of the input - should not be used together with `isMultiline` */
   type: PropTypes.oneOf([
     'text',

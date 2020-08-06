@@ -97,6 +97,129 @@ const Example = () => {
 <Example />;
 ```
 
+## Adding new row on keyboard interactions
+
+Adding new row can be also based on user's keyboard interaction and this pattern doesn't require pressing a button. A row is added after user starts typing into one of the cells in the last (initially empty) row.
+
+```jsx harmony
+import { useState } from 'react';
+import uuid from 'uuid/v4';
+import {
+  XUIEditableTable,
+  XUIEditableTableRow,
+  XUIEditableTableCellTextInput,
+  XUIEditableTableHead,
+  XUIEditableTableHeadingCell,
+  XUIEditableTableBody
+} from '@xero/xui/react/editabletable';
+import { isKeyArrow, isKeyFunctional } from '@xero/xui/react/helpers/reactKeyHandler';
+
+const data = [
+  { id: uuid(), fruit: 'Banana', color: 'Yellow', price: 2.99 },
+  { id: uuid(), fruit: 'Orange', color: 'Orange', price: 3.99 }
+];
+
+const EditableNewRowOnKeyDownDemo = () => {
+  const [demoData, setDemoData] = useState(data);
+  const [focusId, setFocusId] = useState(null);
+  const [focusCell, setFocusCell] = useState(null);
+
+  /**
+   * Manages your dataset updates when users interact with the table.
+   */
+  const inputOnChangeHandler = (event, id, updateKey) => {
+    setDemoData([
+      ...demoData.map(item => {
+        if (item.id === id) {
+          return {
+            ...item,
+            [updateKey]: event.target.value
+          };
+        }
+
+        return item;
+      })
+    ]);
+  };
+
+  /**
+   * Function triggered for onKeyUp event in the empty row. It should handle adding data typed by a user to your data set that is used to render table rows.
+   * Remember to clear an input because the focus will be transitioned to the newly generated row for the data set.
+   */
+  const newRowHandler = (event, source) => {
+    if (!isKeyFunctional(event) && !isKeyArrow(event)) {
+      const id = uuid();
+
+      setDemoData([
+        ...demoData,
+        {
+          id,
+          [source]: event.target.value
+        }
+      ]);
+
+      setFocusId(id);
+      setFocusCell(source);
+
+      event.target.value = '';
+    }
+  };
+
+  /**
+   * This is a blueprint row that will always be empty. Once user starts typing, newRowHandler() will be triggered
+   * that will add the new data to your dataset and will cause component rendering with a new row and focus.
+   */
+  const newEmptyRow = () => {
+    return (
+      <XUIEditableTableRow>
+        <XUIEditableTableCellTextInput
+          onKeyUp={event => newRowHandler(event, 'fruit')}
+          placeholder={'Add item'}
+        />
+        <XUIEditableTableCellTextInput onKeyUp={event => newRowHandler(event, 'color')} />
+        <XUIEditableTableCellTextInput onKeyUp={event => newRowHandler(event, 'price')} />
+      </XUIEditableTableRow>
+    );
+  };
+
+  return (
+    <XUIEditableTable ariaLabel="List of fruits with color and price per kg">
+      <XUIEditableTableHead>
+        <XUIEditableTableRow>
+          <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
+          <XUIEditableTableHeadingCell>Color</XUIEditableTableHeadingCell>
+          <XUIEditableTableHeadingCell>Price / kg</XUIEditableTableHeadingCell>
+        </XUIEditableTableRow>
+      </XUIEditableTableHead>
+      <XUIEditableTableBody>
+        {demoData.map(row => (
+          <XUIEditableTableRow key={row.id}>
+            <XUIEditableTableCellTextInput
+              focusByDefault={row.id === focusId && 'fruit' === focusCell}
+              value={row.fruit}
+              onChange={event => inputOnChangeHandler(event, row.id, 'fruit')}
+            />
+            <XUIEditableTableCellTextInput
+              focusByDefault={row.id === focusId && 'color' === focusCell}
+              value={row.color}
+              onChange={event => inputOnChangeHandler(event, row.id, 'color')}
+            />
+            <XUIEditableTableCellTextInput
+              focusByDefault={row.id === focusId && 'price' === focusCell}
+              value={row.price}
+              onChange={event => inputOnChangeHandler(event, row.id, 'price')}
+            />
+          </XUIEditableTableRow>
+        ))}
+        {newEmptyRow()}
+      </XUIEditableTableBody>
+    </XUIEditableTable>
+  );
+};
+
+<EditableNewRowOnKeyDownDemo />;
+```
+
 ### Dragging rows
 
 To enable reordering table rows with drag and drop, follow these steps:

@@ -17,7 +17,7 @@ interface Props {
   /**
    * The `panelId` property of the panel which should currently be open.
    */
-  currentPanel?: string;
+  currentPanelId?: string;
   /**
    * Whether the fixed width class variant should be used for the `size` prop. Does nothing if no
    * size is provided.

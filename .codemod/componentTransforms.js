@@ -224,14 +224,16 @@ module.exports = {
       ],
     },
   ],
-  selectbox: [
+  'select-box': [
     {
       name: 'SelectBox',
       newName: 'XUISelectBox',
+      newImportPath: 'selectbox',
     },
     {
       name: 'SelectBoxOption',
       newName: 'XUISelectBoxOption',
+      newImportPath: 'selectbox',
     },
   ],
   table: [

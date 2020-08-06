@@ -317,3 +317,72 @@ const DisableControlsExample = () => {
 
 <DisableControlsExample />;
 ```
+
+### Hiding and showing columns
+
+There are several possible approaches for hiding and showing columns.
+
+- Apply a className of `xui-editabletable--column-hidden` to the hidden cell(s) in each row.
+- Selectively render `null` instead of the specified cells in each row.
+- Using the XUIEditableTable `hiddenColumns` API
+
+The `hiddenColumns` API is optimal for very large tables, in which re-rendering all the rows and cells is not desired, and the order of columns is not expected to change. For best performance in these cases, cells should be [memoized](https://reactjs.org/docs/react-api.html#reactmemo) to reduce unnecessary renders.
+
+To use this feature, pass an array of column indexes that should be hidden (zero-based, inclusive of any controls, like drag and drop) to the `hiddenColumns` prop for `XUIEditableTable`
+
+```jsx harmony
+import {
+  XUIEditableTable,
+  XUIEditableTableBody,
+  XUIEditableTableCellReadOnly,
+  XUIEditableTableHead,
+  XUIEditableTableHeadingCell,
+  XUIEditableTableRow
+} from '@xero/xui/react/editabletable';
+import { XUIActions } from '@xero/xui/react/actions';
+
+import ColumnHideSelect from './stories/column-hide-select';
+const HideShowExample = () => {
+  const [hiddenColumns, setHiddenColumns] = React.useState([]);
+
+  handleColumnVisibility = selectedColumns => {
+    setHiddenColumns(selectedColumns);
+  };
+  const data = [
+    { Fruit: 'Banana', Colour: 'Yellow', 'Price / kg': 2.99 },
+    { Fruit: 'Orange', Colour: 'Orange', 'Price / kg': 3.99 }
+  ];
+  const columns = Object.keys(data[0]);
+  return (
+    <>
+      <XUIActions className="xui-margin-bottom">
+        <ColumnHideSelect
+          columns={columns}
+          passedOnItemSelect={handleColumnVisibility}
+          rowOptions={{}}
+        />
+      </XUIActions>
+      <XUIEditableTable hiddenColumns={hiddenColumns}>
+        <XUIEditableTableHead>
+          <XUIEditableTableRow>
+            {columns.map((item, index) => (
+              <XUIEditableTableHeadingCell key={index}>{item}</XUIEditableTableHeadingCell>
+            ))}
+          </XUIEditableTableRow>
+        </XUIEditableTableHead>
+        <XUIEditableTableBody>
+          {data.map((row, index) => (
+            <XUIEditableTableRow key={index}>
+              <XUIEditableTableCellReadOnly>{row.Fruit}</XUIEditableTableCellReadOnly>
+              <XUIEditableTableCellReadOnly>{row.Colour}</XUIEditableTableCellReadOnly>
+              <XUIEditableTableCellReadOnly>{row['Price / kg']}</XUIEditableTableCellReadOnly>
+            </XUIEditableTableRow>
+          ))}
+        </XUIEditableTableBody>
+      </XUIEditableTable>
+    </>
+  );
+};
+
+<HideShowExample />;
+```

@@ -34,7 +34,7 @@ class EditableTablePlayground extends React.Component {
     const {
       ariaLabel,
       cellType,
-      columns,
+      columnCount,
       columnWidths,
       disableRowControls,
       disableSecondRow,
@@ -57,7 +57,7 @@ class EditableTablePlayground extends React.Component {
         {hideShowColumns && (
           <XUIActions className="xui-margin-bottom">
             <ColumnHideSelect
-              columns={columns}
+              columns={Array.from(Array(columnCount).keys())}
               passedOnItemSelect={this.handleColumnVisibility}
               rowOptions={rowOptions}
             />
@@ -96,7 +96,7 @@ class EditableTablePlayground extends React.Component {
           {hasHeader && (
             <XUIEditableTableHead>
               <XUIEditableTableRow>
-                {Array.from(Array(columns).keys()).map((item, index) => (
+                {Array.from(Array(columnCount).keys()).map((item, index) => (
                   <XUIEditableTableHeadingCell key={index}>I’m a cell</XUIEditableTableHeadingCell>
                 ))}
               </XUIEditableTableRow>
@@ -110,7 +110,7 @@ class EditableTablePlayground extends React.Component {
                 key={rowIndex}
                 onRemove={() => console.log('remove me')}
               >
-                {Array.from(Array(columns).keys()).map((item, columnIndex) => {
+                {Array.from(Array(columnCount).keys()).map((item, columnIndex) => {
                   const isDisabled = disableSecondRow && rowIndex === 1;
                   const isInvalid = invalidSecondColumn && columnIndex === 1;
                   cellsCount += 1;
@@ -161,7 +161,7 @@ storiesWithKnobs.add('Playground', () => (
       ],
       'assorted',
     )}
-    columns={number('Columns', 4)}
+    columnCount={number('Column count', 4)}
     columnWidths={text('Column widths (space-separated)')}
     disableRowControls={boolean('Disable controls in the last row?', false)}
     disableSecondRow={boolean('Disable cells in the second row?', false)}
@@ -193,7 +193,7 @@ variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
     const variationMinusStoryDetails = { ...variation };
     const {
-      columns,
+      columnCount,
       hasHeader,
       rows,
       renderSmallerWrapper,
@@ -211,7 +211,7 @@ variations.forEach(variation => {
         {hasHeader && (
           <XUIEditableTableHead>
             <XUIEditableTableRow>
-              {Array.from(Array(columns).keys()).map((item, index) => (
+              {Array.from(Array(columnCount).keys()).map((item, index) => (
                 <XUIEditableTableHeadingCell key={index}>I’m a cell</XUIEditableTableHeadingCell>
               ))}
             </XUIEditableTableRow>
@@ -224,7 +224,7 @@ variations.forEach(variation => {
               key={index}
               onRemove={() => console.log('remove me')}
             >
-              {Array.from(Array(columns).keys()).map((item, index) => {
+              {Array.from(Array(columnCount).keys()).map((item, index) => {
                 return (
                   <XUIEditableTableCellReadOnly id={index} key={index}>
                     Cell text

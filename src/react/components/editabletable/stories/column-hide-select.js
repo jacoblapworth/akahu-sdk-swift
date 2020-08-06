@@ -39,7 +39,7 @@ export default class ColumnHideSelect extends React.Component {
         label="Column visibility"
         onSelect={this.handleItemSelect}
       >
-        {Array.from(Array(columns).keys()).map((item, index) => {
+        {columns.map((item, index) => {
           const colIndex = index + firstHideableChildIndex;
           return (
             <SelectBoxOption
@@ -49,7 +49,7 @@ export default class ColumnHideSelect extends React.Component {
               showCheckboxes
               value={colIndex}
             >
-              {`Content Column ${colIndex}`}
+              {(isNaN(parseInt(item)) && item) || `Content Column ${colIndex}`}
             </SelectBoxOption>
           );
         })}

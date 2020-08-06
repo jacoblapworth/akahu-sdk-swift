@@ -171,3 +171,149 @@ const DragAndDropExample = () => {
 
 <DragAndDropExample />;
 ```
+
+### Disable controls
+
+To disable built-in controls (including drag and remove icons) in a row, use prop `disableRowControls` of `XUIEditableTableRow`.
+
+```jsx harmony
+import uuid from 'uuid/v4';
+import {
+  XUIEditableTable,
+  XUIEditableTableBody,
+  XUIEditableTableCellTextInput,
+  XUIEditableTableHead,
+  XUIEditableTableHeadingCell,
+  XUIEditableTableRow
+} from '@xero/xui/react/editabletable';
+
+const DisableControlsExample = () => {
+  const [rows, setRows] = React.useState([{ id: uuid(), fruit: '', colour: '', price: '' }]);
+
+  const onInputChange = (value, id, key) => {
+    setRows(rows.map(row => (id === row.id ? { ...row, [key]: value } : row)));
+  };
+
+  return (
+    <XUIEditableTable
+      ariaLabel="List of fruits with colour and price per kg"
+      rowOptions={{ isDraggable: true, isRemovable: true }}
+    >
+      <XUIEditableTableHead>
+        <XUIEditableTableRow>
+          <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
+          <XUIEditableTableHeadingCell>Colour</XUIEditableTableHeadingCell>
+          <XUIEditableTableHeadingCell>Price / kg</XUIEditableTableHeadingCell>
+        </XUIEditableTableRow>
+      </XUIEditableTableHead>
+      <XUIEditableTableBody>
+        {rows.map((row, index) => {
+          // If all of the inputs value of the row are empty, disable the controls
+          const isControlsDisabled = Object.keys(row).every(key =>
+            key === 'id' ? true : row[key] === ''
+          );
+          return (
+            <XUIEditableTableRow
+              index={index}
+              key={row.id}
+              onRemove={() => console.log('remove me')}
+              disableRowControls={isControlsDisabled}
+            >
+              <XUIEditableTableCellTextInput
+                onChange={e => onInputChange(e.target.value, row.id, 'fruit')}
+              >
+                {row.fruit}
+              </XUIEditableTableCellTextInput>
+              <XUIEditableTableCellTextInput
+                onChange={e => onInputChange(e.target.value, row.id, 'colour')}
+              >
+                {row.colour}
+              </XUIEditableTableCellTextInput>
+              <XUIEditableTableCellTextInput
+                onChange={e => onInputChange(e.target.value, row.id, 'price')}
+              >
+                {row.price}
+              </XUIEditableTableCellTextInput>
+            </XUIEditableTableRow>
+          );
+        })}
+      </XUIEditableTableBody>
+    </XUIEditableTable>
+  );
+};
+
+<DisableControlsExample />;
+```
+
+To disable custom controls, use prop `isDisabled` of the cell component.
+
+```jsx harmony
+import uuid from 'uuid/v4';
+import {
+  XUIEditableTable,
+  XUIEditableTableBody,
+  XUIEditableTableCellIconButton,
+  XUIEditableTableCellTextInput,
+  XUIEditableTableHead,
+  XUIEditableTableHeadingCell,
+  XUIEditableTableRow
+} from '@xero/xui/react/editabletable';
+import overflowIcon from '@xero/xui-icon/icons/overflow';
+
+const DisableControlsExample = () => {
+  const [rows, setRows] = React.useState([{ id: uuid(), fruit: '', colour: '', price: '' }]);
+
+  const onInputChange = (value, id, key) => {
+    setRows(rows.map(row => (id === row.id ? { ...row, [key]: value } : row)));
+  };
+
+  return (
+    <XUIEditableTable
+      ariaLabel="List of fruits with colour and price per kg"
+      rowOptions={{ isDraggable: true }}
+    >
+      <XUIEditableTableHead>
+        <XUIEditableTableRow>
+          <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
+          <XUIEditableTableHeadingCell>Colour</XUIEditableTableHeadingCell>
+          <XUIEditableTableHeadingCell>Price / kg</XUIEditableTableHeadingCell>
+          <XUIEditableTableHeadingCell style={{ width: '40px' }} />
+        </XUIEditableTableRow>
+      </XUIEditableTableHead>
+      <XUIEditableTableBody>
+        {rows.map((row, index) => {
+          // If all of the inputs of the row are empty, disable the controls
+          const isControlsDisabled = Object.keys(row).every(key =>
+            key === 'id' ? true : row[key] === ''
+          );
+          return (
+            <XUIEditableTableRow index={index} key={row.id} disableRowControls={isControlsDisabled}>
+              <XUIEditableTableCellTextInput
+                onChange={e => onInputChange(e.target.value, row.id, 'fruit')}
+              >
+                {row.fruit}
+              </XUIEditableTableCellTextInput>
+              <XUIEditableTableCellTextInput
+                onChange={e => onInputChange(e.target.value, row.id, 'colour')}
+              >
+                {row.colour}
+              </XUIEditableTableCellTextInput>
+              <XUIEditableTableCellTextInput
+                onChange={e => onInputChange(e.target.value, row.id, 'price')}
+              >
+                {row.price}
+              </XUIEditableTableCellTextInput>
+              <XUIEditableTableCellIconButton
+                iconReference={overflowIcon}
+                isDisabled={isControlsDisabled}
+              />
+            </XUIEditableTableRow>
+          );
+        })}
+      </XUIEditableTableBody>
+    </XUIEditableTable>
+  );
+};
+
+<DisableControlsExample />;
+```

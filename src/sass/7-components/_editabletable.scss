@@ -126,6 +126,7 @@ $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to
 .#{$ns}-editabletablefoot {
   @include xui-heading-small;
   background-color: $xui-editabletable-bg-color;
+  color: $xui-text-muted-color;
 
   .#{$ns}-editabletablerow {
     background-color: $xui-editabletablehead-bg-color;
@@ -170,12 +171,22 @@ $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to
   padding-right: $xui-s-standard;
 }
 
-.#{$ns}-editabletableheadingcell-leftaligned {
-  text-align: left;
-}
-
 .#{$ns}-editabletablecell {
   @include xui-editabletablecell;
+}
+
+.#{$ns}-editabletablecell-withpadding {
+  @include xui-padding-horizontal($xui-s-standard); // Aligns internal cell content to header label
+}
+
+.#{$ns}-editabletablecell,
+.#{$ns}-editabletableheadingcell {
+  &-leftaligned {
+    text-align: left;
+  }
+  &-rightaligned {
+    text-align: right;
+  }
 }
 
 .#{$ns}-editabletablecelliconbutton {
@@ -201,7 +212,7 @@ $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to
   .#{$ns}-select--caret {
     position: absolute;
     right: $xui-s-standard;
-    top: $xui-s-standard;
+    top: $xui-s-standard + 2px; // Vertically aligns caret to middle of the cell
   }
 }
 

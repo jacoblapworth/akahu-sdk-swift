@@ -84,9 +84,13 @@ export default class XUIDropdownPanel extends React.PureComponent<Props> {
    */
   onKeyDown(event: React.KeyboardEvent): void;
   /**
+   * Get the React virtual DOM representation of the currently highlighted element in the child `XUIStatefulPicklist` (if applicable).
+   */
+  getHighlighted(): XUIPickitem | null;
+  /**
    * Get the ID of the currently highlighted item in the child `XUIStatefulPicklist` (if applicable).
    */
-  getHighlightedId(): null | string;
+  getHighlightedId(): string | null;
   /**
    * Selects the highlighted list item, in the child `XUIStatefulPicklist` (if applicable).
    */

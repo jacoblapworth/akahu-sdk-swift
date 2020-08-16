@@ -238,7 +238,7 @@ When you upgrade XUI, please check [changes.md](./changes.md) to see what shared
 
 As of XUI 15, we also offer [upgrade guides](https://drive.google.com/drive/search?q=upgrade%20guide:%20xui) to provide a step-by-step walkthrough of upgrading your project across a major version.
 
-To make the upgrade process between versions of XUI easier, we maintain a codemod to automate some of the API changes in your code. The codemod runs using [jscodeshift](https://github.com/facebook/jscodeshift) (which currently does not support TypeScript).
+To make the upgrade process between versions of XUI easier, we maintain a codemod to automate some of the API changes in your code. The codemod runs using [jscodeshift](https://github.com/facebook/jscodeshift).
 
 The codemod contains transforms for moving from the previous major version of XUI.
 

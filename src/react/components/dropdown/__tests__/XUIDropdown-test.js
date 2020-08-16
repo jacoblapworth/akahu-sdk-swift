@@ -98,3 +98,40 @@ describe('forceStatefulPicklist prop', () => {
     expect(automationid).toMatchSnapshot();
   });
 });
+
+describe('<XUIDropdown /> getHighlighted methods', () => {
+  let dropdown;
+  let item3;
+
+  beforeEach(() => {
+    // Arrange
+    item3 = <XUIPickitem id="item3">Item 3</XUIPickitem>;
+    dropdown = mount(
+      <XUIDropdown>
+        <XUIPicklist>
+          <XUIPickitem id="item1">Item 1</XUIPickitem>
+          <XUIPickitem id="item2">Item 2</XUIPickitem>
+          {item3}
+          <XUIPickitem id="item4">Item 4</XUIPickitem>
+        </XUIPicklist>
+      </XUIDropdown>,
+    );
+    dropdown.instance().highlightItem(item3);
+  });
+
+  it('gets the highlighted item when getHighlighted is called', () => {
+    // Act
+    const highlighted = dropdown.instance().getHighlighted();
+
+    // Assert
+    expect(highlighted).toEqual(item3);
+  });
+
+  it('gets the highlighted item ID when getHighlightedId is called', () => {
+    // Act
+    const highlightedId = dropdown.instance().getHighlightedId();
+
+    // Assert
+    expect(highlightedId).toEqual('item3');
+  });
+});

@@ -111,11 +111,11 @@ export default class XUIDropdown extends React.PureComponent<Props> {
   /**
    * Get the React virtual DOM representation of the currently highlighted element.
    */
-  getHighlighted(): null | XUIPickitem;
+  getHighlighted(): XUIPickitem | null;
   /**
    * Get the ID of the currently highlighted element.
    */
-  getHighlightedId(): null | string;
+  getHighlightedId(): string | null;
   /**
    * Highlights the previous item in the list.
    */

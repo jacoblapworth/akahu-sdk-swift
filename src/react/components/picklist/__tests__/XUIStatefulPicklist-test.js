@@ -97,9 +97,31 @@ describe('</XUIStatefulPicklist /> API Methods', () => {
 
       expect(wrapper.state().highlightedElement.props.id).toEqual('item1');
     });
-  });
 
-  describe('Multiple Items', () => {
+    it('gets the highlighted item when getHighlighted is called', () => {
+      // Arrange
+      const item3 = wrapper.instance().findItemById('item3');
+      wrapper.instance().highlightItem(item3);
+
+      // Act
+      const highlighted = wrapper.instance().getHighlighted();
+
+      // Assert
+      expect(highlighted).toEqual(item3);
+    });
+
+    it('gets the highlighted item ID when getHighlightedId is called', () => {
+      // Arrange
+      const item3 = wrapper.instance().findItemById('item3');
+      wrapper.instance().highlightItem(item3);
+
+      // Act
+      const highlightedId = wrapper.instance().getHighlightedId();
+
+      // Assert
+      expect(highlightedId).toEqual('item3');
+    });
+
     it('clears the highlighted item from state when clearHighlightedItem method is called', () => {
       const splWrapper = mount(
         <XUIStatefulPicklist shouldManageInitialHighlight={false}>

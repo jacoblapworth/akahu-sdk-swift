@@ -51,56 +51,62 @@ export const getAriaAttributes = (ids, props, groupedSetting = {}) => {
   };
 };
 
-const XUIControlWrapper = ({
-  children,
-  fieldClassName,
-  hintMessage,
-  isFieldLayout,
-  isGroup,
-  isInvalid,
-  isLabelHidden,
-  label,
-  labelClassName,
-  onClick,
-  onKeyDown,
-  qaHook,
-  validationMessage,
-  wrapperIds,
-}) => {
-  const rootClasses = cn(fieldClassName, isFieldLayout && `${ns}-field-layout`);
+const XUIControlWrapper = React.forwardRef(
+  (
+    {
+      children,
+      fieldClassName,
+      hintMessage,
+      isFieldLayout,
+      isGroup,
+      isInvalid,
+      isLabelHidden,
+      label,
+      labelClassName,
+      onClick,
+      onKeyDown,
+      qaHook,
+      validationMessage,
+      wrapperIds,
+    },
+    ref,
+  ) => {
+    const rootClasses = cn(fieldClassName, isFieldLayout && `${ns}-field-layout`);
 
-  return (
-    /* eslint-disable jsx-a11y/no-static-element-interactions */
-    <div
-      className={rootClasses}
-      onClick={onClick}
-      onKeyDown={onKeyDown}
-      role={(onClick || onKeyDown) && 'presentation'}
-    >
-      <LabelElement
-        {...{
-          label,
-          labelClassName,
-          isLabelHidden,
-          qaHook,
-          wrapperIds,
-          isGroup,
-        }}
-      />
-      {children}
-      <MessageElement
-        {...{
-          isInvalid,
-          validationMessage,
-          hintMessage,
-          qaHook,
-          wrapperIds,
-        }}
-      />
-    </div>
-    /* eslint-enable */
-  );
-};
+    return (
+      /* eslint-disable jsx-a11y/no-static-element-interactions */
+      <div
+        className={rootClasses}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+        ref={ref}
+        role={(onClick || onKeyDown) && 'presentation'}
+      >
+        <LabelElement
+          {...{
+            label,
+            labelClassName,
+            isLabelHidden,
+            qaHook,
+            wrapperIds,
+            isGroup,
+          }}
+        />
+        {children}
+        <MessageElement
+          {...{
+            isInvalid,
+            validationMessage,
+            hintMessage,
+            qaHook,
+            wrapperIds,
+          }}
+        />
+      </div>
+      /* eslint-enable */
+    );
+  },
+);
 
 export default XUIControlWrapper;
 

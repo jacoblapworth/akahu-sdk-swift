@@ -17,6 +17,7 @@ const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
   isMultiline && typeof rows !== 'number';
 
 class XUITextInput extends PureComponent {
+  rootNode = React.createRef();
   state = {
     hasFocus: false,
   };
@@ -167,6 +168,7 @@ class XUITextInput extends PureComponent {
               labelClassName,
               isLabelHidden,
             }}
+            ref={this.rootNode}
           >
             <div className={baseClasses} data-automationid={qaHook} {...otherProps}>
               {leftElement}

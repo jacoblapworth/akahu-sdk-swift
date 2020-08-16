@@ -10,7 +10,7 @@ import XUIBannerMessageDetail from '../XUIBannerMessageDetail';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, object, array } from '@storybook/addon-knobs';
+import { boolean, text, object, array } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName, NOOP } from './variations';
@@ -46,7 +46,6 @@ class DetailedBanner extends Component {
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <DetailedBanner
     actionProps={object('actions', [

@@ -6,7 +6,7 @@ import XUIStepper from '../XUIStepper';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number, text, select, object } from '@storybook/addon-knobs';
+import { boolean, number, text, select, object } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName, baseProps } from './variations';
@@ -23,8 +23,6 @@ const contentStyles = {
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
-
 storiesWithKnobs.add('Playground', () => {
   const layout = select('lockLayout', ['default', 'stacked', 'sidebar', 'inline']);
   return (

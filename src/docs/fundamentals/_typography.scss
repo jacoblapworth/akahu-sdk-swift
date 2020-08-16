@@ -26,8 +26,9 @@
 // **Note:** As XUI does not provide a css margin reset, heading and paragraph elements will pickup user agent margins if not otherwise specified using [XUI spacing classes](./section-fundamentals-spacing.html).
 //
 // Definitions:
-// 3xLarge: 72px: <span class="ds-fontsize-3xlarge">3xLarge</span>
-// 2xLarge: 48px: <span class="ds-fontsize-2xlarge">2xLarge</span>
+// 4xLarge: 72px: <span class="ds-fontsize-4xlarge">4xLarge</span>
+// 3xLarge: 48px: <span class="ds-fontsize-3xlarge">3xLarge</span>
+// 2xLarge: 30px: <span class="ds-fontsize-2xlarge">2xLarge</span>
 // xLarge: 21px: <span class="ds-fontsize-xlarge">xLarge</span>
 // Large: 17px: <span class="ds-fontsize-large">Large</span>
 // Medium: 15px: <span class="ds-fontsize-medium">Medium</span>
@@ -45,8 +46,9 @@
 //
 // Definitions:
 // Type: **CSS class**: **font size/line height**
-// 3XLarge: `xui-heading-3xlarge`: <span class="xui-heading-3xlarge">72px/96px</span>
-// 2XLarge: `xui-heading-2xlarge`: <span class="xui-heading-2xlarge">48px/72px</span>
+// 4XLarge: `xui-heading-4xlarge`: <span class="xui-heading-4xlarge">72px/96px</span>
+// 3XLarge: `xui-heading-3xlarge`: <span class="xui-heading-3xlarge">48px/72px</span>
+// 2XLarge: `xui-heading-2xlarge`: <span class="xui-heading-2xlarge">30px/44px</span>
 // XLarge: `xui-heading-xlarge`: <span class="xui-heading-xlarge">21px/32px</span>
 // Large: `xui-heading-large`: <span class="xui-heading-large">17px/28px</span>
 // Standard: `xui-heading-medium`: <span class="xui-heading-medium">15px/24px</span>
@@ -150,6 +152,7 @@
 
 // Line Height
 //
+// Generally line height is calculated as 1.5 times font size, rounded to the nearest multiple of 4px.
 // Common components should declare their own line height and these classes
 // should not be used very often.
 //

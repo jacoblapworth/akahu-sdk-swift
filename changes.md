@@ -27,6 +27,30 @@ Switch, Radio and Checkbox now has consistent styling when checked and unchecked
 - `xui-styledcheckboxradio--radio`.
 - `xui-switch--control`.
 
+### Typography changes
+
+A new `2xlarge` typography scale has been added with `font-size: 30px` and `line-height: 44px`. The existing `2xlarge` and `3xlarge` type scales have been renamed to `3xlarge` and `4xlarge` respectively.
+
+There have been changes to the typography Sass variables and mixins, so any teams consuming these will need to update any styling using these, as they won't be covered by the codemod.
+
+Added classes/variables/mixins are:
+
+- `xui-font-size-2xlarge`
+- `xui-line-height-2xlarge`
+- `xui-heading-2xlarge`
+- `xui-text-2xlarge`
+
+Changed classes/variables/mixins are:
+
+- `xui-font-size-2xlarge` > `xui-font-size-3xlarge`
+- `xui-font-size-3xlarge` > `xui-font-size-4xlarge`
+- `xui-line-height-2xlarge` > `xui-line-height-3xlarge`
+- `xui-line-height-3xlarge` > `xui-line-height-4xlarge`
+- `xui-heading-2xlarge` > `xui-heading-3xlarge`
+- `xui-heading-3xlarge` > `xui-heading-4xlarge`
+- `xui-text-2xlarge` > `xui-text-3xlarge`
+- `xui-text-3xlarge` > `xui-text-4xlarge`
+
 ### Removals
 
 Following classes have been **removed** because left space isn't needed for alignment after the "invalid" icon added:

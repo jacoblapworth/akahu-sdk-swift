@@ -4,7 +4,12 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, number, boolean, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import {
+  variations,
+  variationStoryKindName,
+  regressionVariations,
+  regressionVariationStoryKindName,
+} from './variations';
 
 import {
   XUIEditableTable,
@@ -19,7 +24,7 @@ import XUIEditableTableBody from '../XUIEditableTableBody';
 import XUIActions from '../../../actions';
 import generateCell from './helpers';
 import ColumnHideSelect from './column-hide-select';
-import { EditableTableUserTest, sandwichData } from './user-tests';
+import { EditableTableUserTest } from './user-tests';
 
 class EditableTablePlayground extends React.Component {
   state = {
@@ -141,7 +146,7 @@ class EditableTablePlayground extends React.Component {
   }
 }
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(variationStoryKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
@@ -186,7 +191,7 @@ storiesWithKnobs.add('Playground', () => (
   />
 ));
 
-const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithVariations = storiesOf(variationStoryKindName, module);
 storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
@@ -198,6 +203,10 @@ variations.forEach(variation => {
       rows,
       renderSmallerWrapper,
       showAddRowButton,
+      cellType,
+      withDisabled,
+      withInvalid,
+      validationMessage,
     } = variationMinusStoryDetails;
 
     delete variationMinusStoryDetails.storyKind;
@@ -207,7 +216,7 @@ variations.forEach(variation => {
     delete variationMinusStoryDetails.showAddRowButton;
 
     const editableTableComponent = (
-      <XUIEditableTable {...variationMinusStoryDetails}>
+      <XUIEditableTable {...variationMinusStoryDetails} isInvalid={withInvalid}>
         {hasHeader && (
           <XUIEditableTableHead>
             <XUIEditableTableRow>
@@ -218,17 +227,27 @@ variations.forEach(variation => {
           </XUIEditableTableHead>
         )}
         <XUIEditableTableBody>
-          {Array.from(Array(rows).keys()).map((item, index) => (
+          {Array.from(Array(rows).keys()).map((item, rowIndex) => (
             <XUIEditableTableRow
-              index={index}
-              key={index}
+              index={rowIndex}
+              key={rowIndex}
               onRemove={() => console.log('remove me')}
             >
               {Array.from(Array(columnCount).keys()).map((item, index) => {
-                return (
+                return !cellType ? (
                   <XUIEditableTableCellReadOnly id={index} key={index}>
                     Cell text
                   </XUIEditableTableCellReadOnly>
+                ) : (
+                  generateCell({
+                    cellsCount: 1,
+                    cellType,
+                    columnIndex: index,
+                    randomiseContent: false,
+                    isDisabled: withDisabled && index === 2,
+                    isInvalid: withInvalid && rowIndex === 2,
+                    validationMessage,
+                  })
                 );
               })}
             </XUIEditableTableRow>
@@ -255,21 +274,22 @@ variations.forEach(variation => {
   });
 });
 
-storiesWithVariations.add('User test 1', () => {
-  return <EditableTableUserTest />;
-});
-storiesWithVariations.add('User test 2', () => {
-  return <EditableTableUserTest disableMainFilling />;
-});
-storiesWithVariations.add('User test 3', () => {
-  return <EditableTableUserTest items={sandwichData} />;
-});
-storiesWithVariations.add('User test 4', () => {
-  return (
-    <EditableTableUserTest
-      columnWidths={['190px', '190px', '160px', '160px', '160px', '250px']}
-      items={sandwichData}
-      maxWidth="800px"
-    />
-  );
+const regressionStoriesWithVariations = storiesOf(regressionVariationStoryKindName, module);
+regressionStoriesWithVariations.addDecorator(centered);
+
+regressionVariations.forEach(variation => {
+  regressionStoriesWithVariations.add(variation.storyTitle, () => {
+    const variationMinusStoryDetails = { ...variation };
+    const { withDisabled } = variationMinusStoryDetails;
+
+    delete variationMinusStoryDetails.storyKind;
+    delete variationMinusStoryDetails.storyTitle;
+    delete variationMinusStoryDetails.hasHeader;
+    delete variationMinusStoryDetails.renderSmallerWrapper;
+    delete variationMinusStoryDetails.showAddRowButton;
+
+    return (
+      <EditableTableUserTest disableMainFilling={withDisabled} {...variationMinusStoryDetails} />
+    );
+  });
 });

@@ -160,7 +160,7 @@ const componentsToTest = [
   },
   {
     testsPrefix: 'Rollover Checkbox',
-    variationsPath: `${variationsPath}/rolloverCheckbox/stories/variations.js`,
+    variationsPath: `${variationsPath}/rollovercheckbox/stories/variations.js`,
   },
   {
     testsPrefix: 'XUI Select Box',

@@ -1,0 +1,387 @@
+<div class="xui-editabletablewrapper">
+  <div class="xui-editabletablewrapper--scrollcontainer">
+    <table aria-label="List of fruits with colour and price per kg" class="xui-editabletable">
+      <colgroup>
+        <col style="width: 40px;" />
+        <col style="width: auto;" />
+        <col style="width: 200px" />
+        <col style="width: 200px;" />
+        <col style="width: 40px;" />
+      </colgroup>
+      <thead class="xui-editabletablehead">
+        <tr class="xui-editabletablerow">
+          <th
+            class="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned"
+            scope="col"
+          ></th>
+          <th
+            class="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned"
+            scope="col"
+          >
+            Person
+          </th>
+          <th
+            class="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned"
+            scope="col"
+          >
+            Meal selection
+          </th>
+          <th
+            class="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned"
+            scope="col"
+          >
+            Dietary requirement(s)
+          </th>
+          <th
+            class="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned pseudo-class-last-child"
+            scope="col"
+          ></th>
+        </tr>
+      </thead>
+      <tbody class="xui-editabletablebody">
+        <tr class="xui-editabletablerow">
+          <td class="xui-editabletablecell xui-editabletablecelliconbutton">
+            <button
+              aria-label="Remove row"
+              class="xui-button xui-button-icon-medium xui-button-icon xui-editabletablerow--draghandle"
+              tabindex="0"
+              type="button"
+            >
+              <svg focusable="false" class="xui-icon">
+                <use xlink:href="#xui-icon-drag"></use>
+              </svg>
+              <div class="xui-touchtarget"></div>
+            </button>
+          </td>
+          <td
+            class="xui-editabletablecell xui-editabletablecelltextinput xui-editabletablecell-control"
+          >
+            <div class="xui-editabletablecell--border">
+              <div class="xui-textinputwrapper">
+                <div
+                  class="xui-editabletablecelltextinput--control xui-textinput xui-textinput-medium xui-textinput-cell"
+                >
+                  <input class="xui-textinput--input xui-textinput--input-medium" value="Sue J" />
+                </div>
+              </div>
+            </div>
+          </td>
+          <td
+            class="xui-editabletablecell xui-editabletablecellselectbox xui-editabletablecell-control"
+          >
+            <div class="xui-editabletablecell--border">
+              <div class="xui-select xui-select-cell xui-editabletablecellselectbox--control">
+                <div class="">
+                  <div class="">
+                    <div role="presentation" data-ref="toggled-wrapper">
+                      <button
+                        aria-label="Select meal"
+                        id="0_a-control"
+                        aria-haspopup="listbox"
+                        class="xui-button xui-select--button xui-select--button-no-variant xui-button-medium xui-button-fullwidth"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span class="xui-select--content">Chicken</span
+                        ><svg
+                          class="xui-icon xui-select--caret xui-button--caret"
+                          role="presentation"
+                          focusable="false"
+                        >
+                          <use xlink:href="#xui-icon-caret" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td
+            class="xui-editabletablecell xui-editabletablecellautocompleter xui-editabletablecell-control"
+          >
+            <div class="xui-editabletablecell--border">
+              <div class="xui-editabletablecellautocompleter--control">
+                <div role="combobox" data-ref="toggled-wrapper">
+                  <div class="xui-editabletablecellautocompleter--trigger" aria-haspopup="listbox">
+                    <div class="xui-textinputwrapper" role="presentation">
+                      <div
+                        class="xui-autocompleter--trigger-pillwrap xui-textinput xui-textinput-medium xui-textinput-cell"
+                      >
+                        <div
+                          class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable"
+                        >
+                          <span class="xui-pill--content"
+                            ><span class="xui-pill--text">Peanut</span></span
+                          ><button
+                            title="Delete"
+                            aria-label="Delete"
+                            class="xui-button xui-pill--button-icon xui-button-icon-small xui-button-icon"
+                            tabindex="0"
+                            type="button"
+                          >
+                            <svg focusable="false" class="xui-icon" role="presentation">
+                              <use xlink:href="#xui-icon-cross-small"></use>
+                            </svg>
+                            <div class="xui-touchtarget"></div>
+                          </button>
+                        </div>
+                        <input
+                          role="textbox"
+                          aria-multiline="false"
+                          aria-autocomplete="list"
+                          class="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
+                          aria-invalid="false"
+                          aria-label="autocompleter"
+                          style="flex-basis: 0px;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="xui-editabletablecell xui-editabletablecelliconbutton">
+            <button
+              aria-label="More options"
+              class="xui-button xui-button-icon-medium xui-button-icon"
+              tabindex="0"
+              type="button"
+            >
+              <svg focusable="false" class="xui-icon">
+                <use xlink:href="#xui-icon-overflow"></use>
+              </svg>
+              <div class="xui-touchtarget"></div>
+            </button>
+          </td>
+        </tr>
+        <tr class="xui-editabletablerow">
+          <td
+            class="xui-editabletablecell xui-editabletablecelliconbutton xui-editabletablecell-control-is-disabled"
+          >
+            <button
+              aria-label="Remove row"
+              class="xui-button xui-button-icon-medium xui-button-icon xui-editabletablerow--draghandle xui-button-is-disabled"
+              tabindex="0"
+              type="button"
+            >
+              <svg focusable="false" class="xui-icon">
+                <use xlink:href="#xui-icon-drag"></use>
+              </svg>
+              <div class="xui-touchtarget"></div>
+            </button>
+          </td>
+          <td
+            class="xui-editabletablecell xui-editabletablecelltextinput xui-editabletablecell-control xui-editabletablecell-control-is-disabled"
+          >
+            <div class="xui-editabletablecell--border">
+              <div class="xui-textinputwrapper">
+                <div
+                  class="xui-editabletablecelltextinput--control xui-textinput xui-textinput-medium xui-textinput-cell xui-textinput-is-disabled"
+                >
+                  <input
+                    class="xui-textinput--input xui-textinput--input-medium"
+                    value="Samantha E"
+                  />
+                </div>
+              </div>
+            </div>
+          </td>
+          <td
+            class="xui-editabletablecell xui-editabletablecellselectbox xui-editabletablecell-control xui-editabletablecell-control-is-disabled"
+          >
+            <div class="xui-editabletablecell--border">
+              <div class="xui-select xui-select-cell xui-editabletablecellselectbox--control">
+                <div class="">
+                  <div class="">
+                    <div role="presentation" data-ref="toggled-wrapper">
+                      <button
+                        disabled
+                        aria-label="Select meal"
+                        id="0_a-control"
+                        aria-haspopup="listbox"
+                        class="xui-button xui-select--button xui-select--button-no-variant xui-button-medium xui-button-fullwidth"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span class="xui-select--content">Salad</span
+                        ><svg
+                          class="xui-icon xui-select--caret xui-button--caret"
+                          role="presentation"
+                          focusable="false"
+                        >
+                          <use xlink:href="#xui-icon-caret" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td
+            class="xui-editabletablecell xui-editabletablecellautocompleter xui-editabletablecell-control xui-editabletablecell-control-is-disabled"
+          >
+            <div class="xui-editabletablecell--border">
+              <div class="xui-editabletablecellautocompleter--control">
+                <div role="combobox" data-ref="toggled-wrapper">
+                  <div class="xui-editabletablecellautocompleter--trigger" aria-haspopup="listbox">
+                    <div class="xui-textinputwrapper" role="presentation">
+                      <div
+                        class="xui-autocompleter--trigger-pillwrap xui-textinput xui-textinput-medium xui-textinput-cell xui-textinput-is-disabled"
+                      >
+                        <div
+                          class="xui-autocompleter--pill xui-pill xui-pill-small xui-pill-is-deletable"
+                        >
+                          <span class="xui-pill--content"
+                            ><span class="xui-pill--text">Vegan</span></span
+                          ><button
+                            title="Delete"
+                            aria-label="Delete"
+                            class="xui-button xui-pill--button-icon xui-button-icon-small xui-button-icon xui-button-is-disabled"
+                            tabindex="0"
+                            type="button"
+                          >
+                            <svg focusable="false" class="xui-icon" role="presentation">
+                              <use xlink:href="#xui-icon-cross-small"></use>
+                            </svg>
+                            <div class="xui-touchtarget"></div>
+                          </button>
+                        </div>
+                        <input
+                          disabled
+                          role="textbox"
+                          aria-multiline="false"
+                          aria-autocomplete="list"
+                          class="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
+                          aria-invalid="false"
+                          aria-label="autocompleter"
+                          style="flex-basis: 0px;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td
+            class="xui-editabletablecell xui-editabletablecelliconbutton xui-editabletablecell-control-is-disabled"
+          >
+            <button
+              aria-label="More options"
+              class="xui-button xui-button-icon-medium xui-button-icon xui-button-is-disabled"
+              tabindex="0"
+              type="button"
+            >
+              <svg focusable="false" class="xui-icon">
+                <use xlink:href="#xui-icon-overflow"></use>
+              </svg>
+              <div class="xui-touchtarget"></div>
+            </button>
+          </td>
+        </tr>
+        <tr class="xui-editabletablerow">
+          <td class="xui-editabletablecell xui-editabletablecelliconbutton">
+            <button
+              aria-label="Remove row"
+              class="xui-button xui-button-icon-medium xui-button-icon xui-editabletablerow--draghandle"
+              tabindex="0"
+              type="button"
+            >
+              <svg focusable="false" class="xui-icon">
+                <use xlink:href="#xui-icon-drag"></use>
+              </svg>
+              <div class="xui-touchtarget"></div>
+            </button>
+          </td>
+          <td
+            class="xui-editabletablecell xui-editabletablecelltextinput xui-editabletablecell-control"
+          >
+            <div class="xui-editabletablecell--border">
+              <div class="xui-textinputwrapper">
+                <div
+                  class="xui-editabletablecelltextinput--control xui-textinput xui-textinput-medium xui-textinput-cell"
+                >
+                  <input class="xui-textinput--input xui-textinput--input-medium" value="Finn C" />
+                </div>
+              </div>
+            </div>
+          </td>
+          <td
+            class="xui-editabletablecell xui-editabletablecellselectbox xui-editabletablecell-control"
+          >
+            <div class="xui-editabletablecell--border">
+              <div class="xui-select xui-select-cell xui-editabletablecellselectbox--control">
+                <div class="">
+                  <div class="">
+                    <div role="presentation" data-ref="toggled-wrapper">
+                      <button
+                        aria-label="Select meal"
+                        id="0_a-control"
+                        aria-haspopup="listbox"
+                        class="xui-button xui-select--button xui-select--button-no-variant xui-button-medium xui-button-fullwidth"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span class="xui-select--content">Select meal</span
+                        ><svg
+                          class="xui-icon xui-select--caret xui-button--caret"
+                          role="presentation"
+                          focusable="false"
+                        >
+                          <use xlink:href="#xui-icon-caret" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td
+            class="xui-editabletablecell xui-editabletablecellautocompleter xui-editabletablecell-control"
+          >
+            <div class="xui-editabletablecell--border">
+              <div class="xui-editabletablecellautocompleter--control">
+                <div role="combobox" data-ref="toggled-wrapper">
+                  <div class="xui-editabletablecellautocompleter--trigger" aria-haspopup="listbox">
+                    <div class="xui-textinputwrapper" role="presentation">
+                      <div class="xui-textinput xui-textinput-medium xui-textinput-cell">
+                        <input
+                          role="textbox"
+                          aria-multiline="false"
+                          aria-autocomplete="list"
+                          class="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
+                          aria-invalid="false"
+                          aria-label="autocompleter"
+                          style="flex-basis: 0px;"
+                          placeholder="Search"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="xui-editabletablecell xui-editabletablecelliconbutton">
+            <button
+              aria-label="More options"
+              class="xui-button xui-button-icon-medium xui-button-icon"
+              tabindex="0"
+              type="button"
+            >
+              <svg focusable="false" class="xui-icon">
+                <use xlink:href="#xui-icon-overflow"></use>
+              </svg>
+              <div class="xui-touchtarget"></div>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="xui-editabletablewrapper--border"></div>
+</div>

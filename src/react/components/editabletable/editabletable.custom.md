@@ -87,3 +87,12 @@ document.head.appendChild(node);
   </XUIEditableTableBody>
 </XUIEditableTable>;
 ```
+
+## Custom column width
+
+`XUIEditableTable` has the `columnWidths` property which accepts an array of desired column widths. If using pixel values, we recommend setting at least one column to "auto" and setting a minWidth on the table itself, to avoid excess shrinkage.
+Alternatively, you can specify widths on the cells in the first row (this may be the header cells). This is helpful if you expect the columns to change and would prefer not to maintain the ordered array.
+
+When calculating a table `maxWidth` to match the sum of explicit column widths, include space for 1px cell borders. Otherwise, the widths of the cell borders will cause the table to overflow horizontally, and you will see the scroll-indicator overlay shadow
+
+When passing `minWidth` together with `columnWidths` as pixel values (without an `auto` sized column), make sure that `minWidth` doesn't exceed the sum of all the column widths. If it does, utility button columns (like delete or drag and drop) will stretch and lose proper size.

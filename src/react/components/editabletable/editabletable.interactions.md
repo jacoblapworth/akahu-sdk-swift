@@ -449,7 +449,7 @@ There are several possible approaches for hiding and showing columns.
 - Selectively render `null` instead of the specified cells in each row.
 - Using the XUIEditableTable `hiddenColumns` API
 
-The `hiddenColumns` API is optimal for very large tables, in which re-rendering all the rows and cells is not desired, and the order of columns is not expected to change. For best performance in these cases, cells should be [memoized](https://reactjs.org/docs/react-api.html#reactmemo) to reduce unnecessary renders.
+The `hiddenColumns` API is optimal for very large tables, in which re-rendering all the rows and cells is not desired, and the order of columns is not expected to change. For best performance in these cases, cells should be [memoized](https://reactjs.org/docs/react-api.html#reactmemo) to reduce unnecessary renders. For more details, check [XUI Performance tips](https://xui.xero.com/latest/section-getting-started-performance.html#getting-started-performance-3-1).
 
 To use this feature, pass an array of column indexes that should be hidden (zero-based, inclusive of any controls, like drag and drop) to the `hiddenColumns` prop for `XUIEditableTable`
 

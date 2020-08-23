@@ -53,7 +53,7 @@ variations.forEach(variation => {
               Third option
             </XUISwitch>
             <XUISwitch isChecked isReversed onChange={NOOP}>
-              Yet another switch option, but this one is a good deal longer and may potetially wrap
+              Yet another switch option, but this one is a good deal longer and may potentially wrap
               to a new line
             </XUISwitch>
           </XUISwitchGroup>

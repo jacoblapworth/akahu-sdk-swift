@@ -9,7 +9,7 @@ import { userBreakpoints } from '../../helpers/breakpoints';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, number, text } from '@storybook/addon-knobs';
+import { select, number, text } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
@@ -31,7 +31,7 @@ const buildColumns = widths =>
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(customCentered);
-storiesWithKnobs.addDecorator(withKnobs);
+
 storiesWithKnobs.add('Columns Playground', () => {
   const columnCount = number('number of columns', 3);
   const columnWidths = text('list of column widths', '2 8 2');

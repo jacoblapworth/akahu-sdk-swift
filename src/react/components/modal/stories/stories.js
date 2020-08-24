@@ -12,12 +12,11 @@ import { modalSizes } from '../constants';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 
 import { storiesWithVariationsKindName, variations } from './variations';
 
 const isolatedInstance = storiesOf(storiesWithVariationsKindName, module);
-isolatedInstance.addDecorator(withKnobs);
 
 isolatedInstance.add('XUIModal', () => {
   const headerEnabled = boolean('Show Header', true);

@@ -1,7 +1,9 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
-module.exports = {
+module.exports = ({ config }) => ({
+  ...config,
   module: {
+    ...config.module,
     rules: [
       {
         test: /\.scss$/,
@@ -28,8 +30,9 @@ module.exports = {
       },
     ],
   },
-  plugins: [new ForkTsCheckerWebpackPlugin()],
+  plugins: [...config.plugins, new ForkTsCheckerWebpackPlugin()],
   resolve: {
+    ...config.resolve,
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
-};
+});

@@ -9,7 +9,7 @@ import NOOP from '../../helpers/noop';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
+import { select, boolean, text } from '@storybook/addon-knobs';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import ExampleContainer from '../../../docs/ExampleContainer';
@@ -18,7 +18,6 @@ import { storiesWithVariationsKindName, variations } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 const toggleOptions = [
   {
     isChecked: true,

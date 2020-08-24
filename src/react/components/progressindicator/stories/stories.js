@@ -7,7 +7,7 @@ import XUIProgressCircular from '../XUIProgressCircular';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number, text, select } from '@storybook/addon-knobs';
+import { boolean, number, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
 import { COLORS } from '../helpers/constants';
@@ -60,8 +60,6 @@ const tinyWidthStyle = {
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
-
 storiesWithKnobs.add('Playground | Circular', () => {
   const totalColor =
     select('totalColor', colorOptions, defaultColor) === defaultColor

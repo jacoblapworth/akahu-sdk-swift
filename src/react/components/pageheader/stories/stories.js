@@ -13,7 +13,7 @@ import { userBreakpoints } from '../../helpers/breakpoints';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+import { text, boolean, select } from '@storybook/addon-knobs';
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
@@ -93,7 +93,6 @@ const longSampleBreadcrumb = [
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(customCentered);
-storiesWithKnobs.addDecorator(withKnobs);
 
 storiesWithKnobs.add('Playground', () => {
   const showTabs = boolean('include tabs?', false);

@@ -181,6 +181,7 @@ _Note. The codemod will resolve the prop differences automatically when run._
 - For accessibility purposes, components with prop `validationMessage` now have an "invalid" icon in the left of the message.
 - `XUITable`
   - The arrow icon for sorting from the header row has been corrected to point up when the values are sorted in ascending order (A -> Z, low -> high), and down when descending. This has never been correct.
+  - We've removed the `width: 100%` CSS property from table headers containing a sort button. The sortable column will no longer squash other columns to get the most width possible.
 - In a previous minor release 16.4.0, we added internationalisation support for various icons. We subsequently identified that the changes were not required for many of these icons as they are internationally recognised symbols. We have corrected this here by reverting all of the unneeded changes. This leaves the following icons still available for internationalisation:
 
   - `emptyIcon` in XUIAccordion

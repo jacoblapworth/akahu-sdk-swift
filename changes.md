@@ -35,6 +35,10 @@ To fix this we added `-webkit-margin-bottom-collapse: separate;` to `xui-body`.
 
 There should not be any regressions, but please check that the bottom of your pages still look correct after updating to XUI 17, even if you do not use compositions.
 
+### Banner layout changes
+
+`xui-banner-layout` previously had its `layout` property set to `inline-block`. This has been changed to `block`.
+
 ### Typography changes
 
 A new `2xlarge` typography scale has been added with `font-size: 30px` and `line-height: 44px`. The existing `2xlarge` and `3xlarge` type scales have been renamed to `3xlarge` and `4xlarge` respectively.

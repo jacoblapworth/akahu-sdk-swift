@@ -10,7 +10,7 @@ import XUITag from '../../tag/XUITag';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
+import { boolean, text, select } from '@storybook/addon-knobs';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
@@ -18,8 +18,6 @@ import { flattenedIconList, flattenedIconMap } from '../../helpers/icons';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
-
 /* eslint-disable react/prop-types */
 function getComponent({
   actionIcon,

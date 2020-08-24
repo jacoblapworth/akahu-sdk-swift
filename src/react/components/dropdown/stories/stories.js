@@ -21,7 +21,7 @@ import plusIcon from '@xero/xui-icon/icons/plus';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
 import { storiesWithVariationsKindName, variations, NOOP } from './variations';
@@ -150,7 +150,6 @@ const sideBySide = (
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const forceDesktop = boolean('forceDesktop', false);
   const showHeader = boolean('show header?', false);

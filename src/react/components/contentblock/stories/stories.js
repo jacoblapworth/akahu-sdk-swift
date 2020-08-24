@@ -16,7 +16,7 @@ import XUITag from '../../tag/XUITag';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
+import { select, text, boolean } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName } from './variations';
@@ -74,7 +74,6 @@ const exampleClickHandler = () => console.log('clicked');
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const staticItems = [
     {

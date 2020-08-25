@@ -17,9 +17,9 @@ We recommend running a bundles analyzer after upgrading (and regularly in genera
 - `xui-iconwrapper-medium`’s width and height have been updated from 30px to 32px.
 - `xui-iconwrapper-small` and `xui-iconwrapper-xsmall` have been added.
 
-### Consistent styling for Switch, Radio and Checkbox
+### Consistent styling for switch, radio, and checkbox
 
-Switch, Radio and Checkbox now has consistent styling when checked and unchecked. Specifically when checked, all three components have the same focus, hover and active styles. When unchecked, radio and checkbox has the same styling, while switch has further hover and active styles added. Padding for a reversed Radio and Checkbox has been updated from 7px to 15px when when it is under a `xui-styledcheckboxradio-group` and the left margin is removed. Affected classes are:
+Switch, radio, and checkbox now have consistent styling when checked and unchecked. Specifically when checked, all three components have the same focus, hover and active styles. When unchecked, radio and checkbox have the same styling, while switch has further hover and active styles added. Padding for a reversed radio and checkbox has been updated from 7px to 15px when when it is under a `xui-styledcheckboxradio-group` and the left margin is removed. Affected classes are:
 
 - `xui-styledcheckboxradio-reversed`.
 - `xui-styledcheckboxradio--label`.

@@ -27,6 +27,14 @@ Switch, Radio and Checkbox now has consistent styling when checked and unchecked
 - `xui-styledcheckboxradio--radio`.
 - `xui-switch--control`.
 
+### Safari margin collapse fix
+
+Safari’s margin collapse behavior causes compositions to bump up against the bottom of the page even when using the `hasAutoSpaceAround` property.
+
+To fix this we added `-webkit-margin-bottom-collapse: separate;` to `xui-body`.
+
+There should not be any regressions, but please check that the bottom of your pages still look correct after updating to XUI 17, even if you do not use compositions.
+
 ### Typography changes
 
 A new `2xlarge` typography scale has been added with `font-size: 30px` and `line-height: 44px`. The existing `2xlarge` and `3xlarge` type scales have been renamed to `3xlarge` and `4xlarge` respectively.

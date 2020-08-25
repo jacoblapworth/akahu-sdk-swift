@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 /**
  * Custom propType validator for checking if a prop is offered when the corresponding `basedProp` is `true`.
  *
- * @param {String} value The name of the corresponding basedProp for checking.
- * @param {String} value The prop type.
+ * @param {String} basedProp The name of the corresponding basedProp for checking.
+ * @param {Function} propType The validator function for configuring type definitions. For example, PropTypes.string.
  * @param  {...any} parameters All parameters supplied by propTypes.
  */
 const checkRequiredProps = (basedProp, propType, ...parameters) => {

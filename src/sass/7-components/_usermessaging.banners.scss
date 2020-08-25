@@ -23,15 +23,13 @@
   @include xui-padding($xui-s-2xsmall);
   @include xui-margin-bottom($xui-s-large);
 
-  display: inline-block;
-  width: 100%;
+  display: block;
 
   @include xui-breakpoint-small-down {
     border-left: 0;
     border-right: 0;
     border-top: 0;
     margin-top: 0;
-    width: 100%;
 
     &::before {
       border-radius: 0;

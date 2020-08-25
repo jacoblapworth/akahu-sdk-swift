@@ -14,7 +14,7 @@ import view from '@xero/xui-icon/icons/view';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, number, select } from '@storybook/addon-knobs';
+import { boolean, text, number, select } from '@storybook/addon-knobs';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';
@@ -58,7 +58,6 @@ const buttonContents = {
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const isIcon = boolean('is icon button', false);
   const Tag = isIcon ? XUIIconButton : XUIButton;

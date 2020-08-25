@@ -104,7 +104,7 @@ interface BaseProps {
   /**
    * Determines the styling variation to apply.
    */
-  variant?: keyof typeof textButtonVariants;
+  variant?: typeof textButtonVariants;
 }
 
 type SpreadProps =

@@ -2,7 +2,7 @@ import React from 'react';
 import XUIAccordion from '../XUIAccordion';
 import XUIAccordionItem from '../XUIAccordionItem';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number } from '@storybook/addon-knobs';
+import { boolean, number } from '@storybook/addon-knobs';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 import { variations, storiesWithVariationsKindName } from './variations';
 import { createArray } from '../../progressindicator/helpers/utilities';
@@ -16,7 +16,6 @@ import overflowPathData from '@xero/xui-icon/icons/overflow';
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const action = boolean('Show action', false) ? <XUIButton size="small">Update</XUIButton> : null;
   const hasPrimaryHeading = boolean('Show primary heading', true);

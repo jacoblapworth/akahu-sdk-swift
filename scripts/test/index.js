@@ -21,7 +21,7 @@ async function testTask(...args) {
   if (args.length < 1) {
     if (isRunningFromNPM) {
       console.log(
-        `\n\n${chalk.bold.inverse.black('Your attention please')}\n\n${chalk.bold.magenta(
+        `\n\n${chalk.bold.inverse('Your attention please')}\n\n${chalk.bold.magenta(
           "I'll be running jest tests by default",
         )}\n\nIf your intent is to run another test, you may wish to use the interactive tool 'npm test -- -i' or call the node scripts/test files directly.\n\n`,
       );

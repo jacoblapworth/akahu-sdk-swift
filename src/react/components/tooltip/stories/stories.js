@@ -10,7 +10,7 @@ import info from '@xero/xui-icon/icons/info';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select, number } from '@storybook/addon-knobs';
+import { boolean, select, number } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName } from './variations';
@@ -64,7 +64,6 @@ const createParaWithInlineTrigger = props => (
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const props = {
     triggerOnClick: boolean('triggerOnClick', false),

@@ -21,7 +21,10 @@ function removeDistDocsReact() {
 async function watchBoth() {
   logTaskTitle(__filename);
 
-  await Promise.all([buildKss(), buildXui(), removeDistDocsReact()]);
+  // Running these in parallel skews the performance metrics and does not result in a faster build
+  await buildKss();
+  await buildXui();
+  await removeDistDocsReact();
 
   [watch, storybook, styleguideServer].forEach(watcher => {
     const childProcess = spawn('node', [watcher], { stdio: 'inherit' });

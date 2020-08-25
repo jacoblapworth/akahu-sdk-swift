@@ -10,7 +10,7 @@ import { sentimentMap } from '../private/constants';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, select, object } from '@storybook/addon-knobs';
+import { boolean, text, select, object } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName } from './variations';
@@ -63,7 +63,6 @@ class DetailedToast extends Component {
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const sentiments = {
     '': 'No Sentiment',

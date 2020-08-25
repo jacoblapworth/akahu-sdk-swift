@@ -7,7 +7,7 @@ import { sizeClassNames } from '../private/constants';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
 import ExampleContainer from '../../../docs/ExampleContainer';
@@ -21,8 +21,6 @@ const getContainerStyle = isRequired =>
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
-
 storiesWithKnobs.add('Playground', () => {
   const size = select('size', sizes, sizes[0]);
 

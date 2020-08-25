@@ -18,7 +18,7 @@ import { nonBackstopStoryNames, compositionKind } from '../tests';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { boolean } from '@storybook/addon-knobs';
 
 const TOAST_TIMEOUT = 10000;
 const MAX_TOASTS = 2;
@@ -148,7 +148,6 @@ class Example extends Component {
 <Example />;
 
 const test = storiesOf(compositionKind, module);
-test.addDecorator(withKnobs);
 
 test.add(nonBackstopStoryNames.layeringElements, () => {
   const body = document.querySelector('body.xui-container');

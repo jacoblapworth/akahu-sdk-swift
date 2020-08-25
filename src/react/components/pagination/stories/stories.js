@@ -7,7 +7,7 @@ import XUIPanel from '../../panel/XUIPanel';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, number, array } from '@storybook/addon-knobs';
+import { text, boolean, number, array } from '@storybook/addon-knobs';
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
@@ -78,7 +78,6 @@ const ControlledExample = ({ count = 200, ...props }) => {
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(customCentered);
-storiesWithKnobs.addDecorator(withKnobs);
 
 storiesWithKnobs.add('Playground', () => {
   const props = {

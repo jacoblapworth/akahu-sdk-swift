@@ -9,7 +9,7 @@ import { nonBackstopStoryNames, compositionKind } from '../tests';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { boolean } from '@storybook/addon-knobs';
 
 class Example extends Component {
   state = { showModal: false };
@@ -41,7 +41,6 @@ class Example extends Component {
 <Example />;
 
 const test = storiesOf(compositionKind, module);
-test.addDecorator(withKnobs);
 
 test.add(nonBackstopStoryNames.fiveNestedModals, () => {
   const body = document.querySelector('body.xui-container');

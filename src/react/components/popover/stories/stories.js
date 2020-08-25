@@ -9,7 +9,7 @@ import XUIPopover, { XUIPopoverBody, XUIPopoverHeader, XUIPopoverFooter } from '
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number, text, select } from '@storybook/addon-knobs';
+import { boolean, number, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
 import { variations, storyKind, variationStoryKind } from './variations';
@@ -117,7 +117,6 @@ const Playground = props => {
 
 const storiesWithKnobs = storiesOf(storyKind, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   return (
     <Playground

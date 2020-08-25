@@ -7,15 +7,13 @@ import XUIAvatar from '../../avatar/XUIAvatar';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, number, select } from '@storybook/addon-knobs';
+import { boolean, text, number, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
 import { storiesWithVariationsKindName, variations } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
-
 storiesWithKnobs.add('Playground', () => {
   const showLeftElement = boolean('Show left element', true);
   const showRightElement = boolean('Show right element', true);

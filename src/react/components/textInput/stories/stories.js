@@ -11,7 +11,7 @@ import XUIIconButton from '../../button/XUIIconButton';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, object, text, select, number } from '@storybook/addon-knobs';
+import { boolean, object, text, select, number } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
@@ -242,7 +242,6 @@ const elementAlignmentOptions = ['top', 'center', 'bottom'];
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <TextInputWrapper
     hintMessage={text('hint message', '')}

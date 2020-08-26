@@ -39,7 +39,7 @@
     "release": "node scripts/release"
   },
   "dependencies": {
-    "@xero/xui-icon": "^6.4.1",
+    "@xero/xui-icon": "^6.4.2",
     "autosize": "4.0.2",
     "babel-runtime": "^6.26.0",
     "classnames": "^2.2.6",
@@ -136,6 +136,7 @@
     "jest-teamcity-reporter": "0.9.0",
     "kss": "3.0.0",
     "lint-staged": "10.0.7",
+    "log-update": "4.0.0",
     "make-runnable": "1.3.6",
     "marked": "0.8.0",
     "maxmin": "2.1.0",
@@ -146,7 +147,6 @@
     "nopt": "4.0.1",
     "npm-run-all": "4.1.5",
     "open": "7.0.2",
-    "ora": "4.0.3",
     "postcss": "7.0.26",
     "postcss-discard-comments": "4.0.2",
     "postcss-easy-import": "3.0.0",

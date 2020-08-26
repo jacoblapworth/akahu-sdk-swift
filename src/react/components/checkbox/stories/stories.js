@@ -7,15 +7,13 @@ import XUICheckboxGroup from '../XUICheckboxGroup';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
+import { boolean, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
-
 storiesWithKnobs.add('Playground', () => (
   <XUICheckbox
     hintMessage={text('hintMessage', '')}

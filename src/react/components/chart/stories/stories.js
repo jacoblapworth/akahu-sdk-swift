@@ -6,7 +6,7 @@ import XUIBarChart from '../XUIBarChart';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, object, boolean, text, select, number, color } from '@storybook/addon-knobs';
+import { object, boolean, text, select, number, color } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
@@ -17,7 +17,6 @@ import { createArray } from '../../progressindicator/helpers/utilities';
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const chartWidth = number('Chart width', 500);
   const chartHeight = number('Chart height', 400);

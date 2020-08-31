@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUICheckbox from '../../checkbox/XUICheckbox';
 import { sizeShift } from '../../helpers/sizes';
-import { pickitemClassName, itemTextClassName, itemBodyClassName } from '../private/constants';
+import { pickitemClassName, itemTextClassName, itemBodyClassName } from './constants';
 
 const NOOP = () => {};
 

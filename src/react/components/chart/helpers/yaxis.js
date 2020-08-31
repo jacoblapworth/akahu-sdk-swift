@@ -1,6 +1,6 @@
 import { createArray } from '../../progressindicator/helpers/utilities';
-import { forceValuePositive } from '../helpers/utilities';
-import { Y_AXIS_MIN_PADDING } from '../helpers/constants';
+import { forceValuePositive } from './utilities';
+import { Y_AXIS_MIN_PADDING } from './constants';
 
 export const getMinAndMaxYAxisTickValues = yAxisTickValues => ({
   yAxisMinValue: forceValuePositive(yAxisTickValues.slice(-1)[0]),

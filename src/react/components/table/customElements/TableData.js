@@ -32,7 +32,9 @@ class BodyData extends PureComponent {
   state = { hasPrecedence: false };
 
   removePrecedence = () => this.setPrecedence(false);
+
   addPrecedence = () => this.setPrecedence(true);
+
   setPrecedence = hasPrecedence => this.setState(() => ({ hasPrecedence }));
 
   render = () => {

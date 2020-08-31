@@ -110,6 +110,7 @@ const stylesForBottomLeftPositioning = {
 
 class Positioning extends PureComponent {
   state = { ...defaultState };
+
   ticking = false;
 
   componentDidMount() {

@@ -116,9 +116,11 @@ const createButtonSixpack = ({ childSet, props }) =>
 
 class RangeWrapper extends React.Component {
   state = { rangeValue: '50' };
+
   updateRangeValue = event => {
     this.setState({ rangeValue: event.target.value });
   };
+
   render() {
     return (
       <Fragment>

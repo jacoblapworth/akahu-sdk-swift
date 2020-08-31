@@ -50,7 +50,9 @@ const createTabs = (
 
 class XUIStepper extends Component {
   state = { layout: STACKED };
+
   rootNode = null;
+
   throttled = null;
 
   componentDidUpdate = () => this.setCurrentLayout();

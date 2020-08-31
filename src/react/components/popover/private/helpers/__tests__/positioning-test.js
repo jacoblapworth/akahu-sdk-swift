@@ -8,13 +8,21 @@ const PAGE_WIDTH = 800;
  */
 class DOMRect {
   bottom;
+
   toJSON = () => '';
+
   height;
+
   left;
+
   right;
+
   top;
+
   width;
+
   x;
+
   y;
 
   constructor(x, y, width, height) {

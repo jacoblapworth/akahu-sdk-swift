@@ -67,6 +67,7 @@ export class DetailedListExample extends Component {
     selectedPeople: [peopleDataSet[0]],
     prevProps: this.props,
   };
+
   completer = React.createRef();
 
   onSearchChangeHandler = value => {

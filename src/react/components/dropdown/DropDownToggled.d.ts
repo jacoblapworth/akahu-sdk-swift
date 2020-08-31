@@ -130,18 +130,22 @@ export default class DropDownToggled extends React.PureComponent<Props> {
    * Hide the dropdown.
    */
   closeDropDown(): void;
+
   /**
    * Determine if the dropdown is currently open.
    */
   isDropDownOpen(): boolean;
+
   /**
    * Show the dropdown.
    */
   openDropDown(): void;
+
   /**
    * Force the dropdown to reposition itself relative to the current position of the trigger.
    */
   repositionDropDown(): void;
+
   /**
    * A convenience method to toggle the visibility of the dropdown.
    */

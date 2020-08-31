@@ -6,9 +6,11 @@ export default class PositioningHelper {
   preferredLocation: Location;
 
   contentRect: DOMRect;
+
   triggerRect: DOMRect;
 
   pageGutter: number;
+
   triggerGap: number;
 
   /**

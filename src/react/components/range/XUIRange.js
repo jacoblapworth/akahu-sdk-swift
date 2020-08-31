@@ -9,6 +9,7 @@ const baseClass = `${ns}-rangeslider`;
 
 export default class XUIRange extends PureComponent {
   wrapperIds = generateIds();
+
   render() {
     const {
       hintMessage,

@@ -17,6 +17,7 @@ class XUITag extends PureComponent {
   };
 
   _tooltip = React.createRef();
+
   _tag = React.createRef();
 
   componentDidMount() {

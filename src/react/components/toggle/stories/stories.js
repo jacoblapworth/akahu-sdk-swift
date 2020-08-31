@@ -1,16 +1,16 @@
 // Libs
 import React from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { select, boolean, text } from '@storybook/addon-knobs';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
+
 // Components we need to test with
 import XUIToggle from '../XUIToggle';
 import XUIToggleOption from '../XUIToggleOption';
 import { colorMap } from '../private/constants';
 import NOOP from '../../helpers/noop';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { select, boolean, text } from '@storybook/addon-knobs';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import ExampleContainer from '../../../docs/ExampleContainer';
 

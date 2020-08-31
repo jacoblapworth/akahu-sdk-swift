@@ -1,7 +1,14 @@
 // Libs
 import React from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean, select, number } from '@storybook/addon-knobs';
+
 // Components we need to test with
+import arrow from '@xero/xui-icon/icons/arrow';
+import search from '@xero/xui-icon/icons/search';
+import contact from '@xero/xui-icon/icons/contact';
 import XUIPicklist from '../Picklist';
 import XUIPickitem from '../Pickitem';
 import XUIPicklistHeader from '../PicklistHeader';
@@ -15,17 +22,10 @@ import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIButton from '../../../button';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIPanel from '../../panel/XUIPanel';
-import arrow from '@xero/xui-icon/icons/arrow';
-import search from '@xero/xui-icon/icons/search';
-import contact from '@xero/xui-icon/icons/contact';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { boolean, select, number } from '@storybook/addon-knobs';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';
 import { userBreakpoints } from '../../helpers/breakpoints';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const itemLabels = [
   'Hello, I am an item',

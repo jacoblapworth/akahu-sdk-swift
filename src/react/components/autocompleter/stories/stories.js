@@ -2,7 +2,12 @@
 import React, { Component, PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean, text, select, number } from '@storybook/addon-knobs';
+
 // Components we need to test with
+import plusIcon from '@xero/xui-icon/icons/plus';
 import XUIAutocompleter from '../XUIAutocompleter';
 import XUIAutocompleterEmptyState from '../XUIAutocompleterEmptyState';
 import XUIAutocompleterSecondarySearch from '../XUIAutocompleterSecondarySearch';
@@ -13,15 +18,11 @@ import Pickitem from '../../picklist/Pickitem';
 import peopleDataSet from '../private/people';
 import DropDownFooter from '../../dropdown/DropDownFooter';
 import XUIIcon from '../../icon/XUIIcon';
-import plusIcon from '@xero/xui-icon/icons/plus';
 import XUIPill from '../../pill/XUIPill';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import { decorateSubStr, boldMatch } from '../helpers/highlighting';
 import { sizeShift } from '../../helpers/sizes';
 
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { boolean, text, select, number } from '@storybook/addon-knobs';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName, fixedWidthDropdownSizes } from './variations';

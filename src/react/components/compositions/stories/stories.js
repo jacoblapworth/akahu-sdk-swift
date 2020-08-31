@@ -1,6 +1,13 @@
 // Libs
 import React, { Fragment } from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean, select } from '@storybook/addon-knobs';
+// TODO: storybook-readme is commented out until the package fixes issues with IE11.
+// import { addReadme } from 'storybook-readme';
+// import readme from './README.md';
+
 // Components we need to test with
 import XUICompositionSplitHeader from '../XUICompositionSplitHeader';
 import XUICompositionSplit from '../XUICompositionSplit';
@@ -13,12 +20,6 @@ import XUICompositionMasterDetailSummary from '../XUICompositionMasterDetailSumm
 import XUICompositionMasterDetailHeader from '../XUICompositionMasterDetailHeader';
 import XUICompositionMasterDetail from '../XUICompositionMasterDetail';
 
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { boolean, select } from '@storybook/addon-knobs';
-// TODO: storybook-readme is commented out until the package fixes issues with IE11.
-// import { addReadme } from 'storybook-readme';
-// import readme from './README.md';
 import { variations, storiesWithVariationsKindName } from './variations';
 
 import XUIPanel from '../../panel/XUIPanel';

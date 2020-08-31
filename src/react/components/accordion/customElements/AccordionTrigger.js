@@ -1,8 +1,8 @@
 import React, { useCallback, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import arrowPath from '@xero/xui-icon/icons/arrow';
 import XUIContentBlockItem from '../../contentblock/XUIContentBlockItem';
 import XUIIconButton from '../../button/XUIIconButton';
-import arrowPath from '@xero/xui-icon/icons/arrow';
 import { ns } from '../../helpers/xuiClassNamespace';
 import { isKeyClick } from '../../helpers/reactKeyHandler';
 

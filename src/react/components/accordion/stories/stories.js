@@ -1,8 +1,9 @@
 import React from 'react';
-import XUIAccordion from '../XUIAccordion';
-import XUIAccordionItem from '../XUIAccordionItem';
 import { storiesOf } from '@storybook/react';
 import { boolean, number } from '@storybook/addon-knobs';
+import overflowPathData from '@xero/xui-icon/icons/overflow';
+import XUIAccordion from '../XUIAccordion';
+import XUIAccordionItem from '../XUIAccordionItem';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 import { variations, storiesWithVariationsKindName } from './variations';
 import { createArray } from '../../progressindicator/helpers/utilities';
@@ -11,7 +12,6 @@ import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 import XUIContentBlock from '../../contentblock/XUIContentBlock';
 import XUIContentBlockItem from '../../contentblock/XUIContentBlockItem';
-import overflowPathData from '@xero/xui-icon/icons/overflow';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 

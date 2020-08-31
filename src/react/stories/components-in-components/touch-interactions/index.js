@@ -1,5 +1,12 @@
+// Story book things
+import { storiesOf } from '@storybook/react';
+// TODO: storybook-readme is commented out until the package fixes issues with IE11.
+// import { addReadme } from 'storybook-readme';
+// import readme from './README.md';
+
 // Libs
 import React from 'react';
+import view from '@xero/xui-icon/icons/view';
 import { XUICompositionDetail } from '../../../compositions';
 import { XUIColumn, XUIRow } from '../../../structural';
 import { XUIPanel, XUIPanelHeading, XUIPanelSection } from '../../../panel';
@@ -19,7 +26,6 @@ import XUIIcon from '../../../icon';
 import XUIPill from '../../../pill';
 import XUITextInput, { XUITextInputSideElement } from '../../../textinput';
 import DropDownDateRange from '../helpers/daterangedropdown';
-import view from '@xero/xui-icon/icons/view';
 import { nonBackstopStoryNames, compositionKind } from '../tests';
 import {
   TooltipWrapper,
@@ -32,12 +38,6 @@ import {
   createPicklist,
   multiSelectItems,
 } from './helpers';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-// TODO: storybook-readme is commented out until the package fixes issues with IE11.
-// import { addReadme } from 'storybook-readme';
-// import readme from './README.md';
 
 const sizes = ['medium', 'small', 'xsmall'];
 const avatarSizeMap = {

@@ -1,7 +1,13 @@
 // Libs
 import React, { Component, PureComponent, Fragment } from 'react';
 
+// Story book things
+
+import { storiesOf } from '@storybook/react';
+import { boolean } from '@storybook/addon-knobs';
+
 // Components we need to test with
+import info from '@xero/xui-icon/icons/info';
 import XUIModal, { XUIModalBody, XUIModalHeader } from '../../../modal';
 import DropDown, { DropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
@@ -11,14 +17,9 @@ import { XUICompositionDetail } from '../../../compositions';
 import { XUIPageHeader } from '../../../pageheader';
 import XUITooltip from '../../../tooltip';
 import XUIToast, { XUIToastWrapper, XUIToastMessage } from '../../../toast';
-import info from '@xero/xui-icon/icons/info';
 
 import * as lists from '../../../components/helpers/list';
 import { nonBackstopStoryNames, compositionKind } from '../tests';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { boolean } from '@storybook/addon-knobs';
 
 const TOAST_TIMEOUT = 10000;
 const MAX_TOASTS = 2;

@@ -1,18 +1,19 @@
 // Libs
 import React, { PureComponent } from 'react';
 
-// Components we need to test with
-import XUIProgressLinear from '../XUIProgressLinear';
-import XUIProgressCircular from '../XUIProgressCircular';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, number, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
 
+import iconPath from '@xero/xui-icon/icons/suggestion';
+
+// Components we need to test with
+import XUIProgressLinear from '../XUIProgressLinear';
+import XUIProgressCircular from '../XUIProgressCircular';
+
 import { COLORS } from '../helpers/constants';
 import { variations, storiesWithVariationsKindName } from './variations';
-import iconPath from '@xero/xui-icon/icons/suggestion';
 import XUIIcon from '../../icon/XUIIcon';
 import logReadyState from '../../../stories/helpers/log-ready-state';
 

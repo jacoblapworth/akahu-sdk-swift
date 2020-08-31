@@ -1,13 +1,12 @@
 // Libs
 import React, { useState } from 'react';
 
-// Components we need to test with
-import XUIFileUploader from '../XUIFileUploader';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { text, boolean } from '@storybook/addon-knobs';
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
+// Components we need to test with
+import XUIFileUploader from '../XUIFileUploader';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 import { defaultFileList, defaultProps, fakeUpload } from '../private/helpers';

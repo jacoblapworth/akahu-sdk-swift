@@ -1,6 +1,11 @@
 // Libs
 import React from 'react';
 
+// Story book things
+import view from '@xero/xui-icon/icons/view';
+import { storiesOf } from '@storybook/react';
+import { boolean, text, number, select } from '@storybook/addon-knobs';
+
 // Components we need to test with
 import XUIButton from '../XUIButton';
 import XUIButtonCaret from '../XUIButtonCaret';
@@ -10,11 +15,7 @@ import XUISplitButtonGroup from '../XUISplitButtonGroup';
 import XUIIconButton from '../XUIIconButton';
 import DropDown from '../../dropdown/DropDown';
 import DropDownToggled from '../../dropdown/DropDownToggled';
-import view from '@xero/xui-icon/icons/view';
 
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { boolean, text, number, select } from '@storybook/addon-knobs';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';

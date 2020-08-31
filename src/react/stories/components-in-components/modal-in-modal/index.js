@@ -1,6 +1,12 @@
 // Libs
 import React, { Component } from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+// TODO: storybook-readme is commented out until the package fixes issues with IE11.
+// import { addReadme } from 'storybook-readme';
+// import readme from './README.md';
+
 // Components we need to test with
 import XUIModal, { XUIModalBody, XUIModalHeader } from '../../../modal';
 import XUIButton, { XUIButtonCaret } from '../../../button';
@@ -9,12 +15,6 @@ import Picklist, { Pickitem } from '../../../picklist';
 import * as lists from '../../../components/helpers/list';
 
 import { nonBackstopStoryNames, compositionKind } from '../tests';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-// TODO: storybook-readme is commented out until the package fixes issues with IE11.
-// import { addReadme } from 'storybook-readme';
-// import readme from './README.md';
 
 const buildDropdownPicklist = items => {
   const pickItems = items.map((text, id) => (

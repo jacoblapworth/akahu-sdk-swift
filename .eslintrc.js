@@ -65,7 +65,6 @@ module.exports = {
     'react/no-did-mount-set-state': 0,
     // TODO: Decide whether or not we want to turn any of the below options on. They came in during an ESLint update so I turned them all off for now. Each of these could still be turned off for special use-cases if needed.
     'import/extensions': 'off', // 113 instances
-    'import/order': 'off', // 104 instances
     'jest/no-export': 'off', // 1 instance
     'jest/no-test-callback': 'off', // 1 instance
     'jsx-a11y/label-has-associated-control': 'off', // 1 instance

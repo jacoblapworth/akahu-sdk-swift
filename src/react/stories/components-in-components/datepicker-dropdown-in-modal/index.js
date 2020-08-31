@@ -1,6 +1,12 @@
 // Libs
 import React from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+// TODO: storybook-readme is commented out until the package fixes issues with IE11.
+// import { addReadme } from 'storybook-readme';
+// import readme from './README.md';
+
 // Components we need to test with
 import XUIModal, { XUIModalBody } from '../../../modal';
 import DropDown, { DropDownToggled } from '../../../dropdown';
@@ -9,12 +15,6 @@ import XUIButton, { XUIButtonCaret } from '../../../button';
 
 import NOOP from '../../../components/helpers/noop';
 import { storyNames, compositionKind } from '../tests';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-// TODO: storybook-readme is commented out until the package fixes issues with IE11.
-// import { addReadme } from 'storybook-readme';
-// import readme from './README.md';
 
 const displayMonth = new Date('Oct 02 2017 00:00:00 GMT+1300');
 

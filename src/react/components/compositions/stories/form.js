@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
+import calendar from '@xero/xui-icon/icons/date-start';
+import caret from '@xero/xui-icon/icons/caret';
 import { XUIPanel } from '../../../panel';
 import { XUIIconButton } from '../../../button';
 import XUITextInput, { XUITextInputSideElement } from '../../../textinput';
 import XUISelect from '../../../select-box';
 import XUIIcon from '../../../icon';
-import calendar from '@xero/xui-icon/icons/date-start';
-import caret from '@xero/xui-icon/icons/caret';
 
 export default class CustomForm extends PureComponent {
   render() {

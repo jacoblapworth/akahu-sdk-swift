@@ -1,18 +1,18 @@
 // Libs
 import React from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+// TODO: storybook-readme is commented out until the package fixes issues with IE11.
+// import { addReadme } from 'storybook-readme';
+// import readme from './README.md';
+
 // Components we need to test with
 import Picklist, { Pickitem } from '../../../picklist';
 import { DropDownFooter } from '../../../dropdown';
 import XUIAutoCompleter from '../../../autocompleter';
 
 import { nonBackstopStoryNames, compositionKind } from '../tests';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-// TODO: storybook-readme is commented out until the package fixes issues with IE11.
-// import { addReadme } from 'storybook-readme';
-// import readme from './README.md';
 
 const test = storiesOf(compositionKind, module);
 // TODO: storybook-readme is commented out until the package fixes issues with IE11.

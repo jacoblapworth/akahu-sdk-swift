@@ -346,9 +346,11 @@ variations.forEach(variation => {
 
     if (ddSettings.children === 'side-by-side') {
       return sideBySide;
-    } else if (ddSettings.children === 'positioning-test') {
+    }
+    if (ddSettings.children === 'positioning-test') {
       return getPositioningTest();
-    } else if (ddSettings.children === 'hint-label') {
+    }
+    if (ddSettings.children === 'hint-label') {
       delete ddSettings.children;
       return hintLabel(ddSettings);
     }

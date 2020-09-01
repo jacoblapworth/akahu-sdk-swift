@@ -158,12 +158,11 @@ class DetailedListExample extends Component {
           selectedPeople: peopleDataSet.slice(0, selectedPeople),
           prevProps: nextProps,
         };
-      } else {
-        return {
-          selectedPeople: [],
-          prevProps: nextProps,
-        };
       }
+      return {
+        selectedPeople: [],
+        prevProps: nextProps,
+      };
     }
     return null;
   }

@@ -56,7 +56,6 @@ export const createYAxisTickValues = ({ yAxisHeight, maxValue, minValue }) => {
     // Order it from top to bottom
     const yAxisTickValues = positiveNumbers.reverse().concat(negativeNumbers);
     return yAxisTickValues;
-  } else {
-    return createArray(totalLabels + 1).map((_, index) => yAxisMaxValue - increment * index);
   }
+  return createArray(totalLabels + 1).map((_, index) => yAxisMaxValue - increment * index);
 };

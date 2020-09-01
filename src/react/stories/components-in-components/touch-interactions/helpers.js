@@ -10,10 +10,8 @@ import XUIButton from '../../../button';
 import XUIRadio from '../../../radio';
 import XUICheckbox from '../../../checkbox';
 import XUISwitch from '../../../switch';
-import XUIRange from '../../../range';
 import Picklist, { Pickitem, PicklistHeader } from '../../../picklist';
 import XUIIcon from '../../../icon';
-import XUITooltip from '../../../tooltip';
 
 import NOOP from '../../../components/helpers/noop';
 
@@ -114,49 +112,7 @@ const createButtonSixpack = ({ childSet, props }) =>
     </Fragment>
   ));
 
-class RangeWrapper extends React.Component {
-  state = { rangeValue: '50' };
-
-  updateRangeValue = event => {
-    this.setState({ rangeValue: event.target.value });
-  };
-
-  render() {
-    return (
-      <Fragment>
-        <XUIRange
-          max={100}
-          min={0}
-          onInput={this.updateRangeValue}
-          {...this.props}
-          label={`${this.props.label} ${this.state.rangeValue}`}
-        />
-      </Fragment>
-    );
-  }
-}
-
-class TooltipWrapper extends React.Component {
-  render() {
-    const { buttonContent, tipContent, triggers, size } = this.props;
-    const sizeSuffix = size === 'medium' ? '' : `-${size}`;
-    return (
-      <XUITooltip
-        trigger={<XUIButton size={size}>{buttonContent}</XUIButton>}
-        triggerOnClick={triggers.indexOf('click') > -1}
-        triggerOnFocus={triggers.indexOf('focus') > -1}
-        triggerOnHover={triggers.indexOf('hover') > -1}
-        wrapperClassName={`xui-margin-right${sizeSuffix} xui-margin-bottom${sizeSuffix}`}
-      >
-        {tipContent}
-      </XUITooltip>
-    );
-  }
-}
-
 export {
-  TooltipWrapper,
-  RangeWrapper,
   createRadios,
   createCheckboxes,
   switches,

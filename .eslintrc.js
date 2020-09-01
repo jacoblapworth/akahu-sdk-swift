@@ -68,7 +68,6 @@ module.exports = {
     'jest/no-export': 'off', // 1 instance
     'jest/no-test-callback': 'off', // 1 instance
     'jsx-a11y/label-has-associated-control': 'off', // 1 instance - rule may be too simple for implementation in XUIControlWrapperInline
-    'max-classes-per-file': 'off', // 6 instances
     'no-else-return': 'off', // 7 instances
     'react/destructuring-assignment': 'off', // 188 instances
     'react/jsx-fragments': 'off', // 17 instances

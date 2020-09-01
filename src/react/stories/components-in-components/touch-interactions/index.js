@@ -17,10 +17,8 @@ import XUIToggle, { XUIToggleOption } from '../../../toggle';
 import { XUIRadioGroup } from '../../../radio';
 import { XUICheckboxGroup } from '../../../checkbox';
 import { XUISwitchGroup } from '../../../switch';
-import {
-  DetailedListExample,
-  SecondarySearchExample,
-} from '../../../components/autocompleter/stories/stories';
+import DetailedListExample from '../../../components/autocompleter/stories/components/DetailedListExample';
+import SecondarySearchExample from '../../../components/autocompleter/stories/components/SecondarySearchExample';
 import Picklist, { Pickitem, PicklistHeader } from '../../../picklist';
 import XUIIcon from '../../../icon';
 import XUIPill from '../../../pill';

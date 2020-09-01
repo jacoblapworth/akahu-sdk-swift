@@ -1,5 +1,5 @@
 // Libs
-import React, { PureComponent } from 'react';
+import React from 'react';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -15,9 +15,11 @@ import XUIProgressCircular from '../XUIProgressCircular';
 import { COLORS } from '../helpers/constants';
 import { variations, storiesWithVariationsKindName } from './variations';
 import XUIIcon from '../../icon/XUIIcon';
-import logReadyState from '../../../stories/helpers/log-ready-state';
 
-const readyEvent = 'xui-progress-ready-event';
+import ToolTipComparison from './components/ToolTipComparison';
+import ColorComparison from './components/ColorComparison';
+import StandardComparison from './components/StandardComparison';
+
 const defaultColor = 'default';
 const colorOptions = [defaultColor, ...COLORS];
 
@@ -130,24 +132,6 @@ storiesWithKnobs.add('Playground | Linear', () => {
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
-class StandardComparison extends PureComponent {
-  componentDidMount() {
-    logReadyState(readyEvent);
-  }
-
-  render() {
-    const {
-      props: { style, component, children },
-    } = this;
-    return (
-      <div style={style}>
-        {component}
-        {children}
-      </div>
-    );
-  }
-}
-
 const createStandardComparison = (styles, Component, props, componentChildren, children) => (
   <StandardComparison
     component={<Component {...props}>{componentChildren}</Component>}
@@ -156,16 +140,6 @@ const createStandardComparison = (styles, Component, props, componentChildren, c
     {children}
   </StandardComparison>
 );
-
-class ColorComparison extends PureComponent {
-  componentDidMount() {
-    logReadyState(readyEvent);
-  }
-
-  render() {
-    return <div>{this.props.children}</div>;
-  }
-}
 
 const createColorComparison = props => {
   const enrichedProps = COLORS
@@ -205,38 +179,6 @@ const createColorComparison = props => {
     </ColorComparison>
   );
 };
-
-class ToolTipComparison extends PureComponent {
-  node = null;
-
-  componentDidMount() {
-    setTimeout(() => {
-      const { node } = this;
-      const wrapper =
-        node && node.querySelector('.xui-progress [aria-describedby$="progress--tooltip"]');
-      if (wrapper) {
-        wrapper.click();
-        logReadyState(readyEvent);
-      }
-    }, 100);
-  }
-
-  render() {
-    const {
-      props: { style, component },
-    } = this;
-    return (
-      // The Tool Tip is absolutely positioned and can get cropped off in our
-      // visual regression captures. This extra padding at the top of the component
-      // ensures that the entire "active" Tool Tip gets captured.
-      <div style={{ background: 'white', paddingTop: '80px' }}>
-        <div ref={node => (this.node = node)} style={style}>
-          {component}
-        </div>
-      </div>
-    );
-  }
-}
 
 const createToolTipComparison = (styles, Component, props) => (
   <ToolTipComparison component={<Component {...props} />} style={{ ...styles }} />

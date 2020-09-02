@@ -34,10 +34,13 @@ function shouldUpdateListeners(props, otherProps) {
 }
 
 export default class XUIModal extends Component {
-  state = {
-    positionSettings: null,
-    isTopModal: null, // This is handled and manipulated by helpers/modalManager
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      positionSettings: null,
+      isTopModal: null, // This is handled and manipulated by helpers/modalManager
+    };
+  }
 
   generatedHeaderId = uuidv4();
 

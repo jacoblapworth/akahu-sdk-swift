@@ -6,10 +6,6 @@ import getGroupPosition from '../helpers/groupposition';
 class HorizontallyCenterContent extends PureComponent {
   contentNode;
 
-  state = {
-    /* contentWidth */
-  };
-
   updateContentWidth = () => {
     const { state, contentNode } = this;
     const contentWidth = contentNode && getGroupPosition(contentNode).width;

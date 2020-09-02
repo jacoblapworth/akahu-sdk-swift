@@ -13,7 +13,10 @@ const buttonSizeClasses = {
 };
 
 export default class YearSelector extends PureComponent {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
   setFocus = () => {
     this.setState({ hasFocus: true });

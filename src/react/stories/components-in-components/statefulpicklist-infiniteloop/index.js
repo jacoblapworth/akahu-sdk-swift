@@ -32,10 +32,13 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
   };
 
   class BasicStatefulPicklist extends React.Component {
-    state = {
-      loading: false,
-      value: '',
-    };
+    constructor(props) {
+      super(props);
+      this.state = {
+        loading: false,
+        value: '',
+      };
+    }
 
     onSearch = value => {
       this.setState(() => ({

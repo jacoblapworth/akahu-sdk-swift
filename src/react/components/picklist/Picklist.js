@@ -21,7 +21,10 @@ import TabDropDown from './private/TabDropDown';
  */
 export default class Picklist extends Component {
   // All those logic in Lifecycle could be removed when we split the prop `isHorizontal` out (XUI-683)
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
   _area = React.createRef();
 

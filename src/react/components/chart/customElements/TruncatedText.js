@@ -13,11 +13,6 @@ const createTotalCharacterReducer = maxWidth => ({ totalWidth = 20, totalChars =
 class TruncatedText extends PureComponent {
   rootNode;
 
-  state = {
-    // maxWidth,
-    // text,
-  };
-
   updateTruncationReference = () => {
     const { maxWidth, text } = this.state;
     const { maxWidth: nextMaxWidth, children: nextText } = this.props;

@@ -109,7 +109,10 @@ const stylesForBottomLeftPositioning = {
 };
 
 class Positioning extends PureComponent {
-  state = { ...defaultState };
+  constructor(props) {
+    super(props);
+    this.state = { ...defaultState };
+  }
 
   ticking = false;
 

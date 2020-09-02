@@ -12,9 +12,12 @@ function tagTextOverflows(domElement) {
 }
 
 class XUITag extends PureComponent {
-  state = {
-    tooltipIsAttached: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      tooltipIsAttached: false,
+    };
+  }
 
   _tooltip = React.createRef();
 

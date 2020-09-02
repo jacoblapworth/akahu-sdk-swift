@@ -30,12 +30,15 @@ const filterPeople = (data, value, peopleToExclude) =>
  * Example to show how the children can be styled however and you also define your own search criteria.
  */
 class DetailedListExample extends Component {
-  state = {
-    value: '',
-    people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
-    selectedPeople: [peopleDataSet[0]],
-    prevProps: this.props,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+      people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
+      selectedPeople: [peopleDataSet[0]],
+      prevProps: this.props,
+    };
+  }
 
   completer = React.createRef();
 

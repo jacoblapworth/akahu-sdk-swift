@@ -19,10 +19,13 @@ function shouldShowTooltip(domElement) {
 }
 
 export default class XUIPill extends PureComponent {
-  state = {
-    isFocused: false,
-    hasTooltip: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFocused: false,
+      hasTooltip: false,
+    };
+  }
 
   _innerPill = React.createRef();
 

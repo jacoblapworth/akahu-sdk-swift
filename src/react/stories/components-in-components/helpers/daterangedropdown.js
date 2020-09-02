@@ -31,10 +31,13 @@ function maxDate(d1, d2) {
 }
 
 export default class DropDownDateRange extends React.Component {
-  state = {
-    selectedRange: null,
-    currentMonth: new Date(),
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedRange: null,
+      currentMonth: new Date(),
+    };
+  }
 
   datepicker = React.createRef();
 

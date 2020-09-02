@@ -7,9 +7,12 @@ import { sizeClassNames, classNames, variantClassNames } from './constants';
 import { getAvatarColorClass, abbreviateAvatar } from './utils';
 
 export default class XUIAvatar extends PureComponent {
-  state = {
-    imageLoaded: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      imageLoaded: false,
+    };
+  }
 
   /**
    * onError handler for the image element

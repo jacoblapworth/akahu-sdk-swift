@@ -3,7 +3,10 @@ import XUIModal, { XUIModalBody, XUIModalHeader } from '../../../../modal';
 import XUIButton from '../../../../button';
 
 class Example extends Component {
-  state = { showModal: false };
+  constructor(props) {
+    super(props);
+    this.state = { showModal: false };
+  }
 
   render() {
     const { textLabel, settings, children } = this.props;

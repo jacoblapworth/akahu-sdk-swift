@@ -32,10 +32,13 @@ function maxDate(d1, d2) {
 }
 
 class ExamplePicker extends React.Component {
-  state = {
-    selectedDate: null,
-    selectedRange: null,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedDate: null,
+      selectedRange: null,
+    };
+  }
 
   onSelectDate = newDate => {
     const { selectRange } = this.props;

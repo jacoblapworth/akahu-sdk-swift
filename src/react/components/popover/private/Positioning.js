@@ -7,13 +7,16 @@ import PositioningHelper from './helpers/positioning';
 import doAsync from '../../helpers/doAsync';
 
 export default class Positioning extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   ref = React.createRef();
 
   updatePositionTimeoutId;
 
   windowHasResizeListener = false;
-
-  state = {};
 
   componentDidMount() {
     this.updatePosition(true);

@@ -42,12 +42,15 @@ function createItems(item, selectedId) {
 }
 
 class SecondarySearchExample extends React.Component {
-  autocompleterRef = React.createRef();
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: SecondarySearchData,
+      selectedItem: null,
+    };
+  }
 
-  state = {
-    data: SecondarySearchData,
-    selectedItem: null,
-  };
+  autocompleterRef = React.createRef();
 
   onOptionSelect = value => {
     this.setState({

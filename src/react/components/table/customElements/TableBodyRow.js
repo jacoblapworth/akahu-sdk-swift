@@ -8,7 +8,10 @@ import OverflowMenuCell from './OverflowMenuCell';
 import GenericCell from './GenericCell';
 
 class TableBodyRow extends PureComponent {
-  state = { hasPrecedence: false };
+  constructor(props) {
+    super(props);
+    this.state = { hasPrecedence: false };
+  }
 
   removePrecedence = () => this.setPrecedence(false);
 

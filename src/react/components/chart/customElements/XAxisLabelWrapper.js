@@ -31,7 +31,7 @@ class XAxisLabelWrapper extends PureComponent {
     } = this.props;
 
     return (
-      <Fragment>
+      <>
         <svg
           height={labelHeight}
           viewBox={`0 0 ${labelWidth} ${labelHeight}`}
@@ -62,7 +62,7 @@ class XAxisLabelWrapper extends PureComponent {
             y={labelTop}
           />
         )}
-      </Fragment>
+      </>
     );
   };
 }

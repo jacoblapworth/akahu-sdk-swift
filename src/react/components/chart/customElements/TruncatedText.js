@@ -56,7 +56,7 @@ class TruncatedText extends PureComponent {
     const totalChars = Math.max(totalCharsRaw, 1);
 
     return (
-      <Fragment>
+      <>
         {
           // Create a "hidden" complete version (no ellipses) of the text. Each
           // character is isolated into its own <tspan> so that we can measure them
@@ -76,7 +76,7 @@ class TruncatedText extends PureComponent {
           {createTextSpan(text.slice(0, totalChars).trim())}
           {totalChars < text.length && createTextSpan('...')}
         </text>
-      </Fragment>
+      </>
     );
   };
 }

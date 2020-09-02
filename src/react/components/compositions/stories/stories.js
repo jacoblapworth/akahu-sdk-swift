@@ -170,9 +170,9 @@ storiesWithKnobs.add('Master detail summary', () => {
   if (settings.isReal) {
     areas.detail = realDetail(true, navigation);
     return (
-      <Fragment>
+      <>
         <Tag {...settings} {...areas} />
-      </Fragment>
+      </>
     );
   }
   return <Tag {...settings} {...areas} />;
@@ -248,9 +248,9 @@ storiesWithKnobs.add('Master detail', () => {
   if (settings.isReal) {
     areas.detail = realDetail(true, navigation);
     return (
-      <Fragment>
+      <>
         <Tag {...settings} {...areas} />
-      </Fragment>
+      </>
     );
   }
   return <Tag {...settings} {...areas} />;

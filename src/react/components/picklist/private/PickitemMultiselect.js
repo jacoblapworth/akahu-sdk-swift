@@ -38,10 +38,10 @@ const PickitemMultiselect = ({
       {children}
     </span>
   ) : (
-    <Fragment>
+    <>
       {primaryElement}
       {children}
-    </Fragment>
+    </>
   );
 
   const checkboxClasses = cn(

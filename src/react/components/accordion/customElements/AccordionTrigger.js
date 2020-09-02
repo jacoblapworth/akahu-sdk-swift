@@ -54,10 +54,10 @@ const AccordionTrigger = ({
       _isAccordionTrigger
       isRowLink
       leftContent={
-        <Fragment>
+        <>
           {accordionArrow}
           {leftContent}
-        </Fragment>
+        </>
       }
       onClick={onItemClick}
       onKeyDown={onTriggerKeyDown}

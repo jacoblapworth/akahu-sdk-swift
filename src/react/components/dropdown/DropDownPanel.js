@@ -294,7 +294,7 @@ class DropDownPanel extends PureComponent {
         >
           {header}
           {shouldAddStatefulPicklist ? (
-            <Fragment>
+            <>
               <StatefulPicklist
                 className={scrollableContainerClasses}
                 ignoreKeyboardEvents={ignoreKeyboardEvents}
@@ -315,7 +315,7 @@ class DropDownPanel extends PureComponent {
                 </div>
               </StatefulPicklist>
               {footer}
-            </Fragment>
+            </>
           ) : (
             <div
               className={scrollableContainerClasses}

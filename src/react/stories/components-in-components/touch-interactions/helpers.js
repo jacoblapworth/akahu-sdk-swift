@@ -57,7 +57,7 @@ const createSizedIconButtons = size => {
 };
 
 const switches = (
-  <Fragment>
+  <>
     <XUISwitch isDefaultChecked onChange={NOOP}>
       One option you might try
     </XUISwitch>
@@ -68,10 +68,10 @@ const switches = (
     <XUISwitch isDefaultChecked onChange={NOOP}>
       Yet another switch option
     </XUISwitch>
-  </Fragment>
+  </>
 );
 const createCheckboxes = size => (
-  <Fragment>
+  <>
     <XUICheckbox id="bird-tui" key="tui" name="" size={size} value="tui">
       Tūī
     </XUICheckbox>
@@ -84,10 +84,10 @@ const createCheckboxes = size => (
     <XUICheckbox id="bird-moa" isDisabled key="moa" name="moa" size={size} value="moa">
       Moa
     </XUICheckbox>
-  </Fragment>
+  </>
 );
 const createRadios = size => (
-  <Fragment>
+  <>
     <XUIRadio id="city-wellington" key="wellington" name="city" size={size} value="wellington">
       Wellington
     </XUIRadio>
@@ -100,7 +100,7 @@ const createRadios = size => (
     <XUIRadio id="city-carthage" isDisabled key="carthage" name="city" size={size} value="carthage">
       Carthage
     </XUIRadio>
-  </Fragment>
+  </>
 );
 const createButtonSixpack = ({ childSet, props }) =>
   childSet.map((child, index) => (

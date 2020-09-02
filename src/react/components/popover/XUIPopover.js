@@ -51,7 +51,7 @@ export default class XUIPopover extends React.Component {
     const triggerRef = this.getTriggerRef();
 
     return (
-      <React.Fragment>
+      <>
         <Positioning
           pageGutter={ARROW_SIZE}
           preferredLocation={preferredPosition}
@@ -59,7 +59,7 @@ export default class XUIPopover extends React.Component {
           triggerRef={triggerRef}
         >
           {(location, isFullWidth) => (
-            <React.Fragment>
+            <>
               <div
                 aria-describedby={bodyId}
                 aria-labelledby={titleId}
@@ -89,10 +89,10 @@ export default class XUIPopover extends React.Component {
               <Positioning preferredLocation={location} triggerRef={triggerRef}>
                 {() => <div className={cn(`${baseClassName}--arrow-${location}`)} />}
               </Positioning>
-            </React.Fragment>
+            </>
           )}
         </Positioning>
-      </React.Fragment>
+      </>
     );
   }
 

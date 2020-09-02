@@ -26,7 +26,7 @@ isolatedInstance.add('XUIModal', () => {
   const footer = footerEnabled ? <XUIModalFooter>Footer!</XUIModalFooter> : null;
 
   return (
-    <Fragment>
+    <>
       <XUITextInput />
       <XUIButton>Test button</XUIButton>
       <XUIModal
@@ -44,7 +44,7 @@ isolatedInstance.add('XUIModal', () => {
         </XUIModalBody>
         {footer}
       </XUIModal>
-    </Fragment>
+    </>
   );
 });
 

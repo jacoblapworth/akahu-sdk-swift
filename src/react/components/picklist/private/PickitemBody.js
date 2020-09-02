@@ -59,10 +59,10 @@ const PickitemBody = ({
         {children}
       </span>
     ) : (
-      <Fragment>
+      <>
         {primaryElement}
         {children}
-      </Fragment>
+      </>
     );
 
   return (

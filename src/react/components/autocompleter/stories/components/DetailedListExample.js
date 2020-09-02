@@ -92,14 +92,12 @@ class DetailedListExample extends Component {
 
     const items = people.map(item => {
       const secondaryContent = (
-        <Fragment>
+        <>
           {decorateSubStr(item.email, value || '', boldMatch)},{' '}
           {decorateSubStr(item.subtext, value || '', boldMatch)}
-        </Fragment>
+        </>
       );
-      const headingContent = (
-        <Fragment>{decorateSubStr(item.name, value || '', boldMatch)}</Fragment>
-      );
+      const headingContent = <>{decorateSubStr(item.name, value || '', boldMatch)}</>;
       return (
         <Pickitem
           headingElement={headingContent}

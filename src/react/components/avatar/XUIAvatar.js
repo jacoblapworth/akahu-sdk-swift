@@ -42,7 +42,7 @@ export default class XUIAvatar extends PureComponent {
 
     const avatarCharacterCount = variant === 'business' && size !== '2xsmall' ? 3 : 2; // 2xsmall cannot fit 3 characters without overflowing
     return (
-      <React.Fragment>
+      <>
         {imageUrl && (
           <img
             alt=""
@@ -62,7 +62,7 @@ export default class XUIAvatar extends PureComponent {
         >
           {this.memoizedAbbreviateAvatar(value, avatarCharacterCount)}
         </abbr>
-      </React.Fragment>
+      </>
     );
   }
 }

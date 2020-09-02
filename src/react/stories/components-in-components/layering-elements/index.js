@@ -50,11 +50,11 @@ test.add(nonBackstopStoryNames.layeringElements, () => {
   }
   const isUsingPortal = boolean('isUsingPortal', true);
   return (
-    <Fragment>
+    <>
       <XUIPageHeader contentClassName="xui-page-width-large" title="Something" />
       <XUICompositionDetail
         detail={
-          <Fragment>
+          <>
             <XUITooltip
               trigger={<XUIIconButton ariaLabel="Info" icon={info} />}
               triggerOnClick
@@ -95,9 +95,9 @@ test.add(nonBackstopStoryNames.layeringElements, () => {
               </Example>
               <ExampleToast />
             </Example>
-          </Fragment>
+          </>
         }
       />
-    </Fragment>
+    </>
   );
 });

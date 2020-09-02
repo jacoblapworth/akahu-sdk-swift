@@ -57,11 +57,11 @@ function getComponent({
   );
 
   const actions = (
-    <React.Fragment>
+    <>
       {secondaryAction}
       {primaryAction}
       {iconAction}
-    </React.Fragment>
+    </>
   );
 
   return (

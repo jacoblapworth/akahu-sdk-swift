@@ -68,10 +68,9 @@ module.exports = {
     'jest/no-export': 'off', // 1 instance
     'jest/no-test-callback': 'off', // 1 instance
     'jsx-a11y/label-has-associated-control': 'off', // 1 instance - rule may be too simple for implementation in XUIControlWrapperInline
-    'react/jsx-one-expression-per-line': 'off', // 42 instances
-    'react/jsx-props-no-spreading': 'off', // 245 instances
-    'react/jsx-wrap-multilines': 'off', // 38 instances
-    'react/no-access-state-in-setstate': 'off', // 3 instances
+    'react/jsx-one-expression-per-line': 'off', // 42 instances - conflicts with prettier too much (and does weird things for inline variables in divs)
+    'react/jsx-props-no-spreading': 'off', // 245 instances - this will be a ton of work, and may cause problems depending on what consumer props need to be passed through
+    'react/jsx-wrap-multilines': 'off', // 38 instances - conflicts with prettier, minimal benefit for the inconvenience
     'react/state-in-constructor': 'off', // 29 instances
     'react/static-property-placement': 'off', // 3 instances
     'react-hooks/rules-of-hooks': 'error',

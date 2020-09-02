@@ -236,7 +236,7 @@ test.add(storyNames.formLayout, () => {
                 <DropDownToggled
                   className="xui-textinputwrapper"
                   dropdown={
-                    <DropDown onSelect={value => this.setState({ ...this.state, foodType: value })}>
+                    <DropDown onSelect={value => this.setState({ foodType: value })}>
                       <Picklist>
                         {['Vegetable', 'Fruit', 'Meat'].map((title, key) => (
                           <Pickitem

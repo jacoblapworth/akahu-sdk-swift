@@ -63,6 +63,7 @@ export default class XUIControlWrapperInline extends PureComponent {
 
     return (
       <div className={rootClassName}>
+        {/* eslint-disable-next-line jsx-a11y/no-interactive-element-to-noninteractive-role */}
         <label
           className={fieldClassName}
           data-automationid={qaHook}

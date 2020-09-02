@@ -38,8 +38,7 @@ const CustomNavbar = ({
   };
 
   const onMonthChange = event => {
-    const year =
-      yearSelect == null ? DateUtils.addMonths(previousMonth, 1).getFullYear() : yearSelect.value;
+    const year = yearSelect?.value || DateUtils.addMonths(previousMonth, 1).getFullYear();
 
     onDateChange(new Date(year, event.target.value, 1));
   };
@@ -59,8 +58,7 @@ const CustomNavbar = ({
   };
 
   const onYearChange = event => {
-    const month =
-      monthSelect == null ? DateUtils.addMonths(previousMonth, 1).getMonth() : monthSelect.value;
+    const month = monthSelect?.value || DateUtils.addMonths(previousMonth, 1).getMonth();
 
     onDateChange(new Date(event.target.value, month, 1));
   };

@@ -17,7 +17,11 @@ const baseClass = `${ns}-switch`;
  * @returns
  */
 export default class XUISwitchGroup extends PureComponent {
-  wrapperIds = generateIds(this.props.labelId);
+  constructor(props) {
+    super(props);
+    const { labelId } = props;
+    this.wrapperIds = generateIds(labelId);
+  }
 
   render() {
     const {

@@ -23,7 +23,10 @@ class StackedBar extends PureComponent {
     updateToolTip(position, message);
   };
 
-  handleToolTipHide = () => this.props.updateToolTip();
+  handleToolTipHide = () => {
+    const { updateToolTip } = this.props;
+    return updateToolTip();
+  };
 
   createBarMask = ({ barLeft, barTop, barWidth, barHeight }) => {
     const {

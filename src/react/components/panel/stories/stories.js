@@ -35,20 +35,23 @@ const exampleTabs = (
   </XUIPicklist>
 );
 
-const buildActions = (props = {}) => (
-  <XUIActions
-    hasLayout={false}
-    primaryAction={
-      <XUIButton className="xui-margin-left-xsmall" size="small" variant="primary">
-        {props.longContent ? 'ActionCompletion' : 'One'}
-      </XUIButton>
-    }
-    secondaryAction={
-      <XUIButton size="small">{props.longContent ? 'Action2Completion' : 'Two'}</XUIButton>
-    }
-    {...props}
-  />
-);
+const buildActions = (props = {}) => {
+  const { longContent } = props;
+  return (
+    <XUIActions
+      hasLayout={false}
+      primaryAction={
+        <XUIButton className="xui-margin-left-xsmall" size="small" variant="primary">
+          {longContent ? 'ActionCompletion' : 'One'}
+        </XUIButton>
+      }
+      secondaryAction={
+        <XUIButton size="small">{longContent ? 'Action2Completion' : 'Two'}</XUIButton>
+      }
+      {...props}
+    />
+  );
+};
 
 const sampleBreadcrumb = [
   <span key="1" onClick={() => alert('hello')} onKeyDown={() => {}} role="link" tabIndex="0">

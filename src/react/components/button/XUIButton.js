@@ -88,6 +88,7 @@ export default class XUIButton extends React.PureComponent {
             qaHook,
             rel,
             retainLayout,
+            size: propsSize,
             tabIndex,
             target,
             type,
@@ -95,7 +96,7 @@ export default class XUIButton extends React.PureComponent {
             ...spreadProps
           } = this.props;
 
-          const size = this.props.size || inheritedSize || defaultSize;
+          const size = propsSize || inheritedSize || defaultSize;
           delete spreadProps.size;
 
           const ElementType = isLink ? 'a' : 'button';

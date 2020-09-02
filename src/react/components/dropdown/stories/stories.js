@@ -319,19 +319,22 @@ const getPositioningTest = () => {
   );
 };
 
-const hintLabel = props => (
-  <DropDownToggled
-    className="xui-margin-right-large"
-    isHidden={false}
-    trigger={createTriggerInput(props.triggerSettings)}
-    {...props}
-    dropdown={
-      <DropDown fixedWidth restrictFocus={false} size="medium">
-        <Picklist>{createItems(toggledItems, 'seven')}</Picklist>
-      </DropDown>
-    }
-  />
-);
+const hintLabel = props => {
+  const { triggerSettings } = props;
+  return (
+    <DropDownToggled
+      className="xui-margin-right-large"
+      isHidden={false}
+      trigger={createTriggerInput(triggerSettings)}
+      {...props}
+      dropdown={
+        <DropDown fixedWidth restrictFocus={false} size="medium">
+          <Picklist>{createItems(toggledItems, 'seven')}</Picklist>
+        </DropDown>
+      }
+    />
+  );
+};
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);

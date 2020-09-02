@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
  */
 const checkRequiredProps = (basedProp, propType, ...parameters) => {
   const [props, propName] = parameters;
+  // eslint-disable-next-line react/destructuring-assignment
   if (props[basedProp]) {
     if (props[propName]) {
       PropTypes.checkPropTypes(propType, props[propName]);

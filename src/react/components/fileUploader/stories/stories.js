@@ -12,7 +12,8 @@ import { variations, storiesWithVariationsKindName } from './variations';
 import { defaultFileList, defaultProps, fakeUpload } from '../private/helpers';
 
 const Example = props => {
-  const [fileList, setFileList] = useState(props.fileList || defaultProps.fileList);
+  const { fileList: propsFileList } = props;
+  const [fileList, setFileList] = useState(propsFileList || defaultProps.fileList);
 
   const handleFileUpload = (files, newFileList) => {
     files.forEach(file => {

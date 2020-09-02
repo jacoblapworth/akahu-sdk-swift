@@ -110,7 +110,8 @@ const LinearTrack = ({
   elementHeight,
   ...props
 }) => {
-  const thickness = standardiseThickness(props.thickness, isGrow, elementHeight);
+  const { thickness: propsThickness } = props;
+  const thickness = standardiseThickness(propsThickness, isGrow, elementHeight);
   const dashes =
     hasSegmentDots || isSegmented
       ? createLinearSegments({

@@ -113,6 +113,7 @@ class DropDownPanel extends PureComponent {
   }
 
   keyDownHandler = event => {
+    const { onKeyDown } = this.props;
     if (this.list.current != null) {
       const header = this.rootNode.current.querySelector(`.${ns}-dropdown--header`);
       const footer = this.rootNode.current.querySelector(`.${ns}-dropdown--footer`);
@@ -123,8 +124,8 @@ class DropDownPanel extends PureComponent {
         this.list.current.onKeyDown(event);
       }
     }
-    if (typeof this.props.onKeyDown === 'function') {
-      this.props.onKeyDown(event);
+    if (typeof onKeyDown === 'function') {
+      onKeyDown(event);
     }
   };
 

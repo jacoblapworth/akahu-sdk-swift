@@ -61,14 +61,16 @@ class XUITextInput extends PureComponent {
   }
 
   onFocus = e => {
-    this.props.onFocus && this.props.onFocus(e);
+    const { onFocus } = this.props;
+    onFocus && onFocus(e);
     this.setState({
       hasFocus: true,
     });
   };
 
   onBlur = e => {
-    this.props.onBlur && this.props.onBlur(e);
+    const { onBlur } = this.props;
+    onBlur && onBlur(e);
     this.setState({
       hasFocus: false,
     });
@@ -283,6 +285,7 @@ XUITextInput.propTypes = {
   /** Should label be applied as an aria-label, rather than being visibly displayed. */
   isLabelHidden(props, propName) {
     // If the label is hidden, the label value must be a string
+    // eslint-disable-next-line react/destructuring-assignment
     if (props[propName] && props.labelText && typeof props.labelText !== 'string') {
       return new Error(
         'XUITextInput labelText must be a string ' +

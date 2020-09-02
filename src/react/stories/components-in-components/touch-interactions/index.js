@@ -64,14 +64,15 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
     datePickerDate = new Date('Dec 02 2017 00:00:00 GMT+1300');
 
     toggleSelection(id) {
-      const isSelectedById = { ...this.state.isSelectedById, [id]: !this.state.isSelectedById[id] };
+      const { isSelectedById: stateIsSelectedById } = this.state;
+      const isSelectedById = { ...stateIsSelectedById, [id]: !stateIsSelectedById[id] };
       this.setState({
         isSelectedById,
       });
     }
 
     render() {
-      const { overallSize } = this.state;
+      const { overallSize, isSelectedById } = this.state;
       const noXsmallSize = overallSize === 'xsmall' ? 'small' : overallSize;
       return (
         <XUICompositionDetail
@@ -316,7 +317,7 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                       {multiSelectItems.map(id => (
                         <Pickitem
                           id={`2_${id}`}
-                          isSelected={this.state.isSelectedById[`2_${id}`]}
+                          isSelected={isSelectedById[`2_${id}`]}
                           key={`2_${id}`}
                           onClick={this.toggleSelection.bind(this, `2_${id}`)}
                         >

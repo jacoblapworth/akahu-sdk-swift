@@ -18,8 +18,9 @@ class BodyData extends PureComponent {
 
   render = () => {
     const { children, onClick, className: suppliedClasses, ...props } = this.props;
+    const { hasPrecedence } = this.state;
     const className = cn(suppliedClasses, {
-      [`${NAME_SPACE}--cell-hasprecedence`]: this.state.hasPrecedence,
+      [`${NAME_SPACE}--cell-hasprecedence`]: hasPrecedence,
     });
     // TODO: Ascertain best course of action from an accessibility perspective
     // allowing nested cell interactions (`<a />`  and `<button />`) along with

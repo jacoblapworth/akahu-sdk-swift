@@ -61,15 +61,17 @@ class ExampleToast extends PureComponent {
   }
 
   stopToastTimeout(toast) {
-    clearTimeout(this.state.timerHandles[toast]);
+    const { timerHandles } = this.state;
+    clearTimeout(timerHandles[toast]);
   }
 
   render() {
+    const { toasts } = this.state;
     return (
       <div>
         <XUIButton onClick={this.addToast}>Add a toast</XUIButton>
         <XUIToastWrapper>
-          {this.state.toasts.map((toast, idx) => (
+          {toasts.map((toast, idx) => (
             <XUIToast key={idx} onCloseClick={() => this.removeToast(toast)}>
               <XUIToastMessage>{toast}</XUIToastMessage>
             </XUIToast>

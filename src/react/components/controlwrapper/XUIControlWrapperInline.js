@@ -122,6 +122,7 @@ XUIControlWrapperInline.propTypes = {
   messageClassName: PropTypes.string,
   /** Should label be applied as an aria-label, rather than being visibly displayed. */
   isLabelHidden(props, propName) {
+    // eslint-disable-next-line react/destructuring-assignment
     if (props[propName] && props.label && typeof props.label[0] !== 'string') {
       return new Error('To include a hidden label ensure the child is plain text.');
     }

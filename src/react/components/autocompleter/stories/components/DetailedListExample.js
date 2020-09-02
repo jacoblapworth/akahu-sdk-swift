@@ -140,7 +140,7 @@ class DetailedListExample extends Component {
   componentDidUpdate(prevProps, prevState) {
     const { openDrawer } = this.props;
 
-    if (this.props.openDrawer !== prevProps.openDrawer) {
+    if (openDrawer !== prevProps.openDrawer) {
       if (openDrawer) {
         this.completer.current.openDropDown();
       } else {
@@ -203,7 +203,7 @@ class DetailedListExample extends Component {
     );
 
     const dropdownFixedWidth = dropdownSize == null;
-
+    const { inputLabel } = this.props;
     return (
       <XUIAutocompleter
         closeOnTab={noDrawerFooter}
@@ -213,7 +213,7 @@ class DetailedListExample extends Component {
         footer={noDrawerFooter ? null : footer}
         hintMessage={hintMessage}
         inputId={inputId}
-        inputLabel={this.props.inputLabel || 'Sample Autocompleter'}
+        inputLabel={inputLabel || 'Sample Autocompleter'}
         inputProps={inputProps}
         isDisabled={isDisabled}
         isInputLabelHidden={isInputLabelHidden === undefined ? true : isInputLabelHidden}

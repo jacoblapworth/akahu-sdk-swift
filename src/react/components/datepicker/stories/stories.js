@@ -38,7 +38,8 @@ class ExamplePicker extends React.Component {
   };
 
   onSelectDate = newDate => {
-    if (this.props.selectRange) {
+    const { selectRange } = this.props;
+    if (selectRange) {
       this.setState(prevState => {
         const { selectedRange } = prevState;
         if (selectedRange && selectedRange.from && !selectedRange.to) {
@@ -67,11 +68,12 @@ class ExamplePicker extends React.Component {
   };
 
   render() {
+    const { selectedDate, selectedRange } = this.state;
     return (
       <XUIDatePicker
         onSelectDate={this.onSelectDate}
-        selectedDate={this.state.selectedDate}
-        selectedRange={this.state.selectedRange}
+        selectedDate={selectedDate}
+        selectedRange={selectedRange}
         {...this.props}
       />
     );

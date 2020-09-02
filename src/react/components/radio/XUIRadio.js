@@ -87,8 +87,12 @@ const buildRadio = (qaHook, htmlClassName, svgSettings, calculatedSize) => {
 };
 
 export default class XUIRadio extends PureComponent {
-  // User can manually provide an id, or we will generate one.
-  wrapperIds = generateIds(this.props.labelId);
+  constructor(props) {
+    super(props);
+    const { labelId } = this.props;
+    // User can manually provide an id, or we will generate one.
+    this.wrapperIds = generateIds(labelId);
+  }
 
   render() {
     const {

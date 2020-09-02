@@ -9,7 +9,7 @@ export default class NestedPicklist extends PureComponent {
   render() {
     const { children, className, qaHook, secondaryProps, shouldTruncate } = this.props;
     const listLevelProps = getPropsFromFirstChildOrList(children, this.props);
-
+    const { id } = this.context;
     const newChildren = React.Children.map(children, child =>
       child.type === Pickitem
         ? React.cloneElement(child, {
@@ -27,7 +27,7 @@ export default class NestedPicklist extends PureComponent {
         {...secondaryProps}
         className={cn(className, `${ns}-submenu ${ns}-submenu-layout`)}
         data-automationid={qaHook}
-        id={this.context.id}
+        id={id}
       >
         {newChildren}
       </ul>

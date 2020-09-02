@@ -66,15 +66,17 @@ class SecondarySearchExample extends React.Component {
   };
 
   componentDidMount() {
-    if (!this.props.isClosed) {
+    const { isClosed } = this.props;
+    if (!isClosed) {
       this.autocompleterRef.current.openDropDown();
     }
   }
 
   render() {
-    const { data } = this.state;
+    const { data, selectedItem } = this.state;
+    const { trigger: propsTrigger, className } = this.props;
 
-    const trigger = this.props.trigger || (
+    const trigger = propsTrigger || (
       <XUIButton data-ref="toggled_trigger" fullWidth="small-down" onClick={() => {}} type="button">
         Toggle Me <XUIButtonCaret />
       </XUIButton>
@@ -82,7 +84,7 @@ class SecondarySearchExample extends React.Component {
 
     const items =
       data.length > 0 ? (
-        createItems(data, this.state.selectedItem)
+        createItems(data, selectedItem)
       ) : (
         <XUIAutocompleterEmptyState>No results found</XUIAutocompleterEmptyState>
       );
@@ -103,7 +105,7 @@ class SecondarySearchExample extends React.Component {
     return (
       <div style={{ width: 'auto' }}>
         <XUIAutocompleterSecondarySearch
-          className={this.props.className}
+          className={className}
           closeOnTab={false}
           dropdownSize="medium"
           footer={footer}

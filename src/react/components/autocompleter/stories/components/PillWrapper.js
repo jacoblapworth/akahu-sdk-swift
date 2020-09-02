@@ -5,7 +5,8 @@ import peopleDataSet from '../../private/people';
 
 class PillWrapper extends PureComponent {
   deleteSelf = e => {
-    this.props.onDeleteClick(this.props.id);
+    const { onDeleteClick, id } = this.props;
+    onDeleteClick(id);
   };
 
   render() {

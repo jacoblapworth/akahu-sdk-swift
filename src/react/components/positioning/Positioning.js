@@ -178,9 +178,10 @@ class Positioning extends PureComponent {
    */
   positionOnShow = () => {
     // Safety check due to slim chance of unmount during setTimeout duration
+    const { shouldRestrictMaxHeight } = this.props;
     if (this.positionEl && document.body.contains(this.positionEl)) {
       this.positionComponent();
-      if (this.props.shouldRestrictMaxHeight) {
+      if (shouldRestrictMaxHeight) {
         this.calculateMaxHeight();
       }
       // Tell the render method it's OK to render without "visibility: hidden"

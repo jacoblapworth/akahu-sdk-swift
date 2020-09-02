@@ -8,7 +8,6 @@ import XUIControlWrapperInline, {
 import generateIds from '../controlwrapper/helpers';
 
 export default function XUIToggleOption(props) {
-  const wrapperIds = generateIds(props.id);
   const {
     children,
     className,
@@ -23,6 +22,7 @@ export default function XUIToggleOption(props) {
     value,
     id,
   } = props;
+  const wrapperIds = generateIds(id);
   const classes = cn(className, `${baseClass}--option`, isDisabled && `${baseClass}-is-disabled`);
 
   return (

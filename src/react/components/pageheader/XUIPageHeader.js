@@ -143,6 +143,7 @@ XUIPageHeader.propTypes = {
    * Instantiated breadcrumb component. Use in conjunction with a title.
    */
   breadcrumb(props, propName) {
+    // eslint-disable-next-line react/destructuring-assignment
     if (props[propName] && !props.title) {
       return new Error('Breadcrumb in a page header is to be used with a title');
     }

@@ -119,13 +119,15 @@ export default class XUIDatePicker extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.currentMonth !== this.state.currentMonth && this.props.onMonthChange != null) {
-      const currentMonth = this.state.currentMonth.getMonth();
-      const currentYear = this.state.currentMonth.getFullYear();
+    const { currentMonth } = this.state;
+    const { onMonthChange } = this.props;
+    if (prevState.currentMonth !== currentMonth && onMonthChange != null) {
+      const month = currentMonth.getMonth();
+      const year = currentMonth.getFullYear();
       const prevMonth = prevState.currentMonth.getMonth();
       const prevYear = prevState.currentMonth.getFullYear();
-      if (currentMonth !== prevMonth || currentYear !== prevYear) {
-        this.props.onMonthChange(this.state.currentMonth);
+      if (month !== prevMonth || year !== prevYear) {
+        onMonthChange(currentMonth);
       }
     }
   }
@@ -191,9 +193,9 @@ export default class XUIDatePicker extends PureComponent {
 
   onDayFocus = (date, modifiers) => {
     const disabled = modifiers[customClassNames.disabled];
-
+    const { selectedRange } = this.props;
     // Determine if this date should get date range hover styles
-    const shouldSetDay = isPartialRange(this.props.selectedRange) && !disabled;
+    const shouldSetDay = isPartialRange(selectedRange) && !disabled;
     this.setState({
       hoverDate: shouldSetDay ? date : null,
     });
@@ -201,6 +203,7 @@ export default class XUIDatePicker extends PureComponent {
 
   onDayMouseEnter = (date, modifiers) => {
     const disabled = modifiers[customClassNames.disabled];
+    const { selectedRange } = this.props;
     /*
 		When the user navigates via the keyboard, focus is manually moved between elements.
 		So, for the keyboard and mouse to have the same state, we need to manually set focus
@@ -212,22 +215,23 @@ export default class XUIDatePicker extends PureComponent {
     }
 
     // Determine if this date should get hover styles
-    const shouldSetDay = isPartialRange(this.props.selectedRange) && !disabled;
+    const shouldSetDay = isPartialRange(selectedRange) && !disabled;
     this.setState({
       hoverDate: shouldSetDay ? date : null,
     });
   };
 
   onMonthChange = month => {
-    const hasMonthChanged = !DateUtils.isSameMonth(this.props.displayedMonth, month);
+    const { displayedMonth, onMonthChange, minDate, maxDate } = this.props;
+    const hasMonthChanged = !DateUtils.isSameMonth(displayedMonth, month);
 
     if (hasMonthChanged) {
-      this.props.onMonthChange && this.props.onMonthChange();
+      onMonthChange && onMonthChange();
     }
 
     this.dateRefs = {};
     this.setState({
-      currentMonth: normalizeDisplayedMonth(month, this.props.minDate, this.props.maxDate),
+      currentMonth: normalizeDisplayedMonth(month, minDate, maxDate),
     });
   };
 
@@ -280,10 +284,11 @@ export default class XUIDatePicker extends PureComponent {
       weekdaysLong,
       weekdaysShort,
     } = this.props;
+    const { hoverDate, currentMonth } = this.state;
     const normalizedRange = normalizeRange(selectedRange);
     const modifiers = selectedRange
-      ? getRangeModifiers(normalizedRange, this.state.hoverDate, this.isDayDisabled)
-      : getSingleDayModifiers(selectedDate, this.state.hoverDate, this.isDayDisabled);
+      ? getRangeModifiers(normalizedRange, hoverDate, this.isDayDisabled)
+      : getSingleDayModifiers(selectedDate, hoverDate, this.isDayDisabled);
     const selectedDays = [];
     const customNavbarElement = (
       <CustomNavbar
@@ -325,7 +330,7 @@ export default class XUIDatePicker extends PureComponent {
         }}
         locale={locale}
         modifiers={modifiers}
-        month={this.state.currentMonth}
+        month={currentMonth}
         months={months}
         navbarElement={customNavbarElement}
         onDayClick={this.onSelectDate}

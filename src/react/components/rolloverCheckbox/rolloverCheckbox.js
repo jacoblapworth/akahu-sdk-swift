@@ -17,7 +17,8 @@ export default class XUIRolloverCheckbox extends PureComponent {
    * Handler attached to the target element for setting mouse over state to true.
    */
   onMouseEnter = () => {
-    if (this.props.isCheckboxHidden) {
+    const { isCheckboxHidden } = this.props;
+    if (isCheckboxHidden) {
       this.setState({
         isMouseOver: true,
       });

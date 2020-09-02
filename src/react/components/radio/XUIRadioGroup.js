@@ -8,7 +8,11 @@ import generateIds from '../controlwrapper/helpers';
 import { baseClass } from './constants';
 
 export default class XUIRadioGroup extends PureComponent {
-  wrapperIds = generateIds(this.props.labelId);
+  constructor(props) {
+    super(props);
+    const { labelId } = props;
+    this.wrapperIds = generateIds(labelId);
+  }
 
   render() {
     const {

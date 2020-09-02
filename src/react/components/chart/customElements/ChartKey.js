@@ -7,15 +7,15 @@ import DropDown from '../../dropdown/DropDown';
 import { NAME_SPACE } from '../helpers/constants';
 
 class ChartKey extends PureComponent {
-  createLabel = (label, index) => (
-    <li className={`${NAME_SPACE}-chart--key-item`} key={label}>
-      <div
-        className={`${NAME_SPACE}-chart--key-icon`}
-        style={{ background: this.props.colors[index] }}
-      />
-      {label}
-    </li>
-  );
+  createLabel = (label, index) => {
+    const { colors } = this.props;
+    return (
+      <li className={`${NAME_SPACE}-chart--key-item`} key={label}>
+        <div className={`${NAME_SPACE}-chart--key-icon`} style={{ background: colors[index] }} />
+        {label}
+      </li>
+    );
+  };
 
   render = () => {
     const { qaHook, title, labels, icon = infoPathData } = this.props;

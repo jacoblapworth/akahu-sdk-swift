@@ -27,9 +27,6 @@ const onLabelClick = e => {
 };
 
 export default class XUISwitch extends PureComponent {
-  // User can manually provide an id, or we will generate one.
-  wrapperIds = generateIds(this.props.labelId);
-
   constructor(props) {
     super(props);
 
@@ -41,11 +38,16 @@ export default class XUISwitch extends PureComponent {
     };
 
     this.internalOnChange = this.internalOnChange.bind(this);
+
+    const { labelId } = this.props;
+    // User can manually provide an id, or we will generate one.
+    this.wrapperIds = generateIds(labelId);
   }
 
   internalOnChange(e) {
+    const { onChange } = this.props;
     this.setState({ internalIsChecked: e.target.checked });
-    this.props.onChange && this.props.onChange(e);
+    onChange && onChange(e);
   }
 
   render() {
@@ -56,18 +58,21 @@ export default class XUISwitch extends PureComponent {
       value,
       qaHook,
       className,
+      isChecked: propsIsChecked,
       isReversed,
       isLabelHidden,
       labelClassName,
       isInvalid,
+      onChange: propsOnChange,
       validationMessage,
       hintMessage,
       // size, TODO: add size options.
       // isGrouped, TODO: add grouping flag to match Checkbox/Radio. Maybe try context instead?
     } = this.props;
+    const { internalIsChecked } = this.state;
 
-    const isChecked = this._isControlled ? this.props.isChecked : this.state.internalIsChecked;
-    const onChange = this._isControlled ? this.props.onChange : this.internalOnChange;
+    const isChecked = this._isControlled ? propsIsChecked : internalIsChecked;
+    const onChange = this._isControlled ? propsOnChange : this.internalOnChange;
 
     // Other size options coming soon. See Checkbox/Radio for how this will work.
     // NB: Keeping this hard-coded, for the moment, so as not to expose a

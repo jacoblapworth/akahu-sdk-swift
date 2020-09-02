@@ -16,7 +16,7 @@ function build(options = {}) {
   return taskRunner(async taskSpinner => {
     let execTask = `./node_modules/.bin/cross-env ${
       shouldOutputES6 ? 'ES6_OUTPUT=true' : ''
-    } NODE_ENV=production ./node_modules/.bin/babel src/react/ --out-dir ${outputDir} --copy-files --source-maps --ignore **/stories,**/__tests__,**/docs --extensions ".js",".jsx",".ts",".tsx" --ignore **/*.d.ts`;
+    } NODE_ENV=production ./node_modules/.bin/babel src/react/ --out-dir ${outputDir} --copy-files --source-maps --ignore **/stories,**/__tests__,**/docs,src/react/umd.js,**/*.d.ts --extensions ".js",".jsx",".ts",".tsx"`;
 
     if (isWindowsPlatform) {
       execTask = convertExecTaskToWindows(execTask);

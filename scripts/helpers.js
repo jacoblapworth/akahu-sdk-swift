@@ -85,14 +85,14 @@ async function taskRunner(task, fileName) {
   perf.start();
 
   try {
-    const { stdout, stderr } = await task(thisTask);
+    const taskResult = await task(thisTask);
 
-    if (stderr) {
-      thisTask.fail(stderr);
+    if (taskResult && taskResult.stderr) {
+      thisTask.fail(taskResult.stderr);
       process.exit(1);
     }
-    if (stdout || stdout === '') {
-      thisTask.info(stdout);
+    if (taskResult && taskResult.stdout) {
+      thisTask.info(taskResult.stdout);
     }
     perf.stop();
     thisTask.succeed(logScriptRunOutput(twoDecimals(perf.delta), title));

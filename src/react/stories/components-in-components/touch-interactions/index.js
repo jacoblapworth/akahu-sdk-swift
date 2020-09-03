@@ -26,8 +26,6 @@ import XUITextInput, { XUITextInputSideElement } from '../../../textinput';
 import DropDownDateRange from '../helpers/daterangedropdown';
 import { nonBackstopStoryNames, compositionKind } from '../tests';
 import {
-  TooltipWrapper,
-  RangeWrapper,
   createRadios,
   createCheckboxes,
   switches,
@@ -36,6 +34,8 @@ import {
   createPicklist,
   multiSelectItems,
 } from './helpers';
+import RangeWrapper from './components/RangeWrapper';
+import TooltipWrapper from './components/TooltipWrapper';
 
 const sizes = ['medium', 'small', 'xsmall'];
 const avatarSizeMap = {

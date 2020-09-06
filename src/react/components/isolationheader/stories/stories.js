@@ -1,9 +1,9 @@
 // Libs
 import React from 'react';
+
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text, select } from '@storybook/addon-knobs';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 // Components we need to test with
 import XUIIsolationHeader from '../XUIIsolationHeader';
@@ -11,6 +11,8 @@ import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUITag from '../../tag/XUITag';
+
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 import { flattenedIconList, flattenedIconMap } from '../../helpers/icons';

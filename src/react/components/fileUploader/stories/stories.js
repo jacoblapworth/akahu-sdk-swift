@@ -4,9 +4,11 @@ import React, { useState } from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { text, boolean } from '@storybook/addon-knobs';
-import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
+
 // Components we need to test with
 import XUIFileUploader from '../XUIFileUploader';
+
+import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 import { defaultFileList, defaultProps, fakeUpload } from '../private/helpers';

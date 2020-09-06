@@ -9,6 +9,7 @@ import { boolean, text, select, number } from '@storybook/addon-knobs';
 import peopleDataSet from '../private/people';
 import DetailedListExample from './components/DetailedListExample';
 import SecondarySearchExample from './components/SecondarySearchExample';
+
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName, fixedWidthDropdownSizes } from './variations';

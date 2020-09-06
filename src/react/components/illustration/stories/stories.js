@@ -4,11 +4,12 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { text, select } from '@storybook/addon-knobs';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 // Components we need to test with
 import XUIIllustration from '../XUIIllustration';
 import { sizeClasses } from '../private/constants';
+
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 

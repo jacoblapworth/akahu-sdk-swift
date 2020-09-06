@@ -23,9 +23,10 @@ import XUIButton from '../../../button';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIPanel from '../../panel/XUIPanel';
 
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
+
 import { storiesWithVariationsKindName, variations } from './variations';
 import { userBreakpoints } from '../../helpers/breakpoints';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const itemLabels = [
   'Hello, I am an item',

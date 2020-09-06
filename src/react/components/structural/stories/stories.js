@@ -5,12 +5,13 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select, number, text } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
-import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 // Components we need to test with
 import XUIRow from '../XUIRow';
 import XUIColumn from '../XUIColumn';
 import { rowVariants } from '../private/constants';
+
+import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 

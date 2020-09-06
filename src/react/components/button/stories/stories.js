@@ -2,11 +2,11 @@
 import React from 'react';
 
 // Story book things
-import view from '@xero/xui-icon/icons/view';
 import { storiesOf } from '@storybook/react';
 import { boolean, text, number, select } from '@storybook/addon-knobs';
 
 // Components we need to test with
+import view from '@xero/xui-icon/icons/view';
 import XUIButton from '../XUIButton';
 import XUIButtonCaret from '../XUIButtonCaret';
 import XUIButtonGroup from '../XUIButtonGroup';

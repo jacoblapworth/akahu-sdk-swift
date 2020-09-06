@@ -16,8 +16,9 @@ import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 
-import { storiesWithVariationsKindName, variations } from './variations';
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
+
+import { storiesWithVariationsKindName, variations } from './variations';
 import XUIPill from '../../pill/XUIPill';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import { sizeShift } from '../../helpers/sizes';

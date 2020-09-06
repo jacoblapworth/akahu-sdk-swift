@@ -8,7 +8,6 @@ import centered from '@storybook/addon-centered/react';
 import NOOP from '../../helpers/noop';
 
 // Components we need to test with
-
 import XUISwitchGroup from '../XUISwitchGroup';
 import XUISwitch from '../XUISwitch';
 

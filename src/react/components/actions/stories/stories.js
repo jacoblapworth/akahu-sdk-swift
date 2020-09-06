@@ -4,14 +4,15 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
-
-import { storiesWithVariationsKindName, variations } from './variations';
 
 // Components we need to test with
 import XUIActions from '../XUIActions';
 import XUIButton from '../../button/XUIButton';
 import XUIPanel from '../../panel/XUIPanel';
+
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
+
+import { storiesWithVariationsKindName, variations } from './variations';
 
 const sampleActions = ({ isLinear, actionsCount, hasLayout }) => (
   <XUIActions

@@ -177,7 +177,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex={-1}
               >
                  
                 <div
@@ -246,7 +245,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -301,7 +299,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -356,7 +353,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -446,7 +442,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex={-1}
               >
                  
                 <div
@@ -515,7 +510,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -570,7 +564,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -625,7 +618,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -715,7 +707,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex={-1}
               >
                  
                 <div
@@ -784,7 +775,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -839,7 +829,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -894,7 +883,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -1815,7 +1803,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex={-1}
               >
                  
                 <div
@@ -2955,7 +2942,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -3018,7 +3004,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -3081,7 +3066,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -3166,7 +3150,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex={-1}
               >
                  
                 <div
@@ -3298,7 +3281,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -3395,7 +3377,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -3492,7 +3473,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -3789,7 +3769,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -3894,7 +3873,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -3999,7 +3977,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -4079,7 +4056,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex={-1}
               >
                  
                 <div
@@ -4218,7 +4194,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -4311,7 +4286,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -4356,7 +4330,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -4449,7 +4422,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -4494,7 +4466,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -4587,7 +4558,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -5776,7 +5746,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex={-1}
               >
                  
                 <div
@@ -5852,7 +5821,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -5903,7 +5871,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -5948,7 +5915,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -5999,7 +5965,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -6044,7 +6009,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -6095,7 +6059,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -7406,7 +7369,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <th
                 className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-                tabIndex={-1}
               >
                  
                 <div
@@ -7545,7 +7507,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -7638,7 +7599,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -7683,7 +7643,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -7776,7 +7735,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -7821,7 +7779,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             >
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div
@@ -7914,7 +7871,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               </td>
               <td
                 className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-                tabIndex={-1}
               >
                  
                 <div

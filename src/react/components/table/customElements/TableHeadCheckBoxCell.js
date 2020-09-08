@@ -20,7 +20,7 @@ class TableHeadCheckBoxCell extends PureComponent {
     const isIndeterminate = Boolean(totalCheckIds && !isChecked);
 
     return (
-      <TableData className={className} isHead tabIndex={-1}>
+      <TableData className={className} isHead>
         {NBSP}
         {onCheckAllToggle && (
           <XUICheckbox

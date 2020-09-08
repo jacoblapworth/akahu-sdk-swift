@@ -186,48 +186,6 @@ storiesWithKnobs.add('Playground', () => {
           head={<Cell sortKey="header-5">Header 5</Cell>}
         />
       </Table>
-      <Table
-        {...tableProps}
-        caption={text('caption', '')}
-        checkAllRowsLabel="Select all rows"
-        checkOneRowLabel="Select row"
-        className={text('className', '')}
-        data={data}
-        emptyMessage="Nothing to show here"
-        footer={appendFooter && <Appendage>Footer</Appendage>}
-        header={prependHeader && <Appendage>Header</Appendage>}
-        isBorderless={boolean('isBorderless', false)}
-        isLoading={boolean('isLoading', false)}
-        isResponsive={boolean('isResponsive', false)}
-        isTruncated={boolean('isTruncated', false)}
-        loaderLabel="Loading more data"
-        overflowMenuTitle="More row options"
-      >
-        <Column
-          body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
-          head={<Cell sortKey="header-1">Header 1</Cell>}
-        />
-
-        <Column
-          body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
-          head={<Cell sortKey="header-2">Header 2</Cell>}
-        />
-
-        <Column
-          body={data => <Cell {...cellProps}>Super looooooooonooooooooooog text {data._id}</Cell>}
-          head={<Cell sortKey="header-3">Header 3</Cell>}
-        />
-
-        <Column
-          body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
-          head={<Cell sortKey="header-4">Header 4</Cell>}
-        />
-
-        <Column
-          body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
-          head={<Cell sortKey="header-5">Header 5</Cell>}
-        />
-      </Table>
     </div>
   );
 });

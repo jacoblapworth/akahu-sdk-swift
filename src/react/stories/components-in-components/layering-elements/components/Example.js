@@ -6,22 +6,22 @@ class Example extends Component {
   state = { showModal: false };
 
   render() {
-    const { textLabel, settings, children } = this.props;
-    const { showModal } = this.state;
     return (
       <div>
-        <XUIButton onClick={() => this.setState({ showModal: true })}>{textLabel} modal</XUIButton>
+        <XUIButton onClick={() => this.setState({ showModal: true })}>
+          {this.props.textLabel} modal
+        </XUIButton>
         <XUIModal
           closeButtonLabel="Close"
-          {...settings}
-          isOpen={showModal}
+          {...this.props.settings}
+          isOpen={this.state.showModal}
           onClose={() => this.setState({ showModal: false })}
         >
-          <XUIModalHeader>{textLabel} modal</XUIModalHeader>
+          <XUIModalHeader>{this.props.textLabel} modal</XUIModalHeader>
           <XUIModalBody className="xui-padding">
             <div className="xui-padding-bottom">
-              This is the {textLabel} layer modal
-              {children}
+              This is the {this.props.textLabel} layer modal
+              {this.props.children}
             </div>
           </XUIModalBody>
         </XUIModal>

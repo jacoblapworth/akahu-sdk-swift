@@ -34,10 +34,6 @@ export default class XUIAutocompleter extends PureComponent {
     this.ddt = React.createRef();
     this.rootNode = React.createRef();
     this.noWrapPillContainer = React.createRef();
-    // We explicitly need to tie the label to the input element in HTML for autocompleter,
-    // so we'll ensure there is an ID with which to do so.
-    const { inputId, inputProps } = props;
-    this.generatedInputId = inputId || (inputProps && inputProps.id) || uuidv4();
   }
 
   componentDidMount() {
@@ -95,11 +91,10 @@ export default class XUIAutocompleter extends PureComponent {
     if (this.placeholder.current != null) {
       const placeholderWidth = getComputedStyle(this.placeholder.current).width;
       const inputStyle = getComputedStyle(this.inputNode);
-      const calculatedInputWidth = `${parseFloat(inputStyle.paddingLeft) +
+      const inputWidth = `${parseFloat(inputStyle.paddingLeft) +
         parseFloat(inputStyle.paddingRight) +
         parseFloat(placeholderWidth)}px`;
-      const { inputWidth } = this.state;
-      if (inputWidth !== calculatedInputWidth) {
+      if (this.state.inputWidth !== inputWidth) {
         this.setState({
           inputWidth,
         });
@@ -147,8 +142,7 @@ export default class XUIAutocompleter extends PureComponent {
    * @param {item} Object
    */
   onHighlightChange = item => {
-    const { onHighlightChange } = this.props;
-    onHighlightChange && onHighlightChange(item);
+    this.props.onHighlightChange && this.props.onHighlightChange(item);
   };
 
   onInputKeyDown = event => {
@@ -177,22 +171,20 @@ export default class XUIAutocompleter extends PureComponent {
     ) {
       onBackspacePill();
     }
-    const { onKeyDown } = this.props;
-    if (onKeyDown) {
-      onKeyDown(event);
+
+    if (this.props.onKeyDown) {
+      this.props.onKeyDown(event);
     }
   };
 
   onInputFocus = () => {
-    const { focused } = this.state;
-    if (!focused) {
+    if (!this.state.focused) {
       this.openDropDown();
     }
   };
 
   onFocus = e => {
-    const { focused } = this.state;
-    if (!focused && e.target.type !== 'button') {
+    if (!this.state.focused && e.target.type !== 'button') {
       this.focusInput();
       this.setState({
         focused: true,
@@ -220,6 +212,11 @@ export default class XUIAutocompleter extends PureComponent {
       pills
     );
   };
+
+  // We explicitly need to tie the label to the input element in HTML for autocompleter,
+  // so we'll ensure there is an ID with which to do so.
+  generatedInputId =
+    this.props.inputId || (this.props.inputProps && this.props.inputProps.id) || uuidv4();
 
   render() {
     const completer = this;

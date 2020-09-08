@@ -22,8 +22,8 @@ class XUITag extends PureComponent {
 
   componentDidMount() {
     const tagElement = this._tag && this._tag.current;
-    const { tooltipIsAttached } = this.state;
-    if (tooltipIsAttached === false && tagTextOverflows(tagElement)) {
+
+    if (this.state.tooltipIsAttached === false && tagTextOverflows(tagElement)) {
       this.setState({
         tooltipIsAttached: true,
       });
@@ -32,10 +32,13 @@ class XUITag extends PureComponent {
 
   render() {
     const { className, variant, qaHook, children, size, debugShowToolTip, id } = this.props;
-    const { tooltipIsAttached } = this.state;
+
     const tagNode = (
       <span
-        className={cn(`${baseClass}content`, tooltipIsAttached && `${baseClass}-is-block`)}
+        className={cn(
+          `${baseClass}content`,
+          this.state.tooltipIsAttached && `${baseClass}-is-block`,
+        )}
         data-automationid={qaHook}
         ref={this._tag}
         role="status"
@@ -46,7 +49,7 @@ class XUITag extends PureComponent {
 
     let componentNode;
 
-    if (tooltipIsAttached || debugShowToolTip) {
+    if (this.state.tooltipIsAttached || debugShowToolTip) {
       componentNode = (
         <XUITooltip
           id={id}

@@ -73,18 +73,18 @@ export default class Positioning extends React.Component {
     const doSync = callback => new Promise(resolve => resolve(callback()));
     const execute = updateSynchronously ? doSync : doAsync;
 
-    const { pageGutter, preferredLocation, triggerGap, triggerRef } = this.props;
+    const { pageGutter, preferredLocation, triggerGap } = this.props;
 
     if (this.updatePositionTimeoutId) {
       clearTimeout(this.updatePositionTimeoutId);
     }
 
-    if (!this.ref.current || !triggerRef.current) {
+    if (!this.ref.current || !this.props.triggerRef.current) {
       return;
     }
 
     const contentRect = await execute(() => this.getContentRect(this.ref.current));
-    const triggerRect = await execute(() => triggerRef.current.getBoundingClientRect());
+    const triggerRect = await execute(() => this.props.triggerRef.current.getBoundingClientRect());
 
     const positionHelper = await execute(
       () =>
@@ -94,9 +94,9 @@ export default class Positioning extends React.Component {
     const location = await execute(() => positionHelper.getLocation());
     const style = await execute(() => positionHelper.getPositionStyle());
     const isFullWidth = await execute(() => positionHelper.isFullWidth());
-    const { location: stateLocation, style: stateStyle } = this.state;
+
     // This function is called often so we only call `setState` if something has changed.
-    if (location !== stateLocation || !shallowCompare(style, stateStyle)) {
+    if (location !== this.state.location || !shallowCompare(style, this.state.style)) {
       this.setState({
         isFullWidth,
         location,

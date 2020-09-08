@@ -67,7 +67,6 @@ export default class DropDownDateRange extends React.Component {
 
   render() {
     const { currentMonth, selectedRange } = this.state;
-    const { size } = this.props;
     const dropdown = (
       <DropDown>
         <XUIDatePicker
@@ -79,7 +78,7 @@ export default class DropDownDateRange extends React.Component {
       </DropDown>
     );
     const trigger = (
-      <XUIButton fullWidth="small-down" size={size}>
+      <XUIButton fullWidth="small-down" size={this.props.size}>
         {!selectedRange || !selectedRange.to
           ? 'Datepicker'
           : `${formatDate(selectedRange.from)} - ${formatDate(selectedRange.to)}`}

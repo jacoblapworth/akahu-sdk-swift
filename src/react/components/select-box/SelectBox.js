@@ -31,12 +31,9 @@ function setQaHook(propsQaHook, suffix) {
 const selectBaseClass = `${ns}-select`;
 
 export default class SelectBox extends Component {
-  constructor(props) {
-    super(props);
-    const { id } = this.props;
-    this.selectId = id || uuidv4();
-    this.wrapperIds = generateIds(this.selectId);
-  }
+  selectId = this.props.id || uuidv4();
+
+  wrapperIds = generateIds(this.selectId);
 
   isDropDownOpen = () => !!this.ddt && this.ddt.isDropDownOpen();
 

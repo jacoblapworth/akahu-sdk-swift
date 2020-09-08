@@ -90,8 +90,12 @@ class ChartScaffold extends PureComponent {
 
   updateToolTip = (nextPosition = {}, toolTipMessage = null) => {
     const { left: nextLeft, top: nextTop, width: nextWidth, height: nextHeight } = nextPosition;
-    const { toolTipPosition } = this.state;
-    const { left: prevLeft, top: prevTop, width: prevWidth, height: prevHeight } = toolTipPosition;
+    const {
+      left: prevLeft,
+      top: prevTop,
+      width: prevWidth,
+      height: prevHeight,
+    } = this.state.toolTipPosition;
     const shouldUpdate =
       nextLeft !== prevLeft ||
       nextTop !== prevTop ||
@@ -116,9 +120,8 @@ class ChartScaffold extends PureComponent {
     }
   };
 
-  updateXAxisHeight = () => {
-    const { barsData } = this.props;
-    return pause(this.testIsChartMounted, barsData, () => {
+  updateXAxisHeight = () =>
+    pause(this.testIsChartMounted, this.props.barsData, () => {
       const { rootNode, state } = this;
       const xAxisNode = rootNode && rootNode.querySelector(`.${NAME_SPACE}-chart--xaxis`);
       const xAxisHeight = xAxisNode && getGroupPosition(xAxisNode).height;
@@ -130,11 +133,9 @@ class ChartScaffold extends PureComponent {
         this.setState({ hasXAxisCalculated: true });
       }
     });
-  };
 
-  updateYAxisWidth = () => {
-    const { barsData } = this.props;
-    return pause(this.testIsChartMounted, barsData, () => {
+  updateYAxisWidth = () =>
+    pause(this.testIsChartMounted, this.props.barsData, () => {
       const { rootNode, state } = this;
       const yAxisNode = rootNode && rootNode.querySelector(`.${NAME_SPACE}-chart--yaxis`);
       const yAxisWidth = yAxisNode && getGroupPosition(yAxisNode).width;
@@ -146,7 +147,6 @@ class ChartScaffold extends PureComponent {
         this.setState({ hasYAxisCalculated: true });
       }
     });
-  };
 
   handleContentScroll = () => {
     const {
@@ -199,7 +199,6 @@ class ChartScaffold extends PureComponent {
 
   render() {
     const { props, state } = this;
-    const { hasXAxisCalculated, hasYAxisCalculated } = state;
     // Linter can't detect the use of the state properties unless the state is spread.
     const params = enrichParams({ ...state }, props, barChartTheme);
     const {
@@ -309,7 +308,8 @@ class ChartScaffold extends PureComponent {
         <div
           className={cn(
             `${NAME_SPACE}-chart--position`,
-            (!hasXAxisCalculated || !hasYAxisCalculated) && `${NAME_SPACE}-u-hidden-content`,
+            (!this.state.hasXAxisCalculated || !this.state.hasYAxisCalculated) &&
+              `${NAME_SPACE}-u-hidden-content`,
           )}
         >
           <div

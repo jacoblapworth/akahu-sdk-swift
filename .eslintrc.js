@@ -72,6 +72,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off', // 245 instances - this will be a ton of work, and may cause problems depending on what consumer props need to be passed through
     'react/jsx-wrap-multilines': 'off', // 38 instances - conflicts with prettier, minimal benefit for the inconvenience
     'react/state-in-constructor': 'off', // 29 instances - an older pattern, no real benefits
+    'react/destructuring-assignment': 'off', // 188 instances - forces destructuring when accessing a single prop/state variable
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'simple-import-sort/sort': 'error',

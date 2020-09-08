@@ -35,13 +35,12 @@ class Example2 extends Component {
   }
 
   render() {
-    const { showModal } = this.state;
     return (
       <div>
         <XUIButton onClick={() => this.setState({ showModal: true })}>Second modal</XUIButton>
         <XUIModal
           closeButtonLabel="Close"
-          isOpen={showModal}
+          isOpen={this.state.showModal}
           onClose={() => this.setState({ showModal: false })}
         >
           <XUIModalHeader>Second modal</XUIModalHeader>

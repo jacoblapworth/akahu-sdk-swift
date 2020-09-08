@@ -95,11 +95,11 @@ export default class DropDownToggled extends PureComponent {
       isClosing: false,
     };
 
-    const { dropdown } = this.props;
-    this.dropdownId = (dropdown && dropdown.props.id) || uuidv4();
     this.wrapper = React.createRef();
     this.positioning = React.createRef();
   }
+
+  dropdownId = (this.props.dropdown && this.props.dropdown.props.id) || uuidv4();
 
   /**
    * Attaches the event listeners based on state.
@@ -107,8 +107,7 @@ export default class DropDownToggled extends PureComponent {
    * shortcuts of the list.
    */
   componentDidMount() {
-    const { isHidden } = this.state;
-    if (!isHidden) {
+    if (!this.state.isHidden) {
       addEventListeners(this);
       this.forceUpdate();
     }
@@ -251,10 +250,7 @@ export default class DropDownToggled extends PureComponent {
    * @public
    * @returns {Boolean}
    */
-  isDropDownOpen = () => {
-    const { isHidden } = this.state;
-    return !isHidden;
-  };
+  isDropDownOpen = () => !this.state.isHidden;
 
   /**
    * A convenience method to toggle the visibility of the dropdown.
@@ -262,8 +258,7 @@ export default class DropDownToggled extends PureComponent {
    * @public
    */
   toggle = () => {
-    const { isHidden } = this.state;
-    isHidden ? this.openDropDown() : this.closeDropDown();
+    this.state.isHidden ? this.openDropDown() : this.closeDropDown();
   };
 
   /**
@@ -273,8 +268,7 @@ export default class DropDownToggled extends PureComponent {
    * @memberof DropDownToggled
    */
   triggerClickHandler = () => {
-    const { triggerClickAction } = this.props;
-    switch (triggerClickAction) {
+    switch (this.props.triggerClickAction) {
       case 'toggle':
         this.toggle();
         break;
@@ -292,10 +286,11 @@ export default class DropDownToggled extends PureComponent {
    * @param {KeyboardEvent} event key down event object
    */
   onDropDownKeyDown = event => {
-    const { isHidden } = this.state;
-    const { closeOnTab } = this.props;
-    if (!isHidden && (event.key === eventKeyValues.escape || event.key === eventKeyValues.tab)) {
-      if (event.key !== 'Tab' || closeOnTab) {
+    if (
+      !this.state.isHidden &&
+      (event.key === eventKeyValues.escape || event.key === eventKeyValues.tab)
+    ) {
+      if (event.key !== 'Tab' || this.props.closeOnTab) {
         this.closeDropDown();
       }
     }
@@ -307,17 +302,15 @@ export default class DropDownToggled extends PureComponent {
    * @param {KeyboardEvent} event key down event object
    */
   onTriggerKeyDown = event => {
-    const { isHidden } = this.state;
-    const { closeOnTab } = this.props;
-    if (event.key === eventKeyValues.down && isHidden) {
+    if (event.key === eventKeyValues.down && this.state.isHidden) {
       this.preventDefaultIEHandler(event);
       this.openDropDown();
     } else if (
-      !isHidden &&
+      !this.state.isHidden &&
       (event.key === eventKeyValues.escape || event.key === eventKeyValues.tab)
     ) {
       // If the user doesn't want to close when the tab key is hit, don't
-      if (!event.key === eventKeyValues.tab || closeOnTab) {
+      if (!event.key === eventKeyValues.tab || this.props.closeOnTab) {
         this.closeDropDown();
       }
     }
@@ -332,17 +325,16 @@ export default class DropDownToggled extends PureComponent {
    */
   spacebarKeyHandler = event => {
     const { firstChild: trigger } = this.wrapper.current;
-    const { dropdown } = this.props;
-    const { isHidden } = this.state;
+
     if (
       isKeySpacebar(event) &&
       //  The space event is ignored in autocompleter
-      (dropdown.props.ignoreKeyboardEvents.indexOf(32) === -1 ||
+      (this.props.dropdown.props.ignoreKeyboardEvents.indexOf(32) === -1 ||
         //  Space should still be able to open the dropdown in autocompleterSecondarySeach (button as a trigger)
         event.target.contains(trigger))
     ) {
       this.preventDefaultIEHandler(event);
-      if (isHidden) {
+      if (this.state.isHidden) {
         this.openDropDown();
         return;
       }
@@ -351,8 +343,7 @@ export default class DropDownToggled extends PureComponent {
   };
 
   onTriggerKeyUp = event => {
-    const { isHidden } = this.state;
-    if (isKeySpacebar(event) && isHidden) {
+    if (isKeySpacebar(event) && this.state.isHidden) {
       this.preventDefaultIEHandler(event);
     }
   };
@@ -405,8 +396,8 @@ export default class DropDownToggled extends PureComponent {
     this.setState({
       activeDescendant: item.props.id,
     });
-    const { closeOnSelect } = this.props;
-    if (closeOnSelect) {
+
+    if (this.props.closeOnSelect) {
       this.closeDropDown();
     }
   };
@@ -444,11 +435,11 @@ export default class DropDownToggled extends PureComponent {
     this.setState(() => ({
       isOpening: false,
     }));
-    const { onOpenAnimationEnd } = this.props;
+
     // Tell the dropdown to ensure that an element is highlighted, if appropriate
     this.dropdown.highlightInitial();
-    if (onOpenAnimationEnd != null) {
-      onOpenAnimationEnd();
+    if (this.props.onOpenAnimationEnd != null) {
+      this.props.onOpenAnimationEnd();
     }
   };
 
@@ -479,9 +470,8 @@ export default class DropDownToggled extends PureComponent {
    * @memberof DropDownToggled
    */
   repositionDropDown = () => {
-    const { restrictToViewPort } = this.props;
     if (this.positioning.current != null) {
-      if (restrictToViewPort) {
+      if (this.props.restrictToViewPort) {
         this.positioning.current.calculateMaxHeight();
       }
       this.positioning.current.positionComponent();
@@ -528,7 +518,7 @@ export default class DropDownToggled extends PureComponent {
       matchTriggerWidth,
       ...otherProps
     } = this.props;
-    const { isOpening, isClosing, isHidden, activeDescendant, isNarrowViewport } = this.state;
+    const { isOpening, isClosing, isHidden, activeDescendant } = this.state;
 
     const clonedTrigger = React.cloneElement(trigger, {
       ref: compose(trigger.ref, c => (this.trigger = c)),
@@ -566,8 +556,9 @@ export default class DropDownToggled extends PureComponent {
       parentRef: this.wrapper.current,
       isTriggerWidthMatched: matchTriggerWidth,
     };
+
     const positionedDropdown =
-      isLegacyDisplay || (isNarrowViewport && !forceDesktop) ? (
+      isLegacyDisplay || (this.state.isNarrowViewport && !forceDesktop) ? (
         <Positioning {...commonPositioningProps} qaHook={qaHook && `${qaHook}--positioning`}>
           {clonedDropdown}
         </Positioning>

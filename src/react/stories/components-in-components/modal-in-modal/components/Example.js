@@ -13,13 +13,12 @@ class Example extends Component {
   }
 
   render() {
-    const { showModal } = this.state;
     return (
       <div>
         <XUIButton onClick={() => this.setState({ showModal: true })}>First modal</XUIButton>
         <XUIModal
           closeButtonLabel="Close"
-          isOpen={showModal}
+          isOpen={this.state.showModal}
           onClose={() => this.setState({ showModal: false })}
         >
           <XUIModalHeader>First modal</XUIModalHeader>

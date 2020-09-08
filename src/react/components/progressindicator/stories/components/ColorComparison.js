@@ -9,8 +9,7 @@ class ColorComparison extends PureComponent {
   }
 
   render() {
-    const { children } = this.props;
-    return <div>{children}</div>;
+    return <div>{this.props.children}</div>;
   }
 }
 

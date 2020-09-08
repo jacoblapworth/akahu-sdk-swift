@@ -185,7 +185,6 @@ variations.forEach(variation => {
 
   function ControlledNestedPicklist(props) {
     const [picklistOpen, setPicklistOpen] = React.useState(isOpen);
-    const { listComponents } = props;
     return (
       <div>
         <XUIButton
@@ -200,37 +199,34 @@ variations.forEach(variation => {
             <NestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedTrigger">
               Nested list
             </NestedPicklistTrigger>
-            {listComponents[0]}
+            {props.listComponents[0]}
           </NestedPicklistContainer>
         </XUIPicklist>
       </div>
     );
   }
 
-  const UncontrolledNestedPicklist = props => {
-    const { listComponents } = props;
-    return (
-      <XUIPicklist {...variationMinusStoryDetails}>
-        <NestedPicklistContainer id="nested" isDefaultOpen={isDefaultOpen}>
-          <NestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedTrigger">
-            Nested list
-          </NestedPicklistTrigger>
-          {listComponents[0]}
-        </NestedPicklistContainer>
-        <NestedPicklistContainer id="split" isDefaultOpen={isDefaultOpen}>
-          <XUIPickitem
-            id="splitTrigger"
-            isMultiselect={listComponents[1].props.isMultiselect}
-            isSplit
-          >
-            Split nested list
-          </XUIPickitem>
-          <NestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedSplit" />
-          {listComponents[1]}
-        </NestedPicklistContainer>
-      </XUIPicklist>
-    );
-  };
+  const UncontrolledNestedPicklist = props => (
+    <XUIPicklist {...variationMinusStoryDetails}>
+      <NestedPicklistContainer id="nested" isDefaultOpen={isDefaultOpen}>
+        <NestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedTrigger">
+          Nested list
+        </NestedPicklistTrigger>
+        {props.listComponents[0]}
+      </NestedPicklistContainer>
+      <NestedPicklistContainer id="split" isDefaultOpen={isDefaultOpen}>
+        <XUIPickitem
+          id="splitTrigger"
+          isMultiselect={props.listComponents[1].props.isMultiselect}
+          isSplit
+        >
+          Split nested list
+        </XUIPickitem>
+        <NestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedSplit" />
+        {props.listComponents[1]}
+      </NestedPicklistContainer>
+    </XUIPicklist>
+  );
 
   storiesWithVariations.add(storyTitle, () => {
     let listComponents = buildLists(lists, componentType);

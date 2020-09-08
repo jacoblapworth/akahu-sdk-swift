@@ -12,16 +12,13 @@ import { ns } from '../helpers/xuiClassNamespace';
 const baseClass = `${ns}-tooltip`;
 
 export default class XUITooltip extends PureComponent {
-  constructor(props) {
-    super(props);
-    const { isHidden, id } = props;
-    this.state = {
-      isHidden,
-      isFocused: false,
-      isAnimating: false,
-    };
-    this.tooltipId = id || uuidv4();
-  }
+  state = {
+    isHidden: this.props.isHidden,
+    isFocused: false,
+    isAnimating: false,
+  };
+
+  tooltipId = this.props.id || uuidv4();
 
   /**
    * Show the tooltip.
@@ -31,13 +28,12 @@ export default class XUITooltip extends PureComponent {
    */
   openTooltip = isClick => {
     const { isDisabled, openDelay, onOpen } = this.props;
-    const { isAnimating } = this.state;
 
     if (isDisabled) {
       return;
     }
     // No delay for click open/close or if it's already animating.
-    const delay = isClick === true || isAnimating ? 0 : openDelay;
+    const delay = isClick === true || this.state.isAnimating ? 0 : openDelay;
     this.handleOpenClose(delay, true, onOpen);
   };
 
@@ -49,9 +45,8 @@ export default class XUITooltip extends PureComponent {
    */
   closeTooltip = isClick => {
     const { closeDelay, onClose } = this.props;
-    const { isAnimating } = this.state;
     // No delay for click open/close or if it's already animating.
-    const delay = isClick === true || isAnimating ? 0 : closeDelay;
+    const delay = isClick === true || this.state.isAnimating ? 0 : closeDelay;
 
     this.handleOpenClose(delay, false, onClose);
   };
@@ -86,8 +81,7 @@ export default class XUITooltip extends PureComponent {
    * @public
    */
   toggle = () => {
-    const { isHidden } = this.state;
-    isHidden ? this.openTooltip(true) : this.closeTooltip(true);
+    this.state.isHidden ? this.openTooltip(true) : this.closeTooltip(true);
   };
 
   /**
@@ -114,8 +108,7 @@ export default class XUITooltip extends PureComponent {
 
   componentDidUpdate(prevProps, prevState) {
     const { isFocused, isHidden } = this.state;
-    const { triggerOnFocus } = this.props;
-    if (triggerOnFocus) {
+    if (this.props.triggerOnFocus) {
       if (!prevState.isFocused && isFocused && isHidden) {
         this.openTooltip();
       } else if (prevState.isFocused && !isFocused && !isHidden) {
@@ -145,13 +138,13 @@ export default class XUITooltip extends PureComponent {
       useInlineFlex,
       limitWidth,
     } = this.props;
-    const { isHidden, isAnimating, isFocused, wrapper } = this.state;
-    const ignoreFocus = !isFocused || !triggerOnFocus;
+    const { isHidden, isAnimating } = this.state;
+    const ignoreFocus = !this.state.isFocused || !triggerOnFocus;
 
     const wrapperClasses = cn(
       wrapperClassName,
       baseClass,
-      isFocused && `${ns}-has-focused-trigger`,
+      this.state.isFocused && `${ns}-has-focused-trigger`,
       this.triggerIsInline && `${ns}-has-inline-trigger`,
       isDisabled && `${ns}-is-disabled`,
       !isHidden && `${baseClass}-tipopen`,
@@ -203,10 +196,10 @@ export default class XUITooltip extends PureComponent {
           // Without the negative margin, the width will change once isVisible changes, and caused a bug (XUI-854) in Safari
           // And setting isVisible to true will not actually determine the tooltip's render/display
           isVisible
-          parentRef={wrapper}
+          parentRef={this.state.wrapper}
         >
           <span
-            aria-hidden={isHidden}
+            aria-hidden={this.state.isHidden}
             className={tipClasses}
             data-automationid={qaHook && `${qaHook}--tooltip`}
             id={this.tooltipId}

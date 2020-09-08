@@ -44,7 +44,6 @@ export default class XUIPopover extends React.Component {
       qaHook,
       width,
     } = this.props;
-    const { titleId } = this.state;
 
     const bodyId = `${id}-body`;
 
@@ -62,7 +61,7 @@ export default class XUIPopover extends React.Component {
             <>
               <div
                 aria-describedby={bodyId}
-                aria-labelledby={titleId}
+                aria-labelledby={this.state.titleId}
                 className={cn(
                   `${baseClassName}`,
                   `${baseClassName}-wrapper`,
@@ -135,10 +134,9 @@ export default class XUIPopover extends React.Component {
 
   getTitleId = () => {
     const { id } = this.props;
-    const { titleId: stateTitleId } = this.state;
     const titleId = `${id}-title`;
 
-    if (stateTitleId !== titleId) {
+    if (this.state.titleId !== titleId) {
       this.setState({ titleId });
     }
 
@@ -146,9 +144,8 @@ export default class XUIPopover extends React.Component {
   };
 
   getTriggerRef = () => {
-    const { triggerRef } = this.props;
     return {
-      _triggerRef: triggerRef,
+      _triggerRef: this.props.triggerRef,
       get current() {
         if (!this._triggerRef.current) {
           return null;

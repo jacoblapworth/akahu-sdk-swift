@@ -68,7 +68,6 @@ class TableBodyRow extends PureComponent {
       createDividerClasses,
       ensureCellVisibility,
     } = this.props;
-    const { hasPrecedence } = this.state;
     const isRowLink = Boolean(onRowClick && shouldRowClick(rowData));
     const { onClick, onKeyDown, tabIndex, role, onPointerOver, onPointerOut } = isRowLink
       ? {
@@ -83,7 +82,7 @@ class TableBodyRow extends PureComponent {
     const dividerClasses = createDividerClasses(rowIndex);
     const rowClassName = cn(rowData.rowClassName, `${NAME_SPACE}--row`, {
       [`${NAME_SPACE}--row-link`]: isRowLink,
-      [`${NAME_SPACE}--row-hasprecedence`]: hasPrecedence,
+      [`${NAME_SPACE}--row-hasprecedence`]: this.state.hasPrecedence,
     });
 
     return (

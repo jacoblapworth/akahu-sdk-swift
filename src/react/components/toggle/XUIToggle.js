@@ -8,11 +8,7 @@ import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIContr
 import generateIds from '../controlwrapper/helpers';
 
 export default class XUIToggle extends PureComponent {
-  constructor(props) {
-    super(props);
-    const { labelId } = props;
-    this.wrapperIds = generateIds(labelId);
-  }
+  wrapperIds = generateIds(this.props.labelId);
 
   toggleIsCheckbox() {
     const { children } = this.props;

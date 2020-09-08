@@ -118,10 +118,9 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
    * @public
    */
   onOpen = () => {
-    const { searchValue, onOpen } = this.props;
-    this.setState({ value: searchValue });
+    this.setState({ value: this.props.searchValue });
     this.focusInput();
-    onOpen && onOpen();
+    this.props.onOpen && this.props.onOpen();
   };
 
   /**

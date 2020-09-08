@@ -169,7 +169,6 @@ class EventReadyWrapper extends PureComponent {
   }
 
   render() {
-    const { children } = this.props;
     return (
       <div
         ref={node => (this.rootNode = node)}
@@ -180,7 +179,7 @@ class EventReadyWrapper extends PureComponent {
           maxWidth: '1000px',
         }}
       >
-        {children}
+        {this.props.children}
       </div>
     );
   }

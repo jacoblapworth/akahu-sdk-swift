@@ -35,7 +35,6 @@ export default class YearSelector extends PureComponent {
       qaHook,
       size,
     } = this.props;
-    const { hasFocus } = this.state;
 
     const currentYear = currentMonthDate.getFullYear();
     const startYear = minDate ? minDate.getFullYear() : currentYear - 10;
@@ -52,7 +51,7 @@ export default class YearSelector extends PureComponent {
           `${ns}-datepicker--heading-label`,
           `${ns}-datepicker--year-select-label`,
           buttonSizeClasses[size],
-          hasFocus && `${ns}-datepicker--heading-select-has-focus`,
+          this.state.hasFocus && `${ns}-datepicker--heading-select-has-focus`,
         )}
         htmlFor={id}
       >

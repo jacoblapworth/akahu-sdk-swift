@@ -36,7 +36,7 @@ export default class MonthSelector extends PureComponent {
       qaHook,
       size,
     } = this.props;
-    const { hasFocus } = this.state;
+
     const allMonths = Array.isArray(months) ? months : englishMonths;
     const currentMonth = currentMonthDate.getMonth();
     const currentYear = currentMonthDate.getFullYear();
@@ -55,7 +55,7 @@ export default class MonthSelector extends PureComponent {
           `${ns}-datepicker--heading-label`,
           `${ns}-datepicker--month-select-label`,
           buttonSizeClasses[size],
-          hasFocus && `${ns}-datepicker--heading-select-has-focus`,
+          this.state.hasFocus && `${ns}-datepicker--heading-select-has-focus`,
         )}
         htmlFor={id}
       >

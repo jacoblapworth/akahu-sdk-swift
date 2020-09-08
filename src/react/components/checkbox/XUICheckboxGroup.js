@@ -16,11 +16,7 @@ import generateIds from '../controlwrapper/helpers';
  * @returns
  */
 export default class XUICheckboxGroup extends PureComponent {
-  constructor(props) {
-    super(props);
-    const { labelId } = props;
-    this.wrapperIds = generateIds(labelId);
-  }
+  wrapperIds = generateIds(this.props.labelId);
 
   render() {
     const {

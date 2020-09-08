@@ -29,9 +29,9 @@ export default class XUIPill extends PureComponent {
   _tooltip = React.createRef();
 
   componentDidMount() {
-    const { hasTooltip } = this.state;
     const innerPillElement = this._innerPill && this._innerPill.current;
-    const shouldHaveToolTip = hasTooltip === false && shouldShowTooltip(innerPillElement);
+    const shouldHaveToolTip =
+      this.state.hasTooltip === false && shouldShowTooltip(innerPillElement);
 
     if (shouldHaveToolTip) {
       this.setState({
@@ -46,10 +46,9 @@ export default class XUIPill extends PureComponent {
         isFocused: !prevState.isFocused,
       }),
       () => {
-        const { isFocused, hasTooltip } = this.state;
-        if (isFocused && hasTooltip) {
+        if (this.state.isFocused && this.state.hasTooltip) {
           this._tooltip.current.openTooltip();
-        } else if (hasTooltip) {
+        } else if (this.state.hasTooltip) {
           this._tooltip.current.closeTooltip();
         }
       },
@@ -57,15 +56,13 @@ export default class XUIPill extends PureComponent {
   };
 
   hoverHandler = () => {
-    const { hasTooltip } = this.state;
-    if (hasTooltip) {
+    if (this.state.hasTooltip) {
       this._tooltip.current.openTooltip();
     }
   };
 
   blurHandler = () => {
-    const { hasTooltip } = this.state;
-    if (hasTooltip) {
+    if (this.state.hasTooltip) {
       this._tooltip.current.closeTooltip();
     }
   };
@@ -95,9 +92,9 @@ export default class XUIPill extends PureComponent {
               } = this.props;
 
               const { isFocused, hasTooltip } = this.state;
-              const { size: propsSize } = this.props;
+
               const defaultSize = 'medium';
-              const size = propsSize || inheritedSize || defaultSize;
+              const size = this.props.size || inheritedSize || defaultSize;
               const hasAvatar = avatar || avatarProps || isInvalid;
 
               const pillClasses = cn(
@@ -186,7 +183,6 @@ XUIPill.propTypes = {
   avatarProps: PropTypes.object,
   /** An avatar component. May be used instead of avatarProps */
   avatar(props, propName) {
-    // eslint-disable-next-line react/destructuring-assignment
     if (props[propName] && props.avatarProps) {
       return new Error('Cannot accept both avatarProps and an avatar component');
     }
@@ -200,7 +196,6 @@ XUIPill.propTypes = {
    * Recommended English value: *Delete*
    */
   deleteButtonLabel(props, propName) {
-    // eslint-disable-next-line react/destructuring-assignment
     if (props.onDeleteClick && typeof props[propName] !== 'string') {
       return new Error(
         'XUIPill: The prop `deleteButtonLabel` is required when using `onDeleteClick`.',

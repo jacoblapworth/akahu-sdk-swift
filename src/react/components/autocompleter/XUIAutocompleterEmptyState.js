@@ -5,19 +5,16 @@ import cn from 'classnames';
 import XUIIcon from '../icon/XUIIcon';
 import { ns } from '../helpers/xuiClassNamespace';
 
-const XUIAutocompleterEmptyState = props => {
-  const { className, qaHook, id, icon, children } = props;
-  return (
-    <div
-      className={cn(`${ns}-autocompleter--emptystate`, className)}
-      data-automationid={qaHook}
-      id={id}
-    >
-      <XUIIcon icon={icon} isBoxed size="large" />
-      {children}
-    </div>
-  );
-};
+const XUIAutocompleterEmptyState = props => (
+  <div
+    className={cn(`${ns}-autocompleter--emptystate`, props.className)}
+    data-automationid={props.qaHook}
+    id={props.id}
+  >
+    <XUIIcon icon={props.icon} isBoxed size="large" />
+    {props.children}
+  </div>
+);
 
 XUIAutocompleterEmptyState.propTypes = {
   qaHook: PropTypes.string,

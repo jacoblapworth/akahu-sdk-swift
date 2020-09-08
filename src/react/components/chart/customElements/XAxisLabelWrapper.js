@@ -12,10 +12,7 @@ class XAxisLabelWrapper extends PureComponent {
     updateToolTip(position, toolTipMessage);
   };
 
-  handleToolTipHide = () => {
-    const { updateToolTip } = this.props;
-    return updateToolTip();
-  };
+  handleToolTipHide = () => this.props.updateToolTip();
 
   render = () => {
     const {

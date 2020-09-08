@@ -48,19 +48,16 @@ export default class NestedPicklistContainer extends PureComponent {
   }
 
   isOpen() {
-    const { open } = this.state;
-    return !!open;
+    return !!(this.state && this.state.open);
   }
 
   isControlledComponent() {
-    const { isOpen } = this.props;
-    return isOpen !== undefined;
+    return this.props.isOpen !== undefined;
   }
 
   open() {
-    const { isOpen, onOpen } = this.props;
-    if (this.isControlledComponent() && !isOpen) {
-      onOpen && onOpen();
+    if (this.isControlledComponent() && !this.props.isOpen) {
+      this.props.onOpen && this.props.onOpen();
     }
     this.setState({
       open: true,
@@ -68,9 +65,8 @@ export default class NestedPicklistContainer extends PureComponent {
   }
 
   close() {
-    const { isOpen, onClose } = this.props;
-    if (this.isControlledComponent() && isOpen) {
-      onClose && onClose();
+    if (this.isControlledComponent() && this.props.isOpen) {
+      this.props.onClose && this.props.onClose();
     }
     this.setState({
       open: false,
@@ -78,8 +74,7 @@ export default class NestedPicklistContainer extends PureComponent {
   }
 
   toggle() {
-    const { open } = this.state;
-    open ? this.close() : this.open();
+    this.state.open ? this.close() : this.open();
   }
 
   render() {

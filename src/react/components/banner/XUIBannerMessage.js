@@ -4,13 +4,11 @@ import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
 export default function XUIBannerMessage(props) {
-  const { className: propsClassName, qaHook, children } = props;
-
-  const className = cn(propsClassName, `${ns}-banner--message`);
+  const className = cn(props.className, `${ns}-banner--message`);
 
   return (
-    <p className={className} data-automationid={qaHook}>
-      {children}
+    <p className={className} data-automationid={props.qaHook}>
+      {props.children}
     </p>
   );
 }

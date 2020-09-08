@@ -9,8 +9,6 @@ class RangeWrapper extends React.Component {
   };
 
   render() {
-    const { label } = this.props;
-    const { rangeValue } = this.state;
     return (
       <>
         <XUIRange
@@ -18,7 +16,7 @@ class RangeWrapper extends React.Component {
           min={0}
           onInput={this.updateRangeValue}
           {...this.props}
-          label={`${label} ${rangeValue}`}
+          label={`${this.props.label} ${this.state.rangeValue}`}
         />
       </>
     );

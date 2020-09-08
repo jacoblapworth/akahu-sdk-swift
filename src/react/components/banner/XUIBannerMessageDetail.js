@@ -4,12 +4,11 @@ import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
 export default function XUIBannerMessageDetail(props) {
-  const { className: propsClassName, qaHook, messageDetails } = props;
-  const className = cn(propsClassName, `${ns}-banner--messagedetail`);
+  const className = cn(props.className, `${ns}-banner--messagedetail`);
 
   return (
-    <ul className={className} data-automationid={qaHook}>
-      {messageDetails.map(listText => (
+    <ul className={className} data-automationid={props.qaHook}>
+      {props.messageDetails.map(listText => (
         <li key={listText}>{listText}</li>
       ))}
     </ul>

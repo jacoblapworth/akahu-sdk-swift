@@ -122,8 +122,7 @@ class StatefulPicklist extends Component {
    * @memberof StatefulPicklist
    */
   getHighlighted() {
-    const { highlightedElement } = this.state;
-    return highlightedElement;
+    return this.state.highlightedElement;
   }
 
   /**
@@ -247,8 +246,7 @@ class StatefulPicklist extends Component {
    * @memberof StatefulPicklist
    */
   highlightInitial() {
-    const { shouldManageInitialHighlight } = this.props;
-    if (shouldManageInitialHighlight === false) {
+    if (this.props.shouldManageInitialHighlight === false) {
       return;
     }
     const highlightedEl = this.getHighlighted();

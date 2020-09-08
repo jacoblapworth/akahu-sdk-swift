@@ -44,9 +44,8 @@ class XUITable extends Component {
 
   setCurrentWidth = () => {
     const { rootNode } = this;
-    const { rootWidth: stateRootWidth } = this.state;
     const rootWidth = rootNode && rootNode.clientWidth;
-    const isRootWidthNew = rootNode && rootWidth !== stateRootWidth;
+    const isRootWidthNew = rootNode && rootWidth !== this.state.rootWidth;
 
     if (isRootWidthNew) {
       this.setState({ rootWidth });

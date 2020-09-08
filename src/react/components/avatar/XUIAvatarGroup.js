@@ -52,7 +52,6 @@ XUIAvatarGroup.propTypes = {
 
   /** The maximum number of avatars to show */
   maxAvatars(props, propName) {
-    // eslint-disable-next-line react/destructuring-assignment
     const maxAvatars = props[propName];
 
     if (maxAvatars && typeof maxAvatars !== 'number') {

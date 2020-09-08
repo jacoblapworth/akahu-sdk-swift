@@ -31,8 +31,7 @@ export default class Picklist extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { swapAtBreakpoint } = this.props;
-    if (swapAtBreakpoint !== prevProps.swapAtBreakpoint) {
+    if (this.props.swapAtBreakpoint !== prevProps.swapAtBreakpoint) {
       this.setBreakpoint();
     }
   }
@@ -95,7 +94,7 @@ export default class Picklist extends Component {
       onMouseDown,
       'data-automationid': qaHook,
     };
-    const { normalPickitems } = this.state;
+
     /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
     // Deferring the fix for this until we determine how to change the surface
     // of pickitems & picklists
@@ -105,7 +104,7 @@ export default class Picklist extends Component {
         className={cn(listClasses, className, isHorizontal && `${picklistClassName}-horizontal`)}
         ref={this._area}
       >
-        {!isHorizontal || !swapAtBreakpoint || normalPickitems ? (
+        {!isHorizontal || !swapAtBreakpoint || this.state.normalPickitems ? (
           newChildren
         ) : (
           <TabDropDown

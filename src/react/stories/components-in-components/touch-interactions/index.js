@@ -72,7 +72,7 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
     }
 
     render() {
-      const { overallSize, isSelectedById } = this.state;
+      const { overallSize } = this.state;
       const noXsmallSize = overallSize === 'xsmall' ? 'small' : overallSize;
       return (
         <XUICompositionDetail
@@ -317,7 +317,7 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                       {multiSelectItems.map(id => (
                         <Pickitem
                           id={`2_${id}`}
-                          isSelected={isSelectedById[`2_${id}`]}
+                          isSelected={this.state.isSelectedById[`2_${id}`]}
                           key={`2_${id}`}
                           onClick={this.toggleSelection.bind(this, `2_${id}`)}
                         >

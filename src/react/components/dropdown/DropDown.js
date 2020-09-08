@@ -89,9 +89,8 @@ export default class DropDown extends PureComponent {
   };
 
   keyDownHandler = event => {
-    const { onKeyDown } = this.props;
-    if (typeof onKeyDown === 'function') {
-      onKeyDown(event);
+    if (typeof this.props.onKeyDown === 'function') {
+      this.props.onKeyDown(event);
     }
   };
 
@@ -205,7 +204,6 @@ export default class DropDown extends PureComponent {
       children,
       qaHook,
       onSelect,
-      id,
       ignoreKeyboardEvents,
       style,
       header,
@@ -231,7 +229,7 @@ export default class DropDown extends PureComponent {
         className={dropdownClasses}
         fixedWidth={fixedWidth}
         forceDesktop={forceDesktop}
-        id={id} // This will be generated, if necessary, at a higher level
+        id={this.props.id} // This will be generated, if necessary, at a higher level
         isHidden={isHidden}
         onCloseAnimationEnd={onCloseAnimationEnd}
         onOpenAnimationEnd={onOpenAnimationEnd}

@@ -7,26 +7,22 @@ import { sizeClassNames, baseClass } from './private/constants';
 const dot = <div className={`${baseClass}--dot`} />;
 
 const XUILoader = props => {
-  const {
-    size,
-    className: propClassName,
-    defaultLayout,
-    retainLayout,
-    isInverted,
-    ariaLabel,
-    qaHook,
-  } = props;
   const className = cn(
     baseClass,
-    sizeClassNames[size],
-    propClassName,
-    defaultLayout && !retainLayout && `${baseClass}-layout`,
-    isInverted && `${baseClass}-inverted`,
-    retainLayout && `${baseClass}-retain-layout`,
+    sizeClassNames[props.size],
+    props.className,
+    props.defaultLayout && !props.retainLayout && `${baseClass}-layout`,
+    props.isInverted && `${baseClass}-inverted`,
+    props.retainLayout && `${baseClass}-retain-layout`,
   );
 
   return (
-    <div aria-label={ariaLabel} className={className} data-automationid={qaHook} role="progressbar">
+    <div
+      aria-label={props.ariaLabel}
+      className={className}
+      data-automationid={props.qaHook}
+      role="progressbar"
+    >
       {dot}
       {dot}
       {dot}

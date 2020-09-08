@@ -136,7 +136,6 @@ XUIBarChart.propTypes = {
    * Recommended English value: *Next page*
    */
   paginationNextTitle(props, propName) {
-    // eslint-disable-next-line react/destructuring-assignment
     if (props.hasPagination && typeof props[propName] !== 'string') {
       return new Error(
         'XUIBarChart: `paginationNextTitle` is required when `hasPagination` is true.',
@@ -152,7 +151,6 @@ XUIBarChart.propTypes = {
    * Recommended English value: *Previous page*
    */
   paginationPreviousTitle(props, propName) {
-    // eslint-disable-next-line react/destructuring-assignment
     if (props.hasPagination && typeof props[propName] !== 'string') {
       return new Error(
         'XUIBarChart: `paginationPreviousTitle` is required when `hasPagination` is true.',

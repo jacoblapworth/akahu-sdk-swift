@@ -17,14 +17,14 @@ export default class CustomHeader extends PureComponent {
 
   render() {
     const { title } = this.props;
-    const { selectedTab } = this.state;
+
     const builtTabs = (
       <Picklist>
         {[0, 1].map(item => (
           <Pickitem
             ariaRole="menuitem"
             id={`number_${item}`}
-            isSelected={selectedTab === item}
+            isSelected={this.state.selectedTab === item}
             key={`number_${item}`}
             onClick={this.onTabClick.bind(this, item)}
           >

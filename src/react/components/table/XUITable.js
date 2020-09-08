@@ -193,7 +193,7 @@ class XUITable extends Component {
           className={`${NAME_SPACE}-wrapper`}
           onScroll={handleScroll}
           ref={node => (this.wrapperNode = node)}
-          role={isResponsive && 'group'}
+          role={(isResponsive && 'group') || undefined}
           tabIndex={isResponsive ? 0 : undefined}
         >
           <table

@@ -26,10 +26,12 @@ class TableBodyRow extends PureComponent {
     const isAction =
       target.classList.contains(`${actionClassName}`) ||
       target.type === 'checkbox' ||
+      target.type === 'a' ||
+      target.type === 'button' ||
       event.defaultPrevented;
     const isValidInteraction = queryIsValidInteraction(event);
 
-    if (!isAction && isValidInteraction) {
+    if (!isAction && isValidInteraction && currentTarget.contains(target)) {
       onRowClick(event, rowData);
       currentTarget.focus();
       event.preventDefault();

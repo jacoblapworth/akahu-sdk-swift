@@ -13,12 +13,9 @@ const BORDER_SHADOW_SIZE = 1;
 const ARROW_SIZE = 8 + BORDER_SHADOW_SIZE;
 
 export default class XUIPopover extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   wrapperRef = React.createRef();
+
+  state = {};
 
   componentDidMount() {
     this.addEventListeners();

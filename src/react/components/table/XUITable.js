@@ -15,10 +15,7 @@ import TableAlert from './customElements/TableAlert';
 import { ns } from '../helpers/xuiClassNamespace';
 
 class XUITable extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { rootWidth: null };
-  }
+  state = { rootWidth: null };
 
   rootNode;
 

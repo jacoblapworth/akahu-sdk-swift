@@ -5,12 +5,9 @@ import Picklist, { Pickitem } from '../../../picklist';
 import XUIButton, { XUISplitButtonGroup, XUISecondaryButton } from '../../../button';
 
 export default class CustomHeader extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedTab: 1,
-    };
-  }
+  state = {
+    selectedTab: 1,
+  };
 
   onTabClick = a => {
     this.setState({

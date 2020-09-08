@@ -27,18 +27,6 @@ class ChartScaffold extends PureComponent {
     this.updateChartWidth = this.updateChartWidth.bind(this);
     this.updateToolTip = this.updateToolTip.bind(this);
     this.updatePanel = this.updatePanel.bind(this);
-    this.state = {
-      chartWidth: CHART_WIDTH,
-      yAxisWidth: Y_AXIS_WIDTH,
-      xAxisHeight: X_AXIS_HEIGHT,
-      toolTipPosition: {
-        /* left: 0, right: 0, width, 0, height: 0 */
-      },
-      toolTipMessage: null,
-      panelCurrent: 1,
-      hasXAxisCalculated: false,
-      hasYAxisCalculated: false,
-    };
   }
 
   rootNode;
@@ -46,6 +34,19 @@ class ChartScaffold extends PureComponent {
   contentNode;
 
   throttledAction;
+
+  state = {
+    chartWidth: CHART_WIDTH,
+    yAxisWidth: Y_AXIS_WIDTH,
+    xAxisHeight: X_AXIS_HEIGHT,
+    toolTipPosition: {
+      /* left: 0, right: 0, width, 0, height: 0 */
+    },
+    toolTipMessage: null,
+    panelCurrent: 1,
+    hasXAxisCalculated: false,
+    hasYAxisCalculated: false,
+  };
 
   // We utilise a "pause" system to ensure the various DOM elements update before
   // measuring them. This intentional millisecond latency can create an edge case

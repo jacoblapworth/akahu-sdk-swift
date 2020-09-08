@@ -13,10 +13,7 @@ const buttonSizeClasses = {
 };
 
 export default class MonthSelector extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  state = {};
 
   setFocus = () => {
     this.setState({ hasFocus: true });

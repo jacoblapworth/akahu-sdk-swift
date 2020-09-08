@@ -2,10 +2,7 @@ import React, { Fragment } from 'react';
 import XUIRange from '../../../../range';
 
 class RangeWrapper extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { rangeValue: '50' };
-  }
+  state = { rangeValue: '50' };
 
   updateRangeValue = event => {
     this.setState({ rangeValue: event.target.value });

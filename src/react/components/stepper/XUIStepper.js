@@ -49,10 +49,7 @@ const createTabs = (
   });
 
 class XUIStepper extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { layout: STACKED };
-  }
+  state = { layout: STACKED };
 
   rootNode = null;
 

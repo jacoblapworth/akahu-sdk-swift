@@ -4,14 +4,11 @@ import cn from 'classnames';
 import { NAME_SPACE, NBSP } from '../helpers/constants';
 
 class BodyData extends PureComponent {
-  constructor(props) {
-    super(props);
-    // Determines if the cell has "precedence" in that it is the primary attention
-    // of the user and not a nested button or link. This way a nested button can
-    // stop the event from propagating up to the parent cell and invoking the
-    // interaction effects like `:hover`.
-    this.state = { hasPrecedence: false };
-  }
+  // Determines if the cell has "precedence" in that it is the primary attention
+  // of the user and not a nested button or link. This way a nested button can
+  // stop the event from propagating up to the parent cell and invoking the
+  // interaction effects like `:hover`.
+  state = { hasPrecedence: false };
 
   removePrecedence = () => this.setPrecedence(false);
 

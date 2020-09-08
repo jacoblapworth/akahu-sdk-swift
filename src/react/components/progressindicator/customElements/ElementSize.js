@@ -3,13 +3,10 @@ import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
 
 class ElementSize extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      elementWidth: null,
-      elementHeight: null,
-    };
-  }
+  state = {
+    elementWidth: null,
+    elementHeight: null,
+  };
 
   rootNode;
 

@@ -8,12 +8,9 @@ import WidthContext from '../../contexts/WidthContext';
 const baseClass = `${ns}-pageheading`;
 
 export default class XUIPageHeader extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   _area = React.createRef();
+
+  state = {};
 
   componentDidMount() {
     this._area.current && observe(this);

@@ -7,12 +7,9 @@ import XUICheckbox from '../checkbox/XUICheckbox';
 import { baseClass } from './private/constants';
 
 export default class XUIRolloverCheckbox extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isMouseOver: false,
-    };
-  }
+  state = {
+    isMouseOver: false,
+  };
 
   /**
    * @public

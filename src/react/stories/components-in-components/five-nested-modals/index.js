@@ -12,10 +12,7 @@ import XUIButton from '../../../button';
 import { nonBackstopStoryNames, compositionKind } from '../tests';
 
 class Example extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { showModal: false };
-  }
+  state = { showModal: false };
 
   render() {
     const { textLabel, settings, children } = this.props;

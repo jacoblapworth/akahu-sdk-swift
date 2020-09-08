@@ -17,12 +17,9 @@ const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
   isMultiline && typeof rows !== 'number';
 
 class XUITextInput extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hasFocus: false,
-    };
-  }
+  state = {
+    hasFocus: false,
+  };
 
   wrapperIds = this.getWrapperIds();
 

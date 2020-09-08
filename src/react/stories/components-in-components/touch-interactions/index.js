@@ -56,13 +56,10 @@ const test = storiesOf(compositionKind, module);
 
 test.add(nonBackstopStoryNames.touchInteractions, () => {
   class TouchInteractions extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        isSelectedById: {},
-        overallSize: 'medium',
-      };
-    }
+    state = {
+      isSelectedById: {},
+      overallSize: 'medium',
+    };
 
     datePickerDate = new Date('Dec 02 2017 00:00:00 GMT+1300');
 

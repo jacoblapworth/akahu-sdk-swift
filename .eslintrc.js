@@ -71,6 +71,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off', // 42 instances - conflicts with prettier too much (and does weird things for inline variables in divs)
     'react/jsx-props-no-spreading': 'off', // 245 instances - this will be a ton of work, and may cause problems depending on what consumer props need to be passed through
     'react/jsx-wrap-multilines': 'off', // 38 instances - conflicts with prettier, minimal benefit for the inconvenience
+    'react/state-in-constructor': 'off', // 29 instances - an older pattern, no real benefits
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'simple-import-sort/sort': 'error',

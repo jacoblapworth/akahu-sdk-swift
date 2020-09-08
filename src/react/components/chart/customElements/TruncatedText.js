@@ -11,11 +11,6 @@ const createTotalCharacterReducer = maxWidth => ({ totalWidth = 20, totalChars =
 };
 
 class TruncatedText extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   rootNode;
 
   state = {

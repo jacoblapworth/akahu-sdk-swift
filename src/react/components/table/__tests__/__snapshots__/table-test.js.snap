@@ -23,7 +23,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
       <div
         className="xui-table-wrapper"
         onScroll={[Function]}
-        role={false}
       >
         <table
           className="xui-table-element"

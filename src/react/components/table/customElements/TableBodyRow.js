@@ -11,7 +11,9 @@ class TableBodyRow extends PureComponent {
   state = { hasPrecedence: false };
 
   removePrecedence = () => this.setPrecedence(false);
+
   addPrecedence = () => this.setPrecedence(true);
+
   setPrecedence = hasPrecedence => this.setState(() => ({ hasPrecedence }));
 
   // Register an interaction on a Row providing there is not an predefined

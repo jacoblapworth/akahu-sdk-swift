@@ -26,12 +26,12 @@ describe('<PortalFocusHelper />', () => {
       const firstElementRef = React.createRef();
       const focusPortalRef = React.createRef();
       const wrapper = mount(
-        <React.Fragment>
+        <>
           <button ref={firstElementRef} type="button" />
           <button ref={focusPortalRef} type="button" />
           <button type="button" />
           <PortalFocusHelper focusPortalRef={focusPortalRef} />
-        </React.Fragment>,
+        </>,
         { attachTo: document.body.querySelector('div') },
       );
 
@@ -55,12 +55,12 @@ describe('<PortalFocusHelper />', () => {
       // Arrange
       const focusPortalRef = React.createRef();
       const wrapper = mount(
-        <React.Fragment>
+        <>
           <button type="button" />
           <button ref={focusPortalRef} type="button" />
           <button type="button" />
           <PortalFocusHelper focusPortalRef={focusPortalRef} />
-        </React.Fragment>,
+        </>,
         { attachTo: document.body.querySelector('div') },
       );
 
@@ -85,12 +85,12 @@ describe('<PortalFocusHelper />', () => {
       const expectedFocusRef = React.createRef();
       const focusPortalRef = React.createRef();
       const wrapper = mount(
-        <React.Fragment>
+        <>
           <button type="button" />
           <button ref={focusPortalRef} type="button" />
           <button ref={expectedFocusRef} type="button" />
           <PortalFocusHelper focusPortalRef={focusPortalRef} />
-        </React.Fragment>,
+        </>,
         { attachTo: document.body.querySelector('div') },
       );
 
@@ -188,12 +188,12 @@ describe('<PortalFocusHelper />', () => {
       const onReturnFocus = jest.fn();
       const nextElementAutomationId = 'next-focusable-element';
       const wrapper = mount(
-        <React.Fragment>
+        <>
           <PortalFocusHelper focusPortalRef={focusPortalRef} onReturnFocus={onReturnFocus}>
             <input data-automationid={expectedAutomationId} />
           </PortalFocusHelper>
           <button data-automationid={nextElementAutomationId} type="button" />
-        </React.Fragment>,
+        </>,
       );
 
       // Act

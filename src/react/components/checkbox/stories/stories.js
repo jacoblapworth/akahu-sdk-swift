@@ -1,14 +1,14 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUICheckbox from '../XUICheckbox';
-import XUICheckboxGroup from '../XUICheckboxGroup';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import XUICheckboxGroup from '../XUICheckboxGroup';
+import XUICheckbox from '../XUICheckbox';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 

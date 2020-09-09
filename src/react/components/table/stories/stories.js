@@ -2,15 +2,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-// Components we need to test with
-import Table from '../XUITable';
-import Column from '../XUITableColumn';
-import Cell from '../XUITableCell';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import Table from '../XUITable';
+import Column from '../XUITableColumn';
+import Cell from '../XUITableCell';
 
 import logReadyState from '../../../stories/helpers/log-ready-state';
 import { variations, storiesWithVariationsKindName } from './variations';

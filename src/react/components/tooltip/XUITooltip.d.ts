@@ -109,10 +109,12 @@ export default class XUITooltip extends React.PureComponent<Props> {
    * Show the tooltip.
    */
   openTooltip(isClick: boolean): void;
+
   /**
    * Hide the tooltip.
    */
   closeTooltip(isClick: boolean): void;
+
   /**
    * A convenience method to toggle the visibility of the tooltip.
    */

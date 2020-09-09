@@ -1,7 +1,14 @@
 // Libs
 import React from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean, select } from '@storybook/addon-knobs';
+import centered from '@storybook/addon-centered/react';
+
 // Components we need to test with
+import info from '@xero/xui-icon/icons/info';
+import plusIcon from '@xero/xui-icon/icons/plus';
 import DropDownToggled from '../DropDownToggled';
 import DropDown from '../DropDown';
 import NestedDropDown from '../NestedDropDown';
@@ -16,13 +23,6 @@ import Pickitem from '../../picklist/Pickitem';
 import XUIDatePicker from '../../datepicker/XUIDatePicker';
 import XUIIcon from '../../icon/XUIIcon';
 import XUITextInput from '../../textInput/XUITextInput';
-import info from '@xero/xui-icon/icons/info';
-import plusIcon from '@xero/xui-icon/icons/plus';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { boolean, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 import { storiesWithVariationsKindName, variations, NOOP } from './variations';
 import { ShortListShortItems, LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';
@@ -346,9 +346,11 @@ variations.forEach(variation => {
 
     if (ddSettings.children === 'side-by-side') {
       return sideBySide;
-    } else if (ddSettings.children === 'positioning-test') {
+    }
+    if (ddSettings.children === 'positioning-test') {
       return getPositioningTest();
-    } else if (ddSettings.children === 'hint-label') {
+    }
+    if (ddSettings.children === 'hint-label') {
       delete ddSettings.children;
       return hintLabel(ddSettings);
     }

@@ -1,14 +1,14 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUIIcon from '../XUIIcon';
-import { wrapperSizeClasses, rotationClasses, colorClasses } from '../private/constants';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import { wrapperSizeClasses, rotationClasses, colorClasses } from '../private/constants';
+import XUIIcon from '../XUIIcon';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 import { flattenedIconList, flattenedIconMap } from '../../helpers/icons';

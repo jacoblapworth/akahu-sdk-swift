@@ -161,6 +161,7 @@ storiesWithKnobs.add('Playground', () => {
         isTruncated={boolean('isTruncated', false)}
         loaderAriaLabel="Loading more data"
         overflowMenuTitle="More row options"
+        qaHook={text('qaHook', '')}
       >
         <Column
           body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}

@@ -65,7 +65,9 @@ class TableBodyRow extends PureComponent {
       overflowMenuTitle,
       createDividerClasses,
       ensureCellVisibility,
+      qaHook,
     } = this.props;
+    const calculatedQaHook = qaHook && `${qaHook}-row-${rowData._id}`;
     const isRowLink = Boolean(onRowClick && shouldRowClick(rowData));
     const { onClick, onKeyDown, tabIndex, role, onPointerOver, onPointerOut } = isRowLink
       ? {
@@ -94,6 +96,7 @@ class TableBodyRow extends PureComponent {
           onPointerOver,
           onPointerOut,
         }}
+        data-automationid={calculatedQaHook}
       >
         {hasCheckbox && (
           <CheckBoxCell
@@ -104,6 +107,7 @@ class TableBodyRow extends PureComponent {
               onCheckOneToggle,
               checkOneRowAriaLabel,
               dividerClasses,
+              qaHook: calculatedQaHook,
             }}
           />
         )}
@@ -144,6 +148,7 @@ class TableBodyRow extends PureComponent {
               createOverflowMenu: this.createOverflowMenu,
               overflowMenuTitle,
               dividerClasses,
+              qaHook: calculatedQaHook,
             }}
           />
         )}
@@ -157,6 +162,7 @@ TableBodyRow.propTypes = {
   rowIndex: PropTypes.number.isRequired,
   columns: PropTypes.node,
   ensureCellVisibility: PropTypes.func,
+  qaHook: PropTypes.string,
 
   // Divider.
   createDividerClasses: PropTypes.func,

@@ -241,6 +241,7 @@ class XUITable extends Component {
                       overflowMenuTitle,
                       createDividerClasses,
                       ensureCellVisibility,
+                      qaHook,
                     }}
                   />
                 ))}

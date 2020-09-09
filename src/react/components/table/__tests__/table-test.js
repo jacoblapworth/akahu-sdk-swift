@@ -22,4 +22,27 @@ describe('<XUITable />', () => {
       });
     });
   });
+  describe('unit tests', () => {
+    it('should render QA hooks on various child elements, if provided', () => {
+      const settings = {
+        columns: 1,
+        tableProps: {
+          data: {
+            0: { content: 'Apple' },
+            1: { content: 'Carrot' },
+          },
+          qaHook: 'testTableHook',
+          header: true,
+          footer: true,
+          hasCheckbox: true,
+          onCheckAllToggle: () => {},
+          onCheckOneToggle: () => {},
+          hasOverflowMenu: true,
+          createOverflowMenu: () => {},
+        },
+      };
+      const exampleTable = renderer.create(<TestScaffold {...settings} ></TestScaffold>);
+      expect(exampleTable).toMatchSnapshot();
+    });
+  });
 });

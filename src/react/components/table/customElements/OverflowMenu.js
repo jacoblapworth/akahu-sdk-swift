@@ -7,7 +7,7 @@ import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIIconButton from '../../button/XUIIconButton';
 import { NAME_SPACE } from '../helpers/constants';
 
-const OverflowMenu = ({ children, overflowMenuTitle }) => {
+const OverflowMenu = ({ children, overflowMenuTitle, qaHook }) => {
   const createTrigger = title => (
     <XUIIconButton ariaLabel={title} icon={overflowPathData} title={title} />
   );
@@ -26,6 +26,7 @@ const OverflowMenu = ({ children, overflowMenuTitle }) => {
       className={`${NAME_SPACE}--overflowmenu-body`}
       dropdown={dropdown}
       isLegacyDisplay
+      qaHook={qaHook}
       trigger={trigger}
     />
   );
@@ -36,6 +37,7 @@ export default OverflowMenu;
 OverflowMenu.propTypes = {
   overflowMenuTitle: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.bool]),
+  qaHook: PropTypes.string,
 };
 
 OverflowMenu.defaultProps = {

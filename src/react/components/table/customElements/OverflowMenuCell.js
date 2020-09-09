@@ -10,7 +10,7 @@ import OverflowMenu from './OverflowMenu';
 
 const BODY_CELL_CLASSES = `${cellClassNames.cell} ${cellClassNames.defaultLayout}`;
 
-const OverflowMenuCell = ({ createOverflowMenu, dividerClasses, overflowMenuTitle }) => {
+const OverflowMenuCell = ({ createOverflowMenu, dividerClasses, overflowMenuTitle, qaHook }) => {
   const overflowMenuItems = createOverflowMenu();
   const hasItems = Boolean(overflowMenuItems && overflowMenuItems.length);
   const className = cn(
@@ -24,7 +24,12 @@ const OverflowMenuCell = ({ createOverflowMenu, dividerClasses, overflowMenuTitl
     <TableData className={className} tabIndex={-1}>
       {NBSP}
       {hasItems && (
-        <OverflowMenu overflowMenuTitle={overflowMenuTitle}>{overflowMenuItems}</OverflowMenu>
+        <OverflowMenu
+          overflowMenuTitle={overflowMenuTitle}
+          qaHook={qaHook && `${qaHook}--rowoverflow`}
+        >
+          {overflowMenuItems}
+        </OverflowMenu>
       )}
     </TableData>
   );
@@ -36,4 +41,5 @@ OverflowMenuCell.propTypes = {
   createOverflowMenu: PropTypes.func,
   overflowMenuTitle: PropTypes.string,
   dividerClasses: PropTypes.string,
+  qaHook: PropTypes.string,
 };

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIEditableTableCell /> composes the className correctly 1`] = `
+<ForwardRef
+  className="xui-editabletablecelliconbutton test-classname"
+>
+  <XUIIconButton
+    ariaLabel="test-aria-label"
+    icon={
+      Object {
+        "height": 15,
+        "path": "M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z",
+        "width": 15,
+      }
+    }
+    isDisabled={false}
+    isExternalLink={false}
+    isLink={false}
+    tabIndex={0}
+    type="button"
+  />
+</ForwardRef>
+`;
+
+exports[`<XUIEditableTableCell /> renders correctly 1`] = `
+<ForwardRef
+  className="xui-editabletablecelliconbutton"
+>
+  <XUIIconButton
+    ariaLabel="test-aria-label"
+    icon={
+      Object {
+        "height": 15,
+        "path": "M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z",
+        "width": 15,
+      }
+    }
+    isDisabled={false}
+    isExternalLink={false}
+    isLink={false}
+    tabIndex={0}
+    type="button"
+  />
+</ForwardRef>
+`;

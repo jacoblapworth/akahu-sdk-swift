@@ -41,7 +41,7 @@ interface BaseProps {
    *
    * *You have lifted an item in position ${startPosition}.*
    */
-  dndDragStartMessage: (startPosition: number) => string;
+  dndDragStartMessage?: (startPosition: number) => string;
   /**
    * A function used to determine the message read by screen readers when the user drags a row to a
    * new position.

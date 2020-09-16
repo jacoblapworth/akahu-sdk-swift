@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import XUITextInput, { XUITextInputHTMLAttributes } from '../textInput/XUITextInput';
+import XUITextInput from '../textInput/XUITextInput';
 
 interface BaseProps {
   cellProps?: object;
@@ -9,7 +9,7 @@ interface BaseProps {
 
 type Props = BaseProps &
   Omit<
-    XUITextInput,
+    React.ComponentProps<typeof XUITextInput>,
     | 'defaultValue'
     | 'fieldClassName'
     | 'focusByDefault'
@@ -22,8 +22,7 @@ type Props = BaseProps &
     | 'isManuallyResizable'
     | 'labelClassName'
     | 'size'
-  > &
-  XUITextInputHTMLAttributes;
+  >;
 
 declare const XUIEditableTableCellTextInput: React.FunctionComponent<Props>;
 export default XUIEditableTableCellTextInput;

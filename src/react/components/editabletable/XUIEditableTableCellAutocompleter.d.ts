@@ -7,8 +7,7 @@ interface BaseProps {
 }
 
 type Props = BaseProps &
-  Omit<XUIAutocompleter, 'hintMessage' | 'isinputLabelHidden'> &
-  React.HTMLAttributes<HTMLDivElement>;
+  Omit<React.ComponentProps<typeof XUIAutocompleter>, 'hintMessage' | 'isInputLabelHidden'>;
 
 declare const XUIEditableTableCellAutocompleter: React.Component<Props>;
 export default XUIEditableTableCellAutocompleter;

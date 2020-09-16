@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { XUIButtonHTMLAttributes } from '../button/XUIButton';
 import XUIIconButton from '../button/XUIIconButton';
 import { XUIIconData } from '../icon/XUIIcon';
 
@@ -12,8 +11,10 @@ interface BaseProps {
 }
 
 type Props = BaseProps &
-  Omit<XUIIconButton, 'desc' | 'iconColor' | 'iconSize' | 'role' | 'rotation'> &
-  XUIButtonHTMLAttributes;
+  Omit<
+    React.ComponentProps<typeof XUIIconButton>,
+    'desc' | 'iconColor' | 'iconSize' | 'role' | 'rotation'
+  >;
 
 declare const XUIEditableTableCellIconButton: React.FunctionComponent<Props>;
 export default XUIEditableTableCellIconButton;

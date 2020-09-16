@@ -16,7 +16,7 @@ declare enum InputType {
   'color',
 }
 
-export type XUITextInputHTMLAttributes =
+type XUITextInputHTMLAttributes =
   | React.InputHTMLAttributes<HTMLInputElement>
   | React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 

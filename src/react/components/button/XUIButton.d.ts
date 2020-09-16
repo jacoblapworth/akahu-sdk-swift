@@ -107,10 +107,11 @@ interface BaseProps {
   variant?: typeof textButtonVariants;
 }
 
-export type XUIButtonHTMLAttributes =
+type SpreadProps =
   | React.AnchorHTMLAttributes<HTMLAnchorElement>
   | React.ButtonHTMLAttributes<HTMLButtonElement>;
-type Props = BaseProps & XUIButtonHTMLAttributes;
+
+type Props = BaseProps & SpreadProps;
 
 export default class XUIButton extends React.PureComponent<Props> {
   /**

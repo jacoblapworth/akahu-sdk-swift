@@ -30,13 +30,6 @@ $xui-breakpoint-2xlarge: 1600px;
   }
 }
 
-// Styles to be applied when the viewport is narrower than the "medium" breakpoint.
-@mixin xui-breakpoint-medium-down {
-  @media screen and (max-width: $xui-breakpoint-medium - 0.02) {
-    @content;
-  }
-}
-
 // Styles to be applied when the viewport is at the "large" breakpoint or larger.
 @mixin xui-breakpoint-large-up {
   @media screen and (min-width: $xui-breakpoint-large) {

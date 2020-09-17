@@ -557,9 +557,9 @@ $kss-color-padding: #eeebff;
 
 .ds-nav--header {
   margin: 0;
-  padding: 0.5rem 0;
-  @include xui-breakpoint-medium-down {
-    padding: 0 $xui-s-large;
+  padding: 0 $xui-s-large;
+  @include xui-breakpoint-medium-up {
+    padding: 0.5rem 0;
   }
 }
 

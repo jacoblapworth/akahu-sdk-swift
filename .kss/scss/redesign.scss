@@ -6,21 +6,20 @@
   background-repeat: no-repeat;
   background-position-y: center;
   width: $ds-xui-logo-small-size;
+  background-size: cover;
   h1 {
     text-indent: -9999em;
     margin: 0;
   }
-  @include xui-breakpoint-medium-down {
-    background-size: cover;
+  @include xui-breakpoint-medium-up {
+    background-size: initial;
   }
 }
 
 .ds-nav--header .ds-xui-logo {
   flex: none;
   display: block;
-  @include xui-breakpoint-medium-down {
-    min-width: $ds-xui-logo-small-size;
-  }
+  min-width: $ds-xui-logo-small-size;
   @include xui-breakpoint-medium-up {
     width: 100%;
     min-height: calc(20vh);

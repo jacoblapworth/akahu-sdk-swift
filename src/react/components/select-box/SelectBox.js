@@ -88,7 +88,6 @@ export default class SelectBox extends Component {
           );
 
           const containerClassNames = cn(
-            `${selectBaseClass}`,
             useCellStyling && `${selectBaseClass}-cell`,
             containerClasses,
           );

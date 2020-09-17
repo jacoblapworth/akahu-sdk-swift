@@ -30,34 +30,32 @@
   position: relative; // Required for the native select to position its caret correctly
 }
 
-.#{$ns}-select-cell {
-  .#{$ns}-select--button:disabled {
-    color: $xui-control-disabled-color;
-  }
-}
-
 .#{$ns}-select--button {
   display: flex;
   max-width: 100%;
   text-align: left;
 
-  .#{$ns}-select:not(.#{$ns}-select-cell) &:disabled {
+  &:disabled {
     @include xui-disabled-form-control;
     @include xui-disabled-form-control-state-borders;
   }
 
-  .#{$ns}-select:not(.#{$ns}-select-cell) .#{$ns}-select-is-invalid &,
-  .#{$ns}-select:not(.#{$ns}-select-cell) .#{$ns}-select-is-invalid &:hover {
-    border-color: $xui-validation-invalid-color;
+  .#{$ns}-select-cell &:disabled {
+    background-color: transparent;
+    border-color: transparent;
+    color: $xui-control-disabled-color;
+  }
+
+  .#{$ns}-select-cell .#{$ns}-select-is-invalid &,
+  .#{$ns}-select-cell .#{$ns}-select-is-invalid &:hover {
+    border-color: transparent;
   }
 }
 
 .#{$ns}-select--button-no-variant {
-  .#{$ns}-select:not(.#{$ns}-select-cell) & {
-    background-color: $xui-color-white;
-    border: $xui-border-control;
-    border-radius: $xui-radius;
-  }
+  background-color: $xui-color-white;
+  border: $xui-border-control;
+  border-radius: $xui-radius;
   color: $xui-select-color;
   font-weight: normal;
 
@@ -65,6 +63,11 @@
   &:active,
   &:focus {
     color: $xui-select-color;
+  }
+
+  .#{$ns}-select-cell & {
+    border-color: transparent;
+    border-radius: inherit;
   }
 
   .#{$ns}-select--caret {

@@ -9,7 +9,13 @@ interface BaseProps {
 type Props = BaseProps &
   Omit<
     React.ComponentProps<typeof SelectBox>,
-    'defaultLayout' | 'fullWidth' | 'isFieldLayout' | 'isLabelHidden' | 'labelClassName' | 'size'
+    | 'buttonVariant'
+    | 'defaultLayout'
+    | 'fullWidth'
+    | 'isFieldLayout'
+    | 'isLabelHidden'
+    | 'labelClassName'
+    | 'size'
   >;
 
 declare const XUIEditableTableCellSelectBox: React.FunctionComponent<Props>;

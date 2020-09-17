@@ -144,9 +144,6 @@ XUIEditableTableCellSelectBox.propTypes = {
   /** Selection callback */
   onSelect: PropTypes.func,
 
-  /** The XUI button variant to use as a trigger for the select box */
-  buttonVariant: PropTypes.string,
-
   /** Whether the button trigger and functionality are disabled */
   isDisabled: PropTypes.bool,
 

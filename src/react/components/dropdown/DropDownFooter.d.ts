@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-import { Props as PickitemProps } from '../picklist/Pickitem';
+import Pickitem from '../picklist/Pickitem';
+
+type PickitemProps = React.ComponentProps<typeof Pickitem>;
 
 interface Props {
   children?: React.ReactNode;

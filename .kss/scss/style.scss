@@ -520,8 +520,7 @@ $kss-color-padding: #eeebff;
 // Header and Main Menu
 // -----------------------------------------------------------------------------
 
-.ds-nav--menu a,
-.ds-nav--header a {
+.ds-nav--item--index {
   outline: none;
   & :focus {
     background: $ds-nav-focus-bg-color;

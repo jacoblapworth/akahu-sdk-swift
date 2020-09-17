@@ -5,13 +5,13 @@
   background-image: url(./kss-assets/logo.svg);
   background-repeat: no-repeat;
   background-position-y: center;
+  width: $ds-xui-logo-small-size;
   h1 {
     text-indent: -9999em;
     margin: 0;
   }
   @include xui-breakpoint-medium-down {
-    background-size: $ds-xui-logo-small-size;
-    transform: translateY(-5%);
+    background-size: cover;
   }
 }
 
@@ -19,7 +19,7 @@
   flex: none;
   display: block;
   @include xui-breakpoint-medium-down {
-    min-height: $ds-xui-logo-small-size;
+    min-width: $ds-xui-logo-small-size;
   }
   @include xui-breakpoint-medium-up {
     width: 100%;

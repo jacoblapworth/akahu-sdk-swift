@@ -59,14 +59,14 @@ describe('XUIAvatar Private Functions', () => {
       function a() {
         return getAvatarColorClass();
       }
-      expect(a).toThrowError('Please provide a string of length greater than 1');
+      expect(a).toThrowError('Please provide a string of length greater than 0');
     });
 
     it('should throw an error if we pass something other than a string', () => {
       function a() {
         return getAvatarColorClass([]);
       }
-      expect(a).toThrowError('Please provide a string of length greater than 1');
+      expect(a).toThrowError('Please provide a string of length greater than 0');
     });
 
     it('should return a class if we pass in a string', () => {

@@ -3,9 +3,9 @@
 [![TC_build_status](https://teamcity1.inside.xero-support.com/app/rest/builds/buildType:id:Xui_Style_Master/statusIcon)](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_Master)
 [![](https://github.dev.xero.com/pages/UXE/Home/interrupt.svg)](https://slack.com/app_redirect?channel=C565NP1A5)
 
-## Make things people know and love
+## A foundation for Xero experiences
 
-XUI is a design system for Xero web applications. It includes standard approaches and patterns plus the front-end code to implement them. XUI lets us focus on user problems over UI problems, keep a large codebase healthy, and get to market quickly.
+XUI is a design system for Xero web applications. It includes standard approaches and patterns plus the front-end code to implement them. XUI helps keep a large codebase healthy, allowing us to focus on user problems and get to market quickly.
 
 ### Always get the latest versions here:
 

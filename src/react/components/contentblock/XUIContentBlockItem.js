@@ -149,10 +149,12 @@ XUIContentBlockItem.propTypes = {
 
   /**
    * For accordion: identifies content associated with the trigger
+   * @ignore
    */
   _ariaControls: PropTypes.string,
   /**
    * For accordion: denotes whether content associated with the trigger is expanded
+   * @ignore
    */
   _ariaExpanded: PropTypes.bool,
   /**
@@ -177,6 +179,7 @@ XUIContentBlockItem.propTypes = {
   isRowLink: PropTypes.bool,
   /**
    * Gives accordion items the proper name for styling and semantics
+   * @ignore
    */
   _isAccordionTrigger: PropTypes.bool,
   /**

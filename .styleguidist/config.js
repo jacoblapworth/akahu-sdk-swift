@@ -13,6 +13,9 @@ const componentSections = require('./sections.json');
 const babelConfig = require('../babel.config');
 
 const config = {
+  template: {
+    favicon: '../.kss/builder/kss-assets/favicon/favicon-16x16.png'
+  },
   moduleAliases: {
     '@xero/xui/react': path.resolve(basePath, 'src/react'),
   },

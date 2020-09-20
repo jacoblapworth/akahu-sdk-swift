@@ -350,7 +350,10 @@ XUICheckbox.propTypes = {
   hintMessage: PropTypes.node,
   /** Size variant. Defaults to medium */
   size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
-  /** Whether this checkbox was generated as part of a rollover checkbox */
+  /**
+   * Whether this checkbox was generated as part of a rollover checkbox
+   * @ignore
+   */
   _isRollOver: PropTypes.bool,
   /** Props to be spread onto the checkbox element itself */
   inputProps: PropTypes.object,

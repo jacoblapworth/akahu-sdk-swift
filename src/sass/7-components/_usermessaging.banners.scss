@@ -12,11 +12,11 @@
 }
 
 .#{$ns}-banner-positive {
-  @include xui-highlight-left($xui-banner-positive-bg-color, $xui-radius, true);
+  @include xui-highlight-left($xui-banner-positive-bg-color, $xui-radius);
 }
 
 .#{$ns}-banner-negative {
-  @include xui-highlight-left($xui-bannger-negative-bg-color, $xui-radius, true);
+  @include xui-highlight-left($xui-banner-negative-bg-color, $xui-radius);
 }
 
 .#{$ns}-banner-layout {
@@ -24,6 +24,7 @@
   @include xui-margin-bottom($xui-s-large);
 
   display: block;
+  overflow: hidden;
 
   @include xui-breakpoint-small-down {
     border-left: 0;

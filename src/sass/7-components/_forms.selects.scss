@@ -46,6 +46,11 @@
     color: $xui-control-disabled-color;
   }
 
+  .#{$ns}-select-is-invalid &,
+  .#{$ns}-select-is-invalid &:hover {
+    border-color: $xui-validation-invalid-color;
+  }
+
   .#{$ns}-select-cell .#{$ns}-select-is-invalid &,
   .#{$ns}-select-cell .#{$ns}-select-is-invalid &:hover {
     border-color: transparent;
@@ -59,15 +64,14 @@
   color: $xui-select-color;
   font-weight: normal;
 
-  &:hover,
+  &:hover:not(:disabled),
   &:active,
   &:focus {
     color: $xui-select-color;
   }
 
   .#{$ns}-select-cell & {
-    border-color: transparent;
-    border-radius: inherit;
+    border: none; // clobbering borders
   }
 
   .#{$ns}-select--caret {

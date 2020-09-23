@@ -84,9 +84,13 @@ export default class DropDownPanel extends React.PureComponent<Props> {
    */
   onKeyDown(event: React.KeyboardEvent): void;
   /**
+   * Get the React virtual DOM representation of the currently highlighted element in the child StatefulPicklist (if applicable).
+   */
+  getHighlighted(): Pickitem | null;
+  /**
    * Get the ID of the currently highlighted item in the child StatefulPicklist (if applicable).
    */
-  getHighlightedId(): null | string;
+  getHighlightedId(): string | null;
   /**
    * Selects the highlighted list item, in the child StatefulPicklist (if applicable).
    */

@@ -126,15 +126,23 @@ class DropDownPanel extends PureComponent {
   };
 
   /**
+   * Get the React virtual DOM representation of the currently highlighted element in the child StatefulPicklist (if applicable).
+   *
+   * @public
+   * @returns {React.element} null if nothing is highlighted or no child StatefulPicklist exists
+   * @memberof DropDownPanel
+   */
+  getHighlighted = () => (this.list.current !== null ? this.list.current.getHighlighted() : null);
+
+  /**
    * Get the ID of the currently highlighted item in the child StatefulPicklist (if applicable).
    *
    * @public
    * @returns {String} null if nothing is highlighted or no child StatefulPicklist exists
    * @memberof DropDownPanel
    */
-  getHighlightedId() {
-    return this.list.current != null ? this.list.current.getHighlightedId() : null;
-  }
+  getHighlightedId = () =>
+    this.list.current !== null ? this.list.current.getHighlightedId() : null;
 
   /**
    * Selects the highlighted list item, in the child StatefulPicklist (if applicable).

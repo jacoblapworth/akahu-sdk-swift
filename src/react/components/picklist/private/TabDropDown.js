@@ -12,10 +12,10 @@ import DropDownToggled from '../../dropdown/DropDownToggled';
  *
  * @param {Object} props
  */
-const TabDropDown = ({ ulProps, dropdownList, className }) => {
+const TabDropDown = ({ className, closeOnSelect, dropdownList, ulProps }) => {
   let tabItem = dropdownList[0];
   const dropdown = (
-    <DropDown>
+    <DropDown forceStatefulPicklist>
       <ul {...ulProps}>
         {React.Children.map(dropdownList, child => {
           if (child.props.isSelected) {
@@ -37,13 +37,21 @@ const TabDropDown = ({ ulProps, dropdownList, className }) => {
     pickitemBodyProps: { showButtonCaret: true },
   });
 
-  return <DropDownToggled className={className} dropdown={dropdown} trigger={tabSelectTrigger} />;
+  return (
+    <DropDownToggled
+      className={className}
+      closeOnSelect={closeOnSelect}
+      dropdown={dropdown}
+      trigger={tabSelectTrigger}
+    />
+  );
 };
 
 TabDropDown.propTypes = {
-  ulProps: PropTypes.object,
-  dropdownList: PropTypes.array,
   className: PropTypes.string,
+  closeOnSelect: PropTypes.bool,
+  dropdownList: PropTypes.array,
+  ulProps: PropTypes.object,
 };
 
 export default TabDropDown;

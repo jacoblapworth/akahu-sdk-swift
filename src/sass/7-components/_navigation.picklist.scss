@@ -186,6 +186,7 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
 .#{$ns}-picklist--nestedcontainer {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 
   > .#{$ns}-pickitem-split {
     border-right: 1px solid $xui-color-grey-alpha-7;
@@ -260,6 +261,10 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
 .#{$ns}-pickitem--submenucontrol {
   @include xui-utility-hidden-visually;
   flex-grow: 0;
+  // Put the control 40px(icon height) to the nestedcontainer top
+  // to make sure it is in view when users expand the list
+  // per XUI-1482
+  top: $xui-s-3xlarge !important;
 
   &:checked {
     & + .#{$ns}-pickitem-split .#{$ns}-submenu-uicontrol--icon {

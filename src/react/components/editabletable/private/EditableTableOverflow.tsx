@@ -54,9 +54,20 @@ const EditableTableOverflow: React.FunctionComponent<Props> = React.forwardRef<H
     React.useLayoutEffect(() => {
       setScrollOverflow();
 
-      scrollContainerRef?.current?.addEventListener('scroll', setScrollOverflow);
+      const scrollContainerElement = scrollContainerRef?.current;
+      if (scrollContainerElement) {
+        scrollContainerElement.addEventListener('scroll', setScrollOverflow);
 
-      return () => scrollContainerRef?.current?.removeEventListener('scroll', setScrollOverflow);
+        // The CSS variable is used to calculate the overflow shadow height
+        const scrollbarHeight =
+          scrollContainerElement.offsetHeight - scrollContainerElement.clientHeight;
+        editableTableOverflowRef?.current?.style.setProperty(
+          '--xui-editableoverflow--scrollbar-height',
+          `${scrollbarHeight}px`,
+        );
+      }
+
+      return () => scrollContainerElement?.removeEventListener('scroll', setScrollOverflow);
     });
 
     const hasFootAction = tableRef?.current?.querySelector(`.${ns}-editabletablefoot--action`);

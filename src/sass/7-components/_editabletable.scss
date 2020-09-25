@@ -23,7 +23,7 @@ $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to
 @mixin xui-editabletable-overflow {
   content: '';
   display: block;
-  height: 100%;
+  height: calc(100% - #{var(--xui-editableoverflow--scrollbar-height)} - 1px); // 1px is the border
   pointer-events: none;
   position: absolute;
   top: 0;
@@ -105,7 +105,9 @@ $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to
 .#{$ns}-editabletableoverflow-has-footaction {
   &:after,
   &:before {
-    height: calc(100% - #{$xui-minimum-touch-target} - 1px); // 1px is the border
+    height: calc(
+      100% - #{$xui-minimum-touch-target} - #{var(--xui-editableoverflow--scrollbar-height)} - 1px
+    ); // 1px is the border
   }
 }
 

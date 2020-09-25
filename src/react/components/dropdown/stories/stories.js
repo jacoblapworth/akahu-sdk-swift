@@ -23,6 +23,7 @@ import Pickitem from '../../picklist/Pickitem';
 import XUIDatePicker from '../../datepicker/XUIDatePicker';
 import XUIIcon from '../../icon/XUIIcon';
 import XUITextInput from '../../textInput/XUITextInput';
+import XUIPanel from '../../panel/XUIPanel';
 
 import { storiesWithVariationsKindName, variations, NOOP } from './variations';
 import { ShortListShortItems, LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';
@@ -147,6 +148,33 @@ const sideBySide = (
     />
   </div>
 );
+
+const DropdownInDropdown = () => {
+  const [selectedSubItem, setSelectedSubitem] = React.useState('Select One');
+  return (
+    <DropDownToggled
+      closeOnTab={false}
+      dropdown={
+        <DropDown fixedWidth size="large">
+          <XUIPanel className="xui-padding">
+            <XUITextInput fieldClassName="xui-column-6-of-12" />
+            <DropDownToggled
+              closeOnTab={false}
+              dropdown={
+                <DropDown onSelect={selected => setSelectedSubitem(selected)} restrictFocus={false}>
+                  <Picklist>{createItems(toggledShort, 'i')}</Picklist>
+                </DropDown>
+              }
+              trigger={<XUIButton>{selectedSubItem}</XUIButton>}
+            />
+          </XUIPanel>
+        </DropDown>
+      }
+      isHidden={false}
+      trigger={<XUIButton>howdy</XUIButton>}
+    />
+  );
+};
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
@@ -353,6 +381,9 @@ variations.forEach(variation => {
     if (ddSettings.children === 'hint-label') {
       delete ddSettings.children;
       return hintLabel(ddSettings);
+    }
+    if (ddSettings.children === 'dropdown-in-dropdown') {
+      return DropdownInDropdown();
     }
     return (
       <DropDownToggled

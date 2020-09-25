@@ -3,17 +3,19 @@ import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import verge from 'verge';
 import uuidv4 from 'uuid/v4';
+
 import PositioningInline from '../positioning/PositioningInline';
 import Positioning from '../positioning/Positioning';
 import {
-  checkIsNarrowViewport,
   addEventListeners,
+  checkIsNarrowViewport,
   removeEventListeners,
   throttleToFrame,
 } from './private/helpers';
 import compose from '../helpers/compose';
 import { isKeySpacebar, eventKeyValues } from '../helpers/reactKeyHandler';
 import { baseClass, dropdownPositionOptions } from './private/constants';
+import DropDownContext from './contexts/DropDownContext';
 
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 
@@ -100,6 +102,13 @@ export default class DropDownToggled extends PureComponent {
   }
 
   dropdownId = (this.props.dropdown && this.props.dropdown.props.id) || uuidv4();
+
+  /**
+   * `openedDropDowns` is used to keep track of nested dropdowns that have been opened.
+   *
+   * Only root dropdown's `openedDropDowns` property will contain all opened child dropdowns.
+   */
+  openedDropDowns = [];
 
   /**
    * Attaches the event listeners based on state.
@@ -365,19 +374,22 @@ export default class DropDownToggled extends PureComponent {
   onMouseDown = event => {
     const { isHidden } = this.state;
     const { firstChild: trigger } = this.wrapper.current;
-    const dropdown = this.dropdown && document.getElementById(this.dropdownId);
 
     /*
 		Summary of below checks:
 		 - the dropdown isn't currently hidden
-		 - AND the dropdown has rendered and we can match the click target to the dropdown
+		 - AND the opened dropdowns have rendered and we can match the click target to the dropdowns
 		 - AND trigger has also rendered and can match with target
-		 - OR if the click target is the mask
-		*/
+     - OR if the click target is the mask
+    */
+    const openedDropDownsDoNotContainTarget = this.openedDropDowns.every(openedDropDown => {
+      const dropdown = openedDropDown && document.getElementById(openedDropDown.props.id);
+      return dropdown == null || !dropdown.contains(event.target);
+    });
+
     if (
       !isHidden &&
-      (dropdown == null ||
-        !dropdown.contains(event.target) ||
+      (openedDropDownsDoNotContainTarget ||
         event.target.classList.contains(`${baseClass}--mask`)) &&
       (trigger == null || !trigger.contains(event.target))
     ) {
@@ -580,18 +592,37 @@ export default class DropDownToggled extends PureComponent {
       'aria-expanded': (ariaRole && !isHidden) || undefined,
       'aria-owns': (!isHidden && this.dropdownId) || undefined,
     };
-
     return (
-      <div
-        {...wrapperAria}
-        className={className}
-        data-automationid={qaHook}
-        data-ref="toggled-wrapper"
-        ref={this.wrapper}
-      >
-        {clonedTrigger}
-        {positionedDropdown}
-      </div>
+      <DropDownContext.Consumer>
+        {contextOpenDropDowns => {
+          /**
+           * `currentOpenedDropDowns` is an array which contains all opened DropDowns
+           * For child dropdown, it's an array contains it's parent DropDown (contextOpenDropDowns)
+           * For parent dropdown, it's `undefined` and will get an empty array assigned (this.openedDropDowns)
+           */
+          const currentOpenedDropDowns = contextOpenDropDowns || this.openedDropDowns;
+          if (currentOpenedDropDowns.indexOf(this.dropdown) === -1) {
+            currentOpenedDropDowns.push(this.dropdown);
+          }
+          // For child dropdown, this.openedDropDowns will only contain itself
+          this.openedDropDowns = contextOpenDropDowns ? [this.dropdown] : currentOpenedDropDowns;
+
+          return (
+            <DropDownContext.Provider value={currentOpenedDropDowns}>
+              <div
+                {...wrapperAria}
+                className={className}
+                data-automationid={qaHook}
+                data-ref="toggled-wrapper"
+                ref={this.wrapper}
+              >
+                {clonedTrigger}
+                {positionedDropdown}
+              </div>
+            </DropDownContext.Provider>
+          );
+        }}
+      </DropDownContext.Consumer>
     );
   }
 }

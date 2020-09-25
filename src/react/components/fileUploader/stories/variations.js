@@ -105,8 +105,9 @@ const variations = [
     isInvalid &&
       variations.push({
         storyKind: storiesWithVariationsKindName,
-        storyTitle: `with long validation message`,
+        storyTitle: `${hasDragAndDrop ? 'drag and drop ' : ''}with long validation message`,
         isInvalid,
+        hasDragAndDrop,
         viewports: desktopPlus320,
         validationMessage:
           isInvalid && 'Validation message is longer longer longer here and could wrap wrap wrap',
@@ -122,7 +123,6 @@ const variations = [
         isInvalid,
         isLabelHidden,
         hasDragAndDrop,
-        hasDragAndDropTitle,
         hintMessage: !isInvalid ? 'Hint text' : '',
         validationMessage: isInvalid ? 'Validation message' : '',
       });

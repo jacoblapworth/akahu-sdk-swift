@@ -215,6 +215,7 @@ const pills = colours.map(colour => renderPill(colour));
         inputLabel="autocompleter"
         isInputLabelHidden
         pills={pills}
+        onSearch={() => {}}
       />
       <XUIEditableTableCellReadOnly>2.99</XUIEditableTableCellReadOnly>
     </XUIEditableTableRow>

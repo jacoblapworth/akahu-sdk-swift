@@ -98,7 +98,7 @@ class EditableTablePlayground extends React.Component {
           rowOptions={rowOptions}
           validationMessage={tableValidationMessage}
         >
-          {hasHeader && (
+          {(hasHeader && (
             <XUIEditableTableHead>
               <XUIEditableTableRow>
                 {Array.from(Array(columnCount).keys()).map((item, index) => (
@@ -106,7 +106,8 @@ class EditableTablePlayground extends React.Component {
                 ))}
               </XUIEditableTableRow>
             </XUIEditableTableHead>
-          )}
+          )) ||
+            null}
           <XUIEditableTableBody>
             {Array.from(Array(rows).keys()).map((item, rowIndex, arr) => (
               <XUIEditableTableRow
@@ -132,14 +133,15 @@ class EditableTablePlayground extends React.Component {
               </XUIEditableTableRow>
             ))}
           </XUIEditableTableBody>
-          {showAddRowButton && (
+          {(showAddRowButton && (
             <XUIEditableTableFoot>
               <XUIEditableTableFootAction
                 addButtonContent="Add new row"
                 onAdd={() => console.log('Add a row')}
               />
             </XUIEditableTableFoot>
-          )}
+          )) ||
+            null}
         </XUIEditableTable>
       </>
     );
@@ -217,7 +219,7 @@ variations.forEach(variation => {
 
     const editableTableComponent = (
       <XUIEditableTable {...variationMinusStoryDetails} isInvalid={withInvalid}>
-        {hasHeader && (
+        {(hasHeader && (
           <XUIEditableTableHead>
             <XUIEditableTableRow>
               {Array.from(Array(columnCount).keys()).map((item, index) => (
@@ -225,7 +227,8 @@ variations.forEach(variation => {
               ))}
             </XUIEditableTableRow>
           </XUIEditableTableHead>
-        )}
+        )) ||
+          null}
         <XUIEditableTableBody>
           {Array.from(Array(rows).keys()).map((item, rowIndex) => (
             <XUIEditableTableRow
@@ -253,14 +256,15 @@ variations.forEach(variation => {
             </XUIEditableTableRow>
           ))}
         </XUIEditableTableBody>
-        {showAddRowButton && (
+        {(showAddRowButton && (
           <XUIEditableTableFoot>
             <XUIEditableTableFootAction
               addButtonContent="Add new row"
               onAdd={() => console.log('Add new row')}
             />
           </XUIEditableTableFoot>
-        )}
+        )) ||
+          null}
       </XUIEditableTable>
     );
 

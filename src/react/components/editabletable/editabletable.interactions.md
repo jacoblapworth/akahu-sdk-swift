@@ -82,9 +82,18 @@ const Example = () => {
       <XUIEditableTableBody>
         {tableData.map((row, index) => (
           <XUIEditableTableRow key={row.uid}>
-            <XUIEditableTableCellTextInput defaultValue={row.fruit} key={`${row.uid}_fruit`} />
-            <XUIEditableTableCellTextInput defaultValue={row.colour} key={`${row.uid}_colour`} />
-            <XUIEditableTableCellTextInput defaultValue={row.price} key={`${row.uid}_price`} />
+            <XUIEditableTableCellTextInput
+              defaultValue={String(row.fruit)}
+              key={`${row.uid}_fruit`}
+            />
+            <XUIEditableTableCellTextInput
+              defaultValue={String(row.colour)}
+              key={`${row.uid}_colour`}
+            />
+            <XUIEditableTableCellTextInput
+              defaultValue={String(row.price)}
+              key={`${row.uid}_price`}
+            />
           </XUIEditableTableRow>
         ))}
       </XUIEditableTableBody>
@@ -192,26 +201,28 @@ const EditableNewRowOnKeyDownDemo = () => {
         </XUIEditableTableRow>
       </XUIEditableTableHead>
       <XUIEditableTableBody>
-        {demoData.map(row => (
-          <XUIEditableTableRow key={row.id}>
-            <XUIEditableTableCellTextInput
-              focusByDefault={row.id === focusId && 'fruit' === focusCell}
-              value={row.fruit}
-              onChange={event => inputOnChangeHandler(event, row.id, 'fruit')}
-            />
-            <XUIEditableTableCellTextInput
-              focusByDefault={row.id === focusId && 'color' === focusCell}
-              value={row.color}
-              onChange={event => inputOnChangeHandler(event, row.id, 'color')}
-            />
-            <XUIEditableTableCellTextInput
-              focusByDefault={row.id === focusId && 'price' === focusCell}
-              value={row.price}
-              onChange={event => inputOnChangeHandler(event, row.id, 'price')}
-            />
-          </XUIEditableTableRow>
-        ))}
-        {newEmptyRow()}
+        <>
+          {demoData.map(row => (
+            <XUIEditableTableRow key={row.id}>
+              <XUIEditableTableCellTextInput
+                focusByDefault={row.id === focusId && 'fruit' === focusCell}
+                value={row.fruit}
+                onChange={event => inputOnChangeHandler(event, row.id, 'fruit')}
+              />
+              <XUIEditableTableCellTextInput
+                focusByDefault={row.id === focusId && 'color' === focusCell}
+                value={row.color}
+                onChange={event => inputOnChangeHandler(event, row.id, 'color')}
+              />
+              <XUIEditableTableCellTextInput
+                focusByDefault={row.id === focusId && 'price' === focusCell}
+                value={String(row.price)}
+                onChange={event => inputOnChangeHandler(event, row.id, 'price')}
+              />
+            </XUIEditableTableRow>
+          ))}
+          {newEmptyRow()}
+        </>
       </XUIEditableTableBody>
     </XUIEditableTable>
   );
@@ -270,7 +281,7 @@ const DragAndDropExample = () => {
 
         setRows(newRows);
       }}
-      rowOptions={{ dragButtonAriaLabel: 'Remove row', isDraggable: true }}
+      rowOptions={{ dragButtonAriaLabel: 'Drag row', isDraggable: true }}
     >
       <XUIEditableTableHead>
         <XUIEditableTableRow>
@@ -320,7 +331,20 @@ const DisableControlsExample = () => {
   return (
     <XUIEditableTable
       ariaLabel="List of fruits with colour and price per kg"
-      rowOptions={{ isDraggable: true, isRemovable: true }}
+      dndDragCancelledMessage={() => 'Movement cancelled.'}
+      dndDragOutsideMessage={() => 'You are currently not dragging over a droppable area.'}
+      dndDragStartMessage={() => 'You have lifted an item.'}
+      dndDragUpdateMessage={() => 'You have moved the item.'}
+      dndDropFailedMessage={() => 'The item has been dropped while not over a droppable area.'}
+      dndDropMessage={() => 'You have dropped the item.'}
+      dndInstructions="Press space bar or enter to start a drag."
+      onReorderRow={() => {}}
+      rowOptions={{
+        isDraggable: true,
+        isRemovable: true,
+        dragButtonAriaLabel: 'Drag row',
+        removeButtonAriaLabel: 'Remove row'
+      }}
     >
       <XUIEditableTableHead>
         <XUIEditableTableRow>
@@ -393,7 +417,15 @@ const DisableControlsExample = () => {
   return (
     <XUIEditableTable
       ariaLabel="List of fruits with colour and price per kg"
-      rowOptions={{ isDraggable: true }}
+      dndDragCancelledMessage={() => 'Movement cancelled.'}
+      dndDragOutsideMessage={() => 'You are currently not dragging over a droppable area.'}
+      dndDragStartMessage={() => 'You have lifted an item.'}
+      dndDragUpdateMessage={() => 'You have moved the item.'}
+      dndDropFailedMessage={() => 'The item has been dropped while not over a droppable area.'}
+      dndDropMessage={() => 'You have dropped the item.'}
+      dndInstructions="Press space bar or enter to start a drag."
+      onReorderRow={() => {}}
+      rowOptions={{ isDraggable: true, dragButtonAriaLabel: 'Drag row' }}
     >
       <XUIEditableTableHead>
         <XUIEditableTableRow>
@@ -429,6 +461,7 @@ const DisableControlsExample = () => {
               <XUIEditableTableCellIconButton
                 iconReference={overflowIcon}
                 isDisabled={isControlsDisabled}
+                ariaLabel="More options"
               />
             </XUIEditableTableRow>
           );

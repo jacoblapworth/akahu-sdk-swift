@@ -140,7 +140,7 @@ XUIEditableTable.propTypes = {
    * Convenient and performant for when the available columns and their order will not be changing.
    * For more dynamic tables, consider an alternate approach.
    */
-  hiddenColumns: PropTypes.arrayOf(PropTypes.oneOfType(PropTypes.string, PropTypes.number)),
+  hiddenColumns: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
   /**
    * Optional id to be applied to the table. If one is not provided, a unique one will be generated.
    */

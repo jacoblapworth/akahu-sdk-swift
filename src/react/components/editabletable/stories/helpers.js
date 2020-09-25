@@ -19,14 +19,23 @@ import crossIcon from '@xero/xui-icon/icons/cross-small';
 
 import people from '../../autocompleter/private/people';
 
-const sampleReadOnly = (id, text, settings) => (
-  <XUIEditableTableCellReadOnly {...settings} id={id} key={id}>
+const sampleReadOnly = (id, text) => (
+  <XUIEditableTableCellReadOnly id={id} key={id}>
     {text}
   </XUIEditableTableCellReadOnly>
 );
 
-const sampleTextInput = (id, text, settings) => (
-  <XUIEditableTableCellTextInput {...settings} defaultValue={text} id={id} key={id} minRows={1} />
+const sampleTextInput = (id, text, { isDisabled, isInvalid, isMultiline, validationMessage }) => (
+  <XUIEditableTableCellTextInput
+    defaultValue={text}
+    id={id}
+    isDisabled={isDisabled}
+    isInvalid={isInvalid}
+    isMultiline={isMultiline}
+    key={id}
+    minRows={1}
+    validationMessage={validationMessage}
+  />
 );
 
 const sampleSecondary = (id, text, settings) => (

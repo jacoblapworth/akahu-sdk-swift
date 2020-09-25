@@ -130,6 +130,7 @@ class XUITextInput extends PureComponent {
             labelId,
             onFocus,
             onBlur,
+            focusByDefault,
             /* eslint-enable no-unused-vars */
             ...otherProps
           } = input.props;

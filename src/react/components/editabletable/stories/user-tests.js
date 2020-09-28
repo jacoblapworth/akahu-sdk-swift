@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-import React from 'react';
+import React, { useState } from 'react';
 import uuid from 'uuid/v4';
 import {
   XUIEditableTable,
@@ -14,69 +14,51 @@ import { TextHelpers, SelectBoxOption } from '../../../select-box';
 import XUIButton from '../../../button';
 import XUIActions from '../../../actions';
 
-class SBCell extends React.Component {
-  state = {
-    selectedItems: this.props.selectedItems || [],
-  };
+const SBCell = props => {
+  const { isMultiSelect, rowIndex, onItemSelect, options, ...spreadProps } = props;
+  const [selectedItems, setSelectedItems] = useState(props.selectedItems || []);
 
-  onItemSelect = value => {
-    const passedOnItemSelect = this.props.onItemSelect;
-    if (this.props.isMultiSelect) {
-      if (this.state.selectedItems.indexOf(value) > -1) {
-        this.setState(
-          {
-            selectedItems: this.state.selectedItems.filter(item => item !== value),
-          },
-          passedOnItemSelect && passedOnItemSelect(),
-        );
+  const handleItemSelect = value => {
+    if (isMultiSelect) {
+      if (selectedItems.indexOf(value) > -1) {
+        setSelectedItems(selectedItems.filter(item => item !== value));
       } else {
-        this.setState(
-          {
-            selectedItems: [...this.state.selectedItems, value],
-          },
-          passedOnItemSelect && passedOnItemSelect(),
-        );
+        setSelectedItems([...selectedItems, value]);
       }
     } else {
-      this.setState(
-        {
-          selectedItems: [value],
-        },
-        passedOnItemSelect && passedOnItemSelect(),
-      );
+      setSelectedItems([value]);
     }
+    // this should probably be a useEffect callback thinger.
+    onItemSelect && onItemSelect();
   };
 
-  render() {
-    const { rowIndex, options, isMultiSelect, ...spreadProps } = this.props;
-    return (
-      <XUIEditableTableCellSelectBox
-        buttonContent={TextHelpers.getText(this.state.selectedItems, '')}
-        caretTitle="Toggle list"
-        closeAfterSelection={!isMultiSelect}
-        isMultiSelect={isMultiSelect}
-        isTextTruncated={false}
-        onSelect={this.onItemSelect}
-        {...spreadProps}
-      >
-        {options &&
-          options.map((opt, idx) => {
-            return (
-              <SelectBoxOption
-                id={opt}
-                isSelected={this.state.selectedItems.indexOf(opt) >= 0}
-                key={idx + opt + rowIndex}
-                showCheckboxes={isMultiSelect}
-                value={opt}
-              >
-                {opt}
-              </SelectBoxOption>
-            );
-          })}
-      </XUIEditableTableCellSelectBox>
-    );
-  }
-}
+  return (
+    <XUIEditableTableCellSelectBox
+      buttonContent={TextHelpers.getText(selectedItems, '')}
+      caretTitle="Toggle list"
+      closeAfterSelection={!isMultiSelect}
+      isMultiSelect={isMultiSelect}
+      isTextTruncated={false}
+      onSelect={handleItemSelect}
+      {...spreadProps}
+    >
+      {options &&
+        options.map((opt, idx) => {
+          return (
+            <SelectBoxOption
+              id={opt}
+              isSelected={selectedItems.indexOf(opt) >= 0}
+              key={idx + opt + rowIndex}
+              showCheckboxes={isMultiSelect}
+              value={opt}
+            >
+              {opt}
+            </SelectBoxOption>
+          );
+        })}
+    </XUIEditableTableCellSelectBox>
+  );
+};
 
 class EditableTableUserTest extends React.Component {
   blankItem = {
@@ -109,9 +91,9 @@ class EditableTableUserTest extends React.Component {
 
   addNewItem = () => {
     this.blankItem.uid = uuid();
-    this.setState({
-      items: [...this.state.items, { ...this.blankItem }],
-    });
+    this.setState(prevState => ({
+      items: [...prevState.items, { ...this.blankItem }],
+    }));
   };
 
   updateItem = ({ id, item }) => {

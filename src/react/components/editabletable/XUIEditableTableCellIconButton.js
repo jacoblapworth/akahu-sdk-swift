@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import { tableName } from './private/constants';
 import XUIEditableTableCell from './XUIEditableTableCell';
-import XUIIconButton from './../button/XUIIconButton';
+import XUIIconButton from '../button/XUIIconButton';
 
 const baseName = `${tableName}celliconbutton`;
 

@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid/v4';
 import invalid from '@xero/xui-icon/icons/invalid';
 
 import { tableName } from './private/constants';
@@ -8,7 +9,6 @@ import EditableTableWrapper from './private/EditableTableWrapper';
 import conditionallyRequiredValidator from '../helpers/conditionallyRequiredValidator';
 import XUIIcon from '../icon/XUIIcon';
 import { generateIdsFromControlId } from '../controlwrapper/helpers';
-import uuid from 'uuid/v4';
 
 const XUIEditableTable = ({
   ariaLabel,
@@ -41,7 +41,7 @@ const XUIEditableTable = ({
   const wrapperIds = generateIdsFromControlId(calculatedId);
 
   return (
-    <React.Fragment>
+    <>
       {hiddenColumns && hiddenColumns.length > 0 && (
         <style>
           {hiddenColumns.map(
@@ -89,7 +89,7 @@ const XUIEditableTable = ({
           {validationMessage}
         </div>
       )}
-    </React.Fragment>
+    </>
   );
 };
 

@@ -5,6 +5,7 @@ export default class ColumnHideSelect extends React.Component {
   state = {
     hiddenColumns: [],
   };
+
   handleItemSelect = value => {
     const newHidden = [...this.state.hiddenColumns];
     const valueIndex = newHidden.indexOf(value);
@@ -20,6 +21,7 @@ export default class ColumnHideSelect extends React.Component {
       this.props.passedOnItemSelect && this.props.passedOnItemSelect(newHidden),
     );
   };
+
   render() {
     const { rowOptions, columns } = this.props;
     let firstHideableChildIndex;

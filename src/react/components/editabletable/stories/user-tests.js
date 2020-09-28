@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 import React from 'react';
 import uuid from 'uuid/v4';
 import {
@@ -17,6 +18,7 @@ class SBCell extends React.Component {
   state = {
     selectedItems: this.props.selectedItems || [],
   };
+
   onItemSelect = value => {
     const passedOnItemSelect = this.props.onItemSelect;
     if (this.props.isMultiSelect) {
@@ -44,6 +46,7 @@ class SBCell extends React.Component {
       );
     }
   };
+
   render() {
     const { rowIndex, options, isMultiSelect, ...spreadProps } = this.props;
     return (
@@ -85,9 +88,11 @@ class EditableTableUserTest extends React.Component {
     'Order note': undefined,
     uid: uuid(),
   };
+
   state = {
     items: this.props.items || [{ ...this.blankItem }],
   };
+
   removeItem = id => {
     if (this.state.items.length === 1) {
       alert("Can't delete only item");
@@ -101,12 +106,14 @@ class EditableTableUserTest extends React.Component {
       };
     });
   };
+
   addNewItem = () => {
     this.blankItem.uid = uuid();
     this.setState({
       items: [...this.state.items, { ...this.blankItem }],
     });
   };
+
   updateItem = ({ id, item }) => {
     this.setState(prevState => {
       const indexToUpdate = prevState.items.findIndex(item => item.uid === id);
@@ -116,6 +123,7 @@ class EditableTableUserTest extends React.Component {
       };
     });
   };
+
   submitData = () => {
     this.setState({
       isSubmitting: true,
@@ -132,6 +140,7 @@ class EditableTableUserTest extends React.Component {
       }, 2500);
     }, 1500);
   };
+
   render() {
     const {
       disableMainFilling,

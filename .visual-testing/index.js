@@ -176,6 +176,12 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/stepper/stories/variations.js`,
   },
   {
+    testsPrefix: 'XUI Fixed Footer WIP',
+    variationsPath: `${variationsPath}/fixedfooter/stories/variations.js`,
+    readyEvent: 'xui-fixedfooter-ready-event',
+    ...fullPageSettings,
+  },
+  {
     testsPrefix: 'XUI Table',
     variationsPath: `${variationsPath}/table/stories/variations.js`,
     readyEvent: 'xui-table-ready-event',

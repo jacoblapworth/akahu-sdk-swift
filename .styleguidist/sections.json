@@ -316,6 +316,12 @@
             "name": "Stepper",
             "content": "../src/react/stepper.md",
             "components": "../src/react/components/stepper/XUIStepper.js"
+          },
+          {
+            "name": "Fixed Footer",
+            "content": "../src/react/fixedfooter.md",
+            "components": "../src/react/components/fixedfooter/XUIFixedFooterWIP.js",
+            "description": "**Work in progress: Subject to breaking changes at any time, including patch and minor releases.**"
           }
         ]
       },

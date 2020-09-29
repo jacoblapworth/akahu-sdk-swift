@@ -5,12 +5,14 @@ import React, { Component, PureComponent, Fragment } from 'react';
 import XUIModal, { XUIModalBody, XUIModalHeader } from '../../../modal';
 import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
 import XUIPicklist, { XUIPickitem } from '../../../picklist';
-import XUIButton, { XUIIconButton } from '../../../button';
+import XUIButton, { XUIIconButton, XUISplitButtonGroup, XUISecondaryButton } from '../../../button';
 import XUITextInput from '../../../textinput';
 import { XUICompositionDetail } from '../../../compositions';
 import { XUIPageHeader } from '../../../pageheader';
 import XUITooltip from '../../../tooltip';
 import XUIToast, { XUIToastWrapper, XUIToastMessage } from '../../../toast';
+import XUIActions from '../../../actions';
+import XUIFixedFooterWIP from '../../../fixedfooter';
 import info from '@xero/xui-icon/icons/info';
 
 import * as lists from '../../../components/helpers/list';
@@ -37,6 +39,29 @@ const buildDropdownPicklist = items => {
 };
 
 const buildTrigger = text => <XUIButton hasCaret>{text}</XUIButton>;
+
+const splitButtonExample = (
+  <XUISplitButtonGroup variant="primary">
+    <XUIButton size="small">Split action</XUIButton>
+    <XUIDropdownToggled
+      dropdown={
+        <XUIDropdown fixedWidth size="small">
+          <XUIPicklist>
+            <XUIPickitem id="aa" key="aa" value="aa">
+              Option 1
+            </XUIPickitem>
+            <XUIPickitem id="bb" key="bb" value="bb">
+              Option 2
+            </XUIPickitem>
+          </XUIPicklist>
+        </XUIDropdown>
+      }
+      trigger={
+        <XUISecondaryButton aria-label="Other actions" key="split" size="small" variant="primary" />
+      }
+    />
+  </XUISplitButtonGroup>
+);
 
 class ExampleToast extends PureComponent {
   constructor(...args) {
@@ -200,6 +225,19 @@ test.add(nonBackstopStoryNames.layeringElements, () => {
           </Fragment>
         }
       />
+      <XUIFixedFooterWIP>
+        <XUIActions
+          className="xui-padding-small"
+          hasLayout
+          isLinear
+          primaryAction={splitButtonExample}
+          secondaryAction={
+            <XUIButton href="https://xui.xero.com" size="small">
+              XUI
+            </XUIButton>
+          }
+        />
+      </XUIFixedFooterWIP>
     </Fragment>
   );
 });

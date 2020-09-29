@@ -1,0 +1,40 @@
+// Fixed Footer
+//
+// Introduction: A fixed-position bar to contain actions at the bottom of a longer page.
+//
+// Teaser: A fixed-position bar to contain actions on a longer page.
+//
+// flags: new wip
+//
+// Components: Fixed-footer
+//
+// Styleguide: Components.Navigation.FixedFooter
+
+// Anatomy
+//
+// Apply the following classes to achieve the desired effect.
+//
+// Classes:
+// xui-fixedfooter: Base fixed footer class
+//
+// ExampleClass: ds-example-markuponly
+//
+// Markup: ./fixed-footer/_fixed-footer.html
+//
+// Styleguide: Components.Navigation.FixedFooter.1
+
+// Accessibility
+//
+// If using the React component, the content of your fixed footer will be cloned to reserve the space required to ensure that other content isn't covered by the footer. The invisible cloned content will be disabled for assistive technology, and visible content will have all the accessibility of the original content. Content in a fixed footer will be placed at the end of the DOM, which matches its visible placement.
+//
+// For the non-React variant, be sure to add enough margins to your application that content in the main page flow is not made inaccessible behind the fixed footer.
+//
+// Styleguide: Components.Navigation.FixedFooter.98
+
+// Related links
+//
+// Related:
+// * [Isolation Header](./section-components-navigation-isolation-header.html)
+// * [Page Header](./section-components-navigation-page-header.html)
+//
+// Styleguide: Components.Navigation.FixedFooter.99

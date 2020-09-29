@@ -1,5 +1,5 @@
-import XUIAvatar from '../../avatar/XUIAvatar';
 import React from 'react';
+import XUIAvatar from '../../avatar/XUIAvatar';
 
 const storiesWithVariationsKindName = 'Instances/XUIRange';
 

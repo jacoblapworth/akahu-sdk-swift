@@ -1,5 +1,5 @@
 <div class="ds-header--home xui-margin-bottom-5xlarge">
-  <h1 class="xui-text-tight">Make things people know and love</h1>
+  <h1 class="xui-text-tight">A foundation for Xero experiences</h1>
   <p class="ds-intro intro">
     XUI is a design system for Xero web applications. It includes standard approaches and patterns plus the front-end code to implement them. XUI helps keep a large codebase healthy, allowing us to focus on user problems and get to market quickly.
   </p>
@@ -7,15 +7,15 @@
 
 <div class="ds-tilegroup--home">
   <div class="ds-tile--home-small ds-tile--home-fundamentals">
-    <a href="section-fundamentals.html">
-      <h3 class="xui-heading-large">Fundamentals</h3>
-      <p>Foundational pieces that make up XUI. Color, typography, icons, borders, utilities, variables, mixins and more.</p>
+    <a href="section-getting-started-designing-with-xui.html">
+      <h3 class="xui-heading-large">Designing with XUI</h3>
+      <p>Designing with XUI is made easy with guidelines, tooling and common components. Check out the Getting Started guide, or reach out to the XUI team for help.</p>
     </a>
   </div>
   <div class="ds-tile--home-small ds-tile--home-elements">
-    <a href="section-components.html">
-      <h3 class="xui-heading-large">Components</h3>
-      <p>Components are reusable pieces of UI that can stand alone or be combined with other components.</p>
+    <a href="section-getting-started-developing-with-xui.html">
+      <h3 class="xui-heading-large">Developing with XUI</h3>
+      <p>Developing with XUI is made easy with a range of flexible components and provided code snippets. Check out the Getting Started guide or reach out to the XUI team for help.</p>
     </a>
   </div>
   <div class="ds-tile--home ds-tile--home-react">

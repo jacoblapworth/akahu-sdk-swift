@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { Props as XUIButtonProps } from './XUIButton';
+import XUIButton from './XUIButton';
 
 type Props = Omit<
-  XUIButtonProps,
+  React.ComponentProps<typeof XUIButton>,
   'children' | 'fullWidth' | 'isGrouped' | 'isInverted' | 'minLoaderWidth' | 'retainLayout'
 >;
 

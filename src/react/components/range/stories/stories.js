@@ -1,14 +1,14 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUIRange from '../XUIRange';
-import XUIAvatar from '../../avatar/XUIAvatar';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text, number, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import XUIAvatar from '../../avatar/XUIAvatar';
+import XUIRange from '../XUIRange';
 
 import { storiesWithVariationsKindName, variations } from './variations';
 

@@ -1,15 +1,16 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import SelectBox from '../SelectBox';
-import SelectBoxOption from '../SelectBoxOption';
-import XUIIcon from '../../icon/XUIIcon';
-import education from '@xero/xui-icon/icons/education';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text, select } from '@storybook/addon-knobs';
+
+// Components we need to test with
+import education from '@xero/xui-icon/icons/education';
+import SelectBox from '../SelectBox';
+import SelectBoxOption from '../SelectBoxOption';
+import XUIIcon from '../../icon/XUIIcon';
+
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variantClassNames } from '../../button/private/constants';

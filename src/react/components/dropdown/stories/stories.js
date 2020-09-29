@@ -1,7 +1,14 @@
 // Libs
 import React from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean, select } from '@storybook/addon-knobs';
+import centered from '@storybook/addon-centered/react';
+
 // Components we need to test with
+import info from '@xero/xui-icon/icons/info';
+import plusIcon from '@xero/xui-icon/icons/plus';
 import DropDownToggled from '../DropDownToggled';
 import DropDown from '../DropDown';
 import NestedDropDown from '../NestedDropDown';
@@ -16,13 +23,7 @@ import Pickitem from '../../picklist/Pickitem';
 import XUIDatePicker from '../../datepicker/XUIDatePicker';
 import XUIIcon from '../../icon/XUIIcon';
 import XUITextInput from '../../textInput/XUITextInput';
-import info from '@xero/xui-icon/icons/info';
-import plusIcon from '@xero/xui-icon/icons/plus';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { boolean, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
+import XUIPanel from '../../panel/XUIPanel';
 
 import { storiesWithVariationsKindName, variations, NOOP } from './variations';
 import { ShortListShortItems, LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';
@@ -147,6 +148,33 @@ const sideBySide = (
     />
   </div>
 );
+
+const DropdownInDropdown = () => {
+  const [selectedSubItem, setSelectedSubitem] = React.useState('Select One');
+  return (
+    <DropDownToggled
+      closeOnTab={false}
+      dropdown={
+        <DropDown fixedWidth size="large">
+          <XUIPanel className="xui-padding">
+            <XUITextInput fieldClassName="xui-column-6-of-12" />
+            <DropDownToggled
+              closeOnTab={false}
+              dropdown={
+                <DropDown onSelect={selected => setSelectedSubitem(selected)} restrictFocus={false}>
+                  <Picklist>{createItems(toggledShort, 'i')}</Picklist>
+                </DropDown>
+              }
+              trigger={<XUIButton>{selectedSubItem}</XUIButton>}
+            />
+          </XUIPanel>
+        </DropDown>
+      }
+      isHidden={false}
+      trigger={<XUIButton>howdy</XUIButton>}
+    />
+  );
+};
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
@@ -346,11 +374,16 @@ variations.forEach(variation => {
 
     if (ddSettings.children === 'side-by-side') {
       return sideBySide;
-    } else if (ddSettings.children === 'positioning-test') {
+    }
+    if (ddSettings.children === 'positioning-test') {
       return getPositioningTest();
-    } else if (ddSettings.children === 'hint-label') {
+    }
+    if (ddSettings.children === 'hint-label') {
       delete ddSettings.children;
       return hintLabel(ddSettings);
+    }
+    if (ddSettings.children === 'dropdown-in-dropdown') {
+      return DropdownInDropdown();
     }
     return (
       <DropDownToggled

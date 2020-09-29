@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Props as XUIButtonProps } from '../button/XUIButton';
+import XUIButton from '../button/XUIButton';
 
 interface BaseProps {
   /**
@@ -26,7 +26,7 @@ interface BaseProps {
   usesActions?: boolean;
 }
 
-type Props = BaseProps & Partial<XUIButtonProps>;
+type Props = BaseProps & Partial<React.ComponentProps<typeof XUIButton>>;
 
 declare const XUIToastAction: React.FunctionComponent<Props>;
 export default XUIToastAction;

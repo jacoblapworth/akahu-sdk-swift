@@ -241,7 +241,10 @@ Pickitem.propTypes = {
   headingElement(...parameters) {
     return verticalOnlyProp(PropTypes.node, ...parameters);
   },
-  /** Inherited. Whether parent list is set to render horizontal pickitems. Do not set directly. */
+  /**
+   * Inherited. Whether parent list is set to render horizontal pickitems. Do not set directly.
+   * @ignore
+   */
   _isHorizontal: PropTypes.bool,
 };
 

@@ -62,7 +62,8 @@ const getCrumbLabel = crumb => {
       // Don't tack the link class onto a ddt.
       className: cn(crumb.props.className, crumb.type !== DropDownToggled && `${baseClass}--link`),
     });
-  } else if (!crumb.href) {
+  }
+  if (!crumb.href) {
     return crumb.label;
   }
   return (

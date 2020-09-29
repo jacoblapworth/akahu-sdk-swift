@@ -15,6 +15,7 @@ export default class XUIToggle extends PureComponent {
     const isCheckbox = child => child && child.props.type === 'checkbox';
     return children != null && React.Children.map(children, isCheckbox).some(Boolean);
   }
+
   render() {
     const {
       children,

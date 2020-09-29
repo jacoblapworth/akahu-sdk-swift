@@ -23,7 +23,7 @@ export default class OverflowMenuCell extends PureComponent {
     );
 
     return (
-      <TableData className={className} tabIndex={-1}>
+      <TableData className={className}>
         {NBSP}
         {hasItems && (
           <OverflowMenu overflowMenuTitle={overflowMenuTitle}>{overflowMenuItems}</OverflowMenu>

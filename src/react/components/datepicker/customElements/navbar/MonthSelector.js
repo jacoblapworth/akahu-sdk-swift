@@ -14,12 +14,15 @@ const buttonSizeClasses = {
 
 export default class MonthSelector extends PureComponent {
   state = {};
+
   setFocus = () => {
     this.setState({ hasFocus: true });
   };
+
   setBlur = () => {
     this.setState({ hasFocus: false });
   };
+
   render() {
     const {
       months,

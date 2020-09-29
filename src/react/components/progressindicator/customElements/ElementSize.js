@@ -9,6 +9,7 @@ class ElementSize extends Component {
   };
 
   rootNode;
+
   throttled;
 
   componentDidUpdate = () => this.setCurrentSize();

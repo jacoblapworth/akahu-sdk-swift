@@ -1,13 +1,13 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUICapsule from '../XUICapsule';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import XUICapsule from '../XUICapsule';
 
 import { storiesWithVariationsKindName, variations } from './variations';
 

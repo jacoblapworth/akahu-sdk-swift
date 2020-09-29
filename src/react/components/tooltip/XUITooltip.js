@@ -17,6 +17,7 @@ export default class XUITooltip extends PureComponent {
     isFocused: false,
     isAnimating: false,
   };
+
   tooltipId = this.props.id || uuidv4();
 
   /**

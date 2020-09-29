@@ -6,12 +6,14 @@ import DropDownToggled from '../../dropdown/DropDownToggled';
 import Picklist from '../../picklist/Picklist';
 import XUIIconButton from '../../button/XUIIconButton';
 import { NAME_SPACE } from '../helpers/constants';
+import preventDefault from '../../helpers/preventDefault';
 
 class OverflowMenu extends PureComponent {
   createTrigger = overflowMenuTitle => (
     <XUIIconButton
       ariaLabel={overflowMenuTitle}
       icon={overflowPathData}
+      onClick={preventDefault}
       title={overflowMenuTitle}
     />
   );

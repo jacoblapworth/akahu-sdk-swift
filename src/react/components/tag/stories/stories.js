@@ -1,13 +1,13 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUITag, { variants, sizes } from '../XUITag';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import XUITag, { variants, sizes } from '../XUITag';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 

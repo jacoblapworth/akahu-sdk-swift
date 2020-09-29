@@ -5,6 +5,7 @@ import getGroupPosition from '../helpers/groupposition';
 
 class HorizontallyCenterContent extends PureComponent {
   contentNode;
+
   state = {
     /* contentWidth */
   };

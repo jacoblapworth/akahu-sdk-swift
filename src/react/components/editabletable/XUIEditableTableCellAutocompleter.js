@@ -11,6 +11,7 @@ const baseName = `${tableName}cellautocompleter`;
 
 class XUIEditableTableCellAutocompleter extends Component {
   completerRef = React.createRef();
+
   state = {
     isFocused: false,
   };

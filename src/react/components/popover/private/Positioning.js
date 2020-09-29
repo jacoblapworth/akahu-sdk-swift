@@ -8,7 +8,9 @@ import doAsync from '../../helpers/doAsync';
 
 export default class Positioning extends React.Component {
   ref = React.createRef();
+
   updatePositionTimeoutId;
+
   windowHasResizeListener = false;
 
   state = {};

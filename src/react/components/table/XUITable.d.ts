@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { XUIIconData } from '../icon/XUIIcon';
-import { Props as PickitemProps } from '../picklist/Pickitem';
+import Pickitem from '../picklist/Pickitem';
 
 interface BaseProps {
   /**
@@ -138,7 +138,7 @@ interface OverflowProps {
    */
   createOverflowMenu?: (
     rowData: EnrichedTableItemObject,
-  ) => Array<React.ReactElement<PickitemProps>>;
+  ) => Array<React.ReactElement<React.ComponentProps<typeof Pickitem>>>;
   /**
    * Appends a custom overflow menu column to the table.
    */

@@ -1,3 +1,9 @@
+// Story book things
+import { storiesOf } from '@storybook/react';
+// TODO: storybook-readme is commented out until the package fixes issues with IE11.
+// import { withReadme } from 'storybook-readme';
+// import readme from './README.md';
+
 // Libs
 import React from 'react';
 import overflowIcon from '@xero/xui-icon/icons/overflow';
@@ -16,12 +22,6 @@ import XUITextInput, { XUITextInputSideElement } from '../../../textinput';
 import revealTouchTargets from '../../../../../.storybook/decorators/xuiRevealTouchTargets';
 
 import { storyNames, compositionKind } from '../tests';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-// TODO: storybook-readme is commented out until the package fixes issues with IE11.
-// import { withReadme } from 'storybook-readme';
-// import readme from './README.md';
 
 const NOOP = () => {};
 const displayMonth = new Date('Nov 01 2019 00:00:00');

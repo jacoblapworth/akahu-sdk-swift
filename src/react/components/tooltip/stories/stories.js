@@ -1,17 +1,17 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUITooltip from '../XUITooltip';
-import XUITextInput from '../../textInput/XUITextInput';
-import XUIButton from '../../button/XUIButton';
-import XUIIconButton from '../../button/XUIIconButton';
-import info from '@xero/xui-icon/icons/info';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, select, number } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import info from '@xero/xui-icon/icons/info';
+import XUITooltip from '../XUITooltip';
+import XUITextInput from '../../textInput/XUITextInput';
+import XUIButton from '../../button/XUIButton';
+import XUIIconButton from '../../button/XUIIconButton';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 import { positionOptions } from '../../positioning/private/constants';

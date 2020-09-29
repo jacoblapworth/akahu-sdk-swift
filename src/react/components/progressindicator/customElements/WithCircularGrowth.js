@@ -47,6 +47,8 @@ const createDynamicThickness = width => {
 
 const WithCircularGrowth = Wrapper =>
   class CircularGrowth extends Component {
+    // propTypes cannot be defined externally as this is a wrapper component
+    // eslint-disable-next-line react/static-property-placement
     static propTypes = {
       isGrow: PropTypes.bool,
       thickness: PropTypes.number,

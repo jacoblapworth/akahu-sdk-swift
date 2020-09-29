@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Props as XUIIconProps, XUIIconData } from '../icon/XUIIcon';
+import XUIIcon, { XUIIconData } from '../icon/XUIIcon';
 
-interface Props extends Partial<XUIIconProps> {
+interface Props extends Partial<React.ComponentProps<typeof XUIIcon>> {
   className?: string;
   /**
    * Optional prop for users to modify the Button caret icon, if required for localisation.

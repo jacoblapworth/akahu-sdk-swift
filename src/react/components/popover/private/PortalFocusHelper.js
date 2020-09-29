@@ -22,7 +22,7 @@ export default class PortalFocusHelper extends React.Component {
     const { children } = this.props;
 
     return (
-      <React.Fragment>
+      <>
         <div
           onFocus={() => {
             this.focusOnTheFirstElementOnThePage();
@@ -45,7 +45,7 @@ export default class PortalFocusHelper extends React.Component {
           // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
           tabIndex={0}
         />
-      </React.Fragment>
+      </>
     );
   }
 

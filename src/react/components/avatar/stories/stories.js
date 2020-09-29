@@ -1,15 +1,15 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUIAvatar from '../XUIAvatar';
-import XUIAvatarGroup from '../XUIAvatarGroup';
-import { sizeClassNames, colorClassNames } from '../constants';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text, select, number } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import XUIAvatar from '../XUIAvatar';
+import XUIAvatarGroup from '../XUIAvatarGroup';
+import { sizeClassNames, colorClassNames } from '../constants';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 

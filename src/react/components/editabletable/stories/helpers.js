@@ -1,4 +1,6 @@
+/* eslint-disable max-classes-per-file */
 import React, { Component, PureComponent, Fragment } from 'react';
+import crossIcon from '@xero/xui-icon/icons/cross-small';
 
 import {
   XUIEditableTableCellAutocompleter,
@@ -15,8 +17,6 @@ import { XUIAutocompleterEmptyState } from '../../../autocompleter';
 import { decorateSubStr, boldMatch } from '../../autocompleter/helpers/highlighting';
 import { XUITextInputSideElement } from '../../../textinput';
 import XUIPill from '../../../pill';
-import crossIcon from '@xero/xui-icon/icons/cross-small';
-
 import people from '../../autocompleter/private/people';
 
 const sampleReadOnly = (id, text) => (
@@ -198,14 +198,12 @@ class AutoExample extends Component {
         <Picklist>
           {unselectedPeopleIds.map(person => {
             const secondaryContent = (
-              <Fragment>
+              <>
                 {decorateSubStr(person.email, value || '', boldMatch)},{' '}
                 {decorateSubStr(person.subtext, value || '', boldMatch)}
-              </Fragment>
+              </>
             );
-            const headingContent = (
-              <Fragment>{decorateSubStr(person.name, value || '', boldMatch)}</Fragment>
-            );
+            const headingContent = <>{decorateSubStr(person.name, value || '', boldMatch)}</>;
             return (
               <Pickitem
                 headingElement={headingContent}

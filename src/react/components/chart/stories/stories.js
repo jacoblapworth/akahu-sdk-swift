@@ -1,18 +1,18 @@
 // Libs
 import React, { PureComponent } from 'react';
 
-// Components we need to test with
-import XUIBarChart from '../XUIBarChart';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { object, boolean, text, select, number, color } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
-import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
-
-import logReadyState from '../../../stories/helpers/log-ready-state';
 import { variations, storiesWithVariationsKindName } from './variations';
 import { createArray } from '../../progressindicator/helpers/utilities';
+
+// Components we need to test with
+import XUIBarChart from '../XUIBarChart';
+
+import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
+import logReadyState from '../../../stories/helpers/log-ready-state';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 

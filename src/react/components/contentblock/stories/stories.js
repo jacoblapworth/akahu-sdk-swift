@@ -1,10 +1,15 @@
 // Libs
 import React from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { select, text, boolean } from '@storybook/addon-knobs';
+import centered from '@storybook/addon-centered/react';
+
 // Components we need to test with
+import overflow from '@xero/xui-icon/icons/overflow';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
-import overflow from '@xero/xui-icon/icons/overflow';
 import XUIActions from '../../actions/XUIActions';
 import XUIPanel from '../../panel/XUIPanel';
 import XUIContentBlock from '../XUIContentBlock';
@@ -13,11 +18,6 @@ import XUICheckbox from '../../checkbox/XUICheckbox';
 import XUIRolloverCheckbox from '../../rolloverCheckbox/rolloverCheckbox';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUITag from '../../tag/XUITag';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { select, text, boolean } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 

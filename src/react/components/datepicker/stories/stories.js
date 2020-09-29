@@ -1,13 +1,13 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUIDatePicker from '../XUIDatePicker';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, select, date } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import XUIDatePicker from '../XUIDatePicker';
 
 import NOOP from '../../helpers/noop';
 import {

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
+import trash from '@xero/xui-icon/icons/trash';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 import { XUIProgressCircular } from '../../../progressindicator';
-import trash from '@xero/xui-icon/icons/trash';
 
 import { baseClass, formatBytes, getFileTypeIcon } from './helpers';
 

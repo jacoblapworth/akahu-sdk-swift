@@ -5,21 +5,20 @@ export default class ColumnHideSelect extends React.Component {
   state = {
     hiddenColumns: [],
   };
+
   handleItemSelect = value => {
-    const newHidden = [...this.state.hiddenColumns];
-    const valueIndex = newHidden.indexOf(value);
-    if (valueIndex > -1) {
-      newHidden.splice(valueIndex, 1);
-    } else {
-      newHidden.push(value);
-    }
-    this.setState(
-      {
+    const onItemSelect = this.props.passedOnItemSelect;
+    this.setState(prevState => {
+      const newHidden = [...prevState.hiddenColumns];
+      const valueIndex = newHidden.indexOf(value);
+      valueIndex > -1 ? newHidden.splice(valueIndex, 1) : newHidden.push(value);
+      onItemSelect && onItemSelect(newHidden);
+      return {
         hiddenColumns: newHidden,
-      },
-      this.props.passedOnItemSelect && this.props.passedOnItemSelect(newHidden),
-    );
+      };
+    });
   };
+
   render() {
     const { rowOptions, columns } = this.props;
     let firstHideableChildIndex;

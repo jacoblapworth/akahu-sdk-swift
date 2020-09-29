@@ -25,6 +25,7 @@ export default class XUIPill extends PureComponent {
   };
 
   _innerPill = React.createRef();
+
   _tooltip = React.createRef();
 
   componentDidMount() {

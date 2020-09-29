@@ -2,7 +2,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+// TODO: storybook-readme is commented out until the package fixes issues with IE11.
+// import { addReadme } from 'storybook-readme';
+// import readme from './README.md';
+
 // Components we need to test with
+import arrow from '@xero/xui-icon/icons/arrow';
 import DropDown, { DropDownToggled } from '../../../dropdown';
 import Picklist, { Pickitem } from '../../../picklist';
 import XUIButton, { XUIButtonCaret } from '../../../button';
@@ -18,7 +25,6 @@ import { decorateSubStr, boldMatch } from '../../../components/autocompleter/hel
 import XUIPill from '../../../pill';
 import XUITag from '../../../tag';
 import XUIIcon from '../../../icon';
-import arrow from '@xero/xui-icon/icons/arrow';
 
 // Private modules
 import Form from '../helpers/form';
@@ -28,12 +34,6 @@ import LayoutSelect from './select-box';
 import PanelSection from './panel-section';
 
 import { storyNames, compositionKind } from '../tests';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-// TODO: storybook-readme is commented out until the package fixes issues with IE11.
-// import { addReadme } from 'storybook-readme';
-// import readme from './README.md';
 
 const NOOP = () => {};
 
@@ -236,7 +236,7 @@ test.add(storyNames.formLayout, () => {
                 <DropDownToggled
                   className="xui-textinputwrapper"
                   dropdown={
-                    <DropDown onSelect={value => this.setState({ ...this.state, foodType: value })}>
+                    <DropDown onSelect={value => this.setState({ foodType: value })}>
                       <Picklist>
                         {['Vegetable', 'Fruit', 'Meat'].map((title, key) => (
                           <Pickitem

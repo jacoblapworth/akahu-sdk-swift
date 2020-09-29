@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIEditableTableRow /> composes the className correctly 1`] = `
+<table>
+  <tbody>
+    <XUIEditableTableRow
+      className="test-classname"
+    >
+      <Draggable
+        disableInteractiveElementBlocking={true}
+      >
+        <tr
+          className="xui-editabletablerow test-classname"
+          style={Object {}}
+        />
+      </Draggable>
+    </XUIEditableTableRow>
+  </tbody>
+</table>
+`;
+
+exports[`<XUIEditableTableRow /> renders correctly 1`] = `
+<table>
+  <tbody>
+    <XUIEditableTableRow>
+      <Draggable
+        disableInteractiveElementBlocking={true}
+      >
+        <tr
+          className="xui-editabletablerow"
+          style={Object {}}
+        >
+          <td>
+            XUIEditableTableRow
+          </td>
+        </tr>
+      </Draggable>
+    </XUIEditableTableRow>
+  </tbody>
+</table>
+`;

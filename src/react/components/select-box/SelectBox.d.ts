@@ -102,9 +102,17 @@ interface Props {
    */
   matchTriggerWidth?: boolean;
   /**
+   * Optional callback to be executed when the trigger loses focus.
+   */
+  onBlur: React.FocusEventHandler<HTMLButtonElement>;
+  /**
    * Optional callback to be executed when dropdown closes.
    */
   onDropdownHide?: () => void;
+  /**
+   * Optional callback to be executed when the trigger gains focus.
+   */
+  onFocus: React.FocusEventHandler<HTMLButtonElement>;
   /**
    * Selection callback.
    */

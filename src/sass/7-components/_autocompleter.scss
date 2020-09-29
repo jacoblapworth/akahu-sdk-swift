@@ -46,7 +46,7 @@
   }
 }
 
-.#{$ns}-autocompleter--textinput {
+.#{$ns}-textinput:not(.#{$ns}-textinput-cell) .#{$ns}-autocompleter--textinput {
   flex-shrink: 0;
   max-width: 100%;
 }

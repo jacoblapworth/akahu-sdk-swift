@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIEditableTable /> composes the className and passed an id correctly 1`] = `
+<Fragment>
+  <EditableTableWrapper
+    className="test-classname"
+    columnWidths={Array []}
+    dndInstructions=""
+    tableRef={
+      Object {
+        "current": undefined,
+      }
+    }
+  >
+    <table
+      className="xui-editabletable"
+      id="test-id"
+    >
+      <EditableTableColGroup
+        columnWidths={Array []}
+      />
+    </table>
+  </EditableTableWrapper>
+</Fragment>
+`;
+
+exports[`<XUIEditableTable /> renders correctly 1`] = `
+<Fragment>
+  <EditableTableWrapper
+    columnWidths={Array []}
+    dndInstructions=""
+    tableRef={
+      Object {
+        "current": undefined,
+      }
+    }
+  >
+    <table
+      className="xui-editabletable"
+      id="xui-editabletable-testGeneratedId"
+    >
+      <EditableTableColGroup
+        columnWidths={Array []}
+      />
+      <div>
+        XUIEditableTable
+      </div>
+    </table>
+  </EditableTableWrapper>
+</Fragment>
+`;
+
+exports[`<XUIEditableTable /> renders the ariaLabel correctly 1`] = `
+<Fragment>
+  <EditableTableWrapper
+    columnWidths={Array []}
+    dndInstructions=""
+    tableRef={
+      Object {
+        "current": undefined,
+      }
+    }
+  >
+    <table
+      aria-label="An editable table"
+      className="xui-editabletable"
+      id="xui-editabletable-testGeneratedId"
+    >
+      <EditableTableColGroup
+        columnWidths={Array []}
+      />
+    </table>
+  </EditableTableWrapper>
+</Fragment>
+`;
+
+exports[`<XUIEditableTable /> validation message renders correctly when the table is invalid and there is a validation message 1`] = `
+<Fragment>
+  <EditableTableWrapper
+    columnWidths={Array []}
+    dndInstructions=""
+    isInvalid={true}
+    tableRef={
+      Object {
+        "current": undefined,
+      }
+    }
+    validationMessage="Error message"
+  >
+    <table
+      aria-describedby="xui-editabletable-testGeneratedId-message"
+      aria-invalid={true}
+      className="xui-editabletable"
+      id="xui-editabletable-testGeneratedId"
+    >
+      <EditableTableColGroup
+        columnWidths={Array []}
+      />
+    </table>
+  </EditableTableWrapper>
+  <div
+    className="xui-editabletable--validation"
+    id="xui-editabletable-testGeneratedId-message"
+  >
+    <XUIIcon
+      icon={
+        Object {
+          "height": 16,
+          "path": "M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z",
+          "width": 16,
+        }
+      }
+      role="presentation"
+      size="medium"
+    />
+    Error message
+  </div>
+</Fragment>
+`;

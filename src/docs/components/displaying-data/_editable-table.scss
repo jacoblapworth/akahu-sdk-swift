@@ -1,0 +1,476 @@
+// Editable table
+//
+// Components: Editable-table
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=kix.ufok9qodx2he
+//
+// Teaser: A grid of rows and columns used to display interactive and static data.
+//
+// Introduction: Editable tables are used to display interactive or a combination of interactive and static data in a way that's easy to scan, organise, and manipulate. For displaying solely static data, consider using XUI's [table component](section-components-displayingdata-table.html).
+//
+// Note:
+// *Some of the functionality in the examples below are missing due to them being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+//
+// Markup: ./examples/editable-table/_editable-table-anatomy.html
+//
+// ExampleClass: ds-example-transparent ds-example-flush
+//
+// Styleguide: Components.DisplayingData.EditableTable
+
+// Contents
+//
+// Related:
+// * [Best practice](#components-displayingdata-editabletable-2)
+// * [Anatomy](#components-displayingdata-editabletable-3)
+// * [Anatomy - Header](#components-displayingdata-editabletable-3-1)
+// * [Anatomy - Columns](#components-displayingdata-editabletable-3-2)
+// * [Anatomy - Rows](#components-displayingdata-editabletable-3-3)
+// * [Anatomy - Cells + cell components](#components-displayingdata-editabletable-3-4)
+// * [Disabling](#components-displayingdata-editabletable-4)
+// * [Validation](#components-displayingdata-editabletable-5)
+// * [Adding and removing rows](#components-displayingdata-editabletable-6)
+// * [Sorting data](#components-displayingdata-editabletable-7)
+// * [Responsive treatment](#components-displayingdata-editabletable-8)
+// * [Accessibility](#components-displayingdata-editabletable-9)
+// * [Future editable table features](#components-displayingdata-editabletable-10)
+//
+// Styleguide: Components.DisplayingData.EditableTable.1
+
+// Best practice
+//
+// Tables are a useful way of displaying large sets of data in a way that is easily digestible for the reader. Tables organise information into rows and columns, helping to tell a story about the data points' relationships to one another.
+//
+// It's worth noting that many of the features included in the editable table component rely on the [React component](./react/#editable-table) implementation, so the examples in the guidance below may not accurately represent the end user experience.
+//
+// Styleguide: Components.DisplayingData.EditableTable.2
+
+// Anatomy
+//
+// The editable table is a container that houses data organised into rows and columns. The tabular data is labeled by cells in a header row situated at the top of the container. The minimum technical requirement for a table is a single cell, however, a table is best used to compare values in large datasets.
+//
+// Classes:
+// xui-editabletablewrapper: Sets base table container styling
+// xui-editabletablewrapper--scrollcontainer: Sets styling and scrolling behaviour
+// xui-editabletable: Sets table cell border styling
+// xui-editabletablehead: Sets table header styling
+// xui-editabletablebody: Sets table body styling
+// xui-editabletablerow: Sets table row styling
+// xui-editabletablecell: Sets table cell styling
+// xui-editabletablewrapper--border: Sets wrapping border style
+//
+// Styleguide: Components.DisplayingData.EditableTable.3
+
+// Header
+//
+// The header is used to house labels that describe the subsequent data points in the columns of your table.
+//
+// Classes:
+// xui-editabletablehead: Sets table header styling
+// xui-editabletableheadingcell: Sets table header cell styling
+// xui-editabletableheadingcell-leftaligned: Aligns text left
+// xui-editabletableheadingcell-rightaligned: Aligns text right
+//
+// Tips:
+// Do: Provide a header to help users navigate data points in a table
+// Do: Ensure label copy is descriptive of the data in its associated column
+// Do: Ensure label copy is concise to help with scanning across multiple columns
+//
+// Markup: ./examples/editable-table/_editable-table-header.html
+//
+// Styleguide: Components.DisplayingData.EditableTable.3.1
+
+// Columns
+//
+// Columns in a table are used to section your dataset into categorised groups. This helps users navigate through a dataset easily and find information quickly.
+//
+// Tips:
+// Do: Use a column to categorise a single chunk of data (eg “Due date”), so that users can easily find the information they need within a table
+// Do: House the most pertinent data of your dataset in the first column (eg Invoice item description)
+// Do: Order columns from left to right in the order you would expect users to read information in a row, as people commonly navigate through a table from left to right
+// Don't: Don’t combine multiple categories of data into one column (eg “Date created • Date Due”)
+//
+// Styleguide: Components.DisplayingData.EditableTable.3.2
+
+// Column widths
+//
+// Content columns in a table will default to being equal width, but can be set to percentage widths, explicit widths (pixels, ems, etc), or “auto” which is different from a non-specified value. Widths can be set using the available `columnWidths` API or by specifying a width on the first cell in each column (often the header row).
+//
+// ExampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/editable-table/_editable-table-columns.html
+//
+// Tips:
+// Do: Provide a column width that is appropriate for the expected content in the relevant cells.
+// Do: Provide an auto or non-specified “flexible” width for when you want to grow a column to fill available empty table space.
+// Don't: Avoid using flexible width options for tables that are expected to horizontally overflow their container as the columns will attempt to compress the column content. Instead specify the width of these columns with an explicit or percentage value.
+//
+// Styleguide: Components.DisplayingData.EditableTable.3.2.1
+
+// Showing and hiding columns
+//
+// Depending on the workflow, it may not be necessary for all columns to be visible at all times. To facilitate this, optionally hide and show columns. This can be done three ways: by conditionally rendering the hidden cells, by adding a class of `xui-editabletable--column-hidden` to the hidden cells, or by using the `hiddenColumns` property of `XUIEditableTable` which is designed for performance with very large datasets. The mechanism by which Xero users will show and hide columns is not defined via the editable table component as the desired experience will likely vary depending on the product experience.
+//
+// Classes:
+// xui-editabletable--column-hidden: Applied to cells in a column to visually hide
+//
+// Tips:
+// Do: Provide the ability to hide and show columns to focus the user on the most important parts of the dataset for their relevant workflow
+// Do: Use an appropriate control for your experience, based on design aspects such as visual hierarchy, prevalence of the interaction within the workflow, and the placement of the control with other elements on the page
+// Do: Conditionally render hidden cells when you plan to save the user’s preferences for future page loads, and columns may not need to be rendered at all
+// Do: Provide the `xui-editabletable--column-hidden` class when the dataset is not large, and users are expected to repeatedly hide and show columns, or the table content is highly variable
+// Do: Use the `hiddenColumns` property when the dataset is large but consistently structured, and users may wish to hide and show content repeatedly
+//
+// Styleguide: Components.DisplayingData.EditableTable.3.2.2
+
+// Rows
+//
+// Rows in a table are used to represent individual line items in a dataset. Rows can contain data of any kind, but also could house interactive controls, for example, for editing cell data, navigating, or triggering actions relating to the item.
+//
+// Tips:
+// Do: Use a row to represent a single entity in a dataset as users are familiar with perceiving a row to represent 1 item (eg an invoice line item or a staff member)
+//
+// Classes:
+// xui-editabletablerow: Sets table row styling
+//
+// Styleguide: Components.DisplayingData.EditableTable.3.3
+
+// Cells
+//
+// The editable table component can house all types of information and data, but provides some out-of-the-box cell types for common interactions.
+//
+// Tips:
+// Do: Keep cell copy concise to ensure an easy-to-scan reading experience
+// Do: Provide cell types that are appropriate for the data inside the cell (eg use a select cell for choosing an item from a small list)
+// Warning: Use caution when using interactive cell components in an HTML + CSS implementation of the editable table as cell focus states are displayed via javascript
+//
+// Styleguide: Components.DisplayingData.EditableTable.3.4
+
+// Read-only cells
+//
+// Read-only cells are used for presentational data that is not going to be changed by the user, for example a pre-populated contact name. Read-only cells in the editable table component are styled similarly to text input cells in order to create a cohesive visual experience, however, they do not have interactive qualities such as hover/focus states or cursor changes to help communicate that the cell content cannot be manipulated.
+//
+// Classes:
+// xui-editabletablecellreadonly: Sets cell padding
+// xui-editabletablecell-leftaligned: Aligns text left
+// xui-editabletablecell-rightaligned: Aligns text right
+//
+// Tips:
+// Do: If a table is only using read-only cells for its data points, consider using XUI’s [table component](section-components-displayingdata-table.html).
+// Do: Read-only cells should contain data that is clearly static (eg a timestamp) to avoid the user attempting to interact with the cell.
+// Warning: Use caution when combining both interactive and read-only cells in a table as they are styled similarly and could cause confusion to the user of what information is and is not editable. Provide clear header labels to help describe which data is editable or static.
+//
+// ExampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/editable-table/_editable-table-cell-readonly.html
+//
+// Styleguide: Components.DisplayingData.EditableTable.3.4.1
+
+// Text input cells
+//
+// Text input cells are used for displaying and modifying text content. Text input cells house a variant of XUI’s [text input component](section-components-controls-textinput.html), enabling a consistent text manipulation experience and the ability to consume the same properties.
+//
+// If content inside the text input cell is longer than its cell-width, by default the content will overflow horizontally, following the same pattern as the text input component. A multiline variant is available, however, to allow for text to wrap onto a new line.
+//
+// Classes:
+// xui-editabletablecelltextinput: Sets cursor styling
+// xui-editabletablecelltextinput--control: Sets cell styling
+// xui-textinput-cell: Sets cell styling
+// xui-textinput--input-reverse-align: aligns input text right
+//
+// Tips:
+// Do: When cell data is imperative for completing a workflow, use the multiline variant to wrap text content (eg for contact names in a list of contacts), otherwise, ensure the width of the column allows sufficient data entry
+// Do: Use left and right side-elements to provide additional visual components into the text input cell
+//
+// ExampleClass: ds-example-transparent ds-example-flush
+//
+// Note:
+// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+//
+// Markup: ./examples/editable-table/_editable-table-cell-textinput.html
+//
+// Styleguide: Components.DisplayingData.EditableTable.3.4.2
+
+// Select box cells
+//
+// Select box cells are used to trigger a dropdown that contains a list of options. These options can be selected, which can then be represented by replacing the text content inside the cell container (this has to be hooked up manually upon implementation of the select box cell for your particular data). Select box cells house a variant of XUI’s [select box component](section-components-controls-select.html).
+//
+// Classes:
+// xui-editabletablecellselectbox: Sets cell styling
+// xui-editabletablecellselectbox--control: Sets cell styling
+// xui-select-cell: Sets cell styling
+//
+// Tips:
+// Do: Use select box cells when a user needs to select an option (or multiple options) from a small list.
+// Don't: Avoid using a select box cell to display a large number of options in a dropdown as forcing a user to scroll to find an item could cause frustration. Instead, use an autocompleter cell to enable the user to search items.
+//
+// ExampleClass: ds-example-transparent ds-example-flush
+//
+// Note:
+// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+//
+// Markup: ./examples/editable-table/_editable-table-cell-selectbox.html
+//
+// Styleguide: Components.DisplayingData.EditableTable.3.4.3
+
+// Autocompleter cells
+//
+// Autocompleter cells are used to search and select items from a list in a dropdown. These lists could contain any number of items as the search functionality refines the list when characters are entered into the cell. Autocompleter cells house a variant of XUI’s [autocompleter component](section-components-collectinginput-autocompleter.html).
+//
+// Classes:
+// xui-editabletablecellautocompleter: Sets cell styling
+// xui-editabletablecellautocompleter--control: Sets cell styling
+// xui-editabletablecellautocompleter--trigger: Sets cell styling
+//
+// Tips:
+// Do: Trigger dropdown on cell focus to minimise the interactions required for selecting items.
+// Do: Provide smart suggestions or recent items in the dropdown prior to characters being entered for a quick way to populate the cell content.
+// Do: Avoid using an autocompleter cell to display a small number of options in a dropdown as searching may be an unnecessary task for a user to complete. Instead, use a select box cell.
+//
+// ExampleClass: ds-example-transparent ds-example-flush
+//
+// Note:
+// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+//
+// Markup: ./examples/editable-table/_editable-table-cell-autocompleter.html
+//
+// Styleguide: Components.DisplayingData.EditableTable.3.4.4
+
+// Icon button cells
+//
+// Icon button cells are used to provide a single action in a cell that is easily accessible and quick to recognise via the [icon](section-fundamentals-icons.html#fundamentals-icons-7) used inside. Icon button cells house a variant of XUI’s [icon button component](section-components-controls-button.html#components-controls-button-6).
+//
+// Classes:
+// xui-editabletablecelliconbutton: Sets cell styling
+//
+// Tips:
+// Do: Use a `-medium` size variant for icon buttons inside of icon button cells to provide an adequate touch-target size
+// Don't: Don’t provide a header label for icon button columns if it does not provide additional supportive context
+//
+// ExampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/editable-table/_editable-table-cell-iconbutton.html
+//
+// Styleguide: Components.DisplayingData.EditableTable.3.4.5
+
+// Custom cell content
+//
+// While the editable table component provides cell options of-of-the-box for common controls, it is still possible to insert other components within cells. Examples of custom cell content could be inserting components like pills, tags or avatars. When using custom cell content, ensure the experience provided is accessible and responsive.
+//
+// Classes:
+// xui-editabletablecell-withpadding: Adds horizontal cell padding to align content to header label
+//
+// Tips:
+// Do: Ensure users can easily scan custom content inside and across multiple cells
+// Do: Ensure custom cell content does not break in responsive viewports
+// Do: Horizontally align cell content to the header label
+// Do: Provide vertical padding that's appropriate for the content in the cell
+// Do: Provide an accessible user experience when adding custom cell content
+// Do: Consider the keyboard experience, including tab-order when adding custom cell content
+// Do: Provide an appropriate cursor style for hover, active, and focus states when adding custom cell content
+//
+// ExampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/editable-table/_editable-table-cell-customcontent.html
+//
+// Styleguide: Components.DisplayingData.EditableTable.3.4.6
+
+// Disabling
+//
+// Cells in the editable table component can be "disabled" using the available properties or classes. Disabling disallows user interaction of the content inside a cell. Disabling content gives an impression to the user that the content can somehow be enabled again in the future. If content cannot ever be interacted with, consider using a [read-only cell](#components-displayingdata-editabletable-3-4-1) instead.
+//
+// Tips:
+// Do: Disable a single cell when the internal input or other interaction(s) are intended to be blocked
+// Do: Disable all interactive elements within a "disabled" table cell
+// Don't: Use disabled states to display-read only data that would never be interactive
+//
+// Classes:
+// xui-editabletablecell-control-is-disabled: Sets disabled cell styling
+// xui-button-is-disabled: Disables interaction of button component
+// xui-textinput-is-disabled: Disables interaction of text input component
+//
+// ExampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/editable-table/_editable-table-disabling.html
+//
+// Styleguide: Components.DisplayingData.EditableTable.4
+
+// Validation
+//
+// Validating table data is notoriously tricky due to the confined spacing in a cell, and the amount of data that can be presented in a table. XUI provides an `isInvalid` property for each of the supplied editable table cell components which applies the appropriate error validation styling, as well as a `validationMessage` property to describe the error associated with the cell. Additionally, the main table container component has an `isInvalid` property to apply an extra level of validation styling affordance with a `validationMessage` property to describe the error within the context of a workflow.
+//
+// Tips:
+// Do: Cell validation messages should be brief and concise, focussed on fixing the specific issue within the associated cell (eg “Invalid currency amount”)
+// Do: Table container validation message should describe an error in the context of a workflow (eg “Some table data entered is invalid, please fix these entries to send invoice”)
+// Do: If possible, use the table container validation message to guide the user to find where an error in the table is, so that they can navigate to the invalid cell and fix the error quickly (eg “‘Sarah Holloway’ has no salary amount entered. All employees must have a salary amount to submit document”)
+// Do: If a table has multiple cells with errors, make sure to say so in the table container validation message
+//
+// Classes:
+// xui-editabletablewrapper--border: Sets wrapping border style
+// xui-editabletablewrapper--border-is-invalid: Applies red table border
+//
+// Note:
+// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+//
+// ExampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/editable-table/_editable-table-validation.html
+//
+// Styleguide: Components.DisplayingData.EditableTable.5
+
+// Adding and removing rows
+//
+// Styleguide: Components.DisplayingData.EditableTable.6
+
+// Adding new rows - manual
+//
+// Adding a new row is a function sometimes needed for tables that change based on user-entry. Use the visual styling provided via the properties in the `XUIEditableTable` component to give users a consistent experience between products.
+//
+// Classes:
+// xui-editabletablefoot: Sets footer styling
+// xui-editabletableutilitybar: Base class
+// xui-editabletableutilitybar--cell: Sets cell styling
+// xui-editabletableutilitybar--cell--wrapper: Sets cell styling
+//
+// Tips:
+// Do: Place button for adding a new row at the bottom-left of a table, as user testing has shown that is the expected location of the interaction
+// Do: Follow the [interactive example in our React documentation](./react/#editable-table) to provide a consistent experience for displaying and interacting with the "add new row" pattern
+// Warning: For tables with a large number of line items, consider displaying the "add row" action outside of the table, to allow for a more accessible experience without requiring the user to scroll down a great deal
+//
+// Note:
+// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+//
+// Markup: ./examples/editable-table/_editable-table-addrow-manual.html
+//
+// Styleguide: Components.DisplayingData.EditableTable.6.1
+
+// Adding new rows - automatic
+//
+// When data entry is a key workflow (eg entering multiple line items sequentially on an invoice), providing an automatic "add new row" pattern may be a helpful tool to keep users within their workflow, rather than having to switch between data entry and adding new rows.
+//
+// The automatic "add new row" pattern works by displaying a "ghost" row at the bottom of the table which changes into a regular row once data has been entered into any of its cells. The "ghost" row is then shifted down, so there is always an empty row for the user to enter new data into.
+//
+// Tips:
+// Do: Use automatic "add new row" pattern when data entry is a key workflow in the editable table component
+// Do: Follow the [interactive example in our React documentation](./react/#editable-table) to provide a consistent experience for automatically generating new rows as the user enters in data
+//
+// Note:
+// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+//
+// Markup: ./examples/editable-table/_editable-table-addrow-automatic.html
+//
+// Styleguide: Components.DisplayingData.EditableTable.6.2
+
+// Removing rows
+//
+// Removing a row is a function sometimes needed for tables that change based on user-entry. Like adding a row, the `XUIEditableTable` component provides an out-of-the-box experience for deleting rows. This pattern appends an end column to the table, with the column cells containing a trash icon button, which can then be used to trigger a row removal function.
+//
+// Tips:
+// Do: Use a trash icon to indicate removing/deleting a row as users are familiar with the meaning of this icon
+// Do: When line items have multiple associated actions, supply an overflow icon button with "Remove row" or similar as a pickitem in a dropdown
+//
+// Markup: ./examples/editable-table/_editable-table-removerow.html
+//
+// Styleguide: Components.DisplayingData.EditableTable.6.3
+
+// Sorting data
+//
+// Styleguide: Components.DisplayingData.EditableTable.7
+
+// Drag and drop (reordering rows)
+//
+// To provide a natural reordering experience, the editable table component has a feature for applying a "drag to reorder rows" pattern, including styling of the various states before, during, and after dragging and dropping a row. This experience relies on a [React implementation](./react/#editable-table) of the component.
+//
+// Tips:
+// Do: Provide the "drag to reorder" interaction to provide users with a way to rearrange the order of their line items
+// Do: Provide the "drag to reorder" interaction for tables with a small number of rows as the interaction is optimised for rearranging a single item at a time
+// Do: Ensure rearranging interaction can be achieved via keyboard input only
+// Do: Provide adequate messages for screenreader technologies to describe drag and drop interactions
+//
+// Classes:
+// xui-editabletablerow--draghandle: Sets cursor style to `drag`
+//
+// Markup: ./examples/editable-table/_editable-table-draganddrop.html
+//
+// Note:
+// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+//
+// Styleguide: Components.DisplayingData.EditableTable.7.1
+
+// Column sorting
+//
+// *The editable table component doesn’t currently support column sorting, but we have identified this as a feature to be developed in the future. If you have any questions about this or other features, please contact the XUI team.*
+//
+// Styleguide: Components.DisplayingData.EditableTable.7.2
+
+// Responsive treatment
+//
+// The editable table component provides a horizontal overflowing pattern for when the table content extends outside of the available space in its parent container. Additional to the scroll-bar, a gradient is displayed on either side of the table container to provide an indication that there is obscured content. The conditional hiding/showing of the overflow gradient relies on a [React implementation](./react/#editable-table) of the component.
+//
+// Tips:
+// Do: Use an appropriate width for each of the table columns to optimise the available screen real estate
+// Do: Provide an appropriate `minWidth` and `maxWidth` value to the editable table component to ensure the expected experience occurs as the parent container size changes width
+// Do: Ensure the table component width fits inside its parent container, to avoid horizontally clipping data unintentionally
+// Do: If there is not enough space to see all table data in a row within a container, use the prescribed responsive pattern to horizontally overflow content
+// Do: Conditionally hide/show overflow gradients when table content is scrolled to the start/end of the container
+// Do: In narrow containers/viewports, adaptively change the layout of data represented in a table if it makes the user experience faster and more intuitive, eg swapping to use a number of stacked text inputs
+// Do: Consider wrapping content in columns that expect large amounts of text to provide more space for other columns in the table
+// Don't: Avoid truncating text as it obscures the data and can misinform users within their workflow when referencing data
+//
+// Classes:
+// xui-editabletableoverflow: Overflow base styling
+// xui-editabletableoverflow-overflowleft: Displays overflow gradient (left)
+// xui-editabletableoverflow-overflowright: Displays overflow gradient (right)
+//
+// Markup: ./examples/editable-table/_editable-table-responsive.html
+//
+// Note:
+// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+//
+// Styleguide: Components.DisplayingData.EditableTable.8
+
+// Accessibility
+//
+// Editable Table is designed to leverage the best of HTML tables, for accessibility purposes. However, product teams can help support optimal access for users in a few additional ways.
+//
+// Styleguide: Components.DisplayingData.EditableTable.9
+
+// Information architecture
+//
+// Each table heading should have a `scope` attribute that specifies whether it pertains to a column, group of columns, row, or group of rows. “Col” is the default value, when using the `XUIEditableTableHeadingCell` React component.
+//
+// Additionally, tables can receive an ARIA label, which helps provide more context to assistive technology, such as screen readers. A “caption” element is equally accessible, but will display on the page, unless styled not to do so.
+//
+// Styleguide: Components.DisplayingData.EditableTable.9.1
+
+// Keyboard experience
+//
+// The editable table uses standard HTML table keyboard navigation, rather than a “grid” interaction. For the interactive elements within an editable table, this means they can be focused with tab navigation typical to other forms.
+//
+// Tips:
+// Do: Ensure users cannot get trapped within a table cell, row, or container when relying on keyboard for navigation
+//
+// Styleguide: Components.DisplayingData.EditableTable.9.2
+
+// Future editable table features
+//
+// *We have identified a few additional features to be investigated and potentially added to the editable table component in the future. If you have any questions about these or other features, please contact the XUI team.*
+//
+// Definitions:
+// Column sorting via header action:               Likely to follow existing XUI pattern/precendent
+// Bulk selection:		                           Likely to follow existing XUI pattern/precendent
+// Frozen columns:                                 Needs design & development investigation
+// Mobile enhancements:                            Needs design & development investigation
+// Additional item hierarchy:                      Needs design & development investigation. Specifically related to sub-groupings
+// Table style variations:                         Needs design & development investigation. Specifically desired for static presentational table data
+// Information/display density:                    Needs design & development investigation. Relies on some wider density pattern work
+//
+// Styleguide: Components.DisplayingData.EditableTable.10
+
+// Related links
+//
+// Related:
+// * [Table](./section-components-displayingdata-table.html)
+// * [Content block](./section-components-displayingdata-contentblock.html)
+// * [Accordion](./section-components-displayingdata-accordion.html)
+//
+// Styleguide: Components.DisplayingData.EditableTable.99

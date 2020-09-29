@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
+<XUIEditableTableCellControl
+  cellIds={
+    Object {
+      "wrapper": undefined,
+    }
+  }
+  className="xui-editabletablecellselectbox"
+  onClick={[Function]}
+  onMouseDown={[Function]}
+>
+  <SelectBox
+    buttonContent="EditableTable select box"
+    closeAfterSelection={true}
+    containerClasses="xui-editabletablecellselectbox--control"
+    defaultLayout={false}
+    forceDesktop={false}
+    fullWidth="always"
+    isLabelHidden={true}
+    isOpen={false}
+    isTextTruncated={false}
+    label="EditableTable select box"
+    matchTriggerWidth={true}
+    onBlur={[Function]}
+    onFocus={[Function]}
+    restrictFocus={true}
+  >
+    <SelectBoxOption
+      _isMenuItem={true}
+      ariaRole="option"
+      id="a"
+      isDisabled={false}
+      isHighlighted={false}
+      isSelected={false}
+      key="a"
+      showCheckboxes={false}
+      truncatedText={false}
+      value="Apple"
+    >
+      Apple
+    </SelectBoxOption>
+    <SelectBoxOption
+      _isMenuItem={true}
+      ariaRole="option"
+      id="b"
+      isDisabled={false}
+      isHighlighted={false}
+      isSelected={false}
+      key="b"
+      showCheckboxes={false}
+      truncatedText={false}
+      value="Banana"
+    >
+      Banana
+    </SelectBoxOption>
+    <SelectBoxOption
+      _isMenuItem={true}
+      ariaRole="option"
+      id="c"
+      isDisabled={false}
+      isHighlighted={false}
+      isSelected={false}
+      key="c"
+      showCheckboxes={false}
+      truncatedText={false}
+      value="Cucumber"
+    >
+      Cucumber
+    </SelectBoxOption>
+  </SelectBox>
+</XUIEditableTableCellControl>
+`;

@@ -239,11 +239,11 @@ interface Props {
 
 ### Invisible touch targets
 
-Components with a fixed with and height now have an invisible touch target around them that has a minimum width and height of 40px. Visit [our documentation for touch targets](https://xui.xero.com/16.0.0/section-getting-started-responsive.html#getting-started-responsive-3) for more information. If you use our CSS components please refer to [this list of components that will need updating](#invisible-touch-targets). If you use our React components then touch targets have been added already.
+Components with a fixed with and height now have an invisible touch target around them that has a minimum width and height of 40px. Visit [our documentation for touch targets](https://xui.xero.com/17.0.0/section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4) for more information. If you use our React components then touch targets have been added already. If you use our CSS components, the following components will need updating:
 
 Components with invisible touch targets:
 
-- [XUIIconButton](https://xui.xero.com/16.0.0/react/#icon-button)
-- [XUICheckbox](https://xui.xero.com/16.0.0/react/#checkbox) and [XUIRolloverCheckbox](https://xui.xero.com/16.0.0/react/#rollover-checkbox)
-- [XUIRadio](https://xui.xero.com/16.0.0/react/#radio)
-- [XUISwitch](https://xui.xero.com/16.0.0/react/#switch)
+- [XUIIconButton](https://xui.xero.com/17.0.0/section-components-controls-button.html#components-controls-button-6)
+- [XUICheckbox](https://xui.xero.com/17.0.0/section-components-controls-checkbox.html) and [XUIRolloverCheckbox](https://xui.xero.com/17.0.0/section-components-controls-checkbox.html#components-controls-checkbox-11)
+- [XUIRadio](https://xui.xero.com/17.0.0/section-components-controls-radio.html)
+- [XUISwitch](https://xui.xero.com/17.0.0/section-components-controls-switch.html)

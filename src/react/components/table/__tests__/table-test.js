@@ -41,7 +41,7 @@ describe('<XUITable />', () => {
           createOverflowMenu: () => {},
         },
       };
-      const exampleTable = renderer.create(<TestScaffold {...settings} ></TestScaffold>);
+      const exampleTable = renderer.create(<TestScaffold {...settings}></TestScaffold>);
       expect(exampleTable).toMatchSnapshot();
     });
   });

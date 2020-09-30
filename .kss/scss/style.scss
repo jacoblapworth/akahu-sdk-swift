@@ -141,6 +141,7 @@ $ds-section-space: calc(6rem + 2vh);
   padding: 20px;
   border: 1px solid $ds-border-color;
   border-radius: $xui-radius;
+  margin-top: 20px;
 }
 
 *[class^='ds-title'] + *[class^='ds-title'] {
@@ -150,6 +151,10 @@ $ds-section-space: calc(6rem + 2vh);
 *[class^='ds-title']:first-child,
 .ds-h0:first-child {
   margin-top: 0;
+}
+
+.ds-title--level-4 .ds-anchor-hash {
+  margin: 4px 0 0 4px;
 }
 
 // Page anchors

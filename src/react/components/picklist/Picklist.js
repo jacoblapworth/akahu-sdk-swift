@@ -51,6 +51,7 @@ export default class Picklist extends Component {
     const {
       children,
       className,
+      closeOnSelect,
       id,
       onKeyDown,
       onMouseDown,
@@ -109,6 +110,7 @@ export default class Picklist extends Component {
         ) : (
           <TabDropDown
             className={className}
+            closeOnSelect={closeOnSelect}
             dropdownList={newChildren}
             size={listLevelProps.listSize}
             ulProps={{ ...ulProps, className: listClasses }}
@@ -123,6 +125,12 @@ export default class Picklist extends Component {
 Picklist.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  /**
+   * Whether or not the tab-styled dropdown should be automatically hidden when the user selects something.
+   * Only used when `swapAtBreakpoint` is set. Defaults to `true`.<br>
+   * ⚠️ *Horizontal picklists only*
+   */
+  closeOnSelect: PropTypes.bool,
   qaHook: PropTypes.string,
   /** Id to be applied to the root HTML element */
   id: PropTypes.string,

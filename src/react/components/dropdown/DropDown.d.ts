@@ -112,12 +112,12 @@ export default class DropDown extends React.PureComponent<Props> {
   /**
    * Get the React virtual DOM representation of the currently highlighted element.
    */
-  getHighlighted(): null | Pickitem;
+  getHighlighted(): Pickitem | null;
 
   /**
    * Get the ID of the currently highlighted element.
    */
-  getHighlightedId(): null | string;
+  getHighlightedId(): string | null;
 
   /**
    * Highlights the previous item in the list.

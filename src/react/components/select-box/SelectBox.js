@@ -14,6 +14,8 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds from '../controlwrapper/helpers';
 
+import EditableTableCellContext from '../../contexts/EditableTableCellContext';
+
 /**
  * If a qaHook is supplied in component props this helper provides a suffix for
  * sub-components
@@ -38,129 +40,148 @@ export default class SelectBox extends Component {
   isDropDownOpen = () => !!this.ddt && this.ddt.isDropDownOpen();
 
   render() {
-    const selectBox = this;
-    const {
-      buttonClasses,
-      buttonContent,
-      buttonVariant,
-      caretTitle,
-      children,
-      closeAfterSelection,
-      containerClasses,
-      defaultLayout,
-      dropDownClasses,
-      forceDesktop,
-      fullWidth,
-      hintMessage,
-      inputGroupClasses,
-      isDisabled,
-      isFieldLayout,
-      isInvalid,
-      isLabelHidden,
-      isOpen,
-      isTextTruncated,
-      label,
-      labelClassName,
-      matchTriggerWidth,
-      onDropdownHide,
-      onSelect,
-      qaHook,
-      restrictFocus,
-      size,
-      validationMessage,
-    } = this.props;
-
-    const buttonClassNames = cn(
-      `${selectBaseClass}--button`,
-      !buttonVariant && `${selectBaseClass}--button-no-variant`,
-      buttonClasses,
-    );
-    const inputGroupClassNames = cn(
-      defaultLayout && `${selectBaseClass}-layout`,
-      inputGroupClasses,
-      isInvalid && `${selectBaseClass}-is-invalid`,
-    );
-
-    const trigger = (
-      <XUIButton
-        className={buttonClassNames}
-        fullWidth={fullWidth}
-        id={this.wrapperIds.control}
-        isDisabled={isDisabled}
-        qaHook={setQaHook(qaHook, qaHooks.button)}
-        ref={c => (selectBox.trigger = c)}
-        size={size}
-        type="button"
-        variant={buttonVariant}
-      >
-        <span
-          className={cn(
-            `${selectBaseClass}--content`,
-            isTextTruncated && `${selectBaseClass}--content-truncated`,
-          )}
-        >
-          {buttonContent}
-        </span>
-        <XUIButtonCaret
-          className={`${selectBaseClass}--caret`}
-          qaHook={setQaHook(qaHook, qaHooks.buttonIcon)}
-          title={caretTitle}
-        />
-      </XUIButton>
-    );
-
-    const dropdown = (
-      <DropDown
-        // These aria attributes currently go nowhere
-        ariaAttributes={getAriaAttributes(this.wrapperIds.control, this.props)}
-        className={dropDownClasses}
-        id={selectBox.selectId}
-        onSelect={onSelect}
-        qaHook={setQaHook(qaHook, qaHooks.dropdown)}
-        restrictFocus={restrictFocus}
-      >
-        <Picklist>{children}</Picklist>
-      </DropDown>
-    );
-
     return (
-      <div className={containerClasses} data-automationid={qaHook}>
-        <XUIControlWrapper
-          isFieldLayout={isFieldLayout}
-          qaHook={setQaHook(qaHook, qaHooks.label)}
-          wrapperIds={this.wrapperIds}
-          {...{
-            isLabelHidden,
-            label,
-            isInvalid,
-            validationMessage,
+      <EditableTableCellContext.Consumer>
+        {({ useCellStyling, cellAttributes }) => {
+          const selectBox = this;
+          const {
+            buttonClasses,
+            buttonContent,
+            buttonVariant,
+            caretTitle,
+            children,
+            closeAfterSelection,
+            containerClasses,
+            defaultLayout,
+            dropDownClasses,
+            forceDesktop,
+            fullWidth,
             hintMessage,
+            inputGroupClasses,
+            isDisabled,
+            isFieldLayout,
+            isInvalid,
+            isLabelHidden,
+            isOpen,
+            isTextTruncated,
+            label,
             labelClassName,
-          }}
-        >
-          <div
-            className={inputGroupClassNames}
-            data-automationid={setQaHook(qaHook, qaHooks.inputGroup)}
-          >
-            {React.Children.count(children) === 0 ? (
-              trigger
-            ) : (
-              <DropDownToggled
-                closeOnSelect={closeAfterSelection}
-                dropdown={dropdown}
-                forceDesktop={forceDesktop}
-                isBlock
-                isHidden={!isOpen}
-                matchTriggerWidth={matchTriggerWidth}
-                onClose={onDropdownHide}
-                qaHook={setQaHook(qaHook, qaHooks.dropdownToggled)}
-                ref={c => (selectBox.ddt = c)}
-                trigger={trigger}
+            matchTriggerWidth,
+            onBlur,
+            onDropdownHide,
+            onFocus,
+            onSelect,
+            qaHook,
+            restrictFocus,
+            size,
+            validationMessage,
+          } = this.props;
+
+          const buttonClassNames = cn(
+            `${selectBaseClass}--button`,
+            !buttonVariant && `${selectBaseClass}--button-no-variant`,
+            buttonClasses,
+          );
+          const inputGroupClassNames = cn(
+            defaultLayout && `${selectBaseClass}-layout`,
+            inputGroupClasses,
+            !useCellStyling && isInvalid && `${selectBaseClass}-is-invalid`,
+          );
+
+          const containerClassNames = cn(
+            useCellStyling && `${selectBaseClass}-cell`,
+            containerClasses,
+          );
+
+          const ariaAttributes = cellAttributes || getAriaAttributes(this.wrapperIds, this.props);
+
+          const trigger = (
+            <XUIButton
+              _useCellStyling={useCellStyling}
+              {...ariaAttributes}
+              className={buttonClassNames}
+              fullWidth={fullWidth}
+              id={this.wrapperIds.control}
+              isDisabled={isDisabled}
+              onBlur={onBlur}
+              onFocus={onFocus}
+              qaHook={setQaHook(qaHook, qaHooks.button)}
+              ref={c => (selectBox.trigger = c)}
+              size={size}
+              type="button"
+              variant={buttonVariant}
+            >
+              <span
+                className={cn(
+                  `${selectBaseClass}--content`,
+                  isTextTruncated && `${selectBaseClass}--content-truncated`,
+                )}
+              >
+                {buttonContent}
+              </span>
+              <XUIButtonCaret
+                className={`${selectBaseClass}--caret`}
+                qaHook={setQaHook(qaHook, qaHooks.buttonIcon)}
+                title={caretTitle}
               />
-            )}
-          </div>
-        </XUIControlWrapper>
-      </div>
+            </XUIButton>
+          );
+
+          const dropdown = (
+            <DropDown
+              // These aria attributes currently go nowhere
+              ariaAttributes={getAriaAttributes(this.wrapperIds.control, this.props)}
+              className={dropDownClasses}
+              id={selectBox.selectId}
+              onSelect={onSelect}
+              qaHook={setQaHook(qaHook, qaHooks.dropdown)}
+              restrictFocus={restrictFocus}
+            >
+              <Picklist>{children}</Picklist>
+            </DropDown>
+          );
+
+          return (
+            <div className={containerClassNames} data-automationid={qaHook}>
+              <XUIControlWrapper
+                isFieldLayout={isFieldLayout}
+                qaHook={setQaHook(qaHook, qaHooks.label)}
+                wrapperIds={this.wrapperIds}
+                {...{
+                  isLabelHidden,
+                  label,
+                  isInvalid,
+                  validationMessage,
+                  hintMessage,
+                  labelClassName,
+                }}
+              >
+                <div
+                  className={inputGroupClassNames}
+                  data-automationid={setQaHook(qaHook, qaHooks.inputGroup)}
+                >
+                  {React.Children.count(children) === 0 ? (
+                    trigger
+                  ) : (
+                    <DropDownToggled
+                      closeOnSelect={closeAfterSelection}
+                      dropdown={dropdown}
+                      forceDesktop={forceDesktop}
+                      isBlock
+                      isHidden={!isOpen}
+                      matchTriggerWidth={matchTriggerWidth}
+                      onClose={onDropdownHide}
+                      qaHook={setQaHook(qaHook, qaHooks.dropdownToggled)}
+                      ref={c => (selectBox.ddt = c)}
+                      trigger={trigger}
+                    />
+                  )}
+                </div>
+              </XUIControlWrapper>
+            </div>
+          );
+        }}
+      </EditableTableCellContext.Consumer>
     );
   }
 }
@@ -200,6 +221,12 @@ SelectBox.propTypes = {
 
   /** Optional callback to be executed when dropdown closes */
   onDropdownHide: PropTypes.func,
+
+  /** Optional callback to be executed when the trigger loses focus */
+  onBlur: PropTypes.func,
+
+  /** Optional callback to be executed when the trigger gains focus */
+  onFocus: PropTypes.func,
 
   /** for adding automation ID to component as well as input and button sub-components */
   qaHook: PropTypes.string,

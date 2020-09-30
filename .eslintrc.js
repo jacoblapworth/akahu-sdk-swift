@@ -78,6 +78,7 @@ module.exports = {
     'simple-import-sort/sort': 'error',
     'typescript-sort-keys/interface': 2,
     'typescript-sort-keys/string-enum': 2,
+    '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/interface-name-prefix': [
       'error',
       {
@@ -132,7 +133,6 @@ module.exports = {
         '@typescript-eslint/camelcase': 'off',
         '@typescript-eslint/class-name-casing': 'off',
         '@typescript-eslint/consistent-type-assertions': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/interface-name-prefix': 'off',
         '@typescript-eslint/member-delimiter-style': 'off',
         '@typescript-eslint/no-array-constructor': 'off',

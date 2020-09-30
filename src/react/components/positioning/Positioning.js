@@ -204,10 +204,16 @@ class Positioning extends PureComponent {
    * @public
    */
   positionComponent = () => {
-    const { parentRef, isNotResponsive, viewportGutter, triggerDropdownGap } = this.props;
+    const {
+      parentRef,
+      isNotResponsive,
+      leaveRoomForValidationMessage,
+      viewportGutter,
+      triggerDropdownGap,
+    } = this.props;
 
     if (parentRef) {
-      const triggerDOM = getTriggerNodeFromParentRef(parentRef);
+      const triggerDOM = getTriggerNodeFromParentRef(parentRef, leaveRoomForValidationMessage);
       const popupRect = this.positionEl && this.positionEl.firstChild.getBoundingClientRect();
 
       if (isBaseRendered(popupRect)) {
@@ -237,6 +243,7 @@ class Positioning extends PureComponent {
   calculateMaxHeight = () => {
     const {
       viewportGutter,
+      leaveRoomForValidationMessage,
       parentRef,
       triggerDropdownGap,
       maxHeight,
@@ -247,7 +254,7 @@ class Positioning extends PureComponent {
       return;
     }
 
-    const triggerDOM = getTriggerNodeFromParentRef(parentRef);
+    const triggerDOM = getTriggerNodeFromParentRef(parentRef, leaveRoomForValidationMessage);
 
     if (verge.inViewport(triggerDOM)) {
       if (!isNotResponsive && isNarrowViewport()) {
@@ -279,10 +286,16 @@ class Positioning extends PureComponent {
    */
   getStyles = () => {
     const { maxHeight, transform, top, bottom, marginLeft } = this.state;
-    const { isTriggerWidthMatched, parentRef, isNotResponsive } = this.props;
+    const {
+      isTriggerWidthMatched,
+      leaveRoomForValidationMessage,
+      parentRef,
+      isNotResponsive,
+    } = this.props;
 
     const isMobile = isNarrowViewport() && !isNotResponsive;
-    const triggerElement = parentRef != null && getTriggerNodeFromParentRef(parentRef);
+    const triggerElement =
+      parentRef && getTriggerNodeFromParentRef(parentRef, leaveRoomForValidationMessage);
 
     const shouldMatchTriggerWidth = isTriggerWidthMatched && !isMobile && triggerElement != null;
     const width = shouldMatchTriggerWidth ? triggerElement.getBoundingClientRect().width : null;
@@ -331,6 +344,8 @@ Positioning.propTypes = {
   qaHook: PropTypes.string,
   /** true when the component is rendered but not displayed */
   isVisible: PropTypes.bool,
+  /** Prevent the positioned element from sitting over the trigger's validation message */
+  leaveRoomForValidationMessage: PropTypes.bool,
   /** A DOM object of the parent node. */
   parentRef: PropTypes.object,
   /** A buffer value added to measure between the edge of the viewport and the component before

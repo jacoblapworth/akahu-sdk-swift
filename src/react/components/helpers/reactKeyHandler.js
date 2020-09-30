@@ -8,6 +8,10 @@ export const eventKeyValues = {
   escape: 'Escape',
   tab: 'Tab',
   backspace: 'Backspace',
+  shift: 'Shift',
+  meta: 'Meta',
+  control: 'Control',
+  alt: 'Alt',
 };
 
 const arrowKeys = [
@@ -27,7 +31,6 @@ const clickKeys = [eventKeyValues.space, eventKeyValues.enter];
  * @returns {boolean}
  */
 export const matchOneOfKeys = (event, keysToCheck) => keysToCheck.indexOf(event.key) > -1;
-
 /**
  * Is the keyboard event triggered by a directional arrow key
  *
@@ -63,3 +66,22 @@ export const isKeySpacebar = event => event.key === eventKeyValues.space;
  * @returns {boolean}
  */
 export const isKeyShiftTab = event => event.key === eventKeyValues.tab && event.shiftKey;
+
+/**
+ * Is the keyboard event from a functional key (tab, enter, escape, backspace, shift, control, alt or meta).
+ *
+ * @export
+ * @param {SyntheticEvent} event
+ * @returns {boolean}
+ */
+export const isKeyFunctional = event =>
+  matchOneOfKeys(event, [
+    eventKeyValues.tab,
+    eventKeyValues.enter,
+    eventKeyValues.escape,
+    eventKeyValues.backspace,
+    eventKeyValues.shift,
+    eventKeyValues.control,
+    eventKeyValues.alt,
+    eventKeyValues.meta,
+  ]);

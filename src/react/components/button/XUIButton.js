@@ -12,6 +12,7 @@ import {
 import { ns } from '../helpers/xuiClassNamespace';
 import noop from '../helpers/noop';
 import SizeContext from '../../contexts/SizeContext';
+import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 
 /**
  * Returns true if the button is a borderless variant
@@ -92,6 +93,7 @@ export default class XUIButton extends React.PureComponent {
             target,
             type,
             variant,
+            _useCellStyling,
             ...spreadProps
           } = this.props;
 
@@ -139,9 +141,9 @@ export default class XUIButton extends React.PureComponent {
           const buttonClassNames = cn(
             `${ns}-button`,
             className,
-            variantClass,
+            !_useCellStyling && variantClass,
             combinedPropClassNames,
-            buttonDisabled && `${ns}-button-is-disabled`,
+            !_useCellStyling && buttonDisabled && `${ns}-button-is-disabled`,
           );
 
           const clickHandler =
@@ -267,6 +269,9 @@ XUIButton.propTypes = {
 
   /** Use this to specify a min width on the button, when you want to swap to loading states */
   minLoaderWidth: PropTypes.bool,
+
+  /** Internal use only, used to assist with styling a button to look like part of a table */
+  _useCellStyling: PropTypes.bool,
 };
 
 XUIButton.defaultProps = {

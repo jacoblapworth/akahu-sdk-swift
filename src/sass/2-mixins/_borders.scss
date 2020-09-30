@@ -1,0 +1,51 @@
+@import '../vars';
+
+/*
+Simulates a border on all sides using box-shadow.
+
+$border-color - The colour of the border
+*/
+@mixin xui-shadow-border-all($border-color: $xui-standard-shadow-color, $is-inset: false) {
+  $inset: if($is-inset, inset, null);
+  box-shadow: 0 0 0 1px $border-color $inset;
+}
+
+/*
+Simulates a border on the top side using box-shadow.
+
+$border-color - The colour of the border
+*/
+@mixin xui-shadow-border-top($border-color: $xui-standard-shadow-color, $is-inset: false) {
+  $inset: if($is-inset, inset, null);
+  box-shadow: 0 -1px 0 0 $border-color $inset;
+}
+
+/*
+Simulates a border on the right side using box-shadow.
+
+$border-color - The colour of the border
+*/
+@mixin xui-shadow-border-right($border-color: $xui-standard-shadow-color, $is-inset: false) {
+  $inset: if($is-inset, inset, null);
+  box-shadow: 1px 0 0 0 $border-color $inset;
+}
+
+/*
+Simulates a border on the bottom side using box-shadow.
+
+$border-color - The colour of the border
+*/
+@mixin xui-shadow-border-bottom($border-color: $xui-standard-shadow-color, $is-inset: false) {
+  $inset: if($is-inset, inset, null);
+  box-shadow: 0 1px 0 0 $border-color $inset;
+}
+
+/*
+Simulates a border on the left side using box-shadow.
+
+$border-color - The colour of the border
+*/
+@mixin xui-shadow-border-left($border-color: $xui-standard-shadow-color, $is-inset: false) {
+  $inset: if($is-inset, inset, null);
+  box-shadow: -1px 0 0 0 $border-color $inset;
+}

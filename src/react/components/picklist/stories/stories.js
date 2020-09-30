@@ -125,6 +125,7 @@ storiesWithKnobs.add('Playground', () => {
   return (
     <XUIPanel style={{ width: limitWidth && '400px' }}>
       <XUIPicklist
+        closeOnSelect={boolean('closeOnSelect', true)}
         defaultLayout={boolean('defaultLayout', true)}
         isHorizontal={boolean('isHorizontal', false)}
         isMultiselect={isMultiselect}

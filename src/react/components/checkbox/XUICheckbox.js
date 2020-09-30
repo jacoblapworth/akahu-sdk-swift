@@ -125,6 +125,7 @@ const buildCheckbox = (qaHook, htmlClassName, svgSettings, calculatedSize) => {
 export default class XUICheckbox extends PureComponent {
   // User can manually provide an id, or we will generate one.
   wrapperIds = generateIds(this.props.labelId);
+
   _input = React.createRef();
 
   componentDidMount() {
@@ -349,7 +350,10 @@ XUICheckbox.propTypes = {
   hintMessage: PropTypes.node,
   /** Size variant. Defaults to medium */
   size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
-  /** Whether this checkbox was generated as part of a rollover checkbox */
+  /**
+   * Whether this checkbox was generated as part of a rollover checkbox
+   * @ignore
+   */
   _isRollOver: PropTypes.bool,
   /** Props to be spread onto the checkbox element itself */
   inputProps: PropTypes.object,

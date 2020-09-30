@@ -42,7 +42,7 @@ class XUIInnerPill extends PureComponent {
     );
 
     const contents = (
-      <Fragment>
+      <>
         <LeftVisualEl
           avatar={avatar}
           avatarProps={avatarProps}
@@ -51,7 +51,7 @@ class XUIInnerPill extends PureComponent {
         />
         {secondaryTextEl}
         {valueEl}
-      </Fragment>
+      </>
     );
 
     return href || onClick ? (

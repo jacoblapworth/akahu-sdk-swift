@@ -1,17 +1,17 @@
 // Libs
 import React, { Component } from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean, text, object, array } from '@storybook/addon-knobs';
+import centered from '@storybook/addon-centered/react';
+
 // Components we need to test with
 import XUIBanner from '../XUIBanner';
 import XUIBannerAction from '../XUIBannerAction';
 import XUIBannerActions from '../XUIBannerActions';
 import XUIBannerMessage from '../XUIBannerMessage';
 import XUIBannerMessageDetail from '../XUIBannerMessageDetail';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { boolean, text, object, array } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName, NOOP } from './variations';
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { colorClasses, rotationClasses, wrapperSizeClasses } from '../icon/private/constants';
 import { XUIIconData } from '../icon/XUIIcon';
-import { Props as XUIButtonProps } from './XUIButton';
+import XUIButton from './XUIButton';
 
 interface BaseProps {
   /**
@@ -38,7 +38,7 @@ interface BaseProps {
 }
 
 type DerivedProps = Omit<
-  XUIButtonProps,
+  React.ComponentProps<typeof XUIButton>,
   | 'fullWidth'
   | 'isGrouped'
   | 'isLoading'

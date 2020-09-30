@@ -68,6 +68,7 @@ export default class XUIControlWrapperInline extends PureComponent {
           data-automationid={qaHook}
           onClick={onClick}
           onKeyDown={onKeyDown}
+          // eslint-disable-next-line jsx-a11y/no-interactive-element-to-noninteractive-role
           role="presentation"
         >
           {children}

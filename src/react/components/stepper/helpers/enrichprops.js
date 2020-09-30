@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import NOOP from '../../helpers/noop';
-import { NAME_SPACE, INLINE, LAYOUTS } from '../helpers/constants';
-import { createAriaTabId, createAriaPanelId } from '../helpers/utilities';
+import { NAME_SPACE, INLINE, LAYOUTS } from './constants';
+import { createAriaTabId, createAriaPanelId } from './utilities';
 
 export const enrichTabProps = props => {
   const { isDisabled, isError, totalProgress, updateCurrentStep } = props;

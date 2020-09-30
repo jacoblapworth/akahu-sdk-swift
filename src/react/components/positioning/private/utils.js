@@ -51,7 +51,8 @@ function getAlignment({
     (centeredOverhang <= 0 || centeredOverhang <= smallerDimension - viewportGutter)
   ) {
     return requestedAlignment;
-  } else if (popupAlignOverhang <= oppositeSideSpace[requestedAlignment] - viewportGutter) {
+  }
+  if (popupAlignOverhang <= oppositeSideSpace[requestedAlignment] - viewportGutter) {
     return requestedAlignment;
   }
 
@@ -64,7 +65,8 @@ function getAlignment({
       return spaces.left < spaces.right ? 'left' : 'right';
     }
     return flipDirection[requestedAlignment];
-  } else if (!useDropdownPositioning && centeredOverhang <= smallerDimension - viewportGutter) {
+  }
+  if (!useDropdownPositioning && centeredOverhang <= smallerDimension - viewportGutter) {
     return 'center';
   }
 
@@ -83,11 +85,14 @@ function getTopOffset(side, alignment, triggerHeight, triggerDropdownGap) {
   // Offset the relatively positioned wrapper for ease, in some cases.
   if (side === 'top') {
     return `-${triggerHeight + triggerDropdownGap}px`;
-  } else if (alignment === 'top') {
+  }
+  if (alignment === 'top') {
     return `-${triggerHeight}px`;
-  } else if (side !== 'bottom' && alignment === 'center') {
+  }
+  if (side !== 'bottom' && alignment === 'center') {
     return `-${triggerHeight / 2}px`;
-  } else if (alignment === 'bottom') {
+  }
+  if (alignment === 'bottom') {
     return 'auto';
   }
   return `${triggerDropdownGap}px`;
@@ -125,10 +130,12 @@ export const alignBaseWithTrigger = (popupRect, triggerDOM, popup) => {
     // First, happy case.
     if (dimensionToCheck <= sameSideSpace[side] - viewportGutter - triggerDropdownGap) {
       return side;
-    } else if (dimensionToCheck <= oppositeSideSpace[side] - viewportGutter - triggerDropdownGap) {
+    }
+    if (dimensionToCheck <= oppositeSideSpace[side] - viewportGutter - triggerDropdownGap) {
       // Flip case.
       return flipDirection[side];
-    } else if (useDropdownPositioning) {
+    }
+    if (useDropdownPositioning) {
       // If positioning with top/bottom dropdown behavior, don't even try the flip.
       return 'bottom';
     }

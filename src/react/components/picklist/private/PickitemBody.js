@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { pickitemClassName, itemBodyClassName, itemTextClassName } from '../private/constants';
+import { pickitemClassName, itemBodyClassName, itemTextClassName } from './constants';
 import { XUIButtonCaret } from '../../../button';
 
 /**
@@ -59,10 +59,10 @@ const PickitemBody = ({
         {children}
       </span>
     ) : (
-      <Fragment>
+      <>
         {primaryElement}
         {children}
-      </Fragment>
+      </>
     );
 
   return (

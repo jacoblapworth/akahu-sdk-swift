@@ -41,7 +41,7 @@ class StackedBar extends PureComponent {
     };
 
     return (
-      <Fragment>
+      <>
         <rect {...baseProps} rx={BAR_RADIUS} ry={BAR_RADIUS} />
         {
           // Remove the masks rounded corners on the bars "top" / "bottom" sides
@@ -57,7 +57,7 @@ class StackedBar extends PureComponent {
             y={barTop + (barHeight - cornerOverrideHeight)}
           />
         )}
-      </Fragment>
+      </>
     );
   };
 

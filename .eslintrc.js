@@ -65,27 +65,20 @@ module.exports = {
     'react/no-did-mount-set-state': 0,
     // TODO: Decide whether or not we want to turn any of the below options on. They came in during an ESLint update so I turned them all off for now. Each of these could still be turned off for special use-cases if needed.
     'import/extensions': 'off', // 113 instances
-    'import/order': 'off', // 104 instances
     'jest/no-export': 'off', // 1 instance
     'jest/no-test-callback': 'off', // 1 instance
-    'jsx-a11y/label-has-associated-control': 'off', // 1 instance
-    'jsx-a11y/no-interactive-element-to-noninteractive-role': 'off', // 1 instance
-    'lines-between-class-members': 'off', // 39 instances
-    'max-classes-per-file': 'off', // 6 instances
-    'no-else-return': 'off', // 7 instances
-    'react/destructuring-assignment': 'off', // 188 instances
-    'react/jsx-fragments': 'off', // 17 instances
-    'react/jsx-one-expression-per-line': 'off', // 42 instances
-    'react/jsx-props-no-spreading': 'off', // 245 instances
-    'react/jsx-wrap-multilines': 'off', // 38 instances
-    'react/no-access-state-in-setstate': 'off', // 3 instances
-    'react/state-in-constructor': 'off', // 29 instances
-    'react/static-property-placement': 'off', // 3 instances
+    'jsx-a11y/label-has-associated-control': 'off', // 1 instance - rule may be too simple for implementation in XUIControlWrapperInline
+    'react/jsx-one-expression-per-line': 'off', // 42 instances - conflicts with prettier too much (and does weird things for inline variables in divs)
+    'react/jsx-props-no-spreading': 'off', // 245 instances - this will be a ton of work, and may cause problems depending on what consumer props need to be passed through
+    'react/jsx-wrap-multilines': 'off', // 38 instances - conflicts with prettier, minimal benefit for the inconvenience
+    'react/state-in-constructor': 'off', // 29 instances - an older pattern, no real benefits
+    'react/destructuring-assignment': 'off', // 188 instances - forces destructuring when accessing a single prop/state variable
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'simple-import-sort/sort': 'error',
     'typescript-sort-keys/interface': 2,
     'typescript-sort-keys/string-enum': 2,
+    '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/interface-name-prefix': [
       'error',
       {
@@ -140,7 +133,6 @@ module.exports = {
         '@typescript-eslint/camelcase': 'off',
         '@typescript-eslint/class-name-casing': 'off',
         '@typescript-eslint/consistent-type-assertions': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/interface-name-prefix': 'off',
         '@typescript-eslint/member-delimiter-style': 'off',
         '@typescript-eslint/no-array-constructor': 'off',
@@ -160,7 +152,6 @@ module.exports = {
         '@typescript-eslint/type-annotation-spacing': 'off',
         'import/named': 'off',
         // TODO: Decide whether or not we want to turn any of the below options on. They came in during an ESLint update so I turned them all off for now. Each of these could still be turned off for special use-cases if needed.
-        'import/no-useless-path-segments': 'off', // 10 instances
         'simple-import-sort/sort': 'off',
       },
     },

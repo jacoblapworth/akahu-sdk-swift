@@ -39,45 +39,16 @@ export default class XUIComponent extends React.Component<Props> {}
 
 ### Exporting type definitions for props
 
-Type definitions for props should only be exported where needed, and should be for **internal use only**.
+To access the props of a XUI component, use React's `React.ComponentProps<typeof XUIComponent>` type.
 
 ```tsx
-export interface Props {}
+import XUIComponent from '@xero/xui/react/component';
 
-export default class XUIComponent extends React.Component<Props> {}
-```
-
-```tsx
-interface BaseProps {
-  exampleProp?: string;
-}
-interface EmptyStateComponentProps {
-  emptyStateComponent: React.ReactNode;
-}
-interface EmptyStateMessageProps {
-  emptyStateMessage: string;
+interface MyComponentProps {
+  xuiComponentProps: React.ComponentProps<typeof XUIComponent>;
 }
 
-type EmptyStateProps = EmptyStateComponentProps | EmptyStateMessageProps;
-export type Props = BaseProps & EmptyStateProps;
-
-export default class XUIComponent extends React.Component<Props> {}
-```
-
-If we identify a need to export the type definitions for props, they should be exported from the component's corresponding module export file. If you do this, be sure to also update this section of the style guide to better describe the new process.
-
-```tsx
-import XUIComponent, { Props as XUIComponentProps } from './components/component/XUIComponent';
-
-export { XUIComponent as default, XUIComponent, XUIComponentProps };
-```
-
-### Importing type definitions for props
-
-When importing type definitions for props, name them after to the component they belong to.
-
-```tsx
-import { Props as XUIAccordionProps } from '../accordion/XUIAccordion';
+class MyComponent extends React.Component<MyComponentProps> {}
 ```
 
 ### Prop documentation

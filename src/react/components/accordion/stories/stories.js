@@ -1,17 +1,24 @@
 import React from 'react';
+
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean } from '@storybook/addon-knobs';
+
+// Components we need to test with
+import overflowPathData from '@xero/xui-icon/icons/overflow';
 import XUIAccordion from '../XUIAccordion';
 import XUIAccordionItem from '../XUIAccordionItem';
-import { storiesOf } from '@storybook/react';
-import { boolean, number } from '@storybook/addon-knobs';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
-import { variations, storiesWithVariationsKindName } from './variations';
-import { createArray } from '../../progressindicator/helpers/utilities';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 import XUIContentBlock from '../../contentblock/XUIContentBlock';
 import XUIContentBlockItem from '../../contentblock/XUIContentBlockItem';
-import overflowPathData from '@xero/xui-icon/icons/overflow';
+
+import { createArray } from '../../progressindicator/helpers/utilities';
+
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
+
+import { variations, storiesWithVariationsKindName } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 

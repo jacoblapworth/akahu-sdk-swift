@@ -93,6 +93,10 @@ const componentsToTest = [
     ...fullPageSettings,
   },
   {
+    testsPrefix: 'XUI Editable table',
+    variationsPath: `${variationsPath}/editabletable/stories/variations.js`,
+  },
+  {
     testsPrefix: 'XUI FileUploader',
     variationsPath: `${variationsPath}/fileUploader/stories/variations.js`,
   },

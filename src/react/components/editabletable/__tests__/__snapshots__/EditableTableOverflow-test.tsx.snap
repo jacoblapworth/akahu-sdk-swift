@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditableTableOverflow composes the className correctly 1`] = `
+<ForwardRef
+  className="test-classname"
+>
+  <div
+    className="test-classname xui-editabletableoverflow"
+  />
+</ForwardRef>
+`;
+
+exports[`EditableTableOverflow renders correctly 1`] = `
+<ForwardRef>
+  <div
+    className="xui-editabletableoverflow"
+  />
+</ForwardRef>
+`;

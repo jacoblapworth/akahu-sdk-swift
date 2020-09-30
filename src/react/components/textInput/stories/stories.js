@@ -2,22 +2,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean, object, text, select, number } from '@storybook/addon-knobs';
+import centered from '@storybook/addon-centered/react';
+
 // Components we need to test with
+import clearPath from '@xero/xui-icon/icons/clear';
+import facebookPath from '@xero/xui-icon/icons/social-facebook';
 import XUITextInput from '../XUITextInput';
 import XUITextInputSideElement from '../XUITextInputSideElement';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { boolean, object, text, select, number } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';
-import clearPath from '@xero/xui-icon/icons/clear';
-import facebookPath from '@xero/xui-icon/icons/social-facebook';
 import XUIPill from '../../pill/XUIPill';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import { sizeShift } from '../../helpers/sizes';

@@ -1,0 +1,316 @@
+@import '../vars';
+@import '../mixins';
+
+$xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to remove unwanted surrounding space
+
+@keyframes #{$ns}-drag-shadow-animation {
+  from {
+    box-shadow: 0 0 0 0 $xui-standard-shadow-color;
+  }
+
+  to {
+    box-shadow: 0 3px 6px 0 $xui-standard-shadow-color;
+  }
+}
+
+@mixin xui-editabletablecell {
+  @include xui-shadow-border-all($xui-standard-border-color);
+  height: $xui-minimum-touch-target;
+  padding: 0px;
+  vertical-align: top;
+}
+
+@mixin xui-editabletable-overflow {
+  content: '';
+  display: block;
+  height: calc(100% - #{var(--xui-editableoverflow--scrollbar-height)} - 1px); // 1px is the border
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: $xui-s-standard;
+  z-index: $xui-z-index-responsiveoverlay;
+}
+
+.#{$ns}-editabletablewrapper {
+  background-color: $xui-editabletable-bg-color;
+  border-radius: $xui-radius;
+  /**
+   * `position: relative` allows the portalled focus ring and overflow shadow to position itself
+   * correctly.
+   */
+  position: relative;
+}
+.#{$ns}-editabletablewrapper--dndinstructions {
+  display: none;
+}
+
+.#{$ns}-editabletablewrapper--border {
+  border-radius: $xui-radius;
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  &-is-invalid {
+    // box-shadow: 0 0 0 1px $xui-validation-invalid-color inset;
+    @include xui-shadow-border-all($border-color: $xui-validation-invalid-color, $is-inset: true);
+  }
+}
+
+.#{$ns}-editabletablewrapper--scrollcontainer {
+  background: $xui-dropzone-active-background-color;
+  border-radius: $xui-radius;
+  box-shadow: 0 0 0 1px $xui-standard-border-color inset;
+  display: block;
+  overflow-x: auto;
+}
+
+.#{$ns}-editabletable {
+  border-collapse: separate;
+  border-spacing: 1px;
+  // These properties are key to give implementers explicit control over column widths.
+  // If no widths are specified, columns will default to being equal width.
+  table-layout: fixed;
+  width: 100%;
+
+  .#{$ns}-editabletablerow,
+  .#{$ns}-editabletablecell {
+    height: 100%;
+  }
+}
+
+.#{$ns}-editabletableoverflow-overflowleft:before {
+  @include xui-editabletable-overflow;
+  background: linear-gradient(
+    90deg,
+    rgba($xui-color-black, 0.2) 0%,
+    rgba($xui-color-black, 0) 100%
+  );
+  left: 0;
+}
+
+.#{$ns}-editabletableoverflow-overflowright:after {
+  @include xui-editabletable-overflow;
+  background: linear-gradient(
+    270deg,
+    rgba($xui-color-black, 0.2) 0%,
+    rgba($xui-color-black, 0) 100%
+  );
+  right: 0;
+}
+
+// The scroll shadow should not affect the foot action
+.#{$ns}-editabletableoverflow-has-footaction {
+  &:after,
+  &:before {
+    height: calc(
+      100% - #{$xui-minimum-touch-target} - #{var(--xui-editableoverflow--scrollbar-height)} - 1px
+    ); // 1px is the border
+  }
+}
+
+.#{$ns}-editabletable--validation {
+  color: $xui-validation-invalid-color;
+  display: flex;
+  font-size: $xui-font-size-xsmall;
+  line-height: $xui-editabletable-invalid-icon-size;
+  padding-top: $xui-s-small / 2;
+  .#{$ns}-icon {
+    height: $xui-editabletable-invalid-icon-size;
+    margin-right: $xui-s-xsmall;
+    width: $xui-editabletable-invalid-icon-size;
+  }
+}
+
+.#{$ns}-editabletablehead,
+.#{$ns}-editabletablefoot {
+  @include xui-heading-small;
+  background-color: $xui-editabletable-bg-color;
+  color: $xui-text-muted-color;
+
+  .#{$ns}-editabletablerow {
+    background-color: $xui-editabletablehead-bg-color;
+  }
+
+  .#{$ns}-editabletablecell:not(:last-child),
+  .#{$ns}-editabletableheadingcell:not(:last-child) {
+    box-shadow: 1px 0 0 0 $xui-editabletablehead-bg-color, 1px 0 0 0 $xui-editabletable-bg-color;
+  }
+}
+
+/**
+ * Required for drag and drop.
+ *
+ * Without this there will be a missing border between the head and the body when the first row is
+ * dragged, and the foot and the body when the last row is dragged.
+ */
+.#{$ns}-editabletablehead .#{$ns}-editabletablerow {
+  box-shadow: 0 1px 0 0 $xui-standard-shadow-color, 0 1px 0 0 $xui-editabletable-bg-color;
+}
+.#{$ns}-editabletablefoot .#{$ns}-editabletablerow {
+  box-shadow: 0 -1px 0 0 $xui-standard-shadow-color, 0 -1px 0 0 $xui-editabletable-bg-color;
+}
+
+.#{$ns}-editabletablebody .#{$ns}-editabletablerow {
+  background-color: $xui-editabletable-bg-color;
+}
+
+.#{$ns}-editabletablerow-dragging {
+  animation: #{$ns}-drag-shadow-animation $xui-motion-speed-fast $xui-motion-curve-exit;
+  // $xui-shadow-depth-lift, but without the border shadow it applies.
+  box-shadow: 0 3px 6px 0 $xui-standard-shadow-color;
+}
+
+.#{$ns}-editabletablerow--draghandle {
+  cursor: grab;
+}
+
+.#{$ns}-editabletableheadingcell {
+  height: $xui-minimum-touch-target;
+  padding-left: $xui-s-standard;
+  padding-right: $xui-s-standard;
+}
+
+.#{$ns}-editabletablecell {
+  @include xui-editabletablecell;
+}
+
+.#{$ns}-editabletablecell-withpadding {
+  @include xui-padding-horizontal($xui-s-standard); // Aligns internal cell content to header label
+}
+
+.#{$ns}-editabletablecell,
+.#{$ns}-editabletableheadingcell {
+  &-leftaligned {
+    text-align: left;
+  }
+  &-rightaligned {
+    text-align: right;
+  }
+}
+
+.#{$ns}-editabletablecelliconbutton {
+  width: $xui-icon-large;
+}
+
+.#{$ns}-editabletablecellreadonly {
+  @include xui-padding-vertical($xui-s-xsmall - 1px); // xsmall, minus a 1px border
+  @include xui-padding-horizontal($xui-s-standard);
+}
+
+.#{$ns}-editabletablecellselectbox {
+  .#{$ns}-select--button {
+    @include xui-padding-vertical($xui-s-xsmall - 1px); // xsmall, minus a 1px border
+    display: block;
+    position: relative;
+  }
+  .#{$ns}-select--content {
+    display: block;
+    line-height: $xui-line-height-standard;
+    padding-right: $xui-s-standard;
+  }
+  .#{$ns}-select--caret {
+    position: absolute;
+    right: $xui-s-standard;
+    top: $xui-s-standard + 2px; // Vertically aligns caret to middle of the cell
+  }
+}
+
+@mixin xui-editabletablecell-control {
+  .#{$ns}-editabletablecell--border {
+    height: 100%;
+    position: relative;
+  }
+
+  // Hover
+  &:hover {
+    &:not(.#{$ns}-editabletablecell-control-is-invalid):not(.#{$ns}-editabletablecell-control-is-disabled) {
+      outline: 1px solid $xui-standard-shadow-color;
+    }
+  }
+
+  // Invalid
+  &-is-invalid {
+    outline: 1px solid $xui-textinput-invalid-border-color;
+    // transform fixes issue with next cell's hover outline overwriting previous cell's invalid outline
+    transform: translate(0, 0);
+    z-index: $xui-z-index-focus + 1;
+  }
+
+  // Disabled
+  &-is-disabled {
+    @include xui-disabled-form-control;
+  }
+}
+
+.#{$ns}-editabletablecell-control {
+  @include xui-editabletablecell-control;
+
+  // Cursors
+  &:not(.#{$ns}-editabletablecell-control-is-disabled) {
+    &.#{$ns}-editabletablecellautocompleter,
+    &.#{$ns}-editabletablecelltextinput {
+      cursor: text;
+    }
+
+    &.#{$ns}-editabletablecellselectbox {
+      cursor: pointer;
+    }
+  }
+}
+
+.#{$ns}-editabletablecell--validation {
+  @include xui-text-xsmall;
+  color: $xui-validation-color;
+  padding: 0 $xui-s-standard $xui-s-xsmall;
+  // Fix for Safari's disabled inputs overriding `color`.
+  -webkit-text-fill-color: currentColor;
+}
+
+.#{$ns}-editabletablecell--validation-is-invalid {
+  color: $xui-validation-invalid-color;
+}
+
+// These styles are for the portal focus ring
+.#{$ns}-editabletable--portalfocus {
+  pointer-events: none;
+  position: absolute;
+  @include xui-state-focus-shadow;
+  .#{$ns}-editabletable--portalfocus--border {
+    box-shadow: $xui-shadow-border-all;
+    height: 100%;
+  }
+  // When the horizontal sides of the focused cell are covered, clip the right-side shadow
+  &.#{$ns}-editabletable--portalfocus-horizontalCovered {
+    clip-path: inset(-3px 0px -3px 0);
+    .#{$ns}-editabletable--portalfocus--border {
+      clip-path: inset(-1px 0px -1px 0);
+    }
+  }
+  // When the right side of the focused cell is covered, clip the right-side shadow
+  &.#{$ns}-editabletable--portalfocus-rightCovered {
+    clip-path: inset(-3px 0px -3px -3px);
+    .#{$ns}-editabletable--portalfocus--border {
+      clip-path: inset(-1px 0px -1px -1px);
+    }
+  }
+  // When the left side of the focused cell is covered, clip the left-side shadow
+  &.#{$ns}-editabletable--portalfocus-leftCovered {
+    clip-path: inset(-3px -3px -3px 0px);
+    .#{$ns}-editabletable--portalfocus--border {
+      clip-path: inset(-1px -1px -1px 0px);
+    }
+  }
+}
+
+.#{$ns}-editabletableutilitybar--cell {
+  padding: 0;
+  &--wrapper {
+    box-shadow: 0 0 0 1px $xui-standard-border-color;
+    left: 1px; // 1px is the border
+    padding: $xui-s-2xsmall;
+    position: sticky;
+  }
+}

@@ -29,6 +29,7 @@
 
 .#{$ns}-button-grouped {
   border-radius: 0;
+  flex-grow: 1;
 
   &:hover {
     z-index: $xui-z-index-focus; // show full border on hover

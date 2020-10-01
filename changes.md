@@ -17,15 +17,17 @@ We recommend running a bundles analyzer after upgrading (and regularly in genera
 - `xui-iconwrapper-medium`’s width and height have been updated from 30px to 32px.
 - `xui-iconwrapper-small` and `xui-iconwrapper-xsmall` have been added.
 
-### Consistent styling for switch, radio, and checkbox
+### Styling adjustments for checkbox, radio, and switch
 
-Switch, radio, and checkbox now have consistent styling when checked and unchecked. Specifically when checked, all three components have the same focus, hover and active styles. When unchecked, radio and checkbox have the same styling, while switch has further hover and active styles added. Padding for a reversed radio and checkbox has been updated from 7px to 15px when when it is under a `xui-styledcheckboxradio-group` and the left margin is removed. Affected classes are:
+Checkboxes, radios, and switches now all have consistent styling across focus, hover and active states.
 
-- `xui-styledcheckboxradio-reversed`.
-- `xui-styledcheckboxradio--label`.
-- `xui-styledcheckboxradio--input + xui-iconwrapper`.
-- `xui-styledcheckboxradio--radio`.
-- `xui-switch--control`.
+Reversed checkboxes and radios in a `xui-styledcheckboxradio-group` have had their padding increased from 7px to 15px, and those outside a group have had their left margin removed. Affected classes are:
+
+- `xui-styledcheckboxradio-reversed`
+- `xui-styledcheckboxradio--label`
+- `xui-styledcheckboxradio--input + xui-iconwrapper`
+- `xui-styledcheckboxradio--radio`
+- `xui-switch--control`
 
 ### Safari margin collapse fix
 

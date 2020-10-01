@@ -35,15 +35,17 @@ $toast-max-width: 400px;
 }
 
 .#{$ns}-toast-positive {
-  @include xui-highlight-left($xui-banner-positive-bg-color, $xui-radius, true);
+  @include xui-highlight-left($xui-banner-positive-bg-color, $xui-radius);
 }
 
 .#{$ns}-toast-negative {
-  @include xui-highlight-left($xui-bannger-negative-bg-color, $xui-radius, true);
+  @include xui-highlight-left($xui-banner-negative-bg-color, $xui-radius);
 }
 
 .#{$ns}-toast-layout {
+  display: block;
   margin: 0 $xui-s-large $xui-s-large $xui-s-large;
+  overflow: hidden;
 
   @include xui-breakpoint-small-down {
     margin: 0;

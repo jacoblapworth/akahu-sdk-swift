@@ -292,6 +292,28 @@ describe('<XUIEditableTableRow />', () => {
           .hasClass('xui-button-is-disabled'),
       ).toBeTruthy();
     });
+
+    it('disables dragging when `disableRowControls` prop is true', () => {
+      const wrapper = mount(
+        <XUIEditableTable
+          dndDragCancelledMessage={NOOP}
+          dndDragOutsideMessage={NOOP}
+          dndDragStartMessage={NOOP}
+          dndDragUpdateMessage={NOOP}
+          dndDropFailedMessage={NOOP}
+          dndDropMessage={NOOP}
+          dndInstructions=""
+          onReorderRow={NOOP}
+          rowOptions={{ isDraggable: true, dragButtonAriaLabel: 'Drag row' }}
+        >
+          <XUIEditableTableBody>
+            <XUIEditableTableRow disableRowControls qaHook="test-row" />
+          </XUIEditableTableBody>
+        </XUIEditableTable>,
+      );
+
+      expect(wrapper.find(Draggable).prop('isDragDisabled')).toBeTruthy();
+    });
   });
 
   describe('non-draggable row', () => {

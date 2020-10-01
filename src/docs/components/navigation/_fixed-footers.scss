@@ -1,14 +1,49 @@
 // Fixed Footer
 //
-// Introduction: A fixed-position bar to contain actions at the bottom of a longer page.
+// Introduction: A fixed-position bar to contain constantly visible actions while scrolling through a longer page.
 //
-// Teaser: A fixed-position bar to contain actions on a longer page.
+// Teaser: A fixed-position bar to contain constantly visible actions while scrolling through a longer page.
 //
 // flags: new wip
 //
 // Components: Fixed-footer
 //
 // Styleguide: Components.Navigation.FixedFooter
+
+// Best practice
+//
+// A fixed footer is used to display page-level actions and information for when there is a large amount of scrollable content. Fixed footer ensures contextual information and interactions can be seen at all times, reducing cognitive load and effort for the user.
+//
+// Tips:
+// Do: Only use a fixed footer if you expect the page content to be taller than the viewport where users will be scrolling the page
+// Do: When using a fixed footer, the position should be always fixed and not conditionally sticky
+//
+// Styleguide: Components.Navigation.FixedFooter.1
+
+// Internal Content
+//
+// Fixed footer has been built to help teams who currently use a custom built fixed footer in their designs, or to surface buttons that would usually be at the end of a long page. XUI are currently working on Page Actions as a broader UX pattern.
+//
+// Tips:
+// Do: Align internal content to the left or right of the footer
+// Do: Consider the user workflow when containing actions inside a fixed footer. For example, right align actions that complete a user flow. See [layout](./section-components-controls-button.html#components-controls-button-13) for how to correctly position XUIActions component in the fixed footer
+// Do: Use the small button size variant in the fixed footer
+// Do: Align text content on the left to allow for actions to be displayed on the right
+// Don't: If using a fixed footer to navigate users through a flow, avoid discarding unsaved changes without warning
+//
+// ExampleClass: ds-example-nomarkuplink
+//
+// Markup: ./examples/fixed-footer/_fixed-footer-inline-example-buttons.html
+//
+// Styleguide: Components.Navigation.FixedFooter.1.1
+
+// User warning example
+//
+// ExampleClass: ds-example-nomarkuplink
+//
+// Markup: ./examples/fixed-footer/_fixed-footer-inline-example.html
+//
+// Styleguide: Components.Navigation.FixedFooter.1.2
 
 // Anatomy
 //
@@ -21,7 +56,7 @@
 //
 // Markup: ./fixed-footer/_fixed-footer.html
 //
-// Styleguide: Components.Navigation.FixedFooter.1
+// Styleguide: Components.Navigation.FixedFooter.2
 
 // Accessibility
 //

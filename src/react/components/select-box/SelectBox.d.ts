@@ -104,7 +104,7 @@ interface Props {
   /**
    * Optional callback to be executed when the trigger loses focus.
    */
-  onBlur: React.FocusEventHandler<HTMLButtonElement>;
+  onBlur?: React.FocusEventHandler<HTMLButtonElement>;
   /**
    * Optional callback to be executed when dropdown closes.
    */
@@ -112,7 +112,7 @@ interface Props {
   /**
    * Optional callback to be executed when the trigger gains focus.
    */
-  onFocus: React.FocusEventHandler<HTMLButtonElement>;
+  onFocus?: React.FocusEventHandler<HTMLButtonElement>;
   /**
    * Selection callback.
    */

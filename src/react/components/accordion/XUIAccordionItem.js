@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useContext, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import AccordionWrapper from './customElements/AccordionWrapper';
 import XUIAccordionContext from './XUIAccordionContext';
 import AccordionTrigger from './customElements/AccordionTrigger';
@@ -17,9 +17,8 @@ const XUIAccordionItem = ({
   children,
   onClick,
   isOpen: propsIsOpen,
-  triggerStateIcon,
 }) => {
-  const [id] = useState(uuid());
+  const [id] = useState(uuidv4());
   const {
     setOpenAccordionItem,
     openAccordionItemId,
@@ -74,7 +73,6 @@ const XUIAccordionItem = ({
             description,
             toggleLabel,
             onItemClick,
-            icon: triggerStateIcon,
           }}
         />
       }
@@ -105,7 +103,7 @@ XUIAccordionItem.propTypes = {
   /** Optional actions to be right aligned. Use the `<XUIActions />` component. */
   action: PropTypes.node,
 
-  /** Any component passed as right most content, typically a `<DropDownToggled />` component. */
+  /** Any component passed as right most content, typically a `<XUIDropdownToggled />` component. */
   overflow: PropTypes.node,
 
   /** Callback for a accordion item toggle */
@@ -113,14 +111,6 @@ XUIAccordionItem.propTypes = {
 
   /** Whether this accordion item should open, this should only be true for one item */
   isOpen: PropTypes.bool,
-
-  /** Optional prop for users to modify the accordion trigger icon, if required for localisation.
-   * Defaults to the arrow icon, if no value is provided. */
-  triggerStateIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
 
   children: PropTypes.node,
 };

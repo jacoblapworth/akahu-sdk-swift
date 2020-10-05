@@ -119,7 +119,7 @@ We have a [styleguide for writting TypeScript](TypeScript-style-guide.md).
 
 ### Conventions
 
-We have some naming/file structure conventions around test files. All test files should have a name that ends with `-test.js`. Second, they should be included in a `__tests__` folder inside the component's folder. e.g. unit tests for the SelectBox component live at `src/react/components/select-box/__tests__/SelectBox-test.js`.
+We have some naming/file structure conventions around test files. All test files should have a name that ends with `-test.js`. Second, they should be included in a `__tests__` folder inside the component's folder. e.g. unit tests for the select box component live at `src/react/components/selectbox/__tests__/XUISelectBox-test.js`.
 
 When adding new unit test files, you should follow this convention to prevent side effects e.g. tests might end up being deployed to Artifactory or just not run.
 
@@ -300,7 +300,7 @@ Our documentation writing style is based on [the Financial Times Origami documen
    - **bad**: "this site is a one stop shop for XUI"
 1. [Avoid "simply" and other words that trivialise concepts and ideas that might not be trivial](https://css-tricks.com/words-avoid-educational-writing/)
 1. When referring to XUI React components; use back-ticks, correct capitalisation, and no spaces
-   - **good**: `XUIButton`, `DropDown`
+   - **good**: `XUIButton`, `XUIDropdown`
    - **bad**: `XUI Button`, DropDown
 1. Structure documentation for skim readers
    - Code variables go in `back-ticks`

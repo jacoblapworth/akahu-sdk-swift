@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIDropdownToggled /> should render a passed qaHook as an auotmation id 1`] = `
+<div
+  className="xui-dropdown--toggledwrapper"
+  data-automationid="ddt-example"
+  data-ref="toggled-wrapper"
+  role="presentation"
+>
+  <button
+    aria-activedescendant={null}
+    aria-haspopup="listbox"
+    className="xui-button xui-button-standard"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    qaHook="ddt-example--trigger"
+  >
+    HOC Button
+  </button>
+</div>
+`;

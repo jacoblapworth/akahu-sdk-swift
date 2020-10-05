@@ -1,4 +1,5 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
+import settings from '@xero/xui-icon/icons/settings';
 
 const privateConsts = require('../private/constants');
 
@@ -21,15 +22,43 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'with Caret',
+    storyTitle: 'with caret',
     contentsKey: 'withCaret',
+    hasCaret: true,
     variant: 'create',
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'small with Caret',
+    storyTitle: 'small with caret',
     contentsKey: 'withCaret',
+    hasCaret: true,
     size: 'small',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with left icon',
+    contentsKey: 'withIcon',
+    leftIcon: settings,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'xsmall with left icon',
+    contentsKey: 'withIcon',
+    leftIcon: settings,
+    size: 'xsmall',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with right icon',
+    contentsKey: 'withIcon',
+    rightIcon: settings,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'xsmall with right icon',
+    contentsKey: 'withIcon',
+    rightIcon: settings,
+    size: 'xsmall',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -91,6 +120,15 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as large fullWidth with an icon',
+    contentsKey: 'withIcon',
+    leftIcon: settings,
+    viewports: desktopPlus320,
+    value: 'fullWidth with icon',
+    fullWidth: 'always',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'as medium fullWidth small-down',
     viewports: desktopPlus320,
     value: 'fullWidth small-down',
@@ -98,7 +136,7 @@ const variations = [
   },
 ];
 
-privateConsts.textButtonVariants.forEach((buttonVariant, index) => {
+Object.keys(privateConsts.textButtonVariants).forEach((buttonVariant, index) => {
   const sizesToIterate = [sizes[index % sizes.length]];
 
   sizesToIterate.forEach(size =>
@@ -120,7 +158,7 @@ sizes.forEach(sizeVariant => {
     storyTitle: `${sizeVariant} with a Loader`,
     size: sizeVariant,
     isLoading: true,
-    loadingLabel: 'Loading',
+    loadingAriaLabel: 'Loading',
     className: 'xui-loader-static', // Prevent dots from animating and causing diffs due to timing issues
     value: 'This is a button',
   });

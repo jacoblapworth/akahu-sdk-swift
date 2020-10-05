@@ -25,13 +25,13 @@ interface Props {
    */
   isInvalid?: boolean;
   /**
-   * Whether the label should be hidden.
+   * Whether to hide the label and apply it as an ARIA label instead.
    *
-   * Defaults to `false`.
+   * Defaults to visible.
    */
   isLabelHidden?: boolean;
   /**
-   * Label the radio group for accessibility. Highly recommended.
+  /* Label to show above the checkbox group, or for accessibility when the checkbox group label is hidden. Highly recommended.
    */
   label?: React.ReactNode;
   /**
@@ -49,4 +49,5 @@ interface Props {
   validationMessage?: React.ReactNode;
 }
 
-export default class XUICheckboxGroup extends React.PureComponent<Props> {}
+declare const XUICheckboxGroup: React.FunctionComponent<Props>;
+export default XUICheckboxGroup;

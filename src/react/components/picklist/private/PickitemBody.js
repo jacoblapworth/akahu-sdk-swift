@@ -2,7 +2,11 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { pickitemClassName, itemBodyClassName, itemTextClassName } from './constants';
-import { XUIButtonCaret } from '../../../button';
+import XUIIcon from '../../icon/XUIIcon';
+import caret from '@xero/xui-icon/icons/caret';
+
+import { ns } from '../../helpers/xuiClassNamespace';
+import { pickitemClassName, itemBodyClassName, itemTextClassName } from '../private/constants';
 
 /**
  * INTERNAL USE ONLY
@@ -34,7 +38,7 @@ const PickitemBody = ({
 }) => {
   const rel = target ? 'noopener noreferrer' : null;
   const childProps = {
-    className: itemBodyClassName,
+    className: cn(itemBodyClassName, showButtonCaret && `${itemBodyClassName}-has-icon`),
     onClick,
     onKeyDown,
     onMouseOver,
@@ -75,7 +79,9 @@ const PickitemBody = ({
       </span>
       {pinnedElement}
       {rightElement}
-      {showButtonCaret && <XUIButtonCaret />}
+      {showButtonCaret && (
+        <XUIIcon className={`${pickitemClassName}--caret`} icon={caret} isBoxed />
+      )}
     </Tag>
   );
 };
@@ -104,7 +110,7 @@ PickitemBody.propTypes = {
   /** Content to be added to the right of the pickitem. */
   rightElement: PropTypes.node,
   headingElement: PropTypes.node,
-  /** Show button caret. Used in TabDropDown */
+  /** Show button caret. Used in `TabDropdown` */
   showButtonCaret: PropTypes.bool,
 };
 

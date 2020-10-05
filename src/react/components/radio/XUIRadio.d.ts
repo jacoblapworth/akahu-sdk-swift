@@ -101,4 +101,5 @@ interface Props {
   value?: string;
 }
 
-export default class XUIRadio extends React.PureComponent<Props> {}
+declare const XUIRadio: React.FunctionComponent<Props>;
+export default XUIRadio;

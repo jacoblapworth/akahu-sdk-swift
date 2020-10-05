@@ -20,4 +20,5 @@ interface Props {
   isInfinite?: boolean;
 }
 
-export default class XUICompositionDetail extends React.PureComponent<Props> {}
+declare const XUICompositionDetail: React.FunctionComponent<Props>;
+export default XUICompositionDetail;

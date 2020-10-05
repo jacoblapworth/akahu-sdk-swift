@@ -7,8 +7,8 @@ import XUIButton from '../button/XUIButton';
 import { ns } from '../helpers/xuiClassNamespace';
 import { userBreakpoints } from '../helpers/breakpoints';
 import WidthContext from '../../contexts/WidthContext';
-import Picklist, { Pickitem } from '../../picklist';
-import DropDown, { DropDownToggled } from '../../dropdown';
+import XUIPicklist, { XUIPickitem } from '../../picklist';
+import XUIDropdown, { XUIDropdownToggled } from '../../dropdown';
 
 const baseClass = `${ns}-breadcrumb`;
 
@@ -31,20 +31,20 @@ const buildCompactBreadcrumbs = breadcrumbs => {
   const bcPickitems = breadcrumbs.slice(0, -1).map((crumb, index) => {
     const unique = `breadcrumb-${index}`;
     return (
-      <Pickitem href={crumb.href} id={unique} key={unique}>
+      <XUIPickitem href={crumb.href} id={unique} key={unique}>
         {crumb.label || crumb}
-      </Pickitem>
+      </XUIPickitem>
     );
   });
 
   // Build the list of new breadcrumb objects, including the dropdown with trigger.
   const compactItems = [];
   compactItems.push(
-    <DropDownToggled
+    <XUIDropdownToggled
       dropdown={
-        <DropDown>
-          <Picklist>{bcPickitems}</Picklist>
-        </DropDown>
+        <XUIDropdown>
+          <XUIPicklist>{bcPickitems}</XUIPicklist>
+        </XUIDropdown>
       }
       trigger={compactTrigger}
     />,
@@ -60,7 +60,10 @@ const getCrumbLabel = crumb => {
     // HTML nodes and React components have a type property. Objects do not.
     return React.cloneElement(crumb, {
       // Don't tack the link class onto a ddt.
-      className: cn(crumb.props.className, crumb.type !== DropDownToggled && `${baseClass}--link`),
+      className: cn(
+        crumb.props.className,
+        crumb.type !== XUIDropdownToggled && `${baseClass}--link`,
+      ),
     });
   }
   if (!crumb.href) {
@@ -97,7 +100,7 @@ const buildCrumbsWithCarets = crumbItemsToUse => {
   return crumbsWithCarets;
 };
 
-export default function XUIBreadcrumbTrail({ qaHook, breadcrumbs, className, swapAtBreakpoint }) {
+const XUIBreadcrumbTrail = ({ breadcrumbs, className, qaHook, swapAtBreakpoint }) => {
   return (
     <WidthContext.Consumer>
       {headerSizeState => {
@@ -125,7 +128,9 @@ export default function XUIBreadcrumbTrail({ qaHook, breadcrumbs, className, swa
       }}
     </WidthContext.Consumer>
   );
-}
+};
+
+export default XUIBreadcrumbTrail;
 
 XUIBreadcrumbTrail.propTypes = {
   className: PropTypes.string,

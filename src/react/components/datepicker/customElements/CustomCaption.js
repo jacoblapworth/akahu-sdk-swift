@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
-import { PropTypes as DayPickerPropTypes } from 'react-day-picker';
+import DayPicker from 'react-day-picker';
 
-export default function CustomCaption() {
-  return null;
-}
+const CustomCaption = () => null;
+
+export default CustomCaption;
 
 CustomCaption.propTypes = {
   date: PropTypes.instanceOf(Date),
   months: PropTypes.arrayOf(PropTypes.string),
   locale: PropTypes.string,
-  localeUtils: DayPickerPropTypes.default.localeUtils,
+  localeUtils: DayPicker.LocaleUtils,
   onClick: PropTypes.func,
   classNames: PropTypes.shape({
     caption: PropTypes.string,

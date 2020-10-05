@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIDropdownFooter /> should render a picklist with context class when pickItems are passed 1`] = `
+<div
+  className="xui-dropdown--footer"
+>
+  <ul
+    className="xui-picklist xui-picklist-layout xui-picklist-medium xui-dropdown--footer--picklist"
+    role="group"
+  >
+    <li
+      aria-selected={null}
+      className="xui-pickitem xui-pickitem-medium"
+      id="footerAction"
+      role="option"
+    >
+      <button
+        className="xui-pickitem--body"
+        rel={null}
+        type="button"
+      >
+        <span
+          className="xui-pickitem--text"
+        >
+          Add New Person
+        </span>
+      </button>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<XUIDropdownFooter /> should render an automation id when a qaHook is passed 1`] = `
+<div
+  className="xui-dropdown--footer"
+  data-automationid="dropdownfooter-example"
+>
+  content
+</div>
+`;

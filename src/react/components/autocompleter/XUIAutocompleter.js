@@ -2,11 +2,11 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import debounce from 'lodash.debounce';
-import uuidv4 from 'uuid/v4';
-import Picklist from '../picklist/Picklist';
+import { v4 as uuidv4 } from 'uuid';
+import XUIPicklist from '../picklist/XUIPicklist';
 import XUILoader from '../loader/XUILoader';
-import DropDown from '../dropdown/DropDown';
-import DropDownToggled from '../dropdown/DropDownToggled';
+import XUIDropdown from '../dropdown/XUIDropdown';
+import XUIDropdownToggled from '../dropdown/XUIDropdownToggled';
 import XUITextInput from '../textInput/XUITextInput';
 import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
@@ -60,7 +60,7 @@ export default class XUIAutocompleter extends PureComponent {
       this.noWrapPillContainer.current.scrollLeft = this.noWrapPillContainer.current.scrollWidth;
     }
     if (React.Children.count(pills) < React.Children.count(prevProps.pills)) {
-      this.ddt.current.repositionDropDown();
+      this.ddt.current.repositionDropdown();
     }
   }
 
@@ -91,9 +91,11 @@ export default class XUIAutocompleter extends PureComponent {
     if (this.placeholder.current != null) {
       const placeholderWidth = getComputedStyle(this.placeholder.current).width;
       const inputStyle = getComputedStyle(this.inputNode);
-      const inputWidth = `${parseFloat(inputStyle.paddingLeft) +
+      const inputWidth = `${
+        parseFloat(inputStyle.paddingLeft) +
         parseFloat(inputStyle.paddingRight) +
-        parseFloat(placeholderWidth)}px`;
+        parseFloat(placeholderWidth)
+      }px`;
       if (this.state.inputWidth !== inputWidth) {
         this.setState({
           inputWidth,
@@ -106,16 +108,16 @@ export default class XUIAutocompleter extends PureComponent {
    * @public
    * Set the state as not hidden in order to toggle the list open.
    */
-  openDropDown = () => {
-    this.ddt.current.openDropDown();
+  openDropdown = () => {
+    this.ddt.current.openDropdown();
   };
 
   /**
    * @public
    * Set the state as hidden in order to toggle the list closed.
    */
-  closeDropDown = () => {
-    this.ddt.current.closeDropDown();
+  closeDropdown = () => {
+    this.ddt.current.closeDropdown();
   };
 
   /**
@@ -147,7 +149,7 @@ export default class XUIAutocompleter extends PureComponent {
 
   onInputKeyDown = event => {
     const { onBackspacePill, pills } = this.props;
-    if (this.ddt.current.isDropDownOpen()) {
+    if (this.ddt.current.isDropdownOpen()) {
       if (isKeyClick(event)) {
         this.flushDebounced && this.flushDebounced();
       }
@@ -179,7 +181,7 @@ export default class XUIAutocompleter extends PureComponent {
 
   onInputFocus = () => {
     if (!this.state.focused) {
-      this.openDropDown();
+      this.openDropdown();
     }
   };
 
@@ -243,7 +245,7 @@ export default class XUIAutocompleter extends PureComponent {
       dropdownFixedWidth,
       footer,
       loading,
-      loadingLabel,
+      loadingAriaLabel,
       children,
       className,
       id,
@@ -325,7 +327,7 @@ export default class XUIAutocompleter extends PureComponent {
     );
 
     const dropdown = (
-      <DropDown
+      <XUIDropdown
         className={dropdownClassName}
         fixedWidth={dropdownFixedWidth}
         footer={footer}
@@ -340,13 +342,13 @@ export default class XUIAutocompleter extends PureComponent {
         size={dropdownSize}
       >
         {loading ? (
-          <Picklist>
-            <XUILoader ariaLabel={loadingLabel} />
-          </Picklist>
+          <XUIPicklist>
+            <XUILoader ariaLabel={loadingAriaLabel} />
+          </XUIPicklist>
         ) : (
           children
         )}
-      </DropDown>
+      </XUIDropdown>
     );
 
     const classNames = cn(className, focused && `${ns}-autocompleter--trigger-focus`);
@@ -360,7 +362,7 @@ export default class XUIAutocompleter extends PureComponent {
         onFocus={this.onFocus}
         ref={this.rootNode}
       >
-        <DropDownToggled
+        <XUIDropdownToggled
           ariaRole="combobox"
           closeOnSelect={closeOnSelect}
           closeOnTab={closeOnTab}
@@ -398,7 +400,7 @@ XUIAutocompleter.propTypes = {
    * <br />
    * Recommended English value: *Loading*
    */
-  loadingLabel: PropTypes.string,
+  loadingAriaLabel: PropTypes.string,
 
   /** ID to be added to the root node of the completer */
   id: PropTypes.string,
@@ -421,10 +423,10 @@ XUIAutocompleter.propTypes = {
   /** CSS class(es) to go on the input container component */
   inputContainerClassName: PropTypes.string,
 
-  /** Label to show above the input */
+  /** Label to show above the input, or for accessibility when the input label is hidden */
   inputLabel: PropTypes.node,
 
-  /** Should label be applied as an aria-label, rather than being visibly displayed. */
+  /** Whether to hide the label and apply it as an ARIA label instead. */
   isInputLabelHidden: PropTypes.bool,
 
   /**
@@ -470,10 +472,10 @@ XUIAutocompleter.propTypes = {
   /** Maps to the `size` property of the dropdown component. */
   dropdownSize: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
-  /** Maps to the `closeOnSelect` property of the DropDownToggled component. */
+  /** Maps to the `closeOnSelect` property of the `XUIDropdownToggled` component. */
   closeOnSelect: PropTypes.bool,
 
-  /** Maps to the `closeOnTab` property of the DropDownToggled component. Set to false, if you've
+  /** Maps to the `closeOnTab` property of the `XUIDropdownToggled` component. Set to false, if you've
    * supplied a footer element with any links or interaction. */
   closeOnTab: PropTypes.bool,
 
@@ -492,7 +494,7 @@ XUIAutocompleter.propTypes = {
 
   /**
    * Setting to false will allow the dropdown's width to be set independent of the trigger width. <br>
-   * **Note:** *Setting this to true will override any size prop on DropDown.* <br>
+   * **Note:** *Setting this to true will override any size prop on `XUIDropdown`.* <br>
    * XUI design has also decided to keep a minimum width on the dropdown,
    * so dropdown may not match the width of narrow triggers.
    */

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
-import Pickitem from '../picklist/Pickitem';
+import XUIPickitem from '../picklist/XUIPickitem';
 
 interface Props {
   children?: React.ReactNode;
@@ -10,11 +10,11 @@ interface Props {
    */
   className?: string;
   /**
-   * Maps to the `closeOnSelect` property of the `DropDownToggled` component.
+   * Maps to the `closeOnSelect` property of the `XUIDropdownToggled` component.
    */
   closeOnSelect?: boolean;
   /**
-   * Maps to the `closeOnTab` property of the `DropDownToggled` component. Set to `false`, if you've
+   * Maps to the `closeOnTab` property of the `XUIDropdownToggled` component. Set to `false`, if you've
    * supplied a footer element with any links or interaction.
    */
   closeOnTab?: boolean;
@@ -66,7 +66,7 @@ interface Props {
     | React.TextareaHTMLAttributes<HTMLTextAreaElement>
     | React.InputHTMLAttributes<HTMLInputElement>;
   /**
-   * Whether to allow the dropdown to take the full width of the wrapper (as SelectBox) or wrap with
+   * Whether to allow the dropdown to take the full width of the wrapper (as `XUISelectBox`) or wrap with
    * an inline block.
    */
   isBlock?: boolean;
@@ -87,7 +87,7 @@ interface Props {
   /**
    * Setting to `true` will allow the dropdown's width to be set dependent of the trigger width.
    *
-   * **Note:** *Setting this to `true` will override any `size` prop on `DropDown`.*
+   * **Note:** *Setting this to `true` will override any `size` prop on `XUIDropdown`.*
    *
    * XUI design has also decided to keep a minimum width on the dropdown, so the dropdown may not
    * match the width of narrow triggers.
@@ -108,7 +108,7 @@ interface Props {
   /**
    * Callback to handle when an option has been selected from the dropdown.
    */
-  onOptionSelect?: (value: string, element?: React.ReactElement<Pickitem>) => void;
+  onOptionSelect?: (value: string, element?: React.ReactElement<XUIPickitem>) => void;
   /**
    * Callback for when the user types into the search box.
    */
@@ -131,7 +131,7 @@ interface Props {
    */
   searchValue?: string;
   /**
-   * Will be passed directly down to the `DropDownToggled` component as the main trigger.
+   * Will be passed directly down to the `XUIDropdownToggled` component as the main trigger.
    */
   trigger: React.ReactElement;
 }
@@ -145,18 +145,15 @@ export default class XUIAutocompleterSecondarySearch extends React.PureComponent
   /**
    * Set the state as not hidden in order to open the list
    */
-  openDropDown(): void;
-
+  openDropdown(): void;
   /**
    * Set the state as hidden in order to close the list
    */
-  closeDropDown(): void;
-
+  closeDropdown(): void;
   /**
    * Highlights a specified item in the list
    */
-  highlightItem(item: Pickitem): void;
-
+  highlightItem(item: XUIPickitem): void;
   /**
    * Highlights the first item in the list
    */

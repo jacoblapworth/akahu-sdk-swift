@@ -6,4 +6,5 @@ interface Props {
   qaHook?: string;
 }
 
-export default class XUIToastWrapper extends React.PureComponent<Props> {}
+declare const XUIToastWrapper: React.FunctionComponent<Props>;
+export default XUIToastWrapper;

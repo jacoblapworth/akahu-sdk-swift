@@ -1,0 +1,43 @@
+@import '../vars';
+@import '../mixins';
+
+.#{$ns}-button-has-icon {
+  @include xui-button-has-icon;
+}
+
+.#{$ns}-button--lefticon,
+.#{$ns}-button--righticon {
+  height: $xui-line-height-button;
+}
+
+.#{$ns}-button--lefticon {
+  margin-left: -$xui-s-xsmall;
+  margin-right: $xui-s-2xsmall;
+  .#{$ns}-button-small &,
+  .#{$ns}-button-xsmall & {
+    margin-left: -$xui-s-2xsmall;
+  }
+}
+
+.#{$ns}-button--righticon {
+  margin-left: $xui-s-2xsmall;
+  margin-right: -$xui-s-xsmall;
+  .#{$ns}-button-small &,
+  .#{$ns}-button-xsmall & {
+    margin-right: -$xui-s-2xsmall;
+  }
+}
+
+.#{$ns}-button--caret {
+  @include xui-button--caret;
+}
+
+.#{$ns}-button-split {
+  flex-shrink: 0;
+  justify-content: center;
+  padding: 0;
+  vertical-align: top;
+  .#{$ns}-button--caret {
+    margin-right: 0;
+  }
+}

@@ -5,26 +5,26 @@ A `<XUISplitButtonGroup>` can only be completely disabled - you cannot disable o
 
 ```jsx harmony
 import XUIButton, { XUISplitButtonGroup, XUISecondaryButton } from '@xero/xui/react/button';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
-import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
+import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
 
 // try setting `isDisabled={true}`, or change the variant, and see how both buttons are disabled
 
 <XUISplitButtonGroup variant="primary">
   <XUIButton>Split action</XUIButton>
-  <DropDownToggled
+  <XUIDropdownToggled
     trigger={<XUISecondaryButton variant="primary" key="split" aria-label="Other actions" />}
     dropdown={
-      <DropDown fixedWidth size="small">
-        <Picklist>
-          <Pickitem id="aa" value="aa" key="aa">
+      <XUIDropdown fixedWidth size="small">
+        <XUIPicklist>
+          <XUIPickitem id="aa" value="aa" key="aa">
             Option 1
-          </Pickitem>
-          <Pickitem id="bb" value="bb" key="bb">
+          </XUIPickitem>
+          <XUIPickitem id="bb" value="bb" key="bb">
             Option 2
-          </Pickitem>
-        </Picklist>
-      </DropDown>
+          </XUIPickitem>
+        </XUIPicklist>
+      </XUIDropdown>
     }
   />
 </XUISplitButtonGroup>;
@@ -34,24 +34,24 @@ When using a secondary button as the trigger of a dropdown, variants are not inh
 
 ```jsx harmony
 import XUIButton, { XUISplitButtonGroup, XUISecondaryButton } from '@xero/xui/react/button';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
-import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
+import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
 
 <XUISplitButtonGroup variant="standard">
   <XUIButton>Split action</XUIButton>
-  <DropDownToggled
+  <XUIDropdownToggled
     trigger={<XUISecondaryButton variant="standard" key="split" aria-label="Other actions" />}
     dropdown={
-      <DropDown fixedWidth size="small">
-        <Picklist>
-          <Pickitem id="aa" value="aa" key="aa">
+      <XUIDropdown fixedWidth size="small">
+        <XUIPicklist>
+          <XUIPickitem id="aa" value="aa" key="aa">
             Option 1
-          </Pickitem>
-          <Pickitem id="bb" value="bb" key="bb">
+          </XUIPickitem>
+          <XUIPickitem id="bb" value="bb" key="bb">
             Option 2
-          </Pickitem>
-        </Picklist>
-      </DropDown>
+          </XUIPickitem>
+        </XUIPicklist>
+      </XUIDropdown>
     }
   />
 </XUISplitButtonGroup>;

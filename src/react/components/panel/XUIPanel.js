@@ -1,45 +1,44 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-panel`;
 
-export default class XUIPanel extends PureComponent {
-  render() {
-    const {
-      qaHook,
-      className,
-      children,
-      heading,
-      footer,
-      sidebar,
-      tagName,
-      ...spreadProps
-    } = this.props;
-    const classes = cn(baseClass, className, sidebar && `${baseClass}-has-sidebar`);
-    const Tag = tagName;
-    if (!sidebar) {
-      return (
-        <Tag {...spreadProps} className={classes} data-automationid={qaHook}>
-          {heading}
-          {children}
-          {footer}
-        </Tag>
-      );
-    }
+const XUIPanel = ({
+  children,
+  className,
+  footer,
+  heading,
+  qaHook,
+  sidebar,
+  tagName,
+  ...spreadProps
+}) => {
+  const classes = cn(baseClass, className, sidebar && `${baseClass}-has-sidebar`);
+  const Tag = tagName;
+  if (!sidebar) {
     return (
       <Tag {...spreadProps} className={classes} data-automationid={qaHook}>
-        <div className={`${baseClass}--sidebar`}>{sidebar}</div>
-        <div className={`${baseClass}--main`}>
-          {heading}
-          {children}
-          {footer}
-        </div>
+        {heading}
+        {children}
+        {footer}
       </Tag>
     );
   }
-}
+  return (
+    <Tag {...spreadProps} className={classes} data-automationid={qaHook}>
+      <div className={`${baseClass}--sidebar`}>{sidebar}</div>
+      <div className={`${baseClass}--main`}>
+        {heading}
+        {children}
+        {footer}
+      </div>
+    </Tag>
+  );
+};
+
+export default XUIPanel;
 
 XUIPanel.propTypes = {
   children: PropTypes.node,

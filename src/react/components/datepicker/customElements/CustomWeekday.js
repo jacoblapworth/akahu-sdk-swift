@@ -1,15 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PropTypes as DayPickerPropTypes } from 'react-day-picker';
+import DayPicker from 'react-day-picker';
 import { baseClassName, customClassNames } from '../helpers/constants';
 
-export default function CustomWeekday({
-  weekday,
-  weekdaysLong,
-  weekdaysShort,
-  localeUtils,
-  locale,
-}) {
+const CustomWeekday = ({ locale, localeUtils, weekday, weekdaysLong, weekdaysShort }) => {
   let title;
   if (weekdaysLong) {
     title = weekdaysLong[weekday];
@@ -30,14 +24,14 @@ export default function CustomWeekday({
       </abbr>
     </div>
   );
-}
+};
+
+export default CustomWeekday;
 
 CustomWeekday.propTypes = {
   weekday: PropTypes.number,
   locale: PropTypes.string,
-  // eslint-disable-next-line react/no-typos
-  localeUtils: DayPickerPropTypes.default.localeUtils,
-
+  localeUtils: DayPicker.LocaleUtils,
   weekdaysLong: PropTypes.arrayOf(PropTypes.string),
   weekdaysShort: PropTypes.arrayOf(PropTypes.string),
 };

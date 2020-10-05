@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
-import Pickitem from '../picklist/Pickitem';
+import XUIPickitem from '../picklist/XUIPickitem';
 
 interface Props {
   children?: React.ReactNode;
@@ -10,11 +10,11 @@ interface Props {
    */
   className?: string;
   /**
-   * Maps to the `closeOnSelect` property of the `DropDownToggled` component.
+   * Maps to the `closeOnSelect` property of the `XUIDropdownToggled` component.
    */
   closeOnSelect?: boolean;
   /**
-   * Maps to the `closeOnTab` property of the `DropDownToggled` component.
+   * Maps to the `closeOnTab` property of the `XUIDropdownToggled` component.
    */
   closeOnTab?: boolean;
   /**
@@ -67,7 +67,7 @@ interface Props {
    */
   inputId?: string;
   /**
-   * Label to show above the input.
+   * Label to show above the input, or for accessibility when the input label is hidden
    */
   inputLabel?: React.ReactNode;
   /**
@@ -84,7 +84,9 @@ interface Props {
    */
   isDisabled?: boolean;
   /**
-   * Should label be applied as an aria-label, rather than being visibly displayed.
+   * Whether to hide the label and apply it as an ARIA label instead.
+   *
+   * Defaults to visible.
    */
   isInputLabelHidden?: boolean;
   /**
@@ -109,11 +111,11 @@ interface Props {
    *
    * Recommended English value: *Loading*
    */
-  loadingLabel?: string;
+  loadingAriaLabel?: string;
   /**
    * Setting to `false` will allow the dropdown's width to be set independent of the trigger width.
    *
-   * **Note:** *Setting this to `true` will override any size prop on `DropDown`.*
+   * **Note:** *Setting this to `true` will override any size prop on `XUIDropdown`.*
    *
    * XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match
    * the width of narrow triggers.
@@ -134,7 +136,7 @@ interface Props {
   /**
    * Callback for when the highlighted item changes.
    */
-  onHighlightChange?: (item: Pickitem) => void;
+  onHighlightChange?: (item: XUIPickitem) => void;
   /**
    * Callback for adding additional `onKeyDown` functionality.
    */
@@ -147,7 +149,7 @@ interface Props {
    * Callback to handle when an option has been selected from the dropdown.
    */
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  onOptionSelect?: (value: any, element?: Pickitem) => void;
+  onOptionSelect?: (value: any, element?: XUIPickitem) => void;
   /**
    * Callback for when the user types into the search box. The argument passed in is the search term
    * value.
@@ -193,8 +195,7 @@ export default class XUIAutocompleter extends React.PureComponent<Props> {
   /**
    * Set the state as hidden in order to toggle the list closed.
    */
-  closeDropDown(): void;
-
+  closeDropdown(): void;
   /**
    * Focuses the text input.
    */
@@ -203,19 +204,16 @@ export default class XUIAutocompleter extends React.PureComponent<Props> {
   /**
    * Manually highlight an item in the list for selection.
    */
-  highlightItem(item: Pickitem): void;
-
+  highlightItem(item: XUIPickitem): void;
   /**
    * Set the state as not hidden in order to toggle the list open.
    */
-  openDropDown(): void;
-
+  openDropdown(): void;
   /**
    * If an onHighlightChange prop is passed to the completer, it's called passing in the highlighted
    * item.
    */
-  onHighlightChange(item: Pickitem): void;
-
+  onHighlightChange(item: XUIPickitem): void;
   /**
    * Root node to enable users to access as a ref.
    */

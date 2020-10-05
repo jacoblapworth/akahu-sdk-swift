@@ -88,22 +88,6 @@ describe('XUIAvatar', () => {
       mountedComponent.find('img').simulate('error');
       expect(onErrorHandler).toHaveBeenCalledTimes(1);
     });
-
-    it("should call the onError internal method when the image doesn't exist", () => {
-      const testString = 'test';
-      const onErrorHandler = jest.fn();
-
-      const mountedComponent = mount(
-        <XUIAvatar
-          value="Test"
-          onError={onErrorHandler}
-          imageUrl="https://xui.xero.com/static/broken-path.jpg"
-        />,
-      );
-
-      mountedComponent.instance().onError(testString);
-      expect(onErrorHandler).toHaveBeenCalledWith(testString);
-    });
   });
 
   describe('Generic tests', () => {

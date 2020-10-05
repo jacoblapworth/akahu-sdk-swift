@@ -9,7 +9,7 @@
 export default function compose(...fns) {
   /* eslint-disable */
   // TODO: Create ES6 equivalent to replace this with 'this' and arguments still applied
-  return function() {
+  return function () {
     fns.forEach(fn => {
       if (typeof fn === 'function') {
         fn.apply(this, arguments);

@@ -5,14 +5,14 @@ const compositionKind = 'Components in Components';
 const storyNames = {
   dateDDInModal: 'Datepicker dropdown in a modal',
   dropDownInModal: 'Dropdown in a modal',
-  multiDropDowns: 'Multiple dropdowns in a modal',
+  multiDropdowns: 'Multiple dropdowns in a modal',
   formOnAPage: 'Form on a page',
   formLayout: 'Form layout',
   touchTargets: 'Invisible touch targets',
 };
 
 const nonBackstopStoryNames = {
-  inifiniteStatefulPicklist: 'Infinite JS errors in StatefulPicklist render',
+  inifiniteStatefulPicklist: 'Infinite JS errors in stateful picklist render',
   modalInModal: 'Modal in a modal with dropdown',
   fiveNestedModals: 'Multiple nested modals',
   touchInteractions: 'Touch interaction tests',

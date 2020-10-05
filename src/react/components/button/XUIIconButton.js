@@ -7,7 +7,7 @@ import XUITouchTarget from '../touchtarget/XUITouchTarget';
 import {
   sizeClassNames,
   iconSizeClassNames,
-  variantClassNames,
+  iconVariantClassNames,
   buttonTypes,
 } from './private/constants';
 import { colorClasses, wrapperSizeClasses, rotationClasses } from '../icon/private/constants';
@@ -37,7 +37,7 @@ export default class XUIIconButton extends PureComponent {
         className={cn(
           className,
           iconSizeClass,
-          variantClassNames[isInverted ? 'icon-inverted' : 'icon'],
+          iconVariantClassNames[isInverted ? 'icon-inverted' : 'icon'],
         )}
         ref={n => (this.rootNode = n && n.rootNode)}
         variant="unstyled"

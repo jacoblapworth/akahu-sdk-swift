@@ -139,7 +139,7 @@ const makeInteraction = (event, callback) => {
   }
 };
 
-const DemoItem = function({ name, contacts, handleOptionsInteraction, handleUpdateInteraction }) {
+const DemoItem = function ({ name, contacts, handleOptionsInteraction, handleUpdateInteraction }) {
   return (
     <XUIAccordionItem
       primaryHeading={name}

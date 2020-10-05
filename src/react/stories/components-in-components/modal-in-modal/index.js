@@ -1,6 +1,15 @@
 // Libs
 import React, { Component } from 'react';
 
+// Components we need to test with
+import XUIModal, { XUIModalBody, XUIModalHeader } from '../../../modal';
+import XUIButton from '../../../button';
+import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
+import * as lists from '../../../components/helpers/list';
+
+import { nonBackstopStoryNames, compositionKind } from '../tests';
+
 // Story book things
 import { storiesOf } from '@storybook/react';
 // TODO: storybook-readme is commented out until the package fixes issues with IE11.

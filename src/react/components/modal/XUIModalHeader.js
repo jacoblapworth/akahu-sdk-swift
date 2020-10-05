@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { baseClass } from './constants';
 
-export default function XUIModalHeader({ className, children, qaHook, id }) {
+const XUIModalHeader = ({ className, children, qaHook, id }) => {
   const classNames = cn(`${baseClass}--header`, `${baseClass}--heading`, className);
   return (
     <header className={classNames} data-automationid={qaHook} id={id}>
       {children}
     </header>
   );
-}
+};
+
+export default XUIModalHeader;
 
 XUIModalHeader.propTypes = {
   children: PropTypes.node,

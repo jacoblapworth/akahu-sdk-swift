@@ -166,4 +166,9 @@ interface Props {
   value?: string;
 }
 
-export default class XUITextInput extends React.PureComponent<Props> {}
+export default class XUITextInput extends React.PureComponent<Props> {
+  /**
+   * Root node to enable users to access as a ref.
+   */
+  rootNode: React.MutableRefObject<HTMLElement>;
+}

@@ -1,1 +1,0 @@
-A wrapper of `PickItem` that assumes your children are only text. This means it can truncate the text when the prop `truncateText` is set to true. It also assumes you require the default layout of a Pickitem. The API for `SelectBoxOption` is otherwise very similar to `Pickitem`s. See below for further details.

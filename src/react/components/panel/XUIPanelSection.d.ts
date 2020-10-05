@@ -8,12 +8,13 @@ interface BaseProps {
    */
   headerClassName?: string;
   /**
-   * Text to be placed in a `xui-panel--section-header` node.
+   * Text or node to be placed in a `xui-panel--section-header` node.
    */
-  headerText?: string;
+  heading?: React.ReactNode;
   qaHook?: string;
 }
 
 type Props = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 
-export default class XUIPanelSection extends React.PureComponent<Props> {}
+declare const XUIPanelSection: React.FunctionComponent<Props>;
+export default XUIPanelSection;

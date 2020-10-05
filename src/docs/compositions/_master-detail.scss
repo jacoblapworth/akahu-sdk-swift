@@ -24,7 +24,7 @@
 
 // Master detail default behaviour
 //
-// The Master container is hidden when the browser width is below `$xui-breakpoint-medium`. From `$xui-breakpoint-medium` the Master container is a column to the left of the Detail container. The entire composition has a max-width of 1200px. To provide access to the Master content while viewing the small layout, we recommend encapsulating it and also passing it as a prop to one of the other content areas, where it can populate the panel of a DropDown.
+// The Master container is hidden when the browser width is below `$xui-breakpoint-medium`. From `$xui-breakpoint-medium` the Master container is a column to the left of the Detail container. The entire composition has a max-width of 1200px. To provide access to the Master content while viewing the small layout, we recommend encapsulating it and also passing it as a prop to one of the other content areas, where it can populate the panel of a Dropdown.
 //
 // Styleguide: Compositions.MasterDetail.1
 

@@ -30,4 +30,5 @@ interface BaseProps {
 
 type Props = BaseProps & React.HTMLAttributes<HTMLElement>;
 
-export default class XUIOverviewSection extends React.PureComponent<Props> {}
+declare const XUIOverviewSection: React.FunctionComponent<Props>;
+export default XUIOverviewSection;

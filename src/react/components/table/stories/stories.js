@@ -14,7 +14,7 @@ import Cell from '../XUITableCell';
 
 import logReadyState from '../../../stories/helpers/log-ready-state';
 import { variations, storiesWithVariationsKindName } from './variations';
-import Pickitem from '../../picklist/Pickitem';
+import XUIPickitem from '../../picklist/XUIPickitem';
 import XUITag from '../../tag/XUITag';
 import noop from '../../helpers/noop';
 
@@ -57,9 +57,9 @@ const customStyles = `
 `;
 
 const createOverflowMenu = () => [
-  <Pickitem id="0" key="0" onClick={noop}>
+  <XUIPickitem id="0" key="0" onClick={noop}>
     Menu Option
-  </Pickitem>,
+  </XUIPickitem>,
 ];
 
 const Appendage = ({ children }) => <div style={appendageStyles}>{children}</div>;
@@ -147,8 +147,8 @@ storiesWithKnobs.add('Playground', () => {
       <Table
         {...tableProps}
         caption={text('caption', '')}
-        checkAllRowsLabel="Select all rows"
-        checkOneRowLabel="Select row"
+        checkAllRowsAriaLabel="Select all rows"
+        checkOneRowAriaLabel="Select row"
         className={text('className', '')}
         data={data}
         emptyMessage="Nothing to show here"
@@ -158,8 +158,9 @@ storiesWithKnobs.add('Playground', () => {
         isLoading={boolean('isLoading', false)}
         isResponsive={boolean('isResponsive', false)}
         isTruncated={boolean('isTruncated', false)}
-        loaderLabel="Loading more data"
+        loaderAriaLabel="Loading more data"
         overflowMenuTitle="More row options"
+        qaHook={text('qaHook', '')}
       >
         <Column
           body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
@@ -226,10 +227,10 @@ const TestScaffold = (
 ) => (
   <ScrollResetWrapper key={tableIndex} style={{ ...tableStyles, ...styleOverrides }}>
     <Table
-      checkAllRowsLabel="Select all rows"
-      checkOneRowLabel="Select row"
+      checkAllRowsAriaLabel="Select all rows"
+      checkOneRowAriaLabel="Select row"
       emptyMessage="Nothing to show here"
-      loaderLabel="Loading more data"
+      loaderAriaLabel="Loading more data"
       overflowMenuTitle="More row options"
       {...tableProps}
       createOverflowMenu={tableProps.hasOverflowMenu && createOverflowMenu}

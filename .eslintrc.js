@@ -79,10 +79,15 @@ module.exports = {
     'typescript-sort-keys/interface': 2,
     'typescript-sort-keys/string-enum': 2,
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/interface-name-prefix': [
+    '@typescript-eslint/naming-convention': [
       'error',
       {
-        prefixWithI: 'never',
+        selector: 'interface',
+        format: ['PascalCase'],
+        custom: {
+          regex: '^I[A-Z]',
+          match: false,
+        },
       },
     ],
   },
@@ -153,6 +158,7 @@ module.exports = {
         'import/named': 'off',
         // TODO: Decide whether or not we want to turn any of the below options on. They came in during an ESLint update so I turned them all off for now. Each of these could still be turned off for special use-cases if needed.
         'simple-import-sort/sort': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
       },
     },
   ],

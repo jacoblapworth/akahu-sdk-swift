@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import XUILoader from '../loader/XUILoader';
 import noop from '../helpers/noop';
 import { enrichProps } from './helpers/utilities';
@@ -16,14 +16,10 @@ import { ns } from '../helpers/xuiClassNamespace';
 
 class XUITable extends Component {
   state = { rootWidth: null };
-
   rootNode;
-
   wrapperNode;
-
   tableNode;
-
-  instanceId = uuid();
+  instanceId = uuidv4();
 
   componentDidUpdate = () => {
     this.setCurrentWidth();
@@ -134,7 +130,7 @@ class XUITable extends Component {
       isTruncated,
       isBorderless,
       isLoading,
-      loaderLabel,
+      loaderAriaLabel,
       isEmpty,
       emptyStateComponent,
       emptyStateIcon,
@@ -147,8 +143,8 @@ class XUITable extends Component {
       disabledIds,
       onCheckAllToggle,
       onCheckOneToggle,
-      checkOneRowLabel,
-      checkAllRowsLabel,
+      checkOneRowAriaLabel,
+      checkAllRowsAriaLabel,
       hasOverflowMenu,
       createOverflowMenu,
       overflowMenuTitle,
@@ -162,7 +158,6 @@ class XUITable extends Component {
       columns,
       data,
       hasPointerEvents,
-      headerSortbuttonIcon,
     } = enrichProps(state, props, { rootNode, tableNode, wrapperNode });
 
     const className = cn(NAME_SPACE, suppliedClasses, {
@@ -218,10 +213,9 @@ class XUITable extends Component {
                   checkedIds,
                   disabledIds,
                   onCheckAllToggle,
-                  checkAllRowsLabel,
+                  checkAllRowsAriaLabel,
                   hasOverflowMenu,
                   ensureCellVisibility,
-                  headerSortbuttonIcon,
                 }}
               />
             )}
@@ -239,7 +233,7 @@ class XUITable extends Component {
                       isChecked: checkboxState(rowData._id, checkedIds),
                       isDisabled: checkboxState(rowData._id, disabledIds),
                       onCheckOneToggle,
-                      checkOneRowLabel,
+                      checkOneRowAriaLabel,
                       onRowClick,
                       shouldRowClick,
                       hasOverflowMenu,
@@ -247,6 +241,7 @@ class XUITable extends Component {
                       overflowMenuTitle,
                       createDividerClasses,
                       ensureCellVisibility,
+                      qaHook,
                     }}
                   />
                 ))}
@@ -256,7 +251,7 @@ class XUITable extends Component {
 
         {isLoading && (
           <TableAlert qaHook={qaHook && `${qaHook}-loader`}>
-            <XUILoader ariaLabel={loaderLabel} />
+            <XUILoader ariaLabel={loaderAriaLabel} />
           </TableAlert>
         )}
 
@@ -316,7 +311,7 @@ XUITable.propTypes = {
    * <br />
    * Recommended English value: *Loading more data*
    */
-  loaderLabel: PropTypes.string,
+  loaderAriaLabel: PropTypes.string,
 
   // - - - - - //
   // Pinning.  //
@@ -353,7 +348,7 @@ XUITable.propTypes = {
    * <br />
    * Recommended English value: *Select row*
    */
-  checkOneRowLabel: PropTypes.node,
+  checkOneRowAriaLabel: PropTypes.node,
 
   /**
    * Describes the "all rows" checkbox functionality for accessibility.
@@ -361,7 +356,7 @@ XUITable.propTypes = {
    * <br />
    * Recommended English value: *Select all rows*
    */
-  checkAllRowsLabel: PropTypes.node,
+  checkAllRowsAriaLabel: PropTypes.node,
 
   // - - - - - - - //
   // Overflow Menu. //
@@ -444,16 +439,6 @@ XUITable.propTypes = {
    * Defaults to the table icon, if no value is provided.
    */
   emptyStateIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
-
-  /**
-   * Optional prop for users to modify the header sort button icon, if required for localisation.
-   * Defaults to the sortSingle icon, if no value is provided.
-   */
-  headerSortbuttonIcon: PropTypes.shape({
     height: PropTypes.number,
     path: PropTypes.string,
     width: PropTypes.number,

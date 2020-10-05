@@ -240,7 +240,6 @@ class ChartScaffold extends PureComponent {
       paginationLabel,
       paginationNextTitle,
       paginationPreviousTitle,
-      paginationIcon,
 
       // Tooltip...
       hasToolTip,
@@ -263,7 +262,6 @@ class ChartScaffold extends PureComponent {
       hasKey,
       keyTitle,
       keyLabel,
-      keyIcon,
     } = params;
 
     return (
@@ -283,7 +281,6 @@ class ChartScaffold extends PureComponent {
               <ContentPagination
                 createMessage={createPaginationMessage}
                 current={panelCurrent}
-                icon={paginationIcon}
                 paginationLabel={paginationLabel}
                 paginationNextTitle={paginationNextTitle}
                 paginationPreviousTitle={paginationPreviousTitle}
@@ -296,7 +293,6 @@ class ChartScaffold extends PureComponent {
             {hasKey && (
               <ChartKey
                 colors={barColorStacks}
-                icon={keyIcon}
                 labels={keyLabel}
                 qaHook={qaHook && `${qaHook}--key`}
                 title={keyTitle}
@@ -564,11 +560,6 @@ ChartScaffold.propTypes = {
   chartHeight: PropTypes.number,
   keyTitle: PropTypes.string,
   keyLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-  keyIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
   barsData: PropTypes.array,
   barColor: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   isBarStacked: PropTypes.bool,
@@ -586,10 +577,5 @@ ChartScaffold.propTypes = {
   paginationLabel: PropTypes.string,
   paginationNextTitle: PropTypes.string,
   paginationPreviousTitle: PropTypes.string,
-  paginationIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
   createPaginationMessage: PropTypes.func,
 };

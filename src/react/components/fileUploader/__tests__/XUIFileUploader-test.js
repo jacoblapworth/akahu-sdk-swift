@@ -118,10 +118,7 @@ describe('<XUIFileUploader/>', () => {
       const onCancel = jest.fn();
       const wrapper = mount(<WithFileListWrapper onCancel={onCancel} />);
 
-      wrapper
-        .find('XUIButton[children="Cancel"]')
-        .at(0)
-        .simulate('click');
+      wrapper.find('XUIButton[children="Cancel"]').at(0).simulate('click');
       expect(onCancel).toHaveBeenCalledTimes(1);
     });
 
@@ -129,10 +126,7 @@ describe('<XUIFileUploader/>', () => {
       const onDelete = jest.fn();
       const wrapper = mount(<WithFileListWrapper onDelete={onDelete} />);
 
-      wrapper
-        .find('XUIIconButton')
-        .at(0)
-        .simulate('click');
+      wrapper.find('XUIIconButton').at(0).simulate('click');
       expect(onDelete).toHaveBeenCalledTimes(1);
     });
 
@@ -140,10 +134,7 @@ describe('<XUIFileUploader/>', () => {
       const onRetry = jest.fn();
       const wrapper = mount(<WithFileListWrapper onRetry={onRetry} />);
 
-      wrapper
-        .find('XUIButton[children="Retry"]')
-        .at(0)
-        .simulate('click');
+      wrapper.find('XUIButton[children="Retry"]').at(0).simulate('click');
       expect(onRetry).toHaveBeenCalledTimes(1);
     });
   });

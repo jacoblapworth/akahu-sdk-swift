@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -15,7 +15,7 @@ import MessageElement from './private/MessageElement';
  * @param {Boolean} isGroup - Whether or not this label is for a group of controls
  * @returns {{aria-invalid: boolean, aria-label: string, aria-labelledby: string, aria-describedby: string}}
  */
-export function getAriaAttributes(ids, props, groupedSetting = {}) {
+export const getAriaAttributes = (ids, props, groupedSetting = {}) => {
   const { isGroup } = groupedSetting;
   const { label, isLabelHidden, validationMessage, hintMessage, labelId, isInvalid } = props;
 
@@ -49,27 +49,28 @@ export function getAriaAttributes(ids, props, groupedSetting = {}) {
     'aria-describedby': ariaDescribedBy,
     id: controlId,
   };
-}
+};
 
-export default class XUIControlWrapper extends PureComponent {
-  render() {
-    const {
+const XUIControlWrapper = React.forwardRef(
+  (
+    {
       children,
       fieldClassName,
-      onKeyDown,
-      isFieldLayout,
-      onClick,
-      labelClassName,
-      label,
-      isLabelHidden,
-      qaHook,
-      wrapperIds,
-      isInvalid,
-      validationMessage,
       hintMessage,
+      isFieldLayout,
       isGroup,
-    } = this.props;
-
+      isInvalid,
+      isLabelHidden,
+      label,
+      labelClassName,
+      onClick,
+      onKeyDown,
+      qaHook,
+      validationMessage,
+      wrapperIds,
+    },
+    ref,
+  ) => {
     const rootClasses = cn(fieldClassName, isFieldLayout && `${ns}-field-layout`);
 
     return (
@@ -78,6 +79,7 @@ export default class XUIControlWrapper extends PureComponent {
         className={rootClasses}
         onClick={onClick}
         onKeyDown={onKeyDown}
+        ref={ref}
         role={(onClick || onKeyDown) && 'presentation'}
       >
         <LabelElement
@@ -103,8 +105,10 @@ export default class XUIControlWrapper extends PureComponent {
       </div>
       /* eslint-enable */
     );
-  }
-}
+  },
+);
+
+export default XUIControlWrapper;
 
 XUIControlWrapper.propTypes = {
   qaHook: PropTypes.string,

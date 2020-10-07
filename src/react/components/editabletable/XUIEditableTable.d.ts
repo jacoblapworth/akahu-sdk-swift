@@ -109,7 +109,8 @@ interface BaseProps {
   validationMessage?: React.ReactNode;
 }
 
-type Props = BaseProps & React.TableHTMLAttributes<HTMLTableElement>;
+type Props = BaseProps &
+  React.DetailedHTMLProps<React.TableHTMLAttributes<HTMLTableElement>, HTMLTableElement>;
 
 declare const XUIEditableTable: React.FunctionComponent<Props>;
 export default XUIEditableTable;

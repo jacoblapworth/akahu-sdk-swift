@@ -13,7 +13,8 @@ interface BaseProps {
   qaHook?: string;
 }
 
-type Props = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type Props = BaseProps &
+  React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>;
 
 const EditableTableUtilityBar: React.FunctionComponent<Props> = ({
   children,

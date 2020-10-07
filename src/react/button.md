@@ -198,13 +198,11 @@ import XUIButton from '@xero/xui/react/button';
 </div>;
 ```
 
-The `isLoading` prop replaces the contents of the button with a loader, as well as disabling the button. You must also provide a `loadingAriaLabel`, which adds an `aria-label` to the loader for accessibility purposes.
+The `isLoading` prop replaces the contents of the button with a loader, as well as disabling the button. You must also provide a `loadingAriaLabel`, which adds an `aria-label` to the loader for accessibility purposes. As the loading state disables the button, the loader's colour scheme will reflect this.
 
 The `retainLayout` prop modifies the internals to keep the original button size, but shows a loader instead of the content
 
 The `minLoaderWidth` prop modifies the button by applying a 75px min width on it. Useful for short content buttons.
-
-The supplied loader inherits the text color of the button component.
 
 ```jsx harmony
 import XUIButton from '@xero/xui/react/button';
@@ -230,12 +228,12 @@ import XUIButton from '@xero/xui/react/button';
   >
     Button with lots of text
   </XUIButton>
-  <XUIButton className="xui-margin-right-small" variant="primary" loadingAriaLabel="Loading">
+  <XUIButton className="xui-margin-right-small" variant="standard" loadingAriaLabel="Loading">
     OK
   </XUIButton>
   <XUIButton
     className="xui-margin-right-small"
-    variant="primary"
+    variant="standard"
     isLoading
     loadingAriaLabel="Loading"
   >

@@ -251,7 +251,7 @@ XUIButton.propTypes = {
   isExternalLink: PropTypes.bool,
 
   /** If true, shows a loader inside the button and also disables the button to prevent
-   * clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */
+   * clicking. Can be used in conjunction with `isDisabled` (which also provides a disabled class)  */
   isLoading: PropTypes.bool,
 
   /**

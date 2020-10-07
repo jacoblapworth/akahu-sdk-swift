@@ -1,9 +1,10 @@
 import * as React from 'react';
 
+import { XUIEditableTableCellControl } from '../../editabletable';
 import SelectBox from '../../select-box';
 
 interface BaseProps {
-  cellProps?: object;
+  cellProps?: React.ComponentProps<typeof XUIEditableTableCellControl>;
 }
 
 type Props = BaseProps &

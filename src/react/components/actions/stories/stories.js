@@ -11,10 +11,10 @@ import XUIButton from '../../button/XUIButton';
 import XUISplitButtonGroup from '../../button/XUISplitButtonGroup';
 import XUISecondaryButton from '../../button/XUISecondaryButton';
 import XUIPanel from '../../panel/XUIPanel';
-import DropDown from '../../dropdown/DropDown';
-import DropDownToggled from '../../dropdown/DropDownToggled';
-import Picklist from '../../picklist/Picklist';
-import Pickitem from '../../picklist/Pickitem';
+import XUIDropdown from '../../dropdown/XUIDropdown';
+import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIPickitem from '../../picklist/XUIPickitem';
 
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
@@ -24,18 +24,18 @@ const splitButtonExample = hasDropdown => (
   <XUISplitButtonGroup variant="primary">
     <XUIButton>Split action</XUIButton>
     {hasDropdown ? (
-      <DropDownToggled
+      <XUIDropdownToggled
         dropdown={
-          <DropDown fixedWidth size="small">
-            <Picklist>
-              <Pickitem id="aa" key="aa" value="aa">
+          <XUIDropdown fixedWidth size="small">
+            <XUIPicklist>
+              <XUIPickitem id="aa" key="aa" value="aa">
                 Option 1
-              </Pickitem>
-              <Pickitem id="bb" key="bb" value="bb">
+              </XUIPickitem>
+              <XUIPickitem id="bb" key="bb" value="bb">
                 Option 2
-              </Pickitem>
-            </Picklist>
-          </DropDown>
+              </XUIPickitem>
+            </XUIPicklist>
+          </XUIDropdown>
         }
         trigger={<XUISecondaryButton aria-label="Other actions" key="split" variant="primary" />}
       />

@@ -1,12 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import caret from '@xero/xui-icon/icons/caret';
 import { pickitemClassName, itemBodyClassName, itemTextClassName } from './constants';
 import XUIIcon from '../../icon/XUIIcon';
-import caret from '@xero/xui-icon/icons/caret';
-
-import { ns } from '../../helpers/xuiClassNamespace';
-import { pickitemClassName, itemBodyClassName, itemTextClassName } from '../private/constants';
 
 /**
  * INTERNAL USE ONLY

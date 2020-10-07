@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-import React, { Component, PureComponent, Fragment } from 'react';
+import React, { Component, PureComponent } from 'react';
 import crossIcon from '@xero/xui-icon/icons/cross-small';
 
 import {
@@ -10,8 +10,8 @@ import {
   XUIEditableTableCellTextInput,
 } from '../../../editabletable';
 import XUIButton, { XUIIconButton } from '../../../button';
-import { SelectBoxOption } from '../../../select-box';
-import Picklist, { Pickitem } from '../../../picklist';
+import { XUISelectBoxOption } from '../../../selectbox';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import XUIAvatar from '../../../avatar';
 import { XUIAutocompleterEmptyState } from '../../../autocompleter';
 import { decorateSubStr, boldMatch } from '../../autocompleter/helpers/highlighting';
@@ -46,24 +46,24 @@ const sampleSecondary = (id, text, settings) => (
     onSearch={() => console.log('onSearch fired!')}
     trigger={<XUIButton>{text}</XUIButton>}
   >
-    <Picklist>
-      <Pickitem id="pi1" primaryElement="Item content" />
-      <Pickitem id="pi2" primaryElement="Item two" />
-    </Picklist>
+    <XUIPicklist>
+      <XUIPickitem id="pi1" primaryElement="Item content" />
+      <XUIPickitem id="pi2" primaryElement="Item two" />
+    </XUIPicklist>
   </XUIEditableTableCellSecondarySearch>
 );
 
 const sampleSelect = (id, text, settings) => (
   <XUIEditableTableCellSelectBox {...settings} buttonContent={text} id={id} key={id} label={text}>
-    <SelectBoxOption id={`${id}_a`} key="a" value="Apple">
+    <XUISelectBoxOption id={`${id}_a`} key="a" value="Apple">
       Apple
-    </SelectBoxOption>
-    <SelectBoxOption id={`${id}_b`} key="b" value="Banana">
+    </XUISelectBoxOption>
+    <XUISelectBoxOption id={`${id}_b`} key="b" value="Banana">
       Banana
-    </SelectBoxOption>
-    <SelectBoxOption id={`${id}_c`} key="c" value="Cucumber">
+    </XUISelectBoxOption>
+    <XUISelectBoxOption id={`${id}_c`} key="c" value="Cucumber">
       Cucumber
-    </SelectBoxOption>
+    </XUISelectBoxOption>
   </XUIEditableTableCellSelectBox>
 );
 
@@ -123,9 +123,9 @@ class AutoExample extends Component {
   onSearchChangeHandler(value) {
     const invalidInput = !!value.match(/[!.^%&#]/);
     if (invalidInput) {
-      this.completer.current.closeDropDown();
+      this.completer.current.closeDropdown();
     } else {
-      this.completer.current.openDropDown();
+      this.completer.current.openDropdown();
     }
     this.setState({
       value,
@@ -191,11 +191,11 @@ class AutoExample extends Component {
 
     const dropdownContents =
       unselectedPeopleIds.length === 0 ? (
-        <Picklist>
+        <XUIPicklist>
           <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>
-        </Picklist>
+        </XUIPicklist>
       ) : (
-        <Picklist>
+        <XUIPicklist>
           {unselectedPeopleIds.map(person => {
             const secondaryContent = (
               <>
@@ -205,7 +205,7 @@ class AutoExample extends Component {
             );
             const headingContent = <>{decorateSubStr(person.name, value || '', boldMatch)}</>;
             return (
-              <Pickitem
+              <XUIPickitem
                 headingElement={headingContent}
                 id={person.id}
                 isMultiline
@@ -220,7 +220,7 @@ class AutoExample extends Component {
               />
             );
           })}
-        </Picklist>
+        </XUIPicklist>
       );
     return (
       <XUIEditableTableCellAutocompleter

@@ -1,14 +1,5 @@
 // Libs
-import React, { Component } from 'react';
-
-// Components we need to test with
-import XUIModal, { XUIModalBody, XUIModalHeader } from '../../../modal';
-import XUIButton from '../../../button';
-import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
-import XUIPicklist, { XUIPickitem } from '../../../picklist';
-import * as lists from '../../../components/helpers/list';
-
-import { nonBackstopStoryNames, compositionKind } from '../tests';
+import React from 'react';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -16,11 +7,11 @@ import { storiesOf } from '@storybook/react';
 // import { addReadme } from 'storybook-readme';
 // import readme from './README.md';
 
+import { nonBackstopStoryNames, compositionKind } from '../tests';
+
 // Components we need to test with
 import Example from './components/Example';
 import Example2 from './components/Example2';
-
-import { nonBackstopStoryNames, compositionKind } from '../tests';
 
 <Example />;
 <Example2 />;

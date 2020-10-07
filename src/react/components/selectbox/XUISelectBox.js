@@ -100,9 +100,9 @@ export default class XUISelectBox extends Component {
               {...ariaAttributes}
               className={buttonClassNames}
               fullWidth={fullWidth}
+              hasCaret
               id={this.wrapperIds.control}
               isDisabled={isDisabled}
-              hasCaret
               onBlur={onBlur}
               onFocus={onFocus}
               qaHook={setQaHook(qaHook, qaHooks.button)}
@@ -123,7 +123,7 @@ export default class XUISelectBox extends Component {
           );
 
           const dropdown = (
-            <DropDown
+            <XUIDropdown
               // These aria attributes currently go nowhere
               ariaAttributes={getAriaAttributes(this.wrapperIds.control, this.props)}
               className={dropDownClasses}
@@ -132,8 +132,8 @@ export default class XUISelectBox extends Component {
               qaHook={setQaHook(qaHook, qaHooks.dropdown)}
               restrictFocus={restrictFocus}
             >
-              <Picklist>{children}</Picklist>
-            </DropDown>
+              <XUIPicklist>{children}</XUIPicklist>
+            </XUIDropdown>
           );
 
           return (
@@ -158,7 +158,7 @@ export default class XUISelectBox extends Component {
                   {React.Children.count(children) === 0 ? (
                     trigger
                   ) : (
-                    <DropDownToggled
+                    <XUIDropdownToggled
                       closeOnSelect={closeAfterSelection}
                       dropdown={dropdown}
                       forceDesktop={forceDesktop}

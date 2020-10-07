@@ -90,6 +90,7 @@ export default class XUIDropdownPanel extends React.PureComponent<Props> {
    * Get the React virtual DOM representation of the currently highlighted element in the child `XUIStatefulPicklist` (if applicable).
    */
   getHighlighted(): XUIPickitem | null;
+
   /**
    * Get the ID of the currently highlighted item in the child `XUIStatefulPicklist` (if applicable).
    */
@@ -104,6 +105,7 @@ export default class XUIDropdownPanel extends React.PureComponent<Props> {
    * Highlight a specific item in the child `XUIStatefulPicklist` (if applicable).
    */
   highlightItem(item: XUIPickitem, event: React.MouseEvent): void;
+
   /**
    * Used to highlight an item immediately after a dropdown opens.
    */

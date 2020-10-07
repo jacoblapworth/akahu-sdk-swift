@@ -8124,7 +8124,6 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
           >
             <th
               className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
-              tabIndex={-1}
             >
                
               <div
@@ -8183,7 +8182,6 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
           >
             <td
               className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-              tabIndex={-1}
             >
                
               <div
@@ -8225,7 +8223,6 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
             </td>
             <td
               className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-              tabIndex={-1}
             >
                
               <div
@@ -8272,7 +8269,6 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
           >
             <td
               className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
-              tabIndex={-1}
             >
                
               <div
@@ -8314,7 +8310,6 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
             </td>
             <td
               className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
-              tabIndex={-1}
             >
                
               <div

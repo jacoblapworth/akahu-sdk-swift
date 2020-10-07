@@ -16,9 +16,13 @@ import { ns } from '../helpers/xuiClassNamespace';
 
 class XUITable extends Component {
   state = { rootWidth: null };
+
   rootNode;
+
   wrapperNode;
+
   tableNode;
+
   instanceId = uuidv4();
 
   componentDidUpdate = () => {

@@ -196,6 +196,7 @@ export default class XUIAutocompleter extends React.PureComponent<Props> {
    * Set the state as hidden in order to toggle the list closed.
    */
   closeDropdown(): void;
+
   /**
    * Focuses the text input.
    */
@@ -205,15 +206,18 @@ export default class XUIAutocompleter extends React.PureComponent<Props> {
    * Manually highlight an item in the list for selection.
    */
   highlightItem(item: XUIPickitem): void;
+
   /**
    * Set the state as not hidden in order to toggle the list open.
    */
   openDropdown(): void;
+
   /**
    * If an onHighlightChange prop is passed to the completer, it's called passing in the highlighted
    * item.
    */
   onHighlightChange(item: XUIPickitem): void;
+
   /**
    * Root node to enable users to access as a ref.
    */

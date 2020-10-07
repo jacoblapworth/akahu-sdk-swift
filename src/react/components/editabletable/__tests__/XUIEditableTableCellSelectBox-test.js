@@ -2,14 +2,14 @@ import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
-import SelectBox, { SelectBoxOption } from '../../../select-box';
+import XUISelectBox, { XUISelectBoxOption } from '../../../selectbox';
 import XUIEditableTableCell from '../XUIEditableTableCell';
 import XUIEditableTableCellControl from '../XUIEditableTableCellControl';
 import XUIEditableTableCellSelectBox from '../XUIEditableTableCellSelectBox';
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -21,15 +21,15 @@ describe('<XUIEditableTableCellSelectBox />', () => {
         buttonContent="EditableTable select box"
         label="EditableTable select box"
       >
-        <SelectBoxOption id="a" key="a" value="Apple">
+        <XUISelectBoxOption id="a" key="a" value="Apple">
           Apple
-        </SelectBoxOption>
-        <SelectBoxOption id="b" key="b" value="Banana">
+        </XUISelectBoxOption>
+        <XUISelectBoxOption id="b" key="b" value="Banana">
           Banana
-        </SelectBoxOption>
-        <SelectBoxOption id="c" key="c" value="Cucumber">
+        </XUISelectBoxOption>
+        <XUISelectBoxOption id="c" key="c" value="Cucumber">
           Cucumber
-        </SelectBoxOption>
+        </XUISelectBoxOption>
       </XUIEditableTableCellSelectBox>,
     );
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -83,8 +83,8 @@ describe('<XUIEditableTableCellSelectBox />', () => {
             <tr>
               <XUIEditableTableCellSelectBox
                 buttonContent="Test button"
-                label="Test select box"
                 isDisabled
+                label="Test select box"
               />
             </tr>
           </tbody>
@@ -103,8 +103,8 @@ describe('<XUIEditableTableCellSelectBox />', () => {
             <tr>
               <XUIEditableTableCellSelectBox
                 buttonContent="Test button"
-                label="Test select box"
                 isInvalid
+                label="Test select box"
               />
             </tr>
           </tbody>
@@ -146,32 +146,27 @@ describe('<XUIEditableTableCellSelectBox />', () => {
           <tr>
             <XUIEditableTableCellSelectBox
               buttonContent="EditableTable select box"
-              label="EditableTable select box"
               cellProps={{ width: '100px' }}
+              label="EditableTable select box"
             >
-              <SelectBoxOption id="a" key="a" value="Apple">
+              <XUISelectBoxOption id="a" key="a" value="Apple">
                 Apple
-              </SelectBoxOption>
-              <SelectBoxOption id="b" key="b" value="Banana">
+              </XUISelectBoxOption>
+              <XUISelectBoxOption id="b" key="b" value="Banana">
                 Banana
-              </SelectBoxOption>
-              <SelectBoxOption id="c" key="c" value="Cucumber">
+              </XUISelectBoxOption>
+              <XUISelectBoxOption id="c" key="c" value="Cucumber">
                 Cucumber
-              </SelectBoxOption>
+              </XUISelectBoxOption>
             </XUIEditableTableCellSelectBox>
           </tr>
         </tbody>
       </table>,
     );
-    expect(
-      wrapper
-        .find(XUIEditableTableCell)
-        .getDOMNode()
-        .getAttribute('width'),
-    ).toBe('100px');
+    expect(wrapper.find(XUIEditableTableCell).getDOMNode().getAttribute('width')).toBe('100px');
   });
 
-  it('spreads the rest of the props onto SelectBox', () => {
+  it('spreads the rest of the props onto XUISelectBox', () => {
     const spreadProps = {
       buttonContent: 'EditableTable select box',
       label: 'EditableTable select box',
@@ -184,20 +179,20 @@ describe('<XUIEditableTableCellSelectBox />', () => {
         <tbody>
           <tr>
             <XUIEditableTableCellSelectBox {...spreadProps}>
-              <SelectBoxOption id="a" key="a" value="Apple">
+              <XUISelectBoxOption id="a" key="a" value="Apple">
                 Apple
-              </SelectBoxOption>
-              <SelectBoxOption id="b" key="b" value="Banana">
+              </XUISelectBoxOption>
+              <XUISelectBoxOption id="b" key="b" value="Banana">
                 Banana
-              </SelectBoxOption>
-              <SelectBoxOption id="c" key="c" value="Cucumber">
+              </XUISelectBoxOption>
+              <XUISelectBoxOption id="c" key="c" value="Cucumber">
                 Cucumber
-              </SelectBoxOption>
+              </XUISelectBoxOption>
             </XUIEditableTableCellSelectBox>
           </tr>
         </tbody>
       </table>,
     );
-    expect(wrapper.find(SelectBox).props()).toMatchObject(spreadProps);
+    expect(wrapper.find(XUISelectBox).props()).toMatchObject(spreadProps);
   });
 });

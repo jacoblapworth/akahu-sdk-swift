@@ -64,17 +64,17 @@ XUIEditableTableCellSecondarySearch.propTypes = {
   /** Maps to the 'size' property of the dropdown component. */
   dropdownSize: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
-  /** Maps to the `closeOnSelect` property of the DropDownToggled component. */
+  /** Maps to the `closeOnSelect` property of the DropdownToggled component. */
   closeOnSelect: PropTypes.bool,
 
-  /** Maps to the `closeOnTab` property of the DropDownToggled component. Set to false,
+  /** Maps to the `closeOnTab` property of the DropdownToggled component. Set to false,
    * if you've supplied a footer element with any links or interaction. */
   closeOnTab: PropTypes.bool,
 
   /** Callback for adding additional onKeyPress functionality */
   onKeyDown: PropTypes.func,
 
-  /** Will be passed directly down to the DropDownToggled component as the main trigger. */
+  /** Will be passed directly down to the DropdownToggled component as the main trigger. */
   trigger: PropTypes.element.isRequired,
 
   /** ID to be applied to the input element. */
@@ -102,7 +102,7 @@ XUIEditableTableCellSecondarySearch.propTypes = {
 
   /**
    * Setting to true will allow the dropdown's width to be set dependent of the trigger width. <br>
-   * **Note:** *Setting this to true will override any size prop on DropDown.* <br>
+   * **Note:** *Setting this to true will override any size prop on Dropdown.* <br>
    * XUI design has also decided to keep a minimum width on the dropdown,
    * so dropdown may not match the width of narrow triggers. Defaults to true.
    */

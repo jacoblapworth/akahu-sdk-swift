@@ -146,14 +146,17 @@ export default class XUIAutocompleterSecondarySearch extends React.PureComponent
    * Set the state as not hidden in order to open the list
    */
   openDropdown(): void;
+
   /**
    * Set the state as hidden in order to close the list
    */
   closeDropdown(): void;
+
   /**
    * Highlights a specified item in the list
    */
   highlightItem(item: XUIPickitem): void;
+
   /**
    * Highlights the first item in the list
    */

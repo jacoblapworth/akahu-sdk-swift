@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import invalid from '@xero/xui-icon/icons/invalid';
 
 import { tableName } from './private/constants';
@@ -36,7 +36,7 @@ const XUIEditableTable = ({
 }) => {
   const tableRef = React.useRef();
   // Ensures the table id is only generated once, but changes if the prop changes.
-  const [calculatedId, setId] = useState(id || `${tableName}-${uuid()}`);
+  const [calculatedId, setId] = useState(id || `${tableName}-${uuidv4()}`);
 
   const wrapperIds = generateIdsFromControlId(calculatedId);
 
@@ -46,8 +46,9 @@ const XUIEditableTable = ({
         <style>
           {hiddenColumns.map(
             hiddenColumn =>
-              `#${calculatedId} .xui-editabletablerow > *:nth-child(${parseInt(hiddenColumn) +
-                1}) { display: none; }`,
+              `#${calculatedId} .xui-editabletablerow > *:nth-child(${
+                parseInt(hiddenColumn) + 1
+              }) { display: none; }`,
           )}
         </style>
       )}

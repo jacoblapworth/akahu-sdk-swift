@@ -1,4 +1,3 @@
-import { ns } from '../../helpers/xuiClassNamespace';
 import { v4 as uuidv4 } from 'uuid';
 import attach from '@xero/xui-icon/icons/attach';
 import image from '@xero/xui-icon/icons/image';

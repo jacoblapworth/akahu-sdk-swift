@@ -1,5 +1,5 @@
 // Libs
-import React, { Component, PureComponent, Fragment } from 'react';
+import React from 'react';
 
 // Story book things
 
@@ -8,7 +8,6 @@ import { boolean } from '@storybook/addon-knobs';
 
 // Components we need to test with
 import info from '@xero/xui-icon/icons/info';
-import XUIModal, { XUIModalBody, XUIModalHeader } from '../../../modal';
 import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
 import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import XUIButton, { XUIIconButton, XUISplitButtonGroup, XUISecondaryButton } from '../../../button';
@@ -18,10 +17,8 @@ import { XUIPageHeader } from '../../../pageheader';
 import XUITooltip from '../../../tooltip';
 import ExampleToast from './components/ExampleToast';
 import Example from './components/Example';
-import XUIToast, { XUIToastWrapper, XUIToastMessage } from '../../../toast';
 import XUIActions from '../../../actions';
 import XUIFixedFooterWIP from '../../../fixedfooter';
-import info from '@xero/xui-icon/icons/info';
 
 import * as lists from '../../../components/helpers/list';
 import { nonBackstopStoryNames, compositionKind } from '../tests';

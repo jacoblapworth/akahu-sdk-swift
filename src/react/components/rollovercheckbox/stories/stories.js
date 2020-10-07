@@ -1,14 +1,14 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUIRolloverCheckbox from '../XUIRolloverCheckbox';
-import XUIAvatar from '../../avatar/XUIAvatar';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import XUIRolloverCheckbox from '../XUIRolloverCheckbox';
+import XUIAvatar from '../../avatar/XUIAvatar';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 

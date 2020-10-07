@@ -1,13 +1,13 @@
 import plusIcon from '@xero/xui-icon/icons/plus';
 import PropTypes from 'prop-types';
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import XUIAvatar from '../../../avatar/XUIAvatar';
-import DropDownFooter from '../../../dropdown/DropDownFooter';
+import XUIDropdownFooter from '../../../dropdown/XUIDropdownFooter';
 import { sizeShift } from '../../../helpers/sizes';
 import XUIIcon from '../../../icon/XUIIcon';
-import Pickitem from '../../../picklist/Pickitem';
-import Picklist from '../../../picklist/Picklist';
+import XUIPickitem from '../../../picklist/XUIPickitem';
+import XUIPicklist from '../../../picklist/XUIPicklist';
 import { boldMatch, decorateSubStr } from '../../helpers/highlighting';
 import peopleDataSet from '../../private/people';
 import XUIAutocompleter from '../../XUIAutocompleter';
@@ -41,7 +41,7 @@ class DetailedListExample extends Component {
 
   onSearchChangeHandler = value => {
     const example = this;
-    example.completer.current.openDropDown();
+    example.completer.current.openDropdown();
     example.setState(prevState => ({
       value,
       people: filterPeople(peopleDataSet, value, prevState.selectedPeople),
@@ -99,7 +99,7 @@ class DetailedListExample extends Component {
       );
       const headingContent = <>{decorateSubStr(item.name, value || '', boldMatch)}</>;
       return (
-        <Pickitem
+        <XUIPickitem
           headingElement={headingContent}
           id={item.id}
           isMultiline
@@ -114,14 +114,14 @@ class DetailedListExample extends Component {
       );
     });
 
-    return <Picklist>{items}</Picklist>;
+    return <XUIPicklist>{items}</XUIPicklist>;
   }
 
   componentDidMount() {
     const { openDrawer, selectedPeople } = this.props;
 
     if (openDrawer) {
-      this.completer.current.openDropDown();
+      this.completer.current.openDropdown();
     }
 
     if (selectedPeople != null && typeof selectedPeople === 'number') {
@@ -140,9 +140,9 @@ class DetailedListExample extends Component {
 
     if (this.props.openDrawer !== prevProps.openDrawer) {
       if (openDrawer) {
-        this.completer.current.openDropDown();
+        this.completer.current.openDropdown();
       } else {
-        this.completer.current.closeDropDown();
+        this.completer.current.closeDropdown();
       }
     }
   }
@@ -190,12 +190,14 @@ class DetailedListExample extends Component {
     } = example.props;
 
     const footer = (
-      <DropDownFooter
+      <XUIDropdownFooter
         pickItems={
-          <Pickitem id="footerAction">
-            <XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />
+          <XUIPickitem
+            id="footerAction"
+            leftElement={<XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />}
+          >
             Add New Person
-          </Pickitem>
+          </XUIPickitem>
         }
       />
     );

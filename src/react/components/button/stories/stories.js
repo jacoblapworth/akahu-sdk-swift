@@ -14,7 +14,6 @@ import XUISplitButtonGroup from '../XUISplitButtonGroup';
 import XUIIconButton from '../XUIIconButton';
 import XUIDropdown from '../../dropdown/XUIDropdown';
 import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
-import view from '@xero/xui-icon/icons/view';
 
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 

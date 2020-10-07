@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import XUIIcon from '../icon/XUIIcon';
 import caret from '@xero/xui-icon/icons/caret';
+import XUIIcon from '../icon/XUIIcon';
 import XUILoader from '../loader/XUILoader';
 import {
   buttonTypes,
@@ -129,7 +129,7 @@ export default class XUIButton extends React.PureComponent {
           }
 
           const buttonContent = (
-            <React.Fragment>
+            <>
               {leftIcon && (
                 <XUIIcon className={`${ns}-button--lefticon`} icon={leftIcon} isBoxed size={size} />
               )}
@@ -145,7 +145,7 @@ export default class XUIButton extends React.PureComponent {
               {hasCaret && (
                 <XUIIcon className={`${ns}-button--caret`} icon={caret} isBoxed size={size} />
               )}
-            </React.Fragment>
+            </>
           );
 
           const loader = isLoading && (

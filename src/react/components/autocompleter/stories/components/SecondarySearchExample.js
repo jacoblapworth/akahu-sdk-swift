@@ -2,11 +2,10 @@ import React from 'react';
 
 import plusIcon from '@xero/xui-icon/icons/plus';
 import XUIButton from '../../../button/XUIButton';
-import XUIButtonCaret from '../../../button/XUIButtonCaret';
-import DropDownFooter from '../../../dropdown/DropDownFooter';
+import XUIDropdownFooter from '../../../dropdown/XUIDropdownFooter';
 import XUIIcon from '../../../icon/XUIIcon';
-import Pickitem from '../../../picklist/Pickitem';
-import Picklist from '../../../picklist/Picklist';
+import XUIPickitem from '../../../picklist/XUIPickitem';
+import XUIPicklist from '../../../picklist/XUIPicklist';
 import XUIAutocompleterEmptyState from '../../XUIAutocompleterEmptyState';
 import XUIAutocompleterSecondarySearch from '../../XUIAutocompleterSecondarySearch';
 
@@ -30,14 +29,14 @@ function createItems(item, selectedId) {
   }
 
   return (
-    <Pickitem
+    <XUIPickitem
       {...item.props}
       isSelected={isSelected(item, selectedId)}
       key={item.props.id}
       value={item.props.id}
     >
       {item.text}
-    </Pickitem>
+    </XUIPickitem>
   );
 }
 
@@ -67,7 +66,7 @@ class SecondarySearchExample extends React.Component {
 
   componentDidMount() {
     if (!this.props.isClosed) {
-      this.autocompleterRef.current.openDropDown();
+      this.autocompleterRef.current.openDropdown();
     }
   }
 
@@ -75,8 +74,14 @@ class SecondarySearchExample extends React.Component {
     const { data } = this.state;
 
     const trigger = this.props.trigger || (
-      <XUIButton data-ref="toggled_trigger" fullWidth="small-down" onClick={() => {}} type="button">
-        Toggle Me <XUIButtonCaret />
+      <XUIButton
+        data-ref="toggled_trigger"
+        fullWidth="small-down"
+        hasCaret
+        onClick={() => {}}
+        type="button"
+      >
+        Toggle Me
       </XUIButton>
     );
 
@@ -88,14 +93,14 @@ class SecondarySearchExample extends React.Component {
       );
 
     const footer = (
-      <DropDownFooter
+      <XUIDropdownFooter
         pickItems={
-          <Pickitem id="footerAction">
-            <span>
-              <XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />
-              Add New Person
-            </span>
-          </Pickitem>
+          <XUIPickitem
+            id="footerAction"
+            leftElement={<XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />}
+          >
+            Add New Person
+          </XUIPickitem>
         }
       />
     );
@@ -116,7 +121,7 @@ class SecondarySearchExample extends React.Component {
           ref={this.autocompleterRef}
           trigger={trigger}
         >
-          <Picklist>{items}</Picklist>
+          <XUIPicklist>{items}</XUIPicklist>
         </XUIAutocompleterSecondarySearch>
       </div>
     );

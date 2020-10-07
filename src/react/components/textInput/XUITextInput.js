@@ -19,6 +19,7 @@ const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
 
 class XUITextInput extends PureComponent {
   rootNode = React.createRef();
+
   state = {
     hasFocus: false,
   };

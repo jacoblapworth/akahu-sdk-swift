@@ -113,6 +113,7 @@ export default class XUIDropdown extends React.PureComponent<Props> {
    * Get the React virtual DOM representation of the currently highlighted element.
    */
   getHighlighted(): XUIPickitem | null;
+
   /**
    * Get the ID of the currently highlighted element.
    */
@@ -122,10 +123,12 @@ export default class XUIDropdown extends React.PureComponent<Props> {
    * Highlights the previous item in the list.
    */
   highlightPrevious(currentItem: XUIPickitem): void;
+
   /**
    * Highlights the next item in the list.
    */
   highlightNext(currentItem: XUIPickitem): void;
+
   /**
    * Highlights the first item in the list.
    */
@@ -135,6 +138,7 @@ export default class XUIDropdown extends React.PureComponent<Props> {
    * Highlights the item passed in and fires the onHighlightChange callback.
    */
   highlightItem(item: XUIPickitem, event: React.MouseEvent): void;
+
   /**
    * This API is used to ensure that something appropriate is highlighted. Here's the logical
    * ordering of operations:

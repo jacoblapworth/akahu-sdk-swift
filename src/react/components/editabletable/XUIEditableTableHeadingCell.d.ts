@@ -13,7 +13,11 @@ interface BaseProps {
   scope?: 'col' | 'colGroup' | 'row' | 'rowGroup';
 }
 
-type Props = BaseProps & React.TableHTMLAttributes<HTMLTableHeaderCellElement>;
+type Props = BaseProps &
+  React.DetailedHTMLProps<
+    React.ThHTMLAttributes<HTMLTableHeaderCellElement>,
+    HTMLTableHeaderCellElement
+  >;
 
 declare const XUIEditableTableHeadingCell: React.FunctionComponent<Props>;
 export default XUIEditableTableHeadingCell;

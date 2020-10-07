@@ -205,7 +205,7 @@ XUIButton.propTypes = {
   isExternalLink: PropTypes.bool,
 
   /** If true, shows a loader inside the button and also disables the button to prevent
-   * clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */
+   * clicking. Can be used in conjunction with `isDisabled` (which also provides a disabled class)  */
   isLoading: PropTypes.bool,
 
   /**
@@ -224,8 +224,8 @@ XUIButton.propTypes = {
   onClick: PropTypes.func,
 
   /** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`, `link`,
-   * 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative',
-   * 'borderless-negative' or `unstyled`.
+   * `borderless-standard`, `borderless-primary`, `borderless-create`, `borderless-negative`,
+   * `borderless-negative` or `unstyled`.
    */
   variant: PropTypes.oneOf(textButtonVariants),
 

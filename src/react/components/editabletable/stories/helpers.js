@@ -5,7 +5,6 @@ import crossIcon from '@xero/xui-icon/icons/cross-small';
 import {
   XUIEditableTableCellAutocompleter,
   XUIEditableTableCellReadOnly,
-  XUIEditableTableCellSecondarySearch,
   XUIEditableTableCellSelectBox,
   XUIEditableTableCellTextInput,
 } from '../../../editabletable';
@@ -36,21 +35,6 @@ const sampleTextInput = (id, text, { isDisabled, isInvalid, isMultiline, validat
     minRows={1}
     validationMessage={validationMessage}
   />
-);
-
-const sampleSecondary = (id, text, settings) => (
-  <XUIEditableTableCellSecondarySearch
-    {...settings}
-    id={id}
-    key={id}
-    onSearch={() => console.log('onSearch fired!')}
-    trigger={<XUIButton>{text}</XUIButton>}
-  >
-    <XUIPicklist>
-      <XUIPickitem id="pi1" primaryElement="Item content" />
-      <XUIPickitem id="pi2" primaryElement="Item two" />
-    </XUIPicklist>
-  </XUIEditableTableCellSecondarySearch>
 );
 
 const sampleSelect = (id, text, settings) => (

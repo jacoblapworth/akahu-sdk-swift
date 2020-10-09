@@ -316,7 +316,10 @@ XUIButton.propTypes = {
   /** Use this to specify a min width on the button, when you want to swap to loading states */
   minLoaderWidth: PropTypes.bool,
 
-  /** Internal use only, used to assist with styling a button to look like part of a table */
+  /**
+   * @ignore
+   * Internal use only, used to assist with styling a button to look like part of a table
+   */
   _useCellStyling: PropTypes.bool,
   /** Has dropdown caret */
   hasCaret: PropTypes.bool,

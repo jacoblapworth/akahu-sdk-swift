@@ -2,15 +2,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean, text, select } from '@storybook/addon-knobs';
+import centered from '@storybook/addon-centered/react';
+
 // Components we need to test with
 import Table from '../XUITable';
 import Column from '../XUITableColumn';
 import Cell from '../XUITableCell';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 import logReadyState from '../../../stories/helpers/log-ready-state';
 import { variations, storiesWithVariationsKindName } from './variations';
@@ -83,7 +83,6 @@ const createTags = total =>
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const data = {
     0: {},

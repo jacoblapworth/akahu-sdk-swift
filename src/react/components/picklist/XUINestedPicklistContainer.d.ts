@@ -37,14 +37,17 @@ export default class XUINestedPicklistContainer extends React.PureComponent<Prop
    * Check if the the container is open.
    */
   isOpen(): boolean;
+
   /**
    * Open the container.
    */
   open(): void;
+
   /**
    * Close the container.
    */
   close(): void;
+
   /**
    * A convenience method to toggle the open/close of the container.
    */

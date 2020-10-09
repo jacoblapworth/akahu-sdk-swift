@@ -1,5 +1,5 @@
-import { desktopPlus320 } from '../../../stories/helpers/viewports';
 import settings from '@xero/xui-icon/icons/settings';
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const privateConsts = require('../private/constants');
 

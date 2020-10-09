@@ -1,13 +1,14 @@
 // Libs
 import React, { useState } from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { text, boolean, number, array } from '@storybook/addon-knobs';
+
 // Components we need to test with
 import XUIPagination from '../XUIPagination';
 import XUIPanel from '../../panel/XUIPanel';
 
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, number, array } from '@storybook/addon-knobs';
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
@@ -78,7 +79,6 @@ const ControlledExample = ({ count = 200, ...props }) => {
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(customCentered);
-storiesWithKnobs.addDecorator(withKnobs);
 
 storiesWithKnobs.add('Playground', () => {
   const props = {

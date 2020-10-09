@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Props as XUIAvatarProps } from '../avatar/XUIAvatar';
+import XUIAvatar from '../avatar/XUIAvatar';
 import { sizeClasses } from './private/constants';
 
 interface BaseProps {
@@ -80,7 +80,7 @@ type AvatarProp =
        *
        * **Note:** *Cannot be accepted if `avatar` is also supplied.*
        */
-      avatarProps?: XUIAvatarProps;
+      avatarProps?: React.ComponentProps<typeof XUIAvatar>;
     };
 
 type Props = BaseProps & AvatarProp;

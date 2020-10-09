@@ -108,30 +108,37 @@ export default class XUIDropdown extends React.PureComponent<Props> {
    *
    */
   clearHighlightedItem(): void;
+
   /**
    * Get the React virtual DOM representation of the currently highlighted element.
    */
   getHighlighted(): XUIPickitem | null;
+
   /**
    * Get the ID of the currently highlighted element.
    */
   getHighlightedId(): string | null;
+
   /**
    * Highlights the previous item in the list.
    */
   highlightPrevious(currentItem: XUIPickitem): void;
+
   /**
    * Highlights the next item in the list.
    */
   highlightNext(currentItem: XUIPickitem): void;
+
   /**
    * Highlights the first item in the list.
    */
   highlightFirstItem(): void;
+
   /**
    * Highlights the item passed in and fires the onHighlightChange callback.
    */
   highlightItem(item: XUIPickitem, event: React.MouseEvent): void;
+
   /**
    * This API is used to ensure that something appropriate is highlighted. Here's the logical
    * ordering of operations:
@@ -144,18 +151,22 @@ export default class XUIDropdown extends React.PureComponent<Props> {
    * `shouldManageInitialHighlight` prop to `false`.
    */
   highlightInitial(): void;
+
   /**
    * Find a child element by its ID.
    */
   findItemById(id: string): void;
+
   /**
    * Allows simulation of keydown events if the DOM focus is elsewhere.
    */
   onKeyDown: React.KeyboardEventHandler;
+
   /**
    * Root node to enable users to access as a ref.
    */
   rootNode: HTMLElement | null;
+
   /**
    * Fired when either the enter key or space bar is pressed and calls onclick of the menu item
    * before closing the list.

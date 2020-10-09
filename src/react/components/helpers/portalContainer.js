@@ -1,4 +1,4 @@
-import { ns } from '../helpers/xuiClassNamespace';
+import { ns } from './xuiClassNamespace';
 
 export const portalClass = `${ns}-portal`;
 

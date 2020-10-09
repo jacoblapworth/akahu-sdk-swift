@@ -1,11 +1,11 @@
 import React from 'react';
-import { desktopPlus320 } from '../../../stories/helpers/viewports';
-import XUIAvatar from '../../avatar/XUIAvatar';
-import XUIIcon from '../../icon/XUIIcon';
 import view from '@xero/xui-icon/icons/view';
 import arrow from '@xero/xui-icon/icons/arrow';
 import search from '@xero/xui-icon/icons/search';
 import contact from '@xero/xui-icon/icons/contact';
+import XUIIcon from '../../icon/XUIIcon';
+import XUIAvatar from '../../avatar/XUIAvatar';
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const storiesWithVariationsKindName = 'Instances/XUIPicklist';
 

@@ -16,9 +16,13 @@ import { ns } from '../helpers/xuiClassNamespace';
 
 class XUITable extends Component {
   state = { rootWidth: null };
+
   rootNode;
+
   wrapperNode;
+
   tableNode;
+
   instanceId = uuidv4();
 
   componentDidUpdate = () => {
@@ -188,7 +192,7 @@ class XUITable extends Component {
           className={`${NAME_SPACE}-wrapper`}
           onScroll={handleScroll}
           ref={node => (this.wrapperNode = node)}
-          role={isResponsive && 'group'}
+          role={(isResponsive && 'group') || undefined}
           tabIndex={isResponsive ? 0 : undefined}
         >
           <table

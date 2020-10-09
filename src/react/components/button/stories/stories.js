@@ -1,7 +1,12 @@
 // Libs
 import React from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean, text, number, select } from '@storybook/addon-knobs';
+
 // Components we need to test with
+import view from '@xero/xui-icon/icons/view';
 import XUIButton from '../XUIButton';
 import XUIButtonGroup from '../XUIButtonGroup';
 import XUISplitButton from '../XUISecondaryButton';
@@ -9,11 +14,7 @@ import XUISplitButtonGroup from '../XUISplitButtonGroup';
 import XUIIconButton from '../XUIIconButton';
 import XUIDropdown from '../../dropdown/XUIDropdown';
 import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
-import view from '@xero/xui-icon/icons/view';
 
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, number, select } from '@storybook/addon-knobs';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';
@@ -58,7 +59,6 @@ const buttonContents = {
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const hasLeftIcon = boolean('leftIcon', false);
   const hasRightIcon = boolean('rightIcon', false);

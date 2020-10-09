@@ -1,13 +1,13 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUIDatePicker from '../XUIDatePicker';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select, date } from '@storybook/addon-knobs';
+import { boolean, select, date } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import XUIDatePicker from '../XUIDatePicker';
 
 import NOOP from '../../helpers/noop';
 import {
@@ -80,7 +80,6 @@ class ExamplePicker extends React.Component {
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <ExamplePicker
     dir={select('direction', ['ltr', 'rtl'])}

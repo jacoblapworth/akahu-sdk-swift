@@ -53,7 +53,7 @@ const overflowButton = <XUIIconButton icon={overflow} ariaLabel="More options" /
 const avatar = <XUIAvatar value="Tim Redmond" />;
 const actionButton = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>} />;
 const tag = (
-  <XUITag className="xui-margin-left-small" variant="positive">
+  <XUITag variant="positive" size="small">
     Positive tag
   </XUITag>
 );

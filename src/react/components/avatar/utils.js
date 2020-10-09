@@ -11,7 +11,7 @@ const ignoreChars = /[\u0021-\u002F\u003A-\u003F\u005B-\u0060\u007B-\u00BF]/g;
  */
 function getAvatarColorClass(identifier) {
   if (identifier == null || typeof identifier !== 'string' || identifier.length < 1) {
-    throw new Error('Please provide a string of length greater than 1');
+    throw new Error('Please provide a string of length greater than 0');
   }
 
   /* eslint-disable no-bitwise */

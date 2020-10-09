@@ -2,6 +2,8 @@
 //
 // Components: Pagination
 //
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=kix.3kmobslt33ag
+//
 // flags: updated
 //
 // Introduction: Pagination is a useful and clear way to break up sets of data within a page that could be over an optimum length. An optimum length should be determined by things like digestibility, performance, data usage, screen real estate and sensible URL schema.
@@ -15,7 +17,7 @@
 // Do: Place pagination within the same panel as the content it controls.
 // Do: Break up long lists so that they load faster and use less data by default.
 // Do: Consider updating the url based on pagination to make it easy for users to revisit a section of a list.
-// Do: When applying bulk select functionality, allow users to select the items visible on the current page by default. To select an entire list of items across multiple pages, use a separate action and very explicit language, for example: "Select all items (999)".
+// Do: When applying bulk select functionality, allow users to select the items visible on the current page by default. To select an entire list of items across multiple pages, use a separate action and very explicit language, e.g. 'Select all items (999)'.
 // Do: When applying search or sort functionality, apply to the entire list not just the visible page.
 // Dont: Don’t paginate a process, instead consider [stepper](section-components-navigation-stepper.html) or [a button](section-components-controls-button.html#components-controls-button-12-1).
 //

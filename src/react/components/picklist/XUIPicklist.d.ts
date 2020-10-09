@@ -6,6 +6,12 @@ interface Props {
   children?: React.ReactNode;
   className?: string;
   /**
+   * Whether or not the tab-styled dropdown should be automatically hidden when the user selects something.
+   * Only used when `swapAtBreakpoint` is set. Defaults to `true`.<br>
+   * ⚠️ *Horizontal picklists only*
+   */
+  closeOnSelect?: boolean;
+  /**
    * Whether to add the default layout class.
    */
   defaultLayout?: boolean;

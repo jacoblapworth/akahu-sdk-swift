@@ -220,7 +220,7 @@ XUIFileUploader.propTypes = {
    * Recommended English value: *['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']*
    */
   fileSizeUnits(...parameters) {
-    return checkRequiredProps('showFilesAsMultiline', 'array', ...parameters);
+    return checkRequiredProps('showFilesAsMultiline', PropTypes.array.isRequired, ...parameters);
   },
   /**
    * Whether to support the drag and drop to upload
@@ -303,7 +303,7 @@ XUIFileUploader.propTypes = {
    * Recommended English value: *Uploading...*
    */
   uploadingMessage(...parameters) {
-    return checkRequiredProps('showFilesAsMultiline', 'string', ...parameters);
+    return checkRequiredProps('showFilesAsMultiline', PropTypes.string.isRequired, ...parameters);
   },
   /**
    * Validation message to show under the input if `isInvalid` is true

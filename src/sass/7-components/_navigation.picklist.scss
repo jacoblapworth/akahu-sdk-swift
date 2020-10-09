@@ -194,6 +194,7 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
 .#{$ns}-picklist--nestedcontainer {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 
   > .#{$ns}-pickitem-split {
     border-right: 1px solid $xui-color-grey-alpha-7;
@@ -268,6 +269,18 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
 .#{$ns}-pickitem--submenucontrol {
   @include xui-utility-hidden-visually;
   flex-grow: 0;
+
+  /**
+  * If the invisible checkbox is outside the viewport when toggled the viewport will scroll
+  * unexpectedly. To ensure the checkbox is in view whenever the pickitem is, we set the height of
+  * the checkbox to 100%.
+  *
+  * `!important` is required to override the height set by `xui-utility-hidden-visually`.
+  *
+  * If you want to remove this please check what happens when you expand a nested picklist at the
+  * edges of the viewport in Google Chrome.
+  */
+  height: $xui-s-3xlarge !important;
 
   &:checked {
     & + .#{$ns}-pickitem-split .#{$ns}-submenu-uicontrol--icon {

@@ -35,7 +35,9 @@ function whenVisible(panel, callback) {
  */
 class XUIDropdownPanel extends PureComponent {
   rootNode = React.createRef();
+
   list = React.createRef();
+
   _scrollableContent = React.createRef();
 
   /**
@@ -94,6 +96,7 @@ class XUIDropdownPanel extends PureComponent {
       clearTimeout(this._iosHackTimeout);
     }
   }
+
   /**
    * Public API that can be used to simulate a keydown event on the panel. Useful
    * if you want to allow keyboard navigation of a child picklist while keeping
@@ -298,7 +301,7 @@ class XUIDropdownPanel extends PureComponent {
         >
           {header}
           {shouldAddStatefulPicklist ? (
-            <Fragment>
+            <>
               <XUIStatefulPicklist
                 className={scrollableContainerClasses}
                 ignoreKeyboardEvents={ignoreKeyboardEvents}
@@ -319,7 +322,7 @@ class XUIDropdownPanel extends PureComponent {
                 </div>
               </XUIStatefulPicklist>
               {footer}
-            </Fragment>
+            </>
           ) : (
             <div
               className={scrollableContainerClasses}

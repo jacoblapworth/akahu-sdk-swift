@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import XUIIcon from '../icon/XUIIcon';
 import caret from '@xero/xui-icon/icons/caret';
+import XUIIcon from '../icon/XUIIcon';
 import XUILoader from '../loader/XUILoader';
 import {
   buttonTypes,
@@ -14,6 +14,7 @@ import {
 import { ns } from '../helpers/xuiClassNamespace';
 import noop from '../helpers/noop';
 import SizeContext from '../../contexts/SizeContext';
+import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 
 /**
  * Returns true if the button is a borderless variant
@@ -108,6 +109,7 @@ export default class XUIButton extends React.PureComponent {
             target,
             type,
             variant,
+            _useCellStyling,
             ...spreadProps
           } = this.props;
 
@@ -127,7 +129,7 @@ export default class XUIButton extends React.PureComponent {
           }
 
           const buttonContent = (
-            <React.Fragment>
+            <>
               {leftIcon && (
                 <XUIIcon className={`${ns}-button--lefticon`} icon={leftIcon} isBoxed size={size} />
               )}
@@ -143,7 +145,7 @@ export default class XUIButton extends React.PureComponent {
               {hasCaret && (
                 <XUIIcon className={`${ns}-button--caret`} icon={caret} isBoxed size={size} />
               )}
-            </React.Fragment>
+            </>
           );
 
           const loader = isLoading && (
@@ -185,9 +187,9 @@ export default class XUIButton extends React.PureComponent {
           const buttonClassNames = cn(
             `${ns}-button`,
             className,
-            variantClass,
+            !_useCellStyling && variantClass,
             combinedPropClassNames,
-            buttonDisabled && `${ns}-button-is-disabled`,
+            !_useCellStyling && buttonDisabled && `${ns}-button-is-disabled`,
           );
 
           const clickHandler =
@@ -249,7 +251,7 @@ XUIButton.propTypes = {
   isExternalLink: PropTypes.bool,
 
   /** If true, shows a loader inside the button and also disables the button to prevent
-   * clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */
+   * clicking. Can be used in conjunction with `isDisabled` (which also provides a disabled class)  */
   isLoading: PropTypes.bool,
 
   /**
@@ -314,6 +316,8 @@ XUIButton.propTypes = {
   /** Use this to specify a min width on the button, when you want to swap to loading states */
   minLoaderWidth: PropTypes.bool,
 
+  /** Internal use only, used to assist with styling a button to look like part of a table */
+  _useCellStyling: PropTypes.bool,
   /** Has dropdown caret */
   hasCaret: PropTypes.bool,
 

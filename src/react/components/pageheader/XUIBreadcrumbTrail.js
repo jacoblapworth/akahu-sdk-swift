@@ -65,7 +65,8 @@ const getCrumbLabel = crumb => {
         crumb.type !== XUIDropdownToggled && `${baseClass}--link`,
       ),
     });
-  } else if (!crumb.href) {
+  }
+  if (!crumb.href) {
     return crumb.label;
   }
   return (

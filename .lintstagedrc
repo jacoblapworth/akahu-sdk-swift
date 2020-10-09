@@ -1,5 +1,5 @@
 {
-  "*.{js,jsx,ts,tsx}": "eslint",
+  "*.{js,jsx,ts,tsx}": "node scripts/lint/eslint --",
   "src/**/*.scss": "stylelint",
-   "*.{html,hbs,json,css,scss,md,ts,tsx,js,jsx}": "prettier --check",
+  "*.{html,hbs,json,css,scss,md,ts,tsx,js,jsx}": "node scripts/lint/prettier -- --check",
 }

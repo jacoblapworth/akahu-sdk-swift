@@ -1,19 +1,18 @@
 // Libs
-import React, { Fragment } from 'react';
+import React from 'react';
 
 // Components we need to test with
+import overflow from '@xero/xui-icon/icons/overflow';
+import { storiesOf } from '@storybook/react';
+import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import XUIFixedFooterWIP from '../XUIFixedFooterWIP';
 import XUIActions from '../../../actions';
 import XUIButton, { XUIIconButton } from '../../../button';
-import XUIPanel from '../../../panel';
 import { XUIContentBlock, XUIContentBlockItem } from '../../../contentblock';
 import XUIAvatar from '../../../avatar';
 import XUITag from '../../../tag';
-import overflow from '@xero/xui-icon/icons/overflow';
 
 // Story book things
-import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import logReadyState from '../../../stories/helpers/log-ready-state';
 
 import { variations, storiesWithVariationsKindName } from './variations';
@@ -75,17 +74,17 @@ const sampleContentBlock = (
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
-  <Fragment>
+  <>
     {sampleLongContentPanel}
     <XUIFixedFooterWIP qaHook={text('qaHook', '')}>{sampleActions}</XUIFixedFooterWIP>
-  </Fragment>
+  </>
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 const fixedStories = storiesOf(storiesWithVariationsKindName, module);
 fixedStories.add('Simple HTML fixed footer (BYO padding)', () => {
   return (
-    <Fragment>
+    <>
       <div
         className="xui-panel xui-margin-horizontal-auto xui-margin-bottom-5xlarge xui-padding xui-margin-top"
         style={{ width: '200px' }}
@@ -94,7 +93,7 @@ fixedStories.add('Simple HTML fixed footer (BYO padding)', () => {
         {sampleText}
       </div>
       <div className="xui-fixedfooter">Bottom fixed content</div>
-    </Fragment>
+    </>
   );
 });
 

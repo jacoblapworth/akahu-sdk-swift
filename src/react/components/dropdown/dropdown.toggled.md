@@ -86,7 +86,9 @@ class ToggledDropdown extends Component {
   render() {
     const trigger = (
       <XUIButton hasCaret>
-        {this.state.selectedId ? toggledItems[this.state.selectedId].text : 'Trigger Button'}
+        {this.state.selectedId === null
+          ? 'Trigger Button'
+          : toggledItems[this.state.selectedId].text}
       </XUIButton>
     );
     const dropdown = (

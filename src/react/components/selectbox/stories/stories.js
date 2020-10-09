@@ -1,15 +1,16 @@
 // Libs
 import React from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean, text, select } from '@storybook/addon-knobs';
+
 // Components we need to test with
+import education from '@xero/xui-icon/icons/education';
 import XUISelectBox from '../XUISelectBox';
 import XUISelectBoxOption from '../XUISelectBoxOption';
 import XUIIcon from '../../icon/XUIIcon';
-import education from '@xero/xui-icon/icons/education';
 
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { textButtonVariants } from '../../button/private/constants';
@@ -40,7 +41,6 @@ const button = (
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const size = select('size', ['medium', 'small', 'xsmall']);
   const fullWidth = select('fullWidth', ['always', 'small-down', 'never']);

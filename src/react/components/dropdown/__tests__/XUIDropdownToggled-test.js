@@ -46,7 +46,7 @@ const testDropdown = (props = {}) => {
       onOpen={() => (openCalled = true)}
       onClose={() => (closeCalled = true)}
       trigger={getTrigger()}
-      dropdown={getDropdown()}
+      dropdown={props.dropdown || getDropdown()}
       {...props}
     />
   );
@@ -58,12 +58,16 @@ describe('<XUIDropdownToggled />', () => {
     closeCalled = false;
   });
 
-  describe('dropdown rendered closed', function () {
+  describe('dropdown rendered closed', function() {
     let wrapper;
-    beforeEach(function () {
+    beforeEach(function() {
       wrapper = mount(testDropdown(), {
         wrappingComponent: ({ children }) => <div className="test-container">{children}</div>,
       });
+    });
+
+    afterEach(() => {
+      wrapper.unmount();
     });
 
     it('renders the list closed', () => {
@@ -116,6 +120,10 @@ describe('<XUIDropdownToggled />', () => {
       wrapper = mount(testDropdown({ isHidden: false }));
     });
 
+    afterEach(() => {
+      wrapper.unmount();
+    });
+
     it('closes the list when the esc key is pressed', () => {
       expect(wrapper.instance().isDropdownOpen()).toBeTruthy();
       wrapper.find('.xui-button').simulate('keyDown', { key: eventKeyValues.tab, keyCode: 9 });
@@ -133,8 +141,29 @@ describe('<XUIDropdownToggled />', () => {
     it('expects a matching id on the dropdown and referenced by aria attributes', () => {
       expect(wrapper.html().includes(`aria-owns="${testId}"`)).toBeTruthy();
       expect(
-        wrapper.find('button').first().html().includes(`aria-controls="${testId}"`),
+        wrapper
+          .find('button')
+          .first()
+          .html()
+          .includes(`aria-controls="${testId}"`),
       ).toBeTruthy();
+    });
+  });
+
+  describe('dropdown in dropdown', () => {
+    it('parent dropdown will not close when select the pickitem of child dropdown', async () => {
+      const wrapper = mount(
+        testDropdown({ isHidden: false, dropdown: <XUIDropdown>{testDropdown()}</XUIDropdown> }),
+      );
+
+      // Find the trigger of the child dropdown
+      document.querySelector('.xui-portal .xui-button').click();
+      // And then select a pickitem of child dropdown
+      document.querySelector('.xui-portal .xui-pickitem--body').click();
+
+      expect(wrapper.instance().isDropdownOpen()).toBeTruthy();
+
+      wrapper.unmount();
     });
   });
 
@@ -150,22 +179,21 @@ describe('<XUIDropdownToggled />', () => {
     expect(automationId).toMatchSnapshot();
   });
 
-  // These are skipped as enzyme cannot test shit rendered in portal.
-  describe.skip('closeOnSelect', function () {
-    it('closes the dropdown when the user selects something by default', function () {
-      const wrapper = getWrapper({ isHidden: false });
+  describe('closeOnSelect', function() {
+    it('closes the dropdown when the user selects something by default', function() {
+      const wrapper = mount(testDropdown({ isHidden: false }));
 
-      wrapper.closest('body').find('.xui-pickitem').first().simulate('click');
+      document.querySelector('.xui-portal .xui-pickitem--body').click();
 
-      expect(wrapper.node.isDropdownOpen()).toBeFalsy();
+      expect(wrapper.instance().isDropdownOpen()).toBeFalsy();
     });
 
-    it('does not close the dropdown on select if closeOnSelect is set to false', function () {
-      const wrapper = getWrapper({ isHidden: false, closeOnSelect: false });
+    it('does not close the dropdown on select if closeOnSelect is set to false', function() {
+      const wrapper = mount(testDropdown({ isHidden: false, closeOnSelect: false }));
 
-      wrapper.find('.xui-pickitem').first().simulate('click');
+      document.querySelector('.xui-portal .xui-pickitem--body').click();
 
-      expect(wrapper.node.isDropdownOpen()).toBeTruthy();
+      expect(wrapper.instance().isDropdownOpen()).toBeTruthy();
     });
   });
 });

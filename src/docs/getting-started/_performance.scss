@@ -56,6 +56,18 @@
 //
 // Styleguide: Getting Started.Performance.3
 
+// Optimising React components
+//
+// When you create functions inside a React function component, they are re-created with each re-render. You can prevent this by using [the `useCallback()` hook](https://reactjs.org/docs/hooks-reference.html#usecallback)
+//
+// When a component re-renders it will cause all of its descendants will re-render as well. This can cause performance issues for components with a lot of descendants, such as a table with a lot of cells. Fortunately React offers several ways to control this at the child level.
+//
+// For function components you can determine when the component should re-render by using [React's memo function](https://reactjs.org/docs/react-api.html#reactmemo). By passing a comparison function as a second argument you can compare if any of the props changed and allow or prevent re-rendering.
+//
+// For class components you can use [shouldComponentUpdate](https://reactjs.org/docs/react-component.html#shouldcomponentupdate) in the same way.
+//
+// Styleguide: Getting Started.Performance.3.1
+
 // Patterns
 //
 // Implementing UI patterns with performance in mind ensures that performance is addressed as a first-class concern in your application from design through to development.

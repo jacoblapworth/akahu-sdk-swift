@@ -9,6 +9,7 @@ const baseClass = `${ns}-pageheading`;
 
 export default class XUIPageHeader extends PureComponent {
   _area = React.createRef();
+
   state = {};
 
   componentDidMount() {

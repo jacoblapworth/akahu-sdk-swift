@@ -1,19 +1,18 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUITag, { variants, sizes } from '../XUITag';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import XUITag, { variants, sizes } from '../XUITag';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <XUITag
     size={select('size', Object.keys(sizes), 'medium')}

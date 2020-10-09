@@ -1,15 +1,16 @@
 // Libs
 import React from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { select, boolean } from '@storybook/addon-knobs';
+import centered from '@storybook/addon-centered/react';
+
 // Components we need to test with
 import XUIOverviewBlock from '../XUIOverviewBlock';
 import XUIOverviewSection from '../XUIOverviewSection';
 import { overviewSentiments } from '../private/constants';
 
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
@@ -20,7 +21,6 @@ const buildExampleSections = children =>
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(customCentered);
-storiesWithKnobs.addDecorator(withKnobs);
 
 storiesWithKnobs.add('Playground', () => {
   const indicator = (

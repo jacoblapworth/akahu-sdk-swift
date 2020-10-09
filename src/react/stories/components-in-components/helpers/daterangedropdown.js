@@ -35,7 +35,9 @@ export default class DropdownDateRange extends React.Component {
     selectedRange: null,
     currentMonth: new Date(),
   };
+
   datepicker = React.createRef();
+
   ddt = React.createRef();
 
   focusDatePicker = () => {

@@ -6,10 +6,16 @@ import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
 import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIIconButton from '../../button/XUIIconButton';
 import { NAME_SPACE } from '../helpers/constants';
+import preventDefault from '../../helpers/preventDefault';
 
 const OverflowMenu = ({ children, overflowMenuTitle, qaHook }) => {
   const createTrigger = title => (
-    <XUIIconButton ariaLabel={title} icon={overflowPathData} title={title} />
+    <XUIIconButton
+      ariaLabel={title}
+      icon={overflowPathData}
+      onClick={preventDefault}
+      title={title}
+    />
   );
 
   const createDropdown = items => (

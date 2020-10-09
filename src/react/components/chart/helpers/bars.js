@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import { createArray } from '../../progressindicator/helpers/utilities';
-import { forceValuePositive, createChartPadding } from '../helpers/utilities';
-import { NAME_SPACE, BAR_MIN_WIDTH, BAR_MAX_WIDTH, CHART_BREAKPOINT } from '../helpers/constants';
-import { createYAxisLabelFormatThunk, createYAxisTickValues } from '../helpers/yaxis';
+import { forceValuePositive, createChartPadding } from './utilities';
+import { NAME_SPACE, BAR_MIN_WIDTH, BAR_MAX_WIDTH, CHART_BREAKPOINT } from './constants';
+import { createYAxisLabelFormatThunk, createYAxisTickValues } from './yaxis';
 import AvatarLabel from '../customElements/AvatarLabel';
 import StandardLabel from '../customElements/StandardLabel';
 import AbbreviationLabel from '../customElements/AbbreviationLabel';

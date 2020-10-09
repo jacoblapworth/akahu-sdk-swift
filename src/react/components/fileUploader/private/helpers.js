@@ -1,4 +1,3 @@
-import { ns } from '../../helpers/xuiClassNamespace';
 import { v4 as uuidv4 } from 'uuid';
 import attach from '@xero/xui-icon/icons/attach';
 import image from '@xero/xui-icon/icons/image';
@@ -7,6 +6,7 @@ import fileExcelIcon from '@xero/xui-icon/icons/file-excel';
 import filePdfIcon from '@xero/xui-icon/icons/file-pdf';
 import fileWordIcon from '@xero/xui-icon/icons/file-word';
 import fileZipIcon from '@xero/xui-icon/icons/file-zip';
+import { ns } from '../../helpers/xuiClassNamespace';
 
 export const baseClass = `${ns}-fileuploader`;
 

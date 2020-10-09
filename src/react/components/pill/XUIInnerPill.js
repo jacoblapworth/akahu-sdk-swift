@@ -39,7 +39,7 @@ const XUIInnerPill = ({
   );
 
   const contents = (
-    <Fragment>
+    <>
       <LeftVisualEl
         avatar={avatar}
         avatarProps={avatarProps}
@@ -48,7 +48,7 @@ const XUIInnerPill = ({
       />
       {secondaryTextEl}
       {valueEl}
-    </Fragment>
+    </>
   );
 
   return href || onClick ? (

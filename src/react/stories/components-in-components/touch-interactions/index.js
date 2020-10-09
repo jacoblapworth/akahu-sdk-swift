@@ -1,5 +1,12 @@
+// Story book things
+import { storiesOf } from '@storybook/react';
+// TODO: storybook-readme is commented out until the package fixes issues with IE11.
+// import { addReadme } from 'storybook-readme';
+// import readme from './README.md';
+
 // Libs
 import React from 'react';
+import view from '@xero/xui-icon/icons/view';
 import { XUICompositionDetail } from '../../../compositions';
 import { XUIColumn, XUIRow } from '../../../structural';
 import { XUIPanel, XUIPanelHeading, XUIPanelSection } from '../../../panel';
@@ -10,20 +17,15 @@ import XUIToggle, { XUIToggleOption } from '../../../toggle';
 import { XUIRadioGroup } from '../../../radio';
 import { XUICheckboxGroup } from '../../../checkbox';
 import { XUISwitchGroup } from '../../../switch';
-import {
-  DetailedListExample,
-  SecondarySearchExample,
-} from '../../../components/autocompleter/stories/stories';
+import DetailedListExample from '../../../components/autocompleter/stories/components/DetailedListExample';
+import SecondarySearchExample from '../../../components/autocompleter/stories/components/SecondarySearchExample';
 import XUIPicklist, { XUIPickitem, XUIPicklistHeader } from '../../../picklist';
 import XUIIcon from '../../../icon';
 import XUIPill from '../../../pill';
 import XUITextInput, { XUITextInputSideElement } from '../../../textinput';
 import DropdownDateRange from '../helpers/daterangedropdown';
-import view from '@xero/xui-icon/icons/view';
 import { nonBackstopStoryNames, compositionKind } from '../tests';
 import {
-  TooltipWrapper,
-  RangeWrapper,
   createRadios,
   createCheckboxes,
   switches,
@@ -32,12 +34,8 @@ import {
   createPicklist,
   multiSelectItems,
 } from './helpers';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-// TODO: storybook-readme is commented out until the package fixes issues with IE11.
-// import { addReadme } from 'storybook-readme';
-// import readme from './README.md';
+import RangeWrapper from './components/RangeWrapper';
+import TooltipWrapper from './components/TooltipWrapper';
 
 const sizes = ['medium', 'small', 'xsmall'];
 const avatarSizeMap = {
@@ -66,7 +64,8 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
     datePickerDate = new Date('Dec 02 2017 00:00:00 GMT+1300');
 
     toggleSelection(id) {
-      const isSelectedById = { ...this.state.isSelectedById, [id]: !this.state.isSelectedById[id] };
+      const { isSelectedById: stateIsSelectedById } = this.state;
+      const isSelectedById = { ...stateIsSelectedById, [id]: !stateIsSelectedById[id] };
       this.setState({
         isSelectedById,
       });

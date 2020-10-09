@@ -1,5 +1,6 @@
 const path = require('path');
 const ncp = require('ncp');
+const fs = require('fs');
 const { taskRunner, rootDirectory } = require('../helpers');
 const babelBuild = require('../build/babel');
 const typescriptBuild = require('../build/typescript');
@@ -27,6 +28,9 @@ function prepack() {
     ]);
 
     console.log(stdout); // eslint-disable-line no-console
+
+    fs.unlinkSync(path.join(reactBuildOutputPath, 'umd.js'));
+    fs.unlinkSync(path.join(reactES6SourceLocation, 'umd.js'));
 
     ncp(reactBuildOutputPath, reactMoveToLocation);
     ncp(sassSourceLocation, sassMoveToLocation);

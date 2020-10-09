@@ -1,20 +1,19 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUIRadio from '../XUIRadio';
-import XUIRadioGroup from '../XUIRadioGroup';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
+import { boolean, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import XUIRadioGroup from '../XUIRadioGroup';
+import XUIRadio from '../XUIRadio';
 
 import { storiesWithVariationsKindName, variations } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <XUIRadio
     hintMessage={text('hintMessage', '')}

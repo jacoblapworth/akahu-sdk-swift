@@ -1,4 +1,4 @@
-import flagDefinitions from './../../../../.kss/builder/extend/flagDefinitions';
+import flagDefinitions from '../../../../.kss/builder/extend/flagDefinitions';
 
 // These functions will log a warning or an error to the browser console,
 // when in a dev environment. Pass them the name of the logging component

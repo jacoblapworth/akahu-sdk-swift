@@ -130,18 +130,22 @@ export default class XUIDropdownToggled extends React.PureComponent<Props> {
    * Hide the dropdown.
    */
   closeDropdown(): void;
+
   /**
    * Determine if the dropdown is currently open.
    */
   isDropdownOpen(): boolean;
+
   /**
    * Show the dropdown.
    */
   openDropdown(): void;
+
   /**
    * Force the dropdown to reposition itself relative to the current position of the trigger.
    */
   repositionDropdown(): void;
+
   /**
    * A convenience method to toggle the visibility of the dropdown.
    */

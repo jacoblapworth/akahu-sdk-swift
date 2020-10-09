@@ -2,6 +2,7 @@
 
 exports[`<XUISelectBox /> should render the appropriate automation id's when a qaHook is provided 1`] = `
 <div
+  className=""
   data-automationid="test-selectbox"
 >
   <div
@@ -66,7 +67,9 @@ exports[`<XUISelectBox /> should render the appropriate automation id's when a q
 `;
 
 exports[`<XUISelectBox /> should render the trigger in a disabled state if \`isDisabled\` is set 1`] = `
-<div>
+<div
+  className=""
+>
   <div
     className=""
   >

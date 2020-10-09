@@ -1,20 +1,20 @@
 // Libs
 import React from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { text, select } from '@storybook/addon-knobs';
+
 // Components we need to test with
 import XUIIllustration from '../XUIIllustration';
 import { sizeClasses } from '../private/constants';
 
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const size = select('Size', Object.keys(sizeClasses), 'medium');
   const height = text('Height');

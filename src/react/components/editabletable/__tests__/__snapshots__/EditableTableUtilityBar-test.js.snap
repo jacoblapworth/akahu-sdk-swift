@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditableTableUtilityBar /> composes the className correctly 1`] = `
+<tr
+  className="xui-editabletableutilitybar test-classname"
+>
+  <td
+    className="xui-editabletableutilitybar--cell"
+    colSpan={0}
+  >
+    <div
+      className="xui-editabletableutilitybar--cell--wrapper"
+      style={
+        Object {
+          "width": undefined,
+        }
+      }
+    />
+  </td>
+</tr>
+`;
+
+exports[`<EditableTableUtilityBar /> renders correctly 1`] = `
+<tr
+  className="xui-editabletableutilitybar"
+>
+  <td
+    className="xui-editabletableutilitybar--cell"
+    colSpan={0}
+  >
+    <div
+      className="xui-editabletableutilitybar--cell--wrapper"
+      style={
+        Object {
+          "width": undefined,
+        }
+      }
+    />
+  </td>
+</tr>
+`;

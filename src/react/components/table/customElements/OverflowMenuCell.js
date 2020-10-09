@@ -21,7 +21,7 @@ const OverflowMenuCell = ({ createOverflowMenu, dividerClasses, overflowMenuTitl
   );
 
   return (
-    <TableData className={className} tabIndex={-1}>
+    <TableData className={className}>
       {NBSP}
       {hasItems && (
         <OverflowMenu

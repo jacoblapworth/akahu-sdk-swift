@@ -13,7 +13,6 @@ import XUISwitch from '../../../switch';
 import XUIRange from '../../../range';
 import XUIPicklist, { XUIPickitem, XUIPicklistHeader } from '../../../picklist';
 import XUIIcon from '../../../icon';
-import XUITooltip from '../../../tooltip';
 
 import NOOP from '../../../components/helpers/noop';
 
@@ -59,7 +58,7 @@ const createSizedIconButtons = size => {
 };
 
 const switches = (
-  <Fragment>
+  <>
     <XUISwitch isDefaultChecked onChange={NOOP}>
       One option you might try
     </XUISwitch>
@@ -70,10 +69,10 @@ const switches = (
     <XUISwitch isDefaultChecked onChange={NOOP}>
       Yet another switch option
     </XUISwitch>
-  </Fragment>
+  </>
 );
 const createCheckboxes = size => (
-  <Fragment>
+  <>
     <XUICheckbox id="bird-tui" key="tui" name="" size={size} value="tui">
       Tūī
     </XUICheckbox>
@@ -86,10 +85,10 @@ const createCheckboxes = size => (
     <XUICheckbox id="bird-moa" isDisabled key="moa" name="moa" size={size} value="moa">
       Moa
     </XUICheckbox>
-  </Fragment>
+  </>
 );
 const createRadios = size => (
-  <Fragment>
+  <>
     <XUIRadio id="city-wellington" key="wellington" name="city" size={size} value="wellington">
       Wellington
     </XUIRadio>
@@ -102,7 +101,7 @@ const createRadios = size => (
     <XUIRadio id="city-carthage" isDisabled key="carthage" name="city" size={size} value="carthage">
       Carthage
     </XUIRadio>
-  </Fragment>
+  </>
 );
 const createButtonSixpack = ({ childSet, props }) =>
   childSet.map((child, index) => (
@@ -114,47 +113,7 @@ const createButtonSixpack = ({ childSet, props }) =>
     </Fragment>
   ));
 
-class RangeWrapper extends React.Component {
-  state = { rangeValue: '50' };
-  updateRangeValue = event => {
-    this.setState({ rangeValue: event.target.value });
-  };
-  render() {
-    return (
-      <Fragment>
-        <XUIRange
-          max={100}
-          min={0}
-          onInput={this.updateRangeValue}
-          {...this.props}
-          label={`${this.props.label} ${this.state.rangeValue}`}
-        />
-      </Fragment>
-    );
-  }
-}
-
-class TooltipWrapper extends React.Component {
-  render() {
-    const { buttonContent, tipContent, triggers, size } = this.props;
-    const sizeSuffix = size === 'medium' ? '' : `-${size}`;
-    return (
-      <XUITooltip
-        trigger={<XUIButton size={size}>{buttonContent}</XUIButton>}
-        triggerOnClick={triggers.indexOf('click') > -1}
-        triggerOnFocus={triggers.indexOf('focus') > -1}
-        triggerOnHover={triggers.indexOf('hover') > -1}
-        wrapperClassName={`xui-margin-right${sizeSuffix} xui-margin-bottom${sizeSuffix}`}
-      >
-        {tipContent}
-      </XUITooltip>
-    );
-  }
-}
-
 export {
-  TooltipWrapper,
-  RangeWrapper,
   createRadios,
   createCheckboxes,
   switches,

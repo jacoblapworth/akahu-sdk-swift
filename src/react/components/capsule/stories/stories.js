@@ -1,19 +1,18 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUICapsule from '../XUICapsule';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import XUICapsule from '../XUICapsule';
 
 import { storiesWithVariationsKindName, variations } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const isInteractive = boolean('is interactive', false);
   const interactiveOnClick = () => {};

@@ -1,7 +1,14 @@
 // Libs
 import React from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean, select, number } from '@storybook/addon-knobs';
+
 // Components we need to test with
+import arrow from '@xero/xui-icon/icons/arrow';
+import search from '@xero/xui-icon/icons/search';
+import contact from '@xero/xui-icon/icons/contact';
 import XUIPicklist from '../XUIPicklist';
 import XUIPickitem from '../XUIPickitem';
 import XUIPicklistHeader from '../XUIPicklistHeader';
@@ -15,13 +22,7 @@ import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIButton from '../../../button';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIPanel from '../../panel/XUIPanel';
-import arrow from '@xero/xui-icon/icons/arrow';
-import search from '@xero/xui-icon/icons/search';
-import contact from '@xero/xui-icon/icons/contact';
 
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select, number } from '@storybook/addon-knobs';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';
@@ -94,7 +95,6 @@ const buildLists = (lists, componentType) => {
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const avatarSize = sizeShift('medium', -1);
   const isMultiselect = boolean('isMultiselect', false);
@@ -125,6 +125,7 @@ storiesWithKnobs.add('Playground', () => {
   return (
     <XUIPanel style={{ width: limitWidth && '400px' }}>
       <XUIPicklist
+        closeOnSelect={boolean('closeOnSelect', true)}
         defaultLayout={boolean('defaultLayout', true)}
         isHorizontal={boolean('isHorizontal', false)}
         isMultiselect={isMultiselect}

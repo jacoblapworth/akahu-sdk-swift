@@ -2,15 +2,15 @@
 import React from 'react';
 import info from '@xero/xui-icon/icons/info';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean, number, text, select } from '@storybook/addon-knobs';
+import centered from '@storybook/addon-centered/react';
+
 // Components we need to test with
 import XUIButton, { XUIIconButton } from '../../../button';
 import XUITextInput from '../../../textinput';
 import XUIPopover, { XUIPopoverBody, XUIPopoverHeader, XUIPopoverFooter } from '../../../popover';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number, text, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 import { variations, storyKind, variationStoryKind } from './variations';
 
@@ -117,7 +117,6 @@ const Playground = props => {
 
 const storiesWithKnobs = storiesOf(storyKind, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   return (
     <Playground

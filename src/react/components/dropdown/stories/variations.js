@@ -116,6 +116,13 @@ const variations = [
       },
     },
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'dropdown in dropdown',
+    ddSettings: {
+      children: 'dropdown-in-dropdown',
+    },
+  },
 ];
 
 Object.keys(privateConsts.fixedWidthDropdownSizes).forEach(size => {

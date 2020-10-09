@@ -10,6 +10,7 @@ import XUIInnerPill from '../../pill/XUIInnerPill';
 import accessibility from '@xero/xui-icon/icons/accessibility';
 import NOOP from '../../helpers/noop';
 import { sizeShift } from '../../helpers/sizes';
+import EditableTableCellContext from '../../../contexts/EditableTableCellContext';
 import { v4 as uuidv4 } from 'uuid';
 
 jest.mock('uuid');
@@ -333,6 +334,22 @@ describe('<XUITextInput>', () => {
 
       wrapper.find('input').simulate('change');
       expect(onChange.mock.calls.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('inside XUIEditableTable', () => {
+    it('has a class indicating it is inside an editable table', () => {
+      const automationId = 'text-input';
+      const wrapper = mount(
+        <EditableTableCellContext.Provider value={{ useCellStyling: true }}>
+          <XUITextInput qaHook={automationId} />
+        </EditableTableCellContext.Provider>,
+      );
+
+      const classList = wrapper.find(`[data-automationid="${automationId}"]`).getDOMNode()
+        .classList;
+
+      expect(classList.contains('xui-textinput-cell')).toBeTruthy();
     });
   });
 });

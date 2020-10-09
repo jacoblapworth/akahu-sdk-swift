@@ -12,10 +12,10 @@ import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
  *
  * @param {Object} props
  */
-const TabDropdown = ({ ulProps, dropdownList, className }) => {
+const TabDropdown = ({ className, closeOnSelect, dropdownList, ulProps }) => {
   let tabItem = dropdownList[0];
   const dropdown = (
-    <XUIDropdown>
+    <XUIDropdown forceStatefulPicklist>
       <ul {...ulProps}>
         {React.Children.map(dropdownList, child => {
           if (child.props.isSelected) {
@@ -38,14 +38,20 @@ const TabDropdown = ({ ulProps, dropdownList, className }) => {
   });
 
   return (
-    <XUIDropdownToggled className={className} dropdown={dropdown} trigger={tabSelectTrigger} />
+    <XUIDropdownToggled
+      className={className}
+      closeOnSelect={closeOnSelect}
+      dropdown={dropdown}
+      trigger={tabSelectTrigger}
+    />
   );
 };
 
 TabDropdown.propTypes = {
-  ulProps: PropTypes.object,
-  dropdownList: PropTypes.array,
   className: PropTypes.string,
+  closeOnSelect: PropTypes.bool,
+  dropdownList: PropTypes.array,
+  ulProps: PropTypes.object,
 };
 
 export default TabDropdown;

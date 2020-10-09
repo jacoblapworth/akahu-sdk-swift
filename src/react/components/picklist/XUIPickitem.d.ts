@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Props as PickitemBodyProps } from './private/PickitemBody';
-import { Props as PickitemMultiselectProps } from './private/PickitemMultiselect';
+import PickitemBody from './private/PickitemBody';
+import PickitemMultiselect from './private/PickitemMultiselect';
 
 interface Props {
   /**
@@ -104,7 +104,9 @@ interface Props {
   /**
    * Props to pass to the pickitem body.
    */
-  pickitemBodyProps?: Partial<PickitemBodyProps | PickitemMultiselectProps>;
+  pickitemBodyProps?: Partial<
+    React.ComponentProps<typeof PickitemBody> | React.ComponentProps<typeof PickitemMultiselect>
+  >;
   /**
    * Less important text to appear pinned at the right.
    *

@@ -3,6 +3,7 @@
 
 .#{$ns}-select--control {
   @include xui-commoninput;
+  @include xui-commoninput-borders-and-bgs;
   cursor: pointer;
   padding-right: $xui-s-3xlarge;
 
@@ -34,12 +35,25 @@
   max-width: 100%;
   text-align: left;
 
-  .#{$ns}-select-is-invalid & {
+  &:disabled {
+    @include xui-disabled-form-control;
+    @include xui-disabled-form-control-state-borders;
+  }
+
+  .#{$ns}-select-cell &:disabled {
+    background-color: transparent;
+    border-color: transparent;
+    color: $xui-control-disabled-color;
+  }
+
+  .#{$ns}-select-is-invalid &,
+  .#{$ns}-select-is-invalid &:hover {
     border-color: $xui-validation-invalid-color;
   }
 
-  &:disabled {
-    @include xui-disabled-form-control;
+  .#{$ns}-select-cell .#{$ns}-select-is-invalid &,
+  .#{$ns}-select-cell .#{$ns}-select-is-invalid &:hover {
+    border-color: transparent;
   }
 }
 
@@ -50,12 +64,14 @@
   color: $xui-select-color;
   font-weight: normal;
 
-  &:hover {
+  &:hover:not(:disabled),
+  &:active,
+  &:focus {
     color: $xui-select-color;
   }
 
-  &:active {
-    color: $xui-select-color;
+  .#{$ns}-select-cell & {
+    border: none; // clobbering borders
   }
 
   .#{$ns}-select--caret {

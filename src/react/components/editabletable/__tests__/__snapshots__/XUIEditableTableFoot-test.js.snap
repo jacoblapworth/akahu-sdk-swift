@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIEditableTableFoot /> composes the className correctly 1`] = `
+<tfoot
+  className="xui-editabletablefoot test-classname"
+/>
+`;
+
+exports[`<XUIEditableTableFoot /> renders correctly 1`] = `
+<tfoot
+  className="xui-editabletablefoot"
+>
+  <div>
+    XUIEditableTableFoot
+  </div>
+</tfoot>
+`;

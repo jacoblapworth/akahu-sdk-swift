@@ -30,7 +30,9 @@ class ChartScaffold extends PureComponent {
   }
 
   rootNode;
+
   contentNode;
+
   throttledAction;
 
   state = {
@@ -52,6 +54,7 @@ class ChartScaffold extends PureComponent {
   // nodes are no longer relevant. In that regard we have a hook to check that the
   // component is still mounted before continuing with the render sequence.
   isChartMounted = false;
+
   testIsChartMounted = () => this.isChartMounted;
 
   componentDidMount = () => {

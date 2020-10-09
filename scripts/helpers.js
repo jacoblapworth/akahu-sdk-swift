@@ -3,11 +3,19 @@ const chalk = require('chalk');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const { performance } = require('perf_hooks');
-const ora = require('ora');
+
+const TaskSpinners = require('./helpers/TaskSpinners');
 
 const isWindowsPlatform = process.platform === 'win32';
 
 const convertExecTaskToWindows = execTask => execTask.replace(/\//g, '\\');
+
+const taskSpinners = new TaskSpinners();
+if (!process.env.CI) {
+  console.log = message => taskSpinners.addLog(message);
+  console.warn = message => taskSpinners.addWarning(message);
+  console.error = message => taskSpinners.addError(message);
+}
 
 function logScriptRunOutput(time, taskName) {
   const sentimentalLogColor = parseFloat(time) > 5 ? 'red' : 'green';
@@ -62,37 +70,35 @@ function logTaskTitle(runningTaskFileName, noDisplay) {
 
   const displayMessage = `Running ${chalk.underline(task)} (${parentTask}) task`;
   if (!noDisplay) {
-    console.log(`\n\n${displayMessage}\n`);
+    taskSpinners.addLog(chalk.blueBright(displayMessage));
   }
   return displayMessage;
 }
 
 async function taskRunner(task, fileName) {
   const title = logTaskTitle(fileName, true);
-  const thisTask = ora(title).start();
+  const thisTask = taskSpinners.addTask(title);
   const perf = new CaptureScriptPerformance();
   perf.start();
 
   try {
-    const { stdout, stderr } = await task(thisTask);
+    const taskResult = await task(thisTask);
 
-    if (stderr) {
-      console.error(stderr);
-      thisTask.fail(`${title} failed to finish successfully`);
+    if (taskResult && taskResult.stderr) {
+      thisTask.fail(taskResult.stderr);
       process.exit(1);
     }
-    if ((stdout !== null && typeof stdout === 'string') || stdout) {
-      typeof stdout === 'string' && console.log(`\n\n${stdout}`);
-      thisTask.succeed(`Finished with ${title}`);
+    if (taskResult && taskResult.stdout) {
+      thisTask.info(taskResult.stdout);
     }
     perf.stop();
-    console.log(logScriptRunOutput(twoDecimals(perf.delta), title));
+    thisTask.succeed(logScriptRunOutput(twoDecimals(perf.delta), title));
     return ''; // Node will otherwise print `undefined` to the console
   } catch (error) {
     if (error.signal === 'SIGINT') {
       process.exit();
     } else {
-      console.log(error);
+      console.warn(error);
     }
   }
 }

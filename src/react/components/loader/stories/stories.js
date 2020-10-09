@@ -1,14 +1,14 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUILoader from '../XUILoader';
-import { sizeClassNames } from '../private/constants';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import { sizeClassNames } from '../private/constants';
+import XUILoader from '../XUILoader';
 
 import ExampleContainer from '../../../docs/ExampleContainer';
 
@@ -21,8 +21,6 @@ const getContainerStyle = isRequired =>
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
-
 storiesWithKnobs.add('Playground', () => {
   const size = select('size', sizes, sizes[0]);
 

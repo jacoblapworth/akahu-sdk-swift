@@ -27,8 +27,6 @@ Applies hover button styling and given contents on hover.
   }
   @include xui-text-line-height; // 1.5
   appearance: none; // For removing drop-shadow on iOS and select arrows in Firefox
-  background-color: $xui-input-bg-color;
-  border: $xui-border-control;
   border-radius: $xui-radius;
   box-shadow: none;
   color: inherit;
@@ -40,10 +38,6 @@ Applies hover button styling and given contents on hover.
   padding: $xui-input-padding;
   position: relative;
   width: 100%;
-
-  &:hover {
-    border-color: $xui-control-hover-border-color;
-  }
 
   &:disabled {
     @include xui-disabled-form-control;
@@ -58,6 +52,15 @@ Applies hover button styling and given contents on hover.
     display: none;
     height: 0;
     width: 0;
+  }
+}
+
+@mixin xui-commoninput-borders-and-bgs {
+  background-color: $xui-input-bg-color;
+  border: $xui-border-control;
+
+  &:hover {
+    border-color: $xui-control-hover-border-color;
   }
 }
 

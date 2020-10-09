@@ -1,17 +1,17 @@
 // Libs
 import React, { Component } from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean, text, select, object } from '@storybook/addon-knobs';
+import centered from '@storybook/addon-centered/react';
+
 // Components we need to test with
 import XUIToast from '../XUIToast';
 import XUIToastMessage from '../XUIToastMessage';
 import XUIToastAction from '../XUIToastAction';
 import XUIToastActions from '../XUIToastActions';
 import { sentimentMap } from '../private/constants';
-
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, select, object } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 
@@ -63,7 +63,6 @@ class DetailedToast extends Component {
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
   const sentiments = {
     '': 'No Sentiment',

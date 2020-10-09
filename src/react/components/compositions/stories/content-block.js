@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
+import overflow from '@xero/xui-icon/icons/overflow';
 import { XUIContentBlock, XUIContentBlockItem } from '../../../contentblock';
 import { XUIPanel, XUIPanelSection } from '../../../panel';
 import XUIButton, { XUIIconButton } from '../../../button';
 import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
 import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from '../../../table';
-import overflow from '@xero/xui-icon/icons/overflow';
 
 export default class ContentBlock extends PureComponent {
   data = {

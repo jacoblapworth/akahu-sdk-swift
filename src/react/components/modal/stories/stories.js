@@ -1,6 +1,10 @@
 // Libs
 import React, { Fragment } from 'react';
 
+// Story book things
+import { storiesOf } from '@storybook/react';
+import { boolean, select } from '@storybook/addon-knobs';
+
 // Components we need to test with
 import XUIModal from '../XUIModal';
 import XUIModalBody from '../XUIModalBody';
@@ -10,14 +14,9 @@ import XUITextInput from '../../textInput/XUITextInput';
 import XUIButton from '../../button/XUIButton';
 import { modalSizes } from '../constants';
 
-// Story book things
-import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs';
-
 import { storiesWithVariationsKindName, variations } from './variations';
 
 const isolatedInstance = storiesOf(storiesWithVariationsKindName, module);
-isolatedInstance.addDecorator(withKnobs);
 
 isolatedInstance.add('XUIModal', () => {
   const headerEnabled = boolean('Show Header', true);
@@ -27,7 +26,7 @@ isolatedInstance.add('XUIModal', () => {
   const footer = footerEnabled ? <XUIModalFooter>Footer!</XUIModalFooter> : null;
 
   return (
-    <Fragment>
+    <>
       <XUITextInput />
       <XUIButton>Test button</XUIButton>
       <XUIModal
@@ -45,7 +44,7 @@ isolatedInstance.add('XUIModal', () => {
         </XUIModalBody>
         {footer}
       </XUIModal>
-    </Fragment>
+    </>
   );
 });
 

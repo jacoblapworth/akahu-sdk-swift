@@ -22,6 +22,7 @@ import TabDropdown from './private/TabDropdown';
 export default class XUIPicklist extends Component {
   // All those logic in Lifecycle could be removed when we split the prop `isHorizontal` out (XUI-683)
   state = {};
+
   _area = React.createRef();
 
   componentDidMount() {
@@ -50,6 +51,7 @@ export default class XUIPicklist extends Component {
     const {
       children,
       className,
+      closeOnSelect,
       id,
       onKeyDown,
       onMouseDown,
@@ -108,6 +110,7 @@ export default class XUIPicklist extends Component {
         ) : (
           <TabDropdown
             className={className}
+            closeOnSelect={closeOnSelect}
             dropdownList={newChildren}
             size={listLevelProps.listSize}
             ulProps={{ ...ulProps, className: listClasses }}
@@ -122,6 +125,12 @@ export default class XUIPicklist extends Component {
 XUIPicklist.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  /**
+   * Whether or not the tab-styled dropdown should be automatically hidden when the user selects something.
+   * Only used when `swapAtBreakpoint` is set. Defaults to `true`.<br>
+   * ⚠️ *Horizontal picklists only*
+   */
+  closeOnSelect: PropTypes.bool,
   qaHook: PropTypes.string,
   /** Id to be applied to the root HTML element */
   id: PropTypes.string,

@@ -11,7 +11,9 @@ class TableBodyRow extends PureComponent {
   state = { hasPrecedence: false };
 
   removePrecedence = () => this.setPrecedence(false);
+
   addPrecedence = () => this.setPrecedence(true);
+
   setPrecedence = hasPrecedence => this.setState(() => ({ hasPrecedence }));
 
   // Register an interaction on a Row providing there is not an predefined
@@ -24,10 +26,12 @@ class TableBodyRow extends PureComponent {
     const isAction =
       target.classList.contains(`${actionClassName}`) ||
       target.type === 'checkbox' ||
+      target.type === 'a' ||
+      target.type === 'button' ||
       event.defaultPrevented;
     const isValidInteraction = queryIsValidInteraction(event);
 
-    if (!isAction && isValidInteraction) {
+    if (!isAction && isValidInteraction && currentTarget.contains(target)) {
       onRowClick(event, rowData);
       currentTarget.focus();
       event.preventDefault();

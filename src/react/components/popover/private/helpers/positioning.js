@@ -2,9 +2,11 @@ export default class PositioningHelper {
   preferredLocation;
 
   contentRect;
+
   triggerRect;
 
   pageGutter;
+
   triggerGap;
 
   /**

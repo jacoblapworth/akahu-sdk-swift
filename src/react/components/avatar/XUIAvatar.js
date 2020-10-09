@@ -31,7 +31,7 @@ const XUIAvatar = ({ className, identifier, imageUrl, onError, size, qaHook, val
   const avatarCharacterCount = variant === 'business' && size !== '2xsmall' ? 3 : 2; // 2xsmall cannot fit 3 characters without overflowing
 
   return (
-    <React.Fragment>
+    <>
       {imageUrl && (
         <img
           alt=""
@@ -51,7 +51,7 @@ const XUIAvatar = ({ className, identifier, imageUrl, onError, size, qaHook, val
       >
         {memoizedAbbreviateAvatar(value, avatarCharacterCount)}
       </abbr>
-    </React.Fragment>
+    </>
   );
 };
 

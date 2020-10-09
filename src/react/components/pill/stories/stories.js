@@ -1,21 +1,20 @@
 // Libs
 import React from 'react';
 
-// Components we need to test with
-import XUIPill from '../XUIPill';
-import { sizeClasses } from '../private/constants';
-
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, object, select } from '@storybook/addon-knobs';
+import { boolean, text, object, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/react';
+
+// Components we need to test with
+import { sizeClasses } from '../private/constants';
+import XUIPill from '../XUIPill';
 
 import NOOP from '../../helpers/noop';
 import { variations, avatarProps, storiesWithVariationsKindName } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <XUIPill
     avatarProps={object('avatarProps', avatarProps)}

@@ -15,7 +15,7 @@ import {
 import compose from '../helpers/compose';
 import { isKeySpacebar, eventKeyValues } from '../helpers/reactKeyHandler';
 import { baseClass, dropdownPositionOptions } from './private/constants';
-import DropDownContext from './contexts/DropDownContext';
+import DropdownContext from './contexts/DropdownContext';
 
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 
@@ -106,11 +106,11 @@ export default class XUIDropdownToggled extends PureComponent {
   dropdownId = (this.props.dropdown && this.props.dropdown.props.id) || uuidv4();
 
   /**
-   * `openedDropDowns` is used to keep track of nested dropdowns that have been opened.
+   * `openedDropdowns` is used to keep track of nested dropdowns that have been opened.
    *
-   * Only root dropdown's `openedDropDowns` property will contain all opened child dropdowns.
+   * Only root dropdown's `openedDropdowns` property will contain all opened child dropdowns.
    */
-  openedDropDowns = [];
+  openedDropdowns = [];
 
   /**
    * Attaches the event listeners based on state.
@@ -384,14 +384,14 @@ export default class XUIDropdownToggled extends PureComponent {
 		 - AND trigger has also rendered and can match with target
      - OR if the click target is the mask
     */
-    const openedDropDownsDoNotContainTarget = this.openedDropDowns.every(openedDropDown => {
-      const dropdown = openedDropDown && document.getElementById(openedDropDown.props.id);
+    const openedDropdownsDoNotContainTarget = this.openedDropdowns.every(openedDropdown => {
+      const dropdown = openedDropdown && document.getElementById(openedDropdown.props.id);
       return dropdown == null || !dropdown.contains(event.target);
     });
 
     if (
       !isHidden &&
-      (openedDropDownsDoNotContainTarget ||
+      (openedDropdownsDoNotContainTarget ||
         event.target.classList.contains(`${baseClass}--mask`)) &&
       (trigger == null || !trigger.contains(event.target))
     ) {
@@ -600,24 +600,24 @@ export default class XUIDropdownToggled extends PureComponent {
           };
 
           return (
-            <DropDownContext.Consumer>
-              {contextOpenDropDowns => {
+            <DropdownContext.Consumer>
+              {contextOpenDropdowns => {
                 /**
-                 * `currentOpenedDropDowns` is an array which contains all opened DropDowns
-                 * For child dropdown, it's an array contains it's parent DropDown (contextOpenDropDowns)
-                 * For parent dropdown, it's `undefined` and will get an empty array assigned (this.openedDropDowns)
+                 * `currentOpenedDropdowns` is an array which contains all opened Dropdowns
+                 * For child dropdown, it's an array contains it's parent Dropdown (contextOpenDropdowns)
+                 * For parent dropdown, it's `undefined` and will get an empty array assigned (this.openedDropdowns)
                  */
-                const currentOpenedDropDowns = contextOpenDropDowns || this.openedDropDowns;
-                if (currentOpenedDropDowns.indexOf(this.dropdown) === -1) {
-                  currentOpenedDropDowns.push(this.dropdown);
+                const currentOpenedDropdowns = contextOpenDropdowns || this.openedDropdowns;
+                if (currentOpenedDropdowns.indexOf(this.dropdown) === -1) {
+                  currentOpenedDropdowns.push(this.dropdown);
                 }
-                // For child dropdown, this.openedDropDowns will only contain itself
-                this.openedDropDowns = contextOpenDropDowns
+                // For child dropdown, this.openedDropdowns will only contain itself
+                this.openedDropdowns = contextOpenDropdowns
                   ? [this.dropdown]
-                  : currentOpenedDropDowns;
+                  : currentOpenedDropdowns;
 
                 return (
-                  <DropDownContext.Provider value={currentOpenedDropDowns}>
+                  <DropdownContext.Provider value={currentOpenedDropdowns}>
                     <div
                       {...wrapperAria}
                       className={cn(className, `${baseClass}--toggledwrapper`)}
@@ -628,10 +628,10 @@ export default class XUIDropdownToggled extends PureComponent {
                       {clonedTrigger}
                       {positionedDropdown}
                     </div>
-                  </DropDownContext.Provider>
+                  </DropdownContext.Provider>
                 );
               }}
-            </DropDownContext.Consumer>
+            </DropdownContext.Consumer>
           );
         }}
       </EditableTableCellContext.Consumer>

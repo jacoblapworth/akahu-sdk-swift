@@ -2,6 +2,7 @@
 @import '../mixins';
 
 $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to remove unwanted surrounding space
+$xui-editabletable-overflow-border-adjustment: 2px; // 2px is to offset the top and bottom borders (1px per border)
 
 @keyframes #{$ns}-drag-shadow-animation {
   from {
@@ -23,10 +24,12 @@ $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to
 @mixin xui-editabletable-overflow {
   content: '';
   display: block;
-  height: calc(100% - #{var(--xui-editableoverflow--scrollbar-height)} - 1px); // 1px is the border
+  height: calc(
+    100% - #{var(--xui-editableoverflow--scrollbar-height)} - #{$xui-editabletable-overflow-border-adjustment}
+  );
   pointer-events: none;
   position: absolute;
-  top: 0;
+  top: 1px;
   width: $xui-s-standard;
   z-index: $xui-z-index-responsiveoverlay;
 }
@@ -106,8 +109,9 @@ $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to
   &:after,
   &:before {
     height: calc(
-      100% - #{$xui-minimum-touch-target} - #{var(--xui-editableoverflow--scrollbar-height)} - 1px
-    ); // 1px is the border
+      100% - #{$xui-minimum-touch-target} - #{var(--xui-editableoverflow--scrollbar-height)} - #{$xui-editabletable-overflow-border-adjustment} -
+        1px
+    ); // 1px extra for additional border
   }
 }
 

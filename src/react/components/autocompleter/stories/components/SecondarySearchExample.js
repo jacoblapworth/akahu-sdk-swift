@@ -97,7 +97,7 @@ class SecondarySearchExample extends React.Component {
         pickItems={
           <XUIPickitem
             id="footerAction"
-            leftElement={<XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />}
+            leftElement={<XUIIcon className="xui-margin-right-small" icon={plusIcon} />}
           >
             Add New Person
           </XUIPickitem>

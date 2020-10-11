@@ -194,7 +194,7 @@ class DetailedListExample extends Component {
         pickItems={
           <XUIPickitem
             id="footerAction"
-            leftElement={<XUIIcon className="xui-margin-right-small" icon={plusIcon} isBoxed />}
+            leftElement={<XUIIcon className="xui-margin-right-small" icon={plusIcon} />}
           >
             Add New Person
           </XUIPickitem>
@@ -208,6 +208,7 @@ class DetailedListExample extends Component {
       <XUIAutocompleter
         closeOnTab={noDrawerFooter}
         disableWrapPills={disableWrapPills}
+        dropdownClassName="xui-loader-static"
         dropdownFixedWidth={dropdownFixedWidth}
         dropdownSize={dropdownSize}
         footer={noDrawerFooter ? null : footer}

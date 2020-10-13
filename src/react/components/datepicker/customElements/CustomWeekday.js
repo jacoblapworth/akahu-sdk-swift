@@ -31,7 +31,7 @@ export default CustomWeekday;
 CustomWeekday.propTypes = {
   weekday: PropTypes.number,
   locale: PropTypes.string,
-  localeUtils: DayPicker.LocaleUtils,
+  localeUtils: DayPicker.propTypes.localeUtils,
   weekdaysLong: PropTypes.arrayOf(PropTypes.string),
   weekdaysShort: PropTypes.arrayOf(PropTypes.string),
 };

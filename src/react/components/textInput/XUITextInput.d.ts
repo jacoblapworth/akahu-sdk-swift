@@ -155,7 +155,7 @@ interface Props {
   /**
    * Type of the input - should not be used together with `isMultiline`.
    */
-  type?: InputType;
+  type?: keyof typeof InputType;
   /**
    * Validation message to show under the input if `isInvalid` is `true`.
    */

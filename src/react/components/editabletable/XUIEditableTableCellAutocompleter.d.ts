@@ -1,9 +1,10 @@
 import * as React from 'react';
 
 import XUIAutocompleter from '../../autocompleter';
+import { XUIEditableTableCellControl } from '../../editabletable';
 
 interface BaseProps {
-  cellProps?: object;
+  cellProps?: React.ComponentProps<typeof XUIEditableTableCellControl>;
 }
 
 type Props = BaseProps &

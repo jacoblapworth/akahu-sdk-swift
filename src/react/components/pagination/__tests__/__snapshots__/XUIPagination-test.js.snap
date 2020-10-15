@@ -48,7 +48,7 @@ exports[`<XUIPagination/> renders basic example 1`] = `
                   10
                 </span>
                 <div
-                  className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
+                  className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
                 >
                   <svg
                     className="xui-icon"
@@ -139,7 +139,7 @@ exports[`<XUIPagination/> renders basic example 1`] = `
                 Page 1 of 10
               </span>
               <div
-                className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
+                className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
               >
                 <svg
                   className="xui-icon"
@@ -256,7 +256,7 @@ exports[`<XUIPagination/> should only render Paging 1`] = `
                 Page 1 of 10
               </span>
               <div
-                className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
+                className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
               >
                 <svg
                   className="xui-icon"
@@ -352,7 +352,7 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
                   10
                 </span>
                 <div
-                  className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
+                  className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
                 >
                   <svg
                     className="xui-icon"
@@ -443,7 +443,7 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
                 Page 1 of 10
               </span>
               <div
-                className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
+                className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
               >
                 <svg
                   className="xui-icon"
@@ -541,7 +541,7 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
                   10
                 </span>
                 <div
-                  className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
+                  className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
                 >
                   <svg
                     className="xui-icon"
@@ -634,7 +634,7 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
                 Page 1 of 10
               </span>
               <div
-                className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
+                className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
               >
                 <svg
                   className="xui-icon"
@@ -730,7 +730,7 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
                   10
                 </span>
                 <div
-                  className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
+                  className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
                 >
                   <svg
                     className="xui-icon"
@@ -821,7 +821,7 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
                 Paging 1 test 10 enhanced
               </span>
               <div
-                className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
+                className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
               >
                 <svg
                   className="xui-icon"
@@ -917,7 +917,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
                   10
                 </span>
                 <div
-                  className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
+                  className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
                 >
                   <svg
                     className="xui-icon"
@@ -1007,7 +1007,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
                 Page 5 of 10
               </span>
               <div
-                className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
+                className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
               >
                 <svg
                   className="xui-icon"
@@ -1103,7 +1103,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 2`] = `
                   25
                 </span>
                 <div
-                  className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
+                  className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
                 >
                   <svg
                     className="xui-icon"
@@ -1194,7 +1194,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 2`] = `
                 Page 1 of 4
               </span>
               <div
-                className="xui-button--caret xui-iconwrapper xui-iconwrapper-small"
+                className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
               >
                 <svg
                   className="xui-icon"

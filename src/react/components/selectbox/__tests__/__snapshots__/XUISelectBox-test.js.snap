@@ -44,7 +44,7 @@ exports[`<XUISelectBox /> should render the appropriate automation id's when a q
             test
           </span>
           <div
-            className="xui-button--caret xui-iconwrapper xui-iconwrapper-medium"
+            className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-medium"
           >
             <svg
               className="xui-icon"
@@ -109,7 +109,7 @@ exports[`<XUISelectBox /> should render the trigger in a disabled state if \`isD
             test
           </span>
           <div
-            className="xui-button--caret xui-iconwrapper xui-iconwrapper-medium"
+            className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-medium"
           >
             <svg
               className="xui-icon"

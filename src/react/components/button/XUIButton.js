@@ -109,6 +109,7 @@ export default class XUIButton extends React.PureComponent {
             target,
             type,
             variant,
+            _caretClassName,
             _useCellStyling,
             ...spreadProps
           } = this.props;
@@ -143,7 +144,12 @@ export default class XUIButton extends React.PureComponent {
                 />
               )}
               {hasCaret && (
-                <XUIIcon className={`${ns}-button--caret`} icon={caret} isBoxed size={size} />
+                <XUIIcon
+                  className={cn(`${ns}-button--caret`, _caretClassName)}
+                  icon={caret}
+                  isBoxed
+                  size={size}
+                />
               )}
             </>
           );
@@ -318,9 +324,16 @@ XUIButton.propTypes = {
 
   /**
    * @ignore
+   * Internal use only, used to pass in a class to style to the caret directly
+   */
+  _caretClassName: PropTypes.string,
+
+  /**
+   * @ignore
    * Internal use only, used to assist with styling a button to look like part of a table
    */
   _useCellStyling: PropTypes.bool,
+
   /** Has dropdown caret */
   hasCaret: PropTypes.bool,
 

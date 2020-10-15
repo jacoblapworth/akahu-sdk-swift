@@ -217,8 +217,8 @@ $xui-editabletable-overflow-border-adjustment: 2px; // 2px is to offset the top 
   }
   .#{$ns}-select--caret {
     position: absolute;
-    right: $xui-s-standard;
-    top: $xui-s-standard + 2px; // Vertically aligns caret to middle of the cell
+    right: $xui-s-standard; // Horizontally aligns caret to be consistent with spacing of select-box
+    top: $xui-s-small; // Vertically aligns caret to middle of the cell
   }
 }
 

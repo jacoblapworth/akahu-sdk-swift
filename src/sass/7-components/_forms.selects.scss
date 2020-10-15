@@ -74,13 +74,14 @@
     border: none; // clobbering borders
   }
 
-  .#{$ns}-select--caret {
+  .#{$ns}-select--caret .#{$ns}-icon {
     fill: $xui-color-grey-2;
   }
 }
 
 .#{$ns}-select--caret {
   align-self: center;
+  flex-shrink: 0;
 }
 
 .#{$ns}-select--content {

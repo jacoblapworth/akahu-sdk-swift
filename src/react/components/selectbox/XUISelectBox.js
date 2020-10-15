@@ -96,6 +96,7 @@ export default class XUISelectBox extends Component {
 
           const trigger = (
             <XUIButton
+              _caretClassName={`${selectBaseClass}--caret`}
               _useCellStyling={useCellStyling}
               {...ariaAttributes}
               className={buttonClassNames}

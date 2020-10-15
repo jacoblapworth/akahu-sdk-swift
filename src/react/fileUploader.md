@@ -19,7 +19,7 @@
 ```
 
 ```jsx harmony
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import XUIButton from '@xero/xui/react/button';
 import XUIFileUploader from '@xero/xui/react/fileUploader';
@@ -27,12 +27,12 @@ import { defaultProps, fakeUpload } from './components/fileUploader/private/help
 
 const defaultFileList = [
   {
-    uid: uuid(),
+    uid: uuidv4(),
     status: 'uploading',
     originalFile: new File([new ArrayBuffer(123456)], 'test1.jpg', { type: 'image/jpeg' })
   },
   {
-    uid: uuid(),
+    uid: uuidv4(),
     status: 'done',
     originalFile: new File([new ArrayBuffer(12345678)], 'test2.pdf', { type: 'application/pdf' }),
     rightContent: (
@@ -42,7 +42,7 @@ const defaultFileList = [
     )
   },
   {
-    uid: uuid(),
+    uid: uuidv4(),
     status: 'error',
     originalFile: new File([new ArrayBuffer(12345)], 'test3.zip', { type: 'application/zip' })
   }
@@ -295,24 +295,24 @@ Prop `showFilesAsMultiline` and `showIcon` are used to change the style of fileL
 **Note:** The styles for error status will not be influenced by these two props, and the uploading spinner will not be influenced by the `showIcon` prop.
 
 ```jsx harmony
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import XUIFileUploader from '@xero/xui/react/fileUploader';
 import { defaultProps, fakeUpload } from './components/fileUploader/private/helpers';
 
 const defaultFileList = [
   {
-    uid: uuid(),
+    uid: uuidv4(),
     status: 'uploading',
     originalFile: new File([new ArrayBuffer(123456)], 'test1.jpg', { type: 'image/jpeg' })
   },
   {
-    uid: uuid(),
+    uid: uuidv4(),
     status: 'done',
     originalFile: new File([new ArrayBuffer(12345678)], 'test2.pdf', { type: 'application/pdf' })
   },
   {
-    uid: uuid(),
+    uid: uuidv4(),
     status: 'error',
     originalFile: new File([new ArrayBuffer(12345)], 'test3.zip', { type: 'application/zip' })
   }

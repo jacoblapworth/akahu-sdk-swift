@@ -2,8 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIButton from './XUIButton';
-import XUIButtonCaret from './XUIButtonCaret';
-import { textButtonVariants, sizeClassNames, buttonTypes } from './private/constants';
+import { buttonTypes, sizeClassNames, standardVariantClassNames } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 
 export default class XUISplitButton extends PureComponent {
@@ -11,9 +10,12 @@ export default class XUISplitButton extends PureComponent {
     const { className, ...spreadProps } = this.props;
     spreadProps.children = null;
     return (
-      <XUIButton {...spreadProps} className={cn(`${ns}-button-split`, className)} isGrouped>
-        <XUIButtonCaret />
-      </XUIButton>
+      <XUIButton
+        {...spreadProps}
+        className={cn(`${ns}-button-split`, className)}
+        hasCaret
+        isGrouped
+      />
     );
   }
 }
@@ -37,7 +39,7 @@ XUISplitButton.propTypes = {
    * Accessibility label for the `<XUILoader>`. This is required if the
    * `isLoading` prop is set to `true`.
    */
-  loadingLabel: PropTypes.string,
+  loadingAriaLabel: PropTypes.string,
 
   /** If this button is part of a parent button group */
   isGrouped: PropTypes.bool,
@@ -48,11 +50,10 @@ XUISplitButton.propTypes = {
   /** Bind a function to fire when the button is clicked */
   onClick: PropTypes.func,
 
-  /** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`, `link`,
-   * 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative',
-   * 'borderless-inverted', 'borderless-muted' or `unstyled`.
+  /**
+   * Determines the styling variation to apply: `standard`, `primary`, `create`, or `negative`.
    */
-  variant: PropTypes.oneOf(textButtonVariants),
+  variant: PropTypes.oneOf(Object.keys(standardVariantClassNames)),
 
   /** Modifier for the size of the button. `xsmall`, `small`, or `medium`. */
   size: PropTypes.oneOf(Object.keys(sizeClassNames)),

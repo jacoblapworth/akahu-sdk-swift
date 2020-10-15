@@ -2,16 +2,16 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 import XUIEditableTable from '../XUIEditableTable';
 import { tableName } from '../private/constants';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 const mockedUuid = 'testGeneratedId';
-uuid.mockImplementation(() => mockedUuid);
+uuidv4.mockImplementation(() => mockedUuid);
 
 describe('<XUIEditableTable />', () => {
   it('renders correctly', () => {

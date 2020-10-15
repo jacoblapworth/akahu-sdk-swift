@@ -6,4 +6,5 @@ interface Props {
   qaHook?: string;
 }
 
-export default class XUIContentBlock extends React.PureComponent<Props> {}
+declare const XUIContentBlock: React.FunctionComponent<Props>;
+export default XUIContentBlock;

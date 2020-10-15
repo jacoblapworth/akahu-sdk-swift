@@ -4,9 +4,9 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import TestScaffold from '../stories/stories';
 import { variations } from '../stories/variations';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testDropdownId');
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -20,6 +20,29 @@ describe('<XUITable />', () => {
 
         expect(component).toMatchSnapshot();
       });
+    });
+  });
+  describe('unit tests', () => {
+    it('should render QA hooks on various child elements, if provided', () => {
+      const settings = {
+        columns: 1,
+        tableProps: {
+          data: {
+            0: { content: 'Apple' },
+            1: { content: 'Carrot' },
+          },
+          qaHook: 'testTableHook',
+          header: true,
+          footer: true,
+          hasCheckbox: true,
+          onCheckAllToggle: () => {},
+          onCheckOneToggle: () => {},
+          hasOverflowMenu: true,
+          createOverflowMenu: () => {},
+        },
+      };
+      const exampleTable = renderer.create(<TestScaffold {...settings}></TestScaffold>);
+      expect(exampleTable).toMatchSnapshot();
     });
   });
 });

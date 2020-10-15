@@ -23,8 +23,7 @@ const ItemsElement = ({
 }) => {
   const from = count === 0 ? 0 : (currentPage - 1) * perPageCount + 1;
   const to = Math.min(count, currentPage * perPageCount);
-  const { simple, enhanced } =
-    createCountContent && createCountContent(numberFormat(from), numberFormat(to), count);
+  const { simple, enhanced } = createCountContent && createCountContent(from, to, count);
 
   return (
     <div className={itemsBaseClass}>

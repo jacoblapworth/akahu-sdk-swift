@@ -6,9 +6,9 @@ import XUIModal from '../XUIModal';
 import XUIModalBody from '../XUIModalBody';
 import XUIModalFooter from '../XUIModalFooter';
 import XUIModalHeader from '../XUIModalHeader';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'generatedHeaderId');
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -33,7 +33,7 @@ describe('XUIModal', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('Should render with any additional classes provided through the className, maskClassName and closeClassName props', function() {
+  it('Should render with any additional classes provided through the className, maskClassName and closeClassName props', function () {
     const component = mount(
       <XUIModal
         isUsingPortal={false}
@@ -54,7 +54,7 @@ describe('XUIModal', () => {
     expect(domNode.find('button').hasClass('closeClassyMcClassFace')).toBeTruthy();
   });
 
-  it('Should render with the appropriate size modifier', function() {
+  it('Should render with the appropriate size modifier', function () {
     const component = mount(
       <div>
         <XUIModal
@@ -132,7 +132,7 @@ describe('XUIModal', () => {
     expect(modalFullScreen.hasClass('xui-modal-fullscreen')).toBeTruthy();
   });
 
-  it('Should correctly pass close handlers to the close button and mask', function() {
+  it('Should correctly pass close handlers to the close button and mask', function () {
     let clicked = false;
     const demoFunction = () => {
       clicked = true;
@@ -158,7 +158,7 @@ describe('XUIModal', () => {
     expect(clicked).toEqual(true);
   });
 
-  it('Should not fire onClose on mask click if hideOnOverlayClick is set to false', function() {
+  it('Should not fire onClose on mask click if hideOnOverlayClick is set to false', function () {
     let maskClicked = false;
     const demoFunction = () => {
       maskClicked = true;
@@ -203,7 +203,7 @@ describe('XUIModal', () => {
     }, 0);
   });
 
-  it('Should only add default layout classes if defaultLayout is explicitly set to true or by default', function() {
+  it('Should only add default layout classes if defaultLayout is explicitly set to true or by default', function () {
     const component = mount(
       <div>
         <XUIModal
@@ -229,7 +229,7 @@ describe('XUIModal', () => {
     expect(secondModal.hasClass('xui-modal-layout')).toBeTruthy();
   });
 
-  it('Should not add margin or padding classes to subcomponents if defaultLayout is set to false', function() {
+  it('Should not add margin or padding classes to subcomponents if defaultLayout is set to false', function () {
     const component = mount(
       <XUIModal
         isUsingPortal={false}
@@ -250,7 +250,7 @@ describe('XUIModal', () => {
     }
   });
 
-  it('Should render as a form when isForm is true', function() {
+  it('Should render as a form when isForm is true', function () {
     const component = mount(
       <XUIModal
         isUsingPortal={false}

@@ -1,11 +1,12 @@
 import React from 'react';
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 import XUIButton from '../../button/XUIButton';
 import { defaultFileList } from '../private/helpers';
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const storiesWithVariationsKindName = 'Instances/XUIFileUploader';
+const fileList = defaultFileList.slice(1);
 
 const variations = [
   {
@@ -20,14 +21,14 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with fileList',
-    fileList: defaultFileList,
+    fileList,
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with custom rightContent for uploaded file',
     fileList: [
       {
-        uid: uuid(),
+        uid: uuidv4(),
         status: 'done',
         originalFile: {
           name: 'hello.pdf',
@@ -46,20 +47,20 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with single line fileList',
     showFilesAsMultiline: false,
-    fileList: defaultFileList,
+    fileList,
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with no icon fileList',
     showIcon: false,
-    fileList: defaultFileList,
+    fileList,
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with no icon single line fileList',
     showIcon: false,
     showFilesAsMultiline: false,
-    fileList: defaultFileList,
+    fileList,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -76,7 +77,7 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'drag and drop with fileList',
     hasDragAndDrop: true,
-    fileList: defaultFileList,
+    fileList,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -85,7 +86,7 @@ const variations = [
     hasDragAndDrop: true,
     fileList: [
       {
-        uid: uuid(),
+        uid: uuidv4(),
         status: 'error',
         originalFile: {
           name: 'I am test333333333333333333333333tset ma I.zip',
@@ -101,6 +102,16 @@ const variations = [
 
 [false, true].forEach(hasDragAndDrop => {
   [false, true].forEach(isInvalid => {
+    isInvalid &&
+      variations.push({
+        storyKind: storiesWithVariationsKindName,
+        storyTitle: `${hasDragAndDrop ? 'drag and drop ' : ''}with long validation message`,
+        isInvalid,
+        hasDragAndDrop,
+        viewports: desktopPlus320,
+        validationMessage:
+          isInvalid && 'Validation message is longer longer longer here and could wrap wrap wrap',
+      });
     [false, true].forEach(isLabelHidden => {
       const hasDragAndDropTitle = hasDragAndDrop ? 'drag and drop ' : '';
       const isInvalidTitle = isInvalid ? 'with validation error' : 'with hint text';
@@ -112,7 +123,6 @@ const variations = [
         isInvalid,
         isLabelHidden,
         hasDragAndDrop,
-        hasDragAndDropTitle,
         hintMessage: !isInvalid ? 'Hint text' : '',
         validationMessage: isInvalid ? 'Validation message' : '',
       });

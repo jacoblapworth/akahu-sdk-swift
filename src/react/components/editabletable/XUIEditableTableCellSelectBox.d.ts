@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { XUIEditableTableCellControl } from '../../editabletable';
-import SelectBox from '../../select-box';
+import XUISelectBox from '../../selectbox';
 
 interface BaseProps {
   cellProps?: React.ComponentProps<typeof XUIEditableTableCellControl>;
@@ -9,7 +9,7 @@ interface BaseProps {
 
 type Props = BaseProps &
   Omit<
-    React.ComponentProps<typeof SelectBox>,
+    React.ComponentProps<typeof XUISelectBox>,
     | 'buttonVariant'
     | 'defaultLayout'
     | 'fullWidth'

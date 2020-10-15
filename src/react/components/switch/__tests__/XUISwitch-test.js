@@ -3,41 +3,47 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUISwitch from '../XUISwitch';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 const NOOP = () => {};
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testSwitchId');
 
-describe('XUISwitch', function() {
-  it('should render not checked and not disabled', function() {
+describe('XUISwitch', function () {
+  it('should render not checked and not disabled', function () {
     const basic = renderer.create(<XUISwitch onChange={NOOP} />);
 
     expect(basic).toMatchSnapshot();
   });
 
-  it('should render checked', function() {
+  it('should render checked', function () {
     const component = renderer.create(<XUISwitch isChecked={true} onChange={NOOP} />);
 
     expect(component).toMatchSnapshot();
   });
 
-  it('should pass a value to the input', function() {
+  it('should render with validation message', function () {
+    const component = renderer.create(<XUISwitch isInvalid validationMessage="Test validation" />);
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should pass a value to the input', function () {
     const component = shallow(<XUISwitch value="someValue" onChange={NOOP} />);
 
     expect(component.childAt(0).props().value).toEqual('someValue');
   });
 
-  it('should pass a name to the input', function() {
+  it('should pass a name to the input', function () {
     const component = shallow(<XUISwitch name="someName" onChange={NOOP} />);
 
     expect(component.find('input').props().name).toEqual('someName');
   });
 
-  it('should be disabled', function() {
+  it('should be disabled', function () {
     const component = shallow(<XUISwitch name="someName" onChange={NOOP} isDisabled={true} />);
 
     expect(component.html()).toContain('disabled');

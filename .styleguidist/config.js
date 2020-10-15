@@ -138,24 +138,10 @@ const config = {
   sections: componentSections,
   getComponentPathLine(componentPath) {
     let name = path.basename(componentPath, '.js');
-    let dir = '';
-    if (/components/.test(componentPath)) {
-      dir = path
-        .dirname(componentPath)
-        .split('components/')
-        .pop();
-    } else {
-      // This is in preparation for importing components from outside the "components" directory.
-      dir = path
-        .dirname(componentPath)
-        .split('react/')
-        .pop();
-    }
-    const dirNormalised = dir.toLowerCase();
-    // TODO: Normalise casing strategy between files and component directory names. Currently mismatched.
-    // TODO: Remove hyphen removal and rename select-box/ -> selectBox/
+    const dir = path.dirname(componentPath).split('/').pop();
 
-    return `import { ${name} } from '${pkg.name}/react/${dirNormalised}';`;
+    // TODO: Normalise casing strategy between files and component directory names. Currently mismatched.
+    return `import { ${name} } from '${pkg.name}/react/${dir.toLowerCase()}';`;
   },
 };
 

@@ -4,13 +4,13 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIAutocompleterSecondarySearch from '../XUIAutocompleterSecondarySearch';
 import XUILoader from '../../loader/XUILoader';
-import Picklist from '../../picklist/Picklist';
-import Pickitem from '../../picklist/Pickitem';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIPickitem from '../../picklist/XUIPickitem';
 import Pill from '../../pill/XUIPill';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testDropdownId');
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -23,10 +23,10 @@ const createComponent = props => (
     restrictFocus={false}
     {...props}
   >
-    <Picklist>
-      <Pickitem id="1">item 1</Pickitem>
-      <Pickitem id="2">item 2</Pickitem>
-    </Picklist>
+    <XUIPicklist>
+      <XUIPickitem id="1">item 1</XUIPickitem>
+      <XUIPickitem id="2">item 2</XUIPickitem>
+    </XUIPicklist>
   </XUIAutocompleterSecondarySearch>
 );
 
@@ -103,7 +103,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
     const onOpen = jest.fn();
     wrapper = mount(createComponent({ onOpen: onOpen, searchValue: 'on open', onSearch: onOpen }));
 
-    wrapper.instance().openDropDown();
+    wrapper.instance().openDropdown();
 
     expect(onOpen.mock.calls.length).toEqual(1);
   });
@@ -126,10 +126,10 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
     expect(onSearch.mock.calls.length).toEqual(1);
   });
 
-  it('should pass the isBlock prop to the DropdownToggled element', () => {
+  it('should pass the isBlock prop to the XUIDropdownToggled element', () => {
     const searchComp = mount(createComponent({ isBlock: true }));
 
-    const dropdownToggledComp = searchComp.find('DropDownToggled');
+    const dropdownToggledComp = searchComp.find('XUIDropdownToggled');
 
     expect(dropdownToggledComp.prop('isBlock')).toBeTruthy();
   });

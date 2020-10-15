@@ -25,9 +25,9 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: `with title and tabs (swap to tabDropDown in small breakpoint)`,
+    storyTitle: `with title and tabs (swap to tabDropdown in small breakpoint)`,
     viewports: desktopPlus320,
-    title: 'Testing tabDropDown Swap',
+    title: 'Testing tabDropdown Swap',
     tabs: true,
     longContent: true,
     tabsSwapPoint: 'small',

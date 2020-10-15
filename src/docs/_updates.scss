@@ -1,3 +1,65 @@
+// 17.0.0 Release update (October 2020)
+//
+// XUI 17.0.0 includes a number of enhancements such as a new API to easily add icons to a `XUIButton`, implement a consistent approach between carets and icons in `XUIButton`, additional size variants for icon wrappers, and correcting a longstanding issue with the sort icon direction of `XUITable`.
+//
+// A number of style improvements have been made including icon wrapper size variant adjustments and implementing consistent styling for `XUISwitch`, `XUIradio` and `XUICheckbox`.
+//
+// New props have been added to `XUIButton` to support left and right icons as well as the caret icon specifically, a number of props have been renamed for clarity, and unneeded props have been removed.
+//
+// <a href="https://github.dev.xero.com/UXE/xui/releases/tag/17.0.0">Full release notes on Github</a>
+//
+// Styleguide: Updates.93
+
+// Enhancements
+//
+// * An icon can now be placed to the left or right of button content using the API and this ensures that in either case icons are consistently placed alongside text inside `XUIButton`
+// * Additional `small` and `xsmall` sizes have been added for `XUIIcon`
+// * Arrow icons in `XUITable` header cells have been corrected to point up when values are sorted in ascending order, and down when descending
+//
+// Styleguide: Updates.93.1
+
+// Removals and renaming
+//
+// View our [changes.md](https://github.dev.xero.com/UXE/xui/blob/17.0.0/changes.md#removals) file for the full list of deprecations and removals.
+//
+// Styleguide: Updates.93.2
+
+// Prop changes
+//
+// **Panel prop in `XUINestedDropdown` renamed**
+//
+// * `currentPanel` has been renamed to `currentPanelId`
+//
+//
+// **Left and right icons in `XUIButton`**
+// * Added `leftIcon` and `rightIcon` props to allow users to add icons to `XUIButton`. An icon in a button can be displayed on either side, but if both are provided only the left icon will show.
+// * Added `hasCaret` prop to allow users to toggle whether a button has a caret. This replaces the pre-existing `XUIButtonCaret` component.
+//
+// **ARIA label props**
+// * All `aria-label` props have been renamed to include the prefix `aria`. For a full list of props and components please refer to the <a href="https://github.dev.xero.com/UXE/xui/blob/17.0.0/changes.md#component-props">component props section in `changes.md`.</a>
+//
+// **Internationalisation Icons**
+// * Icon props in a number of components have been removed to ensure that internationally recognised symbols cannot be customised. For a full list please refer to the <a href="https://github.dev.xero.com/UXE/xui/blob/17.0.0/changes.md#removals-1"> removal section in `changes.md`.</a>
+//
+// **Header prop in `XUIPanelSection` renamed**
+// * `headerText` has been renamed to `heading`
+//
+// Styleguide: Updates.93.3
+
+// Style changes
+//
+// **Icon Wrapper**
+// * Width and height of `medium` icon wrappers have been updated from 30px to 32px
+// * `small` and `xsmall` size variants have been added</li>
+//
+// **Consistent styling for `XUISwitch`, `XUIRadio` and `XUICheckbox`**
+// * `XUISwitch`, `XUIRadio` and `XUICheckbox` now have consistent styling when checked and unchecked
+//
+// **Typography changes**
+// * A new `2xlarge` typography scale has been added with `font-size: 30px` and `line-height: 44px`. The existing `2xlarge` and `3xlarge` type scales have been renamed to `3xlarge` and `4xlarge` respectively.
+//
+// Styleguide: Updates.93.4
+
 // 16.0.0 Release update (December 2019)
 //
 // XUI 16.0.0 includes a number of enhancements to better support responsive interaction and display, including more flexible page header content reflow, navigational tabs and breadcrumb trails that can change UI based on their container widths, and increasing the touch targets of small interactive elements to meet minimum standards.

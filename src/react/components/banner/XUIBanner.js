@@ -8,21 +8,20 @@ import { ns } from '../helpers/xuiClassNamespace';
 
 const sentiments = Object.keys(sentimentMap);
 
-export default function XUIBanner({
-  className,
-  qaHook,
-  sentiment,
-  onCloseClick,
+const XUIBanner = ({
   children,
+  className,
   defaultLayout,
+  onCloseClick,
+  qaHook,
   role,
-  closeIcon = crossIcon,
-}) {
+  sentiment,
+}) => {
   const closeButton = onCloseClick && (
     <XUIIconButton
       ariaLabel="Close"
       className={`${ns}-banner--close`}
-      icon={closeIcon}
+      icon={crossIcon}
       onClick={onCloseClick}
       qaHook={qaHook && `${qaHook}-close--button`}
       size="small"
@@ -31,7 +30,6 @@ export default function XUIBanner({
   );
 
   const sentimentData = sentimentMap[sentiment];
-
   const sentimentClass = sentimentData && sentimentData.class;
   const bannerRole = role || (sentimentData && sentimentData.role) || 'status';
 
@@ -50,7 +48,9 @@ export default function XUIBanner({
       {children}
     </div>
   );
-}
+};
+
+export default XUIBanner;
 
 XUIBanner.propTypes = {
   className: PropTypes.string,
@@ -69,16 +69,6 @@ XUIBanner.propTypes = {
   /** Applies a role attribute to the toast element. This will override any
    * component-determined value. */
   role: PropTypes.string,
-
-  /**
-   * Optional prop for users to modify the close icon, if required for localisation.
-   * Defaults to the cross icon, if no value is provided.
-   */
-  closeIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
 };
 
 XUIBanner.defaultProps = {

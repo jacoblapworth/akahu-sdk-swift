@@ -2,6 +2,7 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
 import { DragDropContext, Draggable as RBDDraggable, Droppable } from 'react-beautiful-dnd';
+import { v4 as uuidv4 } from 'uuid';
 
 import NOOP from '../../../../helpers/noop';
 import { borderSpacing } from '../../constants';
@@ -11,7 +12,8 @@ import Draggable from '../Draggable';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('uuid/v4', () => jest.fn(() => '123'));
+jest.mock('uuid');
+uuidv4.mockImplementation(() => '123');
 
 describe('Draggable', () => {
   describe('general changes the wrapper makes', () => {

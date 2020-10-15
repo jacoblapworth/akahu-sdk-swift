@@ -1,4 +1,4 @@
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import attach from '@xero/xui-icon/icons/attach';
 import image from '@xero/xui-icon/icons/image';
 import fileCsvIcon from '@xero/xui-icon/icons/file-csv';
@@ -57,17 +57,17 @@ export const getFileTypeIcon = (name, mimeType) => {
 // so just use the object here for tests
 export const defaultFileList = [
   {
-    uid: uuid(),
+    uid: uuidv4(),
     status: 'uploading',
     originalFile: { name: 'test1.jpg', type: 'image/jpeg', size: 11111 },
   },
   {
-    uid: uuid(),
+    uid: uuidv4(),
     status: 'done',
     originalFile: { name: 'test2.pdf', type: 'application/pdf', size: 2222 },
   },
   {
-    uid: uuid(),
+    uid: uuidv4(),
     status: 'error',
     originalFile: { name: 'test3.zip', type: 'application/zip', size: 33333 },
   },

@@ -4,13 +4,7 @@ import cn from 'classnames';
 import { baseClass } from './private/constants';
 import XUIActions from '../actions/XUIActions';
 
-export default function XUIToastActions({
-  className,
-  children,
-  qaHook,
-  primaryAction,
-  secondaryAction,
-}) {
+const XUIToastActions = ({ className, children, primaryAction, qaHook, secondaryAction }) => {
   const numberOfChildren = React.Children.count(children);
   const limitedChildren = numberOfChildren > 2 ? children.slice(0, 2) : children;
   const classNames = cn(className, `${baseClass}--actions`);
@@ -26,7 +20,9 @@ export default function XUIToastActions({
       {limitedChildren}
     </XUIActions>
   );
-}
+};
+
+export default XUIToastActions;
 
 XUIToastActions.propTypes = {
   /** Adds optional class to wrapping component */

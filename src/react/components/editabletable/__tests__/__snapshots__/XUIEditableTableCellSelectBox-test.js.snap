@@ -11,7 +11,7 @@ exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
   onClick={[Function]}
   onMouseDown={[Function]}
 >
-  <SelectBox
+  <XUISelectBox
     buttonContent="EditableTable select box"
     closeAfterSelection={true}
     containerClasses="xui-editabletablecellselectbox--control"
@@ -27,7 +27,7 @@ exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
     onFocus={[Function]}
     restrictFocus={true}
   >
-    <SelectBoxOption
+    <XUISelectBoxOption
       _isMenuItem={true}
       ariaRole="option"
       id="a"
@@ -40,8 +40,8 @@ exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
       value="Apple"
     >
       Apple
-    </SelectBoxOption>
-    <SelectBoxOption
+    </XUISelectBoxOption>
+    <XUISelectBoxOption
       _isMenuItem={true}
       ariaRole="option"
       id="b"
@@ -54,8 +54,8 @@ exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
       value="Banana"
     >
       Banana
-    </SelectBoxOption>
-    <SelectBoxOption
+    </XUISelectBoxOption>
+    <XUISelectBoxOption
       _isMenuItem={true}
       ariaRole="option"
       id="c"
@@ -68,7 +68,7 @@ exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
       value="Cucumber"
     >
       Cucumber
-    </SelectBoxOption>
-  </SelectBox>
+    </XUISelectBoxOption>
+  </XUISelectBox>
 </XUIEditableTableCellControl>
 `;

@@ -55,3 +55,7 @@
 .#{$ns}-heading-3xlarge {
   @include xui-heading-3xlarge;
 }
+
+.#{$ns}-heading-4xlarge {
+  @include xui-heading-4xlarge;
+}

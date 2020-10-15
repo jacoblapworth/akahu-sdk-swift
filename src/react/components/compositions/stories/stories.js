@@ -23,9 +23,9 @@ import XUICompositionMasterDetail from '../XUICompositionMasterDetail';
 import { variations, storiesWithVariationsKindName } from './variations';
 
 import XUIPanel from '../../panel/XUIPanel';
-import XUIPicklist from '../../picklist/Picklist';
-import XUIPickItem from '../../picklist/Pickitem';
-import StatefulPicklist from '../../picklist/StatefulPicklist';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIPickItem from '../../picklist/XUIPickitem';
+import XUIStatefulPicklist from '../../picklist/XUIStatefulPicklist';
 
 // Custom Components
 import CustomContentBlock from './content-block';
@@ -40,7 +40,7 @@ const realHeader = <CustomHeader />;
 
 const realMaster = (style = {}, navigation = []) => (
   <XUIPanel style={style}>
-    <StatefulPicklist secondaryProps={{ role: null }}>
+    <XUIStatefulPicklist secondaryProps={{ role: null }}>
       <XUIPicklist>
         {navigation.map(item => (
           <XUIPickItem id={item} key={item} onSelect={onSelectItem.bind(this, item)}>
@@ -48,7 +48,7 @@ const realMaster = (style = {}, navigation = []) => (
           </XUIPickItem>
         ))}
       </XUIPicklist>
-    </StatefulPicklist>
+    </XUIStatefulPicklist>
   </XUIPanel>
 );
 

@@ -5,15 +5,15 @@ import { ns } from '../helpers/xuiClassNamespace';
 import { sizeClassNames } from './private/constants';
 import SizeContext from '../../contexts/SizeContext';
 
-export default function XUIButtonGroup({ children, className, size, qaHook }) {
-  return (
-    <SizeContext.Provider value={size}>
-      <div className={cn(className, `${ns}-buttongroup`)} data-automationid={qaHook}>
-        {Children.map(children, child => cloneElement(child, { isGrouped: true }))}
-      </div>
-    </SizeContext.Provider>
-  );
-}
+const XUIButtonGroup = ({ children, className, size, qaHook }) => (
+  <SizeContext.Provider value={size}>
+    <div className={cn(className, `${ns}-buttongroup`)} data-automationid={qaHook}>
+      {Children.map(children, child => cloneElement(child, { isGrouped: true }))}
+    </div>
+  </SizeContext.Provider>
+);
+
+export default XUIButtonGroup;
 
 XUIButtonGroup.propTypes = {
   children: PropTypes.node,

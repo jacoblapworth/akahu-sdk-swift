@@ -7,70 +7,69 @@ import generateIds from '../controlwrapper/helpers';
 
 const baseClass = `${ns}-rangeslider`;
 
-export default class XUIRange extends PureComponent {
-  wrapperIds = generateIds();
+const XUIRange = props => {
+  const wrapperIds = generateIds();
+  const {
+    containerClasses,
+    defaultValue,
+    hintMessage,
+    id,
+    inputClasses,
+    isDisabled,
+    isInvalid,
+    isLabelHidden,
+    label,
+    leftElement,
+    max,
+    min,
+    name,
+    onClick,
+    onInput,
+    qaHook,
+    rightElement,
+    size,
+    step,
+    validationMessage,
+  } = props;
 
-  render() {
-    const {
-      hintMessage,
-      qaHook,
-      onClick,
-      onInput,
-      leftElement,
-      rightElement,
-      name,
-      isLabelHidden,
-      label,
-      id,
-      step,
-      size,
-      defaultValue,
-      min,
-      max,
-      isDisabled,
-      validationMessage,
-      isInvalid,
-      containerClasses,
-      inputClasses,
-    } = this.props;
+  return (
+    <XUIControlWrapper
+      hintMessage={hintMessage}
+      isInvalid={isInvalid}
+      isLabelHidden={isLabelHidden}
+      label={label}
+      qaHook={qaHook}
+      validationMessage={validationMessage}
+      wrapperIds={wrapperIds}
+    >
+      <div className={cn(`${baseClass}-container`, containerClasses)}>
+        {leftElement}
+        <input
+          className={cn(
+            `${baseClass}`,
+            size && `${baseClass}-thumb-${size}`,
+            isInvalid && `${baseClass}-is-invalid`,
+            inputClasses,
+          )}
+          defaultValue={defaultValue}
+          disabled={isDisabled}
+          id={id}
+          max={max}
+          min={min}
+          name={name}
+          onClick={onClick}
+          onInput={onInput}
+          step={step}
+          type="range"
+          {...getAriaAttributes(wrapperIds, props)}
+        />
+        {rightElement}
+      </div>
+    </XUIControlWrapper>
+  );
+};
 
-    return (
-      <XUIControlWrapper
-        hintMessage={hintMessage}
-        isInvalid={isInvalid}
-        isLabelHidden={isLabelHidden}
-        label={label}
-        qaHook={qaHook}
-        validationMessage={validationMessage}
-        wrapperIds={this.wrapperIds}
-      >
-        <div className={cn(`${baseClass}-container`, containerClasses)}>
-          {leftElement}
-          <input
-            className={cn(
-              `${baseClass}`,
-              size && `${baseClass}-thumb-${size}`,
-              isInvalid && `${baseClass}-is-invalid`,
-              inputClasses,
-            )}
-            defaultValue={defaultValue}
-            disabled={isDisabled}
-            id={id}
-            max={max}
-            min={min}
-            name={name}
-            onClick={onClick}
-            onInput={onInput}
-            step={step}
-            type="range"
-            {...getAriaAttributes(this.wrapperIds, this.props)}
-          />
-          {rightElement}
-        </div>
-      </XUIControlWrapper>
-    );
-  }
-}
+export default XUIRange;
 
 XUIRange.propTypes = {
   qaHook: PropTypes.string,

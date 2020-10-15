@@ -1,17 +1,21 @@
-Although not a required child of `Picklist`s, `Pickitem`s are the standard wrapper for children inside a `Picklist`. They seamlessly work with the keyboard handling of a `StatefulPickilist` and provide the standard XUI layout needed.
+Although not a required child of `XUIPicklist`s, `XUIPickitem`s are the standard wrapper for children inside a `XUIPicklist`. They seamlessly work with the keyboard handling of a `XUIStatefulPicklist` and provide the standard XUI layout needed.
 
-`Pickitem`s support many kinds of content. `PicklistHeader` and `PicklistDivider` can be used as siblings of `Pickitem`s.
+`XUIPickitem`s support many kinds of content. `XUIPicklistHeader` and `XUIPicklistDivider` can be used as siblings of `XUIPickitem`s.
 
 ```jsx harmony
-import Picklist, { Pickitem, PicklistHeader, PicklistDivider } from '@xero/xui/react/picklist';
+import XUIPicklist, {
+  XUIPickitem,
+  XUIPicklistHeader,
+  XUIPicklistDivider
+} from '@xero/xui/react/picklist';
 import XUIIcon from '@xero/xui/react/icon';
 import XUIAvatar from '@xero/xui/react/avatar';
 import search from '@xero/xui-icon/icons/search';
 
 <div>
-  <Picklist>
-    <PicklistHeader id="pi-header">Design</PicklistHeader>
-    <Pickitem
+  <XUIPicklist>
+    <XUIPicklistHeader id="pi-header">Design</XUIPicklistHeader>
+    <XUIPickitem
       id="pi1"
       rightElement={<XUIIcon icon={search} />}
       leftElement={<XUIAvatar value="Finn Clark" size="small" />}
@@ -19,15 +23,15 @@ import search from '@xero/xui-icon/icons/search';
       secondaryElement="#beautiful #human"
     >
       Finn Clark
-    </Pickitem>
-  </Picklist>
-  <Picklist>
-    <Pickitem id="pi3">Katie Macoy</Pickitem>
-    <Pickitem id="pi4" isInvalid>
+    </XUIPickitem>
+  </XUIPicklist>
+  <XUIPicklist>
+    <XUIPickitem id="pi3">Katie Macoy</XUIPickitem>
+    <XUIPickitem id="pi4" isInvalid>
       Isaac Minogue
-    </Pickitem>
-    <PicklistDivider />
-    <Pickitem
+    </XUIPickitem>
+    <XUIPicklistDivider />
+    <XUIPickitem
       id="pi2"
       shouldTruncate
       leftElement={<XUIAvatar value="Zac Sanderson-Harris" size="small" />}
@@ -35,14 +39,14 @@ import search from '@xero/xui-icon/icons/search';
       headingElement="Zac Sanderson-Harris"
       isMultiline
     />
-  </Picklist>
-  <Picklist isMultiselect>
-    <Pickitem id="pi5" isDisabled>
+  </XUIPicklist>
+  <XUIPicklist isMultiselect>
+    <XUIPickitem id="pi5" isDisabled>
       Jannyne Perez
-    </Pickitem>
-    <Pickitem id="pi6" isSelected>
+    </XUIPickitem>
+    <XUIPickitem id="pi6" isSelected>
       Brock Abernethy
-    </Pickitem>
-  </Picklist>
+    </XUIPickitem>
+  </XUIPicklist>
 </div>;
 ```

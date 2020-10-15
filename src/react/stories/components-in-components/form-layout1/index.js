@@ -10,9 +10,9 @@ import { storiesOf } from '@storybook/react';
 
 // Components we need to test with
 import arrow from '@xero/xui-icon/icons/arrow';
-import DropDown, { DropDownToggled } from '../../../dropdown';
-import Picklist, { Pickitem } from '../../../picklist';
-import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
+import XUIButton from '../../../button';
 import XUITextInput from '../../../textinput';
 import XUICheckbox, { XUICheckboxGroup } from '../../../checkbox';
 import XUIRadio, { XUIRadioGroup } from '../../../radio';
@@ -107,7 +107,7 @@ test.add(storyNames.formLayout, () => {
     }
 
     onSearchChangeHandler(value) {
-      this._autocompleter.openDropDown();
+      this._autocompleter.openDropdown();
       this.setState(prevState => ({
         value,
         people: filterPeople(people, value, prevState.selectedPeople),
@@ -149,7 +149,7 @@ test.add(storyNames.formLayout, () => {
       }
 
       const items = people.map(item => (
-        <Pickitem id={item.id} key={item.id} onSelect={() => this.selectPerson(item)}>
+        <XUIPickitem id={item.id} key={item.id} onSelect={() => this.selectPerson(item)}>
           <div className="xui-u-flex">
             <XUIAvatar imageUrl={item.avatar} value={item.name} />
             <div className="xui-u-grow xui-padding-left">
@@ -162,10 +162,10 @@ test.add(storyNames.formLayout, () => {
               </div>
             </div>
           </div>
-        </Pickitem>
+        </XUIPickitem>
       ));
 
-      return <Picklist>{items}</Picklist>;
+      return <XUIPicklist>{items}</XUIPicklist>;
     }
 
     render() {
@@ -233,31 +233,26 @@ test.add(storyNames.formLayout, () => {
 
               <InputLabel>Choose a Food</InputLabel>
               <div className="xui-textinputgroup xui-field-layout xui-u-flex">
-                <DropDownToggled
+                <XUIDropdownToggled
                   className="xui-textinputwrapper"
                   dropdown={
-                    <DropDown onSelect={value => this.setState({ foodType: value })}>
-                      <Picklist>
+                    <XUIDropdown onSelect={value => this.setState({ foodType: value })}>
+                      <XUIPicklist>
                         {['Vegetable', 'Fruit', 'Meat'].map((title, key) => (
-                          <Pickitem
+                          <XUIPickitem
                             id={`${inputMap.foodType}-${title}`}
                             isSelected={title === foodType}
                             key={key}
                             value={title}
                           >
                             {title}
-                          </Pickitem>
+                          </XUIPickitem>
                         ))}
-                      </Picklist>
-                    </DropDown>
+                      </XUIPicklist>
+                    </XUIDropdown>
                   }
                   onOpen={() => {}}
-                  trigger={
-                    <XUIButton>
-                      {foodType || 'Food Type'}
-                      <XUIButtonCaret />
-                    </XUIButton>
-                  }
+                  trigger={<XUIButton hasCaret>{foodType || 'Food Type'}</XUIButton>}
                 />
                 <XUITextInput
                   fieldClassName="xui-u-flex-1"

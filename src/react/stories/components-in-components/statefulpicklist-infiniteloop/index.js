@@ -8,8 +8,8 @@ import { storiesOf } from '@storybook/react';
 // import readme from './README.md';
 
 // Components we need to test with
-import Picklist, { Pickitem } from '../../../picklist';
-import { DropDownFooter } from '../../../dropdown';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
+import { XUIDropdownFooter } from '../../../dropdown';
 import XUIAutoCompleter from '../../../autocompleter';
 
 import { nonBackstopStoryNames, compositionKind } from '../tests';
@@ -48,11 +48,11 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
 
     renderFooter = shouldRender => (
       <ConditionalRender shouldRender={shouldRender}>
-        <DropDownFooter
+        <XUIDropdownFooter
           pickItems={
-            <Pickitem id="footerAction" onSelect={this.onSelect}>
+            <XUIPickitem id="footerAction" onSelect={this.onSelect}>
               <span>Add New Fruit</span>
-            </Pickitem>
+            </XUIPickitem>
           }
         />
       </ConditionalRender>
@@ -67,18 +67,18 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
             inputLabel="label here"
             isInputLabelHidden
             loading={this.state.loading}
-            loadingLabel="Loading"
+            loadingAriaLabel="Loading"
             onSearch={this.onSearch}
             openOnFocus
             value={this.state.value}
           >
-            <Picklist>
+            <XUIPicklist>
               {[1, 2, 3, 4].map(item => (
-                <Pickitem id={item} key={item}>
+                <XUIPickitem id={item} key={item}>
                   {item}
-                </Pickitem>
+                </XUIPickitem>
               ))}
-            </Picklist>
+            </XUIPicklist>
           </XUIAutoCompleter>
         </div>
       );

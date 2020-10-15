@@ -16,9 +16,3 @@
     @include xui-margin-bottom(-11px);
   }
 }
-
-.#{$ns}-button-split {
-  flex: 0 0 $xui-minimum-touch-target;
-  padding: 0;
-  vertical-align: top;
-}

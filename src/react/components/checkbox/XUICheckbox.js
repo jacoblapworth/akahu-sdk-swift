@@ -207,11 +207,6 @@ export default class XUICheckbox extends PureComponent {
       labelClassName,
     );
 
-    const messageClasses = cn(
-      `${baseClass}--message`,
-      !isLabelHidden && `${baseClass}--message-with-label`,
-    );
-
     const inputProps = {
       ...checkboxInputProps,
       type: 'checkbox',
@@ -248,7 +243,7 @@ export default class XUICheckbox extends PureComponent {
         fieldClassName={classes}
         label={children}
         labelClassName={labelClasses}
-        messageClassName={messageClasses}
+        messageClassName={`${baseClass}--message`}
         onClick={onLabelClick}
         rootClassName={wrapperClasses}
         wrapperIds={this.wrapperIds}

@@ -60,4 +60,5 @@ interface Props {
   validationMessage?: React.ReactNode;
 }
 
-export default class XUIToggle extends React.PureComponent<Props> {}
+declare const XUIToggle: React.FunctionComponent<Props>;
+export default XUIToggle;

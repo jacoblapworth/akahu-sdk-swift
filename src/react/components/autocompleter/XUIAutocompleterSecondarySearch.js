@@ -4,8 +4,8 @@ import cn from 'classnames';
 import throttle from 'lodash.throttle';
 import searchPath from '@xero/xui-icon/icons/search';
 
-import DropDown from '../dropdown/DropDown';
-import DropDownToggled from '../dropdown/DropDownToggled';
+import XUIDropdown from '../dropdown/XUIDropdown';
+import XUIDropdownToggled from '../dropdown/XUIDropdownToggled';
 import XUITextInput from '../textInput/XUITextInput';
 import XUITextInputSideElement from '../textInput/XUITextInputSideElement';
 import XUIIcon from '../icon/XUIIcon';
@@ -77,8 +77,8 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
    *
    * @public
    */
-  openDropDown = () => {
-    this.ddt.openDropDown();
+  openDropdown = () => {
+    this.ddt.openDropdown();
   };
 
   /**
@@ -86,8 +86,8 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
    *
    * @public
    */
-  closeDropDown = () => {
-    this.ddt.closeDropDown();
+  closeDropdown = () => {
+    this.ddt.closeDropdown();
   };
 
   /**
@@ -205,7 +205,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
     const dropdownClasses = cn(!dropdownSize && `${ns}-dropdown-fullwidth`, dropdownClassName);
     const dropdownToggledClasses = !dropdownSize ? `${ns}-dropdown-fullwidth` : null;
     const dropdown = (
-      <DropDown
+      <XUIDropdown
         ariaRole="combobox"
         className={dropdownClasses}
         fixedWidth={dropdownFixedWidth}
@@ -225,12 +225,12 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
         size={dropdownSize}
       >
         {children}
-      </DropDown>
+      </XUIDropdown>
     );
 
     return (
       <div className={className} data-automationid={containerQaHook} ref={this.rootNode}>
-        <DropDownToggled
+        <XUIDropdownToggled
           className={dropdownToggledClasses}
           closeOnSelect={closeOnSelect}
           closeOnTab={closeOnTab}
@@ -302,17 +302,17 @@ XUIAutocompleterSecondarySearch.propTypes = {
   /** Maps to the 'size' property of the dropdown component. */
   dropdownSize: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
-  /** Maps to the `closeOnSelect` property of the DropDownToggled component. */
+  /** Maps to the `closeOnSelect` property of the `XUIDropdownToggled` component. */
   closeOnSelect: PropTypes.bool,
 
-  /** Maps to the `closeOnTab` property of the DropDownToggled component. Set to false,
+  /** Maps to the `closeOnTab` property of the `XUIDropdownToggled` component. Set to false,
    * if you've supplied a footer element with any links or interaction. */
   closeOnTab: PropTypes.bool,
 
   /** Callback for adding additional onKeyPress functionality */
   onKeyDown: PropTypes.func,
 
-  /** Will be passed directly down to the DropDownToggled component as the main trigger. */
+  /** Will be passed directly down to the `XUIDropdownToggled` component as the main trigger. */
   trigger: PropTypes.element.isRequired,
 
   /** ID to be applied to the input element. */
@@ -321,7 +321,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
   /** Label to show above the input */
   inputLabel: PropTypes.node,
 
-  /** Whether to allow the dropdown to take the full width of the wrapper (as SelectBox)
+  /** Whether to allow the dropdown to take the full width of the wrapper (as `XUISelectBox`)
    * or wrap with an inline block. */
   isBlock: PropTypes.bool,
 
@@ -340,7 +340,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
 
   /**
    * Setting to true will allow the dropdown's width to be set dependent of the trigger width. <br>
-   * **Note:** *Setting this to true will override any size prop on DropDown.* <br>
+   * **Note:** *Setting this to true will override any size prop on `XUIDropdown`.* <br>
    * XUI design has also decided to keep a minimum width on the dropdown,
    * so dropdown may not match the width of narrow triggers.
    */

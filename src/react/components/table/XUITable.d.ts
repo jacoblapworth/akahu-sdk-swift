@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { XUIIconData } from '../icon/XUIIcon';
-import Pickitem from '../picklist/Pickitem';
+import XUIPickitem from '../picklist/XUIPickitem';
 
 interface BaseProps {
   /**
@@ -46,7 +46,7 @@ interface BaseProps {
    *
    * Recommended English value: *Loading more data*
    */
-  loaderLabel?: string;
+  loaderAriaLabel?: string;
   qaHook?: string;
 }
 
@@ -68,14 +68,14 @@ interface CheckboxProps {
    *
    * Recommended English value: *Select all rows*
    */
-  checkAllRowsLabel?: React.ReactNode;
+  checkAllRowsAriaLabel?: React.ReactNode;
   /**
    * Describes "single row" checkbox functionality for accessibility. Required when `hasCheckbox` is
    * set to `true`.
    *
    * Recommended English value: *Select row*
    */
-  checkOneRowLabel?: React.ReactNode;
+  checkOneRowAriaLabel?: React.ReactNode;
   /**
    * Defines the unique row keys that are currently in a checked state.
    */
@@ -138,7 +138,7 @@ interface OverflowProps {
    */
   createOverflowMenu?: (
     rowData: EnrichedTableItemObject,
-  ) => Array<React.ReactElement<React.ComponentProps<typeof Pickitem>>>;
+  ) => Array<React.ReactElement<React.ComponentProps<typeof XUIPickitem>>>;
   /**
    * Appends a custom overflow menu column to the table.
    */
@@ -176,18 +176,10 @@ interface SortingProps {
     isSortAsc?: boolean,
     activeSortKey?: string,
   ) => EnrichedTableItemObject[];
-
-  /**
-   * Optional prop for users to modify the Header sort button icon, if required for localisation.
-   *
-   * Defaults to the sortSingle icon, if no value is provided.
-   */
-  headerSortbuttonIcon?: XUIIconData;
   /**
    * Determines if the rows are arranged in an ascending or descending order.
    */
   isSortAsc?: boolean;
-
   /**
    * Callback to handle a sort interaction.
    */

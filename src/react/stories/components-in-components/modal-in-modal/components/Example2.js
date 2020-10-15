@@ -1,29 +1,24 @@
 import React, { Component } from 'react';
-import DropDown, { DropDownToggled } from '../../../../dropdown';
-import Picklist, { Pickitem } from '../../../../picklist';
+import XUIDropdown, { XUIDropdownToggled } from '../../../../dropdown';
+import XUIPicklist, { XUIPickitem } from '../../../../picklist';
 import XUIModal, { XUIModalBody, XUIModalHeader } from '../../../../modal';
-import XUIButton, { XUIButtonCaret } from '../../../../button';
+import XUIButton from '../../../../button';
 import * as lists from '../../../../components/helpers/list';
 
 const buildDropdownPicklist = items => {
   const pickItems = items.map((text, id) => (
-    <Pickitem id={text} isSelected={false} key={id}>
+    <XUIPickitem id={text} isSelected={false} key={id}>
       {text}
-    </Pickitem>
+    </XUIPickitem>
   ));
   return (
-    <DropDown>
-      <Picklist>{pickItems}</Picklist>
-    </DropDown>
+    <XUIDropdown>
+      <XUIPicklist>{pickItems}</XUIPicklist>
+    </XUIDropdown>
   );
 };
 
-const buildTrigger = text => (
-  <XUIButton>
-    {text}
-    <XUIButtonCaret />
-  </XUIButton>
-);
+const buildTrigger = text => <XUIButton hasCaret>{text}</XUIButton>;
 
 class Example2 extends Component {
   constructor(props) {
@@ -47,7 +42,7 @@ class Example2 extends Component {
           <XUIModalBody className="xui-padding">
             <div className="xui-padding-bottom" style={{ height: '1000px' }}>
               This is the second layer modal
-              <DropDownToggled
+              <XUIDropdownToggled
                 dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
                 isHidden={false}
                 isLegacyDisplay={false}

@@ -8,7 +8,7 @@ export let ns = 'xui'; // eslint-disable-line
  * have been imported.
  * @param {String} name
  */
-export function setXUIClassNamespace(name): void {
+export function setXUIClassNamespace(name: string): void {
   if (typeof name !== 'string' || name.trim() === '') {
     throw new Error(
       'XUI error: argument provided to setXUIClassNamespace must be a non-empty string',

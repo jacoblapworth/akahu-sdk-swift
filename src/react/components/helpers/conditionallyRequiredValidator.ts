@@ -9,6 +9,7 @@
  * @param {*} conditionName A name to help users identify the condition that makes this prop required
  * @param {*} propType The prop's expected `typeof` (e.g. "string", "function", "number", "object", etc.)
  */
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const conditionallyRequiredValidator = (
   props: { [index: string]: unknown },
   propName: string,

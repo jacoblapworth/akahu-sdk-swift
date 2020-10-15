@@ -8,7 +8,7 @@ module.exports = (template, root, source, types) => {
   let sectionCounter = 0;
   let firstSection = true;
 
-  nodes.forEach(function(node) {
+  nodes.forEach(function (node) {
     if (node.type === 'comment') {
       const headingRegexMatch = /@section\s*([\w\s]*)/.exec(node.text);
       const typeRegexMatch = /@type\s*([\S]*)/.exec(node.text);

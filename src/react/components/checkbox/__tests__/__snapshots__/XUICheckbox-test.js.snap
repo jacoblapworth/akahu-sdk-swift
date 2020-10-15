@@ -215,3 +215,52 @@ exports[`XUICheckbox should render with an icon when one is provided 1`] = `
   </label>
 </div>
 `;
+
+exports[`XUICheckbox should render with validation message 1`] = `
+<div
+  className="xui-styledcheckboxradiowrapper xui-styledcheckboxradio-medium"
+>
+  <label
+    className="xui-styledcheckboxradio"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <input
+      aria-describedby="testCheckboxId-message"
+      aria-invalid={true}
+      className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
+      defaultChecked={false}
+      disabled={false}
+      onClick={[Function]}
+      required={false}
+      type="checkbox"
+    />
+    <div
+      className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium"
+    >
+      <div
+        className="xui-touchtarget"
+      />
+    </div>
+  </label>
+  <div
+    className="xui-validation xui-validation-layout xui-validation-is-invalid xui-styledcheckboxradio--message"
+    id="testCheckboxId-message"
+    role="status"
+  >
+    <svg
+      className="xui-icon"
+      focusable="false"
+      height={16}
+      viewBox="0 0 16 16"
+      width={16}
+    >
+      <path
+        d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
+        role="presentation"
+      />
+    </svg>
+    Test validation
+  </div>
+</div>
+`;

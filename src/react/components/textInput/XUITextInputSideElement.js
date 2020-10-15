@@ -1,28 +1,33 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { sideElementBaseClass, typeClasses } from './private/constants';
 
-export default class XUITextInputSideElement extends PureComponent {
-  render() {
-    const { backgroundColor, className, qaHook, children, alignment, type } = this.props;
+const XUITextInputSideElement = ({
+  alignment,
+  backgroundColor,
+  children,
+  className,
+  qaHook,
+  type,
+}) => {
+  const classes = cn(
+    sideElementBaseClass,
+    className,
+    `${sideElementBaseClass}-align-${alignment}`,
+    typeClasses[type],
+    backgroundColor && `${sideElementBaseClass}-${backgroundColor}`,
+    backgroundColor && `${sideElementBaseClass}-has-background`,
+  );
 
-    const classes = cn(
-      sideElementBaseClass,
-      className,
-      `${sideElementBaseClass}-align-${alignment}`,
-      typeClasses[type],
-      backgroundColor && `${sideElementBaseClass}-${backgroundColor}`,
-      backgroundColor && `${sideElementBaseClass}-has-background`,
-    );
+  return (
+    <div className={classes} data-automationid={qaHook}>
+      {children}
+    </div>
+  );
+};
 
-    return (
-      <div className={classes} data-automationid={qaHook}>
-        {children}
-      </div>
-    );
-  }
-}
+export default XUITextInputSideElement;
 
 XUITextInputSideElement.propTypes = {
   children: PropTypes.node,

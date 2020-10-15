@@ -154,7 +154,6 @@ storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <EditableTablePlayground
     ariaLabel={text('Aria label', '')}
-    cellsValidationMessage={text('Cells validationMessage', 'Example validation message')}
     cellType={select(
       'Cell type',
       [
@@ -168,6 +167,7 @@ storiesWithKnobs.add('Playground', () => (
       ],
       'assorted',
     )}
+    cellsValidationMessage={text('Cells validationMessage', 'Example validation message')}
     columnCount={number('Column count', 4)}
     columnWidths={text('Column widths (space-separated)')}
     disableRowControls={boolean('Disable controls in the last row?', false)}
